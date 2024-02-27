@@ -20,56 +20,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.connect.BotAssociation("example", {
+ * const example = new aws.connect/botAssociation.BotAssociation("example", {
  *     instanceId: aws_connect_instance.example.id,
  *     lexBot: {
  *         lexRegion: "us-west-2",
  *         name: "Test",
- *     },
- * });
- * ```
- * ### Including a sample Lex bot
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const current = aws.getRegion({});
- * const exampleIntent = new aws.lex.Intent("exampleIntent", {
- *     createVersion: true,
- *     name: "connect_lex_intent",
- *     fulfillmentActivity: {
- *         type: "ReturnIntent",
- *     },
- *     sampleUtterances: ["I would like to pick up flowers."],
- * });
- * const exampleBot = new aws.lex.Bot("exampleBot", {
- *     abortStatement: {
- *         messages: [{
- *             content: "Sorry, I am not able to assist at this time.",
- *             contentType: "PlainText",
- *         }],
- *     },
- *     clarificationPrompt: {
- *         maxAttempts: 2,
- *         messages: [{
- *             content: "I didn't understand you, what would you like to do?",
- *             contentType: "PlainText",
- *         }],
- *     },
- *     intents: [{
- *         intentName: exampleIntent.name,
- *         intentVersion: "1",
- *     }],
- *     childDirected: false,
- *     name: "connect_lex_bot",
- *     processBehavior: "BUILD",
- * });
- * const exampleBotAssociation = new aws.connect.BotAssociation("exampleBotAssociation", {
- *     instanceId: aws_connect_instance.example.id,
- *     lexBot: {
- *         lexRegion: current.then(current => current.name),
- *         name: exampleBot.name,
  *     },
  * });
  * ```

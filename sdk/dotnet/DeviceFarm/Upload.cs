@@ -24,9 +24,9 @@ namespace Pulumi.Aws.DeviceFarm
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleProject = new Aws.DeviceFarm.Project("exampleProject");
+    ///     var exampleProject = new Aws.Devicefarm.Project.Project("exampleProject");
     /// 
-    ///     var exampleUpload = new Aws.DeviceFarm.Upload("exampleUpload", new()
+    ///     var exampleUpload = new Aws.Devicefarm.Upload.Upload("exampleUpload", new()
     ///     {
     ///         ProjectArn = exampleProject.Arn,
     ///         Type = "APPIUM_JAVA_TESTNG_TEST_SPEC",

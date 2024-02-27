@@ -479,15 +479,15 @@ class ClassificationJob(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_account = aws.macie2.Account("testAccount")
-        test_classification_job = aws.macie2.ClassificationJob("testClassificationJob",
-            job_type="ONE_TIME",
-            s3_job_definition=aws.macie2.ClassificationJobS3JobDefinitionArgs(
-                bucket_definitions=[aws.macie2.ClassificationJobS3JobDefinitionBucketDefinitionArgs(
-                    account_id="ACCOUNT ID",
-                    buckets=["S3 BUCKET NAME"],
-                )],
-            ),
+        test_account = aws.macie2.account.Account("testAccount")
+        test_classification_job = aws.macie2.classification_job.ClassificationJob("testClassificationJob",
+            job_type=ONE_TIME,
+            s3_job_definition={
+                bucketDefinitions: [{
+                    accountId: ACCOUNT ID,
+                    buckets: [S3 BUCKET NAME],
+                }],
+            },
             opts=pulumi.ResourceOptions(depends_on=[test_account]))
         ```
 
@@ -528,15 +528,15 @@ class ClassificationJob(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_account = aws.macie2.Account("testAccount")
-        test_classification_job = aws.macie2.ClassificationJob("testClassificationJob",
-            job_type="ONE_TIME",
-            s3_job_definition=aws.macie2.ClassificationJobS3JobDefinitionArgs(
-                bucket_definitions=[aws.macie2.ClassificationJobS3JobDefinitionBucketDefinitionArgs(
-                    account_id="ACCOUNT ID",
-                    buckets=["S3 BUCKET NAME"],
-                )],
-            ),
+        test_account = aws.macie2.account.Account("testAccount")
+        test_classification_job = aws.macie2.classification_job.ClassificationJob("testClassificationJob",
+            job_type=ONE_TIME,
+            s3_job_definition={
+                bucketDefinitions: [{
+                    accountId: ACCOUNT ID,
+                    buckets: [S3 BUCKET NAME],
+                }],
+            },
             opts=pulumi.ResourceOptions(depends_on=[test_account]))
         ```
 

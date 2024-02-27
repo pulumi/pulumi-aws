@@ -22,7 +22,7 @@ namespace Pulumi.Aws.ResourceExplorer
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.ResourceExplorer.Index("example", new()
+    ///     var example = new Aws.Resourceexplorer.Index.Index("example", new()
     ///     {
     ///         Type = "LOCAL",
     ///     });

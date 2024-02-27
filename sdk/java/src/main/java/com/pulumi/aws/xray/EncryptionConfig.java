@@ -48,63 +48,6 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
- * ### With KMS Key
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.AwsFunctions;
- * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
- * import com.pulumi.aws.iam.IamFunctions;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
- * import com.pulumi.aws.kms.Key;
- * import com.pulumi.aws.kms.KeyArgs;
- * import com.pulumi.aws.xray.EncryptionConfig;
- * import com.pulumi.aws.xray.EncryptionConfigArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var current = AwsFunctions.getCallerIdentity();
- * 
- *         final var examplePolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .sid(&#34;Enable IAM User Permissions&#34;)
- *                 .effect(&#34;Allow&#34;)
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type(&#34;AWS&#34;)
- *                     .identifiers(String.format(&#34;arn:aws:iam::%s:root&#34;, current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId())))
- *                     .build())
- *                 .actions(&#34;kms:*&#34;)
- *                 .resources(&#34;*&#34;)
- *                 .build())
- *             .build());
- * 
- *         var exampleKey = new Key(&#34;exampleKey&#34;, KeyArgs.builder()        
- *             .description(&#34;Some Key&#34;)
- *             .deletionWindowInDays(7)
- *             .policy(examplePolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
- *             .build());
- * 
- *         var exampleEncryptionConfig = new EncryptionConfig(&#34;exampleEncryptionConfig&#34;, EncryptionConfigArgs.builder()        
- *             .type(&#34;KMS&#34;)
- *             .keyId(exampleKey.arn())
- *             .build());
- * 
- *     }
- * }
- * ```
  * 
  * ## Import
  * 

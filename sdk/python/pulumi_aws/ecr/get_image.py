@@ -146,16 +146,6 @@ def get_image(image_digest: Optional[str] = None,
     """
     The ECR Image data source allows the details of an image with a particular tag or digest to be retrieved.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    service_image = aws.ecr.get_image(image_tag="latest",
-        repository_name="my/service")
-    ```
-
 
     :param str image_digest: Sha256 digest of the image manifest. At least one of `image_digest`, `image_tag`, or `most_recent` must be specified.
     :param str image_tag: Tag associated with this image. At least one of `image_digest`, `image_tag`, or `most_recent` must be specified.
@@ -194,16 +184,6 @@ def get_image_output(image_digest: Optional[pulumi.Input[Optional[str]]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetImageResult]:
     """
     The ECR Image data source allows the details of an image with a particular tag or digest to be retrieved.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    service_image = aws.ecr.get_image(image_tag="latest",
-        repository_name="my/service")
-    ```
 
 
     :param str image_digest: Sha256 digest of the image manifest. At least one of `image_digest`, `image_tag`, or `most_recent` must be specified.

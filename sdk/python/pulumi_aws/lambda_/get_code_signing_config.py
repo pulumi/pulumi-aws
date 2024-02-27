@@ -121,15 +121,6 @@ def get_code_signing_config(arn: Optional[str] = None,
 
     For information about Lambda code signing configurations and how to use them, see [configuring code signing for Lambda functions](https://docs.aws.amazon.com/lambda/latest/dg/configuration-codesigning.html)
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    existing_csc = aws.lambda.get_code_signing_config(arn=f"arn:aws:lambda:{var['aws_region']}:{var['aws_account']}:code-signing-config:csc-0f6c334abcdea4d8b")
-    ```
-
 
     :param str arn: ARN of the code signing configuration.
     """
@@ -155,15 +146,6 @@ def get_code_signing_config_output(arn: Optional[pulumi.Input[str]] = None,
     Provides information about a Lambda Code Signing Config. A code signing configuration defines a list of allowed signing profiles and defines the code-signing validation policy (action to be taken if deployment validation checks fail).
 
     For information about Lambda code signing configurations and how to use them, see [configuring code signing for Lambda functions](https://docs.aws.amazon.com/lambda/latest/dg/configuration-codesigning.html)
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    existing_csc = aws.lambda.get_code_signing_config(arn=f"arn:aws:lambda:{var['aws_region']}:{var['aws_account']}:code-signing-config:csc-0f6c334abcdea4d8b")
-    ```
 
 
     :param str arn: ARN of the code signing configuration.

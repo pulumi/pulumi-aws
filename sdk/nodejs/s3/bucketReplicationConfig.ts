@@ -15,102 +15,6 @@ import * as utilities from "../utilities";
  * > This resource cannot be used with S3 directory buckets.
  *
  * ## Example Usage
- * ### Using replication configuration
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const central = new aws.Provider("central", {region: "eu-central-1"});
- * const assumeRole = aws.iam.getPolicyDocument({
- *     statements: [{
- *         effect: "Allow",
- *         principals: [{
- *             type: "Service",
- *             identifiers: ["s3.amazonaws.com"],
- *         }],
- *         actions: ["sts:AssumeRole"],
- *     }],
- * });
- * const replicationRole = new aws.iam.Role("replicationRole", {assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json)});
- * const destinationBucketV2 = new aws.s3.BucketV2("destinationBucketV2", {});
- * const sourceBucketV2 = new aws.s3.BucketV2("sourceBucketV2", {}, {
- *     provider: aws.central,
- * });
- * const replicationPolicyDocument = aws.iam.getPolicyDocumentOutput({
- *     statements: [
- *         {
- *             effect: "Allow",
- *             actions: [
- *                 "s3:GetReplicationConfiguration",
- *                 "s3:ListBucket",
- *             ],
- *             resources: [sourceBucketV2.arn],
- *         },
- *         {
- *             effect: "Allow",
- *             actions: [
- *                 "s3:GetObjectVersionForReplication",
- *                 "s3:GetObjectVersionAcl",
- *                 "s3:GetObjectVersionTagging",
- *             ],
- *             resources: [pulumi.interpolate`${sourceBucketV2.arn}/*`],
- *         },
- *         {
- *             effect: "Allow",
- *             actions: [
- *                 "s3:ReplicateObject",
- *                 "s3:ReplicateDelete",
- *                 "s3:ReplicateTags",
- *             ],
- *             resources: [pulumi.interpolate`${destinationBucketV2.arn}/*`],
- *         },
- *     ],
- * });
- * const replicationPolicy = new aws.iam.Policy("replicationPolicy", {policy: replicationPolicyDocument.apply(replicationPolicyDocument => replicationPolicyDocument.json)});
- * const replicationRolePolicyAttachment = new aws.iam.RolePolicyAttachment("replicationRolePolicyAttachment", {
- *     role: replicationRole.name,
- *     policyArn: replicationPolicy.arn,
- * });
- * const destinationBucketVersioningV2 = new aws.s3.BucketVersioningV2("destinationBucketVersioningV2", {
- *     bucket: destinationBucketV2.id,
- *     versioningConfiguration: {
- *         status: "Enabled",
- *     },
- * });
- * const sourceBucketAcl = new aws.s3.BucketAclV2("sourceBucketAcl", {
- *     bucket: sourceBucketV2.id,
- *     acl: "private",
- * }, {
- *     provider: aws.central,
- * });
- * const sourceBucketVersioningV2 = new aws.s3.BucketVersioningV2("sourceBucketVersioningV2", {
- *     bucket: sourceBucketV2.id,
- *     versioningConfiguration: {
- *         status: "Enabled",
- *     },
- * }, {
- *     provider: aws.central,
- * });
- * const replicationBucketReplicationConfig = new aws.s3.BucketReplicationConfig("replicationBucketReplicationConfig", {
- *     role: replicationRole.arn,
- *     bucket: sourceBucketV2.id,
- *     rules: [{
- *         id: "foobar",
- *         filter: {
- *             prefix: "foo",
- *         },
- *         status: "Enabled",
- *         destination: {
- *             bucket: destinationBucketV2.arn,
- *             storageClass: "STANDARD",
- *         },
- *     }],
- * }, {
- *     provider: aws.central,
- *     dependsOn: [sourceBucketVersioningV2],
- * });
- * ```
  * ### Bi-Directional Replication
  *
  * ```typescript
@@ -118,17 +22,17 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * // ... other configuration ...
- * const eastBucketV2 = new aws.s3.BucketV2("eastBucketV2", {});
- * const eastBucketVersioningV2 = new aws.s3.BucketVersioningV2("eastBucketVersioningV2", {
+ * const eastBucketV2 = new aws.s3/bucketV2.BucketV2("eastBucketV2", {});
+ * const eastBucketVersioningV2 = new aws.s3/bucketVersioningV2.BucketVersioningV2("eastBucketVersioningV2", {
  *     bucket: eastBucketV2.id,
  *     versioningConfiguration: {
  *         status: "Enabled",
  *     },
  * });
- * const westBucketV2 = new aws.s3.BucketV2("westBucketV2", {}, {
+ * const westBucketV2 = new aws.s3/bucketV2.BucketV2("westBucketV2", {}, {
  *     provider: aws.west,
  * });
- * const westBucketVersioningV2 = new aws.s3.BucketVersioningV2("westBucketVersioningV2", {
+ * const westBucketVersioningV2 = new aws.s3/bucketVersioningV2.BucketVersioningV2("westBucketVersioningV2", {
  *     bucket: westBucketV2.id,
  *     versioningConfiguration: {
  *         status: "Enabled",
@@ -136,7 +40,7 @@ import * as utilities from "../utilities";
  * }, {
  *     provider: aws.west,
  * });
- * const eastToWest = new aws.s3.BucketReplicationConfig("eastToWest", {
+ * const eastToWest = new aws.s3/bucketReplicationConfig.BucketReplicationConfig("eastToWest", {
  *     role: aws_iam_role.east_replication.arn,
  *     bucket: eastBucketV2.id,
  *     rules: [{
@@ -153,7 +57,7 @@ import * as utilities from "../utilities";
  * }, {
  *     dependsOn: [eastBucketVersioningV2],
  * });
- * const westToEast = new aws.s3.BucketReplicationConfig("westToEast", {
+ * const westToEast = new aws.s3/bucketReplicationConfig.BucketReplicationConfig("westToEast", {
  *     role: aws_iam_role.west_replication.arn,
  *     bucket: westBucketV2.id,
  *     rules: [{

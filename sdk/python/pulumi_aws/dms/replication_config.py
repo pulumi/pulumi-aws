@@ -441,23 +441,23 @@ class ReplicationConfig(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        name = aws.dms.ReplicationConfig("name",
-            replication_config_identifier="test-dms-serverless-replication-tf",
-            resource_identifier="test-dms-serverless-replication-tf",
-            replication_type="cdc",
-            source_endpoint_arn=aws_dms_endpoint["source"]["endpoint_arn"],
-            target_endpoint_arn=aws_dms_endpoint["target"]["endpoint_arn"],
-            table_mappings=\"\"\"  {
+        name = aws.dms.replication_config.ReplicationConfig("name",
+            replication_config_identifier=test-dms-serverless-replication-tf,
+            resource_identifier=test-dms-serverless-replication-tf,
+            replication_type=cdc,
+            source_endpoint_arn=aws_dms_endpoint.source.endpoint_arn,
+            target_endpoint_arn=aws_dms_endpoint.target.endpoint_arn,
+            table_mappings=  {
             "rules":[{"rule-type":"selection","rule-id":"1","rule-name":"1","rule-action":"include","object-locator":{"schema-name":"%%","table-name":"%%"}}]
           }
-        \"\"\",
+        ,
             start_replication=True,
-            compute_config=aws.dms.ReplicationConfigComputeConfigArgs(
-                replication_subnet_group_id=aws_dms_replication_subnet_group["default"]["replication_subnet_group_id"],
-                max_capacity_units=64,
-                min_capacity_units=2,
-                preferred_maintenance_window="sun:23:45-mon:00:30",
-            ))
+            compute_config={
+                replicationSubnetGroupId: aws_dms_replication_subnet_group.default.replication_subnet_group_id,
+                maxCapacityUnits: 64,
+                minCapacityUnits: 2,
+                preferredMaintenanceWindow: sun:23:45-mon:00:30,
+            })
         ```
 
         ## Import
@@ -499,23 +499,23 @@ class ReplicationConfig(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        name = aws.dms.ReplicationConfig("name",
-            replication_config_identifier="test-dms-serverless-replication-tf",
-            resource_identifier="test-dms-serverless-replication-tf",
-            replication_type="cdc",
-            source_endpoint_arn=aws_dms_endpoint["source"]["endpoint_arn"],
-            target_endpoint_arn=aws_dms_endpoint["target"]["endpoint_arn"],
-            table_mappings=\"\"\"  {
+        name = aws.dms.replication_config.ReplicationConfig("name",
+            replication_config_identifier=test-dms-serverless-replication-tf,
+            resource_identifier=test-dms-serverless-replication-tf,
+            replication_type=cdc,
+            source_endpoint_arn=aws_dms_endpoint.source.endpoint_arn,
+            target_endpoint_arn=aws_dms_endpoint.target.endpoint_arn,
+            table_mappings=  {
             "rules":[{"rule-type":"selection","rule-id":"1","rule-name":"1","rule-action":"include","object-locator":{"schema-name":"%%","table-name":"%%"}}]
           }
-        \"\"\",
+        ,
             start_replication=True,
-            compute_config=aws.dms.ReplicationConfigComputeConfigArgs(
-                replication_subnet_group_id=aws_dms_replication_subnet_group["default"]["replication_subnet_group_id"],
-                max_capacity_units=64,
-                min_capacity_units=2,
-                preferred_maintenance_window="sun:23:45-mon:00:30",
-            ))
+            compute_config={
+                replicationSubnetGroupId: aws_dms_replication_subnet_group.default.replication_subnet_group_id,
+                maxCapacityUnits: 64,
+                minCapacityUnits: 2,
+                preferredMaintenanceWindow: sun:23:45-mon:00:30,
+            })
         ```
 
         ## Import

@@ -192,17 +192,17 @@ class CodeSigningConfig(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        new_csc = aws.lambda_.CodeSigningConfig("newCsc",
-            allowed_publishers=aws.lambda_.CodeSigningConfigAllowedPublishersArgs(
-                signing_profile_version_arns=[
-                    aws_signer_signing_profile["example1"]["arn"],
-                    aws_signer_signing_profile["example2"]["arn"],
+        new_csc = aws.lambda_.code_signing_config.CodeSigningConfig("newCsc",
+            allowed_publishers={
+                signingProfileVersionArns: [
+                    aws_signer_signing_profile.example1.arn,
+                    aws_signer_signing_profile.example2.arn,
                 ],
-            ),
-            policies=aws.lambda_.CodeSigningConfigPoliciesArgs(
-                untrusted_artifact_on_deployment="Warn",
-            ),
-            description="My awesome code signing config.")
+            },
+            policies={
+                untrustedArtifactOnDeployment: Warn,
+            },
+            description=My awesome code signing config.)
         ```
 
         ## Import
@@ -236,17 +236,17 @@ class CodeSigningConfig(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        new_csc = aws.lambda_.CodeSigningConfig("newCsc",
-            allowed_publishers=aws.lambda_.CodeSigningConfigAllowedPublishersArgs(
-                signing_profile_version_arns=[
-                    aws_signer_signing_profile["example1"]["arn"],
-                    aws_signer_signing_profile["example2"]["arn"],
+        new_csc = aws.lambda_.code_signing_config.CodeSigningConfig("newCsc",
+            allowed_publishers={
+                signingProfileVersionArns: [
+                    aws_signer_signing_profile.example1.arn,
+                    aws_signer_signing_profile.example2.arn,
                 ],
-            ),
-            policies=aws.lambda_.CodeSigningConfigPoliciesArgs(
-                untrusted_artifact_on_deployment="Warn",
-            ),
-            description="My awesome code signing config.")
+            },
+            policies={
+                untrustedArtifactOnDeployment: Warn,
+            },
+            description=My awesome code signing config.)
         ```
 
         ## Import

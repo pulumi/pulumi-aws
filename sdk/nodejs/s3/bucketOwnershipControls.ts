@@ -18,8 +18,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleBucketV2 = new aws.s3.BucketV2("exampleBucketV2", {});
- * const exampleBucketOwnershipControls = new aws.s3.BucketOwnershipControls("exampleBucketOwnershipControls", {
+ * const exampleBucketV2 = new aws.s3/bucketV2.BucketV2("exampleBucketV2", {});
+ * const exampleBucketOwnershipControls = new aws.s3/bucketOwnershipControls.BucketOwnershipControls("exampleBucketOwnershipControls", {
  *     bucket: exampleBucketV2.id,
  *     rule: {
  *         objectOwnership: "BucketOwnerPreferred",

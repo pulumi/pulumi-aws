@@ -182,9 +182,9 @@ class AccessLogSubscription(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.vpclattice.AccessLogSubscription("example",
-            resource_identifier=aws_vpclattice_service_network["example"]["id"],
-            destination_arn=aws_s3["bucket"]["arn"])
+        example = aws.vpclattice.access_log_subscription.AccessLogSubscription("example",
+            resource_identifier=aws_vpclattice_service_network.example.id,
+            destination_arn=aws_s3.bucket.arn)
         ```
 
         ## Import
@@ -216,9 +216,9 @@ class AccessLogSubscription(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.vpclattice.AccessLogSubscription("example",
-            resource_identifier=aws_vpclattice_service_network["example"]["id"],
-            destination_arn=aws_s3["bucket"]["arn"])
+        example = aws.vpclattice.access_log_subscription.AccessLogSubscription("example",
+            resource_identifier=aws_vpclattice_service_network.example.id,
+            destination_arn=aws_s3.bucket.arn)
         ```
 
         ## Import

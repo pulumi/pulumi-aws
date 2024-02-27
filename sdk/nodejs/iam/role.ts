@@ -23,7 +23,7 @@ import {PolicyDocument} from "./index";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const testRole = new aws.iam.Role("testRole", {
+ * const testRole = new aws.iam/role.Role("testRole", {
  *     assumeRolePolicy: JSON.stringify({
  *         Version: "2012-10-17",
  *         Statement: [{
@@ -40,61 +40,6 @@ import {PolicyDocument} from "./index";
  *     },
  * });
  * ```
- * ### Example of Using Data Source for Assume Role Policy
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const instanceAssumeRolePolicy = aws.iam.getPolicyDocument({
- *     statements: [{
- *         actions: ["sts:AssumeRole"],
- *         principals: [{
- *             type: "Service",
- *             identifiers: ["ec2.amazonaws.com"],
- *         }],
- *     }],
- * });
- * const instance = new aws.iam.Role("instance", {
- *     path: "/system/",
- *     assumeRolePolicy: instanceAssumeRolePolicy.then(instanceAssumeRolePolicy => instanceAssumeRolePolicy.json),
- * });
- * ```
- * ### Example of Exclusive Inline Policies
- *
- * This example creates an IAM role with two inline IAM policies. If someone adds another inline policy out-of-band, on the next apply, this provider will remove that policy. If someone deletes these policies out-of-band, this provider will recreate them.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const inlinePolicy = aws.iam.getPolicyDocument({
- *     statements: [{
- *         actions: ["ec2:DescribeAccountAttributes"],
- *         resources: ["*"],
- *     }],
- * });
- * const example = new aws.iam.Role("example", {
- *     assumeRolePolicy: data.aws_iam_policy_document.instance_assume_role_policy.json,
- *     inlinePolicies: [
- *         {
- *             name: "my_inline_policy",
- *             policy: JSON.stringify({
- *                 Version: "2012-10-17",
- *                 Statement: [{
- *                     Action: ["ec2:Describe*"],
- *                     Effect: "Allow",
- *                     Resource: "*",
- *                 }],
- *             }),
- *         },
- *         {
- *             name: "policy-8675309",
- *             policy: inlinePolicy.then(inlinePolicy => inlinePolicy.json),
- *         },
- *     ],
- * });
- * ```
  * ### Example of Removing Inline Policies
  *
  * This example creates an IAM role with what appears to be empty IAM `inlinePolicy` argument instead of using `inlinePolicy` as a configuration block. The result is that if someone were to add an inline policy out-of-band, on the next apply, this provider will remove that policy.
@@ -103,7 +48,7 @@ import {PolicyDocument} from "./index";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.iam.Role("example", {
+ * const example = new aws.iam/role.Role("example", {
  *     assumeRolePolicy: data.aws_iam_policy_document.instance_assume_role_policy.json,
  *     inlinePolicies: [{}],
  * });
@@ -116,7 +61,7 @@ import {PolicyDocument} from "./index";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const policyOne = new aws.iam.Policy("policyOne", {policy: JSON.stringify({
+ * const policyOne = new aws.iam/policy.Policy("policyOne", {policy: JSON.stringify({
  *     Version: "2012-10-17",
  *     Statement: [{
  *         Action: ["ec2:Describe*"],
@@ -124,7 +69,7 @@ import {PolicyDocument} from "./index";
  *         Resource: "*",
  *     }],
  * })});
- * const policyTwo = new aws.iam.Policy("policyTwo", {policy: JSON.stringify({
+ * const policyTwo = new aws.iam/policy.Policy("policyTwo", {policy: JSON.stringify({
  *     Version: "2012-10-17",
  *     Statement: [{
  *         Action: [
@@ -136,7 +81,7 @@ import {PolicyDocument} from "./index";
  *         Resource: "*",
  *     }],
  * })});
- * const example = new aws.iam.Role("example", {
+ * const example = new aws.iam/role.Role("example", {
  *     assumeRolePolicy: data.aws_iam_policy_document.instance_assume_role_policy.json,
  *     managedPolicyArns: [
  *         policyOne.arn,
@@ -152,7 +97,7 @@ import {PolicyDocument} from "./index";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.iam.Role("example", {
+ * const example = new aws.iam/role.Role("example", {
  *     assumeRolePolicy: data.aws_iam_policy_document.instance_assume_role_policy.json,
  *     managedPolicyArns: [],
  * });

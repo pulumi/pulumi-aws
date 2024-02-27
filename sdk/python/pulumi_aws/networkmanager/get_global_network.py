@@ -95,15 +95,6 @@ def get_global_network(global_network_id: Optional[str] = None,
     """
     Retrieve information about a global network.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.networkmanager.get_global_network(global_network_id=var["global_network_id"])
-    ```
-
 
     :param str global_network_id: ID of the specific global network to retrieve.
     :param Mapping[str, str] tags: Map of resource tags.
@@ -128,15 +119,6 @@ def get_global_network_output(global_network_id: Optional[pulumi.Input[str]] = N
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGlobalNetworkResult]:
     """
     Retrieve information about a global network.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.networkmanager.get_global_network(global_network_id=var["global_network_id"])
-    ```
 
 
     :param str global_network_id: ID of the specific global network to retrieve.

@@ -25,7 +25,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const foobarGroup = new aws.autoscaling.Group("foobarGroup", {
+ * const foobarGroup = new aws.autoscaling/group.Group("foobarGroup", {
  *     availabilityZones: ["us-west-2a"],
  *     healthCheckType: "EC2",
  *     terminationPolicies: ["OldestInstance"],
@@ -35,7 +35,7 @@ import * as utilities from "../utilities";
  *         propagateAtLaunch: true,
  *     }],
  * });
- * const foobarLifecycleHook = new aws.autoscaling.LifecycleHook("foobarLifecycleHook", {
+ * const foobarLifecycleHook = new aws.autoscaling/lifecycleHook.LifecycleHook("foobarLifecycleHook", {
  *     autoscalingGroupName: foobarGroup.name,
  *     defaultResult: "CONTINUE",
  *     heartbeatTimeout: 2000,

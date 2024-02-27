@@ -23,12 +23,12 @@ namespace Pulumi.Aws.Rds
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleKey = new Aws.Kms.Key("exampleKey", new()
+    ///     var exampleKey = new Aws.Kms.Key.Key("exampleKey", new()
     ///     {
     ///         Description = "KMS symmetric key for RDS Custom for Oracle",
     ///     });
     /// 
-    ///     var exampleCustomDbEngineVersion = new Aws.Rds.CustomDbEngineVersion("exampleCustomDbEngineVersion", new()
+    ///     var exampleCustomDbEngineVersion = new Aws.Rds.CustomDbEngineVersion.CustomDbEngineVersion("exampleCustomDbEngineVersion", new()
     ///     {
     ///         DatabaseInstallationFilesS3BucketName = "DOC-EXAMPLE-BUCKET",
     ///         DatabaseInstallationFilesS3Prefix = "1915_GI/",
@@ -70,12 +70,12 @@ namespace Pulumi.Aws.Rds
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleKey = new Aws.Kms.Key("exampleKey", new()
+    ///     var exampleKey = new Aws.Kms.Key.Key("exampleKey", new()
     ///     {
     ///         Description = "KMS symmetric key for RDS Custom for Oracle",
     ///     });
     /// 
-    ///     var exampleCustomDbEngineVersion = new Aws.Rds.CustomDbEngineVersion("exampleCustomDbEngineVersion", new()
+    ///     var exampleCustomDbEngineVersion = new Aws.Rds.CustomDbEngineVersion.CustomDbEngineVersion("exampleCustomDbEngineVersion", new()
     ///     {
     ///         DatabaseInstallationFilesS3BucketName = "DOC-EXAMPLE-BUCKET",
     ///         DatabaseInstallationFilesS3Prefix = "1915_GI/",
@@ -104,7 +104,7 @@ namespace Pulumi.Aws.Rds
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // CEV creation requires an AMI owned by the operator
-    ///     var test = new Aws.Rds.CustomDbEngineVersion("test", new()
+    ///     var test = new Aws.Rds.CustomDbEngineVersion.CustomDbEngineVersion("test", new()
     ///     {
     ///         Engine = "custom-sqlserver-se",
     ///         EngineVersion = "15.00.4249.2.cev-1",
@@ -123,7 +123,7 @@ namespace Pulumi.Aws.Rds
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Ec2.AmiCopy("example", new()
+    ///     var example = new Aws.Ec2.AmiCopy.AmiCopy("example", new()
     ///     {
     ///         Description = "A copy of ami-xxxxxxxx",
     ///         SourceAmiId = "ami-xxxxxxxx",
@@ -131,7 +131,7 @@ namespace Pulumi.Aws.Rds
     ///     });
     /// 
     ///     // CEV creation requires an AMI owned by the operator
-    ///     var test = new Aws.Rds.CustomDbEngineVersion("test", new()
+    ///     var test = new Aws.Rds.CustomDbEngineVersion.CustomDbEngineVersion("test", new()
     ///     {
     ///         Engine = "custom-sqlserver-se",
     ///         EngineVersion = "15.00.4249.2.cev-1",

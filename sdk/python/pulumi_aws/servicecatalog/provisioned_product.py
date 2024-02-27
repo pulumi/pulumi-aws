@@ -721,15 +721,15 @@ class ProvisionedProduct(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.servicecatalog.ProvisionedProduct("example",
-            product_name="Example product",
-            provisioning_artifact_name="Example version",
-            provisioning_parameters=[aws.servicecatalog.ProvisionedProductProvisioningParameterArgs(
-                key="foo",
-                value="bar",
-            )],
+        example = aws.servicecatalog.provisioned_product.ProvisionedProduct("example",
+            product_name=Example product,
+            provisioning_artifact_name=Example version,
+            provisioning_parameters=[{
+                key: foo,
+                value: bar,
+            }],
             tags={
-                "foo": "bar",
+                foo: bar,
             })
         ```
 
@@ -784,15 +784,15 @@ class ProvisionedProduct(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.servicecatalog.ProvisionedProduct("example",
-            product_name="Example product",
-            provisioning_artifact_name="Example version",
-            provisioning_parameters=[aws.servicecatalog.ProvisionedProductProvisioningParameterArgs(
-                key="foo",
-                value="bar",
-            )],
+        example = aws.servicecatalog.provisioned_product.ProvisionedProduct("example",
+            product_name=Example product,
+            provisioning_artifact_name=Example version,
+            provisioning_parameters=[{
+                key: foo,
+                value: bar,
+            }],
             tags={
-                "foo": "bar",
+                foo: bar,
             })
         ```
 

@@ -31,7 +31,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.ecr.Repository;
  * import com.pulumi.aws.ecr.RepositoryArgs;
- * import com.pulumi.aws.ecr.inputs.RepositoryImageScanningConfigurationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -46,9 +45,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var foo = new Repository(&#34;foo&#34;, RepositoryArgs.builder()        
- *             .imageScanningConfiguration(RepositoryImageScanningConfigurationArgs.builder()
- *                 .scanOnPush(true)
- *                 .build())
+ *             .imageScanningConfiguration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .imageTagMutability(&#34;MUTABLE&#34;)
  *             .build());
  * 

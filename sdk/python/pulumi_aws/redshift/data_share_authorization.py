@@ -180,9 +180,9 @@ class DataShareAuthorization(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.redshift.DataShareAuthorization("example",
-            consumer_identifier="012345678901",
-            data_share_arn="arn:aws:redshift:us-west-2:012345678901:datashare:3072dae5-022b-4d45-9cd3-01f010aae4b2/example_share")
+        example = aws.redshift.data_share_authorization.DataShareAuthorization("example",
+            consumer_identifier=012345678901,
+            data_share_arn=arn:aws:redshift:us-west-2:012345678901:datashare:3072dae5-022b-4d45-9cd3-01f010aae4b2/example_share)
         ```
 
         ## Import
@@ -217,9 +217,9 @@ class DataShareAuthorization(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.redshift.DataShareAuthorization("example",
-            consumer_identifier="012345678901",
-            data_share_arn="arn:aws:redshift:us-west-2:012345678901:datashare:3072dae5-022b-4d45-9cd3-01f010aae4b2/example_share")
+        example = aws.redshift.data_share_authorization.DataShareAuthorization("example",
+            consumer_identifier=012345678901,
+            data_share_arn=arn:aws:redshift:us-west-2:012345678901:datashare:3072dae5-022b-4d45-9cd3-01f010aae4b2/example_share)
         ```
 
         ## Import

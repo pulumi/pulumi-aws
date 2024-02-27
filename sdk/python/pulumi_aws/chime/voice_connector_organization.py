@@ -141,25 +141,25 @@ class VoiceConnectorOrganization(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        default_voice_connector = aws.chime.VoiceConnector("defaultVoiceConnector", require_encryption=True)
-        default_voice_connector_organization = aws.chime.VoiceConnectorOrganization("defaultVoiceConnectorOrganization",
+        default_voice_connector = aws.chime.voice_connector.VoiceConnector("defaultVoiceConnector", require_encryption=True)
+        default_voice_connector_organization = aws.chime.voice_connector_organization.VoiceConnectorOrganization("defaultVoiceConnectorOrganization",
             disabled=False,
             voice_connector_id=default_voice_connector.id,
             routes=[
-                aws.chime.VoiceConnectorOrganizationRouteArgs(
-                    host="127.0.0.1",
-                    port=8081,
-                    protocol="TCP",
-                    priority=1,
-                    weight=1,
-                ),
-                aws.chime.VoiceConnectorOrganizationRouteArgs(
-                    host="127.0.0.2",
-                    port=8082,
-                    protocol="TCP",
-                    priority=2,
-                    weight=10,
-                ),
+                {
+                    host: 127.0.0.1,
+                    port: 8081,
+                    protocol: TCP,
+                    priority: 1,
+                    weight: 1,
+                },
+                {
+                    host: 127.0.0.2,
+                    port: 8082,
+                    protocol: TCP,
+                    priority: 2,
+                    weight: 10,
+                },
             ])
         ```
 
@@ -192,25 +192,25 @@ class VoiceConnectorOrganization(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        default_voice_connector = aws.chime.VoiceConnector("defaultVoiceConnector", require_encryption=True)
-        default_voice_connector_organization = aws.chime.VoiceConnectorOrganization("defaultVoiceConnectorOrganization",
+        default_voice_connector = aws.chime.voice_connector.VoiceConnector("defaultVoiceConnector", require_encryption=True)
+        default_voice_connector_organization = aws.chime.voice_connector_organization.VoiceConnectorOrganization("defaultVoiceConnectorOrganization",
             disabled=False,
             voice_connector_id=default_voice_connector.id,
             routes=[
-                aws.chime.VoiceConnectorOrganizationRouteArgs(
-                    host="127.0.0.1",
-                    port=8081,
-                    protocol="TCP",
-                    priority=1,
-                    weight=1,
-                ),
-                aws.chime.VoiceConnectorOrganizationRouteArgs(
-                    host="127.0.0.2",
-                    port=8082,
-                    protocol="TCP",
-                    priority=2,
-                    weight=10,
-                ),
+                {
+                    host: 127.0.0.1,
+                    port: 8081,
+                    protocol: TCP,
+                    priority: 1,
+                    weight: 1,
+                },
+                {
+                    host: 127.0.0.2,
+                    port: 8082,
+                    protocol: TCP,
+                    priority: 2,
+                    weight: 10,
+                },
             ])
         ```
 

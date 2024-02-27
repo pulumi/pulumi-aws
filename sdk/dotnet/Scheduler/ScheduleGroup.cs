@@ -26,7 +26,7 @@ namespace Pulumi.Aws.Scheduler
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Scheduler.ScheduleGroup("example");
+    ///     var example = new Aws.Scheduler.ScheduleGroup.ScheduleGroup("example");
     /// 
     /// });
     /// ```

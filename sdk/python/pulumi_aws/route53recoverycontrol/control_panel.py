@@ -171,7 +171,7 @@ class ControlPanel(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.route53recoverycontrol.ControlPanel("example", cluster_arn="arn:aws:route53-recovery-control::123456789012:cluster/8d47920e-d789-437d-803a-2dcc4b204393")
+        example = aws.route53recoverycontrol.control_panel.ControlPanel("example", cluster_arn=arn:aws:route53-recovery-control::123456789012:cluster/8d47920e-d789-437d-803a-2dcc4b204393)
         ```
 
         ## Import
@@ -202,7 +202,7 @@ class ControlPanel(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.route53recoverycontrol.ControlPanel("example", cluster_arn="arn:aws:route53-recovery-control::123456789012:cluster/8d47920e-d789-437d-803a-2dcc4b204393")
+        example = aws.route53recoverycontrol.control_panel.ControlPanel("example", cluster_arn=arn:aws:route53-recovery-control::123456789012:cluster/8d47920e-d789-437d-803a-2dcc4b204393)
         ```
 
         ## Import

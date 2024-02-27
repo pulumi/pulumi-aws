@@ -13,8 +13,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleAccount = new aws.macie2.Account("exampleAccount", {});
- * const exampleMember = new aws.macie2.Member("exampleMember", {
+ * const exampleAccount = new aws.macie2/account.Account("exampleAccount", {});
+ * const exampleMember = new aws.macie2/member.Member("exampleMember", {
  *     accountId: "AWS ACCOUNT ID",
  *     email: "EMAIL",
  *     invite: true,

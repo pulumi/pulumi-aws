@@ -188,13 +188,13 @@ class TrustStoreRevocation(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_trust_store = aws.lb.TrustStore("testTrustStore",
-            ca_certificates_bundle_s3_bucket="...",
-            ca_certificates_bundle_s3_key="...")
-        test_trust_store_revocation = aws.lb.TrustStoreRevocation("testTrustStoreRevocation",
+        test_trust_store = aws.lb.trust_store.TrustStore("testTrustStore",
+            ca_certificates_bundle_s3_bucket=...,
+            ca_certificates_bundle_s3_key=...)
+        test_trust_store_revocation = aws.lb.trust_store_revocation.TrustStoreRevocation("testTrustStoreRevocation",
             trust_store_arn=test_trust_store.arn,
-            revocations_s3_bucket="...",
-            revocations_s3_key="...")
+            revocations_s3_bucket=...,
+            revocations_s3_key=...)
         ```
 
         ## Import
@@ -228,13 +228,13 @@ class TrustStoreRevocation(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_trust_store = aws.lb.TrustStore("testTrustStore",
-            ca_certificates_bundle_s3_bucket="...",
-            ca_certificates_bundle_s3_key="...")
-        test_trust_store_revocation = aws.lb.TrustStoreRevocation("testTrustStoreRevocation",
+        test_trust_store = aws.lb.trust_store.TrustStore("testTrustStore",
+            ca_certificates_bundle_s3_bucket=...,
+            ca_certificates_bundle_s3_key=...)
+        test_trust_store_revocation = aws.lb.trust_store_revocation.TrustStoreRevocation("testTrustStoreRevocation",
             trust_store_arn=test_trust_store.arn,
-            revocations_s3_bucket="...",
-            revocations_s3_key="...")
+            revocations_s3_bucket=...,
+            revocations_s3_key=...)
         ```
 
         ## Import

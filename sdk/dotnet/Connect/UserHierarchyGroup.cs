@@ -26,7 +26,7 @@ namespace Pulumi.Aws.Connect
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Connect.UserHierarchyGroup("example", new()
+    ///     var example = new Aws.Connect.UserHierarchyGroup.UserHierarchyGroup("example", new()
     ///     {
     ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
     ///         Tags = 
@@ -47,7 +47,7 @@ namespace Pulumi.Aws.Connect
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var parent = new Aws.Connect.UserHierarchyGroup("parent", new()
+    ///     var parent = new Aws.Connect.UserHierarchyGroup.UserHierarchyGroup("parent", new()
     ///     {
     ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
     ///         Tags = 
@@ -56,7 +56,7 @@ namespace Pulumi.Aws.Connect
     ///         },
     ///     });
     /// 
-    ///     var child = new Aws.Connect.UserHierarchyGroup("child", new()
+    ///     var child = new Aws.Connect.UserHierarchyGroup.UserHierarchyGroup("child", new()
     ///     {
     ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
     ///         ParentGroupId = parent.HierarchyGroupId,

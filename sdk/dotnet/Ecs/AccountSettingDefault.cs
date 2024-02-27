@@ -26,7 +26,7 @@ namespace Pulumi.Aws.Ecs
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Aws.Ecs.AccountSettingDefault("test", new()
+    ///     var test = new Aws.Ecs.AccountSettingDefault.AccountSettingDefault("test", new()
     ///     {
     ///         Value = "enabled",
     ///     });

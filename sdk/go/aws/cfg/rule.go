@@ -17,95 +17,6 @@ import (
 // > **Note:** Config Rule requires an existing Configuration Recorder to be present. Use of `dependsOn` is recommended (as shown below) to avoid race conditions.
 //
 // ## Example Usage
-// ### AWS Managed Rules
-//
-// AWS managed rules can be used by setting the source owner to `AWS` and the source identifier to the name of the managed rule. More information about AWS managed rules can be found in the [AWS Config Developer Guide](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html).
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cfg"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			assumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-//				Statements: []iam.GetPolicyDocumentStatement{
-//					{
-//						Effect: pulumi.StringRef("Allow"),
-//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
-//							{
-//								Type: "Service",
-//								Identifiers: []string{
-//									"config.amazonaws.com",
-//								},
-//							},
-//						},
-//						Actions: []string{
-//							"sts:AssumeRole",
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			role, err := iam.NewRole(ctx, "role", &iam.RoleArgs{
-//				AssumeRolePolicy: *pulumi.String(assumeRole.Json),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			foo, err := cfg.NewRecorder(ctx, "foo", &cfg.RecorderArgs{
-//				RoleArn: role.Arn,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = cfg.NewRule(ctx, "rule", &cfg.RuleArgs{
-//				Source: &cfg.RuleSourceArgs{
-//					Owner:            pulumi.String("AWS"),
-//					SourceIdentifier: pulumi.String("S3_BUCKET_VERSIONING_ENABLED"),
-//				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				foo,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			policyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-//				Statements: []iam.GetPolicyDocumentStatement{
-//					{
-//						Effect: pulumi.StringRef("Allow"),
-//						Actions: []string{
-//							"config:Put*",
-//						},
-//						Resources: []string{
-//							"*",
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = iam.NewRolePolicy(ctx, "rolePolicy", &iam.RolePolicyArgs{
-//				Role:   role.ID(),
-//				Policy: *pulumi.String(policyDocument.Json),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 // ### Custom Rules
 //
 // Custom rules can be used by setting the source owner to `CUSTOM_LAMBDA` and the source identifier to the Amazon Resource Name (ARN) of the Lambda Function. The AWS Config service must have permissions to invoke the Lambda Function, e.g., via the `lambda.Permission` resource. More information about custom rules can be found in the [AWS Config Developer Guide](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_develop-rules.html).
@@ -115,46 +26,47 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cfg"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lambda"
+//	cfg/recorder "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/cfg/recorder"
+//	cfg/rule "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/cfg/rule"
+//	lambda/function "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/lambda/function"
+//	lambda/permission "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/lambda/permission"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleRecorder, err := cfg.NewRecorder(ctx, "exampleRecorder", nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleFunction, err := lambda.NewFunction(ctx, "exampleFunction", nil)
-//			if err != nil {
-//				return err
-//			}
-//			examplePermission, err := lambda.NewPermission(ctx, "examplePermission", &lambda.PermissionArgs{
-//				Action:    pulumi.String("lambda:InvokeFunction"),
-//				Function:  exampleFunction.Arn,
-//				Principal: pulumi.String("config.amazonaws.com"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = cfg.NewRule(ctx, "exampleRule", &cfg.RuleArgs{
-//				Source: &cfg.RuleSourceArgs{
-//					Owner:            pulumi.String("CUSTOM_LAMBDA"),
-//					SourceIdentifier: exampleFunction.Arn,
-//				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleRecorder,
-//				examplePermission,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleRecorder, err := cfg/recorder.NewRecorder(ctx, "exampleRecorder", nil)
+// if err != nil {
+// return err
+// }
+// exampleFunction, err := lambda/function.NewFunction(ctx, "exampleFunction", nil)
+// if err != nil {
+// return err
+// }
+// examplePermission, err := lambda/permission.NewPermission(ctx, "examplePermission", &lambda/permission.PermissionArgs{
+// Action: "lambda:InvokeFunction",
+// Function: exampleFunction.Arn,
+// Principal: "config.amazonaws.com",
+// })
+// if err != nil {
+// return err
+// }
+// // ... other configuration ...
+// _, err = cfg/rule.NewRule(ctx, "exampleRule", &cfg/rule.RuleArgs{
+// Source: map[string]interface{}{
+// "owner": "CUSTOM_LAMBDA",
+// "sourceIdentifier": exampleFunction.Arn,
+// },
+// }, pulumi.DependsOn([]pulumi.Resource{
+// exampleRecorder,
+// examplePermission,
+// }))
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Custom Policies
 //
@@ -163,46 +75,44 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cfg"
+//	cfg/rule "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/cfg/rule"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := cfg/rule.NewRule(ctx, "example", &cfg/rule.RuleArgs{
+// Source: map[string]interface{}{
+// "owner": "CUSTOM_POLICY",
+// "sourceDetails": []map[string]interface{}{
+// map[string]interface{}{
+// "messageType": "ConfigurationItemChangeNotification",
+// },
+// },
+// "customPolicyDetails": map[string]interface{}{
+// "policyRuntime": "guard-2.x.x",
+// "policyText": `	  rule tableisactive when
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cfg.NewRule(ctx, "example", &cfg.RuleArgs{
-//				Source: &cfg.RuleSourceArgs{
-//					Owner: pulumi.String("CUSTOM_POLICY"),
-//					SourceDetails: cfg.RuleSourceSourceDetailArray{
-//						&cfg.RuleSourceSourceDetailArgs{
-//							MessageType: pulumi.String("ConfigurationItemChangeNotification"),
-//						},
-//					},
-//					CustomPolicyDetails: &cfg.RuleSourceCustomPolicyDetailsArgs{
-//						PolicyRuntime: pulumi.String("guard-2.x.x"),
-//						PolicyText: pulumi.String(`	  rule tableisactive when
-//			  resourceType == "AWS::DynamoDB::Table" {
-//			  configuration.tableStatus == ['ACTIVE']
-//		  }
+//		  resourceType == "AWS::DynamoDB::Table" {
+//		  configuration.tableStatus == ['ACTIVE']
+//	  }
 //
-//		  rule checkcompliance when
-//			  resourceType == "AWS::DynamoDB::Table"
-//			  tableisactive {
-//				  supplementaryConfiguration.ContinuousBackupsDescription.pointInTimeRecoveryDescription.pointInTimeRecoveryStatus == "ENABLED"
-//		  }
+//	  rule checkcompliance when
+//		  resourceType == "AWS::DynamoDB::Table"
+//		  tableisactive {
+//			  supplementaryConfiguration.ContinuousBackupsDescription.pointInTimeRecoveryDescription.pointInTimeRecoveryStatus == "ENABLED"
+//	  }
 //
-// `),
-//
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// `,
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

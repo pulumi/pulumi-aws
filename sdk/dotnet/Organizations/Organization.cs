@@ -26,7 +26,7 @@ namespace Pulumi.Aws.Organizations
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var org = new Aws.Organizations.Organization("org", new()
+    ///     var org = new Aws.Organizations.Organization.Organization("org", new()
     ///     {
     ///         AwsServiceAccessPrincipals = new[]
     ///         {

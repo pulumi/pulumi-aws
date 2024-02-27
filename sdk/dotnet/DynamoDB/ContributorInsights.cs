@@ -22,7 +22,7 @@ namespace Pulumi.Aws.DynamoDB
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Aws.DynamoDB.ContributorInsights("test", new()
+    ///     var test = new Aws.Dynamodb.ContributorInsights.ContributorInsights("test", new()
     ///     {
     ///         TableName = "ExampleTableName",
     ///     });

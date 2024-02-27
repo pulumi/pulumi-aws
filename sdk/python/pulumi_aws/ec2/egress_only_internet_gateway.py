@@ -132,13 +132,13 @@ class EgressOnlyInternetGateway(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_vpc = aws.ec2.Vpc("exampleVpc",
-            cidr_block="10.1.0.0/16",
+        example_vpc = aws.ec2.vpc.Vpc("exampleVpc",
+            cidr_block=10.1.0.0/16,
             assign_generated_ipv6_cidr_block=True)
-        example_egress_only_internet_gateway = aws.ec2.EgressOnlyInternetGateway("exampleEgressOnlyInternetGateway",
+        example_egress_only_internet_gateway = aws.ec2.egress_only_internet_gateway.EgressOnlyInternetGateway("exampleEgressOnlyInternetGateway",
             vpc_id=example_vpc.id,
             tags={
-                "Name": "main",
+                Name: main,
             })
         ```
 
@@ -173,13 +173,13 @@ class EgressOnlyInternetGateway(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_vpc = aws.ec2.Vpc("exampleVpc",
-            cidr_block="10.1.0.0/16",
+        example_vpc = aws.ec2.vpc.Vpc("exampleVpc",
+            cidr_block=10.1.0.0/16,
             assign_generated_ipv6_cidr_block=True)
-        example_egress_only_internet_gateway = aws.ec2.EgressOnlyInternetGateway("exampleEgressOnlyInternetGateway",
+        example_egress_only_internet_gateway = aws.ec2.egress_only_internet_gateway.EgressOnlyInternetGateway("exampleEgressOnlyInternetGateway",
             vpc_id=example_vpc.id,
             tags={
-                "Name": "main",
+                Name: main,
             })
         ```
 

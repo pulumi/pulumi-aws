@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Organizations
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Organizations.ResourcePolicy("example", new()
+    ///     var example = new Aws.Organizations.ResourcePolicy.ResourcePolicy("example", new()
     ///     {
     ///         Content = @"{
     ///   ""Version"": ""2012-10-17"",

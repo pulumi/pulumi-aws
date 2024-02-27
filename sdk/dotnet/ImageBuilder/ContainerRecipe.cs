@@ -22,34 +22,34 @@ namespace Pulumi.Aws.ImageBuilder
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.ImageBuilder.ContainerRecipe("example", new()
+    ///     var example = new Aws.Imagebuilder.ContainerRecipe.ContainerRecipe("example", new()
     ///     {
     ///         Version = "1.0.0",
     ///         ContainerType = "DOCKER",
     ///         ParentImage = "arn:aws:imagebuilder:eu-central-1:aws:image/amazon-linux-x86-latest/x.x.x",
-    ///         TargetRepository = new Aws.ImageBuilder.Inputs.ContainerRecipeTargetRepositoryArgs
+    ///         TargetRepository = 
     ///         {
-    ///             RepositoryName = aws_ecr_repository.Example.Name,
-    ///             Service = "ECR",
+    ///             { "repositoryName", aws_ecr_repository.Example.Name },
+    ///             { "service", "ECR" },
     ///         },
     ///         Components = new[]
     ///         {
-    ///             new Aws.ImageBuilder.Inputs.ContainerRecipeComponentArgs
+    ///             
     ///             {
-    ///                 ComponentArn = aws_imagebuilder_component.Example.Arn,
-    ///                 Parameters = new[]
+    ///                 { "componentArn", aws_imagebuilder_component.Example.Arn },
+    ///                 { "parameters", new[]
     ///                 {
-    ///                     new Aws.ImageBuilder.Inputs.ContainerRecipeComponentParameterArgs
+    ///                     
     ///                     {
-    ///                         Name = "Parameter1",
-    ///                         Value = "Value1",
+    ///                         { "name", "Parameter1" },
+    ///                         { "value", "Value1" },
     ///                     },
-    ///                     new Aws.ImageBuilder.Inputs.ContainerRecipeComponentParameterArgs
+    ///                     
     ///                     {
-    ///                         Name = "Parameter2",
-    ///                         Value = "Value2",
+    ///                         { "name", "Parameter2" },
+    ///                         { "value", "Value2" },
     ///                     },
-    ///                 },
+    ///                 } },
     ///             },
     ///         },
     ///         DockerfileTemplateData = @"FROM {{{ imagebuilder:parentImage }}}

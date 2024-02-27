@@ -25,39 +25,38 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/transfer"
+//	transfer/server "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/transfer/server"
+//	transfer/tag "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/transfer/tag"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := transfer.NewServer(ctx, "example", &transfer.ServerArgs{
-//				IdentityProviderType: pulumi.String("SERVICE_MANAGED"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = transfer.NewTag(ctx, "zoneId", &transfer.TagArgs{
-//				ResourceArn: example.Arn,
-//				Key:         pulumi.String("aws:transfer:route53HostedZoneId"),
-//				Value:       pulumi.String("/hostedzone/MyHostedZoneId"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = transfer.NewTag(ctx, "hostname", &transfer.TagArgs{
-//				ResourceArn: example.Arn,
-//				Key:         pulumi.String("aws:transfer:customHostname"),
-//				Value:       pulumi.String("example.com"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := transfer/server.NewServer(ctx, "example", &transfer/server.ServerArgs{
+// IdentityProviderType: "SERVICE_MANAGED",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = transfer/tag.NewTag(ctx, "zoneId", &transfer/tag.TagArgs{
+// ResourceArn: example.Arn,
+// Key: "aws:transfer:route53HostedZoneId",
+// Value: "/hostedzone/MyHostedZoneId",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = transfer/tag.NewTag(ctx, "hostname", &transfer/tag.TagArgs{
+// ResourceArn: example.Arn,
+// Key: "aws:transfer:customHostname",
+// Value: "example.com",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

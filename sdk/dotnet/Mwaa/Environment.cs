@@ -25,17 +25,17 @@ namespace Pulumi.Aws.Mwaa
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Mwaa.Environment("example", new()
+    ///     var example = new Aws.Mwaa.Environment.Environment("example", new()
     ///     {
     ///         DagS3Path = "dags/",
     ///         ExecutionRoleArn = aws_iam_role.Example.Arn,
-    ///         NetworkConfiguration = new Aws.Mwaa.Inputs.EnvironmentNetworkConfigurationArgs
+    ///         NetworkConfiguration = 
     ///         {
-    ///             SecurityGroupIds = new[]
+    ///             { "securityGroupIds", new[]
     ///             {
     ///                 aws_security_group.Example.Id,
-    ///             },
-    ///             SubnetIds = aws_subnet.Private.Select(__item =&gt; __item.Id).ToList(),
+    ///             } },
+    ///             { "subnetIds", aws_subnet.Private.Select(__item =&gt; __item.Id).ToList() },
     ///         },
     ///         SourceBucketArn = aws_s3_bucket.Example.Arn,
     ///     });
@@ -52,22 +52,22 @@ namespace Pulumi.Aws.Mwaa
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Mwaa.Environment("example", new()
+    ///     var example = new Aws.Mwaa.Environment.Environment("example", new()
     ///     {
     ///         AirflowConfigurationOptions = 
     ///         {
-    ///             { "core.default_task_retries", "16" },
-    ///             { "core.parallelism", "1" },
+    ///             { "core.default_task_retries", 16 },
+    ///             { "core.parallelism", 1 },
     ///         },
     ///         DagS3Path = "dags/",
     ///         ExecutionRoleArn = aws_iam_role.Example.Arn,
-    ///         NetworkConfiguration = new Aws.Mwaa.Inputs.EnvironmentNetworkConfigurationArgs
+    ///         NetworkConfiguration = 
     ///         {
-    ///             SecurityGroupIds = new[]
+    ///             { "securityGroupIds", new[]
     ///             {
     ///                 aws_security_group.Example.Id,
-    ///             },
-    ///             SubnetIds = aws_subnet.Private.Select(__item =&gt; __item.Id).ToList(),
+    ///             } },
+    ///             { "subnetIds", aws_subnet.Private.Select(__item =&gt; __item.Id).ToList() },
     ///         },
     ///         SourceBucketArn = aws_s3_bucket.Example.Arn,
     ///     });
@@ -86,45 +86,45 @@ namespace Pulumi.Aws.Mwaa
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Mwaa.Environment("example", new()
+    ///     var example = new Aws.Mwaa.Environment.Environment("example", new()
     ///     {
     ///         DagS3Path = "dags/",
     ///         ExecutionRoleArn = aws_iam_role.Example.Arn,
-    ///         LoggingConfiguration = new Aws.Mwaa.Inputs.EnvironmentLoggingConfigurationArgs
+    ///         LoggingConfiguration = 
     ///         {
-    ///             DagProcessingLogs = new Aws.Mwaa.Inputs.EnvironmentLoggingConfigurationDagProcessingLogsArgs
+    ///             { "dagProcessingLogs", 
     ///             {
-    ///                 Enabled = true,
-    ///                 LogLevel = "DEBUG",
-    ///             },
-    ///             SchedulerLogs = new Aws.Mwaa.Inputs.EnvironmentLoggingConfigurationSchedulerLogsArgs
+    ///                 { "enabled", true },
+    ///                 { "logLevel", "DEBUG" },
+    ///             } },
+    ///             { "schedulerLogs", 
     ///             {
-    ///                 Enabled = true,
-    ///                 LogLevel = "INFO",
-    ///             },
-    ///             TaskLogs = new Aws.Mwaa.Inputs.EnvironmentLoggingConfigurationTaskLogsArgs
+    ///                 { "enabled", true },
+    ///                 { "logLevel", "INFO" },
+    ///             } },
+    ///             { "taskLogs", 
     ///             {
-    ///                 Enabled = true,
-    ///                 LogLevel = "WARNING",
-    ///             },
-    ///             WebserverLogs = new Aws.Mwaa.Inputs.EnvironmentLoggingConfigurationWebserverLogsArgs
+    ///                 { "enabled", true },
+    ///                 { "logLevel", "WARNING" },
+    ///             } },
+    ///             { "webserverLogs", 
     ///             {
-    ///                 Enabled = true,
-    ///                 LogLevel = "ERROR",
-    ///             },
-    ///             WorkerLogs = new Aws.Mwaa.Inputs.EnvironmentLoggingConfigurationWorkerLogsArgs
+    ///                 { "enabled", true },
+    ///                 { "logLevel", "ERROR" },
+    ///             } },
+    ///             { "workerLogs", 
     ///             {
-    ///                 Enabled = true,
-    ///                 LogLevel = "CRITICAL",
-    ///             },
+    ///                 { "enabled", true },
+    ///                 { "logLevel", "CRITICAL" },
+    ///             } },
     ///         },
-    ///         NetworkConfiguration = new Aws.Mwaa.Inputs.EnvironmentNetworkConfigurationArgs
+    ///         NetworkConfiguration = 
     ///         {
-    ///             SecurityGroupIds = new[]
+    ///             { "securityGroupIds", new[]
     ///             {
     ///                 aws_security_group.Example.Id,
-    ///             },
-    ///             SubnetIds = aws_subnet.Private.Select(__item =&gt; __item.Id).ToList(),
+    ///             } },
+    ///             { "subnetIds", aws_subnet.Private.Select(__item =&gt; __item.Id).ToList() },
     ///         },
     ///         SourceBucketArn = aws_s3_bucket.Example.Arn,
     ///     });
@@ -141,17 +141,17 @@ namespace Pulumi.Aws.Mwaa
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Mwaa.Environment("example", new()
+    ///     var example = new Aws.Mwaa.Environment.Environment("example", new()
     ///     {
     ///         DagS3Path = "dags/",
     ///         ExecutionRoleArn = aws_iam_role.Example.Arn,
-    ///         NetworkConfiguration = new Aws.Mwaa.Inputs.EnvironmentNetworkConfigurationArgs
+    ///         NetworkConfiguration = 
     ///         {
-    ///             SecurityGroupIds = new[]
+    ///             { "securityGroupIds", new[]
     ///             {
     ///                 aws_security_group.Example.Id,
-    ///             },
-    ///             SubnetIds = aws_subnet.Private.Select(__item =&gt; __item.Id).ToList(),
+    ///             } },
+    ///             { "subnetIds", aws_subnet.Private.Select(__item =&gt; __item.Id).ToList() },
     ///         },
     ///         SourceBucketArn = aws_s3_bucket.Example.Arn,
     ///         Tags = 

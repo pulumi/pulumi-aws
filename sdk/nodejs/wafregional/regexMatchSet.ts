@@ -16,11 +16,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleRegexPatternSet = new aws.wafregional.RegexPatternSet("exampleRegexPatternSet", {regexPatternStrings: [
+ * const exampleRegexPatternSet = new aws.wafregional/regexPatternSet.RegexPatternSet("exampleRegexPatternSet", {regexPatternStrings: [
  *     "one",
  *     "two",
  * ]});
- * const exampleRegexMatchSet = new aws.wafregional.RegexMatchSet("exampleRegexMatchSet", {regexMatchTuples: [{
+ * const exampleRegexMatchSet = new aws.wafregional/regexMatchSet.RegexMatchSet("exampleRegexMatchSet", {regexMatchTuples: [{
  *     fieldToMatch: {
  *         data: "User-Agent",
  *         type: "HEADER",

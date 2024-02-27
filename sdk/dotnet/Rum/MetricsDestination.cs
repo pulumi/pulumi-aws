@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Rum
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Rum.MetricsDestination("example", new()
+    ///     var example = new Aws.Rum.MetricsDestination.MetricsDestination("example", new()
     ///     {
     ///         AppMonitorName = aws_rum_app_monitor.Example.Name,
     ///         Destination = "CloudWatch",

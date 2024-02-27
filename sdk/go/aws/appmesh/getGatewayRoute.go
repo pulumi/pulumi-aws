@@ -12,34 +12,6 @@ import (
 )
 
 // The App Mesh Gateway Route data source allows details of an App Mesh Gateway Route to be retrieved by its name, mesh_name, virtual_gateway_name, and optionally the mesh_owner.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/appmesh"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := appmesh.LookupGatewayRoute(ctx, &appmesh.LookupGatewayRouteArgs{
-//				MeshName:           "test-mesh",
-//				Name:               "test-route",
-//				VirtualGatewayName: "test-gateway",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupGatewayRoute(ctx *pulumi.Context, args *LookupGatewayRouteArgs, opts ...pulumi.InvokeOption) (*LookupGatewayRouteResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupGatewayRouteResult

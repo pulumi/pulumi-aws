@@ -343,10 +343,10 @@ class Project(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.evidently.Project("example",
-            description="Example Description",
+        example = aws.evidently.project.Project("example",
+            description=Example Description,
             tags={
-                "Key1": "example Project",
+                Key1: example Project,
             })
         ```
         ### Store evaluation events in a CloudWatch Log Group
@@ -355,15 +355,15 @@ class Project(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.evidently.Project("example",
-            data_delivery=aws.evidently.ProjectDataDeliveryArgs(
-                cloudwatch_logs=aws.evidently.ProjectDataDeliveryCloudwatchLogsArgs(
-                    log_group="example-log-group-name",
-                ),
-            ),
-            description="Example Description",
+        example = aws.evidently.project.Project("example",
+            data_delivery={
+                cloudwatchLogs: {
+                    logGroup: example-log-group-name,
+                },
+            },
+            description=Example Description,
             tags={
-                "Key1": "example Project",
+                Key1: example Project,
             })
         ```
         ### Store evaluation events in an S3 bucket
@@ -372,16 +372,16 @@ class Project(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.evidently.Project("example",
-            data_delivery=aws.evidently.ProjectDataDeliveryArgs(
-                s3_destination=aws.evidently.ProjectDataDeliveryS3DestinationArgs(
-                    bucket="example-bucket-name",
-                    prefix="example",
-                ),
-            ),
-            description="Example Description",
+        example = aws.evidently.project.Project("example",
+            data_delivery={
+                s3Destination: {
+                    bucket: example-bucket-name,
+                    prefix: example,
+                },
+            },
+            description=Example Description,
             tags={
-                "Key1": "example Project",
+                Key1: example Project,
             })
         ```
 
@@ -416,10 +416,10 @@ class Project(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.evidently.Project("example",
-            description="Example Description",
+        example = aws.evidently.project.Project("example",
+            description=Example Description,
             tags={
-                "Key1": "example Project",
+                Key1: example Project,
             })
         ```
         ### Store evaluation events in a CloudWatch Log Group
@@ -428,15 +428,15 @@ class Project(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.evidently.Project("example",
-            data_delivery=aws.evidently.ProjectDataDeliveryArgs(
-                cloudwatch_logs=aws.evidently.ProjectDataDeliveryCloudwatchLogsArgs(
-                    log_group="example-log-group-name",
-                ),
-            ),
-            description="Example Description",
+        example = aws.evidently.project.Project("example",
+            data_delivery={
+                cloudwatchLogs: {
+                    logGroup: example-log-group-name,
+                },
+            },
+            description=Example Description,
             tags={
-                "Key1": "example Project",
+                Key1: example Project,
             })
         ```
         ### Store evaluation events in an S3 bucket
@@ -445,16 +445,16 @@ class Project(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.evidently.Project("example",
-            data_delivery=aws.evidently.ProjectDataDeliveryArgs(
-                s3_destination=aws.evidently.ProjectDataDeliveryS3DestinationArgs(
-                    bucket="example-bucket-name",
-                    prefix="example",
-                ),
-            ),
-            description="Example Description",
+        example = aws.evidently.project.Project("example",
+            data_delivery={
+                s3Destination: {
+                    bucket: example-bucket-name,
+                    prefix: example,
+                },
+            },
+            description=Example Description,
             tags={
-                "Key1": "example Project",
+                Key1: example Project,
             })
         ```
 

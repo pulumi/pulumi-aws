@@ -98,6 +98,18 @@ class OrganizationConfiguration(pulumi.CustomResource):
                  graph_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_graph = aws.detective.graph.Graph("exampleGraph", enable=True)
+        example_organization_configuration = aws.detective.organization_configuration.OrganizationConfiguration("exampleOrganizationConfiguration",
+            auto_enable=True,
+            graph_arn=example_graph.id)
+        ```
+
         ## Import
 
         Using `pulumi import`, import `aws_detective_organization_admin_account` using the Detective Graph ID. For example:
@@ -118,6 +130,18 @@ class OrganizationConfiguration(pulumi.CustomResource):
                  args: OrganizationConfigurationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_graph = aws.detective.graph.Graph("exampleGraph", enable=True)
+        example_organization_configuration = aws.detective.organization_configuration.OrganizationConfiguration("exampleOrganizationConfiguration",
+            auto_enable=True,
+            graph_arn=example_graph.id)
+        ```
+
         ## Import
 
         Using `pulumi import`, import `aws_detective_organization_admin_account` using the Detective Graph ID. For example:

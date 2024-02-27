@@ -22,19 +22,19 @@ namespace Pulumi.Aws.Quicksight
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var @default = new Aws.Quicksight.DataSource("default", new()
+    ///     var @default = new Aws.Quicksight.DataSource.DataSource("default", new()
     ///     {
     ///         DataSourceId = "example-id",
-    ///         Parameters = new Aws.Quicksight.Inputs.DataSourceParametersArgs
+    ///         Parameters = 
     ///         {
-    ///             S3 = new Aws.Quicksight.Inputs.DataSourceParametersS3Args
+    ///             { "s3", 
     ///             {
-    ///                 ManifestFileLocation = new Aws.Quicksight.Inputs.DataSourceParametersS3ManifestFileLocationArgs
+    ///                 { "manifestFileLocation", 
     ///                 {
-    ///                     Bucket = "my-bucket",
-    ///                     Key = "path/to/manifest.json",
-    ///                 },
-    ///             },
+    ///                     { "bucket", "my-bucket" },
+    ///                     { "key", "path/to/manifest.json" },
+    ///                 } },
+    ///             } },
     ///         },
     ///         Type = "S3",
     ///     });

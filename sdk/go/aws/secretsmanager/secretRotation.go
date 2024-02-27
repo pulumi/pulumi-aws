@@ -22,27 +22,25 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/secretsmanager"
+//	secretsmanager/secretRotation "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/secretsmanager/secretRotation"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := secretsmanager.NewSecretRotation(ctx, "example", &secretsmanager.SecretRotationArgs{
-//				SecretId:          pulumi.Any(aws_secretsmanager_secret.Example.Id),
-//				RotationLambdaArn: pulumi.Any(aws_lambda_function.Example.Arn),
-//				RotationRules: &secretsmanager.SecretRotationRotationRulesArgs{
-//					AutomaticallyAfterDays: pulumi.Int(30),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := secretsmanager/secretRotation.NewSecretRotation(ctx, "example", &secretsmanager/secretRotation.SecretRotationArgs{
+// SecretId: aws_secretsmanager_secret.Example.Id,
+// RotationLambdaArn: aws_lambda_function.Example.Arn,
+// RotationRules: map[string]interface{}{
+// "automaticallyAfterDays": 30,
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Rotation Configuration
 //

@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const subscription = new aws.quicksight.AccountSubscription("subscription", {
+ * const subscription = new aws.quicksight/accountSubscription.AccountSubscription("subscription", {
  *     accountName: "quicksight-pulumi",
  *     authenticationMethod: "IAM_AND_QUICKSIGHT",
  *     edition: "ENTERPRISE",

@@ -23,7 +23,7 @@ namespace Pulumi.Aws.NetworkManager
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.NetworkManager.SiteToSiteVpnAttachment("example", new()
+    ///     var example = new Aws.Networkmanager.SiteToSiteVpnAttachment.SiteToSiteVpnAttachment("example", new()
     ///     {
     ///         CoreNetworkId = awscc_networkmanager_core_network.Example.Id,
     ///         VpnConnectionArn = aws_vpn_connection.Example.Arn,

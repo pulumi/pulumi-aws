@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.chime.SdkvoiceSipRule("example", {
+ * const example = new aws.chime/sdkvoiceSipRule.SdkvoiceSipRule("example", {
  *     triggerType: "RequestUriHostname",
  *     triggerValue: aws_chime_voice_connector["example-voice-connector"].outbound_host_name,
  *     targetApplications: [{

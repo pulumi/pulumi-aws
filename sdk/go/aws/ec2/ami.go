@@ -27,32 +27,33 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	ec2/ami "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/ami"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.NewAmi(ctx, "example", &ec2.AmiArgs{
-//				EbsBlockDevices: ec2.AmiEbsBlockDeviceArray{
-//					&ec2.AmiEbsBlockDeviceArgs{
-//						DeviceName: pulumi.String("/dev/xvda"),
-//						SnapshotId: pulumi.String("snap-xxxxxxxx"),
-//						VolumeSize: pulumi.Int(8),
-//					},
-//				},
-//				ImdsSupport:        pulumi.String("v2.0"),
-//				RootDeviceName:     pulumi.String("/dev/xvda"),
-//				VirtualizationType: pulumi.String("hvm"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// // Create an AMI that will start a machine whose root device is backed by
+// // an EBS volume populated from a snapshot. We assume that such a snapshot
+// // already exists with the id "snap-xxxxxxxx".
+// _, err := ec2/ami.NewAmi(ctx, "example", &ec2/ami.AmiArgs{
+// EbsBlockDevices: []map[string]interface{}{
+// map[string]interface{}{
+// "deviceName": "/dev/xvda",
+// "snapshotId": "snap-xxxxxxxx",
+// "volumeSize": 8,
+// },
+// },
+// ImdsSupport: "v2.0",
+// RootDeviceName: "/dev/xvda",
+// VirtualizationType: "hvm",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

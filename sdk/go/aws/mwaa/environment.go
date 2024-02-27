@@ -24,22 +24,26 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/mwaa"
+//	mwaa/environment "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/mwaa/environment"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 // func main() {
 // pulumi.Run(func(ctx *pulumi.Context) error {
-// _, err := mwaa.NewEnvironment(ctx, "example", &mwaa.EnvironmentArgs{
-// DagS3Path: pulumi.String("dags/"),
-// ExecutionRoleArn: pulumi.Any(aws_iam_role.Example.Arn),
-// NetworkConfiguration: &mwaa.EnvironmentNetworkConfigurationArgs{
-// SecurityGroupIds: pulumi.StringArray{
+// _, err := mwaa/environment.NewEnvironment(ctx, "example", &mwaa/environment.EnvironmentArgs{
+// DagS3Path: "dags/",
+// ExecutionRoleArn: aws_iam_role.Example.Arn,
+// NetworkConfiguration: var splat0 []interface{}
+// for _, val0 := range aws_subnet.Private {
+// splat0 = append(splat0, val0.Id)
+// }
+// map[string]interface{}{
+// "securityGroupIds": []interface{}{
 // aws_security_group.Example.Id,
 // },
-// SubnetIds: %!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ #-resources-aws:mwaa-environment:Environment.pp:5,25-49),
+// "subnetIds": splat0,
 // },
-// SourceBucketArn: pulumi.Any(aws_s3_bucket.Example.Arn),
+// SourceBucketArn: aws_s3_bucket.Example.Arn,
 // })
 // if err != nil {
 // return err
@@ -55,26 +59,30 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/mwaa"
+//	mwaa/environment "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/mwaa/environment"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 // func main() {
 // pulumi.Run(func(ctx *pulumi.Context) error {
-// _, err := mwaa.NewEnvironment(ctx, "example", &mwaa.EnvironmentArgs{
-// AirflowConfigurationOptions: pulumi.StringMap{
-// "core.default_task_retries": pulumi.String("16"),
-// "core.parallelism": pulumi.String("1"),
+// _, err := mwaa/environment.NewEnvironment(ctx, "example", &mwaa/environment.EnvironmentArgs{
+// AirflowConfigurationOptions: map[string]interface{}{
+// "core.default_task_retries": 16,
+// "core.parallelism": 1,
 // },
-// DagS3Path: pulumi.String("dags/"),
-// ExecutionRoleArn: pulumi.Any(aws_iam_role.Example.Arn),
-// NetworkConfiguration: &mwaa.EnvironmentNetworkConfigurationArgs{
-// SecurityGroupIds: pulumi.StringArray{
+// DagS3Path: "dags/",
+// ExecutionRoleArn: aws_iam_role.Example.Arn,
+// NetworkConfiguration: var splat0 []interface{}
+// for _, val0 := range aws_subnet.Private {
+// splat0 = append(splat0, val0.Id)
+// }
+// map[string]interface{}{
+// "securityGroupIds": []interface{}{
 // aws_security_group.Example.Id,
 // },
-// SubnetIds: %!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ #-resources-aws:mwaa-environment:Environment.pp:9,25-49),
+// "subnetIds": splat0,
 // },
-// SourceBucketArn: pulumi.Any(aws_s3_bucket.Example.Arn),
+// SourceBucketArn: aws_s3_bucket.Example.Arn,
 // })
 // if err != nil {
 // return err
@@ -92,44 +100,48 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/mwaa"
+//	mwaa/environment "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/mwaa/environment"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 // func main() {
 // pulumi.Run(func(ctx *pulumi.Context) error {
-// _, err := mwaa.NewEnvironment(ctx, "example", &mwaa.EnvironmentArgs{
-// DagS3Path: pulumi.String("dags/"),
-// ExecutionRoleArn: pulumi.Any(aws_iam_role.Example.Arn),
-// LoggingConfiguration: &mwaa.EnvironmentLoggingConfigurationArgs{
-// DagProcessingLogs: &mwaa.EnvironmentLoggingConfigurationDagProcessingLogsArgs{
-// Enabled: pulumi.Bool(true),
-// LogLevel: pulumi.String("DEBUG"),
+// _, err := mwaa/environment.NewEnvironment(ctx, "example", &mwaa/environment.EnvironmentArgs{
+// DagS3Path: "dags/",
+// ExecutionRoleArn: aws_iam_role.Example.Arn,
+// LoggingConfiguration: map[string]interface{}{
+// "dagProcessingLogs": map[string]interface{}{
+// "enabled": true,
+// "logLevel": "DEBUG",
 // },
-// SchedulerLogs: &mwaa.EnvironmentLoggingConfigurationSchedulerLogsArgs{
-// Enabled: pulumi.Bool(true),
-// LogLevel: pulumi.String("INFO"),
+// "schedulerLogs": map[string]interface{}{
+// "enabled": true,
+// "logLevel": "INFO",
 // },
-// TaskLogs: &mwaa.EnvironmentLoggingConfigurationTaskLogsArgs{
-// Enabled: pulumi.Bool(true),
-// LogLevel: pulumi.String("WARNING"),
+// "taskLogs": map[string]interface{}{
+// "enabled": true,
+// "logLevel": "WARNING",
 // },
-// WebserverLogs: &mwaa.EnvironmentLoggingConfigurationWebserverLogsArgs{
-// Enabled: pulumi.Bool(true),
-// LogLevel: pulumi.String("ERROR"),
+// "webserverLogs": map[string]interface{}{
+// "enabled": true,
+// "logLevel": "ERROR",
 // },
-// WorkerLogs: &mwaa.EnvironmentLoggingConfigurationWorkerLogsArgs{
-// Enabled: pulumi.Bool(true),
-// LogLevel: pulumi.String("CRITICAL"),
+// "workerLogs": map[string]interface{}{
+// "enabled": true,
+// "logLevel": "CRITICAL",
 // },
 // },
-// NetworkConfiguration: &mwaa.EnvironmentNetworkConfigurationArgs{
-// SecurityGroupIds: pulumi.StringArray{
+// NetworkConfiguration: var splat0 []interface{}
+// for _, val0 := range aws_subnet.Private {
+// splat0 = append(splat0, val0.Id)
+// }
+// map[string]interface{}{
+// "securityGroupIds": []interface{}{
 // aws_security_group.Example.Id,
 // },
-// SubnetIds: %!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ #-resources-aws:mwaa-environment:Environment.pp:27,25-49),
+// "subnetIds": splat0,
 // },
-// SourceBucketArn: pulumi.Any(aws_s3_bucket.Example.Arn),
+// SourceBucketArn: aws_s3_bucket.Example.Arn,
 // })
 // if err != nil {
 // return err
@@ -145,25 +157,29 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/mwaa"
+//	mwaa/environment "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/mwaa/environment"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 // func main() {
 // pulumi.Run(func(ctx *pulumi.Context) error {
-// _, err := mwaa.NewEnvironment(ctx, "example", &mwaa.EnvironmentArgs{
-// DagS3Path: pulumi.String("dags/"),
-// ExecutionRoleArn: pulumi.Any(aws_iam_role.Example.Arn),
-// NetworkConfiguration: &mwaa.EnvironmentNetworkConfigurationArgs{
-// SecurityGroupIds: pulumi.StringArray{
+// _, err := mwaa/environment.NewEnvironment(ctx, "example", &mwaa/environment.EnvironmentArgs{
+// DagS3Path: "dags/",
+// ExecutionRoleArn: aws_iam_role.Example.Arn,
+// NetworkConfiguration: var splat0 []interface{}
+// for _, val0 := range aws_subnet.Private {
+// splat0 = append(splat0, val0.Id)
+// }
+// map[string]interface{}{
+// "securityGroupIds": []interface{}{
 // aws_security_group.Example.Id,
 // },
-// SubnetIds: %!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ #-resources-aws:mwaa-environment:Environment.pp:5,25-49),
+// "subnetIds": splat0,
 // },
-// SourceBucketArn: pulumi.Any(aws_s3_bucket.Example.Arn),
-// Tags: pulumi.StringMap{
-// "Name": pulumi.String("example"),
-// "Environment": pulumi.String("production"),
+// SourceBucketArn: aws_s3_bucket.Example.Arn,
+// Tags: map[string]interface{}{
+// "Name": "example",
+// "Environment": "production",
 // },
 // })
 // if err != nil {

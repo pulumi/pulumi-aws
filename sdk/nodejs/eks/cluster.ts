@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * export = async () => {
- *     const example = new aws.eks.Cluster("example", {
+ *     const example = new aws.eks/cluster.Cluster("example", {
  *         roleArn: aws_iam_role.example.arn,
  *         vpcConfig: {
  *             subnetIds: [
@@ -34,37 +34,9 @@ import * as utilities from "../utilities";
  *     });
  *     return {
  *         endpoint: example.endpoint,
- *         "kubeconfig-certificate-authority-data": example.certificateAuthority.apply(certificateAuthority => certificateAuthority.data),
+ *         "kubeconfig-certificate-authority-data": example.certificateAuthority.data,
  *     };
  * }
- * ```
- * ### Example IAM Role for EKS Cluster
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const assumeRole = aws.iam.getPolicyDocument({
- *     statements: [{
- *         effect: "Allow",
- *         principals: [{
- *             type: "Service",
- *             identifiers: ["eks.amazonaws.com"],
- *         }],
- *         actions: ["sts:AssumeRole"],
- *     }],
- * });
- * const example = new aws.iam.Role("example", {assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json)});
- * const example_AmazonEKSClusterPolicy = new aws.iam.RolePolicyAttachment("example-AmazonEKSClusterPolicy", {
- *     policyArn: "arn:aws:iam::aws:policy/AmazonEKSClusterPolicy",
- *     role: example.name,
- * });
- * // Optionally, enable Security Groups for Pods
- * // Reference: https://docs.aws.amazon.com/eks/latest/userguide/security-groups-for-pods.html
- * const example_AmazonEKSVPCResourceController = new aws.iam.RolePolicyAttachment("example-AmazonEKSVPCResourceController", {
- *     policyArn: "arn:aws:iam::aws:policy/AmazonEKSVPCResourceController",
- *     role: example.name,
- * });
  * ```
  * ### Enabling Control Plane Logging
  *
@@ -78,9 +50,9 @@ import * as utilities from "../utilities";
  *
  * const config = new pulumi.Config();
  * const clusterName = config.get("clusterName") || "example";
- * const exampleLogGroup = new aws.cloudwatch.LogGroup("exampleLogGroup", {retentionInDays: 7});
+ * const exampleLogGroup = new aws.cloudwatch/logGroup.LogGroup("exampleLogGroup", {retentionInDays: 7});
  * // ... potentially other configuration ...
- * const exampleCluster = new aws.eks.Cluster("exampleCluster", {enabledClusterLogTypes: [
+ * const exampleCluster = new aws.eks/cluster.Cluster("exampleCluster", {enabledClusterLogTypes: [
  *     "api",
  *     "audit",
  * ]}, {
@@ -96,8 +68,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleRole = new aws.iam.Role("exampleRole", {assumeRolePolicy: data.aws_iam_policy_document.example_assume_role_policy.json});
- * const exampleCluster = new aws.eks.Cluster("exampleCluster", {
+ * const exampleRole = new aws.iam/role.Role("exampleRole", {assumeRolePolicy: data.aws_iam_policy_document.example_assume_role_policy.json});
+ * const exampleCluster = new aws.eks/cluster.Cluster("exampleCluster", {
  *     roleArn: exampleRole.arn,
  *     vpcConfig: {
  *         endpointPrivateAccess: true,
@@ -115,8 +87,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleRole = new aws.iam.Role("exampleRole", {assumeRolePolicy: data.aws_iam_policy_document.example_assume_role_policy.json});
- * const exampleCluster = new aws.eks.Cluster("exampleCluster", {
+ * const exampleRole = new aws.iam/role.Role("exampleRole", {assumeRolePolicy: data.aws_iam_policy_document.example_assume_role_policy.json});
+ * const exampleCluster = new aws.eks/cluster.Cluster("exampleCluster", {
  *     roleArn: exampleRole.arn,
  *     vpcConfig: {
  *         endpointPrivateAccess: true,

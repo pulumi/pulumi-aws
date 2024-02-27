@@ -22,14 +22,14 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var path = new Aws.Ec2.NetworkInsightsPath("path", new()
+    ///     var path = new Aws.Ec2.NetworkInsightsPath.NetworkInsightsPath("path", new()
     ///     {
     ///         Source = aws_network_interface.Source.Id,
     ///         Destination = aws_network_interface.Destination.Id,
     ///         Protocol = "tcp",
     ///     });
     /// 
-    ///     var analysis = new Aws.Ec2.NetworkInsightsAnalysis("analysis", new()
+    ///     var analysis = new Aws.Ec2.NetworkInsightsAnalysis.NetworkInsightsAnalysis("analysis", new()
     ///     {
     ///         NetworkInsightsPathId = path.Id,
     ///     });

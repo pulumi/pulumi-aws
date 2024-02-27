@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.docdb.ClusterSnapshot("example", {
+ * const example = new aws.docdb/clusterSnapshot.ClusterSnapshot("example", {
  *     dbClusterIdentifier: aws_docdb_cluster.example.id,
  *     dbClusterSnapshotIdentifier: "resourcetestsnapshot1234",
  * });

@@ -12,47 +12,6 @@ import (
 )
 
 // Information about EC2 Instance Type Offerings.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.GetInstanceTypeOfferings(ctx, &ec2.GetInstanceTypeOfferingsArgs{
-//				Filters: []ec2.GetInstanceTypeOfferingsFilter{
-//					{
-//						Name: "instance-type",
-//						Values: []string{
-//							"t2.micro",
-//							"t3.micro",
-//						},
-//					},
-//					{
-//						Name: "location",
-//						Values: []string{
-//							"usw2-az4",
-//						},
-//					},
-//				},
-//				LocationType: pulumi.StringRef("availability-zone-id"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetInstanceTypeOfferings(ctx *pulumi.Context, args *GetInstanceTypeOfferingsArgs, opts ...pulumi.InvokeOption) (*GetInstanceTypeOfferingsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetInstanceTypeOfferingsResult

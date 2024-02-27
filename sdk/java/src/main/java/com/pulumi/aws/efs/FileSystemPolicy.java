@@ -18,62 +18,6 @@ import javax.annotation.Nullable;
 /**
  * Provides an Elastic File System (EFS) File System Policy resource.
  * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.efs.FileSystem;
- * import com.pulumi.aws.iam.IamFunctions;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
- * import com.pulumi.aws.efs.FileSystemPolicy;
- * import com.pulumi.aws.efs.FileSystemPolicyArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var fs = new FileSystem(&#34;fs&#34;);
- * 
- *         final var policyPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .sid(&#34;ExampleStatement01&#34;)
- *                 .effect(&#34;Allow&#34;)
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type(&#34;AWS&#34;)
- *                     .identifiers(&#34;*&#34;)
- *                     .build())
- *                 .actions(                
- *                     &#34;elasticfilesystem:ClientMount&#34;,
- *                     &#34;elasticfilesystem:ClientWrite&#34;)
- *                 .resources(fs.arn())
- *                 .conditions(GetPolicyDocumentStatementConditionArgs.builder()
- *                     .test(&#34;Bool&#34;)
- *                     .variable(&#34;aws:SecureTransport&#34;)
- *                     .values(&#34;true&#34;)
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *         var policyFileSystemPolicy = new FileSystemPolicy(&#34;policyFileSystemPolicy&#34;, FileSystemPolicyArgs.builder()        
- *             .fileSystemId(fs.id())
- *             .policy(policyPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(policyPolicyDocument -&gt; policyPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
  * ## Import
  * 
  * Using `pulumi import`, import the EFS file system policies using the `id`. For example:

@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Xray
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Xray.SamplingRule("example", new()
+    ///     var example = new Aws.Xray.SamplingRule.SamplingRule("example", new()
     ///     {
     ///         Attributes = 
     ///         {

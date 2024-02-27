@@ -24,40 +24,25 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/appconfig"
+//	appconfig/hostedConfigurationVersion "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/appconfig/hostedConfigurationVersion"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"foo": "bar",
-//				"fruit": []string{
-//					"apple",
-//					"pear",
-//					"orange",
-//				},
-//				"isThingEnabled": true,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			_, err = appconfig.NewHostedConfigurationVersion(ctx, "example", &appconfig.HostedConfigurationVersionArgs{
-//				ApplicationId:          pulumi.Any(aws_appconfig_application.Example.Id),
-//				ConfigurationProfileId: pulumi.Any(aws_appconfig_configuration_profile.Example.Configuration_profile_id),
-//				Description:            pulumi.String("Example Freeform Hosted Configuration Version"),
-//				ContentType:            pulumi.String("application/json"),
-//				Content:                pulumi.String(json0),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := appconfig/hostedConfigurationVersion.NewHostedConfigurationVersion(ctx, "example", &appconfig/hostedConfigurationVersion.HostedConfigurationVersionArgs{
+// ApplicationId: aws_appconfig_application.Example.Id,
+// ConfigurationProfileId: aws_appconfig_configuration_profile.Example.Configuration_profile_id,
+// Description: "Example Freeform Hosted Configuration Version",
+// ContentType: "application/json",
+// Content: %!v(PANIC=Format method: fatal: An assertion has failed: unlowered function toJSON),
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Feature Flags
 //
@@ -68,69 +53,25 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/appconfig"
+//	appconfig/hostedConfigurationVersion "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/appconfig/hostedConfigurationVersion"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"flags": map[string]interface{}{
-//					"foo": map[string]interface{}{
-//						"name": "foo",
-//						"_deprecation": map[string]interface{}{
-//							"status": "planned",
-//						},
-//					},
-//					"bar": map[string]interface{}{
-//						"name": "bar",
-//						"attributes": map[string]interface{}{
-//							"someAttribute": map[string]interface{}{
-//								"constraints": map[string]interface{}{
-//									"type":     "string",
-//									"required": true,
-//								},
-//							},
-//							"someOtherAttribute": map[string]interface{}{
-//								"constraints": map[string]interface{}{
-//									"type":     "number",
-//									"required": true,
-//								},
-//							},
-//						},
-//					},
-//				},
-//				"values": map[string]interface{}{
-//					"foo": map[string]interface{}{
-//						"enabled": "true",
-//					},
-//					"bar": map[string]interface{}{
-//						"enabled":            "true",
-//						"someAttribute":      "Hello World",
-//						"someOtherAttribute": 123,
-//					},
-//				},
-//				"version": "1",
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			_, err = appconfig.NewHostedConfigurationVersion(ctx, "example", &appconfig.HostedConfigurationVersionArgs{
-//				ApplicationId:          pulumi.Any(aws_appconfig_application.Example.Id),
-//				ConfigurationProfileId: pulumi.Any(aws_appconfig_configuration_profile.Example.Configuration_profile_id),
-//				Description:            pulumi.String("Example Feature Flag Configuration Version"),
-//				ContentType:            pulumi.String("application/json"),
-//				Content:                pulumi.String(json0),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := appconfig/hostedConfigurationVersion.NewHostedConfigurationVersion(ctx, "example", &appconfig/hostedConfigurationVersion.HostedConfigurationVersionArgs{
+// ApplicationId: aws_appconfig_application.Example.Id,
+// ConfigurationProfileId: aws_appconfig_configuration_profile.Example.Configuration_profile_id,
+// Description: "Example Feature Flag Configuration Version",
+// ContentType: "application/json",
+// Content: %!v(PANIC=Format method: fatal: An assertion has failed: unlowered function toJSON),
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

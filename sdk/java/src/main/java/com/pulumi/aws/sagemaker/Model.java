@@ -24,65 +24,6 @@ import javax.annotation.Nullable;
 /**
  * Provides a SageMaker model resource.
  * 
- * ## Example Usage
- * 
- * Basic usage:
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.iam.IamFunctions;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
- * import com.pulumi.aws.iam.Role;
- * import com.pulumi.aws.iam.RoleArgs;
- * import com.pulumi.aws.sagemaker.SagemakerFunctions;
- * import com.pulumi.aws.sagemaker.inputs.GetPrebuiltEcrImageArgs;
- * import com.pulumi.aws.sagemaker.Model;
- * import com.pulumi.aws.sagemaker.ModelArgs;
- * import com.pulumi.aws.sagemaker.inputs.ModelPrimaryContainerArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .actions(&#34;sts:AssumeRole&#34;)
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type(&#34;Service&#34;)
- *                     .identifiers(&#34;sagemaker.amazonaws.com&#34;)
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *         var exampleRole = new Role(&#34;exampleRole&#34;, RoleArgs.builder()        
- *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
- *             .build());
- * 
- *         final var test = SagemakerFunctions.getPrebuiltEcrImage(GetPrebuiltEcrImageArgs.builder()
- *             .repositoryName(&#34;kmeans&#34;)
- *             .build());
- * 
- *         var exampleModel = new Model(&#34;exampleModel&#34;, ModelArgs.builder()        
- *             .executionRoleArn(exampleRole.arn())
- *             .primaryContainer(ModelPrimaryContainerArgs.builder()
- *                 .image(test.applyValue(getPrebuiltEcrImageResult -&gt; getPrebuiltEcrImageResult.registryPath()))
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * ```
  * ## Inference Execution Config
  * 
  * * `mode` - (Required) How containers in a multi-container are run. The following values are valid `Serial` and `Direct`.

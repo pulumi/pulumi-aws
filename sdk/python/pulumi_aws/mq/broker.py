@@ -758,19 +758,19 @@ class Broker(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.mq.Broker("example",
-            configuration=aws.mq.BrokerConfigurationArgs(
-                id=aws_mq_configuration["test"]["id"],
-                revision=aws_mq_configuration["test"]["latest_revision"],
-            ),
-            engine_type="ActiveMQ",
-            engine_version="5.17.6",
-            host_instance_type="mq.t2.micro",
-            security_groups=[aws_security_group["test"]["id"]],
-            users=[aws.mq.BrokerUserArgs(
-                username="ExampleUser",
-                password="MindTheGap",
-            )])
+        example = aws.mq.broker.Broker("example",
+            configuration={
+                id: aws_mq_configuration.test.id,
+                revision: aws_mq_configuration.test.latest_revision,
+            },
+            engine_type=ActiveMQ,
+            engine_version=5.17.6,
+            host_instance_type=mq.t2.micro,
+            security_groups=[aws_security_group.test.id],
+            users=[{
+                username: ExampleUser,
+                password: MindTheGap,
+            }])
         ```
         ### High-throughput Optimized Example
 
@@ -780,20 +780,20 @@ class Broker(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.mq.Broker("example",
-            configuration=aws.mq.BrokerConfigurationArgs(
-                id=aws_mq_configuration["test"]["id"],
-                revision=aws_mq_configuration["test"]["latest_revision"],
-            ),
-            engine_type="ActiveMQ",
-            engine_version="5.17.6",
-            storage_type="ebs",
-            host_instance_type="mq.m5.large",
-            security_groups=[aws_security_group["test"]["id"]],
-            users=[aws.mq.BrokerUserArgs(
-                username="ExampleUser",
-                password="MindTheGap",
-            )])
+        example = aws.mq.broker.Broker("example",
+            configuration={
+                id: aws_mq_configuration.test.id,
+                revision: aws_mq_configuration.test.latest_revision,
+            },
+            engine_type=ActiveMQ,
+            engine_version=5.17.6,
+            storage_type=ebs,
+            host_instance_type=mq.m5.large,
+            security_groups=[aws_security_group.test.id],
+            users=[{
+                username: ExampleUser,
+                password: MindTheGap,
+            }])
         ```
 
         ## Import
@@ -850,19 +850,19 @@ class Broker(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.mq.Broker("example",
-            configuration=aws.mq.BrokerConfigurationArgs(
-                id=aws_mq_configuration["test"]["id"],
-                revision=aws_mq_configuration["test"]["latest_revision"],
-            ),
-            engine_type="ActiveMQ",
-            engine_version="5.17.6",
-            host_instance_type="mq.t2.micro",
-            security_groups=[aws_security_group["test"]["id"]],
-            users=[aws.mq.BrokerUserArgs(
-                username="ExampleUser",
-                password="MindTheGap",
-            )])
+        example = aws.mq.broker.Broker("example",
+            configuration={
+                id: aws_mq_configuration.test.id,
+                revision: aws_mq_configuration.test.latest_revision,
+            },
+            engine_type=ActiveMQ,
+            engine_version=5.17.6,
+            host_instance_type=mq.t2.micro,
+            security_groups=[aws_security_group.test.id],
+            users=[{
+                username: ExampleUser,
+                password: MindTheGap,
+            }])
         ```
         ### High-throughput Optimized Example
 
@@ -872,20 +872,20 @@ class Broker(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.mq.Broker("example",
-            configuration=aws.mq.BrokerConfigurationArgs(
-                id=aws_mq_configuration["test"]["id"],
-                revision=aws_mq_configuration["test"]["latest_revision"],
-            ),
-            engine_type="ActiveMQ",
-            engine_version="5.17.6",
-            storage_type="ebs",
-            host_instance_type="mq.m5.large",
-            security_groups=[aws_security_group["test"]["id"]],
-            users=[aws.mq.BrokerUserArgs(
-                username="ExampleUser",
-                password="MindTheGap",
-            )])
+        example = aws.mq.broker.Broker("example",
+            configuration={
+                id: aws_mq_configuration.test.id,
+                revision: aws_mq_configuration.test.latest_revision,
+            },
+            engine_type=ActiveMQ,
+            engine_version=5.17.6,
+            storage_type=ebs,
+            host_instance_type=mq.m5.large,
+            security_groups=[aws_security_group.test.id],
+            users=[{
+                username: ExampleUser,
+                password: MindTheGap,
+            }])
         ```
 
         ## Import

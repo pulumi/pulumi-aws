@@ -22,36 +22,34 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cleanrooms"
+//	cleanrooms/configuredTable "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/cleanrooms/configuredTable"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cleanrooms.NewConfiguredTable(ctx, "testConfiguredTable", &cleanrooms.ConfiguredTableArgs{
-//				AllowedColumns: pulumi.StringArray{
-//					pulumi.String("column1"),
-//					pulumi.String("column2"),
-//					pulumi.String("column3"),
-//				},
-//				AnalysisMethod: pulumi.String("DIRECT_QUERY"),
-//				Description:    pulumi.String("I made this table with Pulumi!"),
-//				TableReference: &cleanrooms.ConfiguredTableTableReferenceArgs{
-//					DatabaseName: pulumi.String("example_database"),
-//					TableName:    pulumi.String("example_table"),
-//				},
-//				Tags: pulumi.StringMap{
-//					"Project": pulumi.String("Pulumi"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := cleanrooms/configuredTable.NewConfiguredTable(ctx, "testConfiguredTable", &cleanrooms/configuredTable.ConfiguredTableArgs{
+// AllowedColumns: []string{
+// "column1",
+// "column2",
+// "column3",
+// },
+// AnalysisMethod: "DIRECT_QUERY",
+// Description: "I made this table with Pulumi!",
+// TableReference: map[string]interface{}{
+// "databaseName": "example_database",
+// "tableName": "example_table",
+// },
+// Tags: map[string]interface{}{
+// "Project": "Pulumi",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

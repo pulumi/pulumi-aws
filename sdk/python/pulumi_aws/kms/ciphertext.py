@@ -158,16 +158,16 @@ class Ciphertext(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        oauth_config = aws.kms.Key("oauthConfig",
-            description="oauth config",
+        oauth_config = aws.kms.key.Key("oauthConfig",
+            description=oauth config,
             is_enabled=True)
-        oauth = aws.kms.Ciphertext("oauth",
+        oauth = aws.kms.ciphertext.Ciphertext("oauth",
             key_id=oauth_config.key_id,
-            plaintext=\"\"\"{
+            plaintext={
           "client_id": "e587dbae22222f55da22",
           "client_secret": "8289575d00000ace55e1815ec13673955721b8a5"
         }
-        \"\"\")
+        )
         ```
 
         :param str resource_name: The name of the resource.
@@ -194,16 +194,16 @@ class Ciphertext(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        oauth_config = aws.kms.Key("oauthConfig",
-            description="oauth config",
+        oauth_config = aws.kms.key.Key("oauthConfig",
+            description=oauth config,
             is_enabled=True)
-        oauth = aws.kms.Ciphertext("oauth",
+        oauth = aws.kms.ciphertext.Ciphertext("oauth",
             key_id=oauth_config.key_id,
-            plaintext=\"\"\"{
+            plaintext={
           "client_id": "e587dbae22222f55da22",
           "client_secret": "8289575d00000ace55e1815ec13673955721b8a5"
         }
-        \"\"\")
+        )
         ```
 
         :param str resource_name: The name of the resource.

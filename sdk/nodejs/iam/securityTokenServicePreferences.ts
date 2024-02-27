@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.iam.SecurityTokenServicePreferences("example", {globalEndpointTokenVersion: "v2Token"});
+ * const example = new aws.iam/securityTokenServicePreferences.SecurityTokenServicePreferences("example", {globalEndpointTokenVersion: "v2Token"});
  * ```
  */
 export class SecurityTokenServicePreferences extends pulumi.CustomResource {

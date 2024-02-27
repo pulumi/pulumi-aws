@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const bar = new aws.redshift.ParameterGroup("bar", {
+ * const bar = new aws.redshift/parameterGroup.ParameterGroup("bar", {
  *     family: "redshift-1.0",
  *     parameters: [
  *         {

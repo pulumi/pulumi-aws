@@ -24,7 +24,7 @@ namespace Pulumi.Aws.Iam
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var developers = new Aws.Iam.Group("developers", new()
+    ///     var developers = new Aws.Iam.Group.Group("developers", new()
     ///     {
     ///         Path = "/users/",
     ///     });

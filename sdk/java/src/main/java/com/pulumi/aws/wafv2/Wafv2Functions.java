@@ -26,74 +26,12 @@ public final class Wafv2Functions {
     /**
      * Retrieves the summary of a WAFv2 IP Set.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.wafv2.Wafv2Functions;
-     * import com.pulumi.aws.wafv2.inputs.GetIpSetArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Wafv2Functions.getIpSet(GetIpSetArgs.builder()
-     *             .name(&#34;some-ip-set&#34;)
-     *             .scope(&#34;REGIONAL&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetIpSetResult> getIpSet(GetIpSetArgs args) {
         return getIpSet(args, InvokeOptions.Empty);
     }
     /**
      * Retrieves the summary of a WAFv2 IP Set.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.wafv2.Wafv2Functions;
-     * import com.pulumi.aws.wafv2.inputs.GetIpSetArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Wafv2Functions.getIpSet(GetIpSetArgs.builder()
-     *             .name(&#34;some-ip-set&#34;)
-     *             .scope(&#34;REGIONAL&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetIpSetResult> getIpSetPlain(GetIpSetPlainArgs args) {
@@ -102,74 +40,12 @@ public final class Wafv2Functions {
     /**
      * Retrieves the summary of a WAFv2 IP Set.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.wafv2.Wafv2Functions;
-     * import com.pulumi.aws.wafv2.inputs.GetIpSetArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Wafv2Functions.getIpSet(GetIpSetArgs.builder()
-     *             .name(&#34;some-ip-set&#34;)
-     *             .scope(&#34;REGIONAL&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetIpSetResult> getIpSet(GetIpSetArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:wafv2/getIpSet:getIpSet", TypeShape.of(GetIpSetResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Retrieves the summary of a WAFv2 IP Set.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.wafv2.Wafv2Functions;
-     * import com.pulumi.aws.wafv2.inputs.GetIpSetArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Wafv2Functions.getIpSet(GetIpSetArgs.builder()
-     *             .name(&#34;some-ip-set&#34;)
-     *             .scope(&#34;REGIONAL&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetIpSetResult> getIpSetPlain(GetIpSetPlainArgs args, InvokeOptions options) {
@@ -178,74 +54,12 @@ public final class Wafv2Functions {
     /**
      * Retrieves the summary of a WAFv2 Regex Pattern Set.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.wafv2.Wafv2Functions;
-     * import com.pulumi.aws.wafv2.inputs.GetRegexPatternSetArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Wafv2Functions.getRegexPatternSet(GetRegexPatternSetArgs.builder()
-     *             .name(&#34;some-regex-pattern-set&#34;)
-     *             .scope(&#34;REGIONAL&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetRegexPatternSetResult> getRegexPatternSet(GetRegexPatternSetArgs args) {
         return getRegexPatternSet(args, InvokeOptions.Empty);
     }
     /**
      * Retrieves the summary of a WAFv2 Regex Pattern Set.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.wafv2.Wafv2Functions;
-     * import com.pulumi.aws.wafv2.inputs.GetRegexPatternSetArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Wafv2Functions.getRegexPatternSet(GetRegexPatternSetArgs.builder()
-     *             .name(&#34;some-regex-pattern-set&#34;)
-     *             .scope(&#34;REGIONAL&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetRegexPatternSetResult> getRegexPatternSetPlain(GetRegexPatternSetPlainArgs args) {
@@ -254,74 +68,12 @@ public final class Wafv2Functions {
     /**
      * Retrieves the summary of a WAFv2 Regex Pattern Set.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.wafv2.Wafv2Functions;
-     * import com.pulumi.aws.wafv2.inputs.GetRegexPatternSetArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Wafv2Functions.getRegexPatternSet(GetRegexPatternSetArgs.builder()
-     *             .name(&#34;some-regex-pattern-set&#34;)
-     *             .scope(&#34;REGIONAL&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetRegexPatternSetResult> getRegexPatternSet(GetRegexPatternSetArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:wafv2/getRegexPatternSet:getRegexPatternSet", TypeShape.of(GetRegexPatternSetResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Retrieves the summary of a WAFv2 Regex Pattern Set.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.wafv2.Wafv2Functions;
-     * import com.pulumi.aws.wafv2.inputs.GetRegexPatternSetArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Wafv2Functions.getRegexPatternSet(GetRegexPatternSetArgs.builder()
-     *             .name(&#34;some-regex-pattern-set&#34;)
-     *             .scope(&#34;REGIONAL&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetRegexPatternSetResult> getRegexPatternSetPlain(GetRegexPatternSetPlainArgs args, InvokeOptions options) {
@@ -330,74 +82,12 @@ public final class Wafv2Functions {
     /**
      * Retrieves the summary of a WAFv2 Rule Group.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.wafv2.Wafv2Functions;
-     * import com.pulumi.aws.wafv2.inputs.GetRuleGroupArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Wafv2Functions.getRuleGroup(GetRuleGroupArgs.builder()
-     *             .name(&#34;some-rule-group&#34;)
-     *             .scope(&#34;REGIONAL&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetRuleGroupResult> getRuleGroup(GetRuleGroupArgs args) {
         return getRuleGroup(args, InvokeOptions.Empty);
     }
     /**
      * Retrieves the summary of a WAFv2 Rule Group.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.wafv2.Wafv2Functions;
-     * import com.pulumi.aws.wafv2.inputs.GetRuleGroupArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Wafv2Functions.getRuleGroup(GetRuleGroupArgs.builder()
-     *             .name(&#34;some-rule-group&#34;)
-     *             .scope(&#34;REGIONAL&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetRuleGroupResult> getRuleGroupPlain(GetRuleGroupPlainArgs args) {
@@ -406,74 +96,12 @@ public final class Wafv2Functions {
     /**
      * Retrieves the summary of a WAFv2 Rule Group.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.wafv2.Wafv2Functions;
-     * import com.pulumi.aws.wafv2.inputs.GetRuleGroupArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Wafv2Functions.getRuleGroup(GetRuleGroupArgs.builder()
-     *             .name(&#34;some-rule-group&#34;)
-     *             .scope(&#34;REGIONAL&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetRuleGroupResult> getRuleGroup(GetRuleGroupArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:wafv2/getRuleGroup:getRuleGroup", TypeShape.of(GetRuleGroupResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Retrieves the summary of a WAFv2 Rule Group.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.wafv2.Wafv2Functions;
-     * import com.pulumi.aws.wafv2.inputs.GetRuleGroupArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Wafv2Functions.getRuleGroup(GetRuleGroupArgs.builder()
-     *             .name(&#34;some-rule-group&#34;)
-     *             .scope(&#34;REGIONAL&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetRuleGroupResult> getRuleGroupPlain(GetRuleGroupPlainArgs args, InvokeOptions options) {
@@ -482,74 +110,12 @@ public final class Wafv2Functions {
     /**
      * Retrieves the summary of a WAFv2 Web ACL.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.wafv2.Wafv2Functions;
-     * import com.pulumi.aws.wafv2.inputs.GetWebAclArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Wafv2Functions.getWebAcl(GetWebAclArgs.builder()
-     *             .name(&#34;some-web-acl&#34;)
-     *             .scope(&#34;REGIONAL&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetWebAclResult> getWebAcl(GetWebAclArgs args) {
         return getWebAcl(args, InvokeOptions.Empty);
     }
     /**
      * Retrieves the summary of a WAFv2 Web ACL.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.wafv2.Wafv2Functions;
-     * import com.pulumi.aws.wafv2.inputs.GetWebAclArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Wafv2Functions.getWebAcl(GetWebAclArgs.builder()
-     *             .name(&#34;some-web-acl&#34;)
-     *             .scope(&#34;REGIONAL&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetWebAclResult> getWebAclPlain(GetWebAclPlainArgs args) {
@@ -558,74 +124,12 @@ public final class Wafv2Functions {
     /**
      * Retrieves the summary of a WAFv2 Web ACL.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.wafv2.Wafv2Functions;
-     * import com.pulumi.aws.wafv2.inputs.GetWebAclArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Wafv2Functions.getWebAcl(GetWebAclArgs.builder()
-     *             .name(&#34;some-web-acl&#34;)
-     *             .scope(&#34;REGIONAL&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetWebAclResult> getWebAcl(GetWebAclArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:wafv2/getWebAcl:getWebAcl", TypeShape.of(GetWebAclResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Retrieves the summary of a WAFv2 Web ACL.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.wafv2.Wafv2Functions;
-     * import com.pulumi.aws.wafv2.inputs.GetWebAclArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Wafv2Functions.getWebAcl(GetWebAclArgs.builder()
-     *             .name(&#34;some-web-acl&#34;)
-     *             .scope(&#34;REGIONAL&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetWebAclResult> getWebAclPlain(GetWebAclPlainArgs args, InvokeOptions options) {

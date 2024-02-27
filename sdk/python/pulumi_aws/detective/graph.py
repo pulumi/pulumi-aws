@@ -125,8 +125,8 @@ class Graph(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.detective.Graph("example", tags={
-            "Name": "example-detective-graph",
+        example = aws.detective.graph.Graph("example", tags={
+            Name: example-detective-graph,
         })
         ```
 
@@ -157,8 +157,8 @@ class Graph(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.detective.Graph("example", tags={
-            "Name": "example-detective-graph",
+        example = aws.detective.graph.Graph("example", tags={
+            Name: example-detective-graph,
         })
         ```
 

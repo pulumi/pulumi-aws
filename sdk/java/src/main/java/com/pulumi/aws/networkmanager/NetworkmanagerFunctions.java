@@ -47,74 +47,12 @@ public final class NetworkmanagerFunctions {
     /**
      * Retrieve information about a connection.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
-     * import com.pulumi.aws.networkmanager.inputs.GetConnectionArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = NetworkmanagerFunctions.getConnection(GetConnectionArgs.builder()
-     *             .globalNetworkId(var_.global_network_id())
-     *             .connectionId(var_.connection_id())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetConnectionResult> getConnection(GetConnectionArgs args) {
         return getConnection(args, InvokeOptions.Empty);
     }
     /**
      * Retrieve information about a connection.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
-     * import com.pulumi.aws.networkmanager.inputs.GetConnectionArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = NetworkmanagerFunctions.getConnection(GetConnectionArgs.builder()
-     *             .globalNetworkId(var_.global_network_id())
-     *             .connectionId(var_.connection_id())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetConnectionResult> getConnectionPlain(GetConnectionPlainArgs args) {
@@ -123,74 +61,12 @@ public final class NetworkmanagerFunctions {
     /**
      * Retrieve information about a connection.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
-     * import com.pulumi.aws.networkmanager.inputs.GetConnectionArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = NetworkmanagerFunctions.getConnection(GetConnectionArgs.builder()
-     *             .globalNetworkId(var_.global_network_id())
-     *             .connectionId(var_.connection_id())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetConnectionResult> getConnection(GetConnectionArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:networkmanager/getConnection:getConnection", TypeShape.of(GetConnectionResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Retrieve information about a connection.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
-     * import com.pulumi.aws.networkmanager.inputs.GetConnectionArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = NetworkmanagerFunctions.getConnection(GetConnectionArgs.builder()
-     *             .globalNetworkId(var_.global_network_id())
-     *             .connectionId(var_.connection_id())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetConnectionResult> getConnectionPlain(GetConnectionPlainArgs args, InvokeOptions options) {
@@ -199,74 +75,12 @@ public final class NetworkmanagerFunctions {
     /**
      * Retrieve information about connections.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
-     * import com.pulumi.aws.networkmanager.inputs.GetConnectionsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = NetworkmanagerFunctions.getConnections(GetConnectionsArgs.builder()
-     *             .globalNetworkId(var_.global_network_id())
-     *             .tags(Map.of(&#34;Env&#34;, &#34;test&#34;))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetConnectionsResult> getConnections(GetConnectionsArgs args) {
         return getConnections(args, InvokeOptions.Empty);
     }
     /**
      * Retrieve information about connections.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
-     * import com.pulumi.aws.networkmanager.inputs.GetConnectionsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = NetworkmanagerFunctions.getConnections(GetConnectionsArgs.builder()
-     *             .globalNetworkId(var_.global_network_id())
-     *             .tags(Map.of(&#34;Env&#34;, &#34;test&#34;))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetConnectionsResult> getConnectionsPlain(GetConnectionsPlainArgs args) {
@@ -275,74 +89,12 @@ public final class NetworkmanagerFunctions {
     /**
      * Retrieve information about connections.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
-     * import com.pulumi.aws.networkmanager.inputs.GetConnectionsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = NetworkmanagerFunctions.getConnections(GetConnectionsArgs.builder()
-     *             .globalNetworkId(var_.global_network_id())
-     *             .tags(Map.of(&#34;Env&#34;, &#34;test&#34;))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetConnectionsResult> getConnections(GetConnectionsArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:networkmanager/getConnections:getConnections", TypeShape.of(GetConnectionsResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Retrieve information about connections.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
-     * import com.pulumi.aws.networkmanager.inputs.GetConnectionsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = NetworkmanagerFunctions.getConnections(GetConnectionsArgs.builder()
-     *             .globalNetworkId(var_.global_network_id())
-     *             .tags(Map.of(&#34;Env&#34;, &#34;test&#34;))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetConnectionsResult> getConnectionsPlain(GetConnectionsPlainArgs args, InvokeOptions options) {
@@ -354,117 +106,6 @@ public final class NetworkmanagerFunctions {
      * Using this data source to generate policy documents is *optional*. It is also valid to use literal JSON strings in your configuration or to use the `file` interpolation function to read a raw JSON policy document from a file.
      * 
      * ## Example Usage
-     * ### Basic Example
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
-     * import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkPolicyDocumentArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = NetworkmanagerFunctions.getCoreNetworkPolicyDocument(GetCoreNetworkPolicyDocumentArgs.builder()
-     *             .attachmentPolicies(            
-     *                 GetCoreNetworkPolicyDocumentAttachmentPolicyArgs.builder()
-     *                     .action(GetCoreNetworkPolicyDocumentAttachmentPolicyActionArgs.builder()
-     *                         .associationMethod(&#34;constant&#34;)
-     *                         .segment(&#34;shared&#34;)
-     *                         .build())
-     *                     .conditionLogic(&#34;or&#34;)
-     *                     .conditions(GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArgs.builder()
-     *                         .key(&#34;segment&#34;)
-     *                         .operator(&#34;equals&#34;)
-     *                         .type(&#34;tag-value&#34;)
-     *                         .value(&#34;shared&#34;)
-     *                         .build())
-     *                     .ruleNumber(100)
-     *                     .build(),
-     *                 GetCoreNetworkPolicyDocumentAttachmentPolicyArgs.builder()
-     *                     .action(GetCoreNetworkPolicyDocumentAttachmentPolicyActionArgs.builder()
-     *                         .associationMethod(&#34;constant&#34;)
-     *                         .segment(&#34;prod&#34;)
-     *                         .build())
-     *                     .conditionLogic(&#34;or&#34;)
-     *                     .conditions(GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArgs.builder()
-     *                         .key(&#34;segment&#34;)
-     *                         .operator(&#34;equals&#34;)
-     *                         .type(&#34;tag-value&#34;)
-     *                         .value(&#34;prod&#34;)
-     *                         .build())
-     *                     .ruleNumber(200)
-     *                     .build())
-     *             .coreNetworkConfigurations(GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs.builder()
-     *                 .asnRanges(&#34;64512-64555&#34;)
-     *                 .edgeLocations(                
-     *                     GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs.builder()
-     *                         .asn(64512)
-     *                         .location(&#34;us-east-1&#34;)
-     *                         .build(),
-     *                     GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs.builder()
-     *                         .asn(64513)
-     *                         .location(&#34;eu-central-1&#34;)
-     *                         .build())
-     *                 .vpnEcmpSupport(false)
-     *                 .build())
-     *             .segmentActions(GetCoreNetworkPolicyDocumentSegmentActionArgs.builder()
-     *                 .action(&#34;share&#34;)
-     *                 .mode(&#34;attachment-route&#34;)
-     *                 .segment(&#34;shared&#34;)
-     *                 .shareWiths(&#34;*&#34;)
-     *                 .build())
-     *             .segments(            
-     *                 GetCoreNetworkPolicyDocumentSegmentArgs.builder()
-     *                     .description(&#34;Segment for shared services&#34;)
-     *                     .name(&#34;shared&#34;)
-     *                     .requireAttachmentAcceptance(true)
-     *                     .build(),
-     *                 GetCoreNetworkPolicyDocumentSegmentArgs.builder()
-     *                     .description(&#34;Segment for prod services&#34;)
-     *                     .name(&#34;prod&#34;)
-     *                     .requireAttachmentAcceptance(true)
-     *                     .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
-     * `data.aws_networkmanager_core_network_policy_document.test.json` will evaluate to:
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetCoreNetworkPolicyDocumentResult> getCoreNetworkPolicyDocument(GetCoreNetworkPolicyDocumentArgs args) {
@@ -476,117 +117,6 @@ public final class NetworkmanagerFunctions {
      * Using this data source to generate policy documents is *optional*. It is also valid to use literal JSON strings in your configuration or to use the `file` interpolation function to read a raw JSON policy document from a file.
      * 
      * ## Example Usage
-     * ### Basic Example
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
-     * import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkPolicyDocumentArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = NetworkmanagerFunctions.getCoreNetworkPolicyDocument(GetCoreNetworkPolicyDocumentArgs.builder()
-     *             .attachmentPolicies(            
-     *                 GetCoreNetworkPolicyDocumentAttachmentPolicyArgs.builder()
-     *                     .action(GetCoreNetworkPolicyDocumentAttachmentPolicyActionArgs.builder()
-     *                         .associationMethod(&#34;constant&#34;)
-     *                         .segment(&#34;shared&#34;)
-     *                         .build())
-     *                     .conditionLogic(&#34;or&#34;)
-     *                     .conditions(GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArgs.builder()
-     *                         .key(&#34;segment&#34;)
-     *                         .operator(&#34;equals&#34;)
-     *                         .type(&#34;tag-value&#34;)
-     *                         .value(&#34;shared&#34;)
-     *                         .build())
-     *                     .ruleNumber(100)
-     *                     .build(),
-     *                 GetCoreNetworkPolicyDocumentAttachmentPolicyArgs.builder()
-     *                     .action(GetCoreNetworkPolicyDocumentAttachmentPolicyActionArgs.builder()
-     *                         .associationMethod(&#34;constant&#34;)
-     *                         .segment(&#34;prod&#34;)
-     *                         .build())
-     *                     .conditionLogic(&#34;or&#34;)
-     *                     .conditions(GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArgs.builder()
-     *                         .key(&#34;segment&#34;)
-     *                         .operator(&#34;equals&#34;)
-     *                         .type(&#34;tag-value&#34;)
-     *                         .value(&#34;prod&#34;)
-     *                         .build())
-     *                     .ruleNumber(200)
-     *                     .build())
-     *             .coreNetworkConfigurations(GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs.builder()
-     *                 .asnRanges(&#34;64512-64555&#34;)
-     *                 .edgeLocations(                
-     *                     GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs.builder()
-     *                         .asn(64512)
-     *                         .location(&#34;us-east-1&#34;)
-     *                         .build(),
-     *                     GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs.builder()
-     *                         .asn(64513)
-     *                         .location(&#34;eu-central-1&#34;)
-     *                         .build())
-     *                 .vpnEcmpSupport(false)
-     *                 .build())
-     *             .segmentActions(GetCoreNetworkPolicyDocumentSegmentActionArgs.builder()
-     *                 .action(&#34;share&#34;)
-     *                 .mode(&#34;attachment-route&#34;)
-     *                 .segment(&#34;shared&#34;)
-     *                 .shareWiths(&#34;*&#34;)
-     *                 .build())
-     *             .segments(            
-     *                 GetCoreNetworkPolicyDocumentSegmentArgs.builder()
-     *                     .description(&#34;Segment for shared services&#34;)
-     *                     .name(&#34;shared&#34;)
-     *                     .requireAttachmentAcceptance(true)
-     *                     .build(),
-     *                 GetCoreNetworkPolicyDocumentSegmentArgs.builder()
-     *                     .description(&#34;Segment for prod services&#34;)
-     *                     .name(&#34;prod&#34;)
-     *                     .requireAttachmentAcceptance(true)
-     *                     .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
-     * `data.aws_networkmanager_core_network_policy_document.test.json` will evaluate to:
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetCoreNetworkPolicyDocumentResult> getCoreNetworkPolicyDocumentPlain(GetCoreNetworkPolicyDocumentPlainArgs args) {
@@ -598,117 +128,6 @@ public final class NetworkmanagerFunctions {
      * Using this data source to generate policy documents is *optional*. It is also valid to use literal JSON strings in your configuration or to use the `file` interpolation function to read a raw JSON policy document from a file.
      * 
      * ## Example Usage
-     * ### Basic Example
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
-     * import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkPolicyDocumentArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = NetworkmanagerFunctions.getCoreNetworkPolicyDocument(GetCoreNetworkPolicyDocumentArgs.builder()
-     *             .attachmentPolicies(            
-     *                 GetCoreNetworkPolicyDocumentAttachmentPolicyArgs.builder()
-     *                     .action(GetCoreNetworkPolicyDocumentAttachmentPolicyActionArgs.builder()
-     *                         .associationMethod(&#34;constant&#34;)
-     *                         .segment(&#34;shared&#34;)
-     *                         .build())
-     *                     .conditionLogic(&#34;or&#34;)
-     *                     .conditions(GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArgs.builder()
-     *                         .key(&#34;segment&#34;)
-     *                         .operator(&#34;equals&#34;)
-     *                         .type(&#34;tag-value&#34;)
-     *                         .value(&#34;shared&#34;)
-     *                         .build())
-     *                     .ruleNumber(100)
-     *                     .build(),
-     *                 GetCoreNetworkPolicyDocumentAttachmentPolicyArgs.builder()
-     *                     .action(GetCoreNetworkPolicyDocumentAttachmentPolicyActionArgs.builder()
-     *                         .associationMethod(&#34;constant&#34;)
-     *                         .segment(&#34;prod&#34;)
-     *                         .build())
-     *                     .conditionLogic(&#34;or&#34;)
-     *                     .conditions(GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArgs.builder()
-     *                         .key(&#34;segment&#34;)
-     *                         .operator(&#34;equals&#34;)
-     *                         .type(&#34;tag-value&#34;)
-     *                         .value(&#34;prod&#34;)
-     *                         .build())
-     *                     .ruleNumber(200)
-     *                     .build())
-     *             .coreNetworkConfigurations(GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs.builder()
-     *                 .asnRanges(&#34;64512-64555&#34;)
-     *                 .edgeLocations(                
-     *                     GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs.builder()
-     *                         .asn(64512)
-     *                         .location(&#34;us-east-1&#34;)
-     *                         .build(),
-     *                     GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs.builder()
-     *                         .asn(64513)
-     *                         .location(&#34;eu-central-1&#34;)
-     *                         .build())
-     *                 .vpnEcmpSupport(false)
-     *                 .build())
-     *             .segmentActions(GetCoreNetworkPolicyDocumentSegmentActionArgs.builder()
-     *                 .action(&#34;share&#34;)
-     *                 .mode(&#34;attachment-route&#34;)
-     *                 .segment(&#34;shared&#34;)
-     *                 .shareWiths(&#34;*&#34;)
-     *                 .build())
-     *             .segments(            
-     *                 GetCoreNetworkPolicyDocumentSegmentArgs.builder()
-     *                     .description(&#34;Segment for shared services&#34;)
-     *                     .name(&#34;shared&#34;)
-     *                     .requireAttachmentAcceptance(true)
-     *                     .build(),
-     *                 GetCoreNetworkPolicyDocumentSegmentArgs.builder()
-     *                     .description(&#34;Segment for prod services&#34;)
-     *                     .name(&#34;prod&#34;)
-     *                     .requireAttachmentAcceptance(true)
-     *                     .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
-     * `data.aws_networkmanager_core_network_policy_document.test.json` will evaluate to:
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetCoreNetworkPolicyDocumentResult> getCoreNetworkPolicyDocument(GetCoreNetworkPolicyDocumentArgs args, InvokeOptions options) {
@@ -720,117 +139,6 @@ public final class NetworkmanagerFunctions {
      * Using this data source to generate policy documents is *optional*. It is also valid to use literal JSON strings in your configuration or to use the `file` interpolation function to read a raw JSON policy document from a file.
      * 
      * ## Example Usage
-     * ### Basic Example
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
-     * import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkPolicyDocumentArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = NetworkmanagerFunctions.getCoreNetworkPolicyDocument(GetCoreNetworkPolicyDocumentArgs.builder()
-     *             .attachmentPolicies(            
-     *                 GetCoreNetworkPolicyDocumentAttachmentPolicyArgs.builder()
-     *                     .action(GetCoreNetworkPolicyDocumentAttachmentPolicyActionArgs.builder()
-     *                         .associationMethod(&#34;constant&#34;)
-     *                         .segment(&#34;shared&#34;)
-     *                         .build())
-     *                     .conditionLogic(&#34;or&#34;)
-     *                     .conditions(GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArgs.builder()
-     *                         .key(&#34;segment&#34;)
-     *                         .operator(&#34;equals&#34;)
-     *                         .type(&#34;tag-value&#34;)
-     *                         .value(&#34;shared&#34;)
-     *                         .build())
-     *                     .ruleNumber(100)
-     *                     .build(),
-     *                 GetCoreNetworkPolicyDocumentAttachmentPolicyArgs.builder()
-     *                     .action(GetCoreNetworkPolicyDocumentAttachmentPolicyActionArgs.builder()
-     *                         .associationMethod(&#34;constant&#34;)
-     *                         .segment(&#34;prod&#34;)
-     *                         .build())
-     *                     .conditionLogic(&#34;or&#34;)
-     *                     .conditions(GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArgs.builder()
-     *                         .key(&#34;segment&#34;)
-     *                         .operator(&#34;equals&#34;)
-     *                         .type(&#34;tag-value&#34;)
-     *                         .value(&#34;prod&#34;)
-     *                         .build())
-     *                     .ruleNumber(200)
-     *                     .build())
-     *             .coreNetworkConfigurations(GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs.builder()
-     *                 .asnRanges(&#34;64512-64555&#34;)
-     *                 .edgeLocations(                
-     *                     GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs.builder()
-     *                         .asn(64512)
-     *                         .location(&#34;us-east-1&#34;)
-     *                         .build(),
-     *                     GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs.builder()
-     *                         .asn(64513)
-     *                         .location(&#34;eu-central-1&#34;)
-     *                         .build())
-     *                 .vpnEcmpSupport(false)
-     *                 .build())
-     *             .segmentActions(GetCoreNetworkPolicyDocumentSegmentActionArgs.builder()
-     *                 .action(&#34;share&#34;)
-     *                 .mode(&#34;attachment-route&#34;)
-     *                 .segment(&#34;shared&#34;)
-     *                 .shareWiths(&#34;*&#34;)
-     *                 .build())
-     *             .segments(            
-     *                 GetCoreNetworkPolicyDocumentSegmentArgs.builder()
-     *                     .description(&#34;Segment for shared services&#34;)
-     *                     .name(&#34;shared&#34;)
-     *                     .requireAttachmentAcceptance(true)
-     *                     .build(),
-     *                 GetCoreNetworkPolicyDocumentSegmentArgs.builder()
-     *                     .description(&#34;Segment for prod services&#34;)
-     *                     .name(&#34;prod&#34;)
-     *                     .requireAttachmentAcceptance(true)
-     *                     .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
-     * `data.aws_networkmanager_core_network_policy_document.test.json` will evaluate to:
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetCoreNetworkPolicyDocumentResult> getCoreNetworkPolicyDocumentPlain(GetCoreNetworkPolicyDocumentPlainArgs args, InvokeOptions options) {
@@ -839,76 +147,12 @@ public final class NetworkmanagerFunctions {
     /**
      * Retrieve information about a device.
      * 
-     * ## Example Usage
-     * 
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
-     * import com.pulumi.aws.networkmanager.inputs.GetDeviceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = NetworkmanagerFunctions.getDevice(GetDeviceArgs.builder()
-     *             .globalNetworkIdId(var_.global_network_id())
-     *             .deviceId(var_.device_id())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetDeviceResult> getDevice(GetDeviceArgs args) {
         return getDevice(args, InvokeOptions.Empty);
     }
     /**
      * Retrieve information about a device.
-     * 
-     * ## Example Usage
-     * 
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
-     * import com.pulumi.aws.networkmanager.inputs.GetDeviceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = NetworkmanagerFunctions.getDevice(GetDeviceArgs.builder()
-     *             .globalNetworkIdId(var_.global_network_id())
-     *             .deviceId(var_.device_id())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetDeviceResult> getDevicePlain(GetDevicePlainArgs args) {
@@ -917,76 +161,12 @@ public final class NetworkmanagerFunctions {
     /**
      * Retrieve information about a device.
      * 
-     * ## Example Usage
-     * 
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
-     * import com.pulumi.aws.networkmanager.inputs.GetDeviceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = NetworkmanagerFunctions.getDevice(GetDeviceArgs.builder()
-     *             .globalNetworkIdId(var_.global_network_id())
-     *             .deviceId(var_.device_id())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetDeviceResult> getDevice(GetDeviceArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:networkmanager/getDevice:getDevice", TypeShape.of(GetDeviceResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Retrieve information about a device.
-     * 
-     * ## Example Usage
-     * 
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
-     * import com.pulumi.aws.networkmanager.inputs.GetDeviceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = NetworkmanagerFunctions.getDevice(GetDeviceArgs.builder()
-     *             .globalNetworkIdId(var_.global_network_id())
-     *             .deviceId(var_.device_id())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetDeviceResult> getDevicePlain(GetDevicePlainArgs args, InvokeOptions options) {
@@ -995,74 +175,12 @@ public final class NetworkmanagerFunctions {
     /**
      * Retrieve information about devices.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
-     * import com.pulumi.aws.networkmanager.inputs.GetDevicesArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = NetworkmanagerFunctions.getDevices(GetDevicesArgs.builder()
-     *             .globalNetworkId(var_.global_network_id())
-     *             .tags(Map.of(&#34;Env&#34;, &#34;test&#34;))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetDevicesResult> getDevices(GetDevicesArgs args) {
         return getDevices(args, InvokeOptions.Empty);
     }
     /**
      * Retrieve information about devices.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
-     * import com.pulumi.aws.networkmanager.inputs.GetDevicesArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = NetworkmanagerFunctions.getDevices(GetDevicesArgs.builder()
-     *             .globalNetworkId(var_.global_network_id())
-     *             .tags(Map.of(&#34;Env&#34;, &#34;test&#34;))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetDevicesResult> getDevicesPlain(GetDevicesPlainArgs args) {
@@ -1071,74 +189,12 @@ public final class NetworkmanagerFunctions {
     /**
      * Retrieve information about devices.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
-     * import com.pulumi.aws.networkmanager.inputs.GetDevicesArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = NetworkmanagerFunctions.getDevices(GetDevicesArgs.builder()
-     *             .globalNetworkId(var_.global_network_id())
-     *             .tags(Map.of(&#34;Env&#34;, &#34;test&#34;))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetDevicesResult> getDevices(GetDevicesArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:networkmanager/getDevices:getDevices", TypeShape.of(GetDevicesResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Retrieve information about devices.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
-     * import com.pulumi.aws.networkmanager.inputs.GetDevicesArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = NetworkmanagerFunctions.getDevices(GetDevicesArgs.builder()
-     *             .globalNetworkId(var_.global_network_id())
-     *             .tags(Map.of(&#34;Env&#34;, &#34;test&#34;))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetDevicesResult> getDevicesPlain(GetDevicesPlainArgs args, InvokeOptions options) {
@@ -1147,72 +203,12 @@ public final class NetworkmanagerFunctions {
     /**
      * Retrieve information about a global network.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
-     * import com.pulumi.aws.networkmanager.inputs.GetGlobalNetworkArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = NetworkmanagerFunctions.getGlobalNetwork(GetGlobalNetworkArgs.builder()
-     *             .globalNetworkId(var_.global_network_id())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetGlobalNetworkResult> getGlobalNetwork(GetGlobalNetworkArgs args) {
         return getGlobalNetwork(args, InvokeOptions.Empty);
     }
     /**
      * Retrieve information about a global network.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
-     * import com.pulumi.aws.networkmanager.inputs.GetGlobalNetworkArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = NetworkmanagerFunctions.getGlobalNetwork(GetGlobalNetworkArgs.builder()
-     *             .globalNetworkId(var_.global_network_id())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetGlobalNetworkResult> getGlobalNetworkPlain(GetGlobalNetworkPlainArgs args) {
@@ -1221,72 +217,12 @@ public final class NetworkmanagerFunctions {
     /**
      * Retrieve information about a global network.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
-     * import com.pulumi.aws.networkmanager.inputs.GetGlobalNetworkArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = NetworkmanagerFunctions.getGlobalNetwork(GetGlobalNetworkArgs.builder()
-     *             .globalNetworkId(var_.global_network_id())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetGlobalNetworkResult> getGlobalNetwork(GetGlobalNetworkArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:networkmanager/getGlobalNetwork:getGlobalNetwork", TypeShape.of(GetGlobalNetworkResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Retrieve information about a global network.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
-     * import com.pulumi.aws.networkmanager.inputs.GetGlobalNetworkArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = NetworkmanagerFunctions.getGlobalNetwork(GetGlobalNetworkArgs.builder()
-     *             .globalNetworkId(var_.global_network_id())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetGlobalNetworkResult> getGlobalNetworkPlain(GetGlobalNetworkPlainArgs args, InvokeOptions options) {
@@ -1295,72 +231,12 @@ public final class NetworkmanagerFunctions {
     /**
      * Retrieve information about global networks.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
-     * import com.pulumi.aws.networkmanager.inputs.GetGlobalNetworksArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = NetworkmanagerFunctions.getGlobalNetworks(GetGlobalNetworksArgs.builder()
-     *             .tags(Map.of(&#34;Env&#34;, &#34;test&#34;))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetGlobalNetworksResult> getGlobalNetworks() {
         return getGlobalNetworks(GetGlobalNetworksArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * Retrieve information about global networks.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
-     * import com.pulumi.aws.networkmanager.inputs.GetGlobalNetworksArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = NetworkmanagerFunctions.getGlobalNetworks(GetGlobalNetworksArgs.builder()
-     *             .tags(Map.of(&#34;Env&#34;, &#34;test&#34;))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetGlobalNetworksResult> getGlobalNetworksPlain() {
@@ -1369,72 +245,12 @@ public final class NetworkmanagerFunctions {
     /**
      * Retrieve information about global networks.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
-     * import com.pulumi.aws.networkmanager.inputs.GetGlobalNetworksArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = NetworkmanagerFunctions.getGlobalNetworks(GetGlobalNetworksArgs.builder()
-     *             .tags(Map.of(&#34;Env&#34;, &#34;test&#34;))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetGlobalNetworksResult> getGlobalNetworks(GetGlobalNetworksArgs args) {
         return getGlobalNetworks(args, InvokeOptions.Empty);
     }
     /**
      * Retrieve information about global networks.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
-     * import com.pulumi.aws.networkmanager.inputs.GetGlobalNetworksArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = NetworkmanagerFunctions.getGlobalNetworks(GetGlobalNetworksArgs.builder()
-     *             .tags(Map.of(&#34;Env&#34;, &#34;test&#34;))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetGlobalNetworksResult> getGlobalNetworksPlain(GetGlobalNetworksPlainArgs args) {
@@ -1443,72 +259,12 @@ public final class NetworkmanagerFunctions {
     /**
      * Retrieve information about global networks.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
-     * import com.pulumi.aws.networkmanager.inputs.GetGlobalNetworksArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = NetworkmanagerFunctions.getGlobalNetworks(GetGlobalNetworksArgs.builder()
-     *             .tags(Map.of(&#34;Env&#34;, &#34;test&#34;))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetGlobalNetworksResult> getGlobalNetworks(GetGlobalNetworksArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:networkmanager/getGlobalNetworks:getGlobalNetworks", TypeShape.of(GetGlobalNetworksResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Retrieve information about global networks.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
-     * import com.pulumi.aws.networkmanager.inputs.GetGlobalNetworksArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = NetworkmanagerFunctions.getGlobalNetworks(GetGlobalNetworksArgs.builder()
-     *             .tags(Map.of(&#34;Env&#34;, &#34;test&#34;))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetGlobalNetworksResult> getGlobalNetworksPlain(GetGlobalNetworksPlainArgs args, InvokeOptions options) {
@@ -1517,74 +273,12 @@ public final class NetworkmanagerFunctions {
     /**
      * Retrieve information about a link.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
-     * import com.pulumi.aws.networkmanager.inputs.GetLinkArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = NetworkmanagerFunctions.getLink(GetLinkArgs.builder()
-     *             .globalNetworkId(var_.global_network_id())
-     *             .linkId(var_.link_id())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetLinkResult> getLink(GetLinkArgs args) {
         return getLink(args, InvokeOptions.Empty);
     }
     /**
      * Retrieve information about a link.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
-     * import com.pulumi.aws.networkmanager.inputs.GetLinkArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = NetworkmanagerFunctions.getLink(GetLinkArgs.builder()
-     *             .globalNetworkId(var_.global_network_id())
-     *             .linkId(var_.link_id())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetLinkResult> getLinkPlain(GetLinkPlainArgs args) {
@@ -1593,74 +287,12 @@ public final class NetworkmanagerFunctions {
     /**
      * Retrieve information about a link.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
-     * import com.pulumi.aws.networkmanager.inputs.GetLinkArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = NetworkmanagerFunctions.getLink(GetLinkArgs.builder()
-     *             .globalNetworkId(var_.global_network_id())
-     *             .linkId(var_.link_id())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetLinkResult> getLink(GetLinkArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:networkmanager/getLink:getLink", TypeShape.of(GetLinkResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Retrieve information about a link.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
-     * import com.pulumi.aws.networkmanager.inputs.GetLinkArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = NetworkmanagerFunctions.getLink(GetLinkArgs.builder()
-     *             .globalNetworkId(var_.global_network_id())
-     *             .linkId(var_.link_id())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetLinkResult> getLinkPlain(GetLinkPlainArgs args, InvokeOptions options) {
@@ -1669,74 +301,12 @@ public final class NetworkmanagerFunctions {
     /**
      * Retrieve information about link.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
-     * import com.pulumi.aws.networkmanager.inputs.GetLinksArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = NetworkmanagerFunctions.getLinks(GetLinksArgs.builder()
-     *             .globalNetworkId(var_.global_network_id())
-     *             .tags(Map.of(&#34;Env&#34;, &#34;test&#34;))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetLinksResult> getLinks(GetLinksArgs args) {
         return getLinks(args, InvokeOptions.Empty);
     }
     /**
      * Retrieve information about link.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
-     * import com.pulumi.aws.networkmanager.inputs.GetLinksArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = NetworkmanagerFunctions.getLinks(GetLinksArgs.builder()
-     *             .globalNetworkId(var_.global_network_id())
-     *             .tags(Map.of(&#34;Env&#34;, &#34;test&#34;))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetLinksResult> getLinksPlain(GetLinksPlainArgs args) {
@@ -1745,74 +315,12 @@ public final class NetworkmanagerFunctions {
     /**
      * Retrieve information about link.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
-     * import com.pulumi.aws.networkmanager.inputs.GetLinksArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = NetworkmanagerFunctions.getLinks(GetLinksArgs.builder()
-     *             .globalNetworkId(var_.global_network_id())
-     *             .tags(Map.of(&#34;Env&#34;, &#34;test&#34;))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetLinksResult> getLinks(GetLinksArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:networkmanager/getLinks:getLinks", TypeShape.of(GetLinksResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Retrieve information about link.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
-     * import com.pulumi.aws.networkmanager.inputs.GetLinksArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = NetworkmanagerFunctions.getLinks(GetLinksArgs.builder()
-     *             .globalNetworkId(var_.global_network_id())
-     *             .tags(Map.of(&#34;Env&#34;, &#34;test&#34;))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetLinksResult> getLinksPlain(GetLinksPlainArgs args, InvokeOptions options) {
@@ -1821,74 +329,12 @@ public final class NetworkmanagerFunctions {
     /**
      * Retrieve information about a site.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
-     * import com.pulumi.aws.networkmanager.inputs.GetSiteArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = NetworkmanagerFunctions.getSite(GetSiteArgs.builder()
-     *             .globalNetworkId(var_.global_network_id())
-     *             .siteId(var_.site_id())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetSiteResult> getSite(GetSiteArgs args) {
         return getSite(args, InvokeOptions.Empty);
     }
     /**
      * Retrieve information about a site.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
-     * import com.pulumi.aws.networkmanager.inputs.GetSiteArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = NetworkmanagerFunctions.getSite(GetSiteArgs.builder()
-     *             .globalNetworkId(var_.global_network_id())
-     *             .siteId(var_.site_id())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetSiteResult> getSitePlain(GetSitePlainArgs args) {
@@ -1897,74 +343,12 @@ public final class NetworkmanagerFunctions {
     /**
      * Retrieve information about a site.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
-     * import com.pulumi.aws.networkmanager.inputs.GetSiteArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = NetworkmanagerFunctions.getSite(GetSiteArgs.builder()
-     *             .globalNetworkId(var_.global_network_id())
-     *             .siteId(var_.site_id())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetSiteResult> getSite(GetSiteArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:networkmanager/getSite:getSite", TypeShape.of(GetSiteResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Retrieve information about a site.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
-     * import com.pulumi.aws.networkmanager.inputs.GetSiteArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = NetworkmanagerFunctions.getSite(GetSiteArgs.builder()
-     *             .globalNetworkId(var_.global_network_id())
-     *             .siteId(var_.site_id())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetSiteResult> getSitePlain(GetSitePlainArgs args, InvokeOptions options) {
@@ -1973,74 +357,12 @@ public final class NetworkmanagerFunctions {
     /**
      * Retrieve information about sites.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
-     * import com.pulumi.aws.networkmanager.inputs.GetSitesArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = NetworkmanagerFunctions.getSites(GetSitesArgs.builder()
-     *             .globalNetworkId(var_.global_network_id())
-     *             .tags(Map.of(&#34;Env&#34;, &#34;test&#34;))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetSitesResult> getSites(GetSitesArgs args) {
         return getSites(args, InvokeOptions.Empty);
     }
     /**
      * Retrieve information about sites.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
-     * import com.pulumi.aws.networkmanager.inputs.GetSitesArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = NetworkmanagerFunctions.getSites(GetSitesArgs.builder()
-     *             .globalNetworkId(var_.global_network_id())
-     *             .tags(Map.of(&#34;Env&#34;, &#34;test&#34;))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetSitesResult> getSitesPlain(GetSitesPlainArgs args) {
@@ -2049,74 +371,12 @@ public final class NetworkmanagerFunctions {
     /**
      * Retrieve information about sites.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
-     * import com.pulumi.aws.networkmanager.inputs.GetSitesArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = NetworkmanagerFunctions.getSites(GetSitesArgs.builder()
-     *             .globalNetworkId(var_.global_network_id())
-     *             .tags(Map.of(&#34;Env&#34;, &#34;test&#34;))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetSitesResult> getSites(GetSitesArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:networkmanager/getSites:getSites", TypeShape.of(GetSitesResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Retrieve information about sites.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
-     * import com.pulumi.aws.networkmanager.inputs.GetSitesArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = NetworkmanagerFunctions.getSites(GetSitesArgs.builder()
-     *             .globalNetworkId(var_.global_network_id())
-     *             .tags(Map.of(&#34;Env&#34;, &#34;test&#34;))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetSitesResult> getSitesPlain(GetSitesPlainArgs args, InvokeOptions options) {

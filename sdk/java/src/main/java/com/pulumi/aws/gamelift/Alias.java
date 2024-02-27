@@ -28,7 +28,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.gamelift.Alias;
  * import com.pulumi.aws.gamelift.AliasArgs;
- * import com.pulumi.aws.gamelift.inputs.AliasRoutingStrategyArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -44,10 +43,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Alias(&#34;example&#34;, AliasArgs.builder()        
  *             .description(&#34;Example Description&#34;)
- *             .routingStrategy(AliasRoutingStrategyArgs.builder()
- *                 .message(&#34;Example Message&#34;)
- *                 .type(&#34;TERMINAL&#34;)
- *                 .build())
+ *             .routingStrategy(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

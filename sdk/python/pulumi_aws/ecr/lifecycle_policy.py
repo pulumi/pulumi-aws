@@ -127,10 +127,10 @@ class LifecyclePolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        foo = aws.ecr.Repository("foo")
-        foopolicy = aws.ecr.LifecyclePolicy("foopolicy",
+        foo = aws.ecr.repository.Repository("foo")
+        foopolicy = aws.ecr.lifecycle_policy.LifecyclePolicy("foopolicy",
             repository=foo.name,
-            policy=\"\"\"{
+            policy={
             "rules": [
                 {
                     "rulePriority": 1,
@@ -147,7 +147,7 @@ class LifecyclePolicy(pulumi.CustomResource):
                 }
             ]
         }
-        \"\"\")
+        )
         ```
         ### Policy on tagged image
 
@@ -155,10 +155,10 @@ class LifecyclePolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        foo = aws.ecr.Repository("foo")
-        foopolicy = aws.ecr.LifecyclePolicy("foopolicy",
+        foo = aws.ecr.repository.Repository("foo")
+        foopolicy = aws.ecr.lifecycle_policy.LifecyclePolicy("foopolicy",
             repository=foo.name,
-            policy=\"\"\"{
+            policy={
             "rules": [
                 {
                     "rulePriority": 1,
@@ -175,7 +175,7 @@ class LifecyclePolicy(pulumi.CustomResource):
                 }
             ]
         }
-        \"\"\")
+        )
         ```
 
         ## Import
@@ -211,10 +211,10 @@ class LifecyclePolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        foo = aws.ecr.Repository("foo")
-        foopolicy = aws.ecr.LifecyclePolicy("foopolicy",
+        foo = aws.ecr.repository.Repository("foo")
+        foopolicy = aws.ecr.lifecycle_policy.LifecyclePolicy("foopolicy",
             repository=foo.name,
-            policy=\"\"\"{
+            policy={
             "rules": [
                 {
                     "rulePriority": 1,
@@ -231,7 +231,7 @@ class LifecyclePolicy(pulumi.CustomResource):
                 }
             ]
         }
-        \"\"\")
+        )
         ```
         ### Policy on tagged image
 
@@ -239,10 +239,10 @@ class LifecyclePolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        foo = aws.ecr.Repository("foo")
-        foopolicy = aws.ecr.LifecyclePolicy("foopolicy",
+        foo = aws.ecr.repository.Repository("foo")
+        foopolicy = aws.ecr.lifecycle_policy.LifecyclePolicy("foopolicy",
             repository=foo.name,
-            policy=\"\"\"{
+            policy={
             "rules": [
                 {
                     "rulePriority": 1,
@@ -259,7 +259,7 @@ class LifecyclePolicy(pulumi.CustomResource):
                 }
             ]
         }
-        \"\"\")
+        )
         ```
 
         ## Import

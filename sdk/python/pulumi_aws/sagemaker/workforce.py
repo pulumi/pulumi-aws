@@ -243,19 +243,19 @@ class Workforce(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_user_pool = aws.cognito.UserPool("exampleUserPool")
-        example_user_pool_client = aws.cognito.UserPoolClient("exampleUserPoolClient",
+        example_user_pool = aws.cognito.user_pool.UserPool("exampleUserPool")
+        example_user_pool_client = aws.cognito.user_pool_client.UserPoolClient("exampleUserPoolClient",
             generate_secret=True,
             user_pool_id=example_user_pool.id)
-        example_user_pool_domain = aws.cognito.UserPoolDomain("exampleUserPoolDomain",
-            domain="example",
+        example_user_pool_domain = aws.cognito.user_pool_domain.UserPoolDomain("exampleUserPoolDomain",
+            domain=example,
             user_pool_id=example_user_pool.id)
-        example_workforce = aws.sagemaker.Workforce("exampleWorkforce",
-            workforce_name="example",
-            cognito_config=aws.sagemaker.WorkforceCognitoConfigArgs(
-                client_id=example_user_pool_client.id,
-                user_pool=example_user_pool_domain.user_pool_id,
-            ))
+        example_workforce = aws.sagemaker.workforce.Workforce("exampleWorkforce",
+            workforce_name=example,
+            cognito_config={
+                clientId: example_user_pool_client.id,
+                userPool: example_user_pool_domain.user_pool_id,
+            })
         ```
         ### Oidc Usage
 
@@ -263,18 +263,18 @@ class Workforce(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.sagemaker.Workforce("example",
-            oidc_config=aws.sagemaker.WorkforceOidcConfigArgs(
-                authorization_endpoint="https://example.com",
-                client_id="example",
-                client_secret="example",
-                issuer="https://example.com",
-                jwks_uri="https://example.com",
-                logout_endpoint="https://example.com",
-                token_endpoint="https://example.com",
-                user_info_endpoint="https://example.com",
-            ),
-            workforce_name="example")
+        example = aws.sagemaker.workforce.Workforce("example",
+            oidc_config={
+                authorizationEndpoint: https://example.com,
+                clientId: example,
+                clientSecret: example,
+                issuer: https://example.com,
+                jwksUri: https://example.com,
+                logoutEndpoint: https://example.com,
+                tokenEndpoint: https://example.com,
+                userInfoEndpoint: https://example.com,
+            },
+            workforce_name=example)
         ```
 
         ## Import
@@ -309,19 +309,19 @@ class Workforce(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_user_pool = aws.cognito.UserPool("exampleUserPool")
-        example_user_pool_client = aws.cognito.UserPoolClient("exampleUserPoolClient",
+        example_user_pool = aws.cognito.user_pool.UserPool("exampleUserPool")
+        example_user_pool_client = aws.cognito.user_pool_client.UserPoolClient("exampleUserPoolClient",
             generate_secret=True,
             user_pool_id=example_user_pool.id)
-        example_user_pool_domain = aws.cognito.UserPoolDomain("exampleUserPoolDomain",
-            domain="example",
+        example_user_pool_domain = aws.cognito.user_pool_domain.UserPoolDomain("exampleUserPoolDomain",
+            domain=example,
             user_pool_id=example_user_pool.id)
-        example_workforce = aws.sagemaker.Workforce("exampleWorkforce",
-            workforce_name="example",
-            cognito_config=aws.sagemaker.WorkforceCognitoConfigArgs(
-                client_id=example_user_pool_client.id,
-                user_pool=example_user_pool_domain.user_pool_id,
-            ))
+        example_workforce = aws.sagemaker.workforce.Workforce("exampleWorkforce",
+            workforce_name=example,
+            cognito_config={
+                clientId: example_user_pool_client.id,
+                userPool: example_user_pool_domain.user_pool_id,
+            })
         ```
         ### Oidc Usage
 
@@ -329,18 +329,18 @@ class Workforce(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.sagemaker.Workforce("example",
-            oidc_config=aws.sagemaker.WorkforceOidcConfigArgs(
-                authorization_endpoint="https://example.com",
-                client_id="example",
-                client_secret="example",
-                issuer="https://example.com",
-                jwks_uri="https://example.com",
-                logout_endpoint="https://example.com",
-                token_endpoint="https://example.com",
-                user_info_endpoint="https://example.com",
-            ),
-            workforce_name="example")
+        example = aws.sagemaker.workforce.Workforce("example",
+            oidc_config={
+                authorizationEndpoint: https://example.com,
+                clientId: example,
+                clientSecret: example,
+                issuer: https://example.com,
+                jwksUri: https://example.com,
+                logoutEndpoint: https://example.com,
+                tokenEndpoint: https://example.com,
+                userInfoEndpoint: https://example.com,
+            },
+            workforce_name=example)
         ```
 
         ## Import

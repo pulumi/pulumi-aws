@@ -56,7 +56,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.worklink.Fleet;
  * import com.pulumi.aws.worklink.FleetArgs;
- * import com.pulumi.aws.worklink.inputs.FleetNetworkArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -71,11 +70,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Fleet(&#34;example&#34;, FleetArgs.builder()        
- *             .network(FleetNetworkArgs.builder()
- *                 .vpcId(aws_vpc.test().id())
- *                 .subnetIds(aws_subnet.test().stream().map(element -&gt; element.id()).collect(toList()))
- *                 .securityGroupIds(aws_security_group.test().id())
- *                 .build())
+ *             .network(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -91,7 +86,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.worklink.Fleet;
  * import com.pulumi.aws.worklink.FleetArgs;
- * import com.pulumi.aws.worklink.inputs.FleetIdentityProviderArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -106,10 +100,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new Fleet(&#34;test&#34;, FleetArgs.builder()        
- *             .identityProvider(FleetIdentityProviderArgs.builder()
- *                 .type(&#34;SAML&#34;)
- *                 .samlMetadata(Files.readString(Paths.get(&#34;saml-metadata.xml&#34;)))
- *                 .build())
+ *             .identityProvider(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

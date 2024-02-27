@@ -15,64 +15,6 @@ import (
 //
 // > *NOTE:* If policies are attached to the user via the `iam.PolicyAttachment` resource and you are modifying the user `name` or `path`, the `forceDestroy` argument must be set to `true` and applied before attempting the operation otherwise you will encounter a `DeleteConflict` error. The `iam.UserPolicyAttachment` resource (recommended) does not have this requirement.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			lbUser, err := iam.NewUser(ctx, "lbUser", &iam.UserArgs{
-//				Path: pulumi.String("/system/"),
-//				Tags: pulumi.StringMap{
-//					"tag-key": pulumi.String("tag-value"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = iam.NewAccessKey(ctx, "lbAccessKey", &iam.AccessKeyArgs{
-//				User: lbUser.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			lbRoPolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-//				Statements: []iam.GetPolicyDocumentStatement{
-//					{
-//						Effect: pulumi.StringRef("Allow"),
-//						Actions: []string{
-//							"ec2:Describe*",
-//						},
-//						Resources: []string{
-//							"*",
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = iam.NewUserPolicy(ctx, "lbRoUserPolicy", &iam.UserPolicyArgs{
-//				User:   lbUser.Name,
-//				Policy: *pulumi.String(lbRoPolicyDocument.Json),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Using `pulumi import`, import IAM Users using the `name`. For example:

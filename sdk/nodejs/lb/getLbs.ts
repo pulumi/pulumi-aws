@@ -9,18 +9,6 @@ import * as utilities from "../utilities";
  * resources.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.lb.getLbs({
- *     tags: {
- *         "elbv2.k8s.aws/cluster": "my-cluster",
- *     },
- * });
- * ```
  */
 export function getLbs(args?: GetLbsArgs, opts?: pulumi.InvokeOptions): Promise<GetLbsResult> {
     args = args || {};
@@ -61,18 +49,6 @@ export interface GetLbsResult {
  * resources.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.lb.getLbs({
- *     tags: {
- *         "elbv2.k8s.aws/cluster": "my-cluster",
- *     },
- * });
- * ```
  */
 export function getLbsOutput(args?: GetLbsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLbsResult> {
     return pulumi.output(args).apply((a: any) => getLbs(a, opts))

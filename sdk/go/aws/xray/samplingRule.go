@@ -21,36 +21,34 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/xray"
+//	xray/samplingRule "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/xray/samplingRule"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := xray.NewSamplingRule(ctx, "example", &xray.SamplingRuleArgs{
-//				Attributes: pulumi.StringMap{
-//					"Hello": pulumi.String("Tris"),
-//				},
-//				FixedRate:     pulumi.Float64(0.05),
-//				Host:          pulumi.String("*"),
-//				HttpMethod:    pulumi.String("*"),
-//				Priority:      pulumi.Int(9999),
-//				ReservoirSize: pulumi.Int(1),
-//				ResourceArn:   pulumi.String("*"),
-//				RuleName:      pulumi.String("example"),
-//				ServiceName:   pulumi.String("*"),
-//				ServiceType:   pulumi.String("*"),
-//				UrlPath:       pulumi.String("*"),
-//				Version:       pulumi.Int(1),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := xray/samplingRule.NewSamplingRule(ctx, "example", &xray/samplingRule.SamplingRuleArgs{
+// Attributes: map[string]interface{}{
+// "Hello": "Tris",
+// },
+// FixedRate: 0.05,
+// Host: "*",
+// HttpMethod: "*",
+// Priority: 9999,
+// ReservoirSize: 1,
+// ResourceArn: "*",
+// RuleName: "example",
+// ServiceName: "*",
+// ServiceType: "*",
+// UrlPath: "*",
+// Version: 1,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

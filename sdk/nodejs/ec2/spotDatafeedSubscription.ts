@@ -16,8 +16,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const defaultBucketV2 = new aws.s3.BucketV2("defaultBucketV2", {});
- * const defaultSpotDatafeedSubscription = new aws.ec2.SpotDatafeedSubscription("defaultSpotDatafeedSubscription", {
+ * const defaultBucketV2 = new aws.s3/bucketV2.BucketV2("defaultBucketV2", {});
+ * const defaultSpotDatafeedSubscription = new aws.ec2/spotDatafeedSubscription.SpotDatafeedSubscription("defaultSpotDatafeedSubscription", {
  *     bucket: defaultBucketV2.id,
  *     prefix: "my_subdirectory",
  * });

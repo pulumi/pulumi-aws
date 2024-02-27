@@ -36,10 +36,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.fis.ExperimentTemplate;
  * import com.pulumi.aws.fis.ExperimentTemplateArgs;
- * import com.pulumi.aws.fis.inputs.ExperimentTemplateStopConditionArgs;
- * import com.pulumi.aws.fis.inputs.ExperimentTemplateActionArgs;
- * import com.pulumi.aws.fis.inputs.ExperimentTemplateActionTargetArgs;
- * import com.pulumi.aws.fis.inputs.ExperimentTemplateTargetArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -56,26 +52,9 @@ import javax.annotation.Nullable;
  *         var example = new ExperimentTemplate(&#34;example&#34;, ExperimentTemplateArgs.builder()        
  *             .description(&#34;example&#34;)
  *             .roleArn(aws_iam_role.example().arn())
- *             .stopConditions(ExperimentTemplateStopConditionArgs.builder()
- *                 .source(&#34;none&#34;)
- *                 .build())
- *             .actions(ExperimentTemplateActionArgs.builder()
- *                 .name(&#34;example-action&#34;)
- *                 .actionId(&#34;aws:ec2:terminate-instances&#34;)
- *                 .target(ExperimentTemplateActionTargetArgs.builder()
- *                     .key(&#34;Instances&#34;)
- *                     .value(&#34;example-target&#34;)
- *                     .build())
- *                 .build())
- *             .targets(ExperimentTemplateTargetArgs.builder()
- *                 .name(&#34;example-target&#34;)
- *                 .resourceType(&#34;aws:ec2:instance&#34;)
- *                 .selectionMode(&#34;COUNT(1)&#34;)
- *                 .resourceTags(ExperimentTemplateTargetResourceTagArgs.builder()
- *                     .key(&#34;env&#34;)
- *                     .value(&#34;example&#34;)
- *                     .build())
- *                 .build())
+ *             .stopConditions(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .actions(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .targets(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

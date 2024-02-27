@@ -24,37 +24,36 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	s3/bucketIntelligentTieringConfiguration "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/s3/bucketIntelligentTieringConfiguration"
+//	s3/bucketV2 "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/s3/bucketV2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := s3.NewBucketV2(ctx, "example", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = s3.NewBucketIntelligentTieringConfiguration(ctx, "example-entire-bucket", &s3.BucketIntelligentTieringConfigurationArgs{
-//				Bucket: example.ID(),
-//				Tierings: s3.BucketIntelligentTieringConfigurationTieringArray{
-//					&s3.BucketIntelligentTieringConfigurationTieringArgs{
-//						AccessTier: pulumi.String("DEEP_ARCHIVE_ACCESS"),
-//						Days:       pulumi.Int(180),
-//					},
-//					&s3.BucketIntelligentTieringConfigurationTieringArgs{
-//						AccessTier: pulumi.String("ARCHIVE_ACCESS"),
-//						Days:       pulumi.Int(125),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := s3/bucketV2.NewBucketV2(ctx, "example", nil)
+// if err != nil {
+// return err
+// }
+// _, err = s3/bucketIntelligentTieringConfiguration.NewBucketIntelligentTieringConfiguration(ctx, "example-entire-bucket", &s3/bucketIntelligentTieringConfiguration.BucketIntelligentTieringConfigurationArgs{
+// Bucket: example.Id,
+// Tierings: []interface{}{
+// map[string]interface{}{
+// "accessTier": "DEEP_ARCHIVE_ACCESS",
+// "days": 180,
+// },
+// map[string]interface{}{
+// "accessTier": "ARCHIVE_ACCESS",
+// "days": 125,
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Add intelligent tiering configuration with S3 object filter
 //
@@ -63,41 +62,40 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	s3/bucketIntelligentTieringConfiguration "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/s3/bucketIntelligentTieringConfiguration"
+//	s3/bucketV2 "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/s3/bucketV2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := s3.NewBucketV2(ctx, "example", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = s3.NewBucketIntelligentTieringConfiguration(ctx, "example-filtered", &s3.BucketIntelligentTieringConfigurationArgs{
-//				Bucket: example.ID(),
-//				Status: pulumi.String("Disabled"),
-//				Filter: &s3.BucketIntelligentTieringConfigurationFilterArgs{
-//					Prefix: pulumi.String("documents/"),
-//					Tags: pulumi.StringMap{
-//						"priority": pulumi.String("high"),
-//						"class":    pulumi.String("blue"),
-//					},
-//				},
-//				Tierings: s3.BucketIntelligentTieringConfigurationTieringArray{
-//					&s3.BucketIntelligentTieringConfigurationTieringArgs{
-//						AccessTier: pulumi.String("ARCHIVE_ACCESS"),
-//						Days:       pulumi.Int(125),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := s3/bucketV2.NewBucketV2(ctx, "example", nil)
+// if err != nil {
+// return err
+// }
+// _, err = s3/bucketIntelligentTieringConfiguration.NewBucketIntelligentTieringConfiguration(ctx, "example-filtered", &s3/bucketIntelligentTieringConfiguration.BucketIntelligentTieringConfigurationArgs{
+// Bucket: example.Id,
+// Status: "Disabled",
+// Filter: map[string]interface{}{
+// "prefix": "documents/",
+// "tags": map[string]interface{}{
+// "priority": "high",
+// "class": "blue",
+// },
+// },
+// Tierings: []map[string]interface{}{
+// map[string]interface{}{
+// "accessTier": "ARCHIVE_ACCESS",
+// "days": 125,
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -21,7 +21,6 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * ### Basic
- * 
  * ```java
  * package generated_program;
  * 

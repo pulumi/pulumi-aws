@@ -23,13 +23,13 @@ namespace Pulumi.Aws.FinSpace
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleKey = new Aws.Kms.Key("exampleKey", new()
+    ///     var exampleKey = new Aws.Kms.Key.Key("exampleKey", new()
     ///     {
     ///         Description = "Sample KMS Key",
     ///         DeletionWindowInDays = 7,
     ///     });
     /// 
-    ///     var exampleKxEnvironment = new Aws.FinSpace.KxEnvironment("exampleKxEnvironment", new()
+    ///     var exampleKxEnvironment = new Aws.Finspace.KxEnvironment.KxEnvironment("exampleKxEnvironment", new()
     ///     {
     ///         KmsKeyId = exampleKey.Arn,
     ///     });
@@ -46,32 +46,32 @@ namespace Pulumi.Aws.FinSpace
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleKey = new Aws.Kms.Key("exampleKey", new()
+    ///     var exampleKey = new Aws.Kms.Key.Key("exampleKey", new()
     ///     {
     ///         Description = "Sample KMS Key",
     ///         DeletionWindowInDays = 7,
     ///     });
     /// 
-    ///     var exampleTransitGateway = new Aws.Ec2TransitGateway.TransitGateway("exampleTransitGateway", new()
+    ///     var exampleTransitGateway = new Aws.Ec2transitgateway.TransitGateway.TransitGateway("exampleTransitGateway", new()
     ///     {
     ///         Description = "example",
     ///     });
     /// 
-    ///     var exampleEnv = new Aws.FinSpace.KxEnvironment("exampleEnv", new()
+    ///     var exampleEnv = new Aws.Finspace.KxEnvironment.KxEnvironment("exampleEnv", new()
     ///     {
     ///         Description = "Environment description",
     ///         KmsKeyId = exampleKey.Arn,
-    ///         TransitGatewayConfiguration = new Aws.FinSpace.Inputs.KxEnvironmentTransitGatewayConfigurationArgs
+    ///         TransitGatewayConfiguration = 
     ///         {
-    ///             TransitGatewayId = exampleTransitGateway.Id,
-    ///             RoutableCidrSpace = "100.64.0.0/26",
+    ///             { "transitGatewayId", exampleTransitGateway.Id },
+    ///             { "routableCidrSpace", "100.64.0.0/26" },
     ///         },
     ///         CustomDnsConfigurations = new[]
     ///         {
-    ///             new Aws.FinSpace.Inputs.KxEnvironmentCustomDnsConfigurationArgs
+    ///             
     ///             {
-    ///                 CustomDnsServerName = "example.finspace.amazonaws.com",
-    ///                 CustomDnsServerIp = "10.0.0.76",
+    ///                 { "customDnsServerName", "example.finspace.amazonaws.com" },
+    ///                 { "customDnsServerIp", "10.0.0.76" },
     ///             },
     ///         },
     ///     });
@@ -88,52 +88,52 @@ namespace Pulumi.Aws.FinSpace
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleKey = new Aws.Kms.Key("exampleKey", new()
+    ///     var exampleKey = new Aws.Kms.Key.Key("exampleKey", new()
     ///     {
     ///         Description = "Sample KMS Key",
     ///         DeletionWindowInDays = 7,
     ///     });
     /// 
-    ///     var exampleTransitGateway = new Aws.Ec2TransitGateway.TransitGateway("exampleTransitGateway", new()
+    ///     var exampleTransitGateway = new Aws.Ec2transitgateway.TransitGateway.TransitGateway("exampleTransitGateway", new()
     ///     {
     ///         Description = "example",
     ///     });
     /// 
-    ///     var exampleEnv = new Aws.FinSpace.KxEnvironment("exampleEnv", new()
+    ///     var exampleEnv = new Aws.Finspace.KxEnvironment.KxEnvironment("exampleEnv", new()
     ///     {
     ///         Description = "Environment description",
     ///         KmsKeyId = exampleKey.Arn,
-    ///         TransitGatewayConfiguration = new Aws.FinSpace.Inputs.KxEnvironmentTransitGatewayConfigurationArgs
+    ///         TransitGatewayConfiguration = 
     ///         {
-    ///             TransitGatewayId = exampleTransitGateway.Id,
-    ///             RoutableCidrSpace = "100.64.0.0/26",
-    ///             AttachmentNetworkAclConfigurations = new[]
+    ///             { "transitGatewayId", exampleTransitGateway.Id },
+    ///             { "routableCidrSpace", "100.64.0.0/26" },
+    ///             { "attachmentNetworkAclConfigurations", new[]
     ///             {
-    ///                 new Aws.FinSpace.Inputs.KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationArgs
+    ///                 
     ///                 {
-    ///                     RuleNumber = 1,
-    ///                     Protocol = "6",
-    ///                     RuleAction = "allow",
-    ///                     CidrBlock = "0.0.0.0/0",
-    ///                     PortRange = new Aws.FinSpace.Inputs.KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangeArgs
+    ///                     { "ruleNumber", 1 },
+    ///                     { "protocol", "6" },
+    ///                     { "ruleAction", "allow" },
+    ///                     { "cidrBlock", "0.0.0.0/0" },
+    ///                     { "portRange", 
     ///                     {
-    ///                         From = 53,
-    ///                         To = 53,
-    ///                     },
-    ///                     IcmpTypeCode = new Aws.FinSpace.Inputs.KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodeArgs
+    ///                         { "from", 53 },
+    ///                         { "to", 53 },
+    ///                     } },
+    ///                     { "icmpTypeCode", 
     ///                     {
-    ///                         Type = -1,
-    ///                         Code = -1,
-    ///                     },
+    ///                         { "type", -1 },
+    ///                         { "code", -1 },
+    ///                     } },
     ///                 },
-    ///             },
+    ///             } },
     ///         },
     ///         CustomDnsConfigurations = new[]
     ///         {
-    ///             new Aws.FinSpace.Inputs.KxEnvironmentCustomDnsConfigurationArgs
+    ///             
     ///             {
-    ///                 CustomDnsServerName = "example.finspace.amazonaws.com",
-    ///                 CustomDnsServerIp = "10.0.0.76",
+    ///                 { "customDnsServerName", "example.finspace.amazonaws.com" },
+    ///                 { "customDnsServerIp", "10.0.0.76" },
     ///             },
     ///         },
     ///     });

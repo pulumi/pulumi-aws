@@ -35,7 +35,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.mwaa.Environment;
  * import com.pulumi.aws.mwaa.EnvironmentArgs;
- * import com.pulumi.aws.mwaa.inputs.EnvironmentNetworkConfigurationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -52,10 +51,7 @@ import javax.annotation.Nullable;
  *         var example = new Environment(&#34;example&#34;, EnvironmentArgs.builder()        
  *             .dagS3Path(&#34;dags/&#34;)
  *             .executionRoleArn(aws_iam_role.example().arn())
- *             .networkConfiguration(EnvironmentNetworkConfigurationArgs.builder()
- *                 .securityGroupIds(aws_security_group.example().id())
- *                 .subnetIds(aws_subnet.private().stream().map(element -&gt; element.id()).collect(toList()))
- *                 .build())
+ *             .networkConfiguration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .sourceBucketArn(aws_s3_bucket.example().arn())
  *             .build());
  * 
@@ -71,7 +67,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.mwaa.Environment;
  * import com.pulumi.aws.mwaa.EnvironmentArgs;
- * import com.pulumi.aws.mwaa.inputs.EnvironmentNetworkConfigurationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -86,16 +81,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Environment(&#34;example&#34;, EnvironmentArgs.builder()        
- *             .airflowConfigurationOptions(Map.ofEntries(
- *                 Map.entry(&#34;core.default_task_retries&#34;, 16),
- *                 Map.entry(&#34;core.parallelism&#34;, 1)
- *             ))
+ *             .airflowConfigurationOptions(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .dagS3Path(&#34;dags/&#34;)
  *             .executionRoleArn(aws_iam_role.example().arn())
- *             .networkConfiguration(EnvironmentNetworkConfigurationArgs.builder()
- *                 .securityGroupIds(aws_security_group.example().id())
- *                 .subnetIds(aws_subnet.private().stream().map(element -&gt; element.id()).collect(toList()))
- *                 .build())
+ *             .networkConfiguration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .sourceBucketArn(aws_s3_bucket.example().arn())
  *             .build());
  * 
@@ -113,13 +102,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.mwaa.Environment;
  * import com.pulumi.aws.mwaa.EnvironmentArgs;
- * import com.pulumi.aws.mwaa.inputs.EnvironmentLoggingConfigurationArgs;
- * import com.pulumi.aws.mwaa.inputs.EnvironmentLoggingConfigurationDagProcessingLogsArgs;
- * import com.pulumi.aws.mwaa.inputs.EnvironmentLoggingConfigurationSchedulerLogsArgs;
- * import com.pulumi.aws.mwaa.inputs.EnvironmentLoggingConfigurationTaskLogsArgs;
- * import com.pulumi.aws.mwaa.inputs.EnvironmentLoggingConfigurationWebserverLogsArgs;
- * import com.pulumi.aws.mwaa.inputs.EnvironmentLoggingConfigurationWorkerLogsArgs;
- * import com.pulumi.aws.mwaa.inputs.EnvironmentNetworkConfigurationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -136,32 +118,8 @@ import javax.annotation.Nullable;
  *         var example = new Environment(&#34;example&#34;, EnvironmentArgs.builder()        
  *             .dagS3Path(&#34;dags/&#34;)
  *             .executionRoleArn(aws_iam_role.example().arn())
- *             .loggingConfiguration(EnvironmentLoggingConfigurationArgs.builder()
- *                 .dagProcessingLogs(EnvironmentLoggingConfigurationDagProcessingLogsArgs.builder()
- *                     .enabled(true)
- *                     .logLevel(&#34;DEBUG&#34;)
- *                     .build())
- *                 .schedulerLogs(EnvironmentLoggingConfigurationSchedulerLogsArgs.builder()
- *                     .enabled(true)
- *                     .logLevel(&#34;INFO&#34;)
- *                     .build())
- *                 .taskLogs(EnvironmentLoggingConfigurationTaskLogsArgs.builder()
- *                     .enabled(true)
- *                     .logLevel(&#34;WARNING&#34;)
- *                     .build())
- *                 .webserverLogs(EnvironmentLoggingConfigurationWebserverLogsArgs.builder()
- *                     .enabled(true)
- *                     .logLevel(&#34;ERROR&#34;)
- *                     .build())
- *                 .workerLogs(EnvironmentLoggingConfigurationWorkerLogsArgs.builder()
- *                     .enabled(true)
- *                     .logLevel(&#34;CRITICAL&#34;)
- *                     .build())
- *                 .build())
- *             .networkConfiguration(EnvironmentNetworkConfigurationArgs.builder()
- *                 .securityGroupIds(aws_security_group.example().id())
- *                 .subnetIds(aws_subnet.private().stream().map(element -&gt; element.id()).collect(toList()))
- *                 .build())
+ *             .loggingConfiguration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .networkConfiguration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .sourceBucketArn(aws_s3_bucket.example().arn())
  *             .build());
  * 
@@ -177,7 +135,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.mwaa.Environment;
  * import com.pulumi.aws.mwaa.EnvironmentArgs;
- * import com.pulumi.aws.mwaa.inputs.EnvironmentNetworkConfigurationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -194,15 +151,9 @@ import javax.annotation.Nullable;
  *         var example = new Environment(&#34;example&#34;, EnvironmentArgs.builder()        
  *             .dagS3Path(&#34;dags/&#34;)
  *             .executionRoleArn(aws_iam_role.example().arn())
- *             .networkConfiguration(EnvironmentNetworkConfigurationArgs.builder()
- *                 .securityGroupIds(aws_security_group.example().id())
- *                 .subnetIds(aws_subnet.private().stream().map(element -&gt; element.id()).collect(toList()))
- *                 .build())
+ *             .networkConfiguration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .sourceBucketArn(aws_s3_bucket.example().arn())
- *             .tags(Map.ofEntries(
- *                 Map.entry(&#34;Name&#34;, &#34;example&#34;),
- *                 Map.entry(&#34;Environment&#34;, &#34;production&#34;)
- *             ))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

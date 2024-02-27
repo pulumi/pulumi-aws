@@ -22,7 +22,7 @@ namespace Pulumi.Aws.WafRegional
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.WafRegional.RegexPatternSet("example", new()
+    ///     var example = new Aws.Wafregional.RegexPatternSet.RegexPatternSet("example", new()
     ///     {
     ///         RegexPatternStrings = new[]
     ///         {

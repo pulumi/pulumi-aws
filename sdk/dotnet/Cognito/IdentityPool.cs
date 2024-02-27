@@ -23,29 +23,29 @@ namespace Pulumi.Aws.Cognito
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var @default = new Aws.Iam.SamlProvider("default", new()
+    ///     var @default = new Aws.Iam.SamlProvider.SamlProvider("default", new()
     ///     {
     ///         SamlMetadataDocument = File.ReadAllText("saml-metadata.xml"),
     ///     });
     /// 
-    ///     var main = new Aws.Cognito.IdentityPool("main", new()
+    ///     var main = new Aws.Cognito.IdentityPool.IdentityPool("main", new()
     ///     {
     ///         IdentityPoolName = "identity pool",
     ///         AllowUnauthenticatedIdentities = false,
     ///         AllowClassicFlow = false,
     ///         CognitoIdentityProviders = new[]
     ///         {
-    ///             new Aws.Cognito.Inputs.IdentityPoolCognitoIdentityProviderArgs
+    ///             
     ///             {
-    ///                 ClientId = "6lhlkkfbfb4q5kpp90urffae",
-    ///                 ProviderName = "cognito-idp.us-east-1.amazonaws.com/us-east-1_Tv0493apJ",
-    ///                 ServerSideTokenCheck = false,
+    ///                 { "clientId", "6lhlkkfbfb4q5kpp90urffae" },
+    ///                 { "providerName", "cognito-idp.us-east-1.amazonaws.com/us-east-1_Tv0493apJ" },
+    ///                 { "serverSideTokenCheck", false },
     ///             },
-    ///             new Aws.Cognito.Inputs.IdentityPoolCognitoIdentityProviderArgs
+    ///             
     ///             {
-    ///                 ClientId = "7kodkvfqfb4qfkp39eurffae",
-    ///                 ProviderName = "cognito-idp.us-east-1.amazonaws.com/eu-west-1_Zr231apJu",
-    ///                 ServerSideTokenCheck = false,
+    ///                 { "clientId", "7kodkvfqfb4qfkp39eurffae" },
+    ///                 { "providerName", "cognito-idp.us-east-1.amazonaws.com/eu-west-1_Zr231apJu" },
+    ///                 { "serverSideTokenCheck", false },
     ///             },
     ///         },
     ///         SupportedLoginProviders = 

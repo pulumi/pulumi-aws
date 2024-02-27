@@ -12,41 +12,6 @@ import (
 )
 
 // This resource can be used to get a set of license ARNs matching a filter.
-//
-// ## Example Usage
-//
-// The following shows getting all license ARNs issued from the AWS marketplace. Providing no filter, would provide all license ARNs for the entire account.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/licensemanager"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := licensemanager.GetReceivedLicenses(ctx, &licensemanager.GetReceivedLicensesArgs{
-//				Filters: []licensemanager.GetReceivedLicensesFilter{
-//					{
-//						Name: "IssuerName",
-//						Values: []string{
-//							"AWS/Marketplace",
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetReceivedLicenses(ctx *pulumi.Context, args *GetReceivedLicensesArgs, opts ...pulumi.InvokeOption) (*GetReceivedLicensesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetReceivedLicensesResult

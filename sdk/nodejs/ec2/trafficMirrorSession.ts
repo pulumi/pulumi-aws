@@ -16,12 +16,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const filter = new aws.ec2.TrafficMirrorFilter("filter", {
+ * const filter = new aws.ec2/trafficMirrorFilter.TrafficMirrorFilter("filter", {
  *     description: "traffic mirror filter - example",
  *     networkServices: ["amazon-dns"],
  * });
- * const target = new aws.ec2.TrafficMirrorTarget("target", {networkLoadBalancerArn: aws_lb.lb.arn});
- * const session = new aws.ec2.TrafficMirrorSession("session", {
+ * const target = new aws.ec2/trafficMirrorTarget.TrafficMirrorTarget("target", {networkLoadBalancerArn: aws_lb.lb.arn});
+ * const session = new aws.ec2/trafficMirrorSession.TrafficMirrorSession("session", {
  *     description: "traffic mirror session - example",
  *     networkInterfaceId: aws_instance.test.primary_network_interface_id,
  *     sessionNumber: 1,

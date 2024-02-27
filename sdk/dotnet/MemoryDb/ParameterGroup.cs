@@ -24,15 +24,15 @@ namespace Pulumi.Aws.MemoryDb
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.MemoryDb.ParameterGroup("example", new()
+    ///     var example = new Aws.Memorydb.ParameterGroup.ParameterGroup("example", new()
     ///     {
     ///         Family = "memorydb_redis6",
     ///         Parameters = new[]
     ///         {
-    ///             new Aws.MemoryDb.Inputs.ParameterGroupParameterArgs
+    ///             
     ///             {
-    ///                 Name = "activedefrag",
-    ///                 Value = "yes",
+    ///                 { "name", "activedefrag" },
+    ///                 { "value", "yes" },
     ///             },
     ///         },
     ///     });

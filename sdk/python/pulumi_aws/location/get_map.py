@@ -132,15 +132,6 @@ def get_map(map_name: Optional[str] = None,
     """
     Retrieve information about a Location Service Map.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.location.get_map(map_name="example")
-    ```
-
 
     :param str map_name: Name of the map resource.
     :param Mapping[str, str] tags: Key-value map of resource tags for the map.
@@ -168,15 +159,6 @@ def get_map_output(map_name: Optional[pulumi.Input[str]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMapResult]:
     """
     Retrieve information about a Location Service Map.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.location.get_map(map_name="example")
-    ```
 
 
     :param str map_name: Name of the map resource.

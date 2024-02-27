@@ -31,7 +31,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.redshift.SnapshotCopyGrantArgs;
  * import com.pulumi.aws.redshift.Cluster;
  * import com.pulumi.aws.redshift.ClusterArgs;
- * import com.pulumi.aws.redshift.inputs.ClusterSnapshotCopyArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -50,10 +49,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var testCluster = new Cluster(&#34;testCluster&#34;, ClusterArgs.builder()        
- *             .snapshotCopy(ClusterSnapshotCopyArgs.builder()
- *                 .destinationRegion(&#34;us-east-2&#34;)
- *                 .grantName(testSnapshotCopyGrant.snapshotCopyGrantName())
- *                 .build())
+ *             .snapshotCopy(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

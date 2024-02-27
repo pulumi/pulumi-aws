@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.mwaa.Environment("example", {
+ * const example = new aws.mwaa/environment.Environment("example", {
  *     dagS3Path: "dags/",
  *     executionRoleArn: aws_iam_role.example.arn,
  *     networkConfiguration: {
@@ -35,10 +35,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.mwaa.Environment("example", {
+ * const example = new aws.mwaa/environment.Environment("example", {
  *     airflowConfigurationOptions: {
- *         "core.default_task_retries": "16",
- *         "core.parallelism": "1",
+ *         "core.default_task_retries": 16,
+ *         "core.parallelism": 1,
  *     },
  *     dagS3Path: "dags/",
  *     executionRoleArn: aws_iam_role.example.arn,
@@ -57,7 +57,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.mwaa.Environment("example", {
+ * const example = new aws.mwaa/environment.Environment("example", {
  *     dagS3Path: "dags/",
  *     executionRoleArn: aws_iam_role.example.arn,
  *     loggingConfiguration: {
@@ -95,7 +95,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.mwaa.Environment("example", {
+ * const example = new aws.mwaa/environment.Environment("example", {
  *     dagS3Path: "dags/",
  *     executionRoleArn: aws_iam_role.example.arn,
  *     networkConfiguration: {

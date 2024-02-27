@@ -460,115 +460,34 @@ class MetricStream(pulumi.CustomResource):
         Provides a CloudWatch Metric Stream resource.
 
         ## Example Usage
-        ### Filters
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        streams_assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["streams.metrics.cloudwatch.amazonaws.com"],
-            )],
-            actions=["sts:AssumeRole"],
-        )])
-        metric_stream_to_firehose_role = aws.iam.Role("metricStreamToFirehoseRole", assume_role_policy=streams_assume_role.json)
-        bucket = aws.s3.BucketV2("bucket")
-        firehose_assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["firehose.amazonaws.com"],
-            )],
-            actions=["sts:AssumeRole"],
-        )])
-        firehose_to_s3_role = aws.iam.Role("firehoseToS3Role", assume_role_policy=firehose_assume_role.json)
-        s3_stream = aws.kinesis.FirehoseDeliveryStream("s3Stream",
-            destination="extended_s3",
-            extended_s3_configuration=aws.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationArgs(
-                role_arn=firehose_to_s3_role.arn,
-                bucket_arn=bucket.arn,
-            ))
-        main = aws.cloudwatch.MetricStream("main",
-            role_arn=metric_stream_to_firehose_role.arn,
-            firehose_arn=s3_stream.arn,
-            output_format="json",
-            include_filters=[
-                aws.cloudwatch.MetricStreamIncludeFilterArgs(
-                    namespace="AWS/EC2",
-                    metric_names=[
-                        "CPUUtilization",
-                        "NetworkOut",
-                    ],
-                ),
-                aws.cloudwatch.MetricStreamIncludeFilterArgs(
-                    namespace="AWS/EBS",
-                    metric_names=[],
-                ),
-            ])
-        metric_stream_to_firehose_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            actions=[
-                "firehose:PutRecord",
-                "firehose:PutRecordBatch",
-            ],
-            resources=[s3_stream.arn],
-        )])
-        metric_stream_to_firehose_role_policy = aws.iam.RolePolicy("metricStreamToFirehoseRolePolicy",
-            role=metric_stream_to_firehose_role.id,
-            policy=metric_stream_to_firehose_policy_document.json)
-        bucket_acl = aws.s3.BucketAclV2("bucketAcl",
-            bucket=bucket.id,
-            acl="private")
-        firehose_to_s3_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            actions=[
-                "s3:AbortMultipartUpload",
-                "s3:GetBucketLocation",
-                "s3:GetObject",
-                "s3:ListBucket",
-                "s3:ListBucketMultipartUploads",
-                "s3:PutObject",
-            ],
-            resources=[
-                bucket.arn,
-                bucket.arn.apply(lambda arn: f"{arn}/*"),
-            ],
-        )])
-        firehose_to_s3_role_policy = aws.iam.RolePolicy("firehoseToS3RolePolicy",
-            role=firehose_to_s3_role.id,
-            policy=firehose_to_s3_policy_document.json)
-        ```
         ### Additional Statistics
 
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        main = aws.cloudwatch.MetricStream("main",
-            role_arn=aws_iam_role["metric_stream_to_firehose"]["arn"],
-            firehose_arn=aws_kinesis_firehose_delivery_stream["s3_stream"]["arn"],
-            output_format="json",
+        main = aws.cloudwatch.metric_stream.MetricStream("main",
+            role_arn=aws_iam_role.metric_stream_to_firehose.arn,
+            firehose_arn=aws_kinesis_firehose_delivery_stream.s3_stream.arn,
+            output_format=json,
             statistics_configurations=[
-                aws.cloudwatch.MetricStreamStatisticsConfigurationArgs(
-                    additional_statistics=[
-                        "p1",
-                        "tm99",
+                {
+                    additionalStatistics: [
+                        p1,
+                        tm99,
                     ],
-                    include_metrics=[aws.cloudwatch.MetricStreamStatisticsConfigurationIncludeMetricArgs(
-                        metric_name="CPUUtilization",
-                        namespace="AWS/EC2",
-                    )],
-                ),
-                aws.cloudwatch.MetricStreamStatisticsConfigurationArgs(
-                    additional_statistics=["TS(50.5:)"],
-                    include_metrics=[aws.cloudwatch.MetricStreamStatisticsConfigurationIncludeMetricArgs(
-                        metric_name="CPUUtilization",
-                        namespace="AWS/EC2",
-                    )],
-                ),
+                    includeMetrics: [{
+                        metricName: CPUUtilization,
+                        namespace: AWS/EC2,
+                    }],
+                },
+                {
+                    additionalStatistics: [TS(50.5:)],
+                    includeMetrics: [{
+                        metricName: CPUUtilization,
+                        namespace: AWS/EC2,
+                    }],
+                },
             ])
         ```
 
@@ -605,115 +524,34 @@ class MetricStream(pulumi.CustomResource):
         Provides a CloudWatch Metric Stream resource.
 
         ## Example Usage
-        ### Filters
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        streams_assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["streams.metrics.cloudwatch.amazonaws.com"],
-            )],
-            actions=["sts:AssumeRole"],
-        )])
-        metric_stream_to_firehose_role = aws.iam.Role("metricStreamToFirehoseRole", assume_role_policy=streams_assume_role.json)
-        bucket = aws.s3.BucketV2("bucket")
-        firehose_assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["firehose.amazonaws.com"],
-            )],
-            actions=["sts:AssumeRole"],
-        )])
-        firehose_to_s3_role = aws.iam.Role("firehoseToS3Role", assume_role_policy=firehose_assume_role.json)
-        s3_stream = aws.kinesis.FirehoseDeliveryStream("s3Stream",
-            destination="extended_s3",
-            extended_s3_configuration=aws.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationArgs(
-                role_arn=firehose_to_s3_role.arn,
-                bucket_arn=bucket.arn,
-            ))
-        main = aws.cloudwatch.MetricStream("main",
-            role_arn=metric_stream_to_firehose_role.arn,
-            firehose_arn=s3_stream.arn,
-            output_format="json",
-            include_filters=[
-                aws.cloudwatch.MetricStreamIncludeFilterArgs(
-                    namespace="AWS/EC2",
-                    metric_names=[
-                        "CPUUtilization",
-                        "NetworkOut",
-                    ],
-                ),
-                aws.cloudwatch.MetricStreamIncludeFilterArgs(
-                    namespace="AWS/EBS",
-                    metric_names=[],
-                ),
-            ])
-        metric_stream_to_firehose_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            actions=[
-                "firehose:PutRecord",
-                "firehose:PutRecordBatch",
-            ],
-            resources=[s3_stream.arn],
-        )])
-        metric_stream_to_firehose_role_policy = aws.iam.RolePolicy("metricStreamToFirehoseRolePolicy",
-            role=metric_stream_to_firehose_role.id,
-            policy=metric_stream_to_firehose_policy_document.json)
-        bucket_acl = aws.s3.BucketAclV2("bucketAcl",
-            bucket=bucket.id,
-            acl="private")
-        firehose_to_s3_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            actions=[
-                "s3:AbortMultipartUpload",
-                "s3:GetBucketLocation",
-                "s3:GetObject",
-                "s3:ListBucket",
-                "s3:ListBucketMultipartUploads",
-                "s3:PutObject",
-            ],
-            resources=[
-                bucket.arn,
-                bucket.arn.apply(lambda arn: f"{arn}/*"),
-            ],
-        )])
-        firehose_to_s3_role_policy = aws.iam.RolePolicy("firehoseToS3RolePolicy",
-            role=firehose_to_s3_role.id,
-            policy=firehose_to_s3_policy_document.json)
-        ```
         ### Additional Statistics
 
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        main = aws.cloudwatch.MetricStream("main",
-            role_arn=aws_iam_role["metric_stream_to_firehose"]["arn"],
-            firehose_arn=aws_kinesis_firehose_delivery_stream["s3_stream"]["arn"],
-            output_format="json",
+        main = aws.cloudwatch.metric_stream.MetricStream("main",
+            role_arn=aws_iam_role.metric_stream_to_firehose.arn,
+            firehose_arn=aws_kinesis_firehose_delivery_stream.s3_stream.arn,
+            output_format=json,
             statistics_configurations=[
-                aws.cloudwatch.MetricStreamStatisticsConfigurationArgs(
-                    additional_statistics=[
-                        "p1",
-                        "tm99",
+                {
+                    additionalStatistics: [
+                        p1,
+                        tm99,
                     ],
-                    include_metrics=[aws.cloudwatch.MetricStreamStatisticsConfigurationIncludeMetricArgs(
-                        metric_name="CPUUtilization",
-                        namespace="AWS/EC2",
-                    )],
-                ),
-                aws.cloudwatch.MetricStreamStatisticsConfigurationArgs(
-                    additional_statistics=["TS(50.5:)"],
-                    include_metrics=[aws.cloudwatch.MetricStreamStatisticsConfigurationIncludeMetricArgs(
-                        metric_name="CPUUtilization",
-                        namespace="AWS/EC2",
-                    )],
-                ),
+                    includeMetrics: [{
+                        metricName: CPUUtilization,
+                        namespace: AWS/EC2,
+                    }],
+                },
+                {
+                    additionalStatistics: [TS(50.5:)],
+                    includeMetrics: [{
+                        metricName: CPUUtilization,
+                        namespace: AWS/EC2,
+                    }],
+                },
             ])
         ```
 

@@ -28,7 +28,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.s3.DirectoryBucket;
  * import com.pulumi.aws.s3.DirectoryBucketArgs;
- * import com.pulumi.aws.s3.inputs.DirectoryBucketLocationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -44,9 +43,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new DirectoryBucket(&#34;example&#34;, DirectoryBucketArgs.builder()        
  *             .bucket(&#34;example--usw2-az1--x-s3&#34;)
- *             .location(DirectoryBucketLocationArgs.builder()
- *                 .name(&#34;usw2-az1&#34;)
- *                 .build())
+ *             .location(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

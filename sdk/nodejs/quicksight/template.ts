@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.quicksight.Template("example", {
+ * const example = new aws.quicksight/template.Template("example", {
  *     templateId: "example-id",
  *     versionDescription: "version",
  *     sourceEntity: {
@@ -25,6 +25,70 @@ import * as utilities from "../utilities";
  *             arn: aws_quicksight_template.source.arn,
  *         },
  *     },
+ * });
+ * ```
+ * ### With Definition
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.quicksight/template.Template("example", {
+ *     definition: {
+ *         dataSetConfigurations: [{
+ *             dataSetSchema: {
+ *                 columnSchemaList: [
+ *                     {
+ *                         dataType: "STRING",
+ *                         name: "Column1",
+ *                     },
+ *                     {
+ *                         dataType: "INTEGER",
+ *                         name: "Column2",
+ *                     },
+ *                 ],
+ *             },
+ *             placeholder: "1",
+ *         }],
+ *         sheets: [{
+ *             sheetId: "Test1",
+ *             title: "Test",
+ *             visuals: [{
+ *                 barChartVisual: {
+ *                     chartConfiguration: {
+ *                         fieldWells: {
+ *                             barChartAggregatedFieldWells: {
+ *                                 category: [{
+ *                                     categoricalDimensionField: {
+ *                                         column: {
+ *                                             columnName: "Column1",
+ *                                             dataSetIdentifier: "1",
+ *                                         },
+ *                                         fieldId: "1",
+ *                                     },
+ *                                 }],
+ *                                 values: [{
+ *                                     numericalMeasureField: {
+ *                                         aggregationFunction: {
+ *                                             simpleNumericalAggregation: "SUM",
+ *                                         },
+ *                                         column: {
+ *                                             columnName: "Column2",
+ *                                             dataSetIdentifier: "1",
+ *                                         },
+ *                                         fieldId: "2",
+ *                                     },
+ *                                 }],
+ *                             },
+ *                         },
+ *                     },
+ *                     visualId: "BarChart",
+ *                 },
+ *             }],
+ *         }],
+ *     },
+ *     templateId: "example-id",
+ *     versionDescription: "version",
  * });
  * ```
  *

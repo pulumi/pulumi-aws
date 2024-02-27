@@ -33,36 +33,36 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var mainvpc = new Aws.Ec2.Vpc("mainvpc", new()
+    ///     var mainvpc = new Aws.Ec2.Vpc.Vpc("mainvpc", new()
     ///     {
     ///         CidrBlock = "10.1.0.0/16",
     ///     });
     /// 
-    ///     var @default = new Aws.Ec2.DefaultNetworkAcl("default", new()
+    ///     var @default = new Aws.Ec2.DefaultNetworkAcl.DefaultNetworkAcl("default", new()
     ///     {
     ///         DefaultNetworkAclId = mainvpc.DefaultNetworkAclId,
     ///         Ingress = new[]
     ///         {
-    ///             new Aws.Ec2.Inputs.DefaultNetworkAclIngressArgs
+    ///             
     ///             {
-    ///                 Protocol = "-1",
-    ///                 RuleNo = 100,
-    ///                 Action = "allow",
-    ///                 CidrBlock = "0.0.0.0/0",
-    ///                 FromPort = 0,
-    ///                 ToPort = 0,
+    ///                 { "protocol", -1 },
+    ///                 { "ruleNo", 100 },
+    ///                 { "action", "allow" },
+    ///                 { "cidrBlock", "0.0.0.0/0" },
+    ///                 { "fromPort", 0 },
+    ///                 { "toPort", 0 },
     ///             },
     ///         },
     ///         Egress = new[]
     ///         {
-    ///             new Aws.Ec2.Inputs.DefaultNetworkAclEgressArgs
+    ///             
     ///             {
-    ///                 Protocol = "-1",
-    ///                 RuleNo = 100,
-    ///                 Action = "allow",
-    ///                 CidrBlock = "0.0.0.0/0",
-    ///                 FromPort = 0,
-    ///                 ToPort = 0,
+    ///                 { "protocol", -1 },
+    ///                 { "ruleNo", 100 },
+    ///                 { "action", "allow" },
+    ///                 { "cidrBlock", "0.0.0.0/0" },
+    ///                 { "fromPort", 0 },
+    ///                 { "toPort", 0 },
     ///             },
     ///         },
     ///     });
@@ -81,24 +81,24 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var mainvpc = new Aws.Ec2.Vpc("mainvpc", new()
+    ///     var mainvpc = new Aws.Ec2.Vpc.Vpc("mainvpc", new()
     ///     {
     ///         CidrBlock = "10.1.0.0/16",
     ///     });
     /// 
-    ///     var @default = new Aws.Ec2.DefaultNetworkAcl("default", new()
+    ///     var @default = new Aws.Ec2.DefaultNetworkAcl.DefaultNetworkAcl("default", new()
     ///     {
     ///         DefaultNetworkAclId = mainvpc.DefaultNetworkAclId,
     ///         Ingress = new[]
     ///         {
-    ///             new Aws.Ec2.Inputs.DefaultNetworkAclIngressArgs
+    ///             
     ///             {
-    ///                 Protocol = "-1",
-    ///                 RuleNo = 100,
-    ///                 Action = "allow",
-    ///                 CidrBlock = aws_default_vpc.Mainvpc.Cidr_block,
-    ///                 FromPort = 0,
-    ///                 ToPort = 0,
+    ///                 { "protocol", -1 },
+    ///                 { "ruleNo", 100 },
+    ///                 { "action", "allow" },
+    ///                 { "cidrBlock", aws_default_vpc.Mainvpc.Cidr_block },
+    ///                 { "fromPort", 0 },
+    ///                 { "toPort", 0 },
     ///             },
     ///         },
     ///     });
@@ -117,12 +117,12 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var mainvpc = new Aws.Ec2.Vpc("mainvpc", new()
+    ///     var mainvpc = new Aws.Ec2.Vpc.Vpc("mainvpc", new()
     ///     {
     ///         CidrBlock = "10.1.0.0/16",
     ///     });
     /// 
-    ///     var @default = new Aws.Ec2.DefaultNetworkAcl("default", new()
+    ///     var @default = new Aws.Ec2.DefaultNetworkAcl.DefaultNetworkAcl("default", new()
     ///     {
     ///         DefaultNetworkAclId = mainvpc.DefaultNetworkAclId,
     ///     });
@@ -149,7 +149,7 @@ namespace Pulumi.Aws.Ec2
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // ... other configuration ...
-    ///     var @default = new Aws.Ec2.DefaultNetworkAcl("default");
+    ///     var @default = new Aws.Ec2.DefaultNetworkAcl.DefaultNetworkAcl("default");
     /// 
     /// });
     /// ```

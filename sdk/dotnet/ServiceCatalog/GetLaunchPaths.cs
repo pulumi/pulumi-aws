@@ -16,25 +16,6 @@ namespace Pulumi.Aws.ServiceCatalog
         /// 
         /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.ServiceCatalog.GetLaunchPaths.Invoke(new()
-        ///     {
-        ///         ProductId = "prod-yakog5pdriver",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetLaunchPathsResult> InvokeAsync(GetLaunchPathsArgs args, InvokeOptions? options = null)
@@ -45,25 +26,6 @@ namespace Pulumi.Aws.ServiceCatalog
         /// 
         /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.ServiceCatalog.GetLaunchPaths.Invoke(new()
-        ///     {
-        ///         ProductId = "prod-yakog5pdriver",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetLaunchPathsResult> Invoke(GetLaunchPathsInvokeArgs args, InvokeOptions? options = null)

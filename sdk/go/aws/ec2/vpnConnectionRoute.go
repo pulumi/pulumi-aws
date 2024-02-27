@@ -21,53 +21,55 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	ec2/customerGateway "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/customerGateway"
+//	ec2/vpc "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/vpc"
+//	ec2/vpnConnection "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/vpnConnection"
+//	ec2/vpnConnectionRoute "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/vpnConnectionRoute"
+//	ec2/vpnGateway "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/vpnGateway"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			vpc, err := ec2.NewVpc(ctx, "vpc", &ec2.VpcArgs{
-//				CidrBlock: pulumi.String("10.0.0.0/16"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			vpnGateway, err := ec2.NewVpnGateway(ctx, "vpnGateway", &ec2.VpnGatewayArgs{
-//				VpcId: vpc.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			customerGateway, err := ec2.NewCustomerGateway(ctx, "customerGateway", &ec2.CustomerGatewayArgs{
-//				BgpAsn:    pulumi.String("65000"),
-//				IpAddress: pulumi.String("172.0.0.1"),
-//				Type:      pulumi.String("ipsec.1"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			main, err := ec2.NewVpnConnection(ctx, "main", &ec2.VpnConnectionArgs{
-//				VpnGatewayId:      vpnGateway.ID(),
-//				CustomerGatewayId: customerGateway.ID(),
-//				Type:              pulumi.String("ipsec.1"),
-//				StaticRoutesOnly:  pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ec2.NewVpnConnectionRoute(ctx, "office", &ec2.VpnConnectionRouteArgs{
-//				DestinationCidrBlock: pulumi.String("192.168.10.0/24"),
-//				VpnConnectionId:      main.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// vpc, err := ec2/vpc.NewVpc(ctx, "vpc", &ec2/vpc.VpcArgs{
+// CidrBlock: "10.0.0.0/16",
+// })
+// if err != nil {
+// return err
+// }
+// vpnGateway, err := ec2/vpnGateway.NewVpnGateway(ctx, "vpnGateway", &ec2/vpnGateway.VpnGatewayArgs{
+// VpcId: vpc.Id,
+// })
+// if err != nil {
+// return err
+// }
+// customerGateway, err := ec2/customerGateway.NewCustomerGateway(ctx, "customerGateway", &ec2/customerGateway.CustomerGatewayArgs{
+// BgpAsn: 65000,
+// IpAddress: "172.0.0.1",
+// Type: "ipsec.1",
+// })
+// if err != nil {
+// return err
+// }
+// main, err := ec2/vpnConnection.NewVpnConnection(ctx, "main", &ec2/vpnConnection.VpnConnectionArgs{
+// VpnGatewayId: vpnGateway.Id,
+// CustomerGatewayId: customerGateway.Id,
+// Type: "ipsec.1",
+// StaticRoutesOnly: true,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = ec2/vpnConnectionRoute.NewVpnConnectionRoute(ctx, "office", &ec2/vpnConnectionRoute.VpnConnectionRouteArgs{
+// DestinationCidrBlock: "192.168.10.0/24",
+// VpnConnectionId: main.Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 type VpnConnectionRoute struct {
 	pulumi.CustomResourceState

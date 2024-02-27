@@ -151,29 +151,6 @@ def get_resource_share(filters: Optional[Sequence[pulumi.InputType['GetResourceS
     """
     `ram.ResourceShare` Retrieve information about a RAM Resource Share.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ram.get_resource_share(name="example",
-        resource_owner="SELF")
-    ```
-    ## Search by filters
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    tag_filter = aws.ram.get_resource_share(filters=[aws.ram.GetResourceShareFilterArgs(
-            name="NameOfTag",
-            values=["exampleNameTagValue"],
-        )],
-        name="MyResourceName",
-        resource_owner="SELF")
-    ```
-
 
     :param Sequence[pulumi.InputType['GetResourceShareFilterArgs']] filters: Filter used to scope the list e.g., by tags. See [related docs] (https://docs.aws.amazon.com/ram/latest/APIReference/API_TagFilter.html).
     :param str name: Name of the tag key to filter on.
@@ -212,29 +189,6 @@ def get_resource_share_output(filters: Optional[pulumi.Input[Optional[Sequence[p
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResourceShareResult]:
     """
     `ram.ResourceShare` Retrieve information about a RAM Resource Share.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ram.get_resource_share(name="example",
-        resource_owner="SELF")
-    ```
-    ## Search by filters
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    tag_filter = aws.ram.get_resource_share(filters=[aws.ram.GetResourceShareFilterArgs(
-            name="NameOfTag",
-            values=["exampleNameTagValue"],
-        )],
-        name="MyResourceName",
-        resource_owner="SELF")
-    ```
 
 
     :param Sequence[pulumi.InputType['GetResourceShareFilterArgs']] filters: Filter used to scope the list e.g., by tags. See [related docs] (https://docs.aws.amazon.com/ram/latest/APIReference/API_TagFilter.html).

@@ -22,29 +22,27 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/verifiedaccess"
+//	verifiedaccess/instanceLoggingConfiguration "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/verifiedaccess/instanceLoggingConfiguration"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := verifiedaccess.NewInstanceLoggingConfiguration(ctx, "example", &verifiedaccess.InstanceLoggingConfigurationArgs{
-//				AccessLogs: &verifiedaccess.InstanceLoggingConfigurationAccessLogsArgs{
-//					CloudwatchLogs: &verifiedaccess.InstanceLoggingConfigurationAccessLogsCloudwatchLogsArgs{
-//						Enabled:  pulumi.Bool(true),
-//						LogGroup: pulumi.Any(aws_cloudwatch_log_group.Example.Id),
-//					},
-//				},
-//				VerifiedaccessInstanceId: pulumi.Any(aws_verifiedaccess_instance.Example.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := verifiedaccess/instanceLoggingConfiguration.NewInstanceLoggingConfiguration(ctx, "example", &verifiedaccess/instanceLoggingConfiguration.InstanceLoggingConfigurationArgs{
+// AccessLogs: map[string]interface{}{
+// "cloudwatchLogs": map[string]interface{}{
+// "enabled": true,
+// "logGroup": aws_cloudwatch_log_group.Example.Id,
+// },
+// },
+// VerifiedaccessInstanceId: aws_verifiedaccess_instance.Example.Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### With Kinesis Data Firehose Logging
 //
@@ -53,29 +51,27 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/verifiedaccess"
+//	verifiedaccess/instanceLoggingConfiguration "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/verifiedaccess/instanceLoggingConfiguration"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := verifiedaccess.NewInstanceLoggingConfiguration(ctx, "example", &verifiedaccess.InstanceLoggingConfigurationArgs{
-//				AccessLogs: &verifiedaccess.InstanceLoggingConfigurationAccessLogsArgs{
-//					KinesisDataFirehose: &verifiedaccess.InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseArgs{
-//						DeliveryStream: pulumi.Any(aws_kinesis_firehose_delivery_stream.Example.Name),
-//						Enabled:        pulumi.Bool(true),
-//					},
-//				},
-//				VerifiedaccessInstanceId: pulumi.Any(aws_verifiedaccess_instance.Example.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := verifiedaccess/instanceLoggingConfiguration.NewInstanceLoggingConfiguration(ctx, "example", &verifiedaccess/instanceLoggingConfiguration.InstanceLoggingConfigurationArgs{
+// AccessLogs: map[string]interface{}{
+// "kinesisDataFirehose": map[string]interface{}{
+// "deliveryStream": aws_kinesis_firehose_delivery_stream.Example.Name,
+// "enabled": true,
+// },
+// },
+// VerifiedaccessInstanceId: aws_verifiedaccess_instance.Example.Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### With S3 logging
 //
@@ -84,30 +80,28 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/verifiedaccess"
+//	verifiedaccess/instanceLoggingConfiguration "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/verifiedaccess/instanceLoggingConfiguration"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := verifiedaccess.NewInstanceLoggingConfiguration(ctx, "example", &verifiedaccess.InstanceLoggingConfigurationArgs{
-//				AccessLogs: &verifiedaccess.InstanceLoggingConfigurationAccessLogsArgs{
-//					S3: &verifiedaccess.InstanceLoggingConfigurationAccessLogsS3Args{
-//						BucketName: pulumi.Any(aws_s3_bucket.Example.Id),
-//						Enabled:    pulumi.Bool(true),
-//						Prefix:     pulumi.String("example"),
-//					},
-//				},
-//				VerifiedaccessInstanceId: pulumi.Any(aws_verifiedaccess_instance.Example.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := verifiedaccess/instanceLoggingConfiguration.NewInstanceLoggingConfiguration(ctx, "example", &verifiedaccess/instanceLoggingConfiguration.InstanceLoggingConfigurationArgs{
+// AccessLogs: map[string]interface{}{
+// "s3": map[string]interface{}{
+// "bucketName": aws_s3_bucket.Example.Id,
+// "enabled": true,
+// "prefix": "example",
+// },
+// },
+// VerifiedaccessInstanceId: aws_verifiedaccess_instance.Example.Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### With all three logging options
 //
@@ -116,37 +110,35 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/verifiedaccess"
+//	verifiedaccess/instanceLoggingConfiguration "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/verifiedaccess/instanceLoggingConfiguration"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := verifiedaccess.NewInstanceLoggingConfiguration(ctx, "example", &verifiedaccess.InstanceLoggingConfigurationArgs{
-//				AccessLogs: &verifiedaccess.InstanceLoggingConfigurationAccessLogsArgs{
-//					CloudwatchLogs: &verifiedaccess.InstanceLoggingConfigurationAccessLogsCloudwatchLogsArgs{
-//						Enabled:  pulumi.Bool(true),
-//						LogGroup: pulumi.Any(aws_cloudwatch_log_group.Example.Id),
-//					},
-//					KinesisDataFirehose: &verifiedaccess.InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseArgs{
-//						DeliveryStream: pulumi.Any(aws_kinesis_firehose_delivery_stream.Example.Name),
-//						Enabled:        pulumi.Bool(true),
-//					},
-//					S3: &verifiedaccess.InstanceLoggingConfigurationAccessLogsS3Args{
-//						BucketName: pulumi.Any(aws_s3_bucket.Example.Id),
-//						Enabled:    pulumi.Bool(true),
-//					},
-//				},
-//				VerifiedaccessInstanceId: pulumi.Any(aws_verifiedaccess_instance.Example.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := verifiedaccess/instanceLoggingConfiguration.NewInstanceLoggingConfiguration(ctx, "example", &verifiedaccess/instanceLoggingConfiguration.InstanceLoggingConfigurationArgs{
+// AccessLogs: map[string]interface{}{
+// "cloudwatchLogs": map[string]interface{}{
+// "enabled": true,
+// "logGroup": aws_cloudwatch_log_group.Example.Id,
+// },
+// "kinesisDataFirehose": map[string]interface{}{
+// "deliveryStream": aws_kinesis_firehose_delivery_stream.Example.Name,
+// "enabled": true,
+// },
+// "s3": map[string]interface{}{
+// "bucketName": aws_s3_bucket.Example.Id,
+// "enabled": true,
+// },
+// },
+// VerifiedaccessInstanceId: aws_verifiedaccess_instance.Example.Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### With `includeTrustContext`
 //
@@ -155,26 +147,24 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/verifiedaccess"
+//	verifiedaccess/instanceLoggingConfiguration "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/verifiedaccess/instanceLoggingConfiguration"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := verifiedaccess.NewInstanceLoggingConfiguration(ctx, "example", &verifiedaccess.InstanceLoggingConfigurationArgs{
-//				AccessLogs: &verifiedaccess.InstanceLoggingConfigurationAccessLogsArgs{
-//					IncludeTrustContext: pulumi.Bool(true),
-//				},
-//				VerifiedaccessInstanceId: pulumi.Any(aws_verifiedaccess_instance.Example.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := verifiedaccess/instanceLoggingConfiguration.NewInstanceLoggingConfiguration(ctx, "example", &verifiedaccess/instanceLoggingConfiguration.InstanceLoggingConfigurationArgs{
+// AccessLogs: map[string]interface{}{
+// "includeTrustContext": true,
+// },
+// VerifiedaccessInstanceId: aws_verifiedaccess_instance.Example.Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### With `logVersion`
 //
@@ -183,26 +173,24 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/verifiedaccess"
+//	verifiedaccess/instanceLoggingConfiguration "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/verifiedaccess/instanceLoggingConfiguration"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := verifiedaccess.NewInstanceLoggingConfiguration(ctx, "example", &verifiedaccess.InstanceLoggingConfigurationArgs{
-//				AccessLogs: &verifiedaccess.InstanceLoggingConfigurationAccessLogsArgs{
-//					LogVersion: pulumi.String("ocsf-1.0.0-rc.2"),
-//				},
-//				VerifiedaccessInstanceId: pulumi.Any(aws_verifiedaccess_instance.Example.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := verifiedaccess/instanceLoggingConfiguration.NewInstanceLoggingConfiguration(ctx, "example", &verifiedaccess/instanceLoggingConfiguration.InstanceLoggingConfigurationArgs{
+// AccessLogs: map[string]interface{}{
+// "logVersion": "ocsf-1.0.0-rc.2",
+// },
+// VerifiedaccessInstanceId: aws_verifiedaccess_instance.Example.Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

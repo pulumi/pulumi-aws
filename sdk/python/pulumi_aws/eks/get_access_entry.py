@@ -162,17 +162,6 @@ def get_access_entry(cluster_name: Optional[str] = None,
     """
     Access Entry Configurations for an EKS Cluster.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.eks.get_access_entry(cluster_name=aws_eks_cluster["example"]["name"],
-        principal_arn=aws_iam_role["example"]["arn"])
-    pulumi.export("eksAccessEntryOutputs", aws_eks_access_entry["example"])
-    ```
-
 
     :param str cluster_name: Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\\-_]+$`).
     :param str principal_arn: The IAM Principal ARN which requires Authentication access to the EKS cluster.
@@ -205,17 +194,6 @@ def get_access_entry_output(cluster_name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccessEntryResult]:
     """
     Access Entry Configurations for an EKS Cluster.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.eks.get_access_entry(cluster_name=aws_eks_cluster["example"]["name"],
-        principal_arn=aws_iam_role["example"]["arn"])
-    pulumi.export("eksAccessEntryOutputs", aws_eks_access_entry["example"])
-    ```
 
 
     :param str cluster_name: Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\\-_]+$`).

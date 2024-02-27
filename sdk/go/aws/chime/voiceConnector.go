@@ -21,24 +21,22 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/chime"
+//	chime/voiceConnector "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/chime/voiceConnector"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := chime.NewVoiceConnector(ctx, "test", &chime.VoiceConnectorArgs{
-//				AwsRegion:         pulumi.String("us-east-1"),
-//				RequireEncryption: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := chime/voiceConnector.NewVoiceConnector(ctx, "test", &chime/voiceConnector.VoiceConnectorArgs{
+// AwsRegion: "us-east-1",
+// RequireEncryption: true,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

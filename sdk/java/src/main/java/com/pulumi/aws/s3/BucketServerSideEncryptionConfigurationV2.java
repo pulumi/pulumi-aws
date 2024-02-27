@@ -35,8 +35,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.s3.BucketV2;
  * import com.pulumi.aws.s3.BucketServerSideEncryptionConfigurationV2;
  * import com.pulumi.aws.s3.BucketServerSideEncryptionConfigurationV2Args;
- * import com.pulumi.aws.s3.inputs.BucketServerSideEncryptionConfigurationV2RuleArgs;
- * import com.pulumi.aws.s3.inputs.BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -59,12 +57,7 @@ import javax.annotation.Nullable;
  * 
  *         var example = new BucketServerSideEncryptionConfigurationV2(&#34;example&#34;, BucketServerSideEncryptionConfigurationV2Args.builder()        
  *             .bucket(mybucket.id())
- *             .rules(BucketServerSideEncryptionConfigurationV2RuleArgs.builder()
- *                 .applyServerSideEncryptionByDefault(BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultArgs.builder()
- *                     .kmsMasterKeyId(mykey.arn())
- *                     .sseAlgorithm(&#34;aws:kms&#34;)
- *                     .build())
- *                 .build())
+ *             .rules(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

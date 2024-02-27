@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.memorydb.Cluster("example", {
+ * const example = new aws.memorydb/cluster.Cluster("example", {
  *     aclName: "open-access",
  *     nodeType: "db.t4g.small",
  *     numShards: 2,

@@ -17,10 +17,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.ssmincidents.ResponsePlan("example", {
+ * const example = new aws.ssmincidents/responsePlan.ResponsePlan("example", {
  *     incidentTemplate: {
  *         title: "title",
- *         impact: 3,
+ *         impact: "3",
  *     },
  *     tags: {
  *         key: "value",
@@ -35,10 +35,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.ssmincidents.ResponsePlan("example", {
+ * const example = new aws.ssmincidents/responsePlan.ResponsePlan("example", {
  *     incidentTemplate: {
  *         title: "title",
- *         impact: 3,
+ *         impact: "3",
  *         dedupeString: "dedupe",
  *         incidentTags: {
  *             key: "value",

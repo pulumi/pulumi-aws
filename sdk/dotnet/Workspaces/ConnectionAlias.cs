@@ -23,7 +23,7 @@ namespace Pulumi.Aws.Workspaces
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Workspaces.ConnectionAlias("example", new()
+    ///     var example = new Aws.Workspaces.ConnectionAlias.ConnectionAlias("example", new()
     ///     {
     ///         ConnectionString = "testdomain.test",
     ///     });

@@ -13,100 +13,12 @@ namespace Pulumi.Aws.Connect
     {
         /// <summary>
         /// Provides details about a specific Amazon Connect User.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// By `name`
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Connect.GetUser.Invoke(new()
-        ///     {
-        ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
-        ///         Name = "Example",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// 
-        /// By `user_id`
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Connect.GetUser.Invoke(new()
-        ///     {
-        ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
-        ///         UserId = "cccccccc-bbbb-cccc-dddd-111111111111",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetUserResult> InvokeAsync(GetUserArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetUserResult>("aws:connect/getUser:getUser", args ?? new GetUserArgs(), options.WithDefaults());
 
         /// <summary>
         /// Provides details about a specific Amazon Connect User.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// By `name`
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Connect.GetUser.Invoke(new()
-        ///     {
-        ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
-        ///         Name = "Example",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// 
-        /// By `user_id`
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Connect.GetUser.Invoke(new()
-        ///     {
-        ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
-        ///         UserId = "cccccccc-bbbb-cccc-dddd-111111111111",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetUserResult> Invoke(GetUserInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetUserResult>("aws:connect/getUser:getUser", args ?? new GetUserInvokeArgs(), options.WithDefaults());

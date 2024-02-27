@@ -24,12 +24,12 @@ namespace Pulumi.Aws.ElasticBeanstalk
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var tftest = new Aws.ElasticBeanstalk.Application("tftest", new()
+    ///     var tftest = new Aws.Elasticbeanstalk.Application.Application("tftest", new()
     ///     {
     ///         Description = "tf-test-desc",
     ///     });
     /// 
-    ///     var myTemplate = new Aws.ElasticBeanstalk.ConfigurationTemplate("myTemplate", new()
+    ///     var myTemplate = new Aws.Elasticbeanstalk.ConfigurationTemplate.ConfigurationTemplate("myTemplate", new()
     ///     {
     ///         Application = tftest.Name,
     ///         SolutionStackName = "64bit Amazon Linux 2015.09 v2.0.8 running Go 1.4",

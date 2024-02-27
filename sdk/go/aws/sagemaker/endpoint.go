@@ -23,26 +23,24 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sagemaker"
+//	sagemaker/endpoint "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/sagemaker/endpoint"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := sagemaker.NewEndpoint(ctx, "endpoint", &sagemaker.EndpointArgs{
-//				EndpointConfigName: pulumi.Any(aws_sagemaker_endpoint_configuration.Ec.Name),
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("foo"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := sagemaker/endpoint.NewEndpoint(ctx, "endpoint", &sagemaker/endpoint.EndpointArgs{
+// EndpointConfigName: aws_sagemaker_endpoint_configuration.Ec.Name,
+// Tags: map[string]interface{}{
+// "Name": "foo",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

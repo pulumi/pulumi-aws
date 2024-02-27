@@ -59,7 +59,7 @@ namespace Pulumi.Aws.Acm
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var cert = new Aws.Acm.Certificate("cert", new()
+    ///     var cert = new Aws.Acm.Certificate.Certificate("cert", new()
     ///     {
     ///         DomainName = "example.com",
     ///         Tags = 
@@ -81,16 +81,16 @@ namespace Pulumi.Aws.Acm
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var cert = new Aws.Acm.Certificate("cert", new()
+    ///     var cert = new Aws.Acm.Certificate.Certificate("cert", new()
     ///     {
     ///         DomainName = "testing.example.com",
     ///         ValidationMethod = "EMAIL",
     ///         ValidationOptions = new[]
     ///         {
-    ///             new Aws.Acm.Inputs.CertificateValidationOptionArgs
+    ///             
     ///             {
-    ///                 DomainName = "testing.example.com",
-    ///                 ValidationDomain = "example.com",
+    ///                 { "domainName", "testing.example.com" },
+    ///                 { "validationDomain", "example.com" },
     ///             },
     ///         },
     ///     });
@@ -108,19 +108,19 @@ namespace Pulumi.Aws.Acm
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var examplePrivateKey = new Tls.PrivateKey("examplePrivateKey", new()
+    ///     var examplePrivateKey = new Tls.Index.PrivateKey.PrivateKey("examplePrivateKey", new()
     ///     {
     ///         Algorithm = "RSA",
     ///     });
     /// 
-    ///     var exampleSelfSignedCert = new Tls.SelfSignedCert("exampleSelfSignedCert", new()
+    ///     var exampleSelfSignedCert = new Tls.Index.SelfSignedCert.SelfSignedCert("exampleSelfSignedCert", new()
     ///     {
     ///         KeyAlgorithm = "RSA",
     ///         PrivateKeyPem = examplePrivateKey.PrivateKeyPem,
-    ///         Subject = new Tls.Inputs.SelfSignedCertSubjectArgs
+    ///         Subject = 
     ///         {
-    ///             CommonName = "example.com",
-    ///             Organization = "ACME Examples, Inc",
+    ///             { "commonName", "example.com" },
+    ///             { "organization", "ACME Examples, Inc" },
     ///         },
     ///         ValidityPeriodHours = 12,
     ///         AllowedUses = new[]
@@ -131,7 +131,7 @@ namespace Pulumi.Aws.Acm
     ///         },
     ///     });
     /// 
-    ///     var cert = new Aws.Acm.Certificate("cert", new()
+    ///     var cert = new Aws.Acm.Certificate.Certificate("cert", new()
     ///     {
     ///         PrivateKey = examplePrivateKey.PrivateKeyPem,
     ///         CertificateBody = exampleSelfSignedCert.CertPem,
@@ -151,7 +151,7 @@ namespace Pulumi.Aws.Acm
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new List&lt;Aws.Route53.Record&gt;();
+    ///     var example = new List&lt;Aws.Route53.Record.Record&gt;();
     ///     foreach (var range in .ToDictionary(item =&gt; {
     ///         var dvo = item.Value;
     ///         return dvo.DomainName;
@@ -165,7 +165,7 @@ namespace Pulumi.Aws.Acm
     ///         };
     ///     }).Select(pair =&gt; new { pair.Key, pair.Value }))
     ///     {
-    ///         example.Add(new Aws.Route53.Record($"example-{range.Key}", new()
+    ///         example.Add(new Aws.Route53.Record.Record($"example-{range.Key}", new()
     ///         {
     ///             AllowOverwrite = true,
     ///             Name = range.Value.Name,
@@ -174,7 +174,7 @@ namespace Pulumi.Aws.Acm
     ///                 range.Value.Record,
     ///             },
     ///             Ttl = 60,
-    ///             Type = System.Enum.Parse&lt;Aws.Route53.RecordType.RecordType&gt;(range.Value.Type),
+    ///             Type = range.Value.Type,
     ///             ZoneId = aws_route53_zone.Example.Zone_id,
     ///         }));
     ///     }

@@ -312,31 +312,31 @@ class SafetyRule(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.route53recoverycontrol.SafetyRule("example",
-            asserted_controls=[aws_route53recoverycontrolconfig_routing_control["example"]["arn"]],
-            control_panel_arn="arn:aws:route53-recovery-control::313517334327:controlpanel/abd5fbfc052d4844a082dbf400f61da8",
+        example = aws.route53recoverycontrol.safety_rule.SafetyRule("example",
+            asserted_controls=[aws_route53recoverycontrolconfig_routing_control.example.arn],
+            control_panel_arn=arn:aws:route53-recovery-control::313517334327:controlpanel/abd5fbfc052d4844a082dbf400f61da8,
             wait_period_ms=5000,
-            rule_config=aws.route53recoverycontrol.SafetyRuleRuleConfigArgs(
-                inverted=False,
-                threshold=1,
-                type="ATLEAST",
-            ))
+            rule_config={
+                inverted: False,
+                threshold: 1,
+                type: ATLEAST,
+            })
         ```
 
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.route53recoverycontrol.SafetyRule("example",
-            control_panel_arn="arn:aws:route53-recovery-control::313517334327:controlpanel/abd5fbfc052d4844a082dbf400f61da8",
+        example = aws.route53recoverycontrol.safety_rule.SafetyRule("example",
+            control_panel_arn=arn:aws:route53-recovery-control::313517334327:controlpanel/abd5fbfc052d4844a082dbf400f61da8,
             wait_period_ms=5000,
-            gating_controls=[aws_route53recoverycontrolconfig_routing_control["example"]["arn"]],
-            target_controls=[aws_route53recoverycontrolconfig_routing_control["example"]["arn"]],
-            rule_config=aws.route53recoverycontrol.SafetyRuleRuleConfigArgs(
-                inverted=False,
-                threshold=1,
-                type="ATLEAST",
-            ))
+            gating_controls=[aws_route53recoverycontrolconfig_routing_control.example.arn],
+            target_controls=[aws_route53recoverycontrolconfig_routing_control.example.arn],
+            rule_config={
+                inverted: False,
+                threshold: 1,
+                type: ATLEAST,
+            })
         ```
 
         ## Import
@@ -374,31 +374,31 @@ class SafetyRule(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.route53recoverycontrol.SafetyRule("example",
-            asserted_controls=[aws_route53recoverycontrolconfig_routing_control["example"]["arn"]],
-            control_panel_arn="arn:aws:route53-recovery-control::313517334327:controlpanel/abd5fbfc052d4844a082dbf400f61da8",
+        example = aws.route53recoverycontrol.safety_rule.SafetyRule("example",
+            asserted_controls=[aws_route53recoverycontrolconfig_routing_control.example.arn],
+            control_panel_arn=arn:aws:route53-recovery-control::313517334327:controlpanel/abd5fbfc052d4844a082dbf400f61da8,
             wait_period_ms=5000,
-            rule_config=aws.route53recoverycontrol.SafetyRuleRuleConfigArgs(
-                inverted=False,
-                threshold=1,
-                type="ATLEAST",
-            ))
+            rule_config={
+                inverted: False,
+                threshold: 1,
+                type: ATLEAST,
+            })
         ```
 
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.route53recoverycontrol.SafetyRule("example",
-            control_panel_arn="arn:aws:route53-recovery-control::313517334327:controlpanel/abd5fbfc052d4844a082dbf400f61da8",
+        example = aws.route53recoverycontrol.safety_rule.SafetyRule("example",
+            control_panel_arn=arn:aws:route53-recovery-control::313517334327:controlpanel/abd5fbfc052d4844a082dbf400f61da8,
             wait_period_ms=5000,
-            gating_controls=[aws_route53recoverycontrolconfig_routing_control["example"]["arn"]],
-            target_controls=[aws_route53recoverycontrolconfig_routing_control["example"]["arn"]],
-            rule_config=aws.route53recoverycontrol.SafetyRuleRuleConfigArgs(
-                inverted=False,
-                threshold=1,
-                type="ATLEAST",
-            ))
+            gating_controls=[aws_route53recoverycontrolconfig_routing_control.example.arn],
+            target_controls=[aws_route53recoverycontrolconfig_routing_control.example.arn],
+            rule_config={
+                inverted: False,
+                threshold: 1,
+                type: ATLEAST,
+            })
         ```
 
         ## Import

@@ -20,26 +20,24 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/appconfig"
+//	appconfig/application "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/appconfig/application"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := appconfig.NewApplication(ctx, "example", &appconfig.ApplicationArgs{
-//				Description: pulumi.String("Example AppConfig Application"),
-//				Tags: pulumi.StringMap{
-//					"Type": pulumi.String("AppConfig Application"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := appconfig/application.NewApplication(ctx, "example", &appconfig/application.ApplicationArgs{
+// Description: "Example AppConfig Application",
+// Tags: map[string]interface{}{
+// "Type": "AppConfig Application",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -17,89 +17,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.rds.ExportTask("example", {
+ * const example = new aws.rds/exportTask.ExportTask("example", {
  *     exportTaskIdentifier: "example",
  *     sourceArn: aws_db_snapshot.example.db_snapshot_arn,
  *     s3BucketName: aws_s3_bucket.example.id,
  *     iamRoleArn: aws_iam_role.example.arn,
  *     kmsKeyId: aws_kms_key.example.arn,
- * });
- * ```
- * ### Complete Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleBucketV2 = new aws.s3.BucketV2("exampleBucketV2", {forceDestroy: true});
- * const exampleBucketAclV2 = new aws.s3.BucketAclV2("exampleBucketAclV2", {
- *     bucket: exampleBucketV2.id,
- *     acl: "private",
- * });
- * const exampleRole = new aws.iam.Role("exampleRole", {assumeRolePolicy: JSON.stringify({
- *     Version: "2012-10-17",
- *     Statement: [{
- *         Action: "sts:AssumeRole",
- *         Effect: "Allow",
- *         Sid: "",
- *         Principal: {
- *             Service: "export.rds.amazonaws.com",
- *         },
- *     }],
- * })});
- * const examplePolicyDocument = aws.iam.getPolicyDocumentOutput({
- *     statements: [
- *         {
- *             actions: ["s3:ListAllMyBuckets"],
- *             resources: ["*"],
- *         },
- *         {
- *             actions: [
- *                 "s3:GetBucketLocation",
- *                 "s3:ListBucket",
- *             ],
- *             resources: [exampleBucketV2.arn],
- *         },
- *         {
- *             actions: [
- *                 "s3:GetObject",
- *                 "s3:PutObject",
- *                 "s3:DeleteObject",
- *             ],
- *             resources: [pulumi.interpolate`${exampleBucketV2.arn}/*`],
- *         },
- *     ],
- * });
- * const examplePolicy = new aws.iam.Policy("examplePolicy", {policy: examplePolicyDocument.apply(examplePolicyDocument => examplePolicyDocument.json)});
- * const exampleRolePolicyAttachment = new aws.iam.RolePolicyAttachment("exampleRolePolicyAttachment", {
- *     role: exampleRole.name,
- *     policyArn: examplePolicy.arn,
- * });
- * const exampleKey = new aws.kms.Key("exampleKey", {deletionWindowInDays: 10});
- * const exampleInstance = new aws.rds.Instance("exampleInstance", {
- *     identifier: "example",
- *     allocatedStorage: 10,
- *     dbName: "test",
- *     engine: "mysql",
- *     engineVersion: "5.7",
- *     instanceClass: "db.t3.micro",
- *     username: "foo",
- *     password: "foobarbaz",
- *     parameterGroupName: "default.mysql5.7",
- *     skipFinalSnapshot: true,
- * });
- * const exampleSnapshot = new aws.rds.Snapshot("exampleSnapshot", {
- *     dbInstanceIdentifier: exampleInstance.identifier,
- *     dbSnapshotIdentifier: "example",
- * });
- * const exampleExportTask = new aws.rds.ExportTask("exampleExportTask", {
- *     exportTaskIdentifier: "example",
- *     sourceArn: exampleSnapshot.dbSnapshotArn,
- *     s3BucketName: exampleBucketV2.id,
- *     iamRoleArn: exampleRole.arn,
- *     kmsKeyId: exampleKey.arn,
- *     exportOnlies: ["database"],
- *     s3Prefix: "my_prefix/example",
  * });
  * ```
  *

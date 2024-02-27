@@ -22,34 +22,32 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sagemaker"
+//	sagemaker/workteam "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/sagemaker/workteam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := sagemaker.NewWorkteam(ctx, "example", &sagemaker.WorkteamArgs{
-//				WorkteamName:  pulumi.String("example"),
-//				WorkforceName: pulumi.Any(aws_sagemaker_workforce.Example.Id),
-//				Description:   pulumi.String("example"),
-//				MemberDefinitions: sagemaker.WorkteamMemberDefinitionArray{
-//					&sagemaker.WorkteamMemberDefinitionArgs{
-//						CognitoMemberDefinition: &sagemaker.WorkteamMemberDefinitionCognitoMemberDefinitionArgs{
-//							ClientId:  pulumi.Any(aws_cognito_user_pool_client.Example.Id),
-//							UserPool:  pulumi.Any(aws_cognito_user_pool_domain.Example.User_pool_id),
-//							UserGroup: pulumi.Any(aws_cognito_user_group.Example.Id),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := sagemaker/workteam.NewWorkteam(ctx, "example", &sagemaker/workteam.WorkteamArgs{
+// WorkteamName: "example",
+// WorkforceName: aws_sagemaker_workforce.Example.Id,
+// Description: "example",
+// MemberDefinitions: []map[string]interface{}{
+// map[string]interface{}{
+// "cognitoMemberDefinition": map[string]interface{}{
+// "clientId": aws_cognito_user_pool_client.Example.Id,
+// "userPool": aws_cognito_user_pool_domain.Example.User_pool_id,
+// "userGroup": aws_cognito_user_group.Example.Id,
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Oidc Usage
 //
@@ -58,34 +56,32 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sagemaker"
+//	sagemaker/workteam "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/sagemaker/workteam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := sagemaker.NewWorkteam(ctx, "example", &sagemaker.WorkteamArgs{
-//				WorkteamName:  pulumi.String("example"),
-//				WorkforceName: pulumi.Any(aws_sagemaker_workforce.Example.Id),
-//				Description:   pulumi.String("example"),
-//				MemberDefinitions: sagemaker.WorkteamMemberDefinitionArray{
-//					&sagemaker.WorkteamMemberDefinitionArgs{
-//						OidcMemberDefinition: &sagemaker.WorkteamMemberDefinitionOidcMemberDefinitionArgs{
-//							Groups: pulumi.StringArray{
-//								pulumi.String("example"),
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := sagemaker/workteam.NewWorkteam(ctx, "example", &sagemaker/workteam.WorkteamArgs{
+// WorkteamName: "example",
+// WorkforceName: aws_sagemaker_workforce.Example.Id,
+// Description: "example",
+// MemberDefinitions: []map[string]interface{}{
+// map[string]interface{}{
+// "oidcMemberDefinition": map[string]interface{}{
+// "groups": []string{
+// "example",
+// },
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

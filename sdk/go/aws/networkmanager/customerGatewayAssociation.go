@@ -22,78 +22,81 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2transitgateway"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/networkmanager"
+//	ec2/customerGateway "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/customerGateway"
+//	ec2/vpnConnection "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/vpnConnection"
+//	ec2transitgateway/transitGateway "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2transitgateway/transitGateway"
+//	networkmanager/customerGatewayAssociation "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/networkmanager/customerGatewayAssociation"
+//	networkmanager/device "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/networkmanager/device"
+//	networkmanager/globalNetwork "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/networkmanager/globalNetwork"
+//	networkmanager/site "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/networkmanager/site"
+//	networkmanager/transitGatewayRegistration "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/networkmanager/transitGatewayRegistration"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleGlobalNetwork, err := networkmanager.NewGlobalNetwork(ctx, "exampleGlobalNetwork", &networkmanager.GlobalNetworkArgs{
-//				Description: pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleSite, err := networkmanager.NewSite(ctx, "exampleSite", &networkmanager.SiteArgs{
-//				GlobalNetworkId: exampleGlobalNetwork.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleDevice, err := networkmanager.NewDevice(ctx, "exampleDevice", &networkmanager.DeviceArgs{
-//				GlobalNetworkId: exampleGlobalNetwork.ID(),
-//				SiteId:          exampleSite.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleCustomerGateway, err := ec2.NewCustomerGateway(ctx, "exampleCustomerGateway", &ec2.CustomerGatewayArgs{
-//				BgpAsn:    pulumi.String("65000"),
-//				IpAddress: pulumi.String("172.83.124.10"),
-//				Type:      pulumi.String("ipsec.1"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleTransitGateway, err := ec2transitgateway.NewTransitGateway(ctx, "exampleTransitGateway", nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleVpnConnection, err := ec2.NewVpnConnection(ctx, "exampleVpnConnection", &ec2.VpnConnectionArgs{
-//				CustomerGatewayId: exampleCustomerGateway.ID(),
-//				TransitGatewayId:  exampleTransitGateway.ID(),
-//				Type:              exampleCustomerGateway.Type,
-//				StaticRoutesOnly:  pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleTransitGatewayRegistration, err := networkmanager.NewTransitGatewayRegistration(ctx, "exampleTransitGatewayRegistration", &networkmanager.TransitGatewayRegistrationArgs{
-//				GlobalNetworkId:   exampleGlobalNetwork.ID(),
-//				TransitGatewayArn: exampleTransitGateway.Arn,
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleVpnConnection,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			_, err = networkmanager.NewCustomerGatewayAssociation(ctx, "exampleCustomerGatewayAssociation", &networkmanager.CustomerGatewayAssociationArgs{
-//				GlobalNetworkId:    exampleGlobalNetwork.ID(),
-//				CustomerGatewayArn: exampleCustomerGateway.Arn,
-//				DeviceId:           exampleDevice.ID(),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleTransitGatewayRegistration,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleGlobalNetwork, err := networkmanager/globalNetwork.NewGlobalNetwork(ctx, "exampleGlobalNetwork", &networkmanager/globalNetwork.GlobalNetworkArgs{
+// Description: "example",
+// })
+// if err != nil {
+// return err
+// }
+// exampleSite, err := networkmanager/site.NewSite(ctx, "exampleSite", &networkmanager/site.SiteArgs{
+// GlobalNetworkId: exampleGlobalNetwork.Id,
+// })
+// if err != nil {
+// return err
+// }
+// exampleDevice, err := networkmanager/device.NewDevice(ctx, "exampleDevice", &networkmanager/device.DeviceArgs{
+// GlobalNetworkId: exampleGlobalNetwork.Id,
+// SiteId: exampleSite.Id,
+// })
+// if err != nil {
+// return err
+// }
+// exampleCustomerGateway, err := ec2/customerGateway.NewCustomerGateway(ctx, "exampleCustomerGateway", &ec2/customerGateway.CustomerGatewayArgs{
+// BgpAsn: 65000,
+// IpAddress: "172.83.124.10",
+// Type: "ipsec.1",
+// })
+// if err != nil {
+// return err
+// }
+// exampleTransitGateway, err := ec2transitgateway/transitGateway.NewTransitGateway(ctx, "exampleTransitGateway", nil)
+// if err != nil {
+// return err
+// }
+// exampleVpnConnection, err := ec2/vpnConnection.NewVpnConnection(ctx, "exampleVpnConnection", &ec2/vpnConnection.VpnConnectionArgs{
+// CustomerGatewayId: exampleCustomerGateway.Id,
+// TransitGatewayId: exampleTransitGateway.Id,
+// Type: exampleCustomerGateway.Type,
+// StaticRoutesOnly: true,
+// })
+// if err != nil {
+// return err
+// }
+// exampleTransitGatewayRegistration, err := networkmanager/transitGatewayRegistration.NewTransitGatewayRegistration(ctx, "exampleTransitGatewayRegistration", &networkmanager/transitGatewayRegistration.TransitGatewayRegistrationArgs{
+// GlobalNetworkId: exampleGlobalNetwork.Id,
+// TransitGatewayArn: exampleTransitGateway.Arn,
+// }, pulumi.DependsOn([]pulumi.Resource{
+// exampleVpnConnection,
+// }))
+// if err != nil {
+// return err
+// }
+// _, err = networkmanager/customerGatewayAssociation.NewCustomerGatewayAssociation(ctx, "exampleCustomerGatewayAssociation", &networkmanager/customerGatewayAssociation.CustomerGatewayAssociationArgs{
+// GlobalNetworkId: exampleGlobalNetwork.Id,
+// CustomerGatewayArn: exampleCustomerGateway.Arn,
+// DeviceId: exampleDevice.Id,
+// }, pulumi.DependsOn([]pulumi.Resource{
+// exampleTransitGatewayRegistration,
+// }))
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

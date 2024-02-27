@@ -171,8 +171,8 @@ class DefaultPatchBaseline(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_patch_baseline = aws.ssm.PatchBaseline("examplePatchBaseline", approved_patches=["KB123456"])
-        example_default_patch_baseline = aws.ssm.DefaultPatchBaseline("exampleDefaultPatchBaseline",
+        example_patch_baseline = aws.ssm.patch_baseline.PatchBaseline("examplePatchBaseline", approved_patches=[KB123456])
+        example_default_patch_baseline = aws.ssm.default_patch_baseline.DefaultPatchBaseline("exampleDefaultPatchBaseline",
             baseline_id=example_patch_baseline.id,
             operating_system=example_patch_baseline.operating_system)
         ```
@@ -238,8 +238,8 @@ class DefaultPatchBaseline(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_patch_baseline = aws.ssm.PatchBaseline("examplePatchBaseline", approved_patches=["KB123456"])
-        example_default_patch_baseline = aws.ssm.DefaultPatchBaseline("exampleDefaultPatchBaseline",
+        example_patch_baseline = aws.ssm.patch_baseline.PatchBaseline("examplePatchBaseline", approved_patches=[KB123456])
+        example_default_patch_baseline = aws.ssm.default_patch_baseline.DefaultPatchBaseline("exampleDefaultPatchBaseline",
             baseline_id=example_patch_baseline.id,
             operating_system=example_patch_baseline.operating_system)
         ```

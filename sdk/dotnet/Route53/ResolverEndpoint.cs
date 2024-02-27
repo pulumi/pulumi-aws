@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Route53
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var foo = new Aws.Route53.ResolverEndpoint("foo", new()
+    ///     var foo = new Aws.Route53.ResolverEndpoint.ResolverEndpoint("foo", new()
     ///     {
     ///         Direction = "INBOUND",
     ///         SecurityGroupIds = new[]
@@ -32,14 +32,14 @@ namespace Pulumi.Aws.Route53
     ///         },
     ///         IpAddresses = new[]
     ///         {
-    ///             new Aws.Route53.Inputs.ResolverEndpointIpAddressArgs
+    ///             
     ///             {
-    ///                 SubnetId = aws_subnet.Sn1.Id,
+    ///                 { "subnetId", aws_subnet.Sn1.Id },
     ///             },
-    ///             new Aws.Route53.Inputs.ResolverEndpointIpAddressArgs
+    ///             
     ///             {
-    ///                 SubnetId = aws_subnet.Sn2.Id,
-    ///                 Ip = "10.0.64.4",
+    ///                 { "subnetId", aws_subnet.Sn2.Id },
+    ///                 { "ip", "10.0.64.4" },
     ///             },
     ///         },
     ///         Protocols = new[]

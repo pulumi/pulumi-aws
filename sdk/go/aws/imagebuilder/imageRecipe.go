@@ -23,49 +23,47 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/imagebuilder"
+//	imagebuilder/imageRecipe "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/imagebuilder/imageRecipe"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := imagebuilder.NewImageRecipe(ctx, "example", &imagebuilder.ImageRecipeArgs{
-//				BlockDeviceMappings: imagebuilder.ImageRecipeBlockDeviceMappingArray{
-//					&imagebuilder.ImageRecipeBlockDeviceMappingArgs{
-//						DeviceName: pulumi.String("/dev/xvdb"),
-//						Ebs: &imagebuilder.ImageRecipeBlockDeviceMappingEbsArgs{
-//							DeleteOnTermination: pulumi.String("true"),
-//							VolumeSize:          pulumi.Int(100),
-//							VolumeType:          pulumi.String("gp2"),
-//						},
-//					},
-//				},
-//				Components: imagebuilder.ImageRecipeComponentArray{
-//					&imagebuilder.ImageRecipeComponentArgs{
-//						ComponentArn: pulumi.Any(aws_imagebuilder_component.Example.Arn),
-//						Parameters: imagebuilder.ImageRecipeComponentParameterArray{
-//							&imagebuilder.ImageRecipeComponentParameterArgs{
-//								Name:  pulumi.String("Parameter1"),
-//								Value: pulumi.String("Value1"),
-//							},
-//							&imagebuilder.ImageRecipeComponentParameterArgs{
-//								Name:  pulumi.String("Parameter2"),
-//								Value: pulumi.String("Value2"),
-//							},
-//						},
-//					},
-//				},
-//				ParentImage: pulumi.String(fmt.Sprintf("arn:%v:imagebuilder:%v:aws:image/amazon-linux-2-x86/x.x.x", data.Aws_partition.Current.Partition, data.Aws_region.Current.Name)),
-//				Version:     pulumi.String("1.0.0"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := imagebuilder/imageRecipe.NewImageRecipe(ctx, "example", &imagebuilder/imageRecipe.ImageRecipeArgs{
+// BlockDeviceMappings: []map[string]interface{}{
+// map[string]interface{}{
+// "deviceName": "/dev/xvdb",
+// "ebs": map[string]interface{}{
+// "deleteOnTermination": true,
+// "volumeSize": 100,
+// "volumeType": "gp2",
+// },
+// },
+// },
+// Components: []map[string]interface{}{
+// map[string]interface{}{
+// "componentArn": aws_imagebuilder_component.Example.Arn,
+// "parameters": []map[string]interface{}{
+// map[string]interface{}{
+// "name": "Parameter1",
+// "value": "Value1",
+// },
+// map[string]interface{}{
+// "name": "Parameter2",
+// "value": "Value2",
+// },
+// },
+// },
+// },
+// ParentImage: fmt.Sprintf("arn:%v:imagebuilder:%v:aws:image/amazon-linux-2-x86/x.x.x", data.Aws_partition.Current.Partition, data.Aws_region.Current.Name),
+// Version: "1.0.0",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

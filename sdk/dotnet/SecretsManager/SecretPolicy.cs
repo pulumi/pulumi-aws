@@ -13,57 +13,6 @@ namespace Pulumi.Aws.SecretsManager
     /// Provides a resource to manage AWS Secrets Manager secret policy.
     /// 
     /// ## Example Usage
-    /// ### Basic
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleSecret = new Aws.SecretsManager.Secret("exampleSecret");
-    /// 
-    ///     var examplePolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
-    ///     {
-    ///         Statements = new[]
-    ///         {
-    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
-    ///             {
-    ///                 Sid = "EnableAnotherAWSAccountToReadTheSecret",
-    ///                 Effect = "Allow",
-    ///                 Principals = new[]
-    ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
-    ///                     {
-    ///                         Type = "AWS",
-    ///                         Identifiers = new[]
-    ///                         {
-    ///                             "arn:aws:iam::123456789012:root",
-    ///                         },
-    ///                     },
-    ///                 },
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "secretsmanager:GetSecretValue",
-    ///                 },
-    ///                 Resources = new[]
-    ///                 {
-    ///                     "*",
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleSecretPolicy = new Aws.SecretsManager.SecretPolicy("exampleSecretPolicy", new()
-    ///     {
-    ///         SecretArn = exampleSecret.Arn,
-    ///         Policy = examplePolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 

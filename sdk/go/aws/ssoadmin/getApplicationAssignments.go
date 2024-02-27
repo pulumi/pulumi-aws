@@ -14,31 +14,6 @@ import (
 // Data source for managing AWS SSO Admin Application Assignments.
 //
 // ## Example Usage
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssoadmin"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ssoadmin.GetApplicationAssignments(ctx, &ssoadmin.GetApplicationAssignmentsArgs{
-//				ApplicationArn: aws_ssoadmin_application.Example.Application_arn,
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetApplicationAssignments(ctx *pulumi.Context, args *GetApplicationAssignmentsArgs, opts ...pulumi.InvokeOption) (*GetApplicationAssignmentsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetApplicationAssignmentsResult

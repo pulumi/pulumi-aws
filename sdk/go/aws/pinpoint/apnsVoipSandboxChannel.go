@@ -24,37 +24,37 @@ import (
 //
 //	"os"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/pinpoint"
+//	pinpoint/apnsVoipSandboxChannel "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/pinpoint/apnsVoipSandboxChannel"
+//	pinpoint/app "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/pinpoint/app"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func readFileOrPanic(path string) pulumi.StringPtrInput {
-//		data, err := os.ReadFile(path)
-//		if err != nil {
-//			panic(err.Error())
-//		}
-//		return pulumi.String(string(data))
-//	}
+//					data, err := os.ReadFile(path)
+//					if err != nil {
+//						panic(err.Error())
+//					}
+//					return pulumi.String(string(data))
+//				}
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			app, err := pinpoint.NewApp(ctx, "app", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = pinpoint.NewApnsVoipSandboxChannel(ctx, "apnsVoipSandbox", &pinpoint.ApnsVoipSandboxChannelArgs{
-//				ApplicationId: app.ApplicationId,
-//				Certificate:   readFileOrPanic("./certificate.pem"),
-//				PrivateKey:    readFileOrPanic("./private_key.key"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// app, err := pinpoint/app.NewApp(ctx, "app", nil)
+// if err != nil {
+// return err
+// }
+// _, err = pinpoint/apnsVoipSandboxChannel.NewApnsVoipSandboxChannel(ctx, "apnsVoipSandbox", &pinpoint/apnsVoipSandboxChannel.ApnsVoipSandboxChannelArgs{
+// ApplicationId: app.ApplicationId,
+// Certificate: readFileOrPanic("./certificate.pem"),
+// PrivateKey: readFileOrPanic("./private_key.key"),
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -20,7 +20,6 @@ import javax.annotation.Nullable;
  * Creates a Redshift cluster snapshot
  * 
  * ## Example Usage
- * 
  * ```java
  * package generated_program;
  * 

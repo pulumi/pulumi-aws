@@ -332,10 +332,10 @@ class TrustProvider(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.verifiedaccess.TrustProvider("example",
-            policy_reference_name="example",
-            trust_provider_type="user",
-            user_trust_provider_type="iam-identity-center")
+        example = aws.verifiedaccess.trust_provider.TrustProvider("example",
+            policy_reference_name=example,
+            trust_provider_type=user,
+            user_trust_provider_type=iam-identity-center)
         ```
 
         ## Import
@@ -376,10 +376,10 @@ class TrustProvider(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.verifiedaccess.TrustProvider("example",
-            policy_reference_name="example",
-            trust_provider_type="user",
-            user_trust_provider_type="iam-identity-center")
+        example = aws.verifiedaccess.trust_provider.TrustProvider("example",
+            policy_reference_name=example,
+            trust_provider_type=user,
+            user_trust_provider_type=iam-identity-center)
         ```
 
         ## Import

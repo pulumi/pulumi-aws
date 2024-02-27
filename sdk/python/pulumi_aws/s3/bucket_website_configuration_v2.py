@@ -313,22 +313,22 @@ class BucketWebsiteConfigurationV2(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.s3.BucketWebsiteConfigurationV2("example",
-            bucket=aws_s3_bucket["example"]["id"],
-            index_document=aws.s3.BucketWebsiteConfigurationV2IndexDocumentArgs(
-                suffix="index.html",
-            ),
-            error_document=aws.s3.BucketWebsiteConfigurationV2ErrorDocumentArgs(
-                key="error.html",
-            ),
-            routing_rules=[aws.s3.BucketWebsiteConfigurationV2RoutingRuleArgs(
-                condition=aws.s3.BucketWebsiteConfigurationV2RoutingRuleConditionArgs(
-                    key_prefix_equals="docs/",
-                ),
-                redirect=aws.s3.BucketWebsiteConfigurationV2RoutingRuleRedirectArgs(
-                    replace_key_prefix_with="documents/",
-                ),
-            )])
+        example = aws.s3.bucket_website_configuration_v2.BucketWebsiteConfigurationV2("example",
+            bucket=aws_s3_bucket.example.id,
+            index_document={
+                suffix: index.html,
+            },
+            error_document={
+                key: error.html,
+            },
+            routing_rules=[{
+                condition: {
+                    keyPrefixEquals: docs/,
+                },
+                redirect: {
+                    replaceKeyPrefixWith: documents/,
+                },
+            }])
         ```
         ### With `routing_rules` configured
 
@@ -336,15 +336,15 @@ class BucketWebsiteConfigurationV2(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.s3.BucketWebsiteConfigurationV2("example",
-            bucket=aws_s3_bucket["example"]["id"],
-            index_document=aws.s3.BucketWebsiteConfigurationV2IndexDocumentArgs(
-                suffix="index.html",
-            ),
-            error_document=aws.s3.BucketWebsiteConfigurationV2ErrorDocumentArgs(
-                key="error.html",
-            ),
-            routing_rule_details=\"\"\"[{
+        example = aws.s3.bucket_website_configuration_v2.BucketWebsiteConfigurationV2("example",
+            bucket=aws_s3_bucket.example.id,
+            index_document={
+                suffix: index.html,
+            },
+            error_document={
+                key: error.html,
+            },
+            routing_rule_details=[{
             "Condition": {
                 "KeyPrefixEquals": "docs/"
             },
@@ -352,7 +352,7 @@ class BucketWebsiteConfigurationV2(pulumi.CustomResource):
                 "ReplaceKeyPrefixWith": ""
             }
         }]
-        \"\"\")
+        )
         ```
 
         ## Import
@@ -401,22 +401,22 @@ class BucketWebsiteConfigurationV2(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.s3.BucketWebsiteConfigurationV2("example",
-            bucket=aws_s3_bucket["example"]["id"],
-            index_document=aws.s3.BucketWebsiteConfigurationV2IndexDocumentArgs(
-                suffix="index.html",
-            ),
-            error_document=aws.s3.BucketWebsiteConfigurationV2ErrorDocumentArgs(
-                key="error.html",
-            ),
-            routing_rules=[aws.s3.BucketWebsiteConfigurationV2RoutingRuleArgs(
-                condition=aws.s3.BucketWebsiteConfigurationV2RoutingRuleConditionArgs(
-                    key_prefix_equals="docs/",
-                ),
-                redirect=aws.s3.BucketWebsiteConfigurationV2RoutingRuleRedirectArgs(
-                    replace_key_prefix_with="documents/",
-                ),
-            )])
+        example = aws.s3.bucket_website_configuration_v2.BucketWebsiteConfigurationV2("example",
+            bucket=aws_s3_bucket.example.id,
+            index_document={
+                suffix: index.html,
+            },
+            error_document={
+                key: error.html,
+            },
+            routing_rules=[{
+                condition: {
+                    keyPrefixEquals: docs/,
+                },
+                redirect: {
+                    replaceKeyPrefixWith: documents/,
+                },
+            }])
         ```
         ### With `routing_rules` configured
 
@@ -424,15 +424,15 @@ class BucketWebsiteConfigurationV2(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.s3.BucketWebsiteConfigurationV2("example",
-            bucket=aws_s3_bucket["example"]["id"],
-            index_document=aws.s3.BucketWebsiteConfigurationV2IndexDocumentArgs(
-                suffix="index.html",
-            ),
-            error_document=aws.s3.BucketWebsiteConfigurationV2ErrorDocumentArgs(
-                key="error.html",
-            ),
-            routing_rule_details=\"\"\"[{
+        example = aws.s3.bucket_website_configuration_v2.BucketWebsiteConfigurationV2("example",
+            bucket=aws_s3_bucket.example.id,
+            index_document={
+                suffix: index.html,
+            },
+            error_document={
+                key: error.html,
+            },
+            routing_rule_details=[{
             "Condition": {
                 "KeyPrefixEquals": "docs/"
             },
@@ -440,7 +440,7 @@ class BucketWebsiteConfigurationV2(pulumi.CustomResource):
                 "ReplaceKeyPrefixWith": ""
             }
         }]
-        \"\"\")
+        )
         ```
 
         ## Import

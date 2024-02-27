@@ -187,10 +187,10 @@ class SubnetCidrReservation(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ec2.SubnetCidrReservation("example",
-            cidr_block="10.0.0.16/28",
-            reservation_type="prefix",
-            subnet_id=aws_subnet["example"]["id"])
+        example = aws.ec2.subnet_cidr_reservation.SubnetCidrReservation("example",
+            cidr_block=10.0.0.16/28,
+            reservation_type=prefix,
+            subnet_id=aws_subnet.example.id)
         ```
 
         ## Import
@@ -223,10 +223,10 @@ class SubnetCidrReservation(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ec2.SubnetCidrReservation("example",
-            cidr_block="10.0.0.16/28",
-            reservation_type="prefix",
-            subnet_id=aws_subnet["example"]["id"])
+        example = aws.ec2.subnet_cidr_reservation.SubnetCidrReservation("example",
+            cidr_block=10.0.0.16/28,
+            reservation_type=prefix,
+            subnet_id=aws_subnet.example.id)
         ```
 
         ## Import

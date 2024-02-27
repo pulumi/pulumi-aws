@@ -143,9 +143,9 @@ class Attachment(pulumi.CustomResource):
         import pulumi_aws as aws
 
         # Create a new load balancer attachment
-        example = aws.autoscaling.Attachment("example",
-            autoscaling_group_name=aws_autoscaling_group["example"]["id"],
-            elb=aws_elb["example"]["id"])
+        example = aws.autoscaling.attachment.Attachment("example",
+            autoscaling_group_name=aws_autoscaling_group.example.id,
+            elb=aws_elb.example.id)
         ```
 
         ```python
@@ -153,9 +153,9 @@ class Attachment(pulumi.CustomResource):
         import pulumi_aws as aws
 
         # Create a new ALB Target Group attachment
-        example = aws.autoscaling.Attachment("example",
-            autoscaling_group_name=aws_autoscaling_group["example"]["id"],
-            lb_target_group_arn=aws_lb_target_group["example"]["arn"])
+        example = aws.autoscaling.attachment.Attachment("example",
+            autoscaling_group_name=aws_autoscaling_group.example.id,
+            lb_target_group_arn=aws_lb_target_group.example.arn)
         ```
 
         :param str resource_name: The name of the resource.
@@ -182,9 +182,9 @@ class Attachment(pulumi.CustomResource):
         import pulumi_aws as aws
 
         # Create a new load balancer attachment
-        example = aws.autoscaling.Attachment("example",
-            autoscaling_group_name=aws_autoscaling_group["example"]["id"],
-            elb=aws_elb["example"]["id"])
+        example = aws.autoscaling.attachment.Attachment("example",
+            autoscaling_group_name=aws_autoscaling_group.example.id,
+            elb=aws_elb.example.id)
         ```
 
         ```python
@@ -192,9 +192,9 @@ class Attachment(pulumi.CustomResource):
         import pulumi_aws as aws
 
         # Create a new ALB Target Group attachment
-        example = aws.autoscaling.Attachment("example",
-            autoscaling_group_name=aws_autoscaling_group["example"]["id"],
-            lb_target_group_arn=aws_lb_target_group["example"]["arn"])
+        example = aws.autoscaling.attachment.Attachment("example",
+            autoscaling_group_name=aws_autoscaling_group.example.id,
+            lb_target_group_arn=aws_lb_target_group.example.arn)
         ```
 
         :param str resource_name: The name of the resource.

@@ -31,7 +31,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.globalaccelerator.Accelerator;
  * import com.pulumi.aws.globalaccelerator.AcceleratorArgs;
- * import com.pulumi.aws.globalaccelerator.inputs.AcceleratorAttributesArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -46,11 +45,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Accelerator(&#34;example&#34;, AcceleratorArgs.builder()        
- *             .attributes(AcceleratorAttributesArgs.builder()
- *                 .flowLogsEnabled(true)
- *                 .flowLogsS3Bucket(&#34;example-bucket&#34;)
- *                 .flowLogsS3Prefix(&#34;flow-logs/&#34;)
- *                 .build())
+ *             .attributes(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .enabled(true)
  *             .ipAddressType(&#34;IPV4&#34;)
  *             .ipAddresses(&#34;1.2.3.4&#34;)

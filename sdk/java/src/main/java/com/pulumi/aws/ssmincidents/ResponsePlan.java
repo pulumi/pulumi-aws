@@ -32,7 +32,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.ssmincidents.ResponsePlan;
  * import com.pulumi.aws.ssmincidents.ResponsePlanArgs;
- * import com.pulumi.aws.ssmincidents.inputs.ResponsePlanIncidentTemplateArgs;
  * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
@@ -48,11 +47,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ResponsePlan(&#34;example&#34;, ResponsePlanArgs.builder()        
- *             .incidentTemplate(ResponsePlanIncidentTemplateArgs.builder()
- *                 .title(&#34;title&#34;)
- *                 .impact(&#34;3&#34;)
- *                 .build())
- *             .tags(Map.of(&#34;key&#34;, &#34;value&#34;))
+ *             .incidentTemplate(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(aws_ssmincidents_replication_set.example())
  *                 .build());
@@ -69,9 +65,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.ssmincidents.ResponsePlan;
  * import com.pulumi.aws.ssmincidents.ResponsePlanArgs;
- * import com.pulumi.aws.ssmincidents.inputs.ResponsePlanIncidentTemplateArgs;
- * import com.pulumi.aws.ssmincidents.inputs.ResponsePlanActionArgs;
- * import com.pulumi.aws.ssmincidents.inputs.ResponsePlanIntegrationArgs;
  * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
@@ -87,54 +80,13 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ResponsePlan(&#34;example&#34;, ResponsePlanArgs.builder()        
- *             .incidentTemplate(ResponsePlanIncidentTemplateArgs.builder()
- *                 .title(&#34;title&#34;)
- *                 .impact(&#34;3&#34;)
- *                 .dedupeString(&#34;dedupe&#34;)
- *                 .incidentTags(Map.of(&#34;key&#34;, &#34;value&#34;))
- *                 .notificationTargets(                
- *                     ResponsePlanIncidentTemplateNotificationTargetArgs.builder()
- *                         .snsTopicArn(aws_sns_topic.example1().arn())
- *                         .build(),
- *                     ResponsePlanIncidentTemplateNotificationTargetArgs.builder()
- *                         .snsTopicArn(aws_sns_topic.example2().arn())
- *                         .build())
- *                 .summary(&#34;summary&#34;)
- *                 .build())
+ *             .incidentTemplate(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .displayName(&#34;display name&#34;)
  *             .chatChannels(aws_sns_topic.topic().arn())
  *             .engagements(&#34;arn:aws:ssm-contacts:us-east-2:111122223333:contact/test1&#34;)
- *             .action(ResponsePlanActionArgs.builder()
- *                 .ssmAutomations(ResponsePlanActionSsmAutomationArgs.builder()
- *                     .documentName(aws_ssm_document.document1().name())
- *                     .roleArn(aws_iam_role.role1().arn())
- *                     .documentVersion(&#34;version1&#34;)
- *                     .targetAccount(&#34;RESPONSE_PLAN_OWNER_ACCOUNT&#34;)
- *                     .parameters(                    
- *                         ResponsePlanActionSsmAutomationParameterArgs.builder()
- *                             .name(&#34;key&#34;)
- *                             .values(                            
- *                                 &#34;value1&#34;,
- *                                 &#34;value2&#34;)
- *                             .build(),
- *                         ResponsePlanActionSsmAutomationParameterArgs.builder()
- *                             .name(&#34;foo&#34;)
- *                             .values(&#34;bar&#34;)
- *                             .build())
- *                     .dynamicParameters(Map.ofEntries(
- *                         Map.entry(&#34;someKey&#34;, &#34;INVOLVED_RESOURCES&#34;),
- *                         Map.entry(&#34;anotherKey&#34;, &#34;INCIDENT_RECORD_ARN&#34;)
- *                     ))
- *                     .build())
- *                 .build())
- *             .integration(ResponsePlanIntegrationArgs.builder()
- *                 .pagerduties(ResponsePlanIntegrationPagerdutyArgs.builder()
- *                     .name(&#34;pagerdutyIntergration&#34;)
- *                     .serviceId(&#34;example&#34;)
- *                     .secretId(&#34;example&#34;)
- *                     .build())
- *                 .build())
- *             .tags(Map.of(&#34;key&#34;, &#34;value&#34;))
+ *             .action(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .integration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(aws_ssmincidents_replication_set.example())
  *                 .build());

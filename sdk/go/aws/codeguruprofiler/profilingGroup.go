@@ -21,26 +21,24 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/codeguruprofiler"
+//	codeguruprofiler/profilingGroup "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/codeguruprofiler/profilingGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := codeguruprofiler.NewProfilingGroup(ctx, "example", &codeguruprofiler.ProfilingGroupArgs{
-//				AgentOrchestrationConfig: &codeguruprofiler.ProfilingGroupAgentOrchestrationConfigArgs{
-//					ProfilingEnabled: pulumi.Bool(true),
-//				},
-//				ComputePlatform: pulumi.String("Default"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := codeguruprofiler/profilingGroup.NewProfilingGroup(ctx, "example", &codeguruprofiler/profilingGroup.ProfilingGroupArgs{
+// AgentOrchestrationConfig: map[string]interface{}{
+// "profilingEnabled": true,
+// },
+// ComputePlatform: "Default",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

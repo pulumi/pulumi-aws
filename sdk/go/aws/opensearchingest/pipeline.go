@@ -15,87 +15,6 @@ import (
 // Resource for managing an AWS OpenSearch Ingestion Pipeline.
 //
 // ## Example Usage
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"encoding/json"
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/opensearchingest"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			current, err := aws.GetRegion(ctx, nil, nil)
-//			if err != nil {
-//				return err
-//			}
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"Version": "2012-10-17",
-//				"Statement": []map[string]interface{}{
-//					map[string]interface{}{
-//						"Action": "sts:AssumeRole",
-//						"Effect": "Allow",
-//						"Sid":    "",
-//						"Principal": map[string]interface{}{
-//							"Service": "osis-pipelines.amazonaws.com",
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			exampleRole, err := iam.NewRole(ctx, "exampleRole", &iam.RoleArgs{
-//				AssumeRolePolicy: pulumi.String(json0),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = opensearchingest.NewPipeline(ctx, "examplePipeline", &opensearchingest.PipelineArgs{
-//				PipelineName: pulumi.String("example"),
-//				PipelineConfigurationBody: exampleRole.Arn.ApplyT(func(arn string) (string, error) {
-//					return fmt.Sprintf(`version: "2"
-//
-// example-pipeline:
-//
-//	source:
-//	  http:
-//	    path: "/example"
-//	sink:
-//	  - s3:
-//	      aws:
-//	        sts_role_arn: "%v"
-//	        region: "%v"
-//	      bucket: "example"
-//	      threshold:
-//	        event_collect_timeout: "60s"
-//	      codec:
-//	        ndjson:
-//
-// `, arn, current.Name), nil
-//
-//				}).(pulumi.StringOutput),
-//				MaxUnits: pulumi.Int(1),
-//				MinUnits: pulumi.Int(1),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 // ### Using file function
 //
 // ```go
@@ -105,34 +24,33 @@ import (
 //
 //	"os"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/opensearchingest"
+//	opensearchingest/pipeline "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/opensearchingest/pipeline"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func readFileOrPanic(path string) pulumi.StringPtrInput {
-//		data, err := os.ReadFile(path)
-//		if err != nil {
-//			panic(err.Error())
-//		}
-//		return pulumi.String(string(data))
-//	}
+//					data, err := os.ReadFile(path)
+//					if err != nil {
+//						panic(err.Error())
+//					}
+//					return pulumi.String(string(data))
+//				}
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := opensearchingest.NewPipeline(ctx, "example", &opensearchingest.PipelineArgs{
-//				PipelineName:              pulumi.String("example"),
-//				PipelineConfigurationBody: readFileOrPanic("example.yaml"),
-//				MaxUnits:                  pulumi.Int(1),
-//				MinUnits:                  pulumi.Int(1),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := opensearchingest/pipeline.NewPipeline(ctx, "example", &opensearchingest/pipeline.PipelineArgs{
+// PipelineName: "example",
+// PipelineConfigurationBody: readFileOrPanic("example.yaml"),
+// MaxUnits: 1,
+// MinUnits: 1,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

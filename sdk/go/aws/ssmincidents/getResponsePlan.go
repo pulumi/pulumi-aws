@@ -14,6 +14,29 @@ import (
 // Use this data source to manage a response plan in AWS Systems Manager Incident Manager.
 //
 // ## Example Usage
+// ### Basic Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	ssmincidents/responsePlan "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ssmincidents/responsePlan"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := ssmincidents/responsePlan.NewResponsePlan(ctx, "example", &ssmincidents/responsePlan.ResponsePlanArgs{
+// Arn: "exampleARN",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
+// ```
 func LookupResponsePlan(ctx *pulumi.Context, args *LookupResponsePlanArgs, opts ...pulumi.InvokeOption) (*LookupResponsePlanResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupResponsePlanResult

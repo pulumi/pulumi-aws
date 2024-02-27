@@ -17,80 +17,13 @@ import * as utilities from "../utilities";
  * otherwise, the policy may be destroyed too soon and the compute environment will then get stuck in the `DELETING` state, see [Troubleshooting AWS Batch](http://docs.aws.amazon.com/batch/latest/userguide/troubleshooting.html) .
  *
  * ## Example Usage
- * ### EC2 Type
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const ec2AssumeRole = aws.iam.getPolicyDocument({
- *     statements: [{
- *         effect: "Allow",
- *         principals: [{
- *             type: "Service",
- *             identifiers: ["ec2.amazonaws.com"],
- *         }],
- *         actions: ["sts:AssumeRole"],
- *     }],
- * });
- * const ecsInstanceRoleRole = new aws.iam.Role("ecsInstanceRoleRole", {assumeRolePolicy: ec2AssumeRole.then(ec2AssumeRole => ec2AssumeRole.json)});
- * const ecsInstanceRoleRolePolicyAttachment = new aws.iam.RolePolicyAttachment("ecsInstanceRoleRolePolicyAttachment", {
- *     role: ecsInstanceRoleRole.name,
- *     policyArn: "arn:aws:iam::aws:policy/service-role/AmazonEC2ContainerServiceforEC2Role",
- * });
- * const ecsInstanceRoleInstanceProfile = new aws.iam.InstanceProfile("ecsInstanceRoleInstanceProfile", {role: ecsInstanceRoleRole.name});
- * const batchAssumeRole = aws.iam.getPolicyDocument({
- *     statements: [{
- *         effect: "Allow",
- *         principals: [{
- *             type: "Service",
- *             identifiers: ["batch.amazonaws.com"],
- *         }],
- *         actions: ["sts:AssumeRole"],
- *     }],
- * });
- * const awsBatchServiceRoleRole = new aws.iam.Role("awsBatchServiceRoleRole", {assumeRolePolicy: batchAssumeRole.then(batchAssumeRole => batchAssumeRole.json)});
- * const awsBatchServiceRoleRolePolicyAttachment = new aws.iam.RolePolicyAttachment("awsBatchServiceRoleRolePolicyAttachment", {
- *     role: awsBatchServiceRoleRole.name,
- *     policyArn: "arn:aws:iam::aws:policy/service-role/AWSBatchServiceRole",
- * });
- * const sampleSecurityGroup = new aws.ec2.SecurityGroup("sampleSecurityGroup", {egress: [{
- *     fromPort: 0,
- *     toPort: 0,
- *     protocol: "-1",
- *     cidrBlocks: ["0.0.0.0/0"],
- * }]});
- * const sampleVpc = new aws.ec2.Vpc("sampleVpc", {cidrBlock: "10.1.0.0/16"});
- * const sampleSubnet = new aws.ec2.Subnet("sampleSubnet", {
- *     vpcId: sampleVpc.id,
- *     cidrBlock: "10.1.1.0/24",
- * });
- * const samplePlacementGroup = new aws.ec2.PlacementGroup("samplePlacementGroup", {strategy: "cluster"});
- * const sampleComputeEnvironment = new aws.batch.ComputeEnvironment("sampleComputeEnvironment", {
- *     computeEnvironmentName: "sample",
- *     computeResources: {
- *         instanceRole: ecsInstanceRoleInstanceProfile.arn,
- *         instanceTypes: ["c4.large"],
- *         maxVcpus: 16,
- *         minVcpus: 0,
- *         placementGroup: samplePlacementGroup.name,
- *         securityGroupIds: [sampleSecurityGroup.id],
- *         subnets: [sampleSubnet.id],
- *         type: "EC2",
- *     },
- *     serviceRole: awsBatchServiceRoleRole.arn,
- *     type: "MANAGED",
- * }, {
- *     dependsOn: [awsBatchServiceRoleRolePolicyAttachment],
- * });
- * ```
  * ### Fargate Type
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const sample = new aws.batch.ComputeEnvironment("sample", {
+ * const sample = new aws.batch/computeEnvironment.ComputeEnvironment("sample", {
  *     computeEnvironmentName: "sample",
  *     computeResources: {
  *         maxVcpus: 16,
@@ -110,7 +43,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const sample = new aws.batch.ComputeEnvironment("sample", {
+ * const sample = new aws.batch/computeEnvironment.ComputeEnvironment("sample", {
  *     computeEnvironmentName: "sample",
  *     computeResources: {
  *         allocationStrategy: "BEST_FIT_PROGRESSIVE",

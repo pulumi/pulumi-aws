@@ -15,31 +15,6 @@ import (
 // for the effective account in which this provider is working.
 //
 // > **NOTE:** To use this data source, you must have the `s3:ListAllMyBuckets` permission.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			current, err := s3.GetCanonicalUserId(ctx, nil, nil)
-//			if err != nil {
-//				return err
-//			}
-//			ctx.Export("canonicalUserId", current.Id)
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetCanonicalUserId(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetCanonicalUserIdResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetCanonicalUserIdResult

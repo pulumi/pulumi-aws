@@ -371,24 +371,24 @@ class EventSubscription(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        default_cluster = aws.redshift.Cluster("defaultCluster",
-            cluster_identifier="default",
-            database_name="default")
+        default_cluster = aws.redshift.cluster.Cluster("defaultCluster",
+            cluster_identifier=default,
+            database_name=default)
         # ...
-        default_topic = aws.sns.Topic("defaultTopic")
-        default_event_subscription = aws.redshift.EventSubscription("defaultEventSubscription",
+        default_topic = aws.sns.topic.Topic("defaultTopic")
+        default_event_subscription = aws.redshift.event_subscription.EventSubscription("defaultEventSubscription",
             sns_topic_arn=default_topic.arn,
-            source_type="cluster",
+            source_type=cluster,
             source_ids=[default_cluster.id],
-            severity="INFO",
+            severity=INFO,
             event_categories=[
-                "configuration",
-                "management",
-                "monitoring",
-                "security",
+                configuration,
+                management,
+                monitoring,
+                security,
             ],
             tags={
-                "Name": "default",
+                Name: default,
             })
         ```
 
@@ -426,24 +426,24 @@ class EventSubscription(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        default_cluster = aws.redshift.Cluster("defaultCluster",
-            cluster_identifier="default",
-            database_name="default")
+        default_cluster = aws.redshift.cluster.Cluster("defaultCluster",
+            cluster_identifier=default,
+            database_name=default)
         # ...
-        default_topic = aws.sns.Topic("defaultTopic")
-        default_event_subscription = aws.redshift.EventSubscription("defaultEventSubscription",
+        default_topic = aws.sns.topic.Topic("defaultTopic")
+        default_event_subscription = aws.redshift.event_subscription.EventSubscription("defaultEventSubscription",
             sns_topic_arn=default_topic.arn,
-            source_type="cluster",
+            source_type=cluster,
             source_ids=[default_cluster.id],
-            severity="INFO",
+            severity=INFO,
             event_categories=[
-                "configuration",
-                "management",
-                "monitoring",
-                "security",
+                configuration,
+                management,
+                monitoring,
+                security,
             ],
             tags={
-                "Name": "default",
+                Name: default,
             })
         ```
 

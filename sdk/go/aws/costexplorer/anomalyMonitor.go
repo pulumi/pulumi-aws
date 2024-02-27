@@ -24,24 +24,22 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/costexplorer"
+//	costexplorer/anomalyMonitor "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/costexplorer/anomalyMonitor"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := costexplorer.NewAnomalyMonitor(ctx, "serviceMonitor", &costexplorer.AnomalyMonitorArgs{
-//				MonitorDimension: pulumi.String("SERVICE"),
-//				MonitorType:      pulumi.String("DIMENSIONAL"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := costexplorer/anomalyMonitor.NewAnomalyMonitor(ctx, "serviceMonitor", &costexplorer/anomalyMonitor.AnomalyMonitorArgs{
+// MonitorDimension: "SERVICE",
+// MonitorType: "DIMENSIONAL",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Custom Example
 //
@@ -52,42 +50,22 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/costexplorer"
+//	costexplorer/anomalyMonitor "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/costexplorer/anomalyMonitor"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"And":            nil,
-//				"CostCategories": nil,
-//				"Dimensions":     nil,
-//				"Not":            nil,
-//				"Or":             nil,
-//				"Tags": map[string]interface{}{
-//					"Key":          "CostCenter",
-//					"MatchOptions": nil,
-//					"Values": []string{
-//						"10000",
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			_, err = costexplorer.NewAnomalyMonitor(ctx, "test", &costexplorer.AnomalyMonitorArgs{
-//				MonitorType:          pulumi.String("CUSTOM"),
-//				MonitorSpecification: pulumi.String(json0),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := costexplorer/anomalyMonitor.NewAnomalyMonitor(ctx, "test", &costexplorer/anomalyMonitor.AnomalyMonitorArgs{
+// MonitorType: "CUSTOM",
+// MonitorSpecification: %!v(PANIC=Format method: fatal: An assertion has failed: unlowered function toJSON),
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

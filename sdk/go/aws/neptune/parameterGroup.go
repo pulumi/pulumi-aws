@@ -21,29 +21,27 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/neptune"
+//	neptune/parameterGroup "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/neptune/parameterGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := neptune.NewParameterGroup(ctx, "example", &neptune.ParameterGroupArgs{
-//				Family: pulumi.String("neptune1"),
-//				Parameters: neptune.ParameterGroupParameterArray{
-//					&neptune.ParameterGroupParameterArgs{
-//						Name:  pulumi.String("neptune_query_timeout"),
-//						Value: pulumi.String("25"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := neptune/parameterGroup.NewParameterGroup(ctx, "example", &neptune/parameterGroup.ParameterGroupArgs{
+// Family: "neptune1",
+// Parameters: []map[string]interface{}{
+// map[string]interface{}{
+// "name": "neptune_query_timeout",
+// "value": "25",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -112,45 +112,45 @@ class WebAclAssociation(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        example_rest_api = aws.apigateway.RestApi("exampleRestApi", body=json.dumps({
-            "openapi": "3.0.1",
-            "info": {
-                "title": "example",
-                "version": "1.0",
+        example_rest_api = aws.apigateway.rest_api.RestApi("exampleRestApi", body=json.dumps({
+            openapi: 3.0.1,
+            info: {
+                title: example,
+                version: 1.0,
             },
-            "paths": {
-                "/path1": {
-                    "get": {
-                        "x-amazon-apigateway-integration": {
-                            "httpMethod": "GET",
-                            "payloadFormatVersion": "1.0",
-                            "type": "HTTP_PROXY",
-                            "uri": "https://ip-ranges.amazonaws.com/ip-ranges.json",
+            paths: {
+                /path1: {
+                    get: {
+                        x-amazon-apigateway-integration: {
+                            httpMethod: GET,
+                            payloadFormatVersion: 1.0,
+                            type: HTTP_PROXY,
+                            uri: https://ip-ranges.amazonaws.com/ip-ranges.json,
                         },
                     },
                 },
             },
         }))
-        example_deployment = aws.apigateway.Deployment("exampleDeployment",
+        example_deployment = aws.apigateway.deployment.Deployment("exampleDeployment",
             rest_api=example_rest_api.id,
             triggers={
-                "redeployment": example_rest_api.body.apply(lambda body: json.dumps(body)).apply(lambda to_json: hashlib.sha1(to_json.encode()).hexdigest()),
+                redeployment: hashlib.sha1(json.dumps(example_rest_api.body).encode()).hexdigest(),
             })
-        example_stage = aws.apigateway.Stage("exampleStage",
+        example_stage = aws.apigateway.stage.Stage("exampleStage",
             deployment=example_deployment.id,
             rest_api=example_rest_api.id,
-            stage_name="example")
-        example_web_acl = aws.wafv2.WebAcl("exampleWebAcl",
-            scope="REGIONAL",
-            default_action=aws.wafv2.WebAclDefaultActionArgs(
-                allow=aws.wafv2.WebAclDefaultActionAllowArgs(),
-            ),
-            visibility_config=aws.wafv2.WebAclVisibilityConfigArgs(
-                cloudwatch_metrics_enabled=False,
-                metric_name="friendly-metric-name",
-                sampled_requests_enabled=False,
-            ))
-        example_web_acl_association = aws.wafv2.WebAclAssociation("exampleWebAclAssociation",
+            stage_name=example)
+        example_web_acl = aws.wafv2.web_acl.WebAcl("exampleWebAcl",
+            scope=REGIONAL,
+            default_action={
+                allow: {},
+            },
+            visibility_config={
+                cloudwatchMetricsEnabled: False,
+                metricName: friendly-metric-name,
+                sampledRequestsEnabled: False,
+            })
+        example_web_acl_association = aws.wafv2.web_acl_association.WebAclAssociation("exampleWebAclAssociation",
             resource_arn=example_stage.arn,
             web_acl_arn=example_web_acl.arn)
         ```
@@ -189,45 +189,45 @@ class WebAclAssociation(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        example_rest_api = aws.apigateway.RestApi("exampleRestApi", body=json.dumps({
-            "openapi": "3.0.1",
-            "info": {
-                "title": "example",
-                "version": "1.0",
+        example_rest_api = aws.apigateway.rest_api.RestApi("exampleRestApi", body=json.dumps({
+            openapi: 3.0.1,
+            info: {
+                title: example,
+                version: 1.0,
             },
-            "paths": {
-                "/path1": {
-                    "get": {
-                        "x-amazon-apigateway-integration": {
-                            "httpMethod": "GET",
-                            "payloadFormatVersion": "1.0",
-                            "type": "HTTP_PROXY",
-                            "uri": "https://ip-ranges.amazonaws.com/ip-ranges.json",
+            paths: {
+                /path1: {
+                    get: {
+                        x-amazon-apigateway-integration: {
+                            httpMethod: GET,
+                            payloadFormatVersion: 1.0,
+                            type: HTTP_PROXY,
+                            uri: https://ip-ranges.amazonaws.com/ip-ranges.json,
                         },
                     },
                 },
             },
         }))
-        example_deployment = aws.apigateway.Deployment("exampleDeployment",
+        example_deployment = aws.apigateway.deployment.Deployment("exampleDeployment",
             rest_api=example_rest_api.id,
             triggers={
-                "redeployment": example_rest_api.body.apply(lambda body: json.dumps(body)).apply(lambda to_json: hashlib.sha1(to_json.encode()).hexdigest()),
+                redeployment: hashlib.sha1(json.dumps(example_rest_api.body).encode()).hexdigest(),
             })
-        example_stage = aws.apigateway.Stage("exampleStage",
+        example_stage = aws.apigateway.stage.Stage("exampleStage",
             deployment=example_deployment.id,
             rest_api=example_rest_api.id,
-            stage_name="example")
-        example_web_acl = aws.wafv2.WebAcl("exampleWebAcl",
-            scope="REGIONAL",
-            default_action=aws.wafv2.WebAclDefaultActionArgs(
-                allow=aws.wafv2.WebAclDefaultActionAllowArgs(),
-            ),
-            visibility_config=aws.wafv2.WebAclVisibilityConfigArgs(
-                cloudwatch_metrics_enabled=False,
-                metric_name="friendly-metric-name",
-                sampled_requests_enabled=False,
-            ))
-        example_web_acl_association = aws.wafv2.WebAclAssociation("exampleWebAclAssociation",
+            stage_name=example)
+        example_web_acl = aws.wafv2.web_acl.WebAcl("exampleWebAcl",
+            scope=REGIONAL,
+            default_action={
+                allow: {},
+            },
+            visibility_config={
+                cloudwatchMetricsEnabled: False,
+                metricName: friendly-metric-name,
+                sampledRequestsEnabled: False,
+            })
+        example_web_acl_association = aws.wafv2.web_acl_association.WebAclAssociation("exampleWebAclAssociation",
             resource_arn=example_stage.arn,
             web_acl_arn=example_web_acl.arn)
         ```

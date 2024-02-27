@@ -33,8 +33,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.evidently.Launch;
  * import com.pulumi.aws.evidently.LaunchArgs;
- * import com.pulumi.aws.evidently.inputs.LaunchGroupArgs;
- * import com.pulumi.aws.evidently.inputs.LaunchScheduledSplitsConfigArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -50,17 +48,8 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Launch(&#34;example&#34;, LaunchArgs.builder()        
  *             .project(aws_evidently_project.example().name())
- *             .groups(LaunchGroupArgs.builder()
- *                 .feature(aws_evidently_feature.example().name())
- *                 .name(&#34;Variation1&#34;)
- *                 .variation(&#34;Variation1&#34;)
- *                 .build())
- *             .scheduledSplitsConfig(LaunchScheduledSplitsConfigArgs.builder()
- *                 .steps(LaunchScheduledSplitsConfigStepArgs.builder()
- *                     .groupWeights(Map.of(&#34;Variation1&#34;, 0))
- *                     .startTime(&#34;2024-01-07 01:43:59+00:00&#34;)
- *                     .build())
- *                 .build())
+ *             .groups(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .scheduledSplitsConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -75,8 +64,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.evidently.Launch;
  * import com.pulumi.aws.evidently.LaunchArgs;
- * import com.pulumi.aws.evidently.inputs.LaunchGroupArgs;
- * import com.pulumi.aws.evidently.inputs.LaunchScheduledSplitsConfigArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -93,17 +80,8 @@ import javax.annotation.Nullable;
  *         var example = new Launch(&#34;example&#34;, LaunchArgs.builder()        
  *             .project(aws_evidently_project.example().name())
  *             .description(&#34;example description&#34;)
- *             .groups(LaunchGroupArgs.builder()
- *                 .feature(aws_evidently_feature.example().name())
- *                 .name(&#34;Variation1&#34;)
- *                 .variation(&#34;Variation1&#34;)
- *                 .build())
- *             .scheduledSplitsConfig(LaunchScheduledSplitsConfigArgs.builder()
- *                 .steps(LaunchScheduledSplitsConfigStepArgs.builder()
- *                     .groupWeights(Map.of(&#34;Variation1&#34;, 0))
- *                     .startTime(&#34;2024-01-07 01:43:59+00:00&#34;)
- *                     .build())
- *                 .build())
+ *             .groups(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .scheduledSplitsConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -118,8 +96,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.evidently.Launch;
  * import com.pulumi.aws.evidently.LaunchArgs;
- * import com.pulumi.aws.evidently.inputs.LaunchGroupArgs;
- * import com.pulumi.aws.evidently.inputs.LaunchScheduledSplitsConfigArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -136,27 +112,9 @@ import javax.annotation.Nullable;
  *         var example = new Launch(&#34;example&#34;, LaunchArgs.builder()        
  *             .project(aws_evidently_project.example().name())
  *             .groups(            
- *                 LaunchGroupArgs.builder()
- *                     .feature(aws_evidently_feature.example().name())
- *                     .name(&#34;Variation1&#34;)
- *                     .variation(&#34;Variation1&#34;)
- *                     .description(&#34;first-group&#34;)
- *                     .build(),
- *                 LaunchGroupArgs.builder()
- *                     .feature(aws_evidently_feature.example().name())
- *                     .name(&#34;Variation2&#34;)
- *                     .variation(&#34;Variation2&#34;)
- *                     .description(&#34;second-group&#34;)
- *                     .build())
- *             .scheduledSplitsConfig(LaunchScheduledSplitsConfigArgs.builder()
- *                 .steps(LaunchScheduledSplitsConfigStepArgs.builder()
- *                     .groupWeights(Map.ofEntries(
- *                         Map.entry(&#34;Variation1&#34;, 0),
- *                         Map.entry(&#34;Variation2&#34;, 0)
- *                     ))
- *                     .startTime(&#34;2024-01-07 01:43:59+00:00&#34;)
- *                     .build())
- *                 .build())
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .scheduledSplitsConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -171,10 +129,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.evidently.Launch;
  * import com.pulumi.aws.evidently.LaunchArgs;
- * import com.pulumi.aws.evidently.inputs.LaunchGroupArgs;
- * import com.pulumi.aws.evidently.inputs.LaunchMetricMonitorArgs;
- * import com.pulumi.aws.evidently.inputs.LaunchMetricMonitorMetricDefinitionArgs;
- * import com.pulumi.aws.evidently.inputs.LaunchScheduledSplitsConfigArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -190,36 +144,11 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Launch(&#34;example&#34;, LaunchArgs.builder()        
  *             .project(aws_evidently_project.example().name())
- *             .groups(LaunchGroupArgs.builder()
- *                 .feature(aws_evidently_feature.example().name())
- *                 .name(&#34;Variation1&#34;)
- *                 .variation(&#34;Variation1&#34;)
- *                 .build())
+ *             .groups(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .metricMonitors(            
- *                 LaunchMetricMonitorArgs.builder()
- *                     .metricDefinition(LaunchMetricMonitorMetricDefinitionArgs.builder()
- *                         .entityIdKey(&#34;entity_id_key1&#34;)
- *                         .eventPattern(&#34;{\&#34;Price\&#34;:[{\&#34;numeric\&#34;:[\&#34;&gt;\&#34;,11,\&#34;&lt;=\&#34;,22]}]}&#34;)
- *                         .name(&#34;name1&#34;)
- *                         .unitLabel(&#34;unit_label1&#34;)
- *                         .valueKey(&#34;value_key1&#34;)
- *                         .build())
- *                     .build(),
- *                 LaunchMetricMonitorArgs.builder()
- *                     .metricDefinition(LaunchMetricMonitorMetricDefinitionArgs.builder()
- *                         .entityIdKey(&#34;entity_id_key2&#34;)
- *                         .eventPattern(&#34;{\&#34;Price\&#34;:[{\&#34;numeric\&#34;:[\&#34;&gt;\&#34;,9,\&#34;&lt;=\&#34;,19]}]}&#34;)
- *                         .name(&#34;name2&#34;)
- *                         .unitLabel(&#34;unit_label2&#34;)
- *                         .valueKey(&#34;value_key2&#34;)
- *                         .build())
- *                     .build())
- *             .scheduledSplitsConfig(LaunchScheduledSplitsConfigArgs.builder()
- *                 .steps(LaunchScheduledSplitsConfigStepArgs.builder()
- *                     .groupWeights(Map.of(&#34;Variation1&#34;, 0))
- *                     .startTime(&#34;2024-01-07 01:43:59+00:00&#34;)
- *                     .build())
- *                 .build())
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .scheduledSplitsConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -234,8 +163,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.evidently.Launch;
  * import com.pulumi.aws.evidently.LaunchArgs;
- * import com.pulumi.aws.evidently.inputs.LaunchGroupArgs;
- * import com.pulumi.aws.evidently.inputs.LaunchScheduledSplitsConfigArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -252,17 +179,8 @@ import javax.annotation.Nullable;
  *         var example = new Launch(&#34;example&#34;, LaunchArgs.builder()        
  *             .project(aws_evidently_project.example().name())
  *             .randomizationSalt(&#34;example randomization salt&#34;)
- *             .groups(LaunchGroupArgs.builder()
- *                 .feature(aws_evidently_feature.example().name())
- *                 .name(&#34;Variation1&#34;)
- *                 .variation(&#34;Variation1&#34;)
- *                 .build())
- *             .scheduledSplitsConfig(LaunchScheduledSplitsConfigArgs.builder()
- *                 .steps(LaunchScheduledSplitsConfigStepArgs.builder()
- *                     .groupWeights(Map.of(&#34;Variation1&#34;, 0))
- *                     .startTime(&#34;2024-01-07 01:43:59+00:00&#34;)
- *                     .build())
- *                 .build())
+ *             .groups(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .scheduledSplitsConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -277,8 +195,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.evidently.Launch;
  * import com.pulumi.aws.evidently.LaunchArgs;
- * import com.pulumi.aws.evidently.inputs.LaunchGroupArgs;
- * import com.pulumi.aws.evidently.inputs.LaunchScheduledSplitsConfigArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -295,33 +211,9 @@ import javax.annotation.Nullable;
  *         var example = new Launch(&#34;example&#34;, LaunchArgs.builder()        
  *             .project(aws_evidently_project.example().name())
  *             .groups(            
- *                 LaunchGroupArgs.builder()
- *                     .feature(aws_evidently_feature.example().name())
- *                     .name(&#34;Variation1&#34;)
- *                     .variation(&#34;Variation1&#34;)
- *                     .build(),
- *                 LaunchGroupArgs.builder()
- *                     .feature(aws_evidently_feature.example().name())
- *                     .name(&#34;Variation2&#34;)
- *                     .variation(&#34;Variation2&#34;)
- *                     .build())
- *             .scheduledSplitsConfig(LaunchScheduledSplitsConfigArgs.builder()
- *                 .steps(                
- *                     LaunchScheduledSplitsConfigStepArgs.builder()
- *                         .groupWeights(Map.ofEntries(
- *                             Map.entry(&#34;Variation1&#34;, 15),
- *                             Map.entry(&#34;Variation2&#34;, 10)
- *                         ))
- *                         .startTime(&#34;2024-01-07 01:43:59+00:00&#34;)
- *                         .build(),
- *                     LaunchScheduledSplitsConfigStepArgs.builder()
- *                         .groupWeights(Map.ofEntries(
- *                             Map.entry(&#34;Variation1&#34;, 20),
- *                             Map.entry(&#34;Variation2&#34;, 25)
- *                         ))
- *                         .startTime(&#34;2024-01-08 01:43:59+00:00&#34;)
- *                         .build())
- *                 .build())
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .scheduledSplitsConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -336,8 +228,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.evidently.Launch;
  * import com.pulumi.aws.evidently.LaunchArgs;
- * import com.pulumi.aws.evidently.inputs.LaunchGroupArgs;
- * import com.pulumi.aws.evidently.inputs.LaunchScheduledSplitsConfigArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -354,39 +244,9 @@ import javax.annotation.Nullable;
  *         var example = new Launch(&#34;example&#34;, LaunchArgs.builder()        
  *             .project(aws_evidently_project.example().name())
  *             .groups(            
- *                 LaunchGroupArgs.builder()
- *                     .feature(aws_evidently_feature.example().name())
- *                     .name(&#34;Variation1&#34;)
- *                     .variation(&#34;Variation1&#34;)
- *                     .build(),
- *                 LaunchGroupArgs.builder()
- *                     .feature(aws_evidently_feature.example().name())
- *                     .name(&#34;Variation2&#34;)
- *                     .variation(&#34;Variation2&#34;)
- *                     .build())
- *             .scheduledSplitsConfig(LaunchScheduledSplitsConfigArgs.builder()
- *                 .steps(LaunchScheduledSplitsConfigStepArgs.builder()
- *                     .groupWeights(Map.ofEntries(
- *                         Map.entry(&#34;Variation1&#34;, 0),
- *                         Map.entry(&#34;Variation2&#34;, 0)
- *                     ))
- *                     .segmentOverrides(                    
- *                         LaunchScheduledSplitsConfigStepSegmentOverrideArgs.builder()
- *                             .evaluationOrder(1)
- *                             .segment(aws_evidently_segment.example().name())
- *                             .weights(Map.of(&#34;Variation2&#34;, 10000))
- *                             .build(),
- *                         LaunchScheduledSplitsConfigStepSegmentOverrideArgs.builder()
- *                             .evaluationOrder(2)
- *                             .segment(aws_evidently_segment.example().name())
- *                             .weights(Map.ofEntries(
- *                                 Map.entry(&#34;Variation1&#34;, 40000),
- *                                 Map.entry(&#34;Variation2&#34;, 30000)
- *                             ))
- *                             .build())
- *                     .startTime(&#34;2024-01-08 01:43:59+00:00&#34;)
- *                     .build())
- *                 .build())
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .scheduledSplitsConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

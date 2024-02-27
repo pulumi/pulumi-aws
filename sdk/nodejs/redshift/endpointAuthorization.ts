@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.redshift.EndpointAuthorization("example", {
+ * const example = new aws.redshift/endpointAuthorization.EndpointAuthorization("example", {
  *     account: "01234567910",
  *     clusterIdentifier: aws_redshift_cluster.example.cluster_identifier,
  * });

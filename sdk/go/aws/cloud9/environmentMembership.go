@@ -21,36 +21,35 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloud9"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	cloud9/environmentEC2 "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/cloud9/environmentEC2"
+//	cloud9/environmentMembership "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/cloud9/environmentMembership"
+//	iam/user "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/iam/user"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testEnvironmentEC2, err := cloud9.NewEnvironmentEC2(ctx, "testEnvironmentEC2", &cloud9.EnvironmentEC2Args{
-//				InstanceType: pulumi.String("t2.micro"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			testUser, err := iam.NewUser(ctx, "testUser", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = cloud9.NewEnvironmentMembership(ctx, "testEnvironmentMembership", &cloud9.EnvironmentMembershipArgs{
-//				EnvironmentId: testEnvironmentEC2.ID(),
-//				Permissions:   pulumi.String("read-only"),
-//				UserArn:       testUser.Arn,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// testEnvironmentEC2, err := cloud9/environmentEC2.NewEnvironmentEC2(ctx, "testEnvironmentEC2", &cloud9/environmentEC2.EnvironmentEC2Args{
+// InstanceType: "t2.micro",
+// })
+// if err != nil {
+// return err
+// }
+// testUser, err := iam/user.NewUser(ctx, "testUser", nil)
+// if err != nil {
+// return err
+// }
+// _, err = cloud9/environmentMembership.NewEnvironmentMembership(ctx, "testEnvironmentMembership", &cloud9/environmentMembership.EnvironmentMembershipArgs{
+// EnvironmentId: testEnvironmentEC2.Id,
+// Permissions: "read-only",
+// UserArn: testUser.Arn,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

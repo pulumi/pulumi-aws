@@ -14,31 +14,6 @@ import (
 // Data source for managing an AWS OpenSearch Serverless Security Config.
 //
 // ## Example Usage
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/opensearch"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := opensearch.LookupServerlessSecurityConfig(ctx, &opensearch.LookupServerlessSecurityConfigArgs{
-//				Id: "saml/12345678912/example",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupServerlessSecurityConfig(ctx *pulumi.Context, args *LookupServerlessSecurityConfigArgs, opts ...pulumi.InvokeOption) (*LookupServerlessSecurityConfigResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupServerlessSecurityConfigResult

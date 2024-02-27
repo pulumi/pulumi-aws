@@ -16,68 +16,6 @@ namespace Pulumi.Aws.Route53
         /// 
         /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
-        /// ### Retrieving the default resolver rule
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Route53.GetResolverRules.Invoke(new()
-        ///     {
-        ///         OwnerId = "Route 53 Resolver",
-        ///         RuleType = "RECURSIVE",
-        ///         ShareStatus = "NOT_SHARED",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% example %}}
-        /// ### Retrieving forward rules shared with me
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Route53.GetResolverRules.Invoke(new()
-        ///     {
-        ///         RuleType = "FORWARD",
-        ///         ShareStatus = "SHARED_WITH_ME",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% example %}}
-        /// ### Retrieving rules by name regex
-        /// 
-        /// Resolver rules whose name contains `abc`.
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Route53.GetResolverRules.Invoke(new()
-        ///     {
-        ///         NameRegex = ".*abc.*",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetResolverRulesResult> InvokeAsync(GetResolverRulesArgs? args = null, InvokeOptions? options = null)
@@ -88,68 +26,6 @@ namespace Pulumi.Aws.Route53
         /// 
         /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
-        /// ### Retrieving the default resolver rule
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Route53.GetResolverRules.Invoke(new()
-        ///     {
-        ///         OwnerId = "Route 53 Resolver",
-        ///         RuleType = "RECURSIVE",
-        ///         ShareStatus = "NOT_SHARED",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% example %}}
-        /// ### Retrieving forward rules shared with me
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Route53.GetResolverRules.Invoke(new()
-        ///     {
-        ///         RuleType = "FORWARD",
-        ///         ShareStatus = "SHARED_WITH_ME",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% example %}}
-        /// ### Retrieving rules by name regex
-        /// 
-        /// Resolver rules whose name contains `abc`.
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Route53.GetResolverRules.Invoke(new()
-        ///     {
-        ///         NameRegex = ".*abc.*",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetResolverRulesResult> Invoke(GetResolverRulesInvokeArgs? args = null, InvokeOptions? options = null)

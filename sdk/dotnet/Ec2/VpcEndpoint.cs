@@ -31,7 +31,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var s3 = new Aws.Ec2.VpcEndpoint("s3", new()
+    ///     var s3 = new Aws.Ec2.VpcEndpoint.VpcEndpoint("s3", new()
     ///     {
     ///         VpcId = aws_vpc.Main.Id,
     ///         ServiceName = "com.amazonaws.us-west-2.s3",
@@ -49,7 +49,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var s3 = new Aws.Ec2.VpcEndpoint("s3", new()
+    ///     var s3 = new Aws.Ec2.VpcEndpoint.VpcEndpoint("s3", new()
     ///     {
     ///         VpcId = aws_vpc.Main.Id,
     ///         ServiceName = "com.amazonaws.us-west-2.s3",
@@ -71,7 +71,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var ec2 = new Aws.Ec2.VpcEndpoint("ec2", new()
+    ///     var ec2 = new Aws.Ec2.VpcEndpoint.VpcEndpoint("ec2", new()
     ///     {
     ///         VpcId = aws_vpc.Main.Id,
     ///         ServiceName = "com.amazonaws.us-west-2.ec2",
@@ -81,44 +81,6 @@ namespace Pulumi.Aws.Ec2
     ///             aws_security_group.Sg1.Id,
     ///         },
     ///         PrivateDnsEnabled = true,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### Gateway Load Balancer Endpoint Type
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var current = Aws.GetCallerIdentity.Invoke();
-    /// 
-    ///     var exampleVpcEndpointService = new Aws.Ec2.VpcEndpointService("exampleVpcEndpointService", new()
-    ///     {
-    ///         AcceptanceRequired = false,
-    ///         AllowedPrincipals = new[]
-    ///         {
-    ///             current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.Arn),
-    ///         },
-    ///         GatewayLoadBalancerArns = new[]
-    ///         {
-    ///             aws_lb.Example.Arn,
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleVpcEndpoint = new Aws.Ec2.VpcEndpoint("exampleVpcEndpoint", new()
-    ///     {
-    ///         ServiceName = exampleVpcEndpointService.ServiceName,
-    ///         SubnetIds = new[]
-    ///         {
-    ///             aws_subnet.Example.Id,
-    ///         },
-    ///         VpcEndpointType = exampleVpcEndpointService.ServiceType,
-    ///         VpcId = aws_vpc.Example.Id,
     ///     });
     /// 
     /// });

@@ -1469,16 +1469,16 @@ class ReplicationGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.elasticache.ReplicationGroup("example",
+        example = aws.elasticache.replication_group.ReplicationGroup("example",
             automatic_failover_enabled=True,
-            description="example description",
-            node_type="cache.m4.large",
+            description=example description,
+            node_type=cache.m4.large,
             num_cache_clusters=2,
-            parameter_group_name="default.redis3.2",
+            parameter_group_name=default.redis3.2,
             port=6379,
             preferred_cache_cluster_azs=[
-                "us-west-2a",
-                "us-west-2b",
+                us-west-2a,
+                us-west-2b,
             ])
         ```
 
@@ -1491,20 +1491,20 @@ class ReplicationGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.elasticache.ReplicationGroup("example",
+        example = aws.elasticache.replication_group.ReplicationGroup("example",
             automatic_failover_enabled=True,
             preferred_cache_cluster_azs=[
-                "us-west-2a",
-                "us-west-2b",
+                us-west-2a,
+                us-west-2b,
             ],
-            description="example description",
-            node_type="cache.m4.large",
+            description=example description,
+            node_type=cache.m4.large,
             num_cache_clusters=2,
-            parameter_group_name="default.redis3.2",
+            parameter_group_name=default.redis3.2,
             port=6379)
         replica = None
         if 1 == True:
-            replica = aws.elasticache.Cluster("replica", replication_group_id=example.id)
+            replica = aws.elasticache.cluster.Cluster("replica", replication_group_id=example.id)
         ```
         ### Redis Cluster Mode Enabled
 
@@ -1514,12 +1514,12 @@ class ReplicationGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        baz = aws.elasticache.ReplicationGroup("baz",
+        baz = aws.elasticache.replication_group.ReplicationGroup("baz",
             automatic_failover_enabled=True,
-            description="example description",
-            node_type="cache.t2.small",
+            description=example description,
+            node_type=cache.t2.small,
             num_node_groups=2,
-            parameter_group_name="default.redis3.2.cluster.on",
+            parameter_group_name=default.redis3.2.cluster.on,
             port=6379,
             replicas_per_node_group=1)
         ```
@@ -1529,27 +1529,27 @@ class ReplicationGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.elasticache.ReplicationGroup("test",
-            description="test description",
-            node_type="cache.t3.small",
+        test = aws.elasticache.replication_group.ReplicationGroup("test",
+            description=test description,
+            node_type=cache.t3.small,
             port=6379,
             apply_immediately=True,
             auto_minor_version_upgrade=False,
-            maintenance_window="tue:06:30-tue:07:30",
-            snapshot_window="01:00-02:00",
+            maintenance_window=tue:06:30-tue:07:30,
+            snapshot_window=01:00-02:00,
             log_delivery_configurations=[
-                aws.elasticache.ReplicationGroupLogDeliveryConfigurationArgs(
-                    destination=aws_cloudwatch_log_group["example"]["name"],
-                    destination_type="cloudwatch-logs",
-                    log_format="text",
-                    log_type="slow-log",
-                ),
-                aws.elasticache.ReplicationGroupLogDeliveryConfigurationArgs(
-                    destination=aws_kinesis_firehose_delivery_stream["example"]["name"],
-                    destination_type="kinesis-firehose",
-                    log_format="json",
-                    log_type="engine-log",
-                ),
+                {
+                    destination: aws_cloudwatch_log_group.example.name,
+                    destinationType: cloudwatch-logs,
+                    logFormat: text,
+                    logType: slow-log,
+                },
+                {
+                    destination: aws_kinesis_firehose_delivery_stream.example.name,
+                    destinationType: kinesis-firehose,
+                    logFormat: json,
+                    logType: engine-log,
+                },
             ])
         ```
 
@@ -1566,19 +1566,19 @@ class ReplicationGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        primary = aws.elasticache.ReplicationGroup("primary",
-            description="primary replication group",
-            engine="redis",
-            engine_version="5.0.6",
-            node_type="cache.m5.large",
+        primary = aws.elasticache.replication_group.ReplicationGroup("primary",
+            description=primary replication group,
+            engine=redis,
+            engine_version=5.0.6,
+            node_type=cache.m5.large,
             num_cache_clusters=1,
             opts=pulumi.ResourceOptions(provider=aws["other_region"]))
-        example = aws.elasticache.GlobalReplicationGroup("example",
-            global_replication_group_id_suffix="example",
+        example = aws.elasticache.global_replication_group.GlobalReplicationGroup("example",
+            global_replication_group_id_suffix=example,
             primary_replication_group_id=primary.id,
             opts=pulumi.ResourceOptions(provider=aws["other_region"]))
-        secondary = aws.elasticache.ReplicationGroup("secondary",
-            description="secondary replication group",
+        secondary = aws.elasticache.replication_group.ReplicationGroup("secondary",
+            description=secondary replication group,
             global_replication_group_id=example.global_replication_group_id,
             num_cache_clusters=1)
         ```
@@ -1588,18 +1588,18 @@ class ReplicationGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.elasticache.ReplicationGroup("example",
-            description="example with authentication",
-            node_type="cache.t2.micro",
+        example = aws.elasticache.replication_group.ReplicationGroup("example",
+            description=example with authentication,
+            node_type=cache.t2.micro,
             num_cache_clusters=1,
             port=6379,
-            subnet_group_name=aws_elasticache_subnet_group["example"]["name"],
-            security_group_ids=[aws_security_group["example"]["id"]],
-            parameter_group_name="default.redis5.0",
-            engine_version="5.0.6",
+            subnet_group_name=aws_elasticache_subnet_group.example.name,
+            security_group_ids=[aws_security_group.example.id],
+            parameter_group_name=default.redis5.0,
+            engine_version=5.0.6,
             transit_encryption_enabled=True,
-            auth_token="abcdefgh1234567890",
-            auth_token_update_strategy="ROTATE")
+            auth_token=abcdefgh1234567890,
+            auth_token_update_strategy=ROTATE)
         ```
 
         > When adding a new `auth_token` to a previously passwordless replication group, using the `ROTATE` update strategy will result in support for **both** the new token and passwordless authentication. To immediately require authorization when adding the initial token, use the `SET` strategy instead. See the [Authenticating with the Redis AUTH command](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/auth.html) guide for additional details.
@@ -1701,16 +1701,16 @@ class ReplicationGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.elasticache.ReplicationGroup("example",
+        example = aws.elasticache.replication_group.ReplicationGroup("example",
             automatic_failover_enabled=True,
-            description="example description",
-            node_type="cache.m4.large",
+            description=example description,
+            node_type=cache.m4.large,
             num_cache_clusters=2,
-            parameter_group_name="default.redis3.2",
+            parameter_group_name=default.redis3.2,
             port=6379,
             preferred_cache_cluster_azs=[
-                "us-west-2a",
-                "us-west-2b",
+                us-west-2a,
+                us-west-2b,
             ])
         ```
 
@@ -1723,20 +1723,20 @@ class ReplicationGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.elasticache.ReplicationGroup("example",
+        example = aws.elasticache.replication_group.ReplicationGroup("example",
             automatic_failover_enabled=True,
             preferred_cache_cluster_azs=[
-                "us-west-2a",
-                "us-west-2b",
+                us-west-2a,
+                us-west-2b,
             ],
-            description="example description",
-            node_type="cache.m4.large",
+            description=example description,
+            node_type=cache.m4.large,
             num_cache_clusters=2,
-            parameter_group_name="default.redis3.2",
+            parameter_group_name=default.redis3.2,
             port=6379)
         replica = None
         if 1 == True:
-            replica = aws.elasticache.Cluster("replica", replication_group_id=example.id)
+            replica = aws.elasticache.cluster.Cluster("replica", replication_group_id=example.id)
         ```
         ### Redis Cluster Mode Enabled
 
@@ -1746,12 +1746,12 @@ class ReplicationGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        baz = aws.elasticache.ReplicationGroup("baz",
+        baz = aws.elasticache.replication_group.ReplicationGroup("baz",
             automatic_failover_enabled=True,
-            description="example description",
-            node_type="cache.t2.small",
+            description=example description,
+            node_type=cache.t2.small,
             num_node_groups=2,
-            parameter_group_name="default.redis3.2.cluster.on",
+            parameter_group_name=default.redis3.2.cluster.on,
             port=6379,
             replicas_per_node_group=1)
         ```
@@ -1761,27 +1761,27 @@ class ReplicationGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.elasticache.ReplicationGroup("test",
-            description="test description",
-            node_type="cache.t3.small",
+        test = aws.elasticache.replication_group.ReplicationGroup("test",
+            description=test description,
+            node_type=cache.t3.small,
             port=6379,
             apply_immediately=True,
             auto_minor_version_upgrade=False,
-            maintenance_window="tue:06:30-tue:07:30",
-            snapshot_window="01:00-02:00",
+            maintenance_window=tue:06:30-tue:07:30,
+            snapshot_window=01:00-02:00,
             log_delivery_configurations=[
-                aws.elasticache.ReplicationGroupLogDeliveryConfigurationArgs(
-                    destination=aws_cloudwatch_log_group["example"]["name"],
-                    destination_type="cloudwatch-logs",
-                    log_format="text",
-                    log_type="slow-log",
-                ),
-                aws.elasticache.ReplicationGroupLogDeliveryConfigurationArgs(
-                    destination=aws_kinesis_firehose_delivery_stream["example"]["name"],
-                    destination_type="kinesis-firehose",
-                    log_format="json",
-                    log_type="engine-log",
-                ),
+                {
+                    destination: aws_cloudwatch_log_group.example.name,
+                    destinationType: cloudwatch-logs,
+                    logFormat: text,
+                    logType: slow-log,
+                },
+                {
+                    destination: aws_kinesis_firehose_delivery_stream.example.name,
+                    destinationType: kinesis-firehose,
+                    logFormat: json,
+                    logType: engine-log,
+                },
             ])
         ```
 
@@ -1798,19 +1798,19 @@ class ReplicationGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        primary = aws.elasticache.ReplicationGroup("primary",
-            description="primary replication group",
-            engine="redis",
-            engine_version="5.0.6",
-            node_type="cache.m5.large",
+        primary = aws.elasticache.replication_group.ReplicationGroup("primary",
+            description=primary replication group,
+            engine=redis,
+            engine_version=5.0.6,
+            node_type=cache.m5.large,
             num_cache_clusters=1,
             opts=pulumi.ResourceOptions(provider=aws["other_region"]))
-        example = aws.elasticache.GlobalReplicationGroup("example",
-            global_replication_group_id_suffix="example",
+        example = aws.elasticache.global_replication_group.GlobalReplicationGroup("example",
+            global_replication_group_id_suffix=example,
             primary_replication_group_id=primary.id,
             opts=pulumi.ResourceOptions(provider=aws["other_region"]))
-        secondary = aws.elasticache.ReplicationGroup("secondary",
-            description="secondary replication group",
+        secondary = aws.elasticache.replication_group.ReplicationGroup("secondary",
+            description=secondary replication group,
             global_replication_group_id=example.global_replication_group_id,
             num_cache_clusters=1)
         ```
@@ -1820,18 +1820,18 @@ class ReplicationGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.elasticache.ReplicationGroup("example",
-            description="example with authentication",
-            node_type="cache.t2.micro",
+        example = aws.elasticache.replication_group.ReplicationGroup("example",
+            description=example with authentication,
+            node_type=cache.t2.micro,
             num_cache_clusters=1,
             port=6379,
-            subnet_group_name=aws_elasticache_subnet_group["example"]["name"],
-            security_group_ids=[aws_security_group["example"]["id"]],
-            parameter_group_name="default.redis5.0",
-            engine_version="5.0.6",
+            subnet_group_name=aws_elasticache_subnet_group.example.name,
+            security_group_ids=[aws_security_group.example.id],
+            parameter_group_name=default.redis5.0,
+            engine_version=5.0.6,
             transit_encryption_enabled=True,
-            auth_token="abcdefgh1234567890",
-            auth_token_update_strategy="ROTATE")
+            auth_token=abcdefgh1234567890,
+            auth_token_update_strategy=ROTATE)
         ```
 
         > When adding a new `auth_token` to a previously passwordless replication group, using the `ROTATE` update strategy will result in support for **both** the new token and passwordless authentication. To immediately require authorization when adding the initial token, use the `SET` strategy instead. See the [Authenticating with the Redis AUTH command](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/auth.html) guide for additional details.

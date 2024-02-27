@@ -12,32 +12,6 @@ import (
 )
 
 // Provides a Step Functions Activity data source
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sfn"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := sfn.LookupActivity(ctx, &sfn.LookupActivityArgs{
-//				Name: pulumi.StringRef("my-activity"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupActivity(ctx *pulumi.Context, args *LookupActivityArgs, opts ...pulumi.InvokeOption) (*LookupActivityResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupActivityResult

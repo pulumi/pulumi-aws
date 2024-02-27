@@ -20,32 +20,30 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/wafregional"
+//	wafregional/ipSet "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/wafregional/ipSet"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := wafregional.NewIpSet(ctx, "ipset", &wafregional.IpSetArgs{
-//				IpSetDescriptors: wafregional.IpSetIpSetDescriptorArray{
-//					&wafregional.IpSetIpSetDescriptorArgs{
-//						Type:  pulumi.String("IPV4"),
-//						Value: pulumi.String("192.0.7.0/24"),
-//					},
-//					&wafregional.IpSetIpSetDescriptorArgs{
-//						Type:  pulumi.String("IPV4"),
-//						Value: pulumi.String("10.16.16.0/16"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := wafregional/ipSet.NewIpSet(ctx, "ipset", &wafregional/ipSet.IpSetArgs{
+// IpSetDescriptors: []map[string]interface{}{
+// map[string]interface{}{
+// "type": "IPV4",
+// "value": "192.0.7.0/24",
+// },
+// map[string]interface{}{
+// "type": "IPV4",
+// "value": "10.16.16.0/16",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

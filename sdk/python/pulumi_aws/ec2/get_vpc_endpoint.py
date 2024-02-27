@@ -276,19 +276,6 @@ def get_vpc_endpoint(filters: Optional[Sequence[pulumi.InputType['GetVpcEndpoint
     The VPC Endpoint data source provides details about
     a specific VPC endpoint.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    s3 = aws.ec2.get_vpc_endpoint(vpc_id=aws_vpc["foo"]["id"],
-        service_name="com.amazonaws.us-west-2.s3")
-    private_s3 = aws.ec2.VpcEndpointRouteTableAssociation("privateS3",
-        vpc_endpoint_id=s3.id,
-        route_table_id=aws_route_table["private"]["id"])
-    ```
-
 
     :param Sequence[pulumi.InputType['GetVpcEndpointFilterArgs']] filters: Custom filter block as described below.
     :param str id: ID of the specific VPC Endpoint to retrieve.
@@ -346,19 +333,6 @@ def get_vpc_endpoint_output(filters: Optional[pulumi.Input[Optional[Sequence[pul
     """
     The VPC Endpoint data source provides details about
     a specific VPC endpoint.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    s3 = aws.ec2.get_vpc_endpoint(vpc_id=aws_vpc["foo"]["id"],
-        service_name="com.amazonaws.us-west-2.s3")
-    private_s3 = aws.ec2.VpcEndpointRouteTableAssociation("privateS3",
-        vpc_endpoint_id=s3.id,
-        route_table_id=aws_route_table["private"]["id"])
-    ```
 
 
     :param Sequence[pulumi.InputType['GetVpcEndpointFilterArgs']] filters: Custom filter block as described below.

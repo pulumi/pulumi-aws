@@ -23,44 +23,42 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/athena"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	athena/database "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/athena/database"
+//	athena/preparedStatement "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/athena/preparedStatement"
+//	athena/workgroup "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/athena/workgroup"
+//	s3/bucketV2 "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/s3/bucketV2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testBucketV2, err := s3.NewBucketV2(ctx, "testBucketV2", &s3.BucketV2Args{
-//				ForceDestroy: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			testWorkgroup, err := athena.NewWorkgroup(ctx, "testWorkgroup", nil)
-//			if err != nil {
-//				return err
-//			}
-//			testDatabase, err := athena.NewDatabase(ctx, "testDatabase", &athena.DatabaseArgs{
-//				Name:   pulumi.String("example"),
-//				Bucket: testBucketV2.Bucket,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = athena.NewPreparedStatement(ctx, "testPreparedStatement", &athena.PreparedStatementArgs{
-//				QueryStatement: testDatabase.Name.ApplyT(func(name string) (string, error) {
-//					return fmt.Sprintf("SELECT * FROM %v WHERE x = ?", name), nil
-//				}).(pulumi.StringOutput),
-//				Workgroup: testWorkgroup.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// testBucketV2, err := s3/bucketV2.NewBucketV2(ctx, "testBucketV2", &s3/bucketV2.BucketV2Args{
+// ForceDestroy: true,
+// })
+// if err != nil {
+// return err
+// }
+// testWorkgroup, err := athena/workgroup.NewWorkgroup(ctx, "testWorkgroup", nil)
+// if err != nil {
+// return err
+// }
+// testDatabase, err := athena/database.NewDatabase(ctx, "testDatabase", &athena/database.DatabaseArgs{
+// Name: "example",
+// Bucket: testBucketV2.Bucket,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = athena/preparedStatement.NewPreparedStatement(ctx, "testPreparedStatement", &athena/preparedStatement.PreparedStatementArgs{
+// QueryStatement: fmt.Sprintf("SELECT * FROM %v WHERE x = ?", testDatabase.Name),
+// Workgroup: testWorkgroup.Name,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

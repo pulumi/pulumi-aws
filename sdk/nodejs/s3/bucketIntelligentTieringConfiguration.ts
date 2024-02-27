@@ -19,8 +19,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.s3.BucketV2("example", {});
- * const example_entire_bucket = new aws.s3.BucketIntelligentTieringConfiguration("example-entire-bucket", {
+ * const example = new aws.s3/bucketV2.BucketV2("example", {});
+ * const example_entire_bucket = new aws.s3/bucketIntelligentTieringConfiguration.BucketIntelligentTieringConfiguration("example-entire-bucket", {
  *     bucket: example.id,
  *     tierings: [
  *         {
@@ -40,8 +40,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.s3.BucketV2("example", {});
- * const example_filtered = new aws.s3.BucketIntelligentTieringConfiguration("example-filtered", {
+ * const example = new aws.s3/bucketV2.BucketV2("example", {});
+ * const example_filtered = new aws.s3/bucketIntelligentTieringConfiguration.BucketIntelligentTieringConfiguration("example-filtered", {
  *     bucket: example.id,
  *     status: "Disabled",
  *     filter: {

@@ -48,8 +48,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Invocation(&#34;example&#34;, InvocationArgs.builder()        
  *             .functionName(aws_lambda_function.lambda_function_test().function_name())
- *             .triggers(Map.of(&#34;redeployment&#34;, computeSHA1(serializeJson(
- *                 jsonArray(aws_lambda_function.example().environment())))))
+ *             .triggers(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .input(serializeJson(
  *                 jsonObject(
  *                     jsonProperty(&#34;key1&#34;, &#34;value1&#34;),

@@ -27,13 +27,12 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.chime.VoiceConnector;
- * import com.pulumi.aws.chime.VoiceConnectorArgs;
- * import com.pulumi.aws.chime.VoiceConnectorTermination;
- * import com.pulumi.aws.chime.VoiceConnectorTerminationArgs;
- * import com.pulumi.aws.chime.VoiceConnectorTerminationCredentials;
- * import com.pulumi.aws.chime.VoiceConnectorTerminationCredentialsArgs;
- * import com.pulumi.aws.chime.inputs.VoiceConnectorTerminationCredentialsCredentialArgs;
+ * import com.pulumi.aws.chime_voiceConnector.VoiceConnector;
+ * import com.pulumi.aws.chime_voiceConnector.VoiceConnectorArgs;
+ * import com.pulumi.aws.chime_voiceConnectorTermination.VoiceConnectorTermination;
+ * import com.pulumi.aws.chime_voiceConnectorTermination.VoiceConnectorTerminationArgs;
+ * import com.pulumi.aws.chime_voiceConnectorTerminationCredentials.VoiceConnectorTerminationCredentials;
+ * import com.pulumi.aws.chime_voiceConnectorTerminationCredentials.VoiceConnectorTerminationCredentialsArgs;
  * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
@@ -64,10 +63,7 @@ import javax.annotation.Nullable;
  * 
  *         var defaultVoiceConnectorTerminationCredentials = new VoiceConnectorTerminationCredentials(&#34;defaultVoiceConnectorTerminationCredentials&#34;, VoiceConnectorTerminationCredentialsArgs.builder()        
  *             .voiceConnectorId(defaultVoiceConnector.id())
- *             .credentials(VoiceConnectorTerminationCredentialsCredentialArgs.builder()
- *                 .username(&#34;test&#34;)
- *                 .password(&#34;test!&#34;)
- *                 .build())
+ *             .credentials(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(defaultVoiceConnectorTermination)
  *                 .build());

@@ -21,135 +21,46 @@ import (
 // > **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
 //
 // ## Example Usage
-// ### Basic Usage
+// ### Enrichment Usage
 //
 // ```go
 // package main
 //
 // import (
 //
-//	"encoding/json"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/pipes"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sqs"
+//	pipes/pipe "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/pipes/pipe"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			main, err := aws.GetCallerIdentity(ctx, nil, nil)
-//			if err != nil {
-//				return err
-//			}
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"Version": "2012-10-17",
-//				"Statement": map[string]interface{}{
-//					"Effect": "Allow",
-//					"Action": "sts:AssumeRole",
-//					"Principal": map[string]interface{}{
-//						"Service": "pipes.amazonaws.com",
-//					},
-//					"Condition": map[string]interface{}{
-//						"StringEquals": map[string]interface{}{
-//							"aws:SourceAccount": main.AccountId,
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			exampleRole, err := iam.NewRole(ctx, "exampleRole", &iam.RoleArgs{
-//				AssumeRolePolicy: pulumi.String(json0),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			sourceQueue, err := sqs.NewQueue(ctx, "sourceQueue", nil)
-//			if err != nil {
-//				return err
-//			}
-//			sourceRolePolicy, err := iam.NewRolePolicy(ctx, "sourceRolePolicy", &iam.RolePolicyArgs{
-//				Role: exampleRole.ID(),
-//				Policy: sourceQueue.Arn.ApplyT(func(arn string) (pulumi.String, error) {
-//					var _zero pulumi.String
-//					tmpJSON1, err := json.Marshal(map[string]interface{}{
-//						"Version": "2012-10-17",
-//						"Statement": []map[string]interface{}{
-//							map[string]interface{}{
-//								"Effect": "Allow",
-//								"Action": []string{
-//									"sqs:DeleteMessage",
-//									"sqs:GetQueueAttributes",
-//									"sqs:ReceiveMessage",
-//								},
-//								"Resource": []string{
-//									arn,
-//								},
-//							},
-//						},
-//					})
-//					if err != nil {
-//						return _zero, err
-//					}
-//					json1 := string(tmpJSON1)
-//					return pulumi.String(json1), nil
-//				}).(pulumi.StringOutput),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			targetQueue, err := sqs.NewQueue(ctx, "targetQueue", nil)
-//			if err != nil {
-//				return err
-//			}
-//			targetRolePolicy, err := iam.NewRolePolicy(ctx, "targetRolePolicy", &iam.RolePolicyArgs{
-//				Role: exampleRole.ID(),
-//				Policy: targetQueue.Arn.ApplyT(func(arn string) (pulumi.String, error) {
-//					var _zero pulumi.String
-//					tmpJSON2, err := json.Marshal(map[string]interface{}{
-//						"Version": "2012-10-17",
-//						"Statement": []map[string]interface{}{
-//							map[string]interface{}{
-//								"Effect": "Allow",
-//								"Action": []string{
-//									"sqs:SendMessage",
-//								},
-//								"Resource": []string{
-//									arn,
-//								},
-//							},
-//						},
-//					})
-//					if err != nil {
-//						return _zero, err
-//					}
-//					json2 := string(tmpJSON2)
-//					return pulumi.String(json2), nil
-//				}).(pulumi.StringOutput),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = pipes.NewPipe(ctx, "examplePipe", &pipes.PipeArgs{
-//				RoleArn: exampleRole.Arn,
-//				Source:  sourceQueue.Arn,
-//				Target:  targetQueue.Arn,
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				sourceRolePolicy,
-//				targetRolePolicy,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := pipes/pipe.NewPipe(ctx, "example", &pipes/pipe.PipeArgs{
+// RoleArn: aws_iam_role.Example.Arn,
+// Source: aws_sqs_queue.Source.Arn,
+// Target: aws_sqs_queue.Target.Arn,
+// Enrichment: aws_cloudwatch_event_api_destination.Example.Arn,
+// EnrichmentParameters: map[string]interface{}{
+// "httpParameters": map[string]interface{}{
+// "pathParameterValues": []string{
+// "example-path-param",
+// },
+// "headerParameters": map[string]interface{}{
+// "example-header": "example-value",
+// "second-example-header": "second-example-value",
+// },
+// "queryStringParameters": map[string]interface{}{
+// "example-query-string": "example-value",
+// "second-example-query-string": "second-example-value",
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Filter Usage
 //
@@ -160,43 +71,80 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/pipes"
+//	pipes/pipe "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/pipes/pipe"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := pipes/pipe.NewPipe(ctx, "example", &pipes/pipe.PipeArgs{
+// RoleArn: aws_iam_role.Example.Arn,
+// Source: aws_sqs_queue.Source.Arn,
+// Target: aws_sqs_queue.Target.Arn,
+// SourceParameters: tmpJSON0, err := json.Marshal(map[string]interface{}{
+// "source": []string{
+// "event-source",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// json0 := string(tmpJSON0)
+// map[string]interface{}{
+// "filterCriteria": map[string]interface{}{
+// "filters": []map[string]interface{}{
+// map[string]interface{}{
+// "pattern": json0,
+// },
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
+// ```
+// ### SQS Source and Target Configuration Usage
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"source": []string{
-//					"event-source",
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			_, err = pipes.NewPipe(ctx, "example", &pipes.PipeArgs{
-//				RoleArn: pulumi.Any(aws_iam_role.Example.Arn),
-//				Source:  pulumi.Any(aws_sqs_queue.Source.Arn),
-//				Target:  pulumi.Any(aws_sqs_queue.Target.Arn),
-//				SourceParameters: &pipes.PipeSourceParametersArgs{
-//					FilterCriteria: &pipes.PipeSourceParametersFilterCriteriaArgs{
-//						Filters: pipes.PipeSourceParametersFilterCriteriaFilterArray{
-//							&pipes.PipeSourceParametersFilterCriteriaFilterArgs{
-//								Pattern: pulumi.String(json0),
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
+// ```go
+// package main
 //
+// import (
+//
+//	pipes/pipe "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/pipes/pipe"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := pipes/pipe.NewPipe(ctx, "example", &pipes/pipe.PipeArgs{
+// RoleArn: aws_iam_role.Example.Arn,
+// Source: aws_sqs_queue.Source.Arn,
+// Target: aws_sqs_queue.Target.Arn,
+// SourceParameters: map[string]interface{}{
+// "sqsQueueParameters": map[string]interface{}{
+// "batchSize": 1,
+// "maximumBatchingWindowInSeconds": 2,
+// },
+// },
+// TargetParameters: map[string]interface{}{
+// "sqsQueue": []map[string]interface{}{
+// map[string]interface{}{
+// "messageDeduplicationId": "example-dedupe",
+// "messageGroupId": "example-group",
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

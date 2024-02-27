@@ -422,11 +422,11 @@ class Authorizer(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.apigatewayv2.Authorizer("example",
-            api_id=aws_apigatewayv2_api["example"]["id"],
-            authorizer_type="REQUEST",
-            authorizer_uri=aws_lambda_function["example"]["invoke_arn"],
-            identity_sources=["route.request.header.Auth"])
+        example = aws.apigatewayv2.authorizer.Authorizer("example",
+            api_id=aws_apigatewayv2_api.example.id,
+            authorizer_type=REQUEST,
+            authorizer_uri=aws_lambda_function.example.invoke_arn,
+            identity_sources=[route.request.header.Auth])
         ```
         ### Basic HTTP API
 
@@ -434,12 +434,12 @@ class Authorizer(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.apigatewayv2.Authorizer("example",
-            api_id=aws_apigatewayv2_api["example"]["id"],
-            authorizer_type="REQUEST",
-            authorizer_uri=aws_lambda_function["example"]["invoke_arn"],
-            identity_sources=["$request.header.Authorization"],
-            authorizer_payload_format_version="2.0")
+        example = aws.apigatewayv2.authorizer.Authorizer("example",
+            api_id=aws_apigatewayv2_api.example.id,
+            authorizer_type=REQUEST,
+            authorizer_uri=aws_lambda_function.example.invoke_arn,
+            identity_sources=[$request.header.Authorization],
+            authorizer_payload_format_version=2.0)
         ```
 
         ## Import
@@ -492,11 +492,11 @@ class Authorizer(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.apigatewayv2.Authorizer("example",
-            api_id=aws_apigatewayv2_api["example"]["id"],
-            authorizer_type="REQUEST",
-            authorizer_uri=aws_lambda_function["example"]["invoke_arn"],
-            identity_sources=["route.request.header.Auth"])
+        example = aws.apigatewayv2.authorizer.Authorizer("example",
+            api_id=aws_apigatewayv2_api.example.id,
+            authorizer_type=REQUEST,
+            authorizer_uri=aws_lambda_function.example.invoke_arn,
+            identity_sources=[route.request.header.Auth])
         ```
         ### Basic HTTP API
 
@@ -504,12 +504,12 @@ class Authorizer(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.apigatewayv2.Authorizer("example",
-            api_id=aws_apigatewayv2_api["example"]["id"],
-            authorizer_type="REQUEST",
-            authorizer_uri=aws_lambda_function["example"]["invoke_arn"],
-            identity_sources=["$request.header.Authorization"],
-            authorizer_payload_format_version="2.0")
+        example = aws.apigatewayv2.authorizer.Authorizer("example",
+            api_id=aws_apigatewayv2_api.example.id,
+            authorizer_type=REQUEST,
+            authorizer_uri=aws_lambda_function.example.invoke_arn,
+            identity_sources=[$request.header.Authorization],
+            authorizer_payload_format_version=2.0)
         ```
 
         ## Import

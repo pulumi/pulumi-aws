@@ -31,8 +31,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.transfer.Workflow;
  * import com.pulumi.aws.transfer.WorkflowArgs;
- * import com.pulumi.aws.transfer.inputs.WorkflowStepArgs;
- * import com.pulumi.aws.transfer.inputs.WorkflowStepDeleteStepDetailsArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -47,13 +45,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Workflow(&#34;example&#34;, WorkflowArgs.builder()        
- *             .steps(WorkflowStepArgs.builder()
- *                 .deleteStepDetails(WorkflowStepDeleteStepDetailsArgs.builder()
- *                     .name(&#34;example&#34;)
- *                     .sourceFileLocation(&#34;${original.file}&#34;)
- *                     .build())
- *                 .type(&#34;DELETE&#34;)
- *                 .build())
+ *             .steps(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -68,9 +60,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.transfer.Workflow;
  * import com.pulumi.aws.transfer.WorkflowArgs;
- * import com.pulumi.aws.transfer.inputs.WorkflowStepArgs;
- * import com.pulumi.aws.transfer.inputs.WorkflowStepCustomStepDetailsArgs;
- * import com.pulumi.aws.transfer.inputs.WorkflowStepTagStepDetailsArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -86,26 +75,8 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Workflow(&#34;example&#34;, WorkflowArgs.builder()        
  *             .steps(            
- *                 WorkflowStepArgs.builder()
- *                     .customStepDetails(WorkflowStepCustomStepDetailsArgs.builder()
- *                         .name(&#34;example&#34;)
- *                         .sourceFileLocation(&#34;${original.file}&#34;)
- *                         .target(aws_lambda_function.example().arn())
- *                         .timeoutSeconds(60)
- *                         .build())
- *                     .type(&#34;CUSTOM&#34;)
- *                     .build(),
- *                 WorkflowStepArgs.builder()
- *                     .tagStepDetails(WorkflowStepTagStepDetailsArgs.builder()
- *                         .name(&#34;example&#34;)
- *                         .sourceFileLocation(&#34;${original.file}&#34;)
- *                         .tags(WorkflowStepTagStepDetailsTagArgs.builder()
- *                             .key(&#34;Name&#34;)
- *                             .value(&#34;Hello World&#34;)
- *                             .build())
- *                         .build())
- *                     .type(&#34;TAG&#34;)
- *                     .build())
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

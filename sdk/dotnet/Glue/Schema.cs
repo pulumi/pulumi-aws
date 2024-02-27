@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Glue
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Glue.Schema("example", new()
+    ///     var example = new Aws.Glue.Schema.Schema("example", new()
     ///     {
     ///         SchemaName = "example",
     ///         RegistryArn = aws_glue_registry.Test.Arn,

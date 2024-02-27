@@ -214,34 +214,6 @@ class RepositoryPermissionsPolicy(pulumi.CustomResource):
         """
         Provides a CodeArtifact Repostory Permissions Policy Resource.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_key = aws.kms.Key("exampleKey", description="domain key")
-        example_domain = aws.codeartifact.Domain("exampleDomain",
-            domain="example",
-            encryption_key=example_key.arn)
-        example_repository = aws.codeartifact.Repository("exampleRepository",
-            repository="example",
-            domain=example_domain.domain)
-        example_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="*",
-                identifiers=["*"],
-            )],
-            actions=["codeartifact:ReadFromRepository"],
-            resources=[example_repository.arn],
-        )])
-        example_repository_permissions_policy = aws.codeartifact.RepositoryPermissionsPolicy("exampleRepositoryPermissionsPolicy",
-            repository=example_repository.repository,
-            domain=example_domain.domain,
-            policy_document=example_policy_document.json)
-        ```
-
         ## Import
 
         Using `pulumi import`, import CodeArtifact Repository Permissions Policies using the CodeArtifact Repository ARN. For example:
@@ -266,34 +238,6 @@ class RepositoryPermissionsPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a CodeArtifact Repostory Permissions Policy Resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_key = aws.kms.Key("exampleKey", description="domain key")
-        example_domain = aws.codeartifact.Domain("exampleDomain",
-            domain="example",
-            encryption_key=example_key.arn)
-        example_repository = aws.codeartifact.Repository("exampleRepository",
-            repository="example",
-            domain=example_domain.domain)
-        example_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="*",
-                identifiers=["*"],
-            )],
-            actions=["codeartifact:ReadFromRepository"],
-            resources=[example_repository.arn],
-        )])
-        example_repository_permissions_policy = aws.codeartifact.RepositoryPermissionsPolicy("exampleRepositoryPermissionsPolicy",
-            repository=example_repository.repository,
-            domain=example_domain.domain,
-            policy_document=example_policy_document.json)
-        ```
 
         ## Import
 

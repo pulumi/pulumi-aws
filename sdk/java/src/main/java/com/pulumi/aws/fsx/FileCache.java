@@ -33,8 +33,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.fsx.FileCache;
  * import com.pulumi.aws.fsx.FileCacheArgs;
- * import com.pulumi.aws.fsx.inputs.FileCacheDataRepositoryAssociationArgs;
- * import com.pulumi.aws.fsx.inputs.FileCacheLustreConfigurationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -49,29 +47,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new FileCache(&#34;example&#34;, FileCacheArgs.builder()        
- *             .dataRepositoryAssociations(FileCacheDataRepositoryAssociationArgs.builder()
- *                 .dataRepositoryPath(&#34;nfs://filer.domain.com&#34;)
- *                 .dataRepositorySubdirectories(                
- *                     &#34;test&#34;,
- *                     &#34;test2&#34;)
- *                 .fileCachePath(&#34;/ns1&#34;)
- *                 .nfs(FileCacheDataRepositoryAssociationNfArgs.builder()
- *                     .dnsIps(                    
- *                         &#34;192.168.0.1&#34;,
- *                         &#34;192.168.0.2&#34;)
- *                     .version(&#34;NFS3&#34;)
- *                     .build())
- *                 .build())
+ *             .dataRepositoryAssociations(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .fileCacheType(&#34;LUSTRE&#34;)
  *             .fileCacheTypeVersion(&#34;2.12&#34;)
- *             .lustreConfigurations(FileCacheLustreConfigurationArgs.builder()
- *                 .deploymentType(&#34;CACHE_1&#34;)
- *                 .metadataConfigurations(FileCacheLustreConfigurationMetadataConfigurationArgs.builder()
- *                     .storageCapacity(2400)
- *                     .build())
- *                 .perUnitStorageThroughput(1000)
- *                 .weeklyMaintenanceStartTime(&#34;2:05:00&#34;)
- *                 .build())
+ *             .lustreConfigurations(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .subnetIds(aws_subnet.test1().id())
  *             .storageCapacity(1200)
  *             .build());

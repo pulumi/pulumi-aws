@@ -72,15 +72,6 @@ def get_firehose_delivery_stream(name: Optional[str] = None,
 
     For more details, see the [Amazon Kinesis Firehose Documentation](https://aws.amazon.com/documentation/firehose/).
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    stream = aws.kinesis.get_firehose_delivery_stream(name="stream-name")
-    ```
-
 
     :param str name: Name of the Kinesis Stream.
     """
@@ -102,15 +93,6 @@ def get_firehose_delivery_stream_output(name: Optional[pulumi.Input[str]] = None
     Use this data source to get information about a Kinesis Firehose Delivery Stream for use in other resources.
 
     For more details, see the [Amazon Kinesis Firehose Documentation](https://aws.amazon.com/documentation/firehose/).
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    stream = aws.kinesis.get_firehose_delivery_stream(name="stream-name")
-    ```
 
 
     :param str name: Name of the Kinesis Stream.

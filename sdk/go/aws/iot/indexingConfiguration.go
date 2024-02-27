@@ -20,51 +20,49 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iot"
+//	iot/indexingConfiguration "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/iot/indexingConfiguration"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := iot.NewIndexingConfiguration(ctx, "example", &iot.IndexingConfigurationArgs{
-//				ThingIndexingConfiguration: &iot.IndexingConfigurationThingIndexingConfigurationArgs{
-//					CustomFields: iot.IndexingConfigurationThingIndexingConfigurationCustomFieldArray{
-//						&iot.IndexingConfigurationThingIndexingConfigurationCustomFieldArgs{
-//							Name: pulumi.String("shadow.desired.power"),
-//							Type: pulumi.String("Boolean"),
-//						},
-//						&iot.IndexingConfigurationThingIndexingConfigurationCustomFieldArgs{
-//							Name: pulumi.String("attributes.version"),
-//							Type: pulumi.String("Number"),
-//						},
-//						&iot.IndexingConfigurationThingIndexingConfigurationCustomFieldArgs{
-//							Name: pulumi.String("shadow.name.thing1shadow.desired.DefaultDesired"),
-//							Type: pulumi.String("String"),
-//						},
-//						&iot.IndexingConfigurationThingIndexingConfigurationCustomFieldArgs{
-//							Name: pulumi.String("deviceDefender.securityProfile1.NUMBER_VALUE_BEHAVIOR.lastViolationValue.number"),
-//							Type: pulumi.String("Number"),
-//						},
-//					},
-//					DeviceDefenderIndexingMode: pulumi.String("VIOLATIONS"),
-//					Filter: &iot.IndexingConfigurationThingIndexingConfigurationFilterArgs{
-//						NamedShadowNames: pulumi.StringArray{
-//							pulumi.String("thing1shadow"),
-//						},
-//					},
-//					NamedShadowIndexingMode:       pulumi.String("ON"),
-//					ThingConnectivityIndexingMode: pulumi.String("STATUS"),
-//					ThingIndexingMode:             pulumi.String("REGISTRY_AND_SHADOW"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := iot/indexingConfiguration.NewIndexingConfiguration(ctx, "example", &iot/indexingConfiguration.IndexingConfigurationArgs{
+// ThingIndexingConfiguration: map[string]interface{}{
+// "customFields": []map[string]interface{}{
+// map[string]interface{}{
+// "name": "shadow.desired.power",
+// "type": "Boolean",
+// },
+// map[string]interface{}{
+// "name": "attributes.version",
+// "type": "Number",
+// },
+// map[string]interface{}{
+// "name": "shadow.name.thing1shadow.desired.DefaultDesired",
+// "type": "String",
+// },
+// map[string]interface{}{
+// "name": "deviceDefender.securityProfile1.NUMBER_VALUE_BEHAVIOR.lastViolationValue.number",
+// "type": "Number",
+// },
+// },
+// "deviceDefenderIndexingMode": "VIOLATIONS",
+// "filter": map[string]interface{}{
+// "namedShadowNames": []string{
+// "thing1shadow",
+// },
+// },
+// "namedShadowIndexingMode": "ON",
+// "thingConnectivityIndexingMode": "STATUS",
+// "thingIndexingMode": "REGISTRY_AND_SHADOW",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 type IndexingConfiguration struct {
 	pulumi.CustomResourceState

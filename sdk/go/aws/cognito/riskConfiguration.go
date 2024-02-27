@@ -21,28 +21,26 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cognito"
+//	cognito/riskConfiguration "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/cognito/riskConfiguration"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cognito.NewRiskConfiguration(ctx, "example", &cognito.RiskConfigurationArgs{
-//				UserPoolId: pulumi.Any(aws_cognito_user_pool.Example.Id),
-//				RiskExceptionConfiguration: &cognito.RiskConfigurationRiskExceptionConfigurationArgs{
-//					BlockedIpRangeLists: pulumi.StringArray{
-//						pulumi.String("10.10.10.10/32"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := cognito/riskConfiguration.NewRiskConfiguration(ctx, "example", &cognito/riskConfiguration.RiskConfigurationArgs{
+// UserPoolId: aws_cognito_user_pool.Example.Id,
+// RiskExceptionConfiguration: map[string]interface{}{
+// "blockedIpRangeLists": []string{
+// "10.10.10.10/32",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

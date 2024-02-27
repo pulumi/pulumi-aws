@@ -14,31 +14,6 @@ import (
 // Data source for managing an AWS SESv2 (Simple Email V2) Dedicated IP Pool.
 //
 // ## Example Usage
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sesv2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := sesv2.LookupDedicatedIpPool(ctx, &sesv2.LookupDedicatedIpPoolArgs{
-//				PoolName: "my-pool",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupDedicatedIpPool(ctx *pulumi.Context, args *LookupDedicatedIpPoolArgs, opts ...pulumi.InvokeOption) (*LookupDedicatedIpPoolResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDedicatedIpPoolResult

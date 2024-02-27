@@ -7,38 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Provides a MediaStore Container Policy.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const currentRegion = aws.getRegion({});
- * const currentCallerIdentity = aws.getCallerIdentity({});
- * const exampleContainer = new aws.mediastore.Container("exampleContainer", {});
- * const examplePolicyDocument = aws.iam.getPolicyDocumentOutput({
- *     statements: [{
- *         sid: "MediaStoreFullAccess",
- *         effect: "Allow",
- *         principals: [{
- *             type: "AWS",
- *             identifiers: [currentCallerIdentity.then(currentCallerIdentity => `arn:aws:iam::${currentCallerIdentity.accountId}:root`)],
- *         }],
- *         actions: ["mediastore:*"],
- *         resources: [pulumi.all([currentRegion, currentCallerIdentity, exampleContainer.name]).apply(([currentRegion, currentCallerIdentity, name]) => `arn:aws:mediastore:${currentRegion.name}:${currentCallerIdentity.accountId}:container/${name}/*`)],
- *         conditions: [{
- *             test: "Bool",
- *             variable: "aws:SecureTransport",
- *             values: ["true"],
- *         }],
- *     }],
- * });
- * const exampleContainerPolicy = new aws.mediastore.ContainerPolicy("exampleContainerPolicy", {
- *     containerName: exampleContainer.name,
- *     policy: examplePolicyDocument.apply(examplePolicyDocument => examplePolicyDocument.json),
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import MediaStore Container Policy using the MediaStore Container Name. For example:

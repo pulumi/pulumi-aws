@@ -288,20 +288,6 @@ def get_orderable_db_instance(engine: Optional[str] = None,
     """
     Information about Neptune orderable DB instances.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.neptune.get_orderable_db_instance(engine_version="1.0.3.0",
-        preferred_instance_classes=[
-            "db.r5.large",
-            "db.r4.large",
-            "db.t3.medium",
-        ])
-    ```
-
 
     :param str engine: DB engine. (Default: `neptune`)
     :param str engine_version: Version of the DB engine. For example, `1.0.1.0`, `1.0.1.2`, `1.0.2.2`, and `1.0.3.0`.
@@ -355,20 +341,6 @@ def get_orderable_db_instance_output(engine: Optional[pulumi.Input[Optional[str]
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOrderableDbInstanceResult]:
     """
     Information about Neptune orderable DB instances.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.neptune.get_orderable_db_instance(engine_version="1.0.3.0",
-        preferred_instance_classes=[
-            "db.r5.large",
-            "db.r4.large",
-            "db.t3.medium",
-        ])
-    ```
 
 
     :param str engine: DB engine. (Default: `neptune`)

@@ -21,23 +21,21 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/efs"
+//	efs/accessPoint "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/efs/accessPoint"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := efs.NewAccessPoint(ctx, "test", &efs.AccessPointArgs{
-//				FileSystemId: pulumi.Any(aws_efs_file_system.Foo.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := efs/accessPoint.NewAccessPoint(ctx, "test", &efs/accessPoint.AccessPointArgs{
+// FileSystemId: aws_efs_file_system.Foo.Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

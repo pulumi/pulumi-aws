@@ -17,32 +17,32 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const testRolePolicyAttachment = new aws.iam.RolePolicyAttachment("testRolePolicyAttachment", {
+ * const testRolePolicyAttachment = new aws.iam/rolePolicyAttachment.RolePolicyAttachment("testRolePolicyAttachment", {
  *     role: aws_iam_role.test.name,
  *     policyArn: `arn:${data.aws_partition.current.partition}:iam::aws:policy/AmazonLexFullAccess`,
  * });
- * const testV2modelsBot = new aws.lex.V2modelsBot("testV2modelsBot", {
+ * const testV2modelsBot = new aws.lex/v2modelsBot.V2modelsBot("testV2modelsBot", {
  *     idleSessionTtlInSeconds: 60,
  *     roleArn: aws_iam_role.test.arn,
  *     dataPrivacies: [{
  *         childDirected: true,
  *     }],
  * });
- * const testV2modelsBotLocale = new aws.lex.V2modelsBotLocale("testV2modelsBotLocale", {
+ * const testV2modelsBotLocale = new aws.lex/v2modelsBotLocale.V2modelsBotLocale("testV2modelsBotLocale", {
  *     localeId: "en_US",
  *     botId: testV2modelsBot.id,
  *     botVersion: "DRAFT",
  *     nLuIntentConfidenceThreshold: 0.7,
  * });
- * const testV2modelsBotVersion = new aws.lex.V2modelsBotVersion("testV2modelsBotVersion", {
+ * const testV2modelsBotVersion = new aws.lex/v2modelsBotVersion.V2modelsBotVersion("testV2modelsBotVersion", {
  *     botId: testV2modelsBot.id,
- *     localeSpecification: testV2modelsBotLocale.localeId.apply(localeId => {
- *         [localeId]: {
+ *     localeSpecification: {
+ *         [testV2modelsBotLocale.localeId]: {
  *             sourceBotVersion: "DRAFT",
  *         },
- *     }),
+ *     },
  * });
- * const testV2modelsSlotType = new aws.lex.V2modelsSlotType("testV2modelsSlotType", {
+ * const testV2modelsSlotType = new aws.lex/v2modelsSlotType.V2modelsSlotType("testV2modelsSlotType", {
  *     botId: testV2modelsBot.id,
  *     botVersion: testV2modelsBotLocale.botVersion,
  *     localeId: testV2modelsBotLocale.localeId,

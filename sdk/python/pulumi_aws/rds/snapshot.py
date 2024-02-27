@@ -458,20 +458,20 @@ class Snapshot(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        bar = aws.rds.Instance("bar",
+        bar = aws.rds.instance.Instance("bar",
             allocated_storage=10,
-            engine="mysql",
-            engine_version="5.6.21",
-            instance_class="db.t2.micro",
-            db_name="baz",
-            password="barbarbarbar",
-            username="foo",
-            maintenance_window="Fri:09:00-Fri:09:30",
+            engine=mysql,
+            engine_version=5.6.21,
+            instance_class=db.t2.micro,
+            db_name=baz,
+            password=barbarbarbar,
+            username=foo,
+            maintenance_window=Fri:09:00-Fri:09:30,
             backup_retention_period=0,
-            parameter_group_name="default.mysql5.6")
-        test = aws.rds.Snapshot("test",
+            parameter_group_name=default.mysql5.6)
+        test = aws.rds.snapshot.Snapshot("test",
             db_instance_identifier=bar.identifier,
-            db_snapshot_identifier="testsnapshot1234")
+            db_snapshot_identifier=testsnapshot1234)
         ```
 
         ## Import
@@ -504,20 +504,20 @@ class Snapshot(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        bar = aws.rds.Instance("bar",
+        bar = aws.rds.instance.Instance("bar",
             allocated_storage=10,
-            engine="mysql",
-            engine_version="5.6.21",
-            instance_class="db.t2.micro",
-            db_name="baz",
-            password="barbarbarbar",
-            username="foo",
-            maintenance_window="Fri:09:00-Fri:09:30",
+            engine=mysql,
+            engine_version=5.6.21,
+            instance_class=db.t2.micro,
+            db_name=baz,
+            password=barbarbarbar,
+            username=foo,
+            maintenance_window=Fri:09:00-Fri:09:30,
             backup_retention_period=0,
-            parameter_group_name="default.mysql5.6")
-        test = aws.rds.Snapshot("test",
+            parameter_group_name=default.mysql5.6)
+        test = aws.rds.snapshot.Snapshot("test",
             db_instance_identifier=bar.identifier,
-            db_snapshot_identifier="testsnapshot1234")
+            db_snapshot_identifier=testsnapshot1234)
         ```
 
         ## Import

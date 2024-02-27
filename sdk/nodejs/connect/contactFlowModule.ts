@@ -21,7 +21,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.connect.ContactFlowModule("example", {
+ * const example = new aws.connect/contactFlowModule.ContactFlowModule("example", {
  *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
  *     description: "Example Contact Flow Module Description",
  *     content: JSON.stringify({

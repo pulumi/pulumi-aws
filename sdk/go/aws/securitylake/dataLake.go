@@ -21,46 +21,44 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/securitylake"
+//	securitylake/dataLake "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/securitylake/dataLake"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := securitylake.NewDataLake(ctx, "example", &securitylake.DataLakeArgs{
-//				MetaStoreManagerRoleArn: pulumi.Any(aws_iam_role.Meta_store_manager.Arn),
-//				Configuration: &securitylake.DataLakeConfigurationArgs{
-//					Region: pulumi.String("eu-west-1"),
-//					EncryptionConfigurations: securitylake.DataLakeConfigurationEncryptionConfigurationArray{
-//						&securitylake.DataLakeConfigurationEncryptionConfigurationArgs{
-//							KmsKeyId: pulumi.String("S3_MANAGED_KEY"),
-//						},
-//					},
-//					LifecycleConfiguration: &securitylake.DataLakeConfigurationLifecycleConfigurationArgs{
-//						Transitions: securitylake.DataLakeConfigurationLifecycleConfigurationTransitionArray{
-//							&securitylake.DataLakeConfigurationLifecycleConfigurationTransitionArgs{
-//								Days:         pulumi.Int(31),
-//								StorageClass: pulumi.String("STANDARD_IA"),
-//							},
-//							&securitylake.DataLakeConfigurationLifecycleConfigurationTransitionArgs{
-//								Days:         pulumi.Int(80),
-//								StorageClass: pulumi.String("ONEZONE_IA"),
-//							},
-//						},
-//						Expiration: &securitylake.DataLakeConfigurationLifecycleConfigurationExpirationArgs{
-//							Days: pulumi.Int(300),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := securitylake/dataLake.NewDataLake(ctx, "example", &securitylake/dataLake.DataLakeArgs{
+// MetaStoreManagerRoleArn: aws_iam_role.Meta_store_manager.Arn,
+// Configuration: map[string]interface{}{
+// "region": "eu-west-1",
+// "encryptionConfigurations": []map[string]interface{}{
+// map[string]interface{}{
+// "kmsKeyId": "S3_MANAGED_KEY",
+// },
+// },
+// "lifecycleConfiguration": map[string]interface{}{
+// "transitions": []interface{}{
+// map[string]interface{}{
+// "days": 31,
+// "storageClass": "STANDARD_IA",
+// },
+// map[string]interface{}{
+// "days": 80,
+// "storageClass": "ONEZONE_IA",
+// },
+// },
+// "expiration": map[string]interface{}{
+// "days": 300,
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Basic Usage
 //
@@ -69,31 +67,29 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/securitylake"
+//	securitylake/dataLake "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/securitylake/dataLake"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := securitylake.NewDataLake(ctx, "example", &securitylake.DataLakeArgs{
-//				MetaStoreManagerRoleArn: pulumi.Any(aws_iam_role.Meta_store_manager.Arn),
-//				Configuration: &securitylake.DataLakeConfigurationArgs{
-//					Region: pulumi.String("eu-west-1"),
-//					EncryptionConfigurations: securitylake.DataLakeConfigurationEncryptionConfigurationArray{
-//						&securitylake.DataLakeConfigurationEncryptionConfigurationArgs{
-//							KmsKeyId: pulumi.String("S3_MANAGED_KEY"),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := securitylake/dataLake.NewDataLake(ctx, "example", &securitylake/dataLake.DataLakeArgs{
+// MetaStoreManagerRoleArn: aws_iam_role.Meta_store_manager.Arn,
+// Configuration: map[string]interface{}{
+// "region": "eu-west-1",
+// "encryptionConfigurations": []map[string]interface{}{
+// map[string]interface{}{
+// "kmsKeyId": "S3_MANAGED_KEY",
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

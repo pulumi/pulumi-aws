@@ -26,53 +26,52 @@ import (
 //	"encoding/base64"
 //	"os"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ecrpublic"
+//	"github.com/pulumi/pulumi-aws/sdk/v1/go/aws"
+//	ecrpublic/repository "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ecrpublic/repository"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func filebase64OrPanic(path string) string {
-//		if fileData, err := os.ReadFile(path); err == nil {
-//			return base64.StdEncoding.EncodeToString(fileData[:])
-//		} else {
-//			panic(err.Error())
-//		}
-//	}
+//						if fileData, err := os.ReadFile(path); err == nil {
+//							return base64.StdEncoding.EncodeToString(fileData[:])
+//						} else {
+//							panic(err.Error())
+//						}
+//					}
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := aws.NewProvider(ctx, "usEast1", &aws.ProviderArgs{
-//				Region: pulumi.String("us-east-1"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ecrpublic.NewRepository(ctx, "foo", &ecrpublic.RepositoryArgs{
-//				RepositoryName: pulumi.String("bar"),
-//				CatalogData: &ecrpublic.RepositoryCatalogDataArgs{
-//					AboutText: pulumi.String("About Text"),
-//					Architectures: pulumi.StringArray{
-//						pulumi.String("ARM"),
-//					},
-//					Description:   pulumi.String("Description"),
-//					LogoImageBlob: filebase64OrPanic(image.Png),
-//					OperatingSystems: pulumi.StringArray{
-//						pulumi.String("Linux"),
-//					},
-//					UsageText: pulumi.String("Usage Text"),
-//				},
-//				Tags: pulumi.StringMap{
-//					"env": pulumi.String("production"),
-//				},
-//			}, pulumi.Provider(aws.Us_east_1))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := aws.NewProvider(ctx, "usEast1", &aws.ProviderArgs{
+// Region: "us-east-1",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = ecrpublic/repository.NewRepository(ctx, "foo", &ecrpublic/repository.RepositoryArgs{
+// RepositoryName: "bar",
+// CatalogData: map[string]interface{}{
+// "aboutText": "About Text",
+// "architectures": []string{
+// "ARM",
+// },
+// "description": "Description",
+// "logoImageBlob": filebase64OrPanic(image.Png),
+// "operatingSystems": []string{
+// "Linux",
+// },
+// "usageText": "Usage Text",
+// },
+// Tags: map[string]interface{}{
+// "env": "production",
+// },
+// }, pulumi.Provider(aws.Us_east_1))
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

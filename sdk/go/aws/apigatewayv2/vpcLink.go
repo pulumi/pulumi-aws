@@ -24,29 +24,27 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigatewayv2"
+//	apigatewayv2/vpcLink "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/apigatewayv2/vpcLink"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := apigatewayv2.NewVpcLink(ctx, "example", &apigatewayv2.VpcLinkArgs{
-//				SecurityGroupIds: pulumi.StringArray{
-//					data.Aws_security_group.Example.Id,
-//				},
-//				SubnetIds: pulumi.Any(data.Aws_subnets.Example.Ids),
-//				Tags: pulumi.StringMap{
-//					"Usage": pulumi.String("example"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := apigatewayv2/vpcLink.NewVpcLink(ctx, "example", &apigatewayv2/vpcLink.VpcLinkArgs{
+// SecurityGroupIds: []interface{}{
+// data.Aws_security_group.Example.Id,
+// },
+// SubnetIds: data.Aws_subnets.Example.Ids,
+// Tags: map[string]interface{}{
+// "Usage": "example",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

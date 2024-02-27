@@ -59,7 +59,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.opensearch.Domain;
  * import com.pulumi.aws.opensearch.DomainArgs;
- * import com.pulumi.aws.opensearch.inputs.DomainClusterConfigArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -74,237 +73,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Domain(&#34;example&#34;, DomainArgs.builder()        
- *             .clusterConfig(DomainClusterConfigArgs.builder()
- *                 .instanceType(&#34;r4.large.search&#34;)
- *                 .build())
+ *             .clusterConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .engineVersion(&#34;Elasticsearch_7.10&#34;)
- *             .tags(Map.of(&#34;Domain&#34;, &#34;TestDomain&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
- * 
- *     }
- * }
- * ```
- * ### Access Policy
- * 
- * &gt; See also: `aws.opensearch.DomainPolicy` resource
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.AwsFunctions;
- * import com.pulumi.aws.inputs.GetRegionArgs;
- * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
- * import com.pulumi.aws.iam.IamFunctions;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
- * import com.pulumi.aws.opensearch.Domain;
- * import com.pulumi.aws.opensearch.DomainArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var config = ctx.config();
- *         final var domain = config.get(&#34;domain&#34;).orElse(&#34;tf-test&#34;);
- *         final var currentRegion = AwsFunctions.getRegion();
- * 
- *         final var currentCallerIdentity = AwsFunctions.getCallerIdentity();
- * 
- *         final var examplePolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect(&#34;Allow&#34;)
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type(&#34;*&#34;)
- *                     .identifiers(&#34;*&#34;)
- *                     .build())
- *                 .actions(&#34;es:*&#34;)
- *                 .resources(String.format(&#34;arn:aws:es:%s:%s:domain/%s/*&#34;, currentRegion.applyValue(getRegionResult -&gt; getRegionResult.name()),currentCallerIdentity.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()),domain))
- *                 .conditions(GetPolicyDocumentStatementConditionArgs.builder()
- *                     .test(&#34;IpAddress&#34;)
- *                     .variable(&#34;aws:SourceIp&#34;)
- *                     .values(&#34;66.193.100.22/32&#34;)
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *         var exampleDomain = new Domain(&#34;exampleDomain&#34;, DomainArgs.builder()        
- *             .accessPolicies(examplePolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### Log publishing to CloudWatch Logs
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.cloudwatch.LogGroup;
- * import com.pulumi.aws.iam.IamFunctions;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
- * import com.pulumi.aws.cloudwatch.LogResourcePolicy;
- * import com.pulumi.aws.cloudwatch.LogResourcePolicyArgs;
- * import com.pulumi.aws.opensearch.Domain;
- * import com.pulumi.aws.opensearch.DomainArgs;
- * import com.pulumi.aws.opensearch.inputs.DomainLogPublishingOptionArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var exampleLogGroup = new LogGroup(&#34;exampleLogGroup&#34;);
- * 
- *         final var examplePolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect(&#34;Allow&#34;)
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type(&#34;Service&#34;)
- *                     .identifiers(&#34;es.amazonaws.com&#34;)
- *                     .build())
- *                 .actions(                
- *                     &#34;logs:PutLogEvents&#34;,
- *                     &#34;logs:PutLogEventsBatch&#34;,
- *                     &#34;logs:CreateLogStream&#34;)
- *                 .resources(&#34;arn:aws:logs:*&#34;)
- *                 .build())
- *             .build());
- * 
- *         var exampleLogResourcePolicy = new LogResourcePolicy(&#34;exampleLogResourcePolicy&#34;, LogResourcePolicyArgs.builder()        
- *             .policyName(&#34;example&#34;)
- *             .policyDocument(examplePolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
- *             .build());
- * 
- *         var exampleDomain = new Domain(&#34;exampleDomain&#34;, DomainArgs.builder()        
- *             .logPublishingOptions(DomainLogPublishingOptionArgs.builder()
- *                 .cloudwatchLogGroupArn(exampleLogGroup.arn())
- *                 .logType(&#34;INDEX_SLOW_LOGS&#34;)
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### VPC based OpenSearch
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ec2.Ec2Functions;
- * import com.pulumi.aws.ec2.inputs.GetVpcArgs;
- * import com.pulumi.aws.ec2.inputs.GetSubnetsArgs;
- * import com.pulumi.aws.AwsFunctions;
- * import com.pulumi.aws.inputs.GetRegionArgs;
- * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
- * import com.pulumi.aws.ec2.SecurityGroup;
- * import com.pulumi.aws.ec2.SecurityGroupArgs;
- * import com.pulumi.aws.ec2.inputs.SecurityGroupIngressArgs;
- * import com.pulumi.aws.iam.ServiceLinkedRole;
- * import com.pulumi.aws.iam.ServiceLinkedRoleArgs;
- * import com.pulumi.aws.iam.IamFunctions;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
- * import com.pulumi.aws.opensearch.Domain;
- * import com.pulumi.aws.opensearch.DomainArgs;
- * import com.pulumi.aws.opensearch.inputs.DomainClusterConfigArgs;
- * import com.pulumi.aws.opensearch.inputs.DomainVpcOptionsArgs;
- * import com.pulumi.resources.CustomResourceOptions;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var config = ctx.config();
- *         final var vpc = config.get(&#34;vpc&#34;);
- *         final var domain = config.get(&#34;domain&#34;).orElse(&#34;tf-test&#34;);
- *         final var exampleVpc = Ec2Functions.getVpc(GetVpcArgs.builder()
- *             .tags(Map.of(&#34;Name&#34;, vpc))
- *             .build());
- * 
- *         final var exampleSubnets = Ec2Functions.getSubnets(GetSubnetsArgs.builder()
- *             .filters(GetSubnetsFilterArgs.builder()
- *                 .name(&#34;vpc-id&#34;)
- *                 .values(exampleVpc.applyValue(getVpcResult -&gt; getVpcResult.id()))
- *                 .build())
- *             .tags(Map.of(&#34;Tier&#34;, &#34;private&#34;))
- *             .build());
- * 
- *         final var currentRegion = AwsFunctions.getRegion();
- * 
- *         final var currentCallerIdentity = AwsFunctions.getCallerIdentity();
- * 
- *         var exampleSecurityGroup = new SecurityGroup(&#34;exampleSecurityGroup&#34;, SecurityGroupArgs.builder()        
- *             .description(&#34;Managed by Pulumi&#34;)
- *             .vpcId(exampleVpc.applyValue(getVpcResult -&gt; getVpcResult.id()))
- *             .ingress(SecurityGroupIngressArgs.builder()
- *                 .fromPort(443)
- *                 .toPort(443)
- *                 .protocol(&#34;tcp&#34;)
- *                 .cidrBlocks(exampleVpc.applyValue(getVpcResult -&gt; getVpcResult.cidrBlock()))
- *                 .build())
- *             .build());
- * 
- *         var exampleServiceLinkedRole = new ServiceLinkedRole(&#34;exampleServiceLinkedRole&#34;, ServiceLinkedRoleArgs.builder()        
- *             .awsServiceName(&#34;opensearchservice.amazonaws.com&#34;)
- *             .build());
- * 
- *         final var examplePolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect(&#34;Allow&#34;)
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type(&#34;*&#34;)
- *                     .identifiers(&#34;*&#34;)
- *                     .build())
- *                 .actions(&#34;es:*&#34;)
- *                 .resources(String.format(&#34;arn:aws:es:%s:%s:domain/%s/*&#34;, currentRegion.applyValue(getRegionResult -&gt; getRegionResult.name()),currentCallerIdentity.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()),domain))
- *                 .build())
- *             .build());
- * 
- *         var exampleDomain = new Domain(&#34;exampleDomain&#34;, DomainArgs.builder()        
- *             .engineVersion(&#34;OpenSearch_1.0&#34;)
- *             .clusterConfig(DomainClusterConfigArgs.builder()
- *                 .instanceType(&#34;m4.large.search&#34;)
- *                 .zoneAwarenessEnabled(true)
- *                 .build())
- *             .vpcOptions(DomainVpcOptionsArgs.builder()
- *                 .subnetIds(                
- *                     exampleSubnets.applyValue(getSubnetsResult -&gt; getSubnetsResult.ids()[0]),
- *                     exampleSubnets.applyValue(getSubnetsResult -&gt; getSubnetsResult.ids()[1]))
- *                 .securityGroupIds(exampleSecurityGroup.id())
- *                 .build())
- *             .advancedOptions(Map.of(&#34;rest.action.multi.allow_explicit_index&#34;, &#34;true&#34;))
- *             .accessPolicies(examplePolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
- *             .tags(Map.of(&#34;Domain&#34;, &#34;TestDomain&#34;))
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(exampleServiceLinkedRole)
- *                 .build());
  * 
  *     }
  * }
@@ -321,13 +93,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.opensearch.Domain;
  * import com.pulumi.aws.opensearch.DomainArgs;
- * import com.pulumi.aws.opensearch.inputs.DomainAdvancedSecurityOptionsArgs;
- * import com.pulumi.aws.opensearch.inputs.DomainAdvancedSecurityOptionsMasterUserOptionsArgs;
- * import com.pulumi.aws.opensearch.inputs.DomainClusterConfigArgs;
- * import com.pulumi.aws.opensearch.inputs.DomainDomainEndpointOptionsArgs;
- * import com.pulumi.aws.opensearch.inputs.DomainEbsOptionsArgs;
- * import com.pulumi.aws.opensearch.inputs.DomainEncryptAtRestArgs;
- * import com.pulumi.aws.opensearch.inputs.DomainNodeToNodeEncryptionArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -342,33 +107,13 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Domain(&#34;example&#34;, DomainArgs.builder()        
- *             .advancedSecurityOptions(DomainAdvancedSecurityOptionsArgs.builder()
- *                 .anonymousAuthEnabled(true)
- *                 .enabled(false)
- *                 .internalUserDatabaseEnabled(true)
- *                 .masterUserOptions(DomainAdvancedSecurityOptionsMasterUserOptionsArgs.builder()
- *                     .masterUserName(&#34;example&#34;)
- *                     .masterUserPassword(&#34;Barbarbarbar1!&#34;)
- *                     .build())
- *                 .build())
- *             .clusterConfig(DomainClusterConfigArgs.builder()
- *                 .instanceType(&#34;r5.large.search&#34;)
- *                 .build())
- *             .domainEndpointOptions(DomainDomainEndpointOptionsArgs.builder()
- *                 .enforceHttps(true)
- *                 .tlsSecurityPolicy(&#34;Policy-Min-TLS-1-2-2019-07&#34;)
- *                 .build())
- *             .ebsOptions(DomainEbsOptionsArgs.builder()
- *                 .ebsEnabled(true)
- *                 .volumeSize(10)
- *                 .build())
- *             .encryptAtRest(DomainEncryptAtRestArgs.builder()
- *                 .enabled(true)
- *                 .build())
+ *             .advancedSecurityOptions(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .clusterConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .domainEndpointOptions(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .ebsOptions(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .encryptAtRest(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .engineVersion(&#34;Elasticsearch_7.1&#34;)
- *             .nodeToNodeEncryption(DomainNodeToNodeEncryptionArgs.builder()
- *                 .enabled(true)
- *                 .build())
+ *             .nodeToNodeEncryption(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -385,13 +130,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.opensearch.Domain;
  * import com.pulumi.aws.opensearch.DomainArgs;
- * import com.pulumi.aws.opensearch.inputs.DomainAdvancedSecurityOptionsArgs;
- * import com.pulumi.aws.opensearch.inputs.DomainAdvancedSecurityOptionsMasterUserOptionsArgs;
- * import com.pulumi.aws.opensearch.inputs.DomainClusterConfigArgs;
- * import com.pulumi.aws.opensearch.inputs.DomainDomainEndpointOptionsArgs;
- * import com.pulumi.aws.opensearch.inputs.DomainEbsOptionsArgs;
- * import com.pulumi.aws.opensearch.inputs.DomainEncryptAtRestArgs;
- * import com.pulumi.aws.opensearch.inputs.DomainNodeToNodeEncryptionArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -406,33 +144,13 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Domain(&#34;example&#34;, DomainArgs.builder()        
- *             .advancedSecurityOptions(DomainAdvancedSecurityOptionsArgs.builder()
- *                 .anonymousAuthEnabled(true)
- *                 .enabled(true)
- *                 .internalUserDatabaseEnabled(true)
- *                 .masterUserOptions(DomainAdvancedSecurityOptionsMasterUserOptionsArgs.builder()
- *                     .masterUserName(&#34;example&#34;)
- *                     .masterUserPassword(&#34;Barbarbarbar1!&#34;)
- *                     .build())
- *                 .build())
- *             .clusterConfig(DomainClusterConfigArgs.builder()
- *                 .instanceType(&#34;r5.large.search&#34;)
- *                 .build())
- *             .domainEndpointOptions(DomainDomainEndpointOptionsArgs.builder()
- *                 .enforceHttps(true)
- *                 .tlsSecurityPolicy(&#34;Policy-Min-TLS-1-2-2019-07&#34;)
- *                 .build())
- *             .ebsOptions(DomainEbsOptionsArgs.builder()
- *                 .ebsEnabled(true)
- *                 .volumeSize(10)
- *                 .build())
- *             .encryptAtRest(DomainEncryptAtRestArgs.builder()
- *                 .enabled(true)
- *                 .build())
+ *             .advancedSecurityOptions(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .clusterConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .domainEndpointOptions(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .ebsOptions(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .encryptAtRest(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .engineVersion(&#34;Elasticsearch_7.1&#34;)
- *             .nodeToNodeEncryption(DomainNodeToNodeEncryptionArgs.builder()
- *                 .enabled(true)
- *                 .build())
+ *             .nodeToNodeEncryption(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

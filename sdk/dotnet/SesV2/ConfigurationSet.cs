@@ -23,32 +23,32 @@ namespace Pulumi.Aws.SesV2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.SesV2.ConfigurationSet("example", new()
+    ///     var example = new Aws.Sesv2.ConfigurationSet.ConfigurationSet("example", new()
     ///     {
     ///         ConfigurationSetName = "example",
-    ///         DeliveryOptions = new Aws.SesV2.Inputs.ConfigurationSetDeliveryOptionsArgs
+    ///         DeliveryOptions = 
     ///         {
-    ///             TlsPolicy = "REQUIRE",
+    ///             { "tlsPolicy", "REQUIRE" },
     ///         },
-    ///         ReputationOptions = new Aws.SesV2.Inputs.ConfigurationSetReputationOptionsArgs
+    ///         ReputationOptions = 
     ///         {
-    ///             ReputationMetricsEnabled = false,
+    ///             { "reputationMetricsEnabled", false },
     ///         },
-    ///         SendingOptions = new Aws.SesV2.Inputs.ConfigurationSetSendingOptionsArgs
+    ///         SendingOptions = 
     ///         {
-    ///             SendingEnabled = true,
+    ///             { "sendingEnabled", true },
     ///         },
-    ///         SuppressionOptions = new Aws.SesV2.Inputs.ConfigurationSetSuppressionOptionsArgs
+    ///         SuppressionOptions = 
     ///         {
-    ///             SuppressedReasons = new[]
+    ///             { "suppressedReasons", new[]
     ///             {
     ///                 "BOUNCE",
     ///                 "COMPLAINT",
-    ///             },
+    ///             } },
     ///         },
-    ///         TrackingOptions = new Aws.SesV2.Inputs.ConfigurationSetTrackingOptionsArgs
+    ///         TrackingOptions = 
     ///         {
-    ///             CustomRedirectDomain = "example.com",
+    ///             { "customRedirectDomain", "example.com" },
     ///         },
     ///     });
     /// 

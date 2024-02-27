@@ -24,9 +24,9 @@ namespace Pulumi.Aws.LightSail
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testStaticIp = new Aws.LightSail.StaticIp("testStaticIp");
+    ///     var testStaticIp = new Aws.Lightsail.StaticIp.StaticIp("testStaticIp");
     /// 
-    ///     var testInstance = new Aws.LightSail.Instance("testInstance", new()
+    ///     var testInstance = new Aws.Lightsail.Instance.Instance("testInstance", new()
     ///     {
     ///         AvailabilityZone = "us-east-1b",
     ///         BlueprintId = "string",
@@ -34,7 +34,7 @@ namespace Pulumi.Aws.LightSail
     ///         KeyPairName = "some_key_name",
     ///     });
     /// 
-    ///     var testStaticIpAttachment = new Aws.LightSail.StaticIpAttachment("testStaticIpAttachment", new()
+    ///     var testStaticIpAttachment = new Aws.Lightsail.StaticIpAttachment.StaticIpAttachment("testStaticIpAttachment", new()
     ///     {
     ///         StaticIpName = testStaticIp.Id,
     ///         InstanceName = testInstance.Id,

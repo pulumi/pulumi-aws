@@ -10,26 +10,6 @@ import * as utilities from "../utilities";
 /**
  * The VPC Peering Connection data source provides details about
  * a specific VPC peering connection.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const pc = aws.ec2.getVpcPeeringConnection({
- *     vpcId: aws_vpc.foo.id,
- *     peerCidrBlock: "10.0.1.0/22",
- * });
- * // Create a route table
- * const rt = new aws.ec2.RouteTable("rt", {vpcId: aws_vpc.foo.id});
- * // Create a route
- * const route = new aws.ec2.Route("route", {
- *     routeTableId: rt.id,
- *     destinationCidrBlock: pc.then(pc => pc.peerCidrBlock),
- *     vpcPeeringConnectionId: pc.then(pc => pc.id),
- * });
- * ```
  */
 export function getVpcPeeringConnection(args?: GetVpcPeeringConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcPeeringConnectionResult> {
     args = args || {};
@@ -150,26 +130,6 @@ export interface GetVpcPeeringConnectionResult {
 /**
  * The VPC Peering Connection data source provides details about
  * a specific VPC peering connection.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const pc = aws.ec2.getVpcPeeringConnection({
- *     vpcId: aws_vpc.foo.id,
- *     peerCidrBlock: "10.0.1.0/22",
- * });
- * // Create a route table
- * const rt = new aws.ec2.RouteTable("rt", {vpcId: aws_vpc.foo.id});
- * // Create a route
- * const route = new aws.ec2.Route("route", {
- *     routeTableId: rt.id,
- *     destinationCidrBlock: pc.then(pc => pc.peerCidrBlock),
- *     vpcPeeringConnectionId: pc.then(pc => pc.id),
- * });
- * ```
  */
 export function getVpcPeeringConnectionOutput(args?: GetVpcPeeringConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpcPeeringConnectionResult> {
     return pulumi.output(args).apply((a: any) => getVpcPeeringConnection(a, opts))

@@ -15,6 +15,46 @@ import (
 // Resource for managing an AWS OpenSearch Serverless Security Config.
 //
 // ## Example Usage
+// ### Basic Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"fmt"
+//	"os"
+//
+//	opensearch/serverlessSecurityConfig "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/opensearch/serverlessSecurityConfig"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func readFileOrPanic(path string) pulumi.StringPtrInput {
+//					data, err := os.ReadFile(path)
+//					if err != nil {
+//						panic(err.Error())
+//					}
+//					return pulumi.String(string(data))
+//				}
+//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := opensearch/serverlessSecurityConfig.NewServerlessSecurityConfig(ctx, "example", &opensearch/serverlessSecurityConfig.ServerlessSecurityConfigArgs{
+// Type: "saml",
+// SamlOptions: []map[string]interface{}{
+// map[string]interface{}{
+// "metadata": readFileOrPanic(fmt.Sprintf("%v/idp-metadata.xml", path.Module)),
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
+// ```
 //
 // ## Import
 //

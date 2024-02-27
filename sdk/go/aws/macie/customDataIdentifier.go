@@ -20,38 +20,36 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/macie"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/macie2"
+//	macie/customDataIdentifier "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/macie/customDataIdentifier"
+//	macie2/account "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/macie2/account"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := macie2.NewAccount(ctx, "exampleAccount", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = macie.NewCustomDataIdentifier(ctx, "exampleCustomDataIdentifier", &macie.CustomDataIdentifierArgs{
-//				Regex:                pulumi.String("[0-9]{3}-[0-9]{2}-[0-9]{4}"),
-//				Description:          pulumi.String("DESCRIPTION"),
-//				MaximumMatchDistance: pulumi.Int(10),
-//				Keywords: pulumi.StringArray{
-//					pulumi.String("keyword"),
-//				},
-//				IgnoreWords: pulumi.StringArray{
-//					pulumi.String("ignore"),
-//				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				aws_macie2_account.Test,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := macie2/account.NewAccount(ctx, "exampleAccount", nil)
+// if err != nil {
+// return err
+// }
+// _, err = macie/customDataIdentifier.NewCustomDataIdentifier(ctx, "exampleCustomDataIdentifier", &macie/customDataIdentifier.CustomDataIdentifierArgs{
+// Regex: "[0-9]{3}-[0-9]{2}-[0-9]{4}",
+// Description: "DESCRIPTION",
+// MaximumMatchDistance: 10,
+// Keywords: []string{
+// "keyword",
+// },
+// IgnoreWords: []string{
+// "ignore",
+// },
+// }, pulumi.DependsOn([]pulumi.Resource{
+// aws_macie2_account.Test,
+// }))
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -75,7 +75,7 @@ class AdminAccount(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.fms.AdminAccount("example")
+        example = aws.fms.admin_account.AdminAccount("example")
         ```
 
         ## Import
@@ -105,7 +105,7 @@ class AdminAccount(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.fms.AdminAccount("example")
+        example = aws.fms.admin_account.AdminAccount("example")
         ```
 
         ## Import

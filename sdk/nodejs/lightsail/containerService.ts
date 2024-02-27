@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const myContainerService = new aws.lightsail.ContainerService("myContainerService", {
+ * const myContainerService = new aws.lightsail/containerService.ContainerService("myContainerService", {
  *     isDisabled: false,
  *     power: "nano",
  *     scale: 1,
@@ -38,42 +38,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const myContainerService = new aws.lightsail.ContainerService("myContainerService", {publicDomainNames: {
+ * const myContainerService = new aws.lightsail/containerService.ContainerService("myContainerService", {publicDomainNames: {
  *     certificates: [{
  *         certificateName: "example-certificate",
  *         domainNames: ["www.example.com"],
  *     }],
  * }});
- * ```
- * ### Private Registry Access
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * // ... other configuration ...
- * const defaultContainerService = new aws.lightsail.ContainerService("defaultContainerService", {privateRegistryAccess: {
- *     ecrImagePullerRole: {
- *         isActive: true,
- *     },
- * }});
- * const defaultPolicyDocument = defaultContainerService.privateRegistryAccess.apply(privateRegistryAccess => aws.iam.getPolicyDocumentOutput({
- *     statements: [{
- *         effect: "Allow",
- *         principals: [{
- *             type: "AWS",
- *             identifiers: [privateRegistryAccess.ecrImagePullerRole?.principalArn],
- *         }],
- *         actions: [
- *             "ecr:BatchGetImage",
- *             "ecr:GetDownloadUrlForLayer",
- *         ],
- *     }],
- * }));
- * const defaultRepositoryPolicy = new aws.ecr.RepositoryPolicy("defaultRepositoryPolicy", {
- *     repository: aws_ecr_repository["default"].name,
- *     policy: defaultPolicyDocument.apply(defaultPolicyDocument => defaultPolicyDocument.json),
- * });
  * ```
  *
  * ## Import

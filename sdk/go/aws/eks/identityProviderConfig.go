@@ -21,28 +21,26 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/eks"
+//	eks/identityProviderConfig "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/eks/identityProviderConfig"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := eks.NewIdentityProviderConfig(ctx, "example", &eks.IdentityProviderConfigArgs{
-//				ClusterName: pulumi.Any(aws_eks_cluster.Example.Name),
-//				Oidc: &eks.IdentityProviderConfigOidcArgs{
-//					ClientId:                   pulumi.String("your client_id"),
-//					IdentityProviderConfigName: pulumi.String("example"),
-//					IssuerUrl:                  pulumi.String("your issuer_url"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := eks/identityProviderConfig.NewIdentityProviderConfig(ctx, "example", &eks/identityProviderConfig.IdentityProviderConfigArgs{
+// ClusterName: aws_eks_cluster.Example.Name,
+// Oidc: map[string]interface{}{
+// "clientId": "your client_id",
+// "identityProviderConfigName": "example",
+// "issuerUrl": "your issuer_url",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

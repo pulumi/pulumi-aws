@@ -218,15 +218,15 @@ class UserGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_user = aws.elasticache.User("testUser",
-            user_id="testUserId",
-            user_name="default",
-            access_string="on ~app::* -@all +@read +@hash +@bitmap +@geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember",
-            engine="REDIS",
-            passwords=["password123456789"])
-        test_user_group = aws.elasticache.UserGroup("testUserGroup",
-            engine="REDIS",
-            user_group_id="userGroupId",
+        test_user = aws.elasticache.user.User("testUser",
+            user_id=testUserId,
+            user_name=default,
+            access_string=on ~app::* -@all +@read +@hash +@bitmap +@geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember,
+            engine=REDIS,
+            passwords=[password123456789])
+        test_user_group = aws.elasticache.user_group.UserGroup("testUserGroup",
+            engine=REDIS,
+            user_group_id=userGroupId,
             user_ids=[test_user.user_id])
         ```
 
@@ -262,15 +262,15 @@ class UserGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_user = aws.elasticache.User("testUser",
-            user_id="testUserId",
-            user_name="default",
-            access_string="on ~app::* -@all +@read +@hash +@bitmap +@geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember",
-            engine="REDIS",
-            passwords=["password123456789"])
-        test_user_group = aws.elasticache.UserGroup("testUserGroup",
-            engine="REDIS",
-            user_group_id="userGroupId",
+        test_user = aws.elasticache.user.User("testUser",
+            user_id=testUserId,
+            user_name=default,
+            access_string=on ~app::* -@all +@read +@hash +@bitmap +@geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember,
+            engine=REDIS,
+            passwords=[password123456789])
+        test_user_group = aws.elasticache.user_group.UserGroup("testUserGroup",
+            engine=REDIS,
+            user_group_id=userGroupId,
             user_ids=[test_user.user_id])
         ```
 

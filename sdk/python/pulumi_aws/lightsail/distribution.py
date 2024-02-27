@@ -560,101 +560,32 @@ class Distribution(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_bucket = aws.lightsail.Bucket("testBucket", bundle_id="small_1_0")
-        test_distribution = aws.lightsail.Distribution("testDistribution",
-            bundle_id="small_1_0",
-            origin=aws.lightsail.DistributionOriginArgs(
-                name=test_bucket.name,
-                region_name=test_bucket.region,
-            ),
-            default_cache_behavior=aws.lightsail.DistributionDefaultCacheBehaviorArgs(
-                behavior="cache",
-            ),
-            cache_behavior_settings=aws.lightsail.DistributionCacheBehaviorSettingsArgs(
-                allowed_http_methods="GET,HEAD,OPTIONS,PUT,PATCH,POST,DELETE",
-                cached_http_methods="GET,HEAD",
-                default_ttl=86400,
-                maximum_ttl=31536000,
-                minimum_ttl=0,
-                forwarded_cookies=aws.lightsail.DistributionCacheBehaviorSettingsForwardedCookiesArgs(
-                    option="none",
-                ),
-                forwarded_headers=aws.lightsail.DistributionCacheBehaviorSettingsForwardedHeadersArgs(
-                    option="default",
-                ),
-                forwarded_query_strings=aws.lightsail.DistributionCacheBehaviorSettingsForwardedQueryStringsArgs(
-                    option=False,
-                ),
-            ))
-        ```
-        ### instance origin example
-
-        Below is an example of an instance as the origin.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        available = aws.get_availability_zones(state="available",
-            filters=[aws.GetAvailabilityZonesFilterArgs(
-                name="opt-in-status",
-                values=["opt-in-not-required"],
-            )])
-        test_static_ip = aws.lightsail.StaticIp("testStaticIp")
-        test_instance = aws.lightsail.Instance("testInstance",
-            availability_zone=available.names[0],
-            blueprint_id="amazon_linux_2",
-            bundle_id="micro_1_0")
-        test_static_ip_attachment = aws.lightsail.StaticIpAttachment("testStaticIpAttachment",
-            static_ip_name=test_static_ip.name,
-            instance_name=test_instance.name)
-        test_distribution = aws.lightsail.Distribution("testDistribution",
-            bundle_id="small_1_0",
-            origin=aws.lightsail.DistributionOriginArgs(
-                name=test_instance.name,
-                region_name=available.id,
-            ),
-            default_cache_behavior=aws.lightsail.DistributionDefaultCacheBehaviorArgs(
-                behavior="cache",
-            ),
-            opts=pulumi.ResourceOptions(depends_on=[test_static_ip_attachment]))
-        ```
-        ### lb origin example
-
-        Below is an example with a load balancer as an origin
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        available = aws.get_availability_zones(state="available",
-            filters=[aws.GetAvailabilityZonesFilterArgs(
-                name="opt-in-status",
-                values=["opt-in-not-required"],
-            )])
-        test_lb = aws.lightsail.Lb("testLb",
-            health_check_path="/",
-            instance_port=80,
-            tags={
-                "foo": "bar",
+        test_bucket = aws.lightsail.bucket.Bucket("testBucket", bundle_id=small_1_0)
+        test_distribution = aws.lightsail.distribution.Distribution("testDistribution",
+            bundle_id=small_1_0,
+            origin={
+                name: test_bucket.name,
+                regionName: test_bucket.region,
+            },
+            default_cache_behavior={
+                behavior: cache,
+            },
+            cache_behavior_settings={
+                allowedHttpMethods: GET,HEAD,OPTIONS,PUT,PATCH,POST,DELETE,
+                cachedHttpMethods: GET,HEAD,
+                defaultTtl: 86400,
+                maximumTtl: 31536000,
+                minimumTtl: 0,
+                forwardedCookies: {
+                    option: none,
+                },
+                forwardedHeaders: {
+                    option: default,
+                },
+                forwardedQueryStrings: {
+                    option: False,
+                },
             })
-        test_instance = aws.lightsail.Instance("testInstance",
-            availability_zone=available.names[0],
-            blueprint_id="amazon_linux_2",
-            bundle_id="nano_1_0")
-        test_lb_attachment = aws.lightsail.LbAttachment("testLbAttachment",
-            lb_name=test_lb.name,
-            instance_name=test_instance.name)
-        test_distribution = aws.lightsail.Distribution("testDistribution",
-            bundle_id="small_1_0",
-            origin=aws.lightsail.DistributionOriginArgs(
-                name=test_lb.name,
-                region_name=available.id,
-            ),
-            default_cache_behavior=aws.lightsail.DistributionDefaultCacheBehaviorArgs(
-                behavior="cache",
-            ),
-            opts=pulumi.ResourceOptions(depends_on=[test_lb_attachment]))
         ```
 
         ## Import
@@ -701,101 +632,32 @@ class Distribution(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_bucket = aws.lightsail.Bucket("testBucket", bundle_id="small_1_0")
-        test_distribution = aws.lightsail.Distribution("testDistribution",
-            bundle_id="small_1_0",
-            origin=aws.lightsail.DistributionOriginArgs(
-                name=test_bucket.name,
-                region_name=test_bucket.region,
-            ),
-            default_cache_behavior=aws.lightsail.DistributionDefaultCacheBehaviorArgs(
-                behavior="cache",
-            ),
-            cache_behavior_settings=aws.lightsail.DistributionCacheBehaviorSettingsArgs(
-                allowed_http_methods="GET,HEAD,OPTIONS,PUT,PATCH,POST,DELETE",
-                cached_http_methods="GET,HEAD",
-                default_ttl=86400,
-                maximum_ttl=31536000,
-                minimum_ttl=0,
-                forwarded_cookies=aws.lightsail.DistributionCacheBehaviorSettingsForwardedCookiesArgs(
-                    option="none",
-                ),
-                forwarded_headers=aws.lightsail.DistributionCacheBehaviorSettingsForwardedHeadersArgs(
-                    option="default",
-                ),
-                forwarded_query_strings=aws.lightsail.DistributionCacheBehaviorSettingsForwardedQueryStringsArgs(
-                    option=False,
-                ),
-            ))
-        ```
-        ### instance origin example
-
-        Below is an example of an instance as the origin.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        available = aws.get_availability_zones(state="available",
-            filters=[aws.GetAvailabilityZonesFilterArgs(
-                name="opt-in-status",
-                values=["opt-in-not-required"],
-            )])
-        test_static_ip = aws.lightsail.StaticIp("testStaticIp")
-        test_instance = aws.lightsail.Instance("testInstance",
-            availability_zone=available.names[0],
-            blueprint_id="amazon_linux_2",
-            bundle_id="micro_1_0")
-        test_static_ip_attachment = aws.lightsail.StaticIpAttachment("testStaticIpAttachment",
-            static_ip_name=test_static_ip.name,
-            instance_name=test_instance.name)
-        test_distribution = aws.lightsail.Distribution("testDistribution",
-            bundle_id="small_1_0",
-            origin=aws.lightsail.DistributionOriginArgs(
-                name=test_instance.name,
-                region_name=available.id,
-            ),
-            default_cache_behavior=aws.lightsail.DistributionDefaultCacheBehaviorArgs(
-                behavior="cache",
-            ),
-            opts=pulumi.ResourceOptions(depends_on=[test_static_ip_attachment]))
-        ```
-        ### lb origin example
-
-        Below is an example with a load balancer as an origin
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        available = aws.get_availability_zones(state="available",
-            filters=[aws.GetAvailabilityZonesFilterArgs(
-                name="opt-in-status",
-                values=["opt-in-not-required"],
-            )])
-        test_lb = aws.lightsail.Lb("testLb",
-            health_check_path="/",
-            instance_port=80,
-            tags={
-                "foo": "bar",
+        test_bucket = aws.lightsail.bucket.Bucket("testBucket", bundle_id=small_1_0)
+        test_distribution = aws.lightsail.distribution.Distribution("testDistribution",
+            bundle_id=small_1_0,
+            origin={
+                name: test_bucket.name,
+                regionName: test_bucket.region,
+            },
+            default_cache_behavior={
+                behavior: cache,
+            },
+            cache_behavior_settings={
+                allowedHttpMethods: GET,HEAD,OPTIONS,PUT,PATCH,POST,DELETE,
+                cachedHttpMethods: GET,HEAD,
+                defaultTtl: 86400,
+                maximumTtl: 31536000,
+                minimumTtl: 0,
+                forwardedCookies: {
+                    option: none,
+                },
+                forwardedHeaders: {
+                    option: default,
+                },
+                forwardedQueryStrings: {
+                    option: False,
+                },
             })
-        test_instance = aws.lightsail.Instance("testInstance",
-            availability_zone=available.names[0],
-            blueprint_id="amazon_linux_2",
-            bundle_id="nano_1_0")
-        test_lb_attachment = aws.lightsail.LbAttachment("testLbAttachment",
-            lb_name=test_lb.name,
-            instance_name=test_instance.name)
-        test_distribution = aws.lightsail.Distribution("testDistribution",
-            bundle_id="small_1_0",
-            origin=aws.lightsail.DistributionOriginArgs(
-                name=test_lb.name,
-                region_name=available.id,
-            ),
-            default_cache_behavior=aws.lightsail.DistributionDefaultCacheBehaviorArgs(
-                behavior="cache",
-            ),
-            opts=pulumi.ResourceOptions(depends_on=[test_lb_attachment]))
         ```
 
         ## Import

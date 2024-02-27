@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Ec2TransitGateway.PolicyTable("example", new()
+    ///     var example = new Aws.Ec2transitgateway.PolicyTable.PolicyTable("example", new()
     ///     {
     ///         TransitGatewayId = aws_ec2_transit_gateway.Example.Id,
     ///         Tags = 

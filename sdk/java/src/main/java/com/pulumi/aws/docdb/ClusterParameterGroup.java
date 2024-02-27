@@ -29,7 +29,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.docdb.ClusterParameterGroup;
  * import com.pulumi.aws.docdb.ClusterParameterGroupArgs;
- * import com.pulumi.aws.docdb.inputs.ClusterParameterGroupParameterArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -46,10 +45,7 @@ import javax.annotation.Nullable;
  *         var example = new ClusterParameterGroup(&#34;example&#34;, ClusterParameterGroupArgs.builder()        
  *             .description(&#34;docdb cluster parameter group&#34;)
  *             .family(&#34;docdb3.6&#34;)
- *             .parameters(ClusterParameterGroupParameterArgs.builder()
- *                 .name(&#34;tls&#34;)
- *                 .value(&#34;enabled&#34;)
- *                 .build())
+ *             .parameters(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

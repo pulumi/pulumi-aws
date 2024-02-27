@@ -122,15 +122,6 @@ def get_vpc_link(name: Optional[str] = None,
     As there is no unique name constraint on API Gateway VPC Links this data source will
     error if there is more than one match.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    my_api_gateway_vpc_link = aws.apigateway.get_vpc_link(name="my-vpc-link")
-    ```
-
 
     :param str name: Name of the API Gateway VPC Link to look up. If no API Gateway VPC Link is found with this name, an error will be returned.
            If multiple API Gateway VPC Links are found with this name, an error will be returned.
@@ -161,15 +152,6 @@ def get_vpc_link_output(name: Optional[pulumi.Input[str]] = None,
     API Gateway. To fetch the VPC Link you must provide a name to match against.
     As there is no unique name constraint on API Gateway VPC Links this data source will
     error if there is more than one match.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    my_api_gateway_vpc_link = aws.apigateway.get_vpc_link(name="my-vpc-link")
-    ```
 
 
     :param str name: Name of the API Gateway VPC Link to look up. If no API Gateway VPC Link is found with this name, an error will be returned.

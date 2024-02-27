@@ -18,11 +18,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const testLatest = new aws.lambda.FunctionUrl("testLatest", {
+ * const testLatest = new aws.lambda/functionUrl.FunctionUrl("testLatest", {
  *     functionName: aws_lambda_function.test.function_name,
  *     authorizationType: "NONE",
  * });
- * const testLive = new aws.lambda.FunctionUrl("testLive", {
+ * const testLive = new aws.lambda/functionUrl.FunctionUrl("testLive", {
  *     functionName: aws_lambda_function.test.function_name,
  *     qualifier: "my_alias",
  *     authorizationType: "AWS_IAM",

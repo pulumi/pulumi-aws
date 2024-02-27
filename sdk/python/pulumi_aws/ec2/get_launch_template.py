@@ -396,26 +396,6 @@ def get_launch_template(filters: Optional[Sequence[pulumi.InputType['GetLaunchTe
     """
     Provides information about a Launch Template.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    default = aws.ec2.get_launch_template(name="my-launch-template")
-    ```
-    ### Filter
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.ec2.get_launch_template(filters=[aws.ec2.GetLaunchTemplateFilterArgs(
-        name="launch-template-name",
-        values=["some-template"],
-    )])
-    ```
-
 
     :param Sequence[pulumi.InputType['GetLaunchTemplateFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.
     :param str id: ID of the specific launch template to retrieve.
@@ -480,26 +460,6 @@ def get_launch_template_output(filters: Optional[pulumi.Input[Optional[Sequence[
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLaunchTemplateResult]:
     """
     Provides information about a Launch Template.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    default = aws.ec2.get_launch_template(name="my-launch-template")
-    ```
-    ### Filter
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.ec2.get_launch_template(filters=[aws.ec2.GetLaunchTemplateFilterArgs(
-        name="launch-template-name",
-        values=["some-template"],
-    )])
-    ```
 
 
     :param Sequence[pulumi.InputType['GetLaunchTemplateFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.

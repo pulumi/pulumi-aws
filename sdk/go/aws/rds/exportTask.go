@@ -22,178 +22,25 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/rds"
+//	rds/exportTask "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/rds/exportTask"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := rds.NewExportTask(ctx, "example", &rds.ExportTaskArgs{
-//				ExportTaskIdentifier: pulumi.String("example"),
-//				SourceArn:            pulumi.Any(aws_db_snapshot.Example.Db_snapshot_arn),
-//				S3BucketName:         pulumi.Any(aws_s3_bucket.Example.Id),
-//				IamRoleArn:           pulumi.Any(aws_iam_role.Example.Arn),
-//				KmsKeyId:             pulumi.Any(aws_kms_key.Example.Arn),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// ### Complete Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"encoding/json"
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kms"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/rds"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", &s3.BucketV2Args{
-//				ForceDestroy: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = s3.NewBucketAclV2(ctx, "exampleBucketAclV2", &s3.BucketAclV2Args{
-//				Bucket: exampleBucketV2.ID(),
-//				Acl:    pulumi.String("private"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"Version": "2012-10-17",
-//				"Statement": []map[string]interface{}{
-//					map[string]interface{}{
-//						"Action": "sts:AssumeRole",
-//						"Effect": "Allow",
-//						"Sid":    "",
-//						"Principal": map[string]interface{}{
-//							"Service": "export.rds.amazonaws.com",
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			exampleRole, err := iam.NewRole(ctx, "exampleRole", &iam.RoleArgs{
-//				AssumeRolePolicy: pulumi.String(json0),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			examplePolicyDocument := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
-//				Statements: iam.GetPolicyDocumentStatementArray{
-//					&iam.GetPolicyDocumentStatementArgs{
-//						Actions: pulumi.StringArray{
-//							pulumi.String("s3:ListAllMyBuckets"),
-//						},
-//						Resources: pulumi.StringArray{
-//							pulumi.String("*"),
-//						},
-//					},
-//					&iam.GetPolicyDocumentStatementArgs{
-//						Actions: pulumi.StringArray{
-//							pulumi.String("s3:GetBucketLocation"),
-//							pulumi.String("s3:ListBucket"),
-//						},
-//						Resources: pulumi.StringArray{
-//							exampleBucketV2.Arn,
-//						},
-//					},
-//					&iam.GetPolicyDocumentStatementArgs{
-//						Actions: pulumi.StringArray{
-//							pulumi.String("s3:GetObject"),
-//							pulumi.String("s3:PutObject"),
-//							pulumi.String("s3:DeleteObject"),
-//						},
-//						Resources: pulumi.StringArray{
-//							exampleBucketV2.Arn.ApplyT(func(arn string) (string, error) {
-//								return fmt.Sprintf("%v/*", arn), nil
-//							}).(pulumi.StringOutput),
-//						},
-//					},
-//				},
-//			}, nil)
-//			examplePolicy, err := iam.NewPolicy(ctx, "examplePolicy", &iam.PolicyArgs{
-//				Policy: examplePolicyDocument.ApplyT(func(examplePolicyDocument iam.GetPolicyDocumentResult) (*string, error) {
-//					return &examplePolicyDocument.Json, nil
-//				}).(pulumi.StringPtrOutput),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = iam.NewRolePolicyAttachment(ctx, "exampleRolePolicyAttachment", &iam.RolePolicyAttachmentArgs{
-//				Role:      exampleRole.Name,
-//				PolicyArn: examplePolicy.Arn,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleKey, err := kms.NewKey(ctx, "exampleKey", &kms.KeyArgs{
-//				DeletionWindowInDays: pulumi.Int(10),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleInstance, err := rds.NewInstance(ctx, "exampleInstance", &rds.InstanceArgs{
-//				Identifier:         pulumi.String("example"),
-//				AllocatedStorage:   pulumi.Int(10),
-//				DbName:             pulumi.String("test"),
-//				Engine:             pulumi.String("mysql"),
-//				EngineVersion:      pulumi.String("5.7"),
-//				InstanceClass:      pulumi.String("db.t3.micro"),
-//				Username:           pulumi.String("foo"),
-//				Password:           pulumi.String("foobarbaz"),
-//				ParameterGroupName: pulumi.String("default.mysql5.7"),
-//				SkipFinalSnapshot:  pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleSnapshot, err := rds.NewSnapshot(ctx, "exampleSnapshot", &rds.SnapshotArgs{
-//				DbInstanceIdentifier: exampleInstance.Identifier,
-//				DbSnapshotIdentifier: pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = rds.NewExportTask(ctx, "exampleExportTask", &rds.ExportTaskArgs{
-//				ExportTaskIdentifier: pulumi.String("example"),
-//				SourceArn:            exampleSnapshot.DbSnapshotArn,
-//				S3BucketName:         exampleBucketV2.ID(),
-//				IamRoleArn:           exampleRole.Arn,
-//				KmsKeyId:             exampleKey.Arn,
-//				ExportOnlies: pulumi.StringArray{
-//					pulumi.String("database"),
-//				},
-//				S3Prefix: pulumi.String("my_prefix/example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := rds/exportTask.NewExportTask(ctx, "example", &rds/exportTask.ExportTaskArgs{
+// ExportTaskIdentifier: "example",
+// SourceArn: aws_db_snapshot.Example.Db_snapshot_arn,
+// S3BucketName: aws_s3_bucket.Example.Id,
+// IamRoleArn: aws_iam_role.Example.Arn,
+// KmsKeyId: aws_kms_key.Example.Arn,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

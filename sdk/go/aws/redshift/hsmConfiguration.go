@@ -21,28 +21,26 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/redshift"
+//	redshift/hsmConfiguration "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/redshift/hsmConfiguration"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := redshift.NewHsmConfiguration(ctx, "example", &redshift.HsmConfigurationArgs{
-//				Description:                pulumi.String("example"),
-//				HsmConfigurationIdentifier: pulumi.String("example"),
-//				HsmIpAddress:               pulumi.String("10.0.0.1"),
-//				HsmPartitionName:           pulumi.String("aws"),
-//				HsmPartitionPassword:       pulumi.String("example"),
-//				HsmServerPublicCertificate: pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := redshift/hsmConfiguration.NewHsmConfiguration(ctx, "example", &redshift/hsmConfiguration.HsmConfigurationArgs{
+// Description: "example",
+// HsmConfigurationIdentifier: "example",
+// HsmIpAddress: "10.0.0.1",
+// HsmPartitionName: "aws",
+// HsmPartitionPassword: "example",
+// HsmServerPublicCertificate: "example",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

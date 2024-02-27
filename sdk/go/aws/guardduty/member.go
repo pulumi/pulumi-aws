@@ -21,39 +21,38 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/guardduty"
+//	guardduty/detector "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/guardduty/detector"
+//	guardduty/member "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/guardduty/member"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			primary, err := guardduty.NewDetector(ctx, "primary", &guardduty.DetectorArgs{
-//				Enable: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			memberDetector, err := guardduty.NewDetector(ctx, "memberDetector", &guardduty.DetectorArgs{
-//				Enable: pulumi.Bool(true),
-//			}, pulumi.Provider(aws.Dev))
-//			if err != nil {
-//				return err
-//			}
-//			_, err = guardduty.NewMember(ctx, "memberMember", &guardduty.MemberArgs{
-//				AccountId:         memberDetector.AccountId,
-//				DetectorId:        primary.ID(),
-//				Email:             pulumi.String("required@example.com"),
-//				Invite:            pulumi.Bool(true),
-//				InvitationMessage: pulumi.String("please accept guardduty invitation"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// primary, err := guardduty/detector.NewDetector(ctx, "primary", &guardduty/detector.DetectorArgs{
+// Enable: true,
+// })
+// if err != nil {
+// return err
+// }
+// memberDetector, err := guardduty/detector.NewDetector(ctx, "memberDetector", &guardduty/detector.DetectorArgs{
+// Enable: true,
+// }, pulumi.Provider(aws.Dev))
+// if err != nil {
+// return err
+// }
+// _, err = guardduty/member.NewMember(ctx, "memberMember", &guardduty/member.MemberArgs{
+// AccountId: memberDetector.AccountId,
+// DetectorId: primary.Id,
+// Email: "required@example.com",
+// Invite: true,
+// InvitationMessage: "please accept guardduty invitation",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

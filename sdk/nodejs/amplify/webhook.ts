@@ -13,12 +13,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.amplify.App("example", {});
- * const masterBranch = new aws.amplify.Branch("masterBranch", {
+ * const example = new aws.amplify/app.App("example", {});
+ * const masterBranch = new aws.amplify/branch.Branch("masterBranch", {
  *     appId: example.id,
  *     branchName: "master",
  * });
- * const masterWebhook = new aws.amplify.Webhook("masterWebhook", {
+ * const masterWebhook = new aws.amplify/webhook.Webhook("masterWebhook", {
  *     appId: example.id,
  *     branchName: masterBranch.branchName,
  *     description: "triggermaster",

@@ -23,7 +23,7 @@ namespace Pulumi.Aws.Lex
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Lex.V2modelsBotLocale("example", new()
+    ///     var example = new Aws.Lex.V2modelsBotLocale.V2modelsBotLocale("example", new()
     ///     {
     ///         BotId = aws_lexv2models_bot.Example.Id,
     ///         BotVersion = "DRAFT",
@@ -43,16 +43,16 @@ namespace Pulumi.Aws.Lex
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Lex.V2modelsBotLocale("example", new()
+    ///     var example = new Aws.Lex.V2modelsBotLocale.V2modelsBotLocale("example", new()
     ///     {
     ///         BotId = aws_lexv2models_bot.Example.Id,
     ///         BotVersion = "DRAFT",
     ///         LocaleId = "en_US",
     ///         NLuIntentConfidenceThreshold = 0.7,
-    ///         VoiceSettings = new Aws.Lex.Inputs.V2modelsBotLocaleVoiceSettingsArgs
+    ///         VoiceSettings = 
     ///         {
-    ///             VoiceId = "Kendra",
-    ///             Engine = "standard",
+    ///             { "voiceId", "Kendra" },
+    ///             { "engine", "standard" },
     ///         },
     ///     });
     /// 

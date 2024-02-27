@@ -22,14 +22,14 @@ namespace Pulumi.Aws.Kendra
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Kendra.Thesaurus("example", new()
+    ///     var example = new Aws.Kendra.Thesaurus.Thesaurus("example", new()
     ///     {
     ///         IndexId = aws_kendra_index.Example.Id,
     ///         RoleArn = aws_iam_role.Example.Arn,
-    ///         SourceS3Path = new Aws.Kendra.Inputs.ThesaurusSourceS3PathArgs
+    ///         SourceS3Path = 
     ///         {
-    ///             Bucket = aws_s3_bucket.Example.Id,
-    ///             Key = aws_s3_object.Example.Key,
+    ///             { "bucket", aws_s3_bucket.Example.Id },
+    ///             { "key", aws_s3_object.Example.Key },
     ///         },
     ///         Tags = 
     ///         {

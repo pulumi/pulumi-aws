@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = new aws.fsx.OntapStorageVirtualMachine("test", {fileSystemId: aws_fsx_ontap_file_system.test.id});
+ * const test = new aws.fsx/ontapStorageVirtualMachine.OntapStorageVirtualMachine("test", {fileSystemId: aws_fsx_ontap_file_system.test.id});
  * ```
  * ### Using a Self-Managed Microsoft Active Directory
  *
@@ -28,7 +28,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = new aws.fsx.OntapStorageVirtualMachine("test", {
+ * const test = new aws.fsx/ontapStorageVirtualMachine.OntapStorageVirtualMachine("test", {
  *     fileSystemId: aws_fsx_ontap_file_system.test.id,
  *     activeDirectoryConfiguration: {
  *         netbiosName: "mysvm",

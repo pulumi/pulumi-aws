@@ -21,32 +21,30 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/glue"
+//	glue/dataCatalogEncryptionSettings "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/glue/dataCatalogEncryptionSettings"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := glue.NewDataCatalogEncryptionSettings(ctx, "example", &glue.DataCatalogEncryptionSettingsArgs{
-//				DataCatalogEncryptionSettings: &glue.DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs{
-//					ConnectionPasswordEncryption: &glue.DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionArgs{
-//						AwsKmsKeyId:                       pulumi.Any(aws_kms_key.Test.Arn),
-//						ReturnConnectionPasswordEncrypted: pulumi.Bool(true),
-//					},
-//					EncryptionAtRest: &glue.DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestArgs{
-//						CatalogEncryptionMode: pulumi.String("SSE-KMS"),
-//						SseAwsKmsKeyId:        pulumi.Any(aws_kms_key.Test.Arn),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := glue/dataCatalogEncryptionSettings.NewDataCatalogEncryptionSettings(ctx, "example", &glue/dataCatalogEncryptionSettings.DataCatalogEncryptionSettingsArgs{
+// DataCatalogEncryptionSettings: map[string]interface{}{
+// "connectionPasswordEncryption": map[string]interface{}{
+// "awsKmsKeyId": aws_kms_key.Test.Arn,
+// "returnConnectionPasswordEncrypted": true,
+// },
+// "encryptionAtRest": map[string]interface{}{
+// "catalogEncryptionMode": "SSE-KMS",
+// "sseAwsKmsKeyId": aws_kms_key.Test.Arn,
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

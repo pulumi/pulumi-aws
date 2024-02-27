@@ -139,9 +139,9 @@ class NetworkAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ec2clientvpn.NetworkAssociation("example",
-            client_vpn_endpoint_id=aws_ec2_client_vpn_endpoint["example"]["id"],
-            subnet_id=aws_subnet["example"]["id"])
+        example = aws.ec2clientvpn.network_association.NetworkAssociation("example",
+            client_vpn_endpoint_id=aws_ec2_client_vpn_endpoint.example.id,
+            subnet_id=aws_subnet.example.id)
         ```
 
         ## Import
@@ -173,9 +173,9 @@ class NetworkAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ec2clientvpn.NetworkAssociation("example",
-            client_vpn_endpoint_id=aws_ec2_client_vpn_endpoint["example"]["id"],
-            subnet_id=aws_subnet["example"]["id"])
+        example = aws.ec2clientvpn.network_association.NetworkAssociation("example",
+            client_vpn_endpoint_id=aws_ec2_client_vpn_endpoint.example.id,
+            subnet_id=aws_subnet.example.id)
         ```
 
         ## Import

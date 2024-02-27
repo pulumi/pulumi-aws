@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Sns
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var userUpdates = new Aws.Sns.Topic("userUpdates");
+    ///     var userUpdates = new Aws.Sns.Topic.Topic("userUpdates");
     /// 
     /// });
     /// ```
@@ -36,7 +36,7 @@ namespace Pulumi.Aws.Sns
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var userUpdates = new Aws.Sns.Topic("userUpdates", new()
+    ///     var userUpdates = new Aws.Sns.Topic.Topic("userUpdates", new()
     ///     {
     ///         DeliveryPolicy = @"{
     ///   ""http"": {
@@ -72,7 +72,7 @@ namespace Pulumi.Aws.Sns
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var userUpdates = new Aws.Sns.Topic("userUpdates", new()
+    ///     var userUpdates = new Aws.Sns.Topic.Topic("userUpdates", new()
     ///     {
     ///         KmsMasterKeyId = "alias/aws/sns",
     ///     });
@@ -90,7 +90,7 @@ namespace Pulumi.Aws.Sns
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var userUpdates = new Aws.Sns.Topic("userUpdates", new()
+    ///     var userUpdates = new Aws.Sns.Topic.Topic("userUpdates", new()
     ///     {
     ///         ContentBasedDeduplication = true,
     ///         FifoTopic = true,

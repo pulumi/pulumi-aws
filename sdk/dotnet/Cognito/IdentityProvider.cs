@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Cognito
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Cognito.UserPool("example", new()
+    ///     var example = new Aws.Cognito.UserPool.UserPool("example", new()
     ///     {
     ///         AutoVerifiedAttributes = new[]
     ///         {
@@ -30,7 +30,7 @@ namespace Pulumi.Aws.Cognito
     ///         },
     ///     });
     /// 
-    ///     var exampleProvider = new Aws.Cognito.IdentityProvider("exampleProvider", new()
+    ///     var exampleProvider = new Aws.Cognito.IdentityProvider.IdentityProvider("exampleProvider", new()
     ///     {
     ///         UserPoolId = example.Id,
     ///         ProviderName = "Google",

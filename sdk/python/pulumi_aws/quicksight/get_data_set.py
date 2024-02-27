@@ -203,14 +203,6 @@ def get_data_set(aws_account_id: Optional[str] = None,
     Data source for managing a QuickSight Data Set.
 
     ## Example Usage
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.quicksight.get_data_set(data_set_id="example-id")
-    ```
 
 
     :param str aws_account_id: AWS account ID.
@@ -258,14 +250,6 @@ def get_data_set_output(aws_account_id: Optional[pulumi.Input[Optional[str]]] = 
     Data source for managing a QuickSight Data Set.
 
     ## Example Usage
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.quicksight.get_data_set(data_set_id="example-id")
-    ```
 
 
     :param str aws_account_id: AWS account ID.

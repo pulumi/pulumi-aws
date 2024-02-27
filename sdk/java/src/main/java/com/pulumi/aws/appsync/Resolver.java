@@ -33,11 +33,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.appsync.GraphQLApiArgs;
  * import com.pulumi.aws.appsync.DataSource;
  * import com.pulumi.aws.appsync.DataSourceArgs;
- * import com.pulumi.aws.appsync.inputs.DataSourceHttpConfigArgs;
  * import com.pulumi.aws.appsync.Resolver;
  * import com.pulumi.aws.appsync.ResolverArgs;
- * import com.pulumi.aws.appsync.inputs.ResolverCachingConfigArgs;
- * import com.pulumi.aws.appsync.inputs.ResolverPipelineConfigArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -78,9 +75,7 @@ import javax.annotation.Nullable;
  *             .apiId(testGraphQLApi.id())
  *             .name(&#34;my_example&#34;)
  *             .type(&#34;HTTP&#34;)
- *             .httpConfig(DataSourceHttpConfigArgs.builder()
- *                 .endpoint(&#34;http://example.com&#34;)
- *                 .build())
+ *             .httpConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var testResolver = new Resolver(&#34;testResolver&#34;, ResolverArgs.builder()        
@@ -105,12 +100,7 @@ import javax.annotation.Nullable;
  *     $utils.appendError($ctx.result.body, $ctx.result.statusCode)
  * #end
  *             &#34;&#34;&#34;)
- *             .cachingConfig(ResolverCachingConfigArgs.builder()
- *                 .cachingKeys(                
- *                     &#34;$context.identity.sub&#34;,
- *                     &#34;$context.arguments.id&#34;)
- *                 .ttl(60)
- *                 .build())
+ *             .cachingConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var mutationPipelineTest = new Resolver(&#34;mutationPipelineTest&#34;, ResolverArgs.builder()        
@@ -120,12 +110,7 @@ import javax.annotation.Nullable;
  *             .requestTemplate(&#34;{}&#34;)
  *             .responseTemplate(&#34;$util.toJson($ctx.result)&#34;)
  *             .kind(&#34;PIPELINE&#34;)
- *             .pipelineConfig(ResolverPipelineConfigArgs.builder()
- *                 .functions(                
- *                     aws_appsync_function.test1().function_id(),
- *                     aws_appsync_function.test2().function_id(),
- *                     aws_appsync_function.test3().function_id())
- *                 .build())
+ *             .pipelineConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -140,8 +125,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.appsync.Resolver;
  * import com.pulumi.aws.appsync.ResolverArgs;
- * import com.pulumi.aws.appsync.inputs.ResolverRuntimeArgs;
- * import com.pulumi.aws.appsync.inputs.ResolverPipelineConfigArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -161,13 +144,8 @@ import javax.annotation.Nullable;
  *             .field(&#34;pipelineTest&#34;)
  *             .kind(&#34;PIPELINE&#34;)
  *             .code(Files.readString(Paths.get(&#34;some-code-dir&#34;)))
- *             .runtime(ResolverRuntimeArgs.builder()
- *                 .name(&#34;APPSYNC_JS&#34;)
- *                 .runtimeVersion(&#34;1.0.0&#34;)
- *                 .build())
- *             .pipelineConfig(ResolverPipelineConfigArgs.builder()
- *                 .functions(aws_appsync_function.test().function_id())
- *                 .build())
+ *             .runtime(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .pipelineConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

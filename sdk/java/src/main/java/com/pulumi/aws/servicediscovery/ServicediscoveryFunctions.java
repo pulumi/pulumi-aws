@@ -23,74 +23,12 @@ public final class ServicediscoveryFunctions {
     /**
      * Retrieves information about a Service Discovery private or public DNS namespace.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.servicediscovery.ServicediscoveryFunctions;
-     * import com.pulumi.aws.servicediscovery.inputs.GetDnsNamespaceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = ServicediscoveryFunctions.getDnsNamespace(GetDnsNamespaceArgs.builder()
-     *             .name(&#34;example.service.local&#34;)
-     *             .type(&#34;DNS_PRIVATE&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetDnsNamespaceResult> getDnsNamespace(GetDnsNamespaceArgs args) {
         return getDnsNamespace(args, InvokeOptions.Empty);
     }
     /**
      * Retrieves information about a Service Discovery private or public DNS namespace.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.servicediscovery.ServicediscoveryFunctions;
-     * import com.pulumi.aws.servicediscovery.inputs.GetDnsNamespaceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = ServicediscoveryFunctions.getDnsNamespace(GetDnsNamespaceArgs.builder()
-     *             .name(&#34;example.service.local&#34;)
-     *             .type(&#34;DNS_PRIVATE&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetDnsNamespaceResult> getDnsNamespacePlain(GetDnsNamespacePlainArgs args) {
@@ -99,37 +37,6 @@ public final class ServicediscoveryFunctions {
     /**
      * Retrieves information about a Service Discovery private or public DNS namespace.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.servicediscovery.ServicediscoveryFunctions;
-     * import com.pulumi.aws.servicediscovery.inputs.GetDnsNamespaceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = ServicediscoveryFunctions.getDnsNamespace(GetDnsNamespaceArgs.builder()
-     *             .name(&#34;example.service.local&#34;)
-     *             .type(&#34;DNS_PRIVATE&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetDnsNamespaceResult> getDnsNamespace(GetDnsNamespaceArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:servicediscovery/getDnsNamespace:getDnsNamespace", TypeShape.of(GetDnsNamespaceResult.class), args, Utilities.withVersion(options));
@@ -137,214 +44,24 @@ public final class ServicediscoveryFunctions {
     /**
      * Retrieves information about a Service Discovery private or public DNS namespace.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.servicediscovery.ServicediscoveryFunctions;
-     * import com.pulumi.aws.servicediscovery.inputs.GetDnsNamespaceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = ServicediscoveryFunctions.getDnsNamespace(GetDnsNamespaceArgs.builder()
-     *             .name(&#34;example.service.local&#34;)
-     *             .type(&#34;DNS_PRIVATE&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static CompletableFuture<GetDnsNamespaceResult> getDnsNamespacePlain(GetDnsNamespacePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:servicediscovery/getDnsNamespace:getDnsNamespace", TypeShape.of(GetDnsNamespaceResult.class), args, Utilities.withVersion(options));
     }
-    /**
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.servicediscovery.ServicediscoveryFunctions;
-     * import com.pulumi.aws.servicediscovery.inputs.GetHttpNamespaceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ServicediscoveryFunctions.getHttpNamespace(GetHttpNamespaceArgs.builder()
-     *             .name(&#34;development&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
-     */
     public static Output<GetHttpNamespaceResult> getHttpNamespace(GetHttpNamespaceArgs args) {
         return getHttpNamespace(args, InvokeOptions.Empty);
     }
-    /**
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.servicediscovery.ServicediscoveryFunctions;
-     * import com.pulumi.aws.servicediscovery.inputs.GetHttpNamespaceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ServicediscoveryFunctions.getHttpNamespace(GetHttpNamespaceArgs.builder()
-     *             .name(&#34;development&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
-     */
     public static CompletableFuture<GetHttpNamespaceResult> getHttpNamespacePlain(GetHttpNamespacePlainArgs args) {
         return getHttpNamespacePlain(args, InvokeOptions.Empty);
     }
-    /**
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.servicediscovery.ServicediscoveryFunctions;
-     * import com.pulumi.aws.servicediscovery.inputs.GetHttpNamespaceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ServicediscoveryFunctions.getHttpNamespace(GetHttpNamespaceArgs.builder()
-     *             .name(&#34;development&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
-     */
     public static Output<GetHttpNamespaceResult> getHttpNamespace(GetHttpNamespaceArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:servicediscovery/getHttpNamespace:getHttpNamespace", TypeShape.of(GetHttpNamespaceResult.class), args, Utilities.withVersion(options));
     }
-    /**
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.servicediscovery.ServicediscoveryFunctions;
-     * import com.pulumi.aws.servicediscovery.inputs.GetHttpNamespaceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ServicediscoveryFunctions.getHttpNamespace(GetHttpNamespaceArgs.builder()
-     *             .name(&#34;development&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
-     */
     public static CompletableFuture<GetHttpNamespaceResult> getHttpNamespacePlain(GetHttpNamespacePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:servicediscovery/getHttpNamespace:getHttpNamespace", TypeShape.of(GetHttpNamespaceResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Retrieves information about a Service Discovery Service.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.servicediscovery.ServicediscoveryFunctions;
-     * import com.pulumi.aws.servicediscovery.inputs.GetServiceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = ServicediscoveryFunctions.getService(GetServiceArgs.builder()
-     *             .name(&#34;example&#34;)
-     *             .namespaceId(&#34;NAMESPACE_ID_VALUE&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetServiceResult> getService(GetServiceArgs args) {
@@ -353,37 +70,6 @@ public final class ServicediscoveryFunctions {
     /**
      * Retrieves information about a Service Discovery Service.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.servicediscovery.ServicediscoveryFunctions;
-     * import com.pulumi.aws.servicediscovery.inputs.GetServiceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = ServicediscoveryFunctions.getService(GetServiceArgs.builder()
-     *             .name(&#34;example&#34;)
-     *             .namespaceId(&#34;NAMESPACE_ID_VALUE&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static CompletableFuture<GetServiceResult> getServicePlain(GetServicePlainArgs args) {
         return getServicePlain(args, InvokeOptions.Empty);
@@ -391,74 +77,12 @@ public final class ServicediscoveryFunctions {
     /**
      * Retrieves information about a Service Discovery Service.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.servicediscovery.ServicediscoveryFunctions;
-     * import com.pulumi.aws.servicediscovery.inputs.GetServiceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = ServicediscoveryFunctions.getService(GetServiceArgs.builder()
-     *             .name(&#34;example&#34;)
-     *             .namespaceId(&#34;NAMESPACE_ID_VALUE&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetServiceResult> getService(GetServiceArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:servicediscovery/getService:getService", TypeShape.of(GetServiceResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Retrieves information about a Service Discovery Service.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.servicediscovery.ServicediscoveryFunctions;
-     * import com.pulumi.aws.servicediscovery.inputs.GetServiceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = ServicediscoveryFunctions.getService(GetServiceArgs.builder()
-     *             .name(&#34;example&#34;)
-     *             .namespaceId(&#34;NAMESPACE_ID_VALUE&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetServiceResult> getServicePlain(GetServicePlainArgs args, InvokeOptions options) {

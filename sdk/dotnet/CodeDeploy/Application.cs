@@ -23,7 +23,7 @@ namespace Pulumi.Aws.CodeDeploy
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.CodeDeploy.Application("example", new()
+    ///     var example = new Aws.Codedeploy.Application.Application("example", new()
     ///     {
     ///         ComputePlatform = "ECS",
     ///     });
@@ -40,7 +40,7 @@ namespace Pulumi.Aws.CodeDeploy
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.CodeDeploy.Application("example", new()
+    ///     var example = new Aws.Codedeploy.Application.Application("example", new()
     ///     {
     ///         ComputePlatform = "Lambda",
     ///     });
@@ -57,7 +57,7 @@ namespace Pulumi.Aws.CodeDeploy
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.CodeDeploy.Application("example", new()
+    ///     var example = new Aws.Codedeploy.Application.Application("example", new()
     ///     {
     ///         ComputePlatform = "Server",
     ///     });

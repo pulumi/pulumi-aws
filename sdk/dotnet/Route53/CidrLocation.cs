@@ -22,9 +22,9 @@ namespace Pulumi.Aws.Route53
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleCidrCollection = new Aws.Route53.CidrCollection("exampleCidrCollection");
+    ///     var exampleCidrCollection = new Aws.Route53.CidrCollection.CidrCollection("exampleCidrCollection");
     /// 
-    ///     var exampleCidrLocation = new Aws.Route53.CidrLocation("exampleCidrLocation", new()
+    ///     var exampleCidrLocation = new Aws.Route53.CidrLocation.CidrLocation("exampleCidrLocation", new()
     ///     {
     ///         CidrCollectionId = exampleCidrCollection.Id,
     ///         CidrBlocks = new[]

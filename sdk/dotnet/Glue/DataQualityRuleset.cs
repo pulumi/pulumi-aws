@@ -23,7 +23,7 @@ namespace Pulumi.Aws.Glue
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Glue.DataQualityRuleset("example", new()
+    ///     var example = new Aws.Glue.DataQualityRuleset.DataQualityRuleset("example", new()
     ///     {
     ///         Ruleset = "Rules = [Completeness \"colA\" between 0.4 and 0.8]",
     ///     });
@@ -40,7 +40,7 @@ namespace Pulumi.Aws.Glue
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Glue.DataQualityRuleset("example", new()
+    ///     var example = new Aws.Glue.DataQualityRuleset.DataQualityRuleset("example", new()
     ///     {
     ///         Description = "example",
     ///         Ruleset = "Rules = [Completeness \"colA\" between 0.4 and 0.8]",
@@ -58,7 +58,7 @@ namespace Pulumi.Aws.Glue
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Glue.DataQualityRuleset("example", new()
+    ///     var example = new Aws.Glue.DataQualityRuleset.DataQualityRuleset("example", new()
     ///     {
     ///         Ruleset = "Rules = [Completeness \"colA\" between 0.4 and 0.8]",
     ///         Tags = 
@@ -79,13 +79,13 @@ namespace Pulumi.Aws.Glue
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Glue.DataQualityRuleset("example", new()
+    ///     var example = new Aws.Glue.DataQualityRuleset.DataQualityRuleset("example", new()
     ///     {
     ///         Ruleset = "Rules = [Completeness \"colA\" between 0.4 and 0.8]",
-    ///         TargetTable = new Aws.Glue.Inputs.DataQualityRulesetTargetTableArgs
+    ///         TargetTable = 
     ///         {
-    ///             DatabaseName = aws_glue_catalog_database.Example.Name,
-    ///             TableName = aws_glue_catalog_table.Example.Name,
+    ///             { "databaseName", aws_glue_catalog_database.Example.Name },
+    ///             { "tableName", aws_glue_catalog_table.Example.Name },
     ///         },
     ///     });
     /// 

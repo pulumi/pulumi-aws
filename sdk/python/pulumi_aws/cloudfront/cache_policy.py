@@ -257,31 +257,31 @@ class CachePolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.cloudfront.CachePolicy("example",
-            comment="test comment",
+        example = aws.cloudfront.cache_policy.CachePolicy("example",
+            comment=test comment,
             default_ttl=50,
             max_ttl=100,
             min_ttl=1,
-            parameters_in_cache_key_and_forwarded_to_origin=aws.cloudfront.CachePolicyParametersInCacheKeyAndForwardedToOriginArgs(
-                cookies_config=aws.cloudfront.CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArgs(
-                    cookie_behavior="whitelist",
-                    cookies=aws.cloudfront.CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesArgs(
-                        items=["example"],
-                    ),
-                ),
-                headers_config=aws.cloudfront.CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArgs(
-                    header_behavior="whitelist",
-                    headers=aws.cloudfront.CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersArgs(
-                        items=["example"],
-                    ),
-                ),
-                query_strings_config=aws.cloudfront.CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArgs(
-                    query_string_behavior="whitelist",
-                    query_strings=aws.cloudfront.CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsArgs(
-                        items=["example"],
-                    ),
-                ),
-            ))
+            parameters_in_cache_key_and_forwarded_to_origin={
+                cookiesConfig: {
+                    cookieBehavior: whitelist,
+                    cookies: {
+                        items: [example],
+                    },
+                },
+                headersConfig: {
+                    headerBehavior: whitelist,
+                    headers: {
+                        items: [example],
+                    },
+                },
+                queryStringsConfig: {
+                    queryStringBehavior: whitelist,
+                    queryStrings: {
+                        items: [example],
+                    },
+                },
+            })
         ```
 
         ## Import
@@ -316,31 +316,31 @@ class CachePolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.cloudfront.CachePolicy("example",
-            comment="test comment",
+        example = aws.cloudfront.cache_policy.CachePolicy("example",
+            comment=test comment,
             default_ttl=50,
             max_ttl=100,
             min_ttl=1,
-            parameters_in_cache_key_and_forwarded_to_origin=aws.cloudfront.CachePolicyParametersInCacheKeyAndForwardedToOriginArgs(
-                cookies_config=aws.cloudfront.CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArgs(
-                    cookie_behavior="whitelist",
-                    cookies=aws.cloudfront.CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesArgs(
-                        items=["example"],
-                    ),
-                ),
-                headers_config=aws.cloudfront.CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArgs(
-                    header_behavior="whitelist",
-                    headers=aws.cloudfront.CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersArgs(
-                        items=["example"],
-                    ),
-                ),
-                query_strings_config=aws.cloudfront.CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArgs(
-                    query_string_behavior="whitelist",
-                    query_strings=aws.cloudfront.CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsArgs(
-                        items=["example"],
-                    ),
-                ),
-            ))
+            parameters_in_cache_key_and_forwarded_to_origin={
+                cookiesConfig: {
+                    cookieBehavior: whitelist,
+                    cookies: {
+                        items: [example],
+                    },
+                },
+                headersConfig: {
+                    headerBehavior: whitelist,
+                    headers: {
+                        items: [example],
+                    },
+                },
+                queryStringsConfig: {
+                    queryStringBehavior: whitelist,
+                    queryStrings: {
+                        items: [example],
+                    },
+                },
+            })
         ```
 
         ## Import

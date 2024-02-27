@@ -23,7 +23,7 @@ namespace Pulumi.Aws.VpcLattice
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.VpcLattice.ServiceNetworkServiceAssociation("example", new()
+    ///     var example = new Aws.Vpclattice.ServiceNetworkServiceAssociation.ServiceNetworkServiceAssociation("example", new()
     ///     {
     ///         ServiceIdentifier = aws_vpclattice_service.Example.Id,
     ///         ServiceNetworkIdentifier = aws_vpclattice_service_network.Example.Id,

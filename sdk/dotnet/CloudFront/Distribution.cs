@@ -29,7 +29,7 @@ namespace Pulumi.Aws.CloudFront
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var bucketV2 = new Aws.S3.BucketV2("bucketV2", new()
+    ///     var bucketV2 = new Aws.S3.BucketV2.BucketV2("bucketV2", new()
     ///     {
     ///         Tags = 
     ///         {
@@ -37,7 +37,7 @@ namespace Pulumi.Aws.CloudFront
     ///         },
     ///     });
     /// 
-    ///     var bAcl = new Aws.S3.BucketAclV2("bAcl", new()
+    ///     var bAcl = new Aws.S3.BucketAclV2.BucketAclV2("bAcl", new()
     ///     {
     ///         Bucket = bucketV2.Id,
     ///         Acl = "private",
@@ -45,35 +45,35 @@ namespace Pulumi.Aws.CloudFront
     /// 
     ///     var s3OriginId = "myS3Origin";
     /// 
-    ///     var s3Distribution = new Aws.CloudFront.Distribution("s3Distribution", new()
+    ///     var s3Distribution = new Aws.Cloudfront.Distribution.Distribution("s3Distribution", new()
     ///     {
     ///         Origins = new[]
     ///         {
-    ///             new Aws.CloudFront.Inputs.DistributionOriginArgs
+    ///             
     ///             {
-    ///                 DomainName = bucketV2.BucketRegionalDomainName,
-    ///                 OriginAccessControlId = aws_cloudfront_origin_access_control.Default.Id,
-    ///                 OriginId = s3OriginId,
+    ///                 { "domainName", bucketV2.BucketRegionalDomainName },
+    ///                 { "originAccessControlId", aws_cloudfront_origin_access_control.Default.Id },
+    ///                 { "originId", s3OriginId },
     ///             },
     ///         },
     ///         Enabled = true,
     ///         IsIpv6Enabled = true,
     ///         Comment = "Some comment",
     ///         DefaultRootObject = "index.html",
-    ///         LoggingConfig = new Aws.CloudFront.Inputs.DistributionLoggingConfigArgs
+    ///         LoggingConfig = 
     ///         {
-    ///             IncludeCookies = false,
-    ///             Bucket = "mylogs.s3.amazonaws.com",
-    ///             Prefix = "myprefix",
+    ///             { "includeCookies", false },
+    ///             { "bucket", "mylogs.s3.amazonaws.com" },
+    ///             { "prefix", "myprefix" },
     ///         },
     ///         Aliases = new[]
     ///         {
     ///             "mysite.example.com",
     ///             "yoursite.example.com",
     ///         },
-    ///         DefaultCacheBehavior = new Aws.CloudFront.Inputs.DistributionDefaultCacheBehaviorArgs
+    ///         DefaultCacheBehavior = 
     ///         {
-    ///             AllowedMethods = new[]
+    ///             { "allowedMethods", new[]
     ///             {
     ///                 "DELETE",
     ///                 "GET",
@@ -82,114 +82,114 @@ namespace Pulumi.Aws.CloudFront
     ///                 "PATCH",
     ///                 "POST",
     ///                 "PUT",
-    ///             },
-    ///             CachedMethods = new[]
+    ///             } },
+    ///             { "cachedMethods", new[]
     ///             {
     ///                 "GET",
     ///                 "HEAD",
-    ///             },
-    ///             TargetOriginId = s3OriginId,
-    ///             ForwardedValues = new Aws.CloudFront.Inputs.DistributionDefaultCacheBehaviorForwardedValuesArgs
+    ///             } },
+    ///             { "targetOriginId", s3OriginId },
+    ///             { "forwardedValues", 
     ///             {
-    ///                 QueryString = false,
-    ///                 Cookies = new Aws.CloudFront.Inputs.DistributionDefaultCacheBehaviorForwardedValuesCookiesArgs
+    ///                 { "queryString", false },
+    ///                 { "cookies", 
     ///                 {
-    ///                     Forward = "none",
-    ///                 },
-    ///             },
-    ///             ViewerProtocolPolicy = "allow-all",
-    ///             MinTtl = 0,
-    ///             DefaultTtl = 3600,
-    ///             MaxTtl = 86400,
+    ///                     { "forward", "none" },
+    ///                 } },
+    ///             } },
+    ///             { "viewerProtocolPolicy", "allow-all" },
+    ///             { "minTtl", 0 },
+    ///             { "defaultTtl", 3600 },
+    ///             { "maxTtl", 86400 },
     ///         },
     ///         OrderedCacheBehaviors = new[]
     ///         {
-    ///             new Aws.CloudFront.Inputs.DistributionOrderedCacheBehaviorArgs
+    ///             
     ///             {
-    ///                 PathPattern = "/content/immutable/*",
-    ///                 AllowedMethods = new[]
+    ///                 { "pathPattern", "/content/immutable/*" },
+    ///                 { "allowedMethods", new[]
     ///                 {
     ///                     "GET",
     ///                     "HEAD",
     ///                     "OPTIONS",
-    ///                 },
-    ///                 CachedMethods = new[]
+    ///                 } },
+    ///                 { "cachedMethods", new[]
     ///                 {
     ///                     "GET",
     ///                     "HEAD",
     ///                     "OPTIONS",
-    ///                 },
-    ///                 TargetOriginId = s3OriginId,
-    ///                 ForwardedValues = new Aws.CloudFront.Inputs.DistributionOrderedCacheBehaviorForwardedValuesArgs
+    ///                 } },
+    ///                 { "targetOriginId", s3OriginId },
+    ///                 { "forwardedValues", 
     ///                 {
-    ///                     QueryString = false,
-    ///                     Headers = new[]
+    ///                     { "queryString", false },
+    ///                     { "headers", new[]
     ///                     {
     ///                         "Origin",
-    ///                     },
-    ///                     Cookies = new Aws.CloudFront.Inputs.DistributionOrderedCacheBehaviorForwardedValuesCookiesArgs
+    ///                     } },
+    ///                     { "cookies", 
     ///                     {
-    ///                         Forward = "none",
-    ///                     },
-    ///                 },
-    ///                 MinTtl = 0,
-    ///                 DefaultTtl = 86400,
-    ///                 MaxTtl = 31536000,
-    ///                 Compress = true,
-    ///                 ViewerProtocolPolicy = "redirect-to-https",
+    ///                         { "forward", "none" },
+    ///                     } },
+    ///                 } },
+    ///                 { "minTtl", 0 },
+    ///                 { "defaultTtl", 86400 },
+    ///                 { "maxTtl", 31536000 },
+    ///                 { "compress", true },
+    ///                 { "viewerProtocolPolicy", "redirect-to-https" },
     ///             },
-    ///             new Aws.CloudFront.Inputs.DistributionOrderedCacheBehaviorArgs
+    ///             
     ///             {
-    ///                 PathPattern = "/content/*",
-    ///                 AllowedMethods = new[]
+    ///                 { "pathPattern", "/content/*" },
+    ///                 { "allowedMethods", new[]
     ///                 {
     ///                     "GET",
     ///                     "HEAD",
     ///                     "OPTIONS",
-    ///                 },
-    ///                 CachedMethods = new[]
+    ///                 } },
+    ///                 { "cachedMethods", new[]
     ///                 {
     ///                     "GET",
     ///                     "HEAD",
-    ///                 },
-    ///                 TargetOriginId = s3OriginId,
-    ///                 ForwardedValues = new Aws.CloudFront.Inputs.DistributionOrderedCacheBehaviorForwardedValuesArgs
+    ///                 } },
+    ///                 { "targetOriginId", s3OriginId },
+    ///                 { "forwardedValues", 
     ///                 {
-    ///                     QueryString = false,
-    ///                     Cookies = new Aws.CloudFront.Inputs.DistributionOrderedCacheBehaviorForwardedValuesCookiesArgs
+    ///                     { "queryString", false },
+    ///                     { "cookies", 
     ///                     {
-    ///                         Forward = "none",
-    ///                     },
-    ///                 },
-    ///                 MinTtl = 0,
-    ///                 DefaultTtl = 3600,
-    ///                 MaxTtl = 86400,
-    ///                 Compress = true,
-    ///                 ViewerProtocolPolicy = "redirect-to-https",
+    ///                         { "forward", "none" },
+    ///                     } },
+    ///                 } },
+    ///                 { "minTtl", 0 },
+    ///                 { "defaultTtl", 3600 },
+    ///                 { "maxTtl", 86400 },
+    ///                 { "compress", true },
+    ///                 { "viewerProtocolPolicy", "redirect-to-https" },
     ///             },
     ///         },
     ///         PriceClass = "PriceClass_200",
-    ///         Restrictions = new Aws.CloudFront.Inputs.DistributionRestrictionsArgs
+    ///         Restrictions = 
     ///         {
-    ///             GeoRestriction = new Aws.CloudFront.Inputs.DistributionRestrictionsGeoRestrictionArgs
+    ///             { "geoRestriction", 
     ///             {
-    ///                 RestrictionType = "whitelist",
-    ///                 Locations = new[]
+    ///                 { "restrictionType", "whitelist" },
+    ///                 { "locations", new[]
     ///                 {
     ///                     "US",
     ///                     "CA",
     ///                     "GB",
     ///                     "DE",
-    ///                 },
-    ///             },
+    ///                 } },
+    ///             } },
     ///         },
     ///         Tags = 
     ///         {
     ///             { "Environment", "production" },
     ///         },
-    ///         ViewerCertificate = new Aws.CloudFront.Inputs.DistributionViewerCertificateArgs
+    ///         ViewerCertificate = 
     ///         {
-    ///             CloudfrontDefaultCertificate = true,
+    ///             { "cloudfrontDefaultCertificate", true },
     ///         },
     ///     });
     /// 
@@ -207,60 +207,60 @@ namespace Pulumi.Aws.CloudFront
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var s3Distribution = new Aws.CloudFront.Distribution("s3Distribution", new()
+    ///     var s3Distribution = new Aws.Cloudfront.Distribution.Distribution("s3Distribution", new()
     ///     {
     ///         OriginGroups = new[]
     ///         {
-    ///             new Aws.CloudFront.Inputs.DistributionOriginGroupArgs
+    ///             
     ///             {
-    ///                 OriginId = "groupS3",
-    ///                 FailoverCriteria = new Aws.CloudFront.Inputs.DistributionOriginGroupFailoverCriteriaArgs
+    ///                 { "originId", "groupS3" },
+    ///                 { "failoverCriteria", 
     ///                 {
-    ///                     StatusCodes = new[]
+    ///                     { "statusCodes", new[]
     ///                     {
     ///                         403,
     ///                         404,
     ///                         500,
     ///                         502,
-    ///                     },
-    ///                 },
-    ///                 Members = new[]
+    ///                     } },
+    ///                 } },
+    ///                 { "members", new[]
     ///                 {
-    ///                     new Aws.CloudFront.Inputs.DistributionOriginGroupMemberArgs
+    ///                     
     ///                     {
-    ///                         OriginId = "primaryS3",
+    ///                         { "originId", "primaryS3" },
     ///                     },
-    ///                     new Aws.CloudFront.Inputs.DistributionOriginGroupMemberArgs
+    ///                     
     ///                     {
-    ///                         OriginId = "failoverS3",
+    ///                         { "originId", "failoverS3" },
     ///                     },
-    ///                 },
+    ///                 } },
     ///             },
     ///         },
     ///         Origins = new[]
     ///         {
-    ///             new Aws.CloudFront.Inputs.DistributionOriginArgs
+    ///             
     ///             {
-    ///                 DomainName = aws_s3_bucket.Primary.Bucket_regional_domain_name,
-    ///                 OriginId = "primaryS3",
-    ///                 S3OriginConfig = new Aws.CloudFront.Inputs.DistributionOriginS3OriginConfigArgs
+    ///                 { "domainName", aws_s3_bucket.Primary.Bucket_regional_domain_name },
+    ///                 { "originId", "primaryS3" },
+    ///                 { "s3OriginConfig", 
     ///                 {
-    ///                     OriginAccessIdentity = aws_cloudfront_origin_access_identity.Default.Cloudfront_access_identity_path,
-    ///                 },
+    ///                     { "originAccessIdentity", aws_cloudfront_origin_access_identity.Default.Cloudfront_access_identity_path },
+    ///                 } },
     ///             },
-    ///             new Aws.CloudFront.Inputs.DistributionOriginArgs
+    ///             
     ///             {
-    ///                 DomainName = aws_s3_bucket.Failover.Bucket_regional_domain_name,
-    ///                 OriginId = "failoverS3",
-    ///                 S3OriginConfig = new Aws.CloudFront.Inputs.DistributionOriginS3OriginConfigArgs
+    ///                 { "domainName", aws_s3_bucket.Failover.Bucket_regional_domain_name },
+    ///                 { "originId", "failoverS3" },
+    ///                 { "s3OriginConfig", 
     ///                 {
-    ///                     OriginAccessIdentity = aws_cloudfront_origin_access_identity.Default.Cloudfront_access_identity_path,
-    ///                 },
+    ///                     { "originAccessIdentity", aws_cloudfront_origin_access_identity.Default.Cloudfront_access_identity_path },
+    ///                 } },
     ///             },
     ///         },
-    ///         DefaultCacheBehavior = new Aws.CloudFront.Inputs.DistributionDefaultCacheBehaviorArgs
+    ///         DefaultCacheBehavior = 
     ///         {
-    ///             TargetOriginId = "groupS3",
+    ///             { "targetOriginId", "groupS3" },
     ///         },
     ///     });
     /// 
@@ -281,52 +281,52 @@ namespace Pulumi.Aws.CloudFront
     /// {
     ///     var s3OriginId = "myS3Origin";
     /// 
-    ///     var s3Distribution = new Aws.CloudFront.Distribution("s3Distribution", new()
+    ///     var s3Distribution = new Aws.Cloudfront.Distribution.Distribution("s3Distribution", new()
     ///     {
     ///         Origins = new[]
     ///         {
-    ///             new Aws.CloudFront.Inputs.DistributionOriginArgs
+    ///             
     ///             {
-    ///                 DomainName = aws_s3_bucket.Primary.Bucket_regional_domain_name,
-    ///                 OriginId = "myS3Origin",
-    ///                 S3OriginConfig = new Aws.CloudFront.Inputs.DistributionOriginS3OriginConfigArgs
+    ///                 { "domainName", aws_s3_bucket.Primary.Bucket_regional_domain_name },
+    ///                 { "originId", "myS3Origin" },
+    ///                 { "s3OriginConfig", 
     ///                 {
-    ///                     OriginAccessIdentity = aws_cloudfront_origin_access_identity.Default.Cloudfront_access_identity_path,
-    ///                 },
+    ///                     { "originAccessIdentity", aws_cloudfront_origin_access_identity.Default.Cloudfront_access_identity_path },
+    ///                 } },
     ///             },
     ///         },
     ///         Enabled = true,
     ///         IsIpv6Enabled = true,
     ///         Comment = "Some comment",
     ///         DefaultRootObject = "index.html",
-    ///         DefaultCacheBehavior = new Aws.CloudFront.Inputs.DistributionDefaultCacheBehaviorArgs
+    ///         DefaultCacheBehavior = 
     ///         {
-    ///             CachePolicyId = "4135ea2d-6df8-44a3-9df3-4b5a84be39ad",
-    ///             AllowedMethods = new[]
+    ///             { "cachePolicyId", "4135ea2d-6df8-44a3-9df3-4b5a84be39ad" },
+    ///             { "allowedMethods", new[]
     ///             {
     ///                 "GET",
     ///                 "HEAD",
     ///                 "OPTIONS",
-    ///             },
-    ///             TargetOriginId = s3OriginId,
+    ///             } },
+    ///             { "targetOriginId", s3OriginId },
     ///         },
-    ///         Restrictions = new Aws.CloudFront.Inputs.DistributionRestrictionsArgs
+    ///         Restrictions = 
     ///         {
-    ///             GeoRestriction = new Aws.CloudFront.Inputs.DistributionRestrictionsGeoRestrictionArgs
+    ///             { "geoRestriction", 
     ///             {
-    ///                 RestrictionType = "whitelist",
-    ///                 Locations = new[]
+    ///                 { "restrictionType", "whitelist" },
+    ///                 { "locations", new[]
     ///                 {
     ///                     "US",
     ///                     "CA",
     ///                     "GB",
     ///                     "DE",
-    ///                 },
-    ///             },
+    ///                 } },
+    ///             } },
     ///         },
-    ///         ViewerCertificate = new Aws.CloudFront.Inputs.DistributionViewerCertificateArgs
+    ///         ViewerCertificate = 
     ///         {
-    ///             CloudfrontDefaultCertificate = true,
+    ///             { "cloudfrontDefaultCertificate", true },
     ///         },
     ///     });
     /// 

@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.connect.PhoneNumber("example", {
+ * const example = new aws.connect/phoneNumber.PhoneNumber("example", {
  *     targetArn: aws_connect_instance.example.arn,
  *     countryCode: "US",
  *     type: "DID",
@@ -33,7 +33,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.connect.PhoneNumber("example", {
+ * const example = new aws.connect/phoneNumber.PhoneNumber("example", {
  *     targetArn: aws_connect_instance.example.arn,
  *     countryCode: "US",
  *     type: "DID",
@@ -46,7 +46,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.connect.PhoneNumber("example", {
+ * const example = new aws.connect/phoneNumber.PhoneNumber("example", {
  *     targetArn: aws_connect_instance.example.arn,
  *     countryCode: "US",
  *     type: "DID",

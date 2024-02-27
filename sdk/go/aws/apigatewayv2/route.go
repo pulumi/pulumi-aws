@@ -23,31 +23,30 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigatewayv2"
+//	apigatewayv2/api "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/apigatewayv2/api"
+//	apigatewayv2/route "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/apigatewayv2/route"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleApi, err := apigatewayv2.NewApi(ctx, "exampleApi", &apigatewayv2.ApiArgs{
-//				ProtocolType:             pulumi.String("WEBSOCKET"),
-//				RouteSelectionExpression: pulumi.String("$request.body.action"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = apigatewayv2.NewRoute(ctx, "exampleRoute", &apigatewayv2.RouteArgs{
-//				ApiId:    exampleApi.ID(),
-//				RouteKey: pulumi.String("$default"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleApi, err := apigatewayv2/api.NewApi(ctx, "exampleApi", &apigatewayv2/api.ApiArgs{
+// ProtocolType: "WEBSOCKET",
+// RouteSelectionExpression: "$request.body.action",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = apigatewayv2/route.NewRoute(ctx, "exampleRoute", &apigatewayv2/route.RouteArgs{
+// ApiId: exampleApi.Id,
+// RouteKey: "$default",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### HTTP Proxy Integration
 //
@@ -58,42 +57,40 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigatewayv2"
+//	apigatewayv2/api "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/apigatewayv2/api"
+//	apigatewayv2/integration "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/apigatewayv2/integration"
+//	apigatewayv2/route "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/apigatewayv2/route"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleApi, err := apigatewayv2.NewApi(ctx, "exampleApi", &apigatewayv2.ApiArgs{
-//				ProtocolType: pulumi.String("HTTP"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleIntegration, err := apigatewayv2.NewIntegration(ctx, "exampleIntegration", &apigatewayv2.IntegrationArgs{
-//				ApiId:             exampleApi.ID(),
-//				IntegrationType:   pulumi.String("HTTP_PROXY"),
-//				IntegrationMethod: pulumi.String("ANY"),
-//				IntegrationUri:    pulumi.String("https://example.com/{proxy}"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = apigatewayv2.NewRoute(ctx, "exampleRoute", &apigatewayv2.RouteArgs{
-//				ApiId:    exampleApi.ID(),
-//				RouteKey: pulumi.String("ANY /example/{proxy+}"),
-//				Target: exampleIntegration.ID().ApplyT(func(id string) (string, error) {
-//					return fmt.Sprintf("integrations/%v", id), nil
-//				}).(pulumi.StringOutput),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleApi, err := apigatewayv2/api.NewApi(ctx, "exampleApi", &apigatewayv2/api.ApiArgs{
+// ProtocolType: "HTTP",
+// })
+// if err != nil {
+// return err
+// }
+// exampleIntegration, err := apigatewayv2/integration.NewIntegration(ctx, "exampleIntegration", &apigatewayv2/integration.IntegrationArgs{
+// ApiId: exampleApi.Id,
+// IntegrationType: "HTTP_PROXY",
+// IntegrationMethod: "ANY",
+// IntegrationUri: "https://example.com/{proxy}",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = apigatewayv2/route.NewRoute(ctx, "exampleRoute", &apigatewayv2/route.RouteArgs{
+// ApiId: exampleApi.Id,
+// RouteKey: "ANY /example/{proxy+}",
+// Target: fmt.Sprintf("integrations/%v", exampleIntegration.Id),
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

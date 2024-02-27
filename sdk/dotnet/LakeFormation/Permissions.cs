@@ -17,53 +17,6 @@ namespace Pulumi.Aws.LakeFormation
     /// &gt; **NOTE:** In general, the `principal` should _NOT_ be a Lake Formation administrator or the entity (e.g., IAM role) that is running the deployment. Administrators have implicit permissions. These should be managed by granting or not granting administrator rights using `aws.lakeformation.DataLakeSettings`, _not_ with this resource.
     /// 
     /// ## Default Behavior and `IAMAllowedPrincipals`
-    /// 
-    /// **_Lake Formation permissions are not in effect by default within AWS._** `IAMAllowedPrincipals` (i.e., `IAM_ALLOWED_PRINCIPALS`) conflicts with individual Lake Formation permissions (i.e., non-`IAMAllowedPrincipals` permissions), will cause unexpected behavior, and may result in errors.
-    /// 
-    /// When using Lake Formation, choose ONE of the following options as they are mutually exclusive:
-    /// 
-    /// 1. Use this resource (`aws.lakeformation.Permissions`), change the default security settings using `aws.lakeformation.DataLakeSettings`, and remove existing `IAMAllowedPrincipals` permissions
-    /// 2. Use `IAMAllowedPrincipals` without `aws.lakeformation.Permissions`
-    /// 
-    /// This example shows removing the `IAMAllowedPrincipals` default security settings and making the caller a Lake Formation admin. Since `create_database_default_permissions` and `create_table_default_permissions` are not set in the `aws.lakeformation.DataLakeSettings` resource, they are cleared.
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var currentCallerIdentity = Aws.GetCallerIdentity.Invoke();
-    /// 
-    ///     var currentSessionContext = Aws.Iam.GetSessionContext.Invoke(new()
-    ///     {
-    ///         Arn = currentCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.Arn),
-    ///     });
-    /// 
-    ///     var test = new Aws.LakeFormation.DataLakeSettings("test", new()
-    ///     {
-    ///         Admins = new[]
-    ///         {
-    ///             currentSessionContext.Apply(getSessionContextResult =&gt; getSessionContextResult.IssuerArn),
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// To remove existing `IAMAllowedPrincipals` permissions, use the [AWS Lake Formation Console](https://console.aws.amazon.com/lakeformation/) or [AWS CLI](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lakeformation/batch-revoke-permissions.html).
-    /// 
-    /// `IAMAllowedPrincipals` is a hook to maintain backwards compatibility with AWS Glue. `IAMAllowedPrincipals` is a pseudo-entity group that acts like a Lake Formation principal. The group includes any IAM users and roles that are allowed access to your Data Catalog resources by your IAM policies.
-    /// 
-    /// This is Lake Formation's default behavior:
-    /// 
-    /// * Lake Formation grants `Super` permission to `IAMAllowedPrincipals` on all existing AWS Glue Data Catalog resources.
-    /// * Lake Formation enables "Use only IAM access control" for new Data Catalog resources.
-    /// 
-    /// For more details, see [Changing the Default Security Settings for Your Data Lake](https://docs.aws.amazon.com/lake-formation/latest/dg/change-settings.html).
-    /// 
     /// ### Problem Using `IAMAllowedPrincipals`
     /// 
     /// AWS does not support combining `IAMAllowedPrincipals` permissions and non-`IAMAllowedPrincipals` permissions. Doing so results in unexpected permissions and behaviors. For example, this configuration grants a user `SELECT` on a column in a table.
@@ -76,43 +29,43 @@ namespace Pulumi.Aws.LakeFormation
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleCatalogDatabase = new Aws.Glue.CatalogDatabase("exampleCatalogDatabase", new()
+    ///     var exampleCatalogDatabase = new Aws.Glue.CatalogDatabase.CatalogDatabase("exampleCatalogDatabase", new()
     ///     {
     ///         Name = "sadabate",
     ///     });
     /// 
-    ///     var exampleCatalogTable = new Aws.Glue.CatalogTable("exampleCatalogTable", new()
+    ///     var exampleCatalogTable = new Aws.Glue.CatalogTable.CatalogTable("exampleCatalogTable", new()
     ///     {
     ///         Name = "abelt",
     ///         DatabaseName = aws_glue_catalog_database.Test.Name,
-    ///         StorageDescriptor = new Aws.Glue.Inputs.CatalogTableStorageDescriptorArgs
+    ///         StorageDescriptor = 
     ///         {
-    ///             Columns = new[]
+    ///             { "columns", new[]
     ///             {
-    ///                 new Aws.Glue.Inputs.CatalogTableStorageDescriptorColumnArgs
+    ///                 
     ///                 {
-    ///                     Name = "event",
-    ///                     Type = "string",
+    ///                     { "name", "event" },
+    ///                     { "type", "string" },
     ///                 },
-    ///             },
+    ///             } },
     ///         },
     ///     });
     /// 
-    ///     var examplePermissions = new Aws.LakeFormation.Permissions("examplePermissions", new()
+    ///     var examplePermissions = new Aws.Lakeformation.Permissions.Permissions("examplePermissions", new()
     ///     {
-    ///         PermissionDetails = new[]
+    ///         Permissions = new[]
     ///         {
     ///             "SELECT",
     ///         },
     ///         Principal = "arn:aws:iam:us-east-1:123456789012:user/SanHolo",
-    ///         TableWithColumns = new Aws.LakeFormation.Inputs.PermissionsTableWithColumnsArgs
+    ///         TableWithColumns = 
     ///         {
-    ///             DatabaseName = exampleCatalogTable.DatabaseName,
-    ///             Name = exampleCatalogTable.Name,
-    ///             ColumnNames = new[]
+    ///             { "databaseName", exampleCatalogTable.DatabaseName },
+    ///             { "name", exampleCatalogTable.Name },
+    ///             { "columnNames", new[]
     ///             {
     ///                 "event",
-    ///             },
+    ///             } },
     ///         },
     ///     });
     /// 
@@ -144,16 +97,16 @@ namespace Pulumi.Aws.LakeFormation
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.LakeFormation.Permissions("example", new()
+    ///     var example = new Aws.Lakeformation.Permissions.Permissions("example", new()
     ///     {
     ///         Principal = aws_iam_role.Workflow_role.Arn,
-    ///         PermissionDetails = new[]
+    ///         Permissions = new[]
     ///         {
     ///             "DATA_LOCATION_ACCESS",
     ///         },
-    ///         DataLocation = new Aws.LakeFormation.Inputs.PermissionsDataLocationArgs
+    ///         DataLocation = 
     ///         {
-    ///             Arn = aws_lakeformation_resource.Example.Arn,
+    ///             { "arn", aws_lakeformation_resource.Example.Arn },
     ///         },
     ///     });
     /// 
@@ -169,19 +122,19 @@ namespace Pulumi.Aws.LakeFormation
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.LakeFormation.Permissions("example", new()
+    ///     var example = new Aws.Lakeformation.Permissions.Permissions("example", new()
     ///     {
     ///         Principal = aws_iam_role.Workflow_role.Arn,
-    ///         PermissionDetails = new[]
+    ///         Permissions = new[]
     ///         {
     ///             "CREATE_TABLE",
     ///             "ALTER",
     ///             "DROP",
     ///         },
-    ///         Database = new Aws.LakeFormation.Inputs.PermissionsDatabaseArgs
+    ///         Database = 
     ///         {
-    ///             Name = aws_glue_catalog_database.Example.Name,
-    ///             CatalogId = "110376042874",
+    ///             { "name", aws_glue_catalog_database.Example.Name },
+    ///             { "catalogId", "110376042874" },
     ///         },
     ///     });
     /// 
@@ -197,38 +150,38 @@ namespace Pulumi.Aws.LakeFormation
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Aws.LakeFormation.Permissions("test", new()
+    ///     var test = new Aws.Lakeformation.Permissions.Permissions("test", new()
     ///     {
     ///         Principal = aws_iam_role.Sales_role.Arn,
-    ///         PermissionDetails = new[]
+    ///         Permissions = new[]
     ///         {
     ///             "CREATE_TABLE",
     ///             "ALTER",
     ///             "DROP",
     ///         },
-    ///         LfTagPolicy = new Aws.LakeFormation.Inputs.PermissionsLfTagPolicyArgs
+    ///         LfTagPolicy = 
     ///         {
-    ///             ResourceType = "DATABASE",
-    ///             Expressions = new[]
+    ///             { "resourceType", "DATABASE" },
+    ///             { "expressions", new[]
     ///             {
-    ///                 new Aws.LakeFormation.Inputs.PermissionsLfTagPolicyExpressionArgs
+    ///                 
     ///                 {
-    ///                     Key = "Team",
-    ///                     Values = new[]
+    ///                     { "key", "Team" },
+    ///                     { "values", new[]
     ///                     {
     ///                         "Sales",
-    ///                     },
+    ///                     } },
     ///                 },
-    ///                 new Aws.LakeFormation.Inputs.PermissionsLfTagPolicyExpressionArgs
+    ///                 
     ///                 {
-    ///                     Key = "Environment",
-    ///                     Values = new[]
+    ///                     { "key", "Environment" },
+    ///                     { "values", new[]
     ///                     {
     ///                         "Dev",
     ///                         "Production",
-    ///                     },
+    ///                     } },
     ///                 },
-    ///             },
+    ///             } },
     ///         },
     ///     });
     /// 

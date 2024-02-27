@@ -356,15 +356,15 @@ class Listener(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_service = aws.vpclattice.Service("exampleService")
-        example_listener = aws.vpclattice.Listener("exampleListener",
-            protocol="HTTPS",
+        example_service = aws.vpclattice.service.Service("exampleService")
+        example_listener = aws.vpclattice.listener.Listener("exampleListener",
+            protocol=HTTPS,
             service_identifier=example_service.id,
-            default_action=aws.vpclattice.ListenerDefaultActionArgs(
-                fixed_response=aws.vpclattice.ListenerDefaultActionFixedResponseArgs(
-                    status_code=404,
-                ),
-            ))
+            default_action={
+                fixedResponse: {
+                    statusCode: 404,
+                },
+            })
         ```
         ### Forward action
 
@@ -372,24 +372,24 @@ class Listener(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_service = aws.vpclattice.Service("exampleService")
-        example_target_group = aws.vpclattice.TargetGroup("exampleTargetGroup",
-            type="INSTANCE",
-            config=aws.vpclattice.TargetGroupConfigArgs(
-                port=80,
-                protocol="HTTP",
-                vpc_identifier=aws_vpc["example"]["id"],
-            ))
-        example_listener = aws.vpclattice.Listener("exampleListener",
-            protocol="HTTP",
+        example_service = aws.vpclattice.service.Service("exampleService")
+        example_target_group = aws.vpclattice.target_group.TargetGroup("exampleTargetGroup",
+            type=INSTANCE,
+            config={
+                port: 80,
+                protocol: HTTP,
+                vpcIdentifier: aws_vpc.example.id,
+            })
+        example_listener = aws.vpclattice.listener.Listener("exampleListener",
+            protocol=HTTP,
             service_identifier=example_service.id,
-            default_action=aws.vpclattice.ListenerDefaultActionArgs(
-                forwards=[aws.vpclattice.ListenerDefaultActionForwardArgs(
-                    target_groups=[aws.vpclattice.ListenerDefaultActionForwardTargetGroupArgs(
-                        target_group_identifier=example_target_group.id,
-                    )],
-                )],
-            ))
+            default_action={
+                forwards: [{
+                    targetGroups: [{
+                        targetGroupIdentifier: example_target_group.id,
+                    }],
+                }],
+            })
         ```
         ### Forward action with weighted target groups
 
@@ -397,38 +397,38 @@ class Listener(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_service = aws.vpclattice.Service("exampleService")
-        example1 = aws.vpclattice.TargetGroup("example1",
-            type="INSTANCE",
-            config=aws.vpclattice.TargetGroupConfigArgs(
-                port=80,
-                protocol="HTTP",
-                vpc_identifier=aws_vpc["example"]["id"],
-            ))
-        example2 = aws.vpclattice.TargetGroup("example2",
-            type="INSTANCE",
-            config=aws.vpclattice.TargetGroupConfigArgs(
-                port=8080,
-                protocol="HTTP",
-                vpc_identifier=aws_vpc["example"]["id"],
-            ))
-        example_listener = aws.vpclattice.Listener("exampleListener",
-            protocol="HTTP",
+        example_service = aws.vpclattice.service.Service("exampleService")
+        example1 = aws.vpclattice.target_group.TargetGroup("example1",
+            type=INSTANCE,
+            config={
+                port: 80,
+                protocol: HTTP,
+                vpcIdentifier: aws_vpc.example.id,
+            })
+        example2 = aws.vpclattice.target_group.TargetGroup("example2",
+            type=INSTANCE,
+            config={
+                port: 8080,
+                protocol: HTTP,
+                vpcIdentifier: aws_vpc.example.id,
+            })
+        example_listener = aws.vpclattice.listener.Listener("exampleListener",
+            protocol=HTTP,
             service_identifier=example_service.id,
-            default_action=aws.vpclattice.ListenerDefaultActionArgs(
-                forwards=[aws.vpclattice.ListenerDefaultActionForwardArgs(
-                    target_groups=[
-                        aws.vpclattice.ListenerDefaultActionForwardTargetGroupArgs(
-                            target_group_identifier=example1.id,
-                            weight=80,
-                        ),
-                        aws.vpclattice.ListenerDefaultActionForwardTargetGroupArgs(
-                            target_group_identifier=example2.id,
-                            weight=20,
-                        ),
+            default_action={
+                forwards: [{
+                    targetGroups: [
+                        {
+                            targetGroupIdentifier: example1.id,
+                            weight: 80,
+                        },
+                        {
+                            targetGroupIdentifier: example2.id,
+                            weight: 20,
+                        },
                     ],
-                )],
-            ))
+                }],
+            })
         ```
 
         ## Import
@@ -466,15 +466,15 @@ class Listener(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_service = aws.vpclattice.Service("exampleService")
-        example_listener = aws.vpclattice.Listener("exampleListener",
-            protocol="HTTPS",
+        example_service = aws.vpclattice.service.Service("exampleService")
+        example_listener = aws.vpclattice.listener.Listener("exampleListener",
+            protocol=HTTPS,
             service_identifier=example_service.id,
-            default_action=aws.vpclattice.ListenerDefaultActionArgs(
-                fixed_response=aws.vpclattice.ListenerDefaultActionFixedResponseArgs(
-                    status_code=404,
-                ),
-            ))
+            default_action={
+                fixedResponse: {
+                    statusCode: 404,
+                },
+            })
         ```
         ### Forward action
 
@@ -482,24 +482,24 @@ class Listener(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_service = aws.vpclattice.Service("exampleService")
-        example_target_group = aws.vpclattice.TargetGroup("exampleTargetGroup",
-            type="INSTANCE",
-            config=aws.vpclattice.TargetGroupConfigArgs(
-                port=80,
-                protocol="HTTP",
-                vpc_identifier=aws_vpc["example"]["id"],
-            ))
-        example_listener = aws.vpclattice.Listener("exampleListener",
-            protocol="HTTP",
+        example_service = aws.vpclattice.service.Service("exampleService")
+        example_target_group = aws.vpclattice.target_group.TargetGroup("exampleTargetGroup",
+            type=INSTANCE,
+            config={
+                port: 80,
+                protocol: HTTP,
+                vpcIdentifier: aws_vpc.example.id,
+            })
+        example_listener = aws.vpclattice.listener.Listener("exampleListener",
+            protocol=HTTP,
             service_identifier=example_service.id,
-            default_action=aws.vpclattice.ListenerDefaultActionArgs(
-                forwards=[aws.vpclattice.ListenerDefaultActionForwardArgs(
-                    target_groups=[aws.vpclattice.ListenerDefaultActionForwardTargetGroupArgs(
-                        target_group_identifier=example_target_group.id,
-                    )],
-                )],
-            ))
+            default_action={
+                forwards: [{
+                    targetGroups: [{
+                        targetGroupIdentifier: example_target_group.id,
+                    }],
+                }],
+            })
         ```
         ### Forward action with weighted target groups
 
@@ -507,38 +507,38 @@ class Listener(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_service = aws.vpclattice.Service("exampleService")
-        example1 = aws.vpclattice.TargetGroup("example1",
-            type="INSTANCE",
-            config=aws.vpclattice.TargetGroupConfigArgs(
-                port=80,
-                protocol="HTTP",
-                vpc_identifier=aws_vpc["example"]["id"],
-            ))
-        example2 = aws.vpclattice.TargetGroup("example2",
-            type="INSTANCE",
-            config=aws.vpclattice.TargetGroupConfigArgs(
-                port=8080,
-                protocol="HTTP",
-                vpc_identifier=aws_vpc["example"]["id"],
-            ))
-        example_listener = aws.vpclattice.Listener("exampleListener",
-            protocol="HTTP",
+        example_service = aws.vpclattice.service.Service("exampleService")
+        example1 = aws.vpclattice.target_group.TargetGroup("example1",
+            type=INSTANCE,
+            config={
+                port: 80,
+                protocol: HTTP,
+                vpcIdentifier: aws_vpc.example.id,
+            })
+        example2 = aws.vpclattice.target_group.TargetGroup("example2",
+            type=INSTANCE,
+            config={
+                port: 8080,
+                protocol: HTTP,
+                vpcIdentifier: aws_vpc.example.id,
+            })
+        example_listener = aws.vpclattice.listener.Listener("exampleListener",
+            protocol=HTTP,
             service_identifier=example_service.id,
-            default_action=aws.vpclattice.ListenerDefaultActionArgs(
-                forwards=[aws.vpclattice.ListenerDefaultActionForwardArgs(
-                    target_groups=[
-                        aws.vpclattice.ListenerDefaultActionForwardTargetGroupArgs(
-                            target_group_identifier=example1.id,
-                            weight=80,
-                        ),
-                        aws.vpclattice.ListenerDefaultActionForwardTargetGroupArgs(
-                            target_group_identifier=example2.id,
-                            weight=20,
-                        ),
+            default_action={
+                forwards: [{
+                    targetGroups: [
+                        {
+                            targetGroupIdentifier: example1.id,
+                            weight: 80,
+                        },
+                        {
+                            targetGroupIdentifier: example2.id,
+                            weight: 20,
+                        },
                     ],
-                )],
-            ))
+                }],
+            })
         ```
 
         ## Import

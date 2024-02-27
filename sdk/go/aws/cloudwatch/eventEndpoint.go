@@ -23,44 +23,42 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
+//	cloudwatch/eventEndpoint "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/cloudwatch/eventEndpoint"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cloudwatch.NewEventEndpoint(ctx, "this", &cloudwatch.EventEndpointArgs{
-//				RoleArn: pulumi.Any(aws_iam_role.Replication.Arn),
-//				EventBuses: cloudwatch.EventEndpointEventBusArray{
-//					&cloudwatch.EventEndpointEventBusArgs{
-//						EventBusArn: pulumi.Any(aws_cloudwatch_event_bus.Primary.Arn),
-//					},
-//					&cloudwatch.EventEndpointEventBusArgs{
-//						EventBusArn: pulumi.Any(aws_cloudwatch_event_bus.Secondary.Arn),
-//					},
-//				},
-//				ReplicationConfig: &cloudwatch.EventEndpointReplicationConfigArgs{
-//					State: pulumi.String("DISABLED"),
-//				},
-//				RoutingConfig: &cloudwatch.EventEndpointRoutingConfigArgs{
-//					FailoverConfig: &cloudwatch.EventEndpointRoutingConfigFailoverConfigArgs{
-//						Primary: &cloudwatch.EventEndpointRoutingConfigFailoverConfigPrimaryArgs{
-//							HealthCheck: pulumi.Any(aws_route53_health_check.Primary.Arn),
-//						},
-//						Secondary: &cloudwatch.EventEndpointRoutingConfigFailoverConfigSecondaryArgs{
-//							Route: pulumi.String("us-east-2"),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := cloudwatch/eventEndpoint.NewEventEndpoint(ctx, "this", &cloudwatch/eventEndpoint.EventEndpointArgs{
+// RoleArn: aws_iam_role.Replication.Arn,
+// EventBuses: []map[string]interface{}{
+// map[string]interface{}{
+// "eventBusArn": aws_cloudwatch_event_bus.Primary.Arn,
+// },
+// map[string]interface{}{
+// "eventBusArn": aws_cloudwatch_event_bus.Secondary.Arn,
+// },
+// },
+// ReplicationConfig: map[string]interface{}{
+// "state": "DISABLED",
+// },
+// RoutingConfig: map[string]interface{}{
+// "failoverConfig": map[string]interface{}{
+// "primary": map[string]interface{}{
+// "healthCheck": aws_route53_health_check.Primary.Arn,
+// },
+// "secondary": map[string]interface{}{
+// "route": "us-east-2",
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

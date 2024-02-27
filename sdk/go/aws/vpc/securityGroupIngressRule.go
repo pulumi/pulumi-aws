@@ -28,38 +28,36 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/vpc"
+//	ec2/securityGroup "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/securityGroup"
+//	vpc/securityGroupIngressRule "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/vpc/securityGroupIngressRule"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleSecurityGroup, err := ec2.NewSecurityGroup(ctx, "exampleSecurityGroup", &ec2.SecurityGroupArgs{
-//				Description: pulumi.String("example"),
-//				VpcId:       pulumi.Any(aws_vpc.Main.Id),
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("example"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = vpc.NewSecurityGroupIngressRule(ctx, "exampleSecurityGroupIngressRule", &vpc.SecurityGroupIngressRuleArgs{
-//				SecurityGroupId: exampleSecurityGroup.ID(),
-//				CidrIpv4:        pulumi.String("10.0.0.0/8"),
-//				FromPort:        pulumi.Int(80),
-//				IpProtocol:      pulumi.String("tcp"),
-//				ToPort:          pulumi.Int(80),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleSecurityGroup, err := ec2/securityGroup.NewSecurityGroup(ctx, "exampleSecurityGroup", &ec2/securityGroup.SecurityGroupArgs{
+// Description: "example",
+// VpcId: aws_vpc.Main.Id,
+// Tags: map[string]interface{}{
+// "Name": "example",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = vpc/securityGroupIngressRule.NewSecurityGroupIngressRule(ctx, "exampleSecurityGroupIngressRule", &vpc/securityGroupIngressRule.SecurityGroupIngressRuleArgs{
+// SecurityGroupId: exampleSecurityGroup.Id,
+// CidrIpv4: "10.0.0.0/8",
+// FromPort: 80,
+// IpProtocol: "tcp",
+// ToPort: 80,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

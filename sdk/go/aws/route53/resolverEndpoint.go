@@ -21,43 +21,41 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53"
+//	route53/resolverEndpoint "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/route53/resolverEndpoint"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := route53.NewResolverEndpoint(ctx, "foo", &route53.ResolverEndpointArgs{
-//				Direction: pulumi.String("INBOUND"),
-//				SecurityGroupIds: pulumi.StringArray{
-//					aws_security_group.Sg1.Id,
-//					aws_security_group.Sg2.Id,
-//				},
-//				IpAddresses: route53.ResolverEndpointIpAddressArray{
-//					&route53.ResolverEndpointIpAddressArgs{
-//						SubnetId: pulumi.Any(aws_subnet.Sn1.Id),
-//					},
-//					&route53.ResolverEndpointIpAddressArgs{
-//						SubnetId: pulumi.Any(aws_subnet.Sn2.Id),
-//						Ip:       pulumi.String("10.0.64.4"),
-//					},
-//				},
-//				Protocols: pulumi.StringArray{
-//					pulumi.String("Do53"),
-//					pulumi.String("DoH"),
-//				},
-//				Tags: pulumi.StringMap{
-//					"Environment": pulumi.String("Prod"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := route53/resolverEndpoint.NewResolverEndpoint(ctx, "foo", &route53/resolverEndpoint.ResolverEndpointArgs{
+// Direction: "INBOUND",
+// SecurityGroupIds: []interface{}{
+// aws_security_group.Sg1.Id,
+// aws_security_group.Sg2.Id,
+// },
+// IpAddresses: []map[string]interface{}{
+// map[string]interface{}{
+// "subnetId": aws_subnet.Sn1.Id,
+// },
+// map[string]interface{}{
+// "subnetId": aws_subnet.Sn2.Id,
+// "ip": "10.0.64.4",
+// },
+// },
+// Protocols: []string{
+// "Do53",
+// "DoH",
+// },
+// Tags: map[string]interface{}{
+// "Environment": "Prod",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

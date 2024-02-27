@@ -21,33 +21,32 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigateway"
+//	apigateway/documentationPart "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/apigateway/documentationPart"
+//	apigateway/restApi "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/apigateway/restApi"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleRestApi, err := apigateway.NewRestApi(ctx, "exampleRestApi", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = apigateway.NewDocumentationPart(ctx, "exampleDocumentationPart", &apigateway.DocumentationPartArgs{
-//				Location: &apigateway.DocumentationPartLocationArgs{
-//					Type:   pulumi.String("METHOD"),
-//					Method: pulumi.String("GET"),
-//					Path:   pulumi.String("/example"),
-//				},
-//				Properties: pulumi.String("{\"description\":\"Example description\"}"),
-//				RestApiId:  exampleRestApi.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleRestApi, err := apigateway/restApi.NewRestApi(ctx, "exampleRestApi", nil)
+// if err != nil {
+// return err
+// }
+// _, err = apigateway/documentationPart.NewDocumentationPart(ctx, "exampleDocumentationPart", &apigateway/documentationPart.DocumentationPartArgs{
+// Location: map[string]interface{}{
+// "type": "METHOD",
+// "method": "GET",
+// "path": "/example",
+// },
+// Properties: "{\"description\":\"Example description\"}",
+// RestApiId: exampleRestApi.Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -56,7 +56,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var testPreparedStatement = new PreparedStatement(&#34;testPreparedStatement&#34;, PreparedStatementArgs.builder()        
- *             .queryStatement(testDatabase.name().applyValue(name -&gt; String.format(&#34;SELECT * FROM %s WHERE x = ?&#34;, name)))
+ *             .queryStatement(String.format(&#34;SELECT * FROM %s WHERE x = ?&#34;, testDatabase.name()))
  *             .workgroup(testWorkgroup.name())
  *             .build());
  * 

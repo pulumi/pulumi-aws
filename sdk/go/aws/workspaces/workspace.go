@@ -16,53 +16,6 @@ import (
 //
 // > **NOTE:** AWS WorkSpaces service requires [`workspaces_DefaultRole`](https://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-access-control.html#create-default-role) IAM role to operate normally.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/workspaces"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			valueWindows10, err := workspaces.GetBundle(ctx, &workspaces.GetBundleArgs{
-//				BundleId: pulumi.StringRef("wsb-bh8rsxt14"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = workspaces.NewWorkspace(ctx, "example", &workspaces.WorkspaceArgs{
-//				DirectoryId:                 pulumi.Any(aws_workspaces_directory.Example.Id),
-//				BundleId:                    *pulumi.String(valueWindows10.Id),
-//				UserName:                    pulumi.String("john.doe"),
-//				RootVolumeEncryptionEnabled: pulumi.Bool(true),
-//				UserVolumeEncryptionEnabled: pulumi.Bool(true),
-//				VolumeEncryptionKey:         pulumi.String("alias/aws/workspaces"),
-//				WorkspaceProperties: &workspaces.WorkspaceWorkspacePropertiesArgs{
-//					ComputeTypeName:                     pulumi.String("VALUE"),
-//					UserVolumeSizeGib:                   pulumi.Int(10),
-//					RootVolumeSizeGib:                   pulumi.Int(80),
-//					RunningMode:                         pulumi.String("AUTO_STOP"),
-//					RunningModeAutoStopTimeoutInMinutes: pulumi.Int(60),
-//				},
-//				Tags: pulumi.StringMap{
-//					"Department": pulumi.String("IT"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Using `pulumi import`, import Workspaces using their ID. For example:

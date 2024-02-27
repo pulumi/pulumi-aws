@@ -14,54 +14,6 @@ import (
 // Data source for managing an AWS Polly Voices.
 //
 // ## Example Usage
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/polly"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := polly.GetVoices(ctx, nil, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// ### With Language Code
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/polly"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := polly.GetVoices(ctx, &polly.GetVoicesArgs{
-//				LanguageCode: pulumi.StringRef("en-GB"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetVoices(ctx *pulumi.Context, args *GetVoicesArgs, opts ...pulumi.InvokeOption) (*GetVoicesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetVoicesResult

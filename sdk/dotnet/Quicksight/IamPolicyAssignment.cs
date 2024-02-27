@@ -23,17 +23,17 @@ namespace Pulumi.Aws.Quicksight
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Quicksight.IamPolicyAssignment("example", new()
+    ///     var example = new Aws.Quicksight.IamPolicyAssignment.IamPolicyAssignment("example", new()
     ///     {
     ///         AssignmentName = "example",
     ///         AssignmentStatus = "ENABLED",
     ///         PolicyArn = aws_iam_policy.Example.Arn,
-    ///         Identities = new Aws.Quicksight.Inputs.IamPolicyAssignmentIdentitiesArgs
+    ///         Identities = 
     ///         {
-    ///             Users = new[]
+    ///             { "users", new[]
     ///             {
     ///                 aws_quicksight_user.Example.User_name,
-    ///             },
+    ///             } },
     ///         },
     ///     });
     /// 

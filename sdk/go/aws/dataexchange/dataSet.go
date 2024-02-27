@@ -21,24 +21,22 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/dataexchange"
+//	dataexchange/dataSet "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/dataexchange/dataSet"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := dataexchange.NewDataSet(ctx, "example", &dataexchange.DataSetArgs{
-//				AssetType:   pulumi.String("S3_SNAPSHOT"),
-//				Description: pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := dataexchange/dataSet.NewDataSet(ctx, "example", &dataexchange/dataSet.DataSetArgs{
+// AssetType: "S3_SNAPSHOT",
+// Description: "example",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

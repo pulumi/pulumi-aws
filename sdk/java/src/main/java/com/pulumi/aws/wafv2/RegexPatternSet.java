@@ -29,7 +29,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.wafv2.RegexPatternSet;
  * import com.pulumi.aws.wafv2.RegexPatternSetArgs;
- * import com.pulumi.aws.wafv2.inputs.RegexPatternSetRegularExpressionArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -46,17 +45,10 @@ import javax.annotation.Nullable;
  *         var example = new RegexPatternSet(&#34;example&#34;, RegexPatternSetArgs.builder()        
  *             .description(&#34;Example regex pattern set&#34;)
  *             .regularExpressions(            
- *                 RegexPatternSetRegularExpressionArgs.builder()
- *                     .regexString(&#34;one&#34;)
- *                     .build(),
- *                 RegexPatternSetRegularExpressionArgs.builder()
- *                     .regexString(&#34;two&#34;)
- *                     .build())
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .scope(&#34;REGIONAL&#34;)
- *             .tags(Map.ofEntries(
- *                 Map.entry(&#34;Tag1&#34;, &#34;Value1&#34;),
- *                 Map.entry(&#34;Tag2&#34;, &#34;Value2&#34;)
- *             ))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

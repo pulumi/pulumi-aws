@@ -129,15 +129,6 @@ def get_user(access_string: Optional[str] = None,
     """
     Use this data source to get information about an ElastiCache User.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    bar = aws.elasticache.get_user(user_id="example")
-    ```
-
 
     :param str access_string: String for what access a user possesses within the associated ElastiCache replication groups or clusters.
     :param str user_id: Identifier for the user.
@@ -176,15 +167,6 @@ def get_user_output(access_string: Optional[pulumi.Input[Optional[str]]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserResult]:
     """
     Use this data source to get information about an ElastiCache User.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    bar = aws.elasticache.get_user(user_id="example")
-    ```
 
 
     :param str access_string: String for what access a user possesses within the associated ElastiCache replication groups or clusters.

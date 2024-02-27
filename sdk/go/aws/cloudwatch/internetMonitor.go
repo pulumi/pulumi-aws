@@ -21,23 +21,21 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
+//	cloudwatch/internetMonitor "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/cloudwatch/internetMonitor"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cloudwatch.NewInternetMonitor(ctx, "example", &cloudwatch.InternetMonitorArgs{
-//				MonitorName: pulumi.String("exmple"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := cloudwatch/internetMonitor.NewInternetMonitor(ctx, "example", &cloudwatch/internetMonitor.InternetMonitorArgs{
+// MonitorName: "exmple",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

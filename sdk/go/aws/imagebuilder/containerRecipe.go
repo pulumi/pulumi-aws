@@ -21,45 +21,43 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/imagebuilder"
+//	imagebuilder/containerRecipe "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/imagebuilder/containerRecipe"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := imagebuilder.NewContainerRecipe(ctx, "example", &imagebuilder.ContainerRecipeArgs{
-//				Version:       pulumi.String("1.0.0"),
-//				ContainerType: pulumi.String("DOCKER"),
-//				ParentImage:   pulumi.String("arn:aws:imagebuilder:eu-central-1:aws:image/amazon-linux-x86-latest/x.x.x"),
-//				TargetRepository: &imagebuilder.ContainerRecipeTargetRepositoryArgs{
-//					RepositoryName: pulumi.Any(aws_ecr_repository.Example.Name),
-//					Service:        pulumi.String("ECR"),
-//				},
-//				Components: imagebuilder.ContainerRecipeComponentArray{
-//					&imagebuilder.ContainerRecipeComponentArgs{
-//						ComponentArn: pulumi.Any(aws_imagebuilder_component.Example.Arn),
-//						Parameters: imagebuilder.ContainerRecipeComponentParameterArray{
-//							&imagebuilder.ContainerRecipeComponentParameterArgs{
-//								Name:  pulumi.String("Parameter1"),
-//								Value: pulumi.String("Value1"),
-//							},
-//							&imagebuilder.ContainerRecipeComponentParameterArgs{
-//								Name:  pulumi.String("Parameter2"),
-//								Value: pulumi.String("Value2"),
-//							},
-//						},
-//					},
-//				},
-//				DockerfileTemplateData: pulumi.String("FROM {{{ imagebuilder:parentImage }}}\n{{{ imagebuilder:environments }}}\n{{{ imagebuilder:components }}}\n"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := imagebuilder/containerRecipe.NewContainerRecipe(ctx, "example", &imagebuilder/containerRecipe.ContainerRecipeArgs{
+// Version: "1.0.0",
+// ContainerType: "DOCKER",
+// ParentImage: "arn:aws:imagebuilder:eu-central-1:aws:image/amazon-linux-x86-latest/x.x.x",
+// TargetRepository: map[string]interface{}{
+// "repositoryName": aws_ecr_repository.Example.Name,
+// "service": "ECR",
+// },
+// Components: []map[string]interface{}{
+// map[string]interface{}{
+// "componentArn": aws_imagebuilder_component.Example.Arn,
+// "parameters": []map[string]interface{}{
+// map[string]interface{}{
+// "name": "Parameter1",
+// "value": "Value1",
+// },
+// map[string]interface{}{
+// "name": "Parameter2",
+// "value": "Value2",
+// },
+// },
+// },
+// },
+// DockerfileTemplateData: "FROM {{{ imagebuilder:parentImage }}}\n{{{ imagebuilder:environments }}}\n{{{ imagebuilder:components }}}\n",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

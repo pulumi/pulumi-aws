@@ -42,7 +42,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.rds.ParameterGroup;
  * import com.pulumi.aws.rds.ParameterGroupArgs;
- * import com.pulumi.aws.rds.inputs.ParameterGroupParameterArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -59,14 +58,8 @@ import javax.annotation.Nullable;
  *         var default_ = new ParameterGroup(&#34;default&#34;, ParameterGroupArgs.builder()        
  *             .family(&#34;mysql5.6&#34;)
  *             .parameters(            
- *                 ParameterGroupParameterArgs.builder()
- *                     .name(&#34;character_set_server&#34;)
- *                     .value(&#34;utf8&#34;)
- *                     .build(),
- *                 ParameterGroupParameterArgs.builder()
- *                     .name(&#34;character_set_client&#34;)
- *                     .value(&#34;utf8&#34;)
- *                     .build())
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -87,7 +80,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.rds.ParameterGroup;
  * import com.pulumi.aws.rds.ParameterGroupArgs;
- * import com.pulumi.aws.rds.inputs.ParameterGroupParameterArgs;
  * import com.pulumi.aws.rds.Instance;
  * import com.pulumi.aws.rds.InstanceArgs;
  * import java.util.List;
@@ -105,10 +97,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var exampleParameterGroup = new ParameterGroup(&#34;exampleParameterGroup&#34;, ParameterGroupArgs.builder()        
  *             .family(&#34;postgres13&#34;)
- *             .parameters(ParameterGroupParameterArgs.builder()
- *                 .name(&#34;log_connections&#34;)
- *                 .value(&#34;1&#34;)
- *                 .build())
+ *             .parameters(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleInstance = new Instance(&#34;exampleInstance&#34;, InstanceArgs.builder()        

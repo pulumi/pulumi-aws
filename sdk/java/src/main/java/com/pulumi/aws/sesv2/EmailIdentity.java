@@ -126,7 +126,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.sesv2.EmailIdentity;
  * import com.pulumi.aws.sesv2.EmailIdentityArgs;
- * import com.pulumi.aws.sesv2.inputs.EmailIdentityDkimSigningAttributesArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -141,10 +140,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new EmailIdentity(&#34;example&#34;, EmailIdentityArgs.builder()        
- *             .dkimSigningAttributes(EmailIdentityDkimSigningAttributesArgs.builder()
- *                 .domainSigningPrivateKey(&#34;MIIJKAIBAAKCAgEA2Se7p8zvnI4yh+Gh9j2rG5e2aRXjg03Y8saiupLnadPH9xvM...&#34;)
- *                 .domainSigningSelector(&#34;example&#34;)
- *                 .build())
+ *             .dkimSigningAttributes(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .emailIdentity(&#34;example.com&#34;)
  *             .build());
  * 

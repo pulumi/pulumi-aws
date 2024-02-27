@@ -12,64 +12,6 @@ namespace Pulumi.Aws.Backup
     /// <summary>
     /// Provides an AWS Backup vault policy resource.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleVault = new Aws.Backup.Vault("exampleVault");
-    /// 
-    ///     var examplePolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
-    ///     {
-    ///         Statements = new[]
-    ///         {
-    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
-    ///             {
-    ///                 Effect = "Allow",
-    ///                 Principals = new[]
-    ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
-    ///                     {
-    ///                         Type = "AWS",
-    ///                         Identifiers = new[]
-    ///                         {
-    ///                             "*",
-    ///                         },
-    ///                     },
-    ///                 },
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "backup:DescribeBackupVault",
-    ///                     "backup:DeleteBackupVault",
-    ///                     "backup:PutBackupVaultAccessPolicy",
-    ///                     "backup:DeleteBackupVaultAccessPolicy",
-    ///                     "backup:GetBackupVaultAccessPolicy",
-    ///                     "backup:StartBackupJob",
-    ///                     "backup:GetBackupVaultNotifications",
-    ///                     "backup:PutBackupVaultNotifications",
-    ///                 },
-    ///                 Resources = new[]
-    ///                 {
-    ///                     exampleVault.Arn,
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleVaultPolicy = new Aws.Backup.VaultPolicy("exampleVaultPolicy", new()
-    ///     {
-    ///         BackupVaultName = exampleVault.Name,
-    ///         Policy = examplePolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Backup vault policy using the `name`. For example:

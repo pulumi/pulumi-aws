@@ -106,15 +106,6 @@ def get_account_public_access_block(account_id: Optional[str] = None,
     """
     The S3 account public access block data source returns account-level public access block configuration.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.s3.get_account_public_access_block()
-    ```
-
 
     :param str account_id: AWS account ID to configure. Defaults to automatically determined account ID of the AWS provider.
     """
@@ -137,15 +128,6 @@ def get_account_public_access_block_output(account_id: Optional[pulumi.Input[Opt
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccountPublicAccessBlockResult]:
     """
     The S3 account public access block data source returns account-level public access block configuration.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.s3.get_account_public_access_block()
-    ```
 
 
     :param str account_id: AWS account ID to configure. Defaults to automatically determined account ID of the AWS provider.

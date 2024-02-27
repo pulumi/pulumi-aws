@@ -107,15 +107,6 @@ def get_acl(name: Optional[str] = None,
     """
     Provides information about a MemoryDB ACL.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.memorydb.get_acl(name="my-acl")
-    ```
-
 
     :param str name: Name of the ACL.
     :param Mapping[str, str] tags: Map of tags assigned to the ACL.
@@ -141,15 +132,6 @@ def get_acl_output(name: Optional[pulumi.Input[str]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAclResult]:
     """
     Provides information about a MemoryDB ACL.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.memorydb.get_acl(name="my-acl")
-    ```
 
 
     :param str name: Name of the ACL.

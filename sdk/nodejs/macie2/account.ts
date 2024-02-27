@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = new aws.macie2.Account("test", {
+ * const test = new aws.macie2/account.Account("test", {
  *     findingPublishingFrequency: "FIFTEEN_MINUTES",
  *     status: "ENABLED",
  * });

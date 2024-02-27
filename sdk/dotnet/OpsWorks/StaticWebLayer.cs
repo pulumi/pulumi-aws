@@ -22,7 +22,7 @@ namespace Pulumi.Aws.OpsWorks
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var web = new Aws.OpsWorks.StaticWebLayer("web", new()
+    ///     var web = new Aws.Opsworks.StaticWebLayer.StaticWebLayer("web", new()
     ///     {
     ///         StackId = aws_opsworks_stack.Main.Id,
     ///     });

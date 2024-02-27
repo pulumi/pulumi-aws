@@ -22,25 +22,23 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/auditmanager"
+//	auditmanager/frameworkShare "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/auditmanager/frameworkShare"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := auditmanager.NewFrameworkShare(ctx, "example", &auditmanager.FrameworkShareArgs{
-//				DestinationAccount: pulumi.String("012345678901"),
-//				DestinationRegion:  pulumi.String("us-east-1"),
-//				FrameworkId:        pulumi.Any(aws_auditmanager_framework.Example.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := auditmanager/frameworkShare.NewFrameworkShare(ctx, "example", &auditmanager/frameworkShare.FrameworkShareArgs{
+// DestinationAccount: "012345678901",
+// DestinationRegion: "us-east-1",
+// FrameworkId: aws_auditmanager_framework.Example.Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -370,44 +370,44 @@ class GlobalCluster(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.rds.GlobalCluster("example",
-            global_cluster_identifier="global-test",
-            engine="aurora",
-            engine_version="5.6.mysql_aurora.1.22.2",
-            database_name="example_db")
-        primary_cluster = aws.rds.Cluster("primaryCluster",
+        example = aws.rds.global_cluster.GlobalCluster("example",
+            global_cluster_identifier=global-test,
+            engine=aurora,
+            engine_version=5.6.mysql_aurora.1.22.2,
+            database_name=example_db)
+        primary_cluster = aws.rds.cluster.Cluster("primaryCluster",
             engine=example.engine,
             engine_version=example.engine_version,
-            cluster_identifier="test-primary-cluster",
-            master_username="username",
-            master_password="somepass123",
-            database_name="example_db",
+            cluster_identifier=test-primary-cluster,
+            master_username=username,
+            master_password=somepass123,
+            database_name=example_db,
             global_cluster_identifier=example.id,
-            db_subnet_group_name="default",
+            db_subnet_group_name=default,
             opts=pulumi.ResourceOptions(provider=aws["primary"]))
-        primary_cluster_instance = aws.rds.ClusterInstance("primaryClusterInstance",
+        primary_cluster_instance = aws.rds.cluster_instance.ClusterInstance("primaryClusterInstance",
             engine=example.engine,
             engine_version=example.engine_version,
-            identifier="test-primary-cluster-instance",
+            identifier=test-primary-cluster-instance,
             cluster_identifier=primary_cluster.id,
-            instance_class="db.r4.large",
-            db_subnet_group_name="default",
+            instance_class=db.r4.large,
+            db_subnet_group_name=default,
             opts=pulumi.ResourceOptions(provider=aws["primary"]))
-        secondary_cluster = aws.rds.Cluster("secondaryCluster",
+        secondary_cluster = aws.rds.cluster.Cluster("secondaryCluster",
             engine=example.engine,
             engine_version=example.engine_version,
-            cluster_identifier="test-secondary-cluster",
+            cluster_identifier=test-secondary-cluster,
             global_cluster_identifier=example.id,
-            db_subnet_group_name="default",
+            db_subnet_group_name=default,
             opts=pulumi.ResourceOptions(provider=aws["secondary"],
                 depends_on=[primary_cluster_instance]))
-        secondary_cluster_instance = aws.rds.ClusterInstance("secondaryClusterInstance",
+        secondary_cluster_instance = aws.rds.cluster_instance.ClusterInstance("secondaryClusterInstance",
             engine=example.engine,
             engine_version=example.engine_version,
-            identifier="test-secondary-cluster-instance",
+            identifier=test-secondary-cluster-instance,
             cluster_identifier=secondary_cluster.id,
-            instance_class="db.r4.large",
-            db_subnet_group_name="default",
+            instance_class=db.r4.large,
+            db_subnet_group_name=default,
             opts=pulumi.ResourceOptions(provider=aws["secondary"]))
         ```
         ### New PostgreSQL Global Cluster
@@ -416,47 +416,47 @@ class GlobalCluster(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        primary = aws.Provider("primary", region="us-east-2")
-        secondary = aws.Provider("secondary", region="us-east-1")
-        example = aws.rds.GlobalCluster("example",
-            global_cluster_identifier="global-test",
-            engine="aurora-postgresql",
-            engine_version="11.9",
-            database_name="example_db")
-        primary_cluster = aws.rds.Cluster("primaryCluster",
+        primary = pulumi.providers.Aws("primary", region=us-east-2)
+        secondary = pulumi.providers.Aws("secondary", region=us-east-1)
+        example = aws.rds.global_cluster.GlobalCluster("example",
+            global_cluster_identifier=global-test,
+            engine=aurora-postgresql,
+            engine_version=11.9,
+            database_name=example_db)
+        primary_cluster = aws.rds.cluster.Cluster("primaryCluster",
             engine=example.engine,
             engine_version=example.engine_version,
-            cluster_identifier="test-primary-cluster",
-            master_username="username",
-            master_password="somepass123",
-            database_name="example_db",
+            cluster_identifier=test-primary-cluster,
+            master_username=username,
+            master_password=somepass123,
+            database_name=example_db,
             global_cluster_identifier=example.id,
-            db_subnet_group_name="default",
+            db_subnet_group_name=default,
             opts=pulumi.ResourceOptions(provider=aws["primary"]))
-        primary_cluster_instance = aws.rds.ClusterInstance("primaryClusterInstance",
+        primary_cluster_instance = aws.rds.cluster_instance.ClusterInstance("primaryClusterInstance",
             engine=example.engine,
             engine_version=example.engine_version,
-            identifier="test-primary-cluster-instance",
+            identifier=test-primary-cluster-instance,
             cluster_identifier=primary_cluster.id,
-            instance_class="db.r4.large",
-            db_subnet_group_name="default",
+            instance_class=db.r4.large,
+            db_subnet_group_name=default,
             opts=pulumi.ResourceOptions(provider=aws["primary"]))
-        secondary_cluster = aws.rds.Cluster("secondaryCluster",
+        secondary_cluster = aws.rds.cluster.Cluster("secondaryCluster",
             engine=example.engine,
             engine_version=example.engine_version,
-            cluster_identifier="test-secondary-cluster",
+            cluster_identifier=test-secondary-cluster,
             global_cluster_identifier=example.id,
             skip_final_snapshot=True,
-            db_subnet_group_name="default",
+            db_subnet_group_name=default,
             opts=pulumi.ResourceOptions(provider=aws["secondary"],
                 depends_on=[primary_cluster_instance]))
-        secondary_cluster_instance = aws.rds.ClusterInstance("secondaryClusterInstance",
+        secondary_cluster_instance = aws.rds.cluster_instance.ClusterInstance("secondaryClusterInstance",
             engine=example.engine,
             engine_version=example.engine_version,
-            identifier="test-secondary-cluster-instance",
+            identifier=test-secondary-cluster-instance,
             cluster_identifier=secondary_cluster.id,
-            instance_class="db.r4.large",
-            db_subnet_group_name="default",
+            instance_class=db.r4.large,
+            db_subnet_group_name=default,
             opts=pulumi.ResourceOptions(provider=aws["secondary"]))
         ```
         ### New Global Cluster From Existing DB Cluster
@@ -466,10 +466,10 @@ class GlobalCluster(pulumi.CustomResource):
         import pulumi_aws as aws
 
         # ... other configuration ...
-        example_cluster = aws.rds.Cluster("exampleCluster")
-        example_global_cluster = aws.rds.GlobalCluster("exampleGlobalCluster",
+        example_cluster = aws.rds.cluster.Cluster("exampleCluster")
+        example_global_cluster = aws.rds.global_cluster.GlobalCluster("exampleGlobalCluster",
             force_destroy=True,
-            global_cluster_identifier="example",
+            global_cluster_identifier=example,
             source_db_cluster_identifier=example_cluster.arn)
         ```
         ### Upgrading Engine Versions
@@ -480,28 +480,28 @@ class GlobalCluster(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.rds.GlobalCluster("example",
-            global_cluster_identifier="kyivkharkiv",
-            engine="aurora-mysql",
-            engine_version="5.7.mysql_aurora.2.07.5")
-        primary_cluster = aws.rds.Cluster("primaryCluster",
+        example = aws.rds.global_cluster.GlobalCluster("example",
+            global_cluster_identifier=kyivkharkiv,
+            engine=aurora-mysql,
+            engine_version=5.7.mysql_aurora.2.07.5)
+        primary_cluster = aws.rds.cluster.Cluster("primaryCluster",
             allow_major_version_upgrade=True,
             apply_immediately=True,
-            cluster_identifier="odessadnipro",
-            database_name="totoro",
+            cluster_identifier=odessadnipro,
+            database_name=totoro,
             engine=example.engine,
             engine_version=example.engine_version,
             global_cluster_identifier=example.id,
-            master_password="satsukimae",
-            master_username="maesatsuki",
+            master_password=satsukimae,
+            master_username=maesatsuki,
             skip_final_snapshot=True)
-        primary_cluster_instance = aws.rds.ClusterInstance("primaryClusterInstance",
+        primary_cluster_instance = aws.rds.cluster_instance.ClusterInstance("primaryClusterInstance",
             apply_immediately=True,
             cluster_identifier=primary_cluster.id,
             engine=primary_cluster.engine,
             engine_version=primary_cluster.engine_version,
-            identifier="donetsklviv",
-            instance_class="db.r4.large")
+            identifier=donetsklviv,
+            instance_class=db.r4.large)
         ```
 
         ## Import
@@ -544,44 +544,44 @@ class GlobalCluster(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.rds.GlobalCluster("example",
-            global_cluster_identifier="global-test",
-            engine="aurora",
-            engine_version="5.6.mysql_aurora.1.22.2",
-            database_name="example_db")
-        primary_cluster = aws.rds.Cluster("primaryCluster",
+        example = aws.rds.global_cluster.GlobalCluster("example",
+            global_cluster_identifier=global-test,
+            engine=aurora,
+            engine_version=5.6.mysql_aurora.1.22.2,
+            database_name=example_db)
+        primary_cluster = aws.rds.cluster.Cluster("primaryCluster",
             engine=example.engine,
             engine_version=example.engine_version,
-            cluster_identifier="test-primary-cluster",
-            master_username="username",
-            master_password="somepass123",
-            database_name="example_db",
+            cluster_identifier=test-primary-cluster,
+            master_username=username,
+            master_password=somepass123,
+            database_name=example_db,
             global_cluster_identifier=example.id,
-            db_subnet_group_name="default",
+            db_subnet_group_name=default,
             opts=pulumi.ResourceOptions(provider=aws["primary"]))
-        primary_cluster_instance = aws.rds.ClusterInstance("primaryClusterInstance",
+        primary_cluster_instance = aws.rds.cluster_instance.ClusterInstance("primaryClusterInstance",
             engine=example.engine,
             engine_version=example.engine_version,
-            identifier="test-primary-cluster-instance",
+            identifier=test-primary-cluster-instance,
             cluster_identifier=primary_cluster.id,
-            instance_class="db.r4.large",
-            db_subnet_group_name="default",
+            instance_class=db.r4.large,
+            db_subnet_group_name=default,
             opts=pulumi.ResourceOptions(provider=aws["primary"]))
-        secondary_cluster = aws.rds.Cluster("secondaryCluster",
+        secondary_cluster = aws.rds.cluster.Cluster("secondaryCluster",
             engine=example.engine,
             engine_version=example.engine_version,
-            cluster_identifier="test-secondary-cluster",
+            cluster_identifier=test-secondary-cluster,
             global_cluster_identifier=example.id,
-            db_subnet_group_name="default",
+            db_subnet_group_name=default,
             opts=pulumi.ResourceOptions(provider=aws["secondary"],
                 depends_on=[primary_cluster_instance]))
-        secondary_cluster_instance = aws.rds.ClusterInstance("secondaryClusterInstance",
+        secondary_cluster_instance = aws.rds.cluster_instance.ClusterInstance("secondaryClusterInstance",
             engine=example.engine,
             engine_version=example.engine_version,
-            identifier="test-secondary-cluster-instance",
+            identifier=test-secondary-cluster-instance,
             cluster_identifier=secondary_cluster.id,
-            instance_class="db.r4.large",
-            db_subnet_group_name="default",
+            instance_class=db.r4.large,
+            db_subnet_group_name=default,
             opts=pulumi.ResourceOptions(provider=aws["secondary"]))
         ```
         ### New PostgreSQL Global Cluster
@@ -590,47 +590,47 @@ class GlobalCluster(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        primary = aws.Provider("primary", region="us-east-2")
-        secondary = aws.Provider("secondary", region="us-east-1")
-        example = aws.rds.GlobalCluster("example",
-            global_cluster_identifier="global-test",
-            engine="aurora-postgresql",
-            engine_version="11.9",
-            database_name="example_db")
-        primary_cluster = aws.rds.Cluster("primaryCluster",
+        primary = pulumi.providers.Aws("primary", region=us-east-2)
+        secondary = pulumi.providers.Aws("secondary", region=us-east-1)
+        example = aws.rds.global_cluster.GlobalCluster("example",
+            global_cluster_identifier=global-test,
+            engine=aurora-postgresql,
+            engine_version=11.9,
+            database_name=example_db)
+        primary_cluster = aws.rds.cluster.Cluster("primaryCluster",
             engine=example.engine,
             engine_version=example.engine_version,
-            cluster_identifier="test-primary-cluster",
-            master_username="username",
-            master_password="somepass123",
-            database_name="example_db",
+            cluster_identifier=test-primary-cluster,
+            master_username=username,
+            master_password=somepass123,
+            database_name=example_db,
             global_cluster_identifier=example.id,
-            db_subnet_group_name="default",
+            db_subnet_group_name=default,
             opts=pulumi.ResourceOptions(provider=aws["primary"]))
-        primary_cluster_instance = aws.rds.ClusterInstance("primaryClusterInstance",
+        primary_cluster_instance = aws.rds.cluster_instance.ClusterInstance("primaryClusterInstance",
             engine=example.engine,
             engine_version=example.engine_version,
-            identifier="test-primary-cluster-instance",
+            identifier=test-primary-cluster-instance,
             cluster_identifier=primary_cluster.id,
-            instance_class="db.r4.large",
-            db_subnet_group_name="default",
+            instance_class=db.r4.large,
+            db_subnet_group_name=default,
             opts=pulumi.ResourceOptions(provider=aws["primary"]))
-        secondary_cluster = aws.rds.Cluster("secondaryCluster",
+        secondary_cluster = aws.rds.cluster.Cluster("secondaryCluster",
             engine=example.engine,
             engine_version=example.engine_version,
-            cluster_identifier="test-secondary-cluster",
+            cluster_identifier=test-secondary-cluster,
             global_cluster_identifier=example.id,
             skip_final_snapshot=True,
-            db_subnet_group_name="default",
+            db_subnet_group_name=default,
             opts=pulumi.ResourceOptions(provider=aws["secondary"],
                 depends_on=[primary_cluster_instance]))
-        secondary_cluster_instance = aws.rds.ClusterInstance("secondaryClusterInstance",
+        secondary_cluster_instance = aws.rds.cluster_instance.ClusterInstance("secondaryClusterInstance",
             engine=example.engine,
             engine_version=example.engine_version,
-            identifier="test-secondary-cluster-instance",
+            identifier=test-secondary-cluster-instance,
             cluster_identifier=secondary_cluster.id,
-            instance_class="db.r4.large",
-            db_subnet_group_name="default",
+            instance_class=db.r4.large,
+            db_subnet_group_name=default,
             opts=pulumi.ResourceOptions(provider=aws["secondary"]))
         ```
         ### New Global Cluster From Existing DB Cluster
@@ -640,10 +640,10 @@ class GlobalCluster(pulumi.CustomResource):
         import pulumi_aws as aws
 
         # ... other configuration ...
-        example_cluster = aws.rds.Cluster("exampleCluster")
-        example_global_cluster = aws.rds.GlobalCluster("exampleGlobalCluster",
+        example_cluster = aws.rds.cluster.Cluster("exampleCluster")
+        example_global_cluster = aws.rds.global_cluster.GlobalCluster("exampleGlobalCluster",
             force_destroy=True,
-            global_cluster_identifier="example",
+            global_cluster_identifier=example,
             source_db_cluster_identifier=example_cluster.arn)
         ```
         ### Upgrading Engine Versions
@@ -654,28 +654,28 @@ class GlobalCluster(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.rds.GlobalCluster("example",
-            global_cluster_identifier="kyivkharkiv",
-            engine="aurora-mysql",
-            engine_version="5.7.mysql_aurora.2.07.5")
-        primary_cluster = aws.rds.Cluster("primaryCluster",
+        example = aws.rds.global_cluster.GlobalCluster("example",
+            global_cluster_identifier=kyivkharkiv,
+            engine=aurora-mysql,
+            engine_version=5.7.mysql_aurora.2.07.5)
+        primary_cluster = aws.rds.cluster.Cluster("primaryCluster",
             allow_major_version_upgrade=True,
             apply_immediately=True,
-            cluster_identifier="odessadnipro",
-            database_name="totoro",
+            cluster_identifier=odessadnipro,
+            database_name=totoro,
             engine=example.engine,
             engine_version=example.engine_version,
             global_cluster_identifier=example.id,
-            master_password="satsukimae",
-            master_username="maesatsuki",
+            master_password=satsukimae,
+            master_username=maesatsuki,
             skip_final_snapshot=True)
-        primary_cluster_instance = aws.rds.ClusterInstance("primaryClusterInstance",
+        primary_cluster_instance = aws.rds.cluster_instance.ClusterInstance("primaryClusterInstance",
             apply_immediately=True,
             cluster_identifier=primary_cluster.id,
             engine=primary_cluster.engine,
             engine_version=primary_cluster.engine_version,
-            identifier="donetsklviv",
-            instance_class="db.r4.large")
+            identifier=donetsklviv,
+            instance_class=db.r4.large)
         ```
 
         ## Import

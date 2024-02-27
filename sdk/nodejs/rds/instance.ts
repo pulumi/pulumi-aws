@@ -52,7 +52,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const _default = new aws.rds.Instance("default", {
+ * const _default = new aws.rds/instance.Instance("default", {
  *     allocatedStorage: 10,
  *     dbName: "mydb",
  *     engine: "mysql",
@@ -64,56 +64,6 @@ import * as utilities from "../utilities";
  *     username: "foo",
  * });
  * ```
- * ### RDS Db2 Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const default = aws.rds.getEngineVersion({
- *     engine: "db2-se",
- * });
- * const exampleOrderableDbInstance = Promise.all([_default, _default]).then(([_default, _default1]) => aws.rds.getOrderableDbInstance({
- *     engine: _default.engine,
- *     engineVersion: _default1.version,
- *     licenseModel: "bring-your-own-license",
- *     storageType: "gp3",
- *     preferredInstanceClasses: [
- *         "db.t3.small",
- *         "db.r6i.large",
- *         "db.m6i.large",
- *     ],
- * }));
- * // The RDS Db2 instance resource requires licensing information. Create a new parameter group using the default paramater group as a source, and set license information.
- * const exampleParameterGroup = new aws.rds.ParameterGroup("exampleParameterGroup", {
- *     family: _default.then(_default => _default.parameterGroupFamily),
- *     parameters: [
- *         {
- *             applyMethod: "immediate",
- *             name: "rds.ibm_customer_id",
- *             value: "0",
- *         },
- *         {
- *             applyMethod: "immediate",
- *             name: "rds.ibm_site_id",
- *             value: "0",
- *         },
- *     ],
- * });
- * // Create the RDS Db2 instance, use the data sources defined to set attributes
- * const exampleInstance = new aws.rds.Instance("exampleInstance", {
- *     allocatedStorage: 100,
- *     backupRetentionPeriod: 7,
- *     dbName: "test",
- *     engine: exampleOrderableDbInstance.then(exampleOrderableDbInstance => exampleOrderableDbInstance.engine),
- *     engineVersion: exampleOrderableDbInstance.then(exampleOrderableDbInstance => exampleOrderableDbInstance.engineVersion),
- *     identifier: "db2-instance-demo",
- *     instanceClass: exampleOrderableDbInstance.then(exampleOrderableDbInstance => exampleOrderableDbInstance.instanceClass).apply((x) => aws.rds.instancetype.InstanceType[x]),
- *     parameterGroupName: exampleParameterGroup.name,
- *     password: "avoid-plaintext-passwords",
- *     username: "test",
- * });
- * ```
  * ### Storage Autoscaling
  *
  * To enable Storage Autoscaling with instances that support the feature, define the `maxAllocatedStorage` argument higher than the `allocatedStorage` argument. This provider will automatically hide differences with the `allocatedStorage` argument value if autoscaling occurs.
@@ -122,7 +72,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.rds.Instance("example", {
+ * const example = new aws.rds/instance.Instance("example", {
  *     allocatedStorage: 50,
  *     maxAllocatedStorage: 100,
  * });
@@ -137,7 +87,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const _default = new aws.rds.Instance("default", {
+ * const _default = new aws.rds/instance.Instance("default", {
  *     allocatedStorage: 10,
  *     dbName: "mydb",
  *     engine: "mysql",
@@ -158,8 +108,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.kms.Key("example", {description: "Example KMS Key"});
- * const _default = new aws.rds.Instance("default", {
+ * const example = new aws.kms/key.Key("example", {description: "Example KMS Key"});
+ * const _default = new aws.rds/instance.Instance("default", {
  *     allocatedStorage: 10,
  *     dbName: "mydb",
  *     engine: "mysql",

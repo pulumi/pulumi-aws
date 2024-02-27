@@ -277,17 +277,17 @@ class DataIntegration(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.appintegrations.DataIntegration("example",
-            description="example",
-            kms_key=aws_kms_key["test"]["arn"],
-            source_uri="Salesforce://AppFlow/example",
-            schedule_config=aws.appintegrations.DataIntegrationScheduleConfigArgs(
-                first_execution_from="1439788442681",
-                object="Account",
-                schedule_expression="rate(1 hour)",
-            ),
+        example = aws.appintegrations.data_integration.DataIntegration("example",
+            description=example,
+            kms_key=aws_kms_key.test.arn,
+            source_uri=Salesforce://AppFlow/example,
+            schedule_config={
+                firstExecutionFrom: 1439788442681,
+                object: Account,
+                scheduleExpression: rate(1 hour),
+            },
             tags={
-                "Key1": "Value1",
+                Key1: Value1,
             })
         ```
 
@@ -323,17 +323,17 @@ class DataIntegration(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.appintegrations.DataIntegration("example",
-            description="example",
-            kms_key=aws_kms_key["test"]["arn"],
-            source_uri="Salesforce://AppFlow/example",
-            schedule_config=aws.appintegrations.DataIntegrationScheduleConfigArgs(
-                first_execution_from="1439788442681",
-                object="Account",
-                schedule_expression="rate(1 hour)",
-            ),
+        example = aws.appintegrations.data_integration.DataIntegration("example",
+            description=example,
+            kms_key=aws_kms_key.test.arn,
+            source_uri=Salesforce://AppFlow/example,
+            schedule_config={
+                firstExecutionFrom: 1439788442681,
+                object: Account,
+                scheduleExpression: rate(1 hour),
+            },
             tags={
-                "Key1": "Value1",
+                Key1: Value1,
             })
         ```
 

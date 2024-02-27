@@ -28,10 +28,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.directoryservice.Directory;
  * import com.pulumi.aws.directoryservice.DirectoryArgs;
- * import com.pulumi.aws.directoryservice.inputs.DirectoryVpcSettingsArgs;
  * import com.pulumi.aws.directoryservice.SharedDirectory;
  * import com.pulumi.aws.directoryservice.SharedDirectoryArgs;
- * import com.pulumi.aws.directoryservice.inputs.SharedDirectoryTargetArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -50,18 +48,13 @@ import javax.annotation.Nullable;
  *             .password(&#34;SuperSecretPassw0rd&#34;)
  *             .type(&#34;MicrosoftAD&#34;)
  *             .edition(&#34;Standard&#34;)
- *             .vpcSettings(DirectoryVpcSettingsArgs.builder()
- *                 .vpcId(aws_vpc.example().id())
- *                 .subnetIds(aws_subnet.example().stream().map(element -&gt; element.id()).collect(toList()))
- *                 .build())
+ *             .vpcSettings(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleSharedDirectory = new SharedDirectory(&#34;exampleSharedDirectory&#34;, SharedDirectoryArgs.builder()        
  *             .directoryId(exampleDirectory.id())
  *             .notes(&#34;You wanna have a catch?&#34;)
- *             .target(SharedDirectoryTargetArgs.builder()
- *                 .id(data.aws_caller_identity().receiver().account_id())
- *                 .build())
+ *             .target(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

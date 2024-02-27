@@ -603,16 +603,16 @@ class Fleet(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.gamelift.Fleet("example",
-            build_id=aws_gamelift_build["example"]["id"],
-            ec2_instance_type="t2.micro",
-            fleet_type="ON_DEMAND",
-            runtime_configuration=aws.gamelift.FleetRuntimeConfigurationArgs(
-                server_processes=[aws.gamelift.FleetRuntimeConfigurationServerProcessArgs(
-                    concurrent_executions=1,
-                    launch_path="C:\\\\game\\\\GomokuServer.exe",
-                )],
-            ))
+        example = aws.gamelift.fleet.Fleet("example",
+            build_id=aws_gamelift_build.example.id,
+            ec2_instance_type=t2.micro,
+            fleet_type=ON_DEMAND,
+            runtime_configuration={
+                serverProcesses: [{
+                    concurrentExecutions: 1,
+                    launchPath: C:\\game\\GomokuServer.exe,
+                }],
+            })
         ```
 
         ## Import
@@ -655,16 +655,16 @@ class Fleet(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.gamelift.Fleet("example",
-            build_id=aws_gamelift_build["example"]["id"],
-            ec2_instance_type="t2.micro",
-            fleet_type="ON_DEMAND",
-            runtime_configuration=aws.gamelift.FleetRuntimeConfigurationArgs(
-                server_processes=[aws.gamelift.FleetRuntimeConfigurationServerProcessArgs(
-                    concurrent_executions=1,
-                    launch_path="C:\\\\game\\\\GomokuServer.exe",
-                )],
-            ))
+        example = aws.gamelift.fleet.Fleet("example",
+            build_id=aws_gamelift_build.example.id,
+            ec2_instance_type=t2.micro,
+            fleet_type=ON_DEMAND,
+            runtime_configuration={
+                serverProcesses: [{
+                    concurrentExecutions: 1,
+                    launchPath: C:\\game\\GomokuServer.exe,
+                }],
+            })
         ```
 
         ## Import

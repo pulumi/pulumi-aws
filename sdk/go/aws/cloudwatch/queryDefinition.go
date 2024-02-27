@@ -21,27 +21,25 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
+//	cloudwatch/queryDefinition "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/cloudwatch/queryDefinition"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cloudwatch.NewQueryDefinition(ctx, "example", &cloudwatch.QueryDefinitionArgs{
-//				LogGroupNames: pulumi.StringArray{
-//					pulumi.String("/aws/logGroup1"),
-//					pulumi.String("/aws/logGroup2"),
-//				},
-//				QueryString: pulumi.String("fields @timestamp, @message\n| sort @timestamp desc\n| limit 25\n\n"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := cloudwatch/queryDefinition.NewQueryDefinition(ctx, "example", &cloudwatch/queryDefinition.QueryDefinitionArgs{
+// LogGroupNames: []string{
+// "/aws/logGroup1",
+// "/aws/logGroup2",
+// },
+// QueryString: "fields @timestamp, @message\n| sort @timestamp desc\n| limit 25\n\n",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

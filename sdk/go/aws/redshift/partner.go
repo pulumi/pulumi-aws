@@ -21,26 +21,24 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/redshift"
+//	redshift/partner "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/redshift/partner"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := redshift.NewPartner(ctx, "example", &redshift.PartnerArgs{
-//				ClusterIdentifier: pulumi.Any(aws_redshift_cluster.Example.Id),
-//				AccountId:         pulumi.String("1234567910"),
-//				DatabaseName:      pulumi.Any(aws_redshift_cluster.Example.Database_name),
-//				PartnerName:       pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := redshift/partner.NewPartner(ctx, "example", &redshift/partner.PartnerArgs{
+// ClusterIdentifier: aws_redshift_cluster.Example.Id,
+// AccountId: 1234567910,
+// DatabaseName: aws_redshift_cluster.Example.Database_name,
+// PartnerName: "example",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

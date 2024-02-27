@@ -74,120 +74,14 @@ import javax.annotation.Nullable;
  *             .cacheKeyParameters(&#34;method.request.path.param&#34;)
  *             .cacheNamespace(&#34;foobar&#34;)
  *             .timeoutMilliseconds(29000)
- *             .requestParameters(Map.of(&#34;integration.request.header.X-Authorization&#34;, &#34;&#39;static&#39;&#34;))
- *             .requestTemplates(Map.of(&#34;application/xml&#34;, &#34;&#34;&#34;
- * {
- *    &#34;body&#34; : $input.json(&#39;$&#39;)
- * }
- *             &#34;&#34;&#34;))
+ *             .requestParameters(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .requestTemplates(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
  * }
  * ```
- * ## Lambda integration
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.apigateway.RestApi;
- * import com.pulumi.aws.apigateway.Resource;
- * import com.pulumi.aws.apigateway.ResourceArgs;
- * import com.pulumi.aws.apigateway.Method;
- * import com.pulumi.aws.apigateway.MethodArgs;
- * import com.pulumi.aws.iam.IamFunctions;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
- * import com.pulumi.aws.iam.Role;
- * import com.pulumi.aws.iam.RoleArgs;
- * import com.pulumi.aws.lambda.Function;
- * import com.pulumi.aws.lambda.FunctionArgs;
- * import com.pulumi.aws.apigateway.Integration;
- * import com.pulumi.aws.apigateway.IntegrationArgs;
- * import com.pulumi.aws.lambda.Permission;
- * import com.pulumi.aws.lambda.PermissionArgs;
- * import com.pulumi.asset.FileArchive;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var config = ctx.config();
- *         final var myregion = config.get(&#34;myregion&#34;);
- *         final var accountId = config.get(&#34;accountId&#34;);
- *         var api = new RestApi(&#34;api&#34;);
- * 
- *         var resource = new Resource(&#34;resource&#34;, ResourceArgs.builder()        
- *             .pathPart(&#34;resource&#34;)
- *             .parentId(api.rootResourceId())
- *             .restApi(api.id())
- *             .build());
- * 
- *         var method = new Method(&#34;method&#34;, MethodArgs.builder()        
- *             .restApi(api.id())
- *             .resourceId(resource.id())
- *             .httpMethod(&#34;GET&#34;)
- *             .authorization(&#34;NONE&#34;)
- *             .build());
- * 
- *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect(&#34;Allow&#34;)
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type(&#34;Service&#34;)
- *                     .identifiers(&#34;lambda.amazonaws.com&#34;)
- *                     .build())
- *                 .actions(&#34;sts:AssumeRole&#34;)
- *                 .build())
- *             .build());
- * 
- *         var role = new Role(&#34;role&#34;, RoleArgs.builder()        
- *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
- *             .build());
- * 
- *         var lambda = new Function(&#34;lambda&#34;, FunctionArgs.builder()        
- *             .code(new FileArchive(&#34;lambda.zip&#34;))
- *             .role(role.arn())
- *             .handler(&#34;lambda.lambda_handler&#34;)
- *             .runtime(&#34;python3.7&#34;)
- *             .build());
- * 
- *         var integration = new Integration(&#34;integration&#34;, IntegrationArgs.builder()        
- *             .restApi(api.id())
- *             .resourceId(resource.id())
- *             .httpMethod(method.httpMethod())
- *             .integrationHttpMethod(&#34;POST&#34;)
- *             .type(&#34;AWS_PROXY&#34;)
- *             .uri(lambda.invokeArn())
- *             .build());
- * 
- *         var apigwLambda = new Permission(&#34;apigwLambda&#34;, PermissionArgs.builder()        
- *             .action(&#34;lambda:InvokeFunction&#34;)
- *             .function(lambda.name())
- *             .principal(&#34;apigateway.amazonaws.com&#34;)
- *             .sourceArn(Output.tuple(api.id(), method.httpMethod(), resource.path()).applyValue(values -&gt; {
- *                 var id = values.t1;
- *                 var httpMethod = values.t2;
- *                 var path = values.t3;
- *                 return String.format(&#34;arn:aws:execute-api:%s:%s:%s/*{@literal /}%s%s&#34;, myregion,accountId,id,httpMethod,path);
- *             }))
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
  * ## VPC Link
- * 
  * ```java
  * package generated_program;
  * 
@@ -196,8 +90,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.lb.LoadBalancer;
  * import com.pulumi.aws.lb.LoadBalancerArgs;
- * import com.pulumi.aws.apigateway.VpcLink;
- * import com.pulumi.aws.apigateway.VpcLinkArgs;
+ * import com.pulumi.aws.apigateway_vpcLink.VpcLink;
+ * import com.pulumi.aws.apigateway_vpcLink.VpcLinkArgs;
  * import com.pulumi.aws.apigateway.RestApi;
  * import com.pulumi.aws.apigateway.Resource;
  * import com.pulumi.aws.apigateway.ResourceArgs;
@@ -244,23 +138,15 @@ import javax.annotation.Nullable;
  *             .resourceId(testResource.id())
  *             .httpMethod(&#34;GET&#34;)
  *             .authorization(&#34;NONE&#34;)
- *             .requestModels(Map.of(&#34;application/json&#34;, &#34;Error&#34;))
+ *             .requestModels(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var testIntegration = new Integration(&#34;testIntegration&#34;, IntegrationArgs.builder()        
  *             .restApi(testRestApi.id())
  *             .resourceId(testResource.id())
  *             .httpMethod(testMethod.httpMethod())
- *             .requestTemplates(Map.ofEntries(
- *                 Map.entry(&#34;application/json&#34;, &#34;&#34;),
- *                 Map.entry(&#34;application/xml&#34;, &#34;&#34;&#34;
- * #set($inputRoot = $input.path(&#39;$&#39;))
- * { }                &#34;&#34;&#34;)
- *             ))
- *             .requestParameters(Map.ofEntries(
- *                 Map.entry(&#34;integration.request.header.X-Authorization&#34;, &#34;&#39;static&#39;&#34;),
- *                 Map.entry(&#34;integration.request.header.X-Foo&#34;, &#34;&#39;Bar&#39;&#34;)
- *             ))
+ *             .requestTemplates(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .requestParameters(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .type(&#34;HTTP&#34;)
  *             .uri(&#34;https://www.google.de&#34;)
  *             .integrationHttpMethod(&#34;GET&#34;)

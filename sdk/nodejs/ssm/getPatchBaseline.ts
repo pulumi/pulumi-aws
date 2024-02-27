@@ -9,35 +9,6 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an SSM Patch Baseline data source. Useful if you wish to reuse the default baselines provided.
- *
- * ## Example Usage
- *
- * To retrieve a baseline provided by AWS:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const centos = aws.ssm.getPatchBaseline({
- *     namePrefix: "AWS-",
- *     operatingSystem: "CENTOS",
- *     owner: "AWS",
- * });
- * ```
- *
- * To retrieve a baseline on your account:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const defaultCustom = aws.ssm.getPatchBaseline({
- *     defaultBaseline: true,
- *     namePrefix: "MyCustomBaseline",
- *     operatingSystem: "WINDOWS",
- *     owner: "Self",
- * });
- * ```
  */
 export function getPatchBaseline(args: GetPatchBaselineArgs, opts?: pulumi.InvokeOptions): Promise<GetPatchBaselineResult> {
 
@@ -133,35 +104,6 @@ export interface GetPatchBaselineResult {
 }
 /**
  * Provides an SSM Patch Baseline data source. Useful if you wish to reuse the default baselines provided.
- *
- * ## Example Usage
- *
- * To retrieve a baseline provided by AWS:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const centos = aws.ssm.getPatchBaseline({
- *     namePrefix: "AWS-",
- *     operatingSystem: "CENTOS",
- *     owner: "AWS",
- * });
- * ```
- *
- * To retrieve a baseline on your account:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const defaultCustom = aws.ssm.getPatchBaseline({
- *     defaultBaseline: true,
- *     namePrefix: "MyCustomBaseline",
- *     operatingSystem: "WINDOWS",
- *     owner: "Self",
- * });
- * ```
  */
 export function getPatchBaselineOutput(args: GetPatchBaselineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPatchBaselineResult> {
     return pulumi.output(args).apply((a: any) => getPatchBaseline(a, opts))

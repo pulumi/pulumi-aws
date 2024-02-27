@@ -25,12 +25,12 @@ namespace Pulumi.Aws.LB
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var main = new Aws.Ec2.Vpc("main", new()
+    ///     var main = new Aws.Ec2.Vpc.Vpc("main", new()
     ///     {
     ///         CidrBlock = "10.0.0.0/16",
     ///     });
     /// 
-    ///     var test = new Aws.LB.TargetGroup("test", new()
+    ///     var test = new Aws.Lb.TargetGroup.TargetGroup("test", new()
     ///     {
     ///         Port = 80,
     ///         Protocol = "HTTP",
@@ -49,12 +49,12 @@ namespace Pulumi.Aws.LB
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var main = new Aws.Ec2.Vpc("main", new()
+    ///     var main = new Aws.Ec2.Vpc.Vpc("main", new()
     ///     {
     ///         CidrBlock = "10.0.0.0/16",
     ///     });
     /// 
-    ///     var ip_example = new Aws.LB.TargetGroup("ip-example", new()
+    ///     var ip_example = new Aws.Lb.TargetGroup.TargetGroup("ip-example", new()
     ///     {
     ///         Port = 80,
     ///         Protocol = "HTTP",
@@ -74,7 +74,7 @@ namespace Pulumi.Aws.LB
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var lambda_example = new Aws.LB.TargetGroup("lambda-example", new()
+    ///     var lambda_example = new Aws.Lb.TargetGroup.TargetGroup("lambda-example", new()
     ///     {
     ///         TargetType = "lambda",
     ///     });
@@ -91,7 +91,7 @@ namespace Pulumi.Aws.LB
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var alb_example = new Aws.LB.TargetGroup("alb-example", new()
+    ///     var alb_example = new Aws.Lb.TargetGroup.TargetGroup("alb-example", new()
     ///     {
     ///         TargetType = "alb",
     ///         Port = 80,
@@ -111,16 +111,16 @@ namespace Pulumi.Aws.LB
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var tcp_example = new Aws.LB.TargetGroup("tcp-example", new()
+    ///     var tcp_example = new Aws.Lb.TargetGroup.TargetGroup("tcp-example", new()
     ///     {
     ///         Port = 25,
     ///         Protocol = "TCP",
     ///         VpcId = aws_vpc.Main.Id,
     ///         TargetHealthStates = new[]
     ///         {
-    ///             new Aws.LB.Inputs.TargetGroupTargetHealthStateArgs
+    ///             
     ///             {
-    ///                 EnableUnhealthyConnectionTermination = false,
+    ///                 { "enableUnhealthyConnectionTermination", false },
     ///             },
     ///         },
     ///     });

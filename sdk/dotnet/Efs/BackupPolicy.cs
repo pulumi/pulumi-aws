@@ -23,14 +23,14 @@ namespace Pulumi.Aws.Efs
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var fs = new Aws.Efs.FileSystem("fs");
+    ///     var fs = new Aws.Efs.FileSystem.FileSystem("fs");
     /// 
-    ///     var policy = new Aws.Efs.BackupPolicy("policy", new()
+    ///     var policy = new Aws.Efs.BackupPolicy.BackupPolicy("policy", new()
     ///     {
     ///         FileSystemId = fs.Id,
-    ///         BackupPolicyDetails = new Aws.Efs.Inputs.BackupPolicyBackupPolicyArgs
+    ///         BackupPolicy = 
     ///         {
-    ///             Status = "ENABLED",
+    ///             { "status", "ENABLED" },
     ///         },
     ///     });
     /// 

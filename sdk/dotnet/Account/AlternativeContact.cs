@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Account
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var operations = new Aws.Account.AlternativeContact("operations", new()
+    ///     var operations = new Aws.Account.AlternativeContact.AlternativeContact("operations", new()
     ///     {
     ///         AlternateContactType = "OPERATIONS",
     ///         EmailAddress = "test@example.com",

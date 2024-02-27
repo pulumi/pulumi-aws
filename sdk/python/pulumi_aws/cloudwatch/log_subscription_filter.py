@@ -237,12 +237,12 @@ class LogSubscriptionFilter(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_lambdafunction_logfilter = aws.cloudwatch.LogSubscriptionFilter("testLambdafunctionLogfilter",
-            role_arn=aws_iam_role["iam_for_lambda"]["arn"],
-            log_group="/aws/lambda/example_lambda_name",
-            filter_pattern="logtype test",
-            destination_arn=aws_kinesis_stream["test_logstream"]["arn"],
-            distribution="Random")
+        test_lambdafunction_logfilter = aws.cloudwatch.log_subscription_filter.LogSubscriptionFilter("testLambdafunctionLogfilter",
+            role_arn=aws_iam_role.iam_for_lambda.arn,
+            log_group=/aws/lambda/example_lambda_name,
+            filter_pattern=logtype test,
+            destination_arn=aws_kinesis_stream.test_logstream.arn,
+            distribution=Random)
         ```
 
         ## Import
@@ -277,12 +277,12 @@ class LogSubscriptionFilter(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_lambdafunction_logfilter = aws.cloudwatch.LogSubscriptionFilter("testLambdafunctionLogfilter",
-            role_arn=aws_iam_role["iam_for_lambda"]["arn"],
-            log_group="/aws/lambda/example_lambda_name",
-            filter_pattern="logtype test",
-            destination_arn=aws_kinesis_stream["test_logstream"]["arn"],
-            distribution="Random")
+        test_lambdafunction_logfilter = aws.cloudwatch.log_subscription_filter.LogSubscriptionFilter("testLambdafunctionLogfilter",
+            role_arn=aws_iam_role.iam_for_lambda.arn,
+            log_group=/aws/lambda/example_lambda_name,
+            filter_pattern=logtype test,
+            destination_arn=aws_kinesis_stream.test_logstream.arn,
+            distribution=Random)
         ```
 
         ## Import

@@ -271,20 +271,6 @@ class Policy(pulumi.CustomResource):
         """
         Provides a resource to manage an [AWS Organizations policy](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies.html).
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            actions=["*"],
-            resources=["*"],
-        )])
-        example_policy = aws.organizations.Policy("examplePolicy", content=example_policy_document.json)
-        ```
-
         ## Import
 
         Using `pulumi import`, import `aws_organizations_policy` using the policy ID. For example:
@@ -310,20 +296,6 @@ class Policy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a resource to manage an [AWS Organizations policy](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies.html).
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            actions=["*"],
-            resources=["*"],
-        )])
-        example_policy = aws.organizations.Policy("examplePolicy", content=example_policy_document.json)
-        ```
 
         ## Import
 

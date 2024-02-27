@@ -27,14 +27,14 @@ namespace Pulumi.Aws.Inspector2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Inspector2.OrganizationConfiguration("example", new()
+    ///     var example = new Aws.Inspector2.OrganizationConfiguration.OrganizationConfiguration("example", new()
     ///     {
-    ///         AutoEnable = new Aws.Inspector2.Inputs.OrganizationConfigurationAutoEnableArgs
+    ///         AutoEnable = 
     ///         {
-    ///             Ec2 = true,
-    ///             Ecr = false,
-    ///             Lambda = true,
-    ///             LambdaCode = true,
+    ///             { "ec2", true },
+    ///             { "ecr", false },
+    ///             { "lambda", true },
+    ///             { "lambdaCode", true },
     ///         },
     ///     });
     /// 

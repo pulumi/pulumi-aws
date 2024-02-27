@@ -31,7 +31,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.memorydb.ParameterGroup;
  * import com.pulumi.aws.memorydb.ParameterGroupArgs;
- * import com.pulumi.aws.memorydb.inputs.ParameterGroupParameterArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -47,10 +46,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new ParameterGroup(&#34;example&#34;, ParameterGroupArgs.builder()        
  *             .family(&#34;memorydb_redis6&#34;)
- *             .parameters(ParameterGroupParameterArgs.builder()
- *                 .name(&#34;activedefrag&#34;)
- *                 .value(&#34;yes&#34;)
- *                 .build())
+ *             .parameters(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

@@ -191,63 +191,6 @@ class ServerlessAccessPolicy(pulumi.CustomResource):
         Resource for managing an AWS OpenSearch Serverless Access Policy. See AWS documentation for [data access policies](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-data-access.html) and [supported data access policy permissions](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-data-access.html#serverless-data-supported-permissions).
 
         ## Example Usage
-        ### Grant all collection and index permissions
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        current = aws.get_caller_identity()
-        example = aws.opensearch.ServerlessAccessPolicy("example",
-            type="data",
-            description="read and write permissions",
-            policy=json.dumps([{
-                "Rules": [
-                    {
-                        "ResourceType": "index",
-                        "Resource": ["index/example-collection/*"],
-                        "Permission": ["aoss:*"],
-                    },
-                    {
-                        "ResourceType": "collection",
-                        "Resource": ["collection/example-collection"],
-                        "Permission": ["aoss:*"],
-                    },
-                ],
-                "Principal": [current.arn],
-            }]))
-        ```
-        ### Grant read-only collection and index permissions
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        current = aws.get_caller_identity()
-        example = aws.opensearch.ServerlessAccessPolicy("example",
-            type="data",
-            description="read-only permissions",
-            policy=json.dumps([{
-                "Rules": [
-                    {
-                        "ResourceType": "index",
-                        "Resource": ["index/example-collection/*"],
-                        "Permission": [
-                            "aoss:DescribeIndex",
-                            "aoss:ReadDocument",
-                        ],
-                    },
-                    {
-                        "ResourceType": "collection",
-                        "Resource": ["collection/example-collection"],
-                        "Permission": ["aoss:DescribeCollectionItems"],
-                    },
-                ],
-                "Principal": [current.arn],
-            }]))
-        ```
         ### Grant SAML identity permissions
 
         ```python
@@ -255,25 +198,25 @@ class ServerlessAccessPolicy(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        example = aws.opensearch.ServerlessAccessPolicy("example",
-            type="data",
-            description="saml permissions",
+        example = aws.opensearch.serverless_access_policy.ServerlessAccessPolicy("example",
+            type=data,
+            description=saml permissions,
             policy=json.dumps([{
-                "Rules": [
+                Rules: [
                     {
-                        "ResourceType": "index",
-                        "Resource": ["index/example-collection/*"],
-                        "Permission": ["aoss:*"],
+                        ResourceType: index,
+                        Resource: [index/example-collection/*],
+                        Permission: [aoss:*],
                     },
                     {
-                        "ResourceType": "collection",
-                        "Resource": ["collection/example-collection"],
-                        "Permission": ["aoss:*"],
+                        ResourceType: collection,
+                        Resource: [collection/example-collection],
+                        Permission: [aoss:*],
                     },
                 ],
-                "Principal": [
-                    "saml/123456789012/myprovider/user/Annie",
-                    "saml/123456789012/anotherprovider/group/Accounting",
+                Principal: [
+                    saml/123456789012/myprovider/user/Annie,
+                    saml/123456789012/anotherprovider/group/Accounting,
                 ],
             }]))
         ```
@@ -305,63 +248,6 @@ class ServerlessAccessPolicy(pulumi.CustomResource):
         Resource for managing an AWS OpenSearch Serverless Access Policy. See AWS documentation for [data access policies](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-data-access.html) and [supported data access policy permissions](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-data-access.html#serverless-data-supported-permissions).
 
         ## Example Usage
-        ### Grant all collection and index permissions
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        current = aws.get_caller_identity()
-        example = aws.opensearch.ServerlessAccessPolicy("example",
-            type="data",
-            description="read and write permissions",
-            policy=json.dumps([{
-                "Rules": [
-                    {
-                        "ResourceType": "index",
-                        "Resource": ["index/example-collection/*"],
-                        "Permission": ["aoss:*"],
-                    },
-                    {
-                        "ResourceType": "collection",
-                        "Resource": ["collection/example-collection"],
-                        "Permission": ["aoss:*"],
-                    },
-                ],
-                "Principal": [current.arn],
-            }]))
-        ```
-        ### Grant read-only collection and index permissions
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        current = aws.get_caller_identity()
-        example = aws.opensearch.ServerlessAccessPolicy("example",
-            type="data",
-            description="read-only permissions",
-            policy=json.dumps([{
-                "Rules": [
-                    {
-                        "ResourceType": "index",
-                        "Resource": ["index/example-collection/*"],
-                        "Permission": [
-                            "aoss:DescribeIndex",
-                            "aoss:ReadDocument",
-                        ],
-                    },
-                    {
-                        "ResourceType": "collection",
-                        "Resource": ["collection/example-collection"],
-                        "Permission": ["aoss:DescribeCollectionItems"],
-                    },
-                ],
-                "Principal": [current.arn],
-            }]))
-        ```
         ### Grant SAML identity permissions
 
         ```python
@@ -369,25 +255,25 @@ class ServerlessAccessPolicy(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        example = aws.opensearch.ServerlessAccessPolicy("example",
-            type="data",
-            description="saml permissions",
+        example = aws.opensearch.serverless_access_policy.ServerlessAccessPolicy("example",
+            type=data,
+            description=saml permissions,
             policy=json.dumps([{
-                "Rules": [
+                Rules: [
                     {
-                        "ResourceType": "index",
-                        "Resource": ["index/example-collection/*"],
-                        "Permission": ["aoss:*"],
+                        ResourceType: index,
+                        Resource: [index/example-collection/*],
+                        Permission: [aoss:*],
                     },
                     {
-                        "ResourceType": "collection",
-                        "Resource": ["collection/example-collection"],
-                        "Permission": ["aoss:*"],
+                        ResourceType: collection,
+                        Resource: [collection/example-collection],
+                        Permission: [aoss:*],
                     },
                 ],
-                "Principal": [
-                    "saml/123456789012/myprovider/user/Annie",
-                    "saml/123456789012/anotherprovider/group/Accounting",
+                Principal: [
+                    saml/123456789012/myprovider/user/Annie,
+                    saml/123456789012/anotherprovider/group/Accounting,
                 ],
             }]))
         ```

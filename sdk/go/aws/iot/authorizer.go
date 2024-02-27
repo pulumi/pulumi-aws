@@ -23,37 +23,36 @@ import (
 //
 //	"os"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iot"
+//	iot/authorizer "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/iot/authorizer"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func readFileOrPanic(path string) pulumi.StringPtrInput {
-//		data, err := os.ReadFile(path)
-//		if err != nil {
-//			panic(err.Error())
-//		}
-//		return pulumi.String(string(data))
-//	}
+//					data, err := os.ReadFile(path)
+//					if err != nil {
+//						panic(err.Error())
+//					}
+//					return pulumi.String(string(data))
+//				}
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := iot.NewAuthorizer(ctx, "example", &iot.AuthorizerArgs{
-//				AuthorizerFunctionArn: pulumi.Any(aws_lambda_function.Example.Arn),
-//				SigningDisabled:       pulumi.Bool(false),
-//				Status:                pulumi.String("ACTIVE"),
-//				TokenKeyName:          pulumi.String("Token-Header"),
-//				TokenSigningPublicKeys: pulumi.StringMap{
-//					"Key1": readFileOrPanic("test-fixtures/iot-authorizer-signing-key.pem"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := iot/authorizer.NewAuthorizer(ctx, "example", &iot/authorizer.AuthorizerArgs{
+// AuthorizerFunctionArn: aws_lambda_function.Example.Arn,
+// SigningDisabled: false,
+// Status: "ACTIVE",
+// TokenKeyName: "Token-Header",
+// TokenSigningPublicKeys: map[string]interface{}{
+// "Key1": readFileOrPanic("test-fixtures/iot-authorizer-signing-key.pem"),
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

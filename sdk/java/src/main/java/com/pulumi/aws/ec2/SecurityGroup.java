@@ -60,7 +60,7 @@ import javax.annotation.Nullable;
  *         var allowTls = new SecurityGroup(&#34;allowTls&#34;, SecurityGroupArgs.builder()        
  *             .description(&#34;Allow TLS inbound traffic and all outbound traffic&#34;)
  *             .vpcId(aws_vpc.main().id())
- *             .tags(Map.of(&#34;Name&#34;, &#34;allow_tls&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var allowTlsIpv4 = new SecurityGroupIngressRule(&#34;allowTlsIpv4&#34;, SecurityGroupIngressRuleArgs.builder()        
@@ -104,7 +104,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.ec2.SecurityGroup;
  * import com.pulumi.aws.ec2.SecurityGroupArgs;
- * import com.pulumi.aws.ec2.inputs.SecurityGroupEgressArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -119,13 +118,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new SecurityGroup(&#34;example&#34;, SecurityGroupArgs.builder()        
- *             .egress(SecurityGroupEgressArgs.builder()
- *                 .cidrBlocks(&#34;0.0.0.0/0&#34;)
- *                 .fromPort(0)
- *                 .ipv6CidrBlocks(&#34;::/0&#34;)
- *                 .protocol(&#34;-1&#34;)
- *                 .toPort(0)
- *                 .build())
+ *             .egress(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -143,10 +136,9 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.ec2.VpcEndpoint;
+ * import com.pulumi.aws.ec2_vpcEndpoint.VpcEndpoint;
  * import com.pulumi.aws.ec2.SecurityGroup;
  * import com.pulumi.aws.ec2.SecurityGroupArgs;
- * import com.pulumi.aws.ec2.inputs.SecurityGroupEgressArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -163,12 +155,7 @@ import javax.annotation.Nullable;
  *         var myEndpoint = new VpcEndpoint(&#34;myEndpoint&#34;);
  * 
  *         var example = new SecurityGroup(&#34;example&#34;, SecurityGroupArgs.builder()        
- *             .egress(SecurityGroupEgressArgs.builder()
- *                 .fromPort(0)
- *                 .toPort(0)
- *                 .protocol(&#34;-1&#34;)
- *                 .prefixListIds(myEndpoint.prefixListId())
- *                 .build())
+ *             .egress(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

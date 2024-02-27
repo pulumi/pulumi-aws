@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleInputSecurityGroup = new aws.medialive.InputSecurityGroup("exampleInputSecurityGroup", {
+ * const exampleInputSecurityGroup = new aws.medialive/inputSecurityGroup.InputSecurityGroup("exampleInputSecurityGroup", {
  *     whitelistRules: [{
  *         cidr: "10.0.0.8/32",
  *     }],
@@ -25,7 +25,7 @@ import * as utilities from "../utilities";
  *         ENVIRONMENT: "prod",
  *     },
  * });
- * const exampleInput = new aws.medialive.Input("exampleInput", {
+ * const exampleInput = new aws.medialive/input.Input("exampleInput", {
  *     inputSecurityGroups: [exampleInputSecurityGroup.id],
  *     type: "UDP_PUSH",
  *     tags: {

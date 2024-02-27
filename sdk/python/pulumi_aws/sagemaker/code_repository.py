@@ -180,11 +180,11 @@ class CodeRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.sagemaker.CodeRepository("example",
-            code_repository_name="example",
-            git_config=aws.sagemaker.CodeRepositoryGitConfigArgs(
-                repository_url="https://github.com/github/docs.git",
-            ))
+        example = aws.sagemaker.code_repository.CodeRepository("example",
+            code_repository_name=example,
+            git_config={
+                repositoryUrl: https://github.com/github/docs.git,
+            })
         ```
         ### Example with Secret
 
@@ -193,19 +193,19 @@ class CodeRepository(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        example_secret = aws.secretsmanager.Secret("exampleSecret")
-        example_secret_version = aws.secretsmanager.SecretVersion("exampleSecretVersion",
+        example_secret = aws.secretsmanager.secret.Secret("exampleSecret")
+        example_secret_version = aws.secretsmanager.secret_version.SecretVersion("exampleSecretVersion",
             secret_id=example_secret.id,
             secret_string=json.dumps({
-                "username": "example",
-                "password": "example",
+                username: example,
+                password: example,
             }))
-        example_code_repository = aws.sagemaker.CodeRepository("exampleCodeRepository",
-            code_repository_name="example",
-            git_config=aws.sagemaker.CodeRepositoryGitConfigArgs(
-                repository_url="https://github.com/github/docs.git",
-                secret_arn=example_secret.arn,
-            ),
+        example_code_repository = aws.sagemaker.code_repository.CodeRepository("exampleCodeRepository",
+            code_repository_name=example,
+            git_config={
+                repositoryUrl: https://github.com/github/docs.git,
+                secretArn: example_secret.arn,
+            },
             opts=pulumi.ResourceOptions(depends_on=[example_secret_version]))
         ```
 
@@ -239,11 +239,11 @@ class CodeRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.sagemaker.CodeRepository("example",
-            code_repository_name="example",
-            git_config=aws.sagemaker.CodeRepositoryGitConfigArgs(
-                repository_url="https://github.com/github/docs.git",
-            ))
+        example = aws.sagemaker.code_repository.CodeRepository("example",
+            code_repository_name=example,
+            git_config={
+                repositoryUrl: https://github.com/github/docs.git,
+            })
         ```
         ### Example with Secret
 
@@ -252,19 +252,19 @@ class CodeRepository(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        example_secret = aws.secretsmanager.Secret("exampleSecret")
-        example_secret_version = aws.secretsmanager.SecretVersion("exampleSecretVersion",
+        example_secret = aws.secretsmanager.secret.Secret("exampleSecret")
+        example_secret_version = aws.secretsmanager.secret_version.SecretVersion("exampleSecretVersion",
             secret_id=example_secret.id,
             secret_string=json.dumps({
-                "username": "example",
-                "password": "example",
+                username: example,
+                password: example,
             }))
-        example_code_repository = aws.sagemaker.CodeRepository("exampleCodeRepository",
-            code_repository_name="example",
-            git_config=aws.sagemaker.CodeRepositoryGitConfigArgs(
-                repository_url="https://github.com/github/docs.git",
-                secret_arn=example_secret.arn,
-            ),
+        example_code_repository = aws.sagemaker.code_repository.CodeRepository("exampleCodeRepository",
+            code_repository_name=example,
+            git_config={
+                repositoryUrl: https://github.com/github/docs.git,
+                secretArn: example_secret.arn,
+            },
             opts=pulumi.ResourceOptions(depends_on=[example_secret_version]))
         ```
 

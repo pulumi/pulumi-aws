@@ -22,27 +22,25 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/networkmanager"
+//	networkmanager/vpcAttachment "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/networkmanager/vpcAttachment"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := networkmanager.NewVpcAttachment(ctx, "example", &networkmanager.VpcAttachmentArgs{
-//				SubnetArns: pulumi.StringArray{
-//					aws_subnet.Example.Arn,
-//				},
-//				CoreNetworkId: pulumi.Any(awscc_networkmanager_core_network.Example.Id),
-//				VpcArn:        pulumi.Any(aws_vpc.Example.Arn),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := networkmanager/vpcAttachment.NewVpcAttachment(ctx, "example", &networkmanager/vpcAttachment.VpcAttachmentArgs{
+// SubnetArns: []interface{}{
+// aws_subnet.Example.Arn,
+// },
+// CoreNetworkId: awscc_networkmanager_core_network.Example.Id,
+// VpcArn: aws_vpc.Example.Arn,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

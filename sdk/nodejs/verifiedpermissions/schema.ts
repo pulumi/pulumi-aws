@@ -9,6 +9,24 @@ import * as utilities from "../utilities";
 
 /**
  * ## Example Usage
+ * ### Basic Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.verifiedpermissions/schema.Schema("example", {
+ *     policyStoreId: aws_verifiedpermissions_policy_store.example.policy_store_id,
+ *     definition: [{
+ *         value: JSON.stringify({
+ *             Namespace: {
+ *                 entityTypes: {},
+ *                 actions: {},
+ *             },
+ *         }),
+ *     }],
+ * });
+ * ```
  *
  * ## Import
  *

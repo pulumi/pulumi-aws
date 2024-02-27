@@ -20,24 +20,24 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const oneDirectory = new aws.directoryservice.Directory("oneDirectory", {
+ * const oneDirectory = new aws.directoryservice/directory.Directory("oneDirectory", {
  *     name: "one.example.com",
  *     type: "MicrosoftAD",
  * });
  * // ...
- * const twoDirectory = new aws.directoryservice.Directory("twoDirectory", {
+ * const twoDirectory = new aws.directoryservice/directory.Directory("twoDirectory", {
  *     name: "two.example.com",
  *     type: "MicrosoftAD",
  * });
  * // ...
- * const oneTrust = new aws.directoryservice.Trust("oneTrust", {
+ * const oneTrust = new aws.directoryservice/trust.Trust("oneTrust", {
  *     directoryId: oneDirectory.id,
  *     remoteDomainName: twoDirectory.name,
  *     trustDirection: "Two-Way",
  *     trustPassword: "Some0therPassword",
  *     conditionalForwarderIpAddrs: twoDirectory.dnsIpAddresses,
  * });
- * const twoTrust = new aws.directoryservice.Trust("twoTrust", {
+ * const twoTrust = new aws.directoryservice/trust.Trust("twoTrust", {
  *     directoryId: twoDirectory.id,
  *     remoteDomainName: oneDirectory.name,
  *     trustDirection: "Two-Way",
@@ -51,24 +51,24 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const oneDirectory = new aws.directoryservice.Directory("oneDirectory", {
+ * const oneDirectory = new aws.directoryservice/directory.Directory("oneDirectory", {
  *     name: "one.example.com",
  *     type: "MicrosoftAD",
  * });
  * // ...
- * const twoDirectory = new aws.directoryservice.Directory("twoDirectory", {
+ * const twoDirectory = new aws.directoryservice/directory.Directory("twoDirectory", {
  *     name: "two.example.com",
  *     type: "MicrosoftAD",
  * });
  * // ...
- * const oneTrust = new aws.directoryservice.Trust("oneTrust", {
+ * const oneTrust = new aws.directoryservice/trust.Trust("oneTrust", {
  *     directoryId: oneDirectory.id,
  *     remoteDomainName: twoDirectory.name,
  *     trustDirection: "One-Way: Incoming",
  *     trustPassword: "Some0therPassword",
  *     conditionalForwarderIpAddrs: twoDirectory.dnsIpAddresses,
  * });
- * const twoTrust = new aws.directoryservice.Trust("twoTrust", {
+ * const twoTrust = new aws.directoryservice/trust.Trust("twoTrust", {
  *     directoryId: twoDirectory.id,
  *     remoteDomainName: oneDirectory.name,
  *     trustDirection: "One-Way: Outgoing",

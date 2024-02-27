@@ -21,23 +21,21 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/redshift"
+//	redshift/hsmClientCertificate "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/redshift/hsmClientCertificate"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := redshift.NewHsmClientCertificate(ctx, "example", &redshift.HsmClientCertificateArgs{
-//				HsmClientCertificateIdentifier: pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := redshift/hsmClientCertificate.NewHsmClientCertificate(ctx, "example", &redshift/hsmClientCertificate.HsmClientCertificateArgs{
+// HsmClientCertificateIdentifier: "example",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

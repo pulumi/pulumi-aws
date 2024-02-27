@@ -19,8 +19,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.s3.BucketV2("example", {});
- * const example_entire_bucket = new aws.s3.BucketMetric("example-entire-bucket", {bucket: example.id});
+ * const example = new aws.s3/bucketV2.BucketV2("example", {});
+ * const example_entire_bucket = new aws.s3/bucketMetric.BucketMetric("example-entire-bucket", {bucket: example.id});
  * ```
  * ### Add metrics configuration with S3 object filter
  *
@@ -28,8 +28,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.s3.BucketV2("example", {});
- * const example_filtered = new aws.s3.BucketMetric("example-filtered", {
+ * const example = new aws.s3/bucketV2.BucketV2("example", {});
+ * const example_filtered = new aws.s3/bucketMetric.BucketMetric("example-filtered", {
  *     bucket: example.id,
  *     filter: {
  *         prefix: "documents/",
@@ -46,9 +46,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.s3.BucketV2("example", {});
- * const example_access_point = new aws.s3.AccessPoint("example-access-point", {bucket: example.id});
- * const example_filtered = new aws.s3.BucketMetric("example-filtered", {
+ * const example = new aws.s3/bucketV2.BucketV2("example", {});
+ * const example_access_point = new aws.s3/accessPoint.AccessPoint("example-access-point", {bucket: example.id});
+ * const example_filtered = new aws.s3/bucketMetric.BucketMetric("example-filtered", {
  *     bucket: example.id,
  *     filter: {
  *         accessPoint: example_access_point.arn,

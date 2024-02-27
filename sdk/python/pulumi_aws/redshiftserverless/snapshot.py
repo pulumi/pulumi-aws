@@ -251,9 +251,9 @@ class Snapshot(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.redshiftserverless.Snapshot("example",
-            namespace_name=aws_redshiftserverless_workgroup["example"]["namespace_name"],
-            snapshot_name="example")
+        example = aws.redshiftserverless.snapshot.Snapshot("example",
+            namespace_name=aws_redshiftserverless_workgroup.example.namespace_name,
+            snapshot_name=example)
         ```
 
         ## Import
@@ -285,9 +285,9 @@ class Snapshot(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.redshiftserverless.Snapshot("example",
-            namespace_name=aws_redshiftserverless_workgroup["example"]["namespace_name"],
-            snapshot_name="example")
+        example = aws.redshiftserverless.snapshot.Snapshot("example",
+            namespace_name=aws_redshiftserverless_workgroup.example.namespace_name,
+            snapshot_name=example)
         ```
 
         ## Import

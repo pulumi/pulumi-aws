@@ -31,9 +31,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.lambda.FunctionEventInvokeConfig;
  * import com.pulumi.aws.lambda.FunctionEventInvokeConfigArgs;
- * import com.pulumi.aws.lambda.inputs.FunctionEventInvokeConfigDestinationConfigArgs;
- * import com.pulumi.aws.lambda.inputs.FunctionEventInvokeConfigDestinationConfigOnFailureArgs;
- * import com.pulumi.aws.lambda.inputs.FunctionEventInvokeConfigDestinationConfigOnSuccessArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -49,14 +46,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new FunctionEventInvokeConfig(&#34;example&#34;, FunctionEventInvokeConfigArgs.builder()        
  *             .functionName(aws_lambda_alias.example().function_name())
- *             .destinationConfig(FunctionEventInvokeConfigDestinationConfigArgs.builder()
- *                 .onFailure(FunctionEventInvokeConfigDestinationConfigOnFailureArgs.builder()
- *                     .destination(aws_sqs_queue.example().arn())
- *                     .build())
- *                 .onSuccess(FunctionEventInvokeConfigDestinationConfigOnSuccessArgs.builder()
- *                     .destination(aws_sns_topic.example().arn())
- *                     .build())
- *                 .build())
+ *             .destinationConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

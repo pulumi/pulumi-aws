@@ -25,27 +25,25 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/fsx"
+//	fsx/lustreFileSystem "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/fsx/lustreFileSystem"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := fsx.NewLustreFileSystem(ctx, "example", &fsx.LustreFileSystemArgs{
-//				ImportPath:      pulumi.String(fmt.Sprintf("s3://%v", aws_s3_bucket.Example.Bucket)),
-//				StorageCapacity: pulumi.Int(1200),
-//				SubnetIds: pulumi.String{
-//					aws_subnet.Example.Id,
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := fsx/lustreFileSystem.NewLustreFileSystem(ctx, "example", &fsx/lustreFileSystem.LustreFileSystemArgs{
+// ImportPath: fmt.Sprintf("s3://%v", aws_s3_bucket.Example.Bucket),
+// StorageCapacity: 1200,
+// SubnetIds: []interface{}{
+// aws_subnet.Example.Id,
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

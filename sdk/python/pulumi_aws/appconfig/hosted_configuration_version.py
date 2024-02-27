@@ -237,19 +237,19 @@ class HostedConfigurationVersion(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        example = aws.appconfig.HostedConfigurationVersion("example",
-            application_id=aws_appconfig_application["example"]["id"],
-            configuration_profile_id=aws_appconfig_configuration_profile["example"]["configuration_profile_id"],
-            description="Example Freeform Hosted Configuration Version",
-            content_type="application/json",
+        example = aws.appconfig.hosted_configuration_version.HostedConfigurationVersion("example",
+            application_id=aws_appconfig_application.example.id,
+            configuration_profile_id=aws_appconfig_configuration_profile.example.configuration_profile_id,
+            description=Example Freeform Hosted Configuration Version,
+            content_type=application/json,
             content=json.dumps({
-                "foo": "bar",
-                "fruit": [
-                    "apple",
-                    "pear",
-                    "orange",
+                foo: bar,
+                fruit: [
+                    apple,
+                    pear,
+                    orange,
                 ],
-                "isThingEnabled": True,
+                isThingEnabled: True,
             }))
         ```
         ### Feature Flags
@@ -259,48 +259,48 @@ class HostedConfigurationVersion(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        example = aws.appconfig.HostedConfigurationVersion("example",
-            application_id=aws_appconfig_application["example"]["id"],
-            configuration_profile_id=aws_appconfig_configuration_profile["example"]["configuration_profile_id"],
-            description="Example Feature Flag Configuration Version",
-            content_type="application/json",
+        example = aws.appconfig.hosted_configuration_version.HostedConfigurationVersion("example",
+            application_id=aws_appconfig_application.example.id,
+            configuration_profile_id=aws_appconfig_configuration_profile.example.configuration_profile_id,
+            description=Example Feature Flag Configuration Version,
+            content_type=application/json,
             content=json.dumps({
-                "flags": {
-                    "foo": {
-                        "name": "foo",
-                        "_deprecation": {
-                            "status": "planned",
+                flags: {
+                    foo: {
+                        name: foo,
+                        _deprecation: {
+                            status: planned,
                         },
                     },
-                    "bar": {
-                        "name": "bar",
-                        "attributes": {
-                            "someAttribute": {
-                                "constraints": {
-                                    "type": "string",
-                                    "required": True,
+                    bar: {
+                        name: bar,
+                        attributes: {
+                            someAttribute: {
+                                constraints: {
+                                    type: string,
+                                    required: True,
                                 },
                             },
-                            "someOtherAttribute": {
-                                "constraints": {
-                                    "type": "number",
-                                    "required": True,
+                            someOtherAttribute: {
+                                constraints: {
+                                    type: number,
+                                    required: True,
                                 },
                             },
                         },
                     },
                 },
-                "values": {
-                    "foo": {
-                        "enabled": "true",
+                values: {
+                    foo: {
+                        enabled: true,
                     },
-                    "bar": {
-                        "enabled": "true",
-                        "someAttribute": "Hello World",
-                        "someOtherAttribute": 123,
+                    bar: {
+                        enabled: true,
+                        someAttribute: Hello World,
+                        someOtherAttribute: 123,
                     },
                 },
-                "version": "1",
+                version: 1,
             }))
         ```
 
@@ -337,19 +337,19 @@ class HostedConfigurationVersion(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        example = aws.appconfig.HostedConfigurationVersion("example",
-            application_id=aws_appconfig_application["example"]["id"],
-            configuration_profile_id=aws_appconfig_configuration_profile["example"]["configuration_profile_id"],
-            description="Example Freeform Hosted Configuration Version",
-            content_type="application/json",
+        example = aws.appconfig.hosted_configuration_version.HostedConfigurationVersion("example",
+            application_id=aws_appconfig_application.example.id,
+            configuration_profile_id=aws_appconfig_configuration_profile.example.configuration_profile_id,
+            description=Example Freeform Hosted Configuration Version,
+            content_type=application/json,
             content=json.dumps({
-                "foo": "bar",
-                "fruit": [
-                    "apple",
-                    "pear",
-                    "orange",
+                foo: bar,
+                fruit: [
+                    apple,
+                    pear,
+                    orange,
                 ],
-                "isThingEnabled": True,
+                isThingEnabled: True,
             }))
         ```
         ### Feature Flags
@@ -359,48 +359,48 @@ class HostedConfigurationVersion(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        example = aws.appconfig.HostedConfigurationVersion("example",
-            application_id=aws_appconfig_application["example"]["id"],
-            configuration_profile_id=aws_appconfig_configuration_profile["example"]["configuration_profile_id"],
-            description="Example Feature Flag Configuration Version",
-            content_type="application/json",
+        example = aws.appconfig.hosted_configuration_version.HostedConfigurationVersion("example",
+            application_id=aws_appconfig_application.example.id,
+            configuration_profile_id=aws_appconfig_configuration_profile.example.configuration_profile_id,
+            description=Example Feature Flag Configuration Version,
+            content_type=application/json,
             content=json.dumps({
-                "flags": {
-                    "foo": {
-                        "name": "foo",
-                        "_deprecation": {
-                            "status": "planned",
+                flags: {
+                    foo: {
+                        name: foo,
+                        _deprecation: {
+                            status: planned,
                         },
                     },
-                    "bar": {
-                        "name": "bar",
-                        "attributes": {
-                            "someAttribute": {
-                                "constraints": {
-                                    "type": "string",
-                                    "required": True,
+                    bar: {
+                        name: bar,
+                        attributes: {
+                            someAttribute: {
+                                constraints: {
+                                    type: string,
+                                    required: True,
                                 },
                             },
-                            "someOtherAttribute": {
-                                "constraints": {
-                                    "type": "number",
-                                    "required": True,
+                            someOtherAttribute: {
+                                constraints: {
+                                    type: number,
+                                    required: True,
                                 },
                             },
                         },
                     },
                 },
-                "values": {
-                    "foo": {
-                        "enabled": "true",
+                values: {
+                    foo: {
+                        enabled: true,
                     },
-                    "bar": {
-                        "enabled": "true",
-                        "someAttribute": "Hello World",
-                        "someOtherAttribute": 123,
+                    bar: {
+                        enabled: true,
+                        someAttribute: Hello World,
+                        someOtherAttribute: 123,
                     },
                 },
-                "version": "1",
+                version: 1,
             }))
         ```
 

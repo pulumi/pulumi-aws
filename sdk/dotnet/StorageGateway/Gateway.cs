@@ -15,37 +15,6 @@ namespace Pulumi.Aws.StorageGateway
     /// &gt; **NOTE:** The Storage Gateway API requires the gateway to be connected to properly return information after activation. If you are receiving `The specified gateway is not connected` errors during resource creation (gateway activation), ensure your gateway instance meets the [Storage Gateway requirements](https://docs.aws.amazon.com/storagegateway/latest/userguide/Requirements.html).
     /// 
     /// ## Example Usage
-    /// ### Local Cache
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var testVolumeAttachment = new Aws.Ec2.VolumeAttachment("testVolumeAttachment", new()
-    ///     {
-    ///         DeviceName = "/dev/xvdb",
-    ///         VolumeId = aws_ebs_volume.Test.Id,
-    ///         InstanceId = aws_instance.Test.Id,
-    ///     });
-    /// 
-    ///     var testLocalDisk = Aws.StorageGateway.GetLocalDisk.Invoke(new()
-    ///     {
-    ///         DiskNode = testVolumeAttachment.DeviceName,
-    ///         GatewayArn = aws_storagegateway_gateway.Test.Arn,
-    ///     });
-    /// 
-    ///     var testCache = new Aws.StorageGateway.Cache("testCache", new()
-    ///     {
-    ///         DiskId = testLocalDisk.Apply(getLocalDiskResult =&gt; getLocalDiskResult.DiskId),
-    ///         GatewayArn = aws_storagegateway_gateway.Test.Arn,
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// ### FSx File Gateway
     /// 
     /// ```csharp
@@ -56,17 +25,17 @@ namespace Pulumi.Aws.StorageGateway
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.StorageGateway.Gateway("example", new()
+    ///     var example = new Aws.Storagegateway.Gateway.Gateway("example", new()
     ///     {
     ///         GatewayIpAddress = "1.2.3.4",
     ///         GatewayName = "example",
     ///         GatewayTimezone = "GMT",
     ///         GatewayType = "FILE_FSX_SMB",
-    ///         SmbActiveDirectorySettings = new Aws.StorageGateway.Inputs.GatewaySmbActiveDirectorySettingsArgs
+    ///         SmbActiveDirectorySettings = 
     ///         {
-    ///             DomainName = "corp.example.com",
-    ///             Password = "avoid-plaintext-passwords",
-    ///             Username = "Admin",
+    ///             { "domainName", "corp.example.com" },
+    ///             { "password", "avoid-plaintext-passwords" },
+    ///             { "username", "Admin" },
     ///         },
     ///     });
     /// 
@@ -82,7 +51,7 @@ namespace Pulumi.Aws.StorageGateway
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.StorageGateway.Gateway("example", new()
+    ///     var example = new Aws.Storagegateway.Gateway.Gateway("example", new()
     ///     {
     ///         GatewayIpAddress = "1.2.3.4",
     ///         GatewayName = "example",
@@ -102,7 +71,7 @@ namespace Pulumi.Aws.StorageGateway
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.StorageGateway.Gateway("example", new()
+    ///     var example = new Aws.Storagegateway.Gateway.Gateway("example", new()
     ///     {
     ///         GatewayIpAddress = "1.2.3.4",
     ///         GatewayName = "example",
@@ -124,7 +93,7 @@ namespace Pulumi.Aws.StorageGateway
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.StorageGateway.Gateway("example", new()
+    ///     var example = new Aws.Storagegateway.Gateway.Gateway("example", new()
     ///     {
     ///         GatewayIpAddress = "1.2.3.4",
     ///         GatewayName = "example",
@@ -144,7 +113,7 @@ namespace Pulumi.Aws.StorageGateway
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.StorageGateway.Gateway("example", new()
+    ///     var example = new Aws.Storagegateway.Gateway.Gateway("example", new()
     ///     {
     ///         GatewayIpAddress = "1.2.3.4",
     ///         GatewayName = "example",

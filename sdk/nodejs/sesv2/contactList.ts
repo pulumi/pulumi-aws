@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.sesv2.ContactList("example", {contactListName: "example"});
+ * const example = new aws.sesv2/contactList.ContactList("example", {contactListName: "example"});
  * ```
  * ### Extended Usage
  *
@@ -25,7 +25,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.sesv2.ContactList("example", {
+ * const example = new aws.sesv2/contactList.ContactList("example", {
  *     contactListName: "example",
  *     description: "description",
  *     topics: [{

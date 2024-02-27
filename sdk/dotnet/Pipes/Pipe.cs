@@ -19,108 +19,41 @@ namespace Pulumi.Aws.Pipes
     /// &gt; **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
     /// 
     /// ## Example Usage
-    /// ### Basic Usage
+    /// ### Enrichment Usage
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
-    /// using System.Text.Json;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var main = Aws.GetCallerIdentity.Invoke();
-    /// 
-    ///     var exampleRole = new Aws.Iam.Role("exampleRole", new()
+    ///     var example = new Aws.Pipes.Pipe.Pipe("example", new()
     ///     {
-    ///         AssumeRolePolicy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///         RoleArn = aws_iam_role.Example.Arn,
+    ///         Source = aws_sqs_queue.Source.Arn,
+    ///         Target = aws_sqs_queue.Target.Arn,
+    ///         Enrichment = aws_cloudwatch_event_api_destination.Example.Arn,
+    ///         EnrichmentParameters = 
     ///         {
-    ///             ["Version"] = "2012-10-17",
-    ///             ["Statement"] = new Dictionary&lt;string, object?&gt;
+    ///             { "httpParameters", 
     ///             {
-    ///                 ["Effect"] = "Allow",
-    ///                 ["Action"] = "sts:AssumeRole",
-    ///                 ["Principal"] = new Dictionary&lt;string, object?&gt;
+    ///                 { "pathParameterValues", new[]
     ///                 {
-    ///                     ["Service"] = "pipes.amazonaws.com",
-    ///                 },
-    ///                 ["Condition"] = new Dictionary&lt;string, object?&gt;
+    ///                     "example-path-param",
+    ///                 } },
+    ///                 { "headerParameters", 
     ///                 {
-    ///                     ["StringEquals"] = new Dictionary&lt;string, object?&gt;
-    ///                     {
-    ///                         ["aws:SourceAccount"] = main.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
-    ///                     },
-    ///                 },
-    ///             },
-    ///         }),
-    ///     });
-    /// 
-    ///     var sourceQueue = new Aws.Sqs.Queue("sourceQueue");
-    /// 
-    ///     var sourceRolePolicy = new Aws.Iam.RolePolicy("sourceRolePolicy", new()
-    ///     {
-    ///         Role = exampleRole.Id,
-    ///         Policy = sourceQueue.Arn.Apply(arn =&gt; JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///         {
-    ///             ["Version"] = "2012-10-17",
-    ///             ["Statement"] = new[]
-    ///             {
-    ///                 new Dictionary&lt;string, object?&gt;
+    ///                     { "example-header", "example-value" },
+    ///                     { "second-example-header", "second-example-value" },
+    ///                 } },
+    ///                 { "queryStringParameters", 
     ///                 {
-    ///                     ["Effect"] = "Allow",
-    ///                     ["Action"] = new[]
-    ///                     {
-    ///                         "sqs:DeleteMessage",
-    ///                         "sqs:GetQueueAttributes",
-    ///                         "sqs:ReceiveMessage",
-    ///                     },
-    ///                     ["Resource"] = new[]
-    ///                     {
-    ///                         arn,
-    ///                     },
-    ///                 },
-    ///             },
-    ///         })),
-    ///     });
-    /// 
-    ///     var targetQueue = new Aws.Sqs.Queue("targetQueue");
-    /// 
-    ///     var targetRolePolicy = new Aws.Iam.RolePolicy("targetRolePolicy", new()
-    ///     {
-    ///         Role = exampleRole.Id,
-    ///         Policy = targetQueue.Arn.Apply(arn =&gt; JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///         {
-    ///             ["Version"] = "2012-10-17",
-    ///             ["Statement"] = new[]
-    ///             {
-    ///                 new Dictionary&lt;string, object?&gt;
-    ///                 {
-    ///                     ["Effect"] = "Allow",
-    ///                     ["Action"] = new[]
-    ///                     {
-    ///                         "sqs:SendMessage",
-    ///                     },
-    ///                     ["Resource"] = new[]
-    ///                     {
-    ///                         arn,
-    ///                     },
-    ///                 },
-    ///             },
-    ///         })),
-    ///     });
-    /// 
-    ///     var examplePipe = new Aws.Pipes.Pipe("examplePipe", new()
-    ///     {
-    ///         RoleArn = exampleRole.Arn,
-    ///         Source = sourceQueue.Arn,
-    ///         Target = targetQueue.Arn,
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             sourceRolePolicy,
-    ///             targetRolePolicy,
+    ///                     { "example-query-string", "example-value" },
+    ///                     { "second-example-query-string", "second-example-value" },
+    ///                 } },
+    ///             } },
     ///         },
     ///     });
     /// 
@@ -137,29 +70,67 @@ namespace Pulumi.Aws.Pipes
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Pipes.Pipe("example", new()
+    ///     var example = new Aws.Pipes.Pipe.Pipe("example", new()
     ///     {
     ///         RoleArn = aws_iam_role.Example.Arn,
     ///         Source = aws_sqs_queue.Source.Arn,
     ///         Target = aws_sqs_queue.Target.Arn,
-    ///         SourceParameters = new Aws.Pipes.Inputs.PipeSourceParametersArgs
+    ///         SourceParameters = 
     ///         {
-    ///             FilterCriteria = new Aws.Pipes.Inputs.PipeSourceParametersFilterCriteriaArgs
+    ///             { "filterCriteria", 
     ///             {
-    ///                 Filters = new[]
+    ///                 { "filters", new[]
     ///                 {
-    ///                     new Aws.Pipes.Inputs.PipeSourceParametersFilterCriteriaFilterArgs
+    ///                     
     ///                     {
-    ///                         Pattern = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///                         { "pattern", JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///                         {
     ///                             ["source"] = new[]
     ///                             {
     ///                                 "event-source",
     ///                             },
-    ///                         }),
+    ///                         }) },
     ///                     },
+    ///                 } },
+    ///             } },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### SQS Source and Target Configuration Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Pipes.Pipe.Pipe("example", new()
+    ///     {
+    ///         RoleArn = aws_iam_role.Example.Arn,
+    ///         Source = aws_sqs_queue.Source.Arn,
+    ///         Target = aws_sqs_queue.Target.Arn,
+    ///         SourceParameters = 
+    ///         {
+    ///             { "sqsQueueParameters", 
+    ///             {
+    ///                 { "batchSize", 1 },
+    ///                 { "maximumBatchingWindowInSeconds", 2 },
+    ///             } },
+    ///         },
+    ///         TargetParameters = 
+    ///         {
+    ///             { "sqsQueue", new[]
+    ///             {
+    ///                 
+    ///                 {
+    ///                     { "messageDeduplicationId", "example-dedupe" },
+    ///                     { "messageGroupId", "example-group" },
     ///                 },
-    ///             },
+    ///             } },
     ///         },
     ///     });
     /// 

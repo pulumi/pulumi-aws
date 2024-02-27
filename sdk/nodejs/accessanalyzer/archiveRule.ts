@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.accessanalyzer.ArchiveRule("example", {
+ * const example = new aws.accessanalyzer/archiveRule.ArchiveRule("example", {
  *     analyzerName: "example-analyzer",
  *     filters: [
  *         {
@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  *         },
  *         {
  *             criteria: "error",
- *             exists: "true",
+ *             exists: true,
  *         },
  *         {
  *             criteria: "isPublic",

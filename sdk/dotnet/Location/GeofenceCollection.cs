@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Location
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Location.GeofenceCollection("example", new()
+    ///     var example = new Aws.Location.GeofenceCollection.GeofenceCollection("example", new()
     ///     {
     ///         CollectionName = "example",
     ///     });

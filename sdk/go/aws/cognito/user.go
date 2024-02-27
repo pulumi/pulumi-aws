@@ -22,28 +22,27 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cognito"
+//	cognito/user "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/cognito/user"
+//	cognito/userPool "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/cognito/userPool"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleUserPool, err := cognito.NewUserPool(ctx, "exampleUserPool", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = cognito.NewUser(ctx, "exampleUser", &cognito.UserArgs{
-//				UserPoolId: exampleUserPool.ID(),
-//				Username:   pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleUserPool, err := cognito/userPool.NewUserPool(ctx, "exampleUserPool", nil)
+// if err != nil {
+// return err
+// }
+// _, err = cognito/user.NewUser(ctx, "exampleUser", &cognito/user.UserArgs{
+// UserPoolId: exampleUserPool.Id,
+// Username: "example",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Setting user attributes
 //
@@ -52,52 +51,51 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cognito"
+//	cognito/user "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/cognito/user"
+//	cognito/userPool "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/cognito/userPool"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleUserPool, err := cognito.NewUserPool(ctx, "exampleUserPool", &cognito.UserPoolArgs{
-//				Schemas: cognito.UserPoolSchemaArray{
-//					&cognito.UserPoolSchemaArgs{
-//						Name:                   pulumi.String("example"),
-//						AttributeDataType:      pulumi.String("Boolean"),
-//						Mutable:                pulumi.Bool(false),
-//						Required:               pulumi.Bool(false),
-//						DeveloperOnlyAttribute: pulumi.Bool(false),
-//					},
-//					&cognito.UserPoolSchemaArgs{
-//						Name:                       pulumi.String("foo"),
-//						AttributeDataType:          pulumi.String("String"),
-//						Mutable:                    pulumi.Bool(false),
-//						Required:                   pulumi.Bool(false),
-//						DeveloperOnlyAttribute:     pulumi.Bool(false),
-//						StringAttributeConstraints: nil,
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = cognito.NewUser(ctx, "exampleUser", &cognito.UserArgs{
-//				UserPoolId: exampleUserPool.ID(),
-//				Username:   pulumi.String("example"),
-//				Attributes: pulumi.StringMap{
-//					"example":        pulumi.String("true"),
-//					"foo":            pulumi.String("bar"),
-//					"email":          pulumi.String("no-reply@example.com"),
-//					"email_verified": pulumi.String("true"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleUserPool, err := cognito/userPool.NewUserPool(ctx, "exampleUserPool", &cognito/userPool.UserPoolArgs{
+// Schemas: []map[string]interface{}{
+// map[string]interface{}{
+// "name": "example",
+// "attributeDataType": "Boolean",
+// "mutable": false,
+// "required": false,
+// "developerOnlyAttribute": false,
+// },
+// map[string]interface{}{
+// "name": "foo",
+// "attributeDataType": "String",
+// "mutable": false,
+// "required": false,
+// "developerOnlyAttribute": false,
+// "stringAttributeConstraints": nil,
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = cognito/user.NewUser(ctx, "exampleUser", &cognito/user.UserArgs{
+// UserPoolId: exampleUserPool.Id,
+// Username: "example",
+// Attributes: map[string]interface{}{
+// "example": true,
+// "foo": "bar",
+// "email": "no-reply@example.com",
+// "email_verified": true,
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

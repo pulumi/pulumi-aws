@@ -21,24 +21,22 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/networkmanager"
+//	networkmanager/transitGatewayRouteTableAttachment "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/networkmanager/transitGatewayRouteTableAttachment"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := networkmanager.NewTransitGatewayRouteTableAttachment(ctx, "example", &networkmanager.TransitGatewayRouteTableAttachmentArgs{
-//				PeeringId:                   pulumi.Any(aws_networkmanager_transit_gateway_peering.Example.Id),
-//				TransitGatewayRouteTableArn: pulumi.Any(aws_ec2_transit_gateway_route_table.Example.Arn),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := networkmanager/transitGatewayRouteTableAttachment.NewTransitGatewayRouteTableAttachment(ctx, "example", &networkmanager/transitGatewayRouteTableAttachment.TransitGatewayRouteTableAttachmentArgs{
+// PeeringId: aws_networkmanager_transit_gateway_peering.Example.Id,
+// TransitGatewayRouteTableArn: aws_ec2_transit_gateway_route_table.Example.Arn,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

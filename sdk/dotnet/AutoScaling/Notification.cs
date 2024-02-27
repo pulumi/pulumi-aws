@@ -26,16 +26,16 @@ namespace Pulumi.Aws.AutoScaling
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Sns.Topic("example");
+    ///     var example = new Aws.Sns.Topic.Topic("example");
     /// 
     ///     // arn is an exported attribute
-    ///     var bar = new Aws.AutoScaling.Group("bar");
+    ///     var bar = new Aws.Autoscaling.Group.Group("bar");
     /// 
     ///     // ...
-    ///     var foo = new Aws.AutoScaling.Group("foo");
+    ///     var foo = new Aws.Autoscaling.Group.Group("foo");
     /// 
     ///     // ...
-    ///     var exampleNotifications = new Aws.AutoScaling.Notification("exampleNotifications", new()
+    ///     var exampleNotifications = new Aws.Autoscaling.Notification.Notification("exampleNotifications", new()
     ///     {
     ///         GroupNames = new[]
     ///         {

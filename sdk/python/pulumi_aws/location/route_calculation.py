@@ -250,9 +250,9 @@ class RouteCalculation(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.location.RouteCalculation("example",
-            calculator_name="example",
-            data_source="Here")
+        example = aws.location.route_calculation.RouteCalculation("example",
+            calculator_name=example,
+            data_source=Here)
         ```
 
         ## Import
@@ -287,9 +287,9 @@ class RouteCalculation(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.location.RouteCalculation("example",
-            calculator_name="example",
-            data_source="Here")
+        example = aws.location.route_calculation.RouteCalculation("example",
+            calculator_name=example,
+            data_source=Here)
         ```
 
         ## Import

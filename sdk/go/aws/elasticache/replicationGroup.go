@@ -42,32 +42,30 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/elasticache"
+//	elasticache/replicationGroup "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/elasticache/replicationGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := elasticache.NewReplicationGroup(ctx, "example", &elasticache.ReplicationGroupArgs{
-//				AutomaticFailoverEnabled: pulumi.Bool(true),
-//				Description:              pulumi.String("example description"),
-//				NodeType:                 pulumi.String("cache.m4.large"),
-//				NumCacheClusters:         pulumi.Int(2),
-//				ParameterGroupName:       pulumi.String("default.redis3.2"),
-//				Port:                     pulumi.Int(6379),
-//				PreferredCacheClusterAzs: pulumi.StringArray{
-//					pulumi.String("us-west-2a"),
-//					pulumi.String("us-west-2b"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := elasticache/replicationGroup.NewReplicationGroup(ctx, "example", &elasticache/replicationGroup.ReplicationGroupArgs{
+// AutomaticFailoverEnabled: true,
+// Description: "example description",
+// NodeType: "cache.m4.large",
+// NumCacheClusters: 2,
+// ParameterGroupName: "default.redis3.2",
+// Port: 6379,
+// PreferredCacheClusterAzs: []string{
+// "us-west-2a",
+// "us-west-2b",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // You have two options for adjusting the number of replicas:
@@ -80,44 +78,45 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/elasticache"
+//	elasticache/cluster "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/elasticache/cluster"
+//	elasticache/replicationGroup "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/elasticache/replicationGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := elasticache/replicationGroup.NewReplicationGroup(ctx, "example", &elasticache/replicationGroup.ReplicationGroupArgs{
+// AutomaticFailoverEnabled: true,
+// PreferredCacheClusterAzs: []string{
+// "us-west-2a",
+// "us-west-2b",
+// },
+// Description: "example description",
+// NodeType: "cache.m4.large",
+// NumCacheClusters: 2,
+// ParameterGroupName: "default.redis3.2",
+// Port: 6379,
+// })
+// if err != nil {
+// return err
+// }
+// var replica []*elasticache/cluster.Cluster
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := elasticache.NewReplicationGroup(ctx, "example", &elasticache.ReplicationGroupArgs{
-//				AutomaticFailoverEnabled: pulumi.Bool(true),
-//				PreferredCacheClusterAzs: pulumi.StringArray{
-//					pulumi.String("us-west-2a"),
-//					pulumi.String("us-west-2b"),
-//				},
-//				Description:        pulumi.String("example description"),
-//				NodeType:           pulumi.String("cache.m4.large"),
-//				NumCacheClusters:   pulumi.Int(2),
-//				ParameterGroupName: pulumi.String("default.redis3.2"),
-//				Port:               pulumi.Int(6379),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			var replica []*elasticache.Cluster
-//			for index := 0; index < 1 == true; index++ {
-//				key0 := index
-//				_ := index
-//				__res, err := elasticache.NewCluster(ctx, fmt.Sprintf("replica-%v", key0), &elasticache.ClusterArgs{
-//					ReplicationGroupId: example.ID(),
-//				})
-//				if err != nil {
-//					return err
-//				}
-//				replica = append(replica, __res)
-//			}
-//			return nil
-//		})
-//	}
+//	for index := 0; index < 1 == true; index++ {
+//	    key0 := index
+//	    _ := index
 //
+// __res, err := elasticache/cluster.NewCluster(ctx, fmt.Sprintf("replica-%v", key0), &elasticache/cluster.ClusterArgs{
+// ReplicationGroupId: example.Id,
+// })
+// if err != nil {
+// return err
+// }
+// replica = append(replica, __res)
+// }
+// return nil
+// })
+// }
 // ```
 // ### Redis Cluster Mode Enabled
 //
@@ -128,29 +127,27 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/elasticache"
+//	elasticache/replicationGroup "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/elasticache/replicationGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := elasticache.NewReplicationGroup(ctx, "baz", &elasticache.ReplicationGroupArgs{
-//				AutomaticFailoverEnabled: pulumi.Bool(true),
-//				Description:              pulumi.String("example description"),
-//				NodeType:                 pulumi.String("cache.t2.small"),
-//				NumNodeGroups:            pulumi.Int(2),
-//				ParameterGroupName:       pulumi.String("default.redis3.2.cluster.on"),
-//				Port:                     pulumi.Int(6379),
-//				ReplicasPerNodeGroup:     pulumi.Int(1),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := elasticache/replicationGroup.NewReplicationGroup(ctx, "baz", &elasticache/replicationGroup.ReplicationGroupArgs{
+// AutomaticFailoverEnabled: true,
+// Description: "example description",
+// NodeType: "cache.t2.small",
+// NumNodeGroups: 2,
+// ParameterGroupName: "default.redis3.2.cluster.on",
+// Port: 6379,
+// ReplicasPerNodeGroup: 1,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Redis Log Delivery configuration
 //
@@ -159,43 +156,41 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/elasticache"
+//	elasticache/replicationGroup "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/elasticache/replicationGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := elasticache.NewReplicationGroup(ctx, "test", &elasticache.ReplicationGroupArgs{
-//				Description:             pulumi.String("test description"),
-//				NodeType:                pulumi.String("cache.t3.small"),
-//				Port:                    pulumi.Int(6379),
-//				ApplyImmediately:        pulumi.Bool(true),
-//				AutoMinorVersionUpgrade: pulumi.Bool(false),
-//				MaintenanceWindow:       pulumi.String("tue:06:30-tue:07:30"),
-//				SnapshotWindow:          pulumi.String("01:00-02:00"),
-//				LogDeliveryConfigurations: elasticache.ReplicationGroupLogDeliveryConfigurationArray{
-//					&elasticache.ReplicationGroupLogDeliveryConfigurationArgs{
-//						Destination:     pulumi.Any(aws_cloudwatch_log_group.Example.Name),
-//						DestinationType: pulumi.String("cloudwatch-logs"),
-//						LogFormat:       pulumi.String("text"),
-//						LogType:         pulumi.String("slow-log"),
-//					},
-//					&elasticache.ReplicationGroupLogDeliveryConfigurationArgs{
-//						Destination:     pulumi.Any(aws_kinesis_firehose_delivery_stream.Example.Name),
-//						DestinationType: pulumi.String("kinesis-firehose"),
-//						LogFormat:       pulumi.String("json"),
-//						LogType:         pulumi.String("engine-log"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := elasticache/replicationGroup.NewReplicationGroup(ctx, "test", &elasticache/replicationGroup.ReplicationGroupArgs{
+// Description: "test description",
+// NodeType: "cache.t3.small",
+// Port: 6379,
+// ApplyImmediately: true,
+// AutoMinorVersionUpgrade: false,
+// MaintenanceWindow: "tue:06:30-tue:07:30",
+// SnapshotWindow: "01:00-02:00",
+// LogDeliveryConfigurations: []map[string]interface{}{
+// map[string]interface{}{
+// "destination": aws_cloudwatch_log_group.Example.Name,
+// "destinationType": "cloudwatch-logs",
+// "logFormat": "text",
+// "logType": "slow-log",
+// },
+// map[string]interface{}{
+// "destination": aws_kinesis_firehose_delivery_stream.Example.Name,
+// "destinationType": "kinesis-firehose",
+// "logFormat": "json",
+// "logType": "engine-log",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // > **Note:** We currently do not support passing a `primaryClusterId` in order to create the Replication Group.
@@ -212,42 +207,41 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/elasticache"
+//	elasticache/globalReplicationGroup "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/elasticache/globalReplicationGroup"
+//	elasticache/replicationGroup "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/elasticache/replicationGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			primary, err := elasticache.NewReplicationGroup(ctx, "primary", &elasticache.ReplicationGroupArgs{
-//				Description:      pulumi.String("primary replication group"),
-//				Engine:           pulumi.String("redis"),
-//				EngineVersion:    pulumi.String("5.0.6"),
-//				NodeType:         pulumi.String("cache.m5.large"),
-//				NumCacheClusters: pulumi.Int(1),
-//			}, pulumi.Provider(aws.Other_region))
-//			if err != nil {
-//				return err
-//			}
-//			example, err := elasticache.NewGlobalReplicationGroup(ctx, "example", &elasticache.GlobalReplicationGroupArgs{
-//				GlobalReplicationGroupIdSuffix: pulumi.String("example"),
-//				PrimaryReplicationGroupId:      primary.ID(),
-//			}, pulumi.Provider(aws.Other_region))
-//			if err != nil {
-//				return err
-//			}
-//			_, err = elasticache.NewReplicationGroup(ctx, "secondary", &elasticache.ReplicationGroupArgs{
-//				Description:              pulumi.String("secondary replication group"),
-//				GlobalReplicationGroupId: example.GlobalReplicationGroupId,
-//				NumCacheClusters:         pulumi.Int(1),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// primary, err := elasticache/replicationGroup.NewReplicationGroup(ctx, "primary", &elasticache/replicationGroup.ReplicationGroupArgs{
+// Description: "primary replication group",
+// Engine: "redis",
+// EngineVersion: "5.0.6",
+// NodeType: "cache.m5.large",
+// NumCacheClusters: 1,
+// }, pulumi.Provider(aws.Other_region))
+// if err != nil {
+// return err
+// }
+// example, err := elasticache/globalReplicationGroup.NewGlobalReplicationGroup(ctx, "example", &elasticache/globalReplicationGroup.GlobalReplicationGroupArgs{
+// GlobalReplicationGroupIdSuffix: "example",
+// PrimaryReplicationGroupId: primary.Id,
+// }, pulumi.Provider(aws.Other_region))
+// if err != nil {
+// return err
+// }
+// _, err = elasticache/replicationGroup.NewReplicationGroup(ctx, "secondary", &elasticache/replicationGroup.ReplicationGroupArgs{
+// Description: "secondary replication group",
+// GlobalReplicationGroupId: example.GlobalReplicationGroupId,
+// NumCacheClusters: 1,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Redis AUTH and In-Transit Encryption Enabled
 //
@@ -256,35 +250,33 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/elasticache"
+//	elasticache/replicationGroup "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/elasticache/replicationGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := elasticache.NewReplicationGroup(ctx, "example", &elasticache.ReplicationGroupArgs{
-//				Description:      pulumi.String("example with authentication"),
-//				NodeType:         pulumi.String("cache.t2.micro"),
-//				NumCacheClusters: pulumi.Int(1),
-//				Port:             pulumi.Int(6379),
-//				SubnetGroupName:  pulumi.Any(aws_elasticache_subnet_group.Example.Name),
-//				SecurityGroupIds: pulumi.StringArray{
-//					aws_security_group.Example.Id,
-//				},
-//				ParameterGroupName:       pulumi.String("default.redis5.0"),
-//				EngineVersion:            pulumi.String("5.0.6"),
-//				TransitEncryptionEnabled: pulumi.Bool(true),
-//				AuthToken:                pulumi.String("abcdefgh1234567890"),
-//				AuthTokenUpdateStrategy:  pulumi.String("ROTATE"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := elasticache/replicationGroup.NewReplicationGroup(ctx, "example", &elasticache/replicationGroup.ReplicationGroupArgs{
+// Description: "example with authentication",
+// NodeType: "cache.t2.micro",
+// NumCacheClusters: 1,
+// Port: 6379,
+// SubnetGroupName: aws_elasticache_subnet_group.Example.Name,
+// SecurityGroupIds: []interface{}{
+// aws_security_group.Example.Id,
+// },
+// ParameterGroupName: "default.redis5.0",
+// EngineVersion: "5.0.6",
+// TransitEncryptionEnabled: true,
+// AuthToken: "abcdefgh1234567890",
+// AuthTokenUpdateStrategy: "ROTATE",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // > When adding a new `authToken` to a previously passwordless replication group, using the `ROTATE` update strategy will result in support for **both** the new token and passwordless authentication. To immediately require authorization when adding the initial token, use the `SET` strategy instead. See the [Authenticating with the Redis AUTH command](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/auth.html) guide for additional details.

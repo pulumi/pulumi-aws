@@ -106,11 +106,11 @@ class ThingPrincipalAttachment(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.iot.Thing("example")
-        cert = aws.iot.Certificate("cert",
-            csr=(lambda path: open(path).read())("csr.pem"),
+        example = aws.iot.thing.Thing("example")
+        cert = aws.iot.certificate.Certificate("cert",
+            csr=(lambda path: open(path).read())(csr.pem),
             active=True)
-        att = aws.iot.ThingPrincipalAttachment("att",
+        att = aws.iot.thing_principal_attachment.ThingPrincipalAttachment("att",
             principal=cert.arn,
             thing=example.name)
         ```
@@ -135,11 +135,11 @@ class ThingPrincipalAttachment(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.iot.Thing("example")
-        cert = aws.iot.Certificate("cert",
-            csr=(lambda path: open(path).read())("csr.pem"),
+        example = aws.iot.thing.Thing("example")
+        cert = aws.iot.certificate.Certificate("cert",
+            csr=(lambda path: open(path).read())(csr.pem),
             active=True)
-        att = aws.iot.ThingPrincipalAttachment("att",
+        att = aws.iot.thing_principal_attachment.ThingPrincipalAttachment("att",
             principal=cert.arn,
             thing=example.name)
         ```

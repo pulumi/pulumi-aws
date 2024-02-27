@@ -23,16 +23,16 @@ namespace Pulumi.Aws.Eks
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Eks.Cluster("example", new()
+    ///     var example = new Aws.Eks.Cluster.Cluster("example", new()
     ///     {
     ///         RoleArn = aws_iam_role.Example.Arn,
-    ///         VpcConfig = new Aws.Eks.Inputs.ClusterVpcConfigArgs
+    ///         VpcConfig = 
     ///         {
-    ///             SubnetIds = new[]
+    ///             { "subnetIds", new[]
     ///             {
     ///                 aws_subnet.Example1.Id,
     ///                 aws_subnet.Example2.Id,
-    ///             },
+    ///             } },
     ///         },
     ///     }, new CustomResourceOptions
     ///     {
@@ -46,65 +46,8 @@ namespace Pulumi.Aws.Eks
     ///     return new Dictionary&lt;string, object?&gt;
     ///     {
     ///         ["endpoint"] = example.Endpoint,
-    ///         ["kubeconfig-certificate-authority-data"] = example.CertificateAuthority.Apply(certificateAuthority =&gt; certificateAuthority.Data),
+    ///         ["kubeconfig-certificate-authority-data"] = example.CertificateAuthority.Data,
     ///     };
-    /// });
-    /// ```
-    /// ### Example IAM Role for EKS Cluster
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var assumeRole = Aws.Iam.GetPolicyDocument.Invoke(new()
-    ///     {
-    ///         Statements = new[]
-    ///         {
-    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
-    ///             {
-    ///                 Effect = "Allow",
-    ///                 Principals = new[]
-    ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
-    ///                     {
-    ///                         Type = "Service",
-    ///                         Identifiers = new[]
-    ///                         {
-    ///                             "eks.amazonaws.com",
-    ///                         },
-    ///                     },
-    ///                 },
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "sts:AssumeRole",
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var example = new Aws.Iam.Role("example", new()
-    ///     {
-    ///         AssumeRolePolicy = assumeRole.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
-    ///     });
-    /// 
-    ///     var example_AmazonEKSClusterPolicy = new Aws.Iam.RolePolicyAttachment("example-AmazonEKSClusterPolicy", new()
-    ///     {
-    ///         PolicyArn = "arn:aws:iam::aws:policy/AmazonEKSClusterPolicy",
-    ///         Role = example.Name,
-    ///     });
-    /// 
-    ///     // Optionally, enable Security Groups for Pods
-    ///     // Reference: https://docs.aws.amazon.com/eks/latest/userguide/security-groups-for-pods.html
-    ///     var example_AmazonEKSVPCResourceController = new Aws.Iam.RolePolicyAttachment("example-AmazonEKSVPCResourceController", new()
-    ///     {
-    ///         PolicyArn = "arn:aws:iam::aws:policy/AmazonEKSVPCResourceController",
-    ///         Role = example.Name,
-    ///     });
-    /// 
     /// });
     /// ```
     /// ### Enabling Control Plane Logging
@@ -123,13 +66,13 @@ namespace Pulumi.Aws.Eks
     /// {
     ///     var config = new Config();
     ///     var clusterName = config.Get("clusterName") ?? "example";
-    ///     var exampleLogGroup = new Aws.CloudWatch.LogGroup("exampleLogGroup", new()
+    ///     var exampleLogGroup = new Aws.Cloudwatch.LogGroup.LogGroup("exampleLogGroup", new()
     ///     {
     ///         RetentionInDays = 7,
     ///     });
     /// 
     ///     // ... potentially other configuration ...
-    ///     var exampleCluster = new Aws.Eks.Cluster("exampleCluster", new()
+    ///     var exampleCluster = new Aws.Eks.Cluster.Cluster("exampleCluster", new()
     ///     {
     ///         EnabledClusterLogTypes = new[]
     ///         {
@@ -159,26 +102,26 @@ namespace Pulumi.Aws.Eks
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleRole = new Aws.Iam.Role("exampleRole", new()
+    ///     var exampleRole = new Aws.Iam.Role.Role("exampleRole", new()
     ///     {
     ///         AssumeRolePolicy = data.Aws_iam_policy_document.Example_assume_role_policy.Json,
     ///     });
     /// 
-    ///     var exampleCluster = new Aws.Eks.Cluster("exampleCluster", new()
+    ///     var exampleCluster = new Aws.Eks.Cluster.Cluster("exampleCluster", new()
     ///     {
     ///         RoleArn = exampleRole.Arn,
-    ///         VpcConfig = new Aws.Eks.Inputs.ClusterVpcConfigArgs
+    ///         VpcConfig = 
     ///         {
-    ///             EndpointPrivateAccess = true,
-    ///             EndpointPublicAccess = false,
+    ///             { "endpointPrivateAccess", true },
+    ///             { "endpointPublicAccess", false },
     ///         },
-    ///         OutpostConfig = new Aws.Eks.Inputs.ClusterOutpostConfigArgs
+    ///         OutpostConfig = 
     ///         {
-    ///             ControlPlaneInstanceType = "m5d.large",
-    ///             OutpostArns = new[]
+    ///             { "controlPlaneInstanceType", "m5d.large" },
+    ///             { "outpostArns", new[]
     ///             {
     ///                 data.Aws_outposts_outpost.Example.Arn,
-    ///             },
+    ///             } },
     ///         },
     ///     });
     /// 
@@ -194,23 +137,23 @@ namespace Pulumi.Aws.Eks
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleRole = new Aws.Iam.Role("exampleRole", new()
+    ///     var exampleRole = new Aws.Iam.Role.Role("exampleRole", new()
     ///     {
     ///         AssumeRolePolicy = data.Aws_iam_policy_document.Example_assume_role_policy.Json,
     ///     });
     /// 
-    ///     var exampleCluster = new Aws.Eks.Cluster("exampleCluster", new()
+    ///     var exampleCluster = new Aws.Eks.Cluster.Cluster("exampleCluster", new()
     ///     {
     ///         RoleArn = exampleRole.Arn,
-    ///         VpcConfig = new Aws.Eks.Inputs.ClusterVpcConfigArgs
+    ///         VpcConfig = 
     ///         {
-    ///             EndpointPrivateAccess = true,
-    ///             EndpointPublicAccess = false,
+    ///             { "endpointPrivateAccess", true },
+    ///             { "endpointPublicAccess", false },
     ///         },
-    ///         AccessConfig = new Aws.Eks.Inputs.ClusterAccessConfigArgs
+    ///         AccessConfig = 
     ///         {
-    ///             AuthenticationMode = "CONFIG_MAP",
-    ///             BootstrapClusterCreatorAdminPermissions = true,
+    ///             { "authenticationMode", "CONFIG_MAP" },
+    ///             { "bootstrapClusterCreatorAdminPermissions", true },
     ///         },
     ///     });
     /// 

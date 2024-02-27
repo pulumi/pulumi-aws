@@ -22,13 +22,13 @@ namespace Pulumi.Aws.ImageBuilder
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.ImageBuilder.ImagePipeline("example", new()
+    ///     var example = new Aws.Imagebuilder.ImagePipeline.ImagePipeline("example", new()
     ///     {
     ///         ImageRecipeArn = aws_imagebuilder_image_recipe.Example.Arn,
     ///         InfrastructureConfigurationArn = aws_imagebuilder_infrastructure_configuration.Example.Arn,
-    ///         Schedule = new Aws.ImageBuilder.Inputs.ImagePipelineScheduleArgs
+    ///         Schedule = 
     ///         {
-    ///             ScheduleExpression = "cron(0 0 * * ? *)",
+    ///             { "scheduleExpression", "cron(0 0 * * ? *)" },
     ///         },
     ///     });
     /// 

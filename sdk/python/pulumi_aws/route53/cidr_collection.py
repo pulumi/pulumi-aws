@@ -107,7 +107,7 @@ class CidrCollection(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.route53.CidrCollection("example")
+        example = aws.route53.cidr_collection.CidrCollection("example")
         ```
 
         ## Import
@@ -137,7 +137,7 @@ class CidrCollection(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.route53.CidrCollection("example")
+        example = aws.route53.cidr_collection.CidrCollection("example")
         ```
 
         ## Import

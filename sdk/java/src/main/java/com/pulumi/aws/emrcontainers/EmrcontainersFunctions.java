@@ -17,76 +17,12 @@ public final class EmrcontainersFunctions {
     /**
      * Retrieve information about an EMR Containers (EMR on EKS) Virtual Cluster.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.emrcontainers.EmrcontainersFunctions;
-     * import com.pulumi.aws.emrcontainers.inputs.GetVirtualClusterArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = EmrcontainersFunctions.getVirtualCluster(GetVirtualClusterArgs.builder()
-     *             .virtualClusterId(&#34;example id&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;name&#34;, example.applyValue(getVirtualClusterResult -&gt; getVirtualClusterResult.name()));
-     *         ctx.export(&#34;arn&#34;, example.applyValue(getVirtualClusterResult -&gt; getVirtualClusterResult.arn()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetVirtualClusterResult> getVirtualCluster(GetVirtualClusterArgs args) {
         return getVirtualCluster(args, InvokeOptions.Empty);
     }
     /**
      * Retrieve information about an EMR Containers (EMR on EKS) Virtual Cluster.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.emrcontainers.EmrcontainersFunctions;
-     * import com.pulumi.aws.emrcontainers.inputs.GetVirtualClusterArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = EmrcontainersFunctions.getVirtualCluster(GetVirtualClusterArgs.builder()
-     *             .virtualClusterId(&#34;example id&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;name&#34;, example.applyValue(getVirtualClusterResult -&gt; getVirtualClusterResult.name()));
-     *         ctx.export(&#34;arn&#34;, example.applyValue(getVirtualClusterResult -&gt; getVirtualClusterResult.arn()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetVirtualClusterResult> getVirtualClusterPlain(GetVirtualClusterPlainArgs args) {
@@ -95,76 +31,12 @@ public final class EmrcontainersFunctions {
     /**
      * Retrieve information about an EMR Containers (EMR on EKS) Virtual Cluster.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.emrcontainers.EmrcontainersFunctions;
-     * import com.pulumi.aws.emrcontainers.inputs.GetVirtualClusterArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = EmrcontainersFunctions.getVirtualCluster(GetVirtualClusterArgs.builder()
-     *             .virtualClusterId(&#34;example id&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;name&#34;, example.applyValue(getVirtualClusterResult -&gt; getVirtualClusterResult.name()));
-     *         ctx.export(&#34;arn&#34;, example.applyValue(getVirtualClusterResult -&gt; getVirtualClusterResult.arn()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetVirtualClusterResult> getVirtualCluster(GetVirtualClusterArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:emrcontainers/getVirtualCluster:getVirtualCluster", TypeShape.of(GetVirtualClusterResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Retrieve information about an EMR Containers (EMR on EKS) Virtual Cluster.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.emrcontainers.EmrcontainersFunctions;
-     * import com.pulumi.aws.emrcontainers.inputs.GetVirtualClusterArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = EmrcontainersFunctions.getVirtualCluster(GetVirtualClusterArgs.builder()
-     *             .virtualClusterId(&#34;example id&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;name&#34;, example.applyValue(getVirtualClusterResult -&gt; getVirtualClusterResult.name()));
-     *         ctx.export(&#34;arn&#34;, example.applyValue(getVirtualClusterResult -&gt; getVirtualClusterResult.arn()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetVirtualClusterResult> getVirtualClusterPlain(GetVirtualClusterPlainArgs args, InvokeOptions options) {

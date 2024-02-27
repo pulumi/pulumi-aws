@@ -12,32 +12,6 @@ import (
 )
 
 // Provides details about an Outposts Outpost.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/outposts"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := outposts.GetOutpost(ctx, &outposts.GetOutpostArgs{
-//				Name: pulumi.StringRef("example"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetOutpost(ctx *pulumi.Context, args *GetOutpostArgs, opts ...pulumi.InvokeOption) (*GetOutpostResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetOutpostResult

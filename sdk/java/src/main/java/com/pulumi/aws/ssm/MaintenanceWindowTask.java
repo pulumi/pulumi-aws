@@ -31,9 +31,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.ssm.MaintenanceWindowTask;
  * import com.pulumi.aws.ssm.MaintenanceWindowTaskArgs;
- * import com.pulumi.aws.ssm.inputs.MaintenanceWindowTaskTargetArgs;
- * import com.pulumi.aws.ssm.inputs.MaintenanceWindowTaskTaskInvocationParametersArgs;
- * import com.pulumi.aws.ssm.inputs.MaintenanceWindowTaskTaskInvocationParametersAutomationParametersArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -54,19 +51,8 @@ import javax.annotation.Nullable;
  *             .taskArn(&#34;AWS-RestartEC2Instance&#34;)
  *             .taskType(&#34;AUTOMATION&#34;)
  *             .windowId(aws_ssm_maintenance_window.example().id())
- *             .targets(MaintenanceWindowTaskTargetArgs.builder()
- *                 .key(&#34;InstanceIds&#34;)
- *                 .values(aws_instance.example().id())
- *                 .build())
- *             .taskInvocationParameters(MaintenanceWindowTaskTaskInvocationParametersArgs.builder()
- *                 .automationParameters(MaintenanceWindowTaskTaskInvocationParametersAutomationParametersArgs.builder()
- *                     .documentVersion(&#34;$LATEST&#34;)
- *                     .parameters(MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameterArgs.builder()
- *                         .name(&#34;InstanceId&#34;)
- *                         .values(aws_instance.example().id())
- *                         .build())
- *                     .build())
- *                 .build())
+ *             .targets(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .taskInvocationParameters(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -81,10 +67,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.ssm.MaintenanceWindowTask;
  * import com.pulumi.aws.ssm.MaintenanceWindowTaskArgs;
- * import com.pulumi.aws.ssm.inputs.MaintenanceWindowTaskTargetArgs;
- * import com.pulumi.aws.ssm.inputs.MaintenanceWindowTaskTaskInvocationParametersArgs;
- * import com.pulumi.aws.ssm.inputs.MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersArgs;
- * import com.pulumi.aws.ssm.inputs.MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -105,27 +87,8 @@ import javax.annotation.Nullable;
  *             .taskArn(&#34;AWS-RunShellScript&#34;)
  *             .taskType(&#34;RUN_COMMAND&#34;)
  *             .windowId(aws_ssm_maintenance_window.example().id())
- *             .targets(MaintenanceWindowTaskTargetArgs.builder()
- *                 .key(&#34;InstanceIds&#34;)
- *                 .values(aws_instance.example().id())
- *                 .build())
- *             .taskInvocationParameters(MaintenanceWindowTaskTaskInvocationParametersArgs.builder()
- *                 .runCommandParameters(MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersArgs.builder()
- *                     .outputS3Bucket(aws_s3_bucket.example().id())
- *                     .outputS3KeyPrefix(&#34;output&#34;)
- *                     .serviceRoleArn(aws_iam_role.example().arn())
- *                     .timeoutSeconds(600)
- *                     .notificationConfig(MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigArgs.builder()
- *                         .notificationArn(aws_sns_topic.example().arn())
- *                         .notificationEvents(&#34;All&#34;)
- *                         .notificationType(&#34;Command&#34;)
- *                         .build())
- *                     .parameters(MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameterArgs.builder()
- *                         .name(&#34;commands&#34;)
- *                         .values(&#34;date&#34;)
- *                         .build())
- *                     .build())
- *                 .build())
+ *             .targets(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .taskInvocationParameters(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -140,9 +103,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.ssm.MaintenanceWindowTask;
  * import com.pulumi.aws.ssm.MaintenanceWindowTaskArgs;
- * import com.pulumi.aws.ssm.inputs.MaintenanceWindowTaskTargetArgs;
- * import com.pulumi.aws.ssm.inputs.MaintenanceWindowTaskTaskInvocationParametersArgs;
- * import com.pulumi.aws.ssm.inputs.MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -163,16 +123,8 @@ import javax.annotation.Nullable;
  *             .taskArn(aws_sfn_activity.example().id())
  *             .taskType(&#34;STEP_FUNCTIONS&#34;)
  *             .windowId(aws_ssm_maintenance_window.example().id())
- *             .targets(MaintenanceWindowTaskTargetArgs.builder()
- *                 .key(&#34;InstanceIds&#34;)
- *                 .values(aws_instance.example().id())
- *                 .build())
- *             .taskInvocationParameters(MaintenanceWindowTaskTaskInvocationParametersArgs.builder()
- *                 .stepFunctionsParameters(MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersArgs.builder()
- *                     .input(&#34;{\&#34;key1\&#34;:\&#34;value1\&#34;}&#34;)
- *                     .name(&#34;example&#34;)
- *                     .build())
- *                 .build())
+ *             .targets(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .taskInvocationParameters(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

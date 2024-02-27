@@ -111,12 +111,12 @@ class OrganizationConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_organization = aws.organizations.Organization("exampleOrganization",
-            aws_service_access_principals=["securityhub.amazonaws.com"],
-            feature_set="ALL")
-        example_organization_admin_account = aws.securityhub.OrganizationAdminAccount("exampleOrganizationAdminAccount", admin_account_id="123456789012",
+        example_organization = aws.organizations.organization.Organization("exampleOrganization",
+            aws_service_access_principals=[securityhub.amazonaws.com],
+            feature_set=ALL)
+        example_organization_admin_account = aws.securityhub.organization_admin_account.OrganizationAdminAccount("exampleOrganizationAdminAccount", admin_account_id=123456789012,
         opts=pulumi.ResourceOptions(depends_on=[example_organization]))
-        example_organization_configuration = aws.securityhub.OrganizationConfiguration("exampleOrganizationConfiguration", auto_enable=True)
+        example_organization_configuration = aws.securityhub.organization_configuration.OrganizationConfiguration("exampleOrganizationConfiguration", auto_enable=True)
         ```
 
         ## Import
@@ -151,12 +151,12 @@ class OrganizationConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_organization = aws.organizations.Organization("exampleOrganization",
-            aws_service_access_principals=["securityhub.amazonaws.com"],
-            feature_set="ALL")
-        example_organization_admin_account = aws.securityhub.OrganizationAdminAccount("exampleOrganizationAdminAccount", admin_account_id="123456789012",
+        example_organization = aws.organizations.organization.Organization("exampleOrganization",
+            aws_service_access_principals=[securityhub.amazonaws.com],
+            feature_set=ALL)
+        example_organization_admin_account = aws.securityhub.organization_admin_account.OrganizationAdminAccount("exampleOrganizationAdminAccount", admin_account_id=123456789012,
         opts=pulumi.ResourceOptions(depends_on=[example_organization]))
-        example_organization_configuration = aws.securityhub.OrganizationConfiguration("exampleOrganizationConfiguration", auto_enable=True)
+        example_organization_configuration = aws.securityhub.organization_configuration.OrganizationConfiguration("exampleOrganizationConfiguration", auto_enable=True)
         ```
 
         ## Import

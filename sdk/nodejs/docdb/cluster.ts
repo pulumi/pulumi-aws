@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const docdb = new aws.docdb.Cluster("docdb", {
+ * const docdb = new aws.docdb/cluster.Cluster("docdb", {
  *     backupRetentionPeriod: 5,
  *     clusterIdentifier: "my-docdb-cluster",
  *     engine: "docdb",

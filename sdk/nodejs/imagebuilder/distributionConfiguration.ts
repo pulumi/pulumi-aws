@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.imagebuilder.DistributionConfiguration("example", {distributions: [{
+ * const example = new aws.imagebuilder/distributionConfiguration.DistributionConfiguration("example", {distributions: [{
  *     amiDistributionConfiguration: {
  *         amiTags: {
  *             CostCenter: "IT",

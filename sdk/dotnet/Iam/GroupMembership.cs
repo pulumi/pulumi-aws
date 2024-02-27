@@ -29,13 +29,13 @@ namespace Pulumi.Aws.Iam
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var @group = new Aws.Iam.Group("group");
+    ///     var @group = new Aws.Iam.Group.Group("group");
     /// 
-    ///     var userOne = new Aws.Iam.User("userOne");
+    ///     var userOne = new Aws.Iam.User.User("userOne");
     /// 
-    ///     var userTwo = new Aws.Iam.User("userTwo");
+    ///     var userTwo = new Aws.Iam.User.User("userTwo");
     /// 
-    ///     var team = new Aws.Iam.GroupMembership("team", new()
+    ///     var team = new Aws.Iam.GroupMembership.GroupMembership("team", new()
     ///     {
     ///         Users = new[]
     ///         {

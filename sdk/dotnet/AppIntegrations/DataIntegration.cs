@@ -22,16 +22,16 @@ namespace Pulumi.Aws.AppIntegrations
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.AppIntegrations.DataIntegration("example", new()
+    ///     var example = new Aws.Appintegrations.DataIntegration.DataIntegration("example", new()
     ///     {
     ///         Description = "example",
     ///         KmsKey = aws_kms_key.Test.Arn,
     ///         SourceUri = "Salesforce://AppFlow/example",
-    ///         ScheduleConfig = new Aws.AppIntegrations.Inputs.DataIntegrationScheduleConfigArgs
+    ///         ScheduleConfig = 
     ///         {
-    ///             FirstExecutionFrom = "1439788442681",
-    ///             Object = "Account",
-    ///             ScheduleExpression = "rate(1 hour)",
+    ///             { "firstExecutionFrom", "1439788442681" },
+    ///             { "object", "Account" },
+    ///             { "scheduleExpression", "rate(1 hour)" },
     ///         },
     ///         Tags = 
     ///         {

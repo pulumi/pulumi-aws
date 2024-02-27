@@ -11,46 +11,17 @@ import * as utilities from "../utilities";
  * Provides a SageMaker Domain resource.
  *
  * ## Example Usage
- * ### Basic usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const examplePolicyDocument = aws.iam.getPolicyDocument({
- *     statements: [{
- *         actions: ["sts:AssumeRole"],
- *         principals: [{
- *             type: "Service",
- *             identifiers: ["sagemaker.amazonaws.com"],
- *         }],
- *     }],
- * });
- * const exampleRole = new aws.iam.Role("exampleRole", {
- *     path: "/",
- *     assumeRolePolicy: examplePolicyDocument.then(examplePolicyDocument => examplePolicyDocument.json),
- * });
- * const exampleDomain = new aws.sagemaker.Domain("exampleDomain", {
- *     domainName: "example",
- *     authMode: "IAM",
- *     vpcId: aws_vpc.example.id,
- *     subnetIds: [aws_subnet.example.id],
- *     defaultUserSettings: {
- *         executionRole: exampleRole.arn,
- *     },
- * });
- * ```
  * ### Using Custom Images
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleImage = new aws.sagemaker.Image("exampleImage", {
+ * const exampleImage = new aws.sagemaker/image.Image("exampleImage", {
  *     imageName: "example",
  *     roleArn: aws_iam_role.example.arn,
  * });
- * const exampleAppImageConfig = new aws.sagemaker.AppImageConfig("exampleAppImageConfig", {
+ * const exampleAppImageConfig = new aws.sagemaker/appImageConfig.AppImageConfig("exampleAppImageConfig", {
  *     appImageConfigName: "example",
  *     kernelGatewayImageConfig: {
  *         kernelSpec: {
@@ -58,11 +29,11 @@ import * as utilities from "../utilities";
  *         },
  *     },
  * });
- * const exampleImageVersion = new aws.sagemaker.ImageVersion("exampleImageVersion", {
+ * const exampleImageVersion = new aws.sagemaker/imageVersion.ImageVersion("exampleImageVersion", {
  *     imageName: exampleImage.id,
  *     baseImage: "base-image",
  * });
- * const exampleDomain = new aws.sagemaker.Domain("exampleDomain", {
+ * const exampleDomain = new aws.sagemaker/domain.Domain("exampleDomain", {
  *     domainName: "example",
  *     authMode: "IAM",
  *     vpcId: aws_vpc.example.id,

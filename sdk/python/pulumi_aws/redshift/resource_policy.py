@@ -107,18 +107,18 @@ class ResourcePolicy(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        example = aws.redshift.ResourcePolicy("example",
-            resource_arn=aws_redshift_cluster["example"]["cluster_namespace_arn"],
+        example = aws.redshift.resource_policy.ResourcePolicy("example",
+            resource_arn=aws_redshift_cluster.example.cluster_namespace_arn,
             policy=json.dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Effect": "Allow",
-                    "Principal": {
-                        "AWS": "arn:aws:iam::12345678901:root",
+                Version: 2012-10-17,
+                Statement: [{
+                    Effect: Allow,
+                    Principal: {
+                        AWS: arn:aws:iam::12345678901:root,
                     },
-                    "Action": "redshift:CreateInboundIntegration",
-                    "Resource": aws_redshift_cluster["example"]["cluster_namespace_arn"],
-                    "Sid": "",
+                    Action: redshift:CreateInboundIntegration,
+                    Resource: aws_redshift_cluster.example.cluster_namespace_arn,
+                    Sid: ,
                 }],
             }))
         ```
@@ -152,18 +152,18 @@ class ResourcePolicy(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        example = aws.redshift.ResourcePolicy("example",
-            resource_arn=aws_redshift_cluster["example"]["cluster_namespace_arn"],
+        example = aws.redshift.resource_policy.ResourcePolicy("example",
+            resource_arn=aws_redshift_cluster.example.cluster_namespace_arn,
             policy=json.dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Effect": "Allow",
-                    "Principal": {
-                        "AWS": "arn:aws:iam::12345678901:root",
+                Version: 2012-10-17,
+                Statement: [{
+                    Effect: Allow,
+                    Principal: {
+                        AWS: arn:aws:iam::12345678901:root,
                     },
-                    "Action": "redshift:CreateInboundIntegration",
-                    "Resource": aws_redshift_cluster["example"]["cluster_namespace_arn"],
-                    "Sid": "",
+                    Action: redshift:CreateInboundIntegration,
+                    Resource: aws_redshift_cluster.example.cluster_namespace_arn,
+                    Sid: ,
                 }],
             }))
         ```

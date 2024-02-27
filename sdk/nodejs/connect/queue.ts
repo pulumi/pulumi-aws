@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = new aws.connect.Queue("test", {
+ * const test = new aws.connect/queue.Queue("test", {
  *     description: "Example Description",
  *     hoursOfOperationId: "12345678-1234-1234-1234-123456789012",
  *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
@@ -33,7 +33,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = new aws.connect.Queue("test", {
+ * const test = new aws.connect/queue.Queue("test", {
  *     description: "Example Description",
  *     hoursOfOperationId: "12345678-1234-1234-1234-123456789012",
  *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
@@ -49,7 +49,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = new aws.connect.Queue("test", {
+ * const test = new aws.connect/queue.Queue("test", {
  *     description: "Example Description",
  *     hoursOfOperationId: "12345678-1234-1234-1234-123456789012",
  *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",

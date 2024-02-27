@@ -13,11 +13,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const primaryAccount = new aws.macie2.Account("primaryAccount", {}, {
+ * const primaryAccount = new aws.macie2/account.Account("primaryAccount", {}, {
  *     provider: "awsalternate",
  * });
- * const memberAccount = new aws.macie2.Account("memberAccount", {});
- * const primaryMember = new aws.macie2.Member("primaryMember", {
+ * const memberAccount = new aws.macie2/account.Account("memberAccount", {});
+ * const primaryMember = new aws.macie2/member.Member("primaryMember", {
  *     accountId: "ACCOUNT ID",
  *     email: "EMAIL",
  *     invite: true,
@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  *     provider: "awsalternate",
  *     dependsOn: [primaryAccount],
  * });
- * const memberInvitationAccepter = new aws.macie2.InvitationAccepter("memberInvitationAccepter", {administratorAccountId: "ADMINISTRATOR ACCOUNT ID"}, {
+ * const memberInvitationAccepter = new aws.macie2/invitationAccepter.InvitationAccepter("memberInvitationAccepter", {administratorAccountId: "ADMINISTRATOR ACCOUNT ID"}, {
  *     dependsOn: [primaryMember],
  * });
  * ```

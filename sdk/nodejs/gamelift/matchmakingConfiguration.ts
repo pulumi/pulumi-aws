@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleGameSessionQueue = new aws.gamelift.GameSessionQueue("exampleGameSessionQueue", {
+ * const exampleGameSessionQueue = new aws.gamelift/gameSessionQueue.GameSessionQueue("exampleGameSessionQueue", {
  *     destinations: [],
  *     playerLatencyPolicies: [
  *         {
@@ -29,7 +29,7 @@ import * as utilities from "../utilities";
  *     ],
  *     timeoutInSeconds: 25,
  * });
- * const exampleMatchmakingRuleSet = new aws.gamelift.MatchmakingRuleSet("exampleMatchmakingRuleSet", {ruleSetBody: JSON.stringify({
+ * const exampleMatchmakingRuleSet = new aws.gamelift/matchmakingRuleSet.MatchmakingRuleSet("exampleMatchmakingRuleSet", {ruleSetBody: JSON.stringify({
  *     name: "test",
  *     ruleLanguageVersion: "1.0",
  *     teams: [{
@@ -38,7 +38,7 @@ import * as utilities from "../utilities";
  *         maxPlayers: 5,
  *     }],
  * })});
- * const exampleMatchmakingConfiguration = new aws.gamelift.MatchmakingConfiguration("exampleMatchmakingConfiguration", {
+ * const exampleMatchmakingConfiguration = new aws.gamelift/matchmakingConfiguration.MatchmakingConfiguration("exampleMatchmakingConfiguration", {
  *     acceptanceRequired: false,
  *     customEventData: "pvp",
  *     gameSessionData: "game_session_data",

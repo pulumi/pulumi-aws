@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Backup
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Aws.Backup.VaultLockConfiguration("test", new()
+    ///     var test = new Aws.Backup.VaultLockConfiguration.VaultLockConfiguration("test", new()
     ///     {
     ///         BackupVaultName = "example_backup_vault",
     ///         ChangeableForDays = 3,

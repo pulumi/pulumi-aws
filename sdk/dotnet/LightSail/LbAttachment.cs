@@ -12,58 +12,6 @@ namespace Pulumi.Aws.LightSail
     /// <summary>
     /// Attaches a Lightsail Instance to a Lightsail Load Balancer.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var available = Aws.GetAvailabilityZones.Invoke(new()
-    ///     {
-    ///         State = "available",
-    ///         Filters = new[]
-    ///         {
-    ///             new Aws.Inputs.GetAvailabilityZonesFilterInputArgs
-    ///             {
-    ///                 Name = "opt-in-status",
-    ///                 Values = new[]
-    ///                 {
-    ///                     "opt-in-not-required",
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var testLb = new Aws.LightSail.Lb("testLb", new()
-    ///     {
-    ///         HealthCheckPath = "/",
-    ///         InstancePort = 80,
-    ///         Tags = 
-    ///         {
-    ///             { "foo", "bar" },
-    ///         },
-    ///     });
-    /// 
-    ///     var testInstance = new Aws.LightSail.Instance("testInstance", new()
-    ///     {
-    ///         AvailabilityZone = available.Apply(getAvailabilityZonesResult =&gt; getAvailabilityZonesResult.Names[0]),
-    ///         BlueprintId = "amazon_linux_2",
-    ///         BundleId = "nano_1_0",
-    ///     });
-    /// 
-    ///     var testLbAttachment = new Aws.LightSail.LbAttachment("testLbAttachment", new()
-    ///     {
-    ///         LbName = testLb.Name,
-    ///         InstanceName = testInstance.Name,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_lightsail_lb_attachment` using the name attribute. For example:

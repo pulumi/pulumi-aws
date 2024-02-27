@@ -97,15 +97,6 @@ def get_queue(name: Optional[str] = None,
     By using this data source, you can reference SQS queues without having to hardcode
     the ARNs as input.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.sqs.get_queue(name="queue")
-    ```
-
 
     :param str name: Name of the queue to match.
     :param Mapping[str, str] tags: Map of tags for the resource.
@@ -132,15 +123,6 @@ def get_queue_output(name: Optional[pulumi.Input[str]] = None,
     Use this data source to get the ARN and URL of queue in AWS Simple Queue Service (SQS).
     By using this data source, you can reference SQS queues without having to hardcode
     the ARNs as input.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.sqs.get_queue(name="queue")
-    ```
 
 
     :param str name: Name of the queue to match.

@@ -16,8 +16,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleIndex = new aws.resourceexplorer.Index("exampleIndex", {type: "LOCAL"});
- * const exampleView = new aws.resourceexplorer.View("exampleView", {
+ * const exampleIndex = new aws.resourceexplorer/index.Index("exampleIndex", {type: "LOCAL"});
+ * const exampleView = new aws.resourceexplorer/view.View("exampleView", {
  *     filters: {
  *         filterString: "resourcetype:ec2:instance",
  *     },

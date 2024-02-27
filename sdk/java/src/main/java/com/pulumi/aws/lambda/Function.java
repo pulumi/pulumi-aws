@@ -40,70 +40,6 @@ import javax.annotation.Nullable;
  * &gt; To give an external source (like an EventBridge Rule, SNS, or S3) permission to access the Lambda function, use the `aws.lambda.Permission` resource. See [Lambda Permission Model](https://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html) for more details. On the other hand, the `role` argument of this resource is the function&#39;s execution role for identity and access to AWS services and resources.
  * 
  * ## Example Usage
- * ### Basic Example
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.iam.IamFunctions;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
- * import com.pulumi.aws.iam.Role;
- * import com.pulumi.aws.iam.RoleArgs;
- * import com.pulumi.archive.ArchiveFunctions;
- * import com.pulumi.archive.inputs.GetFileArgs;
- * import com.pulumi.aws.lambda.Function;
- * import com.pulumi.aws.lambda.FunctionArgs;
- * import com.pulumi.aws.lambda.inputs.FunctionEnvironmentArgs;
- * import com.pulumi.asset.FileArchive;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect(&#34;Allow&#34;)
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type(&#34;Service&#34;)
- *                     .identifiers(&#34;lambda.amazonaws.com&#34;)
- *                     .build())
- *                 .actions(&#34;sts:AssumeRole&#34;)
- *                 .build())
- *             .build());
- * 
- *         var iamForLambda = new Role(&#34;iamForLambda&#34;, RoleArgs.builder()        
- *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
- *             .build());
- * 
- *         final var lambda = ArchiveFunctions.getFile(GetFileArgs.builder()
- *             .type(&#34;zip&#34;)
- *             .sourceFile(&#34;lambda.js&#34;)
- *             .outputPath(&#34;lambda_function_payload.zip&#34;)
- *             .build());
- * 
- *         var testLambda = new Function(&#34;testLambda&#34;, FunctionArgs.builder()        
- *             .code(new FileArchive(&#34;lambda_function_payload.zip&#34;))
- *             .role(iamForLambda.arn())
- *             .handler(&#34;index.test&#34;)
- *             .runtime(&#34;nodejs18.x&#34;)
- *             .environment(FunctionEnvironmentArgs.builder()
- *                 .variables(Map.of(&#34;foo&#34;, &#34;bar&#34;))
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * ```
  * ### Lambda Layers
  * ```java
  * package generated_program;
@@ -136,64 +72,6 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
- * ### Lambda Ephemeral Storage
- * 
- * Lambda Function Ephemeral Storage(`/tmp`) allows you to configure the storage upto `10` GB. The default value set to `512` MB.
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.iam.IamFunctions;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
- * import com.pulumi.aws.iam.Role;
- * import com.pulumi.aws.iam.RoleArgs;
- * import com.pulumi.aws.lambda.Function;
- * import com.pulumi.aws.lambda.FunctionArgs;
- * import com.pulumi.aws.lambda.inputs.FunctionEphemeralStorageArgs;
- * import com.pulumi.asset.FileArchive;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect(&#34;Allow&#34;)
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type(&#34;Service&#34;)
- *                     .identifiers(&#34;lambda.amazonaws.com&#34;)
- *                     .build())
- *                 .actions(&#34;sts:AssumeRole&#34;)
- *                 .build())
- *             .build());
- * 
- *         var iamForLambda = new Role(&#34;iamForLambda&#34;, RoleArgs.builder()        
- *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
- *             .build());
- * 
- *         var testLambda = new Function(&#34;testLambda&#34;, FunctionArgs.builder()        
- *             .code(new FileArchive(&#34;lambda_function_payload.zip&#34;))
- *             .role(iamForLambda.arn())
- *             .handler(&#34;index.test&#34;)
- *             .runtime(&#34;nodejs18.x&#34;)
- *             .ephemeralStorage(FunctionEphemeralStorageArgs.builder()
- *                 .size(10240)
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * ```
  * ### Lambda File Systems
  * 
  * Lambda File Systems allow you to connect an Amazon Elastic File System (EFS) file system to a Lambda function to share data across function invocations, access existing data including large files, and save function state.
@@ -209,13 +87,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.efs.MountTargetArgs;
  * import com.pulumi.aws.efs.AccessPoint;
  * import com.pulumi.aws.efs.AccessPointArgs;
- * import com.pulumi.aws.efs.inputs.AccessPointRootDirectoryArgs;
- * import com.pulumi.aws.efs.inputs.AccessPointRootDirectoryCreationInfoArgs;
- * import com.pulumi.aws.efs.inputs.AccessPointPosixUserArgs;
  * import com.pulumi.aws.lambda.Function;
  * import com.pulumi.aws.lambda.FunctionArgs;
- * import com.pulumi.aws.lambda.inputs.FunctionFileSystemConfigArgs;
- * import com.pulumi.aws.lambda.inputs.FunctionVpcConfigArgs;
  * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
@@ -231,7 +104,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var efsForLambda = new FileSystem(&#34;efsForLambda&#34;, FileSystemArgs.builder()        
- *             .tags(Map.of(&#34;Name&#34;, &#34;efs_for_lambda&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var alpha = new MountTarget(&#34;alpha&#34;, MountTargetArgs.builder()        
@@ -242,29 +115,13 @@ import javax.annotation.Nullable;
  * 
  *         var accessPointForLambda = new AccessPoint(&#34;accessPointForLambda&#34;, AccessPointArgs.builder()        
  *             .fileSystemId(efsForLambda.id())
- *             .rootDirectory(AccessPointRootDirectoryArgs.builder()
- *                 .path(&#34;/lambda&#34;)
- *                 .creationInfo(AccessPointRootDirectoryCreationInfoArgs.builder()
- *                     .ownerGid(1000)
- *                     .ownerUid(1000)
- *                     .permissions(&#34;777&#34;)
- *                     .build())
- *                 .build())
- *             .posixUser(AccessPointPosixUserArgs.builder()
- *                 .gid(1000)
- *                 .uid(1000)
- *                 .build())
+ *             .rootDirectory(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .posixUser(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var example = new Function(&#34;example&#34;, FunctionArgs.builder()        
- *             .fileSystemConfig(FunctionFileSystemConfigArgs.builder()
- *                 .arn(accessPointForLambda.arn())
- *                 .localMountPath(&#34;/mnt/efs&#34;)
- *                 .build())
- *             .vpcConfig(FunctionVpcConfigArgs.builder()
- *                 .subnetIds(aws_subnet.subnet_for_lambda().id())
- *                 .securityGroupIds(aws_security_group.sg_for_lambda().id())
- *                 .build())
+ *             .fileSystemConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .vpcConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(alpha)
  *                 .build());
@@ -275,81 +132,6 @@ import javax.annotation.Nullable;
  * ### Lambda retries
  * 
  * Lambda Functions allow you to configure error handling for asynchronous invocation. The settings that it supports are `Maximum age of event` and `Retry attempts` as stated in [Lambda documentation for Configuring error handling for asynchronous invocation](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-errors). To configure these settings, refer to the aws.lambda.FunctionEventInvokeConfig resource.
- * ### CloudWatch Logging and Permissions
- * 
- * For more information about CloudWatch Logs for Lambda, see the [Lambda User Guide](https://docs.aws.amazon.com/lambda/latest/dg/monitoring-functions-logs.html).
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.cloudwatch.LogGroup;
- * import com.pulumi.aws.cloudwatch.LogGroupArgs;
- * import com.pulumi.aws.iam.IamFunctions;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
- * import com.pulumi.aws.iam.Policy;
- * import com.pulumi.aws.iam.PolicyArgs;
- * import com.pulumi.aws.iam.RolePolicyAttachment;
- * import com.pulumi.aws.iam.RolePolicyAttachmentArgs;
- * import com.pulumi.aws.lambda.Function;
- * import com.pulumi.aws.lambda.FunctionArgs;
- * import com.pulumi.aws.lambda.inputs.FunctionLoggingConfigArgs;
- * import com.pulumi.resources.CustomResourceOptions;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var config = ctx.config();
- *         final var lambdaFunctionName = config.get(&#34;lambdaFunctionName&#34;).orElse(&#34;lambda_function_name&#34;);
- *         var example = new LogGroup(&#34;example&#34;, LogGroupArgs.builder()        
- *             .retentionInDays(14)
- *             .build());
- * 
- *         final var lambdaLoggingPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect(&#34;Allow&#34;)
- *                 .actions(                
- *                     &#34;logs:CreateLogGroup&#34;,
- *                     &#34;logs:CreateLogStream&#34;,
- *                     &#34;logs:PutLogEvents&#34;)
- *                 .resources(&#34;arn:aws:logs:*:*:*&#34;)
- *                 .build())
- *             .build());
- * 
- *         var lambdaLoggingPolicy = new Policy(&#34;lambdaLoggingPolicy&#34;, PolicyArgs.builder()        
- *             .path(&#34;/&#34;)
- *             .description(&#34;IAM policy for logging from a lambda&#34;)
- *             .policy(lambdaLoggingPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
- *             .build());
- * 
- *         var lambdaLogs = new RolePolicyAttachment(&#34;lambdaLogs&#34;, RolePolicyAttachmentArgs.builder()        
- *             .role(aws_iam_role.iam_for_lambda().name())
- *             .policyArn(lambdaLoggingPolicy.arn())
- *             .build());
- * 
- *         var testLambda = new Function(&#34;testLambda&#34;, FunctionArgs.builder()        
- *             .loggingConfig(FunctionLoggingConfigArgs.builder()
- *                 .logFormat(&#34;Text&#34;)
- *                 .build())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(                
- *                     lambdaLogs,
- *                     example)
- *                 .build());
- * 
- *     }
- * }
- * ```
  * ## Specifying the Deployment Package
  * 
  * AWS Lambda expects source code to be provided as a deployment package whose structure varies depending on which `runtime` is in use. See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for the valid values of `runtime`. The expected structure of the deployment package can be found in [the AWS Lambda documentation for each runtime](https://docs.aws.amazon.com/lambda/latest/dg/deployment-package-v2.html).

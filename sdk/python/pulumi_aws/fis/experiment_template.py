@@ -301,29 +301,29 @@ class ExperimentTemplate(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.fis.ExperimentTemplate("example",
-            description="example",
-            role_arn=aws_iam_role["example"]["arn"],
-            stop_conditions=[aws.fis.ExperimentTemplateStopConditionArgs(
-                source="none",
-            )],
-            actions=[aws.fis.ExperimentTemplateActionArgs(
-                name="example-action",
-                action_id="aws:ec2:terminate-instances",
-                target=aws.fis.ExperimentTemplateActionTargetArgs(
-                    key="Instances",
-                    value="example-target",
-                ),
-            )],
-            targets=[aws.fis.ExperimentTemplateTargetArgs(
-                name="example-target",
-                resource_type="aws:ec2:instance",
-                selection_mode="COUNT(1)",
-                resource_tags=[aws.fis.ExperimentTemplateTargetResourceTagArgs(
-                    key="env",
-                    value="example",
-                )],
-            )])
+        example = aws.fis.experiment_template.ExperimentTemplate("example",
+            description=example,
+            role_arn=aws_iam_role.example.arn,
+            stop_conditions=[{
+                source: none,
+            }],
+            actions=[{
+                name: example-action,
+                actionId: aws:ec2:terminate-instances,
+                target: {
+                    key: Instances,
+                    value: example-target,
+                },
+            }],
+            targets=[{
+                name: example-target,
+                resourceType: aws:ec2:instance,
+                selectionMode: COUNT(1),
+                resourceTags: [{
+                    key: env,
+                    value: example,
+                }],
+            }])
         ```
 
         ## Import
@@ -365,29 +365,29 @@ class ExperimentTemplate(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.fis.ExperimentTemplate("example",
-            description="example",
-            role_arn=aws_iam_role["example"]["arn"],
-            stop_conditions=[aws.fis.ExperimentTemplateStopConditionArgs(
-                source="none",
-            )],
-            actions=[aws.fis.ExperimentTemplateActionArgs(
-                name="example-action",
-                action_id="aws:ec2:terminate-instances",
-                target=aws.fis.ExperimentTemplateActionTargetArgs(
-                    key="Instances",
-                    value="example-target",
-                ),
-            )],
-            targets=[aws.fis.ExperimentTemplateTargetArgs(
-                name="example-target",
-                resource_type="aws:ec2:instance",
-                selection_mode="COUNT(1)",
-                resource_tags=[aws.fis.ExperimentTemplateTargetResourceTagArgs(
-                    key="env",
-                    value="example",
-                )],
-            )])
+        example = aws.fis.experiment_template.ExperimentTemplate("example",
+            description=example,
+            role_arn=aws_iam_role.example.arn,
+            stop_conditions=[{
+                source: none,
+            }],
+            actions=[{
+                name: example-action,
+                actionId: aws:ec2:terminate-instances,
+                target: {
+                    key: Instances,
+                    value: example-target,
+                },
+            }],
+            targets=[{
+                name: example-target,
+                resourceType: aws:ec2:instance,
+                selectionMode: COUNT(1),
+                resourceTags: [{
+                    key: env,
+                    value: example,
+                }],
+            }])
         ```
 
         ## Import

@@ -24,7 +24,6 @@ import javax.annotation.Nullable;
  * Provides an AWS Network Firewall Firewall Resource
  * 
  * ## Example Usage
- * 
  * ```java
  * package generated_program;
  * 
@@ -33,7 +32,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.networkfirewall.Firewall;
  * import com.pulumi.aws.networkfirewall.FirewallArgs;
- * import com.pulumi.aws.networkfirewall.inputs.FirewallSubnetMappingArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -50,13 +48,8 @@ import javax.annotation.Nullable;
  *         var example = new Firewall(&#34;example&#34;, FirewallArgs.builder()        
  *             .firewallPolicyArn(aws_networkfirewall_firewall_policy.example().arn())
  *             .vpcId(aws_vpc.example().id())
- *             .subnetMappings(FirewallSubnetMappingArgs.builder()
- *                 .subnetId(aws_subnet.example().id())
- *                 .build())
- *             .tags(Map.ofEntries(
- *                 Map.entry(&#34;Tag1&#34;, &#34;Value1&#34;),
- *                 Map.entry(&#34;Tag2&#34;, &#34;Value2&#34;)
- *             ))
+ *             .subnetMappings(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .timeouts(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 

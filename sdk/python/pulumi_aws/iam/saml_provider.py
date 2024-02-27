@@ -194,7 +194,7 @@ class SamlProvider(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        default = aws.iam.SamlProvider("default", saml_metadata_document=(lambda path: open(path).read())("saml-metadata.xml"))
+        default = aws.iam.saml_provider.SamlProvider("default", saml_metadata_document=(lambda path: open(path).read())(saml-metadata.xml))
         ```
 
         ## Import
@@ -226,7 +226,7 @@ class SamlProvider(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        default = aws.iam.SamlProvider("default", saml_metadata_document=(lambda path: open(path).read())("saml-metadata.xml"))
+        default = aws.iam.saml_provider.SamlProvider("default", saml_metadata_document=(lambda path: open(path).read())(saml-metadata.xml))
         ```
 
         ## Import

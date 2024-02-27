@@ -38,47 +38,48 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/rds"
+//	rds/cluster "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/rds/cluster"
+//	rds/clusterInstance "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/rds/clusterInstance"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := rds/cluster.NewCluster(ctx, "default", &rds/cluster.ClusterArgs{
+// ClusterIdentifier: "aurora-cluster-demo",
+// AvailabilityZones: []string{
+// "us-west-2a",
+// "us-west-2b",
+// "us-west-2c",
+// },
+// DatabaseName: "mydb",
+// MasterUsername: "foo",
+// MasterPassword: "barbut8chars",
+// })
+// if err != nil {
+// return err
+// }
+// var clusterInstances []*rds/clusterInstance.ClusterInstance
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := rds.NewCluster(ctx, "default", &rds.ClusterArgs{
-//				ClusterIdentifier: pulumi.String("aurora-cluster-demo"),
-//				AvailabilityZones: pulumi.StringArray{
-//					pulumi.String("us-west-2a"),
-//					pulumi.String("us-west-2b"),
-//					pulumi.String("us-west-2c"),
-//				},
-//				DatabaseName:   pulumi.String("mydb"),
-//				MasterUsername: pulumi.String("foo"),
-//				MasterPassword: pulumi.String("barbut8chars"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			var clusterInstances []*rds.ClusterInstance
-//			for index := 0; index < 2; index++ {
-//				key0 := index
-//				val0 := index
-//				__res, err := rds.NewClusterInstance(ctx, fmt.Sprintf("clusterInstances-%v", key0), &rds.ClusterInstanceArgs{
-//					Identifier:        pulumi.String(fmt.Sprintf("aurora-cluster-demo-%v", val0)),
-//					ClusterIdentifier: _default.ID(),
-//					InstanceClass:     pulumi.String("db.r4.large"),
-//					Engine:            _default.Engine,
-//					EngineVersion:     _default.EngineVersion,
-//				})
-//				if err != nil {
-//					return err
-//				}
-//				clusterInstances = append(clusterInstances, __res)
-//			}
-//			return nil
-//		})
-//	}
+//	for index := 0; index < 2; index++ {
+//	    key0 := index
+//	    val0 := index
 //
+// __res, err := rds/clusterInstance.NewClusterInstance(ctx, fmt.Sprintf("clusterInstances-%v", key0), &rds/clusterInstance.ClusterInstanceArgs{
+// Identifier: fmt.Sprintf("aurora-cluster-demo-%v", val0),
+// ClusterIdentifier: _default.Id,
+// InstanceClass: "db.r4.large",
+// Engine: _default.Engine,
+// EngineVersion: _default.EngineVersion,
+// })
+// if err != nil {
+// return err
+// }
+// clusterInstances = append(clusterInstances, __res)
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

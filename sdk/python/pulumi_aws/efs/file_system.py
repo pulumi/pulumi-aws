@@ -521,8 +521,8 @@ class FileSystem(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        foo = aws.efs.FileSystem("foo", tags={
-            "Name": "MyProduct",
+        foo = aws.efs.file_system.FileSystem("foo", tags={
+            Name: MyProduct,
         })
         ```
         ### Using lifecycle policy
@@ -531,9 +531,9 @@ class FileSystem(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        foo_with_lifecyle_policy = aws.efs.FileSystem("fooWithLifecylePolicy", lifecycle_policies=[aws.efs.FileSystemLifecyclePolicyArgs(
-            transition_to_ia="AFTER_30_DAYS",
-        )])
+        foo_with_lifecyle_policy = aws.efs.file_system.FileSystem("fooWithLifecylePolicy", lifecycle_policies=[{
+            transitionToIa: AFTER_30_DAYS,
+        }])
         ```
 
         ## Import
@@ -576,8 +576,8 @@ class FileSystem(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        foo = aws.efs.FileSystem("foo", tags={
-            "Name": "MyProduct",
+        foo = aws.efs.file_system.FileSystem("foo", tags={
+            Name: MyProduct,
         })
         ```
         ### Using lifecycle policy
@@ -586,9 +586,9 @@ class FileSystem(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        foo_with_lifecyle_policy = aws.efs.FileSystem("fooWithLifecylePolicy", lifecycle_policies=[aws.efs.FileSystemLifecyclePolicyArgs(
-            transition_to_ia="AFTER_30_DAYS",
-        )])
+        foo_with_lifecyle_policy = aws.efs.file_system.FileSystem("fooWithLifecylePolicy", lifecycle_policies=[{
+            transitionToIa: AFTER_30_DAYS,
+        }])
         ```
 
         ## Import

@@ -23,37 +23,22 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudcontrol"
+//	cloudcontrol/resource "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/cloudcontrol/resource"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"ClusterName": "example",
-//				"Tags": []map[string]interface{}{
-//					map[string]interface{}{
-//						"Key":   "CostCenter",
-//						"Value": "IT",
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			_, err = cloudcontrol.NewResource(ctx, "example", &cloudcontrol.ResourceArgs{
-//				TypeName:     pulumi.String("AWS::ECS::Cluster"),
-//				DesiredState: pulumi.String(json0),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := cloudcontrol/resource.NewResource(ctx, "example", &cloudcontrol/resource.ResourceArgs{
+// TypeName: "AWS::ECS::Cluster",
+// DesiredState: %!v(PANIC=Format method: fatal: An assertion has failed: unlowered function toJSON),
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 type Resource struct {
 	pulumi.CustomResourceState

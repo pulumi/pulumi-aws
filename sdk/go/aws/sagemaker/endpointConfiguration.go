@@ -23,33 +23,31 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sagemaker"
+//	sagemaker/endpointConfiguration "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/sagemaker/endpointConfiguration"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := sagemaker.NewEndpointConfiguration(ctx, "ec", &sagemaker.EndpointConfigurationArgs{
-//				ProductionVariants: sagemaker.EndpointConfigurationProductionVariantArray{
-//					&sagemaker.EndpointConfigurationProductionVariantArgs{
-//						VariantName:          pulumi.String("variant-1"),
-//						ModelName:            pulumi.Any(aws_sagemaker_model.M.Name),
-//						InitialInstanceCount: pulumi.Int(1),
-//						InstanceType:         pulumi.String("ml.t2.medium"),
-//					},
-//				},
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("foo"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := sagemaker/endpointConfiguration.NewEndpointConfiguration(ctx, "ec", &sagemaker/endpointConfiguration.EndpointConfigurationArgs{
+// ProductionVariants: []map[string]interface{}{
+// map[string]interface{}{
+// "variantName": "variant-1",
+// "modelName": aws_sagemaker_model.M.Name,
+// "initialInstanceCount": 1,
+// "instanceType": "ml.t2.medium",
+// },
+// },
+// Tags: map[string]interface{}{
+// "Name": "foo",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

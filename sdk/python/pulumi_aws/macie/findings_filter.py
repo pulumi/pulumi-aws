@@ -307,17 +307,17 @@ class FindingsFilter(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.macie2.Account("example")
-        test = aws.macie.FindingsFilter("test",
-            description="DESCRIPTION",
+        example = aws.macie2.account.Account("example")
+        test = aws.macie.findings_filter.FindingsFilter("test",
+            description=DESCRIPTION,
             position=1,
-            action="ARCHIVE",
-            finding_criteria=aws.macie.FindingsFilterFindingCriteriaArgs(
-                criterions=[aws.macie.FindingsFilterFindingCriteriaCriterionArgs(
-                    field="region",
-                    eqs=[data["aws_region"]["current"]["name"]],
-                )],
-            ),
+            action=ARCHIVE,
+            finding_criteria={
+                criterions: [{
+                    field: region,
+                    eqs: [data.aws_region.current.name],
+                }],
+            },
             opts=pulumi.ResourceOptions(depends_on=[aws_macie2_account["test"]]))
         ```
 
@@ -354,17 +354,17 @@ class FindingsFilter(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.macie2.Account("example")
-        test = aws.macie.FindingsFilter("test",
-            description="DESCRIPTION",
+        example = aws.macie2.account.Account("example")
+        test = aws.macie.findings_filter.FindingsFilter("test",
+            description=DESCRIPTION,
             position=1,
-            action="ARCHIVE",
-            finding_criteria=aws.macie.FindingsFilterFindingCriteriaArgs(
-                criterions=[aws.macie.FindingsFilterFindingCriteriaCriterionArgs(
-                    field="region",
-                    eqs=[data["aws_region"]["current"]["name"]],
-                )],
-            ),
+            action=ARCHIVE,
+            finding_criteria={
+                criterions: [{
+                    field: region,
+                    eqs: [data.aws_region.current.name],
+                }],
+            },
             opts=pulumi.ResourceOptions(depends_on=[aws_macie2_account["test"]]))
         ```
 

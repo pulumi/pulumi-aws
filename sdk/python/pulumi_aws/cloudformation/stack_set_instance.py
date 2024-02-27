@@ -360,38 +360,10 @@ class StackSetInstance(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.cloudformation.StackSetInstance("example",
-            account_id="123456789012",
-            region="us-east-1",
-            stack_set_name=aws_cloudformation_stack_set["example"]["name"])
-        ```
-        ### Example IAM Setup in Target Account
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        a_ws_cloud_formation_stack_set_execution_role_assume_role_policy = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            actions=["sts:AssumeRole"],
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                identifiers=[aws_iam_role["AWSCloudFormationStackSetAdministrationRole"]["arn"]],
-                type="AWS",
-            )],
-        )])
-        a_ws_cloud_formation_stack_set_execution_role = aws.iam.Role("aWSCloudFormationStackSetExecutionRole", assume_role_policy=a_ws_cloud_formation_stack_set_execution_role_assume_role_policy.json)
-        a_ws_cloud_formation_stack_set_execution_role_minimum_execution_policy_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            actions=[
-                "cloudformation:*",
-                "s3:*",
-                "sns:*",
-            ],
-            effect="Allow",
-            resources=["*"],
-        )])
-        a_ws_cloud_formation_stack_set_execution_role_minimum_execution_policy_role_policy = aws.iam.RolePolicy("aWSCloudFormationStackSetExecutionRoleMinimumExecutionPolicyRolePolicy",
-            policy=a_ws_cloud_formation_stack_set_execution_role_minimum_execution_policy_policy_document.json,
-            role=a_ws_cloud_formation_stack_set_execution_role.name)
+        example = aws.cloudformation.stack_set_instance.StackSetInstance("example",
+            account_id=123456789012,
+            region=us-east-1,
+            stack_set_name=aws_cloudformation_stack_set.example.name)
         ```
         ### Example Deployment across Organizations account
 
@@ -399,12 +371,12 @@ class StackSetInstance(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.cloudformation.StackSetInstance("example",
-            deployment_targets=aws.cloudformation.StackSetInstanceDeploymentTargetsArgs(
-                organizational_unit_ids=[aws_organizations_organization["example"]["roots"][0]["id"]],
-            ),
-            region="us-east-1",
-            stack_set_name=aws_cloudformation_stack_set["example"]["name"])
+        example = aws.cloudformation.stack_set_instance.StackSetInstance("example",
+            deployment_targets={
+                organizationalUnitIds: [aws_organizations_organization.example.roots[0].id],
+            },
+            region=us-east-1,
+            stack_set_name=aws_cloudformation_stack_set.example.name)
         ```
 
         ## Import
@@ -460,38 +432,10 @@ class StackSetInstance(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.cloudformation.StackSetInstance("example",
-            account_id="123456789012",
-            region="us-east-1",
-            stack_set_name=aws_cloudformation_stack_set["example"]["name"])
-        ```
-        ### Example IAM Setup in Target Account
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        a_ws_cloud_formation_stack_set_execution_role_assume_role_policy = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            actions=["sts:AssumeRole"],
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                identifiers=[aws_iam_role["AWSCloudFormationStackSetAdministrationRole"]["arn"]],
-                type="AWS",
-            )],
-        )])
-        a_ws_cloud_formation_stack_set_execution_role = aws.iam.Role("aWSCloudFormationStackSetExecutionRole", assume_role_policy=a_ws_cloud_formation_stack_set_execution_role_assume_role_policy.json)
-        a_ws_cloud_formation_stack_set_execution_role_minimum_execution_policy_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            actions=[
-                "cloudformation:*",
-                "s3:*",
-                "sns:*",
-            ],
-            effect="Allow",
-            resources=["*"],
-        )])
-        a_ws_cloud_formation_stack_set_execution_role_minimum_execution_policy_role_policy = aws.iam.RolePolicy("aWSCloudFormationStackSetExecutionRoleMinimumExecutionPolicyRolePolicy",
-            policy=a_ws_cloud_formation_stack_set_execution_role_minimum_execution_policy_policy_document.json,
-            role=a_ws_cloud_formation_stack_set_execution_role.name)
+        example = aws.cloudformation.stack_set_instance.StackSetInstance("example",
+            account_id=123456789012,
+            region=us-east-1,
+            stack_set_name=aws_cloudformation_stack_set.example.name)
         ```
         ### Example Deployment across Organizations account
 
@@ -499,12 +443,12 @@ class StackSetInstance(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.cloudformation.StackSetInstance("example",
-            deployment_targets=aws.cloudformation.StackSetInstanceDeploymentTargetsArgs(
-                organizational_unit_ids=[aws_organizations_organization["example"]["roots"][0]["id"]],
-            ),
-            region="us-east-1",
-            stack_set_name=aws_cloudformation_stack_set["example"]["name"])
+        example = aws.cloudformation.stack_set_instance.StackSetInstance("example",
+            deployment_targets={
+                organizationalUnitIds: [aws_organizations_organization.example.roots[0].id],
+            },
+            region=us-east-1,
+            stack_set_name=aws_cloudformation_stack_set.example.name)
         ```
 
         ## Import

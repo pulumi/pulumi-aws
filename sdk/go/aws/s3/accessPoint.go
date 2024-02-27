@@ -28,27 +28,26 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	s3/accessPoint "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/s3/accessPoint"
+//	s3/bucketV2 "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/s3/bucketV2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = s3.NewAccessPoint(ctx, "exampleAccessPoint", &s3.AccessPointArgs{
-//				Bucket: exampleBucketV2.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleBucketV2, err := s3/bucketV2.NewBucketV2(ctx, "exampleBucketV2", nil)
+// if err != nil {
+// return err
+// }
+// _, err = s3/accessPoint.NewAccessPoint(ctx, "exampleAccessPoint", &s3/accessPoint.AccessPointArgs{
+// Bucket: exampleBucketV2.Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### S3 on Outposts Bucket
 //
@@ -57,40 +56,38 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3control"
+//	ec2/vpc "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/vpc"
+//	s3/accessPoint "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/s3/accessPoint"
+//	s3control/bucket "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/s3control/bucket"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleBucket, err := s3control.NewBucket(ctx, "exampleBucket", &s3control.BucketArgs{
-//				Bucket: pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleVpc, err := ec2.NewVpc(ctx, "exampleVpc", &ec2.VpcArgs{
-//				CidrBlock: pulumi.String("10.0.0.0/16"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = s3.NewAccessPoint(ctx, "exampleAccessPoint", &s3.AccessPointArgs{
-//				Bucket: exampleBucket.Arn,
-//				VpcConfiguration: &s3.AccessPointVpcConfigurationArgs{
-//					VpcId: exampleVpc.ID(),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleBucket, err := s3control/bucket.NewBucket(ctx, "exampleBucket", &s3control/bucket.BucketArgs{
+// Bucket: "example",
+// })
+// if err != nil {
+// return err
+// }
+// exampleVpc, err := ec2/vpc.NewVpc(ctx, "exampleVpc", &ec2/vpc.VpcArgs{
+// CidrBlock: "10.0.0.0/16",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = s3/accessPoint.NewAccessPoint(ctx, "exampleAccessPoint", &s3/accessPoint.AccessPointArgs{
+// Bucket: exampleBucket.Arn,
+// VpcConfiguration: map[string]interface{}{
+// "vpcId": exampleVpc.Id,
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.glue.Crawler("example", {
+ * const example = new aws.glue/crawler.Crawler("example", {
  *     databaseName: aws_glue_catalog_database.example.name,
  *     role: aws_iam_role.example.arn,
  *     dynamodbTargets: [{
@@ -31,7 +31,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.glue.Crawler("example", {
+ * const example = new aws.glue/crawler.Crawler("example", {
  *     databaseName: aws_glue_catalog_database.example.name,
  *     role: aws_iam_role.example.arn,
  *     jdbcTargets: [{
@@ -46,7 +46,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.glue.Crawler("example", {
+ * const example = new aws.glue/crawler.Crawler("example", {
  *     databaseName: aws_glue_catalog_database.example.name,
  *     role: aws_iam_role.example.arn,
  *     s3Targets: [{
@@ -60,7 +60,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.glue.Crawler("example", {
+ * const example = new aws.glue/crawler.Crawler("example", {
  *     databaseName: aws_glue_catalog_database.example.name,
  *     role: aws_iam_role.example.arn,
  *     catalogTargets: [{
@@ -85,7 +85,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.glue.Crawler("example", {
+ * const example = new aws.glue/crawler.Crawler("example", {
  *     databaseName: aws_glue_catalog_database.example.name,
  *     role: aws_iam_role.example.arn,
  *     mongodbTargets: [{
@@ -100,7 +100,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const eventsCrawler = new aws.glue.Crawler("eventsCrawler", {
+ * const eventsCrawler = new aws.glue/crawler.Crawler("eventsCrawler", {
  *     databaseName: aws_glue_catalog_database.glue_database.name,
  *     schedule: "cron(0 1 * * ? *)",
  *     role: aws_iam_role.glue_role.arn,

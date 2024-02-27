@@ -21,47 +21,45 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/budgets"
+//	budgets/budget "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/budgets/budget"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := budgets.NewBudget(ctx, "ec2", &budgets.BudgetArgs{
-//				BudgetType: pulumi.String("COST"),
-//				CostFilters: budgets.BudgetCostFilterArray{
-//					&budgets.BudgetCostFilterArgs{
-//						Name: pulumi.String("Service"),
-//						Values: pulumi.StringArray{
-//							pulumi.String("Amazon Elastic Compute Cloud - Compute"),
-//						},
-//					},
-//				},
-//				LimitAmount: pulumi.String("1200"),
-//				LimitUnit:   pulumi.String("USD"),
-//				Notifications: budgets.BudgetNotificationArray{
-//					&budgets.BudgetNotificationArgs{
-//						ComparisonOperator: pulumi.String("GREATER_THAN"),
-//						NotificationType:   pulumi.String("FORECASTED"),
-//						SubscriberEmailAddresses: pulumi.StringArray{
-//							pulumi.String("test@example.com"),
-//						},
-//						Threshold:     pulumi.Float64(100),
-//						ThresholdType: pulumi.String("PERCENTAGE"),
-//					},
-//				},
-//				TimePeriodEnd:   pulumi.String("2087-06-15_00:00"),
-//				TimePeriodStart: pulumi.String("2017-07-01_00:00"),
-//				TimeUnit:        pulumi.String("MONTHLY"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := budgets/budget.NewBudget(ctx, "ec2", &budgets/budget.BudgetArgs{
+// BudgetType: "COST",
+// CostFilters: []map[string]interface{}{
+// map[string]interface{}{
+// "name": "Service",
+// "values": []string{
+// "Amazon Elastic Compute Cloud - Compute",
+// },
+// },
+// },
+// LimitAmount: "1200",
+// LimitUnit: "USD",
+// Notifications: []map[string]interface{}{
+// map[string]interface{}{
+// "comparisonOperator": "GREATER_THAN",
+// "notificationType": "FORECASTED",
+// "subscriberEmailAddresses": []string{
+// "test@example.com",
+// },
+// "threshold": 100,
+// "thresholdType": "PERCENTAGE",
+// },
+// },
+// TimePeriodEnd: "2087-06-15_00:00",
+// TimePeriodStart: "2017-07-01_00:00",
+// TimeUnit: "MONTHLY",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // Create a budget for *$100*.
@@ -71,25 +69,23 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/budgets"
+//	budgets/budget "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/budgets/budget"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := budgets.NewBudget(ctx, "cost", &budgets.BudgetArgs{
-//				BudgetType:  pulumi.String("COST"),
-//				LimitAmount: pulumi.String("100"),
-//				LimitUnit:   pulumi.String("USD"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := budgets/budget.NewBudget(ctx, "cost", &budgets/budget.BudgetArgs{
+// BudgetType: "COST",
+// LimitAmount: "100",
+// LimitUnit: "USD",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // Create a budget with planned budget limits.
@@ -99,34 +95,32 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/budgets"
+//	budgets/budget "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/budgets/budget"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := budgets.NewBudget(ctx, "cost", &budgets.BudgetArgs{
-//				PlannedLimits: budgets.BudgetPlannedLimitArray{
-//					&budgets.BudgetPlannedLimitArgs{
-//						Amount:    pulumi.String("100"),
-//						StartTime: pulumi.String("2017-07-01_00:00"),
-//						Unit:      pulumi.String("USD"),
-//					},
-//					&budgets.BudgetPlannedLimitArgs{
-//						Amount:    pulumi.String("200"),
-//						StartTime: pulumi.String("2017-08-01_00:00"),
-//						Unit:      pulumi.String("USD"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := budgets/budget.NewBudget(ctx, "cost", &budgets/budget.BudgetArgs{
+// PlannedLimits: []map[string]interface{}{
+// map[string]interface{}{
+// "amount": "100",
+// "startTime": "2017-07-01_00:00",
+// "unit": "USD",
+// },
+// map[string]interface{}{
+// "amount": "200",
+// "startTime": "2017-08-01_00:00",
+// "unit": "USD",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // Create a budget for s3 with a limit of *3 GB* of storage.
@@ -136,25 +130,23 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/budgets"
+//	budgets/budget "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/budgets/budget"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := budgets.NewBudget(ctx, "s3", &budgets.BudgetArgs{
-//				BudgetType:  pulumi.String("USAGE"),
-//				LimitAmount: pulumi.String("3"),
-//				LimitUnit:   pulumi.String("GB"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := budgets/budget.NewBudget(ctx, "s3", &budgets/budget.BudgetArgs{
+// BudgetType: "USAGE",
+// LimitAmount: "3",
+// LimitUnit: "GB",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // # Create a Savings Plan Utilization Budget
@@ -164,37 +156,35 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/budgets"
+//	budgets/budget "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/budgets/budget"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := budgets.NewBudget(ctx, "savingsPlanUtilization", &budgets.BudgetArgs{
-//				BudgetType: pulumi.String("SAVINGS_PLANS_UTILIZATION"),
-//				CostTypes: &budgets.BudgetCostTypesArgs{
-//					IncludeCredit:            pulumi.Bool(false),
-//					IncludeDiscount:          pulumi.Bool(false),
-//					IncludeOtherSubscription: pulumi.Bool(false),
-//					IncludeRecurring:         pulumi.Bool(false),
-//					IncludeRefund:            pulumi.Bool(false),
-//					IncludeSubscription:      pulumi.Bool(true),
-//					IncludeSupport:           pulumi.Bool(false),
-//					IncludeTax:               pulumi.Bool(false),
-//					IncludeUpfront:           pulumi.Bool(false),
-//					UseBlended:               pulumi.Bool(false),
-//				},
-//				LimitAmount: pulumi.String("100.0"),
-//				LimitUnit:   pulumi.String("PERCENTAGE"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := budgets/budget.NewBudget(ctx, "savingsPlanUtilization", &budgets/budget.BudgetArgs{
+// BudgetType: "SAVINGS_PLANS_UTILIZATION",
+// CostTypes: map[string]interface{}{
+// "includeCredit": false,
+// "includeDiscount": false,
+// "includeOtherSubscription": false,
+// "includeRecurring": false,
+// "includeRefund": false,
+// "includeSubscription": true,
+// "includeSupport": false,
+// "includeTax": false,
+// "includeUpfront": false,
+// "useBlended": false,
+// },
+// LimitAmount: "100.0",
+// LimitUnit: "PERCENTAGE",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // # Create a RI Utilization Budget
@@ -204,45 +194,43 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/budgets"
+//	budgets/budget "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/budgets/budget"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := budgets.NewBudget(ctx, "riUtilization", &budgets.BudgetArgs{
-//				BudgetType: pulumi.String("RI_UTILIZATION"),
-//				CostFilters: budgets.BudgetCostFilterArray{
-//					&budgets.BudgetCostFilterArgs{
-//						Name: pulumi.String("Service"),
-//						Values: pulumi.StringArray{
-//							pulumi.String("Amazon Relational Database Service"),
-//						},
-//					},
-//				},
-//				CostTypes: &budgets.BudgetCostTypesArgs{
-//					IncludeCredit:            pulumi.Bool(false),
-//					IncludeDiscount:          pulumi.Bool(false),
-//					IncludeOtherSubscription: pulumi.Bool(false),
-//					IncludeRecurring:         pulumi.Bool(false),
-//					IncludeRefund:            pulumi.Bool(false),
-//					IncludeSubscription:      pulumi.Bool(true),
-//					IncludeSupport:           pulumi.Bool(false),
-//					IncludeTax:               pulumi.Bool(false),
-//					IncludeUpfront:           pulumi.Bool(false),
-//					UseBlended:               pulumi.Bool(false),
-//				},
-//				LimitAmount: pulumi.String("100.0"),
-//				LimitUnit:   pulumi.String("PERCENTAGE"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := budgets/budget.NewBudget(ctx, "riUtilization", &budgets/budget.BudgetArgs{
+// BudgetType: "RI_UTILIZATION",
+// CostFilters: []map[string]interface{}{
+// map[string]interface{}{
+// "name": "Service",
+// "values": []string{
+// "Amazon Relational Database Service",
+// },
+// },
+// },
+// CostTypes: map[string]interface{}{
+// "includeCredit": false,
+// "includeDiscount": false,
+// "includeOtherSubscription": false,
+// "includeRecurring": false,
+// "includeRefund": false,
+// "includeSubscription": true,
+// "includeSupport": false,
+// "includeTax": false,
+// "includeUpfront": false,
+// "useBlended": false,
+// },
+// LimitAmount: "100.0",
+// LimitUnit: "PERCENTAGE",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // # Create a Cost Filter using Resource Tags
@@ -252,30 +240,28 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/budgets"
+//	budgets/budget "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/budgets/budget"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := budgets.NewBudget(ctx, "cost", &budgets.BudgetArgs{
-//				CostFilters: budgets.BudgetCostFilterArray{
-//					&budgets.BudgetCostFilterArgs{
-//						Name: pulumi.String("TagKeyValue"),
-//						Values: pulumi.StringArray{
-//							pulumi.String("TagKey$TagValue"),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := budgets/budget.NewBudget(ctx, "cost", &budgets/budget.BudgetArgs{
+// CostFilters: []map[string]interface{}{
+// map[string]interface{}{
+// "name": "TagKeyValue",
+// "values": []string{
+// "TagKey$TagValue",
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // # Create a costFilter using resource tags, obtaining the tag value from a variable
@@ -285,30 +271,28 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/budgets"
+//	budgets/budget "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/budgets/budget"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := budgets.NewBudget(ctx, "cost", &budgets.BudgetArgs{
-//				CostFilters: budgets.BudgetCostFilterArray{
-//					&budgets.BudgetCostFilterArgs{
-//						Name: pulumi.String("TagKeyValue"),
-//						Values: pulumi.StringArray{
-//							pulumi.String("TagKey${var.TagValue}"),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := budgets/budget.NewBudget(ctx, "cost", &budgets/budget.BudgetArgs{
+// CostFilters: []map[string]interface{}{
+// map[string]interface{}{
+// "name": "TagKeyValue",
+// "values": []string{
+// "TagKey${var.TagValue}",
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

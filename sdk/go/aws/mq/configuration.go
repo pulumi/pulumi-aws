@@ -24,16 +24,14 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/mq"
+//	mq/configuration "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/mq/configuration"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := mq.NewConfiguration(ctx, "example", &mq.ConfigurationArgs{
-//				Data: pulumi.String(`<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := mq/configuration.NewConfiguration(ctx, "example", &mq/configuration.ConfigurationArgs{
+// Data: `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 // <broker xmlns="http://activemq.apache.org/schema/core">
 //
 //	<plugins>
@@ -44,19 +42,17 @@ import (
 //
 // </broker>
 //
-// `),
-//
-//				Description:   pulumi.String("Example Configuration"),
-//				EngineType:    pulumi.String("ActiveMQ"),
-//				EngineVersion: pulumi.String("5.17.6"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// `,
+// Description: "Example Configuration",
+// EngineType: "ActiveMQ",
+// EngineVersion: "5.17.6",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### RabbitMQ
 //
@@ -65,26 +61,24 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/mq"
+//	mq/configuration "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/mq/configuration"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := mq.NewConfiguration(ctx, "example", &mq.ConfigurationArgs{
-//				Data:          pulumi.String("# Default RabbitMQ delivery acknowledgement timeout is 30 minutes in milliseconds\nconsumer_timeout = 1800000\n\n"),
-//				Description:   pulumi.String("Example Configuration"),
-//				EngineType:    pulumi.String("RabbitMQ"),
-//				EngineVersion: pulumi.String("3.11.20"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := mq/configuration.NewConfiguration(ctx, "example", &mq/configuration.ConfigurationArgs{
+// Data: "# Default RabbitMQ delivery acknowledgement timeout is 30 minutes in milliseconds\nconsumer_timeout = 1800000\n\n",
+// Description: "Example Configuration",
+// EngineType: "RabbitMQ",
+// EngineVersion: "3.11.20",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

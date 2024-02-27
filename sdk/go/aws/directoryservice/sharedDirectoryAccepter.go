@@ -23,33 +23,32 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/directoryservice"
+//	directoryservice/sharedDirectory "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/directoryservice/sharedDirectory"
+//	directoryservice/sharedDirectoryAccepter "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/directoryservice/sharedDirectoryAccepter"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleSharedDirectory, err := directoryservice.NewSharedDirectory(ctx, "exampleSharedDirectory", &directoryservice.SharedDirectoryArgs{
-//				DirectoryId: pulumi.Any(aws_directory_service_directory.Example.Id),
-//				Notes:       pulumi.String("example"),
-//				Target: &directoryservice.SharedDirectoryTargetArgs{
-//					Id: pulumi.Any(data.Aws_caller_identity.Receiver.Account_id),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = directoryservice.NewSharedDirectoryAccepter(ctx, "exampleSharedDirectoryAccepter", &directoryservice.SharedDirectoryAccepterArgs{
-//				SharedDirectoryId: exampleSharedDirectory.SharedDirectoryId,
-//			}, pulumi.Provider("awsalternate"))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleSharedDirectory, err := directoryservice/sharedDirectory.NewSharedDirectory(ctx, "exampleSharedDirectory", &directoryservice/sharedDirectory.SharedDirectoryArgs{
+// DirectoryId: aws_directory_service_directory.Example.Id,
+// Notes: "example",
+// Target: map[string]interface{}{
+// "id": data.Aws_caller_identity.Receiver.Account_id,
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = directoryservice/sharedDirectoryAccepter.NewSharedDirectoryAccepter(ctx, "exampleSharedDirectoryAccepter", &directoryservice/sharedDirectoryAccepter.SharedDirectoryAccepterArgs{
+// SharedDirectoryId: exampleSharedDirectory.SharedDirectoryId,
+// }, pulumi.Provider("awsalternate"))
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -100,8 +100,8 @@ class AccessGrantsInstanceResourcePolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_access_grants_instance = aws.s3control.AccessGrantsInstance("exampleAccessGrantsInstance")
-        example_access_grants_instance_resource_policy = aws.s3control.AccessGrantsInstanceResourcePolicy("exampleAccessGrantsInstanceResourcePolicy", policy=example_access_grants_instance.access_grants_instance_arn.apply(lambda access_grants_instance_arn: f\"\"\"{{
+        example_access_grants_instance = aws.s3control.access_grants_instance.AccessGrantsInstance("exampleAccessGrantsInstance")
+        example_access_grants_instance_resource_policy = aws.s3control.access_grants_instance_resource_policy.AccessGrantsInstanceResourcePolicy("exampleAccessGrantsInstanceResourcePolicy", policy=f{{
           "Version": "2012-10-17",
           "Id": "S3AccessGrantsPolicy",
           "Statement": [{{
@@ -115,11 +115,11 @@ class AccessGrantsInstanceResourcePolicy(pulumi.CustomResource):
               "s3:ListAccessGrantsLocations",
               "s3:GetDataAccess"
             ],
-            "Resource": "{access_grants_instance_arn}"
+            "Resource": "{example_access_grants_instance.access_grants_instance_arn}"
           }}]
         }}
 
-        \"\"\"))
+        )
         ```
 
         ## Import
@@ -150,8 +150,8 @@ class AccessGrantsInstanceResourcePolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_access_grants_instance = aws.s3control.AccessGrantsInstance("exampleAccessGrantsInstance")
-        example_access_grants_instance_resource_policy = aws.s3control.AccessGrantsInstanceResourcePolicy("exampleAccessGrantsInstanceResourcePolicy", policy=example_access_grants_instance.access_grants_instance_arn.apply(lambda access_grants_instance_arn: f\"\"\"{{
+        example_access_grants_instance = aws.s3control.access_grants_instance.AccessGrantsInstance("exampleAccessGrantsInstance")
+        example_access_grants_instance_resource_policy = aws.s3control.access_grants_instance_resource_policy.AccessGrantsInstanceResourcePolicy("exampleAccessGrantsInstanceResourcePolicy", policy=f{{
           "Version": "2012-10-17",
           "Id": "S3AccessGrantsPolicy",
           "Statement": [{{
@@ -165,11 +165,11 @@ class AccessGrantsInstanceResourcePolicy(pulumi.CustomResource):
               "s3:ListAccessGrantsLocations",
               "s3:GetDataAccess"
             ],
-            "Resource": "{access_grants_instance_arn}"
+            "Resource": "{example_access_grants_instance.access_grants_instance_arn}"
           }}]
         }}
 
-        \"\"\"))
+        )
         ```
 
         ## Import

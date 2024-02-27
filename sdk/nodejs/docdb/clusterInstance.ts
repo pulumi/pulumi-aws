@@ -20,7 +20,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const _default = new aws.docdb.Cluster("default", {
+ * const _default = new aws.docdb/cluster.Cluster("default", {
  *     clusterIdentifier: "docdb-cluster-demo",
  *     availabilityZones: [
  *         "us-west-2a",
@@ -30,9 +30,9 @@ import * as utilities from "../utilities";
  *     masterUsername: "foo",
  *     masterPassword: "barbut8chars",
  * });
- * const clusterInstances: aws.docdb.ClusterInstance[] = [];
+ * const clusterInstances: aws.docdb/clusterInstance.ClusterInstance[] = [];
  * for (const range = {value: 0}; range.value < 2; range.value++) {
- *     clusterInstances.push(new aws.docdb.ClusterInstance(`clusterInstances-${range.value}`, {
+ *     clusterInstances.push(new aws.docdb/clusterInstance.ClusterInstance(`clusterInstances-${range.value}`, {
  *         identifier: `docdb-cluster-demo-${range.value}`,
  *         clusterIdentifier: _default.id,
  *         instanceClass: "db.r5.large",

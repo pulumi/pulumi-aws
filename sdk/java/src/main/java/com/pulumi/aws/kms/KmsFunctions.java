@@ -37,36 +37,6 @@ public final class KmsFunctions {
      * By using this data source, you can reference key alias
      * without having to hard code the ARN as input.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.kms.KmsFunctions;
-     * import com.pulumi.aws.kms.inputs.GetAliasArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var s3 = KmsFunctions.getAlias(GetAliasArgs.builder()
-     *             .name(&#34;alias/aws/s3&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetAliasResult> getAlias(GetAliasArgs args) {
         return getAlias(args, InvokeOptions.Empty);
@@ -75,36 +45,6 @@ public final class KmsFunctions {
      * Use this data source to get the ARN of a KMS key alias.
      * By using this data source, you can reference key alias
      * without having to hard code the ARN as input.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.kms.KmsFunctions;
-     * import com.pulumi.aws.kms.inputs.GetAliasArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var s3 = KmsFunctions.getAlias(GetAliasArgs.builder()
-     *             .name(&#34;alias/aws/s3&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetAliasResult> getAliasPlain(GetAliasPlainArgs args) {
@@ -115,36 +55,6 @@ public final class KmsFunctions {
      * By using this data source, you can reference key alias
      * without having to hard code the ARN as input.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.kms.KmsFunctions;
-     * import com.pulumi.aws.kms.inputs.GetAliasArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var s3 = KmsFunctions.getAlias(GetAliasArgs.builder()
-     *             .name(&#34;alias/aws/s3&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetAliasResult> getAlias(GetAliasArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:kms/getAlias:getAlias", TypeShape.of(GetAliasResult.class), args, Utilities.withVersion(options));
@@ -153,36 +63,6 @@ public final class KmsFunctions {
      * Use this data source to get the ARN of a KMS key alias.
      * By using this data source, you can reference key alias
      * without having to hard code the ARN as input.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.kms.KmsFunctions;
-     * import com.pulumi.aws.kms.inputs.GetAliasArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var s3 = KmsFunctions.getAlias(GetAliasArgs.builder()
-     *             .name(&#34;alias/aws/s3&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetAliasResult> getAliasPlain(GetAliasPlainArgs args, InvokeOptions options) {
@@ -194,49 +74,6 @@ public final class KmsFunctions {
      * changes every apply. For a stable ciphertext value, see the `aws.kms.Ciphertext`
      * resource.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.kms.Key;
-     * import com.pulumi.aws.kms.KeyArgs;
-     * import com.pulumi.aws.kms.KmsFunctions;
-     * import com.pulumi.aws.kms.inputs.GetCipherTextArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         var oauthConfig = new Key(&#34;oauthConfig&#34;, KeyArgs.builder()        
-     *             .description(&#34;oauth config&#34;)
-     *             .isEnabled(true)
-     *             .build());
-     * 
-     *         final var oauth = KmsFunctions.getCipherText(GetCipherTextArgs.builder()
-     *             .keyId(oauthConfig.keyId())
-     *             .plaintext(&#34;&#34;&#34;
-     * {
-     *   &#34;client_id&#34;: &#34;e587dbae22222f55da22&#34;,
-     *   &#34;client_secret&#34;: &#34;8289575d00000ace55e1815ec13673955721b8a5&#34;
-     * }
-     *             &#34;&#34;&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetCipherTextResult> getCipherText(GetCipherTextArgs args) {
         return getCipherText(args, InvokeOptions.Empty);
@@ -246,49 +83,6 @@ public final class KmsFunctions {
      * by using an AWS KMS customer master key. The value returned by this data source
      * changes every apply. For a stable ciphertext value, see the `aws.kms.Ciphertext`
      * resource.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.kms.Key;
-     * import com.pulumi.aws.kms.KeyArgs;
-     * import com.pulumi.aws.kms.KmsFunctions;
-     * import com.pulumi.aws.kms.inputs.GetCipherTextArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         var oauthConfig = new Key(&#34;oauthConfig&#34;, KeyArgs.builder()        
-     *             .description(&#34;oauth config&#34;)
-     *             .isEnabled(true)
-     *             .build());
-     * 
-     *         final var oauth = KmsFunctions.getCipherText(GetCipherTextArgs.builder()
-     *             .keyId(oauthConfig.keyId())
-     *             .plaintext(&#34;&#34;&#34;
-     * {
-     *   &#34;client_id&#34;: &#34;e587dbae22222f55da22&#34;,
-     *   &#34;client_secret&#34;: &#34;8289575d00000ace55e1815ec13673955721b8a5&#34;
-     * }
-     *             &#34;&#34;&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetCipherTextResult> getCipherTextPlain(GetCipherTextPlainArgs args) {
@@ -300,49 +94,6 @@ public final class KmsFunctions {
      * changes every apply. For a stable ciphertext value, see the `aws.kms.Ciphertext`
      * resource.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.kms.Key;
-     * import com.pulumi.aws.kms.KeyArgs;
-     * import com.pulumi.aws.kms.KmsFunctions;
-     * import com.pulumi.aws.kms.inputs.GetCipherTextArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         var oauthConfig = new Key(&#34;oauthConfig&#34;, KeyArgs.builder()        
-     *             .description(&#34;oauth config&#34;)
-     *             .isEnabled(true)
-     *             .build());
-     * 
-     *         final var oauth = KmsFunctions.getCipherText(GetCipherTextArgs.builder()
-     *             .keyId(oauthConfig.keyId())
-     *             .plaintext(&#34;&#34;&#34;
-     * {
-     *   &#34;client_id&#34;: &#34;e587dbae22222f55da22&#34;,
-     *   &#34;client_secret&#34;: &#34;8289575d00000ace55e1815ec13673955721b8a5&#34;
-     * }
-     *             &#34;&#34;&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetCipherTextResult> getCipherText(GetCipherTextArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:kms/getCipherText:getCipherText", TypeShape.of(GetCipherTextResult.class), args, Utilities.withVersion(options));
@@ -353,49 +104,6 @@ public final class KmsFunctions {
      * changes every apply. For a stable ciphertext value, see the `aws.kms.Ciphertext`
      * resource.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.kms.Key;
-     * import com.pulumi.aws.kms.KeyArgs;
-     * import com.pulumi.aws.kms.KmsFunctions;
-     * import com.pulumi.aws.kms.inputs.GetCipherTextArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         var oauthConfig = new Key(&#34;oauthConfig&#34;, KeyArgs.builder()        
-     *             .description(&#34;oauth config&#34;)
-     *             .isEnabled(true)
-     *             .build());
-     * 
-     *         final var oauth = KmsFunctions.getCipherText(GetCipherTextArgs.builder()
-     *             .keyId(oauthConfig.keyId())
-     *             .plaintext(&#34;&#34;&#34;
-     * {
-     *   &#34;client_id&#34;: &#34;e587dbae22222f55da22&#34;,
-     *   &#34;client_secret&#34;: &#34;8289575d00000ace55e1815ec13673955721b8a5&#34;
-     * }
-     *             &#34;&#34;&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static CompletableFuture<GetCipherTextResult> getCipherTextPlain(GetCipherTextPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:kms/getCipherText:getCipherText", TypeShape.of(GetCipherTextResult.class), args, Utilities.withVersion(options));
@@ -404,36 +112,6 @@ public final class KmsFunctions {
      * Use this data source to get the metadata KMS custom key store.
      * By using this data source, you can reference KMS custom key store
      * without having to hard code the ID as input.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.kms.KmsFunctions;
-     * import com.pulumi.aws.kms.inputs.GetCustomKeyStoreArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var keystore = KmsFunctions.getCustomKeyStore(GetCustomKeyStoreArgs.builder()
-     *             .customKeyStoreName(&#34;my_cloudhsm&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetCustomKeyStoreResult> getCustomKeyStore() {
@@ -444,36 +122,6 @@ public final class KmsFunctions {
      * By using this data source, you can reference KMS custom key store
      * without having to hard code the ID as input.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.kms.KmsFunctions;
-     * import com.pulumi.aws.kms.inputs.GetCustomKeyStoreArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var keystore = KmsFunctions.getCustomKeyStore(GetCustomKeyStoreArgs.builder()
-     *             .customKeyStoreName(&#34;my_cloudhsm&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static CompletableFuture<GetCustomKeyStoreResult> getCustomKeyStorePlain() {
         return getCustomKeyStorePlain(GetCustomKeyStorePlainArgs.Empty, InvokeOptions.Empty);
@@ -482,36 +130,6 @@ public final class KmsFunctions {
      * Use this data source to get the metadata KMS custom key store.
      * By using this data source, you can reference KMS custom key store
      * without having to hard code the ID as input.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.kms.KmsFunctions;
-     * import com.pulumi.aws.kms.inputs.GetCustomKeyStoreArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var keystore = KmsFunctions.getCustomKeyStore(GetCustomKeyStoreArgs.builder()
-     *             .customKeyStoreName(&#34;my_cloudhsm&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetCustomKeyStoreResult> getCustomKeyStore(GetCustomKeyStoreArgs args) {
@@ -522,36 +140,6 @@ public final class KmsFunctions {
      * By using this data source, you can reference KMS custom key store
      * without having to hard code the ID as input.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.kms.KmsFunctions;
-     * import com.pulumi.aws.kms.inputs.GetCustomKeyStoreArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var keystore = KmsFunctions.getCustomKeyStore(GetCustomKeyStoreArgs.builder()
-     *             .customKeyStoreName(&#34;my_cloudhsm&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static CompletableFuture<GetCustomKeyStoreResult> getCustomKeyStorePlain(GetCustomKeyStorePlainArgs args) {
         return getCustomKeyStorePlain(args, InvokeOptions.Empty);
@@ -561,36 +149,6 @@ public final class KmsFunctions {
      * By using this data source, you can reference KMS custom key store
      * without having to hard code the ID as input.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.kms.KmsFunctions;
-     * import com.pulumi.aws.kms.inputs.GetCustomKeyStoreArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var keystore = KmsFunctions.getCustomKeyStore(GetCustomKeyStoreArgs.builder()
-     *             .customKeyStoreName(&#34;my_cloudhsm&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetCustomKeyStoreResult> getCustomKeyStore(GetCustomKeyStoreArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:kms/getCustomKeyStore:getCustomKeyStore", TypeShape.of(GetCustomKeyStoreResult.class), args, Utilities.withVersion(options));
@@ -599,36 +157,6 @@ public final class KmsFunctions {
      * Use this data source to get the metadata KMS custom key store.
      * By using this data source, you can reference KMS custom key store
      * without having to hard code the ID as input.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.kms.KmsFunctions;
-     * import com.pulumi.aws.kms.inputs.GetCustomKeyStoreArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var keystore = KmsFunctions.getCustomKeyStore(GetCustomKeyStoreArgs.builder()
-     *             .customKeyStoreName(&#34;my_cloudhsm&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetCustomKeyStoreResult> getCustomKeyStorePlain(GetCustomKeyStorePlainArgs args, InvokeOptions options) {
@@ -640,48 +168,6 @@ public final class KmsFunctions {
      * This can be useful to reference key alias
      * without having to hard code the ARN as input.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.kms.KmsFunctions;
-     * import com.pulumi.aws.kms.inputs.GetKeyArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var byAlias = KmsFunctions.getKey(GetKeyArgs.builder()
-     *             .keyId(&#34;alias/my-key&#34;)
-     *             .build());
-     * 
-     *         final var byId = KmsFunctions.getKey(GetKeyArgs.builder()
-     *             .keyId(&#34;1234abcd-12ab-34cd-56ef-1234567890ab&#34;)
-     *             .build());
-     * 
-     *         final var byAliasArn = KmsFunctions.getKey(GetKeyArgs.builder()
-     *             .keyId(&#34;arn:aws:kms:us-east-1:111122223333:alias/my-key&#34;)
-     *             .build());
-     * 
-     *         final var byKeyArn = KmsFunctions.getKey(GetKeyArgs.builder()
-     *             .keyId(&#34;arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetKeyResult> getKey(GetKeyArgs args) {
         return getKey(args, InvokeOptions.Empty);
@@ -691,48 +177,6 @@ public final class KmsFunctions {
      * the specified KMS Key with flexible key id input.
      * This can be useful to reference key alias
      * without having to hard code the ARN as input.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.kms.KmsFunctions;
-     * import com.pulumi.aws.kms.inputs.GetKeyArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var byAlias = KmsFunctions.getKey(GetKeyArgs.builder()
-     *             .keyId(&#34;alias/my-key&#34;)
-     *             .build());
-     * 
-     *         final var byId = KmsFunctions.getKey(GetKeyArgs.builder()
-     *             .keyId(&#34;1234abcd-12ab-34cd-56ef-1234567890ab&#34;)
-     *             .build());
-     * 
-     *         final var byAliasArn = KmsFunctions.getKey(GetKeyArgs.builder()
-     *             .keyId(&#34;arn:aws:kms:us-east-1:111122223333:alias/my-key&#34;)
-     *             .build());
-     * 
-     *         final var byKeyArn = KmsFunctions.getKey(GetKeyArgs.builder()
-     *             .keyId(&#34;arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetKeyResult> getKeyPlain(GetKeyPlainArgs args) {
@@ -744,48 +188,6 @@ public final class KmsFunctions {
      * This can be useful to reference key alias
      * without having to hard code the ARN as input.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.kms.KmsFunctions;
-     * import com.pulumi.aws.kms.inputs.GetKeyArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var byAlias = KmsFunctions.getKey(GetKeyArgs.builder()
-     *             .keyId(&#34;alias/my-key&#34;)
-     *             .build());
-     * 
-     *         final var byId = KmsFunctions.getKey(GetKeyArgs.builder()
-     *             .keyId(&#34;1234abcd-12ab-34cd-56ef-1234567890ab&#34;)
-     *             .build());
-     * 
-     *         final var byAliasArn = KmsFunctions.getKey(GetKeyArgs.builder()
-     *             .keyId(&#34;arn:aws:kms:us-east-1:111122223333:alias/my-key&#34;)
-     *             .build());
-     * 
-     *         final var byKeyArn = KmsFunctions.getKey(GetKeyArgs.builder()
-     *             .keyId(&#34;arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetKeyResult> getKey(GetKeyArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:kms/getKey:getKey", TypeShape.of(GetKeyResult.class), args, Utilities.withVersion(options));
@@ -796,96 +198,12 @@ public final class KmsFunctions {
      * This can be useful to reference key alias
      * without having to hard code the ARN as input.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.kms.KmsFunctions;
-     * import com.pulumi.aws.kms.inputs.GetKeyArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var byAlias = KmsFunctions.getKey(GetKeyArgs.builder()
-     *             .keyId(&#34;alias/my-key&#34;)
-     *             .build());
-     * 
-     *         final var byId = KmsFunctions.getKey(GetKeyArgs.builder()
-     *             .keyId(&#34;1234abcd-12ab-34cd-56ef-1234567890ab&#34;)
-     *             .build());
-     * 
-     *         final var byAliasArn = KmsFunctions.getKey(GetKeyArgs.builder()
-     *             .keyId(&#34;arn:aws:kms:us-east-1:111122223333:alias/my-key&#34;)
-     *             .build());
-     * 
-     *         final var byKeyArn = KmsFunctions.getKey(GetKeyArgs.builder()
-     *             .keyId(&#34;arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static CompletableFuture<GetKeyResult> getKeyPlain(GetKeyPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:kms/getKey:getKey", TypeShape.of(GetKeyResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to get the public key about the specified KMS Key with flexible key id input. This can be useful to reference key alias without having to hard code the ARN as input.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.kms.KmsFunctions;
-     * import com.pulumi.aws.kms.inputs.GetPublicKeyArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var byAlias = KmsFunctions.getPublicKey(GetPublicKeyArgs.builder()
-     *             .keyId(&#34;alias/my-key&#34;)
-     *             .build());
-     * 
-     *         final var byId = KmsFunctions.getPublicKey(GetPublicKeyArgs.builder()
-     *             .keyId(&#34;1234abcd-12ab-34cd-56ef-1234567890ab&#34;)
-     *             .build());
-     * 
-     *         final var byAliasArn = KmsFunctions.getPublicKey(GetPublicKeyArgs.builder()
-     *             .keyId(&#34;arn:aws:kms:us-east-1:111122223333:alias/my-key&#34;)
-     *             .build());
-     * 
-     *         final var byKeyArn = KmsFunctions.getPublicKey(GetPublicKeyArgs.builder()
-     *             .keyId(&#34;arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetPublicKeyResult> getPublicKey(GetPublicKeyArgs args) {
@@ -894,48 +212,6 @@ public final class KmsFunctions {
     /**
      * Use this data source to get the public key about the specified KMS Key with flexible key id input. This can be useful to reference key alias without having to hard code the ARN as input.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.kms.KmsFunctions;
-     * import com.pulumi.aws.kms.inputs.GetPublicKeyArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var byAlias = KmsFunctions.getPublicKey(GetPublicKeyArgs.builder()
-     *             .keyId(&#34;alias/my-key&#34;)
-     *             .build());
-     * 
-     *         final var byId = KmsFunctions.getPublicKey(GetPublicKeyArgs.builder()
-     *             .keyId(&#34;1234abcd-12ab-34cd-56ef-1234567890ab&#34;)
-     *             .build());
-     * 
-     *         final var byAliasArn = KmsFunctions.getPublicKey(GetPublicKeyArgs.builder()
-     *             .keyId(&#34;arn:aws:kms:us-east-1:111122223333:alias/my-key&#34;)
-     *             .build());
-     * 
-     *         final var byKeyArn = KmsFunctions.getPublicKey(GetPublicKeyArgs.builder()
-     *             .keyId(&#34;arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static CompletableFuture<GetPublicKeyResult> getPublicKeyPlain(GetPublicKeyPlainArgs args) {
         return getPublicKeyPlain(args, InvokeOptions.Empty);
@@ -943,96 +219,12 @@ public final class KmsFunctions {
     /**
      * Use this data source to get the public key about the specified KMS Key with flexible key id input. This can be useful to reference key alias without having to hard code the ARN as input.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.kms.KmsFunctions;
-     * import com.pulumi.aws.kms.inputs.GetPublicKeyArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var byAlias = KmsFunctions.getPublicKey(GetPublicKeyArgs.builder()
-     *             .keyId(&#34;alias/my-key&#34;)
-     *             .build());
-     * 
-     *         final var byId = KmsFunctions.getPublicKey(GetPublicKeyArgs.builder()
-     *             .keyId(&#34;1234abcd-12ab-34cd-56ef-1234567890ab&#34;)
-     *             .build());
-     * 
-     *         final var byAliasArn = KmsFunctions.getPublicKey(GetPublicKeyArgs.builder()
-     *             .keyId(&#34;arn:aws:kms:us-east-1:111122223333:alias/my-key&#34;)
-     *             .build());
-     * 
-     *         final var byKeyArn = KmsFunctions.getPublicKey(GetPublicKeyArgs.builder()
-     *             .keyId(&#34;arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetPublicKeyResult> getPublicKey(GetPublicKeyArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:kms/getPublicKey:getPublicKey", TypeShape.of(GetPublicKeyResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to get the public key about the specified KMS Key with flexible key id input. This can be useful to reference key alias without having to hard code the ARN as input.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.kms.KmsFunctions;
-     * import com.pulumi.aws.kms.inputs.GetPublicKeyArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var byAlias = KmsFunctions.getPublicKey(GetPublicKeyArgs.builder()
-     *             .keyId(&#34;alias/my-key&#34;)
-     *             .build());
-     * 
-     *         final var byId = KmsFunctions.getPublicKey(GetPublicKeyArgs.builder()
-     *             .keyId(&#34;1234abcd-12ab-34cd-56ef-1234567890ab&#34;)
-     *             .build());
-     * 
-     *         final var byAliasArn = KmsFunctions.getPublicKey(GetPublicKeyArgs.builder()
-     *             .keyId(&#34;arn:aws:kms:us-east-1:111122223333:alias/my-key&#34;)
-     *             .build());
-     * 
-     *         final var byKeyArn = KmsFunctions.getPublicKey(GetPublicKeyArgs.builder()
-     *             .keyId(&#34;arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetPublicKeyResult> getPublicKeyPlain(GetPublicKeyPlainArgs args, InvokeOptions options) {

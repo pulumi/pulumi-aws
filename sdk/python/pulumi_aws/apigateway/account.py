@@ -121,40 +121,6 @@ class Account(pulumi.CustomResource):
 
         > **Note:** As there is no API method for deleting account settings or resetting it to defaults, destroying this resource will keep your account settings intact
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["apigateway.amazonaws.com"],
-            )],
-            actions=["sts:AssumeRole"],
-        )])
-        cloudwatch_role = aws.iam.Role("cloudwatchRole", assume_role_policy=assume_role.json)
-        demo = aws.apigateway.Account("demo", cloudwatch_role_arn=cloudwatch_role.arn)
-        cloudwatch_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            actions=[
-                "logs:CreateLogGroup",
-                "logs:CreateLogStream",
-                "logs:DescribeLogGroups",
-                "logs:DescribeLogStreams",
-                "logs:PutLogEvents",
-                "logs:GetLogEvents",
-                "logs:FilterLogEvents",
-            ],
-            resources=["*"],
-        )])
-        cloudwatch_role_policy = aws.iam.RolePolicy("cloudwatchRolePolicy",
-            role=cloudwatch_role.id,
-            policy=cloudwatch_policy_document.json)
-        ```
-
         ## Import
 
         Using `pulumi import`, import API Gateway Accounts using the word `api-gateway-account`. For example:
@@ -177,40 +143,6 @@ class Account(pulumi.CustomResource):
         Provides a settings of an API Gateway Account. Settings is applied region-wide per `provider` block.
 
         > **Note:** As there is no API method for deleting account settings or resetting it to defaults, destroying this resource will keep your account settings intact
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["apigateway.amazonaws.com"],
-            )],
-            actions=["sts:AssumeRole"],
-        )])
-        cloudwatch_role = aws.iam.Role("cloudwatchRole", assume_role_policy=assume_role.json)
-        demo = aws.apigateway.Account("demo", cloudwatch_role_arn=cloudwatch_role.arn)
-        cloudwatch_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            actions=[
-                "logs:CreateLogGroup",
-                "logs:CreateLogStream",
-                "logs:DescribeLogGroups",
-                "logs:DescribeLogStreams",
-                "logs:PutLogEvents",
-                "logs:GetLogEvents",
-                "logs:FilterLogEvents",
-            ],
-            resources=["*"],
-        )])
-        cloudwatch_role_policy = aws.iam.RolePolicy("cloudwatchRolePolicy",
-            role=cloudwatch_role.id,
-            policy=cloudwatch_policy_document.json)
-        ```
 
         ## Import
 

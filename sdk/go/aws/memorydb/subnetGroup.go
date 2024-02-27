@@ -23,40 +23,39 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/memorydb"
+//	ec2/subnet "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/subnet"
+//	ec2/vpc "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/vpc"
+//	memorydb/subnetGroup "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/memorydb/subnetGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleVpc, err := ec2.NewVpc(ctx, "exampleVpc", &ec2.VpcArgs{
-//				CidrBlock: pulumi.String("10.0.0.0/16"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleSubnet, err := ec2.NewSubnet(ctx, "exampleSubnet", &ec2.SubnetArgs{
-//				VpcId:            exampleVpc.ID(),
-//				CidrBlock:        pulumi.String("10.0.0.0/24"),
-//				AvailabilityZone: pulumi.String("us-west-2a"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = memorydb.NewSubnetGroup(ctx, "exampleSubnetGroup", &memorydb.SubnetGroupArgs{
-//				SubnetIds: pulumi.StringArray{
-//					exampleSubnet.ID(),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleVpc, err := ec2/vpc.NewVpc(ctx, "exampleVpc", &ec2/vpc.VpcArgs{
+// CidrBlock: "10.0.0.0/16",
+// })
+// if err != nil {
+// return err
+// }
+// exampleSubnet, err := ec2/subnet.NewSubnet(ctx, "exampleSubnet", &ec2/subnet.SubnetArgs{
+// VpcId: exampleVpc.Id,
+// CidrBlock: "10.0.0.0/24",
+// AvailabilityZone: "us-west-2a",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = memorydb/subnetGroup.NewSubnetGroup(ctx, "exampleSubnetGroup", &memorydb/subnetGroup.SubnetGroupArgs{
+// SubnetIds: []interface{}{
+// exampleSubnet.Id,
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

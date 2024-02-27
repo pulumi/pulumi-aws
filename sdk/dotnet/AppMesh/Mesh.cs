@@ -23,7 +23,7 @@ namespace Pulumi.Aws.AppMesh
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var simple = new Aws.AppMesh.Mesh("simple");
+    ///     var simple = new Aws.Appmesh.Mesh.Mesh("simple");
     /// 
     /// });
     /// ```
@@ -37,14 +37,14 @@ namespace Pulumi.Aws.AppMesh
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var simple = new Aws.AppMesh.Mesh("simple", new()
+    ///     var simple = new Aws.Appmesh.Mesh.Mesh("simple", new()
     ///     {
-    ///         Spec = new Aws.AppMesh.Inputs.MeshSpecArgs
+    ///         Spec = 
     ///         {
-    ///             EgressFilter = new Aws.AppMesh.Inputs.MeshSpecEgressFilterArgs
+    ///             { "egressFilter", 
     ///             {
-    ///                 Type = "ALLOW_ALL",
-    ///             },
+    ///                 { "type", "ALLOW_ALL" },
+    ///             } },
     ///         },
     ///     });
     /// 

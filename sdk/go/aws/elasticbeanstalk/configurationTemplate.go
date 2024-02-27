@@ -23,30 +23,29 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/elasticbeanstalk"
+//	elasticbeanstalk/application "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/elasticbeanstalk/application"
+//	elasticbeanstalk/configurationTemplate "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/elasticbeanstalk/configurationTemplate"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			tftest, err := elasticbeanstalk.NewApplication(ctx, "tftest", &elasticbeanstalk.ApplicationArgs{
-//				Description: pulumi.String("tf-test-desc"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = elasticbeanstalk.NewConfigurationTemplate(ctx, "myTemplate", &elasticbeanstalk.ConfigurationTemplateArgs{
-//				Application:       tftest.Name,
-//				SolutionStackName: pulumi.String("64bit Amazon Linux 2015.09 v2.0.8 running Go 1.4"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// tftest, err := elasticbeanstalk/application.NewApplication(ctx, "tftest", &elasticbeanstalk/application.ApplicationArgs{
+// Description: "tf-test-desc",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = elasticbeanstalk/configurationTemplate.NewConfigurationTemplate(ctx, "myTemplate", &elasticbeanstalk/configurationTemplate.ConfigurationTemplateArgs{
+// Application: tftest.Name,
+// SolutionStackName: "64bit Amazon Linux 2015.09 v2.0.8 running Go 1.4",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ## Option Settings
 //

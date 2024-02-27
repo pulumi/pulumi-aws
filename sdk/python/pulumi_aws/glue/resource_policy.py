@@ -101,26 +101,6 @@ class ResourcePolicy(pulumi.CustomResource):
         """
         Provides a Glue resource policy. Only one can exist per region.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        current_caller_identity = aws.get_caller_identity()
-        current_partition = aws.get_partition()
-        current_region = aws.get_region()
-        glue_example_policy = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            actions=["glue:CreateTable"],
-            resources=[f"arn:{current_partition.partition}:glue:{current_region.name}:{current_caller_identity.account_id}:*"],
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                identifiers=["*"],
-                type="AWS",
-            )],
-        )])
-        example = aws.glue.ResourcePolicy("example", policy=glue_example_policy.json)
-        ```
-
         ## Import
 
         Using `pulumi import`, import Glue Resource Policy using the account ID. For example:
@@ -142,26 +122,6 @@ class ResourcePolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Glue resource policy. Only one can exist per region.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        current_caller_identity = aws.get_caller_identity()
-        current_partition = aws.get_partition()
-        current_region = aws.get_region()
-        glue_example_policy = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            actions=["glue:CreateTable"],
-            resources=[f"arn:{current_partition.partition}:glue:{current_region.name}:{current_caller_identity.account_id}:*"],
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                identifiers=["*"],
-                type="AWS",
-            )],
-        )])
-        example = aws.glue.ResourcePolicy("example", policy=glue_example_policy.json)
-        ```
 
         ## Import
 

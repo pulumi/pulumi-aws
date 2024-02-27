@@ -24,9 +24,9 @@ namespace Pulumi.Aws.Kms
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var key = new Aws.Kms.Key("key");
+    ///     var key = new Aws.Kms.Key.Key("key");
     /// 
-    ///     var @alias = new Aws.Kms.Alias("alias", new()
+    ///     var @alias = new Aws.Kms.Alias.Alias("alias", new()
     ///     {
     ///         TargetKeyId = key.KeyId,
     ///     });

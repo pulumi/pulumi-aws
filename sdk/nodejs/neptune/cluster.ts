@@ -24,7 +24,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const _default = new aws.neptune.Cluster("default", {
+ * const _default = new aws.neptune/cluster.Cluster("default", {
  *     applyImmediately: true,
  *     backupRetentionPeriod: 5,
  *     clusterIdentifier: "neptune-cluster-demo",

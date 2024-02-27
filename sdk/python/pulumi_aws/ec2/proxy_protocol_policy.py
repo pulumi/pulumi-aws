@@ -114,27 +114,27 @@ class ProxyProtocolPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        lb = aws.elb.LoadBalancer("lb",
-            availability_zones=["us-east-1a"],
+        lb = aws.elb.load_balancer.LoadBalancer("lb",
+            availability_zones=[us-east-1a],
             listeners=[
-                aws.elb.LoadBalancerListenerArgs(
-                    instance_port=25,
-                    instance_protocol="tcp",
-                    lb_port=25,
-                    lb_protocol="tcp",
-                ),
-                aws.elb.LoadBalancerListenerArgs(
-                    instance_port=587,
-                    instance_protocol="tcp",
-                    lb_port=587,
-                    lb_protocol="tcp",
-                ),
+                {
+                    instancePort: 25,
+                    instanceProtocol: tcp,
+                    lbPort: 25,
+                    lbProtocol: tcp,
+                },
+                {
+                    instancePort: 587,
+                    instanceProtocol: tcp,
+                    lbPort: 587,
+                    lbProtocol: tcp,
+                },
             ])
-        smtp = aws.ec2.ProxyProtocolPolicy("smtp",
+        smtp = aws.ec2.proxy_protocol_policy.ProxyProtocolPolicy("smtp",
             load_balancer=lb.name,
             instance_ports=[
-                "25",
-                "587",
+                25,
+                587,
             ])
         ```
 
@@ -160,27 +160,27 @@ class ProxyProtocolPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        lb = aws.elb.LoadBalancer("lb",
-            availability_zones=["us-east-1a"],
+        lb = aws.elb.load_balancer.LoadBalancer("lb",
+            availability_zones=[us-east-1a],
             listeners=[
-                aws.elb.LoadBalancerListenerArgs(
-                    instance_port=25,
-                    instance_protocol="tcp",
-                    lb_port=25,
-                    lb_protocol="tcp",
-                ),
-                aws.elb.LoadBalancerListenerArgs(
-                    instance_port=587,
-                    instance_protocol="tcp",
-                    lb_port=587,
-                    lb_protocol="tcp",
-                ),
+                {
+                    instancePort: 25,
+                    instanceProtocol: tcp,
+                    lbPort: 25,
+                    lbProtocol: tcp,
+                },
+                {
+                    instancePort: 587,
+                    instanceProtocol: tcp,
+                    lbPort: 587,
+                    lbProtocol: tcp,
+                },
             ])
-        smtp = aws.ec2.ProxyProtocolPolicy("smtp",
+        smtp = aws.ec2.proxy_protocol_policy.ProxyProtocolPolicy("smtp",
             load_balancer=lb.name,
             instance_ports=[
-                "25",
-                "587",
+                25,
+                587,
             ])
         ```
 

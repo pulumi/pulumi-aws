@@ -34,11 +34,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.s3.BucketWebsiteConfigurationV2;
  * import com.pulumi.aws.s3.BucketWebsiteConfigurationV2Args;
- * import com.pulumi.aws.s3.inputs.BucketWebsiteConfigurationV2IndexDocumentArgs;
- * import com.pulumi.aws.s3.inputs.BucketWebsiteConfigurationV2ErrorDocumentArgs;
- * import com.pulumi.aws.s3.inputs.BucketWebsiteConfigurationV2RoutingRuleArgs;
- * import com.pulumi.aws.s3.inputs.BucketWebsiteConfigurationV2RoutingRuleConditionArgs;
- * import com.pulumi.aws.s3.inputs.BucketWebsiteConfigurationV2RoutingRuleRedirectArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -54,20 +49,9 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new BucketWebsiteConfigurationV2(&#34;example&#34;, BucketWebsiteConfigurationV2Args.builder()        
  *             .bucket(aws_s3_bucket.example().id())
- *             .indexDocument(BucketWebsiteConfigurationV2IndexDocumentArgs.builder()
- *                 .suffix(&#34;index.html&#34;)
- *                 .build())
- *             .errorDocument(BucketWebsiteConfigurationV2ErrorDocumentArgs.builder()
- *                 .key(&#34;error.html&#34;)
- *                 .build())
- *             .routingRules(BucketWebsiteConfigurationV2RoutingRuleArgs.builder()
- *                 .condition(BucketWebsiteConfigurationV2RoutingRuleConditionArgs.builder()
- *                     .keyPrefixEquals(&#34;docs/&#34;)
- *                     .build())
- *                 .redirect(BucketWebsiteConfigurationV2RoutingRuleRedirectArgs.builder()
- *                     .replaceKeyPrefixWith(&#34;documents/&#34;)
- *                     .build())
- *                 .build())
+ *             .indexDocument(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .errorDocument(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .routingRules(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -82,8 +66,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.s3.BucketWebsiteConfigurationV2;
  * import com.pulumi.aws.s3.BucketWebsiteConfigurationV2Args;
- * import com.pulumi.aws.s3.inputs.BucketWebsiteConfigurationV2IndexDocumentArgs;
- * import com.pulumi.aws.s3.inputs.BucketWebsiteConfigurationV2ErrorDocumentArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -99,12 +81,8 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new BucketWebsiteConfigurationV2(&#34;example&#34;, BucketWebsiteConfigurationV2Args.builder()        
  *             .bucket(aws_s3_bucket.example().id())
- *             .indexDocument(BucketWebsiteConfigurationV2IndexDocumentArgs.builder()
- *                 .suffix(&#34;index.html&#34;)
- *                 .build())
- *             .errorDocument(BucketWebsiteConfigurationV2ErrorDocumentArgs.builder()
- *                 .key(&#34;error.html&#34;)
- *                 .build())
+ *             .indexDocument(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .errorDocument(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .routingRuleDetails(&#34;&#34;&#34;
  * [{
  *     &#34;Condition&#34;: {

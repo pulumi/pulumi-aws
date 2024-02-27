@@ -13,12 +13,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleOrganization = new aws.organizations.Organization("exampleOrganization", {
+ * const exampleOrganization = new aws.organizations/organization.Organization("exampleOrganization", {
  *     awsServiceAccessPrincipals: ["guardduty.amazonaws.com"],
  *     featureSet: "ALL",
  * });
- * const exampleDetector = new aws.guardduty.Detector("exampleDetector", {});
- * const exampleOrganizationAdminAccount = new aws.guardduty.OrganizationAdminAccount("exampleOrganizationAdminAccount", {adminAccountId: "123456789012"}, {
+ * const exampleDetector = new aws.guardduty/detector.Detector("exampleDetector", {});
+ * const exampleOrganizationAdminAccount = new aws.guardduty/organizationAdminAccount.OrganizationAdminAccount("exampleOrganizationAdminAccount", {adminAccountId: "123456789012"}, {
  *     dependsOn: [exampleOrganization],
  * });
  * ```

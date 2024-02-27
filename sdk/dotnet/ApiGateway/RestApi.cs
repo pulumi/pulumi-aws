@@ -17,6 +17,80 @@ namespace Pulumi.Aws.ApiGateway
     /// !&gt; **WARN:** When importing Open API Specifications with the `body` argument, by default the API Gateway REST API will be replaced with the Open API Specification thus removing any existing methods, resources, integrations, or endpoints. Endpoint mutations are asynchronous operations, and race conditions with DNS are possible. To overcome this limitation, use the `put_rest_api_mode` attribute and set it to `merge`.
     /// 
     /// ## Example Usage
+    /// ### OpenAPI Specification
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using System.Security.Cryptography;
+    /// using System.Text;
+    /// using System.Text.Json;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// 	
+    /// string ComputeSHA1(string input) 
+    /// {
+    ///     var hash = SHA1.Create().ComputeHash(Encoding.UTF8.GetBytes(input));
+    ///     return BitConverter.ToString(hash).Replace("-","").ToLowerInvariant();
+    /// }
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleRestApi = new Aws.Apigateway.RestApi.RestApi("exampleRestApi", new()
+    ///     {
+    ///         Body = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///         {
+    ///             ["openapi"] = "3.0.1",
+    ///             ["info"] = new Dictionary&lt;string, object?&gt;
+    ///             {
+    ///                 ["title"] = "example",
+    ///                 ["version"] = "1.0",
+    ///             },
+    ///             ["paths"] = new Dictionary&lt;string, object?&gt;
+    ///             {
+    ///                 ["/path1"] = new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["get"] = new Dictionary&lt;string, object?&gt;
+    ///                     {
+    ///                         ["x-amazon-apigateway-integration"] = new Dictionary&lt;string, object?&gt;
+    ///                         {
+    ///                             ["httpMethod"] = "GET",
+    ///                             ["payloadFormatVersion"] = "1.0",
+    ///                             ["type"] = "HTTP_PROXY",
+    ///                             ["uri"] = "https://ip-ranges.amazonaws.com/ip-ranges.json",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         }),
+    ///         EndpointConfiguration = 
+    ///         {
+    ///             { "types", new[]
+    ///             {
+    ///                 "REGIONAL",
+    ///             } },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleDeployment = new Aws.Apigateway.Deployment.Deployment("exampleDeployment", new()
+    ///     {
+    ///         RestApi = exampleRestApi.Id,
+    ///         Triggers = 
+    ///         {
+    ///             { "redeployment", ComputeSHA1(JsonSerializer.Serialize(exampleRestApi.Body)) },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleStage = new Aws.Apigateway.Stage.Stage("exampleStage", new()
+    ///     {
+    ///         Deployment = exampleDeployment.Id,
+    ///         RestApi = exampleRestApi.Id,
+    ///         StageName = "example",
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// ### Resources
     /// 
     /// ```csharp
@@ -37,16 +111,16 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleRestApi = new Aws.ApiGateway.RestApi("exampleRestApi");
+    ///     var exampleRestApi = new Aws.Apigateway.RestApi.RestApi("exampleRestApi");
     /// 
-    ///     var exampleResource = new Aws.ApiGateway.Resource("exampleResource", new()
+    ///     var exampleResource = new Aws.Apigateway.Resource.Resource("exampleResource", new()
     ///     {
     ///         ParentId = exampleRestApi.RootResourceId,
     ///         PathPart = "example",
     ///         RestApi = exampleRestApi.Id,
     ///     });
     /// 
-    ///     var exampleMethod = new Aws.ApiGateway.Method("exampleMethod", new()
+    ///     var exampleMethod = new Aws.Apigateway.Method.Method("exampleMethod", new()
     ///     {
     ///         Authorization = "NONE",
     ///         HttpMethod = "GET",
@@ -54,7 +128,7 @@ namespace Pulumi.Aws.ApiGateway
     ///         RestApi = exampleRestApi.Id,
     ///     });
     /// 
-    ///     var exampleIntegration = new Aws.ApiGateway.Integration("exampleIntegration", new()
+    ///     var exampleIntegration = new Aws.Apigateway.Integration.Integration("exampleIntegration", new()
     ///     {
     ///         HttpMethod = exampleMethod.HttpMethod,
     ///         ResourceId = exampleResource.Id,
@@ -62,27 +136,21 @@ namespace Pulumi.Aws.ApiGateway
     ///         Type = "MOCK",
     ///     });
     /// 
-    ///     var exampleDeployment = new Aws.ApiGateway.Deployment("exampleDeployment", new()
+    ///     var exampleDeployment = new Aws.Apigateway.Deployment.Deployment("exampleDeployment", new()
     ///     {
     ///         RestApi = exampleRestApi.Id,
     ///         Triggers = 
     ///         {
-    ///             { "redeployment", Output.Tuple(exampleResource.Id, exampleMethod.Id, exampleIntegration.Id).Apply(values =&gt;
+    ///             { "redeployment", ComputeSHA1(JsonSerializer.Serialize(new[]
     ///             {
-    ///                 var exampleResourceId = values.Item1;
-    ///                 var exampleMethodId = values.Item2;
-    ///                 var exampleIntegrationId = values.Item3;
-    ///                 return JsonSerializer.Serialize(new[]
-    ///                 {
-    ///                     exampleResourceId,
-    ///                     exampleMethodId,
-    ///                     exampleIntegrationId,
-    ///                 });
-    ///             }).Apply(toJSON =&gt; ComputeSHA1(toJSON)) },
+    ///                 exampleResource.Id,
+    ///                 exampleMethod.Id,
+    ///                 exampleIntegration.Id,
+    ///             })) },
     ///         },
     ///     });
     /// 
-    ///     var exampleStage = new Aws.ApiGateway.Stage("exampleStage", new()
+    ///     var exampleStage = new Aws.Apigateway.Stage.Stage("exampleStage", new()
     ///     {
     ///         Deployment = exampleDeployment.Id,
     ///         RestApi = exampleRestApi.Id,

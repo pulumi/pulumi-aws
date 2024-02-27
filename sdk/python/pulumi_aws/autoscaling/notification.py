@@ -146,22 +146,22 @@ class Notification(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.sns.Topic("example")
+        example = aws.sns.topic.Topic("example")
         # arn is an exported attribute
-        bar = aws.autoscaling.Group("bar")
+        bar = aws.autoscaling.group.Group("bar")
         # ...
-        foo = aws.autoscaling.Group("foo")
+        foo = aws.autoscaling.group.Group("foo")
         # ...
-        example_notifications = aws.autoscaling.Notification("exampleNotifications",
+        example_notifications = aws.autoscaling.notification.Notification("exampleNotifications",
             group_names=[
                 bar.name,
                 foo.name,
             ],
             notifications=[
-                "autoscaling:EC2_INSTANCE_LAUNCH",
-                "autoscaling:EC2_INSTANCE_TERMINATE",
-                "autoscaling:EC2_INSTANCE_LAUNCH_ERROR",
-                "autoscaling:EC2_INSTANCE_TERMINATE_ERROR",
+                autoscaling:EC2_INSTANCE_LAUNCH,
+                autoscaling:EC2_INSTANCE_TERMINATE,
+                autoscaling:EC2_INSTANCE_LAUNCH_ERROR,
+                autoscaling:EC2_INSTANCE_TERMINATE_ERROR,
             ],
             topic_arn=example.arn)
         ```
@@ -192,22 +192,22 @@ class Notification(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.sns.Topic("example")
+        example = aws.sns.topic.Topic("example")
         # arn is an exported attribute
-        bar = aws.autoscaling.Group("bar")
+        bar = aws.autoscaling.group.Group("bar")
         # ...
-        foo = aws.autoscaling.Group("foo")
+        foo = aws.autoscaling.group.Group("foo")
         # ...
-        example_notifications = aws.autoscaling.Notification("exampleNotifications",
+        example_notifications = aws.autoscaling.notification.Notification("exampleNotifications",
             group_names=[
                 bar.name,
                 foo.name,
             ],
             notifications=[
-                "autoscaling:EC2_INSTANCE_LAUNCH",
-                "autoscaling:EC2_INSTANCE_TERMINATE",
-                "autoscaling:EC2_INSTANCE_LAUNCH_ERROR",
-                "autoscaling:EC2_INSTANCE_TERMINATE_ERROR",
+                autoscaling:EC2_INSTANCE_LAUNCH,
+                autoscaling:EC2_INSTANCE_TERMINATE,
+                autoscaling:EC2_INSTANCE_LAUNCH_ERROR,
+                autoscaling:EC2_INSTANCE_TERMINATE_ERROR,
             ],
             topic_arn=example.arn)
         ```

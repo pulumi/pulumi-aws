@@ -18,56 +18,6 @@ import javax.annotation.Nullable;
 /**
  * Provides an IAM instance profile.
  * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.iam.IamFunctions;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
- * import com.pulumi.aws.iam.Role;
- * import com.pulumi.aws.iam.RoleArgs;
- * import com.pulumi.aws.iam.InstanceProfile;
- * import com.pulumi.aws.iam.InstanceProfileArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect(&#34;Allow&#34;)
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type(&#34;Service&#34;)
- *                     .identifiers(&#34;ec2.amazonaws.com&#34;)
- *                     .build())
- *                 .actions(&#34;sts:AssumeRole&#34;)
- *                 .build())
- *             .build());
- * 
- *         var role = new Role(&#34;role&#34;, RoleArgs.builder()        
- *             .path(&#34;/&#34;)
- *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
- *             .build());
- * 
- *         var testProfile = new InstanceProfile(&#34;testProfile&#34;, InstanceProfileArgs.builder()        
- *             .role(role.name())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
  * ## Import
  * 
  * Using `pulumi import`, import Instance Profiles using the `name`. For example:

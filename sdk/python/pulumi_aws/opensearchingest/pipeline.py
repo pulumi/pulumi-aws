@@ -415,55 +415,15 @@ class Pipeline(pulumi.CustomResource):
         Resource for managing an AWS OpenSearch Ingestion Pipeline.
 
         ## Example Usage
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        current = aws.get_region()
-        example_role = aws.iam.Role("exampleRole", assume_role_policy=json.dumps({
-            "Version": "2012-10-17",
-            "Statement": [{
-                "Action": "sts:AssumeRole",
-                "Effect": "Allow",
-                "Sid": "",
-                "Principal": {
-                    "Service": "osis-pipelines.amazonaws.com",
-                },
-            }],
-        }))
-        example_pipeline = aws.opensearchingest.Pipeline("examplePipeline",
-            pipeline_name="example",
-            pipeline_configuration_body=example_role.arn.apply(lambda arn: f\"\"\"version: "2"
-        example-pipeline:
-          source:
-            http:
-              path: "/example"
-          sink:
-            - s3:
-                aws:
-                  sts_role_arn: "{arn}"
-                  region: "{current.name}"
-                bucket: "example"
-                threshold:
-                  event_collect_timeout: "60s"
-                codec:
-                  ndjson:
-        \"\"\"),
-            max_units=1,
-            min_units=1)
-        ```
         ### Using file function
 
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.opensearchingest.Pipeline("example",
-            pipeline_name="example",
-            pipeline_configuration_body=(lambda path: open(path).read())("example.yaml"),
+        example = aws.opensearchingest.pipeline.Pipeline("example",
+            pipeline_name=example,
+            pipeline_configuration_body=(lambda path: open(path).read())(example.yaml),
             max_units=1,
             min_units=1)
         ```
@@ -500,55 +460,15 @@ class Pipeline(pulumi.CustomResource):
         Resource for managing an AWS OpenSearch Ingestion Pipeline.
 
         ## Example Usage
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        current = aws.get_region()
-        example_role = aws.iam.Role("exampleRole", assume_role_policy=json.dumps({
-            "Version": "2012-10-17",
-            "Statement": [{
-                "Action": "sts:AssumeRole",
-                "Effect": "Allow",
-                "Sid": "",
-                "Principal": {
-                    "Service": "osis-pipelines.amazonaws.com",
-                },
-            }],
-        }))
-        example_pipeline = aws.opensearchingest.Pipeline("examplePipeline",
-            pipeline_name="example",
-            pipeline_configuration_body=example_role.arn.apply(lambda arn: f\"\"\"version: "2"
-        example-pipeline:
-          source:
-            http:
-              path: "/example"
-          sink:
-            - s3:
-                aws:
-                  sts_role_arn: "{arn}"
-                  region: "{current.name}"
-                bucket: "example"
-                threshold:
-                  event_collect_timeout: "60s"
-                codec:
-                  ndjson:
-        \"\"\"),
-            max_units=1,
-            min_units=1)
-        ```
         ### Using file function
 
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.opensearchingest.Pipeline("example",
-            pipeline_name="example",
-            pipeline_configuration_body=(lambda path: open(path).read())("example.yaml"),
+        example = aws.opensearchingest.pipeline.Pipeline("example",
+            pipeline_name=example,
+            pipeline_configuration_body=(lambda path: open(path).read())(example.yaml),
             max_units=1,
             min_units=1)
         ```

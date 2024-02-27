@@ -24,9 +24,9 @@ namespace Pulumi.Aws.Oam
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleSink = new Aws.Oam.Sink("exampleSink");
+    ///     var exampleSink = new Aws.Oam.Sink.Sink("exampleSink");
     /// 
-    ///     var exampleSinkPolicy = new Aws.Oam.SinkPolicy("exampleSinkPolicy", new()
+    ///     var exampleSinkPolicy = new Aws.Oam.SinkPolicy.SinkPolicy("exampleSinkPolicy", new()
     ///     {
     ///         SinkIdentifier = exampleSink.Id,
     ///         Policy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;

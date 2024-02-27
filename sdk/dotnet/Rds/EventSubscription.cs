@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Rds
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var defaultInstance = new Aws.Rds.Instance("defaultInstance", new()
+    ///     var defaultInstance = new Aws.Rds.Instance.Instance("defaultInstance", new()
     ///     {
     ///         AllocatedStorage = 10,
     ///         Engine = "mysql",
@@ -35,9 +35,9 @@ namespace Pulumi.Aws.Rds
     ///         ParameterGroupName = "default.mysql5.6",
     ///     });
     /// 
-    ///     var defaultTopic = new Aws.Sns.Topic("defaultTopic");
+    ///     var defaultTopic = new Aws.Sns.Topic.Topic("defaultTopic");
     /// 
-    ///     var defaultEventSubscription = new Aws.Rds.EventSubscription("defaultEventSubscription", new()
+    ///     var defaultEventSubscription = new Aws.Rds.EventSubscription.EventSubscription("defaultEventSubscription", new()
     ///     {
     ///         SnsTopic = defaultTopic.Arn,
     ///         SourceType = "db-instance",

@@ -24,14 +24,14 @@ namespace Pulumi.Aws.Connect
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Connect.UserHierarchyStructure("example", new()
+    ///     var example = new Aws.Connect.UserHierarchyStructure.UserHierarchyStructure("example", new()
     ///     {
-    ///         HierarchyStructure = new Aws.Connect.Inputs.UserHierarchyStructureHierarchyStructureArgs
+    ///         HierarchyStructure = 
     ///         {
-    ///             LevelOne = new Aws.Connect.Inputs.UserHierarchyStructureHierarchyStructureLevelOneArgs
+    ///             { "levelOne", 
     ///             {
-    ///                 Name = "levelone",
-    ///             },
+    ///                 { "name", "levelone" },
+    ///             } },
     ///         },
     ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
     ///     });
@@ -48,30 +48,30 @@ namespace Pulumi.Aws.Connect
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Connect.UserHierarchyStructure("example", new()
+    ///     var example = new Aws.Connect.UserHierarchyStructure.UserHierarchyStructure("example", new()
     ///     {
-    ///         HierarchyStructure = new Aws.Connect.Inputs.UserHierarchyStructureHierarchyStructureArgs
+    ///         HierarchyStructure = 
     ///         {
-    ///             LevelFive = new Aws.Connect.Inputs.UserHierarchyStructureHierarchyStructureLevelFiveArgs
+    ///             { "levelFive", 
     ///             {
-    ///                 Name = "levelfive",
-    ///             },
-    ///             LevelFour = new Aws.Connect.Inputs.UserHierarchyStructureHierarchyStructureLevelFourArgs
+    ///                 { "name", "levelfive" },
+    ///             } },
+    ///             { "levelFour", 
     ///             {
-    ///                 Name = "levelfour",
-    ///             },
-    ///             LevelOne = new Aws.Connect.Inputs.UserHierarchyStructureHierarchyStructureLevelOneArgs
+    ///                 { "name", "levelfour" },
+    ///             } },
+    ///             { "levelOne", 
     ///             {
-    ///                 Name = "levelone",
-    ///             },
-    ///             LevelThree = new Aws.Connect.Inputs.UserHierarchyStructureHierarchyStructureLevelThreeArgs
+    ///                 { "name", "levelone" },
+    ///             } },
+    ///             { "levelThree", 
     ///             {
-    ///                 Name = "levelthree",
-    ///             },
-    ///             LevelTwo = new Aws.Connect.Inputs.UserHierarchyStructureHierarchyStructureLevelTwoArgs
+    ///                 { "name", "levelthree" },
+    ///             } },
+    ///             { "levelTwo", 
     ///             {
-    ///                 Name = "leveltwo",
-    ///             },
+    ///                 { "name", "leveltwo" },
+    ///             } },
     ///         },
     ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
     ///     });

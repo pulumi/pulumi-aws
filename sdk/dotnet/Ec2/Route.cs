@@ -26,7 +26,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var route = new Aws.Ec2.Route("route", new()
+    ///     var route = new Aws.Ec2.Route.Route("route", new()
     ///     {
     ///         RouteTableId = aws_route_table.Testing.Id,
     ///         DestinationCidrBlock = "10.0.1.0/22",
@@ -45,18 +45,18 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var vpc = new Aws.Ec2.Vpc("vpc", new()
+    ///     var vpc = new Aws.Ec2.Vpc.Vpc("vpc", new()
     ///     {
     ///         CidrBlock = "10.1.0.0/16",
     ///         AssignGeneratedIpv6CidrBlock = true,
     ///     });
     /// 
-    ///     var egress = new Aws.Ec2.EgressOnlyInternetGateway("egress", new()
+    ///     var egress = new Aws.Ec2.EgressOnlyInternetGateway.EgressOnlyInternetGateway("egress", new()
     ///     {
     ///         VpcId = vpc.Id,
     ///     });
     /// 
-    ///     var route = new Aws.Ec2.Route("route", new()
+    ///     var route = new Aws.Ec2.Route.Route("route", new()
     ///     {
     ///         RouteTableId = "rtb-4fbb3ac4",
     ///         DestinationIpv6CidrBlock = "::/0",

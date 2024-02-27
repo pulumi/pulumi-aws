@@ -12,32 +12,6 @@ import (
 )
 
 // Provides details about an Image Builder Image Recipe.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/imagebuilder"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := imagebuilder.LookupImageRecipe(ctx, &imagebuilder.LookupImageRecipeArgs{
-//				Arn: "arn:aws:imagebuilder:us-east-1:aws:image-recipe/example/1.0.0",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupImageRecipe(ctx *pulumi.Context, args *LookupImageRecipeArgs, opts ...pulumi.InvokeOption) (*LookupImageRecipeResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupImageRecipeResult

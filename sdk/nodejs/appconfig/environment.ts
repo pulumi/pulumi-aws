@@ -16,13 +16,13 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleApplication = new aws.appconfig.Application("exampleApplication", {
+ * const exampleApplication = new aws.appconfig/application.Application("exampleApplication", {
  *     description: "Example AppConfig Application",
  *     tags: {
  *         Type: "AppConfig Application",
  *     },
  * });
- * const exampleEnvironment = new aws.appconfig.Environment("exampleEnvironment", {
+ * const exampleEnvironment = new aws.appconfig/environment.Environment("exampleEnvironment", {
  *     description: "Example AppConfig Environment",
  *     applicationId: exampleApplication.id,
  *     monitors: [{

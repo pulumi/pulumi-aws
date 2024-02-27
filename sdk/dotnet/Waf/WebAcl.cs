@@ -24,28 +24,28 @@ namespace Pulumi.Aws.Waf
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var ipset = new Aws.Waf.IpSet("ipset", new()
+    ///     var ipset = new Aws.Waf.IpSet.IpSet("ipset", new()
     ///     {
     ///         IpSetDescriptors = new[]
     ///         {
-    ///             new Aws.Waf.Inputs.IpSetIpSetDescriptorArgs
+    ///             
     ///             {
-    ///                 Type = "IPV4",
-    ///                 Value = "192.0.7.0/24",
+    ///                 { "type", "IPV4" },
+    ///                 { "value", "192.0.7.0/24" },
     ///             },
     ///         },
     ///     });
     /// 
-    ///     var wafrule = new Aws.Waf.Rule("wafrule", new()
+    ///     var wafrule = new Aws.Waf.Rule.Rule("wafrule", new()
     ///     {
     ///         MetricName = "tfWAFRule",
     ///         Predicates = new[]
     ///         {
-    ///             new Aws.Waf.Inputs.RulePredicateArgs
+    ///             
     ///             {
-    ///                 DataId = ipset.Id,
-    ///                 Negated = false,
-    ///                 Type = "IPMatch",
+    ///                 { "dataId", ipset.Id },
+    ///                 { "negated", false },
+    ///                 { "type", "IPMatch" },
     ///             },
     ///         },
     ///     }, new CustomResourceOptions
@@ -56,24 +56,24 @@ namespace Pulumi.Aws.Waf
     ///         },
     ///     });
     /// 
-    ///     var wafAcl = new Aws.Waf.WebAcl("wafAcl", new()
+    ///     var wafAcl = new Aws.Waf.WebAcl.WebAcl("wafAcl", new()
     ///     {
     ///         MetricName = "tfWebACL",
-    ///         DefaultAction = new Aws.Waf.Inputs.WebAclDefaultActionArgs
+    ///         DefaultAction = 
     ///         {
-    ///             Type = "ALLOW",
+    ///             { "type", "ALLOW" },
     ///         },
     ///         Rules = new[]
     ///         {
-    ///             new Aws.Waf.Inputs.WebAclRuleArgs
+    ///             
     ///             {
-    ///                 Action = new Aws.Waf.Inputs.WebAclRuleActionArgs
+    ///                 { "action", 
     ///                 {
-    ///                     Type = "BLOCK",
-    ///                 },
-    ///                 Priority = 1,
-    ///                 RuleId = wafrule.Id,
-    ///                 Type = "REGULAR",
+    ///                     { "type", "BLOCK" },
+    ///                 } },
+    ///                 { "priority", 1 },
+    ///                 { "ruleId", wafrule.Id },
+    ///                 { "type", "REGULAR" },
     ///             },
     ///         },
     ///     }, new CustomResourceOptions
@@ -99,26 +99,26 @@ namespace Pulumi.Aws.Waf
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Waf.WebAcl("example", new()
+    ///     var example = new Aws.Waf.WebAcl.WebAcl("example", new()
     ///     {
-    ///         LoggingConfiguration = new Aws.Waf.Inputs.WebAclLoggingConfigurationArgs
+    ///         LoggingConfiguration = 
     ///         {
-    ///             LogDestination = aws_kinesis_firehose_delivery_stream.Example.Arn,
-    ///             RedactedFields = new Aws.Waf.Inputs.WebAclLoggingConfigurationRedactedFieldsArgs
+    ///             { "logDestination", aws_kinesis_firehose_delivery_stream.Example.Arn },
+    ///             { "redactedFields", 
     ///             {
-    ///                 FieldToMatches = new[]
+    ///                 { "fieldToMatches", new[]
     ///                 {
-    ///                     new Aws.Waf.Inputs.WebAclLoggingConfigurationRedactedFieldsFieldToMatchArgs
+    ///                     
     ///                     {
-    ///                         Type = "URI",
+    ///                         { "type", "URI" },
     ///                     },
-    ///                     new Aws.Waf.Inputs.WebAclLoggingConfigurationRedactedFieldsFieldToMatchArgs
+    ///                     
     ///                     {
-    ///                         Data = "referer",
-    ///                         Type = "HEADER",
+    ///                         { "data", "referer" },
+    ///                         { "type", "HEADER" },
     ///                     },
-    ///                 },
-    ///             },
+    ///                 } },
+    ///             } },
     ///         },
     ///     });
     /// 

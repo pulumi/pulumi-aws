@@ -9,19 +9,6 @@ import * as utilities from "../utilities";
 
 /**
  * The App Mesh Gateway Route data source allows details of an App Mesh Gateway Route to be retrieved by its name, mesh_name, virtual_gateway_name, and optionally the mesh_owner.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = aws.appmesh.getGatewayRoute({
- *     meshName: "test-mesh",
- *     name: "test-route",
- *     virtualGatewayName: "test-gateway",
- * });
- * ```
  */
 export function getGatewayRoute(args: GetGatewayRouteArgs, opts?: pulumi.InvokeOptions): Promise<GetGatewayRouteResult> {
 
@@ -100,19 +87,6 @@ export interface GetGatewayRouteResult {
 }
 /**
  * The App Mesh Gateway Route data source allows details of an App Mesh Gateway Route to be retrieved by its name, mesh_name, virtual_gateway_name, and optionally the mesh_owner.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = aws.appmesh.getGatewayRoute({
- *     meshName: "test-mesh",
- *     name: "test-route",
- *     virtualGatewayName: "test-gateway",
- * });
- * ```
  */
 export function getGatewayRouteOutput(args: GetGatewayRouteOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGatewayRouteResult> {
     return pulumi.output(args).apply((a: any) => getGatewayRoute(a, opts))

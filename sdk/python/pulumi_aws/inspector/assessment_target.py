@@ -124,11 +124,11 @@ class AssessmentTarget(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        bar = aws.inspector.ResourceGroup("bar", tags={
-            "Name": "foo",
-            "Env": "bar",
+        bar = aws.inspector.resource_group.ResourceGroup("bar", tags={
+            Name: foo,
+            Env: bar,
         })
-        foo = aws.inspector.AssessmentTarget("foo", resource_group_arn=bar.arn)
+        foo = aws.inspector.assessment_target.AssessmentTarget("foo", resource_group_arn=bar.arn)
         ```
 
         ## Import
@@ -159,11 +159,11 @@ class AssessmentTarget(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        bar = aws.inspector.ResourceGroup("bar", tags={
-            "Name": "foo",
-            "Env": "bar",
+        bar = aws.inspector.resource_group.ResourceGroup("bar", tags={
+            Name: foo,
+            Env: bar,
         })
-        foo = aws.inspector.AssessmentTarget("foo", resource_group_arn=bar.arn)
+        foo = aws.inspector.assessment_target.AssessmentTarget("foo", resource_group_arn=bar.arn)
         ```
 
         ## Import

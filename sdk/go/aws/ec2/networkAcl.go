@@ -32,46 +32,44 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	ec2/networkAcl "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/networkAcl"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.NewNetworkAcl(ctx, "main", &ec2.NetworkAclArgs{
-//				VpcId: pulumi.Any(aws_vpc.Main.Id),
-//				Egress: ec2.NetworkAclEgressArray{
-//					&ec2.NetworkAclEgressArgs{
-//						Protocol:  pulumi.String("tcp"),
-//						RuleNo:    pulumi.Int(200),
-//						Action:    pulumi.String("allow"),
-//						CidrBlock: pulumi.String("10.3.0.0/18"),
-//						FromPort:  pulumi.Int(443),
-//						ToPort:    pulumi.Int(443),
-//					},
-//				},
-//				Ingress: ec2.NetworkAclIngressArray{
-//					&ec2.NetworkAclIngressArgs{
-//						Protocol:  pulumi.String("tcp"),
-//						RuleNo:    pulumi.Int(100),
-//						Action:    pulumi.String("allow"),
-//						CidrBlock: pulumi.String("10.3.0.0/18"),
-//						FromPort:  pulumi.Int(80),
-//						ToPort:    pulumi.Int(80),
-//					},
-//				},
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("main"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := ec2/networkAcl.NewNetworkAcl(ctx, "main", &ec2/networkAcl.NetworkAclArgs{
+// VpcId: aws_vpc.Main.Id,
+// Egress: []map[string]interface{}{
+// map[string]interface{}{
+// "protocol": "tcp",
+// "ruleNo": 200,
+// "action": "allow",
+// "cidrBlock": "10.3.0.0/18",
+// "fromPort": 443,
+// "toPort": 443,
+// },
+// },
+// Ingress: []map[string]interface{}{
+// map[string]interface{}{
+// "protocol": "tcp",
+// "ruleNo": 100,
+// "action": "allow",
+// "cidrBlock": "10.3.0.0/18",
+// "fromPort": 80,
+// "toPort": 80,
+// },
+// },
+// Tags: map[string]interface{}{
+// "Name": "main",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

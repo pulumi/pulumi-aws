@@ -106,17 +106,17 @@ class InviteAccepter(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        primary = aws.Provider("primary")
-        member = aws.Provider("member")
-        primary_detector = aws.guardduty.Detector("primaryDetector", opts=pulumi.ResourceOptions(provider=aws["primary"]))
-        member_detector = aws.guardduty.Detector("memberDetector", opts=pulumi.ResourceOptions(provider=aws["member"]))
-        member_member = aws.guardduty.Member("memberMember",
+        primary = pulumi.providers.Aws("primary")
+        member = pulumi.providers.Aws("member")
+        primary_detector = aws.guardduty.detector.Detector("primaryDetector", opts=pulumi.ResourceOptions(provider=aws["primary"]))
+        member_detector = aws.guardduty.detector.Detector("memberDetector", opts=pulumi.ResourceOptions(provider=aws["member"]))
+        member_member = aws.guardduty.member.Member("memberMember",
             account_id=member_detector.account_id,
             detector_id=primary_detector.id,
-            email="required@example.com",
+            email=required@example.com,
             invite=True,
             opts=pulumi.ResourceOptions(provider=aws["primary"]))
-        member_invite_accepter = aws.guardduty.InviteAccepter("memberInviteAccepter",
+        member_invite_accepter = aws.guardduty.invite_accepter.InviteAccepter("memberInviteAccepter",
             detector_id=member_detector.id,
             master_account_id=primary_detector.account_id,
             opts=pulumi.ResourceOptions(provider=aws["member"],
@@ -151,17 +151,17 @@ class InviteAccepter(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        primary = aws.Provider("primary")
-        member = aws.Provider("member")
-        primary_detector = aws.guardduty.Detector("primaryDetector", opts=pulumi.ResourceOptions(provider=aws["primary"]))
-        member_detector = aws.guardduty.Detector("memberDetector", opts=pulumi.ResourceOptions(provider=aws["member"]))
-        member_member = aws.guardduty.Member("memberMember",
+        primary = pulumi.providers.Aws("primary")
+        member = pulumi.providers.Aws("member")
+        primary_detector = aws.guardduty.detector.Detector("primaryDetector", opts=pulumi.ResourceOptions(provider=aws["primary"]))
+        member_detector = aws.guardduty.detector.Detector("memberDetector", opts=pulumi.ResourceOptions(provider=aws["member"]))
+        member_member = aws.guardduty.member.Member("memberMember",
             account_id=member_detector.account_id,
             detector_id=primary_detector.id,
-            email="required@example.com",
+            email=required@example.com,
             invite=True,
             opts=pulumi.ResourceOptions(provider=aws["primary"]))
-        member_invite_accepter = aws.guardduty.InviteAccepter("memberInviteAccepter",
+        member_invite_accepter = aws.guardduty.invite_accepter.InviteAccepter("memberInviteAccepter",
             detector_id=member_detector.id,
             master_account_id=primary_detector.account_id,
             opts=pulumi.ResourceOptions(provider=aws["member"],

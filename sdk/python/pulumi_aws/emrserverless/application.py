@@ -444,9 +444,9 @@ class Application(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.emrserverless.Application("example",
-            release_label="emr-6.6.0",
-            type="hive")
+        example = aws.emrserverless.application.Application("example",
+            release_label=emr-6.6.0,
+            type=hive)
         ```
         ### Initial Capacity Usage
 
@@ -454,19 +454,19 @@ class Application(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.emrserverless.Application("example",
-            initial_capacities=[aws.emrserverless.ApplicationInitialCapacityArgs(
-                initial_capacity_config=aws.emrserverless.ApplicationInitialCapacityInitialCapacityConfigArgs(
-                    worker_configuration=aws.emrserverless.ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationArgs(
-                        cpu="2 vCPU",
-                        memory="10 GB",
-                    ),
-                    worker_count=1,
-                ),
-                initial_capacity_type="HiveDriver",
-            )],
-            release_label="emr-6.6.0",
-            type="hive")
+        example = aws.emrserverless.application.Application("example",
+            initial_capacities=[{
+                initialCapacityConfig: {
+                    workerConfiguration: {
+                        cpu: 2 vCPU,
+                        memory: 10 GB,
+                    },
+                    workerCount: 1,
+                },
+                initialCapacityType: HiveDriver,
+            }],
+            release_label=emr-6.6.0,
+            type=hive)
         ```
         ### Maximum Capacity Usage
 
@@ -474,13 +474,13 @@ class Application(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.emrserverless.Application("example",
-            maximum_capacity=aws.emrserverless.ApplicationMaximumCapacityArgs(
-                cpu="2 vCPU",
-                memory="10 GB",
-            ),
-            release_label="emr-6.6.0",
-            type="hive")
+        example = aws.emrserverless.application.Application("example",
+            maximum_capacity={
+                cpu: 2 vCPU,
+                memory: 10 GB,
+            },
+            release_label=emr-6.6.0,
+            type=hive)
         ```
 
         ## Import
@@ -521,9 +521,9 @@ class Application(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.emrserverless.Application("example",
-            release_label="emr-6.6.0",
-            type="hive")
+        example = aws.emrserverless.application.Application("example",
+            release_label=emr-6.6.0,
+            type=hive)
         ```
         ### Initial Capacity Usage
 
@@ -531,19 +531,19 @@ class Application(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.emrserverless.Application("example",
-            initial_capacities=[aws.emrserverless.ApplicationInitialCapacityArgs(
-                initial_capacity_config=aws.emrserverless.ApplicationInitialCapacityInitialCapacityConfigArgs(
-                    worker_configuration=aws.emrserverless.ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationArgs(
-                        cpu="2 vCPU",
-                        memory="10 GB",
-                    ),
-                    worker_count=1,
-                ),
-                initial_capacity_type="HiveDriver",
-            )],
-            release_label="emr-6.6.0",
-            type="hive")
+        example = aws.emrserverless.application.Application("example",
+            initial_capacities=[{
+                initialCapacityConfig: {
+                    workerConfiguration: {
+                        cpu: 2 vCPU,
+                        memory: 10 GB,
+                    },
+                    workerCount: 1,
+                },
+                initialCapacityType: HiveDriver,
+            }],
+            release_label=emr-6.6.0,
+            type=hive)
         ```
         ### Maximum Capacity Usage
 
@@ -551,13 +551,13 @@ class Application(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.emrserverless.Application("example",
-            maximum_capacity=aws.emrserverless.ApplicationMaximumCapacityArgs(
-                cpu="2 vCPU",
-                memory="10 GB",
-            ),
-            release_label="emr-6.6.0",
-            type="hive")
+        example = aws.emrserverless.application.Application("example",
+            maximum_capacity={
+                cpu: 2 vCPU,
+                memory: 10 GB,
+            },
+            release_label=emr-6.6.0,
+            type=hive)
         ```
 
         ## Import

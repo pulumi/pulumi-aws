@@ -76,7 +76,7 @@ class AccountAlias(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        alias = aws.iam.AccountAlias("alias", account_alias="my-account-alias")
+        alias = aws.iam.account_alias.AccountAlias("alias", account_alias=my-account-alias)
         ```
 
         ## Import
@@ -108,7 +108,7 @@ class AccountAlias(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        alias = aws.iam.AccountAlias("alias", account_alias="my-account-alias")
+        alias = aws.iam.account_alias.AccountAlias("alias", account_alias=my-account-alias)
         ```
 
         ## Import

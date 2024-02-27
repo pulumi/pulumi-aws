@@ -247,10 +247,10 @@ class ServiceNetworkVpcAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.vpclattice.ServiceNetworkVpcAssociation("example",
-            vpc_identifier=aws_vpc["example"]["id"],
-            service_network_identifier=aws_vpclattice_service_network["example"]["id"],
-            security_group_ids=[aws_security_group["example"]["id"]])
+        example = aws.vpclattice.service_network_vpc_association.ServiceNetworkVpcAssociation("example",
+            vpc_identifier=aws_vpc.example.id,
+            service_network_identifier=aws_vpclattice_service_network.example.id,
+            security_group_ids=[aws_security_group.example.id])
         ```
 
         ## Import
@@ -285,10 +285,10 @@ class ServiceNetworkVpcAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.vpclattice.ServiceNetworkVpcAssociation("example",
-            vpc_identifier=aws_vpc["example"]["id"],
-            service_network_identifier=aws_vpclattice_service_network["example"]["id"],
-            security_group_ids=[aws_security_group["example"]["id"]])
+        example = aws.vpclattice.service_network_vpc_association.ServiceNetworkVpcAssociation("example",
+            vpc_identifier=aws_vpc.example.id,
+            service_network_identifier=aws_vpclattice_service_network.example.id,
+            security_group_ids=[aws_security_group.example.id])
         ```
 
         ## Import

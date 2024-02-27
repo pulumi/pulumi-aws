@@ -26,28 +26,26 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigatewayv2"
+//	apigatewayv2/domainName "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/apigatewayv2/domainName"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := apigatewayv2.NewDomainName(ctx, "example", &apigatewayv2.DomainNameArgs{
-//				DomainName: pulumi.String("ws-api.example.com"),
-//				DomainNameConfiguration: &apigatewayv2.DomainNameDomainNameConfigurationArgs{
-//					CertificateArn: pulumi.Any(aws_acm_certificate.Example.Arn),
-//					EndpointType:   pulumi.String("REGIONAL"),
-//					SecurityPolicy: pulumi.String("TLS_1_2"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := apigatewayv2/domainName.NewDomainName(ctx, "example", &apigatewayv2/domainName.DomainNameArgs{
+// DomainName: "ws-api.example.com",
+// DomainNameConfiguration: map[string]interface{}{
+// "certificateArn": aws_acm_certificate.Example.Arn,
+// "endpointType": "REGIONAL",
+// "securityPolicy": "TLS_1_2",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Associated Route 53 Resource Record
 //
@@ -56,48 +54,42 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigatewayv2"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53"
+//	apigatewayv2/domainName "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/apigatewayv2/domainName"
+//	route53/record "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/route53/record"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleDomainName, err := apigatewayv2.NewDomainName(ctx, "exampleDomainName", &apigatewayv2.DomainNameArgs{
-//				DomainName: pulumi.String("http-api.example.com"),
-//				DomainNameConfiguration: &apigatewayv2.DomainNameDomainNameConfigurationArgs{
-//					CertificateArn: pulumi.Any(aws_acm_certificate.Example.Arn),
-//					EndpointType:   pulumi.String("REGIONAL"),
-//					SecurityPolicy: pulumi.String("TLS_1_2"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = route53.NewRecord(ctx, "exampleRecord", &route53.RecordArgs{
-//				Name:   exampleDomainName.DomainName,
-//				Type:   pulumi.String("A"),
-//				ZoneId: pulumi.Any(aws_route53_zone.Example.Zone_id),
-//				Aliases: route53.RecordAliasArray{
-//					&route53.RecordAliasArgs{
-//						Name: exampleDomainName.DomainNameConfiguration.ApplyT(func(domainNameConfiguration apigatewayv2.DomainNameDomainNameConfiguration) (*string, error) {
-//							return &domainNameConfiguration.TargetDomainName, nil
-//						}).(pulumi.StringPtrOutput),
-//						ZoneId: exampleDomainName.DomainNameConfiguration.ApplyT(func(domainNameConfiguration apigatewayv2.DomainNameDomainNameConfiguration) (*string, error) {
-//							return &domainNameConfiguration.HostedZoneId, nil
-//						}).(pulumi.StringPtrOutput),
-//						EvaluateTargetHealth: pulumi.Bool(false),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleDomainName, err := apigatewayv2/domainName.NewDomainName(ctx, "exampleDomainName", &apigatewayv2/domainName.DomainNameArgs{
+// DomainName: "http-api.example.com",
+// DomainNameConfiguration: map[string]interface{}{
+// "certificateArn": aws_acm_certificate.Example.Arn,
+// "endpointType": "REGIONAL",
+// "securityPolicy": "TLS_1_2",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = route53/record.NewRecord(ctx, "exampleRecord", &route53/record.RecordArgs{
+// Name: exampleDomainName.DomainName,
+// Type: "A",
+// ZoneId: aws_route53_zone.Example.Zone_id,
+// Aliases: []map[string]interface{}{
+// map[string]interface{}{
+// "name": exampleDomainName.DomainNameConfiguration.TargetDomainName,
+// "zoneId": exampleDomainName.DomainNameConfiguration.HostedZoneId,
+// "evaluateTargetHealth": false,
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

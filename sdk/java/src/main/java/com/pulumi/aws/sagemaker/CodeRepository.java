@@ -29,7 +29,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.sagemaker.CodeRepository;
  * import com.pulumi.aws.sagemaker.CodeRepositoryArgs;
- * import com.pulumi.aws.sagemaker.inputs.CodeRepositoryGitConfigArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -45,9 +44,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new CodeRepository(&#34;example&#34;, CodeRepositoryArgs.builder()        
  *             .codeRepositoryName(&#34;example&#34;)
- *             .gitConfig(CodeRepositoryGitConfigArgs.builder()
- *                 .repositoryUrl(&#34;https://github.com/github/docs.git&#34;)
- *                 .build())
+ *             .gitConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -65,7 +62,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.secretsmanager.SecretVersionArgs;
  * import com.pulumi.aws.sagemaker.CodeRepository;
  * import com.pulumi.aws.sagemaker.CodeRepositoryArgs;
- * import com.pulumi.aws.sagemaker.inputs.CodeRepositoryGitConfigArgs;
  * import static com.pulumi.codegen.internal.Serialization.*;
  * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
@@ -94,10 +90,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleCodeRepository = new CodeRepository(&#34;exampleCodeRepository&#34;, CodeRepositoryArgs.builder()        
  *             .codeRepositoryName(&#34;example&#34;)
- *             .gitConfig(CodeRepositoryGitConfigArgs.builder()
- *                 .repositoryUrl(&#34;https://github.com/github/docs.git&#34;)
- *                 .secretArn(exampleSecret.arn())
- *                 .build())
+ *             .gitConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(exampleSecretVersion)
  *                 .build());

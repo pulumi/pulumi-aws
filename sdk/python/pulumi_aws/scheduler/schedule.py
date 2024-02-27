@@ -466,16 +466,16 @@ class Schedule(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.scheduler.Schedule("example",
-            group_name="default",
-            flexible_time_window=aws.scheduler.ScheduleFlexibleTimeWindowArgs(
-                mode="OFF",
-            ),
-            schedule_expression="rate(1 hours)",
-            target=aws.scheduler.ScheduleTargetArgs(
-                arn=aws_sqs_queue["example"]["arn"],
-                role_arn=aws_iam_role["example"]["arn"],
-            ))
+        example = aws.scheduler.schedule.Schedule("example",
+            group_name=default,
+            flexible_time_window={
+                mode: OFF,
+            },
+            schedule_expression=rate(1 hours),
+            target={
+                arn: aws_sqs_queue.example.arn,
+                roleArn: aws_iam_role.example.arn,
+            })
         ```
         ### Universal Target
 
@@ -484,20 +484,20 @@ class Schedule(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        example_queue = aws.sqs.Queue("exampleQueue")
-        example_schedule = aws.scheduler.Schedule("exampleSchedule",
-            flexible_time_window=aws.scheduler.ScheduleFlexibleTimeWindowArgs(
-                mode="OFF",
-            ),
-            schedule_expression="rate(1 hours)",
-            target=aws.scheduler.ScheduleTargetArgs(
-                arn="arn:aws:scheduler:::aws-sdk:sqs:sendMessage",
-                role_arn=aws_iam_role["example"]["arn"],
-                input=example_queue.url.apply(lambda url: json.dumps({
-                    "MessageBody": "Greetings, programs!",
-                    "QueueUrl": url,
-                })),
-            ))
+        example_queue = aws.sqs.queue.Queue("exampleQueue")
+        example_schedule = aws.scheduler.schedule.Schedule("exampleSchedule",
+            flexible_time_window={
+                mode: OFF,
+            },
+            schedule_expression=rate(1 hours),
+            target={
+                arn: arn:aws:scheduler:::aws-sdk:sqs:sendMessage,
+                roleArn: aws_iam_role.example.arn,
+                input: json.dumps({
+                    MessageBody: Greetings, programs!,
+                    QueueUrl: example_queue.url,
+                }),
+            })
         ```
 
         ## Import
@@ -545,16 +545,16 @@ class Schedule(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.scheduler.Schedule("example",
-            group_name="default",
-            flexible_time_window=aws.scheduler.ScheduleFlexibleTimeWindowArgs(
-                mode="OFF",
-            ),
-            schedule_expression="rate(1 hours)",
-            target=aws.scheduler.ScheduleTargetArgs(
-                arn=aws_sqs_queue["example"]["arn"],
-                role_arn=aws_iam_role["example"]["arn"],
-            ))
+        example = aws.scheduler.schedule.Schedule("example",
+            group_name=default,
+            flexible_time_window={
+                mode: OFF,
+            },
+            schedule_expression=rate(1 hours),
+            target={
+                arn: aws_sqs_queue.example.arn,
+                roleArn: aws_iam_role.example.arn,
+            })
         ```
         ### Universal Target
 
@@ -563,20 +563,20 @@ class Schedule(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        example_queue = aws.sqs.Queue("exampleQueue")
-        example_schedule = aws.scheduler.Schedule("exampleSchedule",
-            flexible_time_window=aws.scheduler.ScheduleFlexibleTimeWindowArgs(
-                mode="OFF",
-            ),
-            schedule_expression="rate(1 hours)",
-            target=aws.scheduler.ScheduleTargetArgs(
-                arn="arn:aws:scheduler:::aws-sdk:sqs:sendMessage",
-                role_arn=aws_iam_role["example"]["arn"],
-                input=example_queue.url.apply(lambda url: json.dumps({
-                    "MessageBody": "Greetings, programs!",
-                    "QueueUrl": url,
-                })),
-            ))
+        example_queue = aws.sqs.queue.Queue("exampleQueue")
+        example_schedule = aws.scheduler.schedule.Schedule("exampleSchedule",
+            flexible_time_window={
+                mode: OFF,
+            },
+            schedule_expression=rate(1 hours),
+            target={
+                arn: arn:aws:scheduler:::aws-sdk:sqs:sendMessage,
+                roleArn: aws_iam_role.example.arn,
+                input: json.dumps({
+                    MessageBody: Greetings, programs!,
+                    QueueUrl: example_queue.url,
+                }),
+            })
         ```
 
         ## Import

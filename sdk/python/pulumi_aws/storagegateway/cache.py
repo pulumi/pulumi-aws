@@ -108,9 +108,9 @@ class Cache(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.storagegateway.Cache("example",
-            disk_id=data["aws_storagegateway_local_disk"]["example"]["id"],
-            gateway_arn=aws_storagegateway_gateway["example"]["arn"])
+        example = aws.storagegateway.cache.Cache("example",
+            disk_id=data.aws_storagegateway_local_disk.example.id,
+            gateway_arn=aws_storagegateway_gateway.example.arn)
         ```
 
         ## Import
@@ -143,9 +143,9 @@ class Cache(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.storagegateway.Cache("example",
-            disk_id=data["aws_storagegateway_local_disk"]["example"]["id"],
-            gateway_arn=aws_storagegateway_gateway["example"]["arn"])
+        example = aws.storagegateway.cache.Cache("example",
+            disk_id=data.aws_storagegateway_local_disk.example.id,
+            gateway_arn=aws_storagegateway_gateway.example.arn)
         ```
 
         ## Import

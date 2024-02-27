@@ -33,7 +33,6 @@ import javax.annotation.Nullable;
  * &gt; **NOTE on Auto Scaling Groups, Attachments and Traffic Source Attachments:** Pulumi provides standalone Attachment (for attaching Classic Load Balancers and Application Load Balancer, Gateway Load Balancer, or Network Load Balancer target groups) and Traffic Source Attachment (for attaching Load Balancers and VPC Lattice target groups) resources and an Auto Scaling Group resource with `load_balancers`, `target_group_arns` and `traffic_source` attributes. Do not use the same traffic source in more than one of these resources. Doing so will cause a conflict of attachments. A `lifecycle` configuration block can be used to suppress differences if necessary.
  * 
  * ## Example Usage
- * 
  * ```java
  * package generated_program;
  * 
@@ -44,9 +43,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.ec2.PlacementGroupArgs;
  * import com.pulumi.aws.autoscaling.Group;
  * import com.pulumi.aws.autoscaling.GroupArgs;
- * import com.pulumi.aws.autoscaling.inputs.GroupInstanceMaintenancePolicyArgs;
- * import com.pulumi.aws.autoscaling.inputs.GroupInitialLifecycleHookArgs;
- * import com.pulumi.aws.autoscaling.inputs.GroupTagArgs;
  * import static com.pulumi.codegen.internal.Serialization.*;
  * import java.util.List;
  * import java.util.ArrayList;
@@ -77,33 +73,11 @@ import javax.annotation.Nullable;
  *             .vpcZoneIdentifiers(            
  *                 aws_subnet.example1().id(),
  *                 aws_subnet.example2().id())
- *             .instanceMaintenancePolicy(GroupInstanceMaintenancePolicyArgs.builder()
- *                 .minHealthyPercentage(90)
- *                 .maxHealthyPercentage(120)
- *                 .build())
- *             .initialLifecycleHooks(GroupInitialLifecycleHookArgs.builder()
- *                 .name(&#34;foobar&#34;)
- *                 .defaultResult(&#34;CONTINUE&#34;)
- *                 .heartbeatTimeout(2000)
- *                 .lifecycleTransition(&#34;autoscaling:EC2_INSTANCE_LAUNCHING&#34;)
- *                 .notificationMetadata(serializeJson(
- *                     jsonObject(
- *                         jsonProperty(&#34;foo&#34;, &#34;bar&#34;)
- *                     )))
- *                 .notificationTargetArn(&#34;arn:aws:sqs:us-east-1:444455556666:queue1*&#34;)
- *                 .roleArn(&#34;arn:aws:iam::123456789012:role/S3Access&#34;)
- *                 .build())
+ *             .instanceMaintenancePolicy(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .initialLifecycleHooks(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .tags(            
- *                 GroupTagArgs.builder()
- *                     .key(&#34;foo&#34;)
- *                     .value(&#34;bar&#34;)
- *                     .propagateAtLaunch(true)
- *                     .build(),
- *                 GroupTagArgs.builder()
- *                     .key(&#34;lorem&#34;)
- *                     .value(&#34;ipsum&#34;)
- *                     .propagateAtLaunch(false)
- *                     .build())
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .timeouts(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
@@ -121,7 +95,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.ec2.LaunchTemplateArgs;
  * import com.pulumi.aws.autoscaling.Group;
  * import com.pulumi.aws.autoscaling.GroupArgs;
- * import com.pulumi.aws.autoscaling.inputs.GroupLaunchTemplateArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -146,10 +119,7 @@ import javax.annotation.Nullable;
  *             .desiredCapacity(1)
  *             .maxSize(1)
  *             .minSize(1)
- *             .launchTemplate(GroupLaunchTemplateArgs.builder()
- *                 .id(foobar.id())
- *                 .version(&#34;$Latest&#34;)
- *                 .build())
+ *             .launchTemplate(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -166,9 +136,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.ec2.LaunchTemplateArgs;
  * import com.pulumi.aws.autoscaling.Group;
  * import com.pulumi.aws.autoscaling.GroupArgs;
- * import com.pulumi.aws.autoscaling.inputs.GroupMixedInstancesPolicyArgs;
- * import com.pulumi.aws.autoscaling.inputs.GroupMixedInstancesPolicyLaunchTemplateArgs;
- * import com.pulumi.aws.autoscaling.inputs.GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -193,22 +160,7 @@ import javax.annotation.Nullable;
  *             .desiredCapacity(1)
  *             .maxSize(1)
  *             .minSize(1)
- *             .mixedInstancesPolicy(GroupMixedInstancesPolicyArgs.builder()
- *                 .launchTemplate(GroupMixedInstancesPolicyLaunchTemplateArgs.builder()
- *                     .launchTemplateSpecification(GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs.builder()
- *                         .launchTemplateId(exampleLaunchTemplate.id())
- *                         .build())
- *                     .overrides(                    
- *                         GroupMixedInstancesPolicyLaunchTemplateOverrideArgs.builder()
- *                             .instanceType(&#34;c4.large&#34;)
- *                             .weightedCapacity(&#34;3&#34;)
- *                             .build(),
- *                         GroupMixedInstancesPolicyLaunchTemplateOverrideArgs.builder()
- *                             .instanceType(&#34;c3.large&#34;)
- *                             .weightedCapacity(&#34;2&#34;)
- *                             .build())
- *                     .build())
- *                 .build())
+ *             .mixedInstancesPolicy(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -225,10 +177,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.ec2.LaunchTemplateArgs;
  * import com.pulumi.aws.autoscaling.Group;
  * import com.pulumi.aws.autoscaling.GroupArgs;
- * import com.pulumi.aws.autoscaling.inputs.GroupMixedInstancesPolicyArgs;
- * import com.pulumi.aws.autoscaling.inputs.GroupMixedInstancesPolicyInstancesDistributionArgs;
- * import com.pulumi.aws.autoscaling.inputs.GroupMixedInstancesPolicyLaunchTemplateArgs;
- * import com.pulumi.aws.autoscaling.inputs.GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -256,27 +204,7 @@ import javax.annotation.Nullable;
  *             .vpcZoneIdentifiers(            
  *                 aws_subnet.example1().id(),
  *                 aws_subnet.example2().id())
- *             .mixedInstancesPolicy(GroupMixedInstancesPolicyArgs.builder()
- *                 .instancesDistribution(GroupMixedInstancesPolicyInstancesDistributionArgs.builder()
- *                     .onDemandBaseCapacity(0)
- *                     .onDemandPercentageAboveBaseCapacity(25)
- *                     .spotAllocationStrategy(&#34;capacity-optimized&#34;)
- *                     .build())
- *                 .launchTemplate(GroupMixedInstancesPolicyLaunchTemplateArgs.builder()
- *                     .launchTemplateSpecification(GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs.builder()
- *                         .launchTemplateId(exampleLaunchTemplate.id())
- *                         .build())
- *                     .overrides(                    
- *                         GroupMixedInstancesPolicyLaunchTemplateOverrideArgs.builder()
- *                             .instanceType(&#34;c4.large&#34;)
- *                             .weightedCapacity(&#34;3&#34;)
- *                             .build(),
- *                         GroupMixedInstancesPolicyLaunchTemplateOverrideArgs.builder()
- *                             .instanceType(&#34;c3.large&#34;)
- *                             .weightedCapacity(&#34;2&#34;)
- *                             .build())
- *                     .build())
- *                 .build())
+ *             .mixedInstancesPolicy(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -295,9 +223,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.ec2.LaunchTemplateArgs;
  * import com.pulumi.aws.autoscaling.Group;
  * import com.pulumi.aws.autoscaling.GroupArgs;
- * import com.pulumi.aws.autoscaling.inputs.GroupMixedInstancesPolicyArgs;
- * import com.pulumi.aws.autoscaling.inputs.GroupMixedInstancesPolicyLaunchTemplateArgs;
- * import com.pulumi.aws.autoscaling.inputs.GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -327,25 +252,7 @@ import javax.annotation.Nullable;
  *             .desiredCapacity(1)
  *             .maxSize(1)
  *             .minSize(1)
- *             .mixedInstancesPolicy(GroupMixedInstancesPolicyArgs.builder()
- *                 .launchTemplate(GroupMixedInstancesPolicyLaunchTemplateArgs.builder()
- *                     .launchTemplateSpecification(GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs.builder()
- *                         .launchTemplateId(exampleLaunchTemplate.id())
- *                         .build())
- *                     .overrides(                    
- *                         GroupMixedInstancesPolicyLaunchTemplateOverrideArgs.builder()
- *                             .instanceType(&#34;c4.large&#34;)
- *                             .weightedCapacity(&#34;3&#34;)
- *                             .build(),
- *                         GroupMixedInstancesPolicyLaunchTemplateOverrideArgs.builder()
- *                             .instanceType(&#34;c6g.large&#34;)
- *                             .launchTemplateSpecification(GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationArgs.builder()
- *                                 .launchTemplateId(example2.id())
- *                                 .build())
- *                             .weightedCapacity(&#34;2&#34;)
- *                             .build())
- *                     .build())
- *                 .build())
+ *             .mixedInstancesPolicy(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -364,9 +271,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.ec2.LaunchTemplateArgs;
  * import com.pulumi.aws.autoscaling.Group;
  * import com.pulumi.aws.autoscaling.GroupArgs;
- * import com.pulumi.aws.autoscaling.inputs.GroupMixedInstancesPolicyArgs;
- * import com.pulumi.aws.autoscaling.inputs.GroupMixedInstancesPolicyLaunchTemplateArgs;
- * import com.pulumi.aws.autoscaling.inputs.GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -391,30 +295,13 @@ import javax.annotation.Nullable;
  *             .desiredCapacity(1)
  *             .maxSize(1)
  *             .minSize(1)
- *             .mixedInstancesPolicy(GroupMixedInstancesPolicyArgs.builder()
- *                 .launchTemplate(GroupMixedInstancesPolicyLaunchTemplateArgs.builder()
- *                     .launchTemplateSpecification(GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs.builder()
- *                         .launchTemplateId(exampleLaunchTemplate.id())
- *                         .build())
- *                     .overrides(GroupMixedInstancesPolicyLaunchTemplateOverrideArgs.builder()
- *                         .instanceRequirements(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs.builder()
- *                             .memoryMib(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibArgs.builder()
- *                                 .min(1000)
- *                                 .build())
- *                             .vcpuCount(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountArgs.builder()
- *                                 .min(4)
- *                                 .build())
- *                             .build())
- *                         .build())
- *                     .build())
- *                 .build())
+ *             .mixedInstancesPolicy(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
  * }
  * ```
  * ### Dynamic tagging
- * 
  * ```java
  * package generated_program;
  * 
@@ -423,7 +310,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.autoscaling.Group;
  * import com.pulumi.aws.autoscaling.GroupArgs;
- * import com.pulumi.aws.autoscaling.inputs.GroupTagArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -449,87 +335,9 @@ import javax.annotation.Nullable;
  *                 aws_subnet.example1().id(),
  *                 aws_subnet.example2().id())
  *             .tags(            
- *                 GroupTagArgs.builder()
- *                     .key(&#34;explicit1&#34;)
- *                     .value(&#34;value1&#34;)
- *                     .propagateAtLaunch(true)
- *                     .build(),
- *                 GroupTagArgs.builder()
- *                     .key(&#34;explicit2&#34;)
- *                     .value(&#34;value2&#34;)
- *                     .propagateAtLaunch(true)
- *                     .build())
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .dynamic(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### Automatically refresh all instances after the group is updated
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ec2.Ec2Functions;
- * import com.pulumi.aws.ec2.inputs.GetAmiArgs;
- * import com.pulumi.aws.ec2.LaunchTemplate;
- * import com.pulumi.aws.ec2.LaunchTemplateArgs;
- * import com.pulumi.aws.autoscaling.Group;
- * import com.pulumi.aws.autoscaling.GroupArgs;
- * import com.pulumi.aws.autoscaling.inputs.GroupLaunchTemplateArgs;
- * import com.pulumi.aws.autoscaling.inputs.GroupTagArgs;
- * import com.pulumi.aws.autoscaling.inputs.GroupInstanceRefreshArgs;
- * import com.pulumi.aws.autoscaling.inputs.GroupInstanceRefreshPreferencesArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var exampleAmi = Ec2Functions.getAmi(GetAmiArgs.builder()
- *             .mostRecent(true)
- *             .owners(&#34;amazon&#34;)
- *             .filters(GetAmiFilterArgs.builder()
- *                 .name(&#34;name&#34;)
- *                 .values(&#34;amzn-ami-hvm-*-x86_64-gp2&#34;)
- *                 .build())
- *             .build());
- * 
- *         var exampleLaunchTemplate = new LaunchTemplate(&#34;exampleLaunchTemplate&#34;, LaunchTemplateArgs.builder()        
- *             .imageId(exampleAmi.applyValue(getAmiResult -&gt; getAmiResult.id()))
- *             .instanceType(&#34;t3.nano&#34;)
- *             .build());
- * 
- *         var exampleGroup = new Group(&#34;exampleGroup&#34;, GroupArgs.builder()        
- *             .availabilityZones(&#34;us-east-1a&#34;)
- *             .desiredCapacity(1)
- *             .maxSize(2)
- *             .minSize(1)
- *             .launchTemplate(GroupLaunchTemplateArgs.builder()
- *                 .id(exampleLaunchTemplate.id())
- *                 .version(exampleLaunchTemplate.latestVersion())
- *                 .build())
- *             .tags(GroupTagArgs.builder()
- *                 .key(&#34;Key&#34;)
- *                 .value(&#34;Value&#34;)
- *                 .propagateAtLaunch(true)
- *                 .build())
- *             .instanceRefresh(GroupInstanceRefreshArgs.builder()
- *                 .strategy(&#34;Rolling&#34;)
- *                 .preferences(GroupInstanceRefreshPreferencesArgs.builder()
- *                     .minHealthyPercentage(50)
- *                     .build())
- *                 .triggers(&#34;tag&#34;)
- *                 .build())
  *             .build());
  * 
  *     }
@@ -546,8 +354,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.ec2.LaunchTemplateArgs;
  * import com.pulumi.aws.autoscaling.Group;
  * import com.pulumi.aws.autoscaling.GroupArgs;
- * import com.pulumi.aws.autoscaling.inputs.GroupWarmPoolArgs;
- * import com.pulumi.aws.autoscaling.inputs.GroupWarmPoolInstanceReusePolicyArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -572,21 +378,13 @@ import javax.annotation.Nullable;
  *             .desiredCapacity(1)
  *             .maxSize(5)
  *             .minSize(1)
- *             .warmPool(GroupWarmPoolArgs.builder()
- *                 .poolState(&#34;Hibernated&#34;)
- *                 .minSize(1)
- *                 .maxGroupPreparedCapacity(10)
- *                 .instanceReusePolicy(GroupWarmPoolInstanceReusePolicyArgs.builder()
- *                     .reuseOnScaleIn(true)
- *                     .build())
- *                 .build())
+ *             .warmPool(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
  * }
  * ```
  * ### Auto Scaling group with Traffic Sources
- * 
  * ```java
  * package generated_program;
  * 

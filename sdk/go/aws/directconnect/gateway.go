@@ -21,23 +21,21 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/directconnect"
+//	directconnect/gateway "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/directconnect/gateway"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := directconnect.NewGateway(ctx, "example", &directconnect.GatewayArgs{
-//				AmazonSideAsn: pulumi.String("64512"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := directconnect/gateway.NewGateway(ctx, "example", &directconnect/gateway.GatewayArgs{
+// AmazonSideAsn: "64512",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -28,7 +28,7 @@ namespace Pulumi.Aws.LightSail
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // Create a new Lightsail Key Pair
-    ///     var lgKeyPair = new Aws.LightSail.KeyPair("lgKeyPair");
+    ///     var lgKeyPair = new Aws.Lightsail.KeyPair.KeyPair("lgKeyPair");
     /// 
     /// });
     /// ```
@@ -42,7 +42,7 @@ namespace Pulumi.Aws.LightSail
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var lgKeyPair = new Aws.LightSail.KeyPair("lgKeyPair", new()
+    ///     var lgKeyPair = new Aws.Lightsail.KeyPair.KeyPair("lgKeyPair", new()
     ///     {
     ///         PgpKey = "keybase:keybaseusername",
     ///     });
@@ -60,7 +60,7 @@ namespace Pulumi.Aws.LightSail
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var lgKeyPair = new Aws.LightSail.KeyPair("lgKeyPair", new()
+    ///     var lgKeyPair = new Aws.Lightsail.KeyPair.KeyPair("lgKeyPair", new()
     ///     {
     ///         PublicKey = File.ReadAllText("~/.ssh/id_rsa.pub"),
     ///     });

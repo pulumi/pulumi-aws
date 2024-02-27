@@ -107,23 +107,23 @@ class RegionSettings(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.backup.RegionSettings("test",
+        test = aws.backup.region_settings.RegionSettings("test",
             resource_type_management_preference={
-                "DynamoDB": True,
-                "EFS": True,
+                DynamoDB: True,
+                EFS: True,
             },
             resource_type_opt_in_preference={
-                "Aurora": True,
-                "DocumentDB": True,
-                "DynamoDB": True,
-                "EBS": True,
-                "EC2": True,
-                "EFS": True,
-                "FSx": True,
-                "Neptune": True,
-                "RDS": True,
-                "Storage Gateway": True,
-                "VirtualMachine": True,
+                Aurora: True,
+                DocumentDB: True,
+                DynamoDB: True,
+                EBS: True,
+                EC2: True,
+                EFS: True,
+                FSx: True,
+                Neptune: True,
+                RDS: True,
+                Storage Gateway: True,
+                VirtualMachine: True,
             })
         ```
 
@@ -155,23 +155,23 @@ class RegionSettings(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.backup.RegionSettings("test",
+        test = aws.backup.region_settings.RegionSettings("test",
             resource_type_management_preference={
-                "DynamoDB": True,
-                "EFS": True,
+                DynamoDB: True,
+                EFS: True,
             },
             resource_type_opt_in_preference={
-                "Aurora": True,
-                "DocumentDB": True,
-                "DynamoDB": True,
-                "EBS": True,
-                "EC2": True,
-                "EFS": True,
-                "FSx": True,
-                "Neptune": True,
-                "RDS": True,
-                "Storage Gateway": True,
-                "VirtualMachine": True,
+                Aurora: True,
+                DocumentDB: True,
+                DynamoDB: True,
+                EBS: True,
+                EC2: True,
+                EFS: True,
+                FSx: True,
+                Neptune: True,
+                RDS: True,
+                Storage Gateway: True,
+                VirtualMachine: True,
             })
         ```
 

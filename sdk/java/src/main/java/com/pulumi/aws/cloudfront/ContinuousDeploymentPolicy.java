@@ -32,9 +32,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.cloudfront.DistributionArgs;
  * import com.pulumi.aws.cloudfront.ContinuousDeploymentPolicy;
  * import com.pulumi.aws.cloudfront.ContinuousDeploymentPolicyArgs;
- * import com.pulumi.aws.cloudfront.inputs.ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs;
- * import com.pulumi.aws.cloudfront.inputs.ContinuousDeploymentPolicyTrafficConfigArgs;
- * import com.pulumi.aws.cloudfront.inputs.ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -55,16 +52,8 @@ import javax.annotation.Nullable;
  * 
  *         var example = new ContinuousDeploymentPolicy(&#34;example&#34;, ContinuousDeploymentPolicyArgs.builder()        
  *             .enabled(true)
- *             .stagingDistributionDnsNames(ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs.builder()
- *                 .items(staging.domainName())
- *                 .quantity(1)
- *                 .build())
- *             .trafficConfig(ContinuousDeploymentPolicyTrafficConfigArgs.builder()
- *                 .type(&#34;SingleWeight&#34;)
- *                 .singleWeightConfig(ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigArgs.builder()
- *                     .weight(&#34;0.01&#34;)
- *                     .build())
- *                 .build())
+ *             .stagingDistributionDnsNames(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .trafficConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var production = new Distribution(&#34;production&#34;, DistributionArgs.builder()        
@@ -84,10 +73,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.cloudfront.ContinuousDeploymentPolicy;
  * import com.pulumi.aws.cloudfront.ContinuousDeploymentPolicyArgs;
- * import com.pulumi.aws.cloudfront.inputs.ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs;
- * import com.pulumi.aws.cloudfront.inputs.ContinuousDeploymentPolicyTrafficConfigArgs;
- * import com.pulumi.aws.cloudfront.inputs.ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigArgs;
- * import com.pulumi.aws.cloudfront.inputs.ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -103,20 +88,8 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new ContinuousDeploymentPolicy(&#34;example&#34;, ContinuousDeploymentPolicyArgs.builder()        
  *             .enabled(true)
- *             .stagingDistributionDnsNames(ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs.builder()
- *                 .items(aws_cloudfront_distribution.staging().domain_name())
- *                 .quantity(1)
- *                 .build())
- *             .trafficConfig(ContinuousDeploymentPolicyTrafficConfigArgs.builder()
- *                 .type(&#34;SingleWeight&#34;)
- *                 .singleWeightConfig(ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigArgs.builder()
- *                     .weight(&#34;0.01&#34;)
- *                     .sessionStickinessConfig(ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigArgs.builder()
- *                         .idleTtl(300)
- *                         .maximumTtl(600)
- *                         .build())
- *                     .build())
- *                 .build())
+ *             .stagingDistributionDnsNames(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .trafficConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -131,9 +104,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.cloudfront.ContinuousDeploymentPolicy;
  * import com.pulumi.aws.cloudfront.ContinuousDeploymentPolicyArgs;
- * import com.pulumi.aws.cloudfront.inputs.ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs;
- * import com.pulumi.aws.cloudfront.inputs.ContinuousDeploymentPolicyTrafficConfigArgs;
- * import com.pulumi.aws.cloudfront.inputs.ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -149,17 +119,8 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new ContinuousDeploymentPolicy(&#34;example&#34;, ContinuousDeploymentPolicyArgs.builder()        
  *             .enabled(true)
- *             .stagingDistributionDnsNames(ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs.builder()
- *                 .items(aws_cloudfront_distribution.staging().domain_name())
- *                 .quantity(1)
- *                 .build())
- *             .trafficConfig(ContinuousDeploymentPolicyTrafficConfigArgs.builder()
- *                 .type(&#34;SingleHeader&#34;)
- *                 .singleHeaderConfig(ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigArgs.builder()
- *                     .header(&#34;aws-cf-cd-example&#34;)
- *                     .value(&#34;example&#34;)
- *                     .build())
- *                 .build())
+ *             .stagingDistributionDnsNames(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .trafficConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

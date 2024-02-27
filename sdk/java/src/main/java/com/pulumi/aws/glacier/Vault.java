@@ -21,64 +21,6 @@ import javax.annotation.Nullable;
  * 
  * &gt; **NOTE:** When removing a Glacier Vault, the Vault must be empty.
  * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.sns.Topic;
- * import com.pulumi.aws.iam.IamFunctions;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
- * import com.pulumi.aws.glacier.Vault;
- * import com.pulumi.aws.glacier.VaultArgs;
- * import com.pulumi.aws.glacier.inputs.VaultNotificationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var awsSnsTopic = new Topic(&#34;awsSnsTopic&#34;);
- * 
- *         final var myArchivePolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .sid(&#34;add-read-only-perm&#34;)
- *                 .effect(&#34;Allow&#34;)
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type(&#34;*&#34;)
- *                     .identifiers(&#34;*&#34;)
- *                     .build())
- *                 .actions(                
- *                     &#34;glacier:InitiateJob&#34;,
- *                     &#34;glacier:GetJobOutput&#34;)
- *                 .resources(&#34;arn:aws:glacier:eu-west-1:432981146916:vaults/MyArchive&#34;)
- *                 .build())
- *             .build());
- * 
- *         var myArchiveVault = new Vault(&#34;myArchiveVault&#34;, VaultArgs.builder()        
- *             .notification(VaultNotificationArgs.builder()
- *                 .snsTopic(awsSnsTopic.arn())
- *                 .events(                
- *                     &#34;ArchiveRetrievalCompleted&#34;,
- *                     &#34;InventoryRetrievalCompleted&#34;)
- *                 .build())
- *             .accessPolicy(myArchivePolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
- *             .tags(Map.of(&#34;Test&#34;, &#34;MyArchive&#34;))
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
  * ## Import
  * 
  * Using `pulumi import`, import Glacier Vaults using the `name`. For example:

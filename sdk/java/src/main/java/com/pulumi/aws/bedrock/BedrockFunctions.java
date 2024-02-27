@@ -19,72 +19,12 @@ public final class BedrockFunctions {
     /**
      * Returns properties of a specific Amazon Bedrock custom model.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.bedrock.BedrockFunctions;
-     * import com.pulumi.aws.bedrock.inputs.GetCustomModelArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = BedrockFunctions.getCustomModel(GetCustomModelArgs.builder()
-     *             .modelId(&#34;arn:aws:bedrock:us-west-2:123456789012:custom-model/amazon.titan-text-express-v1:0:8k/ly16hhi765j4 &#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetCustomModelResult> getCustomModel(GetCustomModelArgs args) {
         return getCustomModel(args, InvokeOptions.Empty);
     }
     /**
      * Returns properties of a specific Amazon Bedrock custom model.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.bedrock.BedrockFunctions;
-     * import com.pulumi.aws.bedrock.inputs.GetCustomModelArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = BedrockFunctions.getCustomModel(GetCustomModelArgs.builder()
-     *             .modelId(&#34;arn:aws:bedrock:us-west-2:123456789012:custom-model/amazon.titan-text-express-v1:0:8k/ly16hhi765j4 &#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetCustomModelResult> getCustomModelPlain(GetCustomModelPlainArgs args) {
@@ -93,72 +33,12 @@ public final class BedrockFunctions {
     /**
      * Returns properties of a specific Amazon Bedrock custom model.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.bedrock.BedrockFunctions;
-     * import com.pulumi.aws.bedrock.inputs.GetCustomModelArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = BedrockFunctions.getCustomModel(GetCustomModelArgs.builder()
-     *             .modelId(&#34;arn:aws:bedrock:us-west-2:123456789012:custom-model/amazon.titan-text-express-v1:0:8k/ly16hhi765j4 &#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetCustomModelResult> getCustomModel(GetCustomModelArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:bedrock/getCustomModel:getCustomModel", TypeShape.of(GetCustomModelResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Returns properties of a specific Amazon Bedrock custom model.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.bedrock.BedrockFunctions;
-     * import com.pulumi.aws.bedrock.inputs.GetCustomModelArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = BedrockFunctions.getCustomModel(GetCustomModelArgs.builder()
-     *             .modelId(&#34;arn:aws:bedrock:us-west-2:123456789012:custom-model/amazon.titan-text-express-v1:0:8k/ly16hhi765j4 &#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetCustomModelResult> getCustomModelPlain(GetCustomModelPlainArgs args, InvokeOptions options) {
@@ -167,66 +47,12 @@ public final class BedrockFunctions {
     /**
      * Returns a list of Amazon Bedrock custom models.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.bedrock.BedrockFunctions;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = BedrockFunctions.getCustomModels();
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetCustomModelsResult> getCustomModels() {
         return getCustomModels(InvokeArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * Returns a list of Amazon Bedrock custom models.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.bedrock.BedrockFunctions;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = BedrockFunctions.getCustomModels();
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetCustomModelsResult> getCustomModelsPlain() {
@@ -235,66 +61,12 @@ public final class BedrockFunctions {
     /**
      * Returns a list of Amazon Bedrock custom models.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.bedrock.BedrockFunctions;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = BedrockFunctions.getCustomModels();
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetCustomModelsResult> getCustomModels(InvokeArgs args) {
         return getCustomModels(args, InvokeOptions.Empty);
     }
     /**
      * Returns a list of Amazon Bedrock custom models.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.bedrock.BedrockFunctions;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = BedrockFunctions.getCustomModels();
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetCustomModelsResult> getCustomModelsPlain(InvokeArgs args) {
@@ -303,66 +75,12 @@ public final class BedrockFunctions {
     /**
      * Returns a list of Amazon Bedrock custom models.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.bedrock.BedrockFunctions;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = BedrockFunctions.getCustomModels();
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetCustomModelsResult> getCustomModels(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:bedrock/getCustomModels:getCustomModels", TypeShape.of(GetCustomModelsResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Returns a list of Amazon Bedrock custom models.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.bedrock.BedrockFunctions;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = BedrockFunctions.getCustomModels();
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetCustomModelsResult> getCustomModelsPlain(InvokeArgs args, InvokeOptions options) {

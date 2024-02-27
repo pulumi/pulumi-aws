@@ -244,11 +244,11 @@ class AssessmentDelegation(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.auditmanager.AssessmentDelegation("example",
-            assessment_id=aws_auditmanager_assessment["example"]["id"],
-            role_arn=aws_iam_role["example"]["arn"],
-            role_type="RESOURCE_OWNER",
-            control_set_id="example")
+        example = aws.auditmanager.assessment_delegation.AssessmentDelegation("example",
+            assessment_id=aws_auditmanager_assessment.example.id,
+            role_arn=aws_iam_role.example.arn,
+            role_type=RESOURCE_OWNER,
+            control_set_id=example)
         ```
 
         ## Import
@@ -285,11 +285,11 @@ class AssessmentDelegation(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.auditmanager.AssessmentDelegation("example",
-            assessment_id=aws_auditmanager_assessment["example"]["id"],
-            role_arn=aws_iam_role["example"]["arn"],
-            role_type="RESOURCE_OWNER",
-            control_set_id="example")
+        example = aws.auditmanager.assessment_delegation.AssessmentDelegation("example",
+            assessment_id=aws_auditmanager_assessment.example.id,
+            role_arn=aws_iam_role.example.arn,
+            role_type=RESOURCE_OWNER,
+            control_set_id=example)
         ```
 
         ## Import

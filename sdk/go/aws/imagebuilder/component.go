@@ -24,25 +24,23 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/imagebuilder"
+//	imagebuilder/component "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/imagebuilder/component"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := imagebuilder.NewComponent(ctx, "example", &imagebuilder.ComponentArgs{
-//				Platform: pulumi.String("Linux"),
-//				Uri:      pulumi.String(fmt.Sprintf("s3://%v/%v", aws_s3_object.Example.Bucket, aws_s3_object.Example.Key)),
-//				Version:  pulumi.String("1.0.0"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := imagebuilder/component.NewComponent(ctx, "example", &imagebuilder/component.ComponentArgs{
+// Platform: "Linux",
+// Uri: fmt.Sprintf("s3://%v/%v", aws_s3_object.Example.Bucket, aws_s3_object.Example.Key),
+// Version: "1.0.0",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

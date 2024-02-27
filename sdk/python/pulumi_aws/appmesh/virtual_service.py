@@ -294,15 +294,15 @@ class VirtualService(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        servicea = aws.appmesh.VirtualService("servicea",
-            mesh_name=aws_appmesh_mesh["simple"]["id"],
-            spec=aws.appmesh.VirtualServiceSpecArgs(
-                provider=aws.appmesh.VirtualServiceSpecProviderArgs(
-                    virtual_node=aws.appmesh.VirtualServiceSpecProviderVirtualNodeArgs(
-                        virtual_node_name=aws_appmesh_virtual_node["serviceb1"]["name"],
-                    ),
-                ),
-            ))
+        servicea = aws.appmesh.virtual_service.VirtualService("servicea",
+            mesh_name=aws_appmesh_mesh.simple.id,
+            spec={
+                provider: {
+                    virtualNode: {
+                        virtualNodeName: aws_appmesh_virtual_node.serviceb1.name,
+                    },
+                },
+            })
         ```
         ### Virtual Router Provider
 
@@ -310,15 +310,15 @@ class VirtualService(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        servicea = aws.appmesh.VirtualService("servicea",
-            mesh_name=aws_appmesh_mesh["simple"]["id"],
-            spec=aws.appmesh.VirtualServiceSpecArgs(
-                provider=aws.appmesh.VirtualServiceSpecProviderArgs(
-                    virtual_router=aws.appmesh.VirtualServiceSpecProviderVirtualRouterArgs(
-                        virtual_router_name=aws_appmesh_virtual_router["serviceb"]["name"],
-                    ),
-                ),
-            ))
+        servicea = aws.appmesh.virtual_service.VirtualService("servicea",
+            mesh_name=aws_appmesh_mesh.simple.id,
+            spec={
+                provider: {
+                    virtualRouter: {
+                        virtualRouterName: aws_appmesh_virtual_router.serviceb.name,
+                    },
+                },
+            })
         ```
 
         ## Import
@@ -353,15 +353,15 @@ class VirtualService(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        servicea = aws.appmesh.VirtualService("servicea",
-            mesh_name=aws_appmesh_mesh["simple"]["id"],
-            spec=aws.appmesh.VirtualServiceSpecArgs(
-                provider=aws.appmesh.VirtualServiceSpecProviderArgs(
-                    virtual_node=aws.appmesh.VirtualServiceSpecProviderVirtualNodeArgs(
-                        virtual_node_name=aws_appmesh_virtual_node["serviceb1"]["name"],
-                    ),
-                ),
-            ))
+        servicea = aws.appmesh.virtual_service.VirtualService("servicea",
+            mesh_name=aws_appmesh_mesh.simple.id,
+            spec={
+                provider: {
+                    virtualNode: {
+                        virtualNodeName: aws_appmesh_virtual_node.serviceb1.name,
+                    },
+                },
+            })
         ```
         ### Virtual Router Provider
 
@@ -369,15 +369,15 @@ class VirtualService(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        servicea = aws.appmesh.VirtualService("servicea",
-            mesh_name=aws_appmesh_mesh["simple"]["id"],
-            spec=aws.appmesh.VirtualServiceSpecArgs(
-                provider=aws.appmesh.VirtualServiceSpecProviderArgs(
-                    virtual_router=aws.appmesh.VirtualServiceSpecProviderVirtualRouterArgs(
-                        virtual_router_name=aws_appmesh_virtual_router["serviceb"]["name"],
-                    ),
-                ),
-            ))
+        servicea = aws.appmesh.virtual_service.VirtualService("servicea",
+            mesh_name=aws_appmesh_mesh.simple.id,
+            spec={
+                provider: {
+                    virtualRouter: {
+                        virtualRouterName: aws_appmesh_virtual_router.serviceb.name,
+                    },
+                },
+            })
         ```
 
         ## Import

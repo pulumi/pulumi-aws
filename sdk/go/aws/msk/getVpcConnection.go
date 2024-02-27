@@ -12,32 +12,6 @@ import (
 )
 
 // Get information on an Amazon MSK VPC Connection.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/msk"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := msk.LookupVpcConnection(ctx, &msk.LookupVpcConnectionArgs{
-//				Arn: aws_msk_vpc_connection.Example.Arn,
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupVpcConnection(ctx *pulumi.Context, args *LookupVpcConnectionArgs, opts ...pulumi.InvokeOption) (*LookupVpcConnectionResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupVpcConnectionResult

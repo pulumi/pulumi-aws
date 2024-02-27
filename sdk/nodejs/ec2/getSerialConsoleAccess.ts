@@ -6,15 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a way to check whether serial console access is enabled for your AWS account in the current AWS region.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const current = aws.ec2.getSerialConsoleAccess({});
- * ```
  */
 export function getSerialConsoleAccess(opts?: pulumi.InvokeOptions): Promise<GetSerialConsoleAccessResult> {
 
@@ -38,15 +29,6 @@ export interface GetSerialConsoleAccessResult {
 }
 /**
  * Provides a way to check whether serial console access is enabled for your AWS account in the current AWS region.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const current = aws.ec2.getSerialConsoleAccess({});
- * ```
  */
 export function getSerialConsoleAccessOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetSerialConsoleAccessResult> {
     return pulumi.output(getSerialConsoleAccess(opts))

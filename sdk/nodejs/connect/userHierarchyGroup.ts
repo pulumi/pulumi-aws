@@ -20,7 +20,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.connect.UserHierarchyGroup("example", {
+ * const example = new aws.connect/userHierarchyGroup.UserHierarchyGroup("example", {
  *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
  *     tags: {
  *         Name: "Example User Hierarchy Group",
@@ -33,13 +33,13 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const parent = new aws.connect.UserHierarchyGroup("parent", {
+ * const parent = new aws.connect/userHierarchyGroup.UserHierarchyGroup("parent", {
  *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
  *     tags: {
  *         Name: "Example User Hierarchy Group Parent",
  *     },
  * });
- * const child = new aws.connect.UserHierarchyGroup("child", {
+ * const child = new aws.connect/userHierarchyGroup.UserHierarchyGroup("child", {
  *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
  *     parentGroupId: parent.hierarchyGroupId,
  *     tags: {

@@ -23,12 +23,12 @@ namespace Pulumi.Aws.SsmContacts
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.SsmContacts.ContactChannel("example", new()
+    ///     var example = new Aws.Ssmcontacts.ContactChannel.ContactChannel("example", new()
     ///     {
     ///         ContactId = "arn:aws:ssm-contacts:us-west-2:123456789012:contact/contactalias",
-    ///         DeliveryAddress = new Aws.SsmContacts.Inputs.ContactChannelDeliveryAddressArgs
+    ///         DeliveryAddress = 
     ///         {
-    ///             SimpleAddress = "email@example.com",
+    ///             { "simpleAddress", "email@example.com" },
     ///         },
     ///         Type = "EMAIL",
     ///     });
@@ -45,18 +45,18 @@ namespace Pulumi.Aws.SsmContacts
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleContact = new Aws.SsmContacts.Contact("exampleContact", new()
+    ///     var exampleContact = new Aws.Ssmcontacts.Contact.Contact("exampleContact", new()
     ///     {
     ///         Alias = "example_contact",
     ///         Type = "PERSONAL",
     ///     });
     /// 
-    ///     var example = new Aws.SsmContacts.ContactChannel("example", new()
+    ///     var example = new Aws.Ssmcontacts.ContactChannel.ContactChannel("example", new()
     ///     {
     ///         ContactId = exampleContact.Arn,
-    ///         DeliveryAddress = new Aws.SsmContacts.Inputs.ContactChannelDeliveryAddressArgs
+    ///         DeliveryAddress = 
     ///         {
-    ///             SimpleAddress = "email@example.com",
+    ///             { "simpleAddress", "email@example.com" },
     ///         },
     ///         Type = "EMAIL",
     ///     });

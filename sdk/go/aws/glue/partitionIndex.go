@@ -19,114 +19,114 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/glue"
+//	glue/catalogDatabase "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/glue/catalogDatabase"
+//	glue/catalogTable "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/glue/catalogTable"
+//	glue/partitionIndex "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/glue/partitionIndex"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleCatalogDatabase, err := glue.NewCatalogDatabase(ctx, "exampleCatalogDatabase", &glue.CatalogDatabaseArgs{
-//				Name: pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleCatalogTable, err := glue.NewCatalogTable(ctx, "exampleCatalogTable", &glue.CatalogTableArgs{
-//				Name:             pulumi.String("example"),
-//				DatabaseName:     exampleCatalogDatabase.Name,
-//				Owner:            pulumi.String("my_owner"),
-//				Retention:        pulumi.Int(1),
-//				TableType:        pulumi.String("VIRTUAL_VIEW"),
-//				ViewExpandedText: pulumi.String("view_expanded_text_1"),
-//				ViewOriginalText: pulumi.String("view_original_text_1"),
-//				StorageDescriptor: &glue.CatalogTableStorageDescriptorArgs{
-//					BucketColumns: pulumi.StringArray{
-//						pulumi.String("bucket_column_1"),
-//					},
-//					Compressed:             pulumi.Bool(false),
-//					InputFormat:            pulumi.String("SequenceFileInputFormat"),
-//					Location:               pulumi.String("my_location"),
-//					NumberOfBuckets:        pulumi.Int(1),
-//					OutputFormat:           pulumi.String("SequenceFileInputFormat"),
-//					StoredAsSubDirectories: pulumi.Bool(false),
-//					Parameters: pulumi.StringMap{
-//						"param1": pulumi.String("param1_val"),
-//					},
-//					Columns: glue.CatalogTableStorageDescriptorColumnArray{
-//						&glue.CatalogTableStorageDescriptorColumnArgs{
-//							Name:    pulumi.String("my_column_1"),
-//							Type:    pulumi.String("int"),
-//							Comment: pulumi.String("my_column1_comment"),
-//						},
-//						&glue.CatalogTableStorageDescriptorColumnArgs{
-//							Name:    pulumi.String("my_column_2"),
-//							Type:    pulumi.String("string"),
-//							Comment: pulumi.String("my_column2_comment"),
-//						},
-//					},
-//					SerDeInfo: &glue.CatalogTableStorageDescriptorSerDeInfoArgs{
-//						Name: pulumi.String("ser_de_name"),
-//						Parameters: pulumi.StringMap{
-//							"param1": pulumi.String("param_val_1"),
-//						},
-//						SerializationLibrary: pulumi.String("org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe"),
-//					},
-//					SortColumns: glue.CatalogTableStorageDescriptorSortColumnArray{
-//						&glue.CatalogTableStorageDescriptorSortColumnArgs{
-//							Column:    pulumi.String("my_column_1"),
-//							SortOrder: pulumi.Int(1),
-//						},
-//					},
-//					SkewedInfo: &glue.CatalogTableStorageDescriptorSkewedInfoArgs{
-//						SkewedColumnNames: pulumi.StringArray{
-//							pulumi.String("my_column_1"),
-//						},
-//						SkewedColumnValueLocationMaps: pulumi.StringMap{
-//							"my_column_1": pulumi.String("my_column_1_val_loc_map"),
-//						},
-//						SkewedColumnValues: pulumi.StringArray{
-//							pulumi.String("skewed_val_1"),
-//						},
-//					},
-//				},
-//				PartitionKeys: glue.CatalogTablePartitionKeyArray{
-//					&glue.CatalogTablePartitionKeyArgs{
-//						Name:    pulumi.String("my_column_1"),
-//						Type:    pulumi.String("int"),
-//						Comment: pulumi.String("my_column_1_comment"),
-//					},
-//					&glue.CatalogTablePartitionKeyArgs{
-//						Name:    pulumi.String("my_column_2"),
-//						Type:    pulumi.String("string"),
-//						Comment: pulumi.String("my_column_2_comment"),
-//					},
-//				},
-//				Parameters: pulumi.StringMap{
-//					"param1": pulumi.String("param1_val"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = glue.NewPartitionIndex(ctx, "examplePartitionIndex", &glue.PartitionIndexArgs{
-//				DatabaseName: exampleCatalogDatabase.Name,
-//				TableName:    exampleCatalogTable.Name,
-//				PartitionIndex: &glue.PartitionIndexPartitionIndexArgs{
-//					IndexName: pulumi.String("example"),
-//					Keys: pulumi.StringArray{
-//						pulumi.String("my_column_1"),
-//						pulumi.String("my_column_2"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleCatalogDatabase, err := glue/catalogDatabase.NewCatalogDatabase(ctx, "exampleCatalogDatabase", &glue/catalogDatabase.CatalogDatabaseArgs{
+// Name: "example",
+// })
+// if err != nil {
+// return err
+// }
+// exampleCatalogTable, err := glue/catalogTable.NewCatalogTable(ctx, "exampleCatalogTable", &glue/catalogTable.CatalogTableArgs{
+// Name: "example",
+// DatabaseName: exampleCatalogDatabase.Name,
+// Owner: "my_owner",
+// Retention: 1,
+// TableType: "VIRTUAL_VIEW",
+// ViewExpandedText: "view_expanded_text_1",
+// ViewOriginalText: "view_original_text_1",
+// StorageDescriptor: map[string]interface{}{
+// "bucketColumns": []string{
+// "bucket_column_1",
+// },
+// "compressed": false,
+// "inputFormat": "SequenceFileInputFormat",
+// "location": "my_location",
+// "numberOfBuckets": 1,
+// "outputFormat": "SequenceFileInputFormat",
+// "storedAsSubDirectories": false,
+// "parameters": map[string]interface{}{
+// "param1": "param1_val",
+// },
+// "columns": []map[string]interface{}{
+// map[string]interface{}{
+// "name": "my_column_1",
+// "type": "int",
+// "comment": "my_column1_comment",
+// },
+// map[string]interface{}{
+// "name": "my_column_2",
+// "type": "string",
+// "comment": "my_column2_comment",
+// },
+// },
+// "serDeInfo": map[string]interface{}{
+// "name": "ser_de_name",
+// "parameters": map[string]interface{}{
+// "param1": "param_val_1",
+// },
+// "serializationLibrary": "org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe",
+// },
+// "sortColumns": []map[string]interface{}{
+// map[string]interface{}{
+// "column": "my_column_1",
+// "sortOrder": 1,
+// },
+// },
+// "skewedInfo": map[string]interface{}{
+// "skewedColumnNames": []string{
+// "my_column_1",
+// },
+// "skewedColumnValueLocationMaps": map[string]interface{}{
+// "my_column_1": "my_column_1_val_loc_map",
+// },
+// "skewedColumnValues": []string{
+// "skewed_val_1",
+// },
+// },
+// },
+// PartitionKeys: []map[string]interface{}{
+// map[string]interface{}{
+// "name": "my_column_1",
+// "type": "int",
+// "comment": "my_column_1_comment",
+// },
+// map[string]interface{}{
+// "name": "my_column_2",
+// "type": "string",
+// "comment": "my_column_2_comment",
+// },
+// },
+// Parameters: map[string]interface{}{
+// "param1": "param1_val",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = glue/partitionIndex.NewPartitionIndex(ctx, "examplePartitionIndex", &glue/partitionIndex.PartitionIndexArgs{
+// DatabaseName: exampleCatalogDatabase.Name,
+// TableName: exampleCatalogTable.Name,
+// PartitionIndex: map[string]interface{}{
+// "indexName": "example",
+// "keys": []string{
+// "my_column_1",
+// "my_column_2",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

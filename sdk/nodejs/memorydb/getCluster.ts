@@ -9,17 +9,6 @@ import * as utilities from "../utilities";
 
 /**
  * Provides information about a MemoryDB Cluster.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.memorydb.getCluster({
- *     name: "my-cluster",
- * });
- * ```
  */
 export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> {
 
@@ -152,17 +141,6 @@ export interface GetClusterResult {
 }
 /**
  * Provides information about a MemoryDB Cluster.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.memorydb.getCluster({
- *     name: "my-cluster",
- * });
- * ```
  */
 export function getClusterOutput(args: GetClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterResult> {
     return pulumi.output(args).apply((a: any) => getCluster(a, opts))

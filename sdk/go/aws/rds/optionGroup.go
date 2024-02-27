@@ -26,48 +26,46 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/rds"
+//	rds/optionGroup "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/rds/optionGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := rds.NewOptionGroup(ctx, "example", &rds.OptionGroupArgs{
-//				OptionGroupDescription: pulumi.String("Option Group"),
-//				EngineName:             pulumi.String("sqlserver-ee"),
-//				MajorEngineVersion:     pulumi.String("11.00"),
-//				Options: rds.OptionGroupOptionArray{
-//					&rds.OptionGroupOptionArgs{
-//						OptionName: pulumi.String("Timezone"),
-//						OptionSettings: rds.OptionGroupOptionOptionSettingArray{
-//							&rds.OptionGroupOptionOptionSettingArgs{
-//								Name:  pulumi.String("TIME_ZONE"),
-//								Value: pulumi.String("UTC"),
-//							},
-//						},
-//					},
-//					&rds.OptionGroupOptionArgs{
-//						OptionName: pulumi.String("SQLSERVER_BACKUP_RESTORE"),
-//						OptionSettings: rds.OptionGroupOptionOptionSettingArray{
-//							&rds.OptionGroupOptionOptionSettingArgs{
-//								Name:  pulumi.String("IAM_ROLE_ARN"),
-//								Value: pulumi.Any(aws_iam_role.Example.Arn),
-//							},
-//						},
-//					},
-//					&rds.OptionGroupOptionArgs{
-//						OptionName: pulumi.String("TDE"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := rds/optionGroup.NewOptionGroup(ctx, "example", &rds/optionGroup.OptionGroupArgs{
+// OptionGroupDescription: "Option Group",
+// EngineName: "sqlserver-ee",
+// MajorEngineVersion: "11.00",
+// Options: []interface{}{
+// map[string]interface{}{
+// "optionName": "Timezone",
+// "optionSettings": []map[string]interface{}{
+// map[string]interface{}{
+// "name": "TIME_ZONE",
+// "value": "UTC",
+// },
+// },
+// },
+// map[string]interface{}{
+// "optionName": "SQLSERVER_BACKUP_RESTORE",
+// "optionSettings": []map[string]interface{}{
+// map[string]interface{}{
+// "name": "IAM_ROLE_ARN",
+// "value": aws_iam_role.Example.Arn,
+// },
+// },
+// },
+// map[string]interface{}{
+// "optionName": "TDE",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // > **Note:** Any modifications to the `rds.OptionGroup` are set to happen immediately as we default to applying immediately.

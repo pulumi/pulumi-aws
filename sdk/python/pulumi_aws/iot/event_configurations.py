@@ -76,18 +76,18 @@ class EventConfigurations(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.iot.EventConfigurations("example", event_configurations={
-            "CA_CERTIFICATE": False,
-            "CERTIFICATE": True,
-            "JOB": False,
-            "JOB_EXECUTION": False,
-            "POLICY": False,
-            "THING": True,
-            "THING_GROUP": False,
-            "THING_GROUP_HIERARCHY": False,
-            "THING_GROUP_MEMBERSHIP": False,
-            "THING_TYPE": False,
-            "THING_TYPE_ASSOCIATION": False,
+        example = aws.iot.event_configurations.EventConfigurations("example", event_configurations={
+            CA_CERTIFICATE: False,
+            CERTIFICATE: True,
+            JOB: False,
+            JOB_EXECUTION: False,
+            POLICY: False,
+            THING: True,
+            THING_GROUP: False,
+            THING_GROUP_HIERARCHY: False,
+            THING_GROUP_MEMBERSHIP: False,
+            THING_TYPE: False,
+            THING_TYPE_ASSOCIATION: False,
         })
         ```
 
@@ -120,18 +120,18 @@ class EventConfigurations(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.iot.EventConfigurations("example", event_configurations={
-            "CA_CERTIFICATE": False,
-            "CERTIFICATE": True,
-            "JOB": False,
-            "JOB_EXECUTION": False,
-            "POLICY": False,
-            "THING": True,
-            "THING_GROUP": False,
-            "THING_GROUP_HIERARCHY": False,
-            "THING_GROUP_MEMBERSHIP": False,
-            "THING_TYPE": False,
-            "THING_TYPE_ASSOCIATION": False,
+        example = aws.iot.event_configurations.EventConfigurations("example", event_configurations={
+            CA_CERTIFICATE: False,
+            CERTIFICATE: True,
+            JOB: False,
+            JOB_EXECUTION: False,
+            POLICY: False,
+            THING: True,
+            THING_GROUP: False,
+            THING_GROUP_HIERARCHY: False,
+            THING_GROUP_MEMBERSHIP: False,
+            THING_TYPE: False,
+            THING_TYPE_ASSOCIATION: False,
         })
         ```
 

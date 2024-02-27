@@ -101,49 +101,6 @@ class Policy(pulumi.CustomResource):
         Attaches a resource based policy to a private CA.
 
         ## Example Usage
-        ### Basic
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_policy_document = aws.iam.get_policy_document(statements=[
-            aws.iam.GetPolicyDocumentStatementArgs(
-                sid="1",
-                effect="Allow",
-                principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                    type="AWS",
-                    identifiers=[data["aws_caller_identity"]["current"]["account_id"]],
-                )],
-                actions=[
-                    "acm-pca:DescribeCertificateAuthority",
-                    "acm-pca:GetCertificate",
-                    "acm-pca:GetCertificateAuthorityCertificate",
-                    "acm-pca:ListPermissions",
-                    "acm-pca:ListTags",
-                ],
-                resources=[aws_acmpca_certificate_authority["example"]["arn"]],
-            ),
-            aws.iam.GetPolicyDocumentStatementArgs(
-                sid="2",
-                effect=allow,
-                principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                    type="AWS",
-                    identifiers=[data["aws_caller_identity"]["current"]["account_id"]],
-                )],
-                actions=["acm-pca:IssueCertificate"],
-                resources=[aws_acmpca_certificate_authority["example"]["arn"]],
-                conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
-                    test="StringEquals",
-                    variable="acm-pca:TemplateArn",
-                    values=["arn:aws:acm-pca:::template/EndEntityCertificate/V1"],
-                )],
-            ),
-        ])
-        example_policy = aws.acmpca.Policy("examplePolicy",
-            resource_arn=aws_acmpca_certificate_authority["example"]["arn"],
-            policy=example_policy_document.json)
-        ```
 
         ## Import
 
@@ -168,49 +125,6 @@ class Policy(pulumi.CustomResource):
         Attaches a resource based policy to a private CA.
 
         ## Example Usage
-        ### Basic
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_policy_document = aws.iam.get_policy_document(statements=[
-            aws.iam.GetPolicyDocumentStatementArgs(
-                sid="1",
-                effect="Allow",
-                principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                    type="AWS",
-                    identifiers=[data["aws_caller_identity"]["current"]["account_id"]],
-                )],
-                actions=[
-                    "acm-pca:DescribeCertificateAuthority",
-                    "acm-pca:GetCertificate",
-                    "acm-pca:GetCertificateAuthorityCertificate",
-                    "acm-pca:ListPermissions",
-                    "acm-pca:ListTags",
-                ],
-                resources=[aws_acmpca_certificate_authority["example"]["arn"]],
-            ),
-            aws.iam.GetPolicyDocumentStatementArgs(
-                sid="2",
-                effect=allow,
-                principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                    type="AWS",
-                    identifiers=[data["aws_caller_identity"]["current"]["account_id"]],
-                )],
-                actions=["acm-pca:IssueCertificate"],
-                resources=[aws_acmpca_certificate_authority["example"]["arn"]],
-                conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
-                    test="StringEquals",
-                    variable="acm-pca:TemplateArn",
-                    values=["arn:aws:acm-pca:::template/EndEntityCertificate/V1"],
-                )],
-            ),
-        ])
-        example_policy = aws.acmpca.Policy("examplePolicy",
-            resource_arn=aws_acmpca_certificate_authority["example"]["arn"],
-            policy=example_policy_document.json)
-        ```
 
         ## Import
 

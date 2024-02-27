@@ -24,56 +24,57 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lex"
+//	iam/rolePolicyAttachment "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/iam/rolePolicyAttachment"
+//	lex/v2modelsBot "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/lex/v2modelsBot"
+//	lex/v2modelsBotLocale "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/lex/v2modelsBotLocale"
+//	lex/v2modelsBotVersion "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/lex/v2modelsBotVersion"
+//	lex/v2modelsSlotType "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/lex/v2modelsSlotType"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 // func main() {
 // pulumi.Run(func(ctx *pulumi.Context) error {
-// _, err := iam.NewRolePolicyAttachment(ctx, "testRolePolicyAttachment", &iam.RolePolicyAttachmentArgs{
-// Role: pulumi.Any(aws_iam_role.Test.Name),
-// PolicyArn: pulumi.String(fmt.Sprintf("arn:%v:iam::aws:policy/AmazonLexFullAccess", data.Aws_partition.Current.Partition)),
+// _, err := iam/rolePolicyAttachment.NewRolePolicyAttachment(ctx, "testRolePolicyAttachment", &iam/rolePolicyAttachment.RolePolicyAttachmentArgs{
+// Role: aws_iam_role.Test.Name,
+// PolicyArn: fmt.Sprintf("arn:%v:iam::aws:policy/AmazonLexFullAccess", data.Aws_partition.Current.Partition),
 // })
 // if err != nil {
 // return err
 // }
-// testV2modelsBot, err := lex.NewV2modelsBot(ctx, "testV2modelsBot", &lex.V2modelsBotArgs{
-// IdleSessionTtlInSeconds: pulumi.Int(60),
-// RoleArn: pulumi.Any(aws_iam_role.Test.Arn),
-// DataPrivacies: lex.V2modelsBotDataPrivacyArray{
-// &lex.V2modelsBotDataPrivacyArgs{
-// ChildDirected: pulumi.Bool(true),
+// testV2modelsBot, err := lex/v2modelsBot.NewV2modelsBot(ctx, "testV2modelsBot", &lex/v2modelsBot.V2modelsBotArgs{
+// IdleSessionTtlInSeconds: 60,
+// RoleArn: aws_iam_role.Test.Arn,
+// DataPrivacies: []map[string]interface{}{
+// map[string]interface{}{
+// "childDirected": true,
 // },
 // },
 // })
 // if err != nil {
 // return err
 // }
-// testV2modelsBotLocale, err := lex.NewV2modelsBotLocale(ctx, "testV2modelsBotLocale", &lex.V2modelsBotLocaleArgs{
-// LocaleId: pulumi.String("en_US"),
-// BotId: testV2modelsBot.ID(),
-// BotVersion: pulumi.String("DRAFT"),
-// NLuIntentConfidenceThreshold: pulumi.Float64(0.7),
+// testV2modelsBotLocale, err := lex/v2modelsBotLocale.NewV2modelsBotLocale(ctx, "testV2modelsBotLocale", &lex/v2modelsBotLocale.V2modelsBotLocaleArgs{
+// LocaleId: "en_US",
+// BotId: testV2modelsBot.Id,
+// BotVersion: "DRAFT",
+// NLuIntentConfidenceThreshold: 0.7,
 // })
 // if err != nil {
 // return err
 // }
-// _, err = lex.NewV2modelsBotVersion(ctx, "testV2modelsBotVersion", &lex.V2modelsBotVersionArgs{
-// BotId: testV2modelsBot.ID(),
-// LocaleSpecification: testV2modelsBotLocale.LocaleId.ApplyT(func(localeId string) (map[string]map[string]interface{}, error) {
-// return map[string]map[string]interface{}{
-// localeId: map[string]interface{}{
+// _, err = lex/v2modelsBotVersion.NewV2modelsBotVersion(ctx, "testV2modelsBotVersion", &lex/v2modelsBotVersion.V2modelsBotVersionArgs{
+// BotId: testV2modelsBot.Id,
+// LocaleSpecification: map[string]map[string]interface{}{
+// testV2modelsBotLocale.LocaleId: map[string]interface{}{
 // "sourceBotVersion": "DRAFT",
 // },
-// }, nil
-// }).(pulumi.Map[string]map[string]interface{}Output),
+// },
 // })
 // if err != nil {
 // return err
 // }
-// _, err = lex.NewV2modelsSlotType(ctx, "testV2modelsSlotType", &lex.V2modelsSlotTypeArgs{
-// BotId: testV2modelsBot.ID(),
+// _, err = lex/v2modelsSlotType.NewV2modelsSlotType(ctx, "testV2modelsSlotType", &lex/v2modelsSlotType.V2modelsSlotTypeArgs{
+// BotId: testV2modelsBot.Id,
 // BotVersion: testV2modelsBotLocale.BotVersion,
 // LocaleId: testV2modelsBotLocale.LocaleId,
 // })

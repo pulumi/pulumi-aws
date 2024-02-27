@@ -268,33 +268,6 @@ class PodIdentityAssociation(pulumi.CustomResource):
         Pod Identity is a simpler method than IAM roles for service accounts, as this method doesn’t use OIDC identity providers. Additionally, you can configure a role for Pod Identity once, and reuse it across clusters.
 
         ## Example Usage
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["pods.eks.amazonaws.com"],
-            )],
-            actions=[
-                "sts:AssumeRole",
-                "sts:TagSession",
-            ],
-        )])
-        example_role = aws.iam.Role("exampleRole", assume_role_policy=assume_role.json)
-        example_s3 = aws.iam.RolePolicyAttachment("exampleS3",
-            policy_arn="arn:aws:iam::aws:policy/AmazonS3ReadOnlyAccess",
-            role=example_role.name)
-        example_pod_identity_association = aws.eks.PodIdentityAssociation("examplePodIdentityAssociation",
-            cluster_name=aws_eks_cluster["example"]["name"],
-            namespace="example",
-            service_account="example-sa",
-            role_arn=example_role.arn)
-        ```
 
         ## Import
 
@@ -332,33 +305,6 @@ class PodIdentityAssociation(pulumi.CustomResource):
         Pod Identity is a simpler method than IAM roles for service accounts, as this method doesn’t use OIDC identity providers. Additionally, you can configure a role for Pod Identity once, and reuse it across clusters.
 
         ## Example Usage
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["pods.eks.amazonaws.com"],
-            )],
-            actions=[
-                "sts:AssumeRole",
-                "sts:TagSession",
-            ],
-        )])
-        example_role = aws.iam.Role("exampleRole", assume_role_policy=assume_role.json)
-        example_s3 = aws.iam.RolePolicyAttachment("exampleS3",
-            policy_arn="arn:aws:iam::aws:policy/AmazonS3ReadOnlyAccess",
-            role=example_role.name)
-        example_pod_identity_association = aws.eks.PodIdentityAssociation("examplePodIdentityAssociation",
-            cluster_name=aws_eks_cluster["example"]["name"],
-            namespace="example",
-            service_account="example-sa",
-            role_arn=example_role.arn)
-        ```
 
         ## Import
 

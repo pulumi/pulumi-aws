@@ -24,25 +24,23 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lambda"
+//	lambda/provisionedConcurrencyConfig "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/lambda/provisionedConcurrencyConfig"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lambda.NewProvisionedConcurrencyConfig(ctx, "example", &lambda.ProvisionedConcurrencyConfigArgs{
-//				FunctionName:                    pulumi.Any(aws_lambda_alias.Example.Function_name),
-//				ProvisionedConcurrentExecutions: pulumi.Int(1),
-//				Qualifier:                       pulumi.Any(aws_lambda_alias.Example.Name),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := lambda/provisionedConcurrencyConfig.NewProvisionedConcurrencyConfig(ctx, "example", &lambda/provisionedConcurrencyConfig.ProvisionedConcurrencyConfigArgs{
+// FunctionName: aws_lambda_alias.Example.Function_name,
+// ProvisionedConcurrentExecutions: 1,
+// Qualifier: aws_lambda_alias.Example.Name,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Function Version
 //
@@ -51,25 +49,23 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lambda"
+//	lambda/provisionedConcurrencyConfig "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/lambda/provisionedConcurrencyConfig"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lambda.NewProvisionedConcurrencyConfig(ctx, "example", &lambda.ProvisionedConcurrencyConfigArgs{
-//				FunctionName:                    pulumi.Any(aws_lambda_function.Example.Function_name),
-//				ProvisionedConcurrentExecutions: pulumi.Int(1),
-//				Qualifier:                       pulumi.Any(aws_lambda_function.Example.Version),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := lambda/provisionedConcurrencyConfig.NewProvisionedConcurrencyConfig(ctx, "example", &lambda/provisionedConcurrencyConfig.ProvisionedConcurrencyConfigArgs{
+// FunctionName: aws_lambda_function.Example.Function_name,
+// ProvisionedConcurrentExecutions: 1,
+// Qualifier: aws_lambda_function.Example.Version,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

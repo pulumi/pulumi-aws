@@ -14,42 +14,6 @@ import (
 // Previews a CIDR from an IPAM address pool. Only works for private IPv4.
 //
 // > **NOTE:** This functionality is also encapsulated in a resource sharing the same name. The data source can be used when you need to use the cidr in a calculation of the same Root module, `count` for example. However, once a cidr range has been allocated that was previewed, the next refresh will find a **new** cidr and may force new resources downstream. Make sure to use `ignoreChanges` if this is undesirable.
-//
-// ## Example Usage
-//
-// Basic usage:
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testIpamPreviewNextCidr, err := ec2.GetIpamPreviewNextCidr(ctx, &ec2.GetIpamPreviewNextCidrArgs{
-//				IpamPoolId:    aws_vpc_ipam_pool.Test.Id,
-//				NetmaskLength: pulumi.IntRef(28),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ec2.NewVpcIpamPoolCidrAllocation(ctx, "testVpcIpamPoolCidrAllocation", &ec2.VpcIpamPoolCidrAllocationArgs{
-//				IpamPoolId: pulumi.Any(aws_vpc_ipam_pool.Test.Id),
-//				Cidr:       *pulumi.String(testIpamPreviewNextCidr.Cidr),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetIpamPreviewNextCidr(ctx *pulumi.Context, args *GetIpamPreviewNextCidrArgs, opts ...pulumi.InvokeOption) (*GetIpamPreviewNextCidrResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetIpamPreviewNextCidrResult

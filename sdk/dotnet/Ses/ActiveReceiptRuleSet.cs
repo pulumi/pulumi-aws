@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Ses
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var main = new Aws.Ses.ActiveReceiptRuleSet("main", new()
+    ///     var main = new Aws.Ses.ActiveReceiptRuleSet.ActiveReceiptRuleSet("main", new()
     ///     {
     ///         RuleSetName = "primary-rules",
     ///     });

@@ -20,33 +20,31 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/waf"
+//	waf/byteMatchSet "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/waf/byteMatchSet"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := waf.NewByteMatchSet(ctx, "byteSet", &waf.ByteMatchSetArgs{
-//				ByteMatchTuples: waf.ByteMatchSetByteMatchTupleArray{
-//					&waf.ByteMatchSetByteMatchTupleArgs{
-//						FieldToMatch: &waf.ByteMatchSetByteMatchTupleFieldToMatchArgs{
-//							Data: pulumi.String("referer"),
-//							Type: pulumi.String("HEADER"),
-//						},
-//						PositionalConstraint: pulumi.String("CONTAINS"),
-//						TargetString:         pulumi.String("badrefer1"),
-//						TextTransformation:   pulumi.String("NONE"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := waf/byteMatchSet.NewByteMatchSet(ctx, "byteSet", &waf/byteMatchSet.ByteMatchSetArgs{
+// ByteMatchTuples: []map[string]interface{}{
+// map[string]interface{}{
+// "fieldToMatch": map[string]interface{}{
+// "data": "referer",
+// "type": "HEADER",
+// },
+// "positionalConstraint": "CONTAINS",
+// "targetString": "badrefer1",
+// "textTransformation": "NONE",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

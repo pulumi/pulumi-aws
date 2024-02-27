@@ -22,41 +22,41 @@ namespace Pulumi.Aws.CloudFront
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.CloudFront.OriginRequestPolicy("example", new()
+    ///     var example = new Aws.Cloudfront.OriginRequestPolicy.OriginRequestPolicy("example", new()
     ///     {
     ///         Comment = "example comment",
-    ///         CookiesConfig = new Aws.CloudFront.Inputs.OriginRequestPolicyCookiesConfigArgs
+    ///         CookiesConfig = 
     ///         {
-    ///             CookieBehavior = "whitelist",
-    ///             Cookies = new Aws.CloudFront.Inputs.OriginRequestPolicyCookiesConfigCookiesArgs
+    ///             { "cookieBehavior", "whitelist" },
+    ///             { "cookies", 
     ///             {
-    ///                 Items = new[]
+    ///                 { "items", new[]
     ///                 {
     ///                     "example",
-    ///                 },
-    ///             },
+    ///                 } },
+    ///             } },
     ///         },
-    ///         HeadersConfig = new Aws.CloudFront.Inputs.OriginRequestPolicyHeadersConfigArgs
+    ///         HeadersConfig = 
     ///         {
-    ///             HeaderBehavior = "whitelist",
-    ///             Headers = new Aws.CloudFront.Inputs.OriginRequestPolicyHeadersConfigHeadersArgs
+    ///             { "headerBehavior", "whitelist" },
+    ///             { "headers", 
     ///             {
-    ///                 Items = new[]
+    ///                 { "items", new[]
     ///                 {
     ///                     "example",
-    ///                 },
-    ///             },
+    ///                 } },
+    ///             } },
     ///         },
-    ///         QueryStringsConfig = new Aws.CloudFront.Inputs.OriginRequestPolicyQueryStringsConfigArgs
+    ///         QueryStringsConfig = 
     ///         {
-    ///             QueryStringBehavior = "whitelist",
-    ///             QueryStrings = new Aws.CloudFront.Inputs.OriginRequestPolicyQueryStringsConfigQueryStringsArgs
+    ///             { "queryStringBehavior", "whitelist" },
+    ///             { "queryStrings", 
     ///             {
-    ///                 Items = new[]
+    ///                 { "items", new[]
     ///                 {
     ///                     "example",
-    ///                 },
-    ///             },
+    ///                 } },
+    ///             } },
     ///         },
     ///     });
     /// 

@@ -14,6 +14,33 @@ import (
 
 // Creates a Redshift cluster snapshot
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"encoding/json"
+//
+//	redshift/clusterSnapshot "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/redshift/clusterSnapshot"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := redshift/clusterSnapshot.NewClusterSnapshot(ctx, "example", &redshift/clusterSnapshot.ClusterSnapshotArgs{
+// ClusterSnapshotName: "example",
+// ClusterSnapshotContent: %!v(PANIC=Format method: fatal: An assertion has failed: unlowered function toJSON),
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
+// ```
+//
 // ## Import
 //
 // Using `pulumi import`, import Redshift Cluster Snapshots using `snapshot_identifier`. For example:

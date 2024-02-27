@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = new aws.ec2.NetworkInterfaceAttachment("test", {
+ * const test = new aws.ec2/networkInterfaceAttachment.NetworkInterfaceAttachment("test", {
  *     instanceId: aws_instance.test.id,
  *     networkInterfaceId: aws_network_interface.test.id,
  *     deviceIndex: 0,

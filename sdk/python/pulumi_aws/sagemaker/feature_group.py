@@ -376,18 +376,18 @@ class FeatureGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.sagemaker.FeatureGroup("example",
-            feature_group_name="example",
-            record_identifier_feature_name="example",
-            event_time_feature_name="example",
-            role_arn=aws_iam_role["test"]["arn"],
-            feature_definitions=[aws.sagemaker.FeatureGroupFeatureDefinitionArgs(
-                feature_name="example",
-                feature_type="String",
-            )],
-            online_store_config=aws.sagemaker.FeatureGroupOnlineStoreConfigArgs(
-                enable_online_store=True,
-            ))
+        example = aws.sagemaker.feature_group.FeatureGroup("example",
+            feature_group_name=example,
+            record_identifier_feature_name=example,
+            event_time_feature_name=example,
+            role_arn=aws_iam_role.test.arn,
+            feature_definitions=[{
+                featureName: example,
+                featureType: String,
+            }],
+            online_store_config={
+                enableOnlineStore: True,
+            })
         ```
 
         ## Import
@@ -427,18 +427,18 @@ class FeatureGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.sagemaker.FeatureGroup("example",
-            feature_group_name="example",
-            record_identifier_feature_name="example",
-            event_time_feature_name="example",
-            role_arn=aws_iam_role["test"]["arn"],
-            feature_definitions=[aws.sagemaker.FeatureGroupFeatureDefinitionArgs(
-                feature_name="example",
-                feature_type="String",
-            )],
-            online_store_config=aws.sagemaker.FeatureGroupOnlineStoreConfigArgs(
-                enable_online_store=True,
-            ))
+        example = aws.sagemaker.feature_group.FeatureGroup("example",
+            feature_group_name=example,
+            record_identifier_feature_name=example,
+            event_time_feature_name=example,
+            role_arn=aws_iam_role.test.arn,
+            feature_definitions=[{
+                featureName: example,
+                featureType: String,
+            }],
+            online_store_config={
+                enableOnlineStore: True,
+            })
         ```
 
         ## Import

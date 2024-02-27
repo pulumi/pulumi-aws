@@ -22,7 +22,7 @@ namespace Pulumi.Aws.OpsWorks
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var custlayer = new Aws.OpsWorks.CustomLayer("custlayer", new()
+    ///     var custlayer = new Aws.Opsworks.CustomLayer.CustomLayer("custlayer", new()
     ///     {
     ///         ShortName = "awesome",
     ///         StackId = aws_opsworks_stack.Main.Id,

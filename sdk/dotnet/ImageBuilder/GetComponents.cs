@@ -13,78 +13,12 @@ namespace Pulumi.Aws.ImageBuilder
     {
         /// <summary>
         /// Use this data source to get the ARNs and names of Image Builder Components matching the specified criteria.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.ImageBuilder.GetComponents.Invoke(new()
-        ///     {
-        ///         Filters = new[]
-        ///         {
-        ///             new Aws.ImageBuilder.Inputs.GetComponentsFilterInputArgs
-        ///             {
-        ///                 Name = "platform",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "Linux",
-        ///                 },
-        ///             },
-        ///         },
-        ///         Owner = "Self",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetComponentsResult> InvokeAsync(GetComponentsArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetComponentsResult>("aws:imagebuilder/getComponents:getComponents", args ?? new GetComponentsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to get the ARNs and names of Image Builder Components matching the specified criteria.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.ImageBuilder.GetComponents.Invoke(new()
-        ///     {
-        ///         Filters = new[]
-        ///         {
-        ///             new Aws.ImageBuilder.Inputs.GetComponentsFilterInputArgs
-        ///             {
-        ///                 Name = "platform",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "Linux",
-        ///                 },
-        ///             },
-        ///         },
-        ///         Owner = "Self",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetComponentsResult> Invoke(GetComponentsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetComponentsResult>("aws:imagebuilder/getComponents:getComponents", args ?? new GetComponentsInvokeArgs(), options.WithDefaults());

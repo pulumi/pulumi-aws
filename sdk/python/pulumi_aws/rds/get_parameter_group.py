@@ -94,15 +94,6 @@ def get_parameter_group(name: Optional[str] = None,
     """
     Information about a database parameter group.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.rds.get_parameter_group(name="default.postgres15")
-    ```
-
 
     :param str name: DB parameter group name.
     """
@@ -124,15 +115,6 @@ def get_parameter_group_output(name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetParameterGroupResult]:
     """
     Information about a database parameter group.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.rds.get_parameter_group(name="default.postgres15")
-    ```
 
 
     :param str name: DB parameter group name.

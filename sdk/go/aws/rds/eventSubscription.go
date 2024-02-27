@@ -21,58 +21,57 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/rds"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sns"
+//	rds/eventSubscription "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/rds/eventSubscription"
+//	rds/instance "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/rds/instance"
+//	sns/topic "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/sns/topic"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			defaultInstance, err := rds.NewInstance(ctx, "defaultInstance", &rds.InstanceArgs{
-//				AllocatedStorage:   pulumi.Int(10),
-//				Engine:             pulumi.String("mysql"),
-//				EngineVersion:      pulumi.String("5.6.17"),
-//				InstanceClass:      pulumi.String("db.t2.micro"),
-//				DbName:             pulumi.String("mydb"),
-//				Username:           pulumi.String("foo"),
-//				Password:           pulumi.String("bar"),
-//				DbSubnetGroupName:  pulumi.String("my_database_subnet_group"),
-//				ParameterGroupName: pulumi.String("default.mysql5.6"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			defaultTopic, err := sns.NewTopic(ctx, "defaultTopic", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = rds.NewEventSubscription(ctx, "defaultEventSubscription", &rds.EventSubscriptionArgs{
-//				SnsTopic:   defaultTopic.Arn,
-//				SourceType: pulumi.String("db-instance"),
-//				SourceIds: pulumi.StringArray{
-//					defaultInstance.Identifier,
-//				},
-//				EventCategories: pulumi.StringArray{
-//					pulumi.String("availability"),
-//					pulumi.String("deletion"),
-//					pulumi.String("failover"),
-//					pulumi.String("failure"),
-//					pulumi.String("low storage"),
-//					pulumi.String("maintenance"),
-//					pulumi.String("notification"),
-//					pulumi.String("read replica"),
-//					pulumi.String("recovery"),
-//					pulumi.String("restoration"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// defaultInstance, err := rds/instance.NewInstance(ctx, "defaultInstance", &rds/instance.InstanceArgs{
+// AllocatedStorage: 10,
+// Engine: "mysql",
+// EngineVersion: "5.6.17",
+// InstanceClass: "db.t2.micro",
+// DbName: "mydb",
+// Username: "foo",
+// Password: "bar",
+// DbSubnetGroupName: "my_database_subnet_group",
+// ParameterGroupName: "default.mysql5.6",
+// })
+// if err != nil {
+// return err
+// }
+// defaultTopic, err := sns/topic.NewTopic(ctx, "defaultTopic", nil)
+// if err != nil {
+// return err
+// }
+// _, err = rds/eventSubscription.NewEventSubscription(ctx, "defaultEventSubscription", &rds/eventSubscription.EventSubscriptionArgs{
+// SnsTopic: defaultTopic.Arn,
+// SourceType: "db-instance",
+// SourceIds: []interface{}{
+// defaultInstance.Identifier,
+// },
+// EventCategories: []string{
+// "availability",
+// "deletion",
+// "failover",
+// "failure",
+// "low storage",
+// "maintenance",
+// "notification",
+// "read replica",
+// "recovery",
+// "restoration",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

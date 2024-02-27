@@ -16,25 +16,6 @@ namespace Pulumi.Aws.ServiceQuotas
         /// 
         /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.ServiceQuotas.GetTemplates.Invoke(new()
-        ///     {
-        ///         Region = "us-east-1",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetTemplatesResult> InvokeAsync(GetTemplatesArgs args, InvokeOptions? options = null)
@@ -45,25 +26,6 @@ namespace Pulumi.Aws.ServiceQuotas
         /// 
         /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.ServiceQuotas.GetTemplates.Invoke(new()
-        ///     {
-        ///         Region = "us-east-1",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetTemplatesResult> Invoke(GetTemplatesInvokeArgs args, InvokeOptions? options = null)

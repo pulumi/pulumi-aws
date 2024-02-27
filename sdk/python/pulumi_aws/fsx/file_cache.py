@@ -509,33 +509,33 @@ class FileCache(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.fsx.FileCache("example",
-            data_repository_associations=[aws.fsx.FileCacheDataRepositoryAssociationArgs(
-                data_repository_path="nfs://filer.domain.com",
-                data_repository_subdirectories=[
-                    "test",
-                    "test2",
+        example = aws.fsx.file_cache.FileCache("example",
+            data_repository_associations=[{
+                dataRepositoryPath: nfs://filer.domain.com,
+                dataRepositorySubdirectories: [
+                    test,
+                    test2,
                 ],
-                file_cache_path="/ns1",
-                nfs=[aws.fsx.FileCacheDataRepositoryAssociationNfArgs(
-                    dns_ips=[
-                        "192.168.0.1",
-                        "192.168.0.2",
+                fileCachePath: /ns1,
+                nfs: [{
+                    dnsIps: [
+                        192.168.0.1,
+                        192.168.0.2,
                     ],
-                    version="NFS3",
-                )],
-            )],
-            file_cache_type="LUSTRE",
-            file_cache_type_version="2.12",
-            lustre_configurations=[aws.fsx.FileCacheLustreConfigurationArgs(
-                deployment_type="CACHE_1",
-                metadata_configurations=[aws.fsx.FileCacheLustreConfigurationMetadataConfigurationArgs(
-                    storage_capacity=2400,
-                )],
-                per_unit_storage_throughput=1000,
-                weekly_maintenance_start_time="2:05:00",
-            )],
-            subnet_ids=[aws_subnet["test1"]["id"]],
+                    version: NFS3,
+                }],
+            }],
+            file_cache_type=LUSTRE,
+            file_cache_type_version=2.12,
+            lustre_configurations=[{
+                deploymentType: CACHE_1,
+                metadataConfigurations: [{
+                    storageCapacity: 2400,
+                }],
+                perUnitStorageThroughput: 1000,
+                weeklyMaintenanceStartTime: 2:05:00,
+            }],
+            subnet_ids=[aws_subnet.test1.id],
             storage_capacity=1200)
         ```
 
@@ -579,33 +579,33 @@ class FileCache(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.fsx.FileCache("example",
-            data_repository_associations=[aws.fsx.FileCacheDataRepositoryAssociationArgs(
-                data_repository_path="nfs://filer.domain.com",
-                data_repository_subdirectories=[
-                    "test",
-                    "test2",
+        example = aws.fsx.file_cache.FileCache("example",
+            data_repository_associations=[{
+                dataRepositoryPath: nfs://filer.domain.com,
+                dataRepositorySubdirectories: [
+                    test,
+                    test2,
                 ],
-                file_cache_path="/ns1",
-                nfs=[aws.fsx.FileCacheDataRepositoryAssociationNfArgs(
-                    dns_ips=[
-                        "192.168.0.1",
-                        "192.168.0.2",
+                fileCachePath: /ns1,
+                nfs: [{
+                    dnsIps: [
+                        192.168.0.1,
+                        192.168.0.2,
                     ],
-                    version="NFS3",
-                )],
-            )],
-            file_cache_type="LUSTRE",
-            file_cache_type_version="2.12",
-            lustre_configurations=[aws.fsx.FileCacheLustreConfigurationArgs(
-                deployment_type="CACHE_1",
-                metadata_configurations=[aws.fsx.FileCacheLustreConfigurationMetadataConfigurationArgs(
-                    storage_capacity=2400,
-                )],
-                per_unit_storage_throughput=1000,
-                weekly_maintenance_start_time="2:05:00",
-            )],
-            subnet_ids=[aws_subnet["test1"]["id"]],
+                    version: NFS3,
+                }],
+            }],
+            file_cache_type=LUSTRE,
+            file_cache_type_version=2.12,
+            lustre_configurations=[{
+                deploymentType: CACHE_1,
+                metadataConfigurations: [{
+                    storageCapacity: 2400,
+                }],
+                perUnitStorageThroughput: 1000,
+                weeklyMaintenanceStartTime: 2:05:00,
+            }],
+            subnet_ids=[aws_subnet.test1.id],
             storage_capacity=1200)
         ```
 

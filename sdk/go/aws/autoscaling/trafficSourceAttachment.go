@@ -24,27 +24,25 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/autoscaling"
+//	autoscaling/trafficSourceAttachment "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/autoscaling/trafficSourceAttachment"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := autoscaling.NewTrafficSourceAttachment(ctx, "example", &autoscaling.TrafficSourceAttachmentArgs{
-//				AutoscalingGroupName: pulumi.Any(aws_autoscaling_group.Example.Id),
-//				TrafficSource: &autoscaling.TrafficSourceAttachmentTrafficSourceArgs{
-//					Identifier: pulumi.Any(aws_lb_target_group.Example.Arn),
-//					Type:       pulumi.String("elbv2"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := autoscaling/trafficSourceAttachment.NewTrafficSourceAttachment(ctx, "example", &autoscaling/trafficSourceAttachment.TrafficSourceAttachmentArgs{
+// AutoscalingGroupName: aws_autoscaling_group.Example.Id,
+// TrafficSource: map[string]interface{}{
+// "identifier": aws_lb_target_group.Example.Arn,
+// "type": "elbv2",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 type TrafficSourceAttachment struct {
 	pulumi.CustomResourceState

@@ -22,31 +22,29 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssmincidents"
+//	ssmincidents/responsePlan "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ssmincidents/responsePlan"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ssmincidents.NewResponsePlan(ctx, "example", &ssmincidents.ResponsePlanArgs{
-//				IncidentTemplate: &ssmincidents.ResponsePlanIncidentTemplateArgs{
-//					Title:  pulumi.String("title"),
-//					Impact: pulumi.Int(3),
-//				},
-//				Tags: pulumi.StringMap{
-//					"key": pulumi.String("value"),
-//				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				aws_ssmincidents_replication_set.Example,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := ssmincidents/responsePlan.NewResponsePlan(ctx, "example", &ssmincidents/responsePlan.ResponsePlanArgs{
+// IncidentTemplate: map[string]interface{}{
+// "title": "title",
+// "impact": "3",
+// },
+// Tags: map[string]interface{}{
+// "key": "value",
+// },
+// }, pulumi.DependsOn([]pulumi.Resource{
+// aws_ssmincidents_replication_set.Example,
+// }))
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Usage With All Fields
 //
@@ -55,89 +53,87 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssmincidents"
+//	ssmincidents/responsePlan "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ssmincidents/responsePlan"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ssmincidents.NewResponsePlan(ctx, "example", &ssmincidents.ResponsePlanArgs{
-//				IncidentTemplate: &ssmincidents.ResponsePlanIncidentTemplateArgs{
-//					Title:        pulumi.String("title"),
-//					Impact:       pulumi.Int(3),
-//					DedupeString: pulumi.String("dedupe"),
-//					IncidentTags: pulumi.StringMap{
-//						"key": pulumi.String("value"),
-//					},
-//					NotificationTargets: ssmincidents.ResponsePlanIncidentTemplateNotificationTargetArray{
-//						&ssmincidents.ResponsePlanIncidentTemplateNotificationTargetArgs{
-//							SnsTopicArn: pulumi.Any(aws_sns_topic.Example1.Arn),
-//						},
-//						&ssmincidents.ResponsePlanIncidentTemplateNotificationTargetArgs{
-//							SnsTopicArn: pulumi.Any(aws_sns_topic.Example2.Arn),
-//						},
-//					},
-//					Summary: pulumi.String("summary"),
-//				},
-//				DisplayName: pulumi.String("display name"),
-//				ChatChannels: pulumi.StringArray{
-//					aws_sns_topic.Topic.Arn,
-//				},
-//				Engagements: pulumi.StringArray{
-//					pulumi.String("arn:aws:ssm-contacts:us-east-2:111122223333:contact/test1"),
-//				},
-//				Action: &ssmincidents.ResponsePlanActionArgs{
-//					SsmAutomations: ssmincidents.ResponsePlanActionSsmAutomationArray{
-//						&ssmincidents.ResponsePlanActionSsmAutomationArgs{
-//							DocumentName:    pulumi.Any(aws_ssm_document.Document1.Name),
-//							RoleArn:         pulumi.Any(aws_iam_role.Role1.Arn),
-//							DocumentVersion: pulumi.String("version1"),
-//							TargetAccount:   pulumi.String("RESPONSE_PLAN_OWNER_ACCOUNT"),
-//							Parameters: ssmincidents.ResponsePlanActionSsmAutomationParameterArray{
-//								&ssmincidents.ResponsePlanActionSsmAutomationParameterArgs{
-//									Name: pulumi.String("key"),
-//									Values: pulumi.StringArray{
-//										pulumi.String("value1"),
-//										pulumi.String("value2"),
-//									},
-//								},
-//								&ssmincidents.ResponsePlanActionSsmAutomationParameterArgs{
-//									Name: pulumi.String("foo"),
-//									Values: pulumi.StringArray{
-//										pulumi.String("bar"),
-//									},
-//								},
-//							},
-//							DynamicParameters: pulumi.StringMap{
-//								"someKey":    pulumi.String("INVOLVED_RESOURCES"),
-//								"anotherKey": pulumi.String("INCIDENT_RECORD_ARN"),
-//							},
-//						},
-//					},
-//				},
-//				Integration: &ssmincidents.ResponsePlanIntegrationArgs{
-//					Pagerduties: ssmincidents.ResponsePlanIntegrationPagerdutyArray{
-//						&ssmincidents.ResponsePlanIntegrationPagerdutyArgs{
-//							Name:      pulumi.String("pagerdutyIntergration"),
-//							ServiceId: pulumi.String("example"),
-//							SecretId:  pulumi.String("example"),
-//						},
-//					},
-//				},
-//				Tags: pulumi.StringMap{
-//					"key": pulumi.String("value"),
-//				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				aws_ssmincidents_replication_set.Example,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := ssmincidents/responsePlan.NewResponsePlan(ctx, "example", &ssmincidents/responsePlan.ResponsePlanArgs{
+// IncidentTemplate: map[string]interface{}{
+// "title": "title",
+// "impact": "3",
+// "dedupeString": "dedupe",
+// "incidentTags": map[string]interface{}{
+// "key": "value",
+// },
+// "notificationTargets": []map[string]interface{}{
+// map[string]interface{}{
+// "snsTopicArn": aws_sns_topic.Example1.Arn,
+// },
+// map[string]interface{}{
+// "snsTopicArn": aws_sns_topic.Example2.Arn,
+// },
+// },
+// "summary": "summary",
+// },
+// DisplayName: "display name",
+// ChatChannels: []interface{}{
+// aws_sns_topic.Topic.Arn,
+// },
+// Engagements: []string{
+// "arn:aws:ssm-contacts:us-east-2:111122223333:contact/test1",
+// },
+// Action: map[string]interface{}{
+// "ssmAutomations": []map[string]interface{}{
+// map[string]interface{}{
+// "documentName": aws_ssm_document.Document1.Name,
+// "roleArn": aws_iam_role.Role1.Arn,
+// "documentVersion": "version1",
+// "targetAccount": "RESPONSE_PLAN_OWNER_ACCOUNT",
+// "parameters": []interface{}{
+// map[string]interface{}{
+// "name": "key",
+// "values": []string{
+// "value1",
+// "value2",
+// },
+// },
+// map[string]interface{}{
+// "name": "foo",
+// "values": []string{
+// "bar",
+// },
+// },
+// },
+// "dynamicParameters": map[string]interface{}{
+// "someKey": "INVOLVED_RESOURCES",
+// "anotherKey": "INCIDENT_RECORD_ARN",
+// },
+// },
+// },
+// },
+// Integration: map[string]interface{}{
+// "pagerduties": []map[string]interface{}{
+// map[string]interface{}{
+// "name": "pagerdutyIntergration",
+// "serviceId": "example",
+// "secretId": "example",
+// },
+// },
+// },
+// Tags: map[string]interface{}{
+// "key": "value",
+// },
+// }, pulumi.DependsOn([]pulumi.Resource{
+// aws_ssmincidents_replication_set.Example,
+// }))
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

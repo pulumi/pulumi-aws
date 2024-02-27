@@ -24,21 +24,21 @@ namespace Pulumi.Aws.GuardDuty
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.GuardDuty.Detector("example", new()
+    ///     var example = new Aws.Guardduty.Detector.Detector("example", new()
     ///     {
     ///         Enable = true,
     ///     });
     /// 
-    ///     var eksRuntimeMonitoring = new Aws.GuardDuty.DetectorFeature("eksRuntimeMonitoring", new()
+    ///     var eksRuntimeMonitoring = new Aws.Guardduty.DetectorFeature.DetectorFeature("eksRuntimeMonitoring", new()
     ///     {
     ///         DetectorId = example.Id,
     ///         Status = "ENABLED",
     ///         AdditionalConfigurations = new[]
     ///         {
-    ///             new Aws.GuardDuty.Inputs.DetectorFeatureAdditionalConfigurationArgs
+    ///             
     ///             {
-    ///                 Name = "EKS_ADDON_MANAGEMENT",
-    ///                 Status = "ENABLED",
+    ///                 { "name", "EKS_ADDON_MANAGEMENT" },
+    ///                 { "status", "ENABLED" },
     ///             },
     ///         },
     ///     });

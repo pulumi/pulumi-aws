@@ -22,17 +22,17 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var dada = new Aws.CloudWatch.LogGroup("dada");
+    ///     var dada = new Aws.Cloudwatch.LogGroup.LogGroup("dada");
     /// 
-    ///     var yada = new Aws.CloudWatch.LogMetricFilter("yada", new()
+    ///     var yada = new Aws.Cloudwatch.LogMetricFilter.LogMetricFilter("yada", new()
     ///     {
     ///         Pattern = "",
     ///         LogGroupName = dada.Name,
-    ///         MetricTransformation = new Aws.CloudWatch.Inputs.LogMetricFilterMetricTransformationArgs
+    ///         MetricTransformation = 
     ///         {
-    ///             Name = "EventCount",
-    ///             Namespace = "YourNamespace",
-    ///             Value = "1",
+    ///             { "name", "EventCount" },
+    ///             { "namespace", "YourNamespace" },
+    ///             { "value", "1" },
     ///         },
     ///     });
     /// 

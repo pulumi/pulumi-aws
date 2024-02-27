@@ -23,14 +23,14 @@ namespace Pulumi.Aws.Lex
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Aws.Lex.V2modelsBotVersion("test", new()
+    ///     var test = new Aws.Lex.V2modelsBotVersion.V2modelsBotVersion("test", new()
     ///     {
     ///         BotId = aws_lexv2models.Test.Id,
     ///         LocaleSpecification = 
     ///         {
-    ///             { "en_US", new Aws.Lex.Inputs.V2modelsBotVersionLocaleSpecificationArgs
+    ///             { "en_US", 
     ///             {
-    ///                 SourceBotVersion = "DRAFT",
+    ///                 { "sourceBotVersion", "DRAFT" },
     ///             } },
     ///         },
     ///     });

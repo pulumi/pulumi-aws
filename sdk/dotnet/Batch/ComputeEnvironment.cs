@@ -19,163 +19,6 @@ namespace Pulumi.Aws.Batch
     /// otherwise, the policy may be destroyed too soon and the compute environment will then get stuck in the `DELETING` state, see [Troubleshooting AWS Batch](http://docs.aws.amazon.com/batch/latest/userguide/troubleshooting.html) .
     /// 
     /// ## Example Usage
-    /// ### EC2 Type
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var ec2AssumeRole = Aws.Iam.GetPolicyDocument.Invoke(new()
-    ///     {
-    ///         Statements = new[]
-    ///         {
-    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
-    ///             {
-    ///                 Effect = "Allow",
-    ///                 Principals = new[]
-    ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
-    ///                     {
-    ///                         Type = "Service",
-    ///                         Identifiers = new[]
-    ///                         {
-    ///                             "ec2.amazonaws.com",
-    ///                         },
-    ///                     },
-    ///                 },
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "sts:AssumeRole",
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var ecsInstanceRoleRole = new Aws.Iam.Role("ecsInstanceRoleRole", new()
-    ///     {
-    ///         AssumeRolePolicy = ec2AssumeRole.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
-    ///     });
-    /// 
-    ///     var ecsInstanceRoleRolePolicyAttachment = new Aws.Iam.RolePolicyAttachment("ecsInstanceRoleRolePolicyAttachment", new()
-    ///     {
-    ///         Role = ecsInstanceRoleRole.Name,
-    ///         PolicyArn = "arn:aws:iam::aws:policy/service-role/AmazonEC2ContainerServiceforEC2Role",
-    ///     });
-    /// 
-    ///     var ecsInstanceRoleInstanceProfile = new Aws.Iam.InstanceProfile("ecsInstanceRoleInstanceProfile", new()
-    ///     {
-    ///         Role = ecsInstanceRoleRole.Name,
-    ///     });
-    /// 
-    ///     var batchAssumeRole = Aws.Iam.GetPolicyDocument.Invoke(new()
-    ///     {
-    ///         Statements = new[]
-    ///         {
-    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
-    ///             {
-    ///                 Effect = "Allow",
-    ///                 Principals = new[]
-    ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
-    ///                     {
-    ///                         Type = "Service",
-    ///                         Identifiers = new[]
-    ///                         {
-    ///                             "batch.amazonaws.com",
-    ///                         },
-    ///                     },
-    ///                 },
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "sts:AssumeRole",
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var awsBatchServiceRoleRole = new Aws.Iam.Role("awsBatchServiceRoleRole", new()
-    ///     {
-    ///         AssumeRolePolicy = batchAssumeRole.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
-    ///     });
-    /// 
-    ///     var awsBatchServiceRoleRolePolicyAttachment = new Aws.Iam.RolePolicyAttachment("awsBatchServiceRoleRolePolicyAttachment", new()
-    ///     {
-    ///         Role = awsBatchServiceRoleRole.Name,
-    ///         PolicyArn = "arn:aws:iam::aws:policy/service-role/AWSBatchServiceRole",
-    ///     });
-    /// 
-    ///     var sampleSecurityGroup = new Aws.Ec2.SecurityGroup("sampleSecurityGroup", new()
-    ///     {
-    ///         Egress = new[]
-    ///         {
-    ///             new Aws.Ec2.Inputs.SecurityGroupEgressArgs
-    ///             {
-    ///                 FromPort = 0,
-    ///                 ToPort = 0,
-    ///                 Protocol = "-1",
-    ///                 CidrBlocks = new[]
-    ///                 {
-    ///                     "0.0.0.0/0",
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var sampleVpc = new Aws.Ec2.Vpc("sampleVpc", new()
-    ///     {
-    ///         CidrBlock = "10.1.0.0/16",
-    ///     });
-    /// 
-    ///     var sampleSubnet = new Aws.Ec2.Subnet("sampleSubnet", new()
-    ///     {
-    ///         VpcId = sampleVpc.Id,
-    ///         CidrBlock = "10.1.1.0/24",
-    ///     });
-    /// 
-    ///     var samplePlacementGroup = new Aws.Ec2.PlacementGroup("samplePlacementGroup", new()
-    ///     {
-    ///         Strategy = "cluster",
-    ///     });
-    /// 
-    ///     var sampleComputeEnvironment = new Aws.Batch.ComputeEnvironment("sampleComputeEnvironment", new()
-    ///     {
-    ///         ComputeEnvironmentName = "sample",
-    ///         ComputeResources = new Aws.Batch.Inputs.ComputeEnvironmentComputeResourcesArgs
-    ///         {
-    ///             InstanceRole = ecsInstanceRoleInstanceProfile.Arn,
-    ///             InstanceTypes = new[]
-    ///             {
-    ///                 "c4.large",
-    ///             },
-    ///             MaxVcpus = 16,
-    ///             MinVcpus = 0,
-    ///             PlacementGroup = samplePlacementGroup.Name,
-    ///             SecurityGroupIds = new[]
-    ///             {
-    ///                 sampleSecurityGroup.Id,
-    ///             },
-    ///             Subnets = new[]
-    ///             {
-    ///                 sampleSubnet.Id,
-    ///             },
-    ///             Type = "EC2",
-    ///         },
-    ///         ServiceRole = awsBatchServiceRoleRole.Arn,
-    ///         Type = "MANAGED",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             awsBatchServiceRoleRolePolicyAttachment,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// ### Fargate Type
     /// 
     /// ```csharp
@@ -186,21 +29,21 @@ namespace Pulumi.Aws.Batch
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var sample = new Aws.Batch.ComputeEnvironment("sample", new()
+    ///     var sample = new Aws.Batch.ComputeEnvironment.ComputeEnvironment("sample", new()
     ///     {
     ///         ComputeEnvironmentName = "sample",
-    ///         ComputeResources = new Aws.Batch.Inputs.ComputeEnvironmentComputeResourcesArgs
+    ///         ComputeResources = 
     ///         {
-    ///             MaxVcpus = 16,
-    ///             SecurityGroupIds = new[]
+    ///             { "maxVcpus", 16 },
+    ///             { "securityGroupIds", new[]
     ///             {
     ///                 aws_security_group.Sample.Id,
-    ///             },
-    ///             Subnets = new[]
+    ///             } },
+    ///             { "subnets", new[]
     ///             {
     ///                 aws_subnet.Sample.Id,
-    ///             },
-    ///             Type = "FARGATE",
+    ///             } },
+    ///             { "type", "FARGATE" },
     ///         },
     ///         ServiceRole = aws_iam_role.Aws_batch_service_role.Arn,
     ///         Type = "MANAGED",
@@ -224,33 +67,33 @@ namespace Pulumi.Aws.Batch
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var sample = new Aws.Batch.ComputeEnvironment("sample", new()
+    ///     var sample = new Aws.Batch.ComputeEnvironment.ComputeEnvironment("sample", new()
     ///     {
     ///         ComputeEnvironmentName = "sample",
-    ///         ComputeResources = new Aws.Batch.Inputs.ComputeEnvironmentComputeResourcesArgs
+    ///         ComputeResources = 
     ///         {
-    ///             AllocationStrategy = "BEST_FIT_PROGRESSIVE",
-    ///             InstanceRole = aws_iam_instance_profile.Ecs_instance.Arn,
-    ///             InstanceTypes = new[]
+    ///             { "allocationStrategy", "BEST_FIT_PROGRESSIVE" },
+    ///             { "instanceRole", aws_iam_instance_profile.Ecs_instance.Arn },
+    ///             { "instanceTypes", new[]
     ///             {
     ///                 "optimal",
-    ///             },
-    ///             MaxVcpus = 4,
-    ///             MinVcpus = 0,
-    ///             SecurityGroupIds = new[]
+    ///             } },
+    ///             { "maxVcpus", 4 },
+    ///             { "minVcpus", 0 },
+    ///             { "securityGroupIds", new[]
     ///             {
     ///                 aws_security_group.Sample.Id,
-    ///             },
-    ///             Subnets = new[]
+    ///             } },
+    ///             { "subnets", new[]
     ///             {
     ///                 aws_subnet.Sample.Id,
-    ///             },
-    ///             Type = "EC2",
+    ///             } },
+    ///             { "type", "EC2" },
     ///         },
-    ///         UpdatePolicy = new Aws.Batch.Inputs.ComputeEnvironmentUpdatePolicyArgs
+    ///         UpdatePolicy = 
     ///         {
-    ///             JobExecutionTimeoutMinutes = 30,
-    ///             TerminateJobsOnUpdate = false,
+    ///             { "jobExecutionTimeoutMinutes", 30 },
+    ///             { "terminateJobsOnUpdate", false },
     ///         },
     ///         Type = "MANAGED",
     ///     });

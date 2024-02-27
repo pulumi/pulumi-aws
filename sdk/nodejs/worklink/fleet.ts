@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.worklink.Fleet("example", {});
+ * const example = new aws.worklink/fleet.Fleet("example", {});
  * ```
  *
  * Network Configuration Usage:
@@ -25,7 +25,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.worklink.Fleet("example", {network: {
+ * const example = new aws.worklink/fleet.Fleet("example", {network: {
  *     vpcId: aws_vpc.test.id,
  *     subnetIds: [aws_subnet.test.map(__item => __item.id)],
  *     securityGroupIds: [aws_security_group.test.id],
@@ -39,7 +39,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * import * as fs from "fs";
  *
- * const test = new aws.worklink.Fleet("test", {identityProvider: {
+ * const test = new aws.worklink/fleet.Fleet("test", {identityProvider: {
  *     type: "SAML",
  *     samlMetadata: fs.readFileSync("saml-metadata.xml", "utf8"),
  * }});

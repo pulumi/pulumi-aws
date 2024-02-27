@@ -15,19 +15,6 @@ import * as utilities from "../utilities";
  * This data source can prove useful when a module accepts an LB as an input
  * variable and needs to, for example, determine the security groups associated
  * with it, etc.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const config = new pulumi.Config();
- * const lbName = config.get("lbName") || "";
- * const test = aws.elb.getLoadBalancer({
- *     name: lbName,
- * });
- * ```
  */
 export function getLoadBalancer(args: GetLoadBalancerArgs, opts?: pulumi.InvokeOptions): Promise<GetLoadBalancerResult> {
 
@@ -86,19 +73,6 @@ export interface GetLoadBalancerResult {
  * This data source can prove useful when a module accepts an LB as an input
  * variable and needs to, for example, determine the security groups associated
  * with it, etc.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const config = new pulumi.Config();
- * const lbName = config.get("lbName") || "";
- * const test = aws.elb.getLoadBalancer({
- *     name: lbName,
- * });
- * ```
  */
 export function getLoadBalancerOutput(args: GetLoadBalancerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLoadBalancerResult> {
     return pulumi.output(args).apply((a: any) => getLoadBalancer(a, opts))

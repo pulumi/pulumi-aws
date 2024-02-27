@@ -41,7 +41,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.servicecatalog.ProvisionedProduct;
  * import com.pulumi.aws.servicecatalog.ProvisionedProductArgs;
- * import com.pulumi.aws.servicecatalog.inputs.ProvisionedProductProvisioningParameterArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -58,11 +57,8 @@ import javax.annotation.Nullable;
  *         var example = new ProvisionedProduct(&#34;example&#34;, ProvisionedProductArgs.builder()        
  *             .productName(&#34;Example product&#34;)
  *             .provisioningArtifactName(&#34;Example version&#34;)
- *             .provisioningParameters(ProvisionedProductProvisioningParameterArgs.builder()
- *                 .key(&#34;foo&#34;)
- *                 .value(&#34;bar&#34;)
- *                 .build())
- *             .tags(Map.of(&#34;foo&#34;, &#34;bar&#34;))
+ *             .provisioningParameters(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

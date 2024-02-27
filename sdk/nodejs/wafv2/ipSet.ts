@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.wafv2.IpSet("example", {
+ * const example = new aws.wafv2/ipSet.IpSet("example", {
  *     addresses: [
  *         "1.2.3.4/32",
  *         "5.6.7.8/32",

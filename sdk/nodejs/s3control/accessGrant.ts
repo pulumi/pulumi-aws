@@ -18,14 +18,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleAccessGrantsInstance = new aws.s3control.AccessGrantsInstance("exampleAccessGrantsInstance", {});
- * const exampleAccessGrantsLocation = new aws.s3control.AccessGrantsLocation("exampleAccessGrantsLocation", {
+ * const exampleAccessGrantsInstance = new aws.s3control/accessGrantsInstance.AccessGrantsInstance("exampleAccessGrantsInstance", {});
+ * const exampleAccessGrantsLocation = new aws.s3control/accessGrantsLocation.AccessGrantsLocation("exampleAccessGrantsLocation", {
  *     iamRoleArn: aws_iam_role.example.arn,
  *     locationScope: `s3://${aws_s3_bucket.example.bucket}/prefixA*`,
  * }, {
  *     dependsOn: [exampleAccessGrantsInstance],
  * });
- * const exampleAccessGrant = new aws.s3control.AccessGrant("exampleAccessGrant", {
+ * const exampleAccessGrant = new aws.s3control/accessGrant.AccessGrant("exampleAccessGrant", {
  *     accessGrantsLocationId: exampleAccessGrantsLocation.accessGrantsLocationId,
  *     permission: "READ",
  *     accessGrantsLocationConfiguration: {

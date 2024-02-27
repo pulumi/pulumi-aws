@@ -54642,34 +54642,6 @@ type GetSubnetsFilter struct {
 	// Name of the field to filter by, as defined by
 	// [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
 	// For example, if matching against tag `Name`, use:
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		_, err := ec2.GetSubnets(ctx, &ec2.GetSubnetsArgs{
-	// 			Filters: []ec2.GetSubnetsFilter{
-	// 				{
-	// 					Name: "tag:Name",
-	// 					Values: []string{
-	// 						"",
-	// 					},
-	// 				},
-	// 			},
-	// 		}, nil)
-	// 		if err != nil {
-	// 			return err
-	// 		}
-	// 		return nil
-	// 	})
-	// }
-	// ```
 	Name string `pulumi:"name"`
 	// Set of values that are accepted for the given field.
 	// Subnet IDs will be selected if any one of the given values match.
@@ -54691,34 +54663,6 @@ type GetSubnetsFilterArgs struct {
 	// Name of the field to filter by, as defined by
 	// [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
 	// For example, if matching against tag `Name`, use:
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		_, err := ec2.GetSubnets(ctx, &ec2.GetSubnetsArgs{
-	// 			Filters: []ec2.GetSubnetsFilter{
-	// 				{
-	// 					Name: "tag:Name",
-	// 					Values: []string{
-	// 						"",
-	// 					},
-	// 				},
-	// 			},
-	// 		}, nil)
-	// 		if err != nil {
-	// 			return err
-	// 		}
-	// 		return nil
-	// 	})
-	// }
-	// ```
 	Name pulumi.StringInput `pulumi:"name"`
 	// Set of values that are accepted for the given field.
 	// Subnet IDs will be selected if any one of the given values match.
@@ -54779,37 +54723,6 @@ func (o GetSubnetsFilterOutput) ToGetSubnetsFilterOutputWithContext(ctx context.
 // Name of the field to filter by, as defined by
 // [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
 // For example, if matching against tag `Name`, use:
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.GetSubnets(ctx, &ec2.GetSubnetsArgs{
-//				Filters: []ec2.GetSubnetsFilter{
-//					{
-//						Name: "tag:Name",
-//						Values: []string{
-//							"",
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func (o GetSubnetsFilterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSubnetsFilter) string { return v.Name }).(pulumi.StringOutput)
 }

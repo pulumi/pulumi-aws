@@ -99,7 +99,7 @@ import javax.annotation.Nullable;
  *             .period(120)
  *             .statistic(&#34;Average&#34;)
  *             .threshold(80)
- *             .dimensions(Map.of(&#34;AutoScalingGroupName&#34;, aws_autoscaling_group.bar().name()))
+ *             .dimensions(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .alarmDescription(&#34;This metric monitors ec2 cpu utilization&#34;)
  *             .alarmActions(batPolicy.arn())
  *             .build());
@@ -117,8 +117,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.cloudwatch.MetricAlarm;
  * import com.pulumi.aws.cloudwatch.MetricAlarmArgs;
- * import com.pulumi.aws.cloudwatch.inputs.MetricAlarmMetricQueryArgs;
- * import com.pulumi.aws.cloudwatch.inputs.MetricAlarmMetricQueryMetricArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -138,34 +136,9 @@ import javax.annotation.Nullable;
  *             .evaluationPeriods(2)
  *             .insufficientDataActions()
  *             .metricQueries(            
- *                 MetricAlarmMetricQueryArgs.builder()
- *                     .expression(&#34;m2/m1*100&#34;)
- *                     .id(&#34;e1&#34;)
- *                     .label(&#34;Error Rate&#34;)
- *                     .returnData(&#34;true&#34;)
- *                     .build(),
- *                 MetricAlarmMetricQueryArgs.builder()
- *                     .id(&#34;m1&#34;)
- *                     .metric(MetricAlarmMetricQueryMetricArgs.builder()
- *                         .dimensions(Map.of(&#34;LoadBalancer&#34;, &#34;app/web&#34;))
- *                         .metricName(&#34;RequestCount&#34;)
- *                         .namespace(&#34;AWS/ApplicationELB&#34;)
- *                         .period(120)
- *                         .stat(&#34;Sum&#34;)
- *                         .unit(&#34;Count&#34;)
- *                         .build())
- *                     .build(),
- *                 MetricAlarmMetricQueryArgs.builder()
- *                     .id(&#34;m2&#34;)
- *                     .metric(MetricAlarmMetricQueryMetricArgs.builder()
- *                         .dimensions(Map.of(&#34;LoadBalancer&#34;, &#34;app/web&#34;))
- *                         .metricName(&#34;HTTPCode_ELB_5XX_Count&#34;)
- *                         .namespace(&#34;AWS/ApplicationELB&#34;)
- *                         .period(120)
- *                         .stat(&#34;Sum&#34;)
- *                         .unit(&#34;Count&#34;)
- *                         .build())
- *                     .build())
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .threshold(10)
  *             .build());
  * 
@@ -180,8 +153,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.cloudwatch.MetricAlarm;
  * import com.pulumi.aws.cloudwatch.MetricAlarmArgs;
- * import com.pulumi.aws.cloudwatch.inputs.MetricAlarmMetricQueryArgs;
- * import com.pulumi.aws.cloudwatch.inputs.MetricAlarmMetricQueryMetricArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -201,24 +172,8 @@ import javax.annotation.Nullable;
  *             .evaluationPeriods(2)
  *             .insufficientDataActions()
  *             .metricQueries(            
- *                 MetricAlarmMetricQueryArgs.builder()
- *                     .expression(&#34;ANOMALY_DETECTION_BAND(m1)&#34;)
- *                     .id(&#34;e1&#34;)
- *                     .label(&#34;CPUUtilization (Expected)&#34;)
- *                     .returnData(&#34;true&#34;)
- *                     .build(),
- *                 MetricAlarmMetricQueryArgs.builder()
- *                     .id(&#34;m1&#34;)
- *                     .metric(MetricAlarmMetricQueryMetricArgs.builder()
- *                         .dimensions(Map.of(&#34;InstanceId&#34;, &#34;i-abc123&#34;))
- *                         .metricName(&#34;CPUUtilization&#34;)
- *                         .namespace(&#34;AWS/EC2&#34;)
- *                         .period(120)
- *                         .stat(&#34;Average&#34;)
- *                         .unit(&#34;Count&#34;)
- *                         .build())
- *                     .returnData(&#34;true&#34;)
- *                     .build())
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .thresholdMetricId(&#34;e1&#34;)
  *             .build());
  * 
@@ -260,10 +215,7 @@ import javax.annotation.Nullable;
  *             .actionsEnabled(&#34;true&#34;)
  *             .alarmActions(aws_sns_topic.sns().arn())
  *             .okActions(aws_sns_topic.sns().arn())
- *             .dimensions(Map.ofEntries(
- *                 Map.entry(&#34;TargetGroup&#34;, aws_lb_target_group.lb-tg().arn_suffix()),
- *                 Map.entry(&#34;LoadBalancer&#34;, aws_lb.lb().arn_suffix())
- *             ))
+ *             .dimensions(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

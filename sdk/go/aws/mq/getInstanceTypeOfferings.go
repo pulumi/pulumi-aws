@@ -12,56 +12,6 @@ import (
 )
 
 // Provides information about a MQ Broker Instance Offerings.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/mq"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := mq.GetInstanceTypeOfferings(ctx, nil, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = mq.GetInstanceTypeOfferings(ctx, &mq.GetInstanceTypeOfferingsArgs{
-//				EngineType: pulumi.StringRef("ACTIVEMQ"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = mq.GetInstanceTypeOfferings(ctx, &mq.GetInstanceTypeOfferingsArgs{
-//				StorageType: pulumi.StringRef("EBS"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = mq.GetInstanceTypeOfferings(ctx, &mq.GetInstanceTypeOfferingsArgs{
-//				HostInstanceType: pulumi.StringRef("mq.m5.large"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = mq.GetInstanceTypeOfferings(ctx, &mq.GetInstanceTypeOfferingsArgs{
-//				EngineType:       pulumi.StringRef("ACTIVEMQ"),
-//				HostInstanceType: pulumi.StringRef("mq.m5.large"),
-//				StorageType:      pulumi.StringRef("EBS"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetInstanceTypeOfferings(ctx *pulumi.Context, args *GetInstanceTypeOfferingsArgs, opts ...pulumi.InvokeOption) (*GetInstanceTypeOfferingsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetInstanceTypeOfferingsResult

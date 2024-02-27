@@ -100,7 +100,7 @@ import javax.annotation.Nullable;
  *         var exampleRoute = new Route(&#34;exampleRoute&#34;, RouteArgs.builder()        
  *             .apiId(exampleApi.id())
  *             .routeKey(&#34;ANY /example/{proxy+}&#34;)
- *             .target(exampleIntegration.id().applyValue(id -&gt; String.format(&#34;integrations/%s&#34;, id)))
+ *             .target(String.format(&#34;integrations/%s&#34;, exampleIntegration.id()))
  *             .build());
  * 
  *     }

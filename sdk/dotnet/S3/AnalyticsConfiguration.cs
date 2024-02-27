@@ -25,25 +25,25 @@ namespace Pulumi.Aws.S3
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.S3.BucketV2("example");
+    ///     var example = new Aws.S3.BucketV2.BucketV2("example");
     /// 
-    ///     var analytics = new Aws.S3.BucketV2("analytics");
+    ///     var analytics = new Aws.S3.BucketV2.BucketV2("analytics");
     /// 
-    ///     var example_entire_bucket = new Aws.S3.AnalyticsConfiguration("example-entire-bucket", new()
+    ///     var example_entire_bucket = new Aws.S3.AnalyticsConfiguration.AnalyticsConfiguration("example-entire-bucket", new()
     ///     {
     ///         Bucket = example.Id,
-    ///         StorageClassAnalysis = new Aws.S3.Inputs.AnalyticsConfigurationStorageClassAnalysisArgs
+    ///         StorageClassAnalysis = 
     ///         {
-    ///             DataExport = new Aws.S3.Inputs.AnalyticsConfigurationStorageClassAnalysisDataExportArgs
+    ///             { "dataExport", 
     ///             {
-    ///                 Destination = new Aws.S3.Inputs.AnalyticsConfigurationStorageClassAnalysisDataExportDestinationArgs
+    ///                 { "destination", 
     ///                 {
-    ///                     S3BucketDestination = new Aws.S3.Inputs.AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationArgs
+    ///                     { "s3BucketDestination", 
     ///                     {
-    ///                         BucketArn = analytics.Arn,
-    ///                     },
-    ///                 },
-    ///             },
+    ///                         { "bucketArn", analytics.Arn },
+    ///                     } },
+    ///                 } },
+    ///             } },
     ///         },
     ///     });
     /// 
@@ -59,19 +59,19 @@ namespace Pulumi.Aws.S3
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.S3.BucketV2("example");
+    ///     var example = new Aws.S3.BucketV2.BucketV2("example");
     /// 
-    ///     var example_filtered = new Aws.S3.AnalyticsConfiguration("example-filtered", new()
+    ///     var example_filtered = new Aws.S3.AnalyticsConfiguration.AnalyticsConfiguration("example-filtered", new()
     ///     {
     ///         Bucket = example.Id,
-    ///         Filter = new Aws.S3.Inputs.AnalyticsConfigurationFilterArgs
+    ///         Filter = 
     ///         {
-    ///             Prefix = "documents/",
-    ///             Tags = 
+    ///             { "prefix", "documents/" },
+    ///             { "tags", 
     ///             {
     ///                 { "priority", "high" },
     ///                 { "class", "blue" },
-    ///             },
+    ///             } },
     ///         },
     ///     });
     /// 

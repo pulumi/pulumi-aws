@@ -31,10 +31,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.elb.LoadBalancer;
  * import com.pulumi.aws.elb.LoadBalancerArgs;
- * import com.pulumi.aws.elb.inputs.LoadBalancerListenerArgs;
  * import com.pulumi.aws.elb.SslNegotiationPolicy;
  * import com.pulumi.aws.elb.SslNegotiationPolicyArgs;
- * import com.pulumi.aws.elb.inputs.SslNegotiationPolicyAttributeArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -50,47 +48,20 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var lb = new LoadBalancer(&#34;lb&#34;, LoadBalancerArgs.builder()        
  *             .availabilityZones(&#34;us-east-1a&#34;)
- *             .listeners(LoadBalancerListenerArgs.builder()
- *                 .instancePort(8000)
- *                 .instanceProtocol(&#34;https&#34;)
- *                 .lbPort(443)
- *                 .lbProtocol(&#34;https&#34;)
- *                 .sslCertificateId(&#34;arn:aws:iam::123456789012:server-certificate/certName&#34;)
- *                 .build())
+ *             .listeners(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var foo = new SslNegotiationPolicy(&#34;foo&#34;, SslNegotiationPolicyArgs.builder()        
  *             .loadBalancer(lb.id())
  *             .lbPort(443)
  *             .attributes(            
- *                 SslNegotiationPolicyAttributeArgs.builder()
- *                     .name(&#34;Protocol-TLSv1&#34;)
- *                     .value(&#34;false&#34;)
- *                     .build(),
- *                 SslNegotiationPolicyAttributeArgs.builder()
- *                     .name(&#34;Protocol-TLSv1.1&#34;)
- *                     .value(&#34;false&#34;)
- *                     .build(),
- *                 SslNegotiationPolicyAttributeArgs.builder()
- *                     .name(&#34;Protocol-TLSv1.2&#34;)
- *                     .value(&#34;true&#34;)
- *                     .build(),
- *                 SslNegotiationPolicyAttributeArgs.builder()
- *                     .name(&#34;Server-Defined-Cipher-Order&#34;)
- *                     .value(&#34;true&#34;)
- *                     .build(),
- *                 SslNegotiationPolicyAttributeArgs.builder()
- *                     .name(&#34;ECDHE-RSA-AES128-GCM-SHA256&#34;)
- *                     .value(&#34;true&#34;)
- *                     .build(),
- *                 SslNegotiationPolicyAttributeArgs.builder()
- *                     .name(&#34;AES128-GCM-SHA256&#34;)
- *                     .value(&#34;true&#34;)
- *                     .build(),
- *                 SslNegotiationPolicyAttributeArgs.builder()
- *                     .name(&#34;EDH-RSA-DES-CBC3-SHA&#34;)
- *                     .value(&#34;false&#34;)
- *                     .build())
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

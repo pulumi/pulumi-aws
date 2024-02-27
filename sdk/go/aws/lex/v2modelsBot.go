@@ -22,32 +22,30 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lex"
+//	lex/v2modelsBot "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/lex/v2modelsBot"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lex.NewV2modelsBot(ctx, "example", &lex.V2modelsBotArgs{
-//				DataPrivacies: lex.V2modelsBotDataPrivacyArray{
-//					&lex.V2modelsBotDataPrivacyArgs{
-//						ChildDirected: pulumi.Bool("boolean"),
-//					},
-//				},
-//				IdleSessionTtlInSeconds: pulumi.Int(10),
-//				RoleArn:                 pulumi.String("bot_example_arn"),
-//				Tags: pulumi.StringMap{
-//					"foo": pulumi.String("bar"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := lex/v2modelsBot.NewV2modelsBot(ctx, "example", &lex/v2modelsBot.V2modelsBotArgs{
+// DataPrivacies: []map[string]interface{}{
+// map[string]interface{}{
+// "childDirected": "boolean",
+// },
+// },
+// IdleSessionTtlInSeconds: 10,
+// RoleArn: "bot_example_arn",
+// Tags: map[string]interface{}{
+// "foo": "bar",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

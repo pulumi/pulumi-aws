@@ -24,42 +24,41 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/elasticache"
+//	elasticache/globalReplicationGroup "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/elasticache/globalReplicationGroup"
+//	elasticache/replicationGroup "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/elasticache/replicationGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			primary, err := elasticache.NewReplicationGroup(ctx, "primary", &elasticache.ReplicationGroupArgs{
-//				Description:      pulumi.String("primary replication group"),
-//				Engine:           pulumi.String("redis"),
-//				EngineVersion:    pulumi.String("5.0.6"),
-//				NodeType:         pulumi.String("cache.m5.large"),
-//				NumCacheClusters: pulumi.Int(1),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			example, err := elasticache.NewGlobalReplicationGroup(ctx, "example", &elasticache.GlobalReplicationGroupArgs{
-//				GlobalReplicationGroupIdSuffix: pulumi.String("example"),
-//				PrimaryReplicationGroupId:      primary.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = elasticache.NewReplicationGroup(ctx, "secondary", &elasticache.ReplicationGroupArgs{
-//				Description:              pulumi.String("secondary replication group"),
-//				GlobalReplicationGroupId: example.GlobalReplicationGroupId,
-//				NumCacheClusters:         pulumi.Int(1),
-//			}, pulumi.Provider(aws.Other_region))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// primary, err := elasticache/replicationGroup.NewReplicationGroup(ctx, "primary", &elasticache/replicationGroup.ReplicationGroupArgs{
+// Description: "primary replication group",
+// Engine: "redis",
+// EngineVersion: "5.0.6",
+// NodeType: "cache.m5.large",
+// NumCacheClusters: 1,
+// })
+// if err != nil {
+// return err
+// }
+// example, err := elasticache/globalReplicationGroup.NewGlobalReplicationGroup(ctx, "example", &elasticache/globalReplicationGroup.GlobalReplicationGroupArgs{
+// GlobalReplicationGroupIdSuffix: "example",
+// PrimaryReplicationGroupId: primary.Id,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = elasticache/replicationGroup.NewReplicationGroup(ctx, "secondary", &elasticache/replicationGroup.ReplicationGroupArgs{
+// Description: "secondary replication group",
+// GlobalReplicationGroupId: example.GlobalReplicationGroupId,
+// NumCacheClusters: 1,
+// }, pulumi.Provider(aws.Other_region))
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Managing Redis Engine Versions
 //
@@ -80,43 +79,42 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/elasticache"
+//	elasticache/globalReplicationGroup "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/elasticache/globalReplicationGroup"
+//	elasticache/replicationGroup "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/elasticache/replicationGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			primary, err := elasticache.NewReplicationGroup(ctx, "primary", &elasticache.ReplicationGroupArgs{
-//				Description:      pulumi.String("primary replication group"),
-//				Engine:           pulumi.String("redis"),
-//				EngineVersion:    pulumi.String("6.0"),
-//				NodeType:         pulumi.String("cache.m5.large"),
-//				NumCacheClusters: pulumi.Int(1),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			example, err := elasticache.NewGlobalReplicationGroup(ctx, "example", &elasticache.GlobalReplicationGroupArgs{
-//				GlobalReplicationGroupIdSuffix: pulumi.String("example"),
-//				PrimaryReplicationGroupId:      primary.ID(),
-//				EngineVersion:                  pulumi.String("6.2"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = elasticache.NewReplicationGroup(ctx, "secondary", &elasticache.ReplicationGroupArgs{
-//				Description:              pulumi.String("secondary replication group"),
-//				GlobalReplicationGroupId: example.GlobalReplicationGroupId,
-//				NumCacheClusters:         pulumi.Int(1),
-//			}, pulumi.Provider(aws.Other_region))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// primary, err := elasticache/replicationGroup.NewReplicationGroup(ctx, "primary", &elasticache/replicationGroup.ReplicationGroupArgs{
+// Description: "primary replication group",
+// Engine: "redis",
+// EngineVersion: "6.0",
+// NodeType: "cache.m5.large",
+// NumCacheClusters: 1,
+// })
+// if err != nil {
+// return err
+// }
+// example, err := elasticache/globalReplicationGroup.NewGlobalReplicationGroup(ctx, "example", &elasticache/globalReplicationGroup.GlobalReplicationGroupArgs{
+// GlobalReplicationGroupIdSuffix: "example",
+// PrimaryReplicationGroupId: primary.Id,
+// EngineVersion: "6.2",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = elasticache/replicationGroup.NewReplicationGroup(ctx, "secondary", &elasticache/replicationGroup.ReplicationGroupArgs{
+// Description: "secondary replication group",
+// GlobalReplicationGroupId: example.GlobalReplicationGroupId,
+// NumCacheClusters: 1,
+// }, pulumi.Provider(aws.Other_region))
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

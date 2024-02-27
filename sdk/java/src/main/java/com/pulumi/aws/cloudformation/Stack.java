@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var network = new Stack(&#34;network&#34;, StackArgs.builder()        
- *             .parameters(Map.of(&#34;VPCCidr&#34;, &#34;10.0.0.0/16&#34;))
+ *             .parameters(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .templateBody(serializeJson(
  *                 jsonObject(
  *                     jsonProperty(&#34;Parameters&#34;, jsonObject(

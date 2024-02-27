@@ -18,11 +18,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const frontEndLoadBalancer = new aws.lb.LoadBalancer("frontEndLoadBalancer", {});
+ * const frontEndLoadBalancer = new aws.lb/loadBalancer.LoadBalancer("frontEndLoadBalancer", {});
  * // ...
- * const frontEndListener = new aws.lb.Listener("frontEndListener", {});
+ * const frontEndListener = new aws.lb/listener.Listener("frontEndListener", {});
  * // Other parameters
- * const static = new aws.lb.ListenerRule("static", {
+ * const static = new aws.lb/listenerRule.ListenerRule("static", {
  *     listenerArn: frontEndListener.arn,
  *     priority: 100,
  *     actions: [{
@@ -43,7 +43,7 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * // Forward action
- * const hostBasedWeightedRouting = new aws.lb.ListenerRule("hostBasedWeightedRouting", {
+ * const hostBasedWeightedRouting = new aws.lb/listenerRule.ListenerRule("hostBasedWeightedRouting", {
  *     listenerArn: frontEndListener.arn,
  *     priority: 99,
  *     actions: [{
@@ -57,7 +57,7 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * // Weighted Forward action
- * const hostBasedRouting = new aws.lb.ListenerRule("hostBasedRouting", {
+ * const hostBasedRouting = new aws.lb/listenerRule.ListenerRule("hostBasedRouting", {
  *     listenerArn: frontEndListener.arn,
  *     priority: 99,
  *     actions: [{
@@ -86,7 +86,7 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * // Redirect action
- * const redirectHttpToHttps = new aws.lb.ListenerRule("redirectHttpToHttps", {
+ * const redirectHttpToHttps = new aws.lb/listenerRule.ListenerRule("redirectHttpToHttps", {
  *     listenerArn: frontEndListener.arn,
  *     actions: [{
  *         type: "redirect",
@@ -104,7 +104,7 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * // Fixed-response action
- * const healthCheck = new aws.lb.ListenerRule("healthCheck", {
+ * const healthCheck = new aws.lb/listenerRule.ListenerRule("healthCheck", {
  *     listenerArn: frontEndListener.arn,
  *     actions: [{
  *         type: "fixed-response",
@@ -127,13 +127,13 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * // Authenticate-cognito Action
- * const pool = new aws.cognito.UserPool("pool", {});
+ * const pool = new aws.cognito/userPool.UserPool("pool", {});
  * // ...
- * const client = new aws.cognito.UserPoolClient("client", {});
+ * const client = new aws.cognito/userPoolClient.UserPoolClient("client", {});
  * // ...
- * const domain = new aws.cognito.UserPoolDomain("domain", {});
+ * const domain = new aws.cognito/userPoolDomain.UserPoolDomain("domain", {});
  * // ...
- * const admin = new aws.lb.ListenerRule("admin", {
+ * const admin = new aws.lb/listenerRule.ListenerRule("admin", {
  *     listenerArn: frontEndListener.arn,
  *     actions: [
  *         {
@@ -151,7 +151,7 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * // Authenticate-oidc Action
- * const oidc = new aws.lb.ListenerRule("oidc", {
+ * const oidc = new aws.lb/listenerRule.ListenerRule("oidc", {
  *     listenerArn: frontEndListener.arn,
  *     actions: [
  *         {

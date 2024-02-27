@@ -27,17 +27,17 @@ namespace Pulumi.Aws.DynamoDB
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var main = new Aws.Provider("main", new()
+    ///     var main = new Pulumi.Providers.Aws("main", new()
     ///     {
     ///         Region = "us-west-2",
     ///     });
     /// 
-    ///     var alt = new Aws.Provider("alt", new()
+    ///     var alt = new Pulumi.Providers.Aws("alt", new()
     ///     {
     ///         Region = "us-east-2",
     ///     });
     /// 
-    ///     var exampleTable = new Aws.DynamoDB.Table("exampleTable", new()
+    ///     var exampleTable = new Aws.Dynamodb.Table.Table("exampleTable", new()
     ///     {
     ///         HashKey = "BrodoBaggins",
     ///         BillingMode = "PAY_PER_REQUEST",
@@ -45,10 +45,10 @@ namespace Pulumi.Aws.DynamoDB
     ///         StreamViewType = "NEW_AND_OLD_IMAGES",
     ///         Attributes = new[]
     ///         {
-    ///             new Aws.DynamoDB.Inputs.TableAttributeArgs
+    ///             
     ///             {
-    ///                 Name = "BrodoBaggins",
-    ///                 Type = "S",
+    ///                 { "name", "BrodoBaggins" },
+    ///                 { "type", "S" },
     ///             },
     ///         },
     ///     }, new CustomResourceOptions
@@ -56,7 +56,7 @@ namespace Pulumi.Aws.DynamoDB
     ///         Provider = aws.Main,
     ///     });
     /// 
-    ///     var exampleTableReplica = new Aws.DynamoDB.TableReplica("exampleTableReplica", new()
+    ///     var exampleTableReplica = new Aws.Dynamodb.TableReplica.TableReplica("exampleTableReplica", new()
     ///     {
     ///         GlobalTableArn = exampleTable.Arn,
     ///         Tags = 

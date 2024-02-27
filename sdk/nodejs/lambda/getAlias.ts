@@ -6,18 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Provides information about a Lambda Alias.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const production = aws.lambda.getAlias({
- *     functionName: "my-lambda-func",
- *     name: "production",
- * });
- * ```
  */
 export function getAlias(args: GetAliasArgs, opts?: pulumi.InvokeOptions): Promise<GetAliasResult> {
 
@@ -71,18 +59,6 @@ export interface GetAliasResult {
 }
 /**
  * Provides information about a Lambda Alias.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const production = aws.lambda.getAlias({
- *     functionName: "my-lambda-func",
- *     name: "production",
- * });
- * ```
  */
 export function getAliasOutput(args: GetAliasOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAliasResult> {
     return pulumi.output(args).apply((a: any) => getAlias(a, opts))

@@ -261,14 +261,14 @@ class Invocation(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        example = aws.lambda_.Invocation("example",
-            function_name=aws_lambda_function["lambda_function_test"]["function_name"],
+        example = aws.lambda_.invocation.Invocation("example",
+            function_name=aws_lambda_function.lambda_function_test.function_name,
             triggers={
-                "redeployment": hashlib.sha1(json.dumps([aws_lambda_function["example"]["environment"]]).encode()).hexdigest(),
+                redeployment: hashlib.sha1(json.dumps([aws_lambda_function.example.environment]).encode()).hexdigest(),
             },
             input=json.dumps({
-                "key1": "value1",
-                "key2": "value2",
+                key1: value1,
+                key2: value2,
             }))
         ```
         ### CRUD Lifecycle Scope
@@ -278,13 +278,13 @@ class Invocation(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        example = aws.lambda_.Invocation("example",
-            function_name=aws_lambda_function["lambda_function_test"]["function_name"],
+        example = aws.lambda_.invocation.Invocation("example",
+            function_name=aws_lambda_function.lambda_function_test.function_name,
             input=json.dumps({
-                "key1": "value1",
-                "key2": "value2",
+                key1: value1,
+                key2: value2,
             }),
-            lifecycle_scope="CRUD")
+            lifecycle_scope=CRUD)
         ```
 
         > **NOTE:** `lifecycle_scope = "CRUD"` will inject a key `tf` in the input event to pass lifecycle information! This allows the lambda function to handle different lifecycle transitions uniquely.  If you need to use a key `tf` in your own input JSON, the default key name can be overridden with the `pulumi_key` argument.
@@ -344,14 +344,14 @@ class Invocation(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        example = aws.lambda_.Invocation("example",
-            function_name=aws_lambda_function["lambda_function_test"]["function_name"],
+        example = aws.lambda_.invocation.Invocation("example",
+            function_name=aws_lambda_function.lambda_function_test.function_name,
             triggers={
-                "redeployment": hashlib.sha1(json.dumps([aws_lambda_function["example"]["environment"]]).encode()).hexdigest(),
+                redeployment: hashlib.sha1(json.dumps([aws_lambda_function.example.environment]).encode()).hexdigest(),
             },
             input=json.dumps({
-                "key1": "value1",
-                "key2": "value2",
+                key1: value1,
+                key2: value2,
             }))
         ```
         ### CRUD Lifecycle Scope
@@ -361,13 +361,13 @@ class Invocation(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        example = aws.lambda_.Invocation("example",
-            function_name=aws_lambda_function["lambda_function_test"]["function_name"],
+        example = aws.lambda_.invocation.Invocation("example",
+            function_name=aws_lambda_function.lambda_function_test.function_name,
             input=json.dumps({
-                "key1": "value1",
-                "key2": "value2",
+                key1: value1,
+                key2: value2,
             }),
-            lifecycle_scope="CRUD")
+            lifecycle_scope=CRUD)
         ```
 
         > **NOTE:** `lifecycle_scope = "CRUD"` will inject a key `tf` in the input event to pass lifecycle information! This allows the lambda function to handle different lifecycle transitions uniquely.  If you need to use a key `tf` in your own input JSON, the default key name can be overridden with the `pulumi_key` argument.

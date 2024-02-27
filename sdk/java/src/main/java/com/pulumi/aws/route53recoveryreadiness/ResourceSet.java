@@ -29,7 +29,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.route53recoveryreadiness.ResourceSet;
  * import com.pulumi.aws.route53recoveryreadiness.ResourceSetArgs;
- * import com.pulumi.aws.route53recoveryreadiness.inputs.ResourceSetResourceArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -46,9 +45,7 @@ import javax.annotation.Nullable;
  *         var example = new ResourceSet(&#34;example&#34;, ResourceSetArgs.builder()        
  *             .resourceSetName(my_cw_alarm_set)
  *             .resourceSetType(&#34;AWS::CloudWatch::Alarm&#34;)
- *             .resources(ResourceSetResourceArgs.builder()
- *                 .resourceArn(aws_cloudwatch_metric_alarm.example().arn())
- *                 .build())
+ *             .resources(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

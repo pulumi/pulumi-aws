@@ -23,22 +23,22 @@ namespace Pulumi.Aws.IvsChat
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleLogGroup = new Aws.CloudWatch.LogGroup("exampleLogGroup");
+    ///     var exampleLogGroup = new Aws.Cloudwatch.LogGroup.LogGroup("exampleLogGroup");
     /// 
-    ///     var exampleLoggingConfiguration = new Aws.IvsChat.LoggingConfiguration("exampleLoggingConfiguration", new()
+    ///     var exampleLoggingConfiguration = new Aws.Ivschat.LoggingConfiguration.LoggingConfiguration("exampleLoggingConfiguration", new()
     ///     {
-    ///         DestinationConfiguration = new Aws.IvsChat.Inputs.LoggingConfigurationDestinationConfigurationArgs
+    ///         DestinationConfiguration = 
     ///         {
-    ///             CloudwatchLogs = new Aws.IvsChat.Inputs.LoggingConfigurationDestinationConfigurationCloudwatchLogsArgs
+    ///             { "cloudwatchLogs", 
     ///             {
-    ///                 LogGroupName = exampleLogGroup.Name,
-    ///             },
+    ///                 { "logGroupName", exampleLogGroup.Name },
+    ///             } },
     ///         },
     ///     });
     /// 
     /// });
     /// ```
-    /// ### Basic Usage - Logging to Kinesis Firehose with Extended S3
+    /// ### Basic Usage - Logging to S3
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -48,70 +48,20 @@ namespace Pulumi.Aws.IvsChat
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2", new()
+    ///     var exampleBucketV2 = new Aws.S3.BucketV2.BucketV2("exampleBucketV2", new()
     ///     {
-    ///         BucketPrefix = "tf-ivschat-logging-bucket",
+    ///         BucketName = "tf-ivschat-logging",
+    ///         ForceDestroy = true,
     ///     });
     /// 
-    ///     var assumeRole = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     var exampleLoggingConfiguration = new Aws.Ivschat.LoggingConfiguration.LoggingConfiguration("exampleLoggingConfiguration", new()
     ///     {
-    ///         Statements = new[]
+    ///         DestinationConfiguration = 
     ///         {
-    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             { "s3", 
     ///             {
-    ///                 Effect = "Allow",
-    ///                 Principals = new[]
-    ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
-    ///                     {
-    ///                         Type = "Service",
-    ///                         Identifiers = new[]
-    ///                         {
-    ///                             "firehose.amazonaws.com",
-    ///                         },
-    ///                     },
-    ///                 },
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "sts:AssumeRole",
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleRole = new Aws.Iam.Role("exampleRole", new()
-    ///     {
-    ///         AssumeRolePolicy = assumeRole.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
-    ///     });
-    /// 
-    ///     var exampleFirehoseDeliveryStream = new Aws.Kinesis.FirehoseDeliveryStream("exampleFirehoseDeliveryStream", new()
-    ///     {
-    ///         Destination = "extended_s3",
-    ///         ExtendedS3Configuration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationArgs
-    ///         {
-    ///             RoleArn = exampleRole.Arn,
-    ///             BucketArn = exampleBucketV2.Arn,
-    ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "LogDeliveryEnabled", "true" },
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleBucketAclV2 = new Aws.S3.BucketAclV2("exampleBucketAclV2", new()
-    ///     {
-    ///         Bucket = exampleBucketV2.Id,
-    ///         Acl = "private",
-    ///     });
-    /// 
-    ///     var exampleLoggingConfiguration = new Aws.IvsChat.LoggingConfiguration("exampleLoggingConfiguration", new()
-    ///     {
-    ///         DestinationConfiguration = new Aws.IvsChat.Inputs.LoggingConfigurationDestinationConfigurationArgs
-    ///         {
-    ///             Firehose = new Aws.IvsChat.Inputs.LoggingConfigurationDestinationConfigurationFirehoseArgs
-    ///             {
-    ///                 DeliveryStreamName = exampleFirehoseDeliveryStream.Name,
-    ///             },
+    ///                 { "bucketName", exampleBucketV2.Id },
+    ///             } },
     ///         },
     ///     });
     /// 

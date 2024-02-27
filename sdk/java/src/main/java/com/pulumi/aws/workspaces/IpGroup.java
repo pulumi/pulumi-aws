@@ -29,7 +29,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.workspaces.IpGroup;
  * import com.pulumi.aws.workspaces.IpGroupArgs;
- * import com.pulumi.aws.workspaces.inputs.IpGroupRuleArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -46,18 +45,9 @@ import javax.annotation.Nullable;
  *         var contractors = new IpGroup(&#34;contractors&#34;, IpGroupArgs.builder()        
  *             .description(&#34;Contractors IP access control group&#34;)
  *             .rules(            
- *                 IpGroupRuleArgs.builder()
- *                     .description(&#34;NY&#34;)
- *                     .source(&#34;150.24.14.0/24&#34;)
- *                     .build(),
- *                 IpGroupRuleArgs.builder()
- *                     .description(&#34;LA&#34;)
- *                     .source(&#34;125.191.14.85/32&#34;)
- *                     .build(),
- *                 IpGroupRuleArgs.builder()
- *                     .description(&#34;STL&#34;)
- *                     .source(&#34;44.98.100.0/24&#34;)
- *                     .build())
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

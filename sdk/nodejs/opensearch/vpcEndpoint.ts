@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const foo = new aws.opensearch.VpcEndpoint("foo", {
+ * const foo = new aws.opensearch/vpcEndpoint.VpcEndpoint("foo", {
  *     domainArn: aws_opensearch_domain.domain_1.arn,
  *     vpcOptions: {
  *         securityGroupIds: [

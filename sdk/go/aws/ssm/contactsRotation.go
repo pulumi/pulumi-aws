@@ -20,38 +20,36 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssm"
+//	ssm/contactsRotation "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ssm/contactsRotation"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ssm.NewContactsRotation(ctx, "example", &ssm.ContactsRotationArgs{
-//				ContactIds: pulumi.StringArray{
-//					aws_ssmcontacts_contact.Example.Arn,
-//				},
-//				Recurrence: &ssm.ContactsRotationRecurrenceArgs{
-//					NumberOfOnCalls:      pulumi.Int(1),
-//					RecurrenceMultiplier: pulumi.Int(1),
-//					DailySettings: ssm.ContactsRotationRecurrenceDailySettingArray{
-//						&ssm.ContactsRotationRecurrenceDailySettingArgs{
-//							HourOfDay:    pulumi.Int(9),
-//							MinuteOfHour: pulumi.Int(0),
-//						},
-//					},
-//				},
-//				TimeZoneId: pulumi.String("Australia/Sydney"),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				aws_ssmincidents_replication_set.Example,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := ssm/contactsRotation.NewContactsRotation(ctx, "example", &ssm/contactsRotation.ContactsRotationArgs{
+// ContactIds: []interface{}{
+// aws_ssmcontacts_contact.Example.Arn,
+// },
+// Recurrence: map[string]interface{}{
+// "numberOfOnCalls": 1,
+// "recurrenceMultiplier": 1,
+// "dailySettings": []map[string]interface{}{
+// map[string]interface{}{
+// "hourOfDay": 9,
+// "minuteOfHour": 0,
+// },
+// },
+// },
+// TimeZoneId: "Australia/Sydney",
+// }, pulumi.DependsOn([]pulumi.Resource{
+// aws_ssmincidents_replication_set.Example,
+// }))
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Usage with Weekly Settings and Shift Coverages Fields
 //
@@ -60,70 +58,68 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssm"
+//	ssm/contactsRotation "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ssm/contactsRotation"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ssm.NewContactsRotation(ctx, "example", &ssm.ContactsRotationArgs{
-//				ContactIds: pulumi.StringArray{
-//					aws_ssmcontacts_contact.Example.Arn,
-//				},
-//				Recurrence: &ssm.ContactsRotationRecurrenceArgs{
-//					NumberOfOnCalls:      pulumi.Int(1),
-//					RecurrenceMultiplier: pulumi.Int(1),
-//					WeeklySettings: ssm.ContactsRotationRecurrenceWeeklySettingArray{
-//						&ssm.ContactsRotationRecurrenceWeeklySettingArgs{
-//							DayOfWeek: pulumi.String("WED"),
-//							HandOffTime: &ssm.ContactsRotationRecurrenceWeeklySettingHandOffTimeArgs{
-//								HourOfDay:    pulumi.Int(4),
-//								MinuteOfHour: pulumi.Int(25),
-//							},
-//						},
-//						&ssm.ContactsRotationRecurrenceWeeklySettingArgs{
-//							DayOfWeek: pulumi.String("FRI"),
-//							HandOffTime: &ssm.ContactsRotationRecurrenceWeeklySettingHandOffTimeArgs{
-//								HourOfDay:    pulumi.Int(15),
-//								MinuteOfHour: pulumi.Int(57),
-//							},
-//						},
-//					},
-//					ShiftCoverages: ssm.ContactsRotationRecurrenceShiftCoverageArray{
-//						&ssm.ContactsRotationRecurrenceShiftCoverageArgs{
-//							MapBlockKey: pulumi.String("MON"),
-//							CoverageTimes: ssm.ContactsRotationRecurrenceShiftCoverageCoverageTimeArray{
-//								&ssm.ContactsRotationRecurrenceShiftCoverageCoverageTimeArgs{
-//									Start: &ssm.ContactsRotationRecurrenceShiftCoverageCoverageTimeStartArgs{
-//										HourOfDay:    pulumi.Int(1),
-//										MinuteOfHour: pulumi.Int(0),
-//									},
-//									End: &ssm.ContactsRotationRecurrenceShiftCoverageCoverageTimeEndArgs{
-//										HourOfDay:    pulumi.Int(23),
-//										MinuteOfHour: pulumi.Int(0),
-//									},
-//								},
-//							},
-//						},
-//					},
-//				},
-//				StartTime:  pulumi.String("2023-07-20T02:21:49+00:00"),
-//				TimeZoneId: pulumi.String("Australia/Sydney"),
-//				Tags: pulumi.StringMap{
-//					"key1": pulumi.String("tag1"),
-//					"key2": pulumi.String("tag2"),
-//				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				aws_ssmincidents_replication_set.Example,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := ssm/contactsRotation.NewContactsRotation(ctx, "example", &ssm/contactsRotation.ContactsRotationArgs{
+// ContactIds: []interface{}{
+// aws_ssmcontacts_contact.Example.Arn,
+// },
+// Recurrence: map[string]interface{}{
+// "numberOfOnCalls": 1,
+// "recurrenceMultiplier": 1,
+// "weeklySettings": []interface{}{
+// map[string]interface{}{
+// "dayOfWeek": "WED",
+// "handOffTime": map[string]interface{}{
+// "hourOfDay": 4,
+// "minuteOfHour": 25,
+// },
+// },
+// map[string]interface{}{
+// "dayOfWeek": "FRI",
+// "handOffTime": map[string]interface{}{
+// "hourOfDay": 15,
+// "minuteOfHour": 57,
+// },
+// },
+// },
+// "shiftCoverages": []map[string]interface{}{
+// map[string]interface{}{
+// "mapBlockKey": "MON",
+// "coverageTimes": []map[string]interface{}{
+// map[string]interface{}{
+// "start": map[string]interface{}{
+// "hourOfDay": 1,
+// "minuteOfHour": 0,
+// },
+// "end": map[string]interface{}{
+// "hourOfDay": 23,
+// "minuteOfHour": 0,
+// },
+// },
+// },
+// },
+// },
+// },
+// StartTime: "2023-07-20T02:21:49+00:00",
+// TimeZoneId: "Australia/Sydney",
+// Tags: map[string]interface{}{
+// "key1": "tag1",
+// "key2": "tag2",
+// },
+// }, pulumi.DependsOn([]pulumi.Resource{
+// aws_ssmincidents_replication_set.Example,
+// }))
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Usage with Monthly Settings Fields
 //
@@ -132,48 +128,46 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssm"
+//	ssm/contactsRotation "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ssm/contactsRotation"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ssm.NewContactsRotation(ctx, "example", &ssm.ContactsRotationArgs{
-//				ContactIds: pulumi.StringArray{
-//					aws_ssmcontacts_contact.Example.Arn,
-//				},
-//				Recurrence: &ssm.ContactsRotationRecurrenceArgs{
-//					NumberOfOnCalls:      pulumi.Int(1),
-//					RecurrenceMultiplier: pulumi.Int(1),
-//					MonthlySettings: ssm.ContactsRotationRecurrenceMonthlySettingArray{
-//						&ssm.ContactsRotationRecurrenceMonthlySettingArgs{
-//							DayOfMonth: pulumi.Int(20),
-//							HandOffTime: &ssm.ContactsRotationRecurrenceMonthlySettingHandOffTimeArgs{
-//								HourOfDay:    pulumi.Int(8),
-//								MinuteOfHour: pulumi.Int(0),
-//							},
-//						},
-//						&ssm.ContactsRotationRecurrenceMonthlySettingArgs{
-//							DayOfMonth: pulumi.Int(13),
-//							HandOffTime: &ssm.ContactsRotationRecurrenceMonthlySettingHandOffTimeArgs{
-//								HourOfDay:    pulumi.Int(12),
-//								MinuteOfHour: pulumi.Int(34),
-//							},
-//						},
-//					},
-//				},
-//				TimeZoneId: pulumi.String("Australia/Sydney"),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				aws_ssmincidents_replication_set.Example,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := ssm/contactsRotation.NewContactsRotation(ctx, "example", &ssm/contactsRotation.ContactsRotationArgs{
+// ContactIds: []interface{}{
+// aws_ssmcontacts_contact.Example.Arn,
+// },
+// Recurrence: map[string]interface{}{
+// "numberOfOnCalls": 1,
+// "recurrenceMultiplier": 1,
+// "monthlySettings": []interface{}{
+// map[string]interface{}{
+// "dayOfMonth": 20,
+// "handOffTime": map[string]interface{}{
+// "hourOfDay": 8,
+// "minuteOfHour": 0,
+// },
+// },
+// map[string]interface{}{
+// "dayOfMonth": 13,
+// "handOffTime": map[string]interface{}{
+// "hourOfDay": 12,
+// "minuteOfHour": 34,
+// },
+// },
+// },
+// },
+// TimeZoneId: "Australia/Sydney",
+// }, pulumi.DependsOn([]pulumi.Resource{
+// aws_ssmincidents_replication_set.Example,
+// }))
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

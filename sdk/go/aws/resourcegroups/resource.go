@@ -22,38 +22,37 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/resourcegroups"
+//	ec2/dedicatedHost "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/dedicatedHost"
+//	resourcegroups/group "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/resourcegroups/group"
+//	resourcegroups/resource "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/resourcegroups/resource"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleDedicatedHost, err := ec2.NewDedicatedHost(ctx, "exampleDedicatedHost", &ec2.DedicatedHostArgs{
-//				InstanceFamily:   pulumi.String("t3"),
-//				AvailabilityZone: pulumi.String("us-east-1a"),
-//				HostRecovery:     pulumi.String("off"),
-//				AutoPlacement:    pulumi.String("on"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleGroup, err := resourcegroups.NewGroup(ctx, "exampleGroup", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = resourcegroups.NewResource(ctx, "exampleResource", &resourcegroups.ResourceArgs{
-//				GroupArn:    exampleGroup.Arn,
-//				ResourceArn: exampleDedicatedHost.Arn,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleDedicatedHost, err := ec2/dedicatedHost.NewDedicatedHost(ctx, "exampleDedicatedHost", &ec2/dedicatedHost.DedicatedHostArgs{
+// InstanceFamily: "t3",
+// AvailabilityZone: "us-east-1a",
+// HostRecovery: "off",
+// AutoPlacement: "on",
+// })
+// if err != nil {
+// return err
+// }
+// exampleGroup, err := resourcegroups/group.NewGroup(ctx, "exampleGroup", nil)
+// if err != nil {
+// return err
+// }
+// _, err = resourcegroups/resource.NewResource(ctx, "exampleResource", &resourcegroups/resource.ResourceArgs{
+// GroupArn: exampleGroup.Arn,
+// ResourceArn: exampleDedicatedHost.Arn,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 type Resource struct {
 	pulumi.CustomResourceState

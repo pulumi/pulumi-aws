@@ -21,41 +21,41 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigateway"
+//	apigateway/documentationPart "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/apigateway/documentationPart"
+//	apigateway/documentationVersion "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/apigateway/documentationVersion"
+//	apigateway/restApi "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/apigateway/restApi"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleRestApi, err := apigateway.NewRestApi(ctx, "exampleRestApi", nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleDocumentationPart, err := apigateway.NewDocumentationPart(ctx, "exampleDocumentationPart", &apigateway.DocumentationPartArgs{
-//				Location: &apigateway.DocumentationPartLocationArgs{
-//					Type: pulumi.String("API"),
-//				},
-//				Properties: pulumi.String("{\"description\":\"Example\"}"),
-//				RestApiId:  exampleRestApi.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = apigateway.NewDocumentationVersion(ctx, "exampleDocumentationVersion", &apigateway.DocumentationVersionArgs{
-//				Version:     pulumi.String("example_version"),
-//				RestApiId:   exampleRestApi.ID(),
-//				Description: pulumi.String("Example description"),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleDocumentationPart,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleRestApi, err := apigateway/restApi.NewRestApi(ctx, "exampleRestApi", nil)
+// if err != nil {
+// return err
+// }
+// exampleDocumentationPart, err := apigateway/documentationPart.NewDocumentationPart(ctx, "exampleDocumentationPart", &apigateway/documentationPart.DocumentationPartArgs{
+// Location: map[string]interface{}{
+// "type": "API",
+// },
+// Properties: "{\"description\":\"Example\"}",
+// RestApiId: exampleRestApi.Id,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = apigateway/documentationVersion.NewDocumentationVersion(ctx, "exampleDocumentationVersion", &apigateway/documentationVersion.DocumentationVersionArgs{
+// Version: "example_version",
+// RestApiId: exampleRestApi.Id,
+// Description: "Example description",
+// }, pulumi.DependsOn([]pulumi.Resource{
+// exampleDocumentationPart,
+// }))
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

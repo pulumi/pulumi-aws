@@ -23,46 +23,29 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	iam/group "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/iam/group"
+//	iam/groupPolicy "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/iam/groupPolicy"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			myDevelopers, err := iam.NewGroup(ctx, "myDevelopers", &iam.GroupArgs{
-//				Path: pulumi.String("/users/"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"Version": "2012-10-17",
-//				"Statement": []map[string]interface{}{
-//					map[string]interface{}{
-//						"Action": []string{
-//							"ec2:Describe*",
-//						},
-//						"Effect":   "Allow",
-//						"Resource": "*",
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			_, err = iam.NewGroupPolicy(ctx, "myDeveloperPolicy", &iam.GroupPolicyArgs{
-//				Group:  myDevelopers.Name,
-//				Policy: pulumi.String(json0),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// myDevelopers, err := iam/group.NewGroup(ctx, "myDevelopers", &iam/group.GroupArgs{
+// Path: "/users/",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = iam/groupPolicy.NewGroupPolicy(ctx, "myDeveloperPolicy", &iam/groupPolicy.GroupPolicyArgs{
+// Group: myDevelopers.Name,
+// Policy: %!v(PANIC=Format method: fatal: An assertion has failed: unlowered function toJSON),
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

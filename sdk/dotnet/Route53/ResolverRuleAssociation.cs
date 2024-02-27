@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Route53
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Route53.ResolverRuleAssociation("example", new()
+    ///     var example = new Aws.Route53.ResolverRuleAssociation.ResolverRuleAssociation("example", new()
     ///     {
     ///         ResolverRuleId = aws_route53_resolver_rule.Sys.Id,
     ///         VpcId = aws_vpc.Foo.Id,

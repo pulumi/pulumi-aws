@@ -25,45 +25,43 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sagemaker"
+//	sagemaker/dataQualityJobDefinition "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/sagemaker/dataQualityJobDefinition"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := sagemaker.NewDataQualityJobDefinition(ctx, "test", &sagemaker.DataQualityJobDefinitionArgs{
-//				DataQualityAppSpecification: &sagemaker.DataQualityJobDefinitionDataQualityAppSpecificationArgs{
-//					ImageUri: pulumi.Any(data.Aws_sagemaker_prebuilt_ecr_image.Monitor.Registry_path),
-//				},
-//				DataQualityJobInput: &sagemaker.DataQualityJobDefinitionDataQualityJobInputArgs{
-//					EndpointInput: &sagemaker.DataQualityJobDefinitionDataQualityJobInputEndpointInputArgs{
-//						EndpointName: pulumi.Any(aws_sagemaker_endpoint.My_endpoint.Name),
-//					},
-//				},
-//				DataQualityJobOutputConfig: &sagemaker.DataQualityJobDefinitionDataQualityJobOutputConfigArgs{
-//					MonitoringOutputs: &sagemaker.DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsArgs{
-//						S3Output: sagemaker.DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsS3OutputArgs{
-//							S3Uri: pulumi.String(fmt.Sprintf("https://%v/output", aws_s3_bucket.My_bucket.Bucket_regional_domain_name)),
-//						},
-//					},
-//				},
-//				JobResources: &sagemaker.DataQualityJobDefinitionJobResourcesArgs{
-//					ClusterConfig: &sagemaker.DataQualityJobDefinitionJobResourcesClusterConfigArgs{
-//						InstanceCount:  pulumi.Int(1),
-//						InstanceType:   pulumi.String("ml.t3.medium"),
-//						VolumeSizeInGb: pulumi.Int(20),
-//					},
-//				},
-//				RoleArn: pulumi.Any(aws_iam_role.My_role.Arn),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := sagemaker/dataQualityJobDefinition.NewDataQualityJobDefinition(ctx, "test", &sagemaker/dataQualityJobDefinition.DataQualityJobDefinitionArgs{
+// DataQualityAppSpecification: map[string]interface{}{
+// "imageUri": data.Aws_sagemaker_prebuilt_ecr_image.Monitor.Registry_path,
+// },
+// DataQualityJobInput: map[string]interface{}{
+// "endpointInput": map[string]interface{}{
+// "endpointName": aws_sagemaker_endpoint.My_endpoint.Name,
+// },
+// },
+// DataQualityJobOutputConfig: map[string]interface{}{
+// "monitoringOutputs": map[string]interface{}{
+// "s3Output": map[string]interface{}{
+// "s3Uri": fmt.Sprintf("https://%v/output", aws_s3_bucket.My_bucket.Bucket_regional_domain_name),
+// },
+// },
+// },
+// JobResources: map[string]interface{}{
+// "clusterConfig": map[string]interface{}{
+// "instanceCount": 1,
+// "instanceType": "ml.t3.medium",
+// "volumeSizeInGb": 20,
+// },
+// },
+// RoleArn: aws_iam_role.My_role.Arn,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

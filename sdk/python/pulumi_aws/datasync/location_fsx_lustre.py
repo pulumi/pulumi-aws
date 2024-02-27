@@ -242,9 +242,9 @@ class LocationFsxLustre(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.datasync.LocationFsxLustre("example",
-            fsx_filesystem_arn=aws_fsx_lustre_file_system["example"]["arn"],
-            security_group_arns=[aws_security_group["example"]["arn"]])
+        example = aws.datasync.location_fsx_lustre.LocationFsxLustre("example",
+            fsx_filesystem_arn=aws_fsx_lustre_file_system.example.arn,
+            security_group_arns=[aws_security_group.example.arn])
         ```
 
         ## Import
@@ -277,9 +277,9 @@ class LocationFsxLustre(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.datasync.LocationFsxLustre("example",
-            fsx_filesystem_arn=aws_fsx_lustre_file_system["example"]["arn"],
-            security_group_arns=[aws_security_group["example"]["arn"]])
+        example = aws.datasync.location_fsx_lustre.LocationFsxLustre("example",
+            fsx_filesystem_arn=aws_fsx_lustre_file_system.example.arn,
+            security_group_arns=[aws_security_group.example.arn])
         ```
 
         ## Import

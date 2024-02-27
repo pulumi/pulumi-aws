@@ -24,46 +24,22 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/opensearch"
+//	opensearch/serverlessLifecyclePolicy "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/opensearch/serverlessLifecyclePolicy"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"Rules": []interface{}{
-//					map[string]interface{}{
-//						"ResourceType": "index",
-//						"Resource": []string{
-//							"index/autoparts-inventory/*",
-//						},
-//						"MinIndexRetention": "81d",
-//					},
-//					map[string]interface{}{
-//						"ResourceType": "index",
-//						"Resource": []string{
-//							"index/sales/orders*",
-//						},
-//						"NoMinIndexRetention": true,
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			_, err = opensearch.NewServerlessLifecyclePolicy(ctx, "example", &opensearch.ServerlessLifecyclePolicyArgs{
-//				Type:   pulumi.String("retention"),
-//				Policy: pulumi.String(json0),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := opensearch/serverlessLifecyclePolicy.NewServerlessLifecyclePolicy(ctx, "example", &opensearch/serverlessLifecyclePolicy.ServerlessLifecyclePolicyArgs{
+// Type: "retention",
+// Policy: %!v(PANIC=Format method: fatal: An assertion has failed: unlowered function toJSON),
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

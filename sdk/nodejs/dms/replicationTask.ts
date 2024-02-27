@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * // Create a new replication task
- * const test = new aws.dms.ReplicationTask("test", {
+ * const test = new aws.dms/replicationTask.ReplicationTask("test", {
  *     cdcStartTime: "1993-05-21T05:50:00Z",
  *     migrationType: "full-load",
  *     replicationInstanceArn: aws_dms_replication_instance["test-dms-replication-instance-tf"].replication_instance_arn,

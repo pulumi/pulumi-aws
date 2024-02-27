@@ -9,18 +9,6 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a Cognito User Pool Client resource.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const client = aws.cognito.getUserPoolClient({
- *     clientId: "38fjsnc484p94kpqsnet7mpld0",
- *     userPoolId: "us-west-2_aaaaaaaaa",
- * });
- * ```
  */
 export function getUserPoolClient(args: GetUserPoolClientArgs, opts?: pulumi.InvokeOptions): Promise<GetUserPoolClientResult> {
 
@@ -136,18 +124,6 @@ export interface GetUserPoolClientResult {
 }
 /**
  * Provides a Cognito User Pool Client resource.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const client = aws.cognito.getUserPoolClient({
- *     clientId: "38fjsnc484p94kpqsnet7mpld0",
- *     userPoolId: "us-west-2_aaaaaaaaa",
- * });
- * ```
  */
 export function getUserPoolClientOutput(args: GetUserPoolClientOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserPoolClientResult> {
     return pulumi.output(args).apply((a: any) => getUserPoolClient(a, opts))

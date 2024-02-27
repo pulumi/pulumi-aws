@@ -72,35 +72,6 @@ def get_instance_types(filters: Optional[Sequence[pulumi.InputType['GetInstanceT
     """
     Information about EC2 Instance Types.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.ec2.get_instance_types(filters=[
-        aws.ec2.GetInstanceTypesFilterArgs(
-            name="auto-recovery-supported",
-            values=["true"],
-        ),
-        aws.ec2.GetInstanceTypesFilterArgs(
-            name="network-info.encryption-in-transit-supported",
-            values=["true"],
-        ),
-        aws.ec2.GetInstanceTypesFilterArgs(
-            name="instance-storage-supported",
-            values=["true"],
-        ),
-        aws.ec2.GetInstanceTypesFilterArgs(
-            name="instance-type",
-            values=[
-                "g5.2xlarge",
-                "g5.4xlarge",
-            ],
-        ),
-    ])
-    ```
-
 
     :param Sequence[pulumi.InputType['GetInstanceTypesFilterArgs']] filters: One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstanceTypes.html) for supported filters. Detailed below.
     """
@@ -120,35 +91,6 @@ def get_instance_types_output(filters: Optional[pulumi.Input[Optional[Sequence[p
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInstanceTypesResult]:
     """
     Information about EC2 Instance Types.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.ec2.get_instance_types(filters=[
-        aws.ec2.GetInstanceTypesFilterArgs(
-            name="auto-recovery-supported",
-            values=["true"],
-        ),
-        aws.ec2.GetInstanceTypesFilterArgs(
-            name="network-info.encryption-in-transit-supported",
-            values=["true"],
-        ),
-        aws.ec2.GetInstanceTypesFilterArgs(
-            name="instance-storage-supported",
-            values=["true"],
-        ),
-        aws.ec2.GetInstanceTypesFilterArgs(
-            name="instance-type",
-            values=[
-                "g5.2xlarge",
-                "g5.4xlarge",
-            ],
-        ),
-    ])
-    ```
 
 
     :param Sequence[pulumi.InputType['GetInstanceTypesFilterArgs']] filters: One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstanceTypes.html) for supported filters. Detailed below.

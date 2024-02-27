@@ -25,22 +25,22 @@ namespace Pulumi.Aws.DynamoDB
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleTable = new Aws.DynamoDB.Table("exampleTable", new()
+    ///     var exampleTable = new Aws.Dynamodb.Table.Table("exampleTable", new()
     ///     {
     ///         ReadCapacity = 10,
     ///         WriteCapacity = 10,
     ///         HashKey = "exampleHashKey",
     ///         Attributes = new[]
     ///         {
-    ///             new Aws.DynamoDB.Inputs.TableAttributeArgs
+    ///             
     ///             {
-    ///                 Name = "exampleHashKey",
-    ///                 Type = "S",
+    ///                 { "name", "exampleHashKey" },
+    ///                 { "type", "S" },
     ///             },
     ///         },
     ///     });
     /// 
-    ///     var exampleTableItem = new Aws.DynamoDB.TableItem("exampleTableItem", new()
+    ///     var exampleTableItem = new Aws.Dynamodb.TableItem.TableItem("exampleTableItem", new()
     ///     {
     ///         TableName = exampleTable.Name,
     ///         HashKey = exampleTable.HashKey,

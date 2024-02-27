@@ -17,72 +17,12 @@ public final class AthenaFunctions {
     /**
      * Provides an Athena Named Query data source.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.athena.AthenaFunctions;
-     * import com.pulumi.aws.athena.inputs.GetNamedQueryArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = AthenaFunctions.getNamedQuery(GetNamedQueryArgs.builder()
-     *             .name(&#34;athenaQueryName&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetNamedQueryResult> getNamedQuery(GetNamedQueryArgs args) {
         return getNamedQuery(args, InvokeOptions.Empty);
     }
     /**
      * Provides an Athena Named Query data source.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.athena.AthenaFunctions;
-     * import com.pulumi.aws.athena.inputs.GetNamedQueryArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = AthenaFunctions.getNamedQuery(GetNamedQueryArgs.builder()
-     *             .name(&#34;athenaQueryName&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetNamedQueryResult> getNamedQueryPlain(GetNamedQueryPlainArgs args) {
@@ -91,72 +31,12 @@ public final class AthenaFunctions {
     /**
      * Provides an Athena Named Query data source.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.athena.AthenaFunctions;
-     * import com.pulumi.aws.athena.inputs.GetNamedQueryArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = AthenaFunctions.getNamedQuery(GetNamedQueryArgs.builder()
-     *             .name(&#34;athenaQueryName&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetNamedQueryResult> getNamedQuery(GetNamedQueryArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:athena/getNamedQuery:getNamedQuery", TypeShape.of(GetNamedQueryResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Provides an Athena Named Query data source.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.athena.AthenaFunctions;
-     * import com.pulumi.aws.athena.inputs.GetNamedQueryArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = AthenaFunctions.getNamedQuery(GetNamedQueryArgs.builder()
-     *             .name(&#34;athenaQueryName&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetNamedQueryResult> getNamedQueryPlain(GetNamedQueryPlainArgs args, InvokeOptions options) {

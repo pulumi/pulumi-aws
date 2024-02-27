@@ -231,7 +231,7 @@ class ScheduleGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.scheduler.ScheduleGroup("example")
+        example = aws.scheduler.schedule_group.ScheduleGroup("example")
         ```
 
         ## Import
@@ -267,7 +267,7 @@ class ScheduleGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.scheduler.ScheduleGroup("example")
+        example = aws.scheduler.schedule_group.ScheduleGroup("example")
         ```
 
         ## Import

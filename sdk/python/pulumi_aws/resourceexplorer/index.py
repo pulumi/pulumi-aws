@@ -172,7 +172,7 @@ class Index(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.resourceexplorer.Index("example", type="LOCAL")
+        example = aws.resourceexplorer.index.Index("example", type=LOCAL)
         ```
 
         ## Import
@@ -203,7 +203,7 @@ class Index(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.resourceexplorer.Index("example", type="LOCAL")
+        example = aws.resourceexplorer.index.Index("example", type=LOCAL)
         ```
 
         ## Import

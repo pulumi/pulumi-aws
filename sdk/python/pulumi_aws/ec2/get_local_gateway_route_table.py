@@ -113,19 +113,6 @@ def get_local_gateway_route_table(filters: Optional[Sequence[pulumi.InputType['G
     This data source can prove useful when a module accepts a local gateway route table id as
     an input variable and needs to, for example, find the associated Outpost or Local Gateway.
 
-    ## Example Usage
-
-    The following example returns a specific local gateway route table ID
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    config = pulumi.Config()
-    aws_ec2_local_gateway_route_table = config.require_object("awsEc2LocalGatewayRouteTable")
-    selected = aws.ec2.get_local_gateway_route_table(local_gateway_route_table_id=aws_ec2_local_gateway_route_table)
-    ```
-
 
     :param str local_gateway_id: ID of the specific local gateway route table to retrieve.
     :param str local_gateway_route_table_id: Local Gateway Route Table Id assigned to desired local gateway route table
@@ -170,19 +157,6 @@ def get_local_gateway_route_table_output(filters: Optional[pulumi.Input[Optional
 
     This data source can prove useful when a module accepts a local gateway route table id as
     an input variable and needs to, for example, find the associated Outpost or Local Gateway.
-
-    ## Example Usage
-
-    The following example returns a specific local gateway route table ID
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    config = pulumi.Config()
-    aws_ec2_local_gateway_route_table = config.require_object("awsEc2LocalGatewayRouteTable")
-    selected = aws.ec2.get_local_gateway_route_table(local_gateway_route_table_id=aws_ec2_local_gateway_route_table)
-    ```
 
 
     :param str local_gateway_id: ID of the specific local gateway route table to retrieve.

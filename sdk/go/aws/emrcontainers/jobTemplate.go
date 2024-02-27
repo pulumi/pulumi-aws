@@ -22,31 +22,29 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/emrcontainers"
+//	emrcontainers/jobTemplate "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/emrcontainers/jobTemplate"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := emrcontainers.NewJobTemplate(ctx, "example", &emrcontainers.JobTemplateArgs{
-//				JobTemplateData: &emrcontainers.JobTemplateJobTemplateDataArgs{
-//					ExecutionRoleArn: pulumi.Any(aws_iam_role.Example.Arn),
-//					ReleaseLabel:     pulumi.String("emr-6.10.0-latest"),
-//					JobDriver: &emrcontainers.JobTemplateJobTemplateDataJobDriverArgs{
-//						SparkSqlJobDriver: &emrcontainers.JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverArgs{
-//							EntryPoint: pulumi.String("default"),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := emrcontainers/jobTemplate.NewJobTemplate(ctx, "example", &emrcontainers/jobTemplate.JobTemplateArgs{
+// JobTemplateData: map[string]interface{}{
+// "executionRoleArn": aws_iam_role.Example.Arn,
+// "releaseLabel": "emr-6.10.0-latest",
+// "jobDriver": map[string]interface{}{
+// "sparkSqlJobDriver": map[string]interface{}{
+// "entryPoint": "default",
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

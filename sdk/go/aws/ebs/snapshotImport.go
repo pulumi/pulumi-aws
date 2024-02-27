@@ -21,33 +21,31 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ebs"
+//	ebs/snapshotImport "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ebs/snapshotImport"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ebs.NewSnapshotImport(ctx, "example", &ebs.SnapshotImportArgs{
-//				DiskContainer: &ebs.SnapshotImportDiskContainerArgs{
-//					Format: pulumi.String("VHD"),
-//					UserBucket: &ebs.SnapshotImportDiskContainerUserBucketArgs{
-//						S3Bucket: pulumi.String("disk-images"),
-//						S3Key:    pulumi.String("source.vhd"),
-//					},
-//				},
-//				RoleName: pulumi.String("disk-image-import"),
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("HelloWorld"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := ebs/snapshotImport.NewSnapshotImport(ctx, "example", &ebs/snapshotImport.SnapshotImportArgs{
+// DiskContainer: map[string]interface{}{
+// "format": "VHD",
+// "userBucket": map[string]interface{}{
+// "s3Bucket": "disk-images",
+// "s3Key": "source.vhd",
+// },
+// },
+// RoleName: "disk-image-import",
+// Tags: map[string]interface{}{
+// "Name": "HelloWorld",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 type SnapshotImport struct {
 	pulumi.CustomResourceState

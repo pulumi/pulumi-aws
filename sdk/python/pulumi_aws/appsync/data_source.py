@@ -448,48 +448,6 @@ class DataSource(pulumi.CustomResource):
         """
         Provides an AppSync Data Source.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_table = aws.dynamodb.Table("exampleTable",
-            read_capacity=1,
-            write_capacity=1,
-            hash_key="UserId",
-            attributes=[aws.dynamodb.TableAttributeArgs(
-                name="UserId",
-                type="S",
-            )])
-        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["appsync.amazonaws.com"],
-            )],
-            actions=["sts:AssumeRole"],
-        )])
-        example_role = aws.iam.Role("exampleRole", assume_role_policy=assume_role.json)
-        example_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            actions=["dynamodb:*"],
-            resources=[example_table.arn],
-        )])
-        example_role_policy = aws.iam.RolePolicy("exampleRolePolicy",
-            role=example_role.id,
-            policy=example_policy_document.json)
-        example_graph_ql_api = aws.appsync.GraphQLApi("exampleGraphQLApi", authentication_type="API_KEY")
-        example_data_source = aws.appsync.DataSource("exampleDataSource",
-            api_id=example_graph_ql_api.id,
-            name="my_appsync_example",
-            service_role_arn=example_role.arn,
-            type="AMAZON_DYNAMODB",
-            dynamodb_config=aws.appsync.DataSourceDynamodbConfigArgs(
-                table_name=example_table.name,
-            ))
-        ```
-
         ## Import
 
         Using `pulumi import`, import `aws_appsync_datasource` using the `api_id`, a hyphen, and `name`. For example:
@@ -521,48 +479,6 @@ class DataSource(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an AppSync Data Source.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_table = aws.dynamodb.Table("exampleTable",
-            read_capacity=1,
-            write_capacity=1,
-            hash_key="UserId",
-            attributes=[aws.dynamodb.TableAttributeArgs(
-                name="UserId",
-                type="S",
-            )])
-        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["appsync.amazonaws.com"],
-            )],
-            actions=["sts:AssumeRole"],
-        )])
-        example_role = aws.iam.Role("exampleRole", assume_role_policy=assume_role.json)
-        example_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            actions=["dynamodb:*"],
-            resources=[example_table.arn],
-        )])
-        example_role_policy = aws.iam.RolePolicy("exampleRolePolicy",
-            role=example_role.id,
-            policy=example_policy_document.json)
-        example_graph_ql_api = aws.appsync.GraphQLApi("exampleGraphQLApi", authentication_type="API_KEY")
-        example_data_source = aws.appsync.DataSource("exampleDataSource",
-            api_id=example_graph_ql_api.id,
-            name="my_appsync_example",
-            service_role_arn=example_role.arn,
-            type="AMAZON_DYNAMODB",
-            dynamodb_config=aws.appsync.DataSourceDynamodbConfigArgs(
-                table_name=example_table.name,
-            ))
-        ```
 
         ## Import
 

@@ -31,8 +31,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.evidently.Feature;
  * import com.pulumi.aws.evidently.FeatureArgs;
- * import com.pulumi.aws.evidently.inputs.FeatureVariationArgs;
- * import com.pulumi.aws.evidently.inputs.FeatureVariationValueArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -49,13 +47,8 @@ import javax.annotation.Nullable;
  *         var example = new Feature(&#34;example&#34;, FeatureArgs.builder()        
  *             .project(aws_evidently_project.example().name())
  *             .description(&#34;example description&#34;)
- *             .variations(FeatureVariationArgs.builder()
- *                 .name(&#34;Variation1&#34;)
- *                 .value(FeatureVariationValueArgs.builder()
- *                     .stringValue(&#34;example&#34;)
- *                     .build())
- *                 .build())
- *             .tags(Map.of(&#34;Key1&#34;, &#34;example Feature&#34;))
+ *             .variations(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -70,8 +63,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.evidently.Feature;
  * import com.pulumi.aws.evidently.FeatureArgs;
- * import com.pulumi.aws.evidently.inputs.FeatureVariationArgs;
- * import com.pulumi.aws.evidently.inputs.FeatureVariationValueArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -89,18 +80,8 @@ import javax.annotation.Nullable;
  *             .project(aws_evidently_project.example().name())
  *             .defaultVariation(&#34;Variation2&#34;)
  *             .variations(            
- *                 FeatureVariationArgs.builder()
- *                     .name(&#34;Variation1&#34;)
- *                     .value(FeatureVariationValueArgs.builder()
- *                         .stringValue(&#34;exampleval1&#34;)
- *                         .build())
- *                     .build(),
- *                 FeatureVariationArgs.builder()
- *                     .name(&#34;Variation2&#34;)
- *                     .value(FeatureVariationValueArgs.builder()
- *                         .stringValue(&#34;exampleval2&#34;)
- *                         .build())
- *                     .build())
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -115,8 +96,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.evidently.Feature;
  * import com.pulumi.aws.evidently.FeatureArgs;
- * import com.pulumi.aws.evidently.inputs.FeatureVariationArgs;
- * import com.pulumi.aws.evidently.inputs.FeatureVariationValueArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -132,20 +111,10 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Feature(&#34;example&#34;, FeatureArgs.builder()        
  *             .project(aws_evidently_project.example().name())
- *             .entityOverrides(Map.of(&#34;test1&#34;, &#34;Variation1&#34;))
+ *             .entityOverrides(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .variations(            
- *                 FeatureVariationArgs.builder()
- *                     .name(&#34;Variation1&#34;)
- *                     .value(FeatureVariationValueArgs.builder()
- *                         .stringValue(&#34;exampleval1&#34;)
- *                         .build())
- *                     .build(),
- *                 FeatureVariationArgs.builder()
- *                     .name(&#34;Variation2&#34;)
- *                     .value(FeatureVariationValueArgs.builder()
- *                         .stringValue(&#34;exampleval2&#34;)
- *                         .build())
- *                     .build())
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -160,8 +129,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.evidently.Feature;
  * import com.pulumi.aws.evidently.FeatureArgs;
- * import com.pulumi.aws.evidently.inputs.FeatureVariationArgs;
- * import com.pulumi.aws.evidently.inputs.FeatureVariationValueArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -178,13 +145,8 @@ import javax.annotation.Nullable;
  *         var example = new Feature(&#34;example&#34;, FeatureArgs.builder()        
  *             .project(aws_evidently_project.example().name())
  *             .evaluationStrategy(&#34;ALL_RULES&#34;)
- *             .entityOverrides(Map.of(&#34;test1&#34;, &#34;Variation1&#34;))
- *             .variations(FeatureVariationArgs.builder()
- *                 .name(&#34;Variation1&#34;)
- *                 .value(FeatureVariationValueArgs.builder()
- *                     .stringValue(&#34;exampleval1&#34;)
- *                     .build())
- *                 .build())
+ *             .entityOverrides(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .variations(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

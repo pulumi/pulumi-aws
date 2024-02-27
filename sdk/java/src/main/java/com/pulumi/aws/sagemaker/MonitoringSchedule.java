@@ -30,7 +30,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.sagemaker.MonitoringSchedule;
  * import com.pulumi.aws.sagemaker.MonitoringScheduleArgs;
- * import com.pulumi.aws.sagemaker.inputs.MonitoringScheduleMonitoringScheduleConfigArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -45,10 +44,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new MonitoringSchedule(&#34;test&#34;, MonitoringScheduleArgs.builder()        
- *             .monitoringScheduleConfig(MonitoringScheduleMonitoringScheduleConfigArgs.builder()
- *                 .monitoringJobDefinitionName(aws_sagemaker_data_quality_job_definition.test().name())
- *                 .monitoringType(&#34;DataQuality&#34;)
- *                 .build())
+ *             .monitoringScheduleConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

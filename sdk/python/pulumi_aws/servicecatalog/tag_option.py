@@ -160,9 +160,9 @@ class TagOption(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.servicecatalog.TagOption("example",
-            key="nyckel",
-            value="värde")
+        example = aws.servicecatalog.tag_option.TagOption("example",
+            key=nyckel,
+            value=värde)
         ```
 
         ## Import
@@ -197,9 +197,9 @@ class TagOption(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.servicecatalog.TagOption("example",
-            key="nyckel",
-            value="värde")
+        example = aws.servicecatalog.tag_option.TagOption("example",
+            key=nyckel,
+            value=värde)
         ```
 
         ## Import

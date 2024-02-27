@@ -23,7 +23,7 @@ namespace Pulumi.Aws.TimestreamWrite
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.TimestreamWrite.Database("example", new()
+    ///     var example = new Aws.Timestreamwrite.Database.Database("example", new()
     ///     {
     ///         DatabaseName = "database-example",
     ///     });
@@ -40,7 +40,7 @@ namespace Pulumi.Aws.TimestreamWrite
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.TimestreamWrite.Database("example", new()
+    ///     var example = new Aws.Timestreamwrite.Database.Database("example", new()
     ///     {
     ///         DatabaseName = "database-example",
     ///         KmsKeyId = aws_kms_key.Example.Arn,

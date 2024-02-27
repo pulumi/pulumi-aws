@@ -59,27 +59,6 @@ def get_log_delivery_canonical_user_id(region: Optional[str] = None,
     The CloudFront Log Delivery Canonical User ID data source allows access to the [canonical user ID](http://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html) of the AWS `awslogsdelivery` account for CloudFront bucket logging.
     See the [Amazon CloudFront Developer Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/AccessLogs.html) for more information.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example_log_delivery_canonical_user_id = aws.cloudfront.get_log_delivery_canonical_user_id()
-    example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
-    example_bucket_acl_v2 = aws.s3.BucketAclV2("exampleBucketAclV2",
-        bucket=example_bucket_v2.id,
-        access_control_policy=aws.s3.BucketAclV2AccessControlPolicyArgs(
-            grants=[aws.s3.BucketAclV2AccessControlPolicyGrantArgs(
-                grantee=aws.s3.BucketAclV2AccessControlPolicyGrantGranteeArgs(
-                    id=example_log_delivery_canonical_user_id.id,
-                    type="CanonicalUser",
-                ),
-                permission="FULL_CONTROL",
-            )],
-        ))
-    ```
-
 
     :param str region: Region you'd like the zone for. By default, fetches the current region.
     """
@@ -99,27 +78,6 @@ def get_log_delivery_canonical_user_id_output(region: Optional[pulumi.Input[Opti
     """
     The CloudFront Log Delivery Canonical User ID data source allows access to the [canonical user ID](http://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html) of the AWS `awslogsdelivery` account for CloudFront bucket logging.
     See the [Amazon CloudFront Developer Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/AccessLogs.html) for more information.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example_log_delivery_canonical_user_id = aws.cloudfront.get_log_delivery_canonical_user_id()
-    example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
-    example_bucket_acl_v2 = aws.s3.BucketAclV2("exampleBucketAclV2",
-        bucket=example_bucket_v2.id,
-        access_control_policy=aws.s3.BucketAclV2AccessControlPolicyArgs(
-            grants=[aws.s3.BucketAclV2AccessControlPolicyGrantArgs(
-                grantee=aws.s3.BucketAclV2AccessControlPolicyGrantGranteeArgs(
-                    id=example_log_delivery_canonical_user_id.id,
-                    type="CanonicalUser",
-                ),
-                permission="FULL_CONTROL",
-            )],
-        ))
-    ```
 
 
     :param str region: Region you'd like the zone for. By default, fetches the current region.

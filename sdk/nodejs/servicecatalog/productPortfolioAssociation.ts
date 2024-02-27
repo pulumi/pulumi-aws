@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.servicecatalog.ProductPortfolioAssociation("example", {
+ * const example = new aws.servicecatalog/productPortfolioAssociation.ProductPortfolioAssociation("example", {
  *     portfolioId: "port-68656c6c6f",
  *     productId: "prod-dnigbtea24ste",
  * });

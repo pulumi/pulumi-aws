@@ -225,40 +225,6 @@ def get_vpc_endpoint_service(filters: Optional[Sequence[pulumi.InputType['GetVpc
     can be specified when creating a VPC endpoint within the region configured in the provider.
 
     ## Example Usage
-    ### AWS Service
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    s3 = aws.ec2.get_vpc_endpoint_service(service="s3",
-        service_type="Gateway")
-    # Create a VPC
-    foo = aws.ec2.Vpc("foo", cidr_block="10.0.0.0/16")
-    # Create a VPC endpoint
-    ep = aws.ec2.VpcEndpoint("ep",
-        vpc_id=foo.id,
-        service_name=s3.service_name)
-    ```
-    ### Non-AWS Service
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    custome = aws.ec2.get_vpc_endpoint_service(service_name="com.amazonaws.vpce.us-west-2.vpce-svc-0e87519c997c63cd8")
-    ```
-    ### Filter
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.ec2.get_vpc_endpoint_service(filters=[aws.ec2.GetVpcEndpointServiceFilterArgs(
-        name="service-name",
-        values=["some-service"],
-    )])
-    ```
 
 
     :param Sequence[pulumi.InputType['GetVpcEndpointServiceFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.
@@ -309,40 +275,6 @@ def get_vpc_endpoint_service_output(filters: Optional[pulumi.Input[Optional[Sequ
     can be specified when creating a VPC endpoint within the region configured in the provider.
 
     ## Example Usage
-    ### AWS Service
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    s3 = aws.ec2.get_vpc_endpoint_service(service="s3",
-        service_type="Gateway")
-    # Create a VPC
-    foo = aws.ec2.Vpc("foo", cidr_block="10.0.0.0/16")
-    # Create a VPC endpoint
-    ep = aws.ec2.VpcEndpoint("ep",
-        vpc_id=foo.id,
-        service_name=s3.service_name)
-    ```
-    ### Non-AWS Service
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    custome = aws.ec2.get_vpc_endpoint_service(service_name="com.amazonaws.vpce.us-west-2.vpce-svc-0e87519c997c63cd8")
-    ```
-    ### Filter
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.ec2.get_vpc_endpoint_service(filters=[aws.ec2.GetVpcEndpointServiceFilterArgs(
-        name="service-name",
-        values=["some-service"],
-    )])
-    ```
 
 
     :param Sequence[pulumi.InputType['GetVpcEndpointServiceFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.

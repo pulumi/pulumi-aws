@@ -400,14 +400,77 @@ class Template(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.quicksight.Template("example",
-            template_id="example-id",
-            version_description="version",
-            source_entity=aws.quicksight.TemplateSourceEntityArgs(
-                source_template=aws.quicksight.TemplateSourceEntitySourceTemplateArgs(
-                    arn=aws_quicksight_template["source"]["arn"],
-                ),
-            ))
+        example = aws.quicksight.template.Template("example",
+            template_id=example-id,
+            version_description=version,
+            source_entity={
+                sourceTemplate: {
+                    arn: aws_quicksight_template.source.arn,
+                },
+            })
+        ```
+        ### With Definition
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.quicksight.template.Template("example",
+            definition={
+                dataSetConfigurations: [{
+                    dataSetSchema: {
+                        columnSchemaList: [
+                            {
+                                dataType: STRING,
+                                name: Column1,
+                            },
+                            {
+                                dataType: INTEGER,
+                                name: Column2,
+                            },
+                        ],
+                    },
+                    placeholder: 1,
+                }],
+                sheets: [{
+                    sheetId: Test1,
+                    title: Test,
+                    visuals: [{
+                        barChartVisual: {
+                            chartConfiguration: {
+                                fieldWells: {
+                                    barChartAggregatedFieldWells: {
+                                        category: [{
+                                            categoricalDimensionField: {
+                                                column: {
+                                                    columnName: Column1,
+                                                    dataSetIdentifier: 1,
+                                                },
+                                                fieldId: 1,
+                                            },
+                                        }],
+                                        values: [{
+                                            numericalMeasureField: {
+                                                aggregationFunction: {
+                                                    simpleNumericalAggregation: SUM,
+                                                },
+                                                column: {
+                                                    columnName: Column2,
+                                                    dataSetIdentifier: 1,
+                                                },
+                                                fieldId: 2,
+                                            },
+                                        }],
+                                    },
+                                },
+                            },
+                            visualId: BarChart,
+                        },
+                    }],
+                }],
+            },
+            template_id=example-id,
+            version_description=version)
         ```
 
         ## Import
@@ -446,14 +509,77 @@ class Template(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.quicksight.Template("example",
-            template_id="example-id",
-            version_description="version",
-            source_entity=aws.quicksight.TemplateSourceEntityArgs(
-                source_template=aws.quicksight.TemplateSourceEntitySourceTemplateArgs(
-                    arn=aws_quicksight_template["source"]["arn"],
-                ),
-            ))
+        example = aws.quicksight.template.Template("example",
+            template_id=example-id,
+            version_description=version,
+            source_entity={
+                sourceTemplate: {
+                    arn: aws_quicksight_template.source.arn,
+                },
+            })
+        ```
+        ### With Definition
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.quicksight.template.Template("example",
+            definition={
+                dataSetConfigurations: [{
+                    dataSetSchema: {
+                        columnSchemaList: [
+                            {
+                                dataType: STRING,
+                                name: Column1,
+                            },
+                            {
+                                dataType: INTEGER,
+                                name: Column2,
+                            },
+                        ],
+                    },
+                    placeholder: 1,
+                }],
+                sheets: [{
+                    sheetId: Test1,
+                    title: Test,
+                    visuals: [{
+                        barChartVisual: {
+                            chartConfiguration: {
+                                fieldWells: {
+                                    barChartAggregatedFieldWells: {
+                                        category: [{
+                                            categoricalDimensionField: {
+                                                column: {
+                                                    columnName: Column1,
+                                                    dataSetIdentifier: 1,
+                                                },
+                                                fieldId: 1,
+                                            },
+                                        }],
+                                        values: [{
+                                            numericalMeasureField: {
+                                                aggregationFunction: {
+                                                    simpleNumericalAggregation: SUM,
+                                                },
+                                                column: {
+                                                    columnName: Column2,
+                                                    dataSetIdentifier: 1,
+                                                },
+                                                fieldId: 2,
+                                            },
+                                        }],
+                                    },
+                                },
+                            },
+                            visualId: BarChart,
+                        },
+                    }],
+                }],
+            },
+            template_id=example-id,
+            version_description=version)
         ```
 
         ## Import

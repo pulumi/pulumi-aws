@@ -13,54 +13,6 @@ namespace Pulumi.Aws.DirectConnect
     /// Provides a resource to manage the accepter's side of a Direct Connect hosted public virtual interface.
     /// This resource accepts ownership of a public virtual interface created by another AWS account.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var accepter = new Aws.Provider("accepter");
-    /// 
-    ///     // Accepter's credentials.
-    ///     var accepterCallerIdentity = Aws.GetCallerIdentity.Invoke();
-    /// 
-    ///     // Creator's side of the VIF
-    ///     var creator = new Aws.DirectConnect.HostedPublicVirtualInterface("creator", new()
-    ///     {
-    ///         ConnectionId = "dxcon-zzzzzzzz",
-    ///         OwnerAccountId = accepterCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
-    ///         Vlan = 4094,
-    ///         AddressFamily = "ipv4",
-    ///         BgpAsn = 65352,
-    ///         CustomerAddress = "175.45.176.1/30",
-    ///         AmazonAddress = "175.45.176.2/30",
-    ///         RouteFilterPrefixes = new[]
-    ///         {
-    ///             "210.52.109.0/24",
-    ///             "175.45.176.0/22",
-    ///         },
-    ///     });
-    /// 
-    ///     // Accepter's side of the VIF.
-    ///     var accepterHostedPublicVirtualInterfaceAccepter = new Aws.DirectConnect.HostedPublicVirtualInterfaceAccepter("accepterHostedPublicVirtualInterfaceAccepter", new()
-    ///     {
-    ///         VirtualInterfaceId = creator.Id,
-    ///         Tags = 
-    ///         {
-    ///             { "Side", "Accepter" },
-    ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         Provider = aws.Accepter,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Direct Connect hosted public virtual interfaces using the VIF `id`. For example:

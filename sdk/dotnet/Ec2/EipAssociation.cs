@@ -28,7 +28,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var web = new Aws.Ec2.Instance("web", new()
+    ///     var web = new Aws.Ec2.Instance.Instance("web", new()
     ///     {
     ///         Ami = "ami-21f78e11",
     ///         AvailabilityZone = "us-west-2a",
@@ -39,12 +39,12 @@ namespace Pulumi.Aws.Ec2
     ///         },
     ///     });
     /// 
-    ///     var example = new Aws.Ec2.Eip("example", new()
+    ///     var example = new Aws.Ec2.Eip.Eip("example", new()
     ///     {
     ///         Domain = "vpc",
     ///     });
     /// 
-    ///     var eipAssoc = new Aws.Ec2.EipAssociation("eipAssoc", new()
+    ///     var eipAssoc = new Aws.Ec2.EipAssociation.EipAssociation("eipAssoc", new()
     ///     {
     ///         InstanceId = web.Id,
     ///         AllocationId = example.Id,

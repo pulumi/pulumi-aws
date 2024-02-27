@@ -16,14 +16,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const testLb = new aws.lightsail.Lb("testLb", {
+ * const testLb = new aws.lightsail/lb.Lb("testLb", {
  *     healthCheckPath: "/",
- *     instancePort: 80,
+ *     instancePort: "80",
  *     tags: {
  *         foo: "bar",
  *     },
  * });
- * const testLbCertificate = new aws.lightsail.LbCertificate("testLbCertificate", {
+ * const testLbCertificate = new aws.lightsail/lbCertificate.LbCertificate("testLbCertificate", {
  *     lbName: testLb.id,
  *     domainName: "test.com",
  * });

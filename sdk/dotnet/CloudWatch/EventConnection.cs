@@ -24,15 +24,15 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Aws.CloudWatch.EventConnection("test", new()
+    ///     var test = new Aws.Cloudwatch.EventConnection.EventConnection("test", new()
     ///     {
-    ///         AuthParameters = new Aws.CloudWatch.Inputs.EventConnectionAuthParametersArgs
+    ///         AuthParameters = 
     ///         {
-    ///             ApiKey = new Aws.CloudWatch.Inputs.EventConnectionAuthParametersApiKeyArgs
+    ///             { "apiKey", 
     ///             {
-    ///                 Key = "x-signature",
-    ///                 Value = "1234",
-    ///             },
+    ///                 { "key", "x-signature" },
+    ///                 { "value", "1234" },
+    ///             } },
     ///         },
     ///         AuthorizationType = "API_KEY",
     ///         Description = "A connection description",
@@ -50,15 +50,138 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Aws.CloudWatch.EventConnection("test", new()
+    ///     var test = new Aws.Cloudwatch.EventConnection.EventConnection("test", new()
     ///     {
-    ///         AuthParameters = new Aws.CloudWatch.Inputs.EventConnectionAuthParametersArgs
+    ///         AuthParameters = 
     ///         {
-    ///             Basic = new Aws.CloudWatch.Inputs.EventConnectionAuthParametersBasicArgs
+    ///             { "basic", 
     ///             {
-    ///                 Password = "Pass1234!",
-    ///                 Username = "user",
-    ///             },
+    ///                 { "password", "Pass1234!" },
+    ///                 { "username", "user" },
+    ///             } },
+    ///         },
+    ///         AuthorizationType = "BASIC",
+    ///         Description = "A connection description",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### OAuth Authorization
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var test = new Aws.Cloudwatch.EventConnection.EventConnection("test", new()
+    ///     {
+    ///         AuthParameters = 
+    ///         {
+    ///             { "oauth", 
+    ///             {
+    ///                 { "authorizationEndpoint", "https://auth.url.com/endpoint" },
+    ///                 { "clientParameters", 
+    ///                 {
+    ///                     { "clientId", "1234567890" },
+    ///                     { "clientSecret", "Pass1234!" },
+    ///                 } },
+    ///                 { "httpMethod", "GET" },
+    ///                 { "oauthHttpParameters", 
+    ///                 {
+    ///                     { "body", new[]
+    ///                     {
+    ///                         
+    ///                         {
+    ///                             { "isValueSecret", false },
+    ///                             { "key", "body-parameter-key" },
+    ///                             { "value", "body-parameter-value" },
+    ///                         },
+    ///                     } },
+    ///                     { "header", new[]
+    ///                     {
+    ///                         
+    ///                         {
+    ///                             { "isValueSecret", false },
+    ///                             { "key", "header-parameter-key" },
+    ///                             { "value", "header-parameter-value" },
+    ///                         },
+    ///                     } },
+    ///                     { "queryString", new[]
+    ///                     {
+    ///                         
+    ///                         {
+    ///                             { "isValueSecret", false },
+    ///                             { "key", "query-string-parameter-key" },
+    ///                             { "value", "query-string-parameter-value" },
+    ///                         },
+    ///                     } },
+    ///                 } },
+    ///             } },
+    ///         },
+    ///         AuthorizationType = "OAUTH_CLIENT_CREDENTIALS",
+    ///         Description = "A connection description",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### Invocation Http Parameters
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var test = new Aws.Cloudwatch.EventConnection.EventConnection("test", new()
+    ///     {
+    ///         AuthParameters = 
+    ///         {
+    ///             { "basic", 
+    ///             {
+    ///                 { "password", "Pass1234!" },
+    ///                 { "username", "user" },
+    ///             } },
+    ///             { "invocationHttpParameters", 
+    ///             {
+    ///                 { "body", new[]
+    ///                 {
+    ///                     
+    ///                     {
+    ///                         { "isValueSecret", false },
+    ///                         { "key", "body-parameter-key" },
+    ///                         { "value", "body-parameter-value" },
+    ///                     },
+    ///                     
+    ///                     {
+    ///                         { "isValueSecret", true },
+    ///                         { "key", "body-parameter-key2" },
+    ///                         { "value", "body-parameter-value2" },
+    ///                     },
+    ///                 } },
+    ///                 { "header", new[]
+    ///                 {
+    ///                     
+    ///                     {
+    ///                         { "isValueSecret", false },
+    ///                         { "key", "header-parameter-key" },
+    ///                         { "value", "header-parameter-value" },
+    ///                     },
+    ///                 } },
+    ///                 { "queryString", new[]
+    ///                 {
+    ///                     
+    ///                     {
+    ///                         { "isValueSecret", false },
+    ///                         { "key", "query-string-parameter-key" },
+    ///                         { "value", "query-string-parameter-value" },
+    ///                     },
+    ///                 } },
+    ///             } },
     ///         },
     ///         AuthorizationType = "BASIC",
     ///         Description = "A connection description",

@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.gamelift.GameServerGroup("example", {
+ * const example = new aws.gamelift/gameServerGroup.GameServerGroup("example", {
  *     gameServerGroupName: "example",
  *     instanceDefinitions: [
  *         {
@@ -43,7 +43,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.gamelift.GameServerGroup("example", {
+ * const example = new aws.gamelift/gameServerGroup.GameServerGroup("example", {
  *     autoScalingPolicy: {
  *         estimatedInstanceWarmup: 60,
  *         targetTrackingConfiguration: {
@@ -79,32 +79,6 @@ import * as utilities from "../utilities";
  *     ],
  * }, {
  *     dependsOn: [aws_iam_role_policy_attachment.example],
- * });
- * ```
- * ### Example IAM Role for GameLift Game Server Group
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const current = aws.getPartition({});
- * const assumeRole = aws.iam.getPolicyDocument({
- *     statements: [{
- *         effect: "Allow",
- *         principals: [{
- *             type: "Service",
- *             identifiers: [
- *                 "autoscaling.amazonaws.com",
- *                 "gamelift.amazonaws.com",
- *             ],
- *         }],
- *         actions: ["sts:AssumeRole"],
- *     }],
- * });
- * const exampleRole = new aws.iam.Role("exampleRole", {assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json)});
- * const exampleRolePolicyAttachment = new aws.iam.RolePolicyAttachment("exampleRolePolicyAttachment", {
- *     policyArn: current.then(current => `arn:${current.partition}:iam::aws:policy/GameLiftGameServerGroupPolicy`),
- *     role: exampleRole.name,
  * });
  * ```
  *

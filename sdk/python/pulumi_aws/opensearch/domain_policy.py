@@ -100,32 +100,6 @@ class DomainPolicy(pulumi.CustomResource):
         """
         Allows setting policy to an OpenSearch domain while referencing domain attributes (e.g., ARN).
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.opensearch.Domain("example", engine_version="OpenSearch_1.1")
-        main_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="*",
-                identifiers=["*"],
-            )],
-            actions=["es:*"],
-            resources=[example.arn.apply(lambda arn: f"{arn}/*")],
-            conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
-                test="IpAddress",
-                variable="aws:SourceIp",
-                values=["127.0.0.1/32"],
-            )],
-        )])
-        main_domain_policy = aws.opensearch.DomainPolicy("mainDomainPolicy",
-            domain_name=example.domain_name,
-            access_policies=main_policy_document.json)
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] access_policies: IAM policy document specifying the access policies for the domain
@@ -139,32 +113,6 @@ class DomainPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Allows setting policy to an OpenSearch domain while referencing domain attributes (e.g., ARN).
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.opensearch.Domain("example", engine_version="OpenSearch_1.1")
-        main_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="*",
-                identifiers=["*"],
-            )],
-            actions=["es:*"],
-            resources=[example.arn.apply(lambda arn: f"{arn}/*")],
-            conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
-                test="IpAddress",
-                variable="aws:SourceIp",
-                values=["127.0.0.1/32"],
-            )],
-        )])
-        main_domain_policy = aws.opensearch.DomainPolicy("mainDomainPolicy",
-            domain_name=example.domain_name,
-            access_policies=main_policy_document.json)
-        ```
 
         :param str resource_name: The name of the resource.
         :param DomainPolicyArgs args: The arguments to use to populate this resource's properties.

@@ -24,27 +24,25 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/organizations"
+//	organizations/organization "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/organizations/organization"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := organizations.NewOrganization(ctx, "org", &organizations.OrganizationArgs{
-//				AwsServiceAccessPrincipals: pulumi.StringArray{
-//					pulumi.String("cloudtrail.amazonaws.com"),
-//					pulumi.String("config.amazonaws.com"),
-//				},
-//				FeatureSet: pulumi.String("ALL"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := organizations/organization.NewOrganization(ctx, "org", &organizations/organization.OrganizationArgs{
+// AwsServiceAccessPrincipals: []string{
+// "cloudtrail.amazonaws.com",
+// "config.amazonaws.com",
+// },
+// FeatureSet: "ALL",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

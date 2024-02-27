@@ -247,8 +247,8 @@ class Group(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.resourcegroups.Group("test", resource_query=aws.resourcegroups.GroupResourceQueryArgs(
-            query=\"\"\"{
+        test = aws.resourcegroups.group.Group("test", resource_query={
+            query: {
           "ResourceTypeFilters": [
             "AWS::EC2::Instance"
           ],
@@ -260,8 +260,8 @@ class Group(pulumi.CustomResource):
           ]
         }
 
-        \"\"\",
-        ))
+        ,
+        })
         ```
 
         ## Import
@@ -295,8 +295,8 @@ class Group(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.resourcegroups.Group("test", resource_query=aws.resourcegroups.GroupResourceQueryArgs(
-            query=\"\"\"{
+        test = aws.resourcegroups.group.Group("test", resource_query={
+            query: {
           "ResourceTypeFilters": [
             "AWS::EC2::Instance"
           ],
@@ -308,8 +308,8 @@ class Group(pulumi.CustomResource):
           ]
         }
 
-        \"\"\",
-        ))
+        ,
+        })
         ```
 
         ## Import

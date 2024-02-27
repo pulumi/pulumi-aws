@@ -22,43 +22,41 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sfn"
+//	sfn/alias "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/sfn/alias"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := sfn.NewAlias(ctx, "sfnAlias", &sfn.AliasArgs{
-//				RoutingConfigurations: sfn.AliasRoutingConfigurationArray{
-//					&sfn.AliasRoutingConfigurationArgs{
-//						StateMachineVersionArn: pulumi.Any(aws_sfn_state_machine.Sfn_test.State_machine_version_arn),
-//						Weight:                 pulumi.Int(100),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = sfn.NewAlias(ctx, "mySfnAlias", &sfn.AliasArgs{
-//				RoutingConfigurations: sfn.AliasRoutingConfigurationArray{
-//					&sfn.AliasRoutingConfigurationArgs{
-//						StateMachineVersionArn: pulumi.String("arn:aws:states:us-east-1:12345:stateMachine:demo:3"),
-//						Weight:                 pulumi.Int(50),
-//					},
-//					&sfn.AliasRoutingConfigurationArgs{
-//						StateMachineVersionArn: pulumi.String("arn:aws:states:us-east-1:12345:stateMachine:demo:2"),
-//						Weight:                 pulumi.Int(50),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := sfn/alias.NewAlias(ctx, "sfnAlias", &sfn/alias.AliasArgs{
+// RoutingConfigurations: []map[string]interface{}{
+// map[string]interface{}{
+// "stateMachineVersionArn": aws_sfn_state_machine.Sfn_test.State_machine_version_arn,
+// "weight": 100,
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = sfn/alias.NewAlias(ctx, "mySfnAlias", &sfn/alias.AliasArgs{
+// RoutingConfigurations: []map[string]interface{}{
+// map[string]interface{}{
+// "stateMachineVersionArn": "arn:aws:states:us-east-1:12345:stateMachine:demo:3",
+// "weight": 50,
+// },
+// map[string]interface{}{
+// "stateMachineVersionArn": "arn:aws:states:us-east-1:12345:stateMachine:demo:2",
+// "weight": 50,
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

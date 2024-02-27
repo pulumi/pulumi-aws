@@ -24,9 +24,9 @@ namespace Pulumi.Aws.Pinpoint
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var app = new Aws.Pinpoint.App("app");
+    ///     var app = new Aws.Pinpoint.App.App("app");
     /// 
-    ///     var apnsSandbox = new Aws.Pinpoint.ApnsSandboxChannel("apnsSandbox", new()
+    ///     var apnsSandbox = new Aws.Pinpoint.ApnsSandboxChannel.ApnsSandboxChannel("apnsSandbox", new()
     ///     {
     ///         ApplicationId = app.ApplicationId,
     ///         Certificate = File.ReadAllText("./certificate.pem"),

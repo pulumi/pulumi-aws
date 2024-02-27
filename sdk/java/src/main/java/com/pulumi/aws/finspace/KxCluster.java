@@ -30,7 +30,6 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * ### Basic Usage
- * 
  * ```java
  * package generated_program;
  * 
@@ -39,11 +38,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.finspace.KxCluster;
  * import com.pulumi.aws.finspace.KxClusterArgs;
- * import com.pulumi.aws.finspace.inputs.KxClusterCapacityConfigurationArgs;
- * import com.pulumi.aws.finspace.inputs.KxClusterVpcConfigurationArgs;
- * import com.pulumi.aws.finspace.inputs.KxClusterCacheStorageConfigurationArgs;
- * import com.pulumi.aws.finspace.inputs.KxClusterDatabaseArgs;
- * import com.pulumi.aws.finspace.inputs.KxClusterCodeArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -63,28 +57,11 @@ import javax.annotation.Nullable;
  *             .releaseLabel(&#34;1.0&#34;)
  *             .azMode(&#34;SINGLE&#34;)
  *             .availabilityZoneId(&#34;use1-az2&#34;)
- *             .capacityConfiguration(KxClusterCapacityConfigurationArgs.builder()
- *                 .nodeType(&#34;kx.s.2xlarge&#34;)
- *                 .nodeCount(2)
- *                 .build())
- *             .vpcConfiguration(KxClusterVpcConfigurationArgs.builder()
- *                 .vpcId(aws_vpc.test().id())
- *                 .securityGroupIds(aws_security_group.example().id())
- *                 .subnetIds(aws_subnet.example().id())
- *                 .ipAddressType(&#34;IP_V4&#34;)
- *                 .build())
- *             .cacheStorageConfigurations(KxClusterCacheStorageConfigurationArgs.builder()
- *                 .type(&#34;CACHE_1000&#34;)
- *                 .size(1200)
- *                 .build())
- *             .databases(KxClusterDatabaseArgs.builder()
- *                 .databaseName(aws_finspace_kx_database.example().name())
- *                 .cacheConfiguration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
- *                 .build())
- *             .code(KxClusterCodeArgs.builder()
- *                 .s3Bucket(aws_s3_bucket.test().id())
- *                 .s3Key(aws_s3_object.object().key())
- *                 .build())
+ *             .capacityConfiguration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .vpcConfiguration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .cacheStorageConfigurations(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .databases(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .code(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .timeouts(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 

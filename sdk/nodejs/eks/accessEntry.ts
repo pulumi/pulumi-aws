@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.eks.AccessEntry("example", {
+ * const example = new aws.eks/accessEntry.AccessEntry("example", {
  *     clusterName: aws_eks_cluster.example.name,
  *     principalArn: aws_iam_role.example.arn,
  *     kubernetesGroups: [

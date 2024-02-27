@@ -23,7 +23,7 @@ namespace Pulumi.Aws.Ebs
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Ebs.FastSnapshotRestore("example", new()
+    ///     var example = new Aws.Ebs.FastSnapshotRestore.FastSnapshotRestore("example", new()
     ///     {
     ///         AvailabilityZone = "us-west-2a",
     ///         SnapshotId = aws_ebs_snapshot.Example.Id,

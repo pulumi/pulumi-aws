@@ -21,16 +21,16 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53"
+//	route53/trafficPolicy "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/route53/trafficPolicy"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := route53/trafficPolicy.NewTrafficPolicy(ctx, "example", &route53/trafficPolicy.TrafficPolicyArgs{
+// Comment: "example comment",
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := route53.NewTrafficPolicy(ctx, "example", &route53.TrafficPolicyArgs{
-//				Comment: pulumi.String("example comment"),
-//				Document: pulumi.String(`{
+//	Document: `{
 //	  "AWSPolicyFormatVersion": "2015-10-01",
 //	  "RecordType": "A",
 //	  "Endpoints": {
@@ -42,16 +42,14 @@ import (
 //	  "StartEndpoint": "endpoint-start-NkPh"
 //	}
 //
-// `),
-//
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// `,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

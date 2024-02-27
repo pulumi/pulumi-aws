@@ -12,40 +12,6 @@ import (
 )
 
 // Use this data source to get information about an AWS Serverless Application Repository application. For example, this can be used to determine the required `capabilities` for an application.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/serverlessrepository"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleApplication, err := serverlessrepository.GetApplication(ctx, &serverlessrepository.GetApplicationArgs{
-//				ApplicationId: "arn:aws:serverlessrepo:us-east-1:123456789012:applications/ExampleApplication",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = serverlessrepository.NewCloudFormationStack(ctx, "exampleCloudFormationStack", &serverlessrepository.CloudFormationStackArgs{
-//				ApplicationId:   *pulumi.String(exampleApplication.ApplicationId),
-//				SemanticVersion: *pulumi.String(exampleApplication.SemanticVersion),
-//				Capabilities:    interface{}(exampleApplication.RequiredCapabilities),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetApplication(ctx *pulumi.Context, args *GetApplicationArgs, opts ...pulumi.InvokeOption) (*GetApplicationResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetApplicationResult

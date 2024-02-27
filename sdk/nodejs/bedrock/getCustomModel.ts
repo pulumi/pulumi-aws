@@ -9,17 +9,6 @@ import * as utilities from "../utilities";
 
 /**
  * Returns properties of a specific Amazon Bedrock custom model.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = aws.bedrock.getCustomModel({
- *     modelId: "arn:aws:bedrock:us-west-2:123456789012:custom-model/amazon.titan-text-express-v1:0:8k/ly16hhi765j4 ",
- * });
- * ```
  */
 export function getCustomModel(args: GetCustomModelArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomModelResult> {
 
@@ -108,17 +97,6 @@ export interface GetCustomModelResult {
 }
 /**
  * Returns properties of a specific Amazon Bedrock custom model.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = aws.bedrock.getCustomModel({
- *     modelId: "arn:aws:bedrock:us-west-2:123456789012:custom-model/amazon.titan-text-express-v1:0:8k/ly16hhi765j4 ",
- * });
- * ```
  */
 export function getCustomModelOutput(args: GetCustomModelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomModelResult> {
     return pulumi.output(args).apply((a: any) => getCustomModel(a, opts))

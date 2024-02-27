@@ -23,54 +23,31 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/rolesanywhere"
+//	iam/role "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/iam/role"
+//	rolesanywhere/profile "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/rolesanywhere/profile"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"Version": "2012-10-17",
-//				"Statement": []map[string]interface{}{
-//					map[string]interface{}{
-//						"Action": []string{
-//							"sts:AssumeRole",
-//							"sts:TagSession",
-//							"sts:SetSourceIdentity",
-//						},
-//						"Principal": map[string]interface{}{
-//							"Service": "rolesanywhere.amazonaws.com",
-//						},
-//						"Effect": "Allow",
-//						"Sid":    "",
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			testRole, err := iam.NewRole(ctx, "testRole", &iam.RoleArgs{
-//				Path:             pulumi.String("/"),
-//				AssumeRolePolicy: pulumi.String(json0),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = rolesanywhere.NewProfile(ctx, "testProfile", &rolesanywhere.ProfileArgs{
-//				RoleArns: pulumi.StringArray{
-//					testRole.Arn,
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// testRole, err := iam/role.NewRole(ctx, "testRole", &iam/role.RoleArgs{
+// Path: "/",
+// AssumeRolePolicy: %!v(PANIC=Format method: fatal: An assertion has failed: unlowered function toJSON),
+// })
+// if err != nil {
+// return err
+// }
+// _, err = rolesanywhere/profile.NewProfile(ctx, "testProfile", &rolesanywhere/profile.ProfileArgs{
+// RoleArns: []interface{}{
+// testRole.Arn,
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

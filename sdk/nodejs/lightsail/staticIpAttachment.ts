@@ -15,14 +15,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const testStaticIp = new aws.lightsail.StaticIp("testStaticIp", {});
- * const testInstance = new aws.lightsail.Instance("testInstance", {
+ * const testStaticIp = new aws.lightsail/staticIp.StaticIp("testStaticIp", {});
+ * const testInstance = new aws.lightsail/instance.Instance("testInstance", {
  *     availabilityZone: "us-east-1b",
  *     blueprintId: "string",
  *     bundleId: "string",
  *     keyPairName: "some_key_name",
  * });
- * const testStaticIpAttachment = new aws.lightsail.StaticIpAttachment("testStaticIpAttachment", {
+ * const testStaticIpAttachment = new aws.lightsail/staticIpAttachment.StaticIpAttachment("testStaticIpAttachment", {
  *     staticIpName: testStaticIp.id,
  *     instanceName: testInstance.id,
  * });

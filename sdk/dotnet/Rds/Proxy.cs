@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Rds
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Rds.Proxy("example", new()
+    ///     var example = new Aws.Rds.Proxy.Proxy("example", new()
     ///     {
     ///         DebugLogging = false,
     ///         EngineFamily = "MYSQL",
@@ -39,12 +39,12 @@ namespace Pulumi.Aws.Rds
     ///         },
     ///         Auths = new[]
     ///         {
-    ///             new Aws.Rds.Inputs.ProxyAuthArgs
+    ///             
     ///             {
-    ///                 AuthScheme = "SECRETS",
-    ///                 Description = "example",
-    ///                 IamAuth = "DISABLED",
-    ///                 SecretArn = aws_secretsmanager_secret.Example.Arn,
+    ///                 { "authScheme", "SECRETS" },
+    ///                 { "description", "example" },
+    ///                 { "iamAuth", "DISABLED" },
+    ///                 { "secretArn", aws_secretsmanager_secret.Example.Arn },
     ///             },
     ///         },
     ///         Tags = 

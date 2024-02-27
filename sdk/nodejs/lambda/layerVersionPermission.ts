@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const lambdaLayerPermission = new aws.lambda.LayerVersionPermission("lambdaLayerPermission", {
+ * const lambdaLayerPermission = new aws.lambda/layerVersionPermission.LayerVersionPermission("lambdaLayerPermission", {
  *     action: "lambda:GetLayerVersion",
  *     layerName: "arn:aws:lambda:us-west-2:123456654321:layer:test_layer1",
  *     principal: "111111111111",

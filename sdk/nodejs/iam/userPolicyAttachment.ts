@@ -18,12 +18,12 @@ import {User} from "./index";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const user = new aws.iam.User("user", {});
- * const policy = new aws.iam.Policy("policy", {
+ * const user = new aws.iam/user.User("user", {});
+ * const policy = new aws.iam/policy.Policy("policy", {
  *     description: "A test policy",
  *     policy: "{ ... policy JSON ... }",
  * });
- * const test_attach = new aws.iam.UserPolicyAttachment("test-attach", {
+ * const test_attach = new aws.iam/userPolicyAttachment.UserPolicyAttachment("test-attach", {
  *     user: user.name,
  *     policyArn: policy.arn,
  * });

@@ -22,26 +22,24 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/redshiftdata"
+//	redshiftdata/statement "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/redshiftdata/statement"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := redshiftdata.NewStatement(ctx, "example", &redshiftdata.StatementArgs{
-//				ClusterIdentifier: pulumi.Any(aws_redshift_cluster.Example.Cluster_identifier),
-//				Database:          pulumi.Any(aws_redshift_cluster.Example.Database_name),
-//				DbUser:            pulumi.Any(aws_redshift_cluster.Example.Master_username),
-//				Sql:               pulumi.String("CREATE GROUP group_name;"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := redshiftdata/statement.NewStatement(ctx, "example", &redshiftdata/statement.StatementArgs{
+// ClusterIdentifier: aws_redshift_cluster.Example.Cluster_identifier,
+// Database: aws_redshift_cluster.Example.Database_name,
+// DbUser: aws_redshift_cluster.Example.Master_username,
+// Sql: "CREATE GROUP group_name;",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### workgroupName
 //
@@ -50,25 +48,23 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/redshiftdata"
+//	redshiftdata/statement "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/redshiftdata/statement"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := redshiftdata.NewStatement(ctx, "example", &redshiftdata.StatementArgs{
-//				WorkgroupName: pulumi.Any(aws_redshiftserverless_workgroup.Example.Workgroup_name),
-//				Database:      pulumi.String("dev"),
-//				Sql:           pulumi.String("CREATE GROUP group_name;"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := redshiftdata/statement.NewStatement(ctx, "example", &redshiftdata/statement.StatementArgs{
+// WorkgroupName: aws_redshiftserverless_workgroup.Example.Workgroup_name,
+// Database: "dev",
+// Sql: "CREATE GROUP group_name;",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -21,43 +21,42 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/dynamodb"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kinesis"
+//	dynamodb/kinesisStreamingDestination "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/dynamodb/kinesisStreamingDestination"
+//	dynamodb/table "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/dynamodb/table"
+//	kinesis/stream "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/kinesis/stream"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleTable, err := dynamodb.NewTable(ctx, "exampleTable", &dynamodb.TableArgs{
-//				HashKey: pulumi.String("id"),
-//				Attributes: dynamodb.TableAttributeArray{
-//					&dynamodb.TableAttributeArgs{
-//						Name: pulumi.String("id"),
-//						Type: pulumi.String("S"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleStream, err := kinesis.NewStream(ctx, "exampleStream", &kinesis.StreamArgs{
-//				ShardCount: pulumi.Int(1),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = dynamodb.NewKinesisStreamingDestination(ctx, "exampleKinesisStreamingDestination", &dynamodb.KinesisStreamingDestinationArgs{
-//				StreamArn: exampleStream.Arn,
-//				TableName: exampleTable.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleTable, err := dynamodb/table.NewTable(ctx, "exampleTable", &dynamodb/table.TableArgs{
+// HashKey: "id",
+// Attributes: []map[string]interface{}{
+// map[string]interface{}{
+// "name": "id",
+// "type": "S",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// exampleStream, err := kinesis/stream.NewStream(ctx, "exampleStream", &kinesis/stream.StreamArgs{
+// ShardCount: 1,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = dynamodb/kinesisStreamingDestination.NewKinesisStreamingDestination(ctx, "exampleKinesisStreamingDestination", &dynamodb/kinesisStreamingDestination.KinesisStreamingDestinationArgs{
+// StreamArn: exampleStream.Arn,
+// TableName: exampleTable.Name,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

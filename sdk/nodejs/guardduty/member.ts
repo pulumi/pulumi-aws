@@ -13,11 +13,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const primary = new aws.guardduty.Detector("primary", {enable: true});
- * const memberDetector = new aws.guardduty.Detector("memberDetector", {enable: true}, {
+ * const primary = new aws.guardduty/detector.Detector("primary", {enable: true});
+ * const memberDetector = new aws.guardduty/detector.Detector("memberDetector", {enable: true}, {
  *     provider: aws.dev,
  * });
- * const memberMember = new aws.guardduty.Member("memberMember", {
+ * const memberMember = new aws.guardduty/member.Member("memberMember", {
  *     accountId: memberDetector.accountId,
  *     detectorId: primary.id,
  *     email: "required@example.com",

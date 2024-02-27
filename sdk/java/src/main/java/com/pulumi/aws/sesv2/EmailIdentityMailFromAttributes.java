@@ -49,7 +49,7 @@ import javax.annotation.Nullable;
  *         var exampleEmailIdentityMailFromAttributes = new EmailIdentityMailFromAttributes(&#34;exampleEmailIdentityMailFromAttributes&#34;, EmailIdentityMailFromAttributesArgs.builder()        
  *             .emailIdentity(exampleEmailIdentity.emailIdentity())
  *             .behaviorOnMxFailure(&#34;REJECT_MESSAGE&#34;)
- *             .mailFromDomain(exampleEmailIdentity.emailIdentity().applyValue(emailIdentity -&gt; String.format(&#34;subdomain.%s&#34;, emailIdentity)))
+ *             .mailFromDomain(String.format(&#34;subdomain.%s&#34;, exampleEmailIdentity.emailIdentity()))
  *             .build());
  * 
  *     }

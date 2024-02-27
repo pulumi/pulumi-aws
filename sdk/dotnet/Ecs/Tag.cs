@@ -26,14 +26,14 @@ namespace Pulumi.Aws.Ecs
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleComputeEnvironment = new Aws.Batch.ComputeEnvironment("exampleComputeEnvironment", new()
+    ///     var exampleComputeEnvironment = new Aws.Batch.ComputeEnvironment.ComputeEnvironment("exampleComputeEnvironment", new()
     ///     {
     ///         ComputeEnvironmentName = "example",
     ///         ServiceRole = aws_iam_role.Example.Arn,
     ///         Type = "UNMANAGED",
     ///     });
     /// 
-    ///     var exampleTag = new Aws.Ecs.Tag("exampleTag", new()
+    ///     var exampleTag = new Aws.Ecs.Tag.Tag("exampleTag", new()
     ///     {
     ///         ResourceArn = exampleComputeEnvironment.EcsClusterArn,
     ///         Key = "Name",

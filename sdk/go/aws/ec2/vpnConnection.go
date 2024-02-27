@@ -26,38 +26,37 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2transitgateway"
+//	ec2/customerGateway "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/customerGateway"
+//	ec2/vpnConnection "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/vpnConnection"
+//	ec2transitgateway/transitGateway "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2transitgateway/transitGateway"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleTransitGateway, err := ec2transitgateway.NewTransitGateway(ctx, "exampleTransitGateway", nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleCustomerGateway, err := ec2.NewCustomerGateway(ctx, "exampleCustomerGateway", &ec2.CustomerGatewayArgs{
-//				BgpAsn:    pulumi.String("65000"),
-//				IpAddress: pulumi.String("172.0.0.1"),
-//				Type:      pulumi.String("ipsec.1"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ec2.NewVpnConnection(ctx, "exampleVpnConnection", &ec2.VpnConnectionArgs{
-//				CustomerGatewayId: exampleCustomerGateway.ID(),
-//				TransitGatewayId:  exampleTransitGateway.ID(),
-//				Type:              exampleCustomerGateway.Type,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleTransitGateway, err := ec2transitgateway/transitGateway.NewTransitGateway(ctx, "exampleTransitGateway", nil)
+// if err != nil {
+// return err
+// }
+// exampleCustomerGateway, err := ec2/customerGateway.NewCustomerGateway(ctx, "exampleCustomerGateway", &ec2/customerGateway.CustomerGatewayArgs{
+// BgpAsn: 65000,
+// IpAddress: "172.0.0.1",
+// Type: "ipsec.1",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = ec2/vpnConnection.NewVpnConnection(ctx, "exampleVpnConnection", &ec2/vpnConnection.VpnConnectionArgs{
+// CustomerGatewayId: exampleCustomerGateway.Id,
+// TransitGatewayId: exampleTransitGateway.Id,
+// Type: exampleCustomerGateway.Type,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Virtual Private Gateway
 //
@@ -66,123 +65,47 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	ec2/customerGateway "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/customerGateway"
+//	ec2/vpc "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/vpc"
+//	ec2/vpnConnection "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/vpnConnection"
+//	ec2/vpnGateway "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/vpnGateway"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			vpc, err := ec2.NewVpc(ctx, "vpc", &ec2.VpcArgs{
-//				CidrBlock: pulumi.String("10.0.0.0/16"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			vpnGateway, err := ec2.NewVpnGateway(ctx, "vpnGateway", &ec2.VpnGatewayArgs{
-//				VpcId: vpc.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			customerGateway, err := ec2.NewCustomerGateway(ctx, "customerGateway", &ec2.CustomerGatewayArgs{
-//				BgpAsn:    pulumi.String("65000"),
-//				IpAddress: pulumi.String("172.0.0.1"),
-//				Type:      pulumi.String("ipsec.1"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ec2.NewVpnConnection(ctx, "main", &ec2.VpnConnectionArgs{
-//				VpnGatewayId:      vpnGateway.ID(),
-//				CustomerGatewayId: customerGateway.ID(),
-//				Type:              pulumi.String("ipsec.1"),
-//				StaticRoutesOnly:  pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// ### AWS Site to Site Private VPN
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/directconnect"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2transitgateway"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleGateway, err := directconnect.NewGateway(ctx, "exampleGateway", &directconnect.GatewayArgs{
-//				AmazonSideAsn: pulumi.String("64512"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleTransitGateway, err := ec2transitgateway.NewTransitGateway(ctx, "exampleTransitGateway", &ec2transitgateway.TransitGatewayArgs{
-//				AmazonSideAsn: pulumi.Int(64513),
-//				Description:   pulumi.String("example_ipsec_vpn_example"),
-//				TransitGatewayCidrBlocks: pulumi.StringArray{
-//					pulumi.String("10.0.0.0/24"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleCustomerGateway, err := ec2.NewCustomerGateway(ctx, "exampleCustomerGateway", &ec2.CustomerGatewayArgs{
-//				BgpAsn:    pulumi.String("64514"),
-//				IpAddress: pulumi.String("10.0.0.1"),
-//				Type:      pulumi.String("ipsec.1"),
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("example_ipsec_vpn_example"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = directconnect.NewGatewayAssociation(ctx, "exampleGatewayAssociation", &directconnect.GatewayAssociationArgs{
-//				DxGatewayId:         exampleGateway.ID(),
-//				AssociatedGatewayId: exampleTransitGateway.ID(),
-//				AllowedPrefixes: pulumi.StringArray{
-//					pulumi.String("10.0.0.0/8"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleDirectConnectGatewayAttachment := ec2transitgateway.GetDirectConnectGatewayAttachmentOutput(ctx, ec2transitgateway.GetDirectConnectGatewayAttachmentOutputArgs{
-//				TransitGatewayId: exampleTransitGateway.ID(),
-//				DxGatewayId:      exampleGateway.ID(),
-//			}, nil)
-//			_, err = ec2.NewVpnConnection(ctx, "exampleVpnConnection", &ec2.VpnConnectionArgs{
-//				CustomerGatewayId:    exampleCustomerGateway.ID(),
-//				OutsideIpAddressType: pulumi.String("PrivateIpv4"),
-//				TransitGatewayId:     exampleTransitGateway.ID(),
-//				TransportTransitGatewayAttachmentId: exampleDirectConnectGatewayAttachment.ApplyT(func(exampleDirectConnectGatewayAttachment ec2transitgateway.GetDirectConnectGatewayAttachmentResult) (*string, error) {
-//					return &exampleDirectConnectGatewayAttachment.Id, nil
-//				}).(pulumi.StringPtrOutput),
-//				Type: pulumi.String("ipsec.1"),
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("example_ipsec_vpn_example"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// vpc, err := ec2/vpc.NewVpc(ctx, "vpc", &ec2/vpc.VpcArgs{
+// CidrBlock: "10.0.0.0/16",
+// })
+// if err != nil {
+// return err
+// }
+// vpnGateway, err := ec2/vpnGateway.NewVpnGateway(ctx, "vpnGateway", &ec2/vpnGateway.VpnGatewayArgs{
+// VpcId: vpc.Id,
+// })
+// if err != nil {
+// return err
+// }
+// customerGateway, err := ec2/customerGateway.NewCustomerGateway(ctx, "customerGateway", &ec2/customerGateway.CustomerGatewayArgs{
+// BgpAsn: 65000,
+// IpAddress: "172.0.0.1",
+// Type: "ipsec.1",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = ec2/vpnConnection.NewVpnConnection(ctx, "main", &ec2/vpnConnection.VpnConnectionArgs{
+// VpnGatewayId: vpnGateway.Id,
+// CustomerGatewayId: customerGateway.Id,
+// Type: "ipsec.1",
+// StaticRoutesOnly: true,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -280,7 +280,7 @@ class Snapshot(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.memorydb.Snapshot("example", cluster_name=aws_memorydb_cluster["example"]["name"])
+        example = aws.memorydb.snapshot.Snapshot("example", cluster_name=aws_memorydb_cluster.example.name)
         ```
 
         ## Import
@@ -316,7 +316,7 @@ class Snapshot(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.memorydb.Snapshot("example", cluster_name=aws_memorydb_cluster["example"]["name"])
+        example = aws.memorydb.snapshot.Snapshot("example", cluster_name=aws_memorydb_cluster.example.name)
         ```
 
         ## Import

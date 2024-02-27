@@ -24,7 +24,7 @@ namespace Pulumi.Aws.CleanRooms
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testCollaboration = new Aws.CleanRooms.Collaboration("testCollaboration", new()
+    ///     var testCollaboration = new Aws.Cleanrooms.Collaboration.Collaboration("testCollaboration", new()
     ///     {
     ///         CreatorDisplayName = "Creator ",
     ///         CreatorMemberAbilities = new[]
@@ -32,21 +32,21 @@ namespace Pulumi.Aws.CleanRooms
     ///             "CAN_QUERY",
     ///             "CAN_RECEIVE_RESULTS",
     ///         },
-    ///         DataEncryptionMetadata = new Aws.CleanRooms.Inputs.CollaborationDataEncryptionMetadataArgs
+    ///         DataEncryptionMetadata = 
     ///         {
-    ///             AllowClearText = true,
-    ///             AllowDuplicates = true,
-    ///             AllowJoinsOnColumnsWithDifferentNames = true,
-    ///             PreserveNulls = false,
+    ///             { "allowClearText", true },
+    ///             { "allowDuplicates", true },
+    ///             { "allowJoinsOnColumnsWithDifferentNames", true },
+    ///             { "preserveNulls", false },
     ///         },
     ///         Description = "I made this collaboration with Pulumi!",
     ///         Members = new[]
     ///         {
-    ///             new Aws.CleanRooms.Inputs.CollaborationMemberArgs
+    ///             
     ///             {
-    ///                 AccountId = "123456789012",
-    ///                 DisplayName = "Other member",
-    ///                 MemberAbilities = new() { },
+    ///                 { "accountId", 123456789012 },
+    ///                 { "displayName", "Other member" },
+    ///                 { "memberAbilities", new[] {} },
     ///             },
     ///         },
     ///         QueryLogStatus = "DISABLED",

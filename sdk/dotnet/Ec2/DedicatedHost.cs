@@ -24,7 +24,7 @@ namespace Pulumi.Aws.Ec2
     /// {
     ///     // Create a new host with instance type of c5.18xlarge with Auto Placement
     ///     // and Host Recovery enabled.
-    ///     var test = new Aws.Ec2.DedicatedHost("test", new()
+    ///     var test = new Aws.Ec2.DedicatedHost.DedicatedHost("test", new()
     ///     {
     ///         AutoPlacement = "on",
     ///         AvailabilityZone = "us-west-2a",

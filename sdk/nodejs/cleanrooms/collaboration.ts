@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const testCollaboration = new aws.cleanrooms.Collaboration("testCollaboration", {
+ * const testCollaboration = new aws.cleanrooms/collaboration.Collaboration("testCollaboration", {
  *     creatorDisplayName: "Creator ",
  *     creatorMemberAbilities: [
  *         "CAN_QUERY",
@@ -32,7 +32,7 @@ import * as utilities from "../utilities";
  *     },
  *     description: "I made this collaboration with Pulumi!",
  *     members: [{
- *         accountId: "123456789012",
+ *         accountId: 123456789012,
  *         displayName: "Other member",
  *         memberAbilities: [],
  *     }],

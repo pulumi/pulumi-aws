@@ -30,8 +30,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.ec2.VpcIpamResourceDiscoveryAssociation;
- * import com.pulumi.aws.ec2.VpcIpamResourceDiscoveryAssociationArgs;
+ * import com.pulumi.aws.ec2_vpcIpamResourceDiscoveryAssociation.VpcIpamResourceDiscoveryAssociation;
+ * import com.pulumi.aws.ec2_vpcIpamResourceDiscoveryAssociation.VpcIpamResourceDiscoveryAssociationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -48,7 +48,7 @@ import javax.annotation.Nullable;
  *         var test = new VpcIpamResourceDiscoveryAssociation(&#34;test&#34;, VpcIpamResourceDiscoveryAssociationArgs.builder()        
  *             .ipamId(aws_vpc_ipam.test().id())
  *             .ipamResourceDiscoveryId(aws_vpc_ipam_resource_discovery.test().id())
- *             .tags(Map.of(&#34;Name&#34;, &#34;test&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

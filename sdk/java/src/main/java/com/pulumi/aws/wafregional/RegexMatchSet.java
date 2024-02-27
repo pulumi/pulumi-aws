@@ -30,8 +30,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.wafregional.RegexPatternSetArgs;
  * import com.pulumi.aws.wafregional.RegexMatchSet;
  * import com.pulumi.aws.wafregional.RegexMatchSetArgs;
- * import com.pulumi.aws.wafregional.inputs.RegexMatchSetRegexMatchTupleArgs;
- * import com.pulumi.aws.wafregional.inputs.RegexMatchSetRegexMatchTupleFieldToMatchArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -52,14 +50,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleRegexMatchSet = new RegexMatchSet(&#34;exampleRegexMatchSet&#34;, RegexMatchSetArgs.builder()        
- *             .regexMatchTuples(RegexMatchSetRegexMatchTupleArgs.builder()
- *                 .fieldToMatch(RegexMatchSetRegexMatchTupleFieldToMatchArgs.builder()
- *                     .data(&#34;User-Agent&#34;)
- *                     .type(&#34;HEADER&#34;)
- *                     .build())
- *                 .regexPatternSetId(exampleRegexPatternSet.id())
- *                 .textTransformation(&#34;NONE&#34;)
- *                 .build())
+ *             .regexMatchTuples(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

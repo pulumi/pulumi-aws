@@ -357,40 +357,40 @@ class EventSubscription(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        default_cluster = aws.neptune.Cluster("defaultCluster",
-            cluster_identifier="neptune-cluster-demo",
-            engine="neptune",
+        default_cluster = aws.neptune.cluster.Cluster("defaultCluster",
+            cluster_identifier=neptune-cluster-demo,
+            engine=neptune,
             backup_retention_period=5,
-            preferred_backup_window="07:00-09:00",
+            preferred_backup_window=07:00-09:00,
             skip_final_snapshot=True,
-            iam_database_authentication_enabled=True,
-            apply_immediately=True)
-        example = aws.neptune.ClusterInstance("example",
+            iam_database_authentication_enabled=true,
+            apply_immediately=true)
+        example = aws.neptune.cluster_instance.ClusterInstance("example",
             cluster_identifier=default_cluster.id,
-            engine="neptune",
-            instance_class="db.r4.large",
-            apply_immediately=True)
-        default_topic = aws.sns.Topic("defaultTopic")
-        default_event_subscription = aws.neptune.EventSubscription("defaultEventSubscription",
+            engine=neptune,
+            instance_class=db.r4.large,
+            apply_immediately=true)
+        default_topic = aws.sns.topic.Topic("defaultTopic")
+        default_event_subscription = aws.neptune.event_subscription.EventSubscription("defaultEventSubscription",
             sns_topic_arn=default_topic.arn,
-            source_type="db-instance",
+            source_type=db-instance,
             source_ids=[example.id],
             event_categories=[
-                "maintenance",
-                "availability",
-                "creation",
-                "backup",
-                "restoration",
-                "recovery",
-                "deletion",
-                "failover",
-                "failure",
-                "notification",
-                "configuration change",
-                "read replica",
+                maintenance,
+                availability,
+                creation,
+                backup,
+                restoration,
+                recovery,
+                deletion,
+                failover,
+                failure,
+                notification,
+                configuration change,
+                read replica,
             ],
             tags={
-                "env": "test",
+                env: test,
             })
         ```
 
@@ -426,40 +426,40 @@ class EventSubscription(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        default_cluster = aws.neptune.Cluster("defaultCluster",
-            cluster_identifier="neptune-cluster-demo",
-            engine="neptune",
+        default_cluster = aws.neptune.cluster.Cluster("defaultCluster",
+            cluster_identifier=neptune-cluster-demo,
+            engine=neptune,
             backup_retention_period=5,
-            preferred_backup_window="07:00-09:00",
+            preferred_backup_window=07:00-09:00,
             skip_final_snapshot=True,
-            iam_database_authentication_enabled=True,
-            apply_immediately=True)
-        example = aws.neptune.ClusterInstance("example",
+            iam_database_authentication_enabled=true,
+            apply_immediately=true)
+        example = aws.neptune.cluster_instance.ClusterInstance("example",
             cluster_identifier=default_cluster.id,
-            engine="neptune",
-            instance_class="db.r4.large",
-            apply_immediately=True)
-        default_topic = aws.sns.Topic("defaultTopic")
-        default_event_subscription = aws.neptune.EventSubscription("defaultEventSubscription",
+            engine=neptune,
+            instance_class=db.r4.large,
+            apply_immediately=true)
+        default_topic = aws.sns.topic.Topic("defaultTopic")
+        default_event_subscription = aws.neptune.event_subscription.EventSubscription("defaultEventSubscription",
             sns_topic_arn=default_topic.arn,
-            source_type="db-instance",
+            source_type=db-instance,
             source_ids=[example.id],
             event_categories=[
-                "maintenance",
-                "availability",
-                "creation",
-                "backup",
-                "restoration",
-                "recovery",
-                "deletion",
-                "failover",
-                "failure",
-                "notification",
-                "configuration change",
-                "read replica",
+                maintenance,
+                availability,
+                creation,
+                backup,
+                restoration,
+                recovery,
+                deletion,
+                failover,
+                failure,
+                notification,
+                configuration change,
+                read replica,
             ],
             tags={
-                "env": "test",
+                env: test,
             })
         ```
 

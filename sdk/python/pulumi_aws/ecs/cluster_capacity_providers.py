@@ -144,15 +144,15 @@ class ClusterCapacityProviders(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_cluster = aws.ecs.Cluster("exampleCluster")
-        example_cluster_capacity_providers = aws.ecs.ClusterCapacityProviders("exampleClusterCapacityProviders",
+        example_cluster = aws.ecs.cluster.Cluster("exampleCluster")
+        example_cluster_capacity_providers = aws.ecs.cluster_capacity_providers.ClusterCapacityProviders("exampleClusterCapacityProviders",
             cluster_name=example_cluster.name,
-            capacity_providers=["FARGATE"],
-            default_capacity_provider_strategies=[aws.ecs.ClusterCapacityProvidersDefaultCapacityProviderStrategyArgs(
-                base=1,
-                weight=100,
-                capacity_provider="FARGATE",
-            )])
+            capacity_providers=[FARGATE],
+            default_capacity_provider_strategies=[{
+                base: 1,
+                weight: 100,
+                capacityProvider: FARGATE,
+            }])
         ```
 
         ## Import
@@ -186,15 +186,15 @@ class ClusterCapacityProviders(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_cluster = aws.ecs.Cluster("exampleCluster")
-        example_cluster_capacity_providers = aws.ecs.ClusterCapacityProviders("exampleClusterCapacityProviders",
+        example_cluster = aws.ecs.cluster.Cluster("exampleCluster")
+        example_cluster_capacity_providers = aws.ecs.cluster_capacity_providers.ClusterCapacityProviders("exampleClusterCapacityProviders",
             cluster_name=example_cluster.name,
-            capacity_providers=["FARGATE"],
-            default_capacity_provider_strategies=[aws.ecs.ClusterCapacityProvidersDefaultCapacityProviderStrategyArgs(
-                base=1,
-                weight=100,
-                capacity_provider="FARGATE",
-            )])
+            capacity_providers=[FARGATE],
+            default_capacity_provider_strategies=[{
+                base: 1,
+                weight: 100,
+                capacityProvider: FARGATE,
+            }])
         ```
 
         ## Import

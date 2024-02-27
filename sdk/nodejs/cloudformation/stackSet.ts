@@ -14,65 +14,6 @@ import * as utilities from "../utilities";
  *
  * > **NOTE:** All `NoEcho` template parameters must be ignored with the `lifecycle` configuration block `ignoreChanges` argument.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const aWSCloudFormationStackSetAdministrationRoleAssumeRolePolicy = aws.iam.getPolicyDocument({
- *     statements: [{
- *         actions: ["sts:AssumeRole"],
- *         effect: "Allow",
- *         principals: [{
- *             identifiers: ["cloudformation.amazonaws.com"],
- *             type: "Service",
- *         }],
- *     }],
- * });
- * const aWSCloudFormationStackSetAdministrationRole = new aws.iam.Role("aWSCloudFormationStackSetAdministrationRole", {assumeRolePolicy: aWSCloudFormationStackSetAdministrationRoleAssumeRolePolicy.then(aWSCloudFormationStackSetAdministrationRoleAssumeRolePolicy => aWSCloudFormationStackSetAdministrationRoleAssumeRolePolicy.json)});
- * const example = new aws.cloudformation.StackSet("example", {
- *     administrationRoleArn: aWSCloudFormationStackSetAdministrationRole.arn,
- *     parameters: {
- *         VPCCidr: "10.0.0.0/16",
- *     },
- *     templateBody: JSON.stringify({
- *         Parameters: {
- *             VPCCidr: {
- *                 Type: "String",
- *                 Default: "10.0.0.0/16",
- *                 Description: "Enter the CIDR block for the VPC. Default is 10.0.0.0/16.",
- *             },
- *         },
- *         Resources: {
- *             myVpc: {
- *                 Type: "AWS::EC2::VPC",
- *                 Properties: {
- *                     CidrBlock: {
- *                         Ref: "VPCCidr",
- *                     },
- *                     Tags: [{
- *                         Key: "Name",
- *                         Value: "Primary_CF_VPC",
- *                     }],
- *                 },
- *             },
- *         },
- *     }),
- * });
- * const aWSCloudFormationStackSetAdministrationRoleExecutionPolicyPolicyDocument = aws.iam.getPolicyDocumentOutput({
- *     statements: [{
- *         actions: ["sts:AssumeRole"],
- *         effect: "Allow",
- *         resources: [pulumi.interpolate`arn:aws:iam::*:role/${example.executionRoleName}`],
- *     }],
- * });
- * const aWSCloudFormationStackSetAdministrationRoleExecutionPolicyRolePolicy = new aws.iam.RolePolicy("aWSCloudFormationStackSetAdministrationRoleExecutionPolicyRolePolicy", {
- *     policy: aWSCloudFormationStackSetAdministrationRoleExecutionPolicyPolicyDocument.apply(aWSCloudFormationStackSetAdministrationRoleExecutionPolicyPolicyDocument => aWSCloudFormationStackSetAdministrationRoleExecutionPolicyPolicyDocument.json),
- *     role: aWSCloudFormationStackSetAdministrationRole.name,
- * });
- * ```
- *
  * ## Import
  *
  * Import CloudFormation StackSets when acting a delegated administrator in a member account using the `name` and `call_as` values separated by a comma (`,`). For example:

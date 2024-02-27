@@ -229,16 +229,6 @@ class Resource(pulumi.CustomResource):
         Lake Formation adds the first path to the inline policy and attaches it to the service-linked role.
         When you register subsequent paths, Lake Formation adds the path to the existing policy.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_bucket = aws.s3.get_bucket(bucket="an-example-bucket")
-        example_resource = aws.lakeformation.Resource("exampleResource", arn=example_bucket.arn)
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the resource.
@@ -263,16 +253,6 @@ class Resource(pulumi.CustomResource):
         When you register the S3 path, the service-linked role and a new inline policy are created on your behalf.
         Lake Formation adds the first path to the inline policy and attaches it to the service-linked role.
         When you register subsequent paths, Lake Formation adds the path to the existing policy.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_bucket = aws.s3.get_bucket(bucket="an-example-bucket")
-        example_resource = aws.lakeformation.Resource("exampleResource", arn=example_bucket.arn)
-        ```
 
         :param str resource_name: The name of the resource.
         :param ResourceArgs args: The arguments to use to populate this resource's properties.

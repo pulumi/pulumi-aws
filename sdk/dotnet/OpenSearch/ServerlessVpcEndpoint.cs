@@ -23,7 +23,7 @@ namespace Pulumi.Aws.OpenSearch
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.OpenSearch.ServerlessVpcEndpoint("example", new()
+    ///     var example = new Aws.Opensearch.ServerlessVpcEndpoint.ServerlessVpcEndpoint("example", new()
     ///     {
     ///         SubnetIds = new[]
     ///         {

@@ -280,19 +280,19 @@ class Experience(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.kendra.Experience("example",
-            index_id=aws_kendra_index["example"]["id"],
-            description="My Kendra Experience",
-            role_arn=aws_iam_role["example"]["arn"],
-            configuration=aws.kendra.ExperienceConfigurationArgs(
-                content_source_configuration=aws.kendra.ExperienceConfigurationContentSourceConfigurationArgs(
-                    direct_put_content=True,
-                    faq_ids=[aws_kendra_faq["example"]["faq_id"]],
-                ),
-                user_identity_configuration=aws.kendra.ExperienceConfigurationUserIdentityConfigurationArgs(
-                    identity_attribute_name="12345ec453-1546651e-79c4-4554-91fa-00b43ccfa245",
-                ),
-            ))
+        example = aws.kendra.experience.Experience("example",
+            index_id=aws_kendra_index.example.id,
+            description=My Kendra Experience,
+            role_arn=aws_iam_role.example.arn,
+            configuration={
+                contentSourceConfiguration: {
+                    directPutContent: True,
+                    faqIds: [aws_kendra_faq.example.faq_id],
+                },
+                userIdentityConfiguration: {
+                    identityAttributeName: 12345ec453-1546651e-79c4-4554-91fa-00b43ccfa245,
+                },
+            })
         ```
 
         ## Import
@@ -329,19 +329,19 @@ class Experience(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.kendra.Experience("example",
-            index_id=aws_kendra_index["example"]["id"],
-            description="My Kendra Experience",
-            role_arn=aws_iam_role["example"]["arn"],
-            configuration=aws.kendra.ExperienceConfigurationArgs(
-                content_source_configuration=aws.kendra.ExperienceConfigurationContentSourceConfigurationArgs(
-                    direct_put_content=True,
-                    faq_ids=[aws_kendra_faq["example"]["faq_id"]],
-                ),
-                user_identity_configuration=aws.kendra.ExperienceConfigurationUserIdentityConfigurationArgs(
-                    identity_attribute_name="12345ec453-1546651e-79c4-4554-91fa-00b43ccfa245",
-                ),
-            ))
+        example = aws.kendra.experience.Experience("example",
+            index_id=aws_kendra_index.example.id,
+            description=My Kendra Experience,
+            role_arn=aws_iam_role.example.arn,
+            configuration={
+                contentSourceConfiguration: {
+                    directPutContent: True,
+                    faqIds: [aws_kendra_faq.example.faq_id],
+                },
+                userIdentityConfiguration: {
+                    identityAttributeName: 12345ec453-1546651e-79c4-4554-91fa-00b43ccfa245,
+                },
+            })
         ```
 
         ## Import

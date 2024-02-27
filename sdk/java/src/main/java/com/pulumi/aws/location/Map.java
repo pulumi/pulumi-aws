@@ -27,7 +27,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.location.Map;
  * import com.pulumi.aws.location.MapArgs;
- * import com.pulumi.aws.location.inputs.MapConfigurationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -42,9 +41,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Map(&#34;example&#34;, MapArgs.builder()        
- *             .configuration(MapConfigurationArgs.builder()
- *                 .style(&#34;VectorHereBerlin&#34;)
- *                 .build())
+ *             .configuration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .mapName(&#34;example&#34;)
  *             .build());
  * 

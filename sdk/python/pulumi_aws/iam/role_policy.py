@@ -183,25 +183,25 @@ class RolePolicy(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        test_role = aws.iam.Role("testRole", assume_role_policy=json.dumps({
-            "Version": "2012-10-17",
-            "Statement": [{
-                "Action": "sts:AssumeRole",
-                "Effect": "Allow",
-                "Sid": "",
-                "Principal": {
-                    "Service": "ec2.amazonaws.com",
+        test_role = aws.iam.role.Role("testRole", assume_role_policy=json.dumps({
+            Version: 2012-10-17,
+            Statement: [{
+                Action: sts:AssumeRole,
+                Effect: Allow,
+                Sid: ,
+                Principal: {
+                    Service: ec2.amazonaws.com,
                 },
             }],
         }))
-        test_policy = aws.iam.RolePolicy("testPolicy",
+        test_policy = aws.iam.role_policy.RolePolicy("testPolicy",
             role=test_role.id,
             policy=json.dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Action": ["ec2:Describe*"],
-                    "Effect": "Allow",
-                    "Resource": "*",
+                Version: 2012-10-17,
+                Statement: [{
+                    Action: [ec2:Describe*],
+                    Effect: Allow,
+                    Resource: *,
                 }],
             }))
         ```
@@ -241,25 +241,25 @@ class RolePolicy(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        test_role = aws.iam.Role("testRole", assume_role_policy=json.dumps({
-            "Version": "2012-10-17",
-            "Statement": [{
-                "Action": "sts:AssumeRole",
-                "Effect": "Allow",
-                "Sid": "",
-                "Principal": {
-                    "Service": "ec2.amazonaws.com",
+        test_role = aws.iam.role.Role("testRole", assume_role_policy=json.dumps({
+            Version: 2012-10-17,
+            Statement: [{
+                Action: sts:AssumeRole,
+                Effect: Allow,
+                Sid: ,
+                Principal: {
+                    Service: ec2.amazonaws.com,
                 },
             }],
         }))
-        test_policy = aws.iam.RolePolicy("testPolicy",
+        test_policy = aws.iam.role_policy.RolePolicy("testPolicy",
             role=test_role.id,
             policy=json.dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Action": ["ec2:Describe*"],
-                    "Effect": "Allow",
-                    "Resource": "*",
+                Version: 2012-10-17,
+                Statement: [{
+                    Action: [ec2:Describe*],
+                    Effect: Allow,
+                    Resource: *,
                 }],
             }))
         ```

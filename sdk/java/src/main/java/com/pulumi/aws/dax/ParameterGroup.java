@@ -28,7 +28,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.dax.ParameterGroup;
  * import com.pulumi.aws.dax.ParameterGroupArgs;
- * import com.pulumi.aws.dax.inputs.ParameterGroupParameterArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -44,14 +43,8 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new ParameterGroup(&#34;example&#34;, ParameterGroupArgs.builder()        
  *             .parameters(            
- *                 ParameterGroupParameterArgs.builder()
- *                     .name(&#34;query-ttl-millis&#34;)
- *                     .value(&#34;100000&#34;)
- *                     .build(),
- *                 ParameterGroupParameterArgs.builder()
- *                     .name(&#34;record-ttl-millis&#34;)
- *                     .value(&#34;100000&#34;)
- *                     .build())
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

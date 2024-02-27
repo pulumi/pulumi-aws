@@ -457,10 +457,10 @@ class MaintenanceWindow(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        production = aws.ssm.MaintenanceWindow("production",
+        production = aws.ssm.maintenance_window.MaintenanceWindow("production",
             cutoff=1,
             duration=3,
-            schedule="cron(0 16 ? * TUE *)")
+            schedule=cron(0 16 ? * TUE *))
         ```
 
         ## Import
@@ -503,10 +503,10 @@ class MaintenanceWindow(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        production = aws.ssm.MaintenanceWindow("production",
+        production = aws.ssm.maintenance_window.MaintenanceWindow("production",
             cutoff=1,
             duration=3,
-            schedule="cron(0 16 ? * TUE *)")
+            schedule=cron(0 16 ? * TUE *))
         ```
 
         ## Import

@@ -241,15 +241,15 @@ class UserPoolUICustomization(pulumi.CustomResource):
         import base64
         import pulumi_aws as aws
 
-        example_user_pool = aws.cognito.UserPool("exampleUserPool")
-        example_user_pool_domain = aws.cognito.UserPoolDomain("exampleUserPoolDomain",
-            domain="example",
+        example_user_pool = aws.cognito.user_pool.UserPool("exampleUserPool")
+        example_user_pool_domain = aws.cognito.user_pool_domain.UserPoolDomain("exampleUserPoolDomain",
+            domain=example,
             user_pool_id=example_user_pool.id)
-        example_user_pool_client = aws.cognito.UserPoolClient("exampleUserPoolClient", user_pool_id=example_user_pool.id)
-        example_user_pool_ui_customization = aws.cognito.UserPoolUICustomization("exampleUserPoolUICustomization",
+        example_user_pool_client = aws.cognito.user_pool_client.UserPoolClient("exampleUserPoolClient", user_pool_id=example_user_pool.id)
+        example_user_pool_ui_customization = aws.cognito.user_pool_ui_customization.UserPoolUICustomization("exampleUserPoolUICustomization",
             client_id=example_user_pool_client.id,
-            css=".label-customizable {font-weight: 400;}",
-            image_file=(lambda path: base64.b64encode(open(path).read().encode()).decode())("logo.png"),
+            css=.label-customizable {font-weight: 400;},
+            image_file=(lambda path: base64.b64encode(open(path).read().encode()).decode())(logo.png),
             user_pool_id=example_user_pool_domain.user_pool_id)
         ```
         ### UI customization settings for all clients
@@ -259,13 +259,13 @@ class UserPoolUICustomization(pulumi.CustomResource):
         import base64
         import pulumi_aws as aws
 
-        example_user_pool = aws.cognito.UserPool("exampleUserPool")
-        example_user_pool_domain = aws.cognito.UserPoolDomain("exampleUserPoolDomain",
-            domain="example",
+        example_user_pool = aws.cognito.user_pool.UserPool("exampleUserPool")
+        example_user_pool_domain = aws.cognito.user_pool_domain.UserPoolDomain("exampleUserPoolDomain",
+            domain=example,
             user_pool_id=example_user_pool.id)
-        example_user_pool_ui_customization = aws.cognito.UserPoolUICustomization("exampleUserPoolUICustomization",
-            css=".label-customizable {font-weight: 400;}",
-            image_file=(lambda path: base64.b64encode(open(path).read().encode()).decode())("logo.png"),
+        example_user_pool_ui_customization = aws.cognito.user_pool_ui_customization.UserPoolUICustomization("exampleUserPoolUICustomization",
+            css=.label-customizable {font-weight: 400;},
+            image_file=(lambda path: base64.b64encode(open(path).read().encode()).decode())(logo.png),
             user_pool_id=example_user_pool_domain.user_pool_id)
         ```
 
@@ -303,15 +303,15 @@ class UserPoolUICustomization(pulumi.CustomResource):
         import base64
         import pulumi_aws as aws
 
-        example_user_pool = aws.cognito.UserPool("exampleUserPool")
-        example_user_pool_domain = aws.cognito.UserPoolDomain("exampleUserPoolDomain",
-            domain="example",
+        example_user_pool = aws.cognito.user_pool.UserPool("exampleUserPool")
+        example_user_pool_domain = aws.cognito.user_pool_domain.UserPoolDomain("exampleUserPoolDomain",
+            domain=example,
             user_pool_id=example_user_pool.id)
-        example_user_pool_client = aws.cognito.UserPoolClient("exampleUserPoolClient", user_pool_id=example_user_pool.id)
-        example_user_pool_ui_customization = aws.cognito.UserPoolUICustomization("exampleUserPoolUICustomization",
+        example_user_pool_client = aws.cognito.user_pool_client.UserPoolClient("exampleUserPoolClient", user_pool_id=example_user_pool.id)
+        example_user_pool_ui_customization = aws.cognito.user_pool_ui_customization.UserPoolUICustomization("exampleUserPoolUICustomization",
             client_id=example_user_pool_client.id,
-            css=".label-customizable {font-weight: 400;}",
-            image_file=(lambda path: base64.b64encode(open(path).read().encode()).decode())("logo.png"),
+            css=.label-customizable {font-weight: 400;},
+            image_file=(lambda path: base64.b64encode(open(path).read().encode()).decode())(logo.png),
             user_pool_id=example_user_pool_domain.user_pool_id)
         ```
         ### UI customization settings for all clients
@@ -321,13 +321,13 @@ class UserPoolUICustomization(pulumi.CustomResource):
         import base64
         import pulumi_aws as aws
 
-        example_user_pool = aws.cognito.UserPool("exampleUserPool")
-        example_user_pool_domain = aws.cognito.UserPoolDomain("exampleUserPoolDomain",
-            domain="example",
+        example_user_pool = aws.cognito.user_pool.UserPool("exampleUserPool")
+        example_user_pool_domain = aws.cognito.user_pool_domain.UserPoolDomain("exampleUserPoolDomain",
+            domain=example,
             user_pool_id=example_user_pool.id)
-        example_user_pool_ui_customization = aws.cognito.UserPoolUICustomization("exampleUserPoolUICustomization",
-            css=".label-customizable {font-weight: 400;}",
-            image_file=(lambda path: base64.b64encode(open(path).read().encode()).decode())("logo.png"),
+        example_user_pool_ui_customization = aws.cognito.user_pool_ui_customization.UserPoolUICustomization("exampleUserPoolUICustomization",
+            css=.label-customizable {font-weight: 400;},
+            image_file=(lambda path: base64.b64encode(open(path).read().encode()).decode())(logo.png),
             user_pool_id=example_user_pool_domain.user_pool_id)
         ```
 

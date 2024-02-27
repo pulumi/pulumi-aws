@@ -9,17 +9,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to get information about a DB Proxy.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const proxy = aws.rds.getProxy({
- *     name: "my-test-db-proxy",
- * });
- * ```
  */
 export function getProxy(args: GetProxyArgs, opts?: pulumi.InvokeOptions): Promise<GetProxyResult> {
 
@@ -95,17 +84,6 @@ export interface GetProxyResult {
 }
 /**
  * Use this data source to get information about a DB Proxy.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const proxy = aws.rds.getProxy({
- *     name: "my-test-db-proxy",
- * });
- * ```
  */
 export function getProxyOutput(args: GetProxyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProxyResult> {
     return pulumi.output(args).apply((a: any) => getProxy(a, opts))

@@ -524,29 +524,29 @@ class Policy(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        example_rule_group = aws.wafregional.RuleGroup("exampleRuleGroup", metric_name="WAFRuleGroupExample")
-        example_policy = aws.fms.Policy("examplePolicy",
+        example_rule_group = aws.wafregional.rule_group.RuleGroup("exampleRuleGroup", metric_name=WAFRuleGroupExample)
+        example_policy = aws.fms.policy.Policy("examplePolicy",
             exclude_resource_tags=False,
             remediation_enabled=False,
-            resource_type="AWS::ElasticLoadBalancingV2::LoadBalancer",
-            security_service_policy_data=aws.fms.PolicySecurityServicePolicyDataArgs(
-                type="WAF",
-                managed_service_data=example_rule_group.id.apply(lambda id: json.dumps({
-                    "type": "WAF",
-                    "ruleGroups": [{
-                        "id": id,
-                        "overrideAction": {
-                            "type": "COUNT",
+            resource_type=AWS::ElasticLoadBalancingV2::LoadBalancer,
+            security_service_policy_data={
+                type: WAF,
+                managedServiceData: json.dumps({
+                    type: WAF,
+                    ruleGroups: [{
+                        id: example_rule_group.id,
+                        overrideAction: {
+                            type: COUNT,
                         },
                     }],
-                    "defaultAction": {
-                        "type": "BLOCK",
+                    defaultAction: {
+                        type: BLOCK,
                     },
-                    "overrideCustomerWebACLAssociation": False,
-                })),
-            ),
+                    overrideCustomerWebACLAssociation: False,
+                }),
+            },
             tags={
-                "Name": "example-fms-policy",
+                Name: example-fms-policy,
             })
         ```
 
@@ -592,29 +592,29 @@ class Policy(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        example_rule_group = aws.wafregional.RuleGroup("exampleRuleGroup", metric_name="WAFRuleGroupExample")
-        example_policy = aws.fms.Policy("examplePolicy",
+        example_rule_group = aws.wafregional.rule_group.RuleGroup("exampleRuleGroup", metric_name=WAFRuleGroupExample)
+        example_policy = aws.fms.policy.Policy("examplePolicy",
             exclude_resource_tags=False,
             remediation_enabled=False,
-            resource_type="AWS::ElasticLoadBalancingV2::LoadBalancer",
-            security_service_policy_data=aws.fms.PolicySecurityServicePolicyDataArgs(
-                type="WAF",
-                managed_service_data=example_rule_group.id.apply(lambda id: json.dumps({
-                    "type": "WAF",
-                    "ruleGroups": [{
-                        "id": id,
-                        "overrideAction": {
-                            "type": "COUNT",
+            resource_type=AWS::ElasticLoadBalancingV2::LoadBalancer,
+            security_service_policy_data={
+                type: WAF,
+                managedServiceData: json.dumps({
+                    type: WAF,
+                    ruleGroups: [{
+                        id: example_rule_group.id,
+                        overrideAction: {
+                            type: COUNT,
                         },
                     }],
-                    "defaultAction": {
-                        "type": "BLOCK",
+                    defaultAction: {
+                        type: BLOCK,
                     },
-                    "overrideCustomerWebACLAssociation": False,
-                })),
-            ),
+                    overrideCustomerWebACLAssociation: False,
+                }),
+            },
             tags={
-                "Name": "example-fms-policy",
+                Name: example-fms-policy,
             })
         ```
 

@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.athena.Workgroup("example", {configuration: {
+ * const example = new aws.athena/workgroup.Workgroup("example", {configuration: {
  *     enforceWorkgroupConfiguration: true,
  *     publishCloudwatchMetricsEnabled: true,
  *     resultConfiguration: {

@@ -282,11 +282,11 @@ class Function(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.cloudfront.Function("test",
-            runtime="cloudfront-js-2.0",
-            comment="my function",
+        test = aws.cloudfront.function.Function("test",
+            runtime=cloudfront-js-2.0,
+            comment=my function,
             publish=True,
-            code=(lambda path: open(path).read())(f"{path['module']}/function.js"))
+            code=(lambda path: open(path).read())(f{path.module}/function.js))
         ```
 
         ## Import
@@ -327,11 +327,11 @@ class Function(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.cloudfront.Function("test",
-            runtime="cloudfront-js-2.0",
-            comment="my function",
+        test = aws.cloudfront.function.Function("test",
+            runtime=cloudfront-js-2.0,
+            comment=my function,
             publish=True,
-            code=(lambda path: open(path).read())(f"{path['module']}/function.js"))
+            code=(lambda path: open(path).read())(f{path.module}/function.js))
         ```
 
         ## Import

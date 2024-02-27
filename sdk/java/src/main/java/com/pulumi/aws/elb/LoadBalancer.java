@@ -43,9 +43,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.elb.LoadBalancer;
  * import com.pulumi.aws.elb.LoadBalancerArgs;
- * import com.pulumi.aws.elb.inputs.LoadBalancerAccessLogsArgs;
- * import com.pulumi.aws.elb.inputs.LoadBalancerListenerArgs;
- * import com.pulumi.aws.elb.inputs.LoadBalancerHealthCheckArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -64,38 +61,17 @@ import javax.annotation.Nullable;
  *                 &#34;us-west-2a&#34;,
  *                 &#34;us-west-2b&#34;,
  *                 &#34;us-west-2c&#34;)
- *             .accessLogs(LoadBalancerAccessLogsArgs.builder()
- *                 .bucket(&#34;foo&#34;)
- *                 .bucketPrefix(&#34;bar&#34;)
- *                 .interval(60)
- *                 .build())
+ *             .accessLogs(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .listeners(            
- *                 LoadBalancerListenerArgs.builder()
- *                     .instancePort(8000)
- *                     .instanceProtocol(&#34;http&#34;)
- *                     .lbPort(80)
- *                     .lbProtocol(&#34;http&#34;)
- *                     .build(),
- *                 LoadBalancerListenerArgs.builder()
- *                     .instancePort(8000)
- *                     .instanceProtocol(&#34;http&#34;)
- *                     .lbPort(443)
- *                     .lbProtocol(&#34;https&#34;)
- *                     .sslCertificateId(&#34;arn:aws:iam::123456789012:server-certificate/certName&#34;)
- *                     .build())
- *             .healthCheck(LoadBalancerHealthCheckArgs.builder()
- *                 .healthyThreshold(2)
- *                 .unhealthyThreshold(2)
- *                 .timeout(3)
- *                 .target(&#34;HTTP:8000/&#34;)
- *                 .interval(30)
- *                 .build())
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .healthCheck(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .instances(aws_instance.foo().id())
  *             .crossZoneLoadBalancing(true)
  *             .idleTimeout(400)
  *             .connectionDraining(true)
  *             .connectionDrainingTimeout(400)
- *             .tags(Map.of(&#34;Name&#34;, &#34;foobar-elb&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

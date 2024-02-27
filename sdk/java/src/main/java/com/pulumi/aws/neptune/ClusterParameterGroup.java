@@ -29,7 +29,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.neptune.ClusterParameterGroup;
  * import com.pulumi.aws.neptune.ClusterParameterGroupArgs;
- * import com.pulumi.aws.neptune.inputs.ClusterParameterGroupParameterArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -46,10 +45,7 @@ import javax.annotation.Nullable;
  *         var example = new ClusterParameterGroup(&#34;example&#34;, ClusterParameterGroupArgs.builder()        
  *             .description(&#34;neptune cluster parameter group&#34;)
  *             .family(&#34;neptune1&#34;)
- *             .parameters(ClusterParameterGroupParameterArgs.builder()
- *                 .name(&#34;neptune_enable_audit_log&#34;)
- *                 .value(1)
- *                 .build())
+ *             .parameters(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

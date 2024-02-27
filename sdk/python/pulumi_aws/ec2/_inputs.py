@@ -17179,16 +17179,6 @@ class GetSubnetsFilterArgs:
         :param str name: Name of the field to filter by, as defined by
                [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
                For example, if matching against tag `Name`, use:
-               
-               ```python
-               import pulumi
-               import pulumi_aws as aws
-               
-               selected = aws.ec2.get_subnets(filters=[aws.ec2.GetSubnetsFilterArgs(
-                   name="tag:Name",
-                   values=[""],
-               )])
-               ```
         :param Sequence[str] values: Set of values that are accepted for the given field.
                Subnet IDs will be selected if any one of the given values match.
         """
@@ -17202,16 +17192,6 @@ class GetSubnetsFilterArgs:
         Name of the field to filter by, as defined by
         [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
         For example, if matching against tag `Name`, use:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        selected = aws.ec2.get_subnets(filters=[aws.ec2.GetSubnetsFilterArgs(
-            name="tag:Name",
-            values=[""],
-        )])
-        ```
         """
         return pulumi.get(self, "name")
 

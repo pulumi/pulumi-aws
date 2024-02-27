@@ -16,67 +16,6 @@ import (
 //
 // > **NOTE on Instance State Management:** AWS does not currently have an EC2 API operation to determine an instance has finished processing user data. As a result, this resource can interfere with user data processing. For example, this resource may stop an instance while the user data script is in mid run.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2transitgateway"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			ubuntu, err := ec2.LookupAmi(ctx, &ec2.LookupAmiArgs{
-//				MostRecent: pulumi.BoolRef(true),
-//				Filters: []ec2.GetAmiFilter{
-//					{
-//						Name: "name",
-//						Values: []string{
-//							"ubuntu/images/hvm-ssd/ubuntu-focal-20.04-amd64-server-*",
-//						},
-//					},
-//					{
-//						Name: "virtualization-type",
-//						Values: []string{
-//							"hvm",
-//						},
-//					},
-//				},
-//				Owners: []string{
-//					"099720109477",
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			testInstance, err := ec2.NewInstance(ctx, "testInstance", &ec2.InstanceArgs{
-//				Ami:          *pulumi.String(ubuntu.Id),
-//				InstanceType: pulumi.String("t3.micro"),
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("HelloWorld"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ec2transitgateway.NewInstanceState(ctx, "testInstanceState", &ec2transitgateway.InstanceStateArgs{
-//				InstanceId: testInstance.ID(),
-//				State:      pulumi.String("stopped"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Using `pulumi import`, import `aws_ec2_instance_state` using the `instance_id` attribute. For example:

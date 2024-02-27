@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const cluster = new aws.emr.Cluster("cluster", {
+ * const cluster = new aws.emr/cluster.Cluster("cluster", {
  *     releaseLabel: "emr-4.6.0",
  *     applications: ["Spark"],
  *     additionalInfo: `{
@@ -43,7 +43,7 @@ import * as utilities from "../utilities";
  *         instanceType: "c4.large",
  *         instanceCount: 1,
  *         ebsConfigs: [{
- *             size: 40,
+ *             size: "40",
  *             type: "gp2",
  *             volumesPerInstance: 1,
  *         }],
@@ -134,7 +134,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.emr.Cluster("example", {
+ * const example = new aws.emr/cluster.Cluster("example", {
  *     masterInstanceFleet: {
  *         instanceTypeConfigs: [{
  *             instanceType: "m4.xlarge",
@@ -187,7 +187,7 @@ import * as utilities from "../utilities";
  *         targetSpotCapacity: 2,
  *     },
  * });
- * const task = new aws.emr.InstanceFleet("task", {
+ * const task = new aws.emr/instanceFleet.InstanceFleet("task", {
  *     clusterId: example.id,
  *     instanceTypeConfigs: [
  *         {
@@ -232,7 +232,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * // ... other configuration ...
- * const example = new aws.emr.Cluster("example", {steps: [{
+ * const example = new aws.emr/cluster.Cluster("example", {steps: [{
  *     actionOnFailure: "TERMINATE_CLUSTER",
  *     name: "Setup Hadoop Debugging",
  *     hadoopJarStep: {
@@ -253,9 +253,9 @@ import * as utilities from "../utilities";
  * // only relevant configurations for working with this functionality.
  * // Map public IP on launch must be enabled for public (Internet accessible) subnets
  * // ... other configuration ...
- * const exampleSubnet = new aws.ec2.Subnet("exampleSubnet", {mapPublicIpOnLaunch: true});
+ * const exampleSubnet = new aws.ec2/subnet.Subnet("exampleSubnet", {mapPublicIpOnLaunch: true});
  * // ... other configuration ...
- * const exampleCluster = new aws.emr.Cluster("exampleCluster", {
+ * const exampleCluster = new aws.emr/cluster.Cluster("exampleCluster", {
  *     releaseLabel: "emr-5.24.1",
  *     terminationProtection: true,
  *     ec2Attributes: {
@@ -343,7 +343,7 @@ export class Cluster extends pulumi.CustomResource {
      * import * as pulumi from "@pulumi/pulumi";
      * import * as aws from "@pulumi/aws";
      *
-     * const cluster = new aws.emr.Cluster("cluster", {configurationsJson: `[
+     * const cluster = new aws.emr/cluster.Cluster("cluster", {configurationsJson: `[
      * {
      * "Classification": "hadoop-env",
      * "Configurations": [
@@ -604,7 +604,7 @@ export interface ClusterState {
      * import * as pulumi from "@pulumi/pulumi";
      * import * as aws from "@pulumi/aws";
      *
-     * const cluster = new aws.emr.Cluster("cluster", {configurationsJson: `[
+     * const cluster = new aws.emr/cluster.Cluster("cluster", {configurationsJson: `[
      * {
      * "Classification": "hadoop-env",
      * "Configurations": [
@@ -766,7 +766,7 @@ export interface ClusterArgs {
      * import * as pulumi from "@pulumi/pulumi";
      * import * as aws from "@pulumi/aws";
      *
-     * const cluster = new aws.emr.Cluster("cluster", {configurationsJson: `[
+     * const cluster = new aws.emr/cluster.Cluster("cluster", {configurationsJson: `[
      * {
      * "Classification": "hadoop-env",
      * "Configurations": [

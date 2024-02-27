@@ -24,46 +24,22 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/networkfirewall"
+//	networkfirewall/resourcePolicy "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/networkfirewall/resourcePolicy"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"Statement": []map[string]interface{}{
-//					map[string]interface{}{
-//						"Action": []string{
-//							"network-firewall:ListFirewallPolicies",
-//							"network-firewall:CreateFirewall",
-//							"network-firewall:UpdateFirewall",
-//							"network-firewall:AssociateFirewallPolicy",
-//						},
-//						"Effect":   "Allow",
-//						"Resource": aws_networkfirewall_firewall_policy.Example.Arn,
-//						"Principal": map[string]interface{}{
-//							"AWS": "arn:aws:iam::123456789012:root",
-//						},
-//					},
-//				},
-//				"Version": "2012-10-17",
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			_, err = networkfirewall.NewResourcePolicy(ctx, "example", &networkfirewall.ResourcePolicyArgs{
-//				ResourceArn: pulumi.Any(aws_networkfirewall_firewall_policy.Example.Arn),
-//				Policy:      pulumi.String(json0),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := networkfirewall/resourcePolicy.NewResourcePolicy(ctx, "example", &networkfirewall/resourcePolicy.ResourcePolicyArgs{
+// ResourceArn: aws_networkfirewall_firewall_policy.Example.Arn,
+// Policy: %!v(PANIC=Format method: fatal: An assertion has failed: unlowered function toJSON),
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### For a Rule Group resource
 //
@@ -74,45 +50,22 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/networkfirewall"
+//	networkfirewall/resourcePolicy "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/networkfirewall/resourcePolicy"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"Statement": []map[string]interface{}{
-//					map[string]interface{}{
-//						"Action": []string{
-//							"network-firewall:ListRuleGroups",
-//							"network-firewall:CreateFirewallPolicy",
-//							"network-firewall:UpdateFirewallPolicy",
-//						},
-//						"Effect":   "Allow",
-//						"Resource": aws_networkfirewall_rule_group.Example.Arn,
-//						"Principal": map[string]interface{}{
-//							"AWS": "arn:aws:iam::123456789012:root",
-//						},
-//					},
-//				},
-//				"Version": "2012-10-17",
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			_, err = networkfirewall.NewResourcePolicy(ctx, "example", &networkfirewall.ResourcePolicyArgs{
-//				ResourceArn: pulumi.Any(aws_networkfirewall_rule_group.Example.Arn),
-//				Policy:      pulumi.String(json0),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := networkfirewall/resourcePolicy.NewResourcePolicy(ctx, "example", &networkfirewall/resourcePolicy.ResourcePolicyArgs{
+// ResourceArn: aws_networkfirewall_rule_group.Example.Arn,
+// Policy: %!v(PANIC=Format method: fatal: An assertion has failed: unlowered function toJSON),
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

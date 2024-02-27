@@ -231,15 +231,15 @@ class LbCertificate(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_lb = aws.lightsail.Lb("testLb",
-            health_check_path="/",
+        test_lb = aws.lightsail.lb.Lb("testLb",
+            health_check_path=/,
             instance_port=80,
             tags={
-                "foo": "bar",
+                foo: bar,
             })
-        test_lb_certificate = aws.lightsail.LbCertificate("testLbCertificate",
+        test_lb_certificate = aws.lightsail.lb_certificate.LbCertificate("testLbCertificate",
             lb_name=test_lb.id,
-            domain_name="test.com")
+            domain_name=test.com)
         ```
 
         ## Import
@@ -272,15 +272,15 @@ class LbCertificate(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_lb = aws.lightsail.Lb("testLb",
-            health_check_path="/",
+        test_lb = aws.lightsail.lb.Lb("testLb",
+            health_check_path=/,
             instance_port=80,
             tags={
-                "foo": "bar",
+                foo: bar,
             })
-        test_lb_certificate = aws.lightsail.LbCertificate("testLbCertificate",
+        test_lb_certificate = aws.lightsail.lb_certificate.LbCertificate("testLbCertificate",
             lb_name=test_lb.id,
-            domain_name="test.com")
+            domain_name=test.com)
         ```
 
         ## Import

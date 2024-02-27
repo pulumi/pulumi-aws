@@ -22,24 +22,22 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/servicecatalog"
+//	servicecatalog/tagOption "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/servicecatalog/tagOption"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := servicecatalog.NewTagOption(ctx, "example", &servicecatalog.TagOptionArgs{
-//				Key:   pulumi.String("nyckel"),
-//				Value: pulumi.String("värde"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := servicecatalog/tagOption.NewTagOption(ctx, "example", &servicecatalog/tagOption.TagOptionArgs{
+// Key: "nyckel",
+// Value: "värde",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.codecommit.ApprovalRuleTemplate("example", {
+ * const example = new aws.codecommit/approvalRuleTemplate.ApprovalRuleTemplate("example", {
  *     description: "This is an example approval rule template",
  *     content: JSON.stringify({
  *         Version: "2018-11-08",

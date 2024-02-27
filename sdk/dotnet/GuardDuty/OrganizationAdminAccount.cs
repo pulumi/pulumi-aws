@@ -22,7 +22,7 @@ namespace Pulumi.Aws.GuardDuty
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleOrganization = new Aws.Organizations.Organization("exampleOrganization", new()
+    ///     var exampleOrganization = new Aws.Organizations.Organization.Organization("exampleOrganization", new()
     ///     {
     ///         AwsServiceAccessPrincipals = new[]
     ///         {
@@ -31,9 +31,9 @@ namespace Pulumi.Aws.GuardDuty
     ///         FeatureSet = "ALL",
     ///     });
     /// 
-    ///     var exampleDetector = new Aws.GuardDuty.Detector("exampleDetector");
+    ///     var exampleDetector = new Aws.Guardduty.Detector.Detector("exampleDetector");
     /// 
-    ///     var exampleOrganizationAdminAccount = new Aws.GuardDuty.OrganizationAdminAccount("exampleOrganizationAdminAccount", new()
+    ///     var exampleOrganizationAdminAccount = new Aws.Guardduty.OrganizationAdminAccount.OrganizationAdminAccount("exampleOrganizationAdminAccount", new()
     ///     {
     ///         AdminAccountId = "123456789012",
     ///     }, new CustomResourceOptions

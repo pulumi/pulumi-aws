@@ -23,7 +23,7 @@ namespace Pulumi.Aws.SecretsManager
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.SecretsManager.Secret("example");
+    ///     var example = new Aws.Secretsmanager.Secret.Secret("example");
     /// 
     /// });
     /// ```

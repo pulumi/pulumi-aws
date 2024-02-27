@@ -140,10 +140,10 @@ class LinkAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.networkmanager.LinkAssociation("example",
-            global_network_id=aws_networkmanager_global_network["example"]["id"],
-            link_id=aws_networkmanager_link["example"]["id"],
-            device_id=aws_networkmanager_device["example"]["id"])
+        example = aws.networkmanager.link_association.LinkAssociation("example",
+            global_network_id=aws_networkmanager_global_network.example.id,
+            link_id=aws_networkmanager_link.example.id,
+            device_id=aws_networkmanager_device.example.id)
         ```
 
         ## Import
@@ -177,10 +177,10 @@ class LinkAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.networkmanager.LinkAssociation("example",
-            global_network_id=aws_networkmanager_global_network["example"]["id"],
-            link_id=aws_networkmanager_link["example"]["id"],
-            device_id=aws_networkmanager_device["example"]["id"])
+        example = aws.networkmanager.link_association.LinkAssociation("example",
+            global_network_id=aws_networkmanager_global_network.example.id,
+            link_id=aws_networkmanager_link.example.id,
+            device_id=aws_networkmanager_device.example.id)
         ```
 
         ## Import

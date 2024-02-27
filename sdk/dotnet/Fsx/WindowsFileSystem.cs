@@ -27,7 +27,7 @@ namespace Pulumi.Aws.Fsx
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Fsx.WindowsFileSystem("example", new()
+    ///     var example = new Aws.Fsx.WindowsFileSystem.WindowsFileSystem("example", new()
     ///     {
     ///         ActiveDirectoryId = aws_directory_service_directory.Example.Id,
     ///         KmsKeyId = aws_kms_key.Example.Arn,
@@ -53,7 +53,7 @@ namespace Pulumi.Aws.Fsx
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Fsx.WindowsFileSystem("example", new()
+    ///     var example = new Aws.Fsx.WindowsFileSystem.WindowsFileSystem("example", new()
     ///     {
     ///         KmsKeyId = aws_kms_key.Example.Arn,
     ///         StorageCapacity = 300,
@@ -62,16 +62,16 @@ namespace Pulumi.Aws.Fsx
     ///             aws_subnet.Example.Id,
     ///         },
     ///         ThroughputCapacity = 1024,
-    ///         SelfManagedActiveDirectory = new Aws.Fsx.Inputs.WindowsFileSystemSelfManagedActiveDirectoryArgs
+    ///         SelfManagedActiveDirectory = 
     ///         {
-    ///             DnsIps = new[]
+    ///             { "dnsIps", new[]
     ///             {
     ///                 "10.0.0.111",
     ///                 "10.0.0.222",
-    ///             },
-    ///             DomainName = "corp.example.com",
-    ///             Password = "avoid-plaintext-passwords",
-    ///             Username = "Admin",
+    ///             } },
+    ///             { "domainName", "corp.example.com" },
+    ///             { "password", "avoid-plaintext-passwords" },
+    ///             { "username", "Admin" },
     ///         },
     ///     });
     /// 

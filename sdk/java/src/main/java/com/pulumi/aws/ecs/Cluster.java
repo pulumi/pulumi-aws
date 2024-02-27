@@ -31,7 +31,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.ecs.Cluster;
  * import com.pulumi.aws.ecs.ClusterArgs;
- * import com.pulumi.aws.ecs.inputs.ClusterSettingArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -46,10 +45,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var foo = new Cluster(&#34;foo&#34;, ClusterArgs.builder()        
- *             .settings(ClusterSettingArgs.builder()
- *                 .name(&#34;containerInsights&#34;)
- *                 .value(&#34;enabled&#34;)
- *                 .build())
+ *             .settings(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -67,9 +63,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.cloudwatch.LogGroup;
  * import com.pulumi.aws.ecs.Cluster;
  * import com.pulumi.aws.ecs.ClusterArgs;
- * import com.pulumi.aws.ecs.inputs.ClusterConfigurationArgs;
- * import com.pulumi.aws.ecs.inputs.ClusterConfigurationExecuteCommandConfigurationArgs;
- * import com.pulumi.aws.ecs.inputs.ClusterConfigurationExecuteCommandConfigurationLogConfigurationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -91,16 +84,7 @@ import javax.annotation.Nullable;
  *         var exampleLogGroup = new LogGroup(&#34;exampleLogGroup&#34;);
  * 
  *         var test = new Cluster(&#34;test&#34;, ClusterArgs.builder()        
- *             .configuration(ClusterConfigurationArgs.builder()
- *                 .executeCommandConfiguration(ClusterConfigurationExecuteCommandConfigurationArgs.builder()
- *                     .kmsKeyId(exampleKey.arn())
- *                     .logging(&#34;OVERRIDE&#34;)
- *                     .logConfiguration(ClusterConfigurationExecuteCommandConfigurationLogConfigurationArgs.builder()
- *                         .cloudWatchEncryptionEnabled(true)
- *                         .cloudWatchLogGroupName(exampleLogGroup.name())
- *                         .build())
- *                     .build())
- *                 .build())
+ *             .configuration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

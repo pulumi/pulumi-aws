@@ -24,20 +24,20 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3control"
+//	s3control/accessGrantsInstance "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/s3control/accessGrantsInstance"
+//	s3control/accessGrantsInstanceResourcePolicy "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/s3control/accessGrantsInstanceResourcePolicy"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleAccessGrantsInstance, err := s3control/accessGrantsInstance.NewAccessGrantsInstance(ctx, "exampleAccessGrantsInstance", nil)
+// if err != nil {
+// return err
+// }
+// _, err = s3control/accessGrantsInstanceResourcePolicy.NewAccessGrantsInstanceResourcePolicy(ctx, "exampleAccessGrantsInstanceResourcePolicy", &s3control/accessGrantsInstanceResourcePolicy.AccessGrantsInstanceResourcePolicyArgs{
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleAccessGrantsInstance, err := s3control.NewAccessGrantsInstance(ctx, "exampleAccessGrantsInstance", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = s3control.NewAccessGrantsInstanceResourcePolicy(ctx, "exampleAccessGrantsInstanceResourcePolicy", &s3control.AccessGrantsInstanceResourcePolicyArgs{
-//				Policy: exampleAccessGrantsInstance.AccessGrantsInstanceArn.ApplyT(func(accessGrantsInstanceArn string) (string, error) {
-//					return fmt.Sprintf(`{
+//	Policy: fmt.Sprintf(`{
 //	  "Version": "2012-10-17",
 //	  "Id": "S3AccessGrantsPolicy",
 //	  "Statement": [{
@@ -55,17 +55,14 @@ import (
 //	  }]
 //	}
 //
-// `, accessGrantsInstanceArn), nil
-//
-//				}).(pulumi.StringOutput),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// `, exampleAccessGrantsInstance.AccessGrantsInstanceArn),
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

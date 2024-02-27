@@ -19,54 +19,6 @@ import javax.annotation.Nullable;
  * Provides a resource to manage AWS Secrets Manager secret policy.
  * 
  * ## Example Usage
- * ### Basic
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.secretsmanager.Secret;
- * import com.pulumi.aws.iam.IamFunctions;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
- * import com.pulumi.aws.secretsmanager.SecretPolicy;
- * import com.pulumi.aws.secretsmanager.SecretPolicyArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var exampleSecret = new Secret(&#34;exampleSecret&#34;);
- * 
- *         final var examplePolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .sid(&#34;EnableAnotherAWSAccountToReadTheSecret&#34;)
- *                 .effect(&#34;Allow&#34;)
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type(&#34;AWS&#34;)
- *                     .identifiers(&#34;arn:aws:iam::123456789012:root&#34;)
- *                     .build())
- *                 .actions(&#34;secretsmanager:GetSecretValue&#34;)
- *                 .resources(&#34;*&#34;)
- *                 .build())
- *             .build());
- * 
- *         var exampleSecretPolicy = new SecretPolicy(&#34;exampleSecretPolicy&#34;, SecretPolicyArgs.builder()        
- *             .secretArn(exampleSecret.arn())
- *             .policy(examplePolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
- *             .build());
- * 
- *     }
- * }
- * ```
  * 
  * ## Import
  * 

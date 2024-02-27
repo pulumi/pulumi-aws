@@ -26,32 +26,31 @@ import (
 //
 //	"os"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	iam/signingCertificate "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/iam/signingCertificate"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func readFileOrPanic(path string) pulumi.StringPtrInput {
-//		data, err := os.ReadFile(path)
-//		if err != nil {
-//			panic(err.Error())
-//		}
-//		return pulumi.String(string(data))
-//	}
+//					data, err := os.ReadFile(path)
+//					if err != nil {
+//						panic(err.Error())
+//					}
+//					return pulumi.String(string(data))
+//				}
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := iam.NewSigningCertificate(ctx, "testCert", &iam.SigningCertificateArgs{
-//				Username:        pulumi.String("some_test_cert"),
-//				CertificateBody: readFileOrPanic("self-ca-cert.pem"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := iam/signingCertificate.NewSigningCertificate(ctx, "testCert", &iam/signingCertificate.SigningCertificateArgs{
+// Username: "some_test_cert",
+// CertificateBody: readFileOrPanic("self-ca-cert.pem"),
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // **Example with cert in-line:**
@@ -61,24 +60,22 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	iam/signingCertificate "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/iam/signingCertificate"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := iam.NewSigningCertificate(ctx, "testCertAlt", &iam.SigningCertificateArgs{
-//				CertificateBody: pulumi.String("-----BEGIN CERTIFICATE-----\n[......] # cert contents\n-----END CERTIFICATE-----\n\n"),
-//				Username:        pulumi.String("some_test_cert"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := iam/signingCertificate.NewSigningCertificate(ctx, "testCertAlt", &iam/signingCertificate.SigningCertificateArgs{
+// CertificateBody: "-----BEGIN CERTIFICATE-----\n[......] # cert contents\n-----END CERTIFICATE-----\n\n",
+// Username: "some_test_cert",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

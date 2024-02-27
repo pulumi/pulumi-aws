@@ -22,26 +22,26 @@ namespace Pulumi.Aws.DirectoryService
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleDirectory = new Aws.DirectoryService.Directory("exampleDirectory", new()
+    ///     var exampleDirectory = new Aws.Directoryservice.Directory.Directory("exampleDirectory", new()
     ///     {
     ///         Name = "tf-example",
     ///         Password = "SuperSecretPassw0rd",
     ///         Type = "MicrosoftAD",
     ///         Edition = "Standard",
-    ///         VpcSettings = new Aws.DirectoryService.Inputs.DirectoryVpcSettingsArgs
+    ///         VpcSettings = 
     ///         {
-    ///             VpcId = aws_vpc.Example.Id,
-    ///             SubnetIds = aws_subnet.Example.Select(__item =&gt; __item.Id).ToList(),
+    ///             { "vpcId", aws_vpc.Example.Id },
+    ///             { "subnetIds", aws_subnet.Example.Select(__item =&gt; __item.Id).ToList() },
     ///         },
     ///     });
     /// 
-    ///     var exampleSharedDirectory = new Aws.DirectoryService.SharedDirectory("exampleSharedDirectory", new()
+    ///     var exampleSharedDirectory = new Aws.Directoryservice.SharedDirectory.SharedDirectory("exampleSharedDirectory", new()
     ///     {
     ///         DirectoryId = exampleDirectory.Id,
     ///         Notes = "You wanna have a catch?",
-    ///         Target = new Aws.DirectoryService.Inputs.SharedDirectoryTargetArgs
+    ///         Target = 
     ///         {
-    ///             Id = data.Aws_caller_identity.Receiver.Account_id,
+    ///             { "id", data.Aws_caller_identity.Receiver.Account_id },
     ///         },
     ///     });
     /// 

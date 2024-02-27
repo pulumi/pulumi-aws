@@ -18,11 +18,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const network = new aws.ec2.Vpc("network", {cidrBlock: "10.0.0.0/16"});
- * const vpn = new aws.ec2.VpnGateway("vpn", {tags: {
+ * const network = new aws.ec2/vpc.Vpc("network", {cidrBlock: "10.0.0.0/16"});
+ * const vpn = new aws.ec2/vpnGateway.VpnGateway("vpn", {tags: {
  *     Name: "example-vpn-gateway",
  * }});
- * const vpnAttachment = new aws.ec2.VpnGatewayAttachment("vpnAttachment", {
+ * const vpnAttachment = new aws.ec2/vpnGatewayAttachment.VpnGatewayAttachment("vpnAttachment", {
  *     vpcId: network.id,
  *     vpnGatewayId: vpn.id,
  * });

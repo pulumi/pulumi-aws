@@ -21,32 +21,30 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/account"
+//	account/primaryContact "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/account/primaryContact"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := account.NewPrimaryContact(ctx, "test", &account.PrimaryContactArgs{
-//				AddressLine1:     pulumi.String("123 Any Street"),
-//				City:             pulumi.String("Seattle"),
-//				CompanyName:      pulumi.String("Example Corp, Inc."),
-//				CountryCode:      pulumi.String("US"),
-//				DistrictOrCounty: pulumi.String("King"),
-//				FullName:         pulumi.String("My Name"),
-//				PhoneNumber:      pulumi.String("+64211111111"),
-//				PostalCode:       pulumi.String("98101"),
-//				StateOrRegion:    pulumi.String("WA"),
-//				WebsiteUrl:       pulumi.String("https://www.examplecorp.com"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := account/primaryContact.NewPrimaryContact(ctx, "test", &account/primaryContact.PrimaryContactArgs{
+// AddressLine1: "123 Any Street",
+// City: "Seattle",
+// CompanyName: "Example Corp, Inc.",
+// CountryCode: "US",
+// DistrictOrCounty: "King",
+// FullName: "My Name",
+// PhoneNumber: "+64211111111",
+// PostalCode: "98101",
+// StateOrRegion: "WA",
+// WebsiteUrl: "https://www.examplecorp.com",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

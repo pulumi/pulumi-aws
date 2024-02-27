@@ -23,16 +23,16 @@ namespace Pulumi.Aws.SesV2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleEmailIdentity = new Aws.SesV2.EmailIdentity("exampleEmailIdentity", new()
+    ///     var exampleEmailIdentity = new Aws.Sesv2.EmailIdentity.EmailIdentity("exampleEmailIdentity", new()
     ///     {
-    ///         EmailIdentityDetails = "example.com",
+    ///         EmailIdentity = "example.com",
     ///     });
     /// 
-    ///     var exampleEmailIdentityMailFromAttributes = new Aws.SesV2.EmailIdentityMailFromAttributes("exampleEmailIdentityMailFromAttributes", new()
+    ///     var exampleEmailIdentityMailFromAttributes = new Aws.Sesv2.EmailIdentityMailFromAttributes.EmailIdentityMailFromAttributes("exampleEmailIdentityMailFromAttributes", new()
     ///     {
-    ///         EmailIdentity = exampleEmailIdentity.EmailIdentityDetails,
+    ///         EmailIdentity = exampleEmailIdentity.EmailIdentity,
     ///         BehaviorOnMxFailure = "REJECT_MESSAGE",
-    ///         MailFromDomain = exampleEmailIdentity.EmailIdentityDetails.Apply(emailIdentity =&gt; $"subdomain.{emailIdentity}"),
+    ///         MailFromDomain = $"subdomain.{exampleEmailIdentity.EmailIdentity}",
     ///     });
     /// 
     /// });

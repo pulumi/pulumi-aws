@@ -185,7 +185,7 @@ class ReadinessCheck(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.route53recoveryreadiness.ReadinessCheck("example",
+        example = aws.route53recoveryreadiness.readiness_check.ReadinessCheck("example",
             readiness_check_name=my_cw_alarm_check,
             resource_set_name=my_cw_alarm_set)
         ```
@@ -221,7 +221,7 @@ class ReadinessCheck(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.route53recoveryreadiness.ReadinessCheck("example",
+        example = aws.route53recoveryreadiness.readiness_check.ReadinessCheck("example",
             readiness_check_name=my_cw_alarm_check,
             resource_set_name=my_cw_alarm_set)
         ```

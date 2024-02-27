@@ -393,41 +393,41 @@ class VpcConnection(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        vpc_connection_role = aws.iam.Role("vpcConnectionRole",
+        vpc_connection_role = aws.iam.role.Role("vpcConnectionRole",
             assume_role_policy=json.dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Effect": "Allow",
-                    "Action": "sts:AssumeRole",
-                    "Principal": {
-                        "Service": "quicksight.amazonaws.com",
+                Version: 2012-10-17,
+                Statement: [{
+                    Effect: Allow,
+                    Action: sts:AssumeRole,
+                    Principal: {
+                        Service: quicksight.amazonaws.com,
                     },
                 }],
             }),
-            inline_policies=[aws.iam.RoleInlinePolicyArgs(
-                name="QuickSightVPCConnectionRolePolicy",
-                policy=json.dumps({
-                    "Version": "2012-10-17",
-                    "Statement": [{
-                        "Effect": "Allow",
-                        "Action": [
-                            "ec2:CreateNetworkInterface",
-                            "ec2:ModifyNetworkInterfaceAttribute",
-                            "ec2:DeleteNetworkInterface",
-                            "ec2:DescribeSubnets",
-                            "ec2:DescribeSecurityGroups",
+            inline_policies=[{
+                name: QuickSightVPCConnectionRolePolicy,
+                policy: json.dumps({
+                    Version: 2012-10-17,
+                    Statement: [{
+                        Effect: Allow,
+                        Action: [
+                            ec2:CreateNetworkInterface,
+                            ec2:ModifyNetworkInterfaceAttribute,
+                            ec2:DeleteNetworkInterface,
+                            ec2:DescribeSubnets,
+                            ec2:DescribeSecurityGroups,
                         ],
-                        "Resource": ["*"],
+                        Resource: [*],
                     }],
                 }),
-            )])
-        example = aws.quicksight.VpcConnection("example",
-            vpc_connection_id="example-connection-id",
+            }])
+        example = aws.quicksight.vpc_connection.VpcConnection("example",
+            vpc_connection_id=example-connection-id,
             role_arn=vpc_connection_role.arn,
-            security_group_ids=["sg-00000000000000000"],
+            security_group_ids=[sg-00000000000000000],
             subnet_ids=[
-                "subnet-00000000000000000",
-                "subnet-00000000000000001",
+                subnet-00000000000000000,
+                subnet-00000000000000001,
             ])
         ```
 
@@ -469,41 +469,41 @@ class VpcConnection(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        vpc_connection_role = aws.iam.Role("vpcConnectionRole",
+        vpc_connection_role = aws.iam.role.Role("vpcConnectionRole",
             assume_role_policy=json.dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Effect": "Allow",
-                    "Action": "sts:AssumeRole",
-                    "Principal": {
-                        "Service": "quicksight.amazonaws.com",
+                Version: 2012-10-17,
+                Statement: [{
+                    Effect: Allow,
+                    Action: sts:AssumeRole,
+                    Principal: {
+                        Service: quicksight.amazonaws.com,
                     },
                 }],
             }),
-            inline_policies=[aws.iam.RoleInlinePolicyArgs(
-                name="QuickSightVPCConnectionRolePolicy",
-                policy=json.dumps({
-                    "Version": "2012-10-17",
-                    "Statement": [{
-                        "Effect": "Allow",
-                        "Action": [
-                            "ec2:CreateNetworkInterface",
-                            "ec2:ModifyNetworkInterfaceAttribute",
-                            "ec2:DeleteNetworkInterface",
-                            "ec2:DescribeSubnets",
-                            "ec2:DescribeSecurityGroups",
+            inline_policies=[{
+                name: QuickSightVPCConnectionRolePolicy,
+                policy: json.dumps({
+                    Version: 2012-10-17,
+                    Statement: [{
+                        Effect: Allow,
+                        Action: [
+                            ec2:CreateNetworkInterface,
+                            ec2:ModifyNetworkInterfaceAttribute,
+                            ec2:DeleteNetworkInterface,
+                            ec2:DescribeSubnets,
+                            ec2:DescribeSecurityGroups,
                         ],
-                        "Resource": ["*"],
+                        Resource: [*],
                     }],
                 }),
-            )])
-        example = aws.quicksight.VpcConnection("example",
-            vpc_connection_id="example-connection-id",
+            }])
+        example = aws.quicksight.vpc_connection.VpcConnection("example",
+            vpc_connection_id=example-connection-id,
             role_arn=vpc_connection_role.arn,
-            security_group_ids=["sg-00000000000000000"],
+            security_group_ids=[sg-00000000000000000],
             subnet_ids=[
-                "subnet-00000000000000000",
-                "subnet-00000000000000001",
+                subnet-00000000000000000,
+                subnet-00000000000000001,
             ])
         ```
 

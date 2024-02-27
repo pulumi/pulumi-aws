@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.verifiedpermissions.PolicyTemplate("example", {
+ * const example = new aws.verifiedpermissions/policyTemplate.PolicyTemplate("example", {
  *     policyStoreId: aws_verifiedpermissions_policy_store.example.id,
  *     statement: "permit (principal in ?principal, action in PhotoFlash::Action::\"FullPhotoAccess\", resource == ?resource) unless { resource.IsPrivate };",
  * });

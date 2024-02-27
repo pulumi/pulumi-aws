@@ -21,26 +21,24 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/directconnect"
+//	directconnect/privateVirtualInterface "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/directconnect/privateVirtualInterface"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := directconnect.NewPrivateVirtualInterface(ctx, "foo", &directconnect.PrivateVirtualInterfaceArgs{
-//				AddressFamily: pulumi.String("ipv4"),
-//				BgpAsn:        pulumi.Int(65352),
-//				ConnectionId:  pulumi.String("dxcon-zzzzzzzz"),
-//				Vlan:          pulumi.Int(4094),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := directconnect/privateVirtualInterface.NewPrivateVirtualInterface(ctx, "foo", &directconnect/privateVirtualInterface.PrivateVirtualInterfaceArgs{
+// AddressFamily: "ipv4",
+// BgpAsn: 65352,
+// ConnectionId: "dxcon-zzzzzzzz",
+// Vlan: 4094,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

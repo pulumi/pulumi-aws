@@ -187,11 +187,11 @@ class WorkspaceApiKey(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        key = aws.grafana.WorkspaceApiKey("key",
-            key_name="test-key",
-            key_role="VIEWER",
+        key = aws.grafana.workspace_api_key.WorkspaceApiKey("key",
+            key_name=test-key,
+            key_role=VIEWER,
             seconds_to_live=3600,
-            workspace_id=aws_grafana_workspace["test"]["id"])
+            workspace_id=aws_grafana_workspace.test.id)
         ```
 
         :param str resource_name: The name of the resource.
@@ -217,11 +217,11 @@ class WorkspaceApiKey(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        key = aws.grafana.WorkspaceApiKey("key",
-            key_name="test-key",
-            key_role="VIEWER",
+        key = aws.grafana.workspace_api_key.WorkspaceApiKey("key",
+            key_name=test-key,
+            key_role=VIEWER,
             seconds_to_live=3600,
-            workspace_id=aws_grafana_workspace["test"]["id"])
+            workspace_id=aws_grafana_workspace.test.id)
         ```
 
         :param str resource_name: The name of the resource.

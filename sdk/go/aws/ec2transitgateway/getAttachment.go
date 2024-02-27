@@ -12,43 +12,6 @@ import (
 )
 
 // Get information on an EC2 Transit Gateway's attachment to a resource.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2transitgateway"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// _, err := ec2transitgateway.GetAttachment(ctx, &ec2transitgateway.GetAttachmentArgs{
-// Filters: []ec2transitgateway.GetAttachmentFilter{
-// {
-// Name: "transit-gateway-id",
-// Values: interface{}{
-// aws_ec2_transit_gateway.Example.Id,
-// },
-// },
-// {
-// Name: "resource-type",
-// Values: []string{
-// "peering",
-// },
-// },
-// },
-// }, nil);
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
-// ```
 func GetAttachment(ctx *pulumi.Context, args *GetAttachmentArgs, opts ...pulumi.InvokeOption) (*GetAttachmentResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetAttachmentResult

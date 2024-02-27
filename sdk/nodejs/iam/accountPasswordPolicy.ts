@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const strict = new aws.iam.AccountPasswordPolicy("strict", {
+ * const strict = new aws.iam/accountPasswordPolicy.AccountPasswordPolicy("strict", {
  *     allowUsersToChangePassword: true,
  *     minimumPasswordLength: 8,
  *     requireLowercaseCharacters: true,

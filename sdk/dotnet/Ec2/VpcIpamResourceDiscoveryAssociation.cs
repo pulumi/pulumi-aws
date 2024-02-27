@@ -26,7 +26,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Aws.Ec2.VpcIpamResourceDiscoveryAssociation("test", new()
+    ///     var test = new Aws.Ec2.VpcIpamResourceDiscoveryAssociation.VpcIpamResourceDiscoveryAssociation("test", new()
     ///     {
     ///         IpamId = aws_vpc_ipam.Test.Id,
     ///         IpamResourceDiscoveryId = aws_vpc_ipam_resource_discovery.Test.Id,

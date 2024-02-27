@@ -21,28 +21,26 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lakeformation"
+//	lakeformation/lfTag "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/lakeformation/lfTag"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lakeformation.NewLfTag(ctx, "example", &lakeformation.LfTagArgs{
-//				Key: pulumi.String("module"),
-//				Values: pulumi.StringArray{
-//					pulumi.String("Orders"),
-//					pulumi.String("Sales"),
-//					pulumi.String("Customers"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := lakeformation/lfTag.NewLfTag(ctx, "example", &lakeformation/lfTag.LfTagArgs{
+// Key: "module",
+// Values: []string{
+// "Orders",
+// "Sales",
+// "Customers",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

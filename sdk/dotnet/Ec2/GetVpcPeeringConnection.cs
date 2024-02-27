@@ -14,43 +14,6 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// The VPC Peering Connection data source provides details about
         /// a specific VPC peering connection.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var pc = Aws.Ec2.GetVpcPeeringConnection.Invoke(new()
-        ///     {
-        ///         VpcId = aws_vpc.Foo.Id,
-        ///         PeerCidrBlock = "10.0.1.0/22",
-        ///     });
-        /// 
-        ///     // Create a route table
-        ///     var rt = new Aws.Ec2.RouteTable("rt", new()
-        ///     {
-        ///         VpcId = aws_vpc.Foo.Id,
-        ///     });
-        /// 
-        ///     // Create a route
-        ///     var route = new Aws.Ec2.Route("route", new()
-        ///     {
-        ///         RouteTableId = rt.Id,
-        ///         DestinationCidrBlock = pc.Apply(getVpcPeeringConnectionResult =&gt; getVpcPeeringConnectionResult.PeerCidrBlock),
-        ///         VpcPeeringConnectionId = pc.Apply(getVpcPeeringConnectionResult =&gt; getVpcPeeringConnectionResult.Id),
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetVpcPeeringConnectionResult> InvokeAsync(GetVpcPeeringConnectionArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVpcPeeringConnectionResult>("aws:ec2/getVpcPeeringConnection:getVpcPeeringConnection", args ?? new GetVpcPeeringConnectionArgs(), options.WithDefaults());
@@ -58,43 +21,6 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// The VPC Peering Connection data source provides details about
         /// a specific VPC peering connection.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var pc = Aws.Ec2.GetVpcPeeringConnection.Invoke(new()
-        ///     {
-        ///         VpcId = aws_vpc.Foo.Id,
-        ///         PeerCidrBlock = "10.0.1.0/22",
-        ///     });
-        /// 
-        ///     // Create a route table
-        ///     var rt = new Aws.Ec2.RouteTable("rt", new()
-        ///     {
-        ///         VpcId = aws_vpc.Foo.Id,
-        ///     });
-        /// 
-        ///     // Create a route
-        ///     var route = new Aws.Ec2.Route("route", new()
-        ///     {
-        ///         RouteTableId = rt.Id,
-        ///         DestinationCidrBlock = pc.Apply(getVpcPeeringConnectionResult =&gt; getVpcPeeringConnectionResult.PeerCidrBlock),
-        ///         VpcPeeringConnectionId = pc.Apply(getVpcPeeringConnectionResult =&gt; getVpcPeeringConnectionResult.Id),
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetVpcPeeringConnectionResult> Invoke(GetVpcPeeringConnectionInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVpcPeeringConnectionResult>("aws:ec2/getVpcPeeringConnection:getVpcPeeringConnection", args ?? new GetVpcPeeringConnectionInvokeArgs(), options.WithDefaults());

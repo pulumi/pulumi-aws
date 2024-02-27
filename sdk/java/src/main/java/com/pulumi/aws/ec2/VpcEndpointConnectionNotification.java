@@ -19,67 +19,6 @@ import javax.annotation.Nullable;
  * Provides a VPC Endpoint connection notification resource.
  * Connection notifications notify subscribers of VPC Endpoint events.
  * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.iam.IamFunctions;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
- * import com.pulumi.aws.sns.Topic;
- * import com.pulumi.aws.sns.TopicArgs;
- * import com.pulumi.aws.ec2.VpcEndpointService;
- * import com.pulumi.aws.ec2.VpcEndpointServiceArgs;
- * import com.pulumi.aws.ec2.VpcEndpointConnectionNotification;
- * import com.pulumi.aws.ec2.VpcEndpointConnectionNotificationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var topicPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect(&#34;Allow&#34;)
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type(&#34;Service&#34;)
- *                     .identifiers(&#34;vpce.amazonaws.com&#34;)
- *                     .build())
- *                 .actions(&#34;SNS:Publish&#34;)
- *                 .resources(&#34;arn:aws:sns:*:*:vpce-notification-topic&#34;)
- *                 .build())
- *             .build());
- * 
- *         var topicTopic = new Topic(&#34;topicTopic&#34;, TopicArgs.builder()        
- *             .policy(topicPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
- *             .build());
- * 
- *         var fooVpcEndpointService = new VpcEndpointService(&#34;fooVpcEndpointService&#34;, VpcEndpointServiceArgs.builder()        
- *             .acceptanceRequired(false)
- *             .networkLoadBalancerArns(aws_lb.test().arn())
- *             .build());
- * 
- *         var fooVpcEndpointConnectionNotification = new VpcEndpointConnectionNotification(&#34;fooVpcEndpointConnectionNotification&#34;, VpcEndpointConnectionNotificationArgs.builder()        
- *             .vpcEndpointServiceId(fooVpcEndpointService.id())
- *             .connectionNotificationArn(topicTopic.arn())
- *             .connectionEvents(            
- *                 &#34;Accept&#34;,
- *                 &#34;Reject&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
  * ## Import
  * 
  * Using `pulumi import`, import VPC Endpoint connection notifications using the VPC endpoint connection notification `id`. For example:

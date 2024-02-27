@@ -22,12 +22,12 @@ namespace Pulumi.Aws.ServiceDiscovery
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleVpc = new Aws.Ec2.Vpc("exampleVpc", new()
+    ///     var exampleVpc = new Aws.Ec2.Vpc.Vpc("exampleVpc", new()
     ///     {
     ///         CidrBlock = "10.0.0.0/16",
     ///     });
     /// 
-    ///     var examplePrivateDnsNamespace = new Aws.ServiceDiscovery.PrivateDnsNamespace("examplePrivateDnsNamespace", new()
+    ///     var examplePrivateDnsNamespace = new Aws.Servicediscovery.PrivateDnsNamespace.PrivateDnsNamespace("examplePrivateDnsNamespace", new()
     ///     {
     ///         Description = "example",
     ///         Vpc = exampleVpc.Id,

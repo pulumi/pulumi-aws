@@ -12,37 +12,6 @@ import (
 )
 
 // This resource can be useful for getting back a set of security group rule IDs.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/vpc"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// _, err := vpc.GetSecurityGroupRules(ctx, &vpc.GetSecurityGroupRulesArgs{
-// Filters: []vpc.GetSecurityGroupRulesFilter{
-// {
-// Name: "group-id",
-// Values: interface{}{
-// _var.Security_group_id,
-// },
-// },
-// },
-// }, nil);
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
-// ```
 func GetSecurityGroupRules(ctx *pulumi.Context, args *GetSecurityGroupRulesArgs, opts ...pulumi.InvokeOption) (*GetSecurityGroupRulesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetSecurityGroupRulesResult

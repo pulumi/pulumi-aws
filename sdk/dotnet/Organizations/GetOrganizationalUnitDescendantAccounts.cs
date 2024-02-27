@@ -13,60 +13,12 @@ namespace Pulumi.Aws.Organizations
     {
         /// <summary>
         /// Get all direct child accounts under a parent organizational unit. This provides all children.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var org = Aws.Organizations.GetOrganization.Invoke();
-        /// 
-        ///     var accounts = Aws.Organizations.GetOrganizationalUnitDescendantAccounts.Invoke(new()
-        ///     {
-        ///         ParentId = org.Apply(getOrganizationResult =&gt; getOrganizationResult.Roots[0]?.Id),
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetOrganizationalUnitDescendantAccountsResult> InvokeAsync(GetOrganizationalUnitDescendantAccountsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetOrganizationalUnitDescendantAccountsResult>("aws:organizations/getOrganizationalUnitDescendantAccounts:getOrganizationalUnitDescendantAccounts", args ?? new GetOrganizationalUnitDescendantAccountsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get all direct child accounts under a parent organizational unit. This provides all children.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var org = Aws.Organizations.GetOrganization.Invoke();
-        /// 
-        ///     var accounts = Aws.Organizations.GetOrganizationalUnitDescendantAccounts.Invoke(new()
-        ///     {
-        ///         ParentId = org.Apply(getOrganizationResult =&gt; getOrganizationResult.Roots[0]?.Id),
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetOrganizationalUnitDescendantAccountsResult> Invoke(GetOrganizationalUnitDescendantAccountsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOrganizationalUnitDescendantAccountsResult>("aws:organizations/getOrganizationalUnitDescendantAccounts:getOrganizationalUnitDescendantAccounts", args ?? new GetOrganizationalUnitDescendantAccountsInvokeArgs(), options.WithDefaults());

@@ -12,40 +12,6 @@ import (
 )
 
 // Use this data source to get the ARNs and names of Image Builder Image Recipes matching the specified criteria.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/imagebuilder"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := imagebuilder.GetImageRecipes(ctx, &imagebuilder.GetImageRecipesArgs{
-//				Filters: []imagebuilder.GetImageRecipesFilter{
-//					{
-//						Name: "platform",
-//						Values: []string{
-//							"Linux",
-//						},
-//					},
-//				},
-//				Owner: pulumi.StringRef("Self"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetImageRecipes(ctx *pulumi.Context, args *GetImageRecipesArgs, opts ...pulumi.InvokeOption) (*GetImageRecipesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetImageRecipesResult

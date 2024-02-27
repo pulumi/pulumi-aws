@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Glue
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Glue.Registry("example", new()
+    ///     var example = new Aws.Glue.Registry.Registry("example", new()
     ///     {
     ///         RegistryName = "example",
     ///     });

@@ -197,24 +197,6 @@ def get_zone(name: Optional[str] = None,
 
     This data source allows to find a Hosted Zone ID given Hosted Zone name and certain search criteria.
 
-    ## Example Usage
-
-    The following example shows how to get a Hosted Zone from its name and from this data how to create a Record Set.
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    selected = aws.route53.get_zone(name="test.com.",
-        private_zone=True)
-    www = aws.route53.Record("www",
-        zone_id=selected.zone_id,
-        name=f"www.{selected.name}",
-        type="A",
-        ttl=300,
-        records=["10.0.0.1"])
-    ```
-
 
     :param str name: Hosted Zone name of the desired Hosted Zone.
     :param bool private_zone: Used with `name` field to get a private Hosted Zone.
@@ -262,24 +244,6 @@ def get_zone_output(name: Optional[pulumi.Input[Optional[str]]] = None,
     `route53.Zone` provides details about a specific Route 53 Hosted Zone.
 
     This data source allows to find a Hosted Zone ID given Hosted Zone name and certain search criteria.
-
-    ## Example Usage
-
-    The following example shows how to get a Hosted Zone from its name and from this data how to create a Record Set.
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    selected = aws.route53.get_zone(name="test.com.",
-        private_zone=True)
-    www = aws.route53.Record("www",
-        zone_id=selected.zone_id,
-        name=f"www.{selected.name}",
-        type="A",
-        ttl=300,
-        records=["10.0.0.1"])
-    ```
 
 
     :param str name: Hosted Zone name of the desired Hosted Zone.

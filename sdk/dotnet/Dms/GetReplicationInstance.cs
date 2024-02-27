@@ -13,56 +13,12 @@ namespace Pulumi.Aws.Dms
     {
         /// <summary>
         /// Data source for managing an AWS DMS (Database Migration) Replication Instance.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Aws.Dms.GetReplicationInstance.Invoke(new()
-        ///     {
-        ///         ReplicationInstanceId = aws_dms_replication_instance.Test.Replication_instance_id,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetReplicationInstanceResult> InvokeAsync(GetReplicationInstanceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetReplicationInstanceResult>("aws:dms/getReplicationInstance:getReplicationInstance", args ?? new GetReplicationInstanceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Data source for managing an AWS DMS (Database Migration) Replication Instance.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Aws.Dms.GetReplicationInstance.Invoke(new()
-        ///     {
-        ///         ReplicationInstanceId = aws_dms_replication_instance.Test.Replication_instance_id,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetReplicationInstanceResult> Invoke(GetReplicationInstanceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetReplicationInstanceResult>("aws:dms/getReplicationInstance:getReplicationInstance", args ?? new GetReplicationInstanceInvokeArgs(), options.WithDefaults());

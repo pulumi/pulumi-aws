@@ -27,12 +27,12 @@ namespace Pulumi.Aws.ServiceCatalog
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.ServiceCatalog.Product("example", new()
+    ///     var example = new Aws.Servicecatalog.Product.Product("example", new()
     ///     {
     ///         Owner = "example-owner",
-    ///         ProvisioningArtifactParameters = new Aws.ServiceCatalog.Inputs.ProductProvisioningArtifactParametersArgs
+    ///         ProvisioningArtifactParameters = 
     ///         {
-    ///             TemplateUrl = "https://s3.amazonaws.com/cf-templates-ozkq9d3hgiq2-us-east-1/temp1.json",
+    ///             { "templateUrl", "https://s3.amazonaws.com/cf-templates-ozkq9d3hgiq2-us-east-1/temp1.json" },
     ///         },
     ///         Tags = 
     ///         {

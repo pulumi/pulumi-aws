@@ -36,8 +36,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.ec2.Vpc;
- * import com.pulumi.aws.ec2.VpcArgs;
+ * import com.pulumi.aws.ec2_vpc.Vpc;
+ * import com.pulumi.aws.ec2_vpc.VpcArgs;
  * import com.pulumi.aws.lb.TargetGroup;
  * import com.pulumi.aws.lb.TargetGroupArgs;
  * import java.util.List;
@@ -73,8 +73,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.ec2.Vpc;
- * import com.pulumi.aws.ec2.VpcArgs;
+ * import com.pulumi.aws.ec2_vpc.Vpc;
+ * import com.pulumi.aws.ec2_vpc.VpcArgs;
  * import com.pulumi.aws.lb.TargetGroup;
  * import com.pulumi.aws.lb.TargetGroupArgs;
  * import java.util.List;
@@ -174,7 +174,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.lb.TargetGroup;
  * import com.pulumi.aws.lb.TargetGroupArgs;
- * import com.pulumi.aws.lb.inputs.TargetGroupTargetHealthStateArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -192,9 +191,7 @@ import javax.annotation.Nullable;
  *             .port(25)
  *             .protocol(&#34;TCP&#34;)
  *             .vpcId(aws_vpc.main().id())
- *             .targetHealthStates(TargetGroupTargetHealthStateArgs.builder()
- *                 .enableUnhealthyConnectionTermination(false)
- *                 .build())
+ *             .targetHealthStates(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

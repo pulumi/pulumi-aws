@@ -24,7 +24,7 @@ namespace Pulumi.Aws.Schemas
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Aws.Schemas.Registry("test", new()
+    ///     var test = new Aws.Schemas.Registry.Registry("test", new()
     ///     {
     ///         Description = "A custom schema registry",
     ///     });

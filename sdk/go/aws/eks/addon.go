@@ -21,24 +21,22 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/eks"
+//	eks/addon "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/eks/addon"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := eks.NewAddon(ctx, "example", &eks.AddonArgs{
-//				ClusterName: pulumi.Any(aws_eks_cluster.Example.Name),
-//				AddonName:   pulumi.String("vpc-cni"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := eks/addon.NewAddon(ctx, "example", &eks/addon.AddonArgs{
+// ClusterName: aws_eks_cluster.Example.Name,
+// AddonName: "vpc-cni",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ## Example Update add-on usage with resolveConflictsOnUpdate and PRESERVE
 //
@@ -49,26 +47,24 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/eks"
+//	eks/addon "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/eks/addon"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := eks.NewAddon(ctx, "example", &eks.AddonArgs{
-//				ClusterName:              pulumi.Any(aws_eks_cluster.Example.Name),
-//				AddonName:                pulumi.String("coredns"),
-//				AddonVersion:             pulumi.String("v1.10.1-eksbuild.1"),
-//				ResolveConflictsOnUpdate: pulumi.String("PRESERVE"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := eks/addon.NewAddon(ctx, "example", &eks/addon.AddonArgs{
+// ClusterName: aws_eks_cluster.Example.Name,
+// AddonName: "coredns",
+// AddonVersion: "v1.10.1-eksbuild.1",
+// ResolveConflictsOnUpdate: "PRESERVE",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Example add-on usage with custom configurationValues
@@ -106,44 +102,25 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/eks"
+//	eks/addon "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/eks/addon"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"replicaCount": 4,
-//				"resources": map[string]interface{}{
-//					"limits": map[string]interface{}{
-//						"cpu":    "100m",
-//						"memory": "150Mi",
-//					},
-//					"requests": map[string]interface{}{
-//						"cpu":    "100m",
-//						"memory": "150Mi",
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			_, err = eks.NewAddon(ctx, "example", &eks.AddonArgs{
-//				ClusterName:              pulumi.String("mycluster"),
-//				AddonName:                pulumi.String("coredns"),
-//				AddonVersion:             pulumi.String("v1.10.1-eksbuild.1"),
-//				ResolveConflictsOnCreate: pulumi.String("OVERWRITE"),
-//				ConfigurationValues:      pulumi.String(json0),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := eks/addon.NewAddon(ctx, "example", &eks/addon.AddonArgs{
+// ClusterName: "mycluster",
+// AddonName: "coredns",
+// AddonVersion: "v1.10.1-eksbuild.1",
+// ResolveConflictsOnCreate: "OVERWRITE",
+// ConfigurationValues: %!v(PANIC=Format method: fatal: An assertion has failed: unlowered function toJSON),
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

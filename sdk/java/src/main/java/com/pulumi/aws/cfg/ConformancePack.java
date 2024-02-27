@@ -36,7 +36,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.cfg.ConformancePack;
  * import com.pulumi.aws.cfg.ConformancePackArgs;
- * import com.pulumi.aws.cfg.inputs.ConformancePackInputParameterArgs;
  * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
@@ -52,10 +51,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ConformancePack(&#34;example&#34;, ConformancePackArgs.builder()        
- *             .inputParameters(ConformancePackInputParameterArgs.builder()
- *                 .parameterName(&#34;AccessKeysRotatedParameterMaxAccessKeyAge&#34;)
- *                 .parameterValue(&#34;90&#34;)
- *                 .build())
+ *             .inputParameters(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .templateBody(&#34;&#34;&#34;
  * Parameters:
  *   AccessKeysRotatedParameterMaxAccessKeyAge:
@@ -120,11 +116,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleConformancePack = new ConformancePack(&#34;exampleConformancePack&#34;, ConformancePackArgs.builder()        
- *             .templateS3Uri(Output.tuple(exampleBucketV2.bucket(), exampleBucketObjectv2.key()).applyValue(values -&gt; {
- *                 var bucket = values.t1;
- *                 var key = values.t2;
- *                 return String.format(&#34;s3://%s/%s&#34;, bucket,key);
- *             }))
+ *             .templateS3Uri(String.format(&#34;s3://%s/%s&#34;, exampleBucketV2.bucket(),exampleBucketObjectv2.key()))
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(aws_config_configuration_recorder.example())
  *                 .build());

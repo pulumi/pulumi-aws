@@ -26,48 +26,47 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lightsail"
+//	lightsail/containerServiceDeploymentVersion "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/lightsail/containerServiceDeploymentVersion"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lightsail.NewContainerServiceDeploymentVersion(ctx, "example", &lightsail.ContainerServiceDeploymentVersionArgs{
-//				Containers: lightsail.ContainerServiceDeploymentVersionContainerArray{
-//					&lightsail.ContainerServiceDeploymentVersionContainerArgs{
-//						ContainerName: pulumi.String("hello-world"),
-//						Image:         pulumi.String("amazon/amazon-lightsail:hello-world"),
-//						Commands:      pulumi.StringArray{},
-//						Environment: pulumi.StringMap{
-//							"MY_ENVIRONMENT_VARIABLE": pulumi.String("my_value"),
-//						},
-//						Ports: pulumi.StringMap{
-//							"80": pulumi.String("HTTP"),
-//						},
-//					},
-//				},
-//				PublicEndpoint: &lightsail.ContainerServiceDeploymentVersionPublicEndpointArgs{
-//					ContainerName: pulumi.String("hello-world"),
-//					ContainerPort: pulumi.Int(80),
-//					HealthCheck: &lightsail.ContainerServiceDeploymentVersionPublicEndpointHealthCheckArgs{
-//						HealthyThreshold:   pulumi.Int(2),
-//						UnhealthyThreshold: pulumi.Int(2),
-//						TimeoutSeconds:     pulumi.Int(2),
-//						IntervalSeconds:    pulumi.Int(5),
-//						Path:               pulumi.String("/"),
-//						SuccessCodes:       pulumi.String("200-499"),
-//					},
-//				},
-//				ServiceName: pulumi.Any(aws_lightsail_container_service.Example.Name),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := lightsail/containerServiceDeploymentVersion.NewContainerServiceDeploymentVersion(ctx, "example", &lightsail/containerServiceDeploymentVersion.ContainerServiceDeploymentVersionArgs{
+// Containers: []map[string]interface{}{
+// map[string]interface{}{
+// "containerName": "hello-world",
+// "image": "amazon/amazon-lightsail:hello-world",
+// "commands": []interface{}{
+// },
+// "environment": map[string]interface{}{
+// "MY_ENVIRONMENT_VARIABLE": "my_value",
+// },
+// "ports": map[string]interface{}{
+// "80": "HTTP",
+// },
+// },
+// },
+// PublicEndpoint: map[string]interface{}{
+// "containerName": "hello-world",
+// "containerPort": 80,
+// "healthCheck": map[string]interface{}{
+// "healthyThreshold": 2,
+// "unhealthyThreshold": 2,
+// "timeoutSeconds": 2,
+// "intervalSeconds": 5,
+// "path": "/",
+// "successCodes": "200-499",
+// },
+// },
+// ServiceName: aws_lightsail_container_service.Example.Name,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

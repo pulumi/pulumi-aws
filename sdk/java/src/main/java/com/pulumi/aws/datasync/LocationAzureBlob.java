@@ -31,7 +31,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.datasync.LocationAzureBlob;
  * import com.pulumi.aws.datasync.LocationAzureBlobArgs;
- * import com.pulumi.aws.datasync.inputs.LocationAzureBlobSasConfigurationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -49,9 +48,7 @@ import javax.annotation.Nullable;
  *             .agentArns(aws_datasync_agent.example().arn())
  *             .authenticationType(&#34;SAS&#34;)
  *             .containerUrl(&#34;https://example.com/path&#34;)
- *             .sasConfiguration(LocationAzureBlobSasConfigurationArgs.builder()
- *                 .token(&#34;sp=r&amp;st=2023-12-20T14:54:52Z&amp;se=2023-12-20T22:54:52Z&amp;spr=https&amp;sv=2021-06-08&amp;sr=c&amp;sig=aBBKDWQvyuVcTPH9EBp%2FXTI9E%2F%2Fmq171%2BZU178wcwqU%3D&#34;)
- *                 .build())
+ *             .sasConfiguration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

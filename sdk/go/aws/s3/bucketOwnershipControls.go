@@ -23,30 +23,29 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	s3/bucketOwnershipControls "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/s3/bucketOwnershipControls"
+//	s3/bucketV2 "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/s3/bucketV2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = s3.NewBucketOwnershipControls(ctx, "exampleBucketOwnershipControls", &s3.BucketOwnershipControlsArgs{
-//				Bucket: exampleBucketV2.ID(),
-//				Rule: &s3.BucketOwnershipControlsRuleArgs{
-//					ObjectOwnership: pulumi.String("BucketOwnerPreferred"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleBucketV2, err := s3/bucketV2.NewBucketV2(ctx, "exampleBucketV2", nil)
+// if err != nil {
+// return err
+// }
+// _, err = s3/bucketOwnershipControls.NewBucketOwnershipControls(ctx, "exampleBucketOwnershipControls", &s3/bucketOwnershipControls.BucketOwnershipControlsArgs{
+// Bucket: exampleBucketV2.Id,
+// Rule: map[string]interface{}{
+// "objectOwnership": "BucketOwnerPreferred",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

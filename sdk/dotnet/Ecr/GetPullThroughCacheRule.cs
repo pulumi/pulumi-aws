@@ -13,56 +13,12 @@ namespace Pulumi.Aws.Ecr
     {
         /// <summary>
         /// The ECR Pull Through Cache Rule data source allows the upstream registry URL and registry ID to be retrieved for a Pull Through Cache Rule.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var ecrPublic = Aws.Ecr.GetPullThroughCacheRule.Invoke(new()
-        ///     {
-        ///         EcrRepositoryPrefix = "ecr-public",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetPullThroughCacheRuleResult> InvokeAsync(GetPullThroughCacheRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPullThroughCacheRuleResult>("aws:ecr/getPullThroughCacheRule:getPullThroughCacheRule", args ?? new GetPullThroughCacheRuleArgs(), options.WithDefaults());
 
         /// <summary>
         /// The ECR Pull Through Cache Rule data source allows the upstream registry URL and registry ID to be retrieved for a Pull Through Cache Rule.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var ecrPublic = Aws.Ecr.GetPullThroughCacheRule.Invoke(new()
-        ///     {
-        ///         EcrRepositoryPrefix = "ecr-public",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetPullThroughCacheRuleResult> Invoke(GetPullThroughCacheRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPullThroughCacheRuleResult>("aws:ecr/getPullThroughCacheRule:getPullThroughCacheRule", args ?? new GetPullThroughCacheRuleInvokeArgs(), options.WithDefaults());

@@ -23,13 +23,13 @@ namespace Pulumi.Aws.DataSync
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.DataSync.Task("example", new()
+    ///     var example = new Aws.Datasync.Task.Task("example", new()
     ///     {
     ///         DestinationLocationArn = aws_datasync_location_s3.Destination.Arn,
     ///         SourceLocationArn = aws_datasync_location_nfs.Source.Arn,
-    ///         Schedule = new Aws.DataSync.Inputs.TaskScheduleArgs
+    ///         Schedule = 
     ///         {
-    ///             ScheduleExpression = "cron(0 12 ? * SUN,WED *)",
+    ///             { "scheduleExpression", "cron(0 12 ? * SUN,WED *)" },
     ///         },
     ///     });
     /// 
@@ -45,19 +45,19 @@ namespace Pulumi.Aws.DataSync
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.DataSync.Task("example", new()
+    ///     var example = new Aws.Datasync.Task.Task("example", new()
     ///     {
     ///         DestinationLocationArn = aws_datasync_location_s3.Destination.Arn,
     ///         SourceLocationArn = aws_datasync_location_nfs.Source.Arn,
-    ///         Excludes = new Aws.DataSync.Inputs.TaskExcludesArgs
+    ///         Excludes = 
     ///         {
-    ///             FilterType = "SIMPLE_PATTERN",
-    ///             Value = "/folder1|/folder2",
+    ///             { "filterType", "SIMPLE_PATTERN" },
+    ///             { "value", "/folder1|/folder2" },
     ///         },
-    ///         Includes = new Aws.DataSync.Inputs.TaskIncludesArgs
+    ///         Includes = 
     ///         {
-    ///             FilterType = "SIMPLE_PATTERN",
-    ///             Value = "/folder1|/folder2",
+    ///             { "filterType", "SIMPLE_PATTERN" },
+    ///             { "value", "/folder1|/folder2" },
     ///         },
     ///     });
     /// 

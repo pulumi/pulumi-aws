@@ -25,7 +25,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.dynamodb.Table;
  * import com.pulumi.aws.dynamodb.TableArgs;
- * import com.pulumi.aws.dynamodb.inputs.TableAttributeArgs;
  * import com.pulumi.aws.kinesis.Stream;
  * import com.pulumi.aws.kinesis.StreamArgs;
  * import com.pulumi.aws.dynamodb.KinesisStreamingDestination;
@@ -45,10 +44,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var exampleTable = new Table(&#34;exampleTable&#34;, TableArgs.builder()        
  *             .hashKey(&#34;id&#34;)
- *             .attributes(TableAttributeArgs.builder()
- *                 .name(&#34;id&#34;)
- *                 .type(&#34;S&#34;)
- *                 .build())
+ *             .attributes(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleStream = new Stream(&#34;exampleStream&#34;, StreamArgs.builder()        

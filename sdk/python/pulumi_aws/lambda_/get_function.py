@@ -427,17 +427,6 @@ def get_function(function_name: Optional[str] = None,
     """
     Provides information about a Lambda Function.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    config = pulumi.Config()
-    function_name = config.require("functionName")
-    existing = aws.lambda.get_function(function_name=function_name)
-    ```
-
 
     :param str function_name: Name of the lambda function.
     :param str qualifier: Alias name or version number of the lambda functionE.g., `$LATEST`, `my-alias`, or `1`. When not included: the data source resolves to the most recent published version; if no published version exists: it resolves to the most recent unpublished version.
@@ -492,17 +481,6 @@ def get_function_output(function_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFunctionResult]:
     """
     Provides information about a Lambda Function.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    config = pulumi.Config()
-    function_name = config.require("functionName")
-    existing = aws.lambda.get_function(function_name=function_name)
-    ```
 
 
     :param str function_name: Name of the lambda function.

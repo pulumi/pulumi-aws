@@ -15,6 +15,74 @@ import (
 // Resource for managing an AWS FinSpace Kx Cluster.
 //
 // ## Example Usage
+// ### Basic Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	finspace/kxCluster "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/finspace/kxCluster"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := finspace/kxCluster.NewKxCluster(ctx, "example", &finspace/kxCluster.KxClusterArgs{
+// EnvironmentId: aws_finspace_kx_environment.Example.Id,
+// Type: "HDB",
+// ReleaseLabel: "1.0",
+// AzMode: "SINGLE",
+// AvailabilityZoneId: "use1-az2",
+// CapacityConfiguration: map[string]interface{}{
+// "nodeType": "kx.s.2xlarge",
+// "nodeCount": 2,
+// },
+// VpcConfiguration: map[string]interface{}{
+// "vpcId": aws_vpc.Test.Id,
+// "securityGroupIds": []interface{}{
+// aws_security_group.Example.Id,
+// },
+// "subnetIds": []interface{}{
+// aws_subnet.Example.Id,
+// },
+// "ipAddressType": "IP_V4",
+// },
+// CacheStorageConfigurations: []map[string]interface{}{
+// map[string]interface{}{
+// "type": "CACHE_1000",
+// "size": 1200,
+// },
+// },
+// Databases: []map[string]interface{}{
+// map[string]interface{}{
+// "databaseName": aws_finspace_kx_database.Example.Name,
+// "cacheConfiguration": []map[string]interface{}{
+// map[string]interface{}{
+// "cacheType": "CACHE_1000",
+// "dbPaths": "/",
+// },
+// },
+// },
+// },
+// Code: map[string]interface{}{
+// "s3Bucket": aws_s3_bucket.Test.Id,
+// "s3Key": aws_s3_object.Object.Key,
+// },
+// Timeouts: []map[string]interface{}{
+// map[string]interface{}{
+// "create": "18h",
+// "update": "18h",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
+// ```
 //
 // ## Import
 //

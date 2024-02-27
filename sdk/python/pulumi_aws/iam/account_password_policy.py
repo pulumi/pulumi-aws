@@ -359,7 +359,7 @@ class AccountPasswordPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        strict = aws.iam.AccountPasswordPolicy("strict",
+        strict = aws.iam.account_password_policy.AccountPasswordPolicy("strict",
             allow_users_to_change_password=True,
             minimum_password_length=8,
             require_lowercase_characters=True,
@@ -407,7 +407,7 @@ class AccountPasswordPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        strict = aws.iam.AccountPasswordPolicy("strict",
+        strict = aws.iam.account_password_policy.AccountPasswordPolicy("strict",
             allow_users_to_change_password=True,
             minimum_password_length=8,
             require_lowercase_characters=True,

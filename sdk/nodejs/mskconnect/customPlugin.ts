@@ -17,13 +17,13 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleBucketV2 = new aws.s3.BucketV2("exampleBucketV2", {});
- * const exampleBucketObjectv2 = new aws.s3.BucketObjectv2("exampleBucketObjectv2", {
+ * const exampleBucketV2 = new aws.s3/bucketV2.BucketV2("exampleBucketV2", {});
+ * const exampleBucketObjectv2 = new aws.s3/bucketObjectv2.BucketObjectv2("exampleBucketObjectv2", {
  *     bucket: exampleBucketV2.id,
  *     key: "debezium.zip",
  *     source: new pulumi.asset.FileAsset("debezium.zip"),
  * });
- * const exampleCustomPlugin = new aws.mskconnect.CustomPlugin("exampleCustomPlugin", {
+ * const exampleCustomPlugin = new aws.mskconnect/customPlugin.CustomPlugin("exampleCustomPlugin", {
  *     contentType: "ZIP",
  *     location: {
  *         s3: {

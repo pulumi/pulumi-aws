@@ -29,24 +29,22 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	ec2/securityGroupAssociation "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/securityGroupAssociation"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.NewSecurityGroupAssociation(ctx, "sgEc2", &ec2.SecurityGroupAssociationArgs{
-//				VpcEndpointId:   pulumi.Any(aws_vpc_endpoint.Ec2.Id),
-//				SecurityGroupId: pulumi.Any(aws_security_group.Sg.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := ec2/securityGroupAssociation.NewSecurityGroupAssociation(ctx, "sgEc2", &ec2/securityGroupAssociation.SecurityGroupAssociationArgs{
+// VpcEndpointId: aws_vpc_endpoint.Ec2.Id,
+// SecurityGroupId: aws_security_group.Sg.Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 type SecurityGroupAssociation struct {
 	pulumi.CustomResourceState

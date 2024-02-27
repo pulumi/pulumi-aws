@@ -23,7 +23,7 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var ni = new Aws.Sagemaker.NotebookInstance("ni", new()
+    ///     var ni = new Aws.Sagemaker.NotebookInstance.NotebookInstance("ni", new()
     ///     {
     ///         RoleArn = aws_iam_role.Role.Arn,
     ///         InstanceType = "ml.t2.medium",
@@ -45,16 +45,16 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Sagemaker.CodeRepository("example", new()
+    ///     var example = new Aws.Sagemaker.CodeRepository.CodeRepository("example", new()
     ///     {
     ///         CodeRepositoryName = "my-notebook-instance-code-repo",
-    ///         GitConfig = new Aws.Sagemaker.Inputs.CodeRepositoryGitConfigArgs
+    ///         GitConfig = 
     ///         {
-    ///             RepositoryUrl = "https://github.com/github/docs.git",
+    ///             { "repositoryUrl", "https://github.com/github/docs.git" },
     ///         },
     ///     });
     /// 
-    ///     var ni = new Aws.Sagemaker.NotebookInstance("ni", new()
+    ///     var ni = new Aws.Sagemaker.NotebookInstance.NotebookInstance("ni", new()
     ///     {
     ///         RoleArn = aws_iam_role.Role.Arn,
     ///         InstanceType = "ml.t2.medium",

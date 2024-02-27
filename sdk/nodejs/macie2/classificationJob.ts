@@ -16,8 +16,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const testAccount = new aws.macie2.Account("testAccount", {});
- * const testClassificationJob = new aws.macie2.ClassificationJob("testClassificationJob", {
+ * const testAccount = new aws.macie2/account.Account("testAccount", {});
+ * const testClassificationJob = new aws.macie2/classificationJob.ClassificationJob("testClassificationJob", {
  *     jobType: "ONE_TIME",
  *     s3JobDefinition: {
  *         bucketDefinitions: [{

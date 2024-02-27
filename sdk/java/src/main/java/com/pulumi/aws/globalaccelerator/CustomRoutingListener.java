@@ -27,10 +27,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.globalaccelerator.CustomRoutingAccelerator;
  * import com.pulumi.aws.globalaccelerator.CustomRoutingAcceleratorArgs;
- * import com.pulumi.aws.globalaccelerator.inputs.CustomRoutingAcceleratorAttributesArgs;
  * import com.pulumi.aws.globalaccelerator.CustomRoutingListener;
  * import com.pulumi.aws.globalaccelerator.CustomRoutingListenerArgs;
- * import com.pulumi.aws.globalaccelerator.inputs.CustomRoutingListenerPortRangeArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -47,19 +45,12 @@ import javax.annotation.Nullable;
  *         var exampleCustomRoutingAccelerator = new CustomRoutingAccelerator(&#34;exampleCustomRoutingAccelerator&#34;, CustomRoutingAcceleratorArgs.builder()        
  *             .ipAddressType(&#34;IPV4&#34;)
  *             .enabled(true)
- *             .attributes(CustomRoutingAcceleratorAttributesArgs.builder()
- *                 .flowLogsEnabled(true)
- *                 .flowLogsS3Bucket(&#34;example-bucket&#34;)
- *                 .flowLogsS3Prefix(&#34;flow-logs/&#34;)
- *                 .build())
+ *             .attributes(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleCustomRoutingListener = new CustomRoutingListener(&#34;exampleCustomRoutingListener&#34;, CustomRoutingListenerArgs.builder()        
  *             .acceleratorArn(exampleCustomRoutingAccelerator.id())
- *             .portRanges(CustomRoutingListenerPortRangeArgs.builder()
- *                 .fromPort(80)
- *                 .toPort(80)
- *                 .build())
+ *             .portRanges(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

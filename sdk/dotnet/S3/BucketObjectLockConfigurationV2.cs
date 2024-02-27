@@ -27,27 +27,27 @@ namespace Pulumi.Aws.S3
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2");
+    ///     var exampleBucketV2 = new Aws.S3.BucketV2.BucketV2("exampleBucketV2");
     /// 
-    ///     var exampleBucketVersioningV2 = new Aws.S3.BucketVersioningV2("exampleBucketVersioningV2", new()
+    ///     var exampleBucketVersioningV2 = new Aws.S3.BucketVersioningV2.BucketVersioningV2("exampleBucketVersioningV2", new()
     ///     {
     ///         Bucket = exampleBucketV2.Id,
-    ///         VersioningConfiguration = new Aws.S3.Inputs.BucketVersioningV2VersioningConfigurationArgs
+    ///         VersioningConfiguration = 
     ///         {
-    ///             Status = "Enabled",
+    ///             { "status", "Enabled" },
     ///         },
     ///     });
     /// 
-    ///     var exampleBucketObjectLockConfigurationV2 = new Aws.S3.BucketObjectLockConfigurationV2("exampleBucketObjectLockConfigurationV2", new()
+    ///     var exampleBucketObjectLockConfigurationV2 = new Aws.S3.BucketObjectLockConfigurationV2.BucketObjectLockConfigurationV2("exampleBucketObjectLockConfigurationV2", new()
     ///     {
     ///         Bucket = exampleBucketV2.Id,
-    ///         Rule = new Aws.S3.Inputs.BucketObjectLockConfigurationV2RuleArgs
+    ///         Rule = 
     ///         {
-    ///             DefaultRetention = new Aws.S3.Inputs.BucketObjectLockConfigurationV2RuleDefaultRetentionArgs
+    ///             { "defaultRetention", 
     ///             {
-    ///                 Mode = "COMPLIANCE",
-    ///                 Days = 5,
-    ///             },
+    ///                 { "mode", "COMPLIANCE" },
+    ///                 { "days", 5 },
+    ///             } },
     ///         },
     ///     });
     /// 

@@ -21,41 +21,40 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/globalaccelerator"
+//	globalaccelerator/customRoutingAccelerator "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/globalaccelerator/customRoutingAccelerator"
+//	globalaccelerator/customRoutingListener "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/globalaccelerator/customRoutingListener"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleCustomRoutingAccelerator, err := globalaccelerator.NewCustomRoutingAccelerator(ctx, "exampleCustomRoutingAccelerator", &globalaccelerator.CustomRoutingAcceleratorArgs{
-//				IpAddressType: pulumi.String("IPV4"),
-//				Enabled:       pulumi.Bool(true),
-//				Attributes: &globalaccelerator.CustomRoutingAcceleratorAttributesArgs{
-//					FlowLogsEnabled:  pulumi.Bool(true),
-//					FlowLogsS3Bucket: pulumi.String("example-bucket"),
-//					FlowLogsS3Prefix: pulumi.String("flow-logs/"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = globalaccelerator.NewCustomRoutingListener(ctx, "exampleCustomRoutingListener", &globalaccelerator.CustomRoutingListenerArgs{
-//				AcceleratorArn: exampleCustomRoutingAccelerator.ID(),
-//				PortRanges: globalaccelerator.CustomRoutingListenerPortRangeArray{
-//					&globalaccelerator.CustomRoutingListenerPortRangeArgs{
-//						FromPort: pulumi.Int(80),
-//						ToPort:   pulumi.Int(80),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleCustomRoutingAccelerator, err := globalaccelerator/customRoutingAccelerator.NewCustomRoutingAccelerator(ctx, "exampleCustomRoutingAccelerator", &globalaccelerator/customRoutingAccelerator.CustomRoutingAcceleratorArgs{
+// IpAddressType: "IPV4",
+// Enabled: true,
+// Attributes: map[string]interface{}{
+// "flowLogsEnabled": true,
+// "flowLogsS3Bucket": "example-bucket",
+// "flowLogsS3Prefix": "flow-logs/",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = globalaccelerator/customRoutingListener.NewCustomRoutingListener(ctx, "exampleCustomRoutingListener", &globalaccelerator/customRoutingListener.CustomRoutingListenerArgs{
+// AcceleratorArn: exampleCustomRoutingAccelerator.Id,
+// PortRanges: []map[string]interface{}{
+// map[string]interface{}{
+// "fromPort": 80,
+// "toPort": 80,
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

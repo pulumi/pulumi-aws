@@ -17,11 +17,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const testAnomalyMonitor = new aws.costexplorer.AnomalyMonitor("testAnomalyMonitor", {
+ * const testAnomalyMonitor = new aws.costexplorer/anomalyMonitor.AnomalyMonitor("testAnomalyMonitor", {
  *     monitorType: "DIMENSIONAL",
  *     monitorDimension: "SERVICE",
  * });
- * const testAnomalySubscription = new aws.costexplorer.AnomalySubscription("testAnomalySubscription", {
+ * const testAnomalySubscription = new aws.costexplorer/anomalySubscription.AnomalySubscription("testAnomalySubscription", {
  *     frequency: "DAILY",
  *     monitorArnLists: [testAnomalyMonitor.arn],
  *     subscribers: [{
@@ -37,7 +37,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = new aws.costexplorer.AnomalySubscription("test", {
+ * const test = new aws.costexplorer/anomalySubscription.AnomalySubscription("test", {
  *     frequency: "DAILY",
  *     monitorArnLists: [aws_ce_anomaly_monitor.test.arn],
  *     subscribers: [{
@@ -59,7 +59,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = new aws.costexplorer.AnomalySubscription("test", {
+ * const test = new aws.costexplorer/anomalySubscription.AnomalySubscription("test", {
  *     frequency: "DAILY",
  *     monitorArnLists: [aws_ce_anomaly_monitor.test.arn],
  *     subscribers: [{
@@ -84,72 +84,6 @@ import * as utilities from "../utilities";
  *             },
  *         ],
  *     },
- * });
- * ```
- * ### SNS Example
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const costAnomalyUpdates = new aws.sns.Topic("costAnomalyUpdates", {});
- * const snsTopicPolicy = pulumi.all([costAnomalyUpdates.arn, costAnomalyUpdates.arn]).apply(([costAnomalyUpdatesArn, costAnomalyUpdatesArn1]) => aws.iam.getPolicyDocumentOutput({
- *     policyId: "__default_policy_ID",
- *     statements: [
- *         {
- *             sid: "AWSAnomalyDetectionSNSPublishingPermissions",
- *             actions: ["SNS:Publish"],
- *             effect: "Allow",
- *             principals: [{
- *                 type: "Service",
- *                 identifiers: ["costalerts.amazonaws.com"],
- *             }],
- *             resources: [costAnomalyUpdatesArn],
- *         },
- *         {
- *             sid: "__default_statement_ID",
- *             actions: [
- *                 "SNS:Subscribe",
- *                 "SNS:SetTopicAttributes",
- *                 "SNS:RemovePermission",
- *                 "SNS:Receive",
- *                 "SNS:Publish",
- *                 "SNS:ListSubscriptionsByTopic",
- *                 "SNS:GetTopicAttributes",
- *                 "SNS:DeleteTopic",
- *                 "SNS:AddPermission",
- *             ],
- *             conditions: [{
- *                 test: "StringEquals",
- *                 variable: "AWS:SourceOwner",
- *                 values: [_var["account-id"]],
- *             }],
- *             effect: "Allow",
- *             principals: [{
- *                 type: "AWS",
- *                 identifiers: ["*"],
- *             }],
- *             resources: [costAnomalyUpdatesArn1],
- *         },
- *     ],
- * }));
- * const _default = new aws.sns.TopicPolicy("default", {
- *     arn: costAnomalyUpdates.arn,
- *     policy: snsTopicPolicy.apply(snsTopicPolicy => snsTopicPolicy.json),
- * });
- * const anomalyMonitor = new aws.costexplorer.AnomalyMonitor("anomalyMonitor", {
- *     monitorType: "DIMENSIONAL",
- *     monitorDimension: "SERVICE",
- * });
- * const realtimeSubscription = new aws.costexplorer.AnomalySubscription("realtimeSubscription", {
- *     frequency: "IMMEDIATE",
- *     monitorArnLists: [anomalyMonitor.arn],
- *     subscribers: [{
- *         type: "SNS",
- *         address: costAnomalyUpdates.arn,
- *     }],
- * }, {
- *     dependsOn: [_default],
  * });
  * ```
  *

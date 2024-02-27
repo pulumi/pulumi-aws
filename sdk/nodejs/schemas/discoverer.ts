@@ -15,8 +15,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const messenger = new aws.cloudwatch.EventBus("messenger", {});
- * const test = new aws.schemas.Discoverer("test", {
+ * const messenger = new aws.cloudwatch/eventBus.EventBus("messenger", {});
+ * const test = new aws.schemas/discoverer.Discoverer("test", {
  *     sourceArn: messenger.arn,
  *     description: "Auto discover event schemas",
  * });

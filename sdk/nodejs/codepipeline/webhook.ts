@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * import * as github from "@pulumi/github";
  *
- * const barPipeline = new aws.codepipeline.Pipeline("barPipeline", {
+ * const barPipeline = new aws.codepipeline/pipeline.Pipeline("barPipeline", {
  *     roleArn: aws_iam_role.bar.arn,
  *     artifactStores: [{
  *         location: aws_s3_bucket.bar.bucket,
@@ -61,7 +61,7 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * const webhookSecret = "super-secret";
- * const barWebhook = new aws.codepipeline.Webhook("barWebhook", {
+ * const barWebhook = new aws.codepipeline/webhook.Webhook("barWebhook", {
  *     authentication: "GITHUB_HMAC",
  *     targetAction: "Source",
  *     targetPipeline: barPipeline.name,
@@ -74,7 +74,7 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * // Wire the CodePipeline webhook into a GitHub repository.
- * const barRepositoryWebhook = new github.RepositoryWebhook("barRepositoryWebhook", {
+ * const barRepositoryWebhook = new github.index/repositoryWebhook.RepositoryWebhook("barRepositoryWebhook", {
  *     repository: github_repository.repo.name,
  *     configuration: {
  *         url: barWebhook.url,

@@ -141,36 +141,6 @@ class FileSystemPolicy(pulumi.CustomResource):
         """
         Provides an Elastic File System (EFS) File System Policy resource.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        fs = aws.efs.FileSystem("fs")
-        policy_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            sid="ExampleStatement01",
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="AWS",
-                identifiers=["*"],
-            )],
-            actions=[
-                "elasticfilesystem:ClientMount",
-                "elasticfilesystem:ClientWrite",
-            ],
-            resources=[fs.arn],
-            conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
-                test="Bool",
-                variable="aws:SecureTransport",
-                values=["true"],
-            )],
-        )])
-        policy_file_system_policy = aws.efs.FileSystemPolicy("policyFileSystemPolicy",
-            file_system_id=fs.id,
-            policy=policy_policy_document.json)
-        ```
-
         ## Import
 
         Using `pulumi import`, import the EFS file system policies using the `id`. For example:
@@ -195,36 +165,6 @@ class FileSystemPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an Elastic File System (EFS) File System Policy resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        fs = aws.efs.FileSystem("fs")
-        policy_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            sid="ExampleStatement01",
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="AWS",
-                identifiers=["*"],
-            )],
-            actions=[
-                "elasticfilesystem:ClientMount",
-                "elasticfilesystem:ClientWrite",
-            ],
-            resources=[fs.arn],
-            conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
-                test="Bool",
-                variable="aws:SecureTransport",
-                values=["true"],
-            )],
-        )])
-        policy_file_system_policy = aws.efs.FileSystemPolicy("policyFileSystemPolicy",
-            file_system_id=fs.id,
-            policy=policy_policy_document.json)
-        ```
 
         ## Import
 

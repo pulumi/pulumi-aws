@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Neptune
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Neptune.ClusterSnapshot("example", new()
+    ///     var example = new Aws.Neptune.ClusterSnapshot.ClusterSnapshot("example", new()
     ///     {
     ///         DbClusterIdentifier = aws_neptune_cluster.Example.Id,
     ///         DbClusterSnapshotIdentifier = "resourcetestsnapshot1234",

@@ -22,46 +22,46 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cognito"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sagemaker"
+//	cognito/userPool "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/cognito/userPool"
+//	cognito/userPoolClient "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/cognito/userPoolClient"
+//	cognito/userPoolDomain "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/cognito/userPoolDomain"
+//	sagemaker/workforce "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/sagemaker/workforce"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleUserPool, err := cognito.NewUserPool(ctx, "exampleUserPool", nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleUserPoolClient, err := cognito.NewUserPoolClient(ctx, "exampleUserPoolClient", &cognito.UserPoolClientArgs{
-//				GenerateSecret: pulumi.Bool(true),
-//				UserPoolId:     exampleUserPool.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleUserPoolDomain, err := cognito.NewUserPoolDomain(ctx, "exampleUserPoolDomain", &cognito.UserPoolDomainArgs{
-//				Domain:     pulumi.String("example"),
-//				UserPoolId: exampleUserPool.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = sagemaker.NewWorkforce(ctx, "exampleWorkforce", &sagemaker.WorkforceArgs{
-//				WorkforceName: pulumi.String("example"),
-//				CognitoConfig: &sagemaker.WorkforceCognitoConfigArgs{
-//					ClientId: exampleUserPoolClient.ID(),
-//					UserPool: exampleUserPoolDomain.UserPoolId,
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleUserPool, err := cognito/userPool.NewUserPool(ctx, "exampleUserPool", nil)
+// if err != nil {
+// return err
+// }
+// exampleUserPoolClient, err := cognito/userPoolClient.NewUserPoolClient(ctx, "exampleUserPoolClient", &cognito/userPoolClient.UserPoolClientArgs{
+// GenerateSecret: true,
+// UserPoolId: exampleUserPool.Id,
+// })
+// if err != nil {
+// return err
+// }
+// exampleUserPoolDomain, err := cognito/userPoolDomain.NewUserPoolDomain(ctx, "exampleUserPoolDomain", &cognito/userPoolDomain.UserPoolDomainArgs{
+// Domain: "example",
+// UserPoolId: exampleUserPool.Id,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = sagemaker/workforce.NewWorkforce(ctx, "exampleWorkforce", &sagemaker/workforce.WorkforceArgs{
+// WorkforceName: "example",
+// CognitoConfig: map[string]interface{}{
+// "clientId": exampleUserPoolClient.Id,
+// "userPool": exampleUserPoolDomain.UserPoolId,
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Oidc Usage
 //
@@ -70,33 +70,31 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sagemaker"
+//	sagemaker/workforce "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/sagemaker/workforce"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := sagemaker.NewWorkforce(ctx, "example", &sagemaker.WorkforceArgs{
-//				OidcConfig: &sagemaker.WorkforceOidcConfigArgs{
-//					AuthorizationEndpoint: pulumi.String("https://example.com"),
-//					ClientId:              pulumi.String("example"),
-//					ClientSecret:          pulumi.String("example"),
-//					Issuer:                pulumi.String("https://example.com"),
-//					JwksUri:               pulumi.String("https://example.com"),
-//					LogoutEndpoint:        pulumi.String("https://example.com"),
-//					TokenEndpoint:         pulumi.String("https://example.com"),
-//					UserInfoEndpoint:      pulumi.String("https://example.com"),
-//				},
-//				WorkforceName: pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := sagemaker/workforce.NewWorkforce(ctx, "example", &sagemaker/workforce.WorkforceArgs{
+// OidcConfig: map[string]interface{}{
+// "authorizationEndpoint": "https://example.com",
+// "clientId": "example",
+// "clientSecret": "example",
+// "issuer": "https://example.com",
+// "jwksUri": "https://example.com",
+// "logoutEndpoint": "https://example.com",
+// "tokenEndpoint": "https://example.com",
+// "userInfoEndpoint": "https://example.com",
+// },
+// WorkforceName: "example",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

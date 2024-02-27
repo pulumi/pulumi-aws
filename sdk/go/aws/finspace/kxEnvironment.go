@@ -22,31 +22,29 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/finspace"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kms"
+//	finspace/kxEnvironment "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/finspace/kxEnvironment"
+//	kms/key "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/kms/key"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleKey, err := kms.NewKey(ctx, "exampleKey", &kms.KeyArgs{
-//				Description:          pulumi.String("Sample KMS Key"),
-//				DeletionWindowInDays: pulumi.Int(7),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = finspace.NewKxEnvironment(ctx, "exampleKxEnvironment", &finspace.KxEnvironmentArgs{
-//				KmsKeyId: exampleKey.Arn,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleKey, err := kms/key.NewKey(ctx, "exampleKey", &kms/key.KeyArgs{
+// Description: "Sample KMS Key",
+// DeletionWindowInDays: 7,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = finspace/kxEnvironment.NewKxEnvironment(ctx, "exampleKxEnvironment", &finspace/kxEnvironment.KxEnvironmentArgs{
+// KmsKeyId: exampleKey.Arn,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### With Transit Gateway Configuration
 //
@@ -55,49 +53,47 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2transitgateway"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/finspace"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kms"
+//	ec2transitgateway/transitGateway "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2transitgateway/transitGateway"
+//	finspace/kxEnvironment "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/finspace/kxEnvironment"
+//	kms/key "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/kms/key"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleKey, err := kms.NewKey(ctx, "exampleKey", &kms.KeyArgs{
-//				Description:          pulumi.String("Sample KMS Key"),
-//				DeletionWindowInDays: pulumi.Int(7),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleTransitGateway, err := ec2transitgateway.NewTransitGateway(ctx, "exampleTransitGateway", &ec2transitgateway.TransitGatewayArgs{
-//				Description: pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = finspace.NewKxEnvironment(ctx, "exampleEnv", &finspace.KxEnvironmentArgs{
-//				Description: pulumi.String("Environment description"),
-//				KmsKeyId:    exampleKey.Arn,
-//				TransitGatewayConfiguration: &finspace.KxEnvironmentTransitGatewayConfigurationArgs{
-//					TransitGatewayId:  exampleTransitGateway.ID(),
-//					RoutableCidrSpace: pulumi.String("100.64.0.0/26"),
-//				},
-//				CustomDnsConfigurations: finspace.KxEnvironmentCustomDnsConfigurationArray{
-//					&finspace.KxEnvironmentCustomDnsConfigurationArgs{
-//						CustomDnsServerName: pulumi.String("example.finspace.amazonaws.com"),
-//						CustomDnsServerIp:   pulumi.String("10.0.0.76"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleKey, err := kms/key.NewKey(ctx, "exampleKey", &kms/key.KeyArgs{
+// Description: "Sample KMS Key",
+// DeletionWindowInDays: 7,
+// })
+// if err != nil {
+// return err
+// }
+// exampleTransitGateway, err := ec2transitgateway/transitGateway.NewTransitGateway(ctx, "exampleTransitGateway", &ec2transitgateway/transitGateway.TransitGatewayArgs{
+// Description: "example",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = finspace/kxEnvironment.NewKxEnvironment(ctx, "exampleEnv", &finspace/kxEnvironment.KxEnvironmentArgs{
+// Description: "Environment description",
+// KmsKeyId: exampleKey.Arn,
+// TransitGatewayConfiguration: map[string]interface{}{
+// "transitGatewayId": exampleTransitGateway.Id,
+// "routableCidrSpace": "100.64.0.0/26",
+// },
+// CustomDnsConfigurations: []map[string]interface{}{
+// map[string]interface{}{
+// "customDnsServerName": "example.finspace.amazonaws.com",
+// "customDnsServerIp": "10.0.0.76",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### With Transit Gateway Attachment Network ACL Configuration
 //
@@ -106,65 +102,63 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2transitgateway"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/finspace"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kms"
+//	ec2transitgateway/transitGateway "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2transitgateway/transitGateway"
+//	finspace/kxEnvironment "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/finspace/kxEnvironment"
+//	kms/key "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/kms/key"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleKey, err := kms.NewKey(ctx, "exampleKey", &kms.KeyArgs{
-//				Description:          pulumi.String("Sample KMS Key"),
-//				DeletionWindowInDays: pulumi.Int(7),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleTransitGateway, err := ec2transitgateway.NewTransitGateway(ctx, "exampleTransitGateway", &ec2transitgateway.TransitGatewayArgs{
-//				Description: pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = finspace.NewKxEnvironment(ctx, "exampleEnv", &finspace.KxEnvironmentArgs{
-//				Description: pulumi.String("Environment description"),
-//				KmsKeyId:    exampleKey.Arn,
-//				TransitGatewayConfiguration: &finspace.KxEnvironmentTransitGatewayConfigurationArgs{
-//					TransitGatewayId:  exampleTransitGateway.ID(),
-//					RoutableCidrSpace: pulumi.String("100.64.0.0/26"),
-//					AttachmentNetworkAclConfigurations: finspace.KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationArray{
-//						&finspace.KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationArgs{
-//							RuleNumber: pulumi.Int(1),
-//							Protocol:   pulumi.String("6"),
-//							RuleAction: pulumi.String("allow"),
-//							CidrBlock:  pulumi.String("0.0.0.0/0"),
-//							PortRange: &finspace.KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangeArgs{
-//								From: pulumi.Int(53),
-//								To:   pulumi.Int(53),
-//							},
-//							IcmpTypeCode: &finspace.KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodeArgs{
-//								Type: -1,
-//								Code: -1,
-//							},
-//						},
-//					},
-//				},
-//				CustomDnsConfigurations: finspace.KxEnvironmentCustomDnsConfigurationArray{
-//					&finspace.KxEnvironmentCustomDnsConfigurationArgs{
-//						CustomDnsServerName: pulumi.String("example.finspace.amazonaws.com"),
-//						CustomDnsServerIp:   pulumi.String("10.0.0.76"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleKey, err := kms/key.NewKey(ctx, "exampleKey", &kms/key.KeyArgs{
+// Description: "Sample KMS Key",
+// DeletionWindowInDays: 7,
+// })
+// if err != nil {
+// return err
+// }
+// exampleTransitGateway, err := ec2transitgateway/transitGateway.NewTransitGateway(ctx, "exampleTransitGateway", &ec2transitgateway/transitGateway.TransitGatewayArgs{
+// Description: "example",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = finspace/kxEnvironment.NewKxEnvironment(ctx, "exampleEnv", &finspace/kxEnvironment.KxEnvironmentArgs{
+// Description: "Environment description",
+// KmsKeyId: exampleKey.Arn,
+// TransitGatewayConfiguration: map[string]interface{}{
+// "transitGatewayId": exampleTransitGateway.Id,
+// "routableCidrSpace": "100.64.0.0/26",
+// "attachmentNetworkAclConfigurations": []map[string]interface{}{
+// map[string]interface{}{
+// "ruleNumber": 1,
+// "protocol": "6",
+// "ruleAction": "allow",
+// "cidrBlock": "0.0.0.0/0",
+// "portRange": map[string]interface{}{
+// "from": 53,
+// "to": 53,
+// },
+// "icmpTypeCode": map[string]interface{}{
+// "type": -1,
+// "code": -1,
+// },
+// },
+// },
+// },
+// CustomDnsConfigurations: []map[string]interface{}{
+// map[string]interface{}{
+// "customDnsServerName": "example.finspace.amazonaws.com",
+// "customDnsServerIp": "10.0.0.76",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -112,15 +112,6 @@ def get_outposts(availability_zone: Optional[str] = None,
     """
     Provides details about multiple Outposts.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.outposts.get_outposts(site_id=data["aws_outposts_site"]["id"])
-    ```
-
 
     :param str availability_zone: Availability Zone name.
     :param str availability_zone_id: Availability Zone identifier.
@@ -153,15 +144,6 @@ def get_outposts_output(availability_zone: Optional[pulumi.Input[Optional[str]]]
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOutpostsResult]:
     """
     Provides details about multiple Outposts.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.outposts.get_outposts(site_id=data["aws_outposts_site"]["id"])
-    ```
 
 
     :param str availability_zone: Availability Zone name.

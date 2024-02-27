@@ -21,29 +21,27 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/auditmanager"
+//	auditmanager/control "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/auditmanager/control"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := auditmanager.NewControl(ctx, "example", &auditmanager.ControlArgs{
-//				ControlMappingSources: auditmanager.ControlControlMappingSourceArray{
-//					&auditmanager.ControlControlMappingSourceArgs{
-//						SourceName:        pulumi.String("example"),
-//						SourceSetUpOption: pulumi.String("Procedural_Controls_Mapping"),
-//						SourceType:        pulumi.String("MANUAL"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := auditmanager/control.NewControl(ctx, "example", &auditmanager/control.ControlArgs{
+// ControlMappingSources: []map[string]interface{}{
+// map[string]interface{}{
+// "sourceName": "example",
+// "sourceSetUpOption": "Procedural_Controls_Mapping",
+// "sourceType": "MANUAL",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

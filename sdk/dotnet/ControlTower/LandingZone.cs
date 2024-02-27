@@ -24,7 +24,7 @@ namespace Pulumi.Aws.ControlTower
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.ControlTower.LandingZone("example", new()
+    ///     var example = new Aws.Controltower.LandingZone.LandingZone("example", new()
     ///     {
     ///         ManifestJson = File.ReadAllText($"{path.Module}/LandingZoneManifest.json"),
     ///         Version = "3.2",

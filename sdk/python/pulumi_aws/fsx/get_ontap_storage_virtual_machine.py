@@ -192,25 +192,6 @@ def get_ontap_storage_virtual_machine(filters: Optional[Sequence[pulumi.InputTyp
     Retrieve information on FSx ONTAP Storage Virtual Machine (SVM).
 
     ## Example Usage
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.fsx.get_ontap_storage_virtual_machine(id="svm-12345678")
-    ```
-    ### Filter Example
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.fsx.get_ontap_storage_virtual_machine(filters=[aws.fsx.GetOntapStorageVirtualMachineFilterArgs(
-        name="file-system-id",
-        values=["fs-12345678"],
-    )])
-    ```
 
 
     :param Sequence[pulumi.InputType['GetOntapStorageVirtualMachineFilterArgs']] filters: Configuration block. Detailed below.
@@ -248,25 +229,6 @@ def get_ontap_storage_virtual_machine_output(filters: Optional[pulumi.Input[Opti
     Retrieve information on FSx ONTAP Storage Virtual Machine (SVM).
 
     ## Example Usage
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.fsx.get_ontap_storage_virtual_machine(id="svm-12345678")
-    ```
-    ### Filter Example
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.fsx.get_ontap_storage_virtual_machine(filters=[aws.fsx.GetOntapStorageVirtualMachineFilterArgs(
-        name="file-system-id",
-        values=["fs-12345678"],
-    )])
-    ```
 
 
     :param Sequence[pulumi.InputType['GetOntapStorageVirtualMachineFilterArgs']] filters: Configuration block. Detailed below.

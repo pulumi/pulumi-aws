@@ -28,7 +28,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.securityhub.Account;
  * import com.pulumi.aws.securityhub.Insight;
  * import com.pulumi.aws.securityhub.InsightArgs;
- * import com.pulumi.aws.securityhub.inputs.InsightFiltersArgs;
  * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
@@ -46,17 +45,7 @@ import javax.annotation.Nullable;
  *         var exampleAccount = new Account(&#34;exampleAccount&#34;);
  * 
  *         var exampleInsight = new Insight(&#34;exampleInsight&#34;, InsightArgs.builder()        
- *             .filters(InsightFiltersArgs.builder()
- *                 .awsAccountIds(                
- *                     InsightFiltersAwsAccountIdArgs.builder()
- *                         .comparison(&#34;EQUALS&#34;)
- *                         .value(&#34;1234567890&#34;)
- *                         .build(),
- *                     InsightFiltersAwsAccountIdArgs.builder()
- *                         .comparison(&#34;EQUALS&#34;)
- *                         .value(&#34;09876543210&#34;)
- *                         .build())
- *                 .build())
+ *             .filters(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .groupByAttribute(&#34;AwsAccountId&#34;)
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(exampleAccount)
@@ -75,7 +64,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.securityhub.Account;
  * import com.pulumi.aws.securityhub.Insight;
  * import com.pulumi.aws.securityhub.InsightArgs;
- * import com.pulumi.aws.securityhub.inputs.InsightFiltersArgs;
  * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
@@ -93,14 +81,7 @@ import javax.annotation.Nullable;
  *         var exampleAccount = new Account(&#34;exampleAccount&#34;);
  * 
  *         var exampleInsight = new Insight(&#34;exampleInsight&#34;, InsightArgs.builder()        
- *             .filters(InsightFiltersArgs.builder()
- *                 .createdAts(InsightFiltersCreatedAtArgs.builder()
- *                     .dateRange(InsightFiltersCreatedAtDateRangeArgs.builder()
- *                         .unit(&#34;DAYS&#34;)
- *                         .value(5)
- *                         .build())
- *                     .build())
- *                 .build())
+ *             .filters(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .groupByAttribute(&#34;CreatedAt&#34;)
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(exampleAccount)
@@ -119,7 +100,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.securityhub.Account;
  * import com.pulumi.aws.securityhub.Insight;
  * import com.pulumi.aws.securityhub.InsightArgs;
- * import com.pulumi.aws.securityhub.inputs.InsightFiltersArgs;
  * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
@@ -137,11 +117,7 @@ import javax.annotation.Nullable;
  *         var exampleAccount = new Account(&#34;exampleAccount&#34;);
  * 
  *         var exampleInsight = new Insight(&#34;exampleInsight&#34;, InsightArgs.builder()        
- *             .filters(InsightFiltersArgs.builder()
- *                 .networkDestinationIpv4s(InsightFiltersNetworkDestinationIpv4Args.builder()
- *                     .cidr(&#34;10.0.0.0/16&#34;)
- *                     .build())
- *                 .build())
+ *             .filters(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .groupByAttribute(&#34;NetworkDestinationIpV4&#34;)
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(exampleAccount)
@@ -160,7 +136,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.securityhub.Account;
  * import com.pulumi.aws.securityhub.Insight;
  * import com.pulumi.aws.securityhub.InsightArgs;
- * import com.pulumi.aws.securityhub.inputs.InsightFiltersArgs;
  * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
@@ -178,11 +153,7 @@ import javax.annotation.Nullable;
  *         var exampleAccount = new Account(&#34;exampleAccount&#34;);
  * 
  *         var exampleInsight = new Insight(&#34;exampleInsight&#34;, InsightArgs.builder()        
- *             .filters(InsightFiltersArgs.builder()
- *                 .confidences(InsightFiltersConfidenceArgs.builder()
- *                     .gte(&#34;80&#34;)
- *                     .build())
- *                 .build())
+ *             .filters(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .groupByAttribute(&#34;Confidence&#34;)
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(exampleAccount)
@@ -201,7 +172,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.securityhub.Account;
  * import com.pulumi.aws.securityhub.Insight;
  * import com.pulumi.aws.securityhub.InsightArgs;
- * import com.pulumi.aws.securityhub.inputs.InsightFiltersArgs;
  * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
@@ -219,13 +189,7 @@ import javax.annotation.Nullable;
  *         var exampleAccount = new Account(&#34;exampleAccount&#34;);
  * 
  *         var exampleInsight = new Insight(&#34;exampleInsight&#34;, InsightArgs.builder()        
- *             .filters(InsightFiltersArgs.builder()
- *                 .resourceTags(InsightFiltersResourceTagArgs.builder()
- *                     .comparison(&#34;EQUALS&#34;)
- *                     .key(&#34;Environment&#34;)
- *                     .value(&#34;Production&#34;)
- *                     .build())
- *                 .build())
+ *             .filters(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .groupByAttribute(&#34;ResourceTags&#34;)
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(exampleAccount)

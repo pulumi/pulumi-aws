@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.ec2transitgateway.MulticastGroupSource("example", {
+ * const example = new aws.ec2transitgateway/multicastGroupSource.MulticastGroupSource("example", {
  *     groupIpAddress: "224.0.0.1",
  *     networkInterfaceId: aws_network_interface.example.id,
  *     transitGatewayMulticastDomainId: aws_ec2_transit_gateway_multicast_domain.example.id,

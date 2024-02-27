@@ -24,8 +24,8 @@ import {ARN} from "..";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const testStream = new aws.kinesis.Stream("testStream", {shardCount: 1});
- * const testApplication = new aws.kinesis.AnalyticsApplication("testApplication", {inputs: {
+ * const testStream = new aws.kinesis/stream.Stream("testStream", {shardCount: 1});
+ * const testApplication = new aws.kinesis/analyticsApplication.AnalyticsApplication("testApplication", {inputs: {
  *     namePrefix: "test_prefix",
  *     kinesisStream: {
  *         resourceArn: testStream.arn,
@@ -57,17 +57,17 @@ import {ARN} from "..";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleLogGroup = new aws.cloudwatch.LogGroup("exampleLogGroup", {});
- * const exampleLogStream = new aws.cloudwatch.LogStream("exampleLogStream", {logGroupName: exampleLogGroup.name});
- * const exampleStream = new aws.kinesis.Stream("exampleStream", {shardCount: 1});
- * const exampleFirehoseDeliveryStream = new aws.kinesis.FirehoseDeliveryStream("exampleFirehoseDeliveryStream", {
+ * const exampleLogGroup = new aws.cloudwatch/logGroup.LogGroup("exampleLogGroup", {});
+ * const exampleLogStream = new aws.cloudwatch/logStream.LogStream("exampleLogStream", {logGroupName: exampleLogGroup.name});
+ * const exampleStream = new aws.kinesis/stream.Stream("exampleStream", {shardCount: 1});
+ * const exampleFirehoseDeliveryStream = new aws.kinesis/firehoseDeliveryStream.FirehoseDeliveryStream("exampleFirehoseDeliveryStream", {
  *     destination: "extended_s3",
  *     extendedS3Configuration: {
  *         bucketArn: aws_s3_bucket.example.arn,
  *         roleArn: aws_iam_role.example.arn,
  *     },
  * });
- * const test = new aws.kinesis.AnalyticsApplication("test", {
+ * const test = new aws.kinesis/analyticsApplication.AnalyticsApplication("test", {
  *     cloudwatchLoggingOptions: {
  *         logStreamArn: exampleLogStream.arn,
  *         roleArn: aws_iam_role.example.arn,

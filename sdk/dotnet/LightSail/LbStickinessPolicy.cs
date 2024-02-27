@@ -22,17 +22,17 @@ namespace Pulumi.Aws.LightSail
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testLb = new Aws.LightSail.Lb("testLb", new()
+    ///     var testLb = new Aws.Lightsail.Lb.Lb("testLb", new()
     ///     {
     ///         HealthCheckPath = "/",
-    ///         InstancePort = 80,
+    ///         InstancePort = "80",
     ///         Tags = 
     ///         {
     ///             { "foo", "bar" },
     ///         },
     ///     });
     /// 
-    ///     var testLbStickinessPolicy = new Aws.LightSail.LbStickinessPolicy("testLbStickinessPolicy", new()
+    ///     var testLbStickinessPolicy = new Aws.Lightsail.LbStickinessPolicy.LbStickinessPolicy("testLbStickinessPolicy", new()
     ///     {
     ///         LbName = testLb.Name,
     ///         CookieDuration = 900,

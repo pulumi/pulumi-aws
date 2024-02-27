@@ -19,32 +19,6 @@ namespace Pulumi.Aws.LB
         /// This data source can prove useful when a module accepts an LB Trust Store as an
         /// input variable and needs to know its attributes. It can also be used to get the ARN of
         /// an LB Trust Store for use in other resources, given LB Trust Store name.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var config = new Config();
-        ///     var lbTsArn = config.Get("lbTsArn") ?? "";
-        ///     var lbTsName = config.Get("lbTsName") ?? "";
-        ///     var test = Aws.LB.GetTrustStore.Invoke(new()
-        ///     {
-        ///         Arn = lbTsArn,
-        ///         Name = lbTsName,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetTrustStoreResult> InvokeAsync(GetTrustStoreArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTrustStoreResult>("aws:lb/getTrustStore:getTrustStore", args ?? new GetTrustStoreArgs(), options.WithDefaults());
@@ -57,32 +31,6 @@ namespace Pulumi.Aws.LB
         /// This data source can prove useful when a module accepts an LB Trust Store as an
         /// input variable and needs to know its attributes. It can also be used to get the ARN of
         /// an LB Trust Store for use in other resources, given LB Trust Store name.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var config = new Config();
-        ///     var lbTsArn = config.Get("lbTsArn") ?? "";
-        ///     var lbTsName = config.Get("lbTsName") ?? "";
-        ///     var test = Aws.LB.GetTrustStore.Invoke(new()
-        ///     {
-        ///         Arn = lbTsArn,
-        ///         Name = lbTsName,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetTrustStoreResult> Invoke(GetTrustStoreInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTrustStoreResult>("aws:lb/getTrustStore:getTrustStore", args ?? new GetTrustStoreInvokeArgs(), options.WithDefaults());

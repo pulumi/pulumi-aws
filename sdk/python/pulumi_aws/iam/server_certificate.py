@@ -392,9 +392,9 @@ class ServerCertificate(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_cert = aws.iam.ServerCertificate("testCert",
-            certificate_body=(lambda path: open(path).read())("self-ca-cert.pem"),
-            private_key=(lambda path: open(path).read())("test-key.pem"))
+        test_cert = aws.iam.server_certificate.ServerCertificate("testCert",
+            certificate_body=(lambda path: open(path).read())(self-ca-cert.pem),
+            private_key=(lambda path: open(path).read())(test-key.pem))
         ```
 
         **Example with cert in-line:**
@@ -403,17 +403,17 @@ class ServerCertificate(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_cert_alt = aws.iam.ServerCertificate("testCertAlt",
-            certificate_body=\"\"\"-----BEGIN CERTIFICATE-----
+        test_cert_alt = aws.iam.server_certificate.ServerCertificate("testCertAlt",
+            certificate_body=-----BEGIN CERTIFICATE-----
         [......] # cert contents
         -----END CERTIFICATE-----
 
-        \"\"\",
-            private_key=\"\"\"-----BEGIN RSA PRIVATE KEY-----
+        ,
+            private_key=-----BEGIN RSA PRIVATE KEY-----
         [......] # cert contents
         -----END RSA PRIVATE KEY-----
 
-        \"\"\")
+        )
         ```
 
         **Use in combination with an AWS ELB resource:**
@@ -429,20 +429,20 @@ class ServerCertificate(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_cert = aws.iam.ServerCertificate("testCert",
-            name_prefix="example-cert",
-            certificate_body=(lambda path: open(path).read())("self-ca-cert.pem"),
-            private_key=(lambda path: open(path).read())("test-key.pem"))
-        ourapp = aws.elb.LoadBalancer("ourapp",
-            availability_zones=["us-west-2a"],
+        test_cert = aws.iam.server_certificate.ServerCertificate("testCert",
+            name_prefix=example-cert,
+            certificate_body=(lambda path: open(path).read())(self-ca-cert.pem),
+            private_key=(lambda path: open(path).read())(test-key.pem))
+        ourapp = aws.elb.load_balancer.LoadBalancer("ourapp",
+            availability_zones=[us-west-2a],
             cross_zone_load_balancing=True,
-            listeners=[aws.elb.LoadBalancerListenerArgs(
-                instance_port=8000,
-                instance_protocol="http",
-                lb_port=443,
-                lb_protocol="https",
-                ssl_certificate_id=test_cert.arn,
-            )])
+            listeners=[{
+                instancePort: 8000,
+                instanceProtocol: http,
+                lbPort: 443,
+                lbProtocol: https,
+                sslCertificateId: test_cert.arn,
+            }])
         ```
 
         ## Import
@@ -499,9 +499,9 @@ class ServerCertificate(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_cert = aws.iam.ServerCertificate("testCert",
-            certificate_body=(lambda path: open(path).read())("self-ca-cert.pem"),
-            private_key=(lambda path: open(path).read())("test-key.pem"))
+        test_cert = aws.iam.server_certificate.ServerCertificate("testCert",
+            certificate_body=(lambda path: open(path).read())(self-ca-cert.pem),
+            private_key=(lambda path: open(path).read())(test-key.pem))
         ```
 
         **Example with cert in-line:**
@@ -510,17 +510,17 @@ class ServerCertificate(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_cert_alt = aws.iam.ServerCertificate("testCertAlt",
-            certificate_body=\"\"\"-----BEGIN CERTIFICATE-----
+        test_cert_alt = aws.iam.server_certificate.ServerCertificate("testCertAlt",
+            certificate_body=-----BEGIN CERTIFICATE-----
         [......] # cert contents
         -----END CERTIFICATE-----
 
-        \"\"\",
-            private_key=\"\"\"-----BEGIN RSA PRIVATE KEY-----
+        ,
+            private_key=-----BEGIN RSA PRIVATE KEY-----
         [......] # cert contents
         -----END RSA PRIVATE KEY-----
 
-        \"\"\")
+        )
         ```
 
         **Use in combination with an AWS ELB resource:**
@@ -536,20 +536,20 @@ class ServerCertificate(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_cert = aws.iam.ServerCertificate("testCert",
-            name_prefix="example-cert",
-            certificate_body=(lambda path: open(path).read())("self-ca-cert.pem"),
-            private_key=(lambda path: open(path).read())("test-key.pem"))
-        ourapp = aws.elb.LoadBalancer("ourapp",
-            availability_zones=["us-west-2a"],
+        test_cert = aws.iam.server_certificate.ServerCertificate("testCert",
+            name_prefix=example-cert,
+            certificate_body=(lambda path: open(path).read())(self-ca-cert.pem),
+            private_key=(lambda path: open(path).read())(test-key.pem))
+        ourapp = aws.elb.load_balancer.LoadBalancer("ourapp",
+            availability_zones=[us-west-2a],
             cross_zone_load_balancing=True,
-            listeners=[aws.elb.LoadBalancerListenerArgs(
-                instance_port=8000,
-                instance_protocol="http",
-                lb_port=443,
-                lb_protocol="https",
-                ssl_certificate_id=test_cert.arn,
-            )])
+            listeners=[{
+                instancePort: 8000,
+                instanceProtocol: http,
+                lbPort: 443,
+                lbProtocol: https,
+                sslCertificateId: test_cert.arn,
+            }])
         ```
 
         ## Import

@@ -23,13 +23,13 @@ namespace Pulumi.Aws.CloudFront
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var examplePublicKey = new Aws.CloudFront.PublicKey("examplePublicKey", new()
+    ///     var examplePublicKey = new Aws.Cloudfront.PublicKey.PublicKey("examplePublicKey", new()
     ///     {
     ///         Comment = "example public key",
     ///         EncodedKey = File.ReadAllText("public_key.pem"),
     ///     });
     /// 
-    ///     var exampleKeyGroup = new Aws.CloudFront.KeyGroup("exampleKeyGroup", new()
+    ///     var exampleKeyGroup = new Aws.Cloudfront.KeyGroup.KeyGroup("exampleKeyGroup", new()
     ///     {
     ///         Comment = "example key group",
     ///         Items = new[]

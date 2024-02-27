@@ -17,11 +17,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const documents = new aws.s3.BucketObjectv2("documents", {});
+ * const documents = new aws.s3/bucketObjectv2.BucketObjectv2("documents", {});
  * // ...
- * const entities = new aws.s3.BucketObjectv2("entities", {});
+ * const entities = new aws.s3/bucketObjectv2.BucketObjectv2("entities", {});
  * // ...
- * const example = new aws.comprehend.EntityRecognizer("example", {
+ * const example = new aws.comprehend/entityRecognizer.EntityRecognizer("example", {
  *     dataAccessRoleArn: aws_iam_role.example.arn,
  *     languageCode: "en",
  *     inputDataConfig: {
@@ -34,10 +34,10 @@ import * as utilities from "../utilities";
  *             },
  *         ],
  *         documents: {
- *             s3Uri: pulumi.interpolate`s3://${aws_s3_bucket.documents.bucket}/${documents.id}`,
+ *             s3Uri: `s3://${aws_s3_bucket.documents.bucket}/${documents.id}`,
  *         },
  *         entityList: {
- *             s3Uri: pulumi.interpolate`s3://${aws_s3_bucket.entities.bucket}/${entities.id}`,
+ *             s3Uri: `s3://${aws_s3_bucket.entities.bucket}/${entities.id}`,
  *         },
  *     },
  * }, {

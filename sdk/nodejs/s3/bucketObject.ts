@@ -16,16 +16,16 @@ import {Bucket} from "./index";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const examplekms = new aws.kms.Key("examplekms", {
+ * const examplekms = new aws.kms/key.Key("examplekms", {
  *     description: "KMS key 1",
  *     deletionWindowInDays: 7,
  * });
- * const examplebucket = new aws.s3.BucketV2("examplebucket", {});
- * const exampleBucketAclV2 = new aws.s3.BucketAclV2("exampleBucketAclV2", {
+ * const examplebucket = new aws.s3/bucketV2.BucketV2("examplebucket", {});
+ * const exampleBucketAclV2 = new aws.s3/bucketAclV2.BucketAclV2("exampleBucketAclV2", {
  *     bucket: examplebucket.id,
  *     acl: "private",
  * });
- * const exampleBucketObject = new aws.s3.BucketObject("exampleBucketObject", {
+ * const exampleBucketObject = new aws.s3/bucketObject.BucketObject("exampleBucketObject", {
  *     key: "someobject",
  *     bucket: examplebucket.id,
  *     source: new pulumi.asset.FileAsset("index.html"),
@@ -38,12 +38,12 @@ import {Bucket} from "./index";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const examplebucket = new aws.s3.BucketV2("examplebucket", {});
- * const exampleBucketAclV2 = new aws.s3.BucketAclV2("exampleBucketAclV2", {
+ * const examplebucket = new aws.s3/bucketV2.BucketV2("examplebucket", {});
+ * const exampleBucketAclV2 = new aws.s3/bucketAclV2.BucketAclV2("exampleBucketAclV2", {
  *     bucket: examplebucket.id,
  *     acl: "private",
  * });
- * const exampleBucketObject = new aws.s3.BucketObject("exampleBucketObject", {
+ * const exampleBucketObject = new aws.s3/bucketObject.BucketObject("exampleBucketObject", {
  *     key: "someobject",
  *     bucket: examplebucket.id,
  *     source: new pulumi.asset.FileAsset("index.html"),
@@ -56,12 +56,12 @@ import {Bucket} from "./index";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const examplebucket = new aws.s3.BucketV2("examplebucket", {});
- * const exampleBucketAclV2 = new aws.s3.BucketAclV2("exampleBucketAclV2", {
+ * const examplebucket = new aws.s3/bucketV2.BucketV2("examplebucket", {});
+ * const exampleBucketAclV2 = new aws.s3/bucketAclV2.BucketAclV2("exampleBucketAclV2", {
  *     bucket: examplebucket.id,
  *     acl: "private",
  * });
- * const exampleBucketObject = new aws.s3.BucketObject("exampleBucketObject", {
+ * const exampleBucketObject = new aws.s3/bucketObject.BucketObject("exampleBucketObject", {
  *     key: "someobject",
  *     bucket: examplebucket.id,
  *     source: new pulumi.asset.FileAsset("index.html"),
@@ -74,18 +74,18 @@ import {Bucket} from "./index";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const examplebucket = new aws.s3.BucketV2("examplebucket", {objectLockEnabled: true});
- * const exampleBucketAclV2 = new aws.s3.BucketAclV2("exampleBucketAclV2", {
+ * const examplebucket = new aws.s3/bucketV2.BucketV2("examplebucket", {objectLockEnabled: true});
+ * const exampleBucketAclV2 = new aws.s3/bucketAclV2.BucketAclV2("exampleBucketAclV2", {
  *     bucket: examplebucket.id,
  *     acl: "private",
  * });
- * const exampleBucketVersioningV2 = new aws.s3.BucketVersioningV2("exampleBucketVersioningV2", {
+ * const exampleBucketVersioningV2 = new aws.s3/bucketVersioningV2.BucketVersioningV2("exampleBucketVersioningV2", {
  *     bucket: examplebucket.id,
  *     versioningConfiguration: {
  *         status: "Enabled",
  *     },
  * });
- * const exampleBucketObject = new aws.s3.BucketObject("exampleBucketObject", {
+ * const exampleBucketObject = new aws.s3/bucketObject.BucketObject("exampleBucketObject", {
  *     key: "someobject",
  *     bucket: examplebucket.id,
  *     source: new pulumi.asset.FileAsset("important.txt"),

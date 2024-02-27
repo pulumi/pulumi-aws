@@ -21,24 +21,22 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/location"
+//	location/routeCalculation "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/location/routeCalculation"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := location.NewRouteCalculation(ctx, "example", &location.RouteCalculationArgs{
-//				CalculatorName: pulumi.String("example"),
-//				DataSource:     pulumi.String("Here"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := location/routeCalculation.NewRouteCalculation(ctx, "example", &location/routeCalculation.RouteCalculationArgs{
+// CalculatorName: "example",
+// DataSource: "Here",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

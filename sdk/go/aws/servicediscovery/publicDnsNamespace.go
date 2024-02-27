@@ -20,23 +20,21 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/servicediscovery"
+//	servicediscovery/publicDnsNamespace "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/servicediscovery/publicDnsNamespace"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := servicediscovery.NewPublicDnsNamespace(ctx, "example", &servicediscovery.PublicDnsNamespaceArgs{
-//				Description: pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := servicediscovery/publicDnsNamespace.NewPublicDnsNamespace(ctx, "example", &servicediscovery/publicDnsNamespace.PublicDnsNamespaceArgs{
+// Description: "example",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

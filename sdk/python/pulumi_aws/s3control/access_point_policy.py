@@ -125,28 +125,28 @@ class AccessPointPolicy(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
-        example_access_point = aws.s3.AccessPoint("exampleAccessPoint",
+        example_bucket_v2 = aws.s3.bucket_v2.BucketV2("exampleBucketV2")
+        example_access_point = aws.s3.access_point.AccessPoint("exampleAccessPoint",
             bucket=example_bucket_v2.id,
-            public_access_block_configuration=aws.s3.AccessPointPublicAccessBlockConfigurationArgs(
-                block_public_acls=True,
-                block_public_policy=False,
-                ignore_public_acls=True,
-                restrict_public_buckets=False,
-            ))
-        example_access_point_policy = aws.s3control.AccessPointPolicy("exampleAccessPointPolicy",
+            public_access_block_configuration={
+                blockPublicAcls: True,
+                blockPublicPolicy: False,
+                ignorePublicAcls: True,
+                restrictPublicBuckets: False,
+            })
+        example_access_point_policy = aws.s3control.access_point_policy.AccessPointPolicy("exampleAccessPointPolicy",
             access_point_arn=example_access_point.arn,
-            policy=example_access_point.arn.apply(lambda arn: json.dumps({
-                "Version": "2008-10-17",
-                "Statement": [{
-                    "Effect": "Allow",
-                    "Action": "s3:GetObjectTagging",
-                    "Principal": {
-                        "AWS": "*",
+            policy=json.dumps({
+                Version: 2008-10-17,
+                Statement: [{
+                    Effect: Allow,
+                    Action: s3:GetObjectTagging,
+                    Principal: {
+                        AWS: *,
                     },
-                    "Resource": f"{arn}/object/*",
+                    Resource: f{example_access_point.arn}/object/*,
                 }],
-            })))
+            }))
         ```
 
         ## Import
@@ -180,28 +180,28 @@ class AccessPointPolicy(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
-        example_access_point = aws.s3.AccessPoint("exampleAccessPoint",
+        example_bucket_v2 = aws.s3.bucket_v2.BucketV2("exampleBucketV2")
+        example_access_point = aws.s3.access_point.AccessPoint("exampleAccessPoint",
             bucket=example_bucket_v2.id,
-            public_access_block_configuration=aws.s3.AccessPointPublicAccessBlockConfigurationArgs(
-                block_public_acls=True,
-                block_public_policy=False,
-                ignore_public_acls=True,
-                restrict_public_buckets=False,
-            ))
-        example_access_point_policy = aws.s3control.AccessPointPolicy("exampleAccessPointPolicy",
+            public_access_block_configuration={
+                blockPublicAcls: True,
+                blockPublicPolicy: False,
+                ignorePublicAcls: True,
+                restrictPublicBuckets: False,
+            })
+        example_access_point_policy = aws.s3control.access_point_policy.AccessPointPolicy("exampleAccessPointPolicy",
             access_point_arn=example_access_point.arn,
-            policy=example_access_point.arn.apply(lambda arn: json.dumps({
-                "Version": "2008-10-17",
-                "Statement": [{
-                    "Effect": "Allow",
-                    "Action": "s3:GetObjectTagging",
-                    "Principal": {
-                        "AWS": "*",
+            policy=json.dumps({
+                Version: 2008-10-17,
+                Statement: [{
+                    Effect: Allow,
+                    Action: s3:GetObjectTagging,
+                    Principal: {
+                        AWS: *,
                     },
-                    "Resource": f"{arn}/object/*",
+                    Resource: f{example_access_point.arn}/object/*,
                 }],
-            })))
+            }))
         ```
 
         ## Import

@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.eks.FargateProfile("example", {
+ * const example = new aws.eks/fargateProfile.FargateProfile("example", {
  *     clusterName: aws_eks_cluster.example.name,
  *     podExecutionRoleArn: aws_iam_role.example.arn,
  *     subnetIds: aws_subnet.example.map(__item => __item.id),
@@ -31,7 +31,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.iam.Role("example", {assumeRolePolicy: JSON.stringify({
+ * const example = new aws.iam/role.Role("example", {assumeRolePolicy: JSON.stringify({
  *     Statement: [{
  *         Action: "sts:AssumeRole",
  *         Effect: "Allow",
@@ -41,7 +41,7 @@ import * as utilities from "../utilities";
  *     }],
  *     Version: "2012-10-17",
  * })});
- * const example_AmazonEKSFargatePodExecutionRolePolicy = new aws.iam.RolePolicyAttachment("example-AmazonEKSFargatePodExecutionRolePolicy", {
+ * const example_AmazonEKSFargatePodExecutionRolePolicy = new aws.iam/rolePolicyAttachment.RolePolicyAttachment("example-AmazonEKSFargatePodExecutionRolePolicy", {
  *     policyArn: "arn:aws:iam::aws:policy/AmazonEKSFargatePodExecutionRolePolicy",
  *     role: example.name,
  * });

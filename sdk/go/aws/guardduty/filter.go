@@ -21,51 +21,49 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/guardduty"
+//	guardduty/filter "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/guardduty/filter"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := guardduty.NewFilter(ctx, "myFilter", &guardduty.FilterArgs{
-//				Action:     pulumi.String("ARCHIVE"),
-//				DetectorId: pulumi.Any(aws_guardduty_detector.Example.Id),
-//				Rank:       pulumi.Int(1),
-//				FindingCriteria: &guardduty.FilterFindingCriteriaArgs{
-//					Criterions: guardduty.FilterFindingCriteriaCriterionArray{
-//						&guardduty.FilterFindingCriteriaCriterionArgs{
-//							Field: pulumi.String("region"),
-//							Equals: pulumi.StringArray{
-//								pulumi.String("eu-west-1"),
-//							},
-//						},
-//						&guardduty.FilterFindingCriteriaCriterionArgs{
-//							Field: pulumi.String("service.additionalInfo.threatListName"),
-//							NotEquals: pulumi.StringArray{
-//								pulumi.String("some-threat"),
-//								pulumi.String("another-threat"),
-//							},
-//						},
-//						&guardduty.FilterFindingCriteriaCriterionArgs{
-//							Field:       pulumi.String("updatedAt"),
-//							GreaterThan: pulumi.String("2020-01-01T00:00:00Z"),
-//							LessThan:    pulumi.String("2020-02-01T00:00:00Z"),
-//						},
-//						&guardduty.FilterFindingCriteriaCriterionArgs{
-//							Field:              pulumi.String("severity"),
-//							GreaterThanOrEqual: pulumi.String("4"),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := guardduty/filter.NewFilter(ctx, "myFilter", &guardduty/filter.FilterArgs{
+// Action: "ARCHIVE",
+// DetectorId: aws_guardduty_detector.Example.Id,
+// Rank: 1,
+// FindingCriteria: map[string]interface{}{
+// "criterions": []interface{}{
+// map[string]interface{}{
+// "field": "region",
+// "equals": []string{
+// "eu-west-1",
+// },
+// },
+// map[string]interface{}{
+// "field": "service.additionalInfo.threatListName",
+// "notEquals": []string{
+// "some-threat",
+// "another-threat",
+// },
+// },
+// map[string]interface{}{
+// "field": "updatedAt",
+// "greaterThan": "2020-01-01T00:00:00Z",
+// "lessThan": "2020-02-01T00:00:00Z",
+// },
+// map[string]interface{}{
+// "field": "severity",
+// "greaterThanOrEqual": "4",
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

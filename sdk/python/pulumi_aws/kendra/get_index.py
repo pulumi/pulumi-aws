@@ -255,15 +255,6 @@ def get_index(id: Optional[str] = None,
     """
     Provides details about a specific Amazon Kendra Index.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.kendra.get_index(id="12345678-1234-1234-1234-123456789123")
-    ```
-
 
     :param str id: Returns information on a specific Index by id.
     :param Mapping[str, str] tags: Metadata that helps organize the Indices you create.
@@ -301,15 +292,6 @@ def get_index_output(id: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIndexResult]:
     """
     Provides details about a specific Amazon Kendra Index.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.kendra.get_index(id="12345678-1234-1234-1234-123456789123")
-    ```
 
 
     :param str id: Returns information on a specific Index by id.

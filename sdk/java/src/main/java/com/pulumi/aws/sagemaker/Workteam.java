@@ -31,8 +31,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.sagemaker.Workteam;
  * import com.pulumi.aws.sagemaker.WorkteamArgs;
- * import com.pulumi.aws.sagemaker.inputs.WorkteamMemberDefinitionArgs;
- * import com.pulumi.aws.sagemaker.inputs.WorkteamMemberDefinitionCognitoMemberDefinitionArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -50,13 +48,7 @@ import javax.annotation.Nullable;
  *             .workteamName(&#34;example&#34;)
  *             .workforceName(aws_sagemaker_workforce.example().id())
  *             .description(&#34;example&#34;)
- *             .memberDefinitions(WorkteamMemberDefinitionArgs.builder()
- *                 .cognitoMemberDefinition(WorkteamMemberDefinitionCognitoMemberDefinitionArgs.builder()
- *                     .clientId(aws_cognito_user_pool_client.example().id())
- *                     .userPool(aws_cognito_user_pool_domain.example().user_pool_id())
- *                     .userGroup(aws_cognito_user_group.example().id())
- *                     .build())
- *                 .build())
+ *             .memberDefinitions(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -71,8 +63,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.sagemaker.Workteam;
  * import com.pulumi.aws.sagemaker.WorkteamArgs;
- * import com.pulumi.aws.sagemaker.inputs.WorkteamMemberDefinitionArgs;
- * import com.pulumi.aws.sagemaker.inputs.WorkteamMemberDefinitionOidcMemberDefinitionArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -90,11 +80,7 @@ import javax.annotation.Nullable;
  *             .workteamName(&#34;example&#34;)
  *             .workforceName(aws_sagemaker_workforce.example().id())
  *             .description(&#34;example&#34;)
- *             .memberDefinitions(WorkteamMemberDefinitionArgs.builder()
- *                 .oidcMemberDefinition(WorkteamMemberDefinitionOidcMemberDefinitionArgs.builder()
- *                     .groups(&#34;example&#34;)
- *                     .build())
- *                 .build())
+ *             .memberDefinitions(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

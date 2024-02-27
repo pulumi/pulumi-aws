@@ -13,60 +13,12 @@ namespace Pulumi.Aws.Organizations
     {
         /// <summary>
         /// Get all direct child organizational units under a parent organizational unit. This only provides immediate children, not all children.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var org = Aws.Organizations.GetOrganization.Invoke();
-        /// 
-        ///     var ou = Aws.Organizations.GetOrganizationalUnits.Invoke(new()
-        ///     {
-        ///         ParentId = org.Apply(getOrganizationResult =&gt; getOrganizationResult.Roots[0]?.Id),
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetOrganizationalUnitsResult> InvokeAsync(GetOrganizationalUnitsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetOrganizationalUnitsResult>("aws:organizations/getOrganizationalUnits:getOrganizationalUnits", args ?? new GetOrganizationalUnitsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get all direct child organizational units under a parent organizational unit. This only provides immediate children, not all children.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var org = Aws.Organizations.GetOrganization.Invoke();
-        /// 
-        ///     var ou = Aws.Organizations.GetOrganizationalUnits.Invoke(new()
-        ///     {
-        ///         ParentId = org.Apply(getOrganizationResult =&gt; getOrganizationResult.Roots[0]?.Id),
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetOrganizationalUnitsResult> Invoke(GetOrganizationalUnitsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOrganizationalUnitsResult>("aws:organizations/getOrganizationalUnits:getOrganizationalUnits", args ?? new GetOrganizationalUnitsInvokeArgs(), options.WithDefaults());

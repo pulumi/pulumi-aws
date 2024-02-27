@@ -22,16 +22,16 @@ namespace Pulumi.Aws.DeviceFarm
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.DeviceFarm.DevicePool("example", new()
+    ///     var example = new Aws.Devicefarm.DevicePool.DevicePool("example", new()
     ///     {
     ///         ProjectArn = aws_devicefarm_project.Example.Arn,
     ///         Rules = new[]
     ///         {
-    ///             new Aws.DeviceFarm.Inputs.DevicePoolRuleArgs
+    ///             
     ///             {
-    ///                 Attribute = "OS_VERSION",
-    ///                 Operator = "EQUALS",
-    ///                 Value = "\"AVAILABLE\"",
+    ///                 { "attribute", "OS_VERSION" },
+    ///                 { "operator", "EQUALS" },
+    ///                 { "value", "\"AVAILABLE\"" },
     ///             },
     ///         },
     ///     });

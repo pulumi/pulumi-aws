@@ -169,23 +169,6 @@ def get_route_table(filters: Optional[Sequence[pulumi.InputType['GetRouteTableFi
 
     This resource can prove useful when a module accepts a Subnet ID as an input variable and needs to, for example, add a route in the Route Table.
 
-    ## Example Usage
-
-    The following example shows how one might accept a Route Table ID as a variable and use this data source to obtain the data necessary to create a route.
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    config = pulumi.Config()
-    subnet_id = config.require_object("subnetId")
-    selected = aws.ec2.get_route_table(subnet_id=subnet_id)
-    route = aws.ec2.Route("route",
-        route_table_id=selected.id,
-        destination_cidr_block="10.0.1.0/22",
-        vpc_peering_connection_id="pcx-45ff3dc1")
-    ```
-
 
     :param Sequence[pulumi.InputType['GetRouteTableFilterArgs']] filters: Configuration block. Detailed below.
     :param str gateway_id: ID of an Internet Gateway or Virtual Private Gateway which is connected to the Route Table (not exported if not passed as a parameter).
@@ -230,23 +213,6 @@ def get_route_table_output(filters: Optional[pulumi.Input[Optional[Sequence[pulu
     `ec2.RouteTable` provides details about a specific Route Table.
 
     This resource can prove useful when a module accepts a Subnet ID as an input variable and needs to, for example, add a route in the Route Table.
-
-    ## Example Usage
-
-    The following example shows how one might accept a Route Table ID as a variable and use this data source to obtain the data necessary to create a route.
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    config = pulumi.Config()
-    subnet_id = config.require_object("subnetId")
-    selected = aws.ec2.get_route_table(subnet_id=subnet_id)
-    route = aws.ec2.Route("route",
-        route_table_id=selected.id,
-        destination_cidr_block="10.0.1.0/22",
-        vpc_peering_connection_id="pcx-45ff3dc1")
-    ```
 
 
     :param Sequence[pulumi.InputType['GetRouteTableFilterArgs']] filters: Configuration block. Detailed below.

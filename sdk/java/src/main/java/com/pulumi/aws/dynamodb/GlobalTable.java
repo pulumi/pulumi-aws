@@ -29,14 +29,12 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.Provider;
- * import com.pulumi.aws.ProviderArgs;
+ * import com.pulumi.pulumi.providers.aws;
+ * import com.pulumi.pulumi.providers.ProviderArgs;
  * import com.pulumi.aws.dynamodb.Table;
  * import com.pulumi.aws.dynamodb.TableArgs;
- * import com.pulumi.aws.dynamodb.inputs.TableAttributeArgs;
  * import com.pulumi.aws.dynamodb.GlobalTable;
  * import com.pulumi.aws.dynamodb.GlobalTableArgs;
- * import com.pulumi.aws.dynamodb.inputs.GlobalTableReplicaArgs;
  * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
@@ -65,10 +63,7 @@ import javax.annotation.Nullable;
  *             .streamViewType(&#34;NEW_AND_OLD_IMAGES&#34;)
  *             .readCapacity(1)
  *             .writeCapacity(1)
- *             .attributes(TableAttributeArgs.builder()
- *                 .name(&#34;myAttribute&#34;)
- *                 .type(&#34;S&#34;)
- *                 .build())
+ *             .attributes(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build(), CustomResourceOptions.builder()
  *                 .provider(aws.us-east-1())
  *                 .build());
@@ -79,22 +74,15 @@ import javax.annotation.Nullable;
  *             .streamViewType(&#34;NEW_AND_OLD_IMAGES&#34;)
  *             .readCapacity(1)
  *             .writeCapacity(1)
- *             .attributes(TableAttributeArgs.builder()
- *                 .name(&#34;myAttribute&#34;)
- *                 .type(&#34;S&#34;)
- *                 .build())
+ *             .attributes(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build(), CustomResourceOptions.builder()
  *                 .provider(aws.us-west-2())
  *                 .build());
  * 
  *         var myTable = new GlobalTable(&#34;myTable&#34;, GlobalTableArgs.builder()        
  *             .replicas(            
- *                 GlobalTableReplicaArgs.builder()
- *                     .regionName(&#34;us-east-1&#34;)
- *                     .build(),
- *                 GlobalTableReplicaArgs.builder()
- *                     .regionName(&#34;us-west-2&#34;)
- *                     .build())
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build(), CustomResourceOptions.builder()
  *                 .provider(aws.us-east-1())
  *                 .dependsOn(                

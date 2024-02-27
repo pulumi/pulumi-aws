@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.rum.MetricsDestination("example", {
+ * const example = new aws.rum/metricsDestination.MetricsDestination("example", {
  *     appMonitorName: aws_rum_app_monitor.example.name,
  *     destination: "CloudWatch",
  * });

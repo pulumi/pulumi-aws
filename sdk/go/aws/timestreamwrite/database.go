@@ -22,23 +22,21 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/timestreamwrite"
+//	timestreamwrite/database "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/timestreamwrite/database"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := timestreamwrite.NewDatabase(ctx, "example", &timestreamwrite.DatabaseArgs{
-//				DatabaseName: pulumi.String("database-example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := timestreamwrite/database.NewDatabase(ctx, "example", &timestreamwrite/database.DatabaseArgs{
+// DatabaseName: "database-example",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Full usage
 //
@@ -47,27 +45,25 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/timestreamwrite"
+//	timestreamwrite/database "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/timestreamwrite/database"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := timestreamwrite.NewDatabase(ctx, "example", &timestreamwrite.DatabaseArgs{
-//				DatabaseName: pulumi.String("database-example"),
-//				KmsKeyId:     pulumi.Any(aws_kms_key.Example.Arn),
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("value"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := timestreamwrite/database.NewDatabase(ctx, "example", &timestreamwrite/database.DatabaseArgs{
+// DatabaseName: "database-example",
+// KmsKeyId: aws_kms_key.Example.Arn,
+// Tags: map[string]interface{}{
+// "Name": "value",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

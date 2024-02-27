@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Route53RecoveryControl
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Route53RecoveryControl.SafetyRule("example", new()
+    ///     var example = new Aws.Route53recoverycontrol.SafetyRule.SafetyRule("example", new()
     ///     {
     ///         AssertedControls = new[]
     ///         {
@@ -30,11 +30,11 @@ namespace Pulumi.Aws.Route53RecoveryControl
     ///         },
     ///         ControlPanelArn = "arn:aws:route53-recovery-control::313517334327:controlpanel/abd5fbfc052d4844a082dbf400f61da8",
     ///         WaitPeriodMs = 5000,
-    ///         RuleConfig = new Aws.Route53RecoveryControl.Inputs.SafetyRuleRuleConfigArgs
+    ///         RuleConfig = 
     ///         {
-    ///             Inverted = false,
-    ///             Threshold = 1,
-    ///             Type = "ATLEAST",
+    ///             { "inverted", false },
+    ///             { "threshold", 1 },
+    ///             { "type", "ATLEAST" },
     ///         },
     ///     });
     /// 
@@ -49,7 +49,7 @@ namespace Pulumi.Aws.Route53RecoveryControl
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Route53RecoveryControl.SafetyRule("example", new()
+    ///     var example = new Aws.Route53recoverycontrol.SafetyRule.SafetyRule("example", new()
     ///     {
     ///         ControlPanelArn = "arn:aws:route53-recovery-control::313517334327:controlpanel/abd5fbfc052d4844a082dbf400f61da8",
     ///         WaitPeriodMs = 5000,
@@ -61,11 +61,11 @@ namespace Pulumi.Aws.Route53RecoveryControl
     ///         {
     ///             aws_route53recoverycontrolconfig_routing_control.Example.Arn,
     ///         },
-    ///         RuleConfig = new Aws.Route53RecoveryControl.Inputs.SafetyRuleRuleConfigArgs
+    ///         RuleConfig = 
     ///         {
-    ///             Inverted = false,
-    ///             Threshold = 1,
-    ///             Type = "ATLEAST",
+    ///             { "inverted", false },
+    ///             { "threshold", 1 },
+    ///             { "type", "ATLEAST" },
     ///         },
     ///     });
     /// 

@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const foobarGroup = new aws.autoscaling.Group("foobarGroup", {
+ * const foobarGroup = new aws.autoscaling/group.Group("foobarGroup", {
  *     availabilityZones: ["us-west-2a"],
  *     maxSize: 1,
  *     minSize: 1,
@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  *     forceDelete: true,
  *     terminationPolicies: ["OldestInstance"],
  * });
- * const foobarSchedule = new aws.autoscaling.Schedule("foobarSchedule", {
+ * const foobarSchedule = new aws.autoscaling/schedule.Schedule("foobarSchedule", {
  *     scheduledActionName: "foobar",
  *     minSize: 0,
  *     maxSize: 1,

@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Fms
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Fms.AdminAccount("example");
+    ///     var example = new Aws.Fms.AdminAccount.AdminAccount("example");
     /// 
     /// });
     /// ```

@@ -13,58 +13,12 @@ namespace Pulumi.Aws.WafV2
     {
         /// <summary>
         /// Retrieves the summary of a WAFv2 Web ACL.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.WafV2.GetWebAcl.Invoke(new()
-        ///     {
-        ///         Name = "some-web-acl",
-        ///         Scope = "REGIONAL",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetWebAclResult> InvokeAsync(GetWebAclArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWebAclResult>("aws:wafv2/getWebAcl:getWebAcl", args ?? new GetWebAclArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves the summary of a WAFv2 Web ACL.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.WafV2.GetWebAcl.Invoke(new()
-        ///     {
-        ///         Name = "some-web-acl",
-        ///         Scope = "REGIONAL",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetWebAclResult> Invoke(GetWebAclInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWebAclResult>("aws:wafv2/getWebAcl:getWebAcl", args ?? new GetWebAclInvokeArgs(), options.WithDefaults());

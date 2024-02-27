@@ -12,58 +12,6 @@ import (
 )
 
 // Information about EC2 Instance Types.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.GetInstanceTypes(ctx, &ec2.GetInstanceTypesArgs{
-//				Filters: []ec2.GetInstanceTypesFilter{
-//					{
-//						Name: "auto-recovery-supported",
-//						Values: []string{
-//							"true",
-//						},
-//					},
-//					{
-//						Name: "network-info.encryption-in-transit-supported",
-//						Values: []string{
-//							"true",
-//						},
-//					},
-//					{
-//						Name: "instance-storage-supported",
-//						Values: []string{
-//							"true",
-//						},
-//					},
-//					{
-//						Name: "instance-type",
-//						Values: []string{
-//							"g5.2xlarge",
-//							"g5.4xlarge",
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetInstanceTypes(ctx *pulumi.Context, args *GetInstanceTypesArgs, opts ...pulumi.InvokeOption) (*GetInstanceTypesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetInstanceTypesResult

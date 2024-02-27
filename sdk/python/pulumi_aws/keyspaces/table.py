@@ -452,18 +452,18 @@ class Table(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.keyspaces.Table("example",
-            keyspace_name=aws_keyspaces_keyspace["example"]["name"],
-            table_name="my_table",
-            schema_definition=aws.keyspaces.TableSchemaDefinitionArgs(
-                columns=[aws.keyspaces.TableSchemaDefinitionColumnArgs(
-                    name="Message",
-                    type="ASCII",
-                )],
-                partition_keys=[aws.keyspaces.TableSchemaDefinitionPartitionKeyArgs(
-                    name="Message",
-                )],
-            ))
+        example = aws.keyspaces.table.Table("example",
+            keyspace_name=aws_keyspaces_keyspace.example.name,
+            table_name=my_table,
+            schema_definition={
+                columns: [{
+                    name: Message,
+                    type: ASCII,
+                }],
+                partitionKeys: [{
+                    name: Message,
+                }],
+            })
         ```
 
         ## Import
@@ -507,18 +507,18 @@ class Table(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.keyspaces.Table("example",
-            keyspace_name=aws_keyspaces_keyspace["example"]["name"],
-            table_name="my_table",
-            schema_definition=aws.keyspaces.TableSchemaDefinitionArgs(
-                columns=[aws.keyspaces.TableSchemaDefinitionColumnArgs(
-                    name="Message",
-                    type="ASCII",
-                )],
-                partition_keys=[aws.keyspaces.TableSchemaDefinitionPartitionKeyArgs(
-                    name="Message",
-                )],
-            ))
+        example = aws.keyspaces.table.Table("example",
+            keyspace_name=aws_keyspaces_keyspace.example.name,
+            table_name=my_table,
+            schema_definition={
+                columns: [{
+                    name: Message,
+                    type: ASCII,
+                }],
+                partitionKeys: [{
+                    name: Message,
+                }],
+            })
         ```
 
         ## Import

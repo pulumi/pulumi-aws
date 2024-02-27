@@ -14,11 +14,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleService = new aws.vpclattice.Service("exampleService", {
+ * const exampleService = new aws.vpclattice/service.Service("exampleService", {
  *     authType: "AWS_IAM",
  *     customDomainName: "example.com",
  * });
- * const exampleAuthPolicy = new aws.vpclattice.AuthPolicy("exampleAuthPolicy", {
+ * const exampleAuthPolicy = new aws.vpclattice/authPolicy.AuthPolicy("exampleAuthPolicy", {
  *     resourceIdentifier: exampleService.arn,
  *     policy: JSON.stringify({
  *         Version: "2012-10-17",

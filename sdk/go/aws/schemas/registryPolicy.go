@@ -15,59 +15,6 @@ import (
 // Resource for managing an AWS EventBridge Schemas Registry Policy.
 //
 // ## Example Usage
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/schemas"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			examplePolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-//				Statements: []iam.GetPolicyDocumentStatement{
-//					{
-//						Sid:    pulumi.StringRef("example"),
-//						Effect: pulumi.StringRef("Allow"),
-//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
-//							{
-//								Type: "AWS",
-//								Identifiers: []string{
-//									"109876543210",
-//								},
-//							},
-//						},
-//						Actions: []string{
-//							"schemas:*",
-//						},
-//						Resources: []string{
-//							"arn:aws:schemas:us-east-1:012345678901:registry/example",
-//							"arn:aws:schemas:us-east-1:012345678901:schema/example*",
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = schemas.NewRegistryPolicy(ctx, "exampleRegistryPolicy", &schemas.RegistryPolicyArgs{
-//				RegistryName: pulumi.String("example"),
-//				Policy:       *pulumi.String(examplePolicyDocument.Json),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 //
 // ## Import
 //

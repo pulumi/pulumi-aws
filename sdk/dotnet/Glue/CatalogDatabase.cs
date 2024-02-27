@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Glue
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Glue.CatalogDatabase("example", new()
+    ///     var example = new Aws.Glue.CatalogDatabase.CatalogDatabase("example", new()
     ///     {
     ///         Name = "MyCatalogDatabase",
     ///     });
@@ -39,20 +39,20 @@ namespace Pulumi.Aws.Glue
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Glue.CatalogDatabase("example", new()
+    ///     var example = new Aws.Glue.CatalogDatabase.CatalogDatabase("example", new()
     ///     {
     ///         CreateTableDefaultPermissions = new[]
     ///         {
-    ///             new Aws.Glue.Inputs.CatalogDatabaseCreateTableDefaultPermissionArgs
+    ///             
     ///             {
-    ///                 Permissions = new[]
+    ///                 { "permissions", new[]
     ///                 {
     ///                     "SELECT",
-    ///                 },
-    ///                 Principal = new Aws.Glue.Inputs.CatalogDatabaseCreateTableDefaultPermissionPrincipalArgs
+    ///                 } },
+    ///                 { "principal", 
     ///                 {
-    ///                     DataLakePrincipalIdentifier = "IAM_ALLOWED_PRINCIPALS",
-    ///                 },
+    ///                     { "dataLakePrincipalIdentifier", "IAM_ALLOWED_PRINCIPALS" },
+    ///                 } },
     ///             },
     ///         },
     ///         Name = "MyCatalogDatabase",

@@ -20,80 +20,12 @@ public final class EmrFunctions {
     /**
      * Retrieve information about EMR Release Labels.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.emr.EmrFunctions;
-     * import com.pulumi.aws.emr.inputs.GetReleaseLabelsArgs;
-     * import com.pulumi.aws.emr.inputs.GetReleaseLabelsFiltersArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = EmrFunctions.getReleaseLabels(GetReleaseLabelsArgs.builder()
-     *             .filters(GetReleaseLabelsFiltersArgs.builder()
-     *                 .application(&#34;spark@2.1.0&#34;)
-     *                 .prefix(&#34;emr-5&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetReleaseLabelsResult> getReleaseLabels() {
         return getReleaseLabels(GetReleaseLabelsArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * Retrieve information about EMR Release Labels.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.emr.EmrFunctions;
-     * import com.pulumi.aws.emr.inputs.GetReleaseLabelsArgs;
-     * import com.pulumi.aws.emr.inputs.GetReleaseLabelsFiltersArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = EmrFunctions.getReleaseLabels(GetReleaseLabelsArgs.builder()
-     *             .filters(GetReleaseLabelsFiltersArgs.builder()
-     *                 .application(&#34;spark@2.1.0&#34;)
-     *                 .prefix(&#34;emr-5&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetReleaseLabelsResult> getReleaseLabelsPlain() {
@@ -102,80 +34,12 @@ public final class EmrFunctions {
     /**
      * Retrieve information about EMR Release Labels.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.emr.EmrFunctions;
-     * import com.pulumi.aws.emr.inputs.GetReleaseLabelsArgs;
-     * import com.pulumi.aws.emr.inputs.GetReleaseLabelsFiltersArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = EmrFunctions.getReleaseLabels(GetReleaseLabelsArgs.builder()
-     *             .filters(GetReleaseLabelsFiltersArgs.builder()
-     *                 .application(&#34;spark@2.1.0&#34;)
-     *                 .prefix(&#34;emr-5&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetReleaseLabelsResult> getReleaseLabels(GetReleaseLabelsArgs args) {
         return getReleaseLabels(args, InvokeOptions.Empty);
     }
     /**
      * Retrieve information about EMR Release Labels.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.emr.EmrFunctions;
-     * import com.pulumi.aws.emr.inputs.GetReleaseLabelsArgs;
-     * import com.pulumi.aws.emr.inputs.GetReleaseLabelsFiltersArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = EmrFunctions.getReleaseLabels(GetReleaseLabelsArgs.builder()
-     *             .filters(GetReleaseLabelsFiltersArgs.builder()
-     *                 .application(&#34;spark@2.1.0&#34;)
-     *                 .prefix(&#34;emr-5&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetReleaseLabelsResult> getReleaseLabelsPlain(GetReleaseLabelsPlainArgs args) {
@@ -184,80 +48,12 @@ public final class EmrFunctions {
     /**
      * Retrieve information about EMR Release Labels.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.emr.EmrFunctions;
-     * import com.pulumi.aws.emr.inputs.GetReleaseLabelsArgs;
-     * import com.pulumi.aws.emr.inputs.GetReleaseLabelsFiltersArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = EmrFunctions.getReleaseLabels(GetReleaseLabelsArgs.builder()
-     *             .filters(GetReleaseLabelsFiltersArgs.builder()
-     *                 .application(&#34;spark@2.1.0&#34;)
-     *                 .prefix(&#34;emr-5&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetReleaseLabelsResult> getReleaseLabels(GetReleaseLabelsArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:emr/getReleaseLabels:getReleaseLabels", TypeShape.of(GetReleaseLabelsResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Retrieve information about EMR Release Labels.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.emr.EmrFunctions;
-     * import com.pulumi.aws.emr.inputs.GetReleaseLabelsArgs;
-     * import com.pulumi.aws.emr.inputs.GetReleaseLabelsFiltersArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = EmrFunctions.getReleaseLabels(GetReleaseLabelsArgs.builder()
-     *             .filters(GetReleaseLabelsFiltersArgs.builder()
-     *                 .application(&#34;spark@2.1.0&#34;)
-     *                 .prefix(&#34;emr-5&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetReleaseLabelsResult> getReleaseLabelsPlain(GetReleaseLabelsPlainArgs args, InvokeOptions options) {
@@ -267,35 +63,6 @@ public final class EmrFunctions {
      * Data source for managing AWS EMR Supported Instance Types.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.emr.EmrFunctions;
-     * import com.pulumi.aws.emr.inputs.GetSupportedInstanceTypesArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = EmrFunctions.getSupportedInstanceTypes(GetSupportedInstanceTypesArgs.builder()
-     *             .releaseLabel(&#34;ebs-6.15.0&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetSupportedInstanceTypesResult> getSupportedInstanceTypes(GetSupportedInstanceTypesArgs args) {
@@ -305,35 +72,6 @@ public final class EmrFunctions {
      * Data source for managing AWS EMR Supported Instance Types.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.emr.EmrFunctions;
-     * import com.pulumi.aws.emr.inputs.GetSupportedInstanceTypesArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = EmrFunctions.getSupportedInstanceTypes(GetSupportedInstanceTypesArgs.builder()
-     *             .releaseLabel(&#34;ebs-6.15.0&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetSupportedInstanceTypesResult> getSupportedInstanceTypesPlain(GetSupportedInstanceTypesPlainArgs args) {
@@ -343,35 +81,6 @@ public final class EmrFunctions {
      * Data source for managing AWS EMR Supported Instance Types.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.emr.EmrFunctions;
-     * import com.pulumi.aws.emr.inputs.GetSupportedInstanceTypesArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = EmrFunctions.getSupportedInstanceTypes(GetSupportedInstanceTypesArgs.builder()
-     *             .releaseLabel(&#34;ebs-6.15.0&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetSupportedInstanceTypesResult> getSupportedInstanceTypes(GetSupportedInstanceTypesArgs args, InvokeOptions options) {
@@ -381,35 +90,6 @@ public final class EmrFunctions {
      * Data source for managing AWS EMR Supported Instance Types.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.emr.EmrFunctions;
-     * import com.pulumi.aws.emr.inputs.GetSupportedInstanceTypesArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = EmrFunctions.getSupportedInstanceTypes(GetSupportedInstanceTypesArgs.builder()
-     *             .releaseLabel(&#34;ebs-6.15.0&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetSupportedInstanceTypesResult> getSupportedInstanceTypesPlain(GetSupportedInstanceTypesPlainArgs args, InvokeOptions options) {

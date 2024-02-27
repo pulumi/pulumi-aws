@@ -24,26 +24,24 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/servicequotas"
+//	servicequotas/template "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/servicequotas/template"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := servicequotas.NewTemplate(ctx, "example", &servicequotas.TemplateArgs{
-//				QuotaCode:   pulumi.String("L-2ACBD22F"),
-//				Region:      pulumi.String("us-east-1"),
-//				ServiceCode: pulumi.String("lambda"),
-//				Value:       pulumi.Float64(80),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := servicequotas/template.NewTemplate(ctx, "example", &servicequotas/template.TemplateArgs{
+// QuotaCode: "L-2ACBD22F",
+// Region: "us-east-1",
+// ServiceCode: "lambda",
+// Value: "80",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

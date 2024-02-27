@@ -26,11 +26,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const mainvpc = new aws.ec2.Vpc("mainvpc", {cidrBlock: "10.1.0.0/16"});
- * const _default = new aws.ec2.DefaultSecurityGroup("default", {
+ * const mainvpc = new aws.ec2/vpc.Vpc("mainvpc", {cidrBlock: "10.1.0.0/16"});
+ * const _default = new aws.ec2/defaultSecurityGroup.DefaultSecurityGroup("default", {
  *     vpcId: mainvpc.id,
  *     ingress: [{
- *         protocol: "-1",
+ *         protocol: -1,
  *         self: true,
  *         fromPort: 0,
  *         toPort: 0,
@@ -51,11 +51,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const mainvpc = new aws.ec2.Vpc("mainvpc", {cidrBlock: "10.1.0.0/16"});
- * const _default = new aws.ec2.DefaultSecurityGroup("default", {
+ * const mainvpc = new aws.ec2/vpc.Vpc("mainvpc", {cidrBlock: "10.1.0.0/16"});
+ * const _default = new aws.ec2/defaultSecurityGroup.DefaultSecurityGroup("default", {
  *     vpcId: mainvpc.id,
  *     ingress: [{
- *         protocol: "-1",
+ *         protocol: -1,
  *         self: true,
  *         fromPort: 0,
  *         toPort: 0,

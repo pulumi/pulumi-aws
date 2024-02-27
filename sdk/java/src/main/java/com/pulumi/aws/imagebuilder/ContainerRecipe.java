@@ -32,8 +32,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.imagebuilder.ContainerRecipe;
  * import com.pulumi.aws.imagebuilder.ContainerRecipeArgs;
- * import com.pulumi.aws.imagebuilder.inputs.ContainerRecipeTargetRepositoryArgs;
- * import com.pulumi.aws.imagebuilder.inputs.ContainerRecipeComponentArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -51,22 +49,8 @@ import javax.annotation.Nullable;
  *             .version(&#34;1.0.0&#34;)
  *             .containerType(&#34;DOCKER&#34;)
  *             .parentImage(&#34;arn:aws:imagebuilder:eu-central-1:aws:image/amazon-linux-x86-latest/x.x.x&#34;)
- *             .targetRepository(ContainerRecipeTargetRepositoryArgs.builder()
- *                 .repositoryName(aws_ecr_repository.example().name())
- *                 .service(&#34;ECR&#34;)
- *                 .build())
- *             .components(ContainerRecipeComponentArgs.builder()
- *                 .componentArn(aws_imagebuilder_component.example().arn())
- *                 .parameters(                
- *                     ContainerRecipeComponentParameterArgs.builder()
- *                         .name(&#34;Parameter1&#34;)
- *                         .value(&#34;Value1&#34;)
- *                         .build(),
- *                     ContainerRecipeComponentParameterArgs.builder()
- *                         .name(&#34;Parameter2&#34;)
- *                         .value(&#34;Value2&#34;)
- *                         .build())
- *                 .build())
+ *             .targetRepository(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .components(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .dockerfileTemplateData(&#34;&#34;&#34;
  * FROM {{{ imagebuilder:parentImage }}}
  * {{{ imagebuilder:environments }}}

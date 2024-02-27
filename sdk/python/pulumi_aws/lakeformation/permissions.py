@@ -428,36 +428,6 @@ class Permissions(pulumi.CustomResource):
         > **NOTE:** In general, the `principal` should _NOT_ be a Lake Formation administrator or the entity (e.g., IAM role) that is running the deployment. Administrators have implicit permissions. These should be managed by granting or not granting administrator rights using `lakeformation.DataLakeSettings`, _not_ with this resource.
 
         ## Default Behavior and `IAMAllowedPrincipals`
-
-        **_Lake Formation permissions are not in effect by default within AWS._** `IAMAllowedPrincipals` (i.e., `IAM_ALLOWED_PRINCIPALS`) conflicts with individual Lake Formation permissions (i.e., non-`IAMAllowedPrincipals` permissions), will cause unexpected behavior, and may result in errors.
-
-        When using Lake Formation, choose ONE of the following options as they are mutually exclusive:
-
-        1. Use this resource (`lakeformation.Permissions`), change the default security settings using `lakeformation.DataLakeSettings`, and remove existing `IAMAllowedPrincipals` permissions
-        2. Use `IAMAllowedPrincipals` without `lakeformation.Permissions`
-
-        This example shows removing the `IAMAllowedPrincipals` default security settings and making the caller a Lake Formation admin. Since `create_database_default_permissions` and `create_table_default_permissions` are not set in the `lakeformation.DataLakeSettings` resource, they are cleared.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        current_caller_identity = aws.get_caller_identity()
-        current_session_context = aws.iam.get_session_context(arn=current_caller_identity.arn)
-        test = aws.lakeformation.DataLakeSettings("test", admins=[current_session_context.issuer_arn])
-        ```
-
-        To remove existing `IAMAllowedPrincipals` permissions, use the [AWS Lake Formation Console](https://console.aws.amazon.com/lakeformation/) or [AWS CLI](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lakeformation/batch-revoke-permissions.html).
-
-        `IAMAllowedPrincipals` is a hook to maintain backwards compatibility with AWS Glue. `IAMAllowedPrincipals` is a pseudo-entity group that acts like a Lake Formation principal. The group includes any IAM users and roles that are allowed access to your Data Catalog resources by your IAM policies.
-
-        This is Lake Formation's default behavior:
-
-        * Lake Formation grants `Super` permission to `IAMAllowedPrincipals` on all existing AWS Glue Data Catalog resources.
-        * Lake Formation enables "Use only IAM access control" for new Data Catalog resources.
-
-        For more details, see [Changing the Default Security Settings for Your Data Lake](https://docs.aws.amazon.com/lake-formation/latest/dg/change-settings.html).
-
         ### Problem Using `IAMAllowedPrincipals`
 
         AWS does not support combining `IAMAllowedPrincipals` permissions and non-`IAMAllowedPrincipals` permissions. Doing so results in unexpected permissions and behaviors. For example, this configuration grants a user `SELECT` on a column in a table.
@@ -466,24 +436,24 @@ class Permissions(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_catalog_database = aws.glue.CatalogDatabase("exampleCatalogDatabase", name="sadabate")
-        example_catalog_table = aws.glue.CatalogTable("exampleCatalogTable",
-            name="abelt",
-            database_name=aws_glue_catalog_database["test"]["name"],
-            storage_descriptor=aws.glue.CatalogTableStorageDescriptorArgs(
-                columns=[aws.glue.CatalogTableStorageDescriptorColumnArgs(
-                    name="event",
-                    type="string",
-                )],
-            ))
-        example_permissions = aws.lakeformation.Permissions("examplePermissions",
-            permissions=["SELECT"],
-            principal="arn:aws:iam:us-east-1:123456789012:user/SanHolo",
-            table_with_columns=aws.lakeformation.PermissionsTableWithColumnsArgs(
-                database_name=example_catalog_table.database_name,
-                name=example_catalog_table.name,
-                column_names=["event"],
-            ))
+        example_catalog_database = aws.glue.catalog_database.CatalogDatabase("exampleCatalogDatabase", name=sadabate)
+        example_catalog_table = aws.glue.catalog_table.CatalogTable("exampleCatalogTable",
+            name=abelt,
+            database_name=aws_glue_catalog_database.test.name,
+            storage_descriptor={
+                columns: [{
+                    name: event,
+                    type: string,
+                }],
+            })
+        example_permissions = aws.lakeformation.permissions.Permissions("examplePermissions",
+            permissions=[SELECT],
+            principal=arn:aws:iam:us-east-1:123456789012:user/SanHolo,
+            table_with_columns={
+                databaseName: example_catalog_table.database_name,
+                name: example_catalog_table.name,
+                columnNames: [event],
+            })
         ```
 
         The resulting permissions depend on whether the table had `IAMAllowedPrincipals` (IAP) permissions or not.
@@ -507,12 +477,12 @@ class Permissions(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.lakeformation.Permissions("example",
-            principal=aws_iam_role["workflow_role"]["arn"],
-            permissions=["DATA_LOCATION_ACCESS"],
-            data_location=aws.lakeformation.PermissionsDataLocationArgs(
-                arn=aws_lakeformation_resource["example"]["arn"],
-            ))
+        example = aws.lakeformation.permissions.Permissions("example",
+            principal=aws_iam_role.workflow_role.arn,
+            permissions=[DATA_LOCATION_ACCESS],
+            data_location={
+                arn: aws_lakeformation_resource.example.arn,
+            })
         ```
         ### Grant Permissions For A Glue Catalog Database
 
@@ -520,17 +490,17 @@ class Permissions(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.lakeformation.Permissions("example",
-            principal=aws_iam_role["workflow_role"]["arn"],
+        example = aws.lakeformation.permissions.Permissions("example",
+            principal=aws_iam_role.workflow_role.arn,
             permissions=[
-                "CREATE_TABLE",
-                "ALTER",
-                "DROP",
+                CREATE_TABLE,
+                ALTER,
+                DROP,
             ],
-            database=aws.lakeformation.PermissionsDatabaseArgs(
-                name=aws_glue_catalog_database["example"]["name"],
-                catalog_id="110376042874",
-            ))
+            database={
+                name: aws_glue_catalog_database.example.name,
+                catalogId: 110376042874,
+            })
         ```
         ### Grant Permissions Using Tag-Based Access Control
 
@@ -538,29 +508,29 @@ class Permissions(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.lakeformation.Permissions("test",
-            principal=aws_iam_role["sales_role"]["arn"],
+        test = aws.lakeformation.permissions.Permissions("test",
+            principal=aws_iam_role.sales_role.arn,
             permissions=[
-                "CREATE_TABLE",
-                "ALTER",
-                "DROP",
+                CREATE_TABLE,
+                ALTER,
+                DROP,
             ],
-            lf_tag_policy=aws.lakeformation.PermissionsLfTagPolicyArgs(
-                resource_type="DATABASE",
-                expressions=[
-                    aws.lakeformation.PermissionsLfTagPolicyExpressionArgs(
-                        key="Team",
-                        values=["Sales"],
-                    ),
-                    aws.lakeformation.PermissionsLfTagPolicyExpressionArgs(
-                        key="Environment",
-                        values=[
-                            "Dev",
-                            "Production",
+            lf_tag_policy={
+                resourceType: DATABASE,
+                expressions: [
+                    {
+                        key: Team,
+                        values: [Sales],
+                    },
+                    {
+                        key: Environment,
+                        values: [
+                            Dev,
+                            Production,
                         ],
-                    ),
+                    },
                 ],
-            ))
+            })
         ```
 
         :param str resource_name: The name of the resource.
@@ -597,36 +567,6 @@ class Permissions(pulumi.CustomResource):
         > **NOTE:** In general, the `principal` should _NOT_ be a Lake Formation administrator or the entity (e.g., IAM role) that is running the deployment. Administrators have implicit permissions. These should be managed by granting or not granting administrator rights using `lakeformation.DataLakeSettings`, _not_ with this resource.
 
         ## Default Behavior and `IAMAllowedPrincipals`
-
-        **_Lake Formation permissions are not in effect by default within AWS._** `IAMAllowedPrincipals` (i.e., `IAM_ALLOWED_PRINCIPALS`) conflicts with individual Lake Formation permissions (i.e., non-`IAMAllowedPrincipals` permissions), will cause unexpected behavior, and may result in errors.
-
-        When using Lake Formation, choose ONE of the following options as they are mutually exclusive:
-
-        1. Use this resource (`lakeformation.Permissions`), change the default security settings using `lakeformation.DataLakeSettings`, and remove existing `IAMAllowedPrincipals` permissions
-        2. Use `IAMAllowedPrincipals` without `lakeformation.Permissions`
-
-        This example shows removing the `IAMAllowedPrincipals` default security settings and making the caller a Lake Formation admin. Since `create_database_default_permissions` and `create_table_default_permissions` are not set in the `lakeformation.DataLakeSettings` resource, they are cleared.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        current_caller_identity = aws.get_caller_identity()
-        current_session_context = aws.iam.get_session_context(arn=current_caller_identity.arn)
-        test = aws.lakeformation.DataLakeSettings("test", admins=[current_session_context.issuer_arn])
-        ```
-
-        To remove existing `IAMAllowedPrincipals` permissions, use the [AWS Lake Formation Console](https://console.aws.amazon.com/lakeformation/) or [AWS CLI](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lakeformation/batch-revoke-permissions.html).
-
-        `IAMAllowedPrincipals` is a hook to maintain backwards compatibility with AWS Glue. `IAMAllowedPrincipals` is a pseudo-entity group that acts like a Lake Formation principal. The group includes any IAM users and roles that are allowed access to your Data Catalog resources by your IAM policies.
-
-        This is Lake Formation's default behavior:
-
-        * Lake Formation grants `Super` permission to `IAMAllowedPrincipals` on all existing AWS Glue Data Catalog resources.
-        * Lake Formation enables "Use only IAM access control" for new Data Catalog resources.
-
-        For more details, see [Changing the Default Security Settings for Your Data Lake](https://docs.aws.amazon.com/lake-formation/latest/dg/change-settings.html).
-
         ### Problem Using `IAMAllowedPrincipals`
 
         AWS does not support combining `IAMAllowedPrincipals` permissions and non-`IAMAllowedPrincipals` permissions. Doing so results in unexpected permissions and behaviors. For example, this configuration grants a user `SELECT` on a column in a table.
@@ -635,24 +575,24 @@ class Permissions(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_catalog_database = aws.glue.CatalogDatabase("exampleCatalogDatabase", name="sadabate")
-        example_catalog_table = aws.glue.CatalogTable("exampleCatalogTable",
-            name="abelt",
-            database_name=aws_glue_catalog_database["test"]["name"],
-            storage_descriptor=aws.glue.CatalogTableStorageDescriptorArgs(
-                columns=[aws.glue.CatalogTableStorageDescriptorColumnArgs(
-                    name="event",
-                    type="string",
-                )],
-            ))
-        example_permissions = aws.lakeformation.Permissions("examplePermissions",
-            permissions=["SELECT"],
-            principal="arn:aws:iam:us-east-1:123456789012:user/SanHolo",
-            table_with_columns=aws.lakeformation.PermissionsTableWithColumnsArgs(
-                database_name=example_catalog_table.database_name,
-                name=example_catalog_table.name,
-                column_names=["event"],
-            ))
+        example_catalog_database = aws.glue.catalog_database.CatalogDatabase("exampleCatalogDatabase", name=sadabate)
+        example_catalog_table = aws.glue.catalog_table.CatalogTable("exampleCatalogTable",
+            name=abelt,
+            database_name=aws_glue_catalog_database.test.name,
+            storage_descriptor={
+                columns: [{
+                    name: event,
+                    type: string,
+                }],
+            })
+        example_permissions = aws.lakeformation.permissions.Permissions("examplePermissions",
+            permissions=[SELECT],
+            principal=arn:aws:iam:us-east-1:123456789012:user/SanHolo,
+            table_with_columns={
+                databaseName: example_catalog_table.database_name,
+                name: example_catalog_table.name,
+                columnNames: [event],
+            })
         ```
 
         The resulting permissions depend on whether the table had `IAMAllowedPrincipals` (IAP) permissions or not.
@@ -676,12 +616,12 @@ class Permissions(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.lakeformation.Permissions("example",
-            principal=aws_iam_role["workflow_role"]["arn"],
-            permissions=["DATA_LOCATION_ACCESS"],
-            data_location=aws.lakeformation.PermissionsDataLocationArgs(
-                arn=aws_lakeformation_resource["example"]["arn"],
-            ))
+        example = aws.lakeformation.permissions.Permissions("example",
+            principal=aws_iam_role.workflow_role.arn,
+            permissions=[DATA_LOCATION_ACCESS],
+            data_location={
+                arn: aws_lakeformation_resource.example.arn,
+            })
         ```
         ### Grant Permissions For A Glue Catalog Database
 
@@ -689,17 +629,17 @@ class Permissions(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.lakeformation.Permissions("example",
-            principal=aws_iam_role["workflow_role"]["arn"],
+        example = aws.lakeformation.permissions.Permissions("example",
+            principal=aws_iam_role.workflow_role.arn,
             permissions=[
-                "CREATE_TABLE",
-                "ALTER",
-                "DROP",
+                CREATE_TABLE,
+                ALTER,
+                DROP,
             ],
-            database=aws.lakeformation.PermissionsDatabaseArgs(
-                name=aws_glue_catalog_database["example"]["name"],
-                catalog_id="110376042874",
-            ))
+            database={
+                name: aws_glue_catalog_database.example.name,
+                catalogId: 110376042874,
+            })
         ```
         ### Grant Permissions Using Tag-Based Access Control
 
@@ -707,29 +647,29 @@ class Permissions(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.lakeformation.Permissions("test",
-            principal=aws_iam_role["sales_role"]["arn"],
+        test = aws.lakeformation.permissions.Permissions("test",
+            principal=aws_iam_role.sales_role.arn,
             permissions=[
-                "CREATE_TABLE",
-                "ALTER",
-                "DROP",
+                CREATE_TABLE,
+                ALTER,
+                DROP,
             ],
-            lf_tag_policy=aws.lakeformation.PermissionsLfTagPolicyArgs(
-                resource_type="DATABASE",
-                expressions=[
-                    aws.lakeformation.PermissionsLfTagPolicyExpressionArgs(
-                        key="Team",
-                        values=["Sales"],
-                    ),
-                    aws.lakeformation.PermissionsLfTagPolicyExpressionArgs(
-                        key="Environment",
-                        values=[
-                            "Dev",
-                            "Production",
+            lf_tag_policy={
+                resourceType: DATABASE,
+                expressions: [
+                    {
+                        key: Team,
+                        values: [Sales],
+                    },
+                    {
+                        key: Environment,
+                        values: [
+                            Dev,
+                            Production,
                         ],
-                    ),
+                    },
                 ],
-            ))
+            })
         ```
 
         :param str resource_name: The name of the resource.

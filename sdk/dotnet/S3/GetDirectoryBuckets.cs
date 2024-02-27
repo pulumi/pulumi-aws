@@ -13,50 +13,12 @@ namespace Pulumi.Aws.S3
     {
         /// <summary>
         /// Lists Amazon S3 Express directory buckets.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.S3.GetDirectoryBuckets.Invoke();
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetDirectoryBucketsResult> InvokeAsync(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDirectoryBucketsResult>("aws:s3/getDirectoryBuckets:getDirectoryBuckets", InvokeArgs.Empty, options.WithDefaults());
 
         /// <summary>
         /// Lists Amazon S3 Express directory buckets.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.S3.GetDirectoryBuckets.Invoke();
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetDirectoryBucketsResult> Invoke(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDirectoryBucketsResult>("aws:s3/getDirectoryBuckets:getDirectoryBuckets", InvokeArgs.Empty, options.WithDefaults());

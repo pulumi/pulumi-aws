@@ -22,33 +22,31 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/athena"
+//	athena/workgroup "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/athena/workgroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := athena.NewWorkgroup(ctx, "example", &athena.WorkgroupArgs{
-//				Configuration: &athena.WorkgroupConfigurationArgs{
-//					EnforceWorkgroupConfiguration:   pulumi.Bool(true),
-//					PublishCloudwatchMetricsEnabled: pulumi.Bool(true),
-//					ResultConfiguration: &athena.WorkgroupConfigurationResultConfigurationArgs{
-//						OutputLocation: pulumi.String(fmt.Sprintf("s3://%v/output/", aws_s3_bucket.Example.Bucket)),
-//						EncryptionConfiguration: &athena.WorkgroupConfigurationResultConfigurationEncryptionConfigurationArgs{
-//							EncryptionOption: pulumi.String("SSE_KMS"),
-//							KmsKeyArn:        pulumi.Any(aws_kms_key.Example.Arn),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := athena/workgroup.NewWorkgroup(ctx, "example", &athena/workgroup.WorkgroupArgs{
+// Configuration: map[string]interface{}{
+// "enforceWorkgroupConfiguration": true,
+// "publishCloudwatchMetricsEnabled": true,
+// "resultConfiguration": map[string]interface{}{
+// "outputLocation": fmt.Sprintf("s3://%v/output/", aws_s3_bucket.Example.Bucket),
+// "encryptionConfiguration": map[string]interface{}{
+// "encryptionOption": "SSE_KMS",
+// "kmsKeyArn": aws_kms_key.Example.Arn,
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -174,18 +174,18 @@ class BasePathMapping(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_stage = aws.apigateway.Stage("exampleStage",
-            deployment=aws_api_gateway_deployment["example"]["id"],
-            rest_api=aws_api_gateway_rest_api["example"]["id"],
-            stage_name="example")
-        example_domain_name = aws.apigateway.DomainName("exampleDomainName",
-            domain_name="example.com",
-            certificate_name="example-api",
-            certificate_body=(lambda path: open(path).read())(f"{path['module']}/example.com/example.crt"),
-            certificate_chain=(lambda path: open(path).read())(f"{path['module']}/example.com/ca.crt"),
-            certificate_private_key=(lambda path: open(path).read())(f"{path['module']}/example.com/example.key"))
-        example_base_path_mapping = aws.apigateway.BasePathMapping("exampleBasePathMapping",
-            rest_api=aws_api_gateway_rest_api["example"]["id"],
+        example_stage = aws.apigateway.stage.Stage("exampleStage",
+            deployment=aws_api_gateway_deployment.example.id,
+            rest_api=aws_api_gateway_rest_api.example.id,
+            stage_name=example)
+        example_domain_name = aws.apigateway.domain_name.DomainName("exampleDomainName",
+            domain_name=example.com,
+            certificate_name=example-api,
+            certificate_body=(lambda path: open(path).read())(f{path.module}/example.com/example.crt),
+            certificate_chain=(lambda path: open(path).read())(f{path.module}/example.com/ca.crt),
+            certificate_private_key=(lambda path: open(path).read())(f{path.module}/example.com/example.key))
+        example_base_path_mapping = aws.apigateway.base_path_mapping.BasePathMapping("exampleBasePathMapping",
+            rest_api=aws_api_gateway_rest_api.example.id,
             stage_name=example_stage.stage_name,
             domain_name=example_domain_name.domain_name)
         ```
@@ -231,18 +231,18 @@ class BasePathMapping(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_stage = aws.apigateway.Stage("exampleStage",
-            deployment=aws_api_gateway_deployment["example"]["id"],
-            rest_api=aws_api_gateway_rest_api["example"]["id"],
-            stage_name="example")
-        example_domain_name = aws.apigateway.DomainName("exampleDomainName",
-            domain_name="example.com",
-            certificate_name="example-api",
-            certificate_body=(lambda path: open(path).read())(f"{path['module']}/example.com/example.crt"),
-            certificate_chain=(lambda path: open(path).read())(f"{path['module']}/example.com/ca.crt"),
-            certificate_private_key=(lambda path: open(path).read())(f"{path['module']}/example.com/example.key"))
-        example_base_path_mapping = aws.apigateway.BasePathMapping("exampleBasePathMapping",
-            rest_api=aws_api_gateway_rest_api["example"]["id"],
+        example_stage = aws.apigateway.stage.Stage("exampleStage",
+            deployment=aws_api_gateway_deployment.example.id,
+            rest_api=aws_api_gateway_rest_api.example.id,
+            stage_name=example)
+        example_domain_name = aws.apigateway.domain_name.DomainName("exampleDomainName",
+            domain_name=example.com,
+            certificate_name=example-api,
+            certificate_body=(lambda path: open(path).read())(f{path.module}/example.com/example.crt),
+            certificate_chain=(lambda path: open(path).read())(f{path.module}/example.com/ca.crt),
+            certificate_private_key=(lambda path: open(path).read())(f{path.module}/example.com/example.key))
+        example_base_path_mapping = aws.apigateway.base_path_mapping.BasePathMapping("exampleBasePathMapping",
+            rest_api=aws_api_gateway_rest_api.example.id,
             stage_name=example_stage.stage_name,
             domain_name=example_domain_name.domain_name)
         ```

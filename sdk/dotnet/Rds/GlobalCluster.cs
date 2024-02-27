@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Rds
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Rds.GlobalCluster("example", new()
+    ///     var example = new Aws.Rds.GlobalCluster.GlobalCluster("example", new()
     ///     {
     ///         GlobalClusterIdentifier = "global-test",
     ///         Engine = "aurora",
@@ -33,7 +33,7 @@ namespace Pulumi.Aws.Rds
     ///         DatabaseName = "example_db",
     ///     });
     /// 
-    ///     var primaryCluster = new Aws.Rds.Cluster("primaryCluster", new()
+    ///     var primaryCluster = new Aws.Rds.Cluster.Cluster("primaryCluster", new()
     ///     {
     ///         Engine = example.Engine,
     ///         EngineVersion = example.EngineVersion,
@@ -48,7 +48,7 @@ namespace Pulumi.Aws.Rds
     ///         Provider = aws.Primary,
     ///     });
     /// 
-    ///     var primaryClusterInstance = new Aws.Rds.ClusterInstance("primaryClusterInstance", new()
+    ///     var primaryClusterInstance = new Aws.Rds.ClusterInstance.ClusterInstance("primaryClusterInstance", new()
     ///     {
     ///         Engine = example.Engine,
     ///         EngineVersion = example.EngineVersion,
@@ -61,7 +61,7 @@ namespace Pulumi.Aws.Rds
     ///         Provider = aws.Primary,
     ///     });
     /// 
-    ///     var secondaryCluster = new Aws.Rds.Cluster("secondaryCluster", new()
+    ///     var secondaryCluster = new Aws.Rds.Cluster.Cluster("secondaryCluster", new()
     ///     {
     ///         Engine = example.Engine,
     ///         EngineVersion = example.EngineVersion,
@@ -77,7 +77,7 @@ namespace Pulumi.Aws.Rds
     ///         },
     ///     });
     /// 
-    ///     var secondaryClusterInstance = new Aws.Rds.ClusterInstance("secondaryClusterInstance", new()
+    ///     var secondaryClusterInstance = new Aws.Rds.ClusterInstance.ClusterInstance("secondaryClusterInstance", new()
     ///     {
     ///         Engine = example.Engine,
     ///         EngineVersion = example.EngineVersion,
@@ -102,17 +102,17 @@ namespace Pulumi.Aws.Rds
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var primary = new Aws.Provider("primary", new()
+    ///     var primary = new Pulumi.Providers.Aws("primary", new()
     ///     {
     ///         Region = "us-east-2",
     ///     });
     /// 
-    ///     var secondary = new Aws.Provider("secondary", new()
+    ///     var secondary = new Pulumi.Providers.Aws("secondary", new()
     ///     {
     ///         Region = "us-east-1",
     ///     });
     /// 
-    ///     var example = new Aws.Rds.GlobalCluster("example", new()
+    ///     var example = new Aws.Rds.GlobalCluster.GlobalCluster("example", new()
     ///     {
     ///         GlobalClusterIdentifier = "global-test",
     ///         Engine = "aurora-postgresql",
@@ -120,7 +120,7 @@ namespace Pulumi.Aws.Rds
     ///         DatabaseName = "example_db",
     ///     });
     /// 
-    ///     var primaryCluster = new Aws.Rds.Cluster("primaryCluster", new()
+    ///     var primaryCluster = new Aws.Rds.Cluster.Cluster("primaryCluster", new()
     ///     {
     ///         Engine = example.Engine,
     ///         EngineVersion = example.EngineVersion,
@@ -135,7 +135,7 @@ namespace Pulumi.Aws.Rds
     ///         Provider = aws.Primary,
     ///     });
     /// 
-    ///     var primaryClusterInstance = new Aws.Rds.ClusterInstance("primaryClusterInstance", new()
+    ///     var primaryClusterInstance = new Aws.Rds.ClusterInstance.ClusterInstance("primaryClusterInstance", new()
     ///     {
     ///         Engine = example.Engine,
     ///         EngineVersion = example.EngineVersion,
@@ -148,7 +148,7 @@ namespace Pulumi.Aws.Rds
     ///         Provider = aws.Primary,
     ///     });
     /// 
-    ///     var secondaryCluster = new Aws.Rds.Cluster("secondaryCluster", new()
+    ///     var secondaryCluster = new Aws.Rds.Cluster.Cluster("secondaryCluster", new()
     ///     {
     ///         Engine = example.Engine,
     ///         EngineVersion = example.EngineVersion,
@@ -165,7 +165,7 @@ namespace Pulumi.Aws.Rds
     ///         },
     ///     });
     /// 
-    ///     var secondaryClusterInstance = new Aws.Rds.ClusterInstance("secondaryClusterInstance", new()
+    ///     var secondaryClusterInstance = new Aws.Rds.ClusterInstance.ClusterInstance("secondaryClusterInstance", new()
     ///     {
     ///         Engine = example.Engine,
     ///         EngineVersion = example.EngineVersion,
@@ -191,9 +191,9 @@ namespace Pulumi.Aws.Rds
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // ... other configuration ...
-    ///     var exampleCluster = new Aws.Rds.Cluster("exampleCluster");
+    ///     var exampleCluster = new Aws.Rds.Cluster.Cluster("exampleCluster");
     /// 
-    ///     var exampleGlobalCluster = new Aws.Rds.GlobalCluster("exampleGlobalCluster", new()
+    ///     var exampleGlobalCluster = new Aws.Rds.GlobalCluster.GlobalCluster("exampleGlobalCluster", new()
     ///     {
     ///         ForceDestroy = true,
     ///         GlobalClusterIdentifier = "example",
@@ -214,14 +214,14 @@ namespace Pulumi.Aws.Rds
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Rds.GlobalCluster("example", new()
+    ///     var example = new Aws.Rds.GlobalCluster.GlobalCluster("example", new()
     ///     {
     ///         GlobalClusterIdentifier = "kyivkharkiv",
     ///         Engine = "aurora-mysql",
     ///         EngineVersion = "5.7.mysql_aurora.2.07.5",
     ///     });
     /// 
-    ///     var primaryCluster = new Aws.Rds.Cluster("primaryCluster", new()
+    ///     var primaryCluster = new Aws.Rds.Cluster.Cluster("primaryCluster", new()
     ///     {
     ///         AllowMajorVersionUpgrade = true,
     ///         ApplyImmediately = true,
@@ -235,7 +235,7 @@ namespace Pulumi.Aws.Rds
     ///         SkipFinalSnapshot = true,
     ///     });
     /// 
-    ///     var primaryClusterInstance = new Aws.Rds.ClusterInstance("primaryClusterInstance", new()
+    ///     var primaryClusterInstance = new Aws.Rds.ClusterInstance.ClusterInstance("primaryClusterInstance", new()
     ///     {
     ///         ApplyImmediately = true,
     ///         ClusterIdentifier = primaryCluster.Id,

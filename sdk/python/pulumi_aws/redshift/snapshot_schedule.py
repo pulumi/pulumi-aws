@@ -279,9 +279,9 @@ class SnapshotSchedule(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        default = aws.redshift.SnapshotSchedule("default",
-            definitions=["rate(12 hours)"],
-            identifier="tf-redshift-snapshot-schedule")
+        default = aws.redshift.snapshot_schedule.SnapshotSchedule("default",
+            definitions=[rate(12 hours)],
+            identifier=tf-redshift-snapshot-schedule)
         ```
 
         ## Import
@@ -315,9 +315,9 @@ class SnapshotSchedule(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        default = aws.redshift.SnapshotSchedule("default",
-            definitions=["rate(12 hours)"],
-            identifier="tf-redshift-snapshot-schedule")
+        default = aws.redshift.snapshot_schedule.SnapshotSchedule("default",
+            definitions=[rate(12 hours)],
+            identifier=tf-redshift-snapshot-schedule)
         ```
 
         ## Import

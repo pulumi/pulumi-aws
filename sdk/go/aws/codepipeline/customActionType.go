@@ -21,33 +21,31 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/codepipeline"
+//	codepipeline/customActionType "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/codepipeline/customActionType"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := codepipeline.NewCustomActionType(ctx, "example", &codepipeline.CustomActionTypeArgs{
-//				Category: pulumi.String("Build"),
-//				InputArtifactDetails: &codepipeline.CustomActionTypeInputArtifactDetailsArgs{
-//					MaximumCount: pulumi.Int(1),
-//					MinimumCount: pulumi.Int(0),
-//				},
-//				OutputArtifactDetails: &codepipeline.CustomActionTypeOutputArtifactDetailsArgs{
-//					MaximumCount: pulumi.Int(1),
-//					MinimumCount: pulumi.Int(0),
-//				},
-//				ProviderName: pulumi.String("example"),
-//				Version:      pulumi.String("1"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := codepipeline/customActionType.NewCustomActionType(ctx, "example", &codepipeline/customActionType.CustomActionTypeArgs{
+// Category: "Build",
+// InputArtifactDetails: map[string]interface{}{
+// "maximumCount": 1,
+// "minimumCount": 0,
+// },
+// OutputArtifactDetails: map[string]interface{}{
+// "maximumCount": 1,
+// "minimumCount": 0,
+// },
+// ProviderName: "example",
+// Version: "1",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -11,14 +11,6 @@ import * as utilities from "../utilities";
  * Data source for managing AWS SSO Admin Application Providers.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.ssoadmin.getApplicationProviders({});
- * ```
  */
 export function getApplicationProviders(args?: GetApplicationProvidersArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationProvidersResult> {
     args = args || {};
@@ -56,14 +48,6 @@ export interface GetApplicationProvidersResult {
  * Data source for managing AWS SSO Admin Application Providers.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.ssoadmin.getApplicationProviders({});
- * ```
  */
 export function getApplicationProvidersOutput(args?: GetApplicationProvidersOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationProvidersResult> {
     return pulumi.output(args).apply((a: any) => getApplicationProviders(a, opts))

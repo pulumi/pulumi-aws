@@ -273,9 +273,9 @@ class TransitGatewayPeering(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.networkmanager.TransitGatewayPeering("example",
-            core_network_id=awscc_networkmanager_core_network["example"]["id"],
-            transit_gateway_arn=aws_ec2_transit_gateway["example"]["arn"])
+        example = aws.networkmanager.transit_gateway_peering.TransitGatewayPeering("example",
+            core_network_id=awscc_networkmanager_core_network.example.id,
+            transit_gateway_arn=aws_ec2_transit_gateway.example.arn)
         ```
 
         ## Import
@@ -307,9 +307,9 @@ class TransitGatewayPeering(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.networkmanager.TransitGatewayPeering("example",
-            core_network_id=awscc_networkmanager_core_network["example"]["id"],
-            transit_gateway_arn=aws_ec2_transit_gateway["example"]["arn"])
+        example = aws.networkmanager.transit_gateway_peering.TransitGatewayPeering("example",
+            core_network_id=awscc_networkmanager_core_network.example.id,
+            transit_gateway_arn=aws_ec2_transit_gateway.example.arn)
         ```
 
         ## Import

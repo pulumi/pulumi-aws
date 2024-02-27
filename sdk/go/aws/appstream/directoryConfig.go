@@ -21,30 +21,28 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/appstream"
+//	appstream/directoryConfig "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/appstream/directoryConfig"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := appstream.NewDirectoryConfig(ctx, "example", &appstream.DirectoryConfigArgs{
-//				DirectoryName: pulumi.String("NAME OF DIRECTORY"),
-//				OrganizationalUnitDistinguishedNames: pulumi.StringArray{
-//					pulumi.String("DISTINGUISHED NAME"),
-//				},
-//				ServiceAccountCredentials: &appstream.DirectoryConfigServiceAccountCredentialsArgs{
-//					AccountName:     pulumi.String("NAME OF ACCOUNT"),
-//					AccountPassword: pulumi.String("PASSWORD OF ACCOUNT"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := appstream/directoryConfig.NewDirectoryConfig(ctx, "example", &appstream/directoryConfig.DirectoryConfigArgs{
+// DirectoryName: "NAME OF DIRECTORY",
+// OrganizationalUnitDistinguishedNames: []string{
+// "DISTINGUISHED NAME",
+// },
+// ServiceAccountCredentials: map[string]interface{}{
+// "accountName": "NAME OF ACCOUNT",
+// "accountPassword": "PASSWORD OF ACCOUNT",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

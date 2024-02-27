@@ -263,15 +263,6 @@ def get_replication_group(replication_group_id: Optional[str] = None,
     """
     Use this data source to get information about an ElastiCache Replication Group.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    bar = aws.elasticache.get_replication_group(replication_group_id="example")
-    ```
-
 
     :param str replication_group_id: Identifier for the replication group.
     """
@@ -307,15 +298,6 @@ def get_replication_group_output(replication_group_id: Optional[pulumi.Input[str
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetReplicationGroupResult]:
     """
     Use this data source to get information about an ElastiCache Replication Group.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    bar = aws.elasticache.get_replication_group(replication_group_id="example")
-    ```
 
 
     :param str replication_group_id: Identifier for the replication group.

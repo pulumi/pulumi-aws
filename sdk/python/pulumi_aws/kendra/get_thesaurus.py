@@ -226,16 +226,6 @@ def get_thesaurus(index_id: Optional[str] = None,
     """
     Provides details about a specific Amazon Kendra Thesaurus.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.kendra.get_thesaurus(index_id="12345678-1234-1234-1234-123456789123",
-        thesaurus_id="87654321-1234-4321-4321-321987654321")
-    ```
-
 
     :param str index_id: Identifier of the index that contains the Thesaurus.
     :param Mapping[str, str] tags: Metadata that helps organize the Thesaurus you create.
@@ -274,16 +264,6 @@ def get_thesaurus_output(index_id: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetThesaurusResult]:
     """
     Provides details about a specific Amazon Kendra Thesaurus.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.kendra.get_thesaurus(index_id="12345678-1234-1234-1234-123456789123",
-        thesaurus_id="87654321-1234-4321-4321-321987654321")
-    ```
 
 
     :param str index_id: Identifier of the index that contains the Thesaurus.

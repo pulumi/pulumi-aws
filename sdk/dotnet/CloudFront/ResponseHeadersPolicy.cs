@@ -27,34 +27,34 @@ namespace Pulumi.Aws.CloudFront
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.CloudFront.ResponseHeadersPolicy("example", new()
+    ///     var example = new Aws.Cloudfront.ResponseHeadersPolicy.ResponseHeadersPolicy("example", new()
     ///     {
     ///         Comment = "test comment",
-    ///         CorsConfig = new Aws.CloudFront.Inputs.ResponseHeadersPolicyCorsConfigArgs
+    ///         CorsConfig = 
     ///         {
-    ///             AccessControlAllowCredentials = true,
-    ///             AccessControlAllowHeaders = new Aws.CloudFront.Inputs.ResponseHeadersPolicyCorsConfigAccessControlAllowHeadersArgs
+    ///             { "accessControlAllowCredentials", true },
+    ///             { "accessControlAllowHeaders", 
     ///             {
-    ///                 Items = new[]
+    ///                 { "items", new[]
     ///                 {
     ///                     "test",
-    ///                 },
-    ///             },
-    ///             AccessControlAllowMethods = new Aws.CloudFront.Inputs.ResponseHeadersPolicyCorsConfigAccessControlAllowMethodsArgs
+    ///                 } },
+    ///             } },
+    ///             { "accessControlAllowMethods", 
     ///             {
-    ///                 Items = new[]
+    ///                 { "items", new[]
     ///                 {
     ///                     "GET",
-    ///                 },
-    ///             },
-    ///             AccessControlAllowOrigins = new Aws.CloudFront.Inputs.ResponseHeadersPolicyCorsConfigAccessControlAllowOriginsArgs
+    ///                 } },
+    ///             } },
+    ///             { "accessControlAllowOrigins", 
     ///             {
-    ///                 Items = new[]
+    ///                 { "items", new[]
     ///                 {
     ///                     "test.example.comtest",
-    ///                 },
-    ///             },
-    ///             OriginOverride = true,
+    ///                 } },
+    ///             } },
+    ///             { "originOverride", true },
     ///         },
     ///     });
     /// 
@@ -71,25 +71,25 @@ namespace Pulumi.Aws.CloudFront
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.CloudFront.ResponseHeadersPolicy("example", new()
+    ///     var example = new Aws.Cloudfront.ResponseHeadersPolicy.ResponseHeadersPolicy("example", new()
     ///     {
-    ///         CustomHeadersConfig = new Aws.CloudFront.Inputs.ResponseHeadersPolicyCustomHeadersConfigArgs
+    ///         CustomHeadersConfig = 
     ///         {
-    ///             Items = new[]
+    ///             { "items", new[]
     ///             {
-    ///                 new Aws.CloudFront.Inputs.ResponseHeadersPolicyCustomHeadersConfigItemArgs
+    ///                 
     ///                 {
-    ///                     Header = "X-Permitted-Cross-Domain-Policies",
-    ///                     Override = true,
-    ///                     Value = "none",
+    ///                     { "header", "X-Permitted-Cross-Domain-Policies" },
+    ///                     { "override", true },
+    ///                     { "value", "none" },
     ///                 },
-    ///                 new Aws.CloudFront.Inputs.ResponseHeadersPolicyCustomHeadersConfigItemArgs
+    ///                 
     ///                 {
-    ///                     Header = "X-Test",
-    ///                     Override = true,
-    ///                     Value = "none",
+    ///                     { "header", "X-Test" },
+    ///                     { "override", true },
+    ///                     { "value", "none" },
     ///                 },
-    ///             },
+    ///             } },
     ///         },
     ///     });
     /// 
@@ -106,24 +106,24 @@ namespace Pulumi.Aws.CloudFront
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.CloudFront.ResponseHeadersPolicy("example", new()
+    ///     var example = new Aws.Cloudfront.ResponseHeadersPolicy.ResponseHeadersPolicy("example", new()
     ///     {
-    ///         CustomHeadersConfig = new Aws.CloudFront.Inputs.ResponseHeadersPolicyCustomHeadersConfigArgs
+    ///         CustomHeadersConfig = 
     ///         {
-    ///             Items = new[]
+    ///             { "items", new[]
     ///             {
-    ///                 new Aws.CloudFront.Inputs.ResponseHeadersPolicyCustomHeadersConfigItemArgs
+    ///                 
     ///                 {
-    ///                     Header = "X-Permitted-Cross-Domain-Policies",
-    ///                     Override = true,
-    ///                     Value = "none",
+    ///                     { "header", "X-Permitted-Cross-Domain-Policies" },
+    ///                     { "override", true },
+    ///                     { "value", "none" },
     ///                 },
-    ///             },
+    ///             } },
     ///         },
-    ///         ServerTimingHeadersConfig = new Aws.CloudFront.Inputs.ResponseHeadersPolicyServerTimingHeadersConfigArgs
+    ///         ServerTimingHeadersConfig = 
     ///         {
-    ///             Enabled = true,
-    ///             SamplingRate = 50,
+    ///             { "enabled", true },
+    ///             { "samplingRate", 50 },
     ///         },
     ///     });
     /// 

@@ -24,51 +24,30 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/vpclattice"
+//	vpclattice/authPolicy "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/vpclattice/authPolicy"
+//	vpclattice/service "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/vpclattice/service"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleService, err := vpclattice.NewService(ctx, "exampleService", &vpclattice.ServiceArgs{
-//				AuthType:         pulumi.String("AWS_IAM"),
-//				CustomDomainName: pulumi.String("example.com"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"Version": "2012-10-17",
-//				"Statement": []map[string]interface{}{
-//					map[string]interface{}{
-//						"Action":    "*",
-//						"Effect":    "Allow",
-//						"Principal": "*",
-//						"Resource":  "*",
-//						"Condition": map[string]interface{}{
-//							"StringNotEqualsIgnoreCase": map[string]interface{}{
-//								"aws:PrincipalType": "anonymous",
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			_, err = vpclattice.NewAuthPolicy(ctx, "exampleAuthPolicy", &vpclattice.AuthPolicyArgs{
-//				ResourceIdentifier: exampleService.Arn,
-//				Policy:             pulumi.String(json0),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleService, err := vpclattice/service.NewService(ctx, "exampleService", &vpclattice/service.ServiceArgs{
+// AuthType: "AWS_IAM",
+// CustomDomainName: "example.com",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = vpclattice/authPolicy.NewAuthPolicy(ctx, "exampleAuthPolicy", &vpclattice/authPolicy.AuthPolicyArgs{
+// ResourceIdentifier: exampleService.Arn,
+// Policy: %!v(PANIC=Format method: fatal: An assertion has failed: unlowered function toJSON),
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

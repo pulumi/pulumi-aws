@@ -22,12 +22,12 @@ namespace Pulumi.Aws.Glue
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleCatalogDatabase = new Aws.Glue.CatalogDatabase("exampleCatalogDatabase", new()
+    ///     var exampleCatalogDatabase = new Aws.Glue.CatalogDatabase.CatalogDatabase("exampleCatalogDatabase", new()
     ///     {
     ///         Name = "my_database",
     ///     });
     /// 
-    ///     var exampleUserDefinedFunction = new Aws.Glue.UserDefinedFunction("exampleUserDefinedFunction", new()
+    ///     var exampleUserDefinedFunction = new Aws.Glue.UserDefinedFunction.UserDefinedFunction("exampleUserDefinedFunction", new()
     ///     {
     ///         CatalogId = exampleCatalogDatabase.CatalogId,
     ///         DatabaseName = exampleCatalogDatabase.Name,
@@ -36,10 +36,10 @@ namespace Pulumi.Aws.Glue
     ///         OwnerType = "GROUP",
     ///         ResourceUris = new[]
     ///         {
-    ///             new Aws.Glue.Inputs.UserDefinedFunctionResourceUriArgs
+    ///             
     ///             {
-    ///                 ResourceType = "ARCHIVE",
-    ///                 Uri = "uri",
+    ///                 { "resourceType", "ARCHIVE" },
+    ///                 { "uri", "uri" },
     ///             },
     ///         },
     ///     });

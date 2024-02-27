@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.accessanalyzer.Analyzer("example", {analyzerName: "example"});
+ * const example = new aws.accessanalyzer/analyzer.Analyzer("example", {analyzerName: "example"});
  * ```
  * ### Organization Analyzer
  *
@@ -25,8 +25,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleOrganization = new aws.organizations.Organization("exampleOrganization", {awsServiceAccessPrincipals: ["access-analyzer.amazonaws.com"]});
- * const exampleAnalyzer = new aws.accessanalyzer.Analyzer("exampleAnalyzer", {
+ * const exampleOrganization = new aws.organizations/organization.Organization("exampleOrganization", {awsServiceAccessPrincipals: ["access-analyzer.amazonaws.com"]});
+ * const exampleAnalyzer = new aws.accessanalyzer/analyzer.Analyzer("exampleAnalyzer", {
  *     analyzerName: "example",
  *     type: "ORGANIZATION",
  * }, {

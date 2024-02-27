@@ -23,27 +23,26 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kms"
+//	kms/alias "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/kms/alias"
+//	kms/key "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/kms/key"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			key, err := kms.NewKey(ctx, "key", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = kms.NewAlias(ctx, "alias", &kms.AliasArgs{
-//				TargetKeyId: key.KeyId,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// key, err := kms/key.NewKey(ctx, "key", nil)
+// if err != nil {
+// return err
+// }
+// _, err = kms/alias.NewAlias(ctx, "alias", &kms/alias.AliasArgs{
+// TargetKeyId: key.KeyId,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

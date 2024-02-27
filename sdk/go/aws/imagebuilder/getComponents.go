@@ -12,40 +12,6 @@ import (
 )
 
 // Use this data source to get the ARNs and names of Image Builder Components matching the specified criteria.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/imagebuilder"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := imagebuilder.GetComponents(ctx, &imagebuilder.GetComponentsArgs{
-//				Filters: []imagebuilder.GetComponentsFilter{
-//					{
-//						Name: "platform",
-//						Values: []string{
-//							"Linux",
-//						},
-//					},
-//				},
-//				Owner: pulumi.StringRef("Self"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetComponents(ctx *pulumi.Context, args *GetComponentsArgs, opts ...pulumi.InvokeOption) (*GetComponentsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetComponentsResult

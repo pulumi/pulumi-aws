@@ -22,7 +22,7 @@ namespace Pulumi.Aws.WafV2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.WafV2.IpSet("example", new()
+    ///     var example = new Aws.Wafv2.IpSet.IpSet("example", new()
     ///     {
     ///         Addresses = new[]
     ///         {

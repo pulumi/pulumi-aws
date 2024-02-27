@@ -238,20 +238,20 @@ class ThingGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        parent = aws.iot.ThingGroup("parent")
-        example = aws.iot.ThingGroup("example",
+        parent = aws.iot.thing_group.ThingGroup("parent")
+        example = aws.iot.thing_group.ThingGroup("example",
             parent_group_name=parent.name,
-            properties=aws.iot.ThingGroupPropertiesArgs(
-                attribute_payload=aws.iot.ThingGroupPropertiesAttributePayloadArgs(
-                    attributes={
-                        "One": "11111",
-                        "Two": "TwoTwo",
+            properties={
+                attributePayload: {
+                    attributes: {
+                        One: 11111,
+                        Two: TwoTwo,
                     },
-                ),
-                description="This is my thing group",
-            ),
+                },
+                description: This is my thing group,
+            },
             tags={
-                "managed": "true",
+                managed: true,
             })
         ```
 
@@ -285,20 +285,20 @@ class ThingGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        parent = aws.iot.ThingGroup("parent")
-        example = aws.iot.ThingGroup("example",
+        parent = aws.iot.thing_group.ThingGroup("parent")
+        example = aws.iot.thing_group.ThingGroup("example",
             parent_group_name=parent.name,
-            properties=aws.iot.ThingGroupPropertiesArgs(
-                attribute_payload=aws.iot.ThingGroupPropertiesAttributePayloadArgs(
-                    attributes={
-                        "One": "11111",
-                        "Two": "TwoTwo",
+            properties={
+                attributePayload: {
+                    attributes: {
+                        One: 11111,
+                        Two: TwoTwo,
                     },
-                ),
-                description="This is my thing group",
-            ),
+                },
+                description: This is my thing group,
+            },
             tags={
-                "managed": "true",
+                managed: true,
             })
         ```
 

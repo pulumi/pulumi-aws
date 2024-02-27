@@ -21,28 +21,26 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/storagegateway"
+//	storagegateway/nfsFileShare "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/storagegateway/nfsFileShare"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := storagegateway.NewNfsFileShare(ctx, "example", &storagegateway.NfsFileShareArgs{
-//				ClientLists: pulumi.StringArray{
-//					pulumi.String("0.0.0.0/0"),
-//				},
-//				GatewayArn:  pulumi.Any(aws_storagegateway_gateway.Example.Arn),
-//				LocationArn: pulumi.Any(aws_s3_bucket.Example.Arn),
-//				RoleArn:     pulumi.Any(aws_iam_role.Example.Arn),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := storagegateway/nfsFileShare.NewNfsFileShare(ctx, "example", &storagegateway/nfsFileShare.NfsFileShareArgs{
+// ClientLists: []string{
+// "0.0.0.0/0",
+// },
+// GatewayArn: aws_storagegateway_gateway.Example.Arn,
+// LocationArn: aws_s3_bucket.Example.Arn,
+// RoleArn: aws_iam_role.Example.Arn,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

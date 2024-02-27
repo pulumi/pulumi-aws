@@ -13,15 +13,15 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleConnection = new aws.directconnect.Connection("exampleConnection", {
+ * const exampleConnection = new aws.directconnect/connection.Connection("exampleConnection", {
  *     bandwidth: "1Gbps",
  *     location: "EqSe2-EQ",
  * });
- * const exampleLinkAggregationGroup = new aws.directconnect.LinkAggregationGroup("exampleLinkAggregationGroup", {
+ * const exampleLinkAggregationGroup = new aws.directconnect/linkAggregationGroup.LinkAggregationGroup("exampleLinkAggregationGroup", {
  *     connectionsBandwidth: "1Gbps",
  *     location: "EqSe2-EQ",
  * });
- * const exampleConnectionAssociation = new aws.directconnect.ConnectionAssociation("exampleConnectionAssociation", {
+ * const exampleConnectionAssociation = new aws.directconnect/connectionAssociation.ConnectionAssociation("exampleConnectionAssociation", {
  *     connectionId: exampleConnection.id,
  *     lagId: exampleLinkAggregationGroup.id,
  * });

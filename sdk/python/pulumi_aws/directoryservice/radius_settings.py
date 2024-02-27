@@ -331,15 +331,15 @@ class RadiusSettings(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.directoryservice.RadiusSettings("example",
-            directory_id=aws_directory_service_directory["example"]["id"],
-            authentication_protocol="PAP",
-            display_label="example",
+        example = aws.directoryservice.radius_settings.RadiusSettings("example",
+            directory_id=aws_directory_service_directory.example.id,
+            authentication_protocol=PAP,
+            display_label=example,
             radius_port=1812,
             radius_retries=4,
-            radius_servers=["10.0.1.5"],
+            radius_servers=[10.0.1.5],
             radius_timeout=1,
-            shared_secret="12345678")
+            shared_secret=12345678)
         ```
 
         ## Import
@@ -377,15 +377,15 @@ class RadiusSettings(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.directoryservice.RadiusSettings("example",
-            directory_id=aws_directory_service_directory["example"]["id"],
-            authentication_protocol="PAP",
-            display_label="example",
+        example = aws.directoryservice.radius_settings.RadiusSettings("example",
+            directory_id=aws_directory_service_directory.example.id,
+            authentication_protocol=PAP,
+            display_label=example,
             radius_port=1812,
             radius_retries=4,
-            radius_servers=["10.0.1.5"],
+            radius_servers=[10.0.1.5],
             radius_timeout=1,
-            shared_secret="12345678")
+            shared_secret=12345678)
         ```
 
         ## Import

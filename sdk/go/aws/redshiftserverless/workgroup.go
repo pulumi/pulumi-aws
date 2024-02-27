@@ -21,24 +21,22 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/redshiftserverless"
+//	redshiftserverless/workgroup "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/redshiftserverless/workgroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := redshiftserverless.NewWorkgroup(ctx, "example", &redshiftserverless.WorkgroupArgs{
-//				NamespaceName: pulumi.String("concurrency-scaling"),
-//				WorkgroupName: pulumi.String("concurrency-scaling"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := redshiftserverless/workgroup.NewWorkgroup(ctx, "example", &redshiftserverless/workgroup.WorkgroupArgs{
+// NamespaceName: "concurrency-scaling",
+// WorkgroupName: "concurrency-scaling",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

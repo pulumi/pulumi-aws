@@ -7,6 +7,22 @@ import * as utilities from "../utilities";
 /**
  * Creates a Redshift cluster snapshot
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.redshift/clusterSnapshot.ClusterSnapshot("example", {
+ *     clusterSnapshotName: "example",
+ *     clusterSnapshotContent: JSON.stringify({
+ *         AllowDBUserOverride: "1",
+ *         Client_ID: "ExampleClientID",
+ *         App_ID: "example",
+ *     }),
+ * });
+ * ```
+ *
  * ## Import
  *
  * Using `pulumi import`, import Redshift Cluster Snapshots using `snapshot_identifier`. For example:

@@ -153,15 +153,6 @@ def get_cost_category(cost_category_arn: Optional[str] = None,
     """
     Provides details about a specific CostExplorer Cost Category.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.costexplorer.get_cost_category(cost_category_arn="costCategoryARN")
-    ```
-
 
     :param str cost_category_arn: Unique name for the Cost Category.
     :param Mapping[str, str] tags: Configuration block for the specific `Tag` to use for `Expression`. See below.
@@ -191,15 +182,6 @@ def get_cost_category_output(cost_category_arn: Optional[pulumi.Input[str]] = No
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCostCategoryResult]:
     """
     Provides details about a specific CostExplorer Cost Category.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.costexplorer.get_cost_category(cost_category_arn="costCategoryARN")
-    ```
 
 
     :param str cost_category_arn: Unique name for the Cost Category.

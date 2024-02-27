@@ -24,31 +24,31 @@ namespace Pulumi.Aws.GuardDuty
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var myDetector = new Aws.GuardDuty.Detector("myDetector", new()
+    ///     var myDetector = new Aws.Guardduty.Detector.Detector("myDetector", new()
     ///     {
-    ///         Datasources = new Aws.GuardDuty.Inputs.DetectorDatasourcesArgs
+    ///         Datasources = 
     ///         {
-    ///             Kubernetes = new Aws.GuardDuty.Inputs.DetectorDatasourcesKubernetesArgs
+    ///             { "kubernetes", 
     ///             {
-    ///                 AuditLogs = new Aws.GuardDuty.Inputs.DetectorDatasourcesKubernetesAuditLogsArgs
+    ///                 { "auditLogs", 
     ///                 {
-    ///                     Enable = false,
-    ///                 },
-    ///             },
-    ///             MalwareProtection = new Aws.GuardDuty.Inputs.DetectorDatasourcesMalwareProtectionArgs
+    ///                     { "enable", false },
+    ///                 } },
+    ///             } },
+    ///             { "malwareProtection", 
     ///             {
-    ///                 ScanEc2InstanceWithFindings = new Aws.GuardDuty.Inputs.DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsArgs
+    ///                 { "scanEc2InstanceWithFindings", 
     ///                 {
-    ///                     EbsVolumes = new Aws.GuardDuty.Inputs.DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesArgs
+    ///                     { "ebsVolumes", 
     ///                     {
-    ///                         Enable = true,
-    ///                     },
-    ///                 },
-    ///             },
-    ///             S3Logs = new Aws.GuardDuty.Inputs.DetectorDatasourcesS3LogsArgs
+    ///                         { "enable", true },
+    ///                     } },
+    ///                 } },
+    ///             } },
+    ///             { "s3Logs", 
     ///             {
-    ///                 Enable = true,
-    ///             },
+    ///                 { "enable", true },
+    ///             } },
     ///         },
     ///         Enable = true,
     ///     });

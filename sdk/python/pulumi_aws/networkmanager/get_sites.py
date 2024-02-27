@@ -80,18 +80,6 @@ def get_sites(global_network_id: Optional[str] = None,
     """
     Retrieve information about sites.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.networkmanager.get_sites(global_network_id=var["global_network_id"],
-        tags={
-            "Env": "test",
-        })
-    ```
-
 
     :param str global_network_id: ID of the Global Network of the sites to retrieve.
     :param Mapping[str, str] tags: Restricts the list to the sites with these tags.
@@ -115,18 +103,6 @@ def get_sites_output(global_network_id: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSitesResult]:
     """
     Retrieve information about sites.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.networkmanager.get_sites(global_network_id=var["global_network_id"],
-        tags={
-            "Env": "test",
-        })
-    ```
 
 
     :param str global_network_id: ID of the Global Network of the sites to retrieve.

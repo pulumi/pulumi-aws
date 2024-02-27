@@ -22,7 +22,7 @@ namespace Pulumi.Aws.AppSync
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testGraphQLApi = new Aws.AppSync.GraphQLApi("testGraphQLApi", new()
+    ///     var testGraphQLApi = new Aws.Appsync.GraphQLApi.GraphQLApi("testGraphQLApi", new()
     ///     {
     ///         AuthenticationType = "API_KEY",
     ///         Schema = @"type Mutation {
@@ -45,19 +45,19 @@ namespace Pulumi.Aws.AppSync
     /// ",
     ///     });
     /// 
-    ///     var testDataSource = new Aws.AppSync.DataSource("testDataSource", new()
+    ///     var testDataSource = new Aws.Appsync.DataSource.DataSource("testDataSource", new()
     ///     {
     ///         ApiId = testGraphQLApi.Id,
     ///         Name = "my_example",
     ///         Type = "HTTP",
-    ///         HttpConfig = new Aws.AppSync.Inputs.DataSourceHttpConfigArgs
+    ///         HttpConfig = 
     ///         {
-    ///             Endpoint = "http://example.com",
+    ///             { "endpoint", "http://example.com" },
     ///         },
     ///     });
     /// 
     ///     // UNIT type resolver (default)
-    ///     var testResolver = new Aws.AppSync.Resolver("testResolver", new()
+    ///     var testResolver = new Aws.Appsync.Resolver.Resolver("testResolver", new()
     ///     {
     ///         ApiId = testGraphQLApi.Id,
     ///         Field = "singlePost",
@@ -78,19 +78,19 @@ namespace Pulumi.Aws.AppSync
     ///     $utils.appendError($ctx.result.body, $ctx.result.statusCode)
     /// #end
     /// ",
-    ///         CachingConfig = new Aws.AppSync.Inputs.ResolverCachingConfigArgs
+    ///         CachingConfig = 
     ///         {
-    ///             CachingKeys = new[]
+    ///             { "cachingKeys", new[]
     ///             {
     ///                 "$context.identity.sub",
     ///                 "$context.arguments.id",
-    ///             },
-    ///             Ttl = 60,
+    ///             } },
+    ///             { "ttl", 60 },
     ///         },
     ///     });
     /// 
     ///     // PIPELINE type resolver
-    ///     var mutationPipelineTest = new Aws.AppSync.Resolver("mutationPipelineTest", new()
+    ///     var mutationPipelineTest = new Aws.Appsync.Resolver.Resolver("mutationPipelineTest", new()
     ///     {
     ///         Type = "Mutation",
     ///         ApiId = testGraphQLApi.Id,
@@ -98,14 +98,14 @@ namespace Pulumi.Aws.AppSync
     ///         RequestTemplate = "{}",
     ///         ResponseTemplate = "$util.toJson($ctx.result)",
     ///         Kind = "PIPELINE",
-    ///         PipelineConfig = new Aws.AppSync.Inputs.ResolverPipelineConfigArgs
+    ///         PipelineConfig = 
     ///         {
-    ///             Functions = new[]
+    ///             { "functions", new[]
     ///             {
     ///                 aws_appsync_function.Test1.Function_id,
     ///                 aws_appsync_function.Test2.Function_id,
     ///                 aws_appsync_function.Test3.Function_id,
-    ///             },
+    ///             } },
     ///         },
     ///     });
     /// 
@@ -122,24 +122,24 @@ namespace Pulumi.Aws.AppSync
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.AppSync.Resolver("example", new()
+    ///     var example = new Aws.Appsync.Resolver.Resolver("example", new()
     ///     {
     ///         Type = "Query",
     ///         ApiId = aws_appsync_graphql_api.Test.Id,
     ///         Field = "pipelineTest",
     ///         Kind = "PIPELINE",
     ///         Code = File.ReadAllText("some-code-dir"),
-    ///         Runtime = new Aws.AppSync.Inputs.ResolverRuntimeArgs
+    ///         Runtime = 
     ///         {
-    ///             Name = "APPSYNC_JS",
-    ///             RuntimeVersion = "1.0.0",
+    ///             { "name", "APPSYNC_JS" },
+    ///             { "runtimeVersion", "1.0.0" },
     ///         },
-    ///         PipelineConfig = new Aws.AppSync.Inputs.ResolverPipelineConfigArgs
+    ///         PipelineConfig = 
     ///         {
-    ///             Functions = new[]
+    ///             { "functions", new[]
     ///             {
     ///                 aws_appsync_function.Test.Function_id,
-    ///             },
+    ///             } },
     ///         },
     ///     });
     /// 

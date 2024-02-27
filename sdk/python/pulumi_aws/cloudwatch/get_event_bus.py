@@ -72,15 +72,6 @@ def get_event_bus(name: Optional[str] = None,
     EventBridge event bus. Use this data source to compute the ARN of
     an event bus, given the name of the bus.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.cloudwatch.get_event_bus(name="example-bus-name")
-    ```
-
 
     :param str name: Friendly EventBridge event bus name.
     """
@@ -102,15 +93,6 @@ def get_event_bus_output(name: Optional[pulumi.Input[str]] = None,
     This data source can be used to fetch information about a specific
     EventBridge event bus. Use this data source to compute the ARN of
     an event bus, given the name of the bus.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.cloudwatch.get_event_bus(name="example-bus-name")
-    ```
 
 
     :param str name: Friendly EventBridge event bus name.

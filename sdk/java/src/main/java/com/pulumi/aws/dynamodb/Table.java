@@ -54,9 +54,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.dynamodb.Table;
  * import com.pulumi.aws.dynamodb.TableArgs;
- * import com.pulumi.aws.dynamodb.inputs.TableAttributeArgs;
- * import com.pulumi.aws.dynamodb.inputs.TableGlobalSecondaryIndexArgs;
- * import com.pulumi.aws.dynamodb.inputs.TableTtlArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -72,39 +69,16 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var basic_dynamodb_table = new Table(&#34;basic-dynamodb-table&#34;, TableArgs.builder()        
  *             .attributes(            
- *                 TableAttributeArgs.builder()
- *                     .name(&#34;UserId&#34;)
- *                     .type(&#34;S&#34;)
- *                     .build(),
- *                 TableAttributeArgs.builder()
- *                     .name(&#34;GameTitle&#34;)
- *                     .type(&#34;S&#34;)
- *                     .build(),
- *                 TableAttributeArgs.builder()
- *                     .name(&#34;TopScore&#34;)
- *                     .type(&#34;N&#34;)
- *                     .build())
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .billingMode(&#34;PROVISIONED&#34;)
- *             .globalSecondaryIndexes(TableGlobalSecondaryIndexArgs.builder()
- *                 .hashKey(&#34;GameTitle&#34;)
- *                 .name(&#34;GameTitleIndex&#34;)
- *                 .nonKeyAttributes(&#34;UserId&#34;)
- *                 .projectionType(&#34;INCLUDE&#34;)
- *                 .rangeKey(&#34;TopScore&#34;)
- *                 .readCapacity(10)
- *                 .writeCapacity(10)
- *                 .build())
+ *             .globalSecondaryIndexes(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .hashKey(&#34;UserId&#34;)
  *             .rangeKey(&#34;GameTitle&#34;)
  *             .readCapacity(20)
- *             .tags(Map.ofEntries(
- *                 Map.entry(&#34;Environment&#34;, &#34;production&#34;),
- *                 Map.entry(&#34;Name&#34;, &#34;dynamodb-table-1&#34;)
- *             ))
- *             .ttl(TableTtlArgs.builder()
- *                 .attributeName(&#34;TimeToExist&#34;)
- *                 .enabled(false)
- *                 .build())
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .ttl(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .writeCapacity(20)
  *             .build());
  * 
@@ -124,8 +98,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.dynamodb.Table;
  * import com.pulumi.aws.dynamodb.TableArgs;
- * import com.pulumi.aws.dynamodb.inputs.TableAttributeArgs;
- * import com.pulumi.aws.dynamodb.inputs.TableReplicaArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -140,19 +112,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Table(&#34;example&#34;, TableArgs.builder()        
- *             .attributes(TableAttributeArgs.builder()
- *                 .name(&#34;TestTableHashKey&#34;)
- *                 .type(&#34;S&#34;)
- *                 .build())
+ *             .attributes(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .billingMode(&#34;PAY_PER_REQUEST&#34;)
  *             .hashKey(&#34;TestTableHashKey&#34;)
  *             .replicas(            
- *                 TableReplicaArgs.builder()
- *                     .regionName(&#34;us-east-2&#34;)
- *                     .build(),
- *                 TableReplicaArgs.builder()
- *                     .regionName(&#34;us-west-2&#34;)
- *                     .build())
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .streamEnabled(true)
  *             .streamViewType(&#34;NEW_AND_OLD_IMAGES&#34;)
  *             .build());

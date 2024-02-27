@@ -24,9 +24,9 @@ namespace Pulumi.Aws.S3Control
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleAccessGrantsInstance = new Aws.S3Control.AccessGrantsInstance("exampleAccessGrantsInstance");
+    ///     var exampleAccessGrantsInstance = new Aws.S3control.AccessGrantsInstance.AccessGrantsInstance("exampleAccessGrantsInstance");
     /// 
-    ///     var exampleAccessGrantsLocation = new Aws.S3Control.AccessGrantsLocation("exampleAccessGrantsLocation", new()
+    ///     var exampleAccessGrantsLocation = new Aws.S3control.AccessGrantsLocation.AccessGrantsLocation("exampleAccessGrantsLocation", new()
     ///     {
     ///         IamRoleArn = aws_iam_role.Example.Arn,
     ///         LocationScope = $"s3://{aws_s3_bucket.Example.Bucket}/prefixA*",
@@ -38,18 +38,18 @@ namespace Pulumi.Aws.S3Control
     ///         },
     ///     });
     /// 
-    ///     var exampleAccessGrant = new Aws.S3Control.AccessGrant("exampleAccessGrant", new()
+    ///     var exampleAccessGrant = new Aws.S3control.AccessGrant.AccessGrant("exampleAccessGrant", new()
     ///     {
     ///         AccessGrantsLocationId = exampleAccessGrantsLocation.AccessGrantsLocationId,
     ///         Permission = "READ",
-    ///         AccessGrantsLocationConfiguration = new Aws.S3Control.Inputs.AccessGrantAccessGrantsLocationConfigurationArgs
+    ///         AccessGrantsLocationConfiguration = 
     ///         {
-    ///             S3SubPrefix = "prefixB*",
+    ///             { "s3SubPrefix", "prefixB*" },
     ///         },
-    ///         Grantee = new Aws.S3Control.Inputs.AccessGrantGranteeArgs
+    ///         Grantee = 
     ///         {
-    ///             GranteeType = "IAM",
-    ///             GranteeIdentifier = aws_iam_user.Example.Arn,
+    ///             { "granteeType", "IAM" },
+    ///             { "granteeIdentifier", aws_iam_user.Example.Arn },
     ///         },
     ///     });
     /// 

@@ -21,22 +21,18 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/msk"
+//	msk/vpcConnection "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/msk/vpcConnection"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 // func main() {
 // pulumi.Run(func(ctx *pulumi.Context) error {
-// var splat0 []interface{}
-// for _, val0 := range aws_subnet.Test {
-// splat0 = append(splat0, val0.Id)
-// }
-// _, err := msk.NewVpcConnection(ctx, "test", &msk.VpcConnectionArgs{
-// Authentication: pulumi.String("SASL_IAM"),
-// TargetClusterArn: pulumi.String("aws_msk_cluster.arn"),
-// VpcId: pulumi.Any(aws_vpc.Test.Id),
-// ClientSubnets: toPulumiArray(splat0),
-// SecurityGroups: pulumi.StringArray{
+// _, err := msk/vpcConnection.NewVpcConnection(ctx, "test", &msk/vpcConnection.VpcConnectionArgs{
+// Authentication: "SASL_IAM",
+// TargetClusterArn: "aws_msk_cluster.arn",
+// VpcId: aws_vpc.Test.Id,
+// ClientSubnets: %!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ #-resources-aws:msk-vpcConnection:VpcConnection.pp:4,23-44),
+// SecurityGroups: []interface{}{
 // aws_security_group.Test.Id,
 // },
 // })
@@ -45,13 +41,6 @@ import (
 // }
 // return nil
 // })
-// }
-// func toPulumiArray(arr []) pulumi.Array {
-// var pulumiArr pulumi.Array
-// for _, v := range arr {
-// pulumiArr = append(pulumiArr, pulumi.(v))
-// }
-// return pulumiArr
 // }
 // ```
 //

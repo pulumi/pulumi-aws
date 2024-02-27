@@ -21,32 +21,31 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/redshiftserverless"
+//	redshiftserverless/usageLimit "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/redshiftserverless/usageLimit"
+//	redshiftserverless/workgroup "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/redshiftserverless/workgroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleWorkgroup, err := redshiftserverless.NewWorkgroup(ctx, "exampleWorkgroup", &redshiftserverless.WorkgroupArgs{
-//				NamespaceName: pulumi.Any(aws_redshiftserverless_namespace.Example.Namespace_name),
-//				WorkgroupName: pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = redshiftserverless.NewUsageLimit(ctx, "exampleUsageLimit", &redshiftserverless.UsageLimitArgs{
-//				ResourceArn: exampleWorkgroup.Arn,
-//				UsageType:   pulumi.String("serverless-compute"),
-//				Amount:      pulumi.Int(60),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleWorkgroup, err := redshiftserverless/workgroup.NewWorkgroup(ctx, "exampleWorkgroup", &redshiftserverless/workgroup.WorkgroupArgs{
+// NamespaceName: aws_redshiftserverless_namespace.Example.Namespace_name,
+// WorkgroupName: "example",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = redshiftserverless/usageLimit.NewUsageLimit(ctx, "exampleUsageLimit", &redshiftserverless/usageLimit.UsageLimitArgs{
+// ResourceArn: exampleWorkgroup.Arn,
+// UsageType: "serverless-compute",
+// Amount: 60,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -24,7 +24,7 @@ namespace Pulumi.Aws.Ebs
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Ebs.EncryptionByDefault("example", new()
+    ///     var example = new Aws.Ebs.EncryptionByDefault.EncryptionByDefault("example", new()
     ///     {
     ///         Enabled = true,
     ///     });

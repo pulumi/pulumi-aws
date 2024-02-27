@@ -21,30 +21,28 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssm"
+//	ssm/association "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ssm/association"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ssm.NewAssociation(ctx, "example", &ssm.AssociationArgs{
-//				Targets: ssm.AssociationTargetArray{
-//					&ssm.AssociationTargetArgs{
-//						Key: pulumi.String("InstanceIds"),
-//						Values: pulumi.StringArray{
-//							aws_instance.Example.Id,
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := ssm/association.NewAssociation(ctx, "example", &ssm/association.AssociationArgs{
+// Targets: []map[string]interface{}{
+// map[string]interface{}{
+// "key": "InstanceIds",
+// "values": []interface{}{
+// aws_instance.Example.Id,
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Create an association for all managed instances in an AWS account
 //
@@ -55,30 +53,28 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssm"
+//	ssm/association "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ssm/association"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ssm.NewAssociation(ctx, "example", &ssm.AssociationArgs{
-//				Targets: ssm.AssociationTargetArray{
-//					&ssm.AssociationTargetArgs{
-//						Key: pulumi.String("InstanceIds"),
-//						Values: pulumi.StringArray{
-//							pulumi.String("*"),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := ssm/association.NewAssociation(ctx, "example", &ssm/association.AssociationArgs{
+// Targets: []map[string]interface{}{
+// map[string]interface{}{
+// "key": "InstanceIds",
+// "values": []string{
+// "*",
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Create an association for a specific tag
 //
@@ -89,30 +85,28 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssm"
+//	ssm/association "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ssm/association"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ssm.NewAssociation(ctx, "example", &ssm.AssociationArgs{
-//				Targets: ssm.AssociationTargetArray{
-//					&ssm.AssociationTargetArgs{
-//						Key: pulumi.String("tag:Environment"),
-//						Values: pulumi.StringArray{
-//							pulumi.String("Development"),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := ssm/association.NewAssociation(ctx, "example", &ssm/association.AssociationArgs{
+// Targets: []map[string]interface{}{
+// map[string]interface{}{
+// "key": "tag:Environment",
+// "values": []string{
+// "Development",
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Create an association with a specific schedule
 //
@@ -123,31 +117,29 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssm"
+//	ssm/association "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ssm/association"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ssm.NewAssociation(ctx, "example", &ssm.AssociationArgs{
-//				ScheduleExpression: pulumi.String("cron(0 2 ? * SUN *)"),
-//				Targets: ssm.AssociationTargetArray{
-//					&ssm.AssociationTargetArgs{
-//						Key: pulumi.String("InstanceIds"),
-//						Values: pulumi.StringArray{
-//							aws_instance.Example.Id,
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := ssm/association.NewAssociation(ctx, "example", &ssm/association.AssociationArgs{
+// ScheduleExpression: "cron(0 2 ? * SUN *)",
+// Targets: []map[string]interface{}{
+// map[string]interface{}{
+// "key": "InstanceIds",
+// "values": []interface{}{
+// aws_instance.Example.Id,
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -168,13 +168,13 @@ class InputSecurityGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.medialive.InputSecurityGroup("example",
+        example = aws.medialive.input_security_group.InputSecurityGroup("example",
             tags={
-                "ENVIRONMENT": "prod",
+                ENVIRONMENT: prod,
             },
-            whitelist_rules=[aws.medialive.InputSecurityGroupWhitelistRuleArgs(
-                cidr="10.0.0.8/32",
-            )])
+            whitelist_rules=[{
+                cidr: 10.0.0.8/32,
+            }])
         ```
 
         ## Import
@@ -208,13 +208,13 @@ class InputSecurityGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.medialive.InputSecurityGroup("example",
+        example = aws.medialive.input_security_group.InputSecurityGroup("example",
             tags={
-                "ENVIRONMENT": "prod",
+                ENVIRONMENT: prod,
             },
-            whitelist_rules=[aws.medialive.InputSecurityGroupWhitelistRuleArgs(
-                cidr="10.0.0.8/32",
-            )])
+            whitelist_rules=[{
+                cidr: 10.0.0.8/32,
+            }])
         ```
 
         ## Import

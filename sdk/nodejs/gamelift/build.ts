@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = new aws.gamelift.Build("test", {
+ * const test = new aws.gamelift/build.Build("test", {
  *     operatingSystem: "WINDOWS_2012",
  *     storageLocation: {
  *         bucket: aws_s3_bucket.test.id,

@@ -21,31 +21,29 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/eks"
+//	eks/accessPolicyAssociation "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/eks/accessPolicyAssociation"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := eks.NewAccessPolicyAssociation(ctx, "example", &eks.AccessPolicyAssociationArgs{
-//				ClusterName:  pulumi.Any(aws_eks_cluster.Example.Name),
-//				PolicyArn:    pulumi.String("arn:aws:eks::aws:cluster-access-policy/AmazonEKSViewPolicy"),
-//				PrincipalArn: pulumi.Any(aws_iam_user.Example.Arn),
-//				AccessScope: &eks.AccessPolicyAssociationAccessScopeArgs{
-//					Type: pulumi.String("namespace"),
-//					Namespaces: pulumi.StringArray{
-//						pulumi.String("example-namespace"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := eks/accessPolicyAssociation.NewAccessPolicyAssociation(ctx, "example", &eks/accessPolicyAssociation.AccessPolicyAssociationArgs{
+// ClusterName: aws_eks_cluster.Example.Name,
+// PolicyArn: "arn:aws:eks::aws:cluster-access-policy/AmazonEKSViewPolicy",
+// PrincipalArn: aws_iam_user.Example.Arn,
+// AccessScope: map[string]interface{}{
+// "type": "namespace",
+// "namespaces": []string{
+// "example-namespace",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

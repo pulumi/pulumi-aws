@@ -465,30 +465,30 @@ class ImageRecipe(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.imagebuilder.ImageRecipe("example",
-            block_device_mappings=[aws.imagebuilder.ImageRecipeBlockDeviceMappingArgs(
-                device_name="/dev/xvdb",
-                ebs=aws.imagebuilder.ImageRecipeBlockDeviceMappingEbsArgs(
-                    delete_on_termination="true",
-                    volume_size=100,
-                    volume_type="gp2",
-                ),
-            )],
-            components=[aws.imagebuilder.ImageRecipeComponentArgs(
-                component_arn=aws_imagebuilder_component["example"]["arn"],
-                parameters=[
-                    aws.imagebuilder.ImageRecipeComponentParameterArgs(
-                        name="Parameter1",
-                        value="Value1",
-                    ),
-                    aws.imagebuilder.ImageRecipeComponentParameterArgs(
-                        name="Parameter2",
-                        value="Value2",
-                    ),
+        example = aws.imagebuilder.image_recipe.ImageRecipe("example",
+            block_device_mappings=[{
+                deviceName: /dev/xvdb,
+                ebs: {
+                    deleteOnTermination: True,
+                    volumeSize: 100,
+                    volumeType: gp2,
+                },
+            }],
+            components=[{
+                componentArn: aws_imagebuilder_component.example.arn,
+                parameters: [
+                    {
+                        name: Parameter1,
+                        value: Value1,
+                    },
+                    {
+                        name: Parameter2,
+                        value: Value2,
+                    },
                 ],
-            )],
-            parent_image=f"arn:{data['aws_partition']['current']['partition']}:imagebuilder:{data['aws_region']['current']['name']}:aws:image/amazon-linux-2-x86/x.x.x",
-            version="1.0.0")
+            }],
+            parent_image=farn:{data.aws_partition.current.partition}:imagebuilder:{data.aws_region.current.name}:aws:image/amazon-linux-2-x86/x.x.x,
+            version=1.0.0)
         ```
 
         ## Import
@@ -529,30 +529,30 @@ class ImageRecipe(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.imagebuilder.ImageRecipe("example",
-            block_device_mappings=[aws.imagebuilder.ImageRecipeBlockDeviceMappingArgs(
-                device_name="/dev/xvdb",
-                ebs=aws.imagebuilder.ImageRecipeBlockDeviceMappingEbsArgs(
-                    delete_on_termination="true",
-                    volume_size=100,
-                    volume_type="gp2",
-                ),
-            )],
-            components=[aws.imagebuilder.ImageRecipeComponentArgs(
-                component_arn=aws_imagebuilder_component["example"]["arn"],
-                parameters=[
-                    aws.imagebuilder.ImageRecipeComponentParameterArgs(
-                        name="Parameter1",
-                        value="Value1",
-                    ),
-                    aws.imagebuilder.ImageRecipeComponentParameterArgs(
-                        name="Parameter2",
-                        value="Value2",
-                    ),
+        example = aws.imagebuilder.image_recipe.ImageRecipe("example",
+            block_device_mappings=[{
+                deviceName: /dev/xvdb,
+                ebs: {
+                    deleteOnTermination: True,
+                    volumeSize: 100,
+                    volumeType: gp2,
+                },
+            }],
+            components=[{
+                componentArn: aws_imagebuilder_component.example.arn,
+                parameters: [
+                    {
+                        name: Parameter1,
+                        value: Value1,
+                    },
+                    {
+                        name: Parameter2,
+                        value: Value2,
+                    },
                 ],
-            )],
-            parent_image=f"arn:{data['aws_partition']['current']['partition']}:imagebuilder:{data['aws_region']['current']['name']}:aws:image/amazon-linux-2-x86/x.x.x",
-            version="1.0.0")
+            }],
+            parent_image=farn:{data.aws_partition.current.partition}:imagebuilder:{data.aws_region.current.name}:aws:image/amazon-linux-2-x86/x.x.x,
+            version=1.0.0)
         ```
 
         ## Import

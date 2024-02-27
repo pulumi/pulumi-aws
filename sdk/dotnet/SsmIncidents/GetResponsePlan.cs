@@ -16,6 +16,25 @@ namespace Pulumi.Aws.SsmIncidents
         /// 
         /// {{% examples %}}
         /// ## Example Usage
+        /// {{% example %}}
+        /// ### Basic Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = new Aws.Ssmincidents.ResponsePlan.ResponsePlan("example", new()
+        ///     {
+        ///         Arn = "exampleARN",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetResponsePlanResult> InvokeAsync(GetResponsePlanArgs args, InvokeOptions? options = null)
@@ -26,6 +45,25 @@ namespace Pulumi.Aws.SsmIncidents
         /// 
         /// {{% examples %}}
         /// ## Example Usage
+        /// {{% example %}}
+        /// ### Basic Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = new Aws.Ssmincidents.ResponsePlan.ResponsePlan("example", new()
+        ///     {
+        ///         Arn = "exampleARN",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetResponsePlanResult> Invoke(GetResponsePlanInvokeArgs args, InvokeOptions? options = null)

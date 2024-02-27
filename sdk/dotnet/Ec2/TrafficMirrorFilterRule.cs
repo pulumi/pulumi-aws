@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var filter = new Aws.Ec2.TrafficMirrorFilter("filter", new()
+    ///     var filter = new Aws.Ec2.TrafficMirrorFilter.TrafficMirrorFilter("filter", new()
     ///     {
     ///         Description = "traffic mirror filter - example",
     ///         NetworkServices = new[]
@@ -34,7 +34,7 @@ namespace Pulumi.Aws.Ec2
     ///         },
     ///     });
     /// 
-    ///     var ruleout = new Aws.Ec2.TrafficMirrorFilterRule("ruleout", new()
+    ///     var ruleout = new Aws.Ec2.TrafficMirrorFilterRule.TrafficMirrorFilterRule("ruleout", new()
     ///     {
     ///         Description = "test rule",
     ///         TrafficMirrorFilterId = filter.Id,
@@ -45,7 +45,7 @@ namespace Pulumi.Aws.Ec2
     ///         TrafficDirection = "egress",
     ///     });
     /// 
-    ///     var rulein = new Aws.Ec2.TrafficMirrorFilterRule("rulein", new()
+    ///     var rulein = new Aws.Ec2.TrafficMirrorFilterRule.TrafficMirrorFilterRule("rulein", new()
     ///     {
     ///         Description = "test rule",
     ///         TrafficMirrorFilterId = filter.Id,
@@ -55,15 +55,15 @@ namespace Pulumi.Aws.Ec2
     ///         RuleAction = "accept",
     ///         TrafficDirection = "ingress",
     ///         Protocol = 6,
-    ///         DestinationPortRange = new Aws.Ec2.Inputs.TrafficMirrorFilterRuleDestinationPortRangeArgs
+    ///         DestinationPortRange = 
     ///         {
-    ///             FromPort = 22,
-    ///             ToPort = 53,
+    ///             { "fromPort", 22 },
+    ///             { "toPort", 53 },
     ///         },
-    ///         SourcePortRange = new Aws.Ec2.Inputs.TrafficMirrorFilterRuleSourcePortRangeArgs
+    ///         SourcePortRange = 
     ///         {
-    ///             FromPort = 0,
-    ///             ToPort = 10,
+    ///             { "fromPort", 0 },
+    ///             { "toPort", 10 },
     ///         },
     ///     });
     /// 

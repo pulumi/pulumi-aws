@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.emr.BlockPublicAccessConfiguration("example", {blockPublicSecurityGroupRules: true});
+ * const example = new aws.emr/blockPublicAccessConfiguration.BlockPublicAccessConfiguration("example", {blockPublicSecurityGroupRules: true});
  * ```
  * ### Default Configuration
  *
@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.emr.BlockPublicAccessConfiguration("example", {
+ * const example = new aws.emr/blockPublicAccessConfiguration.BlockPublicAccessConfiguration("example", {
  *     blockPublicSecurityGroupRules: true,
  *     permittedPublicSecurityGroupRuleRanges: [{
  *         maxRange: 22,
@@ -45,7 +45,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.emr.BlockPublicAccessConfiguration("example", {
+ * const example = new aws.emr/blockPublicAccessConfiguration.BlockPublicAccessConfiguration("example", {
  *     blockPublicSecurityGroupRules: true,
  *     permittedPublicSecurityGroupRuleRanges: [
  *         {
@@ -67,7 +67,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.emr.BlockPublicAccessConfiguration("example", {blockPublicSecurityGroupRules: false});
+ * const example = new aws.emr/blockPublicAccessConfiguration.BlockPublicAccessConfiguration("example", {blockPublicSecurityGroupRules: false});
  * ```
  *
  * ## Import

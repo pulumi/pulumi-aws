@@ -12,32 +12,6 @@ import (
 )
 
 // Get tags attached to the specified AWS Organizations resource.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/organizations"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := organizations.GetResourceTags(ctx, &organizations.GetResourceTagsArgs{
-//				ResourceId: "123456123846",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetResourceTags(ctx *pulumi.Context, args *GetResourceTagsArgs, opts ...pulumi.InvokeOption) (*GetResourceTagsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetResourceTagsResult

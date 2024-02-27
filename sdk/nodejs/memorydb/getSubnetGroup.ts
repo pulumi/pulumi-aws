@@ -6,17 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Provides information about a MemoryDB Subnet Group.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.memorydb.getSubnetGroup({
- *     name: "my-subnet-group",
- * });
- * ```
  */
 export function getSubnetGroup(args: GetSubnetGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetSubnetGroupResult> {
 
@@ -73,17 +62,6 @@ export interface GetSubnetGroupResult {
 }
 /**
  * Provides information about a MemoryDB Subnet Group.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.memorydb.getSubnetGroup({
- *     name: "my-subnet-group",
- * });
- * ```
  */
 export function getSubnetGroupOutput(args: GetSubnetGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubnetGroupResult> {
     return pulumi.output(args).apply((a: any) => getSubnetGroup(a, opts))

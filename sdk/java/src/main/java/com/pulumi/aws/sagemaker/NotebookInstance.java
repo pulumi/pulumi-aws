@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *         var ni = new NotebookInstance(&#34;ni&#34;, NotebookInstanceArgs.builder()        
  *             .roleArn(aws_iam_role.role().arn())
  *             .instanceType(&#34;ml.t2.medium&#34;)
- *             .tags(Map.of(&#34;Name&#34;, &#34;foo&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -62,7 +62,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.sagemaker.CodeRepository;
  * import com.pulumi.aws.sagemaker.CodeRepositoryArgs;
- * import com.pulumi.aws.sagemaker.inputs.CodeRepositoryGitConfigArgs;
  * import com.pulumi.aws.sagemaker.NotebookInstance;
  * import com.pulumi.aws.sagemaker.NotebookInstanceArgs;
  * import java.util.List;
@@ -80,16 +79,14 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new CodeRepository(&#34;example&#34;, CodeRepositoryArgs.builder()        
  *             .codeRepositoryName(&#34;my-notebook-instance-code-repo&#34;)
- *             .gitConfig(CodeRepositoryGitConfigArgs.builder()
- *                 .repositoryUrl(&#34;https://github.com/github/docs.git&#34;)
- *                 .build())
+ *             .gitConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var ni = new NotebookInstance(&#34;ni&#34;, NotebookInstanceArgs.builder()        
  *             .roleArn(aws_iam_role.role().arn())
  *             .instanceType(&#34;ml.t2.medium&#34;)
  *             .defaultCodeRepository(example.codeRepositoryName())
- *             .tags(Map.of(&#34;Name&#34;, &#34;foo&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

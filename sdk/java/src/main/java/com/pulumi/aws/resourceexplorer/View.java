@@ -31,10 +31,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.resourceexplorer.Index;
  * import com.pulumi.aws.resourceexplorer.IndexArgs;
- * import com.pulumi.aws.resourceexplorer.View;
- * import com.pulumi.aws.resourceexplorer.ViewArgs;
- * import com.pulumi.aws.resourceexplorer.inputs.ViewFiltersArgs;
- * import com.pulumi.aws.resourceexplorer.inputs.ViewIncludedPropertyArgs;
+ * import com.pulumi.aws.resourceexplorer_view.View;
+ * import com.pulumi.aws.resourceexplorer_view.ViewArgs;
  * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
@@ -54,12 +52,8 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleView = new View(&#34;exampleView&#34;, ViewArgs.builder()        
- *             .filters(ViewFiltersArgs.builder()
- *                 .filterString(&#34;resourcetype:ec2:instance&#34;)
- *                 .build())
- *             .includedProperties(ViewIncludedPropertyArgs.builder()
- *                 .name(&#34;tags&#34;)
- *                 .build())
+ *             .filters(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .includedProperties(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(exampleIndex)
  *                 .build());

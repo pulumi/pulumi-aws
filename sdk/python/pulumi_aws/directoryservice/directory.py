@@ -542,28 +542,28 @@ class Directory(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        main = aws.ec2.Vpc("main", cidr_block="10.0.0.0/16")
-        foo = aws.ec2.Subnet("foo",
+        main = aws.ec2.vpc.Vpc("main", cidr_block=10.0.0.0/16)
+        foo = aws.ec2.subnet.Subnet("foo",
             vpc_id=main.id,
-            availability_zone="us-west-2a",
-            cidr_block="10.0.1.0/24")
-        bar_subnet = aws.ec2.Subnet("barSubnet",
+            availability_zone=us-west-2a,
+            cidr_block=10.0.1.0/24)
+        bar_subnet = aws.ec2.subnet.Subnet("barSubnet",
             vpc_id=main.id,
-            availability_zone="us-west-2b",
-            cidr_block="10.0.2.0/24")
-        bar_directory = aws.directoryservice.Directory("barDirectory",
-            name="corp.notexample.com",
-            password="SuperSecretPassw0rd",
-            size="Small",
-            vpc_settings=aws.directoryservice.DirectoryVpcSettingsArgs(
-                vpc_id=main.id,
-                subnet_ids=[
+            availability_zone=us-west-2b,
+            cidr_block=10.0.2.0/24)
+        bar_directory = aws.directoryservice.directory.Directory("barDirectory",
+            name=corp.notexample.com,
+            password=SuperSecretPassw0rd,
+            size=Small,
+            vpc_settings={
+                vpcId: main.id,
+                subnetIds: [
                     foo.id,
                     bar_subnet.id,
                 ],
-            ),
+            },
             tags={
-                "Project": "foo",
+                Project: foo,
             })
         ```
         ### Microsoft Active Directory (MicrosoftAD)
@@ -572,29 +572,29 @@ class Directory(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        main = aws.ec2.Vpc("main", cidr_block="10.0.0.0/16")
-        foo = aws.ec2.Subnet("foo",
+        main = aws.ec2.vpc.Vpc("main", cidr_block=10.0.0.0/16)
+        foo = aws.ec2.subnet.Subnet("foo",
             vpc_id=main.id,
-            availability_zone="us-west-2a",
-            cidr_block="10.0.1.0/24")
-        bar_subnet = aws.ec2.Subnet("barSubnet",
+            availability_zone=us-west-2a,
+            cidr_block=10.0.1.0/24)
+        bar_subnet = aws.ec2.subnet.Subnet("barSubnet",
             vpc_id=main.id,
-            availability_zone="us-west-2b",
-            cidr_block="10.0.2.0/24")
-        bar_directory = aws.directoryservice.Directory("barDirectory",
-            name="corp.notexample.com",
-            password="SuperSecretPassw0rd",
-            edition="Standard",
-            type="MicrosoftAD",
-            vpc_settings=aws.directoryservice.DirectoryVpcSettingsArgs(
-                vpc_id=main.id,
-                subnet_ids=[
+            availability_zone=us-west-2b,
+            cidr_block=10.0.2.0/24)
+        bar_directory = aws.directoryservice.directory.Directory("barDirectory",
+            name=corp.notexample.com,
+            password=SuperSecretPassw0rd,
+            edition=Standard,
+            type=MicrosoftAD,
+            vpc_settings={
+                vpcId: main.id,
+                subnetIds: [
                     foo.id,
                     bar_subnet.id,
                 ],
-            ),
+            },
             tags={
-                "Project": "foo",
+                Project: foo,
             })
         ```
         ### Microsoft Active Directory Connector (ADConnector)
@@ -603,29 +603,29 @@ class Directory(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        main = aws.ec2.Vpc("main", cidr_block="10.0.0.0/16")
-        foo = aws.ec2.Subnet("foo",
+        main = aws.ec2.vpc.Vpc("main", cidr_block=10.0.0.0/16)
+        foo = aws.ec2.subnet.Subnet("foo",
             vpc_id=main.id,
-            availability_zone="us-west-2a",
-            cidr_block="10.0.1.0/24")
-        bar = aws.ec2.Subnet("bar",
+            availability_zone=us-west-2a,
+            cidr_block=10.0.1.0/24)
+        bar = aws.ec2.subnet.Subnet("bar",
             vpc_id=main.id,
-            availability_zone="us-west-2b",
-            cidr_block="10.0.2.0/24")
-        connector = aws.directoryservice.Directory("connector",
-            name="corp.notexample.com",
-            password="SuperSecretPassw0rd",
-            size="Small",
-            type="ADConnector",
-            connect_settings=aws.directoryservice.DirectoryConnectSettingsArgs(
-                customer_dns_ips=["A.B.C.D"],
-                customer_username="Admin",
-                subnet_ids=[
+            availability_zone=us-west-2b,
+            cidr_block=10.0.2.0/24)
+        connector = aws.directoryservice.directory.Directory("connector",
+            name=corp.notexample.com,
+            password=SuperSecretPassw0rd,
+            size=Small,
+            type=ADConnector,
+            connect_settings={
+                customerDnsIps: [A.B.C.D],
+                customerUsername: Admin,
+                subnetIds: [
                     foo.id,
                     bar.id,
                 ],
-                vpc_id=main.id,
-            ))
+                vpcId: main.id,
+            })
         ```
 
         ## Import
@@ -668,28 +668,28 @@ class Directory(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        main = aws.ec2.Vpc("main", cidr_block="10.0.0.0/16")
-        foo = aws.ec2.Subnet("foo",
+        main = aws.ec2.vpc.Vpc("main", cidr_block=10.0.0.0/16)
+        foo = aws.ec2.subnet.Subnet("foo",
             vpc_id=main.id,
-            availability_zone="us-west-2a",
-            cidr_block="10.0.1.0/24")
-        bar_subnet = aws.ec2.Subnet("barSubnet",
+            availability_zone=us-west-2a,
+            cidr_block=10.0.1.0/24)
+        bar_subnet = aws.ec2.subnet.Subnet("barSubnet",
             vpc_id=main.id,
-            availability_zone="us-west-2b",
-            cidr_block="10.0.2.0/24")
-        bar_directory = aws.directoryservice.Directory("barDirectory",
-            name="corp.notexample.com",
-            password="SuperSecretPassw0rd",
-            size="Small",
-            vpc_settings=aws.directoryservice.DirectoryVpcSettingsArgs(
-                vpc_id=main.id,
-                subnet_ids=[
+            availability_zone=us-west-2b,
+            cidr_block=10.0.2.0/24)
+        bar_directory = aws.directoryservice.directory.Directory("barDirectory",
+            name=corp.notexample.com,
+            password=SuperSecretPassw0rd,
+            size=Small,
+            vpc_settings={
+                vpcId: main.id,
+                subnetIds: [
                     foo.id,
                     bar_subnet.id,
                 ],
-            ),
+            },
             tags={
-                "Project": "foo",
+                Project: foo,
             })
         ```
         ### Microsoft Active Directory (MicrosoftAD)
@@ -698,29 +698,29 @@ class Directory(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        main = aws.ec2.Vpc("main", cidr_block="10.0.0.0/16")
-        foo = aws.ec2.Subnet("foo",
+        main = aws.ec2.vpc.Vpc("main", cidr_block=10.0.0.0/16)
+        foo = aws.ec2.subnet.Subnet("foo",
             vpc_id=main.id,
-            availability_zone="us-west-2a",
-            cidr_block="10.0.1.0/24")
-        bar_subnet = aws.ec2.Subnet("barSubnet",
+            availability_zone=us-west-2a,
+            cidr_block=10.0.1.0/24)
+        bar_subnet = aws.ec2.subnet.Subnet("barSubnet",
             vpc_id=main.id,
-            availability_zone="us-west-2b",
-            cidr_block="10.0.2.0/24")
-        bar_directory = aws.directoryservice.Directory("barDirectory",
-            name="corp.notexample.com",
-            password="SuperSecretPassw0rd",
-            edition="Standard",
-            type="MicrosoftAD",
-            vpc_settings=aws.directoryservice.DirectoryVpcSettingsArgs(
-                vpc_id=main.id,
-                subnet_ids=[
+            availability_zone=us-west-2b,
+            cidr_block=10.0.2.0/24)
+        bar_directory = aws.directoryservice.directory.Directory("barDirectory",
+            name=corp.notexample.com,
+            password=SuperSecretPassw0rd,
+            edition=Standard,
+            type=MicrosoftAD,
+            vpc_settings={
+                vpcId: main.id,
+                subnetIds: [
                     foo.id,
                     bar_subnet.id,
                 ],
-            ),
+            },
             tags={
-                "Project": "foo",
+                Project: foo,
             })
         ```
         ### Microsoft Active Directory Connector (ADConnector)
@@ -729,29 +729,29 @@ class Directory(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        main = aws.ec2.Vpc("main", cidr_block="10.0.0.0/16")
-        foo = aws.ec2.Subnet("foo",
+        main = aws.ec2.vpc.Vpc("main", cidr_block=10.0.0.0/16)
+        foo = aws.ec2.subnet.Subnet("foo",
             vpc_id=main.id,
-            availability_zone="us-west-2a",
-            cidr_block="10.0.1.0/24")
-        bar = aws.ec2.Subnet("bar",
+            availability_zone=us-west-2a,
+            cidr_block=10.0.1.0/24)
+        bar = aws.ec2.subnet.Subnet("bar",
             vpc_id=main.id,
-            availability_zone="us-west-2b",
-            cidr_block="10.0.2.0/24")
-        connector = aws.directoryservice.Directory("connector",
-            name="corp.notexample.com",
-            password="SuperSecretPassw0rd",
-            size="Small",
-            type="ADConnector",
-            connect_settings=aws.directoryservice.DirectoryConnectSettingsArgs(
-                customer_dns_ips=["A.B.C.D"],
-                customer_username="Admin",
-                subnet_ids=[
+            availability_zone=us-west-2b,
+            cidr_block=10.0.2.0/24)
+        connector = aws.directoryservice.directory.Directory("connector",
+            name=corp.notexample.com,
+            password=SuperSecretPassw0rd,
+            size=Small,
+            type=ADConnector,
+            connect_settings={
+                customerDnsIps: [A.B.C.D],
+                customerUsername: Admin,
+                subnetIds: [
                     foo.id,
                     bar.id,
                 ],
-                vpc_id=main.id,
-            ))
+                vpcId: main.id,
+            })
         ```
 
         ## Import

@@ -18,63 +18,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.storagegateway.FileSystemAssociation("example", {
+ * const example = new aws.storagegateway/fileSystemAssociation.FileSystemAssociation("example", {
  *     gatewayArn: aws_storagegateway_gateway.example.arn,
  *     locationArn: aws_fsx_windows_file_system.example.arn,
  *     username: "Admin",
  *     password: "avoid-plaintext-passwords",
  *     auditDestinationArn: aws_s3_bucket.example.arn,
- * });
- * ```
- * ## Required Services Example
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const awsServiceStoragegatewayAmiFILES3Latest = aws.ssm.getParameter({
- *     name: "/aws/service/storagegateway/ami/FILE_S3/latest",
- * });
- * const testInstance = new aws.ec2.Instance("testInstance", {
- *     ami: awsServiceStoragegatewayAmiFILES3Latest.then(awsServiceStoragegatewayAmiFILES3Latest => awsServiceStoragegatewayAmiFILES3Latest.value),
- *     associatePublicIpAddress: true,
- *     instanceType: aws.ec2.instancetype.InstanceType[data.aws_ec2_instance_type_offering.available.instance_type],
- *     vpcSecurityGroupIds: [aws_security_group.test.id],
- *     subnetId: aws_subnet.test[0].id,
- * }, {
- *     dependsOn: [
- *         aws_route.test,
- *         aws_vpc_dhcp_options_association.test,
- *     ],
- * });
- * const testGateway = new aws.storagegateway.Gateway("testGateway", {
- *     gatewayIpAddress: testInstance.publicIp,
- *     gatewayName: "test-sgw",
- *     gatewayTimezone: "GMT",
- *     gatewayType: "FILE_FSX_SMB",
- *     smbActiveDirectorySettings: {
- *         domainName: aws_directory_service_directory.test.name,
- *         password: aws_directory_service_directory.test.password,
- *         username: "Admin",
- *     },
- * });
- * const testWindowsFileSystem = new aws.fsx.WindowsFileSystem("testWindowsFileSystem", {
- *     activeDirectoryId: aws_directory_service_directory.test.id,
- *     securityGroupIds: [aws_security_group.test.id],
- *     skipFinalBackup: true,
- *     storageCapacity: 32,
- *     subnetIds: [aws_subnet.test[0].id],
- *     throughputCapacity: 8,
- * });
- * const fsx = new aws.storagegateway.FileSystemAssociation("fsx", {
- *     gatewayArn: testGateway.arn,
- *     locationArn: testWindowsFileSystem.arn,
- *     username: "Admin",
- *     password: aws_directory_service_directory.test.password,
- *     cacheAttributes: {
- *         cacheStaleTimeoutInSeconds: 400,
- *     },
- *     auditDestinationArn: aws_cloudwatch_log_group.test.arn,
  * });
  * ```
  *

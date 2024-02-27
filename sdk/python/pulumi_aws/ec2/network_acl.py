@@ -273,26 +273,26 @@ class NetworkAcl(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        main = aws.ec2.NetworkAcl("main",
-            vpc_id=aws_vpc["main"]["id"],
-            egress=[aws.ec2.NetworkAclEgressArgs(
-                protocol="tcp",
-                rule_no=200,
-                action="allow",
-                cidr_block="10.3.0.0/18",
-                from_port=443,
-                to_port=443,
-            )],
-            ingress=[aws.ec2.NetworkAclIngressArgs(
-                protocol="tcp",
-                rule_no=100,
-                action="allow",
-                cidr_block="10.3.0.0/18",
-                from_port=80,
-                to_port=80,
-            )],
+        main = aws.ec2.network_acl.NetworkAcl("main",
+            vpc_id=aws_vpc.main.id,
+            egress=[{
+                protocol: tcp,
+                ruleNo: 200,
+                action: allow,
+                cidrBlock: 10.3.0.0/18,
+                fromPort: 443,
+                toPort: 443,
+            }],
+            ingress=[{
+                protocol: tcp,
+                ruleNo: 100,
+                action: allow,
+                cidrBlock: 10.3.0.0/18,
+                fromPort: 80,
+                toPort: 80,
+            }],
             tags={
-                "Name": "main",
+                Name: main,
             })
         ```
 
@@ -338,26 +338,26 @@ class NetworkAcl(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        main = aws.ec2.NetworkAcl("main",
-            vpc_id=aws_vpc["main"]["id"],
-            egress=[aws.ec2.NetworkAclEgressArgs(
-                protocol="tcp",
-                rule_no=200,
-                action="allow",
-                cidr_block="10.3.0.0/18",
-                from_port=443,
-                to_port=443,
-            )],
-            ingress=[aws.ec2.NetworkAclIngressArgs(
-                protocol="tcp",
-                rule_no=100,
-                action="allow",
-                cidr_block="10.3.0.0/18",
-                from_port=80,
-                to_port=80,
-            )],
+        main = aws.ec2.network_acl.NetworkAcl("main",
+            vpc_id=aws_vpc.main.id,
+            egress=[{
+                protocol: tcp,
+                ruleNo: 200,
+                action: allow,
+                cidrBlock: 10.3.0.0/18,
+                fromPort: 443,
+                toPort: 443,
+            }],
+            ingress=[{
+                protocol: tcp,
+                ruleNo: 100,
+                action: allow,
+                cidrBlock: 10.3.0.0/18,
+                fromPort: 80,
+                toPort: 80,
+            }],
             tags={
-                "Name": "main",
+                Name: main,
             })
         ```
 

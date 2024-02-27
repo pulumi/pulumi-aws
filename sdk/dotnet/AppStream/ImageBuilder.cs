@@ -22,19 +22,19 @@ namespace Pulumi.Aws.AppStream
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testFleet = new Aws.AppStream.ImageBuilder("testFleet", new()
+    ///     var testFleet = new Aws.Appstream.ImageBuilder.ImageBuilder("testFleet", new()
     ///     {
     ///         Description = "Description of a ImageBuilder",
     ///         DisplayName = "Display name of a ImageBuilder",
     ///         EnableDefaultInternetAccess = false,
     ///         ImageName = "AppStream-WinServer2019-10-05-2022",
     ///         InstanceType = "stream.standard.large",
-    ///         VpcConfig = new Aws.AppStream.Inputs.ImageBuilderVpcConfigArgs
+    ///         VpcConfig = 
     ///         {
-    ///             SubnetIds = new[]
+    ///             { "subnetIds", new[]
     ///             {
     ///                 aws_subnet.Example.Id,
-    ///             },
+    ///             } },
     ///         },
     ///         Tags = 
     ///         {

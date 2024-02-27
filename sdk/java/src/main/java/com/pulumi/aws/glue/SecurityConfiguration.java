@@ -26,10 +26,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.glue.SecurityConfiguration;
  * import com.pulumi.aws.glue.SecurityConfigurationArgs;
- * import com.pulumi.aws.glue.inputs.SecurityConfigurationEncryptionConfigurationArgs;
- * import com.pulumi.aws.glue.inputs.SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionArgs;
- * import com.pulumi.aws.glue.inputs.SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionArgs;
- * import com.pulumi.aws.glue.inputs.SecurityConfigurationEncryptionConfigurationS3EncryptionArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -44,18 +40,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new SecurityConfiguration(&#34;example&#34;, SecurityConfigurationArgs.builder()        
- *             .encryptionConfiguration(SecurityConfigurationEncryptionConfigurationArgs.builder()
- *                 .cloudwatchEncryption(SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionArgs.builder()
- *                     .cloudwatchEncryptionMode(&#34;DISABLED&#34;)
- *                     .build())
- *                 .jobBookmarksEncryption(SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionArgs.builder()
- *                     .jobBookmarksEncryptionMode(&#34;DISABLED&#34;)
- *                     .build())
- *                 .s3Encryption(SecurityConfigurationEncryptionConfigurationS3EncryptionArgs.builder()
- *                     .kmsKeyArn(data.aws_kms_key().example().arn())
- *                     .s3EncryptionMode(&#34;SSE-KMS&#34;)
- *                     .build())
- *                 .build())
+ *             .encryptionConfiguration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

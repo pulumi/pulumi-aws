@@ -22,7 +22,7 @@ namespace Pulumi.Aws.StorageGateway
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.StorageGateway.NfsFileShare("example", new()
+    ///     var example = new Aws.Storagegateway.NfsFileShare.NfsFileShare("example", new()
     ///     {
     ///         ClientLists = new[]
     ///         {

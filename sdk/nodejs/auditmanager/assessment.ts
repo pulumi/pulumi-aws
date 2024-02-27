@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = new aws.auditmanager.Assessment("test", {
+ * const test = new aws.auditmanager/assessment.Assessment("test", {
  *     assessmentReportsDestination: {
  *         destination: `s3://${aws_s3_bucket.test.id}`,
  *         destinationType: "S3",

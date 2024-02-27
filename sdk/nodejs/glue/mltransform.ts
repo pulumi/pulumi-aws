@@ -16,8 +16,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const testCatalogDatabase = new aws.glue.CatalogDatabase("testCatalogDatabase", {name: "example"});
- * const testCatalogTable = new aws.glue.CatalogTable("testCatalogTable", {
+ * const testCatalogDatabase = new aws.glue/catalogDatabase.CatalogDatabase("testCatalogDatabase", {name: "example"});
+ * const testCatalogTable = new aws.glue/catalogTable.CatalogTable("testCatalogTable", {
  *     name: "example",
  *     databaseName: testCatalogDatabase.name,
  *     owner: "my_owner",
@@ -83,7 +83,7 @@ import * as utilities from "../utilities";
  *         param1: "param1_val",
  *     },
  * });
- * const testMLTransform = new aws.glue.MLTransform("testMLTransform", {
+ * const testMLTransform = new aws.glue/mLTransform.MLTransform("testMLTransform", {
  *     roleArn: aws_iam_role.test.arn,
  *     inputRecordTables: [{
  *         databaseName: testCatalogTable.databaseName,

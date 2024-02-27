@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.emr.Studio("example", {
+ * const example = new aws.emr/studio.Studio("example", {
  *     authMode: "SSO",
  *     defaultS3Location: `s3://${aws_s3_bucket.test.bucket}/test`,
  *     engineSecurityGroupId: aws_security_group.test.id,

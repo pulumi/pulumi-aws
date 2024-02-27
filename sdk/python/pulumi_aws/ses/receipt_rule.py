@@ -522,19 +522,19 @@ class ReceiptRule(pulumi.CustomResource):
         import pulumi_aws as aws
 
         # Add a header to the email and store it in S3
-        store = aws.ses.ReceiptRule("store",
-            add_header_actions=[aws.ses.ReceiptRuleAddHeaderActionArgs(
-                header_name="Custom-Header",
-                header_value="Added by SES",
-                position=1,
-            )],
+        store = aws.ses.receipt_rule.ReceiptRule("store",
+            add_header_actions=[{
+                headerName: Custom-Header,
+                headerValue: Added by SES,
+                position: 1,
+            }],
             enabled=True,
-            recipients=["karen@example.com"],
-            rule_set_name="default-rule-set",
-            s3_actions=[aws.ses.ReceiptRuleS3ActionArgs(
-                bucket_name="emails",
-                position=2,
-            )],
+            recipients=[karen@example.com],
+            rule_set_name=default-rule-set,
+            s3_actions=[{
+                bucketName: emails,
+                position: 2,
+            }],
             scan_enabled=True)
         ```
 
@@ -579,19 +579,19 @@ class ReceiptRule(pulumi.CustomResource):
         import pulumi_aws as aws
 
         # Add a header to the email and store it in S3
-        store = aws.ses.ReceiptRule("store",
-            add_header_actions=[aws.ses.ReceiptRuleAddHeaderActionArgs(
-                header_name="Custom-Header",
-                header_value="Added by SES",
-                position=1,
-            )],
+        store = aws.ses.receipt_rule.ReceiptRule("store",
+            add_header_actions=[{
+                headerName: Custom-Header,
+                headerValue: Added by SES,
+                position: 1,
+            }],
             enabled=True,
-            recipients=["karen@example.com"],
-            rule_set_name="default-rule-set",
-            s3_actions=[aws.ses.ReceiptRuleS3ActionArgs(
-                bucket_name="emails",
-                position=2,
-            )],
+            recipients=[karen@example.com],
+            rule_set_name=default-rule-set,
+            s3_actions=[{
+                bucketName: emails,
+                position: 2,
+            }],
             scan_enabled=True)
         ```
 

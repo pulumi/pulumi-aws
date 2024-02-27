@@ -16,25 +16,6 @@ namespace Pulumi.Aws.Fsx
         /// 
         /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Fsx.GetOntapFileSystem.Invoke(new()
-        ///     {
-        ///         Id = "fs-12345678",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetOntapFileSystemResult> InvokeAsync(GetOntapFileSystemArgs args, InvokeOptions? options = null)
@@ -45,25 +26,6 @@ namespace Pulumi.Aws.Fsx
         /// 
         /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Fsx.GetOntapFileSystem.Invoke(new()
-        ///     {
-        ///         Id = "fs-12345678",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetOntapFileSystemResult> Invoke(GetOntapFileSystemInvokeArgs args, InvokeOptions? options = null)

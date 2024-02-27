@@ -23,7 +23,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Ec2TransitGateway.MulticastGroupMember("example", new()
+    ///     var example = new Aws.Ec2transitgateway.MulticastGroupMember.MulticastGroupMember("example", new()
     ///     {
     ///         GroupIpAddress = "224.0.0.1",
     ///         NetworkInterfaceId = aws_network_interface.Example.Id,

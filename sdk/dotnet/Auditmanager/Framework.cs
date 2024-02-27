@@ -23,20 +23,20 @@ namespace Pulumi.Aws.Auditmanager
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Aws.Auditmanager.Framework("test", new()
+    ///     var test = new Aws.Auditmanager.Framework.Framework("test", new()
     ///     {
     ///         ControlSets = new[]
     ///         {
-    ///             new Aws.Auditmanager.Inputs.FrameworkControlSetArgs
+    ///             
     ///             {
-    ///                 Name = "example",
-    ///                 Controls = new[]
+    ///                 { "name", "example" },
+    ///                 { "controls", new[]
     ///                 {
-    ///                     new Aws.Auditmanager.Inputs.FrameworkControlSetControlArgs
+    ///                     
     ///                     {
-    ///                         Id = aws_auditmanager_control.Test.Id,
+    ///                         { "id", aws_auditmanager_control.Test.Id },
     ///                     },
-    ///                 },
+    ///                 } },
     ///             },
     ///         },
     ///     });

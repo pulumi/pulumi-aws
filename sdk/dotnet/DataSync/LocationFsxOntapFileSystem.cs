@@ -13,6 +13,38 @@ namespace Pulumi.Aws.DataSync
     /// Resource for managing an AWS DataSync Location FSx Ontap File System.
     /// 
     /// ## Example Usage
+    /// ### Basic Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var test = new Aws.Datasync.LocationFsxOntapFileSystem.LocationFsxOntapFileSystem("test", new()
+    ///     {
+    ///         FsxFilesystemArn = aws_fsx_ontap_file_system.Test.Arn,
+    ///         SecurityGroupArns = new[]
+    ///         {
+    ///             aws_security_group.Test.Arn,
+    ///         },
+    ///         StorageVirtualMachineArn = aws_fsx_ontap_storage_virtual_machine.Test.Arn,
+    ///         Protocol = 
+    ///         {
+    ///             { "nfs", 
+    ///             {
+    ///                 { "mountOptions", 
+    ///                 {
+    ///                     { "version", "NFS3" },
+    ///                 } },
+    ///             } },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// 
     /// ## Import
     /// 

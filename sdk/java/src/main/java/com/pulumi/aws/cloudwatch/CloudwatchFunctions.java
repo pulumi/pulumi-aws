@@ -34,36 +34,6 @@ public final class CloudwatchFunctions {
      * EventBridge event bus. Use this data source to compute the ARN of
      * an event bus, given the name of the bus.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.cloudwatch.CloudwatchFunctions;
-     * import com.pulumi.aws.cloudwatch.inputs.GetEventBusArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = CloudwatchFunctions.getEventBus(GetEventBusArgs.builder()
-     *             .name(&#34;example-bus-name&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetEventBusResult> getEventBus(GetEventBusArgs args) {
         return getEventBus(args, InvokeOptions.Empty);
@@ -72,36 +42,6 @@ public final class CloudwatchFunctions {
      * This data source can be used to fetch information about a specific
      * EventBridge event bus. Use this data source to compute the ARN of
      * an event bus, given the name of the bus.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.cloudwatch.CloudwatchFunctions;
-     * import com.pulumi.aws.cloudwatch.inputs.GetEventBusArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = CloudwatchFunctions.getEventBus(GetEventBusArgs.builder()
-     *             .name(&#34;example-bus-name&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetEventBusResult> getEventBusPlain(GetEventBusPlainArgs args) {
@@ -112,36 +52,6 @@ public final class CloudwatchFunctions {
      * EventBridge event bus. Use this data source to compute the ARN of
      * an event bus, given the name of the bus.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.cloudwatch.CloudwatchFunctions;
-     * import com.pulumi.aws.cloudwatch.inputs.GetEventBusArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = CloudwatchFunctions.getEventBus(GetEventBusArgs.builder()
-     *             .name(&#34;example-bus-name&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetEventBusResult> getEventBus(GetEventBusArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:cloudwatch/getEventBus:getEventBus", TypeShape.of(GetEventBusResult.class), args, Utilities.withVersion(options));
@@ -150,36 +60,6 @@ public final class CloudwatchFunctions {
      * This data source can be used to fetch information about a specific
      * EventBridge event bus. Use this data source to compute the ARN of
      * an event bus, given the name of the bus.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.cloudwatch.CloudwatchFunctions;
-     * import com.pulumi.aws.cloudwatch.inputs.GetEventBusArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = CloudwatchFunctions.getEventBus(GetEventBusArgs.builder()
-     *             .name(&#34;example-bus-name&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetEventBusResult> getEventBusPlain(GetEventBusPlainArgs args, InvokeOptions options) {
@@ -190,36 +70,6 @@ public final class CloudwatchFunctions {
      * 
      * &gt; **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.cloudwatch.CloudwatchFunctions;
-     * import com.pulumi.aws.cloudwatch.inputs.GetEventConnectionArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = CloudwatchFunctions.getEventConnection(GetEventConnectionArgs.builder()
-     *             .name(&#34;test&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetEventConnectionResult> getEventConnection(GetEventConnectionArgs args) {
         return getEventConnection(args, InvokeOptions.Empty);
@@ -228,36 +78,6 @@ public final class CloudwatchFunctions {
      * Use this data source to retrieve information about an EventBridge connection.
      * 
      * &gt; **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.cloudwatch.CloudwatchFunctions;
-     * import com.pulumi.aws.cloudwatch.inputs.GetEventConnectionArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = CloudwatchFunctions.getEventConnection(GetEventConnectionArgs.builder()
-     *             .name(&#34;test&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetEventConnectionResult> getEventConnectionPlain(GetEventConnectionPlainArgs args) {
@@ -268,36 +88,6 @@ public final class CloudwatchFunctions {
      * 
      * &gt; **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.cloudwatch.CloudwatchFunctions;
-     * import com.pulumi.aws.cloudwatch.inputs.GetEventConnectionArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = CloudwatchFunctions.getEventConnection(GetEventConnectionArgs.builder()
-     *             .name(&#34;test&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetEventConnectionResult> getEventConnection(GetEventConnectionArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:cloudwatch/getEventConnection:getEventConnection", TypeShape.of(GetEventConnectionResult.class), args, Utilities.withVersion(options));
@@ -306,36 +96,6 @@ public final class CloudwatchFunctions {
      * Use this data source to retrieve information about an EventBridge connection.
      * 
      * &gt; **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.cloudwatch.CloudwatchFunctions;
-     * import com.pulumi.aws.cloudwatch.inputs.GetEventConnectionArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = CloudwatchFunctions.getEventConnection(GetEventConnectionArgs.builder()
-     *             .name(&#34;test&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetEventConnectionResult> getEventConnectionPlain(GetEventConnectionPlainArgs args, InvokeOptions options) {
@@ -346,36 +106,6 @@ public final class CloudwatchFunctions {
      * 
      * &gt; **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.cloudwatch.CloudwatchFunctions;
-     * import com.pulumi.aws.cloudwatch.inputs.GetEventSourceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var examplepartner = CloudwatchFunctions.getEventSource(GetEventSourceArgs.builder()
-     *             .namePrefix(&#34;aws.partner/examplepartner.com&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetEventSourceResult> getEventSource() {
         return getEventSource(GetEventSourceArgs.Empty, InvokeOptions.Empty);
@@ -384,36 +114,6 @@ public final class CloudwatchFunctions {
      * Use this data source to get information about an EventBridge Partner Event Source. This data source will only return one partner event source. An error will be returned if multiple sources match the same name prefix.
      * 
      * &gt; **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.cloudwatch.CloudwatchFunctions;
-     * import com.pulumi.aws.cloudwatch.inputs.GetEventSourceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var examplepartner = CloudwatchFunctions.getEventSource(GetEventSourceArgs.builder()
-     *             .namePrefix(&#34;aws.partner/examplepartner.com&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetEventSourceResult> getEventSourcePlain() {
@@ -424,36 +124,6 @@ public final class CloudwatchFunctions {
      * 
      * &gt; **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.cloudwatch.CloudwatchFunctions;
-     * import com.pulumi.aws.cloudwatch.inputs.GetEventSourceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var examplepartner = CloudwatchFunctions.getEventSource(GetEventSourceArgs.builder()
-     *             .namePrefix(&#34;aws.partner/examplepartner.com&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetEventSourceResult> getEventSource(GetEventSourceArgs args) {
         return getEventSource(args, InvokeOptions.Empty);
@@ -462,36 +132,6 @@ public final class CloudwatchFunctions {
      * Use this data source to get information about an EventBridge Partner Event Source. This data source will only return one partner event source. An error will be returned if multiple sources match the same name prefix.
      * 
      * &gt; **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.cloudwatch.CloudwatchFunctions;
-     * import com.pulumi.aws.cloudwatch.inputs.GetEventSourceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var examplepartner = CloudwatchFunctions.getEventSource(GetEventSourceArgs.builder()
-     *             .namePrefix(&#34;aws.partner/examplepartner.com&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetEventSourceResult> getEventSourcePlain(GetEventSourcePlainArgs args) {
@@ -502,36 +142,6 @@ public final class CloudwatchFunctions {
      * 
      * &gt; **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.cloudwatch.CloudwatchFunctions;
-     * import com.pulumi.aws.cloudwatch.inputs.GetEventSourceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var examplepartner = CloudwatchFunctions.getEventSource(GetEventSourceArgs.builder()
-     *             .namePrefix(&#34;aws.partner/examplepartner.com&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetEventSourceResult> getEventSource(GetEventSourceArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:cloudwatch/getEventSource:getEventSource", TypeShape.of(GetEventSourceResult.class), args, Utilities.withVersion(options));
@@ -540,36 +150,6 @@ public final class CloudwatchFunctions {
      * Use this data source to get information about an EventBridge Partner Event Source. This data source will only return one partner event source. An error will be returned if multiple sources match the same name prefix.
      * 
      * &gt; **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.cloudwatch.CloudwatchFunctions;
-     * import com.pulumi.aws.cloudwatch.inputs.GetEventSourceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var examplepartner = CloudwatchFunctions.getEventSource(GetEventSourceArgs.builder()
-     *             .namePrefix(&#34;aws.partner/examplepartner.com&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetEventSourceResult> getEventSourcePlain(GetEventSourcePlainArgs args, InvokeOptions options) {
@@ -580,76 +160,6 @@ public final class CloudwatchFunctions {
      * 
      * &gt; For more information about data protection policies, see the [Help protect sensitive log data with masking](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/mask-sensitive-log-data.html).
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.cloudwatch.CloudwatchFunctions;
-     * import com.pulumi.aws.cloudwatch.inputs.GetLogDataProtectionPolicyDocumentArgs;
-     * import com.pulumi.aws.cloudwatch.LogDataProtectionPolicy;
-     * import com.pulumi.aws.cloudwatch.LogDataProtectionPolicyArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var exampleLogDataProtectionPolicyDocument = CloudwatchFunctions.getLogDataProtectionPolicyDocument(GetLogDataProtectionPolicyDocumentArgs.builder()
-     *             .name(&#34;Example&#34;)
-     *             .statements(            
-     *                 GetLogDataProtectionPolicyDocumentStatementArgs.builder()
-     *                     .sid(&#34;Audit&#34;)
-     *                     .dataIdentifiers(                    
-     *                         &#34;arn:aws:dataprotection::aws:data-identifier/EmailAddress&#34;,
-     *                         &#34;arn:aws:dataprotection::aws:data-identifier/DriversLicense-US&#34;)
-     *                     .operation(GetLogDataProtectionPolicyDocumentStatementOperationArgs.builder()
-     *                         .audit(GetLogDataProtectionPolicyDocumentStatementOperationAuditArgs.builder()
-     *                             .findingsDestination(GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationArgs.builder()
-     *                                 .cloudwatchLogs(GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsArgs.builder()
-     *                                     .logGroup(aws_cloudwatch_log_group.audit().name())
-     *                                     .build())
-     *                                 .firehose(GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehoseArgs.builder()
-     *                                     .deliveryStream(aws_kinesis_firehose_delivery_stream.audit().name())
-     *                                     .build())
-     *                                 .s3(GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3Args.builder()
-     *                                     .bucket(aws_s3_bucket.audit().bucket())
-     *                                     .build())
-     *                                 .build())
-     *                             .build())
-     *                         .build())
-     *                     .build(),
-     *                 GetLogDataProtectionPolicyDocumentStatementArgs.builder()
-     *                     .sid(&#34;Deidentify&#34;)
-     *                     .dataIdentifiers(                    
-     *                         &#34;arn:aws:dataprotection::aws:data-identifier/EmailAddress&#34;,
-     *                         &#34;arn:aws:dataprotection::aws:data-identifier/DriversLicense-US&#34;)
-     *                     .operation(GetLogDataProtectionPolicyDocumentStatementOperationArgs.builder()
-     *                         .deidentify(GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyArgs.builder()
-     *                             .maskConfig()
-     *                             .build())
-     *                         .build())
-     *                     .build())
-     *             .build());
-     * 
-     *         var exampleLogDataProtectionPolicy = new LogDataProtectionPolicy(&#34;exampleLogDataProtectionPolicy&#34;, LogDataProtectionPolicyArgs.builder()        
-     *             .logGroupName(aws_cloudwatch_log_group.example().name())
-     *             .policyDocument(exampleLogDataProtectionPolicyDocument.applyValue(getLogDataProtectionPolicyDocumentResult -&gt; getLogDataProtectionPolicyDocumentResult.json()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetLogDataProtectionPolicyDocumentResult> getLogDataProtectionPolicyDocument(GetLogDataProtectionPolicyDocumentArgs args) {
         return getLogDataProtectionPolicyDocument(args, InvokeOptions.Empty);
@@ -658,76 +168,6 @@ public final class CloudwatchFunctions {
      * Generates a CloudWatch Log Group Data Protection Policy document in JSON format for use with the `aws.cloudwatch.LogDataProtectionPolicy` resource.
      * 
      * &gt; For more information about data protection policies, see the [Help protect sensitive log data with masking](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/mask-sensitive-log-data.html).
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.cloudwatch.CloudwatchFunctions;
-     * import com.pulumi.aws.cloudwatch.inputs.GetLogDataProtectionPolicyDocumentArgs;
-     * import com.pulumi.aws.cloudwatch.LogDataProtectionPolicy;
-     * import com.pulumi.aws.cloudwatch.LogDataProtectionPolicyArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var exampleLogDataProtectionPolicyDocument = CloudwatchFunctions.getLogDataProtectionPolicyDocument(GetLogDataProtectionPolicyDocumentArgs.builder()
-     *             .name(&#34;Example&#34;)
-     *             .statements(            
-     *                 GetLogDataProtectionPolicyDocumentStatementArgs.builder()
-     *                     .sid(&#34;Audit&#34;)
-     *                     .dataIdentifiers(                    
-     *                         &#34;arn:aws:dataprotection::aws:data-identifier/EmailAddress&#34;,
-     *                         &#34;arn:aws:dataprotection::aws:data-identifier/DriversLicense-US&#34;)
-     *                     .operation(GetLogDataProtectionPolicyDocumentStatementOperationArgs.builder()
-     *                         .audit(GetLogDataProtectionPolicyDocumentStatementOperationAuditArgs.builder()
-     *                             .findingsDestination(GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationArgs.builder()
-     *                                 .cloudwatchLogs(GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsArgs.builder()
-     *                                     .logGroup(aws_cloudwatch_log_group.audit().name())
-     *                                     .build())
-     *                                 .firehose(GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehoseArgs.builder()
-     *                                     .deliveryStream(aws_kinesis_firehose_delivery_stream.audit().name())
-     *                                     .build())
-     *                                 .s3(GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3Args.builder()
-     *                                     .bucket(aws_s3_bucket.audit().bucket())
-     *                                     .build())
-     *                                 .build())
-     *                             .build())
-     *                         .build())
-     *                     .build(),
-     *                 GetLogDataProtectionPolicyDocumentStatementArgs.builder()
-     *                     .sid(&#34;Deidentify&#34;)
-     *                     .dataIdentifiers(                    
-     *                         &#34;arn:aws:dataprotection::aws:data-identifier/EmailAddress&#34;,
-     *                         &#34;arn:aws:dataprotection::aws:data-identifier/DriversLicense-US&#34;)
-     *                     .operation(GetLogDataProtectionPolicyDocumentStatementOperationArgs.builder()
-     *                         .deidentify(GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyArgs.builder()
-     *                             .maskConfig()
-     *                             .build())
-     *                         .build())
-     *                     .build())
-     *             .build());
-     * 
-     *         var exampleLogDataProtectionPolicy = new LogDataProtectionPolicy(&#34;exampleLogDataProtectionPolicy&#34;, LogDataProtectionPolicyArgs.builder()        
-     *             .logGroupName(aws_cloudwatch_log_group.example().name())
-     *             .policyDocument(exampleLogDataProtectionPolicyDocument.applyValue(getLogDataProtectionPolicyDocumentResult -&gt; getLogDataProtectionPolicyDocumentResult.json()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetLogDataProtectionPolicyDocumentResult> getLogDataProtectionPolicyDocumentPlain(GetLogDataProtectionPolicyDocumentPlainArgs args) {
@@ -738,76 +178,6 @@ public final class CloudwatchFunctions {
      * 
      * &gt; For more information about data protection policies, see the [Help protect sensitive log data with masking](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/mask-sensitive-log-data.html).
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.cloudwatch.CloudwatchFunctions;
-     * import com.pulumi.aws.cloudwatch.inputs.GetLogDataProtectionPolicyDocumentArgs;
-     * import com.pulumi.aws.cloudwatch.LogDataProtectionPolicy;
-     * import com.pulumi.aws.cloudwatch.LogDataProtectionPolicyArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var exampleLogDataProtectionPolicyDocument = CloudwatchFunctions.getLogDataProtectionPolicyDocument(GetLogDataProtectionPolicyDocumentArgs.builder()
-     *             .name(&#34;Example&#34;)
-     *             .statements(            
-     *                 GetLogDataProtectionPolicyDocumentStatementArgs.builder()
-     *                     .sid(&#34;Audit&#34;)
-     *                     .dataIdentifiers(                    
-     *                         &#34;arn:aws:dataprotection::aws:data-identifier/EmailAddress&#34;,
-     *                         &#34;arn:aws:dataprotection::aws:data-identifier/DriversLicense-US&#34;)
-     *                     .operation(GetLogDataProtectionPolicyDocumentStatementOperationArgs.builder()
-     *                         .audit(GetLogDataProtectionPolicyDocumentStatementOperationAuditArgs.builder()
-     *                             .findingsDestination(GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationArgs.builder()
-     *                                 .cloudwatchLogs(GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsArgs.builder()
-     *                                     .logGroup(aws_cloudwatch_log_group.audit().name())
-     *                                     .build())
-     *                                 .firehose(GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehoseArgs.builder()
-     *                                     .deliveryStream(aws_kinesis_firehose_delivery_stream.audit().name())
-     *                                     .build())
-     *                                 .s3(GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3Args.builder()
-     *                                     .bucket(aws_s3_bucket.audit().bucket())
-     *                                     .build())
-     *                                 .build())
-     *                             .build())
-     *                         .build())
-     *                     .build(),
-     *                 GetLogDataProtectionPolicyDocumentStatementArgs.builder()
-     *                     .sid(&#34;Deidentify&#34;)
-     *                     .dataIdentifiers(                    
-     *                         &#34;arn:aws:dataprotection::aws:data-identifier/EmailAddress&#34;,
-     *                         &#34;arn:aws:dataprotection::aws:data-identifier/DriversLicense-US&#34;)
-     *                     .operation(GetLogDataProtectionPolicyDocumentStatementOperationArgs.builder()
-     *                         .deidentify(GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyArgs.builder()
-     *                             .maskConfig()
-     *                             .build())
-     *                         .build())
-     *                     .build())
-     *             .build());
-     * 
-     *         var exampleLogDataProtectionPolicy = new LogDataProtectionPolicy(&#34;exampleLogDataProtectionPolicy&#34;, LogDataProtectionPolicyArgs.builder()        
-     *             .logGroupName(aws_cloudwatch_log_group.example().name())
-     *             .policyDocument(exampleLogDataProtectionPolicyDocument.applyValue(getLogDataProtectionPolicyDocumentResult -&gt; getLogDataProtectionPolicyDocumentResult.json()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetLogDataProtectionPolicyDocumentResult> getLogDataProtectionPolicyDocument(GetLogDataProtectionPolicyDocumentArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:cloudwatch/getLogDataProtectionPolicyDocument:getLogDataProtectionPolicyDocument", TypeShape.of(GetLogDataProtectionPolicyDocumentResult.class), args, Utilities.withVersion(options));
@@ -817,112 +187,12 @@ public final class CloudwatchFunctions {
      * 
      * &gt; For more information about data protection policies, see the [Help protect sensitive log data with masking](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/mask-sensitive-log-data.html).
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.cloudwatch.CloudwatchFunctions;
-     * import com.pulumi.aws.cloudwatch.inputs.GetLogDataProtectionPolicyDocumentArgs;
-     * import com.pulumi.aws.cloudwatch.LogDataProtectionPolicy;
-     * import com.pulumi.aws.cloudwatch.LogDataProtectionPolicyArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var exampleLogDataProtectionPolicyDocument = CloudwatchFunctions.getLogDataProtectionPolicyDocument(GetLogDataProtectionPolicyDocumentArgs.builder()
-     *             .name(&#34;Example&#34;)
-     *             .statements(            
-     *                 GetLogDataProtectionPolicyDocumentStatementArgs.builder()
-     *                     .sid(&#34;Audit&#34;)
-     *                     .dataIdentifiers(                    
-     *                         &#34;arn:aws:dataprotection::aws:data-identifier/EmailAddress&#34;,
-     *                         &#34;arn:aws:dataprotection::aws:data-identifier/DriversLicense-US&#34;)
-     *                     .operation(GetLogDataProtectionPolicyDocumentStatementOperationArgs.builder()
-     *                         .audit(GetLogDataProtectionPolicyDocumentStatementOperationAuditArgs.builder()
-     *                             .findingsDestination(GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationArgs.builder()
-     *                                 .cloudwatchLogs(GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsArgs.builder()
-     *                                     .logGroup(aws_cloudwatch_log_group.audit().name())
-     *                                     .build())
-     *                                 .firehose(GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehoseArgs.builder()
-     *                                     .deliveryStream(aws_kinesis_firehose_delivery_stream.audit().name())
-     *                                     .build())
-     *                                 .s3(GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3Args.builder()
-     *                                     .bucket(aws_s3_bucket.audit().bucket())
-     *                                     .build())
-     *                                 .build())
-     *                             .build())
-     *                         .build())
-     *                     .build(),
-     *                 GetLogDataProtectionPolicyDocumentStatementArgs.builder()
-     *                     .sid(&#34;Deidentify&#34;)
-     *                     .dataIdentifiers(                    
-     *                         &#34;arn:aws:dataprotection::aws:data-identifier/EmailAddress&#34;,
-     *                         &#34;arn:aws:dataprotection::aws:data-identifier/DriversLicense-US&#34;)
-     *                     .operation(GetLogDataProtectionPolicyDocumentStatementOperationArgs.builder()
-     *                         .deidentify(GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyArgs.builder()
-     *                             .maskConfig()
-     *                             .build())
-     *                         .build())
-     *                     .build())
-     *             .build());
-     * 
-     *         var exampleLogDataProtectionPolicy = new LogDataProtectionPolicy(&#34;exampleLogDataProtectionPolicy&#34;, LogDataProtectionPolicyArgs.builder()        
-     *             .logGroupName(aws_cloudwatch_log_group.example().name())
-     *             .policyDocument(exampleLogDataProtectionPolicyDocument.applyValue(getLogDataProtectionPolicyDocumentResult -&gt; getLogDataProtectionPolicyDocumentResult.json()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static CompletableFuture<GetLogDataProtectionPolicyDocumentResult> getLogDataProtectionPolicyDocumentPlain(GetLogDataProtectionPolicyDocumentPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:cloudwatch/getLogDataProtectionPolicyDocument:getLogDataProtectionPolicyDocument", TypeShape.of(GetLogDataProtectionPolicyDocumentResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to get information about an AWS Cloudwatch Log Group
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.cloudwatch.CloudwatchFunctions;
-     * import com.pulumi.aws.cloudwatch.inputs.GetLogGroupArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = CloudwatchFunctions.getLogGroup(GetLogGroupArgs.builder()
-     *             .name(&#34;MyImportantLogs&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetLogGroupResult> getLogGroup(GetLogGroupArgs args) {
@@ -931,72 +201,12 @@ public final class CloudwatchFunctions {
     /**
      * Use this data source to get information about an AWS Cloudwatch Log Group
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.cloudwatch.CloudwatchFunctions;
-     * import com.pulumi.aws.cloudwatch.inputs.GetLogGroupArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = CloudwatchFunctions.getLogGroup(GetLogGroupArgs.builder()
-     *             .name(&#34;MyImportantLogs&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static CompletableFuture<GetLogGroupResult> getLogGroupPlain(GetLogGroupPlainArgs args) {
         return getLogGroupPlain(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to get information about an AWS Cloudwatch Log Group
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.cloudwatch.CloudwatchFunctions;
-     * import com.pulumi.aws.cloudwatch.inputs.GetLogGroupArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = CloudwatchFunctions.getLogGroup(GetLogGroupArgs.builder()
-     *             .name(&#34;MyImportantLogs&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetLogGroupResult> getLogGroup(GetLogGroupArgs args, InvokeOptions options) {
@@ -1005,72 +215,12 @@ public final class CloudwatchFunctions {
     /**
      * Use this data source to get information about an AWS Cloudwatch Log Group
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.cloudwatch.CloudwatchFunctions;
-     * import com.pulumi.aws.cloudwatch.inputs.GetLogGroupArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = CloudwatchFunctions.getLogGroup(GetLogGroupArgs.builder()
-     *             .name(&#34;MyImportantLogs&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static CompletableFuture<GetLogGroupResult> getLogGroupPlain(GetLogGroupPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:cloudwatch/getLogGroup:getLogGroup", TypeShape.of(GetLogGroupResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to get a list of AWS Cloudwatch Log Groups
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.cloudwatch.CloudwatchFunctions;
-     * import com.pulumi.aws.cloudwatch.inputs.GetLogGroupsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = CloudwatchFunctions.getLogGroups(GetLogGroupsArgs.builder()
-     *             .logGroupNamePrefix(&#34;/MyImportantLogs&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetLogGroupsResult> getLogGroups() {
@@ -1079,72 +229,12 @@ public final class CloudwatchFunctions {
     /**
      * Use this data source to get a list of AWS Cloudwatch Log Groups
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.cloudwatch.CloudwatchFunctions;
-     * import com.pulumi.aws.cloudwatch.inputs.GetLogGroupsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = CloudwatchFunctions.getLogGroups(GetLogGroupsArgs.builder()
-     *             .logGroupNamePrefix(&#34;/MyImportantLogs&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static CompletableFuture<GetLogGroupsResult> getLogGroupsPlain() {
         return getLogGroupsPlain(GetLogGroupsPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * Use this data source to get a list of AWS Cloudwatch Log Groups
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.cloudwatch.CloudwatchFunctions;
-     * import com.pulumi.aws.cloudwatch.inputs.GetLogGroupsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = CloudwatchFunctions.getLogGroups(GetLogGroupsArgs.builder()
-     *             .logGroupNamePrefix(&#34;/MyImportantLogs&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetLogGroupsResult> getLogGroups(GetLogGroupsArgs args) {
@@ -1153,36 +243,6 @@ public final class CloudwatchFunctions {
     /**
      * Use this data source to get a list of AWS Cloudwatch Log Groups
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.cloudwatch.CloudwatchFunctions;
-     * import com.pulumi.aws.cloudwatch.inputs.GetLogGroupsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = CloudwatchFunctions.getLogGroups(GetLogGroupsArgs.builder()
-     *             .logGroupNamePrefix(&#34;/MyImportantLogs&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static CompletableFuture<GetLogGroupsResult> getLogGroupsPlain(GetLogGroupsPlainArgs args) {
         return getLogGroupsPlain(args, InvokeOptions.Empty);
@@ -1190,72 +250,12 @@ public final class CloudwatchFunctions {
     /**
      * Use this data source to get a list of AWS Cloudwatch Log Groups
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.cloudwatch.CloudwatchFunctions;
-     * import com.pulumi.aws.cloudwatch.inputs.GetLogGroupsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = CloudwatchFunctions.getLogGroups(GetLogGroupsArgs.builder()
-     *             .logGroupNamePrefix(&#34;/MyImportantLogs&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetLogGroupsResult> getLogGroups(GetLogGroupsArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:cloudwatch/getLogGroups:getLogGroups", TypeShape.of(GetLogGroupsResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to get a list of AWS Cloudwatch Log Groups
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.cloudwatch.CloudwatchFunctions;
-     * import com.pulumi.aws.cloudwatch.inputs.GetLogGroupsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = CloudwatchFunctions.getLogGroups(GetLogGroupsArgs.builder()
-     *             .logGroupNamePrefix(&#34;/MyImportantLogs&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetLogGroupsResult> getLogGroupsPlain(GetLogGroupsPlainArgs args, InvokeOptions options) {

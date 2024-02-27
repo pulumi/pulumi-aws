@@ -22,12 +22,12 @@ namespace Pulumi.Aws.S3
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.S3.DirectoryBucket("example", new()
+    ///     var example = new Aws.S3.DirectoryBucket.DirectoryBucket("example", new()
     ///     {
     ///         Bucket = "example--usw2-az1--x-s3",
-    ///         Location = new Aws.S3.Inputs.DirectoryBucketLocationArgs
+    ///         Location = 
     ///         {
-    ///             Name = "usw2-az1",
+    ///             { "name", "usw2-az1" },
     ///         },
     ///     });
     /// 

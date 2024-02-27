@@ -14,11 +14,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = new aws.lb.TrustStore("test", {
+ * const test = new aws.lb/trustStore.TrustStore("test", {
  *     caCertificatesBundleS3Bucket: "...",
  *     caCertificatesBundleS3Key: "...",
  * });
- * const example = new aws.lb.Listener("example", {
+ * const example = new aws.lb/listener.Listener("example", {
  *     loadBalancerArn: aws_lb.example.id,
  *     defaultActions: [{
  *         targetGroupArn: aws_lb_target_group.example.id,

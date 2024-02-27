@@ -9,15 +9,6 @@ import * as utilities from "../utilities";
 
 /**
  * Provides details about multiple EC2 Local Gateway Virtual Interface Groups, such as identifiers. More information can be found in the [Outposts User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#routing).
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const all = aws.ec2.getLocalGatewayVirtualInterfaceGroups({});
- * ```
  */
 export function getLocalGatewayVirtualInterfaceGroups(args?: GetLocalGatewayVirtualInterfaceGroupsArgs, opts?: pulumi.InvokeOptions): Promise<GetLocalGatewayVirtualInterfaceGroupsResult> {
     args = args || {};
@@ -64,15 +55,6 @@ export interface GetLocalGatewayVirtualInterfaceGroupsResult {
 }
 /**
  * Provides details about multiple EC2 Local Gateway Virtual Interface Groups, such as identifiers. More information can be found in the [Outposts User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#routing).
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const all = aws.ec2.getLocalGatewayVirtualInterfaceGroups({});
- * ```
  */
 export function getLocalGatewayVirtualInterfaceGroupsOutput(args?: GetLocalGatewayVirtualInterfaceGroupsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalGatewayVirtualInterfaceGroupsResult> {
     return pulumi.output(args).apply((a: any) => getLocalGatewayVirtualInterfaceGroups(a, opts))

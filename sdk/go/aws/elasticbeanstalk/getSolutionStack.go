@@ -12,33 +12,6 @@ import (
 )
 
 // Use this data source to get the name of a elastic beanstalk solution stack.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/elasticbeanstalk"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := elasticbeanstalk.GetSolutionStack(ctx, &elasticbeanstalk.GetSolutionStackArgs{
-//				MostRecent: pulumi.BoolRef(true),
-//				NameRegex:  "^64bit Amazon Linux (.*) Multi-container Docker (.*)$",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetSolutionStack(ctx *pulumi.Context, args *GetSolutionStackArgs, opts ...pulumi.InvokeOption) (*GetSolutionStackResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetSolutionStackResult

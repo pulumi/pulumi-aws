@@ -35,12 +35,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.cfg.Rule;
  * import com.pulumi.aws.cfg.RuleArgs;
- * import com.pulumi.aws.cfg.inputs.RuleSourceArgs;
  * import com.pulumi.aws.cfg.RemediationConfiguration;
  * import com.pulumi.aws.cfg.RemediationConfigurationArgs;
- * import com.pulumi.aws.cfg.inputs.RemediationConfigurationParameterArgs;
- * import com.pulumi.aws.cfg.inputs.RemediationConfigurationExecutionControlsArgs;
- * import com.pulumi.aws.cfg.inputs.RemediationConfigurationExecutionControlsSsmControlsArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -55,10 +51,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var thisRule = new Rule(&#34;thisRule&#34;, RuleArgs.builder()        
- *             .source(RuleSourceArgs.builder()
- *                 .owner(&#34;AWS&#34;)
- *                 .sourceIdentifier(&#34;S3_BUCKET_VERSIONING_ENABLED&#34;)
- *                 .build())
+ *             .source(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var thisRemediationConfiguration = new RemediationConfiguration(&#34;thisRemediationConfiguration&#34;, RemediationConfigurationArgs.builder()        
@@ -68,27 +61,13 @@ import javax.annotation.Nullable;
  *             .targetId(&#34;AWS-EnableS3BucketEncryption&#34;)
  *             .targetVersion(&#34;1&#34;)
  *             .parameters(            
- *                 RemediationConfigurationParameterArgs.builder()
- *                     .name(&#34;AutomationAssumeRole&#34;)
- *                     .staticValue(&#34;arn:aws:iam::875924563244:role/security_config&#34;)
- *                     .build(),
- *                 RemediationConfigurationParameterArgs.builder()
- *                     .name(&#34;BucketName&#34;)
- *                     .resourceValue(&#34;RESOURCE_ID&#34;)
- *                     .build(),
- *                 RemediationConfigurationParameterArgs.builder()
- *                     .name(&#34;SSEAlgorithm&#34;)
- *                     .staticValue(&#34;AES256&#34;)
- *                     .build())
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .automatic(true)
  *             .maximumAutomaticAttempts(10)
  *             .retryAttemptSeconds(600)
- *             .executionControls(RemediationConfigurationExecutionControlsArgs.builder()
- *                 .ssmControls(RemediationConfigurationExecutionControlsSsmControlsArgs.builder()
- *                     .concurrentExecutionRatePercentage(25)
- *                     .errorPercentage(20)
- *                     .build())
- *                 .build())
+ *             .executionControls(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

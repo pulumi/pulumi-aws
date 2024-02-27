@@ -31,134 +31,46 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	ec2/peeringConnectionOptions "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/peeringConnectionOptions"
+//	ec2/vpc "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/vpc"
+//	ec2/vpcPeeringConnection "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/vpcPeeringConnection"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			fooVpc, err := ec2.NewVpc(ctx, "fooVpc", &ec2.VpcArgs{
-//				CidrBlock: pulumi.String("10.0.0.0/16"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			bar, err := ec2.NewVpc(ctx, "bar", &ec2.VpcArgs{
-//				CidrBlock: pulumi.String("10.1.0.0/16"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			fooVpcPeeringConnection, err := ec2.NewVpcPeeringConnection(ctx, "fooVpcPeeringConnection", &ec2.VpcPeeringConnectionArgs{
-//				VpcId:      fooVpc.ID(),
-//				PeerVpcId:  bar.ID(),
-//				AutoAccept: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ec2.NewPeeringConnectionOptions(ctx, "fooPeeringConnectionOptions", &ec2.PeeringConnectionOptionsArgs{
-//				VpcPeeringConnectionId: fooVpcPeeringConnection.ID(),
-//				Accepter: &ec2.PeeringConnectionOptionsAccepterArgs{
-//					AllowRemoteVpcDnsResolution: pulumi.Bool(true),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// ### Cross-Account Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := aws.NewProvider(ctx, "requester", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = aws.NewProvider(ctx, "accepter", nil)
-//			if err != nil {
-//				return err
-//			}
-//			main, err := ec2.NewVpc(ctx, "main", &ec2.VpcArgs{
-//				CidrBlock:          pulumi.String("10.0.0.0/16"),
-//				EnableDnsSupport:   pulumi.Bool(true),
-//				EnableDnsHostnames: pulumi.Bool(true),
-//			}, pulumi.Provider(aws.Requester))
-//			if err != nil {
-//				return err
-//			}
-//			peerVpc, err := ec2.NewVpc(ctx, "peerVpc", &ec2.VpcArgs{
-//				CidrBlock:          pulumi.String("10.1.0.0/16"),
-//				EnableDnsSupport:   pulumi.Bool(true),
-//				EnableDnsHostnames: pulumi.Bool(true),
-//			}, pulumi.Provider(aws.Accepter))
-//			if err != nil {
-//				return err
-//			}
-//			peerCallerIdentity, err := aws.GetCallerIdentity(ctx, nil, nil)
-//			if err != nil {
-//				return err
-//			}
-//			peerVpcPeeringConnection, err := ec2.NewVpcPeeringConnection(ctx, "peerVpcPeeringConnection", &ec2.VpcPeeringConnectionArgs{
-//				VpcId:       main.ID(),
-//				PeerVpcId:   peerVpc.ID(),
-//				PeerOwnerId: *pulumi.String(peerCallerIdentity.AccountId),
-//				AutoAccept:  pulumi.Bool(false),
-//				Tags: pulumi.StringMap{
-//					"Side": pulumi.String("Requester"),
-//				},
-//			}, pulumi.Provider(aws.Requester))
-//			if err != nil {
-//				return err
-//			}
-//			peerVpcPeeringConnectionAccepter, err := ec2.NewVpcPeeringConnectionAccepter(ctx, "peerVpcPeeringConnectionAccepter", &ec2.VpcPeeringConnectionAccepterArgs{
-//				VpcPeeringConnectionId: peerVpcPeeringConnection.ID(),
-//				AutoAccept:             pulumi.Bool(true),
-//				Tags: pulumi.StringMap{
-//					"Side": pulumi.String("Accepter"),
-//				},
-//			}, pulumi.Provider(aws.Accepter))
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ec2.NewPeeringConnectionOptions(ctx, "requesterPeeringConnectionOptions", &ec2.PeeringConnectionOptionsArgs{
-//				VpcPeeringConnectionId: peerVpcPeeringConnectionAccepter.ID(),
-//				Requester: &ec2.PeeringConnectionOptionsRequesterArgs{
-//					AllowRemoteVpcDnsResolution: pulumi.Bool(true),
-//				},
-//			}, pulumi.Provider(aws.Requester))
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ec2.NewPeeringConnectionOptions(ctx, "accepterPeeringConnectionOptions", &ec2.PeeringConnectionOptionsArgs{
-//				VpcPeeringConnectionId: peerVpcPeeringConnectionAccepter.ID(),
-//				Accepter: &ec2.PeeringConnectionOptionsAccepterArgs{
-//					AllowRemoteVpcDnsResolution: pulumi.Bool(true),
-//				},
-//			}, pulumi.Provider(aws.Accepter))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// fooVpc, err := ec2/vpc.NewVpc(ctx, "fooVpc", &ec2/vpc.VpcArgs{
+// CidrBlock: "10.0.0.0/16",
+// })
+// if err != nil {
+// return err
+// }
+// bar, err := ec2/vpc.NewVpc(ctx, "bar", &ec2/vpc.VpcArgs{
+// CidrBlock: "10.1.0.0/16",
+// })
+// if err != nil {
+// return err
+// }
+// fooVpcPeeringConnection, err := ec2/vpcPeeringConnection.NewVpcPeeringConnection(ctx, "fooVpcPeeringConnection", &ec2/vpcPeeringConnection.VpcPeeringConnectionArgs{
+// VpcId: fooVpc.Id,
+// PeerVpcId: bar.Id,
+// AutoAccept: true,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = ec2/peeringConnectionOptions.NewPeeringConnectionOptions(ctx, "fooPeeringConnectionOptions", &ec2/peeringConnectionOptions.PeeringConnectionOptionsArgs{
+// VpcPeeringConnectionId: fooVpcPeeringConnection.Id,
+// Accepter: map[string]interface{}{
+// "allowRemoteVpcDnsResolution": true,
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

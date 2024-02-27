@@ -31,28 +31,26 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	ec2/amiCopy "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/amiCopy"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.NewAmiCopy(ctx, "example", &ec2.AmiCopyArgs{
-//				Description:     pulumi.String("A copy of ami-xxxxxxxx"),
-//				SourceAmiId:     pulumi.String("ami-xxxxxxxx"),
-//				SourceAmiRegion: pulumi.String("us-west-1"),
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("HelloWorld"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := ec2/amiCopy.NewAmiCopy(ctx, "example", &ec2/amiCopy.AmiCopyArgs{
+// Description: "A copy of ami-xxxxxxxx",
+// SourceAmiId: "ami-xxxxxxxx",
+// SourceAmiRegion: "us-west-1",
+// Tags: map[string]interface{}{
+// "Name": "HelloWorld",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 type AmiCopy struct {
 	pulumi.CustomResourceState

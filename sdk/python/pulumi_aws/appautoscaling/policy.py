@@ -305,23 +305,23 @@ class Policy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        dynamodb_table_read_target = aws.appautoscaling.Target("dynamodbTableReadTarget",
+        dynamodb_table_read_target = aws.appautoscaling.target.Target("dynamodbTableReadTarget",
             max_capacity=100,
             min_capacity=5,
-            resource_id="table/tableName",
-            scalable_dimension="dynamodb:table:ReadCapacityUnits",
-            service_namespace="dynamodb")
-        dynamodb_table_read_policy = aws.appautoscaling.Policy("dynamodbTableReadPolicy",
-            policy_type="TargetTrackingScaling",
+            resource_id=table/tableName,
+            scalable_dimension=dynamodb:table:ReadCapacityUnits,
+            service_namespace=dynamodb)
+        dynamodb_table_read_policy = aws.appautoscaling.policy.Policy("dynamodbTableReadPolicy",
+            policy_type=TargetTrackingScaling,
             resource_id=dynamodb_table_read_target.resource_id,
             scalable_dimension=dynamodb_table_read_target.scalable_dimension,
             service_namespace=dynamodb_table_read_target.service_namespace,
-            target_tracking_scaling_policy_configuration=aws.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationArgs(
-                predefined_metric_specification=aws.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificationArgs(
-                    predefined_metric_type="DynamoDBReadCapacityUtilization",
-                ),
-                target_value=70,
-            ))
+            target_tracking_scaling_policy_configuration={
+                predefinedMetricSpecification: {
+                    predefinedMetricType: DynamoDBReadCapacityUtilization,
+                },
+                targetValue: 70,
+            })
         ```
         ### ECS Service Autoscaling
 
@@ -329,26 +329,26 @@ class Policy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        ecs_target = aws.appautoscaling.Target("ecsTarget",
+        ecs_target = aws.appautoscaling.target.Target("ecsTarget",
             max_capacity=4,
             min_capacity=1,
-            resource_id="service/clusterName/serviceName",
-            scalable_dimension="ecs:service:DesiredCount",
-            service_namespace="ecs")
-        ecs_policy = aws.appautoscaling.Policy("ecsPolicy",
-            policy_type="StepScaling",
+            resource_id=service/clusterName/serviceName,
+            scalable_dimension=ecs:service:DesiredCount,
+            service_namespace=ecs)
+        ecs_policy = aws.appautoscaling.policy.Policy("ecsPolicy",
+            policy_type=StepScaling,
             resource_id=ecs_target.resource_id,
             scalable_dimension=ecs_target.scalable_dimension,
             service_namespace=ecs_target.service_namespace,
-            step_scaling_policy_configuration=aws.appautoscaling.PolicyStepScalingPolicyConfigurationArgs(
-                adjustment_type="ChangeInCapacity",
-                cooldown=60,
-                metric_aggregation_type="Maximum",
-                step_adjustments=[aws.appautoscaling.PolicyStepScalingPolicyConfigurationStepAdjustmentArgs(
-                    metric_interval_upper_bound="0",
-                    scaling_adjustment=-1,
-                )],
-            ))
+            step_scaling_policy_configuration={
+                adjustmentType: ChangeInCapacity,
+                cooldown: 60,
+                metricAggregationType: Maximum,
+                stepAdjustments: [{
+                    metricIntervalUpperBound: 0,
+                    scalingAdjustment: -1,
+                }],
+            })
         ```
         ### Preserve desired count when updating an autoscaled ECS Service
 
@@ -356,9 +356,9 @@ class Policy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        ecs_service = aws.ecs.Service("ecsService",
-            cluster="clusterName",
-            task_definition="taskDefinitionFamily:1",
+        ecs_service = aws.ecs.service.Service("ecsService",
+            cluster=clusterName,
+            task_definition=taskDefinitionFamily:1,
             desired_count=2)
         ```
         ### Aurora Read Replica Autoscaling
@@ -367,25 +367,25 @@ class Policy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        replicas_target = aws.appautoscaling.Target("replicasTarget",
-            service_namespace="rds",
-            scalable_dimension="rds:cluster:ReadReplicaCount",
-            resource_id=f"cluster:{aws_rds_cluster['example']['id']}",
+        replicas_target = aws.appautoscaling.target.Target("replicasTarget",
+            service_namespace=rds,
+            scalable_dimension=rds:cluster:ReadReplicaCount,
+            resource_id=fcluster:{aws_rds_cluster.example.id},
             min_capacity=1,
             max_capacity=15)
-        replicas_policy = aws.appautoscaling.Policy("replicasPolicy",
+        replicas_policy = aws.appautoscaling.policy.Policy("replicasPolicy",
             service_namespace=replicas_target.service_namespace,
             scalable_dimension=replicas_target.scalable_dimension,
             resource_id=replicas_target.resource_id,
-            policy_type="TargetTrackingScaling",
-            target_tracking_scaling_policy_configuration=aws.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationArgs(
-                predefined_metric_specification=aws.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificationArgs(
-                    predefined_metric_type="RDSReaderAverageCPUUtilization",
-                ),
-                target_value=75,
-                scale_in_cooldown=300,
-                scale_out_cooldown=300,
-            ))
+            policy_type=TargetTrackingScaling,
+            target_tracking_scaling_policy_configuration={
+                predefinedMetricSpecification: {
+                    predefinedMetricType: RDSReaderAverageCPUUtilization,
+                },
+                targetValue: 75,
+                scaleInCooldown: 300,
+                scaleOutCooldown: 300,
+            })
         ```
         ### Create target tracking scaling policy using metric math
 
@@ -393,68 +393,68 @@ class Policy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        ecs_target = aws.appautoscaling.Target("ecsTarget",
+        ecs_target = aws.appautoscaling.target.Target("ecsTarget",
             max_capacity=4,
             min_capacity=1,
-            resource_id="service/clusterName/serviceName",
-            scalable_dimension="ecs:service:DesiredCount",
-            service_namespace="ecs")
-        example = aws.appautoscaling.Policy("example",
-            policy_type="TargetTrackingScaling",
+            resource_id=service/clusterName/serviceName,
+            scalable_dimension=ecs:service:DesiredCount,
+            service_namespace=ecs)
+        example = aws.appautoscaling.policy.Policy("example",
+            policy_type=TargetTrackingScaling,
             resource_id=ecs_target.resource_id,
             scalable_dimension=ecs_target.scalable_dimension,
             service_namespace=ecs_target.service_namespace,
-            target_tracking_scaling_policy_configuration=aws.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationArgs(
-                target_value=100,
-                customized_metric_specification=aws.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationArgs(
-                    metrics=[
-                        aws.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricArgs(
-                            label="Get the queue size (the number of messages waiting to be processed)",
-                            id="m1",
-                            metric_stat=aws.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatArgs(
-                                metric=aws.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricArgs(
-                                    metric_name="ApproximateNumberOfMessagesVisible",
-                                    namespace="AWS/SQS",
-                                    dimensions=[aws.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionArgs(
-                                        name="QueueName",
-                                        value="my-queue",
-                                    )],
-                                ),
-                                stat="Sum",
-                            ),
-                            return_data=False,
-                        ),
-                        aws.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricArgs(
-                            label="Get the ECS running task count (the number of currently running tasks)",
-                            id="m2",
-                            metric_stat=aws.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatArgs(
-                                metric=aws.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricArgs(
-                                    metric_name="RunningTaskCount",
-                                    namespace="ECS/ContainerInsights",
-                                    dimensions=[
-                                        aws.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionArgs(
-                                            name="ClusterName",
-                                            value="default",
-                                        ),
-                                        aws.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionArgs(
-                                            name="ServiceName",
-                                            value="web-app",
-                                        ),
+            target_tracking_scaling_policy_configuration={
+                targetValue: 100,
+                customizedMetricSpecification: {
+                    metrics: [
+                        {
+                            label: Get the queue size (the number of messages waiting to be processed),
+                            id: m1,
+                            metricStat: {
+                                metric: {
+                                    metricName: ApproximateNumberOfMessagesVisible,
+                                    namespace: AWS/SQS,
+                                    dimensions: [{
+                                        name: QueueName,
+                                        value: my-queue,
+                                    }],
+                                },
+                                stat: Sum,
+                            },
+                            returnData: False,
+                        },
+                        {
+                            label: Get the ECS running task count (the number of currently running tasks),
+                            id: m2,
+                            metricStat: {
+                                metric: {
+                                    metricName: RunningTaskCount,
+                                    namespace: ECS/ContainerInsights,
+                                    dimensions: [
+                                        {
+                                            name: ClusterName,
+                                            value: default,
+                                        },
+                                        {
+                                            name: ServiceName,
+                                            value: web-app,
+                                        },
                                     ],
-                                ),
-                                stat="Average",
-                            ),
-                            return_data=False,
-                        ),
-                        aws.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricArgs(
-                            label="Calculate the backlog per instance",
-                            id="e1",
-                            expression="m1 / m2",
-                            return_data=True,
-                        ),
+                                },
+                                stat: Average,
+                            },
+                            returnData: False,
+                        },
+                        {
+                            label: Calculate the backlog per instance,
+                            id: e1,
+                            expression: m1 / m2,
+                            returnData: True,
+                        },
                     ],
-                ),
-            ))
+                },
+            })
         ```
         ### MSK / Kafka Autoscaling
 
@@ -462,23 +462,23 @@ class Policy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        msk_target = aws.appautoscaling.Target("mskTarget",
-            service_namespace="kafka",
-            scalable_dimension="kafka:broker-storage:VolumeSize",
-            resource_id=aws_msk_cluster["example"]["arn"],
+        msk_target = aws.appautoscaling.target.Target("mskTarget",
+            service_namespace=kafka,
+            scalable_dimension=kafka:broker-storage:VolumeSize,
+            resource_id=aws_msk_cluster.example.arn,
             min_capacity=1,
             max_capacity=8)
-        targets = aws.appautoscaling.Policy("targets",
+        targets = aws.appautoscaling.policy.Policy("targets",
             service_namespace=msk_target.service_namespace,
             scalable_dimension=msk_target.scalable_dimension,
             resource_id=msk_target.resource_id,
-            policy_type="TargetTrackingScaling",
-            target_tracking_scaling_policy_configuration=aws.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationArgs(
-                predefined_metric_specification=aws.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificationArgs(
-                    predefined_metric_type="KafkaBrokerStorageUtilization",
-                ),
-                target_value=55,
-            ))
+            policy_type=TargetTrackingScaling,
+            target_tracking_scaling_policy_configuration={
+                predefinedMetricSpecification: {
+                    predefinedMetricType: KafkaBrokerStorageUtilization,
+                },
+                targetValue: 55,
+            })
         ```
 
         ## Import
@@ -515,23 +515,23 @@ class Policy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        dynamodb_table_read_target = aws.appautoscaling.Target("dynamodbTableReadTarget",
+        dynamodb_table_read_target = aws.appautoscaling.target.Target("dynamodbTableReadTarget",
             max_capacity=100,
             min_capacity=5,
-            resource_id="table/tableName",
-            scalable_dimension="dynamodb:table:ReadCapacityUnits",
-            service_namespace="dynamodb")
-        dynamodb_table_read_policy = aws.appautoscaling.Policy("dynamodbTableReadPolicy",
-            policy_type="TargetTrackingScaling",
+            resource_id=table/tableName,
+            scalable_dimension=dynamodb:table:ReadCapacityUnits,
+            service_namespace=dynamodb)
+        dynamodb_table_read_policy = aws.appautoscaling.policy.Policy("dynamodbTableReadPolicy",
+            policy_type=TargetTrackingScaling,
             resource_id=dynamodb_table_read_target.resource_id,
             scalable_dimension=dynamodb_table_read_target.scalable_dimension,
             service_namespace=dynamodb_table_read_target.service_namespace,
-            target_tracking_scaling_policy_configuration=aws.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationArgs(
-                predefined_metric_specification=aws.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificationArgs(
-                    predefined_metric_type="DynamoDBReadCapacityUtilization",
-                ),
-                target_value=70,
-            ))
+            target_tracking_scaling_policy_configuration={
+                predefinedMetricSpecification: {
+                    predefinedMetricType: DynamoDBReadCapacityUtilization,
+                },
+                targetValue: 70,
+            })
         ```
         ### ECS Service Autoscaling
 
@@ -539,26 +539,26 @@ class Policy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        ecs_target = aws.appautoscaling.Target("ecsTarget",
+        ecs_target = aws.appautoscaling.target.Target("ecsTarget",
             max_capacity=4,
             min_capacity=1,
-            resource_id="service/clusterName/serviceName",
-            scalable_dimension="ecs:service:DesiredCount",
-            service_namespace="ecs")
-        ecs_policy = aws.appautoscaling.Policy("ecsPolicy",
-            policy_type="StepScaling",
+            resource_id=service/clusterName/serviceName,
+            scalable_dimension=ecs:service:DesiredCount,
+            service_namespace=ecs)
+        ecs_policy = aws.appautoscaling.policy.Policy("ecsPolicy",
+            policy_type=StepScaling,
             resource_id=ecs_target.resource_id,
             scalable_dimension=ecs_target.scalable_dimension,
             service_namespace=ecs_target.service_namespace,
-            step_scaling_policy_configuration=aws.appautoscaling.PolicyStepScalingPolicyConfigurationArgs(
-                adjustment_type="ChangeInCapacity",
-                cooldown=60,
-                metric_aggregation_type="Maximum",
-                step_adjustments=[aws.appautoscaling.PolicyStepScalingPolicyConfigurationStepAdjustmentArgs(
-                    metric_interval_upper_bound="0",
-                    scaling_adjustment=-1,
-                )],
-            ))
+            step_scaling_policy_configuration={
+                adjustmentType: ChangeInCapacity,
+                cooldown: 60,
+                metricAggregationType: Maximum,
+                stepAdjustments: [{
+                    metricIntervalUpperBound: 0,
+                    scalingAdjustment: -1,
+                }],
+            })
         ```
         ### Preserve desired count when updating an autoscaled ECS Service
 
@@ -566,9 +566,9 @@ class Policy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        ecs_service = aws.ecs.Service("ecsService",
-            cluster="clusterName",
-            task_definition="taskDefinitionFamily:1",
+        ecs_service = aws.ecs.service.Service("ecsService",
+            cluster=clusterName,
+            task_definition=taskDefinitionFamily:1,
             desired_count=2)
         ```
         ### Aurora Read Replica Autoscaling
@@ -577,25 +577,25 @@ class Policy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        replicas_target = aws.appautoscaling.Target("replicasTarget",
-            service_namespace="rds",
-            scalable_dimension="rds:cluster:ReadReplicaCount",
-            resource_id=f"cluster:{aws_rds_cluster['example']['id']}",
+        replicas_target = aws.appautoscaling.target.Target("replicasTarget",
+            service_namespace=rds,
+            scalable_dimension=rds:cluster:ReadReplicaCount,
+            resource_id=fcluster:{aws_rds_cluster.example.id},
             min_capacity=1,
             max_capacity=15)
-        replicas_policy = aws.appautoscaling.Policy("replicasPolicy",
+        replicas_policy = aws.appautoscaling.policy.Policy("replicasPolicy",
             service_namespace=replicas_target.service_namespace,
             scalable_dimension=replicas_target.scalable_dimension,
             resource_id=replicas_target.resource_id,
-            policy_type="TargetTrackingScaling",
-            target_tracking_scaling_policy_configuration=aws.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationArgs(
-                predefined_metric_specification=aws.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificationArgs(
-                    predefined_metric_type="RDSReaderAverageCPUUtilization",
-                ),
-                target_value=75,
-                scale_in_cooldown=300,
-                scale_out_cooldown=300,
-            ))
+            policy_type=TargetTrackingScaling,
+            target_tracking_scaling_policy_configuration={
+                predefinedMetricSpecification: {
+                    predefinedMetricType: RDSReaderAverageCPUUtilization,
+                },
+                targetValue: 75,
+                scaleInCooldown: 300,
+                scaleOutCooldown: 300,
+            })
         ```
         ### Create target tracking scaling policy using metric math
 
@@ -603,68 +603,68 @@ class Policy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        ecs_target = aws.appautoscaling.Target("ecsTarget",
+        ecs_target = aws.appautoscaling.target.Target("ecsTarget",
             max_capacity=4,
             min_capacity=1,
-            resource_id="service/clusterName/serviceName",
-            scalable_dimension="ecs:service:DesiredCount",
-            service_namespace="ecs")
-        example = aws.appautoscaling.Policy("example",
-            policy_type="TargetTrackingScaling",
+            resource_id=service/clusterName/serviceName,
+            scalable_dimension=ecs:service:DesiredCount,
+            service_namespace=ecs)
+        example = aws.appautoscaling.policy.Policy("example",
+            policy_type=TargetTrackingScaling,
             resource_id=ecs_target.resource_id,
             scalable_dimension=ecs_target.scalable_dimension,
             service_namespace=ecs_target.service_namespace,
-            target_tracking_scaling_policy_configuration=aws.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationArgs(
-                target_value=100,
-                customized_metric_specification=aws.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationArgs(
-                    metrics=[
-                        aws.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricArgs(
-                            label="Get the queue size (the number of messages waiting to be processed)",
-                            id="m1",
-                            metric_stat=aws.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatArgs(
-                                metric=aws.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricArgs(
-                                    metric_name="ApproximateNumberOfMessagesVisible",
-                                    namespace="AWS/SQS",
-                                    dimensions=[aws.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionArgs(
-                                        name="QueueName",
-                                        value="my-queue",
-                                    )],
-                                ),
-                                stat="Sum",
-                            ),
-                            return_data=False,
-                        ),
-                        aws.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricArgs(
-                            label="Get the ECS running task count (the number of currently running tasks)",
-                            id="m2",
-                            metric_stat=aws.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatArgs(
-                                metric=aws.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricArgs(
-                                    metric_name="RunningTaskCount",
-                                    namespace="ECS/ContainerInsights",
-                                    dimensions=[
-                                        aws.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionArgs(
-                                            name="ClusterName",
-                                            value="default",
-                                        ),
-                                        aws.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionArgs(
-                                            name="ServiceName",
-                                            value="web-app",
-                                        ),
+            target_tracking_scaling_policy_configuration={
+                targetValue: 100,
+                customizedMetricSpecification: {
+                    metrics: [
+                        {
+                            label: Get the queue size (the number of messages waiting to be processed),
+                            id: m1,
+                            metricStat: {
+                                metric: {
+                                    metricName: ApproximateNumberOfMessagesVisible,
+                                    namespace: AWS/SQS,
+                                    dimensions: [{
+                                        name: QueueName,
+                                        value: my-queue,
+                                    }],
+                                },
+                                stat: Sum,
+                            },
+                            returnData: False,
+                        },
+                        {
+                            label: Get the ECS running task count (the number of currently running tasks),
+                            id: m2,
+                            metricStat: {
+                                metric: {
+                                    metricName: RunningTaskCount,
+                                    namespace: ECS/ContainerInsights,
+                                    dimensions: [
+                                        {
+                                            name: ClusterName,
+                                            value: default,
+                                        },
+                                        {
+                                            name: ServiceName,
+                                            value: web-app,
+                                        },
                                     ],
-                                ),
-                                stat="Average",
-                            ),
-                            return_data=False,
-                        ),
-                        aws.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricArgs(
-                            label="Calculate the backlog per instance",
-                            id="e1",
-                            expression="m1 / m2",
-                            return_data=True,
-                        ),
+                                },
+                                stat: Average,
+                            },
+                            returnData: False,
+                        },
+                        {
+                            label: Calculate the backlog per instance,
+                            id: e1,
+                            expression: m1 / m2,
+                            returnData: True,
+                        },
                     ],
-                ),
-            ))
+                },
+            })
         ```
         ### MSK / Kafka Autoscaling
 
@@ -672,23 +672,23 @@ class Policy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        msk_target = aws.appautoscaling.Target("mskTarget",
-            service_namespace="kafka",
-            scalable_dimension="kafka:broker-storage:VolumeSize",
-            resource_id=aws_msk_cluster["example"]["arn"],
+        msk_target = aws.appautoscaling.target.Target("mskTarget",
+            service_namespace=kafka,
+            scalable_dimension=kafka:broker-storage:VolumeSize,
+            resource_id=aws_msk_cluster.example.arn,
             min_capacity=1,
             max_capacity=8)
-        targets = aws.appautoscaling.Policy("targets",
+        targets = aws.appautoscaling.policy.Policy("targets",
             service_namespace=msk_target.service_namespace,
             scalable_dimension=msk_target.scalable_dimension,
             resource_id=msk_target.resource_id,
-            policy_type="TargetTrackingScaling",
-            target_tracking_scaling_policy_configuration=aws.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationArgs(
-                predefined_metric_specification=aws.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificationArgs(
-                    predefined_metric_type="KafkaBrokerStorageUtilization",
-                ),
-                target_value=55,
-            ))
+            policy_type=TargetTrackingScaling,
+            target_tracking_scaling_policy_configuration={
+                predefinedMetricSpecification: {
+                    predefinedMetricType: KafkaBrokerStorageUtilization,
+                },
+                targetValue: 55,
+            })
         ```
 
         ## Import

@@ -73,7 +73,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.codeartifact.Repository;
  * import com.pulumi.aws.codeartifact.RepositoryArgs;
- * import com.pulumi.aws.codeartifact.inputs.RepositoryUpstreamArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -95,9 +94,7 @@ import javax.annotation.Nullable;
  *         var test = new Repository(&#34;test&#34;, RepositoryArgs.builder()        
  *             .repository(&#34;example&#34;)
  *             .domain(aws_codeartifact_domain.example().domain())
- *             .upstreams(RepositoryUpstreamArgs.builder()
- *                 .repositoryName(upstream.repository())
- *                 .build())
+ *             .upstreams(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -112,7 +109,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.codeartifact.Repository;
  * import com.pulumi.aws.codeartifact.RepositoryArgs;
- * import com.pulumi.aws.codeartifact.inputs.RepositoryExternalConnectionsArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -134,9 +130,7 @@ import javax.annotation.Nullable;
  *         var test = new Repository(&#34;test&#34;, RepositoryArgs.builder()        
  *             .repository(&#34;example&#34;)
  *             .domain(aws_codeartifact_domain.example().domain())
- *             .externalConnections(RepositoryExternalConnectionsArgs.builder()
- *                 .externalConnectionName(&#34;public:npmjs&#34;)
- *                 .build())
+ *             .externalConnections(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

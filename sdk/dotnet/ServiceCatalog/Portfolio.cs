@@ -22,7 +22,7 @@ namespace Pulumi.Aws.ServiceCatalog
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var portfolio = new Aws.ServiceCatalog.Portfolio("portfolio", new()
+    ///     var portfolio = new Aws.Servicecatalog.Portfolio.Portfolio("portfolio", new()
     ///     {
     ///         Description = "List of my organizations apps",
     ///         ProviderName = "Brett",

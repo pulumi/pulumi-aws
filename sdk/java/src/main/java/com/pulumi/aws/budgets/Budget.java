@@ -32,8 +32,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.budgets.Budget;
  * import com.pulumi.aws.budgets.BudgetArgs;
- * import com.pulumi.aws.budgets.inputs.BudgetCostFilterArgs;
- * import com.pulumi.aws.budgets.inputs.BudgetNotificationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -49,19 +47,10 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var ec2 = new Budget(&#34;ec2&#34;, BudgetArgs.builder()        
  *             .budgetType(&#34;COST&#34;)
- *             .costFilters(BudgetCostFilterArgs.builder()
- *                 .name(&#34;Service&#34;)
- *                 .values(&#34;Amazon Elastic Compute Cloud - Compute&#34;)
- *                 .build())
+ *             .costFilters(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .limitAmount(&#34;1200&#34;)
  *             .limitUnit(&#34;USD&#34;)
- *             .notifications(BudgetNotificationArgs.builder()
- *                 .comparisonOperator(&#34;GREATER_THAN&#34;)
- *                 .notificationType(&#34;FORECASTED&#34;)
- *                 .subscriberEmailAddresses(&#34;test@example.com&#34;)
- *                 .threshold(100)
- *                 .thresholdType(&#34;PERCENTAGE&#34;)
- *                 .build())
+ *             .notifications(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .timePeriodEnd(&#34;2087-06-15_00:00&#34;)
  *             .timePeriodStart(&#34;2017-07-01_00:00&#34;)
  *             .timeUnit(&#34;MONTHLY&#34;)
@@ -112,7 +101,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.budgets.Budget;
  * import com.pulumi.aws.budgets.BudgetArgs;
- * import com.pulumi.aws.budgets.inputs.BudgetPlannedLimitArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -128,16 +116,8 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var cost = new Budget(&#34;cost&#34;, BudgetArgs.builder()        
  *             .plannedLimits(            
- *                 BudgetPlannedLimitArgs.builder()
- *                     .amount(&#34;100&#34;)
- *                     .startTime(&#34;2017-07-01_00:00&#34;)
- *                     .unit(&#34;USD&#34;)
- *                     .build(),
- *                 BudgetPlannedLimitArgs.builder()
- *                     .amount(&#34;200&#34;)
- *                     .startTime(&#34;2017-08-01_00:00&#34;)
- *                     .unit(&#34;USD&#34;)
- *                     .build())
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -185,7 +165,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.budgets.Budget;
  * import com.pulumi.aws.budgets.BudgetArgs;
- * import com.pulumi.aws.budgets.inputs.BudgetCostTypesArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -201,18 +180,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var savingsPlanUtilization = new Budget(&#34;savingsPlanUtilization&#34;, BudgetArgs.builder()        
  *             .budgetType(&#34;SAVINGS_PLANS_UTILIZATION&#34;)
- *             .costTypes(BudgetCostTypesArgs.builder()
- *                 .includeCredit(false)
- *                 .includeDiscount(false)
- *                 .includeOtherSubscription(false)
- *                 .includeRecurring(false)
- *                 .includeRefund(false)
- *                 .includeSubscription(true)
- *                 .includeSupport(false)
- *                 .includeTax(false)
- *                 .includeUpfront(false)
- *                 .useBlended(false)
- *                 .build())
+ *             .costTypes(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .limitAmount(&#34;100.0&#34;)
  *             .limitUnit(&#34;PERCENTAGE&#34;)
  *             .build());
@@ -230,8 +198,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.budgets.Budget;
  * import com.pulumi.aws.budgets.BudgetArgs;
- * import com.pulumi.aws.budgets.inputs.BudgetCostFilterArgs;
- * import com.pulumi.aws.budgets.inputs.BudgetCostTypesArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -247,22 +213,8 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var riUtilization = new Budget(&#34;riUtilization&#34;, BudgetArgs.builder()        
  *             .budgetType(&#34;RI_UTILIZATION&#34;)
- *             .costFilters(BudgetCostFilterArgs.builder()
- *                 .name(&#34;Service&#34;)
- *                 .values(&#34;Amazon Relational Database Service&#34;)
- *                 .build())
- *             .costTypes(BudgetCostTypesArgs.builder()
- *                 .includeCredit(false)
- *                 .includeDiscount(false)
- *                 .includeOtherSubscription(false)
- *                 .includeRecurring(false)
- *                 .includeRefund(false)
- *                 .includeSubscription(true)
- *                 .includeSupport(false)
- *                 .includeTax(false)
- *                 .includeUpfront(false)
- *                 .useBlended(false)
- *                 .build())
+ *             .costFilters(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .costTypes(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .limitAmount(&#34;100.0&#34;)
  *             .limitUnit(&#34;PERCENTAGE&#34;)
  *             .build());
@@ -280,7 +232,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.budgets.Budget;
  * import com.pulumi.aws.budgets.BudgetArgs;
- * import com.pulumi.aws.budgets.inputs.BudgetCostFilterArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -295,10 +246,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var cost = new Budget(&#34;cost&#34;, BudgetArgs.builder()        
- *             .costFilters(BudgetCostFilterArgs.builder()
- *                 .name(&#34;TagKeyValue&#34;)
- *                 .values(&#34;TagKey$TagValue&#34;)
- *                 .build())
+ *             .costFilters(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -314,7 +262,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.budgets.Budget;
  * import com.pulumi.aws.budgets.BudgetArgs;
- * import com.pulumi.aws.budgets.inputs.BudgetCostFilterArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -329,10 +276,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var cost = new Budget(&#34;cost&#34;, BudgetArgs.builder()        
- *             .costFilters(BudgetCostFilterArgs.builder()
- *                 .name(&#34;TagKeyValue&#34;)
- *                 .values(&#34;TagKey${var.TagValue}&#34;)
- *                 .build())
+ *             .costFilters(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

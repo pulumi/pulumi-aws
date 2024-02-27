@@ -16,25 +16,6 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Ec2.GetPublicIpv4Pool.Invoke(new()
-        ///     {
-        ///         PoolId = "ipv4pool-ec2-000df99cff0c1ec10",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetPublicIpv4PoolResult> InvokeAsync(GetPublicIpv4PoolArgs args, InvokeOptions? options = null)
@@ -45,25 +26,6 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Ec2.GetPublicIpv4Pool.Invoke(new()
-        ///     {
-        ///         PoolId = "ipv4pool-ec2-000df99cff0c1ec10",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetPublicIpv4PoolResult> Invoke(GetPublicIpv4PoolInvokeArgs args, InvokeOptions? options = null)

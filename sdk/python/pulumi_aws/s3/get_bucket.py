@@ -146,35 +146,6 @@ def get_bucket(bucket: Optional[str] = None,
     Distribution.
 
     ## Example Usage
-    ### Route53 Record
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    selected = aws.s3.get_bucket(bucket="bucket.test.com")
-    test_zone = aws.route53.get_zone(name="test.com.")
-    example = aws.route53.Record("example",
-        zone_id=test_zone.id,
-        name="bucket",
-        type="A",
-        aliases=[aws.route53.RecordAliasArgs(
-            name=selected.website_domain,
-            zone_id=selected.hosted_zone_id,
-        )])
-    ```
-    ### CloudFront Origin
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    selected = aws.s3.get_bucket(bucket="a-test-bucket")
-    test = aws.cloudfront.Distribution("test", origins=[aws.cloudfront.DistributionOriginArgs(
-        domain_name=selected.bucket_domain_name,
-        origin_id="s3-selected-bucket",
-    )])
-    ```
 
 
     :param str bucket: Name of the bucket
@@ -206,35 +177,6 @@ def get_bucket_output(bucket: Optional[pulumi.Input[str]] = None,
     Distribution.
 
     ## Example Usage
-    ### Route53 Record
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    selected = aws.s3.get_bucket(bucket="bucket.test.com")
-    test_zone = aws.route53.get_zone(name="test.com.")
-    example = aws.route53.Record("example",
-        zone_id=test_zone.id,
-        name="bucket",
-        type="A",
-        aliases=[aws.route53.RecordAliasArgs(
-            name=selected.website_domain,
-            zone_id=selected.hosted_zone_id,
-        )])
-    ```
-    ### CloudFront Origin
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    selected = aws.s3.get_bucket(bucket="a-test-bucket")
-    test = aws.cloudfront.Distribution("test", origins=[aws.cloudfront.DistributionOriginArgs(
-        domain_name=selected.bucket_domain_name,
-        origin_id="s3-selected-bucket",
-    )])
-    ```
 
 
     :param str bucket: Name of the bucket

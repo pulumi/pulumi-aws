@@ -31,9 +31,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.lex.V2modelsBot;
- * import com.pulumi.aws.lex.V2modelsBotArgs;
- * import com.pulumi.aws.lex.inputs.V2modelsBotDataPrivacyArgs;
+ * import com.pulumi.aws.lex_v2modelsBot.V2modelsBot;
+ * import com.pulumi.aws.lex_v2modelsBot.V2modelsBotArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -48,12 +47,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new V2modelsBot(&#34;example&#34;, V2modelsBotArgs.builder()        
- *             .dataPrivacies(V2modelsBotDataPrivacyArgs.builder()
- *                 .childDirected(&#34;boolean&#34;)
- *                 .build())
+ *             .dataPrivacies(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .idleSessionTtlInSeconds(10)
  *             .roleArn(&#34;bot_example_arn&#34;)
- *             .tags(Map.of(&#34;foo&#34;, &#34;bar&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

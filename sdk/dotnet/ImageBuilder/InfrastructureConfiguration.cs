@@ -22,7 +22,7 @@ namespace Pulumi.Aws.ImageBuilder
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.ImageBuilder.InfrastructureConfiguration("example", new()
+    ///     var example = new Aws.Imagebuilder.InfrastructureConfiguration.InfrastructureConfiguration("example", new()
     ///     {
     ///         Description = "example description",
     ///         InstanceProfileName = aws_iam_instance_profile.Example.Name,
@@ -39,13 +39,13 @@ namespace Pulumi.Aws.ImageBuilder
     ///         SnsTopicArn = aws_sns_topic.Example.Arn,
     ///         SubnetId = aws_subnet.Main.Id,
     ///         TerminateInstanceOnFailure = true,
-    ///         Logging = new Aws.ImageBuilder.Inputs.InfrastructureConfigurationLoggingArgs
+    ///         Logging = 
     ///         {
-    ///             S3Logs = new Aws.ImageBuilder.Inputs.InfrastructureConfigurationLoggingS3LogsArgs
+    ///             { "s3Logs", 
     ///             {
-    ///                 S3BucketName = aws_s3_bucket.Example.Bucket,
-    ///                 S3KeyPrefix = "logs",
-    ///             },
+    ///                 { "s3BucketName", aws_s3_bucket.Example.Bucket },
+    ///                 { "s3KeyPrefix", "logs" },
+    ///             } },
     ///         },
     ///         Tags = 
     ///         {

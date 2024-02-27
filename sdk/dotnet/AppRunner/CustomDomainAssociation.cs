@@ -24,7 +24,7 @@ namespace Pulumi.Aws.AppRunner
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.AppRunner.CustomDomainAssociation("example", new()
+    ///     var example = new Aws.Apprunner.CustomDomainAssociation.CustomDomainAssociation("example", new()
     ///     {
     ///         DomainName = "example.com",
     ///         ServiceArn = aws_apprunner_service.Example.Arn,

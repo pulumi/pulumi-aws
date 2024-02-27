@@ -279,9 +279,9 @@ class Table(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.timestreamwrite.Table("example",
-            database_name=aws_timestreamwrite_database["example"]["database_name"],
-            table_name="example")
+        example = aws.timestreamwrite.table.Table("example",
+            database_name=aws_timestreamwrite_database.example.database_name,
+            table_name=example)
         ```
         ### Full usage
 
@@ -289,15 +289,15 @@ class Table(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.timestreamwrite.Table("example",
-            database_name=aws_timestreamwrite_database["example"]["database_name"],
-            table_name="example",
-            retention_properties=aws.timestreamwrite.TableRetentionPropertiesArgs(
-                magnetic_store_retention_period_in_days=30,
-                memory_store_retention_period_in_hours=8,
-            ),
+        example = aws.timestreamwrite.table.Table("example",
+            database_name=aws_timestreamwrite_database.example.database_name,
+            table_name=example,
+            retention_properties={
+                magneticStoreRetentionPeriodInDays: 30,
+                memoryStoreRetentionPeriodInHours: 8,
+            },
             tags={
-                "Name": "example-timestream-table",
+                Name: example-timestream-table,
             })
         ```
         ### Customer-defined Partition Key
@@ -306,16 +306,16 @@ class Table(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.timestreamwrite.Table("example",
-            database_name=aws_timestreamwrite_database["example"]["database_name"],
-            table_name="example",
-            schema=aws.timestreamwrite.TableSchemaArgs(
-                composite_partition_key=aws.timestreamwrite.TableSchemaCompositePartitionKeyArgs(
-                    enforcement_in_record="REQUIRED",
-                    name="attr1",
-                    type="DIMENSION",
-                ),
-            ))
+        example = aws.timestreamwrite.table.Table("example",
+            database_name=aws_timestreamwrite_database.example.database_name,
+            table_name=example,
+            schema={
+                compositePartitionKey: {
+                    enforcementInRecord: REQUIRED,
+                    name: attr1,
+                    type: DIMENSION,
+                },
+            })
         ```
 
         ## Import
@@ -351,9 +351,9 @@ class Table(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.timestreamwrite.Table("example",
-            database_name=aws_timestreamwrite_database["example"]["database_name"],
-            table_name="example")
+        example = aws.timestreamwrite.table.Table("example",
+            database_name=aws_timestreamwrite_database.example.database_name,
+            table_name=example)
         ```
         ### Full usage
 
@@ -361,15 +361,15 @@ class Table(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.timestreamwrite.Table("example",
-            database_name=aws_timestreamwrite_database["example"]["database_name"],
-            table_name="example",
-            retention_properties=aws.timestreamwrite.TableRetentionPropertiesArgs(
-                magnetic_store_retention_period_in_days=30,
-                memory_store_retention_period_in_hours=8,
-            ),
+        example = aws.timestreamwrite.table.Table("example",
+            database_name=aws_timestreamwrite_database.example.database_name,
+            table_name=example,
+            retention_properties={
+                magneticStoreRetentionPeriodInDays: 30,
+                memoryStoreRetentionPeriodInHours: 8,
+            },
             tags={
-                "Name": "example-timestream-table",
+                Name: example-timestream-table,
             })
         ```
         ### Customer-defined Partition Key
@@ -378,16 +378,16 @@ class Table(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.timestreamwrite.Table("example",
-            database_name=aws_timestreamwrite_database["example"]["database_name"],
-            table_name="example",
-            schema=aws.timestreamwrite.TableSchemaArgs(
-                composite_partition_key=aws.timestreamwrite.TableSchemaCompositePartitionKeyArgs(
-                    enforcement_in_record="REQUIRED",
-                    name="attr1",
-                    type="DIMENSION",
-                ),
-            ))
+        example = aws.timestreamwrite.table.Table("example",
+            database_name=aws_timestreamwrite_database.example.database_name,
+            table_name=example,
+            schema={
+                compositePartitionKey: {
+                    enforcementInRecord: REQUIRED,
+                    name: attr1,
+                    type: DIMENSION,
+                },
+            })
         ```
 
         ## Import

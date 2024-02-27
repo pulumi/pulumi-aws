@@ -22,10 +22,10 @@ namespace Pulumi.Aws.LightSail
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Aws.LightSail.Lb("test", new()
+    ///     var test = new Aws.Lightsail.Lb.Lb("test", new()
     ///     {
     ///         HealthCheckPath = "/",
-    ///         InstancePort = 80,
+    ///         InstancePort = "80",
     ///         Tags = 
     ///         {
     ///             { "foo", "bar" },

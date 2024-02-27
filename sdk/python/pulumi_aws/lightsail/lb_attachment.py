@@ -100,32 +100,6 @@ class LbAttachment(pulumi.CustomResource):
         """
         Attaches a Lightsail Instance to a Lightsail Load Balancer.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        available = aws.get_availability_zones(state="available",
-            filters=[aws.GetAvailabilityZonesFilterArgs(
-                name="opt-in-status",
-                values=["opt-in-not-required"],
-            )])
-        test_lb = aws.lightsail.Lb("testLb",
-            health_check_path="/",
-            instance_port=80,
-            tags={
-                "foo": "bar",
-            })
-        test_instance = aws.lightsail.Instance("testInstance",
-            availability_zone=available.names[0],
-            blueprint_id="amazon_linux_2",
-            bundle_id="nano_1_0")
-        test_lb_attachment = aws.lightsail.LbAttachment("testLbAttachment",
-            lb_name=test_lb.name,
-            instance_name=test_instance.name)
-        ```
-
         ## Import
 
         Using `pulumi import`, import `aws_lightsail_lb_attachment` using the name attribute. For example:
@@ -147,32 +121,6 @@ class LbAttachment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Attaches a Lightsail Instance to a Lightsail Load Balancer.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        available = aws.get_availability_zones(state="available",
-            filters=[aws.GetAvailabilityZonesFilterArgs(
-                name="opt-in-status",
-                values=["opt-in-not-required"],
-            )])
-        test_lb = aws.lightsail.Lb("testLb",
-            health_check_path="/",
-            instance_port=80,
-            tags={
-                "foo": "bar",
-            })
-        test_instance = aws.lightsail.Instance("testInstance",
-            availability_zone=available.names[0],
-            blueprint_id="amazon_linux_2",
-            bundle_id="nano_1_0")
-        test_lb_attachment = aws.lightsail.LbAttachment("testLbAttachment",
-            lb_name=test_lb.name,
-            instance_name=test_instance.name)
-        ```
 
         ## Import
 

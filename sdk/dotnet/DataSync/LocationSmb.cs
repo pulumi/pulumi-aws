@@ -24,7 +24,7 @@ namespace Pulumi.Aws.DataSync
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.DataSync.LocationSmb("example", new()
+    ///     var example = new Aws.Datasync.LocationSmb.LocationSmb("example", new()
     ///     {
     ///         ServerHostname = "smb.example.com",
     ///         Subdirectory = "/exported/path",

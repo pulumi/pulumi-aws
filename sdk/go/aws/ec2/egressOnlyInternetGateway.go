@@ -24,33 +24,32 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	ec2/egressOnlyInternetGateway "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/egressOnlyInternetGateway"
+//	ec2/vpc "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/vpc"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleVpc, err := ec2.NewVpc(ctx, "exampleVpc", &ec2.VpcArgs{
-//				CidrBlock:                    pulumi.String("10.1.0.0/16"),
-//				AssignGeneratedIpv6CidrBlock: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ec2.NewEgressOnlyInternetGateway(ctx, "exampleEgressOnlyInternetGateway", &ec2.EgressOnlyInternetGatewayArgs{
-//				VpcId: exampleVpc.ID(),
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("main"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleVpc, err := ec2/vpc.NewVpc(ctx, "exampleVpc", &ec2/vpc.VpcArgs{
+// CidrBlock: "10.1.0.0/16",
+// AssignGeneratedIpv6CidrBlock: true,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = ec2/egressOnlyInternetGateway.NewEgressOnlyInternetGateway(ctx, "exampleEgressOnlyInternetGateway", &ec2/egressOnlyInternetGateway.EgressOnlyInternetGatewayArgs{
+// VpcId: exampleVpc.Id,
+// Tags: map[string]interface{}{
+// "Name": "main",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

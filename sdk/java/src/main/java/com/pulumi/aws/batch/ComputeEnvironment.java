@@ -28,134 +28,6 @@ import javax.annotation.Nullable;
  * otherwise, the policy may be destroyed too soon and the compute environment will then get stuck in the `DELETING` state, see [Troubleshooting AWS Batch](http://docs.aws.amazon.com/batch/latest/userguide/troubleshooting.html) .
  * 
  * ## Example Usage
- * ### EC2 Type
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.iam.IamFunctions;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
- * import com.pulumi.aws.iam.Role;
- * import com.pulumi.aws.iam.RoleArgs;
- * import com.pulumi.aws.iam.RolePolicyAttachment;
- * import com.pulumi.aws.iam.RolePolicyAttachmentArgs;
- * import com.pulumi.aws.iam.InstanceProfile;
- * import com.pulumi.aws.iam.InstanceProfileArgs;
- * import com.pulumi.aws.ec2.SecurityGroup;
- * import com.pulumi.aws.ec2.SecurityGroupArgs;
- * import com.pulumi.aws.ec2.inputs.SecurityGroupEgressArgs;
- * import com.pulumi.aws.ec2.Vpc;
- * import com.pulumi.aws.ec2.VpcArgs;
- * import com.pulumi.aws.ec2.Subnet;
- * import com.pulumi.aws.ec2.SubnetArgs;
- * import com.pulumi.aws.ec2.PlacementGroup;
- * import com.pulumi.aws.ec2.PlacementGroupArgs;
- * import com.pulumi.aws.batch.ComputeEnvironment;
- * import com.pulumi.aws.batch.ComputeEnvironmentArgs;
- * import com.pulumi.aws.batch.inputs.ComputeEnvironmentComputeResourcesArgs;
- * import com.pulumi.resources.CustomResourceOptions;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var ec2AssumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect(&#34;Allow&#34;)
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type(&#34;Service&#34;)
- *                     .identifiers(&#34;ec2.amazonaws.com&#34;)
- *                     .build())
- *                 .actions(&#34;sts:AssumeRole&#34;)
- *                 .build())
- *             .build());
- * 
- *         var ecsInstanceRoleRole = new Role(&#34;ecsInstanceRoleRole&#34;, RoleArgs.builder()        
- *             .assumeRolePolicy(ec2AssumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
- *             .build());
- * 
- *         var ecsInstanceRoleRolePolicyAttachment = new RolePolicyAttachment(&#34;ecsInstanceRoleRolePolicyAttachment&#34;, RolePolicyAttachmentArgs.builder()        
- *             .role(ecsInstanceRoleRole.name())
- *             .policyArn(&#34;arn:aws:iam::aws:policy/service-role/AmazonEC2ContainerServiceforEC2Role&#34;)
- *             .build());
- * 
- *         var ecsInstanceRoleInstanceProfile = new InstanceProfile(&#34;ecsInstanceRoleInstanceProfile&#34;, InstanceProfileArgs.builder()        
- *             .role(ecsInstanceRoleRole.name())
- *             .build());
- * 
- *         final var batchAssumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect(&#34;Allow&#34;)
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type(&#34;Service&#34;)
- *                     .identifiers(&#34;batch.amazonaws.com&#34;)
- *                     .build())
- *                 .actions(&#34;sts:AssumeRole&#34;)
- *                 .build())
- *             .build());
- * 
- *         var awsBatchServiceRoleRole = new Role(&#34;awsBatchServiceRoleRole&#34;, RoleArgs.builder()        
- *             .assumeRolePolicy(batchAssumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
- *             .build());
- * 
- *         var awsBatchServiceRoleRolePolicyAttachment = new RolePolicyAttachment(&#34;awsBatchServiceRoleRolePolicyAttachment&#34;, RolePolicyAttachmentArgs.builder()        
- *             .role(awsBatchServiceRoleRole.name())
- *             .policyArn(&#34;arn:aws:iam::aws:policy/service-role/AWSBatchServiceRole&#34;)
- *             .build());
- * 
- *         var sampleSecurityGroup = new SecurityGroup(&#34;sampleSecurityGroup&#34;, SecurityGroupArgs.builder()        
- *             .egress(SecurityGroupEgressArgs.builder()
- *                 .fromPort(0)
- *                 .toPort(0)
- *                 .protocol(&#34;-1&#34;)
- *                 .cidrBlocks(&#34;0.0.0.0/0&#34;)
- *                 .build())
- *             .build());
- * 
- *         var sampleVpc = new Vpc(&#34;sampleVpc&#34;, VpcArgs.builder()        
- *             .cidrBlock(&#34;10.1.0.0/16&#34;)
- *             .build());
- * 
- *         var sampleSubnet = new Subnet(&#34;sampleSubnet&#34;, SubnetArgs.builder()        
- *             .vpcId(sampleVpc.id())
- *             .cidrBlock(&#34;10.1.1.0/24&#34;)
- *             .build());
- * 
- *         var samplePlacementGroup = new PlacementGroup(&#34;samplePlacementGroup&#34;, PlacementGroupArgs.builder()        
- *             .strategy(&#34;cluster&#34;)
- *             .build());
- * 
- *         var sampleComputeEnvironment = new ComputeEnvironment(&#34;sampleComputeEnvironment&#34;, ComputeEnvironmentArgs.builder()        
- *             .computeEnvironmentName(&#34;sample&#34;)
- *             .computeResources(ComputeEnvironmentComputeResourcesArgs.builder()
- *                 .instanceRole(ecsInstanceRoleInstanceProfile.arn())
- *                 .instanceTypes(&#34;c4.large&#34;)
- *                 .maxVcpus(16)
- *                 .minVcpus(0)
- *                 .placementGroup(samplePlacementGroup.name())
- *                 .securityGroupIds(sampleSecurityGroup.id())
- *                 .subnets(sampleSubnet.id())
- *                 .type(&#34;EC2&#34;)
- *                 .build())
- *             .serviceRole(awsBatchServiceRoleRole.arn())
- *             .type(&#34;MANAGED&#34;)
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(awsBatchServiceRoleRolePolicyAttachment)
- *                 .build());
- * 
- *     }
- * }
- * ```
  * ### Fargate Type
  * ```java
  * package generated_program;
@@ -165,7 +37,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.batch.ComputeEnvironment;
  * import com.pulumi.aws.batch.ComputeEnvironmentArgs;
- * import com.pulumi.aws.batch.inputs.ComputeEnvironmentComputeResourcesArgs;
  * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
@@ -182,12 +53,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var sample = new ComputeEnvironment(&#34;sample&#34;, ComputeEnvironmentArgs.builder()        
  *             .computeEnvironmentName(&#34;sample&#34;)
- *             .computeResources(ComputeEnvironmentComputeResourcesArgs.builder()
- *                 .maxVcpus(16)
- *                 .securityGroupIds(aws_security_group.sample().id())
- *                 .subnets(aws_subnet.sample().id())
- *                 .type(&#34;FARGATE&#34;)
- *                 .build())
+ *             .computeResources(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .serviceRole(aws_iam_role.aws_batch_service_role().arn())
  *             .type(&#34;MANAGED&#34;)
  *             .build(), CustomResourceOptions.builder()
@@ -206,8 +72,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.batch.ComputeEnvironment;
  * import com.pulumi.aws.batch.ComputeEnvironmentArgs;
- * import com.pulumi.aws.batch.inputs.ComputeEnvironmentComputeResourcesArgs;
- * import com.pulumi.aws.batch.inputs.ComputeEnvironmentUpdatePolicyArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -223,20 +87,8 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var sample = new ComputeEnvironment(&#34;sample&#34;, ComputeEnvironmentArgs.builder()        
  *             .computeEnvironmentName(&#34;sample&#34;)
- *             .computeResources(ComputeEnvironmentComputeResourcesArgs.builder()
- *                 .allocationStrategy(&#34;BEST_FIT_PROGRESSIVE&#34;)
- *                 .instanceRole(aws_iam_instance_profile.ecs_instance().arn())
- *                 .instanceTypes(&#34;optimal&#34;)
- *                 .maxVcpus(4)
- *                 .minVcpus(0)
- *                 .securityGroupIds(aws_security_group.sample().id())
- *                 .subnets(aws_subnet.sample().id())
- *                 .type(&#34;EC2&#34;)
- *                 .build())
- *             .updatePolicy(ComputeEnvironmentUpdatePolicyArgs.builder()
- *                 .jobExecutionTimeoutMinutes(30)
- *                 .terminateJobsOnUpdate(false)
- *                 .build())
+ *             .computeResources(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .updatePolicy(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .type(&#34;MANAGED&#34;)
  *             .build());
  * 

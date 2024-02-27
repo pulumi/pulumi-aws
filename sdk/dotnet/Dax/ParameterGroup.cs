@@ -22,19 +22,19 @@ namespace Pulumi.Aws.Dax
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Dax.ParameterGroup("example", new()
+    ///     var example = new Aws.Dax.ParameterGroup.ParameterGroup("example", new()
     ///     {
     ///         Parameters = new[]
     ///         {
-    ///             new Aws.Dax.Inputs.ParameterGroupParameterArgs
+    ///             
     ///             {
-    ///                 Name = "query-ttl-millis",
-    ///                 Value = "100000",
+    ///                 { "name", "query-ttl-millis" },
+    ///                 { "value", "100000" },
     ///             },
-    ///             new Aws.Dax.Inputs.ParameterGroupParameterArgs
+    ///             
     ///             {
-    ///                 Name = "record-ttl-millis",
-    ///                 Value = "100000",
+    ///                 { "name", "record-ttl-millis" },
+    ///                 { "value", "100000" },
     ///             },
     ///         },
     ///     });

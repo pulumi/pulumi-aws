@@ -13,56 +13,12 @@ namespace Pulumi.Aws.CloudWatch
     {
         /// <summary>
         /// Use this data source to get information about an AWS Cloudwatch Log Group
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.CloudWatch.GetLogGroup.Invoke(new()
-        ///     {
-        ///         Name = "MyImportantLogs",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetLogGroupResult> InvokeAsync(GetLogGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLogGroupResult>("aws:cloudwatch/getLogGroup:getLogGroup", args ?? new GetLogGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to get information about an AWS Cloudwatch Log Group
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.CloudWatch.GetLogGroup.Invoke(new()
-        ///     {
-        ///         Name = "MyImportantLogs",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetLogGroupResult> Invoke(GetLogGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLogGroupResult>("aws:cloudwatch/getLogGroup:getLogGroup", args ?? new GetLogGroupInvokeArgs(), options.WithDefaults());

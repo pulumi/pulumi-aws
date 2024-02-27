@@ -145,18 +145,18 @@ class BucketServerSideEncryptionConfigurationV2(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        mykey = aws.kms.Key("mykey",
-            description="This key is used to encrypt bucket objects",
+        mykey = aws.kms.key.Key("mykey",
+            description=This key is used to encrypt bucket objects,
             deletion_window_in_days=10)
-        mybucket = aws.s3.BucketV2("mybucket")
-        example = aws.s3.BucketServerSideEncryptionConfigurationV2("example",
+        mybucket = aws.s3.bucket_v2.BucketV2("mybucket")
+        example = aws.s3.bucket_server_side_encryption_configuration_v2.BucketServerSideEncryptionConfigurationV2("example",
             bucket=mybucket.id,
-            rules=[aws.s3.BucketServerSideEncryptionConfigurationV2RuleArgs(
-                apply_server_side_encryption_by_default=aws.s3.BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultArgs(
-                    kms_master_key_id=mykey.arn,
-                    sse_algorithm="aws:kms",
-                ),
-            )])
+            rules=[{
+                applyServerSideEncryptionByDefault: {
+                    kmsMasterKeyId: mykey.arn,
+                    sseAlgorithm: aws:kms,
+                },
+            }])
         ```
 
         ## Import
@@ -201,18 +201,18 @@ class BucketServerSideEncryptionConfigurationV2(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        mykey = aws.kms.Key("mykey",
-            description="This key is used to encrypt bucket objects",
+        mykey = aws.kms.key.Key("mykey",
+            description=This key is used to encrypt bucket objects,
             deletion_window_in_days=10)
-        mybucket = aws.s3.BucketV2("mybucket")
-        example = aws.s3.BucketServerSideEncryptionConfigurationV2("example",
+        mybucket = aws.s3.bucket_v2.BucketV2("mybucket")
+        example = aws.s3.bucket_server_side_encryption_configuration_v2.BucketServerSideEncryptionConfigurationV2("example",
             bucket=mybucket.id,
-            rules=[aws.s3.BucketServerSideEncryptionConfigurationV2RuleArgs(
-                apply_server_side_encryption_by_default=aws.s3.BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultArgs(
-                    kms_master_key_id=mykey.arn,
-                    sse_algorithm="aws:kms",
-                ),
-            )])
+            rules=[{
+                applyServerSideEncryptionByDefault: {
+                    kmsMasterKeyId: mykey.arn,
+                    sseAlgorithm: aws:kms,
+                },
+            }])
         ```
 
         ## Import

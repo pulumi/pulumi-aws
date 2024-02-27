@@ -32,7 +32,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.guardduty.DetectorArgs;
  * import com.pulumi.aws.guardduty.OrganizationConfigurationFeature;
  * import com.pulumi.aws.guardduty.OrganizationConfigurationFeatureArgs;
- * import com.pulumi.aws.guardduty.inputs.OrganizationConfigurationFeatureAdditionalConfigurationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -53,10 +52,7 @@ import javax.annotation.Nullable;
  *         var eksRuntimeMonitoring = new OrganizationConfigurationFeature(&#34;eksRuntimeMonitoring&#34;, OrganizationConfigurationFeatureArgs.builder()        
  *             .detectorId(example.id())
  *             .autoEnable(&#34;ALL&#34;)
- *             .additionalConfigurations(OrganizationConfigurationFeatureAdditionalConfigurationArgs.builder()
- *                 .name(&#34;EKS_ADDON_MANAGEMENT&#34;)
- *                 .autoEnable(&#34;NEW&#34;)
- *                 .build())
+ *             .additionalConfigurations(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

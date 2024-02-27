@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Iam
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var @default = new Aws.Iam.OpenIdConnectProvider("default", new()
+    ///     var @default = new Aws.Iam.OpenIdConnectProvider.OpenIdConnectProvider("default", new()
     ///     {
     ///         ClientIdLists = new[]
     ///         {

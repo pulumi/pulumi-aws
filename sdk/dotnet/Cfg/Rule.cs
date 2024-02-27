@@ -15,96 +15,6 @@ namespace Pulumi.Aws.Cfg
     /// &gt; **Note:** Config Rule requires an existing Configuration Recorder to be present. Use of `depends_on` is recommended (as shown below) to avoid race conditions.
     /// 
     /// ## Example Usage
-    /// ### AWS Managed Rules
-    /// 
-    /// AWS managed rules can be used by setting the source owner to `AWS` and the source identifier to the name of the managed rule. More information about AWS managed rules can be found in the [AWS Config Developer Guide](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html).
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var assumeRole = Aws.Iam.GetPolicyDocument.Invoke(new()
-    ///     {
-    ///         Statements = new[]
-    ///         {
-    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
-    ///             {
-    ///                 Effect = "Allow",
-    ///                 Principals = new[]
-    ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
-    ///                     {
-    ///                         Type = "Service",
-    ///                         Identifiers = new[]
-    ///                         {
-    ///                             "config.amazonaws.com",
-    ///                         },
-    ///                     },
-    ///                 },
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "sts:AssumeRole",
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var role = new Aws.Iam.Role("role", new()
-    ///     {
-    ///         AssumeRolePolicy = assumeRole.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
-    ///     });
-    /// 
-    ///     var foo = new Aws.Cfg.Recorder("foo", new()
-    ///     {
-    ///         RoleArn = role.Arn,
-    ///     });
-    /// 
-    ///     var rule = new Aws.Cfg.Rule("rule", new()
-    ///     {
-    ///         Source = new Aws.Cfg.Inputs.RuleSourceArgs
-    ///         {
-    ///             Owner = "AWS",
-    ///             SourceIdentifier = "S3_BUCKET_VERSIONING_ENABLED",
-    ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             foo,
-    ///         },
-    ///     });
-    /// 
-    ///     var policyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
-    ///     {
-    ///         Statements = new[]
-    ///         {
-    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
-    ///             {
-    ///                 Effect = "Allow",
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "config:Put*",
-    ///                 },
-    ///                 Resources = new[]
-    ///                 {
-    ///                     "*",
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var rolePolicy = new Aws.Iam.RolePolicy("rolePolicy", new()
-    ///     {
-    ///         Role = role.Id,
-    ///         Policy = policyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// ### Custom Rules
     /// 
     /// Custom rules can be used by setting the source owner to `CUSTOM_LAMBDA` and the source identifier to the Amazon Resource Name (ARN) of the Lambda Function. The AWS Config service must have permissions to invoke the Lambda Function, e.g., via the `aws.lambda.Permission` resource. More information about custom rules can be found in the [AWS Config Developer Guide](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_develop-rules.html).
@@ -117,13 +27,13 @@ namespace Pulumi.Aws.Cfg
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleRecorder = new Aws.Cfg.Recorder("exampleRecorder");
+    ///     var exampleRecorder = new Aws.Cfg.Recorder.Recorder("exampleRecorder");
     /// 
     ///     // ... other configuration ...
-    ///     var exampleFunction = new Aws.Lambda.Function("exampleFunction");
+    ///     var exampleFunction = new Aws.Lambda.Function.Function("exampleFunction");
     /// 
     ///     // ... other configuration ...
-    ///     var examplePermission = new Aws.Lambda.Permission("examplePermission", new()
+    ///     var examplePermission = new Aws.Lambda.Permission.Permission("examplePermission", new()
     ///     {
     ///         Action = "lambda:InvokeFunction",
     ///         Function = exampleFunction.Arn,
@@ -131,12 +41,12 @@ namespace Pulumi.Aws.Cfg
     ///     });
     /// 
     ///     // ... other configuration ...
-    ///     var exampleRule = new Aws.Cfg.Rule("exampleRule", new()
+    ///     var exampleRule = new Aws.Cfg.Rule.Rule("exampleRule", new()
     ///     {
-    ///         Source = new Aws.Cfg.Inputs.RuleSourceArgs
+    ///         Source = 
     ///         {
-    ///             Owner = "CUSTOM_LAMBDA",
-    ///             SourceIdentifier = exampleFunction.Arn,
+    ///             { "owner", "CUSTOM_LAMBDA" },
+    ///             { "sourceIdentifier", exampleFunction.Arn },
     ///         },
     ///     }, new CustomResourceOptions
     ///     {
@@ -159,22 +69,22 @@ namespace Pulumi.Aws.Cfg
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Cfg.Rule("example", new()
+    ///     var example = new Aws.Cfg.Rule.Rule("example", new()
     ///     {
-    ///         Source = new Aws.Cfg.Inputs.RuleSourceArgs
+    ///         Source = 
     ///         {
-    ///             Owner = "CUSTOM_POLICY",
-    ///             SourceDetails = new[]
+    ///             { "owner", "CUSTOM_POLICY" },
+    ///             { "sourceDetails", new[]
     ///             {
-    ///                 new Aws.Cfg.Inputs.RuleSourceSourceDetailArgs
+    ///                 
     ///                 {
-    ///                     MessageType = "ConfigurationItemChangeNotification",
+    ///                     { "messageType", "ConfigurationItemChangeNotification" },
     ///                 },
-    ///             },
-    ///             CustomPolicyDetails = new Aws.Cfg.Inputs.RuleSourceCustomPolicyDetailsArgs
+    ///             } },
+    ///             { "customPolicyDetails", 
     ///             {
-    ///                 PolicyRuntime = "guard-2.x.x",
-    ///                 PolicyText = @"	  rule tableisactive when
+    ///                 { "policyRuntime", "guard-2.x.x" },
+    ///                 { "policyText", @"	  rule tableisactive when
     /// 		  resourceType == ""AWS::DynamoDB::Table"" {
     /// 		  configuration.tableStatus == ['ACTIVE']
     /// 	  }
@@ -184,8 +94,8 @@ namespace Pulumi.Aws.Cfg
     /// 		  tableisactive {
     /// 			  supplementaryConfiguration.ContinuousBackupsDescription.pointInTimeRecoveryDescription.pointInTimeRecoveryStatus == ""ENABLED""
     /// 	  }
-    /// ",
-    ///             },
+    /// " },
+    ///             } },
     ///         },
     ///     });
     /// 

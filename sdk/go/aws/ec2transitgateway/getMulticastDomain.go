@@ -14,63 +14,6 @@ import (
 // Get information on an EC2 Transit Gateway Multicast Domain.
 //
 // ## Example Usage
-// ### By Filter
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2transitgateway"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2transitgateway.LookupMulticastDomain(ctx, &ec2transitgateway.LookupMulticastDomainArgs{
-//				Filters: []ec2transitgateway.GetMulticastDomainFilter{
-//					{
-//						Name: "transit-gateway-multicast-domain-id",
-//						Values: []string{
-//							"tgw-mcast-domain-12345678",
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// ### By Identifier
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2transitgateway"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2transitgateway.LookupMulticastDomain(ctx, &ec2transitgateway.LookupMulticastDomainArgs{
-//				TransitGatewayMulticastDomainId: pulumi.StringRef("tgw-mcast-domain-12345678"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupMulticastDomain(ctx *pulumi.Context, args *LookupMulticastDomainArgs, opts ...pulumi.InvokeOption) (*LookupMulticastDomainResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupMulticastDomainResult

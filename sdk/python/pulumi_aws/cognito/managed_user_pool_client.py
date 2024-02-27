@@ -809,51 +809,6 @@ class ManagedUserPoolClient(pulumi.CustomResource):
 
         Use the `cognito.UserPoolClient` resource to manage Cognito User Pool Clients for normal use cases.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_user_pool = aws.cognito.UserPool("exampleUserPool")
-        example_identity_pool = aws.cognito.IdentityPool("exampleIdentityPool", identity_pool_name="example")
-        current = aws.get_partition()
-        example_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            sid="",
-            actions=["sts:AssumeRole"],
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=[f"es.{current.dns_suffix}"],
-            )],
-        )])
-        example_role = aws.iam.Role("exampleRole",
-            path="/service-role/",
-            assume_role_policy=example_policy_document.json)
-        example_role_policy_attachment = aws.iam.RolePolicyAttachment("exampleRolePolicyAttachment",
-            role=example_role.name,
-            policy_arn=f"arn:{current.partition}:iam::aws:policy/AmazonESCognitoAccess")
-        example_domain = aws.opensearch.Domain("exampleDomain",
-            cognito_options=aws.opensearch.DomainCognitoOptionsArgs(
-                enabled=True,
-                user_pool_id=example_user_pool.id,
-                identity_pool_id=example_identity_pool.id,
-                role_arn=example_role.arn,
-            ),
-            ebs_options=aws.opensearch.DomainEbsOptionsArgs(
-                ebs_enabled=True,
-                volume_size=10,
-            ),
-            opts=pulumi.ResourceOptions(depends_on=[
-                    aws_cognito_user_pool_domain["example"],
-                    example_role_policy_attachment,
-                ]))
-        example_managed_user_pool_client = aws.cognito.ManagedUserPoolClient("exampleManagedUserPoolClient",
-            name_prefix="AmazonOpenSearchService-example",
-            user_pool_id=example_user_pool.id,
-            opts=pulumi.ResourceOptions(depends_on=[example_domain]))
-        ```
-
         ## Import
 
         Using `pulumi import`, import Cognito User Pool Clients using the `id` of the Cognito User Pool and the `id` of the Cognito User Pool Client. For example:
@@ -903,51 +858,6 @@ class ManagedUserPoolClient(pulumi.CustomResource):
         Use the `cognito.ManagedUserPoolClient` resource to manage a Cognito User Pool Client that is automatically created by an AWS service. For instance, when [configuring an OpenSearch Domain to use Cognito authentication](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cognito-auth.html), the OpenSearch service creates the User Pool Client during setup and removes it when it is no longer required. As a result, the `cognito.ManagedUserPoolClient` resource does not create or delete this resource, but instead assumes management of it.
 
         Use the `cognito.UserPoolClient` resource to manage Cognito User Pool Clients for normal use cases.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_user_pool = aws.cognito.UserPool("exampleUserPool")
-        example_identity_pool = aws.cognito.IdentityPool("exampleIdentityPool", identity_pool_name="example")
-        current = aws.get_partition()
-        example_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            sid="",
-            actions=["sts:AssumeRole"],
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=[f"es.{current.dns_suffix}"],
-            )],
-        )])
-        example_role = aws.iam.Role("exampleRole",
-            path="/service-role/",
-            assume_role_policy=example_policy_document.json)
-        example_role_policy_attachment = aws.iam.RolePolicyAttachment("exampleRolePolicyAttachment",
-            role=example_role.name,
-            policy_arn=f"arn:{current.partition}:iam::aws:policy/AmazonESCognitoAccess")
-        example_domain = aws.opensearch.Domain("exampleDomain",
-            cognito_options=aws.opensearch.DomainCognitoOptionsArgs(
-                enabled=True,
-                user_pool_id=example_user_pool.id,
-                identity_pool_id=example_identity_pool.id,
-                role_arn=example_role.arn,
-            ),
-            ebs_options=aws.opensearch.DomainEbsOptionsArgs(
-                ebs_enabled=True,
-                volume_size=10,
-            ),
-            opts=pulumi.ResourceOptions(depends_on=[
-                    aws_cognito_user_pool_domain["example"],
-                    example_role_policy_attachment,
-                ]))
-        example_managed_user_pool_client = aws.cognito.ManagedUserPoolClient("exampleManagedUserPoolClient",
-            name_prefix="AmazonOpenSearchService-example",
-            user_pool_id=example_user_pool.id,
-            opts=pulumi.ResourceOptions(depends_on=[example_domain]))
-        ```
 
         ## Import
 

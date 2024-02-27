@@ -24,7 +24,7 @@ namespace Pulumi.Aws.OpenSearch
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.OpenSearch.ServerlessLifecyclePolicy("example", new()
+    ///     var example = new Aws.Opensearch.ServerlessLifecyclePolicy.ServerlessLifecyclePolicy("example", new()
     ///     {
     ///         Type = "retention",
     ///         Policy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;

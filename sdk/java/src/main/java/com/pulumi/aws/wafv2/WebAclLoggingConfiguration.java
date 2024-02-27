@@ -32,8 +32,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.wafv2.WebAclLoggingConfiguration;
  * import com.pulumi.aws.wafv2.WebAclLoggingConfigurationArgs;
- * import com.pulumi.aws.wafv2.inputs.WebAclLoggingConfigurationRedactedFieldArgs;
- * import com.pulumi.aws.wafv2.inputs.WebAclLoggingConfigurationRedactedFieldSingleHeaderArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -50,11 +48,7 @@ import javax.annotation.Nullable;
  *         var example = new WebAclLoggingConfiguration(&#34;example&#34;, WebAclLoggingConfigurationArgs.builder()        
  *             .logDestinationConfigs(aws_kinesis_firehose_delivery_stream.example().arn())
  *             .resourceArn(aws_wafv2_web_acl.example().arn())
- *             .redactedFields(WebAclLoggingConfigurationRedactedFieldArgs.builder()
- *                 .singleHeader(WebAclLoggingConfigurationRedactedFieldSingleHeaderArgs.builder()
- *                     .name(&#34;user-agent&#34;)
- *                     .build())
- *                 .build())
+ *             .redactedFields(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -69,7 +63,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.wafv2.WebAclLoggingConfiguration;
  * import com.pulumi.aws.wafv2.WebAclLoggingConfigurationArgs;
- * import com.pulumi.aws.wafv2.inputs.WebAclLoggingConfigurationLoggingFilterArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -86,34 +79,7 @@ import javax.annotation.Nullable;
  *         var example = new WebAclLoggingConfiguration(&#34;example&#34;, WebAclLoggingConfigurationArgs.builder()        
  *             .logDestinationConfigs(aws_kinesis_firehose_delivery_stream.example().arn())
  *             .resourceArn(aws_wafv2_web_acl.example().arn())
- *             .loggingFilter(WebAclLoggingConfigurationLoggingFilterArgs.builder()
- *                 .defaultBehavior(&#34;KEEP&#34;)
- *                 .filters(                
- *                     WebAclLoggingConfigurationLoggingFilterFilterArgs.builder()
- *                         .behavior(&#34;DROP&#34;)
- *                         .conditions(                        
- *                             WebAclLoggingConfigurationLoggingFilterFilterConditionArgs.builder()
- *                                 .actionCondition(WebAclLoggingConfigurationLoggingFilterFilterConditionActionConditionArgs.builder()
- *                                     .action(&#34;COUNT&#34;)
- *                                     .build())
- *                                 .build(),
- *                             WebAclLoggingConfigurationLoggingFilterFilterConditionArgs.builder()
- *                                 .labelNameCondition(WebAclLoggingConfigurationLoggingFilterFilterConditionLabelNameConditionArgs.builder()
- *                                     .labelName(&#34;awswaf:111122223333:rulegroup:testRules:LabelNameZ&#34;)
- *                                     .build())
- *                                 .build())
- *                         .requirement(&#34;MEETS_ALL&#34;)
- *                         .build(),
- *                     WebAclLoggingConfigurationLoggingFilterFilterArgs.builder()
- *                         .behavior(&#34;KEEP&#34;)
- *                         .conditions(WebAclLoggingConfigurationLoggingFilterFilterConditionArgs.builder()
- *                             .actionCondition(WebAclLoggingConfigurationLoggingFilterFilterConditionActionConditionArgs.builder()
- *                                 .action(&#34;ALLOW&#34;)
- *                                 .build())
- *                             .build())
- *                         .requirement(&#34;MEETS_ANY&#34;)
- *                         .build())
- *                 .build())
+ *             .loggingFilter(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

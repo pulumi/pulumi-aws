@@ -37,7 +37,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.route53domains.RegisteredDomain;
  * import com.pulumi.aws.route53domains.RegisteredDomainArgs;
- * import com.pulumi.aws.route53domains.inputs.RegisteredDomainNameServerArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -54,13 +53,9 @@ import javax.annotation.Nullable;
  *         var example = new RegisteredDomain(&#34;example&#34;, RegisteredDomainArgs.builder()        
  *             .domainName(&#34;example.com&#34;)
  *             .nameServers(            
- *                 RegisteredDomainNameServerArgs.builder()
- *                     .name(&#34;ns-195.awsdns-24.com&#34;)
- *                     .build(),
- *                 RegisteredDomainNameServerArgs.builder()
- *                     .name(&#34;ns-874.awsdns-45.net&#34;)
- *                     .build())
- *             .tags(Map.of(&#34;Environment&#34;, &#34;test&#34;))
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

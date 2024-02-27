@@ -23,7 +23,7 @@ namespace Pulumi.Aws.NetworkManager
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.NetworkManager.VpcAttachment("example", new()
+    ///     var example = new Aws.Networkmanager.VpcAttachment.VpcAttachment("example", new()
     ///     {
     ///         SubnetArns = new[]
     ///         {

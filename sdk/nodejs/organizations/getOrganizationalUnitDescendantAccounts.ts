@@ -9,18 +9,6 @@ import * as utilities from "../utilities";
 
 /**
  * Get all direct child accounts under a parent organizational unit. This provides all children.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const org = aws.organizations.getOrganization({});
- * const accounts = org.then(org => aws.organizations.getOrganizationalUnitDescendantAccounts({
- *     parentId: org.roots?.[0]?.id,
- * }));
- * ```
  */
 export function getOrganizationalUnitDescendantAccounts(args: GetOrganizationalUnitDescendantAccountsArgs, opts?: pulumi.InvokeOptions): Promise<GetOrganizationalUnitDescendantAccountsResult> {
 
@@ -56,18 +44,6 @@ export interface GetOrganizationalUnitDescendantAccountsResult {
 }
 /**
  * Get all direct child accounts under a parent organizational unit. This provides all children.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const org = aws.organizations.getOrganization({});
- * const accounts = org.then(org => aws.organizations.getOrganizationalUnitDescendantAccounts({
- *     parentId: org.roots?.[0]?.id,
- * }));
- * ```
  */
 export function getOrganizationalUnitDescendantAccountsOutput(args: GetOrganizationalUnitDescendantAccountsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOrganizationalUnitDescendantAccountsResult> {
     return pulumi.output(args).apply((a: any) => getOrganizationalUnitDescendantAccounts(a, opts))

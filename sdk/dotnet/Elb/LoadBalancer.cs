@@ -32,7 +32,7 @@ namespace Pulumi.Aws.Elb
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // Create a new load balancer
-    ///     var bar = new Aws.Elb.LoadBalancer("bar", new()
+    ///     var bar = new Aws.Elb.LoadBalancer.LoadBalancer("bar", new()
     ///     {
     ///         AvailabilityZones = new[]
     ///         {
@@ -40,37 +40,37 @@ namespace Pulumi.Aws.Elb
     ///             "us-west-2b",
     ///             "us-west-2c",
     ///         },
-    ///         AccessLogs = new Aws.Elb.Inputs.LoadBalancerAccessLogsArgs
+    ///         AccessLogs = 
     ///         {
-    ///             Bucket = "foo",
-    ///             BucketPrefix = "bar",
-    ///             Interval = 60,
+    ///             { "bucket", "foo" },
+    ///             { "bucketPrefix", "bar" },
+    ///             { "interval", 60 },
     ///         },
     ///         Listeners = new[]
     ///         {
-    ///             new Aws.Elb.Inputs.LoadBalancerListenerArgs
+    ///             
     ///             {
-    ///                 InstancePort = 8000,
-    ///                 InstanceProtocol = "http",
-    ///                 LbPort = 80,
-    ///                 LbProtocol = "http",
+    ///                 { "instancePort", 8000 },
+    ///                 { "instanceProtocol", "http" },
+    ///                 { "lbPort", 80 },
+    ///                 { "lbProtocol", "http" },
     ///             },
-    ///             new Aws.Elb.Inputs.LoadBalancerListenerArgs
+    ///             
     ///             {
-    ///                 InstancePort = 8000,
-    ///                 InstanceProtocol = "http",
-    ///                 LbPort = 443,
-    ///                 LbProtocol = "https",
-    ///                 SslCertificateId = "arn:aws:iam::123456789012:server-certificate/certName",
+    ///                 { "instancePort", 8000 },
+    ///                 { "instanceProtocol", "http" },
+    ///                 { "lbPort", 443 },
+    ///                 { "lbProtocol", "https" },
+    ///                 { "sslCertificateId", "arn:aws:iam::123456789012:server-certificate/certName" },
     ///             },
     ///         },
-    ///         HealthCheck = new Aws.Elb.Inputs.LoadBalancerHealthCheckArgs
+    ///         HealthCheck = 
     ///         {
-    ///             HealthyThreshold = 2,
-    ///             UnhealthyThreshold = 2,
-    ///             Timeout = 3,
-    ///             Target = "HTTP:8000/",
-    ///             Interval = 30,
+    ///             { "healthyThreshold", 2 },
+    ///             { "unhealthyThreshold", 2 },
+    ///             { "timeout", 3 },
+    ///             { "target", "HTTP:8000/" },
+    ///             { "interval", 30 },
     ///         },
     ///         Instances = new[]
     ///         {

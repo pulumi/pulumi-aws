@@ -22,96 +22,32 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/eks"
+//	eks/cluster "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/eks/cluster"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := eks.NewCluster(ctx, "example", &eks.ClusterArgs{
-//				RoleArn: pulumi.Any(aws_iam_role.Example.Arn),
-//				VpcConfig: &eks.ClusterVpcConfigArgs{
-//					SubnetIds: pulumi.StringArray{
-//						aws_subnet.Example1.Id,
-//						aws_subnet.Example2.Id,
-//					},
-//				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				aws_iam_role_policy_attachment.ExampleAmazonEKSClusterPolicy,
-//				aws_iam_role_policy_attachment.ExampleAmazonEKSVPCResourceController,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			ctx.Export("endpoint", example.Endpoint)
-//			ctx.Export("kubeconfig-certificate-authority-data", example.CertificateAuthority.ApplyT(func(certificateAuthority eks.ClusterCertificateAuthority) (*string, error) {
-//				return &certificateAuthority.Data, nil
-//			}).(pulumi.StringPtrOutput))
-//			return nil
-//		})
-//	}
-//
-// ```
-// ### Example IAM Role for EKS Cluster
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			assumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-//				Statements: []iam.GetPolicyDocumentStatement{
-//					{
-//						Effect: pulumi.StringRef("Allow"),
-//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
-//							{
-//								Type: "Service",
-//								Identifiers: []string{
-//									"eks.amazonaws.com",
-//								},
-//							},
-//						},
-//						Actions: []string{
-//							"sts:AssumeRole",
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			example, err := iam.NewRole(ctx, "example", &iam.RoleArgs{
-//				AssumeRolePolicy: *pulumi.String(assumeRole.Json),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = iam.NewRolePolicyAttachment(ctx, "example-AmazonEKSClusterPolicy", &iam.RolePolicyAttachmentArgs{
-//				PolicyArn: pulumi.String("arn:aws:iam::aws:policy/AmazonEKSClusterPolicy"),
-//				Role:      example.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = iam.NewRolePolicyAttachment(ctx, "example-AmazonEKSVPCResourceController", &iam.RolePolicyAttachmentArgs{
-//				PolicyArn: pulumi.String("arn:aws:iam::aws:policy/AmazonEKSVPCResourceController"),
-//				Role:      example.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := eks/cluster.NewCluster(ctx, "example", &eks/cluster.ClusterArgs{
+// RoleArn: aws_iam_role.Example.Arn,
+// VpcConfig: map[string]interface{}{
+// "subnetIds": []interface{}{
+// aws_subnet.Example1.Id,
+// aws_subnet.Example2.Id,
+// },
+// },
+// }, pulumi.DependsOn([]pulumi.Resource{
+// aws_iam_role_policy_attachment.ExampleAmazonEKSClusterPolicy,
+// aws_iam_role_policy_attachment.ExampleAmazonEKSVPCResourceController,
+// }))
+// if err != nil {
+// return err
+// }
+// ctx.Export("endpoint", example.Endpoint)
+// ctx.Export("kubeconfig-certificate-authority-data", example.CertificateAuthority.Data)
+// return nil
+// })
+// }
 // ```
 // ### Enabling Control Plane Logging
 //
@@ -124,41 +60,39 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/eks"
+//	cloudwatch/logGroup "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/cloudwatch/logGroup"
+//	eks/cluster "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/eks/cluster"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			cfg := config.New(ctx, "")
-//			clusterName := "example"
-//			if param := cfg.Get("clusterName"); param != "" {
-//				clusterName = param
-//			}
-//			exampleLogGroup, err := cloudwatch.NewLogGroup(ctx, "exampleLogGroup", &cloudwatch.LogGroupArgs{
-//				RetentionInDays: pulumi.Int(7),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = eks.NewCluster(ctx, "exampleCluster", &eks.ClusterArgs{
-//				EnabledClusterLogTypes: pulumi.StringArray{
-//					pulumi.String("api"),
-//					pulumi.String("audit"),
-//				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleLogGroup,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// cfg := config.New(ctx, "")
+// clusterName := "example";
+// if param := cfg.Get("clusterName"); param != ""{
+// clusterName = param
+// }
+// exampleLogGroup, err := cloudwatch/logGroup.NewLogGroup(ctx, "exampleLogGroup", &cloudwatch/logGroup.LogGroupArgs{
+// RetentionInDays: 7,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = eks/cluster.NewCluster(ctx, "exampleCluster", &eks/cluster.ClusterArgs{
+// EnabledClusterLogTypes: []string{
+// "api",
+// "audit",
+// },
+// }, pulumi.DependsOn([]pulumi.Resource{
+// exampleLogGroup,
+// }))
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### EKS Cluster on AWS Outpost
 //
@@ -169,40 +103,38 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/eks"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	eks/cluster "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/eks/cluster"
+//	iam/role "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/iam/role"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleRole, err := iam.NewRole(ctx, "exampleRole", &iam.RoleArgs{
-//				AssumeRolePolicy: pulumi.Any(data.Aws_iam_policy_document.Example_assume_role_policy.Json),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = eks.NewCluster(ctx, "exampleCluster", &eks.ClusterArgs{
-//				RoleArn: exampleRole.Arn,
-//				VpcConfig: &eks.ClusterVpcConfigArgs{
-//					EndpointPrivateAccess: pulumi.Bool(true),
-//					EndpointPublicAccess:  pulumi.Bool(false),
-//				},
-//				OutpostConfig: &eks.ClusterOutpostConfigArgs{
-//					ControlPlaneInstanceType: pulumi.String("m5d.large"),
-//					OutpostArns: pulumi.StringArray{
-//						data.Aws_outposts_outpost.Example.Arn,
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleRole, err := iam/role.NewRole(ctx, "exampleRole", &iam/role.RoleArgs{
+// AssumeRolePolicy: data.Aws_iam_policy_document.Example_assume_role_policy.Json,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = eks/cluster.NewCluster(ctx, "exampleCluster", &eks/cluster.ClusterArgs{
+// RoleArn: exampleRole.Arn,
+// VpcConfig: map[string]interface{}{
+// "endpointPrivateAccess": true,
+// "endpointPublicAccess": false,
+// },
+// OutpostConfig: map[string]interface{}{
+// "controlPlaneInstanceType": "m5d.large",
+// "outpostArns": []interface{}{
+// data.Aws_outposts_outpost.Example.Arn,
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### EKS Cluster with Access Config
 //
@@ -211,38 +143,36 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/eks"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	eks/cluster "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/eks/cluster"
+//	iam/role "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/iam/role"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleRole, err := iam.NewRole(ctx, "exampleRole", &iam.RoleArgs{
-//				AssumeRolePolicy: pulumi.Any(data.Aws_iam_policy_document.Example_assume_role_policy.Json),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = eks.NewCluster(ctx, "exampleCluster", &eks.ClusterArgs{
-//				RoleArn: exampleRole.Arn,
-//				VpcConfig: &eks.ClusterVpcConfigArgs{
-//					EndpointPrivateAccess: pulumi.Bool(true),
-//					EndpointPublicAccess:  pulumi.Bool(false),
-//				},
-//				AccessConfig: &eks.ClusterAccessConfigArgs{
-//					AuthenticationMode:                      pulumi.String("CONFIG_MAP"),
-//					BootstrapClusterCreatorAdminPermissions: pulumi.Bool(true),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleRole, err := iam/role.NewRole(ctx, "exampleRole", &iam/role.RoleArgs{
+// AssumeRolePolicy: data.Aws_iam_policy_document.Example_assume_role_policy.Json,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = eks/cluster.NewCluster(ctx, "exampleCluster", &eks/cluster.ClusterArgs{
+// RoleArn: exampleRole.Arn,
+// VpcConfig: map[string]interface{}{
+// "endpointPrivateAccess": true,
+// "endpointPublicAccess": false,
+// },
+// AccessConfig: map[string]interface{}{
+// "authenticationMode": "CONFIG_MAP",
+// "bootstrapClusterCreatorAdminPermissions": true,
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // After adding inline IAM Policies (e.g., `iam.RolePolicy` resource) or attaching IAM Policies (e.g., `iam.Policy` resource and `iam.RolePolicyAttachment` resource) with the desired permissions to the IAM Role, annotate the Kubernetes service account (e.g., `kubernetesServiceAccount` resource) and recreate any pods.

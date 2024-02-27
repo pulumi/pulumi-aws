@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.keyspaces.Table("example", {
+ * const example = new aws.keyspaces/table.Table("example", {
  *     keyspaceName: aws_keyspaces_keyspace.example.name,
  *     tableName: "my_table",
  *     schemaDefinition: {

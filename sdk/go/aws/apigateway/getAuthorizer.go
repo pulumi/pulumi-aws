@@ -12,33 +12,6 @@ import (
 )
 
 // Provides details about a specific API Gateway Authorizer.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigateway"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := apigateway.LookupAuthorizer(ctx, &apigateway.LookupAuthorizerArgs{
-//				RestApiId:    aws_api_gateway_rest_api.Example.Id,
-//				AuthorizerId: data.Aws_api_gateway_authorizers.Example.Ids[0],
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupAuthorizer(ctx *pulumi.Context, args *LookupAuthorizerArgs, opts ...pulumi.InvokeOption) (*LookupAuthorizerResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupAuthorizerResult

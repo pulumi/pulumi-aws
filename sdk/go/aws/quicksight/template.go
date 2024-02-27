@@ -22,29 +22,114 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/quicksight"
+//	quicksight/template "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/quicksight/template"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := quicksight/template.NewTemplate(ctx, "example", &quicksight/template.TemplateArgs{
+// TemplateId: "example-id",
+// VersionDescription: "version",
+// SourceEntity: map[string]interface{}{
+// "sourceTemplate": map[string]interface{}{
+// "arn": aws_quicksight_template.Source.Arn,
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
+// ```
+// ### With Definition
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := quicksight.NewTemplate(ctx, "example", &quicksight.TemplateArgs{
-//				TemplateId:         pulumi.String("example-id"),
-//				VersionDescription: pulumi.String("version"),
-//				SourceEntity: &quicksight.TemplateSourceEntityArgs{
-//					SourceTemplate: &quicksight.TemplateSourceEntitySourceTemplateArgs{
-//						Arn: pulumi.Any(aws_quicksight_template.Source.Arn),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
+// ```go
+// package main
 //
+// import (
+//
+//	quicksight/template "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/quicksight/template"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := quicksight/template.NewTemplate(ctx, "example", &quicksight/template.TemplateArgs{
+// Definition: map[string]interface{}{
+// "dataSetConfigurations": []map[string]interface{}{
+// map[string]interface{}{
+// "dataSetSchema": map[string]interface{}{
+// "columnSchemaList": []map[string]interface{}{
+// map[string]interface{}{
+// "dataType": "STRING",
+// "name": "Column1",
+// },
+// map[string]interface{}{
+// "dataType": "INTEGER",
+// "name": "Column2",
+// },
+// },
+// },
+// "placeholder": "1",
+// },
+// },
+// "sheets": []map[string]interface{}{
+// map[string]interface{}{
+// "sheetId": "Test1",
+// "title": "Test",
+// "visuals": []map[string]interface{}{
+// map[string]interface{}{
+// "barChartVisual": map[string]interface{}{
+// "chartConfiguration": map[string]interface{}{
+// "fieldWells": map[string]interface{}{
+// "barChartAggregatedFieldWells": map[string]interface{}{
+// "category": []map[string]interface{}{
+// map[string]interface{}{
+// "categoricalDimensionField": map[string]interface{}{
+// "column": map[string]interface{}{
+// "columnName": "Column1",
+// "dataSetIdentifier": "1",
+// },
+// "fieldId": "1",
+// },
+// },
+// },
+// "values": []map[string]interface{}{
+// map[string]interface{}{
+// "numericalMeasureField": map[string]interface{}{
+// "aggregationFunction": map[string]interface{}{
+// "simpleNumericalAggregation": "SUM",
+// },
+// "column": map[string]interface{}{
+// "columnName": "Column2",
+// "dataSetIdentifier": "1",
+// },
+// "fieldId": "2",
+// },
+// },
+// },
+// },
+// },
+// },
+// "visualId": "BarChart",
+// },
+// },
+// },
+// },
+// },
+// },
+// TemplateId: "example-id",
+// VersionDescription: "version",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

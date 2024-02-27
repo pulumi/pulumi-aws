@@ -435,6 +435,29 @@ class Firewall(pulumi.CustomResource):
         """
         Provides an AWS Network Firewall Firewall Resource
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.networkfirewall.firewall.Firewall("example",
+            firewall_policy_arn=aws_networkfirewall_firewall_policy.example.arn,
+            vpc_id=aws_vpc.example.id,
+            subnet_mappings=[{
+                subnetId: aws_subnet.example.id,
+            }],
+            tags={
+                Tag1: Value1,
+                Tag2: Value2,
+            },
+            timeouts=[{
+                create: 40m,
+                update: 50m,
+                delete: 1h,
+            }])
+        ```
+
         ## Import
 
         Using `pulumi import`, import Network Firewall Firewalls using their `arn`. For example:
@@ -464,6 +487,29 @@ class Firewall(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an AWS Network Firewall Firewall Resource
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.networkfirewall.firewall.Firewall("example",
+            firewall_policy_arn=aws_networkfirewall_firewall_policy.example.arn,
+            vpc_id=aws_vpc.example.id,
+            subnet_mappings=[{
+                subnetId: aws_subnet.example.id,
+            }],
+            tags={
+                Tag1: Value1,
+                Tag2: Value2,
+            },
+            timeouts=[{
+                create: 40m,
+                update: 50m,
+                delete: 1h,
+            }])
+        ```
 
         ## Import
 

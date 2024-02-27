@@ -12,46 +12,6 @@ import (
 )
 
 // Use this data source to get information about a specific EC2 Key Pair.
-//
-// ## Example Usage
-//
-// The following example shows how to get a EC2 Key Pair including the public key material from its name.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := ec2.LookupKeyPair(ctx, &ec2.LookupKeyPairArgs{
-//				KeyName:          pulumi.StringRef("test"),
-//				IncludePublicKey: pulumi.BoolRef(true),
-//				Filters: []ec2.GetKeyPairFilter{
-//					{
-//						Name: "tag:Component",
-//						Values: []string{
-//							"web",
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			ctx.Export("fingerprint", example.Fingerprint)
-//			ctx.Export("name", example.KeyName)
-//			ctx.Export("id", example.Id)
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupKeyPair(ctx *pulumi.Context, args *LookupKeyPairArgs, opts ...pulumi.InvokeOption) (*LookupKeyPairResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupKeyPairResult

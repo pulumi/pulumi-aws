@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Rds
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var @default = new Aws.Rds.SubnetGroup("default", new()
+    ///     var @default = new Aws.Rds.SubnetGroup.SubnetGroup("default", new()
     ///     {
     ///         SubnetIds = new[]
     ///         {

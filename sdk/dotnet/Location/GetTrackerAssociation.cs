@@ -16,26 +16,6 @@ namespace Pulumi.Aws.Location
         /// 
         /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Location.GetTrackerAssociation.Invoke(new()
-        ///     {
-        ///         ConsumerArn = "arn:aws:geo:region:account-id:geofence-collection/ExampleGeofenceCollectionConsumer",
-        ///         TrackerName = "example",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetTrackerAssociationResult> InvokeAsync(GetTrackerAssociationArgs args, InvokeOptions? options = null)
@@ -46,26 +26,6 @@ namespace Pulumi.Aws.Location
         /// 
         /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Location.GetTrackerAssociation.Invoke(new()
-        ///     {
-        ///         ConsumerArn = "arn:aws:geo:region:account-id:geofence-collection/ExampleGeofenceCollectionConsumer",
-        ///         TrackerName = "example",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetTrackerAssociationResult> Invoke(GetTrackerAssociationInvokeArgs args, InvokeOptions? options = null)

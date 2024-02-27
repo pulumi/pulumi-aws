@@ -27,11 +27,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.emr.Cluster;
  * import com.pulumi.aws.emr.ClusterArgs;
- * import com.pulumi.aws.emr.inputs.ClusterMasterInstanceGroupArgs;
- * import com.pulumi.aws.emr.inputs.ClusterCoreInstanceGroupArgs;
  * import com.pulumi.aws.emr.ManagedScalingPolicy;
  * import com.pulumi.aws.emr.ManagedScalingPolicyArgs;
- * import com.pulumi.aws.emr.inputs.ManagedScalingPolicyComputeLimitArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -47,23 +44,13 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var sample = new Cluster(&#34;sample&#34;, ClusterArgs.builder()        
  *             .releaseLabel(&#34;emr-5.30.0&#34;)
- *             .masterInstanceGroup(ClusterMasterInstanceGroupArgs.builder()
- *                 .instanceType(&#34;m4.large&#34;)
- *                 .build())
- *             .coreInstanceGroup(ClusterCoreInstanceGroupArgs.builder()
- *                 .instanceType(&#34;c4.large&#34;)
- *                 .build())
+ *             .masterInstanceGroup(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .coreInstanceGroup(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var samplepolicy = new ManagedScalingPolicy(&#34;samplepolicy&#34;, ManagedScalingPolicyArgs.builder()        
  *             .clusterId(sample.id())
- *             .computeLimits(ManagedScalingPolicyComputeLimitArgs.builder()
- *                 .unitType(&#34;Instances&#34;)
- *                 .minimumCapacityUnits(2)
- *                 .maximumCapacityUnits(10)
- *                 .maximumOndemandCapacityUnits(2)
- *                 .maximumCoreCapacityUnits(10)
- *                 .build())
+ *             .computeLimits(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

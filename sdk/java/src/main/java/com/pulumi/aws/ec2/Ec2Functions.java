@@ -200,52 +200,6 @@ public final class Ec2Functions {
      * Use this data source to get the ID of a registered AMI for use in other
      * resources.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetAmiArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Ec2Functions.getAmi(GetAmiArgs.builder()
-     *             .executableUsers(&#34;self&#34;)
-     *             .filters(            
-     *                 GetAmiFilterArgs.builder()
-     *                     .name(&#34;name&#34;)
-     *                     .values(&#34;myami-*&#34;)
-     *                     .build(),
-     *                 GetAmiFilterArgs.builder()
-     *                     .name(&#34;root-device-type&#34;)
-     *                     .values(&#34;ebs&#34;)
-     *                     .build(),
-     *                 GetAmiFilterArgs.builder()
-     *                     .name(&#34;virtualization-type&#34;)
-     *                     .values(&#34;hvm&#34;)
-     *                     .build())
-     *             .mostRecent(true)
-     *             .nameRegex(&#34;^myami-\\d{3}&#34;)
-     *             .owners(&#34;self&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetAmiResult> getAmi() {
         return getAmi(GetAmiArgs.Empty, InvokeOptions.Empty);
@@ -253,52 +207,6 @@ public final class Ec2Functions {
     /**
      * Use this data source to get the ID of a registered AMI for use in other
      * resources.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetAmiArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Ec2Functions.getAmi(GetAmiArgs.builder()
-     *             .executableUsers(&#34;self&#34;)
-     *             .filters(            
-     *                 GetAmiFilterArgs.builder()
-     *                     .name(&#34;name&#34;)
-     *                     .values(&#34;myami-*&#34;)
-     *                     .build(),
-     *                 GetAmiFilterArgs.builder()
-     *                     .name(&#34;root-device-type&#34;)
-     *                     .values(&#34;ebs&#34;)
-     *                     .build(),
-     *                 GetAmiFilterArgs.builder()
-     *                     .name(&#34;virtualization-type&#34;)
-     *                     .values(&#34;hvm&#34;)
-     *                     .build())
-     *             .mostRecent(true)
-     *             .nameRegex(&#34;^myami-\\d{3}&#34;)
-     *             .owners(&#34;self&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetAmiResult> getAmiPlain() {
@@ -308,52 +216,6 @@ public final class Ec2Functions {
      * Use this data source to get the ID of a registered AMI for use in other
      * resources.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetAmiArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Ec2Functions.getAmi(GetAmiArgs.builder()
-     *             .executableUsers(&#34;self&#34;)
-     *             .filters(            
-     *                 GetAmiFilterArgs.builder()
-     *                     .name(&#34;name&#34;)
-     *                     .values(&#34;myami-*&#34;)
-     *                     .build(),
-     *                 GetAmiFilterArgs.builder()
-     *                     .name(&#34;root-device-type&#34;)
-     *                     .values(&#34;ebs&#34;)
-     *                     .build(),
-     *                 GetAmiFilterArgs.builder()
-     *                     .name(&#34;virtualization-type&#34;)
-     *                     .values(&#34;hvm&#34;)
-     *                     .build())
-     *             .mostRecent(true)
-     *             .nameRegex(&#34;^myami-\\d{3}&#34;)
-     *             .owners(&#34;self&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetAmiResult> getAmi(GetAmiArgs args) {
         return getAmi(args, InvokeOptions.Empty);
@@ -361,52 +223,6 @@ public final class Ec2Functions {
     /**
      * Use this data source to get the ID of a registered AMI for use in other
      * resources.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetAmiArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Ec2Functions.getAmi(GetAmiArgs.builder()
-     *             .executableUsers(&#34;self&#34;)
-     *             .filters(            
-     *                 GetAmiFilterArgs.builder()
-     *                     .name(&#34;name&#34;)
-     *                     .values(&#34;myami-*&#34;)
-     *                     .build(),
-     *                 GetAmiFilterArgs.builder()
-     *                     .name(&#34;root-device-type&#34;)
-     *                     .values(&#34;ebs&#34;)
-     *                     .build(),
-     *                 GetAmiFilterArgs.builder()
-     *                     .name(&#34;virtualization-type&#34;)
-     *                     .values(&#34;hvm&#34;)
-     *                     .build())
-     *             .mostRecent(true)
-     *             .nameRegex(&#34;^myami-\\d{3}&#34;)
-     *             .owners(&#34;self&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetAmiResult> getAmiPlain(GetAmiPlainArgs args) {
@@ -416,52 +232,6 @@ public final class Ec2Functions {
      * Use this data source to get the ID of a registered AMI for use in other
      * resources.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetAmiArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Ec2Functions.getAmi(GetAmiArgs.builder()
-     *             .executableUsers(&#34;self&#34;)
-     *             .filters(            
-     *                 GetAmiFilterArgs.builder()
-     *                     .name(&#34;name&#34;)
-     *                     .values(&#34;myami-*&#34;)
-     *                     .build(),
-     *                 GetAmiFilterArgs.builder()
-     *                     .name(&#34;root-device-type&#34;)
-     *                     .values(&#34;ebs&#34;)
-     *                     .build(),
-     *                 GetAmiFilterArgs.builder()
-     *                     .name(&#34;virtualization-type&#34;)
-     *                     .values(&#34;hvm&#34;)
-     *                     .build())
-     *             .mostRecent(true)
-     *             .nameRegex(&#34;^myami-\\d{3}&#34;)
-     *             .owners(&#34;self&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetAmiResult> getAmi(GetAmiArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:ec2/getAmi:getAmi", TypeShape.of(GetAmiResult.class), args, Utilities.withVersion(options));
@@ -470,92 +240,12 @@ public final class Ec2Functions {
      * Use this data source to get the ID of a registered AMI for use in other
      * resources.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetAmiArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Ec2Functions.getAmi(GetAmiArgs.builder()
-     *             .executableUsers(&#34;self&#34;)
-     *             .filters(            
-     *                 GetAmiFilterArgs.builder()
-     *                     .name(&#34;name&#34;)
-     *                     .values(&#34;myami-*&#34;)
-     *                     .build(),
-     *                 GetAmiFilterArgs.builder()
-     *                     .name(&#34;root-device-type&#34;)
-     *                     .values(&#34;ebs&#34;)
-     *                     .build(),
-     *                 GetAmiFilterArgs.builder()
-     *                     .name(&#34;virtualization-type&#34;)
-     *                     .values(&#34;hvm&#34;)
-     *                     .build())
-     *             .mostRecent(true)
-     *             .nameRegex(&#34;^myami-\\d{3}&#34;)
-     *             .owners(&#34;self&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static CompletableFuture<GetAmiResult> getAmiPlain(GetAmiPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:ec2/getAmi:getAmi", TypeShape.of(GetAmiResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to get a list of AMI IDs matching the specified criteria.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetAmiIdsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var ubuntu = Ec2Functions.getAmiIds(GetAmiIdsArgs.builder()
-     *             .filters(GetAmiIdsFilterArgs.builder()
-     *                 .name(&#34;name&#34;)
-     *                 .values(&#34;ubuntu/images/ubuntu-*-*-amd64-server-*&#34;)
-     *                 .build())
-     *             .owners(&#34;099720109477&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetAmiIdsResult> getAmiIds(GetAmiIdsArgs args) {
@@ -564,40 +254,6 @@ public final class Ec2Functions {
     /**
      * Use this data source to get a list of AMI IDs matching the specified criteria.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetAmiIdsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var ubuntu = Ec2Functions.getAmiIds(GetAmiIdsArgs.builder()
-     *             .filters(GetAmiIdsFilterArgs.builder()
-     *                 .name(&#34;name&#34;)
-     *                 .values(&#34;ubuntu/images/ubuntu-*-*-amd64-server-*&#34;)
-     *                 .build())
-     *             .owners(&#34;099720109477&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static CompletableFuture<GetAmiIdsResult> getAmiIdsPlain(GetAmiIdsPlainArgs args) {
         return getAmiIdsPlain(args, InvokeOptions.Empty);
@@ -605,80 +261,12 @@ public final class Ec2Functions {
     /**
      * Use this data source to get a list of AMI IDs matching the specified criteria.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetAmiIdsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var ubuntu = Ec2Functions.getAmiIds(GetAmiIdsArgs.builder()
-     *             .filters(GetAmiIdsFilterArgs.builder()
-     *                 .name(&#34;name&#34;)
-     *                 .values(&#34;ubuntu/images/ubuntu-*-*-amd64-server-*&#34;)
-     *                 .build())
-     *             .owners(&#34;099720109477&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetAmiIdsResult> getAmiIds(GetAmiIdsArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:ec2/getAmiIds:getAmiIds", TypeShape.of(GetAmiIdsResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to get a list of AMI IDs matching the specified criteria.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetAmiIdsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var ubuntu = Ec2Functions.getAmiIds(GetAmiIdsArgs.builder()
-     *             .filters(GetAmiIdsFilterArgs.builder()
-     *                 .name(&#34;name&#34;)
-     *                 .values(&#34;ubuntu/images/ubuntu-*-*-amd64-server-*&#34;)
-     *                 .build())
-     *             .owners(&#34;099720109477&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetAmiIdsResult> getAmiIdsPlain(GetAmiIdsPlainArgs args, InvokeOptions options) {
@@ -691,41 +279,6 @@ public final class Ec2Functions {
      * an input variable and needs to, for example, determine the CIDR block of that
      * COIP Pool.
      * 
-     * ## Example Usage
-     * 
-     * The following example returns a specific coip pool ID
-     * 
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetCoipPoolArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var config = ctx.config();
-     *         final var coipPoolId = config.get(&#34;coipPoolId&#34;);
-     *         final var selected = Ec2Functions.getCoipPool(GetCoipPoolArgs.builder()
-     *             .id(coipPoolId)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetCoipPoolResult> getCoipPool() {
         return getCoipPool(GetCoipPoolArgs.Empty, InvokeOptions.Empty);
@@ -736,41 +289,6 @@ public final class Ec2Functions {
      * This data source can prove useful when a module accepts a coip pool id as
      * an input variable and needs to, for example, determine the CIDR block of that
      * COIP Pool.
-     * 
-     * ## Example Usage
-     * 
-     * The following example returns a specific coip pool ID
-     * 
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetCoipPoolArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var config = ctx.config();
-     *         final var coipPoolId = config.get(&#34;coipPoolId&#34;);
-     *         final var selected = Ec2Functions.getCoipPool(GetCoipPoolArgs.builder()
-     *             .id(coipPoolId)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetCoipPoolResult> getCoipPoolPlain() {
@@ -783,41 +301,6 @@ public final class Ec2Functions {
      * an input variable and needs to, for example, determine the CIDR block of that
      * COIP Pool.
      * 
-     * ## Example Usage
-     * 
-     * The following example returns a specific coip pool ID
-     * 
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetCoipPoolArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var config = ctx.config();
-     *         final var coipPoolId = config.get(&#34;coipPoolId&#34;);
-     *         final var selected = Ec2Functions.getCoipPool(GetCoipPoolArgs.builder()
-     *             .id(coipPoolId)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetCoipPoolResult> getCoipPool(GetCoipPoolArgs args) {
         return getCoipPool(args, InvokeOptions.Empty);
@@ -828,41 +311,6 @@ public final class Ec2Functions {
      * This data source can prove useful when a module accepts a coip pool id as
      * an input variable and needs to, for example, determine the CIDR block of that
      * COIP Pool.
-     * 
-     * ## Example Usage
-     * 
-     * The following example returns a specific coip pool ID
-     * 
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetCoipPoolArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var config = ctx.config();
-     *         final var coipPoolId = config.get(&#34;coipPoolId&#34;);
-     *         final var selected = Ec2Functions.getCoipPool(GetCoipPoolArgs.builder()
-     *             .id(coipPoolId)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetCoipPoolResult> getCoipPoolPlain(GetCoipPoolPlainArgs args) {
@@ -875,41 +323,6 @@ public final class Ec2Functions {
      * an input variable and needs to, for example, determine the CIDR block of that
      * COIP Pool.
      * 
-     * ## Example Usage
-     * 
-     * The following example returns a specific coip pool ID
-     * 
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetCoipPoolArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var config = ctx.config();
-     *         final var coipPoolId = config.get(&#34;coipPoolId&#34;);
-     *         final var selected = Ec2Functions.getCoipPool(GetCoipPoolArgs.builder()
-     *             .id(coipPoolId)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetCoipPoolResult> getCoipPool(GetCoipPoolArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:ec2/getCoipPool:getCoipPool", TypeShape.of(GetCoipPoolResult.class), args, Utilities.withVersion(options));
@@ -920,41 +333,6 @@ public final class Ec2Functions {
      * This data source can prove useful when a module accepts a coip pool id as
      * an input variable and needs to, for example, determine the CIDR block of that
      * COIP Pool.
-     * 
-     * ## Example Usage
-     * 
-     * The following example returns a specific coip pool ID
-     * 
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetCoipPoolArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var config = ctx.config();
-     *         final var coipPoolId = config.get(&#34;coipPoolId&#34;);
-     *         final var selected = Ec2Functions.getCoipPool(GetCoipPoolArgs.builder()
-     *             .id(coipPoolId)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetCoipPoolResult> getCoipPoolPlain(GetCoipPoolPlainArgs args, InvokeOptions options) {
@@ -1005,110 +383,12 @@ public final class Ec2Functions {
     /**
      * Get an existing AWS Customer Gateway.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetCustomerGatewayArgs;
-     * import com.pulumi.aws.ec2.VpnGateway;
-     * import com.pulumi.aws.ec2.VpnGatewayArgs;
-     * import com.pulumi.aws.ec2.VpnConnection;
-     * import com.pulumi.aws.ec2.VpnConnectionArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var foo = Ec2Functions.getCustomerGateway(GetCustomerGatewayArgs.builder()
-     *             .filters(GetCustomerGatewayFilterArgs.builder()
-     *                 .name(&#34;tag:Name&#34;)
-     *                 .values(&#34;foo-prod&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *         var main = new VpnGateway(&#34;main&#34;, VpnGatewayArgs.builder()        
-     *             .vpcId(aws_vpc.main().id())
-     *             .amazonSideAsn(7224)
-     *             .build());
-     * 
-     *         var transit = new VpnConnection(&#34;transit&#34;, VpnConnectionArgs.builder()        
-     *             .vpnGatewayId(main.id())
-     *             .customerGatewayId(foo.applyValue(getCustomerGatewayResult -&gt; getCustomerGatewayResult.id()))
-     *             .type(foo.applyValue(getCustomerGatewayResult -&gt; getCustomerGatewayResult.type()))
-     *             .staticRoutesOnly(false)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetCustomerGatewayResult> getCustomerGateway() {
         return getCustomerGateway(GetCustomerGatewayArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * Get an existing AWS Customer Gateway.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetCustomerGatewayArgs;
-     * import com.pulumi.aws.ec2.VpnGateway;
-     * import com.pulumi.aws.ec2.VpnGatewayArgs;
-     * import com.pulumi.aws.ec2.VpnConnection;
-     * import com.pulumi.aws.ec2.VpnConnectionArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var foo = Ec2Functions.getCustomerGateway(GetCustomerGatewayArgs.builder()
-     *             .filters(GetCustomerGatewayFilterArgs.builder()
-     *                 .name(&#34;tag:Name&#34;)
-     *                 .values(&#34;foo-prod&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *         var main = new VpnGateway(&#34;main&#34;, VpnGatewayArgs.builder()        
-     *             .vpcId(aws_vpc.main().id())
-     *             .amazonSideAsn(7224)
-     *             .build());
-     * 
-     *         var transit = new VpnConnection(&#34;transit&#34;, VpnConnectionArgs.builder()        
-     *             .vpnGatewayId(main.id())
-     *             .customerGatewayId(foo.applyValue(getCustomerGatewayResult -&gt; getCustomerGatewayResult.id()))
-     *             .type(foo.applyValue(getCustomerGatewayResult -&gt; getCustomerGatewayResult.type()))
-     *             .staticRoutesOnly(false)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetCustomerGatewayResult> getCustomerGatewayPlain() {
@@ -1117,110 +397,12 @@ public final class Ec2Functions {
     /**
      * Get an existing AWS Customer Gateway.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetCustomerGatewayArgs;
-     * import com.pulumi.aws.ec2.VpnGateway;
-     * import com.pulumi.aws.ec2.VpnGatewayArgs;
-     * import com.pulumi.aws.ec2.VpnConnection;
-     * import com.pulumi.aws.ec2.VpnConnectionArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var foo = Ec2Functions.getCustomerGateway(GetCustomerGatewayArgs.builder()
-     *             .filters(GetCustomerGatewayFilterArgs.builder()
-     *                 .name(&#34;tag:Name&#34;)
-     *                 .values(&#34;foo-prod&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *         var main = new VpnGateway(&#34;main&#34;, VpnGatewayArgs.builder()        
-     *             .vpcId(aws_vpc.main().id())
-     *             .amazonSideAsn(7224)
-     *             .build());
-     * 
-     *         var transit = new VpnConnection(&#34;transit&#34;, VpnConnectionArgs.builder()        
-     *             .vpnGatewayId(main.id())
-     *             .customerGatewayId(foo.applyValue(getCustomerGatewayResult -&gt; getCustomerGatewayResult.id()))
-     *             .type(foo.applyValue(getCustomerGatewayResult -&gt; getCustomerGatewayResult.type()))
-     *             .staticRoutesOnly(false)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetCustomerGatewayResult> getCustomerGateway(GetCustomerGatewayArgs args) {
         return getCustomerGateway(args, InvokeOptions.Empty);
     }
     /**
      * Get an existing AWS Customer Gateway.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetCustomerGatewayArgs;
-     * import com.pulumi.aws.ec2.VpnGateway;
-     * import com.pulumi.aws.ec2.VpnGatewayArgs;
-     * import com.pulumi.aws.ec2.VpnConnection;
-     * import com.pulumi.aws.ec2.VpnConnectionArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var foo = Ec2Functions.getCustomerGateway(GetCustomerGatewayArgs.builder()
-     *             .filters(GetCustomerGatewayFilterArgs.builder()
-     *                 .name(&#34;tag:Name&#34;)
-     *                 .values(&#34;foo-prod&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *         var main = new VpnGateway(&#34;main&#34;, VpnGatewayArgs.builder()        
-     *             .vpcId(aws_vpc.main().id())
-     *             .amazonSideAsn(7224)
-     *             .build());
-     * 
-     *         var transit = new VpnConnection(&#34;transit&#34;, VpnConnectionArgs.builder()        
-     *             .vpnGatewayId(main.id())
-     *             .customerGatewayId(foo.applyValue(getCustomerGatewayResult -&gt; getCustomerGatewayResult.id()))
-     *             .type(foo.applyValue(getCustomerGatewayResult -&gt; getCustomerGatewayResult.type()))
-     *             .staticRoutesOnly(false)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetCustomerGatewayResult> getCustomerGatewayPlain(GetCustomerGatewayPlainArgs args) {
@@ -1229,110 +411,12 @@ public final class Ec2Functions {
     /**
      * Get an existing AWS Customer Gateway.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetCustomerGatewayArgs;
-     * import com.pulumi.aws.ec2.VpnGateway;
-     * import com.pulumi.aws.ec2.VpnGatewayArgs;
-     * import com.pulumi.aws.ec2.VpnConnection;
-     * import com.pulumi.aws.ec2.VpnConnectionArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var foo = Ec2Functions.getCustomerGateway(GetCustomerGatewayArgs.builder()
-     *             .filters(GetCustomerGatewayFilterArgs.builder()
-     *                 .name(&#34;tag:Name&#34;)
-     *                 .values(&#34;foo-prod&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *         var main = new VpnGateway(&#34;main&#34;, VpnGatewayArgs.builder()        
-     *             .vpcId(aws_vpc.main().id())
-     *             .amazonSideAsn(7224)
-     *             .build());
-     * 
-     *         var transit = new VpnConnection(&#34;transit&#34;, VpnConnectionArgs.builder()        
-     *             .vpnGatewayId(main.id())
-     *             .customerGatewayId(foo.applyValue(getCustomerGatewayResult -&gt; getCustomerGatewayResult.id()))
-     *             .type(foo.applyValue(getCustomerGatewayResult -&gt; getCustomerGatewayResult.type()))
-     *             .staticRoutesOnly(false)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetCustomerGatewayResult> getCustomerGateway(GetCustomerGatewayArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:ec2/getCustomerGateway:getCustomerGateway", TypeShape.of(GetCustomerGatewayResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Get an existing AWS Customer Gateway.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetCustomerGatewayArgs;
-     * import com.pulumi.aws.ec2.VpnGateway;
-     * import com.pulumi.aws.ec2.VpnGatewayArgs;
-     * import com.pulumi.aws.ec2.VpnConnection;
-     * import com.pulumi.aws.ec2.VpnConnectionArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var foo = Ec2Functions.getCustomerGateway(GetCustomerGatewayArgs.builder()
-     *             .filters(GetCustomerGatewayFilterArgs.builder()
-     *                 .name(&#34;tag:Name&#34;)
-     *                 .values(&#34;foo-prod&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *         var main = new VpnGateway(&#34;main&#34;, VpnGatewayArgs.builder()        
-     *             .vpcId(aws_vpc.main().id())
-     *             .amazonSideAsn(7224)
-     *             .build());
-     * 
-     *         var transit = new VpnConnection(&#34;transit&#34;, VpnConnectionArgs.builder()        
-     *             .vpnGatewayId(main.id())
-     *             .customerGatewayId(foo.applyValue(getCustomerGatewayResult -&gt; getCustomerGatewayResult.id()))
-     *             .type(foo.applyValue(getCustomerGatewayResult -&gt; getCustomerGatewayResult.type()))
-     *             .staticRoutesOnly(false)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetCustomerGatewayResult> getCustomerGatewayPlain(GetCustomerGatewayPlainArgs args, InvokeOptions options) {
@@ -1341,80 +425,12 @@ public final class Ec2Functions {
     /**
      * Use this data source to get information about an EC2 Dedicated Host.
      * 
-     * ## Example Usage
-     * ### Filter Example
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetDedicatedHostArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = Ec2Functions.getDedicatedHost(GetDedicatedHostArgs.builder()
-     *             .filters(GetDedicatedHostFilterArgs.builder()
-     *                 .name(&#34;instance-type&#34;)
-     *                 .values(&#34;c5.18xlarge&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetDedicatedHostResult> getDedicatedHost() {
         return getDedicatedHost(GetDedicatedHostArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * Use this data source to get information about an EC2 Dedicated Host.
-     * 
-     * ## Example Usage
-     * ### Filter Example
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetDedicatedHostArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = Ec2Functions.getDedicatedHost(GetDedicatedHostArgs.builder()
-     *             .filters(GetDedicatedHostFilterArgs.builder()
-     *                 .name(&#34;instance-type&#34;)
-     *                 .values(&#34;c5.18xlarge&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetDedicatedHostResult> getDedicatedHostPlain() {
@@ -1423,80 +439,12 @@ public final class Ec2Functions {
     /**
      * Use this data source to get information about an EC2 Dedicated Host.
      * 
-     * ## Example Usage
-     * ### Filter Example
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetDedicatedHostArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = Ec2Functions.getDedicatedHost(GetDedicatedHostArgs.builder()
-     *             .filters(GetDedicatedHostFilterArgs.builder()
-     *                 .name(&#34;instance-type&#34;)
-     *                 .values(&#34;c5.18xlarge&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetDedicatedHostResult> getDedicatedHost(GetDedicatedHostArgs args) {
         return getDedicatedHost(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to get information about an EC2 Dedicated Host.
-     * 
-     * ## Example Usage
-     * ### Filter Example
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetDedicatedHostArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = Ec2Functions.getDedicatedHost(GetDedicatedHostArgs.builder()
-     *             .filters(GetDedicatedHostFilterArgs.builder()
-     *                 .name(&#34;instance-type&#34;)
-     *                 .values(&#34;c5.18xlarge&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetDedicatedHostResult> getDedicatedHostPlain(GetDedicatedHostPlainArgs args) {
@@ -1505,80 +453,12 @@ public final class Ec2Functions {
     /**
      * Use this data source to get information about an EC2 Dedicated Host.
      * 
-     * ## Example Usage
-     * ### Filter Example
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetDedicatedHostArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = Ec2Functions.getDedicatedHost(GetDedicatedHostArgs.builder()
-     *             .filters(GetDedicatedHostFilterArgs.builder()
-     *                 .name(&#34;instance-type&#34;)
-     *                 .values(&#34;c5.18xlarge&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetDedicatedHostResult> getDedicatedHost(GetDedicatedHostArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:ec2/getDedicatedHost:getDedicatedHost", TypeShape.of(GetDedicatedHostResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to get information about an EC2 Dedicated Host.
-     * 
-     * ## Example Usage
-     * ### Filter Example
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetDedicatedHostArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = Ec2Functions.getDedicatedHost(GetDedicatedHostArgs.builder()
-     *             .filters(GetDedicatedHostFilterArgs.builder()
-     *                 .name(&#34;instance-type&#34;)
-     *                 .values(&#34;c5.18xlarge&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetDedicatedHostResult> getDedicatedHostPlain(GetDedicatedHostPlainArgs args, InvokeOptions options) {
@@ -1587,80 +467,12 @@ public final class Ec2Functions {
     /**
      * Provides a list of Elastic IPs in a region.
      * 
-     * ## Example Usage
-     * 
-     * The following shows outputting all Elastic IPs with the a specific tag value.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetEipsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Ec2Functions.getEips(GetEipsArgs.builder()
-     *             .tags(Map.of(&#34;Env&#34;, &#34;dev&#34;))
-     *             .build());
-     * 
-     *         ctx.export(&#34;allocationIds&#34;, example.applyValue(getEipsResult -&gt; getEipsResult.allocationIds()));
-     *         ctx.export(&#34;publicIps&#34;, example.applyValue(getEipsResult -&gt; getEipsResult.publicIps()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetEipsResult> getEips() {
         return getEips(GetEipsArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * Provides a list of Elastic IPs in a region.
-     * 
-     * ## Example Usage
-     * 
-     * The following shows outputting all Elastic IPs with the a specific tag value.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetEipsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Ec2Functions.getEips(GetEipsArgs.builder()
-     *             .tags(Map.of(&#34;Env&#34;, &#34;dev&#34;))
-     *             .build());
-     * 
-     *         ctx.export(&#34;allocationIds&#34;, example.applyValue(getEipsResult -&gt; getEipsResult.allocationIds()));
-     *         ctx.export(&#34;publicIps&#34;, example.applyValue(getEipsResult -&gt; getEipsResult.publicIps()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetEipsResult> getEipsPlain() {
@@ -1669,80 +481,12 @@ public final class Ec2Functions {
     /**
      * Provides a list of Elastic IPs in a region.
      * 
-     * ## Example Usage
-     * 
-     * The following shows outputting all Elastic IPs with the a specific tag value.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetEipsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Ec2Functions.getEips(GetEipsArgs.builder()
-     *             .tags(Map.of(&#34;Env&#34;, &#34;dev&#34;))
-     *             .build());
-     * 
-     *         ctx.export(&#34;allocationIds&#34;, example.applyValue(getEipsResult -&gt; getEipsResult.allocationIds()));
-     *         ctx.export(&#34;publicIps&#34;, example.applyValue(getEipsResult -&gt; getEipsResult.publicIps()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetEipsResult> getEips(GetEipsArgs args) {
         return getEips(args, InvokeOptions.Empty);
     }
     /**
      * Provides a list of Elastic IPs in a region.
-     * 
-     * ## Example Usage
-     * 
-     * The following shows outputting all Elastic IPs with the a specific tag value.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetEipsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Ec2Functions.getEips(GetEipsArgs.builder()
-     *             .tags(Map.of(&#34;Env&#34;, &#34;dev&#34;))
-     *             .build());
-     * 
-     *         ctx.export(&#34;allocationIds&#34;, example.applyValue(getEipsResult -&gt; getEipsResult.allocationIds()));
-     *         ctx.export(&#34;publicIps&#34;, example.applyValue(getEipsResult -&gt; getEipsResult.publicIps()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetEipsResult> getEipsPlain(GetEipsPlainArgs args) {
@@ -1751,80 +495,12 @@ public final class Ec2Functions {
     /**
      * Provides a list of Elastic IPs in a region.
      * 
-     * ## Example Usage
-     * 
-     * The following shows outputting all Elastic IPs with the a specific tag value.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetEipsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Ec2Functions.getEips(GetEipsArgs.builder()
-     *             .tags(Map.of(&#34;Env&#34;, &#34;dev&#34;))
-     *             .build());
-     * 
-     *         ctx.export(&#34;allocationIds&#34;, example.applyValue(getEipsResult -&gt; getEipsResult.allocationIds()));
-     *         ctx.export(&#34;publicIps&#34;, example.applyValue(getEipsResult -&gt; getEipsResult.publicIps()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetEipsResult> getEips(GetEipsArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:ec2/getEips:getEips", TypeShape.of(GetEipsResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Provides a list of Elastic IPs in a region.
-     * 
-     * ## Example Usage
-     * 
-     * The following shows outputting all Elastic IPs with the a specific tag value.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetEipsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Ec2Functions.getEips(GetEipsArgs.builder()
-     *             .tags(Map.of(&#34;Env&#34;, &#34;dev&#34;))
-     *             .build());
-     * 
-     *         ctx.export(&#34;allocationIds&#34;, example.applyValue(getEipsResult -&gt; getEipsResult.allocationIds()));
-     *         ctx.export(&#34;publicIps&#34;, example.applyValue(getEipsResult -&gt; getEipsResult.publicIps()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetEipsResult> getEipsPlain(GetEipsPlainArgs args, InvokeOptions options) {
@@ -1834,125 +510,6 @@ public final class Ec2Functions {
      * `aws.ec2.Eip` provides details about a specific Elastic IP.
      * 
      * ## Example Usage
-     * ### Search By Allocation ID (VPC only)
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetElasticIpArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var byAllocationId = Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
-     *             .id(&#34;eipalloc-12345678&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * ### Search By Filters (EC2-Classic or VPC)
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetElasticIpArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var byFilter = Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
-     *             .filters(GetElasticIpFilterArgs.builder()
-     *                 .name(&#34;tag:Name&#34;)
-     *                 .values(&#34;exampleNameTagValue&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * ### Search By Public IP (EC2-Classic or VPC)
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetElasticIpArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var byPublicIp = Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
-     *             .publicIp(&#34;1.2.3.4&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * ### Search By Tags (EC2-Classic or VPC)
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetElasticIpArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var byTags = Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
-     *             .tags(Map.of(&#34;Name&#34;, &#34;exampleNameTagValue&#34;))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetElasticIpResult> getElasticIp() {
@@ -1962,125 +519,6 @@ public final class Ec2Functions {
      * `aws.ec2.Eip` provides details about a specific Elastic IP.
      * 
      * ## Example Usage
-     * ### Search By Allocation ID (VPC only)
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetElasticIpArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var byAllocationId = Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
-     *             .id(&#34;eipalloc-12345678&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * ### Search By Filters (EC2-Classic or VPC)
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetElasticIpArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var byFilter = Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
-     *             .filters(GetElasticIpFilterArgs.builder()
-     *                 .name(&#34;tag:Name&#34;)
-     *                 .values(&#34;exampleNameTagValue&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * ### Search By Public IP (EC2-Classic or VPC)
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetElasticIpArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var byPublicIp = Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
-     *             .publicIp(&#34;1.2.3.4&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * ### Search By Tags (EC2-Classic or VPC)
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetElasticIpArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var byTags = Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
-     *             .tags(Map.of(&#34;Name&#34;, &#34;exampleNameTagValue&#34;))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetElasticIpResult> getElasticIpPlain() {
@@ -2090,125 +528,6 @@ public final class Ec2Functions {
      * `aws.ec2.Eip` provides details about a specific Elastic IP.
      * 
      * ## Example Usage
-     * ### Search By Allocation ID (VPC only)
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetElasticIpArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var byAllocationId = Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
-     *             .id(&#34;eipalloc-12345678&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * ### Search By Filters (EC2-Classic or VPC)
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetElasticIpArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var byFilter = Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
-     *             .filters(GetElasticIpFilterArgs.builder()
-     *                 .name(&#34;tag:Name&#34;)
-     *                 .values(&#34;exampleNameTagValue&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * ### Search By Public IP (EC2-Classic or VPC)
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetElasticIpArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var byPublicIp = Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
-     *             .publicIp(&#34;1.2.3.4&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * ### Search By Tags (EC2-Classic or VPC)
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetElasticIpArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var byTags = Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
-     *             .tags(Map.of(&#34;Name&#34;, &#34;exampleNameTagValue&#34;))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetElasticIpResult> getElasticIp(GetElasticIpArgs args) {
@@ -2218,125 +537,6 @@ public final class Ec2Functions {
      * `aws.ec2.Eip` provides details about a specific Elastic IP.
      * 
      * ## Example Usage
-     * ### Search By Allocation ID (VPC only)
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetElasticIpArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var byAllocationId = Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
-     *             .id(&#34;eipalloc-12345678&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * ### Search By Filters (EC2-Classic or VPC)
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetElasticIpArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var byFilter = Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
-     *             .filters(GetElasticIpFilterArgs.builder()
-     *                 .name(&#34;tag:Name&#34;)
-     *                 .values(&#34;exampleNameTagValue&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * ### Search By Public IP (EC2-Classic or VPC)
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetElasticIpArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var byPublicIp = Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
-     *             .publicIp(&#34;1.2.3.4&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * ### Search By Tags (EC2-Classic or VPC)
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetElasticIpArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var byTags = Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
-     *             .tags(Map.of(&#34;Name&#34;, &#34;exampleNameTagValue&#34;))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetElasticIpResult> getElasticIpPlain(GetElasticIpPlainArgs args) {
@@ -2346,125 +546,6 @@ public final class Ec2Functions {
      * `aws.ec2.Eip` provides details about a specific Elastic IP.
      * 
      * ## Example Usage
-     * ### Search By Allocation ID (VPC only)
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetElasticIpArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var byAllocationId = Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
-     *             .id(&#34;eipalloc-12345678&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * ### Search By Filters (EC2-Classic or VPC)
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetElasticIpArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var byFilter = Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
-     *             .filters(GetElasticIpFilterArgs.builder()
-     *                 .name(&#34;tag:Name&#34;)
-     *                 .values(&#34;exampleNameTagValue&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * ### Search By Public IP (EC2-Classic or VPC)
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetElasticIpArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var byPublicIp = Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
-     *             .publicIp(&#34;1.2.3.4&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * ### Search By Tags (EC2-Classic or VPC)
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetElasticIpArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var byTags = Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
-     *             .tags(Map.of(&#34;Name&#34;, &#34;exampleNameTagValue&#34;))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetElasticIpResult> getElasticIp(GetElasticIpArgs args, InvokeOptions options) {
@@ -2474,125 +555,6 @@ public final class Ec2Functions {
      * `aws.ec2.Eip` provides details about a specific Elastic IP.
      * 
      * ## Example Usage
-     * ### Search By Allocation ID (VPC only)
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetElasticIpArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var byAllocationId = Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
-     *             .id(&#34;eipalloc-12345678&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * ### Search By Filters (EC2-Classic or VPC)
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetElasticIpArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var byFilter = Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
-     *             .filters(GetElasticIpFilterArgs.builder()
-     *                 .name(&#34;tag:Name&#34;)
-     *                 .values(&#34;exampleNameTagValue&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * ### Search By Public IP (EC2-Classic or VPC)
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetElasticIpArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var byPublicIp = Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
-     *             .publicIp(&#34;1.2.3.4&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * ### Search By Tags (EC2-Classic or VPC)
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetElasticIpArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var byTags = Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
-     *             .tags(Map.of(&#34;Name&#34;, &#34;exampleNameTagValue&#34;))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetElasticIpResult> getElasticIpPlain(GetElasticIpPlainArgs args, InvokeOptions options) {
@@ -2601,90 +563,12 @@ public final class Ec2Functions {
     /**
      * Use this data source to get the ID of an Amazon EC2 Instance for use in other resources.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetInstanceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var foo = Ec2Functions.getInstance(GetInstanceArgs.builder()
-     *             .filters(            
-     *                 GetInstanceFilterArgs.builder()
-     *                     .name(&#34;image-id&#34;)
-     *                     .values(&#34;ami-xxxxxxxx&#34;)
-     *                     .build(),
-     *                 GetInstanceFilterArgs.builder()
-     *                     .name(&#34;tag:Name&#34;)
-     *                     .values(&#34;instance-name-tag&#34;)
-     *                     .build())
-     *             .instanceId(&#34;i-instanceid&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetInstanceResult> getInstance() {
         return getInstance(GetInstanceArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * Use this data source to get the ID of an Amazon EC2 Instance for use in other resources.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetInstanceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var foo = Ec2Functions.getInstance(GetInstanceArgs.builder()
-     *             .filters(            
-     *                 GetInstanceFilterArgs.builder()
-     *                     .name(&#34;image-id&#34;)
-     *                     .values(&#34;ami-xxxxxxxx&#34;)
-     *                     .build(),
-     *                 GetInstanceFilterArgs.builder()
-     *                     .name(&#34;tag:Name&#34;)
-     *                     .values(&#34;instance-name-tag&#34;)
-     *                     .build())
-     *             .instanceId(&#34;i-instanceid&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetInstanceResult> getInstancePlain() {
@@ -2693,90 +577,12 @@ public final class Ec2Functions {
     /**
      * Use this data source to get the ID of an Amazon EC2 Instance for use in other resources.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetInstanceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var foo = Ec2Functions.getInstance(GetInstanceArgs.builder()
-     *             .filters(            
-     *                 GetInstanceFilterArgs.builder()
-     *                     .name(&#34;image-id&#34;)
-     *                     .values(&#34;ami-xxxxxxxx&#34;)
-     *                     .build(),
-     *                 GetInstanceFilterArgs.builder()
-     *                     .name(&#34;tag:Name&#34;)
-     *                     .values(&#34;instance-name-tag&#34;)
-     *                     .build())
-     *             .instanceId(&#34;i-instanceid&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetInstanceResult> getInstance(GetInstanceArgs args) {
         return getInstance(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to get the ID of an Amazon EC2 Instance for use in other resources.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetInstanceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var foo = Ec2Functions.getInstance(GetInstanceArgs.builder()
-     *             .filters(            
-     *                 GetInstanceFilterArgs.builder()
-     *                     .name(&#34;image-id&#34;)
-     *                     .values(&#34;ami-xxxxxxxx&#34;)
-     *                     .build(),
-     *                 GetInstanceFilterArgs.builder()
-     *                     .name(&#34;tag:Name&#34;)
-     *                     .values(&#34;instance-name-tag&#34;)
-     *                     .build())
-     *             .instanceId(&#34;i-instanceid&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetInstanceResult> getInstancePlain(GetInstancePlainArgs args) {
@@ -2785,90 +591,12 @@ public final class Ec2Functions {
     /**
      * Use this data source to get the ID of an Amazon EC2 Instance for use in other resources.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetInstanceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var foo = Ec2Functions.getInstance(GetInstanceArgs.builder()
-     *             .filters(            
-     *                 GetInstanceFilterArgs.builder()
-     *                     .name(&#34;image-id&#34;)
-     *                     .values(&#34;ami-xxxxxxxx&#34;)
-     *                     .build(),
-     *                 GetInstanceFilterArgs.builder()
-     *                     .name(&#34;tag:Name&#34;)
-     *                     .values(&#34;instance-name-tag&#34;)
-     *                     .build())
-     *             .instanceId(&#34;i-instanceid&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetInstanceResult> getInstance(GetInstanceArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:ec2/getInstance:getInstance", TypeShape.of(GetInstanceResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to get the ID of an Amazon EC2 Instance for use in other resources.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetInstanceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var foo = Ec2Functions.getInstance(GetInstanceArgs.builder()
-     *             .filters(            
-     *                 GetInstanceFilterArgs.builder()
-     *                     .name(&#34;image-id&#34;)
-     *                     .values(&#34;ami-xxxxxxxx&#34;)
-     *                     .build(),
-     *                 GetInstanceFilterArgs.builder()
-     *                     .name(&#34;tag:Name&#34;)
-     *                     .values(&#34;instance-name-tag&#34;)
-     *                     .build())
-     *             .instanceId(&#34;i-instanceid&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetInstanceResult> getInstancePlain(GetInstancePlainArgs args, InvokeOptions options) {
@@ -2877,72 +605,12 @@ public final class Ec2Functions {
     /**
      * Get characteristics for a single EC2 Instance Type.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetInstanceTypeArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Ec2Functions.getInstanceType(GetInstanceTypeArgs.builder()
-     *             .instanceType(&#34;t2.micro&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetInstanceTypeResult> getInstanceType(GetInstanceTypeArgs args) {
         return getInstanceType(args, InvokeOptions.Empty);
     }
     /**
      * Get characteristics for a single EC2 Instance Type.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetInstanceTypeArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Ec2Functions.getInstanceType(GetInstanceTypeArgs.builder()
-     *             .instanceType(&#34;t2.micro&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetInstanceTypeResult> getInstanceTypePlain(GetInstanceTypePlainArgs args) {
@@ -2951,72 +619,12 @@ public final class Ec2Functions {
     /**
      * Get characteristics for a single EC2 Instance Type.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetInstanceTypeArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Ec2Functions.getInstanceType(GetInstanceTypeArgs.builder()
-     *             .instanceType(&#34;t2.micro&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetInstanceTypeResult> getInstanceType(GetInstanceTypeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:ec2/getInstanceType:getInstanceType", TypeShape.of(GetInstanceTypeResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Get characteristics for a single EC2 Instance Type.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetInstanceTypeArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Ec2Functions.getInstanceType(GetInstanceTypeArgs.builder()
-     *             .instanceType(&#34;t2.micro&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetInstanceTypeResult> getInstanceTypePlain(GetInstanceTypePlainArgs args, InvokeOptions options) {
@@ -3025,88 +633,12 @@ public final class Ec2Functions {
     /**
      * Information about single EC2 Instance Type Offering.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetInstanceTypeOfferingArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Ec2Functions.getInstanceTypeOffering(GetInstanceTypeOfferingArgs.builder()
-     *             .filters(GetInstanceTypeOfferingFilterArgs.builder()
-     *                 .name(&#34;instance-type&#34;)
-     *                 .values(                
-     *                     &#34;t2.micro&#34;,
-     *                     &#34;t3.micro&#34;)
-     *                 .build())
-     *             .preferredInstanceTypes(            
-     *                 &#34;t3.micro&#34;,
-     *                 &#34;t2.micro&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetInstanceTypeOfferingResult> getInstanceTypeOffering() {
         return getInstanceTypeOffering(GetInstanceTypeOfferingArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * Information about single EC2 Instance Type Offering.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetInstanceTypeOfferingArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Ec2Functions.getInstanceTypeOffering(GetInstanceTypeOfferingArgs.builder()
-     *             .filters(GetInstanceTypeOfferingFilterArgs.builder()
-     *                 .name(&#34;instance-type&#34;)
-     *                 .values(                
-     *                     &#34;t2.micro&#34;,
-     *                     &#34;t3.micro&#34;)
-     *                 .build())
-     *             .preferredInstanceTypes(            
-     *                 &#34;t3.micro&#34;,
-     *                 &#34;t2.micro&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetInstanceTypeOfferingResult> getInstanceTypeOfferingPlain() {
@@ -3115,88 +647,12 @@ public final class Ec2Functions {
     /**
      * Information about single EC2 Instance Type Offering.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetInstanceTypeOfferingArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Ec2Functions.getInstanceTypeOffering(GetInstanceTypeOfferingArgs.builder()
-     *             .filters(GetInstanceTypeOfferingFilterArgs.builder()
-     *                 .name(&#34;instance-type&#34;)
-     *                 .values(                
-     *                     &#34;t2.micro&#34;,
-     *                     &#34;t3.micro&#34;)
-     *                 .build())
-     *             .preferredInstanceTypes(            
-     *                 &#34;t3.micro&#34;,
-     *                 &#34;t2.micro&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetInstanceTypeOfferingResult> getInstanceTypeOffering(GetInstanceTypeOfferingArgs args) {
         return getInstanceTypeOffering(args, InvokeOptions.Empty);
     }
     /**
      * Information about single EC2 Instance Type Offering.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetInstanceTypeOfferingArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Ec2Functions.getInstanceTypeOffering(GetInstanceTypeOfferingArgs.builder()
-     *             .filters(GetInstanceTypeOfferingFilterArgs.builder()
-     *                 .name(&#34;instance-type&#34;)
-     *                 .values(                
-     *                     &#34;t2.micro&#34;,
-     *                     &#34;t3.micro&#34;)
-     *                 .build())
-     *             .preferredInstanceTypes(            
-     *                 &#34;t3.micro&#34;,
-     *                 &#34;t2.micro&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetInstanceTypeOfferingResult> getInstanceTypeOfferingPlain(GetInstanceTypeOfferingPlainArgs args) {
@@ -3205,88 +661,12 @@ public final class Ec2Functions {
     /**
      * Information about single EC2 Instance Type Offering.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetInstanceTypeOfferingArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Ec2Functions.getInstanceTypeOffering(GetInstanceTypeOfferingArgs.builder()
-     *             .filters(GetInstanceTypeOfferingFilterArgs.builder()
-     *                 .name(&#34;instance-type&#34;)
-     *                 .values(                
-     *                     &#34;t2.micro&#34;,
-     *                     &#34;t3.micro&#34;)
-     *                 .build())
-     *             .preferredInstanceTypes(            
-     *                 &#34;t3.micro&#34;,
-     *                 &#34;t2.micro&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetInstanceTypeOfferingResult> getInstanceTypeOffering(GetInstanceTypeOfferingArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:ec2/getInstanceTypeOffering:getInstanceTypeOffering", TypeShape.of(GetInstanceTypeOfferingResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Information about single EC2 Instance Type Offering.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetInstanceTypeOfferingArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Ec2Functions.getInstanceTypeOffering(GetInstanceTypeOfferingArgs.builder()
-     *             .filters(GetInstanceTypeOfferingFilterArgs.builder()
-     *                 .name(&#34;instance-type&#34;)
-     *                 .values(                
-     *                     &#34;t2.micro&#34;,
-     *                     &#34;t3.micro&#34;)
-     *                 .build())
-     *             .preferredInstanceTypes(            
-     *                 &#34;t3.micro&#34;,
-     *                 &#34;t2.micro&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetInstanceTypeOfferingResult> getInstanceTypeOfferingPlain(GetInstanceTypeOfferingPlainArgs args, InvokeOptions options) {
@@ -3295,94 +675,12 @@ public final class Ec2Functions {
     /**
      * Information about EC2 Instance Type Offerings.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetInstanceTypeOfferingsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Ec2Functions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
-     *             .filters(            
-     *                 GetInstanceTypeOfferingsFilterArgs.builder()
-     *                     .name(&#34;instance-type&#34;)
-     *                     .values(                    
-     *                         &#34;t2.micro&#34;,
-     *                         &#34;t3.micro&#34;)
-     *                     .build(),
-     *                 GetInstanceTypeOfferingsFilterArgs.builder()
-     *                     .name(&#34;location&#34;)
-     *                     .values(&#34;usw2-az4&#34;)
-     *                     .build())
-     *             .locationType(&#34;availability-zone-id&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetInstanceTypeOfferingsResult> getInstanceTypeOfferings() {
         return getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * Information about EC2 Instance Type Offerings.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetInstanceTypeOfferingsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Ec2Functions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
-     *             .filters(            
-     *                 GetInstanceTypeOfferingsFilterArgs.builder()
-     *                     .name(&#34;instance-type&#34;)
-     *                     .values(                    
-     *                         &#34;t2.micro&#34;,
-     *                         &#34;t3.micro&#34;)
-     *                     .build(),
-     *                 GetInstanceTypeOfferingsFilterArgs.builder()
-     *                     .name(&#34;location&#34;)
-     *                     .values(&#34;usw2-az4&#34;)
-     *                     .build())
-     *             .locationType(&#34;availability-zone-id&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetInstanceTypeOfferingsResult> getInstanceTypeOfferingsPlain() {
@@ -3391,94 +689,12 @@ public final class Ec2Functions {
     /**
      * Information about EC2 Instance Type Offerings.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetInstanceTypeOfferingsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Ec2Functions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
-     *             .filters(            
-     *                 GetInstanceTypeOfferingsFilterArgs.builder()
-     *                     .name(&#34;instance-type&#34;)
-     *                     .values(                    
-     *                         &#34;t2.micro&#34;,
-     *                         &#34;t3.micro&#34;)
-     *                     .build(),
-     *                 GetInstanceTypeOfferingsFilterArgs.builder()
-     *                     .name(&#34;location&#34;)
-     *                     .values(&#34;usw2-az4&#34;)
-     *                     .build())
-     *             .locationType(&#34;availability-zone-id&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetInstanceTypeOfferingsResult> getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs args) {
         return getInstanceTypeOfferings(args, InvokeOptions.Empty);
     }
     /**
      * Information about EC2 Instance Type Offerings.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetInstanceTypeOfferingsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Ec2Functions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
-     *             .filters(            
-     *                 GetInstanceTypeOfferingsFilterArgs.builder()
-     *                     .name(&#34;instance-type&#34;)
-     *                     .values(                    
-     *                         &#34;t2.micro&#34;,
-     *                         &#34;t3.micro&#34;)
-     *                     .build(),
-     *                 GetInstanceTypeOfferingsFilterArgs.builder()
-     *                     .name(&#34;location&#34;)
-     *                     .values(&#34;usw2-az4&#34;)
-     *                     .build())
-     *             .locationType(&#34;availability-zone-id&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetInstanceTypeOfferingsResult> getInstanceTypeOfferingsPlain(GetInstanceTypeOfferingsPlainArgs args) {
@@ -3487,94 +703,12 @@ public final class Ec2Functions {
     /**
      * Information about EC2 Instance Type Offerings.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetInstanceTypeOfferingsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Ec2Functions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
-     *             .filters(            
-     *                 GetInstanceTypeOfferingsFilterArgs.builder()
-     *                     .name(&#34;instance-type&#34;)
-     *                     .values(                    
-     *                         &#34;t2.micro&#34;,
-     *                         &#34;t3.micro&#34;)
-     *                     .build(),
-     *                 GetInstanceTypeOfferingsFilterArgs.builder()
-     *                     .name(&#34;location&#34;)
-     *                     .values(&#34;usw2-az4&#34;)
-     *                     .build())
-     *             .locationType(&#34;availability-zone-id&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetInstanceTypeOfferingsResult> getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:ec2/getInstanceTypeOfferings:getInstanceTypeOfferings", TypeShape.of(GetInstanceTypeOfferingsResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Information about EC2 Instance Type Offerings.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetInstanceTypeOfferingsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Ec2Functions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
-     *             .filters(            
-     *                 GetInstanceTypeOfferingsFilterArgs.builder()
-     *                     .name(&#34;instance-type&#34;)
-     *                     .values(                    
-     *                         &#34;t2.micro&#34;,
-     *                         &#34;t3.micro&#34;)
-     *                     .build(),
-     *                 GetInstanceTypeOfferingsFilterArgs.builder()
-     *                     .name(&#34;location&#34;)
-     *                     .values(&#34;usw2-az4&#34;)
-     *                     .build())
-     *             .locationType(&#34;availability-zone-id&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetInstanceTypeOfferingsResult> getInstanceTypeOfferingsPlain(GetInstanceTypeOfferingsPlainArgs args, InvokeOptions options) {
@@ -3583,108 +717,12 @@ public final class Ec2Functions {
     /**
      * Information about EC2 Instance Types.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetInstanceTypesArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = Ec2Functions.getInstanceTypes(GetInstanceTypesArgs.builder()
-     *             .filters(            
-     *                 GetInstanceTypesFilterArgs.builder()
-     *                     .name(&#34;auto-recovery-supported&#34;)
-     *                     .values(&#34;true&#34;)
-     *                     .build(),
-     *                 GetInstanceTypesFilterArgs.builder()
-     *                     .name(&#34;network-info.encryption-in-transit-supported&#34;)
-     *                     .values(&#34;true&#34;)
-     *                     .build(),
-     *                 GetInstanceTypesFilterArgs.builder()
-     *                     .name(&#34;instance-storage-supported&#34;)
-     *                     .values(&#34;true&#34;)
-     *                     .build(),
-     *                 GetInstanceTypesFilterArgs.builder()
-     *                     .name(&#34;instance-type&#34;)
-     *                     .values(                    
-     *                         &#34;g5.2xlarge&#34;,
-     *                         &#34;g5.4xlarge&#34;)
-     *                     .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetInstanceTypesResult> getInstanceTypes() {
         return getInstanceTypes(GetInstanceTypesArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * Information about EC2 Instance Types.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetInstanceTypesArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = Ec2Functions.getInstanceTypes(GetInstanceTypesArgs.builder()
-     *             .filters(            
-     *                 GetInstanceTypesFilterArgs.builder()
-     *                     .name(&#34;auto-recovery-supported&#34;)
-     *                     .values(&#34;true&#34;)
-     *                     .build(),
-     *                 GetInstanceTypesFilterArgs.builder()
-     *                     .name(&#34;network-info.encryption-in-transit-supported&#34;)
-     *                     .values(&#34;true&#34;)
-     *                     .build(),
-     *                 GetInstanceTypesFilterArgs.builder()
-     *                     .name(&#34;instance-storage-supported&#34;)
-     *                     .values(&#34;true&#34;)
-     *                     .build(),
-     *                 GetInstanceTypesFilterArgs.builder()
-     *                     .name(&#34;instance-type&#34;)
-     *                     .values(                    
-     *                         &#34;g5.2xlarge&#34;,
-     *                         &#34;g5.4xlarge&#34;)
-     *                     .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetInstanceTypesResult> getInstanceTypesPlain() {
@@ -3693,108 +731,12 @@ public final class Ec2Functions {
     /**
      * Information about EC2 Instance Types.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetInstanceTypesArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = Ec2Functions.getInstanceTypes(GetInstanceTypesArgs.builder()
-     *             .filters(            
-     *                 GetInstanceTypesFilterArgs.builder()
-     *                     .name(&#34;auto-recovery-supported&#34;)
-     *                     .values(&#34;true&#34;)
-     *                     .build(),
-     *                 GetInstanceTypesFilterArgs.builder()
-     *                     .name(&#34;network-info.encryption-in-transit-supported&#34;)
-     *                     .values(&#34;true&#34;)
-     *                     .build(),
-     *                 GetInstanceTypesFilterArgs.builder()
-     *                     .name(&#34;instance-storage-supported&#34;)
-     *                     .values(&#34;true&#34;)
-     *                     .build(),
-     *                 GetInstanceTypesFilterArgs.builder()
-     *                     .name(&#34;instance-type&#34;)
-     *                     .values(                    
-     *                         &#34;g5.2xlarge&#34;,
-     *                         &#34;g5.4xlarge&#34;)
-     *                     .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetInstanceTypesResult> getInstanceTypes(GetInstanceTypesArgs args) {
         return getInstanceTypes(args, InvokeOptions.Empty);
     }
     /**
      * Information about EC2 Instance Types.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetInstanceTypesArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = Ec2Functions.getInstanceTypes(GetInstanceTypesArgs.builder()
-     *             .filters(            
-     *                 GetInstanceTypesFilterArgs.builder()
-     *                     .name(&#34;auto-recovery-supported&#34;)
-     *                     .values(&#34;true&#34;)
-     *                     .build(),
-     *                 GetInstanceTypesFilterArgs.builder()
-     *                     .name(&#34;network-info.encryption-in-transit-supported&#34;)
-     *                     .values(&#34;true&#34;)
-     *                     .build(),
-     *                 GetInstanceTypesFilterArgs.builder()
-     *                     .name(&#34;instance-storage-supported&#34;)
-     *                     .values(&#34;true&#34;)
-     *                     .build(),
-     *                 GetInstanceTypesFilterArgs.builder()
-     *                     .name(&#34;instance-type&#34;)
-     *                     .values(                    
-     *                         &#34;g5.2xlarge&#34;,
-     *                         &#34;g5.4xlarge&#34;)
-     *                     .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetInstanceTypesResult> getInstanceTypesPlain(GetInstanceTypesPlainArgs args) {
@@ -3803,108 +745,12 @@ public final class Ec2Functions {
     /**
      * Information about EC2 Instance Types.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetInstanceTypesArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = Ec2Functions.getInstanceTypes(GetInstanceTypesArgs.builder()
-     *             .filters(            
-     *                 GetInstanceTypesFilterArgs.builder()
-     *                     .name(&#34;auto-recovery-supported&#34;)
-     *                     .values(&#34;true&#34;)
-     *                     .build(),
-     *                 GetInstanceTypesFilterArgs.builder()
-     *                     .name(&#34;network-info.encryption-in-transit-supported&#34;)
-     *                     .values(&#34;true&#34;)
-     *                     .build(),
-     *                 GetInstanceTypesFilterArgs.builder()
-     *                     .name(&#34;instance-storage-supported&#34;)
-     *                     .values(&#34;true&#34;)
-     *                     .build(),
-     *                 GetInstanceTypesFilterArgs.builder()
-     *                     .name(&#34;instance-type&#34;)
-     *                     .values(                    
-     *                         &#34;g5.2xlarge&#34;,
-     *                         &#34;g5.4xlarge&#34;)
-     *                     .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetInstanceTypesResult> getInstanceTypes(GetInstanceTypesArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:ec2/getInstanceTypes:getInstanceTypes", TypeShape.of(GetInstanceTypesResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Information about EC2 Instance Types.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetInstanceTypesArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = Ec2Functions.getInstanceTypes(GetInstanceTypesArgs.builder()
-     *             .filters(            
-     *                 GetInstanceTypesFilterArgs.builder()
-     *                     .name(&#34;auto-recovery-supported&#34;)
-     *                     .values(&#34;true&#34;)
-     *                     .build(),
-     *                 GetInstanceTypesFilterArgs.builder()
-     *                     .name(&#34;network-info.encryption-in-transit-supported&#34;)
-     *                     .values(&#34;true&#34;)
-     *                     .build(),
-     *                 GetInstanceTypesFilterArgs.builder()
-     *                     .name(&#34;instance-storage-supported&#34;)
-     *                     .values(&#34;true&#34;)
-     *                     .build(),
-     *                 GetInstanceTypesFilterArgs.builder()
-     *                     .name(&#34;instance-type&#34;)
-     *                     .values(                    
-     *                         &#34;g5.2xlarge&#34;,
-     *                         &#34;g5.4xlarge&#34;)
-     *                     .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetInstanceTypesResult> getInstanceTypesPlain(GetInstanceTypesPlainArgs args, InvokeOptions options) {
@@ -3919,53 +765,6 @@ public final class Ec2Functions {
      * instances (e.g., managed via autoscaling group), as the output may change at any time
      * and you&#39;d need to re-run `apply` every time an instance comes up or dies.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetInstancesArgs;
-     * import com.pulumi.aws.ec2.Eip;
-     * import com.pulumi.aws.ec2.EipArgs;
-     * import com.pulumi.codegen.internal.KeyedValue;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var testInstances = Ec2Functions.getInstances(GetInstancesArgs.builder()
-     *             .instanceTags(Map.of(&#34;Role&#34;, &#34;HardWorker&#34;))
-     *             .filters(GetInstancesFilterArgs.builder()
-     *                 .name(&#34;instance.group-id&#34;)
-     *                 .values(&#34;sg-12345678&#34;)
-     *                 .build())
-     *             .instanceStateNames(            
-     *                 &#34;running&#34;,
-     *                 &#34;stopped&#34;)
-     *             .build());
-     * 
-     *         for (var i = 0; i &lt; testInstances.applyValue(getInstancesResult -&gt; getInstancesResult.ids()).length(); i++) {
-     *             new Eip(&#34;testEip-&#34; + i, EipArgs.builder()            
-     *                 .instance(testInstances.applyValue(getInstancesResult -&gt; getInstancesResult.ids())[range.value()])
-     *                 .build());
-     * 
-     *         
-     * }
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetInstancesResult> getInstances() {
         return getInstances(GetInstancesArgs.Empty, InvokeOptions.Empty);
@@ -3978,53 +777,6 @@ public final class Ec2Functions {
      * &gt; **Note:** It&#39;s strongly discouraged to use this data source for querying ephemeral
      * instances (e.g., managed via autoscaling group), as the output may change at any time
      * and you&#39;d need to re-run `apply` every time an instance comes up or dies.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetInstancesArgs;
-     * import com.pulumi.aws.ec2.Eip;
-     * import com.pulumi.aws.ec2.EipArgs;
-     * import com.pulumi.codegen.internal.KeyedValue;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var testInstances = Ec2Functions.getInstances(GetInstancesArgs.builder()
-     *             .instanceTags(Map.of(&#34;Role&#34;, &#34;HardWorker&#34;))
-     *             .filters(GetInstancesFilterArgs.builder()
-     *                 .name(&#34;instance.group-id&#34;)
-     *                 .values(&#34;sg-12345678&#34;)
-     *                 .build())
-     *             .instanceStateNames(            
-     *                 &#34;running&#34;,
-     *                 &#34;stopped&#34;)
-     *             .build());
-     * 
-     *         for (var i = 0; i &lt; testInstances.applyValue(getInstancesResult -&gt; getInstancesResult.ids()).length(); i++) {
-     *             new Eip(&#34;testEip-&#34; + i, EipArgs.builder()            
-     *                 .instance(testInstances.applyValue(getInstancesResult -&gt; getInstancesResult.ids())[range.value()])
-     *                 .build());
-     * 
-     *         
-     * }
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetInstancesResult> getInstancesPlain() {
@@ -4039,53 +791,6 @@ public final class Ec2Functions {
      * instances (e.g., managed via autoscaling group), as the output may change at any time
      * and you&#39;d need to re-run `apply` every time an instance comes up or dies.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetInstancesArgs;
-     * import com.pulumi.aws.ec2.Eip;
-     * import com.pulumi.aws.ec2.EipArgs;
-     * import com.pulumi.codegen.internal.KeyedValue;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var testInstances = Ec2Functions.getInstances(GetInstancesArgs.builder()
-     *             .instanceTags(Map.of(&#34;Role&#34;, &#34;HardWorker&#34;))
-     *             .filters(GetInstancesFilterArgs.builder()
-     *                 .name(&#34;instance.group-id&#34;)
-     *                 .values(&#34;sg-12345678&#34;)
-     *                 .build())
-     *             .instanceStateNames(            
-     *                 &#34;running&#34;,
-     *                 &#34;stopped&#34;)
-     *             .build());
-     * 
-     *         for (var i = 0; i &lt; testInstances.applyValue(getInstancesResult -&gt; getInstancesResult.ids()).length(); i++) {
-     *             new Eip(&#34;testEip-&#34; + i, EipArgs.builder()            
-     *                 .instance(testInstances.applyValue(getInstancesResult -&gt; getInstancesResult.ids())[range.value()])
-     *                 .build());
-     * 
-     *         
-     * }
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetInstancesResult> getInstances(GetInstancesArgs args) {
         return getInstances(args, InvokeOptions.Empty);
@@ -4098,53 +803,6 @@ public final class Ec2Functions {
      * &gt; **Note:** It&#39;s strongly discouraged to use this data source for querying ephemeral
      * instances (e.g., managed via autoscaling group), as the output may change at any time
      * and you&#39;d need to re-run `apply` every time an instance comes up or dies.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetInstancesArgs;
-     * import com.pulumi.aws.ec2.Eip;
-     * import com.pulumi.aws.ec2.EipArgs;
-     * import com.pulumi.codegen.internal.KeyedValue;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var testInstances = Ec2Functions.getInstances(GetInstancesArgs.builder()
-     *             .instanceTags(Map.of(&#34;Role&#34;, &#34;HardWorker&#34;))
-     *             .filters(GetInstancesFilterArgs.builder()
-     *                 .name(&#34;instance.group-id&#34;)
-     *                 .values(&#34;sg-12345678&#34;)
-     *                 .build())
-     *             .instanceStateNames(            
-     *                 &#34;running&#34;,
-     *                 &#34;stopped&#34;)
-     *             .build());
-     * 
-     *         for (var i = 0; i &lt; testInstances.applyValue(getInstancesResult -&gt; getInstancesResult.ids()).length(); i++) {
-     *             new Eip(&#34;testEip-&#34; + i, EipArgs.builder()            
-     *                 .instance(testInstances.applyValue(getInstancesResult -&gt; getInstancesResult.ids())[range.value()])
-     *                 .build());
-     * 
-     *         
-     * }
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetInstancesResult> getInstancesPlain(GetInstancesPlainArgs args) {
@@ -4159,53 +817,6 @@ public final class Ec2Functions {
      * instances (e.g., managed via autoscaling group), as the output may change at any time
      * and you&#39;d need to re-run `apply` every time an instance comes up or dies.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetInstancesArgs;
-     * import com.pulumi.aws.ec2.Eip;
-     * import com.pulumi.aws.ec2.EipArgs;
-     * import com.pulumi.codegen.internal.KeyedValue;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var testInstances = Ec2Functions.getInstances(GetInstancesArgs.builder()
-     *             .instanceTags(Map.of(&#34;Role&#34;, &#34;HardWorker&#34;))
-     *             .filters(GetInstancesFilterArgs.builder()
-     *                 .name(&#34;instance.group-id&#34;)
-     *                 .values(&#34;sg-12345678&#34;)
-     *                 .build())
-     *             .instanceStateNames(            
-     *                 &#34;running&#34;,
-     *                 &#34;stopped&#34;)
-     *             .build());
-     * 
-     *         for (var i = 0; i &lt; testInstances.applyValue(getInstancesResult -&gt; getInstancesResult.ids()).length(); i++) {
-     *             new Eip(&#34;testEip-&#34; + i, EipArgs.builder()            
-     *                 .instance(testInstances.applyValue(getInstancesResult -&gt; getInstancesResult.ids())[range.value()])
-     *                 .build());
-     * 
-     *         
-     * }
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetInstancesResult> getInstances(GetInstancesArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:ec2/getInstances:getInstances", TypeShape.of(GetInstancesResult.class), args, Utilities.withVersion(options));
@@ -4219,94 +830,12 @@ public final class Ec2Functions {
      * instances (e.g., managed via autoscaling group), as the output may change at any time
      * and you&#39;d need to re-run `apply` every time an instance comes up or dies.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetInstancesArgs;
-     * import com.pulumi.aws.ec2.Eip;
-     * import com.pulumi.aws.ec2.EipArgs;
-     * import com.pulumi.codegen.internal.KeyedValue;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var testInstances = Ec2Functions.getInstances(GetInstancesArgs.builder()
-     *             .instanceTags(Map.of(&#34;Role&#34;, &#34;HardWorker&#34;))
-     *             .filters(GetInstancesFilterArgs.builder()
-     *                 .name(&#34;instance.group-id&#34;)
-     *                 .values(&#34;sg-12345678&#34;)
-     *                 .build())
-     *             .instanceStateNames(            
-     *                 &#34;running&#34;,
-     *                 &#34;stopped&#34;)
-     *             .build());
-     * 
-     *         for (var i = 0; i &lt; testInstances.applyValue(getInstancesResult -&gt; getInstancesResult.ids()).length(); i++) {
-     *             new Eip(&#34;testEip-&#34; + i, EipArgs.builder()            
-     *                 .instance(testInstances.applyValue(getInstancesResult -&gt; getInstancesResult.ids())[range.value()])
-     *                 .build());
-     * 
-     *         
-     * }
-     *     }
-     * }
-     * ```
-     * 
      */
     public static CompletableFuture<GetInstancesResult> getInstancesPlain(GetInstancesPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:ec2/getInstances:getInstances", TypeShape.of(GetInstancesResult.class), args, Utilities.withVersion(options));
     }
     /**
      * `aws.ec2.InternetGateway` provides details about a specific Internet Gateway.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetInternetGatewayArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var config = ctx.config();
-     *         final var vpcId = config.get(&#34;vpcId&#34;);
-     *         final var default = Ec2Functions.getInternetGateway(GetInternetGatewayArgs.builder()
-     *             .filters(GetInternetGatewayFilterArgs.builder()
-     *                 .name(&#34;attachment.vpc-id&#34;)
-     *                 .values(vpcId)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetInternetGatewayResult> getInternetGateway() {
@@ -4315,82 +844,12 @@ public final class Ec2Functions {
     /**
      * `aws.ec2.InternetGateway` provides details about a specific Internet Gateway.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetInternetGatewayArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var config = ctx.config();
-     *         final var vpcId = config.get(&#34;vpcId&#34;);
-     *         final var default = Ec2Functions.getInternetGateway(GetInternetGatewayArgs.builder()
-     *             .filters(GetInternetGatewayFilterArgs.builder()
-     *                 .name(&#34;attachment.vpc-id&#34;)
-     *                 .values(vpcId)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static CompletableFuture<GetInternetGatewayResult> getInternetGatewayPlain() {
         return getInternetGatewayPlain(GetInternetGatewayPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * `aws.ec2.InternetGateway` provides details about a specific Internet Gateway.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetInternetGatewayArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var config = ctx.config();
-     *         final var vpcId = config.get(&#34;vpcId&#34;);
-     *         final var default = Ec2Functions.getInternetGateway(GetInternetGatewayArgs.builder()
-     *             .filters(GetInternetGatewayFilterArgs.builder()
-     *                 .name(&#34;attachment.vpc-id&#34;)
-     *                 .values(vpcId)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetInternetGatewayResult> getInternetGateway(GetInternetGatewayArgs args) {
@@ -4399,41 +858,6 @@ public final class Ec2Functions {
     /**
      * `aws.ec2.InternetGateway` provides details about a specific Internet Gateway.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetInternetGatewayArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var config = ctx.config();
-     *         final var vpcId = config.get(&#34;vpcId&#34;);
-     *         final var default = Ec2Functions.getInternetGateway(GetInternetGatewayArgs.builder()
-     *             .filters(GetInternetGatewayFilterArgs.builder()
-     *                 .name(&#34;attachment.vpc-id&#34;)
-     *                 .values(vpcId)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static CompletableFuture<GetInternetGatewayResult> getInternetGatewayPlain(GetInternetGatewayPlainArgs args) {
         return getInternetGatewayPlain(args, InvokeOptions.Empty);
@@ -4441,82 +865,12 @@ public final class Ec2Functions {
     /**
      * `aws.ec2.InternetGateway` provides details about a specific Internet Gateway.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetInternetGatewayArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var config = ctx.config();
-     *         final var vpcId = config.get(&#34;vpcId&#34;);
-     *         final var default = Ec2Functions.getInternetGateway(GetInternetGatewayArgs.builder()
-     *             .filters(GetInternetGatewayFilterArgs.builder()
-     *                 .name(&#34;attachment.vpc-id&#34;)
-     *                 .values(vpcId)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetInternetGatewayResult> getInternetGateway(GetInternetGatewayArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:ec2/getInternetGateway:getInternetGateway", TypeShape.of(GetInternetGatewayResult.class), args, Utilities.withVersion(options));
     }
     /**
      * `aws.ec2.InternetGateway` provides details about a specific Internet Gateway.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetInternetGatewayArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var config = ctx.config();
-     *         final var vpcId = config.get(&#34;vpcId&#34;);
-     *         final var default = Ec2Functions.getInternetGateway(GetInternetGatewayArgs.builder()
-     *             .filters(GetInternetGatewayFilterArgs.builder()
-     *                 .name(&#34;attachment.vpc-id&#34;)
-     *                 .values(vpcId)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetInternetGatewayResult> getInternetGatewayPlain(GetInternetGatewayPlainArgs args, InvokeOptions options) {
@@ -4527,46 +881,6 @@ public final class Ec2Functions {
      * 
      * &gt; **NOTE:** This functionality is also encapsulated in a resource sharing the same name. The data source can be used when you need to use the cidr in a calculation of the same Root module, `count` for example. However, once a cidr range has been allocated that was previewed, the next refresh will find a **new** cidr and may force new resources downstream. Make sure to use `ignore_changes` if this is undesirable.
      * 
-     * ## Example Usage
-     * 
-     * Basic usage:
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetIpamPreviewNextCidrArgs;
-     * import com.pulumi.aws.ec2.VpcIpamPoolCidrAllocation;
-     * import com.pulumi.aws.ec2.VpcIpamPoolCidrAllocationArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var testIpamPreviewNextCidr = Ec2Functions.getIpamPreviewNextCidr(GetIpamPreviewNextCidrArgs.builder()
-     *             .ipamPoolId(aws_vpc_ipam_pool.test().id())
-     *             .netmaskLength(28)
-     *             .build());
-     * 
-     *         var testVpcIpamPoolCidrAllocation = new VpcIpamPoolCidrAllocation(&#34;testVpcIpamPoolCidrAllocation&#34;, VpcIpamPoolCidrAllocationArgs.builder()        
-     *             .ipamPoolId(aws_vpc_ipam_pool.test().id())
-     *             .cidr(testIpamPreviewNextCidr.applyValue(getIpamPreviewNextCidrResult -&gt; getIpamPreviewNextCidrResult.cidr()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetIpamPreviewNextCidrResult> getIpamPreviewNextCidr(GetIpamPreviewNextCidrArgs args) {
         return getIpamPreviewNextCidr(args, InvokeOptions.Empty);
@@ -4575,46 +889,6 @@ public final class Ec2Functions {
      * Previews a CIDR from an IPAM address pool. Only works for private IPv4.
      * 
      * &gt; **NOTE:** This functionality is also encapsulated in a resource sharing the same name. The data source can be used when you need to use the cidr in a calculation of the same Root module, `count` for example. However, once a cidr range has been allocated that was previewed, the next refresh will find a **new** cidr and may force new resources downstream. Make sure to use `ignore_changes` if this is undesirable.
-     * 
-     * ## Example Usage
-     * 
-     * Basic usage:
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetIpamPreviewNextCidrArgs;
-     * import com.pulumi.aws.ec2.VpcIpamPoolCidrAllocation;
-     * import com.pulumi.aws.ec2.VpcIpamPoolCidrAllocationArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var testIpamPreviewNextCidr = Ec2Functions.getIpamPreviewNextCidr(GetIpamPreviewNextCidrArgs.builder()
-     *             .ipamPoolId(aws_vpc_ipam_pool.test().id())
-     *             .netmaskLength(28)
-     *             .build());
-     * 
-     *         var testVpcIpamPoolCidrAllocation = new VpcIpamPoolCidrAllocation(&#34;testVpcIpamPoolCidrAllocation&#34;, VpcIpamPoolCidrAllocationArgs.builder()        
-     *             .ipamPoolId(aws_vpc_ipam_pool.test().id())
-     *             .cidr(testIpamPreviewNextCidr.applyValue(getIpamPreviewNextCidrResult -&gt; getIpamPreviewNextCidrResult.cidr()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetIpamPreviewNextCidrResult> getIpamPreviewNextCidrPlain(GetIpamPreviewNextCidrPlainArgs args) {
@@ -4625,46 +899,6 @@ public final class Ec2Functions {
      * 
      * &gt; **NOTE:** This functionality is also encapsulated in a resource sharing the same name. The data source can be used when you need to use the cidr in a calculation of the same Root module, `count` for example. However, once a cidr range has been allocated that was previewed, the next refresh will find a **new** cidr and may force new resources downstream. Make sure to use `ignore_changes` if this is undesirable.
      * 
-     * ## Example Usage
-     * 
-     * Basic usage:
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetIpamPreviewNextCidrArgs;
-     * import com.pulumi.aws.ec2.VpcIpamPoolCidrAllocation;
-     * import com.pulumi.aws.ec2.VpcIpamPoolCidrAllocationArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var testIpamPreviewNextCidr = Ec2Functions.getIpamPreviewNextCidr(GetIpamPreviewNextCidrArgs.builder()
-     *             .ipamPoolId(aws_vpc_ipam_pool.test().id())
-     *             .netmaskLength(28)
-     *             .build());
-     * 
-     *         var testVpcIpamPoolCidrAllocation = new VpcIpamPoolCidrAllocation(&#34;testVpcIpamPoolCidrAllocation&#34;, VpcIpamPoolCidrAllocationArgs.builder()        
-     *             .ipamPoolId(aws_vpc_ipam_pool.test().id())
-     *             .cidr(testIpamPreviewNextCidr.applyValue(getIpamPreviewNextCidrResult -&gt; getIpamPreviewNextCidrResult.cidr()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetIpamPreviewNextCidrResult> getIpamPreviewNextCidr(GetIpamPreviewNextCidrArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:ec2/getIpamPreviewNextCidr:getIpamPreviewNextCidr", TypeShape.of(GetIpamPreviewNextCidrResult.class), args, Utilities.withVersion(options));
@@ -4674,92 +908,12 @@ public final class Ec2Functions {
      * 
      * &gt; **NOTE:** This functionality is also encapsulated in a resource sharing the same name. The data source can be used when you need to use the cidr in a calculation of the same Root module, `count` for example. However, once a cidr range has been allocated that was previewed, the next refresh will find a **new** cidr and may force new resources downstream. Make sure to use `ignore_changes` if this is undesirable.
      * 
-     * ## Example Usage
-     * 
-     * Basic usage:
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetIpamPreviewNextCidrArgs;
-     * import com.pulumi.aws.ec2.VpcIpamPoolCidrAllocation;
-     * import com.pulumi.aws.ec2.VpcIpamPoolCidrAllocationArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var testIpamPreviewNextCidr = Ec2Functions.getIpamPreviewNextCidr(GetIpamPreviewNextCidrArgs.builder()
-     *             .ipamPoolId(aws_vpc_ipam_pool.test().id())
-     *             .netmaskLength(28)
-     *             .build());
-     * 
-     *         var testVpcIpamPoolCidrAllocation = new VpcIpamPoolCidrAllocation(&#34;testVpcIpamPoolCidrAllocation&#34;, VpcIpamPoolCidrAllocationArgs.builder()        
-     *             .ipamPoolId(aws_vpc_ipam_pool.test().id())
-     *             .cidr(testIpamPreviewNextCidr.applyValue(getIpamPreviewNextCidrResult -&gt; getIpamPreviewNextCidrResult.cidr()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static CompletableFuture<GetIpamPreviewNextCidrResult> getIpamPreviewNextCidrPlain(GetIpamPreviewNextCidrPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:ec2/getIpamPreviewNextCidr:getIpamPreviewNextCidr", TypeShape.of(GetIpamPreviewNextCidrResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to get information about a specific EC2 Key Pair.
-     * 
-     * ## Example Usage
-     * 
-     * The following example shows how to get a EC2 Key Pair including the public key material from its name.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetKeyPairArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Ec2Functions.getKeyPair(GetKeyPairArgs.builder()
-     *             .keyName(&#34;test&#34;)
-     *             .includePublicKey(true)
-     *             .filters(GetKeyPairFilterArgs.builder()
-     *                 .name(&#34;tag:Component&#34;)
-     *                 .values(&#34;web&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *         ctx.export(&#34;fingerprint&#34;, example.applyValue(getKeyPairResult -&gt; getKeyPairResult.fingerprint()));
-     *         ctx.export(&#34;name&#34;, example.applyValue(getKeyPairResult -&gt; getKeyPairResult.keyName()));
-     *         ctx.export(&#34;id&#34;, example.applyValue(getKeyPairResult -&gt; getKeyPairResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetKeyPairResult> getKeyPair() {
@@ -4768,92 +922,12 @@ public final class Ec2Functions {
     /**
      * Use this data source to get information about a specific EC2 Key Pair.
      * 
-     * ## Example Usage
-     * 
-     * The following example shows how to get a EC2 Key Pair including the public key material from its name.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetKeyPairArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Ec2Functions.getKeyPair(GetKeyPairArgs.builder()
-     *             .keyName(&#34;test&#34;)
-     *             .includePublicKey(true)
-     *             .filters(GetKeyPairFilterArgs.builder()
-     *                 .name(&#34;tag:Component&#34;)
-     *                 .values(&#34;web&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *         ctx.export(&#34;fingerprint&#34;, example.applyValue(getKeyPairResult -&gt; getKeyPairResult.fingerprint()));
-     *         ctx.export(&#34;name&#34;, example.applyValue(getKeyPairResult -&gt; getKeyPairResult.keyName()));
-     *         ctx.export(&#34;id&#34;, example.applyValue(getKeyPairResult -&gt; getKeyPairResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static CompletableFuture<GetKeyPairResult> getKeyPairPlain() {
         return getKeyPairPlain(GetKeyPairPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * Use this data source to get information about a specific EC2 Key Pair.
-     * 
-     * ## Example Usage
-     * 
-     * The following example shows how to get a EC2 Key Pair including the public key material from its name.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetKeyPairArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Ec2Functions.getKeyPair(GetKeyPairArgs.builder()
-     *             .keyName(&#34;test&#34;)
-     *             .includePublicKey(true)
-     *             .filters(GetKeyPairFilterArgs.builder()
-     *                 .name(&#34;tag:Component&#34;)
-     *                 .values(&#34;web&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *         ctx.export(&#34;fingerprint&#34;, example.applyValue(getKeyPairResult -&gt; getKeyPairResult.fingerprint()));
-     *         ctx.export(&#34;name&#34;, example.applyValue(getKeyPairResult -&gt; getKeyPairResult.keyName()));
-     *         ctx.export(&#34;id&#34;, example.applyValue(getKeyPairResult -&gt; getKeyPairResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetKeyPairResult> getKeyPair(GetKeyPairArgs args) {
@@ -4862,92 +936,12 @@ public final class Ec2Functions {
     /**
      * Use this data source to get information about a specific EC2 Key Pair.
      * 
-     * ## Example Usage
-     * 
-     * The following example shows how to get a EC2 Key Pair including the public key material from its name.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetKeyPairArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Ec2Functions.getKeyPair(GetKeyPairArgs.builder()
-     *             .keyName(&#34;test&#34;)
-     *             .includePublicKey(true)
-     *             .filters(GetKeyPairFilterArgs.builder()
-     *                 .name(&#34;tag:Component&#34;)
-     *                 .values(&#34;web&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *         ctx.export(&#34;fingerprint&#34;, example.applyValue(getKeyPairResult -&gt; getKeyPairResult.fingerprint()));
-     *         ctx.export(&#34;name&#34;, example.applyValue(getKeyPairResult -&gt; getKeyPairResult.keyName()));
-     *         ctx.export(&#34;id&#34;, example.applyValue(getKeyPairResult -&gt; getKeyPairResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static CompletableFuture<GetKeyPairResult> getKeyPairPlain(GetKeyPairPlainArgs args) {
         return getKeyPairPlain(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to get information about a specific EC2 Key Pair.
-     * 
-     * ## Example Usage
-     * 
-     * The following example shows how to get a EC2 Key Pair including the public key material from its name.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetKeyPairArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Ec2Functions.getKeyPair(GetKeyPairArgs.builder()
-     *             .keyName(&#34;test&#34;)
-     *             .includePublicKey(true)
-     *             .filters(GetKeyPairFilterArgs.builder()
-     *                 .name(&#34;tag:Component&#34;)
-     *                 .values(&#34;web&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *         ctx.export(&#34;fingerprint&#34;, example.applyValue(getKeyPairResult -&gt; getKeyPairResult.fingerprint()));
-     *         ctx.export(&#34;name&#34;, example.applyValue(getKeyPairResult -&gt; getKeyPairResult.keyName()));
-     *         ctx.export(&#34;id&#34;, example.applyValue(getKeyPairResult -&gt; getKeyPairResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetKeyPairResult> getKeyPair(GetKeyPairArgs args, InvokeOptions options) {
@@ -4956,82 +950,12 @@ public final class Ec2Functions {
     /**
      * Use this data source to get information about a specific EC2 Key Pair.
      * 
-     * ## Example Usage
-     * 
-     * The following example shows how to get a EC2 Key Pair including the public key material from its name.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetKeyPairArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Ec2Functions.getKeyPair(GetKeyPairArgs.builder()
-     *             .keyName(&#34;test&#34;)
-     *             .includePublicKey(true)
-     *             .filters(GetKeyPairFilterArgs.builder()
-     *                 .name(&#34;tag:Component&#34;)
-     *                 .values(&#34;web&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *         ctx.export(&#34;fingerprint&#34;, example.applyValue(getKeyPairResult -&gt; getKeyPairResult.fingerprint()));
-     *         ctx.export(&#34;name&#34;, example.applyValue(getKeyPairResult -&gt; getKeyPairResult.keyName()));
-     *         ctx.export(&#34;id&#34;, example.applyValue(getKeyPairResult -&gt; getKeyPairResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static CompletableFuture<GetKeyPairResult> getKeyPairPlain(GetKeyPairPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:ec2/getKeyPair:getKeyPair", TypeShape.of(GetKeyPairResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Provides information about a Launch Configuration.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetLaunchConfigurationArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var ubuntu = Ec2Functions.getLaunchConfiguration(GetLaunchConfigurationArgs.builder()
-     *             .name(&#34;test-launch-config&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetLaunchConfigurationResult> getLaunchConfiguration(GetLaunchConfigurationArgs args) {
@@ -5040,72 +964,12 @@ public final class Ec2Functions {
     /**
      * Provides information about a Launch Configuration.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetLaunchConfigurationArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var ubuntu = Ec2Functions.getLaunchConfiguration(GetLaunchConfigurationArgs.builder()
-     *             .name(&#34;test-launch-config&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static CompletableFuture<GetLaunchConfigurationResult> getLaunchConfigurationPlain(GetLaunchConfigurationPlainArgs args) {
         return getLaunchConfigurationPlain(args, InvokeOptions.Empty);
     }
     /**
      * Provides information about a Launch Configuration.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetLaunchConfigurationArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var ubuntu = Ec2Functions.getLaunchConfiguration(GetLaunchConfigurationArgs.builder()
-     *             .name(&#34;test-launch-config&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetLaunchConfigurationResult> getLaunchConfiguration(GetLaunchConfigurationArgs args, InvokeOptions options) {
@@ -5114,104 +978,12 @@ public final class Ec2Functions {
     /**
      * Provides information about a Launch Configuration.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetLaunchConfigurationArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var ubuntu = Ec2Functions.getLaunchConfiguration(GetLaunchConfigurationArgs.builder()
-     *             .name(&#34;test-launch-config&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static CompletableFuture<GetLaunchConfigurationResult> getLaunchConfigurationPlain(GetLaunchConfigurationPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:ec2/getLaunchConfiguration:getLaunchConfiguration", TypeShape.of(GetLaunchConfigurationResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Provides information about a Launch Template.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetLaunchTemplateArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var default = Ec2Functions.getLaunchTemplate(GetLaunchTemplateArgs.builder()
-     *             .name(&#34;my-launch-template&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * ### Filter
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetLaunchTemplateArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = Ec2Functions.getLaunchTemplate(GetLaunchTemplateArgs.builder()
-     *             .filters(GetLaunchTemplateFilterArgs.builder()
-     *                 .name(&#34;launch-template-name&#34;)
-     *                 .values(&#34;some-template&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetLaunchTemplateResult> getLaunchTemplate() {
@@ -5220,136 +992,12 @@ public final class Ec2Functions {
     /**
      * Provides information about a Launch Template.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetLaunchTemplateArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var default = Ec2Functions.getLaunchTemplate(GetLaunchTemplateArgs.builder()
-     *             .name(&#34;my-launch-template&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * ### Filter
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetLaunchTemplateArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = Ec2Functions.getLaunchTemplate(GetLaunchTemplateArgs.builder()
-     *             .filters(GetLaunchTemplateFilterArgs.builder()
-     *                 .name(&#34;launch-template-name&#34;)
-     *                 .values(&#34;some-template&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static CompletableFuture<GetLaunchTemplateResult> getLaunchTemplatePlain() {
         return getLaunchTemplatePlain(GetLaunchTemplatePlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * Provides information about a Launch Template.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetLaunchTemplateArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var default = Ec2Functions.getLaunchTemplate(GetLaunchTemplateArgs.builder()
-     *             .name(&#34;my-launch-template&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * ### Filter
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetLaunchTemplateArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = Ec2Functions.getLaunchTemplate(GetLaunchTemplateArgs.builder()
-     *             .filters(GetLaunchTemplateFilterArgs.builder()
-     *                 .name(&#34;launch-template-name&#34;)
-     *                 .values(&#34;some-template&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetLaunchTemplateResult> getLaunchTemplate(GetLaunchTemplateArgs args) {
@@ -5358,136 +1006,12 @@ public final class Ec2Functions {
     /**
      * Provides information about a Launch Template.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetLaunchTemplateArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var default = Ec2Functions.getLaunchTemplate(GetLaunchTemplateArgs.builder()
-     *             .name(&#34;my-launch-template&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * ### Filter
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetLaunchTemplateArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = Ec2Functions.getLaunchTemplate(GetLaunchTemplateArgs.builder()
-     *             .filters(GetLaunchTemplateFilterArgs.builder()
-     *                 .name(&#34;launch-template-name&#34;)
-     *                 .values(&#34;some-template&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static CompletableFuture<GetLaunchTemplateResult> getLaunchTemplatePlain(GetLaunchTemplatePlainArgs args) {
         return getLaunchTemplatePlain(args, InvokeOptions.Empty);
     }
     /**
      * Provides information about a Launch Template.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetLaunchTemplateArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var default = Ec2Functions.getLaunchTemplate(GetLaunchTemplateArgs.builder()
-     *             .name(&#34;my-launch-template&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * ### Filter
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetLaunchTemplateArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = Ec2Functions.getLaunchTemplate(GetLaunchTemplateArgs.builder()
-     *             .filters(GetLaunchTemplateFilterArgs.builder()
-     *                 .name(&#34;launch-template-name&#34;)
-     *                 .values(&#34;some-template&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetLaunchTemplateResult> getLaunchTemplate(GetLaunchTemplateArgs args, InvokeOptions options) {
@@ -5496,108 +1020,12 @@ public final class Ec2Functions {
     /**
      * Provides information about a Launch Template.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetLaunchTemplateArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var default = Ec2Functions.getLaunchTemplate(GetLaunchTemplateArgs.builder()
-     *             .name(&#34;my-launch-template&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * ### Filter
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetLaunchTemplateArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = Ec2Functions.getLaunchTemplate(GetLaunchTemplateArgs.builder()
-     *             .filters(GetLaunchTemplateFilterArgs.builder()
-     *                 .name(&#34;launch-template-name&#34;)
-     *                 .values(&#34;some-template&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static CompletableFuture<GetLaunchTemplateResult> getLaunchTemplatePlain(GetLaunchTemplatePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:ec2/getLaunchTemplate:getLaunchTemplate", TypeShape.of(GetLaunchTemplateResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Provides details about an EC2 Local Gateway.
-     * 
-     * ## Example Usage
-     * 
-     * The following example shows how one might accept a local gateway id as a variable.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetLocalGatewayArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var config = ctx.config();
-     *         final var localGatewayId = config.get(&#34;localGatewayId&#34;);
-     *         final var selected = Ec2Functions.getLocalGateway(GetLocalGatewayArgs.builder()
-     *             .id(localGatewayId)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetLocalGatewayResult> getLocalGateway() {
@@ -5606,80 +1034,12 @@ public final class Ec2Functions {
     /**
      * Provides details about an EC2 Local Gateway.
      * 
-     * ## Example Usage
-     * 
-     * The following example shows how one might accept a local gateway id as a variable.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetLocalGatewayArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var config = ctx.config();
-     *         final var localGatewayId = config.get(&#34;localGatewayId&#34;);
-     *         final var selected = Ec2Functions.getLocalGateway(GetLocalGatewayArgs.builder()
-     *             .id(localGatewayId)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static CompletableFuture<GetLocalGatewayResult> getLocalGatewayPlain() {
         return getLocalGatewayPlain(GetLocalGatewayPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * Provides details about an EC2 Local Gateway.
-     * 
-     * ## Example Usage
-     * 
-     * The following example shows how one might accept a local gateway id as a variable.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetLocalGatewayArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var config = ctx.config();
-     *         final var localGatewayId = config.get(&#34;localGatewayId&#34;);
-     *         final var selected = Ec2Functions.getLocalGateway(GetLocalGatewayArgs.builder()
-     *             .id(localGatewayId)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetLocalGatewayResult> getLocalGateway(GetLocalGatewayArgs args) {
@@ -5688,40 +1048,6 @@ public final class Ec2Functions {
     /**
      * Provides details about an EC2 Local Gateway.
      * 
-     * ## Example Usage
-     * 
-     * The following example shows how one might accept a local gateway id as a variable.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetLocalGatewayArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var config = ctx.config();
-     *         final var localGatewayId = config.get(&#34;localGatewayId&#34;);
-     *         final var selected = Ec2Functions.getLocalGateway(GetLocalGatewayArgs.builder()
-     *             .id(localGatewayId)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static CompletableFuture<GetLocalGatewayResult> getLocalGatewayPlain(GetLocalGatewayPlainArgs args) {
         return getLocalGatewayPlain(args, InvokeOptions.Empty);
@@ -5729,80 +1055,12 @@ public final class Ec2Functions {
     /**
      * Provides details about an EC2 Local Gateway.
      * 
-     * ## Example Usage
-     * 
-     * The following example shows how one might accept a local gateway id as a variable.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetLocalGatewayArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var config = ctx.config();
-     *         final var localGatewayId = config.get(&#34;localGatewayId&#34;);
-     *         final var selected = Ec2Functions.getLocalGateway(GetLocalGatewayArgs.builder()
-     *             .id(localGatewayId)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetLocalGatewayResult> getLocalGateway(GetLocalGatewayArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:ec2/getLocalGateway:getLocalGateway", TypeShape.of(GetLocalGatewayResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Provides details about an EC2 Local Gateway.
-     * 
-     * ## Example Usage
-     * 
-     * The following example shows how one might accept a local gateway id as a variable.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetLocalGatewayArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var config = ctx.config();
-     *         final var localGatewayId = config.get(&#34;localGatewayId&#34;);
-     *         final var selected = Ec2Functions.getLocalGateway(GetLocalGatewayArgs.builder()
-     *             .id(localGatewayId)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetLocalGatewayResult> getLocalGatewayPlain(GetLocalGatewayPlainArgs args, InvokeOptions options) {
@@ -5814,40 +1072,6 @@ public final class Ec2Functions {
      * This data source can prove useful when a module accepts a local gateway route table id as
      * an input variable and needs to, for example, find the associated Outpost or Local Gateway.
      * 
-     * ## Example Usage
-     * 
-     * The following example returns a specific local gateway route table ID
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetLocalGatewayRouteTableArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var config = ctx.config();
-     *         final var awsEc2LocalGatewayRouteTable = config.get(&#34;awsEc2LocalGatewayRouteTable&#34;);
-     *         final var selected = Ec2Functions.getLocalGatewayRouteTable(GetLocalGatewayRouteTableArgs.builder()
-     *             .localGatewayRouteTableId(awsEc2LocalGatewayRouteTable)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetLocalGatewayRouteTableResult> getLocalGatewayRouteTable() {
         return getLocalGatewayRouteTable(GetLocalGatewayRouteTableArgs.Empty, InvokeOptions.Empty);
@@ -5857,40 +1081,6 @@ public final class Ec2Functions {
      * 
      * This data source can prove useful when a module accepts a local gateway route table id as
      * an input variable and needs to, for example, find the associated Outpost or Local Gateway.
-     * 
-     * ## Example Usage
-     * 
-     * The following example returns a specific local gateway route table ID
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetLocalGatewayRouteTableArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var config = ctx.config();
-     *         final var awsEc2LocalGatewayRouteTable = config.get(&#34;awsEc2LocalGatewayRouteTable&#34;);
-     *         final var selected = Ec2Functions.getLocalGatewayRouteTable(GetLocalGatewayRouteTableArgs.builder()
-     *             .localGatewayRouteTableId(awsEc2LocalGatewayRouteTable)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetLocalGatewayRouteTableResult> getLocalGatewayRouteTablePlain() {
@@ -5902,40 +1092,6 @@ public final class Ec2Functions {
      * This data source can prove useful when a module accepts a local gateway route table id as
      * an input variable and needs to, for example, find the associated Outpost or Local Gateway.
      * 
-     * ## Example Usage
-     * 
-     * The following example returns a specific local gateway route table ID
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetLocalGatewayRouteTableArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var config = ctx.config();
-     *         final var awsEc2LocalGatewayRouteTable = config.get(&#34;awsEc2LocalGatewayRouteTable&#34;);
-     *         final var selected = Ec2Functions.getLocalGatewayRouteTable(GetLocalGatewayRouteTableArgs.builder()
-     *             .localGatewayRouteTableId(awsEc2LocalGatewayRouteTable)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetLocalGatewayRouteTableResult> getLocalGatewayRouteTable(GetLocalGatewayRouteTableArgs args) {
         return getLocalGatewayRouteTable(args, InvokeOptions.Empty);
@@ -5945,40 +1101,6 @@ public final class Ec2Functions {
      * 
      * This data source can prove useful when a module accepts a local gateway route table id as
      * an input variable and needs to, for example, find the associated Outpost or Local Gateway.
-     * 
-     * ## Example Usage
-     * 
-     * The following example returns a specific local gateway route table ID
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetLocalGatewayRouteTableArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var config = ctx.config();
-     *         final var awsEc2LocalGatewayRouteTable = config.get(&#34;awsEc2LocalGatewayRouteTable&#34;);
-     *         final var selected = Ec2Functions.getLocalGatewayRouteTable(GetLocalGatewayRouteTableArgs.builder()
-     *             .localGatewayRouteTableId(awsEc2LocalGatewayRouteTable)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetLocalGatewayRouteTableResult> getLocalGatewayRouteTablePlain(GetLocalGatewayRouteTablePlainArgs args) {
@@ -5990,40 +1112,6 @@ public final class Ec2Functions {
      * This data source can prove useful when a module accepts a local gateway route table id as
      * an input variable and needs to, for example, find the associated Outpost or Local Gateway.
      * 
-     * ## Example Usage
-     * 
-     * The following example returns a specific local gateway route table ID
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetLocalGatewayRouteTableArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var config = ctx.config();
-     *         final var awsEc2LocalGatewayRouteTable = config.get(&#34;awsEc2LocalGatewayRouteTable&#34;);
-     *         final var selected = Ec2Functions.getLocalGatewayRouteTable(GetLocalGatewayRouteTableArgs.builder()
-     *             .localGatewayRouteTableId(awsEc2LocalGatewayRouteTable)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetLocalGatewayRouteTableResult> getLocalGatewayRouteTable(GetLocalGatewayRouteTableArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:ec2/getLocalGatewayRouteTable:getLocalGatewayRouteTable", TypeShape.of(GetLocalGatewayRouteTableResult.class), args, Utilities.withVersion(options));
@@ -6034,77 +1122,12 @@ public final class Ec2Functions {
      * This data source can prove useful when a module accepts a local gateway route table id as
      * an input variable and needs to, for example, find the associated Outpost or Local Gateway.
      * 
-     * ## Example Usage
-     * 
-     * The following example returns a specific local gateway route table ID
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetLocalGatewayRouteTableArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var config = ctx.config();
-     *         final var awsEc2LocalGatewayRouteTable = config.get(&#34;awsEc2LocalGatewayRouteTable&#34;);
-     *         final var selected = Ec2Functions.getLocalGatewayRouteTable(GetLocalGatewayRouteTableArgs.builder()
-     *             .localGatewayRouteTableId(awsEc2LocalGatewayRouteTable)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static CompletableFuture<GetLocalGatewayRouteTableResult> getLocalGatewayRouteTablePlain(GetLocalGatewayRouteTablePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:ec2/getLocalGatewayRouteTable:getLocalGatewayRouteTable", TypeShape.of(GetLocalGatewayRouteTableResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Provides information for multiple EC2 Local Gateway Route Tables, such as their identifiers.
-     * 
-     * ## Example Usage
-     * 
-     * The following shows outputting all Local Gateway Route Table Ids.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetLocalGatewayRouteTablesArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var fooLocalGatewayRouteTables = Ec2Functions.getLocalGatewayRouteTables();
-     * 
-     *         ctx.export(&#34;foo&#34;, fooLocalGatewayRouteTables.applyValue(getLocalGatewayRouteTablesResult -&gt; getLocalGatewayRouteTablesResult.ids()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetLocalGatewayRouteTablesResult> getLocalGatewayRouteTables() {
@@ -6113,74 +1136,12 @@ public final class Ec2Functions {
     /**
      * Provides information for multiple EC2 Local Gateway Route Tables, such as their identifiers.
      * 
-     * ## Example Usage
-     * 
-     * The following shows outputting all Local Gateway Route Table Ids.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetLocalGatewayRouteTablesArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var fooLocalGatewayRouteTables = Ec2Functions.getLocalGatewayRouteTables();
-     * 
-     *         ctx.export(&#34;foo&#34;, fooLocalGatewayRouteTables.applyValue(getLocalGatewayRouteTablesResult -&gt; getLocalGatewayRouteTablesResult.ids()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static CompletableFuture<GetLocalGatewayRouteTablesResult> getLocalGatewayRouteTablesPlain() {
         return getLocalGatewayRouteTablesPlain(GetLocalGatewayRouteTablesPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * Provides information for multiple EC2 Local Gateway Route Tables, such as their identifiers.
-     * 
-     * ## Example Usage
-     * 
-     * The following shows outputting all Local Gateway Route Table Ids.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetLocalGatewayRouteTablesArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var fooLocalGatewayRouteTables = Ec2Functions.getLocalGatewayRouteTables();
-     * 
-     *         ctx.export(&#34;foo&#34;, fooLocalGatewayRouteTables.applyValue(getLocalGatewayRouteTablesResult -&gt; getLocalGatewayRouteTablesResult.ids()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetLocalGatewayRouteTablesResult> getLocalGatewayRouteTables(GetLocalGatewayRouteTablesArgs args) {
@@ -6189,74 +1150,12 @@ public final class Ec2Functions {
     /**
      * Provides information for multiple EC2 Local Gateway Route Tables, such as their identifiers.
      * 
-     * ## Example Usage
-     * 
-     * The following shows outputting all Local Gateway Route Table Ids.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetLocalGatewayRouteTablesArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var fooLocalGatewayRouteTables = Ec2Functions.getLocalGatewayRouteTables();
-     * 
-     *         ctx.export(&#34;foo&#34;, fooLocalGatewayRouteTables.applyValue(getLocalGatewayRouteTablesResult -&gt; getLocalGatewayRouteTablesResult.ids()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static CompletableFuture<GetLocalGatewayRouteTablesResult> getLocalGatewayRouteTablesPlain(GetLocalGatewayRouteTablesPlainArgs args) {
         return getLocalGatewayRouteTablesPlain(args, InvokeOptions.Empty);
     }
     /**
      * Provides information for multiple EC2 Local Gateway Route Tables, such as their identifiers.
-     * 
-     * ## Example Usage
-     * 
-     * The following shows outputting all Local Gateway Route Table Ids.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetLocalGatewayRouteTablesArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var fooLocalGatewayRouteTables = Ec2Functions.getLocalGatewayRouteTables();
-     * 
-     *         ctx.export(&#34;foo&#34;, fooLocalGatewayRouteTables.applyValue(getLocalGatewayRouteTablesResult -&gt; getLocalGatewayRouteTablesResult.ids()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetLocalGatewayRouteTablesResult> getLocalGatewayRouteTables(GetLocalGatewayRouteTablesArgs args, InvokeOptions options) {
@@ -6265,45 +1164,12 @@ public final class Ec2Functions {
     /**
      * Provides information for multiple EC2 Local Gateway Route Tables, such as their identifiers.
      * 
-     * ## Example Usage
-     * 
-     * The following shows outputting all Local Gateway Route Table Ids.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetLocalGatewayRouteTablesArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var fooLocalGatewayRouteTables = Ec2Functions.getLocalGatewayRouteTables();
-     * 
-     *         ctx.export(&#34;foo&#34;, fooLocalGatewayRouteTables.applyValue(getLocalGatewayRouteTablesResult -&gt; getLocalGatewayRouteTablesResult.ids()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static CompletableFuture<GetLocalGatewayRouteTablesResult> getLocalGatewayRouteTablesPlain(GetLocalGatewayRouteTablesPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:ec2/getLocalGatewayRouteTables:getLocalGatewayRouteTables", TypeShape.of(GetLocalGatewayRouteTablesResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Provides details about an EC2 Local Gateway Virtual Interface. More information can be found in the [Outposts User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#routing).
-     * 
-     * ## Example Usage
      * 
      */
     public static Output<GetLocalGatewayVirtualInterfaceResult> getLocalGatewayVirtualInterface() {
@@ -6312,16 +1178,12 @@ public final class Ec2Functions {
     /**
      * Provides details about an EC2 Local Gateway Virtual Interface. More information can be found in the [Outposts User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#routing).
      * 
-     * ## Example Usage
-     * 
      */
     public static CompletableFuture<GetLocalGatewayVirtualInterfaceResult> getLocalGatewayVirtualInterfacePlain() {
         return getLocalGatewayVirtualInterfacePlain(GetLocalGatewayVirtualInterfacePlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * Provides details about an EC2 Local Gateway Virtual Interface. More information can be found in the [Outposts User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#routing).
-     * 
-     * ## Example Usage
      * 
      */
     public static Output<GetLocalGatewayVirtualInterfaceResult> getLocalGatewayVirtualInterface(GetLocalGatewayVirtualInterfaceArgs args) {
@@ -6330,16 +1192,12 @@ public final class Ec2Functions {
     /**
      * Provides details about an EC2 Local Gateway Virtual Interface. More information can be found in the [Outposts User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#routing).
      * 
-     * ## Example Usage
-     * 
      */
     public static CompletableFuture<GetLocalGatewayVirtualInterfaceResult> getLocalGatewayVirtualInterfacePlain(GetLocalGatewayVirtualInterfacePlainArgs args) {
         return getLocalGatewayVirtualInterfacePlain(args, InvokeOptions.Empty);
     }
     /**
      * Provides details about an EC2 Local Gateway Virtual Interface. More information can be found in the [Outposts User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#routing).
-     * 
-     * ## Example Usage
      * 
      */
     public static Output<GetLocalGatewayVirtualInterfaceResult> getLocalGatewayVirtualInterface(GetLocalGatewayVirtualInterfaceArgs args, InvokeOptions options) {
@@ -6348,44 +1206,12 @@ public final class Ec2Functions {
     /**
      * Provides details about an EC2 Local Gateway Virtual Interface. More information can be found in the [Outposts User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#routing).
      * 
-     * ## Example Usage
-     * 
      */
     public static CompletableFuture<GetLocalGatewayVirtualInterfaceResult> getLocalGatewayVirtualInterfacePlain(GetLocalGatewayVirtualInterfacePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:ec2/getLocalGatewayVirtualInterface:getLocalGatewayVirtualInterface", TypeShape.of(GetLocalGatewayVirtualInterfaceResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Provides details about an EC2 Local Gateway Virtual Interface Group. More information can be found in the [Outposts User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#routing).
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetLocalGatewayVirtualInterfaceGroupArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Ec2Functions.getLocalGatewayVirtualInterfaceGroup(GetLocalGatewayVirtualInterfaceGroupArgs.builder()
-     *             .localGatewayId(data.aws_ec2_local_gateway().example().id())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetLocalGatewayVirtualInterfaceGroupResult> getLocalGatewayVirtualInterfaceGroup() {
@@ -6394,72 +1220,12 @@ public final class Ec2Functions {
     /**
      * Provides details about an EC2 Local Gateway Virtual Interface Group. More information can be found in the [Outposts User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#routing).
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetLocalGatewayVirtualInterfaceGroupArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Ec2Functions.getLocalGatewayVirtualInterfaceGroup(GetLocalGatewayVirtualInterfaceGroupArgs.builder()
-     *             .localGatewayId(data.aws_ec2_local_gateway().example().id())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static CompletableFuture<GetLocalGatewayVirtualInterfaceGroupResult> getLocalGatewayVirtualInterfaceGroupPlain() {
         return getLocalGatewayVirtualInterfaceGroupPlain(GetLocalGatewayVirtualInterfaceGroupPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * Provides details about an EC2 Local Gateway Virtual Interface Group. More information can be found in the [Outposts User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#routing).
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetLocalGatewayVirtualInterfaceGroupArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Ec2Functions.getLocalGatewayVirtualInterfaceGroup(GetLocalGatewayVirtualInterfaceGroupArgs.builder()
-     *             .localGatewayId(data.aws_ec2_local_gateway().example().id())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetLocalGatewayVirtualInterfaceGroupResult> getLocalGatewayVirtualInterfaceGroup(GetLocalGatewayVirtualInterfaceGroupArgs args) {
@@ -6468,72 +1234,12 @@ public final class Ec2Functions {
     /**
      * Provides details about an EC2 Local Gateway Virtual Interface Group. More information can be found in the [Outposts User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#routing).
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetLocalGatewayVirtualInterfaceGroupArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Ec2Functions.getLocalGatewayVirtualInterfaceGroup(GetLocalGatewayVirtualInterfaceGroupArgs.builder()
-     *             .localGatewayId(data.aws_ec2_local_gateway().example().id())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static CompletableFuture<GetLocalGatewayVirtualInterfaceGroupResult> getLocalGatewayVirtualInterfaceGroupPlain(GetLocalGatewayVirtualInterfaceGroupPlainArgs args) {
         return getLocalGatewayVirtualInterfaceGroupPlain(args, InvokeOptions.Empty);
     }
     /**
      * Provides details about an EC2 Local Gateway Virtual Interface Group. More information can be found in the [Outposts User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#routing).
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetLocalGatewayVirtualInterfaceGroupArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Ec2Functions.getLocalGatewayVirtualInterfaceGroup(GetLocalGatewayVirtualInterfaceGroupArgs.builder()
-     *             .localGatewayId(data.aws_ec2_local_gateway().example().id())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetLocalGatewayVirtualInterfaceGroupResult> getLocalGatewayVirtualInterfaceGroup(GetLocalGatewayVirtualInterfaceGroupArgs args, InvokeOptions options) {
@@ -6542,70 +1248,12 @@ public final class Ec2Functions {
     /**
      * Provides details about an EC2 Local Gateway Virtual Interface Group. More information can be found in the [Outposts User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#routing).
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetLocalGatewayVirtualInterfaceGroupArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Ec2Functions.getLocalGatewayVirtualInterfaceGroup(GetLocalGatewayVirtualInterfaceGroupArgs.builder()
-     *             .localGatewayId(data.aws_ec2_local_gateway().example().id())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static CompletableFuture<GetLocalGatewayVirtualInterfaceGroupResult> getLocalGatewayVirtualInterfaceGroupPlain(GetLocalGatewayVirtualInterfaceGroupPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:ec2/getLocalGatewayVirtualInterfaceGroup:getLocalGatewayVirtualInterfaceGroup", TypeShape.of(GetLocalGatewayVirtualInterfaceGroupResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Provides details about multiple EC2 Local Gateway Virtual Interface Groups, such as identifiers. More information can be found in the [Outposts User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#routing).
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetLocalGatewayVirtualInterfaceGroupsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var all = Ec2Functions.getLocalGatewayVirtualInterfaceGroups();
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetLocalGatewayVirtualInterfaceGroupsResult> getLocalGatewayVirtualInterfaceGroups() {
@@ -6614,68 +1262,12 @@ public final class Ec2Functions {
     /**
      * Provides details about multiple EC2 Local Gateway Virtual Interface Groups, such as identifiers. More information can be found in the [Outposts User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#routing).
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetLocalGatewayVirtualInterfaceGroupsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var all = Ec2Functions.getLocalGatewayVirtualInterfaceGroups();
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static CompletableFuture<GetLocalGatewayVirtualInterfaceGroupsResult> getLocalGatewayVirtualInterfaceGroupsPlain() {
         return getLocalGatewayVirtualInterfaceGroupsPlain(GetLocalGatewayVirtualInterfaceGroupsPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * Provides details about multiple EC2 Local Gateway Virtual Interface Groups, such as identifiers. More information can be found in the [Outposts User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#routing).
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetLocalGatewayVirtualInterfaceGroupsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var all = Ec2Functions.getLocalGatewayVirtualInterfaceGroups();
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetLocalGatewayVirtualInterfaceGroupsResult> getLocalGatewayVirtualInterfaceGroups(GetLocalGatewayVirtualInterfaceGroupsArgs args) {
@@ -6684,68 +1276,12 @@ public final class Ec2Functions {
     /**
      * Provides details about multiple EC2 Local Gateway Virtual Interface Groups, such as identifiers. More information can be found in the [Outposts User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#routing).
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetLocalGatewayVirtualInterfaceGroupsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var all = Ec2Functions.getLocalGatewayVirtualInterfaceGroups();
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static CompletableFuture<GetLocalGatewayVirtualInterfaceGroupsResult> getLocalGatewayVirtualInterfaceGroupsPlain(GetLocalGatewayVirtualInterfaceGroupsPlainArgs args) {
         return getLocalGatewayVirtualInterfaceGroupsPlain(args, InvokeOptions.Empty);
     }
     /**
      * Provides details about multiple EC2 Local Gateway Virtual Interface Groups, such as identifiers. More information can be found in the [Outposts User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#routing).
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetLocalGatewayVirtualInterfaceGroupsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var all = Ec2Functions.getLocalGatewayVirtualInterfaceGroups();
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetLocalGatewayVirtualInterfaceGroupsResult> getLocalGatewayVirtualInterfaceGroups(GetLocalGatewayVirtualInterfaceGroupsArgs args, InvokeOptions options) {
@@ -6754,73 +1290,12 @@ public final class Ec2Functions {
     /**
      * Provides details about multiple EC2 Local Gateway Virtual Interface Groups, such as identifiers. More information can be found in the [Outposts User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#routing).
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetLocalGatewayVirtualInterfaceGroupsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var all = Ec2Functions.getLocalGatewayVirtualInterfaceGroups();
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static CompletableFuture<GetLocalGatewayVirtualInterfaceGroupsResult> getLocalGatewayVirtualInterfaceGroupsPlain(GetLocalGatewayVirtualInterfaceGroupsPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:ec2/getLocalGatewayVirtualInterfaceGroups:getLocalGatewayVirtualInterfaceGroups", TypeShape.of(GetLocalGatewayVirtualInterfaceGroupsResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Provides information for multiple EC2 Local Gateways, such as their identifiers.
-     * 
-     * ## Example Usage
-     * 
-     * The following example retrieves Local Gateways with a resource tag of `service` set to `production`.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetLocalGatewaysArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var fooLocalGateways = Ec2Functions.getLocalGateways(GetLocalGatewaysArgs.builder()
-     *             .tags(Map.of(&#34;service&#34;, &#34;production&#34;))
-     *             .build());
-     * 
-     *         ctx.export(&#34;foo&#34;, fooLocalGateways.applyValue(getLocalGatewaysResult -&gt; getLocalGatewaysResult.ids()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetLocalGatewaysResult> getLocalGateways() {
@@ -6829,78 +1304,12 @@ public final class Ec2Functions {
     /**
      * Provides information for multiple EC2 Local Gateways, such as their identifiers.
      * 
-     * ## Example Usage
-     * 
-     * The following example retrieves Local Gateways with a resource tag of `service` set to `production`.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetLocalGatewaysArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var fooLocalGateways = Ec2Functions.getLocalGateways(GetLocalGatewaysArgs.builder()
-     *             .tags(Map.of(&#34;service&#34;, &#34;production&#34;))
-     *             .build());
-     * 
-     *         ctx.export(&#34;foo&#34;, fooLocalGateways.applyValue(getLocalGatewaysResult -&gt; getLocalGatewaysResult.ids()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static CompletableFuture<GetLocalGatewaysResult> getLocalGatewaysPlain() {
         return getLocalGatewaysPlain(GetLocalGatewaysPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * Provides information for multiple EC2 Local Gateways, such as their identifiers.
-     * 
-     * ## Example Usage
-     * 
-     * The following example retrieves Local Gateways with a resource tag of `service` set to `production`.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetLocalGatewaysArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var fooLocalGateways = Ec2Functions.getLocalGateways(GetLocalGatewaysArgs.builder()
-     *             .tags(Map.of(&#34;service&#34;, &#34;production&#34;))
-     *             .build());
-     * 
-     *         ctx.export(&#34;foo&#34;, fooLocalGateways.applyValue(getLocalGatewaysResult -&gt; getLocalGatewaysResult.ids()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetLocalGatewaysResult> getLocalGateways(GetLocalGatewaysArgs args) {
@@ -6909,39 +1318,6 @@ public final class Ec2Functions {
     /**
      * Provides information for multiple EC2 Local Gateways, such as their identifiers.
      * 
-     * ## Example Usage
-     * 
-     * The following example retrieves Local Gateways with a resource tag of `service` set to `production`.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetLocalGatewaysArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var fooLocalGateways = Ec2Functions.getLocalGateways(GetLocalGatewaysArgs.builder()
-     *             .tags(Map.of(&#34;service&#34;, &#34;production&#34;))
-     *             .build());
-     * 
-     *         ctx.export(&#34;foo&#34;, fooLocalGateways.applyValue(getLocalGatewaysResult -&gt; getLocalGatewaysResult.ids()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static CompletableFuture<GetLocalGatewaysResult> getLocalGatewaysPlain(GetLocalGatewaysPlainArgs args) {
         return getLocalGatewaysPlain(args, InvokeOptions.Empty);
@@ -6949,78 +1325,12 @@ public final class Ec2Functions {
     /**
      * Provides information for multiple EC2 Local Gateways, such as their identifiers.
      * 
-     * ## Example Usage
-     * 
-     * The following example retrieves Local Gateways with a resource tag of `service` set to `production`.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetLocalGatewaysArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var fooLocalGateways = Ec2Functions.getLocalGateways(GetLocalGatewaysArgs.builder()
-     *             .tags(Map.of(&#34;service&#34;, &#34;production&#34;))
-     *             .build());
-     * 
-     *         ctx.export(&#34;foo&#34;, fooLocalGateways.applyValue(getLocalGatewaysResult -&gt; getLocalGatewaysResult.ids()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetLocalGatewaysResult> getLocalGateways(GetLocalGatewaysArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:ec2/getLocalGateways:getLocalGateways", TypeShape.of(GetLocalGatewaysResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Provides information for multiple EC2 Local Gateways, such as their identifiers.
-     * 
-     * ## Example Usage
-     * 
-     * The following example retrieves Local Gateways with a resource tag of `service` set to `production`.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetLocalGatewaysArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var fooLocalGateways = Ec2Functions.getLocalGateways(GetLocalGatewaysArgs.builder()
-     *             .tags(Map.of(&#34;service&#34;, &#34;production&#34;))
-     *             .build());
-     * 
-     *         ctx.export(&#34;foo&#34;, fooLocalGateways.applyValue(getLocalGatewaysResult -&gt; getLocalGatewaysResult.ids()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetLocalGatewaysResult> getLocalGatewaysPlain(GetLocalGatewaysPlainArgs args, InvokeOptions options) {
@@ -7031,71 +1341,6 @@ public final class Ec2Functions {
      * customer-managed prefix list in the current region.
      * 
      * ## Example Usage
-     * ### Find the regional DynamoDB prefix list
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.AwsFunctions;
-     * import com.pulumi.aws.inputs.GetRegionArgs;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetManagedPrefixListArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var current = AwsFunctions.getRegion();
-     * 
-     *         final var example = Ec2Functions.getManagedPrefixList(GetManagedPrefixListArgs.builder()
-     *             .name(String.format(&#34;com.amazonaws.%s.dynamodb&#34;, current.applyValue(getRegionResult -&gt; getRegionResult.name())))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * ### Find a managed prefix list using filters
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetManagedPrefixListArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Ec2Functions.getManagedPrefixList(GetManagedPrefixListArgs.builder()
-     *             .filters(GetManagedPrefixListFilterArgs.builder()
-     *                 .name(&#34;prefix-list-name&#34;)
-     *                 .values(&#34;my-prefix-list&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetManagedPrefixListResult> getManagedPrefixList() {
@@ -7106,71 +1351,6 @@ public final class Ec2Functions {
      * customer-managed prefix list in the current region.
      * 
      * ## Example Usage
-     * ### Find the regional DynamoDB prefix list
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.AwsFunctions;
-     * import com.pulumi.aws.inputs.GetRegionArgs;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetManagedPrefixListArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var current = AwsFunctions.getRegion();
-     * 
-     *         final var example = Ec2Functions.getManagedPrefixList(GetManagedPrefixListArgs.builder()
-     *             .name(String.format(&#34;com.amazonaws.%s.dynamodb&#34;, current.applyValue(getRegionResult -&gt; getRegionResult.name())))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * ### Find a managed prefix list using filters
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetManagedPrefixListArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Ec2Functions.getManagedPrefixList(GetManagedPrefixListArgs.builder()
-     *             .filters(GetManagedPrefixListFilterArgs.builder()
-     *                 .name(&#34;prefix-list-name&#34;)
-     *                 .values(&#34;my-prefix-list&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetManagedPrefixListResult> getManagedPrefixListPlain() {
@@ -7181,71 +1361,6 @@ public final class Ec2Functions {
      * customer-managed prefix list in the current region.
      * 
      * ## Example Usage
-     * ### Find the regional DynamoDB prefix list
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.AwsFunctions;
-     * import com.pulumi.aws.inputs.GetRegionArgs;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetManagedPrefixListArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var current = AwsFunctions.getRegion();
-     * 
-     *         final var example = Ec2Functions.getManagedPrefixList(GetManagedPrefixListArgs.builder()
-     *             .name(String.format(&#34;com.amazonaws.%s.dynamodb&#34;, current.applyValue(getRegionResult -&gt; getRegionResult.name())))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * ### Find a managed prefix list using filters
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetManagedPrefixListArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Ec2Functions.getManagedPrefixList(GetManagedPrefixListArgs.builder()
-     *             .filters(GetManagedPrefixListFilterArgs.builder()
-     *                 .name(&#34;prefix-list-name&#34;)
-     *                 .values(&#34;my-prefix-list&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetManagedPrefixListResult> getManagedPrefixList(GetManagedPrefixListArgs args) {
@@ -7256,71 +1371,6 @@ public final class Ec2Functions {
      * customer-managed prefix list in the current region.
      * 
      * ## Example Usage
-     * ### Find the regional DynamoDB prefix list
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.AwsFunctions;
-     * import com.pulumi.aws.inputs.GetRegionArgs;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetManagedPrefixListArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var current = AwsFunctions.getRegion();
-     * 
-     *         final var example = Ec2Functions.getManagedPrefixList(GetManagedPrefixListArgs.builder()
-     *             .name(String.format(&#34;com.amazonaws.%s.dynamodb&#34;, current.applyValue(getRegionResult -&gt; getRegionResult.name())))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * ### Find a managed prefix list using filters
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetManagedPrefixListArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Ec2Functions.getManagedPrefixList(GetManagedPrefixListArgs.builder()
-     *             .filters(GetManagedPrefixListFilterArgs.builder()
-     *                 .name(&#34;prefix-list-name&#34;)
-     *                 .values(&#34;my-prefix-list&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetManagedPrefixListResult> getManagedPrefixListPlain(GetManagedPrefixListPlainArgs args) {
@@ -7331,71 +1381,6 @@ public final class Ec2Functions {
      * customer-managed prefix list in the current region.
      * 
      * ## Example Usage
-     * ### Find the regional DynamoDB prefix list
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.AwsFunctions;
-     * import com.pulumi.aws.inputs.GetRegionArgs;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetManagedPrefixListArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var current = AwsFunctions.getRegion();
-     * 
-     *         final var example = Ec2Functions.getManagedPrefixList(GetManagedPrefixListArgs.builder()
-     *             .name(String.format(&#34;com.amazonaws.%s.dynamodb&#34;, current.applyValue(getRegionResult -&gt; getRegionResult.name())))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * ### Find a managed prefix list using filters
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetManagedPrefixListArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Ec2Functions.getManagedPrefixList(GetManagedPrefixListArgs.builder()
-     *             .filters(GetManagedPrefixListFilterArgs.builder()
-     *                 .name(&#34;prefix-list-name&#34;)
-     *                 .values(&#34;my-prefix-list&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetManagedPrefixListResult> getManagedPrefixList(GetManagedPrefixListArgs args, InvokeOptions options) {
@@ -7406,71 +1391,6 @@ public final class Ec2Functions {
      * customer-managed prefix list in the current region.
      * 
      * ## Example Usage
-     * ### Find the regional DynamoDB prefix list
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.AwsFunctions;
-     * import com.pulumi.aws.inputs.GetRegionArgs;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetManagedPrefixListArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var current = AwsFunctions.getRegion();
-     * 
-     *         final var example = Ec2Functions.getManagedPrefixList(GetManagedPrefixListArgs.builder()
-     *             .name(String.format(&#34;com.amazonaws.%s.dynamodb&#34;, current.applyValue(getRegionResult -&gt; getRegionResult.name())))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * ### Find a managed prefix list using filters
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetManagedPrefixListArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Ec2Functions.getManagedPrefixList(GetManagedPrefixListArgs.builder()
-     *             .filters(GetManagedPrefixListFilterArgs.builder()
-     *                 .name(&#34;prefix-list-name&#34;)
-     *                 .values(&#34;my-prefix-list&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetManagedPrefixListResult> getManagedPrefixListPlain(GetManagedPrefixListPlainArgs args, InvokeOptions options) {
@@ -7521,132 +1441,12 @@ public final class Ec2Functions {
     /**
      * Provides details about a specific VPC NAT Gateway.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetNatGatewayArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var default = Ec2Functions.getNatGateway(GetNatGatewayArgs.builder()
-     *             .subnetId(aws_subnet.public().id())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * ### With tags
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetNatGatewayArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var default = Ec2Functions.getNatGateway(GetNatGatewayArgs.builder()
-     *             .subnetId(aws_subnet.public().id())
-     *             .tags(Map.of(&#34;Name&#34;, &#34;gw NAT&#34;))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetNatGatewayResult> getNatGateway() {
         return getNatGateway(GetNatGatewayArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * Provides details about a specific VPC NAT Gateway.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetNatGatewayArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var default = Ec2Functions.getNatGateway(GetNatGatewayArgs.builder()
-     *             .subnetId(aws_subnet.public().id())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * ### With tags
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetNatGatewayArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var default = Ec2Functions.getNatGateway(GetNatGatewayArgs.builder()
-     *             .subnetId(aws_subnet.public().id())
-     *             .tags(Map.of(&#34;Name&#34;, &#34;gw NAT&#34;))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetNatGatewayResult> getNatGatewayPlain() {
@@ -7655,132 +1455,12 @@ public final class Ec2Functions {
     /**
      * Provides details about a specific VPC NAT Gateway.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetNatGatewayArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var default = Ec2Functions.getNatGateway(GetNatGatewayArgs.builder()
-     *             .subnetId(aws_subnet.public().id())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * ### With tags
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetNatGatewayArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var default = Ec2Functions.getNatGateway(GetNatGatewayArgs.builder()
-     *             .subnetId(aws_subnet.public().id())
-     *             .tags(Map.of(&#34;Name&#34;, &#34;gw NAT&#34;))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetNatGatewayResult> getNatGateway(GetNatGatewayArgs args) {
         return getNatGateway(args, InvokeOptions.Empty);
     }
     /**
      * Provides details about a specific VPC NAT Gateway.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetNatGatewayArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var default = Ec2Functions.getNatGateway(GetNatGatewayArgs.builder()
-     *             .subnetId(aws_subnet.public().id())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * ### With tags
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetNatGatewayArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var default = Ec2Functions.getNatGateway(GetNatGatewayArgs.builder()
-     *             .subnetId(aws_subnet.public().id())
-     *             .tags(Map.of(&#34;Name&#34;, &#34;gw NAT&#34;))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetNatGatewayResult> getNatGatewayPlain(GetNatGatewayPlainArgs args) {
@@ -7789,132 +1469,12 @@ public final class Ec2Functions {
     /**
      * Provides details about a specific VPC NAT Gateway.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetNatGatewayArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var default = Ec2Functions.getNatGateway(GetNatGatewayArgs.builder()
-     *             .subnetId(aws_subnet.public().id())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * ### With tags
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetNatGatewayArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var default = Ec2Functions.getNatGateway(GetNatGatewayArgs.builder()
-     *             .subnetId(aws_subnet.public().id())
-     *             .tags(Map.of(&#34;Name&#34;, &#34;gw NAT&#34;))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetNatGatewayResult> getNatGateway(GetNatGatewayArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:ec2/getNatGateway:getNatGateway", TypeShape.of(GetNatGatewayResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Provides details about a specific VPC NAT Gateway.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetNatGatewayArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var default = Ec2Functions.getNatGateway(GetNatGatewayArgs.builder()
-     *             .subnetId(aws_subnet.public().id())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * ### With tags
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetNatGatewayArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var default = Ec2Functions.getNatGateway(GetNatGatewayArgs.builder()
-     *             .subnetId(aws_subnet.public().id())
-     *             .tags(Map.of(&#34;Name&#34;, &#34;gw NAT&#34;))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetNatGatewayResult> getNatGatewayPlain(GetNatGatewayPlainArgs args, InvokeOptions options) {
@@ -7962,668 +1522,26 @@ public final class Ec2Functions {
     public static CompletableFuture<GetNatGatewaysResult> getNatGatewaysPlain(GetNatGatewaysPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:ec2/getNatGateways:getNatGateways", TypeShape.of(GetNatGatewaysResult.class), args, Utilities.withVersion(options));
     }
-    /**
-     * ## Example Usage
-     * 
-     * The following shows outputting all network ACL ids in a vpc.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetNetworkAclsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var exampleNetworkAcls = Ec2Functions.getNetworkAcls(GetNetworkAclsArgs.builder()
-     *             .vpcId(var_.vpc_id())
-     *             .build());
-     * 
-     *         ctx.export(&#34;example&#34;, exampleNetworkAcls.applyValue(getNetworkAclsResult -&gt; getNetworkAclsResult.ids()));
-     *     }
-     * }
-     * ```
-     * 
-     * The following example retrieves a list of all network ACL ids in a VPC with a custom
-     * tag of `Tier` set to a value of &#34;Private&#34;.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetNetworkAclsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Ec2Functions.getNetworkAcls(GetNetworkAclsArgs.builder()
-     *             .vpcId(var_.vpc_id())
-     *             .tags(Map.of(&#34;Tier&#34;, &#34;Private&#34;))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
-     * The following example retrieves a network ACL id in a VPC which associated
-     * with specific subnet.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetNetworkAclsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Ec2Functions.getNetworkAcls(GetNetworkAclsArgs.builder()
-     *             .vpcId(var_.vpc_id())
-     *             .filters(GetNetworkAclsFilterArgs.builder()
-     *                 .name(&#34;association.subnet-id&#34;)
-     *                 .values(aws_subnet.test().id())
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
-     */
     public static Output<GetNetworkAclsResult> getNetworkAcls() {
         return getNetworkAcls(GetNetworkAclsArgs.Empty, InvokeOptions.Empty);
     }
-    /**
-     * ## Example Usage
-     * 
-     * The following shows outputting all network ACL ids in a vpc.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetNetworkAclsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var exampleNetworkAcls = Ec2Functions.getNetworkAcls(GetNetworkAclsArgs.builder()
-     *             .vpcId(var_.vpc_id())
-     *             .build());
-     * 
-     *         ctx.export(&#34;example&#34;, exampleNetworkAcls.applyValue(getNetworkAclsResult -&gt; getNetworkAclsResult.ids()));
-     *     }
-     * }
-     * ```
-     * 
-     * The following example retrieves a list of all network ACL ids in a VPC with a custom
-     * tag of `Tier` set to a value of &#34;Private&#34;.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetNetworkAclsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Ec2Functions.getNetworkAcls(GetNetworkAclsArgs.builder()
-     *             .vpcId(var_.vpc_id())
-     *             .tags(Map.of(&#34;Tier&#34;, &#34;Private&#34;))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
-     * The following example retrieves a network ACL id in a VPC which associated
-     * with specific subnet.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetNetworkAclsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Ec2Functions.getNetworkAcls(GetNetworkAclsArgs.builder()
-     *             .vpcId(var_.vpc_id())
-     *             .filters(GetNetworkAclsFilterArgs.builder()
-     *                 .name(&#34;association.subnet-id&#34;)
-     *                 .values(aws_subnet.test().id())
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
-     */
     public static CompletableFuture<GetNetworkAclsResult> getNetworkAclsPlain() {
         return getNetworkAclsPlain(GetNetworkAclsPlainArgs.Empty, InvokeOptions.Empty);
     }
-    /**
-     * ## Example Usage
-     * 
-     * The following shows outputting all network ACL ids in a vpc.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetNetworkAclsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var exampleNetworkAcls = Ec2Functions.getNetworkAcls(GetNetworkAclsArgs.builder()
-     *             .vpcId(var_.vpc_id())
-     *             .build());
-     * 
-     *         ctx.export(&#34;example&#34;, exampleNetworkAcls.applyValue(getNetworkAclsResult -&gt; getNetworkAclsResult.ids()));
-     *     }
-     * }
-     * ```
-     * 
-     * The following example retrieves a list of all network ACL ids in a VPC with a custom
-     * tag of `Tier` set to a value of &#34;Private&#34;.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetNetworkAclsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Ec2Functions.getNetworkAcls(GetNetworkAclsArgs.builder()
-     *             .vpcId(var_.vpc_id())
-     *             .tags(Map.of(&#34;Tier&#34;, &#34;Private&#34;))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
-     * The following example retrieves a network ACL id in a VPC which associated
-     * with specific subnet.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetNetworkAclsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Ec2Functions.getNetworkAcls(GetNetworkAclsArgs.builder()
-     *             .vpcId(var_.vpc_id())
-     *             .filters(GetNetworkAclsFilterArgs.builder()
-     *                 .name(&#34;association.subnet-id&#34;)
-     *                 .values(aws_subnet.test().id())
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
-     */
     public static Output<GetNetworkAclsResult> getNetworkAcls(GetNetworkAclsArgs args) {
         return getNetworkAcls(args, InvokeOptions.Empty);
     }
-    /**
-     * ## Example Usage
-     * 
-     * The following shows outputting all network ACL ids in a vpc.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetNetworkAclsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var exampleNetworkAcls = Ec2Functions.getNetworkAcls(GetNetworkAclsArgs.builder()
-     *             .vpcId(var_.vpc_id())
-     *             .build());
-     * 
-     *         ctx.export(&#34;example&#34;, exampleNetworkAcls.applyValue(getNetworkAclsResult -&gt; getNetworkAclsResult.ids()));
-     *     }
-     * }
-     * ```
-     * 
-     * The following example retrieves a list of all network ACL ids in a VPC with a custom
-     * tag of `Tier` set to a value of &#34;Private&#34;.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetNetworkAclsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Ec2Functions.getNetworkAcls(GetNetworkAclsArgs.builder()
-     *             .vpcId(var_.vpc_id())
-     *             .tags(Map.of(&#34;Tier&#34;, &#34;Private&#34;))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
-     * The following example retrieves a network ACL id in a VPC which associated
-     * with specific subnet.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetNetworkAclsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Ec2Functions.getNetworkAcls(GetNetworkAclsArgs.builder()
-     *             .vpcId(var_.vpc_id())
-     *             .filters(GetNetworkAclsFilterArgs.builder()
-     *                 .name(&#34;association.subnet-id&#34;)
-     *                 .values(aws_subnet.test().id())
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
-     */
     public static CompletableFuture<GetNetworkAclsResult> getNetworkAclsPlain(GetNetworkAclsPlainArgs args) {
         return getNetworkAclsPlain(args, InvokeOptions.Empty);
     }
-    /**
-     * ## Example Usage
-     * 
-     * The following shows outputting all network ACL ids in a vpc.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetNetworkAclsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var exampleNetworkAcls = Ec2Functions.getNetworkAcls(GetNetworkAclsArgs.builder()
-     *             .vpcId(var_.vpc_id())
-     *             .build());
-     * 
-     *         ctx.export(&#34;example&#34;, exampleNetworkAcls.applyValue(getNetworkAclsResult -&gt; getNetworkAclsResult.ids()));
-     *     }
-     * }
-     * ```
-     * 
-     * The following example retrieves a list of all network ACL ids in a VPC with a custom
-     * tag of `Tier` set to a value of &#34;Private&#34;.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetNetworkAclsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Ec2Functions.getNetworkAcls(GetNetworkAclsArgs.builder()
-     *             .vpcId(var_.vpc_id())
-     *             .tags(Map.of(&#34;Tier&#34;, &#34;Private&#34;))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
-     * The following example retrieves a network ACL id in a VPC which associated
-     * with specific subnet.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetNetworkAclsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Ec2Functions.getNetworkAcls(GetNetworkAclsArgs.builder()
-     *             .vpcId(var_.vpc_id())
-     *             .filters(GetNetworkAclsFilterArgs.builder()
-     *                 .name(&#34;association.subnet-id&#34;)
-     *                 .values(aws_subnet.test().id())
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
-     */
     public static Output<GetNetworkAclsResult> getNetworkAcls(GetNetworkAclsArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:ec2/getNetworkAcls:getNetworkAcls", TypeShape.of(GetNetworkAclsResult.class), args, Utilities.withVersion(options));
     }
-    /**
-     * ## Example Usage
-     * 
-     * The following shows outputting all network ACL ids in a vpc.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetNetworkAclsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var exampleNetworkAcls = Ec2Functions.getNetworkAcls(GetNetworkAclsArgs.builder()
-     *             .vpcId(var_.vpc_id())
-     *             .build());
-     * 
-     *         ctx.export(&#34;example&#34;, exampleNetworkAcls.applyValue(getNetworkAclsResult -&gt; getNetworkAclsResult.ids()));
-     *     }
-     * }
-     * ```
-     * 
-     * The following example retrieves a list of all network ACL ids in a VPC with a custom
-     * tag of `Tier` set to a value of &#34;Private&#34;.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetNetworkAclsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Ec2Functions.getNetworkAcls(GetNetworkAclsArgs.builder()
-     *             .vpcId(var_.vpc_id())
-     *             .tags(Map.of(&#34;Tier&#34;, &#34;Private&#34;))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
-     * The following example retrieves a network ACL id in a VPC which associated
-     * with specific subnet.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetNetworkAclsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Ec2Functions.getNetworkAcls(GetNetworkAclsArgs.builder()
-     *             .vpcId(var_.vpc_id())
-     *             .filters(GetNetworkAclsFilterArgs.builder()
-     *                 .name(&#34;association.subnet-id&#34;)
-     *                 .values(aws_subnet.test().id())
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
-     */
     public static CompletableFuture<GetNetworkAclsResult> getNetworkAclsPlain(GetNetworkAclsPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:ec2/getNetworkAcls:getNetworkAcls", TypeShape.of(GetNetworkAclsResult.class), args, Utilities.withVersion(options));
     }
     /**
      * `aws.ec2.NetworkInsightsAnalysis` provides details about a specific Network Insights Analysis.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetNetworkInsightsAnalysisArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Ec2Functions.getNetworkInsightsAnalysis(GetNetworkInsightsAnalysisArgs.builder()
-     *             .networkInsightsAnalysisId(aws_ec2_network_insights_analysis.example().id())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetNetworkInsightsAnalysisResult> getNetworkInsightsAnalysis() {
@@ -8632,72 +1550,12 @@ public final class Ec2Functions {
     /**
      * `aws.ec2.NetworkInsightsAnalysis` provides details about a specific Network Insights Analysis.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetNetworkInsightsAnalysisArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Ec2Functions.getNetworkInsightsAnalysis(GetNetworkInsightsAnalysisArgs.builder()
-     *             .networkInsightsAnalysisId(aws_ec2_network_insights_analysis.example().id())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static CompletableFuture<GetNetworkInsightsAnalysisResult> getNetworkInsightsAnalysisPlain() {
         return getNetworkInsightsAnalysisPlain(GetNetworkInsightsAnalysisPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * `aws.ec2.NetworkInsightsAnalysis` provides details about a specific Network Insights Analysis.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetNetworkInsightsAnalysisArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Ec2Functions.getNetworkInsightsAnalysis(GetNetworkInsightsAnalysisArgs.builder()
-     *             .networkInsightsAnalysisId(aws_ec2_network_insights_analysis.example().id())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetNetworkInsightsAnalysisResult> getNetworkInsightsAnalysis(GetNetworkInsightsAnalysisArgs args) {
@@ -8706,72 +1564,12 @@ public final class Ec2Functions {
     /**
      * `aws.ec2.NetworkInsightsAnalysis` provides details about a specific Network Insights Analysis.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetNetworkInsightsAnalysisArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Ec2Functions.getNetworkInsightsAnalysis(GetNetworkInsightsAnalysisArgs.builder()
-     *             .networkInsightsAnalysisId(aws_ec2_network_insights_analysis.example().id())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static CompletableFuture<GetNetworkInsightsAnalysisResult> getNetworkInsightsAnalysisPlain(GetNetworkInsightsAnalysisPlainArgs args) {
         return getNetworkInsightsAnalysisPlain(args, InvokeOptions.Empty);
     }
     /**
      * `aws.ec2.NetworkInsightsAnalysis` provides details about a specific Network Insights Analysis.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetNetworkInsightsAnalysisArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Ec2Functions.getNetworkInsightsAnalysis(GetNetworkInsightsAnalysisArgs.builder()
-     *             .networkInsightsAnalysisId(aws_ec2_network_insights_analysis.example().id())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetNetworkInsightsAnalysisResult> getNetworkInsightsAnalysis(GetNetworkInsightsAnalysisArgs args, InvokeOptions options) {
@@ -8780,72 +1578,12 @@ public final class Ec2Functions {
     /**
      * `aws.ec2.NetworkInsightsAnalysis` provides details about a specific Network Insights Analysis.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetNetworkInsightsAnalysisArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Ec2Functions.getNetworkInsightsAnalysis(GetNetworkInsightsAnalysisArgs.builder()
-     *             .networkInsightsAnalysisId(aws_ec2_network_insights_analysis.example().id())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static CompletableFuture<GetNetworkInsightsAnalysisResult> getNetworkInsightsAnalysisPlain(GetNetworkInsightsAnalysisPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:ec2/getNetworkInsightsAnalysis:getNetworkInsightsAnalysis", TypeShape.of(GetNetworkInsightsAnalysisResult.class), args, Utilities.withVersion(options));
     }
     /**
      * `aws.ec2.NetworkInsightsPath` provides details about a specific Network Insights Path.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetNetworkInsightsPathArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Ec2Functions.getNetworkInsightsPath(GetNetworkInsightsPathArgs.builder()
-     *             .networkInsightsPathId(aws_ec2_network_insights_path.example().id())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetNetworkInsightsPathResult> getNetworkInsightsPath() {
@@ -8854,72 +1592,12 @@ public final class Ec2Functions {
     /**
      * `aws.ec2.NetworkInsightsPath` provides details about a specific Network Insights Path.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetNetworkInsightsPathArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Ec2Functions.getNetworkInsightsPath(GetNetworkInsightsPathArgs.builder()
-     *             .networkInsightsPathId(aws_ec2_network_insights_path.example().id())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static CompletableFuture<GetNetworkInsightsPathResult> getNetworkInsightsPathPlain() {
         return getNetworkInsightsPathPlain(GetNetworkInsightsPathPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * `aws.ec2.NetworkInsightsPath` provides details about a specific Network Insights Path.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetNetworkInsightsPathArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Ec2Functions.getNetworkInsightsPath(GetNetworkInsightsPathArgs.builder()
-     *             .networkInsightsPathId(aws_ec2_network_insights_path.example().id())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetNetworkInsightsPathResult> getNetworkInsightsPath(GetNetworkInsightsPathArgs args) {
@@ -8928,72 +1606,12 @@ public final class Ec2Functions {
     /**
      * `aws.ec2.NetworkInsightsPath` provides details about a specific Network Insights Path.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetNetworkInsightsPathArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Ec2Functions.getNetworkInsightsPath(GetNetworkInsightsPathArgs.builder()
-     *             .networkInsightsPathId(aws_ec2_network_insights_path.example().id())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static CompletableFuture<GetNetworkInsightsPathResult> getNetworkInsightsPathPlain(GetNetworkInsightsPathPlainArgs args) {
         return getNetworkInsightsPathPlain(args, InvokeOptions.Empty);
     }
     /**
      * `aws.ec2.NetworkInsightsPath` provides details about a specific Network Insights Path.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetNetworkInsightsPathArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Ec2Functions.getNetworkInsightsPath(GetNetworkInsightsPathArgs.builder()
-     *             .networkInsightsPathId(aws_ec2_network_insights_path.example().id())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetNetworkInsightsPathResult> getNetworkInsightsPath(GetNetworkInsightsPathArgs args, InvokeOptions options) {
@@ -9002,72 +1620,12 @@ public final class Ec2Functions {
     /**
      * `aws.ec2.NetworkInsightsPath` provides details about a specific Network Insights Path.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetNetworkInsightsPathArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Ec2Functions.getNetworkInsightsPath(GetNetworkInsightsPathArgs.builder()
-     *             .networkInsightsPathId(aws_ec2_network_insights_path.example().id())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static CompletableFuture<GetNetworkInsightsPathResult> getNetworkInsightsPathPlain(GetNetworkInsightsPathPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:ec2/getNetworkInsightsPath:getNetworkInsightsPath", TypeShape.of(GetNetworkInsightsPathResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to get information about a Network Interface.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetNetworkInterfaceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var bar = Ec2Functions.getNetworkInterface(GetNetworkInterfaceArgs.builder()
-     *             .id(&#34;eni-01234567&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetNetworkInterfaceResult> getNetworkInterface() {
@@ -9076,72 +1634,12 @@ public final class Ec2Functions {
     /**
      * Use this data source to get information about a Network Interface.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetNetworkInterfaceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var bar = Ec2Functions.getNetworkInterface(GetNetworkInterfaceArgs.builder()
-     *             .id(&#34;eni-01234567&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static CompletableFuture<GetNetworkInterfaceResult> getNetworkInterfacePlain() {
         return getNetworkInterfacePlain(GetNetworkInterfacePlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * Use this data source to get information about a Network Interface.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetNetworkInterfaceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var bar = Ec2Functions.getNetworkInterface(GetNetworkInterfaceArgs.builder()
-     *             .id(&#34;eni-01234567&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetNetworkInterfaceResult> getNetworkInterface(GetNetworkInterfaceArgs args) {
@@ -9150,72 +1648,12 @@ public final class Ec2Functions {
     /**
      * Use this data source to get information about a Network Interface.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetNetworkInterfaceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var bar = Ec2Functions.getNetworkInterface(GetNetworkInterfaceArgs.builder()
-     *             .id(&#34;eni-01234567&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static CompletableFuture<GetNetworkInterfaceResult> getNetworkInterfacePlain(GetNetworkInterfacePlainArgs args) {
         return getNetworkInterfacePlain(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to get information about a Network Interface.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetNetworkInterfaceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var bar = Ec2Functions.getNetworkInterface(GetNetworkInterfaceArgs.builder()
-     *             .id(&#34;eni-01234567&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetNetworkInterfaceResult> getNetworkInterface(GetNetworkInterfaceArgs args, InvokeOptions options) {
@@ -9224,649 +1662,25 @@ public final class Ec2Functions {
     /**
      * Use this data source to get information about a Network Interface.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetNetworkInterfaceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var bar = Ec2Functions.getNetworkInterface(GetNetworkInterfaceArgs.builder()
-     *             .id(&#34;eni-01234567&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static CompletableFuture<GetNetworkInterfaceResult> getNetworkInterfacePlain(GetNetworkInterfacePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:ec2/getNetworkInterface:getNetworkInterface", TypeShape.of(GetNetworkInterfaceResult.class), args, Utilities.withVersion(options));
     }
-    /**
-     * ## Example Usage
-     * 
-     * The following shows outputting all network interface ids in a region.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetNetworkInterfacesArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var exampleNetworkInterfaces = Ec2Functions.getNetworkInterfaces();
-     * 
-     *         ctx.export(&#34;example&#34;, exampleNetworkInterfaces.applyValue(getNetworkInterfacesResult -&gt; getNetworkInterfacesResult.ids()));
-     *     }
-     * }
-     * ```
-     * 
-     * The following example retrieves a list of all network interface ids with a custom tag of `Name` set to a value of `test`.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetNetworkInterfacesArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Ec2Functions.getNetworkInterfaces(GetNetworkInterfacesArgs.builder()
-     *             .tags(Map.of(&#34;Name&#34;, &#34;test&#34;))
-     *             .build());
-     * 
-     *         ctx.export(&#34;example1&#34;, example.applyValue(getNetworkInterfacesResult -&gt; getNetworkInterfacesResult.ids()));
-     *     }
-     * }
-     * ```
-     * 
-     * The following example retrieves a network interface ids which associated
-     * with specific subnet.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetNetworkInterfacesArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var exampleNetworkInterfaces = Ec2Functions.getNetworkInterfaces(GetNetworkInterfacesArgs.builder()
-     *             .filters(GetNetworkInterfacesFilterArgs.builder()
-     *                 .name(&#34;subnet-id&#34;)
-     *                 .values(aws_subnet.test().id())
-     *                 .build())
-     *             .build());
-     * 
-     *         ctx.export(&#34;example&#34;, exampleNetworkInterfaces.applyValue(getNetworkInterfacesResult -&gt; getNetworkInterfacesResult.ids()));
-     *     }
-     * }
-     * ```
-     * 
-     */
     public static Output<GetNetworkInterfacesResult> getNetworkInterfaces() {
         return getNetworkInterfaces(GetNetworkInterfacesArgs.Empty, InvokeOptions.Empty);
     }
-    /**
-     * ## Example Usage
-     * 
-     * The following shows outputting all network interface ids in a region.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetNetworkInterfacesArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var exampleNetworkInterfaces = Ec2Functions.getNetworkInterfaces();
-     * 
-     *         ctx.export(&#34;example&#34;, exampleNetworkInterfaces.applyValue(getNetworkInterfacesResult -&gt; getNetworkInterfacesResult.ids()));
-     *     }
-     * }
-     * ```
-     * 
-     * The following example retrieves a list of all network interface ids with a custom tag of `Name` set to a value of `test`.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetNetworkInterfacesArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Ec2Functions.getNetworkInterfaces(GetNetworkInterfacesArgs.builder()
-     *             .tags(Map.of(&#34;Name&#34;, &#34;test&#34;))
-     *             .build());
-     * 
-     *         ctx.export(&#34;example1&#34;, example.applyValue(getNetworkInterfacesResult -&gt; getNetworkInterfacesResult.ids()));
-     *     }
-     * }
-     * ```
-     * 
-     * The following example retrieves a network interface ids which associated
-     * with specific subnet.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetNetworkInterfacesArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var exampleNetworkInterfaces = Ec2Functions.getNetworkInterfaces(GetNetworkInterfacesArgs.builder()
-     *             .filters(GetNetworkInterfacesFilterArgs.builder()
-     *                 .name(&#34;subnet-id&#34;)
-     *                 .values(aws_subnet.test().id())
-     *                 .build())
-     *             .build());
-     * 
-     *         ctx.export(&#34;example&#34;, exampleNetworkInterfaces.applyValue(getNetworkInterfacesResult -&gt; getNetworkInterfacesResult.ids()));
-     *     }
-     * }
-     * ```
-     * 
-     */
     public static CompletableFuture<GetNetworkInterfacesResult> getNetworkInterfacesPlain() {
         return getNetworkInterfacesPlain(GetNetworkInterfacesPlainArgs.Empty, InvokeOptions.Empty);
     }
-    /**
-     * ## Example Usage
-     * 
-     * The following shows outputting all network interface ids in a region.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetNetworkInterfacesArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var exampleNetworkInterfaces = Ec2Functions.getNetworkInterfaces();
-     * 
-     *         ctx.export(&#34;example&#34;, exampleNetworkInterfaces.applyValue(getNetworkInterfacesResult -&gt; getNetworkInterfacesResult.ids()));
-     *     }
-     * }
-     * ```
-     * 
-     * The following example retrieves a list of all network interface ids with a custom tag of `Name` set to a value of `test`.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetNetworkInterfacesArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Ec2Functions.getNetworkInterfaces(GetNetworkInterfacesArgs.builder()
-     *             .tags(Map.of(&#34;Name&#34;, &#34;test&#34;))
-     *             .build());
-     * 
-     *         ctx.export(&#34;example1&#34;, example.applyValue(getNetworkInterfacesResult -&gt; getNetworkInterfacesResult.ids()));
-     *     }
-     * }
-     * ```
-     * 
-     * The following example retrieves a network interface ids which associated
-     * with specific subnet.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetNetworkInterfacesArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var exampleNetworkInterfaces = Ec2Functions.getNetworkInterfaces(GetNetworkInterfacesArgs.builder()
-     *             .filters(GetNetworkInterfacesFilterArgs.builder()
-     *                 .name(&#34;subnet-id&#34;)
-     *                 .values(aws_subnet.test().id())
-     *                 .build())
-     *             .build());
-     * 
-     *         ctx.export(&#34;example&#34;, exampleNetworkInterfaces.applyValue(getNetworkInterfacesResult -&gt; getNetworkInterfacesResult.ids()));
-     *     }
-     * }
-     * ```
-     * 
-     */
     public static Output<GetNetworkInterfacesResult> getNetworkInterfaces(GetNetworkInterfacesArgs args) {
         return getNetworkInterfaces(args, InvokeOptions.Empty);
     }
-    /**
-     * ## Example Usage
-     * 
-     * The following shows outputting all network interface ids in a region.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetNetworkInterfacesArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var exampleNetworkInterfaces = Ec2Functions.getNetworkInterfaces();
-     * 
-     *         ctx.export(&#34;example&#34;, exampleNetworkInterfaces.applyValue(getNetworkInterfacesResult -&gt; getNetworkInterfacesResult.ids()));
-     *     }
-     * }
-     * ```
-     * 
-     * The following example retrieves a list of all network interface ids with a custom tag of `Name` set to a value of `test`.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetNetworkInterfacesArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Ec2Functions.getNetworkInterfaces(GetNetworkInterfacesArgs.builder()
-     *             .tags(Map.of(&#34;Name&#34;, &#34;test&#34;))
-     *             .build());
-     * 
-     *         ctx.export(&#34;example1&#34;, example.applyValue(getNetworkInterfacesResult -&gt; getNetworkInterfacesResult.ids()));
-     *     }
-     * }
-     * ```
-     * 
-     * The following example retrieves a network interface ids which associated
-     * with specific subnet.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetNetworkInterfacesArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var exampleNetworkInterfaces = Ec2Functions.getNetworkInterfaces(GetNetworkInterfacesArgs.builder()
-     *             .filters(GetNetworkInterfacesFilterArgs.builder()
-     *                 .name(&#34;subnet-id&#34;)
-     *                 .values(aws_subnet.test().id())
-     *                 .build())
-     *             .build());
-     * 
-     *         ctx.export(&#34;example&#34;, exampleNetworkInterfaces.applyValue(getNetworkInterfacesResult -&gt; getNetworkInterfacesResult.ids()));
-     *     }
-     * }
-     * ```
-     * 
-     */
     public static CompletableFuture<GetNetworkInterfacesResult> getNetworkInterfacesPlain(GetNetworkInterfacesPlainArgs args) {
         return getNetworkInterfacesPlain(args, InvokeOptions.Empty);
     }
-    /**
-     * ## Example Usage
-     * 
-     * The following shows outputting all network interface ids in a region.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetNetworkInterfacesArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var exampleNetworkInterfaces = Ec2Functions.getNetworkInterfaces();
-     * 
-     *         ctx.export(&#34;example&#34;, exampleNetworkInterfaces.applyValue(getNetworkInterfacesResult -&gt; getNetworkInterfacesResult.ids()));
-     *     }
-     * }
-     * ```
-     * 
-     * The following example retrieves a list of all network interface ids with a custom tag of `Name` set to a value of `test`.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetNetworkInterfacesArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Ec2Functions.getNetworkInterfaces(GetNetworkInterfacesArgs.builder()
-     *             .tags(Map.of(&#34;Name&#34;, &#34;test&#34;))
-     *             .build());
-     * 
-     *         ctx.export(&#34;example1&#34;, example.applyValue(getNetworkInterfacesResult -&gt; getNetworkInterfacesResult.ids()));
-     *     }
-     * }
-     * ```
-     * 
-     * The following example retrieves a network interface ids which associated
-     * with specific subnet.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetNetworkInterfacesArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var exampleNetworkInterfaces = Ec2Functions.getNetworkInterfaces(GetNetworkInterfacesArgs.builder()
-     *             .filters(GetNetworkInterfacesFilterArgs.builder()
-     *                 .name(&#34;subnet-id&#34;)
-     *                 .values(aws_subnet.test().id())
-     *                 .build())
-     *             .build());
-     * 
-     *         ctx.export(&#34;example&#34;, exampleNetworkInterfaces.applyValue(getNetworkInterfacesResult -&gt; getNetworkInterfacesResult.ids()));
-     *     }
-     * }
-     * ```
-     * 
-     */
     public static Output<GetNetworkInterfacesResult> getNetworkInterfaces(GetNetworkInterfacesArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:ec2/getNetworkInterfaces:getNetworkInterfaces", TypeShape.of(GetNetworkInterfacesResult.class), args, Utilities.withVersion(options));
     }
-    /**
-     * ## Example Usage
-     * 
-     * The following shows outputting all network interface ids in a region.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetNetworkInterfacesArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var exampleNetworkInterfaces = Ec2Functions.getNetworkInterfaces();
-     * 
-     *         ctx.export(&#34;example&#34;, exampleNetworkInterfaces.applyValue(getNetworkInterfacesResult -&gt; getNetworkInterfacesResult.ids()));
-     *     }
-     * }
-     * ```
-     * 
-     * The following example retrieves a list of all network interface ids with a custom tag of `Name` set to a value of `test`.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetNetworkInterfacesArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Ec2Functions.getNetworkInterfaces(GetNetworkInterfacesArgs.builder()
-     *             .tags(Map.of(&#34;Name&#34;, &#34;test&#34;))
-     *             .build());
-     * 
-     *         ctx.export(&#34;example1&#34;, example.applyValue(getNetworkInterfacesResult -&gt; getNetworkInterfacesResult.ids()));
-     *     }
-     * }
-     * ```
-     * 
-     * The following example retrieves a network interface ids which associated
-     * with specific subnet.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetNetworkInterfacesArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var exampleNetworkInterfaces = Ec2Functions.getNetworkInterfaces(GetNetworkInterfacesArgs.builder()
-     *             .filters(GetNetworkInterfacesFilterArgs.builder()
-     *                 .name(&#34;subnet-id&#34;)
-     *                 .values(aws_subnet.test().id())
-     *                 .build())
-     *             .build());
-     * 
-     *         ctx.export(&#34;example&#34;, exampleNetworkInterfaces.applyValue(getNetworkInterfacesResult -&gt; getNetworkInterfacesResult.ids()));
-     *     }
-     * }
-     * ```
-     * 
-     */
     public static CompletableFuture<GetNetworkInterfacesResult> getNetworkInterfacesPlain(GetNetworkInterfacesPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:ec2/getNetworkInterfaces:getNetworkInterfaces", TypeShape.of(GetNetworkInterfacesResult.class), args, Utilities.withVersion(options));
     }
@@ -9880,94 +1694,6 @@ public final class Ec2Functions {
      * rules.
      * 
      * The aws.ec2.ManagedPrefixList data source is normally more appropriate to use given it can return customer-managed prefix list info, as well as additional attributes.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.VpcEndpoint;
-     * import com.pulumi.aws.ec2.VpcEndpointArgs;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetPrefixListArgs;
-     * import com.pulumi.aws.ec2.NetworkAcl;
-     * import com.pulumi.aws.ec2.NetworkAclArgs;
-     * import com.pulumi.aws.ec2.NetworkAclRule;
-     * import com.pulumi.aws.ec2.NetworkAclRuleArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         var privateS3VpcEndpoint = new VpcEndpoint(&#34;privateS3VpcEndpoint&#34;, VpcEndpointArgs.builder()        
-     *             .vpcId(aws_vpc.foo().id())
-     *             .serviceName(&#34;com.amazonaws.us-west-2.s3&#34;)
-     *             .build());
-     * 
-     *         final var privateS3PrefixList = Ec2Functions.getPrefixList(GetPrefixListArgs.builder()
-     *             .prefixListId(privateS3VpcEndpoint.prefixListId())
-     *             .build());
-     * 
-     *         var bar = new NetworkAcl(&#34;bar&#34;, NetworkAclArgs.builder()        
-     *             .vpcId(aws_vpc.foo().id())
-     *             .build());
-     * 
-     *         var privateS3NetworkAclRule = new NetworkAclRule(&#34;privateS3NetworkAclRule&#34;, NetworkAclRuleArgs.builder()        
-     *             .networkAclId(bar.id())
-     *             .ruleNumber(200)
-     *             .egress(false)
-     *             .protocol(&#34;tcp&#34;)
-     *             .ruleAction(&#34;allow&#34;)
-     *             .cidrBlock(privateS3PrefixList.applyValue(getPrefixListResult -&gt; getPrefixListResult).applyValue(privateS3PrefixList -&gt; privateS3PrefixList.applyValue(getPrefixListResult -&gt; getPrefixListResult.cidrBlocks()[0])))
-     *             .fromPort(443)
-     *             .toPort(443)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * ### Filter
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetPrefixListArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = Ec2Functions.getPrefixList(GetPrefixListArgs.builder()
-     *             .filters(GetPrefixListFilterArgs.builder()
-     *                 .name(&#34;prefix-list-id&#34;)
-     *                 .values(&#34;pl-68a54001&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetPrefixListResult> getPrefixList() {
@@ -9984,94 +1710,6 @@ public final class Ec2Functions {
      * 
      * The aws.ec2.ManagedPrefixList data source is normally more appropriate to use given it can return customer-managed prefix list info, as well as additional attributes.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.VpcEndpoint;
-     * import com.pulumi.aws.ec2.VpcEndpointArgs;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetPrefixListArgs;
-     * import com.pulumi.aws.ec2.NetworkAcl;
-     * import com.pulumi.aws.ec2.NetworkAclArgs;
-     * import com.pulumi.aws.ec2.NetworkAclRule;
-     * import com.pulumi.aws.ec2.NetworkAclRuleArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         var privateS3VpcEndpoint = new VpcEndpoint(&#34;privateS3VpcEndpoint&#34;, VpcEndpointArgs.builder()        
-     *             .vpcId(aws_vpc.foo().id())
-     *             .serviceName(&#34;com.amazonaws.us-west-2.s3&#34;)
-     *             .build());
-     * 
-     *         final var privateS3PrefixList = Ec2Functions.getPrefixList(GetPrefixListArgs.builder()
-     *             .prefixListId(privateS3VpcEndpoint.prefixListId())
-     *             .build());
-     * 
-     *         var bar = new NetworkAcl(&#34;bar&#34;, NetworkAclArgs.builder()        
-     *             .vpcId(aws_vpc.foo().id())
-     *             .build());
-     * 
-     *         var privateS3NetworkAclRule = new NetworkAclRule(&#34;privateS3NetworkAclRule&#34;, NetworkAclRuleArgs.builder()        
-     *             .networkAclId(bar.id())
-     *             .ruleNumber(200)
-     *             .egress(false)
-     *             .protocol(&#34;tcp&#34;)
-     *             .ruleAction(&#34;allow&#34;)
-     *             .cidrBlock(privateS3PrefixList.applyValue(getPrefixListResult -&gt; getPrefixListResult).applyValue(privateS3PrefixList -&gt; privateS3PrefixList.applyValue(getPrefixListResult -&gt; getPrefixListResult.cidrBlocks()[0])))
-     *             .fromPort(443)
-     *             .toPort(443)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * ### Filter
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetPrefixListArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = Ec2Functions.getPrefixList(GetPrefixListArgs.builder()
-     *             .filters(GetPrefixListFilterArgs.builder()
-     *                 .name(&#34;prefix-list-id&#34;)
-     *                 .values(&#34;pl-68a54001&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static CompletableFuture<GetPrefixListResult> getPrefixListPlain() {
         return getPrefixListPlain(GetPrefixListPlainArgs.Empty, InvokeOptions.Empty);
@@ -10086,94 +1724,6 @@ public final class Ec2Functions {
      * rules.
      * 
      * The aws.ec2.ManagedPrefixList data source is normally more appropriate to use given it can return customer-managed prefix list info, as well as additional attributes.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.VpcEndpoint;
-     * import com.pulumi.aws.ec2.VpcEndpointArgs;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetPrefixListArgs;
-     * import com.pulumi.aws.ec2.NetworkAcl;
-     * import com.pulumi.aws.ec2.NetworkAclArgs;
-     * import com.pulumi.aws.ec2.NetworkAclRule;
-     * import com.pulumi.aws.ec2.NetworkAclRuleArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         var privateS3VpcEndpoint = new VpcEndpoint(&#34;privateS3VpcEndpoint&#34;, VpcEndpointArgs.builder()        
-     *             .vpcId(aws_vpc.foo().id())
-     *             .serviceName(&#34;com.amazonaws.us-west-2.s3&#34;)
-     *             .build());
-     * 
-     *         final var privateS3PrefixList = Ec2Functions.getPrefixList(GetPrefixListArgs.builder()
-     *             .prefixListId(privateS3VpcEndpoint.prefixListId())
-     *             .build());
-     * 
-     *         var bar = new NetworkAcl(&#34;bar&#34;, NetworkAclArgs.builder()        
-     *             .vpcId(aws_vpc.foo().id())
-     *             .build());
-     * 
-     *         var privateS3NetworkAclRule = new NetworkAclRule(&#34;privateS3NetworkAclRule&#34;, NetworkAclRuleArgs.builder()        
-     *             .networkAclId(bar.id())
-     *             .ruleNumber(200)
-     *             .egress(false)
-     *             .protocol(&#34;tcp&#34;)
-     *             .ruleAction(&#34;allow&#34;)
-     *             .cidrBlock(privateS3PrefixList.applyValue(getPrefixListResult -&gt; getPrefixListResult).applyValue(privateS3PrefixList -&gt; privateS3PrefixList.applyValue(getPrefixListResult -&gt; getPrefixListResult.cidrBlocks()[0])))
-     *             .fromPort(443)
-     *             .toPort(443)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * ### Filter
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetPrefixListArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = Ec2Functions.getPrefixList(GetPrefixListArgs.builder()
-     *             .filters(GetPrefixListFilterArgs.builder()
-     *                 .name(&#34;prefix-list-id&#34;)
-     *                 .values(&#34;pl-68a54001&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetPrefixListResult> getPrefixList(GetPrefixListArgs args) {
@@ -10190,94 +1740,6 @@ public final class Ec2Functions {
      * 
      * The aws.ec2.ManagedPrefixList data source is normally more appropriate to use given it can return customer-managed prefix list info, as well as additional attributes.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.VpcEndpoint;
-     * import com.pulumi.aws.ec2.VpcEndpointArgs;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetPrefixListArgs;
-     * import com.pulumi.aws.ec2.NetworkAcl;
-     * import com.pulumi.aws.ec2.NetworkAclArgs;
-     * import com.pulumi.aws.ec2.NetworkAclRule;
-     * import com.pulumi.aws.ec2.NetworkAclRuleArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         var privateS3VpcEndpoint = new VpcEndpoint(&#34;privateS3VpcEndpoint&#34;, VpcEndpointArgs.builder()        
-     *             .vpcId(aws_vpc.foo().id())
-     *             .serviceName(&#34;com.amazonaws.us-west-2.s3&#34;)
-     *             .build());
-     * 
-     *         final var privateS3PrefixList = Ec2Functions.getPrefixList(GetPrefixListArgs.builder()
-     *             .prefixListId(privateS3VpcEndpoint.prefixListId())
-     *             .build());
-     * 
-     *         var bar = new NetworkAcl(&#34;bar&#34;, NetworkAclArgs.builder()        
-     *             .vpcId(aws_vpc.foo().id())
-     *             .build());
-     * 
-     *         var privateS3NetworkAclRule = new NetworkAclRule(&#34;privateS3NetworkAclRule&#34;, NetworkAclRuleArgs.builder()        
-     *             .networkAclId(bar.id())
-     *             .ruleNumber(200)
-     *             .egress(false)
-     *             .protocol(&#34;tcp&#34;)
-     *             .ruleAction(&#34;allow&#34;)
-     *             .cidrBlock(privateS3PrefixList.applyValue(getPrefixListResult -&gt; getPrefixListResult).applyValue(privateS3PrefixList -&gt; privateS3PrefixList.applyValue(getPrefixListResult -&gt; getPrefixListResult.cidrBlocks()[0])))
-     *             .fromPort(443)
-     *             .toPort(443)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * ### Filter
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetPrefixListArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = Ec2Functions.getPrefixList(GetPrefixListArgs.builder()
-     *             .filters(GetPrefixListFilterArgs.builder()
-     *                 .name(&#34;prefix-list-id&#34;)
-     *                 .values(&#34;pl-68a54001&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static CompletableFuture<GetPrefixListResult> getPrefixListPlain(GetPrefixListPlainArgs args) {
         return getPrefixListPlain(args, InvokeOptions.Empty);
@@ -10292,94 +1754,6 @@ public final class Ec2Functions {
      * rules.
      * 
      * The aws.ec2.ManagedPrefixList data source is normally more appropriate to use given it can return customer-managed prefix list info, as well as additional attributes.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.VpcEndpoint;
-     * import com.pulumi.aws.ec2.VpcEndpointArgs;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetPrefixListArgs;
-     * import com.pulumi.aws.ec2.NetworkAcl;
-     * import com.pulumi.aws.ec2.NetworkAclArgs;
-     * import com.pulumi.aws.ec2.NetworkAclRule;
-     * import com.pulumi.aws.ec2.NetworkAclRuleArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         var privateS3VpcEndpoint = new VpcEndpoint(&#34;privateS3VpcEndpoint&#34;, VpcEndpointArgs.builder()        
-     *             .vpcId(aws_vpc.foo().id())
-     *             .serviceName(&#34;com.amazonaws.us-west-2.s3&#34;)
-     *             .build());
-     * 
-     *         final var privateS3PrefixList = Ec2Functions.getPrefixList(GetPrefixListArgs.builder()
-     *             .prefixListId(privateS3VpcEndpoint.prefixListId())
-     *             .build());
-     * 
-     *         var bar = new NetworkAcl(&#34;bar&#34;, NetworkAclArgs.builder()        
-     *             .vpcId(aws_vpc.foo().id())
-     *             .build());
-     * 
-     *         var privateS3NetworkAclRule = new NetworkAclRule(&#34;privateS3NetworkAclRule&#34;, NetworkAclRuleArgs.builder()        
-     *             .networkAclId(bar.id())
-     *             .ruleNumber(200)
-     *             .egress(false)
-     *             .protocol(&#34;tcp&#34;)
-     *             .ruleAction(&#34;allow&#34;)
-     *             .cidrBlock(privateS3PrefixList.applyValue(getPrefixListResult -&gt; getPrefixListResult).applyValue(privateS3PrefixList -&gt; privateS3PrefixList.applyValue(getPrefixListResult -&gt; getPrefixListResult.cidrBlocks()[0])))
-     *             .fromPort(443)
-     *             .toPort(443)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * ### Filter
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetPrefixListArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = Ec2Functions.getPrefixList(GetPrefixListArgs.builder()
-     *             .filters(GetPrefixListFilterArgs.builder()
-     *                 .name(&#34;prefix-list-id&#34;)
-     *                 .values(&#34;pl-68a54001&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetPrefixListResult> getPrefixList(GetPrefixListArgs args, InvokeOptions options) {
@@ -10396,94 +1770,6 @@ public final class Ec2Functions {
      * 
      * The aws.ec2.ManagedPrefixList data source is normally more appropriate to use given it can return customer-managed prefix list info, as well as additional attributes.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.VpcEndpoint;
-     * import com.pulumi.aws.ec2.VpcEndpointArgs;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetPrefixListArgs;
-     * import com.pulumi.aws.ec2.NetworkAcl;
-     * import com.pulumi.aws.ec2.NetworkAclArgs;
-     * import com.pulumi.aws.ec2.NetworkAclRule;
-     * import com.pulumi.aws.ec2.NetworkAclRuleArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         var privateS3VpcEndpoint = new VpcEndpoint(&#34;privateS3VpcEndpoint&#34;, VpcEndpointArgs.builder()        
-     *             .vpcId(aws_vpc.foo().id())
-     *             .serviceName(&#34;com.amazonaws.us-west-2.s3&#34;)
-     *             .build());
-     * 
-     *         final var privateS3PrefixList = Ec2Functions.getPrefixList(GetPrefixListArgs.builder()
-     *             .prefixListId(privateS3VpcEndpoint.prefixListId())
-     *             .build());
-     * 
-     *         var bar = new NetworkAcl(&#34;bar&#34;, NetworkAclArgs.builder()        
-     *             .vpcId(aws_vpc.foo().id())
-     *             .build());
-     * 
-     *         var privateS3NetworkAclRule = new NetworkAclRule(&#34;privateS3NetworkAclRule&#34;, NetworkAclRuleArgs.builder()        
-     *             .networkAclId(bar.id())
-     *             .ruleNumber(200)
-     *             .egress(false)
-     *             .protocol(&#34;tcp&#34;)
-     *             .ruleAction(&#34;allow&#34;)
-     *             .cidrBlock(privateS3PrefixList.applyValue(getPrefixListResult -&gt; getPrefixListResult).applyValue(privateS3PrefixList -&gt; privateS3PrefixList.applyValue(getPrefixListResult -&gt; getPrefixListResult.cidrBlocks()[0])))
-     *             .fromPort(443)
-     *             .toPort(443)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * ### Filter
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetPrefixListArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = Ec2Functions.getPrefixList(GetPrefixListArgs.builder()
-     *             .filters(GetPrefixListFilterArgs.builder()
-     *                 .name(&#34;prefix-list-id&#34;)
-     *                 .values(&#34;pl-68a54001&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static CompletableFuture<GetPrefixListResult> getPrefixListPlain(GetPrefixListPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:ec2/getPrefixList:getPrefixList", TypeShape.of(GetPrefixListResult.class), args, Utilities.withVersion(options));
@@ -10492,35 +1778,6 @@ public final class Ec2Functions {
      * Provides details about a specific AWS EC2 Public IPv4 Pool.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetPublicIpv4PoolArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Ec2Functions.getPublicIpv4Pool(GetPublicIpv4PoolArgs.builder()
-     *             .poolId(&#34;ipv4pool-ec2-000df99cff0c1ec10&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetPublicIpv4PoolResult> getPublicIpv4Pool(GetPublicIpv4PoolArgs args) {
@@ -10530,35 +1787,6 @@ public final class Ec2Functions {
      * Provides details about a specific AWS EC2 Public IPv4 Pool.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetPublicIpv4PoolArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Ec2Functions.getPublicIpv4Pool(GetPublicIpv4PoolArgs.builder()
-     *             .poolId(&#34;ipv4pool-ec2-000df99cff0c1ec10&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetPublicIpv4PoolResult> getPublicIpv4PoolPlain(GetPublicIpv4PoolPlainArgs args) {
@@ -10568,35 +1796,6 @@ public final class Ec2Functions {
      * Provides details about a specific AWS EC2 Public IPv4 Pool.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetPublicIpv4PoolArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Ec2Functions.getPublicIpv4Pool(GetPublicIpv4PoolArgs.builder()
-     *             .poolId(&#34;ipv4pool-ec2-000df99cff0c1ec10&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetPublicIpv4PoolResult> getPublicIpv4Pool(GetPublicIpv4PoolArgs args, InvokeOptions options) {
@@ -10606,35 +1805,6 @@ public final class Ec2Functions {
      * Provides details about a specific AWS EC2 Public IPv4 Pool.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetPublicIpv4PoolArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Ec2Functions.getPublicIpv4Pool(GetPublicIpv4PoolArgs.builder()
-     *             .poolId(&#34;ipv4pool-ec2-000df99cff0c1ec10&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetPublicIpv4PoolResult> getPublicIpv4PoolPlain(GetPublicIpv4PoolPlainArgs args, InvokeOptions options) {
@@ -10644,65 +1814,6 @@ public final class Ec2Functions {
      * Data source for getting information about AWS EC2 Public IPv4 Pools.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetPublicIpv4PoolsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Ec2Functions.getPublicIpv4Pools();
-     * 
-     *     }
-     * }
-     * ```
-     * ### Usage with Filter
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetPublicIpv4PoolsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Ec2Functions.getPublicIpv4Pools(GetPublicIpv4PoolsArgs.builder()
-     *             .filters(GetPublicIpv4PoolsFilterArgs.builder()
-     *                 .name(&#34;tag-key&#34;)
-     *                 .values(&#34;ExampleTagKey&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetPublicIpv4PoolsResult> getPublicIpv4Pools() {
@@ -10712,65 +1823,6 @@ public final class Ec2Functions {
      * Data source for getting information about AWS EC2 Public IPv4 Pools.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetPublicIpv4PoolsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Ec2Functions.getPublicIpv4Pools();
-     * 
-     *     }
-     * }
-     * ```
-     * ### Usage with Filter
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetPublicIpv4PoolsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Ec2Functions.getPublicIpv4Pools(GetPublicIpv4PoolsArgs.builder()
-     *             .filters(GetPublicIpv4PoolsFilterArgs.builder()
-     *                 .name(&#34;tag-key&#34;)
-     *                 .values(&#34;ExampleTagKey&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetPublicIpv4PoolsResult> getPublicIpv4PoolsPlain() {
@@ -10780,65 +1832,6 @@ public final class Ec2Functions {
      * Data source for getting information about AWS EC2 Public IPv4 Pools.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetPublicIpv4PoolsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Ec2Functions.getPublicIpv4Pools();
-     * 
-     *     }
-     * }
-     * ```
-     * ### Usage with Filter
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetPublicIpv4PoolsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Ec2Functions.getPublicIpv4Pools(GetPublicIpv4PoolsArgs.builder()
-     *             .filters(GetPublicIpv4PoolsFilterArgs.builder()
-     *                 .name(&#34;tag-key&#34;)
-     *                 .values(&#34;ExampleTagKey&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetPublicIpv4PoolsResult> getPublicIpv4Pools(GetPublicIpv4PoolsArgs args) {
@@ -10848,65 +1841,6 @@ public final class Ec2Functions {
      * Data source for getting information about AWS EC2 Public IPv4 Pools.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetPublicIpv4PoolsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Ec2Functions.getPublicIpv4Pools();
-     * 
-     *     }
-     * }
-     * ```
-     * ### Usage with Filter
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetPublicIpv4PoolsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Ec2Functions.getPublicIpv4Pools(GetPublicIpv4PoolsArgs.builder()
-     *             .filters(GetPublicIpv4PoolsFilterArgs.builder()
-     *                 .name(&#34;tag-key&#34;)
-     *                 .values(&#34;ExampleTagKey&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetPublicIpv4PoolsResult> getPublicIpv4PoolsPlain(GetPublicIpv4PoolsPlainArgs args) {
@@ -10916,65 +1850,6 @@ public final class Ec2Functions {
      * Data source for getting information about AWS EC2 Public IPv4 Pools.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetPublicIpv4PoolsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Ec2Functions.getPublicIpv4Pools();
-     * 
-     *     }
-     * }
-     * ```
-     * ### Usage with Filter
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetPublicIpv4PoolsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Ec2Functions.getPublicIpv4Pools(GetPublicIpv4PoolsArgs.builder()
-     *             .filters(GetPublicIpv4PoolsFilterArgs.builder()
-     *                 .name(&#34;tag-key&#34;)
-     *                 .values(&#34;ExampleTagKey&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetPublicIpv4PoolsResult> getPublicIpv4Pools(GetPublicIpv4PoolsArgs args, InvokeOptions options) {
@@ -10984,65 +1859,6 @@ public final class Ec2Functions {
      * Data source for getting information about AWS EC2 Public IPv4 Pools.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetPublicIpv4PoolsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Ec2Functions.getPublicIpv4Pools();
-     * 
-     *     }
-     * }
-     * ```
-     * ### Usage with Filter
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetPublicIpv4PoolsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Ec2Functions.getPublicIpv4Pools(GetPublicIpv4PoolsArgs.builder()
-     *             .filters(GetPublicIpv4PoolsFilterArgs.builder()
-     *                 .name(&#34;tag-key&#34;)
-     *                 .values(&#34;ExampleTagKey&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetPublicIpv4PoolsResult> getPublicIpv4PoolsPlain(GetPublicIpv4PoolsPlainArgs args, InvokeOptions options) {
@@ -11053,51 +1869,6 @@ public final class Ec2Functions {
      * 
      * This resource can prove useful when finding the resource associated with a CIDR. For example, finding the peering connection associated with a CIDR value.
      * 
-     * ## Example Usage
-     * 
-     * The following example shows how one might use a CIDR value to find a network interface id and use this to create a data source of that network interface.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetRouteTableArgs;
-     * import com.pulumi.aws.ec2.inputs.GetRouteArgs;
-     * import com.pulumi.aws.ec2.inputs.GetNetworkInterfaceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var config = ctx.config();
-     *         final var subnetId = config.get(&#34;subnetId&#34;);
-     *         final var selected = Ec2Functions.getRouteTable(GetRouteTableArgs.builder()
-     *             .subnetId(subnetId)
-     *             .build());
-     * 
-     *         final var route = Ec2Functions.getRoute(GetRouteArgs.builder()
-     *             .routeTableId(aws_route_table.selected().id())
-     *             .destinationCidrBlock(&#34;10.0.1.0/24&#34;)
-     *             .build());
-     * 
-     *         final var interface = Ec2Functions.getNetworkInterface(GetNetworkInterfaceArgs.builder()
-     *             .id(route.applyValue(getRouteResult -&gt; getRouteResult.networkInterfaceId()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetRouteResult> getRoute(GetRouteArgs args) {
         return getRoute(args, InvokeOptions.Empty);
@@ -11106,51 +1877,6 @@ public final class Ec2Functions {
      * `aws.ec2.Route` provides details about a specific Route.
      * 
      * This resource can prove useful when finding the resource associated with a CIDR. For example, finding the peering connection associated with a CIDR value.
-     * 
-     * ## Example Usage
-     * 
-     * The following example shows how one might use a CIDR value to find a network interface id and use this to create a data source of that network interface.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetRouteTableArgs;
-     * import com.pulumi.aws.ec2.inputs.GetRouteArgs;
-     * import com.pulumi.aws.ec2.inputs.GetNetworkInterfaceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var config = ctx.config();
-     *         final var subnetId = config.get(&#34;subnetId&#34;);
-     *         final var selected = Ec2Functions.getRouteTable(GetRouteTableArgs.builder()
-     *             .subnetId(subnetId)
-     *             .build());
-     * 
-     *         final var route = Ec2Functions.getRoute(GetRouteArgs.builder()
-     *             .routeTableId(aws_route_table.selected().id())
-     *             .destinationCidrBlock(&#34;10.0.1.0/24&#34;)
-     *             .build());
-     * 
-     *         final var interface = Ec2Functions.getNetworkInterface(GetNetworkInterfaceArgs.builder()
-     *             .id(route.applyValue(getRouteResult -&gt; getRouteResult.networkInterfaceId()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetRouteResult> getRoutePlain(GetRoutePlainArgs args) {
@@ -11161,51 +1887,6 @@ public final class Ec2Functions {
      * 
      * This resource can prove useful when finding the resource associated with a CIDR. For example, finding the peering connection associated with a CIDR value.
      * 
-     * ## Example Usage
-     * 
-     * The following example shows how one might use a CIDR value to find a network interface id and use this to create a data source of that network interface.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetRouteTableArgs;
-     * import com.pulumi.aws.ec2.inputs.GetRouteArgs;
-     * import com.pulumi.aws.ec2.inputs.GetNetworkInterfaceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var config = ctx.config();
-     *         final var subnetId = config.get(&#34;subnetId&#34;);
-     *         final var selected = Ec2Functions.getRouteTable(GetRouteTableArgs.builder()
-     *             .subnetId(subnetId)
-     *             .build());
-     * 
-     *         final var route = Ec2Functions.getRoute(GetRouteArgs.builder()
-     *             .routeTableId(aws_route_table.selected().id())
-     *             .destinationCidrBlock(&#34;10.0.1.0/24&#34;)
-     *             .build());
-     * 
-     *         final var interface = Ec2Functions.getNetworkInterface(GetNetworkInterfaceArgs.builder()
-     *             .id(route.applyValue(getRouteResult -&gt; getRouteResult.networkInterfaceId()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetRouteResult> getRoute(GetRouteArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:ec2/getRoute:getRoute", TypeShape.of(GetRouteResult.class), args, Utilities.withVersion(options));
@@ -11214,51 +1895,6 @@ public final class Ec2Functions {
      * `aws.ec2.Route` provides details about a specific Route.
      * 
      * This resource can prove useful when finding the resource associated with a CIDR. For example, finding the peering connection associated with a CIDR value.
-     * 
-     * ## Example Usage
-     * 
-     * The following example shows how one might use a CIDR value to find a network interface id and use this to create a data source of that network interface.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetRouteTableArgs;
-     * import com.pulumi.aws.ec2.inputs.GetRouteArgs;
-     * import com.pulumi.aws.ec2.inputs.GetNetworkInterfaceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var config = ctx.config();
-     *         final var subnetId = config.get(&#34;subnetId&#34;);
-     *         final var selected = Ec2Functions.getRouteTable(GetRouteTableArgs.builder()
-     *             .subnetId(subnetId)
-     *             .build());
-     * 
-     *         final var route = Ec2Functions.getRoute(GetRouteArgs.builder()
-     *             .routeTableId(aws_route_table.selected().id())
-     *             .destinationCidrBlock(&#34;10.0.1.0/24&#34;)
-     *             .build());
-     * 
-     *         final var interface = Ec2Functions.getNetworkInterface(GetNetworkInterfaceArgs.builder()
-     *             .id(route.applyValue(getRouteResult -&gt; getRouteResult.networkInterfaceId()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetRouteResult> getRoutePlain(GetRoutePlainArgs args, InvokeOptions options) {
@@ -11269,48 +1905,6 @@ public final class Ec2Functions {
      * 
      * This resource can prove useful when a module accepts a Subnet ID as an input variable and needs to, for example, add a route in the Route Table.
      * 
-     * ## Example Usage
-     * 
-     * The following example shows how one might accept a Route Table ID as a variable and use this data source to obtain the data necessary to create a route.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetRouteTableArgs;
-     * import com.pulumi.aws.ec2.Route;
-     * import com.pulumi.aws.ec2.RouteArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var config = ctx.config();
-     *         final var subnetId = config.get(&#34;subnetId&#34;);
-     *         final var selected = Ec2Functions.getRouteTable(GetRouteTableArgs.builder()
-     *             .subnetId(subnetId)
-     *             .build());
-     * 
-     *         var route = new Route(&#34;route&#34;, RouteArgs.builder()        
-     *             .routeTableId(selected.applyValue(getRouteTableResult -&gt; getRouteTableResult.id()))
-     *             .destinationCidrBlock(&#34;10.0.1.0/22&#34;)
-     *             .vpcPeeringConnectionId(&#34;pcx-45ff3dc1&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetRouteTableResult> getRouteTable() {
         return getRouteTable(GetRouteTableArgs.Empty, InvokeOptions.Empty);
@@ -11319,48 +1913,6 @@ public final class Ec2Functions {
      * `aws.ec2.RouteTable` provides details about a specific Route Table.
      * 
      * This resource can prove useful when a module accepts a Subnet ID as an input variable and needs to, for example, add a route in the Route Table.
-     * 
-     * ## Example Usage
-     * 
-     * The following example shows how one might accept a Route Table ID as a variable and use this data source to obtain the data necessary to create a route.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetRouteTableArgs;
-     * import com.pulumi.aws.ec2.Route;
-     * import com.pulumi.aws.ec2.RouteArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var config = ctx.config();
-     *         final var subnetId = config.get(&#34;subnetId&#34;);
-     *         final var selected = Ec2Functions.getRouteTable(GetRouteTableArgs.builder()
-     *             .subnetId(subnetId)
-     *             .build());
-     * 
-     *         var route = new Route(&#34;route&#34;, RouteArgs.builder()        
-     *             .routeTableId(selected.applyValue(getRouteTableResult -&gt; getRouteTableResult.id()))
-     *             .destinationCidrBlock(&#34;10.0.1.0/22&#34;)
-     *             .vpcPeeringConnectionId(&#34;pcx-45ff3dc1&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetRouteTableResult> getRouteTablePlain() {
@@ -11371,48 +1923,6 @@ public final class Ec2Functions {
      * 
      * This resource can prove useful when a module accepts a Subnet ID as an input variable and needs to, for example, add a route in the Route Table.
      * 
-     * ## Example Usage
-     * 
-     * The following example shows how one might accept a Route Table ID as a variable and use this data source to obtain the data necessary to create a route.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetRouteTableArgs;
-     * import com.pulumi.aws.ec2.Route;
-     * import com.pulumi.aws.ec2.RouteArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var config = ctx.config();
-     *         final var subnetId = config.get(&#34;subnetId&#34;);
-     *         final var selected = Ec2Functions.getRouteTable(GetRouteTableArgs.builder()
-     *             .subnetId(subnetId)
-     *             .build());
-     * 
-     *         var route = new Route(&#34;route&#34;, RouteArgs.builder()        
-     *             .routeTableId(selected.applyValue(getRouteTableResult -&gt; getRouteTableResult.id()))
-     *             .destinationCidrBlock(&#34;10.0.1.0/22&#34;)
-     *             .vpcPeeringConnectionId(&#34;pcx-45ff3dc1&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetRouteTableResult> getRouteTable(GetRouteTableArgs args) {
         return getRouteTable(args, InvokeOptions.Empty);
@@ -11421,48 +1931,6 @@ public final class Ec2Functions {
      * `aws.ec2.RouteTable` provides details about a specific Route Table.
      * 
      * This resource can prove useful when a module accepts a Subnet ID as an input variable and needs to, for example, add a route in the Route Table.
-     * 
-     * ## Example Usage
-     * 
-     * The following example shows how one might accept a Route Table ID as a variable and use this data source to obtain the data necessary to create a route.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetRouteTableArgs;
-     * import com.pulumi.aws.ec2.Route;
-     * import com.pulumi.aws.ec2.RouteArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var config = ctx.config();
-     *         final var subnetId = config.get(&#34;subnetId&#34;);
-     *         final var selected = Ec2Functions.getRouteTable(GetRouteTableArgs.builder()
-     *             .subnetId(subnetId)
-     *             .build());
-     * 
-     *         var route = new Route(&#34;route&#34;, RouteArgs.builder()        
-     *             .routeTableId(selected.applyValue(getRouteTableResult -&gt; getRouteTableResult.id()))
-     *             .destinationCidrBlock(&#34;10.0.1.0/22&#34;)
-     *             .vpcPeeringConnectionId(&#34;pcx-45ff3dc1&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetRouteTableResult> getRouteTablePlain(GetRouteTablePlainArgs args) {
@@ -11473,48 +1941,6 @@ public final class Ec2Functions {
      * 
      * This resource can prove useful when a module accepts a Subnet ID as an input variable and needs to, for example, add a route in the Route Table.
      * 
-     * ## Example Usage
-     * 
-     * The following example shows how one might accept a Route Table ID as a variable and use this data source to obtain the data necessary to create a route.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetRouteTableArgs;
-     * import com.pulumi.aws.ec2.Route;
-     * import com.pulumi.aws.ec2.RouteArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var config = ctx.config();
-     *         final var subnetId = config.get(&#34;subnetId&#34;);
-     *         final var selected = Ec2Functions.getRouteTable(GetRouteTableArgs.builder()
-     *             .subnetId(subnetId)
-     *             .build());
-     * 
-     *         var route = new Route(&#34;route&#34;, RouteArgs.builder()        
-     *             .routeTableId(selected.applyValue(getRouteTableResult -&gt; getRouteTableResult.id()))
-     *             .destinationCidrBlock(&#34;10.0.1.0/22&#34;)
-     *             .vpcPeeringConnectionId(&#34;pcx-45ff3dc1&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetRouteTableResult> getRouteTable(GetRouteTableArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:ec2/getRouteTable:getRouteTable", TypeShape.of(GetRouteTableResult.class), args, Utilities.withVersion(options));
@@ -11523,48 +1949,6 @@ public final class Ec2Functions {
      * `aws.ec2.RouteTable` provides details about a specific Route Table.
      * 
      * This resource can prove useful when a module accepts a Subnet ID as an input variable and needs to, for example, add a route in the Route Table.
-     * 
-     * ## Example Usage
-     * 
-     * The following example shows how one might accept a Route Table ID as a variable and use this data source to obtain the data necessary to create a route.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetRouteTableArgs;
-     * import com.pulumi.aws.ec2.Route;
-     * import com.pulumi.aws.ec2.RouteArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var config = ctx.config();
-     *         final var subnetId = config.get(&#34;subnetId&#34;);
-     *         final var selected = Ec2Functions.getRouteTable(GetRouteTableArgs.builder()
-     *             .subnetId(subnetId)
-     *             .build());
-     * 
-     *         var route = new Route(&#34;route&#34;, RouteArgs.builder()        
-     *             .routeTableId(selected.applyValue(getRouteTableResult -&gt; getRouteTableResult.id()))
-     *             .destinationCidrBlock(&#34;10.0.1.0/22&#34;)
-     *             .vpcPeeringConnectionId(&#34;pcx-45ff3dc1&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetRouteTableResult> getRouteTablePlain(GetRouteTablePlainArgs args, InvokeOptions options) {
@@ -11619,48 +2003,6 @@ public final class Ec2Functions {
      * an input variable and needs to, for example, determine the id of the
      * VPC that the security group belongs to.
      * 
-     * ## Example Usage
-     * 
-     * The following example shows how one might accept a Security Group id as a variable
-     * and use this data source to obtain the data necessary to create a subnet.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetSecurityGroupArgs;
-     * import com.pulumi.aws.ec2.Subnet;
-     * import com.pulumi.aws.ec2.SubnetArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var config = ctx.config();
-     *         final var securityGroupId = config.get(&#34;securityGroupId&#34;);
-     *         final var selected = Ec2Functions.getSecurityGroup(GetSecurityGroupArgs.builder()
-     *             .id(securityGroupId)
-     *             .build());
-     * 
-     *         var subnet = new Subnet(&#34;subnet&#34;, SubnetArgs.builder()        
-     *             .vpcId(selected.applyValue(getSecurityGroupResult -&gt; getSecurityGroupResult.vpcId()))
-     *             .cidrBlock(&#34;10.0.1.0/24&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetSecurityGroupResult> getSecurityGroup() {
         return getSecurityGroup(GetSecurityGroupArgs.Empty, InvokeOptions.Empty);
@@ -11671,48 +2013,6 @@ public final class Ec2Functions {
      * This resource can prove useful when a module accepts a Security Group id as
      * an input variable and needs to, for example, determine the id of the
      * VPC that the security group belongs to.
-     * 
-     * ## Example Usage
-     * 
-     * The following example shows how one might accept a Security Group id as a variable
-     * and use this data source to obtain the data necessary to create a subnet.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetSecurityGroupArgs;
-     * import com.pulumi.aws.ec2.Subnet;
-     * import com.pulumi.aws.ec2.SubnetArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var config = ctx.config();
-     *         final var securityGroupId = config.get(&#34;securityGroupId&#34;);
-     *         final var selected = Ec2Functions.getSecurityGroup(GetSecurityGroupArgs.builder()
-     *             .id(securityGroupId)
-     *             .build());
-     * 
-     *         var subnet = new Subnet(&#34;subnet&#34;, SubnetArgs.builder()        
-     *             .vpcId(selected.applyValue(getSecurityGroupResult -&gt; getSecurityGroupResult.vpcId()))
-     *             .cidrBlock(&#34;10.0.1.0/24&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetSecurityGroupResult> getSecurityGroupPlain() {
@@ -11725,48 +2025,6 @@ public final class Ec2Functions {
      * an input variable and needs to, for example, determine the id of the
      * VPC that the security group belongs to.
      * 
-     * ## Example Usage
-     * 
-     * The following example shows how one might accept a Security Group id as a variable
-     * and use this data source to obtain the data necessary to create a subnet.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetSecurityGroupArgs;
-     * import com.pulumi.aws.ec2.Subnet;
-     * import com.pulumi.aws.ec2.SubnetArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var config = ctx.config();
-     *         final var securityGroupId = config.get(&#34;securityGroupId&#34;);
-     *         final var selected = Ec2Functions.getSecurityGroup(GetSecurityGroupArgs.builder()
-     *             .id(securityGroupId)
-     *             .build());
-     * 
-     *         var subnet = new Subnet(&#34;subnet&#34;, SubnetArgs.builder()        
-     *             .vpcId(selected.applyValue(getSecurityGroupResult -&gt; getSecurityGroupResult.vpcId()))
-     *             .cidrBlock(&#34;10.0.1.0/24&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetSecurityGroupResult> getSecurityGroup(GetSecurityGroupArgs args) {
         return getSecurityGroup(args, InvokeOptions.Empty);
@@ -11777,48 +2035,6 @@ public final class Ec2Functions {
      * This resource can prove useful when a module accepts a Security Group id as
      * an input variable and needs to, for example, determine the id of the
      * VPC that the security group belongs to.
-     * 
-     * ## Example Usage
-     * 
-     * The following example shows how one might accept a Security Group id as a variable
-     * and use this data source to obtain the data necessary to create a subnet.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetSecurityGroupArgs;
-     * import com.pulumi.aws.ec2.Subnet;
-     * import com.pulumi.aws.ec2.SubnetArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var config = ctx.config();
-     *         final var securityGroupId = config.get(&#34;securityGroupId&#34;);
-     *         final var selected = Ec2Functions.getSecurityGroup(GetSecurityGroupArgs.builder()
-     *             .id(securityGroupId)
-     *             .build());
-     * 
-     *         var subnet = new Subnet(&#34;subnet&#34;, SubnetArgs.builder()        
-     *             .vpcId(selected.applyValue(getSecurityGroupResult -&gt; getSecurityGroupResult.vpcId()))
-     *             .cidrBlock(&#34;10.0.1.0/24&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetSecurityGroupResult> getSecurityGroupPlain(GetSecurityGroupPlainArgs args) {
@@ -11831,48 +2047,6 @@ public final class Ec2Functions {
      * an input variable and needs to, for example, determine the id of the
      * VPC that the security group belongs to.
      * 
-     * ## Example Usage
-     * 
-     * The following example shows how one might accept a Security Group id as a variable
-     * and use this data source to obtain the data necessary to create a subnet.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetSecurityGroupArgs;
-     * import com.pulumi.aws.ec2.Subnet;
-     * import com.pulumi.aws.ec2.SubnetArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var config = ctx.config();
-     *         final var securityGroupId = config.get(&#34;securityGroupId&#34;);
-     *         final var selected = Ec2Functions.getSecurityGroup(GetSecurityGroupArgs.builder()
-     *             .id(securityGroupId)
-     *             .build());
-     * 
-     *         var subnet = new Subnet(&#34;subnet&#34;, SubnetArgs.builder()        
-     *             .vpcId(selected.applyValue(getSecurityGroupResult -&gt; getSecurityGroupResult.vpcId()))
-     *             .cidrBlock(&#34;10.0.1.0/24&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetSecurityGroupResult> getSecurityGroup(GetSecurityGroupArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:ec2/getSecurityGroup:getSecurityGroup", TypeShape.of(GetSecurityGroupResult.class), args, Utilities.withVersion(options));
@@ -11884,123 +2058,12 @@ public final class Ec2Functions {
      * an input variable and needs to, for example, determine the id of the
      * VPC that the security group belongs to.
      * 
-     * ## Example Usage
-     * 
-     * The following example shows how one might accept a Security Group id as a variable
-     * and use this data source to obtain the data necessary to create a subnet.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetSecurityGroupArgs;
-     * import com.pulumi.aws.ec2.Subnet;
-     * import com.pulumi.aws.ec2.SubnetArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var config = ctx.config();
-     *         final var securityGroupId = config.get(&#34;securityGroupId&#34;);
-     *         final var selected = Ec2Functions.getSecurityGroup(GetSecurityGroupArgs.builder()
-     *             .id(securityGroupId)
-     *             .build());
-     * 
-     *         var subnet = new Subnet(&#34;subnet&#34;, SubnetArgs.builder()        
-     *             .vpcId(selected.applyValue(getSecurityGroupResult -&gt; getSecurityGroupResult.vpcId()))
-     *             .cidrBlock(&#34;10.0.1.0/24&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static CompletableFuture<GetSecurityGroupResult> getSecurityGroupPlain(GetSecurityGroupPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:ec2/getSecurityGroup:getSecurityGroup", TypeShape.of(GetSecurityGroupResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to get IDs and VPC membership of Security Groups that are created outside this provider.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetSecurityGroupsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = Ec2Functions.getSecurityGroups(GetSecurityGroupsArgs.builder()
-     *             .tags(Map.ofEntries(
-     *                 Map.entry(&#34;Application&#34;, &#34;k8s&#34;),
-     *                 Map.entry(&#34;Environment&#34;, &#34;dev&#34;)
-     *             ))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetSecurityGroupsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = Ec2Functions.getSecurityGroups(GetSecurityGroupsArgs.builder()
-     *             .filters(            
-     *                 GetSecurityGroupsFilterArgs.builder()
-     *                     .name(&#34;group-name&#34;)
-     *                     .values(&#34;*nodes*&#34;)
-     *                     .build(),
-     *                 GetSecurityGroupsFilterArgs.builder()
-     *                     .name(&#34;vpc-id&#34;)
-     *                     .values(var_.vpc_id())
-     *                     .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetSecurityGroupsResult> getSecurityGroups() {
@@ -12009,150 +2072,12 @@ public final class Ec2Functions {
     /**
      * Use this data source to get IDs and VPC membership of Security Groups that are created outside this provider.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetSecurityGroupsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = Ec2Functions.getSecurityGroups(GetSecurityGroupsArgs.builder()
-     *             .tags(Map.ofEntries(
-     *                 Map.entry(&#34;Application&#34;, &#34;k8s&#34;),
-     *                 Map.entry(&#34;Environment&#34;, &#34;dev&#34;)
-     *             ))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetSecurityGroupsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = Ec2Functions.getSecurityGroups(GetSecurityGroupsArgs.builder()
-     *             .filters(            
-     *                 GetSecurityGroupsFilterArgs.builder()
-     *                     .name(&#34;group-name&#34;)
-     *                     .values(&#34;*nodes*&#34;)
-     *                     .build(),
-     *                 GetSecurityGroupsFilterArgs.builder()
-     *                     .name(&#34;vpc-id&#34;)
-     *                     .values(var_.vpc_id())
-     *                     .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static CompletableFuture<GetSecurityGroupsResult> getSecurityGroupsPlain() {
         return getSecurityGroupsPlain(GetSecurityGroupsPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * Use this data source to get IDs and VPC membership of Security Groups that are created outside this provider.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetSecurityGroupsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = Ec2Functions.getSecurityGroups(GetSecurityGroupsArgs.builder()
-     *             .tags(Map.ofEntries(
-     *                 Map.entry(&#34;Application&#34;, &#34;k8s&#34;),
-     *                 Map.entry(&#34;Environment&#34;, &#34;dev&#34;)
-     *             ))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetSecurityGroupsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = Ec2Functions.getSecurityGroups(GetSecurityGroupsArgs.builder()
-     *             .filters(            
-     *                 GetSecurityGroupsFilterArgs.builder()
-     *                     .name(&#34;group-name&#34;)
-     *                     .values(&#34;*nodes*&#34;)
-     *                     .build(),
-     *                 GetSecurityGroupsFilterArgs.builder()
-     *                     .name(&#34;vpc-id&#34;)
-     *                     .values(var_.vpc_id())
-     *                     .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetSecurityGroupsResult> getSecurityGroups(GetSecurityGroupsArgs args) {
@@ -12161,150 +2086,12 @@ public final class Ec2Functions {
     /**
      * Use this data source to get IDs and VPC membership of Security Groups that are created outside this provider.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetSecurityGroupsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = Ec2Functions.getSecurityGroups(GetSecurityGroupsArgs.builder()
-     *             .tags(Map.ofEntries(
-     *                 Map.entry(&#34;Application&#34;, &#34;k8s&#34;),
-     *                 Map.entry(&#34;Environment&#34;, &#34;dev&#34;)
-     *             ))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetSecurityGroupsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = Ec2Functions.getSecurityGroups(GetSecurityGroupsArgs.builder()
-     *             .filters(            
-     *                 GetSecurityGroupsFilterArgs.builder()
-     *                     .name(&#34;group-name&#34;)
-     *                     .values(&#34;*nodes*&#34;)
-     *                     .build(),
-     *                 GetSecurityGroupsFilterArgs.builder()
-     *                     .name(&#34;vpc-id&#34;)
-     *                     .values(var_.vpc_id())
-     *                     .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static CompletableFuture<GetSecurityGroupsResult> getSecurityGroupsPlain(GetSecurityGroupsPlainArgs args) {
         return getSecurityGroupsPlain(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to get IDs and VPC membership of Security Groups that are created outside this provider.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetSecurityGroupsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = Ec2Functions.getSecurityGroups(GetSecurityGroupsArgs.builder()
-     *             .tags(Map.ofEntries(
-     *                 Map.entry(&#34;Application&#34;, &#34;k8s&#34;),
-     *                 Map.entry(&#34;Environment&#34;, &#34;dev&#34;)
-     *             ))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetSecurityGroupsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = Ec2Functions.getSecurityGroups(GetSecurityGroupsArgs.builder()
-     *             .filters(            
-     *                 GetSecurityGroupsFilterArgs.builder()
-     *                     .name(&#34;group-name&#34;)
-     *                     .values(&#34;*nodes*&#34;)
-     *                     .build(),
-     *                 GetSecurityGroupsFilterArgs.builder()
-     *                     .name(&#34;vpc-id&#34;)
-     *                     .values(var_.vpc_id())
-     *                     .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetSecurityGroupsResult> getSecurityGroups(GetSecurityGroupsArgs args, InvokeOptions options) {
@@ -12313,108 +2100,12 @@ public final class Ec2Functions {
     /**
      * Use this data source to get IDs and VPC membership of Security Groups that are created outside this provider.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetSecurityGroupsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = Ec2Functions.getSecurityGroups(GetSecurityGroupsArgs.builder()
-     *             .tags(Map.ofEntries(
-     *                 Map.entry(&#34;Application&#34;, &#34;k8s&#34;),
-     *                 Map.entry(&#34;Environment&#34;, &#34;dev&#34;)
-     *             ))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetSecurityGroupsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = Ec2Functions.getSecurityGroups(GetSecurityGroupsArgs.builder()
-     *             .filters(            
-     *                 GetSecurityGroupsFilterArgs.builder()
-     *                     .name(&#34;group-name&#34;)
-     *                     .values(&#34;*nodes*&#34;)
-     *                     .build(),
-     *                 GetSecurityGroupsFilterArgs.builder()
-     *                     .name(&#34;vpc-id&#34;)
-     *                     .values(var_.vpc_id())
-     *                     .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static CompletableFuture<GetSecurityGroupsResult> getSecurityGroupsPlain(GetSecurityGroupsPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:ec2/getSecurityGroups:getSecurityGroups", TypeShape.of(GetSecurityGroupsResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Provides a way to check whether serial console access is enabled for your AWS account in the current AWS region.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var current = Ec2Functions.getSerialConsoleAccess();
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetSerialConsoleAccessResult> getSerialConsoleAccess() {
@@ -12423,66 +2114,12 @@ public final class Ec2Functions {
     /**
      * Provides a way to check whether serial console access is enabled for your AWS account in the current AWS region.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var current = Ec2Functions.getSerialConsoleAccess();
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static CompletableFuture<GetSerialConsoleAccessResult> getSerialConsoleAccessPlain() {
         return getSerialConsoleAccessPlain(InvokeArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * Provides a way to check whether serial console access is enabled for your AWS account in the current AWS region.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var current = Ec2Functions.getSerialConsoleAccess();
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetSerialConsoleAccessResult> getSerialConsoleAccess(InvokeArgs args) {
@@ -12491,66 +2128,12 @@ public final class Ec2Functions {
     /**
      * Provides a way to check whether serial console access is enabled for your AWS account in the current AWS region.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var current = Ec2Functions.getSerialConsoleAccess();
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static CompletableFuture<GetSerialConsoleAccessResult> getSerialConsoleAccessPlain(InvokeArgs args) {
         return getSerialConsoleAccessPlain(args, InvokeOptions.Empty);
     }
     /**
      * Provides a way to check whether serial console access is enabled for your AWS account in the current AWS region.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var current = Ec2Functions.getSerialConsoleAccess();
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetSerialConsoleAccessResult> getSerialConsoleAccess(InvokeArgs args, InvokeOptions options) {
@@ -12559,74 +2142,12 @@ public final class Ec2Functions {
     /**
      * Provides a way to check whether serial console access is enabled for your AWS account in the current AWS region.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var current = Ec2Functions.getSerialConsoleAccess();
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static CompletableFuture<GetSerialConsoleAccessResult> getSerialConsoleAccessPlain(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:ec2/getSerialConsoleAccess:getSerialConsoleAccess", TypeShape.of(GetSerialConsoleAccessResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Information about most recent Spot Price for a given EC2 instance.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetSpotPriceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Ec2Functions.getSpotPrice(GetSpotPriceArgs.builder()
-     *             .availabilityZone(&#34;us-west-2a&#34;)
-     *             .filters(GetSpotPriceFilterArgs.builder()
-     *                 .name(&#34;product-description&#34;)
-     *                 .values(&#34;Linux/UNIX&#34;)
-     *                 .build())
-     *             .instanceType(&#34;t3.medium&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetSpotPriceResult> getSpotPrice() {
@@ -12635,82 +2156,12 @@ public final class Ec2Functions {
     /**
      * Information about most recent Spot Price for a given EC2 instance.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetSpotPriceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Ec2Functions.getSpotPrice(GetSpotPriceArgs.builder()
-     *             .availabilityZone(&#34;us-west-2a&#34;)
-     *             .filters(GetSpotPriceFilterArgs.builder()
-     *                 .name(&#34;product-description&#34;)
-     *                 .values(&#34;Linux/UNIX&#34;)
-     *                 .build())
-     *             .instanceType(&#34;t3.medium&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static CompletableFuture<GetSpotPriceResult> getSpotPricePlain() {
         return getSpotPricePlain(GetSpotPricePlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * Information about most recent Spot Price for a given EC2 instance.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetSpotPriceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Ec2Functions.getSpotPrice(GetSpotPriceArgs.builder()
-     *             .availabilityZone(&#34;us-west-2a&#34;)
-     *             .filters(GetSpotPriceFilterArgs.builder()
-     *                 .name(&#34;product-description&#34;)
-     *                 .values(&#34;Linux/UNIX&#34;)
-     *                 .build())
-     *             .instanceType(&#34;t3.medium&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetSpotPriceResult> getSpotPrice(GetSpotPriceArgs args) {
@@ -12719,41 +2170,6 @@ public final class Ec2Functions {
     /**
      * Information about most recent Spot Price for a given EC2 instance.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetSpotPriceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Ec2Functions.getSpotPrice(GetSpotPriceArgs.builder()
-     *             .availabilityZone(&#34;us-west-2a&#34;)
-     *             .filters(GetSpotPriceFilterArgs.builder()
-     *                 .name(&#34;product-description&#34;)
-     *                 .values(&#34;Linux/UNIX&#34;)
-     *                 .build())
-     *             .instanceType(&#34;t3.medium&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static CompletableFuture<GetSpotPriceResult> getSpotPricePlain(GetSpotPricePlainArgs args) {
         return getSpotPricePlain(args, InvokeOptions.Empty);
@@ -12761,82 +2177,12 @@ public final class Ec2Functions {
     /**
      * Information about most recent Spot Price for a given EC2 instance.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetSpotPriceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Ec2Functions.getSpotPrice(GetSpotPriceArgs.builder()
-     *             .availabilityZone(&#34;us-west-2a&#34;)
-     *             .filters(GetSpotPriceFilterArgs.builder()
-     *                 .name(&#34;product-description&#34;)
-     *                 .values(&#34;Linux/UNIX&#34;)
-     *                 .build())
-     *             .instanceType(&#34;t3.medium&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetSpotPriceResult> getSpotPrice(GetSpotPriceArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:ec2/getSpotPrice:getSpotPrice", TypeShape.of(GetSpotPriceResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Information about most recent Spot Price for a given EC2 instance.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetSpotPriceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Ec2Functions.getSpotPrice(GetSpotPriceArgs.builder()
-     *             .availabilityZone(&#34;us-west-2a&#34;)
-     *             .filters(GetSpotPriceFilterArgs.builder()
-     *                 .name(&#34;product-description&#34;)
-     *                 .values(&#34;Linux/UNIX&#34;)
-     *                 .build())
-     *             .instanceType(&#34;t3.medium&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetSpotPriceResult> getSpotPricePlain(GetSpotPricePlainArgs args, InvokeOptions options) {
@@ -12847,87 +2193,6 @@ public final class Ec2Functions {
      * 
      * This resource can prove useful when a module accepts a subnet ID as an input variable and needs to, for example, determine the ID of the VPC that the subnet belongs to.
      * 
-     * ## Example Usage
-     * 
-     * The following example shows how one might accept a subnet ID as a variable and use this data source to obtain the data necessary to create a security group that allows connections from hosts in that subnet.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetSubnetArgs;
-     * import com.pulumi.aws.ec2.SecurityGroup;
-     * import com.pulumi.aws.ec2.SecurityGroupArgs;
-     * import com.pulumi.aws.ec2.inputs.SecurityGroupIngressArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var config = ctx.config();
-     *         final var subnetId = config.get(&#34;subnetId&#34;);
-     *         final var selected = Ec2Functions.getSubnet(GetSubnetArgs.builder()
-     *             .id(subnetId)
-     *             .build());
-     * 
-     *         var subnet = new SecurityGroup(&#34;subnet&#34;, SecurityGroupArgs.builder()        
-     *             .vpcId(selected.applyValue(getSubnetResult -&gt; getSubnetResult.vpcId()))
-     *             .ingress(SecurityGroupIngressArgs.builder()
-     *                 .cidrBlocks(selected.applyValue(getSubnetResult -&gt; getSubnetResult.cidrBlock()))
-     *                 .fromPort(80)
-     *                 .toPort(80)
-     *                 .protocol(&#34;tcp&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * ### Filter Example
-     * 
-     * If you want to match against tag `Name`, use:
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetSubnetArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var selected = Ec2Functions.getSubnet(GetSubnetArgs.builder()
-     *             .filters(GetSubnetFilterArgs.builder()
-     *                 .name(&#34;tag:Name&#34;)
-     *                 .values(&#34;yakdriver&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetSubnetResult> getSubnet() {
         return getSubnet(GetSubnetArgs.Empty, InvokeOptions.Empty);
@@ -12936,87 +2201,6 @@ public final class Ec2Functions {
      * `aws.ec2.Subnet` provides details about a specific VPC subnet.
      * 
      * This resource can prove useful when a module accepts a subnet ID as an input variable and needs to, for example, determine the ID of the VPC that the subnet belongs to.
-     * 
-     * ## Example Usage
-     * 
-     * The following example shows how one might accept a subnet ID as a variable and use this data source to obtain the data necessary to create a security group that allows connections from hosts in that subnet.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetSubnetArgs;
-     * import com.pulumi.aws.ec2.SecurityGroup;
-     * import com.pulumi.aws.ec2.SecurityGroupArgs;
-     * import com.pulumi.aws.ec2.inputs.SecurityGroupIngressArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var config = ctx.config();
-     *         final var subnetId = config.get(&#34;subnetId&#34;);
-     *         final var selected = Ec2Functions.getSubnet(GetSubnetArgs.builder()
-     *             .id(subnetId)
-     *             .build());
-     * 
-     *         var subnet = new SecurityGroup(&#34;subnet&#34;, SecurityGroupArgs.builder()        
-     *             .vpcId(selected.applyValue(getSubnetResult -&gt; getSubnetResult.vpcId()))
-     *             .ingress(SecurityGroupIngressArgs.builder()
-     *                 .cidrBlocks(selected.applyValue(getSubnetResult -&gt; getSubnetResult.cidrBlock()))
-     *                 .fromPort(80)
-     *                 .toPort(80)
-     *                 .protocol(&#34;tcp&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * ### Filter Example
-     * 
-     * If you want to match against tag `Name`, use:
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetSubnetArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var selected = Ec2Functions.getSubnet(GetSubnetArgs.builder()
-     *             .filters(GetSubnetFilterArgs.builder()
-     *                 .name(&#34;tag:Name&#34;)
-     *                 .values(&#34;yakdriver&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetSubnetResult> getSubnetPlain() {
@@ -13027,87 +2211,6 @@ public final class Ec2Functions {
      * 
      * This resource can prove useful when a module accepts a subnet ID as an input variable and needs to, for example, determine the ID of the VPC that the subnet belongs to.
      * 
-     * ## Example Usage
-     * 
-     * The following example shows how one might accept a subnet ID as a variable and use this data source to obtain the data necessary to create a security group that allows connections from hosts in that subnet.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetSubnetArgs;
-     * import com.pulumi.aws.ec2.SecurityGroup;
-     * import com.pulumi.aws.ec2.SecurityGroupArgs;
-     * import com.pulumi.aws.ec2.inputs.SecurityGroupIngressArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var config = ctx.config();
-     *         final var subnetId = config.get(&#34;subnetId&#34;);
-     *         final var selected = Ec2Functions.getSubnet(GetSubnetArgs.builder()
-     *             .id(subnetId)
-     *             .build());
-     * 
-     *         var subnet = new SecurityGroup(&#34;subnet&#34;, SecurityGroupArgs.builder()        
-     *             .vpcId(selected.applyValue(getSubnetResult -&gt; getSubnetResult.vpcId()))
-     *             .ingress(SecurityGroupIngressArgs.builder()
-     *                 .cidrBlocks(selected.applyValue(getSubnetResult -&gt; getSubnetResult.cidrBlock()))
-     *                 .fromPort(80)
-     *                 .toPort(80)
-     *                 .protocol(&#34;tcp&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * ### Filter Example
-     * 
-     * If you want to match against tag `Name`, use:
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetSubnetArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var selected = Ec2Functions.getSubnet(GetSubnetArgs.builder()
-     *             .filters(GetSubnetFilterArgs.builder()
-     *                 .name(&#34;tag:Name&#34;)
-     *                 .values(&#34;yakdriver&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetSubnetResult> getSubnet(GetSubnetArgs args) {
         return getSubnet(args, InvokeOptions.Empty);
@@ -13116,87 +2219,6 @@ public final class Ec2Functions {
      * `aws.ec2.Subnet` provides details about a specific VPC subnet.
      * 
      * This resource can prove useful when a module accepts a subnet ID as an input variable and needs to, for example, determine the ID of the VPC that the subnet belongs to.
-     * 
-     * ## Example Usage
-     * 
-     * The following example shows how one might accept a subnet ID as a variable and use this data source to obtain the data necessary to create a security group that allows connections from hosts in that subnet.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetSubnetArgs;
-     * import com.pulumi.aws.ec2.SecurityGroup;
-     * import com.pulumi.aws.ec2.SecurityGroupArgs;
-     * import com.pulumi.aws.ec2.inputs.SecurityGroupIngressArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var config = ctx.config();
-     *         final var subnetId = config.get(&#34;subnetId&#34;);
-     *         final var selected = Ec2Functions.getSubnet(GetSubnetArgs.builder()
-     *             .id(subnetId)
-     *             .build());
-     * 
-     *         var subnet = new SecurityGroup(&#34;subnet&#34;, SecurityGroupArgs.builder()        
-     *             .vpcId(selected.applyValue(getSubnetResult -&gt; getSubnetResult.vpcId()))
-     *             .ingress(SecurityGroupIngressArgs.builder()
-     *                 .cidrBlocks(selected.applyValue(getSubnetResult -&gt; getSubnetResult.cidrBlock()))
-     *                 .fromPort(80)
-     *                 .toPort(80)
-     *                 .protocol(&#34;tcp&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * ### Filter Example
-     * 
-     * If you want to match against tag `Name`, use:
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetSubnetArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var selected = Ec2Functions.getSubnet(GetSubnetArgs.builder()
-     *             .filters(GetSubnetFilterArgs.builder()
-     *                 .name(&#34;tag:Name&#34;)
-     *                 .values(&#34;yakdriver&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetSubnetResult> getSubnetPlain(GetSubnetPlainArgs args) {
@@ -13207,87 +2229,6 @@ public final class Ec2Functions {
      * 
      * This resource can prove useful when a module accepts a subnet ID as an input variable and needs to, for example, determine the ID of the VPC that the subnet belongs to.
      * 
-     * ## Example Usage
-     * 
-     * The following example shows how one might accept a subnet ID as a variable and use this data source to obtain the data necessary to create a security group that allows connections from hosts in that subnet.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetSubnetArgs;
-     * import com.pulumi.aws.ec2.SecurityGroup;
-     * import com.pulumi.aws.ec2.SecurityGroupArgs;
-     * import com.pulumi.aws.ec2.inputs.SecurityGroupIngressArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var config = ctx.config();
-     *         final var subnetId = config.get(&#34;subnetId&#34;);
-     *         final var selected = Ec2Functions.getSubnet(GetSubnetArgs.builder()
-     *             .id(subnetId)
-     *             .build());
-     * 
-     *         var subnet = new SecurityGroup(&#34;subnet&#34;, SecurityGroupArgs.builder()        
-     *             .vpcId(selected.applyValue(getSubnetResult -&gt; getSubnetResult.vpcId()))
-     *             .ingress(SecurityGroupIngressArgs.builder()
-     *                 .cidrBlocks(selected.applyValue(getSubnetResult -&gt; getSubnetResult.cidrBlock()))
-     *                 .fromPort(80)
-     *                 .toPort(80)
-     *                 .protocol(&#34;tcp&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * ### Filter Example
-     * 
-     * If you want to match against tag `Name`, use:
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetSubnetArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var selected = Ec2Functions.getSubnet(GetSubnetArgs.builder()
-     *             .filters(GetSubnetFilterArgs.builder()
-     *                 .name(&#34;tag:Name&#34;)
-     *                 .values(&#34;yakdriver&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetSubnetResult> getSubnet(GetSubnetArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:ec2/getSubnet:getSubnet", TypeShape.of(GetSubnetResult.class), args, Utilities.withVersion(options));
@@ -13296,87 +2237,6 @@ public final class Ec2Functions {
      * `aws.ec2.Subnet` provides details about a specific VPC subnet.
      * 
      * This resource can prove useful when a module accepts a subnet ID as an input variable and needs to, for example, determine the ID of the VPC that the subnet belongs to.
-     * 
-     * ## Example Usage
-     * 
-     * The following example shows how one might accept a subnet ID as a variable and use this data source to obtain the data necessary to create a security group that allows connections from hosts in that subnet.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetSubnetArgs;
-     * import com.pulumi.aws.ec2.SecurityGroup;
-     * import com.pulumi.aws.ec2.SecurityGroupArgs;
-     * import com.pulumi.aws.ec2.inputs.SecurityGroupIngressArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var config = ctx.config();
-     *         final var subnetId = config.get(&#34;subnetId&#34;);
-     *         final var selected = Ec2Functions.getSubnet(GetSubnetArgs.builder()
-     *             .id(subnetId)
-     *             .build());
-     * 
-     *         var subnet = new SecurityGroup(&#34;subnet&#34;, SecurityGroupArgs.builder()        
-     *             .vpcId(selected.applyValue(getSubnetResult -&gt; getSubnetResult.vpcId()))
-     *             .ingress(SecurityGroupIngressArgs.builder()
-     *                 .cidrBlocks(selected.applyValue(getSubnetResult -&gt; getSubnetResult.cidrBlock()))
-     *                 .fromPort(80)
-     *                 .toPort(80)
-     *                 .protocol(&#34;tcp&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * ### Filter Example
-     * 
-     * If you want to match against tag `Name`, use:
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetSubnetArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var selected = Ec2Functions.getSubnet(GetSubnetArgs.builder()
-     *             .filters(GetSubnetFilterArgs.builder()
-     *                 .name(&#34;tag:Name&#34;)
-     *                 .values(&#34;yakdriver&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetSubnetResult> getSubnetPlain(GetSubnetPlainArgs args, InvokeOptions options) {
@@ -13427,74 +2287,12 @@ public final class Ec2Functions {
     /**
      * Provides information for multiple EC2 Transit Gateway Route Tables, such as their identifiers.
      * 
-     * ## Example Usage
-     * 
-     * The following shows outputting all Transit Gateway Route Table Ids.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetTransitGatewayRouteTablesArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var exampleTransitGatewayRouteTables = Ec2Functions.getTransitGatewayRouteTables();
-     * 
-     *         ctx.export(&#34;example&#34;, exampleTransitGatewayRouteTables.applyValue(getTransitGatewayRouteTablesResult -&gt; getTransitGatewayRouteTablesResult.ids()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetTransitGatewayRouteTablesResult> getTransitGatewayRouteTables() {
         return getTransitGatewayRouteTables(GetTransitGatewayRouteTablesArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * Provides information for multiple EC2 Transit Gateway Route Tables, such as their identifiers.
-     * 
-     * ## Example Usage
-     * 
-     * The following shows outputting all Transit Gateway Route Table Ids.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetTransitGatewayRouteTablesArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var exampleTransitGatewayRouteTables = Ec2Functions.getTransitGatewayRouteTables();
-     * 
-     *         ctx.export(&#34;example&#34;, exampleTransitGatewayRouteTables.applyValue(getTransitGatewayRouteTablesResult -&gt; getTransitGatewayRouteTablesResult.ids()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetTransitGatewayRouteTablesResult> getTransitGatewayRouteTablesPlain() {
@@ -13503,74 +2301,12 @@ public final class Ec2Functions {
     /**
      * Provides information for multiple EC2 Transit Gateway Route Tables, such as their identifiers.
      * 
-     * ## Example Usage
-     * 
-     * The following shows outputting all Transit Gateway Route Table Ids.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetTransitGatewayRouteTablesArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var exampleTransitGatewayRouteTables = Ec2Functions.getTransitGatewayRouteTables();
-     * 
-     *         ctx.export(&#34;example&#34;, exampleTransitGatewayRouteTables.applyValue(getTransitGatewayRouteTablesResult -&gt; getTransitGatewayRouteTablesResult.ids()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetTransitGatewayRouteTablesResult> getTransitGatewayRouteTables(GetTransitGatewayRouteTablesArgs args) {
         return getTransitGatewayRouteTables(args, InvokeOptions.Empty);
     }
     /**
      * Provides information for multiple EC2 Transit Gateway Route Tables, such as their identifiers.
-     * 
-     * ## Example Usage
-     * 
-     * The following shows outputting all Transit Gateway Route Table Ids.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetTransitGatewayRouteTablesArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var exampleTransitGatewayRouteTables = Ec2Functions.getTransitGatewayRouteTables();
-     * 
-     *         ctx.export(&#34;example&#34;, exampleTransitGatewayRouteTables.applyValue(getTransitGatewayRouteTablesResult -&gt; getTransitGatewayRouteTablesResult.ids()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetTransitGatewayRouteTablesResult> getTransitGatewayRouteTablesPlain(GetTransitGatewayRouteTablesPlainArgs args) {
@@ -13579,74 +2315,12 @@ public final class Ec2Functions {
     /**
      * Provides information for multiple EC2 Transit Gateway Route Tables, such as their identifiers.
      * 
-     * ## Example Usage
-     * 
-     * The following shows outputting all Transit Gateway Route Table Ids.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetTransitGatewayRouteTablesArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var exampleTransitGatewayRouteTables = Ec2Functions.getTransitGatewayRouteTables();
-     * 
-     *         ctx.export(&#34;example&#34;, exampleTransitGatewayRouteTables.applyValue(getTransitGatewayRouteTablesResult -&gt; getTransitGatewayRouteTablesResult.ids()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetTransitGatewayRouteTablesResult> getTransitGatewayRouteTables(GetTransitGatewayRouteTablesArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:ec2/getTransitGatewayRouteTables:getTransitGatewayRouteTables", TypeShape.of(GetTransitGatewayRouteTablesResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Provides information for multiple EC2 Transit Gateway Route Tables, such as their identifiers.
-     * 
-     * ## Example Usage
-     * 
-     * The following shows outputting all Transit Gateway Route Table Ids.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetTransitGatewayRouteTablesArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var exampleTransitGatewayRouteTables = Ec2Functions.getTransitGatewayRouteTables();
-     * 
-     *         ctx.export(&#34;example&#34;, exampleTransitGatewayRouteTables.applyValue(getTransitGatewayRouteTablesResult -&gt; getTransitGatewayRouteTablesResult.ids()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetTransitGatewayRouteTablesResult> getTransitGatewayRouteTablesPlain(GetTransitGatewayRouteTablesPlainArgs args, InvokeOptions options) {
@@ -13722,72 +2396,6 @@ public final class Ec2Functions {
      * Retrieve information about an EC2 DHCP Options configuration.
      * 
      * ## Example Usage
-     * ### Lookup by DHCP Options ID
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetVpcDhcpOptionsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Ec2Functions.getVpcDhcpOptions(GetVpcDhcpOptionsArgs.builder()
-     *             .dhcpOptionsId(&#34;dopts-12345678&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * ### Lookup by Filter
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetVpcDhcpOptionsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Ec2Functions.getVpcDhcpOptions(GetVpcDhcpOptionsArgs.builder()
-     *             .filters(            
-     *                 GetVpcDhcpOptionsFilterArgs.builder()
-     *                     .name(&#34;key&#34;)
-     *                     .values(&#34;domain-name&#34;)
-     *                     .build(),
-     *                 GetVpcDhcpOptionsFilterArgs.builder()
-     *                     .name(&#34;value&#34;)
-     *                     .values(&#34;example.com&#34;)
-     *                     .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetVpcDhcpOptionsResult> getVpcDhcpOptions() {
@@ -13797,72 +2405,6 @@ public final class Ec2Functions {
      * Retrieve information about an EC2 DHCP Options configuration.
      * 
      * ## Example Usage
-     * ### Lookup by DHCP Options ID
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetVpcDhcpOptionsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Ec2Functions.getVpcDhcpOptions(GetVpcDhcpOptionsArgs.builder()
-     *             .dhcpOptionsId(&#34;dopts-12345678&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * ### Lookup by Filter
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetVpcDhcpOptionsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Ec2Functions.getVpcDhcpOptions(GetVpcDhcpOptionsArgs.builder()
-     *             .filters(            
-     *                 GetVpcDhcpOptionsFilterArgs.builder()
-     *                     .name(&#34;key&#34;)
-     *                     .values(&#34;domain-name&#34;)
-     *                     .build(),
-     *                 GetVpcDhcpOptionsFilterArgs.builder()
-     *                     .name(&#34;value&#34;)
-     *                     .values(&#34;example.com&#34;)
-     *                     .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetVpcDhcpOptionsResult> getVpcDhcpOptionsPlain() {
@@ -13872,72 +2414,6 @@ public final class Ec2Functions {
      * Retrieve information about an EC2 DHCP Options configuration.
      * 
      * ## Example Usage
-     * ### Lookup by DHCP Options ID
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetVpcDhcpOptionsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Ec2Functions.getVpcDhcpOptions(GetVpcDhcpOptionsArgs.builder()
-     *             .dhcpOptionsId(&#34;dopts-12345678&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * ### Lookup by Filter
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetVpcDhcpOptionsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Ec2Functions.getVpcDhcpOptions(GetVpcDhcpOptionsArgs.builder()
-     *             .filters(            
-     *                 GetVpcDhcpOptionsFilterArgs.builder()
-     *                     .name(&#34;key&#34;)
-     *                     .values(&#34;domain-name&#34;)
-     *                     .build(),
-     *                 GetVpcDhcpOptionsFilterArgs.builder()
-     *                     .name(&#34;value&#34;)
-     *                     .values(&#34;example.com&#34;)
-     *                     .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetVpcDhcpOptionsResult> getVpcDhcpOptions(GetVpcDhcpOptionsArgs args) {
@@ -13947,72 +2423,6 @@ public final class Ec2Functions {
      * Retrieve information about an EC2 DHCP Options configuration.
      * 
      * ## Example Usage
-     * ### Lookup by DHCP Options ID
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetVpcDhcpOptionsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Ec2Functions.getVpcDhcpOptions(GetVpcDhcpOptionsArgs.builder()
-     *             .dhcpOptionsId(&#34;dopts-12345678&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * ### Lookup by Filter
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetVpcDhcpOptionsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Ec2Functions.getVpcDhcpOptions(GetVpcDhcpOptionsArgs.builder()
-     *             .filters(            
-     *                 GetVpcDhcpOptionsFilterArgs.builder()
-     *                     .name(&#34;key&#34;)
-     *                     .values(&#34;domain-name&#34;)
-     *                     .build(),
-     *                 GetVpcDhcpOptionsFilterArgs.builder()
-     *                     .name(&#34;value&#34;)
-     *                     .values(&#34;example.com&#34;)
-     *                     .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetVpcDhcpOptionsResult> getVpcDhcpOptionsPlain(GetVpcDhcpOptionsPlainArgs args) {
@@ -14022,72 +2432,6 @@ public final class Ec2Functions {
      * Retrieve information about an EC2 DHCP Options configuration.
      * 
      * ## Example Usage
-     * ### Lookup by DHCP Options ID
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetVpcDhcpOptionsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Ec2Functions.getVpcDhcpOptions(GetVpcDhcpOptionsArgs.builder()
-     *             .dhcpOptionsId(&#34;dopts-12345678&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * ### Lookup by Filter
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetVpcDhcpOptionsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Ec2Functions.getVpcDhcpOptions(GetVpcDhcpOptionsArgs.builder()
-     *             .filters(            
-     *                 GetVpcDhcpOptionsFilterArgs.builder()
-     *                     .name(&#34;key&#34;)
-     *                     .values(&#34;domain-name&#34;)
-     *                     .build(),
-     *                 GetVpcDhcpOptionsFilterArgs.builder()
-     *                     .name(&#34;value&#34;)
-     *                     .values(&#34;example.com&#34;)
-     *                     .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetVpcDhcpOptionsResult> getVpcDhcpOptions(GetVpcDhcpOptionsArgs args, InvokeOptions options) {
@@ -14097,72 +2441,6 @@ public final class Ec2Functions {
      * Retrieve information about an EC2 DHCP Options configuration.
      * 
      * ## Example Usage
-     * ### Lookup by DHCP Options ID
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetVpcDhcpOptionsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Ec2Functions.getVpcDhcpOptions(GetVpcDhcpOptionsArgs.builder()
-     *             .dhcpOptionsId(&#34;dopts-12345678&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * ### Lookup by Filter
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetVpcDhcpOptionsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Ec2Functions.getVpcDhcpOptions(GetVpcDhcpOptionsArgs.builder()
-     *             .filters(            
-     *                 GetVpcDhcpOptionsFilterArgs.builder()
-     *                     .name(&#34;key&#34;)
-     *                     .values(&#34;domain-name&#34;)
-     *                     .build(),
-     *                 GetVpcDhcpOptionsFilterArgs.builder()
-     *                     .name(&#34;value&#34;)
-     *                     .values(&#34;example.com&#34;)
-     *                     .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetVpcDhcpOptionsResult> getVpcDhcpOptionsPlain(GetVpcDhcpOptionsPlainArgs args, InvokeOptions options) {
@@ -14172,44 +2450,6 @@ public final class Ec2Functions {
      * The VPC Endpoint data source provides details about
      * a specific VPC endpoint.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetVpcEndpointArgs;
-     * import com.pulumi.aws.ec2.VpcEndpointRouteTableAssociation;
-     * import com.pulumi.aws.ec2.VpcEndpointRouteTableAssociationArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var s3 = Ec2Functions.getVpcEndpoint(GetVpcEndpointArgs.builder()
-     *             .vpcId(aws_vpc.foo().id())
-     *             .serviceName(&#34;com.amazonaws.us-west-2.s3&#34;)
-     *             .build());
-     * 
-     *         var privateS3 = new VpcEndpointRouteTableAssociation(&#34;privateS3&#34;, VpcEndpointRouteTableAssociationArgs.builder()        
-     *             .vpcEndpointId(s3.applyValue(getVpcEndpointResult -&gt; getVpcEndpointResult.id()))
-     *             .routeTableId(aws_route_table.private().id())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetVpcEndpointResult> getVpcEndpoint() {
         return getVpcEndpoint(GetVpcEndpointArgs.Empty, InvokeOptions.Empty);
@@ -14217,44 +2457,6 @@ public final class Ec2Functions {
     /**
      * The VPC Endpoint data source provides details about
      * a specific VPC endpoint.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetVpcEndpointArgs;
-     * import com.pulumi.aws.ec2.VpcEndpointRouteTableAssociation;
-     * import com.pulumi.aws.ec2.VpcEndpointRouteTableAssociationArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var s3 = Ec2Functions.getVpcEndpoint(GetVpcEndpointArgs.builder()
-     *             .vpcId(aws_vpc.foo().id())
-     *             .serviceName(&#34;com.amazonaws.us-west-2.s3&#34;)
-     *             .build());
-     * 
-     *         var privateS3 = new VpcEndpointRouteTableAssociation(&#34;privateS3&#34;, VpcEndpointRouteTableAssociationArgs.builder()        
-     *             .vpcEndpointId(s3.applyValue(getVpcEndpointResult -&gt; getVpcEndpointResult.id()))
-     *             .routeTableId(aws_route_table.private().id())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetVpcEndpointResult> getVpcEndpointPlain() {
@@ -14264,44 +2466,6 @@ public final class Ec2Functions {
      * The VPC Endpoint data source provides details about
      * a specific VPC endpoint.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetVpcEndpointArgs;
-     * import com.pulumi.aws.ec2.VpcEndpointRouteTableAssociation;
-     * import com.pulumi.aws.ec2.VpcEndpointRouteTableAssociationArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var s3 = Ec2Functions.getVpcEndpoint(GetVpcEndpointArgs.builder()
-     *             .vpcId(aws_vpc.foo().id())
-     *             .serviceName(&#34;com.amazonaws.us-west-2.s3&#34;)
-     *             .build());
-     * 
-     *         var privateS3 = new VpcEndpointRouteTableAssociation(&#34;privateS3&#34;, VpcEndpointRouteTableAssociationArgs.builder()        
-     *             .vpcEndpointId(s3.applyValue(getVpcEndpointResult -&gt; getVpcEndpointResult.id()))
-     *             .routeTableId(aws_route_table.private().id())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetVpcEndpointResult> getVpcEndpoint(GetVpcEndpointArgs args) {
         return getVpcEndpoint(args, InvokeOptions.Empty);
@@ -14309,44 +2473,6 @@ public final class Ec2Functions {
     /**
      * The VPC Endpoint data source provides details about
      * a specific VPC endpoint.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetVpcEndpointArgs;
-     * import com.pulumi.aws.ec2.VpcEndpointRouteTableAssociation;
-     * import com.pulumi.aws.ec2.VpcEndpointRouteTableAssociationArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var s3 = Ec2Functions.getVpcEndpoint(GetVpcEndpointArgs.builder()
-     *             .vpcId(aws_vpc.foo().id())
-     *             .serviceName(&#34;com.amazonaws.us-west-2.s3&#34;)
-     *             .build());
-     * 
-     *         var privateS3 = new VpcEndpointRouteTableAssociation(&#34;privateS3&#34;, VpcEndpointRouteTableAssociationArgs.builder()        
-     *             .vpcEndpointId(s3.applyValue(getVpcEndpointResult -&gt; getVpcEndpointResult.id()))
-     *             .routeTableId(aws_route_table.private().id())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetVpcEndpointResult> getVpcEndpointPlain(GetVpcEndpointPlainArgs args) {
@@ -14356,44 +2482,6 @@ public final class Ec2Functions {
      * The VPC Endpoint data source provides details about
      * a specific VPC endpoint.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetVpcEndpointArgs;
-     * import com.pulumi.aws.ec2.VpcEndpointRouteTableAssociation;
-     * import com.pulumi.aws.ec2.VpcEndpointRouteTableAssociationArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var s3 = Ec2Functions.getVpcEndpoint(GetVpcEndpointArgs.builder()
-     *             .vpcId(aws_vpc.foo().id())
-     *             .serviceName(&#34;com.amazonaws.us-west-2.s3&#34;)
-     *             .build());
-     * 
-     *         var privateS3 = new VpcEndpointRouteTableAssociation(&#34;privateS3&#34;, VpcEndpointRouteTableAssociationArgs.builder()        
-     *             .vpcEndpointId(s3.applyValue(getVpcEndpointResult -&gt; getVpcEndpointResult.id()))
-     *             .routeTableId(aws_route_table.private().id())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetVpcEndpointResult> getVpcEndpoint(GetVpcEndpointArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:ec2/getVpcEndpoint:getVpcEndpoint", TypeShape.of(GetVpcEndpointResult.class), args, Utilities.withVersion(options));
@@ -14401,44 +2489,6 @@ public final class Ec2Functions {
     /**
      * The VPC Endpoint data source provides details about
      * a specific VPC endpoint.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetVpcEndpointArgs;
-     * import com.pulumi.aws.ec2.VpcEndpointRouteTableAssociation;
-     * import com.pulumi.aws.ec2.VpcEndpointRouteTableAssociationArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var s3 = Ec2Functions.getVpcEndpoint(GetVpcEndpointArgs.builder()
-     *             .vpcId(aws_vpc.foo().id())
-     *             .serviceName(&#34;com.amazonaws.us-west-2.s3&#34;)
-     *             .build());
-     * 
-     *         var privateS3 = new VpcEndpointRouteTableAssociation(&#34;privateS3&#34;, VpcEndpointRouteTableAssociationArgs.builder()        
-     *             .vpcEndpointId(s3.applyValue(getVpcEndpointResult -&gt; getVpcEndpointResult.id()))
-     *             .routeTableId(aws_route_table.private().id())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetVpcEndpointResult> getVpcEndpointPlain(GetVpcEndpointPlainArgs args, InvokeOptions options) {
@@ -14449,110 +2499,6 @@ public final class Ec2Functions {
      * can be specified when creating a VPC endpoint within the region configured in the provider.
      * 
      * ## Example Usage
-     * ### AWS Service
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetVpcEndpointServiceArgs;
-     * import com.pulumi.aws.ec2.Vpc;
-     * import com.pulumi.aws.ec2.VpcArgs;
-     * import com.pulumi.aws.ec2.VpcEndpoint;
-     * import com.pulumi.aws.ec2.VpcEndpointArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var s3 = Ec2Functions.getVpcEndpointService(GetVpcEndpointServiceArgs.builder()
-     *             .service(&#34;s3&#34;)
-     *             .serviceType(&#34;Gateway&#34;)
-     *             .build());
-     * 
-     *         var foo = new Vpc(&#34;foo&#34;, VpcArgs.builder()        
-     *             .cidrBlock(&#34;10.0.0.0/16&#34;)
-     *             .build());
-     * 
-     *         var ep = new VpcEndpoint(&#34;ep&#34;, VpcEndpointArgs.builder()        
-     *             .vpcId(foo.id())
-     *             .serviceName(s3.applyValue(getVpcEndpointServiceResult -&gt; getVpcEndpointServiceResult.serviceName()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * ### Non-AWS Service
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetVpcEndpointServiceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var custome = Ec2Functions.getVpcEndpointService(GetVpcEndpointServiceArgs.builder()
-     *             .serviceName(&#34;com.amazonaws.vpce.us-west-2.vpce-svc-0e87519c997c63cd8&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * ### Filter
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetVpcEndpointServiceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = Ec2Functions.getVpcEndpointService(GetVpcEndpointServiceArgs.builder()
-     *             .filters(GetVpcEndpointServiceFilterArgs.builder()
-     *                 .name(&#34;service-name&#34;)
-     *                 .values(&#34;some-service&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetVpcEndpointServiceResult> getVpcEndpointService() {
@@ -14563,110 +2509,6 @@ public final class Ec2Functions {
      * can be specified when creating a VPC endpoint within the region configured in the provider.
      * 
      * ## Example Usage
-     * ### AWS Service
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetVpcEndpointServiceArgs;
-     * import com.pulumi.aws.ec2.Vpc;
-     * import com.pulumi.aws.ec2.VpcArgs;
-     * import com.pulumi.aws.ec2.VpcEndpoint;
-     * import com.pulumi.aws.ec2.VpcEndpointArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var s3 = Ec2Functions.getVpcEndpointService(GetVpcEndpointServiceArgs.builder()
-     *             .service(&#34;s3&#34;)
-     *             .serviceType(&#34;Gateway&#34;)
-     *             .build());
-     * 
-     *         var foo = new Vpc(&#34;foo&#34;, VpcArgs.builder()        
-     *             .cidrBlock(&#34;10.0.0.0/16&#34;)
-     *             .build());
-     * 
-     *         var ep = new VpcEndpoint(&#34;ep&#34;, VpcEndpointArgs.builder()        
-     *             .vpcId(foo.id())
-     *             .serviceName(s3.applyValue(getVpcEndpointServiceResult -&gt; getVpcEndpointServiceResult.serviceName()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * ### Non-AWS Service
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetVpcEndpointServiceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var custome = Ec2Functions.getVpcEndpointService(GetVpcEndpointServiceArgs.builder()
-     *             .serviceName(&#34;com.amazonaws.vpce.us-west-2.vpce-svc-0e87519c997c63cd8&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * ### Filter
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetVpcEndpointServiceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = Ec2Functions.getVpcEndpointService(GetVpcEndpointServiceArgs.builder()
-     *             .filters(GetVpcEndpointServiceFilterArgs.builder()
-     *                 .name(&#34;service-name&#34;)
-     *                 .values(&#34;some-service&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetVpcEndpointServiceResult> getVpcEndpointServicePlain() {
@@ -14677,110 +2519,6 @@ public final class Ec2Functions {
      * can be specified when creating a VPC endpoint within the region configured in the provider.
      * 
      * ## Example Usage
-     * ### AWS Service
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetVpcEndpointServiceArgs;
-     * import com.pulumi.aws.ec2.Vpc;
-     * import com.pulumi.aws.ec2.VpcArgs;
-     * import com.pulumi.aws.ec2.VpcEndpoint;
-     * import com.pulumi.aws.ec2.VpcEndpointArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var s3 = Ec2Functions.getVpcEndpointService(GetVpcEndpointServiceArgs.builder()
-     *             .service(&#34;s3&#34;)
-     *             .serviceType(&#34;Gateway&#34;)
-     *             .build());
-     * 
-     *         var foo = new Vpc(&#34;foo&#34;, VpcArgs.builder()        
-     *             .cidrBlock(&#34;10.0.0.0/16&#34;)
-     *             .build());
-     * 
-     *         var ep = new VpcEndpoint(&#34;ep&#34;, VpcEndpointArgs.builder()        
-     *             .vpcId(foo.id())
-     *             .serviceName(s3.applyValue(getVpcEndpointServiceResult -&gt; getVpcEndpointServiceResult.serviceName()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * ### Non-AWS Service
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetVpcEndpointServiceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var custome = Ec2Functions.getVpcEndpointService(GetVpcEndpointServiceArgs.builder()
-     *             .serviceName(&#34;com.amazonaws.vpce.us-west-2.vpce-svc-0e87519c997c63cd8&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * ### Filter
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetVpcEndpointServiceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = Ec2Functions.getVpcEndpointService(GetVpcEndpointServiceArgs.builder()
-     *             .filters(GetVpcEndpointServiceFilterArgs.builder()
-     *                 .name(&#34;service-name&#34;)
-     *                 .values(&#34;some-service&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetVpcEndpointServiceResult> getVpcEndpointService(GetVpcEndpointServiceArgs args) {
@@ -14791,110 +2529,6 @@ public final class Ec2Functions {
      * can be specified when creating a VPC endpoint within the region configured in the provider.
      * 
      * ## Example Usage
-     * ### AWS Service
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetVpcEndpointServiceArgs;
-     * import com.pulumi.aws.ec2.Vpc;
-     * import com.pulumi.aws.ec2.VpcArgs;
-     * import com.pulumi.aws.ec2.VpcEndpoint;
-     * import com.pulumi.aws.ec2.VpcEndpointArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var s3 = Ec2Functions.getVpcEndpointService(GetVpcEndpointServiceArgs.builder()
-     *             .service(&#34;s3&#34;)
-     *             .serviceType(&#34;Gateway&#34;)
-     *             .build());
-     * 
-     *         var foo = new Vpc(&#34;foo&#34;, VpcArgs.builder()        
-     *             .cidrBlock(&#34;10.0.0.0/16&#34;)
-     *             .build());
-     * 
-     *         var ep = new VpcEndpoint(&#34;ep&#34;, VpcEndpointArgs.builder()        
-     *             .vpcId(foo.id())
-     *             .serviceName(s3.applyValue(getVpcEndpointServiceResult -&gt; getVpcEndpointServiceResult.serviceName()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * ### Non-AWS Service
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetVpcEndpointServiceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var custome = Ec2Functions.getVpcEndpointService(GetVpcEndpointServiceArgs.builder()
-     *             .serviceName(&#34;com.amazonaws.vpce.us-west-2.vpce-svc-0e87519c997c63cd8&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * ### Filter
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetVpcEndpointServiceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = Ec2Functions.getVpcEndpointService(GetVpcEndpointServiceArgs.builder()
-     *             .filters(GetVpcEndpointServiceFilterArgs.builder()
-     *                 .name(&#34;service-name&#34;)
-     *                 .values(&#34;some-service&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetVpcEndpointServiceResult> getVpcEndpointServicePlain(GetVpcEndpointServicePlainArgs args) {
@@ -14905,110 +2539,6 @@ public final class Ec2Functions {
      * can be specified when creating a VPC endpoint within the region configured in the provider.
      * 
      * ## Example Usage
-     * ### AWS Service
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetVpcEndpointServiceArgs;
-     * import com.pulumi.aws.ec2.Vpc;
-     * import com.pulumi.aws.ec2.VpcArgs;
-     * import com.pulumi.aws.ec2.VpcEndpoint;
-     * import com.pulumi.aws.ec2.VpcEndpointArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var s3 = Ec2Functions.getVpcEndpointService(GetVpcEndpointServiceArgs.builder()
-     *             .service(&#34;s3&#34;)
-     *             .serviceType(&#34;Gateway&#34;)
-     *             .build());
-     * 
-     *         var foo = new Vpc(&#34;foo&#34;, VpcArgs.builder()        
-     *             .cidrBlock(&#34;10.0.0.0/16&#34;)
-     *             .build());
-     * 
-     *         var ep = new VpcEndpoint(&#34;ep&#34;, VpcEndpointArgs.builder()        
-     *             .vpcId(foo.id())
-     *             .serviceName(s3.applyValue(getVpcEndpointServiceResult -&gt; getVpcEndpointServiceResult.serviceName()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * ### Non-AWS Service
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetVpcEndpointServiceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var custome = Ec2Functions.getVpcEndpointService(GetVpcEndpointServiceArgs.builder()
-     *             .serviceName(&#34;com.amazonaws.vpce.us-west-2.vpce-svc-0e87519c997c63cd8&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * ### Filter
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetVpcEndpointServiceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = Ec2Functions.getVpcEndpointService(GetVpcEndpointServiceArgs.builder()
-     *             .filters(GetVpcEndpointServiceFilterArgs.builder()
-     *                 .name(&#34;service-name&#34;)
-     *                 .values(&#34;some-service&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetVpcEndpointServiceResult> getVpcEndpointService(GetVpcEndpointServiceArgs args, InvokeOptions options) {
@@ -15019,110 +2549,6 @@ public final class Ec2Functions {
      * can be specified when creating a VPC endpoint within the region configured in the provider.
      * 
      * ## Example Usage
-     * ### AWS Service
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetVpcEndpointServiceArgs;
-     * import com.pulumi.aws.ec2.Vpc;
-     * import com.pulumi.aws.ec2.VpcArgs;
-     * import com.pulumi.aws.ec2.VpcEndpoint;
-     * import com.pulumi.aws.ec2.VpcEndpointArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var s3 = Ec2Functions.getVpcEndpointService(GetVpcEndpointServiceArgs.builder()
-     *             .service(&#34;s3&#34;)
-     *             .serviceType(&#34;Gateway&#34;)
-     *             .build());
-     * 
-     *         var foo = new Vpc(&#34;foo&#34;, VpcArgs.builder()        
-     *             .cidrBlock(&#34;10.0.0.0/16&#34;)
-     *             .build());
-     * 
-     *         var ep = new VpcEndpoint(&#34;ep&#34;, VpcEndpointArgs.builder()        
-     *             .vpcId(foo.id())
-     *             .serviceName(s3.applyValue(getVpcEndpointServiceResult -&gt; getVpcEndpointServiceResult.serviceName()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * ### Non-AWS Service
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetVpcEndpointServiceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var custome = Ec2Functions.getVpcEndpointService(GetVpcEndpointServiceArgs.builder()
-     *             .serviceName(&#34;com.amazonaws.vpce.us-west-2.vpce-svc-0e87519c997c63cd8&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * ### Filter
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetVpcEndpointServiceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = Ec2Functions.getVpcEndpointService(GetVpcEndpointServiceArgs.builder()
-     *             .filters(GetVpcEndpointServiceFilterArgs.builder()
-     *                 .name(&#34;service-name&#34;)
-     *                 .values(&#34;some-service&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetVpcEndpointServiceResult> getVpcEndpointServicePlain(GetVpcEndpointServicePlainArgs args, InvokeOptions options) {
@@ -15134,55 +2560,6 @@ public final class Ec2Functions {
      * This resource can prove useful when an ipam pool was created in another root
      * module and you need the pool&#39;s id as an input variable. For example, pools
      * can be shared via RAM and used to create vpcs with CIDRs from that pool.
-     * 
-     * ## Example Usage
-     * 
-     * The following example shows an account that has only 1 pool, perhaps shared
-     * via RAM, and using that pool id to create a VPC with a CIDR derived from
-     * AWS IPAM.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetVpcIpamPoolArgs;
-     * import com.pulumi.aws.ec2.Vpc;
-     * import com.pulumi.aws.ec2.VpcArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var testVpcIpamPool = Ec2Functions.getVpcIpamPool(GetVpcIpamPoolArgs.builder()
-     *             .filters(            
-     *                 GetVpcIpamPoolFilterArgs.builder()
-     *                     .name(&#34;description&#34;)
-     *                     .values(&#34;*test*&#34;)
-     *                     .build(),
-     *                 GetVpcIpamPoolFilterArgs.builder()
-     *                     .name(&#34;address-family&#34;)
-     *                     .values(&#34;ipv4&#34;)
-     *                     .build())
-     *             .build());
-     * 
-     *         var testVpc = new Vpc(&#34;testVpc&#34;, VpcArgs.builder()        
-     *             .ipv4IpamPoolId(testVpcIpamPool.applyValue(getVpcIpamPoolResult -&gt; getVpcIpamPoolResult.id()))
-     *             .ipv4NetmaskLength(28)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      * @deprecated
      * aws.ec2/getvpciampool.getVpcIamPool has been deprecated in favor of aws.ec2/getvpcipampool.getVpcIpamPool
@@ -15199,55 +2576,6 @@ public final class Ec2Functions {
      * module and you need the pool&#39;s id as an input variable. For example, pools
      * can be shared via RAM and used to create vpcs with CIDRs from that pool.
      * 
-     * ## Example Usage
-     * 
-     * The following example shows an account that has only 1 pool, perhaps shared
-     * via RAM, and using that pool id to create a VPC with a CIDR derived from
-     * AWS IPAM.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetVpcIpamPoolArgs;
-     * import com.pulumi.aws.ec2.Vpc;
-     * import com.pulumi.aws.ec2.VpcArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var testVpcIpamPool = Ec2Functions.getVpcIpamPool(GetVpcIpamPoolArgs.builder()
-     *             .filters(            
-     *                 GetVpcIpamPoolFilterArgs.builder()
-     *                     .name(&#34;description&#34;)
-     *                     .values(&#34;*test*&#34;)
-     *                     .build(),
-     *                 GetVpcIpamPoolFilterArgs.builder()
-     *                     .name(&#34;address-family&#34;)
-     *                     .values(&#34;ipv4&#34;)
-     *                     .build())
-     *             .build());
-     * 
-     *         var testVpc = new Vpc(&#34;testVpc&#34;, VpcArgs.builder()        
-     *             .ipv4IpamPoolId(testVpcIpamPool.applyValue(getVpcIpamPoolResult -&gt; getVpcIpamPoolResult.id()))
-     *             .ipv4NetmaskLength(28)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      * @deprecated
      * aws.ec2/getvpciampool.getVpcIamPool has been deprecated in favor of aws.ec2/getvpcipampool.getVpcIpamPool
      * 
@@ -15262,55 +2590,6 @@ public final class Ec2Functions {
      * This resource can prove useful when an ipam pool was created in another root
      * module and you need the pool&#39;s id as an input variable. For example, pools
      * can be shared via RAM and used to create vpcs with CIDRs from that pool.
-     * 
-     * ## Example Usage
-     * 
-     * The following example shows an account that has only 1 pool, perhaps shared
-     * via RAM, and using that pool id to create a VPC with a CIDR derived from
-     * AWS IPAM.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetVpcIpamPoolArgs;
-     * import com.pulumi.aws.ec2.Vpc;
-     * import com.pulumi.aws.ec2.VpcArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var testVpcIpamPool = Ec2Functions.getVpcIpamPool(GetVpcIpamPoolArgs.builder()
-     *             .filters(            
-     *                 GetVpcIpamPoolFilterArgs.builder()
-     *                     .name(&#34;description&#34;)
-     *                     .values(&#34;*test*&#34;)
-     *                     .build(),
-     *                 GetVpcIpamPoolFilterArgs.builder()
-     *                     .name(&#34;address-family&#34;)
-     *                     .values(&#34;ipv4&#34;)
-     *                     .build())
-     *             .build());
-     * 
-     *         var testVpc = new Vpc(&#34;testVpc&#34;, VpcArgs.builder()        
-     *             .ipv4IpamPoolId(testVpcIpamPool.applyValue(getVpcIpamPoolResult -&gt; getVpcIpamPoolResult.id()))
-     *             .ipv4NetmaskLength(28)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      * @deprecated
      * aws.ec2/getvpciampool.getVpcIamPool has been deprecated in favor of aws.ec2/getvpcipampool.getVpcIpamPool
@@ -15327,55 +2606,6 @@ public final class Ec2Functions {
      * module and you need the pool&#39;s id as an input variable. For example, pools
      * can be shared via RAM and used to create vpcs with CIDRs from that pool.
      * 
-     * ## Example Usage
-     * 
-     * The following example shows an account that has only 1 pool, perhaps shared
-     * via RAM, and using that pool id to create a VPC with a CIDR derived from
-     * AWS IPAM.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetVpcIpamPoolArgs;
-     * import com.pulumi.aws.ec2.Vpc;
-     * import com.pulumi.aws.ec2.VpcArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var testVpcIpamPool = Ec2Functions.getVpcIpamPool(GetVpcIpamPoolArgs.builder()
-     *             .filters(            
-     *                 GetVpcIpamPoolFilterArgs.builder()
-     *                     .name(&#34;description&#34;)
-     *                     .values(&#34;*test*&#34;)
-     *                     .build(),
-     *                 GetVpcIpamPoolFilterArgs.builder()
-     *                     .name(&#34;address-family&#34;)
-     *                     .values(&#34;ipv4&#34;)
-     *                     .build())
-     *             .build());
-     * 
-     *         var testVpc = new Vpc(&#34;testVpc&#34;, VpcArgs.builder()        
-     *             .ipv4IpamPoolId(testVpcIpamPool.applyValue(getVpcIpamPoolResult -&gt; getVpcIpamPoolResult.id()))
-     *             .ipv4NetmaskLength(28)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      * @deprecated
      * aws.ec2/getvpciampool.getVpcIamPool has been deprecated in favor of aws.ec2/getvpcipampool.getVpcIpamPool
      * 
@@ -15391,55 +2621,6 @@ public final class Ec2Functions {
      * module and you need the pool&#39;s id as an input variable. For example, pools
      * can be shared via RAM and used to create vpcs with CIDRs from that pool.
      * 
-     * ## Example Usage
-     * 
-     * The following example shows an account that has only 1 pool, perhaps shared
-     * via RAM, and using that pool id to create a VPC with a CIDR derived from
-     * AWS IPAM.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetVpcIpamPoolArgs;
-     * import com.pulumi.aws.ec2.Vpc;
-     * import com.pulumi.aws.ec2.VpcArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var testVpcIpamPool = Ec2Functions.getVpcIpamPool(GetVpcIpamPoolArgs.builder()
-     *             .filters(            
-     *                 GetVpcIpamPoolFilterArgs.builder()
-     *                     .name(&#34;description&#34;)
-     *                     .values(&#34;*test*&#34;)
-     *                     .build(),
-     *                 GetVpcIpamPoolFilterArgs.builder()
-     *                     .name(&#34;address-family&#34;)
-     *                     .values(&#34;ipv4&#34;)
-     *                     .build())
-     *             .build());
-     * 
-     *         var testVpc = new Vpc(&#34;testVpc&#34;, VpcArgs.builder()        
-     *             .ipv4IpamPoolId(testVpcIpamPool.applyValue(getVpcIpamPoolResult -&gt; getVpcIpamPoolResult.id()))
-     *             .ipv4NetmaskLength(28)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      * @deprecated
      * aws.ec2/getvpciampool.getVpcIamPool has been deprecated in favor of aws.ec2/getvpcipampool.getVpcIpamPool
      * 
@@ -15454,55 +2635,6 @@ public final class Ec2Functions {
      * This resource can prove useful when an ipam pool was created in another root
      * module and you need the pool&#39;s id as an input variable. For example, pools
      * can be shared via RAM and used to create vpcs with CIDRs from that pool.
-     * 
-     * ## Example Usage
-     * 
-     * The following example shows an account that has only 1 pool, perhaps shared
-     * via RAM, and using that pool id to create a VPC with a CIDR derived from
-     * AWS IPAM.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetVpcIpamPoolArgs;
-     * import com.pulumi.aws.ec2.Vpc;
-     * import com.pulumi.aws.ec2.VpcArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var testVpcIpamPool = Ec2Functions.getVpcIpamPool(GetVpcIpamPoolArgs.builder()
-     *             .filters(            
-     *                 GetVpcIpamPoolFilterArgs.builder()
-     *                     .name(&#34;description&#34;)
-     *                     .values(&#34;*test*&#34;)
-     *                     .build(),
-     *                 GetVpcIpamPoolFilterArgs.builder()
-     *                     .name(&#34;address-family&#34;)
-     *                     .values(&#34;ipv4&#34;)
-     *                     .build())
-     *             .build());
-     * 
-     *         var testVpc = new Vpc(&#34;testVpc&#34;, VpcArgs.builder()        
-     *             .ipv4IpamPoolId(testVpcIpamPool.applyValue(getVpcIpamPoolResult -&gt; getVpcIpamPoolResult.id()))
-     *             .ipv4NetmaskLength(28)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      * @deprecated
      * aws.ec2/getvpciampool.getVpcIamPool has been deprecated in favor of aws.ec2/getvpcipampool.getVpcIpamPool
@@ -15571,44 +2703,6 @@ public final class Ec2Functions {
      * module and you need the pool ids as input variables. For example, pools
      * can be shared via RAM and used to create vpcs with CIDRs from that pool.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetVpcIpamPoolsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = Ec2Functions.getVpcIpamPools(GetVpcIpamPoolsArgs.builder()
-     *             .filters(            
-     *                 GetVpcIpamPoolsFilterArgs.builder()
-     *                     .name(&#34;description&#34;)
-     *                     .values(&#34;*test*&#34;)
-     *                     .build(),
-     *                 GetVpcIpamPoolsFilterArgs.builder()
-     *                     .name(&#34;address-family&#34;)
-     *                     .values(&#34;ipv4&#34;)
-     *                     .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      * @deprecated
      * aws.ec2/getvpciampools.getVpcIamPools has been deprecated in favor of aws.ec2/getvpcipampools.getVpcIpamPools
      * 
@@ -15623,44 +2717,6 @@ public final class Ec2Functions {
      * This resource can prove useful when IPAM pools are created in another root
      * module and you need the pool ids as input variables. For example, pools
      * can be shared via RAM and used to create vpcs with CIDRs from that pool.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetVpcIpamPoolsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = Ec2Functions.getVpcIpamPools(GetVpcIpamPoolsArgs.builder()
-     *             .filters(            
-     *                 GetVpcIpamPoolsFilterArgs.builder()
-     *                     .name(&#34;description&#34;)
-     *                     .values(&#34;*test*&#34;)
-     *                     .build(),
-     *                 GetVpcIpamPoolsFilterArgs.builder()
-     *                     .name(&#34;address-family&#34;)
-     *                     .values(&#34;ipv4&#34;)
-     *                     .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      * @deprecated
      * aws.ec2/getvpciampools.getVpcIamPools has been deprecated in favor of aws.ec2/getvpcipampools.getVpcIpamPools
@@ -15677,44 +2733,6 @@ public final class Ec2Functions {
      * module and you need the pool ids as input variables. For example, pools
      * can be shared via RAM and used to create vpcs with CIDRs from that pool.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetVpcIpamPoolsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = Ec2Functions.getVpcIpamPools(GetVpcIpamPoolsArgs.builder()
-     *             .filters(            
-     *                 GetVpcIpamPoolsFilterArgs.builder()
-     *                     .name(&#34;description&#34;)
-     *                     .values(&#34;*test*&#34;)
-     *                     .build(),
-     *                 GetVpcIpamPoolsFilterArgs.builder()
-     *                     .name(&#34;address-family&#34;)
-     *                     .values(&#34;ipv4&#34;)
-     *                     .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      * @deprecated
      * aws.ec2/getvpciampools.getVpcIamPools has been deprecated in favor of aws.ec2/getvpcipampools.getVpcIpamPools
      * 
@@ -15729,44 +2747,6 @@ public final class Ec2Functions {
      * This resource can prove useful when IPAM pools are created in another root
      * module and you need the pool ids as input variables. For example, pools
      * can be shared via RAM and used to create vpcs with CIDRs from that pool.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetVpcIpamPoolsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = Ec2Functions.getVpcIpamPools(GetVpcIpamPoolsArgs.builder()
-     *             .filters(            
-     *                 GetVpcIpamPoolsFilterArgs.builder()
-     *                     .name(&#34;description&#34;)
-     *                     .values(&#34;*test*&#34;)
-     *                     .build(),
-     *                 GetVpcIpamPoolsFilterArgs.builder()
-     *                     .name(&#34;address-family&#34;)
-     *                     .values(&#34;ipv4&#34;)
-     *                     .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      * @deprecated
      * aws.ec2/getvpciampools.getVpcIamPools has been deprecated in favor of aws.ec2/getvpcipampools.getVpcIpamPools
@@ -15783,44 +2763,6 @@ public final class Ec2Functions {
      * module and you need the pool ids as input variables. For example, pools
      * can be shared via RAM and used to create vpcs with CIDRs from that pool.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetVpcIpamPoolsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = Ec2Functions.getVpcIpamPools(GetVpcIpamPoolsArgs.builder()
-     *             .filters(            
-     *                 GetVpcIpamPoolsFilterArgs.builder()
-     *                     .name(&#34;description&#34;)
-     *                     .values(&#34;*test*&#34;)
-     *                     .build(),
-     *                 GetVpcIpamPoolsFilterArgs.builder()
-     *                     .name(&#34;address-family&#34;)
-     *                     .values(&#34;ipv4&#34;)
-     *                     .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      * @deprecated
      * aws.ec2/getvpciampools.getVpcIamPools has been deprecated in favor of aws.ec2/getvpcipampools.getVpcIpamPools
      * 
@@ -15835,44 +2777,6 @@ public final class Ec2Functions {
      * This resource can prove useful when IPAM pools are created in another root
      * module and you need the pool ids as input variables. For example, pools
      * can be shared via RAM and used to create vpcs with CIDRs from that pool.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetVpcIpamPoolsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = Ec2Functions.getVpcIpamPools(GetVpcIpamPoolsArgs.builder()
-     *             .filters(            
-     *                 GetVpcIpamPoolsFilterArgs.builder()
-     *                     .name(&#34;description&#34;)
-     *                     .values(&#34;*test*&#34;)
-     *                     .build(),
-     *                 GetVpcIpamPoolsFilterArgs.builder()
-     *                     .name(&#34;address-family&#34;)
-     *                     .values(&#34;ipv4&#34;)
-     *                     .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      * @deprecated
      * aws.ec2/getvpciampools.getVpcIamPools has been deprecated in favor of aws.ec2/getvpcipampools.getVpcIpamPools
@@ -15889,55 +2793,6 @@ public final class Ec2Functions {
      * module and you need the pool&#39;s id as an input variable. For example, pools
      * can be shared via RAM and used to create vpcs with CIDRs from that pool.
      * 
-     * ## Example Usage
-     * 
-     * The following example shows an account that has only 1 pool, perhaps shared
-     * via RAM, and using that pool id to create a VPC with a CIDR derived from
-     * AWS IPAM.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetVpcIpamPoolArgs;
-     * import com.pulumi.aws.ec2.Vpc;
-     * import com.pulumi.aws.ec2.VpcArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var testVpcIpamPool = Ec2Functions.getVpcIpamPool(GetVpcIpamPoolArgs.builder()
-     *             .filters(            
-     *                 GetVpcIpamPoolFilterArgs.builder()
-     *                     .name(&#34;description&#34;)
-     *                     .values(&#34;*test*&#34;)
-     *                     .build(),
-     *                 GetVpcIpamPoolFilterArgs.builder()
-     *                     .name(&#34;address-family&#34;)
-     *                     .values(&#34;ipv4&#34;)
-     *                     .build())
-     *             .build());
-     * 
-     *         var testVpc = new Vpc(&#34;testVpc&#34;, VpcArgs.builder()        
-     *             .ipv4IpamPoolId(testVpcIpamPool.applyValue(getVpcIpamPoolResult -&gt; getVpcIpamPoolResult.id()))
-     *             .ipv4NetmaskLength(28)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetVpcIpamPoolResult> getVpcIpamPool() {
         return getVpcIpamPool(GetVpcIpamPoolArgs.Empty, InvokeOptions.Empty);
@@ -15948,55 +2803,6 @@ public final class Ec2Functions {
      * This resource can prove useful when an ipam pool was created in another root
      * module and you need the pool&#39;s id as an input variable. For example, pools
      * can be shared via RAM and used to create vpcs with CIDRs from that pool.
-     * 
-     * ## Example Usage
-     * 
-     * The following example shows an account that has only 1 pool, perhaps shared
-     * via RAM, and using that pool id to create a VPC with a CIDR derived from
-     * AWS IPAM.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetVpcIpamPoolArgs;
-     * import com.pulumi.aws.ec2.Vpc;
-     * import com.pulumi.aws.ec2.VpcArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var testVpcIpamPool = Ec2Functions.getVpcIpamPool(GetVpcIpamPoolArgs.builder()
-     *             .filters(            
-     *                 GetVpcIpamPoolFilterArgs.builder()
-     *                     .name(&#34;description&#34;)
-     *                     .values(&#34;*test*&#34;)
-     *                     .build(),
-     *                 GetVpcIpamPoolFilterArgs.builder()
-     *                     .name(&#34;address-family&#34;)
-     *                     .values(&#34;ipv4&#34;)
-     *                     .build())
-     *             .build());
-     * 
-     *         var testVpc = new Vpc(&#34;testVpc&#34;, VpcArgs.builder()        
-     *             .ipv4IpamPoolId(testVpcIpamPool.applyValue(getVpcIpamPoolResult -&gt; getVpcIpamPoolResult.id()))
-     *             .ipv4NetmaskLength(28)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetVpcIpamPoolResult> getVpcIpamPoolPlain() {
@@ -16009,55 +2815,6 @@ public final class Ec2Functions {
      * module and you need the pool&#39;s id as an input variable. For example, pools
      * can be shared via RAM and used to create vpcs with CIDRs from that pool.
      * 
-     * ## Example Usage
-     * 
-     * The following example shows an account that has only 1 pool, perhaps shared
-     * via RAM, and using that pool id to create a VPC with a CIDR derived from
-     * AWS IPAM.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetVpcIpamPoolArgs;
-     * import com.pulumi.aws.ec2.Vpc;
-     * import com.pulumi.aws.ec2.VpcArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var testVpcIpamPool = Ec2Functions.getVpcIpamPool(GetVpcIpamPoolArgs.builder()
-     *             .filters(            
-     *                 GetVpcIpamPoolFilterArgs.builder()
-     *                     .name(&#34;description&#34;)
-     *                     .values(&#34;*test*&#34;)
-     *                     .build(),
-     *                 GetVpcIpamPoolFilterArgs.builder()
-     *                     .name(&#34;address-family&#34;)
-     *                     .values(&#34;ipv4&#34;)
-     *                     .build())
-     *             .build());
-     * 
-     *         var testVpc = new Vpc(&#34;testVpc&#34;, VpcArgs.builder()        
-     *             .ipv4IpamPoolId(testVpcIpamPool.applyValue(getVpcIpamPoolResult -&gt; getVpcIpamPoolResult.id()))
-     *             .ipv4NetmaskLength(28)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetVpcIpamPoolResult> getVpcIpamPool(GetVpcIpamPoolArgs args) {
         return getVpcIpamPool(args, InvokeOptions.Empty);
@@ -16068,55 +2825,6 @@ public final class Ec2Functions {
      * This resource can prove useful when an ipam pool was created in another root
      * module and you need the pool&#39;s id as an input variable. For example, pools
      * can be shared via RAM and used to create vpcs with CIDRs from that pool.
-     * 
-     * ## Example Usage
-     * 
-     * The following example shows an account that has only 1 pool, perhaps shared
-     * via RAM, and using that pool id to create a VPC with a CIDR derived from
-     * AWS IPAM.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetVpcIpamPoolArgs;
-     * import com.pulumi.aws.ec2.Vpc;
-     * import com.pulumi.aws.ec2.VpcArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var testVpcIpamPool = Ec2Functions.getVpcIpamPool(GetVpcIpamPoolArgs.builder()
-     *             .filters(            
-     *                 GetVpcIpamPoolFilterArgs.builder()
-     *                     .name(&#34;description&#34;)
-     *                     .values(&#34;*test*&#34;)
-     *                     .build(),
-     *                 GetVpcIpamPoolFilterArgs.builder()
-     *                     .name(&#34;address-family&#34;)
-     *                     .values(&#34;ipv4&#34;)
-     *                     .build())
-     *             .build());
-     * 
-     *         var testVpc = new Vpc(&#34;testVpc&#34;, VpcArgs.builder()        
-     *             .ipv4IpamPoolId(testVpcIpamPool.applyValue(getVpcIpamPoolResult -&gt; getVpcIpamPoolResult.id()))
-     *             .ipv4NetmaskLength(28)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetVpcIpamPoolResult> getVpcIpamPoolPlain(GetVpcIpamPoolPlainArgs args) {
@@ -16129,55 +2837,6 @@ public final class Ec2Functions {
      * module and you need the pool&#39;s id as an input variable. For example, pools
      * can be shared via RAM and used to create vpcs with CIDRs from that pool.
      * 
-     * ## Example Usage
-     * 
-     * The following example shows an account that has only 1 pool, perhaps shared
-     * via RAM, and using that pool id to create a VPC with a CIDR derived from
-     * AWS IPAM.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetVpcIpamPoolArgs;
-     * import com.pulumi.aws.ec2.Vpc;
-     * import com.pulumi.aws.ec2.VpcArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var testVpcIpamPool = Ec2Functions.getVpcIpamPool(GetVpcIpamPoolArgs.builder()
-     *             .filters(            
-     *                 GetVpcIpamPoolFilterArgs.builder()
-     *                     .name(&#34;description&#34;)
-     *                     .values(&#34;*test*&#34;)
-     *                     .build(),
-     *                 GetVpcIpamPoolFilterArgs.builder()
-     *                     .name(&#34;address-family&#34;)
-     *                     .values(&#34;ipv4&#34;)
-     *                     .build())
-     *             .build());
-     * 
-     *         var testVpc = new Vpc(&#34;testVpc&#34;, VpcArgs.builder()        
-     *             .ipv4IpamPoolId(testVpcIpamPool.applyValue(getVpcIpamPoolResult -&gt; getVpcIpamPoolResult.id()))
-     *             .ipv4NetmaskLength(28)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetVpcIpamPoolResult> getVpcIpamPool(GetVpcIpamPoolArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:ec2/getVpcIpamPool:getVpcIpamPool", TypeShape.of(GetVpcIpamPoolResult.class), args, Utilities.withVersion(options));
@@ -16188,55 +2847,6 @@ public final class Ec2Functions {
      * This resource can prove useful when an ipam pool was created in another root
      * module and you need the pool&#39;s id as an input variable. For example, pools
      * can be shared via RAM and used to create vpcs with CIDRs from that pool.
-     * 
-     * ## Example Usage
-     * 
-     * The following example shows an account that has only 1 pool, perhaps shared
-     * via RAM, and using that pool id to create a VPC with a CIDR derived from
-     * AWS IPAM.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetVpcIpamPoolArgs;
-     * import com.pulumi.aws.ec2.Vpc;
-     * import com.pulumi.aws.ec2.VpcArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var testVpcIpamPool = Ec2Functions.getVpcIpamPool(GetVpcIpamPoolArgs.builder()
-     *             .filters(            
-     *                 GetVpcIpamPoolFilterArgs.builder()
-     *                     .name(&#34;description&#34;)
-     *                     .values(&#34;*test*&#34;)
-     *                     .build(),
-     *                 GetVpcIpamPoolFilterArgs.builder()
-     *                     .name(&#34;address-family&#34;)
-     *                     .values(&#34;ipv4&#34;)
-     *                     .build())
-     *             .build());
-     * 
-     *         var testVpc = new Vpc(&#34;testVpc&#34;, VpcArgs.builder()        
-     *             .ipv4IpamPoolId(testVpcIpamPool.applyValue(getVpcIpamPoolResult -&gt; getVpcIpamPoolResult.id()))
-     *             .ipv4NetmaskLength(28)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetVpcIpamPoolResult> getVpcIpamPoolPlain(GetVpcIpamPoolPlainArgs args, InvokeOptions options) {
@@ -16285,44 +2895,6 @@ public final class Ec2Functions {
      * module and you need the pool ids as input variables. For example, pools
      * can be shared via RAM and used to create vpcs with CIDRs from that pool.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetVpcIpamPoolsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = Ec2Functions.getVpcIpamPools(GetVpcIpamPoolsArgs.builder()
-     *             .filters(            
-     *                 GetVpcIpamPoolsFilterArgs.builder()
-     *                     .name(&#34;description&#34;)
-     *                     .values(&#34;*test*&#34;)
-     *                     .build(),
-     *                 GetVpcIpamPoolsFilterArgs.builder()
-     *                     .name(&#34;address-family&#34;)
-     *                     .values(&#34;ipv4&#34;)
-     *                     .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetVpcIpamPoolsResult> getVpcIpamPools() {
         return getVpcIpamPools(GetVpcIpamPoolsArgs.Empty, InvokeOptions.Empty);
@@ -16333,44 +2905,6 @@ public final class Ec2Functions {
      * This resource can prove useful when IPAM pools are created in another root
      * module and you need the pool ids as input variables. For example, pools
      * can be shared via RAM and used to create vpcs with CIDRs from that pool.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetVpcIpamPoolsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = Ec2Functions.getVpcIpamPools(GetVpcIpamPoolsArgs.builder()
-     *             .filters(            
-     *                 GetVpcIpamPoolsFilterArgs.builder()
-     *                     .name(&#34;description&#34;)
-     *                     .values(&#34;*test*&#34;)
-     *                     .build(),
-     *                 GetVpcIpamPoolsFilterArgs.builder()
-     *                     .name(&#34;address-family&#34;)
-     *                     .values(&#34;ipv4&#34;)
-     *                     .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetVpcIpamPoolsResult> getVpcIpamPoolsPlain() {
@@ -16383,44 +2917,6 @@ public final class Ec2Functions {
      * module and you need the pool ids as input variables. For example, pools
      * can be shared via RAM and used to create vpcs with CIDRs from that pool.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetVpcIpamPoolsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = Ec2Functions.getVpcIpamPools(GetVpcIpamPoolsArgs.builder()
-     *             .filters(            
-     *                 GetVpcIpamPoolsFilterArgs.builder()
-     *                     .name(&#34;description&#34;)
-     *                     .values(&#34;*test*&#34;)
-     *                     .build(),
-     *                 GetVpcIpamPoolsFilterArgs.builder()
-     *                     .name(&#34;address-family&#34;)
-     *                     .values(&#34;ipv4&#34;)
-     *                     .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetVpcIpamPoolsResult> getVpcIpamPools(GetVpcIpamPoolsArgs args) {
         return getVpcIpamPools(args, InvokeOptions.Empty);
@@ -16431,44 +2927,6 @@ public final class Ec2Functions {
      * This resource can prove useful when IPAM pools are created in another root
      * module and you need the pool ids as input variables. For example, pools
      * can be shared via RAM and used to create vpcs with CIDRs from that pool.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetVpcIpamPoolsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = Ec2Functions.getVpcIpamPools(GetVpcIpamPoolsArgs.builder()
-     *             .filters(            
-     *                 GetVpcIpamPoolsFilterArgs.builder()
-     *                     .name(&#34;description&#34;)
-     *                     .values(&#34;*test*&#34;)
-     *                     .build(),
-     *                 GetVpcIpamPoolsFilterArgs.builder()
-     *                     .name(&#34;address-family&#34;)
-     *                     .values(&#34;ipv4&#34;)
-     *                     .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetVpcIpamPoolsResult> getVpcIpamPoolsPlain(GetVpcIpamPoolsPlainArgs args) {
@@ -16481,44 +2939,6 @@ public final class Ec2Functions {
      * module and you need the pool ids as input variables. For example, pools
      * can be shared via RAM and used to create vpcs with CIDRs from that pool.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetVpcIpamPoolsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = Ec2Functions.getVpcIpamPools(GetVpcIpamPoolsArgs.builder()
-     *             .filters(            
-     *                 GetVpcIpamPoolsFilterArgs.builder()
-     *                     .name(&#34;description&#34;)
-     *                     .values(&#34;*test*&#34;)
-     *                     .build(),
-     *                 GetVpcIpamPoolsFilterArgs.builder()
-     *                     .name(&#34;address-family&#34;)
-     *                     .values(&#34;ipv4&#34;)
-     *                     .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetVpcIpamPoolsResult> getVpcIpamPools(GetVpcIpamPoolsArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:ec2/getVpcIpamPools:getVpcIpamPools", TypeShape.of(GetVpcIpamPoolsResult.class), args, Utilities.withVersion(options));
@@ -16530,44 +2950,6 @@ public final class Ec2Functions {
      * module and you need the pool ids as input variables. For example, pools
      * can be shared via RAM and used to create vpcs with CIDRs from that pool.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetVpcIpamPoolsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = Ec2Functions.getVpcIpamPools(GetVpcIpamPoolsArgs.builder()
-     *             .filters(            
-     *                 GetVpcIpamPoolsFilterArgs.builder()
-     *                     .name(&#34;description&#34;)
-     *                     .values(&#34;*test*&#34;)
-     *                     .build(),
-     *                 GetVpcIpamPoolsFilterArgs.builder()
-     *                     .name(&#34;address-family&#34;)
-     *                     .values(&#34;ipv4&#34;)
-     *                     .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static CompletableFuture<GetVpcIpamPoolsResult> getVpcIpamPoolsPlain(GetVpcIpamPoolsPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:ec2/getVpcIpamPools:getVpcIpamPools", TypeShape.of(GetVpcIpamPoolsResult.class), args, Utilities.withVersion(options));
@@ -16575,51 +2957,6 @@ public final class Ec2Functions {
     /**
      * The VPC Peering Connection data source provides details about
      * a specific VPC peering connection.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetVpcPeeringConnectionArgs;
-     * import com.pulumi.aws.ec2.RouteTable;
-     * import com.pulumi.aws.ec2.RouteTableArgs;
-     * import com.pulumi.aws.ec2.Route;
-     * import com.pulumi.aws.ec2.RouteArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var pc = Ec2Functions.getVpcPeeringConnection(GetVpcPeeringConnectionArgs.builder()
-     *             .vpcId(aws_vpc.foo().id())
-     *             .peerCidrBlock(&#34;10.0.1.0/22&#34;)
-     *             .build());
-     * 
-     *         var rt = new RouteTable(&#34;rt&#34;, RouteTableArgs.builder()        
-     *             .vpcId(aws_vpc.foo().id())
-     *             .build());
-     * 
-     *         var route = new Route(&#34;route&#34;, RouteArgs.builder()        
-     *             .routeTableId(rt.id())
-     *             .destinationCidrBlock(pc.applyValue(getVpcPeeringConnectionResult -&gt; getVpcPeeringConnectionResult.peerCidrBlock()))
-     *             .vpcPeeringConnectionId(pc.applyValue(getVpcPeeringConnectionResult -&gt; getVpcPeeringConnectionResult.id()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetVpcPeeringConnectionResult> getVpcPeeringConnection() {
@@ -16629,51 +2966,6 @@ public final class Ec2Functions {
      * The VPC Peering Connection data source provides details about
      * a specific VPC peering connection.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetVpcPeeringConnectionArgs;
-     * import com.pulumi.aws.ec2.RouteTable;
-     * import com.pulumi.aws.ec2.RouteTableArgs;
-     * import com.pulumi.aws.ec2.Route;
-     * import com.pulumi.aws.ec2.RouteArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var pc = Ec2Functions.getVpcPeeringConnection(GetVpcPeeringConnectionArgs.builder()
-     *             .vpcId(aws_vpc.foo().id())
-     *             .peerCidrBlock(&#34;10.0.1.0/22&#34;)
-     *             .build());
-     * 
-     *         var rt = new RouteTable(&#34;rt&#34;, RouteTableArgs.builder()        
-     *             .vpcId(aws_vpc.foo().id())
-     *             .build());
-     * 
-     *         var route = new Route(&#34;route&#34;, RouteArgs.builder()        
-     *             .routeTableId(rt.id())
-     *             .destinationCidrBlock(pc.applyValue(getVpcPeeringConnectionResult -&gt; getVpcPeeringConnectionResult.peerCidrBlock()))
-     *             .vpcPeeringConnectionId(pc.applyValue(getVpcPeeringConnectionResult -&gt; getVpcPeeringConnectionResult.id()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static CompletableFuture<GetVpcPeeringConnectionResult> getVpcPeeringConnectionPlain() {
         return getVpcPeeringConnectionPlain(GetVpcPeeringConnectionPlainArgs.Empty, InvokeOptions.Empty);
@@ -16681,51 +2973,6 @@ public final class Ec2Functions {
     /**
      * The VPC Peering Connection data source provides details about
      * a specific VPC peering connection.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetVpcPeeringConnectionArgs;
-     * import com.pulumi.aws.ec2.RouteTable;
-     * import com.pulumi.aws.ec2.RouteTableArgs;
-     * import com.pulumi.aws.ec2.Route;
-     * import com.pulumi.aws.ec2.RouteArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var pc = Ec2Functions.getVpcPeeringConnection(GetVpcPeeringConnectionArgs.builder()
-     *             .vpcId(aws_vpc.foo().id())
-     *             .peerCidrBlock(&#34;10.0.1.0/22&#34;)
-     *             .build());
-     * 
-     *         var rt = new RouteTable(&#34;rt&#34;, RouteTableArgs.builder()        
-     *             .vpcId(aws_vpc.foo().id())
-     *             .build());
-     * 
-     *         var route = new Route(&#34;route&#34;, RouteArgs.builder()        
-     *             .routeTableId(rt.id())
-     *             .destinationCidrBlock(pc.applyValue(getVpcPeeringConnectionResult -&gt; getVpcPeeringConnectionResult.peerCidrBlock()))
-     *             .vpcPeeringConnectionId(pc.applyValue(getVpcPeeringConnectionResult -&gt; getVpcPeeringConnectionResult.id()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetVpcPeeringConnectionResult> getVpcPeeringConnection(GetVpcPeeringConnectionArgs args) {
@@ -16735,51 +2982,6 @@ public final class Ec2Functions {
      * The VPC Peering Connection data source provides details about
      * a specific VPC peering connection.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetVpcPeeringConnectionArgs;
-     * import com.pulumi.aws.ec2.RouteTable;
-     * import com.pulumi.aws.ec2.RouteTableArgs;
-     * import com.pulumi.aws.ec2.Route;
-     * import com.pulumi.aws.ec2.RouteArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var pc = Ec2Functions.getVpcPeeringConnection(GetVpcPeeringConnectionArgs.builder()
-     *             .vpcId(aws_vpc.foo().id())
-     *             .peerCidrBlock(&#34;10.0.1.0/22&#34;)
-     *             .build());
-     * 
-     *         var rt = new RouteTable(&#34;rt&#34;, RouteTableArgs.builder()        
-     *             .vpcId(aws_vpc.foo().id())
-     *             .build());
-     * 
-     *         var route = new Route(&#34;route&#34;, RouteArgs.builder()        
-     *             .routeTableId(rt.id())
-     *             .destinationCidrBlock(pc.applyValue(getVpcPeeringConnectionResult -&gt; getVpcPeeringConnectionResult.peerCidrBlock()))
-     *             .vpcPeeringConnectionId(pc.applyValue(getVpcPeeringConnectionResult -&gt; getVpcPeeringConnectionResult.id()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static CompletableFuture<GetVpcPeeringConnectionResult> getVpcPeeringConnectionPlain(GetVpcPeeringConnectionPlainArgs args) {
         return getVpcPeeringConnectionPlain(args, InvokeOptions.Empty);
@@ -16788,51 +2990,6 @@ public final class Ec2Functions {
      * The VPC Peering Connection data source provides details about
      * a specific VPC peering connection.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetVpcPeeringConnectionArgs;
-     * import com.pulumi.aws.ec2.RouteTable;
-     * import com.pulumi.aws.ec2.RouteTableArgs;
-     * import com.pulumi.aws.ec2.Route;
-     * import com.pulumi.aws.ec2.RouteArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var pc = Ec2Functions.getVpcPeeringConnection(GetVpcPeeringConnectionArgs.builder()
-     *             .vpcId(aws_vpc.foo().id())
-     *             .peerCidrBlock(&#34;10.0.1.0/22&#34;)
-     *             .build());
-     * 
-     *         var rt = new RouteTable(&#34;rt&#34;, RouteTableArgs.builder()        
-     *             .vpcId(aws_vpc.foo().id())
-     *             .build());
-     * 
-     *         var route = new Route(&#34;route&#34;, RouteArgs.builder()        
-     *             .routeTableId(rt.id())
-     *             .destinationCidrBlock(pc.applyValue(getVpcPeeringConnectionResult -&gt; getVpcPeeringConnectionResult.peerCidrBlock()))
-     *             .vpcPeeringConnectionId(pc.applyValue(getVpcPeeringConnectionResult -&gt; getVpcPeeringConnectionResult.id()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetVpcPeeringConnectionResult> getVpcPeeringConnection(GetVpcPeeringConnectionArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:ec2/getVpcPeeringConnection:getVpcPeeringConnection", TypeShape.of(GetVpcPeeringConnectionResult.class), args, Utilities.withVersion(options));
@@ -16840,51 +2997,6 @@ public final class Ec2Functions {
     /**
      * The VPC Peering Connection data source provides details about
      * a specific VPC peering connection.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetVpcPeeringConnectionArgs;
-     * import com.pulumi.aws.ec2.RouteTable;
-     * import com.pulumi.aws.ec2.RouteTableArgs;
-     * import com.pulumi.aws.ec2.Route;
-     * import com.pulumi.aws.ec2.RouteArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var pc = Ec2Functions.getVpcPeeringConnection(GetVpcPeeringConnectionArgs.builder()
-     *             .vpcId(aws_vpc.foo().id())
-     *             .peerCidrBlock(&#34;10.0.1.0/22&#34;)
-     *             .build());
-     * 
-     *         var rt = new RouteTable(&#34;rt&#34;, RouteTableArgs.builder()        
-     *             .vpcId(aws_vpc.foo().id())
-     *             .build());
-     * 
-     *         var route = new Route(&#34;route&#34;, RouteArgs.builder()        
-     *             .routeTableId(rt.id())
-     *             .destinationCidrBlock(pc.applyValue(getVpcPeeringConnectionResult -&gt; getVpcPeeringConnectionResult.peerCidrBlock()))
-     *             .vpcPeeringConnectionId(pc.applyValue(getVpcPeeringConnectionResult -&gt; getVpcPeeringConnectionResult.id()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetVpcPeeringConnectionResult> getVpcPeeringConnectionPlain(GetVpcPeeringConnectionPlainArgs args, InvokeOptions options) {
@@ -16897,8 +3009,6 @@ public final class Ec2Functions {
      * Note: To use this data source in a count, the resources should exist before trying to access
      * the data source.
      * 
-     * ## Example Usage
-     * 
      */
     public static Output<GetVpcPeeringConnectionsResult> getVpcPeeringConnections() {
         return getVpcPeeringConnections(GetVpcPeeringConnectionsArgs.Empty, InvokeOptions.Empty);
@@ -16909,8 +3019,6 @@ public final class Ec2Functions {
      * 
      * Note: To use this data source in a count, the resources should exist before trying to access
      * the data source.
-     * 
-     * ## Example Usage
      * 
      */
     public static CompletableFuture<GetVpcPeeringConnectionsResult> getVpcPeeringConnectionsPlain() {
@@ -16923,8 +3031,6 @@ public final class Ec2Functions {
      * Note: To use this data source in a count, the resources should exist before trying to access
      * the data source.
      * 
-     * ## Example Usage
-     * 
      */
     public static Output<GetVpcPeeringConnectionsResult> getVpcPeeringConnections(GetVpcPeeringConnectionsArgs args) {
         return getVpcPeeringConnections(args, InvokeOptions.Empty);
@@ -16935,8 +3041,6 @@ public final class Ec2Functions {
      * 
      * Note: To use this data source in a count, the resources should exist before trying to access
      * the data source.
-     * 
-     * ## Example Usage
      * 
      */
     public static CompletableFuture<GetVpcPeeringConnectionsResult> getVpcPeeringConnectionsPlain(GetVpcPeeringConnectionsPlainArgs args) {
@@ -16949,8 +3053,6 @@ public final class Ec2Functions {
      * Note: To use this data source in a count, the resources should exist before trying to access
      * the data source.
      * 
-     * ## Example Usage
-     * 
      */
     public static Output<GetVpcPeeringConnectionsResult> getVpcPeeringConnections(GetVpcPeeringConnectionsArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:ec2/getVpcPeeringConnections:getVpcPeeringConnections", TypeShape.of(GetVpcPeeringConnectionsResult.class), args, Utilities.withVersion(options));
@@ -16961,8 +3063,6 @@ public final class Ec2Functions {
      * 
      * Note: To use this data source in a count, the resources should exist before trying to access
      * the data source.
-     * 
-     * ## Example Usage
      * 
      */
     public static CompletableFuture<GetVpcPeeringConnectionsResult> getVpcPeeringConnectionsPlain(GetVpcPeeringConnectionsPlainArgs args, InvokeOptions options) {
@@ -17026,40 +3126,6 @@ public final class Ec2Functions {
      * The VPN Gateway data source provides details about
      * a specific VPN gateway.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetVpnGatewayArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var selected = Ec2Functions.getVpnGateway(GetVpnGatewayArgs.builder()
-     *             .filters(GetVpnGatewayFilterArgs.builder()
-     *                 .name(&#34;tag:Name&#34;)
-     *                 .values(&#34;vpn-gw&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *         ctx.export(&#34;vpnGatewayId&#34;, selected.applyValue(getVpnGatewayResult -&gt; getVpnGatewayResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetVpnGatewayResult> getVpnGateway() {
         return getVpnGateway(GetVpnGatewayArgs.Empty, InvokeOptions.Empty);
@@ -17067,40 +3133,6 @@ public final class Ec2Functions {
     /**
      * The VPN Gateway data source provides details about
      * a specific VPN gateway.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetVpnGatewayArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var selected = Ec2Functions.getVpnGateway(GetVpnGatewayArgs.builder()
-     *             .filters(GetVpnGatewayFilterArgs.builder()
-     *                 .name(&#34;tag:Name&#34;)
-     *                 .values(&#34;vpn-gw&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *         ctx.export(&#34;vpnGatewayId&#34;, selected.applyValue(getVpnGatewayResult -&gt; getVpnGatewayResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetVpnGatewayResult> getVpnGatewayPlain() {
@@ -17110,40 +3142,6 @@ public final class Ec2Functions {
      * The VPN Gateway data source provides details about
      * a specific VPN gateway.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetVpnGatewayArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var selected = Ec2Functions.getVpnGateway(GetVpnGatewayArgs.builder()
-     *             .filters(GetVpnGatewayFilterArgs.builder()
-     *                 .name(&#34;tag:Name&#34;)
-     *                 .values(&#34;vpn-gw&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *         ctx.export(&#34;vpnGatewayId&#34;, selected.applyValue(getVpnGatewayResult -&gt; getVpnGatewayResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetVpnGatewayResult> getVpnGateway(GetVpnGatewayArgs args) {
         return getVpnGateway(args, InvokeOptions.Empty);
@@ -17151,40 +3149,6 @@ public final class Ec2Functions {
     /**
      * The VPN Gateway data source provides details about
      * a specific VPN gateway.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetVpnGatewayArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var selected = Ec2Functions.getVpnGateway(GetVpnGatewayArgs.builder()
-     *             .filters(GetVpnGatewayFilterArgs.builder()
-     *                 .name(&#34;tag:Name&#34;)
-     *                 .values(&#34;vpn-gw&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *         ctx.export(&#34;vpnGatewayId&#34;, selected.applyValue(getVpnGatewayResult -&gt; getVpnGatewayResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetVpnGatewayResult> getVpnGatewayPlain(GetVpnGatewayPlainArgs args) {
@@ -17194,40 +3158,6 @@ public final class Ec2Functions {
      * The VPN Gateway data source provides details about
      * a specific VPN gateway.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetVpnGatewayArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var selected = Ec2Functions.getVpnGateway(GetVpnGatewayArgs.builder()
-     *             .filters(GetVpnGatewayFilterArgs.builder()
-     *                 .name(&#34;tag:Name&#34;)
-     *                 .values(&#34;vpn-gw&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *         ctx.export(&#34;vpnGatewayId&#34;, selected.applyValue(getVpnGatewayResult -&gt; getVpnGatewayResult.id()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetVpnGatewayResult> getVpnGateway(GetVpnGatewayArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:ec2/getVpnGateway:getVpnGateway", TypeShape.of(GetVpnGatewayResult.class), args, Utilities.withVersion(options));
@@ -17235,40 +3165,6 @@ public final class Ec2Functions {
     /**
      * The VPN Gateway data source provides details about
      * a specific VPN gateway.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetVpnGatewayArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var selected = Ec2Functions.getVpnGateway(GetVpnGatewayArgs.builder()
-     *             .filters(GetVpnGatewayFilterArgs.builder()
-     *                 .name(&#34;tag:Name&#34;)
-     *                 .values(&#34;vpn-gw&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *         ctx.export(&#34;vpnGatewayId&#34;, selected.applyValue(getVpnGatewayResult -&gt; getVpnGatewayResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetVpnGatewayResult> getVpnGatewayPlain(GetVpnGatewayPlainArgs args, InvokeOptions options) {

@@ -23,7 +23,7 @@ namespace Pulumi.Aws.Glue
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var awsGlueCatalogTable = new Aws.Glue.CatalogTable("awsGlueCatalogTable", new()
+    ///     var awsGlueCatalogTable = new Aws.Glue.CatalogTable.CatalogTable("awsGlueCatalogTable", new()
     ///     {
     ///         DatabaseName = "MyCatalogDatabase",
     ///         Name = "MyCatalogTable",
@@ -41,7 +41,7 @@ namespace Pulumi.Aws.Glue
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var awsGlueCatalogTable = new Aws.Glue.CatalogTable("awsGlueCatalogTable", new()
+    ///     var awsGlueCatalogTable = new Aws.Glue.CatalogTable.CatalogTable("awsGlueCatalogTable", new()
     ///     {
     ///         DatabaseName = "MyCatalogDatabase",
     ///         Name = "MyCatalogTable",
@@ -50,51 +50,51 @@ namespace Pulumi.Aws.Glue
     ///             { "EXTERNAL", "TRUE" },
     ///             { "parquet.compression", "SNAPPY" },
     ///         },
-    ///         StorageDescriptor = new Aws.Glue.Inputs.CatalogTableStorageDescriptorArgs
+    ///         StorageDescriptor = 
     ///         {
-    ///             Columns = new[]
+    ///             { "columns", new[]
     ///             {
-    ///                 new Aws.Glue.Inputs.CatalogTableStorageDescriptorColumnArgs
+    ///                 
     ///                 {
-    ///                     Name = "my_string",
-    ///                     Type = "string",
+    ///                     { "name", "my_string" },
+    ///                     { "type", "string" },
     ///                 },
-    ///                 new Aws.Glue.Inputs.CatalogTableStorageDescriptorColumnArgs
+    ///                 
     ///                 {
-    ///                     Name = "my_double",
-    ///                     Type = "double",
+    ///                     { "name", "my_double" },
+    ///                     { "type", "double" },
     ///                 },
-    ///                 new Aws.Glue.Inputs.CatalogTableStorageDescriptorColumnArgs
+    ///                 
     ///                 {
-    ///                     Comment = "",
-    ///                     Name = "my_date",
-    ///                     Type = "date",
+    ///                     { "comment", "" },
+    ///                     { "name", "my_date" },
+    ///                     { "type", "date" },
     ///                 },
-    ///                 new Aws.Glue.Inputs.CatalogTableStorageDescriptorColumnArgs
+    ///                 
     ///                 {
-    ///                     Comment = "",
-    ///                     Name = "my_bigint",
-    ///                     Type = "bigint",
+    ///                     { "comment", "" },
+    ///                     { "name", "my_bigint" },
+    ///                     { "type", "bigint" },
     ///                 },
-    ///                 new Aws.Glue.Inputs.CatalogTableStorageDescriptorColumnArgs
+    ///                 
     ///                 {
-    ///                     Comment = "",
-    ///                     Name = "my_struct",
-    ///                     Type = "struct&lt;my_nested_string:string&gt;",
+    ///                     { "comment", "" },
+    ///                     { "name", "my_struct" },
+    ///                     { "type", "struct&lt;my_nested_string:string&gt;" },
     ///                 },
-    ///             },
-    ///             InputFormat = "org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat",
-    ///             Location = "s3://my-bucket/event-streams/my-stream",
-    ///             OutputFormat = "org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat",
-    ///             SerDeInfo = new Aws.Glue.Inputs.CatalogTableStorageDescriptorSerDeInfoArgs
+    ///             } },
+    ///             { "inputFormat", "org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat" },
+    ///             { "location", "s3://my-bucket/event-streams/my-stream" },
+    ///             { "outputFormat", "org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat" },
+    ///             { "serDeInfo", 
     ///             {
-    ///                 Name = "my-stream",
-    ///                 Parameters = 
+    ///                 { "name", "my-stream" },
+    ///                 { "parameters", 
     ///                 {
-    ///                     { "serialization.format", "1" },
-    ///                 },
-    ///                 SerializationLibrary = "org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe",
-    ///             },
+    ///                     { "serialization.format", 1 },
+    ///                 } },
+    ///                 { "serializationLibrary", "org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe" },
+    ///             } },
     ///         },
     ///         TableType = "EXTERNAL_TABLE",
     ///     });

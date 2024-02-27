@@ -239,43 +239,6 @@ class LifecyclePolicy(pulumi.CustomResource):
         Provides a [Data Lifecycle Manager (DLM) lifecycle policy](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshot-lifecycle.html) for managing snapshots.
 
         ## Example Usage
-        ### Example Event Based Policy Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        current = aws.get_caller_identity()
-        example_lifecycle_policy = aws.dlm.LifecyclePolicy("exampleLifecyclePolicy",
-            description="tf-acc-basic",
-            execution_role_arn=aws_iam_role["example"]["arn"],
-            policy_details=aws.dlm.LifecyclePolicyPolicyDetailsArgs(
-                policy_type="EVENT_BASED_POLICY",
-                action=aws.dlm.LifecyclePolicyPolicyDetailsActionArgs(
-                    name="tf-acc-basic",
-                    cross_region_copies=[aws.dlm.LifecyclePolicyPolicyDetailsActionCrossRegionCopyArgs(
-                        encryption_configuration=aws.dlm.LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfigurationArgs(),
-                        retain_rule=aws.dlm.LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRuleArgs(
-                            interval=15,
-                            interval_unit="MONTHS",
-                        ),
-                        target="us-east-1",
-                    )],
-                ),
-                event_source=aws.dlm.LifecyclePolicyPolicyDetailsEventSourceArgs(
-                    type="MANAGED_CWE",
-                    parameters=aws.dlm.LifecyclePolicyPolicyDetailsEventSourceParametersArgs(
-                        description_regex="^.*Created for policy: policy-1234567890abcdef0.*$",
-                        event_type="shareSnapshot",
-                        snapshot_owners=[current.account_id],
-                    ),
-                ),
-            ))
-        example_policy = aws.iam.get_policy(name="AWSDataLifecycleManagerServiceRole")
-        example_role_policy_attachment = aws.iam.RolePolicyAttachment("exampleRolePolicyAttachment",
-            role=aws_iam_role["example"]["id"],
-            policy_arn=example_policy.arn)
-        ```
 
         ## Import
 
@@ -303,43 +266,6 @@ class LifecyclePolicy(pulumi.CustomResource):
         Provides a [Data Lifecycle Manager (DLM) lifecycle policy](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshot-lifecycle.html) for managing snapshots.
 
         ## Example Usage
-        ### Example Event Based Policy Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        current = aws.get_caller_identity()
-        example_lifecycle_policy = aws.dlm.LifecyclePolicy("exampleLifecyclePolicy",
-            description="tf-acc-basic",
-            execution_role_arn=aws_iam_role["example"]["arn"],
-            policy_details=aws.dlm.LifecyclePolicyPolicyDetailsArgs(
-                policy_type="EVENT_BASED_POLICY",
-                action=aws.dlm.LifecyclePolicyPolicyDetailsActionArgs(
-                    name="tf-acc-basic",
-                    cross_region_copies=[aws.dlm.LifecyclePolicyPolicyDetailsActionCrossRegionCopyArgs(
-                        encryption_configuration=aws.dlm.LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfigurationArgs(),
-                        retain_rule=aws.dlm.LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRuleArgs(
-                            interval=15,
-                            interval_unit="MONTHS",
-                        ),
-                        target="us-east-1",
-                    )],
-                ),
-                event_source=aws.dlm.LifecyclePolicyPolicyDetailsEventSourceArgs(
-                    type="MANAGED_CWE",
-                    parameters=aws.dlm.LifecyclePolicyPolicyDetailsEventSourceParametersArgs(
-                        description_regex="^.*Created for policy: policy-1234567890abcdef0.*$",
-                        event_type="shareSnapshot",
-                        snapshot_owners=[current.account_id],
-                    ),
-                ),
-            ))
-        example_policy = aws.iam.get_policy(name="AWSDataLifecycleManagerServiceRole")
-        example_role_policy_attachment = aws.iam.RolePolicyAttachment("exampleRolePolicyAttachment",
-            role=aws_iam_role["example"]["id"],
-            policy_arn=example_policy.arn)
-        ```
 
         ## Import
 

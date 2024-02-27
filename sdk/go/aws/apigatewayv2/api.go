@@ -24,24 +24,22 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigatewayv2"
+//	apigatewayv2/api "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/apigatewayv2/api"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := apigatewayv2.NewApi(ctx, "example", &apigatewayv2.ApiArgs{
-//				ProtocolType:             pulumi.String("WEBSOCKET"),
-//				RouteSelectionExpression: pulumi.String("$request.body.action"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := apigatewayv2/api.NewApi(ctx, "example", &apigatewayv2/api.ApiArgs{
+// ProtocolType: "WEBSOCKET",
+// RouteSelectionExpression: "$request.body.action",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Basic HTTP API
 //
@@ -50,23 +48,21 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigatewayv2"
+//	apigatewayv2/api "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/apigatewayv2/api"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := apigatewayv2.NewApi(ctx, "example", &apigatewayv2.ApiArgs{
-//				ProtocolType: pulumi.String("HTTP"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := apigatewayv2/api.NewApi(ctx, "example", &apigatewayv2/api.ApiArgs{
+// ProtocolType: "HTTP",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

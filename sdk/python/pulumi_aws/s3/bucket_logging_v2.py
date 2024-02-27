@@ -245,18 +245,18 @@ class BucketLoggingV2(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
-        example_bucket_acl_v2 = aws.s3.BucketAclV2("exampleBucketAclV2",
+        example_bucket_v2 = aws.s3.bucket_v2.BucketV2("exampleBucketV2")
+        example_bucket_acl_v2 = aws.s3.bucket_acl_v2.BucketAclV2("exampleBucketAclV2",
             bucket=example_bucket_v2.id,
-            acl="private")
-        log_bucket = aws.s3.BucketV2("logBucket")
-        log_bucket_acl = aws.s3.BucketAclV2("logBucketAcl",
+            acl=private)
+        log_bucket = aws.s3.bucket_v2.BucketV2("logBucket")
+        log_bucket_acl = aws.s3.bucket_acl_v2.BucketAclV2("logBucketAcl",
             bucket=log_bucket.id,
-            acl="log-delivery-write")
-        example_bucket_logging_v2 = aws.s3.BucketLoggingV2("exampleBucketLoggingV2",
+            acl=log-delivery-write)
+        example_bucket_logging_v2 = aws.s3.bucket_logging_v2.BucketLoggingV2("exampleBucketLoggingV2",
             bucket=example_bucket_v2.id,
             target_bucket=log_bucket.id,
-            target_prefix="log/")
+            target_prefix=log/)
         ```
 
         ## Import
@@ -306,18 +306,18 @@ class BucketLoggingV2(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
-        example_bucket_acl_v2 = aws.s3.BucketAclV2("exampleBucketAclV2",
+        example_bucket_v2 = aws.s3.bucket_v2.BucketV2("exampleBucketV2")
+        example_bucket_acl_v2 = aws.s3.bucket_acl_v2.BucketAclV2("exampleBucketAclV2",
             bucket=example_bucket_v2.id,
-            acl="private")
-        log_bucket = aws.s3.BucketV2("logBucket")
-        log_bucket_acl = aws.s3.BucketAclV2("logBucketAcl",
+            acl=private)
+        log_bucket = aws.s3.bucket_v2.BucketV2("logBucket")
+        log_bucket_acl = aws.s3.bucket_acl_v2.BucketAclV2("logBucketAcl",
             bucket=log_bucket.id,
-            acl="log-delivery-write")
-        example_bucket_logging_v2 = aws.s3.BucketLoggingV2("exampleBucketLoggingV2",
+            acl=log-delivery-write)
+        example_bucket_logging_v2 = aws.s3.bucket_logging_v2.BucketLoggingV2("exampleBucketLoggingV2",
             bucket=example_bucket_v2.id,
             target_bucket=log_bucket.id,
-            target_prefix="log/")
+            target_prefix=log/)
         ```
 
         ## Import

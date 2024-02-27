@@ -13,56 +13,12 @@ namespace Pulumi.Aws.AppIntegrations
     {
         /// <summary>
         /// Use this data source to get information on an existing AppIntegrations Event Integration.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.AppIntegrations.GetEventIntegration.Invoke(new()
-        ///     {
-        ///         Name = "example",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetEventIntegrationResult> InvokeAsync(GetEventIntegrationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEventIntegrationResult>("aws:appintegrations/getEventIntegration:getEventIntegration", args ?? new GetEventIntegrationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to get information on an existing AppIntegrations Event Integration.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.AppIntegrations.GetEventIntegration.Invoke(new()
-        ///     {
-        ///         Name = "example",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetEventIntegrationResult> Invoke(GetEventIntegrationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEventIntegrationResult>("aws:appintegrations/getEventIntegration:getEventIntegration", args ?? new GetEventIntegrationInvokeArgs(), options.WithDefaults());

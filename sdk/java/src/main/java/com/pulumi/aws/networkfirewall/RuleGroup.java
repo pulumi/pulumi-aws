@@ -31,9 +31,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.networkfirewall.RuleGroup;
  * import com.pulumi.aws.networkfirewall.RuleGroupArgs;
- * import com.pulumi.aws.networkfirewall.inputs.RuleGroupRuleGroupArgs;
- * import com.pulumi.aws.networkfirewall.inputs.RuleGroupRuleGroupRulesSourceArgs;
- * import com.pulumi.aws.networkfirewall.inputs.RuleGroupRuleGroupRulesSourceRulesSourceListArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -49,19 +46,8 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new RuleGroup(&#34;example&#34;, RuleGroupArgs.builder()        
  *             .capacity(100)
- *             .ruleGroup(RuleGroupRuleGroupArgs.builder()
- *                 .rulesSource(RuleGroupRuleGroupRulesSourceArgs.builder()
- *                     .rulesSourceList(RuleGroupRuleGroupRulesSourceRulesSourceListArgs.builder()
- *                         .generatedRulesType(&#34;DENYLIST&#34;)
- *                         .targetTypes(&#34;HTTP_HOST&#34;)
- *                         .targets(&#34;test.example.com&#34;)
- *                         .build())
- *                     .build())
- *                 .build())
- *             .tags(Map.ofEntries(
- *                 Map.entry(&#34;Tag1&#34;, &#34;Value1&#34;),
- *                 Map.entry(&#34;Tag2&#34;, &#34;Value2&#34;)
- *             ))
+ *             .ruleGroup(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .type(&#34;STATEFUL&#34;)
  *             .build());
  * 
@@ -69,7 +55,6 @@ import javax.annotation.Nullable;
  * }
  * ```
  * ### Stateful Inspection for permitting packets from a source IP address
- * 
  * ```java
  * package generated_program;
  * 
@@ -78,8 +63,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.networkfirewall.RuleGroup;
  * import com.pulumi.aws.networkfirewall.RuleGroupArgs;
- * import com.pulumi.aws.networkfirewall.inputs.RuleGroupRuleGroupArgs;
- * import com.pulumi.aws.networkfirewall.inputs.RuleGroupRuleGroupRulesSourceArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -101,19 +84,14 @@ import javax.annotation.Nullable;
  *             .capacity(50)
  *             .description(&#34;Permits http traffic from source&#34;)
  *             .type(&#34;STATEFUL&#34;)
- *             .ruleGroup(RuleGroupRuleGroupArgs.builder()
- *                 .rulesSource(RuleGroupRuleGroupRulesSourceArgs.builder()
- *                     .dynamic(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
- *                     .build())
- *                 .build())
- *             .tags(Map.of(&#34;Name&#34;, &#34;permit HTTP from source&#34;))
+ *             .ruleGroup(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
  * }
  * ```
  * ### Stateful Inspection for blocking packets from going to an intended destination
- * 
  * ```java
  * package generated_program;
  * 
@@ -122,8 +100,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.networkfirewall.RuleGroup;
  * import com.pulumi.aws.networkfirewall.RuleGroupArgs;
- * import com.pulumi.aws.networkfirewall.inputs.RuleGroupRuleGroupArgs;
- * import com.pulumi.aws.networkfirewall.inputs.RuleGroupRuleGroupRulesSourceArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -139,15 +115,8 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new RuleGroup(&#34;example&#34;, RuleGroupArgs.builder()        
  *             .capacity(100)
- *             .ruleGroup(RuleGroupRuleGroupArgs.builder()
- *                 .rulesSource(RuleGroupRuleGroupRulesSourceArgs.builder()
- *                     .statefulRule(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
- *                     .build())
- *                 .build())
- *             .tags(Map.ofEntries(
- *                 Map.entry(&#34;Tag1&#34;, &#34;Value1&#34;),
- *                 Map.entry(&#34;Tag2&#34;, &#34;Value2&#34;)
- *             ))
+ *             .ruleGroup(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .type(&#34;STATEFUL&#34;)
  *             .build());
  * 
@@ -180,10 +149,7 @@ import javax.annotation.Nullable;
  *             .capacity(100)
  *             .type(&#34;STATEFUL&#34;)
  *             .rules(Files.readString(Paths.get(&#34;example.rules&#34;)))
- *             .tags(Map.ofEntries(
- *                 Map.entry(&#34;Tag1&#34;, &#34;Value1&#34;),
- *                 Map.entry(&#34;Tag2&#34;, &#34;Value2&#34;)
- *             ))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -198,9 +164,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.networkfirewall.RuleGroup;
  * import com.pulumi.aws.networkfirewall.RuleGroupArgs;
- * import com.pulumi.aws.networkfirewall.inputs.RuleGroupRuleGroupArgs;
- * import com.pulumi.aws.networkfirewall.inputs.RuleGroupRuleGroupRuleVariablesArgs;
- * import com.pulumi.aws.networkfirewall.inputs.RuleGroupRuleGroupRulesSourceArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -217,48 +180,14 @@ import javax.annotation.Nullable;
  *         var example = new RuleGroup(&#34;example&#34;, RuleGroupArgs.builder()        
  *             .capacity(100)
  *             .type(&#34;STATEFUL&#34;)
- *             .ruleGroup(RuleGroupRuleGroupArgs.builder()
- *                 .ruleVariables(RuleGroupRuleGroupRuleVariablesArgs.builder()
- *                     .ipSets(                    
- *                         RuleGroupRuleGroupRuleVariablesIpSetArgs.builder()
- *                             .key(&#34;WEBSERVERS_HOSTS&#34;)
- *                             .ipSet(RuleGroupRuleGroupRuleVariablesIpSetIpSetArgs.builder()
- *                                 .definitions(                                
- *                                     &#34;10.0.0.0/16&#34;,
- *                                     &#34;10.0.1.0/24&#34;,
- *                                     &#34;192.168.0.0/16&#34;)
- *                                 .build())
- *                             .build(),
- *                         RuleGroupRuleGroupRuleVariablesIpSetArgs.builder()
- *                             .key(&#34;EXTERNAL_HOST&#34;)
- *                             .ipSet(RuleGroupRuleGroupRuleVariablesIpSetIpSetArgs.builder()
- *                                 .definitions(&#34;1.2.3.4/32&#34;)
- *                                 .build())
- *                             .build())
- *                     .portSets(RuleGroupRuleGroupRuleVariablesPortSetArgs.builder()
- *                         .key(&#34;HTTP_PORTS&#34;)
- *                         .portSet(RuleGroupRuleGroupRuleVariablesPortSetPortSetArgs.builder()
- *                             .definitions(                            
- *                                 &#34;443&#34;,
- *                                 &#34;80&#34;)
- *                             .build())
- *                         .build())
- *                     .build())
- *                 .rulesSource(RuleGroupRuleGroupRulesSourceArgs.builder()
- *                     .rulesString(Files.readString(Paths.get(&#34;suricata_rules_file&#34;)))
- *                     .build())
- *                 .build())
- *             .tags(Map.ofEntries(
- *                 Map.entry(&#34;Tag1&#34;, &#34;Value1&#34;),
- *                 Map.entry(&#34;Tag2&#34;, &#34;Value2&#34;)
- *             ))
+ *             .ruleGroup(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
  * }
  * ```
  * ### Stateless Inspection with a Custom Action
- * 
  * ```java
  * package generated_program;
  * 
@@ -267,9 +196,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.networkfirewall.RuleGroup;
  * import com.pulumi.aws.networkfirewall.RuleGroupArgs;
- * import com.pulumi.aws.networkfirewall.inputs.RuleGroupRuleGroupArgs;
- * import com.pulumi.aws.networkfirewall.inputs.RuleGroupRuleGroupRulesSourceArgs;
- * import com.pulumi.aws.networkfirewall.inputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -286,18 +212,8 @@ import javax.annotation.Nullable;
  *         var example = new RuleGroup(&#34;example&#34;, RuleGroupArgs.builder()        
  *             .capacity(100)
  *             .description(&#34;Stateless Rate Limiting Rule&#34;)
- *             .ruleGroup(RuleGroupRuleGroupArgs.builder()
- *                 .rulesSource(RuleGroupRuleGroupRulesSourceArgs.builder()
- *                     .statelessRulesAndCustomActions(RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsArgs.builder()
- *                         .customAction(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
- *                         .statelessRule(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
- *                         .build())
- *                     .build())
- *                 .build())
- *             .tags(Map.ofEntries(
- *                 Map.entry(&#34;Tag1&#34;, &#34;Value1&#34;),
- *                 Map.entry(&#34;Tag2&#34;, &#34;Value2&#34;)
- *             ))
+ *             .ruleGroup(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .type(&#34;STATELESS&#34;)
  *             .build());
  * 
@@ -313,10 +229,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.networkfirewall.RuleGroup;
  * import com.pulumi.aws.networkfirewall.RuleGroupArgs;
- * import com.pulumi.aws.networkfirewall.inputs.RuleGroupRuleGroupArgs;
- * import com.pulumi.aws.networkfirewall.inputs.RuleGroupRuleGroupRulesSourceArgs;
- * import com.pulumi.aws.networkfirewall.inputs.RuleGroupRuleGroupRulesSourceRulesSourceListArgs;
- * import com.pulumi.aws.networkfirewall.inputs.RuleGroupRuleGroupReferenceSetsArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -333,27 +245,8 @@ import javax.annotation.Nullable;
  *         var example = new RuleGroup(&#34;example&#34;, RuleGroupArgs.builder()        
  *             .capacity(100)
  *             .type(&#34;STATEFUL&#34;)
- *             .ruleGroup(RuleGroupRuleGroupArgs.builder()
- *                 .rulesSource(RuleGroupRuleGroupRulesSourceArgs.builder()
- *                     .rulesSourceList(RuleGroupRuleGroupRulesSourceRulesSourceListArgs.builder()
- *                         .generatedRulesType(&#34;DENYLIST&#34;)
- *                         .targetTypes(&#34;HTTP_HOST&#34;)
- *                         .targets(&#34;test.example.com&#34;)
- *                         .build())
- *                     .build())
- *                 .referenceSets(RuleGroupRuleGroupReferenceSetsArgs.builder()
- *                     .ipSetReferences(RuleGroupRuleGroupReferenceSetsIpSetReferenceArgs.builder()
- *                         .key(&#34;example&#34;)
- *                         .ipSetReferences(RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceArgs.builder()
- *                             .referenceArn(aws_ec2_managed_prefix_list.this().arn())
- *                             .build())
- *                         .build())
- *                     .build())
- *                 .build())
- *             .tags(Map.ofEntries(
- *                 Map.entry(&#34;Tag1&#34;, &#34;Value1&#34;),
- *                 Map.entry(&#34;Tag2&#34;, &#34;Value2&#34;)
- *             ))
+ *             .ruleGroup(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

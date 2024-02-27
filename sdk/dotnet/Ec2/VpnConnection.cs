@@ -27,16 +27,16 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleTransitGateway = new Aws.Ec2TransitGateway.TransitGateway("exampleTransitGateway");
+    ///     var exampleTransitGateway = new Aws.Ec2transitgateway.TransitGateway.TransitGateway("exampleTransitGateway");
     /// 
-    ///     var exampleCustomerGateway = new Aws.Ec2.CustomerGateway("exampleCustomerGateway", new()
+    ///     var exampleCustomerGateway = new Aws.Ec2.CustomerGateway.CustomerGateway("exampleCustomerGateway", new()
     ///     {
-    ///         BgpAsn = "65000",
+    ///         BgpAsn = 65000,
     ///         IpAddress = "172.0.0.1",
     ///         Type = "ipsec.1",
     ///     });
     /// 
-    ///     var exampleVpnConnection = new Aws.Ec2.VpnConnection("exampleVpnConnection", new()
+    ///     var exampleVpnConnection = new Aws.Ec2.VpnConnection.VpnConnection("exampleVpnConnection", new()
     ///     {
     ///         CustomerGatewayId = exampleCustomerGateway.Id,
     ///         TransitGatewayId = exampleTransitGateway.Id,
@@ -55,96 +55,29 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var vpc = new Aws.Ec2.Vpc("vpc", new()
+    ///     var vpc = new Aws.Ec2.Vpc.Vpc("vpc", new()
     ///     {
     ///         CidrBlock = "10.0.0.0/16",
     ///     });
     /// 
-    ///     var vpnGateway = new Aws.Ec2.VpnGateway("vpnGateway", new()
+    ///     var vpnGateway = new Aws.Ec2.VpnGateway.VpnGateway("vpnGateway", new()
     ///     {
     ///         VpcId = vpc.Id,
     ///     });
     /// 
-    ///     var customerGateway = new Aws.Ec2.CustomerGateway("customerGateway", new()
+    ///     var customerGateway = new Aws.Ec2.CustomerGateway.CustomerGateway("customerGateway", new()
     ///     {
-    ///         BgpAsn = "65000",
+    ///         BgpAsn = 65000,
     ///         IpAddress = "172.0.0.1",
     ///         Type = "ipsec.1",
     ///     });
     /// 
-    ///     var main = new Aws.Ec2.VpnConnection("main", new()
+    ///     var main = new Aws.Ec2.VpnConnection.VpnConnection("main", new()
     ///     {
     ///         VpnGatewayId = vpnGateway.Id,
     ///         CustomerGatewayId = customerGateway.Id,
     ///         Type = "ipsec.1",
     ///         StaticRoutesOnly = true,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### AWS Site to Site Private VPN
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleGateway = new Aws.DirectConnect.Gateway("exampleGateway", new()
-    ///     {
-    ///         AmazonSideAsn = "64512",
-    ///     });
-    /// 
-    ///     var exampleTransitGateway = new Aws.Ec2TransitGateway.TransitGateway("exampleTransitGateway", new()
-    ///     {
-    ///         AmazonSideAsn = 64513,
-    ///         Description = "example_ipsec_vpn_example",
-    ///         TransitGatewayCidrBlocks = new[]
-    ///         {
-    ///             "10.0.0.0/24",
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleCustomerGateway = new Aws.Ec2.CustomerGateway("exampleCustomerGateway", new()
-    ///     {
-    ///         BgpAsn = "64514",
-    ///         IpAddress = "10.0.0.1",
-    ///         Type = "ipsec.1",
-    ///         Tags = 
-    ///         {
-    ///             { "Name", "example_ipsec_vpn_example" },
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleGatewayAssociation = new Aws.DirectConnect.GatewayAssociation("exampleGatewayAssociation", new()
-    ///     {
-    ///         DxGatewayId = exampleGateway.Id,
-    ///         AssociatedGatewayId = exampleTransitGateway.Id,
-    ///         AllowedPrefixes = new[]
-    ///         {
-    ///             "10.0.0.0/8",
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleDirectConnectGatewayAttachment = Aws.Ec2TransitGateway.GetDirectConnectGatewayAttachment.Invoke(new()
-    ///     {
-    ///         TransitGatewayId = exampleTransitGateway.Id,
-    ///         DxGatewayId = exampleGateway.Id,
-    ///     });
-    /// 
-    ///     var exampleVpnConnection = new Aws.Ec2.VpnConnection("exampleVpnConnection", new()
-    ///     {
-    ///         CustomerGatewayId = exampleCustomerGateway.Id,
-    ///         OutsideIpAddressType = "PrivateIpv4",
-    ///         TransitGatewayId = exampleTransitGateway.Id,
-    ///         TransportTransitGatewayAttachmentId = exampleDirectConnectGatewayAttachment.Apply(getDirectConnectGatewayAttachmentResult =&gt; getDirectConnectGatewayAttachmentResult.Id),
-    ///         Type = "ipsec.1",
-    ///         Tags = 
-    ///         {
-    ///             { "Name", "example_ipsec_vpn_example" },
-    ///         },
     ///     });
     /// 
     /// });

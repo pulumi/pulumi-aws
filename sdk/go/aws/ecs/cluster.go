@@ -20,28 +20,26 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ecs"
+//	ecs/cluster "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ecs/cluster"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ecs.NewCluster(ctx, "foo", &ecs.ClusterArgs{
-//				Settings: ecs.ClusterSettingArray{
-//					&ecs.ClusterSettingArgs{
-//						Name:  pulumi.String("containerInsights"),
-//						Value: pulumi.String("enabled"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := ecs/cluster.NewCluster(ctx, "foo", &ecs/cluster.ClusterArgs{
+// Settings: []map[string]interface{}{
+// map[string]interface{}{
+// "name": "containerInsights",
+// "value": "enabled",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Example with Log Configuration
 //
@@ -50,45 +48,43 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ecs"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kms"
+//	cloudwatch/logGroup "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/cloudwatch/logGroup"
+//	ecs/cluster "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ecs/cluster"
+//	kms/key "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/kms/key"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleKey, err := kms.NewKey(ctx, "exampleKey", &kms.KeyArgs{
-//				Description:          pulumi.String("example"),
-//				DeletionWindowInDays: pulumi.Int(7),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleLogGroup, err := cloudwatch.NewLogGroup(ctx, "exampleLogGroup", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ecs.NewCluster(ctx, "test", &ecs.ClusterArgs{
-//				Configuration: &ecs.ClusterConfigurationArgs{
-//					ExecuteCommandConfiguration: &ecs.ClusterConfigurationExecuteCommandConfigurationArgs{
-//						KmsKeyId: exampleKey.Arn,
-//						Logging:  pulumi.String("OVERRIDE"),
-//						LogConfiguration: &ecs.ClusterConfigurationExecuteCommandConfigurationLogConfigurationArgs{
-//							CloudWatchEncryptionEnabled: pulumi.Bool(true),
-//							CloudWatchLogGroupName:      exampleLogGroup.Name,
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleKey, err := kms/key.NewKey(ctx, "exampleKey", &kms/key.KeyArgs{
+// Description: "example",
+// DeletionWindowInDays: 7,
+// })
+// if err != nil {
+// return err
+// }
+// exampleLogGroup, err := cloudwatch/logGroup.NewLogGroup(ctx, "exampleLogGroup", nil)
+// if err != nil {
+// return err
+// }
+// _, err = ecs/cluster.NewCluster(ctx, "test", &ecs/cluster.ClusterArgs{
+// Configuration: map[string]interface{}{
+// "executeCommandConfiguration": map[string]interface{}{
+// "kmsKeyId": exampleKey.Arn,
+// "logging": "OVERRIDE",
+// "logConfiguration": map[string]interface{}{
+// "cloudWatchEncryptionEnabled": true,
+// "cloudWatchLogGroupName": exampleLogGroup.Name,
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

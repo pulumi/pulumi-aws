@@ -171,11 +171,11 @@ class CustomKeyStore(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.kms.CustomKeyStore("test",
-            cloud_hsm_cluster_id=var["cloud_hsm_cluster_id"],
-            custom_key_store_name="kms-custom-key-store-test",
-            key_store_password="noplaintextpasswords1",
-            trust_anchor_certificate=(lambda path: open(path).read())("anchor-certificate.crt"))
+        test = aws.kms.custom_key_store.CustomKeyStore("test",
+            cloud_hsm_cluster_id=var.cloud_hsm_cluster_id,
+            custom_key_store_name=kms-custom-key-store-test,
+            key_store_password=noplaintextpasswords1,
+            trust_anchor_certificate=(lambda path: open(path).read())(anchor-certificate.crt))
         ```
 
         ## Import
@@ -209,11 +209,11 @@ class CustomKeyStore(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.kms.CustomKeyStore("test",
-            cloud_hsm_cluster_id=var["cloud_hsm_cluster_id"],
-            custom_key_store_name="kms-custom-key-store-test",
-            key_store_password="noplaintextpasswords1",
-            trust_anchor_certificate=(lambda path: open(path).read())("anchor-certificate.crt"))
+        test = aws.kms.custom_key_store.CustomKeyStore("test",
+            cloud_hsm_cluster_id=var.cloud_hsm_cluster_id,
+            custom_key_store_name=kms-custom-key-store-test,
+            key_store_password=noplaintextpasswords1,
+            trust_anchor_certificate=(lambda path: open(path).read())(anchor-certificate.crt))
         ```
 
         ## Import

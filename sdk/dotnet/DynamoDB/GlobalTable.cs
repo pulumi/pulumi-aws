@@ -26,17 +26,17 @@ namespace Pulumi.Aws.DynamoDB
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var us_east_1 = new Aws.Provider("us-east-1", new()
+    ///     var us_east_1 = new Pulumi.Providers.Aws("us-east-1", new()
     ///     {
     ///         Region = "us-east-1",
     ///     });
     /// 
-    ///     var us_west_2 = new Aws.Provider("us-west-2", new()
+    ///     var us_west_2 = new Pulumi.Providers.Aws("us-west-2", new()
     ///     {
     ///         Region = "us-west-2",
     ///     });
     /// 
-    ///     var us_east_1Table = new Aws.DynamoDB.Table("us-east-1Table", new()
+    ///     var us_east_1Table = new Aws.Dynamodb.Table.Table("us-east-1Table", new()
     ///     {
     ///         HashKey = "myAttribute",
     ///         StreamEnabled = true,
@@ -45,10 +45,10 @@ namespace Pulumi.Aws.DynamoDB
     ///         WriteCapacity = 1,
     ///         Attributes = new[]
     ///         {
-    ///             new Aws.DynamoDB.Inputs.TableAttributeArgs
+    ///             
     ///             {
-    ///                 Name = "myAttribute",
-    ///                 Type = "S",
+    ///                 { "name", "myAttribute" },
+    ///                 { "type", "S" },
     ///             },
     ///         },
     ///     }, new CustomResourceOptions
@@ -56,7 +56,7 @@ namespace Pulumi.Aws.DynamoDB
     ///         Provider = aws.Us_east_1,
     ///     });
     /// 
-    ///     var us_west_2Table = new Aws.DynamoDB.Table("us-west-2Table", new()
+    ///     var us_west_2Table = new Aws.Dynamodb.Table.Table("us-west-2Table", new()
     ///     {
     ///         HashKey = "myAttribute",
     ///         StreamEnabled = true,
@@ -65,10 +65,10 @@ namespace Pulumi.Aws.DynamoDB
     ///         WriteCapacity = 1,
     ///         Attributes = new[]
     ///         {
-    ///             new Aws.DynamoDB.Inputs.TableAttributeArgs
+    ///             
     ///             {
-    ///                 Name = "myAttribute",
-    ///                 Type = "S",
+    ///                 { "name", "myAttribute" },
+    ///                 { "type", "S" },
     ///             },
     ///         },
     ///     }, new CustomResourceOptions
@@ -76,17 +76,17 @@ namespace Pulumi.Aws.DynamoDB
     ///         Provider = aws.Us_west_2,
     ///     });
     /// 
-    ///     var myTable = new Aws.DynamoDB.GlobalTable("myTable", new()
+    ///     var myTable = new Aws.Dynamodb.GlobalTable.GlobalTable("myTable", new()
     ///     {
     ///         Replicas = new[]
     ///         {
-    ///             new Aws.DynamoDB.Inputs.GlobalTableReplicaArgs
+    ///             
     ///             {
-    ///                 RegionName = "us-east-1",
+    ///                 { "regionName", "us-east-1" },
     ///             },
-    ///             new Aws.DynamoDB.Inputs.GlobalTableReplicaArgs
+    ///             
     ///             {
-    ///                 RegionName = "us-west-2",
+    ///                 { "regionName", "us-west-2" },
     ///             },
     ///         },
     ///     }, new CustomResourceOptions

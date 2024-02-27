@@ -22,26 +22,24 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lex"
+//	lex/v2modelsSlot "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/lex/v2modelsSlot"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lex.NewV2modelsSlot(ctx, "example", &lex.V2modelsSlotArgs{
-//				BotId:      pulumi.Any(aws_lexv2models_bot.Example.Id),
-//				BotVersion: pulumi.Any(aws_lexv2models_bot_version.Example.Bot_version),
-//				IntentId:   pulumi.Any(aws_lexv2models_intent.Example.Id),
-//				LocaleId:   pulumi.Any(aws_lexv2models_bot_locale.Example.Locale_id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := lex/v2modelsSlot.NewV2modelsSlot(ctx, "example", &lex/v2modelsSlot.V2modelsSlotArgs{
+// BotId: aws_lexv2models_bot.Example.Id,
+// BotVersion: aws_lexv2models_bot_version.Example.Bot_version,
+// IntentId: aws_lexv2models_intent.Example.Id,
+// LocaleId: aws_lexv2models_bot_locale.Example.Locale_id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

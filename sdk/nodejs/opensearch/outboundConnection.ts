@@ -11,29 +11,6 @@ import * as utilities from "../utilities";
  * Manages an AWS Opensearch Outbound Connection.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const currentCallerIdentity = aws.getCallerIdentity({});
- * const currentRegion = aws.getRegion({});
- * const foo = new aws.opensearch.OutboundConnection("foo", {
- *     connectionAlias: "outbound_connection",
- *     connectionMode: "DIRECT",
- *     localDomainInfo: {
- *         ownerId: currentCallerIdentity.then(currentCallerIdentity => currentCallerIdentity.accountId),
- *         region: currentRegion.then(currentRegion => currentRegion.name),
- *         domainName: aws_opensearch_domain.local_domain.domain_name,
- *     },
- *     remoteDomainInfo: {
- *         ownerId: currentCallerIdentity.then(currentCallerIdentity => currentCallerIdentity.accountId),
- *         region: currentRegion.then(currentRegion => currentRegion.name),
- *         domainName: aws_opensearch_domain.remote_domain.domain_name,
- *     },
- * });
- * ```
  *
  * ## Import
  *

@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Location
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Location.PlaceIndex("example", new()
+    ///     var example = new Aws.Location.PlaceIndex.PlaceIndex("example", new()
     ///     {
     ///         DataSource = "Here",
     ///         IndexName = "example",

@@ -23,43 +23,44 @@ import (
 //
 //	"os"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iot"
+//	iot/certificate "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/iot/certificate"
+//	iot/thing "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/iot/thing"
+//	iot/thingPrincipalAttachment "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/iot/thingPrincipalAttachment"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func readFileOrPanic(path string) pulumi.StringPtrInput {
-//		data, err := os.ReadFile(path)
-//		if err != nil {
-//			panic(err.Error())
-//		}
-//		return pulumi.String(string(data))
-//	}
+//					data, err := os.ReadFile(path)
+//					if err != nil {
+//						panic(err.Error())
+//					}
+//					return pulumi.String(string(data))
+//				}
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := iot.NewThing(ctx, "example", nil)
-//			if err != nil {
-//				return err
-//			}
-//			cert, err := iot.NewCertificate(ctx, "cert", &iot.CertificateArgs{
-//				Csr:    readFileOrPanic("csr.pem"),
-//				Active: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = iot.NewThingPrincipalAttachment(ctx, "att", &iot.ThingPrincipalAttachmentArgs{
-//				Principal: cert.Arn,
-//				Thing:     example.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := iot/thing.NewThing(ctx, "example", nil)
+// if err != nil {
+// return err
+// }
+// cert, err := iot/certificate.NewCertificate(ctx, "cert", &iot/certificate.CertificateArgs{
+// Csr: readFileOrPanic("csr.pem"),
+// Active: true,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = iot/thingPrincipalAttachment.NewThingPrincipalAttachment(ctx, "att", &iot/thingPrincipalAttachment.ThingPrincipalAttachmentArgs{
+// Principal: cert.Arn,
+// Thing: example.Name,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 type ThingPrincipalAttachment struct {
 	pulumi.CustomResourceState

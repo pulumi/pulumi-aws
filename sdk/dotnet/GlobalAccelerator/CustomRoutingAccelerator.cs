@@ -22,13 +22,13 @@ namespace Pulumi.Aws.GlobalAccelerator
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.GlobalAccelerator.CustomRoutingAccelerator("example", new()
+    ///     var example = new Aws.Globalaccelerator.CustomRoutingAccelerator.CustomRoutingAccelerator("example", new()
     ///     {
-    ///         Attributes = new Aws.GlobalAccelerator.Inputs.CustomRoutingAcceleratorAttributesArgs
+    ///         Attributes = 
     ///         {
-    ///             FlowLogsEnabled = true,
-    ///             FlowLogsS3Bucket = "example-bucket",
-    ///             FlowLogsS3Prefix = "flow-logs/",
+    ///             { "flowLogsEnabled", true },
+    ///             { "flowLogsS3Bucket", "example-bucket" },
+    ///             { "flowLogsS3Prefix", "flow-logs/" },
     ///         },
     ///         Enabled = true,
     ///         IpAddressType = "IPV4",

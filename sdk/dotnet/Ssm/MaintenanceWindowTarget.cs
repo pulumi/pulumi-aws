@@ -23,27 +23,27 @@ namespace Pulumi.Aws.Ssm
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var window = new Aws.Ssm.MaintenanceWindow("window", new()
+    ///     var window = new Aws.Ssm.MaintenanceWindow.MaintenanceWindow("window", new()
     ///     {
     ///         Schedule = "cron(0 16 ? * TUE *)",
     ///         Duration = 3,
     ///         Cutoff = 1,
     ///     });
     /// 
-    ///     var target1 = new Aws.Ssm.MaintenanceWindowTarget("target1", new()
+    ///     var target1 = new Aws.Ssm.MaintenanceWindowTarget.MaintenanceWindowTarget("target1", new()
     ///     {
     ///         WindowId = window.Id,
     ///         Description = "This is a maintenance window target",
     ///         ResourceType = "INSTANCE",
     ///         Targets = new[]
     ///         {
-    ///             new Aws.Ssm.Inputs.MaintenanceWindowTargetTargetArgs
+    ///             
     ///             {
-    ///                 Key = "tag:Name",
-    ///                 Values = new[]
+    ///                 { "key", "tag:Name" },
+    ///                 { "values", new[]
     ///                 {
     ///                     "acceptance_test",
-    ///                 },
+    ///                 } },
     ///             },
     ///         },
     ///     });
@@ -60,27 +60,27 @@ namespace Pulumi.Aws.Ssm
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var window = new Aws.Ssm.MaintenanceWindow("window", new()
+    ///     var window = new Aws.Ssm.MaintenanceWindow.MaintenanceWindow("window", new()
     ///     {
     ///         Schedule = "cron(0 16 ? * TUE *)",
     ///         Duration = 3,
     ///         Cutoff = 1,
     ///     });
     /// 
-    ///     var target1 = new Aws.Ssm.MaintenanceWindowTarget("target1", new()
+    ///     var target1 = new Aws.Ssm.MaintenanceWindowTarget.MaintenanceWindowTarget("target1", new()
     ///     {
     ///         WindowId = window.Id,
     ///         Description = "This is a maintenance window target",
     ///         ResourceType = "RESOURCE_GROUP",
     ///         Targets = new[]
     ///         {
-    ///             new Aws.Ssm.Inputs.MaintenanceWindowTargetTargetArgs
+    ///             
     ///             {
-    ///                 Key = "resource-groups:ResourceTypeFilters",
-    ///                 Values = new[]
+    ///                 { "key", "resource-groups:ResourceTypeFilters" },
+    ///                 { "values", new[]
     ///                 {
     ///                     "AWS::EC2::Instance",
-    ///                 },
+    ///                 } },
     ///             },
     ///         },
     ///     });

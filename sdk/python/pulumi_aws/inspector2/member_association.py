@@ -123,7 +123,7 @@ class MemberAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.inspector2.MemberAssociation("example", account_id="123456789012")
+        example = aws.inspector2.member_association.MemberAssociation("example", account_id=123456789012)
         ```
 
         ## Import
@@ -154,7 +154,7 @@ class MemberAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.inspector2.MemberAssociation("example", account_id="123456789012")
+        example = aws.inspector2.member_association.MemberAssociation("example", account_id=123456789012)
         ```
 
         ## Import

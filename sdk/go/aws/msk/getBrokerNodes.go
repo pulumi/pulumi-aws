@@ -12,32 +12,6 @@ import (
 )
 
 // Get information on an Amazon MSK Broker Nodes.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/msk"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := msk.GetBrokerNodes(ctx, &msk.GetBrokerNodesArgs{
-//				ClusterArn: aws_msk_cluster.Example.Arn,
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetBrokerNodes(ctx *pulumi.Context, args *GetBrokerNodesArgs, opts ...pulumi.InvokeOption) (*GetBrokerNodesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetBrokerNodesResult

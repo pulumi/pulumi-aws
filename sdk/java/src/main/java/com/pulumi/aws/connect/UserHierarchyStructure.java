@@ -28,8 +28,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.connect.UserHierarchyStructure;
  * import com.pulumi.aws.connect.UserHierarchyStructureArgs;
- * import com.pulumi.aws.connect.inputs.UserHierarchyStructureHierarchyStructureArgs;
- * import com.pulumi.aws.connect.inputs.UserHierarchyStructureHierarchyStructureLevelOneArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -44,11 +42,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new UserHierarchyStructure(&#34;example&#34;, UserHierarchyStructureArgs.builder()        
- *             .hierarchyStructure(UserHierarchyStructureHierarchyStructureArgs.builder()
- *                 .levelOne(UserHierarchyStructureHierarchyStructureLevelOneArgs.builder()
- *                     .name(&#34;levelone&#34;)
- *                     .build())
- *                 .build())
+ *             .hierarchyStructure(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
  *             .build());
  * 
@@ -64,12 +58,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.connect.UserHierarchyStructure;
  * import com.pulumi.aws.connect.UserHierarchyStructureArgs;
- * import com.pulumi.aws.connect.inputs.UserHierarchyStructureHierarchyStructureArgs;
- * import com.pulumi.aws.connect.inputs.UserHierarchyStructureHierarchyStructureLevelFiveArgs;
- * import com.pulumi.aws.connect.inputs.UserHierarchyStructureHierarchyStructureLevelFourArgs;
- * import com.pulumi.aws.connect.inputs.UserHierarchyStructureHierarchyStructureLevelOneArgs;
- * import com.pulumi.aws.connect.inputs.UserHierarchyStructureHierarchyStructureLevelThreeArgs;
- * import com.pulumi.aws.connect.inputs.UserHierarchyStructureHierarchyStructureLevelTwoArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -84,23 +72,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new UserHierarchyStructure(&#34;example&#34;, UserHierarchyStructureArgs.builder()        
- *             .hierarchyStructure(UserHierarchyStructureHierarchyStructureArgs.builder()
- *                 .levelFive(UserHierarchyStructureHierarchyStructureLevelFiveArgs.builder()
- *                     .name(&#34;levelfive&#34;)
- *                     .build())
- *                 .levelFour(UserHierarchyStructureHierarchyStructureLevelFourArgs.builder()
- *                     .name(&#34;levelfour&#34;)
- *                     .build())
- *                 .levelOne(UserHierarchyStructureHierarchyStructureLevelOneArgs.builder()
- *                     .name(&#34;levelone&#34;)
- *                     .build())
- *                 .levelThree(UserHierarchyStructureHierarchyStructureLevelThreeArgs.builder()
- *                     .name(&#34;levelthree&#34;)
- *                     .build())
- *                 .levelTwo(UserHierarchyStructureHierarchyStructureLevelTwoArgs.builder()
- *                     .name(&#34;leveltwo&#34;)
- *                     .build())
- *                 .build())
+ *             .hierarchyStructure(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
  *             .build());
  * 

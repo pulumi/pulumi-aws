@@ -18,38 +18,6 @@ import (
 // This data source can prove useful when a module accepts an LB as an input
 // variable and needs to, for example, determine the security groups associated
 // with it, etc.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/elb"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			cfg := config.New(ctx, "")
-//			lbName := ""
-//			if param := cfg.Get("lbName"); param != "" {
-//				lbName = param
-//			}
-//			_, err := elb.LookupLoadBalancer(ctx, &elb.LookupLoadBalancerArgs{
-//				Name: lbName,
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupLoadBalancer(ctx *pulumi.Context, args *LookupLoadBalancerArgs, opts ...pulumi.InvokeOption) (*LookupLoadBalancerResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupLoadBalancerResult

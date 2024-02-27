@@ -79,7 +79,7 @@ import javax.annotation.Nullable;
  *         var main = new Zone(&#34;main&#34;);
  * 
  *         var dev = new Zone(&#34;dev&#34;, ZoneArgs.builder()        
- *             .tags(Map.of(&#34;Environment&#34;, &#34;dev&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var dev_ns = new Record(&#34;dev-ns&#34;, RecordArgs.builder()        
@@ -106,7 +106,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.route53.Zone;
  * import com.pulumi.aws.route53.ZoneArgs;
- * import com.pulumi.aws.route53.inputs.ZoneVpcArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -121,9 +120,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var private_ = new Zone(&#34;private&#34;, ZoneArgs.builder()        
- *             .vpcs(ZoneVpcArgs.builder()
- *                 .vpcId(aws_vpc.example().id())
- *                 .build())
+ *             .vpcs(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

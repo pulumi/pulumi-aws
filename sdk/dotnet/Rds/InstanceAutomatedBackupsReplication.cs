@@ -26,7 +26,7 @@ namespace Pulumi.Aws.Rds
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var @default = new Aws.Rds.InstanceAutomatedBackupsReplication("default", new()
+    ///     var @default = new Aws.Rds.InstanceAutomatedBackupsReplication.InstanceAutomatedBackupsReplication("default", new()
     ///     {
     ///         RetentionPeriod = 14,
     ///         SourceDbInstanceArn = "arn:aws:rds:us-west-2:123456789012:db:mydatabase",
@@ -44,7 +44,7 @@ namespace Pulumi.Aws.Rds
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var @default = new Aws.Rds.InstanceAutomatedBackupsReplication("default", new()
+    ///     var @default = new Aws.Rds.InstanceAutomatedBackupsReplication.InstanceAutomatedBackupsReplication("default", new()
     ///     {
     ///         KmsKeyId = "arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012",
     ///         SourceDbInstanceArn = "arn:aws:rds:us-west-2:123456789012:db:mydatabase",
@@ -63,12 +63,12 @@ namespace Pulumi.Aws.Rds
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var replica = new Aws.Provider("replica", new()
+    ///     var replica = new Pulumi.Providers.Aws("replica", new()
     ///     {
     ///         Region = "us-west-2",
     ///     });
     /// 
-    ///     var defaultInstance = new Aws.Rds.Instance("defaultInstance", new()
+    ///     var defaultInstance = new Aws.Rds.Instance.Instance("defaultInstance", new()
     ///     {
     ///         AllocatedStorage = 10,
     ///         Identifier = "mydb",
@@ -83,7 +83,7 @@ namespace Pulumi.Aws.Rds
     ///         SkipFinalSnapshot = true,
     ///     });
     /// 
-    ///     var defaultKey = new Aws.Kms.Key("defaultKey", new()
+    ///     var defaultKey = new Aws.Kms.Key.Key("defaultKey", new()
     ///     {
     ///         Description = "Encryption key for automated backups",
     ///     }, new CustomResourceOptions
@@ -91,7 +91,7 @@ namespace Pulumi.Aws.Rds
     ///         Provider = aws.Replica,
     ///     });
     /// 
-    ///     var defaultInstanceAutomatedBackupsReplication = new Aws.Rds.InstanceAutomatedBackupsReplication("defaultInstanceAutomatedBackupsReplication", new()
+    ///     var defaultInstanceAutomatedBackupsReplication = new Aws.Rds.InstanceAutomatedBackupsReplication.InstanceAutomatedBackupsReplication("defaultInstanceAutomatedBackupsReplication", new()
     ///     {
     ///         SourceDbInstanceArn = defaultInstance.Arn,
     ///         KmsKeyId = defaultKey.Arn,

@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.redshiftserverless.ResourcePolicy("example", {
+ * const example = new aws.redshiftserverless/resourcePolicy.ResourcePolicy("example", {
  *     resourceArn: aws_redshiftserverless_snapshot.example.arn,
  *     policy: JSON.stringify({
  *         Version: "2012-10-17",

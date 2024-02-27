@@ -22,11 +22,11 @@ namespace Pulumi.Aws.Iot
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Iot.BillingGroup("example", new()
+    ///     var example = new Aws.Iot.BillingGroup.BillingGroup("example", new()
     ///     {
-    ///         Properties = new Aws.Iot.Inputs.BillingGroupPropertiesArgs
+    ///         Properties = 
     ///         {
-    ///             Description = "This is my billing group",
+    ///             { "description", "This is my billing group" },
     ///         },
     ///         Tags = 
     ///         {

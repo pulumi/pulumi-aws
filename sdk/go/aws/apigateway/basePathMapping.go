@@ -26,51 +26,52 @@ import (
 //	"fmt"
 //	"os"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigateway"
+//	apigateway/basePathMapping "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/apigateway/basePathMapping"
+//	apigateway/domainName "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/apigateway/domainName"
+//	apigateway/stage "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/apigateway/stage"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func readFileOrPanic(path string) pulumi.StringPtrInput {
-//		data, err := os.ReadFile(path)
-//		if err != nil {
-//			panic(err.Error())
-//		}
-//		return pulumi.String(string(data))
-//	}
+//					data, err := os.ReadFile(path)
+//					if err != nil {
+//						panic(err.Error())
+//					}
+//					return pulumi.String(string(data))
+//				}
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleStage, err := apigateway.NewStage(ctx, "exampleStage", &apigateway.StageArgs{
-//				Deployment: pulumi.Any(aws_api_gateway_deployment.Example.Id),
-//				RestApi:    pulumi.Any(aws_api_gateway_rest_api.Example.Id),
-//				StageName:  pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleDomainName, err := apigateway.NewDomainName(ctx, "exampleDomainName", &apigateway.DomainNameArgs{
-//				DomainName:            pulumi.String("example.com"),
-//				CertificateName:       pulumi.String("example-api"),
-//				CertificateBody:       readFileOrPanic(fmt.Sprintf("%v/example.com/example.crt", path.Module)),
-//				CertificateChain:      readFileOrPanic(fmt.Sprintf("%v/example.com/ca.crt", path.Module)),
-//				CertificatePrivateKey: readFileOrPanic(fmt.Sprintf("%v/example.com/example.key", path.Module)),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = apigateway.NewBasePathMapping(ctx, "exampleBasePathMapping", &apigateway.BasePathMappingArgs{
-//				RestApi:    pulumi.Any(aws_api_gateway_rest_api.Example.Id),
-//				StageName:  exampleStage.StageName,
-//				DomainName: exampleDomainName.DomainName,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleStage, err := apigateway/stage.NewStage(ctx, "exampleStage", &apigateway/stage.StageArgs{
+// Deployment: aws_api_gateway_deployment.Example.Id,
+// RestApi: aws_api_gateway_rest_api.Example.Id,
+// StageName: "example",
+// })
+// if err != nil {
+// return err
+// }
+// exampleDomainName, err := apigateway/domainName.NewDomainName(ctx, "exampleDomainName", &apigateway/domainName.DomainNameArgs{
+// DomainName: "example.com",
+// CertificateName: "example-api",
+// CertificateBody: readFileOrPanic(fmt.Sprintf("%v/example.com/example.crt", path.Module)),
+// CertificateChain: readFileOrPanic(fmt.Sprintf("%v/example.com/ca.crt", path.Module)),
+// CertificatePrivateKey: readFileOrPanic(fmt.Sprintf("%v/example.com/example.key", path.Module)),
+// })
+// if err != nil {
+// return err
+// }
+// _, err = apigateway/basePathMapping.NewBasePathMapping(ctx, "exampleBasePathMapping", &apigateway/basePathMapping.BasePathMappingArgs{
+// RestApi: aws_api_gateway_rest_api.Example.Id,
+// StageName: exampleStage.StageName,
+// DomainName: exampleDomainName.DomainName,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

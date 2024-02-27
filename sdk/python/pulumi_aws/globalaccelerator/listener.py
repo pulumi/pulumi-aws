@@ -173,22 +173,22 @@ class Listener(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_accelerator = aws.globalaccelerator.Accelerator("exampleAccelerator",
-            ip_address_type="IPV4",
+        example_accelerator = aws.globalaccelerator.accelerator.Accelerator("exampleAccelerator",
+            ip_address_type=IPV4,
             enabled=True,
-            attributes=aws.globalaccelerator.AcceleratorAttributesArgs(
-                flow_logs_enabled=True,
-                flow_logs_s3_bucket="example-bucket",
-                flow_logs_s3_prefix="flow-logs/",
-            ))
-        example_listener = aws.globalaccelerator.Listener("exampleListener",
+            attributes={
+                flowLogsEnabled: True,
+                flowLogsS3Bucket: example-bucket,
+                flowLogsS3Prefix: flow-logs/,
+            })
+        example_listener = aws.globalaccelerator.listener.Listener("exampleListener",
             accelerator_arn=example_accelerator.id,
-            client_affinity="SOURCE_IP",
-            protocol="TCP",
-            port_ranges=[aws.globalaccelerator.ListenerPortRangeArgs(
-                from_port=80,
-                to_port=80,
-            )])
+            client_affinity=SOURCE_IP,
+            protocol=TCP,
+            port_ranges=[{
+                fromPort: 80,
+                toPort: 80,
+            }])
         ```
 
         ## Import
@@ -221,22 +221,22 @@ class Listener(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_accelerator = aws.globalaccelerator.Accelerator("exampleAccelerator",
-            ip_address_type="IPV4",
+        example_accelerator = aws.globalaccelerator.accelerator.Accelerator("exampleAccelerator",
+            ip_address_type=IPV4,
             enabled=True,
-            attributes=aws.globalaccelerator.AcceleratorAttributesArgs(
-                flow_logs_enabled=True,
-                flow_logs_s3_bucket="example-bucket",
-                flow_logs_s3_prefix="flow-logs/",
-            ))
-        example_listener = aws.globalaccelerator.Listener("exampleListener",
+            attributes={
+                flowLogsEnabled: True,
+                flowLogsS3Bucket: example-bucket,
+                flowLogsS3Prefix: flow-logs/,
+            })
+        example_listener = aws.globalaccelerator.listener.Listener("exampleListener",
             accelerator_arn=example_accelerator.id,
-            client_affinity="SOURCE_IP",
-            protocol="TCP",
-            port_ranges=[aws.globalaccelerator.ListenerPortRangeArgs(
-                from_port=80,
-                to_port=80,
-            )])
+            client_affinity=SOURCE_IP,
+            protocol=TCP,
+            port_ranges=[{
+                fromPort: 80,
+                toPort: 80,
+            }])
         ```
 
         ## Import

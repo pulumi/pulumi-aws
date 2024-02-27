@@ -22,7 +22,7 @@ namespace Pulumi.Aws.MediaConvert
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Aws.MediaConvert.Queue("test");
+    ///     var test = new Aws.Mediaconvert.Queue.Queue("test");
     /// 
     /// });
     /// ```

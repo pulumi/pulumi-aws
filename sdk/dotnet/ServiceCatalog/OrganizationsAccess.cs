@@ -25,9 +25,9 @@ namespace Pulumi.Aws.ServiceCatalog
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.ServiceCatalog.OrganizationsAccess("example", new()
+    ///     var example = new Aws.Servicecatalog.OrganizationsAccess.OrganizationsAccess("example", new()
     ///     {
-    ///         Enabled = true,
+    ///         Enabled = "true",
     ///     });
     /// 
     /// });

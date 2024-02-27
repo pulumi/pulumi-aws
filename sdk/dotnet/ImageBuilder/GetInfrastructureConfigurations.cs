@@ -13,76 +13,12 @@ namespace Pulumi.Aws.ImageBuilder
     {
         /// <summary>
         /// Use this data source to get the ARNs and names of Image Builder Infrastructure Configurations matching the specified criteria.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.ImageBuilder.GetInfrastructureConfigurations.Invoke(new()
-        ///     {
-        ///         Filters = new[]
-        ///         {
-        ///             new Aws.ImageBuilder.Inputs.GetInfrastructureConfigurationsFilterInputArgs
-        ///             {
-        ///                 Name = "name",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "example",
-        ///                 },
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetInfrastructureConfigurationsResult> InvokeAsync(GetInfrastructureConfigurationsArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetInfrastructureConfigurationsResult>("aws:imagebuilder/getInfrastructureConfigurations:getInfrastructureConfigurations", args ?? new GetInfrastructureConfigurationsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to get the ARNs and names of Image Builder Infrastructure Configurations matching the specified criteria.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.ImageBuilder.GetInfrastructureConfigurations.Invoke(new()
-        ///     {
-        ///         Filters = new[]
-        ///         {
-        ///             new Aws.ImageBuilder.Inputs.GetInfrastructureConfigurationsFilterInputArgs
-        ///             {
-        ///                 Name = "name",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "example",
-        ///                 },
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetInfrastructureConfigurationsResult> Invoke(GetInfrastructureConfigurationsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetInfrastructureConfigurationsResult>("aws:imagebuilder/getInfrastructureConfigurations:getInfrastructureConfigurations", args ?? new GetInfrastructureConfigurationsInvokeArgs(), options.WithDefaults());

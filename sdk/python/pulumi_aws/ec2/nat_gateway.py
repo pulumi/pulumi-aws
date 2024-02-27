@@ -376,11 +376,11 @@ class NatGateway(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ec2.NatGateway("example",
-            allocation_id=aws_eip["example"]["id"],
-            subnet_id=aws_subnet["example"]["id"],
+        example = aws.ec2.nat_gateway.NatGateway("example",
+            allocation_id=aws_eip.example.id,
+            subnet_id=aws_subnet.example.id,
             tags={
-                "Name": "gw NAT",
+                Name: gw NAT,
             },
             opts=pulumi.ResourceOptions(depends_on=[aws_internet_gateway["example"]]))
         ```
@@ -390,11 +390,11 @@ class NatGateway(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ec2.NatGateway("example",
-            allocation_id=aws_eip["example"]["id"],
-            subnet_id=aws_subnet["example"]["id"],
-            secondary_allocation_ids=[aws_eip["secondary"]["id"]],
-            secondary_private_ip_addresses=["10.0.1.5"])
+        example = aws.ec2.nat_gateway.NatGateway("example",
+            allocation_id=aws_eip.example.id,
+            subnet_id=aws_subnet.example.id,
+            secondary_allocation_ids=[aws_eip.secondary.id],
+            secondary_private_ip_addresses=[10.0.1.5])
         ```
         ### Private NAT
 
@@ -402,9 +402,9 @@ class NatGateway(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ec2.NatGateway("example",
-            connectivity_type="private",
-            subnet_id=aws_subnet["example"]["id"])
+        example = aws.ec2.nat_gateway.NatGateway("example",
+            connectivity_type=private,
+            subnet_id=aws_subnet.example.id)
         ```
         ### Private NAT with Secondary Private IP Addresses
 
@@ -412,9 +412,9 @@ class NatGateway(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ec2.NatGateway("example",
-            connectivity_type="private",
-            subnet_id=aws_subnet["example"]["id"],
+        example = aws.ec2.nat_gateway.NatGateway("example",
+            connectivity_type=private,
+            subnet_id=aws_subnet.example.id,
             secondary_private_ip_address_count=7)
         ```
 
@@ -453,11 +453,11 @@ class NatGateway(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ec2.NatGateway("example",
-            allocation_id=aws_eip["example"]["id"],
-            subnet_id=aws_subnet["example"]["id"],
+        example = aws.ec2.nat_gateway.NatGateway("example",
+            allocation_id=aws_eip.example.id,
+            subnet_id=aws_subnet.example.id,
             tags={
-                "Name": "gw NAT",
+                Name: gw NAT,
             },
             opts=pulumi.ResourceOptions(depends_on=[aws_internet_gateway["example"]]))
         ```
@@ -467,11 +467,11 @@ class NatGateway(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ec2.NatGateway("example",
-            allocation_id=aws_eip["example"]["id"],
-            subnet_id=aws_subnet["example"]["id"],
-            secondary_allocation_ids=[aws_eip["secondary"]["id"]],
-            secondary_private_ip_addresses=["10.0.1.5"])
+        example = aws.ec2.nat_gateway.NatGateway("example",
+            allocation_id=aws_eip.example.id,
+            subnet_id=aws_subnet.example.id,
+            secondary_allocation_ids=[aws_eip.secondary.id],
+            secondary_private_ip_addresses=[10.0.1.5])
         ```
         ### Private NAT
 
@@ -479,9 +479,9 @@ class NatGateway(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ec2.NatGateway("example",
-            connectivity_type="private",
-            subnet_id=aws_subnet["example"]["id"])
+        example = aws.ec2.nat_gateway.NatGateway("example",
+            connectivity_type=private,
+            subnet_id=aws_subnet.example.id)
         ```
         ### Private NAT with Secondary Private IP Addresses
 
@@ -489,9 +489,9 @@ class NatGateway(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ec2.NatGateway("example",
-            connectivity_type="private",
-            subnet_id=aws_subnet["example"]["id"],
+        example = aws.ec2.nat_gateway.NatGateway("example",
+            connectivity_type=private,
+            subnet_id=aws_subnet.example.id,
             secondary_private_ip_address_count=7)
         ```
 

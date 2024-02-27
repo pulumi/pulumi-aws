@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.emrserverless.Application("example", {
+ * const example = new aws.emrserverless/application.Application("example", {
  *     releaseLabel: "emr-6.6.0",
  *     type: "hive",
  * });
@@ -28,7 +28,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.emrserverless.Application("example", {
+ * const example = new aws.emrserverless/application.Application("example", {
  *     initialCapacities: [{
  *         initialCapacityConfig: {
  *             workerConfiguration: {
@@ -49,7 +49,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.emrserverless.Application("example", {
+ * const example = new aws.emrserverless/application.Application("example", {
  *     maximumCapacity: {
  *         cpu: "2 vCPU",
  *         memory: "10 GB",

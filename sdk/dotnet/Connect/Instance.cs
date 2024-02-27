@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Connect
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Aws.Connect.Instance("test", new()
+    ///     var test = new Aws.Connect.Instance.Instance("test", new()
     ///     {
     ///         IdentityManagementType = "CONNECT_MANAGED",
     ///         InboundCallsEnabled = true,
@@ -45,7 +45,7 @@ namespace Pulumi.Aws.Connect
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Aws.Connect.Instance("test", new()
+    ///     var test = new Aws.Connect.Instance.Instance("test", new()
     ///     {
     ///         DirectoryId = aws_directory_service_directory.Test.Id,
     ///         IdentityManagementType = "EXISTING_DIRECTORY",
@@ -66,7 +66,7 @@ namespace Pulumi.Aws.Connect
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Aws.Connect.Instance("test", new()
+    ///     var test = new Aws.Connect.Instance.Instance("test", new()
     ///     {
     ///         IdentityManagementType = "SAML",
     ///         InboundCallsEnabled = true,

@@ -14,88 +14,6 @@ namespace Pulumi.Aws.Ec2
     /// interface, subnet, or VPC. Logs are sent to a CloudWatch Log Group, a S3 Bucket, or Amazon Kinesis Data Firehose
     /// 
     /// ## Example Usage
-    /// ### CloudWatch Logging
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleLogGroup = new Aws.CloudWatch.LogGroup("exampleLogGroup");
-    /// 
-    ///     var assumeRole = Aws.Iam.GetPolicyDocument.Invoke(new()
-    ///     {
-    ///         Statements = new[]
-    ///         {
-    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
-    ///             {
-    ///                 Effect = "Allow",
-    ///                 Principals = new[]
-    ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
-    ///                     {
-    ///                         Type = "Service",
-    ///                         Identifiers = new[]
-    ///                         {
-    ///                             "vpc-flow-logs.amazonaws.com",
-    ///                         },
-    ///                     },
-    ///                 },
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "sts:AssumeRole",
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleRole = new Aws.Iam.Role("exampleRole", new()
-    ///     {
-    ///         AssumeRolePolicy = assumeRole.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
-    ///     });
-    /// 
-    ///     var exampleFlowLog = new Aws.Ec2.FlowLog("exampleFlowLog", new()
-    ///     {
-    ///         IamRoleArn = exampleRole.Arn,
-    ///         LogDestination = exampleLogGroup.Arn,
-    ///         TrafficType = "ALL",
-    ///         VpcId = aws_vpc.Example.Id,
-    ///     });
-    /// 
-    ///     var examplePolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
-    ///     {
-    ///         Statements = new[]
-    ///         {
-    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
-    ///             {
-    ///                 Effect = "Allow",
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "logs:CreateLogGroup",
-    ///                     "logs:CreateLogStream",
-    ///                     "logs:PutLogEvents",
-    ///                     "logs:DescribeLogGroups",
-    ///                     "logs:DescribeLogStreams",
-    ///                 },
-    ///                 Resources = new[]
-    ///                 {
-    ///                     "*",
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleRolePolicy = new Aws.Iam.RolePolicy("exampleRolePolicy", new()
-    ///     {
-    ///         Role = exampleRole.Id,
-    ///         Policy = examplePolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// ### S3 Logging
     /// 
     /// ```csharp
@@ -106,9 +24,9 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2");
+    ///     var exampleBucketV2 = new Aws.S3.BucketV2.BucketV2("exampleBucketV2");
     /// 
-    ///     var exampleFlowLog = new Aws.Ec2.FlowLog("exampleFlowLog", new()
+    ///     var exampleFlowLog = new Aws.Ec2.FlowLog.FlowLog("exampleFlowLog", new()
     ///     {
     ///         LogDestination = exampleBucketV2.Arn,
     ///         LogDestinationType = "s3",
@@ -128,18 +46,18 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2");
+    ///     var exampleBucketV2 = new Aws.S3.BucketV2.BucketV2("exampleBucketV2");
     /// 
-    ///     var exampleFlowLog = new Aws.Ec2.FlowLog("exampleFlowLog", new()
+    ///     var exampleFlowLog = new Aws.Ec2.FlowLog.FlowLog("exampleFlowLog", new()
     ///     {
     ///         LogDestination = exampleBucketV2.Arn,
     ///         LogDestinationType = "s3",
     ///         TrafficType = "ALL",
     ///         VpcId = aws_vpc.Example.Id,
-    ///         DestinationOptions = new Aws.Ec2.Inputs.FlowLogDestinationOptionsArgs
+    ///         DestinationOptions = 
     ///         {
-    ///             FileFormat = "parquet",
-    ///             PerHourPartition = true,
+    ///             { "fileFormat", "parquet" },
+    ///             { "perHourPartition", true },
     ///         },
     ///     });
     /// 

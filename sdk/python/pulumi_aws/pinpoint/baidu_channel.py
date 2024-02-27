@@ -172,11 +172,11 @@ class BaiduChannel(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        app = aws.pinpoint.App("app")
-        channel = aws.pinpoint.BaiduChannel("channel",
+        app = aws.pinpoint.app.App("app")
+        channel = aws.pinpoint.baidu_channel.BaiduChannel("channel",
             application_id=app.application_id,
-            api_key="",
-            secret_key="")
+            api_key=,
+            secret_key=)
         ```
 
         ## Import
@@ -210,11 +210,11 @@ class BaiduChannel(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        app = aws.pinpoint.App("app")
-        channel = aws.pinpoint.BaiduChannel("channel",
+        app = aws.pinpoint.app.App("app")
+        channel = aws.pinpoint.baidu_channel.BaiduChannel("channel",
             application_id=app.application_id,
-            api_key="",
-            secret_key="")
+            api_key=,
+            secret_key=)
         ```
 
         ## Import

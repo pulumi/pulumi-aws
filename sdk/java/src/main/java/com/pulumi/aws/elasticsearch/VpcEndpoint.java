@@ -25,9 +25,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.elasticsearch.VpcEndpoint;
- * import com.pulumi.aws.elasticsearch.VpcEndpointArgs;
- * import com.pulumi.aws.elasticsearch.inputs.VpcEndpointVpcOptionsArgs;
+ * import com.pulumi.aws.elasticsearch_vpcEndpoint.VpcEndpoint;
+ * import com.pulumi.aws.elasticsearch_vpcEndpoint.VpcEndpointArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -43,14 +42,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var foo = new VpcEndpoint(&#34;foo&#34;, VpcEndpointArgs.builder()        
  *             .domainArn(aws_elasticsearch_domain.domain_1().arn())
- *             .vpcOptions(VpcEndpointVpcOptionsArgs.builder()
- *                 .securityGroupIds(                
- *                     aws_security_group.test().id(),
- *                     aws_security_group.test2().id())
- *                 .subnetIds(                
- *                     aws_subnet.test().id(),
- *                     aws_subnet.test2().id())
- *                 .build())
+ *             .vpcOptions(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

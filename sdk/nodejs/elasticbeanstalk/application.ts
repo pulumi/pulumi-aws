@@ -21,7 +21,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const tftest = new aws.elasticbeanstalk.Application("tftest", {
+ * const tftest = new aws.elasticbeanstalk/application.Application("tftest", {
  *     description: "tf-test-desc",
  *     appversionLifecycle: {
  *         serviceRole: aws_iam_role.beanstalk_service.arn,

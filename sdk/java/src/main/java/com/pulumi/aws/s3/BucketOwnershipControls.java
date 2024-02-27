@@ -29,7 +29,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.s3.BucketV2;
  * import com.pulumi.aws.s3.BucketOwnershipControls;
  * import com.pulumi.aws.s3.BucketOwnershipControlsArgs;
- * import com.pulumi.aws.s3.inputs.BucketOwnershipControlsRuleArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -47,9 +46,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleBucketOwnershipControls = new BucketOwnershipControls(&#34;exampleBucketOwnershipControls&#34;, BucketOwnershipControlsArgs.builder()        
  *             .bucket(exampleBucketV2.id())
- *             .rule(BucketOwnershipControlsRuleArgs.builder()
- *                 .objectOwnership(&#34;BucketOwnerPreferred&#34;)
- *                 .build())
+ *             .rule(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

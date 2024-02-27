@@ -12,32 +12,6 @@ import (
 )
 
 // The Batch Scheduling Policy data source allows access to details of a specific Scheduling Policy within AWS Batch.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/batch"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := batch.LookupSchedulingPolicy(ctx, &batch.LookupSchedulingPolicyArgs{
-//				Arn: "arn:aws:batch:us-east-1:012345678910:scheduling-policy/example",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupSchedulingPolicy(ctx *pulumi.Context, args *LookupSchedulingPolicyArgs, opts ...pulumi.InvokeOption) (*LookupSchedulingPolicyResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupSchedulingPolicyResult

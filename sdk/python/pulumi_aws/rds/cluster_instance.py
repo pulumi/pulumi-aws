@@ -1017,22 +1017,22 @@ class ClusterInstance(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        default = aws.rds.Cluster("default",
-            cluster_identifier="aurora-cluster-demo",
+        default = aws.rds.cluster.Cluster("default",
+            cluster_identifier=aurora-cluster-demo,
             availability_zones=[
-                "us-west-2a",
-                "us-west-2b",
-                "us-west-2c",
+                us-west-2a,
+                us-west-2b,
+                us-west-2c,
             ],
-            database_name="mydb",
-            master_username="foo",
-            master_password="barbut8chars")
+            database_name=mydb,
+            master_username=foo,
+            master_password=barbut8chars)
         cluster_instances = []
         for range in [{"value": i} for i in range(0, 2)]:
-            cluster_instances.append(aws.rds.ClusterInstance(f"clusterInstances-{range['value']}",
-                identifier=f"aurora-cluster-demo-{range['value']}",
+            cluster_instances.append(aws.rds.cluster_instance.ClusterInstance(f"clusterInstances-{range['value']}",
+                identifier=faurora-cluster-demo-{range.value},
                 cluster_identifier=default.id,
-                instance_class="db.r4.large",
+                instance_class=db.r4.large,
                 engine=default.engine,
                 engine_version=default.engine_version))
         ```
@@ -1103,22 +1103,22 @@ class ClusterInstance(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        default = aws.rds.Cluster("default",
-            cluster_identifier="aurora-cluster-demo",
+        default = aws.rds.cluster.Cluster("default",
+            cluster_identifier=aurora-cluster-demo,
             availability_zones=[
-                "us-west-2a",
-                "us-west-2b",
-                "us-west-2c",
+                us-west-2a,
+                us-west-2b,
+                us-west-2c,
             ],
-            database_name="mydb",
-            master_username="foo",
-            master_password="barbut8chars")
+            database_name=mydb,
+            master_username=foo,
+            master_password=barbut8chars)
         cluster_instances = []
         for range in [{"value": i} for i in range(0, 2)]:
-            cluster_instances.append(aws.rds.ClusterInstance(f"clusterInstances-{range['value']}",
-                identifier=f"aurora-cluster-demo-{range['value']}",
+            cluster_instances.append(aws.rds.cluster_instance.ClusterInstance(f"clusterInstances-{range['value']}",
+                identifier=faurora-cluster-demo-{range.value},
                 cluster_identifier=default.id,
-                instance_class="db.r4.large",
+                instance_class=db.r4.large,
                 engine=default.engine,
                 engine_version=default.engine_version))
         ```

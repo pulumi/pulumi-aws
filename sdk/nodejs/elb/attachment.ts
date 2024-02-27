@@ -21,7 +21,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * // Create a new load balancer attachment
- * const baz = new aws.elb.Attachment("baz", {
+ * const baz = new aws.elb/attachment.Attachment("baz", {
  *     elb: aws_elb.bar.id,
  *     instance: aws_instance.foo.id,
  * });

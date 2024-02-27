@@ -165,40 +165,6 @@ class ExtensionAssociation(pulumi.CustomResource):
         """
         Associates an AppConfig Extension with a Resource.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test_topic = aws.sns.Topic("testTopic")
-        test_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            actions=["sts:AssumeRole"],
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["appconfig.amazonaws.com"],
-            )],
-        )])
-        test_role = aws.iam.Role("testRole", assume_role_policy=test_policy_document.json)
-        test_extension = aws.appconfig.Extension("testExtension",
-            description="test description",
-            action_points=[aws.appconfig.ExtensionActionPointArgs(
-                point="ON_DEPLOYMENT_COMPLETE",
-                actions=[aws.appconfig.ExtensionActionPointActionArgs(
-                    name="test",
-                    role_arn=test_role.arn,
-                    uri=test_topic.arn,
-                )],
-            )],
-            tags={
-                "Type": "AppConfig Extension",
-            })
-        test_application = aws.appconfig.Application("testApplication")
-        test_extension_association = aws.appconfig.ExtensionAssociation("testExtensionAssociation",
-            extension_arn=test_extension.arn,
-            resource_arn=test_application.arn)
-        ```
-
         ## Import
 
         Using `pulumi import`, import AppConfig Extension Associations using their extension association ID. For example:
@@ -221,40 +187,6 @@ class ExtensionAssociation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Associates an AppConfig Extension with a Resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test_topic = aws.sns.Topic("testTopic")
-        test_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            actions=["sts:AssumeRole"],
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["appconfig.amazonaws.com"],
-            )],
-        )])
-        test_role = aws.iam.Role("testRole", assume_role_policy=test_policy_document.json)
-        test_extension = aws.appconfig.Extension("testExtension",
-            description="test description",
-            action_points=[aws.appconfig.ExtensionActionPointArgs(
-                point="ON_DEPLOYMENT_COMPLETE",
-                actions=[aws.appconfig.ExtensionActionPointActionArgs(
-                    name="test",
-                    role_arn=test_role.arn,
-                    uri=test_topic.arn,
-                )],
-            )],
-            tags={
-                "Type": "AppConfig Extension",
-            })
-        test_application = aws.appconfig.Application("testApplication")
-        test_extension_association = aws.appconfig.ExtensionAssociation("testExtensionAssociation",
-            extension_arn=test_extension.arn,
-            resource_arn=test_application.arn)
-        ```
 
         ## Import
 

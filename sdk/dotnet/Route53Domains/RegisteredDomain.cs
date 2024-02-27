@@ -26,18 +26,18 @@ namespace Pulumi.Aws.Route53Domains
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Route53Domains.RegisteredDomain("example", new()
+    ///     var example = new Aws.Route53domains.RegisteredDomain.RegisteredDomain("example", new()
     ///     {
     ///         DomainName = "example.com",
     ///         NameServers = new[]
     ///         {
-    ///             new Aws.Route53Domains.Inputs.RegisteredDomainNameServerArgs
+    ///             
     ///             {
-    ///                 Name = "ns-195.awsdns-24.com",
+    ///                 { "name", "ns-195.awsdns-24.com" },
     ///             },
-    ///             new Aws.Route53Domains.Inputs.RegisteredDomainNameServerArgs
+    ///             
     ///             {
-    ///                 Name = "ns-874.awsdns-45.net",
+    ///                 { "name", "ns-874.awsdns-45.net" },
     ///             },
     ///         },
     ///         Tags = 

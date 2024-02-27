@@ -18,11 +18,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const ipset = new aws.waf.IpSet("ipset", {ipSetDescriptors: [{
+ * const ipset = new aws.waf/ipSet.IpSet("ipset", {ipSetDescriptors: [{
  *     type: "IPV4",
  *     value: "192.0.7.0/24",
  * }]});
- * const wafrule = new aws.waf.Rule("wafrule", {
+ * const wafrule = new aws.waf/rule.Rule("wafrule", {
  *     metricName: "tfWAFRule",
  *     predicates: [{
  *         dataId: ipset.id,
@@ -32,7 +32,7 @@ import * as utilities from "../utilities";
  * }, {
  *     dependsOn: [ipset],
  * });
- * const wafAcl = new aws.waf.WebAcl("wafAcl", {
+ * const wafAcl = new aws.waf/webAcl.WebAcl("wafAcl", {
  *     metricName: "tfWebACL",
  *     defaultAction: {
  *         type: "ALLOW",
@@ -60,7 +60,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.waf.WebAcl("example", {loggingConfiguration: {
+ * const example = new aws.waf/webAcl.WebAcl("example", {loggingConfiguration: {
  *     logDestination: aws_kinesis_firehose_delivery_stream.example.arn,
  *     redactedFields: {
  *         fieldToMatches: [

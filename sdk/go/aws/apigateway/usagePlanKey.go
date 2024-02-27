@@ -21,44 +21,45 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigateway"
+//	apigateway/apiKey "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/apigateway/apiKey"
+//	apigateway/restApi "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/apigateway/restApi"
+//	apigateway/usagePlan "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/apigateway/usagePlan"
+//	apigateway/usagePlanKey "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/apigateway/usagePlanKey"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			test, err := apigateway.NewRestApi(ctx, "test", nil)
-//			if err != nil {
-//				return err
-//			}
-//			myusageplan, err := apigateway.NewUsagePlan(ctx, "myusageplan", &apigateway.UsagePlanArgs{
-//				ApiStages: apigateway.UsagePlanApiStageArray{
-//					&apigateway.UsagePlanApiStageArgs{
-//						ApiId: test.ID(),
-//						Stage: pulumi.Any(aws_api_gateway_stage.Foo.Stage_name),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			mykey, err := apigateway.NewApiKey(ctx, "mykey", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = apigateway.NewUsagePlanKey(ctx, "main", &apigateway.UsagePlanKeyArgs{
-//				KeyId:       mykey.ID(),
-//				KeyType:     pulumi.String("API_KEY"),
-//				UsagePlanId: myusageplan.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// test, err := apigateway/restApi.NewRestApi(ctx, "test", nil)
+// if err != nil {
+// return err
+// }
+// myusageplan, err := apigateway/usagePlan.NewUsagePlan(ctx, "myusageplan", &apigateway/usagePlan.UsagePlanArgs{
+// ApiStages: []map[string]interface{}{
+// map[string]interface{}{
+// "apiId": test.Id,
+// "stage": aws_api_gateway_stage.Foo.Stage_name,
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// mykey, err := apigateway/apiKey.NewApiKey(ctx, "mykey", nil)
+// if err != nil {
+// return err
+// }
+// _, err = apigateway/usagePlanKey.NewUsagePlanKey(ctx, "main", &apigateway/usagePlanKey.UsagePlanKeyArgs{
+// KeyId: mykey.Id,
+// KeyType: "API_KEY",
+// UsagePlanId: myusageplan.Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -43,29 +43,27 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	s3/bucketLifecycleConfigurationV2 "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/s3/bucketLifecycleConfigurationV2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := s3.NewBucketLifecycleConfigurationV2(ctx, "example", &s3.BucketLifecycleConfigurationV2Args{
-//				Bucket: pulumi.Any(aws_s3_bucket.Bucket.Id),
-//				Rules: s3.BucketLifecycleConfigurationV2RuleArray{
-//					&s3.BucketLifecycleConfigurationV2RuleArgs{
-//						Id:     pulumi.String("rule-1"),
-//						Status: pulumi.String("Enabled"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := s3/bucketLifecycleConfigurationV2.NewBucketLifecycleConfigurationV2(ctx, "example", &s3/bucketLifecycleConfigurationV2.BucketLifecycleConfigurationV2Args{
+// Bucket: aws_s3_bucket.Bucket.Id,
+// Rules: []map[string]interface{}{
+// map[string]interface{}{
+// "id": "rule-1",
+// "status": "Enabled",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Specifying an empty filter
 //
@@ -76,30 +74,28 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	s3/bucketLifecycleConfigurationV2 "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/s3/bucketLifecycleConfigurationV2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := s3.NewBucketLifecycleConfigurationV2(ctx, "example", &s3.BucketLifecycleConfigurationV2Args{
-//				Bucket: pulumi.Any(aws_s3_bucket.Bucket.Id),
-//				Rules: s3.BucketLifecycleConfigurationV2RuleArray{
-//					&s3.BucketLifecycleConfigurationV2RuleArgs{
-//						Id:     pulumi.String("rule-1"),
-//						Filter: nil,
-//						Status: pulumi.String("Enabled"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := s3/bucketLifecycleConfigurationV2.NewBucketLifecycleConfigurationV2(ctx, "example", &s3/bucketLifecycleConfigurationV2.BucketLifecycleConfigurationV2Args{
+// Bucket: aws_s3_bucket.Bucket.Id,
+// Rules: []map[string]interface{}{
+// map[string]interface{}{
+// "id": "rule-1",
+// "filter": nil,
+// "status": "Enabled",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Specifying a filter using key prefixes
 //
@@ -110,32 +106,30 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	s3/bucketLifecycleConfigurationV2 "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/s3/bucketLifecycleConfigurationV2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := s3.NewBucketLifecycleConfigurationV2(ctx, "example", &s3.BucketLifecycleConfigurationV2Args{
-//				Bucket: pulumi.Any(aws_s3_bucket.Bucket.Id),
-//				Rules: s3.BucketLifecycleConfigurationV2RuleArray{
-//					&s3.BucketLifecycleConfigurationV2RuleArgs{
-//						Id: pulumi.String("rule-1"),
-//						Filter: &s3.BucketLifecycleConfigurationV2RuleFilterArgs{
-//							Prefix: pulumi.String("logs/"),
-//						},
-//						Status: pulumi.String("Enabled"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := s3/bucketLifecycleConfigurationV2.NewBucketLifecycleConfigurationV2(ctx, "example", &s3/bucketLifecycleConfigurationV2.BucketLifecycleConfigurationV2Args{
+// Bucket: aws_s3_bucket.Bucket.Id,
+// Rules: []map[string]interface{}{
+// map[string]interface{}{
+// "id": "rule-1",
+// "filter": map[string]interface{}{
+// "prefix": "logs/",
+// },
+// "status": "Enabled",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // If you want to apply a Lifecycle action to a subset of objects based on different key name prefixes, specify separate rules.
@@ -145,39 +139,37 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	s3/bucketLifecycleConfigurationV2 "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/s3/bucketLifecycleConfigurationV2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := s3.NewBucketLifecycleConfigurationV2(ctx, "example", &s3.BucketLifecycleConfigurationV2Args{
-//				Bucket: pulumi.Any(aws_s3_bucket.Bucket.Id),
-//				Rules: s3.BucketLifecycleConfigurationV2RuleArray{
-//					&s3.BucketLifecycleConfigurationV2RuleArgs{
-//						Id: pulumi.String("rule-1"),
-//						Filter: &s3.BucketLifecycleConfigurationV2RuleFilterArgs{
-//							Prefix: pulumi.String("logs/"),
-//						},
-//						Status: pulumi.String("Enabled"),
-//					},
-//					&s3.BucketLifecycleConfigurationV2RuleArgs{
-//						Id: pulumi.String("rule-2"),
-//						Filter: &s3.BucketLifecycleConfigurationV2RuleFilterArgs{
-//							Prefix: pulumi.String("tmp/"),
-//						},
-//						Status: pulumi.String("Enabled"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := s3/bucketLifecycleConfigurationV2.NewBucketLifecycleConfigurationV2(ctx, "example", &s3/bucketLifecycleConfigurationV2.BucketLifecycleConfigurationV2Args{
+// Bucket: aws_s3_bucket.Bucket.Id,
+// Rules: []map[string]interface{}{
+// map[string]interface{}{
+// "id": "rule-1",
+// "filter": map[string]interface{}{
+// "prefix": "logs/",
+// },
+// "status": "Enabled",
+// },
+// map[string]interface{}{
+// "id": "rule-2",
+// "filter": map[string]interface{}{
+// "prefix": "tmp/",
+// },
+// "status": "Enabled",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Specifying a filter based on an object tag
 //
@@ -188,35 +180,33 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	s3/bucketLifecycleConfigurationV2 "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/s3/bucketLifecycleConfigurationV2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := s3.NewBucketLifecycleConfigurationV2(ctx, "example", &s3.BucketLifecycleConfigurationV2Args{
-//				Bucket: pulumi.Any(aws_s3_bucket.Bucket.Id),
-//				Rules: s3.BucketLifecycleConfigurationV2RuleArray{
-//					&s3.BucketLifecycleConfigurationV2RuleArgs{
-//						Id: pulumi.String("rule-1"),
-//						Filter: &s3.BucketLifecycleConfigurationV2RuleFilterArgs{
-//							Tag: &s3.BucketLifecycleConfigurationV2RuleFilterTagArgs{
-//								Key:   pulumi.String("Name"),
-//								Value: pulumi.String("Staging"),
-//							},
-//						},
-//						Status: pulumi.String("Enabled"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := s3/bucketLifecycleConfigurationV2.NewBucketLifecycleConfigurationV2(ctx, "example", &s3/bucketLifecycleConfigurationV2.BucketLifecycleConfigurationV2Args{
+// Bucket: aws_s3_bucket.Bucket.Id,
+// Rules: []map[string]interface{}{
+// map[string]interface{}{
+// "id": "rule-1",
+// "filter": map[string]interface{}{
+// "tag": map[string]interface{}{
+// "key": "Name",
+// "value": "Staging",
+// },
+// },
+// "status": "Enabled",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Specifying a filter based on multiple tags
 //
@@ -227,37 +217,35 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	s3/bucketLifecycleConfigurationV2 "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/s3/bucketLifecycleConfigurationV2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := s3.NewBucketLifecycleConfigurationV2(ctx, "example", &s3.BucketLifecycleConfigurationV2Args{
-//				Bucket: pulumi.Any(aws_s3_bucket.Bucket.Id),
-//				Rules: s3.BucketLifecycleConfigurationV2RuleArray{
-//					&s3.BucketLifecycleConfigurationV2RuleArgs{
-//						Id: pulumi.String("rule-1"),
-//						Filter: &s3.BucketLifecycleConfigurationV2RuleFilterArgs{
-//							And: &s3.BucketLifecycleConfigurationV2RuleFilterAndArgs{
-//								Tags: pulumi.StringMap{
-//									"Key1": pulumi.String("Value1"),
-//									"Key2": pulumi.String("Value2"),
-//								},
-//							},
-//						},
-//						Status: pulumi.String("Enabled"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := s3/bucketLifecycleConfigurationV2.NewBucketLifecycleConfigurationV2(ctx, "example", &s3/bucketLifecycleConfigurationV2.BucketLifecycleConfigurationV2Args{
+// Bucket: aws_s3_bucket.Bucket.Id,
+// Rules: []map[string]interface{}{
+// map[string]interface{}{
+// "id": "rule-1",
+// "filter": map[string]interface{}{
+// "and": map[string]interface{}{
+// "tags": map[string]interface{}{
+// "Key1": "Value1",
+// "Key2": "Value2",
+// },
+// },
+// },
+// "status": "Enabled",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Specifying a filter based on both prefix and one or more tags
 //
@@ -268,38 +256,36 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	s3/bucketLifecycleConfigurationV2 "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/s3/bucketLifecycleConfigurationV2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := s3.NewBucketLifecycleConfigurationV2(ctx, "example", &s3.BucketLifecycleConfigurationV2Args{
-//				Bucket: pulumi.Any(aws_s3_bucket.Bucket.Id),
-//				Rules: s3.BucketLifecycleConfigurationV2RuleArray{
-//					&s3.BucketLifecycleConfigurationV2RuleArgs{
-//						Id: pulumi.String("rule-1"),
-//						Filter: &s3.BucketLifecycleConfigurationV2RuleFilterArgs{
-//							And: &s3.BucketLifecycleConfigurationV2RuleFilterAndArgs{
-//								Prefix: pulumi.String("logs/"),
-//								Tags: pulumi.StringMap{
-//									"Key1": pulumi.String("Value1"),
-//									"Key2": pulumi.String("Value2"),
-//								},
-//							},
-//						},
-//						Status: pulumi.String("Enabled"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := s3/bucketLifecycleConfigurationV2.NewBucketLifecycleConfigurationV2(ctx, "example", &s3/bucketLifecycleConfigurationV2.BucketLifecycleConfigurationV2Args{
+// Bucket: aws_s3_bucket.Bucket.Id,
+// Rules: []map[string]interface{}{
+// map[string]interface{}{
+// "id": "rule-1",
+// "filter": map[string]interface{}{
+// "and": map[string]interface{}{
+// "prefix": "logs/",
+// "tags": map[string]interface{}{
+// "Key1": "Value1",
+// "Key2": "Value2",
+// },
+// },
+// },
+// "status": "Enabled",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Specifying a filter based on object size
 //
@@ -310,32 +296,30 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	s3/bucketLifecycleConfigurationV2 "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/s3/bucketLifecycleConfigurationV2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := s3.NewBucketLifecycleConfigurationV2(ctx, "example", &s3.BucketLifecycleConfigurationV2Args{
-//				Bucket: pulumi.Any(aws_s3_bucket.Bucket.Id),
-//				Rules: s3.BucketLifecycleConfigurationV2RuleArray{
-//					&s3.BucketLifecycleConfigurationV2RuleArgs{
-//						Id: pulumi.String("rule-1"),
-//						Filter: &s3.BucketLifecycleConfigurationV2RuleFilterArgs{
-//							ObjectSizeGreaterThan: pulumi.String("500"),
-//						},
-//						Status: pulumi.String("Enabled"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := s3/bucketLifecycleConfigurationV2.NewBucketLifecycleConfigurationV2(ctx, "example", &s3/bucketLifecycleConfigurationV2.BucketLifecycleConfigurationV2Args{
+// Bucket: aws_s3_bucket.Bucket.Id,
+// Rules: []map[string]interface{}{
+// map[string]interface{}{
+// "id": "rule-1",
+// "filter": map[string]interface{}{
+// "objectSizeGreaterThan": 500,
+// },
+// "status": "Enabled",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Specifying a filter based on object size range and prefix
 //
@@ -346,36 +330,34 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	s3/bucketLifecycleConfigurationV2 "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/s3/bucketLifecycleConfigurationV2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := s3.NewBucketLifecycleConfigurationV2(ctx, "example", &s3.BucketLifecycleConfigurationV2Args{
-//				Bucket: pulumi.Any(aws_s3_bucket.Bucket.Id),
-//				Rules: s3.BucketLifecycleConfigurationV2RuleArray{
-//					&s3.BucketLifecycleConfigurationV2RuleArgs{
-//						Id: pulumi.String("rule-1"),
-//						Filter: &s3.BucketLifecycleConfigurationV2RuleFilterArgs{
-//							And: &s3.BucketLifecycleConfigurationV2RuleFilterAndArgs{
-//								Prefix:                pulumi.String("logs/"),
-//								ObjectSizeGreaterThan: pulumi.Int(500),
-//								ObjectSizeLessThan:    pulumi.Int(64000),
-//							},
-//						},
-//						Status: pulumi.String("Enabled"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := s3/bucketLifecycleConfigurationV2.NewBucketLifecycleConfigurationV2(ctx, "example", &s3/bucketLifecycleConfigurationV2.BucketLifecycleConfigurationV2Args{
+// Bucket: aws_s3_bucket.Bucket.Id,
+// Rules: []map[string]interface{}{
+// map[string]interface{}{
+// "id": "rule-1",
+// "filter": map[string]interface{}{
+// "and": map[string]interface{}{
+// "prefix": "logs/",
+// "objectSizeGreaterThan": 500,
+// "objectSizeLessThan": 64000,
+// },
+// },
+// "status": "Enabled",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Creating a Lifecycle Configuration for a bucket with versioning
 //
@@ -384,122 +366,123 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	s3/bucketAclV2 "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/s3/bucketAclV2"
+//	s3/bucketLifecycleConfigurationV2 "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/s3/bucketLifecycleConfigurationV2"
+//	s3/bucketV2 "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/s3/bucketV2"
+//	s3/bucketVersioningV2 "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/s3/bucketVersioningV2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			bucket, err := s3.NewBucketV2(ctx, "bucket", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = s3.NewBucketAclV2(ctx, "bucketAcl", &s3.BucketAclV2Args{
-//				Bucket: bucket.ID(),
-//				Acl:    pulumi.String("private"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = s3.NewBucketLifecycleConfigurationV2(ctx, "bucket-config", &s3.BucketLifecycleConfigurationV2Args{
-//				Bucket: bucket.ID(),
-//				Rules: s3.BucketLifecycleConfigurationV2RuleArray{
-//					&s3.BucketLifecycleConfigurationV2RuleArgs{
-//						Id: pulumi.String("log"),
-//						Expiration: &s3.BucketLifecycleConfigurationV2RuleExpirationArgs{
-//							Days: pulumi.Int(90),
-//						},
-//						Filter: &s3.BucketLifecycleConfigurationV2RuleFilterArgs{
-//							And: &s3.BucketLifecycleConfigurationV2RuleFilterAndArgs{
-//								Prefix: pulumi.String("log/"),
-//								Tags: pulumi.StringMap{
-//									"rule":      pulumi.String("log"),
-//									"autoclean": pulumi.String("true"),
-//								},
-//							},
-//						},
-//						Status: pulumi.String("Enabled"),
-//						Transitions: s3.BucketLifecycleConfigurationV2RuleTransitionArray{
-//							&s3.BucketLifecycleConfigurationV2RuleTransitionArgs{
-//								Days:         pulumi.Int(30),
-//								StorageClass: pulumi.String("STANDARD_IA"),
-//							},
-//							&s3.BucketLifecycleConfigurationV2RuleTransitionArgs{
-//								Days:         pulumi.Int(60),
-//								StorageClass: pulumi.String("GLACIER"),
-//							},
-//						},
-//					},
-//					&s3.BucketLifecycleConfigurationV2RuleArgs{
-//						Id: pulumi.String("tmp"),
-//						Filter: &s3.BucketLifecycleConfigurationV2RuleFilterArgs{
-//							Prefix: pulumi.String("tmp/"),
-//						},
-//						Expiration: &s3.BucketLifecycleConfigurationV2RuleExpirationArgs{
-//							Date: pulumi.String("2023-01-13T00:00:00Z"),
-//						},
-//						Status: pulumi.String("Enabled"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			versioningBucket, err := s3.NewBucketV2(ctx, "versioningBucket", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = s3.NewBucketAclV2(ctx, "versioningBucketAcl", &s3.BucketAclV2Args{
-//				Bucket: versioningBucket.ID(),
-//				Acl:    pulumi.String("private"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			versioning, err := s3.NewBucketVersioningV2(ctx, "versioning", &s3.BucketVersioningV2Args{
-//				Bucket: versioningBucket.ID(),
-//				VersioningConfiguration: &s3.BucketVersioningV2VersioningConfigurationArgs{
-//					Status: pulumi.String("Enabled"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = s3.NewBucketLifecycleConfigurationV2(ctx, "versioning-bucket-config", &s3.BucketLifecycleConfigurationV2Args{
-//				Bucket: versioningBucket.ID(),
-//				Rules: s3.BucketLifecycleConfigurationV2RuleArray{
-//					&s3.BucketLifecycleConfigurationV2RuleArgs{
-//						Id: pulumi.String("config"),
-//						Filter: &s3.BucketLifecycleConfigurationV2RuleFilterArgs{
-//							Prefix: pulumi.String("config/"),
-//						},
-//						NoncurrentVersionExpiration: &s3.BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationArgs{
-//							NoncurrentDays: pulumi.Int(90),
-//						},
-//						NoncurrentVersionTransitions: s3.BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionArray{
-//							&s3.BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionArgs{
-//								NoncurrentDays: pulumi.Int(30),
-//								StorageClass:   pulumi.String("STANDARD_IA"),
-//							},
-//							&s3.BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionArgs{
-//								NoncurrentDays: pulumi.Int(60),
-//								StorageClass:   pulumi.String("GLACIER"),
-//							},
-//						},
-//						Status: pulumi.String("Enabled"),
-//					},
-//				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				versioning,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// bucket, err := s3/bucketV2.NewBucketV2(ctx, "bucket", nil)
+// if err != nil {
+// return err
+// }
+// _, err = s3/bucketAclV2.NewBucketAclV2(ctx, "bucketAcl", &s3/bucketAclV2.BucketAclV2Args{
+// Bucket: bucket.Id,
+// Acl: "private",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = s3/bucketLifecycleConfigurationV2.NewBucketLifecycleConfigurationV2(ctx, "bucket-config", &s3/bucketLifecycleConfigurationV2.BucketLifecycleConfigurationV2Args{
+// Bucket: bucket.Id,
+// Rules: []interface{}{
+// map[string]interface{}{
+// "id": "log",
+// "expiration": map[string]interface{}{
+// "days": 90,
+// },
+// "filter": map[string]interface{}{
+// "and": map[string]interface{}{
+// "prefix": "log/",
+// "tags": map[string]interface{}{
+// "rule": "log",
+// "autoclean": "true",
+// },
+// },
+// },
+// "status": "Enabled",
+// "transitions": []interface{}{
+// map[string]interface{}{
+// "days": 30,
+// "storageClass": "STANDARD_IA",
+// },
+// map[string]interface{}{
+// "days": 60,
+// "storageClass": "GLACIER",
+// },
+// },
+// },
+// map[string]interface{}{
+// "id": "tmp",
+// "filter": map[string]interface{}{
+// "prefix": "tmp/",
+// },
+// "expiration": map[string]interface{}{
+// "date": "2023-01-13T00:00:00Z",
+// },
+// "status": "Enabled",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// versioningBucket, err := s3/bucketV2.NewBucketV2(ctx, "versioningBucket", nil)
+// if err != nil {
+// return err
+// }
+// _, err = s3/bucketAclV2.NewBucketAclV2(ctx, "versioningBucketAcl", &s3/bucketAclV2.BucketAclV2Args{
+// Bucket: versioningBucket.Id,
+// Acl: "private",
+// })
+// if err != nil {
+// return err
+// }
+// versioning, err := s3/bucketVersioningV2.NewBucketVersioningV2(ctx, "versioning", &s3/bucketVersioningV2.BucketVersioningV2Args{
+// Bucket: versioningBucket.Id,
+// VersioningConfiguration: map[string]interface{}{
+// "status": "Enabled",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = s3/bucketLifecycleConfigurationV2.NewBucketLifecycleConfigurationV2(ctx, "versioning-bucket-config", &s3/bucketLifecycleConfigurationV2.BucketLifecycleConfigurationV2Args{
+// Bucket: versioningBucket.Id,
+// Rules: []map[string]interface{}{
+// map[string]interface{}{
+// "id": "config",
+// "filter": map[string]interface{}{
+// "prefix": "config/",
+// },
+// "noncurrentVersionExpiration": map[string]interface{}{
+// "noncurrentDays": 90,
+// },
+// "noncurrentVersionTransitions": []interface{}{
+// map[string]interface{}{
+// "noncurrentDays": 30,
+// "storageClass": "STANDARD_IA",
+// },
+// map[string]interface{}{
+// "noncurrentDays": 60,
+// "storageClass": "GLACIER",
+// },
+// },
+// "status": "Enabled",
+// },
+// },
+// }, pulumi.DependsOn([]pulumi.Resource{
+// versioning,
+// }))
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

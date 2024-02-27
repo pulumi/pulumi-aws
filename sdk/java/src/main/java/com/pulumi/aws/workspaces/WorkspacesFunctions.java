@@ -27,65 +27,6 @@ public final class WorkspacesFunctions {
      * Retrieve information about an AWS WorkSpaces bundle.
      * 
      * ## Example Usage
-     * ### By ID
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.workspaces.WorkspacesFunctions;
-     * import com.pulumi.aws.workspaces.inputs.GetBundleArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = WorkspacesFunctions.getBundle(GetBundleArgs.builder()
-     *             .bundleId(&#34;wsb-b0s22j3d7&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * ### By Owner &amp; Name
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.workspaces.WorkspacesFunctions;
-     * import com.pulumi.aws.workspaces.inputs.GetBundleArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = WorkspacesFunctions.getBundle(GetBundleArgs.builder()
-     *             .name(&#34;Value with Windows 10 and Office 2016&#34;)
-     *             .owner(&#34;AMAZON&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetBundleResult> getBundle() {
@@ -95,65 +36,6 @@ public final class WorkspacesFunctions {
      * Retrieve information about an AWS WorkSpaces bundle.
      * 
      * ## Example Usage
-     * ### By ID
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.workspaces.WorkspacesFunctions;
-     * import com.pulumi.aws.workspaces.inputs.GetBundleArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = WorkspacesFunctions.getBundle(GetBundleArgs.builder()
-     *             .bundleId(&#34;wsb-b0s22j3d7&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * ### By Owner &amp; Name
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.workspaces.WorkspacesFunctions;
-     * import com.pulumi.aws.workspaces.inputs.GetBundleArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = WorkspacesFunctions.getBundle(GetBundleArgs.builder()
-     *             .name(&#34;Value with Windows 10 and Office 2016&#34;)
-     *             .owner(&#34;AMAZON&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetBundleResult> getBundlePlain() {
@@ -163,65 +45,6 @@ public final class WorkspacesFunctions {
      * Retrieve information about an AWS WorkSpaces bundle.
      * 
      * ## Example Usage
-     * ### By ID
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.workspaces.WorkspacesFunctions;
-     * import com.pulumi.aws.workspaces.inputs.GetBundleArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = WorkspacesFunctions.getBundle(GetBundleArgs.builder()
-     *             .bundleId(&#34;wsb-b0s22j3d7&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * ### By Owner &amp; Name
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.workspaces.WorkspacesFunctions;
-     * import com.pulumi.aws.workspaces.inputs.GetBundleArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = WorkspacesFunctions.getBundle(GetBundleArgs.builder()
-     *             .name(&#34;Value with Windows 10 and Office 2016&#34;)
-     *             .owner(&#34;AMAZON&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetBundleResult> getBundle(GetBundleArgs args) {
@@ -231,65 +54,6 @@ public final class WorkspacesFunctions {
      * Retrieve information about an AWS WorkSpaces bundle.
      * 
      * ## Example Usage
-     * ### By ID
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.workspaces.WorkspacesFunctions;
-     * import com.pulumi.aws.workspaces.inputs.GetBundleArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = WorkspacesFunctions.getBundle(GetBundleArgs.builder()
-     *             .bundleId(&#34;wsb-b0s22j3d7&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * ### By Owner &amp; Name
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.workspaces.WorkspacesFunctions;
-     * import com.pulumi.aws.workspaces.inputs.GetBundleArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = WorkspacesFunctions.getBundle(GetBundleArgs.builder()
-     *             .name(&#34;Value with Windows 10 and Office 2016&#34;)
-     *             .owner(&#34;AMAZON&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetBundleResult> getBundlePlain(GetBundlePlainArgs args) {
@@ -299,65 +63,6 @@ public final class WorkspacesFunctions {
      * Retrieve information about an AWS WorkSpaces bundle.
      * 
      * ## Example Usage
-     * ### By ID
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.workspaces.WorkspacesFunctions;
-     * import com.pulumi.aws.workspaces.inputs.GetBundleArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = WorkspacesFunctions.getBundle(GetBundleArgs.builder()
-     *             .bundleId(&#34;wsb-b0s22j3d7&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * ### By Owner &amp; Name
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.workspaces.WorkspacesFunctions;
-     * import com.pulumi.aws.workspaces.inputs.GetBundleArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = WorkspacesFunctions.getBundle(GetBundleArgs.builder()
-     *             .name(&#34;Value with Windows 10 and Office 2016&#34;)
-     *             .owner(&#34;AMAZON&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetBundleResult> getBundle(GetBundleArgs args, InvokeOptions options) {
@@ -367,65 +72,6 @@ public final class WorkspacesFunctions {
      * Retrieve information about an AWS WorkSpaces bundle.
      * 
      * ## Example Usage
-     * ### By ID
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.workspaces.WorkspacesFunctions;
-     * import com.pulumi.aws.workspaces.inputs.GetBundleArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = WorkspacesFunctions.getBundle(GetBundleArgs.builder()
-     *             .bundleId(&#34;wsb-b0s22j3d7&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * ### By Owner &amp; Name
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.workspaces.WorkspacesFunctions;
-     * import com.pulumi.aws.workspaces.inputs.GetBundleArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = WorkspacesFunctions.getBundle(GetBundleArgs.builder()
-     *             .name(&#34;Value with Windows 10 and Office 2016&#34;)
-     *             .owner(&#34;AMAZON&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetBundleResult> getBundlePlain(GetBundlePlainArgs args, InvokeOptions options) {
@@ -434,72 +80,12 @@ public final class WorkspacesFunctions {
     /**
      * Retrieve information about an AWS WorkSpaces directory.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.workspaces.WorkspacesFunctions;
-     * import com.pulumi.aws.workspaces.inputs.GetDirectoryArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = WorkspacesFunctions.getDirectory(GetDirectoryArgs.builder()
-     *             .directoryId(&#34;d-9067783251&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetDirectoryResult> getDirectory(GetDirectoryArgs args) {
         return getDirectory(args, InvokeOptions.Empty);
     }
     /**
      * Retrieve information about an AWS WorkSpaces directory.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.workspaces.WorkspacesFunctions;
-     * import com.pulumi.aws.workspaces.inputs.GetDirectoryArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = WorkspacesFunctions.getDirectory(GetDirectoryArgs.builder()
-     *             .directoryId(&#34;d-9067783251&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetDirectoryResult> getDirectoryPlain(GetDirectoryPlainArgs args) {
@@ -508,72 +94,12 @@ public final class WorkspacesFunctions {
     /**
      * Retrieve information about an AWS WorkSpaces directory.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.workspaces.WorkspacesFunctions;
-     * import com.pulumi.aws.workspaces.inputs.GetDirectoryArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = WorkspacesFunctions.getDirectory(GetDirectoryArgs.builder()
-     *             .directoryId(&#34;d-9067783251&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetDirectoryResult> getDirectory(GetDirectoryArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:workspaces/getDirectory:getDirectory", TypeShape.of(GetDirectoryResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Retrieve information about an AWS WorkSpaces directory.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.workspaces.WorkspacesFunctions;
-     * import com.pulumi.aws.workspaces.inputs.GetDirectoryArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = WorkspacesFunctions.getDirectory(GetDirectoryArgs.builder()
-     *             .directoryId(&#34;d-9067783251&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetDirectoryResult> getDirectoryPlain(GetDirectoryPlainArgs args, InvokeOptions options) {
@@ -582,72 +108,12 @@ public final class WorkspacesFunctions {
     /**
      * Use this data source to get information about a Workspaces image.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.workspaces.WorkspacesFunctions;
-     * import com.pulumi.aws.workspaces.inputs.GetImageArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = WorkspacesFunctions.getImage(GetImageArgs.builder()
-     *             .imageId(&#34;wsi-ten5h0y19&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetImageResult> getImage(GetImageArgs args) {
         return getImage(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to get information about a Workspaces image.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.workspaces.WorkspacesFunctions;
-     * import com.pulumi.aws.workspaces.inputs.GetImageArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = WorkspacesFunctions.getImage(GetImageArgs.builder()
-     *             .imageId(&#34;wsi-ten5h0y19&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetImageResult> getImagePlain(GetImagePlainArgs args) {
@@ -656,72 +122,12 @@ public final class WorkspacesFunctions {
     /**
      * Use this data source to get information about a Workspaces image.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.workspaces.WorkspacesFunctions;
-     * import com.pulumi.aws.workspaces.inputs.GetImageArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = WorkspacesFunctions.getImage(GetImageArgs.builder()
-     *             .imageId(&#34;wsi-ten5h0y19&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetImageResult> getImage(GetImageArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:workspaces/getImage:getImage", TypeShape.of(GetImageResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to get information about a Workspaces image.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.workspaces.WorkspacesFunctions;
-     * import com.pulumi.aws.workspaces.inputs.GetImageArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = WorkspacesFunctions.getImage(GetImageArgs.builder()
-     *             .imageId(&#34;wsi-ten5h0y19&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetImageResult> getImagePlain(GetImagePlainArgs args, InvokeOptions options) {
@@ -731,65 +137,6 @@ public final class WorkspacesFunctions {
      * Use this data source to get information about a workspace in [AWS Workspaces](https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces.html) Service.
      * 
      * ## Example Usage
-     * ### Filter By Workspace ID
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.workspaces.WorkspacesFunctions;
-     * import com.pulumi.aws.workspaces.inputs.GetWorkspaceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = WorkspacesFunctions.getWorkspace(GetWorkspaceArgs.builder()
-     *             .workspaceId(&#34;ws-cj5xcxsz5&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * ### Filter By Directory ID &amp; User Name
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.workspaces.WorkspacesFunctions;
-     * import com.pulumi.aws.workspaces.inputs.GetWorkspaceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = WorkspacesFunctions.getWorkspace(GetWorkspaceArgs.builder()
-     *             .directoryId(&#34;d-9967252f57&#34;)
-     *             .userName(&#34;Example&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetWorkspaceResult> getWorkspace() {
@@ -799,65 +146,6 @@ public final class WorkspacesFunctions {
      * Use this data source to get information about a workspace in [AWS Workspaces](https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces.html) Service.
      * 
      * ## Example Usage
-     * ### Filter By Workspace ID
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.workspaces.WorkspacesFunctions;
-     * import com.pulumi.aws.workspaces.inputs.GetWorkspaceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = WorkspacesFunctions.getWorkspace(GetWorkspaceArgs.builder()
-     *             .workspaceId(&#34;ws-cj5xcxsz5&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * ### Filter By Directory ID &amp; User Name
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.workspaces.WorkspacesFunctions;
-     * import com.pulumi.aws.workspaces.inputs.GetWorkspaceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = WorkspacesFunctions.getWorkspace(GetWorkspaceArgs.builder()
-     *             .directoryId(&#34;d-9967252f57&#34;)
-     *             .userName(&#34;Example&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetWorkspaceResult> getWorkspacePlain() {
@@ -867,65 +155,6 @@ public final class WorkspacesFunctions {
      * Use this data source to get information about a workspace in [AWS Workspaces](https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces.html) Service.
      * 
      * ## Example Usage
-     * ### Filter By Workspace ID
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.workspaces.WorkspacesFunctions;
-     * import com.pulumi.aws.workspaces.inputs.GetWorkspaceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = WorkspacesFunctions.getWorkspace(GetWorkspaceArgs.builder()
-     *             .workspaceId(&#34;ws-cj5xcxsz5&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * ### Filter By Directory ID &amp; User Name
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.workspaces.WorkspacesFunctions;
-     * import com.pulumi.aws.workspaces.inputs.GetWorkspaceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = WorkspacesFunctions.getWorkspace(GetWorkspaceArgs.builder()
-     *             .directoryId(&#34;d-9967252f57&#34;)
-     *             .userName(&#34;Example&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetWorkspaceResult> getWorkspace(GetWorkspaceArgs args) {
@@ -935,65 +164,6 @@ public final class WorkspacesFunctions {
      * Use this data source to get information about a workspace in [AWS Workspaces](https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces.html) Service.
      * 
      * ## Example Usage
-     * ### Filter By Workspace ID
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.workspaces.WorkspacesFunctions;
-     * import com.pulumi.aws.workspaces.inputs.GetWorkspaceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = WorkspacesFunctions.getWorkspace(GetWorkspaceArgs.builder()
-     *             .workspaceId(&#34;ws-cj5xcxsz5&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * ### Filter By Directory ID &amp; User Name
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.workspaces.WorkspacesFunctions;
-     * import com.pulumi.aws.workspaces.inputs.GetWorkspaceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = WorkspacesFunctions.getWorkspace(GetWorkspaceArgs.builder()
-     *             .directoryId(&#34;d-9967252f57&#34;)
-     *             .userName(&#34;Example&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetWorkspaceResult> getWorkspacePlain(GetWorkspacePlainArgs args) {
@@ -1003,65 +173,6 @@ public final class WorkspacesFunctions {
      * Use this data source to get information about a workspace in [AWS Workspaces](https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces.html) Service.
      * 
      * ## Example Usage
-     * ### Filter By Workspace ID
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.workspaces.WorkspacesFunctions;
-     * import com.pulumi.aws.workspaces.inputs.GetWorkspaceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = WorkspacesFunctions.getWorkspace(GetWorkspaceArgs.builder()
-     *             .workspaceId(&#34;ws-cj5xcxsz5&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * ### Filter By Directory ID &amp; User Name
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.workspaces.WorkspacesFunctions;
-     * import com.pulumi.aws.workspaces.inputs.GetWorkspaceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = WorkspacesFunctions.getWorkspace(GetWorkspaceArgs.builder()
-     *             .directoryId(&#34;d-9967252f57&#34;)
-     *             .userName(&#34;Example&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetWorkspaceResult> getWorkspace(GetWorkspaceArgs args, InvokeOptions options) {
@@ -1071,65 +182,6 @@ public final class WorkspacesFunctions {
      * Use this data source to get information about a workspace in [AWS Workspaces](https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces.html) Service.
      * 
      * ## Example Usage
-     * ### Filter By Workspace ID
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.workspaces.WorkspacesFunctions;
-     * import com.pulumi.aws.workspaces.inputs.GetWorkspaceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = WorkspacesFunctions.getWorkspace(GetWorkspaceArgs.builder()
-     *             .workspaceId(&#34;ws-cj5xcxsz5&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * ### Filter By Directory ID &amp; User Name
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.workspaces.WorkspacesFunctions;
-     * import com.pulumi.aws.workspaces.inputs.GetWorkspaceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = WorkspacesFunctions.getWorkspace(GetWorkspaceArgs.builder()
-     *             .directoryId(&#34;d-9967252f57&#34;)
-     *             .userName(&#34;Example&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetWorkspaceResult> getWorkspacePlain(GetWorkspacePlainArgs args, InvokeOptions options) {

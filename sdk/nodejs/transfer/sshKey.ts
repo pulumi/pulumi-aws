@@ -7,56 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Provides a AWS Transfer User SSH Key resource.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleServer = new aws.transfer.Server("exampleServer", {
- *     identityProviderType: "SERVICE_MANAGED",
- *     tags: {
- *         NAME: "tf-acc-test-transfer-server",
- *     },
- * });
- * const assumeRole = aws.iam.getPolicyDocument({
- *     statements: [{
- *         effect: "Allow",
- *         principals: [{
- *             type: "Service",
- *             identifiers: ["transfer.amazonaws.com"],
- *         }],
- *         actions: ["sts:AssumeRole"],
- *     }],
- * });
- * const exampleRole = new aws.iam.Role("exampleRole", {assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json)});
- * const exampleUser = new aws.transfer.User("exampleUser", {
- *     serverId: exampleServer.id,
- *     userName: "tftestuser",
- *     role: exampleRole.arn,
- *     tags: {
- *         NAME: "tftestuser",
- *     },
- * });
- * const exampleSshKey = new aws.transfer.SshKey("exampleSshKey", {
- *     serverId: exampleServer.id,
- *     userName: exampleUser.userName,
- *     body: "... SSH key ...",
- * });
- * const examplePolicyDocument = aws.iam.getPolicyDocument({
- *     statements: [{
- *         sid: "AllowFullAccesstoS3",
- *         effect: "Allow",
- *         actions: ["s3:*"],
- *         resources: ["*"],
- *     }],
- * });
- * const exampleRolePolicy = new aws.iam.RolePolicy("exampleRolePolicy", {
- *     role: exampleRole.id,
- *     policy: examplePolicyDocument.then(examplePolicyDocument => examplePolicyDocument.json),
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import Transfer SSH Public Key using the `server_id` and `user_name` and `ssh_public_key_id` separated by `/`. For example:

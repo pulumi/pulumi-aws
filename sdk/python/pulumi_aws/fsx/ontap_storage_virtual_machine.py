@@ -321,7 +321,7 @@ class OntapStorageVirtualMachine(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.fsx.OntapStorageVirtualMachine("test", file_system_id=aws_fsx_ontap_file_system["test"]["id"])
+        test = aws.fsx.ontap_storage_virtual_machine.OntapStorageVirtualMachine("test", file_system_id=aws_fsx_ontap_file_system.test.id)
         ```
         ### Using a Self-Managed Microsoft Active Directory
 
@@ -331,20 +331,20 @@ class OntapStorageVirtualMachine(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.fsx.OntapStorageVirtualMachine("test",
-            file_system_id=aws_fsx_ontap_file_system["test"]["id"],
-            active_directory_configuration=aws.fsx.OntapStorageVirtualMachineActiveDirectoryConfigurationArgs(
-                netbios_name="mysvm",
-                self_managed_active_directory_configuration=aws.fsx.OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationArgs(
-                    dns_ips=[
-                        "10.0.0.111",
-                        "10.0.0.222",
+        test = aws.fsx.ontap_storage_virtual_machine.OntapStorageVirtualMachine("test",
+            file_system_id=aws_fsx_ontap_file_system.test.id,
+            active_directory_configuration={
+                netbiosName: mysvm,
+                selfManagedActiveDirectoryConfiguration: {
+                    dnsIps: [
+                        10.0.0.111,
+                        10.0.0.222,
                     ],
-                    domain_name="corp.example.com",
-                    password="avoid-plaintext-passwords",
-                    username="Admin",
-                ),
-            ))
+                    domainName: corp.example.com,
+                    password: avoid-plaintext-passwords,
+                    username: Admin,
+                },
+            })
         ```
 
         ## Import
@@ -381,7 +381,7 @@ class OntapStorageVirtualMachine(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.fsx.OntapStorageVirtualMachine("test", file_system_id=aws_fsx_ontap_file_system["test"]["id"])
+        test = aws.fsx.ontap_storage_virtual_machine.OntapStorageVirtualMachine("test", file_system_id=aws_fsx_ontap_file_system.test.id)
         ```
         ### Using a Self-Managed Microsoft Active Directory
 
@@ -391,20 +391,20 @@ class OntapStorageVirtualMachine(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.fsx.OntapStorageVirtualMachine("test",
-            file_system_id=aws_fsx_ontap_file_system["test"]["id"],
-            active_directory_configuration=aws.fsx.OntapStorageVirtualMachineActiveDirectoryConfigurationArgs(
-                netbios_name="mysvm",
-                self_managed_active_directory_configuration=aws.fsx.OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationArgs(
-                    dns_ips=[
-                        "10.0.0.111",
-                        "10.0.0.222",
+        test = aws.fsx.ontap_storage_virtual_machine.OntapStorageVirtualMachine("test",
+            file_system_id=aws_fsx_ontap_file_system.test.id,
+            active_directory_configuration={
+                netbiosName: mysvm,
+                selfManagedActiveDirectoryConfiguration: {
+                    dnsIps: [
+                        10.0.0.111,
+                        10.0.0.222,
                     ],
-                    domain_name="corp.example.com",
-                    password="avoid-plaintext-passwords",
-                    username="Admin",
-                ),
-            ))
+                    domainName: corp.example.com,
+                    password: avoid-plaintext-passwords,
+                    username: Admin,
+                },
+            })
         ```
 
         ## Import

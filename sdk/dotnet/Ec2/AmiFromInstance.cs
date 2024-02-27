@@ -38,7 +38,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Ec2.AmiFromInstance("example", new()
+    ///     var example = new Aws.Ec2.AmiFromInstance.AmiFromInstance("example", new()
     ///     {
     ///         SourceInstanceId = "i-xxxxxxxx",
     ///     });

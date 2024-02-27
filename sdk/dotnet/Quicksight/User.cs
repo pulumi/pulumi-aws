@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Quicksight
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Quicksight.User("example", new()
+    ///     var example = new Aws.Quicksight.User.User("example", new()
     ///     {
     ///         Email = "author@example.com",
     ///         IamArn = "arn:aws:iam::123456789012:user/Example",

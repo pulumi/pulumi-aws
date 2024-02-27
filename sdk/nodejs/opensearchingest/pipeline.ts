@@ -11,46 +11,6 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS OpenSearch Ingestion Pipeline.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const current = aws.getRegion({});
- * const exampleRole = new aws.iam.Role("exampleRole", {assumeRolePolicy: JSON.stringify({
- *     Version: "2012-10-17",
- *     Statement: [{
- *         Action: "sts:AssumeRole",
- *         Effect: "Allow",
- *         Sid: "",
- *         Principal: {
- *             Service: "osis-pipelines.amazonaws.com",
- *         },
- *     }],
- * })});
- * const examplePipeline = new aws.opensearchingest.Pipeline("examplePipeline", {
- *     pipelineName: "example",
- *     pipelineConfigurationBody: pulumi.all([exampleRole.arn, current]).apply(([arn, current]) => `version: "2"
- * example-pipeline:
- *   source:
- *     http:
- *       path: "/example"
- *   sink:
- *     - s3:
- *         aws:
- *           sts_role_arn: "${arn}"
- *           region: "${current.name}"
- *         bucket: "example"
- *         threshold:
- *           event_collect_timeout: "60s"
- *         codec:
- *           ndjson:
- * `),
- *     maxUnits: 1,
- *     minUnits: 1,
- * });
- * ```
  * ### Using file function
  *
  * ```typescript
@@ -58,7 +18,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * import * as fs from "fs";
  *
- * const example = new aws.opensearchingest.Pipeline("example", {
+ * const example = new aws.opensearchingest/pipeline.Pipeline("example", {
  *     pipelineName: "example",
  *     pipelineConfigurationBody: fs.readFileSync("example.yaml", "utf8"),
  *     maxUnits: 1,

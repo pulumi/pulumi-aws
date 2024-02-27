@@ -21,7 +21,6 @@ import javax.annotation.Nullable;
  * Provides a Glue Partition Resource.
  * 
  * ## Example Usage
- * 
  * ```java
  * package generated_program;
  * 

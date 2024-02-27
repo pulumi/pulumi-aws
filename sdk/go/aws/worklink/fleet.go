@@ -20,21 +20,19 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/worklink"
+//	worklink/fleet "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/worklink/fleet"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := worklink.NewFleet(ctx, "example", nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := worklink/fleet.NewFleet(ctx, "example", nil)
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // Network Configuration Usage:
@@ -44,19 +42,23 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/worklink"
+//	worklink/fleet "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/worklink/fleet"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 // func main() {
 // pulumi.Run(func(ctx *pulumi.Context) error {
-// _, err := worklink.NewFleet(ctx, "example", &worklink.FleetArgs{
-// Network: &worklink.FleetNetworkArgs{
-// VpcId: pulumi.Any(aws_vpc.Test.Id),
-// SubnetIds: pulumi.StringArray{
-// %!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ #-resources-aws:worklink-fleet:Fleet.pp:3,26-47),
+// _, err := worklink/fleet.NewFleet(ctx, "example", &worklink/fleet.FleetArgs{
+// Network: map[string]interface{}{
+// "vpcId": aws_vpc.Test.Id,
+// "subnetIds": var splat0 []interface{}
+// for _, val0 := range aws_subnet.Test {
+// splat0 = append(splat0, val0.Id)
+// }
+// [][]interface{}{
+// splat0,
 // },
-// SecurityGroupIds: pulumi.StringArray{
+// "securityGroupIds": []interface{}{
 // aws_security_group.Test.Id,
 // },
 // },
@@ -78,34 +80,33 @@ import (
 //
 //	"os"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/worklink"
+//	worklink/fleet "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/worklink/fleet"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func readFileOrPanic(path string) pulumi.StringPtrInput {
-//		data, err := os.ReadFile(path)
-//		if err != nil {
-//			panic(err.Error())
-//		}
-//		return pulumi.String(string(data))
-//	}
+//					data, err := os.ReadFile(path)
+//					if err != nil {
+//						panic(err.Error())
+//					}
+//					return pulumi.String(string(data))
+//				}
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := worklink.NewFleet(ctx, "test", &worklink.FleetArgs{
-//				IdentityProvider: &worklink.FleetIdentityProviderArgs{
-//					Type:         pulumi.String("SAML"),
-//					SamlMetadata: readFileOrPanic("saml-metadata.xml"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := worklink/fleet.NewFleet(ctx, "test", &worklink/fleet.FleetArgs{
+// IdentityProvider: map[string]interface{}{
+// "type": "SAML",
+// "samlMetadata": readFileOrPanic("saml-metadata.xml"),
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

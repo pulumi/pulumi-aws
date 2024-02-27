@@ -15,6 +15,51 @@ import (
 // Resource for managing a QuickSight Theme.
 //
 // ## Example Usage
+// ### Basic Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	quicksight/theme "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/quicksight/theme"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := quicksight/theme.NewTheme(ctx, "example", &quicksight/theme.ThemeArgs{
+// BaseThemeId: "MIDNIGHT",
+// Configuration: map[string]interface{}{
+// "dataColorPalette": map[string]interface{}{
+// "colors": []string{
+// "#FFFFFF",
+// "#111111",
+// "#222222",
+// "#333333",
+// "#444444",
+// "#555555",
+// "#666666",
+// "#777777",
+// "#888888",
+// "#999999",
+// },
+// "emptyFillColor": "#FFFFFF",
+// "minMaxGradient": []string{
+// "#FFFFFF",
+// "#111111",
+// },
+// },
+// },
+// ThemeId: "example",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
+// ```
 //
 // ## Import
 //

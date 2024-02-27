@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleCluster = new aws.docdb.Cluster("exampleCluster", {
+ * const exampleCluster = new aws.docdb/cluster.Cluster("exampleCluster", {
  *     clusterIdentifier: "example",
  *     availabilityZones: [
  *         data.aws_availability_zones.available.names[0],
@@ -24,8 +24,8 @@ import * as utilities from "../utilities";
  *     masterPassword: "mustbeeightcharaters",
  *     skipFinalSnapshot: true,
  * });
- * const exampleTopic = new aws.sns.Topic("exampleTopic", {});
- * const exampleEventSubscription = new aws.docdb.EventSubscription("exampleEventSubscription", {
+ * const exampleTopic = new aws.sns/topic.Topic("exampleTopic", {});
+ * const exampleEventSubscription = new aws.docdb/eventSubscription.EventSubscription("exampleEventSubscription", {
  *     enabled: true,
  *     eventCategories: [
  *         "creation",

@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const ni = new aws.sagemaker.NotebookInstance("ni", {
+ * const ni = new aws.sagemaker/notebookInstance.NotebookInstance("ni", {
  *     roleArn: aws_iam_role.role.arn,
  *     instanceType: "ml.t2.medium",
  *     tags: {
@@ -31,13 +31,13 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.sagemaker.CodeRepository("example", {
+ * const example = new aws.sagemaker/codeRepository.CodeRepository("example", {
  *     codeRepositoryName: "my-notebook-instance-code-repo",
  *     gitConfig: {
  *         repositoryUrl: "https://github.com/github/docs.git",
  *     },
  * });
- * const ni = new aws.sagemaker.NotebookInstance("ni", {
+ * const ni = new aws.sagemaker/notebookInstance.NotebookInstance("ni", {
  *     roleArn: aws_iam_role.role.arn,
  *     instanceType: "ml.t2.medium",
  *     defaultCodeRepository: example.codeRepositoryName,

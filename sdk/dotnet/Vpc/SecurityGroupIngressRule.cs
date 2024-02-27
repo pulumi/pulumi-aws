@@ -29,7 +29,7 @@ namespace Pulumi.Aws.Vpc
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleSecurityGroup = new Aws.Ec2.SecurityGroup("exampleSecurityGroup", new()
+    ///     var exampleSecurityGroup = new Aws.Ec2.SecurityGroup.SecurityGroup("exampleSecurityGroup", new()
     ///     {
     ///         Description = "example",
     ///         VpcId = aws_vpc.Main.Id,
@@ -39,7 +39,7 @@ namespace Pulumi.Aws.Vpc
     ///         },
     ///     });
     /// 
-    ///     var exampleSecurityGroupIngressRule = new Aws.Vpc.SecurityGroupIngressRule("exampleSecurityGroupIngressRule", new()
+    ///     var exampleSecurityGroupIngressRule = new Aws.Vpc.SecurityGroupIngressRule.SecurityGroupIngressRule("exampleSecurityGroupIngressRule", new()
     ///     {
     ///         SecurityGroupId = exampleSecurityGroup.Id,
     ///         CidrIpv4 = "10.0.0.0/8",

@@ -17,13 +17,13 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * import * as fs from "fs";
  *
- * const exampleUserPool = new aws.cognito.UserPool("exampleUserPool", {});
- * const exampleUserPoolDomain = new aws.cognito.UserPoolDomain("exampleUserPoolDomain", {
+ * const exampleUserPool = new aws.cognito/userPool.UserPool("exampleUserPool", {});
+ * const exampleUserPoolDomain = new aws.cognito/userPoolDomain.UserPoolDomain("exampleUserPoolDomain", {
  *     domain: "example",
  *     userPoolId: exampleUserPool.id,
  * });
- * const exampleUserPoolClient = new aws.cognito.UserPoolClient("exampleUserPoolClient", {userPoolId: exampleUserPool.id});
- * const exampleUserPoolUICustomization = new aws.cognito.UserPoolUICustomization("exampleUserPoolUICustomization", {
+ * const exampleUserPoolClient = new aws.cognito/userPoolClient.UserPoolClient("exampleUserPoolClient", {userPoolId: exampleUserPool.id});
+ * const exampleUserPoolUICustomization = new aws.cognito/userPoolUICustomization.UserPoolUICustomization("exampleUserPoolUICustomization", {
  *     clientId: exampleUserPoolClient.id,
  *     css: ".label-customizable {font-weight: 400;}",
  *     imageFile: fs.readFileSync("logo.png", { encoding: "base64" }),
@@ -37,12 +37,12 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * import * as fs from "fs";
  *
- * const exampleUserPool = new aws.cognito.UserPool("exampleUserPool", {});
- * const exampleUserPoolDomain = new aws.cognito.UserPoolDomain("exampleUserPoolDomain", {
+ * const exampleUserPool = new aws.cognito/userPool.UserPool("exampleUserPool", {});
+ * const exampleUserPoolDomain = new aws.cognito/userPoolDomain.UserPoolDomain("exampleUserPoolDomain", {
  *     domain: "example",
  *     userPoolId: exampleUserPool.id,
  * });
- * const exampleUserPoolUICustomization = new aws.cognito.UserPoolUICustomization("exampleUserPoolUICustomization", {
+ * const exampleUserPoolUICustomization = new aws.cognito/userPoolUICustomization.UserPoolUICustomization("exampleUserPoolUICustomization", {
  *     css: ".label-customizable {font-weight: 400;}",
  *     imageFile: fs.readFileSync("logo.png", { encoding: "base64" }),
  *     userPoolId: exampleUserPoolDomain.userPoolId,

@@ -23,71 +23,57 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/gamelift"
+//	gamelift/gameSessionQueue "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/gamelift/gameSessionQueue"
+//	gamelift/matchmakingConfiguration "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/gamelift/matchmakingConfiguration"
+//	gamelift/matchmakingRuleSet "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/gamelift/matchmakingRuleSet"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := gamelift.NewGameSessionQueue(ctx, "exampleGameSessionQueue", &gamelift.GameSessionQueueArgs{
-//				Destinations: pulumi.StringArray{},
-//				PlayerLatencyPolicies: gamelift.GameSessionQueuePlayerLatencyPolicyArray{
-//					&gamelift.GameSessionQueuePlayerLatencyPolicyArgs{
-//						MaximumIndividualPlayerLatencyMilliseconds: pulumi.Int(3),
-//						PolicyDurationSeconds:                      pulumi.Int(7),
-//					},
-//					&gamelift.GameSessionQueuePlayerLatencyPolicyArgs{
-//						MaximumIndividualPlayerLatencyMilliseconds: pulumi.Int(10),
-//					},
-//				},
-//				TimeoutInSeconds: pulumi.Int(25),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"name":                "test",
-//				"ruleLanguageVersion": "1.0",
-//				"teams": []map[string]interface{}{
-//					map[string]interface{}{
-//						"name":       "alpha",
-//						"minPlayers": 1,
-//						"maxPlayers": 5,
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			_, err = gamelift.NewMatchmakingRuleSet(ctx, "exampleMatchmakingRuleSet", &gamelift.MatchmakingRuleSetArgs{
-//				RuleSetBody: pulumi.String(json0),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = gamelift.NewMatchmakingConfiguration(ctx, "exampleMatchmakingConfiguration", &gamelift.MatchmakingConfigurationArgs{
-//				AcceptanceRequired:    pulumi.Bool(false),
-//				CustomEventData:       pulumi.String("pvp"),
-//				GameSessionData:       pulumi.String("game_session_data"),
-//				BackfillMode:          pulumi.String("MANUAL"),
-//				RequestTimeoutSeconds: pulumi.Int(30),
-//				RuleSetName:           pulumi.Any(aws_gamelift_matchmaking_rule_set.Test.Name),
-//				GameSessionQueueArns: pulumi.StringArray{
-//					aws_gamelift_game_session_queue.Test.Arn,
-//				},
-//				Tags: pulumi.StringMap{
-//					"key1": pulumi.String("value1"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := gamelift/gameSessionQueue.NewGameSessionQueue(ctx, "exampleGameSessionQueue", &gamelift/gameSessionQueue.GameSessionQueueArgs{
+// Destinations: []interface{}{
+// },
+// PlayerLatencyPolicies: []interface{}{
+// map[string]interface{}{
+// "maximumIndividualPlayerLatencyMilliseconds": 3,
+// "policyDurationSeconds": 7,
+// },
+// map[string]interface{}{
+// "maximumIndividualPlayerLatencyMilliseconds": 10,
+// },
+// },
+// TimeoutInSeconds: 25,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = gamelift/matchmakingRuleSet.NewMatchmakingRuleSet(ctx, "exampleMatchmakingRuleSet", &gamelift/matchmakingRuleSet.MatchmakingRuleSetArgs{
+// RuleSetBody: %!v(PANIC=Format method: fatal: An assertion has failed: unlowered function toJSON),
+// })
+// if err != nil {
+// return err
+// }
+// _, err = gamelift/matchmakingConfiguration.NewMatchmakingConfiguration(ctx, "exampleMatchmakingConfiguration", &gamelift/matchmakingConfiguration.MatchmakingConfigurationArgs{
+// AcceptanceRequired: false,
+// CustomEventData: "pvp",
+// GameSessionData: "game_session_data",
+// BackfillMode: "MANUAL",
+// RequestTimeoutSeconds: 30,
+// RuleSetName: aws_gamelift_matchmaking_rule_set.Test.Name,
+// GameSessionQueueArns: []interface{}{
+// aws_gamelift_game_session_queue.Test.Arn,
+// },
+// Tags: map[string]interface{}{
+// "key1": "value1",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

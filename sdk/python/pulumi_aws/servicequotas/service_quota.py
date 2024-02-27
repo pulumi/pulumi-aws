@@ -262,9 +262,9 @@ class ServiceQuota(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.servicequotas.ServiceQuota("example",
-            quota_code="L-F678F1CE",
-            service_code="vpc",
+        example = aws.servicequotas.service_quota.ServiceQuota("example",
+            quota_code=L-F678F1CE,
+            service_code=vpc,
             value=75)
         ```
 
@@ -301,9 +301,9 @@ class ServiceQuota(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.servicequotas.ServiceQuota("example",
-            quota_code="L-F678F1CE",
-            service_code="vpc",
+        example = aws.servicequotas.service_quota.ServiceQuota("example",
+            quota_code=L-F678F1CE,
+            service_code=vpc,
             value=75)
         ```
 

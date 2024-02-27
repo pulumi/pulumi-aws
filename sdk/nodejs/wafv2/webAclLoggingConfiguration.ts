@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.wafv2.WebAclLoggingConfiguration("example", {
+ * const example = new aws.wafv2/webAclLoggingConfiguration.WebAclLoggingConfiguration("example", {
  *     logDestinationConfigs: [aws_kinesis_firehose_delivery_stream.example.arn],
  *     resourceArn: aws_wafv2_web_acl.example.arn,
  *     redactedFields: [{
@@ -35,7 +35,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.wafv2.WebAclLoggingConfiguration("example", {
+ * const example = new aws.wafv2/webAclLoggingConfiguration.WebAclLoggingConfiguration("example", {
  *     logDestinationConfigs: [aws_kinesis_firehose_delivery_stream.example.arn],
  *     resourceArn: aws_wafv2_web_acl.example.arn,
  *     loggingFilter: {

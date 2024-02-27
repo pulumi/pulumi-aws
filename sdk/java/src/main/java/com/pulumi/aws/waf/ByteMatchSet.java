@@ -28,8 +28,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.waf.ByteMatchSet;
  * import com.pulumi.aws.waf.ByteMatchSetArgs;
- * import com.pulumi.aws.waf.inputs.ByteMatchSetByteMatchTupleArgs;
- * import com.pulumi.aws.waf.inputs.ByteMatchSetByteMatchTupleFieldToMatchArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -44,15 +42,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var byteSet = new ByteMatchSet(&#34;byteSet&#34;, ByteMatchSetArgs.builder()        
- *             .byteMatchTuples(ByteMatchSetByteMatchTupleArgs.builder()
- *                 .fieldToMatch(ByteMatchSetByteMatchTupleFieldToMatchArgs.builder()
- *                     .data(&#34;referer&#34;)
- *                     .type(&#34;HEADER&#34;)
- *                     .build())
- *                 .positionalConstraint(&#34;CONTAINS&#34;)
- *                 .targetString(&#34;badrefer1&#34;)
- *                 .textTransformation(&#34;NONE&#34;)
- *                 .build())
+ *             .byteMatchTuples(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

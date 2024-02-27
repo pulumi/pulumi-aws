@@ -74,7 +74,7 @@ class SecurityTokenServicePreferences(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.iam.SecurityTokenServicePreferences("example", global_endpoint_token_version="v2Token")
+        example = aws.iam.security_token_service_preferences.SecurityTokenServicePreferences("example", global_endpoint_token_version=v2Token)
         ```
 
         :param str resource_name: The name of the resource.
@@ -96,7 +96,7 @@ class SecurityTokenServicePreferences(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.iam.SecurityTokenServicePreferences("example", global_endpoint_token_version="v2Token")
+        example = aws.iam.security_token_service_preferences.SecurityTokenServicePreferences("example", global_endpoint_token_version=v2Token)
         ```
 
         :param str resource_name: The name of the resource.

@@ -17,61 +17,6 @@ import javax.annotation.Nullable;
  * Resource for managing an AWS Managed Streaming for Kafka Cluster Policy.
  * 
  * ## Example Usage
- * ### Basic Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.AwsFunctions;
- * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
- * import com.pulumi.aws.inputs.GetPartitionArgs;
- * import com.pulumi.aws.msk.ClusterPolicy;
- * import com.pulumi.aws.msk.ClusterPolicyArgs;
- * import static com.pulumi.codegen.internal.Serialization.*;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var currentCallerIdentity = AwsFunctions.getCallerIdentity();
- * 
- *         final var currentPartition = AwsFunctions.getPartition();
- * 
- *         var example = new ClusterPolicy(&#34;example&#34;, ClusterPolicyArgs.builder()        
- *             .clusterArn(aws_msk_cluster.example().arn())
- *             .policy(serializeJson(
- *                 jsonObject(
- *                     jsonProperty(&#34;Version&#34;, &#34;2012-10-17&#34;),
- *                     jsonProperty(&#34;Statement&#34;, jsonArray(jsonObject(
- *                         jsonProperty(&#34;Sid&#34;, &#34;ExampleMskClusterPolicy&#34;),
- *                         jsonProperty(&#34;Effect&#34;, &#34;Allow&#34;),
- *                         jsonProperty(&#34;Principal&#34;, jsonObject(
- *                             jsonProperty(&#34;AWS&#34;, String.format(&#34;arn:%s:iam::%s:root&#34;, currentPartition.applyValue(getPartitionResult -&gt; getPartitionResult.partition()),currentCallerIdentity.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId())))
- *                         )),
- *                         jsonProperty(&#34;Action&#34;, jsonArray(
- *                             &#34;kafka:Describe*&#34;, 
- *                             &#34;kafka:Get*&#34;, 
- *                             &#34;kafka:CreateVpcConnection&#34;, 
- *                             &#34;kafka:GetBootstrapBrokers&#34;
- *                         )),
- *                         jsonProperty(&#34;Resource&#34;, aws_msk_cluster.example().arn())
- *                     )))
- *                 )))
- *             .build());
- * 
- *     }
- * }
- * ```
  * 
  * ## Import
  * 

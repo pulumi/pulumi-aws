@@ -23,7 +23,7 @@ namespace Pulumi.Aws.SsoAdmin
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.SsoAdmin.ApplicationAssignment("example", new()
+    ///     var example = new Aws.Ssoadmin.ApplicationAssignment.ApplicationAssignment("example", new()
     ///     {
     ///         ApplicationArn = aws_ssoadmin_application.Example.Application_arn,
     ///         PrincipalId = aws_identitystore_user.Example.User_id,
@@ -42,7 +42,7 @@ namespace Pulumi.Aws.SsoAdmin
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.SsoAdmin.ApplicationAssignment("example", new()
+    ///     var example = new Aws.Ssoadmin.ApplicationAssignment.ApplicationAssignment("example", new()
     ///     {
     ///         ApplicationArn = aws_ssoadmin_application.Example.Application_arn,
     ///         PrincipalId = aws_identitystore_group.Example.Group_id,

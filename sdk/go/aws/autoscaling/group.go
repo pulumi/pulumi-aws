@@ -19,6 +19,87 @@ import (
 // > **NOTE on Auto Scaling Groups, Attachments and Traffic Source Attachments:** Pulumi provides standalone Attachment (for attaching Classic Load Balancers and Application Load Balancer, Gateway Load Balancer, or Network Load Balancer target groups) and Traffic Source Attachment (for attaching Load Balancers and VPC Lattice target groups) resources and an Auto Scaling Group resource with `loadBalancers`, `targetGroupArns` and `trafficSource` attributes. Do not use the same traffic source in more than one of these resources. Doing so will cause a conflict of attachments. A `lifecycle` configuration block can be used to suppress differences if necessary.
 //
 // ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"encoding/json"
+//
+//	autoscaling/group "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/autoscaling/group"
+//	ec2/placementGroup "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/placementGroup"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// test, err := ec2/placementGroup.NewPlacementGroup(ctx, "test", &ec2/placementGroup.PlacementGroupArgs{
+// Strategy: "cluster",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = autoscaling/group.NewGroup(ctx, "bar", &autoscaling/group.GroupArgs{
+// MaxSize: 5,
+// MinSize: 2,
+// HealthCheckGracePeriod: 300,
+// HealthCheckType: "ELB",
+// DesiredCapacity: 4,
+// ForceDelete: true,
+// PlacementGroup: test.Id,
+// LaunchConfiguration: aws_launch_configuration.Foobar.Name,
+// VpcZoneIdentifiers: []interface{}{
+// aws_subnet.Example1.Id,
+// aws_subnet.Example2.Id,
+// },
+// InstanceMaintenancePolicy: map[string]interface{}{
+// "minHealthyPercentage": 90,
+// "maxHealthyPercentage": 120,
+// },
+// InitialLifecycleHooks: tmpJSON0, err := json.Marshal(map[string]interface{}{
+// "foo": "bar",
+// })
+// if err != nil {
+// return err
+// }
+// json0 := string(tmpJSON0)
+// []map[string]interface{}{
+// map[string]interface{}{
+// "name": "foobar",
+// "defaultResult": "CONTINUE",
+// "heartbeatTimeout": 2000,
+// "lifecycleTransition": "autoscaling:EC2_INSTANCE_LAUNCHING",
+// "notificationMetadata": json0,
+// "notificationTargetArn": "arn:aws:sqs:us-east-1:444455556666:queue1*",
+// "roleArn": "arn:aws:iam::123456789012:role/S3Access",
+// },
+// },
+// Tags: []interface{}{
+// map[string]interface{}{
+// "key": "foo",
+// "value": "bar",
+// "propagateAtLaunch": true,
+// },
+// map[string]interface{}{
+// "key": "lorem",
+// "value": "ipsum",
+// "propagateAtLaunch": false,
+// },
+// },
+// Timeouts: []map[string]interface{}{
+// map[string]interface{}{
+// "delete": "15m",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
+// ```
 // ### With Latest Version Of Launch Template
 //
 // ```go
@@ -26,41 +107,39 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/autoscaling"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	autoscaling/group "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/autoscaling/group"
+//	ec2/launchTemplate "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/launchTemplate"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			foobar, err := ec2.NewLaunchTemplate(ctx, "foobar", &ec2.LaunchTemplateArgs{
-//				NamePrefix:   pulumi.String("foobar"),
-//				ImageId:      pulumi.String("ami-1a2b3c"),
-//				InstanceType: pulumi.String("t2.micro"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = autoscaling.NewGroup(ctx, "bar", &autoscaling.GroupArgs{
-//				AvailabilityZones: pulumi.StringArray{
-//					pulumi.String("us-east-1a"),
-//				},
-//				DesiredCapacity: pulumi.Int(1),
-//				MaxSize:         pulumi.Int(1),
-//				MinSize:         pulumi.Int(1),
-//				LaunchTemplate: &autoscaling.GroupLaunchTemplateArgs{
-//					Id:      foobar.ID(),
-//					Version: pulumi.String("$Latest"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// foobar, err := ec2/launchTemplate.NewLaunchTemplate(ctx, "foobar", &ec2/launchTemplate.LaunchTemplateArgs{
+// NamePrefix: "foobar",
+// ImageId: "ami-1a2b3c",
+// InstanceType: "t2.micro",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = autoscaling/group.NewGroup(ctx, "bar", &autoscaling/group.GroupArgs{
+// AvailabilityZones: []string{
+// "us-east-1a",
+// },
+// DesiredCapacity: 1,
+// MaxSize: 1,
+// MinSize: 1,
+// LaunchTemplate: map[string]interface{}{
+// "id": foobar.Id,
+// "version": "$Latest",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Mixed Instances Policy
 //
@@ -69,54 +148,52 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/autoscaling"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	autoscaling/group "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/autoscaling/group"
+//	ec2/launchTemplate "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/launchTemplate"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleLaunchTemplate, err := ec2.NewLaunchTemplate(ctx, "exampleLaunchTemplate", &ec2.LaunchTemplateArgs{
-//				NamePrefix:   pulumi.String("example"),
-//				ImageId:      pulumi.Any(data.Aws_ami.Example.Id),
-//				InstanceType: pulumi.String("c5.large"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = autoscaling.NewGroup(ctx, "exampleGroup", &autoscaling.GroupArgs{
-//				AvailabilityZones: pulumi.StringArray{
-//					pulumi.String("us-east-1a"),
-//				},
-//				DesiredCapacity: pulumi.Int(1),
-//				MaxSize:         pulumi.Int(1),
-//				MinSize:         pulumi.Int(1),
-//				MixedInstancesPolicy: &autoscaling.GroupMixedInstancesPolicyArgs{
-//					LaunchTemplate: &autoscaling.GroupMixedInstancesPolicyLaunchTemplateArgs{
-//						LaunchTemplateSpecification: &autoscaling.GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs{
-//							LaunchTemplateId: exampleLaunchTemplate.ID(),
-//						},
-//						Overrides: autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideArray{
-//							&autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideArgs{
-//								InstanceType:     pulumi.String("c4.large"),
-//								WeightedCapacity: pulumi.String("3"),
-//							},
-//							&autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideArgs{
-//								InstanceType:     pulumi.String("c3.large"),
-//								WeightedCapacity: pulumi.String("2"),
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleLaunchTemplate, err := ec2/launchTemplate.NewLaunchTemplate(ctx, "exampleLaunchTemplate", &ec2/launchTemplate.LaunchTemplateArgs{
+// NamePrefix: "example",
+// ImageId: data.Aws_ami.Example.Id,
+// InstanceType: "c5.large",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = autoscaling/group.NewGroup(ctx, "exampleGroup", &autoscaling/group.GroupArgs{
+// AvailabilityZones: []string{
+// "us-east-1a",
+// },
+// DesiredCapacity: 1,
+// MaxSize: 1,
+// MinSize: 1,
+// MixedInstancesPolicy: map[string]interface{}{
+// "launchTemplate": map[string]interface{}{
+// "launchTemplateSpecification": map[string]interface{}{
+// "launchTemplateId": exampleLaunchTemplate.Id,
+// },
+// "overrides": []map[string]interface{}{
+// map[string]interface{}{
+// "instanceType": "c4.large",
+// "weightedCapacity": "3",
+// },
+// map[string]interface{}{
+// "instanceType": "c3.large",
+// "weightedCapacity": "2",
+// },
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Mixed Instances Policy with Spot Instances and Capacity Rebalance
 //
@@ -125,61 +202,59 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/autoscaling"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	autoscaling/group "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/autoscaling/group"
+//	ec2/launchTemplate "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/launchTemplate"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleLaunchTemplate, err := ec2.NewLaunchTemplate(ctx, "exampleLaunchTemplate", &ec2.LaunchTemplateArgs{
-//				NamePrefix:   pulumi.String("example"),
-//				ImageId:      pulumi.Any(data.Aws_ami.Example.Id),
-//				InstanceType: pulumi.String("c5.large"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = autoscaling.NewGroup(ctx, "exampleGroup", &autoscaling.GroupArgs{
-//				CapacityRebalance: pulumi.Bool(true),
-//				DesiredCapacity:   pulumi.Int(12),
-//				MaxSize:           pulumi.Int(15),
-//				MinSize:           pulumi.Int(12),
-//				VpcZoneIdentifiers: pulumi.StringArray{
-//					aws_subnet.Example1.Id,
-//					aws_subnet.Example2.Id,
-//				},
-//				MixedInstancesPolicy: &autoscaling.GroupMixedInstancesPolicyArgs{
-//					InstancesDistribution: &autoscaling.GroupMixedInstancesPolicyInstancesDistributionArgs{
-//						OnDemandBaseCapacity:                pulumi.Int(0),
-//						OnDemandPercentageAboveBaseCapacity: pulumi.Int(25),
-//						SpotAllocationStrategy:              pulumi.String("capacity-optimized"),
-//					},
-//					LaunchTemplate: &autoscaling.GroupMixedInstancesPolicyLaunchTemplateArgs{
-//						LaunchTemplateSpecification: &autoscaling.GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs{
-//							LaunchTemplateId: exampleLaunchTemplate.ID(),
-//						},
-//						Overrides: autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideArray{
-//							&autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideArgs{
-//								InstanceType:     pulumi.String("c4.large"),
-//								WeightedCapacity: pulumi.String("3"),
-//							},
-//							&autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideArgs{
-//								InstanceType:     pulumi.String("c3.large"),
-//								WeightedCapacity: pulumi.String("2"),
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleLaunchTemplate, err := ec2/launchTemplate.NewLaunchTemplate(ctx, "exampleLaunchTemplate", &ec2/launchTemplate.LaunchTemplateArgs{
+// NamePrefix: "example",
+// ImageId: data.Aws_ami.Example.Id,
+// InstanceType: "c5.large",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = autoscaling/group.NewGroup(ctx, "exampleGroup", &autoscaling/group.GroupArgs{
+// CapacityRebalance: true,
+// DesiredCapacity: 12,
+// MaxSize: 15,
+// MinSize: 12,
+// VpcZoneIdentifiers: []interface{}{
+// aws_subnet.Example1.Id,
+// aws_subnet.Example2.Id,
+// },
+// MixedInstancesPolicy: map[string]interface{}{
+// "instancesDistribution": map[string]interface{}{
+// "onDemandBaseCapacity": 0,
+// "onDemandPercentageAboveBaseCapacity": 25,
+// "spotAllocationStrategy": "capacity-optimized",
+// },
+// "launchTemplate": map[string]interface{}{
+// "launchTemplateSpecification": map[string]interface{}{
+// "launchTemplateId": exampleLaunchTemplate.Id,
+// },
+// "overrides": []map[string]interface{}{
+// map[string]interface{}{
+// "instanceType": "c4.large",
+// "weightedCapacity": "3",
+// },
+// map[string]interface{}{
+// "instanceType": "c3.large",
+// "weightedCapacity": "2",
+// },
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Mixed Instances Policy with Instance level LaunchTemplateSpecification Overrides
 //
@@ -190,64 +265,62 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/autoscaling"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	autoscaling/group "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/autoscaling/group"
+//	ec2/launchTemplate "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/launchTemplate"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleLaunchTemplate, err := ec2.NewLaunchTemplate(ctx, "exampleLaunchTemplate", &ec2.LaunchTemplateArgs{
-//				NamePrefix:   pulumi.String("example"),
-//				ImageId:      pulumi.Any(data.Aws_ami.Example.Id),
-//				InstanceType: pulumi.String("c5.large"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			example2, err := ec2.NewLaunchTemplate(ctx, "example2", &ec2.LaunchTemplateArgs{
-//				NamePrefix: pulumi.String("example2"),
-//				ImageId:    pulumi.Any(data.Aws_ami.Example2.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = autoscaling.NewGroup(ctx, "exampleGroup", &autoscaling.GroupArgs{
-//				AvailabilityZones: pulumi.StringArray{
-//					pulumi.String("us-east-1a"),
-//				},
-//				DesiredCapacity: pulumi.Int(1),
-//				MaxSize:         pulumi.Int(1),
-//				MinSize:         pulumi.Int(1),
-//				MixedInstancesPolicy: &autoscaling.GroupMixedInstancesPolicyArgs{
-//					LaunchTemplate: &autoscaling.GroupMixedInstancesPolicyLaunchTemplateArgs{
-//						LaunchTemplateSpecification: &autoscaling.GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs{
-//							LaunchTemplateId: exampleLaunchTemplate.ID(),
-//						},
-//						Overrides: autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideArray{
-//							&autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideArgs{
-//								InstanceType:     pulumi.String("c4.large"),
-//								WeightedCapacity: pulumi.String("3"),
-//							},
-//							&autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideArgs{
-//								InstanceType: pulumi.String("c6g.large"),
-//								LaunchTemplateSpecification: &autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationArgs{
-//									LaunchTemplateId: example2.ID(),
-//								},
-//								WeightedCapacity: pulumi.String("2"),
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleLaunchTemplate, err := ec2/launchTemplate.NewLaunchTemplate(ctx, "exampleLaunchTemplate", &ec2/launchTemplate.LaunchTemplateArgs{
+// NamePrefix: "example",
+// ImageId: data.Aws_ami.Example.Id,
+// InstanceType: "c5.large",
+// })
+// if err != nil {
+// return err
+// }
+// example2, err := ec2/launchTemplate.NewLaunchTemplate(ctx, "example2", &ec2/launchTemplate.LaunchTemplateArgs{
+// NamePrefix: "example2",
+// ImageId: data.Aws_ami.Example2.Id,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = autoscaling/group.NewGroup(ctx, "exampleGroup", &autoscaling/group.GroupArgs{
+// AvailabilityZones: []string{
+// "us-east-1a",
+// },
+// DesiredCapacity: 1,
+// MaxSize: 1,
+// MinSize: 1,
+// MixedInstancesPolicy: map[string]interface{}{
+// "launchTemplate": map[string]interface{}{
+// "launchTemplateSpecification": map[string]interface{}{
+// "launchTemplateId": exampleLaunchTemplate.Id,
+// },
+// "overrides": []map[string]interface{}{
+// map[string]interface{}{
+// "instanceType": "c4.large",
+// "weightedCapacity": "3",
+// },
+// map[string]interface{}{
+// "instanceType": "c6g.large",
+// "launchTemplateSpecification": map[string]interface{}{
+// "launchTemplateId": example2.Id,
+// },
+// "weightedCapacity": "2",
+// },
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Mixed Instances Policy with Attribute-based Instance Type Selection
 //
@@ -258,131 +331,124 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/autoscaling"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	autoscaling/group "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/autoscaling/group"
+//	ec2/launchTemplate "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/launchTemplate"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleLaunchTemplate, err := ec2.NewLaunchTemplate(ctx, "exampleLaunchTemplate", &ec2.LaunchTemplateArgs{
-//				NamePrefix:   pulumi.String("example"),
-//				ImageId:      pulumi.Any(data.Aws_ami.Example.Id),
-//				InstanceType: pulumi.String("c5.large"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = autoscaling.NewGroup(ctx, "exampleGroup", &autoscaling.GroupArgs{
-//				AvailabilityZones: pulumi.StringArray{
-//					pulumi.String("us-east-1a"),
-//				},
-//				DesiredCapacity: pulumi.Int(1),
-//				MaxSize:         pulumi.Int(1),
-//				MinSize:         pulumi.Int(1),
-//				MixedInstancesPolicy: &autoscaling.GroupMixedInstancesPolicyArgs{
-//					LaunchTemplate: &autoscaling.GroupMixedInstancesPolicyLaunchTemplateArgs{
-//						LaunchTemplateSpecification: &autoscaling.GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs{
-//							LaunchTemplateId: exampleLaunchTemplate.ID(),
-//						},
-//						Overrides: autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideArray{
-//							&autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideArgs{
-//								InstanceRequirements: &autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs{
-//									MemoryMib: &autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibArgs{
-//										Min: pulumi.Int(1000),
-//									},
-//									VcpuCount: &autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountArgs{
-//										Min: pulumi.Int(4),
-//									},
-//								},
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleLaunchTemplate, err := ec2/launchTemplate.NewLaunchTemplate(ctx, "exampleLaunchTemplate", &ec2/launchTemplate.LaunchTemplateArgs{
+// NamePrefix: "example",
+// ImageId: data.Aws_ami.Example.Id,
+// InstanceType: "c5.large",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = autoscaling/group.NewGroup(ctx, "exampleGroup", &autoscaling/group.GroupArgs{
+// AvailabilityZones: []string{
+// "us-east-1a",
+// },
+// DesiredCapacity: 1,
+// MaxSize: 1,
+// MinSize: 1,
+// MixedInstancesPolicy: map[string]interface{}{
+// "launchTemplate": map[string]interface{}{
+// "launchTemplateSpecification": map[string]interface{}{
+// "launchTemplateId": exampleLaunchTemplate.Id,
+// },
+// "overrides": []map[string]interface{}{
+// map[string]interface{}{
+// "instanceRequirements": map[string]interface{}{
+// "memoryMib": map[string]interface{}{
+// "min": 1000,
+// },
+// "vcpuCount": map[string]interface{}{
+// "min": 4,
+// },
+// },
+// },
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
-// ### Automatically refresh all instances after the group is updated
+// ### Dynamic tagging
 //
 // ```go
 // package main
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/autoscaling"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	autoscaling/group "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/autoscaling/group"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleAmi, err := ec2.LookupAmi(ctx, &ec2.LookupAmiArgs{
-//				MostRecent: pulumi.BoolRef(true),
-//				Owners: []string{
-//					"amazon",
-//				},
-//				Filters: []ec2.GetAmiFilter{
-//					{
-//						Name: "name",
-//						Values: []string{
-//							"amzn-ami-hvm-*-x86_64-gp2",
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleLaunchTemplate, err := ec2.NewLaunchTemplate(ctx, "exampleLaunchTemplate", &ec2.LaunchTemplateArgs{
-//				ImageId:      *pulumi.String(exampleAmi.Id),
-//				InstanceType: pulumi.String("t3.nano"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = autoscaling.NewGroup(ctx, "exampleGroup", &autoscaling.GroupArgs{
-//				AvailabilityZones: pulumi.StringArray{
-//					pulumi.String("us-east-1a"),
-//				},
-//				DesiredCapacity: pulumi.Int(1),
-//				MaxSize:         pulumi.Int(2),
-//				MinSize:         pulumi.Int(1),
-//				LaunchTemplate: &autoscaling.GroupLaunchTemplateArgs{
-//					Id:      exampleLaunchTemplate.ID(),
-//					Version: exampleLaunchTemplate.LatestVersion,
-//				},
-//				Tags: autoscaling.GroupTagArray{
-//					&autoscaling.GroupTagArgs{
-//						Key:               pulumi.String("Key"),
-//						Value:             pulumi.String("Value"),
-//						PropagateAtLaunch: pulumi.Bool(true),
-//					},
-//				},
-//				InstanceRefresh: &autoscaling.GroupInstanceRefreshArgs{
-//					Strategy: pulumi.String("Rolling"),
-//					Preferences: &autoscaling.GroupInstanceRefreshPreferencesArgs{
-//						MinHealthyPercentage: pulumi.Int(50),
-//					},
-//					Triggers: pulumi.StringArray{
-//						pulumi.String("tag"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// cfg := config.New(ctx, "")
+// extraTags := []map[string]interface{}{
+// map[string]interface{}{
+// "key": "Foo",
+// "value": "Bar",
+// "propagate_at_launch": true,
+// },
+// map[string]interface{}{
+// "key": "Baz",
+// "value": "Bam",
+// "propagate_at_launch": true,
+// },
+// };
+// if param := cfg.GetObject("extraTags"); param != nil {
+// extraTags = param
+// }
+// _, err := autoscaling/group.NewGroup(ctx, "test", &autoscaling/group.GroupArgs{
+// MaxSize: 5,
+// MinSize: 2,
+// LaunchConfiguration: aws_launch_configuration.Foobar.Name,
+// VpcZoneIdentifiers: []interface{}{
+// aws_subnet.Example1.Id,
+// aws_subnet.Example2.Id,
+// },
+// Tags: []map[string]interface{}{
+// map[string]interface{}{
+// "key": "explicit1",
+// "value": "value1",
+// "propagateAtLaunch": true,
+// },
+// map[string]interface{}{
+// "key": "explicit2",
+// "value": "value2",
+// "propagateAtLaunch": true,
+// },
+// },
+// Dynamic: []map[string]interface{}{
+// map[string]interface{}{
+// "forEach": extraTags,
+// "content": []map[string]interface{}{
+// map[string]interface{}{
+// "key": tag.Value.Key,
+// "propagateAtLaunch": tag.Value.Propagate_at_launch,
+// "value": tag.Value.Value,
+// },
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Auto Scaling group with Warm Pool
 //
@@ -391,45 +457,84 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/autoscaling"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	autoscaling/group "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/autoscaling/group"
+//	ec2/launchTemplate "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/launchTemplate"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := ec2/launchTemplate.NewLaunchTemplate(ctx, "exampleLaunchTemplate", &ec2/launchTemplate.LaunchTemplateArgs{
+// NamePrefix: "example",
+// ImageId: data.Aws_ami.Example.Id,
+// InstanceType: "c5.large",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = autoscaling/group.NewGroup(ctx, "exampleGroup", &autoscaling/group.GroupArgs{
+// AvailabilityZones: []string{
+// "us-east-1a",
+// },
+// DesiredCapacity: 1,
+// MaxSize: 5,
+// MinSize: 1,
+// WarmPool: map[string]interface{}{
+// "poolState": "Hibernated",
+// "minSize": 1,
+// "maxGroupPreparedCapacity": 10,
+// "instanceReusePolicy": map[string]interface{}{
+// "reuseOnScaleIn": true,
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
+// ```
+// ### Auto Scaling group with Traffic Sources
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.NewLaunchTemplate(ctx, "exampleLaunchTemplate", &ec2.LaunchTemplateArgs{
-//				NamePrefix:   pulumi.String("example"),
-//				ImageId:      pulumi.Any(data.Aws_ami.Example.Id),
-//				InstanceType: pulumi.String("c5.large"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = autoscaling.NewGroup(ctx, "exampleGroup", &autoscaling.GroupArgs{
-//				AvailabilityZones: pulumi.StringArray{
-//					pulumi.String("us-east-1a"),
-//				},
-//				DesiredCapacity: pulumi.Int(1),
-//				MaxSize:         pulumi.Int(5),
-//				MinSize:         pulumi.Int(1),
-//				WarmPool: &autoscaling.GroupWarmPoolArgs{
-//					PoolState:                pulumi.String("Hibernated"),
-//					MinSize:                  pulumi.Int(1),
-//					MaxGroupPreparedCapacity: pulumi.Int(10),
-//					InstanceReusePolicy: &autoscaling.GroupWarmPoolInstanceReusePolicyArgs{
-//						ReuseOnScaleIn: pulumi.Bool(true),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
+// ```go
+// package main
 //
+// import (
+//
+//	autoscaling/group "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/autoscaling/group"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := autoscaling/group.NewGroup(ctx, "test", &autoscaling/group.GroupArgs{
+// VpcZoneIdentifiers: aws_subnet.Test.Id,
+// MaxSize: 1,
+// MinSize: 1,
+// ForceDelete: true,
+// Dynamic: []map[string]interface{}{
+// var splat0 []interface{}
+// for _, val0 := range aws_vpclattice_target_group.Test {
+// splat0 = append(splat0, val0)
+// }
+// map[string]interface{}{
+// "forEach": splat0,
+// "content": []map[string]interface{}{
+// map[string]interface{}{
+// "identifier": traffic_source.Value.Arn,
+// "type": "vpc-lattice",
+// },
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ## Waiting for Capacity
 //

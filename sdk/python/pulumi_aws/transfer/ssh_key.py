@@ -132,48 +132,6 @@ class SshKey(pulumi.CustomResource):
         """
         Provides a AWS Transfer User SSH Key resource.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_server = aws.transfer.Server("exampleServer",
-            identity_provider_type="SERVICE_MANAGED",
-            tags={
-                "NAME": "tf-acc-test-transfer-server",
-            })
-        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["transfer.amazonaws.com"],
-            )],
-            actions=["sts:AssumeRole"],
-        )])
-        example_role = aws.iam.Role("exampleRole", assume_role_policy=assume_role.json)
-        example_user = aws.transfer.User("exampleUser",
-            server_id=example_server.id,
-            user_name="tftestuser",
-            role=example_role.arn,
-            tags={
-                "NAME": "tftestuser",
-            })
-        example_ssh_key = aws.transfer.SshKey("exampleSshKey",
-            server_id=example_server.id,
-            user_name=example_user.user_name,
-            body="... SSH key ...")
-        example_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            sid="AllowFullAccesstoS3",
-            effect="Allow",
-            actions=["s3:*"],
-            resources=["*"],
-        )])
-        example_role_policy = aws.iam.RolePolicy("exampleRolePolicy",
-            role=example_role.id,
-            policy=example_policy_document.json)
-        ```
-
         ## Import
 
         Using `pulumi import`, import Transfer SSH Public Key using the `server_id` and `user_name` and `ssh_public_key_id` separated by `/`. For example:
@@ -196,48 +154,6 @@ class SshKey(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a AWS Transfer User SSH Key resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_server = aws.transfer.Server("exampleServer",
-            identity_provider_type="SERVICE_MANAGED",
-            tags={
-                "NAME": "tf-acc-test-transfer-server",
-            })
-        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["transfer.amazonaws.com"],
-            )],
-            actions=["sts:AssumeRole"],
-        )])
-        example_role = aws.iam.Role("exampleRole", assume_role_policy=assume_role.json)
-        example_user = aws.transfer.User("exampleUser",
-            server_id=example_server.id,
-            user_name="tftestuser",
-            role=example_role.arn,
-            tags={
-                "NAME": "tftestuser",
-            })
-        example_ssh_key = aws.transfer.SshKey("exampleSshKey",
-            server_id=example_server.id,
-            user_name=example_user.user_name,
-            body="... SSH key ...")
-        example_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            sid="AllowFullAccesstoS3",
-            effect="Allow",
-            actions=["s3:*"],
-            resources=["*"],
-        )])
-        example_role_policy = aws.iam.RolePolicy("exampleRolePolicy",
-            role=example_role.id,
-            policy=example_policy_document.json)
-        ```
 
         ## Import
 

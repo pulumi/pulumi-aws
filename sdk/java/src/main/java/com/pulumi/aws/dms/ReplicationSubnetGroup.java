@@ -50,7 +50,7 @@ import javax.annotation.Nullable;
  *             .subnetIds(            
  *                 &#34;subnet-12345678&#34;,
  *                 &#34;subnet-12345679&#34;)
- *             .tags(Map.of(&#34;Name&#34;, &#34;example&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -112,7 +112,7 @@ import javax.annotation.Nullable;
  *             .subnetIds(            
  *                 &#34;subnet-12345678&#34;,
  *                 &#34;subnet-12345679&#34;)
- *             .tags(Map.of(&#34;Name&#34;, &#34;example-id&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(exampleRolePolicyAttachment)
  *                 .build());

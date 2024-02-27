@@ -30,9 +30,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.kendra.Experience;
  * import com.pulumi.aws.kendra.ExperienceArgs;
- * import com.pulumi.aws.kendra.inputs.ExperienceConfigurationArgs;
- * import com.pulumi.aws.kendra.inputs.ExperienceConfigurationContentSourceConfigurationArgs;
- * import com.pulumi.aws.kendra.inputs.ExperienceConfigurationUserIdentityConfigurationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -50,15 +47,7 @@ import javax.annotation.Nullable;
  *             .indexId(aws_kendra_index.example().id())
  *             .description(&#34;My Kendra Experience&#34;)
  *             .roleArn(aws_iam_role.example().arn())
- *             .configuration(ExperienceConfigurationArgs.builder()
- *                 .contentSourceConfiguration(ExperienceConfigurationContentSourceConfigurationArgs.builder()
- *                     .directPutContent(true)
- *                     .faqIds(aws_kendra_faq.example().faq_id())
- *                     .build())
- *                 .userIdentityConfiguration(ExperienceConfigurationUserIdentityConfigurationArgs.builder()
- *                     .identityAttributeName(&#34;12345ec453-1546651e-79c4-4554-91fa-00b43ccfa245&#34;)
- *                     .build())
- *                 .build())
+ *             .configuration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

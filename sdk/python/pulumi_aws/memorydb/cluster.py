@@ -926,13 +926,13 @@ class Cluster(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.memorydb.Cluster("example",
-            acl_name="open-access",
-            node_type="db.t4g.small",
+        example = aws.memorydb.cluster.Cluster("example",
+            acl_name=open-access,
+            node_type=db.t4g.small,
             num_shards=2,
-            security_group_ids=[aws_security_group["example"]["id"]],
+            security_group_ids=[aws_security_group.example.id],
             snapshot_retention_limit=7,
-            subnet_group_name=aws_memorydb_subnet_group["example"]["id"])
+            subnet_group_name=aws_memorydb_subnet_group.example.id)
         ```
 
         ## Import
@@ -989,13 +989,13 @@ class Cluster(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.memorydb.Cluster("example",
-            acl_name="open-access",
-            node_type="db.t4g.small",
+        example = aws.memorydb.cluster.Cluster("example",
+            acl_name=open-access,
+            node_type=db.t4g.small,
             num_shards=2,
-            security_group_ids=[aws_security_group["example"]["id"]],
+            security_group_ids=[aws_security_group.example.id],
             snapshot_retention_limit=7,
-            subnet_group_name=aws_memorydb_subnet_group["example"]["id"])
+            subnet_group_name=aws_memorydb_subnet_group.example.id)
         ```
 
         ## Import

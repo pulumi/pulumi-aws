@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * // Prevent making AMIs publicly accessible in the region and account for which the provider is configured
- * const test = new aws.ec2.ImageBlockPublicAccess("test", {state: "block-new-sharing"});
+ * const test = new aws.ec2/imageBlockPublicAccess.ImageBlockPublicAccess("test", {state: "block-new-sharing"});
  * ```
  *
  * ## Import

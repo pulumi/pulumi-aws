@@ -19,14 +19,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const primary = new aws.Provider("primary", {region: "us-east-2"});
- * const secondary = new aws.Provider("secondary", {region: "us-east-1"});
- * const example = new aws.docdb.GlobalCluster("example", {
+ * const primary = new pulumi.providers.Aws("primary", {region: "us-east-2"});
+ * const secondary = new pulumi.providers.Aws("secondary", {region: "us-east-1"});
+ * const example = new aws.docdb/globalCluster.GlobalCluster("example", {
  *     globalClusterIdentifier: "global-test",
  *     engine: "docdb",
  *     engineVersion: "4.0.0",
  * });
- * const primaryCluster = new aws.docdb.Cluster("primaryCluster", {
+ * const primaryCluster = new aws.docdb/cluster.Cluster("primaryCluster", {
  *     engine: example.engine,
  *     engineVersion: example.engineVersion,
  *     clusterIdentifier: "test-primary-cluster",
@@ -37,7 +37,7 @@ import * as utilities from "../utilities";
  * }, {
  *     provider: aws.primary,
  * });
- * const primaryClusterInstance = new aws.docdb.ClusterInstance("primaryClusterInstance", {
+ * const primaryClusterInstance = new aws.docdb/clusterInstance.ClusterInstance("primaryClusterInstance", {
  *     engine: example.engine,
  *     identifier: "test-primary-cluster-instance",
  *     clusterIdentifier: primaryCluster.id,
@@ -45,7 +45,7 @@ import * as utilities from "../utilities";
  * }, {
  *     provider: aws.primary,
  * });
- * const secondaryCluster = new aws.docdb.Cluster("secondaryCluster", {
+ * const secondaryCluster = new aws.docdb/cluster.Cluster("secondaryCluster", {
  *     engine: example.engine,
  *     engineVersion: example.engineVersion,
  *     clusterIdentifier: "test-secondary-cluster",
@@ -55,7 +55,7 @@ import * as utilities from "../utilities";
  *     provider: aws.secondary,
  *     dependsOn: [primaryCluster],
  * });
- * const secondaryClusterInstance = new aws.docdb.ClusterInstance("secondaryClusterInstance", {
+ * const secondaryClusterInstance = new aws.docdb/clusterInstance.ClusterInstance("secondaryClusterInstance", {
  *     engine: example.engine,
  *     identifier: "test-secondary-cluster-instance",
  *     clusterIdentifier: secondaryCluster.id,
@@ -72,8 +72,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * // ... other configuration ...
- * const exampleCluster = new aws.docdb.Cluster("exampleCluster", {});
- * const exampleGlobalCluster = new aws.docdb.GlobalCluster("exampleGlobalCluster", {
+ * const exampleCluster = new aws.docdb/cluster.Cluster("exampleCluster", {});
+ * const exampleGlobalCluster = new aws.docdb/globalCluster.GlobalCluster("exampleGlobalCluster", {
  *     globalClusterIdentifier: "example",
  *     sourceDbClusterIdentifier: exampleCluster.arn,
  * });

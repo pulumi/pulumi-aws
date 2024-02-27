@@ -12,6 +12,38 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	detective/graph "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/detective/graph"
+//	detective/organizationConfiguration "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/detective/organizationConfiguration"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleGraph, err := detective/graph.NewGraph(ctx, "exampleGraph", &detective/graph.GraphArgs{
+// Enable: true,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = detective/organizationConfiguration.NewOrganizationConfiguration(ctx, "exampleOrganizationConfiguration", &detective/organizationConfiguration.OrganizationConfigurationArgs{
+// AutoEnable: true,
+// GraphArn: exampleGraph.Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
+// ```
+//
 // ## Import
 //
 // Using `pulumi import`, import `aws_detective_organization_admin_account` using the Detective Graph ID. For example:

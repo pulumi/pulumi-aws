@@ -22,7 +22,6 @@ import javax.annotation.Nullable;
  * To enable private integration for HTTP APIs, use the Amazon API Gateway Version 2 VPC Link resource.
  * 
  * ## Example Usage
- * 
  * ```java
  * package generated_program;
  * 
@@ -31,9 +30,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.lb.LoadBalancer;
  * import com.pulumi.aws.lb.LoadBalancerArgs;
- * import com.pulumi.aws.lb.inputs.LoadBalancerSubnetMappingArgs;
- * import com.pulumi.aws.apigateway.VpcLink;
- * import com.pulumi.aws.apigateway.VpcLinkArgs;
+ * import com.pulumi.aws.apigateway_vpcLink.VpcLink;
+ * import com.pulumi.aws.apigateway_vpcLink.VpcLinkArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -50,9 +48,7 @@ import javax.annotation.Nullable;
  *         var exampleLoadBalancer = new LoadBalancer(&#34;exampleLoadBalancer&#34;, LoadBalancerArgs.builder()        
  *             .internal(true)
  *             .loadBalancerType(&#34;network&#34;)
- *             .subnetMappings(LoadBalancerSubnetMappingArgs.builder()
- *                 .subnetId(&#34;12345&#34;)
- *                 .build())
+ *             .subnetMappings(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleVpcLink = new VpcLink(&#34;exampleVpcLink&#34;, VpcLinkArgs.builder()        

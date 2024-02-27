@@ -9,21 +9,6 @@ import * as utilities from "../utilities";
 
 /**
  * Provides informations for routes of a specific transit gateway, such as state, type, cidr
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = aws.ec2transitgateway.getRouteTableRoutes({
- *     filters: [{
- *         name: "type",
- *         values: ["propagated"],
- *     }],
- *     transitGatewayRouteTableId: aws_ec2_transit_gateway_route_table.example.id,
- * });
- * ```
  */
 export function getRouteTableRoutes(args: GetRouteTableRoutesArgs, opts?: pulumi.InvokeOptions): Promise<GetRouteTableRoutesResult> {
 
@@ -68,21 +53,6 @@ export interface GetRouteTableRoutesResult {
 }
 /**
  * Provides informations for routes of a specific transit gateway, such as state, type, cidr
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = aws.ec2transitgateway.getRouteTableRoutes({
- *     filters: [{
- *         name: "type",
- *         values: ["propagated"],
- *     }],
- *     transitGatewayRouteTableId: aws_ec2_transit_gateway_route_table.example.id,
- * });
- * ```
  */
 export function getRouteTableRoutesOutput(args: GetRouteTableRoutesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRouteTableRoutesResult> {
     return pulumi.output(args).apply((a: any) => getRouteTableRoutes(a, opts))

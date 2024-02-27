@@ -26,7 +26,7 @@ namespace Pulumi.Aws.Kms
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var key = new Aws.Kms.Key("key", new()
+    ///     var key = new Aws.Kms.Key.Key("key", new()
     ///     {
     ///         DeletionWindowInDays = 10,
     ///         Description = "KMS key 1",

@@ -11,6 +11,20 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS OpenSearch Serverless Security Config.
  *
  * ## Example Usage
+ * ### Basic Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * import * as fs from "fs";
+ *
+ * const example = new aws.opensearch/serverlessSecurityConfig.ServerlessSecurityConfig("example", {
+ *     type: "saml",
+ *     samlOptions: [{
+ *         metadata: fs.readFileSync(`${path.module}/idp-metadata.xml`, "utf8"),
+ *     }],
+ * });
+ * ```
  *
  * ## Import
  *

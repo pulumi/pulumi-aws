@@ -18,64 +18,6 @@ public final class CodestarconnectionsFunctions {
      * Provides details about CodeStar Connection.
      * 
      * ## Example Usage
-     * ### By ARN
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.codestarconnections.CodestarconnectionsFunctions;
-     * import com.pulumi.aws.codestarconnections.inputs.GetConnectionArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = CodestarconnectionsFunctions.getConnection(GetConnectionArgs.builder()
-     *             .arn(aws_codestarconnections_connection.example().arn())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * ### By Name
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.codestarconnections.CodestarconnectionsFunctions;
-     * import com.pulumi.aws.codestarconnections.inputs.GetConnectionArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = CodestarconnectionsFunctions.getConnection(GetConnectionArgs.builder()
-     *             .name(aws_codestarconnections_connection.example().name())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetConnectionResult> getConnection() {
@@ -85,64 +27,6 @@ public final class CodestarconnectionsFunctions {
      * Provides details about CodeStar Connection.
      * 
      * ## Example Usage
-     * ### By ARN
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.codestarconnections.CodestarconnectionsFunctions;
-     * import com.pulumi.aws.codestarconnections.inputs.GetConnectionArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = CodestarconnectionsFunctions.getConnection(GetConnectionArgs.builder()
-     *             .arn(aws_codestarconnections_connection.example().arn())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * ### By Name
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.codestarconnections.CodestarconnectionsFunctions;
-     * import com.pulumi.aws.codestarconnections.inputs.GetConnectionArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = CodestarconnectionsFunctions.getConnection(GetConnectionArgs.builder()
-     *             .name(aws_codestarconnections_connection.example().name())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetConnectionResult> getConnectionPlain() {
@@ -152,64 +36,6 @@ public final class CodestarconnectionsFunctions {
      * Provides details about CodeStar Connection.
      * 
      * ## Example Usage
-     * ### By ARN
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.codestarconnections.CodestarconnectionsFunctions;
-     * import com.pulumi.aws.codestarconnections.inputs.GetConnectionArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = CodestarconnectionsFunctions.getConnection(GetConnectionArgs.builder()
-     *             .arn(aws_codestarconnections_connection.example().arn())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * ### By Name
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.codestarconnections.CodestarconnectionsFunctions;
-     * import com.pulumi.aws.codestarconnections.inputs.GetConnectionArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = CodestarconnectionsFunctions.getConnection(GetConnectionArgs.builder()
-     *             .name(aws_codestarconnections_connection.example().name())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetConnectionResult> getConnection(GetConnectionArgs args) {
@@ -219,64 +45,6 @@ public final class CodestarconnectionsFunctions {
      * Provides details about CodeStar Connection.
      * 
      * ## Example Usage
-     * ### By ARN
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.codestarconnections.CodestarconnectionsFunctions;
-     * import com.pulumi.aws.codestarconnections.inputs.GetConnectionArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = CodestarconnectionsFunctions.getConnection(GetConnectionArgs.builder()
-     *             .arn(aws_codestarconnections_connection.example().arn())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * ### By Name
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.codestarconnections.CodestarconnectionsFunctions;
-     * import com.pulumi.aws.codestarconnections.inputs.GetConnectionArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = CodestarconnectionsFunctions.getConnection(GetConnectionArgs.builder()
-     *             .name(aws_codestarconnections_connection.example().name())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetConnectionResult> getConnectionPlain(GetConnectionPlainArgs args) {
@@ -286,64 +54,6 @@ public final class CodestarconnectionsFunctions {
      * Provides details about CodeStar Connection.
      * 
      * ## Example Usage
-     * ### By ARN
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.codestarconnections.CodestarconnectionsFunctions;
-     * import com.pulumi.aws.codestarconnections.inputs.GetConnectionArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = CodestarconnectionsFunctions.getConnection(GetConnectionArgs.builder()
-     *             .arn(aws_codestarconnections_connection.example().arn())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * ### By Name
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.codestarconnections.CodestarconnectionsFunctions;
-     * import com.pulumi.aws.codestarconnections.inputs.GetConnectionArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = CodestarconnectionsFunctions.getConnection(GetConnectionArgs.builder()
-     *             .name(aws_codestarconnections_connection.example().name())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetConnectionResult> getConnection(GetConnectionArgs args, InvokeOptions options) {
@@ -353,64 +63,6 @@ public final class CodestarconnectionsFunctions {
      * Provides details about CodeStar Connection.
      * 
      * ## Example Usage
-     * ### By ARN
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.codestarconnections.CodestarconnectionsFunctions;
-     * import com.pulumi.aws.codestarconnections.inputs.GetConnectionArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = CodestarconnectionsFunctions.getConnection(GetConnectionArgs.builder()
-     *             .arn(aws_codestarconnections_connection.example().arn())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * ### By Name
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.codestarconnections.CodestarconnectionsFunctions;
-     * import com.pulumi.aws.codestarconnections.inputs.GetConnectionArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = CodestarconnectionsFunctions.getConnection(GetConnectionArgs.builder()
-     *             .name(aws_codestarconnections_connection.example().name())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetConnectionResult> getConnectionPlain(GetConnectionPlainArgs args, InvokeOptions options) {

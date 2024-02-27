@@ -22,24 +22,24 @@ namespace Pulumi.Aws.CodeCommit
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testRepository = new Aws.CodeCommit.Repository("testRepository", new()
+    ///     var testRepository = new Aws.Codecommit.Repository.Repository("testRepository", new()
     ///     {
     ///         RepositoryName = "test",
     ///     });
     /// 
-    ///     var testTrigger = new Aws.CodeCommit.Trigger("testTrigger", new()
+    ///     var testTrigger = new Aws.Codecommit.Trigger.Trigger("testTrigger", new()
     ///     {
     ///         RepositoryName = testRepository.RepositoryName,
     ///         Triggers = new[]
     ///         {
-    ///             new Aws.CodeCommit.Inputs.TriggerTriggerArgs
+    ///             
     ///             {
-    ///                 Name = "all",
-    ///                 Events = new[]
+    ///                 { "name", "all" },
+    ///                 { "events", new[]
     ///                 {
     ///                     "all",
-    ///                 },
-    ///                 DestinationArn = aws_sns_topic.Test.Arn,
+    ///                 } },
+    ///                 { "destinationArn", aws_sns_topic.Test.Arn },
     ///             },
     ///         },
     ///     });

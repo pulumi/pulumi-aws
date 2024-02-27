@@ -13,70 +13,6 @@ namespace Pulumi.Aws.OpenSearchIngest
     /// Resource for managing an AWS OpenSearch Ingestion Pipeline.
     /// 
     /// ## Example Usage
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using System.Text.Json;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var current = Aws.GetRegion.Invoke();
-    /// 
-    ///     var exampleRole = new Aws.Iam.Role("exampleRole", new()
-    ///     {
-    ///         AssumeRolePolicy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///         {
-    ///             ["Version"] = "2012-10-17",
-    ///             ["Statement"] = new[]
-    ///             {
-    ///                 new Dictionary&lt;string, object?&gt;
-    ///                 {
-    ///                     ["Action"] = "sts:AssumeRole",
-    ///                     ["Effect"] = "Allow",
-    ///                     ["Sid"] = "",
-    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
-    ///                     {
-    ///                         ["Service"] = "osis-pipelines.amazonaws.com",
-    ///                     },
-    ///                 },
-    ///             },
-    ///         }),
-    ///     });
-    /// 
-    ///     var examplePipeline = new Aws.OpenSearchIngest.Pipeline("examplePipeline", new()
-    ///     {
-    ///         PipelineName = "example",
-    ///         PipelineConfigurationBody = Output.Tuple(exampleRole.Arn, current).Apply(values =&gt;
-    ///         {
-    ///             var arn = values.Item1;
-    ///             var current = values.Item2;
-    ///             return @$"version: ""2""
-    /// example-pipeline:
-    ///   source:
-    ///     http:
-    ///       path: ""/example""
-    ///   sink:
-    ///     - s3:
-    ///         aws:
-    ///           sts_role_arn: ""{arn}""
-    ///           region: ""{current.Apply(getRegionResult =&gt; getRegionResult.Name)}""
-    ///         bucket: ""example""
-    ///         threshold:
-    ///           event_collect_timeout: ""60s""
-    ///         codec:
-    ///           ndjson:
-    /// ";
-    ///         }),
-    ///         MaxUnits = 1,
-    ///         MinUnits = 1,
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// ### Using file function
     /// 
     /// ```csharp
@@ -88,7 +24,7 @@ namespace Pulumi.Aws.OpenSearchIngest
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.OpenSearchIngest.Pipeline("example", new()
+    ///     var example = new Aws.Opensearchingest.Pipeline.Pipeline("example", new()
     ///     {
     ///         PipelineName = "example",
     ///         PipelineConfigurationBody = File.ReadAllText("example.yaml"),

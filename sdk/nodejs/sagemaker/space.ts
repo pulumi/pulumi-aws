@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.sagemaker.Space("example", {
+ * const example = new aws.sagemaker/space.Space("example", {
  *     domainId: aws_sagemaker_domain.test.id,
  *     spaceName: "example",
  * });

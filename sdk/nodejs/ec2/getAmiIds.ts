@@ -9,21 +9,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to get a list of AMI IDs matching the specified criteria.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const ubuntu = aws.ec2.getAmiIds({
- *     filters: [{
- *         name: "name",
- *         values: ["ubuntu/images/ubuntu-*-*-amd64-server-*"],
- *     }],
- *     owners: ["099720109477"],
- * });
- * ```
  */
 export function getAmiIds(args: GetAmiIdsArgs, opts?: pulumi.InvokeOptions): Promise<GetAmiIdsResult> {
 
@@ -95,21 +80,6 @@ export interface GetAmiIdsResult {
 }
 /**
  * Use this data source to get a list of AMI IDs matching the specified criteria.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const ubuntu = aws.ec2.getAmiIds({
- *     filters: [{
- *         name: "name",
- *         values: ["ubuntu/images/ubuntu-*-*-amd64-server-*"],
- *     }],
- *     owners: ["099720109477"],
- * });
- * ```
  */
 export function getAmiIdsOutput(args: GetAmiIdsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAmiIdsResult> {
     return pulumi.output(args).apply((a: any) => getAmiIds(a, opts))

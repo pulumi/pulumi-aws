@@ -15,32 +15,6 @@ import (
 // These are the locations that can be specified when configuring `directconnect.Connection` or `directconnect.LinkAggregationGroup` resources.
 //
 // > **Note:** This data source is different from the `directconnect.getLocations` data source which retrieves information about all the AWS Direct Connect locations in the current AWS Region.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/directconnect"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := directconnect.GetLocation(ctx, &directconnect.GetLocationArgs{
-//				LocationCode: "CS32A-24FL",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetLocation(ctx *pulumi.Context, args *GetLocationArgs, opts ...pulumi.InvokeOption) (*GetLocationResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetLocationResult

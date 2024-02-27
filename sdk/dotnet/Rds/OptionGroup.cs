@@ -27,40 +27,40 @@ namespace Pulumi.Aws.Rds
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Rds.OptionGroup("example", new()
+    ///     var example = new Aws.Rds.OptionGroup.OptionGroup("example", new()
     ///     {
     ///         OptionGroupDescription = "Option Group",
     ///         EngineName = "sqlserver-ee",
     ///         MajorEngineVersion = "11.00",
     ///         Options = new[]
     ///         {
-    ///             new Aws.Rds.Inputs.OptionGroupOptionArgs
+    ///             
     ///             {
-    ///                 OptionName = "Timezone",
-    ///                 OptionSettings = new[]
+    ///                 { "optionName", "Timezone" },
+    ///                 { "optionSettings", new[]
     ///                 {
-    ///                     new Aws.Rds.Inputs.OptionGroupOptionOptionSettingArgs
+    ///                     
     ///                     {
-    ///                         Name = "TIME_ZONE",
-    ///                         Value = "UTC",
+    ///                         { "name", "TIME_ZONE" },
+    ///                         { "value", "UTC" },
     ///                     },
-    ///                 },
+    ///                 } },
     ///             },
-    ///             new Aws.Rds.Inputs.OptionGroupOptionArgs
+    ///             
     ///             {
-    ///                 OptionName = "SQLSERVER_BACKUP_RESTORE",
-    ///                 OptionSettings = new[]
+    ///                 { "optionName", "SQLSERVER_BACKUP_RESTORE" },
+    ///                 { "optionSettings", new[]
     ///                 {
-    ///                     new Aws.Rds.Inputs.OptionGroupOptionOptionSettingArgs
+    ///                     
     ///                     {
-    ///                         Name = "IAM_ROLE_ARN",
-    ///                         Value = aws_iam_role.Example.Arn,
+    ///                         { "name", "IAM_ROLE_ARN" },
+    ///                         { "value", aws_iam_role.Example.Arn },
     ///                     },
-    ///                 },
+    ///                 } },
     ///             },
-    ///             new Aws.Rds.Inputs.OptionGroupOptionArgs
+    ///             
     ///             {
-    ///                 OptionName = "TDE",
+    ///                 { "optionName", "TDE" },
     ///             },
     ///         },
     ///     });

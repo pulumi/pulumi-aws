@@ -9,17 +9,6 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieve information about a Location Service Map.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.location.getMap({
- *     mapName: "example",
- * });
- * ```
  */
 export function getMap(args: GetMapArgs, opts?: pulumi.InvokeOptions): Promise<GetMapResult> {
 
@@ -80,17 +69,6 @@ export interface GetMapResult {
 }
 /**
  * Retrieve information about a Location Service Map.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.location.getMap({
- *     mapName: "example",
- * });
- * ```
  */
 export function getMapOutput(args: GetMapOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMapResult> {
     return pulumi.output(args).apply((a: any) => getMap(a, opts))

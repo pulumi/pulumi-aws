@@ -8,38 +8,6 @@ import * as utilities from "../utilities";
  * Information about hardware assets in an Outpost.
  *
  * ## Example Usage
- * ### Basic
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.outposts.getAssets({
- *     arn: data.aws_outposts_outpost.example.arn,
- * });
- * ```
- * ### With Host ID Filter
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.outposts.getAssets({
- *     arn: data.aws_outposts_outpost.example.arn,
- *     hostIdFilters: ["h-x38g5n0yd2a0ueb61"],
- * });
- * ```
- * ### With Status ID Filter
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.outposts.getAssets({
- *     arn: data.aws_outposts_outpost.example.arn,
- *     statusIdFilters: ["ACTIVE"],
- * });
- * ```
  */
 export function getAssets(args: GetAssetsArgs, opts?: pulumi.InvokeOptions): Promise<GetAssetsResult> {
 
@@ -89,38 +57,6 @@ export interface GetAssetsResult {
  * Information about hardware assets in an Outpost.
  *
  * ## Example Usage
- * ### Basic
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.outposts.getAssets({
- *     arn: data.aws_outposts_outpost.example.arn,
- * });
- * ```
- * ### With Host ID Filter
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.outposts.getAssets({
- *     arn: data.aws_outposts_outpost.example.arn,
- *     hostIdFilters: ["h-x38g5n0yd2a0ueb61"],
- * });
- * ```
- * ### With Status ID Filter
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.outposts.getAssets({
- *     arn: data.aws_outposts_outpost.example.arn,
- *     statusIdFilters: ["ACTIVE"],
- * });
- * ```
  */
 export function getAssetsOutput(args: GetAssetsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAssetsResult> {
     return pulumi.output(args).apply((a: any) => getAssets(a, opts))

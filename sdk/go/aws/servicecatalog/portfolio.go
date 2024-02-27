@@ -21,24 +21,22 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/servicecatalog"
+//	servicecatalog/portfolio "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/servicecatalog/portfolio"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := servicecatalog.NewPortfolio(ctx, "portfolio", &servicecatalog.PortfolioArgs{
-//				Description:  pulumi.String("List of my organizations apps"),
-//				ProviderName: pulumi.String("Brett"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := servicecatalog/portfolio.NewPortfolio(ctx, "portfolio", &servicecatalog/portfolio.PortfolioArgs{
+// Description: "List of my organizations apps",
+// ProviderName: "Brett",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

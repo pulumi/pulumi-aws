@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.servicecatalog.Constraint("example", {
+ * const example = new aws.servicecatalog/constraint.Constraint("example", {
  *     description: "Back off, man. I'm a scientist.",
  *     portfolioId: aws_servicecatalog_portfolio.example.id,
  *     productId: aws_servicecatalog_product.example.id,

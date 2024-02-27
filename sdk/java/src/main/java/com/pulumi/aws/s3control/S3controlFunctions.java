@@ -17,72 +17,12 @@ public final class S3controlFunctions {
     /**
      * Provides details on a specific S3 Multi-Region Access Point.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.s3control.S3controlFunctions;
-     * import com.pulumi.aws.s3control.inputs.GetMultiRegionAccessPointArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = S3controlFunctions.getMultiRegionAccessPoint(GetMultiRegionAccessPointArgs.builder()
-     *             .name(&#34;example&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetMultiRegionAccessPointResult> getMultiRegionAccessPoint(GetMultiRegionAccessPointArgs args) {
         return getMultiRegionAccessPoint(args, InvokeOptions.Empty);
     }
     /**
      * Provides details on a specific S3 Multi-Region Access Point.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.s3control.S3controlFunctions;
-     * import com.pulumi.aws.s3control.inputs.GetMultiRegionAccessPointArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = S3controlFunctions.getMultiRegionAccessPoint(GetMultiRegionAccessPointArgs.builder()
-     *             .name(&#34;example&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetMultiRegionAccessPointResult> getMultiRegionAccessPointPlain(GetMultiRegionAccessPointPlainArgs args) {
@@ -91,72 +31,12 @@ public final class S3controlFunctions {
     /**
      * Provides details on a specific S3 Multi-Region Access Point.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.s3control.S3controlFunctions;
-     * import com.pulumi.aws.s3control.inputs.GetMultiRegionAccessPointArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = S3controlFunctions.getMultiRegionAccessPoint(GetMultiRegionAccessPointArgs.builder()
-     *             .name(&#34;example&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetMultiRegionAccessPointResult> getMultiRegionAccessPoint(GetMultiRegionAccessPointArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:s3control/getMultiRegionAccessPoint:getMultiRegionAccessPoint", TypeShape.of(GetMultiRegionAccessPointResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Provides details on a specific S3 Multi-Region Access Point.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.s3control.S3controlFunctions;
-     * import com.pulumi.aws.s3control.inputs.GetMultiRegionAccessPointArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = S3controlFunctions.getMultiRegionAccessPoint(GetMultiRegionAccessPointArgs.builder()
-     *             .name(&#34;example&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetMultiRegionAccessPointResult> getMultiRegionAccessPointPlain(GetMultiRegionAccessPointPlainArgs args, InvokeOptions options) {

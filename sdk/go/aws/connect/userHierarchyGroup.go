@@ -25,26 +25,24 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/connect"
+//	connect/userHierarchyGroup "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/connect/userHierarchyGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := connect.NewUserHierarchyGroup(ctx, "example", &connect.UserHierarchyGroupArgs{
-//				InstanceId: pulumi.String("aaaaaaaa-bbbb-cccc-dddd-111111111111"),
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("Example User Hierarchy Group"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := connect/userHierarchyGroup.NewUserHierarchyGroup(ctx, "example", &connect/userHierarchyGroup.UserHierarchyGroupArgs{
+// InstanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+// Tags: map[string]interface{}{
+// "Name": "Example User Hierarchy Group",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### With a parent group
 //
@@ -53,36 +51,34 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/connect"
+//	connect/userHierarchyGroup "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/connect/userHierarchyGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			parent, err := connect.NewUserHierarchyGroup(ctx, "parent", &connect.UserHierarchyGroupArgs{
-//				InstanceId: pulumi.String("aaaaaaaa-bbbb-cccc-dddd-111111111111"),
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("Example User Hierarchy Group Parent"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = connect.NewUserHierarchyGroup(ctx, "child", &connect.UserHierarchyGroupArgs{
-//				InstanceId:    pulumi.String("aaaaaaaa-bbbb-cccc-dddd-111111111111"),
-//				ParentGroupId: parent.HierarchyGroupId,
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("Example User Hierarchy Group Child"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// parent, err := connect/userHierarchyGroup.NewUserHierarchyGroup(ctx, "parent", &connect/userHierarchyGroup.UserHierarchyGroupArgs{
+// InstanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+// Tags: map[string]interface{}{
+// "Name": "Example User Hierarchy Group Parent",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = connect/userHierarchyGroup.NewUserHierarchyGroup(ctx, "child", &connect/userHierarchyGroup.UserHierarchyGroupArgs{
+// InstanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+// ParentGroupId: parent.HierarchyGroupId,
+// Tags: map[string]interface{}{
+// "Name": "Example User Hierarchy Group Child",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

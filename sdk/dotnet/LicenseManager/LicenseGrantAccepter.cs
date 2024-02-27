@@ -22,7 +22,7 @@ namespace Pulumi.Aws.LicenseManager
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Aws.LicenseManager.LicenseGrantAccepter("test", new()
+    ///     var test = new Aws.Licensemanager.LicenseGrantAccepter.LicenseGrantAccepter("test", new()
     ///     {
     ///         GrantArn = "arn:aws:license-manager::123456789012:grant:g-1cf9fba4ba2f42dcab11c686c4b4d329",
     ///     });

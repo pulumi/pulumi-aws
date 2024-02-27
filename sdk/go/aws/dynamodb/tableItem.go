@@ -25,31 +25,32 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/dynamodb"
+//	dynamodb/table "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/dynamodb/table"
+//	dynamodb/tableItem "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/dynamodb/tableItem"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleTable, err := dynamodb/table.NewTable(ctx, "exampleTable", &dynamodb/table.TableArgs{
+// ReadCapacity: 10,
+// WriteCapacity: 10,
+// HashKey: "exampleHashKey",
+// Attributes: []map[string]interface{}{
+// map[string]interface{}{
+// "name": "exampleHashKey",
+// "type": "S",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = dynamodb/tableItem.NewTableItem(ctx, "exampleTableItem", &dynamodb/tableItem.TableItemArgs{
+// TableName: exampleTable.Name,
+// HashKey: exampleTable.HashKey,
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleTable, err := dynamodb.NewTable(ctx, "exampleTable", &dynamodb.TableArgs{
-//				ReadCapacity:  pulumi.Int(10),
-//				WriteCapacity: pulumi.Int(10),
-//				HashKey:       pulumi.String("exampleHashKey"),
-//				Attributes: dynamodb.TableAttributeArray{
-//					&dynamodb.TableAttributeArgs{
-//						Name: pulumi.String("exampleHashKey"),
-//						Type: pulumi.String("S"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = dynamodb.NewTableItem(ctx, "exampleTableItem", &dynamodb.TableItemArgs{
-//				TableName: exampleTable.Name,
-//				HashKey:   exampleTable.HashKey,
-//				Item: pulumi.String(`{
+//	Item: `{
 //	  "exampleHashKey": {"S": "something"},
 //	  "one": {"N": "11111"},
 //	  "two": {"N": "22222"},
@@ -57,16 +58,14 @@ import (
 //	  "four": {"N": "44444"}
 //	}
 //
-// `),
-//
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// `,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

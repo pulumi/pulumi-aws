@@ -72,7 +72,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.route53.Record;
  * import com.pulumi.aws.route53.RecordArgs;
- * import com.pulumi.aws.route53.inputs.RecordWeightedRoutingPolicyArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -91,9 +90,7 @@ import javax.annotation.Nullable;
  *             .name(&#34;www&#34;)
  *             .type(&#34;CNAME&#34;)
  *             .ttl(5)
- *             .weightedRoutingPolicies(RecordWeightedRoutingPolicyArgs.builder()
- *                 .weight(10)
- *                 .build())
+ *             .weightedRoutingPolicies(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .setIdentifier(&#34;dev&#34;)
  *             .records(&#34;dev.example.com&#34;)
  *             .build());
@@ -103,9 +100,7 @@ import javax.annotation.Nullable;
  *             .name(&#34;www&#34;)
  *             .type(&#34;CNAME&#34;)
  *             .ttl(5)
- *             .weightedRoutingPolicies(RecordWeightedRoutingPolicyArgs.builder()
- *                 .weight(90)
- *                 .build())
+ *             .weightedRoutingPolicies(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .setIdentifier(&#34;live&#34;)
  *             .records(&#34;live.example.com&#34;)
  *             .build());
@@ -122,7 +117,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.route53.Record;
  * import com.pulumi.aws.route53.RecordArgs;
- * import com.pulumi.aws.route53.inputs.RecordGeoproximityRoutingPolicyArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -141,12 +135,7 @@ import javax.annotation.Nullable;
  *             .name(&#34;www.example.com&#34;)
  *             .type(&#34;CNAME&#34;)
  *             .ttl(300)
- *             .geoproximityRoutingPolicy(RecordGeoproximityRoutingPolicyArgs.builder()
- *                 .coordinates(RecordGeoproximityRoutingPolicyCoordinateArgs.builder()
- *                     .latitude(&#34;49.22&#34;)
- *                     .longitude(&#34;-74.01&#34;)
- *                     .build())
- *                 .build())
+ *             .geoproximityRoutingPolicy(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .setIdentifier(&#34;dev&#34;)
  *             .records(&#34;dev.example.com&#34;)
  *             .build());
@@ -169,10 +158,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.elb.LoadBalancer;
  * import com.pulumi.aws.elb.LoadBalancerArgs;
- * import com.pulumi.aws.elb.inputs.LoadBalancerListenerArgs;
  * import com.pulumi.aws.route53.Record;
  * import com.pulumi.aws.route53.RecordArgs;
- * import com.pulumi.aws.route53.inputs.RecordAliasArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -188,23 +175,14 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var main = new LoadBalancer(&#34;main&#34;, LoadBalancerArgs.builder()        
  *             .availabilityZones(&#34;us-east-1c&#34;)
- *             .listeners(LoadBalancerListenerArgs.builder()
- *                 .instancePort(80)
- *                 .instanceProtocol(&#34;http&#34;)
- *                 .lbPort(80)
- *                 .lbProtocol(&#34;http&#34;)
- *                 .build())
+ *             .listeners(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var www = new Record(&#34;www&#34;, RecordArgs.builder()        
  *             .zoneId(aws_route53_zone.primary().zone_id())
  *             .name(&#34;example.com&#34;)
  *             .type(&#34;A&#34;)
- *             .aliases(RecordAliasArgs.builder()
- *                 .name(main.dnsName())
- *                 .zoneId(main.zoneId())
- *                 .evaluateTargetHealth(true)
- *                 .build())
+ *             .aliases(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -244,10 +222,10 @@ import javax.annotation.Nullable;
  *             .type(&#34;NS&#34;)
  *             .zoneId(exampleZone.zoneId())
  *             .records(            
- *                 exampleZone.nameServers().applyValue(nameServers -&gt; nameServers[0]),
- *                 exampleZone.nameServers().applyValue(nameServers -&gt; nameServers[1]),
- *                 exampleZone.nameServers().applyValue(nameServers -&gt; nameServers[2]),
- *                 exampleZone.nameServers().applyValue(nameServers -&gt; nameServers[3]))
+ *                 exampleZone.nameServers()[0],
+ *                 exampleZone.nameServers()[1],
+ *                 exampleZone.nameServers()[2],
+ *                 exampleZone.nameServers()[3])
  *             .build());
  * 
  *     }

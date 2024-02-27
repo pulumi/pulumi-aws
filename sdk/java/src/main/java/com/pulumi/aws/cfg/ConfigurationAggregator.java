@@ -30,7 +30,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.cfg.ConfigurationAggregator;
  * import com.pulumi.aws.cfg.ConfigurationAggregatorArgs;
- * import com.pulumi.aws.cfg.inputs.ConfigurationAggregatorAccountAggregationSourceArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -45,73 +44,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var account = new ConfigurationAggregator(&#34;account&#34;, ConfigurationAggregatorArgs.builder()        
- *             .accountAggregationSource(ConfigurationAggregatorAccountAggregationSourceArgs.builder()
- *                 .accountIds(&#34;123456789012&#34;)
- *                 .regions(&#34;us-west-2&#34;)
- *                 .build())
+ *             .accountAggregationSource(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
- * 
- *     }
- * }
- * ```
- * ### Organization Based Aggregation
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.iam.IamFunctions;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
- * import com.pulumi.aws.iam.Role;
- * import com.pulumi.aws.iam.RoleArgs;
- * import com.pulumi.aws.iam.RolePolicyAttachment;
- * import com.pulumi.aws.iam.RolePolicyAttachmentArgs;
- * import com.pulumi.aws.cfg.ConfigurationAggregator;
- * import com.pulumi.aws.cfg.ConfigurationAggregatorArgs;
- * import com.pulumi.aws.cfg.inputs.ConfigurationAggregatorOrganizationAggregationSourceArgs;
- * import com.pulumi.resources.CustomResourceOptions;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect(&#34;Allow&#34;)
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type(&#34;Service&#34;)
- *                     .identifiers(&#34;config.amazonaws.com&#34;)
- *                     .build())
- *                 .actions(&#34;sts:AssumeRole&#34;)
- *                 .build())
- *             .build());
- * 
- *         var organizationRole = new Role(&#34;organizationRole&#34;, RoleArgs.builder()        
- *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
- *             .build());
- * 
- *         var organizationRolePolicyAttachment = new RolePolicyAttachment(&#34;organizationRolePolicyAttachment&#34;, RolePolicyAttachmentArgs.builder()        
- *             .role(organizationRole.name())
- *             .policyArn(&#34;arn:aws:iam::aws:policy/service-role/AWSConfigRoleForOrganizations&#34;)
- *             .build());
- * 
- *         var organizationConfigurationAggregator = new ConfigurationAggregator(&#34;organizationConfigurationAggregator&#34;, ConfigurationAggregatorArgs.builder()        
- *             .organizationAggregationSource(ConfigurationAggregatorOrganizationAggregationSourceArgs.builder()
- *                 .allRegions(true)
- *                 .roleArn(organizationRole.arn())
- *                 .build())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(organizationRolePolicyAttachment)
- *                 .build());
  * 
  *     }
  * }

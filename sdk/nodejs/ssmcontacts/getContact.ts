@@ -8,16 +8,6 @@ import * as utilities from "../utilities";
  * Data source for managing an AWS SSM Contact.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.ssmcontacts.getContact({
- *     arn: "arn:aws:ssm-contacts:us-west-2:123456789012:contact/contactalias",
- * });
- * ```
  */
 export function getContact(args: GetContactArgs, opts?: pulumi.InvokeOptions): Promise<GetContactResult> {
 
@@ -72,16 +62,6 @@ export interface GetContactResult {
  * Data source for managing an AWS SSM Contact.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.ssmcontacts.getContact({
- *     arn: "arn:aws:ssm-contacts:us-west-2:123456789012:contact/contactalias",
- * });
- * ```
  */
 export function getContactOutput(args: GetContactOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContactResult> {
     return pulumi.output(args).apply((a: any) => getContact(a, opts))

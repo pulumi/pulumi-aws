@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.glue.Schema("example", {
+ * const example = new aws.glue/schema.Schema("example", {
  *     schemaName: "example",
  *     registryArn: aws_glue_registry.test.arn,
  *     dataFormat: "AVRO",

@@ -21,53 +21,53 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/amplify"
+//	amplify/app "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/amplify/app"
+//	amplify/branch "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/amplify/branch"
+//	amplify/domainAssociation "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/amplify/domainAssociation"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleApp, err := amplify.NewApp(ctx, "exampleApp", &amplify.AppArgs{
-//				CustomRules: amplify.AppCustomRuleArray{
-//					&amplify.AppCustomRuleArgs{
-//						Source: pulumi.String("https://example.com"),
-//						Status: pulumi.String("302"),
-//						Target: pulumi.String("https://www.example.com"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			master, err := amplify.NewBranch(ctx, "master", &amplify.BranchArgs{
-//				AppId:      exampleApp.ID(),
-//				BranchName: pulumi.String("master"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = amplify.NewDomainAssociation(ctx, "exampleDomainAssociation", &amplify.DomainAssociationArgs{
-//				AppId:      exampleApp.ID(),
-//				DomainName: pulumi.String("example.com"),
-//				SubDomains: amplify.DomainAssociationSubDomainArray{
-//					&amplify.DomainAssociationSubDomainArgs{
-//						BranchName: master.BranchName,
-//						Prefix:     pulumi.String(""),
-//					},
-//					&amplify.DomainAssociationSubDomainArgs{
-//						BranchName: master.BranchName,
-//						Prefix:     pulumi.String("www"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleApp, err := amplify/app.NewApp(ctx, "exampleApp", &amplify/app.AppArgs{
+// CustomRules: []map[string]interface{}{
+// map[string]interface{}{
+// "source": "https://example.com",
+// "status": "302",
+// "target": "https://www.example.com",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// master, err := amplify/branch.NewBranch(ctx, "master", &amplify/branch.BranchArgs{
+// AppId: exampleApp.Id,
+// BranchName: "master",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = amplify/domainAssociation.NewDomainAssociation(ctx, "exampleDomainAssociation", &amplify/domainAssociation.DomainAssociationArgs{
+// AppId: exampleApp.Id,
+// DomainName: "example.com",
+// SubDomains: []map[string]interface{}{
+// map[string]interface{}{
+// "branchName": master.BranchName,
+// "prefix": "",
+// },
+// map[string]interface{}{
+// "branchName": master.BranchName,
+// "prefix": "www",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

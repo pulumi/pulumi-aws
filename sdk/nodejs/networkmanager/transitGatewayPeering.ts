@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.networkmanager.TransitGatewayPeering("example", {
+ * const example = new aws.networkmanager/transitGatewayPeering.TransitGatewayPeering("example", {
  *     coreNetworkId: awscc_networkmanager_core_network.example.id,
  *     transitGatewayArn: aws_ec2_transit_gateway.example.arn,
  * });

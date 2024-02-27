@@ -156,11 +156,11 @@ class KeyGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_public_key = aws.cloudfront.PublicKey("examplePublicKey",
-            comment="example public key",
-            encoded_key=(lambda path: open(path).read())("public_key.pem"))
-        example_key_group = aws.cloudfront.KeyGroup("exampleKeyGroup",
-            comment="example key group",
+        example_public_key = aws.cloudfront.public_key.PublicKey("examplePublicKey",
+            comment=example public key,
+            encoded_key=(lambda path: open(path).read())(public_key.pem))
+        example_key_group = aws.cloudfront.key_group.KeyGroup("exampleKeyGroup",
+            comment=example key group,
             items=[example_public_key.id])
         ```
 
@@ -193,11 +193,11 @@ class KeyGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_public_key = aws.cloudfront.PublicKey("examplePublicKey",
-            comment="example public key",
-            encoded_key=(lambda path: open(path).read())("public_key.pem"))
-        example_key_group = aws.cloudfront.KeyGroup("exampleKeyGroup",
-            comment="example key group",
+        example_public_key = aws.cloudfront.public_key.PublicKey("examplePublicKey",
+            comment=example public key,
+            encoded_key=(lambda path: open(path).read())(public_key.pem))
+        example_key_group = aws.cloudfront.key_group.KeyGroup("exampleKeyGroup",
+            comment=example key group,
             items=[example_public_key.id])
         ```
 

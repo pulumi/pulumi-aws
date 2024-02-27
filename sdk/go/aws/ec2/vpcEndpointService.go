@@ -29,26 +29,24 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	ec2/vpcEndpointService "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/vpcEndpointService"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.NewVpcEndpointService(ctx, "example", &ec2.VpcEndpointServiceArgs{
-//				AcceptanceRequired: pulumi.Bool(false),
-//				NetworkLoadBalancerArns: pulumi.StringArray{
-//					aws_lb.Example.Arn,
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := ec2/vpcEndpointService.NewVpcEndpointService(ctx, "example", &ec2/vpcEndpointService.VpcEndpointServiceArgs{
+// AcceptanceRequired: false,
+// NetworkLoadBalancerArns: []interface{}{
+// aws_lb.Example.Arn,
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Gateway Load Balancers
 //
@@ -57,26 +55,24 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	ec2/vpcEndpointService "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/vpcEndpointService"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.NewVpcEndpointService(ctx, "example", &ec2.VpcEndpointServiceArgs{
-//				AcceptanceRequired: pulumi.Bool(false),
-//				GatewayLoadBalancerArns: pulumi.StringArray{
-//					aws_lb.Example.Arn,
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := ec2/vpcEndpointService.NewVpcEndpointService(ctx, "example", &ec2/vpcEndpointService.VpcEndpointServiceArgs{
+// AcceptanceRequired: false,
+// GatewayLoadBalancerArns: []interface{}{
+// aws_lb.Example.Arn,
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

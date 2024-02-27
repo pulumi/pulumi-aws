@@ -12,41 +12,6 @@ import (
 )
 
 // This resource can be useful for getting back a set of FSx ONTAP Storage Virtual Machine (SVM) IDs.
-//
-// ## Example Usage
-//
-// The following shows outputting all SVM IDs for a given FSx ONTAP File System.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/fsx"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := fsx.GetOntapStorageVirtualMachines(ctx, &fsx.GetOntapStorageVirtualMachinesArgs{
-//				Filters: []fsx.GetOntapStorageVirtualMachinesFilter{
-//					{
-//						Name: "file-system-id",
-//						Values: []string{
-//							"fs-12345678",
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetOntapStorageVirtualMachines(ctx *pulumi.Context, args *GetOntapStorageVirtualMachinesArgs, opts ...pulumi.InvokeOption) (*GetOntapStorageVirtualMachinesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetOntapStorageVirtualMachinesResult

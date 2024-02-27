@@ -25,19 +25,19 @@ namespace Pulumi.Aws.Lambda
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Lambda.FunctionEventInvokeConfig("example", new()
+    ///     var example = new Aws.Lambda.FunctionEventInvokeConfig.FunctionEventInvokeConfig("example", new()
     ///     {
     ///         FunctionName = aws_lambda_alias.Example.Function_name,
-    ///         DestinationConfig = new Aws.Lambda.Inputs.FunctionEventInvokeConfigDestinationConfigArgs
+    ///         DestinationConfig = 
     ///         {
-    ///             OnFailure = new Aws.Lambda.Inputs.FunctionEventInvokeConfigDestinationConfigOnFailureArgs
+    ///             { "onFailure", 
     ///             {
-    ///                 Destination = aws_sqs_queue.Example.Arn,
-    ///             },
-    ///             OnSuccess = new Aws.Lambda.Inputs.FunctionEventInvokeConfigDestinationConfigOnSuccessArgs
+    ///                 { "destination", aws_sqs_queue.Example.Arn },
+    ///             } },
+    ///             { "onSuccess", 
     ///             {
-    ///                 Destination = aws_sns_topic.Example.Arn,
-    ///             },
+    ///                 { "destination", aws_sns_topic.Example.Arn },
+    ///             } },
     ///         },
     ///     });
     /// 
@@ -53,7 +53,7 @@ namespace Pulumi.Aws.Lambda
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Lambda.FunctionEventInvokeConfig("example", new()
+    ///     var example = new Aws.Lambda.FunctionEventInvokeConfig.FunctionEventInvokeConfig("example", new()
     ///     {
     ///         FunctionName = aws_lambda_alias.Example.Function_name,
     ///         MaximumEventAgeInSeconds = 60,
@@ -72,7 +72,7 @@ namespace Pulumi.Aws.Lambda
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Lambda.FunctionEventInvokeConfig("example", new()
+    ///     var example = new Aws.Lambda.FunctionEventInvokeConfig.FunctionEventInvokeConfig("example", new()
     ///     {
     ///         FunctionName = aws_lambda_alias.Example.Function_name,
     ///         Qualifier = aws_lambda_alias.Example.Name,
@@ -91,7 +91,7 @@ namespace Pulumi.Aws.Lambda
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Lambda.FunctionEventInvokeConfig("example", new()
+    ///     var example = new Aws.Lambda.FunctionEventInvokeConfig.FunctionEventInvokeConfig("example", new()
     ///     {
     ///         FunctionName = aws_lambda_function.Example.Function_name,
     ///         Qualifier = "$LATEST",
@@ -110,7 +110,7 @@ namespace Pulumi.Aws.Lambda
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Lambda.FunctionEventInvokeConfig("example", new()
+    ///     var example = new Aws.Lambda.FunctionEventInvokeConfig.FunctionEventInvokeConfig("example", new()
     ///     {
     ///         FunctionName = aws_lambda_function.Example.Function_name,
     ///         Qualifier = aws_lambda_function.Example.Version,

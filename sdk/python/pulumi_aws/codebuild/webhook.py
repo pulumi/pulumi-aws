@@ -230,21 +230,21 @@ class Webhook(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.codebuild.Webhook("example",
-            project_name=aws_codebuild_project["example"]["name"],
-            build_type="BUILD",
-            filter_groups=[aws.codebuild.WebhookFilterGroupArgs(
-                filters=[
-                    aws.codebuild.WebhookFilterGroupFilterArgs(
-                        type="EVENT",
-                        pattern="PUSH",
-                    ),
-                    aws.codebuild.WebhookFilterGroupFilterArgs(
-                        type="BASE_REF",
-                        pattern="master",
-                    ),
+        example = aws.codebuild.webhook.Webhook("example",
+            project_name=aws_codebuild_project.example.name,
+            build_type=BUILD,
+            filter_groups=[{
+                filters: [
+                    {
+                        type: EVENT,
+                        pattern: PUSH,
+                    },
+                    {
+                        type: BASE_REF,
+                        pattern: master,
+                    },
                 ],
-            )])
+            }])
         ```
         ### GitHub Enterprise
 
@@ -257,17 +257,17 @@ class Webhook(pulumi.CustomResource):
         import pulumi_aws as aws
         import pulumi_github as github
 
-        example_webhook = aws.codebuild.Webhook("exampleWebhook", project_name=aws_codebuild_project["example"]["name"])
-        example_repository_webhook = github.RepositoryWebhook("exampleRepositoryWebhook",
+        example_webhook = aws.codebuild.webhook.Webhook("exampleWebhook", project_name=aws_codebuild_project.example.name)
+        example_repository_webhook = github.index.repository_webhook.RepositoryWebhook("exampleRepositoryWebhook",
             active=True,
-            events=["push"],
-            repository=github_repository["example"]["name"],
-            configuration=github.RepositoryWebhookConfigurationArgs(
-                url=example_webhook.payload_url,
-                secret=example_webhook.secret,
-                content_type="json",
-                insecure_ssl=False,
-            ))
+            events=[push],
+            repository=github_repository.example.name,
+            configuration={
+                url: example_webhook.payload_url,
+                secret: example_webhook.secret,
+                contentType: json,
+                insecureSsl: False,
+            })
         ```
 
         ## Import
@@ -307,21 +307,21 @@ class Webhook(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.codebuild.Webhook("example",
-            project_name=aws_codebuild_project["example"]["name"],
-            build_type="BUILD",
-            filter_groups=[aws.codebuild.WebhookFilterGroupArgs(
-                filters=[
-                    aws.codebuild.WebhookFilterGroupFilterArgs(
-                        type="EVENT",
-                        pattern="PUSH",
-                    ),
-                    aws.codebuild.WebhookFilterGroupFilterArgs(
-                        type="BASE_REF",
-                        pattern="master",
-                    ),
+        example = aws.codebuild.webhook.Webhook("example",
+            project_name=aws_codebuild_project.example.name,
+            build_type=BUILD,
+            filter_groups=[{
+                filters: [
+                    {
+                        type: EVENT,
+                        pattern: PUSH,
+                    },
+                    {
+                        type: BASE_REF,
+                        pattern: master,
+                    },
                 ],
-            )])
+            }])
         ```
         ### GitHub Enterprise
 
@@ -334,17 +334,17 @@ class Webhook(pulumi.CustomResource):
         import pulumi_aws as aws
         import pulumi_github as github
 
-        example_webhook = aws.codebuild.Webhook("exampleWebhook", project_name=aws_codebuild_project["example"]["name"])
-        example_repository_webhook = github.RepositoryWebhook("exampleRepositoryWebhook",
+        example_webhook = aws.codebuild.webhook.Webhook("exampleWebhook", project_name=aws_codebuild_project.example.name)
+        example_repository_webhook = github.index.repository_webhook.RepositoryWebhook("exampleRepositoryWebhook",
             active=True,
-            events=["push"],
-            repository=github_repository["example"]["name"],
-            configuration=github.RepositoryWebhookConfigurationArgs(
-                url=example_webhook.payload_url,
-                secret=example_webhook.secret,
-                content_type="json",
-                insecure_ssl=False,
-            ))
+            events=[push],
+            repository=github_repository.example.name,
+            configuration={
+                url: example_webhook.payload_url,
+                secret: example_webhook.secret,
+                contentType: json,
+                insecureSsl: False,
+            })
         ```
 
         ## Import

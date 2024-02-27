@@ -23,23 +23,21 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/qldb"
+//	qldb/ledger "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/qldb/ledger"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := qldb.NewLedger(ctx, "sample-ledger", &qldb.LedgerArgs{
-//				PermissionsMode: pulumi.String("STANDARD"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := qldb/ledger.NewLedger(ctx, "sample-ledger", &qldb/ledger.LedgerArgs{
+// PermissionsMode: "STANDARD",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

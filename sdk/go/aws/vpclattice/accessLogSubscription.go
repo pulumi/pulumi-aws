@@ -22,24 +22,22 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/vpclattice"
+//	vpclattice/accessLogSubscription "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/vpclattice/accessLogSubscription"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := vpclattice.NewAccessLogSubscription(ctx, "example", &vpclattice.AccessLogSubscriptionArgs{
-//				ResourceIdentifier: pulumi.Any(aws_vpclattice_service_network.Example.Id),
-//				DestinationArn:     pulumi.Any(aws_s3.Bucket.Arn),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := vpclattice/accessLogSubscription.NewAccessLogSubscription(ctx, "example", &vpclattice/accessLogSubscription.AccessLogSubscriptionArgs{
+// ResourceIdentifier: aws_vpclattice_service_network.Example.Id,
+// DestinationArn: aws_s3.Bucket.Arn,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

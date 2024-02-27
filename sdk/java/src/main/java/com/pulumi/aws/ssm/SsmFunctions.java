@@ -34,35 +34,6 @@ import java.util.concurrent.CompletableFuture;
 public final class SsmFunctions {
     /**
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ssm.SsmFunctions;
-     * import com.pulumi.aws.ssm.inputs.GetContactsRotationArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = SsmFunctions.getContactsRotation(GetContactsRotationArgs.builder()
-     *             .arn(&#34;arn:aws:ssm-contacts:us-east-1:012345678910:rotation/example&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetContactsRotationResult> getContactsRotation(GetContactsRotationArgs args) {
@@ -70,35 +41,6 @@ public final class SsmFunctions {
     }
     /**
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ssm.SsmFunctions;
-     * import com.pulumi.aws.ssm.inputs.GetContactsRotationArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = SsmFunctions.getContactsRotation(GetContactsRotationArgs.builder()
-     *             .arn(&#34;arn:aws:ssm-contacts:us-east-1:012345678910:rotation/example&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetContactsRotationResult> getContactsRotationPlain(GetContactsRotationPlainArgs args) {
@@ -106,35 +48,6 @@ public final class SsmFunctions {
     }
     /**
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ssm.SsmFunctions;
-     * import com.pulumi.aws.ssm.inputs.GetContactsRotationArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = SsmFunctions.getContactsRotation(GetContactsRotationArgs.builder()
-     *             .arn(&#34;arn:aws:ssm-contacts:us-east-1:012345678910:rotation/example&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetContactsRotationResult> getContactsRotation(GetContactsRotationArgs args, InvokeOptions options) {
@@ -142,35 +55,6 @@ public final class SsmFunctions {
     }
     /**
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ssm.SsmFunctions;
-     * import com.pulumi.aws.ssm.inputs.GetContactsRotationArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = SsmFunctions.getContactsRotation(GetContactsRotationArgs.builder()
-     *             .arn(&#34;arn:aws:ssm-contacts:us-east-1:012345678910:rotation/example&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetContactsRotationResult> getContactsRotationPlain(GetContactsRotationPlainArgs args, InvokeOptions options) {
@@ -179,142 +63,12 @@ public final class SsmFunctions {
     /**
      * Gets the contents of the specified Systems Manager document.
      * 
-     * ## Example Usage
-     * 
-     * To get the contents of the document owned by AWS.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ssm.SsmFunctions;
-     * import com.pulumi.aws.ssm.inputs.GetDocumentArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var foo = SsmFunctions.getDocument(GetDocumentArgs.builder()
-     *             .name(&#34;AWS-GatherSoftwareInventory&#34;)
-     *             .documentFormat(&#34;YAML&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;content&#34;, foo.applyValue(getDocumentResult -&gt; getDocumentResult.content()));
-     *     }
-     * }
-     * ```
-     * 
-     * To get the contents of the custom document.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ssm.SsmFunctions;
-     * import com.pulumi.aws.ssm.inputs.GetDocumentArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = SsmFunctions.getDocument(GetDocumentArgs.builder()
-     *             .name(aws_ssm_document.test().name())
-     *             .documentFormat(&#34;JSON&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetDocumentResult> getDocument(GetDocumentArgs args) {
         return getDocument(args, InvokeOptions.Empty);
     }
     /**
      * Gets the contents of the specified Systems Manager document.
-     * 
-     * ## Example Usage
-     * 
-     * To get the contents of the document owned by AWS.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ssm.SsmFunctions;
-     * import com.pulumi.aws.ssm.inputs.GetDocumentArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var foo = SsmFunctions.getDocument(GetDocumentArgs.builder()
-     *             .name(&#34;AWS-GatherSoftwareInventory&#34;)
-     *             .documentFormat(&#34;YAML&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;content&#34;, foo.applyValue(getDocumentResult -&gt; getDocumentResult.content()));
-     *     }
-     * }
-     * ```
-     * 
-     * To get the contents of the custom document.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ssm.SsmFunctions;
-     * import com.pulumi.aws.ssm.inputs.GetDocumentArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = SsmFunctions.getDocument(GetDocumentArgs.builder()
-     *             .name(aws_ssm_document.test().name())
-     *             .documentFormat(&#34;JSON&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetDocumentResult> getDocumentPlain(GetDocumentPlainArgs args) {
@@ -323,142 +77,12 @@ public final class SsmFunctions {
     /**
      * Gets the contents of the specified Systems Manager document.
      * 
-     * ## Example Usage
-     * 
-     * To get the contents of the document owned by AWS.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ssm.SsmFunctions;
-     * import com.pulumi.aws.ssm.inputs.GetDocumentArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var foo = SsmFunctions.getDocument(GetDocumentArgs.builder()
-     *             .name(&#34;AWS-GatherSoftwareInventory&#34;)
-     *             .documentFormat(&#34;YAML&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;content&#34;, foo.applyValue(getDocumentResult -&gt; getDocumentResult.content()));
-     *     }
-     * }
-     * ```
-     * 
-     * To get the contents of the custom document.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ssm.SsmFunctions;
-     * import com.pulumi.aws.ssm.inputs.GetDocumentArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = SsmFunctions.getDocument(GetDocumentArgs.builder()
-     *             .name(aws_ssm_document.test().name())
-     *             .documentFormat(&#34;JSON&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetDocumentResult> getDocument(GetDocumentArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:ssm/getDocument:getDocument", TypeShape.of(GetDocumentResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Gets the contents of the specified Systems Manager document.
-     * 
-     * ## Example Usage
-     * 
-     * To get the contents of the document owned by AWS.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ssm.SsmFunctions;
-     * import com.pulumi.aws.ssm.inputs.GetDocumentArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var foo = SsmFunctions.getDocument(GetDocumentArgs.builder()
-     *             .name(&#34;AWS-GatherSoftwareInventory&#34;)
-     *             .documentFormat(&#34;YAML&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;content&#34;, foo.applyValue(getDocumentResult -&gt; getDocumentResult.content()));
-     *     }
-     * }
-     * ```
-     * 
-     * To get the contents of the custom document.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ssm.SsmFunctions;
-     * import com.pulumi.aws.ssm.inputs.GetDocumentArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = SsmFunctions.getDocument(GetDocumentArgs.builder()
-     *             .name(aws_ssm_document.test().name())
-     *             .documentFormat(&#34;JSON&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetDocumentResult> getDocumentPlain(GetDocumentPlainArgs args, InvokeOptions options) {
@@ -467,78 +91,12 @@ public final class SsmFunctions {
     /**
      * Use this data source to get the instance IDs of SSM managed instances.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ssm.SsmFunctions;
-     * import com.pulumi.aws.ssm.inputs.GetInstancesArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = SsmFunctions.getInstances(GetInstancesArgs.builder()
-     *             .filters(GetInstancesFilterArgs.builder()
-     *                 .name(&#34;PlatformTypes&#34;)
-     *                 .values(&#34;Linux&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetInstancesResult> getInstances() {
         return getInstances(GetInstancesArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * Use this data source to get the instance IDs of SSM managed instances.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ssm.SsmFunctions;
-     * import com.pulumi.aws.ssm.inputs.GetInstancesArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = SsmFunctions.getInstances(GetInstancesArgs.builder()
-     *             .filters(GetInstancesFilterArgs.builder()
-     *                 .name(&#34;PlatformTypes&#34;)
-     *                 .values(&#34;Linux&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetInstancesResult> getInstancesPlain() {
@@ -547,78 +105,12 @@ public final class SsmFunctions {
     /**
      * Use this data source to get the instance IDs of SSM managed instances.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ssm.SsmFunctions;
-     * import com.pulumi.aws.ssm.inputs.GetInstancesArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = SsmFunctions.getInstances(GetInstancesArgs.builder()
-     *             .filters(GetInstancesFilterArgs.builder()
-     *                 .name(&#34;PlatformTypes&#34;)
-     *                 .values(&#34;Linux&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetInstancesResult> getInstances(GetInstancesArgs args) {
         return getInstances(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to get the instance IDs of SSM managed instances.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ssm.SsmFunctions;
-     * import com.pulumi.aws.ssm.inputs.GetInstancesArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = SsmFunctions.getInstances(GetInstancesArgs.builder()
-     *             .filters(GetInstancesFilterArgs.builder()
-     *                 .name(&#34;PlatformTypes&#34;)
-     *                 .values(&#34;Linux&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetInstancesResult> getInstancesPlain(GetInstancesPlainArgs args) {
@@ -627,78 +119,12 @@ public final class SsmFunctions {
     /**
      * Use this data source to get the instance IDs of SSM managed instances.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ssm.SsmFunctions;
-     * import com.pulumi.aws.ssm.inputs.GetInstancesArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = SsmFunctions.getInstances(GetInstancesArgs.builder()
-     *             .filters(GetInstancesFilterArgs.builder()
-     *                 .name(&#34;PlatformTypes&#34;)
-     *                 .values(&#34;Linux&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetInstancesResult> getInstances(GetInstancesArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:ssm/getInstances:getInstances", TypeShape.of(GetInstancesResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to get the instance IDs of SSM managed instances.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ssm.SsmFunctions;
-     * import com.pulumi.aws.ssm.inputs.GetInstancesArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = SsmFunctions.getInstances(GetInstancesArgs.builder()
-     *             .filters(GetInstancesFilterArgs.builder()
-     *                 .name(&#34;PlatformTypes&#34;)
-     *                 .values(&#34;Linux&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetInstancesResult> getInstancesPlain(GetInstancesPlainArgs args, InvokeOptions options) {
@@ -707,78 +133,12 @@ public final class SsmFunctions {
     /**
      * Use this data source to get the window IDs of SSM maintenance windows.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ssm.SsmFunctions;
-     * import com.pulumi.aws.ssm.inputs.GetMaintenanceWindowsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = SsmFunctions.getMaintenanceWindows(GetMaintenanceWindowsArgs.builder()
-     *             .filters(GetMaintenanceWindowsFilterArgs.builder()
-     *                 .name(&#34;Enabled&#34;)
-     *                 .values(&#34;true&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetMaintenanceWindowsResult> getMaintenanceWindows() {
         return getMaintenanceWindows(GetMaintenanceWindowsArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * Use this data source to get the window IDs of SSM maintenance windows.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ssm.SsmFunctions;
-     * import com.pulumi.aws.ssm.inputs.GetMaintenanceWindowsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = SsmFunctions.getMaintenanceWindows(GetMaintenanceWindowsArgs.builder()
-     *             .filters(GetMaintenanceWindowsFilterArgs.builder()
-     *                 .name(&#34;Enabled&#34;)
-     *                 .values(&#34;true&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetMaintenanceWindowsResult> getMaintenanceWindowsPlain() {
@@ -787,78 +147,12 @@ public final class SsmFunctions {
     /**
      * Use this data source to get the window IDs of SSM maintenance windows.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ssm.SsmFunctions;
-     * import com.pulumi.aws.ssm.inputs.GetMaintenanceWindowsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = SsmFunctions.getMaintenanceWindows(GetMaintenanceWindowsArgs.builder()
-     *             .filters(GetMaintenanceWindowsFilterArgs.builder()
-     *                 .name(&#34;Enabled&#34;)
-     *                 .values(&#34;true&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetMaintenanceWindowsResult> getMaintenanceWindows(GetMaintenanceWindowsArgs args) {
         return getMaintenanceWindows(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to get the window IDs of SSM maintenance windows.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ssm.SsmFunctions;
-     * import com.pulumi.aws.ssm.inputs.GetMaintenanceWindowsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = SsmFunctions.getMaintenanceWindows(GetMaintenanceWindowsArgs.builder()
-     *             .filters(GetMaintenanceWindowsFilterArgs.builder()
-     *                 .name(&#34;Enabled&#34;)
-     *                 .values(&#34;true&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetMaintenanceWindowsResult> getMaintenanceWindowsPlain(GetMaintenanceWindowsPlainArgs args) {
@@ -867,78 +161,12 @@ public final class SsmFunctions {
     /**
      * Use this data source to get the window IDs of SSM maintenance windows.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ssm.SsmFunctions;
-     * import com.pulumi.aws.ssm.inputs.GetMaintenanceWindowsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = SsmFunctions.getMaintenanceWindows(GetMaintenanceWindowsArgs.builder()
-     *             .filters(GetMaintenanceWindowsFilterArgs.builder()
-     *                 .name(&#34;Enabled&#34;)
-     *                 .values(&#34;true&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetMaintenanceWindowsResult> getMaintenanceWindows(GetMaintenanceWindowsArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:ssm/getMaintenanceWindows:getMaintenanceWindows", TypeShape.of(GetMaintenanceWindowsResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to get the window IDs of SSM maintenance windows.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ssm.SsmFunctions;
-     * import com.pulumi.aws.ssm.inputs.GetMaintenanceWindowsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = SsmFunctions.getMaintenanceWindows(GetMaintenanceWindowsArgs.builder()
-     *             .filters(GetMaintenanceWindowsFilterArgs.builder()
-     *                 .name(&#34;Enabled&#34;)
-     *                 .values(&#34;true&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetMaintenanceWindowsResult> getMaintenanceWindowsPlain(GetMaintenanceWindowsPlainArgs args, InvokeOptions options) {
@@ -947,76 +175,12 @@ public final class SsmFunctions {
     /**
      * Provides an SSM Parameter data source.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ssm.SsmFunctions;
-     * import com.pulumi.aws.ssm.inputs.GetParameterArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var foo = SsmFunctions.getParameter(GetParameterArgs.builder()
-     *             .name(&#34;foo&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
-     * &gt; **Note:** The unencrypted value of a SecureString will be stored in the raw state as plain-text.
-     * 
      */
     public static Output<GetParameterResult> getParameter(GetParameterArgs args) {
         return getParameter(args, InvokeOptions.Empty);
     }
     /**
      * Provides an SSM Parameter data source.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ssm.SsmFunctions;
-     * import com.pulumi.aws.ssm.inputs.GetParameterArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var foo = SsmFunctions.getParameter(GetParameterArgs.builder()
-     *             .name(&#34;foo&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
-     * &gt; **Note:** The unencrypted value of a SecureString will be stored in the raw state as plain-text.
      * 
      */
     public static CompletableFuture<GetParameterResult> getParameterPlain(GetParameterPlainArgs args) {
@@ -1025,76 +189,12 @@ public final class SsmFunctions {
     /**
      * Provides an SSM Parameter data source.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ssm.SsmFunctions;
-     * import com.pulumi.aws.ssm.inputs.GetParameterArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var foo = SsmFunctions.getParameter(GetParameterArgs.builder()
-     *             .name(&#34;foo&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
-     * &gt; **Note:** The unencrypted value of a SecureString will be stored in the raw state as plain-text.
-     * 
      */
     public static Output<GetParameterResult> getParameter(GetParameterArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:ssm/getParameter:getParameter", TypeShape.of(GetParameterResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Provides an SSM Parameter data source.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ssm.SsmFunctions;
-     * import com.pulumi.aws.ssm.inputs.GetParameterArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var foo = SsmFunctions.getParameter(GetParameterArgs.builder()
-     *             .name(&#34;foo&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
-     * &gt; **Note:** The unencrypted value of a SecureString will be stored in the raw state as plain-text.
      * 
      */
     public static CompletableFuture<GetParameterResult> getParameterPlain(GetParameterPlainArgs args, InvokeOptions options) {
@@ -1115,146 +215,12 @@ public final class SsmFunctions {
     /**
      * Provides an SSM Patch Baseline data source. Useful if you wish to reuse the default baselines provided.
      * 
-     * ## Example Usage
-     * 
-     * To retrieve a baseline provided by AWS:
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ssm.SsmFunctions;
-     * import com.pulumi.aws.ssm.inputs.GetPatchBaselineArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var centos = SsmFunctions.getPatchBaseline(GetPatchBaselineArgs.builder()
-     *             .namePrefix(&#34;AWS-&#34;)
-     *             .operatingSystem(&#34;CENTOS&#34;)
-     *             .owner(&#34;AWS&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
-     * To retrieve a baseline on your account:
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ssm.SsmFunctions;
-     * import com.pulumi.aws.ssm.inputs.GetPatchBaselineArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var defaultCustom = SsmFunctions.getPatchBaseline(GetPatchBaselineArgs.builder()
-     *             .defaultBaseline(true)
-     *             .namePrefix(&#34;MyCustomBaseline&#34;)
-     *             .operatingSystem(&#34;WINDOWS&#34;)
-     *             .owner(&#34;Self&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetPatchBaselineResult> getPatchBaseline(GetPatchBaselineArgs args) {
         return getPatchBaseline(args, InvokeOptions.Empty);
     }
     /**
      * Provides an SSM Patch Baseline data source. Useful if you wish to reuse the default baselines provided.
-     * 
-     * ## Example Usage
-     * 
-     * To retrieve a baseline provided by AWS:
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ssm.SsmFunctions;
-     * import com.pulumi.aws.ssm.inputs.GetPatchBaselineArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var centos = SsmFunctions.getPatchBaseline(GetPatchBaselineArgs.builder()
-     *             .namePrefix(&#34;AWS-&#34;)
-     *             .operatingSystem(&#34;CENTOS&#34;)
-     *             .owner(&#34;AWS&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
-     * To retrieve a baseline on your account:
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ssm.SsmFunctions;
-     * import com.pulumi.aws.ssm.inputs.GetPatchBaselineArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var defaultCustom = SsmFunctions.getPatchBaseline(GetPatchBaselineArgs.builder()
-     *             .defaultBaseline(true)
-     *             .namePrefix(&#34;MyCustomBaseline&#34;)
-     *             .operatingSystem(&#34;WINDOWS&#34;)
-     *             .owner(&#34;Self&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetPatchBaselineResult> getPatchBaselinePlain(GetPatchBaselinePlainArgs args) {
@@ -1263,146 +229,12 @@ public final class SsmFunctions {
     /**
      * Provides an SSM Patch Baseline data source. Useful if you wish to reuse the default baselines provided.
      * 
-     * ## Example Usage
-     * 
-     * To retrieve a baseline provided by AWS:
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ssm.SsmFunctions;
-     * import com.pulumi.aws.ssm.inputs.GetPatchBaselineArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var centos = SsmFunctions.getPatchBaseline(GetPatchBaselineArgs.builder()
-     *             .namePrefix(&#34;AWS-&#34;)
-     *             .operatingSystem(&#34;CENTOS&#34;)
-     *             .owner(&#34;AWS&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
-     * To retrieve a baseline on your account:
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ssm.SsmFunctions;
-     * import com.pulumi.aws.ssm.inputs.GetPatchBaselineArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var defaultCustom = SsmFunctions.getPatchBaseline(GetPatchBaselineArgs.builder()
-     *             .defaultBaseline(true)
-     *             .namePrefix(&#34;MyCustomBaseline&#34;)
-     *             .operatingSystem(&#34;WINDOWS&#34;)
-     *             .owner(&#34;Self&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetPatchBaselineResult> getPatchBaseline(GetPatchBaselineArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:ssm/getPatchBaseline:getPatchBaseline", TypeShape.of(GetPatchBaselineResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Provides an SSM Patch Baseline data source. Useful if you wish to reuse the default baselines provided.
-     * 
-     * ## Example Usage
-     * 
-     * To retrieve a baseline provided by AWS:
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ssm.SsmFunctions;
-     * import com.pulumi.aws.ssm.inputs.GetPatchBaselineArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var centos = SsmFunctions.getPatchBaseline(GetPatchBaselineArgs.builder()
-     *             .namePrefix(&#34;AWS-&#34;)
-     *             .operatingSystem(&#34;CENTOS&#34;)
-     *             .owner(&#34;AWS&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
-     * To retrieve a baseline on your account:
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ssm.SsmFunctions;
-     * import com.pulumi.aws.ssm.inputs.GetPatchBaselineArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var defaultCustom = SsmFunctions.getPatchBaseline(GetPatchBaselineArgs.builder()
-     *             .defaultBaseline(true)
-     *             .namePrefix(&#34;MyCustomBaseline&#34;)
-     *             .operatingSystem(&#34;WINDOWS&#34;)
-     *             .owner(&#34;Self&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetPatchBaselineResult> getPatchBaselinePlain(GetPatchBaselinePlainArgs args, InvokeOptions options) {

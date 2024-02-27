@@ -18,6 +18,66 @@ namespace Pulumi.Aws.Acmpca
     /// with the parameter `certificate_authority_arn`.
     /// 
     /// ## Example Usage
+    /// ### Basic
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// using Tls = Pulumi.Tls;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleCertificateAuthority = new Aws.Acmpca.CertificateAuthority.CertificateAuthority("exampleCertificateAuthority", new()
+    ///     {
+    ///         PrivateCertificateConfiguration = new[]
+    ///         {
+    ///             
+    ///             {
+    ///                 { "keyAlgorithm", "RSA_4096" },
+    ///                 { "signingAlgorithm", "SHA512WITHRSA" },
+    ///                 { "subject", new[]
+    ///                 {
+    ///                     
+    ///                     {
+    ///                         { "commonName", "example.com" },
+    ///                     },
+    ///                 } },
+    ///             },
+    ///         },
+    ///         PermanentDeletionTimeInDays = 7,
+    ///     });
+    /// 
+    ///     var key = new Tls.Index.PrivateKey.PrivateKey("key", new()
+    ///     {
+    ///         Algorithm = "RSA",
+    ///     });
+    /// 
+    ///     var csr = new Tls.Index.CertRequest.CertRequest("csr", new()
+    ///     {
+    ///         KeyAlgorithm = "RSA",
+    ///         PrivateKeyPem = key.PrivateKeyPem,
+    ///         Subject = 
+    ///         {
+    ///             { "commonName", "example" },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleCertificate = new Aws.Acmpca.Certificate.Certificate("exampleCertificate", new()
+    ///     {
+    ///         CertificateAuthorityArn = exampleCertificateAuthority.Arn,
+    ///         CertificateSigningRequest = csr.CertRequestPem,
+    ///         SigningAlgorithm = "SHA256WITHRSA",
+    ///         Validity = 
+    ///         {
+    ///             { "type", "YEARS" },
+    ///             { "value", 1 },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// 
     /// ## Import
     /// 

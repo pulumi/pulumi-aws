@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = new aws.cloudwatch.EventConnection("test", {
+ * const test = new aws.cloudwatch/eventConnection.EventConnection("test", {
  *     authParameters: {
  *         apiKey: {
  *             key: "x-signature",
@@ -35,11 +35,90 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = new aws.cloudwatch.EventConnection("test", {
+ * const test = new aws.cloudwatch/eventConnection.EventConnection("test", {
  *     authParameters: {
  *         basic: {
  *             password: "Pass1234!",
  *             username: "user",
+ *         },
+ *     },
+ *     authorizationType: "BASIC",
+ *     description: "A connection description",
+ * });
+ * ```
+ * ### OAuth Authorization
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const test = new aws.cloudwatch/eventConnection.EventConnection("test", {
+ *     authParameters: {
+ *         oauth: {
+ *             authorizationEndpoint: "https://auth.url.com/endpoint",
+ *             clientParameters: {
+ *                 clientId: "1234567890",
+ *                 clientSecret: "Pass1234!",
+ *             },
+ *             httpMethod: "GET",
+ *             oauthHttpParameters: {
+ *                 body: [{
+ *                     isValueSecret: false,
+ *                     key: "body-parameter-key",
+ *                     value: "body-parameter-value",
+ *                 }],
+ *                 header: [{
+ *                     isValueSecret: false,
+ *                     key: "header-parameter-key",
+ *                     value: "header-parameter-value",
+ *                 }],
+ *                 queryString: [{
+ *                     isValueSecret: false,
+ *                     key: "query-string-parameter-key",
+ *                     value: "query-string-parameter-value",
+ *                 }],
+ *             },
+ *         },
+ *     },
+ *     authorizationType: "OAUTH_CLIENT_CREDENTIALS",
+ *     description: "A connection description",
+ * });
+ * ```
+ * ### Invocation Http Parameters
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const test = new aws.cloudwatch/eventConnection.EventConnection("test", {
+ *     authParameters: {
+ *         basic: {
+ *             password: "Pass1234!",
+ *             username: "user",
+ *         },
+ *         invocationHttpParameters: {
+ *             body: [
+ *                 {
+ *                     isValueSecret: false,
+ *                     key: "body-parameter-key",
+ *                     value: "body-parameter-value",
+ *                 },
+ *                 {
+ *                     isValueSecret: true,
+ *                     key: "body-parameter-key2",
+ *                     value: "body-parameter-value2",
+ *                 },
+ *             ],
+ *             header: [{
+ *                 isValueSecret: false,
+ *                 key: "header-parameter-key",
+ *                 value: "header-parameter-value",
+ *             }],
+ *             queryString: [{
+ *                 isValueSecret: false,
+ *                 key: "query-string-parameter-key",
+ *                 value: "query-string-parameter-value",
+ *             }],
  *         },
  *     },
  *     authorizationType: "BASIC",

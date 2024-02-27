@@ -6,17 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Data source for managing an AWS OpenSearch Serverless VPC Endpoint.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.opensearch.getServerlessVpcEndpoint({
- *     vpcEndpointId: "vpce-829a4487959e2a839",
- * });
- * ```
  */
 export function getServerlessVpcEndpoint(args: GetServerlessVpcEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetServerlessVpcEndpointResult> {
 
@@ -68,17 +57,6 @@ export interface GetServerlessVpcEndpointResult {
 }
 /**
  * Data source for managing an AWS OpenSearch Serverless VPC Endpoint.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.opensearch.getServerlessVpcEndpoint({
- *     vpcEndpointId: "vpce-829a4487959e2a839",
- * });
- * ```
  */
 export function getServerlessVpcEndpointOutput(args: GetServerlessVpcEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerlessVpcEndpointResult> {
     return pulumi.output(args).apply((a: any) => getServerlessVpcEndpoint(a, opts))

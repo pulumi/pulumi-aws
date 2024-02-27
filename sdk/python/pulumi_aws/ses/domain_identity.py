@@ -121,7 +121,7 @@ class DomainIdentity(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ses.DomainIdentity("example", domain="example.com")
+        example = aws.ses.domain_identity.DomainIdentity("example", domain=example.com)
         ```
         ### With Route53 Record
 
@@ -129,11 +129,11 @@ class DomainIdentity(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ses.DomainIdentity("example", domain="example.com")
-        example_amazonses_verification_record = aws.route53.Record("exampleAmazonsesVerificationRecord",
-            zone_id="ABCDEFGHIJ123",
-            name="_amazonses.example.com",
-            type="TXT",
+        example = aws.ses.domain_identity.DomainIdentity("example", domain=example.com)
+        example_amazonses_verification_record = aws.route53.record.Record("exampleAmazonsesVerificationRecord",
+            zone_id=ABCDEFGHIJ123,
+            name=_amazonses.example.com,
+            type=TXT,
             ttl=600,
             records=[example.verification_token])
         ```
@@ -166,7 +166,7 @@ class DomainIdentity(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ses.DomainIdentity("example", domain="example.com")
+        example = aws.ses.domain_identity.DomainIdentity("example", domain=example.com)
         ```
         ### With Route53 Record
 
@@ -174,11 +174,11 @@ class DomainIdentity(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ses.DomainIdentity("example", domain="example.com")
-        example_amazonses_verification_record = aws.route53.Record("exampleAmazonsesVerificationRecord",
-            zone_id="ABCDEFGHIJ123",
-            name="_amazonses.example.com",
-            type="TXT",
+        example = aws.ses.domain_identity.DomainIdentity("example", domain=example.com)
+        example_amazonses_verification_record = aws.route53.record.Record("exampleAmazonsesVerificationRecord",
+            zone_id=ABCDEFGHIJ123,
+            name=_amazonses.example.com,
+            type=TXT,
             ttl=600,
             records=[example.verification_token])
         ```

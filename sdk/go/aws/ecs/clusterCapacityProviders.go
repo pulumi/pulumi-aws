@@ -23,37 +23,36 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ecs"
+//	ecs/cluster "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ecs/cluster"
+//	ecs/clusterCapacityProviders "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ecs/clusterCapacityProviders"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleCluster, err := ecs.NewCluster(ctx, "exampleCluster", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ecs.NewClusterCapacityProviders(ctx, "exampleClusterCapacityProviders", &ecs.ClusterCapacityProvidersArgs{
-//				ClusterName: exampleCluster.Name,
-//				CapacityProviders: pulumi.StringArray{
-//					pulumi.String("FARGATE"),
-//				},
-//				DefaultCapacityProviderStrategies: ecs.ClusterCapacityProvidersDefaultCapacityProviderStrategyArray{
-//					&ecs.ClusterCapacityProvidersDefaultCapacityProviderStrategyArgs{
-//						Base:             pulumi.Int(1),
-//						Weight:           pulumi.Int(100),
-//						CapacityProvider: pulumi.String("FARGATE"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleCluster, err := ecs/cluster.NewCluster(ctx, "exampleCluster", nil)
+// if err != nil {
+// return err
+// }
+// _, err = ecs/clusterCapacityProviders.NewClusterCapacityProviders(ctx, "exampleClusterCapacityProviders", &ecs/clusterCapacityProviders.ClusterCapacityProvidersArgs{
+// ClusterName: exampleCluster.Name,
+// CapacityProviders: []string{
+// "FARGATE",
+// },
+// DefaultCapacityProviderStrategies: []map[string]interface{}{
+// map[string]interface{}{
+// "base": 1,
+// "weight": 100,
+// "capacityProvider": "FARGATE",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

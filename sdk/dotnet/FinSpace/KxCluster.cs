@@ -13,6 +13,81 @@ namespace Pulumi.Aws.FinSpace
     /// Resource for managing an AWS FinSpace Kx Cluster.
     /// 
     /// ## Example Usage
+    /// ### Basic Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Finspace.KxCluster.KxCluster("example", new()
+    ///     {
+    ///         EnvironmentId = aws_finspace_kx_environment.Example.Id,
+    ///         Type = "HDB",
+    ///         ReleaseLabel = "1.0",
+    ///         AzMode = "SINGLE",
+    ///         AvailabilityZoneId = "use1-az2",
+    ///         CapacityConfiguration = 
+    ///         {
+    ///             { "nodeType", "kx.s.2xlarge" },
+    ///             { "nodeCount", 2 },
+    ///         },
+    ///         VpcConfiguration = 
+    ///         {
+    ///             { "vpcId", aws_vpc.Test.Id },
+    ///             { "securityGroupIds", new[]
+    ///             {
+    ///                 aws_security_group.Example.Id,
+    ///             } },
+    ///             { "subnetIds", new[]
+    ///             {
+    ///                 aws_subnet.Example.Id,
+    ///             } },
+    ///             { "ipAddressType", "IP_V4" },
+    ///         },
+    ///         CacheStorageConfigurations = new[]
+    ///         {
+    ///             
+    ///             {
+    ///                 { "type", "CACHE_1000" },
+    ///                 { "size", 1200 },
+    ///             },
+    ///         },
+    ///         Databases = new[]
+    ///         {
+    ///             
+    ///             {
+    ///                 { "databaseName", aws_finspace_kx_database.Example.Name },
+    ///                 { "cacheConfiguration", new[]
+    ///                 {
+    ///                     
+    ///                     {
+    ///                         { "cacheType", "CACHE_1000" },
+    ///                         { "dbPaths", "/" },
+    ///                     },
+    ///                 } },
+    ///             },
+    ///         },
+    ///         Code = 
+    ///         {
+    ///             { "s3Bucket", aws_s3_bucket.Test.Id },
+    ///             { "s3Key", aws_s3_object.Object.Key },
+    ///         },
+    ///         Timeouts = new[]
+    ///         {
+    ///             
+    ///             {
+    ///                 { "create", "18h" },
+    ///                 { "update", "18h" },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// 
     /// ## Import
     /// 

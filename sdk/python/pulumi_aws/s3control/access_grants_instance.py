@@ -205,7 +205,7 @@ class AccessGrantsInstance(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.s3control.AccessGrantsInstance("example")
+        example = aws.s3control.access_grants_instance.AccessGrantsInstance("example")
         ```
         ### AWS IAM Identity Center
 
@@ -213,7 +213,7 @@ class AccessGrantsInstance(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.s3control.AccessGrantsInstance("example", identity_center_arn="arn:aws:sso:::instance/ssoins-890759e9c7bfdc1d")
+        example = aws.s3control.access_grants_instance.AccessGrantsInstance("example", identity_center_arn=arn:aws:sso:::instance/ssoins-890759e9c7bfdc1d)
         ```
 
         ## Import
@@ -246,7 +246,7 @@ class AccessGrantsInstance(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.s3control.AccessGrantsInstance("example")
+        example = aws.s3control.access_grants_instance.AccessGrantsInstance("example")
         ```
         ### AWS IAM Identity Center
 
@@ -254,7 +254,7 @@ class AccessGrantsInstance(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.s3control.AccessGrantsInstance("example", identity_center_arn="arn:aws:sso:::instance/ssoins-890759e9c7bfdc1d")
+        example = aws.s3control.access_grants_instance.AccessGrantsInstance("example", identity_center_arn=arn:aws:sso:::instance/ssoins-890759e9c7bfdc1d)
         ```
 
         ## Import

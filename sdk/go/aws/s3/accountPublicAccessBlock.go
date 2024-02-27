@@ -24,24 +24,22 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	s3/accountPublicAccessBlock "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/s3/accountPublicAccessBlock"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := s3.NewAccountPublicAccessBlock(ctx, "example", &s3.AccountPublicAccessBlockArgs{
-//				BlockPublicAcls:   pulumi.Bool(true),
-//				BlockPublicPolicy: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := s3/accountPublicAccessBlock.NewAccountPublicAccessBlock(ctx, "example", &s3/accountPublicAccessBlock.AccountPublicAccessBlockArgs{
+// BlockPublicAcls: true,
+// BlockPublicPolicy: true,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

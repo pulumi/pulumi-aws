@@ -21,24 +21,22 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cfg"
+//	cfg/aggregateAuthorization "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/cfg/aggregateAuthorization"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cfg.NewAggregateAuthorization(ctx, "example", &cfg.AggregateAuthorizationArgs{
-//				AccountId: pulumi.String("123456789012"),
-//				Region:    pulumi.String("eu-west-2"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := cfg/aggregateAuthorization.NewAggregateAuthorization(ctx, "example", &cfg/aggregateAuthorization.AggregateAuthorizationArgs{
+// AccountId: "123456789012",
+// Region: "eu-west-2",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

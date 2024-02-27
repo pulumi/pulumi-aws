@@ -13,8 +13,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleAccount = new aws.macie2.Account("exampleAccount", {});
- * const exampleOrganizationAdminAccount = new aws.macie2.OrganizationAdminAccount("exampleOrganizationAdminAccount", {adminAccountId: "ID OF THE ADMIN ACCOUNT"}, {
+ * const exampleAccount = new aws.macie2/account.Account("exampleAccount", {});
+ * const exampleOrganizationAdminAccount = new aws.macie2/organizationAdminAccount.OrganizationAdminAccount("exampleOrganizationAdminAccount", {adminAccountId: "ID OF THE ADMIN ACCOUNT"}, {
  *     dependsOn: [exampleAccount],
  * });
  * ```

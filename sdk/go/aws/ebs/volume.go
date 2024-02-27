@@ -21,27 +21,25 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ebs"
+//	ebs/volume "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ebs/volume"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ebs.NewVolume(ctx, "example", &ebs.VolumeArgs{
-//				AvailabilityZone: pulumi.String("us-west-2a"),
-//				Size:             pulumi.Int(40),
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("HelloWorld"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := ebs/volume.NewVolume(ctx, "example", &ebs/volume.VolumeArgs{
+// AvailabilityZone: "us-west-2a",
+// Size: 40,
+// Tags: map[string]interface{}{
+// "Name": "HelloWorld",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // > **NOTE:** At least one of `size` or `snapshotId` is required when specifying an EBS volume

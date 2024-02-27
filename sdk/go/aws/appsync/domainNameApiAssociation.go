@@ -21,24 +21,22 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/appsync"
+//	appsync/domainNameApiAssociation "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/appsync/domainNameApiAssociation"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := appsync.NewDomainNameApiAssociation(ctx, "example", &appsync.DomainNameApiAssociationArgs{
-//				ApiId:      pulumi.Any(aws_appsync_graphql_api.Example.Id),
-//				DomainName: pulumi.Any(aws_appsync_domain_name.Example.Domain_name),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := appsync/domainNameApiAssociation.NewDomainNameApiAssociation(ctx, "example", &appsync/domainNameApiAssociation.DomainNameApiAssociationArgs{
+// ApiId: aws_appsync_graphql_api.Example.Id,
+// DomainName: aws_appsync_domain_name.Example.Domain_name,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

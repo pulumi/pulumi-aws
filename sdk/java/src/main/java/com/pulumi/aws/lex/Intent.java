@@ -28,7 +28,6 @@ import javax.annotation.Nullable;
  * [Amazon Lex: How It Works](https://docs.aws.amazon.com/lex/latest/dg/how-it-works.html)
  * 
  * ## Example Usage
- * 
  * ```java
  * package generated_program;
  * 
@@ -37,11 +36,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.lex.Intent;
  * import com.pulumi.aws.lex.IntentArgs;
- * import com.pulumi.aws.lex.inputs.IntentConfirmationPromptArgs;
- * import com.pulumi.aws.lex.inputs.IntentFulfillmentActivityArgs;
- * import com.pulumi.aws.lex.inputs.IntentRejectionStatementArgs;
- * import com.pulumi.aws.lex.inputs.IntentSlotArgs;
- * import com.pulumi.aws.lex.inputs.IntentSlotValueElicitationPromptArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -56,68 +50,19 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var orderFlowersIntent = new Intent(&#34;orderFlowersIntent&#34;, IntentArgs.builder()        
- *             .confirmationPrompt(IntentConfirmationPromptArgs.builder()
- *                 .maxAttempts(2)
- *                 .messages(IntentConfirmationPromptMessageArgs.builder()
- *                     .content(&#34;Okay, your {FlowerType} will be ready for pickup by {PickupTime} on {PickupDate}.  Does this sound okay?&#34;)
- *                     .contentType(&#34;PlainText&#34;)
- *                     .build())
- *                 .build())
+ *             .confirmationPrompt(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .createVersion(false)
  *             .description(&#34;Intent to order a bouquet of flowers for pick up&#34;)
- *             .fulfillmentActivity(IntentFulfillmentActivityArgs.builder()
- *                 .type(&#34;ReturnIntent&#34;)
- *                 .build())
+ *             .fulfillmentActivity(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .name(&#34;OrderFlowers&#34;)
- *             .rejectionStatement(IntentRejectionStatementArgs.builder()
- *                 .messages(IntentRejectionStatementMessageArgs.builder()
- *                     .content(&#34;Okay, I will not place your order.&#34;)
- *                     .contentType(&#34;PlainText&#34;)
- *                     .build())
- *                 .build())
+ *             .rejectionStatement(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .sampleUtterances(            
  *                 &#34;I would like to order some flowers&#34;,
  *                 &#34;I would like to pick up flowers&#34;)
  *             .slots(            
- *                 IntentSlotArgs.builder()
- *                     .description(&#34;The type of flowers to pick up&#34;)
- *                     .name(&#34;FlowerType&#34;)
- *                     .priority(1)
- *                     .sampleUtterances(&#34;I would like to order {FlowerType}&#34;)
- *                     .slotConstraint(&#34;Required&#34;)
- *                     .slotType(&#34;FlowerTypes&#34;)
- *                     .slotTypeVersion(&#34;$LATEST&#34;)
- *                     .valueElicitationPrompt(IntentSlotValueElicitationPromptArgs.builder()
- *                         .maxAttempts(2)
- *                         .message(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
- *                         .build())
- *                     .build(),
- *                 IntentSlotArgs.builder()
- *                     .description(&#34;The date to pick up the flowers&#34;)
- *                     .name(&#34;PickupDate&#34;)
- *                     .priority(2)
- *                     .sampleUtterances(&#34;I would like to order {FlowerType}&#34;)
- *                     .slotConstraint(&#34;Required&#34;)
- *                     .slotType(&#34;AMAZON.DATE&#34;)
- *                     .slotTypeVersion(&#34;$LATEST&#34;)
- *                     .valueElicitationPrompt(IntentSlotValueElicitationPromptArgs.builder()
- *                         .maxAttempts(2)
- *                         .message(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
- *                         .build())
- *                     .build(),
- *                 IntentSlotArgs.builder()
- *                     .description(&#34;The time to pick up the flowers&#34;)
- *                     .name(&#34;PickupTime&#34;)
- *                     .priority(3)
- *                     .sampleUtterances(&#34;I would like to order {FlowerType}&#34;)
- *                     .slotConstraint(&#34;Required&#34;)
- *                     .slotType(&#34;AMAZON.TIME&#34;)
- *                     .slotTypeVersion(&#34;$LATEST&#34;)
- *                     .valueElicitationPrompt(IntentSlotValueElicitationPromptArgs.builder()
- *                         .maxAttempts(2)
- *                         .message(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
- *                         .build())
- *                     .build())
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

@@ -25,52 +25,50 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/fis"
+//	fis/experimentTemplate "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/fis/experimentTemplate"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := fis.NewExperimentTemplate(ctx, "example", &fis.ExperimentTemplateArgs{
-//				Description: pulumi.String("example"),
-//				RoleArn:     pulumi.Any(aws_iam_role.Example.Arn),
-//				StopConditions: fis.ExperimentTemplateStopConditionArray{
-//					&fis.ExperimentTemplateStopConditionArgs{
-//						Source: pulumi.String("none"),
-//					},
-//				},
-//				Actions: fis.ExperimentTemplateActionArray{
-//					&fis.ExperimentTemplateActionArgs{
-//						Name:     pulumi.String("example-action"),
-//						ActionId: pulumi.String("aws:ec2:terminate-instances"),
-//						Target: &fis.ExperimentTemplateActionTargetArgs{
-//							Key:   pulumi.String("Instances"),
-//							Value: pulumi.String("example-target"),
-//						},
-//					},
-//				},
-//				Targets: fis.ExperimentTemplateTargetArray{
-//					&fis.ExperimentTemplateTargetArgs{
-//						Name:          pulumi.String("example-target"),
-//						ResourceType:  pulumi.String("aws:ec2:instance"),
-//						SelectionMode: pulumi.String("COUNT(1)"),
-//						ResourceTags: fis.ExperimentTemplateTargetResourceTagArray{
-//							&fis.ExperimentTemplateTargetResourceTagArgs{
-//								Key:   pulumi.String("env"),
-//								Value: pulumi.String("example"),
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := fis/experimentTemplate.NewExperimentTemplate(ctx, "example", &fis/experimentTemplate.ExperimentTemplateArgs{
+// Description: "example",
+// RoleArn: aws_iam_role.Example.Arn,
+// StopConditions: []map[string]interface{}{
+// map[string]interface{}{
+// "source": "none",
+// },
+// },
+// Actions: []map[string]interface{}{
+// map[string]interface{}{
+// "name": "example-action",
+// "actionId": "aws:ec2:terminate-instances",
+// "target": map[string]interface{}{
+// "key": "Instances",
+// "value": "example-target",
+// },
+// },
+// },
+// Targets: []map[string]interface{}{
+// map[string]interface{}{
+// "name": "example-target",
+// "resourceType": "aws:ec2:instance",
+// "selectionMode": "COUNT(1)",
+// "resourceTags": []map[string]interface{}{
+// map[string]interface{}{
+// "key": "env",
+// "value": "example",
+// },
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

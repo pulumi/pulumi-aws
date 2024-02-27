@@ -25,7 +25,7 @@ namespace Pulumi.Aws.ServiceCatalog
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.ServiceCatalog.BudgetResourceAssociation("example", new()
+    ///     var example = new Aws.Servicecatalog.BudgetResourceAssociation.BudgetResourceAssociation("example", new()
     ///     {
     ///         BudgetName = "budget-pjtvyakdlyo3m",
     ///         ResourceId = "prod-dnigbtea24ste",

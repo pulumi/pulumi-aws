@@ -113,35 +113,6 @@ class ClusterPolicy(pulumi.CustomResource):
         Resource for managing an AWS Managed Streaming for Kafka Cluster Policy.
 
         ## Example Usage
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        current_caller_identity = aws.get_caller_identity()
-        current_partition = aws.get_partition()
-        example = aws.msk.ClusterPolicy("example",
-            cluster_arn=aws_msk_cluster["example"]["arn"],
-            policy=json.dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Sid": "ExampleMskClusterPolicy",
-                    "Effect": "Allow",
-                    "Principal": {
-                        "AWS": f"arn:{current_partition.partition}:iam::{current_caller_identity.account_id}:root",
-                    },
-                    "Action": [
-                        "kafka:Describe*",
-                        "kafka:Get*",
-                        "kafka:CreateVpcConnection",
-                        "kafka:GetBootstrapBrokers",
-                    ],
-                    "Resource": aws_msk_cluster["example"]["arn"],
-                }],
-            }))
-        ```
 
         ## Import
 
@@ -166,35 +137,6 @@ class ClusterPolicy(pulumi.CustomResource):
         Resource for managing an AWS Managed Streaming for Kafka Cluster Policy.
 
         ## Example Usage
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        current_caller_identity = aws.get_caller_identity()
-        current_partition = aws.get_partition()
-        example = aws.msk.ClusterPolicy("example",
-            cluster_arn=aws_msk_cluster["example"]["arn"],
-            policy=json.dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Sid": "ExampleMskClusterPolicy",
-                    "Effect": "Allow",
-                    "Principal": {
-                        "AWS": f"arn:{current_partition.partition}:iam::{current_caller_identity.account_id}:root",
-                    },
-                    "Action": [
-                        "kafka:Describe*",
-                        "kafka:Get*",
-                        "kafka:CreateVpcConnection",
-                        "kafka:GetBootstrapBrokers",
-                    ],
-                    "Resource": aws_msk_cluster["example"]["arn"],
-                }],
-            }))
-        ```
 
         ## Import
 

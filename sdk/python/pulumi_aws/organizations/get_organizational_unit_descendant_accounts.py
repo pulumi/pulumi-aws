@@ -71,16 +71,6 @@ def get_organizational_unit_descendant_accounts(parent_id: Optional[str] = None,
     """
     Get all direct child accounts under a parent organizational unit. This provides all children.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    org = aws.organizations.get_organization()
-    accounts = aws.organizations.get_organizational_unit_descendant_accounts(parent_id=org.roots[0].id)
-    ```
-
 
     :param str parent_id: The parent ID of the accounts.
     """
@@ -100,16 +90,6 @@ def get_organizational_unit_descendant_accounts_output(parent_id: Optional[pulum
                                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOrganizationalUnitDescendantAccountsResult]:
     """
     Get all direct child accounts under a parent organizational unit. This provides all children.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    org = aws.organizations.get_organization()
-    accounts = aws.organizations.get_organizational_unit_descendant_accounts(parent_id=org.roots[0].id)
-    ```
 
 
     :param str parent_id: The parent ID of the accounts.

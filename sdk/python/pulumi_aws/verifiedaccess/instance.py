@@ -210,10 +210,10 @@ class Instance(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.verifiedaccess.Instance("example",
-            description="example",
+        example = aws.verifiedaccess.instance.Instance("example",
+            description=example,
             tags={
-                "Name": "example",
+                Name: example,
             })
         ```
         ### With `fips_enabled`
@@ -222,7 +222,7 @@ class Instance(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.verifiedaccess.Instance("example", fips_enabled=True)
+        example = aws.verifiedaccess.instance.Instance("example", fips_enabled=True)
         ```
 
         ## Import
@@ -257,10 +257,10 @@ class Instance(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.verifiedaccess.Instance("example",
-            description="example",
+        example = aws.verifiedaccess.instance.Instance("example",
+            description=example,
             tags={
-                "Name": "example",
+                Name: example,
             })
         ```
         ### With `fips_enabled`
@@ -269,7 +269,7 @@ class Instance(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.verifiedaccess.Instance("example", fips_enabled=True)
+        example = aws.verifiedaccess.instance.Instance("example", fips_enabled=True)
         ```
 
         ## Import

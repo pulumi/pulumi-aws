@@ -821,8 +821,8 @@ class UserPoolClient(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        pool = aws.cognito.UserPool("pool")
-        client = aws.cognito.UserPoolClient("client", user_pool_id=pool.id)
+        pool = aws.cognito.user_pool.UserPool("pool")
+        client = aws.cognito.user_pool_client.UserPoolClient("client", user_pool_id=pool.id)
         ```
         ### Create a user pool client with no SRP authentication
 
@@ -830,49 +830,11 @@ class UserPoolClient(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        pool = aws.cognito.UserPool("pool")
-        client = aws.cognito.UserPoolClient("client",
+        pool = aws.cognito.user_pool.UserPool("pool")
+        client = aws.cognito.user_pool_client.UserPoolClient("client",
             user_pool_id=pool.id,
             generate_secret=True,
-            explicit_auth_flows=["ADMIN_NO_SRP_AUTH"])
-        ```
-        ### Create a user pool client with pinpoint analytics
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test_user_pool = aws.cognito.UserPool("testUserPool")
-        test_app = aws.pinpoint.App("testApp")
-        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["cognito-idp.amazonaws.com"],
-            )],
-            actions=["sts:AssumeRole"],
-        )])
-        test_role = aws.iam.Role("testRole", assume_role_policy=assume_role.json)
-        test_user_pool_client = aws.cognito.UserPoolClient("testUserPoolClient",
-            user_pool_id=test_user_pool.id,
-            analytics_configuration=aws.cognito.UserPoolClientAnalyticsConfigurationArgs(
-                application_id=test_app.application_id,
-                external_id="some_id",
-                role_arn=test_role.arn,
-                user_data_shared=True,
-            ))
-        current = aws.get_caller_identity()
-        test_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            actions=[
-                "mobiletargeting:UpdateEndpoint",
-                "mobiletargeting:PutEvents",
-            ],
-            resources=[test_app.application_id.apply(lambda application_id: f"arn:aws:mobiletargeting:*:{current.account_id}:apps/{application_id}*")],
-        )])
-        test_role_policy = aws.iam.RolePolicy("testRolePolicy",
-            role=test_role.id,
-            policy=test_policy_document.json)
+            explicit_auth_flows=[ADMIN_NO_SRP_AUTH])
         ```
         ### Create a user pool client with Cognito as the identity provider
 
@@ -880,20 +842,20 @@ class UserPoolClient(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        pool = aws.cognito.UserPool("pool")
-        userpool_client = aws.cognito.UserPoolClient("userpoolClient",
+        pool = aws.cognito.user_pool.UserPool("pool")
+        userpool_client = aws.cognito.user_pool_client.UserPoolClient("userpoolClient",
             user_pool_id=pool.id,
-            callback_urls=["https://example.com"],
+            callback_urls=[https://example.com],
             allowed_oauth_flows_user_pool_client=True,
             allowed_oauth_flows=[
-                "code",
-                "implicit",
+                code,
+                implicit,
             ],
             allowed_oauth_scopes=[
-                "email",
-                "openid",
+                email,
+                openid,
             ],
-            supported_identity_providers=["COGNITO"])
+            supported_identity_providers=[COGNITO])
         ```
 
         ## Import
@@ -956,8 +918,8 @@ class UserPoolClient(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        pool = aws.cognito.UserPool("pool")
-        client = aws.cognito.UserPoolClient("client", user_pool_id=pool.id)
+        pool = aws.cognito.user_pool.UserPool("pool")
+        client = aws.cognito.user_pool_client.UserPoolClient("client", user_pool_id=pool.id)
         ```
         ### Create a user pool client with no SRP authentication
 
@@ -965,49 +927,11 @@ class UserPoolClient(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        pool = aws.cognito.UserPool("pool")
-        client = aws.cognito.UserPoolClient("client",
+        pool = aws.cognito.user_pool.UserPool("pool")
+        client = aws.cognito.user_pool_client.UserPoolClient("client",
             user_pool_id=pool.id,
             generate_secret=True,
-            explicit_auth_flows=["ADMIN_NO_SRP_AUTH"])
-        ```
-        ### Create a user pool client with pinpoint analytics
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test_user_pool = aws.cognito.UserPool("testUserPool")
-        test_app = aws.pinpoint.App("testApp")
-        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["cognito-idp.amazonaws.com"],
-            )],
-            actions=["sts:AssumeRole"],
-        )])
-        test_role = aws.iam.Role("testRole", assume_role_policy=assume_role.json)
-        test_user_pool_client = aws.cognito.UserPoolClient("testUserPoolClient",
-            user_pool_id=test_user_pool.id,
-            analytics_configuration=aws.cognito.UserPoolClientAnalyticsConfigurationArgs(
-                application_id=test_app.application_id,
-                external_id="some_id",
-                role_arn=test_role.arn,
-                user_data_shared=True,
-            ))
-        current = aws.get_caller_identity()
-        test_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            actions=[
-                "mobiletargeting:UpdateEndpoint",
-                "mobiletargeting:PutEvents",
-            ],
-            resources=[test_app.application_id.apply(lambda application_id: f"arn:aws:mobiletargeting:*:{current.account_id}:apps/{application_id}*")],
-        )])
-        test_role_policy = aws.iam.RolePolicy("testRolePolicy",
-            role=test_role.id,
-            policy=test_policy_document.json)
+            explicit_auth_flows=[ADMIN_NO_SRP_AUTH])
         ```
         ### Create a user pool client with Cognito as the identity provider
 
@@ -1015,20 +939,20 @@ class UserPoolClient(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        pool = aws.cognito.UserPool("pool")
-        userpool_client = aws.cognito.UserPoolClient("userpoolClient",
+        pool = aws.cognito.user_pool.UserPool("pool")
+        userpool_client = aws.cognito.user_pool_client.UserPoolClient("userpoolClient",
             user_pool_id=pool.id,
-            callback_urls=["https://example.com"],
+            callback_urls=[https://example.com],
             allowed_oauth_flows_user_pool_client=True,
             allowed_oauth_flows=[
-                "code",
-                "implicit",
+                code,
+                implicit,
             ],
             allowed_oauth_scopes=[
-                "email",
-                "openid",
+                email,
+                openid,
             ],
-            supported_identity_providers=["COGNITO"])
+            supported_identity_providers=[COGNITO])
         ```
 
         ## Import

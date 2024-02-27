@@ -23,24 +23,22 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	ec2/availabilityZoneGroup "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/availabilityZoneGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.NewAvailabilityZoneGroup(ctx, "example", &ec2.AvailabilityZoneGroupArgs{
-//				GroupName:   pulumi.String("us-west-2-lax-1"),
-//				OptInStatus: pulumi.String("opted-in"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := ec2/availabilityZoneGroup.NewAvailabilityZoneGroup(ctx, "example", &ec2/availabilityZoneGroup.AvailabilityZoneGroupArgs{
+// GroupName: "us-west-2-lax-1",
+// OptInStatus: "opted-in",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

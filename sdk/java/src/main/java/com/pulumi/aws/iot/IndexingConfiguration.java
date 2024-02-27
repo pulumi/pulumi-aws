@@ -26,8 +26,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.iot.IndexingConfiguration;
  * import com.pulumi.aws.iot.IndexingConfigurationArgs;
- * import com.pulumi.aws.iot.inputs.IndexingConfigurationThingIndexingConfigurationArgs;
- * import com.pulumi.aws.iot.inputs.IndexingConfigurationThingIndexingConfigurationFilterArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -42,32 +40,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new IndexingConfiguration(&#34;example&#34;, IndexingConfigurationArgs.builder()        
- *             .thingIndexingConfiguration(IndexingConfigurationThingIndexingConfigurationArgs.builder()
- *                 .customFields(                
- *                     IndexingConfigurationThingIndexingConfigurationCustomFieldArgs.builder()
- *                         .name(&#34;shadow.desired.power&#34;)
- *                         .type(&#34;Boolean&#34;)
- *                         .build(),
- *                     IndexingConfigurationThingIndexingConfigurationCustomFieldArgs.builder()
- *                         .name(&#34;attributes.version&#34;)
- *                         .type(&#34;Number&#34;)
- *                         .build(),
- *                     IndexingConfigurationThingIndexingConfigurationCustomFieldArgs.builder()
- *                         .name(&#34;shadow.name.thing1shadow.desired.DefaultDesired&#34;)
- *                         .type(&#34;String&#34;)
- *                         .build(),
- *                     IndexingConfigurationThingIndexingConfigurationCustomFieldArgs.builder()
- *                         .name(&#34;deviceDefender.securityProfile1.NUMBER_VALUE_BEHAVIOR.lastViolationValue.number&#34;)
- *                         .type(&#34;Number&#34;)
- *                         .build())
- *                 .deviceDefenderIndexingMode(&#34;VIOLATIONS&#34;)
- *                 .filter(IndexingConfigurationThingIndexingConfigurationFilterArgs.builder()
- *                     .namedShadowNames(&#34;thing1shadow&#34;)
- *                     .build())
- *                 .namedShadowIndexingMode(&#34;ON&#34;)
- *                 .thingConnectivityIndexingMode(&#34;STATUS&#34;)
- *                 .thingIndexingMode(&#34;REGISTRY_AND_SHADOW&#34;)
- *                 .build())
+ *             .thingIndexingConfiguration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

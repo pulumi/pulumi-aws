@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = new aws.dynamodb.ContributorInsights("test", {tableName: "ExampleTableName"});
+ * const test = new aws.dynamodb/contributorInsights.ContributorInsights("test", {tableName: "ExampleTableName"});
  * ```
  *
  * ## Import

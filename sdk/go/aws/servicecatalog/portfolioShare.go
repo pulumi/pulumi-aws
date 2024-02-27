@@ -30,25 +30,23 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/servicecatalog"
+//	servicecatalog/portfolioShare "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/servicecatalog/portfolioShare"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := servicecatalog.NewPortfolioShare(ctx, "example", &servicecatalog.PortfolioShareArgs{
-//				PrincipalId: pulumi.String("012128675309"),
-//				PortfolioId: pulumi.Any(aws_servicecatalog_portfolio.Example.Id),
-//				Type:        pulumi.String("ACCOUNT"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := servicecatalog/portfolioShare.NewPortfolioShare(ctx, "example", &servicecatalog/portfolioShare.PortfolioShareArgs{
+// PrincipalId: "012128675309",
+// PortfolioId: aws_servicecatalog_portfolio.Example.Id,
+// Type: "ACCOUNT",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -7,39 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Provides an Elastic File System (EFS) File System Policy resource.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const fs = new aws.efs.FileSystem("fs", {});
- * const policyPolicyDocument = aws.iam.getPolicyDocumentOutput({
- *     statements: [{
- *         sid: "ExampleStatement01",
- *         effect: "Allow",
- *         principals: [{
- *             type: "AWS",
- *             identifiers: ["*"],
- *         }],
- *         actions: [
- *             "elasticfilesystem:ClientMount",
- *             "elasticfilesystem:ClientWrite",
- *         ],
- *         resources: [fs.arn],
- *         conditions: [{
- *             test: "Bool",
- *             variable: "aws:SecureTransport",
- *             values: ["true"],
- *         }],
- *     }],
- * });
- * const policyFileSystemPolicy = new aws.efs.FileSystemPolicy("policyFileSystemPolicy", {
- *     fileSystemId: fs.id,
- *     policy: policyPolicyDocument.apply(policyPolicyDocument => policyPolicyDocument.json),
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import the EFS file system policies using the `id`. For example:

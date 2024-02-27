@@ -252,17 +252,17 @@ class ParameterGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        default = aws.elasticache.ParameterGroup("default",
-            family="redis2.8",
+        default = aws.elasticache.parameter_group.ParameterGroup("default",
+            family=redis2.8,
             parameters=[
-                aws.elasticache.ParameterGroupParameterArgs(
-                    name="activerehashing",
-                    value="yes",
-                ),
-                aws.elasticache.ParameterGroupParameterArgs(
-                    name="min-slaves-to-write",
-                    value="2",
-                ),
+                {
+                    name: activerehashing,
+                    value: yes,
+                },
+                {
+                    name: min-slaves-to-write,
+                    value: 2,
+                },
             ])
         ```
 
@@ -299,17 +299,17 @@ class ParameterGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        default = aws.elasticache.ParameterGroup("default",
-            family="redis2.8",
+        default = aws.elasticache.parameter_group.ParameterGroup("default",
+            family=redis2.8,
             parameters=[
-                aws.elasticache.ParameterGroupParameterArgs(
-                    name="activerehashing",
-                    value="yes",
-                ),
-                aws.elasticache.ParameterGroupParameterArgs(
-                    name="min-slaves-to-write",
-                    value="2",
-                ),
+                {
+                    name: activerehashing,
+                    value: yes,
+                },
+                {
+                    name: min-slaves-to-write,
+                    value: 2,
+                },
             ])
         ```
 

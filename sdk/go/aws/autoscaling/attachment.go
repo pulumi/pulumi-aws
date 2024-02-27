@@ -23,24 +23,23 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/autoscaling"
+//	autoscaling/attachment "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/autoscaling/attachment"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := autoscaling.NewAttachment(ctx, "example", &autoscaling.AttachmentArgs{
-//				AutoscalingGroupName: pulumi.Any(aws_autoscaling_group.Example.Id),
-//				Elb:                  pulumi.Any(aws_elb.Example.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// // Create a new load balancer attachment
+// _, err := autoscaling/attachment.NewAttachment(ctx, "example", &autoscaling/attachment.AttachmentArgs{
+// AutoscalingGroupName: aws_autoscaling_group.Example.Id,
+// Elb: aws_elb.Example.Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ```go
@@ -48,24 +47,23 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/autoscaling"
+//	autoscaling/attachment "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/autoscaling/attachment"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := autoscaling.NewAttachment(ctx, "example", &autoscaling.AttachmentArgs{
-//				AutoscalingGroupName: pulumi.Any(aws_autoscaling_group.Example.Id),
-//				LbTargetGroupArn:     pulumi.Any(aws_lb_target_group.Example.Arn),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// // Create a new ALB Target Group attachment
+// _, err := autoscaling/attachment.NewAttachment(ctx, "example", &autoscaling/attachment.AttachmentArgs{
+// AutoscalingGroupName: aws_autoscaling_group.Example.Id,
+// LbTargetGroupArn: aws_lb_target_group.Example.Arn,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 type Attachment struct {
 	pulumi.CustomResourceState

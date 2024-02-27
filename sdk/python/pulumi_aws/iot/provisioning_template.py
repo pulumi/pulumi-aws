@@ -354,61 +354,6 @@ class ProvisioningTemplate(pulumi.CustomResource):
         """
         Manages an IoT fleet provisioning template. For more info, see the AWS documentation on [fleet provisioning](https://docs.aws.amazon.com/iot/latest/developerguide/provision-wo-cert.html).
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        iot_assume_role_policy = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            actions=["sts:AssumeRole"],
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["iot.amazonaws.com"],
-            )],
-        )])
-        iot_fleet_provisioning = aws.iam.Role("iotFleetProvisioning",
-            path="/service-role/",
-            assume_role_policy=iot_assume_role_policy.json)
-        iot_fleet_provisioning_registration = aws.iam.RolePolicyAttachment("iotFleetProvisioningRegistration",
-            role=iot_fleet_provisioning.name,
-            policy_arn="arn:aws:iam::aws:policy/service-role/AWSIoTThingsRegistration")
-        device_policy_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            actions=["iot:Subscribe"],
-            resources=["*"],
-        )])
-        device_policy_policy = aws.iot.Policy("devicePolicyPolicy", policy=device_policy_policy_document.json)
-        fleet = aws.iot.ProvisioningTemplate("fleet",
-            description="My provisioning template",
-            provisioning_role_arn=iot_fleet_provisioning.arn,
-            enabled=True,
-            template_body=device_policy_policy.name.apply(lambda name: json.dumps({
-                "Parameters": {
-                    "SerialNumber": {
-                        "Type": "String",
-                    },
-                },
-                "Resources": {
-                    "certificate": {
-                        "Properties": {
-                            "CertificateId": {
-                                "Ref": "AWS::IoT::Certificate::Id",
-                            },
-                            "Status": "Active",
-                        },
-                        "Type": "AWS::IoT::Certificate",
-                    },
-                    "policy": {
-                        "Properties": {
-                            "PolicyName": name,
-                        },
-                        "Type": "AWS::IoT::Policy",
-                    },
-                },
-            })))
-        ```
-
         ## Import
 
         Using `pulumi import`, import IoT fleet provisioning templates using the `name`. For example:
@@ -436,61 +381,6 @@ class ProvisioningTemplate(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an IoT fleet provisioning template. For more info, see the AWS documentation on [fleet provisioning](https://docs.aws.amazon.com/iot/latest/developerguide/provision-wo-cert.html).
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        iot_assume_role_policy = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            actions=["sts:AssumeRole"],
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["iot.amazonaws.com"],
-            )],
-        )])
-        iot_fleet_provisioning = aws.iam.Role("iotFleetProvisioning",
-            path="/service-role/",
-            assume_role_policy=iot_assume_role_policy.json)
-        iot_fleet_provisioning_registration = aws.iam.RolePolicyAttachment("iotFleetProvisioningRegistration",
-            role=iot_fleet_provisioning.name,
-            policy_arn="arn:aws:iam::aws:policy/service-role/AWSIoTThingsRegistration")
-        device_policy_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            actions=["iot:Subscribe"],
-            resources=["*"],
-        )])
-        device_policy_policy = aws.iot.Policy("devicePolicyPolicy", policy=device_policy_policy_document.json)
-        fleet = aws.iot.ProvisioningTemplate("fleet",
-            description="My provisioning template",
-            provisioning_role_arn=iot_fleet_provisioning.arn,
-            enabled=True,
-            template_body=device_policy_policy.name.apply(lambda name: json.dumps({
-                "Parameters": {
-                    "SerialNumber": {
-                        "Type": "String",
-                    },
-                },
-                "Resources": {
-                    "certificate": {
-                        "Properties": {
-                            "CertificateId": {
-                                "Ref": "AWS::IoT::Certificate::Id",
-                            },
-                            "Status": "Active",
-                        },
-                        "Type": "AWS::IoT::Certificate",
-                    },
-                    "policy": {
-                        "Properties": {
-                            "PolicyName": name,
-                        },
-                        "Type": "AWS::IoT::Policy",
-                    },
-                },
-            })))
-        ```
 
         ## Import
 

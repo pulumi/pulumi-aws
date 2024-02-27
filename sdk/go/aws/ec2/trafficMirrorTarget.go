@@ -23,38 +23,36 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	ec2/trafficMirrorTarget "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/trafficMirrorTarget"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.NewTrafficMirrorTarget(ctx, "nlb", &ec2.TrafficMirrorTargetArgs{
-//				Description:            pulumi.String("NLB target"),
-//				NetworkLoadBalancerArn: pulumi.Any(aws_lb.Lb.Arn),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ec2.NewTrafficMirrorTarget(ctx, "eni", &ec2.TrafficMirrorTargetArgs{
-//				Description:        pulumi.String("ENI target"),
-//				NetworkInterfaceId: pulumi.Any(aws_instance.Test.Primary_network_interface_id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ec2.NewTrafficMirrorTarget(ctx, "gwlb", &ec2.TrafficMirrorTargetArgs{
-//				Description:                   pulumi.String("GWLB target"),
-//				GatewayLoadBalancerEndpointId: pulumi.Any(aws_vpc_endpoint.Example.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := ec2/trafficMirrorTarget.NewTrafficMirrorTarget(ctx, "nlb", &ec2/trafficMirrorTarget.TrafficMirrorTargetArgs{
+// Description: "NLB target",
+// NetworkLoadBalancerArn: aws_lb.Lb.Arn,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = ec2/trafficMirrorTarget.NewTrafficMirrorTarget(ctx, "eni", &ec2/trafficMirrorTarget.TrafficMirrorTargetArgs{
+// Description: "ENI target",
+// NetworkInterfaceId: aws_instance.Test.Primary_network_interface_id,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = ec2/trafficMirrorTarget.NewTrafficMirrorTarget(ctx, "gwlb", &ec2/trafficMirrorTarget.TrafficMirrorTargetArgs{
+// Description: "GWLB target",
+// GatewayLoadBalancerEndpointId: aws_vpc_endpoint.Example.Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

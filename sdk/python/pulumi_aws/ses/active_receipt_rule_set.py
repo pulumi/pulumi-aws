@@ -90,7 +90,7 @@ class ActiveReceiptRuleSet(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        main = aws.ses.ActiveReceiptRuleSet("main", rule_set_name="primary-rules")
+        main = aws.ses.active_receipt_rule_set.ActiveReceiptRuleSet("main", rule_set_name=primary-rules)
         ```
 
         ## Import
@@ -120,7 +120,7 @@ class ActiveReceiptRuleSet(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        main = aws.ses.ActiveReceiptRuleSet("main", rule_set_name="primary-rules")
+        main = aws.ses.active_receipt_rule_set.ActiveReceiptRuleSet("main", rule_set_name=primary-rules)
         ```
 
         ## Import

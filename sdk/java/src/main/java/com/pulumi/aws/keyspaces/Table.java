@@ -37,7 +37,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.keyspaces.Table;
  * import com.pulumi.aws.keyspaces.TableArgs;
- * import com.pulumi.aws.keyspaces.inputs.TableSchemaDefinitionArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -54,15 +53,7 @@ import javax.annotation.Nullable;
  *         var example = new Table(&#34;example&#34;, TableArgs.builder()        
  *             .keyspaceName(aws_keyspaces_keyspace.example().name())
  *             .tableName(&#34;my_table&#34;)
- *             .schemaDefinition(TableSchemaDefinitionArgs.builder()
- *                 .columns(TableSchemaDefinitionColumnArgs.builder()
- *                     .name(&#34;Message&#34;)
- *                     .type(&#34;ASCII&#34;)
- *                     .build())
- *                 .partitionKeys(TableSchemaDefinitionPartitionKeyArgs.builder()
- *                     .name(&#34;Message&#34;)
- *                     .build())
- *                 .build())
+ *             .schemaDefinition(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

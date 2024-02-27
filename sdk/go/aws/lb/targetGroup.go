@@ -23,32 +23,30 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lb"
+//	ec2/vpc "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/vpc"
+//	lb/targetGroup "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/lb/targetGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			main, err := ec2.NewVpc(ctx, "main", &ec2.VpcArgs{
-//				CidrBlock: pulumi.String("10.0.0.0/16"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = lb.NewTargetGroup(ctx, "test", &lb.TargetGroupArgs{
-//				Port:     pulumi.Int(80),
-//				Protocol: pulumi.String("HTTP"),
-//				VpcId:    main.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// main, err := ec2/vpc.NewVpc(ctx, "main", &ec2/vpc.VpcArgs{
+// CidrBlock: "10.0.0.0/16",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = lb/targetGroup.NewTargetGroup(ctx, "test", &lb/targetGroup.TargetGroupArgs{
+// Port: 80,
+// Protocol: "HTTP",
+// VpcId: main.Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### IP Target Group
 //
@@ -57,33 +55,31 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lb"
+//	ec2/vpc "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/vpc"
+//	lb/targetGroup "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/lb/targetGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			main, err := ec2.NewVpc(ctx, "main", &ec2.VpcArgs{
-//				CidrBlock: pulumi.String("10.0.0.0/16"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = lb.NewTargetGroup(ctx, "ip-example", &lb.TargetGroupArgs{
-//				Port:       pulumi.Int(80),
-//				Protocol:   pulumi.String("HTTP"),
-//				TargetType: pulumi.String("ip"),
-//				VpcId:      main.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// main, err := ec2/vpc.NewVpc(ctx, "main", &ec2/vpc.VpcArgs{
+// CidrBlock: "10.0.0.0/16",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = lb/targetGroup.NewTargetGroup(ctx, "ip-example", &lb/targetGroup.TargetGroupArgs{
+// Port: 80,
+// Protocol: "HTTP",
+// TargetType: "ip",
+// VpcId: main.Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Lambda Target Group
 //
@@ -92,23 +88,21 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lb"
+//	lb/targetGroup "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/lb/targetGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lb.NewTargetGroup(ctx, "lambda-example", &lb.TargetGroupArgs{
-//				TargetType: pulumi.String("lambda"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := lb/targetGroup.NewTargetGroup(ctx, "lambda-example", &lb/targetGroup.TargetGroupArgs{
+// TargetType: "lambda",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### ALB Target Group
 //
@@ -117,26 +111,24 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lb"
+//	lb/targetGroup "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/lb/targetGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lb.NewTargetGroup(ctx, "alb-example", &lb.TargetGroupArgs{
-//				TargetType: pulumi.String("alb"),
-//				Port:       pulumi.Int(80),
-//				Protocol:   pulumi.String("TCP"),
-//				VpcId:      pulumi.Any(aws_vpc.Main.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := lb/targetGroup.NewTargetGroup(ctx, "alb-example", &lb/targetGroup.TargetGroupArgs{
+// TargetType: "alb",
+// Port: 80,
+// Protocol: "TCP",
+// VpcId: aws_vpc.Main.Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Target group with unhealthy connection termination disabled
 //
@@ -145,30 +137,28 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lb"
+//	lb/targetGroup "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/lb/targetGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lb.NewTargetGroup(ctx, "tcp-example", &lb.TargetGroupArgs{
-//				Port:     pulumi.Int(25),
-//				Protocol: pulumi.String("TCP"),
-//				VpcId:    pulumi.Any(aws_vpc.Main.Id),
-//				TargetHealthStates: lb.TargetGroupTargetHealthStateArray{
-//					&lb.TargetGroupTargetHealthStateArgs{
-//						EnableUnhealthyConnectionTermination: pulumi.Bool(false),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := lb/targetGroup.NewTargetGroup(ctx, "tcp-example", &lb/targetGroup.TargetGroupArgs{
+// Port: 25,
+// Protocol: "TCP",
+// VpcId: aws_vpc.Main.Id,
+// TargetHealthStates: []map[string]interface{}{
+// map[string]interface{}{
+// "enableUnhealthyConnectionTermination": false,
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

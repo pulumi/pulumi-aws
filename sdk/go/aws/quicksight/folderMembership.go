@@ -22,25 +22,23 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/quicksight"
+//	quicksight/folderMembership "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/quicksight/folderMembership"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := quicksight.NewFolderMembership(ctx, "example", &quicksight.FolderMembershipArgs{
-//				FolderId:   pulumi.Any(aws_quicksight_folder.Example.Folder_id),
-//				MemberType: pulumi.String("DATASET"),
-//				MemberId:   pulumi.Any(aws_quicksight_data_set.Example.Data_set_id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := quicksight/folderMembership.NewFolderMembership(ctx, "example", &quicksight/folderMembership.FolderMembershipArgs{
+// FolderId: aws_quicksight_folder.Example.Folder_id,
+// MemberType: "DATASET",
+// MemberId: aws_quicksight_data_set.Example.Data_set_id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

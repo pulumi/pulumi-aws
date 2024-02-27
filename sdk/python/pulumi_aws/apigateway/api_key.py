@@ -316,7 +316,7 @@ class ApiKey(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.apigateway.ApiKey("example")
+        example = aws.apigateway.api_key.ApiKey("example")
         ```
 
         ## Import
@@ -353,7 +353,7 @@ class ApiKey(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.apigateway.ApiKey("example")
+        example = aws.apigateway.api_key.ApiKey("example")
         ```
 
         ## Import

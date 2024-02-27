@@ -12,32 +12,6 @@ import (
 )
 
 // Data source for managing an AWS DMS (Database Migration) Replication Instance.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/dms"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := dms.LookupReplicationInstance(ctx, &dms.LookupReplicationInstanceArgs{
-//				ReplicationInstanceId: aws_dms_replication_instance.Test.Replication_instance_id,
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupReplicationInstance(ctx *pulumi.Context, args *LookupReplicationInstanceArgs, opts ...pulumi.InvokeOption) (*LookupReplicationInstanceResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupReplicationInstanceResult

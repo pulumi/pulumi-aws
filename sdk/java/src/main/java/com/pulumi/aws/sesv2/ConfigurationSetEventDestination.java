@@ -29,8 +29,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.sesv2.ConfigurationSetArgs;
  * import com.pulumi.aws.sesv2.ConfigurationSetEventDestination;
  * import com.pulumi.aws.sesv2.ConfigurationSetEventDestinationArgs;
- * import com.pulumi.aws.sesv2.inputs.ConfigurationSetEventDestinationEventDestinationArgs;
- * import com.pulumi.aws.sesv2.inputs.ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -51,17 +49,7 @@ import javax.annotation.Nullable;
  *         var exampleConfigurationSetEventDestination = new ConfigurationSetEventDestination(&#34;exampleConfigurationSetEventDestination&#34;, ConfigurationSetEventDestinationArgs.builder()        
  *             .configurationSetName(exampleConfigurationSet.configurationSetName())
  *             .eventDestinationName(&#34;example&#34;)
- *             .eventDestination(ConfigurationSetEventDestinationEventDestinationArgs.builder()
- *                 .cloudWatchDestination(ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationArgs.builder()
- *                     .dimensionConfigurations(ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationArgs.builder()
- *                         .defaultDimensionValue(&#34;example&#34;)
- *                         .dimensionName(&#34;example&#34;)
- *                         .dimensionValueSource(&#34;MESSAGE_TAG&#34;)
- *                         .build())
- *                     .build())
- *                 .enabled(true)
- *                 .matchingEventTypes(&#34;SEND&#34;)
- *                 .build())
+ *             .eventDestination(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -78,8 +66,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.sesv2.ConfigurationSetArgs;
  * import com.pulumi.aws.sesv2.ConfigurationSetEventDestination;
  * import com.pulumi.aws.sesv2.ConfigurationSetEventDestinationArgs;
- * import com.pulumi.aws.sesv2.inputs.ConfigurationSetEventDestinationEventDestinationArgs;
- * import com.pulumi.aws.sesv2.inputs.ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -100,14 +86,7 @@ import javax.annotation.Nullable;
  *         var exampleConfigurationSetEventDestination = new ConfigurationSetEventDestination(&#34;exampleConfigurationSetEventDestination&#34;, ConfigurationSetEventDestinationArgs.builder()        
  *             .configurationSetName(exampleConfigurationSet.configurationSetName())
  *             .eventDestinationName(&#34;example&#34;)
- *             .eventDestination(ConfigurationSetEventDestinationEventDestinationArgs.builder()
- *                 .kinesisFirehoseDestination(ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationArgs.builder()
- *                     .deliveryStreamArn(aws_kinesis_firehose_delivery_stream.example().arn())
- *                     .iamRoleArn(aws_iam_role.example().arn())
- *                     .build())
- *                 .enabled(true)
- *                 .matchingEventTypes(&#34;SEND&#34;)
- *                 .build())
+ *             .eventDestination(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -124,8 +103,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.sesv2.ConfigurationSetArgs;
  * import com.pulumi.aws.sesv2.ConfigurationSetEventDestination;
  * import com.pulumi.aws.sesv2.ConfigurationSetEventDestinationArgs;
- * import com.pulumi.aws.sesv2.inputs.ConfigurationSetEventDestinationEventDestinationArgs;
- * import com.pulumi.aws.sesv2.inputs.ConfigurationSetEventDestinationEventDestinationPinpointDestinationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -146,13 +123,7 @@ import javax.annotation.Nullable;
  *         var exampleConfigurationSetEventDestination = new ConfigurationSetEventDestination(&#34;exampleConfigurationSetEventDestination&#34;, ConfigurationSetEventDestinationArgs.builder()        
  *             .configurationSetName(exampleConfigurationSet.configurationSetName())
  *             .eventDestinationName(&#34;example&#34;)
- *             .eventDestination(ConfigurationSetEventDestinationEventDestinationArgs.builder()
- *                 .pinpointDestination(ConfigurationSetEventDestinationEventDestinationPinpointDestinationArgs.builder()
- *                     .applicationArn(aws_pinpoint_app.example().arn())
- *                     .build())
- *                 .enabled(true)
- *                 .matchingEventTypes(&#34;SEND&#34;)
- *                 .build())
+ *             .eventDestination(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -169,8 +140,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.sesv2.ConfigurationSetArgs;
  * import com.pulumi.aws.sesv2.ConfigurationSetEventDestination;
  * import com.pulumi.aws.sesv2.ConfigurationSetEventDestinationArgs;
- * import com.pulumi.aws.sesv2.inputs.ConfigurationSetEventDestinationEventDestinationArgs;
- * import com.pulumi.aws.sesv2.inputs.ConfigurationSetEventDestinationEventDestinationSnsDestinationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -191,13 +160,7 @@ import javax.annotation.Nullable;
  *         var exampleConfigurationSetEventDestination = new ConfigurationSetEventDestination(&#34;exampleConfigurationSetEventDestination&#34;, ConfigurationSetEventDestinationArgs.builder()        
  *             .configurationSetName(exampleConfigurationSet.configurationSetName())
  *             .eventDestinationName(&#34;example&#34;)
- *             .eventDestination(ConfigurationSetEventDestinationEventDestinationArgs.builder()
- *                 .snsDestination(ConfigurationSetEventDestinationEventDestinationSnsDestinationArgs.builder()
- *                     .topicArn(aws_sns_topic.example().arn())
- *                     .build())
- *                 .enabled(true)
- *                 .matchingEventTypes(&#34;SEND&#34;)
- *                 .build())
+ *             .eventDestination(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

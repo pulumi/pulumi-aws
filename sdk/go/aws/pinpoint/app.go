@@ -20,29 +20,27 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/pinpoint"
+//	pinpoint/app "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/pinpoint/app"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := pinpoint.NewApp(ctx, "example", &pinpoint.AppArgs{
-//				Limits: &pinpoint.AppLimitsArgs{
-//					MaximumDuration: pulumi.Int(600),
-//				},
-//				QuietTime: &pinpoint.AppQuietTimeArgs{
-//					End:   pulumi.String("06:00"),
-//					Start: pulumi.String("00:00"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := pinpoint/app.NewApp(ctx, "example", &pinpoint/app.AppArgs{
+// Limits: map[string]interface{}{
+// "maximumDuration": 600,
+// },
+// QuietTime: map[string]interface{}{
+// "end": "06:00",
+// "start": "00:00",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -276,22 +276,23 @@ class ThreatIntelSet(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        primary = aws.guardduty.Detector("primary", enable=True)
-        bucket = aws.s3.BucketV2("bucket")
+        primary = aws.guardduty.detector.Detector("primary", enable=True)
+        bucket = aws.s3.bucket_v2.BucketV2("bucket")
         # ... other configuration ...
-        bucket_acl = aws.s3.BucketAclV2("bucketAcl",
+        bucket_acl = aws.s3.bucket_acl_v2.BucketAclV2("bucketAcl",
             bucket=bucket.id,
-            acl="private")
-        my_threat_intel_set_bucket_objectv2 = aws.s3.BucketObjectv2("myThreatIntelSetBucketObjectv2",
-            acl="public-read",
-            content="10.0.0.0/8\\n",
+            acl=private)
+        my_threat_intel_set_bucket_objectv2 = aws.s3.bucket_objectv2.BucketObjectv2("myThreatIntelSetBucketObjectv2",
+            acl=public-read,
+            content=10.0.0.0/8
+        ,
             bucket=bucket.id,
-            key="MyThreatIntelSet")
-        my_threat_intel_set_threat_intel_set = aws.guardduty.ThreatIntelSet("myThreatIntelSetThreatIntelSet",
+            key=MyThreatIntelSet)
+        my_threat_intel_set_threat_intel_set = aws.guardduty.threat_intel_set.ThreatIntelSet("myThreatIntelSetThreatIntelSet",
             activate=True,
             detector_id=primary.id,
-            format="TXT",
-            location=pulumi.Output.all(my_threat_intel_set_bucket_objectv2.bucket, my_threat_intel_set_bucket_objectv2.key).apply(lambda bucket, key: f"https://s3.amazonaws.com/{bucket}/{key}"))
+            format=TXT,
+            location=fhttps://s3.amazonaws.com/{my_threat_intel_set_bucket_objectv2.bucket}/{my_threat_intel_set_bucket_objectv2.key})
         ```
 
         ## Import
@@ -328,22 +329,23 @@ class ThreatIntelSet(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        primary = aws.guardduty.Detector("primary", enable=True)
-        bucket = aws.s3.BucketV2("bucket")
+        primary = aws.guardduty.detector.Detector("primary", enable=True)
+        bucket = aws.s3.bucket_v2.BucketV2("bucket")
         # ... other configuration ...
-        bucket_acl = aws.s3.BucketAclV2("bucketAcl",
+        bucket_acl = aws.s3.bucket_acl_v2.BucketAclV2("bucketAcl",
             bucket=bucket.id,
-            acl="private")
-        my_threat_intel_set_bucket_objectv2 = aws.s3.BucketObjectv2("myThreatIntelSetBucketObjectv2",
-            acl="public-read",
-            content="10.0.0.0/8\\n",
+            acl=private)
+        my_threat_intel_set_bucket_objectv2 = aws.s3.bucket_objectv2.BucketObjectv2("myThreatIntelSetBucketObjectv2",
+            acl=public-read,
+            content=10.0.0.0/8
+        ,
             bucket=bucket.id,
-            key="MyThreatIntelSet")
-        my_threat_intel_set_threat_intel_set = aws.guardduty.ThreatIntelSet("myThreatIntelSetThreatIntelSet",
+            key=MyThreatIntelSet)
+        my_threat_intel_set_threat_intel_set = aws.guardduty.threat_intel_set.ThreatIntelSet("myThreatIntelSetThreatIntelSet",
             activate=True,
             detector_id=primary.id,
-            format="TXT",
-            location=pulumi.Output.all(my_threat_intel_set_bucket_objectv2.bucket, my_threat_intel_set_bucket_objectv2.key).apply(lambda bucket, key: f"https://s3.amazonaws.com/{bucket}/{key}"))
+            format=TXT,
+            location=fhttps://s3.amazonaws.com/{my_threat_intel_set_bucket_objectv2.bucket}/{my_threat_intel_set_bucket_objectv2.key})
         ```
 
         ## Import

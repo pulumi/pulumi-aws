@@ -35,13 +35,12 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.ec2.Vpc;
- * import com.pulumi.aws.ec2.VpcArgs;
- * import com.pulumi.aws.ec2.VpcPeeringConnection;
- * import com.pulumi.aws.ec2.VpcPeeringConnectionArgs;
+ * import com.pulumi.aws.ec2_vpc.Vpc;
+ * import com.pulumi.aws.ec2_vpc.VpcArgs;
+ * import com.pulumi.aws.ec2_vpcPeeringConnection.VpcPeeringConnection;
+ * import com.pulumi.aws.ec2_vpcPeeringConnection.VpcPeeringConnectionArgs;
  * import com.pulumi.aws.ec2.PeeringConnectionOptions;
  * import com.pulumi.aws.ec2.PeeringConnectionOptionsArgs;
- * import com.pulumi.aws.ec2.inputs.PeeringConnectionOptionsAccepterArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -71,105 +70,8 @@ import javax.annotation.Nullable;
  * 
  *         var fooPeeringConnectionOptions = new PeeringConnectionOptions(&#34;fooPeeringConnectionOptions&#34;, PeeringConnectionOptionsArgs.builder()        
  *             .vpcPeeringConnectionId(fooVpcPeeringConnection.id())
- *             .accepter(PeeringConnectionOptionsAccepterArgs.builder()
- *                 .allowRemoteVpcDnsResolution(true)
- *                 .build())
+ *             .accepter(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
- * 
- *     }
- * }
- * ```
- * ### Cross-Account Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.Provider;
- * import com.pulumi.aws.ec2.Vpc;
- * import com.pulumi.aws.ec2.VpcArgs;
- * import com.pulumi.aws.AwsFunctions;
- * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
- * import com.pulumi.aws.ec2.VpcPeeringConnection;
- * import com.pulumi.aws.ec2.VpcPeeringConnectionArgs;
- * import com.pulumi.aws.ec2.VpcPeeringConnectionAccepter;
- * import com.pulumi.aws.ec2.VpcPeeringConnectionAccepterArgs;
- * import com.pulumi.aws.ec2.PeeringConnectionOptions;
- * import com.pulumi.aws.ec2.PeeringConnectionOptionsArgs;
- * import com.pulumi.aws.ec2.inputs.PeeringConnectionOptionsRequesterArgs;
- * import com.pulumi.aws.ec2.inputs.PeeringConnectionOptionsAccepterArgs;
- * import com.pulumi.resources.CustomResourceOptions;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var requester = new Provider(&#34;requester&#34;);
- * 
- *         var accepter = new Provider(&#34;accepter&#34;);
- * 
- *         var main = new Vpc(&#34;main&#34;, VpcArgs.builder()        
- *             .cidrBlock(&#34;10.0.0.0/16&#34;)
- *             .enableDnsSupport(true)
- *             .enableDnsHostnames(true)
- *             .build(), CustomResourceOptions.builder()
- *                 .provider(aws.requester())
- *                 .build());
- * 
- *         var peerVpc = new Vpc(&#34;peerVpc&#34;, VpcArgs.builder()        
- *             .cidrBlock(&#34;10.1.0.0/16&#34;)
- *             .enableDnsSupport(true)
- *             .enableDnsHostnames(true)
- *             .build(), CustomResourceOptions.builder()
- *                 .provider(aws.accepter())
- *                 .build());
- * 
- *         final var peerCallerIdentity = AwsFunctions.getCallerIdentity();
- * 
- *         var peerVpcPeeringConnection = new VpcPeeringConnection(&#34;peerVpcPeeringConnection&#34;, VpcPeeringConnectionArgs.builder()        
- *             .vpcId(main.id())
- *             .peerVpcId(peerVpc.id())
- *             .peerOwnerId(peerCallerIdentity.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()))
- *             .autoAccept(false)
- *             .tags(Map.of(&#34;Side&#34;, &#34;Requester&#34;))
- *             .build(), CustomResourceOptions.builder()
- *                 .provider(aws.requester())
- *                 .build());
- * 
- *         var peerVpcPeeringConnectionAccepter = new VpcPeeringConnectionAccepter(&#34;peerVpcPeeringConnectionAccepter&#34;, VpcPeeringConnectionAccepterArgs.builder()        
- *             .vpcPeeringConnectionId(peerVpcPeeringConnection.id())
- *             .autoAccept(true)
- *             .tags(Map.of(&#34;Side&#34;, &#34;Accepter&#34;))
- *             .build(), CustomResourceOptions.builder()
- *                 .provider(aws.accepter())
- *                 .build());
- * 
- *         var requesterPeeringConnectionOptions = new PeeringConnectionOptions(&#34;requesterPeeringConnectionOptions&#34;, PeeringConnectionOptionsArgs.builder()        
- *             .vpcPeeringConnectionId(peerVpcPeeringConnectionAccepter.id())
- *             .requester(PeeringConnectionOptionsRequesterArgs.builder()
- *                 .allowRemoteVpcDnsResolution(true)
- *                 .build())
- *             .build(), CustomResourceOptions.builder()
- *                 .provider(aws.requester())
- *                 .build());
- * 
- *         var accepterPeeringConnectionOptions = new PeeringConnectionOptions(&#34;accepterPeeringConnectionOptions&#34;, PeeringConnectionOptionsArgs.builder()        
- *             .vpcPeeringConnectionId(peerVpcPeeringConnectionAccepter.id())
- *             .accepter(PeeringConnectionOptionsAccepterArgs.builder()
- *                 .allowRemoteVpcDnsResolution(true)
- *                 .build())
- *             .build(), CustomResourceOptions.builder()
- *                 .provider(aws.accepter())
- *                 .build());
  * 
  *     }
  * }

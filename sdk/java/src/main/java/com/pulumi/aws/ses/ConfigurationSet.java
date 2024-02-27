@@ -58,7 +58,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.ses.ConfigurationSet;
  * import com.pulumi.aws.ses.ConfigurationSetArgs;
- * import com.pulumi.aws.ses.inputs.ConfigurationSetDeliveryOptionsArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -73,9 +72,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new ConfigurationSet(&#34;test&#34;, ConfigurationSetArgs.builder()        
- *             .deliveryOptions(ConfigurationSetDeliveryOptionsArgs.builder()
- *                 .tlsPolicy(&#34;Require&#34;)
- *                 .build())
+ *             .deliveryOptions(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -90,7 +87,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.ses.ConfigurationSet;
  * import com.pulumi.aws.ses.ConfigurationSetArgs;
- * import com.pulumi.aws.ses.inputs.ConfigurationSetTrackingOptionsArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -105,9 +101,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new ConfigurationSet(&#34;test&#34;, ConfigurationSetArgs.builder()        
- *             .trackingOptions(ConfigurationSetTrackingOptionsArgs.builder()
- *                 .customRedirectDomain(&#34;sub.example.com&#34;)
- *                 .build())
+ *             .trackingOptions(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

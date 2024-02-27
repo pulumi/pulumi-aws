@@ -22,41 +22,40 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssm"
+//	ssm/maintenanceWindow "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ssm/maintenanceWindow"
+//	ssm/maintenanceWindowTarget "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ssm/maintenanceWindowTarget"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			window, err := ssm.NewMaintenanceWindow(ctx, "window", &ssm.MaintenanceWindowArgs{
-//				Schedule: pulumi.String("cron(0 16 ? * TUE *)"),
-//				Duration: pulumi.Int(3),
-//				Cutoff:   pulumi.Int(1),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ssm.NewMaintenanceWindowTarget(ctx, "target1", &ssm.MaintenanceWindowTargetArgs{
-//				WindowId:     window.ID(),
-//				Description:  pulumi.String("This is a maintenance window target"),
-//				ResourceType: pulumi.String("INSTANCE"),
-//				Targets: ssm.MaintenanceWindowTargetTargetArray{
-//					&ssm.MaintenanceWindowTargetTargetArgs{
-//						Key: pulumi.String("tag:Name"),
-//						Values: pulumi.StringArray{
-//							pulumi.String("acceptance_test"),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// window, err := ssm/maintenanceWindow.NewMaintenanceWindow(ctx, "window", &ssm/maintenanceWindow.MaintenanceWindowArgs{
+// Schedule: "cron(0 16 ? * TUE *)",
+// Duration: 3,
+// Cutoff: 1,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = ssm/maintenanceWindowTarget.NewMaintenanceWindowTarget(ctx, "target1", &ssm/maintenanceWindowTarget.MaintenanceWindowTargetArgs{
+// WindowId: window.Id,
+// Description: "This is a maintenance window target",
+// ResourceType: "INSTANCE",
+// Targets: []map[string]interface{}{
+// map[string]interface{}{
+// "key": "tag:Name",
+// "values": []string{
+// "acceptance_test",
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Resource Group Target
 //
@@ -65,41 +64,40 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssm"
+//	ssm/maintenanceWindow "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ssm/maintenanceWindow"
+//	ssm/maintenanceWindowTarget "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ssm/maintenanceWindowTarget"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			window, err := ssm.NewMaintenanceWindow(ctx, "window", &ssm.MaintenanceWindowArgs{
-//				Schedule: pulumi.String("cron(0 16 ? * TUE *)"),
-//				Duration: pulumi.Int(3),
-//				Cutoff:   pulumi.Int(1),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ssm.NewMaintenanceWindowTarget(ctx, "target1", &ssm.MaintenanceWindowTargetArgs{
-//				WindowId:     window.ID(),
-//				Description:  pulumi.String("This is a maintenance window target"),
-//				ResourceType: pulumi.String("RESOURCE_GROUP"),
-//				Targets: ssm.MaintenanceWindowTargetTargetArray{
-//					&ssm.MaintenanceWindowTargetTargetArgs{
-//						Key: pulumi.String("resource-groups:ResourceTypeFilters"),
-//						Values: pulumi.StringArray{
-//							pulumi.String("AWS::EC2::Instance"),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// window, err := ssm/maintenanceWindow.NewMaintenanceWindow(ctx, "window", &ssm/maintenanceWindow.MaintenanceWindowArgs{
+// Schedule: "cron(0 16 ? * TUE *)",
+// Duration: 3,
+// Cutoff: 1,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = ssm/maintenanceWindowTarget.NewMaintenanceWindowTarget(ctx, "target1", &ssm/maintenanceWindowTarget.MaintenanceWindowTargetArgs{
+// WindowId: window.Id,
+// Description: "This is a maintenance window target",
+// ResourceType: "RESOURCE_GROUP",
+// Targets: []map[string]interface{}{
+// map[string]interface{}{
+// "key": "resource-groups:ResourceTypeFilters",
+// "values": []string{
+// "AWS::EC2::Instance",
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

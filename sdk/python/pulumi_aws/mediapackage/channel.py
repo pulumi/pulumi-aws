@@ -200,9 +200,9 @@ class Channel(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        kittens = aws.mediapackage.Channel("kittens",
-            channel_id="kitten-channel",
-            description="A channel dedicated to amusing videos of kittens.")
+        kittens = aws.mediapackage.channel.Channel("kittens",
+            channel_id=kitten-channel,
+            description=A channel dedicated to amusing videos of kittens.)
         ```
 
         ## Import
@@ -234,9 +234,9 @@ class Channel(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        kittens = aws.mediapackage.Channel("kittens",
-            channel_id="kitten-channel",
-            description="A channel dedicated to amusing videos of kittens.")
+        kittens = aws.mediapackage.channel.Channel("kittens",
+            channel_id=kitten-channel,
+            description=A channel dedicated to amusing videos of kittens.)
         ```
 
         ## Import

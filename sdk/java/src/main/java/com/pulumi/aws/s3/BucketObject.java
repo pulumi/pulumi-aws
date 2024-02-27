@@ -170,7 +170,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.s3.BucketAclV2Args;
  * import com.pulumi.aws.s3.BucketVersioningV2;
  * import com.pulumi.aws.s3.BucketVersioningV2Args;
- * import com.pulumi.aws.s3.inputs.BucketVersioningV2VersioningConfigurationArgs;
  * import com.pulumi.aws.s3.BucketObject;
  * import com.pulumi.aws.s3.BucketObjectArgs;
  * import com.pulumi.resources.CustomResourceOptions;
@@ -199,9 +198,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleBucketVersioningV2 = new BucketVersioningV2(&#34;exampleBucketVersioningV2&#34;, BucketVersioningV2Args.builder()        
  *             .bucket(examplebucket.id())
- *             .versioningConfiguration(BucketVersioningV2VersioningConfigurationArgs.builder()
- *                 .status(&#34;Enabled&#34;)
- *                 .build())
+ *             .versioningConfiguration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleBucketObject = new BucketObject(&#34;exampleBucketObject&#34;, BucketObjectArgs.builder()        

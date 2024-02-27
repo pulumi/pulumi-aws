@@ -16,12 +16,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleKey = new aws.kms.Key("exampleKey", {description: "domain key"});
- * const exampleDomain = new aws.codeartifact.Domain("exampleDomain", {
+ * const exampleKey = new aws.kms/key.Key("exampleKey", {description: "domain key"});
+ * const exampleDomain = new aws.codeartifact/domain.Domain("exampleDomain", {
  *     domain: "example",
  *     encryptionKey: exampleKey.arn,
  * });
- * const test = new aws.codeartifact.Repository("test", {
+ * const test = new aws.codeartifact/repository.Repository("test", {
  *     repository: "example",
  *     domain: exampleDomain.domain,
  * });
@@ -32,11 +32,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const upstream = new aws.codeartifact.Repository("upstream", {
+ * const upstream = new aws.codeartifact/repository.Repository("upstream", {
  *     repository: "upstream",
  *     domain: aws_codeartifact_domain.test.domain,
  * });
- * const test = new aws.codeartifact.Repository("test", {
+ * const test = new aws.codeartifact/repository.Repository("test", {
  *     repository: "example",
  *     domain: aws_codeartifact_domain.example.domain,
  *     upstreams: [{
@@ -50,11 +50,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const upstream = new aws.codeartifact.Repository("upstream", {
+ * const upstream = new aws.codeartifact/repository.Repository("upstream", {
  *     repository: "upstream",
  *     domain: aws_codeartifact_domain.test.domain,
  * });
- * const test = new aws.codeartifact.Repository("test", {
+ * const test = new aws.codeartifact/repository.Repository("test", {
  *     repository: "example",
  *     domain: aws_codeartifact_domain.example.domain,
  *     externalConnections: {

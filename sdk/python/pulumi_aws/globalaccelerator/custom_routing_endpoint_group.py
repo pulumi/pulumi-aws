@@ -190,16 +190,16 @@ class CustomRoutingEndpointGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.globalaccelerator.CustomRoutingEndpointGroup("example",
-            listener_arn=aws_globalaccelerator_custom_routing_listener["example"]["id"],
-            destination_configurations=[aws.globalaccelerator.CustomRoutingEndpointGroupDestinationConfigurationArgs(
-                from_port=80,
-                to_port=8080,
-                protocols=["TCP"],
-            )],
-            endpoint_configurations=[aws.globalaccelerator.CustomRoutingEndpointGroupEndpointConfigurationArgs(
-                endpoint_id=aws_subnet["example"]["id"],
-            )])
+        example = aws.globalaccelerator.custom_routing_endpoint_group.CustomRoutingEndpointGroup("example",
+            listener_arn=aws_globalaccelerator_custom_routing_listener.example.id,
+            destination_configurations=[{
+                fromPort: 80,
+                toPort: 8080,
+                protocols: [TCP],
+            }],
+            endpoint_configurations=[{
+                endpointId: aws_subnet.example.id,
+            }])
         ```
 
         ## Import
@@ -232,16 +232,16 @@ class CustomRoutingEndpointGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.globalaccelerator.CustomRoutingEndpointGroup("example",
-            listener_arn=aws_globalaccelerator_custom_routing_listener["example"]["id"],
-            destination_configurations=[aws.globalaccelerator.CustomRoutingEndpointGroupDestinationConfigurationArgs(
-                from_port=80,
-                to_port=8080,
-                protocols=["TCP"],
-            )],
-            endpoint_configurations=[aws.globalaccelerator.CustomRoutingEndpointGroupEndpointConfigurationArgs(
-                endpoint_id=aws_subnet["example"]["id"],
-            )])
+        example = aws.globalaccelerator.custom_routing_endpoint_group.CustomRoutingEndpointGroup("example",
+            listener_arn=aws_globalaccelerator_custom_routing_listener.example.id,
+            destination_configurations=[{
+                fromPort: 80,
+                toPort: 8080,
+                protocols: [TCP],
+            }],
+            endpoint_configurations=[{
+                endpointId: aws_subnet.example.id,
+            }])
         ```
 
         ## Import

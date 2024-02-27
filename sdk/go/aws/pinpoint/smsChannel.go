@@ -21,27 +21,26 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/pinpoint"
+//	pinpoint/app "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/pinpoint/app"
+//	pinpoint/smsChannel "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/pinpoint/smsChannel"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			app, err := pinpoint.NewApp(ctx, "app", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = pinpoint.NewSmsChannel(ctx, "sms", &pinpoint.SmsChannelArgs{
-//				ApplicationId: app.ApplicationId,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// app, err := pinpoint/app.NewApp(ctx, "app", nil)
+// if err != nil {
+// return err
+// }
+// _, err = pinpoint/smsChannel.NewSmsChannel(ctx, "sms", &pinpoint/smsChannel.SmsChannelArgs{
+// ApplicationId: app.ApplicationId,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

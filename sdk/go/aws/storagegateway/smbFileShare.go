@@ -24,26 +24,24 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/storagegateway"
+//	storagegateway/smbFileShare "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/storagegateway/smbFileShare"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := storagegateway.NewSmbFileShare(ctx, "example", &storagegateway.SmbFileShareArgs{
-//				Authentication: pulumi.String("ActiveDirectory"),
-//				GatewayArn:     pulumi.Any(aws_storagegateway_gateway.Example.Arn),
-//				LocationArn:    pulumi.Any(aws_s3_bucket.Example.Arn),
-//				RoleArn:        pulumi.Any(aws_iam_role.Example.Arn),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := storagegateway/smbFileShare.NewSmbFileShare(ctx, "example", &storagegateway/smbFileShare.SmbFileShareArgs{
+// Authentication: "ActiveDirectory",
+// GatewayArn: aws_storagegateway_gateway.Example.Arn,
+// LocationArn: aws_s3_bucket.Example.Arn,
+// RoleArn: aws_iam_role.Example.Arn,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Guest Authentication
 //
@@ -54,26 +52,24 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/storagegateway"
+//	storagegateway/smbFileShare "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/storagegateway/smbFileShare"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := storagegateway.NewSmbFileShare(ctx, "example", &storagegateway.SmbFileShareArgs{
-//				Authentication: pulumi.String("GuestAccess"),
-//				GatewayArn:     pulumi.Any(aws_storagegateway_gateway.Example.Arn),
-//				LocationArn:    pulumi.Any(aws_s3_bucket.Example.Arn),
-//				RoleArn:        pulumi.Any(aws_iam_role.Example.Arn),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := storagegateway/smbFileShare.NewSmbFileShare(ctx, "example", &storagegateway/smbFileShare.SmbFileShareArgs{
+// Authentication: "GuestAccess",
+// GatewayArn: aws_storagegateway_gateway.Example.Arn,
+// LocationArn: aws_s3_bucket.Example.Arn,
+// RoleArn: aws_iam_role.Example.Arn,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

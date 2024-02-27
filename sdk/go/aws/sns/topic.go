@@ -20,21 +20,19 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sns"
+//	sns/topic "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/sns/topic"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := sns.NewTopic(ctx, "userUpdates", nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := sns/topic.NewTopic(ctx, "userUpdates", nil)
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ## Example with Delivery Policy
 //
@@ -43,15 +41,15 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sns"
+//	sns/topic "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/sns/topic"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := sns/topic.NewTopic(ctx, "userUpdates", &sns/topic.TopicArgs{
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := sns.NewTopic(ctx, "userUpdates", &sns.TopicArgs{
-//				DeliveryPolicy: pulumi.String(`{
+//	DeliveryPolicy: `{
 //	  "http": {
 //	    "defaultHealthyRetryPolicy": {
 //	      "minDelayTarget": 20,
@@ -69,16 +67,14 @@ import (
 //	  }
 //	}
 //
-// `),
-//
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// `,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Example with Server-side encryption (SSE)
@@ -88,23 +84,21 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sns"
+//	sns/topic "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/sns/topic"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := sns.NewTopic(ctx, "userUpdates", &sns.TopicArgs{
-//				KmsMasterKeyId: pulumi.String("alias/aws/sns"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := sns/topic.NewTopic(ctx, "userUpdates", &sns/topic.TopicArgs{
+// KmsMasterKeyId: "alias/aws/sns",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Example with First-In-First-Out (FIFO)
@@ -114,24 +108,22 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sns"
+//	sns/topic "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/sns/topic"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := sns.NewTopic(ctx, "userUpdates", &sns.TopicArgs{
-//				ContentBasedDeduplication: pulumi.Bool(true),
-//				FifoTopic:                 pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := sns/topic.NewTopic(ctx, "userUpdates", &sns/topic.TopicArgs{
+// ContentBasedDeduplication: true,
+// FifoTopic: true,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Message Delivery Status Arguments

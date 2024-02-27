@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const queue = new aws.sqs.Queue("queue", {
+ * const queue = new aws.sqs/queue.Queue("queue", {
  *     delaySeconds: 90,
  *     maxMessageSize: 2048,
  *     messageRetentionSeconds: 86400,
@@ -31,7 +31,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const queue = new aws.sqs.Queue("queue", {
+ * const queue = new aws.sqs/queue.Queue("queue", {
  *     contentBasedDeduplication: true,
  *     fifoQueue: true,
  * });
@@ -43,7 +43,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const queue = new aws.sqs.Queue("queue", {
+ * const queue = new aws.sqs/queue.Queue("queue", {
  *     deduplicationScope: "messageGroup",
  *     fifoQueue: true,
  *     fifoThroughputLimit: "perMessageGroupId",
@@ -56,12 +56,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const queue = new aws.sqs.Queue("queue", {redrivePolicy: JSON.stringify({
+ * const queue = new aws.sqs/queue.Queue("queue", {redrivePolicy: JSON.stringify({
  *     deadLetterTargetArn: aws_sqs_queue.queue_deadletter.arn,
  *     maxReceiveCount: 4,
  * })});
- * const exampleQueueDeadletter = new aws.sqs.Queue("exampleQueueDeadletter", {});
- * const exampleQueueRedriveAllowPolicy = new aws.sqs.RedriveAllowPolicy("exampleQueueRedriveAllowPolicy", {
+ * const exampleQueueDeadletter = new aws.sqs/queue.Queue("exampleQueueDeadletter", {});
+ * const exampleQueueRedriveAllowPolicy = new aws.sqs/redriveAllowPolicy.RedriveAllowPolicy("exampleQueueRedriveAllowPolicy", {
  *     queueUrl: exampleQueueDeadletter.id,
  *     redriveAllowPolicy: JSON.stringify({
  *         redrivePermission: "byQueue",
@@ -78,7 +78,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const queue = new aws.sqs.Queue("queue", {sqsManagedSseEnabled: true});
+ * const queue = new aws.sqs/queue.Queue("queue", {sqsManagedSseEnabled: true});
  * ```
  *
  * Using [SSE-KMS](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-sse-existing-queue.html):
@@ -87,7 +87,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const queue = new aws.sqs.Queue("queue", {
+ * const queue = new aws.sqs/queue.Queue("queue", {
  *     kmsDataKeyReusePeriodSeconds: 300,
  *     kmsMasterKeyId: "alias/aws/sqs",
  * });

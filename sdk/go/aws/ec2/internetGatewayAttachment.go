@@ -21,34 +21,34 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	ec2/internetGateway "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/internetGateway"
+//	ec2/internetGatewayAttachment "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/internetGatewayAttachment"
+//	ec2/vpc "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/vpc"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleVpc, err := ec2.NewVpc(ctx, "exampleVpc", &ec2.VpcArgs{
-//				CidrBlock: pulumi.String("10.1.0.0/16"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleInternetGateway, err := ec2.NewInternetGateway(ctx, "exampleInternetGateway", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ec2.NewInternetGatewayAttachment(ctx, "exampleInternetGatewayAttachment", &ec2.InternetGatewayAttachmentArgs{
-//				InternetGatewayId: exampleInternetGateway.ID(),
-//				VpcId:             exampleVpc.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleVpc, err := ec2/vpc.NewVpc(ctx, "exampleVpc", &ec2/vpc.VpcArgs{
+// CidrBlock: "10.1.0.0/16",
+// })
+// if err != nil {
+// return err
+// }
+// exampleInternetGateway, err := ec2/internetGateway.NewInternetGateway(ctx, "exampleInternetGateway", nil)
+// if err != nil {
+// return err
+// }
+// _, err = ec2/internetGatewayAttachment.NewInternetGatewayAttachment(ctx, "exampleInternetGatewayAttachment", &ec2/internetGatewayAttachment.InternetGatewayAttachmentArgs{
+// InternetGatewayId: exampleInternetGateway.Id,
+// VpcId: exampleVpc.Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

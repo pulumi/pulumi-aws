@@ -26,40 +26,23 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/opensearch"
+//	opensearch/serverlessSecurityPolicy "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/opensearch/serverlessSecurityPolicy"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"Rules": []map[string]interface{}{
-//					map[string]interface{}{
-//						"Resource": []string{
-//							"collection/example-collection",
-//						},
-//						"ResourceType": "collection",
-//					},
-//				},
-//				"AWSOwnedKey": true,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			_, err = opensearch.NewServerlessSecurityPolicy(ctx, "example", &opensearch.ServerlessSecurityPolicyArgs{
-//				Type:        pulumi.String("encryption"),
-//				Description: pulumi.String("encryption security policy for example-collection"),
-//				Policy:      pulumi.String(json0),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := opensearch/serverlessSecurityPolicy.NewServerlessSecurityPolicy(ctx, "example", &opensearch/serverlessSecurityPolicy.ServerlessSecurityPolicyArgs{
+// Type: "encryption",
+// Description: "encryption security policy for example-collection",
+// Policy: %!v(PANIC=Format method: fatal: An assertion has failed: unlowered function toJSON),
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Applies to multiple collections
 //
@@ -70,40 +53,23 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/opensearch"
+//	opensearch/serverlessSecurityPolicy "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/opensearch/serverlessSecurityPolicy"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"Rules": []map[string]interface{}{
-//					map[string]interface{}{
-//						"Resource": []string{
-//							"collection/example*",
-//						},
-//						"ResourceType": "collection",
-//					},
-//				},
-//				"AWSOwnedKey": true,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			_, err = opensearch.NewServerlessSecurityPolicy(ctx, "example", &opensearch.ServerlessSecurityPolicyArgs{
-//				Type:        pulumi.String("encryption"),
-//				Description: pulumi.String("encryption security policy for collections that begin with \"example\""),
-//				Policy:      pulumi.String(json0),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := opensearch/serverlessSecurityPolicy.NewServerlessSecurityPolicy(ctx, "example", &opensearch/serverlessSecurityPolicy.ServerlessSecurityPolicyArgs{
+// Type: "encryption",
+// Description: "encryption security policy for collections that begin with \"example\"",
+// Policy: %!v(PANIC=Format method: fatal: An assertion has failed: unlowered function toJSON),
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Using a customer managed key
 //
@@ -114,41 +80,23 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/opensearch"
+//	opensearch/serverlessSecurityPolicy "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/opensearch/serverlessSecurityPolicy"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"Rules": []map[string]interface{}{
-//					map[string]interface{}{
-//						"Resource": []string{
-//							"collection/customer-managed-key-collection",
-//						},
-//						"ResourceType": "collection",
-//					},
-//				},
-//				"AWSOwnedKey": false,
-//				"KmsARN":      "arn:aws:kms:us-east-1:123456789012:key/93fd6da4-a317-4c17-bfe9-382b5d988b36",
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			_, err = opensearch.NewServerlessSecurityPolicy(ctx, "example", &opensearch.ServerlessSecurityPolicyArgs{
-//				Type:        pulumi.String("encryption"),
-//				Description: pulumi.String("encryption security policy using customer KMS key"),
-//				Policy:      pulumi.String(json0),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := opensearch/serverlessSecurityPolicy.NewServerlessSecurityPolicy(ctx, "example", &opensearch/serverlessSecurityPolicy.ServerlessSecurityPolicyArgs{
+// Type: "encryption",
+// Description: "encryption security policy using customer KMS key",
+// Policy: %!v(PANIC=Format method: fatal: An assertion has failed: unlowered function toJSON),
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Network Security Policy
 // ### Allow public access to the collection endpoint and the Dashboards endpoint
@@ -160,49 +108,23 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/opensearch"
+//	opensearch/serverlessSecurityPolicy "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/opensearch/serverlessSecurityPolicy"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			tmpJSON0, err := json.Marshal([]map[string]interface{}{
-//				map[string]interface{}{
-//					"Description": "Public access to collection and Dashboards endpoint for example collection",
-//					"Rules": []map[string]interface{}{
-//						map[string]interface{}{
-//							"ResourceType": "collection",
-//							"Resource": []string{
-//								"collection/example-collection",
-//							},
-//						},
-//						map[string]interface{}{
-//							"ResourceType": "dashboard",
-//							"Resource": []string{
-//								"collection/example-collection",
-//							},
-//						},
-//					},
-//					"AllowFromPublic": true,
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			_, err = opensearch.NewServerlessSecurityPolicy(ctx, "example", &opensearch.ServerlessSecurityPolicyArgs{
-//				Type:        pulumi.String("network"),
-//				Description: pulumi.String("Public access"),
-//				Policy:      pulumi.String(json0),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := opensearch/serverlessSecurityPolicy.NewServerlessSecurityPolicy(ctx, "example", &opensearch/serverlessSecurityPolicy.ServerlessSecurityPolicyArgs{
+// Type: "network",
+// Description: "Public access",
+// Policy: %!v(PANIC=Format method: fatal: An assertion has failed: unlowered function toJSON),
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Allow VPC access to the collection endpoint and the Dashboards endpoint
 //
@@ -213,52 +135,23 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/opensearch"
+//	opensearch/serverlessSecurityPolicy "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/opensearch/serverlessSecurityPolicy"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			tmpJSON0, err := json.Marshal([]map[string]interface{}{
-//				map[string]interface{}{
-//					"Description": "VPC access to collection and Dashboards endpoint for example collection",
-//					"Rules": []map[string]interface{}{
-//						map[string]interface{}{
-//							"ResourceType": "collection",
-//							"Resource": []string{
-//								"collection/example-collection",
-//							},
-//						},
-//						map[string]interface{}{
-//							"ResourceType": "dashboard",
-//							"Resource": []string{
-//								"collection/example-collection",
-//							},
-//						},
-//					},
-//					"AllowFromPublic": false,
-//					"SourceVPCEs": []string{
-//						"vpce-050f79086ee71ac05",
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			_, err = opensearch.NewServerlessSecurityPolicy(ctx, "example", &opensearch.ServerlessSecurityPolicyArgs{
-//				Type:        pulumi.String("network"),
-//				Description: pulumi.String("VPC access"),
-//				Policy:      pulumi.String(json0),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := opensearch/serverlessSecurityPolicy.NewServerlessSecurityPolicy(ctx, "example", &opensearch/serverlessSecurityPolicy.ServerlessSecurityPolicyArgs{
+// Type: "network",
+// Description: "VPC access",
+// Policy: %!v(PANIC=Format method: fatal: An assertion has failed: unlowered function toJSON),
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Mixed access for different collections
 //
@@ -269,64 +162,23 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/opensearch"
+//	opensearch/serverlessSecurityPolicy "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/opensearch/serverlessSecurityPolicy"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			tmpJSON0, err := json.Marshal([]interface{}{
-//				map[string]interface{}{
-//					"Description": "Marketing access",
-//					"Rules": []map[string]interface{}{
-//						map[string]interface{}{
-//							"ResourceType": "collection",
-//							"Resource": []string{
-//								"collection/marketing*",
-//							},
-//						},
-//						map[string]interface{}{
-//							"ResourceType": "dashboard",
-//							"Resource": []string{
-//								"collection/marketing*",
-//							},
-//						},
-//					},
-//					"AllowFromPublic": false,
-//					"SourceVPCEs": []string{
-//						"vpce-050f79086ee71ac05",
-//					},
-//				},
-//				map[string]interface{}{
-//					"Description": "Sales access",
-//					"Rules": []map[string]interface{}{
-//						map[string]interface{}{
-//							"ResourceType": "collection",
-//							"Resource": []string{
-//								"collection/finance",
-//							},
-//						},
-//					},
-//					"AllowFromPublic": true,
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			_, err = opensearch.NewServerlessSecurityPolicy(ctx, "example", &opensearch.ServerlessSecurityPolicyArgs{
-//				Type:        pulumi.String("network"),
-//				Description: pulumi.String("Mixed access for marketing and sales"),
-//				Policy:      pulumi.String(json0),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := opensearch/serverlessSecurityPolicy.NewServerlessSecurityPolicy(ctx, "example", &opensearch/serverlessSecurityPolicy.ServerlessSecurityPolicyArgs{
+// Type: "network",
+// Description: "Mixed access for marketing and sales",
+// Policy: %!v(PANIC=Format method: fatal: An assertion has failed: unlowered function toJSON),
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

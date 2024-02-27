@@ -29,10 +29,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.appmesh.Route;
  * import com.pulumi.aws.appmesh.RouteArgs;
- * import com.pulumi.aws.appmesh.inputs.RouteSpecArgs;
- * import com.pulumi.aws.appmesh.inputs.RouteSpecHttpRouteArgs;
- * import com.pulumi.aws.appmesh.inputs.RouteSpecHttpRouteMatchArgs;
- * import com.pulumi.aws.appmesh.inputs.RouteSpecHttpRouteActionArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -49,24 +45,7 @@ import javax.annotation.Nullable;
  *         var serviceb = new Route(&#34;serviceb&#34;, RouteArgs.builder()        
  *             .meshName(aws_appmesh_mesh.simple().id())
  *             .virtualRouterName(aws_appmesh_virtual_router.serviceb().name())
- *             .spec(RouteSpecArgs.builder()
- *                 .httpRoute(RouteSpecHttpRouteArgs.builder()
- *                     .match(RouteSpecHttpRouteMatchArgs.builder()
- *                         .prefix(&#34;/&#34;)
- *                         .build())
- *                     .action(RouteSpecHttpRouteActionArgs.builder()
- *                         .weightedTargets(                        
- *                             RouteSpecHttpRouteActionWeightedTargetArgs.builder()
- *                                 .virtualNode(aws_appmesh_virtual_node.serviceb1().name())
- *                                 .weight(90)
- *                                 .build(),
- *                             RouteSpecHttpRouteActionWeightedTargetArgs.builder()
- *                                 .virtualNode(aws_appmesh_virtual_node.serviceb2().name())
- *                                 .weight(10)
- *                                 .build())
- *                         .build())
- *                     .build())
- *                 .build())
+ *             .spec(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -81,10 +60,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.appmesh.Route;
  * import com.pulumi.aws.appmesh.RouteArgs;
- * import com.pulumi.aws.appmesh.inputs.RouteSpecArgs;
- * import com.pulumi.aws.appmesh.inputs.RouteSpecHttpRouteArgs;
- * import com.pulumi.aws.appmesh.inputs.RouteSpecHttpRouteMatchArgs;
- * import com.pulumi.aws.appmesh.inputs.RouteSpecHttpRouteActionArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -101,27 +76,7 @@ import javax.annotation.Nullable;
  *         var serviceb = new Route(&#34;serviceb&#34;, RouteArgs.builder()        
  *             .meshName(aws_appmesh_mesh.simple().id())
  *             .virtualRouterName(aws_appmesh_virtual_router.serviceb().name())
- *             .spec(RouteSpecArgs.builder()
- *                 .httpRoute(RouteSpecHttpRouteArgs.builder()
- *                     .match(RouteSpecHttpRouteMatchArgs.builder()
- *                         .method(&#34;POST&#34;)
- *                         .prefix(&#34;/&#34;)
- *                         .scheme(&#34;https&#34;)
- *                         .headers(RouteSpecHttpRouteMatchHeaderArgs.builder()
- *                             .name(&#34;clientRequestId&#34;)
- *                             .match(RouteSpecHttpRouteMatchHeaderMatchArgs.builder()
- *                                 .prefix(&#34;123&#34;)
- *                                 .build())
- *                             .build())
- *                         .build())
- *                     .action(RouteSpecHttpRouteActionArgs.builder()
- *                         .weightedTargets(RouteSpecHttpRouteActionWeightedTargetArgs.builder()
- *                             .virtualNode(aws_appmesh_virtual_node.serviceb().name())
- *                             .weight(100)
- *                             .build())
- *                         .build())
- *                     .build())
- *                 .build())
+ *             .spec(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -136,12 +91,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.appmesh.Route;
  * import com.pulumi.aws.appmesh.RouteArgs;
- * import com.pulumi.aws.appmesh.inputs.RouteSpecArgs;
- * import com.pulumi.aws.appmesh.inputs.RouteSpecHttpRouteArgs;
- * import com.pulumi.aws.appmesh.inputs.RouteSpecHttpRouteMatchArgs;
- * import com.pulumi.aws.appmesh.inputs.RouteSpecHttpRouteRetryPolicyArgs;
- * import com.pulumi.aws.appmesh.inputs.RouteSpecHttpRouteRetryPolicyPerRetryTimeoutArgs;
- * import com.pulumi.aws.appmesh.inputs.RouteSpecHttpRouteActionArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -158,27 +107,7 @@ import javax.annotation.Nullable;
  *         var serviceb = new Route(&#34;serviceb&#34;, RouteArgs.builder()        
  *             .meshName(aws_appmesh_mesh.simple().id())
  *             .virtualRouterName(aws_appmesh_virtual_router.serviceb().name())
- *             .spec(RouteSpecArgs.builder()
- *                 .httpRoute(RouteSpecHttpRouteArgs.builder()
- *                     .match(RouteSpecHttpRouteMatchArgs.builder()
- *                         .prefix(&#34;/&#34;)
- *                         .build())
- *                     .retryPolicy(RouteSpecHttpRouteRetryPolicyArgs.builder()
- *                         .httpRetryEvents(&#34;server-error&#34;)
- *                         .maxRetries(1)
- *                         .perRetryTimeout(RouteSpecHttpRouteRetryPolicyPerRetryTimeoutArgs.builder()
- *                             .unit(&#34;s&#34;)
- *                             .value(15)
- *                             .build())
- *                         .build())
- *                     .action(RouteSpecHttpRouteActionArgs.builder()
- *                         .weightedTargets(RouteSpecHttpRouteActionWeightedTargetArgs.builder()
- *                             .virtualNode(aws_appmesh_virtual_node.serviceb().name())
- *                             .weight(100)
- *                             .build())
- *                         .build())
- *                     .build())
- *                 .build())
+ *             .spec(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -193,9 +122,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.appmesh.Route;
  * import com.pulumi.aws.appmesh.RouteArgs;
- * import com.pulumi.aws.appmesh.inputs.RouteSpecArgs;
- * import com.pulumi.aws.appmesh.inputs.RouteSpecTcpRouteArgs;
- * import com.pulumi.aws.appmesh.inputs.RouteSpecTcpRouteActionArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -212,16 +138,7 @@ import javax.annotation.Nullable;
  *         var serviceb = new Route(&#34;serviceb&#34;, RouteArgs.builder()        
  *             .meshName(aws_appmesh_mesh.simple().id())
  *             .virtualRouterName(aws_appmesh_virtual_router.serviceb().name())
- *             .spec(RouteSpecArgs.builder()
- *                 .tcpRoute(RouteSpecTcpRouteArgs.builder()
- *                     .action(RouteSpecTcpRouteActionArgs.builder()
- *                         .weightedTargets(RouteSpecTcpRouteActionWeightedTargetArgs.builder()
- *                             .virtualNode(aws_appmesh_virtual_node.serviceb1().name())
- *                             .weight(100)
- *                             .build())
- *                         .build())
- *                     .build())
- *                 .build())
+ *             .spec(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

@@ -17,74 +17,12 @@ public final class CloudcontrolFunctions {
     /**
      * Provides details for a Cloud Control API Resource. The reading of these resources is proxied through Cloud Control API handlers to the backend service.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.cloudcontrol.CloudcontrolFunctions;
-     * import com.pulumi.aws.cloudcontrol.inputs.GetResourceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = CloudcontrolFunctions.getResource(GetResourceArgs.builder()
-     *             .identifier(&#34;example&#34;)
-     *             .typeName(&#34;AWS::ECS::Cluster&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetResourceResult> getResource(GetResourceArgs args) {
         return getResource(args, InvokeOptions.Empty);
     }
     /**
      * Provides details for a Cloud Control API Resource. The reading of these resources is proxied through Cloud Control API handlers to the backend service.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.cloudcontrol.CloudcontrolFunctions;
-     * import com.pulumi.aws.cloudcontrol.inputs.GetResourceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = CloudcontrolFunctions.getResource(GetResourceArgs.builder()
-     *             .identifier(&#34;example&#34;)
-     *             .typeName(&#34;AWS::ECS::Cluster&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetResourceResult> getResourcePlain(GetResourcePlainArgs args) {
@@ -93,74 +31,12 @@ public final class CloudcontrolFunctions {
     /**
      * Provides details for a Cloud Control API Resource. The reading of these resources is proxied through Cloud Control API handlers to the backend service.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.cloudcontrol.CloudcontrolFunctions;
-     * import com.pulumi.aws.cloudcontrol.inputs.GetResourceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = CloudcontrolFunctions.getResource(GetResourceArgs.builder()
-     *             .identifier(&#34;example&#34;)
-     *             .typeName(&#34;AWS::ECS::Cluster&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetResourceResult> getResource(GetResourceArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:cloudcontrol/getResource:getResource", TypeShape.of(GetResourceResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Provides details for a Cloud Control API Resource. The reading of these resources is proxied through Cloud Control API handlers to the backend service.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.cloudcontrol.CloudcontrolFunctions;
-     * import com.pulumi.aws.cloudcontrol.inputs.GetResourceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = CloudcontrolFunctions.getResource(GetResourceArgs.builder()
-     *             .identifier(&#34;example&#34;)
-     *             .typeName(&#34;AWS::ECS::Cluster&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetResourceResult> getResourcePlain(GetResourcePlainArgs args, InvokeOptions options) {

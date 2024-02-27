@@ -20,35 +20,34 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53"
+//	route53/delegationSet "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/route53/delegationSet"
+//	route53/zone "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/route53/zone"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			main, err := route53.NewDelegationSet(ctx, "main", &route53.DelegationSetArgs{
-//				ReferenceName: pulumi.String("DynDNS"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = route53.NewZone(ctx, "primary", &route53.ZoneArgs{
-//				DelegationSetId: main.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = route53.NewZone(ctx, "secondary", &route53.ZoneArgs{
-//				DelegationSetId: main.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// main, err := route53/delegationSet.NewDelegationSet(ctx, "main", &route53/delegationSet.DelegationSetArgs{
+// ReferenceName: "DynDNS",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = route53/zone.NewZone(ctx, "primary", &route53/zone.ZoneArgs{
+// DelegationSetId: main.Id,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = route53/zone.NewZone(ctx, "secondary", &route53/zone.ZoneArgs{
+// DelegationSetId: main.Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

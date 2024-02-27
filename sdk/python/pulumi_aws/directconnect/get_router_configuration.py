@@ -106,15 +106,6 @@ def get_router_configuration(router_type_identifier: Optional[str] = None,
     Data source for retrieving Router Configuration instructions for a given AWS Direct Connect Virtual Interface and Router Type.
 
     ## Example Usage
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.directconnect.get_router_configuration(router_type_identifier="CiscoSystemsInc-2900SeriesRouters-IOS124",
-        virtual_interface_id="dxvif-abcde123")
-    ```
 
 
     :param str router_type_identifier: ID of the Router Type. For example: `CiscoSystemsInc-2900SeriesRouters-IOS124`
@@ -149,15 +140,6 @@ def get_router_configuration_output(router_type_identifier: Optional[pulumi.Inpu
     Data source for retrieving Router Configuration instructions for a given AWS Direct Connect Virtual Interface and Router Type.
 
     ## Example Usage
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.directconnect.get_router_configuration(router_type_identifier="CiscoSystemsInc-2900SeriesRouters-IOS124",
-        virtual_interface_id="dxvif-abcde123")
-    ```
 
 
     :param str router_type_identifier: ID of the Router Type. For example: `CiscoSystemsInc-2900SeriesRouters-IOS124`

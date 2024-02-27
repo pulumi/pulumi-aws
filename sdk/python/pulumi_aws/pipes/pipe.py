@@ -484,63 +484,30 @@ class Pipe(pulumi.CustomResource):
         > **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
 
         ## Example Usage
-        ### Basic Usage
+        ### Enrichment Usage
 
         ```python
         import pulumi
-        import json
         import pulumi_aws as aws
 
-        main = aws.get_caller_identity()
-        example_role = aws.iam.Role("exampleRole", assume_role_policy=json.dumps({
-            "Version": "2012-10-17",
-            "Statement": {
-                "Effect": "Allow",
-                "Action": "sts:AssumeRole",
-                "Principal": {
-                    "Service": "pipes.amazonaws.com",
-                },
-                "Condition": {
-                    "StringEquals": {
-                        "aws:SourceAccount": main.account_id,
+        example = aws.pipes.pipe.Pipe("example",
+            role_arn=aws_iam_role.example.arn,
+            source=aws_sqs_queue.source.arn,
+            target=aws_sqs_queue.target.arn,
+            enrichment=aws_cloudwatch_event_api_destination.example.arn,
+            enrichment_parameters={
+                httpParameters: {
+                    pathParameterValues: [example-path-param],
+                    headerParameters: {
+                        example-header: example-value,
+                        second-example-header: second-example-value,
+                    },
+                    queryStringParameters: {
+                        example-query-string: example-value,
+                        second-example-query-string: second-example-value,
                     },
                 },
-            },
-        }))
-        source_queue = aws.sqs.Queue("sourceQueue")
-        source_role_policy = aws.iam.RolePolicy("sourceRolePolicy",
-            role=example_role.id,
-            policy=source_queue.arn.apply(lambda arn: json.dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Effect": "Allow",
-                    "Action": [
-                        "sqs:DeleteMessage",
-                        "sqs:GetQueueAttributes",
-                        "sqs:ReceiveMessage",
-                    ],
-                    "Resource": [arn],
-                }],
-            })))
-        target_queue = aws.sqs.Queue("targetQueue")
-        target_role_policy = aws.iam.RolePolicy("targetRolePolicy",
-            role=example_role.id,
-            policy=target_queue.arn.apply(lambda arn: json.dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Effect": "Allow",
-                    "Action": ["sqs:SendMessage"],
-                    "Resource": [arn],
-                }],
-            })))
-        example_pipe = aws.pipes.Pipe("examplePipe",
-            role_arn=example_role.arn,
-            source=source_queue.arn,
-            target=target_queue.arn,
-            opts=pulumi.ResourceOptions(depends_on=[
-                    source_role_policy,
-                    target_role_policy,
-                ]))
+            })
         ```
         ### Filter Usage
 
@@ -549,19 +516,42 @@ class Pipe(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        example = aws.pipes.Pipe("example",
-            role_arn=aws_iam_role["example"]["arn"],
-            source=aws_sqs_queue["source"]["arn"],
-            target=aws_sqs_queue["target"]["arn"],
-            source_parameters=aws.pipes.PipeSourceParametersArgs(
-                filter_criteria=aws.pipes.PipeSourceParametersFilterCriteriaArgs(
-                    filters=[aws.pipes.PipeSourceParametersFilterCriteriaFilterArgs(
-                        pattern=json.dumps({
-                            "source": ["event-source"],
+        example = aws.pipes.pipe.Pipe("example",
+            role_arn=aws_iam_role.example.arn,
+            source=aws_sqs_queue.source.arn,
+            target=aws_sqs_queue.target.arn,
+            source_parameters={
+                filterCriteria: {
+                    filters: [{
+                        pattern: json.dumps({
+                            source: [event-source],
                         }),
-                    )],
-                ),
-            ))
+                    }],
+                },
+            })
+        ```
+        ### SQS Source and Target Configuration Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.pipes.pipe.Pipe("example",
+            role_arn=aws_iam_role.example.arn,
+            source=aws_sqs_queue.source.arn,
+            target=aws_sqs_queue.target.arn,
+            source_parameters={
+                sqsQueueParameters: {
+                    batchSize: 1,
+                    maximumBatchingWindowInSeconds: 2,
+                },
+            },
+            target_parameters={
+                sqsQueue: [{
+                    messageDeduplicationId: example-dedupe,
+                    messageGroupId: example-group,
+                }],
+            })
         ```
 
         ## Import
@@ -605,63 +595,30 @@ class Pipe(pulumi.CustomResource):
         > **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
 
         ## Example Usage
-        ### Basic Usage
+        ### Enrichment Usage
 
         ```python
         import pulumi
-        import json
         import pulumi_aws as aws
 
-        main = aws.get_caller_identity()
-        example_role = aws.iam.Role("exampleRole", assume_role_policy=json.dumps({
-            "Version": "2012-10-17",
-            "Statement": {
-                "Effect": "Allow",
-                "Action": "sts:AssumeRole",
-                "Principal": {
-                    "Service": "pipes.amazonaws.com",
-                },
-                "Condition": {
-                    "StringEquals": {
-                        "aws:SourceAccount": main.account_id,
+        example = aws.pipes.pipe.Pipe("example",
+            role_arn=aws_iam_role.example.arn,
+            source=aws_sqs_queue.source.arn,
+            target=aws_sqs_queue.target.arn,
+            enrichment=aws_cloudwatch_event_api_destination.example.arn,
+            enrichment_parameters={
+                httpParameters: {
+                    pathParameterValues: [example-path-param],
+                    headerParameters: {
+                        example-header: example-value,
+                        second-example-header: second-example-value,
+                    },
+                    queryStringParameters: {
+                        example-query-string: example-value,
+                        second-example-query-string: second-example-value,
                     },
                 },
-            },
-        }))
-        source_queue = aws.sqs.Queue("sourceQueue")
-        source_role_policy = aws.iam.RolePolicy("sourceRolePolicy",
-            role=example_role.id,
-            policy=source_queue.arn.apply(lambda arn: json.dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Effect": "Allow",
-                    "Action": [
-                        "sqs:DeleteMessage",
-                        "sqs:GetQueueAttributes",
-                        "sqs:ReceiveMessage",
-                    ],
-                    "Resource": [arn],
-                }],
-            })))
-        target_queue = aws.sqs.Queue("targetQueue")
-        target_role_policy = aws.iam.RolePolicy("targetRolePolicy",
-            role=example_role.id,
-            policy=target_queue.arn.apply(lambda arn: json.dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Effect": "Allow",
-                    "Action": ["sqs:SendMessage"],
-                    "Resource": [arn],
-                }],
-            })))
-        example_pipe = aws.pipes.Pipe("examplePipe",
-            role_arn=example_role.arn,
-            source=source_queue.arn,
-            target=target_queue.arn,
-            opts=pulumi.ResourceOptions(depends_on=[
-                    source_role_policy,
-                    target_role_policy,
-                ]))
+            })
         ```
         ### Filter Usage
 
@@ -670,19 +627,42 @@ class Pipe(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        example = aws.pipes.Pipe("example",
-            role_arn=aws_iam_role["example"]["arn"],
-            source=aws_sqs_queue["source"]["arn"],
-            target=aws_sqs_queue["target"]["arn"],
-            source_parameters=aws.pipes.PipeSourceParametersArgs(
-                filter_criteria=aws.pipes.PipeSourceParametersFilterCriteriaArgs(
-                    filters=[aws.pipes.PipeSourceParametersFilterCriteriaFilterArgs(
-                        pattern=json.dumps({
-                            "source": ["event-source"],
+        example = aws.pipes.pipe.Pipe("example",
+            role_arn=aws_iam_role.example.arn,
+            source=aws_sqs_queue.source.arn,
+            target=aws_sqs_queue.target.arn,
+            source_parameters={
+                filterCriteria: {
+                    filters: [{
+                        pattern: json.dumps({
+                            source: [event-source],
                         }),
-                    )],
-                ),
-            ))
+                    }],
+                },
+            })
+        ```
+        ### SQS Source and Target Configuration Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.pipes.pipe.Pipe("example",
+            role_arn=aws_iam_role.example.arn,
+            source=aws_sqs_queue.source.arn,
+            target=aws_sqs_queue.target.arn,
+            source_parameters={
+                sqsQueueParameters: {
+                    batchSize: 1,
+                    maximumBatchingWindowInSeconds: 2,
+                },
+            },
+            target_parameters={
+                sqsQueue: [{
+                    messageDeduplicationId: example-dedupe,
+                    messageGroupId: example-group,
+                }],
+            })
         ```
 
         ## Import

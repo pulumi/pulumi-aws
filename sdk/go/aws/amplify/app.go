@@ -22,52 +22,50 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/amplify"
+//	amplify/app "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/amplify/app"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := amplify/app.NewApp(ctx, "example", &amplify/app.AppArgs{
+// BuildSpec: `  version: 0.1
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := amplify.NewApp(ctx, "example", &amplify.AppArgs{
-//				BuildSpec: pulumi.String(`  version: 0.1
-//	  frontend:
-//	    phases:
-//	      preBuild:
-//	        commands:
-//	          - yarn install
-//	      build:
-//	        commands:
-//	          - yarn run build
-//	    artifacts:
-//	      baseDirectory: build
-//	      files:
-//	        - '**/*'
-//	    cache:
-//	      paths:
-//	        - node_modules/**/*
+//	frontend:
+//	  phases:
+//	    preBuild:
+//	      commands:
+//	        - yarn install
+//	    build:
+//	      commands:
+//	        - yarn run build
+//	  artifacts:
+//	    baseDirectory: build
+//	    files:
+//	      - '**/*'
+//	  cache:
+//	    paths:
+//	      - node_modules/**/*
 //
-// `),
-//
-//				CustomRules: amplify.AppCustomRuleArray{
-//					&amplify.AppCustomRuleArgs{
-//						Source: pulumi.String("/<*>"),
-//						Status: pulumi.String("404"),
-//						Target: pulumi.String("/index.html"),
-//					},
-//				},
-//				EnvironmentVariables: pulumi.StringMap{
-//					"ENV": pulumi.String("test"),
-//				},
-//				Repository: pulumi.String("https://github.com/example/app"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// `,
+// CustomRules: []map[string]interface{}{
+// map[string]interface{}{
+// "source": "/<*>",
+// "status": "404",
+// "target": "/index.html",
+// },
+// },
+// EnvironmentVariables: map[string]interface{}{
+// "ENV": "test",
+// },
+// Repository: "https://github.com/example/app",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Repository with Tokens
 //
@@ -78,24 +76,22 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/amplify"
+//	amplify/app "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/amplify/app"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := amplify.NewApp(ctx, "example", &amplify.AppArgs{
-//				AccessToken: pulumi.String("..."),
-//				Repository:  pulumi.String("https://github.com/example/app"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := amplify/app.NewApp(ctx, "example", &amplify/app.AppArgs{
+// AccessToken: "...",
+// Repository: "https://github.com/example/app",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // You can omit `accessToken` if you import an existing Amplify App created by the Amplify Console (using OAuth for authentication).
@@ -106,30 +102,28 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/amplify"
+//	amplify/app "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/amplify/app"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := amplify.NewApp(ctx, "example", &amplify.AppArgs{
-//				AutoBranchCreationConfig: &amplify.AppAutoBranchCreationConfigArgs{
-//					EnableAutoBuild: pulumi.Bool(true),
-//				},
-//				AutoBranchCreationPatterns: pulumi.StringArray{
-//					pulumi.String("*"),
-//					pulumi.String("*/**"),
-//				},
-//				EnableAutoBranchCreation: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := amplify/app.NewApp(ctx, "example", &amplify/app.AppArgs{
+// AutoBranchCreationConfig: map[string]interface{}{
+// "enableAutoBuild": true,
+// },
+// AutoBranchCreationPatterns: []string{
+// "*",
+// "*/**",
+// },
+// EnableAutoBranchCreation: true,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Rewrites and Redirects
 //
@@ -138,34 +132,32 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/amplify"
+//	amplify/app "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/amplify/app"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := amplify.NewApp(ctx, "example", &amplify.AppArgs{
-//				CustomRules: amplify.AppCustomRuleArray{
-//					&amplify.AppCustomRuleArgs{
-//						Source: pulumi.String("/api/<*>"),
-//						Status: pulumi.String("200"),
-//						Target: pulumi.String("https://api.example.com/api/<*>"),
-//					},
-//					&amplify.AppCustomRuleArgs{
-//						Source: pulumi.String("</^[^.]+$|\\.(?!(css|gif|ico|jpg|js|png|txt|svg|woff|ttf|map|json)$)([^.]+$)/>"),
-//						Status: pulumi.String("200"),
-//						Target: pulumi.String("/index.html"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := amplify/app.NewApp(ctx, "example", &amplify/app.AppArgs{
+// CustomRules: []map[string]interface{}{
+// map[string]interface{}{
+// "source": "/api/<*>",
+// "status": "200",
+// "target": "https://api.example.com/api/<*>",
+// },
+// map[string]interface{}{
+// "source": "</^[^.]+$|\\.(?!(css|gif|ico|jpg|js|png|txt|svg|woff|ttf|map|json)$)([^.]+$)/>",
+// "status": "200",
+// "target": "/index.html",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Custom Image
 //
@@ -174,25 +166,23 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/amplify"
+//	amplify/app "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/amplify/app"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := amplify.NewApp(ctx, "example", &amplify.AppArgs{
-//				EnvironmentVariables: pulumi.StringMap{
-//					"_CUSTOM_IMAGE": pulumi.String("node:16"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := amplify/app.NewApp(ctx, "example", &amplify/app.AppArgs{
+// EnvironmentVariables: map[string]interface{}{
+// "_CUSTOM_IMAGE": "node:16",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Custom Headers
 //
@@ -201,38 +191,35 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/amplify"
+//	amplify/app "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/amplify/app"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := amplify/app.NewApp(ctx, "example", &amplify/app.AppArgs{
+// CustomHeaders: `  customHeaders:
+//   - pattern: '**'
+//     headers:
+//   - key: 'Strict-Transport-Security'
+//     value: 'max-age=31536000; includeSubDomains'
+//   - key: 'X-Frame-Options'
+//     value: 'SAMEORIGIN'
+//   - key: 'X-XSS-Protection'
+//     value: '1; mode=block'
+//   - key: 'X-Content-Type-Options'
+//     value: 'nosniff'
+//   - key: 'Content-Security-Policy'
+//     value: "default-src 'self'"
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := amplify.NewApp(ctx, "example", &amplify.AppArgs{
-//				CustomHeaders: pulumi.String(`  customHeaders:
-//	    - pattern: '**'
-//	      headers:
-//	        - key: 'Strict-Transport-Security'
-//	          value: 'max-age=31536000; includeSubDomains'
-//	        - key: 'X-Frame-Options'
-//	          value: 'SAMEORIGIN'
-//	        - key: 'X-XSS-Protection'
-//	          value: '1; mode=block'
-//	        - key: 'X-Content-Type-Options'
-//	          value: 'nosniff'
-//	        - key: 'Content-Security-Policy'
-//	          value: "default-src 'self'"
-//
-// `),
-//
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// `,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

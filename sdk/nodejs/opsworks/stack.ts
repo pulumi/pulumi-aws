@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const main = new aws.opsworks.Stack("main", {
+ * const main = new aws.opsworks/stack.Stack("main", {
  *     region: "us-west-1",
  *     serviceRoleArn: aws_iam_role.opsworks.arn,
  *     defaultInstanceProfileArn: aws_iam_instance_profile.opsworks.arn,

@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.athena.DataCatalog("example", {
+ * const example = new aws.athena/dataCatalog.DataCatalog("example", {
  *     description: "Example Athena data catalog",
  *     parameters: {
  *         "function": "arn:aws:lambda:eu-central-1:123456789012:function:not-important-lambda-function",
@@ -34,7 +34,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.athena.DataCatalog("example", {
+ * const example = new aws.athena/dataCatalog.DataCatalog("example", {
  *     description: "Hive based Data Catalog",
  *     parameters: {
  *         "metadata-function": "arn:aws:lambda:eu-central-1:123456789012:function:not-important-lambda-function",
@@ -48,7 +48,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.athena.DataCatalog("example", {
+ * const example = new aws.athena/dataCatalog.DataCatalog("example", {
  *     description: "Glue based Data Catalog",
  *     parameters: {
  *         "catalog-id": "123456789012",
@@ -62,7 +62,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.athena.DataCatalog("example", {
+ * const example = new aws.athena/dataCatalog.DataCatalog("example", {
  *     description: "Lambda based Data Catalog",
  *     parameters: {
  *         "metadata-function": "arn:aws:lambda:eu-central-1:123456789012:function:not-important-lambda-function-1",

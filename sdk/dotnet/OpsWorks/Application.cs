@@ -23,7 +23,7 @@ namespace Pulumi.Aws.OpsWorks
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var foo_app = new Aws.OpsWorks.Application("foo-app", new()
+    ///     var foo_app = new Aws.Opsworks.Application.Application("foo-app", new()
     ///     {
     ///         ShortName = "foobar",
     ///         StackId = aws_opsworks_stack.Main.Id,
@@ -36,33 +36,33 @@ namespace Pulumi.Aws.OpsWorks
     ///         },
     ///         Environments = new[]
     ///         {
-    ///             new Aws.OpsWorks.Inputs.ApplicationEnvironmentArgs
+    ///             
     ///             {
-    ///                 Key = "key",
-    ///                 Value = "value",
-    ///                 Secure = false,
+    ///                 { "key", "key" },
+    ///                 { "value", "value" },
+    ///                 { "secure", false },
     ///             },
     ///         },
     ///         AppSources = new[]
     ///         {
-    ///             new Aws.OpsWorks.Inputs.ApplicationAppSourceArgs
+    ///             
     ///             {
-    ///                 Type = "git",
-    ///                 Revision = "master",
-    ///                 Url = "https://github.com/example.git",
+    ///                 { "type", "git" },
+    ///                 { "revision", "master" },
+    ///                 { "url", "https://github.com/example.git" },
     ///             },
     ///         },
     ///         EnableSsl = true,
     ///         SslConfigurations = new[]
     ///         {
-    ///             new Aws.OpsWorks.Inputs.ApplicationSslConfigurationArgs
+    ///             
     ///             {
-    ///                 PrivateKey = File.ReadAllText("./foobar.key"),
-    ///                 Certificate = File.ReadAllText("./foobar.crt"),
+    ///                 { "privateKey", File.ReadAllText("./foobar.key") },
+    ///                 { "certificate", File.ReadAllText("./foobar.crt") },
     ///             },
     ///         },
     ///         DocumentRoot = "public",
-    ///         AutoBundleOnDeploy = "true",
+    ///         AutoBundleOnDeploy = true,
     ///         RailsEnv = "staging",
     ///     });
     /// 

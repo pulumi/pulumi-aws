@@ -17,18 +17,18 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const main = new aws.ec2.Vpc("main", {cidrBlock: "10.0.0.0/16"});
- * const foo = new aws.ec2.Subnet("foo", {
+ * const main = new aws.ec2/vpc.Vpc("main", {cidrBlock: "10.0.0.0/16"});
+ * const foo = new aws.ec2/subnet.Subnet("foo", {
  *     vpcId: main.id,
  *     availabilityZone: "us-west-2a",
  *     cidrBlock: "10.0.1.0/24",
  * });
- * const barSubnet = new aws.ec2.Subnet("barSubnet", {
+ * const barSubnet = new aws.ec2/subnet.Subnet("barSubnet", {
  *     vpcId: main.id,
  *     availabilityZone: "us-west-2b",
  *     cidrBlock: "10.0.2.0/24",
  * });
- * const barDirectory = new aws.directoryservice.Directory("barDirectory", {
+ * const barDirectory = new aws.directoryservice/directory.Directory("barDirectory", {
  *     name: "corp.notexample.com",
  *     password: "SuperSecretPassw0rd",
  *     size: "Small",
@@ -50,18 +50,18 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const main = new aws.ec2.Vpc("main", {cidrBlock: "10.0.0.0/16"});
- * const foo = new aws.ec2.Subnet("foo", {
+ * const main = new aws.ec2/vpc.Vpc("main", {cidrBlock: "10.0.0.0/16"});
+ * const foo = new aws.ec2/subnet.Subnet("foo", {
  *     vpcId: main.id,
  *     availabilityZone: "us-west-2a",
  *     cidrBlock: "10.0.1.0/24",
  * });
- * const barSubnet = new aws.ec2.Subnet("barSubnet", {
+ * const barSubnet = new aws.ec2/subnet.Subnet("barSubnet", {
  *     vpcId: main.id,
  *     availabilityZone: "us-west-2b",
  *     cidrBlock: "10.0.2.0/24",
  * });
- * const barDirectory = new aws.directoryservice.Directory("barDirectory", {
+ * const barDirectory = new aws.directoryservice/directory.Directory("barDirectory", {
  *     name: "corp.notexample.com",
  *     password: "SuperSecretPassw0rd",
  *     edition: "Standard",
@@ -84,18 +84,18 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const main = new aws.ec2.Vpc("main", {cidrBlock: "10.0.0.0/16"});
- * const foo = new aws.ec2.Subnet("foo", {
+ * const main = new aws.ec2/vpc.Vpc("main", {cidrBlock: "10.0.0.0/16"});
+ * const foo = new aws.ec2/subnet.Subnet("foo", {
  *     vpcId: main.id,
  *     availabilityZone: "us-west-2a",
  *     cidrBlock: "10.0.1.0/24",
  * });
- * const bar = new aws.ec2.Subnet("bar", {
+ * const bar = new aws.ec2/subnet.Subnet("bar", {
  *     vpcId: main.id,
  *     availabilityZone: "us-west-2b",
  *     cidrBlock: "10.0.2.0/24",
  * });
- * const connector = new aws.directoryservice.Directory("connector", {
+ * const connector = new aws.directoryservice/directory.Directory("connector", {
  *     name: "corp.notexample.com",
  *     password: "SuperSecretPassw0rd",
  *     size: "Small",

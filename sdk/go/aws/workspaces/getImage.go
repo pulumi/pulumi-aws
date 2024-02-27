@@ -12,32 +12,6 @@ import (
 )
 
 // Use this data source to get information about a Workspaces image.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/workspaces"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := workspaces.GetImage(ctx, &workspaces.GetImageArgs{
-//				ImageId: "wsi-ten5h0y19",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetImage(ctx *pulumi.Context, args *GetImageArgs, opts ...pulumi.InvokeOption) (*GetImageResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetImageResult

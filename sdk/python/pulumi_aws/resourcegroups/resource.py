@@ -131,13 +131,13 @@ class Resource(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_dedicated_host = aws.ec2.DedicatedHost("exampleDedicatedHost",
-            instance_family="t3",
-            availability_zone="us-east-1a",
-            host_recovery="off",
-            auto_placement="on")
-        example_group = aws.resourcegroups.Group("exampleGroup")
-        example_resource = aws.resourcegroups.Resource("exampleResource",
+        example_dedicated_host = aws.ec2.dedicated_host.DedicatedHost("exampleDedicatedHost",
+            instance_family=t3,
+            availability_zone=us-east-1a,
+            host_recovery=off,
+            auto_placement=on)
+        example_group = aws.resourcegroups.group.Group("exampleGroup")
+        example_resource = aws.resourcegroups.resource.Resource("exampleResource",
             group_arn=example_group.arn,
             resource_arn=example_dedicated_host.arn)
         ```
@@ -165,13 +165,13 @@ class Resource(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_dedicated_host = aws.ec2.DedicatedHost("exampleDedicatedHost",
-            instance_family="t3",
-            availability_zone="us-east-1a",
-            host_recovery="off",
-            auto_placement="on")
-        example_group = aws.resourcegroups.Group("exampleGroup")
-        example_resource = aws.resourcegroups.Resource("exampleResource",
+        example_dedicated_host = aws.ec2.dedicated_host.DedicatedHost("exampleDedicatedHost",
+            instance_family=t3,
+            availability_zone=us-east-1a,
+            host_recovery=off,
+            auto_placement=on)
+        example_group = aws.resourcegroups.group.Group("exampleGroup")
+        example_resource = aws.resourcegroups.resource.Resource("exampleResource",
             group_arn=example_group.arn,
             resource_arn=example_dedicated_host.arn)
         ```

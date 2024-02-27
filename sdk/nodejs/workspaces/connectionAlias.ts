@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.workspaces.ConnectionAlias("example", {connectionString: "testdomain.test"});
+ * const example = new aws.workspaces/connectionAlias.ConnectionAlias("example", {connectionString: "testdomain.test"});
  * ```
  *
  * ## Import

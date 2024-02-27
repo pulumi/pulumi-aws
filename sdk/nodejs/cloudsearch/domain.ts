@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.cloudsearch.Domain("example", {
+ * const example = new aws.cloudsearch/domain.Domain("example", {
  *     indexFields: [
  *         {
  *             analysisScheme: "_en_default_",

@@ -21,23 +21,21 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/directconnect"
+//	directconnect/connectionConfirmation "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/directconnect/connectionConfirmation"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := directconnect.NewConnectionConfirmation(ctx, "confirmation", &directconnect.ConnectionConfirmationArgs{
-//				ConnectionId: pulumi.String("dxcon-ffabc123"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := directconnect/connectionConfirmation.NewConnectionConfirmation(ctx, "confirmation", &directconnect/connectionConfirmation.ConnectionConfirmationArgs{
+// ConnectionId: "dxcon-ffabc123",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 type ConnectionConfirmation struct {
 	pulumi.CustomResourceState

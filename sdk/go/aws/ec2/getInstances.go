@@ -18,58 +18,6 @@ import (
 // > **Note:** It's strongly discouraged to use this data source for querying ephemeral
 // instances (e.g., managed via autoscaling group), as the output may change at any time
 // and you'd need to re-run `apply` every time an instance comes up or dies.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testInstances, err := ec2.GetInstances(ctx, &ec2.GetInstancesArgs{
-//				InstanceTags: map[string]interface{}{
-//					"Role": "HardWorker",
-//				},
-//				Filters: []ec2.GetInstancesFilter{
-//					{
-//						Name: "instance.group-id",
-//						Values: []string{
-//							"sg-12345678",
-//						},
-//					},
-//				},
-//				InstanceStateNames: []string{
-//					"running",
-//					"stopped",
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			var testEip []*ec2.Eip
-//			for index := 0; index < len(testInstances.Ids); index++ {
-//				key0 := index
-//				val0 := index
-//				__res, err := ec2.NewEip(ctx, fmt.Sprintf("testEip-%v", key0), &ec2.EipArgs{
-//					Instance: testInstances.Ids[val0],
-//				})
-//				if err != nil {
-//					return err
-//				}
-//				testEip = append(testEip, __res)
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetInstances(ctx *pulumi.Context, args *GetInstancesArgs, opts ...pulumi.InvokeOption) (*GetInstancesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetInstancesResult

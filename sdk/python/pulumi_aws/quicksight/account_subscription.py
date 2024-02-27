@@ -557,11 +557,11 @@ class AccountSubscription(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        subscription = aws.quicksight.AccountSubscription("subscription",
-            account_name="quicksight-pulumi",
-            authentication_method="IAM_AND_QUICKSIGHT",
-            edition="ENTERPRISE",
-            notification_email="notification@email.com")
+        subscription = aws.quicksight.account_subscription.AccountSubscription("subscription",
+            account_name=quicksight-pulumi,
+            authentication_method=IAM_AND_QUICKSIGHT,
+            edition=ENTERPRISE,
+            notification_email=notification@email.com)
         ```
 
         ## Import
@@ -603,11 +603,11 @@ class AccountSubscription(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        subscription = aws.quicksight.AccountSubscription("subscription",
-            account_name="quicksight-pulumi",
-            authentication_method="IAM_AND_QUICKSIGHT",
-            edition="ENTERPRISE",
-            notification_email="notification@email.com")
+        subscription = aws.quicksight.account_subscription.AccountSubscription("subscription",
+            account_name=quicksight-pulumi,
+            authentication_method=IAM_AND_QUICKSIGHT,
+            edition=ENTERPRISE,
+            notification_email=notification@email.com)
         ```
 
         ## Import

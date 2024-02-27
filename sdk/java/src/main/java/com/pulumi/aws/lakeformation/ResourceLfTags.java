@@ -33,8 +33,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.lakeformation.LfTagArgs;
  * import com.pulumi.aws.lakeformation.ResourceLfTags;
  * import com.pulumi.aws.lakeformation.ResourceLfTagsArgs;
- * import com.pulumi.aws.lakeformation.inputs.ResourceLfTagsDatabaseArgs;
- * import com.pulumi.aws.lakeformation.inputs.ResourceLfTagsLfTagArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -62,13 +60,8 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleResourceLfTags = new ResourceLfTags(&#34;exampleResourceLfTags&#34;, ResourceLfTagsArgs.builder()        
- *             .database(ResourceLfTagsDatabaseArgs.builder()
- *                 .name(aws_glue_catalog_database.example().name())
- *                 .build())
- *             .lfTags(ResourceLfTagsLfTagArgs.builder()
- *                 .key(exampleLfTag.key())
- *                 .value(&#34;stowe&#34;)
- *                 .build())
+ *             .database(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .lfTags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -85,8 +78,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.lakeformation.LfTagArgs;
  * import com.pulumi.aws.lakeformation.ResourceLfTags;
  * import com.pulumi.aws.lakeformation.ResourceLfTagsArgs;
- * import com.pulumi.aws.lakeformation.inputs.ResourceLfTagsDatabaseArgs;
- * import com.pulumi.aws.lakeformation.inputs.ResourceLfTagsLfTagArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -126,18 +117,10 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleResourceLfTags = new ResourceLfTags(&#34;exampleResourceLfTags&#34;, ResourceLfTagsArgs.builder()        
- *             .database(ResourceLfTagsDatabaseArgs.builder()
- *                 .name(aws_glue_catalog_database.example().name())
- *                 .build())
+ *             .database(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .lfTags(            
- *                 ResourceLfTagsLfTagArgs.builder()
- *                     .key(&#34;right&#34;)
- *                     .value(&#34;luffield&#34;)
- *                     .build(),
- *                 ResourceLfTagsLfTagArgs.builder()
- *                     .key(&#34;left&#34;)
- *                     .value(&#34;aintree&#34;)
- *                     .build())
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

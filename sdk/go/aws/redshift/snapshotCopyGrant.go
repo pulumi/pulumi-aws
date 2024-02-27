@@ -23,32 +23,31 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/redshift"
+//	redshift/cluster "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/redshift/cluster"
+//	redshift/snapshotCopyGrant "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/redshift/snapshotCopyGrant"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testSnapshotCopyGrant, err := redshift.NewSnapshotCopyGrant(ctx, "testSnapshotCopyGrant", &redshift.SnapshotCopyGrantArgs{
-//				SnapshotCopyGrantName: pulumi.String("my-grant"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = redshift.NewCluster(ctx, "testCluster", &redshift.ClusterArgs{
-//				SnapshotCopy: &redshift.ClusterSnapshotCopyArgs{
-//					DestinationRegion: pulumi.String("us-east-2"),
-//					GrantName:         testSnapshotCopyGrant.SnapshotCopyGrantName,
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// testSnapshotCopyGrant, err := redshift/snapshotCopyGrant.NewSnapshotCopyGrant(ctx, "testSnapshotCopyGrant", &redshift/snapshotCopyGrant.SnapshotCopyGrantArgs{
+// SnapshotCopyGrantName: "my-grant",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = redshift/cluster.NewCluster(ctx, "testCluster", &redshift/cluster.ClusterArgs{
+// SnapshotCopy: map[string]interface{}{
+// "destinationRegion": "us-east-2",
+// "grantName": testSnapshotCopyGrant.SnapshotCopyGrantName,
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -15,54 +15,6 @@ import * as utilities from "../utilities";
  * > **NOTE:** In order to deprovision CIDRs all Allocations must be released. Allocations created by a VPC take up to 30 minutes to be released. However, for IPAM to properly manage the removal of allocation records created by VPCs and other resources, you must [grant it permissions](https://docs.aws.amazon.com/vpc/latest/ipam/choose-single-user-or-orgs-ipam.html) in
  * either a single account or organizationally. If you are unable to deprovision a cidr after waiting over 30 minutes, you may be missing the Service Linked Role.
  *
- * ## Example Usage
- *
- * Basic usage:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const current = aws.getRegion({});
- * const exampleVpcIpam = new aws.ec2.VpcIpam("exampleVpcIpam", {operatingRegions: [{
- *     regionName: current.then(current => current.name),
- * }]});
- * const exampleVpcIpamPool = new aws.ec2.VpcIpamPool("exampleVpcIpamPool", {
- *     addressFamily: "ipv4",
- *     ipamScopeId: exampleVpcIpam.privateDefaultScopeId,
- *     locale: current.then(current => current.name),
- * });
- * const exampleVpcIpamPoolCidr = new aws.ec2.VpcIpamPoolCidr("exampleVpcIpamPoolCidr", {
- *     ipamPoolId: exampleVpcIpamPool.id,
- *     cidr: "172.20.0.0/16",
- * });
- * ```
- *
- * Provision Public IPv6 Pool CIDRs:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const current = aws.getRegion({});
- * const example = new aws.ec2.VpcIpam("example", {operatingRegions: [{
- *     regionName: current.then(current => current.name),
- * }]});
- * const ipv6TestPublicVpcIpamPool = new aws.ec2.VpcIpamPool("ipv6TestPublicVpcIpamPool", {
- *     addressFamily: "ipv6",
- *     ipamScopeId: example.publicDefaultScopeId,
- *     locale: "us-east-1",
- *     description: "public ipv6",
- *     publiclyAdvertisable: false,
- *     publicIpSource: "amazon",
- *     awsService: "ec2",
- * });
- * const ipv6TestPublicVpcIpamPoolCidr = new aws.ec2.VpcIpamPoolCidr("ipv6TestPublicVpcIpamPoolCidr", {
- *     ipamPoolId: ipv6TestPublicVpcIpamPool.id,
- *     netmaskLength: 52,
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import IPAMs using the `<cidr>_<ipam-pool-id>`. For example:

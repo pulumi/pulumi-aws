@@ -23,7 +23,7 @@ namespace Pulumi.Aws.Fsx
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Aws.Fsx.OntapFileSystem("test", new()
+    ///     var test = new Aws.Fsx.OntapFileSystem.OntapFileSystem("test", new()
     ///     {
     ///         StorageCapacity = 1024,
     ///         SubnetIds = new[]

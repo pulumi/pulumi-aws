@@ -841,15 +841,15 @@ class Ami(pulumi.CustomResource):
         # Create an AMI that will start a machine whose root device is backed by
         # an EBS volume populated from a snapshot. We assume that such a snapshot
         # already exists with the id "snap-xxxxxxxx".
-        example = aws.ec2.Ami("example",
-            ebs_block_devices=[aws.ec2.AmiEbsBlockDeviceArgs(
-                device_name="/dev/xvda",
-                snapshot_id="snap-xxxxxxxx",
-                volume_size=8,
-            )],
-            imds_support="v2.0",
-            root_device_name="/dev/xvda",
-            virtualization_type="hvm")
+        example = aws.ec2.ami.Ami("example",
+            ebs_block_devices=[{
+                deviceName: /dev/xvda,
+                snapshotId: snap-xxxxxxxx,
+                volumeSize: 8,
+            }],
+            imds_support=v2.0,
+            root_device_name=/dev/xvda,
+            virtualization_type=hvm)
         ```
 
         ## Import
@@ -913,15 +913,15 @@ class Ami(pulumi.CustomResource):
         # Create an AMI that will start a machine whose root device is backed by
         # an EBS volume populated from a snapshot. We assume that such a snapshot
         # already exists with the id "snap-xxxxxxxx".
-        example = aws.ec2.Ami("example",
-            ebs_block_devices=[aws.ec2.AmiEbsBlockDeviceArgs(
-                device_name="/dev/xvda",
-                snapshot_id="snap-xxxxxxxx",
-                volume_size=8,
-            )],
-            imds_support="v2.0",
-            root_device_name="/dev/xvda",
-            virtualization_type="hvm")
+        example = aws.ec2.ami.Ami("example",
+            ebs_block_devices=[{
+                deviceName: /dev/xvda,
+                snapshotId: snap-xxxxxxxx,
+                volumeSize: 8,
+            }],
+            imds_support=v2.0,
+            root_device_name=/dev/xvda,
+            virtualization_type=hvm)
         ```
 
         ## Import

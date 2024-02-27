@@ -12,30 +12,6 @@ import (
 )
 
 // Retrieve the active SES receipt rule set
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ses"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ses.LookupActiveReceiptRuleSet(ctx, nil, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupActiveReceiptRuleSet(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*LookupActiveReceiptRuleSetResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupActiveReceiptRuleSetResult

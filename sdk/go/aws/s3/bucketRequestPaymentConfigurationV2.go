@@ -25,24 +25,22 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	s3/bucketRequestPaymentConfigurationV2 "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/s3/bucketRequestPaymentConfigurationV2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := s3.NewBucketRequestPaymentConfigurationV2(ctx, "example", &s3.BucketRequestPaymentConfigurationV2Args{
-//				Bucket: pulumi.Any(aws_s3_bucket.Example.Id),
-//				Payer:  pulumi.String("Requester"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := s3/bucketRequestPaymentConfigurationV2.NewBucketRequestPaymentConfigurationV2(ctx, "example", &s3/bucketRequestPaymentConfigurationV2.BucketRequestPaymentConfigurationV2Args{
+// Bucket: aws_s3_bucket.Example.Id,
+// Payer: "Requester",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

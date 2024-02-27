@@ -141,9 +141,9 @@ class PolicyStore(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.verifiedpermissions.PolicyStore("example", validation_settings=aws.verifiedpermissions.PolicyStoreValidationSettingsArgs(
-            mode="STRICT",
-        ))
+        example = aws.verifiedpermissions.policy_store.PolicyStore("example", validation_settings={
+            mode: STRICT,
+        })
         ```
 
         ## Import
@@ -173,9 +173,9 @@ class PolicyStore(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.verifiedpermissions.PolicyStore("example", validation_settings=aws.verifiedpermissions.PolicyStoreValidationSettingsArgs(
-            mode="STRICT",
-        ))
+        example = aws.verifiedpermissions.policy_store.PolicyStore("example", validation_settings={
+            mode: STRICT,
+        })
         ```
 
         ## Import

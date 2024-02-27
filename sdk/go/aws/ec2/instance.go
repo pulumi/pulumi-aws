@@ -14,115 +14,6 @@ import (
 // Provides an EC2 instance resource. This allows instances to be created, updated, and deleted.
 //
 // ## Example Usage
-// ### Basic example using AMI lookup
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			ubuntu, err := ec2.LookupAmi(ctx, &ec2.LookupAmiArgs{
-//				MostRecent: pulumi.BoolRef(true),
-//				Filters: []ec2.GetAmiFilter{
-//					{
-//						Name: "name",
-//						Values: []string{
-//							"ubuntu/images/hvm-ssd/ubuntu-jammy-22.04-amd64-server-*",
-//						},
-//					},
-//					{
-//						Name: "virtualization-type",
-//						Values: []string{
-//							"hvm",
-//						},
-//					},
-//				},
-//				Owners: []string{
-//					"099720109477",
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ec2.NewInstance(ctx, "web", &ec2.InstanceArgs{
-//				Ami:          *pulumi.String(ubuntu.Id),
-//				InstanceType: pulumi.String("t3.micro"),
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("HelloWorld"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// ### Spot instance example
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			thisAmi, err := ec2.LookupAmi(ctx, &ec2.LookupAmiArgs{
-//				MostRecent: pulumi.BoolRef(true),
-//				Owners: []string{
-//					"amazon",
-//				},
-//				Filters: []ec2.GetAmiFilter{
-//					{
-//						Name: "architecture",
-//						Values: []string{
-//							"arm64",
-//						},
-//					},
-//					{
-//						Name: "name",
-//						Values: []string{
-//							"al2023-ami-2023*",
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ec2.NewInstance(ctx, "thisInstance", &ec2.InstanceArgs{
-//				Ami: *pulumi.String(thisAmi.Id),
-//				InstanceMarketOptions: &ec2.InstanceInstanceMarketOptionsArgs{
-//					SpotOptions: &ec2.InstanceInstanceMarketOptionsSpotOptionsArgs{
-//						MaxPrice: pulumi.String("0.0031"),
-//					},
-//				},
-//				InstanceType: pulumi.String("t4g.nano"),
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("test-spot"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 // ### Network and credit specification example
 //
 // ```go
@@ -130,136 +21,66 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	ec2/instance "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/instance"
+//	ec2/networkInterface "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/networkInterface"
+//	ec2/subnet "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/subnet"
+//	ec2/vpc "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/vpc"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			myVpc, err := ec2.NewVpc(ctx, "myVpc", &ec2.VpcArgs{
-//				CidrBlock: pulumi.String("172.16.0.0/16"),
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("tf-example"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			mySubnet, err := ec2.NewSubnet(ctx, "mySubnet", &ec2.SubnetArgs{
-//				VpcId:            myVpc.ID(),
-//				CidrBlock:        pulumi.String("172.16.10.0/24"),
-//				AvailabilityZone: pulumi.String("us-west-2a"),
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("tf-example"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			fooNetworkInterface, err := ec2.NewNetworkInterface(ctx, "fooNetworkInterface", &ec2.NetworkInterfaceArgs{
-//				SubnetId: mySubnet.ID(),
-//				PrivateIps: pulumi.StringArray{
-//					pulumi.String("172.16.10.100"),
-//				},
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("primary_network_interface"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ec2.NewInstance(ctx, "fooInstance", &ec2.InstanceArgs{
-//				Ami:          pulumi.String("ami-005e54dee72cc1d00"),
-//				InstanceType: pulumi.String("t2.micro"),
-//				NetworkInterfaces: ec2.InstanceNetworkInterfaceArray{
-//					&ec2.InstanceNetworkInterfaceArgs{
-//						NetworkInterfaceId: fooNetworkInterface.ID(),
-//						DeviceIndex:        pulumi.Int(0),
-//					},
-//				},
-//				CreditSpecification: &ec2.InstanceCreditSpecificationArgs{
-//					CpuCredits: pulumi.String("unlimited"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// ### CPU options example
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleVpc, err := ec2.NewVpc(ctx, "exampleVpc", &ec2.VpcArgs{
-//				CidrBlock: pulumi.String("172.16.0.0/16"),
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("tf-example"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleSubnet, err := ec2.NewSubnet(ctx, "exampleSubnet", &ec2.SubnetArgs{
-//				VpcId:            exampleVpc.ID(),
-//				CidrBlock:        pulumi.String("172.16.10.0/24"),
-//				AvailabilityZone: pulumi.String("us-east-2a"),
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("tf-example"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			amzn_linux_2023_ami, err := ec2.LookupAmi(ctx, &ec2.LookupAmiArgs{
-//				MostRecent: pulumi.BoolRef(true),
-//				Owners: []string{
-//					"amazon",
-//				},
-//				Filters: []ec2.GetAmiFilter{
-//					{
-//						Name: "name",
-//						Values: []string{
-//							"al2023-ami-2023.*-x86_64",
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ec2.NewInstance(ctx, "exampleInstance", &ec2.InstanceArgs{
-//				Ami:          *pulumi.String(amzn_linux_2023_ami.Id),
-//				InstanceType: pulumi.String("c6a.2xlarge"),
-//				SubnetId:     exampleSubnet.ID(),
-//				CpuOptions: &ec2.InstanceCpuOptionsArgs{
-//					CoreCount:      pulumi.Int(2),
-//					ThreadsPerCore: pulumi.Int(2),
-//				},
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("tf-example"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// myVpc, err := ec2/vpc.NewVpc(ctx, "myVpc", &ec2/vpc.VpcArgs{
+// CidrBlock: "172.16.0.0/16",
+// Tags: map[string]interface{}{
+// "Name": "tf-example",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// mySubnet, err := ec2/subnet.NewSubnet(ctx, "mySubnet", &ec2/subnet.SubnetArgs{
+// VpcId: myVpc.Id,
+// CidrBlock: "172.16.10.0/24",
+// AvailabilityZone: "us-west-2a",
+// Tags: map[string]interface{}{
+// "Name": "tf-example",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// fooNetworkInterface, err := ec2/networkInterface.NewNetworkInterface(ctx, "fooNetworkInterface", &ec2/networkInterface.NetworkInterfaceArgs{
+// SubnetId: mySubnet.Id,
+// PrivateIps: []string{
+// "172.16.10.100",
+// },
+// Tags: map[string]interface{}{
+// "Name": "primary_network_interface",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = ec2/instance.NewInstance(ctx, "fooInstance", &ec2/instance.InstanceArgs{
+// Ami: "ami-005e54dee72cc1d00",
+// InstanceType: "t2.micro",
+// NetworkInterfaces: []map[string]interface{}{
+// map[string]interface{}{
+// "networkInterfaceId": fooNetworkInterface.Id,
+// "deviceIndex": 0,
+// },
+// },
+// CreditSpecification: map[string]interface{}{
+// "cpuCredits": "unlimited",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Host resource group or Licence Manager registered AMI example
 //
@@ -272,26 +93,24 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	ec2/instance "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/instance"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.NewInstance(ctx, "this", &ec2.InstanceArgs{
-//				Ami:                  pulumi.String("ami-0dcc1e21636832c5d"),
-//				HostResourceGroupArn: pulumi.String("arn:aws:resource-groups:us-west-2:012345678901:group/win-testhost"),
-//				InstanceType:         pulumi.String("m5.large"),
-//				Tenancy:              pulumi.String("host"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := ec2/instance.NewInstance(ctx, "this", &ec2/instance.InstanceArgs{
+// Ami: "ami-0dcc1e21636832c5d",
+// HostResourceGroupArn: "arn:aws:resource-groups:us-west-2:012345678901:group/win-testhost",
+// InstanceType: "m5.large",
+// Tenancy: "host",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

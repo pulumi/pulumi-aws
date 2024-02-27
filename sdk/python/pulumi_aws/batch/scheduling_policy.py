@@ -173,23 +173,23 @@ class SchedulingPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.batch.SchedulingPolicy("example",
-            fair_share_policy=aws.batch.SchedulingPolicyFairSharePolicyArgs(
-                compute_reservation=1,
-                share_decay_seconds=3600,
-                share_distributions=[
-                    aws.batch.SchedulingPolicyFairSharePolicyShareDistributionArgs(
-                        share_identifier="A1*",
-                        weight_factor=0.1,
-                    ),
-                    aws.batch.SchedulingPolicyFairSharePolicyShareDistributionArgs(
-                        share_identifier="A2",
-                        weight_factor=0.2,
-                    ),
+        example = aws.batch.scheduling_policy.SchedulingPolicy("example",
+            fair_share_policy={
+                computeReservation: 1,
+                shareDecaySeconds: 3600,
+                shareDistributions: [
+                    {
+                        shareIdentifier: A1*,
+                        weightFactor: 0.1,
+                    },
+                    {
+                        shareIdentifier: A2,
+                        weightFactor: 0.2,
+                    },
                 ],
-            ),
+            },
             tags={
-                "Name": "Example Batch Scheduling Policy",
+                Name: Example Batch Scheduling Policy,
             })
         ```
 
@@ -221,23 +221,23 @@ class SchedulingPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.batch.SchedulingPolicy("example",
-            fair_share_policy=aws.batch.SchedulingPolicyFairSharePolicyArgs(
-                compute_reservation=1,
-                share_decay_seconds=3600,
-                share_distributions=[
-                    aws.batch.SchedulingPolicyFairSharePolicyShareDistributionArgs(
-                        share_identifier="A1*",
-                        weight_factor=0.1,
-                    ),
-                    aws.batch.SchedulingPolicyFairSharePolicyShareDistributionArgs(
-                        share_identifier="A2",
-                        weight_factor=0.2,
-                    ),
+        example = aws.batch.scheduling_policy.SchedulingPolicy("example",
+            fair_share_policy={
+                computeReservation: 1,
+                shareDecaySeconds: 3600,
+                shareDistributions: [
+                    {
+                        shareIdentifier: A1*,
+                        weightFactor: 0.1,
+                    },
+                    {
+                        shareIdentifier: A2,
+                        weightFactor: 0.2,
+                    },
                 ],
-            ),
+            },
             tags={
-                "Name": "Example Batch Scheduling Policy",
+                Name: Example Batch Scheduling Policy,
             })
         ```
 

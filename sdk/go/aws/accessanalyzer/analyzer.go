@@ -22,23 +22,21 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/accessanalyzer"
+//	accessanalyzer/analyzer "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/accessanalyzer/analyzer"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := accessanalyzer.NewAnalyzer(ctx, "example", &accessanalyzer.AnalyzerArgs{
-//				AnalyzerName: pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := accessanalyzer/analyzer.NewAnalyzer(ctx, "example", &accessanalyzer/analyzer.AnalyzerArgs{
+// AnalyzerName: "example",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Organization Analyzer
 //
@@ -47,35 +45,33 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/accessanalyzer"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/organizations"
+//	accessanalyzer/analyzer "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/accessanalyzer/analyzer"
+//	organizations/organization "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/organizations/organization"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleOrganization, err := organizations.NewOrganization(ctx, "exampleOrganization", &organizations.OrganizationArgs{
-//				AwsServiceAccessPrincipals: pulumi.StringArray{
-//					pulumi.String("access-analyzer.amazonaws.com"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = accessanalyzer.NewAnalyzer(ctx, "exampleAnalyzer", &accessanalyzer.AnalyzerArgs{
-//				AnalyzerName: pulumi.String("example"),
-//				Type:         pulumi.String("ORGANIZATION"),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleOrganization,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleOrganization, err := organizations/organization.NewOrganization(ctx, "exampleOrganization", &organizations/organization.OrganizationArgs{
+// AwsServiceAccessPrincipals: []string{
+// "access-analyzer.amazonaws.com",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = accessanalyzer/analyzer.NewAnalyzer(ctx, "exampleAnalyzer", &accessanalyzer/analyzer.AnalyzerArgs{
+// AnalyzerName: "example",
+// Type: "ORGANIZATION",
+// }, pulumi.DependsOn([]pulumi.Resource{
+// exampleOrganization,
+// }))
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

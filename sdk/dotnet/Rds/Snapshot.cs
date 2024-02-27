@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Rds
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var bar = new Aws.Rds.Instance("bar", new()
+    ///     var bar = new Aws.Rds.Instance.Instance("bar", new()
     ///     {
     ///         AllocatedStorage = 10,
     ///         Engine = "mysql",
@@ -36,7 +36,7 @@ namespace Pulumi.Aws.Rds
     ///         ParameterGroupName = "default.mysql5.6",
     ///     });
     /// 
-    ///     var test = new Aws.Rds.Snapshot("test", new()
+    ///     var test = new Aws.Rds.Snapshot.Snapshot("test", new()
     ///     {
     ///         DbInstanceIdentifier = bar.Identifier,
     ///         DbSnapshotIdentifier = "testsnapshot1234",

@@ -20,39 +20,37 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/batch"
+//	batch/schedulingPolicy "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/batch/schedulingPolicy"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := batch.NewSchedulingPolicy(ctx, "example", &batch.SchedulingPolicyArgs{
-//				FairSharePolicy: &batch.SchedulingPolicyFairSharePolicyArgs{
-//					ComputeReservation: pulumi.Int(1),
-//					ShareDecaySeconds:  pulumi.Int(3600),
-//					ShareDistributions: batch.SchedulingPolicyFairSharePolicyShareDistributionArray{
-//						&batch.SchedulingPolicyFairSharePolicyShareDistributionArgs{
-//							ShareIdentifier: pulumi.String("A1*"),
-//							WeightFactor:    pulumi.Float64(0.1),
-//						},
-//						&batch.SchedulingPolicyFairSharePolicyShareDistributionArgs{
-//							ShareIdentifier: pulumi.String("A2"),
-//							WeightFactor:    pulumi.Float64(0.2),
-//						},
-//					},
-//				},
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("Example Batch Scheduling Policy"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := batch/schedulingPolicy.NewSchedulingPolicy(ctx, "example", &batch/schedulingPolicy.SchedulingPolicyArgs{
+// FairSharePolicy: map[string]interface{}{
+// "computeReservation": 1,
+// "shareDecaySeconds": 3600,
+// "shareDistributions": []interface{}{
+// map[string]interface{}{
+// "shareIdentifier": "A1*",
+// "weightFactor": 0.1,
+// },
+// map[string]interface{}{
+// "shareIdentifier": "A2",
+// "weightFactor": 0.2,
+// },
+// },
+// },
+// Tags: map[string]interface{}{
+// "Name": "Example Batch Scheduling Policy",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

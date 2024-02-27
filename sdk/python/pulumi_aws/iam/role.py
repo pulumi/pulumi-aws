@@ -490,71 +490,21 @@ class Role(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        test_role = aws.iam.Role("testRole",
+        test_role = aws.iam.role.Role("testRole",
             assume_role_policy=json.dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Action": "sts:AssumeRole",
-                    "Effect": "Allow",
-                    "Sid": "",
-                    "Principal": {
-                        "Service": "ec2.amazonaws.com",
+                Version: 2012-10-17,
+                Statement: [{
+                    Action: sts:AssumeRole,
+                    Effect: Allow,
+                    Sid: ,
+                    Principal: {
+                        Service: ec2.amazonaws.com,
                     },
                 }],
             }),
             tags={
-                "tag-key": "tag-value",
+                tag-key: tag-value,
             })
-        ```
-        ### Example of Using Data Source for Assume Role Policy
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        instance_assume_role_policy = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            actions=["sts:AssumeRole"],
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["ec2.amazonaws.com"],
-            )],
-        )])
-        instance = aws.iam.Role("instance",
-            path="/system/",
-            assume_role_policy=instance_assume_role_policy.json)
-        ```
-        ### Example of Exclusive Inline Policies
-
-        This example creates an IAM role with two inline IAM policies. If someone adds another inline policy out-of-band, on the next apply, this provider will remove that policy. If someone deletes these policies out-of-band, this provider will recreate them.
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        inline_policy = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            actions=["ec2:DescribeAccountAttributes"],
-            resources=["*"],
-        )])
-        example = aws.iam.Role("example",
-            assume_role_policy=data["aws_iam_policy_document"]["instance_assume_role_policy"]["json"],
-            inline_policies=[
-                aws.iam.RoleInlinePolicyArgs(
-                    name="my_inline_policy",
-                    policy=json.dumps({
-                        "Version": "2012-10-17",
-                        "Statement": [{
-                            "Action": ["ec2:Describe*"],
-                            "Effect": "Allow",
-                            "Resource": "*",
-                        }],
-                    }),
-                ),
-                aws.iam.RoleInlinePolicyArgs(
-                    name="policy-8675309",
-                    policy=inline_policy.json,
-                ),
-            ])
         ```
         ### Example of Removing Inline Policies
 
@@ -564,9 +514,9 @@ class Role(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.iam.Role("example",
-            assume_role_policy=data["aws_iam_policy_document"]["instance_assume_role_policy"]["json"],
-            inline_policies=[aws.iam.RoleInlinePolicyArgs()])
+        example = aws.iam.role.Role("example",
+            assume_role_policy=data.aws_iam_policy_document.instance_assume_role_policy.json,
+            inline_policies=[{}])
         ```
         ### Example of Exclusive Managed Policies
 
@@ -577,28 +527,28 @@ class Role(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        policy_one = aws.iam.Policy("policyOne", policy=json.dumps({
-            "Version": "2012-10-17",
-            "Statement": [{
-                "Action": ["ec2:Describe*"],
-                "Effect": "Allow",
-                "Resource": "*",
+        policy_one = aws.iam.policy.Policy("policyOne", policy=json.dumps({
+            Version: 2012-10-17,
+            Statement: [{
+                Action: [ec2:Describe*],
+                Effect: Allow,
+                Resource: *,
             }],
         }))
-        policy_two = aws.iam.Policy("policyTwo", policy=json.dumps({
-            "Version": "2012-10-17",
-            "Statement": [{
-                "Action": [
-                    "s3:ListAllMyBuckets",
-                    "s3:ListBucket",
-                    "s3:HeadBucket",
+        policy_two = aws.iam.policy.Policy("policyTwo", policy=json.dumps({
+            Version: 2012-10-17,
+            Statement: [{
+                Action: [
+                    s3:ListAllMyBuckets,
+                    s3:ListBucket,
+                    s3:HeadBucket,
                 ],
-                "Effect": "Allow",
-                "Resource": "*",
+                Effect: Allow,
+                Resource: *,
             }],
         }))
-        example = aws.iam.Role("example",
-            assume_role_policy=data["aws_iam_policy_document"]["instance_assume_role_policy"]["json"],
+        example = aws.iam.role.Role("example",
+            assume_role_policy=data.aws_iam_policy_document.instance_assume_role_policy.json,
             managed_policy_arns=[
                 policy_one.arn,
                 policy_two.arn,
@@ -612,8 +562,8 @@ class Role(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.iam.Role("example",
-            assume_role_policy=data["aws_iam_policy_document"]["instance_assume_role_policy"]["json"],
+        example = aws.iam.role.Role("example",
+            assume_role_policy=data.aws_iam_policy_document.instance_assume_role_policy.json,
             managed_policy_arns=[])
         ```
 
@@ -663,71 +613,21 @@ class Role(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        test_role = aws.iam.Role("testRole",
+        test_role = aws.iam.role.Role("testRole",
             assume_role_policy=json.dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Action": "sts:AssumeRole",
-                    "Effect": "Allow",
-                    "Sid": "",
-                    "Principal": {
-                        "Service": "ec2.amazonaws.com",
+                Version: 2012-10-17,
+                Statement: [{
+                    Action: sts:AssumeRole,
+                    Effect: Allow,
+                    Sid: ,
+                    Principal: {
+                        Service: ec2.amazonaws.com,
                     },
                 }],
             }),
             tags={
-                "tag-key": "tag-value",
+                tag-key: tag-value,
             })
-        ```
-        ### Example of Using Data Source for Assume Role Policy
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        instance_assume_role_policy = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            actions=["sts:AssumeRole"],
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["ec2.amazonaws.com"],
-            )],
-        )])
-        instance = aws.iam.Role("instance",
-            path="/system/",
-            assume_role_policy=instance_assume_role_policy.json)
-        ```
-        ### Example of Exclusive Inline Policies
-
-        This example creates an IAM role with two inline IAM policies. If someone adds another inline policy out-of-band, on the next apply, this provider will remove that policy. If someone deletes these policies out-of-band, this provider will recreate them.
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        inline_policy = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            actions=["ec2:DescribeAccountAttributes"],
-            resources=["*"],
-        )])
-        example = aws.iam.Role("example",
-            assume_role_policy=data["aws_iam_policy_document"]["instance_assume_role_policy"]["json"],
-            inline_policies=[
-                aws.iam.RoleInlinePolicyArgs(
-                    name="my_inline_policy",
-                    policy=json.dumps({
-                        "Version": "2012-10-17",
-                        "Statement": [{
-                            "Action": ["ec2:Describe*"],
-                            "Effect": "Allow",
-                            "Resource": "*",
-                        }],
-                    }),
-                ),
-                aws.iam.RoleInlinePolicyArgs(
-                    name="policy-8675309",
-                    policy=inline_policy.json,
-                ),
-            ])
         ```
         ### Example of Removing Inline Policies
 
@@ -737,9 +637,9 @@ class Role(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.iam.Role("example",
-            assume_role_policy=data["aws_iam_policy_document"]["instance_assume_role_policy"]["json"],
-            inline_policies=[aws.iam.RoleInlinePolicyArgs()])
+        example = aws.iam.role.Role("example",
+            assume_role_policy=data.aws_iam_policy_document.instance_assume_role_policy.json,
+            inline_policies=[{}])
         ```
         ### Example of Exclusive Managed Policies
 
@@ -750,28 +650,28 @@ class Role(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        policy_one = aws.iam.Policy("policyOne", policy=json.dumps({
-            "Version": "2012-10-17",
-            "Statement": [{
-                "Action": ["ec2:Describe*"],
-                "Effect": "Allow",
-                "Resource": "*",
+        policy_one = aws.iam.policy.Policy("policyOne", policy=json.dumps({
+            Version: 2012-10-17,
+            Statement: [{
+                Action: [ec2:Describe*],
+                Effect: Allow,
+                Resource: *,
             }],
         }))
-        policy_two = aws.iam.Policy("policyTwo", policy=json.dumps({
-            "Version": "2012-10-17",
-            "Statement": [{
-                "Action": [
-                    "s3:ListAllMyBuckets",
-                    "s3:ListBucket",
-                    "s3:HeadBucket",
+        policy_two = aws.iam.policy.Policy("policyTwo", policy=json.dumps({
+            Version: 2012-10-17,
+            Statement: [{
+                Action: [
+                    s3:ListAllMyBuckets,
+                    s3:ListBucket,
+                    s3:HeadBucket,
                 ],
-                "Effect": "Allow",
-                "Resource": "*",
+                Effect: Allow,
+                Resource: *,
             }],
         }))
-        example = aws.iam.Role("example",
-            assume_role_policy=data["aws_iam_policy_document"]["instance_assume_role_policy"]["json"],
+        example = aws.iam.role.Role("example",
+            assume_role_policy=data.aws_iam_policy_document.instance_assume_role_policy.json,
             managed_policy_arns=[
                 policy_one.arn,
                 policy_two.arn,
@@ -785,8 +685,8 @@ class Role(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.iam.Role("example",
-            assume_role_policy=data["aws_iam_policy_document"]["instance_assume_role_policy"]["json"],
+        example = aws.iam.role.Role("example",
+            assume_role_policy=data.aws_iam_policy_document.instance_assume_role_policy.json,
             managed_policy_arns=[])
         ```
 

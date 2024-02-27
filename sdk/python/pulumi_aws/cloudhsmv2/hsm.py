@@ -215,20 +215,6 @@ class Hsm(pulumi.CustomResource):
         """
         Creates an HSM module in Amazon CloudHSM v2 cluster.
 
-        ## Example Usage
-
-        The following example below creates an HSM module in CloudHSM cluster.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        cluster = aws.cloudhsmv2.get_cluster(cluster_id=var["cloudhsm_cluster_id"])
-        cloudhsm_v2_hsm = aws.cloudhsmv2.Hsm("cloudhsmV2Hsm",
-            subnet_id=cluster.subnet_ids[0],
-            cluster_id=cluster.cluster_id)
-        ```
-
         ## Import
 
         Using `pulumi import`, import HSM modules using their HSM ID. For example:
@@ -252,20 +238,6 @@ class Hsm(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Creates an HSM module in Amazon CloudHSM v2 cluster.
-
-        ## Example Usage
-
-        The following example below creates an HSM module in CloudHSM cluster.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        cluster = aws.cloudhsmv2.get_cluster(cluster_id=var["cloudhsm_cluster_id"])
-        cloudhsm_v2_hsm = aws.cloudhsmv2.Hsm("cloudhsmV2Hsm",
-            subnet_id=cluster.subnet_ids[0],
-            cluster_id=cluster.cluster_id)
-        ```
 
         ## Import
 

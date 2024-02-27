@@ -22,9 +22,9 @@ namespace Pulumi.Aws.AppSync
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.AppSync.DomainName("example", new()
+    ///     var example = new Aws.Appsync.DomainName.DomainName("example", new()
     ///     {
-    ///         Name = "api.example.com",
+    ///         DomainName = "api.example.com",
     ///         CertificateArn = aws_acm_certificate.Example.Arn,
     ///     });
     /// 

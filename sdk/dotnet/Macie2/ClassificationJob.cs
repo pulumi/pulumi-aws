@@ -22,24 +22,24 @@ namespace Pulumi.Aws.Macie2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testAccount = new Aws.Macie2.Account("testAccount");
+    ///     var testAccount = new Aws.Macie2.Account.Account("testAccount");
     /// 
-    ///     var testClassificationJob = new Aws.Macie2.ClassificationJob("testClassificationJob", new()
+    ///     var testClassificationJob = new Aws.Macie2.ClassificationJob.ClassificationJob("testClassificationJob", new()
     ///     {
     ///         JobType = "ONE_TIME",
-    ///         S3JobDefinition = new Aws.Macie2.Inputs.ClassificationJobS3JobDefinitionArgs
+    ///         S3JobDefinition = 
     ///         {
-    ///             BucketDefinitions = new[]
+    ///             { "bucketDefinitions", new[]
     ///             {
-    ///                 new Aws.Macie2.Inputs.ClassificationJobS3JobDefinitionBucketDefinitionArgs
+    ///                 
     ///                 {
-    ///                     AccountId = "ACCOUNT ID",
-    ///                     Buckets = new[]
+    ///                     { "accountId", "ACCOUNT ID" },
+    ///                     { "buckets", new[]
     ///                     {
     ///                         "S3 BUCKET NAME",
-    ///                     },
+    ///                     } },
     ///                 },
-    ///             },
+    ///             } },
     ///         },
     ///     }, new CustomResourceOptions
     ///     {

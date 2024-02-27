@@ -9,20 +9,6 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieve information about EMR Release Labels.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.emr.getReleaseLabels({
- *     filters: {
- *         application: "spark@2.1.0",
- *         prefix: "emr-5",
- *     },
- * });
- * ```
  */
 export function getReleaseLabels(args?: GetReleaseLabelsArgs, opts?: pulumi.InvokeOptions): Promise<GetReleaseLabelsResult> {
     args = args || {};
@@ -59,20 +45,6 @@ export interface GetReleaseLabelsResult {
 }
 /**
  * Retrieve information about EMR Release Labels.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.emr.getReleaseLabels({
- *     filters: {
- *         application: "spark@2.1.0",
- *         prefix: "emr-5",
- *     },
- * });
- * ```
  */
 export function getReleaseLabelsOutput(args?: GetReleaseLabelsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReleaseLabelsResult> {
     return pulumi.output(args).apply((a: any) => getReleaseLabels(a, opts))

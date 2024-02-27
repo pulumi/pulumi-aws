@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Kinesis
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testStream = new Aws.Kinesis.Stream("testStream", new()
+    ///     var testStream = new Aws.Kinesis.Stream.Stream("testStream", new()
     ///     {
     ///         RetentionPeriod = 48,
     ///         ShardCount = 1,
@@ -34,9 +34,9 @@ namespace Pulumi.Aws.Kinesis
     ///             "IncomingBytes",
     ///             "OutgoingBytes",
     ///         },
-    ///         StreamModeDetails = new Aws.Kinesis.Inputs.StreamStreamModeDetailsArgs
+    ///         StreamModeDetails = 
     ///         {
-    ///             StreamMode = "PROVISIONED",
+    ///             { "streamMode", "PROVISIONED" },
     ///         },
     ///         Tags = 
     ///         {

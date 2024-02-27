@@ -21,43 +21,42 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/signer"
+//	signer/signingJob "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/signer/signingJob"
+//	signer/signingProfile "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/signer/signingProfile"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testSp, err := signer.NewSigningProfile(ctx, "testSp", &signer.SigningProfileArgs{
-//				PlatformId: pulumi.String("AWSLambda-SHA384-ECDSA"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = signer.NewSigningJob(ctx, "buildSigningJob", &signer.SigningJobArgs{
-//				ProfileName: testSp.Name,
-//				Source: &signer.SigningJobSourceArgs{
-//					S3: &signer.SigningJobSourceS3Args{
-//						Bucket:  pulumi.String("s3-bucket-name"),
-//						Key:     pulumi.String("object-to-be-signed.zip"),
-//						Version: pulumi.String("jADjFYYYEXAMPLETszPjOmCMFDzd9dN1"),
-//					},
-//				},
-//				Destination: &signer.SigningJobDestinationArgs{
-//					S3: &signer.SigningJobDestinationS3Args{
-//						Bucket: pulumi.String("s3-bucket-name"),
-//						Prefix: pulumi.String("signed/"),
-//					},
-//				},
-//				IgnoreSigningJobFailure: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// testSp, err := signer/signingProfile.NewSigningProfile(ctx, "testSp", &signer/signingProfile.SigningProfileArgs{
+// PlatformId: "AWSLambda-SHA384-ECDSA",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = signer/signingJob.NewSigningJob(ctx, "buildSigningJob", &signer/signingJob.SigningJobArgs{
+// ProfileName: testSp.Name,
+// Source: map[string]interface{}{
+// "s3": map[string]interface{}{
+// "bucket": "s3-bucket-name",
+// "key": "object-to-be-signed.zip",
+// "version": "jADjFYYYEXAMPLETszPjOmCMFDzd9dN1",
+// },
+// },
+// Destination: map[string]interface{}{
+// "s3": map[string]interface{}{
+// "bucket": "s3-bucket-name",
+// "prefix": "signed/",
+// },
+// },
+// IgnoreSigningJobFailure: true,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

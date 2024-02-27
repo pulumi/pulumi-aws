@@ -22,7 +22,7 @@ namespace Pulumi.Aws.ElastiCache
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var fooVpc = new Aws.Ec2.Vpc("fooVpc", new()
+    ///     var fooVpc = new Aws.Ec2.Vpc.Vpc("fooVpc", new()
     ///     {
     ///         CidrBlock = "10.0.0.0/16",
     ///         Tags = 
@@ -31,7 +31,7 @@ namespace Pulumi.Aws.ElastiCache
     ///         },
     ///     });
     /// 
-    ///     var fooSubnet = new Aws.Ec2.Subnet("fooSubnet", new()
+    ///     var fooSubnet = new Aws.Ec2.Subnet.Subnet("fooSubnet", new()
     ///     {
     ///         VpcId = fooVpc.Id,
     ///         CidrBlock = "10.0.0.0/24",
@@ -42,7 +42,7 @@ namespace Pulumi.Aws.ElastiCache
     ///         },
     ///     });
     /// 
-    ///     var bar = new Aws.ElastiCache.SubnetGroup("bar", new()
+    ///     var bar = new Aws.Elasticache.SubnetGroup.SubnetGroup("bar", new()
     ///     {
     ///         SubnetIds = new[]
     ///         {

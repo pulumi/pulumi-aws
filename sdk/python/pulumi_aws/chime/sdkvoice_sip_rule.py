@@ -215,14 +215,14 @@ class SdkvoiceSipRule(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.chime.SdkvoiceSipRule("example",
-            trigger_type="RequestUriHostname",
-            trigger_value=aws_chime_voice_connector["example-voice-connector"]["outbound_host_name"],
-            target_applications=[aws.chime.SdkvoiceSipRuleTargetApplicationArgs(
-                priority=1,
-                sip_media_application_id=aws_chimesdkvoice_sip_media_application["example-sma"]["id"],
-                aws_region="us-east-1",
-            )])
+        example = aws.chime.sdkvoice_sip_rule.SdkvoiceSipRule("example",
+            trigger_type=RequestUriHostname,
+            trigger_value=aws_chime_voice_connector.example_voice_connector.outbound_host_name,
+            target_applications=[{
+                priority: 1,
+                sipMediaApplicationId: aws_chimesdkvoice_sip_media_application.example_sma.id,
+                awsRegion: us-east-1,
+            }])
         ```
 
         ## Import
@@ -259,14 +259,14 @@ class SdkvoiceSipRule(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.chime.SdkvoiceSipRule("example",
-            trigger_type="RequestUriHostname",
-            trigger_value=aws_chime_voice_connector["example-voice-connector"]["outbound_host_name"],
-            target_applications=[aws.chime.SdkvoiceSipRuleTargetApplicationArgs(
-                priority=1,
-                sip_media_application_id=aws_chimesdkvoice_sip_media_application["example-sma"]["id"],
-                aws_region="us-east-1",
-            )])
+        example = aws.chime.sdkvoice_sip_rule.SdkvoiceSipRule("example",
+            trigger_type=RequestUriHostname,
+            trigger_value=aws_chime_voice_connector.example_voice_connector.outbound_host_name,
+            target_applications=[{
+                priority: 1,
+                sipMediaApplicationId: aws_chimesdkvoice_sip_media_application.example_sma.id,
+                awsRegion: us-east-1,
+            }])
         ```
 
         ## Import

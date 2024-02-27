@@ -18,68 +18,6 @@ import javax.annotation.Nullable;
  * 
  * Note that currently only one policy may be applied to a repository.
  * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ecr.Repository;
- * import com.pulumi.aws.iam.IamFunctions;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
- * import com.pulumi.aws.ecr.RepositoryPolicy;
- * import com.pulumi.aws.ecr.RepositoryPolicyArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var foo = new Repository(&#34;foo&#34;);
- * 
- *         final var foopolicyPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .sid(&#34;new policy&#34;)
- *                 .effect(&#34;Allow&#34;)
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type(&#34;AWS&#34;)
- *                     .identifiers(&#34;123456789012&#34;)
- *                     .build())
- *                 .actions(                
- *                     &#34;ecr:GetDownloadUrlForLayer&#34;,
- *                     &#34;ecr:BatchGetImage&#34;,
- *                     &#34;ecr:BatchCheckLayerAvailability&#34;,
- *                     &#34;ecr:PutImage&#34;,
- *                     &#34;ecr:InitiateLayerUpload&#34;,
- *                     &#34;ecr:UploadLayerPart&#34;,
- *                     &#34;ecr:CompleteLayerUpload&#34;,
- *                     &#34;ecr:DescribeRepositories&#34;,
- *                     &#34;ecr:GetRepositoryPolicy&#34;,
- *                     &#34;ecr:ListImages&#34;,
- *                     &#34;ecr:DeleteRepository&#34;,
- *                     &#34;ecr:BatchDeleteImage&#34;,
- *                     &#34;ecr:SetRepositoryPolicy&#34;,
- *                     &#34;ecr:DeleteRepositoryPolicy&#34;)
- *                 .build())
- *             .build());
- * 
- *         var foopolicyRepositoryPolicy = new RepositoryPolicy(&#34;foopolicyRepositoryPolicy&#34;, RepositoryPolicyArgs.builder()        
- *             .repository(foo.name())
- *             .policy(foopolicyPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
  * ## Import
  * 
  * Using `pulumi import`, import ECR Repository Policy using the repository name. For example:

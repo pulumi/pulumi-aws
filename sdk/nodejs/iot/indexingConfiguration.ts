@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.iot.IndexingConfiguration("example", {thingIndexingConfiguration: {
+ * const example = new aws.iot/indexingConfiguration.IndexingConfiguration("example", {thingIndexingConfiguration: {
  *     customFields: [
  *         {
  *             name: "shadow.desired.power",

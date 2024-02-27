@@ -194,7 +194,7 @@ class Revision(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.dataexchange.Revision("example", data_set_id=aws_dataexchange_data_set["example"]["id"])
+        example = aws.dataexchange.revision.Revision("example", data_set_id=aws_dataexchange_data_set.example.id)
         ```
 
         ## Import
@@ -226,7 +226,7 @@ class Revision(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.dataexchange.Revision("example", data_set_id=aws_dataexchange_data_set["example"]["id"])
+        example = aws.dataexchange.revision.Revision("example", data_set_id=aws_dataexchange_data_set.example.id)
         ```
 
         ## Import

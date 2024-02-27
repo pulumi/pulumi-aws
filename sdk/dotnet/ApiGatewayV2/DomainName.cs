@@ -27,14 +27,14 @@ namespace Pulumi.Aws.ApiGatewayV2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.ApiGatewayV2.DomainName("example", new()
+    ///     var example = new Aws.Apigatewayv2.DomainName.DomainName("example", new()
     ///     {
-    ///         Domain = "ws-api.example.com",
-    ///         DomainNameConfiguration = new Aws.ApiGatewayV2.Inputs.DomainNameDomainNameConfigurationArgs
+    ///         DomainName = "ws-api.example.com",
+    ///         DomainNameConfiguration = 
     ///         {
-    ///             CertificateArn = aws_acm_certificate.Example.Arn,
-    ///             EndpointType = "REGIONAL",
-    ///             SecurityPolicy = "TLS_1_2",
+    ///             { "certificateArn", aws_acm_certificate.Example.Arn },
+    ///             { "endpointType", "REGIONAL" },
+    ///             { "securityPolicy", "TLS_1_2" },
     ///         },
     ///     });
     /// 
@@ -50,29 +50,29 @@ namespace Pulumi.Aws.ApiGatewayV2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleDomainName = new Aws.ApiGatewayV2.DomainName("exampleDomainName", new()
+    ///     var exampleDomainName = new Aws.Apigatewayv2.DomainName.DomainName("exampleDomainName", new()
     ///     {
-    ///         Domain = "http-api.example.com",
-    ///         DomainNameConfiguration = new Aws.ApiGatewayV2.Inputs.DomainNameDomainNameConfigurationArgs
+    ///         DomainName = "http-api.example.com",
+    ///         DomainNameConfiguration = 
     ///         {
-    ///             CertificateArn = aws_acm_certificate.Example.Arn,
-    ///             EndpointType = "REGIONAL",
-    ///             SecurityPolicy = "TLS_1_2",
+    ///             { "certificateArn", aws_acm_certificate.Example.Arn },
+    ///             { "endpointType", "REGIONAL" },
+    ///             { "securityPolicy", "TLS_1_2" },
     ///         },
     ///     });
     /// 
-    ///     var exampleRecord = new Aws.Route53.Record("exampleRecord", new()
+    ///     var exampleRecord = new Aws.Route53.Record.Record("exampleRecord", new()
     ///     {
-    ///         Name = exampleDomainName.Domain,
+    ///         Name = exampleDomainName.DomainName,
     ///         Type = "A",
     ///         ZoneId = aws_route53_zone.Example.Zone_id,
     ///         Aliases = new[]
     ///         {
-    ///             new Aws.Route53.Inputs.RecordAliasArgs
+    ///             
     ///             {
-    ///                 Name = exampleDomainName.DomainNameConfiguration.Apply(domainNameConfiguration =&gt; domainNameConfiguration.TargetDomainName),
-    ///                 ZoneId = exampleDomainName.DomainNameConfiguration.Apply(domainNameConfiguration =&gt; domainNameConfiguration.HostedZoneId),
-    ///                 EvaluateTargetHealth = false,
+    ///                 { "name", exampleDomainName.DomainNameConfiguration.TargetDomainName },
+    ///                 { "zoneId", exampleDomainName.DomainNameConfiguration.HostedZoneId },
+    ///                 { "evaluateTargetHealth", false },
     ///             },
     ///         },
     ///     });

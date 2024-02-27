@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.ssoadmin.ApplicationAssignment("example", {
+ * const example = new aws.ssoadmin/applicationAssignment.ApplicationAssignment("example", {
  *     applicationArn: aws_ssoadmin_application.example.application_arn,
  *     principalId: aws_identitystore_user.example.user_id,
  *     principalType: "USER",
@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.ssoadmin.ApplicationAssignment("example", {
+ * const example = new aws.ssoadmin/applicationAssignment.ApplicationAssignment("example", {
  *     applicationArn: aws_ssoadmin_application.example.application_arn,
  *     principalId: aws_identitystore_group.example.group_id,
  *     principalType: "GROUP",

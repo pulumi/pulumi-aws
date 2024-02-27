@@ -32,8 +32,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.sagemaker.FlowDefinition;
  * import com.pulumi.aws.sagemaker.FlowDefinitionArgs;
- * import com.pulumi.aws.sagemaker.inputs.FlowDefinitionHumanLoopConfigArgs;
- * import com.pulumi.aws.sagemaker.inputs.FlowDefinitionOutputConfigArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -50,17 +48,8 @@ import javax.annotation.Nullable;
  *         var example = new FlowDefinition(&#34;example&#34;, FlowDefinitionArgs.builder()        
  *             .flowDefinitionName(&#34;example&#34;)
  *             .roleArn(aws_iam_role.example().arn())
- *             .humanLoopConfig(FlowDefinitionHumanLoopConfigArgs.builder()
- *                 .humanTaskUiArn(aws_sagemaker_human_task_ui.example().arn())
- *                 .taskAvailabilityLifetimeInSeconds(1)
- *                 .taskCount(1)
- *                 .taskDescription(&#34;example&#34;)
- *                 .taskTitle(&#34;example&#34;)
- *                 .workteamArn(aws_sagemaker_workteam.example().arn())
- *                 .build())
- *             .outputConfig(FlowDefinitionOutputConfigArgs.builder()
- *                 .s3OutputPath(String.format(&#34;s3://%s/&#34;, aws_s3_bucket.example().bucket()))
- *                 .build())
+ *             .humanLoopConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .outputConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -75,10 +64,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.sagemaker.FlowDefinition;
  * import com.pulumi.aws.sagemaker.FlowDefinitionArgs;
- * import com.pulumi.aws.sagemaker.inputs.FlowDefinitionHumanLoopConfigArgs;
- * import com.pulumi.aws.sagemaker.inputs.FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceArgs;
- * import com.pulumi.aws.sagemaker.inputs.FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdArgs;
- * import com.pulumi.aws.sagemaker.inputs.FlowDefinitionOutputConfigArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -95,23 +80,8 @@ import javax.annotation.Nullable;
  *         var example = new FlowDefinition(&#34;example&#34;, FlowDefinitionArgs.builder()        
  *             .flowDefinitionName(&#34;example&#34;)
  *             .roleArn(aws_iam_role.example().arn())
- *             .humanLoopConfig(FlowDefinitionHumanLoopConfigArgs.builder()
- *                 .humanTaskUiArn(aws_sagemaker_human_task_ui.example().arn())
- *                 .taskAvailabilityLifetimeInSeconds(1)
- *                 .taskCount(1)
- *                 .taskDescription(&#34;example&#34;)
- *                 .taskTitle(&#34;example&#34;)
- *                 .workteamArn(String.format(&#34;arn:aws:sagemaker:%s:394669845002:workteam/public-crowd/default&#34;, data.aws_region().current().name()))
- *                 .publicWorkforceTaskPrice(FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceArgs.builder()
- *                     .amountInUsd(FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdArgs.builder()
- *                         .cents(1)
- *                         .tenthFractionsOfACent(2)
- *                         .build())
- *                     .build())
- *                 .build())
- *             .outputConfig(FlowDefinitionOutputConfigArgs.builder()
- *                 .s3OutputPath(String.format(&#34;s3://%s/&#34;, aws_s3_bucket.example().bucket()))
- *                 .build())
+ *             .humanLoopConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .outputConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -126,11 +96,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.sagemaker.FlowDefinition;
  * import com.pulumi.aws.sagemaker.FlowDefinitionArgs;
- * import com.pulumi.aws.sagemaker.inputs.FlowDefinitionHumanLoopConfigArgs;
- * import com.pulumi.aws.sagemaker.inputs.FlowDefinitionHumanLoopRequestSourceArgs;
- * import com.pulumi.aws.sagemaker.inputs.FlowDefinitionHumanLoopActivationConfigArgs;
- * import com.pulumi.aws.sagemaker.inputs.FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigArgs;
- * import com.pulumi.aws.sagemaker.inputs.FlowDefinitionOutputConfigArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -147,36 +112,10 @@ import javax.annotation.Nullable;
  *         var example = new FlowDefinition(&#34;example&#34;, FlowDefinitionArgs.builder()        
  *             .flowDefinitionName(&#34;example&#34;)
  *             .roleArn(aws_iam_role.example().arn())
- *             .humanLoopConfig(FlowDefinitionHumanLoopConfigArgs.builder()
- *                 .humanTaskUiArn(aws_sagemaker_human_task_ui.example().arn())
- *                 .taskAvailabilityLifetimeInSeconds(1)
- *                 .taskCount(1)
- *                 .taskDescription(&#34;example&#34;)
- *                 .taskTitle(&#34;example&#34;)
- *                 .workteamArn(aws_sagemaker_workteam.example().arn())
- *                 .build())
- *             .humanLoopRequestSource(FlowDefinitionHumanLoopRequestSourceArgs.builder()
- *                 .awsManagedHumanLoopRequestSource(&#34;AWS/Textract/AnalyzeDocument/Forms/V1&#34;)
- *                 .build())
- *             .humanLoopActivationConfig(FlowDefinitionHumanLoopActivationConfigArgs.builder()
- *                 .humanLoopActivationConditionsConfig(FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigArgs.builder()
- *                     .humanLoopActivationConditions(&#34;&#34;&#34;
- *         {
- * 			&#34;Conditions&#34;: [
- * 			  {
- * 				&#34;ConditionType&#34;: &#34;Sampling&#34;,
- * 				&#34;ConditionParameters&#34;: {
- * 				  &#34;RandomSamplingPercentage&#34;: 5
- * 				}
- * 			  }
- * 			]
- * 		}
- *                     &#34;&#34;&#34;)
- *                     .build())
- *                 .build())
- *             .outputConfig(FlowDefinitionOutputConfigArgs.builder()
- *                 .s3OutputPath(String.format(&#34;s3://%s/&#34;, aws_s3_bucket.example().bucket()))
- *                 .build())
+ *             .humanLoopConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .humanLoopRequestSource(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .humanLoopActivationConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .outputConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

@@ -33,12 +33,12 @@ namespace Pulumi.Aws.Ram
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceShare = new Aws.Ram.ResourceShare("exampleResourceShare", new()
+    ///     var exampleResourceShare = new Aws.Ram.ResourceShare.ResourceShare("exampleResourceShare", new()
     ///     {
     ///         AllowExternalPrincipals = true,
     ///     });
     /// 
-    ///     var examplePrincipalAssociation = new Aws.Ram.PrincipalAssociation("examplePrincipalAssociation", new()
+    ///     var examplePrincipalAssociation = new Aws.Ram.PrincipalAssociation.PrincipalAssociation("examplePrincipalAssociation", new()
     ///     {
     ///         Principal = "111111111111",
     ///         ResourceShareArn = exampleResourceShare.Arn,
@@ -56,7 +56,7 @@ namespace Pulumi.Aws.Ram
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Ram.PrincipalAssociation("example", new()
+    ///     var example = new Aws.Ram.PrincipalAssociation.PrincipalAssociation("example", new()
     ///     {
     ///         Principal = aws_organizations_organization.Example.Arn,
     ///         ResourceShareArn = aws_ram_resource_share.Example.Arn,

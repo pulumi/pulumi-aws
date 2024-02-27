@@ -258,21 +258,21 @@ class ParameterGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        bar = aws.redshift.ParameterGroup("bar",
-            family="redshift-1.0",
+        bar = aws.redshift.parameter_group.ParameterGroup("bar",
+            family=redshift-1.0,
             parameters=[
-                aws.redshift.ParameterGroupParameterArgs(
-                    name="require_ssl",
-                    value="true",
-                ),
-                aws.redshift.ParameterGroupParameterArgs(
-                    name="query_group",
-                    value="example",
-                ),
-                aws.redshift.ParameterGroupParameterArgs(
-                    name="enable_user_activity_logging",
-                    value="true",
-                ),
+                {
+                    name: require_ssl,
+                    value: true,
+                },
+                {
+                    name: query_group,
+                    value: example,
+                },
+                {
+                    name: enable_user_activity_logging,
+                    value: true,
+                },
             ])
         ```
 
@@ -309,21 +309,21 @@ class ParameterGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        bar = aws.redshift.ParameterGroup("bar",
-            family="redshift-1.0",
+        bar = aws.redshift.parameter_group.ParameterGroup("bar",
+            family=redshift-1.0,
             parameters=[
-                aws.redshift.ParameterGroupParameterArgs(
-                    name="require_ssl",
-                    value="true",
-                ),
-                aws.redshift.ParameterGroupParameterArgs(
-                    name="query_group",
-                    value="example",
-                ),
-                aws.redshift.ParameterGroupParameterArgs(
-                    name="enable_user_activity_logging",
-                    value="true",
-                ),
+                {
+                    name: require_ssl,
+                    value: true,
+                },
+                {
+                    name: query_group,
+                    value: example,
+                },
+                {
+                    name: enable_user_activity_logging,
+                    value: true,
+                },
             ])
         ```
 

@@ -33,9 +33,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.auditmanager.Assessment;
  * import com.pulumi.aws.auditmanager.AssessmentArgs;
- * import com.pulumi.aws.auditmanager.inputs.AssessmentAssessmentReportsDestinationArgs;
- * import com.pulumi.aws.auditmanager.inputs.AssessmentRoleArgs;
- * import com.pulumi.aws.auditmanager.inputs.AssessmentScopeArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -50,23 +47,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new Assessment(&#34;test&#34;, AssessmentArgs.builder()        
- *             .assessmentReportsDestination(AssessmentAssessmentReportsDestinationArgs.builder()
- *                 .destination(String.format(&#34;s3://%s&#34;, aws_s3_bucket.test().id()))
- *                 .destinationType(&#34;S3&#34;)
- *                 .build())
+ *             .assessmentReportsDestination(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .frameworkId(aws_auditmanager_framework.test().id())
- *             .roles(AssessmentRoleArgs.builder()
- *                 .roleArn(aws_iam_role.test().arn())
- *                 .roleType(&#34;PROCESS_OWNER&#34;)
- *                 .build())
- *             .scope(AssessmentScopeArgs.builder()
- *                 .awsAccounts(AssessmentScopeAwsAccountArgs.builder()
- *                     .id(data.aws_caller_identity().current().account_id())
- *                     .build())
- *                 .awsServices(AssessmentScopeAwsServiceArgs.builder()
- *                     .serviceName(&#34;S3&#34;)
- *                     .build())
- *                 .build())
+ *             .roles(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .scope(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

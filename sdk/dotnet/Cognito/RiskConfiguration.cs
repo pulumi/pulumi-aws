@@ -22,15 +22,15 @@ namespace Pulumi.Aws.Cognito
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Cognito.RiskConfiguration("example", new()
+    ///     var example = new Aws.Cognito.RiskConfiguration.RiskConfiguration("example", new()
     ///     {
     ///         UserPoolId = aws_cognito_user_pool.Example.Id,
-    ///         RiskExceptionConfiguration = new Aws.Cognito.Inputs.RiskConfigurationRiskExceptionConfigurationArgs
+    ///         RiskExceptionConfiguration = 
     ///         {
-    ///             BlockedIpRangeLists = new[]
+    ///             { "blockedIpRangeLists", new[]
     ///             {
     ///                 "10.10.10.10/32",
-    ///             },
+    ///             } },
     ///         },
     ///     });
     /// 

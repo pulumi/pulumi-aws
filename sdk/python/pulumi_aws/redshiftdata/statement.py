@@ -340,11 +340,11 @@ class Statement(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.redshiftdata.Statement("example",
-            cluster_identifier=aws_redshift_cluster["example"]["cluster_identifier"],
-            database=aws_redshift_cluster["example"]["database_name"],
-            db_user=aws_redshift_cluster["example"]["master_username"],
-            sql="CREATE GROUP group_name;")
+        example = aws.redshiftdata.statement.Statement("example",
+            cluster_identifier=aws_redshift_cluster.example.cluster_identifier,
+            database=aws_redshift_cluster.example.database_name,
+            db_user=aws_redshift_cluster.example.master_username,
+            sql=CREATE GROUP group_name;)
         ```
         ### workgroup_name
 
@@ -352,10 +352,10 @@ class Statement(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.redshiftdata.Statement("example",
-            workgroup_name=aws_redshiftserverless_workgroup["example"]["workgroup_name"],
-            database="dev",
-            sql="CREATE GROUP group_name;")
+        example = aws.redshiftdata.statement.Statement("example",
+            workgroup_name=aws_redshiftserverless_workgroup.example.workgroup_name,
+            database=dev,
+            sql=CREATE GROUP group_name;)
         ```
 
         ## Import
@@ -395,11 +395,11 @@ class Statement(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.redshiftdata.Statement("example",
-            cluster_identifier=aws_redshift_cluster["example"]["cluster_identifier"],
-            database=aws_redshift_cluster["example"]["database_name"],
-            db_user=aws_redshift_cluster["example"]["master_username"],
-            sql="CREATE GROUP group_name;")
+        example = aws.redshiftdata.statement.Statement("example",
+            cluster_identifier=aws_redshift_cluster.example.cluster_identifier,
+            database=aws_redshift_cluster.example.database_name,
+            db_user=aws_redshift_cluster.example.master_username,
+            sql=CREATE GROUP group_name;)
         ```
         ### workgroup_name
 
@@ -407,10 +407,10 @@ class Statement(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.redshiftdata.Statement("example",
-            workgroup_name=aws_redshiftserverless_workgroup["example"]["workgroup_name"],
-            database="dev",
-            sql="CREATE GROUP group_name;")
+        example = aws.redshiftdata.statement.Statement("example",
+            workgroup_name=aws_redshiftserverless_workgroup.example.workgroup_name,
+            database=dev,
+            sql=CREATE GROUP group_name;)
         ```
 
         ## Import

@@ -22,21 +22,19 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/devicefarm"
+//	devicefarm/instanceProfile "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/devicefarm/instanceProfile"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := devicefarm.NewInstanceProfile(ctx, "example", nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := devicefarm/instanceProfile.NewInstanceProfile(ctx, "example", nil)
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -158,7 +158,7 @@ class AccountRegistration(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.auditmanager.AccountRegistration("example")
+        example = aws.auditmanager.account_registration.AccountRegistration("example")
         ```
         ### Deregister On Destroy
 
@@ -166,7 +166,7 @@ class AccountRegistration(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.auditmanager.AccountRegistration("example", deregister_on_destroy=True)
+        example = aws.auditmanager.account_registration.AccountRegistration("example", deregister_on_destroy=True)
         ```
 
         ## Import
@@ -199,7 +199,7 @@ class AccountRegistration(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.auditmanager.AccountRegistration("example")
+        example = aws.auditmanager.account_registration.AccountRegistration("example")
         ```
         ### Deregister On Destroy
 
@@ -207,7 +207,7 @@ class AccountRegistration(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.auditmanager.AccountRegistration("example", deregister_on_destroy=True)
+        example = aws.auditmanager.account_registration.AccountRegistration("example", deregister_on_destroy=True)
         ```
 
         ## Import

@@ -23,9 +23,38 @@ namespace Pulumi.Aws.VerifiedAccess
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.VerifiedAccess.Group("example", new()
+    ///     var example = new Aws.Verifiedaccess.Group.Group("example", new()
     ///     {
     ///         VerifiedaccessInstanceId = aws_verifiedaccess_instance.Example.Id,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### Usage with KMS Key
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var testKey = new Aws.Kms.Key.Key("testKey", new()
+    ///     {
+    ///         Description = "KMS key for Verified Access Group test",
+    ///     });
+    /// 
+    ///     var test = new Aws.Verifiedaccess.Group.Group("test", new()
+    ///     {
+    ///         VerifiedaccessInstanceId = aws_verifiedaccess_instance_trust_provider_attachment.Test.Verifiedaccess_instance_id,
+    ///         ServerSideEncryptionConfiguration = new[]
+    ///         {
+    ///             
+    ///             {
+    ///                 { "kmsKeyArn", testKey.Arn },
+    ///             },
+    ///         },
     ///     });
     /// 
     /// });

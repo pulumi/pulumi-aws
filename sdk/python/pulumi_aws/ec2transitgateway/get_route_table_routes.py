@@ -82,19 +82,6 @@ def get_route_table_routes(filters: Optional[Sequence[pulumi.InputType['GetRoute
     """
     Provides informations for routes of a specific transit gateway, such as state, type, cidr
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.ec2transitgateway.get_route_table_routes(filters=[aws.ec2transitgateway.GetRouteTableRoutesFilterArgs(
-            name="type",
-            values=["propagated"],
-        )],
-        transit_gateway_route_table_id=aws_ec2_transit_gateway_route_table["example"]["id"])
-    ```
-
 
     :param Sequence[pulumi.InputType['GetRouteTableRoutesFilterArgs']] filters: Custom filter block as described below.
     :param str transit_gateway_route_table_id: Identifier of EC2 Transit Gateway Route Table.
@@ -121,19 +108,6 @@ def get_route_table_routes_output(filters: Optional[pulumi.Input[Sequence[pulumi
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRouteTableRoutesResult]:
     """
     Provides informations for routes of a specific transit gateway, such as state, type, cidr
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.ec2transitgateway.get_route_table_routes(filters=[aws.ec2transitgateway.GetRouteTableRoutesFilterArgs(
-            name="type",
-            values=["propagated"],
-        )],
-        transit_gateway_route_table_id=aws_ec2_transit_gateway_route_table["example"]["id"])
-    ```
 
 
     :param Sequence[pulumi.InputType['GetRouteTableRoutesFilterArgs']] filters: Custom filter block as described below.

@@ -31,8 +31,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.vpclattice.Service;
  * import com.pulumi.aws.vpclattice.Listener;
  * import com.pulumi.aws.vpclattice.ListenerArgs;
- * import com.pulumi.aws.vpclattice.inputs.ListenerDefaultActionArgs;
- * import com.pulumi.aws.vpclattice.inputs.ListenerDefaultActionFixedResponseArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -51,11 +49,7 @@ import javax.annotation.Nullable;
  *         var exampleListener = new Listener(&#34;exampleListener&#34;, ListenerArgs.builder()        
  *             .protocol(&#34;HTTPS&#34;)
  *             .serviceIdentifier(exampleService.id())
- *             .defaultAction(ListenerDefaultActionArgs.builder()
- *                 .fixedResponse(ListenerDefaultActionFixedResponseArgs.builder()
- *                     .statusCode(404)
- *                     .build())
- *                 .build())
+ *             .defaultAction(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -71,10 +65,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.vpclattice.Service;
  * import com.pulumi.aws.vpclattice.TargetGroup;
  * import com.pulumi.aws.vpclattice.TargetGroupArgs;
- * import com.pulumi.aws.vpclattice.inputs.TargetGroupConfigArgs;
  * import com.pulumi.aws.vpclattice.Listener;
  * import com.pulumi.aws.vpclattice.ListenerArgs;
- * import com.pulumi.aws.vpclattice.inputs.ListenerDefaultActionArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -92,23 +84,13 @@ import javax.annotation.Nullable;
  * 
  *         var exampleTargetGroup = new TargetGroup(&#34;exampleTargetGroup&#34;, TargetGroupArgs.builder()        
  *             .type(&#34;INSTANCE&#34;)
- *             .config(TargetGroupConfigArgs.builder()
- *                 .port(80)
- *                 .protocol(&#34;HTTP&#34;)
- *                 .vpcIdentifier(aws_vpc.example().id())
- *                 .build())
+ *             .config(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleListener = new Listener(&#34;exampleListener&#34;, ListenerArgs.builder()        
  *             .protocol(&#34;HTTP&#34;)
  *             .serviceIdentifier(exampleService.id())
- *             .defaultAction(ListenerDefaultActionArgs.builder()
- *                 .forwards(ListenerDefaultActionForwardArgs.builder()
- *                     .targetGroups(ListenerDefaultActionForwardTargetGroupArgs.builder()
- *                         .targetGroupIdentifier(exampleTargetGroup.id())
- *                         .build())
- *                     .build())
- *                 .build())
+ *             .defaultAction(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -124,10 +106,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.vpclattice.Service;
  * import com.pulumi.aws.vpclattice.TargetGroup;
  * import com.pulumi.aws.vpclattice.TargetGroupArgs;
- * import com.pulumi.aws.vpclattice.inputs.TargetGroupConfigArgs;
  * import com.pulumi.aws.vpclattice.Listener;
  * import com.pulumi.aws.vpclattice.ListenerArgs;
- * import com.pulumi.aws.vpclattice.inputs.ListenerDefaultActionArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -145,38 +125,18 @@ import javax.annotation.Nullable;
  * 
  *         var example1 = new TargetGroup(&#34;example1&#34;, TargetGroupArgs.builder()        
  *             .type(&#34;INSTANCE&#34;)
- *             .config(TargetGroupConfigArgs.builder()
- *                 .port(80)
- *                 .protocol(&#34;HTTP&#34;)
- *                 .vpcIdentifier(aws_vpc.example().id())
- *                 .build())
+ *             .config(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var example2 = new TargetGroup(&#34;example2&#34;, TargetGroupArgs.builder()        
  *             .type(&#34;INSTANCE&#34;)
- *             .config(TargetGroupConfigArgs.builder()
- *                 .port(8080)
- *                 .protocol(&#34;HTTP&#34;)
- *                 .vpcIdentifier(aws_vpc.example().id())
- *                 .build())
+ *             .config(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleListener = new Listener(&#34;exampleListener&#34;, ListenerArgs.builder()        
  *             .protocol(&#34;HTTP&#34;)
  *             .serviceIdentifier(exampleService.id())
- *             .defaultAction(ListenerDefaultActionArgs.builder()
- *                 .forwards(ListenerDefaultActionForwardArgs.builder()
- *                     .targetGroups(                    
- *                         ListenerDefaultActionForwardTargetGroupArgs.builder()
- *                             .targetGroupIdentifier(example1.id())
- *                             .weight(80)
- *                             .build(),
- *                         ListenerDefaultActionForwardTargetGroupArgs.builder()
- *                             .targetGroupIdentifier(example2.id())
- *                             .weight(20)
- *                             .build())
- *                     .build())
- *                 .build())
+ *             .defaultAction(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

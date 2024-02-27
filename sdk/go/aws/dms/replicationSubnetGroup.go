@@ -24,31 +24,30 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/dms"
+//	dms/replicationSubnetGroup "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/dms/replicationSubnetGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := dms.NewReplicationSubnetGroup(ctx, "example", &dms.ReplicationSubnetGroupArgs{
-//				ReplicationSubnetGroupDescription: pulumi.String("Example replication subnet group"),
-//				ReplicationSubnetGroupId:          pulumi.String("example-dms-replication-subnet-group-tf"),
-//				SubnetIds: pulumi.StringArray{
-//					pulumi.String("subnet-12345678"),
-//					pulumi.String("subnet-12345679"),
-//				},
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("example"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// // Create a new replication subnet group
+// _, err := dms/replicationSubnetGroup.NewReplicationSubnetGroup(ctx, "example", &dms/replicationSubnetGroup.ReplicationSubnetGroupArgs{
+// ReplicationSubnetGroupDescription: "Example replication subnet group",
+// ReplicationSubnetGroupId: "example-dms-replication-subnet-group-tf",
+// SubnetIds: []string{
+// "subnet-12345678",
+// "subnet-12345679",
+// },
+// Tags: map[string]interface{}{
+// "Name": "example",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Creating special IAM role
 //
@@ -61,64 +60,47 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/dms"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	dms/replicationSubnetGroup "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/dms/replicationSubnetGroup"
+//	iam/role "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/iam/role"
+//	iam/rolePolicyAttachment "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/iam/rolePolicyAttachment"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"Version": "2012-10-17",
-//				"Statement": []map[string]interface{}{
-//					map[string]interface{}{
-//						"Effect": "Allow",
-//						"Principal": map[string]interface{}{
-//							"Service": "dms.amazonaws.com",
-//						},
-//						"Action": "sts:AssumeRole",
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			_, err = iam.NewRole(ctx, "dms-vpc-role", &iam.RoleArgs{
-//				Description:      pulumi.String("Allows DMS to manage VPC"),
-//				AssumeRolePolicy: pulumi.String(json0),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleRolePolicyAttachment, err := iam.NewRolePolicyAttachment(ctx, "exampleRolePolicyAttachment", &iam.RolePolicyAttachmentArgs{
-//				Role:      dms_vpc_role.Name,
-//				PolicyArn: pulumi.String("arn:aws:iam::aws:policy/service-role/AmazonDMSVPCManagementRole"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = dms.NewReplicationSubnetGroup(ctx, "exampleReplicationSubnetGroup", &dms.ReplicationSubnetGroupArgs{
-//				ReplicationSubnetGroupDescription: pulumi.String("Example"),
-//				ReplicationSubnetGroupId:          pulumi.String("example-id"),
-//				SubnetIds: pulumi.StringArray{
-//					pulumi.String("subnet-12345678"),
-//					pulumi.String("subnet-12345679"),
-//				},
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("example-id"),
-//				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleRolePolicyAttachment,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := iam/role.NewRole(ctx, "dms-vpc-role", &iam/role.RoleArgs{
+// Description: "Allows DMS to manage VPC",
+// AssumeRolePolicy: %!v(PANIC=Format method: fatal: An assertion has failed: unlowered function toJSON),
+// })
+// if err != nil {
+// return err
+// }
+// exampleRolePolicyAttachment, err := iam/rolePolicyAttachment.NewRolePolicyAttachment(ctx, "exampleRolePolicyAttachment", &iam/rolePolicyAttachment.RolePolicyAttachmentArgs{
+// Role: dms_vpc_role.Name,
+// PolicyArn: "arn:aws:iam::aws:policy/service-role/AmazonDMSVPCManagementRole",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = dms/replicationSubnetGroup.NewReplicationSubnetGroup(ctx, "exampleReplicationSubnetGroup", &dms/replicationSubnetGroup.ReplicationSubnetGroupArgs{
+// ReplicationSubnetGroupDescription: "Example",
+// ReplicationSubnetGroupId: "example-id",
+// SubnetIds: []string{
+// "subnet-12345678",
+// "subnet-12345679",
+// },
+// Tags: map[string]interface{}{
+// "Name": "example-id",
+// },
+// }, pulumi.DependsOn([]pulumi.Resource{
+// exampleRolePolicyAttachment,
+// }))
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

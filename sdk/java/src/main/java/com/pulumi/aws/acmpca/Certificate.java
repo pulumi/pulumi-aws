@@ -25,7 +25,6 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * ### Basic
- * 
  * ```java
  * package generated_program;
  * 
@@ -38,10 +37,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.tls.PrivateKeyArgs;
  * import com.pulumi.tls.CertRequest;
  * import com.pulumi.tls.CertRequestArgs;
- * import com.pulumi.tls.inputs.CertRequestSubjectArgs;
  * import com.pulumi.aws.acmpca.Certificate;
  * import com.pulumi.aws.acmpca.CertificateArgs;
- * import com.pulumi.aws.acmpca.inputs.CertificateValidityArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -67,19 +64,14 @@ import javax.annotation.Nullable;
  *         var csr = new CertRequest(&#34;csr&#34;, CertRequestArgs.builder()        
  *             .keyAlgorithm(&#34;RSA&#34;)
  *             .privateKeyPem(key.privateKeyPem())
- *             .subject(CertRequestSubjectArgs.builder()
- *                 .commonName(&#34;example&#34;)
- *                 .build())
+ *             .subject(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleCertificate = new Certificate(&#34;exampleCertificate&#34;, CertificateArgs.builder()        
  *             .certificateAuthorityArn(exampleCertificateAuthority.arn())
  *             .certificateSigningRequest(csr.certRequestPem())
  *             .signingAlgorithm(&#34;SHA256WITHRSA&#34;)
- *             .validity(CertificateValidityArgs.builder()
- *                 .type(&#34;YEARS&#34;)
- *                 .value(1)
- *                 .build())
+ *             .validity(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

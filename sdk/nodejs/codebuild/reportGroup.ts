@@ -10,46 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Provides a CodeBuild Report Groups Resource.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const current = aws.getCallerIdentity({});
- * const examplePolicyDocument = current.then(current => aws.iam.getPolicyDocument({
- *     statements: [{
- *         sid: "Enable IAM User Permissions",
- *         effect: "Allow",
- *         principals: [{
- *             type: "AWS",
- *             identifiers: [`arn:aws:iam::${current.accountId}:root`],
- *         }],
- *         actions: ["kms:*"],
- *         resources: ["*"],
- *     }],
- * }));
- * const exampleKey = new aws.kms.Key("exampleKey", {
- *     description: "my test kms key",
- *     deletionWindowInDays: 7,
- *     policy: examplePolicyDocument.then(examplePolicyDocument => examplePolicyDocument.json),
- * });
- * const exampleBucketV2 = new aws.s3.BucketV2("exampleBucketV2", {});
- * const exampleReportGroup = new aws.codebuild.ReportGroup("exampleReportGroup", {
- *     type: "TEST",
- *     exportConfig: {
- *         type: "S3",
- *         s3Destination: {
- *             bucket: exampleBucketV2.id,
- *             encryptionDisabled: false,
- *             encryptionKey: exampleKey.arn,
- *             packaging: "NONE",
- *             path: "/some",
- *         },
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import CodeBuild Report Group using the CodeBuild Report Group arn. For example:

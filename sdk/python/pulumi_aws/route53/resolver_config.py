@@ -122,13 +122,13 @@ class ResolverConfig(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_vpc = aws.ec2.Vpc("exampleVpc",
-            cidr_block="10.0.0.0/16",
+        example_vpc = aws.ec2.vpc.Vpc("exampleVpc",
+            cidr_block=10.0.0.0/16,
             enable_dns_support=True,
             enable_dns_hostnames=True)
-        example_resolver_config = aws.route53.ResolverConfig("exampleResolverConfig",
+        example_resolver_config = aws.route53.resolver_config.ResolverConfig("exampleResolverConfig",
             resource_id=example_vpc.id,
-            autodefined_reverse_flag="DISABLE")
+            autodefined_reverse_flag=DISABLE)
         ```
 
         ## Import
@@ -159,13 +159,13 @@ class ResolverConfig(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_vpc = aws.ec2.Vpc("exampleVpc",
-            cidr_block="10.0.0.0/16",
+        example_vpc = aws.ec2.vpc.Vpc("exampleVpc",
+            cidr_block=10.0.0.0/16,
             enable_dns_support=True,
             enable_dns_hostnames=True)
-        example_resolver_config = aws.route53.ResolverConfig("exampleResolverConfig",
+        example_resolver_config = aws.route53.resolver_config.ResolverConfig("exampleResolverConfig",
             resource_id=example_vpc.id,
-            autodefined_reverse_flag="DISABLE")
+            autodefined_reverse_flag=DISABLE)
         ```
 
         ## Import

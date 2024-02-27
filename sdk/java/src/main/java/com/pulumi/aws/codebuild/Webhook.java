@@ -35,7 +35,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.codebuild.Webhook;
  * import com.pulumi.aws.codebuild.WebhookArgs;
- * import com.pulumi.aws.codebuild.inputs.WebhookFilterGroupArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -52,17 +51,7 @@ import javax.annotation.Nullable;
  *         var example = new Webhook(&#34;example&#34;, WebhookArgs.builder()        
  *             .projectName(aws_codebuild_project.example().name())
  *             .buildType(&#34;BUILD&#34;)
- *             .filterGroups(WebhookFilterGroupArgs.builder()
- *                 .filters(                
- *                     WebhookFilterGroupFilterArgs.builder()
- *                         .type(&#34;EVENT&#34;)
- *                         .pattern(&#34;PUSH&#34;)
- *                         .build(),
- *                     WebhookFilterGroupFilterArgs.builder()
- *                         .type(&#34;BASE_REF&#34;)
- *                         .pattern(&#34;master&#34;)
- *                         .build())
- *                 .build())
+ *             .filterGroups(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -83,7 +72,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.codebuild.WebhookArgs;
  * import com.pulumi.github.RepositoryWebhook;
  * import com.pulumi.github.RepositoryWebhookArgs;
- * import com.pulumi.github.inputs.RepositoryWebhookConfigurationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -105,12 +93,7 @@ import javax.annotation.Nullable;
  *             .active(true)
  *             .events(&#34;push&#34;)
  *             .repository(github_repository.example().name())
- *             .configuration(RepositoryWebhookConfigurationArgs.builder()
- *                 .url(exampleWebhook.payloadUrl())
- *                 .secret(exampleWebhook.secret())
- *                 .contentType(&#34;json&#34;)
- *                 .insecureSsl(false)
- *                 .build())
+ *             .configuration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

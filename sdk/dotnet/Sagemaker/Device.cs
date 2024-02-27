@@ -23,12 +23,12 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Sagemaker.Device("example", new()
+    ///     var example = new Aws.Sagemaker.Device.Device("example", new()
     ///     {
     ///         DeviceFleetName = aws_sagemaker_device_fleet.Example.Device_fleet_name,
-    ///         DeviceDetails = new Aws.Sagemaker.Inputs.DeviceDeviceArgs
+    ///         Device = 
     ///         {
-    ///             DeviceName = "example",
+    ///             { "deviceName", "example" },
     ///         },
     ///     });
     /// 

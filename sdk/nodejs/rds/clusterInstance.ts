@@ -33,7 +33,7 @@ import {EngineType} from "./index";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const _default = new aws.rds.Cluster("default", {
+ * const _default = new aws.rds/cluster.Cluster("default", {
  *     clusterIdentifier: "aurora-cluster-demo",
  *     availabilityZones: [
  *         "us-west-2a",
@@ -44,9 +44,9 @@ import {EngineType} from "./index";
  *     masterUsername: "foo",
  *     masterPassword: "barbut8chars",
  * });
- * const clusterInstances: aws.rds.ClusterInstance[] = [];
+ * const clusterInstances: aws.rds/clusterInstance.ClusterInstance[] = [];
  * for (const range = {value: 0}; range.value < 2; range.value++) {
- *     clusterInstances.push(new aws.rds.ClusterInstance(`clusterInstances-${range.value}`, {
+ *     clusterInstances.push(new aws.rds/clusterInstance.ClusterInstance(`clusterInstances-${range.value}`, {
  *         identifier: `aurora-cluster-demo-${range.value}`,
  *         clusterIdentifier: _default.id,
  *         instanceClass: "db.r4.large",

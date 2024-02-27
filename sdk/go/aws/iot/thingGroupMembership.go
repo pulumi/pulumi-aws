@@ -21,25 +21,23 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iot"
+//	iot/thingGroupMembership "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/iot/thingGroupMembership"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := iot.NewThingGroupMembership(ctx, "example", &iot.ThingGroupMembershipArgs{
-//				OverrideDynamicGroup: pulumi.Bool(true),
-//				ThingGroupName:       pulumi.String("example-group"),
-//				ThingName:            pulumi.String("example-thing"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := iot/thingGroupMembership.NewThingGroupMembership(ctx, "example", &iot/thingGroupMembership.ThingGroupMembershipArgs{
+// OverrideDynamicGroup: true,
+// ThingGroupName: "example-group",
+// ThingName: "example-thing",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

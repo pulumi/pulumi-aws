@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Dax
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var bar = new Aws.Dax.Cluster("bar", new()
+    ///     var bar = new Aws.Dax.Cluster.Cluster("bar", new()
     ///     {
     ///         ClusterName = "cluster-example",
     ///         IamRoleArn = data.Aws_iam_role.Example.Arn,

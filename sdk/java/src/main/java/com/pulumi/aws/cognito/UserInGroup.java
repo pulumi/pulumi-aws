@@ -25,7 +25,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.cognito.UserPool;
  * import com.pulumi.aws.cognito.UserPoolArgs;
- * import com.pulumi.aws.cognito.inputs.UserPoolPasswordPolicyArgs;
  * import com.pulumi.aws.cognito.User;
  * import com.pulumi.aws.cognito.UserArgs;
  * import com.pulumi.aws.cognito.UserGroup;
@@ -46,13 +45,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var exampleUserPool = new UserPool(&#34;exampleUserPool&#34;, UserPoolArgs.builder()        
- *             .passwordPolicy(UserPoolPasswordPolicyArgs.builder()
- *                 .temporaryPasswordValidityDays(7)
- *                 .minimumLength(6)
- *                 .requireUppercase(false)
- *                 .requireSymbols(false)
- *                 .requireNumbers(false)
- *                 .build())
+ *             .passwordPolicy(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleUser = new User(&#34;exampleUser&#34;, UserArgs.builder()        

@@ -141,21 +141,21 @@ class AuthPolicy(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        example_service = aws.vpclattice.Service("exampleService",
-            auth_type="AWS_IAM",
-            custom_domain_name="example.com")
-        example_auth_policy = aws.vpclattice.AuthPolicy("exampleAuthPolicy",
+        example_service = aws.vpclattice.service.Service("exampleService",
+            auth_type=AWS_IAM,
+            custom_domain_name=example.com)
+        example_auth_policy = aws.vpclattice.auth_policy.AuthPolicy("exampleAuthPolicy",
             resource_identifier=example_service.arn,
             policy=json.dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Action": "*",
-                    "Effect": "Allow",
-                    "Principal": "*",
-                    "Resource": "*",
-                    "Condition": {
-                        "StringNotEqualsIgnoreCase": {
-                            "aws:PrincipalType": "anonymous",
+                Version: 2012-10-17,
+                Statement: [{
+                    Action: *,
+                    Effect: Allow,
+                    Principal: *,
+                    Resource: *,
+                    Condition: {
+                        StringNotEqualsIgnoreCase: {
+                            aws:PrincipalType: anonymous,
                         },
                     },
                 }],
@@ -193,21 +193,21 @@ class AuthPolicy(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        example_service = aws.vpclattice.Service("exampleService",
-            auth_type="AWS_IAM",
-            custom_domain_name="example.com")
-        example_auth_policy = aws.vpclattice.AuthPolicy("exampleAuthPolicy",
+        example_service = aws.vpclattice.service.Service("exampleService",
+            auth_type=AWS_IAM,
+            custom_domain_name=example.com)
+        example_auth_policy = aws.vpclattice.auth_policy.AuthPolicy("exampleAuthPolicy",
             resource_identifier=example_service.arn,
             policy=json.dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Action": "*",
-                    "Effect": "Allow",
-                    "Principal": "*",
-                    "Resource": "*",
-                    "Condition": {
-                        "StringNotEqualsIgnoreCase": {
-                            "aws:PrincipalType": "anonymous",
+                Version: 2012-10-17,
+                Statement: [{
+                    Action: *,
+                    Effect: Allow,
+                    Principal: *,
+                    Resource: *,
+                    Condition: {
+                        StringNotEqualsIgnoreCase: {
+                            aws:PrincipalType: anonymous,
                         },
                     },
                 }],

@@ -12,32 +12,6 @@ import (
 )
 
 // Provides an Athena Named Query data source.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/athena"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := athena.LookupNamedQuery(ctx, &athena.LookupNamedQueryArgs{
-//				Name: "athenaQueryName",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupNamedQuery(ctx *pulumi.Context, args *LookupNamedQueryArgs, opts ...pulumi.InvokeOption) (*LookupNamedQueryResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupNamedQueryResult

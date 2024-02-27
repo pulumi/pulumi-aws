@@ -447,17 +447,71 @@ class Analysis(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.quicksight.Analysis("example",
-            analysis_id="example-id",
-            source_entity=aws.quicksight.AnalysisSourceEntityArgs(
-                source_template=aws.quicksight.AnalysisSourceEntitySourceTemplateArgs(
-                    arn=aws_quicksight_template["source"]["arn"],
-                    data_set_references=[aws.quicksight.AnalysisSourceEntitySourceTemplateDataSetReferenceArgs(
-                        data_set_arn=aws_quicksight_data_set["dataset"]["arn"],
-                        data_set_placeholder="1",
-                    )],
-                ),
-            ))
+        example = aws.quicksight.analysis.Analysis("example",
+            analysis_id=example-id,
+            source_entity={
+                sourceTemplate: {
+                    arn: aws_quicksight_template.source.arn,
+                    dataSetReferences: [{
+                        dataSetArn: aws_quicksight_data_set.dataset.arn,
+                        dataSetPlaceholder: 1,
+                    }],
+                },
+            })
+        ```
+        ### With Definition
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.quicksight.analysis.Analysis("example",
+            analysis_id=example-id,
+            definition={
+                dataSetIdentifiersDeclarations: [{
+                    dataSetArn: aws_quicksight_data_set.dataset.arn,
+                    identifier: 1,
+                }],
+                sheets: [{
+                    title: Example,
+                    sheetId: Example1,
+                    visuals: [{
+                        lineChartVisual: {
+                            visualId: LineChart,
+                            title: {
+                                formatText: {
+                                    plainText: Line Chart Example,
+                                },
+                            },
+                            chartConfiguration: {
+                                fieldWells: {
+                                    lineChartAggregatedFieldWells: {
+                                        categories: [{
+                                            categoricalDimensionField: {
+                                                fieldId: 1,
+                                                column: {
+                                                    dataSetIdentifier: 1,
+                                                    columnName: Column1,
+                                                },
+                                            },
+                                        }],
+                                        values: [{
+                                            categoricalMeasureField: {
+                                                fieldId: 2,
+                                                column: {
+                                                    dataSetIdentifier: 1,
+                                                    columnName: Column1,
+                                                },
+                                                aggregationFunction: COUNT,
+                                            },
+                                        }],
+                                    },
+                                },
+                            },
+                        },
+                    }],
+                }],
+            })
         ```
 
         ## Import
@@ -498,17 +552,71 @@ class Analysis(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.quicksight.Analysis("example",
-            analysis_id="example-id",
-            source_entity=aws.quicksight.AnalysisSourceEntityArgs(
-                source_template=aws.quicksight.AnalysisSourceEntitySourceTemplateArgs(
-                    arn=aws_quicksight_template["source"]["arn"],
-                    data_set_references=[aws.quicksight.AnalysisSourceEntitySourceTemplateDataSetReferenceArgs(
-                        data_set_arn=aws_quicksight_data_set["dataset"]["arn"],
-                        data_set_placeholder="1",
-                    )],
-                ),
-            ))
+        example = aws.quicksight.analysis.Analysis("example",
+            analysis_id=example-id,
+            source_entity={
+                sourceTemplate: {
+                    arn: aws_quicksight_template.source.arn,
+                    dataSetReferences: [{
+                        dataSetArn: aws_quicksight_data_set.dataset.arn,
+                        dataSetPlaceholder: 1,
+                    }],
+                },
+            })
+        ```
+        ### With Definition
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.quicksight.analysis.Analysis("example",
+            analysis_id=example-id,
+            definition={
+                dataSetIdentifiersDeclarations: [{
+                    dataSetArn: aws_quicksight_data_set.dataset.arn,
+                    identifier: 1,
+                }],
+                sheets: [{
+                    title: Example,
+                    sheetId: Example1,
+                    visuals: [{
+                        lineChartVisual: {
+                            visualId: LineChart,
+                            title: {
+                                formatText: {
+                                    plainText: Line Chart Example,
+                                },
+                            },
+                            chartConfiguration: {
+                                fieldWells: {
+                                    lineChartAggregatedFieldWells: {
+                                        categories: [{
+                                            categoricalDimensionField: {
+                                                fieldId: 1,
+                                                column: {
+                                                    dataSetIdentifier: 1,
+                                                    columnName: Column1,
+                                                },
+                                            },
+                                        }],
+                                        values: [{
+                                            categoricalMeasureField: {
+                                                fieldId: 2,
+                                                column: {
+                                                    dataSetIdentifier: 1,
+                                                    columnName: Column1,
+                                                },
+                                                aggregationFunction: COUNT,
+                                            },
+                                        }],
+                                    },
+                                },
+                            },
+                        },
+                    }],
+                }],
+            })
         ```
 
         ## Import

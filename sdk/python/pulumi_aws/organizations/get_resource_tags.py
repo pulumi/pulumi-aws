@@ -71,15 +71,6 @@ def get_resource_tags(resource_id: Optional[str] = None,
     """
     Get tags attached to the specified AWS Organizations resource.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    account = aws.organizations.get_resource_tags(resource_id="123456123846")
-    ```
-
 
     :param str resource_id: ID of the resource with the tags to list. See details below.
     :param Mapping[str, str] tags: Map of key=value pairs for each tag set on the resource.
@@ -102,15 +93,6 @@ def get_resource_tags_output(resource_id: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResourceTagsResult]:
     """
     Get tags attached to the specified AWS Organizations resource.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    account = aws.organizations.get_resource_tags(resource_id="123456123846")
-    ```
 
 
     :param str resource_id: ID of the resource with the tags to list. See details below.

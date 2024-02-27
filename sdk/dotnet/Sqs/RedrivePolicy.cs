@@ -28,28 +28,28 @@ namespace Pulumi.Aws.Sqs
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var queue = new Aws.Sqs.Queue("queue");
+    ///     var queue = new Aws.Sqs.Queue.Queue("queue");
     /// 
-    ///     var ddl = new Aws.Sqs.Queue("ddl", new()
+    ///     var ddl = new Aws.Sqs.Queue.Queue("ddl", new()
     ///     {
-    ///         RedriveAllowPolicy = queue.Arn.Apply(arn =&gt; JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///         RedriveAllowPolicy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
     ///             ["redrivePermission"] = "byQueue",
     ///             ["sourceQueueArns"] = new[]
     ///             {
-    ///                 arn,
+    ///                 queue.Arn,
     ///             },
-    ///         })),
+    ///         }),
     ///     });
     /// 
-    ///     var redrivePolicy = new Aws.Sqs.RedrivePolicy("redrivePolicy", new()
+    ///     var redrivePolicy = new Aws.Sqs.RedrivePolicy.RedrivePolicy("redrivePolicy", new()
     ///     {
     ///         QueueUrl = queue.Id,
-    ///         RedrivePolicyName = ddl.Arn.Apply(arn =&gt; JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///         RedrivePolicy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             ["deadLetterTargetArn"] = arn,
+    ///             ["deadLetterTargetArn"] = ddl.Arn,
     ///             ["maxReceiveCount"] = 4,
-    ///         })),
+    ///         }),
     ///     });
     /// 
     /// });

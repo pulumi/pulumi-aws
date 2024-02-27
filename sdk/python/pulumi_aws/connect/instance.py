@@ -440,10 +440,10 @@ class Instance(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.connect.Instance("test",
-            identity_management_type="CONNECT_MANAGED",
+        test = aws.connect.instance.Instance("test",
+            identity_management_type=CONNECT_MANAGED,
             inbound_calls_enabled=True,
-            instance_alias="friendly-name-connect",
+            instance_alias=friendly-name-connect,
             outbound_calls_enabled=True)
         ```
         ### With Existing Active Directory
@@ -452,11 +452,11 @@ class Instance(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.connect.Instance("test",
-            directory_id=aws_directory_service_directory["test"]["id"],
-            identity_management_type="EXISTING_DIRECTORY",
+        test = aws.connect.instance.Instance("test",
+            directory_id=aws_directory_service_directory.test.id,
+            identity_management_type=EXISTING_DIRECTORY,
             inbound_calls_enabled=True,
-            instance_alias="friendly-name-connect",
+            instance_alias=friendly-name-connect,
             outbound_calls_enabled=True)
         ```
         ### With SAML
@@ -465,10 +465,10 @@ class Instance(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.connect.Instance("test",
-            identity_management_type="SAML",
+        test = aws.connect.instance.Instance("test",
+            identity_management_type=SAML,
             inbound_calls_enabled=True,
-            instance_alias="friendly-name-connect",
+            instance_alias=friendly-name-connect,
             outbound_calls_enabled=True)
         ```
 
@@ -512,10 +512,10 @@ class Instance(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.connect.Instance("test",
-            identity_management_type="CONNECT_MANAGED",
+        test = aws.connect.instance.Instance("test",
+            identity_management_type=CONNECT_MANAGED,
             inbound_calls_enabled=True,
-            instance_alias="friendly-name-connect",
+            instance_alias=friendly-name-connect,
             outbound_calls_enabled=True)
         ```
         ### With Existing Active Directory
@@ -524,11 +524,11 @@ class Instance(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.connect.Instance("test",
-            directory_id=aws_directory_service_directory["test"]["id"],
-            identity_management_type="EXISTING_DIRECTORY",
+        test = aws.connect.instance.Instance("test",
+            directory_id=aws_directory_service_directory.test.id,
+            identity_management_type=EXISTING_DIRECTORY,
             inbound_calls_enabled=True,
-            instance_alias="friendly-name-connect",
+            instance_alias=friendly-name-connect,
             outbound_calls_enabled=True)
         ```
         ### With SAML
@@ -537,10 +537,10 @@ class Instance(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.connect.Instance("test",
-            identity_management_type="SAML",
+        test = aws.connect.instance.Instance("test",
+            identity_management_type=SAML,
             inbound_calls_enabled=True,
-            instance_alias="friendly-name-connect",
+            instance_alias=friendly-name-connect,
             outbound_calls_enabled=True)
         ```
 

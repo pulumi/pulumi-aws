@@ -25,7 +25,7 @@ namespace Pulumi.Aws.LakeFormation
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.LakeFormation.DataLakeSettings("example", new()
+    ///     var example = new Aws.Lakeformation.DataLakeSettings.DataLakeSettings("example", new()
     ///     {
     ///         Admins = new[]
     ///         {
@@ -46,7 +46,7 @@ namespace Pulumi.Aws.LakeFormation
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.LakeFormation.DataLakeSettings("example", new()
+    ///     var example = new Aws.Lakeformation.DataLakeSettings.DataLakeSettings("example", new()
     ///     {
     ///         Admins = new[]
     ///         {
@@ -55,26 +55,26 @@ namespace Pulumi.Aws.LakeFormation
     ///         },
     ///         CreateDatabaseDefaultPermissions = new[]
     ///         {
-    ///             new Aws.LakeFormation.Inputs.DataLakeSettingsCreateDatabaseDefaultPermissionArgs
+    ///             
     ///             {
-    ///                 Permissions = new[]
+    ///                 { "permissions", new[]
     ///                 {
     ///                     "SELECT",
     ///                     "ALTER",
     ///                     "DROP",
-    ///                 },
-    ///                 Principal = aws_iam_user.Test.Arn,
+    ///                 } },
+    ///                 { "principal", aws_iam_user.Test.Arn },
     ///             },
     ///         },
     ///         CreateTableDefaultPermissions = new[]
     ///         {
-    ///             new Aws.LakeFormation.Inputs.DataLakeSettingsCreateTableDefaultPermissionArgs
+    ///             
     ///             {
-    ///                 Permissions = new[]
+    ///                 { "permissions", new[]
     ///                 {
     ///                     "ALL",
-    ///                 },
-    ///                 Principal = aws_iam_role.Test.Arn,
+    ///                 } },
+    ///                 { "principal", aws_iam_role.Test.Arn },
     ///             },
     ///         },
     ///     });
@@ -91,7 +91,7 @@ namespace Pulumi.Aws.LakeFormation
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.LakeFormation.DataLakeSettings("example", new()
+    ///     var example = new Aws.Lakeformation.DataLakeSettings.DataLakeSettings("example", new()
     ///     {
     ///         Admins = new[]
     ///         {
@@ -100,26 +100,26 @@ namespace Pulumi.Aws.LakeFormation
     ///         },
     ///         CreateDatabaseDefaultPermissions = new[]
     ///         {
-    ///             new Aws.LakeFormation.Inputs.DataLakeSettingsCreateDatabaseDefaultPermissionArgs
+    ///             
     ///             {
-    ///                 Permissions = new[]
+    ///                 { "permissions", new[]
     ///                 {
     ///                     "SELECT",
     ///                     "ALTER",
     ///                     "DROP",
-    ///                 },
-    ///                 Principal = aws_iam_user.Test.Arn,
+    ///                 } },
+    ///                 { "principal", aws_iam_user.Test.Arn },
     ///             },
     ///         },
     ///         CreateTableDefaultPermissions = new[]
     ///         {
-    ///             new Aws.LakeFormation.Inputs.DataLakeSettingsCreateTableDefaultPermissionArgs
+    ///             
     ///             {
-    ///                 Permissions = new[]
+    ///                 { "permissions", new[]
     ///                 {
     ///                     "ALL",
-    ///                 },
-    ///                 Principal = aws_iam_role.Test.Arn,
+    ///                 } },
+    ///                 { "principal", aws_iam_role.Test.Arn },
     ///             },
     ///         },
     ///         AllowExternalDataFiltering = true,

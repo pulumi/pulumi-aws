@@ -12,39 +12,6 @@ import (
 )
 
 // Use this data source to get the ARNs and names of Secrets Manager secrets matching the specified criteria.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/secretsmanager"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := secretsmanager.GetSecrets(ctx, &secretsmanager.GetSecretsArgs{
-//				Filters: []secretsmanager.GetSecretsFilter{
-//					{
-//						Name: "name",
-//						Values: []string{
-//							"example",
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetSecrets(ctx *pulumi.Context, args *GetSecretsArgs, opts ...pulumi.InvokeOption) (*GetSecretsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetSecretsResult

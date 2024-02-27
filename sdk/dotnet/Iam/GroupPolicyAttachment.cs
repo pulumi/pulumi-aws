@@ -24,15 +24,15 @@ namespace Pulumi.Aws.Iam
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var @group = new Aws.Iam.Group("group");
+    ///     var @group = new Aws.Iam.Group.Group("group");
     /// 
-    ///     var policy = new Aws.Iam.Policy("policy", new()
+    ///     var policy = new Aws.Iam.Policy.Policy("policy", new()
     ///     {
     ///         Description = "A test policy",
-    ///         PolicyDocument = "{ ... policy JSON ... }",
+    ///         Policy = "{ ... policy JSON ... }",
     ///     });
     /// 
-    ///     var test_attach = new Aws.Iam.GroupPolicyAttachment("test-attach", new()
+    ///     var test_attach = new Aws.Iam.GroupPolicyAttachment.GroupPolicyAttachment("test-attach", new()
     ///     {
     ///         Group = @group.Name,
     ///         PolicyArn = policy.Arn,

@@ -898,9 +898,9 @@ class GangliaLayer(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        monitor = aws.opsworks.GangliaLayer("monitor",
-            stack_id=aws_opsworks_stack["main"]["id"],
-            password="foobarbaz")
+        monitor = aws.opsworks.ganglia_layer.GangliaLayer("monitor",
+            stack_id=aws_opsworks_stack.main.id,
+            password=foobarbaz)
         ```
 
         :param str resource_name: The name of the resource.
@@ -944,9 +944,9 @@ class GangliaLayer(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        monitor = aws.opsworks.GangliaLayer("monitor",
-            stack_id=aws_opsworks_stack["main"]["id"],
-            password="foobarbaz")
+        monitor = aws.opsworks.ganglia_layer.GangliaLayer("monitor",
+            stack_id=aws_opsworks_stack.main.id,
+            password=foobarbaz)
         ```
 
         :param str resource_name: The name of the resource.

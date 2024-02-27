@@ -23,35 +23,35 @@ namespace Pulumi.Aws.CloudFront
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var staging = new Aws.CloudFront.Distribution("staging", new()
+    ///     var staging = new Aws.Cloudfront.Distribution.Distribution("staging", new()
     ///     {
     ///         Enabled = true,
     ///         Staging = true,
     ///     });
     /// 
     ///     // ... other configuration ...
-    ///     var example = new Aws.CloudFront.ContinuousDeploymentPolicy("example", new()
+    ///     var example = new Aws.Cloudfront.ContinuousDeploymentPolicy.ContinuousDeploymentPolicy("example", new()
     ///     {
     ///         Enabled = true,
-    ///         StagingDistributionDnsNames = new Aws.CloudFront.Inputs.ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs
+    ///         StagingDistributionDnsNames = 
     ///         {
-    ///             Items = new[]
+    ///             { "items", new[]
     ///             {
     ///                 staging.DomainName,
-    ///             },
-    ///             Quantity = 1,
+    ///             } },
+    ///             { "quantity", 1 },
     ///         },
-    ///         TrafficConfig = new Aws.CloudFront.Inputs.ContinuousDeploymentPolicyTrafficConfigArgs
+    ///         TrafficConfig = 
     ///         {
-    ///             Type = "SingleWeight",
-    ///             SingleWeightConfig = new Aws.CloudFront.Inputs.ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigArgs
+    ///             { "type", "SingleWeight" },
+    ///             { "singleWeightConfig", 
     ///             {
-    ///                 Weight = 0.01,
-    ///             },
+    ///                 { "weight", "0.01" },
+    ///             } },
     ///         },
     ///     });
     /// 
-    ///     var production = new Aws.CloudFront.Distribution("production", new()
+    ///     var production = new Aws.Cloudfront.Distribution.Distribution("production", new()
     ///     {
     ///         Enabled = true,
     ///         ContinuousDeploymentPolicyId = example.Id,
@@ -70,29 +70,29 @@ namespace Pulumi.Aws.CloudFront
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.CloudFront.ContinuousDeploymentPolicy("example", new()
+    ///     var example = new Aws.Cloudfront.ContinuousDeploymentPolicy.ContinuousDeploymentPolicy("example", new()
     ///     {
     ///         Enabled = true,
-    ///         StagingDistributionDnsNames = new Aws.CloudFront.Inputs.ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs
+    ///         StagingDistributionDnsNames = 
     ///         {
-    ///             Items = new[]
+    ///             { "items", new[]
     ///             {
     ///                 aws_cloudfront_distribution.Staging.Domain_name,
-    ///             },
-    ///             Quantity = 1,
+    ///             } },
+    ///             { "quantity", 1 },
     ///         },
-    ///         TrafficConfig = new Aws.CloudFront.Inputs.ContinuousDeploymentPolicyTrafficConfigArgs
+    ///         TrafficConfig = 
     ///         {
-    ///             Type = "SingleWeight",
-    ///             SingleWeightConfig = new Aws.CloudFront.Inputs.ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigArgs
+    ///             { "type", "SingleWeight" },
+    ///             { "singleWeightConfig", 
     ///             {
-    ///                 Weight = 0.01,
-    ///                 SessionStickinessConfig = new Aws.CloudFront.Inputs.ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigArgs
+    ///                 { "weight", "0.01" },
+    ///                 { "sessionStickinessConfig", 
     ///                 {
-    ///                     IdleTtl = 300,
-    ///                     MaximumTtl = 600,
-    ///                 },
-    ///             },
+    ///                     { "idleTtl", 300 },
+    ///                     { "maximumTtl", 600 },
+    ///                 } },
+    ///             } },
     ///         },
     ///     });
     /// 
@@ -108,25 +108,25 @@ namespace Pulumi.Aws.CloudFront
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.CloudFront.ContinuousDeploymentPolicy("example", new()
+    ///     var example = new Aws.Cloudfront.ContinuousDeploymentPolicy.ContinuousDeploymentPolicy("example", new()
     ///     {
     ///         Enabled = true,
-    ///         StagingDistributionDnsNames = new Aws.CloudFront.Inputs.ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs
+    ///         StagingDistributionDnsNames = 
     ///         {
-    ///             Items = new[]
+    ///             { "items", new[]
     ///             {
     ///                 aws_cloudfront_distribution.Staging.Domain_name,
-    ///             },
-    ///             Quantity = 1,
+    ///             } },
+    ///             { "quantity", 1 },
     ///         },
-    ///         TrafficConfig = new Aws.CloudFront.Inputs.ContinuousDeploymentPolicyTrafficConfigArgs
+    ///         TrafficConfig = 
     ///         {
-    ///             Type = "SingleHeader",
-    ///             SingleHeaderConfig = new Aws.CloudFront.Inputs.ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigArgs
+    ///             { "type", "SingleHeader" },
+    ///             { "singleHeaderConfig", 
     ///             {
-    ///                 Header = "aws-cf-cd-example",
-    ///                 Value = "example",
-    ///             },
+    ///                 { "header", "aws-cf-cd-example" },
+    ///                 { "value", "example" },
+    ///             } },
     ///         },
     ///     });
     /// 

@@ -18,52 +18,6 @@ import javax.annotation.Nullable;
 /**
  * Provides an IoT role alias.
  * 
- * ## Example Usage
- * 
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.iam.IamFunctions;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
- * import com.pulumi.aws.iam.Role;
- * import com.pulumi.aws.iam.RoleArgs;
- * import com.pulumi.aws.iot.RoleAlias;
- * import com.pulumi.aws.iot.RoleAliasArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .effect(&#34;Allow&#34;)
- *             .principals(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
- *             .actions(&#34;sts:AssumeRole&#34;)
- *             .build());
- * 
- *         var role = new Role(&#34;role&#34;, RoleArgs.builder()        
- *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
- *             .build());
- * 
- *         var alias = new RoleAlias(&#34;alias&#34;, RoleAliasArgs.builder()        
- *             .alias(&#34;Thermostat-dynamodb-access-role-alias&#34;)
- *             .roleArn(role.arn())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
  * ## Import
  * 
  * Using `pulumi import`, import IOT Role Alias using the alias. For example:

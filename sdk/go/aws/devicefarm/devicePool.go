@@ -21,30 +21,28 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/devicefarm"
+//	devicefarm/devicePool "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/devicefarm/devicePool"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := devicefarm.NewDevicePool(ctx, "example", &devicefarm.DevicePoolArgs{
-//				ProjectArn: pulumi.Any(aws_devicefarm_project.Example.Arn),
-//				Rules: devicefarm.DevicePoolRuleArray{
-//					&devicefarm.DevicePoolRuleArgs{
-//						Attribute: pulumi.String("OS_VERSION"),
-//						Operator:  pulumi.String("EQUALS"),
-//						Value:     pulumi.String("\"AVAILABLE\""),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := devicefarm/devicePool.NewDevicePool(ctx, "example", &devicefarm/devicePool.DevicePoolArgs{
+// ProjectArn: aws_devicefarm_project.Example.Arn,
+// Rules: []map[string]interface{}{
+// map[string]interface{}{
+// "attribute": "OS_VERSION",
+// "operator": "EQUALS",
+// "value": "\"AVAILABLE\"",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

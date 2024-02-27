@@ -35,9 +35,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.ec2.Fleet;
  * import com.pulumi.aws.ec2.FleetArgs;
- * import com.pulumi.aws.ec2.inputs.FleetLaunchTemplateConfigArgs;
- * import com.pulumi.aws.ec2.inputs.FleetLaunchTemplateConfigLaunchTemplateSpecificationArgs;
- * import com.pulumi.aws.ec2.inputs.FleetTargetCapacitySpecificationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -52,16 +49,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Fleet(&#34;example&#34;, FleetArgs.builder()        
- *             .launchTemplateConfigs(FleetLaunchTemplateConfigArgs.builder()
- *                 .launchTemplateSpecification(FleetLaunchTemplateConfigLaunchTemplateSpecificationArgs.builder()
- *                     .launchTemplateId(aws_launch_template.example().id())
- *                     .version(aws_launch_template.example().latest_version())
- *                     .build())
- *                 .build())
- *             .targetCapacitySpecification(FleetTargetCapacitySpecificationArgs.builder()
- *                 .defaultTargetCapacityType(&#34;spot&#34;)
- *                 .totalTargetCapacity(5)
- *                 .build())
+ *             .launchTemplateConfigs(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .targetCapacitySpecification(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

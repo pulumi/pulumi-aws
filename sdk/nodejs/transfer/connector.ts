@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.transfer.Connector("example", {
+ * const example = new aws.transfer/connector.Connector("example", {
  *     accessRole: aws_iam_role.test.arn,
  *     as2Config: {
  *         compression: "DISABLED",
@@ -38,7 +38,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.transfer.Connector("example", {
+ * const example = new aws.transfer/connector.Connector("example", {
  *     accessRole: aws_iam_role.test.arn,
  *     sftpConfig: {
  *         trustedHostKeys: ["ssh-rsa AAAAB3NYourKeysHere"],

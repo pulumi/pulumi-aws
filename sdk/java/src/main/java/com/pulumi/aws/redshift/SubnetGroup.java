@@ -26,8 +26,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.ec2.Vpc;
- * import com.pulumi.aws.ec2.VpcArgs;
+ * import com.pulumi.aws.ec2_vpc.Vpc;
+ * import com.pulumi.aws.ec2_vpc.VpcArgs;
  * import com.pulumi.aws.ec2.Subnet;
  * import com.pulumi.aws.ec2.SubnetArgs;
  * import com.pulumi.aws.redshift.SubnetGroup;
@@ -53,21 +53,21 @@ import javax.annotation.Nullable;
  *             .cidrBlock(&#34;10.1.1.0/24&#34;)
  *             .availabilityZone(&#34;us-west-2a&#34;)
  *             .vpcId(fooVpc.id())
- *             .tags(Map.of(&#34;Name&#34;, &#34;tf-dbsubnet-test-1&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var bar = new Subnet(&#34;bar&#34;, SubnetArgs.builder()        
  *             .cidrBlock(&#34;10.1.2.0/24&#34;)
  *             .availabilityZone(&#34;us-west-2b&#34;)
  *             .vpcId(fooVpc.id())
- *             .tags(Map.of(&#34;Name&#34;, &#34;tf-dbsubnet-test-2&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var fooSubnetGroup = new SubnetGroup(&#34;fooSubnetGroup&#34;, SubnetGroupArgs.builder()        
  *             .subnetIds(            
  *                 fooSubnet.id(),
  *                 bar.id())
- *             .tags(Map.of(&#34;environment&#34;, &#34;Production&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

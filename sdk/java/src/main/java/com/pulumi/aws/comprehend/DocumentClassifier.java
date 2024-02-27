@@ -32,7 +32,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.s3.BucketObjectv2;
  * import com.pulumi.aws.comprehend.DocumentClassifier;
  * import com.pulumi.aws.comprehend.DocumentClassifierArgs;
- * import com.pulumi.aws.comprehend.inputs.DocumentClassifierInputDataConfigArgs;
  * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
@@ -52,9 +51,7 @@ import javax.annotation.Nullable;
  *         var example = new DocumentClassifier(&#34;example&#34;, DocumentClassifierArgs.builder()        
  *             .dataAccessRoleArn(aws_iam_role.example().arn())
  *             .languageCode(&#34;en&#34;)
- *             .inputDataConfig(DocumentClassifierInputDataConfigArgs.builder()
- *                 .s3Uri(documents.id().applyValue(id -&gt; String.format(&#34;s3://%s/%s&#34;, aws_s3_bucket.test().bucket(),id)))
- *                 .build())
+ *             .inputDataConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(aws_iam_role_policy.example())
  *                 .build());

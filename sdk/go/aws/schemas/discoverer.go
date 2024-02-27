@@ -23,29 +23,27 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/schemas"
+//	cloudwatch/eventBus "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/cloudwatch/eventBus"
+//	schemas/discoverer "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/schemas/discoverer"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			messenger, err := cloudwatch.NewEventBus(ctx, "messenger", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = schemas.NewDiscoverer(ctx, "test", &schemas.DiscovererArgs{
-//				SourceArn:   messenger.Arn,
-//				Description: pulumi.String("Auto discover event schemas"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// messenger, err := cloudwatch/eventBus.NewEventBus(ctx, "messenger", nil)
+// if err != nil {
+// return err
+// }
+// _, err = schemas/discoverer.NewDiscoverer(ctx, "test", &schemas/discoverer.DiscovererArgs{
+// SourceArn: messenger.Arn,
+// Description: "Auto discover event schemas",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

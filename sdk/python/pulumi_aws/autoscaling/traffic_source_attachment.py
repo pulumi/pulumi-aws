@@ -112,12 +112,12 @@ class TrafficSourceAttachment(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.autoscaling.TrafficSourceAttachment("example",
-            autoscaling_group_name=aws_autoscaling_group["example"]["id"],
-            traffic_source=aws.autoscaling.TrafficSourceAttachmentTrafficSourceArgs(
-                identifier=aws_lb_target_group["example"]["arn"],
-                type="elbv2",
-            ))
+        example = aws.autoscaling.traffic_source_attachment.TrafficSourceAttachment("example",
+            autoscaling_group_name=aws_autoscaling_group.example.id,
+            traffic_source={
+                identifier: aws_lb_target_group.example.arn,
+                type: elbv2,
+            })
         ```
 
         :param str resource_name: The name of the resource.
@@ -143,12 +143,12 @@ class TrafficSourceAttachment(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.autoscaling.TrafficSourceAttachment("example",
-            autoscaling_group_name=aws_autoscaling_group["example"]["id"],
-            traffic_source=aws.autoscaling.TrafficSourceAttachmentTrafficSourceArgs(
-                identifier=aws_lb_target_group["example"]["arn"],
-                type="elbv2",
-            ))
+        example = aws.autoscaling.traffic_source_attachment.TrafficSourceAttachment("example",
+            autoscaling_group_name=aws_autoscaling_group.example.id,
+            traffic_source={
+                identifier: aws_lb_target_group.example.arn,
+                type: elbv2,
+            })
         ```
 
         :param str resource_name: The name of the resource.

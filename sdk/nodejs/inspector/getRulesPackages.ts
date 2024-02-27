@@ -8,25 +8,6 @@ import * as utilities from "../utilities";
  * The Amazon Inspector Classic Rules Packages data source allows access to the list of AWS
  * Inspector Rules Packages which can be used by Amazon Inspector Classic within the region
  * configured in the provider.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const rules = aws.inspector.getRulesPackages({});
- * // e.g., Use in aws_inspector_assessment_template
- * const group = new aws.inspector.ResourceGroup("group", {tags: {
- *     test: "test",
- * }});
- * const assessmentAssessmentTarget = new aws.inspector.AssessmentTarget("assessmentAssessmentTarget", {resourceGroupArn: group.arn});
- * const assessmentAssessmentTemplate = new aws.inspector.AssessmentTemplate("assessmentAssessmentTemplate", {
- *     targetArn: assessmentAssessmentTarget.arn,
- *     duration: 60,
- *     rulesPackageArns: rules.then(rules => rules.arns),
- * });
- * ```
  */
 export function getRulesPackages(opts?: pulumi.InvokeOptions): Promise<GetRulesPackagesResult> {
 
@@ -52,25 +33,6 @@ export interface GetRulesPackagesResult {
  * The Amazon Inspector Classic Rules Packages data source allows access to the list of AWS
  * Inspector Rules Packages which can be used by Amazon Inspector Classic within the region
  * configured in the provider.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const rules = aws.inspector.getRulesPackages({});
- * // e.g., Use in aws_inspector_assessment_template
- * const group = new aws.inspector.ResourceGroup("group", {tags: {
- *     test: "test",
- * }});
- * const assessmentAssessmentTarget = new aws.inspector.AssessmentTarget("assessmentAssessmentTarget", {resourceGroupArn: group.arn});
- * const assessmentAssessmentTemplate = new aws.inspector.AssessmentTemplate("assessmentAssessmentTemplate", {
- *     targetArn: assessmentAssessmentTarget.arn,
- *     duration: 60,
- *     rulesPackageArns: rules.then(rules => rules.arns),
- * });
- * ```
  */
 export function getRulesPackagesOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetRulesPackagesResult> {
     return pulumi.output(getRulesPackages(opts))

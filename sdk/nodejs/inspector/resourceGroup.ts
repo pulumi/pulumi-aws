@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.inspector.ResourceGroup("example", {tags: {
+ * const example = new aws.inspector/resourceGroup.ResourceGroup("example", {tags: {
  *     Env: "bar",
  *     Name: "foo",
  * }});

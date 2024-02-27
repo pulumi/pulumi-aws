@@ -36,7 +36,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.cognito.UserPoolDomainArgs;
  * import com.pulumi.aws.sagemaker.Workforce;
  * import com.pulumi.aws.sagemaker.WorkforceArgs;
- * import com.pulumi.aws.sagemaker.inputs.WorkforceCognitoConfigArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -64,10 +63,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleWorkforce = new Workforce(&#34;exampleWorkforce&#34;, WorkforceArgs.builder()        
  *             .workforceName(&#34;example&#34;)
- *             .cognitoConfig(WorkforceCognitoConfigArgs.builder()
- *                 .clientId(exampleUserPoolClient.id())
- *                 .userPool(exampleUserPoolDomain.userPoolId())
- *                 .build())
+ *             .cognitoConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -82,7 +78,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.sagemaker.Workforce;
  * import com.pulumi.aws.sagemaker.WorkforceArgs;
- * import com.pulumi.aws.sagemaker.inputs.WorkforceOidcConfigArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -97,16 +92,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Workforce(&#34;example&#34;, WorkforceArgs.builder()        
- *             .oidcConfig(WorkforceOidcConfigArgs.builder()
- *                 .authorizationEndpoint(&#34;https://example.com&#34;)
- *                 .clientId(&#34;example&#34;)
- *                 .clientSecret(&#34;example&#34;)
- *                 .issuer(&#34;https://example.com&#34;)
- *                 .jwksUri(&#34;https://example.com&#34;)
- *                 .logoutEndpoint(&#34;https://example.com&#34;)
- *                 .tokenEndpoint(&#34;https://example.com&#34;)
- *                 .userInfoEndpoint(&#34;https://example.com&#34;)
- *                 .build())
+ *             .oidcConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .workforceName(&#34;example&#34;)
  *             .build());
  * 

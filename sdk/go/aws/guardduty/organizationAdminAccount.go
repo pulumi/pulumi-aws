@@ -21,39 +21,38 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/guardduty"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/organizations"
+//	guardduty/detector "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/guardduty/detector"
+//	guardduty/organizationAdminAccount "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/guardduty/organizationAdminAccount"
+//	organizations/organization "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/organizations/organization"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleOrganization, err := organizations.NewOrganization(ctx, "exampleOrganization", &organizations.OrganizationArgs{
-//				AwsServiceAccessPrincipals: pulumi.StringArray{
-//					pulumi.String("guardduty.amazonaws.com"),
-//				},
-//				FeatureSet: pulumi.String("ALL"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = guardduty.NewDetector(ctx, "exampleDetector", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = guardduty.NewOrganizationAdminAccount(ctx, "exampleOrganizationAdminAccount", &guardduty.OrganizationAdminAccountArgs{
-//				AdminAccountId: pulumi.String("123456789012"),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleOrganization,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleOrganization, err := organizations/organization.NewOrganization(ctx, "exampleOrganization", &organizations/organization.OrganizationArgs{
+// AwsServiceAccessPrincipals: []string{
+// "guardduty.amazonaws.com",
+// },
+// FeatureSet: "ALL",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = guardduty/detector.NewDetector(ctx, "exampleDetector", nil)
+// if err != nil {
+// return err
+// }
+// _, err = guardduty/organizationAdminAccount.NewOrganizationAdminAccount(ctx, "exampleOrganizationAdminAccount", &guardduty/organizationAdminAccount.OrganizationAdminAccountArgs{
+// AdminAccountId: "123456789012",
+// }, pulumi.DependsOn([]pulumi.Resource{
+// exampleOrganization,
+// }))
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

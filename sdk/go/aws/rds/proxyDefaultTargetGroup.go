@@ -23,60 +23,59 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/rds"
+//	rds/proxy "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/rds/proxy"
+//	rds/proxyDefaultTargetGroup "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/rds/proxyDefaultTargetGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleProxy, err := rds.NewProxy(ctx, "exampleProxy", &rds.ProxyArgs{
-//				DebugLogging:      pulumi.Bool(false),
-//				EngineFamily:      pulumi.String("MYSQL"),
-//				IdleClientTimeout: pulumi.Int(1800),
-//				RequireTls:        pulumi.Bool(true),
-//				RoleArn:           pulumi.Any(aws_iam_role.Example.Arn),
-//				VpcSecurityGroupIds: pulumi.StringArray{
-//					aws_security_group.Example.Id,
-//				},
-//				VpcSubnetIds: pulumi.StringArray{
-//					aws_subnet.Example.Id,
-//				},
-//				Auths: rds.ProxyAuthArray{
-//					&rds.ProxyAuthArgs{
-//						AuthScheme:  pulumi.String("SECRETS"),
-//						Description: pulumi.String("example"),
-//						IamAuth:     pulumi.String("DISABLED"),
-//						SecretArn:   pulumi.Any(aws_secretsmanager_secret.Example.Arn),
-//					},
-//				},
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("example"),
-//					"Key":  pulumi.String("value"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = rds.NewProxyDefaultTargetGroup(ctx, "exampleProxyDefaultTargetGroup", &rds.ProxyDefaultTargetGroupArgs{
-//				DbProxyName: exampleProxy.Name,
-//				ConnectionPoolConfig: &rds.ProxyDefaultTargetGroupConnectionPoolConfigArgs{
-//					ConnectionBorrowTimeout:   pulumi.Int(120),
-//					InitQuery:                 pulumi.String("SET x=1, y=2"),
-//					MaxConnectionsPercent:     pulumi.Int(100),
-//					MaxIdleConnectionsPercent: pulumi.Int(50),
-//					SessionPinningFilters: pulumi.StringArray{
-//						pulumi.String("EXCLUDE_VARIABLE_SETS"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleProxy, err := rds/proxy.NewProxy(ctx, "exampleProxy", &rds/proxy.ProxyArgs{
+// DebugLogging: false,
+// EngineFamily: "MYSQL",
+// IdleClientTimeout: 1800,
+// RequireTls: true,
+// RoleArn: aws_iam_role.Example.Arn,
+// VpcSecurityGroupIds: []interface{}{
+// aws_security_group.Example.Id,
+// },
+// VpcSubnetIds: []interface{}{
+// aws_subnet.Example.Id,
+// },
+// Auths: []map[string]interface{}{
+// map[string]interface{}{
+// "authScheme": "SECRETS",
+// "description": "example",
+// "iamAuth": "DISABLED",
+// "secretArn": aws_secretsmanager_secret.Example.Arn,
+// },
+// },
+// Tags: map[string]interface{}{
+// "Name": "example",
+// "Key": "value",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = rds/proxyDefaultTargetGroup.NewProxyDefaultTargetGroup(ctx, "exampleProxyDefaultTargetGroup", &rds/proxyDefaultTargetGroup.ProxyDefaultTargetGroupArgs{
+// DbProxyName: exampleProxy.Name,
+// ConnectionPoolConfig: map[string]interface{}{
+// "connectionBorrowTimeout": 120,
+// "initQuery": "SET x=1, y=2",
+// "maxConnectionsPercent": 100,
+// "maxIdleConnectionsPercent": 50,
+// "sessionPinningFilters": []string{
+// "EXCLUDE_VARIABLE_SETS",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

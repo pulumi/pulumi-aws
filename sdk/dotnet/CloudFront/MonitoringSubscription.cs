@@ -22,15 +22,15 @@ namespace Pulumi.Aws.CloudFront
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.CloudFront.MonitoringSubscription("example", new()
+    ///     var example = new Aws.Cloudfront.MonitoringSubscription.MonitoringSubscription("example", new()
     ///     {
     ///         DistributionId = aws_cloudfront_distribution.Example.Id,
-    ///         MonitoringSubscriptionDetails = new Aws.CloudFront.Inputs.MonitoringSubscriptionMonitoringSubscriptionArgs
+    ///         MonitoringSubscription = 
     ///         {
-    ///             RealtimeMetricsSubscriptionConfig = new Aws.CloudFront.Inputs.MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigArgs
+    ///             { "realtimeMetricsSubscriptionConfig", 
     ///             {
-    ///                 RealtimeMetricsSubscriptionStatus = "Enabled",
-    ///             },
+    ///                 { "realtimeMetricsSubscriptionStatus", "Enabled" },
+    ///             } },
     ///         },
     ///     });
     /// 

@@ -190,50 +190,6 @@ class VpcIpamPoolCidr(pulumi.CustomResource):
         > **NOTE:** In order to deprovision CIDRs all Allocations must be released. Allocations created by a VPC take up to 30 minutes to be released. However, for IPAM to properly manage the removal of allocation records created by VPCs and other resources, you must [grant it permissions](https://docs.aws.amazon.com/vpc/latest/ipam/choose-single-user-or-orgs-ipam.html) in
         either a single account or organizationally. If you are unable to deprovision a cidr after waiting over 30 minutes, you may be missing the Service Linked Role.
 
-        ## Example Usage
-
-        Basic usage:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        current = aws.get_region()
-        example_vpc_ipam = aws.ec2.VpcIpam("exampleVpcIpam", operating_regions=[aws.ec2.VpcIpamOperatingRegionArgs(
-            region_name=current.name,
-        )])
-        example_vpc_ipam_pool = aws.ec2.VpcIpamPool("exampleVpcIpamPool",
-            address_family="ipv4",
-            ipam_scope_id=example_vpc_ipam.private_default_scope_id,
-            locale=current.name)
-        example_vpc_ipam_pool_cidr = aws.ec2.VpcIpamPoolCidr("exampleVpcIpamPoolCidr",
-            ipam_pool_id=example_vpc_ipam_pool.id,
-            cidr="172.20.0.0/16")
-        ```
-
-        Provision Public IPv6 Pool CIDRs:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        current = aws.get_region()
-        example = aws.ec2.VpcIpam("example", operating_regions=[aws.ec2.VpcIpamOperatingRegionArgs(
-            region_name=current.name,
-        )])
-        ipv6_test_public_vpc_ipam_pool = aws.ec2.VpcIpamPool("ipv6TestPublicVpcIpamPool",
-            address_family="ipv6",
-            ipam_scope_id=example.public_default_scope_id,
-            locale="us-east-1",
-            description="public ipv6",
-            publicly_advertisable=False,
-            public_ip_source="amazon",
-            aws_service="ec2")
-        ipv6_test_public_vpc_ipam_pool_cidr = aws.ec2.VpcIpamPoolCidr("ipv6TestPublicVpcIpamPoolCidr",
-            ipam_pool_id=ipv6_test_public_vpc_ipam_pool.id,
-            netmask_length=52)
-        ```
-
         ## Import
 
         Using `pulumi import`, import IPAMs using the `<cidr>_<ipam-pool-id>`. For example:
@@ -264,50 +220,6 @@ class VpcIpamPoolCidr(pulumi.CustomResource):
 
         > **NOTE:** In order to deprovision CIDRs all Allocations must be released. Allocations created by a VPC take up to 30 minutes to be released. However, for IPAM to properly manage the removal of allocation records created by VPCs and other resources, you must [grant it permissions](https://docs.aws.amazon.com/vpc/latest/ipam/choose-single-user-or-orgs-ipam.html) in
         either a single account or organizationally. If you are unable to deprovision a cidr after waiting over 30 minutes, you may be missing the Service Linked Role.
-
-        ## Example Usage
-
-        Basic usage:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        current = aws.get_region()
-        example_vpc_ipam = aws.ec2.VpcIpam("exampleVpcIpam", operating_regions=[aws.ec2.VpcIpamOperatingRegionArgs(
-            region_name=current.name,
-        )])
-        example_vpc_ipam_pool = aws.ec2.VpcIpamPool("exampleVpcIpamPool",
-            address_family="ipv4",
-            ipam_scope_id=example_vpc_ipam.private_default_scope_id,
-            locale=current.name)
-        example_vpc_ipam_pool_cidr = aws.ec2.VpcIpamPoolCidr("exampleVpcIpamPoolCidr",
-            ipam_pool_id=example_vpc_ipam_pool.id,
-            cidr="172.20.0.0/16")
-        ```
-
-        Provision Public IPv6 Pool CIDRs:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        current = aws.get_region()
-        example = aws.ec2.VpcIpam("example", operating_regions=[aws.ec2.VpcIpamOperatingRegionArgs(
-            region_name=current.name,
-        )])
-        ipv6_test_public_vpc_ipam_pool = aws.ec2.VpcIpamPool("ipv6TestPublicVpcIpamPool",
-            address_family="ipv6",
-            ipam_scope_id=example.public_default_scope_id,
-            locale="us-east-1",
-            description="public ipv6",
-            publicly_advertisable=False,
-            public_ip_source="amazon",
-            aws_service="ec2")
-        ipv6_test_public_vpc_ipam_pool_cidr = aws.ec2.VpcIpamPoolCidr("ipv6TestPublicVpcIpamPoolCidr",
-            ipam_pool_id=ipv6_test_public_vpc_ipam_pool.id,
-            netmask_length=52)
-        ```
 
         ## Import
 

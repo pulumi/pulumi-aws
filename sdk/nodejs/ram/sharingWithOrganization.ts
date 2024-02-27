@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.ram.SharingWithOrganization("example", {});
+ * const example = new aws.ram/sharingWithOrganization.SharingWithOrganization("example", {});
  * ```
  *
  * ## Import

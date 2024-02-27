@@ -14,31 +14,6 @@ import (
 // Data source for managing an AWS Verified Permissions Policy Store.
 //
 // ## Example Usage
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/verifiedpermissions"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := verifiedpermissions.LookupPolicyStore(ctx, &verifiedpermissions.LookupPolicyStoreArgs{
-//				Id: "example",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupPolicyStore(ctx *pulumi.Context, args *LookupPolicyStoreArgs, opts ...pulumi.InvokeOption) (*LookupPolicyStoreResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupPolicyStoreResult

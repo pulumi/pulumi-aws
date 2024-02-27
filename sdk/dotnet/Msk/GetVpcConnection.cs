@@ -13,56 +13,12 @@ namespace Pulumi.Aws.Msk
     {
         /// <summary>
         /// Get information on an Amazon MSK VPC Connection.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Msk.GetVpcConnection.Invoke(new()
-        ///     {
-        ///         Arn = aws_msk_vpc_connection.Example.Arn,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetVpcConnectionResult> InvokeAsync(GetVpcConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVpcConnectionResult>("aws:msk/getVpcConnection:getVpcConnection", args ?? new GetVpcConnectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get information on an Amazon MSK VPC Connection.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Msk.GetVpcConnection.Invoke(new()
-        ///     {
-        ///         Arn = aws_msk_vpc_connection.Example.Arn,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetVpcConnectionResult> Invoke(GetVpcConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVpcConnectionResult>("aws:msk/getVpcConnection:getVpcConnection", args ?? new GetVpcConnectionInvokeArgs(), options.WithDefaults());

@@ -28,107 +28,7 @@ import javax.annotation.Nullable;
  * &gt; **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
  * 
  * ## Example Usage
- * ### Basic Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.AwsFunctions;
- * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
- * import com.pulumi.aws.iam.Role;
- * import com.pulumi.aws.iam.RoleArgs;
- * import com.pulumi.aws.sqs.Queue;
- * import com.pulumi.aws.iam.RolePolicy;
- * import com.pulumi.aws.iam.RolePolicyArgs;
- * import com.pulumi.aws.pipes.Pipe;
- * import com.pulumi.aws.pipes.PipeArgs;
- * import static com.pulumi.codegen.internal.Serialization.*;
- * import com.pulumi.resources.CustomResourceOptions;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var main = AwsFunctions.getCallerIdentity();
- * 
- *         var exampleRole = new Role(&#34;exampleRole&#34;, RoleArgs.builder()        
- *             .assumeRolePolicy(serializeJson(
- *                 jsonObject(
- *                     jsonProperty(&#34;Version&#34;, &#34;2012-10-17&#34;),
- *                     jsonProperty(&#34;Statement&#34;, jsonObject(
- *                         jsonProperty(&#34;Effect&#34;, &#34;Allow&#34;),
- *                         jsonProperty(&#34;Action&#34;, &#34;sts:AssumeRole&#34;),
- *                         jsonProperty(&#34;Principal&#34;, jsonObject(
- *                             jsonProperty(&#34;Service&#34;, &#34;pipes.amazonaws.com&#34;)
- *                         )),
- *                         jsonProperty(&#34;Condition&#34;, jsonObject(
- *                             jsonProperty(&#34;StringEquals&#34;, jsonObject(
- *                                 jsonProperty(&#34;aws:SourceAccount&#34;, main.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()))
- *                             ))
- *                         ))
- *                     ))
- *                 )))
- *             .build());
- * 
- *         var sourceQueue = new Queue(&#34;sourceQueue&#34;);
- * 
- *         var sourceRolePolicy = new RolePolicy(&#34;sourceRolePolicy&#34;, RolePolicyArgs.builder()        
- *             .role(exampleRole.id())
- *             .policy(sourceQueue.arn().applyValue(arn -&gt; serializeJson(
- *                 jsonObject(
- *                     jsonProperty(&#34;Version&#34;, &#34;2012-10-17&#34;),
- *                     jsonProperty(&#34;Statement&#34;, jsonArray(jsonObject(
- *                         jsonProperty(&#34;Effect&#34;, &#34;Allow&#34;),
- *                         jsonProperty(&#34;Action&#34;, jsonArray(
- *                             &#34;sqs:DeleteMessage&#34;, 
- *                             &#34;sqs:GetQueueAttributes&#34;, 
- *                             &#34;sqs:ReceiveMessage&#34;
- *                         )),
- *                         jsonProperty(&#34;Resource&#34;, jsonArray(arn))
- *                     )))
- *                 ))))
- *             .build());
- * 
- *         var targetQueue = new Queue(&#34;targetQueue&#34;);
- * 
- *         var targetRolePolicy = new RolePolicy(&#34;targetRolePolicy&#34;, RolePolicyArgs.builder()        
- *             .role(exampleRole.id())
- *             .policy(targetQueue.arn().applyValue(arn -&gt; serializeJson(
- *                 jsonObject(
- *                     jsonProperty(&#34;Version&#34;, &#34;2012-10-17&#34;),
- *                     jsonProperty(&#34;Statement&#34;, jsonArray(jsonObject(
- *                         jsonProperty(&#34;Effect&#34;, &#34;Allow&#34;),
- *                         jsonProperty(&#34;Action&#34;, jsonArray(&#34;sqs:SendMessage&#34;)),
- *                         jsonProperty(&#34;Resource&#34;, jsonArray(arn))
- *                     )))
- *                 ))))
- *             .build());
- * 
- *         var examplePipe = new Pipe(&#34;examplePipe&#34;, PipeArgs.builder()        
- *             .roleArn(exampleRole.arn())
- *             .source(sourceQueue.arn())
- *             .target(targetQueue.arn())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(                
- *                     sourceRolePolicy,
- *                     targetRolePolicy)
- *                 .build());
- * 
- *     }
- * }
- * ```
  * ### Enrichment Usage
- * 
  * ```java
  * package generated_program;
  * 
@@ -137,8 +37,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.pipes.Pipe;
  * import com.pulumi.aws.pipes.PipeArgs;
- * import com.pulumi.aws.pipes.inputs.PipeEnrichmentParametersArgs;
- * import com.pulumi.aws.pipes.inputs.PipeEnrichmentParametersHttpParametersArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -157,19 +55,7 @@ import javax.annotation.Nullable;
  *             .source(aws_sqs_queue.source().arn())
  *             .target(aws_sqs_queue.target().arn())
  *             .enrichment(aws_cloudwatch_event_api_destination.example().arn())
- *             .enrichmentParameters(PipeEnrichmentParametersArgs.builder()
- *                 .httpParameters(PipeEnrichmentParametersHttpParametersArgs.builder()
- *                     .pathParameterValues(&#34;example-path-param&#34;)
- *                     .headerParameters(Map.ofEntries(
- *                         Map.entry(&#34;example-header&#34;, &#34;example-value&#34;),
- *                         Map.entry(&#34;second-example-header&#34;, &#34;second-example-value&#34;)
- *                     ))
- *                     .queryStringParameters(Map.ofEntries(
- *                         Map.entry(&#34;example-query-string&#34;, &#34;example-value&#34;),
- *                         Map.entry(&#34;second-example-query-string&#34;, &#34;second-example-value&#34;)
- *                     ))
- *                     .build())
- *                 .build())
+ *             .enrichmentParameters(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -184,8 +70,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.pipes.Pipe;
  * import com.pulumi.aws.pipes.PipeArgs;
- * import com.pulumi.aws.pipes.inputs.PipeSourceParametersArgs;
- * import com.pulumi.aws.pipes.inputs.PipeSourceParametersFilterCriteriaArgs;
  * import static com.pulumi.codegen.internal.Serialization.*;
  * import java.util.List;
  * import java.util.ArrayList;
@@ -204,23 +88,13 @@ import javax.annotation.Nullable;
  *             .roleArn(aws_iam_role.example().arn())
  *             .source(aws_sqs_queue.source().arn())
  *             .target(aws_sqs_queue.target().arn())
- *             .sourceParameters(PipeSourceParametersArgs.builder()
- *                 .filterCriteria(PipeSourceParametersFilterCriteriaArgs.builder()
- *                     .filters(PipeSourceParametersFilterCriteriaFilterArgs.builder()
- *                         .pattern(serializeJson(
- *                             jsonObject(
- *                                 jsonProperty(&#34;source&#34;, jsonArray(&#34;event-source&#34;))
- *                             )))
- *                         .build())
- *                     .build())
- *                 .build())
+ *             .sourceParameters(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
  * }
  * ```
  * ### SQS Source and Target Configuration Usage
- * 
  * ```java
  * package generated_program;
  * 
@@ -229,9 +103,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.pipes.Pipe;
  * import com.pulumi.aws.pipes.PipeArgs;
- * import com.pulumi.aws.pipes.inputs.PipeSourceParametersArgs;
- * import com.pulumi.aws.pipes.inputs.PipeSourceParametersSqsQueueParametersArgs;
- * import com.pulumi.aws.pipes.inputs.PipeTargetParametersArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -249,15 +120,8 @@ import javax.annotation.Nullable;
  *             .roleArn(aws_iam_role.example().arn())
  *             .source(aws_sqs_queue.source().arn())
  *             .target(aws_sqs_queue.target().arn())
- *             .sourceParameters(PipeSourceParametersArgs.builder()
- *                 .sqsQueueParameters(PipeSourceParametersSqsQueueParametersArgs.builder()
- *                     .batchSize(1)
- *                     .maximumBatchingWindowInSeconds(2)
- *                     .build())
- *                 .build())
- *             .targetParameters(PipeTargetParametersArgs.builder()
- *                 .sqsQueue(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
- *                 .build())
+ *             .sourceParameters(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .targetParameters(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

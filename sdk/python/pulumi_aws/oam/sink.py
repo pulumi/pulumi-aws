@@ -167,8 +167,8 @@ class Sink(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.oam.Sink("example", tags={
-            "Env": "prod",
+        example = aws.oam.sink.Sink("example", tags={
+            Env: prod,
         })
         ```
 
@@ -203,8 +203,8 @@ class Sink(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.oam.Sink("example", tags={
-            "Env": "prod",
+        example = aws.oam.sink.Sink("example", tags={
+            Env: prod,
         })
         ```
 

@@ -21,21 +21,19 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53"
+//	route53/zone "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/route53/zone"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := route53.NewZone(ctx, "primary", nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := route53/zone.NewZone(ctx, "primary", nil)
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Public Subdomain Zone
 //
@@ -48,39 +46,38 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53"
+//	route53/record "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/route53/record"
+//	route53/zone "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/route53/zone"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			main, err := route53.NewZone(ctx, "main", nil)
-//			if err != nil {
-//				return err
-//			}
-//			dev, err := route53.NewZone(ctx, "dev", &route53.ZoneArgs{
-//				Tags: pulumi.StringMap{
-//					"Environment": pulumi.String("dev"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = route53.NewRecord(ctx, "dev-ns", &route53.RecordArgs{
-//				ZoneId:  main.ZoneId,
-//				Name:    pulumi.String("dev.example.com"),
-//				Type:    pulumi.String("NS"),
-//				Ttl:     pulumi.Int(30),
-//				Records: dev.NameServers,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// main, err := route53/zone.NewZone(ctx, "main", nil)
+// if err != nil {
+// return err
+// }
+// dev, err := route53/zone.NewZone(ctx, "dev", &route53/zone.ZoneArgs{
+// Tags: map[string]interface{}{
+// "Environment": "dev",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = route53/record.NewRecord(ctx, "dev-ns", &route53/record.RecordArgs{
+// ZoneId: main.ZoneId,
+// Name: "dev.example.com",
+// Type: "NS",
+// Ttl: "30",
+// Records: dev.NameServers,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Private Zone
 //
@@ -93,27 +90,25 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53"
+//	route53/zone "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/route53/zone"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := route53.NewZone(ctx, "private", &route53.ZoneArgs{
-//				Vpcs: route53.ZoneVpcArray{
-//					&route53.ZoneVpcArgs{
-//						VpcId: pulumi.Any(aws_vpc.Example.Id),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := route53/zone.NewZone(ctx, "private", &route53/zone.ZoneArgs{
+// Vpcs: []map[string]interface{}{
+// map[string]interface{}{
+// "vpcId": aws_vpc.Example.Id,
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

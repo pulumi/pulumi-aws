@@ -23,23 +23,21 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/memorydb"
+//	memorydb/snapshot "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/memorydb/snapshot"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := memorydb.NewSnapshot(ctx, "example", &memorydb.SnapshotArgs{
-//				ClusterName: pulumi.Any(aws_memorydb_cluster.Example.Name),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := memorydb/snapshot.NewSnapshot(ctx, "example", &memorydb/snapshot.SnapshotArgs{
+// ClusterName: aws_memorydb_cluster.Example.Name,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

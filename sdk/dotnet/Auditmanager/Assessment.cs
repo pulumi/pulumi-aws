@@ -23,38 +23,38 @@ namespace Pulumi.Aws.Auditmanager
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Aws.Auditmanager.Assessment("test", new()
+    ///     var test = new Aws.Auditmanager.Assessment.Assessment("test", new()
     ///     {
-    ///         AssessmentReportsDestination = new Aws.Auditmanager.Inputs.AssessmentAssessmentReportsDestinationArgs
+    ///         AssessmentReportsDestination = 
     ///         {
-    ///             Destination = $"s3://{aws_s3_bucket.Test.Id}",
-    ///             DestinationType = "S3",
+    ///             { "destination", $"s3://{aws_s3_bucket.Test.Id}" },
+    ///             { "destinationType", "S3" },
     ///         },
     ///         FrameworkId = aws_auditmanager_framework.Test.Id,
     ///         Roles = new[]
     ///         {
-    ///             new Aws.Auditmanager.Inputs.AssessmentRoleArgs
+    ///             
     ///             {
-    ///                 RoleArn = aws_iam_role.Test.Arn,
-    ///                 RoleType = "PROCESS_OWNER",
+    ///                 { "roleArn", aws_iam_role.Test.Arn },
+    ///                 { "roleType", "PROCESS_OWNER" },
     ///             },
     ///         },
-    ///         Scope = new Aws.Auditmanager.Inputs.AssessmentScopeArgs
+    ///         Scope = 
     ///         {
-    ///             AwsAccounts = new[]
+    ///             { "awsAccounts", new[]
     ///             {
-    ///                 new Aws.Auditmanager.Inputs.AssessmentScopeAwsAccountArgs
+    ///                 
     ///                 {
-    ///                     Id = data.Aws_caller_identity.Current.Account_id,
+    ///                     { "id", data.Aws_caller_identity.Current.Account_id },
     ///                 },
-    ///             },
-    ///             AwsServices = new[]
+    ///             } },
+    ///             { "awsServices", new[]
     ///             {
-    ///                 new Aws.Auditmanager.Inputs.AssessmentScopeAwsServiceArgs
+    ///                 
     ///                 {
-    ///                     ServiceName = "S3",
+    ///                     { "serviceName", "S3" },
     ///                 },
-    ///             },
+    ///             } },
     ///         },
     ///     });
     /// 

@@ -38,7 +38,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.ec2.Ami;
  * import com.pulumi.aws.ec2.AmiArgs;
- * import com.pulumi.aws.ec2.inputs.AmiEbsBlockDeviceArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -53,11 +52,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Ami(&#34;example&#34;, AmiArgs.builder()        
- *             .ebsBlockDevices(AmiEbsBlockDeviceArgs.builder()
- *                 .deviceName(&#34;/dev/xvda&#34;)
- *                 .snapshotId(&#34;snap-xxxxxxxx&#34;)
- *                 .volumeSize(8)
- *                 .build())
+ *             .ebsBlockDevices(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .imdsSupport(&#34;v2.0&#34;)
  *             .rootDeviceName(&#34;/dev/xvda&#34;)
  *             .virtualizationType(&#34;hvm&#34;)

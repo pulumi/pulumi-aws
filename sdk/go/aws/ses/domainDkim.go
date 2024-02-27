@@ -25,52 +25,49 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ses"
+//	route53/record "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/route53/record"
+//	ses/domainDkim "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ses/domainDkim"
+//	ses/domainIdentity "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ses/domainIdentity"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleDomainIdentity, err := ses/domainIdentity.NewDomainIdentity(ctx, "exampleDomainIdentity", &ses/domainIdentity.DomainIdentityArgs{
+// Domain: "example.com",
+// })
+// if err != nil {
+// return err
+// }
+// exampleDomainDkim, err := ses/domainDkim.NewDomainDkim(ctx, "exampleDomainDkim", &ses/domainDkim.DomainDkimArgs{
+// Domain: exampleDomainIdentity.Domain,
+// })
+// if err != nil {
+// return err
+// }
+// var exampleAmazonsesDkimRecord []*route53/record.Record
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleDomainIdentity, err := ses.NewDomainIdentity(ctx, "exampleDomainIdentity", &ses.DomainIdentityArgs{
-//				Domain: pulumi.String("example.com"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleDomainDkim, err := ses.NewDomainDkim(ctx, "exampleDomainDkim", &ses.DomainDkimArgs{
-//				Domain: exampleDomainIdentity.Domain,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			var exampleAmazonsesDkimRecord []*route53.Record
-//			for index := 0; index < 3; index++ {
-//				key0 := index
-//				val0 := index
-//				__res, err := route53.NewRecord(ctx, fmt.Sprintf("exampleAmazonsesDkimRecord-%v", key0), &route53.RecordArgs{
-//					ZoneId: pulumi.String("ABCDEFGHIJ123"),
-//					Name: exampleDomainDkim.DkimTokens.ApplyT(func(dkimTokens []string) (string, error) {
-//						return fmt.Sprintf("%v._domainkey", dkimTokens[val0]), nil
-//					}).(pulumi.StringOutput),
-//					Type: pulumi.String("CNAME"),
-//					Ttl:  pulumi.Int(600),
-//					Records: pulumi.StringArray{
-//						exampleDomainDkim.DkimTokens.ApplyT(func(dkimTokens []string) (string, error) {
-//							return fmt.Sprintf("%v.dkim.amazonses.com", dkimTokens[val0]), nil
-//						}).(pulumi.StringOutput),
-//					},
-//				})
-//				if err != nil {
-//					return err
-//				}
-//				exampleAmazonsesDkimRecord = append(exampleAmazonsesDkimRecord, __res)
-//			}
-//			return nil
-//		})
-//	}
+//	for index := 0; index < 3; index++ {
+//	    key0 := index
+//	    val0 := index
 //
+// __res, err := route53/record.NewRecord(ctx, fmt.Sprintf("exampleAmazonsesDkimRecord-%v", key0), &route53/record.RecordArgs{
+// ZoneId: "ABCDEFGHIJ123",
+// Name: fmt.Sprintf("%v._domainkey", exampleDomainDkim.DkimTokens[val0]),
+// Type: "CNAME",
+// Ttl: "600",
+// Records: []string{
+// fmt.Sprintf("%v.dkim.amazonses.com", exampleDomainDkim.DkimTokens[val0]),
+// },
+// })
+// if err != nil {
+// return err
+// }
+// exampleAmazonsesDkimRecord = append(exampleAmazonsesDkimRecord, __res)
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

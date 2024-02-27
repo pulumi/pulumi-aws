@@ -58,7 +58,7 @@ import javax.annotation.Nullable;
  *             .description(&#34;A copy of ami-xxxxxxxx&#34;)
  *             .sourceAmiId(&#34;ami-xxxxxxxx&#34;)
  *             .sourceAmiRegion(&#34;us-west-1&#34;)
- *             .tags(Map.of(&#34;Name&#34;, &#34;HelloWorld&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

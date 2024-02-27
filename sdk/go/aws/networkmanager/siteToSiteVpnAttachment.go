@@ -22,24 +22,22 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/networkmanager"
+//	networkmanager/siteToSiteVpnAttachment "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/networkmanager/siteToSiteVpnAttachment"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := networkmanager.NewSiteToSiteVpnAttachment(ctx, "example", &networkmanager.SiteToSiteVpnAttachmentArgs{
-//				CoreNetworkId:    pulumi.Any(awscc_networkmanager_core_network.Example.Id),
-//				VpnConnectionArn: pulumi.Any(aws_vpn_connection.Example.Arn),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := networkmanager/siteToSiteVpnAttachment.NewSiteToSiteVpnAttachment(ctx, "example", &networkmanager/siteToSiteVpnAttachment.SiteToSiteVpnAttachmentArgs{
+// CoreNetworkId: awscc_networkmanager_core_network.Example.Id,
+// VpnConnectionArn: aws_vpn_connection.Example.Arn,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -51,7 +51,7 @@ import javax.annotation.Nullable;
  *                     jsonProperty(&#34;deadLetterTargetArn&#34;, aws_sqs_queue.queue_deadletter().arn()),
  *                     jsonProperty(&#34;maxReceiveCount&#34;, 4)
  *                 )))
- *             .tags(Map.of(&#34;Environment&#34;, &#34;production&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

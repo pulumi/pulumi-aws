@@ -22,66 +22,66 @@ namespace Pulumi.Aws.CostExplorer
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Aws.CostExplorer.CostCategory("test", new()
+    ///     var test = new Aws.Costexplorer.CostCategory.CostCategory("test", new()
     ///     {
     ///         Rules = new[]
     ///         {
-    ///             new Aws.CostExplorer.Inputs.CostCategoryRuleArgs
+    ///             
     ///             {
-    ///                 Rule = new Aws.CostExplorer.Inputs.CostCategoryRuleRuleArgs
+    ///                 { "rule", 
     ///                 {
-    ///                     Dimension = new Aws.CostExplorer.Inputs.CostCategoryRuleRuleDimensionArgs
+    ///                     { "dimension", 
     ///                     {
-    ///                         Key = "LINKED_ACCOUNT_NAME",
-    ///                         MatchOptions = new[]
+    ///                         { "key", "LINKED_ACCOUNT_NAME" },
+    ///                         { "matchOptions", new[]
     ///                         {
     ///                             "ENDS_WITH",
-    ///                         },
-    ///                         Values = new[]
+    ///                         } },
+    ///                         { "values", new[]
     ///                         {
     ///                             "-prod",
-    ///                         },
-    ///                     },
-    ///                 },
-    ///                 Value = "production",
+    ///                         } },
+    ///                     } },
+    ///                 } },
+    ///                 { "value", "production" },
     ///             },
-    ///             new Aws.CostExplorer.Inputs.CostCategoryRuleArgs
+    ///             
     ///             {
-    ///                 Rule = new Aws.CostExplorer.Inputs.CostCategoryRuleRuleArgs
+    ///                 { "rule", 
     ///                 {
-    ///                     Dimension = new Aws.CostExplorer.Inputs.CostCategoryRuleRuleDimensionArgs
+    ///                     { "dimension", 
     ///                     {
-    ///                         Key = "LINKED_ACCOUNT_NAME",
-    ///                         MatchOptions = new[]
+    ///                         { "key", "LINKED_ACCOUNT_NAME" },
+    ///                         { "matchOptions", new[]
     ///                         {
     ///                             "ENDS_WITH",
-    ///                         },
-    ///                         Values = new[]
+    ///                         } },
+    ///                         { "values", new[]
     ///                         {
     ///                             "-stg",
-    ///                         },
-    ///                     },
-    ///                 },
-    ///                 Value = "staging",
+    ///                         } },
+    ///                     } },
+    ///                 } },
+    ///                 { "value", "staging" },
     ///             },
-    ///             new Aws.CostExplorer.Inputs.CostCategoryRuleArgs
+    ///             
     ///             {
-    ///                 Rule = new Aws.CostExplorer.Inputs.CostCategoryRuleRuleArgs
+    ///                 { "rule", 
     ///                 {
-    ///                     Dimension = new Aws.CostExplorer.Inputs.CostCategoryRuleRuleDimensionArgs
+    ///                     { "dimension", 
     ///                     {
-    ///                         Key = "LINKED_ACCOUNT_NAME",
-    ///                         MatchOptions = new[]
+    ///                         { "key", "LINKED_ACCOUNT_NAME" },
+    ///                         { "matchOptions", new[]
     ///                         {
     ///                             "ENDS_WITH",
-    ///                         },
-    ///                         Values = new[]
+    ///                         } },
+    ///                         { "values", new[]
     ///                         {
     ///                             "-dev",
-    ///                         },
-    ///                     },
-    ///                 },
-    ///                 Value = "testing",
+    ///                         } },
+    ///                     } },
+    ///                 } },
+    ///                 { "value", "testing" },
     ///             },
     ///         },
     ///         RuleVersion = "CostCategoryExpression.v1",

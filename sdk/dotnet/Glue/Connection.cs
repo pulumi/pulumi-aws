@@ -23,7 +23,7 @@ namespace Pulumi.Aws.Glue
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Glue.Connection("example", new()
+    ///     var example = new Aws.Glue.Connection.Connection("example", new()
     ///     {
     ///         ConnectionProperties = 
     ///         {
@@ -47,7 +47,7 @@ namespace Pulumi.Aws.Glue
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Glue.Connection("example", new()
+    ///     var example = new Aws.Glue.Connection.Connection("example", new()
     ///     {
     ///         ConnectionProperties = 
     ///         {
@@ -55,14 +55,14 @@ namespace Pulumi.Aws.Glue
     ///             { "PASSWORD", "examplepassword" },
     ///             { "USERNAME", "exampleusername" },
     ///         },
-    ///         PhysicalConnectionRequirements = new Aws.Glue.Inputs.ConnectionPhysicalConnectionRequirementsArgs
+    ///         PhysicalConnectionRequirements = 
     ///         {
-    ///             AvailabilityZone = aws_subnet.Example.Availability_zone,
-    ///             SecurityGroupIdLists = new[]
+    ///             { "availabilityZone", aws_subnet.Example.Availability_zone },
+    ///             { "securityGroupIdLists", new[]
     ///             {
     ///                 aws_security_group.Example.Id,
-    ///             },
-    ///             SubnetId = aws_subnet.Example.Id,
+    ///             } },
+    ///             { "subnetId", aws_subnet.Example.Id },
     ///         },
     ///     });
     /// 

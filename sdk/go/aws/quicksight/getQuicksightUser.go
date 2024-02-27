@@ -16,31 +16,6 @@ import (
 // properties without having to hard code ARNs or unique IDs as input.
 //
 // ## Example Usage
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/quicksight"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := quicksight.GetQuicksightUser(ctx, &quicksight.GetQuicksightUserArgs{
-//				UserName: "example",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetQuicksightUser(ctx *pulumi.Context, args *GetQuicksightUserArgs, opts ...pulumi.InvokeOption) (*GetQuicksightUserResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetQuicksightUserResult

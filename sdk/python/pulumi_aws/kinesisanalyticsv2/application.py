@@ -445,60 +445,60 @@ class Application(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
-        example_bucket_objectv2 = aws.s3.BucketObjectv2("exampleBucketObjectv2",
+        example_bucket_v2 = aws.s3.bucket_v2.BucketV2("exampleBucketV2")
+        example_bucket_objectv2 = aws.s3.bucket_objectv2.BucketObjectv2("exampleBucketObjectv2",
             bucket=example_bucket_v2.id,
-            key="example-flink-application",
-            source=pulumi.FileAsset("flink-app.jar"))
-        example_application = aws.kinesisanalyticsv2.Application("exampleApplication",
-            runtime_environment="FLINK-1_8",
-            service_execution_role=aws_iam_role["example"]["arn"],
-            application_configuration=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationArgs(
-                application_code_configuration=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationApplicationCodeConfigurationArgs(
-                    code_content=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentArgs(
-                        s3_content_location=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocationArgs(
-                            bucket_arn=example_bucket_v2.arn,
-                            file_key=example_bucket_objectv2.key,
-                        ),
-                    ),
-                    code_content_type="ZIPFILE",
-                ),
-                environment_properties=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationEnvironmentPropertiesArgs(
-                    property_groups=[
-                        aws.kinesisanalyticsv2.ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroupArgs(
-                            property_group_id="PROPERTY-GROUP-1",
-                            property_map={
-                                "Key1": "Value1",
+            key=example-flink-application,
+            source=pulumi.FileAsset(flink-app.jar))
+        example_application = aws.kinesisanalyticsv2.application.Application("exampleApplication",
+            runtime_environment=FLINK-1_8,
+            service_execution_role=aws_iam_role.example.arn,
+            application_configuration={
+                applicationCodeConfiguration: {
+                    codeContent: {
+                        s3ContentLocation: {
+                            bucketArn: example_bucket_v2.arn,
+                            fileKey: example_bucket_objectv2.key,
+                        },
+                    },
+                    codeContentType: ZIPFILE,
+                },
+                environmentProperties: {
+                    propertyGroups: [
+                        {
+                            propertyGroupId: PROPERTY-GROUP-1,
+                            propertyMap: {
+                                Key1: Value1,
                             },
-                        ),
-                        aws.kinesisanalyticsv2.ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroupArgs(
-                            property_group_id="PROPERTY-GROUP-2",
-                            property_map={
-                                "KeyA": "ValueA",
-                                "KeyB": "ValueB",
+                        },
+                        {
+                            propertyGroupId: PROPERTY-GROUP-2,
+                            propertyMap: {
+                                KeyA: ValueA,
+                                KeyB: ValueB,
                             },
-                        ),
+                        },
                     ],
-                ),
-                flink_application_configuration=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationFlinkApplicationConfigurationArgs(
-                    checkpoint_configuration=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfigurationArgs(
-                        configuration_type="DEFAULT",
-                    ),
-                    monitoring_configuration=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfigurationArgs(
-                        configuration_type="CUSTOM",
-                        log_level="DEBUG",
-                        metrics_level="TASK",
-                    ),
-                    parallelism_configuration=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfigurationArgs(
-                        auto_scaling_enabled=True,
-                        configuration_type="CUSTOM",
-                        parallelism=10,
-                        parallelism_per_kpu=4,
-                    ),
-                ),
-            ),
+                },
+                flinkApplicationConfiguration: {
+                    checkpointConfiguration: {
+                        configurationType: DEFAULT,
+                    },
+                    monitoringConfiguration: {
+                        configurationType: CUSTOM,
+                        logLevel: DEBUG,
+                        metricsLevel: TASK,
+                    },
+                    parallelismConfiguration: {
+                        autoScalingEnabled: True,
+                        configurationType: CUSTOM,
+                        parallelism: 10,
+                        parallelismPerKpu: 4,
+                    },
+                },
+            },
             tags={
-                "Environment": "test",
+                Environment: test,
             })
         ```
         ### SQL Application
@@ -507,97 +507,99 @@ class Application(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_log_group = aws.cloudwatch.LogGroup("exampleLogGroup")
-        example_log_stream = aws.cloudwatch.LogStream("exampleLogStream", log_group_name=example_log_group.name)
-        example_application = aws.kinesisanalyticsv2.Application("exampleApplication",
-            runtime_environment="SQL-1_0",
-            service_execution_role=aws_iam_role["example"]["arn"],
-            application_configuration=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationArgs(
-                application_code_configuration=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationApplicationCodeConfigurationArgs(
-                    code_content=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentArgs(
-                        text_content="SELECT 1;\\n",
-                    ),
-                    code_content_type="PLAINTEXT",
-                ),
-                sql_application_configuration=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationArgs(
-                    input=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationInputArgs(
-                        name_prefix="PREFIX_1",
-                        input_parallelism=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelismArgs(
-                            count=3,
-                        ),
-                        input_schema=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaArgs(
-                            record_columns=[
-                                aws.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumnArgs(
-                                    name="COLUMN_1",
-                                    sql_type="VARCHAR(8)",
-                                    mapping="MAPPING-1",
-                                ),
-                                aws.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumnArgs(
-                                    name="COLUMN_2",
-                                    sql_type="DOUBLE",
-                                ),
+        example_log_group = aws.cloudwatch.log_group.LogGroup("exampleLogGroup")
+        example_log_stream = aws.cloudwatch.log_stream.LogStream("exampleLogStream", log_group_name=example_log_group.name)
+        example_application = aws.kinesisanalyticsv2.application.Application("exampleApplication",
+            runtime_environment=SQL-1_0,
+            service_execution_role=aws_iam_role.example.arn,
+            application_configuration={
+                applicationCodeConfiguration: {
+                    codeContent: {
+                        textContent: SELECT 1;
+        ,
+                    },
+                    codeContentType: PLAINTEXT,
+                },
+                sqlApplicationConfiguration: {
+                    input: {
+                        namePrefix: PREFIX_1,
+                        inputParallelism: {
+                            count: 3,
+                        },
+                        inputSchema: {
+                            recordColumns: [
+                                {
+                                    name: COLUMN_1,
+                                    sqlType: VARCHAR(8),
+                                    mapping: MAPPING-1,
+                                },
+                                {
+                                    name: COLUMN_2,
+                                    sqlType: DOUBLE,
+                                },
                             ],
-                            record_encoding="UTF-8",
-                            record_format=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatArgs(
-                                record_format_type="CSV",
-                                mapping_parameters=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersArgs(
-                                    csv_mapping_parameters=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParametersArgs(
-                                        record_column_delimiter=",",
-                                        record_row_delimiter="\\n",
-                                    ),
-                                ),
-                            ),
-                        ),
-                        kinesis_streams_input=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInputArgs(
-                            resource_arn=aws_kinesis_stream["example"]["arn"],
-                        ),
-                    ),
-                    outputs=[
-                        aws.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputArgs(
-                            name="OUTPUT_1",
-                            destination_schema=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchemaArgs(
-                                record_format_type="JSON",
-                            ),
-                            lambda_output=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutputArgs(
-                                resource_arn=aws_lambda_function["example"]["arn"],
-                            ),
-                        ),
-                        aws.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputArgs(
-                            name="OUTPUT_2",
-                            destination_schema=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchemaArgs(
-                                record_format_type="CSV",
-                            ),
-                            kinesis_firehose_output=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutputArgs(
-                                resource_arn=aws_kinesis_firehose_delivery_stream["example"]["arn"],
-                            ),
-                        ),
+                            recordEncoding: UTF-8,
+                            recordFormat: {
+                                recordFormatType: CSV,
+                                mappingParameters: {
+                                    csvMappingParameters: {
+                                        recordColumnDelimiter: ,,
+                                        recordRowDelimiter: 
+        ,
+                                    },
+                                },
+                            },
+                        },
+                        kinesisStreamsInput: {
+                            resourceArn: aws_kinesis_stream.example.arn,
+                        },
+                    },
+                    outputs: [
+                        {
+                            name: OUTPUT_1,
+                            destinationSchema: {
+                                recordFormatType: JSON,
+                            },
+                            lambdaOutput: {
+                                resourceArn: aws_lambda_function.example.arn,
+                            },
+                        },
+                        {
+                            name: OUTPUT_2,
+                            destinationSchema: {
+                                recordFormatType: CSV,
+                            },
+                            kinesisFirehoseOutput: {
+                                resourceArn: aws_kinesis_firehose_delivery_stream.example.arn,
+                            },
+                        },
                     ],
-                    reference_data_source=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceArgs(
-                        table_name="TABLE-1",
-                        reference_schema=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaArgs(
-                            record_columns=[aws.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumnArgs(
-                                name="COLUMN_1",
-                                sql_type="INTEGER",
-                            )],
-                            record_format=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatArgs(
-                                record_format_type="JSON",
-                                mapping_parameters=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersArgs(
-                                    json_mapping_parameters=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParametersArgs(
-                                        record_row_path="$",
-                                    ),
-                                ),
-                            ),
-                        ),
-                        s3_reference_data_source=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSourceArgs(
-                            bucket_arn=aws_s3_bucket["example"]["arn"],
-                            file_key="KEY-1",
-                        ),
-                    ),
-                ),
-            ),
-            cloudwatch_logging_options=aws.kinesisanalyticsv2.ApplicationCloudwatchLoggingOptionsArgs(
-                log_stream_arn=example_log_stream.arn,
-            ))
+                    referenceDataSource: {
+                        tableName: TABLE-1,
+                        referenceSchema: {
+                            recordColumns: [{
+                                name: COLUMN_1,
+                                sqlType: INTEGER,
+                            }],
+                            recordFormat: {
+                                recordFormatType: JSON,
+                                mappingParameters: {
+                                    jsonMappingParameters: {
+                                        recordRowPath: $,
+                                    },
+                                },
+                            },
+                        },
+                        s3ReferenceDataSource: {
+                            bucketArn: aws_s3_bucket.example.arn,
+                            fileKey: KEY-1,
+                        },
+                    },
+                },
+            },
+            cloudwatch_logging_options={
+                logStreamArn: example_log_stream.arn,
+            })
         ```
         ### VPC Configuration
 
@@ -605,32 +607,32 @@ class Application(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
-        example_bucket_objectv2 = aws.s3.BucketObjectv2("exampleBucketObjectv2",
+        example_bucket_v2 = aws.s3.bucket_v2.BucketV2("exampleBucketV2")
+        example_bucket_objectv2 = aws.s3.bucket_objectv2.BucketObjectv2("exampleBucketObjectv2",
             bucket=example_bucket_v2.id,
-            key="example-flink-application",
-            source=pulumi.FileAsset("flink-app.jar"))
-        example_application = aws.kinesisanalyticsv2.Application("exampleApplication",
-            runtime_environment="FLINK-1_8",
-            service_execution_role=aws_iam_role["example"]["arn"],
-            application_configuration=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationArgs(
-                application_code_configuration=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationApplicationCodeConfigurationArgs(
-                    code_content=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentArgs(
-                        s3_content_location=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocationArgs(
-                            bucket_arn=example_bucket_v2.arn,
-                            file_key=example_bucket_objectv2.key,
-                        ),
-                    ),
-                    code_content_type="ZIPFILE",
-                ),
-                vpc_configuration=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationVpcConfigurationArgs(
-                    security_group_ids=[
-                        aws_security_group["example"][0]["id"],
-                        aws_security_group["example"][1]["id"],
+            key=example-flink-application,
+            source=pulumi.FileAsset(flink-app.jar))
+        example_application = aws.kinesisanalyticsv2.application.Application("exampleApplication",
+            runtime_environment=FLINK-1_8,
+            service_execution_role=aws_iam_role.example.arn,
+            application_configuration={
+                applicationCodeConfiguration: {
+                    codeContent: {
+                        s3ContentLocation: {
+                            bucketArn: example_bucket_v2.arn,
+                            fileKey: example_bucket_objectv2.key,
+                        },
+                    },
+                    codeContentType: ZIPFILE,
+                },
+                vpcConfiguration: {
+                    securityGroupIds: [
+                        aws_security_group.example[0].id,
+                        aws_security_group.example[1].id,
                     ],
-                    subnet_ids=[aws_subnet["example"]["id"]],
-                ),
-            ))
+                    subnetIds: [aws_subnet.example.id],
+                },
+            })
         ```
 
         ## Import
@@ -672,60 +674,60 @@ class Application(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
-        example_bucket_objectv2 = aws.s3.BucketObjectv2("exampleBucketObjectv2",
+        example_bucket_v2 = aws.s3.bucket_v2.BucketV2("exampleBucketV2")
+        example_bucket_objectv2 = aws.s3.bucket_objectv2.BucketObjectv2("exampleBucketObjectv2",
             bucket=example_bucket_v2.id,
-            key="example-flink-application",
-            source=pulumi.FileAsset("flink-app.jar"))
-        example_application = aws.kinesisanalyticsv2.Application("exampleApplication",
-            runtime_environment="FLINK-1_8",
-            service_execution_role=aws_iam_role["example"]["arn"],
-            application_configuration=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationArgs(
-                application_code_configuration=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationApplicationCodeConfigurationArgs(
-                    code_content=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentArgs(
-                        s3_content_location=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocationArgs(
-                            bucket_arn=example_bucket_v2.arn,
-                            file_key=example_bucket_objectv2.key,
-                        ),
-                    ),
-                    code_content_type="ZIPFILE",
-                ),
-                environment_properties=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationEnvironmentPropertiesArgs(
-                    property_groups=[
-                        aws.kinesisanalyticsv2.ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroupArgs(
-                            property_group_id="PROPERTY-GROUP-1",
-                            property_map={
-                                "Key1": "Value1",
+            key=example-flink-application,
+            source=pulumi.FileAsset(flink-app.jar))
+        example_application = aws.kinesisanalyticsv2.application.Application("exampleApplication",
+            runtime_environment=FLINK-1_8,
+            service_execution_role=aws_iam_role.example.arn,
+            application_configuration={
+                applicationCodeConfiguration: {
+                    codeContent: {
+                        s3ContentLocation: {
+                            bucketArn: example_bucket_v2.arn,
+                            fileKey: example_bucket_objectv2.key,
+                        },
+                    },
+                    codeContentType: ZIPFILE,
+                },
+                environmentProperties: {
+                    propertyGroups: [
+                        {
+                            propertyGroupId: PROPERTY-GROUP-1,
+                            propertyMap: {
+                                Key1: Value1,
                             },
-                        ),
-                        aws.kinesisanalyticsv2.ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroupArgs(
-                            property_group_id="PROPERTY-GROUP-2",
-                            property_map={
-                                "KeyA": "ValueA",
-                                "KeyB": "ValueB",
+                        },
+                        {
+                            propertyGroupId: PROPERTY-GROUP-2,
+                            propertyMap: {
+                                KeyA: ValueA,
+                                KeyB: ValueB,
                             },
-                        ),
+                        },
                     ],
-                ),
-                flink_application_configuration=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationFlinkApplicationConfigurationArgs(
-                    checkpoint_configuration=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfigurationArgs(
-                        configuration_type="DEFAULT",
-                    ),
-                    monitoring_configuration=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfigurationArgs(
-                        configuration_type="CUSTOM",
-                        log_level="DEBUG",
-                        metrics_level="TASK",
-                    ),
-                    parallelism_configuration=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfigurationArgs(
-                        auto_scaling_enabled=True,
-                        configuration_type="CUSTOM",
-                        parallelism=10,
-                        parallelism_per_kpu=4,
-                    ),
-                ),
-            ),
+                },
+                flinkApplicationConfiguration: {
+                    checkpointConfiguration: {
+                        configurationType: DEFAULT,
+                    },
+                    monitoringConfiguration: {
+                        configurationType: CUSTOM,
+                        logLevel: DEBUG,
+                        metricsLevel: TASK,
+                    },
+                    parallelismConfiguration: {
+                        autoScalingEnabled: True,
+                        configurationType: CUSTOM,
+                        parallelism: 10,
+                        parallelismPerKpu: 4,
+                    },
+                },
+            },
             tags={
-                "Environment": "test",
+                Environment: test,
             })
         ```
         ### SQL Application
@@ -734,97 +736,99 @@ class Application(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_log_group = aws.cloudwatch.LogGroup("exampleLogGroup")
-        example_log_stream = aws.cloudwatch.LogStream("exampleLogStream", log_group_name=example_log_group.name)
-        example_application = aws.kinesisanalyticsv2.Application("exampleApplication",
-            runtime_environment="SQL-1_0",
-            service_execution_role=aws_iam_role["example"]["arn"],
-            application_configuration=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationArgs(
-                application_code_configuration=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationApplicationCodeConfigurationArgs(
-                    code_content=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentArgs(
-                        text_content="SELECT 1;\\n",
-                    ),
-                    code_content_type="PLAINTEXT",
-                ),
-                sql_application_configuration=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationArgs(
-                    input=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationInputArgs(
-                        name_prefix="PREFIX_1",
-                        input_parallelism=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelismArgs(
-                            count=3,
-                        ),
-                        input_schema=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaArgs(
-                            record_columns=[
-                                aws.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumnArgs(
-                                    name="COLUMN_1",
-                                    sql_type="VARCHAR(8)",
-                                    mapping="MAPPING-1",
-                                ),
-                                aws.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumnArgs(
-                                    name="COLUMN_2",
-                                    sql_type="DOUBLE",
-                                ),
+        example_log_group = aws.cloudwatch.log_group.LogGroup("exampleLogGroup")
+        example_log_stream = aws.cloudwatch.log_stream.LogStream("exampleLogStream", log_group_name=example_log_group.name)
+        example_application = aws.kinesisanalyticsv2.application.Application("exampleApplication",
+            runtime_environment=SQL-1_0,
+            service_execution_role=aws_iam_role.example.arn,
+            application_configuration={
+                applicationCodeConfiguration: {
+                    codeContent: {
+                        textContent: SELECT 1;
+        ,
+                    },
+                    codeContentType: PLAINTEXT,
+                },
+                sqlApplicationConfiguration: {
+                    input: {
+                        namePrefix: PREFIX_1,
+                        inputParallelism: {
+                            count: 3,
+                        },
+                        inputSchema: {
+                            recordColumns: [
+                                {
+                                    name: COLUMN_1,
+                                    sqlType: VARCHAR(8),
+                                    mapping: MAPPING-1,
+                                },
+                                {
+                                    name: COLUMN_2,
+                                    sqlType: DOUBLE,
+                                },
                             ],
-                            record_encoding="UTF-8",
-                            record_format=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatArgs(
-                                record_format_type="CSV",
-                                mapping_parameters=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersArgs(
-                                    csv_mapping_parameters=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParametersArgs(
-                                        record_column_delimiter=",",
-                                        record_row_delimiter="\\n",
-                                    ),
-                                ),
-                            ),
-                        ),
-                        kinesis_streams_input=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInputArgs(
-                            resource_arn=aws_kinesis_stream["example"]["arn"],
-                        ),
-                    ),
-                    outputs=[
-                        aws.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputArgs(
-                            name="OUTPUT_1",
-                            destination_schema=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchemaArgs(
-                                record_format_type="JSON",
-                            ),
-                            lambda_output=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutputArgs(
-                                resource_arn=aws_lambda_function["example"]["arn"],
-                            ),
-                        ),
-                        aws.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputArgs(
-                            name="OUTPUT_2",
-                            destination_schema=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchemaArgs(
-                                record_format_type="CSV",
-                            ),
-                            kinesis_firehose_output=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutputArgs(
-                                resource_arn=aws_kinesis_firehose_delivery_stream["example"]["arn"],
-                            ),
-                        ),
+                            recordEncoding: UTF-8,
+                            recordFormat: {
+                                recordFormatType: CSV,
+                                mappingParameters: {
+                                    csvMappingParameters: {
+                                        recordColumnDelimiter: ,,
+                                        recordRowDelimiter: 
+        ,
+                                    },
+                                },
+                            },
+                        },
+                        kinesisStreamsInput: {
+                            resourceArn: aws_kinesis_stream.example.arn,
+                        },
+                    },
+                    outputs: [
+                        {
+                            name: OUTPUT_1,
+                            destinationSchema: {
+                                recordFormatType: JSON,
+                            },
+                            lambdaOutput: {
+                                resourceArn: aws_lambda_function.example.arn,
+                            },
+                        },
+                        {
+                            name: OUTPUT_2,
+                            destinationSchema: {
+                                recordFormatType: CSV,
+                            },
+                            kinesisFirehoseOutput: {
+                                resourceArn: aws_kinesis_firehose_delivery_stream.example.arn,
+                            },
+                        },
                     ],
-                    reference_data_source=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceArgs(
-                        table_name="TABLE-1",
-                        reference_schema=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaArgs(
-                            record_columns=[aws.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumnArgs(
-                                name="COLUMN_1",
-                                sql_type="INTEGER",
-                            )],
-                            record_format=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatArgs(
-                                record_format_type="JSON",
-                                mapping_parameters=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersArgs(
-                                    json_mapping_parameters=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParametersArgs(
-                                        record_row_path="$",
-                                    ),
-                                ),
-                            ),
-                        ),
-                        s3_reference_data_source=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSourceArgs(
-                            bucket_arn=aws_s3_bucket["example"]["arn"],
-                            file_key="KEY-1",
-                        ),
-                    ),
-                ),
-            ),
-            cloudwatch_logging_options=aws.kinesisanalyticsv2.ApplicationCloudwatchLoggingOptionsArgs(
-                log_stream_arn=example_log_stream.arn,
-            ))
+                    referenceDataSource: {
+                        tableName: TABLE-1,
+                        referenceSchema: {
+                            recordColumns: [{
+                                name: COLUMN_1,
+                                sqlType: INTEGER,
+                            }],
+                            recordFormat: {
+                                recordFormatType: JSON,
+                                mappingParameters: {
+                                    jsonMappingParameters: {
+                                        recordRowPath: $,
+                                    },
+                                },
+                            },
+                        },
+                        s3ReferenceDataSource: {
+                            bucketArn: aws_s3_bucket.example.arn,
+                            fileKey: KEY-1,
+                        },
+                    },
+                },
+            },
+            cloudwatch_logging_options={
+                logStreamArn: example_log_stream.arn,
+            })
         ```
         ### VPC Configuration
 
@@ -832,32 +836,32 @@ class Application(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
-        example_bucket_objectv2 = aws.s3.BucketObjectv2("exampleBucketObjectv2",
+        example_bucket_v2 = aws.s3.bucket_v2.BucketV2("exampleBucketV2")
+        example_bucket_objectv2 = aws.s3.bucket_objectv2.BucketObjectv2("exampleBucketObjectv2",
             bucket=example_bucket_v2.id,
-            key="example-flink-application",
-            source=pulumi.FileAsset("flink-app.jar"))
-        example_application = aws.kinesisanalyticsv2.Application("exampleApplication",
-            runtime_environment="FLINK-1_8",
-            service_execution_role=aws_iam_role["example"]["arn"],
-            application_configuration=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationArgs(
-                application_code_configuration=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationApplicationCodeConfigurationArgs(
-                    code_content=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentArgs(
-                        s3_content_location=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocationArgs(
-                            bucket_arn=example_bucket_v2.arn,
-                            file_key=example_bucket_objectv2.key,
-                        ),
-                    ),
-                    code_content_type="ZIPFILE",
-                ),
-                vpc_configuration=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationVpcConfigurationArgs(
-                    security_group_ids=[
-                        aws_security_group["example"][0]["id"],
-                        aws_security_group["example"][1]["id"],
+            key=example-flink-application,
+            source=pulumi.FileAsset(flink-app.jar))
+        example_application = aws.kinesisanalyticsv2.application.Application("exampleApplication",
+            runtime_environment=FLINK-1_8,
+            service_execution_role=aws_iam_role.example.arn,
+            application_configuration={
+                applicationCodeConfiguration: {
+                    codeContent: {
+                        s3ContentLocation: {
+                            bucketArn: example_bucket_v2.arn,
+                            fileKey: example_bucket_objectv2.key,
+                        },
+                    },
+                    codeContentType: ZIPFILE,
+                },
+                vpcConfiguration: {
+                    securityGroupIds: [
+                        aws_security_group.example[0].id,
+                        aws_security_group.example[1].id,
                     ],
-                    subnet_ids=[aws_subnet["example"]["id"]],
-                ),
-            ))
+                    subnetIds: [aws_subnet.example.id],
+                },
+            })
         ```
 
         ## Import

@@ -12,32 +12,6 @@ import (
 )
 
 // Retrieve information about a Location Service Route Calculator.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/location"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := location.GetRouteCalculator(ctx, &location.GetRouteCalculatorArgs{
-//				CalculatorName: "example",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetRouteCalculator(ctx *pulumi.Context, args *GetRouteCalculatorArgs, opts ...pulumi.InvokeOption) (*GetRouteCalculatorResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetRouteCalculatorResult

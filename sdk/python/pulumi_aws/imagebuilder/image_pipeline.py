@@ -565,12 +565,12 @@ class ImagePipeline(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.imagebuilder.ImagePipeline("example",
-            image_recipe_arn=aws_imagebuilder_image_recipe["example"]["arn"],
-            infrastructure_configuration_arn=aws_imagebuilder_infrastructure_configuration["example"]["arn"],
-            schedule=aws.imagebuilder.ImagePipelineScheduleArgs(
-                schedule_expression="cron(0 0 * * ? *)",
-            ))
+        example = aws.imagebuilder.image_pipeline.ImagePipeline("example",
+            image_recipe_arn=aws_imagebuilder_image_recipe.example.arn,
+            infrastructure_configuration_arn=aws_imagebuilder_infrastructure_configuration.example.arn,
+            schedule={
+                scheduleExpression: cron(0 0 * * ? *),
+            })
         ```
 
         ## Import
@@ -613,12 +613,12 @@ class ImagePipeline(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.imagebuilder.ImagePipeline("example",
-            image_recipe_arn=aws_imagebuilder_image_recipe["example"]["arn"],
-            infrastructure_configuration_arn=aws_imagebuilder_infrastructure_configuration["example"]["arn"],
-            schedule=aws.imagebuilder.ImagePipelineScheduleArgs(
-                schedule_expression="cron(0 0 * * ? *)",
-            ))
+        example = aws.imagebuilder.image_pipeline.ImagePipeline("example",
+            image_recipe_arn=aws_imagebuilder_image_recipe.example.arn,
+            infrastructure_configuration_arn=aws_imagebuilder_infrastructure_configuration.example.arn,
+            schedule={
+                scheduleExpression: cron(0 0 * * ? *),
+            })
         ```
 
         ## Import

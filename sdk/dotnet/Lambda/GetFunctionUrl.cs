@@ -13,60 +13,12 @@ namespace Pulumi.Aws.Lambda
     {
         /// <summary>
         /// Provides information about a Lambda function URL.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var config = new Config();
-        ///     var functionName = config.Require("functionName");
-        ///     var existing = Aws.Lambda.GetFunctionUrl.Invoke(new()
-        ///     {
-        ///         FunctionName = functionName,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetFunctionUrlResult> InvokeAsync(GetFunctionUrlArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFunctionUrlResult>("aws:lambda/getFunctionUrl:getFunctionUrl", args ?? new GetFunctionUrlArgs(), options.WithDefaults());
 
         /// <summary>
         /// Provides information about a Lambda function URL.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var config = new Config();
-        ///     var functionName = config.Require("functionName");
-        ///     var existing = Aws.Lambda.GetFunctionUrl.Invoke(new()
-        ///     {
-        ///         FunctionName = functionName,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetFunctionUrlResult> Invoke(GetFunctionUrlInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFunctionUrlResult>("aws:lambda/getFunctionUrl:getFunctionUrl", args ?? new GetFunctionUrlInvokeArgs(), options.WithDefaults());

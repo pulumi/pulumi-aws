@@ -23,23 +23,21 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	iam/accountAlias "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/iam/accountAlias"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := iam.NewAccountAlias(ctx, "alias", &iam.AccountAliasArgs{
-//				AccountAlias: pulumi.String("my-account-alias"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := iam/accountAlias.NewAccountAlias(ctx, "alias", &iam/accountAlias.AccountAliasArgs{
+// AccountAlias: "my-account-alias",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

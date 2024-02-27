@@ -21,23 +21,21 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/organizations"
+//	organizations/organizationalUnit "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/organizations/organizationalUnit"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := organizations.NewOrganizationalUnit(ctx, "example", &organizations.OrganizationalUnitArgs{
-//				ParentId: pulumi.Any(aws_organizations_organization.Example.Roots[0].Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := organizations/organizationalUnit.NewOrganizationalUnit(ctx, "example", &organizations/organizationalUnit.OrganizationalUnitArgs{
+// ParentId: aws_organizations_organization.Example.Roots[0].Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

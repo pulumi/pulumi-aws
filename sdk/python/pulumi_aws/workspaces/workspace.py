@@ -371,32 +371,6 @@ class Workspace(pulumi.CustomResource):
 
         > **NOTE:** AWS WorkSpaces service requires [`workspaces_DefaultRole`](https://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-access-control.html#create-default-role) IAM role to operate normally.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        value_windows10 = aws.workspaces.get_bundle(bundle_id="wsb-bh8rsxt14")
-        example = aws.workspaces.Workspace("example",
-            directory_id=aws_workspaces_directory["example"]["id"],
-            bundle_id=value_windows10.id,
-            user_name="john.doe",
-            root_volume_encryption_enabled=True,
-            user_volume_encryption_enabled=True,
-            volume_encryption_key="alias/aws/workspaces",
-            workspace_properties=aws.workspaces.WorkspaceWorkspacePropertiesArgs(
-                compute_type_name="VALUE",
-                user_volume_size_gib=10,
-                root_volume_size_gib=80,
-                running_mode="AUTO_STOP",
-                running_mode_auto_stop_timeout_in_minutes=60,
-            ),
-            tags={
-                "Department": "IT",
-            })
-        ```
-
         ## Import
 
         Using `pulumi import`, import Workspaces using their ID. For example:
@@ -426,32 +400,6 @@ class Workspace(pulumi.CustomResource):
         Provides a workspace in [AWS Workspaces](https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces.html) Service
 
         > **NOTE:** AWS WorkSpaces service requires [`workspaces_DefaultRole`](https://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-access-control.html#create-default-role) IAM role to operate normally.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        value_windows10 = aws.workspaces.get_bundle(bundle_id="wsb-bh8rsxt14")
-        example = aws.workspaces.Workspace("example",
-            directory_id=aws_workspaces_directory["example"]["id"],
-            bundle_id=value_windows10.id,
-            user_name="john.doe",
-            root_volume_encryption_enabled=True,
-            user_volume_encryption_enabled=True,
-            volume_encryption_key="alias/aws/workspaces",
-            workspace_properties=aws.workspaces.WorkspaceWorkspacePropertiesArgs(
-                compute_type_name="VALUE",
-                user_volume_size_gib=10,
-                root_volume_size_gib=80,
-                running_mode="AUTO_STOP",
-                running_mode_auto_stop_timeout_in_minutes=60,
-            ),
-            tags={
-                "Department": "IT",
-            })
-        ```
 
         ## Import
 

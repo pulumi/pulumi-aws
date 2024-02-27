@@ -30,64 +30,63 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/elb"
+//	elb/loadBalancer "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/elb/loadBalancer"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := elb.NewLoadBalancer(ctx, "bar", &elb.LoadBalancerArgs{
-//				AvailabilityZones: pulumi.StringArray{
-//					pulumi.String("us-west-2a"),
-//					pulumi.String("us-west-2b"),
-//					pulumi.String("us-west-2c"),
-//				},
-//				AccessLogs: &elb.LoadBalancerAccessLogsArgs{
-//					Bucket:       pulumi.String("foo"),
-//					BucketPrefix: pulumi.String("bar"),
-//					Interval:     pulumi.Int(60),
-//				},
-//				Listeners: elb.LoadBalancerListenerArray{
-//					&elb.LoadBalancerListenerArgs{
-//						InstancePort:     pulumi.Int(8000),
-//						InstanceProtocol: pulumi.String("http"),
-//						LbPort:           pulumi.Int(80),
-//						LbProtocol:       pulumi.String("http"),
-//					},
-//					&elb.LoadBalancerListenerArgs{
-//						InstancePort:     pulumi.Int(8000),
-//						InstanceProtocol: pulumi.String("http"),
-//						LbPort:           pulumi.Int(443),
-//						LbProtocol:       pulumi.String("https"),
-//						SslCertificateId: pulumi.String("arn:aws:iam::123456789012:server-certificate/certName"),
-//					},
-//				},
-//				HealthCheck: &elb.LoadBalancerHealthCheckArgs{
-//					HealthyThreshold:   pulumi.Int(2),
-//					UnhealthyThreshold: pulumi.Int(2),
-//					Timeout:            pulumi.Int(3),
-//					Target:             pulumi.String("HTTP:8000/"),
-//					Interval:           pulumi.Int(30),
-//				},
-//				Instances: pulumi.StringArray{
-//					aws_instance.Foo.Id,
-//				},
-//				CrossZoneLoadBalancing:    pulumi.Bool(true),
-//				IdleTimeout:               pulumi.Int(400),
-//				ConnectionDraining:        pulumi.Bool(true),
-//				ConnectionDrainingTimeout: pulumi.Int(400),
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("foobar-elb"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// // Create a new load balancer
+// _, err := elb/loadBalancer.NewLoadBalancer(ctx, "bar", &elb/loadBalancer.LoadBalancerArgs{
+// AvailabilityZones: []string{
+// "us-west-2a",
+// "us-west-2b",
+// "us-west-2c",
+// },
+// AccessLogs: map[string]interface{}{
+// "bucket": "foo",
+// "bucketPrefix": "bar",
+// "interval": 60,
+// },
+// Listeners: []interface{}{
+// map[string]interface{}{
+// "instancePort": 8000,
+// "instanceProtocol": "http",
+// "lbPort": 80,
+// "lbProtocol": "http",
+// },
+// map[string]interface{}{
+// "instancePort": 8000,
+// "instanceProtocol": "http",
+// "lbPort": 443,
+// "lbProtocol": "https",
+// "sslCertificateId": "arn:aws:iam::123456789012:server-certificate/certName",
+// },
+// },
+// HealthCheck: map[string]interface{}{
+// "healthyThreshold": 2,
+// "unhealthyThreshold": 2,
+// "timeout": 3,
+// "target": "HTTP:8000/",
+// "interval": 30,
+// },
+// Instances: []interface{}{
+// aws_instance.Foo.Id,
+// },
+// CrossZoneLoadBalancing: true,
+// IdleTimeout: 400,
+// ConnectionDraining: true,
+// ConnectionDrainingTimeout: 400,
+// Tags: map[string]interface{}{
+// "Name": "foobar-elb",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ## Note on ECDSA Key Algorithm
 //

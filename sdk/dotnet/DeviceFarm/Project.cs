@@ -27,7 +27,7 @@ namespace Pulumi.Aws.DeviceFarm
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var awesomeDevices = new Aws.DeviceFarm.Project("awesomeDevices");
+    ///     var awesomeDevices = new Aws.Devicefarm.Project.Project("awesomeDevices");
     /// 
     /// });
     /// ```

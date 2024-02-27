@@ -252,36 +252,6 @@ class Extension(pulumi.CustomResource):
         """
         Provides an AppConfig Extension resource.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test_topic = aws.sns.Topic("testTopic")
-        test_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            actions=["sts:AssumeRole"],
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["appconfig.amazonaws.com"],
-            )],
-        )])
-        test_role = aws.iam.Role("testRole", assume_role_policy=test_policy_document.json)
-        test_extension = aws.appconfig.Extension("testExtension",
-            description="test description",
-            action_points=[aws.appconfig.ExtensionActionPointArgs(
-                point="ON_DEPLOYMENT_COMPLETE",
-                actions=[aws.appconfig.ExtensionActionPointActionArgs(
-                    name="test",
-                    role_arn=test_role.arn,
-                    uri=test_topic.arn,
-                )],
-            )],
-            tags={
-                "Type": "AppConfig Extension",
-            })
-        ```
-
         ## Import
 
         Using `pulumi import`, import AppConfig Extensions using their extension ID. For example:
@@ -306,36 +276,6 @@ class Extension(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an AppConfig Extension resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test_topic = aws.sns.Topic("testTopic")
-        test_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            actions=["sts:AssumeRole"],
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["appconfig.amazonaws.com"],
-            )],
-        )])
-        test_role = aws.iam.Role("testRole", assume_role_policy=test_policy_document.json)
-        test_extension = aws.appconfig.Extension("testExtension",
-            description="test description",
-            action_points=[aws.appconfig.ExtensionActionPointArgs(
-                point="ON_DEPLOYMENT_COMPLETE",
-                actions=[aws.appconfig.ExtensionActionPointActionArgs(
-                    name="test",
-                    role_arn=test_role.arn,
-                    uri=test_topic.arn,
-                )],
-            )],
-            tags={
-                "Type": "AppConfig Extension",
-            })
-        ```
 
         ## Import
 

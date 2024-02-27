@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * import * as crypto from "crypto";
  *
- * const exampleRestApi = new aws.apigateway.RestApi("exampleRestApi", {body: JSON.stringify({
+ * const exampleRestApi = new aws.apigateway/restApi.RestApi("exampleRestApi", {body: JSON.stringify({
  *     openapi: "3.0.1",
  *     info: {
  *         title: "example",
@@ -36,23 +36,23 @@ import * as utilities from "../utilities";
  *         },
  *     },
  * })});
- * const exampleDeployment = new aws.apigateway.Deployment("exampleDeployment", {
+ * const exampleDeployment = new aws.apigateway/deployment.Deployment("exampleDeployment", {
  *     restApi: exampleRestApi.id,
  *     triggers: {
- *         redeployment: exampleRestApi.body.apply(body => JSON.stringify(body)).apply(toJSON => crypto.createHash('sha1').update(toJSON).digest('hex')),
+ *         redeployment: crypto.createHash('sha1').update(JSON.stringify(exampleRestApi.body)).digest('hex'),
  *     },
  * });
- * const development = new aws.apigateway.Stage("development", {
+ * const development = new aws.apigateway/stage.Stage("development", {
  *     deployment: exampleDeployment.id,
  *     restApi: exampleRestApi.id,
  *     stageName: "development",
  * });
- * const production = new aws.apigateway.Stage("production", {
+ * const production = new aws.apigateway/stage.Stage("production", {
  *     deployment: exampleDeployment.id,
  *     restApi: exampleRestApi.id,
  *     stageName: "production",
  * });
- * const exampleUsagePlan = new aws.apigateway.UsagePlan("exampleUsagePlan", {
+ * const exampleUsagePlan = new aws.apigateway/usagePlan.UsagePlan("exampleUsagePlan", {
  *     description: "my description",
  *     productCode: "MYCODE",
  *     apiStages: [

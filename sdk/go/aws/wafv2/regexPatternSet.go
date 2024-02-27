@@ -21,36 +21,34 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/wafv2"
+//	wafv2/regexPatternSet "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/wafv2/regexPatternSet"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := wafv2.NewRegexPatternSet(ctx, "example", &wafv2.RegexPatternSetArgs{
-//				Description: pulumi.String("Example regex pattern set"),
-//				RegularExpressions: wafv2.RegexPatternSetRegularExpressionArray{
-//					&wafv2.RegexPatternSetRegularExpressionArgs{
-//						RegexString: pulumi.String("one"),
-//					},
-//					&wafv2.RegexPatternSetRegularExpressionArgs{
-//						RegexString: pulumi.String("two"),
-//					},
-//				},
-//				Scope: pulumi.String("REGIONAL"),
-//				Tags: pulumi.StringMap{
-//					"Tag1": pulumi.String("Value1"),
-//					"Tag2": pulumi.String("Value2"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := wafv2/regexPatternSet.NewRegexPatternSet(ctx, "example", &wafv2/regexPatternSet.RegexPatternSetArgs{
+// Description: "Example regex pattern set",
+// RegularExpressions: []map[string]interface{}{
+// map[string]interface{}{
+// "regexString": "one",
+// },
+// map[string]interface{}{
+// "regexString": "two",
+// },
+// },
+// Scope: "REGIONAL",
+// Tags: map[string]interface{}{
+// "Tag1": "Value1",
+// "Tag2": "Value2",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

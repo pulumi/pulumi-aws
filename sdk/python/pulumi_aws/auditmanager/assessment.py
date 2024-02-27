@@ -348,24 +348,24 @@ class Assessment(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.auditmanager.Assessment("test",
-            assessment_reports_destination=aws.auditmanager.AssessmentAssessmentReportsDestinationArgs(
-                destination=f"s3://{aws_s3_bucket['test']['id']}",
-                destination_type="S3",
-            ),
-            framework_id=aws_auditmanager_framework["test"]["id"],
-            roles=[aws.auditmanager.AssessmentRoleArgs(
-                role_arn=aws_iam_role["test"]["arn"],
-                role_type="PROCESS_OWNER",
-            )],
-            scope=aws.auditmanager.AssessmentScopeArgs(
-                aws_accounts=[aws.auditmanager.AssessmentScopeAwsAccountArgs(
-                    id=data["aws_caller_identity"]["current"]["account_id"],
-                )],
-                aws_services=[aws.auditmanager.AssessmentScopeAwsServiceArgs(
-                    service_name="S3",
-                )],
-            ))
+        test = aws.auditmanager.assessment.Assessment("test",
+            assessment_reports_destination={
+                destination: fs3://{aws_s3_bucket.test.id},
+                destinationType: S3,
+            },
+            framework_id=aws_auditmanager_framework.test.id,
+            roles=[{
+                roleArn: aws_iam_role.test.arn,
+                roleType: PROCESS_OWNER,
+            }],
+            scope={
+                awsAccounts: [{
+                    id: data.aws_caller_identity.current.account_id,
+                }],
+                awsServices: [{
+                    serviceName: S3,
+                }],
+            })
         ```
 
         ## Import
@@ -404,24 +404,24 @@ class Assessment(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.auditmanager.Assessment("test",
-            assessment_reports_destination=aws.auditmanager.AssessmentAssessmentReportsDestinationArgs(
-                destination=f"s3://{aws_s3_bucket['test']['id']}",
-                destination_type="S3",
-            ),
-            framework_id=aws_auditmanager_framework["test"]["id"],
-            roles=[aws.auditmanager.AssessmentRoleArgs(
-                role_arn=aws_iam_role["test"]["arn"],
-                role_type="PROCESS_OWNER",
-            )],
-            scope=aws.auditmanager.AssessmentScopeArgs(
-                aws_accounts=[aws.auditmanager.AssessmentScopeAwsAccountArgs(
-                    id=data["aws_caller_identity"]["current"]["account_id"],
-                )],
-                aws_services=[aws.auditmanager.AssessmentScopeAwsServiceArgs(
-                    service_name="S3",
-                )],
-            ))
+        test = aws.auditmanager.assessment.Assessment("test",
+            assessment_reports_destination={
+                destination: fs3://{aws_s3_bucket.test.id},
+                destinationType: S3,
+            },
+            framework_id=aws_auditmanager_framework.test.id,
+            roles=[{
+                roleArn: aws_iam_role.test.arn,
+                roleType: PROCESS_OWNER,
+            }],
+            scope={
+                awsAccounts: [{
+                    id: data.aws_caller_identity.current.account_id,
+                }],
+                awsServices: [{
+                    serviceName: S3,
+                }],
+            })
         ```
 
         ## Import

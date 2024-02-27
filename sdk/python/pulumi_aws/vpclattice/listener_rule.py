@@ -332,41 +332,41 @@ class ListenerRule(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.vpclattice.ListenerRule("test",
-            listener_identifier=aws_vpclattice_listener["example"]["listener_id"],
-            service_identifier=aws_vpclattice_service["example"]["id"],
+        test = aws.vpclattice.listener_rule.ListenerRule("test",
+            listener_identifier=aws_vpclattice_listener.example.listener_id,
+            service_identifier=aws_vpclattice_service.example.id,
             priority=20,
-            match=aws.vpclattice.ListenerRuleMatchArgs(
-                http_match=aws.vpclattice.ListenerRuleMatchHttpMatchArgs(
-                    header_matches=[aws.vpclattice.ListenerRuleMatchHttpMatchHeaderMatchArgs(
-                        name="example-header",
-                        case_sensitive=False,
-                        match=aws.vpclattice.ListenerRuleMatchHttpMatchHeaderMatchMatchArgs(
-                            exact="example-contains",
-                        ),
-                    )],
-                    path_match=aws.vpclattice.ListenerRuleMatchHttpMatchPathMatchArgs(
-                        case_sensitive=True,
-                        match=aws.vpclattice.ListenerRuleMatchHttpMatchPathMatchMatchArgs(
-                            prefix="/example-path",
-                        ),
-                    ),
-                ),
-            ),
-            action=aws.vpclattice.ListenerRuleActionArgs(
-                forward=aws.vpclattice.ListenerRuleActionForwardArgs(
-                    target_groups=[
-                        aws.vpclattice.ListenerRuleActionForwardTargetGroupArgs(
-                            target_group_identifier=aws_vpclattice_target_group["example"]["id"],
-                            weight=1,
-                        ),
-                        aws.vpclattice.ListenerRuleActionForwardTargetGroupArgs(
-                            target_group_identifier=aws_vpclattice_target_group["example2"]["id"],
-                            weight=2,
-                        ),
+            match={
+                httpMatch: {
+                    headerMatches: [{
+                        name: example-header,
+                        caseSensitive: False,
+                        match: {
+                            exact: example-contains,
+                        },
+                    }],
+                    pathMatch: {
+                        caseSensitive: True,
+                        match: {
+                            prefix: /example-path,
+                        },
+                    },
+                },
+            },
+            action={
+                forward: {
+                    targetGroups: [
+                        {
+                            targetGroupIdentifier: aws_vpclattice_target_group.example.id,
+                            weight: 1,
+                        },
+                        {
+                            targetGroupIdentifier: aws_vpclattice_target_group.example2.id,
+                            weight: 2,
+                        },
                     ],
-                ),
-            ))
+                },
+            })
         ```
         ### Basic Usage
 
@@ -374,25 +374,25 @@ class ListenerRule(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.vpclattice.ListenerRule("test",
-            listener_identifier=aws_vpclattice_listener["example"]["listener_id"],
-            service_identifier=aws_vpclattice_service["example"]["id"],
+        test = aws.vpclattice.listener_rule.ListenerRule("test",
+            listener_identifier=aws_vpclattice_listener.example.listener_id,
+            service_identifier=aws_vpclattice_service.example.id,
             priority=10,
-            match=aws.vpclattice.ListenerRuleMatchArgs(
-                http_match=aws.vpclattice.ListenerRuleMatchHttpMatchArgs(
-                    path_match=aws.vpclattice.ListenerRuleMatchHttpMatchPathMatchArgs(
-                        case_sensitive=False,
-                        match=aws.vpclattice.ListenerRuleMatchHttpMatchPathMatchMatchArgs(
-                            exact="/example-path",
-                        ),
-                    ),
-                ),
-            ),
-            action=aws.vpclattice.ListenerRuleActionArgs(
-                fixed_response=aws.vpclattice.ListenerRuleActionFixedResponseArgs(
-                    status_code=404,
-                ),
-            ))
+            match={
+                httpMatch: {
+                    pathMatch: {
+                        caseSensitive: False,
+                        match: {
+                            exact: /example-path,
+                        },
+                    },
+                },
+            },
+            action={
+                fixedResponse: {
+                    statusCode: 404,
+                },
+            })
         ```
 
         ## Import
@@ -430,41 +430,41 @@ class ListenerRule(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.vpclattice.ListenerRule("test",
-            listener_identifier=aws_vpclattice_listener["example"]["listener_id"],
-            service_identifier=aws_vpclattice_service["example"]["id"],
+        test = aws.vpclattice.listener_rule.ListenerRule("test",
+            listener_identifier=aws_vpclattice_listener.example.listener_id,
+            service_identifier=aws_vpclattice_service.example.id,
             priority=20,
-            match=aws.vpclattice.ListenerRuleMatchArgs(
-                http_match=aws.vpclattice.ListenerRuleMatchHttpMatchArgs(
-                    header_matches=[aws.vpclattice.ListenerRuleMatchHttpMatchHeaderMatchArgs(
-                        name="example-header",
-                        case_sensitive=False,
-                        match=aws.vpclattice.ListenerRuleMatchHttpMatchHeaderMatchMatchArgs(
-                            exact="example-contains",
-                        ),
-                    )],
-                    path_match=aws.vpclattice.ListenerRuleMatchHttpMatchPathMatchArgs(
-                        case_sensitive=True,
-                        match=aws.vpclattice.ListenerRuleMatchHttpMatchPathMatchMatchArgs(
-                            prefix="/example-path",
-                        ),
-                    ),
-                ),
-            ),
-            action=aws.vpclattice.ListenerRuleActionArgs(
-                forward=aws.vpclattice.ListenerRuleActionForwardArgs(
-                    target_groups=[
-                        aws.vpclattice.ListenerRuleActionForwardTargetGroupArgs(
-                            target_group_identifier=aws_vpclattice_target_group["example"]["id"],
-                            weight=1,
-                        ),
-                        aws.vpclattice.ListenerRuleActionForwardTargetGroupArgs(
-                            target_group_identifier=aws_vpclattice_target_group["example2"]["id"],
-                            weight=2,
-                        ),
+            match={
+                httpMatch: {
+                    headerMatches: [{
+                        name: example-header,
+                        caseSensitive: False,
+                        match: {
+                            exact: example-contains,
+                        },
+                    }],
+                    pathMatch: {
+                        caseSensitive: True,
+                        match: {
+                            prefix: /example-path,
+                        },
+                    },
+                },
+            },
+            action={
+                forward: {
+                    targetGroups: [
+                        {
+                            targetGroupIdentifier: aws_vpclattice_target_group.example.id,
+                            weight: 1,
+                        },
+                        {
+                            targetGroupIdentifier: aws_vpclattice_target_group.example2.id,
+                            weight: 2,
+                        },
                     ],
-                ),
-            ))
+                },
+            })
         ```
         ### Basic Usage
 
@@ -472,25 +472,25 @@ class ListenerRule(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.vpclattice.ListenerRule("test",
-            listener_identifier=aws_vpclattice_listener["example"]["listener_id"],
-            service_identifier=aws_vpclattice_service["example"]["id"],
+        test = aws.vpclattice.listener_rule.ListenerRule("test",
+            listener_identifier=aws_vpclattice_listener.example.listener_id,
+            service_identifier=aws_vpclattice_service.example.id,
             priority=10,
-            match=aws.vpclattice.ListenerRuleMatchArgs(
-                http_match=aws.vpclattice.ListenerRuleMatchHttpMatchArgs(
-                    path_match=aws.vpclattice.ListenerRuleMatchHttpMatchPathMatchArgs(
-                        case_sensitive=False,
-                        match=aws.vpclattice.ListenerRuleMatchHttpMatchPathMatchMatchArgs(
-                            exact="/example-path",
-                        ),
-                    ),
-                ),
-            ),
-            action=aws.vpclattice.ListenerRuleActionArgs(
-                fixed_response=aws.vpclattice.ListenerRuleActionFixedResponseArgs(
-                    status_code=404,
-                ),
-            ))
+            match={
+                httpMatch: {
+                    pathMatch: {
+                        caseSensitive: False,
+                        match: {
+                            exact: /example-path,
+                        },
+                    },
+                },
+            },
+            action={
+                fixedResponse: {
+                    statusCode: 404,
+                },
+            })
         ```
 
         ## Import

@@ -22,40 +22,38 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/guardduty"
+//	guardduty/detector "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/guardduty/detector"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := guardduty.NewDetector(ctx, "myDetector", &guardduty.DetectorArgs{
-//				Datasources: &guardduty.DetectorDatasourcesArgs{
-//					Kubernetes: &guardduty.DetectorDatasourcesKubernetesArgs{
-//						AuditLogs: &guardduty.DetectorDatasourcesKubernetesAuditLogsArgs{
-//							Enable: pulumi.Bool(false),
-//						},
-//					},
-//					MalwareProtection: &guardduty.DetectorDatasourcesMalwareProtectionArgs{
-//						ScanEc2InstanceWithFindings: &guardduty.DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsArgs{
-//							EbsVolumes: &guardduty.DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesArgs{
-//								Enable: pulumi.Bool(true),
-//							},
-//						},
-//					},
-//					S3Logs: &guardduty.DetectorDatasourcesS3LogsArgs{
-//						Enable: pulumi.Bool(true),
-//					},
-//				},
-//				Enable: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := guardduty/detector.NewDetector(ctx, "myDetector", &guardduty/detector.DetectorArgs{
+// Datasources: map[string]interface{}{
+// "kubernetes": map[string]interface{}{
+// "auditLogs": map[string]interface{}{
+// "enable": false,
+// },
+// },
+// "malwareProtection": map[string]interface{}{
+// "scanEc2InstanceWithFindings": map[string]interface{}{
+// "ebsVolumes": map[string]interface{}{
+// "enable": true,
+// },
+// },
+// },
+// "s3Logs": map[string]interface{}{
+// "enable": true,
+// },
+// },
+// Enable: true,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

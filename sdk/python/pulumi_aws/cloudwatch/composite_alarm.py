@@ -379,19 +379,19 @@ class CompositeAlarm(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.cloudwatch.CompositeAlarm("example",
-            alarm_description="This is a composite alarm!",
-            alarm_name="example-composite-alarm",
-            alarm_actions=aws_sns_topic["example"]["arn"],
-            ok_actions=aws_sns_topic["example"]["arn"],
-            alarm_rule=f\"\"\"ALARM({aws_cloudwatch_metric_alarm["alpha"]["alarm_name"]}) OR
-        ALARM({aws_cloudwatch_metric_alarm["bravo"]["alarm_name"]})
-        \"\"\",
-            actions_suppressor=aws.cloudwatch.CompositeAlarmActionsSuppressorArgs(
-                alarm="suppressor-alarm",
-                extension_period=10,
-                wait_period=20,
-            ))
+        example = aws.cloudwatch.composite_alarm.CompositeAlarm("example",
+            alarm_description=This is a composite alarm!,
+            alarm_name=example-composite-alarm,
+            alarm_actions=aws_sns_topic.example.arn,
+            ok_actions=aws_sns_topic.example.arn,
+            alarm_rule=fALARM({aws_cloudwatch_metric_alarm.alpha.alarm_name}) OR
+        ALARM({aws_cloudwatch_metric_alarm.bravo.alarm_name})
+        ,
+            actions_suppressor={
+                alarm: suppressor-alarm,
+                extensionPeriod: 10,
+                waitPeriod: 20,
+            })
         ```
 
         ## Import
@@ -431,19 +431,19 @@ class CompositeAlarm(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.cloudwatch.CompositeAlarm("example",
-            alarm_description="This is a composite alarm!",
-            alarm_name="example-composite-alarm",
-            alarm_actions=aws_sns_topic["example"]["arn"],
-            ok_actions=aws_sns_topic["example"]["arn"],
-            alarm_rule=f\"\"\"ALARM({aws_cloudwatch_metric_alarm["alpha"]["alarm_name"]}) OR
-        ALARM({aws_cloudwatch_metric_alarm["bravo"]["alarm_name"]})
-        \"\"\",
-            actions_suppressor=aws.cloudwatch.CompositeAlarmActionsSuppressorArgs(
-                alarm="suppressor-alarm",
-                extension_period=10,
-                wait_period=20,
-            ))
+        example = aws.cloudwatch.composite_alarm.CompositeAlarm("example",
+            alarm_description=This is a composite alarm!,
+            alarm_name=example-composite-alarm,
+            alarm_actions=aws_sns_topic.example.arn,
+            ok_actions=aws_sns_topic.example.arn,
+            alarm_rule=fALARM({aws_cloudwatch_metric_alarm.alpha.alarm_name}) OR
+        ALARM({aws_cloudwatch_metric_alarm.bravo.alarm_name})
+        ,
+            actions_suppressor={
+                alarm: suppressor-alarm,
+                extensionPeriod: 10,
+                waitPeriod: 20,
+            })
         ```
 
         ## Import

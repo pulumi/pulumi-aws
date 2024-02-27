@@ -106,15 +106,15 @@ class AlertManagerDefinition(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        demo_workspace = aws.amp.Workspace("demoWorkspace")
-        demo_alert_manager_definition = aws.amp.AlertManagerDefinition("demoAlertManagerDefinition",
+        demo_workspace = aws.amp.workspace.Workspace("demoWorkspace")
+        demo_alert_manager_definition = aws.amp.alert_manager_definition.AlertManagerDefinition("demoAlertManagerDefinition",
             workspace_id=demo_workspace.id,
-            definition=\"\"\"alertmanager_config: |
+            definition=alertmanager_config: |
           route:
             receiver: 'default'
           receivers:
             - name: 'default'
-        \"\"\")
+        )
         ```
 
         ## Import
@@ -145,15 +145,15 @@ class AlertManagerDefinition(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        demo_workspace = aws.amp.Workspace("demoWorkspace")
-        demo_alert_manager_definition = aws.amp.AlertManagerDefinition("demoAlertManagerDefinition",
+        demo_workspace = aws.amp.workspace.Workspace("demoWorkspace")
+        demo_alert_manager_definition = aws.amp.alert_manager_definition.AlertManagerDefinition("demoAlertManagerDefinition",
             workspace_id=demo_workspace.id,
-            definition=\"\"\"alertmanager_config: |
+            definition=alertmanager_config: |
           route:
             receiver: 'default'
           receivers:
             - name: 'default'
-        \"\"\")
+        )
         ```
 
         ## Import

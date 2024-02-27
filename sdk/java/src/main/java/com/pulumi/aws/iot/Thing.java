@@ -42,7 +42,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Thing(&#34;example&#34;, ThingArgs.builder()        
- *             .attributes(Map.of(&#34;First&#34;, &#34;examplevalue&#34;))
+ *             .attributes(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

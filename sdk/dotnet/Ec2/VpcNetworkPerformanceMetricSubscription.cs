@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Ec2.VpcNetworkPerformanceMetricSubscription("example", new()
+    ///     var example = new Aws.Ec2.VpcNetworkPerformanceMetricSubscription.VpcNetworkPerformanceMetricSubscription("example", new()
     ///     {
     ///         Destination = "us-west-1",
     ///         Source = "us-east-1",

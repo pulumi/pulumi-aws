@@ -20,7 +20,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const foo = new aws.ssm.Document("foo", {
+ * const foo = new aws.ssm/document.Document("foo", {
  *     content: `  {
  *     "schemaVersion": "1.2",
  *     "description": "Check ip configuration of a Linux instance.",
@@ -49,7 +49,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const foo = new aws.ssm.Document("foo", {
+ * const foo = new aws.ssm/document.Document("foo", {
  *     content: `schemaVersion: '1.2'
  * description: Check ip configuration of a Linux instance.
  * parameters: {}

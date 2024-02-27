@@ -466,7 +466,7 @@ class TransitGateway(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ec2transitgateway.TransitGateway("example", description="example")
+        example = aws.ec2transitgateway.transit_gateway.TransitGateway("example", description=example)
         ```
 
         ## Import
@@ -507,7 +507,7 @@ class TransitGateway(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ec2transitgateway.TransitGateway("example", description="example")
+        example = aws.ec2transitgateway.transit_gateway.TransitGateway("example", description=example)
         ```
 
         ## Import

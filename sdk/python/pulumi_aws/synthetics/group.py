@@ -171,7 +171,7 @@ class Group(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.synthetics.Group("example")
+        example = aws.synthetics.group.Group("example")
         ```
 
         ## Import
@@ -205,7 +205,7 @@ class Group(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.synthetics.Group("example")
+        example = aws.synthetics.group.Group("example")
         ```
 
         ## Import

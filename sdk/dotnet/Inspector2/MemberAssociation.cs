@@ -23,7 +23,7 @@ namespace Pulumi.Aws.Inspector2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Inspector2.MemberAssociation("example", new()
+    ///     var example = new Aws.Inspector2.MemberAssociation.MemberAssociation("example", new()
     ///     {
     ///         AccountId = "123456789012",
     ///     });

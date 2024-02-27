@@ -32,74 +32,12 @@ public final class MskFunctions {
     /**
      * Get a list of brokers that a client application can use to bootstrap.
      * 
-     * ## Example Usage
-     * 
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.msk.MskFunctions;
-     * import com.pulumi.aws.msk.inputs.GetClusterArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = MskFunctions.getCluster(GetClusterArgs.builder()
-     *             .clusterArn(aws_msk_cluster.example().arn())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetBootstrapBrokersResult> getBootstrapBrokers(GetBootstrapBrokersArgs args) {
         return getBootstrapBrokers(args, InvokeOptions.Empty);
     }
     /**
      * Get a list of brokers that a client application can use to bootstrap.
-     * 
-     * ## Example Usage
-     * 
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.msk.MskFunctions;
-     * import com.pulumi.aws.msk.inputs.GetClusterArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = MskFunctions.getCluster(GetClusterArgs.builder()
-     *             .clusterArn(aws_msk_cluster.example().arn())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetBootstrapBrokersResult> getBootstrapBrokersPlain(GetBootstrapBrokersPlainArgs args) {
@@ -108,74 +46,12 @@ public final class MskFunctions {
     /**
      * Get a list of brokers that a client application can use to bootstrap.
      * 
-     * ## Example Usage
-     * 
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.msk.MskFunctions;
-     * import com.pulumi.aws.msk.inputs.GetClusterArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = MskFunctions.getCluster(GetClusterArgs.builder()
-     *             .clusterArn(aws_msk_cluster.example().arn())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetBootstrapBrokersResult> getBootstrapBrokers(GetBootstrapBrokersArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:msk/getBootstrapBrokers:getBootstrapBrokers", TypeShape.of(GetBootstrapBrokersResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Get a list of brokers that a client application can use to bootstrap.
-     * 
-     * ## Example Usage
-     * 
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.msk.MskFunctions;
-     * import com.pulumi.aws.msk.inputs.GetClusterArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = MskFunctions.getCluster(GetClusterArgs.builder()
-     *             .clusterArn(aws_msk_cluster.example().arn())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetBootstrapBrokersResult> getBootstrapBrokersPlain(GetBootstrapBrokersPlainArgs args, InvokeOptions options) {
@@ -184,72 +60,12 @@ public final class MskFunctions {
     /**
      * Get information on an Amazon MSK Broker Nodes.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.msk.MskFunctions;
-     * import com.pulumi.aws.msk.inputs.GetBrokerNodesArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = MskFunctions.getBrokerNodes(GetBrokerNodesArgs.builder()
-     *             .clusterArn(aws_msk_cluster.example().arn())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetBrokerNodesResult> getBrokerNodes(GetBrokerNodesArgs args) {
         return getBrokerNodes(args, InvokeOptions.Empty);
     }
     /**
      * Get information on an Amazon MSK Broker Nodes.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.msk.MskFunctions;
-     * import com.pulumi.aws.msk.inputs.GetBrokerNodesArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = MskFunctions.getBrokerNodes(GetBrokerNodesArgs.builder()
-     *             .clusterArn(aws_msk_cluster.example().arn())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetBrokerNodesResult> getBrokerNodesPlain(GetBrokerNodesPlainArgs args) {
@@ -258,72 +74,12 @@ public final class MskFunctions {
     /**
      * Get information on an Amazon MSK Broker Nodes.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.msk.MskFunctions;
-     * import com.pulumi.aws.msk.inputs.GetBrokerNodesArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = MskFunctions.getBrokerNodes(GetBrokerNodesArgs.builder()
-     *             .clusterArn(aws_msk_cluster.example().arn())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetBrokerNodesResult> getBrokerNodes(GetBrokerNodesArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:msk/getBrokerNodes:getBrokerNodes", TypeShape.of(GetBrokerNodesResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Get information on an Amazon MSK Broker Nodes.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.msk.MskFunctions;
-     * import com.pulumi.aws.msk.inputs.GetBrokerNodesArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = MskFunctions.getBrokerNodes(GetBrokerNodesArgs.builder()
-     *             .clusterArn(aws_msk_cluster.example().arn())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetBrokerNodesResult> getBrokerNodesPlain(GetBrokerNodesPlainArgs args, InvokeOptions options) {
@@ -334,36 +90,6 @@ public final class MskFunctions {
      * 
      * &gt; **Note:** This data sources returns information on _provisioned_ clusters.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.msk.MskFunctions;
-     * import com.pulumi.aws.msk.inputs.GetClusterArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = MskFunctions.getCluster(GetClusterArgs.builder()
-     *             .clusterName(&#34;example&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetClusterResult> getCluster(GetClusterArgs args) {
         return getCluster(args, InvokeOptions.Empty);
@@ -372,36 +98,6 @@ public final class MskFunctions {
      * Get information on an Amazon MSK Cluster.
      * 
      * &gt; **Note:** This data sources returns information on _provisioned_ clusters.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.msk.MskFunctions;
-     * import com.pulumi.aws.msk.inputs.GetClusterArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = MskFunctions.getCluster(GetClusterArgs.builder()
-     *             .clusterName(&#34;example&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetClusterResult> getClusterPlain(GetClusterPlainArgs args) {
@@ -412,36 +108,6 @@ public final class MskFunctions {
      * 
      * &gt; **Note:** This data sources returns information on _provisioned_ clusters.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.msk.MskFunctions;
-     * import com.pulumi.aws.msk.inputs.GetClusterArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = MskFunctions.getCluster(GetClusterArgs.builder()
-     *             .clusterName(&#34;example&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetClusterResult> getCluster(GetClusterArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:msk/getCluster:getCluster", TypeShape.of(GetClusterResult.class), args, Utilities.withVersion(options));
@@ -451,72 +117,12 @@ public final class MskFunctions {
      * 
      * &gt; **Note:** This data sources returns information on _provisioned_ clusters.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.msk.MskFunctions;
-     * import com.pulumi.aws.msk.inputs.GetClusterArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = MskFunctions.getCluster(GetClusterArgs.builder()
-     *             .clusterName(&#34;example&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static CompletableFuture<GetClusterResult> getClusterPlain(GetClusterPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:msk/getCluster:getCluster", TypeShape.of(GetClusterResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Get information on an Amazon MSK Configuration.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.msk.MskFunctions;
-     * import com.pulumi.aws.msk.inputs.GetConfigurationArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = MskFunctions.getConfiguration(GetConfigurationArgs.builder()
-     *             .name(&#34;example&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetConfigurationResult> getConfiguration(GetConfigurationArgs args) {
@@ -525,72 +131,12 @@ public final class MskFunctions {
     /**
      * Get information on an Amazon MSK Configuration.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.msk.MskFunctions;
-     * import com.pulumi.aws.msk.inputs.GetConfigurationArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = MskFunctions.getConfiguration(GetConfigurationArgs.builder()
-     *             .name(&#34;example&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static CompletableFuture<GetConfigurationResult> getConfigurationPlain(GetConfigurationPlainArgs args) {
         return getConfigurationPlain(args, InvokeOptions.Empty);
     }
     /**
      * Get information on an Amazon MSK Configuration.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.msk.MskFunctions;
-     * import com.pulumi.aws.msk.inputs.GetConfigurationArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = MskFunctions.getConfiguration(GetConfigurationArgs.builder()
-     *             .name(&#34;example&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetConfigurationResult> getConfiguration(GetConfigurationArgs args, InvokeOptions options) {
@@ -599,79 +145,12 @@ public final class MskFunctions {
     /**
      * Get information on an Amazon MSK Configuration.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.msk.MskFunctions;
-     * import com.pulumi.aws.msk.inputs.GetConfigurationArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = MskFunctions.getConfiguration(GetConfigurationArgs.builder()
-     *             .name(&#34;example&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static CompletableFuture<GetConfigurationResult> getConfigurationPlain(GetConfigurationPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:msk/getConfiguration:getConfiguration", TypeShape.of(GetConfigurationResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Get information on a Amazon MSK Kafka Version
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.msk.MskFunctions;
-     * import com.pulumi.aws.msk.inputs.GetKafkaVersionArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var preferred = MskFunctions.getKafkaVersion(GetKafkaVersionArgs.builder()
-     *             .preferredVersions(            
-     *                 &#34;2.4.1.1&#34;,
-     *                 &#34;2.4.1&#34;,
-     *                 &#34;2.2.1&#34;)
-     *             .build());
-     * 
-     *         final var example = MskFunctions.getKafkaVersion(GetKafkaVersionArgs.builder()
-     *             .version(&#34;2.8.0&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetKafkaVersionResult> getKafkaVersion() {
@@ -680,86 +159,12 @@ public final class MskFunctions {
     /**
      * Get information on a Amazon MSK Kafka Version
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.msk.MskFunctions;
-     * import com.pulumi.aws.msk.inputs.GetKafkaVersionArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var preferred = MskFunctions.getKafkaVersion(GetKafkaVersionArgs.builder()
-     *             .preferredVersions(            
-     *                 &#34;2.4.1.1&#34;,
-     *                 &#34;2.4.1&#34;,
-     *                 &#34;2.2.1&#34;)
-     *             .build());
-     * 
-     *         final var example = MskFunctions.getKafkaVersion(GetKafkaVersionArgs.builder()
-     *             .version(&#34;2.8.0&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static CompletableFuture<GetKafkaVersionResult> getKafkaVersionPlain() {
         return getKafkaVersionPlain(GetKafkaVersionPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * Get information on a Amazon MSK Kafka Version
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.msk.MskFunctions;
-     * import com.pulumi.aws.msk.inputs.GetKafkaVersionArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var preferred = MskFunctions.getKafkaVersion(GetKafkaVersionArgs.builder()
-     *             .preferredVersions(            
-     *                 &#34;2.4.1.1&#34;,
-     *                 &#34;2.4.1&#34;,
-     *                 &#34;2.2.1&#34;)
-     *             .build());
-     * 
-     *         final var example = MskFunctions.getKafkaVersion(GetKafkaVersionArgs.builder()
-     *             .version(&#34;2.8.0&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetKafkaVersionResult> getKafkaVersion(GetKafkaVersionArgs args) {
@@ -768,86 +173,12 @@ public final class MskFunctions {
     /**
      * Get information on a Amazon MSK Kafka Version
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.msk.MskFunctions;
-     * import com.pulumi.aws.msk.inputs.GetKafkaVersionArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var preferred = MskFunctions.getKafkaVersion(GetKafkaVersionArgs.builder()
-     *             .preferredVersions(            
-     *                 &#34;2.4.1.1&#34;,
-     *                 &#34;2.4.1&#34;,
-     *                 &#34;2.2.1&#34;)
-     *             .build());
-     * 
-     *         final var example = MskFunctions.getKafkaVersion(GetKafkaVersionArgs.builder()
-     *             .version(&#34;2.8.0&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static CompletableFuture<GetKafkaVersionResult> getKafkaVersionPlain(GetKafkaVersionPlainArgs args) {
         return getKafkaVersionPlain(args, InvokeOptions.Empty);
     }
     /**
      * Get information on a Amazon MSK Kafka Version
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.msk.MskFunctions;
-     * import com.pulumi.aws.msk.inputs.GetKafkaVersionArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var preferred = MskFunctions.getKafkaVersion(GetKafkaVersionArgs.builder()
-     *             .preferredVersions(            
-     *                 &#34;2.4.1.1&#34;,
-     *                 &#34;2.4.1&#34;,
-     *                 &#34;2.2.1&#34;)
-     *             .build());
-     * 
-     *         final var example = MskFunctions.getKafkaVersion(GetKafkaVersionArgs.builder()
-     *             .version(&#34;2.8.0&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetKafkaVersionResult> getKafkaVersion(GetKafkaVersionArgs args, InvokeOptions options) {
@@ -856,79 +187,12 @@ public final class MskFunctions {
     /**
      * Get information on a Amazon MSK Kafka Version
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.msk.MskFunctions;
-     * import com.pulumi.aws.msk.inputs.GetKafkaVersionArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var preferred = MskFunctions.getKafkaVersion(GetKafkaVersionArgs.builder()
-     *             .preferredVersions(            
-     *                 &#34;2.4.1.1&#34;,
-     *                 &#34;2.4.1&#34;,
-     *                 &#34;2.2.1&#34;)
-     *             .build());
-     * 
-     *         final var example = MskFunctions.getKafkaVersion(GetKafkaVersionArgs.builder()
-     *             .version(&#34;2.8.0&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static CompletableFuture<GetKafkaVersionResult> getKafkaVersionPlain(GetKafkaVersionPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:msk/getKafkaVersion:getKafkaVersion", TypeShape.of(GetKafkaVersionResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Get information on an Amazon MSK VPC Connection.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.msk.MskFunctions;
-     * import com.pulumi.aws.msk.inputs.GetVpcConnectionArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = MskFunctions.getVpcConnection(GetVpcConnectionArgs.builder()
-     *             .arn(aws_msk_vpc_connection.example().arn())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetVpcConnectionResult> getVpcConnection(GetVpcConnectionArgs args) {
@@ -937,36 +201,6 @@ public final class MskFunctions {
     /**
      * Get information on an Amazon MSK VPC Connection.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.msk.MskFunctions;
-     * import com.pulumi.aws.msk.inputs.GetVpcConnectionArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = MskFunctions.getVpcConnection(GetVpcConnectionArgs.builder()
-     *             .arn(aws_msk_vpc_connection.example().arn())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static CompletableFuture<GetVpcConnectionResult> getVpcConnectionPlain(GetVpcConnectionPlainArgs args) {
         return getVpcConnectionPlain(args, InvokeOptions.Empty);
@@ -974,72 +208,12 @@ public final class MskFunctions {
     /**
      * Get information on an Amazon MSK VPC Connection.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.msk.MskFunctions;
-     * import com.pulumi.aws.msk.inputs.GetVpcConnectionArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = MskFunctions.getVpcConnection(GetVpcConnectionArgs.builder()
-     *             .arn(aws_msk_vpc_connection.example().arn())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetVpcConnectionResult> getVpcConnection(GetVpcConnectionArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:msk/getVpcConnection:getVpcConnection", TypeShape.of(GetVpcConnectionResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Get information on an Amazon MSK VPC Connection.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.msk.MskFunctions;
-     * import com.pulumi.aws.msk.inputs.GetVpcConnectionArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = MskFunctions.getVpcConnection(GetVpcConnectionArgs.builder()
-     *             .arn(aws_msk_vpc_connection.example().arn())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetVpcConnectionResult> getVpcConnectionPlain(GetVpcConnectionPlainArgs args, InvokeOptions options) {

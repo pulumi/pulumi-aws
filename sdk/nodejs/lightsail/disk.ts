@@ -7,25 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Provides a Lightsail Disk resource.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const available = aws.getAvailabilityZones({
- *     state: "available",
- *     filters: [{
- *         name: "opt-in-status",
- *         values: ["opt-in-not-required"],
- *     }],
- * });
- * const test = new aws.lightsail.Disk("test", {
- *     sizeInGb: 8,
- *     availabilityZone: available.then(available => available.names?.[0]),
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import `aws_lightsail_disk` using the name attribute. For example:

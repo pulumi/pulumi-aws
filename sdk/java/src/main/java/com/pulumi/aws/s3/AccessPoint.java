@@ -69,11 +69,10 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.s3control.Bucket;
  * import com.pulumi.aws.s3control.BucketArgs;
- * import com.pulumi.aws.ec2.Vpc;
- * import com.pulumi.aws.ec2.VpcArgs;
+ * import com.pulumi.aws.ec2_vpc.Vpc;
+ * import com.pulumi.aws.ec2_vpc.VpcArgs;
  * import com.pulumi.aws.s3.AccessPoint;
  * import com.pulumi.aws.s3.AccessPointArgs;
- * import com.pulumi.aws.s3.inputs.AccessPointVpcConfigurationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -97,9 +96,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleAccessPoint = new AccessPoint(&#34;exampleAccessPoint&#34;, AccessPointArgs.builder()        
  *             .bucket(exampleBucket.arn())
- *             .vpcConfiguration(AccessPointVpcConfigurationArgs.builder()
- *                 .vpcId(exampleVpc.id())
- *                 .build())
+ *             .vpcConfiguration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

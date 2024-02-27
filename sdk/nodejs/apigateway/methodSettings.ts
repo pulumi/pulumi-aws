@@ -24,7 +24,7 @@ import {RestApi} from "./index";
  * import * as aws from "@pulumi/aws";
  * import * as crypto from "crypto";
  *
- * const exampleRestApi = new aws.apigateway.RestApi("exampleRestApi", {body: JSON.stringify({
+ * const exampleRestApi = new aws.apigateway/restApi.RestApi("exampleRestApi", {body: JSON.stringify({
  *     openapi: "3.0.1",
  *     info: {
  *         title: "example",
@@ -43,18 +43,18 @@ import {RestApi} from "./index";
  *         },
  *     },
  * })});
- * const exampleDeployment = new aws.apigateway.Deployment("exampleDeployment", {
+ * const exampleDeployment = new aws.apigateway/deployment.Deployment("exampleDeployment", {
  *     restApi: exampleRestApi.id,
  *     triggers: {
- *         redeployment: exampleRestApi.body.apply(body => JSON.stringify(body)).apply(toJSON => crypto.createHash('sha1').update(toJSON).digest('hex')),
+ *         redeployment: crypto.createHash('sha1').update(JSON.stringify(exampleRestApi.body)).digest('hex'),
  *     },
  * });
- * const exampleStage = new aws.apigateway.Stage("exampleStage", {
+ * const exampleStage = new aws.apigateway/stage.Stage("exampleStage", {
  *     deployment: exampleDeployment.id,
  *     restApi: exampleRestApi.id,
  *     stageName: "example",
  * });
- * const all = new aws.apigateway.MethodSettings("all", {
+ * const all = new aws.apigateway/methodSettings.MethodSettings("all", {
  *     restApi: exampleRestApi.id,
  *     stageName: exampleStage.stageName,
  *     methodPath: "*&#47;*",
@@ -63,7 +63,7 @@ import {RestApi} from "./index";
  *         loggingLevel: "ERROR",
  *     },
  * });
- * const pathSpecific = new aws.apigateway.MethodSettings("pathSpecific", {
+ * const pathSpecific = new aws.apigateway/methodSettings.MethodSettings("pathSpecific", {
  *     restApi: exampleRestApi.id,
  *     stageName: exampleStage.stageName,
  *     methodPath: "path1/GET",
@@ -82,7 +82,7 @@ import {RestApi} from "./index";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const pathSpecific = new aws.apigateway.MethodSettings("pathSpecific", {
+ * const pathSpecific = new aws.apigateway/methodSettings.MethodSettings("pathSpecific", {
  *     restApi: aws_api_gateway_rest_api.example.id,
  *     stageName: aws_api_gateway_stage.example.stage_name,
  *     methodPath: "path1/GET",
@@ -97,7 +97,7 @@ import {RestApi} from "./index";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const pathSpecific = new aws.apigateway.MethodSettings("pathSpecific", {
+ * const pathSpecific = new aws.apigateway/methodSettings.MethodSettings("pathSpecific", {
  *     restApi: aws_api_gateway_rest_api.example.id,
  *     stageName: aws_api_gateway_stage.example.stage_name,
  *     methodPath: "path1/GET",
@@ -114,7 +114,7 @@ import {RestApi} from "./index";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const pathSpecific = new aws.apigateway.MethodSettings("pathSpecific", {
+ * const pathSpecific = new aws.apigateway/methodSettings.MethodSettings("pathSpecific", {
  *     restApi: aws_api_gateway_rest_api.example.id,
  *     stageName: aws_api_gateway_stage.example.stage_name,
  *     methodPath: "path1/GET",
@@ -131,7 +131,7 @@ import {RestApi} from "./index";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const pathSpecific = new aws.apigateway.MethodSettings("pathSpecific", {
+ * const pathSpecific = new aws.apigateway/methodSettings.MethodSettings("pathSpecific", {
  *     restApi: aws_api_gateway_rest_api.example.id,
  *     stageName: aws_api_gateway_stage.example.stage_name,
  *     methodPath: "path1/GET",

@@ -17,72 +17,12 @@ public final class MediaconvertFunctions {
     /**
      * Retrieve information about a AWS Elemental MediaConvert Queue.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.mediaconvert.MediaconvertFunctions;
-     * import com.pulumi.aws.mediaconvert.inputs.GetQueueArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = MediaconvertFunctions.getQueue(GetQueueArgs.builder()
-     *             .id(&#34;tf-example-queue&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetQueueResult> getQueue(GetQueueArgs args) {
         return getQueue(args, InvokeOptions.Empty);
     }
     /**
      * Retrieve information about a AWS Elemental MediaConvert Queue.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.mediaconvert.MediaconvertFunctions;
-     * import com.pulumi.aws.mediaconvert.inputs.GetQueueArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = MediaconvertFunctions.getQueue(GetQueueArgs.builder()
-     *             .id(&#34;tf-example-queue&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetQueueResult> getQueuePlain(GetQueuePlainArgs args) {
@@ -91,72 +31,12 @@ public final class MediaconvertFunctions {
     /**
      * Retrieve information about a AWS Elemental MediaConvert Queue.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.mediaconvert.MediaconvertFunctions;
-     * import com.pulumi.aws.mediaconvert.inputs.GetQueueArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = MediaconvertFunctions.getQueue(GetQueueArgs.builder()
-     *             .id(&#34;tf-example-queue&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetQueueResult> getQueue(GetQueueArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:mediaconvert/getQueue:getQueue", TypeShape.of(GetQueueResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Retrieve information about a AWS Elemental MediaConvert Queue.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.mediaconvert.MediaconvertFunctions;
-     * import com.pulumi.aws.mediaconvert.inputs.GetQueueArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = MediaconvertFunctions.getQueue(GetQueueArgs.builder()
-     *             .id(&#34;tf-example-queue&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetQueueResult> getQueuePlain(GetQueuePlainArgs args, InvokeOptions options) {

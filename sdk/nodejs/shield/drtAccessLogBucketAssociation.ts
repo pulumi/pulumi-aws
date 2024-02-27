@@ -17,8 +17,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const testDrtAccessRoleArnAssociation = new aws.shield.DrtAccessRoleArnAssociation("testDrtAccessRoleArnAssociation", {roleArn: `arn:aws:iam:${data.aws_region.current.name}:${data.aws_caller_identity.current.account_id}:${_var.shield_drt_access_role_name}`});
- * const testDrtAccessLogBucketAssociation = new aws.shield.DrtAccessLogBucketAssociation("testDrtAccessLogBucketAssociation", {
+ * const testDrtAccessRoleArnAssociation = new aws.shield/drtAccessRoleArnAssociation.DrtAccessRoleArnAssociation("testDrtAccessRoleArnAssociation", {roleArn: `arn:aws:iam:${data.aws_region.current.name}:${data.aws_caller_identity.current.account_id}:${_var.shield_drt_access_role_name}`});
+ * const testDrtAccessLogBucketAssociation = new aws.shield/drtAccessLogBucketAssociation.DrtAccessLogBucketAssociation("testDrtAccessLogBucketAssociation", {
  *     logBucket: _var.shield_drt_access_log_bucket,
  *     roleArnAssociationId: testDrtAccessRoleArnAssociation.id,
  * });

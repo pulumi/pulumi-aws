@@ -24,25 +24,23 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/rds"
+//	rds/clusterRoleAssociation "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/rds/clusterRoleAssociation"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := rds.NewClusterRoleAssociation(ctx, "example", &rds.ClusterRoleAssociationArgs{
-//				DbClusterIdentifier: pulumi.Any(aws_rds_cluster.Example.Id),
-//				FeatureName:         pulumi.String("S3_INTEGRATION"),
-//				RoleArn:             pulumi.Any(aws_iam_role.Example.Arn),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := rds/clusterRoleAssociation.NewClusterRoleAssociation(ctx, "example", &rds/clusterRoleAssociation.ClusterRoleAssociationArgs{
+// DbClusterIdentifier: aws_rds_cluster.Example.Id,
+// FeatureName: "S3_INTEGRATION",
+// RoleArn: aws_iam_role.Example.Arn,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

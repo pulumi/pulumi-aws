@@ -22,40 +22,40 @@ namespace Pulumi.Aws.Athena
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var hogeBucketV2 = new Aws.S3.BucketV2("hogeBucketV2");
+    ///     var hogeBucketV2 = new Aws.S3.BucketV2.BucketV2("hogeBucketV2");
     /// 
-    ///     var testKey = new Aws.Kms.Key("testKey", new()
+    ///     var testKey = new Aws.Kms.Key.Key("testKey", new()
     ///     {
     ///         DeletionWindowInDays = 7,
     ///         Description = "Athena KMS Key",
     ///     });
     /// 
-    ///     var testWorkgroup = new Aws.Athena.Workgroup("testWorkgroup", new()
+    ///     var testWorkgroup = new Aws.Athena.Workgroup.Workgroup("testWorkgroup", new()
     ///     {
-    ///         Configuration = new Aws.Athena.Inputs.WorkgroupConfigurationArgs
+    ///         Configuration = 
     ///         {
-    ///             ResultConfiguration = new Aws.Athena.Inputs.WorkgroupConfigurationResultConfigurationArgs
+    ///             { "resultConfiguration", 
     ///             {
-    ///                 EncryptionConfiguration = new Aws.Athena.Inputs.WorkgroupConfigurationResultConfigurationEncryptionConfigurationArgs
+    ///                 { "encryptionConfiguration", 
     ///                 {
-    ///                     EncryptionOption = "SSE_KMS",
-    ///                     KmsKeyArn = testKey.Arn,
-    ///                 },
-    ///             },
+    ///                     { "encryptionOption", "SSE_KMS" },
+    ///                     { "kmsKeyArn", testKey.Arn },
+    ///                 } },
+    ///             } },
     ///         },
     ///     });
     /// 
-    ///     var hogeDatabase = new Aws.Athena.Database("hogeDatabase", new()
+    ///     var hogeDatabase = new Aws.Athena.Database.Database("hogeDatabase", new()
     ///     {
     ///         Name = "users",
     ///         Bucket = hogeBucketV2.Id,
     ///     });
     /// 
-    ///     var foo = new Aws.Athena.NamedQuery("foo", new()
+    ///     var foo = new Aws.Athena.NamedQuery.NamedQuery("foo", new()
     ///     {
     ///         Workgroup = testWorkgroup.Id,
     ///         Database = hogeDatabase.Name,
-    ///         Query = hogeDatabase.Name.Apply(name =&gt; $"SELECT * FROM {name} limit 10;"),
+    ///         Query = $"SELECT * FROM {hogeDatabase.Name} limit 10;",
     ///     });
     /// 
     /// });

@@ -22,23 +22,21 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/datasync"
+//	datasync/agent "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/datasync/agent"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := datasync.NewAgent(ctx, "example", &datasync.AgentArgs{
-//				IpAddress: pulumi.String("1.2.3.4"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := datasync/agent.NewAgent(ctx, "example", &datasync/agent.AgentArgs{
+// IpAddress: "1.2.3.4",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

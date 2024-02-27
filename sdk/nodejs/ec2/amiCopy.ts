@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.ec2.AmiCopy("example", {
+ * const example = new aws.ec2/amiCopy.AmiCopy("example", {
  *     description: "A copy of ami-xxxxxxxx",
  *     sourceAmiId: "ami-xxxxxxxx",
  *     sourceAmiRegion: "us-west-1",

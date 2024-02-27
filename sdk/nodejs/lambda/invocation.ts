@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * import * as crypto from "crypto";
  *
- * const example = new aws.lambda.Invocation("example", {
+ * const example = new aws.lambda/invocation.Invocation("example", {
  *     functionName: aws_lambda_function.lambda_function_test.function_name,
  *     triggers: {
  *         redeployment: crypto.createHash('sha1').update(JSON.stringify([aws_lambda_function.example.environment])).digest('hex'),
@@ -36,7 +36,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.lambda.Invocation("example", {
+ * const example = new aws.lambda/invocation.Invocation("example", {
  *     functionName: aws_lambda_function.lambda_function_test.function_name,
  *     input: JSON.stringify({
  *         key1: "value1",

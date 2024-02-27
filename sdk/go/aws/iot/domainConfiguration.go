@@ -20,27 +20,25 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iot"
+//	iot/domainConfiguration "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/iot/domainConfiguration"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := iot.NewDomainConfiguration(ctx, "iot", &iot.DomainConfigurationArgs{
-//				DomainName:  pulumi.String("iot.example.com"),
-//				ServiceType: pulumi.String("DATA"),
-//				ServerCertificateArns: pulumi.StringArray{
-//					aws_acm_certificate.Cert.Arn,
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := iot/domainConfiguration.NewDomainConfiguration(ctx, "iot", &iot/domainConfiguration.DomainConfigurationArgs{
+// DomainName: "iot.example.com",
+// ServiceType: "DATA",
+// ServerCertificateArns: []interface{}{
+// aws_acm_certificate.Cert.Arn,
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

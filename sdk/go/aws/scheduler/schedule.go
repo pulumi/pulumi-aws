@@ -26,31 +26,29 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/scheduler"
+//	scheduler/schedule "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/scheduler/schedule"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := scheduler.NewSchedule(ctx, "example", &scheduler.ScheduleArgs{
-//				GroupName: pulumi.String("default"),
-//				FlexibleTimeWindow: &scheduler.ScheduleFlexibleTimeWindowArgs{
-//					Mode: pulumi.String("OFF"),
-//				},
-//				ScheduleExpression: pulumi.String("rate(1 hours)"),
-//				Target: &scheduler.ScheduleTargetArgs{
-//					Arn:     pulumi.Any(aws_sqs_queue.Example.Arn),
-//					RoleArn: pulumi.Any(aws_iam_role.Example.Arn),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := scheduler/schedule.NewSchedule(ctx, "example", &scheduler/schedule.ScheduleArgs{
+// GroupName: "default",
+// FlexibleTimeWindow: map[string]interface{}{
+// "mode": "OFF",
+// },
+// ScheduleExpression: "rate(1 hours)",
+// Target: map[string]interface{}{
+// "arn": aws_sqs_queue.Example.Arn,
+// "roleArn": aws_iam_role.Example.Arn,
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Universal Target
 //
@@ -61,47 +59,42 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/scheduler"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sqs"
+//	scheduler/schedule "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/scheduler/schedule"
+//	sqs/queue "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/sqs/queue"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleQueue, err := sqs.NewQueue(ctx, "exampleQueue", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = scheduler.NewSchedule(ctx, "exampleSchedule", &scheduler.ScheduleArgs{
-//				FlexibleTimeWindow: &scheduler.ScheduleFlexibleTimeWindowArgs{
-//					Mode: pulumi.String("OFF"),
-//				},
-//				ScheduleExpression: pulumi.String("rate(1 hours)"),
-//				Target: &scheduler.ScheduleTargetArgs{
-//					Arn:     pulumi.String("arn:aws:scheduler:::aws-sdk:sqs:sendMessage"),
-//					RoleArn: pulumi.Any(aws_iam_role.Example.Arn),
-//					Input: exampleQueue.Url.ApplyT(func(url string) (pulumi.String, error) {
-//						var _zero pulumi.String
-//						tmpJSON0, err := json.Marshal(map[string]interface{}{
-//							"MessageBody": "Greetings, programs!",
-//							"QueueUrl":    url,
-//						})
-//						if err != nil {
-//							return _zero, err
-//						}
-//						json0 := string(tmpJSON0)
-//						return pulumi.String(json0), nil
-//					}).(pulumi.StringOutput),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleQueue, err := sqs/queue.NewQueue(ctx, "exampleQueue", nil)
+// if err != nil {
+// return err
+// }
+// _, err = scheduler/schedule.NewSchedule(ctx, "exampleSchedule", &scheduler/schedule.ScheduleArgs{
+// FlexibleTimeWindow: map[string]interface{}{
+// "mode": "OFF",
+// },
+// ScheduleExpression: "rate(1 hours)",
+// Target: tmpJSON0, err := json.Marshal(map[string]interface{}{
+// "MessageBody": "Greetings, programs!",
+// "QueueUrl": exampleQueue.Url,
+// })
+// if err != nil {
+// return err
+// }
+// json0 := string(tmpJSON0)
+// map[string]interface{}{
+// "arn": "arn:aws:scheduler:::aws-sdk:sqs:sendMessage",
+// "roleArn": aws_iam_role.Example.Arn,
+// "input": json0,
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

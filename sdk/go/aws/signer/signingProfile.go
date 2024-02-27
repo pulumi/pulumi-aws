@@ -21,38 +21,36 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/signer"
+//	signer/signingProfile "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/signer/signingProfile"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := signer.NewSigningProfile(ctx, "testSp", &signer.SigningProfileArgs{
-//				PlatformId: pulumi.String("AWSLambda-SHA384-ECDSA"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = signer.NewSigningProfile(ctx, "prodSp", &signer.SigningProfileArgs{
-//				NamePrefix: pulumi.String("prod_sp_"),
-//				PlatformId: pulumi.String("AWSLambda-SHA384-ECDSA"),
-//				SignatureValidityPeriod: &signer.SigningProfileSignatureValidityPeriodArgs{
-//					Type:  pulumi.String("YEARS"),
-//					Value: pulumi.Int(5),
-//				},
-//				Tags: pulumi.StringMap{
-//					"tag1": pulumi.String("value1"),
-//					"tag2": pulumi.String("value2"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := signer/signingProfile.NewSigningProfile(ctx, "testSp", &signer/signingProfile.SigningProfileArgs{
+// PlatformId: "AWSLambda-SHA384-ECDSA",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = signer/signingProfile.NewSigningProfile(ctx, "prodSp", &signer/signingProfile.SigningProfileArgs{
+// NamePrefix: "prod_sp_",
+// PlatformId: "AWSLambda-SHA384-ECDSA",
+// SignatureValidityPeriod: map[string]interface{}{
+// "type": "YEARS",
+// "value": 5,
+// },
+// Tags: map[string]interface{}{
+// "tag1": "value1",
+// "tag2": "value2",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -129,9 +129,9 @@ class MainRouteTableAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        main_route_table_association = aws.ec2.MainRouteTableAssociation("mainRouteTableAssociation",
-            vpc_id=aws_vpc["foo"]["id"],
-            route_table_id=aws_route_table["bar"]["id"])
+        main_route_table_association = aws.ec2.main_route_table_association.MainRouteTableAssociation("mainRouteTableAssociation",
+            vpc_id=aws_vpc.foo.id,
+            route_table_id=aws_route_table.bar.id)
         ```
         ## Notes
 
@@ -166,9 +166,9 @@ class MainRouteTableAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        main_route_table_association = aws.ec2.MainRouteTableAssociation("mainRouteTableAssociation",
-            vpc_id=aws_vpc["foo"]["id"],
-            route_table_id=aws_route_table["bar"]["id"])
+        main_route_table_association = aws.ec2.main_route_table_association.MainRouteTableAssociation("mainRouteTableAssociation",
+            vpc_id=aws_vpc.foo.id,
+            route_table_id=aws_route_table.bar.id)
         ```
         ## Notes
 

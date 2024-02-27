@@ -24,7 +24,7 @@ namespace Pulumi.Aws.Connect
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Connect.PhoneNumber("example", new()
+    ///     var example = new Aws.Connect.PhoneNumber.PhoneNumber("example", new()
     ///     {
     ///         TargetArn = aws_connect_instance.Example.Arn,
     ///         CountryCode = "US",
@@ -47,7 +47,7 @@ namespace Pulumi.Aws.Connect
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Connect.PhoneNumber("example", new()
+    ///     var example = new Aws.Connect.PhoneNumber.PhoneNumber("example", new()
     ///     {
     ///         TargetArn = aws_connect_instance.Example.Arn,
     ///         CountryCode = "US",
@@ -67,7 +67,7 @@ namespace Pulumi.Aws.Connect
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Connect.PhoneNumber("example", new()
+    ///     var example = new Aws.Connect.PhoneNumber.PhoneNumber("example", new()
     ///     {
     ///         TargetArn = aws_connect_instance.Example.Arn,
     ///         CountryCode = "US",

@@ -32,7 +32,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.rds.ClusterParameterGroup;
  * import com.pulumi.aws.rds.ClusterParameterGroupArgs;
- * import com.pulumi.aws.rds.inputs.ClusterParameterGroupParameterArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -50,14 +49,8 @@ import javax.annotation.Nullable;
  *             .description(&#34;RDS default cluster parameter group&#34;)
  *             .family(&#34;aurora5.6&#34;)
  *             .parameters(            
- *                 ClusterParameterGroupParameterArgs.builder()
- *                     .name(&#34;character_set_server&#34;)
- *                     .value(&#34;utf8&#34;)
- *                     .build(),
- *                 ClusterParameterGroupParameterArgs.builder()
- *                     .name(&#34;character_set_client&#34;)
- *                     .value(&#34;utf8&#34;)
- *                     .build())
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

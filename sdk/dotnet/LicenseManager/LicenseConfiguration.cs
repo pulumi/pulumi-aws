@@ -24,7 +24,7 @@ namespace Pulumi.Aws.LicenseManager
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.LicenseManager.LicenseConfiguration("example", new()
+    ///     var example = new Aws.Licensemanager.LicenseConfiguration.LicenseConfiguration("example", new()
     ///     {
     ///         Description = "Example",
     ///         LicenseCount = 10,

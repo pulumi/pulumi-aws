@@ -7,21 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Use this data source to get the id of a Resource in API Gateway.
  * To fetch the Resource, you must provide the REST API id as well as the full path.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const myRestApi = aws.apigateway.getRestApi({
- *     name: "my-rest-api",
- * });
- * const myResource = myRestApi.then(myRestApi => aws.apigateway.getResource({
- *     restApiId: myRestApi.id,
- *     path: "/endpoint/path",
- * }));
- * ```
  */
 export function getResource(args: GetResourceArgs, opts?: pulumi.InvokeOptions): Promise<GetResourceResult> {
 
@@ -68,21 +53,6 @@ export interface GetResourceResult {
 /**
  * Use this data source to get the id of a Resource in API Gateway.
  * To fetch the Resource, you must provide the REST API id as well as the full path.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const myRestApi = aws.apigateway.getRestApi({
- *     name: "my-rest-api",
- * });
- * const myResource = myRestApi.then(myRestApi => aws.apigateway.getResource({
- *     restApiId: myRestApi.id,
- *     path: "/endpoint/path",
- * }));
- * ```
  */
 export function getResourceOutput(args: GetResourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourceResult> {
     return pulumi.output(args).apply((a: any) => getResource(a, opts))

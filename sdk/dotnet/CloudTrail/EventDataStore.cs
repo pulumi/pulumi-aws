@@ -29,7 +29,7 @@ namespace Pulumi.Aws.CloudTrail
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.CloudTrail.EventDataStore("example");
+    ///     var example = new Aws.Cloudtrail.EventDataStore.EventDataStore("example");
     /// 
     /// });
     /// ```
@@ -38,70 +38,6 @@ namespace Pulumi.Aws.CloudTrail
     /// CloudTrail can log [Data Events](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html) for certain services such as S3 bucket objects and Lambda function invocations. Additional information about data event configuration can be found in the following links:
     /// 
     /// - [CloudTrail API AdvancedFieldSelector documentation](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.html)
-    /// ### Log all DynamoDB PutEvent actions for a specific DynamoDB table
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var table = Aws.DynamoDB.GetTable.Invoke(new()
-    ///     {
-    ///         Name = "not-important-dynamodb-table",
-    ///     });
-    /// 
-    ///     // ... other configuration ...
-    ///     var example = new Aws.CloudTrail.EventDataStore("example", new()
-    ///     {
-    ///         AdvancedEventSelectors = new[]
-    ///         {
-    ///             new Aws.CloudTrail.Inputs.EventDataStoreAdvancedEventSelectorArgs
-    ///             {
-    ///                 Name = "Log all DynamoDB PutEvent actions for a specific DynamoDB table",
-    ///                 FieldSelectors = new[]
-    ///                 {
-    ///                     new Aws.CloudTrail.Inputs.EventDataStoreAdvancedEventSelectorFieldSelectorArgs
-    ///                     {
-    ///                         Field = "eventCategory",
-    ///                         Equals = new[]
-    ///                         {
-    ///                             "Data",
-    ///                         },
-    ///                     },
-    ///                     new Aws.CloudTrail.Inputs.EventDataStoreAdvancedEventSelectorFieldSelectorArgs
-    ///                     {
-    ///                         Field = "resources.type",
-    ///                         Equals = new[]
-    ///                         {
-    ///                             "AWS::DynamoDB::Table",
-    ///                         },
-    ///                     },
-    ///                     new Aws.CloudTrail.Inputs.EventDataStoreAdvancedEventSelectorFieldSelectorArgs
-    ///                     {
-    ///                         Field = "eventName",
-    ///                         Equals = new[]
-    ///                         {
-    ///                             "PutItem",
-    ///                         },
-    ///                     },
-    ///                     new Aws.CloudTrail.Inputs.EventDataStoreAdvancedEventSelectorFieldSelectorArgs
-    ///                     {
-    ///                         Field = "resources.ARN",
-    ///                         Equals = new[]
-    ///                         {
-    ///                             table.Apply(getTableResult =&gt; getTableResult.Arn),
-    ///                         },
-    ///                     },
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 

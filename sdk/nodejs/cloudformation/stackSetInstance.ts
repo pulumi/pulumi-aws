@@ -21,43 +21,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.cloudformation.StackSetInstance("example", {
+ * const example = new aws.cloudformation/stackSetInstance.StackSetInstance("example", {
  *     accountId: "123456789012",
  *     region: "us-east-1",
  *     stackSetName: aws_cloudformation_stack_set.example.name,
- * });
- * ```
- * ### Example IAM Setup in Target Account
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const aWSCloudFormationStackSetExecutionRoleAssumeRolePolicy = aws.iam.getPolicyDocument({
- *     statements: [{
- *         actions: ["sts:AssumeRole"],
- *         effect: "Allow",
- *         principals: [{
- *             identifiers: [aws_iam_role.AWSCloudFormationStackSetAdministrationRole.arn],
- *             type: "AWS",
- *         }],
- *     }],
- * });
- * const aWSCloudFormationStackSetExecutionRole = new aws.iam.Role("aWSCloudFormationStackSetExecutionRole", {assumeRolePolicy: aWSCloudFormationStackSetExecutionRoleAssumeRolePolicy.then(aWSCloudFormationStackSetExecutionRoleAssumeRolePolicy => aWSCloudFormationStackSetExecutionRoleAssumeRolePolicy.json)});
- * const aWSCloudFormationStackSetExecutionRoleMinimumExecutionPolicyPolicyDocument = aws.iam.getPolicyDocument({
- *     statements: [{
- *         actions: [
- *             "cloudformation:*",
- *             "s3:*",
- *             "sns:*",
- *         ],
- *         effect: "Allow",
- *         resources: ["*"],
- *     }],
- * });
- * const aWSCloudFormationStackSetExecutionRoleMinimumExecutionPolicyRolePolicy = new aws.iam.RolePolicy("aWSCloudFormationStackSetExecutionRoleMinimumExecutionPolicyRolePolicy", {
- *     policy: aWSCloudFormationStackSetExecutionRoleMinimumExecutionPolicyPolicyDocument.then(aWSCloudFormationStackSetExecutionRoleMinimumExecutionPolicyPolicyDocument => aWSCloudFormationStackSetExecutionRoleMinimumExecutionPolicyPolicyDocument.json),
- *     role: aWSCloudFormationStackSetExecutionRole.name,
  * });
  * ```
  * ### Example Deployment across Organizations account
@@ -66,7 +33,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.cloudformation.StackSetInstance("example", {
+ * const example = new aws.cloudformation/stackSetInstance.StackSetInstance("example", {
  *     deploymentTargets: {
  *         organizationalUnitIds: [aws_organizations_organization.example.roots[0].id],
  *     },

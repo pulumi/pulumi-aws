@@ -22,7 +22,7 @@ namespace Pulumi.Aws.AppConfig
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.AppConfig.Deployment("example", new()
+    ///     var example = new Aws.Appconfig.Deployment.Deployment("example", new()
     ///     {
     ///         ApplicationId = aws_appconfig_application.Example.Id,
     ///         ConfigurationProfileId = aws_appconfig_configuration_profile.Example.Configuration_profile_id,

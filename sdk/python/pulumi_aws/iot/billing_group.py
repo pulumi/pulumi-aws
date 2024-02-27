@@ -205,12 +205,12 @@ class BillingGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.iot.BillingGroup("example",
-            properties=aws.iot.BillingGroupPropertiesArgs(
-                description="This is my billing group",
-            ),
+        example = aws.iot.billing_group.BillingGroup("example",
+            properties={
+                description: This is my billing group,
+            },
             tags={
-                "terraform": "true",
+                terraform: true,
             })
         ```
 
@@ -243,12 +243,12 @@ class BillingGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.iot.BillingGroup("example",
-            properties=aws.iot.BillingGroupPropertiesArgs(
-                description="This is my billing group",
-            ),
+        example = aws.iot.billing_group.BillingGroup("example",
+            properties={
+                description: This is my billing group,
+            },
             tags={
-                "terraform": "true",
+                terraform: true,
             })
         ```
 

@@ -106,14 +106,14 @@ class FleetStackAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_fleet = aws.appstream.Fleet("exampleFleet",
-            image_name="Amazon-AppStream2-Sample-Image-03-11-2023",
-            instance_type="stream.standard.small",
-            compute_capacity=aws.appstream.FleetComputeCapacityArgs(
-                desired_instances=1,
-            ))
-        example_stack = aws.appstream.Stack("exampleStack")
-        example_fleet_stack_association = aws.appstream.FleetStackAssociation("exampleFleetStackAssociation",
+        example_fleet = aws.appstream.fleet.Fleet("exampleFleet",
+            image_name=Amazon-AppStream2-Sample-Image-03-11-2023,
+            instance_type=stream.standard.small,
+            compute_capacity={
+                desiredInstances: 1,
+            })
+        example_stack = aws.appstream.stack.Stack("exampleStack")
+        example_fleet_stack_association = aws.appstream.fleet_stack_association.FleetStackAssociation("exampleFleetStackAssociation",
             fleet_name=example_fleet.name,
             stack_name=example_stack.name)
         ```
@@ -146,14 +146,14 @@ class FleetStackAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_fleet = aws.appstream.Fleet("exampleFleet",
-            image_name="Amazon-AppStream2-Sample-Image-03-11-2023",
-            instance_type="stream.standard.small",
-            compute_capacity=aws.appstream.FleetComputeCapacityArgs(
-                desired_instances=1,
-            ))
-        example_stack = aws.appstream.Stack("exampleStack")
-        example_fleet_stack_association = aws.appstream.FleetStackAssociation("exampleFleetStackAssociation",
+        example_fleet = aws.appstream.fleet.Fleet("exampleFleet",
+            image_name=Amazon-AppStream2-Sample-Image-03-11-2023,
+            instance_type=stream.standard.small,
+            compute_capacity={
+                desiredInstances: 1,
+            })
+        example_stack = aws.appstream.stack.Stack("exampleStack")
+        example_fleet_stack_association = aws.appstream.fleet_stack_association.FleetStackAssociation("exampleFleetStackAssociation",
             fleet_name=example_fleet.name,
             stack_name=example_stack.name)
         ```

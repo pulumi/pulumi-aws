@@ -22,16 +22,16 @@ namespace Pulumi.Aws.DocDB
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.DocDB.ClusterParameterGroup("example", new()
+    ///     var example = new Aws.Docdb.ClusterParameterGroup.ClusterParameterGroup("example", new()
     ///     {
     ///         Description = "docdb cluster parameter group",
     ///         Family = "docdb3.6",
     ///         Parameters = new[]
     ///         {
-    ///             new Aws.DocDB.Inputs.ClusterParameterGroupParameterArgs
+    ///             
     ///             {
-    ///                 Name = "tls",
-    ///                 Value = "enabled",
+    ///                 { "name", "tls" },
+    ///                 { "value", "enabled" },
     ///             },
     ///         },
     ///     });

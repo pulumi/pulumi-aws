@@ -134,19 +134,6 @@ def get_reserved_instance_offering(db_instance_class: Optional[str] = None,
     """
     Information about a single RDS Reserved Instance Offering.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.rds.get_reserved_instance_offering(db_instance_class="db.t2.micro",
-        duration=31536000,
-        multi_az=False,
-        offering_type="All Upfront",
-        product_description="mysql")
-    ```
-
 
     :param str db_instance_class: DB instance class for the reserved DB instance.
     :param int duration: Duration of the reservation in years or seconds. Valid values are `1`, `3`, `31536000`, `94608000`
@@ -184,19 +171,6 @@ def get_reserved_instance_offering_output(db_instance_class: Optional[pulumi.Inp
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetReservedInstanceOfferingResult]:
     """
     Information about a single RDS Reserved Instance Offering.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.rds.get_reserved_instance_offering(db_instance_class="db.t2.micro",
-        duration=31536000,
-        multi_az=False,
-        offering_type="All Upfront",
-        product_description="mysql")
-    ```
 
 
     :param str db_instance_class: DB instance class for the reserved DB instance.

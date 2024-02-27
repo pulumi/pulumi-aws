@@ -20,24 +20,22 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/macie2"
+//	macie2/account "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/macie2/account"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := macie2.NewAccount(ctx, "test", &macie2.AccountArgs{
-//				FindingPublishingFrequency: pulumi.String("FIFTEEN_MINUTES"),
-//				Status:                     pulumi.String("ENABLED"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := macie2/account.NewAccount(ctx, "test", &macie2/account.AccountArgs{
+// FindingPublishingFrequency: "FIFTEEN_MINUTES",
+// Status: "ENABLED",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

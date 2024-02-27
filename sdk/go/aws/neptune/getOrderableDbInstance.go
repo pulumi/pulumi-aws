@@ -12,37 +12,6 @@ import (
 )
 
 // Information about Neptune orderable DB instances.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/neptune"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := neptune.GetOrderableDbInstance(ctx, &neptune.GetOrderableDbInstanceArgs{
-//				EngineVersion: pulumi.StringRef("1.0.3.0"),
-//				PreferredInstanceClasses: []string{
-//					"db.r5.large",
-//					"db.r4.large",
-//					"db.t3.medium",
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetOrderableDbInstance(ctx *pulumi.Context, args *GetOrderableDbInstanceArgs, opts ...pulumi.InvokeOption) (*GetOrderableDbInstanceResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetOrderableDbInstanceResult

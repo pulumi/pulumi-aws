@@ -190,83 +190,8 @@ import javax.annotation.Nullable;
  *             .action(&#34;lambda:InvokeFunction&#34;)
  *             .function(&#34;MyDemoFunction&#34;)
  *             .principal(&#34;apigateway.amazonaws.com&#34;)
- *             .sourceArn(myDemoAPI.executionArn().applyValue(executionArn -&gt; String.format(&#34;%s/*&#34;, executionArn)))
+ *             .sourceArn(String.format(&#34;%s/*&#34;, myDemoAPI.executionArn()))
  *             .build());
- * 
- *     }
- * }
- * ```
- * ### With CloudWatch Log Group
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.cloudwatch.LogGroup;
- * import com.pulumi.aws.iam.IamFunctions;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
- * import com.pulumi.aws.iam.Role;
- * import com.pulumi.aws.iam.RoleArgs;
- * import com.pulumi.aws.lambda.Function;
- * import com.pulumi.aws.lambda.FunctionArgs;
- * import com.pulumi.aws.lambda.Permission;
- * import com.pulumi.aws.lambda.PermissionArgs;
- * import com.pulumi.aws.cloudwatch.LogSubscriptionFilter;
- * import com.pulumi.aws.cloudwatch.LogSubscriptionFilterArgs;
- * import com.pulumi.resources.CustomResourceOptions;
- * import com.pulumi.asset.FileArchive;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var defaultLogGroup = new LogGroup(&#34;defaultLogGroup&#34;);
- * 
- *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect(&#34;Allow&#34;)
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type(&#34;Service&#34;)
- *                     .identifiers(&#34;lambda.amazonaws.com&#34;)
- *                     .build())
- *                 .actions(&#34;sts:AssumeRole&#34;)
- *                 .build())
- *             .build());
- * 
- *         var defaultRole = new Role(&#34;defaultRole&#34;, RoleArgs.builder()        
- *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
- *             .build());
- * 
- *         var loggingFunction = new Function(&#34;loggingFunction&#34;, FunctionArgs.builder()        
- *             .code(new FileArchive(&#34;lamba_logging.zip&#34;))
- *             .handler(&#34;exports.handler&#34;)
- *             .role(defaultRole.arn())
- *             .runtime(&#34;python3.7&#34;)
- *             .build());
- * 
- *         var loggingPermission = new Permission(&#34;loggingPermission&#34;, PermissionArgs.builder()        
- *             .action(&#34;lambda:InvokeFunction&#34;)
- *             .function(loggingFunction.name())
- *             .principal(&#34;logs.eu-west-1.amazonaws.com&#34;)
- *             .sourceArn(defaultLogGroup.arn().applyValue(arn -&gt; String.format(&#34;%s:*&#34;, arn)))
- *             .build());
- * 
- *         var loggingLogSubscriptionFilter = new LogSubscriptionFilter(&#34;loggingLogSubscriptionFilter&#34;, LogSubscriptionFilterArgs.builder()        
- *             .destinationArn(loggingFunction.arn())
- *             .filterPattern(&#34;&#34;)
- *             .logGroup(defaultLogGroup.name())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(loggingPermission)
- *                 .build());
  * 
  *     }
  * }

@@ -30,8 +30,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.pinpoint.App;
  * import com.pulumi.aws.pinpoint.AppArgs;
- * import com.pulumi.aws.pinpoint.inputs.AppLimitsArgs;
- * import com.pulumi.aws.pinpoint.inputs.AppQuietTimeArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -46,13 +44,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new App(&#34;example&#34;, AppArgs.builder()        
- *             .limits(AppLimitsArgs.builder()
- *                 .maximumDuration(600)
- *                 .build())
- *             .quietTime(AppQuietTimeArgs.builder()
- *                 .end(&#34;06:00&#34;)
- *                 .start(&#34;00:00&#34;)
- *                 .build())
+ *             .limits(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .quietTime(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

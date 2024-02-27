@@ -31,59 +31,29 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/connect"
+//	connect/contactFlow "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/connect/contactFlow"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"Version":     "2019-10-30",
-//				"StartAction": "12345678-1234-1234-1234-123456789012",
-//				"Actions": []interface{}{
-//					map[string]interface{}{
-//						"Identifier": "12345678-1234-1234-1234-123456789012",
-//						"Type":       "MessageParticipant",
-//						"Transitions": map[string]interface{}{
-//							"NextAction": "abcdef-abcd-abcd-abcd-abcdefghijkl",
-//							"Errors":     []interface{}{},
-//							"Conditions": []interface{}{},
-//						},
-//						"Parameters": map[string]interface{}{
-//							"Text": "Thanks for calling the sample flow!",
-//						},
-//					},
-//					map[string]interface{}{
-//						"Identifier":  "abcdef-abcd-abcd-abcd-abcdefghijkl",
-//						"Type":        "DisconnectParticipant",
-//						"Transitions": nil,
-//						"Parameters":  nil,
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			_, err = connect.NewContactFlow(ctx, "test", &connect.ContactFlowArgs{
-//				InstanceId:  pulumi.String("aaaaaaaa-bbbb-cccc-dddd-111111111111"),
-//				Description: pulumi.String("Test Contact Flow Description"),
-//				Type:        pulumi.String("CONTACT_FLOW"),
-//				Content:     pulumi.String(json0),
-//				Tags: pulumi.StringMap{
-//					"Name":        pulumi.String("Test Contact Flow"),
-//					"Application": pulumi.String("Example"),
-//					"Method":      pulumi.String("Create"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := connect/contactFlow.NewContactFlow(ctx, "test", &connect/contactFlow.ContactFlowArgs{
+// InstanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+// Description: "Test Contact Flow Description",
+// Type: "CONTACT_FLOW",
+// Content: %!v(PANIC=Format method: fatal: An assertion has failed: unlowered function toJSON),
+// Tags: map[string]interface{}{
+// "Name": "Test Contact Flow",
+// "Application": "Example",
+// "Method": "Create",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

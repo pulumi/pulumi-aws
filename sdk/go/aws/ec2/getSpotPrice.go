@@ -12,41 +12,6 @@ import (
 )
 
 // Information about most recent Spot Price for a given EC2 instance.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.GetSpotPrice(ctx, &ec2.GetSpotPriceArgs{
-//				AvailabilityZone: pulumi.StringRef("us-west-2a"),
-//				Filters: []ec2.GetSpotPriceFilter{
-//					{
-//						Name: "product-description",
-//						Values: []string{
-//							"Linux/UNIX",
-//						},
-//					},
-//				},
-//				InstanceType: pulumi.StringRef("t3.medium"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetSpotPrice(ctx *pulumi.Context, args *GetSpotPriceArgs, opts ...pulumi.InvokeOption) (*GetSpotPriceResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetSpotPriceResult

@@ -26,25 +26,23 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/emr"
+//	emr/instanceGroup "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/emr/instanceGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := emr.NewInstanceGroup(ctx, "task", &emr.InstanceGroupArgs{
-//				ClusterId:     pulumi.Any(aws_emr_cluster.TfTestCluster.Id),
-//				InstanceCount: pulumi.Int(1),
-//				InstanceType:  pulumi.String("m5.xlarge"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := emr/instanceGroup.NewInstanceGroup(ctx, "task", &emr/instanceGroup.InstanceGroupArgs{
+// ClusterId: aws_emr_cluster.TfTestCluster.Id,
+// InstanceCount: 1,
+// InstanceType: "m5.xlarge",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import
@@ -71,14 +69,13 @@ type InstanceGroup struct {
 	// package main
 	//
 	// import (
-	// 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/emr"
+	// 	emr/instanceGroup "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/emr/instanceGroup"
 	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	// )
-	//
 	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		_, err := emr.NewInstanceGroup(ctx, "task", &emr.InstanceGroupArgs{
-	// 			ConfigurationsJson: pulumi.String(`[
+	// pulumi.Run(func(ctx *pulumi.Context) error {
+	// _, err := emr/instanceGroup.NewInstanceGroup(ctx, "task", &emr/instanceGroup.InstanceGroupArgs{
+	// ConfigurationsJson: `[
 	// {
 	// "Classification": "hadoop-env",
 	// "Configurations": [
@@ -93,13 +90,13 @@ type InstanceGroup struct {
 	// }
 	// ]
 	//
-	// `),
-	// 		})
-	// 		if err != nil {
-	// 			return err
-	// 		}
-	// 		return nil
-	// 	})
+	// `,
+	// })
+	// if err != nil {
+	// return err
+	// }
+	// return nil
+	// })
 	// }
 	// ```
 	ConfigurationsJson pulumi.StringPtrOutput `pulumi:"configurationsJson"`
@@ -167,14 +164,13 @@ type instanceGroupState struct {
 	// package main
 	//
 	// import (
-	// 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/emr"
+	// 	emr/instanceGroup "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/emr/instanceGroup"
 	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	// )
-	//
 	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		_, err := emr.NewInstanceGroup(ctx, "task", &emr.InstanceGroupArgs{
-	// 			ConfigurationsJson: pulumi.String(`[
+	// pulumi.Run(func(ctx *pulumi.Context) error {
+	// _, err := emr/instanceGroup.NewInstanceGroup(ctx, "task", &emr/instanceGroup.InstanceGroupArgs{
+	// ConfigurationsJson: `[
 	// {
 	// "Classification": "hadoop-env",
 	// "Configurations": [
@@ -189,13 +185,13 @@ type instanceGroupState struct {
 	// }
 	// ]
 	//
-	// `),
-	// 		})
-	// 		if err != nil {
-	// 			return err
-	// 		}
-	// 		return nil
-	// 	})
+	// `,
+	// })
+	// if err != nil {
+	// return err
+	// }
+	// return nil
+	// })
 	// }
 	// ```
 	ConfigurationsJson *string `pulumi:"configurationsJson"`
@@ -228,14 +224,13 @@ type InstanceGroupState struct {
 	// package main
 	//
 	// import (
-	// 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/emr"
+	// 	emr/instanceGroup "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/emr/instanceGroup"
 	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	// )
-	//
 	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		_, err := emr.NewInstanceGroup(ctx, "task", &emr.InstanceGroupArgs{
-	// 			ConfigurationsJson: pulumi.String(`[
+	// pulumi.Run(func(ctx *pulumi.Context) error {
+	// _, err := emr/instanceGroup.NewInstanceGroup(ctx, "task", &emr/instanceGroup.InstanceGroupArgs{
+	// ConfigurationsJson: `[
 	// {
 	// "Classification": "hadoop-env",
 	// "Configurations": [
@@ -250,13 +245,13 @@ type InstanceGroupState struct {
 	// }
 	// ]
 	//
-	// `),
-	// 		})
-	// 		if err != nil {
-	// 			return err
-	// 		}
-	// 		return nil
-	// 	})
+	// `,
+	// })
+	// if err != nil {
+	// return err
+	// }
+	// return nil
+	// })
 	// }
 	// ```
 	ConfigurationsJson pulumi.StringPtrInput
@@ -293,14 +288,13 @@ type instanceGroupArgs struct {
 	// package main
 	//
 	// import (
-	// 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/emr"
+	// 	emr/instanceGroup "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/emr/instanceGroup"
 	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	// )
-	//
 	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		_, err := emr.NewInstanceGroup(ctx, "task", &emr.InstanceGroupArgs{
-	// 			ConfigurationsJson: pulumi.String(`[
+	// pulumi.Run(func(ctx *pulumi.Context) error {
+	// _, err := emr/instanceGroup.NewInstanceGroup(ctx, "task", &emr/instanceGroup.InstanceGroupArgs{
+	// ConfigurationsJson: `[
 	// {
 	// "Classification": "hadoop-env",
 	// "Configurations": [
@@ -315,13 +309,13 @@ type instanceGroupArgs struct {
 	// }
 	// ]
 	//
-	// `),
-	// 		})
-	// 		if err != nil {
-	// 			return err
-	// 		}
-	// 		return nil
-	// 	})
+	// `,
+	// })
+	// if err != nil {
+	// return err
+	// }
+	// return nil
+	// })
 	// }
 	// ```
 	ConfigurationsJson *string `pulumi:"configurationsJson"`
@@ -351,14 +345,13 @@ type InstanceGroupArgs struct {
 	// package main
 	//
 	// import (
-	// 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/emr"
+	// 	emr/instanceGroup "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/emr/instanceGroup"
 	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	// )
-	//
 	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		_, err := emr.NewInstanceGroup(ctx, "task", &emr.InstanceGroupArgs{
-	// 			ConfigurationsJson: pulumi.String(`[
+	// pulumi.Run(func(ctx *pulumi.Context) error {
+	// _, err := emr/instanceGroup.NewInstanceGroup(ctx, "task", &emr/instanceGroup.InstanceGroupArgs{
+	// ConfigurationsJson: `[
 	// {
 	// "Classification": "hadoop-env",
 	// "Configurations": [
@@ -373,13 +366,13 @@ type InstanceGroupArgs struct {
 	// }
 	// ]
 	//
-	// `),
-	// 		})
-	// 		if err != nil {
-	// 			return err
-	// 		}
-	// 		return nil
-	// 	})
+	// `,
+	// })
+	// if err != nil {
+	// return err
+	// }
+	// return nil
+	// })
 	// }
 	// ```
 	ConfigurationsJson pulumi.StringPtrInput
@@ -504,16 +497,14 @@ func (o InstanceGroupOutput) ClusterId() pulumi.StringOutput {
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/emr"
+//	emr/instanceGroup "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/emr/instanceGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := emr.NewInstanceGroup(ctx, "task", &emr.InstanceGroupArgs{
-//				ConfigurationsJson: pulumi.String(`[
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := emr/instanceGroup.NewInstanceGroup(ctx, "task", &emr/instanceGroup.InstanceGroupArgs{
+// ConfigurationsJson: `[
 // {
 // "Classification": "hadoop-env",
 // "Configurations": [
@@ -528,16 +519,14 @@ func (o InstanceGroupOutput) ClusterId() pulumi.StringOutput {
 // }
 // ]
 //
-// `),
-//
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// `,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 func (o InstanceGroupOutput) ConfigurationsJson() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InstanceGroup) pulumi.StringPtrOutput { return v.ConfigurationsJson }).(pulumi.StringPtrOutput)

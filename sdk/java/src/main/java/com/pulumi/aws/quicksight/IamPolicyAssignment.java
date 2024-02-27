@@ -28,7 +28,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.quicksight.IamPolicyAssignment;
  * import com.pulumi.aws.quicksight.IamPolicyAssignmentArgs;
- * import com.pulumi.aws.quicksight.inputs.IamPolicyAssignmentIdentitiesArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -46,9 +45,7 @@ import javax.annotation.Nullable;
  *             .assignmentName(&#34;example&#34;)
  *             .assignmentStatus(&#34;ENABLED&#34;)
  *             .policyArn(aws_iam_policy.example().arn())
- *             .identities(IamPolicyAssignmentIdentitiesArgs.builder()
- *                 .users(aws_quicksight_user.example().user_name())
- *                 .build())
+ *             .identities(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

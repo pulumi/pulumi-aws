@@ -5,6 +5,19 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const exampleGraph = new aws.detective/graph.Graph("exampleGraph", {enable: true});
+ * const exampleOrganizationConfiguration = new aws.detective/organizationConfiguration.OrganizationConfiguration("exampleOrganizationConfiguration", {
+ *     autoEnable: true,
+ *     graphArn: exampleGraph.id,
+ * });
+ * ```
+ *
  * ## Import
  *
  * Using `pulumi import`, import `aws_detective_organization_admin_account` using the Detective Graph ID. For example:

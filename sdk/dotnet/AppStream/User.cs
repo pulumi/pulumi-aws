@@ -22,7 +22,7 @@ namespace Pulumi.Aws.AppStream
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.AppStream.User("example", new()
+    ///     var example = new Aws.Appstream.User.User("example", new()
     ///     {
     ///         AuthenticationType = "USERPOOL",
     ///         FirstName = "FIRST NAME",

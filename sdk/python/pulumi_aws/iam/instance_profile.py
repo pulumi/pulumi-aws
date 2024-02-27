@@ -271,26 +271,6 @@ class InstanceProfile(pulumi.CustomResource):
         """
         Provides an IAM instance profile.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["ec2.amazonaws.com"],
-            )],
-            actions=["sts:AssumeRole"],
-        )])
-        role = aws.iam.Role("role",
-            path="/",
-            assume_role_policy=assume_role.json)
-        test_profile = aws.iam.InstanceProfile("testProfile", role=role.name)
-        ```
-
         ## Import
 
         Using `pulumi import`, import Instance Profiles using the `name`. For example:
@@ -315,26 +295,6 @@ class InstanceProfile(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an IAM instance profile.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["ec2.amazonaws.com"],
-            )],
-            actions=["sts:AssumeRole"],
-        )])
-        role = aws.iam.Role("role",
-            path="/",
-            assume_role_policy=assume_role.json)
-        test_profile = aws.iam.InstanceProfile("testProfile", role=role.name)
-        ```
 
         ## Import
 

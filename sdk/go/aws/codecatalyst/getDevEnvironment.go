@@ -14,33 +14,6 @@ import (
 // Data source for managing an AWS CodeCatalyst Dev Environment.
 //
 // ## Example Usage
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/codecatalyst"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := codecatalyst.LookupDevEnvironment(ctx, &codecatalyst.LookupDevEnvironmentArgs{
-//				SpaceName:   "myspace",
-//				ProjectName: "myproject",
-//				EnvId:       aws_codecatalyst_dev_environment.Example.Id,
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupDevEnvironment(ctx *pulumi.Context, args *LookupDevEnvironmentArgs, opts ...pulumi.InvokeOption) (*LookupDevEnvironmentResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDevEnvironmentResult

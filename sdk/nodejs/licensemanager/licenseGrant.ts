@@ -7,6 +7,26 @@ import * as utilities from "../utilities";
 /**
  * Provides a License Manager grant. This allows for sharing licenses with other AWS accounts.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const test = new aws.licensemanager/licenseGrant.LicenseGrant("test", {
+ *     allowedOperations: [
+ *         "ListPurchasedLicenses",
+ *         "CheckoutLicense",
+ *         "CheckInLicense",
+ *         "ExtendConsumptionLicense",
+ *         "CreateToken",
+ *     ],
+ *     homeRegion: "us-east-1",
+ *     licenseArn: "arn:aws:license-manager::111111111111:license:l-exampleARN",
+ *     principal: "arn:aws:iam::111111111112:root",
+ * });
+ * ```
+ *
  * ## Import
  *
  * Using `pulumi import`, import `aws_licensemanager_grant` using the grant arn. For example:

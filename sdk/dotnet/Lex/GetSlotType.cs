@@ -13,58 +13,12 @@ namespace Pulumi.Aws.Lex
     {
         /// <summary>
         /// Provides details about a specific Amazon Lex Slot Type.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var flowerTypes = Aws.Lex.GetSlotType.Invoke(new()
-        ///     {
-        ///         Name = "FlowerTypes",
-        ///         Version = "1",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetSlotTypeResult> InvokeAsync(GetSlotTypeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSlotTypeResult>("aws:lex/getSlotType:getSlotType", args ?? new GetSlotTypeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Provides details about a specific Amazon Lex Slot Type.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var flowerTypes = Aws.Lex.GetSlotType.Invoke(new()
-        ///     {
-        ///         Name = "FlowerTypes",
-        ///         Version = "1",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetSlotTypeResult> Invoke(GetSlotTypeInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSlotTypeResult>("aws:lex/getSlotType:getSlotType", args ?? new GetSlotTypeInvokeArgs(), options.WithDefaults());

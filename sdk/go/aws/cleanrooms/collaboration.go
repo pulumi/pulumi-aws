@@ -23,45 +23,44 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cleanrooms"
+//	cleanrooms/collaboration "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/cleanrooms/collaboration"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cleanrooms.NewCollaboration(ctx, "testCollaboration", &cleanrooms.CollaborationArgs{
-//				CreatorDisplayName: pulumi.String("Creator "),
-//				CreatorMemberAbilities: pulumi.StringArray{
-//					pulumi.String("CAN_QUERY"),
-//					pulumi.String("CAN_RECEIVE_RESULTS"),
-//				},
-//				DataEncryptionMetadata: &cleanrooms.CollaborationDataEncryptionMetadataArgs{
-//					AllowClearText:                        pulumi.Bool(true),
-//					AllowDuplicates:                       pulumi.Bool(true),
-//					AllowJoinsOnColumnsWithDifferentNames: pulumi.Bool(true),
-//					PreserveNulls:                         pulumi.Bool(false),
-//				},
-//				Description: pulumi.String("I made this collaboration with Pulumi!"),
-//				Members: cleanrooms.CollaborationMemberArray{
-//					&cleanrooms.CollaborationMemberArgs{
-//						AccountId:       pulumi.String("123456789012"),
-//						DisplayName:     pulumi.String("Other member"),
-//						MemberAbilities: pulumi.StringArray{},
-//					},
-//				},
-//				QueryLogStatus: pulumi.String("DISABLED"),
-//				Tags: pulumi.StringMap{
-//					"Project": pulumi.String("Pulumi"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := cleanrooms/collaboration.NewCollaboration(ctx, "testCollaboration", &cleanrooms/collaboration.CollaborationArgs{
+// CreatorDisplayName: "Creator ",
+// CreatorMemberAbilities: []string{
+// "CAN_QUERY",
+// "CAN_RECEIVE_RESULTS",
+// },
+// DataEncryptionMetadata: map[string]interface{}{
+// "allowClearText": true,
+// "allowDuplicates": true,
+// "allowJoinsOnColumnsWithDifferentNames": true,
+// "preserveNulls": false,
+// },
+// Description: "I made this collaboration with Pulumi!",
+// Members: []map[string]interface{}{
+// map[string]interface{}{
+// "accountId": 123456789012,
+// "displayName": "Other member",
+// "memberAbilities": []interface{}{
+// },
+// },
+// },
+// QueryLogStatus: "DISABLED",
+// Tags: map[string]interface{}{
+// "Project": "Pulumi",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

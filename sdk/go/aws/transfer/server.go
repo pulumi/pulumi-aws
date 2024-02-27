@@ -25,25 +25,23 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/transfer"
+//	transfer/server "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/transfer/server"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := transfer.NewServer(ctx, "example", &transfer.ServerArgs{
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("Example"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := transfer/server.NewServer(ctx, "example", &transfer/server.ServerArgs{
+// Tags: map[string]interface{}{
+// "Name": "Example",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Security Policy Name
 //
@@ -52,23 +50,21 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/transfer"
+//	transfer/server "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/transfer/server"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := transfer.NewServer(ctx, "example", &transfer.ServerArgs{
-//				SecurityPolicyName: pulumi.String("TransferSecurityPolicy-2020-06"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := transfer/server.NewServer(ctx, "example", &transfer/server.ServerArgs{
+// SecurityPolicyName: "TransferSecurityPolicy-2020-06",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### VPC Endpoint
 //
@@ -77,32 +73,30 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/transfer"
+//	transfer/server "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/transfer/server"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := transfer.NewServer(ctx, "example", &transfer.ServerArgs{
-//				EndpointType: pulumi.String("VPC"),
-//				EndpointDetails: &transfer.ServerEndpointDetailsArgs{
-//					AddressAllocationIds: pulumi.StringArray{
-//						aws_eip.Example.Id,
-//					},
-//					SubnetIds: pulumi.StringArray{
-//						aws_subnet.Example.Id,
-//					},
-//					VpcId: pulumi.Any(aws_vpc.Example.Id),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := transfer/server.NewServer(ctx, "example", &transfer/server.ServerArgs{
+// EndpointType: "VPC",
+// EndpointDetails: map[string]interface{}{
+// "addressAllocationIds": []interface{}{
+// aws_eip.Example.Id,
+// },
+// "subnetIds": []interface{}{
+// aws_subnet.Example.Id,
+// },
+// "vpcId": aws_vpc.Example.Id,
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### AWS Directory authentication
 //
@@ -111,24 +105,22 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/transfer"
+//	transfer/server "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/transfer/server"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := transfer.NewServer(ctx, "example", &transfer.ServerArgs{
-//				IdentityProviderType: pulumi.String("AWS_DIRECTORY_SERVICE"),
-//				DirectoryId:          pulumi.Any(aws_directory_service_directory.Example.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := transfer/server.NewServer(ctx, "example", &transfer/server.ServerArgs{
+// IdentityProviderType: "AWS_DIRECTORY_SERVICE",
+// DirectoryId: aws_directory_service_directory.Example.Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### AWS Lambda authentication
 //
@@ -137,24 +129,22 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/transfer"
+//	transfer/server "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/transfer/server"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := transfer.NewServer(ctx, "example", &transfer.ServerArgs{
-//				IdentityProviderType: pulumi.String("AWS_LAMBDA"),
-//				Function:             pulumi.Any(aws_lambda_identity_provider.Example.Arn),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := transfer/server.NewServer(ctx, "example", &transfer/server.ServerArgs{
+// IdentityProviderType: "AWS_LAMBDA",
+// Function: aws_lambda_identity_provider.Example.Arn,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Protocols
 //
@@ -165,111 +155,34 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/transfer"
+//	transfer/server "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/transfer/server"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := transfer.NewServer(ctx, "example", &transfer.ServerArgs{
-//				EndpointType: pulumi.String("VPC"),
-//				EndpointDetails: &transfer.ServerEndpointDetailsArgs{
-//					SubnetIds: pulumi.StringArray{
-//						aws_subnet.Example.Id,
-//					},
-//					VpcId: pulumi.Any(aws_vpc.Example.Id),
-//				},
-//				Protocols: pulumi.StringArray{
-//					pulumi.String("FTP"),
-//					pulumi.String("FTPS"),
-//				},
-//				Certificate:          pulumi.Any(aws_acm_certificate.Example.Arn),
-//				IdentityProviderType: pulumi.String("API_GATEWAY"),
-//				Url:                  pulumi.String(fmt.Sprintf("%v%v", aws_api_gateway_deployment.Example.Invoke_url, aws_api_gateway_resource.Example.Path)),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// ### Using Structured Logging Destinations
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/transfer"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			transferLogGroup, err := cloudwatch.NewLogGroup(ctx, "transferLogGroup", &cloudwatch.LogGroupArgs{
-//				NamePrefix: pulumi.String("transfer_test_"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			transferAssumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-//				Statements: []iam.GetPolicyDocumentStatement{
-//					{
-//						Effect: pulumi.StringRef("Allow"),
-//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
-//							{
-//								Type: "Service",
-//								Identifiers: []string{
-//									"transfer.amazonaws.com",
-//								},
-//							},
-//						},
-//						Actions: []string{
-//							"sts:AssumeRole",
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			iamForTransfer, err := iam.NewRole(ctx, "iamForTransfer", &iam.RoleArgs{
-//				NamePrefix:       pulumi.String("iam_for_transfer_"),
-//				AssumeRolePolicy: *pulumi.String(transferAssumeRole.Json),
-//				ManagedPolicyArns: pulumi.StringArray{
-//					pulumi.String("arn:aws:iam::aws:policy/service-role/AWSTransferLoggingAccess"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = transfer.NewServer(ctx, "transferServer", &transfer.ServerArgs{
-//				EndpointType: pulumi.String("PUBLIC"),
-//				LoggingRole:  iamForTransfer.Arn,
-//				Protocols: pulumi.StringArray{
-//					pulumi.String("SFTP"),
-//				},
-//				StructuredLogDestinations: pulumi.StringArray{
-//					transferLogGroup.Arn.ApplyT(func(arn string) (string, error) {
-//						return fmt.Sprintf("%v:*", arn), nil
-//					}).(pulumi.StringOutput),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := transfer/server.NewServer(ctx, "example", &transfer/server.ServerArgs{
+// EndpointType: "VPC",
+// EndpointDetails: map[string]interface{}{
+// "subnetIds": []interface{}{
+// aws_subnet.Example.Id,
+// },
+// "vpcId": aws_vpc.Example.Id,
+// },
+// Protocols: []string{
+// "FTP",
+// "FTPS",
+// },
+// Certificate: aws_acm_certificate.Example.Arn,
+// IdentityProviderType: "API_GATEWAY",
+// Url: fmt.Sprintf("%v%v", aws_api_gateway_deployment.Example.Invoke_url, aws_api_gateway_resource.Example.Path),
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

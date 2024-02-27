@@ -106,13 +106,13 @@ class ConnectionAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_connection = aws.directconnect.Connection("exampleConnection",
-            bandwidth="1Gbps",
-            location="EqSe2-EQ")
-        example_link_aggregation_group = aws.directconnect.LinkAggregationGroup("exampleLinkAggregationGroup",
-            connections_bandwidth="1Gbps",
-            location="EqSe2-EQ")
-        example_connection_association = aws.directconnect.ConnectionAssociation("exampleConnectionAssociation",
+        example_connection = aws.directconnect.connection.Connection("exampleConnection",
+            bandwidth=1Gbps,
+            location=EqSe2-EQ)
+        example_link_aggregation_group = aws.directconnect.link_aggregation_group.LinkAggregationGroup("exampleLinkAggregationGroup",
+            connections_bandwidth=1Gbps,
+            location=EqSe2-EQ)
+        example_connection_association = aws.directconnect.connection_association.ConnectionAssociation("exampleConnectionAssociation",
             connection_id=example_connection.id,
             lag_id=example_link_aggregation_group.id)
         ```
@@ -137,13 +137,13 @@ class ConnectionAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_connection = aws.directconnect.Connection("exampleConnection",
-            bandwidth="1Gbps",
-            location="EqSe2-EQ")
-        example_link_aggregation_group = aws.directconnect.LinkAggregationGroup("exampleLinkAggregationGroup",
-            connections_bandwidth="1Gbps",
-            location="EqSe2-EQ")
-        example_connection_association = aws.directconnect.ConnectionAssociation("exampleConnectionAssociation",
+        example_connection = aws.directconnect.connection.Connection("exampleConnection",
+            bandwidth=1Gbps,
+            location=EqSe2-EQ)
+        example_link_aggregation_group = aws.directconnect.link_aggregation_group.LinkAggregationGroup("exampleLinkAggregationGroup",
+            connections_bandwidth=1Gbps,
+            location=EqSe2-EQ)
+        example_connection_association = aws.directconnect.connection_association.ConnectionAssociation("exampleConnectionAssociation",
             connection_id=example_connection.id,
             lag_id=example_link_aggregation_group.id)
         ```

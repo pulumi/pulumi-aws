@@ -22,9 +22,9 @@ namespace Pulumi.Aws.Macie2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleAccount = new Aws.Macie2.Account("exampleAccount");
+    ///     var exampleAccount = new Aws.Macie2.Account.Account("exampleAccount");
     /// 
-    ///     var exampleMember = new Aws.Macie2.Member("exampleMember", new()
+    ///     var exampleMember = new Aws.Macie2.Member.Member("exampleMember", new()
     ///     {
     ///         AccountId = "AWS ACCOUNT ID",
     ///         Email = "EMAIL",

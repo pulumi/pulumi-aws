@@ -18,19 +18,19 @@ import {RestApi} from "./index";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const myDemoAPI = new aws.apigateway.RestApi("myDemoAPI", {description: "This is my API for demonstration purposes"});
- * const myDemoResource = new aws.apigateway.Resource("myDemoResource", {
+ * const myDemoAPI = new aws.apigateway/restApi.RestApi("myDemoAPI", {description: "This is my API for demonstration purposes"});
+ * const myDemoResource = new aws.apigateway/resource.Resource("myDemoResource", {
  *     restApi: myDemoAPI.id,
  *     parentId: myDemoAPI.rootResourceId,
  *     pathPart: "mydemoresource",
  * });
- * const myDemoMethod = new aws.apigateway.Method("myDemoMethod", {
+ * const myDemoMethod = new aws.apigateway/method.Method("myDemoMethod", {
  *     restApi: myDemoAPI.id,
  *     resourceId: myDemoResource.id,
  *     httpMethod: "GET",
  *     authorization: "NONE",
  * });
- * const myDemoIntegration = new aws.apigateway.Integration("myDemoIntegration", {
+ * const myDemoIntegration = new aws.apigateway/integration.Integration("myDemoIntegration", {
  *     restApi: myDemoAPI.id,
  *     resourceId: myDemoResource.id,
  *     httpMethod: myDemoMethod.httpMethod,
@@ -49,59 +49,56 @@ import {RestApi} from "./index";
  *     },
  * });
  * ```
- * ## Lambda integration
+ * ## VPC Link
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const config = new pulumi.Config();
- * const myregion = config.requireObject("myregion");
- * const accountId = config.requireObject("accountId");
- * // API Gateway
- * const api = new aws.apigateway.RestApi("api", {});
- * const resource = new aws.apigateway.Resource("resource", {
- *     pathPart: "resource",
- *     parentId: api.rootResourceId,
- *     restApi: api.id,
+ * const name = config.requireObject("name");
+ * const subnetId = config.requireObject("subnetId");
+ * const testLoadBalancer = new aws.lb/loadBalancer.LoadBalancer("testLoadBalancer", {
+ *     internal: true,
+ *     loadBalancerType: "network",
+ *     subnets: [subnetId],
  * });
- * const method = new aws.apigateway.Method("method", {
- *     restApi: api.id,
- *     resourceId: resource.id,
+ * const testVpcLink = new aws.apigateway/vpcLink.VpcLink("testVpcLink", {targetArn: [testLoadBalancer.arn]});
+ * const testRestApi = new aws.apigateway/restApi.RestApi("testRestApi", {});
+ * const testResource = new aws.apigateway/resource.Resource("testResource", {
+ *     restApi: testRestApi.id,
+ *     parentId: testRestApi.rootResourceId,
+ *     pathPart: "test",
+ * });
+ * const testMethod = new aws.apigateway/method.Method("testMethod", {
+ *     restApi: testRestApi.id,
+ *     resourceId: testResource.id,
  *     httpMethod: "GET",
  *     authorization: "NONE",
+ *     requestModels: {
+ *         "application/json": "Error",
+ *     },
  * });
- * const assumeRole = aws.iam.getPolicyDocument({
- *     statements: [{
- *         effect: "Allow",
- *         principals: [{
- *             type: "Service",
- *             identifiers: ["lambda.amazonaws.com"],
- *         }],
- *         actions: ["sts:AssumeRole"],
- *     }],
- * });
- * const role = new aws.iam.Role("role", {assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json)});
- * const lambda = new aws.lambda.Function("lambda", {
- *     code: new pulumi.asset.FileArchive("lambda.zip"),
- *     role: role.arn,
- *     handler: "lambda.lambda_handler",
- *     runtime: "python3.7",
- * });
- * const integration = new aws.apigateway.Integration("integration", {
- *     restApi: api.id,
- *     resourceId: resource.id,
- *     httpMethod: method.httpMethod,
- *     integrationHttpMethod: "POST",
- *     type: "AWS_PROXY",
- *     uri: lambda.invokeArn,
- * });
- * // Lambda
- * const apigwLambda = new aws.lambda.Permission("apigwLambda", {
- *     action: "lambda:InvokeFunction",
- *     "function": lambda.name,
- *     principal: "apigateway.amazonaws.com",
- *     sourceArn: pulumi.interpolate`arn:aws:execute-api:${myregion}:${accountId}:${api.id}/*&#47;${method.httpMethod}${resource.path}`,
+ * const testIntegration = new aws.apigateway/integration.Integration("testIntegration", {
+ *     restApi: testRestApi.id,
+ *     resourceId: testResource.id,
+ *     httpMethod: testMethod.httpMethod,
+ *     requestTemplates: {
+ *         "application/json": "",
+ *         "application/xml": `#set($inputRoot = $input.path('$'))
+ * { }`,
+ *     },
+ *     requestParameters: {
+ *         "integration.request.header.X-Authorization": "'static'",
+ *         "integration.request.header.X-Foo": "'Bar'",
+ *     },
+ *     type: "HTTP",
+ *     uri: "https://www.google.de",
+ *     integrationHttpMethod: "GET",
+ *     passthroughBehavior: "WHEN_NO_MATCH",
+ *     contentHandling: "CONVERT_TO_TEXT",
+ *     connectionType: "VPC_LINK",
+ *     connectionId: testVpcLink.id,
  * });
  * ```
  *

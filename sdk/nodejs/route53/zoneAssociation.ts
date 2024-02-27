@@ -17,20 +17,20 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const primary = new aws.ec2.Vpc("primary", {
+ * const primary = new aws.ec2/vpc.Vpc("primary", {
  *     cidrBlock: "10.6.0.0/16",
  *     enableDnsHostnames: true,
  *     enableDnsSupport: true,
  * });
- * const secondaryVpc = new aws.ec2.Vpc("secondaryVpc", {
+ * const secondaryVpc = new aws.ec2/vpc.Vpc("secondaryVpc", {
  *     cidrBlock: "10.7.0.0/16",
  *     enableDnsHostnames: true,
  *     enableDnsSupport: true,
  * });
- * const example = new aws.route53.Zone("example", {vpcs: [{
+ * const example = new aws.route53/zone.Zone("example", {vpcs: [{
  *     vpcId: primary.id,
  * }]});
- * const secondaryZoneAssociation = new aws.route53.ZoneAssociation("secondaryZoneAssociation", {
+ * const secondaryZoneAssociation = new aws.route53/zoneAssociation.ZoneAssociation("secondaryZoneAssociation", {
  *     zoneId: example.zoneId,
  *     vpcId: secondaryVpc.id,
  * });

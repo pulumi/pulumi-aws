@@ -223,34 +223,10 @@ class ConfigurationAggregator(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        account = aws.cfg.ConfigurationAggregator("account", account_aggregation_source=aws.cfg.ConfigurationAggregatorAccountAggregationSourceArgs(
-            account_ids=["123456789012"],
-            regions=["us-west-2"],
-        ))
-        ```
-        ### Organization Based Aggregation
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["config.amazonaws.com"],
-            )],
-            actions=["sts:AssumeRole"],
-        )])
-        organization_role = aws.iam.Role("organizationRole", assume_role_policy=assume_role.json)
-        organization_role_policy_attachment = aws.iam.RolePolicyAttachment("organizationRolePolicyAttachment",
-            role=organization_role.name,
-            policy_arn="arn:aws:iam::aws:policy/service-role/AWSConfigRoleForOrganizations")
-        organization_configuration_aggregator = aws.cfg.ConfigurationAggregator("organizationConfigurationAggregator", organization_aggregation_source=aws.cfg.ConfigurationAggregatorOrganizationAggregationSourceArgs(
-            all_regions=True,
-            role_arn=organization_role.arn,
-        ),
-        opts=pulumi.ResourceOptions(depends_on=[organization_role_policy_attachment]))
+        account = aws.cfg.configuration_aggregator.ConfigurationAggregator("account", account_aggregation_source={
+            accountIds: [123456789012],
+            regions: [us-west-2],
+        })
         ```
 
         ## Import
@@ -286,34 +262,10 @@ class ConfigurationAggregator(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        account = aws.cfg.ConfigurationAggregator("account", account_aggregation_source=aws.cfg.ConfigurationAggregatorAccountAggregationSourceArgs(
-            account_ids=["123456789012"],
-            regions=["us-west-2"],
-        ))
-        ```
-        ### Organization Based Aggregation
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["config.amazonaws.com"],
-            )],
-            actions=["sts:AssumeRole"],
-        )])
-        organization_role = aws.iam.Role("organizationRole", assume_role_policy=assume_role.json)
-        organization_role_policy_attachment = aws.iam.RolePolicyAttachment("organizationRolePolicyAttachment",
-            role=organization_role.name,
-            policy_arn="arn:aws:iam::aws:policy/service-role/AWSConfigRoleForOrganizations")
-        organization_configuration_aggregator = aws.cfg.ConfigurationAggregator("organizationConfigurationAggregator", organization_aggregation_source=aws.cfg.ConfigurationAggregatorOrganizationAggregationSourceArgs(
-            all_regions=True,
-            role_arn=organization_role.arn,
-        ),
-        opts=pulumi.ResourceOptions(depends_on=[organization_role_policy_attachment]))
+        account = aws.cfg.configuration_aggregator.ConfigurationAggregator("account", account_aggregation_source={
+            accountIds: [123456789012],
+            regions: [us-west-2],
+        })
         ```
 
         ## Import

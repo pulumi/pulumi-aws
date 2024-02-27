@@ -77,7 +77,7 @@ class OrganizationsAccess(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.servicecatalog.OrganizationsAccess("example", enabled=True)
+        example = aws.servicecatalog.organizations_access.OrganizationsAccess("example", enabled=true)
         ```
 
         :param str resource_name: The name of the resource.
@@ -102,7 +102,7 @@ class OrganizationsAccess(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.servicecatalog.OrganizationsAccess("example", enabled=True)
+        example = aws.servicecatalog.organizations_access.OrganizationsAccess("example", enabled=true)
         ```
 
         :param str resource_name: The name of the resource.

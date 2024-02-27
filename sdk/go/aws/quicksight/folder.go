@@ -22,23 +22,21 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/quicksight"
+//	quicksight/folder "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/quicksight/folder"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := quicksight.NewFolder(ctx, "example", &quicksight.FolderArgs{
-//				FolderId: pulumi.String("example-id"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := quicksight/folder.NewFolder(ctx, "example", &quicksight/folder.FolderArgs{
+// FolderId: "example-id",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### With Permissions
 //
@@ -47,38 +45,36 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/quicksight"
+//	quicksight/folder "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/quicksight/folder"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := quicksight.NewFolder(ctx, "example", &quicksight.FolderArgs{
-//				FolderId: pulumi.String("example-id"),
-//				Permissions: quicksight.FolderPermissionArray{
-//					&quicksight.FolderPermissionArgs{
-//						Actions: pulumi.StringArray{
-//							pulumi.String("quicksight:CreateFolder"),
-//							pulumi.String("quicksight:DescribeFolder"),
-//							pulumi.String("quicksight:UpdateFolder"),
-//							pulumi.String("quicksight:DeleteFolder"),
-//							pulumi.String("quicksight:CreateFolderMembership"),
-//							pulumi.String("quicksight:DeleteFolderMembership"),
-//							pulumi.String("quicksight:DescribeFolderPermissions"),
-//							pulumi.String("quicksight:UpdateFolderPermissions"),
-//						},
-//						Principal: pulumi.Any(aws_quicksight_user.Example.Arn),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := quicksight/folder.NewFolder(ctx, "example", &quicksight/folder.FolderArgs{
+// FolderId: "example-id",
+// Permissions: []map[string]interface{}{
+// map[string]interface{}{
+// "actions": []string{
+// "quicksight:CreateFolder",
+// "quicksight:DescribeFolder",
+// "quicksight:UpdateFolder",
+// "quicksight:DeleteFolder",
+// "quicksight:CreateFolderMembership",
+// "quicksight:DeleteFolderMembership",
+// "quicksight:DescribeFolderPermissions",
+// "quicksight:UpdateFolderPermissions",
+// },
+// "principal": aws_quicksight_user.Example.Arn,
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### With Parent Folder
 //
@@ -87,30 +83,28 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/quicksight"
+//	quicksight/folder "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/quicksight/folder"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			parent, err := quicksight.NewFolder(ctx, "parent", &quicksight.FolderArgs{
-//				FolderId: pulumi.String("parent-id"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = quicksight.NewFolder(ctx, "example", &quicksight.FolderArgs{
-//				FolderId:        pulumi.String("example-id"),
-//				ParentFolderArn: parent.Arn,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// parent, err := quicksight/folder.NewFolder(ctx, "parent", &quicksight/folder.FolderArgs{
+// FolderId: "parent-id",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = quicksight/folder.NewFolder(ctx, "example", &quicksight/folder.FolderArgs{
+// FolderId: "example-id",
+// ParentFolderArn: parent.Arn,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

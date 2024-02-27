@@ -20,11 +20,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const thisRule = new aws.cfg.Rule("thisRule", {source: {
+ * const thisRule = new aws.cfg/rule.Rule("thisRule", {source: {
  *     owner: "AWS",
  *     sourceIdentifier: "S3_BUCKET_VERSIONING_ENABLED",
  * }});
- * const thisRemediationConfiguration = new aws.cfg.RemediationConfiguration("thisRemediationConfiguration", {
+ * const thisRemediationConfiguration = new aws.cfg/remediationConfiguration.RemediationConfiguration("thisRemediationConfiguration", {
  *     configRuleName: thisRule.name,
  *     resourceType: "AWS::S3::Bucket",
  *     targetType: "SSM_DOCUMENT",

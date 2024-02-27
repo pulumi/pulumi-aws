@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const lb = new aws.elb.LoadBalancer("lb", {
+ * const lb = new aws.elb/loadBalancer.LoadBalancer("lb", {
  *     availabilityZones: ["us-east-1a"],
  *     listeners: [{
  *         instancePort: 8000,
@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  *         lbProtocol: "http",
  *     }],
  * });
- * const foo = new aws.elb.LoadBalancerCookieStickinessPolicy("foo", {
+ * const foo = new aws.elb/loadBalancerCookieStickinessPolicy.LoadBalancerCookieStickinessPolicy("foo", {
  *     loadBalancer: lb.id,
  *     lbPort: 80,
  *     cookieExpirationPeriod: 600,

@@ -50,7 +50,7 @@ import javax.annotation.Nullable;
  *             .port(80)
  *             .requestInterval(&#34;30&#34;)
  *             .resourcePath(&#34;/&#34;)
- *             .tags(Map.of(&#34;Name&#34;, &#34;tf-test-health-check&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .type(&#34;HTTP&#34;)
  *             .build());
  * 
@@ -118,7 +118,7 @@ import javax.annotation.Nullable;
  *             .type(&#34;CALCULATED&#34;)
  *             .childHealthThreshold(1)
  *             .childHealthchecks(aws_route53_health_check.child().id())
- *             .tags(Map.of(&#34;Name&#34;, &#34;tf-test-calculated-health-check&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

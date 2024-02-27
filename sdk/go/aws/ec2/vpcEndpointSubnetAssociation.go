@@ -29,24 +29,22 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	ec2/vpcEndpointSubnetAssociation "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/vpcEndpointSubnetAssociation"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.NewVpcEndpointSubnetAssociation(ctx, "snEc2", &ec2.VpcEndpointSubnetAssociationArgs{
-//				VpcEndpointId: pulumi.Any(aws_vpc_endpoint.Ec2.Id),
-//				SubnetId:      pulumi.Any(aws_subnet.Sn.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := ec2/vpcEndpointSubnetAssociation.NewVpcEndpointSubnetAssociation(ctx, "snEc2", &ec2/vpcEndpointSubnetAssociation.VpcEndpointSubnetAssociationArgs{
+// VpcEndpointId: aws_vpc_endpoint.Ec2.Id,
+// SubnetId: aws_subnet.Sn.Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

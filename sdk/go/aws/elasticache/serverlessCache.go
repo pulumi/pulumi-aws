@@ -22,49 +22,38 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/elasticache"
+//	elasticache/serverlessCache "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/elasticache/serverlessCache"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 // func main() {
 // pulumi.Run(func(ctx *pulumi.Context) error {
-// var splat0 []interface{}
-// for _, val0 := range aws_subnet.Test {
-// splat0 = append(splat0, val0.Id)
-// }
-// _, err := elasticache.NewServerlessCache(ctx, "example", &elasticache.ServerlessCacheArgs{
-// Engine: pulumi.String("memcached"),
-// CacheUsageLimits: &elasticache.ServerlessCacheCacheUsageLimitsArgs{
-// DataStorage: &elasticache.ServerlessCacheCacheUsageLimitsDataStorageArgs{
-// Maximum: pulumi.Int(10),
-// Unit: pulumi.String("GB"),
+// _, err := elasticache/serverlessCache.NewServerlessCache(ctx, "example", &elasticache/serverlessCache.ServerlessCacheArgs{
+// Engine: "memcached",
+// CacheUsageLimits: map[string]interface{}{
+// "dataStorage": map[string]interface{}{
+// "maximum": 10,
+// "unit": "GB",
 // },
-// EcpuPerSeconds: elasticache.ServerlessCacheCacheUsageLimitsEcpuPerSecondArray{
-// &elasticache.ServerlessCacheCacheUsageLimitsEcpuPerSecondArgs{
-// Maximum: pulumi.Int(5),
+// "ecpuPerSeconds": []map[string]interface{}{
+// map[string]interface{}{
+// "maximum": 5,
 // },
 // },
 // },
-// Description: pulumi.String("Test Server"),
-// KmsKeyId: pulumi.Any(aws_kms_key.Test.Arn),
-// MajorEngineVersion: pulumi.String("1.6"),
-// SecurityGroupIds: pulumi.StringArray{
+// Description: "Test Server",
+// KmsKeyId: aws_kms_key.Test.Arn,
+// MajorEngineVersion: "1.6",
+// SecurityGroupIds: []interface{}{
 // aws_security_group.Test.Id,
 // },
-// SubnetIds: toPulumiArray(splat0),
+// SubnetIds: %!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ #-resources-aws:elasticache-serverlessCache:ServerlessCache.pp:15,25-46),
 // })
 // if err != nil {
 // return err
 // }
 // return nil
 // })
-// }
-// func toPulumiArray(arr []) pulumi.Array {
-// var pulumiArr pulumi.Array
-// for _, v := range arr {
-// pulumiArr = append(pulumiArr, pulumi.(v))
-// }
-// return pulumiArr
 // }
 // ```
 // ### Redis Serverless
@@ -74,51 +63,40 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/elasticache"
+//	elasticache/serverlessCache "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/elasticache/serverlessCache"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 // func main() {
 // pulumi.Run(func(ctx *pulumi.Context) error {
-// var splat0 []interface{}
-// for _, val0 := range aws_subnet.Test {
-// splat0 = append(splat0, val0.Id)
-// }
-// _, err := elasticache.NewServerlessCache(ctx, "example", &elasticache.ServerlessCacheArgs{
-// Engine: pulumi.String("redis"),
-// CacheUsageLimits: &elasticache.ServerlessCacheCacheUsageLimitsArgs{
-// DataStorage: &elasticache.ServerlessCacheCacheUsageLimitsDataStorageArgs{
-// Maximum: pulumi.Int(10),
-// Unit: pulumi.String("GB"),
+// _, err := elasticache/serverlessCache.NewServerlessCache(ctx, "example", &elasticache/serverlessCache.ServerlessCacheArgs{
+// Engine: "redis",
+// CacheUsageLimits: map[string]interface{}{
+// "dataStorage": map[string]interface{}{
+// "maximum": 10,
+// "unit": "GB",
 // },
-// EcpuPerSeconds: elasticache.ServerlessCacheCacheUsageLimitsEcpuPerSecondArray{
-// &elasticache.ServerlessCacheCacheUsageLimitsEcpuPerSecondArgs{
-// Maximum: pulumi.Int(5),
+// "ecpuPerSeconds": []map[string]interface{}{
+// map[string]interface{}{
+// "maximum": 5,
 // },
 // },
 // },
-// DailySnapshotTime: pulumi.String("09:00"),
-// Description: pulumi.String("Test Server"),
-// KmsKeyId: pulumi.Any(aws_kms_key.Test.Arn),
-// MajorEngineVersion: pulumi.String("7"),
-// SnapshotRetentionLimit: pulumi.Int(1),
-// SecurityGroupIds: pulumi.StringArray{
+// DailySnapshotTime: "09:00",
+// Description: "Test Server",
+// KmsKeyId: aws_kms_key.Test.Arn,
+// MajorEngineVersion: "7",
+// SnapshotRetentionLimit: 1,
+// SecurityGroupIds: []interface{}{
 // aws_security_group.Test.Id,
 // },
-// SubnetIds: toPulumiArray(splat0),
+// SubnetIds: %!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ #-resources-aws:elasticache-serverlessCache:ServerlessCache.pp:17,29-50),
 // })
 // if err != nil {
 // return err
 // }
 // return nil
 // })
-// }
-// func toPulumiArray(arr []) pulumi.Array {
-// var pulumiArr pulumi.Array
-// for _, v := range arr {
-// pulumiArr = append(pulumiArr, pulumi.(v))
-// }
-// return pulumiArr
 // }
 // ```
 //

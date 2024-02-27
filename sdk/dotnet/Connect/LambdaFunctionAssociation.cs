@@ -23,7 +23,7 @@ namespace Pulumi.Aws.Connect
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Connect.LambdaFunctionAssociation("example", new()
+    ///     var example = new Aws.Connect.LambdaFunctionAssociation.LambdaFunctionAssociation("example", new()
     ///     {
     ///         FunctionArn = aws_lambda_function.Example.Arn,
     ///         InstanceId = aws_connect_instance.Example.Id,

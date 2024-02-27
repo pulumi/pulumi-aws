@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Mq
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Mq.Configuration("example", new()
+    ///     var example = new Aws.Mq.Configuration.Configuration("example", new()
     ///     {
     ///         Data = @"&lt;?xml version=""1.0"" encoding=""UTF-8"" standalone=""yes""?&gt;
     /// &lt;broker xmlns=""http://activemq.apache.org/schema/core""&gt;
@@ -54,7 +54,7 @@ namespace Pulumi.Aws.Mq
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Mq.Configuration("example", new()
+    ///     var example = new Aws.Mq.Configuration.Configuration("example", new()
     ///     {
     ///         Data = @"# Default RabbitMQ delivery acknowledgement timeout is 30 minutes in milliseconds
     /// consumer_timeout = 1800000

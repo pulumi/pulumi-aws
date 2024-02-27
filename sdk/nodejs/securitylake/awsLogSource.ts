@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = new aws.securitylake.AwsLogSource("test", {source: {
+ * const test = new aws.securitylake/awsLogSource.AwsLogSource("test", {source: {
  *     accounts: ["123456789012"],
  *     regions: ["eu-west-1"],
  *     sourceName: "ROUTE53",

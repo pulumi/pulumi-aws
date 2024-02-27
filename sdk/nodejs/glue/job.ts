@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.glue.Job("example", {
+ * const example = new aws.glue/job.Job("example", {
  *     roleArn: aws_iam_role.example.arn,
  *     command: {
  *         scriptLocation: `s3://${aws_s3_bucket.example.bucket}/example.py`,
@@ -32,7 +32,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.glue.Job("example", {
+ * const example = new aws.glue/job.Job("example", {
  *     roleArn: aws_iam_role.example.arn,
  *     glueVersion: "4.0",
  *     workerType: "Z.2X",
@@ -50,7 +50,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.glue.Job("example", {
+ * const example = new aws.glue/job.Job("example", {
  *     roleArn: aws_iam_role.example.arn,
  *     command: {
  *         scriptLocation: `s3://${aws_s3_bucket.example.bucket}/example.scala`,
@@ -66,7 +66,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.glue.Job("example", {
+ * const example = new aws.glue/job.Job("example", {
  *     roleArn: aws_iam_role.example.arn,
  *     command: {
  *         name: "gluestreaming",
@@ -80,9 +80,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleLogGroup = new aws.cloudwatch.LogGroup("exampleLogGroup", {retentionInDays: 14});
+ * const exampleLogGroup = new aws.cloudwatch/logGroup.LogGroup("exampleLogGroup", {retentionInDays: 14});
  * // ... other configuration ...
- * const exampleJob = new aws.glue.Job("exampleJob", {defaultArguments: {
+ * const exampleJob = new aws.glue/job.Job("exampleJob", {defaultArguments: {
  *     "--continuous-log-logGroup": exampleLogGroup.name,
  *     "--enable-continuous-cloudwatch-log": "true",
  *     "--enable-continuous-log-filter": "true",

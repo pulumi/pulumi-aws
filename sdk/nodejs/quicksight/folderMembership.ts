@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.quicksight.FolderMembership("example", {
+ * const example = new aws.quicksight/folderMembership.FolderMembership("example", {
  *     folderId: aws_quicksight_folder.example.folder_id,
  *     memberType: "DATASET",
  *     memberId: aws_quicksight_data_set.example.data_set_id,

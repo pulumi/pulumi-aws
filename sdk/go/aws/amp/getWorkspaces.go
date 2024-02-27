@@ -12,59 +12,6 @@ import (
 )
 
 // Provides the aliases, ARNs, and workspace IDs of Amazon Prometheus workspaces.
-//
-// ## Example Usage
-//
-// The following example returns all of the workspaces in a region:
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/amp"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := amp.GetWorkspaces(ctx, nil, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// The following example filters the workspaces by alias. Only the workspaces with
-// aliases that begin with the value of `aliasPrefix` will be returned:
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/amp"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := amp.GetWorkspaces(ctx, &amp.GetWorkspacesArgs{
-//				AliasPrefix: pulumi.StringRef("example"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetWorkspaces(ctx *pulumi.Context, args *GetWorkspacesArgs, opts ...pulumi.InvokeOption) (*GetWorkspacesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetWorkspacesResult

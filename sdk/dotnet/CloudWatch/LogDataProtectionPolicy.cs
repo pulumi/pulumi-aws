@@ -25,14 +25,14 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleLogGroup = new Aws.CloudWatch.LogGroup("exampleLogGroup");
+    ///     var exampleLogGroup = new Aws.Cloudwatch.LogGroup.LogGroup("exampleLogGroup");
     /// 
-    ///     var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2");
+    ///     var exampleBucketV2 = new Aws.S3.BucketV2.BucketV2("exampleBucketV2");
     /// 
-    ///     var exampleLogDataProtectionPolicy = new Aws.CloudWatch.LogDataProtectionPolicy("exampleLogDataProtectionPolicy", new()
+    ///     var exampleLogDataProtectionPolicy = new Aws.Cloudwatch.LogDataProtectionPolicy.LogDataProtectionPolicy("exampleLogDataProtectionPolicy", new()
     ///     {
     ///         LogGroupName = exampleLogGroup.Name,
-    ///         PolicyDocument = exampleBucketV2.Bucket.Apply(bucket =&gt; JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///         PolicyDocument = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
     ///             ["Name"] = "Example",
     ///             ["Version"] = "2021-06-01",
@@ -53,7 +53,7 @@ namespace Pulumi.Aws.CloudWatch
     ///                             {
     ///                                 ["S3"] = new Dictionary&lt;string, object?&gt;
     ///                                 {
-    ///                                     ["Bucket"] = bucket,
+    ///                                     ["Bucket"] = exampleBucketV2.Bucket,
     ///                                 },
     ///                             },
     ///                         },
@@ -77,7 +77,7 @@ namespace Pulumi.Aws.CloudWatch
     ///                     },
     ///                 },
     ///             },
-    ///         })),
+    ///         }),
     ///     });
     /// 
     /// });

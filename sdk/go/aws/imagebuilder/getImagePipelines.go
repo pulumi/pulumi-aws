@@ -12,39 +12,6 @@ import (
 )
 
 // Use this data source to get the ARNs and names of Image Builder Image Pipelines matching the specified criteria.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/imagebuilder"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := imagebuilder.GetImagePipelines(ctx, &imagebuilder.GetImagePipelinesArgs{
-//				Filters: []imagebuilder.GetImagePipelinesFilter{
-//					{
-//						Name: "name",
-//						Values: []string{
-//							"example",
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetImagePipelines(ctx *pulumi.Context, args *GetImagePipelinesArgs, opts ...pulumi.InvokeOption) (*GetImagePipelinesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetImagePipelinesResult

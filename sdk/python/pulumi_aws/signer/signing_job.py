@@ -397,22 +397,22 @@ class SigningJob(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_sp = aws.signer.SigningProfile("testSp", platform_id="AWSLambda-SHA384-ECDSA")
-        build_signing_job = aws.signer.SigningJob("buildSigningJob",
+        test_sp = aws.signer.signing_profile.SigningProfile("testSp", platform_id=AWSLambda-SHA384-ECDSA)
+        build_signing_job = aws.signer.signing_job.SigningJob("buildSigningJob",
             profile_name=test_sp.name,
-            source=aws.signer.SigningJobSourceArgs(
-                s3=aws.signer.SigningJobSourceS3Args(
-                    bucket="s3-bucket-name",
-                    key="object-to-be-signed.zip",
-                    version="jADjFYYYEXAMPLETszPjOmCMFDzd9dN1",
-                ),
-            ),
-            destination=aws.signer.SigningJobDestinationArgs(
-                s3=aws.signer.SigningJobDestinationS3Args(
-                    bucket="s3-bucket-name",
-                    prefix="signed/",
-                ),
-            ),
+            source={
+                s3: {
+                    bucket: s3-bucket-name,
+                    key: object-to-be-signed.zip,
+                    version: jADjFYYYEXAMPLETszPjOmCMFDzd9dN1,
+                },
+            },
+            destination={
+                s3: {
+                    bucket: s3-bucket-name,
+                    prefix: signed/,
+                },
+            },
             ignore_signing_job_failure=True)
         ```
 
@@ -446,22 +446,22 @@ class SigningJob(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_sp = aws.signer.SigningProfile("testSp", platform_id="AWSLambda-SHA384-ECDSA")
-        build_signing_job = aws.signer.SigningJob("buildSigningJob",
+        test_sp = aws.signer.signing_profile.SigningProfile("testSp", platform_id=AWSLambda-SHA384-ECDSA)
+        build_signing_job = aws.signer.signing_job.SigningJob("buildSigningJob",
             profile_name=test_sp.name,
-            source=aws.signer.SigningJobSourceArgs(
-                s3=aws.signer.SigningJobSourceS3Args(
-                    bucket="s3-bucket-name",
-                    key="object-to-be-signed.zip",
-                    version="jADjFYYYEXAMPLETszPjOmCMFDzd9dN1",
-                ),
-            ),
-            destination=aws.signer.SigningJobDestinationArgs(
-                s3=aws.signer.SigningJobDestinationS3Args(
-                    bucket="s3-bucket-name",
-                    prefix="signed/",
-                ),
-            ),
+            source={
+                s3: {
+                    bucket: s3-bucket-name,
+                    key: object-to-be-signed.zip,
+                    version: jADjFYYYEXAMPLETszPjOmCMFDzd9dN1,
+                },
+            },
+            destination={
+                s3: {
+                    bucket: s3-bucket-name,
+                    prefix: signed/,
+                },
+            },
             ignore_signing_job_failure=True)
         ```
 

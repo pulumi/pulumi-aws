@@ -21,62 +21,62 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/servicediscovery"
+//	ec2/vpc "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/vpc"
+//	servicediscovery/instance "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/servicediscovery/instance"
+//	servicediscovery/privateDnsNamespace "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/servicediscovery/privateDnsNamespace"
+//	servicediscovery/service "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/servicediscovery/service"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleVpc, err := ec2.NewVpc(ctx, "exampleVpc", &ec2.VpcArgs{
-//				CidrBlock:          pulumi.String("10.0.0.0/16"),
-//				EnableDnsSupport:   pulumi.Bool(true),
-//				EnableDnsHostnames: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			examplePrivateDnsNamespace, err := servicediscovery.NewPrivateDnsNamespace(ctx, "examplePrivateDnsNamespace", &servicediscovery.PrivateDnsNamespaceArgs{
-//				Description: pulumi.String("example"),
-//				Vpc:         exampleVpc.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleService, err := servicediscovery.NewService(ctx, "exampleService", &servicediscovery.ServiceArgs{
-//				DnsConfig: &servicediscovery.ServiceDnsConfigArgs{
-//					NamespaceId: examplePrivateDnsNamespace.ID(),
-//					DnsRecords: servicediscovery.ServiceDnsConfigDnsRecordArray{
-//						&servicediscovery.ServiceDnsConfigDnsRecordArgs{
-//							Ttl:  pulumi.Int(10),
-//							Type: pulumi.String("A"),
-//						},
-//					},
-//					RoutingPolicy: pulumi.String("MULTIVALUE"),
-//				},
-//				HealthCheckCustomConfig: &servicediscovery.ServiceHealthCheckCustomConfigArgs{
-//					FailureThreshold: pulumi.Int(1),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = servicediscovery.NewInstance(ctx, "exampleInstance", &servicediscovery.InstanceArgs{
-//				InstanceId: pulumi.String("example-instance-id"),
-//				ServiceId:  exampleService.ID(),
-//				Attributes: pulumi.StringMap{
-//					"AWS_INSTANCE_IPV4": pulumi.String("172.18.0.1"),
-//					"custom_attribute":  pulumi.String("custom"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleVpc, err := ec2/vpc.NewVpc(ctx, "exampleVpc", &ec2/vpc.VpcArgs{
+// CidrBlock: "10.0.0.0/16",
+// EnableDnsSupport: true,
+// EnableDnsHostnames: true,
+// })
+// if err != nil {
+// return err
+// }
+// examplePrivateDnsNamespace, err := servicediscovery/privateDnsNamespace.NewPrivateDnsNamespace(ctx, "examplePrivateDnsNamespace", &servicediscovery/privateDnsNamespace.PrivateDnsNamespaceArgs{
+// Description: "example",
+// Vpc: exampleVpc.Id,
+// })
+// if err != nil {
+// return err
+// }
+// exampleService, err := servicediscovery/service.NewService(ctx, "exampleService", &servicediscovery/service.ServiceArgs{
+// DnsConfig: map[string]interface{}{
+// "namespaceId": examplePrivateDnsNamespace.Id,
+// "dnsRecords": []map[string]interface{}{
+// map[string]interface{}{
+// "ttl": 10,
+// "type": "A",
+// },
+// },
+// "routingPolicy": "MULTIVALUE",
+// },
+// HealthCheckCustomConfig: map[string]interface{}{
+// "failureThreshold": 1,
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = servicediscovery/instance.NewInstance(ctx, "exampleInstance", &servicediscovery/instance.InstanceArgs{
+// InstanceId: "example-instance-id",
+// ServiceId: exampleService.Id,
+// Attributes: map[string]interface{}{
+// "AWS_INSTANCE_IPV4": "172.18.0.1",
+// "custom_attribute": "custom",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ```go
@@ -84,39 +84,39 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/servicediscovery"
+//	servicediscovery/httpNamespace "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/servicediscovery/httpNamespace"
+//	servicediscovery/instance "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/servicediscovery/instance"
+//	servicediscovery/service "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/servicediscovery/service"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleHttpNamespace, err := servicediscovery.NewHttpNamespace(ctx, "exampleHttpNamespace", &servicediscovery.HttpNamespaceArgs{
-//				Description: pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleService, err := servicediscovery.NewService(ctx, "exampleService", &servicediscovery.ServiceArgs{
-//				NamespaceId: exampleHttpNamespace.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = servicediscovery.NewInstance(ctx, "exampleInstance", &servicediscovery.InstanceArgs{
-//				InstanceId: pulumi.String("example-instance-id"),
-//				ServiceId:  exampleService.ID(),
-//				Attributes: pulumi.StringMap{
-//					"AWS_EC2_INSTANCE_ID": pulumi.String("i-0abdg374kd892cj6dl"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleHttpNamespace, err := servicediscovery/httpNamespace.NewHttpNamespace(ctx, "exampleHttpNamespace", &servicediscovery/httpNamespace.HttpNamespaceArgs{
+// Description: "example",
+// })
+// if err != nil {
+// return err
+// }
+// exampleService, err := servicediscovery/service.NewService(ctx, "exampleService", &servicediscovery/service.ServiceArgs{
+// NamespaceId: exampleHttpNamespace.Id,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = servicediscovery/instance.NewInstance(ctx, "exampleInstance", &servicediscovery/instance.InstanceArgs{
+// InstanceId: "example-instance-id",
+// ServiceId: exampleService.Id,
+// Attributes: map[string]interface{}{
+// "AWS_EC2_INSTANCE_ID": "i-0abdg374kd892cj6dl",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

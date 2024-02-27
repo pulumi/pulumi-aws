@@ -23,82 +23,18 @@ namespace Pulumi.Aws.Cfg
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var account = new Aws.Cfg.ConfigurationAggregator("account", new()
+    ///     var account = new Aws.Cfg.ConfigurationAggregator.ConfigurationAggregator("account", new()
     ///     {
-    ///         AccountAggregationSource = new Aws.Cfg.Inputs.ConfigurationAggregatorAccountAggregationSourceArgs
+    ///         AccountAggregationSource = 
     ///         {
-    ///             AccountIds = new[]
+    ///             { "accountIds", new[]
     ///             {
     ///                 "123456789012",
-    ///             },
-    ///             Regions = new[]
+    ///             } },
+    ///             { "regions", new[]
     ///             {
     ///                 "us-west-2",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### Organization Based Aggregation
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var assumeRole = Aws.Iam.GetPolicyDocument.Invoke(new()
-    ///     {
-    ///         Statements = new[]
-    ///         {
-    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
-    ///             {
-    ///                 Effect = "Allow",
-    ///                 Principals = new[]
-    ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
-    ///                     {
-    ///                         Type = "Service",
-    ///                         Identifiers = new[]
-    ///                         {
-    ///                             "config.amazonaws.com",
-    ///                         },
-    ///                     },
-    ///                 },
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "sts:AssumeRole",
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var organizationRole = new Aws.Iam.Role("organizationRole", new()
-    ///     {
-    ///         AssumeRolePolicy = assumeRole.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
-    ///     });
-    /// 
-    ///     var organizationRolePolicyAttachment = new Aws.Iam.RolePolicyAttachment("organizationRolePolicyAttachment", new()
-    ///     {
-    ///         Role = organizationRole.Name,
-    ///         PolicyArn = "arn:aws:iam::aws:policy/service-role/AWSConfigRoleForOrganizations",
-    ///     });
-    /// 
-    ///     var organizationConfigurationAggregator = new Aws.Cfg.ConfigurationAggregator("organizationConfigurationAggregator", new()
-    ///     {
-    ///         OrganizationAggregationSource = new Aws.Cfg.Inputs.ConfigurationAggregatorOrganizationAggregationSourceArgs
-    ///         {
-    ///             AllRegions = true,
-    ///             RoleArn = organizationRole.Arn,
-    ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             organizationRolePolicyAttachment,
+    ///             } },
     ///         },
     ///     });
     /// 

@@ -20,72 +20,12 @@ public final class DatapipelineFunctions {
     /**
      * Provides details about a specific DataPipeline Pipeline.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.datapipeline.DatapipelineFunctions;
-     * import com.pulumi.aws.datapipeline.inputs.GetPipelineArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = DatapipelineFunctions.getPipeline(GetPipelineArgs.builder()
-     *             .pipelineId(&#34;pipelineID&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetPipelineResult> getPipeline(GetPipelineArgs args) {
         return getPipeline(args, InvokeOptions.Empty);
     }
     /**
      * Provides details about a specific DataPipeline Pipeline.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.datapipeline.DatapipelineFunctions;
-     * import com.pulumi.aws.datapipeline.inputs.GetPipelineArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = DatapipelineFunctions.getPipeline(GetPipelineArgs.builder()
-     *             .pipelineId(&#34;pipelineID&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetPipelineResult> getPipelinePlain(GetPipelinePlainArgs args) {
@@ -94,72 +34,12 @@ public final class DatapipelineFunctions {
     /**
      * Provides details about a specific DataPipeline Pipeline.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.datapipeline.DatapipelineFunctions;
-     * import com.pulumi.aws.datapipeline.inputs.GetPipelineArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = DatapipelineFunctions.getPipeline(GetPipelineArgs.builder()
-     *             .pipelineId(&#34;pipelineID&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetPipelineResult> getPipeline(GetPipelineArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:datapipeline/getPipeline:getPipeline", TypeShape.of(GetPipelineResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Provides details about a specific DataPipeline Pipeline.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.datapipeline.DatapipelineFunctions;
-     * import com.pulumi.aws.datapipeline.inputs.GetPipelineArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = DatapipelineFunctions.getPipeline(GetPipelineArgs.builder()
-     *             .pipelineId(&#34;pipelineID&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetPipelineResult> getPipelinePlain(GetPipelinePlainArgs args, InvokeOptions options) {
@@ -168,72 +48,12 @@ public final class DatapipelineFunctions {
     /**
      * Provides details about a specific DataPipeline Pipeline Definition.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.datapipeline.DatapipelineFunctions;
-     * import com.pulumi.aws.datapipeline.inputs.GetPipelineDefinitionArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = DatapipelineFunctions.getPipelineDefinition(GetPipelineDefinitionArgs.builder()
-     *             .pipelineId(&#34;pipelineID&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetPipelineDefinitionResult> getPipelineDefinition(GetPipelineDefinitionArgs args) {
         return getPipelineDefinition(args, InvokeOptions.Empty);
     }
     /**
      * Provides details about a specific DataPipeline Pipeline Definition.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.datapipeline.DatapipelineFunctions;
-     * import com.pulumi.aws.datapipeline.inputs.GetPipelineDefinitionArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = DatapipelineFunctions.getPipelineDefinition(GetPipelineDefinitionArgs.builder()
-     *             .pipelineId(&#34;pipelineID&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetPipelineDefinitionResult> getPipelineDefinitionPlain(GetPipelineDefinitionPlainArgs args) {
@@ -242,72 +62,12 @@ public final class DatapipelineFunctions {
     /**
      * Provides details about a specific DataPipeline Pipeline Definition.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.datapipeline.DatapipelineFunctions;
-     * import com.pulumi.aws.datapipeline.inputs.GetPipelineDefinitionArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = DatapipelineFunctions.getPipelineDefinition(GetPipelineDefinitionArgs.builder()
-     *             .pipelineId(&#34;pipelineID&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetPipelineDefinitionResult> getPipelineDefinition(GetPipelineDefinitionArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:datapipeline/getPipelineDefinition:getPipelineDefinition", TypeShape.of(GetPipelineDefinitionResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Provides details about a specific DataPipeline Pipeline Definition.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.datapipeline.DatapipelineFunctions;
-     * import com.pulumi.aws.datapipeline.inputs.GetPipelineDefinitionArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = DatapipelineFunctions.getPipelineDefinition(GetPipelineDefinitionArgs.builder()
-     *             .pipelineId(&#34;pipelineID&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetPipelineDefinitionResult> getPipelineDefinitionPlain(GetPipelineDefinitionPlainArgs args, InvokeOptions options) {

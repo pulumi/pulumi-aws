@@ -22,32 +22,32 @@ namespace Pulumi.Aws.Chime
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var defaultVoiceConnector = new Aws.Chime.VoiceConnector("defaultVoiceConnector", new()
+    ///     var defaultVoiceConnector = new Aws.Chime.VoiceConnector.VoiceConnector("defaultVoiceConnector", new()
     ///     {
     ///         RequireEncryption = true,
     ///     });
     /// 
-    ///     var defaultVoiceConnectorOrganization = new Aws.Chime.VoiceConnectorOrganization("defaultVoiceConnectorOrganization", new()
+    ///     var defaultVoiceConnectorOrganization = new Aws.Chime.VoiceConnectorOrganization.VoiceConnectorOrganization("defaultVoiceConnectorOrganization", new()
     ///     {
     ///         Disabled = false,
     ///         VoiceConnectorId = defaultVoiceConnector.Id,
     ///         Routes = new[]
     ///         {
-    ///             new Aws.Chime.Inputs.VoiceConnectorOrganizationRouteArgs
+    ///             
     ///             {
-    ///                 Host = "127.0.0.1",
-    ///                 Port = 8081,
-    ///                 Protocol = "TCP",
-    ///                 Priority = 1,
-    ///                 Weight = 1,
+    ///                 { "host", "127.0.0.1" },
+    ///                 { "port", 8081 },
+    ///                 { "protocol", "TCP" },
+    ///                 { "priority", 1 },
+    ///                 { "weight", 1 },
     ///             },
-    ///             new Aws.Chime.Inputs.VoiceConnectorOrganizationRouteArgs
+    ///             
     ///             {
-    ///                 Host = "127.0.0.2",
-    ///                 Port = 8082,
-    ///                 Protocol = "TCP",
-    ///                 Priority = 2,
-    ///                 Weight = 10,
+    ///                 { "host", "127.0.0.2" },
+    ///                 { "port", 8082 },
+    ///                 { "protocol", "TCP" },
+    ///                 { "priority", 2 },
+    ///                 { "weight", 10 },
     ///             },
     ///         },
     ///     });

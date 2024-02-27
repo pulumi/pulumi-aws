@@ -23,7 +23,7 @@ namespace Pulumi.Aws.Iam
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var @default = new Aws.Iam.SamlProvider("default", new()
+    ///     var @default = new Aws.Iam.SamlProvider.SamlProvider("default", new()
     ///     {
     ///         SamlMetadataDocument = File.ReadAllText("saml-metadata.xml"),
     ///     });

@@ -30,10 +30,10 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.ec2.Instance;
  * import com.pulumi.aws.ec2.InstanceArgs;
- * import com.pulumi.aws.ebs.Volume;
- * import com.pulumi.aws.ebs.VolumeArgs;
- * import com.pulumi.aws.ec2.VolumeAttachment;
- * import com.pulumi.aws.ec2.VolumeAttachmentArgs;
+ * import com.pulumi.aws.ebs_volume.Volume;
+ * import com.pulumi.aws.ebs_volume.VolumeArgs;
+ * import com.pulumi.aws.ec2_volumeAttachment.VolumeAttachment;
+ * import com.pulumi.aws.ec2_volumeAttachment.VolumeAttachmentArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -51,7 +51,7 @@ import javax.annotation.Nullable;
  *             .ami(&#34;ami-21f78e11&#34;)
  *             .availabilityZone(&#34;us-west-2a&#34;)
  *             .instanceType(&#34;t2.micro&#34;)
- *             .tags(Map.of(&#34;Name&#34;, &#34;HelloWorld&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var example = new Volume(&#34;example&#34;, VolumeArgs.builder()        

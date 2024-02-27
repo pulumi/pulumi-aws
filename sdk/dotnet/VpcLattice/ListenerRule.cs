@@ -22,55 +22,55 @@ namespace Pulumi.Aws.VpcLattice
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Aws.VpcLattice.ListenerRule("test", new()
+    ///     var test = new Aws.Vpclattice.ListenerRule.ListenerRule("test", new()
     ///     {
     ///         ListenerIdentifier = aws_vpclattice_listener.Example.Listener_id,
     ///         ServiceIdentifier = aws_vpclattice_service.Example.Id,
     ///         Priority = 20,
-    ///         Match = new Aws.VpcLattice.Inputs.ListenerRuleMatchArgs
+    ///         Match = 
     ///         {
-    ///             HttpMatch = new Aws.VpcLattice.Inputs.ListenerRuleMatchHttpMatchArgs
+    ///             { "httpMatch", 
     ///             {
-    ///                 HeaderMatches = new[]
+    ///                 { "headerMatches", new[]
     ///                 {
-    ///                     new Aws.VpcLattice.Inputs.ListenerRuleMatchHttpMatchHeaderMatchArgs
+    ///                     
     ///                     {
-    ///                         Name = "example-header",
-    ///                         CaseSensitive = false,
-    ///                         Match = new Aws.VpcLattice.Inputs.ListenerRuleMatchHttpMatchHeaderMatchMatchArgs
+    ///                         { "name", "example-header" },
+    ///                         { "caseSensitive", false },
+    ///                         { "match", 
     ///                         {
-    ///                             Exact = "example-contains",
-    ///                         },
+    ///                             { "exact", "example-contains" },
+    ///                         } },
     ///                     },
-    ///                 },
-    ///                 PathMatch = new Aws.VpcLattice.Inputs.ListenerRuleMatchHttpMatchPathMatchArgs
+    ///                 } },
+    ///                 { "pathMatch", 
     ///                 {
-    ///                     CaseSensitive = true,
-    ///                     Match = new Aws.VpcLattice.Inputs.ListenerRuleMatchHttpMatchPathMatchMatchArgs
+    ///                     { "caseSensitive", true },
+    ///                     { "match", 
     ///                     {
-    ///                         Prefix = "/example-path",
-    ///                     },
-    ///                 },
-    ///             },
+    ///                         { "prefix", "/example-path" },
+    ///                     } },
+    ///                 } },
+    ///             } },
     ///         },
-    ///         Action = new Aws.VpcLattice.Inputs.ListenerRuleActionArgs
+    ///         Action = 
     ///         {
-    ///             Forward = new Aws.VpcLattice.Inputs.ListenerRuleActionForwardArgs
+    ///             { "forward", 
     ///             {
-    ///                 TargetGroups = new[]
+    ///                 { "targetGroups", new[]
     ///                 {
-    ///                     new Aws.VpcLattice.Inputs.ListenerRuleActionForwardTargetGroupArgs
+    ///                     
     ///                     {
-    ///                         TargetGroupIdentifier = aws_vpclattice_target_group.Example.Id,
-    ///                         Weight = 1,
+    ///                         { "targetGroupIdentifier", aws_vpclattice_target_group.Example.Id },
+    ///                         { "weight", 1 },
     ///                     },
-    ///                     new Aws.VpcLattice.Inputs.ListenerRuleActionForwardTargetGroupArgs
+    ///                     
     ///                     {
-    ///                         TargetGroupIdentifier = aws_vpclattice_target_group.Example2.Id,
-    ///                         Weight = 2,
+    ///                         { "targetGroupIdentifier", aws_vpclattice_target_group.Example2.Id },
+    ///                         { "weight", 2 },
     ///                     },
-    ///                 },
-    ///             },
+    ///                 } },
+    ///             } },
     ///         },
     ///     });
     /// 
@@ -86,31 +86,31 @@ namespace Pulumi.Aws.VpcLattice
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Aws.VpcLattice.ListenerRule("test", new()
+    ///     var test = new Aws.Vpclattice.ListenerRule.ListenerRule("test", new()
     ///     {
     ///         ListenerIdentifier = aws_vpclattice_listener.Example.Listener_id,
     ///         ServiceIdentifier = aws_vpclattice_service.Example.Id,
     ///         Priority = 10,
-    ///         Match = new Aws.VpcLattice.Inputs.ListenerRuleMatchArgs
+    ///         Match = 
     ///         {
-    ///             HttpMatch = new Aws.VpcLattice.Inputs.ListenerRuleMatchHttpMatchArgs
+    ///             { "httpMatch", 
     ///             {
-    ///                 PathMatch = new Aws.VpcLattice.Inputs.ListenerRuleMatchHttpMatchPathMatchArgs
+    ///                 { "pathMatch", 
     ///                 {
-    ///                     CaseSensitive = false,
-    ///                     Match = new Aws.VpcLattice.Inputs.ListenerRuleMatchHttpMatchPathMatchMatchArgs
+    ///                     { "caseSensitive", false },
+    ///                     { "match", 
     ///                     {
-    ///                         Exact = "/example-path",
-    ///                     },
-    ///                 },
-    ///             },
+    ///                         { "exact", "/example-path" },
+    ///                     } },
+    ///                 } },
+    ///             } },
     ///         },
-    ///         Action = new Aws.VpcLattice.Inputs.ListenerRuleActionArgs
+    ///         Action = 
     ///         {
-    ///             FixedResponse = new Aws.VpcLattice.Inputs.ListenerRuleActionFixedResponseArgs
+    ///             { "fixedResponse", 
     ///             {
-    ///                 StatusCode = 404,
-    ///             },
+    ///                 { "statusCode", 404 },
+    ///             } },
     ///         },
     ///     });
     /// 

@@ -50,7 +50,7 @@ import javax.annotation.Nullable;
  *         var example = new ManagedPrefixList(&#34;example&#34;, ManagedPrefixListArgs.builder()        
  *             .addressFamily(&#34;IPv4&#34;)
  *             .maxEntries(5)
- *             .tags(Map.of(&#34;Env&#34;, &#34;live&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var entry1 = new ManagedPrefixListEntry(&#34;entry1&#34;, ManagedPrefixListEntryArgs.builder()        

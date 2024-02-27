@@ -78,8 +78,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleDeployment = new Deployment(&#34;exampleDeployment&#34;, DeploymentArgs.builder()        
  *             .restApi(exampleRestApi.id())
- *             .triggers(Map.of(&#34;redeployment&#34;, exampleRestApi.body().applyValue(body -&gt; serializeJson(
- *                 body)).applyValue(toJSON -&gt; computeSHA1(toJSON))))
+ *             .triggers(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleStage = new Stage(&#34;exampleStage&#34;, StageArgs.builder()        
@@ -147,17 +146,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleDeployment = new Deployment(&#34;exampleDeployment&#34;, DeploymentArgs.builder()        
  *             .restApi(exampleRestApi.id())
- *             .triggers(Map.of(&#34;redeployment&#34;, Output.tuple(exampleResource.id(), exampleMethod.id(), exampleIntegration.id()).applyValue(values -&gt; {
- *                 var exampleResourceId = values.t1;
- *                 var exampleMethodId = values.t2;
- *                 var exampleIntegrationId = values.t3;
- *                 return serializeJson(
- *                     jsonArray(
- *                         exampleResourceId, 
- *                         exampleMethodId, 
- *                         exampleIntegrationId
- *                     ));
- *             }).applyValue(toJSON -&gt; computeSHA1(toJSON))))
+ *             .triggers(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleStage = new Stage(&#34;exampleStage&#34;, StageArgs.builder()        

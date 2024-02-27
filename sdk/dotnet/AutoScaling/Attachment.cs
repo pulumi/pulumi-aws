@@ -25,7 +25,7 @@ namespace Pulumi.Aws.AutoScaling
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // Create a new load balancer attachment
-    ///     var example = new Aws.AutoScaling.Attachment("example", new()
+    ///     var example = new Aws.Autoscaling.Attachment.Attachment("example", new()
     ///     {
     ///         AutoscalingGroupName = aws_autoscaling_group.Example.Id,
     ///         Elb = aws_elb.Example.Id,
@@ -43,7 +43,7 @@ namespace Pulumi.Aws.AutoScaling
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // Create a new ALB Target Group attachment
-    ///     var example = new Aws.AutoScaling.Attachment("example", new()
+    ///     var example = new Aws.Autoscaling.Attachment.Attachment("example", new()
     ///     {
     ///         AutoscalingGroupName = aws_autoscaling_group.Example.Id,
     ///         LbTargetGroupArn = aws_lb_target_group.Example.Arn,

@@ -25,12 +25,12 @@ namespace Pulumi.Aws.ServiceQuotas
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.ServiceQuotas.Template("example", new()
+    ///     var example = new Aws.Servicequotas.Template.Template("example", new()
     ///     {
     ///         QuotaCode = "L-2ACBD22F",
     ///         Region = "us-east-1",
     ///         ServiceCode = "lambda",
-    ///         Value = 80,
+    ///         Value = "80",
     ///     });
     /// 
     /// });

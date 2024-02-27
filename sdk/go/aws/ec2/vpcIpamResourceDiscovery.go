@@ -14,47 +14,6 @@ import (
 
 // Provides an IPAM Resource Discovery resource. IPAM Resource Discoveries are resources meant for multi-organization customers. If you wish to use a single IPAM across multiple orgs, a resource discovery can be created and shared from a subordinate organization to the management organizations IPAM delegated admin account. For a full deployment example, see `ec2.VpcIpamResourceDiscoveryAssociation` resource.
 //
-// ## Example Usage
-//
-// Basic usage:
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			current, err := aws.GetRegion(ctx, nil, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ec2.NewVpcIpamResourceDiscovery(ctx, "main", &ec2.VpcIpamResourceDiscoveryArgs{
-//				Description: pulumi.String("My IPAM Resource Discovery"),
-//				OperatingRegions: ec2.VpcIpamResourceDiscoveryOperatingRegionArray{
-//					&ec2.VpcIpamResourceDiscoveryOperatingRegionArgs{
-//						RegionName: *pulumi.String(current.Name),
-//					},
-//				},
-//				Tags: pulumi.StringMap{
-//					"Test": pulumi.String("Main"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Using `pulumi import`, import IPAMs using the IPAM resource discovery `id`. For example:

@@ -16,62 +16,6 @@ import javax.annotation.Nullable;
 /**
  * Allows setting policy to an OpenSearch domain while referencing domain attributes (e.g., ARN).
  * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.opensearch.Domain;
- * import com.pulumi.aws.opensearch.DomainArgs;
- * import com.pulumi.aws.iam.IamFunctions;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
- * import com.pulumi.aws.opensearch.DomainPolicy;
- * import com.pulumi.aws.opensearch.DomainPolicyArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Domain(&#34;example&#34;, DomainArgs.builder()        
- *             .engineVersion(&#34;OpenSearch_1.1&#34;)
- *             .build());
- * 
- *         final var mainPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect(&#34;Allow&#34;)
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type(&#34;*&#34;)
- *                     .identifiers(&#34;*&#34;)
- *                     .build())
- *                 .actions(&#34;es:*&#34;)
- *                 .resources(example.arn().applyValue(arn -&gt; String.format(&#34;%s/*&#34;, arn)))
- *                 .conditions(GetPolicyDocumentStatementConditionArgs.builder()
- *                     .test(&#34;IpAddress&#34;)
- *                     .variable(&#34;aws:SourceIp&#34;)
- *                     .values(&#34;127.0.0.1/32&#34;)
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *         var mainDomainPolicy = new DomainPolicy(&#34;mainDomainPolicy&#34;, DomainPolicyArgs.builder()        
- *             .domainName(example.domainName())
- *             .accessPolicies(mainPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(mainPolicyDocument -&gt; mainPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
  */
 @ResourceType(type="aws:opensearch/domainPolicy:DomainPolicy")
 public class DomainPolicy extends com.pulumi.resources.CustomResource {

@@ -14,8 +14,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const primary = new aws.Provider("primary", {region: "us-east-1"});
- * const primaryExternalKey = new aws.kms.ExternalKey("primaryExternalKey", {
+ * const primary = new pulumi.providers.Aws("primary", {region: "us-east-1"});
+ * const primaryExternalKey = new aws.kms/externalKey.ExternalKey("primaryExternalKey", {
  *     description: "Multi-Region primary key",
  *     deletionWindowInDays: 30,
  *     multiRegion: true,
@@ -24,7 +24,7 @@ import * as utilities from "../utilities";
  * }, {
  *     provider: aws.primary,
  * });
- * const replica = new aws.kms.ReplicaExternalKey("replica", {
+ * const replica = new aws.kms/replicaExternalKey.ReplicaExternalKey("replica", {
  *     description: "Multi-Region replica key",
  *     deletionWindowInDays: 7,
  *     primaryKeyArn: aws_kms_external.primary.arn,

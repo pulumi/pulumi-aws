@@ -361,22 +361,95 @@ class RuleGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.networkfirewall.RuleGroup("example",
+        example = aws.networkfirewall.rule_group.RuleGroup("example",
             capacity=100,
-            rule_group=aws.networkfirewall.RuleGroupRuleGroupArgs(
-                rules_source=aws.networkfirewall.RuleGroupRuleGroupRulesSourceArgs(
-                    rules_source_list=aws.networkfirewall.RuleGroupRuleGroupRulesSourceRulesSourceListArgs(
-                        generated_rules_type="DENYLIST",
-                        target_types=["HTTP_HOST"],
-                        targets=["test.example.com"],
-                    ),
-                ),
-            ),
-            tags={
-                "Tag1": "Value1",
-                "Tag2": "Value2",
+            rule_group={
+                rulesSource: {
+                    rulesSourceList: {
+                        generatedRulesType: DENYLIST,
+                        targetTypes: [HTTP_HOST],
+                        targets: [test.example.com],
+                    },
+                },
             },
-            type="STATEFUL")
+            tags={
+                Tag1: Value1,
+                Tag2: Value2,
+            },
+            type=STATEFUL)
+        ```
+        ### Stateful Inspection for permitting packets from a source IP address
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        ips = [
+            "1.1.1.1/32",
+            "1.0.0.1/32",
+        ]
+        example = aws.networkfirewall.rule_group.RuleGroup("example",
+            capacity=50,
+            description=Permits http traffic from source,
+            type=STATEFUL,
+            rule_group={
+                rulesSource: {
+                    dynamic: [{
+                        forEach: ips,
+                        content: [{
+                            action: PASS,
+                            header: [{
+                                destination: ANY,
+                                destinationPort: ANY,
+                                protocol: HTTP,
+                                direction: ANY,
+                                sourcePort: ANY,
+                                source: stateful_rule.value,
+                            }],
+                            ruleOption: [{
+                                keyword: sid,
+                                settings: [1],
+                            }],
+                        }],
+                    }],
+                },
+            },
+            tags={
+                Name: permit HTTP from source,
+            })
+        ```
+        ### Stateful Inspection for blocking packets from going to an intended destination
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.networkfirewall.rule_group.RuleGroup("example",
+            capacity=100,
+            rule_group={
+                rulesSource: {
+                    statefulRule: [{
+                        action: DROP,
+                        header: {
+                            destination: 124.1.1.24/32,
+                            destinationPort: 53,
+                            direction: ANY,
+                            protocol: TCP,
+                            source: 1.2.3.4/32,
+                            sourcePort: 53,
+                        },
+                        ruleOption: [{
+                            keyword: sid,
+                            settings: [1],
+                        }],
+                    }],
+                },
+            },
+            tags={
+                Tag1: Value1,
+                Tag2: Value2,
+            },
+            type=STATEFUL)
         ```
         ### Stateful Inspection from rules specifications defined in Suricata flat format
 
@@ -384,13 +457,13 @@ class RuleGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.networkfirewall.RuleGroup("example",
+        example = aws.networkfirewall.rule_group.RuleGroup("example",
             capacity=100,
-            type="STATEFUL",
-            rules=(lambda path: open(path).read())("example.rules"),
+            type=STATEFUL,
+            rules=(lambda path: open(path).read())(example.rules),
             tags={
-                "Tag1": "Value1",
-                "Tag2": "Value2",
+                Tag1: Value1,
+                Tag2: Value2,
             })
         ```
         ### Stateful Inspection from rule group specifications using rule variables and Suricata format rules
@@ -399,47 +472,111 @@ class RuleGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.networkfirewall.RuleGroup("example",
+        example = aws.networkfirewall.rule_group.RuleGroup("example",
             capacity=100,
-            type="STATEFUL",
-            rule_group=aws.networkfirewall.RuleGroupRuleGroupArgs(
-                rule_variables=aws.networkfirewall.RuleGroupRuleGroupRuleVariablesArgs(
-                    ip_sets=[
-                        aws.networkfirewall.RuleGroupRuleGroupRuleVariablesIpSetArgs(
-                            key="WEBSERVERS_HOSTS",
-                            ip_set=aws.networkfirewall.RuleGroupRuleGroupRuleVariablesIpSetIpSetArgs(
-                                definitions=[
-                                    "10.0.0.0/16",
-                                    "10.0.1.0/24",
-                                    "192.168.0.0/16",
+            type=STATEFUL,
+            rule_group={
+                ruleVariables: {
+                    ipSets: [
+                        {
+                            key: WEBSERVERS_HOSTS,
+                            ipSet: {
+                                definitions: [
+                                    10.0.0.0/16,
+                                    10.0.1.0/24,
+                                    192.168.0.0/16,
                                 ],
-                            ),
-                        ),
-                        aws.networkfirewall.RuleGroupRuleGroupRuleVariablesIpSetArgs(
-                            key="EXTERNAL_HOST",
-                            ip_set=aws.networkfirewall.RuleGroupRuleGroupRuleVariablesIpSetIpSetArgs(
-                                definitions=["1.2.3.4/32"],
-                            ),
-                        ),
+                            },
+                        },
+                        {
+                            key: EXTERNAL_HOST,
+                            ipSet: {
+                                definitions: [1.2.3.4/32],
+                            },
+                        },
                     ],
-                    port_sets=[aws.networkfirewall.RuleGroupRuleGroupRuleVariablesPortSetArgs(
-                        key="HTTP_PORTS",
-                        port_set=aws.networkfirewall.RuleGroupRuleGroupRuleVariablesPortSetPortSetArgs(
-                            definitions=[
-                                "443",
-                                "80",
+                    portSets: [{
+                        key: HTTP_PORTS,
+                        portSet: {
+                            definitions: [
+                                443,
+                                80,
                             ],
-                        ),
-                    )],
-                ),
-                rules_source=aws.networkfirewall.RuleGroupRuleGroupRulesSourceArgs(
-                    rules_string=(lambda path: open(path).read())("suricata_rules_file"),
-                ),
-            ),
+                        },
+                    }],
+                },
+                rulesSource: {
+                    rulesString: (lambda path: open(path).read())(suricata_rules_file),
+                },
+            },
             tags={
-                "Tag1": "Value1",
-                "Tag2": "Value2",
+                Tag1: Value1,
+                Tag2: Value2,
             })
+        ```
+        ### Stateless Inspection with a Custom Action
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.networkfirewall.rule_group.RuleGroup("example",
+            capacity=100,
+            description=Stateless Rate Limiting Rule,
+            rule_group={
+                rulesSource: {
+                    statelessRulesAndCustomActions: {
+                        customAction: [{
+                            actionDefinition: {
+                                publishMetricAction: {
+                                    dimension: [{
+                                        value: 2,
+                                    }],
+                                },
+                            },
+                            actionName: ExampleMetricsAction,
+                        }],
+                        statelessRule: [{
+                            priority: 1,
+                            ruleDefinition: {
+                                actions: [
+                                    aws:pass,
+                                    ExampleMetricsAction,
+                                ],
+                                matchAttributes: {
+                                    destination: [{
+                                        addressDefinition: 124.1.1.5/32,
+                                    }],
+                                    destinationPort: [{
+                                        fromPort: 443,
+                                        toPort: 443,
+                                    }],
+                                    protocols: [6],
+                                    source: [{
+                                        addressDefinition: 1.2.3.4/32,
+                                    }],
+                                    sourcePort: [{
+                                        fromPort: 443,
+                                        toPort: 443,
+                                    }],
+                                    tcpFlag: [{
+                                        flags: [SYN],
+                                        masks: [
+                                            SYN,
+                                            ACK,
+                                        ],
+                                    }],
+                                },
+                            },
+                        }],
+                    },
+                },
+            },
+            tags={
+                Tag1: Value1,
+                Tag2: Value2,
+            },
+            type=STATELESS)
         ```
         ### IP Set References to the Rule Group
 
@@ -447,29 +584,29 @@ class RuleGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.networkfirewall.RuleGroup("example",
+        example = aws.networkfirewall.rule_group.RuleGroup("example",
             capacity=100,
-            type="STATEFUL",
-            rule_group=aws.networkfirewall.RuleGroupRuleGroupArgs(
-                rules_source=aws.networkfirewall.RuleGroupRuleGroupRulesSourceArgs(
-                    rules_source_list=aws.networkfirewall.RuleGroupRuleGroupRulesSourceRulesSourceListArgs(
-                        generated_rules_type="DENYLIST",
-                        target_types=["HTTP_HOST"],
-                        targets=["test.example.com"],
-                    ),
-                ),
-                reference_sets=aws.networkfirewall.RuleGroupRuleGroupReferenceSetsArgs(
-                    ip_set_references=[aws.networkfirewall.RuleGroupRuleGroupReferenceSetsIpSetReferenceArgs(
-                        key="example",
-                        ip_set_references=[aws.networkfirewall.RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceArgs(
-                            reference_arn=aws_ec2_managed_prefix_list["this"]["arn"],
-                        )],
-                    )],
-                ),
-            ),
+            type=STATEFUL,
+            rule_group={
+                rulesSource: {
+                    rulesSourceList: {
+                        generatedRulesType: DENYLIST,
+                        targetTypes: [HTTP_HOST],
+                        targets: [test.example.com],
+                    },
+                },
+                referenceSets: {
+                    ipSetReferences: [{
+                        key: example,
+                        ipSetReferences: [{
+                            referenceArn: aws_ec2_managed_prefix_list.this.arn,
+                        }],
+                    }],
+                },
+            },
             tags={
-                "Tag1": "Value1",
-                "Tag2": "Value2",
+                Tag1: Value1,
+                Tag2: Value2,
             })
         ```
 
@@ -508,22 +645,95 @@ class RuleGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.networkfirewall.RuleGroup("example",
+        example = aws.networkfirewall.rule_group.RuleGroup("example",
             capacity=100,
-            rule_group=aws.networkfirewall.RuleGroupRuleGroupArgs(
-                rules_source=aws.networkfirewall.RuleGroupRuleGroupRulesSourceArgs(
-                    rules_source_list=aws.networkfirewall.RuleGroupRuleGroupRulesSourceRulesSourceListArgs(
-                        generated_rules_type="DENYLIST",
-                        target_types=["HTTP_HOST"],
-                        targets=["test.example.com"],
-                    ),
-                ),
-            ),
-            tags={
-                "Tag1": "Value1",
-                "Tag2": "Value2",
+            rule_group={
+                rulesSource: {
+                    rulesSourceList: {
+                        generatedRulesType: DENYLIST,
+                        targetTypes: [HTTP_HOST],
+                        targets: [test.example.com],
+                    },
+                },
             },
-            type="STATEFUL")
+            tags={
+                Tag1: Value1,
+                Tag2: Value2,
+            },
+            type=STATEFUL)
+        ```
+        ### Stateful Inspection for permitting packets from a source IP address
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        ips = [
+            "1.1.1.1/32",
+            "1.0.0.1/32",
+        ]
+        example = aws.networkfirewall.rule_group.RuleGroup("example",
+            capacity=50,
+            description=Permits http traffic from source,
+            type=STATEFUL,
+            rule_group={
+                rulesSource: {
+                    dynamic: [{
+                        forEach: ips,
+                        content: [{
+                            action: PASS,
+                            header: [{
+                                destination: ANY,
+                                destinationPort: ANY,
+                                protocol: HTTP,
+                                direction: ANY,
+                                sourcePort: ANY,
+                                source: stateful_rule.value,
+                            }],
+                            ruleOption: [{
+                                keyword: sid,
+                                settings: [1],
+                            }],
+                        }],
+                    }],
+                },
+            },
+            tags={
+                Name: permit HTTP from source,
+            })
+        ```
+        ### Stateful Inspection for blocking packets from going to an intended destination
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.networkfirewall.rule_group.RuleGroup("example",
+            capacity=100,
+            rule_group={
+                rulesSource: {
+                    statefulRule: [{
+                        action: DROP,
+                        header: {
+                            destination: 124.1.1.24/32,
+                            destinationPort: 53,
+                            direction: ANY,
+                            protocol: TCP,
+                            source: 1.2.3.4/32,
+                            sourcePort: 53,
+                        },
+                        ruleOption: [{
+                            keyword: sid,
+                            settings: [1],
+                        }],
+                    }],
+                },
+            },
+            tags={
+                Tag1: Value1,
+                Tag2: Value2,
+            },
+            type=STATEFUL)
         ```
         ### Stateful Inspection from rules specifications defined in Suricata flat format
 
@@ -531,13 +741,13 @@ class RuleGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.networkfirewall.RuleGroup("example",
+        example = aws.networkfirewall.rule_group.RuleGroup("example",
             capacity=100,
-            type="STATEFUL",
-            rules=(lambda path: open(path).read())("example.rules"),
+            type=STATEFUL,
+            rules=(lambda path: open(path).read())(example.rules),
             tags={
-                "Tag1": "Value1",
-                "Tag2": "Value2",
+                Tag1: Value1,
+                Tag2: Value2,
             })
         ```
         ### Stateful Inspection from rule group specifications using rule variables and Suricata format rules
@@ -546,47 +756,111 @@ class RuleGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.networkfirewall.RuleGroup("example",
+        example = aws.networkfirewall.rule_group.RuleGroup("example",
             capacity=100,
-            type="STATEFUL",
-            rule_group=aws.networkfirewall.RuleGroupRuleGroupArgs(
-                rule_variables=aws.networkfirewall.RuleGroupRuleGroupRuleVariablesArgs(
-                    ip_sets=[
-                        aws.networkfirewall.RuleGroupRuleGroupRuleVariablesIpSetArgs(
-                            key="WEBSERVERS_HOSTS",
-                            ip_set=aws.networkfirewall.RuleGroupRuleGroupRuleVariablesIpSetIpSetArgs(
-                                definitions=[
-                                    "10.0.0.0/16",
-                                    "10.0.1.0/24",
-                                    "192.168.0.0/16",
+            type=STATEFUL,
+            rule_group={
+                ruleVariables: {
+                    ipSets: [
+                        {
+                            key: WEBSERVERS_HOSTS,
+                            ipSet: {
+                                definitions: [
+                                    10.0.0.0/16,
+                                    10.0.1.0/24,
+                                    192.168.0.0/16,
                                 ],
-                            ),
-                        ),
-                        aws.networkfirewall.RuleGroupRuleGroupRuleVariablesIpSetArgs(
-                            key="EXTERNAL_HOST",
-                            ip_set=aws.networkfirewall.RuleGroupRuleGroupRuleVariablesIpSetIpSetArgs(
-                                definitions=["1.2.3.4/32"],
-                            ),
-                        ),
+                            },
+                        },
+                        {
+                            key: EXTERNAL_HOST,
+                            ipSet: {
+                                definitions: [1.2.3.4/32],
+                            },
+                        },
                     ],
-                    port_sets=[aws.networkfirewall.RuleGroupRuleGroupRuleVariablesPortSetArgs(
-                        key="HTTP_PORTS",
-                        port_set=aws.networkfirewall.RuleGroupRuleGroupRuleVariablesPortSetPortSetArgs(
-                            definitions=[
-                                "443",
-                                "80",
+                    portSets: [{
+                        key: HTTP_PORTS,
+                        portSet: {
+                            definitions: [
+                                443,
+                                80,
                             ],
-                        ),
-                    )],
-                ),
-                rules_source=aws.networkfirewall.RuleGroupRuleGroupRulesSourceArgs(
-                    rules_string=(lambda path: open(path).read())("suricata_rules_file"),
-                ),
-            ),
+                        },
+                    }],
+                },
+                rulesSource: {
+                    rulesString: (lambda path: open(path).read())(suricata_rules_file),
+                },
+            },
             tags={
-                "Tag1": "Value1",
-                "Tag2": "Value2",
+                Tag1: Value1,
+                Tag2: Value2,
             })
+        ```
+        ### Stateless Inspection with a Custom Action
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.networkfirewall.rule_group.RuleGroup("example",
+            capacity=100,
+            description=Stateless Rate Limiting Rule,
+            rule_group={
+                rulesSource: {
+                    statelessRulesAndCustomActions: {
+                        customAction: [{
+                            actionDefinition: {
+                                publishMetricAction: {
+                                    dimension: [{
+                                        value: 2,
+                                    }],
+                                },
+                            },
+                            actionName: ExampleMetricsAction,
+                        }],
+                        statelessRule: [{
+                            priority: 1,
+                            ruleDefinition: {
+                                actions: [
+                                    aws:pass,
+                                    ExampleMetricsAction,
+                                ],
+                                matchAttributes: {
+                                    destination: [{
+                                        addressDefinition: 124.1.1.5/32,
+                                    }],
+                                    destinationPort: [{
+                                        fromPort: 443,
+                                        toPort: 443,
+                                    }],
+                                    protocols: [6],
+                                    source: [{
+                                        addressDefinition: 1.2.3.4/32,
+                                    }],
+                                    sourcePort: [{
+                                        fromPort: 443,
+                                        toPort: 443,
+                                    }],
+                                    tcpFlag: [{
+                                        flags: [SYN],
+                                        masks: [
+                                            SYN,
+                                            ACK,
+                                        ],
+                                    }],
+                                },
+                            },
+                        }],
+                    },
+                },
+            },
+            tags={
+                Tag1: Value1,
+                Tag2: Value2,
+            },
+            type=STATELESS)
         ```
         ### IP Set References to the Rule Group
 
@@ -594,29 +868,29 @@ class RuleGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.networkfirewall.RuleGroup("example",
+        example = aws.networkfirewall.rule_group.RuleGroup("example",
             capacity=100,
-            type="STATEFUL",
-            rule_group=aws.networkfirewall.RuleGroupRuleGroupArgs(
-                rules_source=aws.networkfirewall.RuleGroupRuleGroupRulesSourceArgs(
-                    rules_source_list=aws.networkfirewall.RuleGroupRuleGroupRulesSourceRulesSourceListArgs(
-                        generated_rules_type="DENYLIST",
-                        target_types=["HTTP_HOST"],
-                        targets=["test.example.com"],
-                    ),
-                ),
-                reference_sets=aws.networkfirewall.RuleGroupRuleGroupReferenceSetsArgs(
-                    ip_set_references=[aws.networkfirewall.RuleGroupRuleGroupReferenceSetsIpSetReferenceArgs(
-                        key="example",
-                        ip_set_references=[aws.networkfirewall.RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceArgs(
-                            reference_arn=aws_ec2_managed_prefix_list["this"]["arn"],
-                        )],
-                    )],
-                ),
-            ),
+            type=STATEFUL,
+            rule_group={
+                rulesSource: {
+                    rulesSourceList: {
+                        generatedRulesType: DENYLIST,
+                        targetTypes: [HTTP_HOST],
+                        targets: [test.example.com],
+                    },
+                },
+                referenceSets: {
+                    ipSetReferences: [{
+                        key: example,
+                        ipSetReferences: [{
+                            referenceArn: aws_ec2_managed_prefix_list.this.arn,
+                        }],
+                    }],
+                },
+            },
             tags={
-                "Tag1": "Value1",
-                "Tag2": "Value2",
+                Tag1: Value1,
+                Tag2: Value2,
             })
         ```
 

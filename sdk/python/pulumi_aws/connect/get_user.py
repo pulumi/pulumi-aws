@@ -179,28 +179,6 @@ def get_user(instance_id: Optional[str] = None,
     """
     Provides details about a specific Amazon Connect User.
 
-    ## Example Usage
-
-    By `name`
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.connect.get_user(instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
-        name="Example")
-    ```
-
-    By `user_id`
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.connect.get_user(instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
-        user_id="cccccccc-bbbb-cccc-dddd-111111111111")
-    ```
-
 
     :param str instance_id: Reference to the hosting Amazon Connect Instance
     :param str name: Returns information on a specific User by name
@@ -238,28 +216,6 @@ def get_user_output(instance_id: Optional[pulumi.Input[str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserResult]:
     """
     Provides details about a specific Amazon Connect User.
-
-    ## Example Usage
-
-    By `name`
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.connect.get_user(instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
-        name="Example")
-    ```
-
-    By `user_id`
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.connect.get_user(instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
-        user_id="cccccccc-bbbb-cccc-dddd-111111111111")
-    ```
 
 
     :param str instance_id: Reference to the hosting Amazon Connect Instance

@@ -74,7 +74,7 @@ import javax.annotation.Nullable;
  *         var example = new Database(&#34;example&#34;, DatabaseArgs.builder()        
  *             .databaseName(&#34;database-example&#34;)
  *             .kmsKeyId(aws_kms_key.example().arn())
- *             .tags(Map.of(&#34;Name&#34;, &#34;value&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

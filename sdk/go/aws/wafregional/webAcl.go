@@ -22,60 +22,60 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/wafregional"
+//	wafregional/ipSet "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/wafregional/ipSet"
+//	wafregional/rule "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/wafregional/rule"
+//	wafregional/webAcl "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/wafregional/webAcl"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			ipset, err := wafregional.NewIpSet(ctx, "ipset", &wafregional.IpSetArgs{
-//				IpSetDescriptors: wafregional.IpSetIpSetDescriptorArray{
-//					&wafregional.IpSetIpSetDescriptorArgs{
-//						Type:  pulumi.String("IPV4"),
-//						Value: pulumi.String("192.0.7.0/24"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			wafrule, err := wafregional.NewRule(ctx, "wafrule", &wafregional.RuleArgs{
-//				MetricName: pulumi.String("tfWAFRule"),
-//				Predicates: wafregional.RulePredicateArray{
-//					&wafregional.RulePredicateArgs{
-//						DataId:  ipset.ID(),
-//						Negated: pulumi.Bool(false),
-//						Type:    pulumi.String("IPMatch"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = wafregional.NewWebAcl(ctx, "wafacl", &wafregional.WebAclArgs{
-//				MetricName: pulumi.String("tfWebACL"),
-//				DefaultAction: &wafregional.WebAclDefaultActionArgs{
-//					Type: pulumi.String("ALLOW"),
-//				},
-//				Rules: wafregional.WebAclRuleArray{
-//					&wafregional.WebAclRuleArgs{
-//						Action: &wafregional.WebAclRuleActionArgs{
-//							Type: pulumi.String("BLOCK"),
-//						},
-//						Priority: pulumi.Int(1),
-//						RuleId:   wafrule.ID(),
-//						Type:     pulumi.String("REGULAR"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// ipset, err := wafregional/ipSet.NewIpSet(ctx, "ipset", &wafregional/ipSet.IpSetArgs{
+// IpSetDescriptors: []map[string]interface{}{
+// map[string]interface{}{
+// "type": "IPV4",
+// "value": "192.0.7.0/24",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// wafrule, err := wafregional/rule.NewRule(ctx, "wafrule", &wafregional/rule.RuleArgs{
+// MetricName: "tfWAFRule",
+// Predicates: []map[string]interface{}{
+// map[string]interface{}{
+// "dataId": ipset.Id,
+// "negated": false,
+// "type": "IPMatch",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = wafregional/webAcl.NewWebAcl(ctx, "wafacl", &wafregional/webAcl.WebAclArgs{
+// MetricName: "tfWebACL",
+// DefaultAction: map[string]interface{}{
+// "type": "ALLOW",
+// },
+// Rules: []map[string]interface{}{
+// map[string]interface{}{
+// "action": map[string]interface{}{
+// "type": "BLOCK",
+// },
+// "priority": 1,
+// "ruleId": wafrule.Id,
+// "type": "REGULAR",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Group Rule
 //
@@ -84,36 +84,34 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/wafregional"
+//	wafregional/webAcl "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/wafregional/webAcl"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := wafregional.NewWebAcl(ctx, "example", &wafregional.WebAclArgs{
-//				MetricName: pulumi.String("example"),
-//				DefaultAction: &wafregional.WebAclDefaultActionArgs{
-//					Type: pulumi.String("ALLOW"),
-//				},
-//				Rules: wafregional.WebAclRuleArray{
-//					&wafregional.WebAclRuleArgs{
-//						Priority: pulumi.Int(1),
-//						RuleId:   pulumi.Any(aws_wafregional_rule_group.Example.Id),
-//						Type:     pulumi.String("GROUP"),
-//						OverrideAction: &wafregional.WebAclRuleOverrideActionArgs{
-//							Type: pulumi.String("NONE"),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := wafregional/webAcl.NewWebAcl(ctx, "example", &wafregional/webAcl.WebAclArgs{
+// MetricName: "example",
+// DefaultAction: map[string]interface{}{
+// "type": "ALLOW",
+// },
+// Rules: []map[string]interface{}{
+// map[string]interface{}{
+// "priority": 1,
+// "ruleId": aws_wafregional_rule_group.Example.Id,
+// "type": "GROUP",
+// "overrideAction": map[string]interface{}{
+// "type": "NONE",
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Logging
 //
@@ -124,36 +122,35 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/wafregional"
+//	wafregional/webAcl "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/wafregional/webAcl"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := wafregional.NewWebAcl(ctx, "example", &wafregional.WebAclArgs{
-//				LoggingConfiguration: &wafregional.WebAclLoggingConfigurationArgs{
-//					LogDestination: pulumi.Any(aws_kinesis_firehose_delivery_stream.Example.Arn),
-//					RedactedFields: &wafregional.WebAclLoggingConfigurationRedactedFieldsArgs{
-//						FieldToMatches: wafregional.WebAclLoggingConfigurationRedactedFieldsFieldToMatchArray{
-//							&wafregional.WebAclLoggingConfigurationRedactedFieldsFieldToMatchArgs{
-//								Type: pulumi.String("URI"),
-//							},
-//							&wafregional.WebAclLoggingConfigurationRedactedFieldsFieldToMatchArgs{
-//								Data: pulumi.String("referer"),
-//								Type: pulumi.String("HEADER"),
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// // ... other configuration ...
+// _, err := wafregional/webAcl.NewWebAcl(ctx, "example", &wafregional/webAcl.WebAclArgs{
+// LoggingConfiguration: map[string]interface{}{
+// "logDestination": aws_kinesis_firehose_delivery_stream.Example.Arn,
+// "redactedFields": map[string]interface{}{
+// "fieldToMatches": []map[string]interface{}{
+// map[string]interface{}{
+// "type": "URI",
+// },
+// map[string]interface{}{
+// "data": "referer",
+// "type": "HEADER",
+// },
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

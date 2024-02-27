@@ -26,7 +26,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Ec2.VpnGatewayRoutePropagation("example", new()
+    ///     var example = new Aws.Ec2.VpnGatewayRoutePropagation.VpnGatewayRoutePropagation("example", new()
     ///     {
     ///         VpnGatewayId = aws_vpn_gateway.Example.Id,
     ///         RouteTableId = aws_route_table.Example.Id,

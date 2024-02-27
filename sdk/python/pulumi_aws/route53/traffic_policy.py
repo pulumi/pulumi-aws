@@ -180,9 +180,9 @@ class TrafficPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.route53.TrafficPolicy("example",
-            comment="example comment",
-            document=\"\"\"{
+        example = aws.route53.traffic_policy.TrafficPolicy("example",
+            comment=example comment,
+            document={
           "AWSPolicyFormatVersion": "2015-10-01",
           "RecordType": "A",
           "Endpoints": {
@@ -194,7 +194,7 @@ class TrafficPolicy(pulumi.CustomResource):
           "StartEndpoint": "endpoint-start-NkPh"
         }
 
-        \"\"\")
+        )
         ```
 
         ## Import
@@ -228,9 +228,9 @@ class TrafficPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.route53.TrafficPolicy("example",
-            comment="example comment",
-            document=\"\"\"{
+        example = aws.route53.traffic_policy.TrafficPolicy("example",
+            comment=example comment,
+            document={
           "AWSPolicyFormatVersion": "2015-10-01",
           "RecordType": "A",
           "Endpoints": {
@@ -242,7 +242,7 @@ class TrafficPolicy(pulumi.CustomResource):
           "StartEndpoint": "endpoint-start-NkPh"
         }
 
-        \"\"\")
+        )
         ```
 
         ## Import

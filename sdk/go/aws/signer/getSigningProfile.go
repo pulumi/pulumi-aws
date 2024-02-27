@@ -12,32 +12,6 @@ import (
 )
 
 // Provides information about a Signer Signing Profile.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/signer"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := signer.LookupSigningProfile(ctx, &signer.LookupSigningProfileArgs{
-//				Name: "prod_profile_DdW3Mk1foYL88fajut4mTVFGpuwfd4ACO6ANL0D1uIj7lrn8adK",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupSigningProfile(ctx *pulumi.Context, args *LookupSigningProfileArgs, opts ...pulumi.InvokeOption) (*LookupSigningProfileResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupSigningProfileResult

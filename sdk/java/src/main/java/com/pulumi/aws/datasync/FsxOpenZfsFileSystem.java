@@ -29,9 +29,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.datasync.FsxOpenZfsFileSystem;
  * import com.pulumi.aws.datasync.FsxOpenZfsFileSystemArgs;
- * import com.pulumi.aws.datasync.inputs.FsxOpenZfsFileSystemProtocolArgs;
- * import com.pulumi.aws.datasync.inputs.FsxOpenZfsFileSystemProtocolNfsArgs;
- * import com.pulumi.aws.datasync.inputs.FsxOpenZfsFileSystemProtocolNfsMountOptionsArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -48,13 +45,7 @@ import javax.annotation.Nullable;
  *         var example = new FsxOpenZfsFileSystem(&#34;example&#34;, FsxOpenZfsFileSystemArgs.builder()        
  *             .fsxFilesystemArn(aws_fsx_openzfs_file_system.example().arn())
  *             .securityGroupArns(aws_security_group.example().arn())
- *             .protocol(FsxOpenZfsFileSystemProtocolArgs.builder()
- *                 .nfs(FsxOpenZfsFileSystemProtocolNfsArgs.builder()
- *                     .mountOptions(FsxOpenZfsFileSystemProtocolNfsMountOptionsArgs.builder()
- *                         .version(&#34;AUTOMATIC&#34;)
- *                         .build())
- *                     .build())
- *                 .build())
+ *             .protocol(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

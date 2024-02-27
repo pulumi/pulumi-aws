@@ -18,35 +18,6 @@ public final class GrafanaFunctions {
      * Provides an Amazon Managed Grafana workspace data source.
      * 
      * ## Example Usage
-     * ### Basic configuration
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.grafana.GrafanaFunctions;
-     * import com.pulumi.aws.grafana.inputs.GetWorkspaceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = GrafanaFunctions.getWorkspace(GetWorkspaceArgs.builder()
-     *             .workspaceId(&#34;g-2054c75a02&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetWorkspaceResult> getWorkspace(GetWorkspaceArgs args) {
@@ -56,35 +27,6 @@ public final class GrafanaFunctions {
      * Provides an Amazon Managed Grafana workspace data source.
      * 
      * ## Example Usage
-     * ### Basic configuration
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.grafana.GrafanaFunctions;
-     * import com.pulumi.aws.grafana.inputs.GetWorkspaceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = GrafanaFunctions.getWorkspace(GetWorkspaceArgs.builder()
-     *             .workspaceId(&#34;g-2054c75a02&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetWorkspaceResult> getWorkspacePlain(GetWorkspacePlainArgs args) {
@@ -94,35 +36,6 @@ public final class GrafanaFunctions {
      * Provides an Amazon Managed Grafana workspace data source.
      * 
      * ## Example Usage
-     * ### Basic configuration
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.grafana.GrafanaFunctions;
-     * import com.pulumi.aws.grafana.inputs.GetWorkspaceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = GrafanaFunctions.getWorkspace(GetWorkspaceArgs.builder()
-     *             .workspaceId(&#34;g-2054c75a02&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetWorkspaceResult> getWorkspace(GetWorkspaceArgs args, InvokeOptions options) {
@@ -132,35 +45,6 @@ public final class GrafanaFunctions {
      * Provides an Amazon Managed Grafana workspace data source.
      * 
      * ## Example Usage
-     * ### Basic configuration
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.grafana.GrafanaFunctions;
-     * import com.pulumi.aws.grafana.inputs.GetWorkspaceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = GrafanaFunctions.getWorkspace(GetWorkspaceArgs.builder()
-     *             .workspaceId(&#34;g-2054c75a02&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetWorkspaceResult> getWorkspacePlain(GetWorkspacePlainArgs args, InvokeOptions options) {

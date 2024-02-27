@@ -21,36 +21,34 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/backup"
+//	backup/reportPlan "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/backup/reportPlan"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := backup.NewReportPlan(ctx, "example", &backup.ReportPlanArgs{
-//				Description: pulumi.String("example description"),
-//				ReportDeliveryChannel: &backup.ReportPlanReportDeliveryChannelArgs{
-//					Formats: pulumi.StringArray{
-//						pulumi.String("CSV"),
-//						pulumi.String("JSON"),
-//					},
-//					S3BucketName: pulumi.String("example-bucket-name"),
-//				},
-//				ReportSetting: &backup.ReportPlanReportSettingArgs{
-//					ReportTemplate: pulumi.String("RESTORE_JOB_REPORT"),
-//				},
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("Example Report Plan"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := backup/reportPlan.NewReportPlan(ctx, "example", &backup/reportPlan.ReportPlanArgs{
+// Description: "example description",
+// ReportDeliveryChannel: map[string]interface{}{
+// "formats": []string{
+// "CSV",
+// "JSON",
+// },
+// "s3BucketName": "example-bucket-name",
+// },
+// ReportSetting: map[string]interface{}{
+// "reportTemplate": "RESTORE_JOB_REPORT",
+// },
+// Tags: map[string]interface{}{
+// "Name": "Example Report Plan",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

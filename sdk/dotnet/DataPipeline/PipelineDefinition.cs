@@ -22,81 +22,81 @@ namespace Pulumi.Aws.DataPipeline
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var @default = new Aws.DataPipeline.Pipeline("default");
+    ///     var @default = new Aws.Datapipeline.Pipeline.Pipeline("default");
     /// 
-    ///     var example = new Aws.DataPipeline.PipelineDefinition("example", new()
+    ///     var example = new Aws.Datapipeline.PipelineDefinition.PipelineDefinition("example", new()
     ///     {
     ///         PipelineId = @default.Id,
     ///         PipelineObjects = new[]
     ///         {
-    ///             new Aws.DataPipeline.Inputs.PipelineDefinitionPipelineObjectArgs
+    ///             
     ///             {
-    ///                 Id = "Default",
-    ///                 Name = "Default",
-    ///                 Fields = new[]
+    ///                 { "id", "Default" },
+    ///                 { "name", "Default" },
+    ///                 { "fields", new[]
     ///                 {
-    ///                     new Aws.DataPipeline.Inputs.PipelineDefinitionPipelineObjectFieldArgs
+    ///                     
     ///                     {
-    ///                         Key = "workerGroup",
-    ///                         StringValue = "workerGroup",
+    ///                         { "key", "workerGroup" },
+    ///                         { "stringValue", "workerGroup" },
     ///                     },
-    ///                 },
+    ///                 } },
     ///             },
-    ///             new Aws.DataPipeline.Inputs.PipelineDefinitionPipelineObjectArgs
+    ///             
     ///             {
-    ///                 Id = "Schedule",
-    ///                 Name = "Schedule",
-    ///                 Fields = new[]
+    ///                 { "id", "Schedule" },
+    ///                 { "name", "Schedule" },
+    ///                 { "fields", new[]
     ///                 {
-    ///                     new Aws.DataPipeline.Inputs.PipelineDefinitionPipelineObjectFieldArgs
+    ///                     
     ///                     {
-    ///                         Key = "startDateTime",
-    ///                         StringValue = "2012-12-12T00:00:00",
+    ///                         { "key", "startDateTime" },
+    ///                         { "stringValue", "2012-12-12T00:00:00" },
     ///                     },
-    ///                     new Aws.DataPipeline.Inputs.PipelineDefinitionPipelineObjectFieldArgs
+    ///                     
     ///                     {
-    ///                         Key = "type",
-    ///                         StringValue = "Schedule",
+    ///                         { "key", "type" },
+    ///                         { "stringValue", "Schedule" },
     ///                     },
-    ///                     new Aws.DataPipeline.Inputs.PipelineDefinitionPipelineObjectFieldArgs
+    ///                     
     ///                     {
-    ///                         Key = "period",
-    ///                         StringValue = "1 hour",
+    ///                         { "key", "period" },
+    ///                         { "stringValue", "1 hour" },
     ///                     },
-    ///                     new Aws.DataPipeline.Inputs.PipelineDefinitionPipelineObjectFieldArgs
+    ///                     
     ///                     {
-    ///                         Key = "endDateTime",
-    ///                         StringValue = "2012-12-21T18:00:00",
+    ///                         { "key", "endDateTime" },
+    ///                         { "stringValue", "2012-12-21T18:00:00" },
     ///                     },
-    ///                 },
+    ///                 } },
     ///             },
-    ///             new Aws.DataPipeline.Inputs.PipelineDefinitionPipelineObjectArgs
+    ///             
     ///             {
-    ///                 Id = "SayHello",
-    ///                 Name = "SayHello",
-    ///                 Fields = new[]
+    ///                 { "id", "SayHello" },
+    ///                 { "name", "SayHello" },
+    ///                 { "fields", new[]
     ///                 {
-    ///                     new Aws.DataPipeline.Inputs.PipelineDefinitionPipelineObjectFieldArgs
+    ///                     
     ///                     {
-    ///                         Key = "type",
-    ///                         StringValue = "ShellCommandActivity",
+    ///                         { "key", "type" },
+    ///                         { "stringValue", "ShellCommandActivity" },
     ///                     },
-    ///                     new Aws.DataPipeline.Inputs.PipelineDefinitionPipelineObjectFieldArgs
+    ///                     
     ///                     {
-    ///                         Key = "command",
-    ///                         StringValue = "echo hello",
+    ///                         { "key", "command" },
+    ///                         { "stringValue", "echo hello" },
     ///                     },
-    ///                     new Aws.DataPipeline.Inputs.PipelineDefinitionPipelineObjectFieldArgs
+    ///                     
     ///                     {
-    ///                         Key = "parent",
-    ///                         StringValue = "Default",
+    ///                         { "key", "parent" },
+    ///                         { "stringValue", "Default" },
     ///                     },
-    ///                     new Aws.DataPipeline.Inputs.PipelineDefinitionPipelineObjectFieldArgs
+    ///                     
     ///                     {
-    ///                         Key = "schedule",
-    ///                         StringValue = "Schedule",
+    ///                         { "key", "schedule" },
+    ///                         { "stringValue", "Schedule" },
     ///                     },
-    ///                 },
+    ///                 } },
     ///             },
     ///         },
     ///     });

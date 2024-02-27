@@ -22,67 +22,67 @@ namespace Pulumi.Aws.ElasticTranscoder
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var bar = new Aws.ElasticTranscoder.Preset("bar", new()
+    ///     var bar = new Aws.Elastictranscoder.Preset.Preset("bar", new()
     ///     {
-    ///         Audio = new Aws.ElasticTranscoder.Inputs.PresetAudioArgs
+    ///         Audio = 
     ///         {
-    ///             AudioPackingMode = "SingleTrack",
-    ///             BitRate = "96",
-    ///             Channels = "2",
-    ///             Codec = "AAC",
-    ///             SampleRate = "44100",
+    ///             { "audioPackingMode", "SingleTrack" },
+    ///             { "bitRate", 96 },
+    ///             { "channels", 2 },
+    ///             { "codec", "AAC" },
+    ///             { "sampleRate", 44100 },
     ///         },
-    ///         AudioCodecOptions = new Aws.ElasticTranscoder.Inputs.PresetAudioCodecOptionsArgs
+    ///         AudioCodecOptions = 
     ///         {
-    ///             Profile = "AAC-LC",
+    ///             { "profile", "AAC-LC" },
     ///         },
     ///         Container = "mp4",
     ///         Description = "Sample Preset",
-    ///         Thumbnails = new Aws.ElasticTranscoder.Inputs.PresetThumbnailsArgs
+    ///         Thumbnails = 
     ///         {
-    ///             Format = "png",
-    ///             Interval = "120",
-    ///             MaxHeight = "auto",
-    ///             MaxWidth = "auto",
-    ///             PaddingPolicy = "Pad",
-    ///             SizingPolicy = "Fit",
+    ///             { "format", "png" },
+    ///             { "interval", 120 },
+    ///             { "maxHeight", "auto" },
+    ///             { "maxWidth", "auto" },
+    ///             { "paddingPolicy", "Pad" },
+    ///             { "sizingPolicy", "Fit" },
     ///         },
-    ///         Video = new Aws.ElasticTranscoder.Inputs.PresetVideoArgs
+    ///         Video = 
     ///         {
-    ///             BitRate = "1600",
-    ///             Codec = "H.264",
-    ///             DisplayAspectRatio = "16:9",
-    ///             FixedGop = "false",
-    ///             FrameRate = "auto",
-    ///             KeyframesMaxDist = "240",
-    ///             MaxFrameRate = "60",
-    ///             MaxHeight = "auto",
-    ///             MaxWidth = "auto",
-    ///             PaddingPolicy = "Pad",
-    ///             SizingPolicy = "Fit",
+    ///             { "bitRate", "1600" },
+    ///             { "codec", "H.264" },
+    ///             { "displayAspectRatio", "16:9" },
+    ///             { "fixedGop", "false" },
+    ///             { "frameRate", "auto" },
+    ///             { "keyframesMaxDist", 240 },
+    ///             { "maxFrameRate", "60" },
+    ///             { "maxHeight", "auto" },
+    ///             { "maxWidth", "auto" },
+    ///             { "paddingPolicy", "Pad" },
+    ///             { "sizingPolicy", "Fit" },
     ///         },
     ///         VideoCodecOptions = 
     ///         {
     ///             { "ColorSpaceConversionMode", "None" },
     ///             { "InterlacedMode", "Progressive" },
     ///             { "Level", "2.2" },
-    ///             { "MaxReferenceFrames", "3" },
+    ///             { "MaxReferenceFrames", 3 },
     ///             { "Profile", "main" },
     ///         },
     ///         VideoWatermarks = new[]
     ///         {
-    ///             new Aws.ElasticTranscoder.Inputs.PresetVideoWatermarkArgs
+    ///             
     ///             {
-    ///                 HorizontalAlign = "Right",
-    ///                 HorizontalOffset = "10px",
-    ///                 Id = "Test",
-    ///                 MaxHeight = "20%",
-    ///                 MaxWidth = "20%",
-    ///                 Opacity = "55.5",
-    ///                 SizingPolicy = "ShrinkToFit",
-    ///                 Target = "Content",
-    ///                 VerticalAlign = "Bottom",
-    ///                 VerticalOffset = "10px",
+    ///                 { "horizontalAlign", "Right" },
+    ///                 { "horizontalOffset", "10px" },
+    ///                 { "id", "Test" },
+    ///                 { "maxHeight", "20%" },
+    ///                 { "maxWidth", "20%" },
+    ///                 { "opacity", "55.5" },
+    ///                 { "sizingPolicy", "ShrinkToFit" },
+    ///                 { "target", "Content" },
+    ///                 { "verticalAlign", "Bottom" },
+    ///                 { "verticalOffset", "10px" },
     ///             },
     ///         },
     ///     });

@@ -213,16 +213,16 @@ class RuleGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_rule = aws.waf.Rule("exampleRule", metric_name="example")
-        example_rule_group = aws.waf.RuleGroup("exampleRuleGroup",
-            metric_name="example",
-            activated_rules=[aws.waf.RuleGroupActivatedRuleArgs(
-                action=aws.waf.RuleGroupActivatedRuleActionArgs(
-                    type="COUNT",
-                ),
-                priority=50,
-                rule_id=example_rule.id,
-            )])
+        example_rule = aws.waf.rule.Rule("exampleRule", metric_name=example)
+        example_rule_group = aws.waf.rule_group.RuleGroup("exampleRuleGroup",
+            metric_name=example,
+            activated_rules=[{
+                action: {
+                    type: COUNT,
+                },
+                priority: 50,
+                ruleId: example_rule.id,
+            }])
         ```
 
         ## Import
@@ -255,16 +255,16 @@ class RuleGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_rule = aws.waf.Rule("exampleRule", metric_name="example")
-        example_rule_group = aws.waf.RuleGroup("exampleRuleGroup",
-            metric_name="example",
-            activated_rules=[aws.waf.RuleGroupActivatedRuleArgs(
-                action=aws.waf.RuleGroupActivatedRuleActionArgs(
-                    type="COUNT",
-                ),
-                priority=50,
-                rule_id=example_rule.id,
-            )])
+        example_rule = aws.waf.rule.Rule("exampleRule", metric_name=example)
+        example_rule_group = aws.waf.rule_group.RuleGroup("exampleRuleGroup",
+            metric_name=example,
+            activated_rules=[{
+                action: {
+                    type: COUNT,
+                },
+                priority: 50,
+                ruleId: example_rule.id,
+            }])
         ```
 
         ## Import

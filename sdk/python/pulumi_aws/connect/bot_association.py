@@ -112,54 +112,12 @@ class BotAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.connect.BotAssociation("example",
-            instance_id=aws_connect_instance["example"]["id"],
-            lex_bot=aws.connect.BotAssociationLexBotArgs(
-                lex_region="us-west-2",
-                name="Test",
-            ))
-        ```
-        ### Including a sample Lex bot
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        current = aws.get_region()
-        example_intent = aws.lex.Intent("exampleIntent",
-            create_version=True,
-            name="connect_lex_intent",
-            fulfillment_activity=aws.lex.IntentFulfillmentActivityArgs(
-                type="ReturnIntent",
-            ),
-            sample_utterances=["I would like to pick up flowers."])
-        example_bot = aws.lex.Bot("exampleBot",
-            abort_statement=aws.lex.BotAbortStatementArgs(
-                messages=[aws.lex.BotAbortStatementMessageArgs(
-                    content="Sorry, I am not able to assist at this time.",
-                    content_type="PlainText",
-                )],
-            ),
-            clarification_prompt=aws.lex.BotClarificationPromptArgs(
-                max_attempts=2,
-                messages=[aws.lex.BotClarificationPromptMessageArgs(
-                    content="I didn't understand you, what would you like to do?",
-                    content_type="PlainText",
-                )],
-            ),
-            intents=[aws.lex.BotIntentArgs(
-                intent_name=example_intent.name,
-                intent_version="1",
-            )],
-            child_directed=False,
-            name="connect_lex_bot",
-            process_behavior="BUILD")
-        example_bot_association = aws.connect.BotAssociation("exampleBotAssociation",
-            instance_id=aws_connect_instance["example"]["id"],
-            lex_bot=aws.connect.BotAssociationLexBotArgs(
-                lex_region=current.name,
-                name=example_bot.name,
-            ))
+        example = aws.connect.bot_association.BotAssociation("example",
+            instance_id=aws_connect_instance.example.id,
+            lex_bot={
+                lexRegion: us-west-2,
+                name: Test,
+            })
         ```
 
         ## Import
@@ -194,54 +152,12 @@ class BotAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.connect.BotAssociation("example",
-            instance_id=aws_connect_instance["example"]["id"],
-            lex_bot=aws.connect.BotAssociationLexBotArgs(
-                lex_region="us-west-2",
-                name="Test",
-            ))
-        ```
-        ### Including a sample Lex bot
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        current = aws.get_region()
-        example_intent = aws.lex.Intent("exampleIntent",
-            create_version=True,
-            name="connect_lex_intent",
-            fulfillment_activity=aws.lex.IntentFulfillmentActivityArgs(
-                type="ReturnIntent",
-            ),
-            sample_utterances=["I would like to pick up flowers."])
-        example_bot = aws.lex.Bot("exampleBot",
-            abort_statement=aws.lex.BotAbortStatementArgs(
-                messages=[aws.lex.BotAbortStatementMessageArgs(
-                    content="Sorry, I am not able to assist at this time.",
-                    content_type="PlainText",
-                )],
-            ),
-            clarification_prompt=aws.lex.BotClarificationPromptArgs(
-                max_attempts=2,
-                messages=[aws.lex.BotClarificationPromptMessageArgs(
-                    content="I didn't understand you, what would you like to do?",
-                    content_type="PlainText",
-                )],
-            ),
-            intents=[aws.lex.BotIntentArgs(
-                intent_name=example_intent.name,
-                intent_version="1",
-            )],
-            child_directed=False,
-            name="connect_lex_bot",
-            process_behavior="BUILD")
-        example_bot_association = aws.connect.BotAssociation("exampleBotAssociation",
-            instance_id=aws_connect_instance["example"]["id"],
-            lex_bot=aws.connect.BotAssociationLexBotArgs(
-                lex_region=current.name,
-                name=example_bot.name,
-            ))
+        example = aws.connect.bot_association.BotAssociation("example",
+            instance_id=aws_connect_instance.example.id,
+            lex_bot={
+                lexRegion: us-west-2,
+                name: Test,
+            })
         ```
 
         ## Import

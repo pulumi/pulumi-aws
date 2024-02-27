@@ -23,7 +23,7 @@ namespace Pulumi.Aws.TimestreamWrite
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.TimestreamWrite.Table("example", new()
+    ///     var example = new Aws.Timestreamwrite.Table.Table("example", new()
     ///     {
     ///         DatabaseName = aws_timestreamwrite_database.Example.Database_name,
     ///         TableName = "example",
@@ -41,14 +41,14 @@ namespace Pulumi.Aws.TimestreamWrite
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.TimestreamWrite.Table("example", new()
+    ///     var example = new Aws.Timestreamwrite.Table.Table("example", new()
     ///     {
     ///         DatabaseName = aws_timestreamwrite_database.Example.Database_name,
     ///         TableName = "example",
-    ///         RetentionProperties = new Aws.TimestreamWrite.Inputs.TableRetentionPropertiesArgs
+    ///         RetentionProperties = 
     ///         {
-    ///             MagneticStoreRetentionPeriodInDays = 30,
-    ///             MemoryStoreRetentionPeriodInHours = 8,
+    ///             { "magneticStoreRetentionPeriodInDays", 30 },
+    ///             { "memoryStoreRetentionPeriodInHours", 8 },
     ///         },
     ///         Tags = 
     ///         {
@@ -68,18 +68,18 @@ namespace Pulumi.Aws.TimestreamWrite
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.TimestreamWrite.Table("example", new()
+    ///     var example = new Aws.Timestreamwrite.Table.Table("example", new()
     ///     {
     ///         DatabaseName = aws_timestreamwrite_database.Example.Database_name,
     ///         TableName = "example",
-    ///         Schema = new Aws.TimestreamWrite.Inputs.TableSchemaArgs
+    ///         Schema = 
     ///         {
-    ///             CompositePartitionKey = new Aws.TimestreamWrite.Inputs.TableSchemaCompositePartitionKeyArgs
+    ///             { "compositePartitionKey", 
     ///             {
-    ///                 EnforcementInRecord = "REQUIRED",
-    ///                 Name = "attr1",
-    ///                 Type = "DIMENSION",
-    ///             },
+    ///                 { "enforcementInRecord", "REQUIRED" },
+    ///                 { "name", "attr1" },
+    ///                 { "type", "DIMENSION" },
+    ///             } },
     ///         },
     ///     });
     /// 

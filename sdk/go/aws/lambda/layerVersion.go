@@ -25,27 +25,25 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lambda"
+//	lambda/layerVersion "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/lambda/layerVersion"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lambda.NewLayerVersion(ctx, "lambdaLayer", &lambda.LayerVersionArgs{
-//				CompatibleRuntimes: pulumi.StringArray{
-//					pulumi.String("nodejs16.x"),
-//				},
-//				Code:      pulumi.NewFileArchive("lambda_layer_payload.zip"),
-//				LayerName: pulumi.String("lambda_layer_name"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := lambda/layerVersion.NewLayerVersion(ctx, "lambdaLayer", &lambda/layerVersion.LayerVersionArgs{
+// CompatibleRuntimes: []string{
+// "nodejs16.x",
+// },
+// Code: pulumi.NewFileArchive("lambda_layer_payload.zip"),
+// LayerName: "lambda_layer_name",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ## Specifying the Deployment Package
 //

@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const service = new aws.ecs.TaskDefinition("service", {
+ * const service = new aws.ecs/taskDefinition.TaskDefinition("service", {
  *     family: "service",
  *     containerDefinitions: JSON.stringify([
  *         {
@@ -60,7 +60,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * import * as fs from "fs";
  *
- * const service = new aws.ecs.TaskDefinition("service", {
+ * const service = new aws.ecs/taskDefinition.TaskDefinition("service", {
  *     family: "service",
  *     containerDefinitions: fs.readFileSync("task-definitions/service.json", "utf8"),
  *     proxyConfiguration: {
@@ -70,8 +70,8 @@ import * as utilities from "../utilities";
  *             AppPorts: "8080",
  *             EgressIgnoredIPs: "169.254.170.2,169.254.169.254",
  *             IgnoredUID: "1337",
- *             ProxyEgressPort: "15001",
- *             ProxyIngressPort: "15000",
+ *             ProxyEgressPort: 15001,
+ *             ProxyIngressPort: 15000,
  *         },
  *     },
  * });
@@ -83,7 +83,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * import * as fs from "fs";
  *
- * const service = new aws.ecs.TaskDefinition("service", {
+ * const service = new aws.ecs/taskDefinition.TaskDefinition("service", {
  *     family: "service",
  *     containerDefinitions: fs.readFileSync("task-definitions/service.json", "utf8"),
  *     volumes: [{
@@ -108,7 +108,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * import * as fs from "fs";
  *
- * const service = new aws.ecs.TaskDefinition("service", {
+ * const service = new aws.ecs/taskDefinition.TaskDefinition("service", {
  *     family: "service",
  *     containerDefinitions: fs.readFileSync("task-definitions/service.json", "utf8"),
  *     volumes: [{
@@ -133,14 +133,14 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * import * as fs from "fs";
  *
- * const test = new aws.secretsmanager.SecretVersion("test", {
+ * const test = new aws.secretsmanager/secretVersion.SecretVersion("test", {
  *     secretId: aws_secretsmanager_secret.test.id,
  *     secretString: JSON.stringify({
  *         username: "admin",
  *         password: aws_directory_service_directory.test.password,
  *     }),
  * });
- * const service = new aws.ecs.TaskDefinition("service", {
+ * const service = new aws.ecs/taskDefinition.TaskDefinition("service", {
  *     family: "service",
  *     containerDefinitions: fs.readFileSync("task-definitions/service.json", "utf8"),
  *     volumes: [{
@@ -162,7 +162,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = new aws.ecs.TaskDefinition("test", {
+ * const test = new aws.ecs/taskDefinition.TaskDefinition("test", {
  *     containerDefinitions: `[
  *   {
  *     "cpu": 10,
@@ -204,7 +204,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = new aws.ecs.TaskDefinition("test", {
+ * const test = new aws.ecs/taskDefinition.TaskDefinition("test", {
  *     containerDefinitions: `[
  *   {
  *     "name": "iis",
@@ -216,9 +216,9 @@ import * as utilities from "../utilities";
  * ]
  *
  * `,
- *     cpu: "1024",
+ *     cpu: 1024,
  *     family: "test",
- *     memory: "2048",
+ *     memory: 2048,
  *     networkMode: "awsvpc",
  *     requiresCompatibilities: ["FARGATE"],
  *     runtimePlatform: {

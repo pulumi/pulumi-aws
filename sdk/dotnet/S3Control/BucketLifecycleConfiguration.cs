@@ -26,34 +26,34 @@ namespace Pulumi.Aws.S3Control
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.S3Control.BucketLifecycleConfiguration("example", new()
+    ///     var example = new Aws.S3control.BucketLifecycleConfiguration.BucketLifecycleConfiguration("example", new()
     ///     {
     ///         Bucket = aws_s3control_bucket.Example.Arn,
     ///         Rules = new[]
     ///         {
-    ///             new Aws.S3Control.Inputs.BucketLifecycleConfigurationRuleArgs
+    ///             
     ///             {
-    ///                 Expiration = new Aws.S3Control.Inputs.BucketLifecycleConfigurationRuleExpirationArgs
+    ///                 { "expiration", 
     ///                 {
-    ///                     Days = 365,
-    ///                 },
-    ///                 Filter = new Aws.S3Control.Inputs.BucketLifecycleConfigurationRuleFilterArgs
+    ///                     { "days", 365 },
+    ///                 } },
+    ///                 { "filter", 
     ///                 {
-    ///                     Prefix = "logs/",
-    ///                 },
-    ///                 Id = "logs",
+    ///                     { "prefix", "logs/" },
+    ///                 } },
+    ///                 { "id", "logs" },
     ///             },
-    ///             new Aws.S3Control.Inputs.BucketLifecycleConfigurationRuleArgs
+    ///             
     ///             {
-    ///                 Expiration = new Aws.S3Control.Inputs.BucketLifecycleConfigurationRuleExpirationArgs
+    ///                 { "expiration", 
     ///                 {
-    ///                     Days = 7,
-    ///                 },
-    ///                 Filter = new Aws.S3Control.Inputs.BucketLifecycleConfigurationRuleFilterArgs
+    ///                     { "days", 7 },
+    ///                 } },
+    ///                 { "filter", 
     ///                 {
-    ///                     Prefix = "temp/",
-    ///                 },
-    ///                 Id = "temp",
+    ///                     { "prefix", "temp/" },
+    ///                 } },
+    ///                 { "id", "temp" },
     ///             },
     ///         },
     ///     });

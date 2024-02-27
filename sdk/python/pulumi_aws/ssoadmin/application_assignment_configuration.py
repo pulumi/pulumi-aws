@@ -112,8 +112,8 @@ class ApplicationAssignmentConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ssoadmin.ApplicationAssignmentConfiguration("example",
-            application_arn=aws_ssoadmin_application["example"]["application_arn"],
+        example = aws.ssoadmin.application_assignment_configuration.ApplicationAssignmentConfiguration("example",
+            application_arn=aws_ssoadmin_application.example.application_arn,
             assignment_required=True)
         ```
 
@@ -151,8 +151,8 @@ class ApplicationAssignmentConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ssoadmin.ApplicationAssignmentConfiguration("example",
-            application_arn=aws_ssoadmin_application["example"]["application_arn"],
+        example = aws.ssoadmin.application_assignment_configuration.ApplicationAssignmentConfiguration("example",
+            application_arn=aws_ssoadmin_application.example.application_arn,
             assignment_required=True)
         ```
 

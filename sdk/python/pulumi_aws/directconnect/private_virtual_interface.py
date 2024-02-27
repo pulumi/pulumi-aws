@@ -553,10 +553,10 @@ class PrivateVirtualInterface(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        foo = aws.directconnect.PrivateVirtualInterface("foo",
-            address_family="ipv4",
+        foo = aws.directconnect.private_virtual_interface.PrivateVirtualInterface("foo",
+            address_family=ipv4,
             bgp_asn=65352,
-            connection_id="dxcon-zzzzzzzz",
+            connection_id=dxcon-zzzzzzzz,
             vlan=4094)
         ```
 
@@ -600,10 +600,10 @@ class PrivateVirtualInterface(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        foo = aws.directconnect.PrivateVirtualInterface("foo",
-            address_family="ipv4",
+        foo = aws.directconnect.private_virtual_interface.PrivateVirtualInterface("foo",
+            address_family=ipv4,
             bgp_asn=65352,
-            connection_id="dxcon-zzzzzzzz",
+            connection_id=dxcon-zzzzzzzz,
             vlan=4094)
         ```
 

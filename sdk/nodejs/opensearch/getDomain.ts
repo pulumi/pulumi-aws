@@ -9,17 +9,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to get information about an OpenSearch Domain
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const myDomain = aws.opensearch.getDomain({
- *     domainName: "my-domain-name",
- * });
- * ```
  */
 export function getDomain(args: GetDomainArgs, opts?: pulumi.InvokeOptions): Promise<GetDomainResult> {
 
@@ -159,17 +148,6 @@ export interface GetDomainResult {
 }
 /**
  * Use this data source to get information about an OpenSearch Domain
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const myDomain = aws.opensearch.getDomain({
- *     domainName: "my-domain-name",
- * });
- * ```
  */
 export function getDomainOutput(args: GetDomainOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDomainResult> {
     return pulumi.output(args).apply((a: any) => getDomain(a, opts))

@@ -159,7 +159,7 @@ class Account(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.securityhub.Account("example")
+        example = aws.securityhub.account.Account("example")
         ```
 
         ## Import
@@ -193,7 +193,7 @@ class Account(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.securityhub.Account("example")
+        example = aws.securityhub.account.Account("example")
         ```
 
         ## Import

@@ -23,31 +23,31 @@ namespace Pulumi.Aws.Sfn
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var sfnAlias = new Aws.Sfn.Alias("sfnAlias", new()
+    ///     var sfnAlias = new Aws.Sfn.Alias.Alias("sfnAlias", new()
     ///     {
     ///         RoutingConfigurations = new[]
     ///         {
-    ///             new Aws.Sfn.Inputs.AliasRoutingConfigurationArgs
+    ///             
     ///             {
-    ///                 StateMachineVersionArn = aws_sfn_state_machine.Sfn_test.State_machine_version_arn,
-    ///                 Weight = 100,
+    ///                 { "stateMachineVersionArn", aws_sfn_state_machine.Sfn_test.State_machine_version_arn },
+    ///                 { "weight", 100 },
     ///             },
     ///         },
     ///     });
     /// 
-    ///     var mySfnAlias = new Aws.Sfn.Alias("mySfnAlias", new()
+    ///     var mySfnAlias = new Aws.Sfn.Alias.Alias("mySfnAlias", new()
     ///     {
     ///         RoutingConfigurations = new[]
     ///         {
-    ///             new Aws.Sfn.Inputs.AliasRoutingConfigurationArgs
+    ///             
     ///             {
-    ///                 StateMachineVersionArn = "arn:aws:states:us-east-1:12345:stateMachine:demo:3",
-    ///                 Weight = 50,
+    ///                 { "stateMachineVersionArn", "arn:aws:states:us-east-1:12345:stateMachine:demo:3" },
+    ///                 { "weight", 50 },
     ///             },
-    ///             new Aws.Sfn.Inputs.AliasRoutingConfigurationArgs
+    ///             
     ///             {
-    ///                 StateMachineVersionArn = "arn:aws:states:us-east-1:12345:stateMachine:demo:2",
-    ///                 Weight = 50,
+    ///                 { "stateMachineVersionArn", "arn:aws:states:us-east-1:12345:stateMachine:demo:2" },
+    ///                 { "weight", 50 },
     ///             },
     ///         },
     ///     });

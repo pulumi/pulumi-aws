@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Ec2.LocalGatewayRoute("example", new()
+    ///     var example = new Aws.Ec2.LocalGatewayRoute.LocalGatewayRoute("example", new()
     ///     {
     ///         DestinationCidrBlock = "172.16.0.0/16",
     ///         LocalGatewayRouteTableId = data.Aws_ec2_local_gateway_route_table.Example.Id,

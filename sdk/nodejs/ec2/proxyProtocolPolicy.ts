@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const lb = new aws.elb.LoadBalancer("lb", {
+ * const lb = new aws.elb/loadBalancer.LoadBalancer("lb", {
  *     availabilityZones: ["us-east-1a"],
  *     listeners: [
  *         {
@@ -30,7 +30,7 @@ import * as utilities from "../utilities";
  *         },
  *     ],
  * });
- * const smtp = new aws.ec2.ProxyProtocolPolicy("smtp", {
+ * const smtp = new aws.ec2/proxyProtocolPolicy.ProxyProtocolPolicy("smtp", {
  *     loadBalancer: lb.name,
  *     instancePorts: [
  *         "25",

@@ -13,8 +13,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleAccount = new aws.securityhub.Account("exampleAccount", {});
- * const exampleActionTarget = new aws.securityhub.ActionTarget("exampleActionTarget", {
+ * const exampleAccount = new aws.securityhub/account.Account("exampleAccount", {});
+ * const exampleActionTarget = new aws.securityhub/actionTarget.ActionTarget("exampleActionTarget", {
  *     identifier: "SendToChat",
  *     description: "This is custom action sends selected findings to chat",
  * }, {

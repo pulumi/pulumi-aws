@@ -279,7 +279,7 @@ class Namespace(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.quicksight.Namespace("example", namespace="example")
+        example = aws.quicksight.namespace.Namespace("example", namespace=example)
         ```
 
         ## Import
@@ -315,7 +315,7 @@ class Namespace(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.quicksight.Namespace("example", namespace="example")
+        example = aws.quicksight.namespace.Namespace("example", namespace=example)
         ```
 
         ## Import

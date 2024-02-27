@@ -22,30 +22,30 @@ namespace Pulumi.Aws.Cognito
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleUserPool = new Aws.Cognito.UserPool("exampleUserPool", new()
+    ///     var exampleUserPool = new Aws.Cognito.UserPool.UserPool("exampleUserPool", new()
     ///     {
-    ///         PasswordPolicy = new Aws.Cognito.Inputs.UserPoolPasswordPolicyArgs
+    ///         PasswordPolicy = 
     ///         {
-    ///             TemporaryPasswordValidityDays = 7,
-    ///             MinimumLength = 6,
-    ///             RequireUppercase = false,
-    ///             RequireSymbols = false,
-    ///             RequireNumbers = false,
+    ///             { "temporaryPasswordValidityDays", 7 },
+    ///             { "minimumLength", 6 },
+    ///             { "requireUppercase", false },
+    ///             { "requireSymbols", false },
+    ///             { "requireNumbers", false },
     ///         },
     ///     });
     /// 
-    ///     var exampleUser = new Aws.Cognito.User("exampleUser", new()
+    ///     var exampleUser = new Aws.Cognito.User.User("exampleUser", new()
     ///     {
     ///         UserPoolId = exampleUserPool.Id,
     ///         Username = "example",
     ///     });
     /// 
-    ///     var exampleUserGroup = new Aws.Cognito.UserGroup("exampleUserGroup", new()
+    ///     var exampleUserGroup = new Aws.Cognito.UserGroup.UserGroup("exampleUserGroup", new()
     ///     {
     ///         UserPoolId = exampleUserPool.Id,
     ///     });
     /// 
-    ///     var exampleUserInGroup = new Aws.Cognito.UserInGroup("exampleUserInGroup", new()
+    ///     var exampleUserInGroup = new Aws.Cognito.UserInGroup.UserInGroup("exampleUserInGroup", new()
     ///     {
     ///         UserPoolId = exampleUserPool.Id,
     ///         GroupName = exampleUserGroup.Name,

@@ -14,32 +14,6 @@ import (
 // Data source for managing an AWS OpenSearch Serverless Access Policy.
 //
 // ## Example Usage
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/opensearch"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := opensearch.LookupServerlessAccessPolicy(ctx, &opensearch.LookupServerlessAccessPolicyArgs{
-//				Name: aws_opensearchserverless_access_policy.Example.Name,
-//				Type: aws_opensearchserverless_access_policy.Example.Type,
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupServerlessAccessPolicy(ctx *pulumi.Context, args *LookupServerlessAccessPolicyArgs, opts ...pulumi.InvokeOption) (*LookupServerlessAccessPolicyResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupServerlessAccessPolicyResult

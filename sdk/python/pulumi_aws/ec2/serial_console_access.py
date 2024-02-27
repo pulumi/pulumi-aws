@@ -77,7 +77,7 @@ class SerialConsoleAccess(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ec2.SerialConsoleAccess("example", enabled=True)
+        example = aws.ec2.serial_console_access.SerialConsoleAccess("example", enabled=True)
         ```
 
         ## Import
@@ -109,7 +109,7 @@ class SerialConsoleAccess(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ec2.SerialConsoleAccess("example", enabled=True)
+        example = aws.ec2.serial_console_access.SerialConsoleAccess("example", enabled=True)
         ```
 
         ## Import

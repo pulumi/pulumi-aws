@@ -24,31 +24,29 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lambda"
+//	lambda/functionEventInvokeConfig "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/lambda/functionEventInvokeConfig"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lambda.NewFunctionEventInvokeConfig(ctx, "example", &lambda.FunctionEventInvokeConfigArgs{
-//				FunctionName: pulumi.Any(aws_lambda_alias.Example.Function_name),
-//				DestinationConfig: &lambda.FunctionEventInvokeConfigDestinationConfigArgs{
-//					OnFailure: &lambda.FunctionEventInvokeConfigDestinationConfigOnFailureArgs{
-//						Destination: pulumi.Any(aws_sqs_queue.Example.Arn),
-//					},
-//					OnSuccess: &lambda.FunctionEventInvokeConfigDestinationConfigOnSuccessArgs{
-//						Destination: pulumi.Any(aws_sns_topic.Example.Arn),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := lambda/functionEventInvokeConfig.NewFunctionEventInvokeConfig(ctx, "example", &lambda/functionEventInvokeConfig.FunctionEventInvokeConfigArgs{
+// FunctionName: aws_lambda_alias.Example.Function_name,
+// DestinationConfig: map[string]interface{}{
+// "onFailure": map[string]interface{}{
+// "destination": aws_sqs_queue.Example.Arn,
+// },
+// "onSuccess": map[string]interface{}{
+// "destination": aws_sns_topic.Example.Arn,
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Error Handling Configuration
 //
@@ -57,25 +55,23 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lambda"
+//	lambda/functionEventInvokeConfig "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/lambda/functionEventInvokeConfig"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lambda.NewFunctionEventInvokeConfig(ctx, "example", &lambda.FunctionEventInvokeConfigArgs{
-//				FunctionName:             pulumi.Any(aws_lambda_alias.Example.Function_name),
-//				MaximumEventAgeInSeconds: pulumi.Int(60),
-//				MaximumRetryAttempts:     pulumi.Int(0),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := lambda/functionEventInvokeConfig.NewFunctionEventInvokeConfig(ctx, "example", &lambda/functionEventInvokeConfig.FunctionEventInvokeConfigArgs{
+// FunctionName: aws_lambda_alias.Example.Function_name,
+// MaximumEventAgeInSeconds: 60,
+// MaximumRetryAttempts: 0,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Configuration for Alias Name
 //
@@ -84,24 +80,22 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lambda"
+//	lambda/functionEventInvokeConfig "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/lambda/functionEventInvokeConfig"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lambda.NewFunctionEventInvokeConfig(ctx, "example", &lambda.FunctionEventInvokeConfigArgs{
-//				FunctionName: pulumi.Any(aws_lambda_alias.Example.Function_name),
-//				Qualifier:    pulumi.Any(aws_lambda_alias.Example.Name),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := lambda/functionEventInvokeConfig.NewFunctionEventInvokeConfig(ctx, "example", &lambda/functionEventInvokeConfig.FunctionEventInvokeConfigArgs{
+// FunctionName: aws_lambda_alias.Example.Function_name,
+// Qualifier: aws_lambda_alias.Example.Name,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Configuration for Function Latest Unpublished Version
 //
@@ -110,24 +104,22 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lambda"
+//	lambda/functionEventInvokeConfig "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/lambda/functionEventInvokeConfig"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lambda.NewFunctionEventInvokeConfig(ctx, "example", &lambda.FunctionEventInvokeConfigArgs{
-//				FunctionName: pulumi.Any(aws_lambda_function.Example.Function_name),
-//				Qualifier:    pulumi.String("$LATEST"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := lambda/functionEventInvokeConfig.NewFunctionEventInvokeConfig(ctx, "example", &lambda/functionEventInvokeConfig.FunctionEventInvokeConfigArgs{
+// FunctionName: aws_lambda_function.Example.Function_name,
+// Qualifier: "$LATEST",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Configuration for Function Published Version
 //
@@ -136,24 +128,22 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lambda"
+//	lambda/functionEventInvokeConfig "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/lambda/functionEventInvokeConfig"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lambda.NewFunctionEventInvokeConfig(ctx, "example", &lambda.FunctionEventInvokeConfigArgs{
-//				FunctionName: pulumi.Any(aws_lambda_function.Example.Function_name),
-//				Qualifier:    pulumi.Any(aws_lambda_function.Example.Version),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := lambda/functionEventInvokeConfig.NewFunctionEventInvokeConfig(ctx, "example", &lambda/functionEventInvokeConfig.FunctionEventInvokeConfigArgs{
+// FunctionName: aws_lambda_function.Example.Function_name,
+// Qualifier: aws_lambda_function.Example.Version,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

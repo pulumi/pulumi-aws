@@ -208,15 +208,15 @@ class EventConnection(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.cloudwatch.EventConnection("test",
-            auth_parameters=aws.cloudwatch.EventConnectionAuthParametersArgs(
-                api_key=aws.cloudwatch.EventConnectionAuthParametersApiKeyArgs(
-                    key="x-signature",
-                    value="1234",
-                ),
-            ),
-            authorization_type="API_KEY",
-            description="A connection description")
+        test = aws.cloudwatch.event_connection.EventConnection("test",
+            auth_parameters={
+                apiKey: {
+                    key: x-signature,
+                    value: 1234,
+                },
+            },
+            authorization_type=API_KEY,
+            description=A connection description)
         ```
         ### Basic Authorization
 
@@ -224,15 +224,92 @@ class EventConnection(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.cloudwatch.EventConnection("test",
-            auth_parameters=aws.cloudwatch.EventConnectionAuthParametersArgs(
-                basic=aws.cloudwatch.EventConnectionAuthParametersBasicArgs(
-                    password="Pass1234!",
-                    username="user",
-                ),
-            ),
-            authorization_type="BASIC",
-            description="A connection description")
+        test = aws.cloudwatch.event_connection.EventConnection("test",
+            auth_parameters={
+                basic: {
+                    password: Pass1234!,
+                    username: user,
+                },
+            },
+            authorization_type=BASIC,
+            description=A connection description)
+        ```
+        ### OAuth Authorization
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.cloudwatch.event_connection.EventConnection("test",
+            auth_parameters={
+                oauth: {
+                    authorizationEndpoint: https://auth.url.com/endpoint,
+                    clientParameters: {
+                        clientId: 1234567890,
+                        clientSecret: Pass1234!,
+                    },
+                    httpMethod: GET,
+                    oauthHttpParameters: {
+                        body: [{
+                            isValueSecret: False,
+                            key: body-parameter-key,
+                            value: body-parameter-value,
+                        }],
+                        header: [{
+                            isValueSecret: False,
+                            key: header-parameter-key,
+                            value: header-parameter-value,
+                        }],
+                        queryString: [{
+                            isValueSecret: False,
+                            key: query-string-parameter-key,
+                            value: query-string-parameter-value,
+                        }],
+                    },
+                },
+            },
+            authorization_type=OAUTH_CLIENT_CREDENTIALS,
+            description=A connection description)
+        ```
+        ### Invocation Http Parameters
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.cloudwatch.event_connection.EventConnection("test",
+            auth_parameters={
+                basic: {
+                    password: Pass1234!,
+                    username: user,
+                },
+                invocationHttpParameters: {
+                    body: [
+                        {
+                            isValueSecret: False,
+                            key: body-parameter-key,
+                            value: body-parameter-value,
+                        },
+                        {
+                            isValueSecret: True,
+                            key: body-parameter-key2,
+                            value: body-parameter-value2,
+                        },
+                    ],
+                    header: [{
+                        isValueSecret: False,
+                        key: header-parameter-key,
+                        value: header-parameter-value,
+                    }],
+                    queryString: [{
+                        isValueSecret: False,
+                        key: query-string-parameter-key,
+                        value: query-string-parameter-value,
+                    }],
+                },
+            },
+            authorization_type=BASIC,
+            description=A connection description)
         ```
 
         ## Import
@@ -267,15 +344,15 @@ class EventConnection(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.cloudwatch.EventConnection("test",
-            auth_parameters=aws.cloudwatch.EventConnectionAuthParametersArgs(
-                api_key=aws.cloudwatch.EventConnectionAuthParametersApiKeyArgs(
-                    key="x-signature",
-                    value="1234",
-                ),
-            ),
-            authorization_type="API_KEY",
-            description="A connection description")
+        test = aws.cloudwatch.event_connection.EventConnection("test",
+            auth_parameters={
+                apiKey: {
+                    key: x-signature,
+                    value: 1234,
+                },
+            },
+            authorization_type=API_KEY,
+            description=A connection description)
         ```
         ### Basic Authorization
 
@@ -283,15 +360,92 @@ class EventConnection(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.cloudwatch.EventConnection("test",
-            auth_parameters=aws.cloudwatch.EventConnectionAuthParametersArgs(
-                basic=aws.cloudwatch.EventConnectionAuthParametersBasicArgs(
-                    password="Pass1234!",
-                    username="user",
-                ),
-            ),
-            authorization_type="BASIC",
-            description="A connection description")
+        test = aws.cloudwatch.event_connection.EventConnection("test",
+            auth_parameters={
+                basic: {
+                    password: Pass1234!,
+                    username: user,
+                },
+            },
+            authorization_type=BASIC,
+            description=A connection description)
+        ```
+        ### OAuth Authorization
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.cloudwatch.event_connection.EventConnection("test",
+            auth_parameters={
+                oauth: {
+                    authorizationEndpoint: https://auth.url.com/endpoint,
+                    clientParameters: {
+                        clientId: 1234567890,
+                        clientSecret: Pass1234!,
+                    },
+                    httpMethod: GET,
+                    oauthHttpParameters: {
+                        body: [{
+                            isValueSecret: False,
+                            key: body-parameter-key,
+                            value: body-parameter-value,
+                        }],
+                        header: [{
+                            isValueSecret: False,
+                            key: header-parameter-key,
+                            value: header-parameter-value,
+                        }],
+                        queryString: [{
+                            isValueSecret: False,
+                            key: query-string-parameter-key,
+                            value: query-string-parameter-value,
+                        }],
+                    },
+                },
+            },
+            authorization_type=OAUTH_CLIENT_CREDENTIALS,
+            description=A connection description)
+        ```
+        ### Invocation Http Parameters
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.cloudwatch.event_connection.EventConnection("test",
+            auth_parameters={
+                basic: {
+                    password: Pass1234!,
+                    username: user,
+                },
+                invocationHttpParameters: {
+                    body: [
+                        {
+                            isValueSecret: False,
+                            key: body-parameter-key,
+                            value: body-parameter-value,
+                        },
+                        {
+                            isValueSecret: True,
+                            key: body-parameter-key2,
+                            value: body-parameter-value2,
+                        },
+                    ],
+                    header: [{
+                        isValueSecret: False,
+                        key: header-parameter-key,
+                        value: header-parameter-value,
+                    }],
+                    queryString: [{
+                        isValueSecret: False,
+                        key: query-string-parameter-key,
+                        value: query-string-parameter-value,
+                    }],
+                },
+            },
+            authorization_type=BASIC,
+            description=A connection description)
         ```
 
         ## Import

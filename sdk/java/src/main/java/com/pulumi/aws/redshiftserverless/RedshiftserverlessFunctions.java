@@ -23,72 +23,12 @@ public final class RedshiftserverlessFunctions {
     /**
      * Provides redshift serverless temporary credentials for a workgroup.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.redshiftserverless.RedshiftserverlessFunctions;
-     * import com.pulumi.aws.redshiftserverless.inputs.GetCredentialsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = RedshiftserverlessFunctions.getCredentials(GetCredentialsArgs.builder()
-     *             .workgroupName(aws_redshiftserverless_workgroup.example().workgroup_name())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetCredentialsResult> getCredentials(GetCredentialsArgs args) {
         return getCredentials(args, InvokeOptions.Empty);
     }
     /**
      * Provides redshift serverless temporary credentials for a workgroup.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.redshiftserverless.RedshiftserverlessFunctions;
-     * import com.pulumi.aws.redshiftserverless.inputs.GetCredentialsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = RedshiftserverlessFunctions.getCredentials(GetCredentialsArgs.builder()
-     *             .workgroupName(aws_redshiftserverless_workgroup.example().workgroup_name())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetCredentialsResult> getCredentialsPlain(GetCredentialsPlainArgs args) {
@@ -97,72 +37,12 @@ public final class RedshiftserverlessFunctions {
     /**
      * Provides redshift serverless temporary credentials for a workgroup.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.redshiftserverless.RedshiftserverlessFunctions;
-     * import com.pulumi.aws.redshiftserverless.inputs.GetCredentialsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = RedshiftserverlessFunctions.getCredentials(GetCredentialsArgs.builder()
-     *             .workgroupName(aws_redshiftserverless_workgroup.example().workgroup_name())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetCredentialsResult> getCredentials(GetCredentialsArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:redshiftserverless/getCredentials:getCredentials", TypeShape.of(GetCredentialsResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Provides redshift serverless temporary credentials for a workgroup.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.redshiftserverless.RedshiftserverlessFunctions;
-     * import com.pulumi.aws.redshiftserverless.inputs.GetCredentialsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = RedshiftserverlessFunctions.getCredentials(GetCredentialsArgs.builder()
-     *             .workgroupName(aws_redshiftserverless_workgroup.example().workgroup_name())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetCredentialsResult> getCredentialsPlain(GetCredentialsPlainArgs args, InvokeOptions options) {
@@ -171,72 +51,12 @@ public final class RedshiftserverlessFunctions {
     /**
      * Data source for managing an AWS Redshift Serverless Namespace.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.redshiftserverless.RedshiftserverlessFunctions;
-     * import com.pulumi.aws.redshiftserverless.inputs.GetNamespaceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = RedshiftserverlessFunctions.getNamespace(GetNamespaceArgs.builder()
-     *             .namespaceName(&#34;example-namespace&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetNamespaceResult> getNamespace(GetNamespaceArgs args) {
         return getNamespace(args, InvokeOptions.Empty);
     }
     /**
      * Data source for managing an AWS Redshift Serverless Namespace.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.redshiftserverless.RedshiftserverlessFunctions;
-     * import com.pulumi.aws.redshiftserverless.inputs.GetNamespaceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = RedshiftserverlessFunctions.getNamespace(GetNamespaceArgs.builder()
-     *             .namespaceName(&#34;example-namespace&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetNamespaceResult> getNamespacePlain(GetNamespacePlainArgs args) {
@@ -245,72 +65,12 @@ public final class RedshiftserverlessFunctions {
     /**
      * Data source for managing an AWS Redshift Serverless Namespace.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.redshiftserverless.RedshiftserverlessFunctions;
-     * import com.pulumi.aws.redshiftserverless.inputs.GetNamespaceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = RedshiftserverlessFunctions.getNamespace(GetNamespaceArgs.builder()
-     *             .namespaceName(&#34;example-namespace&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetNamespaceResult> getNamespace(GetNamespaceArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:redshiftserverless/getNamespace:getNamespace", TypeShape.of(GetNamespaceResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Data source for managing an AWS Redshift Serverless Namespace.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.redshiftserverless.RedshiftserverlessFunctions;
-     * import com.pulumi.aws.redshiftserverless.inputs.GetNamespaceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = RedshiftserverlessFunctions.getNamespace(GetNamespaceArgs.builder()
-     *             .namespaceName(&#34;example-namespace&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetNamespaceResult> getNamespacePlain(GetNamespacePlainArgs args, InvokeOptions options) {
@@ -320,35 +80,6 @@ public final class RedshiftserverlessFunctions {
      * Data source for managing an AWS Redshift Serverless Workgroup.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.redshiftserverless.RedshiftserverlessFunctions;
-     * import com.pulumi.aws.redshiftserverless.inputs.GetWorkgroupArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = RedshiftserverlessFunctions.getWorkgroup(GetWorkgroupArgs.builder()
-     *             .workgroupName(aws_redshiftserverless_workgroup.example().workgroup_name())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetWorkgroupResult> getWorkgroup(GetWorkgroupArgs args) {
@@ -358,35 +89,6 @@ public final class RedshiftserverlessFunctions {
      * Data source for managing an AWS Redshift Serverless Workgroup.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.redshiftserverless.RedshiftserverlessFunctions;
-     * import com.pulumi.aws.redshiftserverless.inputs.GetWorkgroupArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = RedshiftserverlessFunctions.getWorkgroup(GetWorkgroupArgs.builder()
-     *             .workgroupName(aws_redshiftserverless_workgroup.example().workgroup_name())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetWorkgroupResult> getWorkgroupPlain(GetWorkgroupPlainArgs args) {
@@ -396,35 +98,6 @@ public final class RedshiftserverlessFunctions {
      * Data source for managing an AWS Redshift Serverless Workgroup.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.redshiftserverless.RedshiftserverlessFunctions;
-     * import com.pulumi.aws.redshiftserverless.inputs.GetWorkgroupArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = RedshiftserverlessFunctions.getWorkgroup(GetWorkgroupArgs.builder()
-     *             .workgroupName(aws_redshiftserverless_workgroup.example().workgroup_name())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetWorkgroupResult> getWorkgroup(GetWorkgroupArgs args, InvokeOptions options) {
@@ -434,35 +107,6 @@ public final class RedshiftserverlessFunctions {
      * Data source for managing an AWS Redshift Serverless Workgroup.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.redshiftserverless.RedshiftserverlessFunctions;
-     * import com.pulumi.aws.redshiftserverless.inputs.GetWorkgroupArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = RedshiftserverlessFunctions.getWorkgroup(GetWorkgroupArgs.builder()
-     *             .workgroupName(aws_redshiftserverless_workgroup.example().workgroup_name())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetWorkgroupResult> getWorkgroupPlain(GetWorkgroupPlainArgs args, InvokeOptions options) {

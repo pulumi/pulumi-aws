@@ -35,7 +35,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.ssmincidents.ReplicationSet;
  * import com.pulumi.aws.ssmincidents.ReplicationSetArgs;
- * import com.pulumi.aws.ssmincidents.inputs.ReplicationSetRegionArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -50,10 +49,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var replicationSetName = new ReplicationSet(&#34;replicationSetName&#34;, ReplicationSetArgs.builder()        
- *             .regions(ReplicationSetRegionArgs.builder()
- *                 .name(&#34;us-west-2&#34;)
- *                 .build())
- *             .tags(Map.of(&#34;exampleTag&#34;, &#34;exampleValue&#34;))
+ *             .regions(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -69,7 +66,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.ssmincidents.ReplicationSet;
  * import com.pulumi.aws.ssmincidents.ReplicationSetArgs;
- * import com.pulumi.aws.ssmincidents.inputs.ReplicationSetRegionArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -85,12 +81,8 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var replicationSetName = new ReplicationSet(&#34;replicationSetName&#34;, ReplicationSetArgs.builder()        
  *             .regions(            
- *                 ReplicationSetRegionArgs.builder()
- *                     .name(&#34;us-west-2&#34;)
- *                     .build(),
- *                 ReplicationSetRegionArgs.builder()
- *                     .name(&#34;ap-southeast-2&#34;)
- *                     .build())
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -106,7 +98,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.ssmincidents.ReplicationSet;
  * import com.pulumi.aws.ssmincidents.ReplicationSetArgs;
- * import com.pulumi.aws.ssmincidents.inputs.ReplicationSetRegionArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -121,9 +112,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var replicationSetName = new ReplicationSet(&#34;replicationSetName&#34;, ReplicationSetArgs.builder()        
- *             .regions(ReplicationSetRegionArgs.builder()
- *                 .name(&#34;us-west-2&#34;)
- *                 .build())
+ *             .regions(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -141,7 +130,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.kms.Key;
  * import com.pulumi.aws.ssmincidents.ReplicationSet;
  * import com.pulumi.aws.ssmincidents.ReplicationSetArgs;
- * import com.pulumi.aws.ssmincidents.inputs.ReplicationSetRegionArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -158,11 +146,8 @@ import javax.annotation.Nullable;
  *         var exampleKey = new Key(&#34;exampleKey&#34;);
  * 
  *         var replicationSetName = new ReplicationSet(&#34;replicationSetName&#34;, ReplicationSetArgs.builder()        
- *             .regions(ReplicationSetRegionArgs.builder()
- *                 .name(&#34;us-west-2&#34;)
- *                 .kmsKeyArn(exampleKey.arn())
- *                 .build())
- *             .tags(Map.of(&#34;exampleTag&#34;, &#34;exampleValue&#34;))
+ *             .regions(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

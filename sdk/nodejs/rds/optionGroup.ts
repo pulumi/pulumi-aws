@@ -21,7 +21,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.rds.OptionGroup("example", {
+ * const example = new aws.rds/optionGroup.OptionGroup("example", {
  *     optionGroupDescription: "Option Group",
  *     engineName: "sqlserver-ee",
  *     majorEngineVersion: "11.00",

@@ -21,23 +21,21 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	iam/securityTokenServicePreferences "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/iam/securityTokenServicePreferences"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := iam.NewSecurityTokenServicePreferences(ctx, "example", &iam.SecurityTokenServicePreferencesArgs{
-//				GlobalEndpointTokenVersion: pulumi.String("v2Token"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := iam/securityTokenServicePreferences.NewSecurityTokenServicePreferences(ctx, "example", &iam/securityTokenServicePreferences.SecurityTokenServicePreferencesArgs{
+// GlobalEndpointTokenVersion: "v2Token",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 type SecurityTokenServicePreferences struct {
 	pulumi.CustomResourceState

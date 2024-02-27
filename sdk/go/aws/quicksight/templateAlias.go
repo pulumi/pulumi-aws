@@ -22,25 +22,23 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/quicksight"
+//	quicksight/templateAlias "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/quicksight/templateAlias"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := quicksight.NewTemplateAlias(ctx, "example", &quicksight.TemplateAliasArgs{
-//				AliasName:             pulumi.String("example-alias"),
-//				TemplateId:            pulumi.Any(aws_quicksight_template.Test.Template_id),
-//				TemplateVersionNumber: pulumi.Any(aws_quicksight_template.Test.Version_number),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := quicksight/templateAlias.NewTemplateAlias(ctx, "example", &quicksight/templateAlias.TemplateAliasArgs{
+// AliasName: "example-alias",
+// TemplateId: aws_quicksight_template.Test.Template_id,
+// TemplateVersionNumber: aws_quicksight_template.Test.Version_number,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

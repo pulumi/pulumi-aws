@@ -12,34 +12,6 @@ namespace Pulumi.Aws.SecurityHub
     /// <summary>
     /// Subscribes to a Security Hub product.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleAccount = new Aws.SecurityHub.Account("exampleAccount");
-    /// 
-    ///     var current = Aws.GetRegion.Invoke();
-    /// 
-    ///     var exampleProductSubscription = new Aws.SecurityHub.ProductSubscription("exampleProductSubscription", new()
-    ///     {
-    ///         ProductArn = $"arn:aws:securityhub:{current.Apply(getRegionResult =&gt; getRegionResult.Name)}:733251395267:product/alertlogic/althreatmanagement",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             exampleAccount,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Security Hub product subscriptions using `product_arn,arn`. For example:

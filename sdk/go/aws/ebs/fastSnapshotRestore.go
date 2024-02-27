@@ -22,24 +22,22 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ebs"
+//	ebs/fastSnapshotRestore "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ebs/fastSnapshotRestore"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ebs.NewFastSnapshotRestore(ctx, "example", &ebs.FastSnapshotRestoreArgs{
-//				AvailabilityZone: pulumi.String("us-west-2a"),
-//				SnapshotId:       pulumi.Any(aws_ebs_snapshot.Example.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := ebs/fastSnapshotRestore.NewFastSnapshotRestore(ctx, "example", &ebs/fastSnapshotRestore.FastSnapshotRestoreArgs{
+// AvailabilityZone: "us-west-2a",
+// SnapshotId: aws_ebs_snapshot.Example.Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

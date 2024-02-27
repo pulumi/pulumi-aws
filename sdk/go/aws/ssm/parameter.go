@@ -24,24 +24,22 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssm"
+//	ssm/parameter "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ssm/parameter"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ssm.NewParameter(ctx, "foo", &ssm.ParameterArgs{
-//				Type:  pulumi.String("String"),
-//				Value: pulumi.String("bar"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := ssm/parameter.NewParameter(ctx, "foo", &ssm/parameter.ParameterArgs{
+// Type: "String",
+// Value: "bar",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Encrypted string using default SSM KMS key
 //
@@ -50,44 +48,42 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/rds"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssm"
+//	rds/instance "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/rds/instance"
+//	ssm/parameter "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ssm/parameter"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := rds.NewInstance(ctx, "default", &rds.InstanceArgs{
-//				AllocatedStorage:   pulumi.Int(10),
-//				StorageType:        pulumi.String("gp2"),
-//				Engine:             pulumi.String("mysql"),
-//				EngineVersion:      pulumi.String("5.7.16"),
-//				InstanceClass:      pulumi.String("db.t2.micro"),
-//				DbName:             pulumi.String("mydb"),
-//				Username:           pulumi.String("foo"),
-//				Password:           pulumi.Any(_var.Database_master_password),
-//				DbSubnetGroupName:  pulumi.String("my_database_subnet_group"),
-//				ParameterGroupName: pulumi.String("default.mysql5.7"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ssm.NewParameter(ctx, "secret", &ssm.ParameterArgs{
-//				Description: pulumi.String("The parameter description"),
-//				Type:        pulumi.String("SecureString"),
-//				Value:       pulumi.Any(_var.Database_master_password),
-//				Tags: pulumi.StringMap{
-//					"environment": pulumi.String("production"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := rds/instance.NewInstance(ctx, "default", &rds/instance.InstanceArgs{
+// AllocatedStorage: 10,
+// StorageType: "gp2",
+// Engine: "mysql",
+// EngineVersion: "5.7.16",
+// InstanceClass: "db.t2.micro",
+// DbName: "mydb",
+// Username: "foo",
+// Password: _var.Database_master_password,
+// DbSubnetGroupName: "my_database_subnet_group",
+// ParameterGroupName: "default.mysql5.7",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = ssm/parameter.NewParameter(ctx, "secret", &ssm/parameter.ParameterArgs{
+// Description: "The parameter description",
+// Type: "SecureString",
+// Value: _var.Database_master_password,
+// Tags: map[string]interface{}{
+// "environment": "production",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

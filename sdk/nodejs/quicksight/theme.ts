@@ -11,6 +11,38 @@ import * as utilities from "../utilities";
  * Resource for managing a QuickSight Theme.
  *
  * ## Example Usage
+ * ### Basic Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.quicksight/theme.Theme("example", {
+ *     baseThemeId: "MIDNIGHT",
+ *     configuration: {
+ *         dataColorPalette: {
+ *             colors: [
+ *                 "#FFFFFF",
+ *                 "#111111",
+ *                 "#222222",
+ *                 "#333333",
+ *                 "#444444",
+ *                 "#555555",
+ *                 "#666666",
+ *                 "#777777",
+ *                 "#888888",
+ *                 "#999999",
+ *             ],
+ *             emptyFillColor: "#FFFFFF",
+ *             minMaxGradient: [
+ *                 "#FFFFFF",
+ *                 "#111111",
+ *             ],
+ *         },
+ *     },
+ *     themeId: "example",
+ * });
+ * ```
  *
  * ## Import
  *

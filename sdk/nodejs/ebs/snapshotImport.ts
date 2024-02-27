@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.ebs.SnapshotImport("example", {
+ * const example = new aws.ebs/snapshotImport.SnapshotImport("example", {
  *     diskContainer: {
  *         format: "VHD",
  *         userBucket: {

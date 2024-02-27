@@ -22,7 +22,7 @@ namespace Pulumi.Aws.DirectConnect
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.DirectConnect.Gateway("example", new()
+    ///     var example = new Aws.Directconnect.Gateway.Gateway("example", new()
     ///     {
     ///         AmazonSideAsn = "64512",
     ///     });

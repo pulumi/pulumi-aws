@@ -907,22 +907,22 @@ class Endpoint(pulumi.CustomResource):
         import pulumi_aws as aws
 
         # Create a new endpoint
-        test = aws.dms.Endpoint("test",
-            certificate_arn="arn:aws:acm:us-east-1:123456789012:certificate/12345678-1234-1234-1234-123456789012",
-            database_name="test",
-            endpoint_id="test-dms-endpoint-tf",
-            endpoint_type="source",
-            engine_name="aurora",
-            extra_connection_attributes="",
-            kms_key_arn="arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012",
-            password="test",
+        test = aws.dms.endpoint.Endpoint("test",
+            certificate_arn=arn:aws:acm:us-east-1:123456789012:certificate/12345678-1234-1234-1234-123456789012,
+            database_name=test,
+            endpoint_id=test-dms-endpoint-tf,
+            endpoint_type=source,
+            engine_name=aurora,
+            extra_connection_attributes=,
+            kms_key_arn=arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012,
+            password=test,
             port=3306,
-            server_name="test",
-            ssl_mode="none",
+            server_name=test,
+            ssl_mode=none,
             tags={
-                "Name": "test",
+                Name: test,
             },
-            username="test")
+            username=test)
         ```
 
         ## Import
@@ -981,22 +981,22 @@ class Endpoint(pulumi.CustomResource):
         import pulumi_aws as aws
 
         # Create a new endpoint
-        test = aws.dms.Endpoint("test",
-            certificate_arn="arn:aws:acm:us-east-1:123456789012:certificate/12345678-1234-1234-1234-123456789012",
-            database_name="test",
-            endpoint_id="test-dms-endpoint-tf",
-            endpoint_type="source",
-            engine_name="aurora",
-            extra_connection_attributes="",
-            kms_key_arn="arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012",
-            password="test",
+        test = aws.dms.endpoint.Endpoint("test",
+            certificate_arn=arn:aws:acm:us-east-1:123456789012:certificate/12345678-1234-1234-1234-123456789012,
+            database_name=test,
+            endpoint_id=test-dms-endpoint-tf,
+            endpoint_type=source,
+            engine_name=aurora,
+            extra_connection_attributes=,
+            kms_key_arn=arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012,
+            password=test,
             port=3306,
-            server_name="test",
-            ssl_mode="none",
+            server_name=test,
+            ssl_mode=none,
             tags={
-                "Name": "test",
+                Name: test,
             },
-            username="test")
+            username=test)
         ```
 
         ## Import

@@ -13,96 +13,6 @@ import (
 )
 
 // ## Example Usage
-// ### Pause Cluster Action
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/redshift"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			assumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-//				Statements: []iam.GetPolicyDocumentStatement{
-//					{
-//						Effect: pulumi.StringRef("Allow"),
-//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
-//							{
-//								Type: "Service",
-//								Identifiers: []string{
-//									"scheduler.redshift.amazonaws.com",
-//								},
-//							},
-//						},
-//						Actions: []string{
-//							"sts:AssumeRole",
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleRole, err := iam.NewRole(ctx, "exampleRole", &iam.RoleArgs{
-//				AssumeRolePolicy: *pulumi.String(assumeRole.Json),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			examplePolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-//				Statements: []iam.GetPolicyDocumentStatement{
-//					{
-//						Effect: pulumi.StringRef("Allow"),
-//						Actions: []string{
-//							"redshift:PauseCluster",
-//							"redshift:ResumeCluster",
-//							"redshift:ResizeCluster",
-//						},
-//						Resources: []string{
-//							"*",
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			examplePolicy, err := iam.NewPolicy(ctx, "examplePolicy", &iam.PolicyArgs{
-//				Policy: *pulumi.String(examplePolicyDocument.Json),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = iam.NewRolePolicyAttachment(ctx, "exampleRolePolicyAttachment", &iam.RolePolicyAttachmentArgs{
-//				PolicyArn: examplePolicy.Arn,
-//				Role:      exampleRole.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = redshift.NewScheduledAction(ctx, "exampleScheduledAction", &redshift.ScheduledActionArgs{
-//				Schedule: pulumi.String("cron(00 23 * * ? *)"),
-//				IamRole:  exampleRole.Arn,
-//				TargetAction: &redshift.ScheduledActionTargetActionArgs{
-//					PauseCluster: &redshift.ScheduledActionTargetActionPauseClusterArgs{
-//						ClusterIdentifier: pulumi.String("tf-redshift001"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 // ### Resize Cluster Action
 //
 // ```go
@@ -110,32 +20,30 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/redshift"
+//	redshift/scheduledAction "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/redshift/scheduledAction"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := redshift.NewScheduledAction(ctx, "example", &redshift.ScheduledActionArgs{
-//				Schedule: pulumi.String("cron(00 23 * * ? *)"),
-//				IamRole:  pulumi.Any(aws_iam_role.Example.Arn),
-//				TargetAction: &redshift.ScheduledActionTargetActionArgs{
-//					ResizeCluster: &redshift.ScheduledActionTargetActionResizeClusterArgs{
-//						ClusterIdentifier: pulumi.String("tf-redshift001"),
-//						ClusterType:       pulumi.String("multi-node"),
-//						NodeType:          pulumi.String("dc1.large"),
-//						NumberOfNodes:     pulumi.Int(2),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := redshift/scheduledAction.NewScheduledAction(ctx, "example", &redshift/scheduledAction.ScheduledActionArgs{
+// Schedule: "cron(00 23 * * ? *)",
+// IamRole: aws_iam_role.Example.Arn,
+// TargetAction: map[string]interface{}{
+// "resizeCluster": map[string]interface{}{
+// "clusterIdentifier": "tf-redshift001",
+// "clusterType": "multi-node",
+// "nodeType": "dc1.large",
+// "numberOfNodes": 2,
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

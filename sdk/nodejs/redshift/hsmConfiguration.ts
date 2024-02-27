@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.redshift.HsmConfiguration("example", {
+ * const example = new aws.redshift/hsmConfiguration.HsmConfiguration("example", {
  *     description: "example",
  *     hsmConfigurationIdentifier: "example",
  *     hsmIpAddress: "10.0.0.1",

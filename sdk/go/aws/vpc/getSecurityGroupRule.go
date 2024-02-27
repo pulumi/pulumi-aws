@@ -12,32 +12,6 @@ import (
 )
 
 // `vpc.getSecurityGroupRule` provides details about a specific security group rule.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/vpc"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := vpc.GetSecurityGroupRule(ctx, &vpc.GetSecurityGroupRuleArgs{
-//				SecurityGroupRuleId: pulumi.StringRef(_var.Security_group_rule_id),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetSecurityGroupRule(ctx *pulumi.Context, args *GetSecurityGroupRuleArgs, opts ...pulumi.InvokeOption) (*GetSecurityGroupRuleResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetSecurityGroupRuleResult

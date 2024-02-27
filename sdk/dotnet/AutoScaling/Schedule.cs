@@ -22,7 +22,7 @@ namespace Pulumi.Aws.AutoScaling
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var foobarGroup = new Aws.AutoScaling.Group("foobarGroup", new()
+    ///     var foobarGroup = new Aws.Autoscaling.Group.Group("foobarGroup", new()
     ///     {
     ///         AvailabilityZones = new[]
     ///         {
@@ -39,7 +39,7 @@ namespace Pulumi.Aws.AutoScaling
     ///         },
     ///     });
     /// 
-    ///     var foobarSchedule = new Aws.AutoScaling.Schedule("foobarSchedule", new()
+    ///     var foobarSchedule = new Aws.Autoscaling.Schedule.Schedule("foobarSchedule", new()
     ///     {
     ///         ScheduledActionName = "foobar",
     ///         MinSize = 0,

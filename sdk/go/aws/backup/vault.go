@@ -20,23 +20,21 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/backup"
+//	backup/vault "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/backup/vault"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := backup.NewVault(ctx, "example", &backup.VaultArgs{
-//				KmsKeyArn: pulumi.Any(aws_kms_key.Example.Arn),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := backup/vault.NewVault(ctx, "example", &backup/vault.VaultArgs{
+// KmsKeyArn: aws_kms_key.Example.Arn,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

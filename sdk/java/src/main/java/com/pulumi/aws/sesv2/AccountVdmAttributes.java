@@ -28,8 +28,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.sesv2.AccountVdmAttributes;
  * import com.pulumi.aws.sesv2.AccountVdmAttributesArgs;
- * import com.pulumi.aws.sesv2.inputs.AccountVdmAttributesDashboardAttributesArgs;
- * import com.pulumi.aws.sesv2.inputs.AccountVdmAttributesGuardianAttributesArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -44,12 +42,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new AccountVdmAttributes(&#34;example&#34;, AccountVdmAttributesArgs.builder()        
- *             .dashboardAttributes(AccountVdmAttributesDashboardAttributesArgs.builder()
- *                 .engagementMetrics(&#34;ENABLED&#34;)
- *                 .build())
- *             .guardianAttributes(AccountVdmAttributesGuardianAttributesArgs.builder()
- *                 .optimizedSharedDelivery(&#34;ENABLED&#34;)
- *                 .build())
+ *             .dashboardAttributes(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .guardianAttributes(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .vdmEnabled(&#34;ENABLED&#34;)
  *             .build());
  * 

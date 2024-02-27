@@ -24,9 +24,9 @@ namespace Pulumi.Aws.Pinpoint
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var app = new Aws.Pinpoint.App("app");
+    ///     var app = new Aws.Pinpoint.App.App("app");
     /// 
-    ///     var apnsVoip = new Aws.Pinpoint.ApnsVoipChannel("apnsVoip", new()
+    ///     var apnsVoip = new Aws.Pinpoint.ApnsVoipChannel.ApnsVoipChannel("apnsVoip", new()
     ///     {
     ///         ApplicationId = app.ApplicationId,
     ///         Certificate = File.ReadAllText("./certificate.pem"),

@@ -25,7 +25,7 @@ namespace Pulumi.Aws.S3Control
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.S3Control.BucketPolicy("example", new()
+    ///     var example = new Aws.S3control.BucketPolicy.BucketPolicy("example", new()
     ///     {
     ///         Bucket = aws_s3control_bucket.Example.Arn,
     ///         Policy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;

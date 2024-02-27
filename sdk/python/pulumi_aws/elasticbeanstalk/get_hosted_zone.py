@@ -61,15 +61,6 @@ def get_hosted_zone(region: Optional[str] = None,
     """
     Use this data source to get the ID of an [elastic beanstalk hosted zone](http://docs.aws.amazon.com/general/latest/gr/rande.html#elasticbeanstalk_region).
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    current = aws.elasticbeanstalk.get_hosted_zone()
-    ```
-
 
     :param str region: Region you'd like the zone for. By default, fetches the current region.
     """
@@ -88,15 +79,6 @@ def get_hosted_zone_output(region: Optional[pulumi.Input[Optional[str]]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetHostedZoneResult]:
     """
     Use this data source to get the ID of an [elastic beanstalk hosted zone](http://docs.aws.amazon.com/general/latest/gr/rande.html#elasticbeanstalk_region).
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    current = aws.elasticbeanstalk.get_hosted_zone()
-    ```
 
 
     :param str region: Region you'd like the zone for. By default, fetches the current region.

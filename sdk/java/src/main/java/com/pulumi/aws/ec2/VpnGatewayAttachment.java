@@ -28,12 +28,12 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.ec2.Vpc;
- * import com.pulumi.aws.ec2.VpcArgs;
- * import com.pulumi.aws.ec2.VpnGateway;
- * import com.pulumi.aws.ec2.VpnGatewayArgs;
- * import com.pulumi.aws.ec2.VpnGatewayAttachment;
- * import com.pulumi.aws.ec2.VpnGatewayAttachmentArgs;
+ * import com.pulumi.aws.ec2_vpc.Vpc;
+ * import com.pulumi.aws.ec2_vpc.VpcArgs;
+ * import com.pulumi.aws.ec2_vpnGateway.VpnGateway;
+ * import com.pulumi.aws.ec2_vpnGateway.VpnGatewayArgs;
+ * import com.pulumi.aws.ec2_vpnGatewayAttachment.VpnGatewayAttachment;
+ * import com.pulumi.aws.ec2_vpnGatewayAttachment.VpnGatewayAttachmentArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -52,7 +52,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var vpn = new VpnGateway(&#34;vpn&#34;, VpnGatewayArgs.builder()        
- *             .tags(Map.of(&#34;Name&#34;, &#34;example-vpn-gateway&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var vpnAttachment = new VpnGatewayAttachment(&#34;vpnAttachment&#34;, VpnGatewayAttachmentArgs.builder()        

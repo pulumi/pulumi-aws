@@ -94,19 +94,6 @@ def get_container_recipes(filters: Optional[Sequence[pulumi.InputType['GetContai
     """
     Use this data source to get the ARNs and names of Image Builder Container Recipes matching the specified criteria.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.imagebuilder.get_container_recipes(filters=[aws.imagebuilder.GetContainerRecipesFilterArgs(
-            name="platform",
-            values=["Linux"],
-        )],
-        owner="Self")
-    ```
-
 
     :param Sequence[pulumi.InputType['GetContainerRecipesFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.
     :param str owner: Owner of the container recipes. Valid values are `Self`, `Shared`, `Amazon` and `ThirdParty`. Defaults to `Self`.
@@ -131,19 +118,6 @@ def get_container_recipes_output(filters: Optional[pulumi.Input[Optional[Sequenc
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetContainerRecipesResult]:
     """
     Use this data source to get the ARNs and names of Image Builder Container Recipes matching the specified criteria.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.imagebuilder.get_container_recipes(filters=[aws.imagebuilder.GetContainerRecipesFilterArgs(
-            name="platform",
-            values=["Linux"],
-        )],
-        owner="Self")
-    ```
 
 
     :param Sequence[pulumi.InputType['GetContainerRecipesFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.

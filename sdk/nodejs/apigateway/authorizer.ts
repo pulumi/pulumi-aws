@@ -9,61 +9,6 @@ import {RestApi} from "./index";
 /**
  * Provides an API Gateway Authorizer.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const demoRestApi = new aws.apigateway.RestApi("demoRestApi", {});
- * const invocationAssumeRole = aws.iam.getPolicyDocument({
- *     statements: [{
- *         effect: "Allow",
- *         principals: [{
- *             type: "Service",
- *             identifiers: ["apigateway.amazonaws.com"],
- *         }],
- *         actions: ["sts:AssumeRole"],
- *     }],
- * });
- * const invocationRole = new aws.iam.Role("invocationRole", {
- *     path: "/",
- *     assumeRolePolicy: invocationAssumeRole.then(invocationAssumeRole => invocationAssumeRole.json),
- * });
- * const lambdaAssumeRole = aws.iam.getPolicyDocument({
- *     statements: [{
- *         effect: "Allow",
- *         actions: ["sts:AssumeRole"],
- *         principals: [{
- *             type: "Service",
- *             identifiers: ["lambda.amazonaws.com"],
- *         }],
- *     }],
- * });
- * const lambda = new aws.iam.Role("lambda", {assumeRolePolicy: lambdaAssumeRole.then(lambdaAssumeRole => lambdaAssumeRole.json)});
- * const authorizer = new aws.lambda.Function("authorizer", {
- *     code: new pulumi.asset.FileArchive("lambda-function.zip"),
- *     role: lambda.arn,
- *     handler: "exports.example",
- * });
- * const demoAuthorizer = new aws.apigateway.Authorizer("demoAuthorizer", {
- *     restApi: demoRestApi.id,
- *     authorizerUri: authorizer.invokeArn,
- *     authorizerCredentials: invocationRole.arn,
- * });
- * const invocationPolicyPolicyDocument = aws.iam.getPolicyDocumentOutput({
- *     statements: [{
- *         effect: "Allow",
- *         actions: ["lambda:InvokeFunction"],
- *         resources: [authorizer.arn],
- *     }],
- * });
- * const invocationPolicyRolePolicy = new aws.iam.RolePolicy("invocationPolicyRolePolicy", {
- *     role: invocationRole.id,
- *     policy: invocationPolicyPolicyDocument.apply(invocationPolicyPolicyDocument => invocationPolicyPolicyDocument.json),
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import AWS API Gateway Authorizer using the `REST-API-ID/AUTHORIZER-ID`. For example:

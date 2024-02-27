@@ -21,29 +21,27 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	iam/openIdConnectProvider "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/iam/openIdConnectProvider"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := iam.NewOpenIdConnectProvider(ctx, "default", &iam.OpenIdConnectProviderArgs{
-//				ClientIdLists: pulumi.StringArray{
-//					pulumi.String("266362248691-342342xasdasdasda-apps.googleusercontent.com"),
-//				},
-//				ThumbprintLists: pulumi.StringArray{
-//					pulumi.String("cf23df2207d99a74fbe169e3eba035e633b65d94"),
-//				},
-//				Url: pulumi.String("https://accounts.google.com"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := iam/openIdConnectProvider.NewOpenIdConnectProvider(ctx, "default", &iam/openIdConnectProvider.OpenIdConnectProviderArgs{
+// ClientIdLists: []string{
+// "266362248691-342342xasdasdasda-apps.googleusercontent.com",
+// },
+// ThumbprintLists: []string{
+// "cf23df2207d99a74fbe169e3eba035e633b65d94",
+// },
+// Url: "https://accounts.google.com",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

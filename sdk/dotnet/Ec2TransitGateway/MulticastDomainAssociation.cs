@@ -22,12 +22,12 @@ namespace Pulumi.Aws.Ec2TransitGateway
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleTransitGateway = new Aws.Ec2TransitGateway.TransitGateway("exampleTransitGateway", new()
+    ///     var exampleTransitGateway = new Aws.Ec2transitgateway.TransitGateway.TransitGateway("exampleTransitGateway", new()
     ///     {
     ///         MulticastSupport = "enable",
     ///     });
     /// 
-    ///     var exampleVpcAttachment = new Aws.Ec2TransitGateway.VpcAttachment("exampleVpcAttachment", new()
+    ///     var exampleVpcAttachment = new Aws.Ec2transitgateway.VpcAttachment.VpcAttachment("exampleVpcAttachment", new()
     ///     {
     ///         SubnetIds = new[]
     ///         {
@@ -37,12 +37,12 @@ namespace Pulumi.Aws.Ec2TransitGateway
     ///         VpcId = aws_vpc.Example.Id,
     ///     });
     /// 
-    ///     var exampleMulticastDomain = new Aws.Ec2TransitGateway.MulticastDomain("exampleMulticastDomain", new()
+    ///     var exampleMulticastDomain = new Aws.Ec2transitgateway.MulticastDomain.MulticastDomain("exampleMulticastDomain", new()
     ///     {
     ///         TransitGatewayId = exampleTransitGateway.Id,
     ///     });
     /// 
-    ///     var exampleMulticastDomainAssociation = new Aws.Ec2TransitGateway.MulticastDomainAssociation("exampleMulticastDomainAssociation", new()
+    ///     var exampleMulticastDomainAssociation = new Aws.Ec2transitgateway.MulticastDomainAssociation.MulticastDomainAssociation("exampleMulticastDomainAssociation", new()
     ///     {
     ///         SubnetId = aws_subnet.Example.Id,
     ///         TransitGatewayAttachmentId = exampleVpcAttachment.Id,

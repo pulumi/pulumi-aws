@@ -28,7 +28,7 @@ namespace Pulumi.Aws.Iam
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testRole = new Aws.Iam.Role("testRole", new()
+    ///     var testRole = new Aws.Iam.Role.Role("testRole", new()
     ///     {
     ///         AssumeRolePolicy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
@@ -55,115 +55,6 @@ namespace Pulumi.Aws.Iam
     /// 
     /// });
     /// ```
-    /// ### Example of Using Data Source for Assume Role Policy
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var instanceAssumeRolePolicy = Aws.Iam.GetPolicyDocument.Invoke(new()
-    ///     {
-    ///         Statements = new[]
-    ///         {
-    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
-    ///             {
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "sts:AssumeRole",
-    ///                 },
-    ///                 Principals = new[]
-    ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
-    ///                     {
-    ///                         Type = "Service",
-    ///                         Identifiers = new[]
-    ///                         {
-    ///                             "ec2.amazonaws.com",
-    ///                         },
-    ///                     },
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var instance = new Aws.Iam.Role("instance", new()
-    ///     {
-    ///         Path = "/system/",
-    ///         AssumeRolePolicy = instanceAssumeRolePolicy.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### Example of Exclusive Inline Policies
-    /// 
-    /// This example creates an IAM role with two inline IAM policies. If someone adds another inline policy out-of-band, on the next apply, this provider will remove that policy. If someone deletes these policies out-of-band, this provider will recreate them.
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using System.Text.Json;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var inlinePolicy = Aws.Iam.GetPolicyDocument.Invoke(new()
-    ///     {
-    ///         Statements = new[]
-    ///         {
-    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
-    ///             {
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "ec2:DescribeAccountAttributes",
-    ///                 },
-    ///                 Resources = new[]
-    ///                 {
-    ///                     "*",
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var example = new Aws.Iam.Role("example", new()
-    ///     {
-    ///         AssumeRolePolicy = data.Aws_iam_policy_document.Instance_assume_role_policy.Json,
-    ///         InlinePolicies = new[]
-    ///         {
-    ///             new Aws.Iam.Inputs.RoleInlinePolicyArgs
-    ///             {
-    ///                 Name = "my_inline_policy",
-    ///                 Policy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///                 {
-    ///                     ["Version"] = "2012-10-17",
-    ///                     ["Statement"] = new[]
-    ///                     {
-    ///                         new Dictionary&lt;string, object?&gt;
-    ///                         {
-    ///                             ["Action"] = new[]
-    ///                             {
-    ///                                 "ec2:Describe*",
-    ///                             },
-    ///                             ["Effect"] = "Allow",
-    ///                             ["Resource"] = "*",
-    ///                         },
-    ///                     },
-    ///                 }),
-    ///             },
-    ///             new Aws.Iam.Inputs.RoleInlinePolicyArgs
-    ///             {
-    ///                 Name = "policy-8675309",
-    ///                 Policy = inlinePolicy.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// ### Example of Removing Inline Policies
     /// 
     /// This example creates an IAM role with what appears to be empty IAM `inline_policy` argument instead of using `inline_policy` as a configuration block. The result is that if someone were to add an inline policy out-of-band, on the next apply, this provider will remove that policy.
@@ -176,7 +67,7 @@ namespace Pulumi.Aws.Iam
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Iam.Role("example", new()
+    ///     var example = new Aws.Iam.Role.Role("example", new()
     ///     {
     ///         AssumeRolePolicy = data.Aws_iam_policy_document.Instance_assume_role_policy.Json,
     ///         InlinePolicies = new[]
@@ -200,9 +91,9 @@ namespace Pulumi.Aws.Iam
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var policyOne = new Aws.Iam.Policy("policyOne", new()
+    ///     var policyOne = new Aws.Iam.Policy.Policy("policyOne", new()
     ///     {
-    ///         PolicyDocument = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///         Policy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
     ///             ["Version"] = "2012-10-17",
     ///             ["Statement"] = new[]
@@ -220,9 +111,9 @@ namespace Pulumi.Aws.Iam
     ///         }),
     ///     });
     /// 
-    ///     var policyTwo = new Aws.Iam.Policy("policyTwo", new()
+    ///     var policyTwo = new Aws.Iam.Policy.Policy("policyTwo", new()
     ///     {
-    ///         PolicyDocument = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///         Policy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
     ///             ["Version"] = "2012-10-17",
     ///             ["Statement"] = new[]
@@ -242,7 +133,7 @@ namespace Pulumi.Aws.Iam
     ///         }),
     ///     });
     /// 
-    ///     var example = new Aws.Iam.Role("example", new()
+    ///     var example = new Aws.Iam.Role.Role("example", new()
     ///     {
     ///         AssumeRolePolicy = data.Aws_iam_policy_document.Instance_assume_role_policy.Json,
     ///         ManagedPolicyArns = new[]
@@ -266,7 +157,7 @@ namespace Pulumi.Aws.Iam
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Iam.Role("example", new()
+    ///     var example = new Aws.Iam.Role.Role("example", new()
     ///     {
     ///         AssumeRolePolicy = data.Aws_iam_policy_document.Instance_assume_role_policy.Json,
     ///         ManagedPolicyArns = new[] {},

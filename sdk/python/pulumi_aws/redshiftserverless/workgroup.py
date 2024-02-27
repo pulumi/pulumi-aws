@@ -450,9 +450,9 @@ class Workgroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.redshiftserverless.Workgroup("example",
-            namespace_name="concurrency-scaling",
-            workgroup_name="concurrency-scaling")
+        example = aws.redshiftserverless.workgroup.Workgroup("example",
+            namespace_name=concurrency-scaling,
+            workgroup_name=concurrency-scaling)
         ```
 
         ## Import
@@ -493,9 +493,9 @@ class Workgroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.redshiftserverless.Workgroup("example",
-            namespace_name="concurrency-scaling",
-            workgroup_name="concurrency-scaling")
+        example = aws.redshiftserverless.workgroup.Workgroup("example",
+            namespace_name=concurrency-scaling,
+            workgroup_name=concurrency-scaling)
         ```
 
         ## Import

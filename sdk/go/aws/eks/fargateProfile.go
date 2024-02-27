@@ -21,23 +21,19 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/eks"
+//	eks/fargateProfile "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/eks/fargateProfile"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 // func main() {
 // pulumi.Run(func(ctx *pulumi.Context) error {
-// var splat0 []interface{}
-// for _, val0 := range aws_subnet.Example {
-// splat0 = append(splat0, val0.Id)
-// }
-// _, err := eks.NewFargateProfile(ctx, "example", &eks.FargateProfileArgs{
-// ClusterName: pulumi.Any(aws_eks_cluster.Example.Name),
-// PodExecutionRoleArn: pulumi.Any(aws_iam_role.Example.Arn),
-// SubnetIds: toPulumiArray(splat0),
-// Selectors: eks.FargateProfileSelectorArray{
-// &eks.FargateProfileSelectorArgs{
-// Namespace: pulumi.String("example"),
+// _, err := eks/fargateProfile.NewFargateProfile(ctx, "example", &eks/fargateProfile.FargateProfileArgs{
+// ClusterName: aws_eks_cluster.Example.Name,
+// PodExecutionRoleArn: aws_iam_role.Example.Arn,
+// SubnetIds: %!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ #-resources-aws:eks-fargateProfile:FargateProfile.pp:3,27-51),
+// Selectors: []map[string]interface{}{
+// map[string]interface{}{
+// "namespace": "example",
 // },
 // },
 // })
@@ -46,13 +42,6 @@ import (
 // }
 // return nil
 // })
-// }
-// func toPulumiArray(arr []) pulumi.Array {
-// var pulumiArr pulumi.Array
-// for _, v := range arr {
-// pulumiArr = append(pulumiArr, pulumi.(v))
-// }
-// return pulumiArr
 // }
 // ```
 // ### Example IAM Role for EKS Fargate Profile
@@ -64,46 +53,29 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	iam/role "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/iam/role"
+//	iam/rolePolicyAttachment "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/iam/rolePolicyAttachment"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"Statement": []map[string]interface{}{
-//					map[string]interface{}{
-//						"Action": "sts:AssumeRole",
-//						"Effect": "Allow",
-//						"Principal": map[string]interface{}{
-//							"Service": "eks-fargate-pods.amazonaws.com",
-//						},
-//					},
-//				},
-//				"Version": "2012-10-17",
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			example, err := iam.NewRole(ctx, "example", &iam.RoleArgs{
-//				AssumeRolePolicy: pulumi.String(json0),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = iam.NewRolePolicyAttachment(ctx, "example-AmazonEKSFargatePodExecutionRolePolicy", &iam.RolePolicyAttachmentArgs{
-//				PolicyArn: pulumi.String("arn:aws:iam::aws:policy/AmazonEKSFargatePodExecutionRolePolicy"),
-//				Role:      example.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := iam/role.NewRole(ctx, "example", &iam/role.RoleArgs{
+// AssumeRolePolicy: %!v(PANIC=Format method: fatal: An assertion has failed: unlowered function toJSON),
+// })
+// if err != nil {
+// return err
+// }
+// _, err = iam/rolePolicyAttachment.NewRolePolicyAttachment(ctx, "example-AmazonEKSFargatePodExecutionRolePolicy", &iam/rolePolicyAttachment.RolePolicyAttachmentArgs{
+// PolicyArn: "arn:aws:iam::aws:policy/AmazonEKSFargatePodExecutionRolePolicy",
+// Role: example.Name,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

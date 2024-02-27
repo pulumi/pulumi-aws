@@ -60,7 +60,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.route53.ResolverRule;
  * import com.pulumi.aws.route53.ResolverRuleArgs;
- * import com.pulumi.aws.route53.inputs.ResolverRuleTargetIpArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -78,10 +77,8 @@ import javax.annotation.Nullable;
  *             .domainName(&#34;example.com&#34;)
  *             .ruleType(&#34;FORWARD&#34;)
  *             .resolverEndpointId(aws_route53_resolver_endpoint.foo().id())
- *             .targetIps(ResolverRuleTargetIpArgs.builder()
- *                 .ip(&#34;123.45.67.89&#34;)
- *                 .build())
- *             .tags(Map.of(&#34;Environment&#34;, &#34;Prod&#34;))
+ *             .targetIps(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

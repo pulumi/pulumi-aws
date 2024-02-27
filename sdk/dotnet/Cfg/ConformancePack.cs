@@ -30,14 +30,14 @@ namespace Pulumi.Aws.Cfg
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Cfg.ConformancePack("example", new()
+    ///     var example = new Aws.Cfg.ConformancePack.ConformancePack("example", new()
     ///     {
     ///         InputParameters = new[]
     ///         {
-    ///             new Aws.Cfg.Inputs.ConformancePackInputParameterArgs
+    ///             
     ///             {
-    ///                 ParameterName = "AccessKeysRotatedParameterMaxAccessKeyAge",
-    ///                 ParameterValue = "90",
+    ///                 { "parameterName", "AccessKeysRotatedParameterMaxAccessKeyAge" },
+    ///                 { "parameterValue", "90" },
     ///             },
     ///         },
     ///         TemplateBody = @"Parameters:
@@ -72,9 +72,9 @@ namespace Pulumi.Aws.Cfg
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2");
+    ///     var exampleBucketV2 = new Aws.S3.BucketV2.BucketV2("exampleBucketV2");
     /// 
-    ///     var exampleBucketObjectv2 = new Aws.S3.BucketObjectv2("exampleBucketObjectv2", new()
+    ///     var exampleBucketObjectv2 = new Aws.S3.BucketObjectv2.BucketObjectv2("exampleBucketObjectv2", new()
     ///     {
     ///         Bucket = exampleBucketV2.Id,
     ///         Key = "example-key",
@@ -89,14 +89,9 @@ namespace Pulumi.Aws.Cfg
     /// ",
     ///     });
     /// 
-    ///     var exampleConformancePack = new Aws.Cfg.ConformancePack("exampleConformancePack", new()
+    ///     var exampleConformancePack = new Aws.Cfg.ConformancePack.ConformancePack("exampleConformancePack", new()
     ///     {
-    ///         TemplateS3Uri = Output.Tuple(exampleBucketV2.Bucket, exampleBucketObjectv2.Key).Apply(values =&gt;
-    ///         {
-    ///             var bucket = values.Item1;
-    ///             var key = values.Item2;
-    ///             return $"s3://{bucket}/{key}";
-    ///         }),
+    ///         TemplateS3Uri = $"s3://{exampleBucketV2.Bucket}/{exampleBucketObjectv2.Key}",
     ///     }, new CustomResourceOptions
     ///     {
     ///         DependsOn = new[]

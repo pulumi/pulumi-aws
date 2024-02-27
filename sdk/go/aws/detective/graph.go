@@ -20,25 +20,23 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/detective"
+//	detective/graph "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/detective/graph"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := detective.NewGraph(ctx, "example", &detective.GraphArgs{
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("example-detective-graph"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := detective/graph.NewGraph(ctx, "example", &detective/graph.GraphArgs{
+// Tags: map[string]interface{}{
+// "Name": "example-detective-graph",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

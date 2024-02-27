@@ -536,7 +536,7 @@ class OpenZfsVolume(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.fsx.OpenZfsVolume("test", parent_volume_id=aws_fsx_openzfs_file_system["test"]["root_volume_id"])
+        test = aws.fsx.open_zfs_volume.OpenZfsVolume("test", parent_volume_id=aws_fsx_openzfs_file_system.test.root_volume_id)
         ```
 
         ## Import
@@ -579,7 +579,7 @@ class OpenZfsVolume(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.fsx.OpenZfsVolume("test", parent_volume_id=aws_fsx_openzfs_file_system["test"]["root_volume_id"])
+        test = aws.fsx.open_zfs_volume.OpenZfsVolume("test", parent_volume_id=aws_fsx_openzfs_file_system.test.root_volume_id)
         ```
 
         ## Import

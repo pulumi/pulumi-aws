@@ -273,12 +273,12 @@ class VpcConnection(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.msk.VpcConnection("test",
-            authentication="SASL_IAM",
-            target_cluster_arn="aws_msk_cluster.arn",
-            vpc_id=aws_vpc["test"]["id"],
-            client_subnets=[__item["id"] for __item in aws_subnet["test"]],
-            security_groups=[aws_security_group["test"]["id"]])
+        test = aws.msk.vpc_connection.VpcConnection("test",
+            authentication=SASL_IAM,
+            target_cluster_arn=aws_msk_cluster.arn,
+            vpc_id=aws_vpc.test.id,
+            client_subnets=[__item.id for __item in aws_subnet.test],
+            security_groups=[aws_security_group.test.id])
         ```
 
         ## Import
@@ -313,12 +313,12 @@ class VpcConnection(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.msk.VpcConnection("test",
-            authentication="SASL_IAM",
-            target_cluster_arn="aws_msk_cluster.arn",
-            vpc_id=aws_vpc["test"]["id"],
-            client_subnets=[__item["id"] for __item in aws_subnet["test"]],
-            security_groups=[aws_security_group["test"]["id"]])
+        test = aws.msk.vpc_connection.VpcConnection("test",
+            authentication=SASL_IAM,
+            target_cluster_arn=aws_msk_cluster.arn,
+            vpc_id=aws_vpc.test.id,
+            client_subnets=[__item.id for __item in aws_subnet.test],
+            security_groups=[aws_security_group.test.id])
         ```
 
         ## Import

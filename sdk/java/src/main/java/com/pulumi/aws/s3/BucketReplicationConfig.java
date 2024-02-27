@@ -24,155 +24,6 @@ import javax.annotation.Nullable;
  * &gt; This resource cannot be used with S3 directory buckets.
  * 
  * ## Example Usage
- * ### Using replication configuration
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.Provider;
- * import com.pulumi.aws.ProviderArgs;
- * import com.pulumi.aws.iam.IamFunctions;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
- * import com.pulumi.aws.iam.Role;
- * import com.pulumi.aws.iam.RoleArgs;
- * import com.pulumi.aws.s3.BucketV2;
- * import com.pulumi.aws.s3.BucketV2Args;
- * import com.pulumi.aws.iam.Policy;
- * import com.pulumi.aws.iam.PolicyArgs;
- * import com.pulumi.aws.iam.RolePolicyAttachment;
- * import com.pulumi.aws.iam.RolePolicyAttachmentArgs;
- * import com.pulumi.aws.s3.BucketVersioningV2;
- * import com.pulumi.aws.s3.BucketVersioningV2Args;
- * import com.pulumi.aws.s3.inputs.BucketVersioningV2VersioningConfigurationArgs;
- * import com.pulumi.aws.s3.BucketAclV2;
- * import com.pulumi.aws.s3.BucketAclV2Args;
- * import com.pulumi.aws.s3.BucketReplicationConfig;
- * import com.pulumi.aws.s3.BucketReplicationConfigArgs;
- * import com.pulumi.aws.s3.inputs.BucketReplicationConfigRuleArgs;
- * import com.pulumi.aws.s3.inputs.BucketReplicationConfigRuleFilterArgs;
- * import com.pulumi.aws.s3.inputs.BucketReplicationConfigRuleDestinationArgs;
- * import com.pulumi.resources.CustomResourceOptions;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var central = new Provider(&#34;central&#34;, ProviderArgs.builder()        
- *             .region(&#34;eu-central-1&#34;)
- *             .build());
- * 
- *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect(&#34;Allow&#34;)
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type(&#34;Service&#34;)
- *                     .identifiers(&#34;s3.amazonaws.com&#34;)
- *                     .build())
- *                 .actions(&#34;sts:AssumeRole&#34;)
- *                 .build())
- *             .build());
- * 
- *         var replicationRole = new Role(&#34;replicationRole&#34;, RoleArgs.builder()        
- *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
- *             .build());
- * 
- *         var destinationBucketV2 = new BucketV2(&#34;destinationBucketV2&#34;);
- * 
- *         var sourceBucketV2 = new BucketV2(&#34;sourceBucketV2&#34;, BucketV2Args.Empty, CustomResourceOptions.builder()
- *             .provider(aws.central())
- *             .build());
- * 
- *         final var replicationPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(            
- *                 GetPolicyDocumentStatementArgs.builder()
- *                     .effect(&#34;Allow&#34;)
- *                     .actions(                    
- *                         &#34;s3:GetReplicationConfiguration&#34;,
- *                         &#34;s3:ListBucket&#34;)
- *                     .resources(sourceBucketV2.arn())
- *                     .build(),
- *                 GetPolicyDocumentStatementArgs.builder()
- *                     .effect(&#34;Allow&#34;)
- *                     .actions(                    
- *                         &#34;s3:GetObjectVersionForReplication&#34;,
- *                         &#34;s3:GetObjectVersionAcl&#34;,
- *                         &#34;s3:GetObjectVersionTagging&#34;)
- *                     .resources(sourceBucketV2.arn().applyValue(arn -&gt; String.format(&#34;%s/*&#34;, arn)))
- *                     .build(),
- *                 GetPolicyDocumentStatementArgs.builder()
- *                     .effect(&#34;Allow&#34;)
- *                     .actions(                    
- *                         &#34;s3:ReplicateObject&#34;,
- *                         &#34;s3:ReplicateDelete&#34;,
- *                         &#34;s3:ReplicateTags&#34;)
- *                     .resources(destinationBucketV2.arn().applyValue(arn -&gt; String.format(&#34;%s/*&#34;, arn)))
- *                     .build())
- *             .build());
- * 
- *         var replicationPolicy = new Policy(&#34;replicationPolicy&#34;, PolicyArgs.builder()        
- *             .policy(replicationPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(replicationPolicyDocument -&gt; replicationPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
- *             .build());
- * 
- *         var replicationRolePolicyAttachment = new RolePolicyAttachment(&#34;replicationRolePolicyAttachment&#34;, RolePolicyAttachmentArgs.builder()        
- *             .role(replicationRole.name())
- *             .policyArn(replicationPolicy.arn())
- *             .build());
- * 
- *         var destinationBucketVersioningV2 = new BucketVersioningV2(&#34;destinationBucketVersioningV2&#34;, BucketVersioningV2Args.builder()        
- *             .bucket(destinationBucketV2.id())
- *             .versioningConfiguration(BucketVersioningV2VersioningConfigurationArgs.builder()
- *                 .status(&#34;Enabled&#34;)
- *                 .build())
- *             .build());
- * 
- *         var sourceBucketAcl = new BucketAclV2(&#34;sourceBucketAcl&#34;, BucketAclV2Args.builder()        
- *             .bucket(sourceBucketV2.id())
- *             .acl(&#34;private&#34;)
- *             .build(), CustomResourceOptions.builder()
- *                 .provider(aws.central())
- *                 .build());
- * 
- *         var sourceBucketVersioningV2 = new BucketVersioningV2(&#34;sourceBucketVersioningV2&#34;, BucketVersioningV2Args.builder()        
- *             .bucket(sourceBucketV2.id())
- *             .versioningConfiguration(BucketVersioningV2VersioningConfigurationArgs.builder()
- *                 .status(&#34;Enabled&#34;)
- *                 .build())
- *             .build(), CustomResourceOptions.builder()
- *                 .provider(aws.central())
- *                 .build());
- * 
- *         var replicationBucketReplicationConfig = new BucketReplicationConfig(&#34;replicationBucketReplicationConfig&#34;, BucketReplicationConfigArgs.builder()        
- *             .role(replicationRole.arn())
- *             .bucket(sourceBucketV2.id())
- *             .rules(BucketReplicationConfigRuleArgs.builder()
- *                 .id(&#34;foobar&#34;)
- *                 .filter(BucketReplicationConfigRuleFilterArgs.builder()
- *                     .prefix(&#34;foo&#34;)
- *                     .build())
- *                 .status(&#34;Enabled&#34;)
- *                 .destination(BucketReplicationConfigRuleDestinationArgs.builder()
- *                     .bucket(destinationBucketV2.arn())
- *                     .storageClass(&#34;STANDARD&#34;)
- *                     .build())
- *                 .build())
- *             .build(), CustomResourceOptions.builder()
- *                 .provider(aws.central())
- *                 .dependsOn(sourceBucketVersioningV2)
- *                 .build());
- * 
- *     }
- * }
- * ```
  * ### Bi-Directional Replication
  * ```java
  * package generated_program;
@@ -183,13 +34,9 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.s3.BucketV2;
  * import com.pulumi.aws.s3.BucketVersioningV2;
  * import com.pulumi.aws.s3.BucketVersioningV2Args;
- * import com.pulumi.aws.s3.inputs.BucketVersioningV2VersioningConfigurationArgs;
  * import com.pulumi.aws.s3.BucketV2Args;
  * import com.pulumi.aws.s3.BucketReplicationConfig;
  * import com.pulumi.aws.s3.BucketReplicationConfigArgs;
- * import com.pulumi.aws.s3.inputs.BucketReplicationConfigRuleArgs;
- * import com.pulumi.aws.s3.inputs.BucketReplicationConfigRuleFilterArgs;
- * import com.pulumi.aws.s3.inputs.BucketReplicationConfigRuleDestinationArgs;
  * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
@@ -208,9 +55,7 @@ import javax.annotation.Nullable;
  * 
  *         var eastBucketVersioningV2 = new BucketVersioningV2(&#34;eastBucketVersioningV2&#34;, BucketVersioningV2Args.builder()        
  *             .bucket(eastBucketV2.id())
- *             .versioningConfiguration(BucketVersioningV2VersioningConfigurationArgs.builder()
- *                 .status(&#34;Enabled&#34;)
- *                 .build())
+ *             .versioningConfiguration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var westBucketV2 = new BucketV2(&#34;westBucketV2&#34;, BucketV2Args.Empty, CustomResourceOptions.builder()
@@ -219,9 +64,7 @@ import javax.annotation.Nullable;
  * 
  *         var westBucketVersioningV2 = new BucketVersioningV2(&#34;westBucketVersioningV2&#34;, BucketVersioningV2Args.builder()        
  *             .bucket(westBucketV2.id())
- *             .versioningConfiguration(BucketVersioningV2VersioningConfigurationArgs.builder()
- *                 .status(&#34;Enabled&#34;)
- *                 .build())
+ *             .versioningConfiguration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build(), CustomResourceOptions.builder()
  *                 .provider(aws.west())
  *                 .build());
@@ -229,17 +72,7 @@ import javax.annotation.Nullable;
  *         var eastToWest = new BucketReplicationConfig(&#34;eastToWest&#34;, BucketReplicationConfigArgs.builder()        
  *             .role(aws_iam_role.east_replication().arn())
  *             .bucket(eastBucketV2.id())
- *             .rules(BucketReplicationConfigRuleArgs.builder()
- *                 .id(&#34;foobar&#34;)
- *                 .filter(BucketReplicationConfigRuleFilterArgs.builder()
- *                     .prefix(&#34;foo&#34;)
- *                     .build())
- *                 .status(&#34;Enabled&#34;)
- *                 .destination(BucketReplicationConfigRuleDestinationArgs.builder()
- *                     .bucket(westBucketV2.arn())
- *                     .storageClass(&#34;STANDARD&#34;)
- *                     .build())
- *                 .build())
+ *             .rules(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(eastBucketVersioningV2)
  *                 .build());
@@ -247,17 +80,7 @@ import javax.annotation.Nullable;
  *         var westToEast = new BucketReplicationConfig(&#34;westToEast&#34;, BucketReplicationConfigArgs.builder()        
  *             .role(aws_iam_role.west_replication().arn())
  *             .bucket(westBucketV2.id())
- *             .rules(BucketReplicationConfigRuleArgs.builder()
- *                 .id(&#34;foobar&#34;)
- *                 .filter(BucketReplicationConfigRuleFilterArgs.builder()
- *                     .prefix(&#34;foo&#34;)
- *                     .build())
- *                 .status(&#34;Enabled&#34;)
- *                 .destination(BucketReplicationConfigRuleDestinationArgs.builder()
- *                     .bucket(eastBucketV2.arn())
- *                     .storageClass(&#34;STANDARD&#34;)
- *                     .build())
- *                 .build())
+ *             .rules(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build(), CustomResourceOptions.builder()
  *                 .provider(aws.west())
  *                 .dependsOn(westBucketVersioningV2)

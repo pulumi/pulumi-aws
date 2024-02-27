@@ -28,39 +28,39 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	iam/group "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/iam/group"
+//	iam/groupMembership "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/iam/groupMembership"
+//	iam/user "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/iam/user"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			group, err := iam.NewGroup(ctx, "group", nil)
-//			if err != nil {
-//				return err
-//			}
-//			userOne, err := iam.NewUser(ctx, "userOne", nil)
-//			if err != nil {
-//				return err
-//			}
-//			userTwo, err := iam.NewUser(ctx, "userTwo", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = iam.NewGroupMembership(ctx, "team", &iam.GroupMembershipArgs{
-//				Users: pulumi.StringArray{
-//					userOne.Name,
-//					userTwo.Name,
-//				},
-//				Group: group.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// group, err := iam/group.NewGroup(ctx, "group", nil)
+// if err != nil {
+// return err
+// }
+// userOne, err := iam/user.NewUser(ctx, "userOne", nil)
+// if err != nil {
+// return err
+// }
+// userTwo, err := iam/user.NewUser(ctx, "userTwo", nil)
+// if err != nil {
+// return err
+// }
+// _, err = iam/groupMembership.NewGroupMembership(ctx, "team", &iam/groupMembership.GroupMembershipArgs{
+// Users: []interface{}{
+// userOne.Name,
+// userTwo.Name,
+// },
+// Group: group.Name,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 type GroupMembership struct {
 	pulumi.CustomResourceState

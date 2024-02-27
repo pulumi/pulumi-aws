@@ -21,41 +21,40 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/wafregional"
+//	wafregional/ipSet "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/wafregional/ipSet"
+//	wafregional/rule "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/wafregional/rule"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			ipset, err := wafregional.NewIpSet(ctx, "ipset", &wafregional.IpSetArgs{
-//				IpSetDescriptors: wafregional.IpSetIpSetDescriptorArray{
-//					&wafregional.IpSetIpSetDescriptorArgs{
-//						Type:  pulumi.String("IPV4"),
-//						Value: pulumi.String("192.0.7.0/24"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = wafregional.NewRule(ctx, "wafrule", &wafregional.RuleArgs{
-//				MetricName: pulumi.String("tfWAFRule"),
-//				Predicates: wafregional.RulePredicateArray{
-//					&wafregional.RulePredicateArgs{
-//						Type:    pulumi.String("IPMatch"),
-//						DataId:  ipset.ID(),
-//						Negated: pulumi.Bool(false),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// ipset, err := wafregional/ipSet.NewIpSet(ctx, "ipset", &wafregional/ipSet.IpSetArgs{
+// IpSetDescriptors: []map[string]interface{}{
+// map[string]interface{}{
+// "type": "IPV4",
+// "value": "192.0.7.0/24",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = wafregional/rule.NewRule(ctx, "wafrule", &wafregional/rule.RuleArgs{
+// MetricName: "tfWAFRule",
+// Predicates: []map[string]interface{}{
+// map[string]interface{}{
+// "type": "IPMatch",
+// "dataId": ipset.Id,
+// "negated": false,
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ## Nested Fields
 //

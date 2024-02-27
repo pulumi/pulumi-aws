@@ -23,12 +23,12 @@ namespace Pulumi.Aws.Shield
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testDrtAccessRoleArnAssociation = new Aws.Shield.DrtAccessRoleArnAssociation("testDrtAccessRoleArnAssociation", new()
+    ///     var testDrtAccessRoleArnAssociation = new Aws.Shield.DrtAccessRoleArnAssociation.DrtAccessRoleArnAssociation("testDrtAccessRoleArnAssociation", new()
     ///     {
     ///         RoleArn = $"arn:aws:iam:{data.Aws_region.Current.Name}:{data.Aws_caller_identity.Current.Account_id}:{@var.Shield_drt_access_role_name}",
     ///     });
     /// 
-    ///     var testDrtAccessLogBucketAssociation = new Aws.Shield.DrtAccessLogBucketAssociation("testDrtAccessLogBucketAssociation", new()
+    ///     var testDrtAccessLogBucketAssociation = new Aws.Shield.DrtAccessLogBucketAssociation.DrtAccessLogBucketAssociation("testDrtAccessLogBucketAssociation", new()
     ///     {
     ///         LogBucket = @var.Shield_drt_access_log_bucket,
     ///         RoleArnAssociationId = testDrtAccessRoleArnAssociation.Id,

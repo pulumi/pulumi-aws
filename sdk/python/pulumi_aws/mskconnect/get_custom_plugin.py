@@ -106,15 +106,6 @@ def get_custom_plugin(name: Optional[str] = None,
     """
     Get information on an Amazon MSK Connect custom plugin.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.mskconnect.get_custom_plugin(name="example-debezium-1")
-    ```
-
 
     :param str name: Name of the custom plugin.
     """
@@ -137,15 +128,6 @@ def get_custom_plugin_output(name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCustomPluginResult]:
     """
     Get information on an Amazon MSK Connect custom plugin.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.mskconnect.get_custom_plugin(name="example-debezium-1")
-    ```
 
 
     :param str name: Name of the custom plugin.

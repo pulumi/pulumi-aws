@@ -34,7 +34,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.medialive.InputSecurityGroup;
  * import com.pulumi.aws.medialive.InputSecurityGroupArgs;
- * import com.pulumi.aws.medialive.inputs.InputSecurityGroupWhitelistRuleArgs;
  * import com.pulumi.aws.medialive.Input;
  * import com.pulumi.aws.medialive.InputArgs;
  * import java.util.List;
@@ -51,16 +50,14 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var exampleInputSecurityGroup = new InputSecurityGroup(&#34;exampleInputSecurityGroup&#34;, InputSecurityGroupArgs.builder()        
- *             .whitelistRules(InputSecurityGroupWhitelistRuleArgs.builder()
- *                 .cidr(&#34;10.0.0.8/32&#34;)
- *                 .build())
- *             .tags(Map.of(&#34;ENVIRONMENT&#34;, &#34;prod&#34;))
+ *             .whitelistRules(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleInput = new Input(&#34;exampleInput&#34;, InputArgs.builder()        
  *             .inputSecurityGroups(exampleInputSecurityGroup.id())
  *             .type(&#34;UDP_PUSH&#34;)
- *             .tags(Map.of(&#34;ENVIRONMENT&#34;, &#34;prod&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

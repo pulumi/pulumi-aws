@@ -27,36 +27,34 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	ec2/defaultRouteTable "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/defaultRouteTable"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.NewDefaultRouteTable(ctx, "example", &ec2.DefaultRouteTableArgs{
-//				DefaultRouteTableId: pulumi.Any(aws_vpc.Example.Default_route_table_id),
-//				Routes: ec2.DefaultRouteTableRouteArray{
-//					&ec2.DefaultRouteTableRouteArgs{
-//						CidrBlock: pulumi.String("10.0.1.0/24"),
-//						GatewayId: pulumi.Any(aws_internet_gateway.Example.Id),
-//					},
-//					&ec2.DefaultRouteTableRouteArgs{
-//						Ipv6CidrBlock:       pulumi.String("::/0"),
-//						EgressOnlyGatewayId: pulumi.Any(aws_egress_only_internet_gateway.Example.Id),
-//					},
-//				},
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("example"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := ec2/defaultRouteTable.NewDefaultRouteTable(ctx, "example", &ec2/defaultRouteTable.DefaultRouteTableArgs{
+// DefaultRouteTableId: aws_vpc.Example.Default_route_table_id,
+// Routes: []interface{}{
+// map[string]interface{}{
+// "cidrBlock": "10.0.1.0/24",
+// "gatewayId": aws_internet_gateway.Example.Id,
+// },
+// map[string]interface{}{
+// "ipv6CidrBlock": "::/0",
+// "egressOnlyGatewayId": aws_egress_only_internet_gateway.Example.Id,
+// },
+// },
+// Tags: map[string]interface{}{
+// "Name": "example",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // To subsequently remove all managed routes:
@@ -66,27 +64,26 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	ec2/defaultRouteTable "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/defaultRouteTable"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.NewDefaultRouteTable(ctx, "example", &ec2.DefaultRouteTableArgs{
-//				DefaultRouteTableId: pulumi.Any(aws_vpc.Example.Default_route_table_id),
-//				Routes:              ec2.DefaultRouteTableRouteArray{},
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("example"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := ec2/defaultRouteTable.NewDefaultRouteTable(ctx, "example", &ec2/defaultRouteTable.DefaultRouteTableArgs{
+// DefaultRouteTableId: aws_vpc.Example.Default_route_table_id,
+// Routes: []interface{}{
+// },
+// Tags: map[string]interface{}{
+// "Name": "example",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

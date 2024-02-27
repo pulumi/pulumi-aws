@@ -22,25 +22,25 @@ namespace Pulumi.Aws.DynamoDB
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleTable = new Aws.DynamoDB.Table("exampleTable", new()
+    ///     var exampleTable = new Aws.Dynamodb.Table.Table("exampleTable", new()
     ///     {
     ///         HashKey = "id",
     ///         Attributes = new[]
     ///         {
-    ///             new Aws.DynamoDB.Inputs.TableAttributeArgs
+    ///             
     ///             {
-    ///                 Name = "id",
-    ///                 Type = "S",
+    ///                 { "name", "id" },
+    ///                 { "type", "S" },
     ///             },
     ///         },
     ///     });
     /// 
-    ///     var exampleStream = new Aws.Kinesis.Stream("exampleStream", new()
+    ///     var exampleStream = new Aws.Kinesis.Stream.Stream("exampleStream", new()
     ///     {
     ///         ShardCount = 1,
     ///     });
     /// 
-    ///     var exampleKinesisStreamingDestination = new Aws.DynamoDB.KinesisStreamingDestination("exampleKinesisStreamingDestination", new()
+    ///     var exampleKinesisStreamingDestination = new Aws.Dynamodb.KinesisStreamingDestination.KinesisStreamingDestination("exampleKinesisStreamingDestination", new()
     ///     {
     ///         StreamArn = exampleStream.Arn,
     ///         TableName = exampleTable.Name,

@@ -24,7 +24,7 @@ namespace Pulumi.Aws.AppRunner
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.AppRunner.Connection("example", new()
+    ///     var example = new Aws.Apprunner.Connection.Connection("example", new()
     ///     {
     ///         ConnectionName = "example",
     ///         ProviderType = "GITHUB",

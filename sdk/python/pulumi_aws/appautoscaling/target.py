@@ -311,12 +311,12 @@ class Target(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        dynamodb_table_read_target = aws.appautoscaling.Target("dynamodbTableReadTarget",
+        dynamodb_table_read_target = aws.appautoscaling.target.Target("dynamodbTableReadTarget",
             max_capacity=100,
             min_capacity=5,
-            resource_id=f"table/{aws_dynamodb_table['example']['name']}",
-            scalable_dimension="dynamodb:table:ReadCapacityUnits",
-            service_namespace="dynamodb")
+            resource_id=ftable/{aws_dynamodb_table.example.name},
+            scalable_dimension=dynamodb:table:ReadCapacityUnits,
+            service_namespace=dynamodb)
         ```
         ### DynamoDB Index Autoscaling
 
@@ -324,12 +324,12 @@ class Target(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        dynamodb_index_read_target = aws.appautoscaling.Target("dynamodbIndexReadTarget",
+        dynamodb_index_read_target = aws.appautoscaling.target.Target("dynamodbIndexReadTarget",
             max_capacity=100,
             min_capacity=5,
-            resource_id=f"table/{aws_dynamodb_table['example']['name']}/index/{var['index_name']}",
-            scalable_dimension="dynamodb:index:ReadCapacityUnits",
-            service_namespace="dynamodb")
+            resource_id=ftable/{aws_dynamodb_table.example.name}/index/{var.index_name},
+            scalable_dimension=dynamodb:index:ReadCapacityUnits,
+            service_namespace=dynamodb)
         ```
         ### ECS Service Autoscaling
 
@@ -337,12 +337,12 @@ class Target(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        ecs_target = aws.appautoscaling.Target("ecsTarget",
+        ecs_target = aws.appautoscaling.target.Target("ecsTarget",
             max_capacity=4,
             min_capacity=1,
-            resource_id=f"service/{aws_ecs_cluster['example']['name']}/{aws_ecs_service['example']['name']}",
-            scalable_dimension="ecs:service:DesiredCount",
-            service_namespace="ecs")
+            resource_id=fservice/{aws_ecs_cluster.example.name}/{aws_ecs_service.example.name},
+            scalable_dimension=ecs:service:DesiredCount,
+            service_namespace=ecs)
         ```
         ### Aurora Read Replica Autoscaling
 
@@ -350,12 +350,12 @@ class Target(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        replicas = aws.appautoscaling.Target("replicas",
+        replicas = aws.appautoscaling.target.Target("replicas",
             max_capacity=15,
             min_capacity=1,
-            resource_id=f"cluster:{aws_rds_cluster['example']['id']}",
-            scalable_dimension="rds:cluster:ReadReplicaCount",
-            service_namespace="rds")
+            resource_id=fcluster:{aws_rds_cluster.example.id},
+            scalable_dimension=rds:cluster:ReadReplicaCount,
+            service_namespace=rds)
         ```
         ### Suppressing `tags_all` Differences For Older Resources
 
@@ -363,12 +363,12 @@ class Target(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        ecs_target = aws.appautoscaling.Target("ecsTarget",
+        ecs_target = aws.appautoscaling.target.Target("ecsTarget",
             max_capacity=4,
             min_capacity=1,
-            resource_id=f"service/{aws_ecs_cluster['example']['name']}/{aws_ecs_service['example']['name']}",
-            scalable_dimension="ecs:service:DesiredCount",
-            service_namespace="ecs")
+            resource_id=fservice/{aws_ecs_cluster.example.name}/{aws_ecs_service.example.name},
+            scalable_dimension=ecs:service:DesiredCount,
+            service_namespace=ecs)
         ```
         ### MSK / Kafka Autoscaling
 
@@ -376,12 +376,12 @@ class Target(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        msk_target = aws.appautoscaling.Target("mskTarget",
+        msk_target = aws.appautoscaling.target.Target("mskTarget",
             max_capacity=8,
             min_capacity=1,
-            resource_id=aws_msk_cluster["example"]["arn"],
-            scalable_dimension="kafka:broker-storage:VolumeSize",
-            service_namespace="kafka")
+            resource_id=aws_msk_cluster.example.arn,
+            scalable_dimension=kafka:broker-storage:VolumeSize,
+            service_namespace=kafka)
         ```
 
         ## Import
@@ -422,12 +422,12 @@ class Target(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        dynamodb_table_read_target = aws.appautoscaling.Target("dynamodbTableReadTarget",
+        dynamodb_table_read_target = aws.appautoscaling.target.Target("dynamodbTableReadTarget",
             max_capacity=100,
             min_capacity=5,
-            resource_id=f"table/{aws_dynamodb_table['example']['name']}",
-            scalable_dimension="dynamodb:table:ReadCapacityUnits",
-            service_namespace="dynamodb")
+            resource_id=ftable/{aws_dynamodb_table.example.name},
+            scalable_dimension=dynamodb:table:ReadCapacityUnits,
+            service_namespace=dynamodb)
         ```
         ### DynamoDB Index Autoscaling
 
@@ -435,12 +435,12 @@ class Target(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        dynamodb_index_read_target = aws.appautoscaling.Target("dynamodbIndexReadTarget",
+        dynamodb_index_read_target = aws.appautoscaling.target.Target("dynamodbIndexReadTarget",
             max_capacity=100,
             min_capacity=5,
-            resource_id=f"table/{aws_dynamodb_table['example']['name']}/index/{var['index_name']}",
-            scalable_dimension="dynamodb:index:ReadCapacityUnits",
-            service_namespace="dynamodb")
+            resource_id=ftable/{aws_dynamodb_table.example.name}/index/{var.index_name},
+            scalable_dimension=dynamodb:index:ReadCapacityUnits,
+            service_namespace=dynamodb)
         ```
         ### ECS Service Autoscaling
 
@@ -448,12 +448,12 @@ class Target(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        ecs_target = aws.appautoscaling.Target("ecsTarget",
+        ecs_target = aws.appautoscaling.target.Target("ecsTarget",
             max_capacity=4,
             min_capacity=1,
-            resource_id=f"service/{aws_ecs_cluster['example']['name']}/{aws_ecs_service['example']['name']}",
-            scalable_dimension="ecs:service:DesiredCount",
-            service_namespace="ecs")
+            resource_id=fservice/{aws_ecs_cluster.example.name}/{aws_ecs_service.example.name},
+            scalable_dimension=ecs:service:DesiredCount,
+            service_namespace=ecs)
         ```
         ### Aurora Read Replica Autoscaling
 
@@ -461,12 +461,12 @@ class Target(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        replicas = aws.appautoscaling.Target("replicas",
+        replicas = aws.appautoscaling.target.Target("replicas",
             max_capacity=15,
             min_capacity=1,
-            resource_id=f"cluster:{aws_rds_cluster['example']['id']}",
-            scalable_dimension="rds:cluster:ReadReplicaCount",
-            service_namespace="rds")
+            resource_id=fcluster:{aws_rds_cluster.example.id},
+            scalable_dimension=rds:cluster:ReadReplicaCount,
+            service_namespace=rds)
         ```
         ### Suppressing `tags_all` Differences For Older Resources
 
@@ -474,12 +474,12 @@ class Target(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        ecs_target = aws.appautoscaling.Target("ecsTarget",
+        ecs_target = aws.appautoscaling.target.Target("ecsTarget",
             max_capacity=4,
             min_capacity=1,
-            resource_id=f"service/{aws_ecs_cluster['example']['name']}/{aws_ecs_service['example']['name']}",
-            scalable_dimension="ecs:service:DesiredCount",
-            service_namespace="ecs")
+            resource_id=fservice/{aws_ecs_cluster.example.name}/{aws_ecs_service.example.name},
+            scalable_dimension=ecs:service:DesiredCount,
+            service_namespace=ecs)
         ```
         ### MSK / Kafka Autoscaling
 
@@ -487,12 +487,12 @@ class Target(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        msk_target = aws.appautoscaling.Target("mskTarget",
+        msk_target = aws.appautoscaling.target.Target("mskTarget",
             max_capacity=8,
             min_capacity=1,
-            resource_id=aws_msk_cluster["example"]["arn"],
-            scalable_dimension="kafka:broker-storage:VolumeSize",
-            service_namespace="kafka")
+            resource_id=aws_msk_cluster.example.arn,
+            scalable_dimension=kafka:broker-storage:VolumeSize,
+            service_namespace=kafka)
         ```
 
         ## Import

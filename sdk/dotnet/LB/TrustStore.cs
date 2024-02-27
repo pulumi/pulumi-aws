@@ -23,27 +23,27 @@ namespace Pulumi.Aws.LB
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Aws.LB.TrustStore("test", new()
+    ///     var test = new Aws.Lb.TrustStore.TrustStore("test", new()
     ///     {
     ///         CaCertificatesBundleS3Bucket = "...",
     ///         CaCertificatesBundleS3Key = "...",
     ///     });
     /// 
-    ///     var example = new Aws.LB.Listener("example", new()
+    ///     var example = new Aws.Lb.Listener.Listener("example", new()
     ///     {
     ///         LoadBalancerArn = aws_lb.Example.Id,
     ///         DefaultActions = new[]
     ///         {
-    ///             new Aws.LB.Inputs.ListenerDefaultActionArgs
+    ///             
     ///             {
-    ///                 TargetGroupArn = aws_lb_target_group.Example.Id,
-    ///                 Type = "forward",
+    ///                 { "targetGroupArn", aws_lb_target_group.Example.Id },
+    ///                 { "type", "forward" },
     ///             },
     ///         },
-    ///         MutualAuthentication = new Aws.LB.Inputs.ListenerMutualAuthenticationArgs
+    ///         MutualAuthentication = 
     ///         {
-    ///             Mode = "verify",
-    ///             TrustStoreArn = test.Arn,
+    ///             { "mode", "verify" },
+    ///             { "trustStoreArn", test.Arn },
     ///         },
     ///     });
     /// 

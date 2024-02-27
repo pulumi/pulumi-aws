@@ -19,14 +19,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const primary = new aws.Provider("primary", {region: "us-east-2"});
- * const secondary = new aws.Provider("secondary", {region: "us-east-1"});
- * const example = new aws.neptune.GlobalCluster("example", {
+ * const primary = new pulumi.providers.Aws("primary", {region: "us-east-2"});
+ * const secondary = new pulumi.providers.Aws("secondary", {region: "us-east-1"});
+ * const example = new aws.neptune/globalCluster.GlobalCluster("example", {
  *     globalClusterIdentifier: "global-test",
  *     engine: "neptune",
  *     engineVersion: "1.2.0.0",
  * });
- * const primaryCluster = new aws.neptune.Cluster("primaryCluster", {
+ * const primaryCluster = new aws.neptune/cluster.Cluster("primaryCluster", {
  *     engine: example.engine,
  *     engineVersion: example.engineVersion,
  *     clusterIdentifier: "test-primary-cluster",
@@ -35,7 +35,7 @@ import * as utilities from "../utilities";
  * }, {
  *     provider: aws.primary,
  * });
- * const primaryClusterInstance = new aws.neptune.ClusterInstance("primaryClusterInstance", {
+ * const primaryClusterInstance = new aws.neptune/clusterInstance.ClusterInstance("primaryClusterInstance", {
  *     engine: example.engine,
  *     engineVersion: example.engineVersion,
  *     identifier: "test-primary-cluster-instance",
@@ -45,7 +45,7 @@ import * as utilities from "../utilities";
  * }, {
  *     provider: aws.primary,
  * });
- * const secondaryCluster = new aws.neptune.Cluster("secondaryCluster", {
+ * const secondaryCluster = new aws.neptune/cluster.Cluster("secondaryCluster", {
  *     engine: example.engine,
  *     engineVersion: example.engineVersion,
  *     clusterIdentifier: "test-secondary-cluster",
@@ -54,7 +54,7 @@ import * as utilities from "../utilities";
  * }, {
  *     provider: aws.secondary,
  * });
- * const secondaryClusterInstance = new aws.neptune.ClusterInstance("secondaryClusterInstance", {
+ * const secondaryClusterInstance = new aws.neptune/clusterInstance.ClusterInstance("secondaryClusterInstance", {
  *     engine: example.engine,
  *     engineVersion: example.engineVersion,
  *     identifier: "test-secondary-cluster-instance",
@@ -73,8 +73,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * // ... other configuration ...
- * const exampleCluster = new aws.neptune.Cluster("exampleCluster", {});
- * const exampleGlobalCluster = new aws.neptune.GlobalCluster("exampleGlobalCluster", {
+ * const exampleCluster = new aws.neptune/cluster.Cluster("exampleCluster", {});
+ * const exampleGlobalCluster = new aws.neptune/globalCluster.GlobalCluster("exampleGlobalCluster", {
  *     globalClusterIdentifier: "example",
  *     sourceDbClusterIdentifier: exampleCluster.arn,
  * });

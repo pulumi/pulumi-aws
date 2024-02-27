@@ -118,42 +118,6 @@ class RepositoryPolicy(pulumi.CustomResource):
 
         Note that currently only one policy may be applied to a repository.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        foo = aws.ecr.Repository("foo")
-        foopolicy_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            sid="new policy",
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="AWS",
-                identifiers=["123456789012"],
-            )],
-            actions=[
-                "ecr:GetDownloadUrlForLayer",
-                "ecr:BatchGetImage",
-                "ecr:BatchCheckLayerAvailability",
-                "ecr:PutImage",
-                "ecr:InitiateLayerUpload",
-                "ecr:UploadLayerPart",
-                "ecr:CompleteLayerUpload",
-                "ecr:DescribeRepositories",
-                "ecr:GetRepositoryPolicy",
-                "ecr:ListImages",
-                "ecr:DeleteRepository",
-                "ecr:BatchDeleteImage",
-                "ecr:SetRepositoryPolicy",
-                "ecr:DeleteRepositoryPolicy",
-            ],
-        )])
-        foopolicy_repository_policy = aws.ecr.RepositoryPolicy("foopolicyRepositoryPolicy",
-            repository=foo.name,
-            policy=foopolicy_policy_document.json)
-        ```
-
         ## Import
 
         Using `pulumi import`, import ECR Repository Policy using the repository name. For example:
@@ -177,42 +141,6 @@ class RepositoryPolicy(pulumi.CustomResource):
         Provides an Elastic Container Registry Repository Policy.
 
         Note that currently only one policy may be applied to a repository.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        foo = aws.ecr.Repository("foo")
-        foopolicy_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            sid="new policy",
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="AWS",
-                identifiers=["123456789012"],
-            )],
-            actions=[
-                "ecr:GetDownloadUrlForLayer",
-                "ecr:BatchGetImage",
-                "ecr:BatchCheckLayerAvailability",
-                "ecr:PutImage",
-                "ecr:InitiateLayerUpload",
-                "ecr:UploadLayerPart",
-                "ecr:CompleteLayerUpload",
-                "ecr:DescribeRepositories",
-                "ecr:GetRepositoryPolicy",
-                "ecr:ListImages",
-                "ecr:DeleteRepository",
-                "ecr:BatchDeleteImage",
-                "ecr:SetRepositoryPolicy",
-                "ecr:DeleteRepositoryPolicy",
-            ],
-        )])
-        foopolicy_repository_policy = aws.ecr.RepositoryPolicy("foopolicyRepositoryPolicy",
-            repository=foo.name,
-            policy=foopolicy_policy_document.json)
-        ```
 
         ## Import
 

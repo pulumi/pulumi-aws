@@ -23,17 +23,122 @@ namespace Pulumi.Aws.Quicksight
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Quicksight.Template("example", new()
+    ///     var example = new Aws.Quicksight.Template.Template("example", new()
     ///     {
     ///         TemplateId = "example-id",
     ///         VersionDescription = "version",
-    ///         SourceEntity = new Aws.Quicksight.Inputs.TemplateSourceEntityArgs
+    ///         SourceEntity = 
     ///         {
-    ///             SourceTemplate = new Aws.Quicksight.Inputs.TemplateSourceEntitySourceTemplateArgs
+    ///             { "sourceTemplate", 
     ///             {
-    ///                 Arn = aws_quicksight_template.Source.Arn,
-    ///             },
+    ///                 { "arn", aws_quicksight_template.Source.Arn },
+    ///             } },
     ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### With Definition
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Quicksight.Template.Template("example", new()
+    ///     {
+    ///         Definition = 
+    ///         {
+    ///             { "dataSetConfigurations", new[]
+    ///             {
+    ///                 
+    ///                 {
+    ///                     { "dataSetSchema", 
+    ///                     {
+    ///                         { "columnSchemaList", new[]
+    ///                         {
+    ///                             
+    ///                             {
+    ///                                 { "dataType", "STRING" },
+    ///                                 { "name", "Column1" },
+    ///                             },
+    ///                             
+    ///                             {
+    ///                                 { "dataType", "INTEGER" },
+    ///                                 { "name", "Column2" },
+    ///                             },
+    ///                         } },
+    ///                     } },
+    ///                     { "placeholder", "1" },
+    ///                 },
+    ///             } },
+    ///             { "sheets", new[]
+    ///             {
+    ///                 
+    ///                 {
+    ///                     { "sheetId", "Test1" },
+    ///                     { "title", "Test" },
+    ///                     { "visuals", new[]
+    ///                     {
+    ///                         
+    ///                         {
+    ///                             { "barChartVisual", 
+    ///                             {
+    ///                                 { "chartConfiguration", 
+    ///                                 {
+    ///                                     { "fieldWells", 
+    ///                                     {
+    ///                                         { "barChartAggregatedFieldWells", 
+    ///                                         {
+    ///                                             { "category", new[]
+    ///                                             {
+    ///                                                 
+    ///                                                 {
+    ///                                                     { "categoricalDimensionField", 
+    ///                                                     {
+    ///                                                         { "column", 
+    ///                                                         {
+    ///                                                             { "columnName", "Column1" },
+    ///                                                             { "dataSetIdentifier", "1" },
+    ///                                                         } },
+    ///                                                         { "fieldId", "1" },
+    ///                                                     } },
+    ///                                                 },
+    ///                                             } },
+    ///                                             { "values", new[]
+    ///                                             {
+    ///                                                 
+    ///                                                 {
+    ///                                                     { "numericalMeasureField", 
+    ///                                                     {
+    ///                                                         { "aggregationFunction", 
+    ///                                                         {
+    ///                                                             { "simpleNumericalAggregation", "SUM" },
+    ///                                                         } },
+    ///                                                         { "column", 
+    ///                                                         {
+    ///                                                             { "columnName", "Column2" },
+    ///                                                             { "dataSetIdentifier", "1" },
+    ///                                                         } },
+    ///                                                         { "fieldId", "2" },
+    ///                                                     } },
+    ///                                                 },
+    ///                                             } },
+    ///                                         } },
+    ///                                     } },
+    ///                                 } },
+    ///                                 { "visualId", "BarChart" },
+    ///                             } },
+    ///                         },
+    ///                     } },
+    ///                 },
+    ///             } },
+    ///         },
+    ///         TemplateId = "example-id",
+    ///         VersionDescription = "version",
     ///     });
     /// 
     /// });

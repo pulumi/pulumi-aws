@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.storagegateway.NfsFileShare("example", {
+ * const example = new aws.storagegateway/nfsFileShare.NfsFileShare("example", {
  *     clientLists: ["0.0.0.0/0"],
  *     gatewayArn: aws_storagegateway_gateway.example.arn,
  *     locationArn: aws_s3_bucket.example.arn,

@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.kendra.DataSource("example", {
+ * const example = new aws.kendra/dataSource.DataSource("example", {
  *     indexId: aws_kendra_index.example.id,
  *     description: "example",
  *     languageCode: "en",
@@ -34,7 +34,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.kendra.DataSource("example", {
+ * const example = new aws.kendra/dataSource.DataSource("example", {
  *     indexId: aws_kendra_index.example.id,
  *     type: "S3",
  *     roleArn: aws_iam_role.example.arn,
@@ -52,7 +52,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.kendra.DataSource("example", {
+ * const example = new aws.kendra/dataSource.DataSource("example", {
  *     indexId: aws_kendra_index.example.id,
  *     type: "S3",
  *     roleArn: aws_iam_role.example.arn,
@@ -72,7 +72,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.kendra.DataSource("example", {
+ * const example = new aws.kendra/dataSource.DataSource("example", {
  *     indexId: aws_kendra_index.example.id,
  *     type: "S3",
  *     roleArn: aws_iam_role.example.arn,
@@ -96,7 +96,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.kendra.DataSource("example", {
+ * const example = new aws.kendra/dataSource.DataSource("example", {
  *     indexId: aws_kendra_index.example.id,
  *     type: "WEBCRAWLER",
  *     roleArn: aws_iam_role.example.arn,
@@ -117,7 +117,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.kendra.DataSource("example", {
+ * const example = new aws.kendra/dataSource.DataSource("example", {
  *     indexId: aws_kendra_index.example.id,
  *     type: "WEBCRAWLER",
  *     roleArn: aws_iam_role.example.arn,
@@ -138,7 +138,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.kendra.DataSource("example", {
+ * const example = new aws.kendra/dataSource.DataSource("example", {
  *     indexId: aws_kendra_index.example.id,
  *     type: "WEBCRAWLER",
  *     roleArn: aws_iam_role.example.arn,
@@ -160,7 +160,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.kendra.DataSource("example", {
+ * const example = new aws.kendra/dataSource.DataSource("example", {
  *     indexId: aws_kendra_index.example.id,
  *     type: "WEBCRAWLER",
  *     roleArn: aws_iam_role.example.arn,
@@ -170,7 +170,7 @@ import * as utilities from "../utilities";
  *                 basicAuthentications: [{
  *                     credentials: aws_secretsmanager_secret.example.arn,
  *                     host: "a.example.com",
- *                     port: 443,
+ *                     port: "443",
  *                 }],
  *             },
  *             urls: {
@@ -190,7 +190,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.kendra.DataSource("example", {
+ * const example = new aws.kendra/dataSource.DataSource("example", {
  *     indexId: aws_kendra_index.example.id,
  *     type: "WEBCRAWLER",
  *     roleArn: aws_iam_role.example.arn,
@@ -212,7 +212,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.kendra.DataSource("example", {
+ * const example = new aws.kendra/dataSource.DataSource("example", {
  *     indexId: aws_kendra_index.example.id,
  *     type: "WEBCRAWLER",
  *     roleArn: aws_iam_role.example.arn,
@@ -234,7 +234,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.kendra.DataSource("example", {
+ * const example = new aws.kendra/dataSource.DataSource("example", {
  *     indexId: aws_kendra_index.example.id,
  *     type: "WEBCRAWLER",
  *     roleArn: aws_iam_role.example.arn,
@@ -256,7 +256,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.kendra.DataSource("example", {
+ * const example = new aws.kendra/dataSource.DataSource("example", {
  *     indexId: aws_kendra_index.example.id,
  *     type: "WEBCRAWLER",
  *     roleArn: aws_iam_role.example.arn,
@@ -265,7 +265,7 @@ import * as utilities from "../utilities";
  *             proxyConfiguration: {
  *                 credentials: aws_secretsmanager_secret.example.arn,
  *                 host: "a.example.com",
- *                 port: 443,
+ *                 port: "443",
  *             },
  *             urls: {
  *                 seedUrlConfiguration: {
@@ -284,7 +284,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.kendra.DataSource("example", {
+ * const example = new aws.kendra/dataSource.DataSource("example", {
  *     indexId: aws_kendra_index.example.id,
  *     type: "WEBCRAWLER",
  *     roleArn: aws_iam_role.example.arn,

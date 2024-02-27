@@ -23,28 +23,26 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/connect"
+//	connect/phoneNumber "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/connect/phoneNumber"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := connect.NewPhoneNumber(ctx, "example", &connect.PhoneNumberArgs{
-//				TargetArn:   pulumi.Any(aws_connect_instance.Example.Arn),
-//				CountryCode: pulumi.String("US"),
-//				Type:        pulumi.String("DID"),
-//				Tags: pulumi.StringMap{
-//					"hello": pulumi.String("world"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := connect/phoneNumber.NewPhoneNumber(ctx, "example", &connect/phoneNumber.PhoneNumberArgs{
+// TargetArn: aws_connect_instance.Example.Arn,
+// CountryCode: "US",
+// Type: "DID",
+// Tags: map[string]interface{}{
+// "hello": "world",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Description
 //
@@ -53,26 +51,24 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/connect"
+//	connect/phoneNumber "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/connect/phoneNumber"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := connect.NewPhoneNumber(ctx, "example", &connect.PhoneNumberArgs{
-//				TargetArn:   pulumi.Any(aws_connect_instance.Example.Arn),
-//				CountryCode: pulumi.String("US"),
-//				Type:        pulumi.String("DID"),
-//				Description: pulumi.String("example description"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := connect/phoneNumber.NewPhoneNumber(ctx, "example", &connect/phoneNumber.PhoneNumberArgs{
+// TargetArn: aws_connect_instance.Example.Arn,
+// CountryCode: "US",
+// Type: "DID",
+// Description: "example description",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Prefix to filter phone numbers
 //
@@ -81,26 +77,24 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/connect"
+//	connect/phoneNumber "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/connect/phoneNumber"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := connect.NewPhoneNumber(ctx, "example", &connect.PhoneNumberArgs{
-//				TargetArn:   pulumi.Any(aws_connect_instance.Example.Arn),
-//				CountryCode: pulumi.String("US"),
-//				Type:        pulumi.String("DID"),
-//				Prefix:      pulumi.String("+18005"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := connect/phoneNumber.NewPhoneNumber(ctx, "example", &connect/phoneNumber.PhoneNumberArgs{
+// TargetArn: aws_connect_instance.Example.Arn,
+// CountryCode: "US",
+// Type: "DID",
+// Prefix: "+18005",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

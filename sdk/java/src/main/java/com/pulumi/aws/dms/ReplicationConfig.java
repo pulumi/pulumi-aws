@@ -31,7 +31,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.dms.ReplicationConfig;
  * import com.pulumi.aws.dms.ReplicationConfigArgs;
- * import com.pulumi.aws.dms.inputs.ReplicationConfigComputeConfigArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -57,12 +56,7 @@ import javax.annotation.Nullable;
  *   }
  *             &#34;&#34;&#34;)
  *             .startReplication(true)
- *             .computeConfig(ReplicationConfigComputeConfigArgs.builder()
- *                 .replicationSubnetGroupId(aws_dms_replication_subnet_group.default().replication_subnet_group_id())
- *                 .maxCapacityUnits(&#34;64&#34;)
- *                 .minCapacityUnits(&#34;2&#34;)
- *                 .preferredMaintenanceWindow(&#34;sun:23:45-mon:00:30&#34;)
- *                 .build())
+ *             .computeConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

@@ -53,7 +53,7 @@ import javax.annotation.Nullable;
  *         var exampleSecurityGroup = new SecurityGroup(&#34;exampleSecurityGroup&#34;, SecurityGroupArgs.builder()        
  *             .description(&#34;example&#34;)
  *             .vpcId(aws_vpc.main().id())
- *             .tags(Map.of(&#34;Name&#34;, &#34;example&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleSecurityGroupIngressRule = new SecurityGroupIngressRule(&#34;exampleSecurityGroupIngressRule&#34;, SecurityGroupIngressRuleArgs.builder()        

@@ -13,58 +13,12 @@ namespace Pulumi.Aws.Kendra
     {
         /// <summary>
         /// Provides details about a specific Amazon Kendra Thesaurus.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Kendra.GetThesaurus.Invoke(new()
-        ///     {
-        ///         IndexId = "12345678-1234-1234-1234-123456789123",
-        ///         ThesaurusId = "87654321-1234-4321-4321-321987654321",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetThesaurusResult> InvokeAsync(GetThesaurusArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetThesaurusResult>("aws:kendra/getThesaurus:getThesaurus", args ?? new GetThesaurusArgs(), options.WithDefaults());
 
         /// <summary>
         /// Provides details about a specific Amazon Kendra Thesaurus.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Kendra.GetThesaurus.Invoke(new()
-        ///     {
-        ///         IndexId = "12345678-1234-1234-1234-123456789123",
-        ///         ThesaurusId = "87654321-1234-4321-4321-321987654321",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetThesaurusResult> Invoke(GetThesaurusInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetThesaurusResult>("aws:kendra/getThesaurus:getThesaurus", args ?? new GetThesaurusInvokeArgs(), options.WithDefaults());

@@ -21,23 +21,21 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/opsworks"
+//	opsworks/railsAppLayer "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/opsworks/railsAppLayer"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := opsworks.NewRailsAppLayer(ctx, "app", &opsworks.RailsAppLayerArgs{
-//				StackId: pulumi.Any(aws_opsworks_stack.Main.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := opsworks/railsAppLayer.NewRailsAppLayer(ctx, "app", &opsworks/railsAppLayer.RailsAppLayerArgs{
+// StackId: aws_opsworks_stack.Main.Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 type RailsAppLayer struct {
 	pulumi.CustomResourceState

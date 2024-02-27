@@ -13,11 +13,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleWorkgroup = new aws.redshiftserverless.Workgroup("exampleWorkgroup", {
+ * const exampleWorkgroup = new aws.redshiftserverless/workgroup.Workgroup("exampleWorkgroup", {
  *     namespaceName: aws_redshiftserverless_namespace.example.namespace_name,
  *     workgroupName: "example",
  * });
- * const exampleUsageLimit = new aws.redshiftserverless.UsageLimit("exampleUsageLimit", {
+ * const exampleUsageLimit = new aws.redshiftserverless/usageLimit.UsageLimit("exampleUsageLimit", {
  *     resourceArn: exampleWorkgroup.arn,
  *     usageType: "serverless-compute",
  *     amount: 60,

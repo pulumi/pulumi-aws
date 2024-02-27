@@ -21,7 +21,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const defaultCluster = new aws.rds.Cluster("defaultCluster", {
+ * const defaultCluster = new aws.rds/cluster.Cluster("defaultCluster", {
  *     clusterIdentifier: "aurora-cluster-demo",
  *     availabilityZones: [
  *         "us-west-2a",
@@ -34,14 +34,14 @@ import * as utilities from "../utilities";
  *     engine: "aurora-postgresql",
  *     engineVersion: "13.4",
  * });
- * const defaultClusterInstance = new aws.rds.ClusterInstance("defaultClusterInstance", {
+ * const defaultClusterInstance = new aws.rds/clusterInstance.ClusterInstance("defaultClusterInstance", {
  *     identifier: "aurora-instance-demo",
  *     clusterIdentifier: defaultCluster.clusterIdentifier,
  *     engine: defaultCluster.engine,
  *     instanceClass: "db.r6g.large",
  * });
- * const defaultKey = new aws.kms.Key("defaultKey", {description: "AWS KMS Key to encrypt Database Activity Stream"});
- * const defaultClusterActivityStream = new aws.rds.ClusterActivityStream("defaultClusterActivityStream", {
+ * const defaultKey = new aws.kms/key.Key("defaultKey", {description: "AWS KMS Key to encrypt Database Activity Stream"});
+ * const defaultClusterActivityStream = new aws.rds/clusterActivityStream.ClusterActivityStream("defaultClusterActivityStream", {
  *     resourceArn: defaultCluster.arn,
  *     mode: "async",
  *     kmsKeyId: defaultKey.keyId,

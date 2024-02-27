@@ -6,22 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Information about Neptune orderable DB instances.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = aws.neptune.getOrderableDbInstance({
- *     engineVersion: "1.0.3.0",
- *     preferredInstanceClasses: [
- *         "db.r5.large",
- *         "db.r4.large",
- *         "db.t3.medium",
- *     ],
- * });
- * ```
  */
 export function getOrderableDbInstance(args?: GetOrderableDbInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetOrderableDbInstanceResult> {
     args = args || {};
@@ -144,22 +128,6 @@ export interface GetOrderableDbInstanceResult {
 }
 /**
  * Information about Neptune orderable DB instances.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = aws.neptune.getOrderableDbInstance({
- *     engineVersion: "1.0.3.0",
- *     preferredInstanceClasses: [
- *         "db.r5.large",
- *         "db.r4.large",
- *         "db.t3.medium",
- *     ],
- * });
- * ```
  */
 export function getOrderableDbInstanceOutput(args?: GetOrderableDbInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOrderableDbInstanceResult> {
     return pulumi.output(args).apply((a: any) => getOrderableDbInstance(a, opts))

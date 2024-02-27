@@ -51,17 +51,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.s3.BucketAclV2Args;
  * import com.pulumi.aws.cloudfront.Distribution;
  * import com.pulumi.aws.cloudfront.DistributionArgs;
- * import com.pulumi.aws.cloudfront.inputs.DistributionOriginArgs;
- * import com.pulumi.aws.cloudfront.inputs.DistributionLoggingConfigArgs;
- * import com.pulumi.aws.cloudfront.inputs.DistributionDefaultCacheBehaviorArgs;
- * import com.pulumi.aws.cloudfront.inputs.DistributionDefaultCacheBehaviorForwardedValuesArgs;
- * import com.pulumi.aws.cloudfront.inputs.DistributionDefaultCacheBehaviorForwardedValuesCookiesArgs;
- * import com.pulumi.aws.cloudfront.inputs.DistributionOrderedCacheBehaviorArgs;
- * import com.pulumi.aws.cloudfront.inputs.DistributionOrderedCacheBehaviorForwardedValuesArgs;
- * import com.pulumi.aws.cloudfront.inputs.DistributionOrderedCacheBehaviorForwardedValuesCookiesArgs;
- * import com.pulumi.aws.cloudfront.inputs.DistributionRestrictionsArgs;
- * import com.pulumi.aws.cloudfront.inputs.DistributionRestrictionsGeoRestrictionArgs;
- * import com.pulumi.aws.cloudfront.inputs.DistributionViewerCertificateArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -76,7 +65,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var bucketV2 = new BucketV2(&#34;bucketV2&#34;, BucketV2Args.builder()        
- *             .tags(Map.of(&#34;Name&#34;, &#34;My bucket&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var bAcl = new BucketAclV2(&#34;bAcl&#34;, BucketAclV2Args.builder()        
@@ -87,109 +76,23 @@ import javax.annotation.Nullable;
  *         final var s3OriginId = &#34;myS3Origin&#34;;
  * 
  *         var s3Distribution = new Distribution(&#34;s3Distribution&#34;, DistributionArgs.builder()        
- *             .origins(DistributionOriginArgs.builder()
- *                 .domainName(bucketV2.bucketRegionalDomainName())
- *                 .originAccessControlId(aws_cloudfront_origin_access_control.default().id())
- *                 .originId(s3OriginId)
- *                 .build())
+ *             .origins(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .enabled(true)
  *             .isIpv6Enabled(true)
  *             .comment(&#34;Some comment&#34;)
  *             .defaultRootObject(&#34;index.html&#34;)
- *             .loggingConfig(DistributionLoggingConfigArgs.builder()
- *                 .includeCookies(false)
- *                 .bucket(&#34;mylogs.s3.amazonaws.com&#34;)
- *                 .prefix(&#34;myprefix&#34;)
- *                 .build())
+ *             .loggingConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .aliases(            
  *                 &#34;mysite.example.com&#34;,
  *                 &#34;yoursite.example.com&#34;)
- *             .defaultCacheBehavior(DistributionDefaultCacheBehaviorArgs.builder()
- *                 .allowedMethods(                
- *                     &#34;DELETE&#34;,
- *                     &#34;GET&#34;,
- *                     &#34;HEAD&#34;,
- *                     &#34;OPTIONS&#34;,
- *                     &#34;PATCH&#34;,
- *                     &#34;POST&#34;,
- *                     &#34;PUT&#34;)
- *                 .cachedMethods(                
- *                     &#34;GET&#34;,
- *                     &#34;HEAD&#34;)
- *                 .targetOriginId(s3OriginId)
- *                 .forwardedValues(DistributionDefaultCacheBehaviorForwardedValuesArgs.builder()
- *                     .queryString(false)
- *                     .cookies(DistributionDefaultCacheBehaviorForwardedValuesCookiesArgs.builder()
- *                         .forward(&#34;none&#34;)
- *                         .build())
- *                     .build())
- *                 .viewerProtocolPolicy(&#34;allow-all&#34;)
- *                 .minTtl(0)
- *                 .defaultTtl(3600)
- *                 .maxTtl(86400)
- *                 .build())
+ *             .defaultCacheBehavior(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .orderedCacheBehaviors(            
- *                 DistributionOrderedCacheBehaviorArgs.builder()
- *                     .pathPattern(&#34;/content/immutable/*&#34;)
- *                     .allowedMethods(                    
- *                         &#34;GET&#34;,
- *                         &#34;HEAD&#34;,
- *                         &#34;OPTIONS&#34;)
- *                     .cachedMethods(                    
- *                         &#34;GET&#34;,
- *                         &#34;HEAD&#34;,
- *                         &#34;OPTIONS&#34;)
- *                     .targetOriginId(s3OriginId)
- *                     .forwardedValues(DistributionOrderedCacheBehaviorForwardedValuesArgs.builder()
- *                         .queryString(false)
- *                         .headers(&#34;Origin&#34;)
- *                         .cookies(DistributionOrderedCacheBehaviorForwardedValuesCookiesArgs.builder()
- *                             .forward(&#34;none&#34;)
- *                             .build())
- *                         .build())
- *                     .minTtl(0)
- *                     .defaultTtl(86400)
- *                     .maxTtl(31536000)
- *                     .compress(true)
- *                     .viewerProtocolPolicy(&#34;redirect-to-https&#34;)
- *                     .build(),
- *                 DistributionOrderedCacheBehaviorArgs.builder()
- *                     .pathPattern(&#34;/content/*&#34;)
- *                     .allowedMethods(                    
- *                         &#34;GET&#34;,
- *                         &#34;HEAD&#34;,
- *                         &#34;OPTIONS&#34;)
- *                     .cachedMethods(                    
- *                         &#34;GET&#34;,
- *                         &#34;HEAD&#34;)
- *                     .targetOriginId(s3OriginId)
- *                     .forwardedValues(DistributionOrderedCacheBehaviorForwardedValuesArgs.builder()
- *                         .queryString(false)
- *                         .cookies(DistributionOrderedCacheBehaviorForwardedValuesCookiesArgs.builder()
- *                             .forward(&#34;none&#34;)
- *                             .build())
- *                         .build())
- *                     .minTtl(0)
- *                     .defaultTtl(3600)
- *                     .maxTtl(86400)
- *                     .compress(true)
- *                     .viewerProtocolPolicy(&#34;redirect-to-https&#34;)
- *                     .build())
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .priceClass(&#34;PriceClass_200&#34;)
- *             .restrictions(DistributionRestrictionsArgs.builder()
- *                 .geoRestriction(DistributionRestrictionsGeoRestrictionArgs.builder()
- *                     .restrictionType(&#34;whitelist&#34;)
- *                     .locations(                    
- *                         &#34;US&#34;,
- *                         &#34;CA&#34;,
- *                         &#34;GB&#34;,
- *                         &#34;DE&#34;)
- *                     .build())
- *                 .build())
- *             .tags(Map.of(&#34;Environment&#34;, &#34;production&#34;))
- *             .viewerCertificate(DistributionViewerCertificateArgs.builder()
- *                 .cloudfrontDefaultCertificate(true)
- *                 .build())
+ *             .restrictions(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .viewerCertificate(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -206,11 +109,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.cloudfront.Distribution;
  * import com.pulumi.aws.cloudfront.DistributionArgs;
- * import com.pulumi.aws.cloudfront.inputs.DistributionOriginGroupArgs;
- * import com.pulumi.aws.cloudfront.inputs.DistributionOriginGroupFailoverCriteriaArgs;
- * import com.pulumi.aws.cloudfront.inputs.DistributionOriginArgs;
- * import com.pulumi.aws.cloudfront.inputs.DistributionOriginS3OriginConfigArgs;
- * import com.pulumi.aws.cloudfront.inputs.DistributionDefaultCacheBehaviorArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -225,41 +123,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var s3Distribution = new Distribution(&#34;s3Distribution&#34;, DistributionArgs.builder()        
- *             .originGroups(DistributionOriginGroupArgs.builder()
- *                 .originId(&#34;groupS3&#34;)
- *                 .failoverCriteria(DistributionOriginGroupFailoverCriteriaArgs.builder()
- *                     .statusCodes(                    
- *                         403,
- *                         404,
- *                         500,
- *                         502)
- *                     .build())
- *                 .members(                
- *                     DistributionOriginGroupMemberArgs.builder()
- *                         .originId(&#34;primaryS3&#34;)
- *                         .build(),
- *                     DistributionOriginGroupMemberArgs.builder()
- *                         .originId(&#34;failoverS3&#34;)
- *                         .build())
- *                 .build())
+ *             .originGroups(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .origins(            
- *                 DistributionOriginArgs.builder()
- *                     .domainName(aws_s3_bucket.primary().bucket_regional_domain_name())
- *                     .originId(&#34;primaryS3&#34;)
- *                     .s3OriginConfig(DistributionOriginS3OriginConfigArgs.builder()
- *                         .originAccessIdentity(aws_cloudfront_origin_access_identity.default().cloudfront_access_identity_path())
- *                         .build())
- *                     .build(),
- *                 DistributionOriginArgs.builder()
- *                     .domainName(aws_s3_bucket.failover().bucket_regional_domain_name())
- *                     .originId(&#34;failoverS3&#34;)
- *                     .s3OriginConfig(DistributionOriginS3OriginConfigArgs.builder()
- *                         .originAccessIdentity(aws_cloudfront_origin_access_identity.default().cloudfront_access_identity_path())
- *                         .build())
- *                     .build())
- *             .defaultCacheBehavior(DistributionDefaultCacheBehaviorArgs.builder()
- *                 .targetOriginId(&#34;groupS3&#34;)
- *                 .build())
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .defaultCacheBehavior(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -276,12 +144,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.cloudfront.Distribution;
  * import com.pulumi.aws.cloudfront.DistributionArgs;
- * import com.pulumi.aws.cloudfront.inputs.DistributionOriginArgs;
- * import com.pulumi.aws.cloudfront.inputs.DistributionOriginS3OriginConfigArgs;
- * import com.pulumi.aws.cloudfront.inputs.DistributionDefaultCacheBehaviorArgs;
- * import com.pulumi.aws.cloudfront.inputs.DistributionRestrictionsArgs;
- * import com.pulumi.aws.cloudfront.inputs.DistributionRestrictionsGeoRestrictionArgs;
- * import com.pulumi.aws.cloudfront.inputs.DistributionViewerCertificateArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -298,38 +160,14 @@ import javax.annotation.Nullable;
  *         final var s3OriginId = &#34;myS3Origin&#34;;
  * 
  *         var s3Distribution = new Distribution(&#34;s3Distribution&#34;, DistributionArgs.builder()        
- *             .origins(DistributionOriginArgs.builder()
- *                 .domainName(aws_s3_bucket.primary().bucket_regional_domain_name())
- *                 .originId(&#34;myS3Origin&#34;)
- *                 .s3OriginConfig(DistributionOriginS3OriginConfigArgs.builder()
- *                     .originAccessIdentity(aws_cloudfront_origin_access_identity.default().cloudfront_access_identity_path())
- *                     .build())
- *                 .build())
+ *             .origins(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .enabled(true)
  *             .isIpv6Enabled(true)
  *             .comment(&#34;Some comment&#34;)
  *             .defaultRootObject(&#34;index.html&#34;)
- *             .defaultCacheBehavior(DistributionDefaultCacheBehaviorArgs.builder()
- *                 .cachePolicyId(&#34;4135ea2d-6df8-44a3-9df3-4b5a84be39ad&#34;)
- *                 .allowedMethods(                
- *                     &#34;GET&#34;,
- *                     &#34;HEAD&#34;,
- *                     &#34;OPTIONS&#34;)
- *                 .targetOriginId(s3OriginId)
- *                 .build())
- *             .restrictions(DistributionRestrictionsArgs.builder()
- *                 .geoRestriction(DistributionRestrictionsGeoRestrictionArgs.builder()
- *                     .restrictionType(&#34;whitelist&#34;)
- *                     .locations(                    
- *                         &#34;US&#34;,
- *                         &#34;CA&#34;,
- *                         &#34;GB&#34;,
- *                         &#34;DE&#34;)
- *                     .build())
- *                 .build())
- *             .viewerCertificate(DistributionViewerCertificateArgs.builder()
- *                 .cloudfrontDefaultCertificate(true)
- *                 .build())
+ *             .defaultCacheBehavior(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .restrictions(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .viewerCertificate(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

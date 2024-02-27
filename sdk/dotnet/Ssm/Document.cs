@@ -26,7 +26,7 @@ namespace Pulumi.Aws.Ssm
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var foo = new Aws.Ssm.Document("foo", new()
+    ///     var foo = new Aws.Ssm.Document.Document("foo", new()
     ///     {
     ///         Content = @"  {
     ///     ""schemaVersion"": ""1.2"",
@@ -62,7 +62,7 @@ namespace Pulumi.Aws.Ssm
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var foo = new Aws.Ssm.Document("foo", new()
+    ///     var foo = new Aws.Ssm.Document.Document("foo", new()
     ///     {
     ///         Content = @"schemaVersion: '1.2'
     /// description: Check ip configuration of a Linux instance.

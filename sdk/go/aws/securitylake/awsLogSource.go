@@ -21,32 +21,30 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/securitylake"
+//	securitylake/awsLogSource "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/securitylake/awsLogSource"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := securitylake.NewAwsLogSource(ctx, "test", &securitylake.AwsLogSourceArgs{
-//				Source: &securitylake.AwsLogSourceSourceArgs{
-//					Accounts: pulumi.StringArray{
-//						pulumi.String("123456789012"),
-//					},
-//					Regions: pulumi.StringArray{
-//						pulumi.String("eu-west-1"),
-//					},
-//					SourceName:    pulumi.String("ROUTE53"),
-//					SourceVersion: pulumi.String("1.0"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := securitylake/awsLogSource.NewAwsLogSource(ctx, "test", &securitylake/awsLogSource.AwsLogSourceArgs{
+// Source: map[string]interface{}{
+// "accounts": []string{
+// "123456789012",
+// },
+// "regions": []string{
+// "eu-west-1",
+// },
+// "sourceName": "ROUTE53",
+// "sourceVersion": "1.0",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

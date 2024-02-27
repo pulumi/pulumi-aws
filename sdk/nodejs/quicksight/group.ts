@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.quicksight.Group("example", {groupName: "tf-example"});
+ * const example = new aws.quicksight/group.Group("example", {groupName: "tf-example"});
  * ```
  *
  * ## Import

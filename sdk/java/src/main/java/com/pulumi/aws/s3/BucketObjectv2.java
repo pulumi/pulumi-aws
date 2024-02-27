@@ -173,7 +173,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.s3.BucketAclV2Args;
  * import com.pulumi.aws.s3.BucketVersioningV2;
  * import com.pulumi.aws.s3.BucketVersioningV2Args;
- * import com.pulumi.aws.s3.inputs.BucketVersioningV2VersioningConfigurationArgs;
  * import com.pulumi.aws.s3.BucketObjectv2;
  * import com.pulumi.aws.s3.BucketObjectv2Args;
  * import com.pulumi.resources.CustomResourceOptions;
@@ -202,9 +201,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleBucketVersioningV2 = new BucketVersioningV2(&#34;exampleBucketVersioningV2&#34;, BucketVersioningV2Args.builder()        
  *             .bucket(examplebucket.id())
- *             .versioningConfiguration(BucketVersioningV2VersioningConfigurationArgs.builder()
- *                 .status(&#34;Enabled&#34;)
- *                 .build())
+ *             .versioningConfiguration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var examplebucketObject = new BucketObjectv2(&#34;examplebucketObject&#34;, BucketObjectv2Args.builder()        
@@ -237,8 +234,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.s3.BucketV2;
  * import com.pulumi.aws.s3.BucketObjectv2;
  * import com.pulumi.aws.s3.BucketObjectv2Args;
- * import com.pulumi.aws.s3.inputs.BucketObjectv2OverrideProviderArgs;
- * import com.pulumi.aws.s3.inputs.BucketObjectv2OverrideProviderDefaultTagsArgs;
  * import com.pulumi.asset.FileAsset;
  * import java.util.List;
  * import java.util.ArrayList;
@@ -259,12 +254,8 @@ import javax.annotation.Nullable;
  *             .key(&#34;someobject&#34;)
  *             .bucket(examplebucket.id())
  *             .source(new FileAsset(&#34;important.txt&#34;))
- *             .tags(Map.of(&#34;Env&#34;, &#34;test&#34;))
- *             .overrideProvider(BucketObjectv2OverrideProviderArgs.builder()
- *                 .defaultTags(BucketObjectv2OverrideProviderDefaultTagsArgs.builder()
- *                     .tags()
- *                     .build())
- *                 .build())
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .overrideProvider(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

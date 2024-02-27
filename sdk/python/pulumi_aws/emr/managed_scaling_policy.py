@@ -108,24 +108,24 @@ class ManagedScalingPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        sample = aws.emr.Cluster("sample",
-            release_label="emr-5.30.0",
-            master_instance_group=aws.emr.ClusterMasterInstanceGroupArgs(
-                instance_type="m4.large",
-            ),
-            core_instance_group=aws.emr.ClusterCoreInstanceGroupArgs(
-                instance_type="c4.large",
-            ))
+        sample = aws.emr.cluster.Cluster("sample",
+            release_label=emr-5.30.0,
+            master_instance_group={
+                instanceType: m4.large,
+            },
+            core_instance_group={
+                instanceType: c4.large,
+            })
         # skip ...
-        samplepolicy = aws.emr.ManagedScalingPolicy("samplepolicy",
+        samplepolicy = aws.emr.managed_scaling_policy.ManagedScalingPolicy("samplepolicy",
             cluster_id=sample.id,
-            compute_limits=[aws.emr.ManagedScalingPolicyComputeLimitArgs(
-                unit_type="Instances",
-                minimum_capacity_units=2,
-                maximum_capacity_units=10,
-                maximum_ondemand_capacity_units=2,
-                maximum_core_capacity_units=10,
-            )])
+            compute_limits=[{
+                unitType: Instances,
+                minimumCapacityUnits: 2,
+                maximumCapacityUnits: 10,
+                maximumOndemandCapacityUnits: 2,
+                maximumCoreCapacityUnits: 10,
+            }])
         ```
 
         ## Import
@@ -156,24 +156,24 @@ class ManagedScalingPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        sample = aws.emr.Cluster("sample",
-            release_label="emr-5.30.0",
-            master_instance_group=aws.emr.ClusterMasterInstanceGroupArgs(
-                instance_type="m4.large",
-            ),
-            core_instance_group=aws.emr.ClusterCoreInstanceGroupArgs(
-                instance_type="c4.large",
-            ))
+        sample = aws.emr.cluster.Cluster("sample",
+            release_label=emr-5.30.0,
+            master_instance_group={
+                instanceType: m4.large,
+            },
+            core_instance_group={
+                instanceType: c4.large,
+            })
         # skip ...
-        samplepolicy = aws.emr.ManagedScalingPolicy("samplepolicy",
+        samplepolicy = aws.emr.managed_scaling_policy.ManagedScalingPolicy("samplepolicy",
             cluster_id=sample.id,
-            compute_limits=[aws.emr.ManagedScalingPolicyComputeLimitArgs(
-                unit_type="Instances",
-                minimum_capacity_units=2,
-                maximum_capacity_units=10,
-                maximum_ondemand_capacity_units=2,
-                maximum_core_capacity_units=10,
-            )])
+            compute_limits=[{
+                unitType: Instances,
+                minimumCapacityUnits: 2,
+                maximumCapacityUnits: 10,
+                maximumOndemandCapacityUnits: 2,
+                maximumCoreCapacityUnits: 10,
+            }])
         ```
 
         ## Import

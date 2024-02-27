@@ -238,26 +238,26 @@ class DomainAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_app = aws.amplify.App("exampleApp", custom_rules=[aws.amplify.AppCustomRuleArgs(
-            source="https://example.com",
-            status="302",
-            target="https://www.example.com",
-        )])
-        master = aws.amplify.Branch("master",
+        example_app = aws.amplify.app.App("exampleApp", custom_rules=[{
+            source: https://example.com,
+            status: 302,
+            target: https://www.example.com,
+        }])
+        master = aws.amplify.branch.Branch("master",
             app_id=example_app.id,
-            branch_name="master")
-        example_domain_association = aws.amplify.DomainAssociation("exampleDomainAssociation",
+            branch_name=master)
+        example_domain_association = aws.amplify.domain_association.DomainAssociation("exampleDomainAssociation",
             app_id=example_app.id,
-            domain_name="example.com",
+            domain_name=example.com,
             sub_domains=[
-                aws.amplify.DomainAssociationSubDomainArgs(
-                    branch_name=master.branch_name,
-                    prefix="",
-                ),
-                aws.amplify.DomainAssociationSubDomainArgs(
-                    branch_name=master.branch_name,
-                    prefix="www",
-                ),
+                {
+                    branchName: master.branch_name,
+                    prefix: ,
+                },
+                {
+                    branchName: master.branch_name,
+                    prefix: www,
+                },
             ])
         ```
 
@@ -292,26 +292,26 @@ class DomainAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_app = aws.amplify.App("exampleApp", custom_rules=[aws.amplify.AppCustomRuleArgs(
-            source="https://example.com",
-            status="302",
-            target="https://www.example.com",
-        )])
-        master = aws.amplify.Branch("master",
+        example_app = aws.amplify.app.App("exampleApp", custom_rules=[{
+            source: https://example.com,
+            status: 302,
+            target: https://www.example.com,
+        }])
+        master = aws.amplify.branch.Branch("master",
             app_id=example_app.id,
-            branch_name="master")
-        example_domain_association = aws.amplify.DomainAssociation("exampleDomainAssociation",
+            branch_name=master)
+        example_domain_association = aws.amplify.domain_association.DomainAssociation("exampleDomainAssociation",
             app_id=example_app.id,
-            domain_name="example.com",
+            domain_name=example.com,
             sub_domains=[
-                aws.amplify.DomainAssociationSubDomainArgs(
-                    branch_name=master.branch_name,
-                    prefix="",
-                ),
-                aws.amplify.DomainAssociationSubDomainArgs(
-                    branch_name=master.branch_name,
-                    prefix="www",
-                ),
+                {
+                    branchName: master.branch_name,
+                    prefix: ,
+                },
+                {
+                    branchName: master.branch_name,
+                    prefix: www,
+                },
             ])
         ```
 

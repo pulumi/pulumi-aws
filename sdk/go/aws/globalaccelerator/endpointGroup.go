@@ -21,29 +21,27 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/globalaccelerator"
+//	globalaccelerator/endpointGroup "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/globalaccelerator/endpointGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := globalaccelerator.NewEndpointGroup(ctx, "example", &globalaccelerator.EndpointGroupArgs{
-//				ListenerArn: pulumi.Any(aws_globalaccelerator_listener.Example.Id),
-//				EndpointConfigurations: globalaccelerator.EndpointGroupEndpointConfigurationArray{
-//					&globalaccelerator.EndpointGroupEndpointConfigurationArgs{
-//						EndpointId: pulumi.Any(aws_lb.Example.Arn),
-//						Weight:     pulumi.Int(100),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := globalaccelerator/endpointGroup.NewEndpointGroup(ctx, "example", &globalaccelerator/endpointGroup.EndpointGroupArgs{
+// ListenerArn: aws_globalaccelerator_listener.Example.Id,
+// EndpointConfigurations: []map[string]interface{}{
+// map[string]interface{}{
+// "endpointId": aws_lb.Example.Arn,
+// "weight": 100,
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

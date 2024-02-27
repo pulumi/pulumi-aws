@@ -9,15 +9,6 @@ import * as utilities from "../utilities";
 
 /**
  * Returns a list of Amazon Bedrock custom models.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = aws.bedrock.getCustomModels({});
- * ```
  */
 export function getCustomModels(opts?: pulumi.InvokeOptions): Promise<GetCustomModelsResult> {
 
@@ -38,15 +29,6 @@ export interface GetCustomModelsResult {
 }
 /**
  * Returns a list of Amazon Bedrock custom models.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = aws.bedrock.getCustomModels({});
- * ```
  */
 export function getCustomModelsOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomModelsResult> {
     return pulumi.output(getCustomModels(opts))

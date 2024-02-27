@@ -184,9 +184,9 @@ class GroupMembership(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.quicksight.GroupMembership("example",
-            group_name="all-access-users",
-            member_name="john_smith")
+        example = aws.quicksight.group_membership.GroupMembership("example",
+            group_name=all-access-users,
+            member_name=john_smith)
         ```
 
         ## Import
@@ -219,9 +219,9 @@ class GroupMembership(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.quicksight.GroupMembership("example",
-            group_name="all-access-users",
-            member_name="john_smith")
+        example = aws.quicksight.group_membership.GroupMembership("example",
+            group_name=all-access-users,
+            member_name=john_smith)
         ```
 
         ## Import

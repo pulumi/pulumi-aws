@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const my_instance = new aws.opsworks.Instance("my-instance", {
+ * const my_instance = new aws.opsworks/instance.Instance("my-instance", {
  *     stackId: aws_opsworks_stack.main.id,
  *     layerIds: [aws_opsworks_custom_layer["my-layer"].id],
  *     instanceType: "t2.micro",

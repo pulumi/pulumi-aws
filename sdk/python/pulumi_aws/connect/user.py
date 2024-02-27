@@ -430,19 +430,19 @@ class User(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.connect.User("example",
-            instance_id=aws_connect_instance["example"]["id"],
-            password="Password123",
-            routing_profile_id=aws_connect_routing_profile["example"]["routing_profile_id"],
-            security_profile_ids=[aws_connect_security_profile["example"]["security_profile_id"]],
-            identity_info=aws.connect.UserIdentityInfoArgs(
-                first_name="example",
-                last_name="example2",
-            ),
-            phone_config=aws.connect.UserPhoneConfigArgs(
-                after_contact_work_time_limit=0,
-                phone_type="SOFT_PHONE",
-            ))
+        example = aws.connect.user.User("example",
+            instance_id=aws_connect_instance.example.id,
+            password=Password123,
+            routing_profile_id=aws_connect_routing_profile.example.routing_profile_id,
+            security_profile_ids=[aws_connect_security_profile.example.security_profile_id],
+            identity_info={
+                firstName: example,
+                lastName: example2,
+            },
+            phone_config={
+                afterContactWorkTimeLimit: 0,
+                phoneType: SOFT_PHONE,
+            })
         ```
         ### With hierarchy_group_id
 
@@ -450,20 +450,20 @@ class User(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.connect.User("example",
-            instance_id=aws_connect_instance["example"]["id"],
-            password="Password123",
-            routing_profile_id=aws_connect_routing_profile["example"]["routing_profile_id"],
-            hierarchy_group_id=aws_connect_user_hierarchy_group["example"]["hierarchy_group_id"],
-            security_profile_ids=[aws_connect_security_profile["example"]["security_profile_id"]],
-            identity_info=aws.connect.UserIdentityInfoArgs(
-                first_name="example",
-                last_name="example2",
-            ),
-            phone_config=aws.connect.UserPhoneConfigArgs(
-                after_contact_work_time_limit=0,
-                phone_type="SOFT_PHONE",
-            ))
+        example = aws.connect.user.User("example",
+            instance_id=aws_connect_instance.example.id,
+            password=Password123,
+            routing_profile_id=aws_connect_routing_profile.example.routing_profile_id,
+            hierarchy_group_id=aws_connect_user_hierarchy_group.example.hierarchy_group_id,
+            security_profile_ids=[aws_connect_security_profile.example.security_profile_id],
+            identity_info={
+                firstName: example,
+                lastName: example2,
+            },
+            phone_config={
+                afterContactWorkTimeLimit: 0,
+                phoneType: SOFT_PHONE,
+            })
         ```
         ### With identity_info filled
 
@@ -471,20 +471,20 @@ class User(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.connect.User("example",
-            instance_id=aws_connect_instance["example"]["id"],
-            password="Password123",
-            routing_profile_id=aws_connect_routing_profile["example"]["routing_profile_id"],
-            security_profile_ids=[aws_connect_security_profile["example"]["security_profile_id"]],
-            identity_info=aws.connect.UserIdentityInfoArgs(
-                email="example@example.com",
-                first_name="example",
-                last_name="example2",
-            ),
-            phone_config=aws.connect.UserPhoneConfigArgs(
-                after_contact_work_time_limit=0,
-                phone_type="SOFT_PHONE",
-            ))
+        example = aws.connect.user.User("example",
+            instance_id=aws_connect_instance.example.id,
+            password=Password123,
+            routing_profile_id=aws_connect_routing_profile.example.routing_profile_id,
+            security_profile_ids=[aws_connect_security_profile.example.security_profile_id],
+            identity_info={
+                email: example@example.com,
+                firstName: example,
+                lastName: example2,
+            },
+            phone_config={
+                afterContactWorkTimeLimit: 0,
+                phoneType: SOFT_PHONE,
+            })
         ```
         ### With phone_config phone type as desk phone
 
@@ -492,15 +492,15 @@ class User(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.connect.User("example",
-            instance_id=aws_connect_instance["example"]["id"],
-            password="Password123",
-            routing_profile_id=aws_connect_routing_profile["example"]["routing_profile_id"],
-            security_profile_ids=[aws_connect_security_profile["example"]["security_profile_id"]],
-            phone_config=aws.connect.UserPhoneConfigArgs(
-                after_contact_work_time_limit=0,
-                phone_type="SOFT_PHONE",
-            ))
+        example = aws.connect.user.User("example",
+            instance_id=aws_connect_instance.example.id,
+            password=Password123,
+            routing_profile_id=aws_connect_routing_profile.example.routing_profile_id,
+            security_profile_ids=[aws_connect_security_profile.example.security_profile_id],
+            phone_config={
+                afterContactWorkTimeLimit: 0,
+                phoneType: SOFT_PHONE,
+            })
         ```
         ### With multiple Security profile ids specified in security_profile_ids
 
@@ -508,20 +508,20 @@ class User(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.connect.User("example",
-            instance_id=aws_connect_instance["example"]["id"],
-            password="Password123",
-            routing_profile_id=aws_connect_routing_profile["example"]["routing_profile_id"],
+        example = aws.connect.user.User("example",
+            instance_id=aws_connect_instance.example.id,
+            password=Password123,
+            routing_profile_id=aws_connect_routing_profile.example.routing_profile_id,
             security_profile_ids=[
-                aws_connect_security_profile["example"]["security_profile_id"],
-                aws_connect_security_profile["example2"]["security_profile_id"],
+                aws_connect_security_profile.example.security_profile_id,
+                aws_connect_security_profile.example2.security_profile_id,
             ],
-            phone_config=aws.connect.UserPhoneConfigArgs(
-                after_contact_work_time_limit=0,
-                auto_accept=False,
-                desk_phone_number="+112345678912",
-                phone_type="DESK_PHONE",
-            ))
+            phone_config={
+                afterContactWorkTimeLimit: 0,
+                autoAccept: False,
+                deskPhoneNumber: +112345678912,
+                phoneType: DESK_PHONE,
+            })
         ```
 
         ## Import
@@ -563,19 +563,19 @@ class User(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.connect.User("example",
-            instance_id=aws_connect_instance["example"]["id"],
-            password="Password123",
-            routing_profile_id=aws_connect_routing_profile["example"]["routing_profile_id"],
-            security_profile_ids=[aws_connect_security_profile["example"]["security_profile_id"]],
-            identity_info=aws.connect.UserIdentityInfoArgs(
-                first_name="example",
-                last_name="example2",
-            ),
-            phone_config=aws.connect.UserPhoneConfigArgs(
-                after_contact_work_time_limit=0,
-                phone_type="SOFT_PHONE",
-            ))
+        example = aws.connect.user.User("example",
+            instance_id=aws_connect_instance.example.id,
+            password=Password123,
+            routing_profile_id=aws_connect_routing_profile.example.routing_profile_id,
+            security_profile_ids=[aws_connect_security_profile.example.security_profile_id],
+            identity_info={
+                firstName: example,
+                lastName: example2,
+            },
+            phone_config={
+                afterContactWorkTimeLimit: 0,
+                phoneType: SOFT_PHONE,
+            })
         ```
         ### With hierarchy_group_id
 
@@ -583,20 +583,20 @@ class User(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.connect.User("example",
-            instance_id=aws_connect_instance["example"]["id"],
-            password="Password123",
-            routing_profile_id=aws_connect_routing_profile["example"]["routing_profile_id"],
-            hierarchy_group_id=aws_connect_user_hierarchy_group["example"]["hierarchy_group_id"],
-            security_profile_ids=[aws_connect_security_profile["example"]["security_profile_id"]],
-            identity_info=aws.connect.UserIdentityInfoArgs(
-                first_name="example",
-                last_name="example2",
-            ),
-            phone_config=aws.connect.UserPhoneConfigArgs(
-                after_contact_work_time_limit=0,
-                phone_type="SOFT_PHONE",
-            ))
+        example = aws.connect.user.User("example",
+            instance_id=aws_connect_instance.example.id,
+            password=Password123,
+            routing_profile_id=aws_connect_routing_profile.example.routing_profile_id,
+            hierarchy_group_id=aws_connect_user_hierarchy_group.example.hierarchy_group_id,
+            security_profile_ids=[aws_connect_security_profile.example.security_profile_id],
+            identity_info={
+                firstName: example,
+                lastName: example2,
+            },
+            phone_config={
+                afterContactWorkTimeLimit: 0,
+                phoneType: SOFT_PHONE,
+            })
         ```
         ### With identity_info filled
 
@@ -604,20 +604,20 @@ class User(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.connect.User("example",
-            instance_id=aws_connect_instance["example"]["id"],
-            password="Password123",
-            routing_profile_id=aws_connect_routing_profile["example"]["routing_profile_id"],
-            security_profile_ids=[aws_connect_security_profile["example"]["security_profile_id"]],
-            identity_info=aws.connect.UserIdentityInfoArgs(
-                email="example@example.com",
-                first_name="example",
-                last_name="example2",
-            ),
-            phone_config=aws.connect.UserPhoneConfigArgs(
-                after_contact_work_time_limit=0,
-                phone_type="SOFT_PHONE",
-            ))
+        example = aws.connect.user.User("example",
+            instance_id=aws_connect_instance.example.id,
+            password=Password123,
+            routing_profile_id=aws_connect_routing_profile.example.routing_profile_id,
+            security_profile_ids=[aws_connect_security_profile.example.security_profile_id],
+            identity_info={
+                email: example@example.com,
+                firstName: example,
+                lastName: example2,
+            },
+            phone_config={
+                afterContactWorkTimeLimit: 0,
+                phoneType: SOFT_PHONE,
+            })
         ```
         ### With phone_config phone type as desk phone
 
@@ -625,15 +625,15 @@ class User(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.connect.User("example",
-            instance_id=aws_connect_instance["example"]["id"],
-            password="Password123",
-            routing_profile_id=aws_connect_routing_profile["example"]["routing_profile_id"],
-            security_profile_ids=[aws_connect_security_profile["example"]["security_profile_id"]],
-            phone_config=aws.connect.UserPhoneConfigArgs(
-                after_contact_work_time_limit=0,
-                phone_type="SOFT_PHONE",
-            ))
+        example = aws.connect.user.User("example",
+            instance_id=aws_connect_instance.example.id,
+            password=Password123,
+            routing_profile_id=aws_connect_routing_profile.example.routing_profile_id,
+            security_profile_ids=[aws_connect_security_profile.example.security_profile_id],
+            phone_config={
+                afterContactWorkTimeLimit: 0,
+                phoneType: SOFT_PHONE,
+            })
         ```
         ### With multiple Security profile ids specified in security_profile_ids
 
@@ -641,20 +641,20 @@ class User(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.connect.User("example",
-            instance_id=aws_connect_instance["example"]["id"],
-            password="Password123",
-            routing_profile_id=aws_connect_routing_profile["example"]["routing_profile_id"],
+        example = aws.connect.user.User("example",
+            instance_id=aws_connect_instance.example.id,
+            password=Password123,
+            routing_profile_id=aws_connect_routing_profile.example.routing_profile_id,
             security_profile_ids=[
-                aws_connect_security_profile["example"]["security_profile_id"],
-                aws_connect_security_profile["example2"]["security_profile_id"],
+                aws_connect_security_profile.example.security_profile_id,
+                aws_connect_security_profile.example2.security_profile_id,
             ],
-            phone_config=aws.connect.UserPhoneConfigArgs(
-                after_contact_work_time_limit=0,
-                auto_accept=False,
-                desk_phone_number="+112345678912",
-                phone_type="DESK_PHONE",
-            ))
+            phone_config={
+                afterContactWorkTimeLimit: 0,
+                autoAccept: False,
+                deskPhoneNumber: +112345678912,
+                phoneType: DESK_PHONE,
+            })
         ```
 
         ## Import

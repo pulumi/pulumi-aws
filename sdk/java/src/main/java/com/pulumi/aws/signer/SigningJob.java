@@ -34,10 +34,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.signer.SigningProfileArgs;
  * import com.pulumi.aws.signer.SigningJob;
  * import com.pulumi.aws.signer.SigningJobArgs;
- * import com.pulumi.aws.signer.inputs.SigningJobSourceArgs;
- * import com.pulumi.aws.signer.inputs.SigningJobSourceS3Args;
- * import com.pulumi.aws.signer.inputs.SigningJobDestinationArgs;
- * import com.pulumi.aws.signer.inputs.SigningJobDestinationS3Args;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -57,19 +53,8 @@ import javax.annotation.Nullable;
  * 
  *         var buildSigningJob = new SigningJob(&#34;buildSigningJob&#34;, SigningJobArgs.builder()        
  *             .profileName(testSp.name())
- *             .source(SigningJobSourceArgs.builder()
- *                 .s3(SigningJobSourceS3Args.builder()
- *                     .bucket(&#34;s3-bucket-name&#34;)
- *                     .key(&#34;object-to-be-signed.zip&#34;)
- *                     .version(&#34;jADjFYYYEXAMPLETszPjOmCMFDzd9dN1&#34;)
- *                     .build())
- *                 .build())
- *             .destination(SigningJobDestinationArgs.builder()
- *                 .s3(SigningJobDestinationS3Args.builder()
- *                     .bucket(&#34;s3-bucket-name&#34;)
- *                     .prefix(&#34;signed/&#34;)
- *                     .build())
- *                 .build())
+ *             .source(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .destination(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .ignoreSigningJobFailure(true)
  *             .build());
  * 

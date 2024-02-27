@@ -140,29 +140,29 @@ class SinkPolicy(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        example_sink = aws.oam.Sink("exampleSink")
-        example_sink_policy = aws.oam.SinkPolicy("exampleSinkPolicy",
+        example_sink = aws.oam.sink.Sink("exampleSink")
+        example_sink_policy = aws.oam.sink_policy.SinkPolicy("exampleSinkPolicy",
             sink_identifier=example_sink.id,
             policy=json.dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Action": [
-                        "oam:CreateLink",
-                        "oam:UpdateLink",
+                Version: 2012-10-17,
+                Statement: [{
+                    Action: [
+                        oam:CreateLink,
+                        oam:UpdateLink,
                     ],
-                    "Effect": "Allow",
-                    "Resource": "*",
-                    "Principal": {
-                        "AWS": [
-                            "1111111111111",
-                            "222222222222",
+                    Effect: Allow,
+                    Resource: *,
+                    Principal: {
+                        AWS: [
+                            1111111111111,
+                            222222222222,
                         ],
                     },
-                    "Condition": {
-                        "ForAllValues:StringEquals": {
-                            "oam:ResourceTypes": [
-                                "AWS::CloudWatch::Metric",
-                                "AWS::Logs::LogGroup",
+                    Condition: {
+                        ForAllValues:StringEquals: {
+                            oam:ResourceTypes: [
+                                AWS::CloudWatch::Metric,
+                                AWS::Logs::LogGroup,
                             ],
                         },
                     },
@@ -200,29 +200,29 @@ class SinkPolicy(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        example_sink = aws.oam.Sink("exampleSink")
-        example_sink_policy = aws.oam.SinkPolicy("exampleSinkPolicy",
+        example_sink = aws.oam.sink.Sink("exampleSink")
+        example_sink_policy = aws.oam.sink_policy.SinkPolicy("exampleSinkPolicy",
             sink_identifier=example_sink.id,
             policy=json.dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Action": [
-                        "oam:CreateLink",
-                        "oam:UpdateLink",
+                Version: 2012-10-17,
+                Statement: [{
+                    Action: [
+                        oam:CreateLink,
+                        oam:UpdateLink,
                     ],
-                    "Effect": "Allow",
-                    "Resource": "*",
-                    "Principal": {
-                        "AWS": [
-                            "1111111111111",
-                            "222222222222",
+                    Effect: Allow,
+                    Resource: *,
+                    Principal: {
+                        AWS: [
+                            1111111111111,
+                            222222222222,
                         ],
                     },
-                    "Condition": {
-                        "ForAllValues:StringEquals": {
-                            "oam:ResourceTypes": [
-                                "AWS::CloudWatch::Metric",
-                                "AWS::Logs::LogGroup",
+                    Condition: {
+                        ForAllValues:StringEquals: {
+                            oam:ResourceTypes: [
+                                AWS::CloudWatch::Metric,
+                                AWS::Logs::LogGroup,
                             ],
                         },
                     },

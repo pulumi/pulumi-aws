@@ -836,21 +836,21 @@ class ClusterInstance(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        default = aws.docdb.Cluster("default",
-            cluster_identifier="docdb-cluster-demo",
+        default = aws.docdb.cluster.Cluster("default",
+            cluster_identifier=docdb-cluster-demo,
             availability_zones=[
-                "us-west-2a",
-                "us-west-2b",
-                "us-west-2c",
+                us-west-2a,
+                us-west-2b,
+                us-west-2c,
             ],
-            master_username="foo",
-            master_password="barbut8chars")
+            master_username=foo,
+            master_password=barbut8chars)
         cluster_instances = []
         for range in [{"value": i} for i in range(0, 2)]:
-            cluster_instances.append(aws.docdb.ClusterInstance(f"clusterInstances-{range['value']}",
-                identifier=f"docdb-cluster-demo-{range['value']}",
+            cluster_instances.append(aws.docdb.cluster_instance.ClusterInstance(f"clusterInstances-{range['value']}",
+                identifier=fdocdb-cluster-demo-{range.value},
                 cluster_identifier=default.id,
-                instance_class="db.r5.large"))
+                instance_class=db.r5.large))
         ```
 
         ## Import
@@ -926,21 +926,21 @@ class ClusterInstance(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        default = aws.docdb.Cluster("default",
-            cluster_identifier="docdb-cluster-demo",
+        default = aws.docdb.cluster.Cluster("default",
+            cluster_identifier=docdb-cluster-demo,
             availability_zones=[
-                "us-west-2a",
-                "us-west-2b",
-                "us-west-2c",
+                us-west-2a,
+                us-west-2b,
+                us-west-2c,
             ],
-            master_username="foo",
-            master_password="barbut8chars")
+            master_username=foo,
+            master_password=barbut8chars)
         cluster_instances = []
         for range in [{"value": i} for i in range(0, 2)]:
-            cluster_instances.append(aws.docdb.ClusterInstance(f"clusterInstances-{range['value']}",
-                identifier=f"docdb-cluster-demo-{range['value']}",
+            cluster_instances.append(aws.docdb.cluster_instance.ClusterInstance(f"clusterInstances-{range['value']}",
+                identifier=fdocdb-cluster-demo-{range.value},
                 cluster_identifier=default.id,
-                instance_class="db.r5.large"))
+                instance_class=db.r5.large))
         ```
 
         ## Import

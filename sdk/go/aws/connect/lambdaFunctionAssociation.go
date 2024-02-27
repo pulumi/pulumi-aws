@@ -22,24 +22,22 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/connect"
+//	connect/lambdaFunctionAssociation "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/connect/lambdaFunctionAssociation"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := connect.NewLambdaFunctionAssociation(ctx, "example", &connect.LambdaFunctionAssociationArgs{
-//				FunctionArn: pulumi.Any(aws_lambda_function.Example.Arn),
-//				InstanceId:  pulumi.Any(aws_connect_instance.Example.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := connect/lambdaFunctionAssociation.NewLambdaFunctionAssociation(ctx, "example", &connect/lambdaFunctionAssociation.LambdaFunctionAssociationArgs{
+// FunctionArn: aws_lambda_function.Example.Arn,
+// InstanceId: aws_connect_instance.Example.Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

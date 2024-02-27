@@ -84,18 +84,6 @@ def get_secrets(filters: Optional[Sequence[pulumi.InputType['GetSecretsFilterArg
     """
     Use this data source to get the ARNs and names of Secrets Manager secrets matching the specified criteria.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.secretsmanager.get_secrets(filters=[aws.secretsmanager.GetSecretsFilterArgs(
-        name="name",
-        values=["example"],
-    )])
-    ```
-
 
     :param Sequence[pulumi.InputType['GetSecretsFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.
     """
@@ -116,18 +104,6 @@ def get_secrets_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.I
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSecretsResult]:
     """
     Use this data source to get the ARNs and names of Secrets Manager secrets matching the specified criteria.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.secretsmanager.get_secrets(filters=[aws.secretsmanager.GetSecretsFilterArgs(
-        name="name",
-        values=["example"],
-    )])
-    ```
 
 
     :param Sequence[pulumi.InputType['GetSecretsFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.

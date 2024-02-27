@@ -139,12 +139,12 @@ class LfTag(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.lakeformation.LfTag("example",
-            key="module",
+        example = aws.lakeformation.lf_tag.LfTag("example",
+            key=module,
             values=[
-                "Orders",
-                "Sales",
-                "Customers",
+                Orders,
+                Sales,
+                Customers,
             ])
         ```
 
@@ -177,12 +177,12 @@ class LfTag(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.lakeformation.LfTag("example",
-            key="module",
+        example = aws.lakeformation.lf_tag.LfTag("example",
+            key=module,
             values=[
-                "Orders",
-                "Sales",
-                "Customers",
+                Orders,
+                Sales,
+                Customers,
             ])
         ```
 

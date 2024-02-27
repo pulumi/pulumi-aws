@@ -37,23 +37,21 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	ec2/amiFromInstance "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/amiFromInstance"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.NewAmiFromInstance(ctx, "example", &ec2.AmiFromInstanceArgs{
-//				SourceInstanceId: pulumi.String("i-xxxxxxxx"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := ec2/amiFromInstance.NewAmiFromInstance(ctx, "example", &ec2/amiFromInstance.AmiFromInstanceArgs{
+// SourceInstanceId: "i-xxxxxxxx",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 type AmiFromInstance struct {
 	pulumi.CustomResourceState

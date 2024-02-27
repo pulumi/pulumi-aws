@@ -26,7 +26,7 @@ namespace Pulumi.Aws.Iam
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var strict = new Aws.Iam.AccountPasswordPolicy("strict", new()
+    ///     var strict = new Aws.Iam.AccountPasswordPolicy.AccountPasswordPolicy("strict", new()
     ///     {
     ///         AllowUsersToChangePassword = true,
     ///         MinimumPasswordLength = 8,

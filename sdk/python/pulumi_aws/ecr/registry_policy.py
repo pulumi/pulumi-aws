@@ -84,30 +84,6 @@ class RegistryPolicy(pulumi.CustomResource):
         """
         Provides an Elastic Container Registry Policy.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        current_caller_identity = aws.get_caller_identity()
-        current_region = aws.get_region()
-        current_partition = aws.get_partition()
-        example = aws.ecr.RegistryPolicy("example", policy=json.dumps({
-            "Version": "2012-10-17",
-            "Statement": [{
-                "Sid": "testpolicy",
-                "Effect": "Allow",
-                "Principal": {
-                    "AWS": f"arn:{current_partition.partition}:iam::{current_caller_identity.account_id}:root",
-                },
-                "Action": ["ecr:ReplicateImage"],
-                "Resource": [f"arn:{current_partition.partition}:ecr:{current_region.name}:{current_caller_identity.account_id}:repository/*"],
-            }],
-        }))
-        ```
-
         ## Import
 
         Using `pulumi import`, import ECR Registry Policy using the registry id. For example:
@@ -128,30 +104,6 @@ class RegistryPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an Elastic Container Registry Policy.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        current_caller_identity = aws.get_caller_identity()
-        current_region = aws.get_region()
-        current_partition = aws.get_partition()
-        example = aws.ecr.RegistryPolicy("example", policy=json.dumps({
-            "Version": "2012-10-17",
-            "Statement": [{
-                "Sid": "testpolicy",
-                "Effect": "Allow",
-                "Principal": {
-                    "AWS": f"arn:{current_partition.partition}:iam::{current_caller_identity.account_id}:root",
-                },
-                "Action": ["ecr:ReplicateImage"],
-                "Resource": [f"arn:{current_partition.partition}:ecr:{current_region.name}:{current_caller_identity.account_id}:repository/*"],
-            }],
-        }))
-        ```
 
         ## Import
 

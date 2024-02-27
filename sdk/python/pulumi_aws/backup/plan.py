@@ -229,21 +229,21 @@ class Plan(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.backup.Plan("example",
-            rules=[aws.backup.PlanRuleArgs(
-                rule_name="my_example_backup_rule",
-                target_vault_name=aws_backup_vault["test"]["name"],
-                schedule="cron(0 12 * * ? *)",
-                lifecycle=aws.backup.PlanRuleLifecycleArgs(
-                    delete_after=14,
-                ),
-            )],
-            advanced_backup_settings=[aws.backup.PlanAdvancedBackupSettingArgs(
-                backup_options={
-                    "WindowsVSS": "enabled",
+        example = aws.backup.plan.Plan("example",
+            rules=[{
+                ruleName: my_example_backup_rule,
+                targetVaultName: aws_backup_vault.test.name,
+                schedule: cron(0 12 * * ? *),
+                lifecycle: {
+                    deleteAfter: 14,
                 },
-                resource_type="EC2",
-            )])
+            }],
+            advanced_backup_settings=[{
+                backupOptions: {
+                    WindowsVSS: enabled,
+                },
+                resourceType: EC2,
+            }])
         ```
 
         ## Import
@@ -276,21 +276,21 @@ class Plan(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.backup.Plan("example",
-            rules=[aws.backup.PlanRuleArgs(
-                rule_name="my_example_backup_rule",
-                target_vault_name=aws_backup_vault["test"]["name"],
-                schedule="cron(0 12 * * ? *)",
-                lifecycle=aws.backup.PlanRuleLifecycleArgs(
-                    delete_after=14,
-                ),
-            )],
-            advanced_backup_settings=[aws.backup.PlanAdvancedBackupSettingArgs(
-                backup_options={
-                    "WindowsVSS": "enabled",
+        example = aws.backup.plan.Plan("example",
+            rules=[{
+                ruleName: my_example_backup_rule,
+                targetVaultName: aws_backup_vault.test.name,
+                schedule: cron(0 12 * * ? *),
+                lifecycle: {
+                    deleteAfter: 14,
                 },
-                resource_type="EC2",
-            )])
+            }],
+            advanced_backup_settings=[{
+                backupOptions: {
+                    WindowsVSS: enabled,
+                },
+                resourceType: EC2,
+            }])
         ```
 
         ## Import

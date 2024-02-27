@@ -21,36 +21,36 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/appstream"
+//	appstream/stack "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/appstream/stack"
+//	appstream/user "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/appstream/user"
+//	appstream/userStackAssociation "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/appstream/userStackAssociation"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testStack, err := appstream.NewStack(ctx, "testStack", nil)
-//			if err != nil {
-//				return err
-//			}
-//			testUser, err := appstream.NewUser(ctx, "testUser", &appstream.UserArgs{
-//				AuthenticationType: pulumi.String("USERPOOL"),
-//				UserName:           pulumi.String("EMAIL"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = appstream.NewUserStackAssociation(ctx, "testUserStackAssociation", &appstream.UserStackAssociationArgs{
-//				AuthenticationType: testUser.AuthenticationType,
-//				StackName:          testStack.Name,
-//				UserName:           testUser.UserName,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// testStack, err := appstream/stack.NewStack(ctx, "testStack", nil)
+// if err != nil {
+// return err
+// }
+// testUser, err := appstream/user.NewUser(ctx, "testUser", &appstream/user.UserArgs{
+// AuthenticationType: "USERPOOL",
+// UserName: "EMAIL",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = appstream/userStackAssociation.NewUserStackAssociation(ctx, "testUserStackAssociation", &appstream/userStackAssociation.UserStackAssociationArgs{
+// AuthenticationType: testUser.AuthenticationType,
+// StackName: testStack.Name,
+// UserName: testUser.UserName,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

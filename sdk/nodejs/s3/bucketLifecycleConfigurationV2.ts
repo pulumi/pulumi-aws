@@ -38,7 +38,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.s3.BucketLifecycleConfigurationV2("example", {
+ * const example = new aws.s3/bucketLifecycleConfigurationV2.BucketLifecycleConfigurationV2("example", {
  *     bucket: aws_s3_bucket.bucket.id,
  *     rules: [{
  *         id: "rule-1",
@@ -54,7 +54,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.s3.BucketLifecycleConfigurationV2("example", {
+ * const example = new aws.s3/bucketLifecycleConfigurationV2.BucketLifecycleConfigurationV2("example", {
  *     bucket: aws_s3_bucket.bucket.id,
  *     rules: [{
  *         id: "rule-1",
@@ -71,7 +71,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.s3.BucketLifecycleConfigurationV2("example", {
+ * const example = new aws.s3/bucketLifecycleConfigurationV2.BucketLifecycleConfigurationV2("example", {
  *     bucket: aws_s3_bucket.bucket.id,
  *     rules: [{
  *         id: "rule-1",
@@ -89,7 +89,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.s3.BucketLifecycleConfigurationV2("example", {
+ * const example = new aws.s3/bucketLifecycleConfigurationV2.BucketLifecycleConfigurationV2("example", {
  *     bucket: aws_s3_bucket.bucket.id,
  *     rules: [
  *         {
@@ -117,7 +117,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.s3.BucketLifecycleConfigurationV2("example", {
+ * const example = new aws.s3/bucketLifecycleConfigurationV2.BucketLifecycleConfigurationV2("example", {
  *     bucket: aws_s3_bucket.bucket.id,
  *     rules: [{
  *         id: "rule-1",
@@ -139,7 +139,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.s3.BucketLifecycleConfigurationV2("example", {
+ * const example = new aws.s3/bucketLifecycleConfigurationV2.BucketLifecycleConfigurationV2("example", {
  *     bucket: aws_s3_bucket.bucket.id,
  *     rules: [{
  *         id: "rule-1",
@@ -163,7 +163,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.s3.BucketLifecycleConfigurationV2("example", {
+ * const example = new aws.s3/bucketLifecycleConfigurationV2.BucketLifecycleConfigurationV2("example", {
  *     bucket: aws_s3_bucket.bucket.id,
  *     rules: [{
  *         id: "rule-1",
@@ -188,12 +188,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.s3.BucketLifecycleConfigurationV2("example", {
+ * const example = new aws.s3/bucketLifecycleConfigurationV2.BucketLifecycleConfigurationV2("example", {
  *     bucket: aws_s3_bucket.bucket.id,
  *     rules: [{
  *         id: "rule-1",
  *         filter: {
- *             objectSizeGreaterThan: "500",
+ *             objectSizeGreaterThan: 500,
  *         },
  *         status: "Enabled",
  *     }],
@@ -207,7 +207,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.s3.BucketLifecycleConfigurationV2("example", {
+ * const example = new aws.s3/bucketLifecycleConfigurationV2.BucketLifecycleConfigurationV2("example", {
  *     bucket: aws_s3_bucket.bucket.id,
  *     rules: [{
  *         id: "rule-1",
@@ -228,12 +228,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const bucket = new aws.s3.BucketV2("bucket", {});
- * const bucketAcl = new aws.s3.BucketAclV2("bucketAcl", {
+ * const bucket = new aws.s3/bucketV2.BucketV2("bucket", {});
+ * const bucketAcl = new aws.s3/bucketAclV2.BucketAclV2("bucketAcl", {
  *     bucket: bucket.id,
  *     acl: "private",
  * });
- * const bucket_config = new aws.s3.BucketLifecycleConfigurationV2("bucket-config", {
+ * const bucket_config = new aws.s3/bucketLifecycleConfigurationV2.BucketLifecycleConfigurationV2("bucket-config", {
  *     bucket: bucket.id,
  *     rules: [
  *         {
@@ -274,18 +274,18 @@ import * as utilities from "../utilities";
  *         },
  *     ],
  * });
- * const versioningBucket = new aws.s3.BucketV2("versioningBucket", {});
- * const versioningBucketAcl = new aws.s3.BucketAclV2("versioningBucketAcl", {
+ * const versioningBucket = new aws.s3/bucketV2.BucketV2("versioningBucket", {});
+ * const versioningBucketAcl = new aws.s3/bucketAclV2.BucketAclV2("versioningBucketAcl", {
  *     bucket: versioningBucket.id,
  *     acl: "private",
  * });
- * const versioning = new aws.s3.BucketVersioningV2("versioning", {
+ * const versioning = new aws.s3/bucketVersioningV2.BucketVersioningV2("versioning", {
  *     bucket: versioningBucket.id,
  *     versioningConfiguration: {
  *         status: "Enabled",
  *     },
  * });
- * const versioning_bucket_config = new aws.s3.BucketLifecycleConfigurationV2("versioning-bucket-config", {
+ * const versioning_bucket_config = new aws.s3/bucketLifecycleConfigurationV2.BucketLifecycleConfigurationV2("versioning-bucket-config", {
  *     bucket: versioningBucket.id,
  *     rules: [{
  *         id: "config",

@@ -22,18 +22,18 @@ namespace Pulumi.Aws.CodePipeline
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.CodePipeline.CustomActionType("example", new()
+    ///     var example = new Aws.Codepipeline.CustomActionType.CustomActionType("example", new()
     ///     {
     ///         Category = "Build",
-    ///         InputArtifactDetails = new Aws.CodePipeline.Inputs.CustomActionTypeInputArtifactDetailsArgs
+    ///         InputArtifactDetails = 
     ///         {
-    ///             MaximumCount = 1,
-    ///             MinimumCount = 0,
+    ///             { "maximumCount", 1 },
+    ///             { "minimumCount", 0 },
     ///         },
-    ///         OutputArtifactDetails = new Aws.CodePipeline.Inputs.CustomActionTypeOutputArtifactDetailsArgs
+    ///         OutputArtifactDetails = 
     ///         {
-    ///             MaximumCount = 1,
-    ///             MinimumCount = 0,
+    ///             { "maximumCount", 1 },
+    ///             { "minimumCount", 0 },
     ///         },
     ///         ProviderName = "example",
     ///         Version = "1",

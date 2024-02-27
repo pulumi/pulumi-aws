@@ -32,8 +32,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.cleanrooms.Collaboration;
  * import com.pulumi.aws.cleanrooms.CollaborationArgs;
- * import com.pulumi.aws.cleanrooms.inputs.CollaborationDataEncryptionMetadataArgs;
- * import com.pulumi.aws.cleanrooms.inputs.CollaborationMemberArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -52,20 +50,11 @@ import javax.annotation.Nullable;
  *             .creatorMemberAbilities(            
  *                 &#34;CAN_QUERY&#34;,
  *                 &#34;CAN_RECEIVE_RESULTS&#34;)
- *             .dataEncryptionMetadata(CollaborationDataEncryptionMetadataArgs.builder()
- *                 .allowClearText(true)
- *                 .allowDuplicates(true)
- *                 .allowJoinsOnColumnsWithDifferentNames(true)
- *                 .preserveNulls(false)
- *                 .build())
+ *             .dataEncryptionMetadata(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .description(&#34;I made this collaboration with Pulumi!&#34;)
- *             .members(CollaborationMemberArgs.builder()
- *                 .accountId(123456789012)
- *                 .displayName(&#34;Other member&#34;)
- *                 .memberAbilities()
- *                 .build())
+ *             .members(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .queryLogStatus(&#34;DISABLED&#34;)
- *             .tags(Map.of(&#34;Project&#34;, &#34;Pulumi&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

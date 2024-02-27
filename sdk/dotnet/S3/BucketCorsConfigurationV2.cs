@@ -26,44 +26,44 @@ namespace Pulumi.Aws.S3
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2");
+    ///     var exampleBucketV2 = new Aws.S3.BucketV2.BucketV2("exampleBucketV2");
     /// 
-    ///     var exampleBucketCorsConfigurationV2 = new Aws.S3.BucketCorsConfigurationV2("exampleBucketCorsConfigurationV2", new()
+    ///     var exampleBucketCorsConfigurationV2 = new Aws.S3.BucketCorsConfigurationV2.BucketCorsConfigurationV2("exampleBucketCorsConfigurationV2", new()
     ///     {
     ///         Bucket = exampleBucketV2.Id,
     ///         CorsRules = new[]
     ///         {
-    ///             new Aws.S3.Inputs.BucketCorsConfigurationV2CorsRuleArgs
+    ///             
     ///             {
-    ///                 AllowedHeaders = new[]
+    ///                 { "allowedHeaders", new[]
     ///                 {
     ///                     "*",
-    ///                 },
-    ///                 AllowedMethods = new[]
+    ///                 } },
+    ///                 { "allowedMethods", new[]
     ///                 {
     ///                     "PUT",
     ///                     "POST",
-    ///                 },
-    ///                 AllowedOrigins = new[]
+    ///                 } },
+    ///                 { "allowedOrigins", new[]
     ///                 {
     ///                     "https://s3-website-test.domain.example",
-    ///                 },
-    ///                 ExposeHeaders = new[]
+    ///                 } },
+    ///                 { "exposeHeaders", new[]
     ///                 {
     ///                     "ETag",
-    ///                 },
-    ///                 MaxAgeSeconds = 3000,
+    ///                 } },
+    ///                 { "maxAgeSeconds", 3000 },
     ///             },
-    ///             new Aws.S3.Inputs.BucketCorsConfigurationV2CorsRuleArgs
+    ///             
     ///             {
-    ///                 AllowedMethods = new[]
+    ///                 { "allowedMethods", new[]
     ///                 {
     ///                     "GET",
-    ///                 },
-    ///                 AllowedOrigins = new[]
+    ///                 } },
+    ///                 { "allowedOrigins", new[]
     ///                 {
     ///                     "*",
-    ///                 },
+    ///                 } },
     ///             },
     ///         },
     ///     });

@@ -14,40 +14,6 @@ import (
 // Retrieve information about a Service Quota.
 //
 // > **NOTE:** Global quotas apply to all AWS regions, but can only be accessed in `us-east-1` in the Commercial partition or `us-gov-west-1` in the GovCloud partition. In other regions, the AWS API will return the error `The request failed because the specified service does not exist.`
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/servicequotas"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := servicequotas.LookupServiceQuota(ctx, &servicequotas.LookupServiceQuotaArgs{
-//				QuotaCode:   pulumi.StringRef("L-F678F1CE"),
-//				ServiceCode: "vpc",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = servicequotas.LookupServiceQuota(ctx, &servicequotas.LookupServiceQuotaArgs{
-//				QuotaName:   pulumi.StringRef("VPCs per Region"),
-//				ServiceCode: "vpc",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupServiceQuota(ctx *pulumi.Context, args *LookupServiceQuotaArgs, opts ...pulumi.InvokeOption) (*LookupServiceQuotaResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupServiceQuotaResult

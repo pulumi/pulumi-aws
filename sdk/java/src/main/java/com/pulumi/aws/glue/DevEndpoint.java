@@ -20,63 +20,6 @@ import javax.annotation.Nullable;
 /**
  * Provides a Glue Development Endpoint resource.
  * 
- * ## Example Usage
- * 
- * Basic usage:
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.iam.IamFunctions;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
- * import com.pulumi.aws.iam.Role;
- * import com.pulumi.aws.iam.RoleArgs;
- * import com.pulumi.aws.glue.DevEndpoint;
- * import com.pulumi.aws.glue.DevEndpointArgs;
- * import com.pulumi.aws.iam.RolePolicyAttachment;
- * import com.pulumi.aws.iam.RolePolicyAttachmentArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var examplePolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .actions(&#34;sts:AssumeRole&#34;)
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type(&#34;Service&#34;)
- *                     .identifiers(&#34;glue.amazonaws.com&#34;)
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *         var exampleRole = new Role(&#34;exampleRole&#34;, RoleArgs.builder()        
- *             .assumeRolePolicy(examplePolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
- *             .build());
- * 
- *         var exampleDevEndpoint = new DevEndpoint(&#34;exampleDevEndpoint&#34;, DevEndpointArgs.builder()        
- *             .roleArn(exampleRole.arn())
- *             .build());
- * 
- *         var example_AWSGlueServiceRole = new RolePolicyAttachment(&#34;example-AWSGlueServiceRole&#34;, RolePolicyAttachmentArgs.builder()        
- *             .policyArn(&#34;arn:aws:iam::aws:policy/service-role/AWSGlueServiceRole&#34;)
- *             .role(exampleRole.name())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
  * ## Import
  * 
  * Using `pulumi import`, import a Glue Development Endpoint using the `name`. For example:

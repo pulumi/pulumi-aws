@@ -16,15 +16,15 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const nlb = new aws.ec2.TrafficMirrorTarget("nlb", {
+ * const nlb = new aws.ec2/trafficMirrorTarget.TrafficMirrorTarget("nlb", {
  *     description: "NLB target",
  *     networkLoadBalancerArn: aws_lb.lb.arn,
  * });
- * const eni = new aws.ec2.TrafficMirrorTarget("eni", {
+ * const eni = new aws.ec2/trafficMirrorTarget.TrafficMirrorTarget("eni", {
  *     description: "ENI target",
  *     networkInterfaceId: aws_instance.test.primary_network_interface_id,
  * });
- * const gwlb = new aws.ec2.TrafficMirrorTarget("gwlb", {
+ * const gwlb = new aws.ec2/trafficMirrorTarget.TrafficMirrorTarget("gwlb", {
  *     description: "GWLB target",
  *     gatewayLoadBalancerEndpointId: aws_vpc_endpoint.example.id,
  * });

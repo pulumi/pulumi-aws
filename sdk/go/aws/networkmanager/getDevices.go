@@ -12,35 +12,6 @@ import (
 )
 
 // Retrieve information about devices.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/networkmanager"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := networkmanager.GetDevices(ctx, &networkmanager.GetDevicesArgs{
-//				GlobalNetworkId: _var.Global_network_id,
-//				Tags: map[string]interface{}{
-//					"Env": "test",
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetDevices(ctx *pulumi.Context, args *GetDevicesArgs, opts ...pulumi.InvokeOption) (*GetDevicesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetDevicesResult

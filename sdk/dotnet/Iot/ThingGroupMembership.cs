@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Iot
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Iot.ThingGroupMembership("example", new()
+    ///     var example = new Aws.Iot.ThingGroupMembership.ThingGroupMembership("example", new()
     ///     {
     ///         OverrideDynamicGroup = true,
     ///         ThingGroupName = "example-group",

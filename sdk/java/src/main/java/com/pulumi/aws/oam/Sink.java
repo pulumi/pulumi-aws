@@ -42,7 +42,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Sink(&#34;example&#34;, SinkArgs.builder()        
- *             .tags(Map.of(&#34;Env&#34;, &#34;prod&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

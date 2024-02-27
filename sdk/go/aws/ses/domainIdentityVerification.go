@@ -29,46 +29,43 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ses"
+//	route53/record "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/route53/record"
+//	ses/domainIdentity "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ses/domainIdentity"
+//	ses/domainIdentityVerification "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ses/domainIdentityVerification"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := ses.NewDomainIdentity(ctx, "example", &ses.DomainIdentityArgs{
-//				Domain: pulumi.String("example.com"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleAmazonsesVerificationRecord, err := route53.NewRecord(ctx, "exampleAmazonsesVerificationRecord", &route53.RecordArgs{
-//				ZoneId: pulumi.Any(aws_route53_zone.Example.Zone_id),
-//				Name: example.ID().ApplyT(func(id string) (string, error) {
-//					return fmt.Sprintf("_amazonses.%v", id), nil
-//				}).(pulumi.StringOutput),
-//				Type: pulumi.String("TXT"),
-//				Ttl:  pulumi.Int(600),
-//				Records: pulumi.StringArray{
-//					example.VerificationToken,
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ses.NewDomainIdentityVerification(ctx, "exampleVerification", &ses.DomainIdentityVerificationArgs{
-//				Domain: example.ID(),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleAmazonsesVerificationRecord,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := ses/domainIdentity.NewDomainIdentity(ctx, "example", &ses/domainIdentity.DomainIdentityArgs{
+// Domain: "example.com",
+// })
+// if err != nil {
+// return err
+// }
+// exampleAmazonsesVerificationRecord, err := route53/record.NewRecord(ctx, "exampleAmazonsesVerificationRecord", &route53/record.RecordArgs{
+// ZoneId: aws_route53_zone.Example.Zone_id,
+// Name: fmt.Sprintf("_amazonses.%v", example.Id),
+// Type: "TXT",
+// Ttl: "600",
+// Records: []interface{}{
+// example.VerificationToken,
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = ses/domainIdentityVerification.NewDomainIdentityVerification(ctx, "exampleVerification", &ses/domainIdentityVerification.DomainIdentityVerificationArgs{
+// Domain: example.Id,
+// }, pulumi.DependsOn([]pulumi.Resource{
+// exampleAmazonsesVerificationRecord,
+// }))
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 type DomainIdentityVerification struct {
 	pulumi.CustomResourceState

@@ -313,38 +313,38 @@ class IntegrationResponse(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        my_demo_api = aws.apigateway.RestApi("myDemoAPI", description="This is my API for demonstration purposes")
-        my_demo_resource = aws.apigateway.Resource("myDemoResource",
+        my_demo_api = aws.apigateway.rest_api.RestApi("myDemoAPI", description=This is my API for demonstration purposes)
+        my_demo_resource = aws.apigateway.resource.Resource("myDemoResource",
             rest_api=my_demo_api.id,
             parent_id=my_demo_api.root_resource_id,
-            path_part="mydemoresource")
-        my_demo_method = aws.apigateway.Method("myDemoMethod",
+            path_part=mydemoresource)
+        my_demo_method = aws.apigateway.method.Method("myDemoMethod",
             rest_api=my_demo_api.id,
             resource_id=my_demo_resource.id,
-            http_method="GET",
-            authorization="NONE")
-        my_demo_integration = aws.apigateway.Integration("myDemoIntegration",
-            rest_api=my_demo_api.id,
-            resource_id=my_demo_resource.id,
-            http_method=my_demo_method.http_method,
-            type="MOCK")
-        response200 = aws.apigateway.MethodResponse("response200",
+            http_method=GET,
+            authorization=NONE)
+        my_demo_integration = aws.apigateway.integration.Integration("myDemoIntegration",
             rest_api=my_demo_api.id,
             resource_id=my_demo_resource.id,
             http_method=my_demo_method.http_method,
-            status_code="200")
-        my_demo_integration_response = aws.apigateway.IntegrationResponse("myDemoIntegrationResponse",
+            type=MOCK)
+        response200 = aws.apigateway.method_response.MethodResponse("response200",
+            rest_api=my_demo_api.id,
+            resource_id=my_demo_resource.id,
+            http_method=my_demo_method.http_method,
+            status_code=200)
+        my_demo_integration_response = aws.apigateway.integration_response.IntegrationResponse("myDemoIntegrationResponse",
             rest_api=my_demo_api.id,
             resource_id=my_demo_resource.id,
             http_method=my_demo_method.http_method,
             status_code=response200.status_code,
             response_templates={
-                "application/xml": \"\"\"#set($inputRoot = $input.path('$'))
+                application/xml: #set($inputRoot = $input.path('$'))
         <?xml version="1.0" encoding="UTF-8"?>
         <message>
             $inputRoot.body
         </message>
-        \"\"\",
+        ,
             })
         ```
 
@@ -387,38 +387,38 @@ class IntegrationResponse(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        my_demo_api = aws.apigateway.RestApi("myDemoAPI", description="This is my API for demonstration purposes")
-        my_demo_resource = aws.apigateway.Resource("myDemoResource",
+        my_demo_api = aws.apigateway.rest_api.RestApi("myDemoAPI", description=This is my API for demonstration purposes)
+        my_demo_resource = aws.apigateway.resource.Resource("myDemoResource",
             rest_api=my_demo_api.id,
             parent_id=my_demo_api.root_resource_id,
-            path_part="mydemoresource")
-        my_demo_method = aws.apigateway.Method("myDemoMethod",
+            path_part=mydemoresource)
+        my_demo_method = aws.apigateway.method.Method("myDemoMethod",
             rest_api=my_demo_api.id,
             resource_id=my_demo_resource.id,
-            http_method="GET",
-            authorization="NONE")
-        my_demo_integration = aws.apigateway.Integration("myDemoIntegration",
-            rest_api=my_demo_api.id,
-            resource_id=my_demo_resource.id,
-            http_method=my_demo_method.http_method,
-            type="MOCK")
-        response200 = aws.apigateway.MethodResponse("response200",
+            http_method=GET,
+            authorization=NONE)
+        my_demo_integration = aws.apigateway.integration.Integration("myDemoIntegration",
             rest_api=my_demo_api.id,
             resource_id=my_demo_resource.id,
             http_method=my_demo_method.http_method,
-            status_code="200")
-        my_demo_integration_response = aws.apigateway.IntegrationResponse("myDemoIntegrationResponse",
+            type=MOCK)
+        response200 = aws.apigateway.method_response.MethodResponse("response200",
+            rest_api=my_demo_api.id,
+            resource_id=my_demo_resource.id,
+            http_method=my_demo_method.http_method,
+            status_code=200)
+        my_demo_integration_response = aws.apigateway.integration_response.IntegrationResponse("myDemoIntegrationResponse",
             rest_api=my_demo_api.id,
             resource_id=my_demo_resource.id,
             http_method=my_demo_method.http_method,
             status_code=response200.status_code,
             response_templates={
-                "application/xml": \"\"\"#set($inputRoot = $input.path('$'))
+                application/xml: #set($inputRoot = $input.path('$'))
         <?xml version="1.0" encoding="UTF-8"?>
         <message>
             $inputRoot.body
         </message>
-        \"\"\",
+        ,
             })
         ```
 

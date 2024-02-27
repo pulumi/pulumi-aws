@@ -29,21 +29,21 @@ namespace Pulumi.Aws.DirectoryService
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var oneDirectory = new Aws.DirectoryService.Directory("oneDirectory", new()
+    ///     var oneDirectory = new Aws.Directoryservice.Directory.Directory("oneDirectory", new()
     ///     {
     ///         Name = "one.example.com",
     ///         Type = "MicrosoftAD",
     ///     });
     /// 
     ///     // ...
-    ///     var twoDirectory = new Aws.DirectoryService.Directory("twoDirectory", new()
+    ///     var twoDirectory = new Aws.Directoryservice.Directory.Directory("twoDirectory", new()
     ///     {
     ///         Name = "two.example.com",
     ///         Type = "MicrosoftAD",
     ///     });
     /// 
     ///     // ...
-    ///     var oneTrust = new Aws.DirectoryService.Trust("oneTrust", new()
+    ///     var oneTrust = new Aws.Directoryservice.Trust.Trust("oneTrust", new()
     ///     {
     ///         DirectoryId = oneDirectory.Id,
     ///         RemoteDomainName = twoDirectory.Name,
@@ -52,7 +52,7 @@ namespace Pulumi.Aws.DirectoryService
     ///         ConditionalForwarderIpAddrs = twoDirectory.DnsIpAddresses,
     ///     });
     /// 
-    ///     var twoTrust = new Aws.DirectoryService.Trust("twoTrust", new()
+    ///     var twoTrust = new Aws.Directoryservice.Trust.Trust("twoTrust", new()
     ///     {
     ///         DirectoryId = twoDirectory.Id,
     ///         RemoteDomainName = oneDirectory.Name,
@@ -73,21 +73,21 @@ namespace Pulumi.Aws.DirectoryService
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var oneDirectory = new Aws.DirectoryService.Directory("oneDirectory", new()
+    ///     var oneDirectory = new Aws.Directoryservice.Directory.Directory("oneDirectory", new()
     ///     {
     ///         Name = "one.example.com",
     ///         Type = "MicrosoftAD",
     ///     });
     /// 
     ///     // ...
-    ///     var twoDirectory = new Aws.DirectoryService.Directory("twoDirectory", new()
+    ///     var twoDirectory = new Aws.Directoryservice.Directory.Directory("twoDirectory", new()
     ///     {
     ///         Name = "two.example.com",
     ///         Type = "MicrosoftAD",
     ///     });
     /// 
     ///     // ...
-    ///     var oneTrust = new Aws.DirectoryService.Trust("oneTrust", new()
+    ///     var oneTrust = new Aws.Directoryservice.Trust.Trust("oneTrust", new()
     ///     {
     ///         DirectoryId = oneDirectory.Id,
     ///         RemoteDomainName = twoDirectory.Name,
@@ -96,7 +96,7 @@ namespace Pulumi.Aws.DirectoryService
     ///         ConditionalForwarderIpAddrs = twoDirectory.DnsIpAddresses,
     ///     });
     /// 
-    ///     var twoTrust = new Aws.DirectoryService.Trust("twoTrust", new()
+    ///     var twoTrust = new Aws.Directoryservice.Trust.Trust("twoTrust", new()
     ///     {
     ///         DirectoryId = twoDirectory.Id,
     ///         RemoteDomainName = oneDirectory.Name,

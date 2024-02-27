@@ -21,23 +21,21 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lightsail"
+//	lightsail/bucket "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/lightsail/bucket"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lightsail.NewBucket(ctx, "test", &lightsail.BucketArgs{
-//				BundleId: pulumi.String("small_1_0"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := lightsail/bucket.NewBucket(ctx, "test", &lightsail/bucket.BucketArgs{
+// BundleId: "small_1_0",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

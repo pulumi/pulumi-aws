@@ -21,27 +21,25 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/glue"
+//	glue/connection "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/glue/connection"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := glue.NewConnection(ctx, "example", &glue.ConnectionArgs{
-//				ConnectionProperties: pulumi.StringMap{
-//					"JDBC_CONNECTION_URL": pulumi.String("jdbc:mysql://example.com/exampledatabase"),
-//					"PASSWORD":            pulumi.String("examplepassword"),
-//					"USERNAME":            pulumi.String("exampleusername"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := glue/connection.NewConnection(ctx, "example", &glue/connection.ConnectionArgs{
+// ConnectionProperties: map[string]interface{}{
+// "JDBC_CONNECTION_URL": "jdbc:mysql://example.com/exampledatabase",
+// "PASSWORD": "examplepassword",
+// "USERNAME": "exampleusername",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### VPC Connection
 //
@@ -54,34 +52,32 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/glue"
+//	glue/connection "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/glue/connection"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := glue.NewConnection(ctx, "example", &glue.ConnectionArgs{
-//				ConnectionProperties: pulumi.StringMap{
-//					"JDBC_CONNECTION_URL": pulumi.String(fmt.Sprintf("jdbc:mysql://%v/exampledatabase", aws_rds_cluster.Example.Endpoint)),
-//					"PASSWORD":            pulumi.String("examplepassword"),
-//					"USERNAME":            pulumi.String("exampleusername"),
-//				},
-//				PhysicalConnectionRequirements: &glue.ConnectionPhysicalConnectionRequirementsArgs{
-//					AvailabilityZone: pulumi.Any(aws_subnet.Example.Availability_zone),
-//					SecurityGroupIdLists: pulumi.StringArray{
-//						aws_security_group.Example.Id,
-//					},
-//					SubnetId: pulumi.Any(aws_subnet.Example.Id),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := glue/connection.NewConnection(ctx, "example", &glue/connection.ConnectionArgs{
+// ConnectionProperties: map[string]interface{}{
+// "JDBC_CONNECTION_URL": fmt.Sprintf("jdbc:mysql://%v/exampledatabase", aws_rds_cluster.Example.Endpoint),
+// "PASSWORD": "examplepassword",
+// "USERNAME": "exampleusername",
+// },
+// PhysicalConnectionRequirements: map[string]interface{}{
+// "availabilityZone": aws_subnet.Example.Availability_zone,
+// "securityGroupIdLists": []interface{}{
+// aws_security_group.Example.Id,
+// },
+// "subnetId": aws_subnet.Example.Id,
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -23,45 +23,22 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/redshiftserverless"
+//	redshiftserverless/resourcePolicy "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/redshiftserverless/resourcePolicy"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"Version": "2012-10-17",
-//				"Statement": []map[string]interface{}{
-//					map[string]interface{}{
-//						"Effect": "Allow",
-//						"Principal": map[string]interface{}{
-//							"AWS": []string{
-//								"12345678901",
-//							},
-//						},
-//						"Action": []string{
-//							"redshift-serverless:RestoreFromSnapshot",
-//						},
-//						"Sid": "",
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			_, err = redshiftserverless.NewResourcePolicy(ctx, "example", &redshiftserverless.ResourcePolicyArgs{
-//				ResourceArn: pulumi.Any(aws_redshiftserverless_snapshot.Example.Arn),
-//				Policy:      pulumi.String(json0),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := redshiftserverless/resourcePolicy.NewResourcePolicy(ctx, "example", &redshiftserverless/resourcePolicy.ResourcePolicyArgs{
+// ResourceArn: aws_redshiftserverless_snapshot.Example.Arn,
+// Policy: %!v(PANIC=Format method: fatal: An assertion has failed: unlowered function toJSON),
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

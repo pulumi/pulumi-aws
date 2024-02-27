@@ -22,27 +22,25 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/vpclattice"
+//	vpclattice/targetGroupAttachment "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/vpclattice/targetGroupAttachment"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := vpclattice.NewTargetGroupAttachment(ctx, "example", &vpclattice.TargetGroupAttachmentArgs{
-//				TargetGroupIdentifier: pulumi.Any(aws_vpclattice_target_group.Example.Id),
-//				Target: &vpclattice.TargetGroupAttachmentTargetArgs{
-//					Id:   pulumi.Any(aws_lb.Example.Arn),
-//					Port: pulumi.Int(80),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := vpclattice/targetGroupAttachment.NewTargetGroupAttachment(ctx, "example", &vpclattice/targetGroupAttachment.TargetGroupAttachmentArgs{
+// TargetGroupIdentifier: aws_vpclattice_target_group.Example.Id,
+// Target: map[string]interface{}{
+// "id": aws_lb.Example.Arn,
+// "port": 80,
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 type TargetGroupAttachment struct {
 	pulumi.CustomResourceState

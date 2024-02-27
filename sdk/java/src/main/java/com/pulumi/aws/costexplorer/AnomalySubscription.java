@@ -33,7 +33,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.costexplorer.AnomalyMonitorArgs;
  * import com.pulumi.aws.costexplorer.AnomalySubscription;
  * import com.pulumi.aws.costexplorer.AnomalySubscriptionArgs;
- * import com.pulumi.aws.costexplorer.inputs.AnomalySubscriptionSubscriberArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -55,10 +54,7 @@ import javax.annotation.Nullable;
  *         var testAnomalySubscription = new AnomalySubscription(&#34;testAnomalySubscription&#34;, AnomalySubscriptionArgs.builder()        
  *             .frequency(&#34;DAILY&#34;)
  *             .monitorArnLists(testAnomalyMonitor.arn())
- *             .subscribers(AnomalySubscriptionSubscriberArgs.builder()
- *                 .type(&#34;EMAIL&#34;)
- *                 .address(&#34;abc@example.com&#34;)
- *                 .build())
+ *             .subscribers(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -74,9 +70,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.costexplorer.AnomalySubscription;
  * import com.pulumi.aws.costexplorer.AnomalySubscriptionArgs;
- * import com.pulumi.aws.costexplorer.inputs.AnomalySubscriptionSubscriberArgs;
- * import com.pulumi.aws.costexplorer.inputs.AnomalySubscriptionThresholdExpressionArgs;
- * import com.pulumi.aws.costexplorer.inputs.AnomalySubscriptionThresholdExpressionDimensionArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -93,17 +86,8 @@ import javax.annotation.Nullable;
  *         var test = new AnomalySubscription(&#34;test&#34;, AnomalySubscriptionArgs.builder()        
  *             .frequency(&#34;DAILY&#34;)
  *             .monitorArnLists(aws_ce_anomaly_monitor.test().arn())
- *             .subscribers(AnomalySubscriptionSubscriberArgs.builder()
- *                 .type(&#34;EMAIL&#34;)
- *                 .address(&#34;abc@example.com&#34;)
- *                 .build())
- *             .thresholdExpression(AnomalySubscriptionThresholdExpressionArgs.builder()
- *                 .dimension(AnomalySubscriptionThresholdExpressionDimensionArgs.builder()
- *                     .key(&#34;ANOMALY_TOTAL_IMPACT_ABSOLUTE&#34;)
- *                     .values(&#34;100.0&#34;)
- *                     .matchOptions(&#34;GREATER_THAN_OR_EQUAL&#34;)
- *                     .build())
- *                 .build())
+ *             .subscribers(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .thresholdExpression(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -118,8 +102,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.costexplorer.AnomalySubscription;
  * import com.pulumi.aws.costexplorer.AnomalySubscriptionArgs;
- * import com.pulumi.aws.costexplorer.inputs.AnomalySubscriptionSubscriberArgs;
- * import com.pulumi.aws.costexplorer.inputs.AnomalySubscriptionThresholdExpressionArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -136,124 +118,9 @@ import javax.annotation.Nullable;
  *         var test = new AnomalySubscription(&#34;test&#34;, AnomalySubscriptionArgs.builder()        
  *             .frequency(&#34;DAILY&#34;)
  *             .monitorArnLists(aws_ce_anomaly_monitor.test().arn())
- *             .subscribers(AnomalySubscriptionSubscriberArgs.builder()
- *                 .type(&#34;EMAIL&#34;)
- *                 .address(&#34;abc@example.com&#34;)
- *                 .build())
- *             .thresholdExpression(AnomalySubscriptionThresholdExpressionArgs.builder()
- *                 .ands(                
- *                     AnomalySubscriptionThresholdExpressionAndArgs.builder()
- *                         .dimension(AnomalySubscriptionThresholdExpressionAndDimensionArgs.builder()
- *                             .key(&#34;ANOMALY_TOTAL_IMPACT_ABSOLUTE&#34;)
- *                             .matchOptions(&#34;GREATER_THAN_OR_EQUAL&#34;)
- *                             .values(&#34;100&#34;)
- *                             .build())
- *                         .build(),
- *                     AnomalySubscriptionThresholdExpressionAndArgs.builder()
- *                         .dimension(AnomalySubscriptionThresholdExpressionAndDimensionArgs.builder()
- *                             .key(&#34;ANOMALY_TOTAL_IMPACT_PERCENTAGE&#34;)
- *                             .matchOptions(&#34;GREATER_THAN_OR_EQUAL&#34;)
- *                             .values(&#34;50&#34;)
- *                             .build())
- *                         .build())
- *                 .build())
+ *             .subscribers(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .thresholdExpression(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
- * 
- *     }
- * }
- * ```
- * ### SNS Example
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.sns.Topic;
- * import com.pulumi.aws.iam.IamFunctions;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
- * import com.pulumi.aws.sns.TopicPolicy;
- * import com.pulumi.aws.sns.TopicPolicyArgs;
- * import com.pulumi.aws.costexplorer.AnomalyMonitor;
- * import com.pulumi.aws.costexplorer.AnomalyMonitorArgs;
- * import com.pulumi.aws.costexplorer.AnomalySubscription;
- * import com.pulumi.aws.costexplorer.AnomalySubscriptionArgs;
- * import com.pulumi.aws.costexplorer.inputs.AnomalySubscriptionSubscriberArgs;
- * import com.pulumi.resources.CustomResourceOptions;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var costAnomalyUpdates = new Topic(&#34;costAnomalyUpdates&#34;);
- * 
- *         final var snsTopicPolicy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .policyId(&#34;__default_policy_ID&#34;)
- *             .statements(            
- *                 GetPolicyDocumentStatementArgs.builder()
- *                     .sid(&#34;AWSAnomalyDetectionSNSPublishingPermissions&#34;)
- *                     .actions(&#34;SNS:Publish&#34;)
- *                     .effect(&#34;Allow&#34;)
- *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                         .type(&#34;Service&#34;)
- *                         .identifiers(&#34;costalerts.amazonaws.com&#34;)
- *                         .build())
- *                     .resources(costAnomalyUpdates.arn())
- *                     .build(),
- *                 GetPolicyDocumentStatementArgs.builder()
- *                     .sid(&#34;__default_statement_ID&#34;)
- *                     .actions(                    
- *                         &#34;SNS:Subscribe&#34;,
- *                         &#34;SNS:SetTopicAttributes&#34;,
- *                         &#34;SNS:RemovePermission&#34;,
- *                         &#34;SNS:Receive&#34;,
- *                         &#34;SNS:Publish&#34;,
- *                         &#34;SNS:ListSubscriptionsByTopic&#34;,
- *                         &#34;SNS:GetTopicAttributes&#34;,
- *                         &#34;SNS:DeleteTopic&#34;,
- *                         &#34;SNS:AddPermission&#34;)
- *                     .conditions(GetPolicyDocumentStatementConditionArgs.builder()
- *                         .test(&#34;StringEquals&#34;)
- *                         .variable(&#34;AWS:SourceOwner&#34;)
- *                         .values(var_.account-id())
- *                         .build())
- *                     .effect(&#34;Allow&#34;)
- *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                         .type(&#34;AWS&#34;)
- *                         .identifiers(&#34;*&#34;)
- *                         .build())
- *                     .resources(costAnomalyUpdates.arn())
- *                     .build())
- *             .build());
- * 
- *         var default_ = new TopicPolicy(&#34;default&#34;, TopicPolicyArgs.builder()        
- *             .arn(costAnomalyUpdates.arn())
- *             .policy(snsTopicPolicy.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(snsTopicPolicy -&gt; snsTopicPolicy.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
- *             .build());
- * 
- *         var anomalyMonitor = new AnomalyMonitor(&#34;anomalyMonitor&#34;, AnomalyMonitorArgs.builder()        
- *             .monitorType(&#34;DIMENSIONAL&#34;)
- *             .monitorDimension(&#34;SERVICE&#34;)
- *             .build());
- * 
- *         var realtimeSubscription = new AnomalySubscription(&#34;realtimeSubscription&#34;, AnomalySubscriptionArgs.builder()        
- *             .frequency(&#34;IMMEDIATE&#34;)
- *             .monitorArnLists(anomalyMonitor.arn())
- *             .subscribers(AnomalySubscriptionSubscriberArgs.builder()
- *                 .type(&#34;SNS&#34;)
- *                 .address(costAnomalyUpdates.arn())
- *                 .build())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(default_)
- *                 .build());
  * 
  *     }
  * }

@@ -22,25 +22,25 @@ namespace Pulumi.Aws.Workspaces
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var contractors = new Aws.Workspaces.IpGroup("contractors", new()
+    ///     var contractors = new Aws.Workspaces.IpGroup.IpGroup("contractors", new()
     ///     {
     ///         Description = "Contractors IP access control group",
     ///         Rules = new[]
     ///         {
-    ///             new Aws.Workspaces.Inputs.IpGroupRuleArgs
+    ///             
     ///             {
-    ///                 Description = "NY",
-    ///                 Source = "150.24.14.0/24",
+    ///                 { "description", "NY" },
+    ///                 { "source", "150.24.14.0/24" },
     ///             },
-    ///             new Aws.Workspaces.Inputs.IpGroupRuleArgs
+    ///             
     ///             {
-    ///                 Description = "LA",
-    ///                 Source = "125.191.14.85/32",
+    ///                 { "description", "LA" },
+    ///                 { "source", "125.191.14.85/32" },
     ///             },
-    ///             new Aws.Workspaces.Inputs.IpGroupRuleArgs
+    ///             
     ///             {
-    ///                 Description = "STL",
-    ///                 Source = "44.98.100.0/24",
+    ///                 { "description", "STL" },
+    ///                 { "source", "44.98.100.0/24" },
     ///             },
     ///         },
     ///     });

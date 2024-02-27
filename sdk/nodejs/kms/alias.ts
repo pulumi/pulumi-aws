@@ -15,8 +15,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const key = new aws.kms.Key("key", {});
- * const alias = new aws.kms.Alias("alias", {targetKeyId: key.keyId});
+ * const key = new aws.kms/key.Key("key", {});
+ * const alias = new aws.kms/alias.Alias("alias", {targetKeyId: key.keyId});
  * ```
  *
  * ## Import

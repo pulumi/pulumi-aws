@@ -21,28 +21,26 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/directoryservice"
+//	directoryservice/conditionalForwader "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/directoryservice/conditionalForwader"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := directoryservice.NewConditionalForwader(ctx, "example", &directoryservice.ConditionalForwaderArgs{
-//				DirectoryId:      pulumi.Any(aws_directory_service_directory.Ad.Id),
-//				RemoteDomainName: pulumi.String("example.com"),
-//				DnsIps: pulumi.StringArray{
-//					pulumi.String("8.8.8.8"),
-//					pulumi.String("8.8.4.4"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := directoryservice/conditionalForwader.NewConditionalForwader(ctx, "example", &directoryservice/conditionalForwader.ConditionalForwaderArgs{
+// DirectoryId: aws_directory_service_directory.Ad.Id,
+// RemoteDomainName: "example.com",
+// DnsIps: []string{
+// "8.8.8.8",
+// "8.8.4.4",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

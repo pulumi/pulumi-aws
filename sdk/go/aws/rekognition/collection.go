@@ -21,26 +21,24 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/rekognition"
+//	rekognition/collection "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/rekognition/collection"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := rekognition.NewCollection(ctx, "example", &rekognition.CollectionArgs{
-//				CollectionId: pulumi.String("my-collection"),
-//				Tags: pulumi.StringMap{
-//					"example": pulumi.String("1"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := rekognition/collection.NewCollection(ctx, "example", &rekognition/collection.CollectionArgs{
+// CollectionId: "my-collection",
+// Tags: map[string]interface{}{
+// "example": 1,
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

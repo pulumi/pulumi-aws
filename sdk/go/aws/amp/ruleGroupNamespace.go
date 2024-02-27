@@ -21,35 +21,33 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/amp"
+//	amp/ruleGroupNamespace "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/amp/ruleGroupNamespace"
+//	amp/workspace "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/amp/workspace"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// demoWorkspace, err := amp/workspace.NewWorkspace(ctx, "demoWorkspace", nil)
+// if err != nil {
+// return err
+// }
+// _, err = amp/ruleGroupNamespace.NewRuleGroupNamespace(ctx, "demoRuleGroupNamespace", &amp/ruleGroupNamespace.RuleGroupNamespaceArgs{
+// WorkspaceId: demoWorkspace.Id,
+// Data: `groups:
+//   - name: test
+//     rules:
+//   - record: metric:recording_rule
+//     expr: avg(rate(container_cpu_usage_seconds_total[5m]))
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			demoWorkspace, err := amp.NewWorkspace(ctx, "demoWorkspace", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = amp.NewRuleGroupNamespace(ctx, "demoRuleGroupNamespace", &amp.RuleGroupNamespaceArgs{
-//				WorkspaceId: demoWorkspace.ID(),
-//				Data: pulumi.String(`groups:
-//	  - name: test
-//	    rules:
-//	    - record: metric:recording_rule
-//	      expr: avg(rate(container_cpu_usage_seconds_total[5m]))
-//
-// `),
-//
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// `,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

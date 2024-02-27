@@ -33,7 +33,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.datasync.Task;
  * import com.pulumi.aws.datasync.TaskArgs;
- * import com.pulumi.aws.datasync.inputs.TaskScheduleArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -50,9 +49,7 @@ import javax.annotation.Nullable;
  *         var example = new Task(&#34;example&#34;, TaskArgs.builder()        
  *             .destinationLocationArn(aws_datasync_location_s3.destination().arn())
  *             .sourceLocationArn(aws_datasync_location_nfs.source().arn())
- *             .schedule(TaskScheduleArgs.builder()
- *                 .scheduleExpression(&#34;cron(0 12 ? * SUN,WED *)&#34;)
- *                 .build())
+ *             .schedule(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -67,8 +64,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.datasync.Task;
  * import com.pulumi.aws.datasync.TaskArgs;
- * import com.pulumi.aws.datasync.inputs.TaskExcludesArgs;
- * import com.pulumi.aws.datasync.inputs.TaskIncludesArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -85,14 +80,8 @@ import javax.annotation.Nullable;
  *         var example = new Task(&#34;example&#34;, TaskArgs.builder()        
  *             .destinationLocationArn(aws_datasync_location_s3.destination().arn())
  *             .sourceLocationArn(aws_datasync_location_nfs.source().arn())
- *             .excludes(TaskExcludesArgs.builder()
- *                 .filterType(&#34;SIMPLE_PATTERN&#34;)
- *                 .value(&#34;/folder1|/folder2&#34;)
- *                 .build())
- *             .includes(TaskIncludesArgs.builder()
- *                 .filterType(&#34;SIMPLE_PATTERN&#34;)
- *                 .value(&#34;/folder1|/folder2&#34;)
- *                 .build())
+ *             .excludes(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .includes(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

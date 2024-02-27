@@ -16,8 +16,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleCatalogDatabase = new aws.glue.CatalogDatabase("exampleCatalogDatabase", {name: "my_database"});
- * const exampleUserDefinedFunction = new aws.glue.UserDefinedFunction("exampleUserDefinedFunction", {
+ * const exampleCatalogDatabase = new aws.glue/catalogDatabase.CatalogDatabase("exampleCatalogDatabase", {name: "my_database"});
+ * const exampleUserDefinedFunction = new aws.glue/userDefinedFunction.UserDefinedFunction("exampleUserDefinedFunction", {
  *     catalogId: exampleCatalogDatabase.catalogId,
  *     databaseName: exampleCatalogDatabase.name,
  *     className: "class",

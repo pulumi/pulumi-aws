@@ -470,8 +470,8 @@ class DefaultVpc(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        default = aws.ec2.DefaultVpc("default", tags={
-            "Name": "Default VPC",
+        default = aws.ec2.default_vpc.DefaultVpc("default", tags={
+            Name: Default VPC,
         })
         ```
 
@@ -514,8 +514,8 @@ class DefaultVpc(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        default = aws.ec2.DefaultVpc("default", tags={
-            "Name": "Default VPC",
+        default = aws.ec2.default_vpc.DefaultVpc("default", tags={
+            Name: Default VPC,
         })
         ```
 

@@ -411,12 +411,12 @@ class Task(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.datasync.Task("example",
-            destination_location_arn=aws_datasync_location_s3["destination"]["arn"],
-            source_location_arn=aws_datasync_location_nfs["source"]["arn"],
-            schedule=aws.datasync.TaskScheduleArgs(
-                schedule_expression="cron(0 12 ? * SUN,WED *)",
-            ))
+        example = aws.datasync.task.Task("example",
+            destination_location_arn=aws_datasync_location_s3.destination.arn,
+            source_location_arn=aws_datasync_location_nfs.source.arn,
+            schedule={
+                scheduleExpression: cron(0 12 ? * SUN,WED *),
+            })
         ```
         ### With Filtering
 
@@ -424,17 +424,17 @@ class Task(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.datasync.Task("example",
-            destination_location_arn=aws_datasync_location_s3["destination"]["arn"],
-            source_location_arn=aws_datasync_location_nfs["source"]["arn"],
-            excludes=aws.datasync.TaskExcludesArgs(
-                filter_type="SIMPLE_PATTERN",
-                value="/folder1|/folder2",
-            ),
-            includes=aws.datasync.TaskIncludesArgs(
-                filter_type="SIMPLE_PATTERN",
-                value="/folder1|/folder2",
-            ))
+        example = aws.datasync.task.Task("example",
+            destination_location_arn=aws_datasync_location_s3.destination.arn,
+            source_location_arn=aws_datasync_location_nfs.source.arn,
+            excludes={
+                filterType: SIMPLE_PATTERN,
+                value: /folder1|/folder2,
+            },
+            includes={
+                filterType: SIMPLE_PATTERN,
+                value: /folder1|/folder2,
+            })
         ```
 
         ## Import
@@ -474,12 +474,12 @@ class Task(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.datasync.Task("example",
-            destination_location_arn=aws_datasync_location_s3["destination"]["arn"],
-            source_location_arn=aws_datasync_location_nfs["source"]["arn"],
-            schedule=aws.datasync.TaskScheduleArgs(
-                schedule_expression="cron(0 12 ? * SUN,WED *)",
-            ))
+        example = aws.datasync.task.Task("example",
+            destination_location_arn=aws_datasync_location_s3.destination.arn,
+            source_location_arn=aws_datasync_location_nfs.source.arn,
+            schedule={
+                scheduleExpression: cron(0 12 ? * SUN,WED *),
+            })
         ```
         ### With Filtering
 
@@ -487,17 +487,17 @@ class Task(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.datasync.Task("example",
-            destination_location_arn=aws_datasync_location_s3["destination"]["arn"],
-            source_location_arn=aws_datasync_location_nfs["source"]["arn"],
-            excludes=aws.datasync.TaskExcludesArgs(
-                filter_type="SIMPLE_PATTERN",
-                value="/folder1|/folder2",
-            ),
-            includes=aws.datasync.TaskIncludesArgs(
-                filter_type="SIMPLE_PATTERN",
-                value="/folder1|/folder2",
-            ))
+        example = aws.datasync.task.Task("example",
+            destination_location_arn=aws_datasync_location_s3.destination.arn,
+            source_location_arn=aws_datasync_location_nfs.source.arn,
+            excludes={
+                filterType: SIMPLE_PATTERN,
+                value: /folder1|/folder2,
+            },
+            includes={
+                filterType: SIMPLE_PATTERN,
+                value: /folder1|/folder2,
+            })
         ```
 
         ## Import

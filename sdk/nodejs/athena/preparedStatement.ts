@@ -13,14 +13,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const testBucketV2 = new aws.s3.BucketV2("testBucketV2", {forceDestroy: true});
- * const testWorkgroup = new aws.athena.Workgroup("testWorkgroup", {});
- * const testDatabase = new aws.athena.Database("testDatabase", {
+ * const testBucketV2 = new aws.s3/bucketV2.BucketV2("testBucketV2", {forceDestroy: true});
+ * const testWorkgroup = new aws.athena/workgroup.Workgroup("testWorkgroup", {});
+ * const testDatabase = new aws.athena/database.Database("testDatabase", {
  *     name: "example",
  *     bucket: testBucketV2.bucket,
  * });
- * const testPreparedStatement = new aws.athena.PreparedStatement("testPreparedStatement", {
- *     queryStatement: pulumi.interpolate`SELECT * FROM ${testDatabase.name} WHERE x = ?`,
+ * const testPreparedStatement = new aws.athena/preparedStatement.PreparedStatement("testPreparedStatement", {
+ *     queryStatement: `SELECT * FROM ${testDatabase.name} WHERE x = ?`,
  *     workgroup: testWorkgroup.name,
  * });
  * ```

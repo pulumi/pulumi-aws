@@ -33,8 +33,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.glue.Trigger;
  * import com.pulumi.aws.glue.TriggerArgs;
- * import com.pulumi.aws.glue.inputs.TriggerActionArgs;
- * import com.pulumi.aws.glue.inputs.TriggerPredicateArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -50,15 +48,8 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Trigger(&#34;example&#34;, TriggerArgs.builder()        
  *             .type(&#34;CONDITIONAL&#34;)
- *             .actions(TriggerActionArgs.builder()
- *                 .jobName(aws_glue_job.example1().name())
- *                 .build())
- *             .predicate(TriggerPredicateArgs.builder()
- *                 .conditions(TriggerPredicateConditionArgs.builder()
- *                     .jobName(aws_glue_job.example2().name())
- *                     .state(&#34;SUCCEEDED&#34;)
- *                     .build())
- *                 .build())
+ *             .actions(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .predicate(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -73,7 +64,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.glue.Trigger;
  * import com.pulumi.aws.glue.TriggerArgs;
- * import com.pulumi.aws.glue.inputs.TriggerActionArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -89,9 +79,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Trigger(&#34;example&#34;, TriggerArgs.builder()        
  *             .type(&#34;ON_DEMAND&#34;)
- *             .actions(TriggerActionArgs.builder()
- *                 .jobName(aws_glue_job.example().name())
- *                 .build())
+ *             .actions(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -106,7 +94,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.glue.Trigger;
  * import com.pulumi.aws.glue.TriggerArgs;
- * import com.pulumi.aws.glue.inputs.TriggerActionArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -123,9 +110,7 @@ import javax.annotation.Nullable;
  *         var example = new Trigger(&#34;example&#34;, TriggerArgs.builder()        
  *             .schedule(&#34;cron(15 12 * * ? *)&#34;)
  *             .type(&#34;SCHEDULED&#34;)
- *             .actions(TriggerActionArgs.builder()
- *                 .jobName(aws_glue_job.example().name())
- *                 .build())
+ *             .actions(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -142,8 +127,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.glue.Trigger;
  * import com.pulumi.aws.glue.TriggerArgs;
- * import com.pulumi.aws.glue.inputs.TriggerActionArgs;
- * import com.pulumi.aws.glue.inputs.TriggerPredicateArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -159,15 +142,8 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Trigger(&#34;example&#34;, TriggerArgs.builder()        
  *             .type(&#34;CONDITIONAL&#34;)
- *             .actions(TriggerActionArgs.builder()
- *                 .crawlerName(aws_glue_crawler.example1().name())
- *                 .build())
- *             .predicate(TriggerPredicateArgs.builder()
- *                 .conditions(TriggerPredicateConditionArgs.builder()
- *                     .jobName(aws_glue_job.example2().name())
- *                     .state(&#34;SUCCEEDED&#34;)
- *                     .build())
- *                 .build())
+ *             .actions(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .predicate(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -184,8 +160,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.glue.Trigger;
  * import com.pulumi.aws.glue.TriggerArgs;
- * import com.pulumi.aws.glue.inputs.TriggerActionArgs;
- * import com.pulumi.aws.glue.inputs.TriggerPredicateArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -201,15 +175,8 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Trigger(&#34;example&#34;, TriggerArgs.builder()        
  *             .type(&#34;CONDITIONAL&#34;)
- *             .actions(TriggerActionArgs.builder()
- *                 .jobName(aws_glue_job.example1().name())
- *                 .build())
- *             .predicate(TriggerPredicateArgs.builder()
- *                 .conditions(TriggerPredicateConditionArgs.builder()
- *                     .crawlerName(aws_glue_crawler.example2().name())
- *                     .crawlState(&#34;SUCCEEDED&#34;)
- *                     .build())
- *                 .build())
+ *             .actions(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .predicate(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

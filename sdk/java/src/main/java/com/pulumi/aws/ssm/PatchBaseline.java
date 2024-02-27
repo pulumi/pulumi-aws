@@ -68,8 +68,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.ssm.PatchBaseline;
  * import com.pulumi.aws.ssm.PatchBaselineArgs;
- * import com.pulumi.aws.ssm.inputs.PatchBaselineApprovalRuleArgs;
- * import com.pulumi.aws.ssm.inputs.PatchBaselineGlobalFilterArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -85,53 +83,16 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var production = new PatchBaseline(&#34;production&#34;, PatchBaselineArgs.builder()        
  *             .approvalRules(            
- *                 PatchBaselineApprovalRuleArgs.builder()
- *                     .approveAfterDays(7)
- *                     .complianceLevel(&#34;HIGH&#34;)
- *                     .patchFilters(                    
- *                         PatchBaselineApprovalRulePatchFilterArgs.builder()
- *                             .key(&#34;PRODUCT&#34;)
- *                             .values(&#34;WindowsServer2016&#34;)
- *                             .build(),
- *                         PatchBaselineApprovalRulePatchFilterArgs.builder()
- *                             .key(&#34;CLASSIFICATION&#34;)
- *                             .values(                            
- *                                 &#34;CriticalUpdates&#34;,
- *                                 &#34;SecurityUpdates&#34;,
- *                                 &#34;Updates&#34;)
- *                             .build(),
- *                         PatchBaselineApprovalRulePatchFilterArgs.builder()
- *                             .key(&#34;MSRC_SEVERITY&#34;)
- *                             .values(                            
- *                                 &#34;Critical&#34;,
- *                                 &#34;Important&#34;,
- *                                 &#34;Moderate&#34;)
- *                             .build())
- *                     .build(),
- *                 PatchBaselineApprovalRuleArgs.builder()
- *                     .approveAfterDays(7)
- *                     .patchFilters(PatchBaselineApprovalRulePatchFilterArgs.builder()
- *                         .key(&#34;PRODUCT&#34;)
- *                         .values(&#34;WindowsServer2012&#34;)
- *                         .build())
- *                     .build())
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .approvedPatches(            
  *                 &#34;KB123456&#34;,
  *                 &#34;KB456789&#34;)
  *             .description(&#34;Patch Baseline Description&#34;)
  *             .globalFilters(            
- *                 PatchBaselineGlobalFilterArgs.builder()
- *                     .key(&#34;PRODUCT&#34;)
- *                     .values(&#34;WindowsServer2008&#34;)
- *                     .build(),
- *                 PatchBaselineGlobalFilterArgs.builder()
- *                     .key(&#34;CLASSIFICATION&#34;)
- *                     .values(&#34;ServicePacks&#34;)
- *                     .build(),
- *                 PatchBaselineGlobalFilterArgs.builder()
- *                     .key(&#34;MSRC_SEVERITY&#34;)
- *                     .values(&#34;Low&#34;)
- *                     .build())
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .rejectedPatches(&#34;KB987654&#34;)
  *             .build());
  * 
@@ -147,7 +108,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.ssm.PatchBaseline;
  * import com.pulumi.aws.ssm.PatchBaselineArgs;
- * import com.pulumi.aws.ssm.inputs.PatchBaselineApprovalRuleArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -163,36 +123,8 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var windowsOsApps = new PatchBaseline(&#34;windowsOsApps&#34;, PatchBaselineArgs.builder()        
  *             .approvalRules(            
- *                 PatchBaselineApprovalRuleArgs.builder()
- *                     .approveAfterDays(7)
- *                     .patchFilters(                    
- *                         PatchBaselineApprovalRulePatchFilterArgs.builder()
- *                             .key(&#34;CLASSIFICATION&#34;)
- *                             .values(                            
- *                                 &#34;CriticalUpdates&#34;,
- *                                 &#34;SecurityUpdates&#34;)
- *                             .build(),
- *                         PatchBaselineApprovalRulePatchFilterArgs.builder()
- *                             .key(&#34;MSRC_SEVERITY&#34;)
- *                             .values(                            
- *                                 &#34;Critical&#34;,
- *                                 &#34;Important&#34;)
- *                             .build())
- *                     .build(),
- *                 PatchBaselineApprovalRuleArgs.builder()
- *                     .approveAfterDays(7)
- *                     .patchFilters(                    
- *                         PatchBaselineApprovalRulePatchFilterArgs.builder()
- *                             .key(&#34;PATCH_SET&#34;)
- *                             .values(&#34;APPLICATION&#34;)
- *                             .build(),
- *                         PatchBaselineApprovalRulePatchFilterArgs.builder()
- *                             .key(&#34;PRODUCT&#34;)
- *                             .values(                            
- *                                 &#34;Office 2013&#34;,
- *                                 &#34;Office 2016&#34;)
- *                             .build())
- *                     .build())
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .description(&#34;Patch both Windows and Microsoft apps&#34;)
  *             .operatingSystem(&#34;WINDOWS&#34;)
  *             .build());
@@ -209,8 +141,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.ssm.PatchBaseline;
  * import com.pulumi.aws.ssm.PatchBaselineArgs;
- * import com.pulumi.aws.ssm.inputs.PatchBaselineApprovalRuleArgs;
- * import com.pulumi.aws.ssm.inputs.PatchBaselineSourceArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -228,27 +158,7 @@ import javax.annotation.Nullable;
  *             .approvalRules()
  *             .description(&#34;My patch repository for Amazon Linux 2017.09&#34;)
  *             .operatingSystem(&#34;AMAZON_LINUX&#34;)
- *             .sources(PatchBaselineSourceArgs.builder()
- *                 .configuration(&#34;&#34;&#34;
- * [amzn-main]
- * name=amzn-main-Base
- * mirrorlist=http://repo./$awsregion./$awsdomain//$releasever/main/mirror.list
- * mirrorlist_expire=300
- * metadata_expire=300
- * priority=10
- * failovermethod=priority
- * fastestmirror_enabled=0
- * gpgcheck=1
- * gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-amazon-ga
- * enabled=1
- * retries=3
- * timeout=5
- * report_instanceid=yes
- * 
- *                 &#34;&#34;&#34;)
- *                 .name(&#34;My-AL2017.09&#34;)
- *                 .products(&#34;AmazonLinux2017.09&#34;)
- *                 .build())
+ *             .sources(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

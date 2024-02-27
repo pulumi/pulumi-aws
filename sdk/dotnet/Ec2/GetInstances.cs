@@ -23,57 +23,6 @@ namespace Pulumi.Aws.Ec2
         /// &gt; **Note:** It's strongly discouraged to use this data source for querying ephemeral
         /// instances (e.g., managed via autoscaling group), as the output may change at any time
         /// and you'd need to re-run `apply` every time an instance comes up or dies.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using System.Threading.Tasks;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(async() =&gt; 
-        /// {
-        ///     var testInstances = await Aws.Ec2.GetInstances.InvokeAsync(new()
-        ///     {
-        ///         InstanceTags = 
-        ///         {
-        ///             { "Role", "HardWorker" },
-        ///         },
-        ///         Filters = new[]
-        ///         {
-        ///             new Aws.Ec2.Inputs.GetInstancesFilterInputArgs
-        ///             {
-        ///                 Name = "instance.group-id",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "sg-12345678",
-        ///                 },
-        ///             },
-        ///         },
-        ///         InstanceStateNames = new[]
-        ///         {
-        ///             "running",
-        ///             "stopped",
-        ///         },
-        ///     });
-        /// 
-        ///     var testEip = new List&lt;Aws.Ec2.Eip&gt;();
-        ///     for (var rangeIndex = 0; rangeIndex &lt; testInstances.Ids.Length; rangeIndex++)
-        ///     {
-        ///         var range = new { Value = rangeIndex };
-        ///         testEip.Add(new Aws.Ec2.Eip($"testEip-{range.Value}", new()
-        ///         {
-        ///             Instance = testInstances.Ids[range.Value],
-        ///         }));
-        ///     }
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetInstancesResult> InvokeAsync(GetInstancesArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetInstancesResult>("aws:ec2/getInstances:getInstances", args ?? new GetInstancesArgs(), options.WithDefaults());
@@ -90,57 +39,6 @@ namespace Pulumi.Aws.Ec2
         /// &gt; **Note:** It's strongly discouraged to use this data source for querying ephemeral
         /// instances (e.g., managed via autoscaling group), as the output may change at any time
         /// and you'd need to re-run `apply` every time an instance comes up or dies.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using System.Threading.Tasks;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(async() =&gt; 
-        /// {
-        ///     var testInstances = await Aws.Ec2.GetInstances.InvokeAsync(new()
-        ///     {
-        ///         InstanceTags = 
-        ///         {
-        ///             { "Role", "HardWorker" },
-        ///         },
-        ///         Filters = new[]
-        ///         {
-        ///             new Aws.Ec2.Inputs.GetInstancesFilterInputArgs
-        ///             {
-        ///                 Name = "instance.group-id",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "sg-12345678",
-        ///                 },
-        ///             },
-        ///         },
-        ///         InstanceStateNames = new[]
-        ///         {
-        ///             "running",
-        ///             "stopped",
-        ///         },
-        ///     });
-        /// 
-        ///     var testEip = new List&lt;Aws.Ec2.Eip&gt;();
-        ///     for (var rangeIndex = 0; rangeIndex &lt; testInstances.Ids.Length; rangeIndex++)
-        ///     {
-        ///         var range = new { Value = rangeIndex };
-        ///         testEip.Add(new Aws.Ec2.Eip($"testEip-{range.Value}", new()
-        ///         {
-        ///             Instance = testInstances.Ids[range.Value],
-        ///         }));
-        ///     }
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetInstancesResult> Invoke(GetInstancesInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetInstancesResult>("aws:ec2/getInstances:getInstances", args ?? new GetInstancesInvokeArgs(), options.WithDefaults());

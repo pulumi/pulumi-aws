@@ -368,38 +368,38 @@ class ContactFlow(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        test = aws.connect.ContactFlow("test",
-            instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
-            description="Test Contact Flow Description",
-            type="CONTACT_FLOW",
+        test = aws.connect.contact_flow.ContactFlow("test",
+            instance_id=aaaaaaaa-bbbb-cccc-dddd-111111111111,
+            description=Test Contact Flow Description,
+            type=CONTACT_FLOW,
             content=json.dumps({
-                "Version": "2019-10-30",
-                "StartAction": "12345678-1234-1234-1234-123456789012",
-                "Actions": [
+                Version: 2019-10-30,
+                StartAction: 12345678-1234-1234-1234-123456789012,
+                Actions: [
                     {
-                        "Identifier": "12345678-1234-1234-1234-123456789012",
-                        "Type": "MessageParticipant",
-                        "Transitions": {
-                            "NextAction": "abcdef-abcd-abcd-abcd-abcdefghijkl",
-                            "Errors": [],
-                            "Conditions": [],
+                        Identifier: 12345678-1234-1234-1234-123456789012,
+                        Type: MessageParticipant,
+                        Transitions: {
+                            NextAction: abcdef-abcd-abcd-abcd-abcdefghijkl,
+                            Errors: [],
+                            Conditions: [],
                         },
-                        "Parameters": {
-                            "Text": "Thanks for calling the sample flow!",
+                        Parameters: {
+                            Text: Thanks for calling the sample flow!,
                         },
                     },
                     {
-                        "Identifier": "abcdef-abcd-abcd-abcd-abcdefghijkl",
-                        "Type": "DisconnectParticipant",
-                        "Transitions": {},
-                        "Parameters": {},
+                        Identifier: abcdef-abcd-abcd-abcd-abcdefghijkl,
+                        Type: DisconnectParticipant,
+                        Transitions: {},
+                        Parameters: {},
                     },
                 ],
             }),
             tags={
-                "Name": "Test Contact Flow",
-                "Application": "Example",
-                "Method": "Create",
+                Name: Test Contact Flow,
+                Application: Example,
+                Method: Create,
             })
         ```
 
@@ -446,38 +446,38 @@ class ContactFlow(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        test = aws.connect.ContactFlow("test",
-            instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
-            description="Test Contact Flow Description",
-            type="CONTACT_FLOW",
+        test = aws.connect.contact_flow.ContactFlow("test",
+            instance_id=aaaaaaaa-bbbb-cccc-dddd-111111111111,
+            description=Test Contact Flow Description,
+            type=CONTACT_FLOW,
             content=json.dumps({
-                "Version": "2019-10-30",
-                "StartAction": "12345678-1234-1234-1234-123456789012",
-                "Actions": [
+                Version: 2019-10-30,
+                StartAction: 12345678-1234-1234-1234-123456789012,
+                Actions: [
                     {
-                        "Identifier": "12345678-1234-1234-1234-123456789012",
-                        "Type": "MessageParticipant",
-                        "Transitions": {
-                            "NextAction": "abcdef-abcd-abcd-abcd-abcdefghijkl",
-                            "Errors": [],
-                            "Conditions": [],
+                        Identifier: 12345678-1234-1234-1234-123456789012,
+                        Type: MessageParticipant,
+                        Transitions: {
+                            NextAction: abcdef-abcd-abcd-abcd-abcdefghijkl,
+                            Errors: [],
+                            Conditions: [],
                         },
-                        "Parameters": {
-                            "Text": "Thanks for calling the sample flow!",
+                        Parameters: {
+                            Text: Thanks for calling the sample flow!,
                         },
                     },
                     {
-                        "Identifier": "abcdef-abcd-abcd-abcd-abcdefghijkl",
-                        "Type": "DisconnectParticipant",
-                        "Transitions": {},
-                        "Parameters": {},
+                        Identifier: abcdef-abcd-abcd-abcd-abcdefghijkl,
+                        Type: DisconnectParticipant,
+                        Transitions: {},
+                        Parameters: {},
                     },
                 ],
             }),
             tags={
-                "Name": "Test Contact Flow",
-                "Application": "Example",
-                "Method": "Create",
+                Name: Test Contact Flow,
+                Application: Example,
+                Method: Create,
             })
         ```
 

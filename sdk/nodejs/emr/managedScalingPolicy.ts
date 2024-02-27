@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const sample = new aws.emr.Cluster("sample", {
+ * const sample = new aws.emr/cluster.Cluster("sample", {
  *     releaseLabel: "emr-5.30.0",
  *     masterInstanceGroup: {
  *         instanceType: "m4.large",
@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  *     },
  * });
  * // skip ...
- * const samplepolicy = new aws.emr.ManagedScalingPolicy("samplepolicy", {
+ * const samplepolicy = new aws.emr/managedScalingPolicy.ManagedScalingPolicy("samplepolicy", {
  *     clusterId: sample.id,
  *     computeLimits: [{
  *         unitType: "Instances",

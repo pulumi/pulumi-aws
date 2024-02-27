@@ -52,7 +52,7 @@ import javax.annotation.Nullable;
  *             .description(&#34;example&#34;)
  *             .edition(&#34;DEVELOPER_EDITION&#34;)
  *             .roleArn(aws_iam_role.this().arn())
- *             .tags(Map.of(&#34;Key1&#34;, &#34;Value1&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -67,7 +67,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.kendra.Index;
  * import com.pulumi.aws.kendra.IndexArgs;
- * import com.pulumi.aws.kendra.inputs.IndexCapacityUnitsArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -84,10 +83,7 @@ import javax.annotation.Nullable;
  *         var example = new Index(&#34;example&#34;, IndexArgs.builder()        
  *             .edition(&#34;DEVELOPER_EDITION&#34;)
  *             .roleArn(aws_iam_role.this().arn())
- *             .capacityUnits(IndexCapacityUnitsArgs.builder()
- *                 .queryCapacityUnits(2)
- *                 .storageCapacityUnits(2)
- *                 .build())
+ *             .capacityUnits(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -102,7 +98,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.kendra.Index;
  * import com.pulumi.aws.kendra.IndexArgs;
- * import com.pulumi.aws.kendra.inputs.IndexServerSideEncryptionConfigurationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -118,9 +113,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Index(&#34;example&#34;, IndexArgs.builder()        
  *             .roleArn(aws_iam_role.this().arn())
- *             .serverSideEncryptionConfiguration(IndexServerSideEncryptionConfigurationArgs.builder()
- *                 .kmsKeyId(data.aws_kms_key().this().arn())
- *                 .build())
+ *             .serverSideEncryptionConfiguration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -135,7 +128,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.kendra.Index;
  * import com.pulumi.aws.kendra.IndexArgs;
- * import com.pulumi.aws.kendra.inputs.IndexUserGroupResolutionConfigurationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -151,9 +143,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Index(&#34;example&#34;, IndexArgs.builder()        
  *             .roleArn(aws_iam_role.this().arn())
- *             .userGroupResolutionConfiguration(IndexUserGroupResolutionConfigurationArgs.builder()
- *                 .userGroupResolutionMode(&#34;AWS_SSO&#34;)
- *                 .build())
+ *             .userGroupResolutionConfiguration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -171,9 +161,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.kendra.Index;
  * import com.pulumi.aws.kendra.IndexArgs;
- * import com.pulumi.aws.kendra.inputs.IndexDocumentMetadataConfigurationUpdateArgs;
- * import com.pulumi.aws.kendra.inputs.IndexDocumentMetadataConfigurationUpdateSearchArgs;
- * import com.pulumi.aws.kendra.inputs.IndexDocumentMetadataConfigurationUpdateRelevanceArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -190,205 +177,20 @@ import javax.annotation.Nullable;
  *         var example = new Index(&#34;example&#34;, IndexArgs.builder()        
  *             .roleArn(aws_iam_role.this().arn())
  *             .documentMetadataConfigurationUpdates(            
- *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
- *                     .name(&#34;_authors&#34;)
- *                     .type(&#34;STRING_LIST_VALUE&#34;)
- *                     .search(IndexDocumentMetadataConfigurationUpdateSearchArgs.builder()
- *                         .displayable(false)
- *                         .facetable(false)
- *                         .searchable(false)
- *                         .sortable(false)
- *                         .build())
- *                     .relevance(IndexDocumentMetadataConfigurationUpdateRelevanceArgs.builder()
- *                         .importance(1)
- *                         .build())
- *                     .build(),
- *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
- *                     .name(&#34;_category&#34;)
- *                     .type(&#34;STRING_VALUE&#34;)
- *                     .search(IndexDocumentMetadataConfigurationUpdateSearchArgs.builder()
- *                         .displayable(false)
- *                         .facetable(false)
- *                         .searchable(false)
- *                         .sortable(true)
- *                         .build())
- *                     .relevance(IndexDocumentMetadataConfigurationUpdateRelevanceArgs.builder()
- *                         .importance(1)
- *                         .valuesImportanceMap()
- *                         .build())
- *                     .build(),
- *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
- *                     .name(&#34;_created_at&#34;)
- *                     .type(&#34;DATE_VALUE&#34;)
- *                     .search(IndexDocumentMetadataConfigurationUpdateSearchArgs.builder()
- *                         .displayable(false)
- *                         .facetable(false)
- *                         .searchable(false)
- *                         .sortable(true)
- *                         .build())
- *                     .relevance(IndexDocumentMetadataConfigurationUpdateRelevanceArgs.builder()
- *                         .freshness(false)
- *                         .importance(1)
- *                         .duration(&#34;25920000s&#34;)
- *                         .rankOrder(&#34;ASCENDING&#34;)
- *                         .build())
- *                     .build(),
- *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
- *                     .name(&#34;_data_source_id&#34;)
- *                     .type(&#34;STRING_VALUE&#34;)
- *                     .search(IndexDocumentMetadataConfigurationUpdateSearchArgs.builder()
- *                         .displayable(false)
- *                         .facetable(false)
- *                         .searchable(false)
- *                         .sortable(true)
- *                         .build())
- *                     .relevance(IndexDocumentMetadataConfigurationUpdateRelevanceArgs.builder()
- *                         .importance(1)
- *                         .valuesImportanceMap()
- *                         .build())
- *                     .build(),
- *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
- *                     .name(&#34;_document_title&#34;)
- *                     .type(&#34;STRING_VALUE&#34;)
- *                     .search(IndexDocumentMetadataConfigurationUpdateSearchArgs.builder()
- *                         .displayable(true)
- *                         .facetable(false)
- *                         .searchable(true)
- *                         .sortable(true)
- *                         .build())
- *                     .relevance(IndexDocumentMetadataConfigurationUpdateRelevanceArgs.builder()
- *                         .importance(2)
- *                         .valuesImportanceMap()
- *                         .build())
- *                     .build(),
- *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
- *                     .name(&#34;_excerpt_page_number&#34;)
- *                     .type(&#34;LONG_VALUE&#34;)
- *                     .search(IndexDocumentMetadataConfigurationUpdateSearchArgs.builder()
- *                         .displayable(false)
- *                         .facetable(false)
- *                         .searchable(false)
- *                         .sortable(false)
- *                         .build())
- *                     .relevance(IndexDocumentMetadataConfigurationUpdateRelevanceArgs.builder()
- *                         .importance(2)
- *                         .rankOrder(&#34;ASCENDING&#34;)
- *                         .build())
- *                     .build(),
- *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
- *                     .name(&#34;_faq_id&#34;)
- *                     .type(&#34;STRING_VALUE&#34;)
- *                     .search(IndexDocumentMetadataConfigurationUpdateSearchArgs.builder()
- *                         .displayable(false)
- *                         .facetable(false)
- *                         .searchable(false)
- *                         .sortable(true)
- *                         .build())
- *                     .relevance(IndexDocumentMetadataConfigurationUpdateRelevanceArgs.builder()
- *                         .importance(1)
- *                         .valuesImportanceMap()
- *                         .build())
- *                     .build(),
- *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
- *                     .name(&#34;_file_type&#34;)
- *                     .type(&#34;STRING_VALUE&#34;)
- *                     .search(IndexDocumentMetadataConfigurationUpdateSearchArgs.builder()
- *                         .displayable(false)
- *                         .facetable(false)
- *                         .searchable(false)
- *                         .sortable(true)
- *                         .build())
- *                     .relevance(IndexDocumentMetadataConfigurationUpdateRelevanceArgs.builder()
- *                         .importance(1)
- *                         .valuesImportanceMap()
- *                         .build())
- *                     .build(),
- *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
- *                     .name(&#34;_language_code&#34;)
- *                     .type(&#34;STRING_VALUE&#34;)
- *                     .search(IndexDocumentMetadataConfigurationUpdateSearchArgs.builder()
- *                         .displayable(false)
- *                         .facetable(false)
- *                         .searchable(false)
- *                         .sortable(true)
- *                         .build())
- *                     .relevance(IndexDocumentMetadataConfigurationUpdateRelevanceArgs.builder()
- *                         .importance(1)
- *                         .valuesImportanceMap()
- *                         .build())
- *                     .build(),
- *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
- *                     .name(&#34;_last_updated_at&#34;)
- *                     .type(&#34;DATE_VALUE&#34;)
- *                     .search(IndexDocumentMetadataConfigurationUpdateSearchArgs.builder()
- *                         .displayable(false)
- *                         .facetable(false)
- *                         .searchable(false)
- *                         .sortable(true)
- *                         .build())
- *                     .relevance(IndexDocumentMetadataConfigurationUpdateRelevanceArgs.builder()
- *                         .freshness(false)
- *                         .importance(1)
- *                         .duration(&#34;25920000s&#34;)
- *                         .rankOrder(&#34;ASCENDING&#34;)
- *                         .build())
- *                     .build(),
- *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
- *                     .name(&#34;_source_uri&#34;)
- *                     .type(&#34;STRING_VALUE&#34;)
- *                     .search(IndexDocumentMetadataConfigurationUpdateSearchArgs.builder()
- *                         .displayable(true)
- *                         .facetable(false)
- *                         .searchable(false)
- *                         .sortable(false)
- *                         .build())
- *                     .relevance(IndexDocumentMetadataConfigurationUpdateRelevanceArgs.builder()
- *                         .importance(1)
- *                         .valuesImportanceMap()
- *                         .build())
- *                     .build(),
- *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
- *                     .name(&#34;_tenant_id&#34;)
- *                     .type(&#34;STRING_VALUE&#34;)
- *                     .search(IndexDocumentMetadataConfigurationUpdateSearchArgs.builder()
- *                         .displayable(false)
- *                         .facetable(false)
- *                         .searchable(false)
- *                         .sortable(true)
- *                         .build())
- *                     .relevance(IndexDocumentMetadataConfigurationUpdateRelevanceArgs.builder()
- *                         .importance(1)
- *                         .valuesImportanceMap()
- *                         .build())
- *                     .build(),
- *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
- *                     .name(&#34;_version&#34;)
- *                     .type(&#34;STRING_VALUE&#34;)
- *                     .search(IndexDocumentMetadataConfigurationUpdateSearchArgs.builder()
- *                         .displayable(false)
- *                         .facetable(false)
- *                         .searchable(false)
- *                         .sortable(true)
- *                         .build())
- *                     .relevance(IndexDocumentMetadataConfigurationUpdateRelevanceArgs.builder()
- *                         .importance(1)
- *                         .valuesImportanceMap()
- *                         .build())
- *                     .build(),
- *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
- *                     .name(&#34;_view_count&#34;)
- *                     .type(&#34;LONG_VALUE&#34;)
- *                     .search(IndexDocumentMetadataConfigurationUpdateSearchArgs.builder()
- *                         .displayable(false)
- *                         .facetable(false)
- *                         .searchable(false)
- *                         .sortable(true)
- *                         .build())
- *                     .relevance(IndexDocumentMetadataConfigurationUpdateRelevanceArgs.builder()
- *                         .importance(1)
- *                         .rankOrder(&#34;ASCENDING&#34;)
- *                         .build())
- *                     .build())
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -405,9 +207,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.kendra.Index;
  * import com.pulumi.aws.kendra.IndexArgs;
- * import com.pulumi.aws.kendra.inputs.IndexDocumentMetadataConfigurationUpdateArgs;
- * import com.pulumi.aws.kendra.inputs.IndexDocumentMetadataConfigurationUpdateSearchArgs;
- * import com.pulumi.aws.kendra.inputs.IndexDocumentMetadataConfigurationUpdateRelevanceArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -424,262 +223,24 @@ import javax.annotation.Nullable;
  *         var example = new Index(&#34;example&#34;, IndexArgs.builder()        
  *             .roleArn(aws_iam_role.this().arn())
  *             .documentMetadataConfigurationUpdates(            
- *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
- *                     .name(&#34;_authors&#34;)
- *                     .type(&#34;STRING_LIST_VALUE&#34;)
- *                     .search(IndexDocumentMetadataConfigurationUpdateSearchArgs.builder()
- *                         .displayable(false)
- *                         .facetable(false)
- *                         .searchable(false)
- *                         .sortable(false)
- *                         .build())
- *                     .relevance(IndexDocumentMetadataConfigurationUpdateRelevanceArgs.builder()
- *                         .importance(1)
- *                         .build())
- *                     .build(),
- *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
- *                     .name(&#34;_category&#34;)
- *                     .type(&#34;STRING_VALUE&#34;)
- *                     .search(IndexDocumentMetadataConfigurationUpdateSearchArgs.builder()
- *                         .displayable(false)
- *                         .facetable(false)
- *                         .searchable(false)
- *                         .sortable(true)
- *                         .build())
- *                     .relevance(IndexDocumentMetadataConfigurationUpdateRelevanceArgs.builder()
- *                         .importance(1)
- *                         .valuesImportanceMap()
- *                         .build())
- *                     .build(),
- *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
- *                     .name(&#34;_created_at&#34;)
- *                     .type(&#34;DATE_VALUE&#34;)
- *                     .search(IndexDocumentMetadataConfigurationUpdateSearchArgs.builder()
- *                         .displayable(false)
- *                         .facetable(false)
- *                         .searchable(false)
- *                         .sortable(true)
- *                         .build())
- *                     .relevance(IndexDocumentMetadataConfigurationUpdateRelevanceArgs.builder()
- *                         .freshness(false)
- *                         .importance(1)
- *                         .duration(&#34;25920000s&#34;)
- *                         .rankOrder(&#34;ASCENDING&#34;)
- *                         .build())
- *                     .build(),
- *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
- *                     .name(&#34;_data_source_id&#34;)
- *                     .type(&#34;STRING_VALUE&#34;)
- *                     .search(IndexDocumentMetadataConfigurationUpdateSearchArgs.builder()
- *                         .displayable(false)
- *                         .facetable(false)
- *                         .searchable(false)
- *                         .sortable(true)
- *                         .build())
- *                     .relevance(IndexDocumentMetadataConfigurationUpdateRelevanceArgs.builder()
- *                         .importance(1)
- *                         .valuesImportanceMap()
- *                         .build())
- *                     .build(),
- *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
- *                     .name(&#34;_document_title&#34;)
- *                     .type(&#34;STRING_VALUE&#34;)
- *                     .search(IndexDocumentMetadataConfigurationUpdateSearchArgs.builder()
- *                         .displayable(true)
- *                         .facetable(false)
- *                         .searchable(true)
- *                         .sortable(true)
- *                         .build())
- *                     .relevance(IndexDocumentMetadataConfigurationUpdateRelevanceArgs.builder()
- *                         .importance(2)
- *                         .valuesImportanceMap()
- *                         .build())
- *                     .build(),
- *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
- *                     .name(&#34;_excerpt_page_number&#34;)
- *                     .type(&#34;LONG_VALUE&#34;)
- *                     .search(IndexDocumentMetadataConfigurationUpdateSearchArgs.builder()
- *                         .displayable(false)
- *                         .facetable(false)
- *                         .searchable(false)
- *                         .sortable(false)
- *                         .build())
- *                     .relevance(IndexDocumentMetadataConfigurationUpdateRelevanceArgs.builder()
- *                         .importance(2)
- *                         .rankOrder(&#34;ASCENDING&#34;)
- *                         .build())
- *                     .build(),
- *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
- *                     .name(&#34;_faq_id&#34;)
- *                     .type(&#34;STRING_VALUE&#34;)
- *                     .search(IndexDocumentMetadataConfigurationUpdateSearchArgs.builder()
- *                         .displayable(false)
- *                         .facetable(false)
- *                         .searchable(false)
- *                         .sortable(true)
- *                         .build())
- *                     .relevance(IndexDocumentMetadataConfigurationUpdateRelevanceArgs.builder()
- *                         .importance(1)
- *                         .valuesImportanceMap()
- *                         .build())
- *                     .build(),
- *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
- *                     .name(&#34;_file_type&#34;)
- *                     .type(&#34;STRING_VALUE&#34;)
- *                     .search(IndexDocumentMetadataConfigurationUpdateSearchArgs.builder()
- *                         .displayable(false)
- *                         .facetable(false)
- *                         .searchable(false)
- *                         .sortable(true)
- *                         .build())
- *                     .relevance(IndexDocumentMetadataConfigurationUpdateRelevanceArgs.builder()
- *                         .importance(1)
- *                         .valuesImportanceMap()
- *                         .build())
- *                     .build(),
- *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
- *                     .name(&#34;_language_code&#34;)
- *                     .type(&#34;STRING_VALUE&#34;)
- *                     .search(IndexDocumentMetadataConfigurationUpdateSearchArgs.builder()
- *                         .displayable(false)
- *                         .facetable(false)
- *                         .searchable(false)
- *                         .sortable(true)
- *                         .build())
- *                     .relevance(IndexDocumentMetadataConfigurationUpdateRelevanceArgs.builder()
- *                         .importance(1)
- *                         .valuesImportanceMap()
- *                         .build())
- *                     .build(),
- *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
- *                     .name(&#34;_last_updated_at&#34;)
- *                     .type(&#34;DATE_VALUE&#34;)
- *                     .search(IndexDocumentMetadataConfigurationUpdateSearchArgs.builder()
- *                         .displayable(false)
- *                         .facetable(false)
- *                         .searchable(false)
- *                         .sortable(true)
- *                         .build())
- *                     .relevance(IndexDocumentMetadataConfigurationUpdateRelevanceArgs.builder()
- *                         .freshness(false)
- *                         .importance(1)
- *                         .duration(&#34;25920000s&#34;)
- *                         .rankOrder(&#34;ASCENDING&#34;)
- *                         .build())
- *                     .build(),
- *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
- *                     .name(&#34;_source_uri&#34;)
- *                     .type(&#34;STRING_VALUE&#34;)
- *                     .search(IndexDocumentMetadataConfigurationUpdateSearchArgs.builder()
- *                         .displayable(true)
- *                         .facetable(false)
- *                         .searchable(false)
- *                         .sortable(false)
- *                         .build())
- *                     .relevance(IndexDocumentMetadataConfigurationUpdateRelevanceArgs.builder()
- *                         .importance(1)
- *                         .valuesImportanceMap()
- *                         .build())
- *                     .build(),
- *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
- *                     .name(&#34;_tenant_id&#34;)
- *                     .type(&#34;STRING_VALUE&#34;)
- *                     .search(IndexDocumentMetadataConfigurationUpdateSearchArgs.builder()
- *                         .displayable(false)
- *                         .facetable(false)
- *                         .searchable(false)
- *                         .sortable(true)
- *                         .build())
- *                     .relevance(IndexDocumentMetadataConfigurationUpdateRelevanceArgs.builder()
- *                         .importance(1)
- *                         .valuesImportanceMap()
- *                         .build())
- *                     .build(),
- *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
- *                     .name(&#34;_version&#34;)
- *                     .type(&#34;STRING_VALUE&#34;)
- *                     .search(IndexDocumentMetadataConfigurationUpdateSearchArgs.builder()
- *                         .displayable(false)
- *                         .facetable(false)
- *                         .searchable(false)
- *                         .sortable(true)
- *                         .build())
- *                     .relevance(IndexDocumentMetadataConfigurationUpdateRelevanceArgs.builder()
- *                         .importance(1)
- *                         .valuesImportanceMap()
- *                         .build())
- *                     .build(),
- *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
- *                     .name(&#34;_view_count&#34;)
- *                     .type(&#34;LONG_VALUE&#34;)
- *                     .search(IndexDocumentMetadataConfigurationUpdateSearchArgs.builder()
- *                         .displayable(false)
- *                         .facetable(false)
- *                         .searchable(false)
- *                         .sortable(true)
- *                         .build())
- *                     .relevance(IndexDocumentMetadataConfigurationUpdateRelevanceArgs.builder()
- *                         .importance(1)
- *                         .rankOrder(&#34;ASCENDING&#34;)
- *                         .build())
- *                     .build(),
- *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
- *                     .name(&#34;example-string-value&#34;)
- *                     .type(&#34;STRING_VALUE&#34;)
- *                     .search(IndexDocumentMetadataConfigurationUpdateSearchArgs.builder()
- *                         .displayable(true)
- *                         .facetable(true)
- *                         .searchable(true)
- *                         .sortable(true)
- *                         .build())
- *                     .relevance(IndexDocumentMetadataConfigurationUpdateRelevanceArgs.builder()
- *                         .importance(1)
- *                         .valuesImportanceMap()
- *                         .build())
- *                     .build(),
- *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
- *                     .name(&#34;example-long-value&#34;)
- *                     .type(&#34;LONG_VALUE&#34;)
- *                     .search(IndexDocumentMetadataConfigurationUpdateSearchArgs.builder()
- *                         .displayable(true)
- *                         .facetable(true)
- *                         .searchable(false)
- *                         .sortable(true)
- *                         .build())
- *                     .relevance(IndexDocumentMetadataConfigurationUpdateRelevanceArgs.builder()
- *                         .importance(1)
- *                         .rankOrder(&#34;ASCENDING&#34;)
- *                         .build())
- *                     .build(),
- *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
- *                     .name(&#34;example-string-list-value&#34;)
- *                     .type(&#34;STRING_LIST_VALUE&#34;)
- *                     .search(IndexDocumentMetadataConfigurationUpdateSearchArgs.builder()
- *                         .displayable(true)
- *                         .facetable(true)
- *                         .searchable(true)
- *                         .sortable(false)
- *                         .build())
- *                     .relevance(IndexDocumentMetadataConfigurationUpdateRelevanceArgs.builder()
- *                         .importance(1)
- *                         .build())
- *                     .build(),
- *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
- *                     .name(&#34;example-date-value&#34;)
- *                     .type(&#34;DATE_VALUE&#34;)
- *                     .search(IndexDocumentMetadataConfigurationUpdateSearchArgs.builder()
- *                         .displayable(true)
- *                         .facetable(true)
- *                         .searchable(false)
- *                         .sortable(false)
- *                         .build())
- *                     .relevance(IndexDocumentMetadataConfigurationUpdateRelevanceArgs.builder()
- *                         .freshness(false)
- *                         .importance(1)
- *                         .duration(&#34;25920000s&#34;)
- *                         .rankOrder(&#34;ASCENDING&#34;)
- *                         .build())
- *                     .build())
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -694,8 +255,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.kendra.Index;
  * import com.pulumi.aws.kendra.IndexArgs;
- * import com.pulumi.aws.kendra.inputs.IndexUserTokenConfigurationsArgs;
- * import com.pulumi.aws.kendra.inputs.IndexUserTokenConfigurationsJsonTokenTypeConfigurationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -711,12 +270,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Index(&#34;example&#34;, IndexArgs.builder()        
  *             .roleArn(aws_iam_role.this().arn())
- *             .userTokenConfigurations(IndexUserTokenConfigurationsArgs.builder()
- *                 .jsonTokenTypeConfiguration(IndexUserTokenConfigurationsJsonTokenTypeConfigurationArgs.builder()
- *                     .groupAttributeField(&#34;groups&#34;)
- *                     .userNameAttributeField(&#34;username&#34;)
- *                     .build())
- *                 .build())
+ *             .userTokenConfigurations(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

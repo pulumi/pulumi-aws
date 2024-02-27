@@ -27,13 +27,12 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.Provider;
- * import com.pulumi.aws.ProviderArgs;
+ * import com.pulumi.pulumi.providers.aws;
+ * import com.pulumi.pulumi.providers.ProviderArgs;
  * import com.pulumi.aws.s3.BucketV2;
  * import com.pulumi.aws.s3.BucketV2Args;
  * import com.pulumi.aws.s3control.MultiRegionAccessPoint;
  * import com.pulumi.aws.s3control.MultiRegionAccessPointArgs;
- * import com.pulumi.aws.s3control.inputs.MultiRegionAccessPointDetailsArgs;
  * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
@@ -65,16 +64,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var example = new MultiRegionAccessPoint(&#34;example&#34;, MultiRegionAccessPointArgs.builder()        
- *             .details(MultiRegionAccessPointDetailsArgs.builder()
- *                 .name(&#34;example&#34;)
- *                 .regions(                
- *                     MultiRegionAccessPointDetailsRegionArgs.builder()
- *                         .bucket(fooBucket.id())
- *                         .build(),
- *                     MultiRegionAccessPointDetailsRegionArgs.builder()
- *                         .bucket(barBucket.id())
- *                         .build())
- *                 .build())
+ *             .details(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

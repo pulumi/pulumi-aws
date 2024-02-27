@@ -22,7 +22,7 @@ namespace Pulumi.Aws.MediaPackage
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var kittens = new Aws.MediaPackage.Channel("kittens", new()
+    ///     var kittens = new Aws.Mediapackage.Channel.Channel("kittens", new()
     ///     {
     ///         ChannelId = "kitten-channel",
     ///         Description = "A channel dedicated to amusing videos of kittens.",

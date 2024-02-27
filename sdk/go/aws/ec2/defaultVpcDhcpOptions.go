@@ -31,25 +31,23 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	ec2/defaultVpcDhcpOptions "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/defaultVpcDhcpOptions"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.NewDefaultVpcDhcpOptions(ctx, "default", &ec2.DefaultVpcDhcpOptionsArgs{
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("Default DHCP Option Set"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := ec2/defaultVpcDhcpOptions.NewDefaultVpcDhcpOptions(ctx, "default", &ec2/defaultVpcDhcpOptions.DefaultVpcDhcpOptionsArgs{
+// Tags: map[string]interface{}{
+// "Name": "Default DHCP Option Set",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

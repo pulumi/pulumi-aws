@@ -139,17 +139,17 @@ class DocumentationVersion(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_rest_api = aws.apigateway.RestApi("exampleRestApi")
-        example_documentation_part = aws.apigateway.DocumentationPart("exampleDocumentationPart",
-            location=aws.apigateway.DocumentationPartLocationArgs(
-                type="API",
-            ),
-            properties="{\\"description\\":\\"Example\\"}",
+        example_rest_api = aws.apigateway.rest_api.RestApi("exampleRestApi")
+        example_documentation_part = aws.apigateway.documentation_part.DocumentationPart("exampleDocumentationPart",
+            location={
+                type: API,
+            },
+            properties={"description":"Example"},
             rest_api_id=example_rest_api.id)
-        example_documentation_version = aws.apigateway.DocumentationVersion("exampleDocumentationVersion",
-            version="example_version",
+        example_documentation_version = aws.apigateway.documentation_version.DocumentationVersion("exampleDocumentationVersion",
+            version=example_version,
             rest_api_id=example_rest_api.id,
-            description="Example description",
+            description=Example description,
             opts=pulumi.ResourceOptions(depends_on=[example_documentation_part]))
         ```
 
@@ -182,17 +182,17 @@ class DocumentationVersion(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_rest_api = aws.apigateway.RestApi("exampleRestApi")
-        example_documentation_part = aws.apigateway.DocumentationPart("exampleDocumentationPart",
-            location=aws.apigateway.DocumentationPartLocationArgs(
-                type="API",
-            ),
-            properties="{\\"description\\":\\"Example\\"}",
+        example_rest_api = aws.apigateway.rest_api.RestApi("exampleRestApi")
+        example_documentation_part = aws.apigateway.documentation_part.DocumentationPart("exampleDocumentationPart",
+            location={
+                type: API,
+            },
+            properties={"description":"Example"},
             rest_api_id=example_rest_api.id)
-        example_documentation_version = aws.apigateway.DocumentationVersion("exampleDocumentationVersion",
-            version="example_version",
+        example_documentation_version = aws.apigateway.documentation_version.DocumentationVersion("exampleDocumentationVersion",
+            version=example_version,
             rest_api_id=example_rest_api.id,
-            description="Example description",
+            description=Example description,
             opts=pulumi.ResourceOptions(depends_on=[example_documentation_part]))
         ```
 

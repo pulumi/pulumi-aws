@@ -25,61 +25,56 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/fms"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/wafregional"
+//	fms/policy "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/fms/policy"
+//	wafregional/ruleGroup "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/wafregional/ruleGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleRuleGroup, err := wafregional.NewRuleGroup(ctx, "exampleRuleGroup", &wafregional.RuleGroupArgs{
-//				MetricName: pulumi.String("WAFRuleGroupExample"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = fms.NewPolicy(ctx, "examplePolicy", &fms.PolicyArgs{
-//				ExcludeResourceTags: pulumi.Bool(false),
-//				RemediationEnabled:  pulumi.Bool(false),
-//				ResourceType:        pulumi.String("AWS::ElasticLoadBalancingV2::LoadBalancer"),
-//				SecurityServicePolicyData: &fms.PolicySecurityServicePolicyDataArgs{
-//					Type: pulumi.String("WAF"),
-//					ManagedServiceData: exampleRuleGroup.ID().ApplyT(func(id string) (pulumi.String, error) {
-//						var _zero pulumi.String
-//						tmpJSON0, err := json.Marshal(map[string]interface{}{
-//							"type": "WAF",
-//							"ruleGroups": []map[string]interface{}{
-//								map[string]interface{}{
-//									"id": id,
-//									"overrideAction": map[string]interface{}{
-//										"type": "COUNT",
-//									},
-//								},
-//							},
-//							"defaultAction": map[string]interface{}{
-//								"type": "BLOCK",
-//							},
-//							"overrideCustomerWebACLAssociation": false,
-//						})
-//						if err != nil {
-//							return _zero, err
-//						}
-//						json0 := string(tmpJSON0)
-//						return pulumi.String(json0), nil
-//					}).(pulumi.StringOutput),
-//				},
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("example-fms-policy"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleRuleGroup, err := wafregional/ruleGroup.NewRuleGroup(ctx, "exampleRuleGroup", &wafregional/ruleGroup.RuleGroupArgs{
+// MetricName: "WAFRuleGroupExample",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = fms/policy.NewPolicy(ctx, "examplePolicy", &fms/policy.PolicyArgs{
+// ExcludeResourceTags: false,
+// RemediationEnabled: false,
+// ResourceType: "AWS::ElasticLoadBalancingV2::LoadBalancer",
+// SecurityServicePolicyData: tmpJSON0, err := json.Marshal(map[string]interface{}{
+// "type": "WAF",
+// "ruleGroups": []map[string]interface{}{
+// map[string]interface{}{
+// "id": exampleRuleGroup.Id,
+// "overrideAction": map[string]interface{}{
+// "type": "COUNT",
+// },
+// },
+// },
+// "defaultAction": map[string]interface{}{
+// "type": "BLOCK",
+// },
+// "overrideCustomerWebACLAssociation": false,
+// })
+// if err != nil {
+// return err
+// }
+// json0 := string(tmpJSON0)
+// map[string]interface{}{
+// "type": "WAF",
+// "managedServiceData": json0,
+// },
+// Tags: map[string]interface{}{
+// "Name": "example-fms-policy",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

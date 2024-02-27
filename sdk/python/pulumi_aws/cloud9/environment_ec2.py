@@ -425,50 +425,6 @@ class EnvironmentEC2(pulumi.CustomResource):
         """
         Provides a Cloud9 EC2 Development Environment.
 
-        ## Example Usage
-
-        Basic usage:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.cloud9.EnvironmentEC2("example",
-            image_id="amazonlinux-2023-x86_64",
-            instance_type="t2.micro")
-        ```
-
-        Get the URL of the Cloud9 environment after creation:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.cloud9.EnvironmentEC2("example", instance_type="t2.micro")
-        cloud9_instance = aws.ec2.get_instance_output(filters=[aws.ec2.GetInstanceFilterArgs(
-            name="tag:aws:cloud9:environment",
-            values=[example.id],
-        )])
-        pulumi.export("cloud9Url", example.id.apply(lambda id: f"https://{var['region']}.console.aws.amazon.com/cloud9/ide/{id}"))
-        ```
-
-        Allocate a static IP to the Cloud9 environment:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.cloud9.EnvironmentEC2("example", instance_type="t2.micro")
-        cloud9_instance = aws.ec2.get_instance_output(filters=[aws.ec2.GetInstanceFilterArgs(
-            name="tag:aws:cloud9:environment",
-            values=[example.id],
-        )])
-        cloud9_eip = aws.ec2.Eip("cloud9Eip",
-            instance=cloud9_instance.id,
-            domain="vpc")
-        pulumi.export("cloud9PublicIp", cloud9_eip.public_ip)
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] automatic_stop_time_minutes: The number of minutes until the running instance is shut down after the environment has last been used.
@@ -499,50 +455,6 @@ class EnvironmentEC2(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Cloud9 EC2 Development Environment.
-
-        ## Example Usage
-
-        Basic usage:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.cloud9.EnvironmentEC2("example",
-            image_id="amazonlinux-2023-x86_64",
-            instance_type="t2.micro")
-        ```
-
-        Get the URL of the Cloud9 environment after creation:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.cloud9.EnvironmentEC2("example", instance_type="t2.micro")
-        cloud9_instance = aws.ec2.get_instance_output(filters=[aws.ec2.GetInstanceFilterArgs(
-            name="tag:aws:cloud9:environment",
-            values=[example.id],
-        )])
-        pulumi.export("cloud9Url", example.id.apply(lambda id: f"https://{var['region']}.console.aws.amazon.com/cloud9/ide/{id}"))
-        ```
-
-        Allocate a static IP to the Cloud9 environment:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.cloud9.EnvironmentEC2("example", instance_type="t2.micro")
-        cloud9_instance = aws.ec2.get_instance_output(filters=[aws.ec2.GetInstanceFilterArgs(
-            name="tag:aws:cloud9:environment",
-            values=[example.id],
-        )])
-        cloud9_eip = aws.ec2.Eip("cloud9Eip",
-            instance=cloud9_instance.id,
-            domain="vpc")
-        pulumi.export("cloud9PublicIp", cloud9_eip.public_ip)
-        ```
 
         :param str resource_name: The name of the resource.
         :param EnvironmentEC2Args args: The arguments to use to populate this resource's properties.

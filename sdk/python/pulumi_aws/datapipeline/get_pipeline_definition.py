@@ -97,15 +97,6 @@ def get_pipeline_definition(parameter_values: Optional[Sequence[pulumi.InputType
     """
     Provides details about a specific DataPipeline Pipeline Definition.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.datapipeline.get_pipeline_definition(pipeline_id="pipelineID")
-    ```
-
 
     :param Sequence[pulumi.InputType['GetPipelineDefinitionParameterValueArgs']] parameter_values: Parameter values used in the pipeline definition. See below
     :param str pipeline_id: ID of the pipeline.
@@ -130,15 +121,6 @@ def get_pipeline_definition_output(parameter_values: Optional[pulumi.Input[Optio
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPipelineDefinitionResult]:
     """
     Provides details about a specific DataPipeline Pipeline Definition.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.datapipeline.get_pipeline_definition(pipeline_id="pipelineID")
-    ```
 
 
     :param Sequence[pulumi.InputType['GetPipelineDefinitionParameterValueArgs']] parameter_values: Parameter values used in the pipeline definition. See below

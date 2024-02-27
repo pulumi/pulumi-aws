@@ -152,16 +152,6 @@ def get_virtual_node(mesh_name: Optional[str] = None,
     """
     Data source for managing an AWS App Mesh Virtual Node.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.appmesh.get_virtual_node(mesh_name="example-mesh",
-        name="serviceBv1")
-    ```
-
 
     :param str mesh_name: Name of the service mesh in which the virtual node exists.
     :param str mesh_owner: AWS account ID of the service mesh's owner.
@@ -197,16 +187,6 @@ def get_virtual_node_output(mesh_name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualNodeResult]:
     """
     Data source for managing an AWS App Mesh Virtual Node.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.appmesh.get_virtual_node(mesh_name="example-mesh",
-        name="serviceBv1")
-    ```
 
 
     :param str mesh_name: Name of the service mesh in which the virtual node exists.

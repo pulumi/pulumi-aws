@@ -42,13 +42,13 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleDomainName = new aws.apigateway.DomainName("exampleDomainName", {
+ * const exampleDomainName = new aws.apigateway/domainName.DomainName("exampleDomainName", {
  *     certificateArn: aws_acm_certificate_validation.example.certificate_arn,
  *     domainName: "api.example.com",
  * });
  * // Example DNS record using Route53.
  * // Route53 is not specifically required; any DNS host can be used.
- * const exampleRecord = new aws.route53.Record("exampleRecord", {
+ * const exampleRecord = new aws.route53/record.Record("exampleRecord", {
  *     name: exampleDomainName.domainName,
  *     type: "A",
  *     zoneId: aws_route53_zone.example.id,
@@ -66,7 +66,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * import * as fs from "fs";
  *
- * const exampleDomainName = new aws.apigateway.DomainName("exampleDomainName", {
+ * const exampleDomainName = new aws.apigateway/domainName.DomainName("exampleDomainName", {
  *     domainName: "api.example.com",
  *     certificateName: "example-api",
  *     certificateBody: fs.readFileSync(`${path.module}/example.com/example.crt`, "utf8"),
@@ -75,7 +75,7 @@ import * as utilities from "../utilities";
  * });
  * // Example DNS record using Route53.
  * // Route53 is not specifically required; any DNS host can be used.
- * const exampleRecord = new aws.route53.Record("exampleRecord", {
+ * const exampleRecord = new aws.route53/record.Record("exampleRecord", {
  *     zoneId: aws_route53_zone.example.id,
  *     name: exampleDomainName.domainName,
  *     type: "A",
@@ -83,6 +83,62 @@ import * as utilities from "../utilities";
  *         name: exampleDomainName.cloudfrontDomainName,
  *         zoneId: exampleDomainName.cloudfrontZoneId,
  *         evaluateTargetHealth: true,
+ *     }],
+ * });
+ * ```
+ * ### Regional (ACM Certificate)
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const exampleDomainName = new aws.apigateway/domainName.DomainName("exampleDomainName", {
+ *     domainName: "api.example.com",
+ *     regionalCertificateArn: aws_acm_certificate_validation.example.certificate_arn,
+ *     endpointConfiguration: {
+ *         types: ["REGIONAL"],
+ *     },
+ * });
+ * // Example DNS record using Route53.
+ * // Route53 is not specifically required; any DNS host can be used.
+ * const exampleRecord = new aws.route53/record.Record("exampleRecord", {
+ *     name: exampleDomainName.domainName,
+ *     type: "A",
+ *     zoneId: aws_route53_zone.example.id,
+ *     aliases: [{
+ *         evaluateTargetHealth: true,
+ *         name: exampleDomainName.regionalDomainName,
+ *         zoneId: exampleDomainName.regionalZoneId,
+ *     }],
+ * });
+ * ```
+ * ### Regional (IAM Certificate)
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * import * as fs from "fs";
+ *
+ * const exampleDomainName = new aws.apigateway/domainName.DomainName("exampleDomainName", {
+ *     certificateBody: fs.readFileSync(`${path.module}/example.com/example.crt`, "utf8"),
+ *     certificateChain: fs.readFileSync(`${path.module}/example.com/ca.crt`, "utf8"),
+ *     certificatePrivateKey: fs.readFileSync(`${path.module}/example.com/example.key`, "utf8"),
+ *     domainName: "api.example.com",
+ *     regionalCertificateName: "example-api",
+ *     endpointConfiguration: {
+ *         types: ["REGIONAL"],
+ *     },
+ * });
+ * // Example DNS record using Route53.
+ * // Route53 is not specifically required; any DNS host can be used.
+ * const exampleRecord = new aws.route53/record.Record("exampleRecord", {
+ *     name: exampleDomainName.domainName,
+ *     type: "A",
+ *     zoneId: aws_route53_zone.example.id,
+ *     aliases: [{
+ *         evaluateTargetHealth: true,
+ *         name: exampleDomainName.regionalDomainName,
+ *         zoneId: exampleDomainName.regionalZoneId,
  *     }],
  * });
  * ```

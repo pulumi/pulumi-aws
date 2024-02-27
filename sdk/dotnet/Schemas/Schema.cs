@@ -25,9 +25,9 @@ namespace Pulumi.Aws.Schemas
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testRegistry = new Aws.Schemas.Registry("testRegistry");
+    ///     var testRegistry = new Aws.Schemas.Registry.Registry("testRegistry");
     /// 
-    ///     var testSchema = new Aws.Schemas.Schema("testSchema", new()
+    ///     var testSchema = new Aws.Schemas.Schema.Schema("testSchema", new()
     ///     {
     ///         RegistryName = testRegistry.Name,
     ///         Type = "OpenApi3",

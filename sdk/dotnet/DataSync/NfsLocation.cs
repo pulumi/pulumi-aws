@@ -24,16 +24,16 @@ namespace Pulumi.Aws.DataSync
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.DataSync.NfsLocation("example", new()
+    ///     var example = new Aws.Datasync.NfsLocation.NfsLocation("example", new()
     ///     {
     ///         ServerHostname = "nfs.example.com",
     ///         Subdirectory = "/exported/path",
-    ///         OnPremConfig = new Aws.DataSync.Inputs.NfsLocationOnPremConfigArgs
+    ///         OnPremConfig = 
     ///         {
-    ///             AgentArns = new[]
+    ///             { "agentArns", new[]
     ///             {
     ///                 aws_datasync_agent.Example.Arn,
-    ///             },
+    ///             } },
     ///         },
     ///     });
     /// 

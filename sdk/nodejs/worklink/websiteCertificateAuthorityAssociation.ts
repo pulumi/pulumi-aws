@@ -12,8 +12,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * import * as fs from "fs";
  *
- * const example = new aws.worklink.Fleet("example", {});
- * const test = new aws.worklink.WebsiteCertificateAuthorityAssociation("test", {
+ * const example = new aws.worklink/fleet.Fleet("example", {});
+ * const test = new aws.worklink/websiteCertificateAuthorityAssociation.WebsiteCertificateAuthorityAssociation("test", {
  *     fleetArn: aws_worklink_fleet.test.arn,
  *     certificate: fs.readFileSync("certificate.pem", "utf8"),
  * });

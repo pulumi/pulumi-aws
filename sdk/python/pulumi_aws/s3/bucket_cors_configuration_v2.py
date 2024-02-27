@@ -145,24 +145,24 @@ class BucketCorsConfigurationV2(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
-        example_bucket_cors_configuration_v2 = aws.s3.BucketCorsConfigurationV2("exampleBucketCorsConfigurationV2",
+        example_bucket_v2 = aws.s3.bucket_v2.BucketV2("exampleBucketV2")
+        example_bucket_cors_configuration_v2 = aws.s3.bucket_cors_configuration_v2.BucketCorsConfigurationV2("exampleBucketCorsConfigurationV2",
             bucket=example_bucket_v2.id,
             cors_rules=[
-                aws.s3.BucketCorsConfigurationV2CorsRuleArgs(
-                    allowed_headers=["*"],
-                    allowed_methods=[
-                        "PUT",
-                        "POST",
+                {
+                    allowedHeaders: [*],
+                    allowedMethods: [
+                        PUT,
+                        POST,
                     ],
-                    allowed_origins=["https://s3-website-test.domain.example"],
-                    expose_headers=["ETag"],
-                    max_age_seconds=3000,
-                ),
-                aws.s3.BucketCorsConfigurationV2CorsRuleArgs(
-                    allowed_methods=["GET"],
-                    allowed_origins=["*"],
-                ),
+                    allowedOrigins: [https://s3-website-test.domain.example],
+                    exposeHeaders: [ETag],
+                    maxAgeSeconds: 3000,
+                },
+                {
+                    allowedMethods: [GET],
+                    allowedOrigins: [*],
+                },
             ])
         ```
 
@@ -208,24 +208,24 @@ class BucketCorsConfigurationV2(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
-        example_bucket_cors_configuration_v2 = aws.s3.BucketCorsConfigurationV2("exampleBucketCorsConfigurationV2",
+        example_bucket_v2 = aws.s3.bucket_v2.BucketV2("exampleBucketV2")
+        example_bucket_cors_configuration_v2 = aws.s3.bucket_cors_configuration_v2.BucketCorsConfigurationV2("exampleBucketCorsConfigurationV2",
             bucket=example_bucket_v2.id,
             cors_rules=[
-                aws.s3.BucketCorsConfigurationV2CorsRuleArgs(
-                    allowed_headers=["*"],
-                    allowed_methods=[
-                        "PUT",
-                        "POST",
+                {
+                    allowedHeaders: [*],
+                    allowedMethods: [
+                        PUT,
+                        POST,
                     ],
-                    allowed_origins=["https://s3-website-test.domain.example"],
-                    expose_headers=["ETag"],
-                    max_age_seconds=3000,
-                ),
-                aws.s3.BucketCorsConfigurationV2CorsRuleArgs(
-                    allowed_methods=["GET"],
-                    allowed_origins=["*"],
-                ),
+                    allowedOrigins: [https://s3-website-test.domain.example],
+                    exposeHeaders: [ETag],
+                    maxAgeSeconds: 3000,
+                },
+                {
+                    allowedMethods: [GET],
+                    allowedOrigins: [*],
+                },
             ])
         ```
 

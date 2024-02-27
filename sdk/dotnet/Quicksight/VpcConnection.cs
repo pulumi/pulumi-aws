@@ -24,7 +24,7 @@ namespace Pulumi.Aws.Quicksight
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var vpcConnectionRole = new Aws.Iam.Role("vpcConnectionRole", new()
+    ///     var vpcConnectionRole = new Aws.Iam.Role.Role("vpcConnectionRole", new()
     ///     {
     ///         AssumeRolePolicy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
@@ -44,10 +44,10 @@ namespace Pulumi.Aws.Quicksight
     ///         }),
     ///         InlinePolicies = new[]
     ///         {
-    ///             new Aws.Iam.Inputs.RoleInlinePolicyArgs
+    ///             
     ///             {
-    ///                 Name = "QuickSightVPCConnectionRolePolicy",
-    ///                 Policy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///                 { "name", "QuickSightVPCConnectionRolePolicy" },
+    ///                 { "policy", JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///                 {
     ///                     ["Version"] = "2012-10-17",
     ///                     ["Statement"] = new[]
@@ -69,12 +69,12 @@ namespace Pulumi.Aws.Quicksight
     ///                             },
     ///                         },
     ///                     },
-    ///                 }),
+    ///                 }) },
     ///             },
     ///         },
     ///     });
     /// 
-    ///     var example = new Aws.Quicksight.VpcConnection("example", new()
+    ///     var example = new Aws.Quicksight.VpcConnection.VpcConnection("example", new()
     ///     {
     ///         VpcConnectionId = "example-connection-id",
     ///         RoleArn = vpcConnectionRole.Arn,

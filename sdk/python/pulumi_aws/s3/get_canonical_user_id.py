@@ -62,16 +62,6 @@ def get_canonical_user_id(opts: Optional[pulumi.InvokeOptions] = None) -> Awaita
     for the effective account in which this provider is working.
 
     > **NOTE:** To use this data source, you must have the `s3:ListAllMyBuckets` permission.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    current = aws.s3.get_canonical_user_id()
-    pulumi.export("canonicalUserId", current.id)
-    ```
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -89,15 +79,5 @@ def get_canonical_user_id_output(opts: Optional[pulumi.InvokeOptions] = None) ->
     for the effective account in which this provider is working.
 
     > **NOTE:** To use this data source, you must have the `s3:ListAllMyBuckets` permission.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    current = aws.s3.get_canonical_user_id()
-    pulumi.export("canonicalUserId", current.id)
-    ```
     """
     ...

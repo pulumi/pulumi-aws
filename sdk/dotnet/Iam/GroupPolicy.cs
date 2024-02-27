@@ -23,12 +23,12 @@ namespace Pulumi.Aws.Iam
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var myDevelopers = new Aws.Iam.Group("myDevelopers", new()
+    ///     var myDevelopers = new Aws.Iam.Group.Group("myDevelopers", new()
     ///     {
     ///         Path = "/users/",
     ///     });
     /// 
-    ///     var myDeveloperPolicy = new Aws.Iam.GroupPolicy("myDeveloperPolicy", new()
+    ///     var myDeveloperPolicy = new Aws.Iam.GroupPolicy.GroupPolicy("myDeveloperPolicy", new()
     ///     {
     ///         Group = myDevelopers.Name,
     ///         Policy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;

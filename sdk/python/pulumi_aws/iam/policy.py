@@ -298,15 +298,15 @@ class Policy(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        policy = aws.iam.Policy("policy",
-            path="/",
-            description="My test policy",
+        policy = aws.iam.policy.Policy("policy",
+            path=/,
+            description=My test policy,
             policy=json.dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Action": ["ec2:Describe*"],
-                    "Effect": "Allow",
-                    "Resource": "*",
+                Version: 2012-10-17,
+                Statement: [{
+                    Action: [ec2:Describe*],
+                    Effect: Allow,
+                    Resource: *,
                 }],
             }))
         ```
@@ -345,15 +345,15 @@ class Policy(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        policy = aws.iam.Policy("policy",
-            path="/",
-            description="My test policy",
+        policy = aws.iam.policy.Policy("policy",
+            path=/,
+            description=My test policy,
             policy=json.dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Action": ["ec2:Describe*"],
-                    "Effect": "Allow",
-                    "Resource": "*",
+                Version: 2012-10-17,
+                Statement: [{
+                    Action: [ec2:Describe*],
+                    Effect: Allow,
+                    Resource: *,
                 }],
             }))
         ```

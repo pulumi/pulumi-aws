@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const myDetector = new aws.guardduty.Detector("myDetector", {
+ * const myDetector = new aws.guardduty/detector.Detector("myDetector", {
  *     datasources: {
  *         kubernetes: {
  *             auditLogs: {

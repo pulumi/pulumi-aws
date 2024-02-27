@@ -22,7 +22,7 @@ namespace Pulumi.Aws.DataExchange
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.DataExchange.Revision("example", new()
+    ///     var example = new Aws.Dataexchange.Revision.Revision("example", new()
     ///     {
     ///         DataSetId = aws_dataexchange_data_set.Example.Id,
     ///     });

@@ -24,7 +24,7 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.ApiGateway.ApiKey("example");
+    ///     var example = new Aws.Apigateway.ApiKey.ApiKey("example");
     /// 
     /// });
     /// ```

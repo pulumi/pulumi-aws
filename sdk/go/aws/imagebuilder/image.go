@@ -21,25 +21,23 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/imagebuilder"
+//	imagebuilder/image "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/imagebuilder/image"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := imagebuilder.NewImage(ctx, "example", &imagebuilder.ImageArgs{
-//				DistributionConfigurationArn:   pulumi.Any(aws_imagebuilder_distribution_configuration.Example.Arn),
-//				ImageRecipeArn:                 pulumi.Any(aws_imagebuilder_image_recipe.Example.Arn),
-//				InfrastructureConfigurationArn: pulumi.Any(aws_imagebuilder_infrastructure_configuration.Example.Arn),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := imagebuilder/image.NewImage(ctx, "example", &imagebuilder/image.ImageArgs{
+// DistributionConfigurationArn: aws_imagebuilder_distribution_configuration.Example.Arn,
+// ImageRecipeArn: aws_imagebuilder_image_recipe.Example.Arn,
+// InfrastructureConfigurationArn: aws_imagebuilder_infrastructure_configuration.Example.Arn,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

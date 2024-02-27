@@ -27,9 +27,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.appmesh.VirtualGateway;
- * import com.pulumi.aws.appmesh.VirtualGatewayArgs;
- * import com.pulumi.aws.appmesh.inputs.VirtualGatewaySpecArgs;
+ * import com.pulumi.aws.appmesh_virtualGateway.VirtualGateway;
+ * import com.pulumi.aws.appmesh_virtualGateway.VirtualGatewayArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -45,15 +44,8 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new VirtualGateway(&#34;example&#34;, VirtualGatewayArgs.builder()        
  *             .meshName(&#34;example-service-mesh&#34;)
- *             .spec(VirtualGatewaySpecArgs.builder()
- *                 .listeners(VirtualGatewaySpecListenerArgs.builder()
- *                     .portMapping(VirtualGatewaySpecListenerPortMappingArgs.builder()
- *                         .port(8080)
- *                         .protocol(&#34;http&#34;)
- *                         .build())
- *                     .build())
- *                 .build())
- *             .tags(Map.of(&#34;Environment&#34;, &#34;test&#34;))
+ *             .spec(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -66,12 +58,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.appmesh.VirtualGateway;
- * import com.pulumi.aws.appmesh.VirtualGatewayArgs;
- * import com.pulumi.aws.appmesh.inputs.VirtualGatewaySpecArgs;
- * import com.pulumi.aws.appmesh.inputs.VirtualGatewaySpecLoggingArgs;
- * import com.pulumi.aws.appmesh.inputs.VirtualGatewaySpecLoggingAccessLogArgs;
- * import com.pulumi.aws.appmesh.inputs.VirtualGatewaySpecLoggingAccessLogFileArgs;
+ * import com.pulumi.aws.appmesh_virtualGateway.VirtualGateway;
+ * import com.pulumi.aws.appmesh_virtualGateway.VirtualGatewayArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -87,29 +75,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new VirtualGateway(&#34;example&#34;, VirtualGatewayArgs.builder()        
  *             .meshName(&#34;example-service-mesh&#34;)
- *             .spec(VirtualGatewaySpecArgs.builder()
- *                 .listeners(VirtualGatewaySpecListenerArgs.builder()
- *                     .portMapping(VirtualGatewaySpecListenerPortMappingArgs.builder()
- *                         .port(8080)
- *                         .protocol(&#34;http&#34;)
- *                         .build())
- *                     .tls(VirtualGatewaySpecListenerTlsArgs.builder()
- *                         .certificate(VirtualGatewaySpecListenerTlsCertificateArgs.builder()
- *                             .acm(VirtualGatewaySpecListenerTlsCertificateAcmArgs.builder()
- *                                 .certificateArn(aws_acm_certificate.example().arn())
- *                                 .build())
- *                             .build())
- *                         .mode(&#34;STRICT&#34;)
- *                         .build())
- *                     .build())
- *                 .logging(VirtualGatewaySpecLoggingArgs.builder()
- *                     .accessLog(VirtualGatewaySpecLoggingAccessLogArgs.builder()
- *                         .file(VirtualGatewaySpecLoggingAccessLogFileArgs.builder()
- *                             .path(&#34;/var/log/access.log&#34;)
- *                             .build())
- *                         .build())
- *                     .build())
- *                 .build())
+ *             .spec(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

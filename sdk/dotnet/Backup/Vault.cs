@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Backup
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Backup.Vault("example", new()
+    ///     var example = new Aws.Backup.Vault.Vault("example", new()
     ///     {
     ///         KmsKeyArn = aws_kms_key.Example.Arn,
     ///     });

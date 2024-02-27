@@ -10,56 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Creates and manages an AWS IoT topic rule.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const mytopic = new aws.sns.Topic("mytopic", {});
- * const myerrortopic = new aws.sns.Topic("myerrortopic", {});
- * const rule = new aws.iot.TopicRule("rule", {
- *     description: "Example rule",
- *     enabled: true,
- *     sql: "SELECT * FROM 'topic/test'",
- *     sqlVersion: "2016-03-23",
- *     sns: [{
- *         messageFormat: "RAW",
- *         roleArn: aws_iam_role.role.arn,
- *         targetArn: mytopic.arn,
- *     }],
- *     errorAction: {
- *         sns: {
- *             messageFormat: "RAW",
- *             roleArn: aws_iam_role.role.arn,
- *             targetArn: myerrortopic.arn,
- *         },
- *     },
- * });
- * const assumeRole = aws.iam.getPolicyDocument({
- *     statements: [{
- *         effect: "Allow",
- *         principals: [{
- *             type: "Service",
- *             identifiers: ["iot.amazonaws.com"],
- *         }],
- *         actions: ["sts:AssumeRole"],
- *     }],
- * });
- * const myrole = new aws.iam.Role("myrole", {assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json)});
- * const mypolicyPolicyDocument = mytopic.arn.apply(arn => aws.iam.getPolicyDocumentOutput({
- *     statements: [{
- *         effect: "Allow",
- *         actions: ["sns:Publish"],
- *         resources: [arn],
- *     }],
- * }));
- * const mypolicyRolePolicy = new aws.iam.RolePolicy("mypolicyRolePolicy", {
- *     role: myrole.id,
- *     policy: mypolicyPolicyDocument.apply(mypolicyPolicyDocument => mypolicyPolicyDocument.json),
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import IoT Topic Rules using the `name`. For example:

@@ -12,66 +12,6 @@ namespace Pulumi.Aws.CodeArtifact
     /// <summary>
     /// Provides a CodeArtifact Domains Permissions Policy Resource.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleKey = new Aws.Kms.Key("exampleKey", new()
-    ///     {
-    ///         Description = "domain key",
-    ///     });
-    /// 
-    ///     var exampleDomain = new Aws.CodeArtifact.Domain("exampleDomain", new()
-    ///     {
-    ///         DomainName = "example",
-    ///         EncryptionKey = exampleKey.Arn,
-    ///     });
-    /// 
-    ///     var testPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
-    ///     {
-    ///         Statements = new[]
-    ///         {
-    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
-    ///             {
-    ///                 Effect = "Allow",
-    ///                 Principals = new[]
-    ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
-    ///                     {
-    ///                         Type = "*",
-    ///                         Identifiers = new[]
-    ///                         {
-    ///                             "*",
-    ///                         },
-    ///                     },
-    ///                 },
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "codeartifact:CreateRepository",
-    ///                 },
-    ///                 Resources = new[]
-    ///                 {
-    ///                     exampleDomain.Arn,
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var testDomainPermissions = new Aws.CodeArtifact.DomainPermissions("testDomainPermissions", new()
-    ///     {
-    ///         Domain = exampleDomain.DomainName,
-    ///         PolicyDocument = testPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import CodeArtifact Domain Permissions Policies using the CodeArtifact Domain ARN. For example:

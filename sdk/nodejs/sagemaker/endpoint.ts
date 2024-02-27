@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const endpoint = new aws.sagemaker.Endpoint("endpoint", {
+ * const endpoint = new aws.sagemaker/endpoint.Endpoint("endpoint", {
  *     endpointConfigName: aws_sagemaker_endpoint_configuration.ec.name,
  *     tags: {
  *         Name: "foo",

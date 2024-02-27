@@ -22,27 +22,27 @@ namespace Pulumi.Aws.NetworkFirewall
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.NetworkFirewall.FirewallPolicy("example", new()
+    ///     var example = new Aws.Networkfirewall.FirewallPolicy.FirewallPolicy("example", new()
     ///     {
-    ///         FirewallPolicyConfiguration = new Aws.NetworkFirewall.Inputs.FirewallPolicyFirewallPolicyArgs
+    ///         FirewallPolicy = 
     ///         {
-    ///             StatelessDefaultActions = new[]
+    ///             { "statelessDefaultActions", new[]
     ///             {
     ///                 "aws:pass",
-    ///             },
-    ///             StatelessFragmentDefaultActions = new[]
+    ///             } },
+    ///             { "statelessFragmentDefaultActions", new[]
     ///             {
     ///                 "aws:drop",
-    ///             },
-    ///             StatelessRuleGroupReferences = new[]
+    ///             } },
+    ///             { "statelessRuleGroupReferences", new[]
     ///             {
-    ///                 new Aws.NetworkFirewall.Inputs.FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArgs
+    ///                 
     ///                 {
-    ///                     Priority = 1,
-    ///                     ResourceArn = aws_networkfirewall_rule_group.Example.Arn,
+    ///                     { "priority", 1 },
+    ///                     { "resourceArn", aws_networkfirewall_rule_group.Example.Arn },
     ///                 },
-    ///             },
-    ///             TlsInspectionConfigurationArn = "arn:aws:network-firewall:REGION:ACCT:tls-configuration/example",
+    ///             } },
+    ///             { "tlsInspectionConfigurationArn", "arn:aws:network-firewall:REGION:ACCT:tls-configuration/example" },
     ///         },
     ///         Tags = 
     ///         {
@@ -63,49 +63,98 @@ namespace Pulumi.Aws.NetworkFirewall
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.NetworkFirewall.FirewallPolicy("example", new()
+    ///     var example = new Aws.Networkfirewall.FirewallPolicy.FirewallPolicy("example", new()
     ///     {
-    ///         FirewallPolicyConfiguration = new Aws.NetworkFirewall.Inputs.FirewallPolicyFirewallPolicyArgs
+    ///         FirewallPolicy = 
     ///         {
-    ///             PolicyVariables = new Aws.NetworkFirewall.Inputs.FirewallPolicyFirewallPolicyPolicyVariablesArgs
+    ///             { "policyVariables", 
     ///             {
-    ///                 RuleVariables = new[]
+    ///                 { "ruleVariables", new[]
     ///                 {
-    ///                     new Aws.NetworkFirewall.Inputs.FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArgs
+    ///                     
     ///                     {
-    ///                         Key = "HOME_NET",
-    ///                         IpSet = new Aws.NetworkFirewall.Inputs.FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSetArgs
+    ///                         { "key", "HOME_NET" },
+    ///                         { "ipSet", 
     ///                         {
-    ///                             Definitions = new[]
+    ///                             { "definitions", new[]
     ///                             {
     ///                                 "10.0.0.0/16",
     ///                                 "10.1.0.0/24",
-    ///                             },
-    ///                         },
+    ///                             } },
+    ///                         } },
     ///                     },
-    ///                 },
-    ///             },
-    ///             StatelessDefaultActions = new[]
+    ///                 } },
+    ///             } },
+    ///             { "statelessDefaultActions", new[]
     ///             {
     ///                 "aws:pass",
-    ///             },
-    ///             StatelessFragmentDefaultActions = new[]
+    ///             } },
+    ///             { "statelessFragmentDefaultActions", new[]
     ///             {
     ///                 "aws:drop",
-    ///             },
-    ///             StatelessRuleGroupReferences = new[]
+    ///             } },
+    ///             { "statelessRuleGroupReferences", new[]
     ///             {
-    ///                 new Aws.NetworkFirewall.Inputs.FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArgs
+    ///                 
     ///                 {
-    ///                     Priority = 1,
-    ///                     ResourceArn = aws_networkfirewall_rule_group.Example.Arn,
+    ///                     { "priority", 1 },
+    ///                     { "resourceArn", aws_networkfirewall_rule_group.Example.Arn },
     ///                 },
-    ///             },
+    ///             } },
     ///         },
     ///         Tags = 
     ///         {
     ///             { "Tag1", "Value1" },
     ///             { "Tag2", "Value2" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Policy with a Custom Action for Stateless Inspection
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var test = new Aws.Networkfirewall.FirewallPolicy.FirewallPolicy("test", new()
+    ///     {
+    ///         FirewallPolicy = 
+    ///         {
+    ///             { "statelessCustomActions", new[]
+    ///             {
+    ///                 
+    ///                 {
+    ///                     { "actionDefinition", 
+    ///                     {
+    ///                         { "publishMetricAction", 
+    ///                         {
+    ///                             { "dimension", new[]
+    ///                             {
+    ///                                 
+    ///                                 {
+    ///                                     { "value", "1" },
+    ///                                 },
+    ///                             } },
+    ///                         } },
+    ///                     } },
+    ///                     { "actionName", "ExampleCustomAction" },
+    ///                 },
+    ///             } },
+    ///             { "statelessDefaultActions", new[]
+    ///             {
+    ///                 "aws:pass",
+    ///                 "ExampleCustomAction",
+    ///             } },
+    ///             { "statelessFragmentDefaultActions", new[]
+    ///             {
+    ///                 "aws:drop",
+    ///             } },
     ///         },
     ///     });
     /// 

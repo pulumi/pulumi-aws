@@ -169,14 +169,6 @@ def get_identity_pool(identity_pool_name: Optional[str] = None,
     Data source for managing an AWS Cognito Identity Pool.
 
     ## Example Usage
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.cognito.get_identity_pool(identity_pool_name="test pool")
-    ```
 
 
     :param str identity_pool_name: The Cognito Identity Pool name.
@@ -210,14 +202,6 @@ def get_identity_pool_output(identity_pool_name: Optional[pulumi.Input[str]] = N
     Data source for managing an AWS Cognito Identity Pool.
 
     ## Example Usage
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.cognito.get_identity_pool(identity_pool_name="test pool")
-    ```
 
 
     :param str identity_pool_name: The Cognito Identity Pool name.

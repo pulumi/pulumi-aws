@@ -23,7 +23,7 @@ namespace Pulumi.Aws.ServiceCatalog
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.ServiceCatalog.PrincipalPortfolioAssociation("example", new()
+    ///     var example = new Aws.Servicecatalog.PrincipalPortfolioAssociation.PrincipalPortfolioAssociation("example", new()
     ///     {
     ///         PortfolioId = "port-68656c6c6f",
     ///         PrincipalArn = "arn:aws:iam::123456789012:user/Eleanor",

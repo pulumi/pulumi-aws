@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const awsGlueCatalogTable = new aws.glue.CatalogTable("awsGlueCatalogTable", {
+ * const awsGlueCatalogTable = new aws.glue/catalogTable.CatalogTable("awsGlueCatalogTable", {
  *     databaseName: "MyCatalogDatabase",
  *     name: "MyCatalogTable",
  * });
@@ -28,7 +28,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const awsGlueCatalogTable = new aws.glue.CatalogTable("awsGlueCatalogTable", {
+ * const awsGlueCatalogTable = new aws.glue/catalogTable.CatalogTable("awsGlueCatalogTable", {
  *     databaseName: "MyCatalogDatabase",
  *     name: "MyCatalogTable",
  *     parameters: {
@@ -67,7 +67,7 @@ import * as utilities from "../utilities";
  *         serDeInfo: {
  *             name: "my-stream",
  *             parameters: {
- *                 "serialization.format": "1",
+ *                 "serialization.format": 1,
  *             },
  *             serializationLibrary: "org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe",
  *         },

@@ -21,83 +21,82 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/datapipeline"
+//	datapipeline/pipeline "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/datapipeline/pipeline"
+//	datapipeline/pipelineDefinition "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/datapipeline/pipelineDefinition"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := datapipeline.NewPipeline(ctx, "default", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = datapipeline.NewPipelineDefinition(ctx, "example", &datapipeline.PipelineDefinitionArgs{
-//				PipelineId: _default.ID(),
-//				PipelineObjects: datapipeline.PipelineDefinitionPipelineObjectArray{
-//					&datapipeline.PipelineDefinitionPipelineObjectArgs{
-//						Id:   pulumi.String("Default"),
-//						Name: pulumi.String("Default"),
-//						Fields: datapipeline.PipelineDefinitionPipelineObjectFieldArray{
-//							&datapipeline.PipelineDefinitionPipelineObjectFieldArgs{
-//								Key:         pulumi.String("workerGroup"),
-//								StringValue: pulumi.String("workerGroup"),
-//							},
-//						},
-//					},
-//					&datapipeline.PipelineDefinitionPipelineObjectArgs{
-//						Id:   pulumi.String("Schedule"),
-//						Name: pulumi.String("Schedule"),
-//						Fields: datapipeline.PipelineDefinitionPipelineObjectFieldArray{
-//							&datapipeline.PipelineDefinitionPipelineObjectFieldArgs{
-//								Key:         pulumi.String("startDateTime"),
-//								StringValue: pulumi.String("2012-12-12T00:00:00"),
-//							},
-//							&datapipeline.PipelineDefinitionPipelineObjectFieldArgs{
-//								Key:         pulumi.String("type"),
-//								StringValue: pulumi.String("Schedule"),
-//							},
-//							&datapipeline.PipelineDefinitionPipelineObjectFieldArgs{
-//								Key:         pulumi.String("period"),
-//								StringValue: pulumi.String("1 hour"),
-//							},
-//							&datapipeline.PipelineDefinitionPipelineObjectFieldArgs{
-//								Key:         pulumi.String("endDateTime"),
-//								StringValue: pulumi.String("2012-12-21T18:00:00"),
-//							},
-//						},
-//					},
-//					&datapipeline.PipelineDefinitionPipelineObjectArgs{
-//						Id:   pulumi.String("SayHello"),
-//						Name: pulumi.String("SayHello"),
-//						Fields: datapipeline.PipelineDefinitionPipelineObjectFieldArray{
-//							&datapipeline.PipelineDefinitionPipelineObjectFieldArgs{
-//								Key:         pulumi.String("type"),
-//								StringValue: pulumi.String("ShellCommandActivity"),
-//							},
-//							&datapipeline.PipelineDefinitionPipelineObjectFieldArgs{
-//								Key:         pulumi.String("command"),
-//								StringValue: pulumi.String("echo hello"),
-//							},
-//							&datapipeline.PipelineDefinitionPipelineObjectFieldArgs{
-//								Key:         pulumi.String("parent"),
-//								StringValue: pulumi.String("Default"),
-//							},
-//							&datapipeline.PipelineDefinitionPipelineObjectFieldArgs{
-//								Key:         pulumi.String("schedule"),
-//								StringValue: pulumi.String("Schedule"),
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := datapipeline/pipeline.NewPipeline(ctx, "default", nil)
+// if err != nil {
+// return err
+// }
+// _, err = datapipeline/pipelineDefinition.NewPipelineDefinition(ctx, "example", &datapipeline/pipelineDefinition.PipelineDefinitionArgs{
+// PipelineId: _default.Id,
+// PipelineObjects: []map[string]interface{}{
+// map[string]interface{}{
+// "id": "Default",
+// "name": "Default",
+// "fields": []map[string]interface{}{
+// map[string]interface{}{
+// "key": "workerGroup",
+// "stringValue": "workerGroup",
+// },
+// },
+// },
+// map[string]interface{}{
+// "id": "Schedule",
+// "name": "Schedule",
+// "fields": []map[string]interface{}{
+// map[string]interface{}{
+// "key": "startDateTime",
+// "stringValue": "2012-12-12T00:00:00",
+// },
+// map[string]interface{}{
+// "key": "type",
+// "stringValue": "Schedule",
+// },
+// map[string]interface{}{
+// "key": "period",
+// "stringValue": "1 hour",
+// },
+// map[string]interface{}{
+// "key": "endDateTime",
+// "stringValue": "2012-12-21T18:00:00",
+// },
+// },
+// },
+// map[string]interface{}{
+// "id": "SayHello",
+// "name": "SayHello",
+// "fields": []map[string]interface{}{
+// map[string]interface{}{
+// "key": "type",
+// "stringValue": "ShellCommandActivity",
+// },
+// map[string]interface{}{
+// "key": "command",
+// "stringValue": "echo hello",
+// },
+// map[string]interface{}{
+// "key": "parent",
+// "stringValue": "Default",
+// },
+// map[string]interface{}{
+// "key": "schedule",
+// "stringValue": "Schedule",
+// },
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

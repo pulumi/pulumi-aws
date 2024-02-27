@@ -176,14 +176,14 @@ class DetectorFeature(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.guardduty.Detector("example", enable=True)
-        eks_runtime_monitoring = aws.guardduty.DetectorFeature("eksRuntimeMonitoring",
+        example = aws.guardduty.detector.Detector("example", enable=True)
+        eks_runtime_monitoring = aws.guardduty.detector_feature.DetectorFeature("eksRuntimeMonitoring",
             detector_id=example.id,
-            status="ENABLED",
-            additional_configurations=[aws.guardduty.DetectorFeatureAdditionalConfigurationArgs(
-                name="EKS_ADDON_MANAGEMENT",
-                status="ENABLED",
-            )])
+            status=ENABLED,
+            additional_configurations=[{
+                name: EKS_ADDON_MANAGEMENT,
+                status: ENABLED,
+            }])
         ```
 
         :param str resource_name: The name of the resource.
@@ -210,14 +210,14 @@ class DetectorFeature(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.guardduty.Detector("example", enable=True)
-        eks_runtime_monitoring = aws.guardduty.DetectorFeature("eksRuntimeMonitoring",
+        example = aws.guardduty.detector.Detector("example", enable=True)
+        eks_runtime_monitoring = aws.guardduty.detector_feature.DetectorFeature("eksRuntimeMonitoring",
             detector_id=example.id,
-            status="ENABLED",
-            additional_configurations=[aws.guardduty.DetectorFeatureAdditionalConfigurationArgs(
-                name="EKS_ADDON_MANAGEMENT",
-                status="ENABLED",
-            )])
+            status=ENABLED,
+            additional_configurations=[{
+                name: EKS_ADDON_MANAGEMENT,
+                status: ENABLED,
+            }])
         ```
 
         :param str resource_name: The name of the resource.

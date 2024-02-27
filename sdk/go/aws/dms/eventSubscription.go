@@ -21,35 +21,33 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/dms"
+//	dms/eventSubscription "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/dms/eventSubscription"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := dms.NewEventSubscription(ctx, "example", &dms.EventSubscriptionArgs{
-//				Enabled: pulumi.Bool(true),
-//				EventCategories: pulumi.StringArray{
-//					pulumi.String("creation"),
-//					pulumi.String("failure"),
-//				},
-//				SnsTopicArn: pulumi.Any(aws_sns_topic.Example.Arn),
-//				SourceIds: pulumi.StringArray{
-//					aws_dms_replication_task.Example.Replication_task_id,
-//				},
-//				SourceType: pulumi.String("replication-task"),
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("example"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := dms/eventSubscription.NewEventSubscription(ctx, "example", &dms/eventSubscription.EventSubscriptionArgs{
+// Enabled: true,
+// EventCategories: []string{
+// "creation",
+// "failure",
+// },
+// SnsTopicArn: aws_sns_topic.Example.Arn,
+// SourceIds: []interface{}{
+// aws_dms_replication_task.Example.Replication_task_id,
+// },
+// SourceType: "replication-task",
+// Tags: map[string]interface{}{
+// "Name": "example",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

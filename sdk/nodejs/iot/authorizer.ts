@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * import * as fs from "fs";
  *
- * const example = new aws.iot.Authorizer("example", {
+ * const example = new aws.iot/authorizer.Authorizer("example", {
  *     authorizerFunctionArn: aws_lambda_function.example.arn,
  *     signingDisabled: false,
  *     status: "ACTIVE",

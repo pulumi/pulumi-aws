@@ -10,49 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Resource for managing a Roles Anywhere Trust Anchor.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleCertificateAuthority = new aws.acmpca.CertificateAuthority("exampleCertificateAuthority", {
- *     permanentDeletionTimeInDays: 7,
- *     type: "ROOT",
- *     certificateAuthorityConfiguration: {
- *         keyAlgorithm: "RSA_4096",
- *         signingAlgorithm: "SHA512WITHRSA",
- *         subject: {
- *             commonName: "example.com",
- *         },
- *     },
- * });
- * const current = aws.getPartition({});
- * const testCertificate = new aws.acmpca.Certificate("testCertificate", {
- *     certificateAuthorityArn: exampleCertificateAuthority.arn,
- *     certificateSigningRequest: exampleCertificateAuthority.certificateSigningRequest,
- *     signingAlgorithm: "SHA512WITHRSA",
- *     templateArn: current.then(current => `arn:${current.partition}:acm-pca:::template/RootCACertificate/V1`),
- *     validity: {
- *         type: "YEARS",
- *         value: "1",
- *     },
- * });
- * const exampleCertificateAuthorityCertificate = new aws.acmpca.CertificateAuthorityCertificate("exampleCertificateAuthorityCertificate", {
- *     certificateAuthorityArn: exampleCertificateAuthority.arn,
- *     certificate: aws_acmpca_certificate.example.certificate,
- *     certificateChain: aws_acmpca_certificate.example.certificate_chain,
- * });
- * const testTrustAnchor = new aws.rolesanywhere.TrustAnchor("testTrustAnchor", {source: {
- *     sourceData: {
- *         acmPcaArn: exampleCertificateAuthority.arn,
- *     },
- *     sourceType: "AWS_ACM_PCA",
- * }}, {
- *     dependsOn: [exampleCertificateAuthorityCertificate],
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import `aws_rolesanywhere_trust_anchor` using its `id`. For example:

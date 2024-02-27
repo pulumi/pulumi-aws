@@ -24,15 +24,15 @@ namespace Pulumi.Aws.Synthetics
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var some = new Aws.Synthetics.Canary("some", new()
+    ///     var some = new Aws.Synthetics.Canary.Canary("some", new()
     ///     {
     ///         ArtifactS3Location = "s3://some-bucket/",
     ///         ExecutionRoleArn = "some-role",
     ///         Handler = "exports.handler",
     ///         RuntimeVersion = "syn-1.0",
-    ///         Schedule = new Aws.Synthetics.Inputs.CanaryScheduleArgs
+    ///         Schedule = 
     ///         {
-    ///             Expression = "rate(0 minute)",
+    ///             { "expression", "rate(0 minute)" },
     ///         },
     ///         ZipFile = "test-fixtures/lambdatest.zip",
     ///     });

@@ -20,29 +20,27 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/athena"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	athena/database "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/athena/database"
+//	s3/bucketV2 "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/s3/bucketV2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = athena.NewDatabase(ctx, "exampleDatabase", &athena.DatabaseArgs{
-//				Name:   pulumi.String("database_name"),
-//				Bucket: exampleBucketV2.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleBucketV2, err := s3/bucketV2.NewBucketV2(ctx, "exampleBucketV2", nil)
+// if err != nil {
+// return err
+// }
+// _, err = athena/database.NewDatabase(ctx, "exampleDatabase", &athena/database.DatabaseArgs{
+// Name: "database_name",
+// Bucket: exampleBucketV2.Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

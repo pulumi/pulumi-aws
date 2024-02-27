@@ -58,10 +58,7 @@ import javax.annotation.Nullable;
  * 	&#34;databaseInstallationFileNames&#34;:[&#34;V982063-01.zip&#34;]
  *   }
  *             &#34;&#34;&#34;)
- *             .tags(Map.ofEntries(
- *                 Map.entry(&#34;Name&#34;, &#34;example&#34;),
- *                 Map.entry(&#34;Key&#34;, &#34;value&#34;)
- *             ))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -103,10 +100,7 @@ import javax.annotation.Nullable;
  *             .kmsKeyId(exampleKey.arn())
  *             .filename(&#34;manifest_1915_GI.json&#34;)
  *             .manifestHash(computeFileBase64Sha256(manifest_1915_GI.json()))
- *             .tags(Map.ofEntries(
- *                 Map.entry(&#34;Name&#34;, &#34;example&#34;),
- *                 Map.entry(&#34;Key&#34;, &#34;value&#34;)
- *             ))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

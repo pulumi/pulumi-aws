@@ -65,7 +65,7 @@ import javax.annotation.Nullable;
  *             .port(3306)
  *             .serverName(&#34;test&#34;)
  *             .sslMode(&#34;none&#34;)
- *             .tags(Map.of(&#34;Name&#34;, &#34;test&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .username(&#34;test&#34;)
  *             .build());
  * 

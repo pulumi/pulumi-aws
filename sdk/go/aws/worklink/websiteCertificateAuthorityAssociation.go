@@ -21,36 +21,36 @@ import (
 //
 //	"os"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/worklink"
+//	worklink/fleet "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/worklink/fleet"
+//	worklink/websiteCertificateAuthorityAssociation "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/worklink/websiteCertificateAuthorityAssociation"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func readFileOrPanic(path string) pulumi.StringPtrInput {
-//		data, err := os.ReadFile(path)
-//		if err != nil {
-//			panic(err.Error())
-//		}
-//		return pulumi.String(string(data))
-//	}
+//					data, err := os.ReadFile(path)
+//					if err != nil {
+//						panic(err.Error())
+//					}
+//					return pulumi.String(string(data))
+//				}
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := worklink.NewFleet(ctx, "example", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = worklink.NewWebsiteCertificateAuthorityAssociation(ctx, "test", &worklink.WebsiteCertificateAuthorityAssociationArgs{
-//				FleetArn:    pulumi.Any(aws_worklink_fleet.Test.Arn),
-//				Certificate: readFileOrPanic("certificate.pem"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := worklink/fleet.NewFleet(ctx, "example", nil)
+// if err != nil {
+// return err
+// }
+// _, err = worklink/websiteCertificateAuthorityAssociation.NewWebsiteCertificateAuthorityAssociation(ctx, "test", &worklink/websiteCertificateAuthorityAssociation.WebsiteCertificateAuthorityAssociationArgs{
+// FleetArn: aws_worklink_fleet.Test.Arn,
+// Certificate: readFileOrPanic("certificate.pem"),
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

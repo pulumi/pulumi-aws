@@ -171,23 +171,6 @@ def get_workspace(directory_id: Optional[str] = None,
     Use this data source to get information about a workspace in [AWS Workspaces](https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces.html) Service.
 
     ## Example Usage
-    ### Filter By Workspace ID
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.workspaces.get_workspace(workspace_id="ws-cj5xcxsz5")
-    ```
-    ### Filter By Directory ID & User Name
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.workspaces.get_workspace(directory_id="d-9967252f57",
-        user_name="Example")
-    ```
 
 
     :param str directory_id: ID of the directory for the WorkSpace. You have to specify `user_name` along with `directory_id`. You cannot combine this parameter with `workspace_id`.
@@ -229,23 +212,6 @@ def get_workspace_output(directory_id: Optional[pulumi.Input[Optional[str]]] = N
     Use this data source to get information about a workspace in [AWS Workspaces](https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces.html) Service.
 
     ## Example Usage
-    ### Filter By Workspace ID
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.workspaces.get_workspace(workspace_id="ws-cj5xcxsz5")
-    ```
-    ### Filter By Directory ID & User Name
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.workspaces.get_workspace(directory_id="d-9967252f57",
-        user_name="Example")
-    ```
 
 
     :param str directory_id: ID of the directory for the WorkSpace. You have to specify `user_name` along with `directory_id`. You cannot combine this parameter with `workspace_id`.

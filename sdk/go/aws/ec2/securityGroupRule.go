@@ -33,123 +33,31 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	ec2/securityGroupRule "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/securityGroupRule"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.NewSecurityGroupRule(ctx, "example", &ec2.SecurityGroupRuleArgs{
-//				Type:     pulumi.String("ingress"),
-//				FromPort: pulumi.Int(0),
-//				ToPort:   pulumi.Int(65535),
-//				Protocol: pulumi.String("tcp"),
-//				CidrBlocks: pulumi.StringArray{
-//					aws_vpc.Example.Cidr_block,
-//				},
-//				Ipv6CidrBlocks: pulumi.StringArray{
-//					aws_vpc.Example.Ipv6_cidr_block,
-//				},
-//				SecurityGroupId: pulumi.String("sg-123456"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// ### Usage With Prefix List IDs
-//
-// Prefix Lists are either managed by AWS internally, or created by the customer using a
-// Managed Prefix List resource. Prefix Lists provided by
-// AWS are associated with a prefix list name, or service name, that is linked to a specific region.
-//
-// Prefix list IDs are exported on VPC Endpoints, so you can use this format:
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			myEndpoint, err := ec2.NewVpcEndpoint(ctx, "myEndpoint", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ec2.NewSecurityGroupRule(ctx, "allowAll", &ec2.SecurityGroupRuleArgs{
-//				Type:     pulumi.String("egress"),
-//				ToPort:   pulumi.Int(0),
-//				Protocol: pulumi.String("-1"),
-//				PrefixListIds: pulumi.StringArray{
-//					myEndpoint.PrefixListId,
-//				},
-//				FromPort:        pulumi.Int(0),
-//				SecurityGroupId: pulumi.String("sg-123456"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// You can also find a specific Prefix List using the `ec2.getPrefixList`
-// or `ec2ManagedPrefixList` data sources:
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			current, err := aws.GetRegion(ctx, nil, nil)
-//			if err != nil {
-//				return err
-//			}
-//			s3, err := ec2.GetPrefixList(ctx, &ec2.GetPrefixListArgs{
-//				Name: pulumi.StringRef(fmt.Sprintf("com.amazonaws.%v.s3", current.Name)),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ec2.NewSecurityGroupRule(ctx, "s3GatewayEgress", &ec2.SecurityGroupRuleArgs{
-//				Description:     pulumi.String("S3 Gateway Egress"),
-//				Type:            pulumi.String("egress"),
-//				SecurityGroupId: pulumi.String("sg-123456"),
-//				FromPort:        pulumi.Int(443),
-//				ToPort:          pulumi.Int(443),
-//				Protocol:        pulumi.String("tcp"),
-//				PrefixListIds: pulumi.StringArray{
-//					*pulumi.String(s3.Id),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := ec2/securityGroupRule.NewSecurityGroupRule(ctx, "example", &ec2/securityGroupRule.SecurityGroupRuleArgs{
+// Type: "ingress",
+// FromPort: 0,
+// ToPort: 65535,
+// Protocol: "tcp",
+// CidrBlocks: []interface{}{
+// aws_vpc.Example.Cidr_block,
+// },
+// Ipv6CidrBlocks: []interface{}{
+// aws_vpc.Example.Ipv6_cidr_block,
+// },
+// SecurityGroupId: "sg-123456",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

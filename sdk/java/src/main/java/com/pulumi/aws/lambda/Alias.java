@@ -30,7 +30,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.lambda.Alias;
  * import com.pulumi.aws.lambda.AliasArgs;
- * import com.pulumi.aws.lambda.inputs.AliasRoutingConfigArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -48,9 +47,7 @@ import javax.annotation.Nullable;
  *             .description(&#34;a sample description&#34;)
  *             .functionName(aws_lambda_function.lambda_function_test().arn())
  *             .functionVersion(&#34;1&#34;)
- *             .routingConfig(AliasRoutingConfigArgs.builder()
- *                 .additionalVersionWeights(Map.of(&#34;2&#34;, 0.5))
- *                 .build())
+ *             .routingConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

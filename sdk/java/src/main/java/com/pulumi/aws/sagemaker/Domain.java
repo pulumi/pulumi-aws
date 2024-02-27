@@ -24,61 +24,6 @@ import javax.annotation.Nullable;
  * Provides a SageMaker Domain resource.
  * 
  * ## Example Usage
- * ### Basic usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.iam.IamFunctions;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
- * import com.pulumi.aws.iam.Role;
- * import com.pulumi.aws.iam.RoleArgs;
- * import com.pulumi.aws.sagemaker.Domain;
- * import com.pulumi.aws.sagemaker.DomainArgs;
- * import com.pulumi.aws.sagemaker.inputs.DomainDefaultUserSettingsArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var examplePolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .actions(&#34;sts:AssumeRole&#34;)
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type(&#34;Service&#34;)
- *                     .identifiers(&#34;sagemaker.amazonaws.com&#34;)
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *         var exampleRole = new Role(&#34;exampleRole&#34;, RoleArgs.builder()        
- *             .path(&#34;/&#34;)
- *             .assumeRolePolicy(examplePolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
- *             .build());
- * 
- *         var exampleDomain = new Domain(&#34;exampleDomain&#34;, DomainArgs.builder()        
- *             .domainName(&#34;example&#34;)
- *             .authMode(&#34;IAM&#34;)
- *             .vpcId(aws_vpc.example().id())
- *             .subnetIds(aws_subnet.example().id())
- *             .defaultUserSettings(DomainDefaultUserSettingsArgs.builder()
- *                 .executionRole(exampleRole.arn())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * ```
  * ### Using Custom Images
  * ```java
  * package generated_program;
@@ -90,14 +35,10 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.sagemaker.ImageArgs;
  * import com.pulumi.aws.sagemaker.AppImageConfig;
  * import com.pulumi.aws.sagemaker.AppImageConfigArgs;
- * import com.pulumi.aws.sagemaker.inputs.AppImageConfigKernelGatewayImageConfigArgs;
- * import com.pulumi.aws.sagemaker.inputs.AppImageConfigKernelGatewayImageConfigKernelSpecArgs;
  * import com.pulumi.aws.sagemaker.ImageVersion;
  * import com.pulumi.aws.sagemaker.ImageVersionArgs;
  * import com.pulumi.aws.sagemaker.Domain;
  * import com.pulumi.aws.sagemaker.DomainArgs;
- * import com.pulumi.aws.sagemaker.inputs.DomainDefaultUserSettingsArgs;
- * import com.pulumi.aws.sagemaker.inputs.DomainDefaultUserSettingsKernelGatewayAppSettingsArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -118,11 +59,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleAppImageConfig = new AppImageConfig(&#34;exampleAppImageConfig&#34;, AppImageConfigArgs.builder()        
  *             .appImageConfigName(&#34;example&#34;)
- *             .kernelGatewayImageConfig(AppImageConfigKernelGatewayImageConfigArgs.builder()
- *                 .kernelSpec(AppImageConfigKernelGatewayImageConfigKernelSpecArgs.builder()
- *                     .name(&#34;example&#34;)
- *                     .build())
- *                 .build())
+ *             .kernelGatewayImageConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleImageVersion = new ImageVersion(&#34;exampleImageVersion&#34;, ImageVersionArgs.builder()        
@@ -135,15 +72,7 @@ import javax.annotation.Nullable;
  *             .authMode(&#34;IAM&#34;)
  *             .vpcId(aws_vpc.example().id())
  *             .subnetIds(aws_subnet.example().id())
- *             .defaultUserSettings(DomainDefaultUserSettingsArgs.builder()
- *                 .executionRole(aws_iam_role.example().arn())
- *                 .kernelGatewayAppSettings(DomainDefaultUserSettingsKernelGatewayAppSettingsArgs.builder()
- *                     .customImages(DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageArgs.builder()
- *                         .appImageConfigName(exampleAppImageConfig.appImageConfigName())
- *                         .imageName(exampleImageVersion.imageName())
- *                         .build())
- *                     .build())
- *                 .build())
+ *             .defaultUserSettings(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

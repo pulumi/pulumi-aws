@@ -19,26 +19,24 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/redshift"
+//	redshift/snapshotSchedule "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/redshift/snapshotSchedule"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := redshift.NewSnapshotSchedule(ctx, "default", &redshift.SnapshotScheduleArgs{
-//				Definitions: pulumi.StringArray{
-//					pulumi.String("rate(12 hours)"),
-//				},
-//				Identifier: pulumi.String("tf-redshift-snapshot-schedule"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := redshift/snapshotSchedule.NewSnapshotSchedule(ctx, "default", &redshift/snapshotSchedule.SnapshotScheduleArgs{
+// Definitions: []string{
+// "rate(12 hours)",
+// },
+// Identifier: "tf-redshift-snapshot-schedule",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

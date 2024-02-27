@@ -154,14 +154,6 @@ def get_configuration_set(configuration_set_name: Optional[str] = None,
     Data source for managing an AWS SESv2 (Simple Email V2) Configuration Set.
 
     ## Example Usage
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.sesv2.get_configuration_set(configuration_set_name="example")
-    ```
 
 
     :param str configuration_set_name: The name of the configuration set.
@@ -194,14 +186,6 @@ def get_configuration_set_output(configuration_set_name: Optional[pulumi.Input[s
     Data source for managing an AWS SESv2 (Simple Email V2) Configuration Set.
 
     ## Example Usage
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.sesv2.get_configuration_set(configuration_set_name="example")
-    ```
 
 
     :param str configuration_set_name: The name of the configuration set.

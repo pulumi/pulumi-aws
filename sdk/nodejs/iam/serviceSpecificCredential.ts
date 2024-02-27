@@ -13,8 +13,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleUser = new aws.iam.User("exampleUser", {});
- * const exampleServiceSpecificCredential = new aws.iam.ServiceSpecificCredential("exampleServiceSpecificCredential", {
+ * const exampleUser = new aws.iam/user.User("exampleUser", {});
+ * const exampleServiceSpecificCredential = new aws.iam/serviceSpecificCredential.ServiceSpecificCredential("exampleServiceSpecificCredential", {
  *     serviceName: "codecommit.amazonaws.com",
  *     userName: exampleUser.name,
  * });

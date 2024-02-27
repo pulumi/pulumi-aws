@@ -142,12 +142,12 @@ class Policy(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        pubsub = aws.iot.Policy("pubsub", policy=json.dumps({
-            "Version": "2012-10-17",
-            "Statement": [{
-                "Action": ["iot:*"],
-                "Effect": "Allow",
-                "Resource": "*",
+        pubsub = aws.iot.policy.Policy("pubsub", policy=json.dumps({
+            Version: 2012-10-17,
+            Statement: [{
+                Action: [iot:*],
+                Effect: Allow,
+                Resource: *,
             }],
         }))
         ```
@@ -183,12 +183,12 @@ class Policy(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        pubsub = aws.iot.Policy("pubsub", policy=json.dumps({
-            "Version": "2012-10-17",
-            "Statement": [{
-                "Action": ["iot:*"],
-                "Effect": "Allow",
-                "Resource": "*",
+        pubsub = aws.iot.policy.Policy("pubsub", policy=json.dumps({
+            Version: 2012-10-17,
+            Statement: [{
+                Action: [iot:*],
+                Effect: Allow,
+                Resource: *,
             }],
         }))
         ```

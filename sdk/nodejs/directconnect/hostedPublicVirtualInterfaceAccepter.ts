@@ -8,40 +8,6 @@ import * as utilities from "../utilities";
  * Provides a resource to manage the accepter's side of a Direct Connect hosted public virtual interface.
  * This resource accepts ownership of a public virtual interface created by another AWS account.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const accepter = new aws.Provider("accepter", {});
- * // Accepter's credentials.
- * const accepterCallerIdentity = aws.getCallerIdentity({});
- * // Creator's side of the VIF
- * const creator = new aws.directconnect.HostedPublicVirtualInterface("creator", {
- *     connectionId: "dxcon-zzzzzzzz",
- *     ownerAccountId: accepterCallerIdentity.then(accepterCallerIdentity => accepterCallerIdentity.accountId),
- *     vlan: 4094,
- *     addressFamily: "ipv4",
- *     bgpAsn: 65352,
- *     customerAddress: "175.45.176.1/30",
- *     amazonAddress: "175.45.176.2/30",
- *     routeFilterPrefixes: [
- *         "210.52.109.0/24",
- *         "175.45.176.0/22",
- *     ],
- * });
- * // Accepter's side of the VIF.
- * const accepterHostedPublicVirtualInterfaceAccepter = new aws.directconnect.HostedPublicVirtualInterfaceAccepter("accepterHostedPublicVirtualInterfaceAccepter", {
- *     virtualInterfaceId: creator.id,
- *     tags: {
- *         Side: "Accepter",
- *     },
- * }, {
- *     provider: aws.accepter,
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import Direct Connect hosted public virtual interfaces using the VIF `id`. For example:

@@ -23,7 +23,7 @@ namespace Pulumi.Aws.SecurityLake
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.SecurityLake.CustomLogSource("example", new()
+    ///     var example = new Aws.Securitylake.CustomLogSource.CustomLogSource("example", new()
     ///     {
     ///         SourceName = "example-name",
     ///         SourceVersion = "1.0",
@@ -31,17 +31,17 @@ namespace Pulumi.Aws.SecurityLake
     ///         {
     ///             "FILE_ACTIVITY",
     ///         },
-    ///         Configuration = new Aws.SecurityLake.Inputs.CustomLogSourceConfigurationArgs
+    ///         Configuration = 
     ///         {
-    ///             CrawlerConfiguration = new Aws.SecurityLake.Inputs.CustomLogSourceConfigurationCrawlerConfigurationArgs
+    ///             { "crawlerConfiguration", 
     ///             {
-    ///                 RoleArn = aws_iam_role.Custom_log.Arn,
-    ///             },
-    ///             ProviderIdentity = new Aws.SecurityLake.Inputs.CustomLogSourceConfigurationProviderIdentityArgs
+    ///                 { "roleArn", aws_iam_role.Custom_log.Arn },
+    ///             } },
+    ///             { "providerIdentity", 
     ///             {
-    ///                 ExternalId = "example-id",
-    ///                 Principal = "123456789012",
-    ///             },
+    ///                 { "externalId", "example-id" },
+    ///                 { "principal", "123456789012" },
+    ///             } },
     ///         },
     ///     });
     /// 

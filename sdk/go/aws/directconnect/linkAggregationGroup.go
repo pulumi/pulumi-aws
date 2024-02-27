@@ -23,25 +23,23 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/directconnect"
+//	directconnect/linkAggregationGroup "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/directconnect/linkAggregationGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := directconnect.NewLinkAggregationGroup(ctx, "hoge", &directconnect.LinkAggregationGroupArgs{
-//				ConnectionsBandwidth: pulumi.String("1Gbps"),
-//				ForceDestroy:         pulumi.Bool(true),
-//				Location:             pulumi.String("EqDC2"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := directconnect/linkAggregationGroup.NewLinkAggregationGroup(ctx, "hoge", &directconnect/linkAggregationGroup.LinkAggregationGroupArgs{
+// ConnectionsBandwidth: "1Gbps",
+// ForceDestroy: true,
+// Location: "EqDC2",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

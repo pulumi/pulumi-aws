@@ -21,24 +21,22 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/redshift"
+//	redshift/endpointAuthorization "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/redshift/endpointAuthorization"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := redshift.NewEndpointAuthorization(ctx, "example", &redshift.EndpointAuthorizationArgs{
-//				Account:           pulumi.String("01234567910"),
-//				ClusterIdentifier: pulumi.Any(aws_redshift_cluster.Example.Cluster_identifier),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := redshift/endpointAuthorization.NewEndpointAuthorization(ctx, "example", &redshift/endpointAuthorization.EndpointAuthorizationArgs{
+// Account: "01234567910",
+// ClusterIdentifier: aws_redshift_cluster.Example.Cluster_identifier,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Backup
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Aws.Backup.RegionSettings("test", new()
+    ///     var test = new Aws.Backup.RegionSettings.RegionSettings("test", new()
     ///     {
     ///         ResourceTypeManagementPreference = 
     ///         {

@@ -22,36 +22,34 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/appmesh"
+//	appmesh/virtualGateway "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/appmesh/virtualGateway"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := appmesh.NewVirtualGateway(ctx, "example", &appmesh.VirtualGatewayArgs{
-//				MeshName: pulumi.String("example-service-mesh"),
-//				Spec: &appmesh.VirtualGatewaySpecArgs{
-//					Listeners: appmesh.VirtualGatewaySpecListenerArray{
-//						&appmesh.VirtualGatewaySpecListenerArgs{
-//							PortMapping: &appmesh.VirtualGatewaySpecListenerPortMappingArgs{
-//								Port:     pulumi.Int(8080),
-//								Protocol: pulumi.String("http"),
-//							},
-//						},
-//					},
-//				},
-//				Tags: pulumi.StringMap{
-//					"Environment": pulumi.String("test"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := appmesh/virtualGateway.NewVirtualGateway(ctx, "example", &appmesh/virtualGateway.VirtualGatewayArgs{
+// MeshName: "example-service-mesh",
+// Spec: map[string]interface{}{
+// "listeners": []map[string]interface{}{
+// map[string]interface{}{
+// "portMapping": map[string]interface{}{
+// "port": 8080,
+// "protocol": "http",
+// },
+// },
+// },
+// },
+// Tags: map[string]interface{}{
+// "Environment": "test",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Access Logs and TLS
 //
@@ -60,48 +58,46 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/appmesh"
+//	appmesh/virtualGateway "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/appmesh/virtualGateway"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := appmesh.NewVirtualGateway(ctx, "example", &appmesh.VirtualGatewayArgs{
-//				MeshName: pulumi.String("example-service-mesh"),
-//				Spec: &appmesh.VirtualGatewaySpecArgs{
-//					Listeners: appmesh.VirtualGatewaySpecListenerArray{
-//						&appmesh.VirtualGatewaySpecListenerArgs{
-//							PortMapping: &appmesh.VirtualGatewaySpecListenerPortMappingArgs{
-//								Port:     pulumi.Int(8080),
-//								Protocol: pulumi.String("http"),
-//							},
-//							Tls: &appmesh.VirtualGatewaySpecListenerTlsArgs{
-//								Certificate: &appmesh.VirtualGatewaySpecListenerTlsCertificateArgs{
-//									Acm: &appmesh.VirtualGatewaySpecListenerTlsCertificateAcmArgs{
-//										CertificateArn: pulumi.Any(aws_acm_certificate.Example.Arn),
-//									},
-//								},
-//								Mode: pulumi.String("STRICT"),
-//							},
-//						},
-//					},
-//					Logging: &appmesh.VirtualGatewaySpecLoggingArgs{
-//						AccessLog: &appmesh.VirtualGatewaySpecLoggingAccessLogArgs{
-//							File: &appmesh.VirtualGatewaySpecLoggingAccessLogFileArgs{
-//								Path: pulumi.String("/var/log/access.log"),
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := appmesh/virtualGateway.NewVirtualGateway(ctx, "example", &appmesh/virtualGateway.VirtualGatewayArgs{
+// MeshName: "example-service-mesh",
+// Spec: map[string]interface{}{
+// "listeners": []map[string]interface{}{
+// map[string]interface{}{
+// "portMapping": map[string]interface{}{
+// "port": 8080,
+// "protocol": "http",
+// },
+// "tls": map[string]interface{}{
+// "certificate": map[string]interface{}{
+// "acm": map[string]interface{}{
+// "certificateArn": aws_acm_certificate.Example.Arn,
+// },
+// },
+// "mode": "STRICT",
+// },
+// },
+// },
+// "logging": map[string]interface{}{
+// "accessLog": map[string]interface{}{
+// "file": map[string]interface{}{
+// "path": "/var/log/access.log",
+// },
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

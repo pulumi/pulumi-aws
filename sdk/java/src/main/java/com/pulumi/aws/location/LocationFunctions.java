@@ -36,35 +36,6 @@ public final class LocationFunctions {
      * Retrieve information about a Location Service Geofence Collection.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.location.LocationFunctions;
-     * import com.pulumi.aws.location.inputs.GetGeofenceCollectionArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = LocationFunctions.getGeofenceCollection(GetGeofenceCollectionArgs.builder()
-     *             .collectionName(&#34;example&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetGeofenceCollectionResult> getGeofenceCollection(GetGeofenceCollectionArgs args) {
@@ -74,35 +45,6 @@ public final class LocationFunctions {
      * Retrieve information about a Location Service Geofence Collection.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.location.LocationFunctions;
-     * import com.pulumi.aws.location.inputs.GetGeofenceCollectionArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = LocationFunctions.getGeofenceCollection(GetGeofenceCollectionArgs.builder()
-     *             .collectionName(&#34;example&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetGeofenceCollectionResult> getGeofenceCollectionPlain(GetGeofenceCollectionPlainArgs args) {
@@ -112,35 +54,6 @@ public final class LocationFunctions {
      * Retrieve information about a Location Service Geofence Collection.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.location.LocationFunctions;
-     * import com.pulumi.aws.location.inputs.GetGeofenceCollectionArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = LocationFunctions.getGeofenceCollection(GetGeofenceCollectionArgs.builder()
-     *             .collectionName(&#34;example&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetGeofenceCollectionResult> getGeofenceCollection(GetGeofenceCollectionArgs args, InvokeOptions options) {
@@ -150,35 +63,6 @@ public final class LocationFunctions {
      * Retrieve information about a Location Service Geofence Collection.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.location.LocationFunctions;
-     * import com.pulumi.aws.location.inputs.GetGeofenceCollectionArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = LocationFunctions.getGeofenceCollection(GetGeofenceCollectionArgs.builder()
-     *             .collectionName(&#34;example&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetGeofenceCollectionResult> getGeofenceCollectionPlain(GetGeofenceCollectionPlainArgs args, InvokeOptions options) {
@@ -187,72 +71,12 @@ public final class LocationFunctions {
     /**
      * Retrieve information about a Location Service Map.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.location.LocationFunctions;
-     * import com.pulumi.aws.location.inputs.GetMapArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = LocationFunctions.getMap(GetMapArgs.builder()
-     *             .mapName(&#34;example&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetMapResult> getMap(GetMapArgs args) {
         return getMap(args, InvokeOptions.Empty);
     }
     /**
      * Retrieve information about a Location Service Map.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.location.LocationFunctions;
-     * import com.pulumi.aws.location.inputs.GetMapArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = LocationFunctions.getMap(GetMapArgs.builder()
-     *             .mapName(&#34;example&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetMapResult> getMapPlain(GetMapPlainArgs args) {
@@ -261,72 +85,12 @@ public final class LocationFunctions {
     /**
      * Retrieve information about a Location Service Map.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.location.LocationFunctions;
-     * import com.pulumi.aws.location.inputs.GetMapArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = LocationFunctions.getMap(GetMapArgs.builder()
-     *             .mapName(&#34;example&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetMapResult> getMap(GetMapArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:location/getMap:getMap", TypeShape.of(GetMapResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Retrieve information about a Location Service Map.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.location.LocationFunctions;
-     * import com.pulumi.aws.location.inputs.GetMapArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = LocationFunctions.getMap(GetMapArgs.builder()
-     *             .mapName(&#34;example&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetMapResult> getMapPlain(GetMapPlainArgs args, InvokeOptions options) {
@@ -335,72 +99,12 @@ public final class LocationFunctions {
     /**
      * Retrieve information about a Location Service Place Index.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.location.LocationFunctions;
-     * import com.pulumi.aws.location.inputs.GetPlaceIndexArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = LocationFunctions.getPlaceIndex(GetPlaceIndexArgs.builder()
-     *             .indexName(&#34;example&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetPlaceIndexResult> getPlaceIndex(GetPlaceIndexArgs args) {
         return getPlaceIndex(args, InvokeOptions.Empty);
     }
     /**
      * Retrieve information about a Location Service Place Index.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.location.LocationFunctions;
-     * import com.pulumi.aws.location.inputs.GetPlaceIndexArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = LocationFunctions.getPlaceIndex(GetPlaceIndexArgs.builder()
-     *             .indexName(&#34;example&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetPlaceIndexResult> getPlaceIndexPlain(GetPlaceIndexPlainArgs args) {
@@ -409,72 +113,12 @@ public final class LocationFunctions {
     /**
      * Retrieve information about a Location Service Place Index.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.location.LocationFunctions;
-     * import com.pulumi.aws.location.inputs.GetPlaceIndexArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = LocationFunctions.getPlaceIndex(GetPlaceIndexArgs.builder()
-     *             .indexName(&#34;example&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetPlaceIndexResult> getPlaceIndex(GetPlaceIndexArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:location/getPlaceIndex:getPlaceIndex", TypeShape.of(GetPlaceIndexResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Retrieve information about a Location Service Place Index.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.location.LocationFunctions;
-     * import com.pulumi.aws.location.inputs.GetPlaceIndexArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = LocationFunctions.getPlaceIndex(GetPlaceIndexArgs.builder()
-     *             .indexName(&#34;example&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetPlaceIndexResult> getPlaceIndexPlain(GetPlaceIndexPlainArgs args, InvokeOptions options) {
@@ -483,72 +127,12 @@ public final class LocationFunctions {
     /**
      * Retrieve information about a Location Service Route Calculator.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.location.LocationFunctions;
-     * import com.pulumi.aws.location.inputs.GetRouteCalculatorArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = LocationFunctions.getRouteCalculator(GetRouteCalculatorArgs.builder()
-     *             .calculatorName(&#34;example&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetRouteCalculatorResult> getRouteCalculator(GetRouteCalculatorArgs args) {
         return getRouteCalculator(args, InvokeOptions.Empty);
     }
     /**
      * Retrieve information about a Location Service Route Calculator.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.location.LocationFunctions;
-     * import com.pulumi.aws.location.inputs.GetRouteCalculatorArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = LocationFunctions.getRouteCalculator(GetRouteCalculatorArgs.builder()
-     *             .calculatorName(&#34;example&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetRouteCalculatorResult> getRouteCalculatorPlain(GetRouteCalculatorPlainArgs args) {
@@ -557,72 +141,12 @@ public final class LocationFunctions {
     /**
      * Retrieve information about a Location Service Route Calculator.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.location.LocationFunctions;
-     * import com.pulumi.aws.location.inputs.GetRouteCalculatorArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = LocationFunctions.getRouteCalculator(GetRouteCalculatorArgs.builder()
-     *             .calculatorName(&#34;example&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetRouteCalculatorResult> getRouteCalculator(GetRouteCalculatorArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:location/getRouteCalculator:getRouteCalculator", TypeShape.of(GetRouteCalculatorResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Retrieve information about a Location Service Route Calculator.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.location.LocationFunctions;
-     * import com.pulumi.aws.location.inputs.GetRouteCalculatorArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = LocationFunctions.getRouteCalculator(GetRouteCalculatorArgs.builder()
-     *             .calculatorName(&#34;example&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetRouteCalculatorResult> getRouteCalculatorPlain(GetRouteCalculatorPlainArgs args, InvokeOptions options) {
@@ -631,72 +155,12 @@ public final class LocationFunctions {
     /**
      * Retrieve information about a Location Service Tracker.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.location.LocationFunctions;
-     * import com.pulumi.aws.location.inputs.GetTrackerArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = LocationFunctions.getTracker(GetTrackerArgs.builder()
-     *             .trackerName(&#34;example&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetTrackerResult> getTracker(GetTrackerArgs args) {
         return getTracker(args, InvokeOptions.Empty);
     }
     /**
      * Retrieve information about a Location Service Tracker.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.location.LocationFunctions;
-     * import com.pulumi.aws.location.inputs.GetTrackerArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = LocationFunctions.getTracker(GetTrackerArgs.builder()
-     *             .trackerName(&#34;example&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetTrackerResult> getTrackerPlain(GetTrackerPlainArgs args) {
@@ -705,72 +169,12 @@ public final class LocationFunctions {
     /**
      * Retrieve information about a Location Service Tracker.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.location.LocationFunctions;
-     * import com.pulumi.aws.location.inputs.GetTrackerArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = LocationFunctions.getTracker(GetTrackerArgs.builder()
-     *             .trackerName(&#34;example&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetTrackerResult> getTracker(GetTrackerArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:location/getTracker:getTracker", TypeShape.of(GetTrackerResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Retrieve information about a Location Service Tracker.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.location.LocationFunctions;
-     * import com.pulumi.aws.location.inputs.GetTrackerArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = LocationFunctions.getTracker(GetTrackerArgs.builder()
-     *             .trackerName(&#34;example&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetTrackerResult> getTrackerPlain(GetTrackerPlainArgs args, InvokeOptions options) {
@@ -780,36 +184,6 @@ public final class LocationFunctions {
      * Retrieve information about a Location Service Tracker Association.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.location.LocationFunctions;
-     * import com.pulumi.aws.location.inputs.GetTrackerAssociationArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = LocationFunctions.getTrackerAssociation(GetTrackerAssociationArgs.builder()
-     *             .consumerArn(&#34;arn:aws:geo:region:account-id:geofence-collection/ExampleGeofenceCollectionConsumer&#34;)
-     *             .trackerName(&#34;example&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetTrackerAssociationResult> getTrackerAssociation(GetTrackerAssociationArgs args) {
@@ -819,36 +193,6 @@ public final class LocationFunctions {
      * Retrieve information about a Location Service Tracker Association.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.location.LocationFunctions;
-     * import com.pulumi.aws.location.inputs.GetTrackerAssociationArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = LocationFunctions.getTrackerAssociation(GetTrackerAssociationArgs.builder()
-     *             .consumerArn(&#34;arn:aws:geo:region:account-id:geofence-collection/ExampleGeofenceCollectionConsumer&#34;)
-     *             .trackerName(&#34;example&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetTrackerAssociationResult> getTrackerAssociationPlain(GetTrackerAssociationPlainArgs args) {
@@ -858,36 +202,6 @@ public final class LocationFunctions {
      * Retrieve information about a Location Service Tracker Association.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.location.LocationFunctions;
-     * import com.pulumi.aws.location.inputs.GetTrackerAssociationArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = LocationFunctions.getTrackerAssociation(GetTrackerAssociationArgs.builder()
-     *             .consumerArn(&#34;arn:aws:geo:region:account-id:geofence-collection/ExampleGeofenceCollectionConsumer&#34;)
-     *             .trackerName(&#34;example&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetTrackerAssociationResult> getTrackerAssociation(GetTrackerAssociationArgs args, InvokeOptions options) {
@@ -897,36 +211,6 @@ public final class LocationFunctions {
      * Retrieve information about a Location Service Tracker Association.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.location.LocationFunctions;
-     * import com.pulumi.aws.location.inputs.GetTrackerAssociationArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = LocationFunctions.getTrackerAssociation(GetTrackerAssociationArgs.builder()
-     *             .consumerArn(&#34;arn:aws:geo:region:account-id:geofence-collection/ExampleGeofenceCollectionConsumer&#34;)
-     *             .trackerName(&#34;example&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetTrackerAssociationResult> getTrackerAssociationPlain(GetTrackerAssociationPlainArgs args, InvokeOptions options) {
@@ -936,35 +220,6 @@ public final class LocationFunctions {
      * Retrieve information about Location Service Tracker Associations.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.location.LocationFunctions;
-     * import com.pulumi.aws.location.inputs.GetTrackerAssociationsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = LocationFunctions.getTrackerAssociations(GetTrackerAssociationsArgs.builder()
-     *             .trackerName(&#34;example&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetTrackerAssociationsResult> getTrackerAssociations(GetTrackerAssociationsArgs args) {
@@ -974,35 +229,6 @@ public final class LocationFunctions {
      * Retrieve information about Location Service Tracker Associations.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.location.LocationFunctions;
-     * import com.pulumi.aws.location.inputs.GetTrackerAssociationsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = LocationFunctions.getTrackerAssociations(GetTrackerAssociationsArgs.builder()
-     *             .trackerName(&#34;example&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetTrackerAssociationsResult> getTrackerAssociationsPlain(GetTrackerAssociationsPlainArgs args) {
@@ -1012,35 +238,6 @@ public final class LocationFunctions {
      * Retrieve information about Location Service Tracker Associations.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.location.LocationFunctions;
-     * import com.pulumi.aws.location.inputs.GetTrackerAssociationsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = LocationFunctions.getTrackerAssociations(GetTrackerAssociationsArgs.builder()
-     *             .trackerName(&#34;example&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetTrackerAssociationsResult> getTrackerAssociations(GetTrackerAssociationsArgs args, InvokeOptions options) {
@@ -1050,35 +247,6 @@ public final class LocationFunctions {
      * Retrieve information about Location Service Tracker Associations.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.location.LocationFunctions;
-     * import com.pulumi.aws.location.inputs.GetTrackerAssociationsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = LocationFunctions.getTrackerAssociations(GetTrackerAssociationsArgs.builder()
-     *             .trackerName(&#34;example&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetTrackerAssociationsResult> getTrackerAssociationsPlain(GetTrackerAssociationsPlainArgs args, InvokeOptions options) {

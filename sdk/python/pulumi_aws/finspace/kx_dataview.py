@@ -455,6 +455,29 @@ class KxDataview(pulumi.CustomResource):
         Resource for managing an AWS FinSpace Kx Dataview.
 
         ## Example Usage
+        ### Basic Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.finspace.kx_dataview.KxDataview("example",
+            environment_id=aws_finspace_kx_environment.example.id,
+            database_name=aws_finspace_kx_database.example.name,
+            availability_zone_id=use1-az2,
+            description=Terraform managed Kx Dataview,
+            az_mode=SINGLE,
+            auto_update=True,
+            segment_configurations=[{
+                volumeName: aws_finspace_kx_volume.example.name,
+                dbPaths: [/*],
+            }],
+            timeouts=[{
+                create: 24h,
+                update: 24h,
+                delete: 12h,
+            }])
+        ```
 
         ## Import
 
@@ -489,6 +512,29 @@ class KxDataview(pulumi.CustomResource):
         Resource for managing an AWS FinSpace Kx Dataview.
 
         ## Example Usage
+        ### Basic Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.finspace.kx_dataview.KxDataview("example",
+            environment_id=aws_finspace_kx_environment.example.id,
+            database_name=aws_finspace_kx_database.example.name,
+            availability_zone_id=use1-az2,
+            description=Terraform managed Kx Dataview,
+            az_mode=SINGLE,
+            auto_update=True,
+            segment_configurations=[{
+                volumeName: aws_finspace_kx_volume.example.name,
+                dbPaths: [/*],
+            }],
+            timeouts=[{
+                create: 24h,
+                update: 24h,
+                delete: 12h,
+            }])
+        ```
 
         ## Import
 

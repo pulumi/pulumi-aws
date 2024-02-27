@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.ssmcontacts.Plan("example", {
+ * const example = new aws.ssmcontacts/plan.Plan("example", {
  *     contactId: "arn:aws:ssm-contacts:us-west-2:123456789012:contact/contactalias",
  *     stages: [{
  *         durationInMinutes: 1,
@@ -30,11 +30,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const contact = new aws.ssmcontacts.Contact("contact", {
+ * const contact = new aws.ssmcontacts/contact.Contact("contact", {
  *     alias: "alias",
  *     type: "PERSONAL",
  * });
- * const plan = new aws.ssmcontacts.Plan("plan", {
+ * const plan = new aws.ssmcontacts/plan.Plan("plan", {
  *     contactId: contact.arn,
  *     stages: [{
  *         durationInMinutes: 1,
@@ -47,19 +47,19 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const escalationPlan = new aws.ssmcontacts.Contact("escalationPlan", {
+ * const escalationPlan = new aws.ssmcontacts/contact.Contact("escalationPlan", {
  *     alias: "escalation-plan-alias",
  *     type: "ESCALATION",
  * });
- * const contactOne = new aws.ssmcontacts.Contact("contactOne", {
+ * const contactOne = new aws.ssmcontacts/contact.Contact("contactOne", {
  *     alias: "alias",
  *     type: "PERSONAL",
  * });
- * const contactTwo = new aws.ssmcontacts.Contact("contactTwo", {
+ * const contactTwo = new aws.ssmcontacts/contact.Contact("contactTwo", {
  *     alias: "alias",
  *     type: "PERSONAL",
  * });
- * const test = new aws.ssmcontacts.Plan("test", {
+ * const test = new aws.ssmcontacts/plan.Plan("test", {
  *     contactId: escalationPlan.arn,
  *     stages: [{
  *         durationInMinutes: 0,

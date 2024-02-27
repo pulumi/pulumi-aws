@@ -23,25 +23,23 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/networkmanager"
+//	networkmanager/linkAssociation "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/networkmanager/linkAssociation"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := networkmanager.NewLinkAssociation(ctx, "example", &networkmanager.LinkAssociationArgs{
-//				GlobalNetworkId: pulumi.Any(aws_networkmanager_global_network.Example.Id),
-//				LinkId:          pulumi.Any(aws_networkmanager_link.Example.Id),
-//				DeviceId:        pulumi.Any(aws_networkmanager_device.Example.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := networkmanager/linkAssociation.NewLinkAssociation(ctx, "example", &networkmanager/linkAssociation.LinkAssociationArgs{
+// GlobalNetworkId: aws_networkmanager_global_network.Example.Id,
+// LinkId: aws_networkmanager_link.Example.Id,
+// DeviceId: aws_networkmanager_device.Example.Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

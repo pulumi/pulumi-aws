@@ -20,61 +20,6 @@ import javax.annotation.Nullable;
  * 
  * &gt; **NOTE on Instance State Management:** AWS does not currently have an EC2 API operation to determine an instance has finished processing user data. As a result, this resource can interfere with user data processing. For example, this resource may stop an instance while the user data script is in mid run.
  * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ec2.Ec2Functions;
- * import com.pulumi.aws.ec2.inputs.GetAmiArgs;
- * import com.pulumi.aws.ec2.Instance;
- * import com.pulumi.aws.ec2.InstanceArgs;
- * import com.pulumi.aws.ec2transitgateway.InstanceState;
- * import com.pulumi.aws.ec2transitgateway.InstanceStateArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var ubuntu = Ec2Functions.getAmi(GetAmiArgs.builder()
- *             .mostRecent(true)
- *             .filters(            
- *                 GetAmiFilterArgs.builder()
- *                     .name(&#34;name&#34;)
- *                     .values(&#34;ubuntu/images/hvm-ssd/ubuntu-focal-20.04-amd64-server-*&#34;)
- *                     .build(),
- *                 GetAmiFilterArgs.builder()
- *                     .name(&#34;virtualization-type&#34;)
- *                     .values(&#34;hvm&#34;)
- *                     .build())
- *             .owners(&#34;099720109477&#34;)
- *             .build());
- * 
- *         var testInstance = new Instance(&#34;testInstance&#34;, InstanceArgs.builder()        
- *             .ami(ubuntu.applyValue(getAmiResult -&gt; getAmiResult.id()))
- *             .instanceType(&#34;t3.micro&#34;)
- *             .tags(Map.of(&#34;Name&#34;, &#34;HelloWorld&#34;))
- *             .build());
- * 
- *         var testInstanceState = new InstanceState(&#34;testInstanceState&#34;, InstanceStateArgs.builder()        
- *             .instanceId(testInstance.id())
- *             .state(&#34;stopped&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
  * ## Import
  * 
  * Using `pulumi import`, import `aws_ec2_instance_state` using the `instance_id` attribute. For example:

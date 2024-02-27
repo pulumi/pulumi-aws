@@ -26,12 +26,12 @@ namespace Pulumi.Aws.Kinesis
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleStream = new Aws.Kinesis.Stream("exampleStream", new()
+    ///     var exampleStream = new Aws.Kinesis.Stream.Stream("exampleStream", new()
     ///     {
     ///         ShardCount = 1,
     ///     });
     /// 
-    ///     var exampleStreamConsumer = new Aws.Kinesis.StreamConsumer("exampleStreamConsumer", new()
+    ///     var exampleStreamConsumer = new Aws.Kinesis.StreamConsumer.StreamConsumer("exampleStreamConsumer", new()
     ///     {
     ///         StreamArn = exampleStream.Arn,
     ///     });

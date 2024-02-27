@@ -33,7 +33,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.random.RandomPasswordArgs;
  * import com.pulumi.aws.memorydb.User;
  * import com.pulumi.aws.memorydb.UserArgs;
- * import com.pulumi.aws.memorydb.inputs.UserAuthenticationModeArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -54,10 +53,7 @@ import javax.annotation.Nullable;
  *         var exampleUser = new User(&#34;exampleUser&#34;, UserArgs.builder()        
  *             .userName(&#34;my-user&#34;)
  *             .accessString(&#34;on ~* &amp;* +@all&#34;)
- *             .authenticationMode(UserAuthenticationModeArgs.builder()
- *                 .type(&#34;password&#34;)
- *                 .passwords(exampleRandomPassword.result())
- *                 .build())
+ *             .authenticationMode(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

@@ -15,137 +15,6 @@ import (
 // Resource for managing an AWS OpenSearch Serverless Access Policy. See AWS documentation for [data access policies](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-data-access.html) and [supported data access policy permissions](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-data-access.html#serverless-data-supported-permissions).
 //
 // ## Example Usage
-// ### Grant all collection and index permissions
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"encoding/json"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/opensearch"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			current, err := aws.GetCallerIdentity(ctx, nil, nil)
-//			if err != nil {
-//				return err
-//			}
-//			tmpJSON0, err := json.Marshal([]map[string]interface{}{
-//				map[string]interface{}{
-//					"Rules": []map[string]interface{}{
-//						map[string]interface{}{
-//							"ResourceType": "index",
-//							"Resource": []string{
-//								"index/example-collection/*",
-//							},
-//							"Permission": []string{
-//								"aoss:*",
-//							},
-//						},
-//						map[string]interface{}{
-//							"ResourceType": "collection",
-//							"Resource": []string{
-//								"collection/example-collection",
-//							},
-//							"Permission": []string{
-//								"aoss:*",
-//							},
-//						},
-//					},
-//					"Principal": []*string{
-//						current.Arn,
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			_, err = opensearch.NewServerlessAccessPolicy(ctx, "example", &opensearch.ServerlessAccessPolicyArgs{
-//				Type:        pulumi.String("data"),
-//				Description: pulumi.String("read and write permissions"),
-//				Policy:      pulumi.String(json0),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// ### Grant read-only collection and index permissions
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"encoding/json"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/opensearch"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			current, err := aws.GetCallerIdentity(ctx, nil, nil)
-//			if err != nil {
-//				return err
-//			}
-//			tmpJSON0, err := json.Marshal([]map[string]interface{}{
-//				map[string]interface{}{
-//					"Rules": []interface{}{
-//						map[string]interface{}{
-//							"ResourceType": "index",
-//							"Resource": []string{
-//								"index/example-collection/*",
-//							},
-//							"Permission": []string{
-//								"aoss:DescribeIndex",
-//								"aoss:ReadDocument",
-//							},
-//						},
-//						map[string]interface{}{
-//							"ResourceType": "collection",
-//							"Resource": []string{
-//								"collection/example-collection",
-//							},
-//							"Permission": []string{
-//								"aoss:DescribeCollectionItems",
-//							},
-//						},
-//					},
-//					"Principal": []*string{
-//						current.Arn,
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			_, err = opensearch.NewServerlessAccessPolicy(ctx, "example", &opensearch.ServerlessAccessPolicyArgs{
-//				Type:        pulumi.String("data"),
-//				Description: pulumi.String("read-only permissions"),
-//				Policy:      pulumi.String(json0),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 // ### Grant SAML identity permissions
 //
 // ```go
@@ -155,57 +24,23 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/opensearch"
+//	opensearch/serverlessAccessPolicy "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/opensearch/serverlessAccessPolicy"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			tmpJSON0, err := json.Marshal([]map[string]interface{}{
-//				map[string]interface{}{
-//					"Rules": []map[string]interface{}{
-//						map[string]interface{}{
-//							"ResourceType": "index",
-//							"Resource": []string{
-//								"index/example-collection/*",
-//							},
-//							"Permission": []string{
-//								"aoss:*",
-//							},
-//						},
-//						map[string]interface{}{
-//							"ResourceType": "collection",
-//							"Resource": []string{
-//								"collection/example-collection",
-//							},
-//							"Permission": []string{
-//								"aoss:*",
-//							},
-//						},
-//					},
-//					"Principal": []string{
-//						"saml/123456789012/myprovider/user/Annie",
-//						"saml/123456789012/anotherprovider/group/Accounting",
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			_, err = opensearch.NewServerlessAccessPolicy(ctx, "example", &opensearch.ServerlessAccessPolicyArgs{
-//				Type:        pulumi.String("data"),
-//				Description: pulumi.String("saml permissions"),
-//				Policy:      pulumi.String(json0),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := opensearch/serverlessAccessPolicy.NewServerlessAccessPolicy(ctx, "example", &opensearch/serverlessAccessPolicy.ServerlessAccessPolicyArgs{
+// Type: "data",
+// Description: "saml permissions",
+// Policy: %!v(PANIC=Format method: fatal: An assertion has failed: unlowered function toJSON),
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -13,8 +13,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleInstance = new aws.verifiedaccess.Instance("exampleInstance", {});
- * const exampleTrustProvider = new aws.verifiedaccess.TrustProvider("exampleTrustProvider", {
+ * const exampleInstance = new aws.verifiedaccess/instance.Instance("exampleInstance", {});
+ * const exampleTrustProvider = new aws.verifiedaccess/trustProvider.TrustProvider("exampleTrustProvider", {
  *     deviceTrustProviderType: "jamf",
  *     policyReferenceName: "example",
  *     trustProviderType: "device",
@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  *         tenantId: "example",
  *     },
  * });
- * const exampleInstanceTrustProviderAttachment = new aws.verifiedaccess.InstanceTrustProviderAttachment("exampleInstanceTrustProviderAttachment", {
+ * const exampleInstanceTrustProviderAttachment = new aws.verifiedaccess/instanceTrustProviderAttachment.InstanceTrustProviderAttachment("exampleInstanceTrustProviderAttachment", {
  *     verifiedaccessInstanceId: exampleInstance.id,
  *     verifiedaccessTrustProviderId: exampleTrustProvider.id,
  * });

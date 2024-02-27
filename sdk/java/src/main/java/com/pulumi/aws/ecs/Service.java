@@ -44,9 +44,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.ecs.Service;
  * import com.pulumi.aws.ecs.ServiceArgs;
- * import com.pulumi.aws.ecs.inputs.ServiceOrderedPlacementStrategyArgs;
- * import com.pulumi.aws.ecs.inputs.ServiceLoadBalancerArgs;
- * import com.pulumi.aws.ecs.inputs.ServicePlacementConstraintArgs;
  * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
@@ -66,19 +63,9 @@ import javax.annotation.Nullable;
  *             .taskDefinition(aws_ecs_task_definition.mongo().arn())
  *             .desiredCount(3)
  *             .iamRole(aws_iam_role.foo().arn())
- *             .orderedPlacementStrategies(ServiceOrderedPlacementStrategyArgs.builder()
- *                 .type(&#34;binpack&#34;)
- *                 .field(&#34;cpu&#34;)
- *                 .build())
- *             .loadBalancers(ServiceLoadBalancerArgs.builder()
- *                 .targetGroupArn(aws_lb_target_group.foo().arn())
- *                 .containerName(&#34;mongo&#34;)
- *                 .containerPort(8080)
- *                 .build())
- *             .placementConstraints(ServicePlacementConstraintArgs.builder()
- *                 .type(&#34;memberOf&#34;)
- *                 .expression(&#34;attribute:ecs.availability-zone in [us-west-2a, us-west-2b]&#34;)
- *                 .build())
+ *             .orderedPlacementStrategies(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .loadBalancers(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .placementConstraints(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(aws_iam_role_policy.foo())
  *                 .build());
@@ -157,7 +144,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.ecs.Service;
  * import com.pulumi.aws.ecs.ServiceArgs;
- * import com.pulumi.aws.ecs.inputs.ServiceAlarmsArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -173,11 +159,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Service(&#34;example&#34;, ServiceArgs.builder()        
  *             .cluster(aws_ecs_cluster.example().id())
- *             .alarms(ServiceAlarmsArgs.builder()
- *                 .enable(true)
- *                 .rollback(true)
- *                 .alarmNames(aws_cloudwatch_metric_alarm.example().alarm_name())
- *                 .build())
+ *             .alarms(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -192,7 +174,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.ecs.Service;
  * import com.pulumi.aws.ecs.ServiceArgs;
- * import com.pulumi.aws.ecs.inputs.ServiceDeploymentControllerArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -208,9 +189,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Service(&#34;example&#34;, ServiceArgs.builder()        
  *             .cluster(aws_ecs_cluster.example().id())
- *             .deploymentController(ServiceDeploymentControllerArgs.builder()
- *                 .type(&#34;EXTERNAL&#34;)
- *                 .build())
+ *             .deploymentController(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

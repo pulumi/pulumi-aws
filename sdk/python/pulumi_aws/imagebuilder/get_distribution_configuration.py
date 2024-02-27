@@ -132,15 +132,6 @@ def get_distribution_configuration(arn: Optional[str] = None,
     """
     Provides details about an Image Builder Distribution Configuration.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.imagebuilder.get_distribution_configuration(arn="arn:aws:imagebuilder:us-west-2:aws:distribution-configuration/example")
-    ```
-
 
     :param str arn: ARN of the distribution configuration.
     :param Mapping[str, str] tags: Key-value map of resource tags for the distribution configuration.
@@ -168,15 +159,6 @@ def get_distribution_configuration_output(arn: Optional[pulumi.Input[str]] = Non
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDistributionConfigurationResult]:
     """
     Provides details about an Image Builder Distribution Configuration.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.imagebuilder.get_distribution_configuration(arn="arn:aws:imagebuilder:us-west-2:aws:distribution-configuration/example")
-    ```
 
 
     :param str arn: ARN of the distribution configuration.

@@ -22,9 +22,9 @@ namespace Pulumi.Aws.Amplify
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Amplify.App("example");
+    ///     var example = new Aws.Amplify.App.App("example");
     /// 
-    ///     var master = new Aws.Amplify.Branch("master", new()
+    ///     var master = new Aws.Amplify.Branch.Branch("master", new()
     ///     {
     ///         AppId = example.Id,
     ///         BranchName = "master",
@@ -34,134 +34,6 @@ namespace Pulumi.Aws.Amplify
     ///         {
     ///             { "REACT_APP_API_SERVER", "https://api.example.com" },
     ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### Notifications
-    /// 
-    /// Amplify Console uses EventBridge (formerly known as CloudWatch Events) and SNS for email notifications.  To implement the same functionality, you need to set `enable_notification` in a `aws.amplify.Branch` resource, as well as creating an EventBridge Rule, an SNS topic, and SNS subscriptions.
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using System.Text.Json;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Amplify.App("example");
-    /// 
-    ///     var master = new Aws.Amplify.Branch("master", new()
-    ///     {
-    ///         AppId = example.Id,
-    ///         BranchName = "master",
-    ///         EnableNotification = true,
-    ///     });
-    /// 
-    ///     // EventBridge Rule for Amplify notifications
-    ///     var amplifyAppMasterEventRule = new Aws.CloudWatch.EventRule("amplifyAppMasterEventRule", new()
-    ///     {
-    ///         Description = master.BranchName.Apply(branchName =&gt; $"AWS Amplify build notifications for :  App: {aws_amplify_app.App.Id} Branch: {branchName}"),
-    ///         EventPattern = Output.Tuple(example.Id, master.BranchName).Apply(values =&gt;
-    ///         {
-    ///             var id = values.Item1;
-    ///             var branchName = values.Item2;
-    ///             return JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///             {
-    ///                 ["detail"] = new Dictionary&lt;string, object?&gt;
-    ///                 {
-    ///                     ["appId"] = new[]
-    ///                     {
-    ///                         id,
-    ///                     },
-    ///                     ["branchName"] = new[]
-    ///                     {
-    ///                         branchName,
-    ///                     },
-    ///                     ["jobStatus"] = new[]
-    ///                     {
-    ///                         "SUCCEED",
-    ///                         "FAILED",
-    ///                         "STARTED",
-    ///                     },
-    ///                 },
-    ///                 ["detail-type"] = new[]
-    ///                 {
-    ///                     "Amplify Deployment Status Change",
-    ///                 },
-    ///                 ["source"] = new[]
-    ///                 {
-    ///                     "aws.amplify",
-    ///                 },
-    ///             });
-    ///         }),
-    ///     });
-    /// 
-    ///     var amplifyAppMasterTopic = new Aws.Sns.Topic("amplifyAppMasterTopic");
-    /// 
-    ///     var amplifyAppMasterEventTarget = new Aws.CloudWatch.EventTarget("amplifyAppMasterEventTarget", new()
-    ///     {
-    ///         Rule = amplifyAppMasterEventRule.Name,
-    ///         Arn = amplifyAppMasterTopic.Arn,
-    ///         InputTransformer = new Aws.CloudWatch.Inputs.EventTargetInputTransformerArgs
-    ///         {
-    ///             InputPaths = 
-    ///             {
-    ///                 { "jobId", "$.detail.jobId" },
-    ///                 { "appId", "$.detail.appId" },
-    ///                 { "region", "$.region" },
-    ///                 { "branch", "$.detail.branchName" },
-    ///                 { "status", "$.detail.jobStatus" },
-    ///             },
-    ///             InputTemplate = "\"Build notification from the AWS Amplify Console for app: https://&lt;branch&gt;.&lt;appId&gt;.amplifyapp.com/. Your build status is &lt;status&gt;. Go to https://console.aws.amazon.com/amplify/home?region=&lt;region&gt;#&lt;appId&gt;/&lt;branch&gt;/&lt;jobId&gt; to view details on your build. \"",
-    ///         },
-    ///     });
-    /// 
-    ///     // SNS Topic for Amplify notifications
-    ///     var amplifyAppMasterPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
-    ///     {
-    ///         Statements = new[]
-    ///         {
-    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
-    ///             {
-    ///                 Sid = $"Allow_Publish_Events {master.Arn}",
-    ///                 Effect = "Allow",
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "SNS:Publish",
-    ///                 },
-    ///                 Principals = new[]
-    ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
-    ///                     {
-    ///                         Type = "Service",
-    ///                         Identifiers = new[]
-    ///                         {
-    ///                             "events.amazonaws.com",
-    ///                         },
-    ///                     },
-    ///                 },
-    ///                 Resources = new[]
-    ///                 {
-    ///                     amplifyAppMasterTopic.Arn,
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var amplifyAppMasterTopicPolicy = new Aws.Sns.TopicPolicy("amplifyAppMasterTopicPolicy", new()
-    ///     {
-    ///         Arn = amplifyAppMasterTopic.Arn,
-    ///         Policy = amplifyAppMasterPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
-    ///     });
-    /// 
-    ///     var @this = new Aws.Sns.TopicSubscription("this", new()
-    ///     {
-    ///         Topic = amplifyAppMasterTopic.Arn,
-    ///         Protocol = "email",
-    ///         Endpoint = "user@acme.com",
     ///     });
     /// 
     /// });

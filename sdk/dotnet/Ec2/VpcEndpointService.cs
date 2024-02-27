@@ -30,7 +30,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Ec2.VpcEndpointService("example", new()
+    ///     var example = new Aws.Ec2.VpcEndpointService.VpcEndpointService("example", new()
     ///     {
     ///         AcceptanceRequired = false,
     ///         NetworkLoadBalancerArns = new[]
@@ -51,7 +51,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Ec2.VpcEndpointService("example", new()
+    ///     var example = new Aws.Ec2.VpcEndpointService.VpcEndpointService("example", new()
     ///     {
     ///         AcceptanceRequired = false,
     ///         GatewayLoadBalancerArns = new[]

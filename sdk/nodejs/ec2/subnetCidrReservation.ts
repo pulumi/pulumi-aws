@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.ec2.SubnetCidrReservation("example", {
+ * const example = new aws.ec2/subnetCidrReservation.SubnetCidrReservation("example", {
  *     cidrBlock: "10.0.0.16/28",
  *     reservationType: "prefix",
  *     subnetId: aws_subnet.example.id,

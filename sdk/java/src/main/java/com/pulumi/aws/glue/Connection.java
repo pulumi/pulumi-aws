@@ -44,11 +44,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Connection(&#34;example&#34;, ConnectionArgs.builder()        
- *             .connectionProperties(Map.ofEntries(
- *                 Map.entry(&#34;JDBC_CONNECTION_URL&#34;, &#34;jdbc:mysql://example.com/exampledatabase&#34;),
- *                 Map.entry(&#34;PASSWORD&#34;, &#34;examplepassword&#34;),
- *                 Map.entry(&#34;USERNAME&#34;, &#34;exampleusername&#34;)
- *             ))
+ *             .connectionProperties(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -65,7 +61,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.glue.Connection;
  * import com.pulumi.aws.glue.ConnectionArgs;
- * import com.pulumi.aws.glue.inputs.ConnectionPhysicalConnectionRequirementsArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -80,16 +75,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Connection(&#34;example&#34;, ConnectionArgs.builder()        
- *             .connectionProperties(Map.ofEntries(
- *                 Map.entry(&#34;JDBC_CONNECTION_URL&#34;, String.format(&#34;jdbc:mysql://%s/exampledatabase&#34;, aws_rds_cluster.example().endpoint())),
- *                 Map.entry(&#34;PASSWORD&#34;, &#34;examplepassword&#34;),
- *                 Map.entry(&#34;USERNAME&#34;, &#34;exampleusername&#34;)
- *             ))
- *             .physicalConnectionRequirements(ConnectionPhysicalConnectionRequirementsArgs.builder()
- *                 .availabilityZone(aws_subnet.example().availability_zone())
- *                 .securityGroupIdLists(aws_security_group.example().id())
- *                 .subnetId(aws_subnet.example().id())
- *                 .build())
+ *             .connectionProperties(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .physicalConnectionRequirements(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

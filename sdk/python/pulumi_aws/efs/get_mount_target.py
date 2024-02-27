@@ -198,19 +198,6 @@ def get_mount_target(access_point_id: Optional[str] = None,
     """
     Provides information about an Elastic File System Mount Target (EFS).
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    config = pulumi.Config()
-    mount_target_id = config.get("mountTargetId")
-    if mount_target_id is None:
-        mount_target_id = ""
-    by_id = aws.efs.get_mount_target(mount_target_id=mount_target_id)
-    ```
-
 
     :param str access_point_id: ID or ARN of the access point whose mount target that you want to find. It must be included if a `file_system_id` and `mount_target_id` are not included.
     :param str file_system_id: ID or ARN of the file system whose mount target that you want to find. It must be included if an `access_point_id` and `mount_target_id` are not included.
@@ -247,19 +234,6 @@ def get_mount_target_output(access_point_id: Optional[pulumi.Input[Optional[str]
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMountTargetResult]:
     """
     Provides information about an Elastic File System Mount Target (EFS).
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    config = pulumi.Config()
-    mount_target_id = config.get("mountTargetId")
-    if mount_target_id is None:
-        mount_target_id = ""
-    by_id = aws.efs.get_mount_target(mount_target_id=mount_target_id)
-    ```
 
 
     :param str access_point_id: ID or ARN of the access point whose mount target that you want to find. It must be included if a `file_system_id` and `mount_target_id` are not included.

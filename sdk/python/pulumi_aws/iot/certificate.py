@@ -270,8 +270,8 @@ class Certificate(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        cert = aws.iot.Certificate("cert",
-            csr=(lambda path: open(path).read())("/my/csr.pem"),
+        cert = aws.iot.certificate.Certificate("cert",
+            csr=(lambda path: open(path).read())(/my/csr.pem),
             active=True)
         ```
         ### Without CSR
@@ -280,7 +280,7 @@ class Certificate(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        cert = aws.iot.Certificate("cert", active=True)
+        cert = aws.iot.certificate.Certificate("cert", active=True)
         ```
         ### From existing certificate without a CA
 
@@ -288,8 +288,8 @@ class Certificate(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        cert = aws.iot.Certificate("cert",
-            certificate_pem=(lambda path: open(path).read())("/my/cert.pem"),
+        cert = aws.iot.certificate.Certificate("cert",
+            certificate_pem=(lambda path: open(path).read())(/my/cert.pem),
             active=True)
         ```
 
@@ -324,8 +324,8 @@ class Certificate(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        cert = aws.iot.Certificate("cert",
-            csr=(lambda path: open(path).read())("/my/csr.pem"),
+        cert = aws.iot.certificate.Certificate("cert",
+            csr=(lambda path: open(path).read())(/my/csr.pem),
             active=True)
         ```
         ### Without CSR
@@ -334,7 +334,7 @@ class Certificate(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        cert = aws.iot.Certificate("cert", active=True)
+        cert = aws.iot.certificate.Certificate("cert", active=True)
         ```
         ### From existing certificate without a CA
 
@@ -342,8 +342,8 @@ class Certificate(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        cert = aws.iot.Certificate("cert",
-            certificate_pem=(lambda path: open(path).read())("/my/cert.pem"),
+        cert = aws.iot.certificate.Certificate("cert",
+            certificate_pem=(lambda path: open(path).read())(/my/cert.pem),
             active=True)
         ```
 

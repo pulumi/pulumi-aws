@@ -8,18 +8,6 @@ import * as utilities from "../utilities";
  * Provides details about a Kinesis Stream Consumer.
  *
  * For more details, see the [Amazon Kinesis Stream Consumer Documentation](https://docs.aws.amazon.com/streams/latest/dev/amazon-kinesis-consumers.html).
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.kinesis.getStreamConsumer({
- *     name: "example-consumer",
- *     streamArn: aws_kinesis_stream.example.arn,
- * });
- * ```
  */
 export function getStreamConsumer(args: GetStreamConsumerArgs, opts?: pulumi.InvokeOptions): Promise<GetStreamConsumerResult> {
 
@@ -73,18 +61,6 @@ export interface GetStreamConsumerResult {
  * Provides details about a Kinesis Stream Consumer.
  *
  * For more details, see the [Amazon Kinesis Stream Consumer Documentation](https://docs.aws.amazon.com/streams/latest/dev/amazon-kinesis-consumers.html).
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.kinesis.getStreamConsumer({
- *     name: "example-consumer",
- *     streamArn: aws_kinesis_stream.example.arn,
- * });
- * ```
  */
 export function getStreamConsumerOutput(args: GetStreamConsumerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStreamConsumerResult> {
     return pulumi.output(args).apply((a: any) => getStreamConsumer(a, opts))

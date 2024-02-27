@@ -12,33 +12,6 @@ import (
 )
 
 // Provides details about a specific Amazon Lex Bot.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lex"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lex.LookupBot(ctx, &lex.LookupBotArgs{
-//				Name:    "OrderFlowers",
-//				Version: pulumi.StringRef("$LATEST"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupBot(ctx *pulumi.Context, args *LookupBotArgs, opts ...pulumi.InvokeOption) (*LookupBotResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupBotResult

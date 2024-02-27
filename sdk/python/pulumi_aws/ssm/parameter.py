@@ -507,9 +507,9 @@ class Parameter(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        foo = aws.ssm.Parameter("foo",
-            type="String",
-            value="bar")
+        foo = aws.ssm.parameter.Parameter("foo",
+            type=String,
+            value=bar)
         ```
         ### Encrypted string using default SSM KMS key
 
@@ -517,23 +517,23 @@ class Parameter(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        default = aws.rds.Instance("default",
+        default = aws.rds.instance.Instance("default",
             allocated_storage=10,
-            storage_type="gp2",
-            engine="mysql",
-            engine_version="5.7.16",
-            instance_class="db.t2.micro",
-            db_name="mydb",
-            username="foo",
-            password=var["database_master_password"],
-            db_subnet_group_name="my_database_subnet_group",
-            parameter_group_name="default.mysql5.7")
-        secret = aws.ssm.Parameter("secret",
-            description="The parameter description",
-            type="SecureString",
-            value=var["database_master_password"],
+            storage_type=gp2,
+            engine=mysql,
+            engine_version=5.7.16,
+            instance_class=db.t2.micro,
+            db_name=mydb,
+            username=foo,
+            password=var.database_master_password,
+            db_subnet_group_name=my_database_subnet_group,
+            parameter_group_name=default.mysql5.7)
+        secret = aws.ssm.parameter.Parameter("secret",
+            description=The parameter description,
+            type=SecureString,
+            value=var.database_master_password,
             tags={
-                "environment": "production",
+                environment: production,
             })
         ```
 
@@ -582,9 +582,9 @@ class Parameter(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        foo = aws.ssm.Parameter("foo",
-            type="String",
-            value="bar")
+        foo = aws.ssm.parameter.Parameter("foo",
+            type=String,
+            value=bar)
         ```
         ### Encrypted string using default SSM KMS key
 
@@ -592,23 +592,23 @@ class Parameter(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        default = aws.rds.Instance("default",
+        default = aws.rds.instance.Instance("default",
             allocated_storage=10,
-            storage_type="gp2",
-            engine="mysql",
-            engine_version="5.7.16",
-            instance_class="db.t2.micro",
-            db_name="mydb",
-            username="foo",
-            password=var["database_master_password"],
-            db_subnet_group_name="my_database_subnet_group",
-            parameter_group_name="default.mysql5.7")
-        secret = aws.ssm.Parameter("secret",
-            description="The parameter description",
-            type="SecureString",
-            value=var["database_master_password"],
+            storage_type=gp2,
+            engine=mysql,
+            engine_version=5.7.16,
+            instance_class=db.t2.micro,
+            db_name=mydb,
+            username=foo,
+            password=var.database_master_password,
+            db_subnet_group_name=my_database_subnet_group,
+            parameter_group_name=default.mysql5.7)
+        secret = aws.ssm.parameter.Parameter("secret",
+            description=The parameter description,
+            type=SecureString,
+            value=var.database_master_password,
             tags={
-                "environment": "production",
+                environment: production,
             })
         ```
 

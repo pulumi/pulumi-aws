@@ -22,31 +22,29 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/emrcontainers"
+//	emrcontainers/virtualCluster "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/emrcontainers/virtualCluster"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := emrcontainers.NewVirtualCluster(ctx, "example", &emrcontainers.VirtualClusterArgs{
-//				ContainerProvider: &emrcontainers.VirtualClusterContainerProviderArgs{
-//					Id:   pulumi.Any(aws_eks_cluster.Example.Name),
-//					Type: pulumi.String("EKS"),
-//					Info: &emrcontainers.VirtualClusterContainerProviderInfoArgs{
-//						EksInfo: &emrcontainers.VirtualClusterContainerProviderInfoEksInfoArgs{
-//							Namespace: pulumi.String("default"),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := emrcontainers/virtualCluster.NewVirtualCluster(ctx, "example", &emrcontainers/virtualCluster.VirtualClusterArgs{
+// ContainerProvider: map[string]interface{}{
+// "id": aws_eks_cluster.Example.Name,
+// "type": "EKS",
+// "info": map[string]interface{}{
+// "eksInfo": map[string]interface{}{
+// "namespace": "default",
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

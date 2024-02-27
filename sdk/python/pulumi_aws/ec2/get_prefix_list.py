@@ -103,39 +103,6 @@ def get_prefix_list(filters: Optional[Sequence[pulumi.InputType['GetPrefixListFi
 
     The ec2.ManagedPrefixList data source is normally more appropriate to use given it can return customer-managed prefix list info, as well as additional attributes.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    private_s3_vpc_endpoint = aws.ec2.VpcEndpoint("privateS3VpcEndpoint",
-        vpc_id=aws_vpc["foo"]["id"],
-        service_name="com.amazonaws.us-west-2.s3")
-    private_s3_prefix_list = aws.ec2.get_prefix_list_output(prefix_list_id=private_s3_vpc_endpoint.prefix_list_id)
-    bar = aws.ec2.NetworkAcl("bar", vpc_id=aws_vpc["foo"]["id"])
-    private_s3_network_acl_rule = aws.ec2.NetworkAclRule("privateS3NetworkAclRule",
-        network_acl_id=bar.id,
-        rule_number=200,
-        egress=False,
-        protocol="tcp",
-        rule_action="allow",
-        cidr_block=private_s3_prefix_list.cidr_blocks[0],
-        from_port=443,
-        to_port=443)
-    ```
-    ### Filter
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.ec2.get_prefix_list(filters=[aws.ec2.GetPrefixListFilterArgs(
-        name="prefix-list-id",
-        values=["pl-68a54001"],
-    )])
-    ```
-
 
     :param Sequence[pulumi.InputType['GetPrefixListFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.
     :param str name: Name of the prefix list to select.
@@ -171,39 +138,6 @@ def get_prefix_list_output(filters: Optional[pulumi.Input[Optional[Sequence[pulu
     rules.
 
     The ec2.ManagedPrefixList data source is normally more appropriate to use given it can return customer-managed prefix list info, as well as additional attributes.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    private_s3_vpc_endpoint = aws.ec2.VpcEndpoint("privateS3VpcEndpoint",
-        vpc_id=aws_vpc["foo"]["id"],
-        service_name="com.amazonaws.us-west-2.s3")
-    private_s3_prefix_list = aws.ec2.get_prefix_list_output(prefix_list_id=private_s3_vpc_endpoint.prefix_list_id)
-    bar = aws.ec2.NetworkAcl("bar", vpc_id=aws_vpc["foo"]["id"])
-    private_s3_network_acl_rule = aws.ec2.NetworkAclRule("privateS3NetworkAclRule",
-        network_acl_id=bar.id,
-        rule_number=200,
-        egress=False,
-        protocol="tcp",
-        rule_action="allow",
-        cidr_block=private_s3_prefix_list.cidr_blocks[0],
-        from_port=443,
-        to_port=443)
-    ```
-    ### Filter
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.ec2.get_prefix_list(filters=[aws.ec2.GetPrefixListFilterArgs(
-        name="prefix-list-id",
-        values=["pl-68a54001"],
-    )])
-    ```
 
 
     :param Sequence[pulumi.InputType['GetPrefixListFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.

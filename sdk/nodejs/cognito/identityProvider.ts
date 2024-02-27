@@ -13,8 +13,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.cognito.UserPool("example", {autoVerifiedAttributes: ["email"]});
- * const exampleProvider = new aws.cognito.IdentityProvider("exampleProvider", {
+ * const example = new aws.cognito/userPool.UserPool("example", {autoVerifiedAttributes: ["email"]});
+ * const exampleProvider = new aws.cognito/identityProvider.IdentityProvider("exampleProvider", {
  *     userPoolId: example.id,
  *     providerName: "Google",
  *     providerType: "Google",

@@ -178,7 +178,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.elasticache.ReplicationGroup;
  * import com.pulumi.aws.elasticache.ReplicationGroupArgs;
- * import com.pulumi.aws.elasticache.inputs.ReplicationGroupLogDeliveryConfigurationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -201,18 +200,8 @@ import javax.annotation.Nullable;
  *             .maintenanceWindow(&#34;tue:06:30-tue:07:30&#34;)
  *             .snapshotWindow(&#34;01:00-02:00&#34;)
  *             .logDeliveryConfigurations(            
- *                 ReplicationGroupLogDeliveryConfigurationArgs.builder()
- *                     .destination(aws_cloudwatch_log_group.example().name())
- *                     .destinationType(&#34;cloudwatch-logs&#34;)
- *                     .logFormat(&#34;text&#34;)
- *                     .logType(&#34;slow-log&#34;)
- *                     .build(),
- *                 ReplicationGroupLogDeliveryConfigurationArgs.builder()
- *                     .destination(aws_kinesis_firehose_delivery_stream.example().name())
- *                     .destinationType(&#34;kinesis-firehose&#34;)
- *                     .logFormat(&#34;json&#34;)
- *                     .logType(&#34;engine-log&#34;)
- *                     .build())
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

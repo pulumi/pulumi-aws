@@ -21,24 +21,22 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	ec2/vpcNetworkPerformanceMetricSubscription "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/vpcNetworkPerformanceMetricSubscription"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.NewVpcNetworkPerformanceMetricSubscription(ctx, "example", &ec2.VpcNetworkPerformanceMetricSubscriptionArgs{
-//				Destination: pulumi.String("us-west-1"),
-//				Source:      pulumi.String("us-east-1"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := ec2/vpcNetworkPerformanceMetricSubscription.NewVpcNetworkPerformanceMetricSubscription(ctx, "example", &ec2/vpcNetworkPerformanceMetricSubscription.VpcNetworkPerformanceMetricSubscriptionArgs{
+// Destination: "us-west-1",
+// Source: "us-east-1",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 type VpcNetworkPerformanceMetricSubscription struct {
 	pulumi.CustomResourceState

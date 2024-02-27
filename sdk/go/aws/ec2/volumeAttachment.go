@@ -24,44 +24,43 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ebs"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	ebs/volume "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ebs/volume"
+//	ec2/instance "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/instance"
+//	ec2/volumeAttachment "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/volumeAttachment"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			web, err := ec2.NewInstance(ctx, "web", &ec2.InstanceArgs{
-//				Ami:              pulumi.String("ami-21f78e11"),
-//				AvailabilityZone: pulumi.String("us-west-2a"),
-//				InstanceType:     pulumi.String("t2.micro"),
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("HelloWorld"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			example, err := ebs.NewVolume(ctx, "example", &ebs.VolumeArgs{
-//				AvailabilityZone: pulumi.String("us-west-2a"),
-//				Size:             pulumi.Int(1),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ec2.NewVolumeAttachment(ctx, "ebsAtt", &ec2.VolumeAttachmentArgs{
-//				DeviceName: pulumi.String("/dev/sdh"),
-//				VolumeId:   example.ID(),
-//				InstanceId: web.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// web, err := ec2/instance.NewInstance(ctx, "web", &ec2/instance.InstanceArgs{
+// Ami: "ami-21f78e11",
+// AvailabilityZone: "us-west-2a",
+// InstanceType: "t2.micro",
+// Tags: map[string]interface{}{
+// "Name": "HelloWorld",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// example, err := ebs/volume.NewVolume(ctx, "example", &ebs/volume.VolumeArgs{
+// AvailabilityZone: "us-west-2a",
+// Size: 1,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = ec2/volumeAttachment.NewVolumeAttachment(ctx, "ebsAtt", &ec2/volumeAttachment.VolumeAttachmentArgs{
+// DeviceName: "/dev/sdh",
+// VolumeId: example.Id,
+// InstanceId: web.Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

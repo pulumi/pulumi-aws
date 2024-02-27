@@ -16,47 +16,6 @@ namespace Pulumi.Aws.SecretsManager
         /// 
         /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
-        /// ### Retrieve Current Secret Version
-        /// 
-        /// By default, this data sources retrieves information based on the `AWSCURRENT` staging label.
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var secret_version = Aws.SecretsManager.GetSecretVersion.Invoke(new()
-        ///     {
-        ///         SecretId = data.Aws_secretsmanager_secret.Example.Id,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% example %}}
-        /// ### Retrieve Specific Secret Version
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var by_version_stage = Aws.SecretsManager.GetSecretVersion.Invoke(new()
-        ///     {
-        ///         SecretId = data.Aws_secretsmanager_secret.Example.Id,
-        ///         VersionStage = "example",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetSecretVersionResult> InvokeAsync(GetSecretVersionArgs args, InvokeOptions? options = null)
@@ -67,47 +26,6 @@ namespace Pulumi.Aws.SecretsManager
         /// 
         /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
-        /// ### Retrieve Current Secret Version
-        /// 
-        /// By default, this data sources retrieves information based on the `AWSCURRENT` staging label.
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var secret_version = Aws.SecretsManager.GetSecretVersion.Invoke(new()
-        ///     {
-        ///         SecretId = data.Aws_secretsmanager_secret.Example.Id,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% example %}}
-        /// ### Retrieve Specific Secret Version
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var by_version_stage = Aws.SecretsManager.GetSecretVersion.Invoke(new()
-        ///     {
-        ///         SecretId = data.Aws_secretsmanager_secret.Example.Id,
-        ///         VersionStage = "example",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetSecretVersionResult> Invoke(GetSecretVersionInvokeArgs args, InvokeOptions? options = null)

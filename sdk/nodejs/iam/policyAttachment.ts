@@ -15,44 +15,6 @@ import {Group, Role, User} from "./index";
  * > **NOTE:** The usage of this resource conflicts with the `aws.iam.GroupPolicyAttachment`, `aws.iam.RolePolicyAttachment`, and `aws.iam.UserPolicyAttachment` resources and will permanently show a difference if both are defined.
  *
  * > **NOTE:** For a given role, this resource is incompatible with using the `aws.iam.Role` resource `managedPolicyArns` argument. When using that argument and this resource, both will attempt to manage the role's managed policy attachments and the provider will show a permanent difference.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const user = new aws.iam.User("user", {});
- * const assumeRole = aws.iam.getPolicyDocument({
- *     statements: [{
- *         effect: "Allow",
- *         principals: [{
- *             type: "Service",
- *             identifiers: ["ec2.amazonaws.com"],
- *         }],
- *         actions: ["sts:AssumeRole"],
- *     }],
- * });
- * const role = new aws.iam.Role("role", {assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json)});
- * const group = new aws.iam.Group("group", {});
- * const policyPolicyDocument = aws.iam.getPolicyDocument({
- *     statements: [{
- *         effect: "Allow",
- *         actions: ["ec2:Describe*"],
- *         resources: ["*"],
- *     }],
- * });
- * const policyPolicy = new aws.iam.Policy("policyPolicy", {
- *     description: "A test policy",
- *     policy: policyPolicyDocument.then(policyPolicyDocument => policyPolicyDocument.json),
- * });
- * const test_attach = new aws.iam.PolicyAttachment("test-attach", {
- *     users: [user.name],
- *     roles: [role.name],
- *     groups: [group.name],
- *     policyArn: policyPolicy.arn,
- * });
- * ```
  */
 export class PolicyAttachment extends pulumi.CustomResource {
     /**

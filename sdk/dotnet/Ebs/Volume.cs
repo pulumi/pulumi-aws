@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Ebs
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Ebs.Volume("example", new()
+    ///     var example = new Aws.Ebs.Volume.Volume("example", new()
     ///     {
     ///         AvailabilityZone = "us-west-2a",
     ///         Size = 40,

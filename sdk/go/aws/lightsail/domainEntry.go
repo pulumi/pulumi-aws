@@ -23,31 +23,30 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lightsail"
+//	lightsail/domain "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/lightsail/domain"
+//	lightsail/domainEntry "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/lightsail/domainEntry"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lightsail.NewDomain(ctx, "testDomain", &lightsail.DomainArgs{
-//				DomainName: pulumi.String("mydomain.com"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = lightsail.NewDomainEntry(ctx, "testDomainEntry", &lightsail.DomainEntryArgs{
-//				DomainName: pulumi.Any(aws_lightsail_domain.Domain_test.Domain_name),
-//				Type:       pulumi.String("A"),
-//				Target:     pulumi.String("127.0.0.1"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := lightsail/domain.NewDomain(ctx, "testDomain", &lightsail/domain.DomainArgs{
+// DomainName: "mydomain.com",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = lightsail/domainEntry.NewDomainEntry(ctx, "testDomainEntry", &lightsail/domainEntry.DomainEntryArgs{
+// DomainName: aws_lightsail_domain.Domain_test.Domain_name,
+// Type: "A",
+// Target: "127.0.0.1",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

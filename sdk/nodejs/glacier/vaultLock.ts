@@ -12,38 +12,13 @@ import * as utilities from "../utilities";
  * !> **WARNING:** Once a Glacier Vault Lock is completed, it is immutable. The deletion of the Glacier Vault Lock is not be possible and attempting to remove it from this provider will return an error. Set the `ignoreDeletionError` argument to `true` and apply this configuration before attempting to delete this resource via this provider or remove this resource from this provider's management.
  *
  * ## Example Usage
- * ### Testing Glacier Vault Lock Policy
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleVault = new aws.glacier.Vault("exampleVault", {});
- * const examplePolicyDocument = aws.iam.getPolicyDocumentOutput({
- *     statements: [{
- *         actions: ["glacier:DeleteArchive"],
- *         effect: "Deny",
- *         resources: [exampleVault.arn],
- *         conditions: [{
- *             test: "NumericLessThanEquals",
- *             variable: "glacier:ArchiveAgeinDays",
- *             values: ["365"],
- *         }],
- *     }],
- * });
- * const exampleVaultLock = new aws.glacier.VaultLock("exampleVaultLock", {
- *     completeLock: false,
- *     policy: examplePolicyDocument.apply(examplePolicyDocument => examplePolicyDocument.json),
- *     vaultName: exampleVault.name,
- * });
- * ```
  * ### Permanently Applying Glacier Vault Lock Policy
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.glacier.VaultLock("example", {
+ * const example = new aws.glacier/vaultLock.VaultLock("example", {
  *     completeLock: true,
  *     policy: data.aws_iam_policy_document.example.json,
  *     vaultName: aws_glacier_vault.example.name,

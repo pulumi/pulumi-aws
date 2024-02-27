@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.auditmanager.OrganizationAdminAccountRegistration("example", {adminAccountId: "012345678901"});
+ * const example = new aws.auditmanager/organizationAdminAccountRegistration.OrganizationAdminAccountRegistration("example", {adminAccountId: "012345678901"});
  * ```
  *
  * ## Import

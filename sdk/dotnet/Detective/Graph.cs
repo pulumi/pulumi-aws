@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Detective
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Detective.Graph("example", new()
+    ///     var example = new Aws.Detective.Graph.Graph("example", new()
     ///     {
     ///         Tags = 
     ///         {

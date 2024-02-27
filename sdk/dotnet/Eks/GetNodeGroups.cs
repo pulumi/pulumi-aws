@@ -13,74 +13,12 @@ namespace Pulumi.Aws.Eks
     {
         /// <summary>
         /// Retrieve the EKS Node Groups associated with a named EKS cluster. This will allow you to pass a list of Node Group names to other resources.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var exampleNodeGroups = Aws.Eks.GetNodeGroups.Invoke(new()
-        ///     {
-        ///         ClusterName = "example",
-        ///     });
-        /// 
-        ///     var exampleNodeGroup = .Select(__value =&gt; 
-        ///     {
-        ///         return Aws.Eks.GetNodeGroup.Invoke(new()
-        ///         {
-        ///             ClusterName = "example",
-        ///             NodeGroupName = __value,
-        ///         });
-        ///     }).ToList();
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetNodeGroupsResult> InvokeAsync(GetNodeGroupsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNodeGroupsResult>("aws:eks/getNodeGroups:getNodeGroups", args ?? new GetNodeGroupsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieve the EKS Node Groups associated with a named EKS cluster. This will allow you to pass a list of Node Group names to other resources.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var exampleNodeGroups = Aws.Eks.GetNodeGroups.Invoke(new()
-        ///     {
-        ///         ClusterName = "example",
-        ///     });
-        /// 
-        ///     var exampleNodeGroup = .Select(__value =&gt; 
-        ///     {
-        ///         return Aws.Eks.GetNodeGroup.Invoke(new()
-        ///         {
-        ///             ClusterName = "example",
-        ///             NodeGroupName = __value,
-        ///         });
-        ///     }).ToList();
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetNodeGroupsResult> Invoke(GetNodeGroupsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNodeGroupsResult>("aws:eks/getNodeGroups:getNodeGroups", args ?? new GetNodeGroupsInvokeArgs(), options.WithDefaults());

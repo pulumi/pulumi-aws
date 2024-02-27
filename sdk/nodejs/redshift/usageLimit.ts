@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.redshift.UsageLimit("example", {
+ * const example = new aws.redshift/usageLimit.UsageLimit("example", {
  *     clusterIdentifier: aws_redshift_cluster.example.id,
  *     featureType: "concurrency-scaling",
  *     limitType: "time",

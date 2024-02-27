@@ -34,8 +34,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.quicksight.Dashboard;
  * import com.pulumi.aws.quicksight.DashboardArgs;
- * import com.pulumi.aws.quicksight.inputs.DashboardSourceEntityArgs;
- * import com.pulumi.aws.quicksight.inputs.DashboardSourceEntitySourceTemplateArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -52,22 +50,13 @@ import javax.annotation.Nullable;
  *         var example = new Dashboard(&#34;example&#34;, DashboardArgs.builder()        
  *             .dashboardId(&#34;example-id&#34;)
  *             .versionDescription(&#34;version&#34;)
- *             .sourceEntity(DashboardSourceEntityArgs.builder()
- *                 .sourceTemplate(DashboardSourceEntitySourceTemplateArgs.builder()
- *                     .arn(aws_quicksight_template.source().arn())
- *                     .dataSetReferences(DashboardSourceEntitySourceTemplateDataSetReferenceArgs.builder()
- *                         .dataSetArn(aws_quicksight_data_set.dataset().arn())
- *                         .dataSetPlaceholder(&#34;1&#34;)
- *                         .build())
- *                     .build())
- *                 .build())
+ *             .sourceEntity(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
  * }
  * ```
  * ### With Definition
- * 
  * ```java
  * package generated_program;
  * 

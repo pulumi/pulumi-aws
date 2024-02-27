@@ -138,14 +138,14 @@ class MulticastDomainAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_transit_gateway = aws.ec2transitgateway.TransitGateway("exampleTransitGateway", multicast_support="enable")
-        example_vpc_attachment = aws.ec2transitgateway.VpcAttachment("exampleVpcAttachment",
-            subnet_ids=[aws_subnet["example"]["id"]],
+        example_transit_gateway = aws.ec2transitgateway.transit_gateway.TransitGateway("exampleTransitGateway", multicast_support=enable)
+        example_vpc_attachment = aws.ec2transitgateway.vpc_attachment.VpcAttachment("exampleVpcAttachment",
+            subnet_ids=[aws_subnet.example.id],
             transit_gateway_id=example_transit_gateway.id,
-            vpc_id=aws_vpc["example"]["id"])
-        example_multicast_domain = aws.ec2transitgateway.MulticastDomain("exampleMulticastDomain", transit_gateway_id=example_transit_gateway.id)
-        example_multicast_domain_association = aws.ec2transitgateway.MulticastDomainAssociation("exampleMulticastDomainAssociation",
-            subnet_id=aws_subnet["example"]["id"],
+            vpc_id=aws_vpc.example.id)
+        example_multicast_domain = aws.ec2transitgateway.multicast_domain.MulticastDomain("exampleMulticastDomain", transit_gateway_id=example_transit_gateway.id)
+        example_multicast_domain_association = aws.ec2transitgateway.multicast_domain_association.MulticastDomainAssociation("exampleMulticastDomainAssociation",
+            subnet_id=aws_subnet.example.id,
             transit_gateway_attachment_id=example_vpc_attachment.id,
             transit_gateway_multicast_domain_id=example_multicast_domain.id)
         ```
@@ -171,14 +171,14 @@ class MulticastDomainAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_transit_gateway = aws.ec2transitgateway.TransitGateway("exampleTransitGateway", multicast_support="enable")
-        example_vpc_attachment = aws.ec2transitgateway.VpcAttachment("exampleVpcAttachment",
-            subnet_ids=[aws_subnet["example"]["id"]],
+        example_transit_gateway = aws.ec2transitgateway.transit_gateway.TransitGateway("exampleTransitGateway", multicast_support=enable)
+        example_vpc_attachment = aws.ec2transitgateway.vpc_attachment.VpcAttachment("exampleVpcAttachment",
+            subnet_ids=[aws_subnet.example.id],
             transit_gateway_id=example_transit_gateway.id,
-            vpc_id=aws_vpc["example"]["id"])
-        example_multicast_domain = aws.ec2transitgateway.MulticastDomain("exampleMulticastDomain", transit_gateway_id=example_transit_gateway.id)
-        example_multicast_domain_association = aws.ec2transitgateway.MulticastDomainAssociation("exampleMulticastDomainAssociation",
-            subnet_id=aws_subnet["example"]["id"],
+            vpc_id=aws_vpc.example.id)
+        example_multicast_domain = aws.ec2transitgateway.multicast_domain.MulticastDomain("exampleMulticastDomain", transit_gateway_id=example_transit_gateway.id)
+        example_multicast_domain_association = aws.ec2transitgateway.multicast_domain_association.MulticastDomainAssociation("exampleMulticastDomainAssociation",
+            subnet_id=aws_subnet.example.id,
             transit_gateway_attachment_id=example_vpc_attachment.id,
             transit_gateway_multicast_domain_id=example_multicast_domain.id)
         ```

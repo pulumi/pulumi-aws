@@ -19,12 +19,12 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * // ... other configuration, including potentially other tags ...
- * const testGroup = new aws.autoscaling.Group("testGroup", {tags: [{
+ * const testGroup = new aws.autoscaling/group.Group("testGroup", {tags: [{
  *     key: "AmazonECSManaged",
- *     value: "true",
+ *     value: true,
  *     propagateAtLaunch: true,
  * }]});
- * const testCapacityProvider = new aws.ecs.CapacityProvider("testCapacityProvider", {autoScalingGroupProvider: {
+ * const testCapacityProvider = new aws.ecs/capacityProvider.CapacityProvider("testCapacityProvider", {autoScalingGroupProvider: {
  *     autoScalingGroupArn: testGroup.arn,
  *     managedTerminationProtection: "ENABLED",
  *     managedScaling: {

@@ -23,7 +23,7 @@ namespace Pulumi.Aws.RedShift
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.RedShift.DataShareAuthorization("example", new()
+    ///     var example = new Aws.Redshift.DataShareAuthorization.DataShareAuthorization("example", new()
     ///     {
     ///         ConsumerIdentifier = "012345678901",
     ///         DataShareArn = "arn:aws:redshift:us-west-2:012345678901:datashare:3072dae5-022b-4d45-9cd3-01f010aae4b2/example_share",

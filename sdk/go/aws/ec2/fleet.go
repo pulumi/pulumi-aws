@@ -21,34 +21,32 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	ec2/fleet "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/fleet"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.NewFleet(ctx, "example", &ec2.FleetArgs{
-//				LaunchTemplateConfigs: ec2.FleetLaunchTemplateConfigArray{
-//					&ec2.FleetLaunchTemplateConfigArgs{
-//						LaunchTemplateSpecification: &ec2.FleetLaunchTemplateConfigLaunchTemplateSpecificationArgs{
-//							LaunchTemplateId: pulumi.Any(aws_launch_template.Example.Id),
-//							Version:          pulumi.Any(aws_launch_template.Example.Latest_version),
-//						},
-//					},
-//				},
-//				TargetCapacitySpecification: &ec2.FleetTargetCapacitySpecificationArgs{
-//					DefaultTargetCapacityType: pulumi.String("spot"),
-//					TotalTargetCapacity:       pulumi.Int(5),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := ec2/fleet.NewFleet(ctx, "example", &ec2/fleet.FleetArgs{
+// LaunchTemplateConfigs: []map[string]interface{}{
+// map[string]interface{}{
+// "launchTemplateSpecification": map[string]interface{}{
+// "launchTemplateId": aws_launch_template.Example.Id,
+// "version": aws_launch_template.Example.Latest_version,
+// },
+// },
+// },
+// TargetCapacitySpecification: map[string]interface{}{
+// "defaultTargetCapacityType": "spot",
+// "totalTargetCapacity": 5,
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

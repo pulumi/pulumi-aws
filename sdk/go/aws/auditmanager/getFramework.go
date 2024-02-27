@@ -14,32 +14,6 @@ import (
 // Data source for managing an AWS Audit Manager Framework.
 //
 // ## Example Usage
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/auditmanager"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := auditmanager.LookupFramework(ctx, &auditmanager.LookupFrameworkArgs{
-//				FrameworkType: "Standard",
-//				Name:          "Essential Eight",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupFramework(ctx *pulumi.Context, args *LookupFrameworkArgs, opts ...pulumi.InvokeOption) (*LookupFrameworkResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupFrameworkResult

@@ -21,24 +21,22 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2transitgateway"
+//	ec2transitgateway/policyTableAssociation "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2transitgateway/policyTableAssociation"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2transitgateway.NewPolicyTableAssociation(ctx, "example", &ec2transitgateway.PolicyTableAssociationArgs{
-//				TransitGatewayAttachmentId:  pulumi.Any(aws_networkmanager_transit_gateway_peering.Example.Transit_gateway_peering_attachment_id),
-//				TransitGatewayPolicyTableId: pulumi.Any(aws_ec2_transit_gateway_policy_table.Example.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := ec2transitgateway/policyTableAssociation.NewPolicyTableAssociation(ctx, "example", &ec2transitgateway/policyTableAssociation.PolicyTableAssociationArgs{
+// TransitGatewayAttachmentId: aws_networkmanager_transit_gateway_peering.Example.Transit_gateway_peering_attachment_id,
+// TransitGatewayPolicyTableId: aws_ec2_transit_gateway_policy_table.Example.Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

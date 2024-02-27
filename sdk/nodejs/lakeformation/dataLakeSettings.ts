@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.lakeformation.DataLakeSettings("example", {admins: [
+ * const example = new aws.lakeformation/dataLakeSettings.DataLakeSettings("example", {admins: [
  *     aws_iam_user.test.arn,
  *     aws_iam_role.test.arn,
  * ]});
@@ -30,7 +30,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.lakeformation.DataLakeSettings("example", {
+ * const example = new aws.lakeformation/dataLakeSettings.DataLakeSettings("example", {
  *     admins: [
  *         aws_iam_user.test.arn,
  *         aws_iam_role.test.arn,
@@ -55,7 +55,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.lakeformation.DataLakeSettings("example", {
+ * const example = new aws.lakeformation/dataLakeSettings.DataLakeSettings("example", {
  *     admins: [
  *         aws_iam_user.test.arn,
  *         aws_iam_role.test.arn,

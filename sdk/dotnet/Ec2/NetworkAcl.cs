@@ -33,31 +33,31 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var main = new Aws.Ec2.NetworkAcl("main", new()
+    ///     var main = new Aws.Ec2.NetworkAcl.NetworkAcl("main", new()
     ///     {
     ///         VpcId = aws_vpc.Main.Id,
     ///         Egress = new[]
     ///         {
-    ///             new Aws.Ec2.Inputs.NetworkAclEgressArgs
+    ///             
     ///             {
-    ///                 Protocol = "tcp",
-    ///                 RuleNo = 200,
-    ///                 Action = "allow",
-    ///                 CidrBlock = "10.3.0.0/18",
-    ///                 FromPort = 443,
-    ///                 ToPort = 443,
+    ///                 { "protocol", "tcp" },
+    ///                 { "ruleNo", 200 },
+    ///                 { "action", "allow" },
+    ///                 { "cidrBlock", "10.3.0.0/18" },
+    ///                 { "fromPort", 443 },
+    ///                 { "toPort", 443 },
     ///             },
     ///         },
     ///         Ingress = new[]
     ///         {
-    ///             new Aws.Ec2.Inputs.NetworkAclIngressArgs
+    ///             
     ///             {
-    ///                 Protocol = "tcp",
-    ///                 RuleNo = 100,
-    ///                 Action = "allow",
-    ///                 CidrBlock = "10.3.0.0/18",
-    ///                 FromPort = 80,
-    ///                 ToPort = 80,
+    ///                 { "protocol", "tcp" },
+    ///                 { "ruleNo", 100 },
+    ///                 { "action", "allow" },
+    ///                 { "cidrBlock", "10.3.0.0/18" },
+    ///                 { "fromPort", 80 },
+    ///                 { "toPort", 80 },
     ///             },
     ///         },
     ///         Tags = 

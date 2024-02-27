@@ -17,8 +17,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleConfigurationSet = new aws.sesv2.ConfigurationSet("exampleConfigurationSet", {configurationSetName: "example"});
- * const exampleConfigurationSetEventDestination = new aws.sesv2.ConfigurationSetEventDestination("exampleConfigurationSetEventDestination", {
+ * const exampleConfigurationSet = new aws.sesv2/configurationSet.ConfigurationSet("exampleConfigurationSet", {configurationSetName: "example"});
+ * const exampleConfigurationSetEventDestination = new aws.sesv2/configurationSetEventDestination.ConfigurationSetEventDestination("exampleConfigurationSetEventDestination", {
  *     configurationSetName: exampleConfigurationSet.configurationSetName,
  *     eventDestinationName: "example",
  *     eventDestination: {
@@ -40,8 +40,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleConfigurationSet = new aws.sesv2.ConfigurationSet("exampleConfigurationSet", {configurationSetName: "example"});
- * const exampleConfigurationSetEventDestination = new aws.sesv2.ConfigurationSetEventDestination("exampleConfigurationSetEventDestination", {
+ * const exampleConfigurationSet = new aws.sesv2/configurationSet.ConfigurationSet("exampleConfigurationSet", {configurationSetName: "example"});
+ * const exampleConfigurationSetEventDestination = new aws.sesv2/configurationSetEventDestination.ConfigurationSetEventDestination("exampleConfigurationSetEventDestination", {
  *     configurationSetName: exampleConfigurationSet.configurationSetName,
  *     eventDestinationName: "example",
  *     eventDestination: {
@@ -60,8 +60,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleConfigurationSet = new aws.sesv2.ConfigurationSet("exampleConfigurationSet", {configurationSetName: "example"});
- * const exampleConfigurationSetEventDestination = new aws.sesv2.ConfigurationSetEventDestination("exampleConfigurationSetEventDestination", {
+ * const exampleConfigurationSet = new aws.sesv2/configurationSet.ConfigurationSet("exampleConfigurationSet", {configurationSetName: "example"});
+ * const exampleConfigurationSetEventDestination = new aws.sesv2/configurationSetEventDestination.ConfigurationSetEventDestination("exampleConfigurationSetEventDestination", {
  *     configurationSetName: exampleConfigurationSet.configurationSetName,
  *     eventDestinationName: "example",
  *     eventDestination: {
@@ -79,8 +79,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleConfigurationSet = new aws.sesv2.ConfigurationSet("exampleConfigurationSet", {configurationSetName: "example"});
- * const exampleConfigurationSetEventDestination = new aws.sesv2.ConfigurationSetEventDestination("exampleConfigurationSetEventDestination", {
+ * const exampleConfigurationSet = new aws.sesv2/configurationSet.ConfigurationSet("exampleConfigurationSet", {configurationSetName: "example"});
+ * const exampleConfigurationSetEventDestination = new aws.sesv2/configurationSetEventDestination.ConfigurationSetEventDestination("exampleConfigurationSetEventDestination", {
  *     configurationSetName: exampleConfigurationSet.configurationSetName,
  *     eventDestinationName: "example",
  *     eventDestination: {

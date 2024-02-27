@@ -23,11 +23,11 @@ namespace Pulumi.Aws.Chime
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Chime.SdkvoiceGlobalSettings("example", new()
+    ///     var example = new Aws.Chime.SdkvoiceGlobalSettings.SdkvoiceGlobalSettings("example", new()
     ///     {
-    ///         VoiceConnector = new Aws.Chime.Inputs.SdkvoiceGlobalSettingsVoiceConnectorArgs
+    ///         VoiceConnector = 
     ///         {
-    ///             CdrBucket = "example-bucket-name",
+    ///             { "cdrBucket", "example-bucket-name" },
     ///         },
     ///     });
     /// 

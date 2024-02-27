@@ -74,7 +74,7 @@ class ConnectionConfirmation(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        confirmation = aws.directconnect.ConnectionConfirmation("confirmation", connection_id="dxcon-ffabc123")
+        confirmation = aws.directconnect.connection_confirmation.ConnectionConfirmation("confirmation", connection_id=dxcon-ffabc123)
         ```
 
         :param str resource_name: The name of the resource.
@@ -96,7 +96,7 @@ class ConnectionConfirmation(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        confirmation = aws.directconnect.ConnectionConfirmation("confirmation", connection_id="dxcon-ffabc123")
+        confirmation = aws.directconnect.connection_confirmation.ConnectionConfirmation("confirmation", connection_id=dxcon-ffabc123)
         ```
 
         :param str resource_name: The name of the resource.

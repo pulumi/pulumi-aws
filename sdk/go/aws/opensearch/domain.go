@@ -38,306 +38,21 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/opensearch"
+//	opensearch/domain "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/opensearch/domain"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := opensearch.NewDomain(ctx, "example", &opensearch.DomainArgs{
-//				ClusterConfig: &opensearch.DomainClusterConfigArgs{
-//					InstanceType: pulumi.String("r4.large.search"),
-//				},
-//				EngineVersion: pulumi.String("Elasticsearch_7.10"),
-//				Tags: pulumi.StringMap{
-//					"Domain": pulumi.String("TestDomain"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// ### Access Policy
-//
-// > See also: `opensearch.DomainPolicy` resource
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/opensearch"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			cfg := config.New(ctx, "")
-//			domain := "tf-test"
-//			if param := cfg.Get("domain"); param != "" {
-//				domain = param
-//			}
-//			currentRegion, err := aws.GetRegion(ctx, nil, nil)
-//			if err != nil {
-//				return err
-//			}
-//			currentCallerIdentity, err := aws.GetCallerIdentity(ctx, nil, nil)
-//			if err != nil {
-//				return err
-//			}
-//			examplePolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-//				Statements: []iam.GetPolicyDocumentStatement{
-//					{
-//						Effect: pulumi.StringRef("Allow"),
-//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
-//							{
-//								Type: "*",
-//								Identifiers: []string{
-//									"*",
-//								},
-//							},
-//						},
-//						Actions: []string{
-//							"es:*",
-//						},
-//						Resources: []string{
-//							fmt.Sprintf("arn:aws:es:%v:%v:domain/%v/*", currentRegion.Name, currentCallerIdentity.AccountId, domain),
-//						},
-//						Conditions: []iam.GetPolicyDocumentStatementCondition{
-//							{
-//								Test:     "IpAddress",
-//								Variable: "aws:SourceIp",
-//								Values: []string{
-//									"66.193.100.22/32",
-//								},
-//							},
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = opensearch.NewDomain(ctx, "exampleDomain", &opensearch.DomainArgs{
-//				AccessPolicies: *pulumi.String(examplePolicyDocument.Json),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// ### Log publishing to CloudWatch Logs
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/opensearch"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleLogGroup, err := cloudwatch.NewLogGroup(ctx, "exampleLogGroup", nil)
-//			if err != nil {
-//				return err
-//			}
-//			examplePolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-//				Statements: []iam.GetPolicyDocumentStatement{
-//					{
-//						Effect: pulumi.StringRef("Allow"),
-//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
-//							{
-//								Type: "Service",
-//								Identifiers: []string{
-//									"es.amazonaws.com",
-//								},
-//							},
-//						},
-//						Actions: []string{
-//							"logs:PutLogEvents",
-//							"logs:PutLogEventsBatch",
-//							"logs:CreateLogStream",
-//						},
-//						Resources: []string{
-//							"arn:aws:logs:*",
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = cloudwatch.NewLogResourcePolicy(ctx, "exampleLogResourcePolicy", &cloudwatch.LogResourcePolicyArgs{
-//				PolicyName:     pulumi.String("example"),
-//				PolicyDocument: *pulumi.String(examplePolicyDocument.Json),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = opensearch.NewDomain(ctx, "exampleDomain", &opensearch.DomainArgs{
-//				LogPublishingOptions: opensearch.DomainLogPublishingOptionArray{
-//					&opensearch.DomainLogPublishingOptionArgs{
-//						CloudwatchLogGroupArn: exampleLogGroup.Arn,
-//						LogType:               pulumi.String("INDEX_SLOW_LOGS"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// ### VPC based OpenSearch
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/opensearch"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
 //
 // )
 // func main() {
 // pulumi.Run(func(ctx *pulumi.Context) error {
-// cfg := config.New(ctx, "")
-// vpc := cfg.RequireObject("vpc")
-// domain := "tf-test";
-// if param := cfg.Get("domain"); param != ""{
-// domain = param
-// }
-// exampleVpc, err := ec2.LookupVpc(ctx, &ec2.LookupVpcArgs{
-// Tags: interface{}{
-// Name: vpc,
+// _, err := opensearch/domain.NewDomain(ctx, "example", &opensearch/domain.DomainArgs{
+// ClusterConfig: map[string]interface{}{
+// "instanceType": "r4.large.search",
 // },
-// }, nil);
-// if err != nil {
-// return err
-// }
-// exampleSubnets, err := ec2.GetSubnets(ctx, &ec2.GetSubnetsArgs{
-// Filters: []ec2.GetSubnetsFilter{
-// {
-// Name: "vpc-id",
-// Values: interface{}{
-// exampleVpc.Id,
-// },
-// },
-// },
+// EngineVersion: "Elasticsearch_7.10",
 // Tags: map[string]interface{}{
-// "Tier": "private",
-// },
-// }, nil);
-// if err != nil {
-// return err
-// }
-// currentRegion, err := aws.GetRegion(ctx, nil, nil);
-// if err != nil {
-// return err
-// }
-// currentCallerIdentity, err := aws.GetCallerIdentity(ctx, nil, nil);
-// if err != nil {
-// return err
-// }
-// exampleSecurityGroup, err := ec2.NewSecurityGroup(ctx, "exampleSecurityGroup", &ec2.SecurityGroupArgs{
-// Description: pulumi.String("Managed by Pulumi"),
-// VpcId: *pulumi.String(exampleVpc.Id),
-// Ingress: ec2.SecurityGroupIngressArray{
-// &ec2.SecurityGroupIngressArgs{
-// FromPort: pulumi.Int(443),
-// ToPort: pulumi.Int(443),
-// Protocol: pulumi.String("tcp"),
-// CidrBlocks: pulumi.StringArray{
-// *pulumi.String(exampleVpc.CidrBlock),
-// },
-// },
+// "Domain": "TestDomain",
 // },
 // })
-// if err != nil {
-// return err
-// }
-// exampleServiceLinkedRole, err := iam.NewServiceLinkedRole(ctx, "exampleServiceLinkedRole", &iam.ServiceLinkedRoleArgs{
-// AwsServiceName: pulumi.String("opensearchservice.amazonaws.com"),
-// })
-// if err != nil {
-// return err
-// }
-// examplePolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-// Statements: []iam.GetPolicyDocumentStatement{
-// {
-// Effect: pulumi.StringRef("Allow"),
-// Principals: []iam.GetPolicyDocumentStatementPrincipal{
-// {
-// Type: "*",
-// Identifiers: []string{
-// "*",
-// },
-// },
-// },
-// Actions: []string{
-// "es:*",
-// },
-// Resources: []string{
-// fmt.Sprintf("arn:aws:es:%v:%v:domain/%v/*", currentRegion.Name, currentCallerIdentity.AccountId, domain),
-// },
-// },
-// },
-// }, nil);
-// if err != nil {
-// return err
-// }
-// _, err = opensearch.NewDomain(ctx, "exampleDomain", &opensearch.DomainArgs{
-// EngineVersion: pulumi.String("OpenSearch_1.0"),
-// ClusterConfig: &opensearch.DomainClusterConfigArgs{
-// InstanceType: pulumi.String("m4.large.search"),
-// ZoneAwarenessEnabled: pulumi.Bool(true),
-// },
-// VpcOptions: &opensearch.DomainVpcOptionsArgs{
-// SubnetIds: pulumi.StringArray{
-// *pulumi.String(exampleSubnets.Ids[0]),
-// *pulumi.String(exampleSubnets.Ids[1]),
-// },
-// SecurityGroupIds: pulumi.StringArray{
-// exampleSecurityGroup.ID(),
-// },
-// },
-// AdvancedOptions: pulumi.StringMap{
-// "rest.action.multi.allow_explicit_index": pulumi.String("true"),
-// },
-// AccessPolicies: *pulumi.String(examplePolicyDocument.Json),
-// Tags: pulumi.StringMap{
-// "Domain": pulumi.String("TestDomain"),
-// },
-// }, pulumi.DependsOn([]pulumi.Resource{
-// exampleServiceLinkedRole,
-// }))
 // if err != nil {
 // return err
 // }
@@ -355,49 +70,47 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/opensearch"
+//	opensearch/domain "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/opensearch/domain"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := opensearch.NewDomain(ctx, "example", &opensearch.DomainArgs{
-//				AdvancedSecurityOptions: &opensearch.DomainAdvancedSecurityOptionsArgs{
-//					AnonymousAuthEnabled:        pulumi.Bool(true),
-//					Enabled:                     pulumi.Bool(false),
-//					InternalUserDatabaseEnabled: pulumi.Bool(true),
-//					MasterUserOptions: &opensearch.DomainAdvancedSecurityOptionsMasterUserOptionsArgs{
-//						MasterUserName:     pulumi.String("example"),
-//						MasterUserPassword: pulumi.String("Barbarbarbar1!"),
-//					},
-//				},
-//				ClusterConfig: &opensearch.DomainClusterConfigArgs{
-//					InstanceType: pulumi.String("r5.large.search"),
-//				},
-//				DomainEndpointOptions: &opensearch.DomainDomainEndpointOptionsArgs{
-//					EnforceHttps:      pulumi.Bool(true),
-//					TlsSecurityPolicy: pulumi.String("Policy-Min-TLS-1-2-2019-07"),
-//				},
-//				EbsOptions: &opensearch.DomainEbsOptionsArgs{
-//					EbsEnabled: pulumi.Bool(true),
-//					VolumeSize: pulumi.Int(10),
-//				},
-//				EncryptAtRest: &opensearch.DomainEncryptAtRestArgs{
-//					Enabled: pulumi.Bool(true),
-//				},
-//				EngineVersion: pulumi.String("Elasticsearch_7.1"),
-//				NodeToNodeEncryption: &opensearch.DomainNodeToNodeEncryptionArgs{
-//					Enabled: pulumi.Bool(true),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := opensearch/domain.NewDomain(ctx, "example", &opensearch/domain.DomainArgs{
+// AdvancedSecurityOptions: map[string]interface{}{
+// "anonymousAuthEnabled": true,
+// "enabled": false,
+// "internalUserDatabaseEnabled": true,
+// "masterUserOptions": map[string]interface{}{
+// "masterUserName": "example",
+// "masterUserPassword": "Barbarbarbar1!",
+// },
+// },
+// ClusterConfig: map[string]interface{}{
+// "instanceType": "r5.large.search",
+// },
+// DomainEndpointOptions: map[string]interface{}{
+// "enforceHttps": true,
+// "tlsSecurityPolicy": "Policy-Min-TLS-1-2-2019-07",
+// },
+// EbsOptions: map[string]interface{}{
+// "ebsEnabled": true,
+// "volumeSize": 10,
+// },
+// EncryptAtRest: map[string]interface{}{
+// "enabled": true,
+// },
+// EngineVersion: "Elasticsearch_7.1",
+// NodeToNodeEncryption: map[string]interface{}{
+// "enabled": true,
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Second apply
 //
@@ -408,49 +121,47 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/opensearch"
+//	opensearch/domain "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/opensearch/domain"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := opensearch.NewDomain(ctx, "example", &opensearch.DomainArgs{
-//				AdvancedSecurityOptions: &opensearch.DomainAdvancedSecurityOptionsArgs{
-//					AnonymousAuthEnabled:        pulumi.Bool(true),
-//					Enabled:                     pulumi.Bool(true),
-//					InternalUserDatabaseEnabled: pulumi.Bool(true),
-//					MasterUserOptions: &opensearch.DomainAdvancedSecurityOptionsMasterUserOptionsArgs{
-//						MasterUserName:     pulumi.String("example"),
-//						MasterUserPassword: pulumi.String("Barbarbarbar1!"),
-//					},
-//				},
-//				ClusterConfig: &opensearch.DomainClusterConfigArgs{
-//					InstanceType: pulumi.String("r5.large.search"),
-//				},
-//				DomainEndpointOptions: &opensearch.DomainDomainEndpointOptionsArgs{
-//					EnforceHttps:      pulumi.Bool(true),
-//					TlsSecurityPolicy: pulumi.String("Policy-Min-TLS-1-2-2019-07"),
-//				},
-//				EbsOptions: &opensearch.DomainEbsOptionsArgs{
-//					EbsEnabled: pulumi.Bool(true),
-//					VolumeSize: pulumi.Int(10),
-//				},
-//				EncryptAtRest: &opensearch.DomainEncryptAtRestArgs{
-//					Enabled: pulumi.Bool(true),
-//				},
-//				EngineVersion: pulumi.String("Elasticsearch_7.1"),
-//				NodeToNodeEncryption: &opensearch.DomainNodeToNodeEncryptionArgs{
-//					Enabled: pulumi.Bool(true),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := opensearch/domain.NewDomain(ctx, "example", &opensearch/domain.DomainArgs{
+// AdvancedSecurityOptions: map[string]interface{}{
+// "anonymousAuthEnabled": true,
+// "enabled": true,
+// "internalUserDatabaseEnabled": true,
+// "masterUserOptions": map[string]interface{}{
+// "masterUserName": "example",
+// "masterUserPassword": "Barbarbarbar1!",
+// },
+// },
+// ClusterConfig: map[string]interface{}{
+// "instanceType": "r5.large.search",
+// },
+// DomainEndpointOptions: map[string]interface{}{
+// "enforceHttps": true,
+// "tlsSecurityPolicy": "Policy-Min-TLS-1-2-2019-07",
+// },
+// EbsOptions: map[string]interface{}{
+// "ebsEnabled": true,
+// "volumeSize": 10,
+// },
+// EncryptAtRest: map[string]interface{}{
+// "enabled": true,
+// },
+// EngineVersion: "Elasticsearch_7.1",
+// NodeToNodeEncryption: map[string]interface{}{
+// "enabled": true,
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

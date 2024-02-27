@@ -22,32 +22,30 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/finspace"
+//	finspace/kxVolume "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/finspace/kxVolume"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := finspace.NewKxVolume(ctx, "example", &finspace.KxVolumeArgs{
-//				EnvironmentId:     pulumi.Any(aws_finspace_kx_environment.Example.Id),
-//				AvailabilityZones: pulumi.StringArray("use1-az2"),
-//				AzMode:            pulumi.String("SINGLE"),
-//				Type:              pulumi.String("NAS_1"),
-//				Nas1Configurations: finspace.KxVolumeNas1ConfigurationArray{
-//					&finspace.KxVolumeNas1ConfigurationArgs{
-//						Size: pulumi.Int(1200),
-//						Type: pulumi.String("SSD_250"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := finspace/kxVolume.NewKxVolume(ctx, "example", &finspace/kxVolume.KxVolumeArgs{
+// EnvironmentId: aws_finspace_kx_environment.Example.Id,
+// AvailabilityZones: "use1-az2",
+// AzMode: "SINGLE",
+// Type: "NAS_1",
+// Nas1Configurations: []map[string]interface{}{
+// map[string]interface{}{
+// "size": 1200,
+// "type": "SSD_250",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

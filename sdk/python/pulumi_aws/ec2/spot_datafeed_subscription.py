@@ -110,10 +110,10 @@ class SpotDatafeedSubscription(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        default_bucket_v2 = aws.s3.BucketV2("defaultBucketV2")
-        default_spot_datafeed_subscription = aws.ec2.SpotDatafeedSubscription("defaultSpotDatafeedSubscription",
+        default_bucket_v2 = aws.s3.bucket_v2.BucketV2("defaultBucketV2")
+        default_spot_datafeed_subscription = aws.ec2.spot_datafeed_subscription.SpotDatafeedSubscription("defaultSpotDatafeedSubscription",
             bucket=default_bucket_v2.id,
-            prefix="my_subdirectory")
+            prefix=my_subdirectory)
         ```
 
         ## Import
@@ -147,10 +147,10 @@ class SpotDatafeedSubscription(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        default_bucket_v2 = aws.s3.BucketV2("defaultBucketV2")
-        default_spot_datafeed_subscription = aws.ec2.SpotDatafeedSubscription("defaultSpotDatafeedSubscription",
+        default_bucket_v2 = aws.s3.bucket_v2.BucketV2("defaultBucketV2")
+        default_spot_datafeed_subscription = aws.ec2.spot_datafeed_subscription.SpotDatafeedSubscription("defaultSpotDatafeedSubscription",
             bucket=default_bucket_v2.id,
-            prefix="my_subdirectory")
+            prefix=my_subdirectory)
         ```
 
         ## Import

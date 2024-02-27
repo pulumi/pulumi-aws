@@ -28,7 +28,7 @@ namespace Pulumi.Aws.CloudFront
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Aws.CloudFront.Function("test", new()
+    ///     var test = new Aws.Cloudfront.Function.Function("test", new()
     ///     {
     ///         Runtime = "cloudfront-js-2.0",
     ///         Comment = "my function",

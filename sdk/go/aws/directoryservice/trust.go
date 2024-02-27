@@ -28,51 +28,50 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/directoryservice"
+//	directoryservice/directory "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/directoryservice/directory"
+//	directoryservice/trust "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/directoryservice/trust"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			oneDirectory, err := directoryservice.NewDirectory(ctx, "oneDirectory", &directoryservice.DirectoryArgs{
-//				Name: pulumi.String("one.example.com"),
-//				Type: pulumi.String("MicrosoftAD"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			twoDirectory, err := directoryservice.NewDirectory(ctx, "twoDirectory", &directoryservice.DirectoryArgs{
-//				Name: pulumi.String("two.example.com"),
-//				Type: pulumi.String("MicrosoftAD"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = directoryservice.NewTrust(ctx, "oneTrust", &directoryservice.TrustArgs{
-//				DirectoryId:                 oneDirectory.ID(),
-//				RemoteDomainName:            twoDirectory.Name,
-//				TrustDirection:              pulumi.String("Two-Way"),
-//				TrustPassword:               pulumi.String("Some0therPassword"),
-//				ConditionalForwarderIpAddrs: twoDirectory.DnsIpAddresses,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = directoryservice.NewTrust(ctx, "twoTrust", &directoryservice.TrustArgs{
-//				DirectoryId:                 twoDirectory.ID(),
-//				RemoteDomainName:            oneDirectory.Name,
-//				TrustDirection:              pulumi.String("Two-Way"),
-//				TrustPassword:               pulumi.String("Some0therPassword"),
-//				ConditionalForwarderIpAddrs: oneDirectory.DnsIpAddresses,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// oneDirectory, err := directoryservice/directory.NewDirectory(ctx, "oneDirectory", &directoryservice/directory.DirectoryArgs{
+// Name: "one.example.com",
+// Type: "MicrosoftAD",
+// })
+// if err != nil {
+// return err
+// }
+// twoDirectory, err := directoryservice/directory.NewDirectory(ctx, "twoDirectory", &directoryservice/directory.DirectoryArgs{
+// Name: "two.example.com",
+// Type: "MicrosoftAD",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = directoryservice/trust.NewTrust(ctx, "oneTrust", &directoryservice/trust.TrustArgs{
+// DirectoryId: oneDirectory.Id,
+// RemoteDomainName: twoDirectory.Name,
+// TrustDirection: "Two-Way",
+// TrustPassword: "Some0therPassword",
+// ConditionalForwarderIpAddrs: twoDirectory.DnsIpAddresses,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = directoryservice/trust.NewTrust(ctx, "twoTrust", &directoryservice/trust.TrustArgs{
+// DirectoryId: twoDirectory.Id,
+// RemoteDomainName: oneDirectory.Name,
+// TrustDirection: "Two-Way",
+// TrustPassword: "Some0therPassword",
+// ConditionalForwarderIpAddrs: oneDirectory.DnsIpAddresses,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### One-Way Trust
 //
@@ -81,51 +80,50 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/directoryservice"
+//	directoryservice/directory "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/directoryservice/directory"
+//	directoryservice/trust "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/directoryservice/trust"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			oneDirectory, err := directoryservice.NewDirectory(ctx, "oneDirectory", &directoryservice.DirectoryArgs{
-//				Name: pulumi.String("one.example.com"),
-//				Type: pulumi.String("MicrosoftAD"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			twoDirectory, err := directoryservice.NewDirectory(ctx, "twoDirectory", &directoryservice.DirectoryArgs{
-//				Name: pulumi.String("two.example.com"),
-//				Type: pulumi.String("MicrosoftAD"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = directoryservice.NewTrust(ctx, "oneTrust", &directoryservice.TrustArgs{
-//				DirectoryId:                 oneDirectory.ID(),
-//				RemoteDomainName:            twoDirectory.Name,
-//				TrustDirection:              pulumi.String("One-Way: Incoming"),
-//				TrustPassword:               pulumi.String("Some0therPassword"),
-//				ConditionalForwarderIpAddrs: twoDirectory.DnsIpAddresses,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = directoryservice.NewTrust(ctx, "twoTrust", &directoryservice.TrustArgs{
-//				DirectoryId:                 twoDirectory.ID(),
-//				RemoteDomainName:            oneDirectory.Name,
-//				TrustDirection:              pulumi.String("One-Way: Outgoing"),
-//				TrustPassword:               pulumi.String("Some0therPassword"),
-//				ConditionalForwarderIpAddrs: oneDirectory.DnsIpAddresses,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// oneDirectory, err := directoryservice/directory.NewDirectory(ctx, "oneDirectory", &directoryservice/directory.DirectoryArgs{
+// Name: "one.example.com",
+// Type: "MicrosoftAD",
+// })
+// if err != nil {
+// return err
+// }
+// twoDirectory, err := directoryservice/directory.NewDirectory(ctx, "twoDirectory", &directoryservice/directory.DirectoryArgs{
+// Name: "two.example.com",
+// Type: "MicrosoftAD",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = directoryservice/trust.NewTrust(ctx, "oneTrust", &directoryservice/trust.TrustArgs{
+// DirectoryId: oneDirectory.Id,
+// RemoteDomainName: twoDirectory.Name,
+// TrustDirection: "One-Way: Incoming",
+// TrustPassword: "Some0therPassword",
+// ConditionalForwarderIpAddrs: twoDirectory.DnsIpAddresses,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = directoryservice/trust.NewTrust(ctx, "twoTrust", &directoryservice/trust.TrustArgs{
+// DirectoryId: twoDirectory.Id,
+// RemoteDomainName: oneDirectory.Name,
+// TrustDirection: "One-Way: Outgoing",
+// TrustPassword: "Some0therPassword",
+// ConditionalForwarderIpAddrs: oneDirectory.DnsIpAddresses,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

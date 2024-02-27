@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const primary = new aws.route53.Zone("primary", {});
+ * const primary = new aws.route53/zone.Zone("primary", {});
  * ```
  * ### Public Subdomain Zone
  *
@@ -29,15 +29,15 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const main = new aws.route53.Zone("main", {});
- * const dev = new aws.route53.Zone("dev", {tags: {
+ * const main = new aws.route53/zone.Zone("main", {});
+ * const dev = new aws.route53/zone.Zone("dev", {tags: {
  *     Environment: "dev",
  * }});
- * const dev_ns = new aws.route53.Record("dev-ns", {
+ * const dev_ns = new aws.route53/record.Record("dev-ns", {
  *     zoneId: main.zoneId,
  *     name: "dev.example.com",
  *     type: "NS",
- *     ttl: 30,
+ *     ttl: "30",
  *     records: dev.nameServers,
  * });
  * ```
@@ -51,7 +51,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const _private = new aws.route53.Zone("private", {vpcs: [{
+ * const _private = new aws.route53/zone.Zone("private", {vpcs: [{
  *     vpcId: aws_vpc.example.id,
  * }]});
  * ```

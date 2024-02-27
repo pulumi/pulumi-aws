@@ -24,27 +24,26 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	s3/bucketMetric "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/s3/bucketMetric"
+//	s3/bucketV2 "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/s3/bucketV2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := s3.NewBucketV2(ctx, "example", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = s3.NewBucketMetric(ctx, "example-entire-bucket", &s3.BucketMetricArgs{
-//				Bucket: example.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := s3/bucketV2.NewBucketV2(ctx, "example", nil)
+// if err != nil {
+// return err
+// }
+// _, err = s3/bucketMetric.NewBucketMetric(ctx, "example-entire-bucket", &s3/bucketMetric.BucketMetricArgs{
+// Bucket: example.Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Add metrics configuration with S3 object filter
 //
@@ -53,34 +52,33 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	s3/bucketMetric "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/s3/bucketMetric"
+//	s3/bucketV2 "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/s3/bucketV2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := s3.NewBucketV2(ctx, "example", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = s3.NewBucketMetric(ctx, "example-filtered", &s3.BucketMetricArgs{
-//				Bucket: example.ID(),
-//				Filter: &s3.BucketMetricFilterArgs{
-//					Prefix: pulumi.String("documents/"),
-//					Tags: pulumi.StringMap{
-//						"priority": pulumi.String("high"),
-//						"class":    pulumi.String("blue"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := s3/bucketV2.NewBucketV2(ctx, "example", nil)
+// if err != nil {
+// return err
+// }
+// _, err = s3/bucketMetric.NewBucketMetric(ctx, "example-filtered", &s3/bucketMetric.BucketMetricArgs{
+// Bucket: example.Id,
+// Filter: map[string]interface{}{
+// "prefix": "documents/",
+// "tags": map[string]interface{}{
+// "priority": "high",
+// "class": "blue",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Add metrics configuration with S3 object filter for S3 Access Point
 //
@@ -89,40 +87,40 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	s3/accessPoint "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/s3/accessPoint"
+//	s3/bucketMetric "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/s3/bucketMetric"
+//	s3/bucketV2 "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/s3/bucketV2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := s3.NewBucketV2(ctx, "example", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = s3.NewAccessPoint(ctx, "example-access-point", &s3.AccessPointArgs{
-//				Bucket: example.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = s3.NewBucketMetric(ctx, "example-filtered", &s3.BucketMetricArgs{
-//				Bucket: example.ID(),
-//				Filter: &s3.BucketMetricFilterArgs{
-//					AccessPoint: example_access_point.Arn,
-//					Tags: pulumi.StringMap{
-//						"priority": pulumi.String("high"),
-//						"class":    pulumi.String("blue"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := s3/bucketV2.NewBucketV2(ctx, "example", nil)
+// if err != nil {
+// return err
+// }
+// _, err = s3/accessPoint.NewAccessPoint(ctx, "example-access-point", &s3/accessPoint.AccessPointArgs{
+// Bucket: example.Id,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = s3/bucketMetric.NewBucketMetric(ctx, "example-filtered", &s3/bucketMetric.BucketMetricArgs{
+// Bucket: example.Id,
+// Filter: map[string]interface{}{
+// "accessPoint": example_access_point.Arn,
+// "tags": map[string]interface{}{
+// "priority": "high",
+// "class": "blue",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

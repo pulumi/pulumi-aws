@@ -33,7 +33,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var @default = new Aws.Ec2.DefaultVpcDhcpOptions("default", new()
+    ///     var @default = new Aws.Ec2.DefaultVpcDhcpOptions.DefaultVpcDhcpOptions("default", new()
     ///     {
     ///         Tags = 
     ///         {

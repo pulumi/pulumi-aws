@@ -337,21 +337,21 @@ class AccessGrant(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_access_grants_instance = aws.s3control.AccessGrantsInstance("exampleAccessGrantsInstance")
-        example_access_grants_location = aws.s3control.AccessGrantsLocation("exampleAccessGrantsLocation",
-            iam_role_arn=aws_iam_role["example"]["arn"],
-            location_scope=f"s3://{aws_s3_bucket['example']['bucket']}/prefixA*",
+        example_access_grants_instance = aws.s3control.access_grants_instance.AccessGrantsInstance("exampleAccessGrantsInstance")
+        example_access_grants_location = aws.s3control.access_grants_location.AccessGrantsLocation("exampleAccessGrantsLocation",
+            iam_role_arn=aws_iam_role.example.arn,
+            location_scope=fs3://{aws_s3_bucket.example.bucket}/prefixA*,
             opts=pulumi.ResourceOptions(depends_on=[example_access_grants_instance]))
-        example_access_grant = aws.s3control.AccessGrant("exampleAccessGrant",
+        example_access_grant = aws.s3control.access_grant.AccessGrant("exampleAccessGrant",
             access_grants_location_id=example_access_grants_location.access_grants_location_id,
-            permission="READ",
-            access_grants_location_configuration=aws.s3control.AccessGrantAccessGrantsLocationConfigurationArgs(
-                s3_sub_prefix="prefixB*",
-            ),
-            grantee=aws.s3control.AccessGrantGranteeArgs(
-                grantee_type="IAM",
-                grantee_identifier=aws_iam_user["example"]["arn"],
-            ))
+            permission=READ,
+            access_grants_location_configuration={
+                s3SubPrefix: prefixB*,
+            },
+            grantee={
+                granteeType: IAM,
+                granteeIdentifier: aws_iam_user.example.arn,
+            })
         ```
 
         ## Import
@@ -388,21 +388,21 @@ class AccessGrant(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_access_grants_instance = aws.s3control.AccessGrantsInstance("exampleAccessGrantsInstance")
-        example_access_grants_location = aws.s3control.AccessGrantsLocation("exampleAccessGrantsLocation",
-            iam_role_arn=aws_iam_role["example"]["arn"],
-            location_scope=f"s3://{aws_s3_bucket['example']['bucket']}/prefixA*",
+        example_access_grants_instance = aws.s3control.access_grants_instance.AccessGrantsInstance("exampleAccessGrantsInstance")
+        example_access_grants_location = aws.s3control.access_grants_location.AccessGrantsLocation("exampleAccessGrantsLocation",
+            iam_role_arn=aws_iam_role.example.arn,
+            location_scope=fs3://{aws_s3_bucket.example.bucket}/prefixA*,
             opts=pulumi.ResourceOptions(depends_on=[example_access_grants_instance]))
-        example_access_grant = aws.s3control.AccessGrant("exampleAccessGrant",
+        example_access_grant = aws.s3control.access_grant.AccessGrant("exampleAccessGrant",
             access_grants_location_id=example_access_grants_location.access_grants_location_id,
-            permission="READ",
-            access_grants_location_configuration=aws.s3control.AccessGrantAccessGrantsLocationConfigurationArgs(
-                s3_sub_prefix="prefixB*",
-            ),
-            grantee=aws.s3control.AccessGrantGranteeArgs(
-                grantee_type="IAM",
-                grantee_identifier=aws_iam_user["example"]["arn"],
-            ))
+            permission=READ,
+            access_grants_location_configuration={
+                s3SubPrefix: prefixB*,
+            },
+            grantee={
+                granteeType: IAM,
+                granteeIdentifier: aws_iam_user.example.arn,
+            })
         ```
 
         ## Import

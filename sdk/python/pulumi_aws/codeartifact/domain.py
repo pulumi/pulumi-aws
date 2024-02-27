@@ -258,7 +258,7 @@ class Domain(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.codeartifact.Domain("example", domain="example")
+        example = aws.codeartifact.domain.Domain("example", domain=example)
         ```
 
         ## Import
@@ -290,7 +290,7 @@ class Domain(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.codeartifact.Domain("example", domain="example")
+        example = aws.codeartifact.domain.Domain("example", domain=example)
         ```
 
         ## Import

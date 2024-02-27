@@ -23,19 +23,19 @@ namespace Pulumi.Aws.EmrContainers
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.EmrContainers.VirtualCluster("example", new()
+    ///     var example = new Aws.Emrcontainers.VirtualCluster.VirtualCluster("example", new()
     ///     {
-    ///         ContainerProvider = new Aws.EmrContainers.Inputs.VirtualClusterContainerProviderArgs
+    ///         ContainerProvider = 
     ///         {
-    ///             Id = aws_eks_cluster.Example.Name,
-    ///             Type = "EKS",
-    ///             Info = new Aws.EmrContainers.Inputs.VirtualClusterContainerProviderInfoArgs
+    ///             { "id", aws_eks_cluster.Example.Name },
+    ///             { "type", "EKS" },
+    ///             { "info", 
     ///             {
-    ///                 EksInfo = new Aws.EmrContainers.Inputs.VirtualClusterContainerProviderInfoEksInfoArgs
+    ///                 { "eksInfo", 
     ///                 {
-    ///                     Namespace = "default",
-    ///                 },
-    ///             },
+    ///                     { "namespace", "default" },
+    ///                 } },
+    ///             } },
     ///         },
     ///     });
     /// 

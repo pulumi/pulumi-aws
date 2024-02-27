@@ -142,27 +142,6 @@ class SecretPolicy(pulumi.CustomResource):
         Provides a resource to manage AWS Secrets Manager secret policy.
 
         ## Example Usage
-        ### Basic
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_secret = aws.secretsmanager.Secret("exampleSecret")
-        example_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            sid="EnableAnotherAWSAccountToReadTheSecret",
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="AWS",
-                identifiers=["arn:aws:iam::123456789012:root"],
-            )],
-            actions=["secretsmanager:GetSecretValue"],
-            resources=["*"],
-        )])
-        example_secret_policy = aws.secretsmanager.SecretPolicy("exampleSecretPolicy",
-            secret_arn=example_secret.arn,
-            policy=example_policy_document.json)
-        ```
 
         ## Import
 
@@ -190,27 +169,6 @@ class SecretPolicy(pulumi.CustomResource):
         Provides a resource to manage AWS Secrets Manager secret policy.
 
         ## Example Usage
-        ### Basic
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_secret = aws.secretsmanager.Secret("exampleSecret")
-        example_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            sid="EnableAnotherAWSAccountToReadTheSecret",
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="AWS",
-                identifiers=["arn:aws:iam::123456789012:root"],
-            )],
-            actions=["secretsmanager:GetSecretValue"],
-            resources=["*"],
-        )])
-        example_secret_policy = aws.secretsmanager.SecretPolicy("exampleSecretPolicy",
-            secret_arn=example_secret.arn,
-            policy=example_policy_document.json)
-        ```
 
         ## Import
 

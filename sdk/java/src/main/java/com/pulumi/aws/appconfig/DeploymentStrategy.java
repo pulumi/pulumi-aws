@@ -49,7 +49,7 @@ import javax.annotation.Nullable;
  *             .growthFactor(10)
  *             .growthType(&#34;LINEAR&#34;)
  *             .replicateTo(&#34;NONE&#34;)
- *             .tags(Map.of(&#34;Type&#34;, &#34;AppConfig Deployment Strategy&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

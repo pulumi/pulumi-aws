@@ -97,12 +97,12 @@ class OrganizationConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.inspector2.OrganizationConfiguration("example", auto_enable=aws.inspector2.OrganizationConfigurationAutoEnableArgs(
-            ec2=True,
-            ecr=False,
-            lambda_=True,
-            lambda_code=True,
-        ))
+        example = aws.inspector2.organization_configuration.OrganizationConfiguration("example", auto_enable={
+            ec2: True,
+            ecr: False,
+            lambda: True,
+            lambdaCode: True,
+        })
         ```
 
         :param str resource_name: The name of the resource.
@@ -129,12 +129,12 @@ class OrganizationConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.inspector2.OrganizationConfiguration("example", auto_enable=aws.inspector2.OrganizationConfigurationAutoEnableArgs(
-            ec2=True,
-            ecr=False,
-            lambda_=True,
-            lambda_code=True,
-        ))
+        example = aws.inspector2.organization_configuration.OrganizationConfiguration("example", auto_enable={
+            ec2: True,
+            ecr: False,
+            lambda: True,
+            lambdaCode: True,
+        })
         ```
 
         :param str resource_name: The name of the resource.

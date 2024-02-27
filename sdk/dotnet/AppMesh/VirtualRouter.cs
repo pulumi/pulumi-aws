@@ -32,22 +32,22 @@ namespace Pulumi.Aws.AppMesh
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var serviceb = new Aws.AppMesh.VirtualRouter("serviceb", new()
+    ///     var serviceb = new Aws.Appmesh.VirtualRouter.VirtualRouter("serviceb", new()
     ///     {
     ///         MeshName = aws_appmesh_mesh.Simple.Id,
-    ///         Spec = new Aws.AppMesh.Inputs.VirtualRouterSpecArgs
+    ///         Spec = 
     ///         {
-    ///             Listeners = new[]
+    ///             { "listeners", new[]
     ///             {
-    ///                 new Aws.AppMesh.Inputs.VirtualRouterSpecListenerArgs
+    ///                 
     ///                 {
-    ///                     PortMapping = new Aws.AppMesh.Inputs.VirtualRouterSpecListenerPortMappingArgs
+    ///                     { "portMapping", 
     ///                     {
-    ///                         Port = 8080,
-    ///                         Protocol = "http",
-    ///                     },
+    ///                         { "port", 8080 },
+    ///                         { "protocol", "http" },
+    ///                     } },
     ///                 },
-    ///             },
+    ///             } },
     ///         },
     ///     });
     /// 

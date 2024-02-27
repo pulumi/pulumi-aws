@@ -22,24 +22,22 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/timestreamwrite"
+//	timestreamwrite/table "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/timestreamwrite/table"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := timestreamwrite.NewTable(ctx, "example", &timestreamwrite.TableArgs{
-//				DatabaseName: pulumi.Any(aws_timestreamwrite_database.Example.Database_name),
-//				TableName:    pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := timestreamwrite/table.NewTable(ctx, "example", &timestreamwrite/table.TableArgs{
+// DatabaseName: aws_timestreamwrite_database.Example.Database_name,
+// TableName: "example",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Full usage
 //
@@ -48,31 +46,29 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/timestreamwrite"
+//	timestreamwrite/table "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/timestreamwrite/table"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := timestreamwrite.NewTable(ctx, "example", &timestreamwrite.TableArgs{
-//				DatabaseName: pulumi.Any(aws_timestreamwrite_database.Example.Database_name),
-//				TableName:    pulumi.String("example"),
-//				RetentionProperties: &timestreamwrite.TableRetentionPropertiesArgs{
-//					MagneticStoreRetentionPeriodInDays: pulumi.Int(30),
-//					MemoryStoreRetentionPeriodInHours:  pulumi.Int(8),
-//				},
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("example-timestream-table"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := timestreamwrite/table.NewTable(ctx, "example", &timestreamwrite/table.TableArgs{
+// DatabaseName: aws_timestreamwrite_database.Example.Database_name,
+// TableName: "example",
+// RetentionProperties: map[string]interface{}{
+// "magneticStoreRetentionPeriodInDays": 30,
+// "memoryStoreRetentionPeriodInHours": 8,
+// },
+// Tags: map[string]interface{}{
+// "Name": "example-timestream-table",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Customer-defined Partition Key
 //
@@ -81,31 +77,29 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/timestreamwrite"
+//	timestreamwrite/table "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/timestreamwrite/table"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := timestreamwrite.NewTable(ctx, "example", &timestreamwrite.TableArgs{
-//				DatabaseName: pulumi.Any(aws_timestreamwrite_database.Example.Database_name),
-//				TableName:    pulumi.String("example"),
-//				Schema: &timestreamwrite.TableSchemaArgs{
-//					CompositePartitionKey: &timestreamwrite.TableSchemaCompositePartitionKeyArgs{
-//						EnforcementInRecord: pulumi.String("REQUIRED"),
-//						Name:                pulumi.String("attr1"),
-//						Type:                pulumi.String("DIMENSION"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := timestreamwrite/table.NewTable(ctx, "example", &timestreamwrite/table.TableArgs{
+// DatabaseName: aws_timestreamwrite_database.Example.Database_name,
+// TableName: "example",
+// Schema: map[string]interface{}{
+// "compositePartitionKey": map[string]interface{}{
+// "enforcementInRecord": "REQUIRED",
+// "name": "attr1",
+// "type": "DIMENSION",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

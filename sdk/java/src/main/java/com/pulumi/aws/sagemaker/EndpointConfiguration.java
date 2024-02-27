@@ -34,7 +34,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.sagemaker.EndpointConfiguration;
  * import com.pulumi.aws.sagemaker.EndpointConfigurationArgs;
- * import com.pulumi.aws.sagemaker.inputs.EndpointConfigurationProductionVariantArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -49,13 +48,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var ec = new EndpointConfiguration(&#34;ec&#34;, EndpointConfigurationArgs.builder()        
- *             .productionVariants(EndpointConfigurationProductionVariantArgs.builder()
- *                 .variantName(&#34;variant-1&#34;)
- *                 .modelName(aws_sagemaker_model.m().name())
- *                 .initialInstanceCount(1)
- *                 .instanceType(&#34;ml.t2.medium&#34;)
- *                 .build())
- *             .tags(Map.of(&#34;Name&#34;, &#34;foo&#34;))
+ *             .productionVariants(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

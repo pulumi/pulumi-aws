@@ -24,7 +24,7 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.CloudWatch.CompositeAlarm("example", new()
+    ///     var example = new Aws.Cloudwatch.CompositeAlarm.CompositeAlarm("example", new()
     ///     {
     ///         AlarmDescription = "This is a composite alarm!",
     ///         AlarmName = "example-composite-alarm",
@@ -33,11 +33,11 @@ namespace Pulumi.Aws.CloudWatch
     ///         AlarmRule = @$"ALARM({aws_cloudwatch_metric_alarm.Alpha.Alarm_name}) OR
     /// ALARM({aws_cloudwatch_metric_alarm.Bravo.Alarm_name})
     /// ",
-    ///         ActionsSuppressor = new Aws.CloudWatch.Inputs.CompositeAlarmActionsSuppressorArgs
+    ///         ActionsSuppressor = 
     ///         {
-    ///             Alarm = "suppressor-alarm",
-    ///             ExtensionPeriod = 10,
-    ///             WaitPeriod = 20,
+    ///             { "alarm", "suppressor-alarm" },
+    ///             { "extensionPeriod", 10 },
+    ///             { "waitPeriod", 20 },
     ///         },
     ///     });
     /// 

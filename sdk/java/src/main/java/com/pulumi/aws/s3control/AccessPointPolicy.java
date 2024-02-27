@@ -29,7 +29,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.s3.BucketV2;
  * import com.pulumi.aws.s3.AccessPoint;
  * import com.pulumi.aws.s3.AccessPointArgs;
- * import com.pulumi.aws.s3.inputs.AccessPointPublicAccessBlockConfigurationArgs;
  * import com.pulumi.aws.s3control.AccessPointPolicy;
  * import com.pulumi.aws.s3control.AccessPointPolicyArgs;
  * import static com.pulumi.codegen.internal.Serialization.*;
@@ -50,17 +49,12 @@ import javax.annotation.Nullable;
  * 
  *         var exampleAccessPoint = new AccessPoint(&#34;exampleAccessPoint&#34;, AccessPointArgs.builder()        
  *             .bucket(exampleBucketV2.id())
- *             .publicAccessBlockConfiguration(AccessPointPublicAccessBlockConfigurationArgs.builder()
- *                 .blockPublicAcls(true)
- *                 .blockPublicPolicy(false)
- *                 .ignorePublicAcls(true)
- *                 .restrictPublicBuckets(false)
- *                 .build())
+ *             .publicAccessBlockConfiguration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleAccessPointPolicy = new AccessPointPolicy(&#34;exampleAccessPointPolicy&#34;, AccessPointPolicyArgs.builder()        
  *             .accessPointArn(exampleAccessPoint.arn())
- *             .policy(exampleAccessPoint.arn().applyValue(arn -&gt; serializeJson(
+ *             .policy(serializeJson(
  *                 jsonObject(
  *                     jsonProperty(&#34;Version&#34;, &#34;2008-10-17&#34;),
  *                     jsonProperty(&#34;Statement&#34;, jsonArray(jsonObject(
@@ -69,9 +63,9 @@ import javax.annotation.Nullable;
  *                         jsonProperty(&#34;Principal&#34;, jsonObject(
  *                             jsonProperty(&#34;AWS&#34;, &#34;*&#34;)
  *                         )),
- *                         jsonProperty(&#34;Resource&#34;, String.format(&#34;%s/object/*&#34;, arn))
+ *                         jsonProperty(&#34;Resource&#34;, String.format(&#34;%s/object/*&#34;, exampleAccessPoint.arn()))
  *                     )))
- *                 ))))
+ *                 )))
  *             .build());
  * 
  *     }

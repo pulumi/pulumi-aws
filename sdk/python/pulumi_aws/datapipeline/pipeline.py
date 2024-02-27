@@ -163,7 +163,7 @@ class Pipeline(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        default = aws.datapipeline.Pipeline("default")
+        default = aws.datapipeline.pipeline.Pipeline("default")
         ```
 
         ## Import
@@ -195,7 +195,7 @@ class Pipeline(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        default = aws.datapipeline.Pipeline("default")
+        default = aws.datapipeline.pipeline.Pipeline("default")
         ```
 
         ## Import

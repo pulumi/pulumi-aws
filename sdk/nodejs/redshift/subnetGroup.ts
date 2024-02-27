@@ -13,8 +13,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const fooVpc = new aws.ec2.Vpc("fooVpc", {cidrBlock: "10.1.0.0/16"});
- * const fooSubnet = new aws.ec2.Subnet("fooSubnet", {
+ * const fooVpc = new aws.ec2/vpc.Vpc("fooVpc", {cidrBlock: "10.1.0.0/16"});
+ * const fooSubnet = new aws.ec2/subnet.Subnet("fooSubnet", {
  *     cidrBlock: "10.1.1.0/24",
  *     availabilityZone: "us-west-2a",
  *     vpcId: fooVpc.id,
@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  *         Name: "tf-dbsubnet-test-1",
  *     },
  * });
- * const bar = new aws.ec2.Subnet("bar", {
+ * const bar = new aws.ec2/subnet.Subnet("bar", {
  *     cidrBlock: "10.1.2.0/24",
  *     availabilityZone: "us-west-2b",
  *     vpcId: fooVpc.id,
@@ -30,7 +30,7 @@ import * as utilities from "../utilities";
  *         Name: "tf-dbsubnet-test-2",
  *     },
  * });
- * const fooSubnetGroup = new aws.redshift.SubnetGroup("fooSubnetGroup", {
+ * const fooSubnetGroup = new aws.redshift/subnetGroup.SubnetGroup("fooSubnetGroup", {
  *     subnetIds: [
  *         fooSubnet.id,
  *         bar.id,

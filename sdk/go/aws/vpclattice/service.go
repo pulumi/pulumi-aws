@@ -21,24 +21,22 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/vpclattice"
+//	vpclattice/service "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/vpclattice/service"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := vpclattice.NewService(ctx, "example", &vpclattice.ServiceArgs{
-//				AuthType:         pulumi.String("AWS_IAM"),
-//				CustomDomainName: pulumi.String("example.com"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := vpclattice/service.NewService(ctx, "example", &vpclattice/service.ServiceArgs{
+// AuthType: "AWS_IAM",
+// CustomDomainName: "example.com",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

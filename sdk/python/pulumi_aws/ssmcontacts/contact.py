@@ -223,9 +223,9 @@ class Contact(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ssmcontacts.Contact("example",
-            alias="alias",
-            type="PERSONAL",
+        example = aws.ssmcontacts.contact.Contact("example",
+            alias=alias,
+            type=PERSONAL,
             opts=pulumi.ResourceOptions(depends_on=[aws_ssmincidents_replication_set["example"]]))
         ```
         ### Usage With All Fields
@@ -234,12 +234,12 @@ class Contact(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ssmcontacts.Contact("example",
-            alias="alias",
-            display_name="displayName",
-            type="ESCALATION",
+        example = aws.ssmcontacts.contact.Contact("example",
+            alias=alias,
+            display_name=displayName,
+            type=ESCALATION,
             tags={
-                "key": "value",
+                key: value,
             },
             opts=pulumi.ResourceOptions(depends_on=[aws_ssmincidents_replication_set["example"]]))
         ```
@@ -278,9 +278,9 @@ class Contact(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ssmcontacts.Contact("example",
-            alias="alias",
-            type="PERSONAL",
+        example = aws.ssmcontacts.contact.Contact("example",
+            alias=alias,
+            type=PERSONAL,
             opts=pulumi.ResourceOptions(depends_on=[aws_ssmincidents_replication_set["example"]]))
         ```
         ### Usage With All Fields
@@ -289,12 +289,12 @@ class Contact(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ssmcontacts.Contact("example",
-            alias="alias",
-            display_name="displayName",
-            type="ESCALATION",
+        example = aws.ssmcontacts.contact.Contact("example",
+            alias=alias,
+            display_name=displayName,
+            type=ESCALATION,
             tags={
-                "key": "value",
+                key: value,
             },
             opts=pulumi.ResourceOptions(depends_on=[aws_ssmincidents_replication_set["example"]]))
         ```

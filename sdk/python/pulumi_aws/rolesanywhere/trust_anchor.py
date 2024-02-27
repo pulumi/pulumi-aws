@@ -207,45 +207,6 @@ class TrustAnchor(pulumi.CustomResource):
         """
         Resource for managing a Roles Anywhere Trust Anchor.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_certificate_authority = aws.acmpca.CertificateAuthority("exampleCertificateAuthority",
-            permanent_deletion_time_in_days=7,
-            type="ROOT",
-            certificate_authority_configuration=aws.acmpca.CertificateAuthorityCertificateAuthorityConfigurationArgs(
-                key_algorithm="RSA_4096",
-                signing_algorithm="SHA512WITHRSA",
-                subject=aws.acmpca.CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs(
-                    common_name="example.com",
-                ),
-            ))
-        current = aws.get_partition()
-        test_certificate = aws.acmpca.Certificate("testCertificate",
-            certificate_authority_arn=example_certificate_authority.arn,
-            certificate_signing_request=example_certificate_authority.certificate_signing_request,
-            signing_algorithm="SHA512WITHRSA",
-            template_arn=f"arn:{current.partition}:acm-pca:::template/RootCACertificate/V1",
-            validity=aws.acmpca.CertificateValidityArgs(
-                type="YEARS",
-                value="1",
-            ))
-        example_certificate_authority_certificate = aws.acmpca.CertificateAuthorityCertificate("exampleCertificateAuthorityCertificate",
-            certificate_authority_arn=example_certificate_authority.arn,
-            certificate=aws_acmpca_certificate["example"]["certificate"],
-            certificate_chain=aws_acmpca_certificate["example"]["certificate_chain"])
-        test_trust_anchor = aws.rolesanywhere.TrustAnchor("testTrustAnchor", source=aws.rolesanywhere.TrustAnchorSourceArgs(
-            source_data=aws.rolesanywhere.TrustAnchorSourceSourceDataArgs(
-                acm_pca_arn=example_certificate_authority.arn,
-            ),
-            source_type="AWS_ACM_PCA",
-        ),
-        opts=pulumi.ResourceOptions(depends_on=[example_certificate_authority_certificate]))
-        ```
-
         ## Import
 
         Using `pulumi import`, import `aws_rolesanywhere_trust_anchor` using its `id`. For example:
@@ -269,45 +230,6 @@ class TrustAnchor(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource for managing a Roles Anywhere Trust Anchor.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_certificate_authority = aws.acmpca.CertificateAuthority("exampleCertificateAuthority",
-            permanent_deletion_time_in_days=7,
-            type="ROOT",
-            certificate_authority_configuration=aws.acmpca.CertificateAuthorityCertificateAuthorityConfigurationArgs(
-                key_algorithm="RSA_4096",
-                signing_algorithm="SHA512WITHRSA",
-                subject=aws.acmpca.CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs(
-                    common_name="example.com",
-                ),
-            ))
-        current = aws.get_partition()
-        test_certificate = aws.acmpca.Certificate("testCertificate",
-            certificate_authority_arn=example_certificate_authority.arn,
-            certificate_signing_request=example_certificate_authority.certificate_signing_request,
-            signing_algorithm="SHA512WITHRSA",
-            template_arn=f"arn:{current.partition}:acm-pca:::template/RootCACertificate/V1",
-            validity=aws.acmpca.CertificateValidityArgs(
-                type="YEARS",
-                value="1",
-            ))
-        example_certificate_authority_certificate = aws.acmpca.CertificateAuthorityCertificate("exampleCertificateAuthorityCertificate",
-            certificate_authority_arn=example_certificate_authority.arn,
-            certificate=aws_acmpca_certificate["example"]["certificate"],
-            certificate_chain=aws_acmpca_certificate["example"]["certificate_chain"])
-        test_trust_anchor = aws.rolesanywhere.TrustAnchor("testTrustAnchor", source=aws.rolesanywhere.TrustAnchorSourceArgs(
-            source_data=aws.rolesanywhere.TrustAnchorSourceSourceDataArgs(
-                acm_pca_arn=example_certificate_authority.arn,
-            ),
-            source_type="AWS_ACM_PCA",
-        ),
-        opts=pulumi.ResourceOptions(depends_on=[example_certificate_authority_certificate]))
-        ```
 
         ## Import
 

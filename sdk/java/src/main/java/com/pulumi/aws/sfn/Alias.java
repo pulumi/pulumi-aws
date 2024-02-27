@@ -29,7 +29,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.sfn.Alias;
  * import com.pulumi.aws.sfn.AliasArgs;
- * import com.pulumi.aws.sfn.inputs.AliasRoutingConfigurationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -44,22 +43,13 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var sfnAlias = new Alias(&#34;sfnAlias&#34;, AliasArgs.builder()        
- *             .routingConfigurations(AliasRoutingConfigurationArgs.builder()
- *                 .stateMachineVersionArn(aws_sfn_state_machine.sfn_test().state_machine_version_arn())
- *                 .weight(100)
- *                 .build())
+ *             .routingConfigurations(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var mySfnAlias = new Alias(&#34;mySfnAlias&#34;, AliasArgs.builder()        
  *             .routingConfigurations(            
- *                 AliasRoutingConfigurationArgs.builder()
- *                     .stateMachineVersionArn(&#34;arn:aws:states:us-east-1:12345:stateMachine:demo:3&#34;)
- *                     .weight(50)
- *                     .build(),
- *                 AliasRoutingConfigurationArgs.builder()
- *                     .stateMachineVersionArn(&#34;arn:aws:states:us-east-1:12345:stateMachine:demo:2&#34;)
- *                     .weight(50)
- *                     .build())
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

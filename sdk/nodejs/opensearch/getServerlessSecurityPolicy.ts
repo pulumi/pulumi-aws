@@ -6,18 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to get information about an AWS OpenSearch Serverless Security Policy.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.opensearch.getServerlessSecurityPolicy({
- *     name: "example-security-policy",
- *     type: "encryption",
- * });
- * ```
  */
 export function getServerlessSecurityPolicy(args: GetServerlessSecurityPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetServerlessSecurityPolicyResult> {
 
@@ -75,18 +63,6 @@ export interface GetServerlessSecurityPolicyResult {
 }
 /**
  * Use this data source to get information about an AWS OpenSearch Serverless Security Policy.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.opensearch.getServerlessSecurityPolicy({
- *     name: "example-security-policy",
- *     type: "encryption",
- * });
- * ```
  */
 export function getServerlessSecurityPolicyOutput(args: GetServerlessSecurityPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerlessSecurityPolicyResult> {
     return pulumi.output(args).apply((a: any) => getServerlessSecurityPolicy(a, opts))

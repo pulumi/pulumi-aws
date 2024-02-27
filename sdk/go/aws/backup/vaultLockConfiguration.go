@@ -21,26 +21,24 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/backup"
+//	backup/vaultLockConfiguration "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/backup/vaultLockConfiguration"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := backup.NewVaultLockConfiguration(ctx, "test", &backup.VaultLockConfigurationArgs{
-//				BackupVaultName:   pulumi.String("example_backup_vault"),
-//				ChangeableForDays: pulumi.Int(3),
-//				MaxRetentionDays:  pulumi.Int(1200),
-//				MinRetentionDays:  pulumi.Int(7),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := backup/vaultLockConfiguration.NewVaultLockConfiguration(ctx, "test", &backup/vaultLockConfiguration.VaultLockConfigurationArgs{
+// BackupVaultName: "example_backup_vault",
+// ChangeableForDays: 3,
+// MaxRetentionDays: 1200,
+// MinRetentionDays: 7,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

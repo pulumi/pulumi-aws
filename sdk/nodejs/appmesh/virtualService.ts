@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const servicea = new aws.appmesh.VirtualService("servicea", {
+ * const servicea = new aws.appmesh/virtualService.VirtualService("servicea", {
  *     meshName: aws_appmesh_mesh.simple.id,
  *     spec: {
  *         provider: {
@@ -34,7 +34,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const servicea = new aws.appmesh.VirtualService("servicea", {
+ * const servicea = new aws.appmesh/virtualService.VirtualService("servicea", {
  *     meshName: aws_appmesh_mesh.simple.id,
  *     spec: {
  *         provider: {

@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const flowerTypes = new aws.lex.SlotType("flowerTypes", {
+ * const flowerTypes = new aws.lex/slotType.SlotType("flowerTypes", {
  *     createVersion: true,
  *     description: "Types of flowers to order",
  *     enumerationValues: [

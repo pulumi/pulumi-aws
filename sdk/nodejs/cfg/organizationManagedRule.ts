@@ -17,11 +17,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleOrganization = new aws.organizations.Organization("exampleOrganization", {
+ * const exampleOrganization = new aws.organizations/organization.Organization("exampleOrganization", {
  *     awsServiceAccessPrincipals: ["config-multiaccountsetup.amazonaws.com"],
  *     featureSet: "ALL",
  * });
- * const exampleOrganizationManagedRule = new aws.cfg.OrganizationManagedRule("exampleOrganizationManagedRule", {ruleIdentifier: "IAM_PASSWORD_POLICY"}, {
+ * const exampleOrganizationManagedRule = new aws.cfg/organizationManagedRule.OrganizationManagedRule("exampleOrganizationManagedRule", {ruleIdentifier: "IAM_PASSWORD_POLICY"}, {
  *     dependsOn: [exampleOrganization],
  * });
  * ```

@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.glue.Trigger("example", {
+ * const example = new aws.glue/trigger.Trigger("example", {
  *     type: "CONDITIONAL",
  *     actions: [{
  *         jobName: aws_glue_job.example1.name,
@@ -36,7 +36,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.glue.Trigger("example", {
+ * const example = new aws.glue/trigger.Trigger("example", {
  *     type: "ON_DEMAND",
  *     actions: [{
  *         jobName: aws_glue_job.example.name,
@@ -49,7 +49,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.glue.Trigger("example", {
+ * const example = new aws.glue/trigger.Trigger("example", {
  *     schedule: "cron(15 12 * * ? *)",
  *     type: "SCHEDULED",
  *     actions: [{
@@ -65,7 +65,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.glue.Trigger("example", {
+ * const example = new aws.glue/trigger.Trigger("example", {
  *     type: "CONDITIONAL",
  *     actions: [{
  *         crawlerName: aws_glue_crawler.example1.name,
@@ -86,7 +86,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.glue.Trigger("example", {
+ * const example = new aws.glue/trigger.Trigger("example", {
  *     type: "CONDITIONAL",
  *     actions: [{
  *         jobName: aws_glue_job.example1.name,

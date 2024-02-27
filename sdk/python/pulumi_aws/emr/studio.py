@@ -522,15 +522,15 @@ class Studio(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.emr.Studio("example",
-            auth_mode="SSO",
-            default_s3_location=f"s3://{aws_s3_bucket['test']['bucket']}/test",
-            engine_security_group_id=aws_security_group["test"]["id"],
-            service_role=aws_iam_role["test"]["arn"],
-            subnet_ids=[aws_subnet["test"]["id"]],
-            user_role=aws_iam_role["test"]["arn"],
-            vpc_id=aws_vpc["test"]["id"],
-            workspace_security_group_id=aws_security_group["test"]["id"])
+        example = aws.emr.studio.Studio("example",
+            auth_mode=SSO,
+            default_s3_location=fs3://{aws_s3_bucket.test.bucket}/test,
+            engine_security_group_id=aws_security_group.test.id,
+            service_role=aws_iam_role.test.arn,
+            subnet_ids=[aws_subnet.test.id],
+            user_role=aws_iam_role.test.arn,
+            vpc_id=aws_vpc.test.id,
+            workspace_security_group_id=aws_security_group.test.id)
         ```
 
         ## Import
@@ -574,15 +574,15 @@ class Studio(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.emr.Studio("example",
-            auth_mode="SSO",
-            default_s3_location=f"s3://{aws_s3_bucket['test']['bucket']}/test",
-            engine_security_group_id=aws_security_group["test"]["id"],
-            service_role=aws_iam_role["test"]["arn"],
-            subnet_ids=[aws_subnet["test"]["id"]],
-            user_role=aws_iam_role["test"]["arn"],
-            vpc_id=aws_vpc["test"]["id"],
-            workspace_security_group_id=aws_security_group["test"]["id"])
+        example = aws.emr.studio.Studio("example",
+            auth_mode=SSO,
+            default_s3_location=fs3://{aws_s3_bucket.test.bucket}/test,
+            engine_security_group_id=aws_security_group.test.id,
+            service_role=aws_iam_role.test.arn,
+            subnet_ids=[aws_subnet.test.id],
+            user_role=aws_iam_role.test.arn,
+            vpc_id=aws_vpc.test.id,
+            workspace_security_group_id=aws_security_group.test.id)
         ```
 
         ## Import

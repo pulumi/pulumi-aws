@@ -303,10 +303,10 @@ class PortfolioShare(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.servicecatalog.PortfolioShare("example",
-            principal_id="012128675309",
-            portfolio_id=aws_servicecatalog_portfolio["example"]["id"],
-            type="ACCOUNT")
+        example = aws.servicecatalog.portfolio_share.PortfolioShare("example",
+            principal_id=012128675309,
+            portfolio_id=aws_servicecatalog_portfolio.example.id,
+            type=ACCOUNT)
         ```
 
         ## Import
@@ -353,10 +353,10 @@ class PortfolioShare(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.servicecatalog.PortfolioShare("example",
-            principal_id="012128675309",
-            portfolio_id=aws_servicecatalog_portfolio["example"]["id"],
-            type="ACCOUNT")
+        example = aws.servicecatalog.portfolio_share.PortfolioShare("example",
+            principal_id=012128675309,
+            portfolio_id=aws_servicecatalog_portfolio.example.id,
+            type=ACCOUNT)
         ```
 
         ## Import

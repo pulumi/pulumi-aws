@@ -224,8 +224,8 @@ class EventArchive(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        order_event_bus = aws.cloudwatch.EventBus("orderEventBus")
-        order_event_archive = aws.cloudwatch.EventArchive("orderEventArchive", event_source_arn=order_event_bus.arn)
+        order_event_bus = aws.cloudwatch.event_bus.EventBus("orderEventBus")
+        order_event_archive = aws.cloudwatch.event_archive.EventArchive("orderEventArchive", event_source_arn=order_event_bus.arn)
         ```
         ## Example all optional arguments
 
@@ -234,13 +234,13 @@ class EventArchive(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        order_event_bus = aws.cloudwatch.EventBus("orderEventBus")
-        order_event_archive = aws.cloudwatch.EventArchive("orderEventArchive",
-            description="Archived events from order service",
+        order_event_bus = aws.cloudwatch.event_bus.EventBus("orderEventBus")
+        order_event_archive = aws.cloudwatch.event_archive.EventArchive("orderEventArchive",
+            description=Archived events from order service,
             event_source_arn=order_event_bus.arn,
             retention_days=7,
             event_pattern=json.dumps({
-                "source": ["company.team.order"],
+                source: [company.team.order],
             }))
         ```
 
@@ -277,8 +277,8 @@ class EventArchive(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        order_event_bus = aws.cloudwatch.EventBus("orderEventBus")
-        order_event_archive = aws.cloudwatch.EventArchive("orderEventArchive", event_source_arn=order_event_bus.arn)
+        order_event_bus = aws.cloudwatch.event_bus.EventBus("orderEventBus")
+        order_event_archive = aws.cloudwatch.event_archive.EventArchive("orderEventArchive", event_source_arn=order_event_bus.arn)
         ```
         ## Example all optional arguments
 
@@ -287,13 +287,13 @@ class EventArchive(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        order_event_bus = aws.cloudwatch.EventBus("orderEventBus")
-        order_event_archive = aws.cloudwatch.EventArchive("orderEventArchive",
-            description="Archived events from order service",
+        order_event_bus = aws.cloudwatch.event_bus.EventBus("orderEventBus")
+        order_event_archive = aws.cloudwatch.event_archive.EventArchive("orderEventArchive",
+            description=Archived events from order service,
             event_source_arn=order_event_bus.arn,
             retention_days=7,
             event_pattern=json.dumps({
-                "source": ["company.team.order"],
+                source: [company.team.order],
             }))
         ```
 

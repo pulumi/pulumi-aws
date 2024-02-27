@@ -7,35 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Attaches a Lightsail disk to a Lightsail Instance
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const available = aws.getAvailabilityZones({
- *     state: "available",
- *     filters: [{
- *         name: "opt-in-status",
- *         values: ["opt-in-not-required"],
- *     }],
- * });
- * const testDisk = new aws.lightsail.Disk("testDisk", {
- *     sizeInGb: 8,
- *     availabilityZone: available.then(available => available.names?.[0]),
- * });
- * const testInstance = new aws.lightsail.Instance("testInstance", {
- *     availabilityZone: available.then(available => available.names?.[0]),
- *     blueprintId: "amazon_linux_2",
- *     bundleId: "nano_1_0",
- * });
- * const testDisk_attachment = new aws.lightsail.Disk_attachment("testDisk_attachment", {
- *     diskName: testDisk.name,
- *     instanceName: testInstance.name,
- *     diskPath: "/dev/xvdf",
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import `aws_lightsail_disk` using the id attribute. For example:

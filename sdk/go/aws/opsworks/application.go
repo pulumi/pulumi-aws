@@ -23,62 +23,61 @@ import (
 //
 //	"os"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/opsworks"
+//	opsworks/application "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/opsworks/application"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func readFileOrPanic(path string) pulumi.StringPtrInput {
-//		data, err := os.ReadFile(path)
-//		if err != nil {
-//			panic(err.Error())
-//		}
-//		return pulumi.String(string(data))
-//	}
+//					data, err := os.ReadFile(path)
+//					if err != nil {
+//						panic(err.Error())
+//					}
+//					return pulumi.String(string(data))
+//				}
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := opsworks.NewApplication(ctx, "foo-app", &opsworks.ApplicationArgs{
-//				ShortName:   pulumi.String("foobar"),
-//				StackId:     pulumi.Any(aws_opsworks_stack.Main.Id),
-//				Type:        pulumi.String("rails"),
-//				Description: pulumi.String("This is a Rails application"),
-//				Domains: pulumi.StringArray{
-//					pulumi.String("example.com"),
-//					pulumi.String("sub.example.com"),
-//				},
-//				Environments: opsworks.ApplicationEnvironmentArray{
-//					&opsworks.ApplicationEnvironmentArgs{
-//						Key:    pulumi.String("key"),
-//						Value:  pulumi.String("value"),
-//						Secure: pulumi.Bool(false),
-//					},
-//				},
-//				AppSources: opsworks.ApplicationAppSourceArray{
-//					&opsworks.ApplicationAppSourceArgs{
-//						Type:     pulumi.String("git"),
-//						Revision: pulumi.String("master"),
-//						Url:      pulumi.String("https://github.com/example.git"),
-//					},
-//				},
-//				EnableSsl: pulumi.Bool(true),
-//				SslConfigurations: opsworks.ApplicationSslConfigurationArray{
-//					&opsworks.ApplicationSslConfigurationArgs{
-//						PrivateKey:  readFileOrPanic("./foobar.key"),
-//						Certificate: readFileOrPanic("./foobar.crt"),
-//					},
-//				},
-//				DocumentRoot:       pulumi.String("public"),
-//				AutoBundleOnDeploy: pulumi.String("true"),
-//				RailsEnv:           pulumi.String("staging"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := opsworks/application.NewApplication(ctx, "foo-app", &opsworks/application.ApplicationArgs{
+// ShortName: "foobar",
+// StackId: aws_opsworks_stack.Main.Id,
+// Type: "rails",
+// Description: "This is a Rails application",
+// Domains: []string{
+// "example.com",
+// "sub.example.com",
+// },
+// Environments: []map[string]interface{}{
+// map[string]interface{}{
+// "key": "key",
+// "value": "value",
+// "secure": false,
+// },
+// },
+// AppSources: []map[string]interface{}{
+// map[string]interface{}{
+// "type": "git",
+// "revision": "master",
+// "url": "https://github.com/example.git",
+// },
+// },
+// EnableSsl: true,
+// SslConfigurations: []map[string]interface{}{
+// map[string]interface{}{
+// "privateKey": readFileOrPanic("./foobar.key"),
+// "certificate": readFileOrPanic("./foobar.crt"),
+// },
+// },
+// DocumentRoot: "public",
+// AutoBundleOnDeploy: true,
+// RailsEnv: "staging",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

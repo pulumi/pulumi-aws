@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.quicksight.Folder("example", {folderId: "example-id"});
+ * const example = new aws.quicksight/folder.Folder("example", {folderId: "example-id"});
  * ```
  * ### With Permissions
  *
@@ -25,7 +25,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.quicksight.Folder("example", {
+ * const example = new aws.quicksight/folder.Folder("example", {
  *     folderId: "example-id",
  *     permissions: [{
  *         actions: [
@@ -48,8 +48,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const parent = new aws.quicksight.Folder("parent", {folderId: "parent-id"});
- * const example = new aws.quicksight.Folder("example", {
+ * const parent = new aws.quicksight/folder.Folder("parent", {folderId: "parent-id"});
+ * const example = new aws.quicksight/folder.Folder("example", {
  *     folderId: "example-id",
  *     parentFolderArn: parent.arn,
  * });

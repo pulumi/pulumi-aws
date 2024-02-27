@@ -22,25 +22,23 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssoadmin"
+//	ssoadmin/applicationAssignment "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ssoadmin/applicationAssignment"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ssoadmin.NewApplicationAssignment(ctx, "example", &ssoadmin.ApplicationAssignmentArgs{
-//				ApplicationArn: pulumi.Any(aws_ssoadmin_application.Example.Application_arn),
-//				PrincipalId:    pulumi.Any(aws_identitystore_user.Example.User_id),
-//				PrincipalType:  pulumi.String("USER"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := ssoadmin/applicationAssignment.NewApplicationAssignment(ctx, "example", &ssoadmin/applicationAssignment.ApplicationAssignmentArgs{
+// ApplicationArn: aws_ssoadmin_application.Example.Application_arn,
+// PrincipalId: aws_identitystore_user.Example.User_id,
+// PrincipalType: "USER",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Group Type
 //
@@ -49,25 +47,23 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssoadmin"
+//	ssoadmin/applicationAssignment "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ssoadmin/applicationAssignment"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ssoadmin.NewApplicationAssignment(ctx, "example", &ssoadmin.ApplicationAssignmentArgs{
-//				ApplicationArn: pulumi.Any(aws_ssoadmin_application.Example.Application_arn),
-//				PrincipalId:    pulumi.Any(aws_identitystore_group.Example.Group_id),
-//				PrincipalType:  pulumi.String("GROUP"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := ssoadmin/applicationAssignment.NewApplicationAssignment(ctx, "example", &ssoadmin/applicationAssignment.ApplicationAssignmentArgs{
+// ApplicationArn: aws_ssoadmin_application.Example.Application_arn,
+// PrincipalId: aws_identitystore_group.Example.Group_id,
+// PrincipalType: "GROUP",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

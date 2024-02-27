@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.rbin.Rule("example", {
+ * const example = new aws.rbin/rule.Rule("example", {
  *     description: "example_rule",
  *     resourceTags: [{
  *         resourceTagKey: "tag_key",

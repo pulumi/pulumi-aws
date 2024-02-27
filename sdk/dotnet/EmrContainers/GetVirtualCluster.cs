@@ -13,66 +13,12 @@ namespace Pulumi.Aws.EmrContainers
     {
         /// <summary>
         /// Retrieve information about an EMR Containers (EMR on EKS) Virtual Cluster.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.EmrContainers.GetVirtualCluster.Invoke(new()
-        ///     {
-        ///         VirtualClusterId = "example id",
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["name"] = example.Apply(getVirtualClusterResult =&gt; getVirtualClusterResult.Name),
-        ///         ["arn"] = example.Apply(getVirtualClusterResult =&gt; getVirtualClusterResult.Arn),
-        ///     };
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetVirtualClusterResult> InvokeAsync(GetVirtualClusterArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualClusterResult>("aws:emrcontainers/getVirtualCluster:getVirtualCluster", args ?? new GetVirtualClusterArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieve information about an EMR Containers (EMR on EKS) Virtual Cluster.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.EmrContainers.GetVirtualCluster.Invoke(new()
-        ///     {
-        ///         VirtualClusterId = "example id",
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["name"] = example.Apply(getVirtualClusterResult =&gt; getVirtualClusterResult.Name),
-        ///         ["arn"] = example.Apply(getVirtualClusterResult =&gt; getVirtualClusterResult.Arn),
-        ///     };
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetVirtualClusterResult> Invoke(GetVirtualClusterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualClusterResult>("aws:emrcontainers/getVirtualCluster:getVirtualCluster", args ?? new GetVirtualClusterInvokeArgs(), options.WithDefaults());

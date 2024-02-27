@@ -21,7 +21,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.transfer.Server("example", {tags: {
+ * const example = new aws.transfer/server.Server("example", {tags: {
  *     Name: "Example",
  * }});
  * ```
@@ -31,7 +31,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.transfer.Server("example", {securityPolicyName: "TransferSecurityPolicy-2020-06"});
+ * const example = new aws.transfer/server.Server("example", {securityPolicyName: "TransferSecurityPolicy-2020-06"});
  * ```
  * ### VPC Endpoint
  *
@@ -39,7 +39,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.transfer.Server("example", {
+ * const example = new aws.transfer/server.Server("example", {
  *     endpointType: "VPC",
  *     endpointDetails: {
  *         addressAllocationIds: [aws_eip.example.id],
@@ -54,7 +54,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.transfer.Server("example", {
+ * const example = new aws.transfer/server.Server("example", {
  *     identityProviderType: "AWS_DIRECTORY_SERVICE",
  *     directoryId: aws_directory_service_directory.example.id,
  * });
@@ -65,7 +65,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.transfer.Server("example", {
+ * const example = new aws.transfer/server.Server("example", {
  *     identityProviderType: "AWS_LAMBDA",
  *     "function": aws_lambda_identity_provider.example.arn,
  * });
@@ -76,7 +76,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.transfer.Server("example", {
+ * const example = new aws.transfer/server.Server("example", {
  *     endpointType: "VPC",
  *     endpointDetails: {
  *         subnetIds: [aws_subnet.example.id],
@@ -89,35 +89,6 @@ import * as utilities from "../utilities";
  *     certificate: aws_acm_certificate.example.arn,
  *     identityProviderType: "API_GATEWAY",
  *     url: `${aws_api_gateway_deployment.example.invoke_url}${aws_api_gateway_resource.example.path}`,
- * });
- * ```
- * ### Using Structured Logging Destinations
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const transferLogGroup = new aws.cloudwatch.LogGroup("transferLogGroup", {namePrefix: "transfer_test_"});
- * const transferAssumeRole = aws.iam.getPolicyDocument({
- *     statements: [{
- *         effect: "Allow",
- *         principals: [{
- *             type: "Service",
- *             identifiers: ["transfer.amazonaws.com"],
- *         }],
- *         actions: ["sts:AssumeRole"],
- *     }],
- * });
- * const iamForTransfer = new aws.iam.Role("iamForTransfer", {
- *     namePrefix: "iam_for_transfer_",
- *     assumeRolePolicy: transferAssumeRole.then(transferAssumeRole => transferAssumeRole.json),
- *     managedPolicyArns: ["arn:aws:iam::aws:policy/service-role/AWSTransferLoggingAccess"],
- * });
- * const transferServer = new aws.transfer.Server("transferServer", {
- *     endpointType: "PUBLIC",
- *     loggingRole: iamForTransfer.arn,
- *     protocols: ["SFTP"],
- *     structuredLogDestinations: [pulumi.interpolate`${transferLogGroup.arn}:*`],
  * });
  * ```
  *

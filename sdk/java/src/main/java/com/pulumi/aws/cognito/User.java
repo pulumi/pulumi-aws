@@ -63,8 +63,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.cognito.UserPool;
  * import com.pulumi.aws.cognito.UserPoolArgs;
- * import com.pulumi.aws.cognito.inputs.UserPoolSchemaArgs;
- * import com.pulumi.aws.cognito.inputs.UserPoolSchemaStringAttributeConstraintsArgs;
  * import com.pulumi.aws.cognito.User;
  * import com.pulumi.aws.cognito.UserArgs;
  * import java.util.List;
@@ -82,32 +80,14 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var exampleUserPool = new UserPool(&#34;exampleUserPool&#34;, UserPoolArgs.builder()        
  *             .schemas(            
- *                 UserPoolSchemaArgs.builder()
- *                     .name(&#34;example&#34;)
- *                     .attributeDataType(&#34;Boolean&#34;)
- *                     .mutable(false)
- *                     .required(false)
- *                     .developerOnlyAttribute(false)
- *                     .build(),
- *                 UserPoolSchemaArgs.builder()
- *                     .name(&#34;foo&#34;)
- *                     .attributeDataType(&#34;String&#34;)
- *                     .mutable(false)
- *                     .required(false)
- *                     .developerOnlyAttribute(false)
- *                     .stringAttributeConstraints()
- *                     .build())
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleUser = new User(&#34;exampleUser&#34;, UserArgs.builder()        
  *             .userPoolId(exampleUserPool.id())
  *             .username(&#34;example&#34;)
- *             .attributes(Map.ofEntries(
- *                 Map.entry(&#34;example&#34;, true),
- *                 Map.entry(&#34;foo&#34;, &#34;bar&#34;),
- *                 Map.entry(&#34;email&#34;, &#34;no-reply@example.com&#34;),
- *                 Map.entry(&#34;email_verified&#34;, true)
- *             ))
+ *             .attributes(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

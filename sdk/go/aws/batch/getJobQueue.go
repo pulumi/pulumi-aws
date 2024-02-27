@@ -13,32 +13,6 @@ import (
 
 // The Batch Job Queue data source allows access to details of a specific
 // job queue within AWS Batch.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/batch"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := batch.LookupJobQueue(ctx, &batch.LookupJobQueueArgs{
-//				Name: "tf-test-batch-job-queue",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupJobQueue(ctx *pulumi.Context, args *LookupJobQueueArgs, opts ...pulumi.InvokeOption) (*LookupJobQueueResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupJobQueueResult

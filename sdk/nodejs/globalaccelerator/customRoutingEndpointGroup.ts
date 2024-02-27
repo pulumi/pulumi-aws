@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.globalaccelerator.CustomRoutingEndpointGroup("example", {
+ * const example = new aws.globalaccelerator/customRoutingEndpointGroup.CustomRoutingEndpointGroup("example", {
  *     listenerArn: aws_globalaccelerator_custom_routing_listener.example.id,
  *     destinationConfigurations: [{
  *         fromPort: 80,

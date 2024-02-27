@@ -21,32 +21,30 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/auditmanager"
+//	auditmanager/framework "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/auditmanager/framework"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := auditmanager.NewFramework(ctx, "test", &auditmanager.FrameworkArgs{
-//				ControlSets: auditmanager.FrameworkControlSetArray{
-//					&auditmanager.FrameworkControlSetArgs{
-//						Name: pulumi.String("example"),
-//						Controls: auditmanager.FrameworkControlSetControlArray{
-//							&auditmanager.FrameworkControlSetControlArgs{
-//								Id: pulumi.Any(aws_auditmanager_control.Test.Id),
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := auditmanager/framework.NewFramework(ctx, "test", &auditmanager/framework.FrameworkArgs{
+// ControlSets: []map[string]interface{}{
+// map[string]interface{}{
+// "name": "example",
+// "controls": []map[string]interface{}{
+// map[string]interface{}{
+// "id": aws_auditmanager_control.Test.Id,
+// },
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

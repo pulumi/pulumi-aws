@@ -311,16 +311,16 @@ class Vocabulary(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.connect.Vocabulary("example",
-            content=\"\"\"Phrase	IPA	SoundsLike	DisplayAs
+        example = aws.connect.vocabulary.Vocabulary("example",
+            content=Phrase	IPA	SoundsLike	DisplayAs
         Los-Angeles			Los Angeles
         F.B.I.	ɛ f b i aɪ		FBI
         Etienne		eh-tee-en	
-        \"\"\",
-            instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
-            language_code="en-US",
+        ,
+            instance_id=aaaaaaaa-bbbb-cccc-dddd-111111111111,
+            language_code=en-US,
             tags={
-                "Key1": "Value1",
+                Key1: Value1,
             })
         ```
 
@@ -357,16 +357,16 @@ class Vocabulary(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.connect.Vocabulary("example",
-            content=\"\"\"Phrase	IPA	SoundsLike	DisplayAs
+        example = aws.connect.vocabulary.Vocabulary("example",
+            content=Phrase	IPA	SoundsLike	DisplayAs
         Los-Angeles			Los Angeles
         F.B.I.	ɛ f b i aɪ		FBI
         Etienne		eh-tee-en	
-        \"\"\",
-            instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
-            language_code="en-US",
+        ,
+            instance_id=aaaaaaaa-bbbb-cccc-dddd-111111111111,
+            language_code=en-US,
             tags={
-                "Key1": "Value1",
+                Key1: Value1,
             })
         ```
 

@@ -206,12 +206,12 @@ class ContactChannel(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ssmcontacts.ContactChannel("example",
-            contact_id="arn:aws:ssm-contacts:us-west-2:123456789012:contact/contactalias",
-            delivery_address=aws.ssmcontacts.ContactChannelDeliveryAddressArgs(
-                simple_address="email@example.com",
-            ),
-            type="EMAIL")
+        example = aws.ssmcontacts.contact_channel.ContactChannel("example",
+            contact_id=arn:aws:ssm-contacts:us-west-2:123456789012:contact/contactalias,
+            delivery_address={
+                simpleAddress: email@example.com,
+            },
+            type=EMAIL)
         ```
         ### Usage with SSM Contact
 
@@ -219,15 +219,15 @@ class ContactChannel(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_contact = aws.ssmcontacts.Contact("exampleContact",
-            alias="example_contact",
-            type="PERSONAL")
-        example = aws.ssmcontacts.ContactChannel("example",
+        example_contact = aws.ssmcontacts.contact.Contact("exampleContact",
+            alias=example_contact,
+            type=PERSONAL)
+        example = aws.ssmcontacts.contact_channel.ContactChannel("example",
             contact_id=example_contact.arn,
-            delivery_address=aws.ssmcontacts.ContactChannelDeliveryAddressArgs(
-                simple_address="email@example.com",
-            ),
-            type="EMAIL")
+            delivery_address={
+                simpleAddress: email@example.com,
+            },
+            type=EMAIL)
         ```
 
         ## Import
@@ -261,12 +261,12 @@ class ContactChannel(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ssmcontacts.ContactChannel("example",
-            contact_id="arn:aws:ssm-contacts:us-west-2:123456789012:contact/contactalias",
-            delivery_address=aws.ssmcontacts.ContactChannelDeliveryAddressArgs(
-                simple_address="email@example.com",
-            ),
-            type="EMAIL")
+        example = aws.ssmcontacts.contact_channel.ContactChannel("example",
+            contact_id=arn:aws:ssm-contacts:us-west-2:123456789012:contact/contactalias,
+            delivery_address={
+                simpleAddress: email@example.com,
+            },
+            type=EMAIL)
         ```
         ### Usage with SSM Contact
 
@@ -274,15 +274,15 @@ class ContactChannel(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_contact = aws.ssmcontacts.Contact("exampleContact",
-            alias="example_contact",
-            type="PERSONAL")
-        example = aws.ssmcontacts.ContactChannel("example",
+        example_contact = aws.ssmcontacts.contact.Contact("exampleContact",
+            alias=example_contact,
+            type=PERSONAL)
+        example = aws.ssmcontacts.contact_channel.ContactChannel("example",
             contact_id=example_contact.arn,
-            delivery_address=aws.ssmcontacts.ContactChannelDeliveryAddressArgs(
-                simple_address="email@example.com",
-            ),
-            type="EMAIL")
+            delivery_address={
+                simpleAddress: email@example.com,
+            },
+            type=EMAIL)
         ```
 
         ## Import

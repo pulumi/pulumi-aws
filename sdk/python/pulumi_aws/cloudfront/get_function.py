@@ -152,17 +152,6 @@ def get_function(name: Optional[str] = None,
     """
     Provides information about a CloudFront Function.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    config = pulumi.Config()
-    function_name = config.require("functionName")
-    existing = aws.cloudfront.get_function(name=function_name)
-    ```
-
 
     :param str name: Name of the CloudFront function.
     :param str stage: Function’s stage, either `DEVELOPMENT` or `LIVE`.
@@ -192,17 +181,6 @@ def get_function_output(name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFunctionResult]:
     """
     Provides information about a CloudFront Function.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    config = pulumi.Config()
-    function_name = config.require("functionName")
-    existing = aws.cloudfront.get_function(name=function_name)
-    ```
 
 
     :param str name: Name of the CloudFront function.

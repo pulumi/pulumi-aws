@@ -17,56 +17,6 @@ import (
 // module and you need the pool's id as an input variable. For example, pools
 // can be shared via RAM and used to create vpcs with CIDRs from that pool.
 //
-// ## Example Usage
-//
-// The following example shows an account that has only 1 pool, perhaps shared
-// via RAM, and using that pool id to create a VPC with a CIDR derived from
-// AWS IPAM.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testVpcIpamPool, err := ec2.LookupVpcIpamPool(ctx, &ec2.LookupVpcIpamPoolArgs{
-//				Filters: []ec2.GetVpcIpamPoolFilter{
-//					{
-//						Name: "description",
-//						Values: []string{
-//							"*test*",
-//						},
-//					},
-//					{
-//						Name: "address-family",
-//						Values: []string{
-//							"ipv4",
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ec2.NewVpc(ctx, "testVpc", &ec2.VpcArgs{
-//				Ipv4IpamPoolId:    *pulumi.String(testVpcIpamPool.Id),
-//				Ipv4NetmaskLength: pulumi.Int(28),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // Deprecated: aws.ec2/getvpciampool.getVpcIamPool has been deprecated in favor of aws.ec2/getvpcipampool.getVpcIpamPool
 func GetVpcIamPool(ctx *pulumi.Context, args *GetVpcIamPoolArgs, opts ...pulumi.InvokeOption) (*GetVpcIamPoolResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)

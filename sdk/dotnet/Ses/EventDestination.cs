@@ -23,7 +23,7 @@ namespace Pulumi.Aws.Ses
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var cloudwatch = new Aws.Ses.EventDestination("cloudwatch", new()
+    ///     var cloudwatch = new Aws.Ses.EventDestination.EventDestination("cloudwatch", new()
     ///     {
     ///         ConfigurationSetName = aws_ses_configuration_set.Example.Name,
     ///         Enabled = true,
@@ -34,11 +34,11 @@ namespace Pulumi.Aws.Ses
     ///         },
     ///         CloudwatchDestinations = new[]
     ///         {
-    ///             new Aws.Ses.Inputs.EventDestinationCloudwatchDestinationArgs
+    ///             
     ///             {
-    ///                 DefaultValue = "default",
-    ///                 DimensionName = "dimension",
-    ///                 ValueSource = "emailHeader",
+    ///                 { "defaultValue", "default" },
+    ///                 { "dimensionName", "dimension" },
+    ///                 { "valueSource", "emailHeader" },
     ///             },
     ///         },
     ///     });
@@ -55,7 +55,7 @@ namespace Pulumi.Aws.Ses
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var kinesis = new Aws.Ses.EventDestination("kinesis", new()
+    ///     var kinesis = new Aws.Ses.EventDestination.EventDestination("kinesis", new()
     ///     {
     ///         ConfigurationSetName = aws_ses_configuration_set.Example.Name,
     ///         Enabled = true,
@@ -64,10 +64,10 @@ namespace Pulumi.Aws.Ses
     ///             "bounce",
     ///             "send",
     ///         },
-    ///         KinesisDestination = new Aws.Ses.Inputs.EventDestinationKinesisDestinationArgs
+    ///         KinesisDestination = 
     ///         {
-    ///             StreamArn = aws_kinesis_firehose_delivery_stream.Example.Arn,
-    ///             RoleArn = aws_iam_role.Example.Arn,
+    ///             { "streamArn", aws_kinesis_firehose_delivery_stream.Example.Arn },
+    ///             { "roleArn", aws_iam_role.Example.Arn },
     ///         },
     ///     });
     /// 
@@ -83,7 +83,7 @@ namespace Pulumi.Aws.Ses
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var sns = new Aws.Ses.EventDestination("sns", new()
+    ///     var sns = new Aws.Ses.EventDestination.EventDestination("sns", new()
     ///     {
     ///         ConfigurationSetName = aws_ses_configuration_set.Example.Name,
     ///         Enabled = true,
@@ -92,9 +92,9 @@ namespace Pulumi.Aws.Ses
     ///             "bounce",
     ///             "send",
     ///         },
-    ///         SnsDestination = new Aws.Ses.Inputs.EventDestinationSnsDestinationArgs
+    ///         SnsDestination = 
     ///         {
-    ///             TopicArn = aws_sns_topic.Example.Arn,
+    ///             { "topicArn", aws_sns_topic.Example.Arn },
     ///         },
     ///     });
     /// 

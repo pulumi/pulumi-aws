@@ -14,32 +14,6 @@ import (
 // Use this data source to get information about an EventBridge Partner Event Source. This data source will only return one partner event source. An error will be returned if multiple sources match the same name prefix.
 //
 // > **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cloudwatch.GetEventSource(ctx, &cloudwatch.GetEventSourceArgs{
-//				NamePrefix: pulumi.StringRef("aws.partner/examplepartner.com"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetEventSource(ctx *pulumi.Context, args *GetEventSourceArgs, opts ...pulumi.InvokeOption) (*GetEventSourceResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetEventSourceResult

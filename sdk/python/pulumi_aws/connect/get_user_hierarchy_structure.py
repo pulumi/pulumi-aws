@@ -71,15 +71,6 @@ def get_user_hierarchy_structure(instance_id: Optional[str] = None,
     """
     Provides details about a specific Amazon Connect User Hierarchy Structure
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.connect.get_user_hierarchy_structure(instance_id=aws_connect_instance["test"]["id"])
-    ```
-
 
     :param str instance_id: Reference to the hosting Amazon Connect Instance
     """
@@ -99,15 +90,6 @@ def get_user_hierarchy_structure_output(instance_id: Optional[pulumi.Input[str]]
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserHierarchyStructureResult]:
     """
     Provides details about a specific Amazon Connect User Hierarchy Structure
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.connect.get_user_hierarchy_structure(instance_id=aws_connect_instance["test"]["id"])
-    ```
 
 
     :param str instance_id: Reference to the hosting Amazon Connect Instance

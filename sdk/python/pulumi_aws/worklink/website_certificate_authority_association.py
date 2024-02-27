@@ -153,10 +153,10 @@ class WebsiteCertificateAuthorityAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.worklink.Fleet("example")
-        test = aws.worklink.WebsiteCertificateAuthorityAssociation("test",
-            fleet_arn=aws_worklink_fleet["test"]["arn"],
-            certificate=(lambda path: open(path).read())("certificate.pem"))
+        example = aws.worklink.fleet.Fleet("example")
+        test = aws.worklink.website_certificate_authority_association.WebsiteCertificateAuthorityAssociation("test",
+            fleet_arn=aws_worklink_fleet.test.arn,
+            certificate=(lambda path: open(path).read())(certificate.pem))
         ```
 
         ## Import
@@ -186,10 +186,10 @@ class WebsiteCertificateAuthorityAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.worklink.Fleet("example")
-        test = aws.worklink.WebsiteCertificateAuthorityAssociation("test",
-            fleet_arn=aws_worklink_fleet["test"]["arn"],
-            certificate=(lambda path: open(path).read())("certificate.pem"))
+        example = aws.worklink.fleet.Fleet("example")
+        test = aws.worklink.website_certificate_authority_association.WebsiteCertificateAuthorityAssociation("test",
+            fleet_arn=aws_worklink_fleet.test.arn,
+            certificate=(lambda path: open(path).read())(certificate.pem))
         ```
 
         ## Import

@@ -29,12 +29,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.cloudfront.OriginRequestPolicy;
  * import com.pulumi.aws.cloudfront.OriginRequestPolicyArgs;
- * import com.pulumi.aws.cloudfront.inputs.OriginRequestPolicyCookiesConfigArgs;
- * import com.pulumi.aws.cloudfront.inputs.OriginRequestPolicyCookiesConfigCookiesArgs;
- * import com.pulumi.aws.cloudfront.inputs.OriginRequestPolicyHeadersConfigArgs;
- * import com.pulumi.aws.cloudfront.inputs.OriginRequestPolicyHeadersConfigHeadersArgs;
- * import com.pulumi.aws.cloudfront.inputs.OriginRequestPolicyQueryStringsConfigArgs;
- * import com.pulumi.aws.cloudfront.inputs.OriginRequestPolicyQueryStringsConfigQueryStringsArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -50,24 +44,9 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new OriginRequestPolicy(&#34;example&#34;, OriginRequestPolicyArgs.builder()        
  *             .comment(&#34;example comment&#34;)
- *             .cookiesConfig(OriginRequestPolicyCookiesConfigArgs.builder()
- *                 .cookieBehavior(&#34;whitelist&#34;)
- *                 .cookies(OriginRequestPolicyCookiesConfigCookiesArgs.builder()
- *                     .items(&#34;example&#34;)
- *                     .build())
- *                 .build())
- *             .headersConfig(OriginRequestPolicyHeadersConfigArgs.builder()
- *                 .headerBehavior(&#34;whitelist&#34;)
- *                 .headers(OriginRequestPolicyHeadersConfigHeadersArgs.builder()
- *                     .items(&#34;example&#34;)
- *                     .build())
- *                 .build())
- *             .queryStringsConfig(OriginRequestPolicyQueryStringsConfigArgs.builder()
- *                 .queryStringBehavior(&#34;whitelist&#34;)
- *                 .queryStrings(OriginRequestPolicyQueryStringsConfigQueryStringsArgs.builder()
- *                     .items(&#34;example&#34;)
- *                     .build())
- *                 .build())
+ *             .cookiesConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .headersConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .queryStringsConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

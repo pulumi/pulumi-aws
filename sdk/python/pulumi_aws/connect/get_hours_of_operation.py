@@ -149,28 +149,6 @@ def get_hours_of_operation(hours_of_operation_id: Optional[str] = None,
     """
     Provides details about a specific Amazon Connect Hours of Operation.
 
-    ## Example Usage
-
-    By `name`
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.connect.get_hours_of_operation(instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
-        name="Test")
-    ```
-
-    By `hours_of_operation_id`
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.connect.get_hours_of_operation(hours_of_operation_id="cccccccc-bbbb-cccc-dddd-111111111111",
-        instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111")
-    ```
-
 
     :param str hours_of_operation_id: Returns information on a specific Hours of Operation by hours of operation id
     :param str instance_id: Reference to the hosting Amazon Connect Instance
@@ -205,28 +183,6 @@ def get_hours_of_operation_output(hours_of_operation_id: Optional[pulumi.Input[O
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetHoursOfOperationResult]:
     """
     Provides details about a specific Amazon Connect Hours of Operation.
-
-    ## Example Usage
-
-    By `name`
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.connect.get_hours_of_operation(instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
-        name="Test")
-    ```
-
-    By `hours_of_operation_id`
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.connect.get_hours_of_operation(hours_of_operation_id="cccccccc-bbbb-cccc-dddd-111111111111",
-        instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111")
-    ```
 
 
     :param str hours_of_operation_id: Returns information on a specific Hours of Operation by hours of operation id

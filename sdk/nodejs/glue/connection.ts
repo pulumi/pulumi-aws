@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.glue.Connection("example", {connectionProperties: {
+ * const example = new aws.glue/connection.Connection("example", {connectionProperties: {
  *     JDBC_CONNECTION_URL: "jdbc:mysql://example.com/exampledatabase",
  *     PASSWORD: "examplepassword",
  *     USERNAME: "exampleusername",
@@ -31,7 +31,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.glue.Connection("example", {
+ * const example = new aws.glue/connection.Connection("example", {
  *     connectionProperties: {
  *         JDBC_CONNECTION_URL: `jdbc:mysql://${aws_rds_cluster.example.endpoint}/exampledatabase`,
  *         PASSWORD: "examplepassword",

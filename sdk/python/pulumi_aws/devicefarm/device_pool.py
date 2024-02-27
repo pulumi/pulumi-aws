@@ -290,13 +290,13 @@ class DevicePool(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.devicefarm.DevicePool("example",
-            project_arn=aws_devicefarm_project["example"]["arn"],
-            rules=[aws.devicefarm.DevicePoolRuleArgs(
-                attribute="OS_VERSION",
-                operator="EQUALS",
-                value="\\"AVAILABLE\\"",
-            )])
+        example = aws.devicefarm.device_pool.DevicePool("example",
+            project_arn=aws_devicefarm_project.example.arn,
+            rules=[{
+                attribute: OS_VERSION,
+                operator: EQUALS,
+                value: "AVAILABLE",
+            }])
         ```
 
         ## Import
@@ -331,13 +331,13 @@ class DevicePool(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.devicefarm.DevicePool("example",
-            project_arn=aws_devicefarm_project["example"]["arn"],
-            rules=[aws.devicefarm.DevicePoolRuleArgs(
-                attribute="OS_VERSION",
-                operator="EQUALS",
-                value="\\"AVAILABLE\\"",
-            )])
+        example = aws.devicefarm.device_pool.DevicePool("example",
+            project_arn=aws_devicefarm_project.example.arn,
+            rules=[{
+                attribute: OS_VERSION,
+                operator: EQUALS,
+                value: "AVAILABLE",
+            }])
         ```
 
         ## Import

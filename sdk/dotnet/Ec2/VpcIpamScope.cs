@@ -12,40 +12,6 @@ namespace Pulumi.Aws.Ec2
     /// <summary>
     /// Creates a scope for AWS IPAM.
     /// 
-    /// ## Example Usage
-    /// 
-    /// Basic usage:
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var current = Aws.GetRegion.Invoke();
-    /// 
-    ///     var exampleVpcIpam = new Aws.Ec2.VpcIpam("exampleVpcIpam", new()
-    ///     {
-    ///         OperatingRegions = new[]
-    ///         {
-    ///             new Aws.Ec2.Inputs.VpcIpamOperatingRegionArgs
-    ///             {
-    ///                 RegionName = current.Apply(getRegionResult =&gt; getRegionResult.Name),
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleVpcIpamScope = new Aws.Ec2.VpcIpamScope("exampleVpcIpamScope", new()
-    ///     {
-    ///         IpamId = exampleVpcIpam.Id,
-    ///         Description = "Another Scope",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import IPAMs using the `scope_id`. For example:

@@ -90,9 +90,9 @@ class ResourceGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.inspector.ResourceGroup("example", tags={
-            "Env": "bar",
-            "Name": "foo",
+        example = aws.inspector.resource_group.ResourceGroup("example", tags={
+            Env: bar,
+            Name: foo,
         })
         ```
 
@@ -115,9 +115,9 @@ class ResourceGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.inspector.ResourceGroup("example", tags={
-            "Env": "bar",
-            "Name": "foo",
+        example = aws.inspector.resource_group.ResourceGroup("example", tags={
+            Env: bar,
+            Name: foo,
         })
         ```
 

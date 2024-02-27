@@ -22,24 +22,22 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/servicecatalog"
+//	servicecatalog/productPortfolioAssociation "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/servicecatalog/productPortfolioAssociation"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := servicecatalog.NewProductPortfolioAssociation(ctx, "example", &servicecatalog.ProductPortfolioAssociationArgs{
-//				PortfolioId: pulumi.String("port-68656c6c6f"),
-//				ProductId:   pulumi.String("prod-dnigbtea24ste"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := servicecatalog/productPortfolioAssociation.NewProductPortfolioAssociation(ctx, "example", &servicecatalog/productPortfolioAssociation.ProductPortfolioAssociationArgs{
+// PortfolioId: "port-68656c6c6f",
+// ProductId: "prod-dnigbtea24ste",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

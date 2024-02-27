@@ -33,7 +33,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.elasticbeanstalk.Application;
  * import com.pulumi.aws.elasticbeanstalk.ApplicationArgs;
- * import com.pulumi.aws.elasticbeanstalk.inputs.ApplicationAppversionLifecycleArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -49,11 +48,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var tftest = new Application(&#34;tftest&#34;, ApplicationArgs.builder()        
  *             .description(&#34;tf-test-desc&#34;)
- *             .appversionLifecycle(ApplicationAppversionLifecycleArgs.builder()
- *                 .serviceRole(aws_iam_role.beanstalk_service().arn())
- *                 .maxCount(128)
- *                 .deleteSourceFromS3(true)
- *                 .build())
+ *             .appversionLifecycle(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

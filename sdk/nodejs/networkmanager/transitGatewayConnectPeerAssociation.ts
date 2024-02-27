@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.networkmanager.TransitGatewayConnectPeerAssociation("example", {
+ * const example = new aws.networkmanager/transitGatewayConnectPeerAssociation.TransitGatewayConnectPeerAssociation("example", {
  *     globalNetworkId: aws_networkmanager_global_network.example.id,
  *     deviceId: aws_networkmanager_device.example.id,
  *     transitGatewayConnectPeerArn: aws_ec2_transit_gateway_connect_peer.example.arn,

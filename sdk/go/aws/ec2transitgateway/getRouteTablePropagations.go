@@ -14,31 +14,6 @@ import (
 // Provides information for multiple EC2 Transit Gateway Route Table Propagations, such as their identifiers.
 //
 // ## Example Usage
-// ### By Transit Gateway Identifier
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2transitgateway"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2transitgateway.GetRouteTablePropagations(ctx, &ec2transitgateway.GetRouteTablePropagationsArgs{
-//				TransitGatewayRouteTableId: aws_ec2_transit_gateway_route_table.Example.Id,
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetRouteTablePropagations(ctx *pulumi.Context, args *GetRouteTablePropagationsArgs, opts ...pulumi.InvokeOption) (*GetRouteTablePropagationsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetRouteTablePropagationsResult

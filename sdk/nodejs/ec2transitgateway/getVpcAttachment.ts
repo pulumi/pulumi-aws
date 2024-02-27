@@ -11,29 +11,6 @@ import * as utilities from "../utilities";
  * Get information on an EC2 Transit Gateway VPC Attachment.
  *
  * ## Example Usage
- * ### By Filter
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.ec2transitgateway.getVpcAttachment({
- *     filters: [{
- *         name: "vpc-id",
- *         values: ["vpc-12345678"],
- *     }],
- * });
- * ```
- * ### By Identifier
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.ec2transitgateway.getVpcAttachment({
- *     id: "tgw-attach-12345678",
- * });
- * ```
  */
 export function getVpcAttachment(args?: GetVpcAttachmentArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcAttachmentResult> {
     args = args || {};
@@ -110,29 +87,6 @@ export interface GetVpcAttachmentResult {
  * Get information on an EC2 Transit Gateway VPC Attachment.
  *
  * ## Example Usage
- * ### By Filter
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.ec2transitgateway.getVpcAttachment({
- *     filters: [{
- *         name: "vpc-id",
- *         values: ["vpc-12345678"],
- *     }],
- * });
- * ```
- * ### By Identifier
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.ec2transitgateway.getVpcAttachment({
- *     id: "tgw-attach-12345678",
- * });
- * ```
  */
 export function getVpcAttachmentOutput(args?: GetVpcAttachmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpcAttachmentResult> {
     return pulumi.output(args).apply((a: any) => getVpcAttachment(a, opts))

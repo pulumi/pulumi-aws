@@ -12,39 +12,6 @@ import (
 )
 
 // Use this data source to get the window IDs of SSM maintenance windows.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssm"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ssm.GetMaintenanceWindows(ctx, &ssm.GetMaintenanceWindowsArgs{
-//				Filters: []ssm.GetMaintenanceWindowsFilter{
-//					{
-//						Name: "Enabled",
-//						Values: []string{
-//							"true",
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetMaintenanceWindows(ctx *pulumi.Context, args *GetMaintenanceWindowsArgs, opts ...pulumi.InvokeOption) (*GetMaintenanceWindowsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetMaintenanceWindowsResult

@@ -58,15 +58,6 @@ def get_web_acl(name: Optional[str] = None,
     """
     `waf.WebAcl` Retrieves a WAF Web ACL Resource Id.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.waf.get_web_acl(name="tfWAFWebACL")
-    ```
-
 
     :param str name: Name of the WAF Web ACL.
     """
@@ -85,15 +76,6 @@ def get_web_acl_output(name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebAclResult]:
     """
     `waf.WebAcl` Retrieves a WAF Web ACL Resource Id.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.waf.get_web_acl(name="tfWAFWebACL")
-    ```
 
 
     :param str name: Name of the WAF Web ACL.

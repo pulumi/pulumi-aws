@@ -21,25 +21,23 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/verifiedaccess"
+//	verifiedaccess/trustProvider "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/verifiedaccess/trustProvider"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := verifiedaccess.NewTrustProvider(ctx, "example", &verifiedaccess.TrustProviderArgs{
-//				PolicyReferenceName:   pulumi.String("example"),
-//				TrustProviderType:     pulumi.String("user"),
-//				UserTrustProviderType: pulumi.String("iam-identity-center"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := verifiedaccess/trustProvider.NewTrustProvider(ctx, "example", &verifiedaccess/trustProvider.TrustProviderArgs{
+// PolicyReferenceName: "example",
+// TrustProviderType: "user",
+// UserTrustProviderType: "iam-identity-center",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

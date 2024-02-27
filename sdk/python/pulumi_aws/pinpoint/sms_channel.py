@@ -205,8 +205,8 @@ class SmsChannel(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        app = aws.pinpoint.App("app")
-        sms = aws.pinpoint.SmsChannel("sms", application_id=app.application_id)
+        app = aws.pinpoint.app.App("app")
+        sms = aws.pinpoint.sms_channel.SmsChannel("sms", application_id=app.application_id)
         ```
 
         ## Import
@@ -239,8 +239,8 @@ class SmsChannel(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        app = aws.pinpoint.App("app")
-        sms = aws.pinpoint.SmsChannel("sms", application_id=app.application_id)
+        app = aws.pinpoint.app.App("app")
+        sms = aws.pinpoint.sms_channel.SmsChannel("sms", application_id=app.application_id)
         ```
 
         ## Import

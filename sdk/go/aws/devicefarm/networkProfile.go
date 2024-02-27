@@ -23,27 +23,26 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/devicefarm"
+//	devicefarm/networkProfile "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/devicefarm/networkProfile"
+//	devicefarm/project "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/devicefarm/project"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleProject, err := devicefarm.NewProject(ctx, "exampleProject", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = devicefarm.NewNetworkProfile(ctx, "exampleNetworkProfile", &devicefarm.NetworkProfileArgs{
-//				ProjectArn: exampleProject.Arn,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleProject, err := devicefarm/project.NewProject(ctx, "exampleProject", nil)
+// if err != nil {
+// return err
+// }
+// _, err = devicefarm/networkProfile.NewNetworkProfile(ctx, "exampleNetworkProfile", &devicefarm/networkProfile.NetworkProfileArgs{
+// ProjectArn: exampleProject.Arn,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

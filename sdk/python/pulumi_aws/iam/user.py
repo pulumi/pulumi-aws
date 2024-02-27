@@ -265,28 +265,6 @@ class User(pulumi.CustomResource):
 
         > *NOTE:* If policies are attached to the user via the `iam.PolicyAttachment` resource and you are modifying the user `name` or `path`, the `force_destroy` argument must be set to `true` and applied before attempting the operation otherwise you will encounter a `DeleteConflict` error. The `iam.UserPolicyAttachment` resource (recommended) does not have this requirement.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        lb_user = aws.iam.User("lbUser",
-            path="/system/",
-            tags={
-                "tag-key": "tag-value",
-            })
-        lb_access_key = aws.iam.AccessKey("lbAccessKey", user=lb_user.name)
-        lb_ro_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            actions=["ec2:Describe*"],
-            resources=["*"],
-        )])
-        lb_ro_user_policy = aws.iam.UserPolicy("lbRoUserPolicy",
-            user=lb_user.name,
-            policy=lb_ro_policy_document.json)
-        ```
-
         ## Import
 
         Using `pulumi import`, import IAM Users using the `name`. For example:
@@ -315,28 +293,6 @@ class User(pulumi.CustomResource):
         Provides an IAM user.
 
         > *NOTE:* If policies are attached to the user via the `iam.PolicyAttachment` resource and you are modifying the user `name` or `path`, the `force_destroy` argument must be set to `true` and applied before attempting the operation otherwise you will encounter a `DeleteConflict` error. The `iam.UserPolicyAttachment` resource (recommended) does not have this requirement.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        lb_user = aws.iam.User("lbUser",
-            path="/system/",
-            tags={
-                "tag-key": "tag-value",
-            })
-        lb_access_key = aws.iam.AccessKey("lbAccessKey", user=lb_user.name)
-        lb_ro_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            actions=["ec2:Describe*"],
-            resources=["*"],
-        )])
-        lb_ro_user_policy = aws.iam.UserPolicy("lbRoUserPolicy",
-            user=lb_user.name,
-            policy=lb_ro_policy_document.json)
-        ```
 
         ## Import
 

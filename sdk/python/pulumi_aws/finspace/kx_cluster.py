@@ -824,6 +824,48 @@ class KxCluster(pulumi.CustomResource):
         Resource for managing an AWS FinSpace Kx Cluster.
 
         ## Example Usage
+        ### Basic Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.finspace.kx_cluster.KxCluster("example",
+            environment_id=aws_finspace_kx_environment.example.id,
+            type=HDB,
+            release_label=1.0,
+            az_mode=SINGLE,
+            availability_zone_id=use1-az2,
+            capacity_configuration={
+                nodeType: kx.s.2xlarge,
+                nodeCount: 2,
+            },
+            vpc_configuration={
+                vpcId: aws_vpc.test.id,
+                securityGroupIds: [aws_security_group.example.id],
+                subnetIds: [aws_subnet.example.id],
+                ipAddressType: IP_V4,
+            },
+            cache_storage_configurations=[{
+                type: CACHE_1000,
+                size: 1200,
+            }],
+            databases=[{
+                databaseName: aws_finspace_kx_database.example.name,
+                cacheConfiguration: [{
+                    cacheType: CACHE_1000,
+                    dbPaths: /,
+                }],
+            }],
+            code={
+                s3Bucket: aws_s3_bucket.test.id,
+                s3Key: aws_s3_object.object.key,
+            },
+            timeouts=[{
+                create: 18h,
+                update: 18h,
+            }])
+        ```
 
         ## Import
 
@@ -875,6 +917,48 @@ class KxCluster(pulumi.CustomResource):
         Resource for managing an AWS FinSpace Kx Cluster.
 
         ## Example Usage
+        ### Basic Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.finspace.kx_cluster.KxCluster("example",
+            environment_id=aws_finspace_kx_environment.example.id,
+            type=HDB,
+            release_label=1.0,
+            az_mode=SINGLE,
+            availability_zone_id=use1-az2,
+            capacity_configuration={
+                nodeType: kx.s.2xlarge,
+                nodeCount: 2,
+            },
+            vpc_configuration={
+                vpcId: aws_vpc.test.id,
+                securityGroupIds: [aws_security_group.example.id],
+                subnetIds: [aws_subnet.example.id],
+                ipAddressType: IP_V4,
+            },
+            cache_storage_configurations=[{
+                type: CACHE_1000,
+                size: 1200,
+            }],
+            databases=[{
+                databaseName: aws_finspace_kx_database.example.name,
+                cacheConfiguration: [{
+                    cacheType: CACHE_1000,
+                    dbPaths: /,
+                }],
+            }],
+            code={
+                s3Bucket: aws_s3_bucket.test.id,
+                s3Key: aws_s3_object.object.key,
+            },
+            timeouts=[{
+                create: 18h,
+                update: 18h,
+            }])
+        ```
 
         ## Import
 

@@ -6,17 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a Step Functions Activity data source
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const sfnActivity = aws.sfn.getActivity({
- *     name: "my-activity",
- * });
- * ```
  */
 export function getActivity(args?: GetActivityArgs, opts?: pulumi.InvokeOptions): Promise<GetActivityResult> {
     args = args || {};
@@ -59,17 +48,6 @@ export interface GetActivityResult {
 }
 /**
  * Provides a Step Functions Activity data source
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const sfnActivity = aws.sfn.getActivity({
- *     name: "my-activity",
- * });
- * ```
  */
 export function getActivityOutput(args?: GetActivityOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetActivityResult> {
     return pulumi.output(args).apply((a: any) => getActivity(a, opts))

@@ -12,30 +12,6 @@ import (
 )
 
 // The S3 account public access block data source returns account-level public access block configuration.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := s3.LookupAccountPublicAccessBlock(ctx, nil, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupAccountPublicAccessBlock(ctx *pulumi.Context, args *LookupAccountPublicAccessBlockArgs, opts ...pulumi.InvokeOption) (*LookupAccountPublicAccessBlockResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupAccountPublicAccessBlockResult

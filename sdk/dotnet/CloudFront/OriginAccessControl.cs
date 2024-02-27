@@ -25,7 +25,7 @@ namespace Pulumi.Aws.CloudFront
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.CloudFront.OriginAccessControl("example", new()
+    ///     var example = new Aws.Cloudfront.OriginAccessControl.OriginAccessControl("example", new()
     ///     {
     ///         Description = "Example Policy",
     ///         OriginAccessControlOriginType = "s3",

@@ -22,15 +22,15 @@ namespace Pulumi.Aws.Route53RecoveryReadiness
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Route53RecoveryReadiness.ResourceSet("example", new()
+    ///     var example = new Aws.Route53recoveryreadiness.ResourceSet.ResourceSet("example", new()
     ///     {
     ///         ResourceSetName = my_cw_alarm_set,
     ///         ResourceSetType = "AWS::CloudWatch::Alarm",
     ///         Resources = new[]
     ///         {
-    ///             new Aws.Route53RecoveryReadiness.Inputs.ResourceSetResourceArgs
+    ///             
     ///             {
-    ///                 ResourceArn = aws_cloudwatch_metric_alarm.Example.Arn,
+    ///                 { "resourceArn", aws_cloudwatch_metric_alarm.Example.Arn },
     ///             },
     ///         },
     ///     });

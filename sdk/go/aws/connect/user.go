@@ -23,36 +23,34 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/connect"
+//	connect/user "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/connect/user"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := connect.NewUser(ctx, "example", &connect.UserArgs{
-//				InstanceId:       pulumi.Any(aws_connect_instance.Example.Id),
-//				Password:         pulumi.String("Password123"),
-//				RoutingProfileId: pulumi.Any(aws_connect_routing_profile.Example.Routing_profile_id),
-//				SecurityProfileIds: pulumi.StringArray{
-//					aws_connect_security_profile.Example.Security_profile_id,
-//				},
-//				IdentityInfo: &connect.UserIdentityInfoArgs{
-//					FirstName: pulumi.String("example"),
-//					LastName:  pulumi.String("example2"),
-//				},
-//				PhoneConfig: &connect.UserPhoneConfigArgs{
-//					AfterContactWorkTimeLimit: pulumi.Int(0),
-//					PhoneType:                 pulumi.String("SOFT_PHONE"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := connect/user.NewUser(ctx, "example", &connect/user.UserArgs{
+// InstanceId: aws_connect_instance.Example.Id,
+// Password: "Password123",
+// RoutingProfileId: aws_connect_routing_profile.Example.Routing_profile_id,
+// SecurityProfileIds: []interface{}{
+// aws_connect_security_profile.Example.Security_profile_id,
+// },
+// IdentityInfo: map[string]interface{}{
+// "firstName": "example",
+// "lastName": "example2",
+// },
+// PhoneConfig: map[string]interface{}{
+// "afterContactWorkTimeLimit": 0,
+// "phoneType": "SOFT_PHONE",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### With hierarchyGroupId
 //
@@ -61,37 +59,35 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/connect"
+//	connect/user "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/connect/user"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := connect.NewUser(ctx, "example", &connect.UserArgs{
-//				InstanceId:       pulumi.Any(aws_connect_instance.Example.Id),
-//				Password:         pulumi.String("Password123"),
-//				RoutingProfileId: pulumi.Any(aws_connect_routing_profile.Example.Routing_profile_id),
-//				HierarchyGroupId: pulumi.Any(aws_connect_user_hierarchy_group.Example.Hierarchy_group_id),
-//				SecurityProfileIds: pulumi.StringArray{
-//					aws_connect_security_profile.Example.Security_profile_id,
-//				},
-//				IdentityInfo: &connect.UserIdentityInfoArgs{
-//					FirstName: pulumi.String("example"),
-//					LastName:  pulumi.String("example2"),
-//				},
-//				PhoneConfig: &connect.UserPhoneConfigArgs{
-//					AfterContactWorkTimeLimit: pulumi.Int(0),
-//					PhoneType:                 pulumi.String("SOFT_PHONE"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := connect/user.NewUser(ctx, "example", &connect/user.UserArgs{
+// InstanceId: aws_connect_instance.Example.Id,
+// Password: "Password123",
+// RoutingProfileId: aws_connect_routing_profile.Example.Routing_profile_id,
+// HierarchyGroupId: aws_connect_user_hierarchy_group.Example.Hierarchy_group_id,
+// SecurityProfileIds: []interface{}{
+// aws_connect_security_profile.Example.Security_profile_id,
+// },
+// IdentityInfo: map[string]interface{}{
+// "firstName": "example",
+// "lastName": "example2",
+// },
+// PhoneConfig: map[string]interface{}{
+// "afterContactWorkTimeLimit": 0,
+// "phoneType": "SOFT_PHONE",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### With identityInfo filled
 //
@@ -100,37 +96,35 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/connect"
+//	connect/user "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/connect/user"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := connect.NewUser(ctx, "example", &connect.UserArgs{
-//				InstanceId:       pulumi.Any(aws_connect_instance.Example.Id),
-//				Password:         pulumi.String("Password123"),
-//				RoutingProfileId: pulumi.Any(aws_connect_routing_profile.Example.Routing_profile_id),
-//				SecurityProfileIds: pulumi.StringArray{
-//					aws_connect_security_profile.Example.Security_profile_id,
-//				},
-//				IdentityInfo: &connect.UserIdentityInfoArgs{
-//					Email:     pulumi.String("example@example.com"),
-//					FirstName: pulumi.String("example"),
-//					LastName:  pulumi.String("example2"),
-//				},
-//				PhoneConfig: &connect.UserPhoneConfigArgs{
-//					AfterContactWorkTimeLimit: pulumi.Int(0),
-//					PhoneType:                 pulumi.String("SOFT_PHONE"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := connect/user.NewUser(ctx, "example", &connect/user.UserArgs{
+// InstanceId: aws_connect_instance.Example.Id,
+// Password: "Password123",
+// RoutingProfileId: aws_connect_routing_profile.Example.Routing_profile_id,
+// SecurityProfileIds: []interface{}{
+// aws_connect_security_profile.Example.Security_profile_id,
+// },
+// IdentityInfo: map[string]interface{}{
+// "email": "example@example.com",
+// "firstName": "example",
+// "lastName": "example2",
+// },
+// PhoneConfig: map[string]interface{}{
+// "afterContactWorkTimeLimit": 0,
+// "phoneType": "SOFT_PHONE",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### With phoneConfig phone type as desk phone
 //
@@ -139,32 +133,30 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/connect"
+//	connect/user "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/connect/user"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := connect.NewUser(ctx, "example", &connect.UserArgs{
-//				InstanceId:       pulumi.Any(aws_connect_instance.Example.Id),
-//				Password:         pulumi.String("Password123"),
-//				RoutingProfileId: pulumi.Any(aws_connect_routing_profile.Example.Routing_profile_id),
-//				SecurityProfileIds: pulumi.StringArray{
-//					aws_connect_security_profile.Example.Security_profile_id,
-//				},
-//				PhoneConfig: &connect.UserPhoneConfigArgs{
-//					AfterContactWorkTimeLimit: pulumi.Int(0),
-//					PhoneType:                 pulumi.String("SOFT_PHONE"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := connect/user.NewUser(ctx, "example", &connect/user.UserArgs{
+// InstanceId: aws_connect_instance.Example.Id,
+// Password: "Password123",
+// RoutingProfileId: aws_connect_routing_profile.Example.Routing_profile_id,
+// SecurityProfileIds: []interface{}{
+// aws_connect_security_profile.Example.Security_profile_id,
+// },
+// PhoneConfig: map[string]interface{}{
+// "afterContactWorkTimeLimit": 0,
+// "phoneType": "SOFT_PHONE",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### With multiple Security profile ids specified in securityProfileIds
 //
@@ -173,35 +165,33 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/connect"
+//	connect/user "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/connect/user"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := connect.NewUser(ctx, "example", &connect.UserArgs{
-//				InstanceId:       pulumi.Any(aws_connect_instance.Example.Id),
-//				Password:         pulumi.String("Password123"),
-//				RoutingProfileId: pulumi.Any(aws_connect_routing_profile.Example.Routing_profile_id),
-//				SecurityProfileIds: pulumi.StringArray{
-//					aws_connect_security_profile.Example.Security_profile_id,
-//					aws_connect_security_profile.Example2.Security_profile_id,
-//				},
-//				PhoneConfig: &connect.UserPhoneConfigArgs{
-//					AfterContactWorkTimeLimit: pulumi.Int(0),
-//					AutoAccept:                pulumi.Bool(false),
-//					DeskPhoneNumber:           pulumi.String("+112345678912"),
-//					PhoneType:                 pulumi.String("DESK_PHONE"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := connect/user.NewUser(ctx, "example", &connect/user.UserArgs{
+// InstanceId: aws_connect_instance.Example.Id,
+// Password: "Password123",
+// RoutingProfileId: aws_connect_routing_profile.Example.Routing_profile_id,
+// SecurityProfileIds: []interface{}{
+// aws_connect_security_profile.Example.Security_profile_id,
+// aws_connect_security_profile.Example2.Security_profile_id,
+// },
+// PhoneConfig: map[string]interface{}{
+// "afterContactWorkTimeLimit": 0,
+// "autoAccept": false,
+// "deskPhoneNumber": "+112345678912",
+// "phoneType": "DESK_PHONE",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

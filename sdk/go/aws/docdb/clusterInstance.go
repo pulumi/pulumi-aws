@@ -30,44 +30,45 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/docdb"
+//	docdb/cluster "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/docdb/cluster"
+//	docdb/clusterInstance "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/docdb/clusterInstance"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := docdb/cluster.NewCluster(ctx, "default", &docdb/cluster.ClusterArgs{
+// ClusterIdentifier: "docdb-cluster-demo",
+// AvailabilityZones: []string{
+// "us-west-2a",
+// "us-west-2b",
+// "us-west-2c",
+// },
+// MasterUsername: "foo",
+// MasterPassword: "barbut8chars",
+// })
+// if err != nil {
+// return err
+// }
+// var clusterInstances []*docdb/clusterInstance.ClusterInstance
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := docdb.NewCluster(ctx, "default", &docdb.ClusterArgs{
-//				ClusterIdentifier: pulumi.String("docdb-cluster-demo"),
-//				AvailabilityZones: pulumi.StringArray{
-//					pulumi.String("us-west-2a"),
-//					pulumi.String("us-west-2b"),
-//					pulumi.String("us-west-2c"),
-//				},
-//				MasterUsername: pulumi.String("foo"),
-//				MasterPassword: pulumi.String("barbut8chars"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			var clusterInstances []*docdb.ClusterInstance
-//			for index := 0; index < 2; index++ {
-//				key0 := index
-//				val0 := index
-//				__res, err := docdb.NewClusterInstance(ctx, fmt.Sprintf("clusterInstances-%v", key0), &docdb.ClusterInstanceArgs{
-//					Identifier:        pulumi.String(fmt.Sprintf("docdb-cluster-demo-%v", val0)),
-//					ClusterIdentifier: _default.ID(),
-//					InstanceClass:     pulumi.String("db.r5.large"),
-//				})
-//				if err != nil {
-//					return err
-//				}
-//				clusterInstances = append(clusterInstances, __res)
-//			}
-//			return nil
-//		})
-//	}
+//	for index := 0; index < 2; index++ {
+//	    key0 := index
+//	    val0 := index
 //
+// __res, err := docdb/clusterInstance.NewClusterInstance(ctx, fmt.Sprintf("clusterInstances-%v", key0), &docdb/clusterInstance.ClusterInstanceArgs{
+// Identifier: fmt.Sprintf("docdb-cluster-demo-%v", val0),
+// ClusterIdentifier: _default.Id,
+// InstanceClass: "db.r5.large",
+// })
+// if err != nil {
+// return err
+// }
+// clusterInstances = append(clusterInstances, __res)
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

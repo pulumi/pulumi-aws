@@ -19,25 +19,23 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/verifiedpermissions"
+//	verifiedpermissions/policyStore "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/verifiedpermissions/policyStore"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := verifiedpermissions.NewPolicyStore(ctx, "example", &verifiedpermissions.PolicyStoreArgs{
-//				ValidationSettings: &verifiedpermissions.PolicyStoreValidationSettingsArgs{
-//					Mode: pulumi.String("STRICT"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := verifiedpermissions/policyStore.NewPolicyStore(ctx, "example", &verifiedpermissions/policyStore.PolicyStoreArgs{
+// ValidationSettings: map[string]interface{}{
+// "mode": "STRICT",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

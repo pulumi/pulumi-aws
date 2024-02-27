@@ -22,29 +22,28 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/pinpoint"
+//	pinpoint/app "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/pinpoint/app"
+//	pinpoint/baiduChannel "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/pinpoint/baiduChannel"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			app, err := pinpoint.NewApp(ctx, "app", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = pinpoint.NewBaiduChannel(ctx, "channel", &pinpoint.BaiduChannelArgs{
-//				ApplicationId: app.ApplicationId,
-//				ApiKey:        pulumi.String(""),
-//				SecretKey:     pulumi.String(""),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// app, err := pinpoint/app.NewApp(ctx, "app", nil)
+// if err != nil {
+// return err
+// }
+// _, err = pinpoint/baiduChannel.NewBaiduChannel(ctx, "channel", &pinpoint/baiduChannel.BaiduChannelArgs{
+// ApplicationId: app.ApplicationId,
+// ApiKey: "",
+// SecretKey: "",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -55,7 +55,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleAmazonsesVerificationRecord = new Record(&#34;exampleAmazonsesVerificationRecord&#34;, RecordArgs.builder()        
  *             .zoneId(aws_route53_zone.example().zone_id())
- *             .name(example.id().applyValue(id -&gt; String.format(&#34;_amazonses.%s&#34;, id)))
+ *             .name(String.format(&#34;_amazonses.%s&#34;, example.id()))
  *             .type(&#34;TXT&#34;)
  *             .ttl(&#34;600&#34;)
  *             .records(example.verificationToken())

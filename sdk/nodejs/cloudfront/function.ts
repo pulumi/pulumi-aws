@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * import * as fs from "fs";
  *
- * const test = new aws.cloudfront.Function("test", {
+ * const test = new aws.cloudfront/function.Function("test", {
  *     runtime: "cloudfront-js-2.0",
  *     comment: "my function",
  *     publish: true,

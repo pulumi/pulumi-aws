@@ -36,7 +36,7 @@ namespace Pulumi.Aws.WafV2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleRestApi = new Aws.ApiGateway.RestApi("exampleRestApi", new()
+    ///     var exampleRestApi = new Aws.Apigateway.RestApi.RestApi("exampleRestApi", new()
     ///     {
     ///         Body = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
@@ -65,38 +65,38 @@ namespace Pulumi.Aws.WafV2
     ///         }),
     ///     });
     /// 
-    ///     var exampleDeployment = new Aws.ApiGateway.Deployment("exampleDeployment", new()
+    ///     var exampleDeployment = new Aws.Apigateway.Deployment.Deployment("exampleDeployment", new()
     ///     {
     ///         RestApi = exampleRestApi.Id,
     ///         Triggers = 
     ///         {
-    ///             { "redeployment", exampleRestApi.Body.Apply(body =&gt; JsonSerializer.Serialize(body)).Apply(toJSON =&gt; ComputeSHA1(toJSON)) },
+    ///             { "redeployment", ComputeSHA1(JsonSerializer.Serialize(exampleRestApi.Body)) },
     ///         },
     ///     });
     /// 
-    ///     var exampleStage = new Aws.ApiGateway.Stage("exampleStage", new()
+    ///     var exampleStage = new Aws.Apigateway.Stage.Stage("exampleStage", new()
     ///     {
     ///         Deployment = exampleDeployment.Id,
     ///         RestApi = exampleRestApi.Id,
     ///         StageName = "example",
     ///     });
     /// 
-    ///     var exampleWebAcl = new Aws.WafV2.WebAcl("exampleWebAcl", new()
+    ///     var exampleWebAcl = new Aws.Wafv2.WebAcl.WebAcl("exampleWebAcl", new()
     ///     {
     ///         Scope = "REGIONAL",
-    ///         DefaultAction = new Aws.WafV2.Inputs.WebAclDefaultActionArgs
+    ///         DefaultAction = 
     ///         {
-    ///             Allow = null,
+    ///             { "allow", null },
     ///         },
-    ///         VisibilityConfig = new Aws.WafV2.Inputs.WebAclVisibilityConfigArgs
+    ///         VisibilityConfig = 
     ///         {
-    ///             CloudwatchMetricsEnabled = false,
-    ///             MetricName = "friendly-metric-name",
-    ///             SampledRequestsEnabled = false,
+    ///             { "cloudwatchMetricsEnabled", false },
+    ///             { "metricName", "friendly-metric-name" },
+    ///             { "sampledRequestsEnabled", false },
     ///         },
     ///     });
     /// 
-    ///     var exampleWebAclAssociation = new Aws.WafV2.WebAclAssociation("exampleWebAclAssociation", new()
+    ///     var exampleWebAclAssociation = new Aws.Wafv2.WebAclAssociation.WebAclAssociation("exampleWebAclAssociation", new()
     ///     {
     ///         ResourceArn = exampleStage.Arn,
     ///         WebAclArn = exampleWebAcl.Arn,

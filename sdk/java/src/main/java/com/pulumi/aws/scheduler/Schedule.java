@@ -33,8 +33,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.scheduler.Schedule;
  * import com.pulumi.aws.scheduler.ScheduleArgs;
- * import com.pulumi.aws.scheduler.inputs.ScheduleFlexibleTimeWindowArgs;
- * import com.pulumi.aws.scheduler.inputs.ScheduleTargetArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -50,14 +48,9 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Schedule(&#34;example&#34;, ScheduleArgs.builder()        
  *             .groupName(&#34;default&#34;)
- *             .flexibleTimeWindow(ScheduleFlexibleTimeWindowArgs.builder()
- *                 .mode(&#34;OFF&#34;)
- *                 .build())
+ *             .flexibleTimeWindow(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .scheduleExpression(&#34;rate(1 hours)&#34;)
- *             .target(ScheduleTargetArgs.builder()
- *                 .arn(aws_sqs_queue.example().arn())
- *                 .roleArn(aws_iam_role.example().arn())
- *                 .build())
+ *             .target(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -73,8 +66,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.sqs.Queue;
  * import com.pulumi.aws.scheduler.Schedule;
  * import com.pulumi.aws.scheduler.ScheduleArgs;
- * import com.pulumi.aws.scheduler.inputs.ScheduleFlexibleTimeWindowArgs;
- * import com.pulumi.aws.scheduler.inputs.ScheduleTargetArgs;
  * import static com.pulumi.codegen.internal.Serialization.*;
  * import java.util.List;
  * import java.util.ArrayList;
@@ -92,19 +83,9 @@ import javax.annotation.Nullable;
  *         var exampleQueue = new Queue(&#34;exampleQueue&#34;);
  * 
  *         var exampleSchedule = new Schedule(&#34;exampleSchedule&#34;, ScheduleArgs.builder()        
- *             .flexibleTimeWindow(ScheduleFlexibleTimeWindowArgs.builder()
- *                 .mode(&#34;OFF&#34;)
- *                 .build())
+ *             .flexibleTimeWindow(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .scheduleExpression(&#34;rate(1 hours)&#34;)
- *             .target(ScheduleTargetArgs.builder()
- *                 .arn(&#34;arn:aws:scheduler:::aws-sdk:sqs:sendMessage&#34;)
- *                 .roleArn(aws_iam_role.example().arn())
- *                 .input(exampleQueue.url().applyValue(url -&gt; serializeJson(
- *                     jsonObject(
- *                         jsonProperty(&#34;MessageBody&#34;, &#34;Greetings, programs!&#34;),
- *                         jsonProperty(&#34;QueueUrl&#34;, url)
- *                     ))))
- *                 .build())
+ *             .target(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

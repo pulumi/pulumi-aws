@@ -21,24 +21,22 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53"
+//	route53/resolverRuleAssociation "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/route53/resolverRuleAssociation"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := route53.NewResolverRuleAssociation(ctx, "example", &route53.ResolverRuleAssociationArgs{
-//				ResolverRuleId: pulumi.Any(aws_route53_resolver_rule.Sys.Id),
-//				VpcId:          pulumi.Any(aws_vpc.Foo.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := route53/resolverRuleAssociation.NewResolverRuleAssociation(ctx, "example", &route53/resolverRuleAssociation.ResolverRuleAssociationArgs{
+// ResolverRuleId: aws_route53_resolver_rule.Sys.Id,
+// VpcId: aws_vpc.Foo.Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -9,27 +9,6 @@ import * as utilities from "../utilities";
 
 /**
  * Information about single EC2 Instance Type Offering.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.ec2.getInstanceTypeOffering({
- *     filters: [{
- *         name: "instance-type",
- *         values: [
- *             "t2.micro",
- *             "t3.micro",
- *         ],
- *     }],
- *     preferredInstanceTypes: [
- *         "t3.micro",
- *         "t2.micro",
- *     ],
- * });
- * ```
  */
 export function getInstanceTypeOffering(args?: GetInstanceTypeOfferingArgs, opts?: pulumi.InvokeOptions): Promise<GetInstanceTypeOfferingResult> {
     args = args || {};
@@ -78,27 +57,6 @@ export interface GetInstanceTypeOfferingResult {
 }
 /**
  * Information about single EC2 Instance Type Offering.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.ec2.getInstanceTypeOffering({
- *     filters: [{
- *         name: "instance-type",
- *         values: [
- *             "t2.micro",
- *             "t3.micro",
- *         ],
- *     }],
- *     preferredInstanceTypes: [
- *         "t3.micro",
- *         "t2.micro",
- *     ],
- * });
- * ```
  */
 export function getInstanceTypeOfferingOutput(args?: GetInstanceTypeOfferingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInstanceTypeOfferingResult> {
     return pulumi.output(args).apply((a: any) => getInstanceTypeOffering(a, opts))

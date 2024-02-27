@@ -26,7 +26,7 @@ namespace Pulumi.Aws.Ec2
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // Prevent making AMIs publicly accessible in the region and account for which the provider is configured
-    ///     var test = new Aws.Ec2.ImageBlockPublicAccess("test", new()
+    ///     var test = new Aws.Ec2.ImageBlockPublicAccess.ImageBlockPublicAccess("test", new()
     ///     {
     ///         State = "block-new-sharing",
     ///     });

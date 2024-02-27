@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.ses.DomainIdentity("example", {domain: "example.com"});
+ * const example = new aws.ses/domainIdentity.DomainIdentity("example", {domain: "example.com"});
  * ```
  * ### With Route53 Record
  *
@@ -22,12 +22,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.ses.DomainIdentity("example", {domain: "example.com"});
- * const exampleAmazonsesVerificationRecord = new aws.route53.Record("exampleAmazonsesVerificationRecord", {
+ * const example = new aws.ses/domainIdentity.DomainIdentity("example", {domain: "example.com"});
+ * const exampleAmazonsesVerificationRecord = new aws.route53/record.Record("exampleAmazonsesVerificationRecord", {
  *     zoneId: "ABCDEFGHIJ123",
  *     name: "_amazonses.example.com",
  *     type: "TXT",
- *     ttl: 600,
+ *     ttl: "600",
  *     records: [example.verificationToken],
  * });
  * ```

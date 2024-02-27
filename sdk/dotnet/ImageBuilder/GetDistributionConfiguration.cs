@@ -13,56 +13,12 @@ namespace Pulumi.Aws.ImageBuilder
     {
         /// <summary>
         /// Provides details about an Image Builder Distribution Configuration.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.ImageBuilder.GetDistributionConfiguration.Invoke(new()
-        ///     {
-        ///         Arn = "arn:aws:imagebuilder:us-west-2:aws:distribution-configuration/example",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetDistributionConfigurationResult> InvokeAsync(GetDistributionConfigurationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDistributionConfigurationResult>("aws:imagebuilder/getDistributionConfiguration:getDistributionConfiguration", args ?? new GetDistributionConfigurationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Provides details about an Image Builder Distribution Configuration.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.ImageBuilder.GetDistributionConfiguration.Invoke(new()
-        ///     {
-        ///         Arn = "arn:aws:imagebuilder:us-west-2:aws:distribution-configuration/example",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetDistributionConfigurationResult> Invoke(GetDistributionConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDistributionConfigurationResult>("aws:imagebuilder/getDistributionConfiguration:getDistributionConfiguration", args ?? new GetDistributionConfigurationInvokeArgs(), options.WithDefaults());

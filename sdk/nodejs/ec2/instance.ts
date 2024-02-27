@@ -13,80 +13,19 @@ import {InstanceProfile} from "../iam";
  * Provides an EC2 instance resource. This allows instances to be created, updated, and deleted.
  *
  * ## Example Usage
- * ### Basic example using AMI lookup
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const ubuntu = aws.ec2.getAmi({
- *     mostRecent: true,
- *     filters: [
- *         {
- *             name: "name",
- *             values: ["ubuntu/images/hvm-ssd/ubuntu-jammy-22.04-amd64-server-*"],
- *         },
- *         {
- *             name: "virtualization-type",
- *             values: ["hvm"],
- *         },
- *     ],
- *     owners: ["099720109477"],
- * });
- * const web = new aws.ec2.Instance("web", {
- *     ami: ubuntu.then(ubuntu => ubuntu.id),
- *     instanceType: "t3.micro",
- *     tags: {
- *         Name: "HelloWorld",
- *     },
- * });
- * ```
- * ### Spot instance example
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const thisAmi = aws.ec2.getAmi({
- *     mostRecent: true,
- *     owners: ["amazon"],
- *     filters: [
- *         {
- *             name: "architecture",
- *             values: ["arm64"],
- *         },
- *         {
- *             name: "name",
- *             values: ["al2023-ami-2023*"],
- *         },
- *     ],
- * });
- * const thisInstance = new aws.ec2.Instance("thisInstance", {
- *     ami: thisAmi.then(thisAmi => thisAmi.id),
- *     instanceMarketOptions: {
- *         spotOptions: {
- *             maxPrice: "0.0031",
- *         },
- *     },
- *     instanceType: "t4g.nano",
- *     tags: {
- *         Name: "test-spot",
- *     },
- * });
- * ```
  * ### Network and credit specification example
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const myVpc = new aws.ec2.Vpc("myVpc", {
+ * const myVpc = new aws.ec2/vpc.Vpc("myVpc", {
  *     cidrBlock: "172.16.0.0/16",
  *     tags: {
  *         Name: "tf-example",
  *     },
  * });
- * const mySubnet = new aws.ec2.Subnet("mySubnet", {
+ * const mySubnet = new aws.ec2/subnet.Subnet("mySubnet", {
  *     vpcId: myVpc.id,
  *     cidrBlock: "172.16.10.0/24",
  *     availabilityZone: "us-west-2a",
@@ -94,14 +33,14 @@ import {InstanceProfile} from "../iam";
  *         Name: "tf-example",
  *     },
  * });
- * const fooNetworkInterface = new aws.ec2.NetworkInterface("fooNetworkInterface", {
+ * const fooNetworkInterface = new aws.ec2/networkInterface.NetworkInterface("fooNetworkInterface", {
  *     subnetId: mySubnet.id,
  *     privateIps: ["172.16.10.100"],
  *     tags: {
  *         Name: "primary_network_interface",
  *     },
  * });
- * const fooInstance = new aws.ec2.Instance("fooInstance", {
+ * const fooInstance = new aws.ec2/instance.Instance("fooInstance", {
  *     ami: "ami-005e54dee72cc1d00",
  *     instanceType: "t2.micro",
  *     networkInterfaces: [{
@@ -110,47 +49,6 @@ import {InstanceProfile} from "../iam";
  *     }],
  *     creditSpecification: {
  *         cpuCredits: "unlimited",
- *     },
- * });
- * ```
- * ### CPU options example
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleVpc = new aws.ec2.Vpc("exampleVpc", {
- *     cidrBlock: "172.16.0.0/16",
- *     tags: {
- *         Name: "tf-example",
- *     },
- * });
- * const exampleSubnet = new aws.ec2.Subnet("exampleSubnet", {
- *     vpcId: exampleVpc.id,
- *     cidrBlock: "172.16.10.0/24",
- *     availabilityZone: "us-east-2a",
- *     tags: {
- *         Name: "tf-example",
- *     },
- * });
- * const amzn-linux-2023-ami = aws.ec2.getAmi({
- *     mostRecent: true,
- *     owners: ["amazon"],
- *     filters: [{
- *         name: "name",
- *         values: ["al2023-ami-2023.*-x86_64"],
- *     }],
- * });
- * const exampleInstance = new aws.ec2.Instance("exampleInstance", {
- *     ami: amzn_linux_2023_ami.then(amzn_linux_2023_ami => amzn_linux_2023_ami.id),
- *     instanceType: "c6a.2xlarge",
- *     subnetId: exampleSubnet.id,
- *     cpuOptions: {
- *         coreCount: 2,
- *         threadsPerCore: 2,
- *     },
- *     tags: {
- *         Name: "tf-example",
  *     },
  * });
  * ```
@@ -164,7 +62,7 @@ import {InstanceProfile} from "../iam";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const _this = new aws.ec2.Instance("this", {
+ * const _this = new aws.ec2/instance.Instance("this", {
  *     ami: "ami-0dcc1e21636832c5d",
  *     hostResourceGroupArn: "arn:aws:resource-groups:us-west-2:012345678901:group/win-testhost",
  *     instanceType: "m5.large",

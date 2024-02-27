@@ -31,9 +31,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.securitylake.CustomLogSource;
  * import com.pulumi.aws.securitylake.CustomLogSourceArgs;
- * import com.pulumi.aws.securitylake.inputs.CustomLogSourceConfigurationArgs;
- * import com.pulumi.aws.securitylake.inputs.CustomLogSourceConfigurationCrawlerConfigurationArgs;
- * import com.pulumi.aws.securitylake.inputs.CustomLogSourceConfigurationProviderIdentityArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -51,15 +48,7 @@ import javax.annotation.Nullable;
  *             .sourceName(&#34;example-name&#34;)
  *             .sourceVersion(&#34;1.0&#34;)
  *             .eventClasses(&#34;FILE_ACTIVITY&#34;)
- *             .configuration(CustomLogSourceConfigurationArgs.builder()
- *                 .crawlerConfiguration(CustomLogSourceConfigurationCrawlerConfigurationArgs.builder()
- *                     .roleArn(aws_iam_role.custom_log().arn())
- *                     .build())
- *                 .providerIdentity(CustomLogSourceConfigurationProviderIdentityArgs.builder()
- *                     .externalId(&#34;example-id&#34;)
- *                     .principal(&#34;123456789012&#34;)
- *                     .build())
- *                 .build())
+ *             .configuration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

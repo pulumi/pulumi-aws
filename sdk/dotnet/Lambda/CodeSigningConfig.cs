@@ -24,19 +24,19 @@ namespace Pulumi.Aws.Lambda
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var newCsc = new Aws.Lambda.CodeSigningConfig("newCsc", new()
+    ///     var newCsc = new Aws.Lambda.CodeSigningConfig.CodeSigningConfig("newCsc", new()
     ///     {
-    ///         AllowedPublishers = new Aws.Lambda.Inputs.CodeSigningConfigAllowedPublishersArgs
+    ///         AllowedPublishers = 
     ///         {
-    ///             SigningProfileVersionArns = new[]
+    ///             { "signingProfileVersionArns", new[]
     ///             {
     ///                 aws_signer_signing_profile.Example1.Arn,
     ///                 aws_signer_signing_profile.Example2.Arn,
-    ///             },
+    ///             } },
     ///         },
-    ///         Policies = new Aws.Lambda.Inputs.CodeSigningConfigPoliciesArgs
+    ///         Policies = 
     ///         {
-    ///             UntrustedArtifactOnDeployment = "Warn",
+    ///             { "untrustedArtifactOnDeployment", "Warn" },
     ///         },
     ///         Description = "My awesome code signing config.",
     ///     });

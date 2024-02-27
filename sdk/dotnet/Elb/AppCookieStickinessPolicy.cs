@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Elb
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var lb = new Aws.Elb.LoadBalancer("lb", new()
+    ///     var lb = new Aws.Elb.LoadBalancer.LoadBalancer("lb", new()
     ///     {
     ///         AvailabilityZones = new[]
     ///         {
@@ -30,17 +30,17 @@ namespace Pulumi.Aws.Elb
     ///         },
     ///         Listeners = new[]
     ///         {
-    ///             new Aws.Elb.Inputs.LoadBalancerListenerArgs
+    ///             
     ///             {
-    ///                 InstancePort = 8000,
-    ///                 InstanceProtocol = "http",
-    ///                 LbPort = 80,
-    ///                 LbProtocol = "http",
+    ///                 { "instancePort", 8000 },
+    ///                 { "instanceProtocol", "http" },
+    ///                 { "lbPort", 80 },
+    ///                 { "lbProtocol", "http" },
     ///             },
     ///         },
     ///     });
     /// 
-    ///     var foo = new Aws.Elb.AppCookieStickinessPolicy("foo", new()
+    ///     var foo = new Aws.Elb.AppCookieStickinessPolicy.AppCookieStickinessPolicy("foo", new()
     ///     {
     ///         LoadBalancer = lb.Name,
     ///         LbPort = 80,

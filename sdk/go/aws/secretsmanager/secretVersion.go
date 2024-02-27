@@ -24,24 +24,22 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/secretsmanager"
+//	secretsmanager/secretVersion "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/secretsmanager/secretVersion"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := secretsmanager.NewSecretVersion(ctx, "example", &secretsmanager.SecretVersionArgs{
-//				SecretId:     pulumi.Any(aws_secretsmanager_secret.Example.Id),
-//				SecretString: pulumi.String("example-string-to-protect"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := secretsmanager/secretVersion.NewSecretVersion(ctx, "example", &secretsmanager/secretVersion.SecretVersionArgs{
+// SecretId: aws_secretsmanager_secret.Example.Id,
+// SecretString: "example-string-to-protect",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

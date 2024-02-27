@@ -21,24 +21,22 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/quicksight"
+//	quicksight/groupMembership "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/quicksight/groupMembership"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := quicksight.NewGroupMembership(ctx, "example", &quicksight.GroupMembershipArgs{
-//				GroupName:  pulumi.String("all-access-users"),
-//				MemberName: pulumi.String("john_smith"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := quicksight/groupMembership.NewGroupMembership(ctx, "example", &quicksight/groupMembership.GroupMembershipArgs{
+// GroupName: "all-access-users",
+// MemberName: "john_smith",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

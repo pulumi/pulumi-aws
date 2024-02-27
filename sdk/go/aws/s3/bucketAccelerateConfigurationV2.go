@@ -23,28 +23,27 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	s3/bucketAccelerateConfigurationV2 "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/s3/bucketAccelerateConfigurationV2"
+//	s3/bucketV2 "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/s3/bucketV2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			mybucket, err := s3.NewBucketV2(ctx, "mybucket", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = s3.NewBucketAccelerateConfigurationV2(ctx, "example", &s3.BucketAccelerateConfigurationV2Args{
-//				Bucket: mybucket.ID(),
-//				Status: pulumi.String("Enabled"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// mybucket, err := s3/bucketV2.NewBucketV2(ctx, "mybucket", nil)
+// if err != nil {
+// return err
+// }
+// _, err = s3/bucketAccelerateConfigurationV2.NewBucketAccelerateConfigurationV2(ctx, "example", &s3/bucketAccelerateConfigurationV2.BucketAccelerateConfigurationV2Args{
+// Bucket: mybucket.Id,
+// Status: "Enabled",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

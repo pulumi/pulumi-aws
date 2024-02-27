@@ -247,40 +247,6 @@ class EmailChannel(pulumi.CustomResource):
         """
         Provides a Pinpoint Email Channel resource.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        app = aws.pinpoint.App("app")
-        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["pinpoint.amazonaws.com"],
-            )],
-            actions=["sts:AssumeRole"],
-        )])
-        role = aws.iam.Role("role", assume_role_policy=assume_role.json)
-        email = aws.pinpoint.EmailChannel("email",
-            application_id=app.application_id,
-            from_address="user@example.com",
-            role_arn=role.arn)
-        identity = aws.ses.DomainIdentity("identity", domain="example.com")
-        role_policy_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            actions=[
-                "mobileanalytics:PutEvents",
-                "mobileanalytics:PutItems",
-            ],
-            resources=["*"],
-        )])
-        role_policy_role_policy = aws.iam.RolePolicy("rolePolicyRolePolicy",
-            role=role.id,
-            policy=role_policy_policy_document.json)
-        ```
-
         ## Import
 
         Using `pulumi import`, import Pinpoint Email Channel using the `application-id`. For example:
@@ -306,40 +272,6 @@ class EmailChannel(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Pinpoint Email Channel resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        app = aws.pinpoint.App("app")
-        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["pinpoint.amazonaws.com"],
-            )],
-            actions=["sts:AssumeRole"],
-        )])
-        role = aws.iam.Role("role", assume_role_policy=assume_role.json)
-        email = aws.pinpoint.EmailChannel("email",
-            application_id=app.application_id,
-            from_address="user@example.com",
-            role_arn=role.arn)
-        identity = aws.ses.DomainIdentity("identity", domain="example.com")
-        role_policy_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            actions=[
-                "mobileanalytics:PutEvents",
-                "mobileanalytics:PutItems",
-            ],
-            resources=["*"],
-        )])
-        role_policy_role_policy = aws.iam.RolePolicy("rolePolicyRolePolicy",
-            role=role.id,
-            policy=role_policy_policy_document.json)
-        ```
 
         ## Import
 

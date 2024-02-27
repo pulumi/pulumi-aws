@@ -21,49 +21,48 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/redshift"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sns"
+//	redshift/cluster "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/redshift/cluster"
+//	redshift/eventSubscription "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/redshift/eventSubscription"
+//	sns/topic "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/sns/topic"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			defaultCluster, err := redshift.NewCluster(ctx, "defaultCluster", &redshift.ClusterArgs{
-//				ClusterIdentifier: pulumi.String("default"),
-//				DatabaseName:      pulumi.String("default"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			defaultTopic, err := sns.NewTopic(ctx, "defaultTopic", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = redshift.NewEventSubscription(ctx, "defaultEventSubscription", &redshift.EventSubscriptionArgs{
-//				SnsTopicArn: defaultTopic.Arn,
-//				SourceType:  pulumi.String("cluster"),
-//				SourceIds: pulumi.StringArray{
-//					defaultCluster.ID(),
-//				},
-//				Severity: pulumi.String("INFO"),
-//				EventCategories: pulumi.StringArray{
-//					pulumi.String("configuration"),
-//					pulumi.String("management"),
-//					pulumi.String("monitoring"),
-//					pulumi.String("security"),
-//				},
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("default"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// defaultCluster, err := redshift/cluster.NewCluster(ctx, "defaultCluster", &redshift/cluster.ClusterArgs{
+// ClusterIdentifier: "default",
+// DatabaseName: "default",
+// })
+// if err != nil {
+// return err
+// }
+// defaultTopic, err := sns/topic.NewTopic(ctx, "defaultTopic", nil)
+// if err != nil {
+// return err
+// }
+// _, err = redshift/eventSubscription.NewEventSubscription(ctx, "defaultEventSubscription", &redshift/eventSubscription.EventSubscriptionArgs{
+// SnsTopicArn: defaultTopic.Arn,
+// SourceType: "cluster",
+// SourceIds: []interface{}{
+// defaultCluster.Id,
+// },
+// Severity: "INFO",
+// EventCategories: []string{
+// "configuration",
+// "management",
+// "monitoring",
+// "security",
+// },
+// Tags: map[string]interface{}{
+// "Name": "default",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

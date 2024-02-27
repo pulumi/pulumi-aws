@@ -22,26 +22,26 @@ namespace Pulumi.Aws.Macie
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Macie2.Account("example");
+    ///     var example = new Aws.Macie2.Account.Account("example");
     /// 
-    ///     var test = new Aws.Macie.FindingsFilter("test", new()
+    ///     var test = new Aws.Macie.FindingsFilter.FindingsFilter("test", new()
     ///     {
     ///         Description = "DESCRIPTION",
     ///         Position = 1,
     ///         Action = "ARCHIVE",
-    ///         FindingCriteria = new Aws.Macie.Inputs.FindingsFilterFindingCriteriaArgs
+    ///         FindingCriteria = 
     ///         {
-    ///             Criterions = new[]
+    ///             { "criterions", new[]
     ///             {
-    ///                 new Aws.Macie.Inputs.FindingsFilterFindingCriteriaCriterionArgs
+    ///                 
     ///                 {
-    ///                     Field = "region",
-    ///                     Eqs = new[]
+    ///                     { "field", "region" },
+    ///                     { "eqs", new[]
     ///                     {
     ///                         data.Aws_region.Current.Name,
-    ///                     },
+    ///                     } },
     ///                 },
-    ///             },
+    ///             } },
     ///         },
     ///     }, new CustomResourceOptions
     ///     {

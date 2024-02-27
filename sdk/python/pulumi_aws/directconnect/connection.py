@@ -479,9 +479,9 @@ class Connection(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        hoge = aws.directconnect.Connection("hoge",
-            bandwidth="1Gbps",
-            location="EqDC2")
+        hoge = aws.directconnect.connection.Connection("hoge",
+            bandwidth=1Gbps,
+            location=EqDC2)
         ```
         ### Request a MACsec-capable connection
 
@@ -489,9 +489,9 @@ class Connection(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.directconnect.Connection("example",
-            bandwidth="10Gbps",
-            location="EqDA2",
+        example = aws.directconnect.connection.Connection("example",
+            bandwidth=10Gbps,
+            location=EqDA2,
             request_macsec=True)
         ```
         ### Configure encryption mode for MACsec-capable connections
@@ -502,10 +502,10 @@ class Connection(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.directconnect.Connection("example",
-            bandwidth="10Gbps",
-            encryption_mode="must_encrypt",
-            location="EqDC2",
+        example = aws.directconnect.connection.Connection("example",
+            bandwidth=10Gbps,
+            encryption_mode=must_encrypt,
+            location=EqDC2,
             request_macsec=True)
         ```
 
@@ -546,9 +546,9 @@ class Connection(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        hoge = aws.directconnect.Connection("hoge",
-            bandwidth="1Gbps",
-            location="EqDC2")
+        hoge = aws.directconnect.connection.Connection("hoge",
+            bandwidth=1Gbps,
+            location=EqDC2)
         ```
         ### Request a MACsec-capable connection
 
@@ -556,9 +556,9 @@ class Connection(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.directconnect.Connection("example",
-            bandwidth="10Gbps",
-            location="EqDA2",
+        example = aws.directconnect.connection.Connection("example",
+            bandwidth=10Gbps,
+            location=EqDA2,
             request_macsec=True)
         ```
         ### Configure encryption mode for MACsec-capable connections
@@ -569,10 +569,10 @@ class Connection(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.directconnect.Connection("example",
-            bandwidth="10Gbps",
-            encryption_mode="must_encrypt",
-            location="EqDC2",
+        example = aws.directconnect.connection.Connection("example",
+            bandwidth=10Gbps,
+            encryption_mode=must_encrypt,
+            location=EqDC2,
             request_macsec=True)
         ```
 

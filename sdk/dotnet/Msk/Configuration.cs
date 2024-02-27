@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Msk
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Msk.Configuration("example", new()
+    ///     var example = new Aws.Msk.Configuration.Configuration("example", new()
     ///     {
     ///         KafkaVersions = new[]
     ///         {

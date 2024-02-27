@@ -30,7 +30,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.inspector.AssessmentTemplate;
  * import com.pulumi.aws.inspector.AssessmentTemplateArgs;
- * import com.pulumi.aws.inspector.inputs.AssessmentTemplateEventSubscriptionArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -52,10 +51,7 @@ import javax.annotation.Nullable;
  *                 &#34;arn:aws:inspector:us-west-2:758058086616:rulespackage/0-H5hpSawc&#34;,
  *                 &#34;arn:aws:inspector:us-west-2:758058086616:rulespackage/0-JJOtZiqQ&#34;,
  *                 &#34;arn:aws:inspector:us-west-2:758058086616:rulespackage/0-vg5GGHSD&#34;)
- *             .eventSubscriptions(AssessmentTemplateEventSubscriptionArgs.builder()
- *                 .event(&#34;ASSESSMENT_RUN_COMPLETED&#34;)
- *                 .topicArn(aws_sns_topic.example().arn())
- *                 .build())
+ *             .eventSubscriptions(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

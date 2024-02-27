@@ -137,30 +137,6 @@ class UploadBuffer(pulumi.CustomResource):
         > **NOTE:** The Storage Gateway API provides no method to remove an upload buffer disk. Destroying this resource does not perform any Storage Gateway actions.
 
         ## Example Usage
-        ### Cached and VTL Gateway Type
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test_local_disk = aws.storagegateway.get_local_disk(disk_node=aws_volume_attachment["test"]["device_name"],
-            gateway_arn=aws_storagegateway_gateway["test"]["arn"])
-        test_upload_buffer = aws.storagegateway.UploadBuffer("testUploadBuffer",
-            disk_path=test_local_disk.disk_path,
-            gateway_arn=aws_storagegateway_gateway["test"]["arn"])
-        ```
-        ### Stored Gateway Type
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.storagegateway.get_local_disk(disk_node=aws_volume_attachment["test"]["device_name"],
-            gateway_arn=aws_storagegateway_gateway["test"]["arn"])
-        example = aws.storagegateway.UploadBuffer("example",
-            disk_id=data["aws_storagegateway_local_disk"]["example"]["id"],
-            gateway_arn=aws_storagegateway_gateway["example"]["arn"])
-        ```
 
         ## Import
 
@@ -188,30 +164,6 @@ class UploadBuffer(pulumi.CustomResource):
         > **NOTE:** The Storage Gateway API provides no method to remove an upload buffer disk. Destroying this resource does not perform any Storage Gateway actions.
 
         ## Example Usage
-        ### Cached and VTL Gateway Type
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test_local_disk = aws.storagegateway.get_local_disk(disk_node=aws_volume_attachment["test"]["device_name"],
-            gateway_arn=aws_storagegateway_gateway["test"]["arn"])
-        test_upload_buffer = aws.storagegateway.UploadBuffer("testUploadBuffer",
-            disk_path=test_local_disk.disk_path,
-            gateway_arn=aws_storagegateway_gateway["test"]["arn"])
-        ```
-        ### Stored Gateway Type
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.storagegateway.get_local_disk(disk_node=aws_volume_attachment["test"]["device_name"],
-            gateway_arn=aws_storagegateway_gateway["test"]["arn"])
-        example = aws.storagegateway.UploadBuffer("example",
-            disk_id=data["aws_storagegateway_local_disk"]["example"]["id"],
-            gateway_arn=aws_storagegateway_gateway["example"]["arn"])
-        ```
 
         ## Import
 

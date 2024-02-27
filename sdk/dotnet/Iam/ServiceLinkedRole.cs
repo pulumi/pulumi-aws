@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Iam
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var elasticbeanstalk = new Aws.Iam.ServiceLinkedRole("elasticbeanstalk", new()
+    ///     var elasticbeanstalk = new Aws.Iam.ServiceLinkedRole.ServiceLinkedRole("elasticbeanstalk", new()
     ///     {
     ///         AwsServiceName = "elasticbeanstalk.amazonaws.com",
     ///     });

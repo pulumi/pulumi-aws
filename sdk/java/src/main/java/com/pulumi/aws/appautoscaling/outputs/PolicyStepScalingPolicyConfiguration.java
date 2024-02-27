@@ -36,6 +36,34 @@ public final class PolicyStepScalingPolicyConfiguration {
     private @Nullable Integer minAdjustmentMagnitude;
     /**
      * @return Set of adjustments that manage scaling. These have the following structure:
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.appautoscaling.Policy;
+     * import com.pulumi.aws.appautoscaling.PolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var ecsPolicy = new Policy(&#34;ecsPolicy&#34;, PolicyArgs.builder()        
+     *             .stepScalingPolicyConfiguration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
      * 
      */
     private @Nullable List<PolicyStepScalingPolicyConfigurationStepAdjustment> stepAdjustments;
@@ -71,6 +99,34 @@ public final class PolicyStepScalingPolicyConfiguration {
     }
     /**
      * @return Set of adjustments that manage scaling. These have the following structure:
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.appautoscaling.Policy;
+     * import com.pulumi.aws.appautoscaling.PolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var ecsPolicy = new Policy(&#34;ecsPolicy&#34;, PolicyArgs.builder()        
+     *             .stepScalingPolicyConfiguration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
      * 
      */
     public List<PolicyStepScalingPolicyConfigurationStepAdjustment> stepAdjustments() {

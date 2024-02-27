@@ -21,39 +21,38 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/efs"
+//	ec2/subnet "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/subnet"
+//	ec2/vpc "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/vpc"
+//	efs/mountTarget "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/efs/mountTarget"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			foo, err := ec2.NewVpc(ctx, "foo", &ec2.VpcArgs{
-//				CidrBlock: pulumi.String("10.0.0.0/16"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			alphaSubnet, err := ec2.NewSubnet(ctx, "alphaSubnet", &ec2.SubnetArgs{
-//				VpcId:            foo.ID(),
-//				AvailabilityZone: pulumi.String("us-west-2a"),
-//				CidrBlock:        pulumi.String("10.0.1.0/24"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = efs.NewMountTarget(ctx, "alphaMountTarget", &efs.MountTargetArgs{
-//				FileSystemId: pulumi.Any(aws_efs_file_system.Foo.Id),
-//				SubnetId:     alphaSubnet.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// foo, err := ec2/vpc.NewVpc(ctx, "foo", &ec2/vpc.VpcArgs{
+// CidrBlock: "10.0.0.0/16",
+// })
+// if err != nil {
+// return err
+// }
+// alphaSubnet, err := ec2/subnet.NewSubnet(ctx, "alphaSubnet", &ec2/subnet.SubnetArgs{
+// VpcId: foo.Id,
+// AvailabilityZone: "us-west-2a",
+// CidrBlock: "10.0.1.0/24",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = efs/mountTarget.NewMountTarget(ctx, "alphaMountTarget", &efs/mountTarget.MountTargetArgs{
+// FileSystemId: aws_efs_file_system.Foo.Id,
+// SubnetId: alphaSubnet.Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

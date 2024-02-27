@@ -29,7 +29,7 @@ namespace Pulumi.Aws.ServiceCatalog
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.ServiceCatalog.ProvisioningArtifact("example", new()
+    ///     var example = new Aws.Servicecatalog.ProvisioningArtifact.ProvisioningArtifact("example", new()
     ///     {
     ///         ProductId = aws_servicecatalog_product.Example.Id,
     ///         Type = "CLOUD_FORMATION_TEMPLATE",

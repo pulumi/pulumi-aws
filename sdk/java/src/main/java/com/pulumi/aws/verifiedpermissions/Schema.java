@@ -19,7 +19,6 @@ import javax.annotation.Nullable;
 /**
  * ## Example Usage
  * ### Basic Usage
- * 
  * ```java
  * package generated_program;
  * 
@@ -44,19 +43,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Schema(&#34;example&#34;, SchemaArgs.builder()        
  *             .policyStoreId(aws_verifiedpermissions_policy_store.example().policy_store_id())
- *             .definition(SchemaDefinitionArgs.builder()
- *                 .value(serializeJson(
- *                     jsonObject(
- *                         jsonProperty(&#34;Namespace&#34;, jsonObject(
- *                             jsonProperty(&#34;entityTypes&#34;, jsonObject(
- * 
- *                             )),
- *                             jsonProperty(&#34;actions&#34;, jsonObject(
- * 
- *                             ))
- *                         ))
- *                     )))
- *                 .build())
+ *             .definition(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

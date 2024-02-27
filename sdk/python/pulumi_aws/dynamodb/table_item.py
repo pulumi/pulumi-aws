@@ -174,25 +174,25 @@ class TableItem(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_table = aws.dynamodb.Table("exampleTable",
+        example_table = aws.dynamodb.table.Table("exampleTable",
             read_capacity=10,
             write_capacity=10,
-            hash_key="exampleHashKey",
-            attributes=[aws.dynamodb.TableAttributeArgs(
-                name="exampleHashKey",
-                type="S",
-            )])
-        example_table_item = aws.dynamodb.TableItem("exampleTableItem",
+            hash_key=exampleHashKey,
+            attributes=[{
+                name: exampleHashKey,
+                type: S,
+            }])
+        example_table_item = aws.dynamodb.table_item.TableItem("exampleTableItem",
             table_name=example_table.name,
             hash_key=example_table.hash_key,
-            item=\"\"\"{
+            item={
           "exampleHashKey": {"S": "something"},
           "one": {"N": "11111"},
           "two": {"N": "22222"},
           "three": {"N": "33333"},
           "four": {"N": "44444"}
         }
-        \"\"\")
+        )
         ```
 
         ## Import
@@ -224,25 +224,25 @@ class TableItem(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_table = aws.dynamodb.Table("exampleTable",
+        example_table = aws.dynamodb.table.Table("exampleTable",
             read_capacity=10,
             write_capacity=10,
-            hash_key="exampleHashKey",
-            attributes=[aws.dynamodb.TableAttributeArgs(
-                name="exampleHashKey",
-                type="S",
-            )])
-        example_table_item = aws.dynamodb.TableItem("exampleTableItem",
+            hash_key=exampleHashKey,
+            attributes=[{
+                name: exampleHashKey,
+                type: S,
+            }])
+        example_table_item = aws.dynamodb.table_item.TableItem("exampleTableItem",
             table_name=example_table.name,
             hash_key=example_table.hash_key,
-            item=\"\"\"{
+            item={
           "exampleHashKey": {"S": "something"},
           "one": {"N": "11111"},
           "two": {"N": "22222"},
           "three": {"N": "33333"},
           "four": {"N": "44444"}
         }
-        \"\"\")
+        )
         ```
 
         ## Import

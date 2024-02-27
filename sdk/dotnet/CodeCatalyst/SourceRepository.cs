@@ -23,7 +23,7 @@ namespace Pulumi.Aws.CodeCatalyst
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.CodeCatalyst.SourceRepository("example", new()
+    ///     var example = new Aws.Codecatalyst.SourceRepository.SourceRepository("example", new()
     ///     {
     ///         ProjectName = "example-project",
     ///         SpaceName = "example-space",

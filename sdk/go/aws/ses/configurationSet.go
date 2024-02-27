@@ -21,21 +21,19 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ses"
+//	ses/configurationSet "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ses/configurationSet"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ses.NewConfigurationSet(ctx, "test", nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := ses/configurationSet.NewConfigurationSet(ctx, "test", nil)
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Require TLS Connections
 //
@@ -44,25 +42,23 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ses"
+//	ses/configurationSet "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ses/configurationSet"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ses.NewConfigurationSet(ctx, "test", &ses.ConfigurationSetArgs{
-//				DeliveryOptions: &ses.ConfigurationSetDeliveryOptionsArgs{
-//					TlsPolicy: pulumi.String("Require"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := ses/configurationSet.NewConfigurationSet(ctx, "test", &ses/configurationSet.ConfigurationSetArgs{
+// DeliveryOptions: map[string]interface{}{
+// "tlsPolicy": "Require",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Tracking Options
 //
@@ -71,25 +67,23 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ses"
+//	ses/configurationSet "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ses/configurationSet"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ses.NewConfigurationSet(ctx, "test", &ses.ConfigurationSetArgs{
-//				TrackingOptions: &ses.ConfigurationSetTrackingOptionsArgs{
-//					CustomRedirectDomain: pulumi.String("sub.example.com"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := ses/configurationSet.NewConfigurationSet(ctx, "test", &ses/configurationSet.ConfigurationSetArgs{
+// TrackingOptions: map[string]interface{}{
+// "customRedirectDomain": "sub.example.com",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

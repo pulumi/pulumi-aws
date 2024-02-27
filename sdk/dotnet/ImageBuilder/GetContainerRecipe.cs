@@ -13,56 +13,12 @@ namespace Pulumi.Aws.ImageBuilder
     {
         /// <summary>
         /// Provides details about an Image builder Container Recipe.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.ImageBuilder.GetContainerRecipe.Invoke(new()
-        ///     {
-        ///         Arn = "arn:aws:imagebuilder:us-east-1:aws:container-recipe/example/1.0.0",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetContainerRecipeResult> InvokeAsync(GetContainerRecipeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetContainerRecipeResult>("aws:imagebuilder/getContainerRecipe:getContainerRecipe", args ?? new GetContainerRecipeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Provides details about an Image builder Container Recipe.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.ImageBuilder.GetContainerRecipe.Invoke(new()
-        ///     {
-        ///         Arn = "arn:aws:imagebuilder:us-east-1:aws:container-recipe/example/1.0.0",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetContainerRecipeResult> Invoke(GetContainerRecipeInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetContainerRecipeResult>("aws:imagebuilder/getContainerRecipe:getContainerRecipe", args ?? new GetContainerRecipeInvokeArgs(), options.WithDefaults());

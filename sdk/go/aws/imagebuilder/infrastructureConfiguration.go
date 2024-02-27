@@ -21,44 +21,42 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/imagebuilder"
+//	imagebuilder/infrastructureConfiguration "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/imagebuilder/infrastructureConfiguration"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := imagebuilder.NewInfrastructureConfiguration(ctx, "example", &imagebuilder.InfrastructureConfigurationArgs{
-//				Description:         pulumi.String("example description"),
-//				InstanceProfileName: pulumi.Any(aws_iam_instance_profile.Example.Name),
-//				InstanceTypes: pulumi.StringArray{
-//					pulumi.String("t2.nano"),
-//					pulumi.String("t3.micro"),
-//				},
-//				KeyPair: pulumi.Any(aws_key_pair.Example.Key_name),
-//				SecurityGroupIds: pulumi.StringArray{
-//					aws_security_group.Example.Id,
-//				},
-//				SnsTopicArn:                pulumi.Any(aws_sns_topic.Example.Arn),
-//				SubnetId:                   pulumi.Any(aws_subnet.Main.Id),
-//				TerminateInstanceOnFailure: pulumi.Bool(true),
-//				Logging: &imagebuilder.InfrastructureConfigurationLoggingArgs{
-//					S3Logs: &imagebuilder.InfrastructureConfigurationLoggingS3LogsArgs{
-//						S3BucketName: pulumi.Any(aws_s3_bucket.Example.Bucket),
-//						S3KeyPrefix:  pulumi.String("logs"),
-//					},
-//				},
-//				Tags: pulumi.StringMap{
-//					"foo": pulumi.String("bar"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := imagebuilder/infrastructureConfiguration.NewInfrastructureConfiguration(ctx, "example", &imagebuilder/infrastructureConfiguration.InfrastructureConfigurationArgs{
+// Description: "example description",
+// InstanceProfileName: aws_iam_instance_profile.Example.Name,
+// InstanceTypes: []string{
+// "t2.nano",
+// "t3.micro",
+// },
+// KeyPair: aws_key_pair.Example.Key_name,
+// SecurityGroupIds: []interface{}{
+// aws_security_group.Example.Id,
+// },
+// SnsTopicArn: aws_sns_topic.Example.Arn,
+// SubnetId: aws_subnet.Main.Id,
+// TerminateInstanceOnFailure: true,
+// Logging: map[string]interface{}{
+// "s3Logs": map[string]interface{}{
+// "s3BucketName": aws_s3_bucket.Example.Bucket,
+// "s3KeyPrefix": "logs",
+// },
+// },
+// Tags: map[string]interface{}{
+// "foo": "bar",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

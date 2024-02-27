@@ -25,7 +25,7 @@ namespace Pulumi.Aws.WafV2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.WafV2.WebAclLoggingConfiguration("example", new()
+    ///     var example = new Aws.Wafv2.WebAclLoggingConfiguration.WebAclLoggingConfiguration("example", new()
     ///     {
     ///         LogDestinationConfigs = new[]
     ///         {
@@ -34,12 +34,12 @@ namespace Pulumi.Aws.WafV2
     ///         ResourceArn = aws_wafv2_web_acl.Example.Arn,
     ///         RedactedFields = new[]
     ///         {
-    ///             new Aws.WafV2.Inputs.WebAclLoggingConfigurationRedactedFieldArgs
+    ///             
     ///             {
-    ///                 SingleHeader = new Aws.WafV2.Inputs.WebAclLoggingConfigurationRedactedFieldSingleHeaderArgs
+    ///                 { "singleHeader", 
     ///                 {
-    ///                     Name = "user-agent",
-    ///                 },
+    ///                     { "name", "user-agent" },
+    ///                 } },
     ///             },
     ///         },
     ///     });
@@ -56,56 +56,56 @@ namespace Pulumi.Aws.WafV2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.WafV2.WebAclLoggingConfiguration("example", new()
+    ///     var example = new Aws.Wafv2.WebAclLoggingConfiguration.WebAclLoggingConfiguration("example", new()
     ///     {
     ///         LogDestinationConfigs = new[]
     ///         {
     ///             aws_kinesis_firehose_delivery_stream.Example.Arn,
     ///         },
     ///         ResourceArn = aws_wafv2_web_acl.Example.Arn,
-    ///         LoggingFilter = new Aws.WafV2.Inputs.WebAclLoggingConfigurationLoggingFilterArgs
+    ///         LoggingFilter = 
     ///         {
-    ///             DefaultBehavior = "KEEP",
-    ///             Filters = new[]
+    ///             { "defaultBehavior", "KEEP" },
+    ///             { "filters", new[]
     ///             {
-    ///                 new Aws.WafV2.Inputs.WebAclLoggingConfigurationLoggingFilterFilterArgs
+    ///                 
     ///                 {
-    ///                     Behavior = "DROP",
-    ///                     Conditions = new[]
+    ///                     { "behavior", "DROP" },
+    ///                     { "conditions", new[]
     ///                     {
-    ///                         new Aws.WafV2.Inputs.WebAclLoggingConfigurationLoggingFilterFilterConditionArgs
+    ///                         
     ///                         {
-    ///                             ActionCondition = new Aws.WafV2.Inputs.WebAclLoggingConfigurationLoggingFilterFilterConditionActionConditionArgs
+    ///                             { "actionCondition", 
     ///                             {
-    ///                                 Action = "COUNT",
-    ///                             },
+    ///                                 { "action", "COUNT" },
+    ///                             } },
     ///                         },
-    ///                         new Aws.WafV2.Inputs.WebAclLoggingConfigurationLoggingFilterFilterConditionArgs
+    ///                         
     ///                         {
-    ///                             LabelNameCondition = new Aws.WafV2.Inputs.WebAclLoggingConfigurationLoggingFilterFilterConditionLabelNameConditionArgs
+    ///                             { "labelNameCondition", 
     ///                             {
-    ///                                 LabelName = "awswaf:111122223333:rulegroup:testRules:LabelNameZ",
-    ///                             },
+    ///                                 { "labelName", "awswaf:111122223333:rulegroup:testRules:LabelNameZ" },
+    ///                             } },
     ///                         },
-    ///                     },
-    ///                     Requirement = "MEETS_ALL",
+    ///                     } },
+    ///                     { "requirement", "MEETS_ALL" },
     ///                 },
-    ///                 new Aws.WafV2.Inputs.WebAclLoggingConfigurationLoggingFilterFilterArgs
+    ///                 
     ///                 {
-    ///                     Behavior = "KEEP",
-    ///                     Conditions = new[]
+    ///                     { "behavior", "KEEP" },
+    ///                     { "conditions", new[]
     ///                     {
-    ///                         new Aws.WafV2.Inputs.WebAclLoggingConfigurationLoggingFilterFilterConditionArgs
+    ///                         
     ///                         {
-    ///                             ActionCondition = new Aws.WafV2.Inputs.WebAclLoggingConfigurationLoggingFilterFilterConditionActionConditionArgs
+    ///                             { "actionCondition", 
     ///                             {
-    ///                                 Action = "ALLOW",
-    ///                             },
+    ///                                 { "action", "ALLOW" },
+    ///                             } },
     ///                         },
-    ///                     },
-    ///                     Requirement = "MEETS_ANY",
+    ///                     } },
+    ///                     { "requirement", "MEETS_ANY" },
     ///                 },
-    ///             },
+    ///             } },
     ///         },
     ///     });
     /// 

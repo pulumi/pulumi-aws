@@ -12,35 +12,6 @@ import (
 )
 
 // Retrieve information about EMR Release Labels.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/emr"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := emr.GetReleaseLabels(ctx, &emr.GetReleaseLabelsArgs{
-//				Filters: emr.GetReleaseLabelsFilters{
-//					Application: pulumi.StringRef("spark@2.1.0"),
-//					Prefix:      pulumi.StringRef("emr-5"),
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetReleaseLabels(ctx *pulumi.Context, args *GetReleaseLabelsArgs, opts ...pulumi.InvokeOption) (*GetReleaseLabelsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetReleaseLabelsResult

@@ -23,7 +23,7 @@ namespace Pulumi.Aws.Transcribe
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Transcribe.VocabularyFilter("example", new()
+    ///     var example = new Aws.Transcribe.VocabularyFilter.VocabularyFilter("example", new()
     ///     {
     ///         LanguageCode = "en-US",
     ///         Tags = 

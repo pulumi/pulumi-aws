@@ -18,8 +18,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleCluster = new aws.ecs.Cluster("exampleCluster", {});
- * const exampleClusterCapacityProviders = new aws.ecs.ClusterCapacityProviders("exampleClusterCapacityProviders", {
+ * const exampleCluster = new aws.ecs/cluster.Cluster("exampleCluster", {});
+ * const exampleClusterCapacityProviders = new aws.ecs/clusterCapacityProviders.ClusterCapacityProviders("exampleClusterCapacityProviders", {
  *     clusterName: exampleCluster.name,
  *     capacityProviders: ["FARGATE"],
  *     defaultCapacityProviderStrategies: [{

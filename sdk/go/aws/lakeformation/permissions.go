@@ -19,65 +19,6 @@ import (
 // > **NOTE:** In general, the `principal` should _NOT_ be a Lake Formation administrator or the entity (e.g., IAM role) that is running the deployment. Administrators have implicit permissions. These should be managed by granting or not granting administrator rights using `lakeformation.DataLakeSettings`, _not_ with this resource.
 //
 // ## Default Behavior and `IAMAllowedPrincipals`
-//
-// **_Lake Formation permissions are not in effect by default within AWS._** `IAMAllowedPrincipals` (i.e., `IAM_ALLOWED_PRINCIPALS`) conflicts with individual Lake Formation permissions (i.e., non-`IAMAllowedPrincipals` permissions), will cause unexpected behavior, and may result in errors.
-//
-// When using Lake Formation, choose ONE of the following options as they are mutually exclusive:
-//
-// 1. Use this resource (`lakeformation.Permissions`), change the default security settings using `lakeformation.DataLakeSettings`, and remove existing `IAMAllowedPrincipals` permissions
-// 2. Use `IAMAllowedPrincipals` without `lakeformation.Permissions`
-//
-// This example shows removing the `IAMAllowedPrincipals` default security settings and making the caller a Lake Formation admin. Since `createDatabaseDefaultPermissions` and `createTableDefaultPermissions` are not set in the `lakeformation.DataLakeSettings` resource, they are cleared.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lakeformation"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			currentCallerIdentity, err := aws.GetCallerIdentity(ctx, nil, nil)
-//			if err != nil {
-//				return err
-//			}
-//			currentSessionContext, err := iam.GetSessionContext(ctx, &iam.GetSessionContextArgs{
-//				Arn: currentCallerIdentity.Arn,
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = lakeformation.NewDataLakeSettings(ctx, "test", &lakeformation.DataLakeSettingsArgs{
-//				Admins: pulumi.StringArray{
-//					*pulumi.String(currentSessionContext.IssuerArn),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// To remove existing `IAMAllowedPrincipals` permissions, use the [AWS Lake Formation Console](https://console.aws.amazon.com/lakeformation/) or [AWS CLI](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lakeformation/batch-revoke-permissions.html).
-//
-// `IAMAllowedPrincipals` is a hook to maintain backwards compatibility with AWS Glue. `IAMAllowedPrincipals` is a pseudo-entity group that acts like a Lake Formation principal. The group includes any IAM users and roles that are allowed access to your Data Catalog resources by your IAM policies.
-//
-// This is Lake Formation's default behavior:
-//
-// * Lake Formation grants `Super` permission to `IAMAllowedPrincipals` on all existing AWS Glue Data Catalog resources.
-// * Lake Formation enables "Use only IAM access control" for new Data Catalog resources.
-//
-// For more details, see [Changing the Default Security Settings for Your Data Lake](https://docs.aws.amazon.com/lake-formation/latest/dg/change-settings.html).
-//
 // ### Problem Using `IAMAllowedPrincipals`
 //
 // AWS does not support combining `IAMAllowedPrincipals` permissions and non-`IAMAllowedPrincipals` permissions. Doing so results in unexpected permissions and behaviors. For example, this configuration grants a user `SELECT` on a column in a table.
@@ -87,55 +28,54 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/glue"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lakeformation"
+//	glue/catalogDatabase "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/glue/catalogDatabase"
+//	glue/catalogTable "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/glue/catalogTable"
+//	lakeformation/permissions "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/lakeformation/permissions"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := glue.NewCatalogDatabase(ctx, "exampleCatalogDatabase", &glue.CatalogDatabaseArgs{
-//				Name: pulumi.String("sadabate"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleCatalogTable, err := glue.NewCatalogTable(ctx, "exampleCatalogTable", &glue.CatalogTableArgs{
-//				Name:         pulumi.String("abelt"),
-//				DatabaseName: pulumi.Any(aws_glue_catalog_database.Test.Name),
-//				StorageDescriptor: &glue.CatalogTableStorageDescriptorArgs{
-//					Columns: glue.CatalogTableStorageDescriptorColumnArray{
-//						&glue.CatalogTableStorageDescriptorColumnArgs{
-//							Name: pulumi.String("event"),
-//							Type: pulumi.String("string"),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = lakeformation.NewPermissions(ctx, "examplePermissions", &lakeformation.PermissionsArgs{
-//				Permissions: pulumi.StringArray{
-//					pulumi.String("SELECT"),
-//				},
-//				Principal: pulumi.String("arn:aws:iam:us-east-1:123456789012:user/SanHolo"),
-//				TableWithColumns: &lakeformation.PermissionsTableWithColumnsArgs{
-//					DatabaseName: exampleCatalogTable.DatabaseName,
-//					Name:         exampleCatalogTable.Name,
-//					ColumnNames: pulumi.StringArray{
-//						pulumi.String("event"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := glue/catalogDatabase.NewCatalogDatabase(ctx, "exampleCatalogDatabase", &glue/catalogDatabase.CatalogDatabaseArgs{
+// Name: "sadabate",
+// })
+// if err != nil {
+// return err
+// }
+// exampleCatalogTable, err := glue/catalogTable.NewCatalogTable(ctx, "exampleCatalogTable", &glue/catalogTable.CatalogTableArgs{
+// Name: "abelt",
+// DatabaseName: aws_glue_catalog_database.Test.Name,
+// StorageDescriptor: map[string]interface{}{
+// "columns": []map[string]interface{}{
+// map[string]interface{}{
+// "name": "event",
+// "type": "string",
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = lakeformation/permissions.NewPermissions(ctx, "examplePermissions", &lakeformation/permissions.PermissionsArgs{
+// Permissions: []string{
+// "SELECT",
+// },
+// Principal: "arn:aws:iam:us-east-1:123456789012:user/SanHolo",
+// TableWithColumns: map[string]interface{}{
+// "databaseName": exampleCatalogTable.DatabaseName,
+// "name": exampleCatalogTable.Name,
+// "columnNames": []string{
+// "event",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // The resulting permissions depend on whether the table had `IAMAllowedPrincipals` (IAP) permissions or not.
@@ -160,29 +100,27 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lakeformation"
+//	lakeformation/permissions "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/lakeformation/permissions"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lakeformation.NewPermissions(ctx, "example", &lakeformation.PermissionsArgs{
-//				Principal: pulumi.Any(aws_iam_role.Workflow_role.Arn),
-//				Permissions: pulumi.StringArray{
-//					pulumi.String("DATA_LOCATION_ACCESS"),
-//				},
-//				DataLocation: &lakeformation.PermissionsDataLocationArgs{
-//					Arn: pulumi.Any(aws_lakeformation_resource.Example.Arn),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := lakeformation/permissions.NewPermissions(ctx, "example", &lakeformation/permissions.PermissionsArgs{
+// Principal: aws_iam_role.Workflow_role.Arn,
+// Permissions: []string{
+// "DATA_LOCATION_ACCESS",
+// },
+// DataLocation: map[string]interface{}{
+// "arn": aws_lakeformation_resource.Example.Arn,
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Grant Permissions For A Glue Catalog Database
 //
@@ -191,32 +129,30 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lakeformation"
+//	lakeformation/permissions "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/lakeformation/permissions"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lakeformation.NewPermissions(ctx, "example", &lakeformation.PermissionsArgs{
-//				Principal: pulumi.Any(aws_iam_role.Workflow_role.Arn),
-//				Permissions: pulumi.StringArray{
-//					pulumi.String("CREATE_TABLE"),
-//					pulumi.String("ALTER"),
-//					pulumi.String("DROP"),
-//				},
-//				Database: &lakeformation.PermissionsDatabaseArgs{
-//					Name:      pulumi.Any(aws_glue_catalog_database.Example.Name),
-//					CatalogId: pulumi.String("110376042874"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := lakeformation/permissions.NewPermissions(ctx, "example", &lakeformation/permissions.PermissionsArgs{
+// Principal: aws_iam_role.Workflow_role.Arn,
+// Permissions: []string{
+// "CREATE_TABLE",
+// "ALTER",
+// "DROP",
+// },
+// Database: map[string]interface{}{
+// "name": aws_glue_catalog_database.Example.Name,
+// "catalogId": "110376042874",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Grant Permissions Using Tag-Based Access Control
 //
@@ -225,46 +161,44 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lakeformation"
+//	lakeformation/permissions "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/lakeformation/permissions"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lakeformation.NewPermissions(ctx, "test", &lakeformation.PermissionsArgs{
-//				Principal: pulumi.Any(aws_iam_role.Sales_role.Arn),
-//				Permissions: pulumi.StringArray{
-//					pulumi.String("CREATE_TABLE"),
-//					pulumi.String("ALTER"),
-//					pulumi.String("DROP"),
-//				},
-//				LfTagPolicy: &lakeformation.PermissionsLfTagPolicyArgs{
-//					ResourceType: pulumi.String("DATABASE"),
-//					Expressions: lakeformation.PermissionsLfTagPolicyExpressionArray{
-//						&lakeformation.PermissionsLfTagPolicyExpressionArgs{
-//							Key: pulumi.String("Team"),
-//							Values: pulumi.StringArray{
-//								pulumi.String("Sales"),
-//							},
-//						},
-//						&lakeformation.PermissionsLfTagPolicyExpressionArgs{
-//							Key: pulumi.String("Environment"),
-//							Values: pulumi.StringArray{
-//								pulumi.String("Dev"),
-//								pulumi.String("Production"),
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := lakeformation/permissions.NewPermissions(ctx, "test", &lakeformation/permissions.PermissionsArgs{
+// Principal: aws_iam_role.Sales_role.Arn,
+// Permissions: []string{
+// "CREATE_TABLE",
+// "ALTER",
+// "DROP",
+// },
+// LfTagPolicy: map[string]interface{}{
+// "resourceType": "DATABASE",
+// "expressions": []map[string]interface{}{
+// map[string]interface{}{
+// "key": "Team",
+// "values": []string{
+// "Sales",
+// },
+// },
+// map[string]interface{}{
+// "key": "Environment",
+// "values": []string{
+// "Dev",
+// "Production",
+// },
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 type Permissions struct {
 	pulumi.CustomResourceState

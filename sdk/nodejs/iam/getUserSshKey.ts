@@ -6,19 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to get information about a SSH public key associated with the specified IAM user.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.iam.getUserSshKey({
- *     encoding: "SSH",
- *     sshPublicKeyId: "APKARUZ32GUTKIGARLXE",
- *     username: "test-user",
- * });
- * ```
  */
 export function getUserSshKey(args: GetUserSshKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetUserSshKeyResult> {
 
@@ -74,19 +61,6 @@ export interface GetUserSshKeyResult {
 }
 /**
  * Use this data source to get information about a SSH public key associated with the specified IAM user.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.iam.getUserSshKey({
- *     encoding: "SSH",
- *     sshPublicKeyId: "APKARUZ32GUTKIGARLXE",
- *     username: "test-user",
- * });
- * ```
  */
 export function getUserSshKeyOutput(args: GetUserSshKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserSshKeyResult> {
     return pulumi.output(args).apply((a: any) => getUserSshKey(a, opts))

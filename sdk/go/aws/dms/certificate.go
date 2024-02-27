@@ -21,27 +21,26 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/dms"
+//	dms/certificate "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/dms/certificate"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := dms.NewCertificate(ctx, "test", &dms.CertificateArgs{
-//				CertificateId:  pulumi.String("test-dms-certificate-tf"),
-//				CertificatePem: pulumi.String("..."),
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("test"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// // Create a new certificate
+// _, err := dms/certificate.NewCertificate(ctx, "test", &dms/certificate.CertificateArgs{
+// CertificateId: "test-dms-certificate-tf",
+// CertificatePem: "...",
+// Tags: map[string]interface{}{
+// "Name": "test",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

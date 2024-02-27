@@ -21,26 +21,24 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	s3/directoryBucket "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/s3/directoryBucket"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := s3.NewDirectoryBucket(ctx, "example", &s3.DirectoryBucketArgs{
-//				Bucket: pulumi.String("example--usw2-az1--x-s3"),
-//				Location: &s3.DirectoryBucketLocationArgs{
-//					Name: pulumi.String("usw2-az1"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := s3/directoryBucket.NewDirectoryBucket(ctx, "example", &s3/directoryBucket.DirectoryBucketArgs{
+// Bucket: "example--usw2-az1--x-s3",
+// Location: map[string]interface{}{
+// "name": "usw2-az1",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

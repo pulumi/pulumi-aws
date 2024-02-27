@@ -22,25 +22,23 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/codecatalyst"
+//	codecatalyst/project "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/codecatalyst/project"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := codecatalyst.NewProject(ctx, "test", &codecatalyst.ProjectArgs{
-//				Description: pulumi.String("My CodeCatalyst Project created using Pulumi"),
-//				DisplayName: pulumi.String("MyProject"),
-//				SpaceName:   pulumi.String("myproject"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := codecatalyst/project.NewProject(ctx, "test", &codecatalyst/project.ProjectArgs{
+// Description: "My CodeCatalyst Project created using Pulumi",
+// DisplayName: "MyProject",
+// SpaceName: "myproject",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

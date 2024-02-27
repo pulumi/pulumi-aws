@@ -195,7 +195,7 @@ class Database(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.timestreamwrite.Database("example", database_name="database-example")
+        example = aws.timestreamwrite.database.Database("example", database_name=database-example)
         ```
         ### Full usage
 
@@ -203,11 +203,11 @@ class Database(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.timestreamwrite.Database("example",
-            database_name="database-example",
-            kms_key_id=aws_kms_key["example"]["arn"],
+        example = aws.timestreamwrite.database.Database("example",
+            database_name=database-example,
+            kms_key_id=aws_kms_key.example.arn,
             tags={
-                "Name": "value",
+                Name: value,
             })
         ```
 
@@ -241,7 +241,7 @@ class Database(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.timestreamwrite.Database("example", database_name="database-example")
+        example = aws.timestreamwrite.database.Database("example", database_name=database-example)
         ```
         ### Full usage
 
@@ -249,11 +249,11 @@ class Database(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.timestreamwrite.Database("example",
-            database_name="database-example",
-            kms_key_id=aws_kms_key["example"]["arn"],
+        example = aws.timestreamwrite.database.Database("example",
+            database_name=database-example,
+            kms_key_id=aws_kms_key.example.arn,
             tags={
-                "Name": "value",
+                Name: value,
             })
         ```
 

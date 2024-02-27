@@ -24,29 +24,28 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/securityhub"
+//	securityhub/account "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/securityhub/account"
+//	securityhub/findingAggregator "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/securityhub/findingAggregator"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleAccount, err := securityhub.NewAccount(ctx, "exampleAccount", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = securityhub.NewFindingAggregator(ctx, "exampleFindingAggregator", &securityhub.FindingAggregatorArgs{
-//				LinkingMode: pulumi.String("ALL_REGIONS"),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleAccount,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleAccount, err := securityhub/account.NewAccount(ctx, "exampleAccount", nil)
+// if err != nil {
+// return err
+// }
+// _, err = securityhub/findingAggregator.NewFindingAggregator(ctx, "exampleFindingAggregator", &securityhub/findingAggregator.FindingAggregatorArgs{
+// LinkingMode: "ALL_REGIONS",
+// }, pulumi.DependsOn([]pulumi.Resource{
+// exampleAccount,
+// }))
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### All Regions Except Specified Regions Usage
 //
@@ -57,33 +56,32 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/securityhub"
+//	securityhub/account "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/securityhub/account"
+//	securityhub/findingAggregator "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/securityhub/findingAggregator"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleAccount, err := securityhub.NewAccount(ctx, "exampleAccount", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = securityhub.NewFindingAggregator(ctx, "exampleFindingAggregator", &securityhub.FindingAggregatorArgs{
-//				LinkingMode: pulumi.String("ALL_REGIONS_EXCEPT_SPECIFIED"),
-//				SpecifiedRegions: pulumi.StringArray{
-//					pulumi.String("eu-west-1"),
-//					pulumi.String("eu-west-2"),
-//				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleAccount,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleAccount, err := securityhub/account.NewAccount(ctx, "exampleAccount", nil)
+// if err != nil {
+// return err
+// }
+// _, err = securityhub/findingAggregator.NewFindingAggregator(ctx, "exampleFindingAggregator", &securityhub/findingAggregator.FindingAggregatorArgs{
+// LinkingMode: "ALL_REGIONS_EXCEPT_SPECIFIED",
+// SpecifiedRegions: []string{
+// "eu-west-1",
+// "eu-west-2",
+// },
+// }, pulumi.DependsOn([]pulumi.Resource{
+// exampleAccount,
+// }))
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Specified Regions Usage
 //
@@ -94,33 +92,32 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/securityhub"
+//	securityhub/account "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/securityhub/account"
+//	securityhub/findingAggregator "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/securityhub/findingAggregator"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleAccount, err := securityhub.NewAccount(ctx, "exampleAccount", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = securityhub.NewFindingAggregator(ctx, "exampleFindingAggregator", &securityhub.FindingAggregatorArgs{
-//				LinkingMode: pulumi.String("SPECIFIED_REGIONS"),
-//				SpecifiedRegions: pulumi.StringArray{
-//					pulumi.String("eu-west-1"),
-//					pulumi.String("eu-west-2"),
-//				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleAccount,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleAccount, err := securityhub/account.NewAccount(ctx, "exampleAccount", nil)
+// if err != nil {
+// return err
+// }
+// _, err = securityhub/findingAggregator.NewFindingAggregator(ctx, "exampleFindingAggregator", &securityhub/findingAggregator.FindingAggregatorArgs{
+// LinkingMode: "SPECIFIED_REGIONS",
+// SpecifiedRegions: []string{
+// "eu-west-1",
+// "eu-west-2",
+// },
+// }, pulumi.DependsOn([]pulumi.Resource{
+// exampleAccount,
+// }))
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

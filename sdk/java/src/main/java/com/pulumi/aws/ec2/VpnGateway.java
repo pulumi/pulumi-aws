@@ -25,8 +25,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.ec2.VpnGateway;
- * import com.pulumi.aws.ec2.VpnGatewayArgs;
+ * import com.pulumi.aws.ec2_vpnGateway.VpnGateway;
+ * import com.pulumi.aws.ec2_vpnGateway.VpnGatewayArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -42,7 +42,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var vpnGw = new VpnGateway(&#34;vpnGw&#34;, VpnGatewayArgs.builder()        
  *             .vpcId(aws_vpc.main().id())
- *             .tags(Map.of(&#34;Name&#34;, &#34;main&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

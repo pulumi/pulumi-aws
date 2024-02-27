@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const testRole = new aws.iam.Role("testRole", {assumeRolePolicy: JSON.stringify({
+ * const testRole = new aws.iam/role.Role("testRole", {assumeRolePolicy: JSON.stringify({
  *     Version: "2012-10-17",
  *     Statement: [{
  *         Sid: "",
@@ -28,11 +28,11 @@ import * as utilities from "../utilities";
  *         Action: "sts:AssumeRole",
  *     }],
  * })});
- * const testRolePolicyAttachment = new aws.iam.RolePolicyAttachment("testRolePolicyAttachment", {
+ * const testRolePolicyAttachment = new aws.iam/rolePolicyAttachment.RolePolicyAttachment("testRolePolicyAttachment", {
  *     role: testRole.name,
  *     policyArn: "arn:aws:iam::aws:policy/service-role/AWSShieldDRTAccessPolicy",
  * });
- * const testDrtAccessRoleArnAssociation = new aws.shield.DrtAccessRoleArnAssociation("testDrtAccessRoleArnAssociation", {roleArn: testRole.arn});
+ * const testDrtAccessRoleArnAssociation = new aws.shield/drtAccessRoleArnAssociation.DrtAccessRoleArnAssociation("testDrtAccessRoleArnAssociation", {roleArn: testRole.arn});
  * ```
  */
 export class DrtAccessRoleArnAssociation extends pulumi.CustomResource {

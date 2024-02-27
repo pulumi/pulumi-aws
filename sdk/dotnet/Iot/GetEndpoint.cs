@@ -13,118 +13,12 @@ namespace Pulumi.Aws.Iot
     {
         /// <summary>
         /// Returns a unique endpoint specific to the AWS account making the call.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// using Kubernetes = Pulumi.Kubernetes;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Iot.GetEndpoint.Invoke();
-        /// 
-        ///     var agent = new Kubernetes.Index.Kubernetes_pod("agent", new()
-        ///     {
-        ///         Metadata = new[]
-        ///         {
-        ///             
-        ///             {
-        ///                 { "name", "my-device" },
-        ///             },
-        ///         },
-        ///         Spec = new[]
-        ///         {
-        ///             
-        ///             {
-        ///                 { "container", new[]
-        ///                 {
-        ///                     
-        ///                     {
-        ///                         { "image", "gcr.io/my-project/image-name" },
-        ///                         { "name", "image-name" },
-        ///                         { "env", new[]
-        ///                         {
-        ///                             
-        ///                             {
-        ///                                 { "name", "IOT_ENDPOINT" },
-        ///                                 { "value", example.Apply(getEndpointResult =&gt; getEndpointResult.EndpointAddress) },
-        ///                             },
-        ///                         } },
-        ///                     },
-        ///                 } },
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetEndpointResult> InvokeAsync(GetEndpointArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEndpointResult>("aws:iot/getEndpoint:getEndpoint", args ?? new GetEndpointArgs(), options.WithDefaults());
 
         /// <summary>
         /// Returns a unique endpoint specific to the AWS account making the call.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// using Kubernetes = Pulumi.Kubernetes;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Iot.GetEndpoint.Invoke();
-        /// 
-        ///     var agent = new Kubernetes.Index.Kubernetes_pod("agent", new()
-        ///     {
-        ///         Metadata = new[]
-        ///         {
-        ///             
-        ///             {
-        ///                 { "name", "my-device" },
-        ///             },
-        ///         },
-        ///         Spec = new[]
-        ///         {
-        ///             
-        ///             {
-        ///                 { "container", new[]
-        ///                 {
-        ///                     
-        ///                     {
-        ///                         { "image", "gcr.io/my-project/image-name" },
-        ///                         { "name", "image-name" },
-        ///                         { "env", new[]
-        ///                         {
-        ///                             
-        ///                             {
-        ///                                 { "name", "IOT_ENDPOINT" },
-        ///                                 { "value", example.Apply(getEndpointResult =&gt; getEndpointResult.EndpointAddress) },
-        ///                             },
-        ///                         } },
-        ///                     },
-        ///                 } },
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetEndpointResult> Invoke(GetEndpointInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEndpointResult>("aws:iot/getEndpoint:getEndpoint", args ?? new GetEndpointInvokeArgs(), options.WithDefaults());

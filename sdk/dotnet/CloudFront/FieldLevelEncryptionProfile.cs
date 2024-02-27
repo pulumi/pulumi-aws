@@ -23,32 +23,32 @@ namespace Pulumi.Aws.CloudFront
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.CloudFront.PublicKey("example", new()
+    ///     var example = new Aws.Cloudfront.PublicKey.PublicKey("example", new()
     ///     {
     ///         Comment = "test public key",
     ///         EncodedKey = File.ReadAllText("public_key.pem"),
     ///     });
     /// 
-    ///     var test = new Aws.CloudFront.FieldLevelEncryptionProfile("test", new()
+    ///     var test = new Aws.Cloudfront.FieldLevelEncryptionProfile.FieldLevelEncryptionProfile("test", new()
     ///     {
     ///         Comment = "test comment",
-    ///         EncryptionEntities = new Aws.CloudFront.Inputs.FieldLevelEncryptionProfileEncryptionEntitiesArgs
+    ///         EncryptionEntities = 
     ///         {
-    ///             Items = new[]
+    ///             { "items", new[]
     ///             {
-    ///                 new Aws.CloudFront.Inputs.FieldLevelEncryptionProfileEncryptionEntitiesItemArgs
+    ///                 
     ///                 {
-    ///                     PublicKeyId = example.Id,
-    ///                     ProviderId = "test provider",
-    ///                     FieldPatterns = new Aws.CloudFront.Inputs.FieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatternsArgs
+    ///                     { "publicKeyId", example.Id },
+    ///                     { "providerId", "test provider" },
+    ///                     { "fieldPatterns", 
     ///                     {
-    ///                         Items = new[]
+    ///                         { "items", new[]
     ///                         {
     ///                             "DateOfBirth",
-    ///                         },
-    ///                     },
+    ///                         } },
+    ///                     } },
     ///                 },
-    ///             },
+    ///             } },
     ///         },
     ///     });
     /// 

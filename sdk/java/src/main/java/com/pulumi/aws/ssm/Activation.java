@@ -20,67 +20,6 @@ import javax.annotation.Nullable;
 /**
  * Registers an on-premises server or virtual machine with Amazon EC2 so that it can be managed using Run Command.
  * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.iam.IamFunctions;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
- * import com.pulumi.aws.iam.Role;
- * import com.pulumi.aws.iam.RoleArgs;
- * import com.pulumi.aws.iam.RolePolicyAttachment;
- * import com.pulumi.aws.iam.RolePolicyAttachmentArgs;
- * import com.pulumi.aws.ssm.Activation;
- * import com.pulumi.aws.ssm.ActivationArgs;
- * import com.pulumi.resources.CustomResourceOptions;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect(&#34;Allow&#34;)
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type(&#34;Service&#34;)
- *                     .identifiers(&#34;ssm.amazonaws.com&#34;)
- *                     .build())
- *                 .actions(&#34;sts:AssumeRole&#34;)
- *                 .build())
- *             .build());
- * 
- *         var testRole = new Role(&#34;testRole&#34;, RoleArgs.builder()        
- *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
- *             .build());
- * 
- *         var testAttach = new RolePolicyAttachment(&#34;testAttach&#34;, RolePolicyAttachmentArgs.builder()        
- *             .role(testRole.name())
- *             .policyArn(&#34;arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore&#34;)
- *             .build());
- * 
- *         var foo = new Activation(&#34;foo&#34;, ActivationArgs.builder()        
- *             .description(&#34;Test&#34;)
- *             .iamRole(testRole.id())
- *             .registrationLimit(&#34;5&#34;)
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(testAttach)
- *                 .build());
- * 
- *     }
- * }
- * ```
- * 
  * ## Import
  * 
  * Using `pulumi import`, import AWS SSM Activation using the `id`. For example:

@@ -24,110 +24,110 @@ namespace Pulumi.Aws.Backup
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Backup.Framework("example", new()
+    ///     var example = new Aws.Backup.Framework.Framework("example", new()
     ///     {
     ///         Controls = new[]
     ///         {
-    ///             new Aws.Backup.Inputs.FrameworkControlArgs
+    ///             
     ///             {
-    ///                 InputParameters = new[]
+    ///                 { "inputParameters", new[]
     ///                 {
-    ///                     new Aws.Backup.Inputs.FrameworkControlInputParameterArgs
+    ///                     
     ///                     {
-    ///                         Name = "requiredRetentionDays",
-    ///                         Value = "35",
+    ///                         { "name", "requiredRetentionDays" },
+    ///                         { "value", "35" },
     ///                     },
-    ///                 },
-    ///                 Name = "BACKUP_RECOVERY_POINT_MINIMUM_RETENTION_CHECK",
+    ///                 } },
+    ///                 { "name", "BACKUP_RECOVERY_POINT_MINIMUM_RETENTION_CHECK" },
     ///             },
-    ///             new Aws.Backup.Inputs.FrameworkControlArgs
+    ///             
     ///             {
-    ///                 InputParameters = new[]
+    ///                 { "inputParameters", new[]
     ///                 {
-    ///                     new Aws.Backup.Inputs.FrameworkControlInputParameterArgs
+    ///                     
     ///                     {
-    ///                         Name = "requiredFrequencyUnit",
-    ///                         Value = "hours",
+    ///                         { "name", "requiredFrequencyUnit" },
+    ///                         { "value", "hours" },
     ///                     },
-    ///                     new Aws.Backup.Inputs.FrameworkControlInputParameterArgs
+    ///                     
     ///                     {
-    ///                         Name = "requiredRetentionDays",
-    ///                         Value = "35",
+    ///                         { "name", "requiredRetentionDays" },
+    ///                         { "value", "35" },
     ///                     },
-    ///                     new Aws.Backup.Inputs.FrameworkControlInputParameterArgs
+    ///                     
     ///                     {
-    ///                         Name = "requiredFrequencyValue",
-    ///                         Value = "1",
+    ///                         { "name", "requiredFrequencyValue" },
+    ///                         { "value", "1" },
     ///                     },
-    ///                 },
-    ///                 Name = "BACKUP_PLAN_MIN_FREQUENCY_AND_MIN_RETENTION_CHECK",
+    ///                 } },
+    ///                 { "name", "BACKUP_PLAN_MIN_FREQUENCY_AND_MIN_RETENTION_CHECK" },
     ///             },
-    ///             new Aws.Backup.Inputs.FrameworkControlArgs
+    ///             
     ///             {
-    ///                 Name = "BACKUP_RECOVERY_POINT_ENCRYPTED",
+    ///                 { "name", "BACKUP_RECOVERY_POINT_ENCRYPTED" },
     ///             },
-    ///             new Aws.Backup.Inputs.FrameworkControlArgs
+    ///             
     ///             {
-    ///                 Name = "BACKUP_RESOURCES_PROTECTED_BY_BACKUP_PLAN",
-    ///                 Scope = new Aws.Backup.Inputs.FrameworkControlScopeArgs
+    ///                 { "name", "BACKUP_RESOURCES_PROTECTED_BY_BACKUP_PLAN" },
+    ///                 { "scope", 
     ///                 {
-    ///                     ComplianceResourceTypes = new[]
+    ///                     { "complianceResourceTypes", new[]
     ///                     {
     ///                         "EBS",
-    ///                     },
-    ///                 },
+    ///                     } },
+    ///                 } },
     ///             },
-    ///             new Aws.Backup.Inputs.FrameworkControlArgs
+    ///             
     ///             {
-    ///                 Name = "BACKUP_RECOVERY_POINT_MANUAL_DELETION_DISABLED",
+    ///                 { "name", "BACKUP_RECOVERY_POINT_MANUAL_DELETION_DISABLED" },
     ///             },
-    ///             new Aws.Backup.Inputs.FrameworkControlArgs
+    ///             
     ///             {
-    ///                 InputParameters = new[]
+    ///                 { "inputParameters", new[]
     ///                 {
-    ///                     new Aws.Backup.Inputs.FrameworkControlInputParameterArgs
+    ///                     
     ///                     {
-    ///                         Name = "maxRetentionDays",
-    ///                         Value = "100",
+    ///                         { "name", "maxRetentionDays" },
+    ///                         { "value", "100" },
     ///                     },
-    ///                     new Aws.Backup.Inputs.FrameworkControlInputParameterArgs
+    ///                     
     ///                     {
-    ///                         Name = "minRetentionDays",
-    ///                         Value = "1",
+    ///                         { "name", "minRetentionDays" },
+    ///                         { "value", "1" },
     ///                     },
-    ///                 },
-    ///                 Name = "BACKUP_RESOURCES_PROTECTED_BY_BACKUP_VAULT_LOCK",
-    ///                 Scope = new Aws.Backup.Inputs.FrameworkControlScopeArgs
+    ///                 } },
+    ///                 { "name", "BACKUP_RESOURCES_PROTECTED_BY_BACKUP_VAULT_LOCK" },
+    ///                 { "scope", 
     ///                 {
-    ///                     ComplianceResourceTypes = new[]
+    ///                     { "complianceResourceTypes", new[]
     ///                     {
     ///                         "EBS",
-    ///                     },
-    ///                 },
+    ///                     } },
+    ///                 } },
     ///             },
-    ///             new Aws.Backup.Inputs.FrameworkControlArgs
+    ///             
     ///             {
-    ///                 InputParameters = new[]
+    ///                 { "inputParameters", new[]
     ///                 {
-    ///                     new Aws.Backup.Inputs.FrameworkControlInputParameterArgs
+    ///                     
     ///                     {
-    ///                         Name = "recoveryPointAgeUnit",
-    ///                         Value = "days",
+    ///                         { "name", "recoveryPointAgeUnit" },
+    ///                         { "value", "days" },
     ///                     },
-    ///                     new Aws.Backup.Inputs.FrameworkControlInputParameterArgs
+    ///                     
     ///                     {
-    ///                         Name = "recoveryPointAgeValue",
-    ///                         Value = "1",
+    ///                         { "name", "recoveryPointAgeValue" },
+    ///                         { "value", "1" },
     ///                     },
-    ///                 },
-    ///                 Name = "BACKUP_LAST_RECOVERY_POINT_CREATED",
-    ///                 Scope = new Aws.Backup.Inputs.FrameworkControlScopeArgs
+    ///                 } },
+    ///                 { "name", "BACKUP_LAST_RECOVERY_POINT_CREATED" },
+    ///                 { "scope", 
     ///                 {
-    ///                     ComplianceResourceTypes = new[]
+    ///                     { "complianceResourceTypes", new[]
     ///                     {
     ///                         "EBS",
-    ///                     },
-    ///                 },
+    ///                     } },
+    ///                 } },
     ///             },
     ///         },
     ///         Description = "this is an example framework",

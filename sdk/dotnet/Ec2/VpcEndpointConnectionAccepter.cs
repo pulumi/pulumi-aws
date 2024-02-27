@@ -23,7 +23,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleVpcEndpointService = new Aws.Ec2.VpcEndpointService("exampleVpcEndpointService", new()
+    ///     var exampleVpcEndpointService = new Aws.Ec2.VpcEndpointService.VpcEndpointService("exampleVpcEndpointService", new()
     ///     {
     ///         AcceptanceRequired = false,
     ///         NetworkLoadBalancerArns = new[]
@@ -32,7 +32,7 @@ namespace Pulumi.Aws.Ec2
     ///         },
     ///     });
     /// 
-    ///     var exampleVpcEndpoint = new Aws.Ec2.VpcEndpoint("exampleVpcEndpoint", new()
+    ///     var exampleVpcEndpoint = new Aws.Ec2.VpcEndpoint.VpcEndpoint("exampleVpcEndpoint", new()
     ///     {
     ///         VpcId = aws_vpc.Test_alternate.Id,
     ///         ServiceName = aws_vpc_endpoint_service.Test.Service_name,
@@ -47,7 +47,7 @@ namespace Pulumi.Aws.Ec2
     ///         Provider = aws.Alternate,
     ///     });
     /// 
-    ///     var exampleVpcEndpointConnectionAccepter = new Aws.Ec2.VpcEndpointConnectionAccepter("exampleVpcEndpointConnectionAccepter", new()
+    ///     var exampleVpcEndpointConnectionAccepter = new Aws.Ec2.VpcEndpointConnectionAccepter.VpcEndpointConnectionAccepter("exampleVpcEndpointConnectionAccepter", new()
     ///     {
     ///         VpcEndpointServiceId = exampleVpcEndpointService.Id,
     ///         VpcEndpointId = exampleVpcEndpoint.Id,

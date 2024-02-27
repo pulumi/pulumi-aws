@@ -22,19 +22,19 @@ namespace Pulumi.Aws.WafRegional
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var sizeConstraintSet = new Aws.WafRegional.SizeConstraintSet("sizeConstraintSet", new()
+    ///     var sizeConstraintSet = new Aws.Wafregional.SizeConstraintSet.SizeConstraintSet("sizeConstraintSet", new()
     ///     {
     ///         SizeConstraints = new[]
     ///         {
-    ///             new Aws.WafRegional.Inputs.SizeConstraintSetSizeConstraintArgs
+    ///             
     ///             {
-    ///                 ComparisonOperator = "EQ",
-    ///                 FieldToMatch = new Aws.WafRegional.Inputs.SizeConstraintSetSizeConstraintFieldToMatchArgs
+    ///                 { "comparisonOperator", "EQ" },
+    ///                 { "fieldToMatch", 
     ///                 {
-    ///                     Type = "BODY",
-    ///                 },
-    ///                 Size = 4096,
-    ///                 TextTransformation = "NONE",
+    ///                     { "type", "BODY" },
+    ///                 } },
+    ///                 { "size", "4096" },
+    ///                 { "textTransformation", "NONE" },
     ///             },
     ///         },
     ///     });

@@ -17,16 +17,16 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleUserPool = new aws.cognito.UserPool("exampleUserPool", {});
- * const exampleUserPoolClient = new aws.cognito.UserPoolClient("exampleUserPoolClient", {
+ * const exampleUserPool = new aws.cognito/userPool.UserPool("exampleUserPool", {});
+ * const exampleUserPoolClient = new aws.cognito/userPoolClient.UserPoolClient("exampleUserPoolClient", {
  *     generateSecret: true,
  *     userPoolId: exampleUserPool.id,
  * });
- * const exampleUserPoolDomain = new aws.cognito.UserPoolDomain("exampleUserPoolDomain", {
+ * const exampleUserPoolDomain = new aws.cognito/userPoolDomain.UserPoolDomain("exampleUserPoolDomain", {
  *     domain: "example",
  *     userPoolId: exampleUserPool.id,
  * });
- * const exampleWorkforce = new aws.sagemaker.Workforce("exampleWorkforce", {
+ * const exampleWorkforce = new aws.sagemaker/workforce.Workforce("exampleWorkforce", {
  *     workforceName: "example",
  *     cognitoConfig: {
  *         clientId: exampleUserPoolClient.id,
@@ -40,7 +40,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.sagemaker.Workforce("example", {
+ * const example = new aws.sagemaker/workforce.Workforce("example", {
  *     oidcConfig: {
  *         authorizationEndpoint: "https://example.com",
  *         clientId: "example",

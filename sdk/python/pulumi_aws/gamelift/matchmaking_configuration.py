@@ -604,37 +604,37 @@ class MatchmakingConfiguration(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        example_game_session_queue = aws.gamelift.GameSessionQueue("exampleGameSessionQueue",
+        example_game_session_queue = aws.gamelift.game_session_queue.GameSessionQueue("exampleGameSessionQueue",
             destinations=[],
             player_latency_policies=[
-                aws.gamelift.GameSessionQueuePlayerLatencyPolicyArgs(
-                    maximum_individual_player_latency_milliseconds=3,
-                    policy_duration_seconds=7,
-                ),
-                aws.gamelift.GameSessionQueuePlayerLatencyPolicyArgs(
-                    maximum_individual_player_latency_milliseconds=10,
-                ),
+                {
+                    maximumIndividualPlayerLatencyMilliseconds: 3,
+                    policyDurationSeconds: 7,
+                },
+                {
+                    maximumIndividualPlayerLatencyMilliseconds: 10,
+                },
             ],
             timeout_in_seconds=25)
-        example_matchmaking_rule_set = aws.gamelift.MatchmakingRuleSet("exampleMatchmakingRuleSet", rule_set_body=json.dumps({
-            "name": "test",
-            "ruleLanguageVersion": "1.0",
-            "teams": [{
-                "name": "alpha",
-                "minPlayers": 1,
-                "maxPlayers": 5,
+        example_matchmaking_rule_set = aws.gamelift.matchmaking_rule_set.MatchmakingRuleSet("exampleMatchmakingRuleSet", rule_set_body=json.dumps({
+            name: test,
+            ruleLanguageVersion: 1.0,
+            teams: [{
+                name: alpha,
+                minPlayers: 1,
+                maxPlayers: 5,
             }],
         }))
-        example_matchmaking_configuration = aws.gamelift.MatchmakingConfiguration("exampleMatchmakingConfiguration",
+        example_matchmaking_configuration = aws.gamelift.matchmaking_configuration.MatchmakingConfiguration("exampleMatchmakingConfiguration",
             acceptance_required=False,
-            custom_event_data="pvp",
-            game_session_data="game_session_data",
-            backfill_mode="MANUAL",
+            custom_event_data=pvp,
+            game_session_data=game_session_data,
+            backfill_mode=MANUAL,
             request_timeout_seconds=30,
-            rule_set_name=aws_gamelift_matchmaking_rule_set["test"]["name"],
-            game_session_queue_arns=[aws_gamelift_game_session_queue["test"]["arn"]],
+            rule_set_name=aws_gamelift_matchmaking_rule_set.test.name,
+            game_session_queue_arns=[aws_gamelift_game_session_queue.test.arn],
             tags={
-                "key1": "value1",
+                key1: value1,
             })
         ```
 
@@ -680,37 +680,37 @@ class MatchmakingConfiguration(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        example_game_session_queue = aws.gamelift.GameSessionQueue("exampleGameSessionQueue",
+        example_game_session_queue = aws.gamelift.game_session_queue.GameSessionQueue("exampleGameSessionQueue",
             destinations=[],
             player_latency_policies=[
-                aws.gamelift.GameSessionQueuePlayerLatencyPolicyArgs(
-                    maximum_individual_player_latency_milliseconds=3,
-                    policy_duration_seconds=7,
-                ),
-                aws.gamelift.GameSessionQueuePlayerLatencyPolicyArgs(
-                    maximum_individual_player_latency_milliseconds=10,
-                ),
+                {
+                    maximumIndividualPlayerLatencyMilliseconds: 3,
+                    policyDurationSeconds: 7,
+                },
+                {
+                    maximumIndividualPlayerLatencyMilliseconds: 10,
+                },
             ],
             timeout_in_seconds=25)
-        example_matchmaking_rule_set = aws.gamelift.MatchmakingRuleSet("exampleMatchmakingRuleSet", rule_set_body=json.dumps({
-            "name": "test",
-            "ruleLanguageVersion": "1.0",
-            "teams": [{
-                "name": "alpha",
-                "minPlayers": 1,
-                "maxPlayers": 5,
+        example_matchmaking_rule_set = aws.gamelift.matchmaking_rule_set.MatchmakingRuleSet("exampleMatchmakingRuleSet", rule_set_body=json.dumps({
+            name: test,
+            ruleLanguageVersion: 1.0,
+            teams: [{
+                name: alpha,
+                minPlayers: 1,
+                maxPlayers: 5,
             }],
         }))
-        example_matchmaking_configuration = aws.gamelift.MatchmakingConfiguration("exampleMatchmakingConfiguration",
+        example_matchmaking_configuration = aws.gamelift.matchmaking_configuration.MatchmakingConfiguration("exampleMatchmakingConfiguration",
             acceptance_required=False,
-            custom_event_data="pvp",
-            game_session_data="game_session_data",
-            backfill_mode="MANUAL",
+            custom_event_data=pvp,
+            game_session_data=game_session_data,
+            backfill_mode=MANUAL,
             request_timeout_seconds=30,
-            rule_set_name=aws_gamelift_matchmaking_rule_set["test"]["name"],
-            game_session_queue_arns=[aws_gamelift_game_session_queue["test"]["arn"]],
+            rule_set_name=aws_gamelift_matchmaking_rule_set.test.name,
+            game_session_queue_arns=[aws_gamelift_game_session_queue.test.arn],
             tags={
-                "key1": "value1",
+                key1: value1,
             })
         ```
 

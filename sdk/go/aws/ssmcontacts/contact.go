@@ -22,26 +22,24 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssmcontacts"
+//	ssmcontacts/contact "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ssmcontacts/contact"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ssmcontacts.NewContact(ctx, "example", &ssmcontacts.ContactArgs{
-//				Alias: pulumi.String("alias"),
-//				Type:  pulumi.String("PERSONAL"),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				aws_ssmincidents_replication_set.Example,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := ssmcontacts/contact.NewContact(ctx, "example", &ssmcontacts/contact.ContactArgs{
+// Alias: "alias",
+// Type: "PERSONAL",
+// }, pulumi.DependsOn([]pulumi.Resource{
+// aws_ssmincidents_replication_set.Example,
+// }))
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Usage With All Fields
 //
@@ -50,30 +48,28 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssmcontacts"
+//	ssmcontacts/contact "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ssmcontacts/contact"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ssmcontacts.NewContact(ctx, "example", &ssmcontacts.ContactArgs{
-//				Alias:       pulumi.String("alias"),
-//				DisplayName: pulumi.String("displayName"),
-//				Type:        pulumi.String("ESCALATION"),
-//				Tags: pulumi.StringMap{
-//					"key": pulumi.String("value"),
-//				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				aws_ssmincidents_replication_set.Example,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := ssmcontacts/contact.NewContact(ctx, "example", &ssmcontacts/contact.ContactArgs{
+// Alias: "alias",
+// DisplayName: "displayName",
+// Type: "ESCALATION",
+// Tags: map[string]interface{}{
+// "key": "value",
+// },
+// }, pulumi.DependsOn([]pulumi.Resource{
+// aws_ssmincidents_replication_set.Example,
+// }))
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -28,23 +28,21 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ebs"
+//	ebs/defaultKmsKey "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ebs/defaultKmsKey"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ebs.NewDefaultKmsKey(ctx, "example", &ebs.DefaultKmsKeyArgs{
-//				KeyArn: pulumi.Any(aws_kms_key.Example.Arn),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := ebs/defaultKmsKey.NewDefaultKmsKey(ctx, "example", &ebs/defaultKmsKey.DefaultKmsKeyArgs{
+// KeyArn: aws_kms_key.Example.Arn,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

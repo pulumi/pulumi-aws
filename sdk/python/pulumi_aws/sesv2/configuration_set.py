@@ -342,26 +342,26 @@ class ConfigurationSet(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.sesv2.ConfigurationSet("example",
-            configuration_set_name="example",
-            delivery_options=aws.sesv2.ConfigurationSetDeliveryOptionsArgs(
-                tls_policy="REQUIRE",
-            ),
-            reputation_options=aws.sesv2.ConfigurationSetReputationOptionsArgs(
-                reputation_metrics_enabled=False,
-            ),
-            sending_options=aws.sesv2.ConfigurationSetSendingOptionsArgs(
-                sending_enabled=True,
-            ),
-            suppression_options=aws.sesv2.ConfigurationSetSuppressionOptionsArgs(
-                suppressed_reasons=[
-                    "BOUNCE",
-                    "COMPLAINT",
+        example = aws.sesv2.configuration_set.ConfigurationSet("example",
+            configuration_set_name=example,
+            delivery_options={
+                tlsPolicy: REQUIRE,
+            },
+            reputation_options={
+                reputationMetricsEnabled: False,
+            },
+            sending_options={
+                sendingEnabled: True,
+            },
+            suppression_options={
+                suppressedReasons: [
+                    BOUNCE,
+                    COMPLAINT,
                 ],
-            ),
-            tracking_options=aws.sesv2.ConfigurationSetTrackingOptionsArgs(
-                custom_redirect_domain="example.com",
-            ))
+            },
+            tracking_options={
+                customRedirectDomain: example.com,
+            })
         ```
 
         ## Import
@@ -399,26 +399,26 @@ class ConfigurationSet(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.sesv2.ConfigurationSet("example",
-            configuration_set_name="example",
-            delivery_options=aws.sesv2.ConfigurationSetDeliveryOptionsArgs(
-                tls_policy="REQUIRE",
-            ),
-            reputation_options=aws.sesv2.ConfigurationSetReputationOptionsArgs(
-                reputation_metrics_enabled=False,
-            ),
-            sending_options=aws.sesv2.ConfigurationSetSendingOptionsArgs(
-                sending_enabled=True,
-            ),
-            suppression_options=aws.sesv2.ConfigurationSetSuppressionOptionsArgs(
-                suppressed_reasons=[
-                    "BOUNCE",
-                    "COMPLAINT",
+        example = aws.sesv2.configuration_set.ConfigurationSet("example",
+            configuration_set_name=example,
+            delivery_options={
+                tlsPolicy: REQUIRE,
+            },
+            reputation_options={
+                reputationMetricsEnabled: False,
+            },
+            sending_options={
+                sendingEnabled: True,
+            },
+            suppression_options={
+                suppressedReasons: [
+                    BOUNCE,
+                    COMPLAINT,
                 ],
-            ),
-            tracking_options=aws.sesv2.ConfigurationSetTrackingOptionsArgs(
-                custom_redirect_domain="example.com",
-            ))
+            },
+            tracking_options={
+                customRedirectDomain: example.com,
+            })
         ```
 
         ## Import

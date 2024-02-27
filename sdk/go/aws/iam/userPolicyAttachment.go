@@ -23,35 +23,35 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	iam/policy "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/iam/policy"
+//	iam/user "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/iam/user"
+//	iam/userPolicyAttachment "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/iam/userPolicyAttachment"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			user, err := iam.NewUser(ctx, "user", nil)
-//			if err != nil {
-//				return err
-//			}
-//			policy, err := iam.NewPolicy(ctx, "policy", &iam.PolicyArgs{
-//				Description: pulumi.String("A test policy"),
-//				Policy:      pulumi.Any("{ ... policy JSON ... }"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = iam.NewUserPolicyAttachment(ctx, "test-attach", &iam.UserPolicyAttachmentArgs{
-//				User:      user.Name,
-//				PolicyArn: policy.Arn,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// user, err := iam/user.NewUser(ctx, "user", nil)
+// if err != nil {
+// return err
+// }
+// policy, err := iam/policy.NewPolicy(ctx, "policy", &iam/policy.PolicyArgs{
+// Description: "A test policy",
+// Policy: "{ ... policy JSON ... }",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = iam/userPolicyAttachment.NewUserPolicyAttachment(ctx, "test-attach", &iam/userPolicyAttachment.UserPolicyAttachmentArgs{
+// User: user.Name,
+// PolicyArn: policy.Arn,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

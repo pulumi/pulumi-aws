@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * import * as fs from "fs";
  *
- * const example = new aws.controltower.LandingZone("example", {
+ * const example = new aws.controltower/landingZone.LandingZone("example", {
  *     manifestJson: fs.readFileSync(`${path.module}/LandingZoneManifest.json`, "utf8"),
  *     version: "3.2",
  * });

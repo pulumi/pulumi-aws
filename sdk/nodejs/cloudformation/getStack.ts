@@ -7,25 +7,6 @@ import * as utilities from "../utilities";
 /**
  * The CloudFormation Stack data source allows access to stack
  * outputs and other useful data including the template body.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const network = aws.cloudformation.getStack({
- *     name: "my-network-stack",
- * });
- * const web = new aws.ec2.Instance("web", {
- *     ami: "ami-abb07bcb",
- *     instanceType: "t2.micro",
- *     subnetId: network.then(network => network.outputs?.SubnetId),
- *     tags: {
- *         Name: "HelloWorld",
- *     },
- * });
- * ```
  */
 export function getStack(args: GetStackArgs, opts?: pulumi.InvokeOptions): Promise<GetStackResult> {
 
@@ -103,25 +84,6 @@ export interface GetStackResult {
 /**
  * The CloudFormation Stack data source allows access to stack
  * outputs and other useful data including the template body.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const network = aws.cloudformation.getStack({
- *     name: "my-network-stack",
- * });
- * const web = new aws.ec2.Instance("web", {
- *     ami: "ami-abb07bcb",
- *     instanceType: "t2.micro",
- *     subnetId: network.then(network => network.outputs?.SubnetId),
- *     tags: {
- *         Name: "HelloWorld",
- *     },
- * });
- * ```
  */
 export function getStackOutput(args: GetStackOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStackResult> {
     return pulumi.output(args).apply((a: any) => getStack(a, opts))

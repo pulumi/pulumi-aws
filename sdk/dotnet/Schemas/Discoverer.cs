@@ -24,9 +24,9 @@ namespace Pulumi.Aws.Schemas
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var messenger = new Aws.CloudWatch.EventBus("messenger");
+    ///     var messenger = new Aws.Cloudwatch.EventBus.EventBus("messenger");
     /// 
-    ///     var test = new Aws.Schemas.Discoverer("test", new()
+    ///     var test = new Aws.Schemas.Discoverer.Discoverer("test", new()
     ///     {
     ///         SourceArn = messenger.Arn,
     ///         Description = "Auto discover event schemas",

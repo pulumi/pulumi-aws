@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * import * as fs from "fs";
  *
- * const example = new aws.sagemaker.HumanTaskUI("example", {
+ * const example = new aws.sagemaker/humanTaskUI.HumanTaskUI("example", {
  *     humanTaskUiName: "example",
  *     uiTemplate: {
  *         content: fs.readFileSync("sagemaker-human-task-ui-template.html", "utf8"),

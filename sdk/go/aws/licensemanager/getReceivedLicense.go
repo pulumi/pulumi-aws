@@ -12,34 +12,6 @@ import (
 )
 
 // This resource can be used to get data on a received license using an ARN. This can be helpful for pulling in data on a license from the AWS marketplace and sharing that license with another account.
-//
-// ## Example Usage
-//
-// The following shows getting the received license data using and ARN.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/licensemanager"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := licensemanager.GetReceivedLicense(ctx, &licensemanager.GetReceivedLicenseArgs{
-//				LicenseArn: "arn:aws:license-manager::111111111111:license:l-ecbaa94eb71a4830b6d7e49268fecaa0",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetReceivedLicense(ctx *pulumi.Context, args *GetReceivedLicenseArgs, opts ...pulumi.InvokeOption) (*GetReceivedLicenseResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetReceivedLicenseResult

@@ -141,14 +141,6 @@ def get_profiling_group(name: Optional[str] = None,
     Data source for managing an AWS CodeGuru Profiler Profiling Group.
 
     ## Example Usage
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.codeguruprofiler.get_profiling_group(name="example")
-    ```
 
 
     :param str name: The name of the profiling group.
@@ -177,14 +169,6 @@ def get_profiling_group_output(name: Optional[pulumi.Input[str]] = None,
     Data source for managing an AWS CodeGuru Profiler Profiling Group.
 
     ## Example Usage
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.codeguruprofiler.get_profiling_group(name="example")
-    ```
 
 
     :param str name: The name of the profiling group.

@@ -7,27 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Deploys an Application CloudFormation Stack from the Serverless Application Repository.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const currentPartition = aws.getPartition({});
- * const currentRegion = aws.getRegion({});
- * const postgres_rotator = new aws.serverlessrepository.CloudFormationStack("postgres-rotator", {
- *     applicationId: "arn:aws:serverlessrepo:us-east-1:297356227824:applications/SecretsManagerRDSPostgreSQLRotationSingleUser",
- *     capabilities: [
- *         "CAPABILITY_IAM",
- *         "CAPABILITY_RESOURCE_POLICY",
- *     ],
- *     parameters: {
- *         endpoint: Promise.all([currentRegion, currentPartition]).then(([currentRegion, currentPartition]) => `secretsmanager.${currentRegion.name}.${currentPartition.dnsSuffix}`),
- *         functionName: "func-postgres-rotator",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import Serverless Application Repository Stack using the CloudFormation Stack name (with or without the `serverlessrepo-` prefix) or the CloudFormation Stack ID. For example:

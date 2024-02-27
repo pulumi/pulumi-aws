@@ -101,33 +101,6 @@ class QueuePolicy(pulumi.CustomResource):
         Allows you to set a policy of an SQS Queue
         while referencing ARN of the queue within the policy.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        queue = aws.sqs.Queue("queue")
-        test_policy_document = queue.arn.apply(lambda arn: aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            sid="First",
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="*",
-                identifiers=["*"],
-            )],
-            actions=["sqs:SendMessage"],
-            resources=[arn],
-            conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
-                test="ArnEquals",
-                variable="aws:SourceArn",
-                values=[aws_sns_topic["example"]["arn"]],
-            )],
-        )]))
-        test_queue_policy = aws.sqs.QueuePolicy("testQueuePolicy",
-            queue_url=queue.id,
-            policy=test_policy_document.json)
-        ```
-
         ## Import
 
         Using `pulumi import`, import SQS Queue Policies using the queue URL. For example:
@@ -150,33 +123,6 @@ class QueuePolicy(pulumi.CustomResource):
         """
         Allows you to set a policy of an SQS Queue
         while referencing ARN of the queue within the policy.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        queue = aws.sqs.Queue("queue")
-        test_policy_document = queue.arn.apply(lambda arn: aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            sid="First",
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="*",
-                identifiers=["*"],
-            )],
-            actions=["sqs:SendMessage"],
-            resources=[arn],
-            conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
-                test="ArnEquals",
-                variable="aws:SourceArn",
-                values=[aws_sns_topic["example"]["arn"]],
-            )],
-        )]))
-        test_queue_policy = aws.sqs.QueuePolicy("testQueuePolicy",
-            queue_url=queue.id,
-            policy=test_policy_document.json)
-        ```
 
         ## Import
 

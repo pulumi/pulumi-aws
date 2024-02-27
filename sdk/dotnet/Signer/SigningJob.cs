@@ -22,30 +22,30 @@ namespace Pulumi.Aws.Signer
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testSp = new Aws.Signer.SigningProfile("testSp", new()
+    ///     var testSp = new Aws.Signer.SigningProfile.SigningProfile("testSp", new()
     ///     {
     ///         PlatformId = "AWSLambda-SHA384-ECDSA",
     ///     });
     /// 
-    ///     var buildSigningJob = new Aws.Signer.SigningJob("buildSigningJob", new()
+    ///     var buildSigningJob = new Aws.Signer.SigningJob.SigningJob("buildSigningJob", new()
     ///     {
     ///         ProfileName = testSp.Name,
-    ///         Source = new Aws.Signer.Inputs.SigningJobSourceArgs
+    ///         Source = 
     ///         {
-    ///             S3 = new Aws.Signer.Inputs.SigningJobSourceS3Args
+    ///             { "s3", 
     ///             {
-    ///                 Bucket = "s3-bucket-name",
-    ///                 Key = "object-to-be-signed.zip",
-    ///                 Version = "jADjFYYYEXAMPLETszPjOmCMFDzd9dN1",
-    ///             },
+    ///                 { "bucket", "s3-bucket-name" },
+    ///                 { "key", "object-to-be-signed.zip" },
+    ///                 { "version", "jADjFYYYEXAMPLETszPjOmCMFDzd9dN1" },
+    ///             } },
     ///         },
-    ///         Destination = new Aws.Signer.Inputs.SigningJobDestinationArgs
+    ///         Destination = 
     ///         {
-    ///             S3 = new Aws.Signer.Inputs.SigningJobDestinationS3Args
+    ///             { "s3", 
     ///             {
-    ///                 Bucket = "s3-bucket-name",
-    ///                 Prefix = "signed/",
-    ///             },
+    ///                 { "bucket", "s3-bucket-name" },
+    ///                 { "prefix", "signed/" },
+    ///             } },
     ///         },
     ///         IgnoreSigningJobFailure = true,
     ///     });

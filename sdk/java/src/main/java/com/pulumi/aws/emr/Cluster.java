@@ -42,10 +42,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.emr.Cluster;
  * import com.pulumi.aws.emr.ClusterArgs;
- * import com.pulumi.aws.emr.inputs.ClusterEc2AttributesArgs;
- * import com.pulumi.aws.emr.inputs.ClusterMasterInstanceGroupArgs;
- * import com.pulumi.aws.emr.inputs.ClusterCoreInstanceGroupArgs;
- * import com.pulumi.aws.emr.inputs.ClusterBootstrapActionArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -72,70 +68,12 @@ import javax.annotation.Nullable;
  *             &#34;&#34;&#34;)
  *             .terminationProtection(false)
  *             .keepJobFlowAliveWhenNoSteps(true)
- *             .ec2Attributes(ClusterEc2AttributesArgs.builder()
- *                 .subnetId(aws_subnet.main().id())
- *                 .emrManagedMasterSecurityGroup(aws_security_group.sg().id())
- *                 .emrManagedSlaveSecurityGroup(aws_security_group.sg().id())
- *                 .instanceProfile(aws_iam_instance_profile.emr_profile().arn())
- *                 .build())
- *             .masterInstanceGroup(ClusterMasterInstanceGroupArgs.builder()
- *                 .instanceType(&#34;m4.large&#34;)
- *                 .build())
- *             .coreInstanceGroup(ClusterCoreInstanceGroupArgs.builder()
- *                 .instanceType(&#34;c4.large&#34;)
- *                 .instanceCount(1)
- *                 .ebsConfigs(ClusterCoreInstanceGroupEbsConfigArgs.builder()
- *                     .size(&#34;40&#34;)
- *                     .type(&#34;gp2&#34;)
- *                     .volumesPerInstance(1)
- *                     .build())
- *                 .bidPrice(&#34;0.30&#34;)
- *                 .autoscalingPolicy(&#34;&#34;&#34;
- * {
- * &#34;Constraints&#34;: {
- *   &#34;MinCapacity&#34;: 1,
- *   &#34;MaxCapacity&#34;: 2
- * },
- * &#34;Rules&#34;: [
- *   {
- *     &#34;Name&#34;: &#34;ScaleOutMemoryPercentage&#34;,
- *     &#34;Description&#34;: &#34;Scale out if YARNMemoryAvailablePercentage is less than 15&#34;,
- *     &#34;Action&#34;: {
- *       &#34;SimpleScalingPolicyConfiguration&#34;: {
- *         &#34;AdjustmentType&#34;: &#34;CHANGE_IN_CAPACITY&#34;,
- *         &#34;ScalingAdjustment&#34;: 1,
- *         &#34;CoolDown&#34;: 300
- *       }
- *     },
- *     &#34;Trigger&#34;: {
- *       &#34;CloudWatchAlarmDefinition&#34;: {
- *         &#34;ComparisonOperator&#34;: &#34;LESS_THAN&#34;,
- *         &#34;EvaluationPeriods&#34;: 1,
- *         &#34;MetricName&#34;: &#34;YARNMemoryAvailablePercentage&#34;,
- *         &#34;Namespace&#34;: &#34;AWS/ElasticMapReduce&#34;,
- *         &#34;Period&#34;: 300,
- *         &#34;Statistic&#34;: &#34;AVERAGE&#34;,
- *         &#34;Threshold&#34;: 15.0,
- *         &#34;Unit&#34;: &#34;PERCENT&#34;
- *       }
- *     }
- *   }
- * ]
- * }
- *                 &#34;&#34;&#34;)
- *                 .build())
+ *             .ec2Attributes(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .masterInstanceGroup(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .coreInstanceGroup(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .ebsRootVolumeSize(100)
- *             .tags(Map.ofEntries(
- *                 Map.entry(&#34;role&#34;, &#34;rolename&#34;),
- *                 Map.entry(&#34;env&#34;, &#34;env&#34;)
- *             ))
- *             .bootstrapActions(ClusterBootstrapActionArgs.builder()
- *                 .path(&#34;s3://elasticmapreduce/bootstrap-actions/run-if&#34;)
- *                 .name(&#34;runif&#34;)
- *                 .args(                
- *                     &#34;instance.isMaster=true&#34;,
- *                     &#34;echo running on master node&#34;)
- *                 .build())
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .bootstrapActions(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .configurationsJson(&#34;&#34;&#34;
  *   [
  *     {
@@ -183,13 +121,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.emr.Cluster;
  * import com.pulumi.aws.emr.ClusterArgs;
- * import com.pulumi.aws.emr.inputs.ClusterMasterInstanceFleetArgs;
- * import com.pulumi.aws.emr.inputs.ClusterCoreInstanceFleetArgs;
- * import com.pulumi.aws.emr.inputs.ClusterCoreInstanceFleetLaunchSpecificationsArgs;
  * import com.pulumi.aws.emr.InstanceFleet;
  * import com.pulumi.aws.emr.InstanceFleetArgs;
- * import com.pulumi.aws.emr.inputs.InstanceFleetInstanceTypeConfigArgs;
- * import com.pulumi.aws.emr.inputs.InstanceFleetLaunchSpecificationsArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -204,89 +137,16 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Cluster(&#34;example&#34;, ClusterArgs.builder()        
- *             .masterInstanceFleet(ClusterMasterInstanceFleetArgs.builder()
- *                 .instanceTypeConfigs(ClusterMasterInstanceFleetInstanceTypeConfigArgs.builder()
- *                     .instanceType(&#34;m4.xlarge&#34;)
- *                     .build())
- *                 .targetOnDemandCapacity(1)
- *                 .build())
- *             .coreInstanceFleet(ClusterCoreInstanceFleetArgs.builder()
- *                 .instanceTypeConfigs(                
- *                     ClusterCoreInstanceFleetInstanceTypeConfigArgs.builder()
- *                         .bidPriceAsPercentageOfOnDemandPrice(80)
- *                         .ebsConfigs(ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArgs.builder()
- *                             .size(100)
- *                             .type(&#34;gp2&#34;)
- *                             .volumesPerInstance(1)
- *                             .build())
- *                         .instanceType(&#34;m3.xlarge&#34;)
- *                         .weightedCapacity(1)
- *                         .build(),
- *                     ClusterCoreInstanceFleetInstanceTypeConfigArgs.builder()
- *                         .bidPriceAsPercentageOfOnDemandPrice(100)
- *                         .ebsConfigs(ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArgs.builder()
- *                             .size(100)
- *                             .type(&#34;gp2&#34;)
- *                             .volumesPerInstance(1)
- *                             .build())
- *                         .instanceType(&#34;m4.xlarge&#34;)
- *                         .weightedCapacity(1)
- *                         .build(),
- *                     ClusterCoreInstanceFleetInstanceTypeConfigArgs.builder()
- *                         .bidPriceAsPercentageOfOnDemandPrice(100)
- *                         .ebsConfigs(ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArgs.builder()
- *                             .size(100)
- *                             .type(&#34;gp2&#34;)
- *                             .volumesPerInstance(1)
- *                             .build())
- *                         .instanceType(&#34;m4.2xlarge&#34;)
- *                         .weightedCapacity(2)
- *                         .build())
- *                 .launchSpecifications(ClusterCoreInstanceFleetLaunchSpecificationsArgs.builder()
- *                     .spotSpecifications(ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationArgs.builder()
- *                         .allocationStrategy(&#34;capacity-optimized&#34;)
- *                         .blockDurationMinutes(0)
- *                         .timeoutAction(&#34;SWITCH_TO_ON_DEMAND&#34;)
- *                         .timeoutDurationMinutes(10)
- *                         .build())
- *                     .build())
- *                 .name(&#34;core fleet&#34;)
- *                 .targetOnDemandCapacity(2)
- *                 .targetSpotCapacity(2)
- *                 .build())
+ *             .masterInstanceFleet(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .coreInstanceFleet(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var task = new InstanceFleet(&#34;task&#34;, InstanceFleetArgs.builder()        
  *             .clusterId(example.id())
  *             .instanceTypeConfigs(            
- *                 InstanceFleetInstanceTypeConfigArgs.builder()
- *                     .bidPriceAsPercentageOfOnDemandPrice(100)
- *                     .ebsConfigs(InstanceFleetInstanceTypeConfigEbsConfigArgs.builder()
- *                         .size(100)
- *                         .type(&#34;gp2&#34;)
- *                         .volumesPerInstance(1)
- *                         .build())
- *                     .instanceType(&#34;m4.xlarge&#34;)
- *                     .weightedCapacity(1)
- *                     .build(),
- *                 InstanceFleetInstanceTypeConfigArgs.builder()
- *                     .bidPriceAsPercentageOfOnDemandPrice(100)
- *                     .ebsConfigs(InstanceFleetInstanceTypeConfigEbsConfigArgs.builder()
- *                         .size(100)
- *                         .type(&#34;gp2&#34;)
- *                         .volumesPerInstance(1)
- *                         .build())
- *                     .instanceType(&#34;m4.2xlarge&#34;)
- *                     .weightedCapacity(2)
- *                     .build())
- *             .launchSpecifications(InstanceFleetLaunchSpecificationsArgs.builder()
- *                 .spotSpecifications(InstanceFleetLaunchSpecificationsSpotSpecificationArgs.builder()
- *                     .allocationStrategy(&#34;capacity-optimized&#34;)
- *                     .blockDurationMinutes(0)
- *                     .timeoutAction(&#34;TERMINATE_CLUSTER&#34;)
- *                     .timeoutDurationMinutes(10)
- *                     .build())
- *                 .build())
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .launchSpecifications(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .targetOnDemandCapacity(1)
  *             .targetSpotCapacity(1)
  *             .build());
@@ -305,8 +165,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.emr.Cluster;
  * import com.pulumi.aws.emr.ClusterArgs;
- * import com.pulumi.aws.emr.inputs.ClusterStepArgs;
- * import com.pulumi.aws.emr.inputs.ClusterStepHadoopJarStepArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -321,14 +179,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Cluster(&#34;example&#34;, ClusterArgs.builder()        
- *             .steps(ClusterStepArgs.builder()
- *                 .actionOnFailure(&#34;TERMINATE_CLUSTER&#34;)
- *                 .name(&#34;Setup Hadoop Debugging&#34;)
- *                 .hadoopJarStep(ClusterStepHadoopJarStepArgs.builder()
- *                     .jar(&#34;command-runner.jar&#34;)
- *                     .args(&#34;state-pusher-script&#34;)
- *                     .build())
- *                 .build())
+ *             .steps(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -347,9 +198,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.ec2.SubnetArgs;
  * import com.pulumi.aws.emr.Cluster;
  * import com.pulumi.aws.emr.ClusterArgs;
- * import com.pulumi.aws.emr.inputs.ClusterEc2AttributesArgs;
- * import com.pulumi.aws.emr.inputs.ClusterMasterInstanceGroupArgs;
- * import com.pulumi.aws.emr.inputs.ClusterCoreInstanceGroupArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -370,12 +218,8 @@ import javax.annotation.Nullable;
  *         var exampleCluster = new Cluster(&#34;exampleCluster&#34;, ClusterArgs.builder()        
  *             .releaseLabel(&#34;emr-5.24.1&#34;)
  *             .terminationProtection(true)
- *             .ec2Attributes(ClusterEc2AttributesArgs.builder()
- *                 .subnetId(exampleSubnet.id())
- *                 .build())
- *             .masterInstanceGroup(ClusterMasterInstanceGroupArgs.builder()
- *                 .instanceCount(3)
- *                 .build())
+ *             .ec2Attributes(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .masterInstanceGroup(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .coreInstanceGroup()
  *             .build());
  * 

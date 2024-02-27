@@ -279,13 +279,13 @@ class ClusterParameterGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.docdb.ClusterParameterGroup("example",
-            description="docdb cluster parameter group",
-            family="docdb3.6",
-            parameters=[aws.docdb.ClusterParameterGroupParameterArgs(
-                name="tls",
-                value="enabled",
-            )])
+        example = aws.docdb.cluster_parameter_group.ClusterParameterGroup("example",
+            description=docdb cluster parameter group,
+            family=docdb3.6,
+            parameters=[{
+                name: tls,
+                value: enabled,
+            }])
         ```
 
         ## Import
@@ -320,13 +320,13 @@ class ClusterParameterGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.docdb.ClusterParameterGroup("example",
-            description="docdb cluster parameter group",
-            family="docdb3.6",
-            parameters=[aws.docdb.ClusterParameterGroupParameterArgs(
-                name="tls",
-                value="enabled",
-            )])
+        example = aws.docdb.cluster_parameter_group.ClusterParameterGroup("example",
+            description=docdb cluster parameter group,
+            family=docdb3.6,
+            parameters=[{
+                name: tls,
+                value: enabled,
+            }])
         ```
 
         ## Import

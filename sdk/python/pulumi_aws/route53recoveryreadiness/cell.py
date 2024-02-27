@@ -202,7 +202,7 @@ class Cell(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.route53recoveryreadiness.Cell("example", cell_name="us-west-2-failover-cell")
+        example = aws.route53recoveryreadiness.cell.Cell("example", cell_name=us-west-2-failover-cell)
         ```
 
         ## Import
@@ -236,7 +236,7 @@ class Cell(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.route53recoveryreadiness.Cell("example", cell_name="us-west-2-failover-cell")
+        example = aws.route53recoveryreadiness.cell.Cell("example", cell_name=us-west-2-failover-cell)
         ```
 
         ## Import

@@ -106,9 +106,9 @@ class DomainNameApiAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.appsync.DomainNameApiAssociation("example",
-            api_id=aws_appsync_graphql_api["example"]["id"],
-            domain_name=aws_appsync_domain_name["example"]["domain_name"])
+        example = aws.appsync.domain_name_api_association.DomainNameApiAssociation("example",
+            api_id=aws_appsync_graphql_api.example.id,
+            domain_name=aws_appsync_domain_name.example.domain_name)
         ```
 
         ## Import
@@ -139,9 +139,9 @@ class DomainNameApiAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.appsync.DomainNameApiAssociation("example",
-            api_id=aws_appsync_graphql_api["example"]["id"],
-            domain_name=aws_appsync_domain_name["example"]["domain_name"])
+        example = aws.appsync.domain_name_api_association.DomainNameApiAssociation("example",
+            api_id=aws_appsync_graphql_api.example.id,
+            domain_name=aws_appsync_domain_name.example.domain_name)
         ```
 
         ## Import

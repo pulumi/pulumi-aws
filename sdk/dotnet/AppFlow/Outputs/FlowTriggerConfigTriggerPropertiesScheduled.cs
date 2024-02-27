@@ -39,6 +39,31 @@ namespace Pulumi.Aws.AppFlow.Outputs
         public readonly string? ScheduleStartTime;
         /// <summary>
         /// Time zone used when referring to the date and time of a scheduled-triggered flow, such as `America/New_York`.
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = new Aws.Appflow.Flow.Flow("example", new()
+        ///     {
+        ///         TriggerConfig = 
+        ///         {
+        ///             { "scheduled", new[]
+        ///             {
+        ///                 
+        ///                 {
+        ///                     { "scheduleExpression", "rate(1minutes)" },
+        ///                 },
+        ///             } },
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
         /// </summary>
         public readonly string? Timezone;
 

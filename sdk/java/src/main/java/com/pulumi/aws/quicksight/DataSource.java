@@ -33,9 +33,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.quicksight.DataSource;
  * import com.pulumi.aws.quicksight.DataSourceArgs;
- * import com.pulumi.aws.quicksight.inputs.DataSourceParametersArgs;
- * import com.pulumi.aws.quicksight.inputs.DataSourceParametersS3Args;
- * import com.pulumi.aws.quicksight.inputs.DataSourceParametersS3ManifestFileLocationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -51,14 +48,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var default_ = new DataSource(&#34;default&#34;, DataSourceArgs.builder()        
  *             .dataSourceId(&#34;example-id&#34;)
- *             .parameters(DataSourceParametersArgs.builder()
- *                 .s3(DataSourceParametersS3Args.builder()
- *                     .manifestFileLocation(DataSourceParametersS3ManifestFileLocationArgs.builder()
- *                         .bucket(&#34;my-bucket&#34;)
- *                         .key(&#34;path/to/manifest.json&#34;)
- *                         .build())
- *                     .build())
- *                 .build())
+ *             .parameters(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .type(&#34;S3&#34;)
  *             .build());
  * 

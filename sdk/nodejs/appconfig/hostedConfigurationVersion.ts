@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.appconfig.HostedConfigurationVersion("example", {
+ * const example = new aws.appconfig/hostedConfigurationVersion.HostedConfigurationVersion("example", {
  *     applicationId: aws_appconfig_application.example.id,
  *     configurationProfileId: aws_appconfig_configuration_profile.example.configuration_profile_id,
  *     description: "Example Freeform Hosted Configuration Version",
@@ -36,7 +36,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.appconfig.HostedConfigurationVersion("example", {
+ * const example = new aws.appconfig/hostedConfigurationVersion.HostedConfigurationVersion("example", {
  *     applicationId: aws_appconfig_application.example.id,
  *     configurationProfileId: aws_appconfig_configuration_profile.example.configuration_profile_id,
  *     description: "Example Feature Flag Configuration Version",

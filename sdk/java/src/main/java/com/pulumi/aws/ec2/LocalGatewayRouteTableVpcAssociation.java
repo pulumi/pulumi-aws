@@ -18,49 +18,6 @@ import javax.annotation.Nullable;
 /**
  * Manages an EC2 Local Gateway Route Table VPC Association. More information can be found in the [Outposts User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-local-gateways.html#vpc-associations).
  * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ec2.Ec2Functions;
- * import com.pulumi.aws.ec2.inputs.GetLocalGatewayRouteTableArgs;
- * import com.pulumi.aws.ec2.Vpc;
- * import com.pulumi.aws.ec2.VpcArgs;
- * import com.pulumi.aws.ec2.LocalGatewayRouteTableVpcAssociation;
- * import com.pulumi.aws.ec2.LocalGatewayRouteTableVpcAssociationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var exampleLocalGatewayRouteTable = Ec2Functions.getLocalGatewayRouteTable(GetLocalGatewayRouteTableArgs.builder()
- *             .outpostArn(&#34;arn:aws:outposts:us-west-2:123456789012:outpost/op-1234567890abcdef&#34;)
- *             .build());
- * 
- *         var exampleVpc = new Vpc(&#34;exampleVpc&#34;, VpcArgs.builder()        
- *             .cidrBlock(&#34;10.0.0.0/16&#34;)
- *             .build());
- * 
- *         var exampleLocalGatewayRouteTableVpcAssociation = new LocalGatewayRouteTableVpcAssociation(&#34;exampleLocalGatewayRouteTableVpcAssociation&#34;, LocalGatewayRouteTableVpcAssociationArgs.builder()        
- *             .localGatewayRouteTableId(exampleLocalGatewayRouteTable.applyValue(getLocalGatewayRouteTableResult -&gt; getLocalGatewayRouteTableResult.id()))
- *             .vpcId(exampleVpc.id())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
  * ## Import
  * 
  * Using `pulumi import`, import `aws_ec2_local_gateway_route_table_vpc_association` using the Local Gateway Route Table VPC Association identifier. For example:

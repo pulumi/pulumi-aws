@@ -100,33 +100,6 @@ class LogService(pulumi.CustomResource):
         """
         Provides a Log subscription for AWS Directory Service that pushes logs to cloudwatch.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_log_group = aws.cloudwatch.LogGroup("exampleLogGroup", retention_in_days=14)
-        ad_log_policy_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            actions=[
-                "logs:CreateLogStream",
-                "logs:PutLogEvents",
-            ],
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                identifiers=["ds.amazonaws.com"],
-                type="Service",
-            )],
-            resources=[example_log_group.arn.apply(lambda arn: f"{arn}:*")],
-            effect="Allow",
-        )])
-        ad_log_policy_log_resource_policy = aws.cloudwatch.LogResourcePolicy("ad-log-policyLogResourcePolicy",
-            policy_document=ad_log_policy_policy_document.json,
-            policy_name="ad-log-policy")
-        example_log_service = aws.directoryservice.LogService("exampleLogService",
-            directory_id=aws_directory_service_directory["example"]["id"],
-            log_group_name=example_log_group.name)
-        ```
-
         ## Import
 
         Using `pulumi import`, import Directory Service Log Subscriptions using the directory id. For example:
@@ -148,33 +121,6 @@ class LogService(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Log subscription for AWS Directory Service that pushes logs to cloudwatch.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_log_group = aws.cloudwatch.LogGroup("exampleLogGroup", retention_in_days=14)
-        ad_log_policy_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            actions=[
-                "logs:CreateLogStream",
-                "logs:PutLogEvents",
-            ],
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                identifiers=["ds.amazonaws.com"],
-                type="Service",
-            )],
-            resources=[example_log_group.arn.apply(lambda arn: f"{arn}:*")],
-            effect="Allow",
-        )])
-        ad_log_policy_log_resource_policy = aws.cloudwatch.LogResourcePolicy("ad-log-policyLogResourcePolicy",
-            policy_document=ad_log_policy_policy_document.json,
-            policy_name="ad-log-policy")
-        example_log_service = aws.directoryservice.LogService("exampleLogService",
-            directory_id=aws_directory_service_directory["example"]["id"],
-            log_group_name=example_log_group.name)
-        ```
 
         ## Import
 

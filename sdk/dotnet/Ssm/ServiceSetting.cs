@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Ssm
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testSetting = new Aws.Ssm.ServiceSetting("testSetting", new()
+    ///     var testSetting = new Aws.Ssm.ServiceSetting.ServiceSetting("testSetting", new()
     ///     {
     ///         SettingId = "arn:aws:ssm:us-east-1:123456789012:servicesetting/ssm/parameter-store/high-throughput-enabled",
     ///         SettingValue = "true",

@@ -270,9 +270,9 @@ class EndpointAccess(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.redshiftserverless.EndpointAccess("example",
-            endpoint_name="example",
-            workgroup_name="example")
+        example = aws.redshiftserverless.endpoint_access.EndpointAccess("example",
+            endpoint_name=example,
+            workgroup_name=example)
         ```
 
         ## Import
@@ -306,9 +306,9 @@ class EndpointAccess(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.redshiftserverless.EndpointAccess("example",
-            endpoint_name="example",
-            workgroup_name="example")
+        example = aws.redshiftserverless.endpoint_access.EndpointAccess("example",
+            endpoint_name=example,
+            workgroup_name=example)
         ```
 
         ## Import

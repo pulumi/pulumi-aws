@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const contractors = new aws.workspaces.IpGroup("contractors", {
+ * const contractors = new aws.workspaces/ipGroup.IpGroup("contractors", {
  *     description: "Contractors IP access control group",
  *     rules: [
  *         {

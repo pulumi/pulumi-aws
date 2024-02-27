@@ -22,25 +22,25 @@ namespace Pulumi.Aws.GuardDuty
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var primary = new Aws.Provider("primary");
+    ///     var primary = new Pulumi.Providers.Aws("primary");
     /// 
-    ///     var member = new Aws.Provider("member");
+    ///     var member = new Pulumi.Providers.Aws("member");
     /// 
-    ///     var primaryDetector = new Aws.GuardDuty.Detector("primaryDetector", new()
+    ///     var primaryDetector = new Aws.Guardduty.Detector.Detector("primaryDetector", new()
     ///     {
     ///     }, new CustomResourceOptions
     ///     {
     ///         Provider = aws.Primary,
     ///     });
     /// 
-    ///     var memberDetector = new Aws.GuardDuty.Detector("memberDetector", new()
+    ///     var memberDetector = new Aws.Guardduty.Detector.Detector("memberDetector", new()
     ///     {
     ///     }, new CustomResourceOptions
     ///     {
     ///         Provider = aws.Member,
     ///     });
     /// 
-    ///     var memberMember = new Aws.GuardDuty.Member("memberMember", new()
+    ///     var memberMember = new Aws.Guardduty.Member.Member("memberMember", new()
     ///     {
     ///         AccountId = memberDetector.AccountId,
     ///         DetectorId = primaryDetector.Id,
@@ -51,7 +51,7 @@ namespace Pulumi.Aws.GuardDuty
     ///         Provider = aws.Primary,
     ///     });
     /// 
-    ///     var memberInviteAccepter = new Aws.GuardDuty.InviteAccepter("memberInviteAccepter", new()
+    ///     var memberInviteAccepter = new Aws.Guardduty.InviteAccepter.InviteAccepter("memberInviteAccepter", new()
     ///     {
     ///         DetectorId = memberDetector.Id,
     ///         MasterAccountId = primaryDetector.AccountId,

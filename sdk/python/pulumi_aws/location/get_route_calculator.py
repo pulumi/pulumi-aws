@@ -131,15 +131,6 @@ def get_route_calculator(calculator_name: Optional[str] = None,
     """
     Retrieve information about a Location Service Route Calculator.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.location.get_route_calculator(calculator_name="example")
-    ```
-
 
     :param str calculator_name: Name of the route calculator resource.
     :param Mapping[str, str] tags: Key-value map of resource tags for the route calculator.
@@ -167,15 +158,6 @@ def get_route_calculator_output(calculator_name: Optional[pulumi.Input[str]] = N
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRouteCalculatorResult]:
     """
     Retrieve information about a Location Service Route Calculator.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.location.get_route_calculator(calculator_name="example")
-    ```
 
 
     :param str calculator_name: Name of the route calculator resource.

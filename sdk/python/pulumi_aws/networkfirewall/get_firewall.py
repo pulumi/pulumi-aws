@@ -209,31 +209,6 @@ def get_firewall(arn: Optional[str] = None,
     Retrieve information about a firewall.
 
     ## Example Usage
-    ### Find firewall policy by ARN
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.networkfirewall.get_firewall(arn=aws_networkfirewall_firewall["arn"])
-    ```
-    ### Find firewall policy by Name
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.networkfirewall.get_firewall(name="Test")
-    ```
-    ### Find firewall policy by ARN and Name
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.networkfirewall.get_firewall(arn=aws_networkfirewall_firewall["arn"],
-        name="Test")
-    ```
 
 
     :param str arn: ARN of the firewall.
@@ -273,31 +248,6 @@ def get_firewall_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
     Retrieve information about a firewall.
 
     ## Example Usage
-    ### Find firewall policy by ARN
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.networkfirewall.get_firewall(arn=aws_networkfirewall_firewall["arn"])
-    ```
-    ### Find firewall policy by Name
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.networkfirewall.get_firewall(name="Test")
-    ```
-    ### Find firewall policy by ARN and Name
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.networkfirewall.get_firewall(arn=aws_networkfirewall_firewall["arn"],
-        name="Test")
-    ```
 
 
     :param str arn: ARN of the firewall.

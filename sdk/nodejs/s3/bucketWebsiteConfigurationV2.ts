@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.s3.BucketWebsiteConfigurationV2("example", {
+ * const example = new aws.s3/bucketWebsiteConfigurationV2.BucketWebsiteConfigurationV2("example", {
  *     bucket: aws_s3_bucket.example.id,
  *     indexDocument: {
  *         suffix: "index.html",
@@ -43,7 +43,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.s3.BucketWebsiteConfigurationV2("example", {
+ * const example = new aws.s3/bucketWebsiteConfigurationV2.BucketWebsiteConfigurationV2("example", {
  *     bucket: aws_s3_bucket.example.id,
  *     indexDocument: {
  *         suffix: "index.html",

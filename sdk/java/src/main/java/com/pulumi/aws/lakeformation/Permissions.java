@@ -30,65 +30,6 @@ import javax.annotation.Nullable;
  * &gt; **NOTE:** In general, the `principal` should _NOT_ be a Lake Formation administrator or the entity (e.g., IAM role) that is running the deployment. Administrators have implicit permissions. These should be managed by granting or not granting administrator rights using `aws.lakeformation.DataLakeSettings`, _not_ with this resource.
  * 
  * ## Default Behavior and `IAMAllowedPrincipals`
- * 
- * **_Lake Formation permissions are not in effect by default within AWS._** `IAMAllowedPrincipals` (i.e., `IAM_ALLOWED_PRINCIPALS`) conflicts with individual Lake Formation permissions (i.e., non-`IAMAllowedPrincipals` permissions), will cause unexpected behavior, and may result in errors.
- * 
- * When using Lake Formation, choose ONE of the following options as they are mutually exclusive:
- * 
- * 1. Use this resource (`aws.lakeformation.Permissions`), change the default security settings using `aws.lakeformation.DataLakeSettings`, and remove existing `IAMAllowedPrincipals` permissions
- * 2. Use `IAMAllowedPrincipals` without `aws.lakeformation.Permissions`
- * 
- * This example shows removing the `IAMAllowedPrincipals` default security settings and making the caller a Lake Formation admin. Since `create_database_default_permissions` and `create_table_default_permissions` are not set in the `aws.lakeformation.DataLakeSettings` resource, they are cleared.
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.AwsFunctions;
- * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
- * import com.pulumi.aws.iam.IamFunctions;
- * import com.pulumi.aws.iam.inputs.GetSessionContextArgs;
- * import com.pulumi.aws.lakeformation.DataLakeSettings;
- * import com.pulumi.aws.lakeformation.DataLakeSettingsArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var currentCallerIdentity = AwsFunctions.getCallerIdentity();
- * 
- *         final var currentSessionContext = IamFunctions.getSessionContext(GetSessionContextArgs.builder()
- *             .arn(currentCallerIdentity.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.arn()))
- *             .build());
- * 
- *         var test = new DataLakeSettings(&#34;test&#34;, DataLakeSettingsArgs.builder()        
- *             .admins(currentSessionContext.applyValue(getSessionContextResult -&gt; getSessionContextResult.issuerArn()))
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * To remove existing `IAMAllowedPrincipals` permissions, use the [AWS Lake Formation Console](https://console.aws.amazon.com/lakeformation/) or [AWS CLI](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lakeformation/batch-revoke-permissions.html).
- * 
- * `IAMAllowedPrincipals` is a hook to maintain backwards compatibility with AWS Glue. `IAMAllowedPrincipals` is a pseudo-entity group that acts like a Lake Formation principal. The group includes any IAM users and roles that are allowed access to your Data Catalog resources by your IAM policies.
- * 
- * This is Lake Formation&#39;s default behavior:
- * 
- * * Lake Formation grants `Super` permission to `IAMAllowedPrincipals` on all existing AWS Glue Data Catalog resources.
- * * Lake Formation enables &#34;Use only IAM access control&#34; for new Data Catalog resources.
- * 
- * For more details, see [Changing the Default Security Settings for Your Data Lake](https://docs.aws.amazon.com/lake-formation/latest/dg/change-settings.html).
- * 
  * ### Problem Using `IAMAllowedPrincipals`
  * 
  * AWS does not support combining `IAMAllowedPrincipals` permissions and non-`IAMAllowedPrincipals` permissions. Doing so results in unexpected permissions and behaviors. For example, this configuration grants a user `SELECT` on a column in a table.
@@ -102,10 +43,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.glue.CatalogDatabaseArgs;
  * import com.pulumi.aws.glue.CatalogTable;
  * import com.pulumi.aws.glue.CatalogTableArgs;
- * import com.pulumi.aws.glue.inputs.CatalogTableStorageDescriptorArgs;
  * import com.pulumi.aws.lakeformation.Permissions;
  * import com.pulumi.aws.lakeformation.PermissionsArgs;
- * import com.pulumi.aws.lakeformation.inputs.PermissionsTableWithColumnsArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -126,22 +65,13 @@ import javax.annotation.Nullable;
  *         var exampleCatalogTable = new CatalogTable(&#34;exampleCatalogTable&#34;, CatalogTableArgs.builder()        
  *             .name(&#34;abelt&#34;)
  *             .databaseName(aws_glue_catalog_database.test().name())
- *             .storageDescriptor(CatalogTableStorageDescriptorArgs.builder()
- *                 .columns(CatalogTableStorageDescriptorColumnArgs.builder()
- *                     .name(&#34;event&#34;)
- *                     .type(&#34;string&#34;)
- *                     .build())
- *                 .build())
+ *             .storageDescriptor(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var examplePermissions = new Permissions(&#34;examplePermissions&#34;, PermissionsArgs.builder()        
  *             .permissions(&#34;SELECT&#34;)
  *             .principal(&#34;arn:aws:iam:us-east-1:123456789012:user/SanHolo&#34;)
- *             .tableWithColumns(PermissionsTableWithColumnsArgs.builder()
- *                 .databaseName(exampleCatalogTable.databaseName())
- *                 .name(exampleCatalogTable.name())
- *                 .columnNames(&#34;event&#34;)
- *                 .build())
+ *             .tableWithColumns(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -172,7 +102,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.lakeformation.Permissions;
  * import com.pulumi.aws.lakeformation.PermissionsArgs;
- * import com.pulumi.aws.lakeformation.inputs.PermissionsDataLocationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -189,9 +118,7 @@ import javax.annotation.Nullable;
  *         var example = new Permissions(&#34;example&#34;, PermissionsArgs.builder()        
  *             .principal(aws_iam_role.workflow_role().arn())
  *             .permissions(&#34;DATA_LOCATION_ACCESS&#34;)
- *             .dataLocation(PermissionsDataLocationArgs.builder()
- *                 .arn(aws_lakeformation_resource.example().arn())
- *                 .build())
+ *             .dataLocation(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -206,7 +133,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.lakeformation.Permissions;
  * import com.pulumi.aws.lakeformation.PermissionsArgs;
- * import com.pulumi.aws.lakeformation.inputs.PermissionsDatabaseArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -226,10 +152,7 @@ import javax.annotation.Nullable;
  *                 &#34;CREATE_TABLE&#34;,
  *                 &#34;ALTER&#34;,
  *                 &#34;DROP&#34;)
- *             .database(PermissionsDatabaseArgs.builder()
- *                 .name(aws_glue_catalog_database.example().name())
- *                 .catalogId(&#34;110376042874&#34;)
- *                 .build())
+ *             .database(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -244,7 +167,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.lakeformation.Permissions;
  * import com.pulumi.aws.lakeformation.PermissionsArgs;
- * import com.pulumi.aws.lakeformation.inputs.PermissionsLfTagPolicyArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -264,20 +186,7 @@ import javax.annotation.Nullable;
  *                 &#34;CREATE_TABLE&#34;,
  *                 &#34;ALTER&#34;,
  *                 &#34;DROP&#34;)
- *             .lfTagPolicy(PermissionsLfTagPolicyArgs.builder()
- *                 .resourceType(&#34;DATABASE&#34;)
- *                 .expressions(                
- *                     PermissionsLfTagPolicyExpressionArgs.builder()
- *                         .key(&#34;Team&#34;)
- *                         .values(&#34;Sales&#34;)
- *                         .build(),
- *                     PermissionsLfTagPolicyExpressionArgs.builder()
- *                         .key(&#34;Environment&#34;)
- *                         .values(                        
- *                             &#34;Dev&#34;,
- *                             &#34;Production&#34;)
- *                         .build())
- *                 .build())
+ *             .lfTagPolicy(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

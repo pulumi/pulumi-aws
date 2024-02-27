@@ -22,23 +22,21 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/emr"
+//	emr/blockPublicAccessConfiguration "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/emr/blockPublicAccessConfiguration"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := emr.NewBlockPublicAccessConfiguration(ctx, "example", &emr.BlockPublicAccessConfigurationArgs{
-//				BlockPublicSecurityGroupRules: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := emr/blockPublicAccessConfiguration.NewBlockPublicAccessConfiguration(ctx, "example", &emr/blockPublicAccessConfiguration.BlockPublicAccessConfigurationArgs{
+// BlockPublicSecurityGroupRules: true,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Default Configuration
 //
@@ -49,29 +47,27 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/emr"
+//	emr/blockPublicAccessConfiguration "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/emr/blockPublicAccessConfiguration"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := emr.NewBlockPublicAccessConfiguration(ctx, "example", &emr.BlockPublicAccessConfigurationArgs{
-//				BlockPublicSecurityGroupRules: pulumi.Bool(true),
-//				PermittedPublicSecurityGroupRuleRanges: emr.BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArray{
-//					&emr.BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgs{
-//						MaxRange: pulumi.Int(22),
-//						MinRange: pulumi.Int(22),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := emr/blockPublicAccessConfiguration.NewBlockPublicAccessConfiguration(ctx, "example", &emr/blockPublicAccessConfiguration.BlockPublicAccessConfigurationArgs{
+// BlockPublicSecurityGroupRules: true,
+// PermittedPublicSecurityGroupRuleRanges: []map[string]interface{}{
+// map[string]interface{}{
+// "maxRange": 22,
+// "minRange": 22,
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // > **NOTE:** If an `emr.BlockPublicAccessConfiguration` resource is destroyed, the configuration will reset to this default configuration.
@@ -84,33 +80,31 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/emr"
+//	emr/blockPublicAccessConfiguration "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/emr/blockPublicAccessConfiguration"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := emr.NewBlockPublicAccessConfiguration(ctx, "example", &emr.BlockPublicAccessConfigurationArgs{
-//				BlockPublicSecurityGroupRules: pulumi.Bool(true),
-//				PermittedPublicSecurityGroupRuleRanges: emr.BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArray{
-//					&emr.BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgs{
-//						MaxRange: pulumi.Int(22),
-//						MinRange: pulumi.Int(22),
-//					},
-//					&emr.BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgs{
-//						MaxRange: pulumi.Int(101),
-//						MinRange: pulumi.Int(100),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := emr/blockPublicAccessConfiguration.NewBlockPublicAccessConfiguration(ctx, "example", &emr/blockPublicAccessConfiguration.BlockPublicAccessConfigurationArgs{
+// BlockPublicSecurityGroupRules: true,
+// PermittedPublicSecurityGroupRuleRanges: []interface{}{
+// map[string]interface{}{
+// "maxRange": 22,
+// "minRange": 22,
+// },
+// map[string]interface{}{
+// "maxRange": 101,
+// "minRange": 100,
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Disabling Block Public Access
 //
@@ -121,23 +115,21 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/emr"
+//	emr/blockPublicAccessConfiguration "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/emr/blockPublicAccessConfiguration"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := emr.NewBlockPublicAccessConfiguration(ctx, "example", &emr.BlockPublicAccessConfigurationArgs{
-//				BlockPublicSecurityGroupRules: pulumi.Bool(false),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := emr/blockPublicAccessConfiguration.NewBlockPublicAccessConfiguration(ctx, "example", &emr/blockPublicAccessConfiguration.BlockPublicAccessConfigurationArgs{
+// BlockPublicSecurityGroupRules: false,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

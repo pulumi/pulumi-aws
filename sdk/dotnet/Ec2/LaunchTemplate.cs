@@ -30,87 +30,87 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var foo = new Aws.Ec2.LaunchTemplate("foo", new()
+    ///     var foo = new Aws.Ec2.LaunchTemplate.LaunchTemplate("foo", new()
     ///     {
     ///         BlockDeviceMappings = new[]
     ///         {
-    ///             new Aws.Ec2.Inputs.LaunchTemplateBlockDeviceMappingArgs
+    ///             
     ///             {
-    ///                 DeviceName = "/dev/sdf",
-    ///                 Ebs = new Aws.Ec2.Inputs.LaunchTemplateBlockDeviceMappingEbsArgs
+    ///                 { "deviceName", "/dev/sdf" },
+    ///                 { "ebs", 
     ///                 {
-    ///                     VolumeSize = 20,
-    ///                 },
+    ///                     { "volumeSize", 20 },
+    ///                 } },
     ///             },
     ///         },
-    ///         CapacityReservationSpecification = new Aws.Ec2.Inputs.LaunchTemplateCapacityReservationSpecificationArgs
+    ///         CapacityReservationSpecification = 
     ///         {
-    ///             CapacityReservationPreference = "open",
+    ///             { "capacityReservationPreference", "open" },
     ///         },
-    ///         CpuOptions = new Aws.Ec2.Inputs.LaunchTemplateCpuOptionsArgs
+    ///         CpuOptions = 
     ///         {
-    ///             CoreCount = 4,
-    ///             ThreadsPerCore = 2,
+    ///             { "coreCount", 4 },
+    ///             { "threadsPerCore", 2 },
     ///         },
-    ///         CreditSpecification = new Aws.Ec2.Inputs.LaunchTemplateCreditSpecificationArgs
+    ///         CreditSpecification = 
     ///         {
-    ///             CpuCredits = "standard",
+    ///             { "cpuCredits", "standard" },
     ///         },
     ///         DisableApiStop = true,
     ///         DisableApiTermination = true,
-    ///         EbsOptimized = "true",
+    ///         EbsOptimized = true,
     ///         ElasticGpuSpecifications = new[]
     ///         {
-    ///             new Aws.Ec2.Inputs.LaunchTemplateElasticGpuSpecificationArgs
+    ///             
     ///             {
-    ///                 Type = "test",
+    ///                 { "type", "test" },
     ///             },
     ///         },
-    ///         ElasticInferenceAccelerator = new Aws.Ec2.Inputs.LaunchTemplateElasticInferenceAcceleratorArgs
+    ///         ElasticInferenceAccelerator = 
     ///         {
-    ///             Type = "eia1.medium",
+    ///             { "type", "eia1.medium" },
     ///         },
-    ///         IamInstanceProfile = new Aws.Ec2.Inputs.LaunchTemplateIamInstanceProfileArgs
+    ///         IamInstanceProfile = 
     ///         {
-    ///             Name = "test",
+    ///             { "name", "test" },
     ///         },
     ///         ImageId = "ami-test",
     ///         InstanceInitiatedShutdownBehavior = "terminate",
-    ///         InstanceMarketOptions = new Aws.Ec2.Inputs.LaunchTemplateInstanceMarketOptionsArgs
+    ///         InstanceMarketOptions = 
     ///         {
-    ///             MarketType = "spot",
+    ///             { "marketType", "spot" },
     ///         },
     ///         InstanceType = "t2.micro",
     ///         KernelId = "test",
     ///         KeyName = "test",
     ///         LicenseSpecifications = new[]
     ///         {
-    ///             new Aws.Ec2.Inputs.LaunchTemplateLicenseSpecificationArgs
+    ///             
     ///             {
-    ///                 LicenseConfigurationArn = "arn:aws:license-manager:eu-west-1:123456789012:license-configuration:lic-0123456789abcdef0123456789abcdef",
+    ///                 { "licenseConfigurationArn", "arn:aws:license-manager:eu-west-1:123456789012:license-configuration:lic-0123456789abcdef0123456789abcdef" },
     ///             },
     ///         },
-    ///         MetadataOptions = new Aws.Ec2.Inputs.LaunchTemplateMetadataOptionsArgs
+    ///         MetadataOptions = 
     ///         {
-    ///             HttpEndpoint = "enabled",
-    ///             HttpTokens = "required",
-    ///             HttpPutResponseHopLimit = 1,
-    ///             InstanceMetadataTags = "enabled",
+    ///             { "httpEndpoint", "enabled" },
+    ///             { "httpTokens", "required" },
+    ///             { "httpPutResponseHopLimit", 1 },
+    ///             { "instanceMetadataTags", "enabled" },
     ///         },
-    ///         Monitoring = new Aws.Ec2.Inputs.LaunchTemplateMonitoringArgs
+    ///         Monitoring = 
     ///         {
-    ///             Enabled = true,
+    ///             { "enabled", true },
     ///         },
     ///         NetworkInterfaces = new[]
     ///         {
-    ///             new Aws.Ec2.Inputs.LaunchTemplateNetworkInterfaceArgs
+    ///             
     ///             {
-    ///                 AssociatePublicIpAddress = "true",
+    ///                 { "associatePublicIpAddress", true },
     ///             },
     ///         },
-    ///         Placement = new Aws.Ec2.Inputs.LaunchTemplatePlacementArgs
+    ///         Placement = 
     ///         {
-    ///             AvailabilityZone = "us-west-2a",
+    ///             { "availabilityZone", "us-west-2a" },
     ///         },
     ///         RamDiskId = "test",
     ///         VpcSecurityGroupIds = new[]
@@ -119,13 +119,13 @@ namespace Pulumi.Aws.Ec2
     ///         },
     ///         TagSpecifications = new[]
     ///         {
-    ///             new Aws.Ec2.Inputs.LaunchTemplateTagSpecificationArgs
+    ///             
     ///             {
-    ///                 ResourceType = "instance",
-    ///                 Tags = 
+    ///                 { "resourceType", "instance" },
+    ///                 { "tags", 
     ///                 {
     ///                     { "Name", "test" },
-    ///                 },
+    ///                 } },
     ///             },
     ///         },
     ///         UserData = ReadFileBase64($"{path.Module}/example.sh"),

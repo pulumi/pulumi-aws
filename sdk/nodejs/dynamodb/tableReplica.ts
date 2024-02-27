@@ -18,9 +18,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const main = new aws.Provider("main", {region: "us-west-2"});
- * const alt = new aws.Provider("alt", {region: "us-east-2"});
- * const exampleTable = new aws.dynamodb.Table("exampleTable", {
+ * const main = new pulumi.providers.Aws("main", {region: "us-west-2"});
+ * const alt = new pulumi.providers.Aws("alt", {region: "us-east-2"});
+ * const exampleTable = new aws.dynamodb/table.Table("exampleTable", {
  *     hashKey: "BrodoBaggins",
  *     billingMode: "PAY_PER_REQUEST",
  *     streamEnabled: true,
@@ -32,7 +32,7 @@ import * as utilities from "../utilities";
  * }, {
  *     provider: aws.main,
  * });
- * const exampleTableReplica = new aws.dynamodb.TableReplica("exampleTableReplica", {
+ * const exampleTableReplica = new aws.dynamodb/tableReplica.TableReplica("exampleTableReplica", {
  *     globalTableArn: exampleTable.arn,
  *     tags: {
  *         Name: "IZPAWS",

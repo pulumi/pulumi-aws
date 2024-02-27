@@ -23,55 +23,6 @@ import javax.annotation.Nullable;
  * !&gt; **WARNING:** Once a Glacier Vault Lock is completed, it is immutable. The deletion of the Glacier Vault Lock is not be possible and attempting to remove it from this provider will return an error. Set the `ignore_deletion_error` argument to `true` and apply this configuration before attempting to delete this resource via this provider or remove this resource from this provider&#39;s management.
  * 
  * ## Example Usage
- * ### Testing Glacier Vault Lock Policy
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.glacier.Vault;
- * import com.pulumi.aws.iam.IamFunctions;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
- * import com.pulumi.aws.glacier.VaultLock;
- * import com.pulumi.aws.glacier.VaultLockArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var exampleVault = new Vault(&#34;exampleVault&#34;);
- * 
- *         final var examplePolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .actions(&#34;glacier:DeleteArchive&#34;)
- *                 .effect(&#34;Deny&#34;)
- *                 .resources(exampleVault.arn())
- *                 .conditions(GetPolicyDocumentStatementConditionArgs.builder()
- *                     .test(&#34;NumericLessThanEquals&#34;)
- *                     .variable(&#34;glacier:ArchiveAgeinDays&#34;)
- *                     .values(&#34;365&#34;)
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *         var exampleVaultLock = new VaultLock(&#34;exampleVaultLock&#34;, VaultLockArgs.builder()        
- *             .completeLock(false)
- *             .policy(examplePolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(examplePolicyDocument -&gt; examplePolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
- *             .vaultName(exampleVault.name())
- *             .build());
- * 
- *     }
- * }
- * ```
  * ### Permanently Applying Glacier Vault Lock Policy
  * ```java
  * package generated_program;
@@ -79,8 +30,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.glacier.VaultLock;
- * import com.pulumi.aws.glacier.VaultLockArgs;
+ * import com.pulumi.aws.glacier_vaultLock.VaultLock;
+ * import com.pulumi.aws.glacier_vaultLock.VaultLockArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;

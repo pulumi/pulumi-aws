@@ -15,7 +15,7 @@ import {LogGroup} from "./index";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const testLambdafunctionLogfilter = new aws.cloudwatch.LogSubscriptionFilter("testLambdafunctionLogfilter", {
+ * const testLambdafunctionLogfilter = new aws.cloudwatch/logSubscriptionFilter.LogSubscriptionFilter("testLambdafunctionLogfilter", {
  *     roleArn: aws_iam_role.iam_for_lambda.arn,
  *     logGroup: "/aws/lambda/example_lambda_name",
  *     filterPattern: "logtype test",

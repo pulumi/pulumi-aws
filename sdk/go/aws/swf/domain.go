@@ -23,24 +23,22 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/swf"
+//	swf/domain "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/swf/domain"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := swf.NewDomain(ctx, "foo", &swf.DomainArgs{
-//				Description:                            pulumi.String("SWF Domain"),
-//				WorkflowExecutionRetentionPeriodInDays: pulumi.String("30"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := swf/domain.NewDomain(ctx, "foo", &swf/domain.DomainArgs{
+// Description: "SWF Domain",
+// WorkflowExecutionRetentionPeriodInDays: 30,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

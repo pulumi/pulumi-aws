@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const simple = new aws.appmesh.Mesh("simple", {});
+ * const simple = new aws.appmesh/mesh.Mesh("simple", {});
  * ```
  * ### Egress Filter
  *
@@ -25,7 +25,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const simple = new aws.appmesh.Mesh("simple", {spec: {
+ * const simple = new aws.appmesh/mesh.Mesh("simple", {spec: {
  *     egressFilter: {
  *         type: "ALLOW_ALL",
  *     },

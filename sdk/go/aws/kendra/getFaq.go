@@ -12,33 +12,6 @@ import (
 )
 
 // Provides details about a specific Amazon Kendra Faq.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kendra"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := kendra.LookupFaq(ctx, &kendra.LookupFaqArgs{
-//				FaqId:   "87654321-1234-4321-4321-321987654321",
-//				IndexId: "12345678-1234-1234-1234-123456789123",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupFaq(ctx *pulumi.Context, args *LookupFaqArgs, opts ...pulumi.InvokeOption) (*LookupFaqResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupFaqResult

@@ -130,24 +130,6 @@ def get_cache_policy(id: Optional[str] = None,
     Use this data source to retrieve information about a CloudFront cache policy.
 
     ## Example Usage
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.cloudfront.get_cache_policy(name="example-policy")
-    ```
-    ### AWS-Managed Policies
-
-    AWS managed cache policy names are prefixed with `Managed-`:
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.cloudfront.get_cache_policy(name="Managed-CachingOptimized")
-    ```
 
 
     :param str id: Identifier for the cache policy.
@@ -178,24 +160,6 @@ def get_cache_policy_output(id: Optional[pulumi.Input[Optional[str]]] = None,
     Use this data source to retrieve information about a CloudFront cache policy.
 
     ## Example Usage
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.cloudfront.get_cache_policy(name="example-policy")
-    ```
-    ### AWS-Managed Policies
-
-    AWS managed cache policy names are prefixed with `Managed-`:
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.cloudfront.get_cache_policy(name="Managed-CachingOptimized")
-    ```
 
 
     :param str id: Identifier for the cache policy.

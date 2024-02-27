@@ -48,7 +48,7 @@ import javax.annotation.Nullable;
  *             .targetArn(aws_connect_instance.example().arn())
  *             .countryCode(&#34;US&#34;)
  *             .type(&#34;DID&#34;)
- *             .tags(Map.of(&#34;hello&#34;, &#34;world&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

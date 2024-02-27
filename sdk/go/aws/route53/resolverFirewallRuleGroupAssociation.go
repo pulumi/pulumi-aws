@@ -21,29 +21,28 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53"
+//	route53/resolverFirewallRuleGroup "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/route53/resolverFirewallRuleGroup"
+//	route53/resolverFirewallRuleGroupAssociation "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/route53/resolverFirewallRuleGroupAssociation"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResolverFirewallRuleGroup, err := route53.NewResolverFirewallRuleGroup(ctx, "exampleResolverFirewallRuleGroup", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = route53.NewResolverFirewallRuleGroupAssociation(ctx, "exampleResolverFirewallRuleGroupAssociation", &route53.ResolverFirewallRuleGroupAssociationArgs{
-//				FirewallRuleGroupId: exampleResolverFirewallRuleGroup.ID(),
-//				Priority:            pulumi.Int(100),
-//				VpcId:               pulumi.Any(aws_vpc.Example.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleResolverFirewallRuleGroup, err := route53/resolverFirewallRuleGroup.NewResolverFirewallRuleGroup(ctx, "exampleResolverFirewallRuleGroup", nil)
+// if err != nil {
+// return err
+// }
+// _, err = route53/resolverFirewallRuleGroupAssociation.NewResolverFirewallRuleGroupAssociation(ctx, "exampleResolverFirewallRuleGroupAssociation", &route53/resolverFirewallRuleGroupAssociation.ResolverFirewallRuleGroupAssociationArgs{
+// FirewallRuleGroupId: exampleResolverFirewallRuleGroup.Id,
+// Priority: 100,
+// VpcId: aws_vpc.Example.Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -237,10 +237,10 @@ class Template(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.servicequotas.Template("example",
-            quota_code="L-2ACBD22F",
-            region="us-east-1",
-            service_code="lambda",
+        example = aws.servicequotas.template.Template("example",
+            quota_code=L-2ACBD22F,
+            region=us-east-1,
+            service_code=lambda,
             value=80)
         ```
 
@@ -277,10 +277,10 @@ class Template(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.servicequotas.Template("example",
-            quota_code="L-2ACBD22F",
-            region="us-east-1",
-            service_code="lambda",
+        example = aws.servicequotas.template.Template("example",
+            quota_code=L-2ACBD22F,
+            region=us-east-1,
+            service_code=lambda,
             value=80)
         ```
 

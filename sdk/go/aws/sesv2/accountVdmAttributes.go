@@ -22,29 +22,27 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sesv2"
+//	sesv2/accountVdmAttributes "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/sesv2/accountVdmAttributes"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := sesv2.NewAccountVdmAttributes(ctx, "example", &sesv2.AccountVdmAttributesArgs{
-//				DashboardAttributes: &sesv2.AccountVdmAttributesDashboardAttributesArgs{
-//					EngagementMetrics: pulumi.String("ENABLED"),
-//				},
-//				GuardianAttributes: &sesv2.AccountVdmAttributesGuardianAttributesArgs{
-//					OptimizedSharedDelivery: pulumi.String("ENABLED"),
-//				},
-//				VdmEnabled: pulumi.String("ENABLED"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := sesv2/accountVdmAttributes.NewAccountVdmAttributes(ctx, "example", &sesv2/accountVdmAttributes.AccountVdmAttributesArgs{
+// DashboardAttributes: map[string]interface{}{
+// "engagementMetrics": "ENABLED",
+// },
+// GuardianAttributes: map[string]interface{}{
+// "optimizedSharedDelivery": "ENABLED",
+// },
+// VdmEnabled: "ENABLED",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

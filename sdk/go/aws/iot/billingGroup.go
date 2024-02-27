@@ -20,28 +20,26 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iot"
+//	iot/billingGroup "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/iot/billingGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := iot.NewBillingGroup(ctx, "example", &iot.BillingGroupArgs{
-//				Properties: &iot.BillingGroupPropertiesArgs{
-//					Description: pulumi.String("This is my billing group"),
-//				},
-//				Tags: pulumi.StringMap{
-//					"terraform": pulumi.String("true"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := iot/billingGroup.NewBillingGroup(ctx, "example", &iot/billingGroup.BillingGroupArgs{
+// Properties: map[string]interface{}{
+// "description": "This is my billing group",
+// },
+// Tags: map[string]interface{}{
+// "terraform": "true",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

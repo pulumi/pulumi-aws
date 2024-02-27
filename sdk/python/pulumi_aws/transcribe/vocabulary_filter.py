@@ -264,16 +264,16 @@ class VocabularyFilter(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.transcribe.VocabularyFilter("example",
-            language_code="en-US",
+        example = aws.transcribe.vocabulary_filter.VocabularyFilter("example",
+            language_code=en-US,
             tags={
-                "tag1": "value1",
-                "tag2": "value3",
+                tag1: value1,
+                tag2: value3,
             },
-            vocabulary_filter_name="example",
+            vocabulary_filter_name=example,
             words=[
-                "cars",
-                "bucket",
+                cars,
+                bucket,
             ])
         ```
 
@@ -311,16 +311,16 @@ class VocabularyFilter(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.transcribe.VocabularyFilter("example",
-            language_code="en-US",
+        example = aws.transcribe.vocabulary_filter.VocabularyFilter("example",
+            language_code=en-US,
             tags={
-                "tag1": "value1",
-                "tag2": "value3",
+                tag1: value1,
+                tag2: value3,
             },
-            vocabulary_filter_name="example",
+            vocabulary_filter_name=example,
             words=[
-                "cars",
-                "bucket",
+                cars,
+                bucket,
             ])
         ```
 

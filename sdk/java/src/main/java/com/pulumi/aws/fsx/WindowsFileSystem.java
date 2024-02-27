@@ -73,7 +73,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.fsx.WindowsFileSystem;
  * import com.pulumi.aws.fsx.WindowsFileSystemArgs;
- * import com.pulumi.aws.fsx.inputs.WindowsFileSystemSelfManagedActiveDirectoryArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -92,14 +91,7 @@ import javax.annotation.Nullable;
  *             .storageCapacity(300)
  *             .subnetIds(aws_subnet.example().id())
  *             .throughputCapacity(1024)
- *             .selfManagedActiveDirectory(WindowsFileSystemSelfManagedActiveDirectoryArgs.builder()
- *                 .dnsIps(                
- *                     &#34;10.0.0.111&#34;,
- *                     &#34;10.0.0.222&#34;)
- *                 .domainName(&#34;corp.example.com&#34;)
- *                 .password(&#34;avoid-plaintext-passwords&#34;)
- *                 .username(&#34;Admin&#34;)
- *                 .build())
+ *             .selfManagedActiveDirectory(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

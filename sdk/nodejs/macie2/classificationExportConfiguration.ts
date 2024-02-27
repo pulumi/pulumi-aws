@@ -16,8 +16,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleAccount = new aws.macie2.Account("exampleAccount", {});
- * const exampleClassificationExportConfiguration = new aws.macie2.ClassificationExportConfiguration("exampleClassificationExportConfiguration", {s3Destination: {
+ * const exampleAccount = new aws.macie2/account.Account("exampleAccount", {});
+ * const exampleClassificationExportConfiguration = new aws.macie2/classificationExportConfiguration.ClassificationExportConfiguration("exampleClassificationExportConfiguration", {s3Destination: {
  *     bucketName: aws_s3_bucket.example.bucket,
  *     keyPrefix: "exampleprefix/",
  *     kmsKeyArn: aws_kms_key.example.arn,

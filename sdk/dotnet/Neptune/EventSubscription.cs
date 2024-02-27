@@ -20,28 +20,28 @@ namespace Pulumi.Aws.Neptune
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var defaultCluster = new Aws.Neptune.Cluster("defaultCluster", new()
+    ///     var defaultCluster = new Aws.Neptune.Cluster.Cluster("defaultCluster", new()
     ///     {
     ///         ClusterIdentifier = "neptune-cluster-demo",
     ///         Engine = "neptune",
     ///         BackupRetentionPeriod = 5,
     ///         PreferredBackupWindow = "07:00-09:00",
     ///         SkipFinalSnapshot = true,
-    ///         IamDatabaseAuthenticationEnabled = true,
-    ///         ApplyImmediately = true,
+    ///         IamDatabaseAuthenticationEnabled = "true",
+    ///         ApplyImmediately = "true",
     ///     });
     /// 
-    ///     var example = new Aws.Neptune.ClusterInstance("example", new()
+    ///     var example = new Aws.Neptune.ClusterInstance.ClusterInstance("example", new()
     ///     {
     ///         ClusterIdentifier = defaultCluster.Id,
     ///         Engine = "neptune",
     ///         InstanceClass = "db.r4.large",
-    ///         ApplyImmediately = true,
+    ///         ApplyImmediately = "true",
     ///     });
     /// 
-    ///     var defaultTopic = new Aws.Sns.Topic("defaultTopic");
+    ///     var defaultTopic = new Aws.Sns.Topic.Topic("defaultTopic");
     /// 
-    ///     var defaultEventSubscription = new Aws.Neptune.EventSubscription("defaultEventSubscription", new()
+    ///     var defaultEventSubscription = new Aws.Neptune.EventSubscription.EventSubscription("defaultEventSubscription", new()
     ///     {
     ///         SnsTopicArn = defaultTopic.Arn,
     ///         SourceType = "db-instance",

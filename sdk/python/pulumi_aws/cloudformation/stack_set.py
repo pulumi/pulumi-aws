@@ -558,60 +558,6 @@ class StackSet(pulumi.CustomResource):
 
         > **NOTE:** All `NoEcho` template parameters must be ignored with the `lifecycle` configuration block `ignore_changes` argument.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        a_ws_cloud_formation_stack_set_administration_role_assume_role_policy = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            actions=["sts:AssumeRole"],
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                identifiers=["cloudformation.amazonaws.com"],
-                type="Service",
-            )],
-        )])
-        a_ws_cloud_formation_stack_set_administration_role = aws.iam.Role("aWSCloudFormationStackSetAdministrationRole", assume_role_policy=a_ws_cloud_formation_stack_set_administration_role_assume_role_policy.json)
-        example = aws.cloudformation.StackSet("example",
-            administration_role_arn=a_ws_cloud_formation_stack_set_administration_role.arn,
-            parameters={
-                "VPCCidr": "10.0.0.0/16",
-            },
-            template_body=json.dumps({
-                "Parameters": {
-                    "VPCCidr": {
-                        "Type": "String",
-                        "Default": "10.0.0.0/16",
-                        "Description": "Enter the CIDR block for the VPC. Default is 10.0.0.0/16.",
-                    },
-                },
-                "Resources": {
-                    "myVpc": {
-                        "Type": "AWS::EC2::VPC",
-                        "Properties": {
-                            "CidrBlock": {
-                                "Ref": "VPCCidr",
-                            },
-                            "Tags": [{
-                                "Key": "Name",
-                                "Value": "Primary_CF_VPC",
-                            }],
-                        },
-                    },
-                },
-            }))
-        a_ws_cloud_formation_stack_set_administration_role_execution_policy_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            actions=["sts:AssumeRole"],
-            effect="Allow",
-            resources=[example.execution_role_name.apply(lambda execution_role_name: f"arn:aws:iam::*:role/{execution_role_name}")],
-        )])
-        a_ws_cloud_formation_stack_set_administration_role_execution_policy_role_policy = aws.iam.RolePolicy("aWSCloudFormationStackSetAdministrationRoleExecutionPolicyRolePolicy",
-            policy=a_ws_cloud_formation_stack_set_administration_role_execution_policy_policy_document.json,
-            role=a_ws_cloud_formation_stack_set_administration_role.name)
-        ```
-
         ## Import
 
         Import CloudFormation StackSets when acting a delegated administrator in a member account using the `name` and `call_as` values separated by a comma (`,`). For example:
@@ -656,60 +602,6 @@ class StackSet(pulumi.CustomResource):
         > **NOTE:** All template parameters, including those with a `Default`, must be configured or ignored with the `lifecycle` configuration block `ignore_changes` argument.
 
         > **NOTE:** All `NoEcho` template parameters must be ignored with the `lifecycle` configuration block `ignore_changes` argument.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        a_ws_cloud_formation_stack_set_administration_role_assume_role_policy = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            actions=["sts:AssumeRole"],
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                identifiers=["cloudformation.amazonaws.com"],
-                type="Service",
-            )],
-        )])
-        a_ws_cloud_formation_stack_set_administration_role = aws.iam.Role("aWSCloudFormationStackSetAdministrationRole", assume_role_policy=a_ws_cloud_formation_stack_set_administration_role_assume_role_policy.json)
-        example = aws.cloudformation.StackSet("example",
-            administration_role_arn=a_ws_cloud_formation_stack_set_administration_role.arn,
-            parameters={
-                "VPCCidr": "10.0.0.0/16",
-            },
-            template_body=json.dumps({
-                "Parameters": {
-                    "VPCCidr": {
-                        "Type": "String",
-                        "Default": "10.0.0.0/16",
-                        "Description": "Enter the CIDR block for the VPC. Default is 10.0.0.0/16.",
-                    },
-                },
-                "Resources": {
-                    "myVpc": {
-                        "Type": "AWS::EC2::VPC",
-                        "Properties": {
-                            "CidrBlock": {
-                                "Ref": "VPCCidr",
-                            },
-                            "Tags": [{
-                                "Key": "Name",
-                                "Value": "Primary_CF_VPC",
-                            }],
-                        },
-                    },
-                },
-            }))
-        a_ws_cloud_formation_stack_set_administration_role_execution_policy_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            actions=["sts:AssumeRole"],
-            effect="Allow",
-            resources=[example.execution_role_name.apply(lambda execution_role_name: f"arn:aws:iam::*:role/{execution_role_name}")],
-        )])
-        a_ws_cloud_formation_stack_set_administration_role_execution_policy_role_policy = aws.iam.RolePolicy("aWSCloudFormationStackSetAdministrationRoleExecutionPolicyRolePolicy",
-            policy=a_ws_cloud_formation_stack_set_administration_role_execution_policy_policy_document.json,
-            role=a_ws_cloud_formation_stack_set_administration_role.name)
-        ```
 
         ## Import
 

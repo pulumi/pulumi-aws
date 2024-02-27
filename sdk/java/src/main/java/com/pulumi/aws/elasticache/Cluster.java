@@ -149,7 +149,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.elasticache.Cluster;
  * import com.pulumi.aws.elasticache.ClusterArgs;
- * import com.pulumi.aws.elasticache.inputs.ClusterLogDeliveryConfigurationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -170,18 +169,8 @@ import javax.annotation.Nullable;
  *             .port(6379)
  *             .applyImmediately(true)
  *             .logDeliveryConfigurations(            
- *                 ClusterLogDeliveryConfigurationArgs.builder()
- *                     .destination(aws_cloudwatch_log_group.example().name())
- *                     .destinationType(&#34;cloudwatch-logs&#34;)
- *                     .logFormat(&#34;text&#34;)
- *                     .logType(&#34;slow-log&#34;)
- *                     .build(),
- *                 ClusterLogDeliveryConfigurationArgs.builder()
- *                     .destination(aws_kinesis_firehose_delivery_stream.example().name())
- *                     .destinationType(&#34;kinesis-firehose&#34;)
- *                     .logFormat(&#34;json&#34;)
- *                     .logType(&#34;engine-log&#34;)
- *                     .build())
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

@@ -48,7 +48,7 @@ import javax.annotation.Nullable;
  *             .description(&#34;example&#34;)
  *             .languageCode(&#34;en&#34;)
  *             .type(&#34;CUSTOM&#34;)
- *             .tags(Map.of(&#34;hello&#34;, &#34;world&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -64,8 +64,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.kendra.DataSource;
  * import com.pulumi.aws.kendra.DataSourceArgs;
- * import com.pulumi.aws.kendra.inputs.DataSourceConfigurationArgs;
- * import com.pulumi.aws.kendra.inputs.DataSourceConfigurationS3ConfigurationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -84,11 +82,7 @@ import javax.annotation.Nullable;
  *             .type(&#34;S3&#34;)
  *             .roleArn(aws_iam_role.example().arn())
  *             .schedule(&#34;cron(9 10 1 * ? *)&#34;)
- *             .configuration(DataSourceConfigurationArgs.builder()
- *                 .s3Configuration(DataSourceConfigurationS3ConfigurationArgs.builder()
- *                     .bucketName(aws_s3_bucket.example().id())
- *                     .build())
- *                 .build())
+ *             .configuration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -103,9 +97,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.kendra.DataSource;
  * import com.pulumi.aws.kendra.DataSourceArgs;
- * import com.pulumi.aws.kendra.inputs.DataSourceConfigurationArgs;
- * import com.pulumi.aws.kendra.inputs.DataSourceConfigurationS3ConfigurationArgs;
- * import com.pulumi.aws.kendra.inputs.DataSourceConfigurationS3ConfigurationAccessControlListConfigurationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -123,14 +114,7 @@ import javax.annotation.Nullable;
  *             .indexId(aws_kendra_index.example().id())
  *             .type(&#34;S3&#34;)
  *             .roleArn(aws_iam_role.example().arn())
- *             .configuration(DataSourceConfigurationArgs.builder()
- *                 .s3Configuration(DataSourceConfigurationS3ConfigurationArgs.builder()
- *                     .bucketName(aws_s3_bucket.example().id())
- *                     .accessControlListConfiguration(DataSourceConfigurationS3ConfigurationAccessControlListConfigurationArgs.builder()
- *                         .keyPath(String.format(&#34;s3://%s/path-1&#34;, aws_s3_bucket.example().id()))
- *                         .build())
- *                     .build())
- *                 .build())
+ *             .configuration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -145,9 +129,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.kendra.DataSource;
  * import com.pulumi.aws.kendra.DataSourceArgs;
- * import com.pulumi.aws.kendra.inputs.DataSourceConfigurationArgs;
- * import com.pulumi.aws.kendra.inputs.DataSourceConfigurationS3ConfigurationArgs;
- * import com.pulumi.aws.kendra.inputs.DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -165,17 +146,7 @@ import javax.annotation.Nullable;
  *             .indexId(aws_kendra_index.example().id())
  *             .type(&#34;S3&#34;)
  *             .roleArn(aws_iam_role.example().arn())
- *             .configuration(DataSourceConfigurationArgs.builder()
- *                 .s3Configuration(DataSourceConfigurationS3ConfigurationArgs.builder()
- *                     .bucketName(aws_s3_bucket.example().id())
- *                     .exclusionPatterns(&#34;example&#34;)
- *                     .inclusionPatterns(&#34;hello&#34;)
- *                     .inclusionPrefixes(&#34;world&#34;)
- *                     .documentsMetadataConfiguration(DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationArgs.builder()
- *                         .s3Prefix(&#34;example&#34;)
- *                         .build())
- *                     .build())
- *                 .build())
+ *             .configuration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -191,10 +162,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.kendra.DataSource;
  * import com.pulumi.aws.kendra.DataSourceArgs;
- * import com.pulumi.aws.kendra.inputs.DataSourceConfigurationArgs;
- * import com.pulumi.aws.kendra.inputs.DataSourceConfigurationWebCrawlerConfigurationArgs;
- * import com.pulumi.aws.kendra.inputs.DataSourceConfigurationWebCrawlerConfigurationUrlsArgs;
- * import com.pulumi.aws.kendra.inputs.DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -212,15 +179,7 @@ import javax.annotation.Nullable;
  *             .indexId(aws_kendra_index.example().id())
  *             .type(&#34;WEBCRAWLER&#34;)
  *             .roleArn(aws_iam_role.example().arn())
- *             .configuration(DataSourceConfigurationArgs.builder()
- *                 .webCrawlerConfiguration(DataSourceConfigurationWebCrawlerConfigurationArgs.builder()
- *                     .urls(DataSourceConfigurationWebCrawlerConfigurationUrlsArgs.builder()
- *                         .seedUrlConfiguration(DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationArgs.builder()
- *                             .seedUrls(&#34;REPLACE_WITH_YOUR_URL&#34;)
- *                             .build())
- *                         .build())
- *                     .build())
- *                 .build())
+ *             .configuration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -235,10 +194,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.kendra.DataSource;
  * import com.pulumi.aws.kendra.DataSourceArgs;
- * import com.pulumi.aws.kendra.inputs.DataSourceConfigurationArgs;
- * import com.pulumi.aws.kendra.inputs.DataSourceConfigurationWebCrawlerConfigurationArgs;
- * import com.pulumi.aws.kendra.inputs.DataSourceConfigurationWebCrawlerConfigurationUrlsArgs;
- * import com.pulumi.aws.kendra.inputs.DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -256,15 +211,7 @@ import javax.annotation.Nullable;
  *             .indexId(aws_kendra_index.example().id())
  *             .type(&#34;WEBCRAWLER&#34;)
  *             .roleArn(aws_iam_role.example().arn())
- *             .configuration(DataSourceConfigurationArgs.builder()
- *                 .webCrawlerConfiguration(DataSourceConfigurationWebCrawlerConfigurationArgs.builder()
- *                     .urls(DataSourceConfigurationWebCrawlerConfigurationUrlsArgs.builder()
- *                         .siteMapsConfiguration(DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationArgs.builder()
- *                             .siteMaps(&#34;REPLACE_WITH_YOUR_URL&#34;)
- *                             .build())
- *                         .build())
- *                     .build())
- *                 .build())
+ *             .configuration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -279,10 +226,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.kendra.DataSource;
  * import com.pulumi.aws.kendra.DataSourceArgs;
- * import com.pulumi.aws.kendra.inputs.DataSourceConfigurationArgs;
- * import com.pulumi.aws.kendra.inputs.DataSourceConfigurationWebCrawlerConfigurationArgs;
- * import com.pulumi.aws.kendra.inputs.DataSourceConfigurationWebCrawlerConfigurationUrlsArgs;
- * import com.pulumi.aws.kendra.inputs.DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -300,16 +243,7 @@ import javax.annotation.Nullable;
  *             .indexId(aws_kendra_index.example().id())
  *             .type(&#34;WEBCRAWLER&#34;)
  *             .roleArn(aws_iam_role.example().arn())
- *             .configuration(DataSourceConfigurationArgs.builder()
- *                 .webCrawlerConfiguration(DataSourceConfigurationWebCrawlerConfigurationArgs.builder()
- *                     .urls(DataSourceConfigurationWebCrawlerConfigurationUrlsArgs.builder()
- *                         .seedUrlConfiguration(DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationArgs.builder()
- *                             .webCrawlerMode(&#34;SUBDOMAINS&#34;)
- *                             .seedUrls(&#34;REPLACE_WITH_YOUR_URL&#34;)
- *                             .build())
- *                         .build())
- *                     .build())
- *                 .build())
+ *             .configuration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -324,11 +258,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.kendra.DataSource;
  * import com.pulumi.aws.kendra.DataSourceArgs;
- * import com.pulumi.aws.kendra.inputs.DataSourceConfigurationArgs;
- * import com.pulumi.aws.kendra.inputs.DataSourceConfigurationWebCrawlerConfigurationArgs;
- * import com.pulumi.aws.kendra.inputs.DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationArgs;
- * import com.pulumi.aws.kendra.inputs.DataSourceConfigurationWebCrawlerConfigurationUrlsArgs;
- * import com.pulumi.aws.kendra.inputs.DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationArgs;
  * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
@@ -347,22 +276,7 @@ import javax.annotation.Nullable;
  *             .indexId(aws_kendra_index.example().id())
  *             .type(&#34;WEBCRAWLER&#34;)
  *             .roleArn(aws_iam_role.example().arn())
- *             .configuration(DataSourceConfigurationArgs.builder()
- *                 .webCrawlerConfiguration(DataSourceConfigurationWebCrawlerConfigurationArgs.builder()
- *                     .authenticationConfiguration(DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationArgs.builder()
- *                         .basicAuthentications(DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationArgs.builder()
- *                             .credentials(aws_secretsmanager_secret.example().arn())
- *                             .host(&#34;a.example.com&#34;)
- *                             .port(&#34;443&#34;)
- *                             .build())
- *                         .build())
- *                     .urls(DataSourceConfigurationWebCrawlerConfigurationUrlsArgs.builder()
- *                         .seedUrlConfiguration(DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationArgs.builder()
- *                             .seedUrls(&#34;REPLACE_WITH_YOUR_URL&#34;)
- *                             .build())
- *                         .build())
- *                     .build())
- *                 .build())
+ *             .configuration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(aws_secretsmanager_secret_version.example())
  *                 .build());
@@ -379,10 +293,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.kendra.DataSource;
  * import com.pulumi.aws.kendra.DataSourceArgs;
- * import com.pulumi.aws.kendra.inputs.DataSourceConfigurationArgs;
- * import com.pulumi.aws.kendra.inputs.DataSourceConfigurationWebCrawlerConfigurationArgs;
- * import com.pulumi.aws.kendra.inputs.DataSourceConfigurationWebCrawlerConfigurationUrlsArgs;
- * import com.pulumi.aws.kendra.inputs.DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -400,16 +310,7 @@ import javax.annotation.Nullable;
  *             .indexId(aws_kendra_index.example().id())
  *             .type(&#34;WEBCRAWLER&#34;)
  *             .roleArn(aws_iam_role.example().arn())
- *             .configuration(DataSourceConfigurationArgs.builder()
- *                 .webCrawlerConfiguration(DataSourceConfigurationWebCrawlerConfigurationArgs.builder()
- *                     .crawlDepth(3)
- *                     .urls(DataSourceConfigurationWebCrawlerConfigurationUrlsArgs.builder()
- *                         .seedUrlConfiguration(DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationArgs.builder()
- *                             .seedUrls(&#34;REPLACE_WITH_YOUR_URL&#34;)
- *                             .build())
- *                         .build())
- *                     .build())
- *                 .build())
+ *             .configuration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -424,10 +325,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.kendra.DataSource;
  * import com.pulumi.aws.kendra.DataSourceArgs;
- * import com.pulumi.aws.kendra.inputs.DataSourceConfigurationArgs;
- * import com.pulumi.aws.kendra.inputs.DataSourceConfigurationWebCrawlerConfigurationArgs;
- * import com.pulumi.aws.kendra.inputs.DataSourceConfigurationWebCrawlerConfigurationUrlsArgs;
- * import com.pulumi.aws.kendra.inputs.DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -445,16 +342,7 @@ import javax.annotation.Nullable;
  *             .indexId(aws_kendra_index.example().id())
  *             .type(&#34;WEBCRAWLER&#34;)
  *             .roleArn(aws_iam_role.example().arn())
- *             .configuration(DataSourceConfigurationArgs.builder()
- *                 .webCrawlerConfiguration(DataSourceConfigurationWebCrawlerConfigurationArgs.builder()
- *                     .maxLinksPerPage(100)
- *                     .urls(DataSourceConfigurationWebCrawlerConfigurationUrlsArgs.builder()
- *                         .seedUrlConfiguration(DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationArgs.builder()
- *                             .seedUrls(&#34;REPLACE_WITH_YOUR_URL&#34;)
- *                             .build())
- *                         .build())
- *                     .build())
- *                 .build())
+ *             .configuration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -469,10 +357,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.kendra.DataSource;
  * import com.pulumi.aws.kendra.DataSourceArgs;
- * import com.pulumi.aws.kendra.inputs.DataSourceConfigurationArgs;
- * import com.pulumi.aws.kendra.inputs.DataSourceConfigurationWebCrawlerConfigurationArgs;
- * import com.pulumi.aws.kendra.inputs.DataSourceConfigurationWebCrawlerConfigurationUrlsArgs;
- * import com.pulumi.aws.kendra.inputs.DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -490,16 +374,7 @@ import javax.annotation.Nullable;
  *             .indexId(aws_kendra_index.example().id())
  *             .type(&#34;WEBCRAWLER&#34;)
  *             .roleArn(aws_iam_role.example().arn())
- *             .configuration(DataSourceConfigurationArgs.builder()
- *                 .webCrawlerConfiguration(DataSourceConfigurationWebCrawlerConfigurationArgs.builder()
- *                     .maxUrlsPerMinuteCrawlRate(300)
- *                     .urls(DataSourceConfigurationWebCrawlerConfigurationUrlsArgs.builder()
- *                         .seedUrlConfiguration(DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationArgs.builder()
- *                             .seedUrls(&#34;REPLACE_WITH_YOUR_URL&#34;)
- *                             .build())
- *                         .build())
- *                     .build())
- *                 .build())
+ *             .configuration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -514,11 +389,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.kendra.DataSource;
  * import com.pulumi.aws.kendra.DataSourceArgs;
- * import com.pulumi.aws.kendra.inputs.DataSourceConfigurationArgs;
- * import com.pulumi.aws.kendra.inputs.DataSourceConfigurationWebCrawlerConfigurationArgs;
- * import com.pulumi.aws.kendra.inputs.DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationArgs;
- * import com.pulumi.aws.kendra.inputs.DataSourceConfigurationWebCrawlerConfigurationUrlsArgs;
- * import com.pulumi.aws.kendra.inputs.DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationArgs;
  * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
@@ -537,20 +407,7 @@ import javax.annotation.Nullable;
  *             .indexId(aws_kendra_index.example().id())
  *             .type(&#34;WEBCRAWLER&#34;)
  *             .roleArn(aws_iam_role.example().arn())
- *             .configuration(DataSourceConfigurationArgs.builder()
- *                 .webCrawlerConfiguration(DataSourceConfigurationWebCrawlerConfigurationArgs.builder()
- *                     .proxyConfiguration(DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationArgs.builder()
- *                         .credentials(aws_secretsmanager_secret.example().arn())
- *                         .host(&#34;a.example.com&#34;)
- *                         .port(&#34;443&#34;)
- *                         .build())
- *                     .urls(DataSourceConfigurationWebCrawlerConfigurationUrlsArgs.builder()
- *                         .seedUrlConfiguration(DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationArgs.builder()
- *                             .seedUrls(&#34;REPLACE_WITH_YOUR_URL&#34;)
- *                             .build())
- *                         .build())
- *                     .build())
- *                 .build())
+ *             .configuration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(aws_secretsmanager_secret_version.example())
  *                 .build());
@@ -567,10 +424,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.kendra.DataSource;
  * import com.pulumi.aws.kendra.DataSourceArgs;
- * import com.pulumi.aws.kendra.inputs.DataSourceConfigurationArgs;
- * import com.pulumi.aws.kendra.inputs.DataSourceConfigurationWebCrawlerConfigurationArgs;
- * import com.pulumi.aws.kendra.inputs.DataSourceConfigurationWebCrawlerConfigurationUrlsArgs;
- * import com.pulumi.aws.kendra.inputs.DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -588,17 +441,7 @@ import javax.annotation.Nullable;
  *             .indexId(aws_kendra_index.example().id())
  *             .type(&#34;WEBCRAWLER&#34;)
  *             .roleArn(aws_iam_role.example().arn())
- *             .configuration(DataSourceConfigurationArgs.builder()
- *                 .webCrawlerConfiguration(DataSourceConfigurationWebCrawlerConfigurationArgs.builder()
- *                     .urlExclusionPatterns(&#34;example&#34;)
- *                     .urlInclusionPatterns(&#34;hello&#34;)
- *                     .urls(DataSourceConfigurationWebCrawlerConfigurationUrlsArgs.builder()
- *                         .seedUrlConfiguration(DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationArgs.builder()
- *                             .seedUrls(&#34;REPLACE_WITH_YOUR_URL&#34;)
- *                             .build())
- *                         .build())
- *                     .build())
- *                 .build())
+ *             .configuration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

@@ -21,36 +21,36 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/amplify"
+//	amplify/app "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/amplify/app"
+//	amplify/branch "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/amplify/branch"
+//	amplify/webhook "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/amplify/webhook"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := amplify.NewApp(ctx, "example", nil)
-//			if err != nil {
-//				return err
-//			}
-//			masterBranch, err := amplify.NewBranch(ctx, "masterBranch", &amplify.BranchArgs{
-//				AppId:      example.ID(),
-//				BranchName: pulumi.String("master"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = amplify.NewWebhook(ctx, "masterWebhook", &amplify.WebhookArgs{
-//				AppId:       example.ID(),
-//				BranchName:  masterBranch.BranchName,
-//				Description: pulumi.String("triggermaster"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := amplify/app.NewApp(ctx, "example", nil)
+// if err != nil {
+// return err
+// }
+// masterBranch, err := amplify/branch.NewBranch(ctx, "masterBranch", &amplify/branch.BranchArgs{
+// AppId: example.Id,
+// BranchName: "master",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = amplify/webhook.NewWebhook(ctx, "masterWebhook", &amplify/webhook.WebhookArgs{
+// AppId: example.Id,
+// BranchName: masterBranch.BranchName,
+// Description: "triggermaster",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

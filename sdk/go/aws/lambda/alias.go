@@ -24,30 +24,28 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lambda"
+//	lambda/alias "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/lambda/alias"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lambda.NewAlias(ctx, "testLambdaAlias", &lambda.AliasArgs{
-//				Description:     pulumi.String("a sample description"),
-//				FunctionName:    pulumi.Any(aws_lambda_function.Lambda_function_test.Arn),
-//				FunctionVersion: pulumi.String("1"),
-//				RoutingConfig: &lambda.AliasRoutingConfigArgs{
-//					AdditionalVersionWeights: pulumi.Float64Map{
-//						"2": pulumi.Float64(0.5),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := lambda/alias.NewAlias(ctx, "testLambdaAlias", &lambda/alias.AliasArgs{
+// Description: "a sample description",
+// FunctionName: aws_lambda_function.Lambda_function_test.Arn,
+// FunctionVersion: "1",
+// RoutingConfig: map[string]interface{}{
+// "additionalVersionWeights": map[string]interface{}{
+// "2": 0.5,
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

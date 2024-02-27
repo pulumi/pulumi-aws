@@ -12,32 +12,6 @@ import (
 )
 
 // Use this data source to get information on an existing backup framework.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/backup"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := backup.LookupFramework(ctx, &backup.LookupFrameworkArgs{
-//				Name: "my_example_backup_framework_name",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupFramework(ctx *pulumi.Context, args *LookupFrameworkArgs, opts ...pulumi.InvokeOption) (*LookupFrameworkResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupFrameworkResult

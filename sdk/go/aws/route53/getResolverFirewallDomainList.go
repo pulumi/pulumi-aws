@@ -14,34 +14,6 @@ import (
 // `route53.ResolverFirewallDomainList` Retrieves the specified firewall domain list.
 //
 // This data source allows to retrieve details about a specific a Route 53 Resolver DNS Firewall domain list.
-//
-// ## Example Usage
-//
-// The following example shows how to get a firewall domain list from its ID.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := route53.LookupResolverFirewallDomainList(ctx, &route53.LookupResolverFirewallDomainListArgs{
-//				FirewallDomainListId: "rslvr-fdl-example",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupResolverFirewallDomainList(ctx *pulumi.Context, args *LookupResolverFirewallDomainListArgs, opts ...pulumi.InvokeOption) (*LookupResolverFirewallDomainListResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupResolverFirewallDomainListResult

@@ -21,35 +21,34 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigateway"
+//	apigateway/response "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/apigateway/response"
+//	apigateway/restApi "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/apigateway/restApi"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			main, err := apigateway.NewRestApi(ctx, "main", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = apigateway.NewResponse(ctx, "test", &apigateway.ResponseArgs{
-//				RestApiId:    main.ID(),
-//				StatusCode:   pulumi.String("401"),
-//				ResponseType: pulumi.String("UNAUTHORIZED"),
-//				ResponseTemplates: pulumi.StringMap{
-//					"application/json": pulumi.String("{\"message\":$context.error.messageString}"),
-//				},
-//				ResponseParameters: pulumi.StringMap{
-//					"gatewayresponse.header.Authorization": pulumi.String("'Basic'"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// main, err := apigateway/restApi.NewRestApi(ctx, "main", nil)
+// if err != nil {
+// return err
+// }
+// _, err = apigateway/response.NewResponse(ctx, "test", &apigateway/response.ResponseArgs{
+// RestApiId: main.Id,
+// StatusCode: "401",
+// ResponseType: "UNAUTHORIZED",
+// ResponseTemplates: map[string]interface{}{
+// "application/json": "{\"message\":$context.error.messageString}",
+// },
+// ResponseParameters: map[string]interface{}{
+// "gatewayresponse.header.Authorization": "'Basic'",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

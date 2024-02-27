@@ -27,7 +27,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.appstream.DirectoryConfig;
  * import com.pulumi.aws.appstream.DirectoryConfigArgs;
- * import com.pulumi.aws.appstream.inputs.DirectoryConfigServiceAccountCredentialsArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -44,10 +43,7 @@ import javax.annotation.Nullable;
  *         var example = new DirectoryConfig(&#34;example&#34;, DirectoryConfigArgs.builder()        
  *             .directoryName(&#34;NAME OF DIRECTORY&#34;)
  *             .organizationalUnitDistinguishedNames(&#34;DISTINGUISHED NAME&#34;)
- *             .serviceAccountCredentials(DirectoryConfigServiceAccountCredentialsArgs.builder()
- *                 .accountName(&#34;NAME OF ACCOUNT&#34;)
- *                 .accountPassword(&#34;PASSWORD OF ACCOUNT&#34;)
- *                 .build())
+ *             .serviceAccountCredentials(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

@@ -22,28 +22,28 @@ namespace Pulumi.Aws.WafRegional
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var ipset = new Aws.WafRegional.IpSet("ipset", new()
+    ///     var ipset = new Aws.Wafregional.IpSet.IpSet("ipset", new()
     ///     {
     ///         IpSetDescriptors = new[]
     ///         {
-    ///             new Aws.WafRegional.Inputs.IpSetIpSetDescriptorArgs
+    ///             
     ///             {
-    ///                 Type = "IPV4",
-    ///                 Value = "192.0.7.0/24",
+    ///                 { "type", "IPV4" },
+    ///                 { "value", "192.0.7.0/24" },
     ///             },
     ///         },
     ///     });
     /// 
-    ///     var wafrule = new Aws.WafRegional.Rule("wafrule", new()
+    ///     var wafrule = new Aws.Wafregional.Rule.Rule("wafrule", new()
     ///     {
     ///         MetricName = "tfWAFRule",
     ///         Predicates = new[]
     ///         {
-    ///             new Aws.WafRegional.Inputs.RulePredicateArgs
+    ///             
     ///             {
-    ///                 Type = "IPMatch",
-    ///                 DataId = ipset.Id,
-    ///                 Negated = false,
+    ///                 { "type", "IPMatch" },
+    ///                 { "dataId", ipset.Id },
+    ///                 { "negated", false },
     ///             },
     ///         },
     ///     });

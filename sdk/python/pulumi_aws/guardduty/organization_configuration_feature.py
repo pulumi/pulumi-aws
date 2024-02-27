@@ -176,14 +176,14 @@ class OrganizationConfigurationFeature(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.guardduty.Detector("example", enable=True)
-        eks_runtime_monitoring = aws.guardduty.OrganizationConfigurationFeature("eksRuntimeMonitoring",
+        example = aws.guardduty.detector.Detector("example", enable=True)
+        eks_runtime_monitoring = aws.guardduty.organization_configuration_feature.OrganizationConfigurationFeature("eksRuntimeMonitoring",
             detector_id=example.id,
-            auto_enable="ALL",
-            additional_configurations=[aws.guardduty.OrganizationConfigurationFeatureAdditionalConfigurationArgs(
-                name="EKS_ADDON_MANAGEMENT",
-                auto_enable="NEW",
-            )])
+            auto_enable=ALL,
+            additional_configurations=[{
+                name: EKS_ADDON_MANAGEMENT,
+                autoEnable: NEW,
+            }])
         ```
 
         :param str resource_name: The name of the resource.
@@ -210,14 +210,14 @@ class OrganizationConfigurationFeature(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.guardduty.Detector("example", enable=True)
-        eks_runtime_monitoring = aws.guardduty.OrganizationConfigurationFeature("eksRuntimeMonitoring",
+        example = aws.guardduty.detector.Detector("example", enable=True)
+        eks_runtime_monitoring = aws.guardduty.organization_configuration_feature.OrganizationConfigurationFeature("eksRuntimeMonitoring",
             detector_id=example.id,
-            auto_enable="ALL",
-            additional_configurations=[aws.guardduty.OrganizationConfigurationFeatureAdditionalConfigurationArgs(
-                name="EKS_ADDON_MANAGEMENT",
-                auto_enable="NEW",
-            )])
+            auto_enable=ALL,
+            additional_configurations=[{
+                name: EKS_ADDON_MANAGEMENT,
+                autoEnable: NEW,
+            }])
         ```
 
         :param str resource_name: The name of the resource.

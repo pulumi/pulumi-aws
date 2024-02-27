@@ -11,16 +11,6 @@ import * as utilities from "../utilities";
  * Data source for managing a QuickSight Data Set.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.quicksight.getDataSet({
- *     dataSetId: "example-id",
- * });
- * ```
  */
 export function getDataSet(args: GetDataSetArgs, opts?: pulumi.InvokeOptions): Promise<GetDataSetResult> {
 
@@ -88,16 +78,6 @@ export interface GetDataSetResult {
  * Data source for managing a QuickSight Data Set.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.quicksight.getDataSet({
- *     dataSetId: "example-id",
- * });
- * ```
  */
 export function getDataSetOutput(args: GetDataSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataSetResult> {
     return pulumi.output(args).apply((a: any) => getDataSet(a, opts))

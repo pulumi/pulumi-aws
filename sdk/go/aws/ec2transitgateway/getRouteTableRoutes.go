@@ -12,40 +12,6 @@ import (
 )
 
 // Provides informations for routes of a specific transit gateway, such as state, type, cidr
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2transitgateway"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2transitgateway.GetRouteTableRoutes(ctx, &ec2transitgateway.GetRouteTableRoutesArgs{
-//				Filters: []ec2transitgateway.GetRouteTableRoutesFilter{
-//					{
-//						Name: "type",
-//						Values: []string{
-//							"propagated",
-//						},
-//					},
-//				},
-//				TransitGatewayRouteTableId: aws_ec2_transit_gateway_route_table.Example.Id,
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetRouteTableRoutes(ctx *pulumi.Context, args *GetRouteTableRoutesArgs, opts ...pulumi.InvokeOption) (*GetRouteTableRoutesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetRouteTableRoutesResult

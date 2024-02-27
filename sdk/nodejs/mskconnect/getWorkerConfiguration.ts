@@ -6,17 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Get information on an Amazon MSK Connect Worker Configuration.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.mskconnect.getWorkerConfiguration({
- *     name: "example",
- * });
- * ```
  */
 export function getWorkerConfiguration(args: GetWorkerConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkerConfigurationResult> {
 
@@ -64,17 +53,6 @@ export interface GetWorkerConfigurationResult {
 }
 /**
  * Get information on an Amazon MSK Connect Worker Configuration.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.mskconnect.getWorkerConfiguration({
- *     name: "example",
- * });
- * ```
  */
 export function getWorkerConfigurationOutput(args: GetWorkerConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkerConfigurationResult> {
     return pulumi.output(args).apply((a: any) => getWorkerConfiguration(a, opts))

@@ -416,21 +416,21 @@ class ReportDefinition(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_cur_report_definition = aws.cur.ReportDefinition("exampleCurReportDefinition",
+        example_cur_report_definition = aws.cur.report_definition.ReportDefinition("exampleCurReportDefinition",
             additional_artifacts=[
-                "REDSHIFT",
-                "QUICKSIGHT",
+                REDSHIFT,
+                QUICKSIGHT,
             ],
             additional_schema_elements=[
-                "RESOURCES",
-                "SPLIT_COST_ALLOCATION_DATA",
+                RESOURCES,
+                SPLIT_COST_ALLOCATION_DATA,
             ],
-            compression="GZIP",
-            format="textORcsv",
-            report_name="example-cur-report-definition",
-            s3_bucket="example-bucket-name",
-            s3_region="us-east-1",
-            time_unit="HOURLY")
+            compression=GZIP,
+            format=textORcsv,
+            report_name=example-cur-report-definition,
+            s3_bucket=example-bucket-name,
+            s3_region=us-east-1,
+            time_unit=HOURLY)
         ```
 
         ## Import
@@ -472,21 +472,21 @@ class ReportDefinition(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_cur_report_definition = aws.cur.ReportDefinition("exampleCurReportDefinition",
+        example_cur_report_definition = aws.cur.report_definition.ReportDefinition("exampleCurReportDefinition",
             additional_artifacts=[
-                "REDSHIFT",
-                "QUICKSIGHT",
+                REDSHIFT,
+                QUICKSIGHT,
             ],
             additional_schema_elements=[
-                "RESOURCES",
-                "SPLIT_COST_ALLOCATION_DATA",
+                RESOURCES,
+                SPLIT_COST_ALLOCATION_DATA,
             ],
-            compression="GZIP",
-            format="textORcsv",
-            report_name="example-cur-report-definition",
-            s3_bucket="example-bucket-name",
-            s3_region="us-east-1",
-            time_unit="HOURLY")
+            compression=GZIP,
+            format=textORcsv,
+            report_name=example-cur-report-definition,
+            s3_bucket=example-bucket-name,
+            s3_region=us-east-1,
+            time_unit=HOURLY)
         ```
 
         ## Import

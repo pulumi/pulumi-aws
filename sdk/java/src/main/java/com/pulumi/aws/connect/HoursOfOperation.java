@@ -30,9 +30,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.connect.HoursOfOperation;
  * import com.pulumi.aws.connect.HoursOfOperationArgs;
- * import com.pulumi.aws.connect.inputs.HoursOfOperationConfigArgs;
- * import com.pulumi.aws.connect.inputs.HoursOfOperationConfigEndTimeArgs;
- * import com.pulumi.aws.connect.inputs.HoursOfOperationConfigStartTimeArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -48,31 +45,11 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var test = new HoursOfOperation(&#34;test&#34;, HoursOfOperationArgs.builder()        
  *             .configs(            
- *                 HoursOfOperationConfigArgs.builder()
- *                     .day(&#34;MONDAY&#34;)
- *                     .endTime(HoursOfOperationConfigEndTimeArgs.builder()
- *                         .hours(23)
- *                         .minutes(8)
- *                         .build())
- *                     .startTime(HoursOfOperationConfigStartTimeArgs.builder()
- *                         .hours(8)
- *                         .minutes(0)
- *                         .build())
- *                     .build(),
- *                 HoursOfOperationConfigArgs.builder()
- *                     .day(&#34;TUESDAY&#34;)
- *                     .endTime(HoursOfOperationConfigEndTimeArgs.builder()
- *                         .hours(21)
- *                         .minutes(0)
- *                         .build())
- *                     .startTime(HoursOfOperationConfigStartTimeArgs.builder()
- *                         .hours(9)
- *                         .minutes(0)
- *                         .build())
- *                     .build())
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .description(&#34;Monday office hours&#34;)
  *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
- *             .tags(Map.of(&#34;Name&#34;, &#34;Example Hours of Operation&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .timeZone(&#34;EST&#34;)
  *             .build());
  * 

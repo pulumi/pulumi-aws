@@ -270,26 +270,6 @@ class CloudFormationStack(pulumi.CustomResource):
         """
         Deploys an Application CloudFormation Stack from the Serverless Application Repository.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        current_partition = aws.get_partition()
-        current_region = aws.get_region()
-        postgres_rotator = aws.serverlessrepository.CloudFormationStack("postgres-rotator",
-            application_id="arn:aws:serverlessrepo:us-east-1:297356227824:applications/SecretsManagerRDSPostgreSQLRotationSingleUser",
-            capabilities=[
-                "CAPABILITY_IAM",
-                "CAPABILITY_RESOURCE_POLICY",
-            ],
-            parameters={
-                "endpoint": f"secretsmanager.{current_region.name}.{current_partition.dns_suffix}",
-                "functionName": "func-postgres-rotator",
-            })
-        ```
-
         ## Import
 
         Using `pulumi import`, import Serverless Application Repository Stack using the CloudFormation Stack name (with or without the `serverlessrepo-` prefix) or the CloudFormation Stack ID. For example:
@@ -315,26 +295,6 @@ class CloudFormationStack(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Deploys an Application CloudFormation Stack from the Serverless Application Repository.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        current_partition = aws.get_partition()
-        current_region = aws.get_region()
-        postgres_rotator = aws.serverlessrepository.CloudFormationStack("postgres-rotator",
-            application_id="arn:aws:serverlessrepo:us-east-1:297356227824:applications/SecretsManagerRDSPostgreSQLRotationSingleUser",
-            capabilities=[
-                "CAPABILITY_IAM",
-                "CAPABILITY_RESOURCE_POLICY",
-            ],
-            parameters={
-                "endpoint": f"secretsmanager.{current_region.name}.{current_partition.dns_suffix}",
-                "functionName": "func-postgres-rotator",
-            })
-        ```
 
         ## Import
 

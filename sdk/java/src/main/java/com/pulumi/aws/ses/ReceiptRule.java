@@ -35,8 +35,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.ses.ReceiptRule;
  * import com.pulumi.aws.ses.ReceiptRuleArgs;
- * import com.pulumi.aws.ses.inputs.ReceiptRuleAddHeaderActionArgs;
- * import com.pulumi.aws.ses.inputs.ReceiptRuleS3ActionArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -51,18 +49,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var store = new ReceiptRule(&#34;store&#34;, ReceiptRuleArgs.builder()        
- *             .addHeaderActions(ReceiptRuleAddHeaderActionArgs.builder()
- *                 .headerName(&#34;Custom-Header&#34;)
- *                 .headerValue(&#34;Added by SES&#34;)
- *                 .position(1)
- *                 .build())
+ *             .addHeaderActions(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .enabled(true)
  *             .recipients(&#34;karen@example.com&#34;)
  *             .ruleSetName(&#34;default-rule-set&#34;)
- *             .s3Actions(ReceiptRuleS3ActionArgs.builder()
- *                 .bucketName(&#34;emails&#34;)
- *                 .position(2)
- *                 .build())
+ *             .s3Actions(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .scanEnabled(true)
  *             .build());
  * 

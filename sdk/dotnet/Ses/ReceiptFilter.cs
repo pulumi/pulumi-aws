@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Ses
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var filter = new Aws.Ses.ReceiptFilter("filter", new()
+    ///     var filter = new Aws.Ses.ReceiptFilter.ReceiptFilter("filter", new()
     ///     {
     ///         Cidr = "10.10.10.10",
     ///         Policy = "Block",

@@ -280,7 +280,7 @@ class Queue(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.mediaconvert.Queue("test")
+        test = aws.mediaconvert.queue.Queue("test")
         ```
 
         ## Import
@@ -315,7 +315,7 @@ class Queue(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.mediaconvert.Queue("test")
+        test = aws.mediaconvert.queue.Queue("test")
         ```
 
         ## Import

@@ -27,7 +27,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.ssmcontacts.ContactChannel;
  * import com.pulumi.aws.ssmcontacts.ContactChannelArgs;
- * import com.pulumi.aws.ssmcontacts.inputs.ContactChannelDeliveryAddressArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -43,9 +42,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new ContactChannel(&#34;example&#34;, ContactChannelArgs.builder()        
  *             .contactId(&#34;arn:aws:ssm-contacts:us-west-2:123456789012:contact/contactalias&#34;)
- *             .deliveryAddress(ContactChannelDeliveryAddressArgs.builder()
- *                 .simpleAddress(&#34;email@example.com&#34;)
- *                 .build())
+ *             .deliveryAddress(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .type(&#34;EMAIL&#34;)
  *             .build());
  * 
@@ -63,7 +60,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.ssmcontacts.ContactArgs;
  * import com.pulumi.aws.ssmcontacts.ContactChannel;
  * import com.pulumi.aws.ssmcontacts.ContactChannelArgs;
- * import com.pulumi.aws.ssmcontacts.inputs.ContactChannelDeliveryAddressArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -84,9 +80,7 @@ import javax.annotation.Nullable;
  * 
  *         var example = new ContactChannel(&#34;example&#34;, ContactChannelArgs.builder()        
  *             .contactId(exampleContact.arn())
- *             .deliveryAddress(ContactChannelDeliveryAddressArgs.builder()
- *                 .simpleAddress(&#34;email@example.com&#34;)
- *                 .build())
+ *             .deliveryAddress(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .type(&#34;EMAIL&#34;)
  *             .build());
  * 

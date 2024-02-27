@@ -24,16 +24,16 @@ namespace Pulumi.Aws.DataSync
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.DataSync.EfsLocation("example", new()
+    ///     var example = new Aws.Datasync.EfsLocation.EfsLocation("example", new()
     ///     {
     ///         EfsFileSystemArn = aws_efs_mount_target.Example.File_system_arn,
-    ///         Ec2Config = new Aws.DataSync.Inputs.EfsLocationEc2ConfigArgs
+    ///         Ec2Config = 
     ///         {
-    ///             SecurityGroupArns = new[]
+    ///             { "securityGroupArns", new[]
     ///             {
     ///                 aws_security_group.Example.Arn,
-    ///             },
-    ///             SubnetArn = aws_subnet.Example.Arn,
+    ///             } },
+    ///             { "subnetArn", aws_subnet.Example.Arn },
     ///         },
     ///     });
     /// 

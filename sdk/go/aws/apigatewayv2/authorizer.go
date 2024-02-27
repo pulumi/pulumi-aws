@@ -23,28 +23,26 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigatewayv2"
+//	apigatewayv2/authorizer "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/apigatewayv2/authorizer"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := apigatewayv2.NewAuthorizer(ctx, "example", &apigatewayv2.AuthorizerArgs{
-//				ApiId:          pulumi.Any(aws_apigatewayv2_api.Example.Id),
-//				AuthorizerType: pulumi.String("REQUEST"),
-//				AuthorizerUri:  pulumi.Any(aws_lambda_function.Example.Invoke_arn),
-//				IdentitySources: pulumi.StringArray{
-//					pulumi.String("route.request.header.Auth"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := apigatewayv2/authorizer.NewAuthorizer(ctx, "example", &apigatewayv2/authorizer.AuthorizerArgs{
+// ApiId: aws_apigatewayv2_api.Example.Id,
+// AuthorizerType: "REQUEST",
+// AuthorizerUri: aws_lambda_function.Example.Invoke_arn,
+// IdentitySources: []string{
+// "route.request.header.Auth",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Basic HTTP API
 //
@@ -53,29 +51,27 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigatewayv2"
+//	apigatewayv2/authorizer "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/apigatewayv2/authorizer"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := apigatewayv2.NewAuthorizer(ctx, "example", &apigatewayv2.AuthorizerArgs{
-//				ApiId:          pulumi.Any(aws_apigatewayv2_api.Example.Id),
-//				AuthorizerType: pulumi.String("REQUEST"),
-//				AuthorizerUri:  pulumi.Any(aws_lambda_function.Example.Invoke_arn),
-//				IdentitySources: pulumi.StringArray{
-//					pulumi.String("$request.header.Authorization"),
-//				},
-//				AuthorizerPayloadFormatVersion: pulumi.String("2.0"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := apigatewayv2/authorizer.NewAuthorizer(ctx, "example", &apigatewayv2/authorizer.AuthorizerArgs{
+// ApiId: aws_apigatewayv2_api.Example.Id,
+// AuthorizerType: "REQUEST",
+// AuthorizerUri: aws_lambda_function.Example.Invoke_arn,
+// IdentitySources: []string{
+// "$request.header.Authorization",
+// },
+// AuthorizerPayloadFormatVersion: "2.0",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

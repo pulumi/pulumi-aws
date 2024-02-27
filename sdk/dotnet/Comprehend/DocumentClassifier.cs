@@ -23,16 +23,16 @@ namespace Pulumi.Aws.Comprehend
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var documents = new Aws.S3.BucketObjectv2("documents");
+    ///     var documents = new Aws.S3.BucketObjectv2.BucketObjectv2("documents");
     /// 
     ///     // ...
-    ///     var example = new Aws.Comprehend.DocumentClassifier("example", new()
+    ///     var example = new Aws.Comprehend.DocumentClassifier.DocumentClassifier("example", new()
     ///     {
     ///         DataAccessRoleArn = aws_iam_role.Example.Arn,
     ///         LanguageCode = "en",
-    ///         InputDataConfig = new Aws.Comprehend.Inputs.DocumentClassifierInputDataConfigArgs
+    ///         InputDataConfig = 
     ///         {
-    ///             S3Uri = documents.Id.Apply(id =&gt; $"s3://{aws_s3_bucket.Test.Bucket}/{id}"),
+    ///             { "s3Uri", $"s3://{aws_s3_bucket.Test.Bucket}/{documents.Id}" },
     ///         },
     ///     }, new CustomResourceOptions
     ///     {
@@ -42,7 +42,7 @@ namespace Pulumi.Aws.Comprehend
     ///         },
     ///     });
     /// 
-    ///     var entities = new Aws.S3.BucketObjectv2("entities");
+    ///     var entities = new Aws.S3.BucketObjectv2.BucketObjectv2("entities");
     /// 
     ///     // ...
     /// });

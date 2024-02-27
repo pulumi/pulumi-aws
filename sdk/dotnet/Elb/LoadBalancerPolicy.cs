@@ -23,7 +23,7 @@ namespace Pulumi.Aws.Elb
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var wu_tang = new Aws.Elb.LoadBalancer("wu-tang", new()
+    ///     var wu_tang = new Aws.Elb.LoadBalancer.LoadBalancer("wu-tang", new()
     ///     {
     ///         AvailabilityZones = new[]
     ///         {
@@ -31,13 +31,13 @@ namespace Pulumi.Aws.Elb
     ///         },
     ///         Listeners = new[]
     ///         {
-    ///             new Aws.Elb.Inputs.LoadBalancerListenerArgs
+    ///             
     ///             {
-    ///                 InstancePort = 443,
-    ///                 InstanceProtocol = "http",
-    ///                 LbPort = 443,
-    ///                 LbProtocol = "https",
-    ///                 SslCertificateId = "arn:aws:iam::000000000000:server-certificate/wu-tang.net",
+    ///                 { "instancePort", 443 },
+    ///                 { "instanceProtocol", "http" },
+    ///                 { "lbPort", 443 },
+    ///                 { "lbProtocol", "https" },
+    ///                 { "sslCertificateId", "arn:aws:iam::000000000000:server-certificate/wu-tang.net" },
     ///             },
     ///         },
     ///         Tags = 
@@ -46,72 +46,72 @@ namespace Pulumi.Aws.Elb
     ///         },
     ///     });
     /// 
-    ///     var wu_tang_ca_pubkey_policy = new Aws.Elb.LoadBalancerPolicy("wu-tang-ca-pubkey-policy", new()
+    ///     var wu_tang_ca_pubkey_policy = new Aws.Elb.LoadBalancerPolicy.LoadBalancerPolicy("wu-tang-ca-pubkey-policy", new()
     ///     {
     ///         LoadBalancerName = wu_tang.Name,
     ///         PolicyName = "wu-tang-ca-pubkey-policy",
     ///         PolicyTypeName = "PublicKeyPolicyType",
     ///         PolicyAttributes = new[]
     ///         {
-    ///             new Aws.Elb.Inputs.LoadBalancerPolicyPolicyAttributeArgs
+    ///             
     ///             {
-    ///                 Name = "PublicKey",
-    ///                 Value = File.ReadAllText("wu-tang-pubkey"),
+    ///                 { "name", "PublicKey" },
+    ///                 { "value", File.ReadAllText("wu-tang-pubkey") },
     ///             },
     ///         },
     ///     });
     /// 
-    ///     var wu_tang_root_ca_backend_auth_policy = new Aws.Elb.LoadBalancerPolicy("wu-tang-root-ca-backend-auth-policy", new()
+    ///     var wu_tang_root_ca_backend_auth_policy = new Aws.Elb.LoadBalancerPolicy.LoadBalancerPolicy("wu-tang-root-ca-backend-auth-policy", new()
     ///     {
     ///         LoadBalancerName = wu_tang.Name,
     ///         PolicyName = "wu-tang-root-ca-backend-auth-policy",
     ///         PolicyTypeName = "BackendServerAuthenticationPolicyType",
     ///         PolicyAttributes = new[]
     ///         {
-    ///             new Aws.Elb.Inputs.LoadBalancerPolicyPolicyAttributeArgs
+    ///             
     ///             {
-    ///                 Name = "PublicKeyPolicyName",
-    ///                 Value = aws_load_balancer_policy.Wu_tang_root_ca_pubkey_policy.Policy_name,
+    ///                 { "name", "PublicKeyPolicyName" },
+    ///                 { "value", aws_load_balancer_policy.Wu_tang_root_ca_pubkey_policy.Policy_name },
     ///             },
     ///         },
     ///     });
     /// 
-    ///     var wu_tang_ssl = new Aws.Elb.LoadBalancerPolicy("wu-tang-ssl", new()
+    ///     var wu_tang_ssl = new Aws.Elb.LoadBalancerPolicy.LoadBalancerPolicy("wu-tang-ssl", new()
     ///     {
     ///         LoadBalancerName = wu_tang.Name,
     ///         PolicyName = "wu-tang-ssl",
     ///         PolicyTypeName = "SSLNegotiationPolicyType",
     ///         PolicyAttributes = new[]
     ///         {
-    ///             new Aws.Elb.Inputs.LoadBalancerPolicyPolicyAttributeArgs
+    ///             
     ///             {
-    ///                 Name = "ECDHE-ECDSA-AES128-GCM-SHA256",
-    ///                 Value = "true",
+    ///                 { "name", "ECDHE-ECDSA-AES128-GCM-SHA256" },
+    ///                 { "value", "true" },
     ///             },
-    ///             new Aws.Elb.Inputs.LoadBalancerPolicyPolicyAttributeArgs
+    ///             
     ///             {
-    ///                 Name = "Protocol-TLSv1.2",
-    ///                 Value = "true",
+    ///                 { "name", "Protocol-TLSv1.2" },
+    ///                 { "value", "true" },
     ///             },
     ///         },
     ///     });
     /// 
-    ///     var wu_tang_ssl_tls_1_1 = new Aws.Elb.LoadBalancerPolicy("wu-tang-ssl-tls-1-1", new()
+    ///     var wu_tang_ssl_tls_1_1 = new Aws.Elb.LoadBalancerPolicy.LoadBalancerPolicy("wu-tang-ssl-tls-1-1", new()
     ///     {
     ///         LoadBalancerName = wu_tang.Name,
     ///         PolicyName = "wu-tang-ssl",
     ///         PolicyTypeName = "SSLNegotiationPolicyType",
     ///         PolicyAttributes = new[]
     ///         {
-    ///             new Aws.Elb.Inputs.LoadBalancerPolicyPolicyAttributeArgs
+    ///             
     ///             {
-    ///                 Name = "Reference-Security-Policy",
-    ///                 Value = "ELBSecurityPolicy-TLS-1-1-2017-01",
+    ///                 { "name", "Reference-Security-Policy" },
+    ///                 { "value", "ELBSecurityPolicy-TLS-1-1-2017-01" },
     ///             },
     ///         },
     ///     });
     /// 
-    ///     var wu_tang_backend_auth_policies_443 = new Aws.Elb.LoadBalancerBackendServerPolicy("wu-tang-backend-auth-policies-443", new()
+    ///     var wu_tang_backend_auth_policies_443 = new Aws.Elb.LoadBalancerBackendServerPolicy.LoadBalancerBackendServerPolicy("wu-tang-backend-auth-policies-443", new()
     ///     {
     ///         LoadBalancerName = wu_tang.Name,
     ///         InstancePort = 443,
@@ -121,7 +121,7 @@ namespace Pulumi.Aws.Elb
     ///         },
     ///     });
     /// 
-    ///     var wu_tang_listener_policies_443 = new Aws.Elb.ListenerPolicy("wu-tang-listener-policies-443", new()
+    ///     var wu_tang_listener_policies_443 = new Aws.Elb.ListenerPolicy.ListenerPolicy("wu-tang-listener-policies-443", new()
     ///     {
     ///         LoadBalancerName = wu_tang.Name,
     ///         LoadBalancerPort = 443,

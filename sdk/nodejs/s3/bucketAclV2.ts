@@ -21,14 +21,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleBucketV2 = new aws.s3.BucketV2("exampleBucketV2", {});
- * const exampleBucketOwnershipControls = new aws.s3.BucketOwnershipControls("exampleBucketOwnershipControls", {
+ * const exampleBucketV2 = new aws.s3/bucketV2.BucketV2("exampleBucketV2", {});
+ * const exampleBucketOwnershipControls = new aws.s3/bucketOwnershipControls.BucketOwnershipControls("exampleBucketOwnershipControls", {
  *     bucket: exampleBucketV2.id,
  *     rule: {
  *         objectOwnership: "BucketOwnerPreferred",
  *     },
  * });
- * const exampleBucketAclV2 = new aws.s3.BucketAclV2("exampleBucketAclV2", {
+ * const exampleBucketAclV2 = new aws.s3/bucketAclV2.BucketAclV2("exampleBucketAclV2", {
  *     bucket: exampleBucketV2.id,
  *     acl: "private",
  * }, {
@@ -44,21 +44,21 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleBucketV2 = new aws.s3.BucketV2("exampleBucketV2", {});
- * const exampleBucketOwnershipControls = new aws.s3.BucketOwnershipControls("exampleBucketOwnershipControls", {
+ * const exampleBucketV2 = new aws.s3/bucketV2.BucketV2("exampleBucketV2", {});
+ * const exampleBucketOwnershipControls = new aws.s3/bucketOwnershipControls.BucketOwnershipControls("exampleBucketOwnershipControls", {
  *     bucket: exampleBucketV2.id,
  *     rule: {
  *         objectOwnership: "BucketOwnerPreferred",
  *     },
  * });
- * const exampleBucketPublicAccessBlock = new aws.s3.BucketPublicAccessBlock("exampleBucketPublicAccessBlock", {
+ * const exampleBucketPublicAccessBlock = new aws.s3/bucketPublicAccessBlock.BucketPublicAccessBlock("exampleBucketPublicAccessBlock", {
  *     bucket: exampleBucketV2.id,
  *     blockPublicAcls: false,
  *     blockPublicPolicy: false,
  *     ignorePublicAcls: false,
  *     restrictPublicBuckets: false,
  * });
- * const exampleBucketAclV2 = new aws.s3.BucketAclV2("exampleBucketAclV2", {
+ * const exampleBucketAclV2 = new aws.s3/bucketAclV2.BucketAclV2("exampleBucketAclV2", {
  *     bucket: exampleBucketV2.id,
  *     acl: "public-read",
  * }, {
@@ -66,47 +66,6 @@ import * as utilities from "../utilities";
  *         exampleBucketOwnershipControls,
  *         exampleBucketPublicAccessBlock,
  *     ],
- * });
- * ```
- * ### With Grants
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const current = aws.s3.getCanonicalUserId({});
- * const exampleBucketV2 = new aws.s3.BucketV2("exampleBucketV2", {});
- * const exampleBucketOwnershipControls = new aws.s3.BucketOwnershipControls("exampleBucketOwnershipControls", {
- *     bucket: exampleBucketV2.id,
- *     rule: {
- *         objectOwnership: "BucketOwnerPreferred",
- *     },
- * });
- * const exampleBucketAclV2 = new aws.s3.BucketAclV2("exampleBucketAclV2", {
- *     bucket: exampleBucketV2.id,
- *     accessControlPolicy: {
- *         grants: [
- *             {
- *                 grantee: {
- *                     id: current.then(current => current.id),
- *                     type: "CanonicalUser",
- *                 },
- *                 permission: "READ",
- *             },
- *             {
- *                 grantee: {
- *                     type: "Group",
- *                     uri: "http://acs.amazonaws.com/groups/s3/LogDelivery",
- *                 },
- *                 permission: "READ_ACP",
- *             },
- *         ],
- *         owner: {
- *             id: current.then(current => current.id),
- *         },
- *     },
- * }, {
- *     dependsOn: [exampleBucketOwnershipControls],
  * });
  * ```
  *

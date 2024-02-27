@@ -32,8 +32,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.appstream.Fleet;
  * import com.pulumi.aws.appstream.FleetArgs;
- * import com.pulumi.aws.appstream.inputs.FleetComputeCapacityArgs;
- * import com.pulumi.aws.appstream.inputs.FleetVpcConfigArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -48,9 +46,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var testFleet = new Fleet(&#34;testFleet&#34;, FleetArgs.builder()        
- *             .computeCapacity(FleetComputeCapacityArgs.builder()
- *                 .desiredInstances(1)
- *                 .build())
+ *             .computeCapacity(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .description(&#34;test fleet&#34;)
  *             .displayName(&#34;test-fleet&#34;)
  *             .enableDefaultInternetAccess(false)
@@ -59,10 +55,8 @@ import javax.annotation.Nullable;
  *             .imageName(&#34;Amazon-AppStream2-Sample-Image-03-11-2023&#34;)
  *             .instanceType(&#34;stream.standard.large&#34;)
  *             .maxUserDurationInSeconds(600)
- *             .tags(Map.of(&#34;TagName&#34;, &#34;tag-value&#34;))
- *             .vpcConfig(FleetVpcConfigArgs.builder()
- *                 .subnetIds(&#34;subnet-06e9b13400c225127&#34;)
- *                 .build())
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .vpcConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

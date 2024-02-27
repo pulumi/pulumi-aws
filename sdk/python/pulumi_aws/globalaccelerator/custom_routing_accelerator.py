@@ -316,15 +316,15 @@ class CustomRoutingAccelerator(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.globalaccelerator.CustomRoutingAccelerator("example",
-            attributes=aws.globalaccelerator.CustomRoutingAcceleratorAttributesArgs(
-                flow_logs_enabled=True,
-                flow_logs_s3_bucket="example-bucket",
-                flow_logs_s3_prefix="flow-logs/",
-            ),
+        example = aws.globalaccelerator.custom_routing_accelerator.CustomRoutingAccelerator("example",
+            attributes={
+                flowLogsEnabled: True,
+                flowLogsS3Bucket: example-bucket,
+                flowLogsS3Prefix: flow-logs/,
+            },
             enabled=True,
-            ip_address_type="IPV4",
-            ip_addresses=["1.2.3.4"])
+            ip_address_type=IPV4,
+            ip_addresses=[1.2.3.4])
         ```
 
         ## Import
@@ -359,15 +359,15 @@ class CustomRoutingAccelerator(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.globalaccelerator.CustomRoutingAccelerator("example",
-            attributes=aws.globalaccelerator.CustomRoutingAcceleratorAttributesArgs(
-                flow_logs_enabled=True,
-                flow_logs_s3_bucket="example-bucket",
-                flow_logs_s3_prefix="flow-logs/",
-            ),
+        example = aws.globalaccelerator.custom_routing_accelerator.CustomRoutingAccelerator("example",
+            attributes={
+                flowLogsEnabled: True,
+                flowLogsS3Bucket: example-bucket,
+                flowLogsS3Prefix: flow-logs/,
+            },
             enabled=True,
-            ip_address_type="IPV4",
-            ip_addresses=["1.2.3.4"])
+            ip_address_type=IPV4,
+            ip_addresses=[1.2.3.4])
         ```
 
         ## Import

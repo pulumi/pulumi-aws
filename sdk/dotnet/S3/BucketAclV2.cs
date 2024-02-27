@@ -27,18 +27,18 @@ namespace Pulumi.Aws.S3
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2");
+    ///     var exampleBucketV2 = new Aws.S3.BucketV2.BucketV2("exampleBucketV2");
     /// 
-    ///     var exampleBucketOwnershipControls = new Aws.S3.BucketOwnershipControls("exampleBucketOwnershipControls", new()
+    ///     var exampleBucketOwnershipControls = new Aws.S3.BucketOwnershipControls.BucketOwnershipControls("exampleBucketOwnershipControls", new()
     ///     {
     ///         Bucket = exampleBucketV2.Id,
-    ///         Rule = new Aws.S3.Inputs.BucketOwnershipControlsRuleArgs
+    ///         Rule = 
     ///         {
-    ///             ObjectOwnership = "BucketOwnerPreferred",
+    ///             { "objectOwnership", "BucketOwnerPreferred" },
     ///         },
     ///     });
     /// 
-    ///     var exampleBucketAclV2 = new Aws.S3.BucketAclV2("exampleBucketAclV2", new()
+    ///     var exampleBucketAclV2 = new Aws.S3.BucketAclV2.BucketAclV2("exampleBucketAclV2", new()
     ///     {
     ///         Bucket = exampleBucketV2.Id,
     ///         Acl = "private",
@@ -65,18 +65,18 @@ namespace Pulumi.Aws.S3
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2");
+    ///     var exampleBucketV2 = new Aws.S3.BucketV2.BucketV2("exampleBucketV2");
     /// 
-    ///     var exampleBucketOwnershipControls = new Aws.S3.BucketOwnershipControls("exampleBucketOwnershipControls", new()
+    ///     var exampleBucketOwnershipControls = new Aws.S3.BucketOwnershipControls.BucketOwnershipControls("exampleBucketOwnershipControls", new()
     ///     {
     ///         Bucket = exampleBucketV2.Id,
-    ///         Rule = new Aws.S3.Inputs.BucketOwnershipControlsRuleArgs
+    ///         Rule = 
     ///         {
-    ///             ObjectOwnership = "BucketOwnerPreferred",
+    ///             { "objectOwnership", "BucketOwnerPreferred" },
     ///         },
     ///     });
     /// 
-    ///     var exampleBucketPublicAccessBlock = new Aws.S3.BucketPublicAccessBlock("exampleBucketPublicAccessBlock", new()
+    ///     var exampleBucketPublicAccessBlock = new Aws.S3.BucketPublicAccessBlock.BucketPublicAccessBlock("exampleBucketPublicAccessBlock", new()
     ///     {
     ///         Bucket = exampleBucketV2.Id,
     ///         BlockPublicAcls = false,
@@ -85,7 +85,7 @@ namespace Pulumi.Aws.S3
     ///         RestrictPublicBuckets = false,
     ///     });
     /// 
-    ///     var exampleBucketAclV2 = new Aws.S3.BucketAclV2("exampleBucketAclV2", new()
+    ///     var exampleBucketAclV2 = new Aws.S3.BucketAclV2.BucketAclV2("exampleBucketAclV2", new()
     ///     {
     ///         Bucket = exampleBucketV2.Id,
     ///         Acl = "public-read",
@@ -95,70 +95,6 @@ namespace Pulumi.Aws.S3
     ///         {
     ///             exampleBucketOwnershipControls,
     ///             exampleBucketPublicAccessBlock,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### With Grants
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var current = Aws.S3.GetCanonicalUserId.Invoke();
-    /// 
-    ///     var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2");
-    /// 
-    ///     var exampleBucketOwnershipControls = new Aws.S3.BucketOwnershipControls("exampleBucketOwnershipControls", new()
-    ///     {
-    ///         Bucket = exampleBucketV2.Id,
-    ///         Rule = new Aws.S3.Inputs.BucketOwnershipControlsRuleArgs
-    ///         {
-    ///             ObjectOwnership = "BucketOwnerPreferred",
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleBucketAclV2 = new Aws.S3.BucketAclV2("exampleBucketAclV2", new()
-    ///     {
-    ///         Bucket = exampleBucketV2.Id,
-    ///         AccessControlPolicy = new Aws.S3.Inputs.BucketAclV2AccessControlPolicyArgs
-    ///         {
-    ///             Grants = new[]
-    ///             {
-    ///                 new Aws.S3.Inputs.BucketAclV2AccessControlPolicyGrantArgs
-    ///                 {
-    ///                     Grantee = new Aws.S3.Inputs.BucketAclV2AccessControlPolicyGrantGranteeArgs
-    ///                     {
-    ///                         Id = current.Apply(getCanonicalUserIdResult =&gt; getCanonicalUserIdResult.Id),
-    ///                         Type = "CanonicalUser",
-    ///                     },
-    ///                     Permission = "READ",
-    ///                 },
-    ///                 new Aws.S3.Inputs.BucketAclV2AccessControlPolicyGrantArgs
-    ///                 {
-    ///                     Grantee = new Aws.S3.Inputs.BucketAclV2AccessControlPolicyGrantGranteeArgs
-    ///                     {
-    ///                         Type = "Group",
-    ///                         Uri = "http://acs.amazonaws.com/groups/s3/LogDelivery",
-    ///                     },
-    ///                     Permission = "READ_ACP",
-    ///                 },
-    ///             },
-    ///             Owner = new Aws.S3.Inputs.BucketAclV2AccessControlPolicyOwnerArgs
-    ///             {
-    ///                 Id = current.Apply(getCanonicalUserIdResult =&gt; getCanonicalUserIdResult.Id),
-    ///             },
-    ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             exampleBucketOwnershipControls,
     ///         },
     ///     });
     /// 

@@ -13,8 +13,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleTopic = new aws.sns.Topic("exampleTopic", {});
- * const exampleDataProtectionPolicy = new aws.sns.DataProtectionPolicy("exampleDataProtectionPolicy", {
+ * const exampleTopic = new aws.sns/topic.Topic("exampleTopic", {});
+ * const exampleDataProtectionPolicy = new aws.sns/dataProtectionPolicy.DataProtectionPolicy("exampleDataProtectionPolicy", {
  *     arn: exampleTopic.arn,
  *     policy: JSON.stringify({
  *         Description: "Example data protection policy",

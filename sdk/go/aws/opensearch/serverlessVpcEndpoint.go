@@ -22,26 +22,24 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/opensearch"
+//	opensearch/serverlessVpcEndpoint "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/opensearch/serverlessVpcEndpoint"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := opensearch.NewServerlessVpcEndpoint(ctx, "example", &opensearch.ServerlessVpcEndpointArgs{
-//				SubnetIds: pulumi.StringArray{
-//					aws_subnet.Example.Id,
-//				},
-//				VpcId: pulumi.Any(aws_vpc.Example.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := opensearch/serverlessVpcEndpoint.NewServerlessVpcEndpoint(ctx, "example", &opensearch/serverlessVpcEndpoint.ServerlessVpcEndpointArgs{
+// SubnetIds: []interface{}{
+// aws_subnet.Example.Id,
+// },
+// VpcId: aws_vpc.Example.Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

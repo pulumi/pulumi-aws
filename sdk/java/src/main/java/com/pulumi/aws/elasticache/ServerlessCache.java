@@ -34,8 +34,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.elasticache.ServerlessCache;
  * import com.pulumi.aws.elasticache.ServerlessCacheArgs;
- * import com.pulumi.aws.elasticache.inputs.ServerlessCacheCacheUsageLimitsArgs;
- * import com.pulumi.aws.elasticache.inputs.ServerlessCacheCacheUsageLimitsDataStorageArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -51,15 +49,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new ServerlessCache(&#34;example&#34;, ServerlessCacheArgs.builder()        
  *             .engine(&#34;memcached&#34;)
- *             .cacheUsageLimits(ServerlessCacheCacheUsageLimitsArgs.builder()
- *                 .dataStorage(ServerlessCacheCacheUsageLimitsDataStorageArgs.builder()
- *                     .maximum(10)
- *                     .unit(&#34;GB&#34;)
- *                     .build())
- *                 .ecpuPerSeconds(ServerlessCacheCacheUsageLimitsEcpuPerSecondArgs.builder()
- *                     .maximum(5)
- *                     .build())
- *                 .build())
+ *             .cacheUsageLimits(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .description(&#34;Test Server&#34;)
  *             .kmsKeyId(aws_kms_key.test().arn())
  *             .majorEngineVersion(&#34;1.6&#34;)
@@ -79,8 +69,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.elasticache.ServerlessCache;
  * import com.pulumi.aws.elasticache.ServerlessCacheArgs;
- * import com.pulumi.aws.elasticache.inputs.ServerlessCacheCacheUsageLimitsArgs;
- * import com.pulumi.aws.elasticache.inputs.ServerlessCacheCacheUsageLimitsDataStorageArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -96,15 +84,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new ServerlessCache(&#34;example&#34;, ServerlessCacheArgs.builder()        
  *             .engine(&#34;redis&#34;)
- *             .cacheUsageLimits(ServerlessCacheCacheUsageLimitsArgs.builder()
- *                 .dataStorage(ServerlessCacheCacheUsageLimitsDataStorageArgs.builder()
- *                     .maximum(10)
- *                     .unit(&#34;GB&#34;)
- *                     .build())
- *                 .ecpuPerSeconds(ServerlessCacheCacheUsageLimitsEcpuPerSecondArgs.builder()
- *                     .maximum(5)
- *                     .build())
- *                 .build())
+ *             .cacheUsageLimits(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .dailySnapshotTime(&#34;09:00&#34;)
  *             .description(&#34;Test Server&#34;)
  *             .kmsKeyId(aws_kms_key.test().arn())

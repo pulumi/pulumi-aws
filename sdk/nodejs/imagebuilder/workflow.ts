@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.imagebuilder.Workflow("example", {
+ * const example = new aws.imagebuilder/workflow.Workflow("example", {
  *     data: `  name: example
  *   description: Workflow to test an image
  *   schemaVersion: 1.0

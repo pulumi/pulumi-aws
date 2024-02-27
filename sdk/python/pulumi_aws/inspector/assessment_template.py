@@ -277,19 +277,19 @@ class AssessmentTemplate(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.inspector.AssessmentTemplate("example",
-            target_arn=aws_inspector_assessment_target["example"]["arn"],
+        example = aws.inspector.assessment_template.AssessmentTemplate("example",
+            target_arn=aws_inspector_assessment_target.example.arn,
             duration=3600,
             rules_package_arns=[
-                "arn:aws:inspector:us-west-2:758058086616:rulespackage/0-9hgA516p",
-                "arn:aws:inspector:us-west-2:758058086616:rulespackage/0-H5hpSawc",
-                "arn:aws:inspector:us-west-2:758058086616:rulespackage/0-JJOtZiqQ",
-                "arn:aws:inspector:us-west-2:758058086616:rulespackage/0-vg5GGHSD",
+                arn:aws:inspector:us-west-2:758058086616:rulespackage/0-9hgA516p,
+                arn:aws:inspector:us-west-2:758058086616:rulespackage/0-H5hpSawc,
+                arn:aws:inspector:us-west-2:758058086616:rulespackage/0-JJOtZiqQ,
+                arn:aws:inspector:us-west-2:758058086616:rulespackage/0-vg5GGHSD,
             ],
-            event_subscriptions=[aws.inspector.AssessmentTemplateEventSubscriptionArgs(
-                event="ASSESSMENT_RUN_COMPLETED",
-                topic_arn=aws_sns_topic["example"]["arn"],
-            )])
+            event_subscriptions=[{
+                event: ASSESSMENT_RUN_COMPLETED,
+                topicArn: aws_sns_topic.example.arn,
+            }])
         ```
 
         ## Import
@@ -324,19 +324,19 @@ class AssessmentTemplate(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.inspector.AssessmentTemplate("example",
-            target_arn=aws_inspector_assessment_target["example"]["arn"],
+        example = aws.inspector.assessment_template.AssessmentTemplate("example",
+            target_arn=aws_inspector_assessment_target.example.arn,
             duration=3600,
             rules_package_arns=[
-                "arn:aws:inspector:us-west-2:758058086616:rulespackage/0-9hgA516p",
-                "arn:aws:inspector:us-west-2:758058086616:rulespackage/0-H5hpSawc",
-                "arn:aws:inspector:us-west-2:758058086616:rulespackage/0-JJOtZiqQ",
-                "arn:aws:inspector:us-west-2:758058086616:rulespackage/0-vg5GGHSD",
+                arn:aws:inspector:us-west-2:758058086616:rulespackage/0-9hgA516p,
+                arn:aws:inspector:us-west-2:758058086616:rulespackage/0-H5hpSawc,
+                arn:aws:inspector:us-west-2:758058086616:rulespackage/0-JJOtZiqQ,
+                arn:aws:inspector:us-west-2:758058086616:rulespackage/0-vg5GGHSD,
             ],
-            event_subscriptions=[aws.inspector.AssessmentTemplateEventSubscriptionArgs(
-                event="ASSESSMENT_RUN_COMPLETED",
-                topic_arn=aws_sns_topic["example"]["arn"],
-            )])
+            event_subscriptions=[{
+                event: ASSESSMENT_RUN_COMPLETED,
+                topicArn: aws_sns_topic.example.arn,
+            }])
         ```
 
         ## Import

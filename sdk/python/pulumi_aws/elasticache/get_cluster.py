@@ -339,15 +339,6 @@ def get_cluster(cluster_id: Optional[str] = None,
     """
     Use this data source to get information about an ElastiCache Cluster
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    my_cluster = aws.elasticache.get_cluster(cluster_id="my-cluster-id")
-    ```
-
 
     :param str cluster_id: Group identifier.
     :param Mapping[str, str] tags: Tags assigned to the resource
@@ -392,15 +383,6 @@ def get_cluster_output(cluster_id: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetClusterResult]:
     """
     Use this data source to get information about an ElastiCache Cluster
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    my_cluster = aws.elasticache.get_cluster(cluster_id="my-cluster-id")
-    ```
 
 
     :param str cluster_id: Group identifier.

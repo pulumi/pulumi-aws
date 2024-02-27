@@ -21,30 +21,28 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/docdb"
+//	docdb/clusterParameterGroup "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/docdb/clusterParameterGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := docdb.NewClusterParameterGroup(ctx, "example", &docdb.ClusterParameterGroupArgs{
-//				Description: pulumi.String("docdb cluster parameter group"),
-//				Family:      pulumi.String("docdb3.6"),
-//				Parameters: docdb.ClusterParameterGroupParameterArray{
-//					&docdb.ClusterParameterGroupParameterArgs{
-//						Name:  pulumi.String("tls"),
-//						Value: pulumi.String("enabled"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := docdb/clusterParameterGroup.NewClusterParameterGroup(ctx, "example", &docdb/clusterParameterGroup.ClusterParameterGroupArgs{
+// Description: "docdb cluster parameter group",
+// Family: "docdb3.6",
+// Parameters: []map[string]interface{}{
+// map[string]interface{}{
+// "name": "tls",
+// "value": "enabled",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

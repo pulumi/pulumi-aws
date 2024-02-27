@@ -22,45 +22,43 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudsearch"
+//	cloudsearch/domain "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/cloudsearch/domain"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cloudsearch.NewDomain(ctx, "example", &cloudsearch.DomainArgs{
-//				IndexFields: cloudsearch.DomainIndexFieldArray{
-//					&cloudsearch.DomainIndexFieldArgs{
-//						AnalysisScheme: pulumi.String("_en_default_"),
-//						Highlight:      pulumi.Bool(false),
-//						Name:           pulumi.String("headline"),
-//						Return:         pulumi.Bool(true),
-//						Search:         pulumi.Bool(true),
-//						Sort:           pulumi.Bool(true),
-//						Type:           pulumi.String("text"),
-//					},
-//					&cloudsearch.DomainIndexFieldArgs{
-//						Facet:        pulumi.Bool(true),
-//						Name:         pulumi.String("price"),
-//						Return:       pulumi.Bool(true),
-//						Search:       pulumi.Bool(true),
-//						Sort:         pulumi.Bool(true),
-//						SourceFields: pulumi.String("headline"),
-//						Type:         pulumi.String("double"),
-//					},
-//				},
-//				ScalingParameters: &cloudsearch.DomainScalingParametersArgs{
-//					DesiredInstanceType: pulumi.String("search.medium"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := cloudsearch/domain.NewDomain(ctx, "example", &cloudsearch/domain.DomainArgs{
+// IndexFields: []interface{}{
+// map[string]interface{}{
+// "analysisScheme": "_en_default_",
+// "highlight": false,
+// "name": "headline",
+// "return": true,
+// "search": true,
+// "sort": true,
+// "type": "text",
+// },
+// map[string]interface{}{
+// "facet": true,
+// "name": "price",
+// "return": true,
+// "search": true,
+// "sort": true,
+// "sourceFields": "headline",
+// "type": "double",
+// },
+// },
+// ScalingParameters: map[string]interface{}{
+// "desiredInstanceType": "search.medium",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

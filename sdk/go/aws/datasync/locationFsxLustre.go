@@ -21,26 +21,24 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/datasync"
+//	datasync/locationFsxLustre "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/datasync/locationFsxLustre"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := datasync.NewLocationFsxLustre(ctx, "example", &datasync.LocationFsxLustreArgs{
-//				FsxFilesystemArn: pulumi.Any(aws_fsx_lustre_file_system.Example.Arn),
-//				SecurityGroupArns: pulumi.StringArray{
-//					aws_security_group.Example.Arn,
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := datasync/locationFsxLustre.NewLocationFsxLustre(ctx, "example", &datasync/locationFsxLustre.LocationFsxLustreArgs{
+// FsxFilesystemArn: aws_fsx_lustre_file_system.Example.Arn,
+// SecurityGroupArns: []interface{}{
+// aws_security_group.Example.Arn,
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

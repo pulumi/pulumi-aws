@@ -30,7 +30,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.chime.SdkvoiceSipRule;
  * import com.pulumi.aws.chime.SdkvoiceSipRuleArgs;
- * import com.pulumi.aws.chime.inputs.SdkvoiceSipRuleTargetApplicationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -47,11 +46,7 @@ import javax.annotation.Nullable;
  *         var example = new SdkvoiceSipRule(&#34;example&#34;, SdkvoiceSipRuleArgs.builder()        
  *             .triggerType(&#34;RequestUriHostname&#34;)
  *             .triggerValue(aws_chime_voice_connector.example-voice-connector().outbound_host_name())
- *             .targetApplications(SdkvoiceSipRuleTargetApplicationArgs.builder()
- *                 .priority(1)
- *                 .sipMediaApplicationId(aws_chimesdkvoice_sip_media_application.example-sma().id())
- *                 .awsRegion(&#34;us-east-1&#34;)
- *                 .build())
+ *             .targetApplications(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

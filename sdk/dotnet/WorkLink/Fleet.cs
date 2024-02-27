@@ -22,7 +22,7 @@ namespace Pulumi.Aws.WorkLink
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.WorkLink.Fleet("example");
+    ///     var example = new Aws.Worklink.Fleet.Fleet("example");
     /// 
     /// });
     /// ```
@@ -37,19 +37,19 @@ namespace Pulumi.Aws.WorkLink
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.WorkLink.Fleet("example", new()
+    ///     var example = new Aws.Worklink.Fleet.Fleet("example", new()
     ///     {
-    ///         Network = new Aws.WorkLink.Inputs.FleetNetworkArgs
+    ///         Network = 
     ///         {
-    ///             VpcId = aws_vpc.Test.Id,
-    ///             SubnetIds = new[]
+    ///             { "vpcId", aws_vpc.Test.Id },
+    ///             { "subnetIds", new[]
     ///             {
     ///                 aws_subnet.Test.Select(__item =&gt; __item.Id).ToList(),
-    ///             },
-    ///             SecurityGroupIds = new[]
+    ///             } },
+    ///             { "securityGroupIds", new[]
     ///             {
     ///                 aws_security_group.Test.Id,
-    ///             },
+    ///             } },
     ///         },
     ///     });
     /// 
@@ -67,12 +67,12 @@ namespace Pulumi.Aws.WorkLink
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Aws.WorkLink.Fleet("test", new()
+    ///     var test = new Aws.Worklink.Fleet.Fleet("test", new()
     ///     {
-    ///         IdentityProvider = new Aws.WorkLink.Inputs.FleetIdentityProviderArgs
+    ///         IdentityProvider = 
     ///         {
-    ///             Type = "SAML",
-    ///             SamlMetadata = File.ReadAllText("saml-metadata.xml"),
+    ///             { "type", "SAML" },
+    ///             { "samlMetadata", File.ReadAllText("saml-metadata.xml") },
     ///         },
     ///     });
     /// 

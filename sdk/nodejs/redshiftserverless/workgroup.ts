@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.redshiftserverless.Workgroup("example", {
+ * const example = new aws.redshiftserverless/workgroup.Workgroup("example", {
  *     namespaceName: "concurrency-scaling",
  *     workgroupName: "concurrency-scaling",
  * });

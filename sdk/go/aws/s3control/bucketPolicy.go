@@ -25,43 +25,22 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3control"
+//	s3control/bucketPolicy "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/s3control/bucketPolicy"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"Id": "testBucketPolicy",
-//				"Statement": []map[string]interface{}{
-//					map[string]interface{}{
-//						"Action": "s3-outposts:PutBucketLifecycleConfiguration",
-//						"Effect": "Deny",
-//						"Principal": map[string]interface{}{
-//							"AWS": "*",
-//						},
-//						"Resource": aws_s3control_bucket.Example.Arn,
-//						"Sid":      "statement1",
-//					},
-//				},
-//				"Version": "2012-10-17",
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			_, err = s3control.NewBucketPolicy(ctx, "example", &s3control.BucketPolicyArgs{
-//				Bucket: pulumi.Any(aws_s3control_bucket.Example.Arn),
-//				Policy: pulumi.String(json0),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := s3control/bucketPolicy.NewBucketPolicy(ctx, "example", &s3control/bucketPolicy.BucketPolicyArgs{
+// Bucket: aws_s3control_bucket.Example.Arn,
+// Policy: %!v(PANIC=Format method: fatal: An assertion has failed: unlowered function toJSON),
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

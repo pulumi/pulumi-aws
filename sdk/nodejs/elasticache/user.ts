@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = new aws.elasticache.User("test", {
+ * const test = new aws.elasticache/user.User("test", {
  *     accessString: "on ~app::* -@all +@read +@hash +@bitmap +@geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember",
  *     engine: "REDIS",
  *     passwords: ["password123456789"],
@@ -30,7 +30,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = new aws.elasticache.User("test", {
+ * const test = new aws.elasticache/user.User("test", {
  *     accessString: "on ~* +@all",
  *     authenticationMode: {
  *         type: "iam",
@@ -45,7 +45,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = new aws.elasticache.User("test", {
+ * const test = new aws.elasticache/user.User("test", {
  *     accessString: "on ~* +@all",
  *     authenticationMode: {
  *         passwords: [

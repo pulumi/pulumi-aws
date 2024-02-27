@@ -23,12 +23,12 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var myDemoAPI = new Aws.ApiGateway.RestApi("myDemoAPI", new()
+    ///     var myDemoAPI = new Aws.Apigateway.RestApi.RestApi("myDemoAPI", new()
     ///     {
     ///         Description = "This is my API for demonstration purposes",
     ///     });
     /// 
-    ///     var myDemoModel = new Aws.ApiGateway.Model("myDemoModel", new()
+    ///     var myDemoModel = new Aws.Apigateway.Model.Model("myDemoModel", new()
     ///     {
     ///         RestApi = myDemoAPI.Id,
     ///         Description = "a JSON schema",

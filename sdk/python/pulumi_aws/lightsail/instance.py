@@ -538,13 +538,13 @@ class Instance(pulumi.CustomResource):
         import pulumi_aws as aws
 
         # Create a new GitLab Lightsail Instance
-        gitlab_test = aws.lightsail.Instance("gitlabTest",
-            availability_zone="us-east-1b",
-            blueprint_id="amazon_linux_2",
-            bundle_id="nano_1_0",
-            key_pair_name="some_key_name",
+        gitlab_test = aws.lightsail.instance.Instance("gitlabTest",
+            availability_zone=us-east-1b,
+            blueprint_id=amazon_linux_2,
+            bundle_id=nano_1_0,
+            key_pair_name=some_key_name,
             tags={
-                "foo": "bar",
+                foo: bar,
             })
         ```
         ### Example With User Data
@@ -555,11 +555,11 @@ class Instance(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        custom = aws.lightsail.Instance("custom",
-            availability_zone="us-east-1b",
-            blueprint_id="amazon_linux_2",
-            bundle_id="nano_1_0",
-            user_data="sudo yum install -y httpd && sudo systemctl start httpd && sudo systemctl enable httpd && echo '<h1>Deployed via Pulumi</h1>' | sudo tee /var/www/html/index.html")
+        custom = aws.lightsail.instance.Instance("custom",
+            availability_zone=us-east-1b,
+            blueprint_id=amazon_linux_2,
+            bundle_id=nano_1_0,
+            user_data=sudo yum install -y httpd && sudo systemctl start httpd && sudo systemctl enable httpd && echo '<h1>Deployed via Pulumi</h1>' | sudo tee /var/www/html/index.html)
         ```
         ### Enable Auto Snapshots
 
@@ -567,17 +567,17 @@ class Instance(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.lightsail.Instance("test",
-            add_on=aws.lightsail.InstanceAddOnArgs(
-                snapshot_time="06:00",
-                status="Enabled",
-                type="AutoSnapshot",
-            ),
-            availability_zone="us-east-1b",
-            blueprint_id="amazon_linux_2",
-            bundle_id="nano_1_0",
+        test = aws.lightsail.instance.Instance("test",
+            add_on={
+                snapshotTime: 06:00,
+                status: Enabled,
+                type: AutoSnapshot,
+            },
+            availability_zone=us-east-1b,
+            blueprint_id=amazon_linux_2,
+            bundle_id=nano_1_0,
             tags={
-                "foo": "bar",
+                foo: bar,
             })
         ```
 
@@ -629,13 +629,13 @@ class Instance(pulumi.CustomResource):
         import pulumi_aws as aws
 
         # Create a new GitLab Lightsail Instance
-        gitlab_test = aws.lightsail.Instance("gitlabTest",
-            availability_zone="us-east-1b",
-            blueprint_id="amazon_linux_2",
-            bundle_id="nano_1_0",
-            key_pair_name="some_key_name",
+        gitlab_test = aws.lightsail.instance.Instance("gitlabTest",
+            availability_zone=us-east-1b,
+            blueprint_id=amazon_linux_2,
+            bundle_id=nano_1_0,
+            key_pair_name=some_key_name,
             tags={
-                "foo": "bar",
+                foo: bar,
             })
         ```
         ### Example With User Data
@@ -646,11 +646,11 @@ class Instance(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        custom = aws.lightsail.Instance("custom",
-            availability_zone="us-east-1b",
-            blueprint_id="amazon_linux_2",
-            bundle_id="nano_1_0",
-            user_data="sudo yum install -y httpd && sudo systemctl start httpd && sudo systemctl enable httpd && echo '<h1>Deployed via Pulumi</h1>' | sudo tee /var/www/html/index.html")
+        custom = aws.lightsail.instance.Instance("custom",
+            availability_zone=us-east-1b,
+            blueprint_id=amazon_linux_2,
+            bundle_id=nano_1_0,
+            user_data=sudo yum install -y httpd && sudo systemctl start httpd && sudo systemctl enable httpd && echo '<h1>Deployed via Pulumi</h1>' | sudo tee /var/www/html/index.html)
         ```
         ### Enable Auto Snapshots
 
@@ -658,17 +658,17 @@ class Instance(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.lightsail.Instance("test",
-            add_on=aws.lightsail.InstanceAddOnArgs(
-                snapshot_time="06:00",
-                status="Enabled",
-                type="AutoSnapshot",
-            ),
-            availability_zone="us-east-1b",
-            blueprint_id="amazon_linux_2",
-            bundle_id="nano_1_0",
+        test = aws.lightsail.instance.Instance("test",
+            add_on={
+                snapshotTime: 06:00,
+                status: Enabled,
+                type: AutoSnapshot,
+            },
+            availability_zone=us-east-1b,
+            blueprint_id=amazon_linux_2,
+            bundle_id=nano_1_0,
             tags={
-                "foo": "bar",
+                foo: bar,
             })
         ```
 

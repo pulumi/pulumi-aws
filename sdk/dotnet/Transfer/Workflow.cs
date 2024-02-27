@@ -23,18 +23,18 @@ namespace Pulumi.Aws.Transfer
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Transfer.Workflow("example", new()
+    ///     var example = new Aws.Transfer.Workflow.Workflow("example", new()
     ///     {
     ///         Steps = new[]
     ///         {
-    ///             new Aws.Transfer.Inputs.WorkflowStepArgs
+    ///             
     ///             {
-    ///                 DeleteStepDetails = new Aws.Transfer.Inputs.WorkflowStepDeleteStepDetailsArgs
+    ///                 { "deleteStepDetails", 
     ///                 {
-    ///                     Name = "example",
-    ///                     SourceFileLocation = "${original.file}",
-    ///                 },
-    ///                 Type = "DELETE",
+    ///                     { "name", "example" },
+    ///                     { "sourceFileLocation", "${original.file}" },
+    ///                 } },
+    ///                 { "type", "DELETE" },
     ///             },
     ///         },
     ///     });
@@ -51,37 +51,37 @@ namespace Pulumi.Aws.Transfer
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Transfer.Workflow("example", new()
+    ///     var example = new Aws.Transfer.Workflow.Workflow("example", new()
     ///     {
     ///         Steps = new[]
     ///         {
-    ///             new Aws.Transfer.Inputs.WorkflowStepArgs
+    ///             
     ///             {
-    ///                 CustomStepDetails = new Aws.Transfer.Inputs.WorkflowStepCustomStepDetailsArgs
+    ///                 { "customStepDetails", 
     ///                 {
-    ///                     Name = "example",
-    ///                     SourceFileLocation = "${original.file}",
-    ///                     Target = aws_lambda_function.Example.Arn,
-    ///                     TimeoutSeconds = 60,
-    ///                 },
-    ///                 Type = "CUSTOM",
+    ///                     { "name", "example" },
+    ///                     { "sourceFileLocation", "${original.file}" },
+    ///                     { "target", aws_lambda_function.Example.Arn },
+    ///                     { "timeoutSeconds", 60 },
+    ///                 } },
+    ///                 { "type", "CUSTOM" },
     ///             },
-    ///             new Aws.Transfer.Inputs.WorkflowStepArgs
+    ///             
     ///             {
-    ///                 TagStepDetails = new Aws.Transfer.Inputs.WorkflowStepTagStepDetailsArgs
+    ///                 { "tagStepDetails", 
     ///                 {
-    ///                     Name = "example",
-    ///                     SourceFileLocation = "${original.file}",
-    ///                     Tags = new[]
+    ///                     { "name", "example" },
+    ///                     { "sourceFileLocation", "${original.file}" },
+    ///                     { "tags", new[]
     ///                     {
-    ///                         new Aws.Transfer.Inputs.WorkflowStepTagStepDetailsTagArgs
+    ///                         
     ///                         {
-    ///                             Key = "Name",
-    ///                             Value = "Hello World",
+    ///                             { "key", "Name" },
+    ///                             { "value", "Hello World" },
     ///                         },
-    ///                     },
-    ///                 },
-    ///                 Type = "TAG",
+    ///                     } },
+    ///                 } },
+    ///                 { "type", "TAG" },
     ///             },
     ///         },
     ///     });

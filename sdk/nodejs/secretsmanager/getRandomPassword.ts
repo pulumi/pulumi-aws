@@ -6,18 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Generate a random password.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = aws.secretsmanager.getRandomPassword({
- *     excludeNumbers: true,
- *     passwordLength: 50,
- * });
- * ```
  */
 export function getRandomPassword(args?: GetRandomPasswordArgs, opts?: pulumi.InvokeOptions): Promise<GetRandomPasswordResult> {
     args = args || {};
@@ -96,18 +84,6 @@ export interface GetRandomPasswordResult {
 }
 /**
  * Generate a random password.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = aws.secretsmanager.getRandomPassword({
- *     excludeNumbers: true,
- *     passwordLength: 50,
- * });
- * ```
  */
 export function getRandomPasswordOutput(args?: GetRandomPasswordOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRandomPasswordResult> {
     return pulumi.output(args).apply((a: any) => getRandomPassword(a, opts))

@@ -15,6 +15,49 @@ import * as utilities from "../utilities";
  * !> **WARN:** When importing Open API Specifications with the `body` argument, by default the API Gateway REST API will be replaced with the Open API Specification thus removing any existing methods, resources, integrations, or endpoints. Endpoint mutations are asynchronous operations, and race conditions with DNS are possible. To overcome this limitation, use the `putRestApiMode` attribute and set it to `merge`.
  *
  * ## Example Usage
+ * ### OpenAPI Specification
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * import * as crypto from "crypto";
+ *
+ * const exampleRestApi = new aws.apigateway/restApi.RestApi("exampleRestApi", {
+ *     body: JSON.stringify({
+ *         openapi: "3.0.1",
+ *         info: {
+ *             title: "example",
+ *             version: "1.0",
+ *         },
+ *         paths: {
+ *             "/path1": {
+ *                 get: {
+ *                     "x-amazon-apigateway-integration": {
+ *                         httpMethod: "GET",
+ *                         payloadFormatVersion: "1.0",
+ *                         type: "HTTP_PROXY",
+ *                         uri: "https://ip-ranges.amazonaws.com/ip-ranges.json",
+ *                     },
+ *                 },
+ *             },
+ *         },
+ *     }),
+ *     endpointConfiguration: {
+ *         types: ["REGIONAL"],
+ *     },
+ * });
+ * const exampleDeployment = new aws.apigateway/deployment.Deployment("exampleDeployment", {
+ *     restApi: exampleRestApi.id,
+ *     triggers: {
+ *         redeployment: crypto.createHash('sha1').update(JSON.stringify(exampleRestApi.body)).digest('hex'),
+ *     },
+ * });
+ * const exampleStage = new aws.apigateway/stage.Stage("exampleStage", {
+ *     deployment: exampleDeployment.id,
+ *     restApi: exampleRestApi.id,
+ *     stageName: "example",
+ * });
+ * ```
  * ### Resources
  *
  * ```typescript
@@ -22,35 +65,35 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * import * as crypto from "crypto";
  *
- * const exampleRestApi = new aws.apigateway.RestApi("exampleRestApi", {});
- * const exampleResource = new aws.apigateway.Resource("exampleResource", {
+ * const exampleRestApi = new aws.apigateway/restApi.RestApi("exampleRestApi", {});
+ * const exampleResource = new aws.apigateway/resource.Resource("exampleResource", {
  *     parentId: exampleRestApi.rootResourceId,
  *     pathPart: "example",
  *     restApi: exampleRestApi.id,
  * });
- * const exampleMethod = new aws.apigateway.Method("exampleMethod", {
+ * const exampleMethod = new aws.apigateway/method.Method("exampleMethod", {
  *     authorization: "NONE",
  *     httpMethod: "GET",
  *     resourceId: exampleResource.id,
  *     restApi: exampleRestApi.id,
  * });
- * const exampleIntegration = new aws.apigateway.Integration("exampleIntegration", {
+ * const exampleIntegration = new aws.apigateway/integration.Integration("exampleIntegration", {
  *     httpMethod: exampleMethod.httpMethod,
  *     resourceId: exampleResource.id,
  *     restApi: exampleRestApi.id,
  *     type: "MOCK",
  * });
- * const exampleDeployment = new aws.apigateway.Deployment("exampleDeployment", {
+ * const exampleDeployment = new aws.apigateway/deployment.Deployment("exampleDeployment", {
  *     restApi: exampleRestApi.id,
  *     triggers: {
- *         redeployment: pulumi.all([exampleResource.id, exampleMethod.id, exampleIntegration.id]).apply(([exampleResourceId, exampleMethodId, exampleIntegrationId]) => JSON.stringify([
- *             exampleResourceId,
- *             exampleMethodId,
- *             exampleIntegrationId,
- *         ])).apply(toJSON => crypto.createHash('sha1').update(toJSON).digest('hex')),
+ *         redeployment: crypto.createHash('sha1').update(JSON.stringify([
+ *             exampleResource.id,
+ *             exampleMethod.id,
+ *             exampleIntegration.id,
+ *         ])).digest('hex'),
  *     },
  * });
- * const exampleStage = new aws.apigateway.Stage("exampleStage", {
+ * const exampleStage = new aws.apigateway/stage.Stage("exampleStage", {
  *     deployment: exampleDeployment.id,
  *     restApi: exampleRestApi.id,
  *     stageName: "example",

@@ -23,24 +23,24 @@ namespace Pulumi.Aws.NetworkFirewall
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.NetworkFirewall.LoggingConfiguration("example", new()
+    ///     var example = new Aws.Networkfirewall.LoggingConfiguration.LoggingConfiguration("example", new()
     ///     {
     ///         FirewallArn = aws_networkfirewall_firewall.Example.Arn,
-    ///         LoggingConfig = new Aws.NetworkFirewall.Inputs.LoggingConfigurationLoggingConfigurationArgs
+    ///         LoggingConfiguration = 
     ///         {
-    ///             LogDestinationConfigs = new[]
+    ///             { "logDestinationConfigs", new[]
     ///             {
-    ///                 new Aws.NetworkFirewall.Inputs.LoggingConfigurationLoggingConfigurationLogDestinationConfigArgs
+    ///                 
     ///                 {
-    ///                     LogDestination = 
+    ///                     { "logDestination", 
     ///                     {
     ///                         { "bucketName", aws_s3_bucket.Example.Bucket },
     ///                         { "prefix", "/example" },
-    ///                     },
-    ///                     LogDestinationType = "S3",
-    ///                     LogType = "FLOW",
+    ///                     } },
+    ///                     { "logDestinationType", "S3" },
+    ///                     { "logType", "FLOW" },
     ///                 },
-    ///             },
+    ///             } },
     ///         },
     ///     });
     /// 
@@ -56,23 +56,23 @@ namespace Pulumi.Aws.NetworkFirewall
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.NetworkFirewall.LoggingConfiguration("example", new()
+    ///     var example = new Aws.Networkfirewall.LoggingConfiguration.LoggingConfiguration("example", new()
     ///     {
     ///         FirewallArn = aws_networkfirewall_firewall.Example.Arn,
-    ///         LoggingConfig = new Aws.NetworkFirewall.Inputs.LoggingConfigurationLoggingConfigurationArgs
+    ///         LoggingConfiguration = 
     ///         {
-    ///             LogDestinationConfigs = new[]
+    ///             { "logDestinationConfigs", new[]
     ///             {
-    ///                 new Aws.NetworkFirewall.Inputs.LoggingConfigurationLoggingConfigurationLogDestinationConfigArgs
+    ///                 
     ///                 {
-    ///                     LogDestination = 
+    ///                     { "logDestination", 
     ///                     {
     ///                         { "logGroup", aws_cloudwatch_log_group.Example.Name },
-    ///                     },
-    ///                     LogDestinationType = "CloudWatchLogs",
-    ///                     LogType = "ALERT",
+    ///                     } },
+    ///                     { "logDestinationType", "CloudWatchLogs" },
+    ///                     { "logType", "ALERT" },
     ///                 },
-    ///             },
+    ///             } },
     ///         },
     ///     });
     /// 
@@ -88,23 +88,23 @@ namespace Pulumi.Aws.NetworkFirewall
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.NetworkFirewall.LoggingConfiguration("example", new()
+    ///     var example = new Aws.Networkfirewall.LoggingConfiguration.LoggingConfiguration("example", new()
     ///     {
     ///         FirewallArn = aws_networkfirewall_firewall.Example.Arn,
-    ///         LoggingConfig = new Aws.NetworkFirewall.Inputs.LoggingConfigurationLoggingConfigurationArgs
+    ///         LoggingConfiguration = 
     ///         {
-    ///             LogDestinationConfigs = new[]
+    ///             { "logDestinationConfigs", new[]
     ///             {
-    ///                 new Aws.NetworkFirewall.Inputs.LoggingConfigurationLoggingConfigurationLogDestinationConfigArgs
+    ///                 
     ///                 {
-    ///                     LogDestination = 
+    ///                     { "logDestination", 
     ///                     {
     ///                         { "deliveryStream", aws_kinesis_firehose_delivery_stream.Example.Name },
-    ///                     },
-    ///                     LogDestinationType = "KinesisDataFirehose",
-    ///                     LogType = "ALERT",
+    ///                     } },
+    ///                     { "logDestinationType", "KinesisDataFirehose" },
+    ///                     { "logType", "ALERT" },
     ///                 },
-    ///             },
+    ///             } },
     ///         },
     ///     });
     /// 

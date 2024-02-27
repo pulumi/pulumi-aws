@@ -30,8 +30,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.lb.TrustStoreArgs;
  * import com.pulumi.aws.lb.Listener;
  * import com.pulumi.aws.lb.ListenerArgs;
- * import com.pulumi.aws.lb.inputs.ListenerDefaultActionArgs;
- * import com.pulumi.aws.lb.inputs.ListenerMutualAuthenticationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -52,14 +50,8 @@ import javax.annotation.Nullable;
  * 
  *         var example = new Listener(&#34;example&#34;, ListenerArgs.builder()        
  *             .loadBalancerArn(aws_lb.example().id())
- *             .defaultActions(ListenerDefaultActionArgs.builder()
- *                 .targetGroupArn(aws_lb_target_group.example().id())
- *                 .type(&#34;forward&#34;)
- *                 .build())
- *             .mutualAuthentication(ListenerMutualAuthenticationArgs.builder()
- *                 .mode(&#34;verify&#34;)
- *                 .trustStoreArn(test.arn())
- *                 .build())
+ *             .defaultActions(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .mutualAuthentication(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

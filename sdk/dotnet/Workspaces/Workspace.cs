@@ -14,46 +14,6 @@ namespace Pulumi.Aws.Workspaces
     /// 
     /// &gt; **NOTE:** AWS WorkSpaces service requires [`workspaces_DefaultRole`](https://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-access-control.html#create-default-role) IAM role to operate normally.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var valueWindows10 = Aws.Workspaces.GetBundle.Invoke(new()
-    ///     {
-    ///         BundleId = "wsb-bh8rsxt14",
-    ///     });
-    /// 
-    ///     var example = new Aws.Workspaces.Workspace("example", new()
-    ///     {
-    ///         DirectoryId = aws_workspaces_directory.Example.Id,
-    ///         BundleId = valueWindows10.Apply(getBundleResult =&gt; getBundleResult.Id),
-    ///         UserName = "john.doe",
-    ///         RootVolumeEncryptionEnabled = true,
-    ///         UserVolumeEncryptionEnabled = true,
-    ///         VolumeEncryptionKey = "alias/aws/workspaces",
-    ///         WorkspaceProperties = new Aws.Workspaces.Inputs.WorkspaceWorkspacePropertiesArgs
-    ///         {
-    ///             ComputeTypeName = "VALUE",
-    ///             UserVolumeSizeGib = 10,
-    ///             RootVolumeSizeGib = 80,
-    ///             RunningMode = "AUTO_STOP",
-    ///             RunningModeAutoStopTimeoutInMinutes = 60,
-    ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "Department", "IT" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Workspaces using their ID. For example:

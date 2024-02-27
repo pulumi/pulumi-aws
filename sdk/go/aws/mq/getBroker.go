@@ -12,48 +12,6 @@ import (
 )
 
 // Provides information about a MQ Broker.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/mq"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			cfg := config.New(ctx, "")
-//			brokerId := ""
-//			if param := cfg.Get("brokerId"); param != "" {
-//				brokerId = param
-//			}
-//			brokerName := ""
-//			if param := cfg.Get("brokerName"); param != "" {
-//				brokerName = param
-//			}
-//			_, err := mq.LookupBroker(ctx, &mq.LookupBrokerArgs{
-//				BrokerId: pulumi.StringRef(brokerId),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = mq.LookupBroker(ctx, &mq.LookupBrokerArgs{
-//				BrokerName: pulumi.StringRef(brokerName),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupBroker(ctx *pulumi.Context, args *LookupBrokerArgs, opts ...pulumi.InvokeOption) (*LookupBrokerResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupBrokerResult

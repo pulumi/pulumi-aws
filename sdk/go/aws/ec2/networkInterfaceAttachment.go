@@ -21,25 +21,23 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	ec2/networkInterfaceAttachment "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/networkInterfaceAttachment"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.NewNetworkInterfaceAttachment(ctx, "test", &ec2.NetworkInterfaceAttachmentArgs{
-//				InstanceId:         pulumi.Any(aws_instance.Test.Id),
-//				NetworkInterfaceId: pulumi.Any(aws_network_interface.Test.Id),
-//				DeviceIndex:        pulumi.Int(0),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := ec2/networkInterfaceAttachment.NewNetworkInterfaceAttachment(ctx, "test", &ec2/networkInterfaceAttachment.NetworkInterfaceAttachmentArgs{
+// InstanceId: aws_instance.Test.Id,
+// NetworkInterfaceId: aws_network_interface.Test.Id,
+// DeviceIndex: 0,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -24,7 +24,7 @@ namespace Pulumi.Aws.ApiGatewayV2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.ApiGatewayV2.Authorizer("example", new()
+    ///     var example = new Aws.Apigatewayv2.Authorizer.Authorizer("example", new()
     ///     {
     ///         ApiId = aws_apigatewayv2_api.Example.Id,
     ///         AuthorizerType = "REQUEST",
@@ -47,7 +47,7 @@ namespace Pulumi.Aws.ApiGatewayV2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.ApiGatewayV2.Authorizer("example", new()
+    ///     var example = new Aws.Apigatewayv2.Authorizer.Authorizer("example", new()
     ///     {
     ///         ApiId = aws_apigatewayv2_api.Example.Id,
     ///         AuthorizerType = "REQUEST",

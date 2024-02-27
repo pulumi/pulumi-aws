@@ -599,12 +599,12 @@ class Record(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        www = aws.route53.Record("www",
-            zone_id=aws_route53_zone["primary"]["zone_id"],
-            name="www.example.com",
-            type="A",
+        www = aws.route53.record.Record("www",
+            zone_id=aws_route53_zone.primary.zone_id,
+            name=www.example.com,
+            type=A,
             ttl=300,
-            records=[aws_eip["lb"]["public_ip"]])
+            records=[aws_eip.lb.public_ip])
         ```
         ### Weighted routing policy
 
@@ -614,26 +614,26 @@ class Record(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        www_dev = aws.route53.Record("www-dev",
-            zone_id=aws_route53_zone["primary"]["zone_id"],
-            name="www",
-            type="CNAME",
+        www_dev = aws.route53.record.Record("www-dev",
+            zone_id=aws_route53_zone.primary.zone_id,
+            name=www,
+            type=CNAME,
             ttl=5,
-            weighted_routing_policies=[aws.route53.RecordWeightedRoutingPolicyArgs(
-                weight=10,
-            )],
-            set_identifier="dev",
-            records=["dev.example.com"])
-        www_live = aws.route53.Record("www-live",
-            zone_id=aws_route53_zone["primary"]["zone_id"],
-            name="www",
-            type="CNAME",
+            weighted_routing_policies=[{
+                weight: 10,
+            }],
+            set_identifier=dev,
+            records=[dev.example.com])
+        www_live = aws.route53.record.Record("www-live",
+            zone_id=aws_route53_zone.primary.zone_id,
+            name=www,
+            type=CNAME,
             ttl=5,
-            weighted_routing_policies=[aws.route53.RecordWeightedRoutingPolicyArgs(
-                weight=90,
-            )],
-            set_identifier="live",
-            records=["live.example.com"])
+            weighted_routing_policies=[{
+                weight: 90,
+            }],
+            set_identifier=live,
+            records=[live.example.com])
         ```
         ### Geoproximity routing policy
 
@@ -641,19 +641,19 @@ class Record(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        www = aws.route53.Record("www",
-            zone_id=aws_route53_zone["primary"]["zone_id"],
-            name="www.example.com",
-            type="CNAME",
+        www = aws.route53.record.Record("www",
+            zone_id=aws_route53_zone.primary.zone_id,
+            name=www.example.com,
+            type=CNAME,
             ttl=300,
-            geoproximity_routing_policy=aws.route53.RecordGeoproximityRoutingPolicyArgs(
-                coordinates=[aws.route53.RecordGeoproximityRoutingPolicyCoordinateArgs(
-                    latitude="49.22",
-                    longitude="-74.01",
-                )],
-            ),
-            set_identifier="dev",
-            records=["dev.example.com"])
+            geoproximity_routing_policy={
+                coordinates: [{
+                    latitude: 49.22,
+                    longitude: -74.01,
+                }],
+            },
+            set_identifier=dev,
+            records=[dev.example.com])
         ```
         ### Alias record
 
@@ -667,23 +667,23 @@ class Record(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        main = aws.elb.LoadBalancer("main",
-            availability_zones=["us-east-1c"],
-            listeners=[aws.elb.LoadBalancerListenerArgs(
-                instance_port=80,
-                instance_protocol="http",
-                lb_port=80,
-                lb_protocol="http",
-            )])
-        www = aws.route53.Record("www",
-            zone_id=aws_route53_zone["primary"]["zone_id"],
-            name="example.com",
-            type="A",
-            aliases=[aws.route53.RecordAliasArgs(
-                name=main.dns_name,
-                zone_id=main.zone_id,
-                evaluate_target_health=True,
-            )])
+        main = aws.elb.load_balancer.LoadBalancer("main",
+            availability_zones=[us-east-1c],
+            listeners=[{
+                instancePort: 80,
+                instanceProtocol: http,
+                lbPort: 80,
+                lbProtocol: http,
+            }])
+        www = aws.route53.record.Record("www",
+            zone_id=aws_route53_zone.primary.zone_id,
+            name=example.com,
+            type=A,
+            aliases=[{
+                name: main.dns_name,
+                zoneId: main.zone_id,
+                evaluateTargetHealth: True,
+            }])
         ```
         ### NS and SOA Record Management
 
@@ -693,12 +693,12 @@ class Record(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_zone = aws.route53.Zone("exampleZone")
-        example_record = aws.route53.Record("exampleRecord",
+        example_zone = aws.route53.zone.Zone("exampleZone")
+        example_record = aws.route53.record.Record("exampleRecord",
             allow_overwrite=True,
-            name="test.example.com",
+            name=test.example.com,
             ttl=172800,
-            type="NS",
+            type=NS,
             zone_id=example_zone.zone_id,
             records=[
                 example_zone.name_servers[0],
@@ -765,12 +765,12 @@ class Record(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        www = aws.route53.Record("www",
-            zone_id=aws_route53_zone["primary"]["zone_id"],
-            name="www.example.com",
-            type="A",
+        www = aws.route53.record.Record("www",
+            zone_id=aws_route53_zone.primary.zone_id,
+            name=www.example.com,
+            type=A,
             ttl=300,
-            records=[aws_eip["lb"]["public_ip"]])
+            records=[aws_eip.lb.public_ip])
         ```
         ### Weighted routing policy
 
@@ -780,26 +780,26 @@ class Record(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        www_dev = aws.route53.Record("www-dev",
-            zone_id=aws_route53_zone["primary"]["zone_id"],
-            name="www",
-            type="CNAME",
+        www_dev = aws.route53.record.Record("www-dev",
+            zone_id=aws_route53_zone.primary.zone_id,
+            name=www,
+            type=CNAME,
             ttl=5,
-            weighted_routing_policies=[aws.route53.RecordWeightedRoutingPolicyArgs(
-                weight=10,
-            )],
-            set_identifier="dev",
-            records=["dev.example.com"])
-        www_live = aws.route53.Record("www-live",
-            zone_id=aws_route53_zone["primary"]["zone_id"],
-            name="www",
-            type="CNAME",
+            weighted_routing_policies=[{
+                weight: 10,
+            }],
+            set_identifier=dev,
+            records=[dev.example.com])
+        www_live = aws.route53.record.Record("www-live",
+            zone_id=aws_route53_zone.primary.zone_id,
+            name=www,
+            type=CNAME,
             ttl=5,
-            weighted_routing_policies=[aws.route53.RecordWeightedRoutingPolicyArgs(
-                weight=90,
-            )],
-            set_identifier="live",
-            records=["live.example.com"])
+            weighted_routing_policies=[{
+                weight: 90,
+            }],
+            set_identifier=live,
+            records=[live.example.com])
         ```
         ### Geoproximity routing policy
 
@@ -807,19 +807,19 @@ class Record(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        www = aws.route53.Record("www",
-            zone_id=aws_route53_zone["primary"]["zone_id"],
-            name="www.example.com",
-            type="CNAME",
+        www = aws.route53.record.Record("www",
+            zone_id=aws_route53_zone.primary.zone_id,
+            name=www.example.com,
+            type=CNAME,
             ttl=300,
-            geoproximity_routing_policy=aws.route53.RecordGeoproximityRoutingPolicyArgs(
-                coordinates=[aws.route53.RecordGeoproximityRoutingPolicyCoordinateArgs(
-                    latitude="49.22",
-                    longitude="-74.01",
-                )],
-            ),
-            set_identifier="dev",
-            records=["dev.example.com"])
+            geoproximity_routing_policy={
+                coordinates: [{
+                    latitude: 49.22,
+                    longitude: -74.01,
+                }],
+            },
+            set_identifier=dev,
+            records=[dev.example.com])
         ```
         ### Alias record
 
@@ -833,23 +833,23 @@ class Record(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        main = aws.elb.LoadBalancer("main",
-            availability_zones=["us-east-1c"],
-            listeners=[aws.elb.LoadBalancerListenerArgs(
-                instance_port=80,
-                instance_protocol="http",
-                lb_port=80,
-                lb_protocol="http",
-            )])
-        www = aws.route53.Record("www",
-            zone_id=aws_route53_zone["primary"]["zone_id"],
-            name="example.com",
-            type="A",
-            aliases=[aws.route53.RecordAliasArgs(
-                name=main.dns_name,
-                zone_id=main.zone_id,
-                evaluate_target_health=True,
-            )])
+        main = aws.elb.load_balancer.LoadBalancer("main",
+            availability_zones=[us-east-1c],
+            listeners=[{
+                instancePort: 80,
+                instanceProtocol: http,
+                lbPort: 80,
+                lbProtocol: http,
+            }])
+        www = aws.route53.record.Record("www",
+            zone_id=aws_route53_zone.primary.zone_id,
+            name=example.com,
+            type=A,
+            aliases=[{
+                name: main.dns_name,
+                zoneId: main.zone_id,
+                evaluateTargetHealth: True,
+            }])
         ```
         ### NS and SOA Record Management
 
@@ -859,12 +859,12 @@ class Record(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_zone = aws.route53.Zone("exampleZone")
-        example_record = aws.route53.Record("exampleRecord",
+        example_zone = aws.route53.zone.Zone("exampleZone")
+        example_record = aws.route53.record.Record("exampleRecord",
             allow_overwrite=True,
-            name="test.example.com",
+            name=test.example.com,
             ttl=172800,
-            type="NS",
+            type=NS,
             zone_id=example_zone.zone_id,
             records=[
                 example_zone.name_servers[0],

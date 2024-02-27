@@ -22,15 +22,15 @@ namespace Pulumi.Aws.Macie2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleAccount = new Aws.Macie2.Account("exampleAccount");
+    ///     var exampleAccount = new Aws.Macie2.Account.Account("exampleAccount");
     /// 
-    ///     var exampleClassificationExportConfiguration = new Aws.Macie2.ClassificationExportConfiguration("exampleClassificationExportConfiguration", new()
+    ///     var exampleClassificationExportConfiguration = new Aws.Macie2.ClassificationExportConfiguration.ClassificationExportConfiguration("exampleClassificationExportConfiguration", new()
     ///     {
-    ///         S3Destination = new Aws.Macie2.Inputs.ClassificationExportConfigurationS3DestinationArgs
+    ///         S3Destination = 
     ///         {
-    ///             BucketName = aws_s3_bucket.Example.Bucket,
-    ///             KeyPrefix = "exampleprefix/",
-    ///             KmsKeyArn = aws_kms_key.Example.Arn,
+    ///             { "bucketName", aws_s3_bucket.Example.Bucket },
+    ///             { "keyPrefix", "exampleprefix/" },
+    ///             { "kmsKeyArn", aws_kms_key.Example.Arn },
     ///         },
     ///     }, new CustomResourceOptions
     ///     {

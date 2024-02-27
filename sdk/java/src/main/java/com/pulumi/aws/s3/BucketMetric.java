@@ -63,7 +63,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.s3.BucketV2;
  * import com.pulumi.aws.s3.BucketMetric;
  * import com.pulumi.aws.s3.BucketMetricArgs;
- * import com.pulumi.aws.s3.inputs.BucketMetricFilterArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -81,13 +80,7 @@ import javax.annotation.Nullable;
  * 
  *         var example_filtered = new BucketMetric(&#34;example-filtered&#34;, BucketMetricArgs.builder()        
  *             .bucket(example.id())
- *             .filter(BucketMetricFilterArgs.builder()
- *                 .prefix(&#34;documents/&#34;)
- *                 .tags(Map.ofEntries(
- *                     Map.entry(&#34;priority&#34;, &#34;high&#34;),
- *                     Map.entry(&#34;class&#34;, &#34;blue&#34;)
- *                 ))
- *                 .build())
+ *             .filter(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -105,7 +98,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.s3.AccessPointArgs;
  * import com.pulumi.aws.s3.BucketMetric;
  * import com.pulumi.aws.s3.BucketMetricArgs;
- * import com.pulumi.aws.s3.inputs.BucketMetricFilterArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -127,13 +119,7 @@ import javax.annotation.Nullable;
  * 
  *         var example_filtered = new BucketMetric(&#34;example-filtered&#34;, BucketMetricArgs.builder()        
  *             .bucket(example.id())
- *             .filter(BucketMetricFilterArgs.builder()
- *                 .accessPoint(example_access_point.arn())
- *                 .tags(Map.ofEntries(
- *                     Map.entry(&#34;priority&#34;, &#34;high&#34;),
- *                     Map.entry(&#34;class&#34;, &#34;blue&#34;)
- *                 ))
- *                 .build())
+ *             .filter(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

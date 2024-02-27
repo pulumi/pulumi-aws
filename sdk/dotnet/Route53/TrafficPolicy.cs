@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Route53
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Route53.TrafficPolicy("example", new()
+    ///     var example = new Aws.Route53.TrafficPolicy.TrafficPolicy("example", new()
     ///     {
     ///         Comment = "example comment",
     ///         Document = @"{

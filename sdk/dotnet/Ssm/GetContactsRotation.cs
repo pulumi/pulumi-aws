@@ -14,25 +14,6 @@ namespace Pulumi.Aws.Ssm
         /// <summary>
         /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Ssm.GetContactsRotation.Invoke(new()
-        ///     {
-        ///         Arn = "arn:aws:ssm-contacts:us-east-1:012345678910:rotation/example",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetContactsRotationResult> InvokeAsync(GetContactsRotationArgs args, InvokeOptions? options = null)
@@ -41,25 +22,6 @@ namespace Pulumi.Aws.Ssm
         /// <summary>
         /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Ssm.GetContactsRotation.Invoke(new()
-        ///     {
-        ///         Arn = "arn:aws:ssm-contacts:us-east-1:012345678910:rotation/example",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetContactsRotationResult> Invoke(GetContactsRotationInvokeArgs args, InvokeOptions? options = null)

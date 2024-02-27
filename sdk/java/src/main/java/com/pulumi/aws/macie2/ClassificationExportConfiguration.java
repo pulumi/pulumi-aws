@@ -27,7 +27,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.macie2.Account;
  * import com.pulumi.aws.macie2.ClassificationExportConfiguration;
  * import com.pulumi.aws.macie2.ClassificationExportConfigurationArgs;
- * import com.pulumi.aws.macie2.inputs.ClassificationExportConfigurationS3DestinationArgs;
  * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
@@ -45,11 +44,7 @@ import javax.annotation.Nullable;
  *         var exampleAccount = new Account(&#34;exampleAccount&#34;);
  * 
  *         var exampleClassificationExportConfiguration = new ClassificationExportConfiguration(&#34;exampleClassificationExportConfiguration&#34;, ClassificationExportConfigurationArgs.builder()        
- *             .s3Destination(ClassificationExportConfigurationS3DestinationArgs.builder()
- *                 .bucketName(aws_s3_bucket.example().bucket())
- *                 .keyPrefix(&#34;exampleprefix/&#34;)
- *                 .kmsKeyArn(aws_kms_key.example().arn())
- *                 .build())
+ *             .s3Destination(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(exampleAccount)
  *                 .build());

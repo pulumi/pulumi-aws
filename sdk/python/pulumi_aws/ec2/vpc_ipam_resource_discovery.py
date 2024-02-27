@@ -222,25 +222,6 @@ class VpcIpamResourceDiscovery(pulumi.CustomResource):
         """
         Provides an IPAM Resource Discovery resource. IPAM Resource Discoveries are resources meant for multi-organization customers. If you wish to use a single IPAM across multiple orgs, a resource discovery can be created and shared from a subordinate organization to the management organizations IPAM delegated admin account. For a full deployment example, see `ec2.VpcIpamResourceDiscoveryAssociation` resource.
 
-        ## Example Usage
-
-        Basic usage:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        current = aws.get_region()
-        main = aws.ec2.VpcIpamResourceDiscovery("main",
-            description="My IPAM Resource Discovery",
-            operating_regions=[aws.ec2.VpcIpamResourceDiscoveryOperatingRegionArgs(
-                region_name=current.name,
-            )],
-            tags={
-                "Test": "Main",
-            })
-        ```
-
         ## Import
 
         Using `pulumi import`, import IPAMs using the IPAM resource discovery `id`. For example:
@@ -263,25 +244,6 @@ class VpcIpamResourceDiscovery(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an IPAM Resource Discovery resource. IPAM Resource Discoveries are resources meant for multi-organization customers. If you wish to use a single IPAM across multiple orgs, a resource discovery can be created and shared from a subordinate organization to the management organizations IPAM delegated admin account. For a full deployment example, see `ec2.VpcIpamResourceDiscoveryAssociation` resource.
-
-        ## Example Usage
-
-        Basic usage:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        current = aws.get_region()
-        main = aws.ec2.VpcIpamResourceDiscovery("main",
-            description="My IPAM Resource Discovery",
-            operating_regions=[aws.ec2.VpcIpamResourceDiscoveryOperatingRegionArgs(
-                region_name=current.name,
-            )],
-            tags={
-                "Test": "Main",
-            })
-        ```
 
         ## Import
 

@@ -189,7 +189,7 @@ class Group(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.quicksight.Group("example", group_name="tf-example")
+        example = aws.quicksight.group.Group("example", group_name=tf-example)
         ```
 
         ## Import
@@ -222,7 +222,7 @@ class Group(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.quicksight.Group("example", group_name="tf-example")
+        example = aws.quicksight.group.Group("example", group_name=tf-example)
         ```
 
         ## Import

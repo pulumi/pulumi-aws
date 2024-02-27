@@ -29,7 +29,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.route53.ResolverEndpoint;
  * import com.pulumi.aws.route53.ResolverEndpointArgs;
- * import com.pulumi.aws.route53.inputs.ResolverEndpointIpAddressArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -49,17 +48,12 @@ import javax.annotation.Nullable;
  *                 aws_security_group.sg1().id(),
  *                 aws_security_group.sg2().id())
  *             .ipAddresses(            
- *                 ResolverEndpointIpAddressArgs.builder()
- *                     .subnetId(aws_subnet.sn1().id())
- *                     .build(),
- *                 ResolverEndpointIpAddressArgs.builder()
- *                     .subnetId(aws_subnet.sn2().id())
- *                     .ip(&#34;10.0.64.4&#34;)
- *                     .build())
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .protocols(            
  *                 &#34;Do53&#34;,
  *                 &#34;DoH&#34;)
- *             .tags(Map.of(&#34;Environment&#34;, &#34;Prod&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

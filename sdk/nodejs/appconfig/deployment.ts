@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.appconfig.Deployment("example", {
+ * const example = new aws.appconfig/deployment.Deployment("example", {
  *     applicationId: aws_appconfig_application.example.id,
  *     configurationProfileId: aws_appconfig_configuration_profile.example.configuration_profile_id,
  *     configurationVersion: aws_appconfig_hosted_configuration_version.example.version_number,

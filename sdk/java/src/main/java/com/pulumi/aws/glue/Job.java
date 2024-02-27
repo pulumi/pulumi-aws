@@ -36,7 +36,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.glue.Job;
  * import com.pulumi.aws.glue.JobArgs;
- * import com.pulumi.aws.glue.inputs.JobCommandArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -52,9 +51,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Job(&#34;example&#34;, JobArgs.builder()        
  *             .roleArn(aws_iam_role.example().arn())
- *             .command(JobCommandArgs.builder()
- *                 .scriptLocation(String.format(&#34;s3://%s/example.py&#34;, aws_s3_bucket.example().bucket()))
- *                 .build())
+ *             .command(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -69,7 +66,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.glue.Job;
  * import com.pulumi.aws.glue.JobArgs;
- * import com.pulumi.aws.glue.inputs.JobCommandArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -87,12 +83,7 @@ import javax.annotation.Nullable;
  *             .roleArn(aws_iam_role.example().arn())
  *             .glueVersion(&#34;4.0&#34;)
  *             .workerType(&#34;Z.2X&#34;)
- *             .command(JobCommandArgs.builder()
- *                 .name(&#34;glueray&#34;)
- *                 .pythonVersion(&#34;3.9&#34;)
- *                 .runtime(&#34;Ray2.4&#34;)
- *                 .scriptLocation(String.format(&#34;s3://%s/example.py&#34;, aws_s3_bucket.example().bucket()))
- *                 .build())
+ *             .command(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -107,7 +98,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.glue.Job;
  * import com.pulumi.aws.glue.JobArgs;
- * import com.pulumi.aws.glue.inputs.JobCommandArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -123,10 +113,8 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Job(&#34;example&#34;, JobArgs.builder()        
  *             .roleArn(aws_iam_role.example().arn())
- *             .command(JobCommandArgs.builder()
- *                 .scriptLocation(String.format(&#34;s3://%s/example.scala&#34;, aws_s3_bucket.example().bucket()))
- *                 .build())
- *             .defaultArguments(Map.of(&#34;--job-language&#34;, &#34;scala&#34;))
+ *             .command(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .defaultArguments(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -141,7 +129,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.glue.Job;
  * import com.pulumi.aws.glue.JobArgs;
- * import com.pulumi.aws.glue.inputs.JobCommandArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -157,10 +144,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Job(&#34;example&#34;, JobArgs.builder()        
  *             .roleArn(aws_iam_role.example().arn())
- *             .command(JobCommandArgs.builder()
- *                 .name(&#34;gluestreaming&#34;)
- *                 .scriptLocation(String.format(&#34;s3://%s/example.script&#34;, aws_s3_bucket.example().bucket()))
- *                 .build())
+ *             .command(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -195,12 +179,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleJob = new Job(&#34;exampleJob&#34;, JobArgs.builder()        
- *             .defaultArguments(Map.ofEntries(
- *                 Map.entry(&#34;--continuous-log-logGroup&#34;, exampleLogGroup.name()),
- *                 Map.entry(&#34;--enable-continuous-cloudwatch-log&#34;, &#34;true&#34;),
- *                 Map.entry(&#34;--enable-continuous-log-filter&#34;, &#34;true&#34;),
- *                 Map.entry(&#34;--enable-metrics&#34;, &#34;&#34;)
- *             ))
+ *             .defaultArguments(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

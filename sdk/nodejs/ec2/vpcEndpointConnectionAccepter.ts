@@ -14,11 +14,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleVpcEndpointService = new aws.ec2.VpcEndpointService("exampleVpcEndpointService", {
+ * const exampleVpcEndpointService = new aws.ec2/vpcEndpointService.VpcEndpointService("exampleVpcEndpointService", {
  *     acceptanceRequired: false,
  *     networkLoadBalancerArns: [aws_lb.example.arn],
  * });
- * const exampleVpcEndpoint = new aws.ec2.VpcEndpoint("exampleVpcEndpoint", {
+ * const exampleVpcEndpoint = new aws.ec2/vpcEndpoint.VpcEndpoint("exampleVpcEndpoint", {
  *     vpcId: aws_vpc.test_alternate.id,
  *     serviceName: aws_vpc_endpoint_service.test.service_name,
  *     vpcEndpointType: "Interface",
@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  * }, {
  *     provider: aws.alternate,
  * });
- * const exampleVpcEndpointConnectionAccepter = new aws.ec2.VpcEndpointConnectionAccepter("exampleVpcEndpointConnectionAccepter", {
+ * const exampleVpcEndpointConnectionAccepter = new aws.ec2/vpcEndpointConnectionAccepter.VpcEndpointConnectionAccepter("exampleVpcEndpointConnectionAccepter", {
  *     vpcEndpointServiceId: exampleVpcEndpointService.id,
  *     vpcEndpointId: exampleVpcEndpoint.id,
  * });

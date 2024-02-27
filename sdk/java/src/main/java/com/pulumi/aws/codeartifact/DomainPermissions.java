@@ -16,64 +16,6 @@ import javax.annotation.Nullable;
 /**
  * Provides a CodeArtifact Domains Permissions Policy Resource.
  * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.kms.Key;
- * import com.pulumi.aws.kms.KeyArgs;
- * import com.pulumi.aws.codeartifact.Domain;
- * import com.pulumi.aws.codeartifact.DomainArgs;
- * import com.pulumi.aws.iam.IamFunctions;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
- * import com.pulumi.aws.codeartifact.DomainPermissions;
- * import com.pulumi.aws.codeartifact.DomainPermissionsArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var exampleKey = new Key(&#34;exampleKey&#34;, KeyArgs.builder()        
- *             .description(&#34;domain key&#34;)
- *             .build());
- * 
- *         var exampleDomain = new Domain(&#34;exampleDomain&#34;, DomainArgs.builder()        
- *             .domain(&#34;example&#34;)
- *             .encryptionKey(exampleKey.arn())
- *             .build());
- * 
- *         final var testPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect(&#34;Allow&#34;)
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type(&#34;*&#34;)
- *                     .identifiers(&#34;*&#34;)
- *                     .build())
- *                 .actions(&#34;codeartifact:CreateRepository&#34;)
- *                 .resources(exampleDomain.arn())
- *                 .build())
- *             .build());
- * 
- *         var testDomainPermissions = new DomainPermissions(&#34;testDomainPermissions&#34;, DomainPermissionsArgs.builder()        
- *             .domain(exampleDomain.domain())
- *             .policyDocument(testPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(testPolicyDocument -&gt; testPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
  * ## Import
  * 
  * Using `pulumi import`, import CodeArtifact Domain Permissions Policies using the CodeArtifact Domain ARN. For example:

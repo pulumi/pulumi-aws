@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const operations = new aws.account.AlternativeContact("operations", {
+ * const operations = new aws.account/alternativeContact.AlternativeContact("operations", {
  *     alternateContactType: "OPERATIONS",
  *     emailAddress: "test@example.com",
  *     phoneNumber: "+1234567890",

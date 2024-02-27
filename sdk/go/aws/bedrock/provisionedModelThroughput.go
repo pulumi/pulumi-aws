@@ -21,26 +21,24 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/bedrock"
+//	bedrock/provisionedModelThroughput "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/bedrock/provisionedModelThroughput"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := bedrock.NewProvisionedModelThroughput(ctx, "example", &bedrock.ProvisionedModelThroughputArgs{
-//				CommitmentDuration:   pulumi.String("SixMonths"),
-//				ModelArn:             pulumi.String("arn:aws:bedrock:us-east-1::foundation-model/anthropic.claude-v2"),
-//				ModelUnits:           pulumi.Int(1),
-//				ProvisionedModelName: pulumi.String("example-model"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := bedrock/provisionedModelThroughput.NewProvisionedModelThroughput(ctx, "example", &bedrock/provisionedModelThroughput.ProvisionedModelThroughputArgs{
+// CommitmentDuration: "SixMonths",
+// ModelArn: "arn:aws:bedrock:us-east-1::foundation-model/anthropic.claude-v2",
+// ModelUnits: 1,
+// ProvisionedModelName: "example-model",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

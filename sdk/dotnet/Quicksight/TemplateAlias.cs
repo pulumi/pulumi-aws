@@ -23,7 +23,7 @@ namespace Pulumi.Aws.Quicksight
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Quicksight.TemplateAlias("example", new()
+    ///     var example = new Aws.Quicksight.TemplateAlias.TemplateAlias("example", new()
     ///     {
     ///         AliasName = "example-alias",
     ///         TemplateId = aws_quicksight_template.Test.Template_id,

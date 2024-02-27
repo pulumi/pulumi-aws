@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.appconfig.DeploymentStrategy("example", {
+ * const example = new aws.appconfig/deploymentStrategy.DeploymentStrategy("example", {
  *     deploymentDurationInMinutes: 3,
  *     description: "Example Deployment Strategy",
  *     finalBakeTimeInMinutes: 4,

@@ -23,13 +23,13 @@ namespace Pulumi.Aws.SecretsManager
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.SecretsManager.SecretRotation("example", new()
+    ///     var example = new Aws.Secretsmanager.SecretRotation.SecretRotation("example", new()
     ///     {
     ///         SecretId = aws_secretsmanager_secret.Example.Id,
     ///         RotationLambdaArn = aws_lambda_function.Example.Arn,
-    ///         RotationRules = new Aws.SecretsManager.Inputs.SecretRotationRotationRulesArgs
+    ///         RotationRules = 
     ///         {
-    ///             AutomaticallyAfterDays = 30,
+    ///             { "automaticallyAfterDays", 30 },
     ///         },
     ///     });
     /// 

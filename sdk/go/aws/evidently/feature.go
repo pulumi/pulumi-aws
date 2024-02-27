@@ -22,35 +22,33 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/evidently"
+//	evidently/feature "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/evidently/feature"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := evidently.NewFeature(ctx, "example", &evidently.FeatureArgs{
-//				Project:     pulumi.Any(aws_evidently_project.Example.Name),
-//				Description: pulumi.String("example description"),
-//				Variations: evidently.FeatureVariationArray{
-//					&evidently.FeatureVariationArgs{
-//						Name: pulumi.String("Variation1"),
-//						Value: &evidently.FeatureVariationValueArgs{
-//							StringValue: pulumi.String("example"),
-//						},
-//					},
-//				},
-//				Tags: pulumi.StringMap{
-//					"Key1": pulumi.String("example Feature"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := evidently/feature.NewFeature(ctx, "example", &evidently/feature.FeatureArgs{
+// Project: aws_evidently_project.Example.Name,
+// Description: "example description",
+// Variations: []map[string]interface{}{
+// map[string]interface{}{
+// "name": "Variation1",
+// "value": map[string]interface{}{
+// "stringValue": "example",
+// },
+// },
+// },
+// Tags: map[string]interface{}{
+// "Key1": "example Feature",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### With default variation
 //
@@ -59,38 +57,36 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/evidently"
+//	evidently/feature "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/evidently/feature"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := evidently.NewFeature(ctx, "example", &evidently.FeatureArgs{
-//				Project:          pulumi.Any(aws_evidently_project.Example.Name),
-//				DefaultVariation: pulumi.String("Variation2"),
-//				Variations: evidently.FeatureVariationArray{
-//					&evidently.FeatureVariationArgs{
-//						Name: pulumi.String("Variation1"),
-//						Value: &evidently.FeatureVariationValueArgs{
-//							StringValue: pulumi.String("exampleval1"),
-//						},
-//					},
-//					&evidently.FeatureVariationArgs{
-//						Name: pulumi.String("Variation2"),
-//						Value: &evidently.FeatureVariationValueArgs{
-//							StringValue: pulumi.String("exampleval2"),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := evidently/feature.NewFeature(ctx, "example", &evidently/feature.FeatureArgs{
+// Project: aws_evidently_project.Example.Name,
+// DefaultVariation: "Variation2",
+// Variations: []map[string]interface{}{
+// map[string]interface{}{
+// "name": "Variation1",
+// "value": map[string]interface{}{
+// "stringValue": "exampleval1",
+// },
+// },
+// map[string]interface{}{
+// "name": "Variation2",
+// "value": map[string]interface{}{
+// "stringValue": "exampleval2",
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### With entity overrides
 //
@@ -99,40 +95,38 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/evidently"
+//	evidently/feature "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/evidently/feature"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := evidently.NewFeature(ctx, "example", &evidently.FeatureArgs{
-//				Project: pulumi.Any(aws_evidently_project.Example.Name),
-//				EntityOverrides: pulumi.StringMap{
-//					"test1": pulumi.String("Variation1"),
-//				},
-//				Variations: evidently.FeatureVariationArray{
-//					&evidently.FeatureVariationArgs{
-//						Name: pulumi.String("Variation1"),
-//						Value: &evidently.FeatureVariationValueArgs{
-//							StringValue: pulumi.String("exampleval1"),
-//						},
-//					},
-//					&evidently.FeatureVariationArgs{
-//						Name: pulumi.String("Variation2"),
-//						Value: &evidently.FeatureVariationValueArgs{
-//							StringValue: pulumi.String("exampleval2"),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := evidently/feature.NewFeature(ctx, "example", &evidently/feature.FeatureArgs{
+// Project: aws_evidently_project.Example.Name,
+// EntityOverrides: map[string]interface{}{
+// "test1": "Variation1",
+// },
+// Variations: []map[string]interface{}{
+// map[string]interface{}{
+// "name": "Variation1",
+// "value": map[string]interface{}{
+// "stringValue": "exampleval1",
+// },
+// },
+// map[string]interface{}{
+// "name": "Variation2",
+// "value": map[string]interface{}{
+// "stringValue": "exampleval2",
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### With evaluation strategy
 //
@@ -141,35 +135,33 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/evidently"
+//	evidently/feature "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/evidently/feature"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := evidently.NewFeature(ctx, "example", &evidently.FeatureArgs{
-//				Project:            pulumi.Any(aws_evidently_project.Example.Name),
-//				EvaluationStrategy: pulumi.String("ALL_RULES"),
-//				EntityOverrides: pulumi.StringMap{
-//					"test1": pulumi.String("Variation1"),
-//				},
-//				Variations: evidently.FeatureVariationArray{
-//					&evidently.FeatureVariationArgs{
-//						Name: pulumi.String("Variation1"),
-//						Value: &evidently.FeatureVariationValueArgs{
-//							StringValue: pulumi.String("exampleval1"),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := evidently/feature.NewFeature(ctx, "example", &evidently/feature.FeatureArgs{
+// Project: aws_evidently_project.Example.Name,
+// EvaluationStrategy: "ALL_RULES",
+// EntityOverrides: map[string]interface{}{
+// "test1": "Variation1",
+// },
+// Variations: []map[string]interface{}{
+// map[string]interface{}{
+// "name": "Variation1",
+// "value": map[string]interface{}{
+// "stringValue": "exampleval1",
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

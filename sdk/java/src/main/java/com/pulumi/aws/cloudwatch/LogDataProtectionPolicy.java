@@ -49,7 +49,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleLogDataProtectionPolicy = new LogDataProtectionPolicy(&#34;exampleLogDataProtectionPolicy&#34;, LogDataProtectionPolicyArgs.builder()        
  *             .logGroupName(exampleLogGroup.name())
- *             .policyDocument(exampleBucketV2.bucket().applyValue(bucket -&gt; serializeJson(
+ *             .policyDocument(serializeJson(
  *                 jsonObject(
  *                     jsonProperty(&#34;Name&#34;, &#34;Example&#34;),
  *                     jsonProperty(&#34;Version&#34;, &#34;2021-06-01&#34;),
@@ -61,7 +61,7 @@ import javax.annotation.Nullable;
  *                                 jsonProperty(&#34;Audit&#34;, jsonObject(
  *                                     jsonProperty(&#34;FindingsDestination&#34;, jsonObject(
  *                                         jsonProperty(&#34;S3&#34;, jsonObject(
- *                                             jsonProperty(&#34;Bucket&#34;, bucket)
+ *                                             jsonProperty(&#34;Bucket&#34;, exampleBucketV2.bucket())
  *                                         ))
  *                                     ))
  *                                 ))
@@ -79,7 +79,7 @@ import javax.annotation.Nullable;
  *                             ))
  *                         )
  *                     ))
- *                 ))))
+ *                 )))
  *             .build());
  * 
  *     }

@@ -381,12 +381,12 @@ class Member(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_account = aws.macie2.Account("exampleAccount")
-        example_member = aws.macie2.Member("exampleMember",
-            account_id="AWS ACCOUNT ID",
-            email="EMAIL",
+        example_account = aws.macie2.account.Account("exampleAccount")
+        example_member = aws.macie2.member.Member("exampleMember",
+            account_id=AWS ACCOUNT ID,
+            email=EMAIL,
             invite=True,
-            invitation_message="Message of the invitation",
+            invitation_message=Message of the invitation,
             invitation_disable_email_notification=True,
             opts=pulumi.ResourceOptions(depends_on=[example_account]))
         ```
@@ -424,12 +424,12 @@ class Member(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_account = aws.macie2.Account("exampleAccount")
-        example_member = aws.macie2.Member("exampleMember",
-            account_id="AWS ACCOUNT ID",
-            email="EMAIL",
+        example_account = aws.macie2.account.Account("exampleAccount")
+        example_member = aws.macie2.member.Member("exampleMember",
+            account_id=AWS ACCOUNT ID,
+            email=EMAIL,
             invite=True,
-            invitation_message="Message of the invitation",
+            invitation_message=Message of the invitation,
             invitation_disable_email_notification=True,
             opts=pulumi.ResourceOptions(depends_on=[example_account]))
         ```

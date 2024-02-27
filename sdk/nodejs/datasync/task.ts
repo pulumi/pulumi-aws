@@ -19,7 +19,7 @@ import {ARN} from "..";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.datasync.Task("example", {
+ * const example = new aws.datasync/task.Task("example", {
  *     destinationLocationArn: aws_datasync_location_s3.destination.arn,
  *     sourceLocationArn: aws_datasync_location_nfs.source.arn,
  *     schedule: {
@@ -33,7 +33,7 @@ import {ARN} from "..";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.datasync.Task("example", {
+ * const example = new aws.datasync/task.Task("example", {
  *     destinationLocationArn: aws_datasync_location_s3.destination.arn,
  *     sourceLocationArn: aws_datasync_location_nfs.source.arn,
  *     excludes: {

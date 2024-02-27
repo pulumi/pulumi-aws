@@ -69,8 +69,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.cognito.UserPool;
  * import com.pulumi.aws.cognito.UserPoolArgs;
- * import com.pulumi.aws.cognito.inputs.UserPoolSmsConfigurationArgs;
- * import com.pulumi.aws.cognito.inputs.UserPoolSoftwareTokenMfaConfigurationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -87,14 +85,8 @@ import javax.annotation.Nullable;
  *         var example = new UserPool(&#34;example&#34;, UserPoolArgs.builder()        
  *             .mfaConfiguration(&#34;ON&#34;)
  *             .smsAuthenticationMessage(&#34;Your code is {####}&#34;)
- *             .smsConfiguration(UserPoolSmsConfigurationArgs.builder()
- *                 .externalId(&#34;example&#34;)
- *                 .snsCallerArn(aws_iam_role.example().arn())
- *                 .snsRegion(&#34;us-east-1&#34;)
- *                 .build())
- *             .softwareTokenMfaConfiguration(UserPoolSoftwareTokenMfaConfigurationArgs.builder()
- *                 .enabled(true)
- *                 .build())
+ *             .smsConfiguration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .softwareTokenMfaConfiguration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -109,7 +101,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.cognito.UserPool;
  * import com.pulumi.aws.cognito.UserPoolArgs;
- * import com.pulumi.aws.cognito.inputs.UserPoolAccountRecoverySettingArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -124,17 +115,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new UserPool(&#34;test&#34;, UserPoolArgs.builder()        
- *             .accountRecoverySetting(UserPoolAccountRecoverySettingArgs.builder()
- *                 .recoveryMechanisms(                
- *                     UserPoolAccountRecoverySettingRecoveryMechanismArgs.builder()
- *                         .name(&#34;verified_email&#34;)
- *                         .priority(1)
- *                         .build(),
- *                     UserPoolAccountRecoverySettingRecoveryMechanismArgs.builder()
- *                         .name(&#34;verified_phone_number&#34;)
- *                         .priority(2)
- *                         .build())
- *                 .build())
+ *             .accountRecoverySetting(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

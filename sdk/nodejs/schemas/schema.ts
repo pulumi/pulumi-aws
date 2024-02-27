@@ -15,8 +15,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const testRegistry = new aws.schemas.Registry("testRegistry", {});
- * const testSchema = new aws.schemas.Schema("testSchema", {
+ * const testRegistry = new aws.schemas/registry.Registry("testRegistry", {});
+ * const testSchema = new aws.schemas/schema.Schema("testSchema", {
  *     registryName: testRegistry.name,
  *     type: "OpenApi3",
  *     description: "The schema definition for my event",

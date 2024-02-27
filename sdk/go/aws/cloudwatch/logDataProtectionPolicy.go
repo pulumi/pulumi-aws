@@ -25,72 +25,32 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	cloudwatch/logDataProtectionPolicy "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/cloudwatch/logDataProtectionPolicy"
+//	cloudwatch/logGroup "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/cloudwatch/logGroup"
+//	s3/bucketV2 "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/s3/bucketV2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleLogGroup, err := cloudwatch.NewLogGroup(ctx, "exampleLogGroup", nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = cloudwatch.NewLogDataProtectionPolicy(ctx, "exampleLogDataProtectionPolicy", &cloudwatch.LogDataProtectionPolicyArgs{
-//				LogGroupName: exampleLogGroup.Name,
-//				PolicyDocument: exampleBucketV2.Bucket.ApplyT(func(bucket string) (pulumi.String, error) {
-//					var _zero pulumi.String
-//					tmpJSON0, err := json.Marshal(map[string]interface{}{
-//						"Name":    "Example",
-//						"Version": "2021-06-01",
-//						"Statement": []interface{}{
-//							map[string]interface{}{
-//								"Sid": "Audit",
-//								"DataIdentifier": []string{
-//									"arn:aws:dataprotection::aws:data-identifier/EmailAddress",
-//								},
-//								"Operation": map[string]interface{}{
-//									"Audit": map[string]interface{}{
-//										"FindingsDestination": map[string]interface{}{
-//											"S3": map[string]interface{}{
-//												"Bucket": bucket,
-//											},
-//										},
-//									},
-//								},
-//							},
-//							map[string]interface{}{
-//								"Sid": "Redact",
-//								"DataIdentifier": []string{
-//									"arn:aws:dataprotection::aws:data-identifier/EmailAddress",
-//								},
-//								"Operation": map[string]interface{}{
-//									"Deidentify": map[string]interface{}{
-//										"MaskConfig": nil,
-//									},
-//								},
-//							},
-//						},
-//					})
-//					if err != nil {
-//						return _zero, err
-//					}
-//					json0 := string(tmpJSON0)
-//					return pulumi.String(json0), nil
-//				}).(pulumi.StringOutput),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleLogGroup, err := cloudwatch/logGroup.NewLogGroup(ctx, "exampleLogGroup", nil)
+// if err != nil {
+// return err
+// }
+// exampleBucketV2, err := s3/bucketV2.NewBucketV2(ctx, "exampleBucketV2", nil)
+// if err != nil {
+// return err
+// }
+// _, err = cloudwatch/logDataProtectionPolicy.NewLogDataProtectionPolicy(ctx, "exampleLogDataProtectionPolicy", &cloudwatch/logDataProtectionPolicy.LogDataProtectionPolicyArgs{
+// LogGroupName: exampleLogGroup.Name,
+// PolicyDocument: %!v(PANIC=Format method: fatal: An assertion has failed: unlowered function toJSON),
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

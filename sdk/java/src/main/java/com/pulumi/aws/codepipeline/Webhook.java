@@ -30,16 +30,10 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.codepipeline.Pipeline;
  * import com.pulumi.aws.codepipeline.PipelineArgs;
- * import com.pulumi.aws.codepipeline.inputs.PipelineArtifactStoreArgs;
- * import com.pulumi.aws.codepipeline.inputs.PipelineArtifactStoreEncryptionKeyArgs;
- * import com.pulumi.aws.codepipeline.inputs.PipelineStageArgs;
  * import com.pulumi.aws.codepipeline.Webhook;
  * import com.pulumi.aws.codepipeline.WebhookArgs;
- * import com.pulumi.aws.codepipeline.inputs.WebhookAuthenticationConfigurationArgs;
- * import com.pulumi.aws.codepipeline.inputs.WebhookFilterArgs;
  * import com.pulumi.github.RepositoryWebhook;
  * import com.pulumi.github.RepositoryWebhookArgs;
- * import com.pulumi.github.inputs.RepositoryWebhookConfigurationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -55,43 +49,10 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var barPipeline = new Pipeline(&#34;barPipeline&#34;, PipelineArgs.builder()        
  *             .roleArn(aws_iam_role.bar().arn())
- *             .artifactStores(PipelineArtifactStoreArgs.builder()
- *                 .location(aws_s3_bucket.bar().bucket())
- *                 .type(&#34;S3&#34;)
- *                 .encryptionKey(PipelineArtifactStoreEncryptionKeyArgs.builder()
- *                     .id(data.aws_kms_alias().s3kmskey().arn())
- *                     .type(&#34;KMS&#34;)
- *                     .build())
- *                 .build())
+ *             .artifactStores(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .stages(            
- *                 PipelineStageArgs.builder()
- *                     .name(&#34;Source&#34;)
- *                     .actions(PipelineStageActionArgs.builder()
- *                         .name(&#34;Source&#34;)
- *                         .category(&#34;Source&#34;)
- *                         .owner(&#34;ThirdParty&#34;)
- *                         .provider(&#34;GitHub&#34;)
- *                         .version(&#34;1&#34;)
- *                         .outputArtifacts(&#34;test&#34;)
- *                         .configuration(Map.ofEntries(
- *                             Map.entry(&#34;Owner&#34;, &#34;my-organization&#34;),
- *                             Map.entry(&#34;Repo&#34;, &#34;test&#34;),
- *                             Map.entry(&#34;Branch&#34;, &#34;master&#34;)
- *                         ))
- *                         .build())
- *                     .build(),
- *                 PipelineStageArgs.builder()
- *                     .name(&#34;Build&#34;)
- *                     .actions(PipelineStageActionArgs.builder()
- *                         .name(&#34;Build&#34;)
- *                         .category(&#34;Build&#34;)
- *                         .owner(&#34;AWS&#34;)
- *                         .provider(&#34;CodeBuild&#34;)
- *                         .inputArtifacts(&#34;test&#34;)
- *                         .version(&#34;1&#34;)
- *                         .configuration(Map.of(&#34;ProjectName&#34;, &#34;test&#34;))
- *                         .build())
- *                     .build())
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         final var webhookSecret = &#34;super-secret&#34;;
@@ -100,23 +61,13 @@ import javax.annotation.Nullable;
  *             .authentication(&#34;GITHUB_HMAC&#34;)
  *             .targetAction(&#34;Source&#34;)
  *             .targetPipeline(barPipeline.name())
- *             .authenticationConfiguration(WebhookAuthenticationConfigurationArgs.builder()
- *                 .secretToken(webhookSecret)
- *                 .build())
- *             .filters(WebhookFilterArgs.builder()
- *                 .jsonPath(&#34;$.ref&#34;)
- *                 .matchEquals(&#34;refs/heads/{Branch}&#34;)
- *                 .build())
+ *             .authenticationConfiguration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .filters(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var barRepositoryWebhook = new RepositoryWebhook(&#34;barRepositoryWebhook&#34;, RepositoryWebhookArgs.builder()        
  *             .repository(github_repository.repo().name())
- *             .configuration(RepositoryWebhookConfigurationArgs.builder()
- *                 .url(barWebhook.url())
- *                 .contentType(&#34;json&#34;)
- *                 .insecureSsl(true)
- *                 .secret(webhookSecret)
- *                 .build())
+ *             .configuration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .events(&#34;push&#34;)
  *             .build());
  * 

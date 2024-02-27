@@ -30,7 +30,7 @@ namespace Pulumi.Aws.Elb
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // Create a new load balancer attachment
-    ///     var baz = new Aws.Elb.Attachment("baz", new()
+    ///     var baz = new Aws.Elb.Attachment.Attachment("baz", new()
     ///     {
     ///         Elb = aws_elb.Bar.Id,
     ///         Instance = aws_instance.Foo.Id,

@@ -28,7 +28,7 @@ namespace Pulumi.Aws.LightSail
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // Create a new GitLab Lightsail Instance
-    ///     var gitlabTest = new Aws.LightSail.Instance("gitlabTest", new()
+    ///     var gitlabTest = new Aws.Lightsail.Instance.Instance("gitlabTest", new()
     ///     {
     ///         AvailabilityZone = "us-east-1b",
     ///         BlueprintId = "amazon_linux_2",
@@ -54,7 +54,7 @@ namespace Pulumi.Aws.LightSail
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var custom = new Aws.LightSail.Instance("custom", new()
+    ///     var custom = new Aws.Lightsail.Instance.Instance("custom", new()
     ///     {
     ///         AvailabilityZone = "us-east-1b",
     ///         BlueprintId = "amazon_linux_2",
@@ -74,13 +74,13 @@ namespace Pulumi.Aws.LightSail
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Aws.LightSail.Instance("test", new()
+    ///     var test = new Aws.Lightsail.Instance.Instance("test", new()
     ///     {
-    ///         AddOn = new Aws.LightSail.Inputs.InstanceAddOnArgs
+    ///         AddOn = 
     ///         {
-    ///             SnapshotTime = "06:00",
-    ///             Status = "Enabled",
-    ///             Type = "AutoSnapshot",
+    ///             { "snapshotTime", "06:00" },
+    ///             { "status", "Enabled" },
+    ///             { "type", "AutoSnapshot" },
     ///         },
     ///         AvailabilityZone = "us-east-1b",
     ///         BlueprintId = "amazon_linux_2",

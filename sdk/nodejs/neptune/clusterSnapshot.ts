@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.neptune.ClusterSnapshot("example", {
+ * const example = new aws.neptune/clusterSnapshot.ClusterSnapshot("example", {
  *     dbClusterIdentifier: aws_neptune_cluster.example.id,
  *     dbClusterSnapshotIdentifier: "resourcetestsnapshot1234",
  * });

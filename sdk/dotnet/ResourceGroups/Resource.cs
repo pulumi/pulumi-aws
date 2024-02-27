@@ -23,7 +23,7 @@ namespace Pulumi.Aws.ResourceGroups
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleDedicatedHost = new Aws.Ec2.DedicatedHost("exampleDedicatedHost", new()
+    ///     var exampleDedicatedHost = new Aws.Ec2.DedicatedHost.DedicatedHost("exampleDedicatedHost", new()
     ///     {
     ///         InstanceFamily = "t3",
     ///         AvailabilityZone = "us-east-1a",
@@ -31,9 +31,9 @@ namespace Pulumi.Aws.ResourceGroups
     ///         AutoPlacement = "on",
     ///     });
     /// 
-    ///     var exampleGroup = new Aws.ResourceGroups.Group("exampleGroup");
+    ///     var exampleGroup = new Aws.Resourcegroups.Group.Group("exampleGroup");
     /// 
-    ///     var exampleResource = new Aws.ResourceGroups.Resource("exampleResource", new()
+    ///     var exampleResource = new Aws.Resourcegroups.Resource.Resource("exampleResource", new()
     ///     {
     ///         GroupArn = exampleGroup.Arn,
     ///         ResourceArn = exampleDedicatedHost.Arn,

@@ -23,7 +23,7 @@ namespace Pulumi.Aws.CustomerProfiles
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.CustomerProfiles.Domain("example", new()
+    ///     var example = new Aws.Customerprofiles.Domain.Domain("example", new()
     ///     {
     ///         DomainName = "example",
     ///     });
@@ -41,7 +41,7 @@ namespace Pulumi.Aws.CustomerProfiles
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleQueue = new Aws.Sqs.Queue("exampleQueue", new()
+    ///     var exampleQueue = new Aws.Sqs.Queue.Queue("exampleQueue", new()
     ///     {
     ///         Policy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
@@ -66,55 +66,50 @@ namespace Pulumi.Aws.CustomerProfiles
     ///         }),
     ///     });
     /// 
-    ///     var exampleKey = new Aws.Kms.Key("exampleKey", new()
+    ///     var exampleKey = new Aws.Kms.Key.Key("exampleKey", new()
     ///     {
     ///         Description = "example",
     ///         DeletionWindowInDays = 10,
     ///     });
     /// 
-    ///     var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2", new()
+    ///     var exampleBucketV2 = new Aws.S3.BucketV2.BucketV2("exampleBucketV2", new()
     ///     {
     ///         ForceDestroy = true,
     ///     });
     /// 
-    ///     var exampleBucketPolicy = new Aws.S3.BucketPolicy("exampleBucketPolicy", new()
+    ///     var exampleBucketPolicy = new Aws.S3.BucketPolicy.BucketPolicy("exampleBucketPolicy", new()
     ///     {
     ///         Bucket = exampleBucketV2.Id,
-    ///         Policy = Output.Tuple(exampleBucketV2.Arn, exampleBucketV2.Arn).Apply(values =&gt;
+    ///         Policy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             var exampleBucketV2Arn = values.Item1;
-    ///             var exampleBucketV2Arn1 = values.Item2;
-    ///             return JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///             ["Version"] = "2012-10-17",
+    ///             ["Statement"] = new[]
     ///             {
-    ///                 ["Version"] = "2012-10-17",
-    ///                 ["Statement"] = new[]
+    ///                 new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     new Dictionary&lt;string, object?&gt;
+    ///                     ["Sid"] = "Customer Profiles S3 policy",
+    ///                     ["Effect"] = "Allow",
+    ///                     ["Action"] = new[]
     ///                     {
-    ///                         ["Sid"] = "Customer Profiles S3 policy",
-    ///                         ["Effect"] = "Allow",
-    ///                         ["Action"] = new[]
-    ///                         {
-    ///                             "s3:GetObject",
-    ///                             "s3:PutObject",
-    ///                             "s3:ListBucket",
-    ///                         },
-    ///                         ["Resource"] = new[]
-    ///                         {
-    ///                             exampleBucketV2Arn,
-    ///                             $"{exampleBucketV2Arn1}/*",
-    ///                         },
-    ///                         ["Principal"] = new Dictionary&lt;string, object?&gt;
-    ///                         {
-    ///                             ["Service"] = "profile.amazonaws.com",
-    ///                         },
+    ///                         "s3:GetObject",
+    ///                         "s3:PutObject",
+    ///                         "s3:ListBucket",
+    ///                     },
+    ///                     ["Resource"] = new object?[]
+    ///                     {
+    ///                         exampleBucketV2.Arn,
+    ///                         $"{exampleBucketV2.Arn}/*",
+    ///                     },
+    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
+    ///                     {
+    ///                         ["Service"] = "profile.amazonaws.com",
     ///                     },
     ///                 },
-    ///             });
+    ///             },
     ///         }),
     ///     });
     /// 
-    ///     var test = new Aws.CustomerProfiles.Domain("test", new()
+    ///     var test = new Aws.Customerprofiles.Domain.Domain("test", new()
     ///     {
     ///         DomainName = example,
     ///         DeadLetterQueueUrl = exampleQueue.Id,

@@ -31,7 +31,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.signer.SigningProfile;
  * import com.pulumi.aws.signer.SigningProfileArgs;
- * import com.pulumi.aws.signer.inputs.SigningProfileSignatureValidityPeriodArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -52,14 +51,8 @@ import javax.annotation.Nullable;
  *         var prodSp = new SigningProfile(&#34;prodSp&#34;, SigningProfileArgs.builder()        
  *             .namePrefix(&#34;prod_sp_&#34;)
  *             .platformId(&#34;AWSLambda-SHA384-ECDSA&#34;)
- *             .signatureValidityPeriod(SigningProfileSignatureValidityPeriodArgs.builder()
- *                 .type(&#34;YEARS&#34;)
- *                 .value(5)
- *                 .build())
- *             .tags(Map.ofEntries(
- *                 Map.entry(&#34;tag1&#34;, &#34;value1&#34;),
- *                 Map.entry(&#34;tag2&#34;, &#34;value2&#34;)
- *             ))
+ *             .signatureValidityPeriod(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

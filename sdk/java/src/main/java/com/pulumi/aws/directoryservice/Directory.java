@@ -31,13 +31,12 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.ec2.Vpc;
- * import com.pulumi.aws.ec2.VpcArgs;
+ * import com.pulumi.aws.ec2_vpc.Vpc;
+ * import com.pulumi.aws.ec2_vpc.VpcArgs;
  * import com.pulumi.aws.ec2.Subnet;
  * import com.pulumi.aws.ec2.SubnetArgs;
  * import com.pulumi.aws.directoryservice.Directory;
  * import com.pulumi.aws.directoryservice.DirectoryArgs;
- * import com.pulumi.aws.directoryservice.inputs.DirectoryVpcSettingsArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -71,13 +70,8 @@ import javax.annotation.Nullable;
  *             .name(&#34;corp.notexample.com&#34;)
  *             .password(&#34;SuperSecretPassw0rd&#34;)
  *             .size(&#34;Small&#34;)
- *             .vpcSettings(DirectoryVpcSettingsArgs.builder()
- *                 .vpcId(main.id())
- *                 .subnetIds(                
- *                     foo.id(),
- *                     barSubnet.id())
- *                 .build())
- *             .tags(Map.of(&#34;Project&#34;, &#34;foo&#34;))
+ *             .vpcSettings(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -90,13 +84,12 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.ec2.Vpc;
- * import com.pulumi.aws.ec2.VpcArgs;
+ * import com.pulumi.aws.ec2_vpc.Vpc;
+ * import com.pulumi.aws.ec2_vpc.VpcArgs;
  * import com.pulumi.aws.ec2.Subnet;
  * import com.pulumi.aws.ec2.SubnetArgs;
  * import com.pulumi.aws.directoryservice.Directory;
  * import com.pulumi.aws.directoryservice.DirectoryArgs;
- * import com.pulumi.aws.directoryservice.inputs.DirectoryVpcSettingsArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -131,13 +124,8 @@ import javax.annotation.Nullable;
  *             .password(&#34;SuperSecretPassw0rd&#34;)
  *             .edition(&#34;Standard&#34;)
  *             .type(&#34;MicrosoftAD&#34;)
- *             .vpcSettings(DirectoryVpcSettingsArgs.builder()
- *                 .vpcId(main.id())
- *                 .subnetIds(                
- *                     foo.id(),
- *                     barSubnet.id())
- *                 .build())
- *             .tags(Map.of(&#34;Project&#34;, &#34;foo&#34;))
+ *             .vpcSettings(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -150,13 +138,12 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.ec2.Vpc;
- * import com.pulumi.aws.ec2.VpcArgs;
+ * import com.pulumi.aws.ec2_vpc.Vpc;
+ * import com.pulumi.aws.ec2_vpc.VpcArgs;
  * import com.pulumi.aws.ec2.Subnet;
  * import com.pulumi.aws.ec2.SubnetArgs;
  * import com.pulumi.aws.directoryservice.Directory;
  * import com.pulumi.aws.directoryservice.DirectoryArgs;
- * import com.pulumi.aws.directoryservice.inputs.DirectoryConnectSettingsArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -191,14 +178,7 @@ import javax.annotation.Nullable;
  *             .password(&#34;SuperSecretPassw0rd&#34;)
  *             .size(&#34;Small&#34;)
  *             .type(&#34;ADConnector&#34;)
- *             .connectSettings(DirectoryConnectSettingsArgs.builder()
- *                 .customerDnsIps(&#34;A.B.C.D&#34;)
- *                 .customerUsername(&#34;Admin&#34;)
- *                 .subnetIds(                
- *                     foo.id(),
- *                     bar.id())
- *                 .vpcId(main.id())
- *                 .build())
+ *             .connectSettings(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

@@ -615,54 +615,6 @@ class Vpc(pulumi.CustomResource):
         """
         Provides a VPC resource.
 
-        ## Example Usage
-
-        Basic usage:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        main = aws.ec2.Vpc("main", cidr_block="10.0.0.0/16")
-        ```
-
-        Basic usage with tags:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        main = aws.ec2.Vpc("main",
-            cidr_block="10.0.0.0/16",
-            instance_tenancy="default",
-            tags={
-                "Name": "main",
-            })
-        ```
-
-        VPC with CIDR from AWS IPAM:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        current = aws.get_region()
-        test_vpc_ipam = aws.ec2.VpcIpam("testVpcIpam", operating_regions=[aws.ec2.VpcIpamOperatingRegionArgs(
-            region_name=current.name,
-        )])
-        test_vpc_ipam_pool = aws.ec2.VpcIpamPool("testVpcIpamPool",
-            address_family="ipv4",
-            ipam_scope_id=test_vpc_ipam.private_default_scope_id,
-            locale=current.name)
-        test_vpc_ipam_pool_cidr = aws.ec2.VpcIpamPoolCidr("testVpcIpamPoolCidr",
-            ipam_pool_id=test_vpc_ipam_pool.id,
-            cidr="172.20.0.0/16")
-        test_vpc = aws.ec2.Vpc("testVpc",
-            ipv4_ipam_pool_id=test_vpc_ipam_pool.id,
-            ipv4_netmask_length=28,
-            opts=pulumi.ResourceOptions(depends_on=[test_vpc_ipam_pool_cidr]))
-        ```
-
         ## Import
 
         Using `pulumi import`, import VPCs using the VPC `id`. For example:
@@ -695,54 +647,6 @@ class Vpc(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a VPC resource.
-
-        ## Example Usage
-
-        Basic usage:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        main = aws.ec2.Vpc("main", cidr_block="10.0.0.0/16")
-        ```
-
-        Basic usage with tags:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        main = aws.ec2.Vpc("main",
-            cidr_block="10.0.0.0/16",
-            instance_tenancy="default",
-            tags={
-                "Name": "main",
-            })
-        ```
-
-        VPC with CIDR from AWS IPAM:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        current = aws.get_region()
-        test_vpc_ipam = aws.ec2.VpcIpam("testVpcIpam", operating_regions=[aws.ec2.VpcIpamOperatingRegionArgs(
-            region_name=current.name,
-        )])
-        test_vpc_ipam_pool = aws.ec2.VpcIpamPool("testVpcIpamPool",
-            address_family="ipv4",
-            ipam_scope_id=test_vpc_ipam.private_default_scope_id,
-            locale=current.name)
-        test_vpc_ipam_pool_cidr = aws.ec2.VpcIpamPoolCidr("testVpcIpamPoolCidr",
-            ipam_pool_id=test_vpc_ipam_pool.id,
-            cidr="172.20.0.0/16")
-        test_vpc = aws.ec2.Vpc("testVpc",
-            ipv4_ipam_pool_id=test_vpc_ipam_pool.id,
-            ipv4_netmask_length=28,
-            opts=pulumi.ResourceOptions(depends_on=[test_vpc_ipam_pool_cidr]))
-        ```
 
         ## Import
 

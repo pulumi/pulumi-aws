@@ -641,17 +641,17 @@ class Fleet(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ec2.Fleet("example",
-            launch_template_configs=[aws.ec2.FleetLaunchTemplateConfigArgs(
-                launch_template_specification=aws.ec2.FleetLaunchTemplateConfigLaunchTemplateSpecificationArgs(
-                    launch_template_id=aws_launch_template["example"]["id"],
-                    version=aws_launch_template["example"]["latest_version"],
-                ),
-            )],
-            target_capacity_specification=aws.ec2.FleetTargetCapacitySpecificationArgs(
-                default_target_capacity_type="spot",
-                total_target_capacity=5,
-            ))
+        example = aws.ec2.fleet.Fleet("example",
+            launch_template_configs=[{
+                launchTemplateSpecification: {
+                    launchTemplateId: aws_launch_template.example.id,
+                    version: aws_launch_template.example.latest_version,
+                },
+            }],
+            target_capacity_specification={
+                defaultTargetCapacityType: spot,
+                totalTargetCapacity: 5,
+            })
         ```
 
         ## Import
@@ -697,17 +697,17 @@ class Fleet(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ec2.Fleet("example",
-            launch_template_configs=[aws.ec2.FleetLaunchTemplateConfigArgs(
-                launch_template_specification=aws.ec2.FleetLaunchTemplateConfigLaunchTemplateSpecificationArgs(
-                    launch_template_id=aws_launch_template["example"]["id"],
-                    version=aws_launch_template["example"]["latest_version"],
-                ),
-            )],
-            target_capacity_specification=aws.ec2.FleetTargetCapacitySpecificationArgs(
-                default_target_capacity_type="spot",
-                total_target_capacity=5,
-            ))
+        example = aws.ec2.fleet.Fleet("example",
+            launch_template_configs=[{
+                launchTemplateSpecification: {
+                    launchTemplateId: aws_launch_template.example.id,
+                    version: aws_launch_template.example.latest_version,
+                },
+            }],
+            target_capacity_specification={
+                defaultTargetCapacityType: spot,
+                totalTargetCapacity: 5,
+            })
         ```
 
         ## Import

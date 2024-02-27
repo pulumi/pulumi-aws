@@ -21,7 +21,7 @@ namespace Pulumi.Aws.Sqs
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var queue = new Aws.Sqs.Queue("queue", new()
+    ///     var queue = new Aws.Sqs.Queue.Queue("queue", new()
     ///     {
     ///         DelaySeconds = 90,
     ///         MaxMessageSize = 2048,
@@ -50,7 +50,7 @@ namespace Pulumi.Aws.Sqs
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var queue = new Aws.Sqs.Queue("queue", new()
+    ///     var queue = new Aws.Sqs.Queue.Queue("queue", new()
     ///     {
     ///         ContentBasedDeduplication = true,
     ///         FifoQueue = true,
@@ -69,7 +69,7 @@ namespace Pulumi.Aws.Sqs
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var queue = new Aws.Sqs.Queue("queue", new()
+    ///     var queue = new Aws.Sqs.Queue.Queue("queue", new()
     ///     {
     ///         DeduplicationScope = "messageGroup",
     ///         FifoQueue = true,
@@ -90,7 +90,7 @@ namespace Pulumi.Aws.Sqs
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var queue = new Aws.Sqs.Queue("queue", new()
+    ///     var queue = new Aws.Sqs.Queue.Queue("queue", new()
     ///     {
     ///         RedrivePolicy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
@@ -99,12 +99,12 @@ namespace Pulumi.Aws.Sqs
     ///         }),
     ///     });
     /// 
-    ///     var exampleQueueDeadletter = new Aws.Sqs.Queue("exampleQueueDeadletter");
+    ///     var exampleQueueDeadletter = new Aws.Sqs.Queue.Queue("exampleQueueDeadletter");
     /// 
-    ///     var exampleQueueRedriveAllowPolicy = new Aws.Sqs.RedriveAllowPolicy("exampleQueueRedriveAllowPolicy", new()
+    ///     var exampleQueueRedriveAllowPolicy = new Aws.Sqs.RedriveAllowPolicy.RedriveAllowPolicy("exampleQueueRedriveAllowPolicy", new()
     ///     {
     ///         QueueUrl = exampleQueueDeadletter.Id,
-    ///         RedriveAllowPolicyName = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///         RedriveAllowPolicy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
     ///             ["redrivePermission"] = "byQueue",
     ///             ["sourceQueueArns"] = new[]
@@ -129,7 +129,7 @@ namespace Pulumi.Aws.Sqs
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var queue = new Aws.Sqs.Queue("queue", new()
+    ///     var queue = new Aws.Sqs.Queue.Queue("queue", new()
     ///     {
     ///         SqsManagedSseEnabled = true,
     ///     });
@@ -147,7 +147,7 @@ namespace Pulumi.Aws.Sqs
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var queue = new Aws.Sqs.Queue("queue", new()
+    ///     var queue = new Aws.Sqs.Queue.Queue("queue", new()
     ///     {
     ///         KmsDataKeyReusePeriodSeconds = 300,
     ///         KmsMasterKeyId = "alias/aws/sqs",

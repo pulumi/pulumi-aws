@@ -25,84 +25,6 @@ import javax.annotation.Nullable;
  * &gt; **Note:** Config Rule requires an existing Configuration Recorder to be present. Use of `depends_on` is recommended (as shown below) to avoid race conditions.
  * 
  * ## Example Usage
- * ### AWS Managed Rules
- * 
- * AWS managed rules can be used by setting the source owner to `AWS` and the source identifier to the name of the managed rule. More information about AWS managed rules can be found in the [AWS Config Developer Guide](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html).
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.iam.IamFunctions;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
- * import com.pulumi.aws.iam.Role;
- * import com.pulumi.aws.iam.RoleArgs;
- * import com.pulumi.aws.cfg.Recorder;
- * import com.pulumi.aws.cfg.RecorderArgs;
- * import com.pulumi.aws.cfg.Rule;
- * import com.pulumi.aws.cfg.RuleArgs;
- * import com.pulumi.aws.cfg.inputs.RuleSourceArgs;
- * import com.pulumi.aws.iam.RolePolicy;
- * import com.pulumi.aws.iam.RolePolicyArgs;
- * import com.pulumi.resources.CustomResourceOptions;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect(&#34;Allow&#34;)
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type(&#34;Service&#34;)
- *                     .identifiers(&#34;config.amazonaws.com&#34;)
- *                     .build())
- *                 .actions(&#34;sts:AssumeRole&#34;)
- *                 .build())
- *             .build());
- * 
- *         var role = new Role(&#34;role&#34;, RoleArgs.builder()        
- *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
- *             .build());
- * 
- *         var foo = new Recorder(&#34;foo&#34;, RecorderArgs.builder()        
- *             .roleArn(role.arn())
- *             .build());
- * 
- *         var rule = new Rule(&#34;rule&#34;, RuleArgs.builder()        
- *             .source(RuleSourceArgs.builder()
- *                 .owner(&#34;AWS&#34;)
- *                 .sourceIdentifier(&#34;S3_BUCKET_VERSIONING_ENABLED&#34;)
- *                 .build())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(foo)
- *                 .build());
- * 
- *         final var policyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect(&#34;Allow&#34;)
- *                 .actions(&#34;config:Put*&#34;)
- *                 .resources(&#34;*&#34;)
- *                 .build())
- *             .build());
- * 
- *         var rolePolicy = new RolePolicy(&#34;rolePolicy&#34;, RolePolicyArgs.builder()        
- *             .role(role.id())
- *             .policy(policyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
- *             .build());
- * 
- *     }
- * }
- * ```
  * ### Custom Rules
  * 
  * Custom rules can be used by setting the source owner to `CUSTOM_LAMBDA` and the source identifier to the Amazon Resource Name (ARN) of the Lambda Function. The AWS Config service must have permissions to invoke the Lambda Function, e.g., via the `aws.lambda.Permission` resource. More information about custom rules can be found in the [AWS Config Developer Guide](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_develop-rules.html).
@@ -118,7 +40,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.lambda.PermissionArgs;
  * import com.pulumi.aws.cfg.Rule;
  * import com.pulumi.aws.cfg.RuleArgs;
- * import com.pulumi.aws.cfg.inputs.RuleSourceArgs;
  * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
@@ -144,10 +65,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleRule = new Rule(&#34;exampleRule&#34;, RuleArgs.builder()        
- *             .source(RuleSourceArgs.builder()
- *                 .owner(&#34;CUSTOM_LAMBDA&#34;)
- *                 .sourceIdentifier(exampleFunction.arn())
- *                 .build())
+ *             .source(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(                
  *                     exampleRecorder,
@@ -166,8 +84,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.cfg.Rule;
  * import com.pulumi.aws.cfg.RuleArgs;
- * import com.pulumi.aws.cfg.inputs.RuleSourceArgs;
- * import com.pulumi.aws.cfg.inputs.RuleSourceCustomPolicyDetailsArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -182,27 +98,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Rule(&#34;example&#34;, RuleArgs.builder()        
- *             .source(RuleSourceArgs.builder()
- *                 .owner(&#34;CUSTOM_POLICY&#34;)
- *                 .sourceDetails(RuleSourceSourceDetailArgs.builder()
- *                     .messageType(&#34;ConfigurationItemChangeNotification&#34;)
- *                     .build())
- *                 .customPolicyDetails(RuleSourceCustomPolicyDetailsArgs.builder()
- *                     .policyRuntime(&#34;guard-2.x.x&#34;)
- *                     .policyText(&#34;&#34;&#34;
- * 	  rule tableisactive when
- * 		  resourceType == &#34;AWS::DynamoDB::Table&#34; {
- * 		  configuration.tableStatus == [&#39;ACTIVE&#39;]
- * 	  }
- * 	  
- * 	  rule checkcompliance when
- * 		  resourceType == &#34;AWS::DynamoDB::Table&#34;
- * 		  tableisactive {
- * 			  supplementaryConfiguration.ContinuousBackupsDescription.pointInTimeRecoveryDescription.pointInTimeRecoveryStatus == &#34;ENABLED&#34;
- * 	  }
- *                     &#34;&#34;&#34;)
- *                     .build())
- *                 .build())
+ *             .source(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

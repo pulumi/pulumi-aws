@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Inspector
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var bar = new Aws.Inspector.ResourceGroup("bar", new()
+    ///     var bar = new Aws.Inspector.ResourceGroup.ResourceGroup("bar", new()
     ///     {
     ///         Tags = 
     ///         {
@@ -31,7 +31,7 @@ namespace Pulumi.Aws.Inspector
     ///         },
     ///     });
     /// 
-    ///     var foo = new Aws.Inspector.AssessmentTarget("foo", new()
+    ///     var foo = new Aws.Inspector.AssessmentTarget.AssessmentTarget("foo", new()
     ///     {
     ///         ResourceGroupArn = bar.Arn,
     ///     });

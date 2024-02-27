@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const _default = new aws.rds.Cluster("default", {
+ * const _default = new aws.rds/cluster.Cluster("default", {
  *     clusterIdentifier: "aurora-cluster-demo",
  *     availabilityZones: [
  *         "us-west-2a",
@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  *     backupRetentionPeriod: 5,
  *     preferredBackupWindow: "07:00-09:00",
  * });
- * const test1 = new aws.rds.ClusterInstance("test1", {
+ * const test1 = new aws.rds/clusterInstance.ClusterInstance("test1", {
  *     applyImmediately: true,
  *     clusterIdentifier: _default.id,
  *     identifier: "test1",
@@ -35,7 +35,7 @@ import * as utilities from "../utilities";
  *     engine: _default.engine,
  *     engineVersion: _default.engineVersion,
  * });
- * const test2 = new aws.rds.ClusterInstance("test2", {
+ * const test2 = new aws.rds/clusterInstance.ClusterInstance("test2", {
  *     applyImmediately: true,
  *     clusterIdentifier: _default.id,
  *     identifier: "test2",
@@ -43,7 +43,7 @@ import * as utilities from "../utilities";
  *     engine: _default.engine,
  *     engineVersion: _default.engineVersion,
  * });
- * const test3 = new aws.rds.ClusterInstance("test3", {
+ * const test3 = new aws.rds/clusterInstance.ClusterInstance("test3", {
  *     applyImmediately: true,
  *     clusterIdentifier: _default.id,
  *     identifier: "test3",
@@ -51,7 +51,7 @@ import * as utilities from "../utilities";
  *     engine: _default.engine,
  *     engineVersion: _default.engineVersion,
  * });
- * const eligible = new aws.rds.ClusterEndpoint("eligible", {
+ * const eligible = new aws.rds/clusterEndpoint.ClusterEndpoint("eligible", {
  *     clusterIdentifier: _default.id,
  *     clusterEndpointIdentifier: "reader",
  *     customEndpointType: "READER",
@@ -60,7 +60,7 @@ import * as utilities from "../utilities";
  *         test2.id,
  *     ],
  * });
- * const static = new aws.rds.ClusterEndpoint("static", {
+ * const static = new aws.rds/clusterEndpoint.ClusterEndpoint("static", {
  *     clusterIdentifier: _default.id,
  *     clusterEndpointIdentifier: "static",
  *     customEndpointType: "READER",

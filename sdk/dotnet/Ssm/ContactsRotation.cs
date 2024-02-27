@@ -21,24 +21,24 @@ namespace Pulumi.Aws.Ssm
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Ssm.ContactsRotation("example", new()
+    ///     var example = new Aws.Ssm.ContactsRotation.ContactsRotation("example", new()
     ///     {
     ///         ContactIds = new[]
     ///         {
     ///             aws_ssmcontacts_contact.Example.Arn,
     ///         },
-    ///         Recurrence = new Aws.Ssm.Inputs.ContactsRotationRecurrenceArgs
+    ///         Recurrence = 
     ///         {
-    ///             NumberOfOnCalls = 1,
-    ///             RecurrenceMultiplier = 1,
-    ///             DailySettings = new[]
+    ///             { "numberOfOnCalls", 1 },
+    ///             { "recurrenceMultiplier", 1 },
+    ///             { "dailySettings", new[]
     ///             {
-    ///                 new Aws.Ssm.Inputs.ContactsRotationRecurrenceDailySettingArgs
+    ///                 
     ///                 {
-    ///                     HourOfDay = 9,
-    ///                     MinuteOfHour = 0,
+    ///                     { "hourOfDay", 9 },
+    ///                     { "minuteOfHour", 0 },
     ///                 },
-    ///             },
+    ///             } },
     ///         },
     ///         TimeZoneId = "Australia/Sydney",
     ///     }, new CustomResourceOptions
@@ -61,60 +61,60 @@ namespace Pulumi.Aws.Ssm
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Ssm.ContactsRotation("example", new()
+    ///     var example = new Aws.Ssm.ContactsRotation.ContactsRotation("example", new()
     ///     {
     ///         ContactIds = new[]
     ///         {
     ///             aws_ssmcontacts_contact.Example.Arn,
     ///         },
-    ///         Recurrence = new Aws.Ssm.Inputs.ContactsRotationRecurrenceArgs
+    ///         Recurrence = 
     ///         {
-    ///             NumberOfOnCalls = 1,
-    ///             RecurrenceMultiplier = 1,
-    ///             WeeklySettings = new[]
+    ///             { "numberOfOnCalls", 1 },
+    ///             { "recurrenceMultiplier", 1 },
+    ///             { "weeklySettings", new[]
     ///             {
-    ///                 new Aws.Ssm.Inputs.ContactsRotationRecurrenceWeeklySettingArgs
+    ///                 
     ///                 {
-    ///                     DayOfWeek = "WED",
-    ///                     HandOffTime = new Aws.Ssm.Inputs.ContactsRotationRecurrenceWeeklySettingHandOffTimeArgs
+    ///                     { "dayOfWeek", "WED" },
+    ///                     { "handOffTime", 
     ///                     {
-    ///                         HourOfDay = 4,
-    ///                         MinuteOfHour = 25,
-    ///                     },
+    ///                         { "hourOfDay", 4 },
+    ///                         { "minuteOfHour", 25 },
+    ///                     } },
     ///                 },
-    ///                 new Aws.Ssm.Inputs.ContactsRotationRecurrenceWeeklySettingArgs
+    ///                 
     ///                 {
-    ///                     DayOfWeek = "FRI",
-    ///                     HandOffTime = new Aws.Ssm.Inputs.ContactsRotationRecurrenceWeeklySettingHandOffTimeArgs
+    ///                     { "dayOfWeek", "FRI" },
+    ///                     { "handOffTime", 
     ///                     {
-    ///                         HourOfDay = 15,
-    ///                         MinuteOfHour = 57,
-    ///                     },
+    ///                         { "hourOfDay", 15 },
+    ///                         { "minuteOfHour", 57 },
+    ///                     } },
     ///                 },
-    ///             },
-    ///             ShiftCoverages = new[]
+    ///             } },
+    ///             { "shiftCoverages", new[]
     ///             {
-    ///                 new Aws.Ssm.Inputs.ContactsRotationRecurrenceShiftCoverageArgs
+    ///                 
     ///                 {
-    ///                     MapBlockKey = "MON",
-    ///                     CoverageTimes = new[]
+    ///                     { "mapBlockKey", "MON" },
+    ///                     { "coverageTimes", new[]
     ///                     {
-    ///                         new Aws.Ssm.Inputs.ContactsRotationRecurrenceShiftCoverageCoverageTimeArgs
+    ///                         
     ///                         {
-    ///                             Start = new Aws.Ssm.Inputs.ContactsRotationRecurrenceShiftCoverageCoverageTimeStartArgs
+    ///                             { "start", 
     ///                             {
-    ///                                 HourOfDay = 1,
-    ///                                 MinuteOfHour = 0,
-    ///                             },
-    ///                             End = new Aws.Ssm.Inputs.ContactsRotationRecurrenceShiftCoverageCoverageTimeEndArgs
+    ///                                 { "hourOfDay", 1 },
+    ///                                 { "minuteOfHour", 0 },
+    ///                             } },
+    ///                             { "end", 
     ///                             {
-    ///                                 HourOfDay = 23,
-    ///                                 MinuteOfHour = 0,
-    ///                             },
+    ///                                 { "hourOfDay", 23 },
+    ///                                 { "minuteOfHour", 0 },
+    ///                             } },
     ///                         },
-    ///                     },
+    ///                     } },
     ///                 },
-    ///             },
+    ///             } },
     ///         },
     ///         StartTime = "2023-07-20T02:21:49+00:00",
     ///         TimeZoneId = "Australia/Sydney",
@@ -143,37 +143,37 @@ namespace Pulumi.Aws.Ssm
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Ssm.ContactsRotation("example", new()
+    ///     var example = new Aws.Ssm.ContactsRotation.ContactsRotation("example", new()
     ///     {
     ///         ContactIds = new[]
     ///         {
     ///             aws_ssmcontacts_contact.Example.Arn,
     ///         },
-    ///         Recurrence = new Aws.Ssm.Inputs.ContactsRotationRecurrenceArgs
+    ///         Recurrence = 
     ///         {
-    ///             NumberOfOnCalls = 1,
-    ///             RecurrenceMultiplier = 1,
-    ///             MonthlySettings = new[]
+    ///             { "numberOfOnCalls", 1 },
+    ///             { "recurrenceMultiplier", 1 },
+    ///             { "monthlySettings", new[]
     ///             {
-    ///                 new Aws.Ssm.Inputs.ContactsRotationRecurrenceMonthlySettingArgs
+    ///                 
     ///                 {
-    ///                     DayOfMonth = 20,
-    ///                     HandOffTime = new Aws.Ssm.Inputs.ContactsRotationRecurrenceMonthlySettingHandOffTimeArgs
+    ///                     { "dayOfMonth", 20 },
+    ///                     { "handOffTime", 
     ///                     {
-    ///                         HourOfDay = 8,
-    ///                         MinuteOfHour = 0,
-    ///                     },
+    ///                         { "hourOfDay", 8 },
+    ///                         { "minuteOfHour", 0 },
+    ///                     } },
     ///                 },
-    ///                 new Aws.Ssm.Inputs.ContactsRotationRecurrenceMonthlySettingArgs
+    ///                 
     ///                 {
-    ///                     DayOfMonth = 13,
-    ///                     HandOffTime = new Aws.Ssm.Inputs.ContactsRotationRecurrenceMonthlySettingHandOffTimeArgs
+    ///                     { "dayOfMonth", 13 },
+    ///                     { "handOffTime", 
     ///                     {
-    ///                         HourOfDay = 12,
-    ///                         MinuteOfHour = 34,
-    ///                     },
+    ///                         { "hourOfDay", 12 },
+    ///                         { "minuteOfHour", 34 },
+    ///                     } },
     ///                 },
-    ///             },
+    ///             } },
     ///         },
     ///         TimeZoneId = "Australia/Sydney",
     ///     }, new CustomResourceOptions

@@ -35,107 +35,6 @@ import javax.annotation.Nullable;
  * Provides an EC2 instance resource. This allows instances to be created, updated, and deleted.
  * 
  * ## Example Usage
- * ### Basic example using AMI lookup
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ec2.Ec2Functions;
- * import com.pulumi.aws.ec2.inputs.GetAmiArgs;
- * import com.pulumi.aws.ec2.Instance;
- * import com.pulumi.aws.ec2.InstanceArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var ubuntu = Ec2Functions.getAmi(GetAmiArgs.builder()
- *             .mostRecent(true)
- *             .filters(            
- *                 GetAmiFilterArgs.builder()
- *                     .name(&#34;name&#34;)
- *                     .values(&#34;ubuntu/images/hvm-ssd/ubuntu-jammy-22.04-amd64-server-*&#34;)
- *                     .build(),
- *                 GetAmiFilterArgs.builder()
- *                     .name(&#34;virtualization-type&#34;)
- *                     .values(&#34;hvm&#34;)
- *                     .build())
- *             .owners(&#34;099720109477&#34;)
- *             .build());
- * 
- *         var web = new Instance(&#34;web&#34;, InstanceArgs.builder()        
- *             .ami(ubuntu.applyValue(getAmiResult -&gt; getAmiResult.id()))
- *             .instanceType(&#34;t3.micro&#34;)
- *             .tags(Map.of(&#34;Name&#34;, &#34;HelloWorld&#34;))
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### Spot instance example
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ec2.Ec2Functions;
- * import com.pulumi.aws.ec2.inputs.GetAmiArgs;
- * import com.pulumi.aws.ec2.Instance;
- * import com.pulumi.aws.ec2.InstanceArgs;
- * import com.pulumi.aws.ec2.inputs.InstanceInstanceMarketOptionsArgs;
- * import com.pulumi.aws.ec2.inputs.InstanceInstanceMarketOptionsSpotOptionsArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var thisAmi = Ec2Functions.getAmi(GetAmiArgs.builder()
- *             .mostRecent(true)
- *             .owners(&#34;amazon&#34;)
- *             .filters(            
- *                 GetAmiFilterArgs.builder()
- *                     .name(&#34;architecture&#34;)
- *                     .values(&#34;arm64&#34;)
- *                     .build(),
- *                 GetAmiFilterArgs.builder()
- *                     .name(&#34;name&#34;)
- *                     .values(&#34;al2023-ami-2023*&#34;)
- *                     .build())
- *             .build());
- * 
- *         var thisInstance = new Instance(&#34;thisInstance&#34;, InstanceArgs.builder()        
- *             .ami(thisAmi.applyValue(getAmiResult -&gt; getAmiResult.id()))
- *             .instanceMarketOptions(InstanceInstanceMarketOptionsArgs.builder()
- *                 .spotOptions(InstanceInstanceMarketOptionsSpotOptionsArgs.builder()
- *                     .maxPrice(0.0031)
- *                     .build())
- *                 .build())
- *             .instanceType(&#34;t4g.nano&#34;)
- *             .tags(Map.of(&#34;Name&#34;, &#34;test-spot&#34;))
- *             .build());
- * 
- *     }
- * }
- * ```
  * ### Network and credit specification example
  * ```java
  * package generated_program;
@@ -143,16 +42,14 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.ec2.Vpc;
- * import com.pulumi.aws.ec2.VpcArgs;
+ * import com.pulumi.aws.ec2_vpc.Vpc;
+ * import com.pulumi.aws.ec2_vpc.VpcArgs;
  * import com.pulumi.aws.ec2.Subnet;
  * import com.pulumi.aws.ec2.SubnetArgs;
  * import com.pulumi.aws.ec2.NetworkInterface;
  * import com.pulumi.aws.ec2.NetworkInterfaceArgs;
  * import com.pulumi.aws.ec2.Instance;
  * import com.pulumi.aws.ec2.InstanceArgs;
- * import com.pulumi.aws.ec2.inputs.InstanceNetworkInterfaceArgs;
- * import com.pulumi.aws.ec2.inputs.InstanceCreditSpecificationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -168,96 +65,27 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var myVpc = new Vpc(&#34;myVpc&#34;, VpcArgs.builder()        
  *             .cidrBlock(&#34;172.16.0.0/16&#34;)
- *             .tags(Map.of(&#34;Name&#34;, &#34;tf-example&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var mySubnet = new Subnet(&#34;mySubnet&#34;, SubnetArgs.builder()        
  *             .vpcId(myVpc.id())
  *             .cidrBlock(&#34;172.16.10.0/24&#34;)
  *             .availabilityZone(&#34;us-west-2a&#34;)
- *             .tags(Map.of(&#34;Name&#34;, &#34;tf-example&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var fooNetworkInterface = new NetworkInterface(&#34;fooNetworkInterface&#34;, NetworkInterfaceArgs.builder()        
  *             .subnetId(mySubnet.id())
  *             .privateIps(&#34;172.16.10.100&#34;)
- *             .tags(Map.of(&#34;Name&#34;, &#34;primary_network_interface&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var fooInstance = new Instance(&#34;fooInstance&#34;, InstanceArgs.builder()        
  *             .ami(&#34;ami-005e54dee72cc1d00&#34;)
  *             .instanceType(&#34;t2.micro&#34;)
- *             .networkInterfaces(InstanceNetworkInterfaceArgs.builder()
- *                 .networkInterfaceId(fooNetworkInterface.id())
- *                 .deviceIndex(0)
- *                 .build())
- *             .creditSpecification(InstanceCreditSpecificationArgs.builder()
- *                 .cpuCredits(&#34;unlimited&#34;)
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### CPU options example
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ec2.Vpc;
- * import com.pulumi.aws.ec2.VpcArgs;
- * import com.pulumi.aws.ec2.Subnet;
- * import com.pulumi.aws.ec2.SubnetArgs;
- * import com.pulumi.aws.ec2.Ec2Functions;
- * import com.pulumi.aws.ec2.inputs.GetAmiArgs;
- * import com.pulumi.aws.ec2.Instance;
- * import com.pulumi.aws.ec2.InstanceArgs;
- * import com.pulumi.aws.ec2.inputs.InstanceCpuOptionsArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var exampleVpc = new Vpc(&#34;exampleVpc&#34;, VpcArgs.builder()        
- *             .cidrBlock(&#34;172.16.0.0/16&#34;)
- *             .tags(Map.of(&#34;Name&#34;, &#34;tf-example&#34;))
- *             .build());
- * 
- *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
- *             .vpcId(exampleVpc.id())
- *             .cidrBlock(&#34;172.16.10.0/24&#34;)
- *             .availabilityZone(&#34;us-east-2a&#34;)
- *             .tags(Map.of(&#34;Name&#34;, &#34;tf-example&#34;))
- *             .build());
- * 
- *         final var amzn-linux-2023-ami = Ec2Functions.getAmi(GetAmiArgs.builder()
- *             .mostRecent(true)
- *             .owners(&#34;amazon&#34;)
- *             .filters(GetAmiFilterArgs.builder()
- *                 .name(&#34;name&#34;)
- *                 .values(&#34;al2023-ami-2023.*-x86_64&#34;)
- *                 .build())
- *             .build());
- * 
- *         var exampleInstance = new Instance(&#34;exampleInstance&#34;, InstanceArgs.builder()        
- *             .ami(amzn_linux_2023_ami.id())
- *             .instanceType(&#34;c6a.2xlarge&#34;)
- *             .subnetId(exampleSubnet.id())
- *             .cpuOptions(InstanceCpuOptionsArgs.builder()
- *                 .coreCount(2)
- *                 .threadsPerCore(2)
- *                 .build())
- *             .tags(Map.of(&#34;Name&#34;, &#34;tf-example&#34;))
+ *             .networkInterfaces(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .creditSpecification(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

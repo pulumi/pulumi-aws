@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.location.RouteCalculation("example", {
+ * const example = new aws.location/routeCalculation.RouteCalculation("example", {
  *     calculatorName: "example",
  *     dataSource: "Here",
  * });

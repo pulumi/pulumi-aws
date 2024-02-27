@@ -12,50 +12,6 @@ import (
 )
 
 // Use this data source to get the public key about the specified KMS Key with flexible key id input. This can be useful to reference key alias without having to hard code the ARN as input.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kms"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := kms.GetPublicKey(ctx, &kms.GetPublicKeyArgs{
-//				KeyId: "alias/my-key",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = kms.GetPublicKey(ctx, &kms.GetPublicKeyArgs{
-//				KeyId: "1234abcd-12ab-34cd-56ef-1234567890ab",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = kms.GetPublicKey(ctx, &kms.GetPublicKeyArgs{
-//				KeyId: "arn:aws:kms:us-east-1:111122223333:alias/my-key",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = kms.GetPublicKey(ctx, &kms.GetPublicKeyArgs{
-//				KeyId: "arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetPublicKey(ctx *pulumi.Context, args *GetPublicKeyArgs, opts ...pulumi.InvokeOption) (*GetPublicKeyResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetPublicKeyResult

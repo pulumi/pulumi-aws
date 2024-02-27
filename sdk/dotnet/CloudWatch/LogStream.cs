@@ -22,9 +22,9 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var yada = new Aws.CloudWatch.LogGroup("yada");
+    ///     var yada = new Aws.Cloudwatch.LogGroup.LogGroup("yada");
     /// 
-    ///     var foo = new Aws.CloudWatch.LogStream("foo", new()
+    ///     var foo = new Aws.Cloudwatch.LogStream.LogStream("foo", new()
     ///     {
     ///         LogGroupName = yada.Name,
     ///     });

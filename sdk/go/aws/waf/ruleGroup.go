@@ -21,38 +21,37 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/waf"
+//	waf/rule "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/waf/rule"
+//	waf/ruleGroup "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/waf/ruleGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleRule, err := waf.NewRule(ctx, "exampleRule", &waf.RuleArgs{
-//				MetricName: pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = waf.NewRuleGroup(ctx, "exampleRuleGroup", &waf.RuleGroupArgs{
-//				MetricName: pulumi.String("example"),
-//				ActivatedRules: waf.RuleGroupActivatedRuleArray{
-//					&waf.RuleGroupActivatedRuleArgs{
-//						Action: &waf.RuleGroupActivatedRuleActionArgs{
-//							Type: pulumi.String("COUNT"),
-//						},
-//						Priority: pulumi.Int(50),
-//						RuleId:   exampleRule.ID(),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleRule, err := waf/rule.NewRule(ctx, "exampleRule", &waf/rule.RuleArgs{
+// MetricName: "example",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = waf/ruleGroup.NewRuleGroup(ctx, "exampleRuleGroup", &waf/ruleGroup.RuleGroupArgs{
+// MetricName: "example",
+// ActivatedRules: []map[string]interface{}{
+// map[string]interface{}{
+// "action": map[string]interface{}{
+// "type": "COUNT",
+// },
+// "priority": 50,
+// "ruleId": exampleRule.Id,
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

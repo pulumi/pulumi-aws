@@ -23,17 +23,17 @@ namespace Pulumi.Aws.CodeDeploy
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var fooDeploymentConfig = new Aws.CodeDeploy.DeploymentConfig("fooDeploymentConfig", new()
+    ///     var fooDeploymentConfig = new Aws.Codedeploy.DeploymentConfig.DeploymentConfig("fooDeploymentConfig", new()
     ///     {
     ///         DeploymentConfigName = "test-deployment-config",
-    ///         MinimumHealthyHosts = new Aws.CodeDeploy.Inputs.DeploymentConfigMinimumHealthyHostsArgs
+    ///         MinimumHealthyHosts = 
     ///         {
-    ///             Type = "HOST_COUNT",
-    ///             Value = 2,
+    ///             { "type", "HOST_COUNT" },
+    ///             { "value", 2 },
     ///         },
     ///     });
     /// 
-    ///     var fooDeploymentGroup = new Aws.CodeDeploy.DeploymentGroup("fooDeploymentGroup", new()
+    ///     var fooDeploymentGroup = new Aws.Codedeploy.DeploymentGroup.DeploymentGroup("fooDeploymentGroup", new()
     ///     {
     ///         AppName = aws_codedeploy_app.Foo_app.Name,
     ///         DeploymentGroupName = "bar",
@@ -41,40 +41,40 @@ namespace Pulumi.Aws.CodeDeploy
     ///         DeploymentConfigName = fooDeploymentConfig.Id,
     ///         Ec2TagFilters = new[]
     ///         {
-    ///             new Aws.CodeDeploy.Inputs.DeploymentGroupEc2TagFilterArgs
+    ///             
     ///             {
-    ///                 Key = "filterkey",
-    ///                 Type = "KEY_AND_VALUE",
-    ///                 Value = "filtervalue",
+    ///                 { "key", "filterkey" },
+    ///                 { "type", "KEY_AND_VALUE" },
+    ///                 { "value", "filtervalue" },
     ///             },
     ///         },
     ///         TriggerConfigurations = new[]
     ///         {
-    ///             new Aws.CodeDeploy.Inputs.DeploymentGroupTriggerConfigurationArgs
+    ///             
     ///             {
-    ///                 TriggerEvents = new[]
+    ///                 { "triggerEvents", new[]
     ///                 {
     ///                     "DeploymentFailure",
-    ///                 },
-    ///                 TriggerName = "foo-trigger",
-    ///                 TriggerTargetArn = "foo-topic-arn",
+    ///                 } },
+    ///                 { "triggerName", "foo-trigger" },
+    ///                 { "triggerTargetArn", "foo-topic-arn" },
     ///             },
     ///         },
-    ///         AutoRollbackConfiguration = new Aws.CodeDeploy.Inputs.DeploymentGroupAutoRollbackConfigurationArgs
+    ///         AutoRollbackConfiguration = 
     ///         {
-    ///             Enabled = true,
-    ///             Events = new[]
+    ///             { "enabled", true },
+    ///             { "events", new[]
     ///             {
     ///                 "DEPLOYMENT_FAILURE",
-    ///             },
+    ///             } },
     ///         },
-    ///         AlarmConfiguration = new Aws.CodeDeploy.Inputs.DeploymentGroupAlarmConfigurationArgs
+    ///         AlarmConfiguration = 
     ///         {
-    ///             Alarms = new[]
+    ///             { "alarms", new[]
     ///             {
     ///                 "my-alarm-name",
-    ///             },
-    ///             Enabled = true,
+    ///             } },
+    ///             { "enabled", true },
     ///         },
     ///     });
     /// 
@@ -90,42 +90,42 @@ namespace Pulumi.Aws.CodeDeploy
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var fooDeploymentConfig = new Aws.CodeDeploy.DeploymentConfig("fooDeploymentConfig", new()
+    ///     var fooDeploymentConfig = new Aws.Codedeploy.DeploymentConfig.DeploymentConfig("fooDeploymentConfig", new()
     ///     {
     ///         DeploymentConfigName = "test-deployment-config",
     ///         ComputePlatform = "Lambda",
-    ///         TrafficRoutingConfig = new Aws.CodeDeploy.Inputs.DeploymentConfigTrafficRoutingConfigArgs
+    ///         TrafficRoutingConfig = 
     ///         {
-    ///             Type = "TimeBasedLinear",
-    ///             TimeBasedLinear = new Aws.CodeDeploy.Inputs.DeploymentConfigTrafficRoutingConfigTimeBasedLinearArgs
+    ///             { "type", "TimeBasedLinear" },
+    ///             { "timeBasedLinear", 
     ///             {
-    ///                 Interval = 10,
-    ///                 Percentage = 10,
-    ///             },
+    ///                 { "interval", 10 },
+    ///                 { "percentage", 10 },
+    ///             } },
     ///         },
     ///     });
     /// 
-    ///     var fooDeploymentGroup = new Aws.CodeDeploy.DeploymentGroup("fooDeploymentGroup", new()
+    ///     var fooDeploymentGroup = new Aws.Codedeploy.DeploymentGroup.DeploymentGroup("fooDeploymentGroup", new()
     ///     {
     ///         AppName = aws_codedeploy_app.Foo_app.Name,
     ///         DeploymentGroupName = "bar",
     ///         ServiceRoleArn = aws_iam_role.Foo_role.Arn,
     ///         DeploymentConfigName = fooDeploymentConfig.Id,
-    ///         AutoRollbackConfiguration = new Aws.CodeDeploy.Inputs.DeploymentGroupAutoRollbackConfigurationArgs
+    ///         AutoRollbackConfiguration = 
     ///         {
-    ///             Enabled = true,
-    ///             Events = new[]
+    ///             { "enabled", true },
+    ///             { "events", new[]
     ///             {
     ///                 "DEPLOYMENT_STOP_ON_ALARM",
-    ///             },
+    ///             } },
     ///         },
-    ///         AlarmConfiguration = new Aws.CodeDeploy.Inputs.DeploymentGroupAlarmConfigurationArgs
+    ///         AlarmConfiguration = 
     ///         {
-    ///             Alarms = new[]
+    ///             { "alarms", new[]
     ///             {
     ///                 "my-alarm-name",
-    ///             },
-    ///             Enabled = true,
+    ///             } },
+    ///             { "enabled", true },
     ///         },
     ///     });
     /// 

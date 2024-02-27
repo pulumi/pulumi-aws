@@ -13,100 +13,12 @@ namespace Pulumi.Aws.Connect
     {
         /// <summary>
         /// Provides details about a specific Amazon Connect Security Profile.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// By `name`
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Connect.GetSecurityProfile.Invoke(new()
-        ///     {
-        ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
-        ///         Name = "Example",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// 
-        /// By `security_profile_id`
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Connect.GetSecurityProfile.Invoke(new()
-        ///     {
-        ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
-        ///         SecurityProfileId = "cccccccc-bbbb-cccc-dddd-111111111111",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetSecurityProfileResult> InvokeAsync(GetSecurityProfileArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSecurityProfileResult>("aws:connect/getSecurityProfile:getSecurityProfile", args ?? new GetSecurityProfileArgs(), options.WithDefaults());
 
         /// <summary>
         /// Provides details about a specific Amazon Connect Security Profile.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// By `name`
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Connect.GetSecurityProfile.Invoke(new()
-        ///     {
-        ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
-        ///         Name = "Example",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// 
-        /// By `security_profile_id`
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Connect.GetSecurityProfile.Invoke(new()
-        ///     {
-        ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
-        ///         SecurityProfileId = "cccccccc-bbbb-cccc-dddd-111111111111",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetSecurityProfileResult> Invoke(GetSecurityProfileInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSecurityProfileResult>("aws:connect/getSecurityProfile:getSecurityProfile", args ?? new GetSecurityProfileInvokeArgs(), options.WithDefaults());

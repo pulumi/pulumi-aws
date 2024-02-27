@@ -15,7 +15,7 @@ import {PolicyDocument} from "./index";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const policy = new aws.iam.Policy("policy", {
+ * const policy = new aws.iam/policy.Policy("policy", {
  *     path: "/",
  *     description: "My test policy",
  *     policy: JSON.stringify({

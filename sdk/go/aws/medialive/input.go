@@ -22,42 +22,41 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/medialive"
+//	medialive/input "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/medialive/input"
+//	medialive/inputSecurityGroup "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/medialive/inputSecurityGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleInputSecurityGroup, err := medialive.NewInputSecurityGroup(ctx, "exampleInputSecurityGroup", &medialive.InputSecurityGroupArgs{
-//				WhitelistRules: medialive.InputSecurityGroupWhitelistRuleArray{
-//					&medialive.InputSecurityGroupWhitelistRuleArgs{
-//						Cidr: pulumi.String("10.0.0.8/32"),
-//					},
-//				},
-//				Tags: pulumi.StringMap{
-//					"ENVIRONMENT": pulumi.String("prod"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = medialive.NewInput(ctx, "exampleInput", &medialive.InputArgs{
-//				InputSecurityGroups: pulumi.StringArray{
-//					exampleInputSecurityGroup.ID(),
-//				},
-//				Type: pulumi.String("UDP_PUSH"),
-//				Tags: pulumi.StringMap{
-//					"ENVIRONMENT": pulumi.String("prod"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleInputSecurityGroup, err := medialive/inputSecurityGroup.NewInputSecurityGroup(ctx, "exampleInputSecurityGroup", &medialive/inputSecurityGroup.InputSecurityGroupArgs{
+// WhitelistRules: []map[string]interface{}{
+// map[string]interface{}{
+// "cidr": "10.0.0.8/32",
+// },
+// },
+// Tags: map[string]interface{}{
+// "ENVIRONMENT": "prod",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = medialive/input.NewInput(ctx, "exampleInput", &medialive/input.InputArgs{
+// InputSecurityGroups: []interface{}{
+// exampleInputSecurityGroup.Id,
+// },
+// Type: "UDP_PUSH",
+// Tags: map[string]interface{}{
+// "ENVIRONMENT": "prod",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

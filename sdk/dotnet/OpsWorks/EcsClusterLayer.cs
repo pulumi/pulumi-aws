@@ -22,7 +22,7 @@ namespace Pulumi.Aws.OpsWorks
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.OpsWorks.EcsClusterLayer("example", new()
+    ///     var example = new Aws.Opsworks.EcsClusterLayer.EcsClusterLayer("example", new()
     ///     {
     ///         StackId = aws_opsworks_stack.Example.Id,
     ///         EcsClusterArn = aws_ecs_cluster.Example.Arn,

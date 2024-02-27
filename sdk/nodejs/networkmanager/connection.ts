@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.networkmanager.Connection("example", {
+ * const example = new aws.networkmanager/connection.Connection("example", {
  *     globalNetworkId: aws_networkmanager_global_network.example.id,
  *     deviceId: aws_networkmanager_device.example1.id,
  *     connectedDeviceId: aws_networkmanager_device.example2.id,

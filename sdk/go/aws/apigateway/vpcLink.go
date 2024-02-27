@@ -17,6 +17,46 @@ import (
 // > **Note:** Amazon API Gateway Version 1 VPC Links enable private integrations that connect REST APIs to private resources in a VPC.
 // To enable private integration for HTTP APIs, use the Amazon API Gateway Version 2 VPC Link resource.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	apigateway/vpcLink "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/apigateway/vpcLink"
+//	lb/loadBalancer "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/lb/loadBalancer"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleLoadBalancer, err := lb/loadBalancer.NewLoadBalancer(ctx, "exampleLoadBalancer", &lb/loadBalancer.LoadBalancerArgs{
+// Internal: true,
+// LoadBalancerType: "network",
+// SubnetMappings: []map[string]interface{}{
+// map[string]interface{}{
+// "subnetId": "12345",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = apigateway/vpcLink.NewVpcLink(ctx, "exampleVpcLink", &apigateway/vpcLink.VpcLinkArgs{
+// Description: "example description",
+// TargetArn: []interface{}{
+// exampleLoadBalancer.Arn,
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
+// ```
+//
 // ## Import
 //
 // Using `pulumi import`, import API Gateway VPC Link using the `id`. For example:

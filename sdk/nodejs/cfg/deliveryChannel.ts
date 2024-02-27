@@ -12,44 +12,6 @@ import * as utilities from "../utilities";
  *
  * > **Note:** Delivery Channel requires a Configuration Recorder to be present. Use of `dependsOn` (as shown below) is recommended to avoid race conditions.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const bucketV2 = new aws.s3.BucketV2("bucketV2", {forceDestroy: true});
- * const assumeRole = aws.iam.getPolicyDocument({
- *     statements: [{
- *         effect: "Allow",
- *         principals: [{
- *             type: "Service",
- *             identifiers: ["config.amazonaws.com"],
- *         }],
- *         actions: ["sts:AssumeRole"],
- *     }],
- * });
- * const role = new aws.iam.Role("role", {assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json)});
- * const fooRecorder = new aws.cfg.Recorder("fooRecorder", {roleArn: role.arn});
- * const fooDeliveryChannel = new aws.cfg.DeliveryChannel("fooDeliveryChannel", {s3BucketName: bucketV2.bucket}, {
- *     dependsOn: [fooRecorder],
- * });
- * const policyDocument = aws.iam.getPolicyDocumentOutput({
- *     statements: [{
- *         effect: "Allow",
- *         actions: ["s3:*"],
- *         resources: [
- *             bucketV2.arn,
- *             pulumi.interpolate`${bucketV2.arn}/*`,
- *         ],
- *     }],
- * });
- * const rolePolicy = new aws.iam.RolePolicy("rolePolicy", {
- *     role: role.id,
- *     policy: policyDocument.apply(policyDocument => policyDocument.json),
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import Delivery Channel using the name. For example:

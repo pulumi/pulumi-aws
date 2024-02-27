@@ -21,64 +21,63 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/codedeploy"
+//	codedeploy/deploymentConfig "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/codedeploy/deploymentConfig"
+//	codedeploy/deploymentGroup "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/codedeploy/deploymentGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			fooDeploymentConfig, err := codedeploy.NewDeploymentConfig(ctx, "fooDeploymentConfig", &codedeploy.DeploymentConfigArgs{
-//				DeploymentConfigName: pulumi.String("test-deployment-config"),
-//				MinimumHealthyHosts: &codedeploy.DeploymentConfigMinimumHealthyHostsArgs{
-//					Type:  pulumi.String("HOST_COUNT"),
-//					Value: pulumi.Int(2),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = codedeploy.NewDeploymentGroup(ctx, "fooDeploymentGroup", &codedeploy.DeploymentGroupArgs{
-//				AppName:              pulumi.Any(aws_codedeploy_app.Foo_app.Name),
-//				DeploymentGroupName:  pulumi.String("bar"),
-//				ServiceRoleArn:       pulumi.Any(aws_iam_role.Foo_role.Arn),
-//				DeploymentConfigName: fooDeploymentConfig.ID(),
-//				Ec2TagFilters: codedeploy.DeploymentGroupEc2TagFilterArray{
-//					&codedeploy.DeploymentGroupEc2TagFilterArgs{
-//						Key:   pulumi.String("filterkey"),
-//						Type:  pulumi.String("KEY_AND_VALUE"),
-//						Value: pulumi.String("filtervalue"),
-//					},
-//				},
-//				TriggerConfigurations: codedeploy.DeploymentGroupTriggerConfigurationArray{
-//					&codedeploy.DeploymentGroupTriggerConfigurationArgs{
-//						TriggerEvents: pulumi.StringArray{
-//							pulumi.String("DeploymentFailure"),
-//						},
-//						TriggerName:      pulumi.String("foo-trigger"),
-//						TriggerTargetArn: pulumi.String("foo-topic-arn"),
-//					},
-//				},
-//				AutoRollbackConfiguration: &codedeploy.DeploymentGroupAutoRollbackConfigurationArgs{
-//					Enabled: pulumi.Bool(true),
-//					Events: pulumi.StringArray{
-//						pulumi.String("DEPLOYMENT_FAILURE"),
-//					},
-//				},
-//				AlarmConfiguration: &codedeploy.DeploymentGroupAlarmConfigurationArgs{
-//					Alarms: pulumi.StringArray{
-//						pulumi.String("my-alarm-name"),
-//					},
-//					Enabled: pulumi.Bool(true),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// fooDeploymentConfig, err := codedeploy/deploymentConfig.NewDeploymentConfig(ctx, "fooDeploymentConfig", &codedeploy/deploymentConfig.DeploymentConfigArgs{
+// DeploymentConfigName: "test-deployment-config",
+// MinimumHealthyHosts: map[string]interface{}{
+// "type": "HOST_COUNT",
+// "value": 2,
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = codedeploy/deploymentGroup.NewDeploymentGroup(ctx, "fooDeploymentGroup", &codedeploy/deploymentGroup.DeploymentGroupArgs{
+// AppName: aws_codedeploy_app.Foo_app.Name,
+// DeploymentGroupName: "bar",
+// ServiceRoleArn: aws_iam_role.Foo_role.Arn,
+// DeploymentConfigName: fooDeploymentConfig.Id,
+// Ec2TagFilters: []map[string]interface{}{
+// map[string]interface{}{
+// "key": "filterkey",
+// "type": "KEY_AND_VALUE",
+// "value": "filtervalue",
+// },
+// },
+// TriggerConfigurations: []map[string]interface{}{
+// map[string]interface{}{
+// "triggerEvents": []string{
+// "DeploymentFailure",
+// },
+// "triggerName": "foo-trigger",
+// "triggerTargetArn": "foo-topic-arn",
+// },
+// },
+// AutoRollbackConfiguration: map[string]interface{}{
+// "enabled": true,
+// "events": []string{
+// "DEPLOYMENT_FAILURE",
+// },
+// },
+// AlarmConfiguration: map[string]interface{}{
+// "alarms": []string{
+// "my-alarm-name",
+// },
+// "enabled": true,
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Lambda Usage
 //
@@ -87,52 +86,51 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/codedeploy"
+//	codedeploy/deploymentConfig "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/codedeploy/deploymentConfig"
+//	codedeploy/deploymentGroup "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/codedeploy/deploymentGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			fooDeploymentConfig, err := codedeploy.NewDeploymentConfig(ctx, "fooDeploymentConfig", &codedeploy.DeploymentConfigArgs{
-//				DeploymentConfigName: pulumi.String("test-deployment-config"),
-//				ComputePlatform:      pulumi.String("Lambda"),
-//				TrafficRoutingConfig: &codedeploy.DeploymentConfigTrafficRoutingConfigArgs{
-//					Type: pulumi.String("TimeBasedLinear"),
-//					TimeBasedLinear: &codedeploy.DeploymentConfigTrafficRoutingConfigTimeBasedLinearArgs{
-//						Interval:   pulumi.Int(10),
-//						Percentage: pulumi.Int(10),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = codedeploy.NewDeploymentGroup(ctx, "fooDeploymentGroup", &codedeploy.DeploymentGroupArgs{
-//				AppName:              pulumi.Any(aws_codedeploy_app.Foo_app.Name),
-//				DeploymentGroupName:  pulumi.String("bar"),
-//				ServiceRoleArn:       pulumi.Any(aws_iam_role.Foo_role.Arn),
-//				DeploymentConfigName: fooDeploymentConfig.ID(),
-//				AutoRollbackConfiguration: &codedeploy.DeploymentGroupAutoRollbackConfigurationArgs{
-//					Enabled: pulumi.Bool(true),
-//					Events: pulumi.StringArray{
-//						pulumi.String("DEPLOYMENT_STOP_ON_ALARM"),
-//					},
-//				},
-//				AlarmConfiguration: &codedeploy.DeploymentGroupAlarmConfigurationArgs{
-//					Alarms: pulumi.StringArray{
-//						pulumi.String("my-alarm-name"),
-//					},
-//					Enabled: pulumi.Bool(true),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// fooDeploymentConfig, err := codedeploy/deploymentConfig.NewDeploymentConfig(ctx, "fooDeploymentConfig", &codedeploy/deploymentConfig.DeploymentConfigArgs{
+// DeploymentConfigName: "test-deployment-config",
+// ComputePlatform: "Lambda",
+// TrafficRoutingConfig: map[string]interface{}{
+// "type": "TimeBasedLinear",
+// "timeBasedLinear": map[string]interface{}{
+// "interval": 10,
+// "percentage": 10,
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = codedeploy/deploymentGroup.NewDeploymentGroup(ctx, "fooDeploymentGroup", &codedeploy/deploymentGroup.DeploymentGroupArgs{
+// AppName: aws_codedeploy_app.Foo_app.Name,
+// DeploymentGroupName: "bar",
+// ServiceRoleArn: aws_iam_role.Foo_role.Arn,
+// DeploymentConfigName: fooDeploymentConfig.Id,
+// AutoRollbackConfiguration: map[string]interface{}{
+// "enabled": true,
+// "events": []string{
+// "DEPLOYMENT_STOP_ON_ALARM",
+// },
+// },
+// AlarmConfiguration: map[string]interface{}{
+// "alarms": []string{
+// "my-alarm-name",
+// },
+// "enabled": true,
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

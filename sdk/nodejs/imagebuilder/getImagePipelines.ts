@@ -9,20 +9,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to get the ARNs and names of Image Builder Image Pipelines matching the specified criteria.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.imagebuilder.getImagePipelines({
- *     filters: [{
- *         name: "name",
- *         values: ["example"],
- *     }],
- * });
- * ```
  */
 export function getImagePipelines(args?: GetImagePipelinesArgs, opts?: pulumi.InvokeOptions): Promise<GetImagePipelinesResult> {
     args = args || {};
@@ -63,20 +49,6 @@ export interface GetImagePipelinesResult {
 }
 /**
  * Use this data source to get the ARNs and names of Image Builder Image Pipelines matching the specified criteria.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.imagebuilder.getImagePipelines({
- *     filters: [{
- *         name: "name",
- *         values: ["example"],
- *     }],
- * });
- * ```
  */
 export function getImagePipelinesOutput(args?: GetImagePipelinesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetImagePipelinesResult> {
     return pulumi.output(args).apply((a: any) => getImagePipelines(a, opts))

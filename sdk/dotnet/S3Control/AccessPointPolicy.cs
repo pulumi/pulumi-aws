@@ -25,24 +25,24 @@ namespace Pulumi.Aws.S3Control
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2");
+    ///     var exampleBucketV2 = new Aws.S3.BucketV2.BucketV2("exampleBucketV2");
     /// 
-    ///     var exampleAccessPoint = new Aws.S3.AccessPoint("exampleAccessPoint", new()
+    ///     var exampleAccessPoint = new Aws.S3.AccessPoint.AccessPoint("exampleAccessPoint", new()
     ///     {
     ///         Bucket = exampleBucketV2.Id,
-    ///         PublicAccessBlockConfiguration = new Aws.S3.Inputs.AccessPointPublicAccessBlockConfigurationArgs
+    ///         PublicAccessBlockConfiguration = 
     ///         {
-    ///             BlockPublicAcls = true,
-    ///             BlockPublicPolicy = false,
-    ///             IgnorePublicAcls = true,
-    ///             RestrictPublicBuckets = false,
+    ///             { "blockPublicAcls", true },
+    ///             { "blockPublicPolicy", false },
+    ///             { "ignorePublicAcls", true },
+    ///             { "restrictPublicBuckets", false },
     ///         },
     ///     });
     /// 
-    ///     var exampleAccessPointPolicy = new Aws.S3Control.AccessPointPolicy("exampleAccessPointPolicy", new()
+    ///     var exampleAccessPointPolicy = new Aws.S3control.AccessPointPolicy.AccessPointPolicy("exampleAccessPointPolicy", new()
     ///     {
     ///         AccessPointArn = exampleAccessPoint.Arn,
-    ///         Policy = exampleAccessPoint.Arn.Apply(arn =&gt; JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///         Policy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
     ///             ["Version"] = "2008-10-17",
     ///             ["Statement"] = new[]
@@ -55,10 +55,10 @@ namespace Pulumi.Aws.S3Control
     ///                     {
     ///                         ["AWS"] = "*",
     ///                     },
-    ///                     ["Resource"] = $"{arn}/object/*",
+    ///                     ["Resource"] = $"{exampleAccessPoint.Arn}/object/*",
     ///                 },
     ///             },
-    ///         })),
+    ///         }),
     ///     });
     /// 
     /// });

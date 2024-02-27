@@ -21,25 +21,23 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3outposts"
+//	s3outposts/endpoint "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/s3outposts/endpoint"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := s3outposts.NewEndpoint(ctx, "example", &s3outposts.EndpointArgs{
-//				OutpostId:       pulumi.Any(data.Aws_outposts_outpost.Example.Id),
-//				SecurityGroupId: pulumi.Any(aws_security_group.Example.Id),
-//				SubnetId:        pulumi.Any(aws_subnet.Example.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := s3outposts/endpoint.NewEndpoint(ctx, "example", &s3outposts/endpoint.EndpointArgs{
+// OutpostId: data.Aws_outposts_outpost.Example.Id,
+// SecurityGroupId: aws_security_group.Example.Id,
+// SubnetId: aws_subnet.Example.Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

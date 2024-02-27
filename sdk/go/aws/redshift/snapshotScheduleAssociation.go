@@ -19,44 +19,44 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/redshift"
+//	redshift/cluster "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/redshift/cluster"
+//	redshift/snapshotSchedule "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/redshift/snapshotSchedule"
+//	redshift/snapshotScheduleAssociation "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/redshift/snapshotScheduleAssociation"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			defaultCluster, err := redshift.NewCluster(ctx, "defaultCluster", &redshift.ClusterArgs{
-//				ClusterIdentifier: pulumi.String("tf-redshift-cluster"),
-//				DatabaseName:      pulumi.String("mydb"),
-//				MasterUsername:    pulumi.String("foo"),
-//				MasterPassword:    pulumi.String("Mustbe8characters"),
-//				NodeType:          pulumi.String("dc1.large"),
-//				ClusterType:       pulumi.String("single-node"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			defaultSnapshotSchedule, err := redshift.NewSnapshotSchedule(ctx, "defaultSnapshotSchedule", &redshift.SnapshotScheduleArgs{
-//				Identifier: pulumi.String("tf-redshift-snapshot-schedule"),
-//				Definitions: pulumi.StringArray{
-//					pulumi.String("rate(12 hours)"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = redshift.NewSnapshotScheduleAssociation(ctx, "defaultSnapshotScheduleAssociation", &redshift.SnapshotScheduleAssociationArgs{
-//				ClusterIdentifier:  defaultCluster.ID(),
-//				ScheduleIdentifier: defaultSnapshotSchedule.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// defaultCluster, err := redshift/cluster.NewCluster(ctx, "defaultCluster", &redshift/cluster.ClusterArgs{
+// ClusterIdentifier: "tf-redshift-cluster",
+// DatabaseName: "mydb",
+// MasterUsername: "foo",
+// MasterPassword: "Mustbe8characters",
+// NodeType: "dc1.large",
+// ClusterType: "single-node",
+// })
+// if err != nil {
+// return err
+// }
+// defaultSnapshotSchedule, err := redshift/snapshotSchedule.NewSnapshotSchedule(ctx, "defaultSnapshotSchedule", &redshift/snapshotSchedule.SnapshotScheduleArgs{
+// Identifier: "tf-redshift-snapshot-schedule",
+// Definitions: []string{
+// "rate(12 hours)",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = redshift/snapshotScheduleAssociation.NewSnapshotScheduleAssociation(ctx, "defaultSnapshotScheduleAssociation", &redshift/snapshotScheduleAssociation.SnapshotScheduleAssociationArgs{
+// ClusterIdentifier: defaultCluster.Id,
+// ScheduleIdentifier: defaultSnapshotSchedule.Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

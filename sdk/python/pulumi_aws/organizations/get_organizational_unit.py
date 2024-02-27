@@ -81,16 +81,6 @@ def get_organizational_unit(name: Optional[str] = None,
     Data source for getting an AWS Organizations Organizational Unit.
 
     ## Example Usage
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    org = aws.organizations.get_organization()
-    ou = aws.organizations.get_organizational_unit(parent_id=org.roots[0].id,
-        name="dev")
-    ```
 
 
     :param str name: Name of the organizational unit
@@ -117,16 +107,6 @@ def get_organizational_unit_output(name: Optional[pulumi.Input[str]] = None,
     Data source for getting an AWS Organizations Organizational Unit.
 
     ## Example Usage
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    org = aws.organizations.get_organization()
-    ou = aws.organizations.get_organizational_unit(parent_id=org.roots[0].id,
-        name="dev")
-    ```
 
 
     :param str name: Name of the organizational unit

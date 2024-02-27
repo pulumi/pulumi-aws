@@ -23,22 +23,22 @@ namespace Pulumi.Aws.Rbin
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Rbin.Rule("example", new()
+    ///     var example = new Aws.Rbin.Rule.Rule("example", new()
     ///     {
     ///         Description = "example_rule",
     ///         ResourceTags = new[]
     ///         {
-    ///             new Aws.Rbin.Inputs.RuleResourceTagArgs
+    ///             
     ///             {
-    ///                 ResourceTagKey = "tag_key",
-    ///                 ResourceTagValue = "tag_value",
+    ///                 { "resourceTagKey", "tag_key" },
+    ///                 { "resourceTagValue", "tag_value" },
     ///             },
     ///         },
     ///         ResourceType = "EBS_SNAPSHOT",
-    ///         RetentionPeriod = new Aws.Rbin.Inputs.RuleRetentionPeriodArgs
+    ///         RetentionPeriod = 
     ///         {
-    ///             RetentionPeriodUnit = "DAYS",
-    ///             RetentionPeriodValue = 10,
+    ///             { "retentionPeriodUnit", "DAYS" },
+    ///             { "retentionPeriodValue", 10 },
     ///         },
     ///         Tags = 
     ///         {

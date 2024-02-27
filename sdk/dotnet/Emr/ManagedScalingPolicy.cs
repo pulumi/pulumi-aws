@@ -22,32 +22,32 @@ namespace Pulumi.Aws.Emr
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var sample = new Aws.Emr.Cluster("sample", new()
+    ///     var sample = new Aws.Emr.Cluster.Cluster("sample", new()
     ///     {
     ///         ReleaseLabel = "emr-5.30.0",
-    ///         MasterInstanceGroup = new Aws.Emr.Inputs.ClusterMasterInstanceGroupArgs
+    ///         MasterInstanceGroup = 
     ///         {
-    ///             InstanceType = "m4.large",
+    ///             { "instanceType", "m4.large" },
     ///         },
-    ///         CoreInstanceGroup = new Aws.Emr.Inputs.ClusterCoreInstanceGroupArgs
+    ///         CoreInstanceGroup = 
     ///         {
-    ///             InstanceType = "c4.large",
+    ///             { "instanceType", "c4.large" },
     ///         },
     ///     });
     /// 
     ///     // skip ...
-    ///     var samplepolicy = new Aws.Emr.ManagedScalingPolicy("samplepolicy", new()
+    ///     var samplepolicy = new Aws.Emr.ManagedScalingPolicy.ManagedScalingPolicy("samplepolicy", new()
     ///     {
     ///         ClusterId = sample.Id,
     ///         ComputeLimits = new[]
     ///         {
-    ///             new Aws.Emr.Inputs.ManagedScalingPolicyComputeLimitArgs
+    ///             
     ///             {
-    ///                 UnitType = "Instances",
-    ///                 MinimumCapacityUnits = 2,
-    ///                 MaximumCapacityUnits = 10,
-    ///                 MaximumOndemandCapacityUnits = 2,
-    ///                 MaximumCoreCapacityUnits = 10,
+    ///                 { "unitType", "Instances" },
+    ///                 { "minimumCapacityUnits", 2 },
+    ///                 { "maximumCapacityUnits", 10 },
+    ///                 { "maximumOndemandCapacityUnits", 2 },
+    ///                 { "maximumCoreCapacityUnits", 10 },
     ///             },
     ///         },
     ///     });

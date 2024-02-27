@@ -28,7 +28,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.xray.Group;
  * import com.pulumi.aws.xray.GroupArgs;
- * import com.pulumi.aws.xray.inputs.GroupInsightsConfigurationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -45,10 +44,7 @@ import javax.annotation.Nullable;
  *         var example = new Group(&#34;example&#34;, GroupArgs.builder()        
  *             .filterExpression(&#34;responsetime &gt; 5&#34;)
  *             .groupName(&#34;example&#34;)
- *             .insightsConfiguration(GroupInsightsConfigurationArgs.builder()
- *                 .insightsEnabled(true)
- *                 .notificationsEnabled(true)
- *                 .build())
+ *             .insightsConfiguration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

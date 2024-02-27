@@ -24,24 +24,22 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/servicecatalog"
+//	servicecatalog/budgetResourceAssociation "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/servicecatalog/budgetResourceAssociation"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := servicecatalog.NewBudgetResourceAssociation(ctx, "example", &servicecatalog.BudgetResourceAssociationArgs{
-//				BudgetName: pulumi.String("budget-pjtvyakdlyo3m"),
-//				ResourceId: pulumi.String("prod-dnigbtea24ste"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := servicecatalog/budgetResourceAssociation.NewBudgetResourceAssociation(ctx, "example", &servicecatalog/budgetResourceAssociation.BudgetResourceAssociationArgs{
+// BudgetName: "budget-pjtvyakdlyo3m",
+// ResourceId: "prod-dnigbtea24ste",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -24,7 +24,7 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Sagemaker.FeatureGroup("example", new()
+    ///     var example = new Aws.Sagemaker.FeatureGroup.FeatureGroup("example", new()
     ///     {
     ///         FeatureGroupName = "example",
     ///         RecordIdentifierFeatureName = "example",
@@ -32,15 +32,15 @@ namespace Pulumi.Aws.Sagemaker
     ///         RoleArn = aws_iam_role.Test.Arn,
     ///         FeatureDefinitions = new[]
     ///         {
-    ///             new Aws.Sagemaker.Inputs.FeatureGroupFeatureDefinitionArgs
+    ///             
     ///             {
-    ///                 FeatureName = "example",
-    ///                 FeatureType = "String",
+    ///                 { "featureName", "example" },
+    ///                 { "featureType", "String" },
     ///             },
     ///         },
-    ///         OnlineStoreConfig = new Aws.Sagemaker.Inputs.FeatureGroupOnlineStoreConfigArgs
+    ///         OnlineStoreConfig = 
     ///         {
-    ///             EnableOnlineStore = true,
+    ///             { "enableOnlineStore", true },
     ///         },
     ///     });
     /// 

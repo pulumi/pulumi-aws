@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const _default = new aws.ec2.CapacityReservation("default", {
+ * const _default = new aws.ec2/capacityReservation.CapacityReservation("default", {
  *     availabilityZone: "eu-west-1a",
  *     instanceCount: 1,
  *     instancePlatform: "Linux/UNIX",

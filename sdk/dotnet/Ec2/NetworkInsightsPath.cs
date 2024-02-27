@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Aws.Ec2.NetworkInsightsPath("test", new()
+    ///     var test = new Aws.Ec2.NetworkInsightsPath.NetworkInsightsPath("test", new()
     ///     {
     ///         Source = aws_network_interface.Source.Id,
     ///         Destination = aws_network_interface.Destination.Id,

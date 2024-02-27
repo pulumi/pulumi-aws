@@ -22,9 +22,9 @@ namespace Pulumi.Aws.Pinpoint
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var app = new Aws.Pinpoint.App("app");
+    ///     var app = new Aws.Pinpoint.App.App("app");
     /// 
-    ///     var sms = new Aws.Pinpoint.SmsChannel("sms", new()
+    ///     var sms = new Aws.Pinpoint.SmsChannel.SmsChannel("sms", new()
     ///     {
     ///         ApplicationId = app.ApplicationId,
     ///     });

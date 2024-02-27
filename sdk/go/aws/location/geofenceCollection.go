@@ -21,23 +21,21 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/location"
+//	location/geofenceCollection "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/location/geofenceCollection"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := location.NewGeofenceCollection(ctx, "example", &location.GeofenceCollectionArgs{
-//				CollectionName: pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := location/geofenceCollection.NewGeofenceCollection(ctx, "example", &location/geofenceCollection.GeofenceCollectionArgs{
+// CollectionName: "example",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

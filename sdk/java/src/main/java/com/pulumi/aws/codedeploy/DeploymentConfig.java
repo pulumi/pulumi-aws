@@ -29,13 +29,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.codedeploy.DeploymentConfig;
  * import com.pulumi.aws.codedeploy.DeploymentConfigArgs;
- * import com.pulumi.aws.codedeploy.inputs.DeploymentConfigMinimumHealthyHostsArgs;
  * import com.pulumi.aws.codedeploy.DeploymentGroup;
  * import com.pulumi.aws.codedeploy.DeploymentGroupArgs;
- * import com.pulumi.aws.codedeploy.inputs.DeploymentGroupEc2TagFilterArgs;
- * import com.pulumi.aws.codedeploy.inputs.DeploymentGroupTriggerConfigurationArgs;
- * import com.pulumi.aws.codedeploy.inputs.DeploymentGroupAutoRollbackConfigurationArgs;
- * import com.pulumi.aws.codedeploy.inputs.DeploymentGroupAlarmConfigurationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -51,10 +46,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var fooDeploymentConfig = new DeploymentConfig(&#34;fooDeploymentConfig&#34;, DeploymentConfigArgs.builder()        
  *             .deploymentConfigName(&#34;test-deployment-config&#34;)
- *             .minimumHealthyHosts(DeploymentConfigMinimumHealthyHostsArgs.builder()
- *                 .type(&#34;HOST_COUNT&#34;)
- *                 .value(2)
- *                 .build())
+ *             .minimumHealthyHosts(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var fooDeploymentGroup = new DeploymentGroup(&#34;fooDeploymentGroup&#34;, DeploymentGroupArgs.builder()        
@@ -62,24 +54,10 @@ import javax.annotation.Nullable;
  *             .deploymentGroupName(&#34;bar&#34;)
  *             .serviceRoleArn(aws_iam_role.foo_role().arn())
  *             .deploymentConfigName(fooDeploymentConfig.id())
- *             .ec2TagFilters(DeploymentGroupEc2TagFilterArgs.builder()
- *                 .key(&#34;filterkey&#34;)
- *                 .type(&#34;KEY_AND_VALUE&#34;)
- *                 .value(&#34;filtervalue&#34;)
- *                 .build())
- *             .triggerConfigurations(DeploymentGroupTriggerConfigurationArgs.builder()
- *                 .triggerEvents(&#34;DeploymentFailure&#34;)
- *                 .triggerName(&#34;foo-trigger&#34;)
- *                 .triggerTargetArn(&#34;foo-topic-arn&#34;)
- *                 .build())
- *             .autoRollbackConfiguration(DeploymentGroupAutoRollbackConfigurationArgs.builder()
- *                 .enabled(true)
- *                 .events(&#34;DEPLOYMENT_FAILURE&#34;)
- *                 .build())
- *             .alarmConfiguration(DeploymentGroupAlarmConfigurationArgs.builder()
- *                 .alarms(&#34;my-alarm-name&#34;)
- *                 .enabled(true)
- *                 .build())
+ *             .ec2TagFilters(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .triggerConfigurations(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .autoRollbackConfiguration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .alarmConfiguration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -94,12 +72,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.codedeploy.DeploymentConfig;
  * import com.pulumi.aws.codedeploy.DeploymentConfigArgs;
- * import com.pulumi.aws.codedeploy.inputs.DeploymentConfigTrafficRoutingConfigArgs;
- * import com.pulumi.aws.codedeploy.inputs.DeploymentConfigTrafficRoutingConfigTimeBasedLinearArgs;
  * import com.pulumi.aws.codedeploy.DeploymentGroup;
  * import com.pulumi.aws.codedeploy.DeploymentGroupArgs;
- * import com.pulumi.aws.codedeploy.inputs.DeploymentGroupAutoRollbackConfigurationArgs;
- * import com.pulumi.aws.codedeploy.inputs.DeploymentGroupAlarmConfigurationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -116,13 +90,7 @@ import javax.annotation.Nullable;
  *         var fooDeploymentConfig = new DeploymentConfig(&#34;fooDeploymentConfig&#34;, DeploymentConfigArgs.builder()        
  *             .deploymentConfigName(&#34;test-deployment-config&#34;)
  *             .computePlatform(&#34;Lambda&#34;)
- *             .trafficRoutingConfig(DeploymentConfigTrafficRoutingConfigArgs.builder()
- *                 .type(&#34;TimeBasedLinear&#34;)
- *                 .timeBasedLinear(DeploymentConfigTrafficRoutingConfigTimeBasedLinearArgs.builder()
- *                     .interval(10)
- *                     .percentage(10)
- *                     .build())
- *                 .build())
+ *             .trafficRoutingConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var fooDeploymentGroup = new DeploymentGroup(&#34;fooDeploymentGroup&#34;, DeploymentGroupArgs.builder()        
@@ -130,14 +98,8 @@ import javax.annotation.Nullable;
  *             .deploymentGroupName(&#34;bar&#34;)
  *             .serviceRoleArn(aws_iam_role.foo_role().arn())
  *             .deploymentConfigName(fooDeploymentConfig.id())
- *             .autoRollbackConfiguration(DeploymentGroupAutoRollbackConfigurationArgs.builder()
- *                 .enabled(true)
- *                 .events(&#34;DEPLOYMENT_STOP_ON_ALARM&#34;)
- *                 .build())
- *             .alarmConfiguration(DeploymentGroupAlarmConfigurationArgs.builder()
- *                 .alarms(&#34;my-alarm-name&#34;)
- *                 .enabled(true)
- *                 .build())
+ *             .autoRollbackConfiguration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .alarmConfiguration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

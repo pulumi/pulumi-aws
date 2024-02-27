@@ -14,56 +14,6 @@ namespace Pulumi.Aws.LicenseManager
     /// 
     /// &gt; **Note:** License configurations can also be associated with launch templates by specifying the `license_specifications` block for an `aws.ec2.LaunchTemplate`.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleAmi = Aws.Ec2.GetAmi.Invoke(new()
-    ///     {
-    ///         MostRecent = true,
-    ///         Owners = new[]
-    ///         {
-    ///             "amazon",
-    ///         },
-    ///         Filters = new[]
-    ///         {
-    ///             new Aws.Ec2.Inputs.GetAmiFilterInputArgs
-    ///             {
-    ///                 Name = "name",
-    ///                 Values = new[]
-    ///                 {
-    ///                     "amzn-ami-vpc-nat*",
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleInstance = new Aws.Ec2.Instance("exampleInstance", new()
-    ///     {
-    ///         Ami = exampleAmi.Apply(getAmiResult =&gt; getAmiResult.Id),
-    ///         InstanceType = "t2.micro",
-    ///     });
-    /// 
-    ///     var exampleLicenseConfiguration = new Aws.LicenseManager.LicenseConfiguration("exampleLicenseConfiguration", new()
-    ///     {
-    ///         LicenseCountingType = "Instance",
-    ///     });
-    /// 
-    ///     var exampleAssociation = new Aws.LicenseManager.Association("exampleAssociation", new()
-    ///     {
-    ///         LicenseConfigurationArn = exampleLicenseConfiguration.Arn,
-    ///         ResourceArn = exampleInstance.Arn,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import license configurations using `resource_arn,license_configuration_arn`. For example:

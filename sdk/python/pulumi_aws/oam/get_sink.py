@@ -108,14 +108,6 @@ def get_sink(sink_identifier: Optional[str] = None,
     Data source for managing an AWS CloudWatch Observability Access Manager Sink.
 
     ## Example Usage
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.oam.get_sink(sink_identifier="arn:aws:oam:us-west-1:111111111111:sink/abcd1234-a123-456a-a12b-a123b456c789")
-    ```
 
 
     :param str sink_identifier: ARN of the sink.
@@ -144,14 +136,6 @@ def get_sink_output(sink_identifier: Optional[pulumi.Input[str]] = None,
     Data source for managing an AWS CloudWatch Observability Access Manager Sink.
 
     ## Example Usage
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.oam.get_sink(sink_identifier="arn:aws:oam:us-west-1:111111111111:sink/abcd1234-a123-456a-a12b-a123b456c789")
-    ```
 
 
     :param str sink_identifier: ARN of the sink.

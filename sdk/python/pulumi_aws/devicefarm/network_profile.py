@@ -510,8 +510,8 @@ class NetworkProfile(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_project = aws.devicefarm.Project("exampleProject")
-        example_network_profile = aws.devicefarm.NetworkProfile("exampleNetworkProfile", project_arn=example_project.arn)
+        example_project = aws.devicefarm.project.Project("exampleProject")
+        example_network_profile = aws.devicefarm.network_profile.NetworkProfile("exampleNetworkProfile", project_arn=example_project.arn)
         ```
 
         ## Import
@@ -555,8 +555,8 @@ class NetworkProfile(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_project = aws.devicefarm.Project("exampleProject")
-        example_network_profile = aws.devicefarm.NetworkProfile("exampleNetworkProfile", project_arn=example_project.arn)
+        example_project = aws.devicefarm.project.Project("exampleProject")
+        example_network_profile = aws.devicefarm.network_profile.NetworkProfile("exampleNetworkProfile", project_arn=example_project.arn)
         ```
 
         ## Import

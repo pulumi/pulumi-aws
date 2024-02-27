@@ -6,19 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieve information about global networks.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.networkmanager.getGlobalNetworks({
- *     tags: {
- *         Env: "test",
- *     },
- * });
- * ```
  */
 export function getGlobalNetworks(args?: GetGlobalNetworksArgs, opts?: pulumi.InvokeOptions): Promise<GetGlobalNetworksResult> {
     args = args || {};
@@ -55,19 +42,6 @@ export interface GetGlobalNetworksResult {
 }
 /**
  * Retrieve information about global networks.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.networkmanager.getGlobalNetworks({
- *     tags: {
- *         Env: "test",
- *     },
- * });
- * ```
  */
 export function getGlobalNetworksOutput(args?: GetGlobalNetworksOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGlobalNetworksResult> {
     return pulumi.output(args).apply((a: any) => getGlobalNetworks(a, opts))

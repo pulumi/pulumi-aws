@@ -8,70 +8,13 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS OpenSearch Serverless Access Policy. See AWS documentation for [data access policies](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-data-access.html) and [supported data access policy permissions](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-data-access.html#serverless-data-supported-permissions).
  *
  * ## Example Usage
- * ### Grant all collection and index permissions
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const current = aws.getCallerIdentity({});
- * const example = new aws.opensearch.ServerlessAccessPolicy("example", {
- *     type: "data",
- *     description: "read and write permissions",
- *     policy: current.then(current => JSON.stringify([{
- *         Rules: [
- *             {
- *                 ResourceType: "index",
- *                 Resource: ["index/example-collection/*"],
- *                 Permission: ["aoss:*"],
- *             },
- *             {
- *                 ResourceType: "collection",
- *                 Resource: ["collection/example-collection"],
- *                 Permission: ["aoss:*"],
- *             },
- *         ],
- *         Principal: [current.arn],
- *     }])),
- * });
- * ```
- * ### Grant read-only collection and index permissions
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const current = aws.getCallerIdentity({});
- * const example = new aws.opensearch.ServerlessAccessPolicy("example", {
- *     type: "data",
- *     description: "read-only permissions",
- *     policy: current.then(current => JSON.stringify([{
- *         Rules: [
- *             {
- *                 ResourceType: "index",
- *                 Resource: ["index/example-collection/*"],
- *                 Permission: [
- *                     "aoss:DescribeIndex",
- *                     "aoss:ReadDocument",
- *                 ],
- *             },
- *             {
- *                 ResourceType: "collection",
- *                 Resource: ["collection/example-collection"],
- *                 Permission: ["aoss:DescribeCollectionItems"],
- *             },
- *         ],
- *         Principal: [current.arn],
- *     }])),
- * });
- * ```
  * ### Grant SAML identity permissions
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.opensearch.ServerlessAccessPolicy("example", {
+ * const example = new aws.opensearch/serverlessAccessPolicy.ServerlessAccessPolicy("example", {
  *     type: "data",
  *     description: "saml permissions",
  *     policy: JSON.stringify([{

@@ -22,27 +22,27 @@ namespace Pulumi.Aws.GlobalAccelerator
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleCustomRoutingAccelerator = new Aws.GlobalAccelerator.CustomRoutingAccelerator("exampleCustomRoutingAccelerator", new()
+    ///     var exampleCustomRoutingAccelerator = new Aws.Globalaccelerator.CustomRoutingAccelerator.CustomRoutingAccelerator("exampleCustomRoutingAccelerator", new()
     ///     {
     ///         IpAddressType = "IPV4",
     ///         Enabled = true,
-    ///         Attributes = new Aws.GlobalAccelerator.Inputs.CustomRoutingAcceleratorAttributesArgs
+    ///         Attributes = 
     ///         {
-    ///             FlowLogsEnabled = true,
-    ///             FlowLogsS3Bucket = "example-bucket",
-    ///             FlowLogsS3Prefix = "flow-logs/",
+    ///             { "flowLogsEnabled", true },
+    ///             { "flowLogsS3Bucket", "example-bucket" },
+    ///             { "flowLogsS3Prefix", "flow-logs/" },
     ///         },
     ///     });
     /// 
-    ///     var exampleCustomRoutingListener = new Aws.GlobalAccelerator.CustomRoutingListener("exampleCustomRoutingListener", new()
+    ///     var exampleCustomRoutingListener = new Aws.Globalaccelerator.CustomRoutingListener.CustomRoutingListener("exampleCustomRoutingListener", new()
     ///     {
     ///         AcceleratorArn = exampleCustomRoutingAccelerator.Id,
     ///         PortRanges = new[]
     ///         {
-    ///             new Aws.GlobalAccelerator.Inputs.CustomRoutingListenerPortRangeArgs
+    ///             
     ///             {
-    ///                 FromPort = 80,
-    ///                 ToPort = 80,
+    ///                 { "fromPort", 80 },
+    ///                 { "toPort", 80 },
     ///             },
     ///         },
     ///     });

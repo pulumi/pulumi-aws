@@ -16,22 +16,6 @@ namespace Pulumi.Aws.SsoAdmin
         /// 
         /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.SsoAdmin.GetApplicationProviders.Invoke();
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetApplicationProvidersResult> InvokeAsync(GetApplicationProvidersArgs? args = null, InvokeOptions? options = null)
@@ -42,22 +26,6 @@ namespace Pulumi.Aws.SsoAdmin
         /// 
         /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.SsoAdmin.GetApplicationProviders.Invoke();
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetApplicationProvidersResult> Invoke(GetApplicationProvidersInvokeArgs? args = null, InvokeOptions? options = null)

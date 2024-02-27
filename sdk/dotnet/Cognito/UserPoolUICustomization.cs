@@ -33,20 +33,20 @@ namespace Pulumi.Aws.Cognito
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleUserPool = new Aws.Cognito.UserPool("exampleUserPool");
+    ///     var exampleUserPool = new Aws.Cognito.UserPool.UserPool("exampleUserPool");
     /// 
-    ///     var exampleUserPoolDomain = new Aws.Cognito.UserPoolDomain("exampleUserPoolDomain", new()
+    ///     var exampleUserPoolDomain = new Aws.Cognito.UserPoolDomain.UserPoolDomain("exampleUserPoolDomain", new()
     ///     {
     ///         Domain = "example",
     ///         UserPoolId = exampleUserPool.Id,
     ///     });
     /// 
-    ///     var exampleUserPoolClient = new Aws.Cognito.UserPoolClient("exampleUserPoolClient", new()
+    ///     var exampleUserPoolClient = new Aws.Cognito.UserPoolClient.UserPoolClient("exampleUserPoolClient", new()
     ///     {
     ///         UserPoolId = exampleUserPool.Id,
     ///     });
     /// 
-    ///     var exampleUserPoolUICustomization = new Aws.Cognito.UserPoolUICustomization("exampleUserPoolUICustomization", new()
+    ///     var exampleUserPoolUICustomization = new Aws.Cognito.UserPoolUICustomization.UserPoolUICustomization("exampleUserPoolUICustomization", new()
     ///     {
     ///         ClientId = exampleUserPoolClient.Id,
     ///         Css = ".label-customizable {font-weight: 400;}",
@@ -74,15 +74,15 @@ namespace Pulumi.Aws.Cognito
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleUserPool = new Aws.Cognito.UserPool("exampleUserPool");
+    ///     var exampleUserPool = new Aws.Cognito.UserPool.UserPool("exampleUserPool");
     /// 
-    ///     var exampleUserPoolDomain = new Aws.Cognito.UserPoolDomain("exampleUserPoolDomain", new()
+    ///     var exampleUserPoolDomain = new Aws.Cognito.UserPoolDomain.UserPoolDomain("exampleUserPoolDomain", new()
     ///     {
     ///         Domain = "example",
     ///         UserPoolId = exampleUserPool.Id,
     ///     });
     /// 
-    ///     var exampleUserPoolUICustomization = new Aws.Cognito.UserPoolUICustomization("exampleUserPoolUICustomization", new()
+    ///     var exampleUserPoolUICustomization = new Aws.Cognito.UserPoolUICustomization.UserPoolUICustomization("exampleUserPoolUICustomization", new()
     ///     {
     ///         Css = ".label-customizable {font-weight: 400;}",
     ///         ImageFile = ReadFileBase64("logo.png"),

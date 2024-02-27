@@ -22,33 +22,31 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/elasticsearch"
+//	elasticsearch/vpcEndpoint "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/elasticsearch/vpcEndpoint"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := elasticsearch.NewVpcEndpoint(ctx, "foo", &elasticsearch.VpcEndpointArgs{
-//				DomainArn: pulumi.Any(aws_elasticsearch_domain.Domain_1.Arn),
-//				VpcOptions: &elasticsearch.VpcEndpointVpcOptionsArgs{
-//					SecurityGroupIds: pulumi.StringArray{
-//						aws_security_group.Test.Id,
-//						aws_security_group.Test2.Id,
-//					},
-//					SubnetIds: pulumi.StringArray{
-//						aws_subnet.Test.Id,
-//						aws_subnet.Test2.Id,
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := elasticsearch/vpcEndpoint.NewVpcEndpoint(ctx, "foo", &elasticsearch/vpcEndpoint.VpcEndpointArgs{
+// DomainArn: aws_elasticsearch_domain.Domain_1.Arn,
+// VpcOptions: map[string]interface{}{
+// "securityGroupIds": []interface{}{
+// aws_security_group.Test.Id,
+// aws_security_group.Test2.Id,
+// },
+// "subnetIds": []interface{}{
+// aws_subnet.Test.Id,
+// aws_subnet.Test2.Id,
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

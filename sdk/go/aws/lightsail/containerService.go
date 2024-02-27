@@ -27,29 +27,27 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lightsail"
+//	lightsail/containerService "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/lightsail/containerService"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lightsail.NewContainerService(ctx, "myContainerService", &lightsail.ContainerServiceArgs{
-//				IsDisabled: pulumi.Bool(false),
-//				Power:      pulumi.String("nano"),
-//				Scale:      pulumi.Int(1),
-//				Tags: pulumi.StringMap{
-//					"foo1": pulumi.String("bar1"),
-//					"foo2": pulumi.String(""),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := lightsail/containerService.NewContainerService(ctx, "myContainerService", &lightsail/containerService.ContainerServiceArgs{
+// IsDisabled: false,
+// Power: "nano",
+// Scale: 1,
+// Tags: map[string]interface{}{
+// "foo1": "bar1",
+// "foo2": "",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Public Domain Names
 //
@@ -58,84 +56,23 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lightsail"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lightsail.NewContainerService(ctx, "myContainerService", &lightsail.ContainerServiceArgs{
-//				PublicDomainNames: &lightsail.ContainerServicePublicDomainNamesArgs{
-//					Certificates: lightsail.ContainerServicePublicDomainNamesCertificateArray{
-//						&lightsail.ContainerServicePublicDomainNamesCertificateArgs{
-//							CertificateName: pulumi.String("example-certificate"),
-//							DomainNames: pulumi.StringArray{
-//								pulumi.String("www.example.com"),
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// ### Private Registry Access
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ecr"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lightsail"
+//	lightsail/containerService "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/lightsail/containerService"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 // func main() {
 // pulumi.Run(func(ctx *pulumi.Context) error {
-// defaultContainerService, err := lightsail.NewContainerService(ctx, "defaultContainerService", &lightsail.ContainerServiceArgs{
-// PrivateRegistryAccess: &lightsail.ContainerServicePrivateRegistryAccessArgs{
-// EcrImagePullerRole: &lightsail.ContainerServicePrivateRegistryAccessEcrImagePullerRoleArgs{
-// IsActive: pulumi.Bool(true),
-// },
-// },
-// })
-// if err != nil {
-// return err
-// }
-// defaultPolicyDocument := defaultContainerService.PrivateRegistryAccess.ApplyT(func(privateRegistryAccess lightsail.ContainerServicePrivateRegistryAccess) (iam.GetPolicyDocumentResult, error) {
-// return iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
-// Statements: []iam.GetPolicyDocumentStatement{
-// {
-// Effect: "Allow",
-// Principals: []iam.GetPolicyDocumentStatementPrincipal{
-// {
-// Type: "AWS",
-// Identifiers: interface{}{
-// privateRegistryAccess.EcrImagePullerRole.PrincipalArn,
+// _, err := lightsail/containerService.NewContainerService(ctx, "myContainerService", &lightsail/containerService.ContainerServiceArgs{
+// PublicDomainNames: map[string]interface{}{
+// "certificates": []map[string]interface{}{
+// map[string]interface{}{
+// "certificateName": "example-certificate",
+// "domainNames": []string{
+// "www.example.com",
 // },
 // },
 // },
-// Actions: []string{
-// "ecr:BatchGetImage",
-// "ecr:GetDownloadUrlForLayer",
 // },
-// },
-// },
-// }, nil), nil
-// }).(iam.GetPolicyDocumentResultOutput)
-// _, err = ecr.NewRepositoryPolicy(ctx, "defaultRepositoryPolicy", &ecr.RepositoryPolicyArgs{
-// Repository: pulumi.Any(aws_ecr_repository.Default.Name),
-// Policy: defaultPolicyDocument.ApplyT(func(defaultPolicyDocument iam.GetPolicyDocumentResult) (*string, error) {
-// return &defaultPolicyDocument.Json, nil
-// }).(pulumi.StringPtrOutput),
 // })
 // if err != nil {
 // return err

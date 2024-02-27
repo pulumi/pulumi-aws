@@ -25,9 +25,9 @@ namespace Pulumi.Aws.SesV2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.SesV2.EmailIdentity("example", new()
+    ///     var example = new Aws.Sesv2.EmailIdentity.EmailIdentity("example", new()
     ///     {
-    ///         EmailIdentityDetails = "testing@example.com",
+    ///         EmailIdentity = "testing@example.com",
     ///     });
     /// 
     /// });
@@ -42,9 +42,9 @@ namespace Pulumi.Aws.SesV2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.SesV2.EmailIdentity("example", new()
+    ///     var example = new Aws.Sesv2.EmailIdentity.EmailIdentity("example", new()
     ///     {
-    ///         EmailIdentityDetails = "example.com",
+    ///         EmailIdentity = "example.com",
     ///     });
     /// 
     /// });
@@ -59,14 +59,14 @@ namespace Pulumi.Aws.SesV2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleConfigurationSet = new Aws.SesV2.ConfigurationSet("exampleConfigurationSet", new()
+    ///     var exampleConfigurationSet = new Aws.Sesv2.ConfigurationSet.ConfigurationSet("exampleConfigurationSet", new()
     ///     {
     ///         ConfigurationSetName = "example",
     ///     });
     /// 
-    ///     var exampleEmailIdentity = new Aws.SesV2.EmailIdentity("exampleEmailIdentity", new()
+    ///     var exampleEmailIdentity = new Aws.Sesv2.EmailIdentity.EmailIdentity("exampleEmailIdentity", new()
     ///     {
-    ///         EmailIdentityDetails = "example.com",
+    ///         EmailIdentity = "example.com",
     ///         ConfigurationSetName = exampleConfigurationSet.ConfigurationSetName,
     ///     });
     /// 
@@ -82,14 +82,14 @@ namespace Pulumi.Aws.SesV2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.SesV2.EmailIdentity("example", new()
+    ///     var example = new Aws.Sesv2.EmailIdentity.EmailIdentity("example", new()
     ///     {
-    ///         DkimSigningAttributes = new Aws.SesV2.Inputs.EmailIdentityDkimSigningAttributesArgs
+    ///         DkimSigningAttributes = 
     ///         {
-    ///             DomainSigningPrivateKey = "MIIJKAIBAAKCAgEA2Se7p8zvnI4yh+Gh9j2rG5e2aRXjg03Y8saiupLnadPH9xvM...",
-    ///             DomainSigningSelector = "example",
+    ///             { "domainSigningPrivateKey", "MIIJKAIBAAKCAgEA2Se7p8zvnI4yh+Gh9j2rG5e2aRXjg03Y8saiupLnadPH9xvM..." },
+    ///             { "domainSigningSelector", "example" },
     ///         },
-    ///         EmailIdentityDetails = "example.com",
+    ///         EmailIdentity = "example.com",
     ///     });
     /// 
     /// });

@@ -21,7 +21,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const devAccountAccess = new aws.cloudwatch.EventPermission("devAccountAccess", {
+ * const devAccountAccess = new aws.cloudwatch/eventPermission.EventPermission("devAccountAccess", {
  *     principal: "123456789012",
  *     statementId: "DevAccountAccess",
  * });
@@ -32,7 +32,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const organizationAccess = new aws.cloudwatch.EventPermission("organizationAccess", {
+ * const organizationAccess = new aws.cloudwatch/eventPermission.EventPermission("organizationAccess", {
  *     principal: "*",
  *     statementId: "OrganizationAccess",
  *     condition: {

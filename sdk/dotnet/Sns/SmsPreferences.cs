@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Sns
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var updateSmsPrefs = new Aws.Sns.SmsPreferences("updateSmsPrefs");
+    ///     var updateSmsPrefs = new Aws.Sns.SmsPreferences.SmsPreferences("updateSmsPrefs");
     /// 
     /// });
     /// ```

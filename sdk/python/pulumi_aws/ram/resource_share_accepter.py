@@ -182,29 +182,6 @@ class ResourceShareAccepter(pulumi.CustomResource):
 
         > **Note:** If both AWS accounts are in the same Organization and [RAM Sharing with AWS Organizations is enabled](https://docs.aws.amazon.com/ram/latest/userguide/getting-started-sharing.html#getting-started-sharing-orgs), this resource is not necessary as RAM Resource Share invitations are not used.
 
-        ## Example Usage
-
-        This configuration provides an example of using multiple AWS providers to configure two different AWS accounts. In the _sender_ account, the configuration creates a `ram.ResourceShare` and uses a data source in the _receiver_ account to create a `ram.PrincipalAssociation` resource with the _receiver's_ account ID. In the _receiver_ account, the configuration accepts the invitation to share resources with the `ram.ResourceShareAccepter`.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        alternate = aws.Provider("alternate", profile="profile1")
-        sender_share = aws.ram.ResourceShare("senderShare",
-            allow_external_principals=True,
-            tags={
-                "Name": "tf-test-resource-share",
-            },
-            opts=pulumi.ResourceOptions(provider=aws["alternate"]))
-        receiver = aws.get_caller_identity()
-        sender_invite = aws.ram.PrincipalAssociation("senderInvite",
-            principal=receiver.account_id,
-            resource_share_arn=sender_share.arn,
-            opts=pulumi.ResourceOptions(provider=aws["alternate"]))
-        receiver_accept = aws.ram.ResourceShareAccepter("receiverAccept", share_arn=sender_invite.resource_share_arn)
-        ```
-
         ## Import
 
         Using `pulumi import`, import resource share accepters using the resource share ARN. For example:
@@ -227,29 +204,6 @@ class ResourceShareAccepter(pulumi.CustomResource):
         Manage accepting a Resource Access Manager (RAM) Resource Share invitation. From a _receiver_ AWS account, accept an invitation to share resources that were shared by a _sender_ AWS account. To create a resource share in the _sender_, see the `ram.ResourceShare` resource.
 
         > **Note:** If both AWS accounts are in the same Organization and [RAM Sharing with AWS Organizations is enabled](https://docs.aws.amazon.com/ram/latest/userguide/getting-started-sharing.html#getting-started-sharing-orgs), this resource is not necessary as RAM Resource Share invitations are not used.
-
-        ## Example Usage
-
-        This configuration provides an example of using multiple AWS providers to configure two different AWS accounts. In the _sender_ account, the configuration creates a `ram.ResourceShare` and uses a data source in the _receiver_ account to create a `ram.PrincipalAssociation` resource with the _receiver's_ account ID. In the _receiver_ account, the configuration accepts the invitation to share resources with the `ram.ResourceShareAccepter`.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        alternate = aws.Provider("alternate", profile="profile1")
-        sender_share = aws.ram.ResourceShare("senderShare",
-            allow_external_principals=True,
-            tags={
-                "Name": "tf-test-resource-share",
-            },
-            opts=pulumi.ResourceOptions(provider=aws["alternate"]))
-        receiver = aws.get_caller_identity()
-        sender_invite = aws.ram.PrincipalAssociation("senderInvite",
-            principal=receiver.account_id,
-            resource_share_arn=sender_share.arn,
-            opts=pulumi.ResourceOptions(provider=aws["alternate"]))
-        receiver_accept = aws.ram.ResourceShareAccepter("receiverAccept", share_arn=sender_invite.resource_share_arn)
-        ```
 
         ## Import
 

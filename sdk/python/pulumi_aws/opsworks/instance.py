@@ -1280,12 +1280,12 @@ class Instance(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        my_instance = aws.opsworks.Instance("my-instance",
-            stack_id=aws_opsworks_stack["main"]["id"],
-            layer_ids=[aws_opsworks_custom_layer["my-layer"]["id"]],
-            instance_type="t2.micro",
-            os="Amazon Linux 2015.09",
-            state="stopped")
+        my_instance = aws.opsworks.instance.Instance("my-instance",
+            stack_id=aws_opsworks_stack.main.id,
+            layer_ids=[aws_opsworks_custom_layer.my_layer.id],
+            instance_type=t2.micro,
+            os=Amazon Linux 2015.09,
+            state=stopped)
         ```
         ## Block devices
 
@@ -1389,12 +1389,12 @@ class Instance(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        my_instance = aws.opsworks.Instance("my-instance",
-            stack_id=aws_opsworks_stack["main"]["id"],
-            layer_ids=[aws_opsworks_custom_layer["my-layer"]["id"]],
-            instance_type="t2.micro",
-            os="Amazon Linux 2015.09",
-            state="stopped")
+        my_instance = aws.opsworks.instance.Instance("my-instance",
+            stack_id=aws_opsworks_stack.main.id,
+            layer_ids=[aws_opsworks_custom_layer.my_layer.id],
+            instance_type=t2.micro,
+            os=Amazon Linux 2015.09,
+            state=stopped)
         ```
         ## Block devices
 

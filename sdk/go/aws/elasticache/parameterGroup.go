@@ -23,33 +23,31 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/elasticache"
+//	elasticache/parameterGroup "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/elasticache/parameterGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := elasticache.NewParameterGroup(ctx, "default", &elasticache.ParameterGroupArgs{
-//				Family: pulumi.String("redis2.8"),
-//				Parameters: elasticache.ParameterGroupParameterArray{
-//					&elasticache.ParameterGroupParameterArgs{
-//						Name:  pulumi.String("activerehashing"),
-//						Value: pulumi.String("yes"),
-//					},
-//					&elasticache.ParameterGroupParameterArgs{
-//						Name:  pulumi.String("min-slaves-to-write"),
-//						Value: pulumi.String("2"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := elasticache/parameterGroup.NewParameterGroup(ctx, "default", &elasticache/parameterGroup.ParameterGroupArgs{
+// Family: "redis2.8",
+// Parameters: []map[string]interface{}{
+// map[string]interface{}{
+// "name": "activerehashing",
+// "value": "yes",
+// },
+// map[string]interface{}{
+// "name": "min-slaves-to-write",
+// "value": "2",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

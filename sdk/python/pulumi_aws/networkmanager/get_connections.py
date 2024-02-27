@@ -90,18 +90,6 @@ def get_connections(device_id: Optional[str] = None,
     """
     Retrieve information about connections.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.networkmanager.get_connections(global_network_id=var["global_network_id"],
-        tags={
-            "Env": "test",
-        })
-    ```
-
 
     :param str device_id: ID of the device of the connections to retrieve.
     :param str global_network_id: ID of the Global Network of the connections to retrieve.
@@ -129,18 +117,6 @@ def get_connections_output(device_id: Optional[pulumi.Input[Optional[str]]] = No
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConnectionsResult]:
     """
     Retrieve information about connections.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.networkmanager.get_connections(global_network_id=var["global_network_id"],
-        tags={
-            "Env": "test",
-        })
-    ```
 
 
     :param str device_id: ID of the device of the connections to retrieve.

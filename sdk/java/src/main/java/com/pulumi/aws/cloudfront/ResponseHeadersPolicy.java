@@ -36,10 +36,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.cloudfront.ResponseHeadersPolicy;
  * import com.pulumi.aws.cloudfront.ResponseHeadersPolicyArgs;
- * import com.pulumi.aws.cloudfront.inputs.ResponseHeadersPolicyCorsConfigArgs;
- * import com.pulumi.aws.cloudfront.inputs.ResponseHeadersPolicyCorsConfigAccessControlAllowHeadersArgs;
- * import com.pulumi.aws.cloudfront.inputs.ResponseHeadersPolicyCorsConfigAccessControlAllowMethodsArgs;
- * import com.pulumi.aws.cloudfront.inputs.ResponseHeadersPolicyCorsConfigAccessControlAllowOriginsArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -55,19 +51,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new ResponseHeadersPolicy(&#34;example&#34;, ResponseHeadersPolicyArgs.builder()        
  *             .comment(&#34;test comment&#34;)
- *             .corsConfig(ResponseHeadersPolicyCorsConfigArgs.builder()
- *                 .accessControlAllowCredentials(true)
- *                 .accessControlAllowHeaders(ResponseHeadersPolicyCorsConfigAccessControlAllowHeadersArgs.builder()
- *                     .items(&#34;test&#34;)
- *                     .build())
- *                 .accessControlAllowMethods(ResponseHeadersPolicyCorsConfigAccessControlAllowMethodsArgs.builder()
- *                     .items(&#34;GET&#34;)
- *                     .build())
- *                 .accessControlAllowOrigins(ResponseHeadersPolicyCorsConfigAccessControlAllowOriginsArgs.builder()
- *                     .items(&#34;test.example.comtest&#34;)
- *                     .build())
- *                 .originOverride(true)
- *                 .build())
+ *             .corsConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -83,7 +67,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.cloudfront.ResponseHeadersPolicy;
  * import com.pulumi.aws.cloudfront.ResponseHeadersPolicyArgs;
- * import com.pulumi.aws.cloudfront.inputs.ResponseHeadersPolicyCustomHeadersConfigArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -98,19 +81,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ResponseHeadersPolicy(&#34;example&#34;, ResponseHeadersPolicyArgs.builder()        
- *             .customHeadersConfig(ResponseHeadersPolicyCustomHeadersConfigArgs.builder()
- *                 .items(                
- *                     ResponseHeadersPolicyCustomHeadersConfigItemArgs.builder()
- *                         .header(&#34;X-Permitted-Cross-Domain-Policies&#34;)
- *                         .override(true)
- *                         .value(&#34;none&#34;)
- *                         .build(),
- *                     ResponseHeadersPolicyCustomHeadersConfigItemArgs.builder()
- *                         .header(&#34;X-Test&#34;)
- *                         .override(true)
- *                         .value(&#34;none&#34;)
- *                         .build())
- *                 .build())
+ *             .customHeadersConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -126,8 +97,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.cloudfront.ResponseHeadersPolicy;
  * import com.pulumi.aws.cloudfront.ResponseHeadersPolicyArgs;
- * import com.pulumi.aws.cloudfront.inputs.ResponseHeadersPolicyCustomHeadersConfigArgs;
- * import com.pulumi.aws.cloudfront.inputs.ResponseHeadersPolicyServerTimingHeadersConfigArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -142,17 +111,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ResponseHeadersPolicy(&#34;example&#34;, ResponseHeadersPolicyArgs.builder()        
- *             .customHeadersConfig(ResponseHeadersPolicyCustomHeadersConfigArgs.builder()
- *                 .items(ResponseHeadersPolicyCustomHeadersConfigItemArgs.builder()
- *                     .header(&#34;X-Permitted-Cross-Domain-Policies&#34;)
- *                     .override(true)
- *                     .value(&#34;none&#34;)
- *                     .build())
- *                 .build())
- *             .serverTimingHeadersConfig(ResponseHeadersPolicyServerTimingHeadersConfigArgs.builder()
- *                 .enabled(true)
- *                 .samplingRate(50)
- *                 .build())
+ *             .customHeadersConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .serverTimingHeadersConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

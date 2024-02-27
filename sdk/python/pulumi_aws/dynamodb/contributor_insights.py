@@ -107,7 +107,7 @@ class ContributorInsights(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.dynamodb.ContributorInsights("test", table_name="ExampleTableName")
+        test = aws.dynamodb.contributor_insights.ContributorInsights("test", table_name=ExampleTableName)
         ```
 
         ## Import
@@ -138,7 +138,7 @@ class ContributorInsights(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.dynamodb.ContributorInsights("test", table_name="ExampleTableName")
+        test = aws.dynamodb.contributor_insights.ContributorInsights("test", table_name=ExampleTableName)
         ```
 
         ## Import

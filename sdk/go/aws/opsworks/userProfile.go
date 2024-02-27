@@ -21,24 +21,22 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/opsworks"
+//	opsworks/userProfile "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/opsworks/userProfile"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := opsworks.NewUserProfile(ctx, "myProfile", &opsworks.UserProfileArgs{
-//				UserArn:     pulumi.Any(aws_iam_user.User.Arn),
-//				SshUsername: pulumi.String("my_user"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := opsworks/userProfile.NewUserProfile(ctx, "myProfile", &opsworks/userProfile.UserProfileArgs{
+// UserArn: aws_iam_user.User.Arn,
+// SshUsername: "my_user",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 type UserProfile struct {
 	pulumi.CustomResourceState

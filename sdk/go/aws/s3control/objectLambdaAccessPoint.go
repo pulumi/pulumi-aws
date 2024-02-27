@@ -22,48 +22,47 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3control"
+//	s3/accessPoint "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/s3/accessPoint"
+//	s3/bucketV2 "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/s3/bucketV2"
+//	s3control/objectLambdaAccessPoint "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/s3control/objectLambdaAccessPoint"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleAccessPoint, err := s3.NewAccessPoint(ctx, "exampleAccessPoint", &s3.AccessPointArgs{
-//				Bucket: exampleBucketV2.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = s3control.NewObjectLambdaAccessPoint(ctx, "exampleObjectLambdaAccessPoint", &s3control.ObjectLambdaAccessPointArgs{
-//				Configuration: &s3control.ObjectLambdaAccessPointConfigurationArgs{
-//					SupportingAccessPoint: exampleAccessPoint.Arn,
-//					TransformationConfigurations: s3control.ObjectLambdaAccessPointConfigurationTransformationConfigurationArray{
-//						&s3control.ObjectLambdaAccessPointConfigurationTransformationConfigurationArgs{
-//							Actions: pulumi.StringArray{
-//								pulumi.String("GetObject"),
-//							},
-//							ContentTransformation: &s3control.ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationArgs{
-//								AwsLambda: &s3control.ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaArgs{
-//									FunctionArn: pulumi.Any(aws_lambda_function.Example.Arn),
-//								},
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleBucketV2, err := s3/bucketV2.NewBucketV2(ctx, "exampleBucketV2", nil)
+// if err != nil {
+// return err
+// }
+// exampleAccessPoint, err := s3/accessPoint.NewAccessPoint(ctx, "exampleAccessPoint", &s3/accessPoint.AccessPointArgs{
+// Bucket: exampleBucketV2.Id,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = s3control/objectLambdaAccessPoint.NewObjectLambdaAccessPoint(ctx, "exampleObjectLambdaAccessPoint", &s3control/objectLambdaAccessPoint.ObjectLambdaAccessPointArgs{
+// Configuration: map[string]interface{}{
+// "supportingAccessPoint": exampleAccessPoint.Arn,
+// "transformationConfigurations": []map[string]interface{}{
+// map[string]interface{}{
+// "actions": []string{
+// "GetObject",
+// },
+// "contentTransformation": map[string]interface{}{
+// "awsLambda": map[string]interface{}{
+// "functionArn": aws_lambda_function.Example.Arn,
+// },
+// },
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

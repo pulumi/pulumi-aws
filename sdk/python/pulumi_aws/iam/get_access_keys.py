@@ -72,15 +72,6 @@ def get_access_keys(user: Optional[str] = None,
     This data source can be used to fetch information about IAM access keys of a
     specific IAM user.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.iam.get_access_keys(user="an_example_user_name")
-    ```
-
 
     :param str user: Name of the IAM user associated with the access keys.
     """
@@ -101,15 +92,6 @@ def get_access_keys_output(user: Optional[pulumi.Input[str]] = None,
     """
     This data source can be used to fetch information about IAM access keys of a
     specific IAM user.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.iam.get_access_keys(user="an_example_user_name")
-    ```
 
 
     :param str user: Name of the IAM user associated with the access keys.

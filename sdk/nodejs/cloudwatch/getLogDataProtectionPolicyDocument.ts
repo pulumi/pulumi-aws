@@ -11,57 +11,6 @@ import * as utilities from "../utilities";
  * Generates a CloudWatch Log Group Data Protection Policy document in JSON format for use with the `aws.cloudwatch.LogDataProtectionPolicy` resource.
  *
  * > For more information about data protection policies, see the [Help protect sensitive log data with masking](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/mask-sensitive-log-data.html).
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleLogDataProtectionPolicyDocument = aws.cloudwatch.getLogDataProtectionPolicyDocument({
- *     name: "Example",
- *     statements: [
- *         {
- *             sid: "Audit",
- *             dataIdentifiers: [
- *                 "arn:aws:dataprotection::aws:data-identifier/EmailAddress",
- *                 "arn:aws:dataprotection::aws:data-identifier/DriversLicense-US",
- *             ],
- *             operation: {
- *                 audit: {
- *                     findingsDestination: {
- *                         cloudwatchLogs: {
- *                             logGroup: aws_cloudwatch_log_group.audit.name,
- *                         },
- *                         firehose: {
- *                             deliveryStream: aws_kinesis_firehose_delivery_stream.audit.name,
- *                         },
- *                         s3: {
- *                             bucket: aws_s3_bucket.audit.bucket,
- *                         },
- *                     },
- *                 },
- *             },
- *         },
- *         {
- *             sid: "Deidentify",
- *             dataIdentifiers: [
- *                 "arn:aws:dataprotection::aws:data-identifier/EmailAddress",
- *                 "arn:aws:dataprotection::aws:data-identifier/DriversLicense-US",
- *             ],
- *             operation: {
- *                 deidentify: {
- *                     maskConfig: {},
- *                 },
- *             },
- *         },
- *     ],
- * });
- * const exampleLogDataProtectionPolicy = new aws.cloudwatch.LogDataProtectionPolicy("exampleLogDataProtectionPolicy", {
- *     logGroupName: aws_cloudwatch_log_group.example.name,
- *     policyDocument: exampleLogDataProtectionPolicyDocument.then(exampleLogDataProtectionPolicyDocument => exampleLogDataProtectionPolicyDocument.json),
- * });
- * ```
  */
 export function getLogDataProtectionPolicyDocument(args: GetLogDataProtectionPolicyDocumentArgs, opts?: pulumi.InvokeOptions): Promise<GetLogDataProtectionPolicyDocumentResult> {
 
@@ -115,57 +64,6 @@ export interface GetLogDataProtectionPolicyDocumentResult {
  * Generates a CloudWatch Log Group Data Protection Policy document in JSON format for use with the `aws.cloudwatch.LogDataProtectionPolicy` resource.
  *
  * > For more information about data protection policies, see the [Help protect sensitive log data with masking](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/mask-sensitive-log-data.html).
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleLogDataProtectionPolicyDocument = aws.cloudwatch.getLogDataProtectionPolicyDocument({
- *     name: "Example",
- *     statements: [
- *         {
- *             sid: "Audit",
- *             dataIdentifiers: [
- *                 "arn:aws:dataprotection::aws:data-identifier/EmailAddress",
- *                 "arn:aws:dataprotection::aws:data-identifier/DriversLicense-US",
- *             ],
- *             operation: {
- *                 audit: {
- *                     findingsDestination: {
- *                         cloudwatchLogs: {
- *                             logGroup: aws_cloudwatch_log_group.audit.name,
- *                         },
- *                         firehose: {
- *                             deliveryStream: aws_kinesis_firehose_delivery_stream.audit.name,
- *                         },
- *                         s3: {
- *                             bucket: aws_s3_bucket.audit.bucket,
- *                         },
- *                     },
- *                 },
- *             },
- *         },
- *         {
- *             sid: "Deidentify",
- *             dataIdentifiers: [
- *                 "arn:aws:dataprotection::aws:data-identifier/EmailAddress",
- *                 "arn:aws:dataprotection::aws:data-identifier/DriversLicense-US",
- *             ],
- *             operation: {
- *                 deidentify: {
- *                     maskConfig: {},
- *                 },
- *             },
- *         },
- *     ],
- * });
- * const exampleLogDataProtectionPolicy = new aws.cloudwatch.LogDataProtectionPolicy("exampleLogDataProtectionPolicy", {
- *     logGroupName: aws_cloudwatch_log_group.example.name,
- *     policyDocument: exampleLogDataProtectionPolicyDocument.then(exampleLogDataProtectionPolicyDocument => exampleLogDataProtectionPolicyDocument.json),
- * });
- * ```
  */
 export function getLogDataProtectionPolicyDocumentOutput(args: GetLogDataProtectionPolicyDocumentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLogDataProtectionPolicyDocumentResult> {
     return pulumi.output(args).apply((a: any) => getLogDataProtectionPolicyDocument(a, opts))

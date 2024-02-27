@@ -24,50 +24,45 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/transcribe"
+//	s3/bucketObjectv2 "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/s3/bucketObjectv2"
+//	s3/bucketV2 "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/s3/bucketV2"
+//	transcribe/vocabulary "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/transcribe/vocabulary"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", &s3.BucketV2Args{
-//				ForceDestroy: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			object, err := s3.NewBucketObjectv2(ctx, "object", &s3.BucketObjectv2Args{
-//				Bucket: exampleBucketV2.ID(),
-//				Key:    pulumi.String("transcribe/test1.txt"),
-//				Source: pulumi.NewFileAsset("test.txt"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = transcribe.NewVocabulary(ctx, "exampleVocabulary", &transcribe.VocabularyArgs{
-//				VocabularyName: pulumi.String("example"),
-//				LanguageCode:   pulumi.String("en-US"),
-//				VocabularyFileUri: pulumi.All(exampleBucketV2.ID(), object.Key).ApplyT(func(_args []interface{}) (string, error) {
-//					id := _args[0].(string)
-//					key := _args[1].(string)
-//					return fmt.Sprintf("s3://%v/%v", id, key), nil
-//				}).(pulumi.StringOutput),
-//				Tags: pulumi.StringMap{
-//					"tag1": pulumi.String("value1"),
-//					"tag2": pulumi.String("value3"),
-//				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				object,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleBucketV2, err := s3/bucketV2.NewBucketV2(ctx, "exampleBucketV2", &s3/bucketV2.BucketV2Args{
+// ForceDestroy: true,
+// })
+// if err != nil {
+// return err
+// }
+// object, err := s3/bucketObjectv2.NewBucketObjectv2(ctx, "object", &s3/bucketObjectv2.BucketObjectv2Args{
+// Bucket: exampleBucketV2.Id,
+// Key: "transcribe/test1.txt",
+// Source: pulumi.NewFileAsset("test.txt"),
+// })
+// if err != nil {
+// return err
+// }
+// _, err = transcribe/vocabulary.NewVocabulary(ctx, "exampleVocabulary", &transcribe/vocabulary.VocabularyArgs{
+// VocabularyName: "example",
+// LanguageCode: "en-US",
+// VocabularyFileUri: fmt.Sprintf("s3://%v/%v", exampleBucketV2.Id, object.Key),
+// Tags: map[string]interface{}{
+// "tag1": "value1",
+// "tag2": "value3",
+// },
+// }, pulumi.DependsOn([]pulumi.Resource{
+// object,
+// }))
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

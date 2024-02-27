@@ -17,26 +17,26 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * // Example SES Domain Identity
- * const exampleDomainIdentity = new aws.ses.DomainIdentity("exampleDomainIdentity", {domain: "example.com"});
- * const exampleMailFrom = new aws.ses.MailFrom("exampleMailFrom", {
+ * const exampleDomainIdentity = new aws.ses/domainIdentity.DomainIdentity("exampleDomainIdentity", {domain: "example.com"});
+ * const exampleMailFrom = new aws.ses/mailFrom.MailFrom("exampleMailFrom", {
  *     domain: exampleDomainIdentity.domain,
- *     mailFromDomain: pulumi.interpolate`bounce.${exampleDomainIdentity.domain}`,
+ *     mailFromDomain: `bounce.${exampleDomainIdentity.domain}`,
  * });
  * // Example Route53 MX record
- * const exampleSesDomainMailFromMx = new aws.route53.Record("exampleSesDomainMailFromMx", {
+ * const exampleSesDomainMailFromMx = new aws.route53/record.Record("exampleSesDomainMailFromMx", {
  *     zoneId: aws_route53_zone.example.id,
  *     name: exampleMailFrom.mailFromDomain,
  *     type: "MX",
- *     ttl: 600,
+ *     ttl: "600",
  *     records: ["10 feedback-smtp.us-east-1.amazonses.com"],
  * });
  * // Change to the region in which `aws_ses_domain_identity.example` is created
  * // Example Route53 TXT record for SPF
- * const exampleSesDomainMailFromTxt = new aws.route53.Record("exampleSesDomainMailFromTxt", {
+ * const exampleSesDomainMailFromTxt = new aws.route53/record.Record("exampleSesDomainMailFromTxt", {
  *     zoneId: aws_route53_zone.example.id,
  *     name: exampleMailFrom.mailFromDomain,
  *     type: "TXT",
- *     ttl: 600,
+ *     ttl: "600",
  *     records: ["v=spf1 include:amazonses.com -all"],
  * });
  * ```
@@ -47,8 +47,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * // Example SES Email Identity
- * const exampleEmailIdentity = new aws.ses.EmailIdentity("exampleEmailIdentity", {email: "user@example.com"});
- * const exampleMailFrom = new aws.ses.MailFrom("exampleMailFrom", {
+ * const exampleEmailIdentity = new aws.ses/emailIdentity.EmailIdentity("exampleEmailIdentity", {email: "user@example.com"});
+ * const exampleMailFrom = new aws.ses/mailFrom.MailFrom("exampleMailFrom", {
  *     domain: exampleEmailIdentity.email,
  *     mailFromDomain: "mail.example.com",
  * });

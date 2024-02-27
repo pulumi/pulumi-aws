@@ -24,27 +24,25 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sagemaker"
+//	sagemaker/deviceFleet "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/sagemaker/deviceFleet"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := sagemaker.NewDeviceFleet(ctx, "example", &sagemaker.DeviceFleetArgs{
-//				DeviceFleetName: pulumi.String("example"),
-//				RoleArn:         pulumi.Any(aws_iam_role.Test.Arn),
-//				OutputConfig: &sagemaker.DeviceFleetOutputConfigArgs{
-//					S3OutputLocation: pulumi.String(fmt.Sprintf("s3://%v/prefix/", aws_s3_bucket.Example.Bucket)),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := sagemaker/deviceFleet.NewDeviceFleet(ctx, "example", &sagemaker/deviceFleet.DeviceFleetArgs{
+// DeviceFleetName: "example",
+// RoleArn: aws_iam_role.Test.Arn,
+// OutputConfig: map[string]interface{}{
+// "s3OutputLocation": fmt.Sprintf("s3://%v/prefix/", aws_s3_bucket.Example.Bucket),
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

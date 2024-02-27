@@ -42,10 +42,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var bar = new ResourceGroup(&#34;bar&#34;, ResourceGroupArgs.builder()        
- *             .tags(Map.ofEntries(
- *                 Map.entry(&#34;Name&#34;, &#34;foo&#34;),
- *                 Map.entry(&#34;Env&#34;, &#34;bar&#34;)
- *             ))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var foo = new AssessmentTarget(&#34;foo&#34;, AssessmentTargetArgs.builder()        

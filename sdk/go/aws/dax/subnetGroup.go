@@ -21,26 +21,24 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/dax"
+//	dax/subnetGroup "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/dax/subnetGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := dax.NewSubnetGroup(ctx, "example", &dax.SubnetGroupArgs{
-//				SubnetIds: pulumi.StringArray{
-//					aws_subnet.Example1.Id,
-//					aws_subnet.Example2.Id,
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := dax/subnetGroup.NewSubnetGroup(ctx, "example", &dax/subnetGroup.SubnetGroupArgs{
+// SubnetIds: []interface{}{
+// aws_subnet.Example1.Id,
+// aws_subnet.Example2.Id,
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

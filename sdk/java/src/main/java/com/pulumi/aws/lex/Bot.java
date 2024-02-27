@@ -34,9 +34,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.lex.Bot;
  * import com.pulumi.aws.lex.BotArgs;
- * import com.pulumi.aws.lex.inputs.BotAbortStatementArgs;
- * import com.pulumi.aws.lex.inputs.BotClarificationPromptArgs;
- * import com.pulumi.aws.lex.inputs.BotIntentArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -51,27 +48,13 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var orderFlowersBot = new Bot(&#34;orderFlowersBot&#34;, BotArgs.builder()        
- *             .abortStatement(BotAbortStatementArgs.builder()
- *                 .messages(BotAbortStatementMessageArgs.builder()
- *                     .content(&#34;Sorry, I am not able to assist at this time&#34;)
- *                     .contentType(&#34;PlainText&#34;)
- *                     .build())
- *                 .build())
+ *             .abortStatement(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .childDirected(false)
- *             .clarificationPrompt(BotClarificationPromptArgs.builder()
- *                 .maxAttempts(2)
- *                 .messages(BotClarificationPromptMessageArgs.builder()
- *                     .content(&#34;I didn&#39;t understand you, what would you like to do?&#34;)
- *                     .contentType(&#34;PlainText&#34;)
- *                     .build())
- *                 .build())
+ *             .clarificationPrompt(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .createVersion(false)
  *             .description(&#34;Bot to order flowers on the behalf of a user&#34;)
  *             .idleSessionTtlInSeconds(600)
- *             .intents(BotIntentArgs.builder()
- *                 .intentName(&#34;OrderFlowers&#34;)
- *                 .intentVersion(&#34;1&#34;)
- *                 .build())
+ *             .intents(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .locale(&#34;en-US&#34;)
  *             .name(&#34;OrderFlowers&#34;)
  *             .processBehavior(&#34;BUILD&#34;)

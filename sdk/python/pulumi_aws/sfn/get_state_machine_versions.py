@@ -71,14 +71,6 @@ def get_state_machine_versions(statemachine_arn: Optional[str] = None,
     Data source for managing an AWS SFN (Step Functions) State Machine Versions.
 
     ## Example Usage
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.sfn.get_state_machine_versions(statemachine_arn=aws_sfn_state_machine["test"]["arn"])
-    ```
 
 
     :param str statemachine_arn: ARN of the State Machine.
@@ -101,14 +93,6 @@ def get_state_machine_versions_output(statemachine_arn: Optional[pulumi.Input[st
     Data source for managing an AWS SFN (Step Functions) State Machine Versions.
 
     ## Example Usage
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.sfn.get_state_machine_versions(statemachine_arn=aws_sfn_state_machine["test"]["arn"])
-    ```
 
 
     :param str statemachine_arn: ARN of the State Machine.

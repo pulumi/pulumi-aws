@@ -37,7 +37,7 @@ namespace Pulumi.Aws.Rds
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var @default = new Aws.Rds.Cluster("default", new()
+    ///     var @default = new Aws.Rds.Cluster.Cluster("default", new()
     ///     {
     ///         ClusterIdentifier = "aurora-cluster-demo",
     ///         AvailabilityZones = new[]
@@ -51,11 +51,11 @@ namespace Pulumi.Aws.Rds
     ///         MasterPassword = "barbut8chars",
     ///     });
     /// 
-    ///     var clusterInstances = new List&lt;Aws.Rds.ClusterInstance&gt;();
+    ///     var clusterInstances = new List&lt;Aws.Rds.ClusterInstance.ClusterInstance&gt;();
     ///     for (var rangeIndex = 0; rangeIndex &lt; 2; rangeIndex++)
     ///     {
     ///         var range = new { Value = rangeIndex };
-    ///         clusterInstances.Add(new Aws.Rds.ClusterInstance($"clusterInstances-{range.Value}", new()
+    ///         clusterInstances.Add(new Aws.Rds.ClusterInstance.ClusterInstance($"clusterInstances-{range.Value}", new()
     ///         {
     ///             Identifier = $"aurora-cluster-demo-{range.Value}",
     ///             ClusterIdentifier = @default.Id,

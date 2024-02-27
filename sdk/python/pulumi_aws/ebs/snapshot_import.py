@@ -499,17 +499,17 @@ class SnapshotImport(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ebs.SnapshotImport("example",
-            disk_container=aws.ebs.SnapshotImportDiskContainerArgs(
-                format="VHD",
-                user_bucket=aws.ebs.SnapshotImportDiskContainerUserBucketArgs(
-                    s3_bucket="disk-images",
-                    s3_key="source.vhd",
-                ),
-            ),
-            role_name="disk-image-import",
+        example = aws.ebs.snapshot_import.SnapshotImport("example",
+            disk_container={
+                format: VHD,
+                userBucket: {
+                    s3Bucket: disk-images,
+                    s3Key: source.vhd,
+                },
+            },
+            role_name=disk-image-import,
             tags={
-                "Name": "HelloWorld",
+                Name: HelloWorld,
             })
         ```
 
@@ -541,17 +541,17 @@ class SnapshotImport(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ebs.SnapshotImport("example",
-            disk_container=aws.ebs.SnapshotImportDiskContainerArgs(
-                format="VHD",
-                user_bucket=aws.ebs.SnapshotImportDiskContainerUserBucketArgs(
-                    s3_bucket="disk-images",
-                    s3_key="source.vhd",
-                ),
-            ),
-            role_name="disk-image-import",
+        example = aws.ebs.snapshot_import.SnapshotImport("example",
+            disk_container={
+                format: VHD,
+                userBucket: {
+                    s3Bucket: disk-images,
+                    s3Key: source.vhd,
+                },
+            },
+            role_name=disk-image-import,
             tags={
-                "Name": "HelloWorld",
+                Name: HelloWorld,
             })
         ```
 

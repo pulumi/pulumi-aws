@@ -174,20 +174,20 @@ class FieldLevelEncryptionProfile(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.cloudfront.PublicKey("example",
-            comment="test public key",
-            encoded_key=(lambda path: open(path).read())("public_key.pem"))
-        test = aws.cloudfront.FieldLevelEncryptionProfile("test",
-            comment="test comment",
-            encryption_entities=aws.cloudfront.FieldLevelEncryptionProfileEncryptionEntitiesArgs(
-                items=[aws.cloudfront.FieldLevelEncryptionProfileEncryptionEntitiesItemArgs(
-                    public_key_id=example.id,
-                    provider_id="test provider",
-                    field_patterns=aws.cloudfront.FieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatternsArgs(
-                        items=["DateOfBirth"],
-                    ),
-                )],
-            ))
+        example = aws.cloudfront.public_key.PublicKey("example",
+            comment=test public key,
+            encoded_key=(lambda path: open(path).read())(public_key.pem))
+        test = aws.cloudfront.field_level_encryption_profile.FieldLevelEncryptionProfile("test",
+            comment=test comment,
+            encryption_entities={
+                items: [{
+                    publicKeyId: example.id,
+                    providerId: test provider,
+                    fieldPatterns: {
+                        items: [DateOfBirth],
+                    },
+                }],
+            })
         ```
 
         ## Import
@@ -219,20 +219,20 @@ class FieldLevelEncryptionProfile(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.cloudfront.PublicKey("example",
-            comment="test public key",
-            encoded_key=(lambda path: open(path).read())("public_key.pem"))
-        test = aws.cloudfront.FieldLevelEncryptionProfile("test",
-            comment="test comment",
-            encryption_entities=aws.cloudfront.FieldLevelEncryptionProfileEncryptionEntitiesArgs(
-                items=[aws.cloudfront.FieldLevelEncryptionProfileEncryptionEntitiesItemArgs(
-                    public_key_id=example.id,
-                    provider_id="test provider",
-                    field_patterns=aws.cloudfront.FieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatternsArgs(
-                        items=["DateOfBirth"],
-                    ),
-                )],
-            ))
+        example = aws.cloudfront.public_key.PublicKey("example",
+            comment=test public key,
+            encoded_key=(lambda path: open(path).read())(public_key.pem))
+        test = aws.cloudfront.field_level_encryption_profile.FieldLevelEncryptionProfile("test",
+            comment=test comment,
+            encryption_entities={
+                items: [{
+                    publicKeyId: example.id,
+                    providerId: test provider,
+                    fieldPatterns: {
+                        items: [DateOfBirth],
+                    },
+                }],
+            })
         ```
 
         ## Import

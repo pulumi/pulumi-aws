@@ -21,7 +21,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.lightsail.ContainerServiceDeploymentVersion("example", {
+ * const example = new aws.lightsail/containerServiceDeploymentVersion.ContainerServiceDeploymentVersion("example", {
  *     containers: [{
  *         containerName: "hello-world",
  *         image: "amazon/amazon-lightsail:hello-world",
@@ -30,7 +30,7 @@ import * as utilities from "../utilities";
  *             MY_ENVIRONMENT_VARIABLE: "my_value",
  *         },
  *         ports: {
- *             "80": "HTTP",
+ *             80: "HTTP",
  *         },
  *     }],
  *     publicEndpoint: {

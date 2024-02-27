@@ -11,23 +11,23 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const defaultCluster = new aws.neptune.Cluster("defaultCluster", {
+ * const defaultCluster = new aws.neptune/cluster.Cluster("defaultCluster", {
  *     clusterIdentifier: "neptune-cluster-demo",
  *     engine: "neptune",
  *     backupRetentionPeriod: 5,
  *     preferredBackupWindow: "07:00-09:00",
  *     skipFinalSnapshot: true,
- *     iamDatabaseAuthenticationEnabled: true,
- *     applyImmediately: true,
+ *     iamDatabaseAuthenticationEnabled: "true",
+ *     applyImmediately: "true",
  * });
- * const example = new aws.neptune.ClusterInstance("example", {
+ * const example = new aws.neptune/clusterInstance.ClusterInstance("example", {
  *     clusterIdentifier: defaultCluster.id,
  *     engine: "neptune",
  *     instanceClass: "db.r4.large",
- *     applyImmediately: true,
+ *     applyImmediately: "true",
  * });
- * const defaultTopic = new aws.sns.Topic("defaultTopic", {});
- * const defaultEventSubscription = new aws.neptune.EventSubscription("defaultEventSubscription", {
+ * const defaultTopic = new aws.sns/topic.Topic("defaultTopic", {});
+ * const defaultEventSubscription = new aws.neptune/eventSubscription.EventSubscription("defaultEventSubscription", {
  *     snsTopicArn: defaultTopic.arn,
  *     sourceType: "db-instance",
  *     sourceIds: [example.id],

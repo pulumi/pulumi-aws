@@ -14,11 +14,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * import * as fs from "fs";
  *
- * const examplePublicKey = new aws.cloudfront.PublicKey("examplePublicKey", {
+ * const examplePublicKey = new aws.cloudfront/publicKey.PublicKey("examplePublicKey", {
  *     comment: "example public key",
  *     encodedKey: fs.readFileSync("public_key.pem", "utf8"),
  * });
- * const exampleKeyGroup = new aws.cloudfront.KeyGroup("exampleKeyGroup", {
+ * const exampleKeyGroup = new aws.cloudfront/keyGroup.KeyGroup("exampleKeyGroup", {
  *     comment: "example key group",
  *     items: [examplePublicKey.id],
  * });

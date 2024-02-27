@@ -24,37 +24,37 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var @this = new Aws.CloudWatch.EventEndpoint("this", new()
+    ///     var @this = new Aws.Cloudwatch.EventEndpoint.EventEndpoint("this", new()
     ///     {
     ///         RoleArn = aws_iam_role.Replication.Arn,
     ///         EventBuses = new[]
     ///         {
-    ///             new Aws.CloudWatch.Inputs.EventEndpointEventBusArgs
+    ///             
     ///             {
-    ///                 EventBusArn = aws_cloudwatch_event_bus.Primary.Arn,
+    ///                 { "eventBusArn", aws_cloudwatch_event_bus.Primary.Arn },
     ///             },
-    ///             new Aws.CloudWatch.Inputs.EventEndpointEventBusArgs
+    ///             
     ///             {
-    ///                 EventBusArn = aws_cloudwatch_event_bus.Secondary.Arn,
+    ///                 { "eventBusArn", aws_cloudwatch_event_bus.Secondary.Arn },
     ///             },
     ///         },
-    ///         ReplicationConfig = new Aws.CloudWatch.Inputs.EventEndpointReplicationConfigArgs
+    ///         ReplicationConfig = 
     ///         {
-    ///             State = "DISABLED",
+    ///             { "state", "DISABLED" },
     ///         },
-    ///         RoutingConfig = new Aws.CloudWatch.Inputs.EventEndpointRoutingConfigArgs
+    ///         RoutingConfig = 
     ///         {
-    ///             FailoverConfig = new Aws.CloudWatch.Inputs.EventEndpointRoutingConfigFailoverConfigArgs
+    ///             { "failoverConfig", 
     ///             {
-    ///                 Primary = new Aws.CloudWatch.Inputs.EventEndpointRoutingConfigFailoverConfigPrimaryArgs
+    ///                 { "primary", 
     ///                 {
-    ///                     HealthCheck = aws_route53_health_check.Primary.Arn,
-    ///                 },
-    ///                 Secondary = new Aws.CloudWatch.Inputs.EventEndpointRoutingConfigFailoverConfigSecondaryArgs
+    ///                     { "healthCheck", aws_route53_health_check.Primary.Arn },
+    ///                 } },
+    ///                 { "secondary", 
     ///                 {
-    ///                     Route = "us-east-2",
-    ///                 },
-    ///             },
+    ///                     { "route", "us-east-2" },
+    ///                 } },
+    ///             } },
     ///         },
     ///     });
     /// 

@@ -23,27 +23,27 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleUserPool = new Aws.Cognito.UserPool("exampleUserPool");
+    ///     var exampleUserPool = new Aws.Cognito.UserPool.UserPool("exampleUserPool");
     /// 
-    ///     var exampleUserPoolClient = new Aws.Cognito.UserPoolClient("exampleUserPoolClient", new()
+    ///     var exampleUserPoolClient = new Aws.Cognito.UserPoolClient.UserPoolClient("exampleUserPoolClient", new()
     ///     {
     ///         GenerateSecret = true,
     ///         UserPoolId = exampleUserPool.Id,
     ///     });
     /// 
-    ///     var exampleUserPoolDomain = new Aws.Cognito.UserPoolDomain("exampleUserPoolDomain", new()
+    ///     var exampleUserPoolDomain = new Aws.Cognito.UserPoolDomain.UserPoolDomain("exampleUserPoolDomain", new()
     ///     {
     ///         Domain = "example",
     ///         UserPoolId = exampleUserPool.Id,
     ///     });
     /// 
-    ///     var exampleWorkforce = new Aws.Sagemaker.Workforce("exampleWorkforce", new()
+    ///     var exampleWorkforce = new Aws.Sagemaker.Workforce.Workforce("exampleWorkforce", new()
     ///     {
     ///         WorkforceName = "example",
-    ///         CognitoConfig = new Aws.Sagemaker.Inputs.WorkforceCognitoConfigArgs
+    ///         CognitoConfig = 
     ///         {
-    ///             ClientId = exampleUserPoolClient.Id,
-    ///             UserPool = exampleUserPoolDomain.UserPoolId,
+    ///             { "clientId", exampleUserPoolClient.Id },
+    ///             { "userPool", exampleUserPoolDomain.UserPoolId },
     ///         },
     ///     });
     /// 
@@ -59,18 +59,18 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Sagemaker.Workforce("example", new()
+    ///     var example = new Aws.Sagemaker.Workforce.Workforce("example", new()
     ///     {
-    ///         OidcConfig = new Aws.Sagemaker.Inputs.WorkforceOidcConfigArgs
+    ///         OidcConfig = 
     ///         {
-    ///             AuthorizationEndpoint = "https://example.com",
-    ///             ClientId = "example",
-    ///             ClientSecret = "example",
-    ///             Issuer = "https://example.com",
-    ///             JwksUri = "https://example.com",
-    ///             LogoutEndpoint = "https://example.com",
-    ///             TokenEndpoint = "https://example.com",
-    ///             UserInfoEndpoint = "https://example.com",
+    ///             { "authorizationEndpoint", "https://example.com" },
+    ///             { "clientId", "example" },
+    ///             { "clientSecret", "example" },
+    ///             { "issuer", "https://example.com" },
+    ///             { "jwksUri", "https://example.com" },
+    ///             { "logoutEndpoint", "https://example.com" },
+    ///             { "tokenEndpoint", "https://example.com" },
+    ///             { "userInfoEndpoint", "https://example.com" },
     ///         },
     ///         WorkforceName = "example",
     ///     });

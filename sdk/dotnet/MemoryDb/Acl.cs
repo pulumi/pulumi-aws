@@ -24,7 +24,7 @@ namespace Pulumi.Aws.MemoryDb
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.MemoryDb.Acl("example", new()
+    ///     var example = new Aws.Memorydb.Acl.Acl("example", new()
     ///     {
     ///         UserNames = new[]
     ///         {

@@ -21,27 +21,25 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/glue"
+//	glue/schema "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/glue/schema"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := glue.NewSchema(ctx, "example", &glue.SchemaArgs{
-//				SchemaName:       pulumi.String("example"),
-//				RegistryArn:      pulumi.Any(aws_glue_registry.Test.Arn),
-//				DataFormat:       pulumi.String("AVRO"),
-//				Compatibility:    pulumi.String("NONE"),
-//				SchemaDefinition: pulumi.String("{\"type\": \"record\", \"name\": \"r1\", \"fields\": [ {\"name\": \"f1\", \"type\": \"int\"}, {\"name\": \"f2\", \"type\": \"string\"} ]}"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := glue/schema.NewSchema(ctx, "example", &glue/schema.SchemaArgs{
+// SchemaName: "example",
+// RegistryArn: aws_glue_registry.Test.Arn,
+// DataFormat: "AVRO",
+// Compatibility: "NONE",
+// SchemaDefinition: "{\"type\": \"record\", \"name\": \"r1\", \"fields\": [ {\"name\": \"f1\", \"type\": \"int\"}, {\"name\": \"f2\", \"type\": \"string\"} ]}",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -171,14 +171,14 @@ class Webhook(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.amplify.App("example")
-        master_branch = aws.amplify.Branch("masterBranch",
+        example = aws.amplify.app.App("example")
+        master_branch = aws.amplify.branch.Branch("masterBranch",
             app_id=example.id,
-            branch_name="master")
-        master_webhook = aws.amplify.Webhook("masterWebhook",
+            branch_name=master)
+        master_webhook = aws.amplify.webhook.Webhook("masterWebhook",
             app_id=example.id,
             branch_name=master_branch.branch_name,
-            description="triggermaster")
+            description=triggermaster)
         ```
 
         ## Import
@@ -210,14 +210,14 @@ class Webhook(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.amplify.App("example")
-        master_branch = aws.amplify.Branch("masterBranch",
+        example = aws.amplify.app.App("example")
+        master_branch = aws.amplify.branch.Branch("masterBranch",
             app_id=example.id,
-            branch_name="master")
-        master_webhook = aws.amplify.Webhook("masterWebhook",
+            branch_name=master)
+        master_webhook = aws.amplify.webhook.Webhook("masterWebhook",
             app_id=example.id,
             branch_name=master_branch.branch_name,
-            description="triggermaster")
+            description=triggermaster)
         ```
 
         ## Import

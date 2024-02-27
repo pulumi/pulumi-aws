@@ -361,35 +361,35 @@ class DataRepositoryAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
-        example_bucket_acl_v2 = aws.s3.BucketAclV2("exampleBucketAclV2",
+        example_bucket_v2 = aws.s3.bucket_v2.BucketV2("exampleBucketV2")
+        example_bucket_acl_v2 = aws.s3.bucket_acl_v2.BucketAclV2("exampleBucketAclV2",
             bucket=example_bucket_v2.id,
-            acl="private")
-        example_lustre_file_system = aws.fsx.LustreFileSystem("exampleLustreFileSystem",
+            acl=private)
+        example_lustre_file_system = aws.fsx.lustre_file_system.LustreFileSystem("exampleLustreFileSystem",
             storage_capacity=1200,
-            subnet_ids=[aws_subnet["example"]["id"]],
-            deployment_type="PERSISTENT_2",
+            subnet_ids=[aws_subnet.example.id],
+            deployment_type=PERSISTENT_2,
             per_unit_storage_throughput=125)
-        example_data_repository_association = aws.fsx.DataRepositoryAssociation("exampleDataRepositoryAssociation",
+        example_data_repository_association = aws.fsx.data_repository_association.DataRepositoryAssociation("exampleDataRepositoryAssociation",
             file_system_id=example_lustre_file_system.id,
-            data_repository_path=example_bucket_v2.id.apply(lambda id: f"s3://{id}"),
-            file_system_path="/my-bucket",
-            s3=aws.fsx.DataRepositoryAssociationS3Args(
-                auto_export_policy=aws.fsx.DataRepositoryAssociationS3AutoExportPolicyArgs(
-                    events=[
-                        "NEW",
-                        "CHANGED",
-                        "DELETED",
+            data_repository_path=fs3://{example_bucket_v2.id},
+            file_system_path=/my-bucket,
+            s3={
+                autoExportPolicy: {
+                    events: [
+                        NEW,
+                        CHANGED,
+                        DELETED,
                     ],
-                ),
-                auto_import_policy=aws.fsx.DataRepositoryAssociationS3AutoImportPolicyArgs(
-                    events=[
-                        "NEW",
-                        "CHANGED",
-                        "DELETED",
+                },
+                autoImportPolicy: {
+                    events: [
+                        NEW,
+                        CHANGED,
+                        DELETED,
                     ],
-                ),
-            ))
+                },
+            })
         ```
 
         ## Import
@@ -429,35 +429,35 @@ class DataRepositoryAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
-        example_bucket_acl_v2 = aws.s3.BucketAclV2("exampleBucketAclV2",
+        example_bucket_v2 = aws.s3.bucket_v2.BucketV2("exampleBucketV2")
+        example_bucket_acl_v2 = aws.s3.bucket_acl_v2.BucketAclV2("exampleBucketAclV2",
             bucket=example_bucket_v2.id,
-            acl="private")
-        example_lustre_file_system = aws.fsx.LustreFileSystem("exampleLustreFileSystem",
+            acl=private)
+        example_lustre_file_system = aws.fsx.lustre_file_system.LustreFileSystem("exampleLustreFileSystem",
             storage_capacity=1200,
-            subnet_ids=[aws_subnet["example"]["id"]],
-            deployment_type="PERSISTENT_2",
+            subnet_ids=[aws_subnet.example.id],
+            deployment_type=PERSISTENT_2,
             per_unit_storage_throughput=125)
-        example_data_repository_association = aws.fsx.DataRepositoryAssociation("exampleDataRepositoryAssociation",
+        example_data_repository_association = aws.fsx.data_repository_association.DataRepositoryAssociation("exampleDataRepositoryAssociation",
             file_system_id=example_lustre_file_system.id,
-            data_repository_path=example_bucket_v2.id.apply(lambda id: f"s3://{id}"),
-            file_system_path="/my-bucket",
-            s3=aws.fsx.DataRepositoryAssociationS3Args(
-                auto_export_policy=aws.fsx.DataRepositoryAssociationS3AutoExportPolicyArgs(
-                    events=[
-                        "NEW",
-                        "CHANGED",
-                        "DELETED",
+            data_repository_path=fs3://{example_bucket_v2.id},
+            file_system_path=/my-bucket,
+            s3={
+                autoExportPolicy: {
+                    events: [
+                        NEW,
+                        CHANGED,
+                        DELETED,
                     ],
-                ),
-                auto_import_policy=aws.fsx.DataRepositoryAssociationS3AutoImportPolicyArgs(
-                    events=[
-                        "NEW",
-                        "CHANGED",
-                        "DELETED",
+                },
+                autoImportPolicy: {
+                    events: [
+                        NEW,
+                        CHANGED,
+                        DELETED,
                     ],
-                ),
-            ))
+                },
+            })
         ```
 
         ## Import

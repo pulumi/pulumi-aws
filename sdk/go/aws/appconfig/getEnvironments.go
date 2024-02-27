@@ -15,31 +15,6 @@ import (
 // resource.
 //
 // ## Example Usage
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/appconfig"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := appconfig.GetEnvironments(ctx, &appconfig.GetEnvironmentsArgs{
-//				ApplicationId: "a1d3rpe",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetEnvironments(ctx *pulumi.Context, args *GetEnvironmentsArgs, opts ...pulumi.InvokeOption) (*GetEnvironmentsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetEnvironmentsResult

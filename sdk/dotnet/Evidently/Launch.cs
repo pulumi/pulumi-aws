@@ -23,31 +23,31 @@ namespace Pulumi.Aws.Evidently
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Evidently.Launch("example", new()
+    ///     var example = new Aws.Evidently.Launch.Launch("example", new()
     ///     {
     ///         Project = aws_evidently_project.Example.Name,
     ///         Groups = new[]
     ///         {
-    ///             new Aws.Evidently.Inputs.LaunchGroupArgs
+    ///             
     ///             {
-    ///                 Feature = aws_evidently_feature.Example.Name,
-    ///                 Name = "Variation1",
-    ///                 Variation = "Variation1",
+    ///                 { "feature", aws_evidently_feature.Example.Name },
+    ///                 { "name", "Variation1" },
+    ///                 { "variation", "Variation1" },
     ///             },
     ///         },
-    ///         ScheduledSplitsConfig = new Aws.Evidently.Inputs.LaunchScheduledSplitsConfigArgs
+    ///         ScheduledSplitsConfig = 
     ///         {
-    ///             Steps = new[]
+    ///             { "steps", new[]
     ///             {
-    ///                 new Aws.Evidently.Inputs.LaunchScheduledSplitsConfigStepArgs
+    ///                 
     ///                 {
-    ///                     GroupWeights = 
+    ///                     { "groupWeights", 
     ///                     {
     ///                         { "Variation1", 0 },
-    ///                     },
-    ///                     StartTime = "2024-01-07 01:43:59+00:00",
+    ///                     } },
+    ///                     { "startTime", "2024-01-07 01:43:59+00:00" },
     ///                 },
-    ///             },
+    ///             } },
     ///         },
     ///     });
     /// 
@@ -63,32 +63,32 @@ namespace Pulumi.Aws.Evidently
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Evidently.Launch("example", new()
+    ///     var example = new Aws.Evidently.Launch.Launch("example", new()
     ///     {
     ///         Project = aws_evidently_project.Example.Name,
     ///         Description = "example description",
     ///         Groups = new[]
     ///         {
-    ///             new Aws.Evidently.Inputs.LaunchGroupArgs
+    ///             
     ///             {
-    ///                 Feature = aws_evidently_feature.Example.Name,
-    ///                 Name = "Variation1",
-    ///                 Variation = "Variation1",
+    ///                 { "feature", aws_evidently_feature.Example.Name },
+    ///                 { "name", "Variation1" },
+    ///                 { "variation", "Variation1" },
     ///             },
     ///         },
-    ///         ScheduledSplitsConfig = new Aws.Evidently.Inputs.LaunchScheduledSplitsConfigArgs
+    ///         ScheduledSplitsConfig = 
     ///         {
-    ///             Steps = new[]
+    ///             { "steps", new[]
     ///             {
-    ///                 new Aws.Evidently.Inputs.LaunchScheduledSplitsConfigStepArgs
+    ///                 
     ///                 {
-    ///                     GroupWeights = 
+    ///                     { "groupWeights", 
     ///                     {
     ///                         { "Variation1", 0 },
-    ///                     },
-    ///                     StartTime = "2024-01-07 01:43:59+00:00",
+    ///                     } },
+    ///                     { "startTime", "2024-01-07 01:43:59+00:00" },
     ///                 },
-    ///             },
+    ///             } },
     ///         },
     ///     });
     /// 
@@ -104,40 +104,40 @@ namespace Pulumi.Aws.Evidently
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Evidently.Launch("example", new()
+    ///     var example = new Aws.Evidently.Launch.Launch("example", new()
     ///     {
     ///         Project = aws_evidently_project.Example.Name,
     ///         Groups = new[]
     ///         {
-    ///             new Aws.Evidently.Inputs.LaunchGroupArgs
+    ///             
     ///             {
-    ///                 Feature = aws_evidently_feature.Example.Name,
-    ///                 Name = "Variation1",
-    ///                 Variation = "Variation1",
-    ///                 Description = "first-group",
+    ///                 { "feature", aws_evidently_feature.Example.Name },
+    ///                 { "name", "Variation1" },
+    ///                 { "variation", "Variation1" },
+    ///                 { "description", "first-group" },
     ///             },
-    ///             new Aws.Evidently.Inputs.LaunchGroupArgs
+    ///             
     ///             {
-    ///                 Feature = aws_evidently_feature.Example.Name,
-    ///                 Name = "Variation2",
-    ///                 Variation = "Variation2",
-    ///                 Description = "second-group",
+    ///                 { "feature", aws_evidently_feature.Example.Name },
+    ///                 { "name", "Variation2" },
+    ///                 { "variation", "Variation2" },
+    ///                 { "description", "second-group" },
     ///             },
     ///         },
-    ///         ScheduledSplitsConfig = new Aws.Evidently.Inputs.LaunchScheduledSplitsConfigArgs
+    ///         ScheduledSplitsConfig = 
     ///         {
-    ///             Steps = new[]
+    ///             { "steps", new[]
     ///             {
-    ///                 new Aws.Evidently.Inputs.LaunchScheduledSplitsConfigStepArgs
+    ///                 
     ///                 {
-    ///                     GroupWeights = 
+    ///                     { "groupWeights", 
     ///                     {
     ///                         { "Variation1", 0 },
     ///                         { "Variation2", 0 },
-    ///                     },
-    ///                     StartTime = "2024-01-07 01:43:59+00:00",
+    ///                     } },
+    ///                     { "startTime", "2024-01-07 01:43:59+00:00" },
     ///                 },
-    ///             },
+    ///             } },
     ///         },
     ///     });
     /// 
@@ -153,56 +153,56 @@ namespace Pulumi.Aws.Evidently
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Evidently.Launch("example", new()
+    ///     var example = new Aws.Evidently.Launch.Launch("example", new()
     ///     {
     ///         Project = aws_evidently_project.Example.Name,
     ///         Groups = new[]
     ///         {
-    ///             new Aws.Evidently.Inputs.LaunchGroupArgs
+    ///             
     ///             {
-    ///                 Feature = aws_evidently_feature.Example.Name,
-    ///                 Name = "Variation1",
-    ///                 Variation = "Variation1",
+    ///                 { "feature", aws_evidently_feature.Example.Name },
+    ///                 { "name", "Variation1" },
+    ///                 { "variation", "Variation1" },
     ///             },
     ///         },
     ///         MetricMonitors = new[]
     ///         {
-    ///             new Aws.Evidently.Inputs.LaunchMetricMonitorArgs
+    ///             
     ///             {
-    ///                 MetricDefinition = new Aws.Evidently.Inputs.LaunchMetricMonitorMetricDefinitionArgs
+    ///                 { "metricDefinition", 
     ///                 {
-    ///                     EntityIdKey = "entity_id_key1",
-    ///                     EventPattern = "{\"Price\":[{\"numeric\":[\"&gt;\",11,\"&lt;=\",22]}]}",
-    ///                     Name = "name1",
-    ///                     UnitLabel = "unit_label1",
-    ///                     ValueKey = "value_key1",
-    ///                 },
+    ///                     { "entityIdKey", "entity_id_key1" },
+    ///                     { "eventPattern", "{\"Price\":[{\"numeric\":[\"&gt;\",11,\"&lt;=\",22]}]}" },
+    ///                     { "name", "name1" },
+    ///                     { "unitLabel", "unit_label1" },
+    ///                     { "valueKey", "value_key1" },
+    ///                 } },
     ///             },
-    ///             new Aws.Evidently.Inputs.LaunchMetricMonitorArgs
+    ///             
     ///             {
-    ///                 MetricDefinition = new Aws.Evidently.Inputs.LaunchMetricMonitorMetricDefinitionArgs
+    ///                 { "metricDefinition", 
     ///                 {
-    ///                     EntityIdKey = "entity_id_key2",
-    ///                     EventPattern = "{\"Price\":[{\"numeric\":[\"&gt;\",9,\"&lt;=\",19]}]}",
-    ///                     Name = "name2",
-    ///                     UnitLabel = "unit_label2",
-    ///                     ValueKey = "value_key2",
-    ///                 },
+    ///                     { "entityIdKey", "entity_id_key2" },
+    ///                     { "eventPattern", "{\"Price\":[{\"numeric\":[\"&gt;\",9,\"&lt;=\",19]}]}" },
+    ///                     { "name", "name2" },
+    ///                     { "unitLabel", "unit_label2" },
+    ///                     { "valueKey", "value_key2" },
+    ///                 } },
     ///             },
     ///         },
-    ///         ScheduledSplitsConfig = new Aws.Evidently.Inputs.LaunchScheduledSplitsConfigArgs
+    ///         ScheduledSplitsConfig = 
     ///         {
-    ///             Steps = new[]
+    ///             { "steps", new[]
     ///             {
-    ///                 new Aws.Evidently.Inputs.LaunchScheduledSplitsConfigStepArgs
+    ///                 
     ///                 {
-    ///                     GroupWeights = 
+    ///                     { "groupWeights", 
     ///                     {
     ///                         { "Variation1", 0 },
-    ///                     },
-    ///                     StartTime = "2024-01-07 01:43:59+00:00",
+    ///                     } },
+    ///                     { "startTime", "2024-01-07 01:43:59+00:00" },
     ///                 },
-    ///             },
+    ///             } },
     ///         },
     ///     });
     /// 
@@ -218,32 +218,32 @@ namespace Pulumi.Aws.Evidently
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Evidently.Launch("example", new()
+    ///     var example = new Aws.Evidently.Launch.Launch("example", new()
     ///     {
     ///         Project = aws_evidently_project.Example.Name,
     ///         RandomizationSalt = "example randomization salt",
     ///         Groups = new[]
     ///         {
-    ///             new Aws.Evidently.Inputs.LaunchGroupArgs
+    ///             
     ///             {
-    ///                 Feature = aws_evidently_feature.Example.Name,
-    ///                 Name = "Variation1",
-    ///                 Variation = "Variation1",
+    ///                 { "feature", aws_evidently_feature.Example.Name },
+    ///                 { "name", "Variation1" },
+    ///                 { "variation", "Variation1" },
     ///             },
     ///         },
-    ///         ScheduledSplitsConfig = new Aws.Evidently.Inputs.LaunchScheduledSplitsConfigArgs
+    ///         ScheduledSplitsConfig = 
     ///         {
-    ///             Steps = new[]
+    ///             { "steps", new[]
     ///             {
-    ///                 new Aws.Evidently.Inputs.LaunchScheduledSplitsConfigStepArgs
+    ///                 
     ///                 {
-    ///                     GroupWeights = 
+    ///                     { "groupWeights", 
     ///                     {
     ///                         { "Variation1", 0 },
-    ///                     },
-    ///                     StartTime = "2024-01-07 01:43:59+00:00",
+    ///                     } },
+    ///                     { "startTime", "2024-01-07 01:43:59+00:00" },
     ///                 },
-    ///             },
+    ///             } },
     ///         },
     ///     });
     /// 
@@ -259,47 +259,47 @@ namespace Pulumi.Aws.Evidently
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Evidently.Launch("example", new()
+    ///     var example = new Aws.Evidently.Launch.Launch("example", new()
     ///     {
     ///         Project = aws_evidently_project.Example.Name,
     ///         Groups = new[]
     ///         {
-    ///             new Aws.Evidently.Inputs.LaunchGroupArgs
+    ///             
     ///             {
-    ///                 Feature = aws_evidently_feature.Example.Name,
-    ///                 Name = "Variation1",
-    ///                 Variation = "Variation1",
+    ///                 { "feature", aws_evidently_feature.Example.Name },
+    ///                 { "name", "Variation1" },
+    ///                 { "variation", "Variation1" },
     ///             },
-    ///             new Aws.Evidently.Inputs.LaunchGroupArgs
+    ///             
     ///             {
-    ///                 Feature = aws_evidently_feature.Example.Name,
-    ///                 Name = "Variation2",
-    ///                 Variation = "Variation2",
+    ///                 { "feature", aws_evidently_feature.Example.Name },
+    ///                 { "name", "Variation2" },
+    ///                 { "variation", "Variation2" },
     ///             },
     ///         },
-    ///         ScheduledSplitsConfig = new Aws.Evidently.Inputs.LaunchScheduledSplitsConfigArgs
+    ///         ScheduledSplitsConfig = 
     ///         {
-    ///             Steps = new[]
+    ///             { "steps", new[]
     ///             {
-    ///                 new Aws.Evidently.Inputs.LaunchScheduledSplitsConfigStepArgs
+    ///                 
     ///                 {
-    ///                     GroupWeights = 
+    ///                     { "groupWeights", 
     ///                     {
     ///                         { "Variation1", 15 },
     ///                         { "Variation2", 10 },
-    ///                     },
-    ///                     StartTime = "2024-01-07 01:43:59+00:00",
+    ///                     } },
+    ///                     { "startTime", "2024-01-07 01:43:59+00:00" },
     ///                 },
-    ///                 new Aws.Evidently.Inputs.LaunchScheduledSplitsConfigStepArgs
+    ///                 
     ///                 {
-    ///                     GroupWeights = 
+    ///                     { "groupWeights", 
     ///                     {
     ///                         { "Variation1", 20 },
     ///                         { "Variation2", 25 },
-    ///                     },
-    ///                     StartTime = "2024-01-08 01:43:59+00:00",
+    ///                     } },
+    ///                     { "startTime", "2024-01-08 01:43:59+00:00" },
     ///                 },
-    ///             },
+    ///             } },
     ///         },
     ///     });
     /// 
@@ -315,60 +315,60 @@ namespace Pulumi.Aws.Evidently
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Evidently.Launch("example", new()
+    ///     var example = new Aws.Evidently.Launch.Launch("example", new()
     ///     {
     ///         Project = aws_evidently_project.Example.Name,
     ///         Groups = new[]
     ///         {
-    ///             new Aws.Evidently.Inputs.LaunchGroupArgs
+    ///             
     ///             {
-    ///                 Feature = aws_evidently_feature.Example.Name,
-    ///                 Name = "Variation1",
-    ///                 Variation = "Variation1",
+    ///                 { "feature", aws_evidently_feature.Example.Name },
+    ///                 { "name", "Variation1" },
+    ///                 { "variation", "Variation1" },
     ///             },
-    ///             new Aws.Evidently.Inputs.LaunchGroupArgs
+    ///             
     ///             {
-    ///                 Feature = aws_evidently_feature.Example.Name,
-    ///                 Name = "Variation2",
-    ///                 Variation = "Variation2",
+    ///                 { "feature", aws_evidently_feature.Example.Name },
+    ///                 { "name", "Variation2" },
+    ///                 { "variation", "Variation2" },
     ///             },
     ///         },
-    ///         ScheduledSplitsConfig = new Aws.Evidently.Inputs.LaunchScheduledSplitsConfigArgs
+    ///         ScheduledSplitsConfig = 
     ///         {
-    ///             Steps = new[]
+    ///             { "steps", new[]
     ///             {
-    ///                 new Aws.Evidently.Inputs.LaunchScheduledSplitsConfigStepArgs
+    ///                 
     ///                 {
-    ///                     GroupWeights = 
+    ///                     { "groupWeights", 
     ///                     {
     ///                         { "Variation1", 0 },
     ///                         { "Variation2", 0 },
-    ///                     },
-    ///                     SegmentOverrides = new[]
+    ///                     } },
+    ///                     { "segmentOverrides", new[]
     ///                     {
-    ///                         new Aws.Evidently.Inputs.LaunchScheduledSplitsConfigStepSegmentOverrideArgs
+    ///                         
     ///                         {
-    ///                             EvaluationOrder = 1,
-    ///                             Segment = aws_evidently_segment.Example.Name,
-    ///                             Weights = 
+    ///                             { "evaluationOrder", 1 },
+    ///                             { "segment", aws_evidently_segment.Example.Name },
+    ///                             { "weights", 
     ///                             {
     ///                                 { "Variation2", 10000 },
-    ///                             },
+    ///                             } },
     ///                         },
-    ///                         new Aws.Evidently.Inputs.LaunchScheduledSplitsConfigStepSegmentOverrideArgs
+    ///                         
     ///                         {
-    ///                             EvaluationOrder = 2,
-    ///                             Segment = aws_evidently_segment.Example.Name,
-    ///                             Weights = 
+    ///                             { "evaluationOrder", 2 },
+    ///                             { "segment", aws_evidently_segment.Example.Name },
+    ///                             { "weights", 
     ///                             {
     ///                                 { "Variation1", 40000 },
     ///                                 { "Variation2", 30000 },
-    ///                             },
+    ///                             } },
     ///                         },
-    ///                     },
-    ///                     StartTime = "2024-01-08 01:43:59+00:00",
+    ///                     } },
+    ///                     { "startTime", "2024-01-08 01:43:59+00:00" },
     ///                 },
-    ///             },
+    ///             } },
     ///         },
     ///     });
     /// 

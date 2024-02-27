@@ -10,34 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Provides a SageMaker model resource.
  *
- * ## Example Usage
- *
- * Basic usage:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const assumeRole = aws.iam.getPolicyDocument({
- *     statements: [{
- *         actions: ["sts:AssumeRole"],
- *         principals: [{
- *             type: "Service",
- *             identifiers: ["sagemaker.amazonaws.com"],
- *         }],
- *     }],
- * });
- * const exampleRole = new aws.iam.Role("exampleRole", {assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json)});
- * const test = aws.sagemaker.getPrebuiltEcrImage({
- *     repositoryName: "kmeans",
- * });
- * const exampleModel = new aws.sagemaker.Model("exampleModel", {
- *     executionRoleArn: exampleRole.arn,
- *     primaryContainer: {
- *         image: test.then(test => test.registryPath),
- *     },
- * });
- * ```
  * ## Inference Execution Config
  *
  * * `mode` - (Required) How containers in a multi-container are run. The following values are valid `Serial` and `Direct`.

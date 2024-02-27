@@ -33,7 +33,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.organizations.OrganizationArgs;
  * import com.pulumi.aws.cfg.OrganizationConformancePack;
  * import com.pulumi.aws.cfg.OrganizationConformancePackArgs;
- * import com.pulumi.aws.cfg.inputs.OrganizationConformancePackInputParameterArgs;
  * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
@@ -54,10 +53,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleOrganizationConformancePack = new OrganizationConformancePack(&#34;exampleOrganizationConformancePack&#34;, OrganizationConformancePackArgs.builder()        
- *             .inputParameters(OrganizationConformancePackInputParameterArgs.builder()
- *                 .parameterName(&#34;AccessKeysRotatedParameterMaxAccessKeyAge&#34;)
- *                 .parameterValue(&#34;90&#34;)
- *                 .build())
+ *             .inputParameters(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .templateBody(&#34;&#34;&#34;
  * Parameters:
  *   AccessKeysRotatedParameterMaxAccessKeyAge:
@@ -131,11 +127,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleOrganizationConformancePack = new OrganizationConformancePack(&#34;exampleOrganizationConformancePack&#34;, OrganizationConformancePackArgs.builder()        
- *             .templateS3Uri(Output.tuple(exampleBucketV2.bucket(), exampleBucketObjectv2.key()).applyValue(values -&gt; {
- *                 var bucket = values.t1;
- *                 var key = values.t2;
- *                 return String.format(&#34;s3://%s/%s&#34;, bucket,key);
- *             }))
+ *             .templateS3Uri(String.format(&#34;s3://%s/%s&#34;, exampleBucketV2.bucket(),exampleBucketObjectv2.key()))
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(                
  *                     aws_config_configuration_recorder.example(),

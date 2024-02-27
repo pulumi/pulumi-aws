@@ -23,28 +23,26 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/connect"
+//	connect/userHierarchyStructure "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/connect/userHierarchyStructure"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := connect.NewUserHierarchyStructure(ctx, "example", &connect.UserHierarchyStructureArgs{
-//				HierarchyStructure: &connect.UserHierarchyStructureHierarchyStructureArgs{
-//					LevelOne: &connect.UserHierarchyStructureHierarchyStructureLevelOneArgs{
-//						Name: pulumi.String("levelone"),
-//					},
-//				},
-//				InstanceId: pulumi.String("aaaaaaaa-bbbb-cccc-dddd-111111111111"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := connect/userHierarchyStructure.NewUserHierarchyStructure(ctx, "example", &connect/userHierarchyStructure.UserHierarchyStructureArgs{
+// HierarchyStructure: map[string]interface{}{
+// "levelOne": map[string]interface{}{
+// "name": "levelone",
+// },
+// },
+// InstanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### With Five Levels
 //
@@ -53,40 +51,38 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/connect"
+//	connect/userHierarchyStructure "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/connect/userHierarchyStructure"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := connect.NewUserHierarchyStructure(ctx, "example", &connect.UserHierarchyStructureArgs{
-//				HierarchyStructure: &connect.UserHierarchyStructureHierarchyStructureArgs{
-//					LevelFive: &connect.UserHierarchyStructureHierarchyStructureLevelFiveArgs{
-//						Name: pulumi.String("levelfive"),
-//					},
-//					LevelFour: &connect.UserHierarchyStructureHierarchyStructureLevelFourArgs{
-//						Name: pulumi.String("levelfour"),
-//					},
-//					LevelOne: &connect.UserHierarchyStructureHierarchyStructureLevelOneArgs{
-//						Name: pulumi.String("levelone"),
-//					},
-//					LevelThree: &connect.UserHierarchyStructureHierarchyStructureLevelThreeArgs{
-//						Name: pulumi.String("levelthree"),
-//					},
-//					LevelTwo: &connect.UserHierarchyStructureHierarchyStructureLevelTwoArgs{
-//						Name: pulumi.String("leveltwo"),
-//					},
-//				},
-//				InstanceId: pulumi.String("aaaaaaaa-bbbb-cccc-dddd-111111111111"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := connect/userHierarchyStructure.NewUserHierarchyStructure(ctx, "example", &connect/userHierarchyStructure.UserHierarchyStructureArgs{
+// HierarchyStructure: map[string]interface{}{
+// "levelFive": map[string]interface{}{
+// "name": "levelfive",
+// },
+// "levelFour": map[string]interface{}{
+// "name": "levelfour",
+// },
+// "levelOne": map[string]interface{}{
+// "name": "levelone",
+// },
+// "levelThree": map[string]interface{}{
+// "name": "levelthree",
+// },
+// "levelTwo": map[string]interface{}{
+// "name": "leveltwo",
+// },
+// },
+// InstanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -110,13 +110,13 @@ class ListenerCertificate(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_certificate = aws.acm.Certificate("exampleCertificate")
+        example_certificate = aws.acm.certificate.Certificate("exampleCertificate")
         # ...
-        front_end_load_balancer = aws.lb.LoadBalancer("frontEndLoadBalancer")
+        front_end_load_balancer = aws.lb.load_balancer.LoadBalancer("frontEndLoadBalancer")
         # ...
-        front_end_listener = aws.lb.Listener("frontEndListener")
+        front_end_listener = aws.lb.listener.Listener("frontEndListener")
         # ...
-        example_listener_certificate = aws.lb.ListenerCertificate("exampleListenerCertificate",
+        example_listener_certificate = aws.lb.listener_certificate.ListenerCertificate("exampleListenerCertificate",
             listener_arn=front_end_listener.arn,
             certificate_arn=example_certificate.arn)
         ```
@@ -153,13 +153,13 @@ class ListenerCertificate(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_certificate = aws.acm.Certificate("exampleCertificate")
+        example_certificate = aws.acm.certificate.Certificate("exampleCertificate")
         # ...
-        front_end_load_balancer = aws.lb.LoadBalancer("frontEndLoadBalancer")
+        front_end_load_balancer = aws.lb.load_balancer.LoadBalancer("frontEndLoadBalancer")
         # ...
-        front_end_listener = aws.lb.Listener("frontEndListener")
+        front_end_listener = aws.lb.listener.Listener("frontEndListener")
         # ...
-        example_listener_certificate = aws.lb.ListenerCertificate("exampleListenerCertificate",
+        example_listener_certificate = aws.lb.listener_certificate.ListenerCertificate("exampleListenerCertificate",
             listener_arn=front_end_listener.arn,
             certificate_arn=example_certificate.arn)
         ```

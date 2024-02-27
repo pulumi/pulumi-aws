@@ -20,41 +20,40 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/waf"
+//	waf/regexMatchSet "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/waf/regexMatchSet"
+//	waf/regexPatternSet "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/waf/regexPatternSet"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleRegexPatternSet, err := waf.NewRegexPatternSet(ctx, "exampleRegexPatternSet", &waf.RegexPatternSetArgs{
-//				RegexPatternStrings: pulumi.StringArray{
-//					pulumi.String("one"),
-//					pulumi.String("two"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = waf.NewRegexMatchSet(ctx, "exampleRegexMatchSet", &waf.RegexMatchSetArgs{
-//				RegexMatchTuples: waf.RegexMatchSetRegexMatchTupleArray{
-//					&waf.RegexMatchSetRegexMatchTupleArgs{
-//						FieldToMatch: &waf.RegexMatchSetRegexMatchTupleFieldToMatchArgs{
-//							Data: pulumi.String("User-Agent"),
-//							Type: pulumi.String("HEADER"),
-//						},
-//						RegexPatternSetId:  exampleRegexPatternSet.ID(),
-//						TextTransformation: pulumi.String("NONE"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleRegexPatternSet, err := waf/regexPatternSet.NewRegexPatternSet(ctx, "exampleRegexPatternSet", &waf/regexPatternSet.RegexPatternSetArgs{
+// RegexPatternStrings: []string{
+// "one",
+// "two",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = waf/regexMatchSet.NewRegexMatchSet(ctx, "exampleRegexMatchSet", &waf/regexMatchSet.RegexMatchSetArgs{
+// RegexMatchTuples: []map[string]interface{}{
+// map[string]interface{}{
+// "fieldToMatch": map[string]interface{}{
+// "data": "User-Agent",
+// "type": "HEADER",
+// },
+// "regexPatternSetId": exampleRegexPatternSet.Id,
+// "textTransformation": "NONE",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

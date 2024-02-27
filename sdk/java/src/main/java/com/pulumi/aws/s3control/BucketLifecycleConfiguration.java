@@ -31,9 +31,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.s3control.BucketLifecycleConfiguration;
  * import com.pulumi.aws.s3control.BucketLifecycleConfigurationArgs;
- * import com.pulumi.aws.s3control.inputs.BucketLifecycleConfigurationRuleArgs;
- * import com.pulumi.aws.s3control.inputs.BucketLifecycleConfigurationRuleExpirationArgs;
- * import com.pulumi.aws.s3control.inputs.BucketLifecycleConfigurationRuleFilterArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -50,24 +47,8 @@ import javax.annotation.Nullable;
  *         var example = new BucketLifecycleConfiguration(&#34;example&#34;, BucketLifecycleConfigurationArgs.builder()        
  *             .bucket(aws_s3control_bucket.example().arn())
  *             .rules(            
- *                 BucketLifecycleConfigurationRuleArgs.builder()
- *                     .expiration(BucketLifecycleConfigurationRuleExpirationArgs.builder()
- *                         .days(365)
- *                         .build())
- *                     .filter(BucketLifecycleConfigurationRuleFilterArgs.builder()
- *                         .prefix(&#34;logs/&#34;)
- *                         .build())
- *                     .id(&#34;logs&#34;)
- *                     .build(),
- *                 BucketLifecycleConfigurationRuleArgs.builder()
- *                     .expiration(BucketLifecycleConfigurationRuleExpirationArgs.builder()
- *                         .days(7)
- *                         .build())
- *                     .filter(BucketLifecycleConfigurationRuleFilterArgs.builder()
- *                         .prefix(&#34;temp/&#34;)
- *                         .build())
- *                     .id(&#34;temp&#34;)
- *                     .build())
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

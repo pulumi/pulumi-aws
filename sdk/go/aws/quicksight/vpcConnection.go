@@ -24,82 +24,64 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/quicksight"
+//	iam/role "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/iam/role"
+//	quicksight/vpcConnection "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/quicksight/vpcConnection"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"Version": "2012-10-17",
-//				"Statement": []map[string]interface{}{
-//					map[string]interface{}{
-//						"Effect": "Allow",
-//						"Action": "sts:AssumeRole",
-//						"Principal": map[string]interface{}{
-//							"Service": "quicksight.amazonaws.com",
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			tmpJSON1, err := json.Marshal(map[string]interface{}{
-//				"Version": "2012-10-17",
-//				"Statement": []map[string]interface{}{
-//					map[string]interface{}{
-//						"Effect": "Allow",
-//						"Action": []string{
-//							"ec2:CreateNetworkInterface",
-//							"ec2:ModifyNetworkInterfaceAttribute",
-//							"ec2:DeleteNetworkInterface",
-//							"ec2:DescribeSubnets",
-//							"ec2:DescribeSecurityGroups",
-//						},
-//						"Resource": []string{
-//							"*",
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json1 := string(tmpJSON1)
-//			vpcConnectionRole, err := iam.NewRole(ctx, "vpcConnectionRole", &iam.RoleArgs{
-//				AssumeRolePolicy: pulumi.String(json0),
-//				InlinePolicies: iam.RoleInlinePolicyArray{
-//					&iam.RoleInlinePolicyArgs{
-//						Name:   pulumi.String("QuickSightVPCConnectionRolePolicy"),
-//						Policy: pulumi.String(json1),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = quicksight.NewVpcConnection(ctx, "example", &quicksight.VpcConnectionArgs{
-//				VpcConnectionId: pulumi.String("example-connection-id"),
-//				RoleArn:         vpcConnectionRole.Arn,
-//				SecurityGroupIds: pulumi.StringArray{
-//					pulumi.String("sg-00000000000000000"),
-//				},
-//				SubnetIds: pulumi.StringArray{
-//					pulumi.String("subnet-00000000000000000"),
-//					pulumi.String("subnet-00000000000000001"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// vpcConnectionRole, err := iam/role.NewRole(ctx, "vpcConnectionRole", &iam/role.RoleArgs{
+// AssumeRolePolicy: %!v(PANIC=Format method: fatal: An assertion has failed: unlowered function toJSON),
+// InlinePolicies: tmpJSON0, err := json.Marshal(map[string]interface{}{
+// "Version": "2012-10-17",
+// "Statement": []map[string]interface{}{
+// map[string]interface{}{
+// "Effect": "Allow",
+// "Action": []string{
+// "ec2:CreateNetworkInterface",
+// "ec2:ModifyNetworkInterfaceAttribute",
+// "ec2:DeleteNetworkInterface",
+// "ec2:DescribeSubnets",
+// "ec2:DescribeSecurityGroups",
+// },
+// "Resource": []string{
+// "*",
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// json0 := string(tmpJSON0)
+// []map[string]interface{}{
+// map[string]interface{}{
+// "name": "QuickSightVPCConnectionRolePolicy",
+// "policy": json0,
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = quicksight/vpcConnection.NewVpcConnection(ctx, "example", &quicksight/vpcConnection.VpcConnectionArgs{
+// VpcConnectionId: "example-connection-id",
+// RoleArn: vpcConnectionRole.Arn,
+// SecurityGroupIds: []string{
+// "sg-00000000000000000",
+// },
+// SubnetIds: []string{
+// "subnet-00000000000000000",
+// "subnet-00000000000000001",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

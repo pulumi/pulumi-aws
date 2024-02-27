@@ -29,12 +29,12 @@ namespace Pulumi.Aws.Mq
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Mq.Broker("example", new()
+    ///     var example = new Aws.Mq.Broker.Broker("example", new()
     ///     {
-    ///         Configuration = new Aws.Mq.Inputs.BrokerConfigurationArgs
+    ///         Configuration = 
     ///         {
-    ///             Id = aws_mq_configuration.Test.Id,
-    ///             Revision = aws_mq_configuration.Test.Latest_revision,
+    ///             { "id", aws_mq_configuration.Test.Id },
+    ///             { "revision", aws_mq_configuration.Test.Latest_revision },
     ///         },
     ///         EngineType = "ActiveMQ",
     ///         EngineVersion = "5.17.6",
@@ -45,10 +45,10 @@ namespace Pulumi.Aws.Mq
     ///         },
     ///         Users = new[]
     ///         {
-    ///             new Aws.Mq.Inputs.BrokerUserArgs
+    ///             
     ///             {
-    ///                 Username = "ExampleUser",
-    ///                 Password = "MindTheGap",
+    ///                 { "username", "ExampleUser" },
+    ///                 { "password", "MindTheGap" },
     ///             },
     ///         },
     ///     });
@@ -67,12 +67,12 @@ namespace Pulumi.Aws.Mq
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Mq.Broker("example", new()
+    ///     var example = new Aws.Mq.Broker.Broker("example", new()
     ///     {
-    ///         Configuration = new Aws.Mq.Inputs.BrokerConfigurationArgs
+    ///         Configuration = 
     ///         {
-    ///             Id = aws_mq_configuration.Test.Id,
-    ///             Revision = aws_mq_configuration.Test.Latest_revision,
+    ///             { "id", aws_mq_configuration.Test.Id },
+    ///             { "revision", aws_mq_configuration.Test.Latest_revision },
     ///         },
     ///         EngineType = "ActiveMQ",
     ///         EngineVersion = "5.17.6",
@@ -84,10 +84,10 @@ namespace Pulumi.Aws.Mq
     ///         },
     ///         Users = new[]
     ///         {
-    ///             new Aws.Mq.Inputs.BrokerUserArgs
+    ///             
     ///             {
-    ///                 Username = "ExampleUser",
-    ///                 Password = "MindTheGap",
+    ///                 { "username", "ExampleUser" },
+    ///                 { "password", "MindTheGap" },
     ///             },
     ///         },
     ///     });

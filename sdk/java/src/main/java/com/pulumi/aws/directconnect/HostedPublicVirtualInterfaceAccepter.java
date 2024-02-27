@@ -19,62 +19,6 @@ import javax.annotation.Nullable;
  * Provides a resource to manage the accepter&#39;s side of a Direct Connect hosted public virtual interface.
  * This resource accepts ownership of a public virtual interface created by another AWS account.
  * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.Provider;
- * import com.pulumi.aws.AwsFunctions;
- * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
- * import com.pulumi.aws.directconnect.HostedPublicVirtualInterface;
- * import com.pulumi.aws.directconnect.HostedPublicVirtualInterfaceArgs;
- * import com.pulumi.aws.directconnect.HostedPublicVirtualInterfaceAccepter;
- * import com.pulumi.aws.directconnect.HostedPublicVirtualInterfaceAccepterArgs;
- * import com.pulumi.resources.CustomResourceOptions;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var accepter = new Provider(&#34;accepter&#34;);
- * 
- *         final var accepterCallerIdentity = AwsFunctions.getCallerIdentity();
- * 
- *         var creator = new HostedPublicVirtualInterface(&#34;creator&#34;, HostedPublicVirtualInterfaceArgs.builder()        
- *             .connectionId(&#34;dxcon-zzzzzzzz&#34;)
- *             .ownerAccountId(accepterCallerIdentity.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()))
- *             .vlan(4094)
- *             .addressFamily(&#34;ipv4&#34;)
- *             .bgpAsn(65352)
- *             .customerAddress(&#34;175.45.176.1/30&#34;)
- *             .amazonAddress(&#34;175.45.176.2/30&#34;)
- *             .routeFilterPrefixes(            
- *                 &#34;210.52.109.0/24&#34;,
- *                 &#34;175.45.176.0/22&#34;)
- *             .build());
- * 
- *         var accepterHostedPublicVirtualInterfaceAccepter = new HostedPublicVirtualInterfaceAccepter(&#34;accepterHostedPublicVirtualInterfaceAccepter&#34;, HostedPublicVirtualInterfaceAccepterArgs.builder()        
- *             .virtualInterfaceId(creator.id())
- *             .tags(Map.of(&#34;Side&#34;, &#34;Accepter&#34;))
- *             .build(), CustomResourceOptions.builder()
- *                 .provider(aws.accepter())
- *                 .build());
- * 
- *     }
- * }
- * ```
- * 
  * ## Import
  * 
  * Using `pulumi import`, import Direct Connect hosted public virtual interfaces using the VIF `id`. For example:

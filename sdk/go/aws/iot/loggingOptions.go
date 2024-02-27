@@ -21,24 +21,22 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iot"
+//	iot/loggingOptions "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/iot/loggingOptions"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := iot.NewLoggingOptions(ctx, "example", &iot.LoggingOptionsArgs{
-//				DefaultLogLevel: pulumi.String("WARN"),
-//				RoleArn:         pulumi.Any(aws_iam_role.Example.Arn),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := iot/loggingOptions.NewLoggingOptions(ctx, "example", &iot/loggingOptions.LoggingOptionsArgs{
+// DefaultLogLevel: "WARN",
+// RoleArn: aws_iam_role.Example.Arn,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 type LoggingOptions struct {
 	pulumi.CustomResourceState

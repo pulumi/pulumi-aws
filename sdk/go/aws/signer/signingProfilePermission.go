@@ -21,59 +21,58 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/signer"
+//	signer/signingProfile "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/signer/signingProfile"
+//	signer/signingProfilePermission "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/signer/signingProfilePermission"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			prodSp, err := signer.NewSigningProfile(ctx, "prodSp", &signer.SigningProfileArgs{
-//				PlatformId: pulumi.String("AWSLambda-SHA384-ECDSA"),
-//				NamePrefix: pulumi.String("prod_sp_"),
-//				SignatureValidityPeriod: &signer.SigningProfileSignatureValidityPeriodArgs{
-//					Value: pulumi.Int(5),
-//					Type:  pulumi.String("YEARS"),
-//				},
-//				Tags: pulumi.StringMap{
-//					"tag1": pulumi.String("value1"),
-//					"tag2": pulumi.String("value2"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = signer.NewSigningProfilePermission(ctx, "spPermission1", &signer.SigningProfilePermissionArgs{
-//				ProfileName: prodSp.Name,
-//				Action:      pulumi.String("signer:StartSigningJob"),
-//				Principal:   pulumi.Any(_var.Aws_account),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = signer.NewSigningProfilePermission(ctx, "spPermission2", &signer.SigningProfilePermissionArgs{
-//				ProfileName: prodSp.Name,
-//				Action:      pulumi.String("signer:GetSigningProfile"),
-//				Principal:   pulumi.Any(_var.Aws_team_role_arn),
-//				StatementId: pulumi.String("ProdAccountStartSigningJob_StatementId"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = signer.NewSigningProfilePermission(ctx, "spPermission3", &signer.SigningProfilePermissionArgs{
-//				ProfileName:       prodSp.Name,
-//				Action:            pulumi.String("signer:RevokeSignature"),
-//				Principal:         pulumi.String("123456789012"),
-//				ProfileVersion:    prodSp.Version,
-//				StatementIdPrefix: pulumi.String("version-permission-"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// prodSp, err := signer/signingProfile.NewSigningProfile(ctx, "prodSp", &signer/signingProfile.SigningProfileArgs{
+// PlatformId: "AWSLambda-SHA384-ECDSA",
+// NamePrefix: "prod_sp_",
+// SignatureValidityPeriod: map[string]interface{}{
+// "value": 5,
+// "type": "YEARS",
+// },
+// Tags: map[string]interface{}{
+// "tag1": "value1",
+// "tag2": "value2",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = signer/signingProfilePermission.NewSigningProfilePermission(ctx, "spPermission1", &signer/signingProfilePermission.SigningProfilePermissionArgs{
+// ProfileName: prodSp.Name,
+// Action: "signer:StartSigningJob",
+// Principal: _var.Aws_account,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = signer/signingProfilePermission.NewSigningProfilePermission(ctx, "spPermission2", &signer/signingProfilePermission.SigningProfilePermissionArgs{
+// ProfileName: prodSp.Name,
+// Action: "signer:GetSigningProfile",
+// Principal: _var.Aws_team_role_arn,
+// StatementId: "ProdAccountStartSigningJob_StatementId",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = signer/signingProfilePermission.NewSigningProfilePermission(ctx, "spPermission3", &signer/signingProfilePermission.SigningProfilePermissionArgs{
+// ProfileName: prodSp.Name,
+// Action: "signer:RevokeSignature",
+// Principal: "123456789012",
+// ProfileVersion: prodSp.Version,
+// StatementIdPrefix: "version-permission-",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

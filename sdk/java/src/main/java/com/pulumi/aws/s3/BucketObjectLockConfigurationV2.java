@@ -34,11 +34,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.s3.BucketV2;
  * import com.pulumi.aws.s3.BucketVersioningV2;
  * import com.pulumi.aws.s3.BucketVersioningV2Args;
- * import com.pulumi.aws.s3.inputs.BucketVersioningV2VersioningConfigurationArgs;
  * import com.pulumi.aws.s3.BucketObjectLockConfigurationV2;
  * import com.pulumi.aws.s3.BucketObjectLockConfigurationV2Args;
- * import com.pulumi.aws.s3.inputs.BucketObjectLockConfigurationV2RuleArgs;
- * import com.pulumi.aws.s3.inputs.BucketObjectLockConfigurationV2RuleDefaultRetentionArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -56,19 +53,12 @@ import javax.annotation.Nullable;
  * 
  *         var exampleBucketVersioningV2 = new BucketVersioningV2(&#34;exampleBucketVersioningV2&#34;, BucketVersioningV2Args.builder()        
  *             .bucket(exampleBucketV2.id())
- *             .versioningConfiguration(BucketVersioningV2VersioningConfigurationArgs.builder()
- *                 .status(&#34;Enabled&#34;)
- *                 .build())
+ *             .versioningConfiguration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleBucketObjectLockConfigurationV2 = new BucketObjectLockConfigurationV2(&#34;exampleBucketObjectLockConfigurationV2&#34;, BucketObjectLockConfigurationV2Args.builder()        
  *             .bucket(exampleBucketV2.id())
- *             .rule(BucketObjectLockConfigurationV2RuleArgs.builder()
- *                 .defaultRetention(BucketObjectLockConfigurationV2RuleDefaultRetentionArgs.builder()
- *                     .mode(&#34;COMPLIANCE&#34;)
- *                     .days(5)
- *                     .build())
- *                 .build())
+ *             .rule(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

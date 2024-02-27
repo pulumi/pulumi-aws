@@ -15,67 +15,6 @@ import (
 // Resource for managing an AWS Managed Streaming for Kafka Cluster Policy.
 //
 // ## Example Usage
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"encoding/json"
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/msk"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			currentCallerIdentity, err := aws.GetCallerIdentity(ctx, nil, nil)
-//			if err != nil {
-//				return err
-//			}
-//			currentPartition, err := aws.GetPartition(ctx, nil, nil)
-//			if err != nil {
-//				return err
-//			}
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"Version": "2012-10-17",
-//				"Statement": []map[string]interface{}{
-//					map[string]interface{}{
-//						"Sid":    "ExampleMskClusterPolicy",
-//						"Effect": "Allow",
-//						"Principal": map[string]interface{}{
-//							"AWS": fmt.Sprintf("arn:%v:iam::%v:root", currentPartition.Partition, currentCallerIdentity.AccountId),
-//						},
-//						"Action": []string{
-//							"kafka:Describe*",
-//							"kafka:Get*",
-//							"kafka:CreateVpcConnection",
-//							"kafka:GetBootstrapBrokers",
-//						},
-//						"Resource": aws_msk_cluster.Example.Arn,
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			_, err = msk.NewClusterPolicy(ctx, "example", &msk.ClusterPolicyArgs{
-//				ClusterArn: pulumi.Any(aws_msk_cluster.Example.Arn),
-//				Policy:     pulumi.String(json0),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 //
 // ## Import
 //

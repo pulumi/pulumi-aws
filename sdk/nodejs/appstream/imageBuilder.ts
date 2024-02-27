@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const testFleet = new aws.appstream.ImageBuilder("testFleet", {
+ * const testFleet = new aws.appstream/imageBuilder.ImageBuilder("testFleet", {
  *     description: "Description of a ImageBuilder",
  *     displayName: "Display name of a ImageBuilder",
  *     enableDefaultInternetAccess: false,

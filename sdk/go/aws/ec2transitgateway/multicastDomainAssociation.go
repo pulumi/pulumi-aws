@@ -21,47 +21,48 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2transitgateway"
+//	ec2transitgateway/multicastDomain "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2transitgateway/multicastDomain"
+//	ec2transitgateway/multicastDomainAssociation "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2transitgateway/multicastDomainAssociation"
+//	ec2transitgateway/transitGateway "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2transitgateway/transitGateway"
+//	ec2transitgateway/vpcAttachment "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2transitgateway/vpcAttachment"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleTransitGateway, err := ec2transitgateway.NewTransitGateway(ctx, "exampleTransitGateway", &ec2transitgateway.TransitGatewayArgs{
-//				MulticastSupport: pulumi.String("enable"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleVpcAttachment, err := ec2transitgateway.NewVpcAttachment(ctx, "exampleVpcAttachment", &ec2transitgateway.VpcAttachmentArgs{
-//				SubnetIds: pulumi.StringArray{
-//					aws_subnet.Example.Id,
-//				},
-//				TransitGatewayId: exampleTransitGateway.ID(),
-//				VpcId:            pulumi.Any(aws_vpc.Example.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleMulticastDomain, err := ec2transitgateway.NewMulticastDomain(ctx, "exampleMulticastDomain", &ec2transitgateway.MulticastDomainArgs{
-//				TransitGatewayId: exampleTransitGateway.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ec2transitgateway.NewMulticastDomainAssociation(ctx, "exampleMulticastDomainAssociation", &ec2transitgateway.MulticastDomainAssociationArgs{
-//				SubnetId:                        pulumi.Any(aws_subnet.Example.Id),
-//				TransitGatewayAttachmentId:      exampleVpcAttachment.ID(),
-//				TransitGatewayMulticastDomainId: exampleMulticastDomain.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleTransitGateway, err := ec2transitgateway/transitGateway.NewTransitGateway(ctx, "exampleTransitGateway", &ec2transitgateway/transitGateway.TransitGatewayArgs{
+// MulticastSupport: "enable",
+// })
+// if err != nil {
+// return err
+// }
+// exampleVpcAttachment, err := ec2transitgateway/vpcAttachment.NewVpcAttachment(ctx, "exampleVpcAttachment", &ec2transitgateway/vpcAttachment.VpcAttachmentArgs{
+// SubnetIds: []interface{}{
+// aws_subnet.Example.Id,
+// },
+// TransitGatewayId: exampleTransitGateway.Id,
+// VpcId: aws_vpc.Example.Id,
+// })
+// if err != nil {
+// return err
+// }
+// exampleMulticastDomain, err := ec2transitgateway/multicastDomain.NewMulticastDomain(ctx, "exampleMulticastDomain", &ec2transitgateway/multicastDomain.MulticastDomainArgs{
+// TransitGatewayId: exampleTransitGateway.Id,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = ec2transitgateway/multicastDomainAssociation.NewMulticastDomainAssociation(ctx, "exampleMulticastDomainAssociation", &ec2transitgateway/multicastDomainAssociation.MulticastDomainAssociationArgs{
+// SubnetId: aws_subnet.Example.Id,
+// TransitGatewayAttachmentId: exampleVpcAttachment.Id,
+// TransitGatewayMulticastDomainId: exampleMulticastDomain.Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 type MulticastDomainAssociation struct {
 	pulumi.CustomResourceState

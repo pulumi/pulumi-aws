@@ -21,72 +21,6 @@ namespace Pulumi.Aws.Lambda
     /// &gt; To give an external source (like an EventBridge Rule, SNS, or S3) permission to access the Lambda function, use the `aws.lambda.Permission` resource. See [Lambda Permission Model](https://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html) for more details. On the other hand, the `role` argument of this resource is the function's execution role for identity and access to AWS services and resources.
     /// 
     /// ## Example Usage
-    /// ### Basic Example
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Archive = Pulumi.Archive;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var assumeRole = Aws.Iam.GetPolicyDocument.Invoke(new()
-    ///     {
-    ///         Statements = new[]
-    ///         {
-    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
-    ///             {
-    ///                 Effect = "Allow",
-    ///                 Principals = new[]
-    ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
-    ///                     {
-    ///                         Type = "Service",
-    ///                         Identifiers = new[]
-    ///                         {
-    ///                             "lambda.amazonaws.com",
-    ///                         },
-    ///                     },
-    ///                 },
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "sts:AssumeRole",
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var iamForLambda = new Aws.Iam.Role("iamForLambda", new()
-    ///     {
-    ///         AssumeRolePolicy = assumeRole.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
-    ///     });
-    /// 
-    ///     var lambda = Archive.GetFile.Invoke(new()
-    ///     {
-    ///         Type = "zip",
-    ///         SourceFile = "lambda.js",
-    ///         OutputPath = "lambda_function_payload.zip",
-    ///     });
-    /// 
-    ///     var testLambda = new Aws.Lambda.Function("testLambda", new()
-    ///     {
-    ///         Code = new FileArchive("lambda_function_payload.zip"),
-    ///         Role = iamForLambda.Arn,
-    ///         Handler = "index.test",
-    ///         Runtime = "nodejs18.x",
-    ///         Environment = new Aws.Lambda.Inputs.FunctionEnvironmentArgs
-    ///         {
-    ///             Variables = 
-    ///             {
-    ///                 { "foo", "bar" },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// ### Lambda Layers
     /// 
     /// ```csharp
@@ -97,71 +31,14 @@ namespace Pulumi.Aws.Lambda
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleLayerVersion = new Aws.Lambda.LayerVersion("exampleLayerVersion");
+    ///     var exampleLayerVersion = new Aws.Lambda.LayerVersion.LayerVersion("exampleLayerVersion");
     /// 
     ///     // ... other configuration ...
-    ///     var exampleFunction = new Aws.Lambda.Function("exampleFunction", new()
+    ///     var exampleFunction = new Aws.Lambda.Function.Function("exampleFunction", new()
     ///     {
     ///         Layers = new[]
     ///         {
     ///             exampleLayerVersion.Arn,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### Lambda Ephemeral Storage
-    /// 
-    /// Lambda Function Ephemeral Storage(`/tmp`) allows you to configure the storage upto `10` GB. The default value set to `512` MB.
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var assumeRole = Aws.Iam.GetPolicyDocument.Invoke(new()
-    ///     {
-    ///         Statements = new[]
-    ///         {
-    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
-    ///             {
-    ///                 Effect = "Allow",
-    ///                 Principals = new[]
-    ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
-    ///                     {
-    ///                         Type = "Service",
-    ///                         Identifiers = new[]
-    ///                         {
-    ///                             "lambda.amazonaws.com",
-    ///                         },
-    ///                     },
-    ///                 },
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "sts:AssumeRole",
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var iamForLambda = new Aws.Iam.Role("iamForLambda", new()
-    ///     {
-    ///         AssumeRolePolicy = assumeRole.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
-    ///     });
-    /// 
-    ///     var testLambda = new Aws.Lambda.Function("testLambda", new()
-    ///     {
-    ///         Code = new FileArchive("lambda_function_payload.zip"),
-    ///         Role = iamForLambda.Arn,
-    ///         Handler = "index.test",
-    ///         Runtime = "nodejs18.x",
-    ///         EphemeralStorage = new Aws.Lambda.Inputs.FunctionEphemeralStorageArgs
-    ///         {
-    ///             Size = 10240,
     ///         },
     ///     });
     /// 
@@ -180,7 +57,7 @@ namespace Pulumi.Aws.Lambda
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // EFS file system
-    ///     var efsForLambda = new Aws.Efs.FileSystem("efsForLambda", new()
+    ///     var efsForLambda = new Aws.Efs.FileSystem.FileSystem("efsForLambda", new()
     ///     {
     ///         Tags = 
     ///         {
@@ -189,7 +66,7 @@ namespace Pulumi.Aws.Lambda
     ///     });
     /// 
     ///     // Mount target connects the file system to the subnet
-    ///     var alpha = new Aws.Efs.MountTarget("alpha", new()
+    ///     var alpha = new Aws.Efs.MountTarget.MountTarget("alpha", new()
     ///     {
     ///         FileSystemId = efsForLambda.Id,
     ///         SubnetId = aws_subnet.Subnet_for_lambda.Id,
@@ -200,45 +77,45 @@ namespace Pulumi.Aws.Lambda
     ///     });
     /// 
     ///     // EFS access point used by lambda file system
-    ///     var accessPointForLambda = new Aws.Efs.AccessPoint("accessPointForLambda", new()
+    ///     var accessPointForLambda = new Aws.Efs.AccessPoint.AccessPoint("accessPointForLambda", new()
     ///     {
     ///         FileSystemId = efsForLambda.Id,
-    ///         RootDirectory = new Aws.Efs.Inputs.AccessPointRootDirectoryArgs
+    ///         RootDirectory = 
     ///         {
-    ///             Path = "/lambda",
-    ///             CreationInfo = new Aws.Efs.Inputs.AccessPointRootDirectoryCreationInfoArgs
+    ///             { "path", "/lambda" },
+    ///             { "creationInfo", 
     ///             {
-    ///                 OwnerGid = 1000,
-    ///                 OwnerUid = 1000,
-    ///                 Permissions = "777",
-    ///             },
+    ///                 { "ownerGid", 1000 },
+    ///                 { "ownerUid", 1000 },
+    ///                 { "permissions", "777" },
+    ///             } },
     ///         },
-    ///         PosixUser = new Aws.Efs.Inputs.AccessPointPosixUserArgs
+    ///         PosixUser = 
     ///         {
-    ///             Gid = 1000,
-    ///             Uid = 1000,
+    ///             { "gid", 1000 },
+    ///             { "uid", 1000 },
     ///         },
     ///     });
     /// 
     ///     // A lambda function connected to an EFS file system
     ///     // ... other configuration ...
-    ///     var example = new Aws.Lambda.Function("example", new()
+    ///     var example = new Aws.Lambda.Function.Function("example", new()
     ///     {
-    ///         FileSystemConfig = new Aws.Lambda.Inputs.FunctionFileSystemConfigArgs
+    ///         FileSystemConfig = 
     ///         {
-    ///             Arn = accessPointForLambda.Arn,
-    ///             LocalMountPath = "/mnt/efs",
+    ///             { "arn", accessPointForLambda.Arn },
+    ///             { "localMountPath", "/mnt/efs" },
     ///         },
-    ///         VpcConfig = new Aws.Lambda.Inputs.FunctionVpcConfigArgs
+    ///         VpcConfig = 
     ///         {
-    ///             SubnetIds = new[]
+    ///             { "subnetIds", new[]
     ///             {
     ///                 aws_subnet.Subnet_for_lambda.Id,
-    ///             },
-    ///             SecurityGroupIds = new[]
+    ///             } },
+    ///             { "securityGroupIds", new[]
     ///             {
     ///                 aws_security_group.Sg_for_lambda.Id,
-    ///             },
+    ///             } },
     ///         },
     ///     }, new CustomResourceOptions
     ///     {
@@ -253,78 +130,6 @@ namespace Pulumi.Aws.Lambda
     /// ### Lambda retries
     /// 
     /// Lambda Functions allow you to configure error handling for asynchronous invocation. The settings that it supports are `Maximum age of event` and `Retry attempts` as stated in [Lambda documentation for Configuring error handling for asynchronous invocation](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-errors). To configure these settings, refer to the aws.lambda.FunctionEventInvokeConfig resource.
-    /// ### CloudWatch Logging and Permissions
-    /// 
-    /// For more information about CloudWatch Logs for Lambda, see the [Lambda User Guide](https://docs.aws.amazon.com/lambda/latest/dg/monitoring-functions-logs.html).
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var config = new Config();
-    ///     var lambdaFunctionName = config.Get("lambdaFunctionName") ?? "lambda_function_name";
-    ///     // This is to optionally manage the CloudWatch Log Group for the Lambda Function.
-    ///     // If skipping this resource configuration, also add "logs:CreateLogGroup" to the IAM policy below.
-    ///     var example = new Aws.CloudWatch.LogGroup("example", new()
-    ///     {
-    ///         RetentionInDays = 14,
-    ///     });
-    /// 
-    ///     var lambdaLoggingPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
-    ///     {
-    ///         Statements = new[]
-    ///         {
-    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
-    ///             {
-    ///                 Effect = "Allow",
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "logs:CreateLogGroup",
-    ///                     "logs:CreateLogStream",
-    ///                     "logs:PutLogEvents",
-    ///                 },
-    ///                 Resources = new[]
-    ///                 {
-    ///                     "arn:aws:logs:*:*:*",
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var lambdaLoggingPolicy = new Aws.Iam.Policy("lambdaLoggingPolicy", new()
-    ///     {
-    ///         Path = "/",
-    ///         Description = "IAM policy for logging from a lambda",
-    ///         PolicyDocument = lambdaLoggingPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
-    ///     });
-    /// 
-    ///     var lambdaLogs = new Aws.Iam.RolePolicyAttachment("lambdaLogs", new()
-    ///     {
-    ///         Role = aws_iam_role.Iam_for_lambda.Name,
-    ///         PolicyArn = lambdaLoggingPolicy.Arn,
-    ///     });
-    /// 
-    ///     var testLambda = new Aws.Lambda.Function("testLambda", new()
-    ///     {
-    ///         LoggingConfig = new Aws.Lambda.Inputs.FunctionLoggingConfigArgs
-    ///         {
-    ///             LogFormat = "Text",
-    ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             lambdaLogs,
-    ///             example,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// ## Specifying the Deployment Package
     /// 
     /// AWS Lambda expects source code to be provided as a deployment package whose structure varies depending on which `runtime` is in use. See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for the valid values of `runtime`. The expected structure of the deployment package can be found in [the AWS Lambda documentation for each runtime](https://docs.aws.amazon.com/lambda/latest/dg/deployment-package-v2.html).

@@ -26,7 +26,7 @@ namespace Pulumi.Aws.Lambda
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var lambdaLayerPermission = new Aws.Lambda.LayerVersionPermission("lambdaLayerPermission", new()
+    ///     var lambdaLayerPermission = new Aws.Lambda.LayerVersionPermission.LayerVersionPermission("lambdaLayerPermission", new()
     ///     {
     ///         Action = "lambda:GetLayerVersion",
     ///         LayerName = "arn:aws:lambda:us-west-2:123456654321:layer:test_layer1",

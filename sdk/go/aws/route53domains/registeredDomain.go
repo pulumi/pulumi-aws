@@ -25,34 +25,32 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53domains"
+//	route53domains/registeredDomain "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/route53domains/registeredDomain"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := route53domains.NewRegisteredDomain(ctx, "example", &route53domains.RegisteredDomainArgs{
-//				DomainName: pulumi.String("example.com"),
-//				NameServers: route53domains.RegisteredDomainNameServerArray{
-//					&route53domains.RegisteredDomainNameServerArgs{
-//						Name: pulumi.String("ns-195.awsdns-24.com"),
-//					},
-//					&route53domains.RegisteredDomainNameServerArgs{
-//						Name: pulumi.String("ns-874.awsdns-45.net"),
-//					},
-//				},
-//				Tags: pulumi.StringMap{
-//					"Environment": pulumi.String("test"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := route53domains/registeredDomain.NewRegisteredDomain(ctx, "example", &route53domains/registeredDomain.RegisteredDomainArgs{
+// DomainName: "example.com",
+// NameServers: []map[string]interface{}{
+// map[string]interface{}{
+// "name": "ns-195.awsdns-24.com",
+// },
+// map[string]interface{}{
+// "name": "ns-874.awsdns-45.net",
+// },
+// },
+// Tags: map[string]interface{}{
+// "Environment": "test",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

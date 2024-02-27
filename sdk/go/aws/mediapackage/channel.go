@@ -21,24 +21,22 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/mediapackage"
+//	mediapackage/channel "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/mediapackage/channel"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := mediapackage.NewChannel(ctx, "kittens", &mediapackage.ChannelArgs{
-//				ChannelId:   pulumi.String("kitten-channel"),
-//				Description: pulumi.String("A channel dedicated to amusing videos of kittens."),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := mediapackage/channel.NewChannel(ctx, "kittens", &mediapackage/channel.ChannelArgs{
+// ChannelId: "kitten-channel",
+// Description: "A channel dedicated to amusing videos of kittens.",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

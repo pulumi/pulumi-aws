@@ -23,7 +23,7 @@ namespace Pulumi.Aws.Synthetics
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Synthetics.GroupAssociation("example", new()
+    ///     var example = new Aws.Synthetics.GroupAssociation.GroupAssociation("example", new()
     ///     {
     ///         GroupName = aws_synthetics_group.Example.Name,
     ///         CanaryArn = aws_synthetics_canary.Example.Arn,

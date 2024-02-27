@@ -117,9 +117,9 @@ class PrincipalAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_resource_share = aws.ram.ResourceShare("exampleResourceShare", allow_external_principals=True)
-        example_principal_association = aws.ram.PrincipalAssociation("examplePrincipalAssociation",
-            principal="111111111111",
+        example_resource_share = aws.ram.resource_share.ResourceShare("exampleResourceShare", allow_external_principals=True)
+        example_principal_association = aws.ram.principal_association.PrincipalAssociation("examplePrincipalAssociation",
+            principal=111111111111,
             resource_share_arn=example_resource_share.arn)
         ```
         ### AWS Organization
@@ -128,9 +128,9 @@ class PrincipalAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ram.PrincipalAssociation("example",
-            principal=aws_organizations_organization["example"]["arn"],
-            resource_share_arn=aws_ram_resource_share["example"]["arn"])
+        example = aws.ram.principal_association.PrincipalAssociation("example",
+            principal=aws_organizations_organization.example.arn,
+            resource_share_arn=aws_ram_resource_share.example.arn)
         ```
 
         ## Import
@@ -172,9 +172,9 @@ class PrincipalAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_resource_share = aws.ram.ResourceShare("exampleResourceShare", allow_external_principals=True)
-        example_principal_association = aws.ram.PrincipalAssociation("examplePrincipalAssociation",
-            principal="111111111111",
+        example_resource_share = aws.ram.resource_share.ResourceShare("exampleResourceShare", allow_external_principals=True)
+        example_principal_association = aws.ram.principal_association.PrincipalAssociation("examplePrincipalAssociation",
+            principal=111111111111,
             resource_share_arn=example_resource_share.arn)
         ```
         ### AWS Organization
@@ -183,9 +183,9 @@ class PrincipalAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ram.PrincipalAssociation("example",
-            principal=aws_organizations_organization["example"]["arn"],
-            resource_share_arn=aws_ram_resource_share["example"]["arn"])
+        example = aws.ram.principal_association.PrincipalAssociation("example",
+            principal=aws_organizations_organization.example.arn,
+            resource_share_arn=aws_ram_resource_share.example.arn)
         ```
 
         ## Import

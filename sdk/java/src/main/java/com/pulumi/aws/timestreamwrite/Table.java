@@ -61,7 +61,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.timestreamwrite.Table;
  * import com.pulumi.aws.timestreamwrite.TableArgs;
- * import com.pulumi.aws.timestreamwrite.inputs.TableRetentionPropertiesArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -78,11 +77,8 @@ import javax.annotation.Nullable;
  *         var example = new Table(&#34;example&#34;, TableArgs.builder()        
  *             .databaseName(aws_timestreamwrite_database.example().database_name())
  *             .tableName(&#34;example&#34;)
- *             .retentionProperties(TableRetentionPropertiesArgs.builder()
- *                 .magneticStoreRetentionPeriodInDays(30)
- *                 .memoryStoreRetentionPeriodInHours(8)
- *                 .build())
- *             .tags(Map.of(&#34;Name&#34;, &#34;example-timestream-table&#34;))
+ *             .retentionProperties(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -97,8 +93,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.timestreamwrite.Table;
  * import com.pulumi.aws.timestreamwrite.TableArgs;
- * import com.pulumi.aws.timestreamwrite.inputs.TableSchemaArgs;
- * import com.pulumi.aws.timestreamwrite.inputs.TableSchemaCompositePartitionKeyArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -115,13 +109,7 @@ import javax.annotation.Nullable;
  *         var example = new Table(&#34;example&#34;, TableArgs.builder()        
  *             .databaseName(aws_timestreamwrite_database.example().database_name())
  *             .tableName(&#34;example&#34;)
- *             .schema(TableSchemaArgs.builder()
- *                 .compositePartitionKey(TableSchemaCompositePartitionKeyArgs.builder()
- *                     .enforcementInRecord(&#34;REQUIRED&#34;)
- *                     .name(&#34;attr1&#34;)
- *                     .type(&#34;DIMENSION&#34;)
- *                     .build())
- *                 .build())
+ *             .schema(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

@@ -23,36 +23,35 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/guardduty"
+//	guardduty/detector "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/guardduty/detector"
+//	guardduty/organizationConfigurationFeature "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/guardduty/organizationConfigurationFeature"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := guardduty.NewDetector(ctx, "example", &guardduty.DetectorArgs{
-//				Enable: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = guardduty.NewOrganizationConfigurationFeature(ctx, "eksRuntimeMonitoring", &guardduty.OrganizationConfigurationFeatureArgs{
-//				DetectorId: example.ID(),
-//				AutoEnable: pulumi.String("ALL"),
-//				AdditionalConfigurations: guardduty.OrganizationConfigurationFeatureAdditionalConfigurationArray{
-//					&guardduty.OrganizationConfigurationFeatureAdditionalConfigurationArgs{
-//						Name:       pulumi.String("EKS_ADDON_MANAGEMENT"),
-//						AutoEnable: pulumi.String("NEW"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := guardduty/detector.NewDetector(ctx, "example", &guardduty/detector.DetectorArgs{
+// Enable: true,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = guardduty/organizationConfigurationFeature.NewOrganizationConfigurationFeature(ctx, "eksRuntimeMonitoring", &guardduty/organizationConfigurationFeature.OrganizationConfigurationFeatureArgs{
+// DetectorId: example.Id,
+// AutoEnable: "ALL",
+// AdditionalConfigurations: []map[string]interface{}{
+// map[string]interface{}{
+// "name": "EKS_ADDON_MANAGEMENT",
+// "autoEnable": "NEW",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 type OrganizationConfigurationFeature struct {
 	pulumi.CustomResourceState

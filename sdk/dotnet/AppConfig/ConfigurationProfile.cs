@@ -22,17 +22,17 @@ namespace Pulumi.Aws.AppConfig
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.AppConfig.ConfigurationProfile("example", new()
+    ///     var example = new Aws.Appconfig.ConfigurationProfile.ConfigurationProfile("example", new()
     ///     {
     ///         ApplicationId = aws_appconfig_application.Example.Id,
     ///         Description = "Example Configuration Profile",
     ///         LocationUri = "hosted",
     ///         Validators = new[]
     ///         {
-    ///             new Aws.AppConfig.Inputs.ConfigurationProfileValidatorArgs
+    ///             
     ///             {
-    ///                 Content = aws_lambda_function.Example.Arn,
-    ///                 Type = "LAMBDA",
+    ///                 { "content", aws_lambda_function.Example.Arn },
+    ///                 { "type", "LAMBDA" },
     ///             },
     ///         },
     ///         Tags = 

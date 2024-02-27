@@ -280,17 +280,17 @@ class Workgroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.athena.Workgroup("example", configuration=aws.athena.WorkgroupConfigurationArgs(
-            enforce_workgroup_configuration=True,
-            publish_cloudwatch_metrics_enabled=True,
-            result_configuration=aws.athena.WorkgroupConfigurationResultConfigurationArgs(
-                output_location=f"s3://{aws_s3_bucket['example']['bucket']}/output/",
-                encryption_configuration=aws.athena.WorkgroupConfigurationResultConfigurationEncryptionConfigurationArgs(
-                    encryption_option="SSE_KMS",
-                    kms_key_arn=aws_kms_key["example"]["arn"],
-                ),
-            ),
-        ))
+        example = aws.athena.workgroup.Workgroup("example", configuration={
+            enforceWorkgroupConfiguration: True,
+            publishCloudwatchMetricsEnabled: True,
+            resultConfiguration: {
+                outputLocation: fs3://{aws_s3_bucket.example.bucket}/output/,
+                encryptionConfiguration: {
+                    encryptionOption: SSE_KMS,
+                    kmsKeyArn: aws_kms_key.example.arn,
+                },
+            },
+        })
         ```
 
         ## Import
@@ -325,17 +325,17 @@ class Workgroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.athena.Workgroup("example", configuration=aws.athena.WorkgroupConfigurationArgs(
-            enforce_workgroup_configuration=True,
-            publish_cloudwatch_metrics_enabled=True,
-            result_configuration=aws.athena.WorkgroupConfigurationResultConfigurationArgs(
-                output_location=f"s3://{aws_s3_bucket['example']['bucket']}/output/",
-                encryption_configuration=aws.athena.WorkgroupConfigurationResultConfigurationEncryptionConfigurationArgs(
-                    encryption_option="SSE_KMS",
-                    kms_key_arn=aws_kms_key["example"]["arn"],
-                ),
-            ),
-        ))
+        example = aws.athena.workgroup.Workgroup("example", configuration={
+            enforceWorkgroupConfiguration: True,
+            publishCloudwatchMetricsEnabled: True,
+            resultConfiguration: {
+                outputLocation: fs3://{aws_s3_bucket.example.bucket}/output/,
+                encryptionConfiguration: {
+                    encryptionOption: SSE_KMS,
+                    kmsKeyArn: aws_kms_key.example.arn,
+                },
+            },
+        })
         ```
 
         ## Import

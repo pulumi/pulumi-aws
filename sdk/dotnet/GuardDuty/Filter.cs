@@ -22,44 +22,44 @@ namespace Pulumi.Aws.GuardDuty
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var myFilter = new Aws.GuardDuty.Filter("myFilter", new()
+    ///     var myFilter = new Aws.Guardduty.Filter.Filter("myFilter", new()
     ///     {
     ///         Action = "ARCHIVE",
     ///         DetectorId = aws_guardduty_detector.Example.Id,
     ///         Rank = 1,
-    ///         FindingCriteria = new Aws.GuardDuty.Inputs.FilterFindingCriteriaArgs
+    ///         FindingCriteria = 
     ///         {
-    ///             Criterions = new[]
+    ///             { "criterions", new[]
     ///             {
-    ///                 new Aws.GuardDuty.Inputs.FilterFindingCriteriaCriterionArgs
+    ///                 
     ///                 {
-    ///                     Field = "region",
-    ///                     Equals = new[]
+    ///                     { "field", "region" },
+    ///                     { "equals", new[]
     ///                     {
     ///                         "eu-west-1",
-    ///                     },
+    ///                     } },
     ///                 },
-    ///                 new Aws.GuardDuty.Inputs.FilterFindingCriteriaCriterionArgs
+    ///                 
     ///                 {
-    ///                     Field = "service.additionalInfo.threatListName",
-    ///                     NotEquals = new[]
+    ///                     { "field", "service.additionalInfo.threatListName" },
+    ///                     { "notEquals", new[]
     ///                     {
     ///                         "some-threat",
     ///                         "another-threat",
-    ///                     },
+    ///                     } },
     ///                 },
-    ///                 new Aws.GuardDuty.Inputs.FilterFindingCriteriaCriterionArgs
+    ///                 
     ///                 {
-    ///                     Field = "updatedAt",
-    ///                     GreaterThan = "2020-01-01T00:00:00Z",
-    ///                     LessThan = "2020-02-01T00:00:00Z",
+    ///                     { "field", "updatedAt" },
+    ///                     { "greaterThan", "2020-01-01T00:00:00Z" },
+    ///                     { "lessThan", "2020-02-01T00:00:00Z" },
     ///                 },
-    ///                 new Aws.GuardDuty.Inputs.FilterFindingCriteriaCriterionArgs
+    ///                 
     ///                 {
-    ///                     Field = "severity",
-    ///                     GreaterThanOrEqual = "4",
+    ///                     { "field", "severity" },
+    ///                     { "greaterThanOrEqual", "4" },
     ///                 },
-    ///             },
+    ///             } },
     ///         },
     ///     });
     /// 

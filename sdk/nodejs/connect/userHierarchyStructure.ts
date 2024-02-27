@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.connect.UserHierarchyStructure("example", {
+ * const example = new aws.connect/userHierarchyStructure.UserHierarchyStructure("example", {
  *     hierarchyStructure: {
  *         levelOne: {
  *             name: "levelone",
@@ -33,7 +33,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.connect.UserHierarchyStructure("example", {
+ * const example = new aws.connect/userHierarchyStructure.UserHierarchyStructure("example", {
  *     hierarchyStructure: {
  *         levelFive: {
  *             name: "levelfive",

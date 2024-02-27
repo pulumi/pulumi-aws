@@ -96,7 +96,7 @@ class Domain(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        domain_test = aws.lightsail.Domain("domainTest", domain_name="mydomain.com")
+        domain_test = aws.lightsail.domain.Domain("domainTest", domain_name=mydomain.com)
         ```
 
         :param str resource_name: The name of the resource.
@@ -124,7 +124,7 @@ class Domain(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        domain_test = aws.lightsail.Domain("domainTest", domain_name="mydomain.com")
+        domain_test = aws.lightsail.domain.Domain("domainTest", domain_name=mydomain.com)
         ```
 
         :param str resource_name: The name of the resource.

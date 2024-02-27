@@ -8,6 +8,18 @@ import * as utilities from "../utilities";
  * Provides a AWS Transfer AS2 Profile resource.
  *
  * ## Example Usage
+ * ### Basic
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.transfer/profile.Profile("example", {
+ *     as2Id: "example",
+ *     certificateIds: [aws_transfer_certificate.example.certificate_id],
+ *     usage: "LOCAL",
+ * });
+ * ```
  *
  * ## Import
  *

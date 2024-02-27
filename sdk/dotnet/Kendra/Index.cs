@@ -23,7 +23,7 @@ namespace Pulumi.Aws.Kendra
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Kendra.Index("example", new()
+    ///     var example = new Aws.Kendra.Index.Index("example", new()
     ///     {
     ///         Description = "example",
     ///         Edition = "DEVELOPER_EDITION",
@@ -46,14 +46,14 @@ namespace Pulumi.Aws.Kendra
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Kendra.Index("example", new()
+    ///     var example = new Aws.Kendra.Index.Index("example", new()
     ///     {
     ///         Edition = "DEVELOPER_EDITION",
     ///         RoleArn = aws_iam_role.This.Arn,
-    ///         CapacityUnits = new Aws.Kendra.Inputs.IndexCapacityUnitsArgs
+    ///         CapacityUnits = 
     ///         {
-    ///             QueryCapacityUnits = 2,
-    ///             StorageCapacityUnits = 2,
+    ///             { "queryCapacityUnits", 2 },
+    ///             { "storageCapacityUnits", 2 },
     ///         },
     ///     });
     /// 
@@ -69,12 +69,12 @@ namespace Pulumi.Aws.Kendra
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Kendra.Index("example", new()
+    ///     var example = new Aws.Kendra.Index.Index("example", new()
     ///     {
     ///         RoleArn = aws_iam_role.This.Arn,
-    ///         ServerSideEncryptionConfiguration = new Aws.Kendra.Inputs.IndexServerSideEncryptionConfigurationArgs
+    ///         ServerSideEncryptionConfiguration = 
     ///         {
-    ///             KmsKeyId = data.Aws_kms_key.This.Arn,
+    ///             { "kmsKeyId", data.Aws_kms_key.This.Arn },
     ///         },
     ///     });
     /// 
@@ -90,12 +90,12 @@ namespace Pulumi.Aws.Kendra
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Kendra.Index("example", new()
+    ///     var example = new Aws.Kendra.Index.Index("example", new()
     ///     {
     ///         RoleArn = aws_iam_role.This.Arn,
-    ///         UserGroupResolutionConfiguration = new Aws.Kendra.Inputs.IndexUserGroupResolutionConfigurationArgs
+    ///         UserGroupResolutionConfiguration = 
     ///         {
-    ///             UserGroupResolutionMode = "AWS_SSO",
+    ///             { "userGroupResolutionMode", "AWS_SSO" },
     ///         },
     ///     });
     /// 
@@ -114,251 +114,251 @@ namespace Pulumi.Aws.Kendra
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Kendra.Index("example", new()
+    ///     var example = new Aws.Kendra.Index.Index("example", new()
     ///     {
     ///         RoleArn = aws_iam_role.This.Arn,
     ///         DocumentMetadataConfigurationUpdates = new[]
     ///         {
-    ///             new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateArgs
+    ///             
     ///             {
-    ///                 Name = "_authors",
-    ///                 Type = "STRING_LIST_VALUE",
-    ///                 Search = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateSearchArgs
+    ///                 { "name", "_authors" },
+    ///                 { "type", "STRING_LIST_VALUE" },
+    ///                 { "search", 
     ///                 {
-    ///                     Displayable = false,
-    ///                     Facetable = false,
-    ///                     Searchable = false,
-    ///                     Sortable = false,
-    ///                 },
-    ///                 Relevance = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateRelevanceArgs
+    ///                     { "displayable", false },
+    ///                     { "facetable", false },
+    ///                     { "searchable", false },
+    ///                     { "sortable", false },
+    ///                 } },
+    ///                 { "relevance", 
     ///                 {
-    ///                     Importance = 1,
-    ///                 },
+    ///                     { "importance", 1 },
+    ///                 } },
     ///             },
-    ///             new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateArgs
+    ///             
     ///             {
-    ///                 Name = "_category",
-    ///                 Type = "STRING_VALUE",
-    ///                 Search = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateSearchArgs
+    ///                 { "name", "_category" },
+    ///                 { "type", "STRING_VALUE" },
+    ///                 { "search", 
     ///                 {
-    ///                     Displayable = false,
-    ///                     Facetable = false,
-    ///                     Searchable = false,
-    ///                     Sortable = true,
-    ///                 },
-    ///                 Relevance = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateRelevanceArgs
+    ///                     { "displayable", false },
+    ///                     { "facetable", false },
+    ///                     { "searchable", false },
+    ///                     { "sortable", true },
+    ///                 } },
+    ///                 { "relevance", 
     ///                 {
-    ///                     Importance = 1,
-    ///                     ValuesImportanceMap = null,
-    ///                 },
+    ///                     { "importance", 1 },
+    ///                     { "valuesImportanceMap", null },
+    ///                 } },
     ///             },
-    ///             new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateArgs
+    ///             
     ///             {
-    ///                 Name = "_created_at",
-    ///                 Type = "DATE_VALUE",
-    ///                 Search = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateSearchArgs
+    ///                 { "name", "_created_at" },
+    ///                 { "type", "DATE_VALUE" },
+    ///                 { "search", 
     ///                 {
-    ///                     Displayable = false,
-    ///                     Facetable = false,
-    ///                     Searchable = false,
-    ///                     Sortable = true,
-    ///                 },
-    ///                 Relevance = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateRelevanceArgs
+    ///                     { "displayable", false },
+    ///                     { "facetable", false },
+    ///                     { "searchable", false },
+    ///                     { "sortable", true },
+    ///                 } },
+    ///                 { "relevance", 
     ///                 {
-    ///                     Freshness = false,
-    ///                     Importance = 1,
-    ///                     Duration = "25920000s",
-    ///                     RankOrder = "ASCENDING",
-    ///                 },
+    ///                     { "freshness", false },
+    ///                     { "importance", 1 },
+    ///                     { "duration", "25920000s" },
+    ///                     { "rankOrder", "ASCENDING" },
+    ///                 } },
     ///             },
-    ///             new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateArgs
+    ///             
     ///             {
-    ///                 Name = "_data_source_id",
-    ///                 Type = "STRING_VALUE",
-    ///                 Search = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateSearchArgs
+    ///                 { "name", "_data_source_id" },
+    ///                 { "type", "STRING_VALUE" },
+    ///                 { "search", 
     ///                 {
-    ///                     Displayable = false,
-    ///                     Facetable = false,
-    ///                     Searchable = false,
-    ///                     Sortable = true,
-    ///                 },
-    ///                 Relevance = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateRelevanceArgs
+    ///                     { "displayable", false },
+    ///                     { "facetable", false },
+    ///                     { "searchable", false },
+    ///                     { "sortable", true },
+    ///                 } },
+    ///                 { "relevance", 
     ///                 {
-    ///                     Importance = 1,
-    ///                     ValuesImportanceMap = null,
-    ///                 },
+    ///                     { "importance", 1 },
+    ///                     { "valuesImportanceMap", null },
+    ///                 } },
     ///             },
-    ///             new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateArgs
+    ///             
     ///             {
-    ///                 Name = "_document_title",
-    ///                 Type = "STRING_VALUE",
-    ///                 Search = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateSearchArgs
+    ///                 { "name", "_document_title" },
+    ///                 { "type", "STRING_VALUE" },
+    ///                 { "search", 
     ///                 {
-    ///                     Displayable = true,
-    ///                     Facetable = false,
-    ///                     Searchable = true,
-    ///                     Sortable = true,
-    ///                 },
-    ///                 Relevance = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateRelevanceArgs
+    ///                     { "displayable", true },
+    ///                     { "facetable", false },
+    ///                     { "searchable", true },
+    ///                     { "sortable", true },
+    ///                 } },
+    ///                 { "relevance", 
     ///                 {
-    ///                     Importance = 2,
-    ///                     ValuesImportanceMap = null,
-    ///                 },
+    ///                     { "importance", 2 },
+    ///                     { "valuesImportanceMap", null },
+    ///                 } },
     ///             },
-    ///             new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateArgs
+    ///             
     ///             {
-    ///                 Name = "_excerpt_page_number",
-    ///                 Type = "LONG_VALUE",
-    ///                 Search = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateSearchArgs
+    ///                 { "name", "_excerpt_page_number" },
+    ///                 { "type", "LONG_VALUE" },
+    ///                 { "search", 
     ///                 {
-    ///                     Displayable = false,
-    ///                     Facetable = false,
-    ///                     Searchable = false,
-    ///                     Sortable = false,
-    ///                 },
-    ///                 Relevance = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateRelevanceArgs
+    ///                     { "displayable", false },
+    ///                     { "facetable", false },
+    ///                     { "searchable", false },
+    ///                     { "sortable", false },
+    ///                 } },
+    ///                 { "relevance", 
     ///                 {
-    ///                     Importance = 2,
-    ///                     RankOrder = "ASCENDING",
-    ///                 },
+    ///                     { "importance", 2 },
+    ///                     { "rankOrder", "ASCENDING" },
+    ///                 } },
     ///             },
-    ///             new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateArgs
+    ///             
     ///             {
-    ///                 Name = "_faq_id",
-    ///                 Type = "STRING_VALUE",
-    ///                 Search = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateSearchArgs
+    ///                 { "name", "_faq_id" },
+    ///                 { "type", "STRING_VALUE" },
+    ///                 { "search", 
     ///                 {
-    ///                     Displayable = false,
-    ///                     Facetable = false,
-    ///                     Searchable = false,
-    ///                     Sortable = true,
-    ///                 },
-    ///                 Relevance = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateRelevanceArgs
+    ///                     { "displayable", false },
+    ///                     { "facetable", false },
+    ///                     { "searchable", false },
+    ///                     { "sortable", true },
+    ///                 } },
+    ///                 { "relevance", 
     ///                 {
-    ///                     Importance = 1,
-    ///                     ValuesImportanceMap = null,
-    ///                 },
+    ///                     { "importance", 1 },
+    ///                     { "valuesImportanceMap", null },
+    ///                 } },
     ///             },
-    ///             new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateArgs
+    ///             
     ///             {
-    ///                 Name = "_file_type",
-    ///                 Type = "STRING_VALUE",
-    ///                 Search = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateSearchArgs
+    ///                 { "name", "_file_type" },
+    ///                 { "type", "STRING_VALUE" },
+    ///                 { "search", 
     ///                 {
-    ///                     Displayable = false,
-    ///                     Facetable = false,
-    ///                     Searchable = false,
-    ///                     Sortable = true,
-    ///                 },
-    ///                 Relevance = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateRelevanceArgs
+    ///                     { "displayable", false },
+    ///                     { "facetable", false },
+    ///                     { "searchable", false },
+    ///                     { "sortable", true },
+    ///                 } },
+    ///                 { "relevance", 
     ///                 {
-    ///                     Importance = 1,
-    ///                     ValuesImportanceMap = null,
-    ///                 },
+    ///                     { "importance", 1 },
+    ///                     { "valuesImportanceMap", null },
+    ///                 } },
     ///             },
-    ///             new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateArgs
+    ///             
     ///             {
-    ///                 Name = "_language_code",
-    ///                 Type = "STRING_VALUE",
-    ///                 Search = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateSearchArgs
+    ///                 { "name", "_language_code" },
+    ///                 { "type", "STRING_VALUE" },
+    ///                 { "search", 
     ///                 {
-    ///                     Displayable = false,
-    ///                     Facetable = false,
-    ///                     Searchable = false,
-    ///                     Sortable = true,
-    ///                 },
-    ///                 Relevance = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateRelevanceArgs
+    ///                     { "displayable", false },
+    ///                     { "facetable", false },
+    ///                     { "searchable", false },
+    ///                     { "sortable", true },
+    ///                 } },
+    ///                 { "relevance", 
     ///                 {
-    ///                     Importance = 1,
-    ///                     ValuesImportanceMap = null,
-    ///                 },
+    ///                     { "importance", 1 },
+    ///                     { "valuesImportanceMap", null },
+    ///                 } },
     ///             },
-    ///             new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateArgs
+    ///             
     ///             {
-    ///                 Name = "_last_updated_at",
-    ///                 Type = "DATE_VALUE",
-    ///                 Search = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateSearchArgs
+    ///                 { "name", "_last_updated_at" },
+    ///                 { "type", "DATE_VALUE" },
+    ///                 { "search", 
     ///                 {
-    ///                     Displayable = false,
-    ///                     Facetable = false,
-    ///                     Searchable = false,
-    ///                     Sortable = true,
-    ///                 },
-    ///                 Relevance = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateRelevanceArgs
+    ///                     { "displayable", false },
+    ///                     { "facetable", false },
+    ///                     { "searchable", false },
+    ///                     { "sortable", true },
+    ///                 } },
+    ///                 { "relevance", 
     ///                 {
-    ///                     Freshness = false,
-    ///                     Importance = 1,
-    ///                     Duration = "25920000s",
-    ///                     RankOrder = "ASCENDING",
-    ///                 },
+    ///                     { "freshness", false },
+    ///                     { "importance", 1 },
+    ///                     { "duration", "25920000s" },
+    ///                     { "rankOrder", "ASCENDING" },
+    ///                 } },
     ///             },
-    ///             new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateArgs
+    ///             
     ///             {
-    ///                 Name = "_source_uri",
-    ///                 Type = "STRING_VALUE",
-    ///                 Search = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateSearchArgs
+    ///                 { "name", "_source_uri" },
+    ///                 { "type", "STRING_VALUE" },
+    ///                 { "search", 
     ///                 {
-    ///                     Displayable = true,
-    ///                     Facetable = false,
-    ///                     Searchable = false,
-    ///                     Sortable = false,
-    ///                 },
-    ///                 Relevance = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateRelevanceArgs
+    ///                     { "displayable", true },
+    ///                     { "facetable", false },
+    ///                     { "searchable", false },
+    ///                     { "sortable", false },
+    ///                 } },
+    ///                 { "relevance", 
     ///                 {
-    ///                     Importance = 1,
-    ///                     ValuesImportanceMap = null,
-    ///                 },
+    ///                     { "importance", 1 },
+    ///                     { "valuesImportanceMap", null },
+    ///                 } },
     ///             },
-    ///             new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateArgs
+    ///             
     ///             {
-    ///                 Name = "_tenant_id",
-    ///                 Type = "STRING_VALUE",
-    ///                 Search = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateSearchArgs
+    ///                 { "name", "_tenant_id" },
+    ///                 { "type", "STRING_VALUE" },
+    ///                 { "search", 
     ///                 {
-    ///                     Displayable = false,
-    ///                     Facetable = false,
-    ///                     Searchable = false,
-    ///                     Sortable = true,
-    ///                 },
-    ///                 Relevance = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateRelevanceArgs
+    ///                     { "displayable", false },
+    ///                     { "facetable", false },
+    ///                     { "searchable", false },
+    ///                     { "sortable", true },
+    ///                 } },
+    ///                 { "relevance", 
     ///                 {
-    ///                     Importance = 1,
-    ///                     ValuesImportanceMap = null,
-    ///                 },
+    ///                     { "importance", 1 },
+    ///                     { "valuesImportanceMap", null },
+    ///                 } },
     ///             },
-    ///             new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateArgs
+    ///             
     ///             {
-    ///                 Name = "_version",
-    ///                 Type = "STRING_VALUE",
-    ///                 Search = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateSearchArgs
+    ///                 { "name", "_version" },
+    ///                 { "type", "STRING_VALUE" },
+    ///                 { "search", 
     ///                 {
-    ///                     Displayable = false,
-    ///                     Facetable = false,
-    ///                     Searchable = false,
-    ///                     Sortable = true,
-    ///                 },
-    ///                 Relevance = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateRelevanceArgs
+    ///                     { "displayable", false },
+    ///                     { "facetable", false },
+    ///                     { "searchable", false },
+    ///                     { "sortable", true },
+    ///                 } },
+    ///                 { "relevance", 
     ///                 {
-    ///                     Importance = 1,
-    ///                     ValuesImportanceMap = null,
-    ///                 },
+    ///                     { "importance", 1 },
+    ///                     { "valuesImportanceMap", null },
+    ///                 } },
     ///             },
-    ///             new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateArgs
+    ///             
     ///             {
-    ///                 Name = "_view_count",
-    ///                 Type = "LONG_VALUE",
-    ///                 Search = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateSearchArgs
+    ///                 { "name", "_view_count" },
+    ///                 { "type", "LONG_VALUE" },
+    ///                 { "search", 
     ///                 {
-    ///                     Displayable = false,
-    ///                     Facetable = false,
-    ///                     Searchable = false,
-    ///                     Sortable = true,
-    ///                 },
-    ///                 Relevance = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateRelevanceArgs
+    ///                     { "displayable", false },
+    ///                     { "facetable", false },
+    ///                     { "searchable", false },
+    ///                     { "sortable", true },
+    ///                 } },
+    ///                 { "relevance", 
     ///                 {
-    ///                     Importance = 1,
-    ///                     RankOrder = "ASCENDING",
-    ///                 },
+    ///                     { "importance", 1 },
+    ///                     { "rankOrder", "ASCENDING" },
+    ///                 } },
     ///             },
     ///         },
     ///     });
@@ -377,320 +377,320 @@ namespace Pulumi.Aws.Kendra
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Kendra.Index("example", new()
+    ///     var example = new Aws.Kendra.Index.Index("example", new()
     ///     {
     ///         RoleArn = aws_iam_role.This.Arn,
     ///         DocumentMetadataConfigurationUpdates = new[]
     ///         {
-    ///             new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateArgs
+    ///             
     ///             {
-    ///                 Name = "_authors",
-    ///                 Type = "STRING_LIST_VALUE",
-    ///                 Search = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateSearchArgs
+    ///                 { "name", "_authors" },
+    ///                 { "type", "STRING_LIST_VALUE" },
+    ///                 { "search", 
     ///                 {
-    ///                     Displayable = false,
-    ///                     Facetable = false,
-    ///                     Searchable = false,
-    ///                     Sortable = false,
-    ///                 },
-    ///                 Relevance = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateRelevanceArgs
+    ///                     { "displayable", false },
+    ///                     { "facetable", false },
+    ///                     { "searchable", false },
+    ///                     { "sortable", false },
+    ///                 } },
+    ///                 { "relevance", 
     ///                 {
-    ///                     Importance = 1,
-    ///                 },
+    ///                     { "importance", 1 },
+    ///                 } },
     ///             },
-    ///             new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateArgs
+    ///             
     ///             {
-    ///                 Name = "_category",
-    ///                 Type = "STRING_VALUE",
-    ///                 Search = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateSearchArgs
+    ///                 { "name", "_category" },
+    ///                 { "type", "STRING_VALUE" },
+    ///                 { "search", 
     ///                 {
-    ///                     Displayable = false,
-    ///                     Facetable = false,
-    ///                     Searchable = false,
-    ///                     Sortable = true,
-    ///                 },
-    ///                 Relevance = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateRelevanceArgs
+    ///                     { "displayable", false },
+    ///                     { "facetable", false },
+    ///                     { "searchable", false },
+    ///                     { "sortable", true },
+    ///                 } },
+    ///                 { "relevance", 
     ///                 {
-    ///                     Importance = 1,
-    ///                     ValuesImportanceMap = null,
-    ///                 },
+    ///                     { "importance", 1 },
+    ///                     { "valuesImportanceMap", null },
+    ///                 } },
     ///             },
-    ///             new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateArgs
+    ///             
     ///             {
-    ///                 Name = "_created_at",
-    ///                 Type = "DATE_VALUE",
-    ///                 Search = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateSearchArgs
+    ///                 { "name", "_created_at" },
+    ///                 { "type", "DATE_VALUE" },
+    ///                 { "search", 
     ///                 {
-    ///                     Displayable = false,
-    ///                     Facetable = false,
-    ///                     Searchable = false,
-    ///                     Sortable = true,
-    ///                 },
-    ///                 Relevance = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateRelevanceArgs
+    ///                     { "displayable", false },
+    ///                     { "facetable", false },
+    ///                     { "searchable", false },
+    ///                     { "sortable", true },
+    ///                 } },
+    ///                 { "relevance", 
     ///                 {
-    ///                     Freshness = false,
-    ///                     Importance = 1,
-    ///                     Duration = "25920000s",
-    ///                     RankOrder = "ASCENDING",
-    ///                 },
+    ///                     { "freshness", false },
+    ///                     { "importance", 1 },
+    ///                     { "duration", "25920000s" },
+    ///                     { "rankOrder", "ASCENDING" },
+    ///                 } },
     ///             },
-    ///             new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateArgs
+    ///             
     ///             {
-    ///                 Name = "_data_source_id",
-    ///                 Type = "STRING_VALUE",
-    ///                 Search = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateSearchArgs
+    ///                 { "name", "_data_source_id" },
+    ///                 { "type", "STRING_VALUE" },
+    ///                 { "search", 
     ///                 {
-    ///                     Displayable = false,
-    ///                     Facetable = false,
-    ///                     Searchable = false,
-    ///                     Sortable = true,
-    ///                 },
-    ///                 Relevance = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateRelevanceArgs
+    ///                     { "displayable", false },
+    ///                     { "facetable", false },
+    ///                     { "searchable", false },
+    ///                     { "sortable", true },
+    ///                 } },
+    ///                 { "relevance", 
     ///                 {
-    ///                     Importance = 1,
-    ///                     ValuesImportanceMap = null,
-    ///                 },
+    ///                     { "importance", 1 },
+    ///                     { "valuesImportanceMap", null },
+    ///                 } },
     ///             },
-    ///             new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateArgs
+    ///             
     ///             {
-    ///                 Name = "_document_title",
-    ///                 Type = "STRING_VALUE",
-    ///                 Search = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateSearchArgs
+    ///                 { "name", "_document_title" },
+    ///                 { "type", "STRING_VALUE" },
+    ///                 { "search", 
     ///                 {
-    ///                     Displayable = true,
-    ///                     Facetable = false,
-    ///                     Searchable = true,
-    ///                     Sortable = true,
-    ///                 },
-    ///                 Relevance = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateRelevanceArgs
+    ///                     { "displayable", true },
+    ///                     { "facetable", false },
+    ///                     { "searchable", true },
+    ///                     { "sortable", true },
+    ///                 } },
+    ///                 { "relevance", 
     ///                 {
-    ///                     Importance = 2,
-    ///                     ValuesImportanceMap = null,
-    ///                 },
+    ///                     { "importance", 2 },
+    ///                     { "valuesImportanceMap", null },
+    ///                 } },
     ///             },
-    ///             new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateArgs
+    ///             
     ///             {
-    ///                 Name = "_excerpt_page_number",
-    ///                 Type = "LONG_VALUE",
-    ///                 Search = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateSearchArgs
+    ///                 { "name", "_excerpt_page_number" },
+    ///                 { "type", "LONG_VALUE" },
+    ///                 { "search", 
     ///                 {
-    ///                     Displayable = false,
-    ///                     Facetable = false,
-    ///                     Searchable = false,
-    ///                     Sortable = false,
-    ///                 },
-    ///                 Relevance = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateRelevanceArgs
+    ///                     { "displayable", false },
+    ///                     { "facetable", false },
+    ///                     { "searchable", false },
+    ///                     { "sortable", false },
+    ///                 } },
+    ///                 { "relevance", 
     ///                 {
-    ///                     Importance = 2,
-    ///                     RankOrder = "ASCENDING",
-    ///                 },
+    ///                     { "importance", 2 },
+    ///                     { "rankOrder", "ASCENDING" },
+    ///                 } },
     ///             },
-    ///             new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateArgs
+    ///             
     ///             {
-    ///                 Name = "_faq_id",
-    ///                 Type = "STRING_VALUE",
-    ///                 Search = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateSearchArgs
+    ///                 { "name", "_faq_id" },
+    ///                 { "type", "STRING_VALUE" },
+    ///                 { "search", 
     ///                 {
-    ///                     Displayable = false,
-    ///                     Facetable = false,
-    ///                     Searchable = false,
-    ///                     Sortable = true,
-    ///                 },
-    ///                 Relevance = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateRelevanceArgs
+    ///                     { "displayable", false },
+    ///                     { "facetable", false },
+    ///                     { "searchable", false },
+    ///                     { "sortable", true },
+    ///                 } },
+    ///                 { "relevance", 
     ///                 {
-    ///                     Importance = 1,
-    ///                     ValuesImportanceMap = null,
-    ///                 },
+    ///                     { "importance", 1 },
+    ///                     { "valuesImportanceMap", null },
+    ///                 } },
     ///             },
-    ///             new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateArgs
+    ///             
     ///             {
-    ///                 Name = "_file_type",
-    ///                 Type = "STRING_VALUE",
-    ///                 Search = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateSearchArgs
+    ///                 { "name", "_file_type" },
+    ///                 { "type", "STRING_VALUE" },
+    ///                 { "search", 
     ///                 {
-    ///                     Displayable = false,
-    ///                     Facetable = false,
-    ///                     Searchable = false,
-    ///                     Sortable = true,
-    ///                 },
-    ///                 Relevance = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateRelevanceArgs
+    ///                     { "displayable", false },
+    ///                     { "facetable", false },
+    ///                     { "searchable", false },
+    ///                     { "sortable", true },
+    ///                 } },
+    ///                 { "relevance", 
     ///                 {
-    ///                     Importance = 1,
-    ///                     ValuesImportanceMap = null,
-    ///                 },
+    ///                     { "importance", 1 },
+    ///                     { "valuesImportanceMap", null },
+    ///                 } },
     ///             },
-    ///             new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateArgs
+    ///             
     ///             {
-    ///                 Name = "_language_code",
-    ///                 Type = "STRING_VALUE",
-    ///                 Search = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateSearchArgs
+    ///                 { "name", "_language_code" },
+    ///                 { "type", "STRING_VALUE" },
+    ///                 { "search", 
     ///                 {
-    ///                     Displayable = false,
-    ///                     Facetable = false,
-    ///                     Searchable = false,
-    ///                     Sortable = true,
-    ///                 },
-    ///                 Relevance = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateRelevanceArgs
+    ///                     { "displayable", false },
+    ///                     { "facetable", false },
+    ///                     { "searchable", false },
+    ///                     { "sortable", true },
+    ///                 } },
+    ///                 { "relevance", 
     ///                 {
-    ///                     Importance = 1,
-    ///                     ValuesImportanceMap = null,
-    ///                 },
+    ///                     { "importance", 1 },
+    ///                     { "valuesImportanceMap", null },
+    ///                 } },
     ///             },
-    ///             new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateArgs
+    ///             
     ///             {
-    ///                 Name = "_last_updated_at",
-    ///                 Type = "DATE_VALUE",
-    ///                 Search = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateSearchArgs
+    ///                 { "name", "_last_updated_at" },
+    ///                 { "type", "DATE_VALUE" },
+    ///                 { "search", 
     ///                 {
-    ///                     Displayable = false,
-    ///                     Facetable = false,
-    ///                     Searchable = false,
-    ///                     Sortable = true,
-    ///                 },
-    ///                 Relevance = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateRelevanceArgs
+    ///                     { "displayable", false },
+    ///                     { "facetable", false },
+    ///                     { "searchable", false },
+    ///                     { "sortable", true },
+    ///                 } },
+    ///                 { "relevance", 
     ///                 {
-    ///                     Freshness = false,
-    ///                     Importance = 1,
-    ///                     Duration = "25920000s",
-    ///                     RankOrder = "ASCENDING",
-    ///                 },
+    ///                     { "freshness", false },
+    ///                     { "importance", 1 },
+    ///                     { "duration", "25920000s" },
+    ///                     { "rankOrder", "ASCENDING" },
+    ///                 } },
     ///             },
-    ///             new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateArgs
+    ///             
     ///             {
-    ///                 Name = "_source_uri",
-    ///                 Type = "STRING_VALUE",
-    ///                 Search = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateSearchArgs
+    ///                 { "name", "_source_uri" },
+    ///                 { "type", "STRING_VALUE" },
+    ///                 { "search", 
     ///                 {
-    ///                     Displayable = true,
-    ///                     Facetable = false,
-    ///                     Searchable = false,
-    ///                     Sortable = false,
-    ///                 },
-    ///                 Relevance = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateRelevanceArgs
+    ///                     { "displayable", true },
+    ///                     { "facetable", false },
+    ///                     { "searchable", false },
+    ///                     { "sortable", false },
+    ///                 } },
+    ///                 { "relevance", 
     ///                 {
-    ///                     Importance = 1,
-    ///                     ValuesImportanceMap = null,
-    ///                 },
+    ///                     { "importance", 1 },
+    ///                     { "valuesImportanceMap", null },
+    ///                 } },
     ///             },
-    ///             new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateArgs
+    ///             
     ///             {
-    ///                 Name = "_tenant_id",
-    ///                 Type = "STRING_VALUE",
-    ///                 Search = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateSearchArgs
+    ///                 { "name", "_tenant_id" },
+    ///                 { "type", "STRING_VALUE" },
+    ///                 { "search", 
     ///                 {
-    ///                     Displayable = false,
-    ///                     Facetable = false,
-    ///                     Searchable = false,
-    ///                     Sortable = true,
-    ///                 },
-    ///                 Relevance = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateRelevanceArgs
+    ///                     { "displayable", false },
+    ///                     { "facetable", false },
+    ///                     { "searchable", false },
+    ///                     { "sortable", true },
+    ///                 } },
+    ///                 { "relevance", 
     ///                 {
-    ///                     Importance = 1,
-    ///                     ValuesImportanceMap = null,
-    ///                 },
+    ///                     { "importance", 1 },
+    ///                     { "valuesImportanceMap", null },
+    ///                 } },
     ///             },
-    ///             new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateArgs
+    ///             
     ///             {
-    ///                 Name = "_version",
-    ///                 Type = "STRING_VALUE",
-    ///                 Search = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateSearchArgs
+    ///                 { "name", "_version" },
+    ///                 { "type", "STRING_VALUE" },
+    ///                 { "search", 
     ///                 {
-    ///                     Displayable = false,
-    ///                     Facetable = false,
-    ///                     Searchable = false,
-    ///                     Sortable = true,
-    ///                 },
-    ///                 Relevance = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateRelevanceArgs
+    ///                     { "displayable", false },
+    ///                     { "facetable", false },
+    ///                     { "searchable", false },
+    ///                     { "sortable", true },
+    ///                 } },
+    ///                 { "relevance", 
     ///                 {
-    ///                     Importance = 1,
-    ///                     ValuesImportanceMap = null,
-    ///                 },
+    ///                     { "importance", 1 },
+    ///                     { "valuesImportanceMap", null },
+    ///                 } },
     ///             },
-    ///             new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateArgs
+    ///             
     ///             {
-    ///                 Name = "_view_count",
-    ///                 Type = "LONG_VALUE",
-    ///                 Search = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateSearchArgs
+    ///                 { "name", "_view_count" },
+    ///                 { "type", "LONG_VALUE" },
+    ///                 { "search", 
     ///                 {
-    ///                     Displayable = false,
-    ///                     Facetable = false,
-    ///                     Searchable = false,
-    ///                     Sortable = true,
-    ///                 },
-    ///                 Relevance = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateRelevanceArgs
+    ///                     { "displayable", false },
+    ///                     { "facetable", false },
+    ///                     { "searchable", false },
+    ///                     { "sortable", true },
+    ///                 } },
+    ///                 { "relevance", 
     ///                 {
-    ///                     Importance = 1,
-    ///                     RankOrder = "ASCENDING",
-    ///                 },
+    ///                     { "importance", 1 },
+    ///                     { "rankOrder", "ASCENDING" },
+    ///                 } },
     ///             },
-    ///             new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateArgs
+    ///             
     ///             {
-    ///                 Name = "example-string-value",
-    ///                 Type = "STRING_VALUE",
-    ///                 Search = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateSearchArgs
+    ///                 { "name", "example-string-value" },
+    ///                 { "type", "STRING_VALUE" },
+    ///                 { "search", 
     ///                 {
-    ///                     Displayable = true,
-    ///                     Facetable = true,
-    ///                     Searchable = true,
-    ///                     Sortable = true,
-    ///                 },
-    ///                 Relevance = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateRelevanceArgs
+    ///                     { "displayable", true },
+    ///                     { "facetable", true },
+    ///                     { "searchable", true },
+    ///                     { "sortable", true },
+    ///                 } },
+    ///                 { "relevance", 
     ///                 {
-    ///                     Importance = 1,
-    ///                     ValuesImportanceMap = null,
-    ///                 },
+    ///                     { "importance", 1 },
+    ///                     { "valuesImportanceMap", null },
+    ///                 } },
     ///             },
-    ///             new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateArgs
+    ///             
     ///             {
-    ///                 Name = "example-long-value",
-    ///                 Type = "LONG_VALUE",
-    ///                 Search = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateSearchArgs
+    ///                 { "name", "example-long-value" },
+    ///                 { "type", "LONG_VALUE" },
+    ///                 { "search", 
     ///                 {
-    ///                     Displayable = true,
-    ///                     Facetable = true,
-    ///                     Searchable = false,
-    ///                     Sortable = true,
-    ///                 },
-    ///                 Relevance = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateRelevanceArgs
+    ///                     { "displayable", true },
+    ///                     { "facetable", true },
+    ///                     { "searchable", false },
+    ///                     { "sortable", true },
+    ///                 } },
+    ///                 { "relevance", 
     ///                 {
-    ///                     Importance = 1,
-    ///                     RankOrder = "ASCENDING",
-    ///                 },
+    ///                     { "importance", 1 },
+    ///                     { "rankOrder", "ASCENDING" },
+    ///                 } },
     ///             },
-    ///             new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateArgs
+    ///             
     ///             {
-    ///                 Name = "example-string-list-value",
-    ///                 Type = "STRING_LIST_VALUE",
-    ///                 Search = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateSearchArgs
+    ///                 { "name", "example-string-list-value" },
+    ///                 { "type", "STRING_LIST_VALUE" },
+    ///                 { "search", 
     ///                 {
-    ///                     Displayable = true,
-    ///                     Facetable = true,
-    ///                     Searchable = true,
-    ///                     Sortable = false,
-    ///                 },
-    ///                 Relevance = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateRelevanceArgs
+    ///                     { "displayable", true },
+    ///                     { "facetable", true },
+    ///                     { "searchable", true },
+    ///                     { "sortable", false },
+    ///                 } },
+    ///                 { "relevance", 
     ///                 {
-    ///                     Importance = 1,
-    ///                 },
+    ///                     { "importance", 1 },
+    ///                 } },
     ///             },
-    ///             new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateArgs
+    ///             
     ///             {
-    ///                 Name = "example-date-value",
-    ///                 Type = "DATE_VALUE",
-    ///                 Search = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateSearchArgs
+    ///                 { "name", "example-date-value" },
+    ///                 { "type", "DATE_VALUE" },
+    ///                 { "search", 
     ///                 {
-    ///                     Displayable = true,
-    ///                     Facetable = true,
-    ///                     Searchable = false,
-    ///                     Sortable = false,
-    ///                 },
-    ///                 Relevance = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateRelevanceArgs
+    ///                     { "displayable", true },
+    ///                     { "facetable", true },
+    ///                     { "searchable", false },
+    ///                     { "sortable", false },
+    ///                 } },
+    ///                 { "relevance", 
     ///                 {
-    ///                     Freshness = false,
-    ///                     Importance = 1,
-    ///                     Duration = "25920000s",
-    ///                     RankOrder = "ASCENDING",
-    ///                 },
+    ///                     { "freshness", false },
+    ///                     { "importance", 1 },
+    ///                     { "duration", "25920000s" },
+    ///                     { "rankOrder", "ASCENDING" },
+    ///                 } },
     ///             },
     ///         },
     ///     });
@@ -707,16 +707,16 @@ namespace Pulumi.Aws.Kendra
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Kendra.Index("example", new()
+    ///     var example = new Aws.Kendra.Index.Index("example", new()
     ///     {
     ///         RoleArn = aws_iam_role.This.Arn,
-    ///         UserTokenConfigurations = new Aws.Kendra.Inputs.IndexUserTokenConfigurationsArgs
+    ///         UserTokenConfigurations = 
     ///         {
-    ///             JsonTokenTypeConfiguration = new Aws.Kendra.Inputs.IndexUserTokenConfigurationsJsonTokenTypeConfigurationArgs
+    ///             { "jsonTokenTypeConfiguration", 
     ///             {
-    ///                 GroupAttributeField = "groups",
-    ///                 UserNameAttributeField = "username",
-    ///             },
+    ///                 { "groupAttributeField", "groups" },
+    ///                 { "userNameAttributeField", "username" },
+    ///             } },
     ///         },
     ///     });
     /// 

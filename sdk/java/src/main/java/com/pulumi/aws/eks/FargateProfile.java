@@ -29,7 +29,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.eks.FargateProfile;
  * import com.pulumi.aws.eks.FargateProfileArgs;
- * import com.pulumi.aws.eks.inputs.FargateProfileSelectorArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -47,9 +46,7 @@ import javax.annotation.Nullable;
  *             .clusterName(aws_eks_cluster.example().name())
  *             .podExecutionRoleArn(aws_iam_role.example().arn())
  *             .subnetIds(aws_subnet.example().stream().map(element -&gt; element.id()).collect(toList()))
- *             .selectors(FargateProfileSelectorArgs.builder()
- *                 .namespace(&#34;example&#34;)
- *                 .build())
+ *             .selectors(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

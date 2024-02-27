@@ -23,39 +23,31 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigateway"
+//	apigateway/model "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/apigateway/model"
+//	apigateway/restApi "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/apigateway/restApi"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			myDemoAPI, err := apigateway.NewRestApi(ctx, "myDemoAPI", &apigateway.RestApiArgs{
-//				Description: pulumi.String("This is my API for demonstration purposes"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"type": "object",
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			_, err = apigateway.NewModel(ctx, "myDemoModel", &apigateway.ModelArgs{
-//				RestApi:     myDemoAPI.ID(),
-//				Description: pulumi.String("a JSON schema"),
-//				ContentType: pulumi.String("application/json"),
-//				Schema:      pulumi.String(json0),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// myDemoAPI, err := apigateway/restApi.NewRestApi(ctx, "myDemoAPI", &apigateway/restApi.RestApiArgs{
+// Description: "This is my API for demonstration purposes",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = apigateway/model.NewModel(ctx, "myDemoModel", &apigateway/model.ModelArgs{
+// RestApi: myDemoAPI.Id,
+// Description: "a JSON schema",
+// ContentType: "application/json",
+// Schema: %!v(PANIC=Format method: fatal: An assertion has failed: unlowered function toJSON),
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

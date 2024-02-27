@@ -86,20 +86,6 @@ def get_partition(id: Optional[str] = None,
     Use this data source to lookup information about the current AWS partition in
     which the provider is working.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    current = aws.get_partition()
-    s3_policy = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-        actions=["s3:ListBucket"],
-        resources=[f"arn:{current.partition}:s3:::my-bucket"],
-        sid="1",
-    )])
-    ```
-
 
     :param str id: Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
     """
@@ -121,20 +107,6 @@ def get_partition_output(id: Optional[pulumi.Input[Optional[str]]] = None,
     """
     Use this data source to lookup information about the current AWS partition in
     which the provider is working.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    current = aws.get_partition()
-    s3_policy = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-        actions=["s3:ListBucket"],
-        resources=[f"arn:{current.partition}:s3:::my-bucket"],
-        sid="1",
-    )])
-    ```
 
 
     :param str id: Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).

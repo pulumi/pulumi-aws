@@ -16,59 +16,6 @@ import * as utilities from "../utilities";
  *
  * Use the `aws.cognito.UserPoolClient` resource to manage Cognito User Pool Clients for normal use cases.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleUserPool = new aws.cognito.UserPool("exampleUserPool", {});
- * const exampleIdentityPool = new aws.cognito.IdentityPool("exampleIdentityPool", {identityPoolName: "example"});
- * const current = aws.getPartition({});
- * const examplePolicyDocument = current.then(current => aws.iam.getPolicyDocument({
- *     statements: [{
- *         sid: "",
- *         actions: ["sts:AssumeRole"],
- *         effect: "Allow",
- *         principals: [{
- *             type: "Service",
- *             identifiers: [`es.${current.dnsSuffix}`],
- *         }],
- *     }],
- * }));
- * const exampleRole = new aws.iam.Role("exampleRole", {
- *     path: "/service-role/",
- *     assumeRolePolicy: examplePolicyDocument.then(examplePolicyDocument => examplePolicyDocument.json),
- * });
- * const exampleRolePolicyAttachment = new aws.iam.RolePolicyAttachment("exampleRolePolicyAttachment", {
- *     role: exampleRole.name,
- *     policyArn: current.then(current => `arn:${current.partition}:iam::aws:policy/AmazonESCognitoAccess`),
- * });
- * const exampleDomain = new aws.opensearch.Domain("exampleDomain", {
- *     cognitoOptions: {
- *         enabled: true,
- *         userPoolId: exampleUserPool.id,
- *         identityPoolId: exampleIdentityPool.id,
- *         roleArn: exampleRole.arn,
- *     },
- *     ebsOptions: {
- *         ebsEnabled: true,
- *         volumeSize: 10,
- *     },
- * }, {
- *     dependsOn: [
- *         aws_cognito_user_pool_domain.example,
- *         exampleRolePolicyAttachment,
- *     ],
- * });
- * const exampleManagedUserPoolClient = new aws.cognito.ManagedUserPoolClient("exampleManagedUserPoolClient", {
- *     namePrefix: "AmazonOpenSearchService-example",
- *     userPoolId: exampleUserPool.id,
- * }, {
- *     dependsOn: [exampleDomain],
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import Cognito User Pool Clients using the `id` of the Cognito User Pool and the `id` of the Cognito User Pool Client. For example:

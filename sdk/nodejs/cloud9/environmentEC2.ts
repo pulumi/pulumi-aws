@@ -6,56 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a Cloud9 EC2 Development Environment.
- *
- * ## Example Usage
- *
- * Basic usage:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.cloud9.EnvironmentEC2("example", {
- *     imageId: "amazonlinux-2023-x86_64",
- *     instanceType: "t2.micro",
- * });
- * ```
- *
- * Get the URL of the Cloud9 environment after creation:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.cloud9.EnvironmentEC2("example", {instanceType: "t2.micro"});
- * const cloud9Instance = aws.ec2.getInstanceOutput({
- *     filters: [{
- *         name: "tag:aws:cloud9:environment",
- *         values: [example.id],
- *     }],
- * });
- * export const cloud9Url = pulumi.interpolate`https://${_var.region}.console.aws.amazon.com/cloud9/ide/${example.id}`;
- * ```
- *
- * Allocate a static IP to the Cloud9 environment:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.cloud9.EnvironmentEC2("example", {instanceType: "t2.micro"});
- * const cloud9Instance = aws.ec2.getInstanceOutput({
- *     filters: [{
- *         name: "tag:aws:cloud9:environment",
- *         values: [example.id],
- *     }],
- * });
- * const cloud9Eip = new aws.ec2.Eip("cloud9Eip", {
- *     instance: cloud9Instance.apply(cloud9Instance => cloud9Instance.id),
- *     domain: "vpc",
- * });
- * export const cloud9PublicIp = cloud9Eip.publicIp;
- * ```
  */
 export class EnvironmentEC2 extends pulumi.CustomResource {
     /**

@@ -22,13 +22,13 @@ namespace Pulumi.Aws.AppRunner
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.AppRunner.VpcIngressConnection("example", new()
+    ///     var example = new Aws.Apprunner.VpcIngressConnection.VpcIngressConnection("example", new()
     ///     {
     ///         ServiceArn = aws_apprunner_service.Example.Arn,
-    ///         IngressVpcConfiguration = new Aws.AppRunner.Inputs.VpcIngressConnectionIngressVpcConfigurationArgs
+    ///         IngressVpcConfiguration = 
     ///         {
-    ///             VpcId = aws_default_vpc.Default.Id,
-    ///             VpcEndpointId = aws_vpc_endpoint.Apprunner.Id,
+    ///             { "vpcId", aws_default_vpc.Default.Id },
+    ///             { "vpcEndpointId", aws_vpc_endpoint.Apprunner.Id },
     ///         },
     ///         Tags = 
     ///         {

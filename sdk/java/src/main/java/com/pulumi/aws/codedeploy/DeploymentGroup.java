@@ -32,99 +32,6 @@ import javax.annotation.Nullable;
  * &gt; **NOTE on blue/green deployments:** When using `green_fleet_provisioning_option` with the `COPY_AUTO_SCALING_GROUP` action, CodeDeploy will create a new ASG with a different name. This ASG is _not_ managed by this provider and will conflict with existing configuration and state. You may want to use a different approach to managing deployments that involve multiple ASG, such as `DISCOVER_EXISTING` with separate blue and green ASG.
  * 
  * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.iam.IamFunctions;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
- * import com.pulumi.aws.iam.Role;
- * import com.pulumi.aws.iam.RoleArgs;
- * import com.pulumi.aws.iam.RolePolicyAttachment;
- * import com.pulumi.aws.iam.RolePolicyAttachmentArgs;
- * import com.pulumi.aws.codedeploy.Application;
- * import com.pulumi.aws.sns.Topic;
- * import com.pulumi.aws.codedeploy.DeploymentGroup;
- * import com.pulumi.aws.codedeploy.DeploymentGroupArgs;
- * import com.pulumi.aws.codedeploy.inputs.DeploymentGroupEc2TagSetArgs;
- * import com.pulumi.aws.codedeploy.inputs.DeploymentGroupTriggerConfigurationArgs;
- * import com.pulumi.aws.codedeploy.inputs.DeploymentGroupAutoRollbackConfigurationArgs;
- * import com.pulumi.aws.codedeploy.inputs.DeploymentGroupAlarmConfigurationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect(&#34;Allow&#34;)
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type(&#34;Service&#34;)
- *                     .identifiers(&#34;codedeploy.amazonaws.com&#34;)
- *                     .build())
- *                 .actions(&#34;sts:AssumeRole&#34;)
- *                 .build())
- *             .build());
- * 
- *         var exampleRole = new Role(&#34;exampleRole&#34;, RoleArgs.builder()        
- *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
- *             .build());
- * 
- *         var aWSCodeDeployRole = new RolePolicyAttachment(&#34;aWSCodeDeployRole&#34;, RolePolicyAttachmentArgs.builder()        
- *             .policyArn(&#34;arn:aws:iam::aws:policy/service-role/AWSCodeDeployRole&#34;)
- *             .role(exampleRole.name())
- *             .build());
- * 
- *         var exampleApplication = new Application(&#34;exampleApplication&#34;);
- * 
- *         var exampleTopic = new Topic(&#34;exampleTopic&#34;);
- * 
- *         var exampleDeploymentGroup = new DeploymentGroup(&#34;exampleDeploymentGroup&#34;, DeploymentGroupArgs.builder()        
- *             .appName(exampleApplication.name())
- *             .deploymentGroupName(&#34;example-group&#34;)
- *             .serviceRoleArn(exampleRole.arn())
- *             .ec2TagSets(DeploymentGroupEc2TagSetArgs.builder()
- *                 .ec2TagFilters(                
- *                     DeploymentGroupEc2TagSetEc2TagFilterArgs.builder()
- *                         .key(&#34;filterkey1&#34;)
- *                         .type(&#34;KEY_AND_VALUE&#34;)
- *                         .value(&#34;filtervalue&#34;)
- *                         .build(),
- *                     DeploymentGroupEc2TagSetEc2TagFilterArgs.builder()
- *                         .key(&#34;filterkey2&#34;)
- *                         .type(&#34;KEY_AND_VALUE&#34;)
- *                         .value(&#34;filtervalue&#34;)
- *                         .build())
- *                 .build())
- *             .triggerConfigurations(DeploymentGroupTriggerConfigurationArgs.builder()
- *                 .triggerEvents(&#34;DeploymentFailure&#34;)
- *                 .triggerName(&#34;example-trigger&#34;)
- *                 .triggerTargetArn(exampleTopic.arn())
- *                 .build())
- *             .autoRollbackConfiguration(DeploymentGroupAutoRollbackConfigurationArgs.builder()
- *                 .enabled(true)
- *                 .events(&#34;DEPLOYMENT_FAILURE&#34;)
- *                 .build())
- *             .alarmConfiguration(DeploymentGroupAlarmConfigurationArgs.builder()
- *                 .alarms(&#34;my-alarm-name&#34;)
- *                 .enabled(true)
- *                 .build())
- *             .outdatedInstancesStrategy(&#34;UPDATE&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
  * ### Blue Green Deployments with ECS
  * ```java
  * package generated_program;
@@ -136,15 +43,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.codedeploy.ApplicationArgs;
  * import com.pulumi.aws.codedeploy.DeploymentGroup;
  * import com.pulumi.aws.codedeploy.DeploymentGroupArgs;
- * import com.pulumi.aws.codedeploy.inputs.DeploymentGroupAutoRollbackConfigurationArgs;
- * import com.pulumi.aws.codedeploy.inputs.DeploymentGroupBlueGreenDeploymentConfigArgs;
- * import com.pulumi.aws.codedeploy.inputs.DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionArgs;
- * import com.pulumi.aws.codedeploy.inputs.DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessArgs;
- * import com.pulumi.aws.codedeploy.inputs.DeploymentGroupDeploymentStyleArgs;
- * import com.pulumi.aws.codedeploy.inputs.DeploymentGroupEcsServiceArgs;
- * import com.pulumi.aws.codedeploy.inputs.DeploymentGroupLoadBalancerInfoArgs;
- * import com.pulumi.aws.codedeploy.inputs.DeploymentGroupLoadBalancerInfoTargetGroupPairInfoArgs;
- * import com.pulumi.aws.codedeploy.inputs.DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRouteArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -167,41 +65,11 @@ import javax.annotation.Nullable;
  *             .deploymentConfigName(&#34;CodeDeployDefault.ECSAllAtOnce&#34;)
  *             .deploymentGroupName(&#34;example&#34;)
  *             .serviceRoleArn(aws_iam_role.example().arn())
- *             .autoRollbackConfiguration(DeploymentGroupAutoRollbackConfigurationArgs.builder()
- *                 .enabled(true)
- *                 .events(&#34;DEPLOYMENT_FAILURE&#34;)
- *                 .build())
- *             .blueGreenDeploymentConfig(DeploymentGroupBlueGreenDeploymentConfigArgs.builder()
- *                 .deploymentReadyOption(DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionArgs.builder()
- *                     .actionOnTimeout(&#34;CONTINUE_DEPLOYMENT&#34;)
- *                     .build())
- *                 .terminateBlueInstancesOnDeploymentSuccess(DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessArgs.builder()
- *                     .action(&#34;TERMINATE&#34;)
- *                     .terminationWaitTimeInMinutes(5)
- *                     .build())
- *                 .build())
- *             .deploymentStyle(DeploymentGroupDeploymentStyleArgs.builder()
- *                 .deploymentOption(&#34;WITH_TRAFFIC_CONTROL&#34;)
- *                 .deploymentType(&#34;BLUE_GREEN&#34;)
- *                 .build())
- *             .ecsService(DeploymentGroupEcsServiceArgs.builder()
- *                 .clusterName(aws_ecs_cluster.example().name())
- *                 .serviceName(aws_ecs_service.example().name())
- *                 .build())
- *             .loadBalancerInfo(DeploymentGroupLoadBalancerInfoArgs.builder()
- *                 .targetGroupPairInfo(DeploymentGroupLoadBalancerInfoTargetGroupPairInfoArgs.builder()
- *                     .prodTrafficRoute(DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRouteArgs.builder()
- *                         .listenerArns(aws_lb_listener.example().arn())
- *                         .build())
- *                     .targetGroups(                    
- *                         DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupArgs.builder()
- *                             .name(aws_lb_target_group.blue().name())
- *                             .build(),
- *                         DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupArgs.builder()
- *                             .name(aws_lb_target_group.green().name())
- *                             .build())
- *                     .build())
- *                 .build())
+ *             .autoRollbackConfiguration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .blueGreenDeploymentConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .deploymentStyle(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .ecsService(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .loadBalancerInfo(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -217,12 +85,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.codedeploy.Application;
  * import com.pulumi.aws.codedeploy.DeploymentGroup;
  * import com.pulumi.aws.codedeploy.DeploymentGroupArgs;
- * import com.pulumi.aws.codedeploy.inputs.DeploymentGroupDeploymentStyleArgs;
- * import com.pulumi.aws.codedeploy.inputs.DeploymentGroupLoadBalancerInfoArgs;
- * import com.pulumi.aws.codedeploy.inputs.DeploymentGroupBlueGreenDeploymentConfigArgs;
- * import com.pulumi.aws.codedeploy.inputs.DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionArgs;
- * import com.pulumi.aws.codedeploy.inputs.DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionArgs;
- * import com.pulumi.aws.codedeploy.inputs.DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -242,27 +104,9 @@ import javax.annotation.Nullable;
  *             .appName(exampleApplication.name())
  *             .deploymentGroupName(&#34;example-group&#34;)
  *             .serviceRoleArn(aws_iam_role.example().arn())
- *             .deploymentStyle(DeploymentGroupDeploymentStyleArgs.builder()
- *                 .deploymentOption(&#34;WITH_TRAFFIC_CONTROL&#34;)
- *                 .deploymentType(&#34;BLUE_GREEN&#34;)
- *                 .build())
- *             .loadBalancerInfo(DeploymentGroupLoadBalancerInfoArgs.builder()
- *                 .elbInfos(DeploymentGroupLoadBalancerInfoElbInfoArgs.builder()
- *                     .name(aws_elb.example().name())
- *                     .build())
- *                 .build())
- *             .blueGreenDeploymentConfig(DeploymentGroupBlueGreenDeploymentConfigArgs.builder()
- *                 .deploymentReadyOption(DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionArgs.builder()
- *                     .actionOnTimeout(&#34;STOP_DEPLOYMENT&#34;)
- *                     .waitTimeInMinutes(60)
- *                     .build())
- *                 .greenFleetProvisioningOption(DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionArgs.builder()
- *                     .action(&#34;DISCOVER_EXISTING&#34;)
- *                     .build())
- *                 .terminateBlueInstancesOnDeploymentSuccess(DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessArgs.builder()
- *                     .action(&#34;KEEP_ALIVE&#34;)
- *                     .build())
- *                 .build())
+ *             .deploymentStyle(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .loadBalancerInfo(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .blueGreenDeploymentConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

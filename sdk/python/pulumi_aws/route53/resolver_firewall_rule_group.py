@@ -178,7 +178,7 @@ class ResolverFirewallRuleGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.route53.ResolverFirewallRuleGroup("example")
+        example = aws.route53.resolver_firewall_rule_group.ResolverFirewallRuleGroup("example")
         ```
 
         ## Import
@@ -211,7 +211,7 @@ class ResolverFirewallRuleGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.route53.ResolverFirewallRuleGroup("example")
+        example = aws.route53.resolver_firewall_rule_group.ResolverFirewallRuleGroup("example")
         ```
 
         ## Import

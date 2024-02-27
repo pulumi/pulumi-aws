@@ -23,28 +23,27 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/devicefarm"
+//	devicefarm/project "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/devicefarm/project"
+//	devicefarm/upload "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/devicefarm/upload"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleProject, err := devicefarm.NewProject(ctx, "exampleProject", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = devicefarm.NewUpload(ctx, "exampleUpload", &devicefarm.UploadArgs{
-//				ProjectArn: exampleProject.Arn,
-//				Type:       pulumi.String("APPIUM_JAVA_TESTNG_TEST_SPEC"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleProject, err := devicefarm/project.NewProject(ctx, "exampleProject", nil)
+// if err != nil {
+// return err
+// }
+// _, err = devicefarm/upload.NewUpload(ctx, "exampleUpload", &devicefarm/upload.UploadArgs{
+// ProjectArn: exampleProject.Arn,
+// Type: "APPIUM_JAVA_TESTNG_TEST_SPEC",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

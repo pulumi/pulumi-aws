@@ -14,8 +14,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleAccessGrantsInstance = new aws.s3control.AccessGrantsInstance("exampleAccessGrantsInstance", {});
- * const exampleAccessGrantsInstanceResourcePolicy = new aws.s3control.AccessGrantsInstanceResourcePolicy("exampleAccessGrantsInstanceResourcePolicy", {policy: pulumi.interpolate`{
+ * const exampleAccessGrantsInstance = new aws.s3control/accessGrantsInstance.AccessGrantsInstance("exampleAccessGrantsInstance", {});
+ * const exampleAccessGrantsInstanceResourcePolicy = new aws.s3control/accessGrantsInstanceResourcePolicy.AccessGrantsInstanceResourcePolicy("exampleAccessGrantsInstanceResourcePolicy", {policy: `{
  *   "Version": "2012-10-17",
  *   "Id": "S3AccessGrantsPolicy",
  *   "Statement": [{

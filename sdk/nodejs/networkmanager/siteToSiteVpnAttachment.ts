@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.networkmanager.SiteToSiteVpnAttachment("example", {
+ * const example = new aws.networkmanager/siteToSiteVpnAttachment.SiteToSiteVpnAttachment("example", {
  *     coreNetworkId: awscc_networkmanager_core_network.example.id,
  *     vpnConnectionArn: aws_vpn_connection.example.arn,
  * });

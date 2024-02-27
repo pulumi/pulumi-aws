@@ -24,30 +24,29 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/shield"
+//	shield/drtAccessLogBucketAssociation "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/shield/drtAccessLogBucketAssociation"
+//	shield/drtAccessRoleArnAssociation "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/shield/drtAccessRoleArnAssociation"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testDrtAccessRoleArnAssociation, err := shield.NewDrtAccessRoleArnAssociation(ctx, "testDrtAccessRoleArnAssociation", &shield.DrtAccessRoleArnAssociationArgs{
-//				RoleArn: pulumi.String(fmt.Sprintf("arn:aws:iam:%v:%v:%v", data.Aws_region.Current.Name, data.Aws_caller_identity.Current.Account_id, _var.Shield_drt_access_role_name)),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = shield.NewDrtAccessLogBucketAssociation(ctx, "testDrtAccessLogBucketAssociation", &shield.DrtAccessLogBucketAssociationArgs{
-//				LogBucket:            pulumi.Any(_var.Shield_drt_access_log_bucket),
-//				RoleArnAssociationId: testDrtAccessRoleArnAssociation.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// testDrtAccessRoleArnAssociation, err := shield/drtAccessRoleArnAssociation.NewDrtAccessRoleArnAssociation(ctx, "testDrtAccessRoleArnAssociation", &shield/drtAccessRoleArnAssociation.DrtAccessRoleArnAssociationArgs{
+// RoleArn: fmt.Sprintf("arn:aws:iam:%v:%v:%v", data.Aws_region.Current.Name, data.Aws_caller_identity.Current.Account_id, _var.Shield_drt_access_role_name),
+// })
+// if err != nil {
+// return err
+// }
+// _, err = shield/drtAccessLogBucketAssociation.NewDrtAccessLogBucketAssociation(ctx, "testDrtAccessLogBucketAssociation", &shield/drtAccessLogBucketAssociation.DrtAccessLogBucketAssociationArgs{
+// LogBucket: _var.Shield_drt_access_log_bucket,
+// RoleArnAssociationId: testDrtAccessRoleArnAssociation.Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 type DrtAccessLogBucketAssociation struct {
 	pulumi.CustomResourceState

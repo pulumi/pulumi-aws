@@ -15,190 +15,6 @@ namespace Pulumi.Aws.Msk
     /// &gt; **Note:** This resource manages _provisioned_ clusters. To manage a _serverless_ Amazon MSK cluster, use the `aws.msk.ServerlessCluster` resource.
     /// 
     /// ## Example Usage
-    /// ### Basic
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var vpc = new Aws.Ec2.Vpc("vpc", new()
-    ///     {
-    ///         CidrBlock = "192.168.0.0/22",
-    ///     });
-    /// 
-    ///     var azs = Aws.GetAvailabilityZones.Invoke(new()
-    ///     {
-    ///         State = "available",
-    ///     });
-    /// 
-    ///     var subnetAz1 = new Aws.Ec2.Subnet("subnetAz1", new()
-    ///     {
-    ///         AvailabilityZone = azs.Apply(getAvailabilityZonesResult =&gt; getAvailabilityZonesResult.Names[0]),
-    ///         CidrBlock = "192.168.0.0/24",
-    ///         VpcId = vpc.Id,
-    ///     });
-    /// 
-    ///     var subnetAz2 = new Aws.Ec2.Subnet("subnetAz2", new()
-    ///     {
-    ///         AvailabilityZone = azs.Apply(getAvailabilityZonesResult =&gt; getAvailabilityZonesResult.Names[1]),
-    ///         CidrBlock = "192.168.1.0/24",
-    ///         VpcId = vpc.Id,
-    ///     });
-    /// 
-    ///     var subnetAz3 = new Aws.Ec2.Subnet("subnetAz3", new()
-    ///     {
-    ///         AvailabilityZone = azs.Apply(getAvailabilityZonesResult =&gt; getAvailabilityZonesResult.Names[2]),
-    ///         CidrBlock = "192.168.2.0/24",
-    ///         VpcId = vpc.Id,
-    ///     });
-    /// 
-    ///     var sg = new Aws.Ec2.SecurityGroup("sg", new()
-    ///     {
-    ///         VpcId = vpc.Id,
-    ///     });
-    /// 
-    ///     var kms = new Aws.Kms.Key("kms", new()
-    ///     {
-    ///         Description = "example",
-    ///     });
-    /// 
-    ///     var test = new Aws.CloudWatch.LogGroup("test");
-    /// 
-    ///     var bucket = new Aws.S3.BucketV2("bucket");
-    /// 
-    ///     var bucketAcl = new Aws.S3.BucketAclV2("bucketAcl", new()
-    ///     {
-    ///         Bucket = bucket.Id,
-    ///         Acl = "private",
-    ///     });
-    /// 
-    ///     var assumeRole = Aws.Iam.GetPolicyDocument.Invoke(new()
-    ///     {
-    ///         Statements = new[]
-    ///         {
-    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
-    ///             {
-    ///                 Effect = "Allow",
-    ///                 Principals = new[]
-    ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
-    ///                     {
-    ///                         Type = "Service",
-    ///                         Identifiers = new[]
-    ///                         {
-    ///                             "firehose.amazonaws.com",
-    ///                         },
-    ///                     },
-    ///                 },
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "sts:AssumeRole",
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var firehoseRole = new Aws.Iam.Role("firehoseRole", new()
-    ///     {
-    ///         AssumeRolePolicy = assumeRole.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
-    ///     });
-    /// 
-    ///     var testStream = new Aws.Kinesis.FirehoseDeliveryStream("testStream", new()
-    ///     {
-    ///         Destination = "extended_s3",
-    ///         ExtendedS3Configuration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationArgs
-    ///         {
-    ///             RoleArn = firehoseRole.Arn,
-    ///             BucketArn = bucket.Arn,
-    ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "LogDeliveryEnabled", "placeholder" },
-    ///         },
-    ///     });
-    /// 
-    ///     var example = new Aws.Msk.Cluster("example", new()
-    ///     {
-    ///         KafkaVersion = "3.2.0",
-    ///         NumberOfBrokerNodes = 3,
-    ///         BrokerNodeGroupInfo = new Aws.Msk.Inputs.ClusterBrokerNodeGroupInfoArgs
-    ///         {
-    ///             InstanceType = "kafka.m5.large",
-    ///             ClientSubnets = new[]
-    ///             {
-    ///                 subnetAz1.Id,
-    ///                 subnetAz2.Id,
-    ///                 subnetAz3.Id,
-    ///             },
-    ///             StorageInfo = new Aws.Msk.Inputs.ClusterBrokerNodeGroupInfoStorageInfoArgs
-    ///             {
-    ///                 EbsStorageInfo = new Aws.Msk.Inputs.ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs
-    ///                 {
-    ///                     VolumeSize = 1000,
-    ///                 },
-    ///             },
-    ///             SecurityGroups = new[]
-    ///             {
-    ///                 sg.Id,
-    ///             },
-    ///         },
-    ///         EncryptionInfo = new Aws.Msk.Inputs.ClusterEncryptionInfoArgs
-    ///         {
-    ///             EncryptionAtRestKmsKeyArn = kms.Arn,
-    ///         },
-    ///         OpenMonitoring = new Aws.Msk.Inputs.ClusterOpenMonitoringArgs
-    ///         {
-    ///             Prometheus = new Aws.Msk.Inputs.ClusterOpenMonitoringPrometheusArgs
-    ///             {
-    ///                 JmxExporter = new Aws.Msk.Inputs.ClusterOpenMonitoringPrometheusJmxExporterArgs
-    ///                 {
-    ///                     EnabledInBroker = true,
-    ///                 },
-    ///                 NodeExporter = new Aws.Msk.Inputs.ClusterOpenMonitoringPrometheusNodeExporterArgs
-    ///                 {
-    ///                     EnabledInBroker = true,
-    ///                 },
-    ///             },
-    ///         },
-    ///         LoggingInfo = new Aws.Msk.Inputs.ClusterLoggingInfoArgs
-    ///         {
-    ///             BrokerLogs = new Aws.Msk.Inputs.ClusterLoggingInfoBrokerLogsArgs
-    ///             {
-    ///                 CloudwatchLogs = new Aws.Msk.Inputs.ClusterLoggingInfoBrokerLogsCloudwatchLogsArgs
-    ///                 {
-    ///                     Enabled = true,
-    ///                     LogGroup = test.Name,
-    ///                 },
-    ///                 Firehose = new Aws.Msk.Inputs.ClusterLoggingInfoBrokerLogsFirehoseArgs
-    ///                 {
-    ///                     Enabled = true,
-    ///                     DeliveryStream = testStream.Name,
-    ///                 },
-    ///                 S3 = new Aws.Msk.Inputs.ClusterLoggingInfoBrokerLogsS3Args
-    ///                 {
-    ///                     Enabled = true,
-    ///                     Bucket = bucket.Id,
-    ///                     Prefix = "logs/msk-",
-    ///                 },
-    ///             },
-    ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "foo", "bar" },
-    ///         },
-    ///     });
-    /// 
-    ///     return new Dictionary&lt;string, object?&gt;
-    ///     {
-    ///         ["zookeeperConnectString"] = example.ZookeeperConnectString,
-    ///         ["bootstrapBrokersTls"] = example.BootstrapBrokersTls,
-    ///     };
-    /// });
-    /// ```
     /// ### With volume_throughput argument
     /// 
     /// ```csharp
@@ -209,35 +25,35 @@ namespace Pulumi.Aws.Msk
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Msk.Cluster("example", new()
+    ///     var example = new Aws.Msk.Cluster.Cluster("example", new()
     ///     {
     ///         KafkaVersion = "2.7.1",
     ///         NumberOfBrokerNodes = 3,
-    ///         BrokerNodeGroupInfo = new Aws.Msk.Inputs.ClusterBrokerNodeGroupInfoArgs
+    ///         BrokerNodeGroupInfo = 
     ///         {
-    ///             InstanceType = "kafka.m5.4xlarge",
-    ///             ClientSubnets = new[]
+    ///             { "instanceType", "kafka.m5.4xlarge" },
+    ///             { "clientSubnets", new[]
     ///             {
     ///                 aws_subnet.Subnet_az1.Id,
     ///                 aws_subnet.Subnet_az2.Id,
     ///                 aws_subnet.Subnet_az3.Id,
-    ///             },
-    ///             StorageInfo = new Aws.Msk.Inputs.ClusterBrokerNodeGroupInfoStorageInfoArgs
+    ///             } },
+    ///             { "storageInfo", 
     ///             {
-    ///                 EbsStorageInfo = new Aws.Msk.Inputs.ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs
+    ///                 { "ebsStorageInfo", 
     ///                 {
-    ///                     ProvisionedThroughput = new Aws.Msk.Inputs.ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArgs
+    ///                     { "provisionedThroughput", 
     ///                     {
-    ///                         Enabled = true,
-    ///                         VolumeThroughput = 250,
-    ///                     },
-    ///                     VolumeSize = 1000,
-    ///                 },
-    ///             },
-    ///             SecurityGroups = new[]
+    ///                         { "enabled", true },
+    ///                         { "volumeThroughput", 250 },
+    ///                     } },
+    ///                     { "volumeSize", 1000 },
+    ///                 } },
+    ///             } },
+    ///             { "securityGroups", new[]
     ///             {
     ///                 aws_security_group.Sg.Id,
-    ///             },
+    ///             } },
     ///         },
     ///     });
     /// 

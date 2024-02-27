@@ -14,31 +14,6 @@ import (
 // Data source for managing an AWS IVS (Interactive Video) Stream Key.
 //
 // ## Example Usage
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ivs"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ivs.GetStreamKey(ctx, &ivs.GetStreamKeyArgs{
-//				ChannelArn: "arn:aws:ivs:us-west-2:326937407773:channel/0Y1lcs4U7jk5",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetStreamKey(ctx *pulumi.Context, args *GetStreamKeyArgs, opts ...pulumi.InvokeOption) (*GetStreamKeyResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetStreamKeyResult

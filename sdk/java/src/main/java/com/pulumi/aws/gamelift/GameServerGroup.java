@@ -32,8 +32,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.gamelift.GameServerGroup;
  * import com.pulumi.aws.gamelift.GameServerGroupArgs;
- * import com.pulumi.aws.gamelift.inputs.GameServerGroupInstanceDefinitionArgs;
- * import com.pulumi.aws.gamelift.inputs.GameServerGroupLaunchTemplateArgs;
  * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
@@ -51,15 +49,9 @@ import javax.annotation.Nullable;
  *         var example = new GameServerGroup(&#34;example&#34;, GameServerGroupArgs.builder()        
  *             .gameServerGroupName(&#34;example&#34;)
  *             .instanceDefinitions(            
- *                 GameServerGroupInstanceDefinitionArgs.builder()
- *                     .instanceType(&#34;c5.large&#34;)
- *                     .build(),
- *                 GameServerGroupInstanceDefinitionArgs.builder()
- *                     .instanceType(&#34;c5a.large&#34;)
- *                     .build())
- *             .launchTemplate(GameServerGroupLaunchTemplateArgs.builder()
- *                 .id(aws_launch_template.example().id())
- *                 .build())
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .launchTemplate(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .maxSize(1)
  *             .minSize(1)
  *             .roleArn(aws_iam_role.example().arn())
@@ -80,10 +72,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.gamelift.GameServerGroup;
  * import com.pulumi.aws.gamelift.GameServerGroupArgs;
- * import com.pulumi.aws.gamelift.inputs.GameServerGroupAutoScalingPolicyArgs;
- * import com.pulumi.aws.gamelift.inputs.GameServerGroupAutoScalingPolicyTargetTrackingConfigurationArgs;
- * import com.pulumi.aws.gamelift.inputs.GameServerGroupInstanceDefinitionArgs;
- * import com.pulumi.aws.gamelift.inputs.GameServerGroupLaunchTemplateArgs;
  * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
@@ -99,93 +87,24 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new GameServerGroup(&#34;example&#34;, GameServerGroupArgs.builder()        
- *             .autoScalingPolicy(GameServerGroupAutoScalingPolicyArgs.builder()
- *                 .estimatedInstanceWarmup(60)
- *                 .targetTrackingConfiguration(GameServerGroupAutoScalingPolicyTargetTrackingConfigurationArgs.builder()
- *                     .targetValue(75)
- *                     .build())
- *                 .build())
+ *             .autoScalingPolicy(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .balancingStrategy(&#34;SPOT_ONLY&#34;)
  *             .gameServerGroupName(&#34;example&#34;)
  *             .gameServerProtectionPolicy(&#34;FULL_PROTECTION&#34;)
  *             .instanceDefinitions(            
- *                 GameServerGroupInstanceDefinitionArgs.builder()
- *                     .instanceType(&#34;c5.large&#34;)
- *                     .weightedCapacity(&#34;1&#34;)
- *                     .build(),
- *                 GameServerGroupInstanceDefinitionArgs.builder()
- *                     .instanceType(&#34;c5.2xlarge&#34;)
- *                     .weightedCapacity(&#34;2&#34;)
- *                     .build())
- *             .launchTemplate(GameServerGroupLaunchTemplateArgs.builder()
- *                 .id(aws_launch_template.example().id())
- *                 .version(&#34;1&#34;)
- *                 .build())
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .launchTemplate(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .maxSize(1)
  *             .minSize(1)
  *             .roleArn(aws_iam_role.example().arn())
- *             .tags(Map.of(&#34;Name&#34;, &#34;example&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .vpcSubnets(            
  *                 &#34;subnet-12345678&#34;,
  *                 &#34;subnet-23456789&#34;)
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(aws_iam_role_policy_attachment.example())
  *                 .build());
- * 
- *     }
- * }
- * ```
- * ### Example IAM Role for GameLift Game Server Group
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.AwsFunctions;
- * import com.pulumi.aws.inputs.GetPartitionArgs;
- * import com.pulumi.aws.iam.IamFunctions;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
- * import com.pulumi.aws.iam.Role;
- * import com.pulumi.aws.iam.RoleArgs;
- * import com.pulumi.aws.iam.RolePolicyAttachment;
- * import com.pulumi.aws.iam.RolePolicyAttachmentArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var current = AwsFunctions.getPartition();
- * 
- *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect(&#34;Allow&#34;)
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type(&#34;Service&#34;)
- *                     .identifiers(                    
- *                         &#34;autoscaling.amazonaws.com&#34;,
- *                         &#34;gamelift.amazonaws.com&#34;)
- *                     .build())
- *                 .actions(&#34;sts:AssumeRole&#34;)
- *                 .build())
- *             .build());
- * 
- *         var exampleRole = new Role(&#34;exampleRole&#34;, RoleArgs.builder()        
- *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
- *             .build());
- * 
- *         var exampleRolePolicyAttachment = new RolePolicyAttachment(&#34;exampleRolePolicyAttachment&#34;, RolePolicyAttachmentArgs.builder()        
- *             .policyArn(String.format(&#34;arn:%s:iam::aws:policy/GameLiftGameServerGroupPolicy&#34;, current.applyValue(getPartitionResult -&gt; getPartitionResult.partition())))
- *             .role(exampleRole.name())
- *             .build());
  * 
  *     }
  * }

@@ -21,7 +21,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const sgEc2 = new aws.ec2.SecurityGroupAssociation("sgEc2", {
+ * const sgEc2 = new aws.ec2/securityGroupAssociation.SecurityGroupAssociation("sgEc2", {
  *     vpcEndpointId: aws_vpc_endpoint.ec2.id,
  *     securityGroupId: aws_security_group.sg.id,
  * });

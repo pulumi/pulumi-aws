@@ -32,7 +32,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.iam.SamlProviderArgs;
  * import com.pulumi.aws.cognito.IdentityPool;
  * import com.pulumi.aws.cognito.IdentityPoolArgs;
- * import com.pulumi.aws.cognito.inputs.IdentityPoolCognitoIdentityProviderArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -55,20 +54,9 @@ import javax.annotation.Nullable;
  *             .allowUnauthenticatedIdentities(false)
  *             .allowClassicFlow(false)
  *             .cognitoIdentityProviders(            
- *                 IdentityPoolCognitoIdentityProviderArgs.builder()
- *                     .clientId(&#34;6lhlkkfbfb4q5kpp90urffae&#34;)
- *                     .providerName(&#34;cognito-idp.us-east-1.amazonaws.com/us-east-1_Tv0493apJ&#34;)
- *                     .serverSideTokenCheck(false)
- *                     .build(),
- *                 IdentityPoolCognitoIdentityProviderArgs.builder()
- *                     .clientId(&#34;7kodkvfqfb4qfkp39eurffae&#34;)
- *                     .providerName(&#34;cognito-idp.us-east-1.amazonaws.com/eu-west-1_Zr231apJu&#34;)
- *                     .serverSideTokenCheck(false)
- *                     .build())
- *             .supportedLoginProviders(Map.ofEntries(
- *                 Map.entry(&#34;graph.facebook.com&#34;, &#34;7346241598935552&#34;),
- *                 Map.entry(&#34;accounts.google.com&#34;, &#34;123456789012.apps.googleusercontent.com&#34;)
- *             ))
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .supportedLoginProviders(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .samlProviderArns(default_.arn())
  *             .openidConnectProviderArns(&#34;arn:aws:iam::123456789012:oidc-provider/id.example.com&#34;)
  *             .build());

@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Organizations
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Organizations.DelegatedAdministrator("example", new()
+    ///     var example = new Aws.Organizations.DelegatedAdministrator.DelegatedAdministrator("example", new()
     ///     {
     ///         AccountId = "123456789012",
     ///         ServicePrincipal = "principal",

@@ -63,7 +63,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.cognito.UserPool;
  * import com.pulumi.aws.cognito.ResourceServer;
  * import com.pulumi.aws.cognito.ResourceServerArgs;
- * import com.pulumi.aws.cognito.inputs.ResourceServerScopeArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -81,10 +80,7 @@ import javax.annotation.Nullable;
  * 
  *         var resource = new ResourceServer(&#34;resource&#34;, ResourceServerArgs.builder()        
  *             .identifier(&#34;https://example.com&#34;)
- *             .scopes(ResourceServerScopeArgs.builder()
- *                 .scopeName(&#34;sample-scope&#34;)
- *                 .scopeDescription(&#34;a Sample Scope Description&#34;)
- *                 .build())
+ *             .scopes(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .userPoolId(pool.id())
  *             .build());
  * 

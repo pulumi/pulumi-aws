@@ -353,43 +353,13 @@ class EventDataStore(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.cloudtrail.EventDataStore("example")
+        example = aws.cloudtrail.event_data_store.EventDataStore("example")
         ```
         ### Data Event Logging
 
         CloudTrail can log [Data Events](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html) for certain services such as S3 bucket objects and Lambda function invocations. Additional information about data event configuration can be found in the following links:
 
         - [CloudTrail API AdvancedFieldSelector documentation](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.html)
-        ### Log all DynamoDB PutEvent actions for a specific DynamoDB table
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        table = aws.dynamodb.get_table(name="not-important-dynamodb-table")
-        # ... other configuration ...
-        example = aws.cloudtrail.EventDataStore("example", advanced_event_selectors=[aws.cloudtrail.EventDataStoreAdvancedEventSelectorArgs(
-            name="Log all DynamoDB PutEvent actions for a specific DynamoDB table",
-            field_selectors=[
-                aws.cloudtrail.EventDataStoreAdvancedEventSelectorFieldSelectorArgs(
-                    field="eventCategory",
-                    equals=["Data"],
-                ),
-                aws.cloudtrail.EventDataStoreAdvancedEventSelectorFieldSelectorArgs(
-                    field="resources.type",
-                    equals=["AWS::DynamoDB::Table"],
-                ),
-                aws.cloudtrail.EventDataStoreAdvancedEventSelectorFieldSelectorArgs(
-                    field="eventName",
-                    equals=["PutItem"],
-                ),
-                aws.cloudtrail.EventDataStoreAdvancedEventSelectorFieldSelectorArgs(
-                    field="resources.ARN",
-                    equals=[table.arn],
-                ),
-            ],
-        )])
-        ```
 
         ## Import
 
@@ -432,43 +402,13 @@ class EventDataStore(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.cloudtrail.EventDataStore("example")
+        example = aws.cloudtrail.event_data_store.EventDataStore("example")
         ```
         ### Data Event Logging
 
         CloudTrail can log [Data Events](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html) for certain services such as S3 bucket objects and Lambda function invocations. Additional information about data event configuration can be found in the following links:
 
         - [CloudTrail API AdvancedFieldSelector documentation](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.html)
-        ### Log all DynamoDB PutEvent actions for a specific DynamoDB table
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        table = aws.dynamodb.get_table(name="not-important-dynamodb-table")
-        # ... other configuration ...
-        example = aws.cloudtrail.EventDataStore("example", advanced_event_selectors=[aws.cloudtrail.EventDataStoreAdvancedEventSelectorArgs(
-            name="Log all DynamoDB PutEvent actions for a specific DynamoDB table",
-            field_selectors=[
-                aws.cloudtrail.EventDataStoreAdvancedEventSelectorFieldSelectorArgs(
-                    field="eventCategory",
-                    equals=["Data"],
-                ),
-                aws.cloudtrail.EventDataStoreAdvancedEventSelectorFieldSelectorArgs(
-                    field="resources.type",
-                    equals=["AWS::DynamoDB::Table"],
-                ),
-                aws.cloudtrail.EventDataStoreAdvancedEventSelectorFieldSelectorArgs(
-                    field="eventName",
-                    equals=["PutItem"],
-                ),
-                aws.cloudtrail.EventDataStoreAdvancedEventSelectorFieldSelectorArgs(
-                    field="resources.ARN",
-                    equals=[table.arn],
-                ),
-            ],
-        )])
-        ```
 
         ## Import
 

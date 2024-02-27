@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.networkfirewall.ResourcePolicy("example", {
+ * const example = new aws.networkfirewall/resourcePolicy.ResourcePolicy("example", {
  *     resourceArn: aws_networkfirewall_firewall_policy.example.arn,
  *     policy: JSON.stringify({
  *         Statement: [{
@@ -40,7 +40,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.networkfirewall.ResourcePolicy("example", {
+ * const example = new aws.networkfirewall/resourcePolicy.ResourcePolicy("example", {
  *     resourceArn: aws_networkfirewall_rule_group.example.arn,
  *     policy: JSON.stringify({
  *         Statement: [{

@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.ebs.EncryptionByDefault("example", {enabled: true});
+ * const example = new aws.ebs/encryptionByDefault.EncryptionByDefault("example", {enabled: true});
  * ```
  *
  * ## Import

@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Emr
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Emr.Studio("example", new()
+    ///     var example = new Aws.Emr.Studio.Studio("example", new()
     ///     {
     ///         AuthMode = "SSO",
     ///         DefaultS3Location = $"s3://{aws_s3_bucket.Test.Bucket}/test",

@@ -23,12 +23,12 @@ namespace Pulumi.Aws.Route53
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Route53.HealthCheck("example", new()
+    ///     var example = new Aws.Route53.HealthCheck.HealthCheck("example", new()
     ///     {
-    ///         FailureThreshold = 5,
+    ///         FailureThreshold = "5",
     ///         Fqdn = "example.com",
     ///         Port = 80,
-    ///         RequestInterval = 30,
+    ///         RequestInterval = "30",
     ///         ResourcePath = "/",
     ///         Tags = 
     ///         {
@@ -49,12 +49,12 @@ namespace Pulumi.Aws.Route53
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Route53.HealthCheck("example", new()
+    ///     var example = new Aws.Route53.HealthCheck.HealthCheck("example", new()
     ///     {
-    ///         FailureThreshold = 5,
+    ///         FailureThreshold = "5",
     ///         Fqdn = "example.com",
     ///         Port = 443,
-    ///         RequestInterval = 30,
+    ///         RequestInterval = "30",
     ///         ResourcePath = "/",
     ///         SearchString = "example",
     ///         Type = "HTTPS_STR_MATCH",
@@ -72,7 +72,7 @@ namespace Pulumi.Aws.Route53
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var parent = new Aws.Route53.HealthCheck("parent", new()
+    ///     var parent = new Aws.Route53.HealthCheck.HealthCheck("parent", new()
     ///     {
     ///         Type = "CALCULATED",
     ///         ChildHealthThreshold = 1,
@@ -98,19 +98,19 @@ namespace Pulumi.Aws.Route53
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var foobar = new Aws.CloudWatch.MetricAlarm("foobar", new()
+    ///     var foobar = new Aws.Cloudwatch.MetricAlarm.MetricAlarm("foobar", new()
     ///     {
     ///         ComparisonOperator = "GreaterThanOrEqualToThreshold",
-    ///         EvaluationPeriods = 2,
+    ///         EvaluationPeriods = "2",
     ///         MetricName = "CPUUtilization",
     ///         Namespace = "AWS/EC2",
-    ///         Period = 120,
+    ///         Period = "120",
     ///         Statistic = "Average",
-    ///         Threshold = 80,
+    ///         Threshold = "80",
     ///         AlarmDescription = "This metric monitors ec2 cpu utilization",
     ///     });
     /// 
-    ///     var foo = new Aws.Route53.HealthCheck("foo", new()
+    ///     var foo = new Aws.Route53.HealthCheck.HealthCheck("foo", new()
     ///     {
     ///         Type = "CLOUDWATCH_METRIC",
     ///         CloudwatchAlarmName = foobar.Name,

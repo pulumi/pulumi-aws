@@ -280,31 +280,31 @@ class WebAcl(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        ipset = aws.waf.IpSet("ipset", ip_set_descriptors=[aws.waf.IpSetIpSetDescriptorArgs(
-            type="IPV4",
-            value="192.0.7.0/24",
-        )])
-        wafrule = aws.waf.Rule("wafrule",
-            metric_name="tfWAFRule",
-            predicates=[aws.waf.RulePredicateArgs(
-                data_id=ipset.id,
-                negated=False,
-                type="IPMatch",
-            )],
+        ipset = aws.waf.ip_set.IpSet("ipset", ip_set_descriptors=[{
+            type: IPV4,
+            value: 192.0.7.0/24,
+        }])
+        wafrule = aws.waf.rule.Rule("wafrule",
+            metric_name=tfWAFRule,
+            predicates=[{
+                dataId: ipset.id,
+                negated: False,
+                type: IPMatch,
+            }],
             opts=pulumi.ResourceOptions(depends_on=[ipset]))
-        waf_acl = aws.waf.WebAcl("wafAcl",
-            metric_name="tfWebACL",
-            default_action=aws.waf.WebAclDefaultActionArgs(
-                type="ALLOW",
-            ),
-            rules=[aws.waf.WebAclRuleArgs(
-                action=aws.waf.WebAclRuleActionArgs(
-                    type="BLOCK",
-                ),
-                priority=1,
-                rule_id=wafrule.id,
-                type="REGULAR",
-            )],
+        waf_acl = aws.waf.web_acl.WebAcl("wafAcl",
+            metric_name=tfWebACL,
+            default_action={
+                type: ALLOW,
+            },
+            rules=[{
+                action: {
+                    type: BLOCK,
+                },
+                priority: 1,
+                ruleId: wafrule.id,
+                type: REGULAR,
+            }],
             opts=pulumi.ResourceOptions(depends_on=[
                     ipset,
                     wafrule,
@@ -318,20 +318,20 @@ class WebAcl(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.waf.WebAcl("example", logging_configuration=aws.waf.WebAclLoggingConfigurationArgs(
-            log_destination=aws_kinesis_firehose_delivery_stream["example"]["arn"],
-            redacted_fields=aws.waf.WebAclLoggingConfigurationRedactedFieldsArgs(
-                field_to_matches=[
-                    aws.waf.WebAclLoggingConfigurationRedactedFieldsFieldToMatchArgs(
-                        type="URI",
-                    ),
-                    aws.waf.WebAclLoggingConfigurationRedactedFieldsFieldToMatchArgs(
-                        data="referer",
-                        type="HEADER",
-                    ),
+        example = aws.waf.web_acl.WebAcl("example", logging_configuration={
+            logDestination: aws_kinesis_firehose_delivery_stream.example.arn,
+            redactedFields: {
+                fieldToMatches: [
+                    {
+                        type: URI,
+                    },
+                    {
+                        data: referer,
+                        type: HEADER,
+                    },
                 ],
-            ),
-        ))
+            },
+        })
         ```
 
         ## Import
@@ -368,31 +368,31 @@ class WebAcl(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        ipset = aws.waf.IpSet("ipset", ip_set_descriptors=[aws.waf.IpSetIpSetDescriptorArgs(
-            type="IPV4",
-            value="192.0.7.0/24",
-        )])
-        wafrule = aws.waf.Rule("wafrule",
-            metric_name="tfWAFRule",
-            predicates=[aws.waf.RulePredicateArgs(
-                data_id=ipset.id,
-                negated=False,
-                type="IPMatch",
-            )],
+        ipset = aws.waf.ip_set.IpSet("ipset", ip_set_descriptors=[{
+            type: IPV4,
+            value: 192.0.7.0/24,
+        }])
+        wafrule = aws.waf.rule.Rule("wafrule",
+            metric_name=tfWAFRule,
+            predicates=[{
+                dataId: ipset.id,
+                negated: False,
+                type: IPMatch,
+            }],
             opts=pulumi.ResourceOptions(depends_on=[ipset]))
-        waf_acl = aws.waf.WebAcl("wafAcl",
-            metric_name="tfWebACL",
-            default_action=aws.waf.WebAclDefaultActionArgs(
-                type="ALLOW",
-            ),
-            rules=[aws.waf.WebAclRuleArgs(
-                action=aws.waf.WebAclRuleActionArgs(
-                    type="BLOCK",
-                ),
-                priority=1,
-                rule_id=wafrule.id,
-                type="REGULAR",
-            )],
+        waf_acl = aws.waf.web_acl.WebAcl("wafAcl",
+            metric_name=tfWebACL,
+            default_action={
+                type: ALLOW,
+            },
+            rules=[{
+                action: {
+                    type: BLOCK,
+                },
+                priority: 1,
+                ruleId: wafrule.id,
+                type: REGULAR,
+            }],
             opts=pulumi.ResourceOptions(depends_on=[
                     ipset,
                     wafrule,
@@ -406,20 +406,20 @@ class WebAcl(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.waf.WebAcl("example", logging_configuration=aws.waf.WebAclLoggingConfigurationArgs(
-            log_destination=aws_kinesis_firehose_delivery_stream["example"]["arn"],
-            redacted_fields=aws.waf.WebAclLoggingConfigurationRedactedFieldsArgs(
-                field_to_matches=[
-                    aws.waf.WebAclLoggingConfigurationRedactedFieldsFieldToMatchArgs(
-                        type="URI",
-                    ),
-                    aws.waf.WebAclLoggingConfigurationRedactedFieldsFieldToMatchArgs(
-                        data="referer",
-                        type="HEADER",
-                    ),
+        example = aws.waf.web_acl.WebAcl("example", logging_configuration={
+            logDestination: aws_kinesis_firehose_delivery_stream.example.arn,
+            redactedFields: {
+                fieldToMatches: [
+                    {
+                        type: URI,
+                    },
+                    {
+                        data: referer,
+                        type: HEADER,
+                    },
                 ],
-            ),
-        ))
+            },
+        })
         ```
 
         ## Import

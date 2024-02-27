@@ -27,8 +27,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.ebs.Volume;
- * import com.pulumi.aws.ebs.VolumeArgs;
+ * import com.pulumi.aws.ebs_volume.Volume;
+ * import com.pulumi.aws.ebs_volume.VolumeArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *         var example = new Volume(&#34;example&#34;, VolumeArgs.builder()        
  *             .availabilityZone(&#34;us-west-2a&#34;)
  *             .size(40)
- *             .tags(Map.of(&#34;Name&#34;, &#34;HelloWorld&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

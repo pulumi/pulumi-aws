@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.networkfirewall.RuleGroup("example", {
+ * const example = new aws.networkfirewall/ruleGroup.RuleGroup("example", {
  *     capacity: 100,
  *     ruleGroup: {
  *         rulesSource: {
@@ -35,6 +35,81 @@ import * as utilities from "../utilities";
  *     type: "STATEFUL",
  * });
  * ```
+ * ### Stateful Inspection for permitting packets from a source IP address
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const ips = [
+ *     "1.1.1.1/32",
+ *     "1.0.0.1/32",
+ * ];
+ * const example = new aws.networkfirewall/ruleGroup.RuleGroup("example", {
+ *     capacity: 50,
+ *     description: "Permits http traffic from source",
+ *     type: "STATEFUL",
+ *     ruleGroup: {
+ *         rulesSource: {
+ *             dynamic: [{
+ *                 forEach: ips,
+ *                 content: [{
+ *                     action: "PASS",
+ *                     header: [{
+ *                         destination: "ANY",
+ *                         destinationPort: "ANY",
+ *                         protocol: "HTTP",
+ *                         direction: "ANY",
+ *                         sourcePort: "ANY",
+ *                         source: stateful_rule.value,
+ *                     }],
+ *                     ruleOption: [{
+ *                         keyword: "sid",
+ *                         settings: ["1"],
+ *                     }],
+ *                 }],
+ *             }],
+ *         },
+ *     },
+ *     tags: {
+ *         Name: "permit HTTP from source",
+ *     },
+ * });
+ * ```
+ * ### Stateful Inspection for blocking packets from going to an intended destination
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.networkfirewall/ruleGroup.RuleGroup("example", {
+ *     capacity: 100,
+ *     ruleGroup: {
+ *         rulesSource: {
+ *             statefulRule: [{
+ *                 action: "DROP",
+ *                 header: {
+ *                     destination: "124.1.1.24/32",
+ *                     destinationPort: 53,
+ *                     direction: "ANY",
+ *                     protocol: "TCP",
+ *                     source: "1.2.3.4/32",
+ *                     sourcePort: 53,
+ *                 },
+ *                 ruleOption: [{
+ *                     keyword: "sid",
+ *                     settings: ["1"],
+ *                 }],
+ *             }],
+ *         },
+ *     },
+ *     tags: {
+ *         Tag1: "Value1",
+ *         Tag2: "Value2",
+ *     },
+ *     type: "STATEFUL",
+ * });
+ * ```
  * ### Stateful Inspection from rules specifications defined in Suricata flat format
  *
  * ```typescript
@@ -42,7 +117,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * import * as fs from "fs";
  *
- * const example = new aws.networkfirewall.RuleGroup("example", {
+ * const example = new aws.networkfirewall/ruleGroup.RuleGroup("example", {
  *     capacity: 100,
  *     type: "STATEFUL",
  *     rules: fs.readFileSync("example.rules", "utf8"),
@@ -59,7 +134,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * import * as fs from "fs";
  *
- * const example = new aws.networkfirewall.RuleGroup("example", {
+ * const example = new aws.networkfirewall/ruleGroup.RuleGroup("example", {
  *     capacity: 100,
  *     type: "STATEFUL",
  *     ruleGroup: {
@@ -102,13 +177,78 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * ### Stateless Inspection with a Custom Action
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.networkfirewall/ruleGroup.RuleGroup("example", {
+ *     capacity: 100,
+ *     description: "Stateless Rate Limiting Rule",
+ *     ruleGroup: {
+ *         rulesSource: {
+ *             statelessRulesAndCustomActions: {
+ *                 customAction: [{
+ *                     actionDefinition: {
+ *                         publishMetricAction: {
+ *                             dimension: [{
+ *                                 value: "2",
+ *                             }],
+ *                         },
+ *                     },
+ *                     actionName: "ExampleMetricsAction",
+ *                 }],
+ *                 statelessRule: [{
+ *                     priority: 1,
+ *                     ruleDefinition: {
+ *                         actions: [
+ *                             "aws:pass",
+ *                             "ExampleMetricsAction",
+ *                         ],
+ *                         matchAttributes: {
+ *                             destination: [{
+ *                                 addressDefinition: "124.1.1.5/32",
+ *                             }],
+ *                             destinationPort: [{
+ *                                 fromPort: 443,
+ *                                 toPort: 443,
+ *                             }],
+ *                             protocols: [6],
+ *                             source: [{
+ *                                 addressDefinition: "1.2.3.4/32",
+ *                             }],
+ *                             sourcePort: [{
+ *                                 fromPort: 443,
+ *                                 toPort: 443,
+ *                             }],
+ *                             tcpFlag: [{
+ *                                 flags: ["SYN"],
+ *                                 masks: [
+ *                                     "SYN",
+ *                                     "ACK",
+ *                                 ],
+ *                             }],
+ *                         },
+ *                     },
+ *                 }],
+ *             },
+ *         },
+ *     },
+ *     tags: {
+ *         Tag1: "Value1",
+ *         Tag2: "Value2",
+ *     },
+ *     type: "STATELESS",
+ * });
+ * ```
  * ### IP Set References to the Rule Group
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.networkfirewall.RuleGroup("example", {
+ * const example = new aws.networkfirewall/ruleGroup.RuleGroup("example", {
  *     capacity: 100,
  *     type: "STATEFUL",
  *     ruleGroup: {

@@ -31,13 +31,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.guardduty.DetectorArgs;
  * import com.pulumi.aws.guardduty.OrganizationConfiguration;
  * import com.pulumi.aws.guardduty.OrganizationConfigurationArgs;
- * import com.pulumi.aws.guardduty.inputs.OrganizationConfigurationDatasourcesArgs;
- * import com.pulumi.aws.guardduty.inputs.OrganizationConfigurationDatasourcesS3LogsArgs;
- * import com.pulumi.aws.guardduty.inputs.OrganizationConfigurationDatasourcesKubernetesArgs;
- * import com.pulumi.aws.guardduty.inputs.OrganizationConfigurationDatasourcesKubernetesAuditLogsArgs;
- * import com.pulumi.aws.guardduty.inputs.OrganizationConfigurationDatasourcesMalwareProtectionArgs;
- * import com.pulumi.aws.guardduty.inputs.OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsArgs;
- * import com.pulumi.aws.guardduty.inputs.OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -58,23 +51,7 @@ import javax.annotation.Nullable;
  *         var exampleOrganizationConfiguration = new OrganizationConfiguration(&#34;exampleOrganizationConfiguration&#34;, OrganizationConfigurationArgs.builder()        
  *             .autoEnableOrganizationMembers(&#34;ALL&#34;)
  *             .detectorId(exampleDetector.id())
- *             .datasources(OrganizationConfigurationDatasourcesArgs.builder()
- *                 .s3Logs(OrganizationConfigurationDatasourcesS3LogsArgs.builder()
- *                     .autoEnable(true)
- *                     .build())
- *                 .kubernetes(OrganizationConfigurationDatasourcesKubernetesArgs.builder()
- *                     .auditLogs(OrganizationConfigurationDatasourcesKubernetesAuditLogsArgs.builder()
- *                         .enable(true)
- *                         .build())
- *                     .build())
- *                 .malwareProtection(OrganizationConfigurationDatasourcesMalwareProtectionArgs.builder()
- *                     .scanEc2InstanceWithFindings(OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsArgs.builder()
- *                         .ebsVolumes(OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesArgs.builder()
- *                             .autoEnable(true)
- *                             .build())
- *                         .build())
- *                     .build())
- *                 .build())
+ *             .datasources(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

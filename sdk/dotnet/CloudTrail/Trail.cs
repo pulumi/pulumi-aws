@@ -17,139 +17,7 @@ namespace Pulumi.Aws.CloudTrail
     /// &gt; **Tip:** For an organization trail, this resource must be in the master account of the organization.
     /// 
     /// ## Example Usage
-    /// ### Basic
     /// 
-    /// Enable CloudTrail to capture all compatible management events in region.
-    /// For capturing events from services like IAM, `include_global_service_events` must be enabled.
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2", new()
-    ///     {
-    ///         ForceDestroy = true,
-    ///     });
-    /// 
-    ///     var currentCallerIdentity = Aws.GetCallerIdentity.Invoke();
-    /// 
-    ///     var currentPartition = Aws.GetPartition.Invoke();
-    /// 
-    ///     var currentRegion = Aws.GetRegion.Invoke();
-    /// 
-    ///     var examplePolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
-    ///     {
-    ///         Statements = new[]
-    ///         {
-    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
-    ///             {
-    ///                 Sid = "AWSCloudTrailAclCheck",
-    ///                 Effect = "Allow",
-    ///                 Principals = new[]
-    ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
-    ///                     {
-    ///                         Type = "Service",
-    ///                         Identifiers = new[]
-    ///                         {
-    ///                             "cloudtrail.amazonaws.com",
-    ///                         },
-    ///                     },
-    ///                 },
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "s3:GetBucketAcl",
-    ///                 },
-    ///                 Resources = new[]
-    ///                 {
-    ///                     exampleBucketV2.Arn,
-    ///                 },
-    ///                 Conditions = new[]
-    ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
-    ///                     {
-    ///                         Test = "StringEquals",
-    ///                         Variable = "aws:SourceArn",
-    ///                         Values = new[]
-    ///                         {
-    ///                             $"arn:{currentPartition.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:cloudtrail:{currentRegion.Apply(getRegionResult =&gt; getRegionResult.Name)}:{currentCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:trail/example",
-    ///                         },
-    ///                     },
-    ///                 },
-    ///             },
-    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
-    ///             {
-    ///                 Sid = "AWSCloudTrailWrite",
-    ///                 Effect = "Allow",
-    ///                 Principals = new[]
-    ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
-    ///                     {
-    ///                         Type = "Service",
-    ///                         Identifiers = new[]
-    ///                         {
-    ///                             "cloudtrail.amazonaws.com",
-    ///                         },
-    ///                     },
-    ///                 },
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "s3:PutObject",
-    ///                 },
-    ///                 Resources = new[]
-    ///                 {
-    ///                     $"{exampleBucketV2.Arn}/prefix/AWSLogs/{currentCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}/*",
-    ///                 },
-    ///                 Conditions = new[]
-    ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
-    ///                     {
-    ///                         Test = "StringEquals",
-    ///                         Variable = "s3:x-amz-acl",
-    ///                         Values = new[]
-    ///                         {
-    ///                             "bucket-owner-full-control",
-    ///                         },
-    ///                     },
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
-    ///                     {
-    ///                         Test = "StringEquals",
-    ///                         Variable = "aws:SourceArn",
-    ///                         Values = new[]
-    ///                         {
-    ///                             $"arn:{currentPartition.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:cloudtrail:{currentRegion.Apply(getRegionResult =&gt; getRegionResult.Name)}:{currentCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:trail/example",
-    ///                         },
-    ///                     },
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleBucketPolicy = new Aws.S3.BucketPolicy("exampleBucketPolicy", new()
-    ///     {
-    ///         Bucket = exampleBucketV2.Id,
-    ///         Policy = examplePolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
-    ///     });
-    /// 
-    ///     var exampleTrail = new Aws.CloudTrail.Trail("exampleTrail", new()
-    ///     {
-    ///         S3BucketName = exampleBucketV2.Id,
-    ///         S3KeyPrefix = "prefix",
-    ///         IncludeGlobalServiceEvents = false,
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             exampleBucketPolicy,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// ### Data Event Logging
     /// 
     /// CloudTrail can log [Data Events](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html) for certain services such as S3 objects and Lambda function invocations. Additional information about data event configuration can be found in the following links:
@@ -166,25 +34,25 @@ namespace Pulumi.Aws.CloudTrail
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.CloudTrail.Trail("example", new()
+    ///     var example = new Aws.Cloudtrail.Trail.Trail("example", new()
     ///     {
     ///         EventSelectors = new[]
     ///         {
-    ///             new Aws.CloudTrail.Inputs.TrailEventSelectorArgs
+    ///             
     ///             {
-    ///                 DataResources = new[]
+    ///                 { "dataResources", new[]
     ///                 {
-    ///                     new Aws.CloudTrail.Inputs.TrailEventSelectorDataResourceArgs
+    ///                     
     ///                     {
-    ///                         Type = "AWS::Lambda::Function",
-    ///                         Values = new[]
+    ///                         { "type", "AWS::Lambda::Function" },
+    ///                         { "values", new[]
     ///                         {
     ///                             "arn:aws:lambda",
-    ///                         },
+    ///                         } },
     ///                     },
-    ///                 },
-    ///                 IncludeManagementEvents = true,
-    ///                 ReadWriteType = "All",
+    ///                 } },
+    ///                 { "includeManagementEvents", true },
+    ///                 { "readWriteType", "All" },
     ///             },
     ///         },
     ///     });
@@ -201,65 +69,25 @@ namespace Pulumi.Aws.CloudTrail
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.CloudTrail.Trail("example", new()
+    ///     var example = new Aws.Cloudtrail.Trail.Trail("example", new()
     ///     {
     ///         EventSelectors = new[]
     ///         {
-    ///             new Aws.CloudTrail.Inputs.TrailEventSelectorArgs
+    ///             
     ///             {
-    ///                 DataResources = new[]
+    ///                 { "dataResources", new[]
     ///                 {
-    ///                     new Aws.CloudTrail.Inputs.TrailEventSelectorDataResourceArgs
+    ///                     
     ///                     {
-    ///                         Type = "AWS::S3::Object",
-    ///                         Values = new[]
+    ///                         { "type", "AWS::S3::Object" },
+    ///                         { "values", new[]
     ///                         {
     ///                             "arn:aws:s3",
-    ///                         },
+    ///                         } },
     ///                     },
-    ///                 },
-    ///                 IncludeManagementEvents = true,
-    ///                 ReadWriteType = "All",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### Logging Individual S3 Bucket Events By Using Basic Event Selectors
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var important_bucket = Aws.S3.GetBucket.Invoke(new()
-    ///     {
-    ///         Bucket = "important-bucket",
-    ///     });
-    /// 
-    ///     var example = new Aws.CloudTrail.Trail("example", new()
-    ///     {
-    ///         EventSelectors = new[]
-    ///         {
-    ///             new Aws.CloudTrail.Inputs.TrailEventSelectorArgs
-    ///             {
-    ///                 DataResources = new[]
-    ///                 {
-    ///                     new Aws.CloudTrail.Inputs.TrailEventSelectorDataResourceArgs
-    ///                     {
-    ///                         Type = "AWS::S3::Object",
-    ///                         Values = new[]
-    ///                         {
-    ///                             important_bucket.Apply(important_bucket =&gt; $"{important_bucket.Apply(getBucketResult =&gt; getBucketResult.Arn)}/"),
-    ///                         },
-    ///                     },
-    ///                 },
-    ///                 IncludeManagementEvents = true,
-    ///                 ReadWriteType = "All",
+    ///                 } },
+    ///                 { "includeManagementEvents", true },
+    ///                 { "readWriteType", "All" },
     ///             },
     ///         },
     ///     });
@@ -276,11 +104,11 @@ namespace Pulumi.Aws.CloudTrail
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleLogGroup = new Aws.CloudWatch.LogGroup("exampleLogGroup");
+    ///     var exampleLogGroup = new Aws.Cloudwatch.LogGroup.LogGroup("exampleLogGroup");
     /// 
-    ///     var exampleTrail = new Aws.CloudTrail.Trail("exampleTrail", new()
+    ///     var exampleTrail = new Aws.Cloudtrail.Trail.Trail("exampleTrail", new()
     ///     {
-    ///         CloudWatchLogsGroupArn = exampleLogGroup.Arn.Apply(arn =&gt; $"{arn}:*"),
+    ///         CloudWatchLogsGroupArn = $"{exampleLogGroup.Arn}:*",
     ///     });
     /// 
     ///     // CloudTrail requires the Log Stream wildcard

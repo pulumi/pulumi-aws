@@ -21,45 +21,45 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53"
+//	route53/resolverFirewallDomainList "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/route53/resolverFirewallDomainList"
+//	route53/resolverFirewallRule "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/route53/resolverFirewallRule"
+//	route53/resolverFirewallRuleGroup "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/route53/resolverFirewallRuleGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResolverFirewallDomainList, err := route53.NewResolverFirewallDomainList(ctx, "exampleResolverFirewallDomainList", &route53.ResolverFirewallDomainListArgs{
-//				Domains: pulumi.StringArray{
-//					pulumi.String("example.com"),
-//				},
-//				Tags: nil,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleResolverFirewallRuleGroup, err := route53.NewResolverFirewallRuleGroup(ctx, "exampleResolverFirewallRuleGroup", &route53.ResolverFirewallRuleGroupArgs{
-//				Tags: nil,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = route53.NewResolverFirewallRule(ctx, "exampleResolverFirewallRule", &route53.ResolverFirewallRuleArgs{
-//				Action:               pulumi.String("BLOCK"),
-//				BlockOverrideDnsType: pulumi.String("CNAME"),
-//				BlockOverrideDomain:  pulumi.String("example.com"),
-//				BlockOverrideTtl:     pulumi.Int(1),
-//				BlockResponse:        pulumi.String("OVERRIDE"),
-//				FirewallDomainListId: exampleResolverFirewallDomainList.ID(),
-//				FirewallRuleGroupId:  exampleResolverFirewallRuleGroup.ID(),
-//				Priority:             pulumi.Int(100),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleResolverFirewallDomainList, err := route53/resolverFirewallDomainList.NewResolverFirewallDomainList(ctx, "exampleResolverFirewallDomainList", &route53/resolverFirewallDomainList.ResolverFirewallDomainListArgs{
+// Domains: []string{
+// "example.com",
+// },
+// Tags: nil,
+// })
+// if err != nil {
+// return err
+// }
+// exampleResolverFirewallRuleGroup, err := route53/resolverFirewallRuleGroup.NewResolverFirewallRuleGroup(ctx, "exampleResolverFirewallRuleGroup", &route53/resolverFirewallRuleGroup.ResolverFirewallRuleGroupArgs{
+// Tags: nil,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = route53/resolverFirewallRule.NewResolverFirewallRule(ctx, "exampleResolverFirewallRule", &route53/resolverFirewallRule.ResolverFirewallRuleArgs{
+// Action: "BLOCK",
+// BlockOverrideDnsType: "CNAME",
+// BlockOverrideDomain: "example.com",
+// BlockOverrideTtl: 1,
+// BlockResponse: "OVERRIDE",
+// FirewallDomainListId: exampleResolverFirewallDomainList.Id,
+// FirewallRuleGroupId: exampleResolverFirewallRuleGroup.Id,
+// Priority: 100,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

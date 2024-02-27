@@ -225,26 +225,26 @@ class ResourceLfTags(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_lf_tag = aws.lakeformation.LfTag("exampleLfTag",
-            key="right",
+        example_lf_tag = aws.lakeformation.lf_tag.LfTag("exampleLfTag",
+            key=right,
             values=[
-                "abbey",
-                "village",
-                "luffield",
-                "woodcote",
-                "copse",
-                "chapel",
-                "stowe",
-                "club",
+                abbey,
+                village,
+                luffield,
+                woodcote,
+                copse,
+                chapel,
+                stowe,
+                club,
             ])
-        example_resource_lf_tags = aws.lakeformation.ResourceLfTags("exampleResourceLfTags",
-            database=aws.lakeformation.ResourceLfTagsDatabaseArgs(
-                name=aws_glue_catalog_database["example"]["name"],
-            ),
-            lf_tags=[aws.lakeformation.ResourceLfTagsLfTagArgs(
-                key=example_lf_tag.key,
-                value="stowe",
-            )])
+        example_resource_lf_tags = aws.lakeformation.resource_lf_tags.ResourceLfTags("exampleResourceLfTags",
+            database={
+                name: aws_glue_catalog_database.example.name,
+            },
+            lf_tags=[{
+                key: example_lf_tag.key,
+                value: stowe,
+            }])
         ```
         ### Multiple Tags Example
 
@@ -252,42 +252,42 @@ class ResourceLfTags(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_lf_tag = aws.lakeformation.LfTag("exampleLfTag",
-            key="right",
+        example_lf_tag = aws.lakeformation.lf_tag.LfTag("exampleLfTag",
+            key=right,
             values=[
-                "abbey",
-                "village",
-                "luffield",
-                "woodcote",
-                "copse",
-                "chapel",
-                "stowe",
-                "club",
+                abbey,
+                village,
+                luffield,
+                woodcote,
+                copse,
+                chapel,
+                stowe,
+                club,
             ])
-        example2 = aws.lakeformation.LfTag("example2",
-            key="left",
+        example2 = aws.lakeformation.lf_tag.LfTag("example2",
+            key=left,
             values=[
-                "farm",
-                "theloop",
-                "aintree",
-                "brooklands",
-                "maggotts",
-                "becketts",
-                "vale",
+                farm,
+                theloop,
+                aintree,
+                brooklands,
+                maggotts,
+                becketts,
+                vale,
             ])
-        example_resource_lf_tags = aws.lakeformation.ResourceLfTags("exampleResourceLfTags",
-            database=aws.lakeformation.ResourceLfTagsDatabaseArgs(
-                name=aws_glue_catalog_database["example"]["name"],
-            ),
+        example_resource_lf_tags = aws.lakeformation.resource_lf_tags.ResourceLfTags("exampleResourceLfTags",
+            database={
+                name: aws_glue_catalog_database.example.name,
+            },
             lf_tags=[
-                aws.lakeformation.ResourceLfTagsLfTagArgs(
-                    key="right",
-                    value="luffield",
-                ),
-                aws.lakeformation.ResourceLfTagsLfTagArgs(
-                    key="left",
-                    value="aintree",
-                ),
+                {
+                    key: right,
+                    value: luffield,
+                },
+                {
+                    key: left,
+                    value: aintree,
+                },
             ])
         ```
 
@@ -319,26 +319,26 @@ class ResourceLfTags(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_lf_tag = aws.lakeformation.LfTag("exampleLfTag",
-            key="right",
+        example_lf_tag = aws.lakeformation.lf_tag.LfTag("exampleLfTag",
+            key=right,
             values=[
-                "abbey",
-                "village",
-                "luffield",
-                "woodcote",
-                "copse",
-                "chapel",
-                "stowe",
-                "club",
+                abbey,
+                village,
+                luffield,
+                woodcote,
+                copse,
+                chapel,
+                stowe,
+                club,
             ])
-        example_resource_lf_tags = aws.lakeformation.ResourceLfTags("exampleResourceLfTags",
-            database=aws.lakeformation.ResourceLfTagsDatabaseArgs(
-                name=aws_glue_catalog_database["example"]["name"],
-            ),
-            lf_tags=[aws.lakeformation.ResourceLfTagsLfTagArgs(
-                key=example_lf_tag.key,
-                value="stowe",
-            )])
+        example_resource_lf_tags = aws.lakeformation.resource_lf_tags.ResourceLfTags("exampleResourceLfTags",
+            database={
+                name: aws_glue_catalog_database.example.name,
+            },
+            lf_tags=[{
+                key: example_lf_tag.key,
+                value: stowe,
+            }])
         ```
         ### Multiple Tags Example
 
@@ -346,42 +346,42 @@ class ResourceLfTags(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_lf_tag = aws.lakeformation.LfTag("exampleLfTag",
-            key="right",
+        example_lf_tag = aws.lakeformation.lf_tag.LfTag("exampleLfTag",
+            key=right,
             values=[
-                "abbey",
-                "village",
-                "luffield",
-                "woodcote",
-                "copse",
-                "chapel",
-                "stowe",
-                "club",
+                abbey,
+                village,
+                luffield,
+                woodcote,
+                copse,
+                chapel,
+                stowe,
+                club,
             ])
-        example2 = aws.lakeformation.LfTag("example2",
-            key="left",
+        example2 = aws.lakeformation.lf_tag.LfTag("example2",
+            key=left,
             values=[
-                "farm",
-                "theloop",
-                "aintree",
-                "brooklands",
-                "maggotts",
-                "becketts",
-                "vale",
+                farm,
+                theloop,
+                aintree,
+                brooklands,
+                maggotts,
+                becketts,
+                vale,
             ])
-        example_resource_lf_tags = aws.lakeformation.ResourceLfTags("exampleResourceLfTags",
-            database=aws.lakeformation.ResourceLfTagsDatabaseArgs(
-                name=aws_glue_catalog_database["example"]["name"],
-            ),
+        example_resource_lf_tags = aws.lakeformation.resource_lf_tags.ResourceLfTags("exampleResourceLfTags",
+            database={
+                name: aws_glue_catalog_database.example.name,
+            },
             lf_tags=[
-                aws.lakeformation.ResourceLfTagsLfTagArgs(
-                    key="right",
-                    value="luffield",
-                ),
-                aws.lakeformation.ResourceLfTagsLfTagArgs(
-                    key="left",
-                    value="aintree",
-                ),
+                {
+                    key: right,
+                    value: luffield,
+                },
+                {
+                    key: left,
+                    value: aintree,
+                },
             ])
         ```
 

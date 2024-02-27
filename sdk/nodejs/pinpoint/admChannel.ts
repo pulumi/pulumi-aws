@@ -14,8 +14,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const app = new aws.pinpoint.App("app", {});
- * const channel = new aws.pinpoint.AdmChannel("channel", {
+ * const app = new aws.pinpoint/app.App("app", {});
+ * const channel = new aws.pinpoint/admChannel.AdmChannel("channel", {
  *     applicationId: app.applicationId,
  *     clientId: "",
  *     clientSecret: "",

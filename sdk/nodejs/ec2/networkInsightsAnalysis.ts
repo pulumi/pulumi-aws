@@ -16,12 +16,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const path = new aws.ec2.NetworkInsightsPath("path", {
+ * const path = new aws.ec2/networkInsightsPath.NetworkInsightsPath("path", {
  *     source: aws_network_interface.source.id,
  *     destination: aws_network_interface.destination.id,
  *     protocol: "tcp",
  * });
- * const analysis = new aws.ec2.NetworkInsightsAnalysis("analysis", {networkInsightsPathId: path.id});
+ * const analysis = new aws.ec2/networkInsightsAnalysis.NetworkInsightsAnalysis("analysis", {networkInsightsPathId: path.id});
  * ```
  *
  * ## Import

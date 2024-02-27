@@ -118,6 +118,24 @@ class Schema(pulumi.CustomResource):
                  __props__=None):
         """
         ## Example Usage
+        ### Basic Usage
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_aws as aws
+
+        example = aws.verifiedpermissions.schema.Schema("example",
+            policy_store_id=aws_verifiedpermissions_policy_store.example.policy_store_id,
+            definition=[{
+                value: json.dumps({
+                    Namespace: {
+                        entityTypes: {},
+                        actions: {},
+                    },
+                }),
+            }])
+        ```
 
         ## Import
 
@@ -140,6 +158,24 @@ class Schema(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         ## Example Usage
+        ### Basic Usage
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_aws as aws
+
+        example = aws.verifiedpermissions.schema.Schema("example",
+            policy_store_id=aws_verifiedpermissions_policy_store.example.policy_store_id,
+            definition=[{
+                value: json.dumps({
+                    Namespace: {
+                        entityTypes: {},
+                        actions: {},
+                    },
+                }),
+            }])
+        ```
 
         ## Import
 

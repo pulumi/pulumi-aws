@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.ssm.ContactsRotation("example", {
+ * const example = new aws.ssm/contactsRotation.ContactsRotation("example", {
  *     contactIds: [aws_ssmcontacts_contact.example.arn],
  *     recurrence: {
  *         numberOfOnCalls: 1,
@@ -36,7 +36,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.ssm.ContactsRotation("example", {
+ * const example = new aws.ssm/contactsRotation.ContactsRotation("example", {
  *     contactIds: [aws_ssmcontacts_contact.example.arn],
  *     recurrence: {
  *         numberOfOnCalls: 1,
@@ -87,7 +87,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.ssm.ContactsRotation("example", {
+ * const example = new aws.ssm/contactsRotation.ContactsRotation("example", {
  *     contactIds: [aws_ssmcontacts_contact.example.arn],
  *     recurrence: {
  *         numberOfOnCalls: 1,

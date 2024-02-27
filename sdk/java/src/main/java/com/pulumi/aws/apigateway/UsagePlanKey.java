@@ -26,7 +26,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.apigateway.RestApi;
  * import com.pulumi.aws.apigateway.UsagePlan;
  * import com.pulumi.aws.apigateway.UsagePlanArgs;
- * import com.pulumi.aws.apigateway.inputs.UsagePlanApiStageArgs;
  * import com.pulumi.aws.apigateway.ApiKey;
  * import com.pulumi.aws.apigateway.UsagePlanKey;
  * import com.pulumi.aws.apigateway.UsagePlanKeyArgs;
@@ -46,10 +45,7 @@ import javax.annotation.Nullable;
  *         var test = new RestApi(&#34;test&#34;);
  * 
  *         var myusageplan = new UsagePlan(&#34;myusageplan&#34;, UsagePlanArgs.builder()        
- *             .apiStages(UsagePlanApiStageArgs.builder()
- *                 .apiId(test.id())
- *                 .stage(aws_api_gateway_stage.foo().stage_name())
- *                 .build())
+ *             .apiStages(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var mykey = new ApiKey(&#34;mykey&#34;);

@@ -27,7 +27,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.securitylake.AwsLogSource;
  * import com.pulumi.aws.securitylake.AwsLogSourceArgs;
- * import com.pulumi.aws.securitylake.inputs.AwsLogSourceSourceArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -42,12 +41,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new AwsLogSource(&#34;test&#34;, AwsLogSourceArgs.builder()        
- *             .source(AwsLogSourceSourceArgs.builder()
- *                 .accounts(&#34;123456789012&#34;)
- *                 .regions(&#34;eu-west-1&#34;)
- *                 .sourceName(&#34;ROUTE53&#34;)
- *                 .sourceVersion(&#34;1.0&#34;)
- *                 .build())
+ *             .source(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

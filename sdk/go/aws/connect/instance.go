@@ -24,26 +24,24 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/connect"
+//	connect/instance "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/connect/instance"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := connect.NewInstance(ctx, "test", &connect.InstanceArgs{
-//				IdentityManagementType: pulumi.String("CONNECT_MANAGED"),
-//				InboundCallsEnabled:    pulumi.Bool(true),
-//				InstanceAlias:          pulumi.String("friendly-name-connect"),
-//				OutboundCallsEnabled:   pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := connect/instance.NewInstance(ctx, "test", &connect/instance.InstanceArgs{
+// IdentityManagementType: "CONNECT_MANAGED",
+// InboundCallsEnabled: true,
+// InstanceAlias: "friendly-name-connect",
+// OutboundCallsEnabled: true,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### With Existing Active Directory
 //
@@ -52,27 +50,25 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/connect"
+//	connect/instance "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/connect/instance"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := connect.NewInstance(ctx, "test", &connect.InstanceArgs{
-//				DirectoryId:            pulumi.Any(aws_directory_service_directory.Test.Id),
-//				IdentityManagementType: pulumi.String("EXISTING_DIRECTORY"),
-//				InboundCallsEnabled:    pulumi.Bool(true),
-//				InstanceAlias:          pulumi.String("friendly-name-connect"),
-//				OutboundCallsEnabled:   pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := connect/instance.NewInstance(ctx, "test", &connect/instance.InstanceArgs{
+// DirectoryId: aws_directory_service_directory.Test.Id,
+// IdentityManagementType: "EXISTING_DIRECTORY",
+// InboundCallsEnabled: true,
+// InstanceAlias: "friendly-name-connect",
+// OutboundCallsEnabled: true,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### With SAML
 //
@@ -81,26 +77,24 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/connect"
+//	connect/instance "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/connect/instance"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := connect.NewInstance(ctx, "test", &connect.InstanceArgs{
-//				IdentityManagementType: pulumi.String("SAML"),
-//				InboundCallsEnabled:    pulumi.Bool(true),
-//				InstanceAlias:          pulumi.String("friendly-name-connect"),
-//				OutboundCallsEnabled:   pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := connect/instance.NewInstance(ctx, "test", &connect/instance.InstanceArgs{
+// IdentityManagementType: "SAML",
+// InboundCallsEnabled: true,
+// InstanceAlias: "friendly-name-connect",
+// OutboundCallsEnabled: true,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

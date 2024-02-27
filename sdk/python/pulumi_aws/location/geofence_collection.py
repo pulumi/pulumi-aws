@@ -247,7 +247,7 @@ class GeofenceCollection(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.location.GeofenceCollection("example", collection_name="example")
+        example = aws.location.geofence_collection.GeofenceCollection("example", collection_name=example)
         ```
 
         ## Import
@@ -282,7 +282,7 @@ class GeofenceCollection(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.location.GeofenceCollection("example", collection_name="example")
+        example = aws.location.geofence_collection.GeofenceCollection("example", collection_name=example)
         ```
 
         ## Import

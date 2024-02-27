@@ -32,7 +32,7 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleRestApi = new Aws.ApiGateway.RestApi("exampleRestApi", new()
+    ///     var exampleRestApi = new Aws.Apigateway.RestApi.RestApi("exampleRestApi", new()
     ///     {
     ///         Body = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
@@ -61,31 +61,31 @@ namespace Pulumi.Aws.ApiGateway
     ///         }),
     ///     });
     /// 
-    ///     var exampleDeployment = new Aws.ApiGateway.Deployment("exampleDeployment", new()
+    ///     var exampleDeployment = new Aws.Apigateway.Deployment.Deployment("exampleDeployment", new()
     ///     {
     ///         RestApi = exampleRestApi.Id,
     ///         Triggers = 
     ///         {
-    ///             { "redeployment", exampleRestApi.Body.Apply(body =&gt; JsonSerializer.Serialize(body)).Apply(toJSON =&gt; ComputeSHA1(toJSON)) },
+    ///             { "redeployment", ComputeSHA1(JsonSerializer.Serialize(exampleRestApi.Body)) },
     ///         },
     ///     });
     /// 
-    ///     var exampleStage = new Aws.ApiGateway.Stage("exampleStage", new()
+    ///     var exampleStage = new Aws.Apigateway.Stage.Stage("exampleStage", new()
     ///     {
     ///         Deployment = exampleDeployment.Id,
     ///         RestApi = exampleRestApi.Id,
     ///         StageName = "example",
     ///     });
     /// 
-    ///     var exampleMethodSettings = new Aws.ApiGateway.MethodSettings("exampleMethodSettings", new()
+    ///     var exampleMethodSettings = new Aws.Apigateway.MethodSettings.MethodSettings("exampleMethodSettings", new()
     ///     {
     ///         RestApi = exampleRestApi.Id,
     ///         StageName = exampleStage.StageName,
     ///         MethodPath = "*/*",
-    ///         Settings = new Aws.ApiGateway.Inputs.MethodSettingsSettingsArgs
+    ///         Settings = 
     ///         {
-    ///             MetricsEnabled = true,
-    ///             LoggingLevel = "INFO",
+    ///             { "metricsEnabled", true },
+    ///             { "loggingLevel", "INFO" },
     ///         },
     ///     });
     /// 
@@ -105,16 +105,16 @@ namespace Pulumi.Aws.ApiGateway
     /// {
     ///     var config = new Config();
     ///     var stageName = config.Get("stageName") ?? "example";
-    ///     var exampleRestApi = new Aws.ApiGateway.RestApi("exampleRestApi");
+    ///     var exampleRestApi = new Aws.Apigateway.RestApi.RestApi("exampleRestApi");
     /// 
     ///     // ... other configuration ...
-    ///     var exampleLogGroup = new Aws.CloudWatch.LogGroup("exampleLogGroup", new()
+    ///     var exampleLogGroup = new Aws.Cloudwatch.LogGroup.LogGroup("exampleLogGroup", new()
     ///     {
     ///         RetentionInDays = 7,
     ///     });
     /// 
     ///     // ... potentially other configuration ...
-    ///     var exampleStage = new Aws.ApiGateway.Stage("exampleStage", new()
+    ///     var exampleStage = new Aws.Apigateway.Stage.Stage("exampleStage", new()
     ///     {
     ///         StageName = stageName,
     ///     }, new CustomResourceOptions

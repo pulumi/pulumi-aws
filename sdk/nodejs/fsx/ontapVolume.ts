@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = new aws.fsx.OntapVolume("test", {
+ * const test = new aws.fsx/ontapVolume.OntapVolume("test", {
  *     junctionPath: "/test",
  *     sizeInMegabytes: 1024,
  *     storageEfficiencyEnabled: true,
@@ -33,7 +33,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = new aws.fsx.OntapVolume("test", {
+ * const test = new aws.fsx/ontapVolume.OntapVolume("test", {
  *     junctionPath: "/test",
  *     sizeInMegabytes: 1024,
  *     storageEfficiencyEnabled: true,

@@ -17,65 +17,6 @@ import (
 // > Policies can be attached to both S3 general purpose buckets and S3 directory buckets.
 //
 // ## Example Usage
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := s3.NewBucketV2(ctx, "example", nil)
-//			if err != nil {
-//				return err
-//			}
-//			allowAccessFromAnotherAccountPolicyDocument := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
-//				Statements: iam.GetPolicyDocumentStatementArray{
-//					&iam.GetPolicyDocumentStatementArgs{
-//						Principals: iam.GetPolicyDocumentStatementPrincipalArray{
-//							&iam.GetPolicyDocumentStatementPrincipalArgs{
-//								Type: pulumi.String("AWS"),
-//								Identifiers: pulumi.StringArray{
-//									pulumi.String("123456789012"),
-//								},
-//							},
-//						},
-//						Actions: pulumi.StringArray{
-//							pulumi.String("s3:GetObject"),
-//							pulumi.String("s3:ListBucket"),
-//						},
-//						Resources: pulumi.StringArray{
-//							example.Arn,
-//							example.Arn.ApplyT(func(arn string) (string, error) {
-//								return fmt.Sprintf("%v/*", arn), nil
-//							}).(pulumi.StringOutput),
-//						},
-//					},
-//				},
-//			}, nil)
-//			_, err = s3.NewBucketPolicy(ctx, "allowAccessFromAnotherAccountBucketPolicy", &s3.BucketPolicyArgs{
-//				Bucket: example.ID(),
-//				Policy: allowAccessFromAnotherAccountPolicyDocument.ApplyT(func(allowAccessFromAnotherAccountPolicyDocument iam.GetPolicyDocumentResult) (*string, error) {
-//					return &allowAccessFromAnotherAccountPolicyDocument.Json, nil
-//				}).(pulumi.StringPtrOutput),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 //
 // ## Import
 //

@@ -21,43 +21,41 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/codecommit"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/codegurureviewer"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kms"
+//	codecommit/repository "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/codecommit/repository"
+//	codegurureviewer/repositoryAssociation "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/codegurureviewer/repositoryAssociation"
+//	kms/key "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/kms/key"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleKey, err := kms.NewKey(ctx, "exampleKey", nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleRepository, err := codecommit.NewRepository(ctx, "exampleRepository", &codecommit.RepositoryArgs{
-//				RepositoryName: pulumi.String("example-repo"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = codegurureviewer.NewRepositoryAssociation(ctx, "exampleRepositoryAssociation", &codegurureviewer.RepositoryAssociationArgs{
-//				Repository: &codegurureviewer.RepositoryAssociationRepositoryArgs{
-//					Codecommit: &codegurureviewer.RepositoryAssociationRepositoryCodecommitArgs{
-//						Name: exampleRepository.RepositoryName,
-//					},
-//				},
-//				KmsKeyDetails: &codegurureviewer.RepositoryAssociationKmsKeyDetailsArgs{
-//					EncryptionOption: pulumi.String("CUSTOMER_MANAGED_CMK"),
-//					KmsKeyId:         exampleKey.KeyId,
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleKey, err := kms/key.NewKey(ctx, "exampleKey", nil)
+// if err != nil {
+// return err
+// }
+// exampleRepository, err := codecommit/repository.NewRepository(ctx, "exampleRepository", &codecommit/repository.RepositoryArgs{
+// RepositoryName: "example-repo",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = codegurureviewer/repositoryAssociation.NewRepositoryAssociation(ctx, "exampleRepositoryAssociation", &codegurureviewer/repositoryAssociation.RepositoryAssociationArgs{
+// Repository: map[string]interface{}{
+// "codecommit": map[string]interface{}{
+// "name": exampleRepository.RepositoryName,
+// },
+// },
+// KmsKeyDetails: map[string]interface{}{
+// "encryptionOption": "CUSTOMER_MANAGED_CMK",
+// "kmsKeyId": exampleKey.KeyId,
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 type RepositoryAssociation struct {
 	pulumi.CustomResourceState

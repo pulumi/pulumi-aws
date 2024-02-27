@@ -24,34 +24,33 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lb"
+//	ec2/instance "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/instance"
+//	lb/targetGroup "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/lb/targetGroup"
+//	lb/targetGroupAttachment "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/lb/targetGroupAttachment"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testTargetGroup, err := lb.NewTargetGroup(ctx, "testTargetGroup", nil)
-//			if err != nil {
-//				return err
-//			}
-//			testInstance, err := ec2.NewInstance(ctx, "testInstance", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = lb.NewTargetGroupAttachment(ctx, "testTargetGroupAttachment", &lb.TargetGroupAttachmentArgs{
-//				TargetGroupArn: testTargetGroup.Arn,
-//				TargetId:       testInstance.ID(),
-//				Port:           pulumi.Int(80),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// testTargetGroup, err := lb/targetGroup.NewTargetGroup(ctx, "testTargetGroup", nil)
+// if err != nil {
+// return err
+// }
+// testInstance, err := ec2/instance.NewInstance(ctx, "testInstance", nil)
+// if err != nil {
+// return err
+// }
+// _, err = lb/targetGroupAttachment.NewTargetGroupAttachment(ctx, "testTargetGroupAttachment", &lb/targetGroupAttachment.TargetGroupAttachmentArgs{
+// TargetGroupArn: testTargetGroup.Arn,
+// TargetId: testInstance.Id,
+// Port: 80,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Lambda Target
 //
@@ -60,46 +59,46 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lambda"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lb"
+//	lambda/function "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/lambda/function"
+//	lambda/permission "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/lambda/permission"
+//	lb/targetGroup "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/lb/targetGroup"
+//	lb/targetGroupAttachment "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/lb/targetGroupAttachment"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testTargetGroup, err := lb.NewTargetGroup(ctx, "testTargetGroup", &lb.TargetGroupArgs{
-//				TargetType: pulumi.String("lambda"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			testFunction, err := lambda.NewFunction(ctx, "testFunction", nil)
-//			if err != nil {
-//				return err
-//			}
-//			withLb, err := lambda.NewPermission(ctx, "withLb", &lambda.PermissionArgs{
-//				Action:    pulumi.String("lambda:InvokeFunction"),
-//				Function:  testFunction.Name,
-//				Principal: pulumi.String("elasticloadbalancing.amazonaws.com"),
-//				SourceArn: testTargetGroup.Arn,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = lb.NewTargetGroupAttachment(ctx, "testTargetGroupAttachment", &lb.TargetGroupAttachmentArgs{
-//				TargetGroupArn: testTargetGroup.Arn,
-//				TargetId:       testFunction.Arn,
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				withLb,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// testTargetGroup, err := lb/targetGroup.NewTargetGroup(ctx, "testTargetGroup", &lb/targetGroup.TargetGroupArgs{
+// TargetType: "lambda",
+// })
+// if err != nil {
+// return err
+// }
+// testFunction, err := lambda/function.NewFunction(ctx, "testFunction", nil)
+// if err != nil {
+// return err
+// }
+// withLb, err := lambda/permission.NewPermission(ctx, "withLb", &lambda/permission.PermissionArgs{
+// Action: "lambda:InvokeFunction",
+// Function: testFunction.Name,
+// Principal: "elasticloadbalancing.amazonaws.com",
+// SourceArn: testTargetGroup.Arn,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = lb/targetGroupAttachment.NewTargetGroupAttachment(ctx, "testTargetGroupAttachment", &lb/targetGroupAttachment.TargetGroupAttachmentArgs{
+// TargetGroupArn: testTargetGroup.Arn,
+// TargetId: testFunction.Arn,
+// }, pulumi.DependsOn([]pulumi.Resource{
+// withLb,
+// }))
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Registering Multiple Targets
 //
@@ -108,44 +107,45 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lb"
+//	ec2/instance "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/instance"
+//	lb/targetGroup "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/lb/targetGroup"
+//	lb/targetGroupAttachment "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/lb/targetGroupAttachment"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// var exampleInstance []*ec2/instance.Instance
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			var exampleInstance []*ec2.Instance
-//			for index := 0; index < 3; index++ {
-//				key0 := index
-//				_ := index
-//				__res, err := ec2.NewInstance(ctx, fmt.Sprintf("exampleInstance-%v", key0), nil)
-//				if err != nil {
-//					return err
-//				}
-//				exampleInstance = append(exampleInstance, __res)
-//			}
-//			exampleTargetGroup, err := lb.NewTargetGroup(ctx, "exampleTargetGroup", nil)
-//			if err != nil {
-//				return err
-//			}
-//			var exampleTargetGroupAttachment []*lb.TargetGroupAttachment
-//			for key0, val0 := range "TODO: For expression" {
-//				__res, err := lb.NewTargetGroupAttachment(ctx, fmt.Sprintf("exampleTargetGroupAttachment-%v", key0), &lb.TargetGroupAttachmentArgs{
-//					TargetGroupArn: exampleTargetGroup.Arn,
-//					TargetId:       pulumi.String(val0),
-//					Port:           pulumi.Int(80),
-//				})
-//				if err != nil {
-//					return err
-//				}
-//				exampleTargetGroupAttachment = append(exampleTargetGroupAttachment, __res)
-//			}
-//			return nil
-//		})
-//	}
+//	for index := 0; index < 3; index++ {
+//	    key0 := index
+//	    _ := index
 //
+// __res, err := ec2/instance.NewInstance(ctx, fmt.Sprintf("exampleInstance-%v", key0), nil)
+// if err != nil {
+// return err
+// }
+// exampleInstance = append(exampleInstance, __res)
+// }
+// exampleTargetGroup, err := lb/targetGroup.NewTargetGroup(ctx, "exampleTargetGroup", nil)
+// if err != nil {
+// return err
+// }
+// var exampleTargetGroupAttachment []*lb/targetGroupAttachment.TargetGroupAttachment
+// for key0, val0 := range "TODO: For expression" {
+// __res, err := lb/targetGroupAttachment.NewTargetGroupAttachment(ctx, fmt.Sprintf("exampleTargetGroupAttachment-%v", key0), &lb/targetGroupAttachment.TargetGroupAttachmentArgs{
+// TargetGroupArn: exampleTargetGroup.Arn,
+// TargetId: val0,
+// Port: 80,
+// })
+// if err != nil {
+// return err
+// }
+// exampleTargetGroupAttachment = append(exampleTargetGroupAttachment, __res)
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

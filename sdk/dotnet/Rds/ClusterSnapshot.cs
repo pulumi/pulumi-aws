@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Rds
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Rds.ClusterSnapshot("example", new()
+    ///     var example = new Aws.Rds.ClusterSnapshot.ClusterSnapshot("example", new()
     ///     {
     ///         DbClusterIdentifier = aws_rds_cluster.Example.Id,
     ///         DbClusterSnapshotIdentifier = "resourcetestsnapshot1234",

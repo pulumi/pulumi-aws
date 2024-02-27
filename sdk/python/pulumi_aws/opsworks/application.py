@@ -603,33 +603,33 @@ class Application(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        foo_app = aws.opsworks.Application("foo-app",
-            short_name="foobar",
-            stack_id=aws_opsworks_stack["main"]["id"],
-            type="rails",
-            description="This is a Rails application",
+        foo_app = aws.opsworks.application.Application("foo-app",
+            short_name=foobar,
+            stack_id=aws_opsworks_stack.main.id,
+            type=rails,
+            description=This is a Rails application,
             domains=[
-                "example.com",
-                "sub.example.com",
+                example.com,
+                sub.example.com,
             ],
-            environments=[aws.opsworks.ApplicationEnvironmentArgs(
-                key="key",
-                value="value",
-                secure=False,
-            )],
-            app_sources=[aws.opsworks.ApplicationAppSourceArgs(
-                type="git",
-                revision="master",
-                url="https://github.com/example.git",
-            )],
+            environments=[{
+                key: key,
+                value: value,
+                secure: False,
+            }],
+            app_sources=[{
+                type: git,
+                revision: master,
+                url: https://github.com/example.git,
+            }],
             enable_ssl=True,
-            ssl_configurations=[aws.opsworks.ApplicationSslConfigurationArgs(
-                private_key=(lambda path: open(path).read())("./foobar.key"),
-                certificate=(lambda path: open(path).read())("./foobar.crt"),
-            )],
-            document_root="public",
-            auto_bundle_on_deploy="true",
-            rails_env="staging")
+            ssl_configurations=[{
+                privateKey: (lambda path: open(path).read())(./foobar.key),
+                certificate: (lambda path: open(path).read())(./foobar.crt),
+            }],
+            document_root=public,
+            auto_bundle_on_deploy=True,
+            rails_env=staging)
         ```
 
         ## Import
@@ -675,33 +675,33 @@ class Application(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        foo_app = aws.opsworks.Application("foo-app",
-            short_name="foobar",
-            stack_id=aws_opsworks_stack["main"]["id"],
-            type="rails",
-            description="This is a Rails application",
+        foo_app = aws.opsworks.application.Application("foo-app",
+            short_name=foobar,
+            stack_id=aws_opsworks_stack.main.id,
+            type=rails,
+            description=This is a Rails application,
             domains=[
-                "example.com",
-                "sub.example.com",
+                example.com,
+                sub.example.com,
             ],
-            environments=[aws.opsworks.ApplicationEnvironmentArgs(
-                key="key",
-                value="value",
-                secure=False,
-            )],
-            app_sources=[aws.opsworks.ApplicationAppSourceArgs(
-                type="git",
-                revision="master",
-                url="https://github.com/example.git",
-            )],
+            environments=[{
+                key: key,
+                value: value,
+                secure: False,
+            }],
+            app_sources=[{
+                type: git,
+                revision: master,
+                url: https://github.com/example.git,
+            }],
             enable_ssl=True,
-            ssl_configurations=[aws.opsworks.ApplicationSslConfigurationArgs(
-                private_key=(lambda path: open(path).read())("./foobar.key"),
-                certificate=(lambda path: open(path).read())("./foobar.crt"),
-            )],
-            document_root="public",
-            auto_bundle_on_deploy="true",
-            rails_env="staging")
+            ssl_configurations=[{
+                privateKey: (lambda path: open(path).read())(./foobar.key),
+                certificate: (lambda path: open(path).read())(./foobar.crt),
+            }],
+            document_root=public,
+            auto_bundle_on_deploy=True,
+            rails_env=staging)
         ```
 
         ## Import

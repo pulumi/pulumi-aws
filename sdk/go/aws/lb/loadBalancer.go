@@ -23,37 +23,35 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lb"
+//	lb/loadBalancer "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/lb/loadBalancer"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lb.NewLoadBalancer(ctx, "test", &lb.LoadBalancerArgs{
-//				Internal:         pulumi.Bool(false),
-//				LoadBalancerType: pulumi.String("application"),
-//				SecurityGroups: pulumi.StringArray{
-//					aws_security_group.Lb_sg.Id,
-//				},
-//				Subnets:                  "TODO: For expression",
-//				EnableDeletionProtection: pulumi.Bool(true),
-//				AccessLogs: &lb.LoadBalancerAccessLogsArgs{
-//					Bucket:  pulumi.Any(aws_s3_bucket.Lb_logs.Id),
-//					Prefix:  pulumi.String("test-lb"),
-//					Enabled: pulumi.Bool(true),
-//				},
-//				Tags: pulumi.StringMap{
-//					"Environment": pulumi.String("production"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := lb/loadBalancer.NewLoadBalancer(ctx, "test", &lb/loadBalancer.LoadBalancerArgs{
+// Internal: false,
+// LoadBalancerType: "application",
+// SecurityGroups: []interface{}{
+// aws_security_group.Lb_sg.Id,
+// },
+// Subnets: "TODO: For expression",
+// EnableDeletionProtection: true,
+// AccessLogs: map[string]interface{}{
+// "bucket": aws_s3_bucket.Lb_logs.Id,
+// "prefix": "test-lb",
+// "enabled": true,
+// },
+// Tags: map[string]interface{}{
+// "Environment": "production",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Network Load Balancer
 //
@@ -62,29 +60,27 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lb"
+//	lb/loadBalancer "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/lb/loadBalancer"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lb.NewLoadBalancer(ctx, "test", &lb.LoadBalancerArgs{
-//				Internal:                 pulumi.Bool(false),
-//				LoadBalancerType:         pulumi.String("network"),
-//				Subnets:                  "TODO: For expression",
-//				EnableDeletionProtection: pulumi.Bool(true),
-//				Tags: pulumi.StringMap{
-//					"Environment": pulumi.String("production"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := lb/loadBalancer.NewLoadBalancer(ctx, "test", &lb/loadBalancer.LoadBalancerArgs{
+// Internal: false,
+// LoadBalancerType: "network",
+// Subnets: "TODO: For expression",
+// EnableDeletionProtection: true,
+// Tags: map[string]interface{}{
+// "Environment": "production",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Specifying Elastic IPs
 //
@@ -93,33 +89,31 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lb"
+//	lb/loadBalancer "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/lb/loadBalancer"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lb.NewLoadBalancer(ctx, "example", &lb.LoadBalancerArgs{
-//				LoadBalancerType: pulumi.String("network"),
-//				SubnetMappings: lb.LoadBalancerSubnetMappingArray{
-//					&lb.LoadBalancerSubnetMappingArgs{
-//						SubnetId:     pulumi.Any(aws_subnet.Example1.Id),
-//						AllocationId: pulumi.Any(aws_eip.Example1.Id),
-//					},
-//					&lb.LoadBalancerSubnetMappingArgs{
-//						SubnetId:     pulumi.Any(aws_subnet.Example2.Id),
-//						AllocationId: pulumi.Any(aws_eip.Example2.Id),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := lb/loadBalancer.NewLoadBalancer(ctx, "example", &lb/loadBalancer.LoadBalancerArgs{
+// LoadBalancerType: "network",
+// SubnetMappings: []map[string]interface{}{
+// map[string]interface{}{
+// "subnetId": aws_subnet.Example1.Id,
+// "allocationId": aws_eip.Example1.Id,
+// },
+// map[string]interface{}{
+// "subnetId": aws_subnet.Example2.Id,
+// "allocationId": aws_eip.Example2.Id,
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Specifying private IP addresses for an internal-facing load balancer
 //
@@ -128,33 +122,31 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lb"
+//	lb/loadBalancer "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/lb/loadBalancer"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lb.NewLoadBalancer(ctx, "example", &lb.LoadBalancerArgs{
-//				LoadBalancerType: pulumi.String("network"),
-//				SubnetMappings: lb.LoadBalancerSubnetMappingArray{
-//					&lb.LoadBalancerSubnetMappingArgs{
-//						SubnetId:           pulumi.Any(aws_subnet.Example1.Id),
-//						PrivateIpv4Address: pulumi.String("10.0.1.15"),
-//					},
-//					&lb.LoadBalancerSubnetMappingArgs{
-//						SubnetId:           pulumi.Any(aws_subnet.Example2.Id),
-//						PrivateIpv4Address: pulumi.String("10.0.2.15"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := lb/loadBalancer.NewLoadBalancer(ctx, "example", &lb/loadBalancer.LoadBalancerArgs{
+// LoadBalancerType: "network",
+// SubnetMappings: []map[string]interface{}{
+// map[string]interface{}{
+// "subnetId": aws_subnet.Example1.Id,
+// "privateIpv4Address": "10.0.1.15",
+// },
+// map[string]interface{}{
+// "subnetId": aws_subnet.Example2.Id,
+// "privateIpv4Address": "10.0.2.15",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

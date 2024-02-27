@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const configuration = new aws.ecr.RegistryScanningConfiguration("configuration", {
+ * const configuration = new aws.ecr/registryScanningConfiguration.RegistryScanningConfiguration("configuration", {
  *     rules: [{
  *         repositoryFilters: [{
  *             filter: "example",
@@ -34,7 +34,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = new aws.ecr.RegistryScanningConfiguration("test", {
+ * const test = new aws.ecr/registryScanningConfiguration.RegistryScanningConfiguration("test", {
  *     rules: [
  *         {
  *             repositoryFilters: [{

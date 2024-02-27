@@ -9,30 +9,6 @@ import * as utilities from "../utilities";
 
 /**
  * Provides details about a specific VPC NAT Gateway.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const default = aws.ec2.getNatGateway({
- *     subnetId: aws_subnet["public"].id,
- * });
- * ```
- * ### With tags
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const default = aws.ec2.getNatGateway({
- *     subnetId: aws_subnet["public"].id,
- *     tags: {
- *         Name: "gw NAT",
- *     },
- * });
- * ```
  */
 export function getNatGateway(args?: GetNatGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetNatGatewayResult> {
     args = args || {};
@@ -131,30 +107,6 @@ export interface GetNatGatewayResult {
 }
 /**
  * Provides details about a specific VPC NAT Gateway.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const default = aws.ec2.getNatGateway({
- *     subnetId: aws_subnet["public"].id,
- * });
- * ```
- * ### With tags
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const default = aws.ec2.getNatGateway({
- *     subnetId: aws_subnet["public"].id,
- *     tags: {
- *         Name: "gw NAT",
- *     },
- * });
- * ```
  */
 export function getNatGatewayOutput(args?: GetNatGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNatGatewayResult> {
     return pulumi.output(args).apply((a: any) => getNatGateway(a, opts))

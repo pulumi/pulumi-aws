@@ -140,10 +140,10 @@ class GcmChannel(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        app = aws.pinpoint.App("app")
-        gcm = aws.pinpoint.GcmChannel("gcm",
+        app = aws.pinpoint.app.App("app")
+        gcm = aws.pinpoint.gcm_channel.GcmChannel("gcm",
             application_id=app.application_id,
-            api_key="api_key")
+            api_key=api_key)
         ```
 
         ## Import
@@ -176,10 +176,10 @@ class GcmChannel(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        app = aws.pinpoint.App("app")
-        gcm = aws.pinpoint.GcmChannel("gcm",
+        app = aws.pinpoint.app.App("app")
+        gcm = aws.pinpoint.gcm_channel.GcmChannel("gcm",
             application_id=app.application_id,
-            api_key="api_key")
+            api_key=api_key)
         ```
 
         ## Import

@@ -22,13 +22,13 @@ namespace Pulumi.Aws.Ec2TransitGateway
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleConnect = new Aws.Ec2TransitGateway.Connect("exampleConnect", new()
+    ///     var exampleConnect = new Aws.Ec2transitgateway.Connect.Connect("exampleConnect", new()
     ///     {
     ///         TransportAttachmentId = aws_ec2_transit_gateway_vpc_attachment.Example.Id,
     ///         TransitGatewayId = aws_ec2_transit_gateway.Example.Id,
     ///     });
     /// 
-    ///     var exampleConnectPeer = new Aws.Ec2TransitGateway.ConnectPeer("exampleConnectPeer", new()
+    ///     var exampleConnectPeer = new Aws.Ec2transitgateway.ConnectPeer.ConnectPeer("exampleConnectPeer", new()
     ///     {
     ///         PeerAddress = "10.1.2.3",
     ///         InsideCidrBlocks = new[]

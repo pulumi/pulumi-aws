@@ -13,26 +13,6 @@ import * as utilities from "../utilities";
  * This resource can prove useful when IPAM pools are created in another root
  * module and you need the pool ids as input variables. For example, pools
  * can be shared via RAM and used to create vpcs with CIDRs from that pool.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = aws.ec2.getVpcIpamPools({
- *     filters: [
- *         {
- *             name: "description",
- *             values: ["*test*"],
- *         },
- *         {
- *             name: "address-family",
- *             values: ["ipv4"],
- *         },
- *     ],
- * });
- * ```
  */
 /** @deprecated aws.ec2/getvpciampools.getVpcIamPools has been deprecated in favor of aws.ec2/getvpcipampools.getVpcIpamPools */
 export function getVpcIamPools(args?: GetVpcIamPoolsArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcIamPoolsResult> {
@@ -75,26 +55,6 @@ export interface GetVpcIamPoolsResult {
  * This resource can prove useful when IPAM pools are created in another root
  * module and you need the pool ids as input variables. For example, pools
  * can be shared via RAM and used to create vpcs with CIDRs from that pool.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = aws.ec2.getVpcIpamPools({
- *     filters: [
- *         {
- *             name: "description",
- *             values: ["*test*"],
- *         },
- *         {
- *             name: "address-family",
- *             values: ["ipv4"],
- *         },
- *     ],
- * });
- * ```
  */
 /** @deprecated aws.ec2/getvpciampools.getVpcIamPools has been deprecated in favor of aws.ec2/getvpcipampools.getVpcIpamPools */
 export function getVpcIamPoolsOutput(args?: GetVpcIamPoolsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpcIamPoolsResult> {

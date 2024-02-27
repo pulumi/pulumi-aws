@@ -23,34 +23,34 @@ namespace Pulumi.Aws.SesV2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleConfigurationSet = new Aws.SesV2.ConfigurationSet("exampleConfigurationSet", new()
+    ///     var exampleConfigurationSet = new Aws.Sesv2.ConfigurationSet.ConfigurationSet("exampleConfigurationSet", new()
     ///     {
     ///         ConfigurationSetName = "example",
     ///     });
     /// 
-    ///     var exampleConfigurationSetEventDestination = new Aws.SesV2.ConfigurationSetEventDestination("exampleConfigurationSetEventDestination", new()
+    ///     var exampleConfigurationSetEventDestination = new Aws.Sesv2.ConfigurationSetEventDestination.ConfigurationSetEventDestination("exampleConfigurationSetEventDestination", new()
     ///     {
     ///         ConfigurationSetName = exampleConfigurationSet.ConfigurationSetName,
     ///         EventDestinationName = "example",
-    ///         EventDestination = new Aws.SesV2.Inputs.ConfigurationSetEventDestinationEventDestinationArgs
+    ///         EventDestination = 
     ///         {
-    ///             CloudWatchDestination = new Aws.SesV2.Inputs.ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationArgs
+    ///             { "cloudWatchDestination", 
     ///             {
-    ///                 DimensionConfigurations = new[]
+    ///                 { "dimensionConfigurations", new[]
     ///                 {
-    ///                     new Aws.SesV2.Inputs.ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationArgs
+    ///                     
     ///                     {
-    ///                         DefaultDimensionValue = "example",
-    ///                         DimensionName = "example",
-    ///                         DimensionValueSource = "MESSAGE_TAG",
+    ///                         { "defaultDimensionValue", "example" },
+    ///                         { "dimensionName", "example" },
+    ///                         { "dimensionValueSource", "MESSAGE_TAG" },
     ///                     },
-    ///                 },
-    ///             },
-    ///             Enabled = true,
-    ///             MatchingEventTypes = new[]
+    ///                 } },
+    ///             } },
+    ///             { "enabled", true },
+    ///             { "matchingEventTypes", new[]
     ///             {
     ///                 "SEND",
-    ///             },
+    ///             } },
     ///         },
     ///     });
     /// 
@@ -66,27 +66,27 @@ namespace Pulumi.Aws.SesV2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleConfigurationSet = new Aws.SesV2.ConfigurationSet("exampleConfigurationSet", new()
+    ///     var exampleConfigurationSet = new Aws.Sesv2.ConfigurationSet.ConfigurationSet("exampleConfigurationSet", new()
     ///     {
     ///         ConfigurationSetName = "example",
     ///     });
     /// 
-    ///     var exampleConfigurationSetEventDestination = new Aws.SesV2.ConfigurationSetEventDestination("exampleConfigurationSetEventDestination", new()
+    ///     var exampleConfigurationSetEventDestination = new Aws.Sesv2.ConfigurationSetEventDestination.ConfigurationSetEventDestination("exampleConfigurationSetEventDestination", new()
     ///     {
     ///         ConfigurationSetName = exampleConfigurationSet.ConfigurationSetName,
     ///         EventDestinationName = "example",
-    ///         EventDestination = new Aws.SesV2.Inputs.ConfigurationSetEventDestinationEventDestinationArgs
+    ///         EventDestination = 
     ///         {
-    ///             KinesisFirehoseDestination = new Aws.SesV2.Inputs.ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationArgs
+    ///             { "kinesisFirehoseDestination", 
     ///             {
-    ///                 DeliveryStreamArn = aws_kinesis_firehose_delivery_stream.Example.Arn,
-    ///                 IamRoleArn = aws_iam_role.Example.Arn,
-    ///             },
-    ///             Enabled = true,
-    ///             MatchingEventTypes = new[]
+    ///                 { "deliveryStreamArn", aws_kinesis_firehose_delivery_stream.Example.Arn },
+    ///                 { "iamRoleArn", aws_iam_role.Example.Arn },
+    ///             } },
+    ///             { "enabled", true },
+    ///             { "matchingEventTypes", new[]
     ///             {
     ///                 "SEND",
-    ///             },
+    ///             } },
     ///         },
     ///     });
     /// 
@@ -102,26 +102,26 @@ namespace Pulumi.Aws.SesV2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleConfigurationSet = new Aws.SesV2.ConfigurationSet("exampleConfigurationSet", new()
+    ///     var exampleConfigurationSet = new Aws.Sesv2.ConfigurationSet.ConfigurationSet("exampleConfigurationSet", new()
     ///     {
     ///         ConfigurationSetName = "example",
     ///     });
     /// 
-    ///     var exampleConfigurationSetEventDestination = new Aws.SesV2.ConfigurationSetEventDestination("exampleConfigurationSetEventDestination", new()
+    ///     var exampleConfigurationSetEventDestination = new Aws.Sesv2.ConfigurationSetEventDestination.ConfigurationSetEventDestination("exampleConfigurationSetEventDestination", new()
     ///     {
     ///         ConfigurationSetName = exampleConfigurationSet.ConfigurationSetName,
     ///         EventDestinationName = "example",
-    ///         EventDestination = new Aws.SesV2.Inputs.ConfigurationSetEventDestinationEventDestinationArgs
+    ///         EventDestination = 
     ///         {
-    ///             PinpointDestination = new Aws.SesV2.Inputs.ConfigurationSetEventDestinationEventDestinationPinpointDestinationArgs
+    ///             { "pinpointDestination", 
     ///             {
-    ///                 ApplicationArn = aws_pinpoint_app.Example.Arn,
-    ///             },
-    ///             Enabled = true,
-    ///             MatchingEventTypes = new[]
+    ///                 { "applicationArn", aws_pinpoint_app.Example.Arn },
+    ///             } },
+    ///             { "enabled", true },
+    ///             { "matchingEventTypes", new[]
     ///             {
     ///                 "SEND",
-    ///             },
+    ///             } },
     ///         },
     ///     });
     /// 
@@ -137,26 +137,26 @@ namespace Pulumi.Aws.SesV2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleConfigurationSet = new Aws.SesV2.ConfigurationSet("exampleConfigurationSet", new()
+    ///     var exampleConfigurationSet = new Aws.Sesv2.ConfigurationSet.ConfigurationSet("exampleConfigurationSet", new()
     ///     {
     ///         ConfigurationSetName = "example",
     ///     });
     /// 
-    ///     var exampleConfigurationSetEventDestination = new Aws.SesV2.ConfigurationSetEventDestination("exampleConfigurationSetEventDestination", new()
+    ///     var exampleConfigurationSetEventDestination = new Aws.Sesv2.ConfigurationSetEventDestination.ConfigurationSetEventDestination("exampleConfigurationSetEventDestination", new()
     ///     {
     ///         ConfigurationSetName = exampleConfigurationSet.ConfigurationSetName,
     ///         EventDestinationName = "example",
-    ///         EventDestination = new Aws.SesV2.Inputs.ConfigurationSetEventDestinationEventDestinationArgs
+    ///         EventDestination = 
     ///         {
-    ///             SnsDestination = new Aws.SesV2.Inputs.ConfigurationSetEventDestinationEventDestinationSnsDestinationArgs
+    ///             { "snsDestination", 
     ///             {
-    ///                 TopicArn = aws_sns_topic.Example.Arn,
-    ///             },
-    ///             Enabled = true,
-    ///             MatchingEventTypes = new[]
+    ///                 { "topicArn", aws_sns_topic.Example.Arn },
+    ///             } },
+    ///             { "enabled", true },
+    ///             { "matchingEventTypes", new[]
     ///             {
     ///                 "SEND",
-    ///             },
+    ///             } },
     ///         },
     ///     });
     /// 

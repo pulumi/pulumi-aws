@@ -22,29 +22,29 @@ namespace Pulumi.Aws.AppMesh
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.AppMesh.GatewayRoute("example", new()
+    ///     var example = new Aws.Appmesh.GatewayRoute.GatewayRoute("example", new()
     ///     {
     ///         MeshName = "example-service-mesh",
     ///         VirtualGatewayName = aws_appmesh_virtual_gateway.Example.Name,
-    ///         Spec = new Aws.AppMesh.Inputs.GatewayRouteSpecArgs
+    ///         Spec = 
     ///         {
-    ///             HttpRoute = new Aws.AppMesh.Inputs.GatewayRouteSpecHttpRouteArgs
+    ///             { "httpRoute", 
     ///             {
-    ///                 Action = new Aws.AppMesh.Inputs.GatewayRouteSpecHttpRouteActionArgs
+    ///                 { "action", 
     ///                 {
-    ///                     Target = new Aws.AppMesh.Inputs.GatewayRouteSpecHttpRouteActionTargetArgs
+    ///                     { "target", 
     ///                     {
-    ///                         VirtualService = new Aws.AppMesh.Inputs.GatewayRouteSpecHttpRouteActionTargetVirtualServiceArgs
+    ///                         { "virtualService", 
     ///                         {
-    ///                             VirtualServiceName = aws_appmesh_virtual_service.Example.Name,
-    ///                         },
-    ///                     },
-    ///                 },
-    ///                 Match = new Aws.AppMesh.Inputs.GatewayRouteSpecHttpRouteMatchArgs
+    ///                             { "virtualServiceName", aws_appmesh_virtual_service.Example.Name },
+    ///                         } },
+    ///                     } },
+    ///                 } },
+    ///                 { "match", 
     ///                 {
-    ///                     Prefix = "/",
-    ///                 },
-    ///             },
+    ///                     { "prefix", "/" },
+    ///                 } },
+    ///             } },
     ///         },
     ///         Tags = 
     ///         {

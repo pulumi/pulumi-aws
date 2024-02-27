@@ -23,21 +23,21 @@ namespace Pulumi.Aws.Ecr
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var configuration = new Aws.Ecr.RegistryScanningConfiguration("configuration", new()
+    ///     var configuration = new Aws.Ecr.RegistryScanningConfiguration.RegistryScanningConfiguration("configuration", new()
     ///     {
     ///         Rules = new[]
     ///         {
-    ///             new Aws.Ecr.Inputs.RegistryScanningConfigurationRuleArgs
+    ///             
     ///             {
-    ///                 RepositoryFilters = new[]
+    ///                 { "repositoryFilters", new[]
     ///                 {
-    ///                     new Aws.Ecr.Inputs.RegistryScanningConfigurationRuleRepositoryFilterArgs
+    ///                     
     ///                     {
-    ///                         Filter = "example",
-    ///                         FilterType = "WILDCARD",
+    ///                         { "filter", "example" },
+    ///                         { "filterType", "WILDCARD" },
     ///                     },
-    ///                 },
-    ///                 ScanFrequency = "CONTINUOUS_SCAN",
+    ///                 } },
+    ///                 { "scanFrequency", "CONTINUOUS_SCAN" },
     ///             },
     ///         },
     ///         ScanType = "ENHANCED",
@@ -55,33 +55,33 @@ namespace Pulumi.Aws.Ecr
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Aws.Ecr.RegistryScanningConfiguration("test", new()
+    ///     var test = new Aws.Ecr.RegistryScanningConfiguration.RegistryScanningConfiguration("test", new()
     ///     {
     ///         Rules = new[]
     ///         {
-    ///             new Aws.Ecr.Inputs.RegistryScanningConfigurationRuleArgs
+    ///             
     ///             {
-    ///                 RepositoryFilters = new[]
+    ///                 { "repositoryFilters", new[]
     ///                 {
-    ///                     new Aws.Ecr.Inputs.RegistryScanningConfigurationRuleRepositoryFilterArgs
+    ///                     
     ///                     {
-    ///                         Filter = "*",
-    ///                         FilterType = "WILDCARD",
+    ///                         { "filter", "*" },
+    ///                         { "filterType", "WILDCARD" },
     ///                     },
-    ///                 },
-    ///                 ScanFrequency = "SCAN_ON_PUSH",
+    ///                 } },
+    ///                 { "scanFrequency", "SCAN_ON_PUSH" },
     ///             },
-    ///             new Aws.Ecr.Inputs.RegistryScanningConfigurationRuleArgs
+    ///             
     ///             {
-    ///                 RepositoryFilters = new[]
+    ///                 { "repositoryFilters", new[]
     ///                 {
-    ///                     new Aws.Ecr.Inputs.RegistryScanningConfigurationRuleRepositoryFilterArgs
+    ///                     
     ///                     {
-    ///                         Filter = "example",
-    ///                         FilterType = "WILDCARD",
+    ///                         { "filter", "example" },
+    ///                         { "filterType", "WILDCARD" },
     ///                     },
-    ///                 },
-    ///                 ScanFrequency = "CONTINUOUS_SCAN",
+    ///                 } },
+    ///                 { "scanFrequency", "CONTINUOUS_SCAN" },
     ///             },
     ///         },
     ///         ScanType = "ENHANCED",

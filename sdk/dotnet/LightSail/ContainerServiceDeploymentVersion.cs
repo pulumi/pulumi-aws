@@ -27,38 +27,38 @@ namespace Pulumi.Aws.LightSail
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.LightSail.ContainerServiceDeploymentVersion("example", new()
+    ///     var example = new Aws.Lightsail.ContainerServiceDeploymentVersion.ContainerServiceDeploymentVersion("example", new()
     ///     {
     ///         Containers = new[]
     ///         {
-    ///             new Aws.LightSail.Inputs.ContainerServiceDeploymentVersionContainerArgs
+    ///             
     ///             {
-    ///                 ContainerName = "hello-world",
-    ///                 Image = "amazon/amazon-lightsail:hello-world",
-    ///                 Commands = new() { },
-    ///                 Environment = 
+    ///                 { "containerName", "hello-world" },
+    ///                 { "image", "amazon/amazon-lightsail:hello-world" },
+    ///                 { "commands", new[] {} },
+    ///                 { "environment", 
     ///                 {
     ///                     { "MY_ENVIRONMENT_VARIABLE", "my_value" },
-    ///                 },
-    ///                 Ports = 
+    ///                 } },
+    ///                 { "ports", 
     ///                 {
-    ///                     { "80", "HTTP" },
-    ///                 },
+    ///                     { 80, "HTTP" },
+    ///                 } },
     ///             },
     ///         },
-    ///         PublicEndpoint = new Aws.LightSail.Inputs.ContainerServiceDeploymentVersionPublicEndpointArgs
+    ///         PublicEndpoint = 
     ///         {
-    ///             ContainerName = "hello-world",
-    ///             ContainerPort = 80,
-    ///             HealthCheck = new Aws.LightSail.Inputs.ContainerServiceDeploymentVersionPublicEndpointHealthCheckArgs
+    ///             { "containerName", "hello-world" },
+    ///             { "containerPort", 80 },
+    ///             { "healthCheck", 
     ///             {
-    ///                 HealthyThreshold = 2,
-    ///                 UnhealthyThreshold = 2,
-    ///                 TimeoutSeconds = 2,
-    ///                 IntervalSeconds = 5,
-    ///                 Path = "/",
-    ///                 SuccessCodes = "200-499",
-    ///             },
+    ///                 { "healthyThreshold", 2 },
+    ///                 { "unhealthyThreshold", 2 },
+    ///                 { "timeoutSeconds", 2 },
+    ///                 { "intervalSeconds", 5 },
+    ///                 { "path", "/" },
+    ///                 { "successCodes", "200-499" },
+    ///             } },
     ///         },
     ///         ServiceName = aws_lightsail_container_service.Example.Name,
     ///     });

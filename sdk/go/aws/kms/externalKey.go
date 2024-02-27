@@ -21,23 +21,21 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kms"
+//	kms/externalKey "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/kms/externalKey"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := kms.NewExternalKey(ctx, "example", &kms.ExternalKeyArgs{
-//				Description: pulumi.String("KMS EXTERNAL for AMI encryption"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := kms/externalKey.NewExternalKey(ctx, "example", &kms/externalKey.ExternalKeyArgs{
+// Description: "KMS EXTERNAL for AMI encryption",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

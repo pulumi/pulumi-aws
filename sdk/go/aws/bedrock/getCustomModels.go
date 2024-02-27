@@ -12,30 +12,6 @@ import (
 )
 
 // Returns a list of Amazon Bedrock custom models.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/bedrock"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := bedrock.GetCustomModels(ctx, nil, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetCustomModels(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetCustomModelsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetCustomModelsResult

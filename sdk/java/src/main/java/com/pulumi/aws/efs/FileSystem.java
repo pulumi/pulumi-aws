@@ -49,7 +49,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var foo = new FileSystem(&#34;foo&#34;, FileSystemArgs.builder()        
- *             .tags(Map.of(&#34;Name&#34;, &#34;MyProduct&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -64,7 +64,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.efs.FileSystem;
  * import com.pulumi.aws.efs.FileSystemArgs;
- * import com.pulumi.aws.efs.inputs.FileSystemLifecyclePolicyArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -79,9 +78,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var fooWithLifecylePolicy = new FileSystem(&#34;fooWithLifecylePolicy&#34;, FileSystemArgs.builder()        
- *             .lifecyclePolicies(FileSystemLifecyclePolicyArgs.builder()
- *                 .transitionToIa(&#34;AFTER_30_DAYS&#34;)
- *                 .build())
+ *             .lifecyclePolicies(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

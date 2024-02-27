@@ -17,12 +17,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const window = new aws.ssm.MaintenanceWindow("window", {
+ * const window = new aws.ssm/maintenanceWindow.MaintenanceWindow("window", {
  *     schedule: "cron(0 16 ? * TUE *)",
  *     duration: 3,
  *     cutoff: 1,
  * });
- * const target1 = new aws.ssm.MaintenanceWindowTarget("target1", {
+ * const target1 = new aws.ssm/maintenanceWindowTarget.MaintenanceWindowTarget("target1", {
  *     windowId: window.id,
  *     description: "This is a maintenance window target",
  *     resourceType: "INSTANCE",
@@ -38,12 +38,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const window = new aws.ssm.MaintenanceWindow("window", {
+ * const window = new aws.ssm/maintenanceWindow.MaintenanceWindow("window", {
  *     schedule: "cron(0 16 ? * TUE *)",
  *     duration: 3,
  *     cutoff: 1,
  * });
- * const target1 = new aws.ssm.MaintenanceWindowTarget("target1", {
+ * const target1 = new aws.ssm/maintenanceWindowTarget.MaintenanceWindowTarget("target1", {
  *     windowId: window.id,
  *     description: "This is a maintenance window target",
  *     resourceType: "RESOURCE_GROUP",

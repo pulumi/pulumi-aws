@@ -32,35 +32,35 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var mainvpc = new Aws.Ec2.Vpc("mainvpc", new()
+    ///     var mainvpc = new Aws.Ec2.Vpc.Vpc("mainvpc", new()
     ///     {
     ///         CidrBlock = "10.1.0.0/16",
     ///     });
     /// 
-    ///     var @default = new Aws.Ec2.DefaultSecurityGroup("default", new()
+    ///     var @default = new Aws.Ec2.DefaultSecurityGroup.DefaultSecurityGroup("default", new()
     ///     {
     ///         VpcId = mainvpc.Id,
     ///         Ingress = new[]
     ///         {
-    ///             new Aws.Ec2.Inputs.DefaultSecurityGroupIngressArgs
+    ///             
     ///             {
-    ///                 Protocol = "-1",
-    ///                 Self = true,
-    ///                 FromPort = 0,
-    ///                 ToPort = 0,
+    ///                 { "protocol", -1 },
+    ///                 { "self", true },
+    ///                 { "fromPort", 0 },
+    ///                 { "toPort", 0 },
     ///             },
     ///         },
     ///         Egress = new[]
     ///         {
-    ///             new Aws.Ec2.Inputs.DefaultSecurityGroupEgressArgs
+    ///             
     ///             {
-    ///                 FromPort = 0,
-    ///                 ToPort = 0,
-    ///                 Protocol = "-1",
-    ///                 CidrBlocks = new[]
+    ///                 { "fromPort", 0 },
+    ///                 { "toPort", 0 },
+    ///                 { "protocol", "-1" },
+    ///                 { "cidrBlocks", new[]
     ///                 {
     ///                     "0.0.0.0/0",
-    ///                 },
+    ///                 } },
     ///             },
     ///         },
     ///     });
@@ -79,22 +79,22 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var mainvpc = new Aws.Ec2.Vpc("mainvpc", new()
+    ///     var mainvpc = new Aws.Ec2.Vpc.Vpc("mainvpc", new()
     ///     {
     ///         CidrBlock = "10.1.0.0/16",
     ///     });
     /// 
-    ///     var @default = new Aws.Ec2.DefaultSecurityGroup("default", new()
+    ///     var @default = new Aws.Ec2.DefaultSecurityGroup.DefaultSecurityGroup("default", new()
     ///     {
     ///         VpcId = mainvpc.Id,
     ///         Ingress = new[]
     ///         {
-    ///             new Aws.Ec2.Inputs.DefaultSecurityGroupIngressArgs
+    ///             
     ///             {
-    ///                 Protocol = "-1",
-    ///                 Self = true,
-    ///                 FromPort = 0,
-    ///                 ToPort = 0,
+    ///                 { "protocol", -1 },
+    ///                 { "self", true },
+    ///                 { "fromPort", 0 },
+    ///                 { "toPort", 0 },
     ///             },
     ///         },
     ///     });

@@ -24,31 +24,30 @@ import (
 //
 //	"os"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ivs"
+//	ivs/playbackKeyPair "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ivs/playbackKeyPair"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func readFileOrPanic(path string) pulumi.StringPtrInput {
-//		data, err := os.ReadFile(path)
-//		if err != nil {
-//			panic(err.Error())
-//		}
-//		return pulumi.String(string(data))
-//	}
+//					data, err := os.ReadFile(path)
+//					if err != nil {
+//						panic(err.Error())
+//					}
+//					return pulumi.String(string(data))
+//				}
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ivs.NewPlaybackKeyPair(ctx, "example", &ivs.PlaybackKeyPairArgs{
-//				PublicKey: readFileOrPanic("./public-key.pem"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := ivs/playbackKeyPair.NewPlaybackKeyPair(ctx, "example", &ivs/playbackKeyPair.PlaybackKeyPairArgs{
+// PublicKey: readFileOrPanic("./public-key.pem"),
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

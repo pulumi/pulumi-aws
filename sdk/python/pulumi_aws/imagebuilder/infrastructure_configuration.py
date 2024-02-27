@@ -550,26 +550,26 @@ class InfrastructureConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.imagebuilder.InfrastructureConfiguration("example",
-            description="example description",
-            instance_profile_name=aws_iam_instance_profile["example"]["name"],
+        example = aws.imagebuilder.infrastructure_configuration.InfrastructureConfiguration("example",
+            description=example description,
+            instance_profile_name=aws_iam_instance_profile.example.name,
             instance_types=[
-                "t2.nano",
-                "t3.micro",
+                t2.nano,
+                t3.micro,
             ],
-            key_pair=aws_key_pair["example"]["key_name"],
-            security_group_ids=[aws_security_group["example"]["id"]],
-            sns_topic_arn=aws_sns_topic["example"]["arn"],
-            subnet_id=aws_subnet["main"]["id"],
+            key_pair=aws_key_pair.example.key_name,
+            security_group_ids=[aws_security_group.example.id],
+            sns_topic_arn=aws_sns_topic.example.arn,
+            subnet_id=aws_subnet.main.id,
             terminate_instance_on_failure=True,
-            logging=aws.imagebuilder.InfrastructureConfigurationLoggingArgs(
-                s3_logs=aws.imagebuilder.InfrastructureConfigurationLoggingS3LogsArgs(
-                    s3_bucket_name=aws_s3_bucket["example"]["bucket"],
-                    s3_key_prefix="logs",
-                ),
-            ),
+            logging={
+                s3Logs: {
+                    s3BucketName: aws_s3_bucket.example.bucket,
+                    s3KeyPrefix: logs,
+                },
+            },
             tags={
-                "foo": "bar",
+                foo: bar,
             })
         ```
 
@@ -614,26 +614,26 @@ class InfrastructureConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.imagebuilder.InfrastructureConfiguration("example",
-            description="example description",
-            instance_profile_name=aws_iam_instance_profile["example"]["name"],
+        example = aws.imagebuilder.infrastructure_configuration.InfrastructureConfiguration("example",
+            description=example description,
+            instance_profile_name=aws_iam_instance_profile.example.name,
             instance_types=[
-                "t2.nano",
-                "t3.micro",
+                t2.nano,
+                t3.micro,
             ],
-            key_pair=aws_key_pair["example"]["key_name"],
-            security_group_ids=[aws_security_group["example"]["id"]],
-            sns_topic_arn=aws_sns_topic["example"]["arn"],
-            subnet_id=aws_subnet["main"]["id"],
+            key_pair=aws_key_pair.example.key_name,
+            security_group_ids=[aws_security_group.example.id],
+            sns_topic_arn=aws_sns_topic.example.arn,
+            subnet_id=aws_subnet.main.id,
             terminate_instance_on_failure=True,
-            logging=aws.imagebuilder.InfrastructureConfigurationLoggingArgs(
-                s3_logs=aws.imagebuilder.InfrastructureConfigurationLoggingS3LogsArgs(
-                    s3_bucket_name=aws_s3_bucket["example"]["bucket"],
-                    s3_key_prefix="logs",
-                ),
-            ),
+            logging={
+                s3Logs: {
+                    s3BucketName: aws_s3_bucket.example.bucket,
+                    s3KeyPrefix: logs,
+                },
+            },
             tags={
-                "foo": "bar",
+                foo: bar,
             })
         ```
 

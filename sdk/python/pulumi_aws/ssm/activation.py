@@ -303,31 +303,6 @@ class Activation(pulumi.CustomResource):
         """
         Registers an on-premises server or virtual machine with Amazon EC2 so that it can be managed using Run Command.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["ssm.amazonaws.com"],
-            )],
-            actions=["sts:AssumeRole"],
-        )])
-        test_role = aws.iam.Role("testRole", assume_role_policy=assume_role.json)
-        test_attach = aws.iam.RolePolicyAttachment("testAttach",
-            role=test_role.name,
-            policy_arn="arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore")
-        foo = aws.ssm.Activation("foo",
-            description="Test",
-            iam_role=test_role.id,
-            registration_limit=5,
-            opts=pulumi.ResourceOptions(depends_on=[test_attach]))
-        ```
-
         ## Import
 
         Using `pulumi import`, import AWS SSM Activation using the `id`. For example:
@@ -354,31 +329,6 @@ class Activation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Registers an on-premises server or virtual machine with Amazon EC2 so that it can be managed using Run Command.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["ssm.amazonaws.com"],
-            )],
-            actions=["sts:AssumeRole"],
-        )])
-        test_role = aws.iam.Role("testRole", assume_role_policy=assume_role.json)
-        test_attach = aws.iam.RolePolicyAttachment("testAttach",
-            role=test_role.name,
-            policy_arn="arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore")
-        foo = aws.ssm.Activation("foo",
-            description="Test",
-            iam_role=test_role.id,
-            registration_limit=5,
-            opts=pulumi.ResourceOptions(depends_on=[test_attach]))
-        ```
 
         ## Import
 

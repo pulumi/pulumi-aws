@@ -6,20 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieve information about link.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.networkmanager.getLinks({
- *     globalNetworkId: _var.global_network_id,
- *     tags: {
- *         Env: "test",
- *     },
- * });
- * ```
  */
 export function getLinks(args: GetLinksArgs, opts?: pulumi.InvokeOptions): Promise<GetLinksResult> {
 
@@ -79,20 +65,6 @@ export interface GetLinksResult {
 }
 /**
  * Retrieve information about link.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.networkmanager.getLinks({
- *     globalNetworkId: _var.global_network_id,
- *     tags: {
- *         Env: "test",
- *     },
- * });
- * ```
  */
 export function getLinksOutput(args: GetLinksOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLinksResult> {
     return pulumi.output(args).apply((a: any) => getLinks(a, opts))

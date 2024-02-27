@@ -22,7 +22,7 @@ namespace Pulumi.Aws.VerifiedAccess
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.VerifiedAccess.TrustProvider("example", new()
+    ///     var example = new Aws.Verifiedaccess.TrustProvider.TrustProvider("example", new()
     ///     {
     ///         PolicyReferenceName = "example",
     ///         TrustProviderType = "user",

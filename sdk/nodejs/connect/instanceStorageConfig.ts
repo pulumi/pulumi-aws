@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.connect.InstanceStorageConfig("example", {
+ * const example = new aws.connect/instanceStorageConfig.InstanceStorageConfig("example", {
  *     instanceId: aws_connect_instance.example.id,
  *     resourceType: "CONTACT_TRACE_RECORDS",
  *     storageConfig: {
@@ -35,7 +35,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.connect.InstanceStorageConfig("example", {
+ * const example = new aws.connect/instanceStorageConfig.InstanceStorageConfig("example", {
  *     instanceId: aws_connect_instance.example.id,
  *     resourceType: "CONTACT_TRACE_RECORDS",
  *     storageConfig: {
@@ -52,7 +52,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.connect.InstanceStorageConfig("example", {
+ * const example = new aws.connect/instanceStorageConfig.InstanceStorageConfig("example", {
  *     instanceId: aws_connect_instance.example.id,
  *     resourceType: "MEDIA_STREAMS",
  *     storageConfig: {
@@ -74,7 +74,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.connect.InstanceStorageConfig("example", {
+ * const example = new aws.connect/instanceStorageConfig.InstanceStorageConfig("example", {
  *     instanceId: aws_connect_instance.example.id,
  *     resourceType: "CHAT_TRANSCRIPTS",
  *     storageConfig: {
@@ -92,7 +92,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.connect.InstanceStorageConfig("example", {
+ * const example = new aws.connect/instanceStorageConfig.InstanceStorageConfig("example", {
  *     instanceId: aws_connect_instance.example.id,
  *     resourceType: "CHAT_TRANSCRIPTS",
  *     storageConfig: {

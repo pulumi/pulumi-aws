@@ -22,28 +22,26 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lex"
+//	lex/v2modelsBotVersion "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/lex/v2modelsBotVersion"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lex.NewV2modelsBotVersion(ctx, "test", &lex.V2modelsBotVersionArgs{
-//				BotId: pulumi.Any(aws_lexv2models.Test.Id),
-//				LocaleSpecification: lex.V2modelsBotVersionLocaleSpecificationMap{
-//					"en_US": &lex.V2modelsBotVersionLocaleSpecificationArgs{
-//						SourceBotVersion: pulumi.String("DRAFT"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := lex/v2modelsBotVersion.NewV2modelsBotVersion(ctx, "test", &lex/v2modelsBotVersion.V2modelsBotVersionArgs{
+// BotId: aws_lexv2models.Test.Id,
+// LocaleSpecification: map[string]interface{}{
+// "en_US": map[string]interface{}{
+// "sourceBotVersion": "DRAFT",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

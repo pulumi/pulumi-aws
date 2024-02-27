@@ -351,17 +351,17 @@ class SigningProfile(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_sp = aws.signer.SigningProfile("testSp", platform_id="AWSLambda-SHA384-ECDSA")
-        prod_sp = aws.signer.SigningProfile("prodSp",
-            name_prefix="prod_sp_",
-            platform_id="AWSLambda-SHA384-ECDSA",
-            signature_validity_period=aws.signer.SigningProfileSignatureValidityPeriodArgs(
-                type="YEARS",
-                value=5,
-            ),
+        test_sp = aws.signer.signing_profile.SigningProfile("testSp", platform_id=AWSLambda-SHA384-ECDSA)
+        prod_sp = aws.signer.signing_profile.SigningProfile("prodSp",
+            name_prefix=prod_sp_,
+            platform_id=AWSLambda-SHA384-ECDSA,
+            signature_validity_period={
+                type: YEARS,
+                value: 5,
+            },
             tags={
-                "tag1": "value1",
-                "tag2": "value2",
+                tag1: value1,
+                tag2: value2,
             })
         ```
 
@@ -396,17 +396,17 @@ class SigningProfile(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_sp = aws.signer.SigningProfile("testSp", platform_id="AWSLambda-SHA384-ECDSA")
-        prod_sp = aws.signer.SigningProfile("prodSp",
-            name_prefix="prod_sp_",
-            platform_id="AWSLambda-SHA384-ECDSA",
-            signature_validity_period=aws.signer.SigningProfileSignatureValidityPeriodArgs(
-                type="YEARS",
-                value=5,
-            ),
+        test_sp = aws.signer.signing_profile.SigningProfile("testSp", platform_id=AWSLambda-SHA384-ECDSA)
+        prod_sp = aws.signer.signing_profile.SigningProfile("prodSp",
+            name_prefix=prod_sp_,
+            platform_id=AWSLambda-SHA384-ECDSA,
+            signature_validity_period={
+                type: YEARS,
+                value: 5,
+            },
             tags={
-                "tag1": "value1",
-                "tag2": "value2",
+                tag1: value1,
+                tag2: value2,
             })
         ```
 

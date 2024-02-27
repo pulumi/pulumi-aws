@@ -247,25 +247,25 @@ class Workflow(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.glue.Workflow("example")
-        example_start = aws.glue.Trigger("example-start",
-            type="ON_DEMAND",
+        example = aws.glue.workflow.Workflow("example")
+        example_start = aws.glue.trigger.Trigger("example-start",
+            type=ON_DEMAND,
             workflow_name=example.name,
-            actions=[aws.glue.TriggerActionArgs(
-                job_name="example-job",
-            )])
-        example_inner = aws.glue.Trigger("example-inner",
-            type="CONDITIONAL",
+            actions=[{
+                jobName: example-job,
+            }])
+        example_inner = aws.glue.trigger.Trigger("example-inner",
+            type=CONDITIONAL,
             workflow_name=example.name,
-            predicate=aws.glue.TriggerPredicateArgs(
-                conditions=[aws.glue.TriggerPredicateConditionArgs(
-                    job_name="example-job",
-                    state="SUCCEEDED",
-                )],
-            ),
-            actions=[aws.glue.TriggerActionArgs(
-                job_name="another-example-job",
-            )])
+            predicate={
+                conditions: [{
+                    jobName: example-job,
+                    state: SUCCEEDED,
+                }],
+            },
+            actions=[{
+                jobName: another-example-job,
+            }])
         ```
 
         ## Import
@@ -301,25 +301,25 @@ class Workflow(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.glue.Workflow("example")
-        example_start = aws.glue.Trigger("example-start",
-            type="ON_DEMAND",
+        example = aws.glue.workflow.Workflow("example")
+        example_start = aws.glue.trigger.Trigger("example-start",
+            type=ON_DEMAND,
             workflow_name=example.name,
-            actions=[aws.glue.TriggerActionArgs(
-                job_name="example-job",
-            )])
-        example_inner = aws.glue.Trigger("example-inner",
-            type="CONDITIONAL",
+            actions=[{
+                jobName: example-job,
+            }])
+        example_inner = aws.glue.trigger.Trigger("example-inner",
+            type=CONDITIONAL,
             workflow_name=example.name,
-            predicate=aws.glue.TriggerPredicateArgs(
-                conditions=[aws.glue.TriggerPredicateConditionArgs(
-                    job_name="example-job",
-                    state="SUCCEEDED",
-                )],
-            ),
-            actions=[aws.glue.TriggerActionArgs(
-                job_name="another-example-job",
-            )])
+            predicate={
+                conditions: [{
+                    jobName: example-job,
+                    state: SUCCEEDED,
+                }],
+            },
+            actions=[{
+                jobName: another-example-job,
+            }])
         ```
 
         ## Import

@@ -22,26 +22,24 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/grafana"
+//	grafana/workspaceApiKey "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/grafana/workspaceApiKey"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := grafana.NewWorkspaceApiKey(ctx, "key", &grafana.WorkspaceApiKeyArgs{
-//				KeyName:       pulumi.String("test-key"),
-//				KeyRole:       pulumi.String("VIEWER"),
-//				SecondsToLive: pulumi.Int(3600),
-//				WorkspaceId:   pulumi.Any(aws_grafana_workspace.Test.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := grafana/workspaceApiKey.NewWorkspaceApiKey(ctx, "key", &grafana/workspaceApiKey.WorkspaceApiKeyArgs{
+// KeyName: "test-key",
+// KeyRole: "VIEWER",
+// SecondsToLive: 3600,
+// WorkspaceId: aws_grafana_workspace.Test.Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 type WorkspaceApiKey struct {
 	pulumi.CustomResourceState

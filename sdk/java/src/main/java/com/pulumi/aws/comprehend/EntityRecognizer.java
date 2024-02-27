@@ -31,9 +31,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.s3.BucketObjectv2;
  * import com.pulumi.aws.comprehend.EntityRecognizer;
  * import com.pulumi.aws.comprehend.EntityRecognizerArgs;
- * import com.pulumi.aws.comprehend.inputs.EntityRecognizerInputDataConfigArgs;
- * import com.pulumi.aws.comprehend.inputs.EntityRecognizerInputDataConfigDocumentsArgs;
- * import com.pulumi.aws.comprehend.inputs.EntityRecognizerInputDataConfigEntityListArgs;
  * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
@@ -55,21 +52,7 @@ import javax.annotation.Nullable;
  *         var example = new EntityRecognizer(&#34;example&#34;, EntityRecognizerArgs.builder()        
  *             .dataAccessRoleArn(aws_iam_role.example().arn())
  *             .languageCode(&#34;en&#34;)
- *             .inputDataConfig(EntityRecognizerInputDataConfigArgs.builder()
- *                 .entityTypes(                
- *                     EntityRecognizerInputDataConfigEntityTypeArgs.builder()
- *                         .type(&#34;ENTITY_1&#34;)
- *                         .build(),
- *                     EntityRecognizerInputDataConfigEntityTypeArgs.builder()
- *                         .type(&#34;ENTITY_2&#34;)
- *                         .build())
- *                 .documents(EntityRecognizerInputDataConfigDocumentsArgs.builder()
- *                     .s3Uri(documents.id().applyValue(id -&gt; String.format(&#34;s3://%s/%s&#34;, aws_s3_bucket.documents().bucket(),id)))
- *                     .build())
- *                 .entityList(EntityRecognizerInputDataConfigEntityListArgs.builder()
- *                     .s3Uri(entities.id().applyValue(id -&gt; String.format(&#34;s3://%s/%s&#34;, aws_s3_bucket.entities().bucket(),id)))
- *                     .build())
- *                 .build())
+ *             .inputDataConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(aws_iam_role_policy.example())
  *                 .build());

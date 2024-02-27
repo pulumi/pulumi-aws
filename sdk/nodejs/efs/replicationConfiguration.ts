@@ -20,8 +20,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleFileSystem = new aws.efs.FileSystem("exampleFileSystem", {});
- * const exampleReplicationConfiguration = new aws.efs.ReplicationConfiguration("exampleReplicationConfiguration", {
+ * const exampleFileSystem = new aws.efs/fileSystem.FileSystem("exampleFileSystem", {});
+ * const exampleReplicationConfiguration = new aws.efs/replicationConfiguration.ReplicationConfiguration("exampleReplicationConfiguration", {
  *     sourceFileSystemId: exampleFileSystem.id,
  *     destination: {
  *         region: "us-west-2",
@@ -35,8 +35,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleFileSystem = new aws.efs.FileSystem("exampleFileSystem", {});
- * const exampleReplicationConfiguration = new aws.efs.ReplicationConfiguration("exampleReplicationConfiguration", {
+ * const exampleFileSystem = new aws.efs/fileSystem.FileSystem("exampleFileSystem", {});
+ * const exampleReplicationConfiguration = new aws.efs/replicationConfiguration.ReplicationConfiguration("exampleReplicationConfiguration", {
  *     sourceFileSystemId: exampleFileSystem.id,
  *     destination: {
  *         availabilityZoneName: "us-west-2b",
@@ -51,8 +51,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleFileSystem = new aws.efs.FileSystem("exampleFileSystem", {});
- * const exampleReplicationConfiguration = new aws.efs.ReplicationConfiguration("exampleReplicationConfiguration", {
+ * const exampleFileSystem = new aws.efs/fileSystem.FileSystem("exampleFileSystem", {});
+ * const exampleReplicationConfiguration = new aws.efs/replicationConfiguration.ReplicationConfiguration("exampleReplicationConfiguration", {
  *     sourceFileSystemId: exampleFileSystem.id,
  *     destination: {
  *         fileSystemId: "fs-1234567890",

@@ -280,20 +280,20 @@ class Environment(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_application = aws.appconfig.Application("exampleApplication",
-            description="Example AppConfig Application",
+        example_application = aws.appconfig.application.Application("exampleApplication",
+            description=Example AppConfig Application,
             tags={
-                "Type": "AppConfig Application",
+                Type: AppConfig Application,
             })
-        example_environment = aws.appconfig.Environment("exampleEnvironment",
-            description="Example AppConfig Environment",
+        example_environment = aws.appconfig.environment.Environment("exampleEnvironment",
+            description=Example AppConfig Environment,
             application_id=example_application.id,
-            monitors=[aws.appconfig.EnvironmentMonitorArgs(
-                alarm_arn=aws_cloudwatch_metric_alarm["example"]["arn"],
-                alarm_role_arn=aws_iam_role["example"]["arn"],
-            )],
+            monitors=[{
+                alarmArn: aws_cloudwatch_metric_alarm.example.arn,
+                alarmRoleArn: aws_iam_role.example.arn,
+            }],
             tags={
-                "Type": "AppConfig Environment",
+                Type: AppConfig Environment,
             })
         ```
 
@@ -328,20 +328,20 @@ class Environment(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_application = aws.appconfig.Application("exampleApplication",
-            description="Example AppConfig Application",
+        example_application = aws.appconfig.application.Application("exampleApplication",
+            description=Example AppConfig Application,
             tags={
-                "Type": "AppConfig Application",
+                Type: AppConfig Application,
             })
-        example_environment = aws.appconfig.Environment("exampleEnvironment",
-            description="Example AppConfig Environment",
+        example_environment = aws.appconfig.environment.Environment("exampleEnvironment",
+            description=Example AppConfig Environment,
             application_id=example_application.id,
-            monitors=[aws.appconfig.EnvironmentMonitorArgs(
-                alarm_arn=aws_cloudwatch_metric_alarm["example"]["arn"],
-                alarm_role_arn=aws_iam_role["example"]["arn"],
-            )],
+            monitors=[{
+                alarmArn: aws_cloudwatch_metric_alarm.example.arn,
+                alarmRoleArn: aws_iam_role.example.arn,
+            }],
             tags={
-                "Type": "AppConfig Environment",
+                Type: AppConfig Environment,
             })
         ```
 

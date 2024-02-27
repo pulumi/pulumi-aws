@@ -11,41 +11,6 @@ import * as utilities from "../utilities";
  * Retrieve information about a firewall policy.
  *
  * ## Example Usage
- * ### Find firewall policy by name
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.networkfirewall.getFirewallPolicy({
- *     name: _var.firewall_policy_name,
- * });
- * ```
- * ### Find firewall policy by ARN
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.networkfirewall.getFirewallPolicy({
- *     arn: _var.firewall_policy_arn,
- * });
- * ```
- * ### Find firewall policy by name and ARN
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.networkfirewall.getFirewallPolicy({
- *     arn: _var.firewall_policy_arn,
- *     name: _var.firewall_policy_name,
- * });
- * ```
- *
- * AWS Network Firewall does not allow multiple firewall policies with the same name to be created in an account. It is possible, however, to have multiple firewall policies available in a single account with identical `name` values but distinct `arn` values, e.g. firewall policies shared via a [Resource Access Manager (RAM) share][1]. In that case specifying `arn`, or `name` and `arn`, is recommended.
- *
- * > **Note:** If there are multiple firewall policies in an account with the same `name`, and `arn` is not specified, the default behavior will return the firewall policy with `name` that was created in the account.
  */
 export function getFirewallPolicy(args?: GetFirewallPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetFirewallPolicyResult> {
     args = args || {};
@@ -107,41 +72,6 @@ export interface GetFirewallPolicyResult {
  * Retrieve information about a firewall policy.
  *
  * ## Example Usage
- * ### Find firewall policy by name
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.networkfirewall.getFirewallPolicy({
- *     name: _var.firewall_policy_name,
- * });
- * ```
- * ### Find firewall policy by ARN
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.networkfirewall.getFirewallPolicy({
- *     arn: _var.firewall_policy_arn,
- * });
- * ```
- * ### Find firewall policy by name and ARN
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.networkfirewall.getFirewallPolicy({
- *     arn: _var.firewall_policy_arn,
- *     name: _var.firewall_policy_name,
- * });
- * ```
- *
- * AWS Network Firewall does not allow multiple firewall policies with the same name to be created in an account. It is possible, however, to have multiple firewall policies available in a single account with identical `name` values but distinct `arn` values, e.g. firewall policies shared via a [Resource Access Manager (RAM) share][1]. In that case specifying `arn`, or `name` and `arn`, is recommended.
- *
- * > **Note:** If there are multiple firewall policies in an account with the same `name`, and `arn` is not specified, the default behavior will return the firewall policy with `name` that was created in the account.
  */
 export function getFirewallPolicyOutput(args?: GetFirewallPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFirewallPolicyResult> {
     return pulumi.output(args).apply((a: any) => getFirewallPolicy(a, opts))

@@ -168,15 +168,6 @@ def get_signing_profile(name: Optional[str] = None,
     """
     Provides information about a Signer Signing Profile.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    production_signing_profile = aws.signer.get_signing_profile(name="prod_profile_DdW3Mk1foYL88fajut4mTVFGpuwfd4ACO6ANL0D1uIj7lrn8adK")
-    ```
-
 
     :param str name: Name of the target signing profile.
     :param Mapping[str, str] tags: List of tags associated with the signing profile.
@@ -207,15 +198,6 @@ def get_signing_profile_output(name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSigningProfileResult]:
     """
     Provides information about a Signer Signing Profile.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    production_signing_profile = aws.signer.get_signing_profile(name="prod_profile_DdW3Mk1foYL88fajut4mTVFGpuwfd4ACO6ANL0D1uIj7lrn8adK")
-    ```
 
 
     :param str name: Name of the target signing profile.

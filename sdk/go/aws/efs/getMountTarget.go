@@ -12,38 +12,6 @@ import (
 )
 
 // Provides information about an Elastic File System Mount Target (EFS).
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/efs"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			cfg := config.New(ctx, "")
-//			mountTargetId := ""
-//			if param := cfg.Get("mountTargetId"); param != "" {
-//				mountTargetId = param
-//			}
-//			_, err := efs.LookupMountTarget(ctx, &efs.LookupMountTargetArgs{
-//				MountTargetId: pulumi.StringRef(mountTargetId),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupMountTarget(ctx *pulumi.Context, args *LookupMountTargetArgs, opts ...pulumi.InvokeOption) (*LookupMountTargetResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupMountTargetResult

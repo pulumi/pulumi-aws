@@ -70,15 +70,6 @@ def get_authorizers(rest_api_id: Optional[str] = None,
     """
     Provides details about multiple API Gateway Authorizers.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.apigateway.get_authorizers(rest_api_id=aws_api_gateway_rest_api["example"]["id"])
-    ```
-
 
     :param str rest_api_id: ID of the associated REST API.
     """
@@ -98,15 +89,6 @@ def get_authorizers_output(rest_api_id: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAuthorizersResult]:
     """
     Provides details about multiple API Gateway Authorizers.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.apigateway.get_authorizers(rest_api_id=aws_api_gateway_rest_api["example"]["id"])
-    ```
 
 
     :param str rest_api_id: ID of the associated REST API.

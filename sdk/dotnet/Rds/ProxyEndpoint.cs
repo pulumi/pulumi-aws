@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Rds
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Rds.ProxyEndpoint("example", new()
+    ///     var example = new Aws.Rds.ProxyEndpoint.ProxyEndpoint("example", new()
     ///     {
     ///         DbProxyName = aws_db_proxy.Test.Name,
     ///         DbProxyEndpointName = "example",

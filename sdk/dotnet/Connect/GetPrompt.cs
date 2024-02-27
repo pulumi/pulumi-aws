@@ -13,62 +13,12 @@ namespace Pulumi.Aws.Connect
     {
         /// <summary>
         /// Provides details about a specific Amazon Connect Prompt.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// By `name`
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Connect.GetPrompt.Invoke(new()
-        ///     {
-        ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
-        ///         Name = "Beep.wav",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetPromptResult> InvokeAsync(GetPromptArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPromptResult>("aws:connect/getPrompt:getPrompt", args ?? new GetPromptArgs(), options.WithDefaults());
 
         /// <summary>
         /// Provides details about a specific Amazon Connect Prompt.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// By `name`
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Connect.GetPrompt.Invoke(new()
-        ///     {
-        ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
-        ///         Name = "Beep.wav",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetPromptResult> Invoke(GetPromptInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPromptResult>("aws:connect/getPrompt:getPrompt", args ?? new GetPromptInvokeArgs(), options.WithDefaults());

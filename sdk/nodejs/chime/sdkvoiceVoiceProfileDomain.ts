@@ -17,11 +17,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleKey = new aws.kms.Key("exampleKey", {
+ * const exampleKey = new aws.kms/key.Key("exampleKey", {
  *     description: "KMS Key for Voice Profile Domain",
  *     deletionWindowInDays: 7,
  * });
- * const exampleSdkvoiceVoiceProfileDomain = new aws.chime.SdkvoiceVoiceProfileDomain("exampleSdkvoiceVoiceProfileDomain", {
+ * const exampleSdkvoiceVoiceProfileDomain = new aws.chime/sdkvoiceVoiceProfileDomain.SdkvoiceVoiceProfileDomain("exampleSdkvoiceVoiceProfileDomain", {
  *     serverSideEncryptionConfiguration: {
  *         kmsKeyArn: exampleKey.arn,
  *     },

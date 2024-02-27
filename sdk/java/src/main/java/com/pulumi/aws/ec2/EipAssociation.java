@@ -54,7 +54,7 @@ import javax.annotation.Nullable;
  *             .ami(&#34;ami-21f78e11&#34;)
  *             .availabilityZone(&#34;us-west-2a&#34;)
  *             .instanceType(&#34;t2.micro&#34;)
- *             .tags(Map.of(&#34;Name&#34;, &#34;HelloWorld&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var example = new Eip(&#34;example&#34;, EipArgs.builder()        

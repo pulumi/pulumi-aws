@@ -135,15 +135,6 @@ def get_snapshot(name: Optional[str] = None,
     """
     Provides information about a MemoryDB Snapshot.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.memorydb.get_snapshot(name="my-snapshot")
-    ```
-
 
     :param str name: Name of the snapshot.
     :param Mapping[str, str] tags: Map of tags assigned to the snapshot.
@@ -171,15 +162,6 @@ def get_snapshot_output(name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSnapshotResult]:
     """
     Provides information about a MemoryDB Snapshot.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.memorydb.get_snapshot(name="my-snapshot")
-    ```
 
 
     :param str name: Name of the snapshot.

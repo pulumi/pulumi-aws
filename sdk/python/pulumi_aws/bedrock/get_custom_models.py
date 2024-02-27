@@ -57,15 +57,6 @@ class AwaitableGetCustomModelsResult(GetCustomModelsResult):
 def get_custom_models(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCustomModelsResult:
     """
     Returns a list of Amazon Bedrock custom models.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.bedrock.get_custom_models()
-    ```
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -80,14 +71,5 @@ def get_custom_models(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableG
 def get_custom_models_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCustomModelsResult]:
     """
     Returns a list of Amazon Bedrock custom models.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.bedrock.get_custom_models()
-    ```
     """
     ...

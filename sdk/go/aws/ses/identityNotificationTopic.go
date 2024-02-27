@@ -21,26 +21,24 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ses"
+//	ses/identityNotificationTopic "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ses/identityNotificationTopic"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ses.NewIdentityNotificationTopic(ctx, "test", &ses.IdentityNotificationTopicArgs{
-//				TopicArn:               pulumi.Any(aws_sns_topic.Example.Arn),
-//				NotificationType:       pulumi.String("Bounce"),
-//				Identity:               pulumi.Any(aws_ses_domain_identity.Example.Domain),
-//				IncludeOriginalHeaders: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := ses/identityNotificationTopic.NewIdentityNotificationTopic(ctx, "test", &ses/identityNotificationTopic.IdentityNotificationTopicArgs{
+// TopicArn: aws_sns_topic.Example.Arn,
+// NotificationType: "Bounce",
+// Identity: aws_ses_domain_identity.Example.Domain,
+// IncludeOriginalHeaders: true,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

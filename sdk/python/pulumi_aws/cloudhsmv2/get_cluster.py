@@ -123,15 +123,6 @@ def get_cluster(cluster_id: Optional[str] = None,
     """
     Use this data source to get information about a CloudHSM v2 cluster
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    cluster = aws.cloudhsmv2.get_cluster(cluster_id="cluster-testclusterid")
-    ```
-
 
     :param str cluster_id: ID of Cloud HSM v2 cluster.
     :param str cluster_state: State of the cluster to be found.
@@ -158,15 +149,6 @@ def get_cluster_output(cluster_id: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetClusterResult]:
     """
     Use this data source to get information about a CloudHSM v2 cluster
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    cluster = aws.cloudhsmv2.get_cluster(cluster_id="cluster-testclusterid")
-    ```
 
 
     :param str cluster_id: ID of Cloud HSM v2 cluster.

@@ -21,26 +21,24 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/msk"
+//	msk/configuration "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/msk/configuration"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := msk.NewConfiguration(ctx, "example", &msk.ConfigurationArgs{
-//				KafkaVersions: pulumi.StringArray{
-//					pulumi.String("2.1.0"),
-//				},
-//				ServerProperties: pulumi.String("auto.create.topics.enable = true\ndelete.topic.enable = true\n\n"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := msk/configuration.NewConfiguration(ctx, "example", &msk/configuration.ConfigurationArgs{
+// KafkaVersions: []string{
+// "2.1.0",
+// },
+// ServerProperties: "auto.create.topics.enable = true\ndelete.topic.enable = true\n\n",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

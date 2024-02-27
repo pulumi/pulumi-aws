@@ -22,7 +22,7 @@ namespace Pulumi.Aws.AppConfig
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.AppConfig.Application("example", new()
+    ///     var example = new Aws.Appconfig.Application.Application("example", new()
     ///     {
     ///         Description = "Example AppConfig Application",
     ///         Tags = 

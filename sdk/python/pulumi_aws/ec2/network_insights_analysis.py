@@ -365,11 +365,11 @@ class NetworkInsightsAnalysis(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        path = aws.ec2.NetworkInsightsPath("path",
-            source=aws_network_interface["source"]["id"],
-            destination=aws_network_interface["destination"]["id"],
-            protocol="tcp")
-        analysis = aws.ec2.NetworkInsightsAnalysis("analysis", network_insights_path_id=path.id)
+        path = aws.ec2.network_insights_path.NetworkInsightsPath("path",
+            source=aws_network_interface.source.id,
+            destination=aws_network_interface.destination.id,
+            protocol=tcp)
+        analysis = aws.ec2.network_insights_analysis.NetworkInsightsAnalysis("analysis", network_insights_path_id=path.id)
         ```
 
         ## Import
@@ -404,11 +404,11 @@ class NetworkInsightsAnalysis(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        path = aws.ec2.NetworkInsightsPath("path",
-            source=aws_network_interface["source"]["id"],
-            destination=aws_network_interface["destination"]["id"],
-            protocol="tcp")
-        analysis = aws.ec2.NetworkInsightsAnalysis("analysis", network_insights_path_id=path.id)
+        path = aws.ec2.network_insights_path.NetworkInsightsPath("path",
+            source=aws_network_interface.source.id,
+            destination=aws_network_interface.destination.id,
+            protocol=tcp)
+        analysis = aws.ec2.network_insights_analysis.NetworkInsightsAnalysis("analysis", network_insights_path_id=path.id)
         ```
 
         ## Import

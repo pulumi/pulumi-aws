@@ -221,29 +221,29 @@ class DataLake(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.securitylake.DataLake("example",
-            meta_store_manager_role_arn=aws_iam_role["meta_store_manager"]["arn"],
-            configuration=aws.securitylake.DataLakeConfigurationArgs(
-                region="eu-west-1",
-                encryption_configurations=[aws.securitylake.DataLakeConfigurationEncryptionConfigurationArgs(
-                    kms_key_id="S3_MANAGED_KEY",
-                )],
-                lifecycle_configuration=aws.securitylake.DataLakeConfigurationLifecycleConfigurationArgs(
-                    transitions=[
-                        aws.securitylake.DataLakeConfigurationLifecycleConfigurationTransitionArgs(
-                            days=31,
-                            storage_class="STANDARD_IA",
-                        ),
-                        aws.securitylake.DataLakeConfigurationLifecycleConfigurationTransitionArgs(
-                            days=80,
-                            storage_class="ONEZONE_IA",
-                        ),
+        example = aws.securitylake.data_lake.DataLake("example",
+            meta_store_manager_role_arn=aws_iam_role.meta_store_manager.arn,
+            configuration={
+                region: eu-west-1,
+                encryptionConfigurations: [{
+                    kmsKeyId: S3_MANAGED_KEY,
+                }],
+                lifecycleConfiguration: {
+                    transitions: [
+                        {
+                            days: 31,
+                            storageClass: STANDARD_IA,
+                        },
+                        {
+                            days: 80,
+                            storageClass: ONEZONE_IA,
+                        },
                     ],
-                    expiration=aws.securitylake.DataLakeConfigurationLifecycleConfigurationExpirationArgs(
-                        days=300,
-                    ),
-                ),
-            ))
+                    expiration: {
+                        days: 300,
+                    },
+                },
+            })
         ```
         ### Basic Usage
 
@@ -251,14 +251,14 @@ class DataLake(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.securitylake.DataLake("example",
-            meta_store_manager_role_arn=aws_iam_role["meta_store_manager"]["arn"],
-            configuration=aws.securitylake.DataLakeConfigurationArgs(
-                region="eu-west-1",
-                encryption_configurations=[aws.securitylake.DataLakeConfigurationEncryptionConfigurationArgs(
-                    kms_key_id="S3_MANAGED_KEY",
-                )],
-            ))
+        example = aws.securitylake.data_lake.DataLake("example",
+            meta_store_manager_role_arn=aws_iam_role.meta_store_manager.arn,
+            configuration={
+                region: eu-west-1,
+                encryptionConfigurations: [{
+                    kmsKeyId: S3_MANAGED_KEY,
+                }],
+            })
         ```
 
         ## Import
@@ -290,29 +290,29 @@ class DataLake(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.securitylake.DataLake("example",
-            meta_store_manager_role_arn=aws_iam_role["meta_store_manager"]["arn"],
-            configuration=aws.securitylake.DataLakeConfigurationArgs(
-                region="eu-west-1",
-                encryption_configurations=[aws.securitylake.DataLakeConfigurationEncryptionConfigurationArgs(
-                    kms_key_id="S3_MANAGED_KEY",
-                )],
-                lifecycle_configuration=aws.securitylake.DataLakeConfigurationLifecycleConfigurationArgs(
-                    transitions=[
-                        aws.securitylake.DataLakeConfigurationLifecycleConfigurationTransitionArgs(
-                            days=31,
-                            storage_class="STANDARD_IA",
-                        ),
-                        aws.securitylake.DataLakeConfigurationLifecycleConfigurationTransitionArgs(
-                            days=80,
-                            storage_class="ONEZONE_IA",
-                        ),
+        example = aws.securitylake.data_lake.DataLake("example",
+            meta_store_manager_role_arn=aws_iam_role.meta_store_manager.arn,
+            configuration={
+                region: eu-west-1,
+                encryptionConfigurations: [{
+                    kmsKeyId: S3_MANAGED_KEY,
+                }],
+                lifecycleConfiguration: {
+                    transitions: [
+                        {
+                            days: 31,
+                            storageClass: STANDARD_IA,
+                        },
+                        {
+                            days: 80,
+                            storageClass: ONEZONE_IA,
+                        },
                     ],
-                    expiration=aws.securitylake.DataLakeConfigurationLifecycleConfigurationExpirationArgs(
-                        days=300,
-                    ),
-                ),
-            ))
+                    expiration: {
+                        days: 300,
+                    },
+                },
+            })
         ```
         ### Basic Usage
 
@@ -320,14 +320,14 @@ class DataLake(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.securitylake.DataLake("example",
-            meta_store_manager_role_arn=aws_iam_role["meta_store_manager"]["arn"],
-            configuration=aws.securitylake.DataLakeConfigurationArgs(
-                region="eu-west-1",
-                encryption_configurations=[aws.securitylake.DataLakeConfigurationEncryptionConfigurationArgs(
-                    kms_key_id="S3_MANAGED_KEY",
-                )],
-            ))
+        example = aws.securitylake.data_lake.DataLake("example",
+            meta_store_manager_role_arn=aws_iam_role.meta_store_manager.arn,
+            configuration={
+                region: eu-west-1,
+                encryptionConfigurations: [{
+                    kmsKeyId: S3_MANAGED_KEY,
+                }],
+            })
         ```
 
         ## Import

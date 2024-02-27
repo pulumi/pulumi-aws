@@ -74,14 +74,6 @@ def get_application_assignments(application_arn: Optional[str] = None,
     Data source for managing AWS SSO Admin Application Assignments.
 
     ## Example Usage
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ssoadmin.get_application_assignments(application_arn=aws_ssoadmin_application["example"]["application_arn"])
-    ```
 
 
     :param str application_arn: ARN of the application.
@@ -107,14 +99,6 @@ def get_application_assignments_output(application_arn: Optional[pulumi.Input[st
     Data source for managing AWS SSO Admin Application Assignments.
 
     ## Example Usage
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ssoadmin.get_application_assignments(application_arn=aws_ssoadmin_application["example"]["application_arn"])
-    ```
 
 
     :param str application_arn: ARN of the application.

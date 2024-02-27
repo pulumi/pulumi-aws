@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const custlayer = new aws.opsworks.CustomLayer("custlayer", {
+ * const custlayer = new aws.opsworks/customLayer.CustomLayer("custlayer", {
  *     shortName: "awesome",
  *     stackId: aws_opsworks_stack.main.id,
  * });

@@ -22,16 +22,16 @@ namespace Pulumi.Aws.Ebs
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Ebs.SnapshotImport("example", new()
+    ///     var example = new Aws.Ebs.SnapshotImport.SnapshotImport("example", new()
     ///     {
-    ///         DiskContainer = new Aws.Ebs.Inputs.SnapshotImportDiskContainerArgs
+    ///         DiskContainer = 
     ///         {
-    ///             Format = "VHD",
-    ///             UserBucket = new Aws.Ebs.Inputs.SnapshotImportDiskContainerUserBucketArgs
+    ///             { "format", "VHD" },
+    ///             { "userBucket", 
     ///             {
-    ///                 S3Bucket = "disk-images",
-    ///                 S3Key = "source.vhd",
-    ///             },
+    ///                 { "s3Bucket", "disk-images" },
+    ///                 { "s3Key", "source.vhd" },
+    ///             } },
     ///         },
     ///         RoleName = "disk-image-import",
     ///         Tags = 

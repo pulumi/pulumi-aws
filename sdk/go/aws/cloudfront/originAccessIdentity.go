@@ -27,23 +27,21 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudfront"
+//	cloudfront/originAccessIdentity "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/cloudfront/originAccessIdentity"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cloudfront.NewOriginAccessIdentity(ctx, "example", &cloudfront.OriginAccessIdentityArgs{
-//				Comment: pulumi.String("Some comment"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := cloudfront/originAccessIdentity.NewOriginAccessIdentity(ctx, "example", &cloudfront/originAccessIdentity.OriginAccessIdentityArgs{
+// Comment: "Some comment",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ## Using With CloudFront
 //
@@ -58,78 +56,21 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudfront"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cloudfront.NewDistribution(ctx, "example", &cloudfront.DistributionArgs{
-//				Origins: cloudfront.DistributionOriginArray{
-//					&cloudfront.DistributionOriginArgs{
-//						S3OriginConfig: &cloudfront.DistributionOriginS3OriginConfigArgs{
-//							OriginAccessIdentity: pulumi.Any(aws_cloudfront_origin_access_identity.Example.Cloudfront_access_identity_path),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Updating your bucket policy
-//
-// Note that the AWS API may translate the `s3CanonicalUserId` `CanonicalUser`
-// principal into an `AWS` IAM ARN principal when supplied in an
-// `s3.BucketV2` bucket policy, causing spurious diffs. If
-// you see this behaviour, use the `iamArn` instead:
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	cloudfront/distribution "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/cloudfront/distribution"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 // func main() {
 // pulumi.Run(func(ctx *pulumi.Context) error {
-// s3Policy, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-// Statements: []iam.GetPolicyDocumentStatement{
-// {
-// Actions: []string{
-// "s3:GetObject",
-// },
-// Resources: []string{
-// fmt.Sprintf("%v/*", aws_s3_bucket.Example.Arn),
-// },
-// Principals: []iam.GetPolicyDocumentStatementPrincipal{
-// {
-// Type: "AWS",
-// Identifiers: interface{}{
-// aws_cloudfront_origin_access_identity.Example.Iam_arn,
+// // ... other configuration ...
+// _, err := cloudfront/distribution.NewDistribution(ctx, "example", &cloudfront/distribution.DistributionArgs{
+// Origins: []map[string]interface{}{
+// map[string]interface{}{
+// "s3OriginConfig": map[string]interface{}{
+// "originAccessIdentity": aws_cloudfront_origin_access_identity.Example.Cloudfront_access_identity_path,
 // },
 // },
 // },
-// },
-// },
-// }, nil);
-// if err != nil {
-// return err
-// }
-// _, err = s3.NewBucketPolicy(ctx, "example", &s3.BucketPolicyArgs{
-// Bucket: pulumi.Any(aws_s3_bucket.Example.Id),
-// Policy: *pulumi.String(s3Policy.Json),
 // })
 // if err != nil {
 // return err
@@ -148,10 +89,6 @@ import (
 //	$ pulumi import aws:cloudfront/originAccessIdentity:OriginAccessIdentity origin_access E74FTE3AEXAMPLE
 //
 // ```
-//
-// [2]: http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html
-//
-// [1]: http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Introduction.html
 type OriginAccessIdentity struct {
 	pulumi.CustomResourceState
 

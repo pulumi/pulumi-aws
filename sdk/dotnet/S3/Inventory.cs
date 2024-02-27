@@ -25,25 +25,25 @@ namespace Pulumi.Aws.S3
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testBucketV2 = new Aws.S3.BucketV2("testBucketV2");
+    ///     var testBucketV2 = new Aws.S3.BucketV2.BucketV2("testBucketV2");
     /// 
-    ///     var inventory = new Aws.S3.BucketV2("inventory");
+    ///     var inventory = new Aws.S3.BucketV2.BucketV2("inventory");
     /// 
-    ///     var testInventory = new Aws.S3.Inventory("testInventory", new()
+    ///     var testInventory = new Aws.S3.Inventory.Inventory("testInventory", new()
     ///     {
     ///         Bucket = testBucketV2.Id,
     ///         IncludedObjectVersions = "All",
-    ///         Schedule = new Aws.S3.Inputs.InventoryScheduleArgs
+    ///         Schedule = 
     ///         {
-    ///             Frequency = "Daily",
+    ///             { "frequency", "Daily" },
     ///         },
-    ///         Destination = new Aws.S3.Inputs.InventoryDestinationArgs
+    ///         Destination = 
     ///         {
-    ///             Bucket = new Aws.S3.Inputs.InventoryDestinationBucketArgs
+    ///             { "bucket", 
     ///             {
-    ///                 Format = "ORC",
-    ///                 BucketArn = inventory.Arn,
-    ///             },
+    ///                 { "format", "ORC" },
+    ///                 { "bucketArn", inventory.Arn },
+    ///             } },
     ///         },
     ///     });
     /// 
@@ -59,30 +59,30 @@ namespace Pulumi.Aws.S3
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Aws.S3.BucketV2("test");
+    ///     var test = new Aws.S3.BucketV2.BucketV2("test");
     /// 
-    ///     var inventory = new Aws.S3.BucketV2("inventory");
+    ///     var inventory = new Aws.S3.BucketV2.BucketV2("inventory");
     /// 
-    ///     var test_prefix = new Aws.S3.Inventory("test-prefix", new()
+    ///     var test_prefix = new Aws.S3.Inventory.Inventory("test-prefix", new()
     ///     {
     ///         Bucket = test.Id,
     ///         IncludedObjectVersions = "All",
-    ///         Schedule = new Aws.S3.Inputs.InventoryScheduleArgs
+    ///         Schedule = 
     ///         {
-    ///             Frequency = "Daily",
+    ///             { "frequency", "Daily" },
     ///         },
-    ///         Filter = new Aws.S3.Inputs.InventoryFilterArgs
+    ///         Filter = 
     ///         {
-    ///             Prefix = "documents/",
+    ///             { "prefix", "documents/" },
     ///         },
-    ///         Destination = new Aws.S3.Inputs.InventoryDestinationArgs
+    ///         Destination = 
     ///         {
-    ///             Bucket = new Aws.S3.Inputs.InventoryDestinationBucketArgs
+    ///             { "bucket", 
     ///             {
-    ///                 Format = "ORC",
-    ///                 BucketArn = inventory.Arn,
-    ///                 Prefix = "inventory",
-    ///             },
+    ///                 { "format", "ORC" },
+    ///                 { "bucketArn", inventory.Arn },
+    ///                 { "prefix", "inventory" },
+    ///             } },
     ///         },
     ///     });
     /// 

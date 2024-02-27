@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Organizations
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Organizations.OrganizationalUnit("example", new()
+    ///     var example = new Aws.Organizations.OrganizationalUnit.OrganizationalUnit("example", new()
     ///     {
     ///         ParentId = aws_organizations_organization.Example.Roots[0].Id,
     ///     });

@@ -24,37 +24,37 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Aws.Sagemaker.DataQualityJobDefinition("test", new()
+    ///     var test = new Aws.Sagemaker.DataQualityJobDefinition.DataQualityJobDefinition("test", new()
     ///     {
-    ///         DataQualityAppSpecification = new Aws.Sagemaker.Inputs.DataQualityJobDefinitionDataQualityAppSpecificationArgs
+    ///         DataQualityAppSpecification = 
     ///         {
-    ///             ImageUri = data.Aws_sagemaker_prebuilt_ecr_image.Monitor.Registry_path,
+    ///             { "imageUri", data.Aws_sagemaker_prebuilt_ecr_image.Monitor.Registry_path },
     ///         },
-    ///         DataQualityJobInput = new Aws.Sagemaker.Inputs.DataQualityJobDefinitionDataQualityJobInputArgs
+    ///         DataQualityJobInput = 
     ///         {
-    ///             EndpointInput = new Aws.Sagemaker.Inputs.DataQualityJobDefinitionDataQualityJobInputEndpointInputArgs
+    ///             { "endpointInput", 
     ///             {
-    ///                 EndpointName = aws_sagemaker_endpoint.My_endpoint.Name,
-    ///             },
+    ///                 { "endpointName", aws_sagemaker_endpoint.My_endpoint.Name },
+    ///             } },
     ///         },
-    ///         DataQualityJobOutputConfig = new Aws.Sagemaker.Inputs.DataQualityJobDefinitionDataQualityJobOutputConfigArgs
+    ///         DataQualityJobOutputConfig = 
     ///         {
-    ///             MonitoringOutputs = new Aws.Sagemaker.Inputs.DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsArgs
+    ///             { "monitoringOutputs", 
     ///             {
-    ///                 S3Output = new Aws.Sagemaker.Inputs.DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsS3OutputArgs
+    ///                 { "s3Output", 
     ///                 {
-    ///                     S3Uri = $"https://{aws_s3_bucket.My_bucket.Bucket_regional_domain_name}/output",
-    ///                 },
-    ///             },
+    ///                     { "s3Uri", $"https://{aws_s3_bucket.My_bucket.Bucket_regional_domain_name}/output" },
+    ///                 } },
+    ///             } },
     ///         },
-    ///         JobResources = new Aws.Sagemaker.Inputs.DataQualityJobDefinitionJobResourcesArgs
+    ///         JobResources = 
     ///         {
-    ///             ClusterConfig = new Aws.Sagemaker.Inputs.DataQualityJobDefinitionJobResourcesClusterConfigArgs
+    ///             { "clusterConfig", 
     ///             {
-    ///                 InstanceCount = 1,
-    ///                 InstanceType = "ml.t3.medium",
-    ///                 VolumeSizeInGb = 20,
-    ///             },
+    ///                 { "instanceCount", 1 },
+    ///                 { "instanceType", "ml.t3.medium" },
+    ///                 { "volumeSizeInGb", 20 },
+    ///             } },
     ///         },
     ///         RoleArn = aws_iam_role.My_role.Arn,
     ///     });

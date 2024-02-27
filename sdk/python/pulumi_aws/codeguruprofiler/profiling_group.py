@@ -223,11 +223,11 @@ class ProfilingGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.codeguruprofiler.ProfilingGroup("example",
-            agent_orchestration_config=aws.codeguruprofiler.ProfilingGroupAgentOrchestrationConfigArgs(
-                profiling_enabled=True,
-            ),
-            compute_platform="Default")
+        example = aws.codeguruprofiler.profiling_group.ProfilingGroup("example",
+            agent_orchestration_config={
+                profilingEnabled: True,
+            },
+            compute_platform=Default)
         ```
 
         ## Import
@@ -263,11 +263,11 @@ class ProfilingGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.codeguruprofiler.ProfilingGroup("example",
-            agent_orchestration_config=aws.codeguruprofiler.ProfilingGroupAgentOrchestrationConfigArgs(
-                profiling_enabled=True,
-            ),
-            compute_platform="Default")
+        example = aws.codeguruprofiler.profiling_group.ProfilingGroup("example",
+            agent_orchestration_config={
+                profilingEnabled: True,
+            },
+            compute_platform=Default)
         ```
 
         ## Import

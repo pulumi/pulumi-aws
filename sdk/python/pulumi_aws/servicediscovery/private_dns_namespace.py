@@ -227,9 +227,9 @@ class PrivateDnsNamespace(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_vpc = aws.ec2.Vpc("exampleVpc", cidr_block="10.0.0.0/16")
-        example_private_dns_namespace = aws.servicediscovery.PrivateDnsNamespace("examplePrivateDnsNamespace",
-            description="example",
+        example_vpc = aws.ec2.vpc.Vpc("exampleVpc", cidr_block=10.0.0.0/16)
+        example_private_dns_namespace = aws.servicediscovery.private_dns_namespace.PrivateDnsNamespace("examplePrivateDnsNamespace",
+            description=example,
             vpc=example_vpc.id)
         ```
 
@@ -263,9 +263,9 @@ class PrivateDnsNamespace(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_vpc = aws.ec2.Vpc("exampleVpc", cidr_block="10.0.0.0/16")
-        example_private_dns_namespace = aws.servicediscovery.PrivateDnsNamespace("examplePrivateDnsNamespace",
-            description="example",
+        example_vpc = aws.ec2.vpc.Vpc("exampleVpc", cidr_block=10.0.0.0/16)
+        example_private_dns_namespace = aws.servicediscovery.private_dns_namespace.PrivateDnsNamespace("examplePrivateDnsNamespace",
+            description=example,
             vpc=example_vpc.id)
         ```
 

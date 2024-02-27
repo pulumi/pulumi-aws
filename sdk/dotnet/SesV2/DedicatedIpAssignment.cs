@@ -25,7 +25,7 @@ namespace Pulumi.Aws.SesV2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.SesV2.DedicatedIpAssignment("example", new()
+    ///     var example = new Aws.Sesv2.DedicatedIpAssignment.DedicatedIpAssignment("example", new()
     ///     {
     ///         DestinationPoolName = "my-pool",
     ///         Ip = "0.0.0.0",

@@ -6,47 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Information about RDS orderable DB instances and valid parameter combinations.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = aws.rds.getOrderableDbInstance({
- *     engine: "mysql",
- *     engineVersion: "5.7.22",
- *     licenseModel: "general-public-license",
- *     preferredInstanceClasses: [
- *         "db.r6.xlarge",
- *         "db.m4.large",
- *         "db.t3.small",
- *     ],
- *     storageType: "standard",
- * });
- * ```
- *
- * Valid parameter combinations can also be found with `preferredEngineVersions` and/or `preferredInstanceClasses`.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = aws.rds.getOrderableDbInstance({
- *     engine: "mysql",
- *     licenseModel: "general-public-license",
- *     preferredEngineVersions: [
- *         "5.6.35",
- *         "5.6.41",
- *         "5.6.44",
- *     ],
- *     preferredInstanceClasses: [
- *         "db.t2.small",
- *         "db.t3.medium",
- *         "db.t3.large",
- *     ],
- * });
- * ```
  */
 export function getOrderableDbInstance(args: GetOrderableDbInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetOrderableDbInstanceResult> {
 
@@ -246,47 +205,6 @@ export interface GetOrderableDbInstanceResult {
 }
 /**
  * Information about RDS orderable DB instances and valid parameter combinations.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = aws.rds.getOrderableDbInstance({
- *     engine: "mysql",
- *     engineVersion: "5.7.22",
- *     licenseModel: "general-public-license",
- *     preferredInstanceClasses: [
- *         "db.r6.xlarge",
- *         "db.m4.large",
- *         "db.t3.small",
- *     ],
- *     storageType: "standard",
- * });
- * ```
- *
- * Valid parameter combinations can also be found with `preferredEngineVersions` and/or `preferredInstanceClasses`.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = aws.rds.getOrderableDbInstance({
- *     engine: "mysql",
- *     licenseModel: "general-public-license",
- *     preferredEngineVersions: [
- *         "5.6.35",
- *         "5.6.41",
- *         "5.6.44",
- *     ],
- *     preferredInstanceClasses: [
- *         "db.t2.small",
- *         "db.t3.medium",
- *         "db.t3.large",
- *     ],
- * });
- * ```
  */
 export function getOrderableDbInstanceOutput(args: GetOrderableDbInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOrderableDbInstanceResult> {
     return pulumi.output(args).apply((a: any) => getOrderableDbInstance(a, opts))

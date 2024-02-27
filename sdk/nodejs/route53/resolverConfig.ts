@@ -13,12 +13,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleVpc = new aws.ec2.Vpc("exampleVpc", {
+ * const exampleVpc = new aws.ec2/vpc.Vpc("exampleVpc", {
  *     cidrBlock: "10.0.0.0/16",
  *     enableDnsSupport: true,
  *     enableDnsHostnames: true,
  * });
- * const exampleResolverConfig = new aws.route53.ResolverConfig("exampleResolverConfig", {
+ * const exampleResolverConfig = new aws.route53/resolverConfig.ResolverConfig("exampleResolverConfig", {
  *     resourceId: exampleVpc.id,
  *     autodefinedReverseFlag: "DISABLE",
  * });

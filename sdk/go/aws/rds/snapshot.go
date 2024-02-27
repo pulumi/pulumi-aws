@@ -21,39 +21,38 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/rds"
+//	rds/instance "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/rds/instance"
+//	rds/snapshot "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/rds/snapshot"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			bar, err := rds.NewInstance(ctx, "bar", &rds.InstanceArgs{
-//				AllocatedStorage:      pulumi.Int(10),
-//				Engine:                pulumi.String("mysql"),
-//				EngineVersion:         pulumi.String("5.6.21"),
-//				InstanceClass:         pulumi.String("db.t2.micro"),
-//				DbName:                pulumi.String("baz"),
-//				Password:              pulumi.String("barbarbarbar"),
-//				Username:              pulumi.String("foo"),
-//				MaintenanceWindow:     pulumi.String("Fri:09:00-Fri:09:30"),
-//				BackupRetentionPeriod: pulumi.Int(0),
-//				ParameterGroupName:    pulumi.String("default.mysql5.6"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = rds.NewSnapshot(ctx, "test", &rds.SnapshotArgs{
-//				DbInstanceIdentifier: bar.Identifier,
-//				DbSnapshotIdentifier: pulumi.String("testsnapshot1234"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// bar, err := rds/instance.NewInstance(ctx, "bar", &rds/instance.InstanceArgs{
+// AllocatedStorage: 10,
+// Engine: "mysql",
+// EngineVersion: "5.6.21",
+// InstanceClass: "db.t2.micro",
+// DbName: "baz",
+// Password: "barbarbarbar",
+// Username: "foo",
+// MaintenanceWindow: "Fri:09:00-Fri:09:30",
+// BackupRetentionPeriod: 0,
+// ParameterGroupName: "default.mysql5.6",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = rds/snapshot.NewSnapshot(ctx, "test", &rds/snapshot.SnapshotArgs{
+// DbInstanceIdentifier: bar.Identifier,
+// DbSnapshotIdentifier: "testsnapshot1234",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -23,9 +23,9 @@ namespace Pulumi.Aws.Quicksight
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Quicksight.Namespace("example", new()
+    ///     var example = new Aws.Quicksight.Namespace.Namespace("example", new()
     ///     {
-    ///         NameSpace = "example",
+    ///         Namespace = "example",
     ///     });
     /// 
     /// });

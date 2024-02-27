@@ -23,14 +23,13 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.Provider;
- * import com.pulumi.aws.ec2.Vpc;
- * import com.pulumi.aws.ec2.VpcArgs;
+ * import com.pulumi.pulumi.providers.aws;
+ * import com.pulumi.aws.ec2_vpc.Vpc;
+ * import com.pulumi.aws.ec2_vpc.VpcArgs;
  * import com.pulumi.aws.route53.Zone;
  * import com.pulumi.aws.route53.ZoneArgs;
- * import com.pulumi.aws.route53.inputs.ZoneVpcArgs;
- * import com.pulumi.aws.route53.VpcAssociationAuthorization;
- * import com.pulumi.aws.route53.VpcAssociationAuthorizationArgs;
+ * import com.pulumi.aws.route53_vpcAssociationAuthorization.VpcAssociationAuthorization;
+ * import com.pulumi.aws.route53_vpcAssociationAuthorization.VpcAssociationAuthorizationArgs;
  * import com.pulumi.aws.route53.ZoneAssociation;
  * import com.pulumi.aws.route53.ZoneAssociationArgs;
  * import com.pulumi.resources.CustomResourceOptions;
@@ -56,9 +55,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleZone = new Zone(&#34;exampleZone&#34;, ZoneArgs.builder()        
- *             .vpcs(ZoneVpcArgs.builder()
- *                 .vpcId(exampleVpc.id())
- *                 .build())
+ *             .vpcs(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var alternateVpc = new Vpc(&#34;alternateVpc&#34;, VpcArgs.builder()        

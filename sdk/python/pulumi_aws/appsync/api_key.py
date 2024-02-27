@@ -160,10 +160,10 @@ class ApiKey(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_graph_ql_api = aws.appsync.GraphQLApi("exampleGraphQLApi", authentication_type="API_KEY")
-        example_api_key = aws.appsync.ApiKey("exampleApiKey",
+        example_graph_ql_api = aws.appsync.graph_ql_api.GraphQLApi("exampleGraphQLApi", authentication_type=API_KEY)
+        example_api_key = aws.appsync.api_key.ApiKey("exampleApiKey",
             api_id=example_graph_ql_api.id,
-            expires="2018-05-03T04:00:00Z")
+            expires=2018-05-03T04:00:00Z)
         ```
 
         ## Import
@@ -195,10 +195,10 @@ class ApiKey(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_graph_ql_api = aws.appsync.GraphQLApi("exampleGraphQLApi", authentication_type="API_KEY")
-        example_api_key = aws.appsync.ApiKey("exampleApiKey",
+        example_graph_ql_api = aws.appsync.graph_ql_api.GraphQLApi("exampleGraphQLApi", authentication_type=API_KEY)
+        example_api_key = aws.appsync.api_key.ApiKey("exampleApiKey",
             api_id=example_graph_ql_api.id,
-            expires="2018-05-03T04:00:00Z")
+            expires=2018-05-03T04:00:00Z)
         ```
 
         ## Import

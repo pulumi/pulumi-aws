@@ -403,18 +403,18 @@ class Stream(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_stream = aws.kinesis.Stream("testStream",
+        test_stream = aws.kinesis.stream.Stream("testStream",
             retention_period=48,
             shard_count=1,
             shard_level_metrics=[
-                "IncomingBytes",
-                "OutgoingBytes",
+                IncomingBytes,
+                OutgoingBytes,
             ],
-            stream_mode_details=aws.kinesis.StreamStreamModeDetailsArgs(
-                stream_mode="PROVISIONED",
-            ),
+            stream_mode_details={
+                streamMode: PROVISIONED,
+            },
             tags={
-                "Environment": "test",
+                Environment: test,
             })
         ```
 
@@ -458,18 +458,18 @@ class Stream(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_stream = aws.kinesis.Stream("testStream",
+        test_stream = aws.kinesis.stream.Stream("testStream",
             retention_period=48,
             shard_count=1,
             shard_level_metrics=[
-                "IncomingBytes",
-                "OutgoingBytes",
+                IncomingBytes,
+                OutgoingBytes,
             ],
-            stream_mode_details=aws.kinesis.StreamStreamModeDetailsArgs(
-                stream_mode="PROVISIONED",
-            ),
+            stream_mode_details={
+                streamMode: PROVISIONED,
+            },
             tags={
-                "Environment": "test",
+                Environment: test,
             })
         ```
 

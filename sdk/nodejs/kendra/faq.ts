@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.kendra.Faq("example", {
+ * const example = new aws.kendra/faq.Faq("example", {
  *     indexId: aws_kendra_index.example.id,
  *     roleArn: aws_iam_role.example.arn,
  *     s3Path: {
@@ -35,7 +35,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.kendra.Faq("example", {
+ * const example = new aws.kendra/faq.Faq("example", {
  *     indexId: aws_kendra_index.example.id,
  *     fileFormat: "CSV",
  *     roleArn: aws_iam_role.example.arn,
@@ -51,7 +51,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.kendra.Faq("example", {
+ * const example = new aws.kendra/faq.Faq("example", {
  *     indexId: aws_kendra_index.example.id,
  *     languageCode: "en",
  *     roleArn: aws_iam_role.example.arn,

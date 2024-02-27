@@ -21,38 +21,37 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/chime"
+//	chime/voiceConnector "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/chime/voiceConnector"
+//	chime/voiceConnectorTermination "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/chime/voiceConnectorTermination"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			defaultVoiceConnector, err := chime.NewVoiceConnector(ctx, "defaultVoiceConnector", &chime.VoiceConnectorArgs{
-//				RequireEncryption: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = chime.NewVoiceConnectorTermination(ctx, "defaultVoiceConnectorTermination", &chime.VoiceConnectorTerminationArgs{
-//				Disabled: pulumi.Bool(false),
-//				CpsLimit: pulumi.Int(1),
-//				CidrAllowLists: pulumi.StringArray{
-//					pulumi.String("50.35.78.96/31"),
-//				},
-//				CallingRegions: pulumi.StringArray{
-//					pulumi.String("US"),
-//					pulumi.String("CA"),
-//				},
-//				VoiceConnectorId: defaultVoiceConnector.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// defaultVoiceConnector, err := chime/voiceConnector.NewVoiceConnector(ctx, "defaultVoiceConnector", &chime/voiceConnector.VoiceConnectorArgs{
+// RequireEncryption: true,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = chime/voiceConnectorTermination.NewVoiceConnectorTermination(ctx, "defaultVoiceConnectorTermination", &chime/voiceConnectorTermination.VoiceConnectorTerminationArgs{
+// Disabled: false,
+// CpsLimit: 1,
+// CidrAllowLists: []string{
+// "50.35.78.96/31",
+// },
+// CallingRegions: []string{
+// "US",
+// "CA",
+// },
+// VoiceConnectorId: defaultVoiceConnector.Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

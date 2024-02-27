@@ -24,99 +24,97 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/medialive"
+//	medialive/channel "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/medialive/channel"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := medialive.NewChannel(ctx, "example", &medialive.ChannelArgs{
-//				ChannelClass: pulumi.String("STANDARD"),
-//				RoleArn:      pulumi.Any(aws_iam_role.Example.Arn),
-//				InputSpecification: &medialive.ChannelInputSpecificationArgs{
-//					Codec:           pulumi.String("AVC"),
-//					InputResolution: pulumi.String("HD"),
-//					MaximumBitrate:  pulumi.String("MAX_20_MBPS"),
-//				},
-//				InputAttachments: medialive.ChannelInputAttachmentArray{
-//					&medialive.ChannelInputAttachmentArgs{
-//						InputAttachmentName: pulumi.String("example-input"),
-//						InputId:             pulumi.Any(aws_medialive_input.Example.Id),
-//					},
-//				},
-//				Destinations: medialive.ChannelDestinationArray{
-//					&medialive.ChannelDestinationArgs{
-//						Id: pulumi.String("destination"),
-//						Settings: medialive.ChannelDestinationSettingArray{
-//							&medialive.ChannelDestinationSettingArgs{
-//								Url: pulumi.String(fmt.Sprintf("s3://%v/test1", aws_s3_bucket.Main.Id)),
-//							},
-//							&medialive.ChannelDestinationSettingArgs{
-//								Url: pulumi.String(fmt.Sprintf("s3://%v/test2", aws_s3_bucket.Main2.Id)),
-//							},
-//						},
-//					},
-//				},
-//				EncoderSettings: &medialive.ChannelEncoderSettingsArgs{
-//					TimecodeConfig: &medialive.ChannelEncoderSettingsTimecodeConfigArgs{
-//						Source: pulumi.String("EMBEDDED"),
-//					},
-//					AudioDescriptions: medialive.ChannelEncoderSettingsAudioDescriptionArray{
-//						&medialive.ChannelEncoderSettingsAudioDescriptionArgs{
-//							AudioSelectorName: pulumi.String("example audio selector"),
-//							Name:              pulumi.String("audio-selector"),
-//						},
-//					},
-//					VideoDescriptions: medialive.ChannelEncoderSettingsVideoDescriptionArray{
-//						&medialive.ChannelEncoderSettingsVideoDescriptionArgs{
-//							Name: pulumi.String("example-video"),
-//						},
-//					},
-//					OutputGroups: medialive.ChannelEncoderSettingsOutputGroupArray{
-//						&medialive.ChannelEncoderSettingsOutputGroupArgs{
-//							OutputGroupSettings: &medialive.ChannelEncoderSettingsOutputGroupOutputGroupSettingsArgs{
-//								ArchiveGroupSettings: medialive.ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArray{
-//									&medialive.ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArgs{
-//										Destination: &medialive.ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingDestinationArgs{
-//											DestinationRefId: pulumi.String("destination"),
-//										},
-//									},
-//								},
-//							},
-//							Outputs: medialive.ChannelEncoderSettingsOutputGroupOutputTypeArray{
-//								&medialive.ChannelEncoderSettingsOutputGroupOutputTypeArgs{
-//									OutputName:           pulumi.String("example-name"),
-//									VideoDescriptionName: pulumi.String("example-video"),
-//									AudioDescriptionNames: pulumi.StringArray{
-//										pulumi.String("audio-selector"),
-//									},
-//									OutputSettings: &medialive.ChannelEncoderSettingsOutputGroupOutputOutputSettingsArgs{
-//										ArchiveOutputSettings: &medialive.ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsArgs{
-//											NameModifier: pulumi.String("_1"),
-//											Extension:    pulumi.String("m2ts"),
-//											ContainerSettings: &medialive.ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsArgs{
-//												M2tsSettings: &medialive.ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsArgs{
-//													AudioBufferModel: pulumi.String("ATSC"),
-//													BufferModel:      pulumi.String("MULTIPLEX"),
-//													RateMode:         pulumi.String("CBR"),
-//												},
-//											},
-//										},
-//									},
-//								},
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := medialive/channel.NewChannel(ctx, "example", &medialive/channel.ChannelArgs{
+// ChannelClass: "STANDARD",
+// RoleArn: aws_iam_role.Example.Arn,
+// InputSpecification: map[string]interface{}{
+// "codec": "AVC",
+// "inputResolution": "HD",
+// "maximumBitrate": "MAX_20_MBPS",
+// },
+// InputAttachments: []map[string]interface{}{
+// map[string]interface{}{
+// "inputAttachmentName": "example-input",
+// "inputId": aws_medialive_input.Example.Id,
+// },
+// },
+// Destinations: []map[string]interface{}{
+// map[string]interface{}{
+// "id": "destination",
+// "settings": []map[string]interface{}{
+// map[string]interface{}{
+// "url": fmt.Sprintf("s3://%v/test1", aws_s3_bucket.Main.Id),
+// },
+// map[string]interface{}{
+// "url": fmt.Sprintf("s3://%v/test2", aws_s3_bucket.Main2.Id),
+// },
+// },
+// },
+// },
+// EncoderSettings: map[string]interface{}{
+// "timecodeConfig": map[string]interface{}{
+// "source": "EMBEDDED",
+// },
+// "audioDescriptions": []map[string]interface{}{
+// map[string]interface{}{
+// "audioSelectorName": "example audio selector",
+// "name": "audio-selector",
+// },
+// },
+// "videoDescriptions": []map[string]interface{}{
+// map[string]interface{}{
+// "name": "example-video",
+// },
+// },
+// "outputGroups": []map[string]interface{}{
+// map[string]interface{}{
+// "outputGroupSettings": map[string]interface{}{
+// "archiveGroupSettings": []map[string]interface{}{
+// map[string]interface{}{
+// "destination": map[string]interface{}{
+// "destinationRefId": "destination",
+// },
+// },
+// },
+// },
+// "outputs": []map[string]interface{}{
+// map[string]interface{}{
+// "outputName": "example-name",
+// "videoDescriptionName": "example-video",
+// "audioDescriptionNames": []string{
+// "audio-selector",
+// },
+// "outputSettings": map[string]interface{}{
+// "archiveOutputSettings": map[string]interface{}{
+// "nameModifier": "_1",
+// "extension": "m2ts",
+// "containerSettings": map[string]interface{}{
+// "m2tsSettings": map[string]interface{}{
+// "audioBufferModel": "ATSC",
+// "bufferModel": "MULTIPLEX",
+// "rateMode": "CBR",
+// },
+// },
+// },
+// },
+// },
+// },
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

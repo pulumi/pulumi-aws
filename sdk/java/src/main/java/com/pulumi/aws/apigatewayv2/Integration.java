@@ -128,10 +128,7 @@ import javax.annotation.Nullable;
  *             .description(&#34;SQS example&#34;)
  *             .integrationType(&#34;AWS_PROXY&#34;)
  *             .integrationSubtype(&#34;SQS-SendMessage&#34;)
- *             .requestParameters(Map.ofEntries(
- *                 Map.entry(&#34;QueueUrl&#34;, &#34;$request.header.queueUrl&#34;),
- *                 Map.entry(&#34;MessageBody&#34;, &#34;$request.body.message&#34;)
- *             ))
+ *             .requestParameters(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -146,8 +143,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.apigatewayv2.Integration;
  * import com.pulumi.aws.apigatewayv2.IntegrationArgs;
- * import com.pulumi.aws.apigatewayv2.inputs.IntegrationTlsConfigArgs;
- * import com.pulumi.aws.apigatewayv2.inputs.IntegrationResponseParameterArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -170,22 +165,11 @@ import javax.annotation.Nullable;
  *             .integrationMethod(&#34;ANY&#34;)
  *             .connectionType(&#34;VPC_LINK&#34;)
  *             .connectionId(aws_apigatewayv2_vpc_link.example().id())
- *             .tlsConfig(IntegrationTlsConfigArgs.builder()
- *                 .serverNameToVerify(&#34;example.com&#34;)
- *                 .build())
- *             .requestParameters(Map.ofEntries(
- *                 Map.entry(&#34;append:header.authforintegration&#34;, &#34;$context.authorizer.authorizerResponse&#34;),
- *                 Map.entry(&#34;overwrite:path&#34;, &#34;staticValueForIntegration&#34;)
- *             ))
+ *             .tlsConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .requestParameters(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .responseParameters(            
- *                 IntegrationResponseParameterArgs.builder()
- *                     .statusCode(403)
- *                     .mappings(Map.of(&#34;append:header.auth&#34;, &#34;$context.authorizer.authorizerResponse&#34;))
- *                     .build(),
- *                 IntegrationResponseParameterArgs.builder()
- *                     .statusCode(200)
- *                     .mappings(Map.of(&#34;overwrite:statuscode&#34;, &#34;204&#34;))
- *                     .build())
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

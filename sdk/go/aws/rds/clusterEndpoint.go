@@ -22,90 +22,90 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/rds"
+//	rds/cluster "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/rds/cluster"
+//	rds/clusterEndpoint "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/rds/clusterEndpoint"
+//	rds/clusterInstance "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/rds/clusterInstance"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := rds.NewCluster(ctx, "default", &rds.ClusterArgs{
-//				ClusterIdentifier: pulumi.String("aurora-cluster-demo"),
-//				AvailabilityZones: pulumi.StringArray{
-//					pulumi.String("us-west-2a"),
-//					pulumi.String("us-west-2b"),
-//					pulumi.String("us-west-2c"),
-//				},
-//				DatabaseName:          pulumi.String("mydb"),
-//				MasterUsername:        pulumi.String("foo"),
-//				MasterPassword:        pulumi.String("bar"),
-//				BackupRetentionPeriod: pulumi.Int(5),
-//				PreferredBackupWindow: pulumi.String("07:00-09:00"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			test1, err := rds.NewClusterInstance(ctx, "test1", &rds.ClusterInstanceArgs{
-//				ApplyImmediately:  pulumi.Bool(true),
-//				ClusterIdentifier: _default.ID(),
-//				Identifier:        pulumi.String("test1"),
-//				InstanceClass:     pulumi.String("db.t2.small"),
-//				Engine:            _default.Engine,
-//				EngineVersion:     _default.EngineVersion,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			test2, err := rds.NewClusterInstance(ctx, "test2", &rds.ClusterInstanceArgs{
-//				ApplyImmediately:  pulumi.Bool(true),
-//				ClusterIdentifier: _default.ID(),
-//				Identifier:        pulumi.String("test2"),
-//				InstanceClass:     pulumi.String("db.t2.small"),
-//				Engine:            _default.Engine,
-//				EngineVersion:     _default.EngineVersion,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			test3, err := rds.NewClusterInstance(ctx, "test3", &rds.ClusterInstanceArgs{
-//				ApplyImmediately:  pulumi.Bool(true),
-//				ClusterIdentifier: _default.ID(),
-//				Identifier:        pulumi.String("test3"),
-//				InstanceClass:     pulumi.String("db.t2.small"),
-//				Engine:            _default.Engine,
-//				EngineVersion:     _default.EngineVersion,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = rds.NewClusterEndpoint(ctx, "eligible", &rds.ClusterEndpointArgs{
-//				ClusterIdentifier:         _default.ID(),
-//				ClusterEndpointIdentifier: pulumi.String("reader"),
-//				CustomEndpointType:        pulumi.String("READER"),
-//				ExcludedMembers: pulumi.StringArray{
-//					test1.ID(),
-//					test2.ID(),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = rds.NewClusterEndpoint(ctx, "static", &rds.ClusterEndpointArgs{
-//				ClusterIdentifier:         _default.ID(),
-//				ClusterEndpointIdentifier: pulumi.String("static"),
-//				CustomEndpointType:        pulumi.String("READER"),
-//				StaticMembers: pulumi.StringArray{
-//					test1.ID(),
-//					test3.ID(),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := rds/cluster.NewCluster(ctx, "default", &rds/cluster.ClusterArgs{
+// ClusterIdentifier: "aurora-cluster-demo",
+// AvailabilityZones: []string{
+// "us-west-2a",
+// "us-west-2b",
+// "us-west-2c",
+// },
+// DatabaseName: "mydb",
+// MasterUsername: "foo",
+// MasterPassword: "bar",
+// BackupRetentionPeriod: 5,
+// PreferredBackupWindow: "07:00-09:00",
+// })
+// if err != nil {
+// return err
+// }
+// test1, err := rds/clusterInstance.NewClusterInstance(ctx, "test1", &rds/clusterInstance.ClusterInstanceArgs{
+// ApplyImmediately: true,
+// ClusterIdentifier: _default.Id,
+// Identifier: "test1",
+// InstanceClass: "db.t2.small",
+// Engine: _default.Engine,
+// EngineVersion: _default.EngineVersion,
+// })
+// if err != nil {
+// return err
+// }
+// test2, err := rds/clusterInstance.NewClusterInstance(ctx, "test2", &rds/clusterInstance.ClusterInstanceArgs{
+// ApplyImmediately: true,
+// ClusterIdentifier: _default.Id,
+// Identifier: "test2",
+// InstanceClass: "db.t2.small",
+// Engine: _default.Engine,
+// EngineVersion: _default.EngineVersion,
+// })
+// if err != nil {
+// return err
+// }
+// test3, err := rds/clusterInstance.NewClusterInstance(ctx, "test3", &rds/clusterInstance.ClusterInstanceArgs{
+// ApplyImmediately: true,
+// ClusterIdentifier: _default.Id,
+// Identifier: "test3",
+// InstanceClass: "db.t2.small",
+// Engine: _default.Engine,
+// EngineVersion: _default.EngineVersion,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = rds/clusterEndpoint.NewClusterEndpoint(ctx, "eligible", &rds/clusterEndpoint.ClusterEndpointArgs{
+// ClusterIdentifier: _default.Id,
+// ClusterEndpointIdentifier: "reader",
+// CustomEndpointType: "READER",
+// ExcludedMembers: []interface{}{
+// test1.Id,
+// test2.Id,
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = rds/clusterEndpoint.NewClusterEndpoint(ctx, "static", &rds/clusterEndpoint.ClusterEndpointArgs{
+// ClusterIdentifier: _default.Id,
+// ClusterEndpointIdentifier: "static",
+// CustomEndpointType: "READER",
+// StaticMembers: []interface{}{
+// test1.Id,
+// test3.Id,
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

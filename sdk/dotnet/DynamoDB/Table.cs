@@ -38,41 +38,41 @@ namespace Pulumi.Aws.DynamoDB
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var basic_dynamodb_table = new Aws.DynamoDB.Table("basic-dynamodb-table", new()
+    ///     var basic_dynamodb_table = new Aws.Dynamodb.Table.Table("basic-dynamodb-table", new()
     ///     {
     ///         Attributes = new[]
     ///         {
-    ///             new Aws.DynamoDB.Inputs.TableAttributeArgs
+    ///             
     ///             {
-    ///                 Name = "UserId",
-    ///                 Type = "S",
+    ///                 { "name", "UserId" },
+    ///                 { "type", "S" },
     ///             },
-    ///             new Aws.DynamoDB.Inputs.TableAttributeArgs
+    ///             
     ///             {
-    ///                 Name = "GameTitle",
-    ///                 Type = "S",
+    ///                 { "name", "GameTitle" },
+    ///                 { "type", "S" },
     ///             },
-    ///             new Aws.DynamoDB.Inputs.TableAttributeArgs
+    ///             
     ///             {
-    ///                 Name = "TopScore",
-    ///                 Type = "N",
+    ///                 { "name", "TopScore" },
+    ///                 { "type", "N" },
     ///             },
     ///         },
     ///         BillingMode = "PROVISIONED",
     ///         GlobalSecondaryIndexes = new[]
     ///         {
-    ///             new Aws.DynamoDB.Inputs.TableGlobalSecondaryIndexArgs
+    ///             
     ///             {
-    ///                 HashKey = "GameTitle",
-    ///                 Name = "GameTitleIndex",
-    ///                 NonKeyAttributes = new[]
+    ///                 { "hashKey", "GameTitle" },
+    ///                 { "name", "GameTitleIndex" },
+    ///                 { "nonKeyAttributes", new[]
     ///                 {
     ///                     "UserId",
-    ///                 },
-    ///                 ProjectionType = "INCLUDE",
-    ///                 RangeKey = "TopScore",
-    ///                 ReadCapacity = 10,
-    ///                 WriteCapacity = 10,
+    ///                 } },
+    ///                 { "projectionType", "INCLUDE" },
+    ///                 { "rangeKey", "TopScore" },
+    ///                 { "readCapacity", 10 },
+    ///                 { "writeCapacity", 10 },
     ///             },
     ///         },
     ///         HashKey = "UserId",
@@ -83,10 +83,10 @@ namespace Pulumi.Aws.DynamoDB
     ///             { "Environment", "production" },
     ///             { "Name", "dynamodb-table-1" },
     ///         },
-    ///         Ttl = new Aws.DynamoDB.Inputs.TableTtlArgs
+    ///         Ttl = 
     ///         {
-    ///             AttributeName = "TimeToExist",
-    ///             Enabled = false,
+    ///             { "attributeName", "TimeToExist" },
+    ///             { "enabled", false },
     ///         },
     ///         WriteCapacity = 20,
     ///     });
@@ -107,27 +107,27 @@ namespace Pulumi.Aws.DynamoDB
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.DynamoDB.Table("example", new()
+    ///     var example = new Aws.Dynamodb.Table.Table("example", new()
     ///     {
     ///         Attributes = new[]
     ///         {
-    ///             new Aws.DynamoDB.Inputs.TableAttributeArgs
+    ///             
     ///             {
-    ///                 Name = "TestTableHashKey",
-    ///                 Type = "S",
+    ///                 { "name", "TestTableHashKey" },
+    ///                 { "type", "S" },
     ///             },
     ///         },
     ///         BillingMode = "PAY_PER_REQUEST",
     ///         HashKey = "TestTableHashKey",
     ///         Replicas = new[]
     ///         {
-    ///             new Aws.DynamoDB.Inputs.TableReplicaArgs
+    ///             
     ///             {
-    ///                 RegionName = "us-east-2",
+    ///                 { "regionName", "us-east-2" },
     ///             },
-    ///             new Aws.DynamoDB.Inputs.TableReplicaArgs
+    ///             
     ///             {
-    ///                 RegionName = "us-west-2",
+    ///                 { "regionName", "us-west-2" },
     ///             },
     ///         },
     ///         StreamEnabled = true,

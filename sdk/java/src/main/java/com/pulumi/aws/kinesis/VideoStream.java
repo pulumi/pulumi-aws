@@ -28,8 +28,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.kinesis.VideoStream;
- * import com.pulumi.aws.kinesis.VideoStreamArgs;
+ * import com.pulumi.aws.kinesis_videoStream.VideoStream;
+ * import com.pulumi.aws.kinesis_videoStream.VideoStreamArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *             .dataRetentionInHours(1)
  *             .deviceName(&#34;kinesis-video-device-name&#34;)
  *             .mediaType(&#34;video/h264&#34;)
- *             .tags(Map.of(&#34;Name&#34;, &#34;kinesis-video-stream&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

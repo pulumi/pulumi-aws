@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Ec2.CarrierGateway("example", new()
+    ///     var example = new Aws.Ec2.CarrierGateway.CarrierGateway("example", new()
     ///     {
     ///         VpcId = aws_vpc.Example.Id,
     ///         Tags = 

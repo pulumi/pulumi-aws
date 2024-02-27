@@ -116,36 +116,6 @@ class VaultPolicy(pulumi.CustomResource):
         """
         Provides an AWS Backup vault policy resource.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_vault = aws.backup.Vault("exampleVault")
-        example_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="AWS",
-                identifiers=["*"],
-            )],
-            actions=[
-                "backup:DescribeBackupVault",
-                "backup:DeleteBackupVault",
-                "backup:PutBackupVaultAccessPolicy",
-                "backup:DeleteBackupVaultAccessPolicy",
-                "backup:GetBackupVaultAccessPolicy",
-                "backup:StartBackupJob",
-                "backup:GetBackupVaultNotifications",
-                "backup:PutBackupVaultNotifications",
-            ],
-            resources=[example_vault.arn],
-        )])
-        example_vault_policy = aws.backup.VaultPolicy("exampleVaultPolicy",
-            backup_vault_name=example_vault.name,
-            policy=example_policy_document.json)
-        ```
-
         ## Import
 
         Using `pulumi import`, import Backup vault policy using the `name`. For example:
@@ -167,36 +137,6 @@ class VaultPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an AWS Backup vault policy resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_vault = aws.backup.Vault("exampleVault")
-        example_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="AWS",
-                identifiers=["*"],
-            )],
-            actions=[
-                "backup:DescribeBackupVault",
-                "backup:DeleteBackupVault",
-                "backup:PutBackupVaultAccessPolicy",
-                "backup:DeleteBackupVaultAccessPolicy",
-                "backup:GetBackupVaultAccessPolicy",
-                "backup:StartBackupJob",
-                "backup:GetBackupVaultNotifications",
-                "backup:PutBackupVaultNotifications",
-            ],
-            resources=[example_vault.arn],
-        )])
-        example_vault_policy = aws.backup.VaultPolicy("exampleVaultPolicy",
-            backup_vault_name=example_vault.name,
-            policy=example_policy_document.json)
-        ```
 
         ## Import
 

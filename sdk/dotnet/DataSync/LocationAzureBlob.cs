@@ -24,7 +24,7 @@ namespace Pulumi.Aws.DataSync
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.DataSync.LocationAzureBlob("example", new()
+    ///     var example = new Aws.Datasync.LocationAzureBlob.LocationAzureBlob("example", new()
     ///     {
     ///         AgentArns = new[]
     ///         {
@@ -32,9 +32,9 @@ namespace Pulumi.Aws.DataSync
     ///         },
     ///         AuthenticationType = "SAS",
     ///         ContainerUrl = "https://example.com/path",
-    ///         SasConfiguration = new Aws.DataSync.Inputs.LocationAzureBlobSasConfigurationArgs
+    ///         SasConfiguration = 
     ///         {
-    ///             Token = "sp=r&amp;st=2023-12-20T14:54:52Z&amp;se=2023-12-20T22:54:52Z&amp;spr=https&amp;sv=2021-06-08&amp;sr=c&amp;sig=aBBKDWQvyuVcTPH9EBp%2FXTI9E%2F%2Fmq171%2BZU178wcwqU%3D",
+    ///             { "token", "sp=r&amp;st=2023-12-20T14:54:52Z&amp;se=2023-12-20T22:54:52Z&amp;spr=https&amp;sv=2021-06-08&amp;sr=c&amp;sig=aBBKDWQvyuVcTPH9EBp%2FXTI9E%2F%2Fmq171%2BZU178wcwqU%3D" },
     ///         },
     ///     });
     /// 

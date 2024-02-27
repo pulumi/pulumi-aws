@@ -32,15 +32,10 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.wafregional.IpSet;
  * import com.pulumi.aws.wafregional.IpSetArgs;
- * import com.pulumi.aws.wafregional.inputs.IpSetIpSetDescriptorArgs;
  * import com.pulumi.aws.wafregional.Rule;
  * import com.pulumi.aws.wafregional.RuleArgs;
- * import com.pulumi.aws.wafregional.inputs.RulePredicateArgs;
  * import com.pulumi.aws.wafregional.WebAcl;
  * import com.pulumi.aws.wafregional.WebAclArgs;
- * import com.pulumi.aws.wafregional.inputs.WebAclDefaultActionArgs;
- * import com.pulumi.aws.wafregional.inputs.WebAclRuleArgs;
- * import com.pulumi.aws.wafregional.inputs.WebAclRuleActionArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -55,34 +50,18 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var ipset = new IpSet(&#34;ipset&#34;, IpSetArgs.builder()        
- *             .ipSetDescriptors(IpSetIpSetDescriptorArgs.builder()
- *                 .type(&#34;IPV4&#34;)
- *                 .value(&#34;192.0.7.0/24&#34;)
- *                 .build())
+ *             .ipSetDescriptors(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var wafrule = new Rule(&#34;wafrule&#34;, RuleArgs.builder()        
  *             .metricName(&#34;tfWAFRule&#34;)
- *             .predicates(RulePredicateArgs.builder()
- *                 .dataId(ipset.id())
- *                 .negated(false)
- *                 .type(&#34;IPMatch&#34;)
- *                 .build())
+ *             .predicates(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var wafacl = new WebAcl(&#34;wafacl&#34;, WebAclArgs.builder()        
  *             .metricName(&#34;tfWebACL&#34;)
- *             .defaultAction(WebAclDefaultActionArgs.builder()
- *                 .type(&#34;ALLOW&#34;)
- *                 .build())
- *             .rules(WebAclRuleArgs.builder()
- *                 .action(WebAclRuleActionArgs.builder()
- *                     .type(&#34;BLOCK&#34;)
- *                     .build())
- *                 .priority(1)
- *                 .ruleId(wafrule.id())
- *                 .type(&#34;REGULAR&#34;)
- *                 .build())
+ *             .defaultAction(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .rules(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -97,9 +76,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.wafregional.WebAcl;
  * import com.pulumi.aws.wafregional.WebAclArgs;
- * import com.pulumi.aws.wafregional.inputs.WebAclDefaultActionArgs;
- * import com.pulumi.aws.wafregional.inputs.WebAclRuleArgs;
- * import com.pulumi.aws.wafregional.inputs.WebAclRuleOverrideActionArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -115,17 +91,8 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new WebAcl(&#34;example&#34;, WebAclArgs.builder()        
  *             .metricName(&#34;example&#34;)
- *             .defaultAction(WebAclDefaultActionArgs.builder()
- *                 .type(&#34;ALLOW&#34;)
- *                 .build())
- *             .rules(WebAclRuleArgs.builder()
- *                 .priority(1)
- *                 .ruleId(aws_wafregional_rule_group.example().id())
- *                 .type(&#34;GROUP&#34;)
- *                 .overrideAction(WebAclRuleOverrideActionArgs.builder()
- *                     .type(&#34;NONE&#34;)
- *                     .build())
- *                 .build())
+ *             .defaultAction(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .rules(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -142,8 +109,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.wafregional.WebAcl;
  * import com.pulumi.aws.wafregional.WebAclArgs;
- * import com.pulumi.aws.wafregional.inputs.WebAclLoggingConfigurationArgs;
- * import com.pulumi.aws.wafregional.inputs.WebAclLoggingConfigurationRedactedFieldsArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -158,19 +123,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new WebAcl(&#34;example&#34;, WebAclArgs.builder()        
- *             .loggingConfiguration(WebAclLoggingConfigurationArgs.builder()
- *                 .logDestination(aws_kinesis_firehose_delivery_stream.example().arn())
- *                 .redactedFields(WebAclLoggingConfigurationRedactedFieldsArgs.builder()
- *                     .fieldToMatches(                    
- *                         WebAclLoggingConfigurationRedactedFieldsFieldToMatchArgs.builder()
- *                             .type(&#34;URI&#34;)
- *                             .build(),
- *                         WebAclLoggingConfigurationRedactedFieldsFieldToMatchArgs.builder()
- *                             .data(&#34;referer&#34;)
- *                             .type(&#34;HEADER&#34;)
- *                             .build())
- *                     .build())
- *                 .build())
+ *             .loggingConfiguration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var @default = new Aws.Ec2.CapacityReservation("default", new()
+    ///     var @default = new Aws.Ec2.CapacityReservation.CapacityReservation("default", new()
     ///     {
     ///         AvailabilityZone = "eu-west-1a",
     ///         InstanceCount = 1,

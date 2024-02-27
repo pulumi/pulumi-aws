@@ -22,7 +22,6 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * ### Basic Usage
- * 
  * ```java
  * package generated_program;
  * 
@@ -31,9 +30,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.datasync.LocationFsxOntapFileSystem;
  * import com.pulumi.aws.datasync.LocationFsxOntapFileSystemArgs;
- * import com.pulumi.aws.datasync.inputs.LocationFsxOntapFileSystemProtocolArgs;
- * import com.pulumi.aws.datasync.inputs.LocationFsxOntapFileSystemProtocolNfsArgs;
- * import com.pulumi.aws.datasync.inputs.LocationFsxOntapFileSystemProtocolNfsMountOptionsArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -51,13 +47,7 @@ import javax.annotation.Nullable;
  *             .fsxFilesystemArn(aws_fsx_ontap_file_system.test().arn())
  *             .securityGroupArns(aws_security_group.test().arn())
  *             .storageVirtualMachineArn(aws_fsx_ontap_storage_virtual_machine.test().arn())
- *             .protocol(LocationFsxOntapFileSystemProtocolArgs.builder()
- *                 .nfs(LocationFsxOntapFileSystemProtocolNfsArgs.builder()
- *                     .mountOptions(LocationFsxOntapFileSystemProtocolNfsMountOptionsArgs.builder()
- *                         .version(&#34;NFS3&#34;)
- *                         .build())
- *                     .build())
- *                 .build())
+ *             .protocol(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

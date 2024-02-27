@@ -23,76 +23,6 @@ import (
 // > To give an external source (like an EventBridge Rule, SNS, or S3) permission to access the Lambda function, use the `lambda.Permission` resource. See [Lambda Permission Model](https://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html) for more details. On the other hand, the `role` argument of this resource is the function's execution role for identity and access to AWS services and resources.
 //
 // ## Example Usage
-// ### Basic Example
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-archive/sdk/go/archive"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lambda"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			assumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-//				Statements: []iam.GetPolicyDocumentStatement{
-//					{
-//						Effect: pulumi.StringRef("Allow"),
-//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
-//							{
-//								Type: "Service",
-//								Identifiers: []string{
-//									"lambda.amazonaws.com",
-//								},
-//							},
-//						},
-//						Actions: []string{
-//							"sts:AssumeRole",
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			iamForLambda, err := iam.NewRole(ctx, "iamForLambda", &iam.RoleArgs{
-//				AssumeRolePolicy: *pulumi.String(assumeRole.Json),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = archive.LookupFile(ctx, &archive.LookupFileArgs{
-//				Type:       "zip",
-//				SourceFile: pulumi.StringRef("lambda.js"),
-//				OutputPath: "lambda_function_payload.zip",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = lambda.NewFunction(ctx, "testLambda", &lambda.FunctionArgs{
-//				Code:    pulumi.NewFileArchive("lambda_function_payload.zip"),
-//				Role:    iamForLambda.Arn,
-//				Handler: pulumi.String("index.test"),
-//				Runtime: pulumi.String("nodejs18.x"),
-//				Environment: &lambda.FunctionEnvironmentArgs{
-//					Variables: pulumi.StringMap{
-//						"foo": pulumi.String("bar"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 // ### Lambda Layers
 //
 // ```go
@@ -100,90 +30,28 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lambda"
+//	lambda/function "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/lambda/function"
+//	lambda/layerVersion "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/lambda/layerVersion"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleLayerVersion, err := lambda.NewLayerVersion(ctx, "exampleLayerVersion", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = lambda.NewFunction(ctx, "exampleFunction", &lambda.FunctionArgs{
-//				Layers: pulumi.StringArray{
-//					exampleLayerVersion.Arn,
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// ### Lambda Ephemeral Storage
-//
-// Lambda Function Ephemeral Storage(`/tmp`) allows you to configure the storage upto `10` GB. The default value set to `512` MB.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lambda"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			assumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-//				Statements: []iam.GetPolicyDocumentStatement{
-//					{
-//						Effect: pulumi.StringRef("Allow"),
-//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
-//							{
-//								Type: "Service",
-//								Identifiers: []string{
-//									"lambda.amazonaws.com",
-//								},
-//							},
-//						},
-//						Actions: []string{
-//							"sts:AssumeRole",
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			iamForLambda, err := iam.NewRole(ctx, "iamForLambda", &iam.RoleArgs{
-//				AssumeRolePolicy: *pulumi.String(assumeRole.Json),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = lambda.NewFunction(ctx, "testLambda", &lambda.FunctionArgs{
-//				Code:    pulumi.NewFileArchive("lambda_function_payload.zip"),
-//				Role:    iamForLambda.Arn,
-//				Handler: pulumi.String("index.test"),
-//				Runtime: pulumi.String("nodejs18.x"),
-//				EphemeralStorage: &lambda.FunctionEphemeralStorageArgs{
-//					Size: pulumi.Int(10240),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleLayerVersion, err := lambda/layerVersion.NewLayerVersion(ctx, "exampleLayerVersion", nil)
+// if err != nil {
+// return err
+// }
+// _, err = lambda/function.NewFunction(ctx, "exampleFunction", &lambda/function.FunctionArgs{
+// Layers: []interface{}{
+// exampleLayerVersion.Arn,
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Lambda File Systems
 //
@@ -194,156 +62,82 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/efs"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lambda"
+//	efs/accessPoint "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/efs/accessPoint"
+//	efs/fileSystem "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/efs/fileSystem"
+//	efs/mountTarget "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/efs/mountTarget"
+//	lambda/function "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/lambda/function"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			efsForLambda, err := efs.NewFileSystem(ctx, "efsForLambda", &efs.FileSystemArgs{
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("efs_for_lambda"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			alpha, err := efs.NewMountTarget(ctx, "alpha", &efs.MountTargetArgs{
-//				FileSystemId: efsForLambda.ID(),
-//				SubnetId:     pulumi.Any(aws_subnet.Subnet_for_lambda.Id),
-//				SecurityGroups: pulumi.StringArray{
-//					aws_security_group.Sg_for_lambda.Id,
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			accessPointForLambda, err := efs.NewAccessPoint(ctx, "accessPointForLambda", &efs.AccessPointArgs{
-//				FileSystemId: efsForLambda.ID(),
-//				RootDirectory: &efs.AccessPointRootDirectoryArgs{
-//					Path: pulumi.String("/lambda"),
-//					CreationInfo: &efs.AccessPointRootDirectoryCreationInfoArgs{
-//						OwnerGid:    pulumi.Int(1000),
-//						OwnerUid:    pulumi.Int(1000),
-//						Permissions: pulumi.String("777"),
-//					},
-//				},
-//				PosixUser: &efs.AccessPointPosixUserArgs{
-//					Gid: pulumi.Int(1000),
-//					Uid: pulumi.Int(1000),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = lambda.NewFunction(ctx, "example", &lambda.FunctionArgs{
-//				FileSystemConfig: &lambda.FunctionFileSystemConfigArgs{
-//					Arn:            accessPointForLambda.Arn,
-//					LocalMountPath: pulumi.String("/mnt/efs"),
-//				},
-//				VpcConfig: &lambda.FunctionVpcConfigArgs{
-//					SubnetIds: pulumi.StringArray{
-//						aws_subnet.Subnet_for_lambda.Id,
-//					},
-//					SecurityGroupIds: pulumi.StringArray{
-//						aws_security_group.Sg_for_lambda.Id,
-//					},
-//				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				alpha,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// // EFS file system
+// efsForLambda, err := efs/fileSystem.NewFileSystem(ctx, "efsForLambda", &efs/fileSystem.FileSystemArgs{
+// Tags: map[string]interface{}{
+// "Name": "efs_for_lambda",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// // Mount target connects the file system to the subnet
+// alpha, err := efs/mountTarget.NewMountTarget(ctx, "alpha", &efs/mountTarget.MountTargetArgs{
+// FileSystemId: efsForLambda.Id,
+// SubnetId: aws_subnet.Subnet_for_lambda.Id,
+// SecurityGroups: []interface{}{
+// aws_security_group.Sg_for_lambda.Id,
+// },
+// })
+// if err != nil {
+// return err
+// }
+// // EFS access point used by lambda file system
+// accessPointForLambda, err := efs/accessPoint.NewAccessPoint(ctx, "accessPointForLambda", &efs/accessPoint.AccessPointArgs{
+// FileSystemId: efsForLambda.Id,
+// RootDirectory: map[string]interface{}{
+// "path": "/lambda",
+// "creationInfo": map[string]interface{}{
+// "ownerGid": 1000,
+// "ownerUid": 1000,
+// "permissions": "777",
+// },
+// },
+// PosixUser: map[string]interface{}{
+// "gid": 1000,
+// "uid": 1000,
+// },
+// })
+// if err != nil {
+// return err
+// }
+// // A lambda function connected to an EFS file system
+// // ... other configuration ...
+// _, err = lambda/function.NewFunction(ctx, "example", &lambda/function.FunctionArgs{
+// FileSystemConfig: map[string]interface{}{
+// "arn": accessPointForLambda.Arn,
+// "localMountPath": "/mnt/efs",
+// },
+// VpcConfig: map[string]interface{}{
+// "subnetIds": []interface{}{
+// aws_subnet.Subnet_for_lambda.Id,
+// },
+// "securityGroupIds": []interface{}{
+// aws_security_group.Sg_for_lambda.Id,
+// },
+// },
+// }, pulumi.DependsOn([]pulumi.Resource{
+// alpha,
+// }))
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Lambda retries
 //
 // Lambda Functions allow you to configure error handling for asynchronous invocation. The settings that it supports are `Maximum age of event` and `Retry attempts` as stated in [Lambda documentation for Configuring error handling for asynchronous invocation](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-errors). To configure these settings, refer to the lambda.FunctionEventInvokeConfig resource.
-// ### CloudWatch Logging and Permissions
-//
-// For more information about CloudWatch Logs for Lambda, see the [Lambda User Guide](https://docs.aws.amazon.com/lambda/latest/dg/monitoring-functions-logs.html).
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lambda"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			cfg := config.New(ctx, "")
-//			lambdaFunctionName := "lambda_function_name"
-//			if param := cfg.Get("lambdaFunctionName"); param != "" {
-//				lambdaFunctionName = param
-//			}
-//			example, err := cloudwatch.NewLogGroup(ctx, "example", &cloudwatch.LogGroupArgs{
-//				RetentionInDays: pulumi.Int(14),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			lambdaLoggingPolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-//				Statements: []iam.GetPolicyDocumentStatement{
-//					{
-//						Effect: pulumi.StringRef("Allow"),
-//						Actions: []string{
-//							"logs:CreateLogGroup",
-//							"logs:CreateLogStream",
-//							"logs:PutLogEvents",
-//						},
-//						Resources: []string{
-//							"arn:aws:logs:*:*:*",
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			lambdaLoggingPolicy, err := iam.NewPolicy(ctx, "lambdaLoggingPolicy", &iam.PolicyArgs{
-//				Path:        pulumi.String("/"),
-//				Description: pulumi.String("IAM policy for logging from a lambda"),
-//				Policy:      *pulumi.String(lambdaLoggingPolicyDocument.Json),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			lambdaLogs, err := iam.NewRolePolicyAttachment(ctx, "lambdaLogs", &iam.RolePolicyAttachmentArgs{
-//				Role:      pulumi.Any(aws_iam_role.Iam_for_lambda.Name),
-//				PolicyArn: lambdaLoggingPolicy.Arn,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = lambda.NewFunction(ctx, "testLambda", &lambda.FunctionArgs{
-//				LoggingConfig: &lambda.FunctionLoggingConfigArgs{
-//					LogFormat: pulumi.String("Text"),
-//				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				lambdaLogs,
-//				example,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 // ## Specifying the Deployment Package
 //
 // AWS Lambda expects source code to be provided as a deployment package whose structure varies depending on which `runtime` is in use. See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for the valid values of `runtime`. The expected structure of the deployment package can be found in [the AWS Lambda documentation for each runtime](https://docs.aws.amazon.com/lambda/latest/dg/deployment-package-v2.html).

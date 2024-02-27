@@ -305,13 +305,13 @@ class HsmConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.redshift.HsmConfiguration("example",
-            description="example",
-            hsm_configuration_identifier="example",
-            hsm_ip_address="10.0.0.1",
-            hsm_partition_name="aws",
-            hsm_partition_password="example",
-            hsm_server_public_certificate="example")
+        example = aws.redshift.hsm_configuration.HsmConfiguration("example",
+            description=example,
+            hsm_configuration_identifier=example,
+            hsm_ip_address=10.0.0.1,
+            hsm_partition_name=aws,
+            hsm_partition_password=example,
+            hsm_server_public_certificate=example)
         ```
 
         ## Import
@@ -347,13 +347,13 @@ class HsmConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.redshift.HsmConfiguration("example",
-            description="example",
-            hsm_configuration_identifier="example",
-            hsm_ip_address="10.0.0.1",
-            hsm_partition_name="aws",
-            hsm_partition_password="example",
-            hsm_server_public_certificate="example")
+        example = aws.redshift.hsm_configuration.HsmConfiguration("example",
+            description=example,
+            hsm_configuration_identifier=example,
+            hsm_ip_address=10.0.0.1,
+            hsm_partition_name=aws,
+            hsm_partition_password=example,
+            hsm_server_public_certificate=example)
         ```
 
         ## Import

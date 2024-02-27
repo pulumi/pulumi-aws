@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.eks.AccessPolicyAssociation("example", {
+ * const example = new aws.eks/accessPolicyAssociation.AccessPolicyAssociation("example", {
  *     clusterName: aws_eks_cluster.example.name,
  *     policyArn: "arn:aws:eks::aws:cluster-access-policy/AmazonEKSViewPolicy",
  *     principalArn: aws_iam_user.example.arn,

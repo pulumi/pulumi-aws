@@ -20,33 +20,32 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/macie2"
+//	macie2/account "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/macie2/account"
+//	macie2/classificationExportConfiguration "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/macie2/classificationExportConfiguration"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleAccount, err := macie2.NewAccount(ctx, "exampleAccount", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = macie2.NewClassificationExportConfiguration(ctx, "exampleClassificationExportConfiguration", &macie2.ClassificationExportConfigurationArgs{
-//				S3Destination: &macie2.ClassificationExportConfigurationS3DestinationArgs{
-//					BucketName: pulumi.Any(aws_s3_bucket.Example.Bucket),
-//					KeyPrefix:  pulumi.String("exampleprefix/"),
-//					KmsKeyArn:  pulumi.Any(aws_kms_key.Example.Arn),
-//				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleAccount,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleAccount, err := macie2/account.NewAccount(ctx, "exampleAccount", nil)
+// if err != nil {
+// return err
+// }
+// _, err = macie2/classificationExportConfiguration.NewClassificationExportConfiguration(ctx, "exampleClassificationExportConfiguration", &macie2/classificationExportConfiguration.ClassificationExportConfigurationArgs{
+// S3Destination: map[string]interface{}{
+// "bucketName": aws_s3_bucket.Example.Bucket,
+// "keyPrefix": "exampleprefix/",
+// "kmsKeyArn": aws_kms_key.Example.Arn,
+// },
+// }, pulumi.DependsOn([]pulumi.Resource{
+// exampleAccount,
+// }))
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

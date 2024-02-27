@@ -418,27 +418,27 @@ class Collaboration(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_collaboration = aws.cleanrooms.Collaboration("testCollaboration",
-            creator_display_name="Creator ",
+        test_collaboration = aws.cleanrooms.collaboration.Collaboration("testCollaboration",
+            creator_display_name=Creator ,
             creator_member_abilities=[
-                "CAN_QUERY",
-                "CAN_RECEIVE_RESULTS",
+                CAN_QUERY,
+                CAN_RECEIVE_RESULTS,
             ],
-            data_encryption_metadata=aws.cleanrooms.CollaborationDataEncryptionMetadataArgs(
-                allow_clear_text=True,
-                allow_duplicates=True,
-                allow_joins_on_columns_with_different_names=True,
-                preserve_nulls=False,
-            ),
-            description="I made this collaboration with Pulumi!",
-            members=[aws.cleanrooms.CollaborationMemberArgs(
-                account_id="123456789012",
-                display_name="Other member",
-                member_abilities=[],
-            )],
-            query_log_status="DISABLED",
+            data_encryption_metadata={
+                allowClearText: True,
+                allowDuplicates: True,
+                allowJoinsOnColumnsWithDifferentNames: True,
+                preserveNulls: False,
+            },
+            description=I made this collaboration with Pulumi!,
+            members=[{
+                accountId: 123456789012,
+                displayName: Other member,
+                memberAbilities: [],
+            }],
+            query_log_status=DISABLED,
             tags={
-                "Project": "Pulumi",
+                Project: Pulumi,
             })
         ```
 
@@ -490,27 +490,27 @@ class Collaboration(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_collaboration = aws.cleanrooms.Collaboration("testCollaboration",
-            creator_display_name="Creator ",
+        test_collaboration = aws.cleanrooms.collaboration.Collaboration("testCollaboration",
+            creator_display_name=Creator ,
             creator_member_abilities=[
-                "CAN_QUERY",
-                "CAN_RECEIVE_RESULTS",
+                CAN_QUERY,
+                CAN_RECEIVE_RESULTS,
             ],
-            data_encryption_metadata=aws.cleanrooms.CollaborationDataEncryptionMetadataArgs(
-                allow_clear_text=True,
-                allow_duplicates=True,
-                allow_joins_on_columns_with_different_names=True,
-                preserve_nulls=False,
-            ),
-            description="I made this collaboration with Pulumi!",
-            members=[aws.cleanrooms.CollaborationMemberArgs(
-                account_id="123456789012",
-                display_name="Other member",
-                member_abilities=[],
-            )],
-            query_log_status="DISABLED",
+            data_encryption_metadata={
+                allowClearText: True,
+                allowDuplicates: True,
+                allowJoinsOnColumnsWithDifferentNames: True,
+                preserveNulls: False,
+            },
+            description=I made this collaboration with Pulumi!,
+            members=[{
+                accountId: 123456789012,
+                displayName: Other member,
+                memberAbilities: [],
+            }],
+            query_log_status=DISABLED,
             tags={
-                "Project": "Pulumi",
+                Project: Pulumi,
             })
         ```
 

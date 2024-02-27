@@ -23,37 +23,37 @@ namespace Pulumi.Aws.Connect
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Aws.Connect.HoursOfOperation("test", new()
+    ///     var test = new Aws.Connect.HoursOfOperation.HoursOfOperation("test", new()
     ///     {
     ///         Configs = new[]
     ///         {
-    ///             new Aws.Connect.Inputs.HoursOfOperationConfigArgs
+    ///             
     ///             {
-    ///                 Day = "MONDAY",
-    ///                 EndTime = new Aws.Connect.Inputs.HoursOfOperationConfigEndTimeArgs
+    ///                 { "day", "MONDAY" },
+    ///                 { "endTime", 
     ///                 {
-    ///                     Hours = 23,
-    ///                     Minutes = 8,
-    ///                 },
-    ///                 StartTime = new Aws.Connect.Inputs.HoursOfOperationConfigStartTimeArgs
+    ///                     { "hours", 23 },
+    ///                     { "minutes", 8 },
+    ///                 } },
+    ///                 { "startTime", 
     ///                 {
-    ///                     Hours = 8,
-    ///                     Minutes = 0,
-    ///                 },
+    ///                     { "hours", 8 },
+    ///                     { "minutes", 0 },
+    ///                 } },
     ///             },
-    ///             new Aws.Connect.Inputs.HoursOfOperationConfigArgs
+    ///             
     ///             {
-    ///                 Day = "TUESDAY",
-    ///                 EndTime = new Aws.Connect.Inputs.HoursOfOperationConfigEndTimeArgs
+    ///                 { "day", "TUESDAY" },
+    ///                 { "endTime", 
     ///                 {
-    ///                     Hours = 21,
-    ///                     Minutes = 0,
-    ///                 },
-    ///                 StartTime = new Aws.Connect.Inputs.HoursOfOperationConfigStartTimeArgs
+    ///                     { "hours", 21 },
+    ///                     { "minutes", 0 },
+    ///                 } },
+    ///                 { "startTime", 
     ///                 {
-    ///                     Hours = 9,
-    ///                     Minutes = 0,
-    ///                 },
+    ///                     { "hours", 9 },
+    ///                     { "minutes", 0 },
+    ///                 } },
     ///             },
     ///         },
     ///         Description = "Monday office hours",

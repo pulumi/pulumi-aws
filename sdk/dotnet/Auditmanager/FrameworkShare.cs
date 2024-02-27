@@ -23,7 +23,7 @@ namespace Pulumi.Aws.Auditmanager
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Auditmanager.FrameworkShare("example", new()
+    ///     var example = new Aws.Auditmanager.FrameworkShare.FrameworkShare("example", new()
     ///     {
     ///         DestinationAccount = "012345678901",
     ///         DestinationRegion = "us-east-1",

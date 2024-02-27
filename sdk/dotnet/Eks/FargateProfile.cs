@@ -22,16 +22,16 @@ namespace Pulumi.Aws.Eks
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Eks.FargateProfile("example", new()
+    ///     var example = new Aws.Eks.FargateProfile.FargateProfile("example", new()
     ///     {
     ///         ClusterName = aws_eks_cluster.Example.Name,
     ///         PodExecutionRoleArn = aws_iam_role.Example.Arn,
     ///         SubnetIds = aws_subnet.Example.Select(__item =&gt; __item.Id).ToList(),
     ///         Selectors = new[]
     ///         {
-    ///             new Aws.Eks.Inputs.FargateProfileSelectorArgs
+    ///             
     ///             {
-    ///                 Namespace = "example",
+    ///                 { "namespace", "example" },
     ///             },
     ///         },
     ///     });
@@ -49,7 +49,7 @@ namespace Pulumi.Aws.Eks
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Iam.Role("example", new()
+    ///     var example = new Aws.Iam.Role.Role("example", new()
     ///     {
     ///         AssumeRolePolicy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
@@ -69,7 +69,7 @@ namespace Pulumi.Aws.Eks
     ///         }),
     ///     });
     /// 
-    ///     var example_AmazonEKSFargatePodExecutionRolePolicy = new Aws.Iam.RolePolicyAttachment("example-AmazonEKSFargatePodExecutionRolePolicy", new()
+    ///     var example_AmazonEKSFargatePodExecutionRolePolicy = new Aws.Iam.RolePolicyAttachment.RolePolicyAttachment("example-AmazonEKSFargatePodExecutionRolePolicy", new()
     ///     {
     ///         PolicyArn = "arn:aws:iam::aws:policy/AmazonEKSFargatePodExecutionRolePolicy",
     ///         Role = example.Name,

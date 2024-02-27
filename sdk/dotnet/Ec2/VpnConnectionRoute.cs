@@ -22,24 +22,24 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var vpc = new Aws.Ec2.Vpc("vpc", new()
+    ///     var vpc = new Aws.Ec2.Vpc.Vpc("vpc", new()
     ///     {
     ///         CidrBlock = "10.0.0.0/16",
     ///     });
     /// 
-    ///     var vpnGateway = new Aws.Ec2.VpnGateway("vpnGateway", new()
+    ///     var vpnGateway = new Aws.Ec2.VpnGateway.VpnGateway("vpnGateway", new()
     ///     {
     ///         VpcId = vpc.Id,
     ///     });
     /// 
-    ///     var customerGateway = new Aws.Ec2.CustomerGateway("customerGateway", new()
+    ///     var customerGateway = new Aws.Ec2.CustomerGateway.CustomerGateway("customerGateway", new()
     ///     {
-    ///         BgpAsn = "65000",
+    ///         BgpAsn = 65000,
     ///         IpAddress = "172.0.0.1",
     ///         Type = "ipsec.1",
     ///     });
     /// 
-    ///     var main = new Aws.Ec2.VpnConnection("main", new()
+    ///     var main = new Aws.Ec2.VpnConnection.VpnConnection("main", new()
     ///     {
     ///         VpnGatewayId = vpnGateway.Id,
     ///         CustomerGatewayId = customerGateway.Id,
@@ -47,7 +47,7 @@ namespace Pulumi.Aws.Ec2
     ///         StaticRoutesOnly = true,
     ///     });
     /// 
-    ///     var office = new Aws.Ec2.VpnConnectionRoute("office", new()
+    ///     var office = new Aws.Ec2.VpnConnectionRoute.VpnConnectionRoute("office", new()
     ///     {
     ///         DestinationCidrBlock = "192.168.10.0/24",
     ///         VpnConnectionId = main.Id,

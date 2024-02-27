@@ -486,9 +486,9 @@ class Resolver(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_graph_ql_api = aws.appsync.GraphQLApi("testGraphQLApi",
-            authentication_type="API_KEY",
-            schema=\"\"\"type Mutation {
+        test_graph_ql_api = aws.appsync.graph_ql_api.GraphQLApi("testGraphQLApi",
+            authentication_type=API_KEY,
+            schema=type Mutation {
         	putPost(id: ID!, title: String!): Post
         }
 
@@ -505,21 +505,21 @@ class Resolver(pulumi.CustomResource):
         	query: Query
         	mutation: Mutation
         }
-        \"\"\")
-        test_data_source = aws.appsync.DataSource("testDataSource",
+        )
+        test_data_source = aws.appsync.data_source.DataSource("testDataSource",
             api_id=test_graph_ql_api.id,
-            name="my_example",
-            type="HTTP",
-            http_config=aws.appsync.DataSourceHttpConfigArgs(
-                endpoint="http://example.com",
-            ))
+            name=my_example,
+            type=HTTP,
+            http_config={
+                endpoint: http://example.com,
+            })
         # UNIT type resolver (default)
-        test_resolver = aws.appsync.Resolver("testResolver",
+        test_resolver = aws.appsync.resolver.Resolver("testResolver",
             api_id=test_graph_ql_api.id,
-            field="singlePost",
-            type="Query",
+            field=singlePost,
+            type=Query,
             data_source=test_data_source.name,
-            request_template=\"\"\"{
+            request_template={
             "version": "2018-05-29",
             "method": "GET",
             "resourcePath": "/",
@@ -527,35 +527,35 @@ class Resolver(pulumi.CustomResource):
                 "headers": $utils.http.copyheaders($ctx.request.headers)
             }
         }
-        \"\"\",
-            response_template=\"\"\"#if($ctx.result.statusCode == 200)
+        ,
+            response_template=#if($ctx.result.statusCode == 200)
             $ctx.result.body
         #else
             $utils.appendError($ctx.result.body, $ctx.result.statusCode)
         #end
-        \"\"\",
-            caching_config=aws.appsync.ResolverCachingConfigArgs(
-                caching_keys=[
-                    "$context.identity.sub",
-                    "$context.arguments.id",
+        ,
+            caching_config={
+                cachingKeys: [
+                    $context.identity.sub,
+                    $context.arguments.id,
                 ],
-                ttl=60,
-            ))
+                ttl: 60,
+            })
         # PIPELINE type resolver
-        mutation_pipeline_test = aws.appsync.Resolver("mutationPipelineTest",
-            type="Mutation",
+        mutation_pipeline_test = aws.appsync.resolver.Resolver("mutationPipelineTest",
+            type=Mutation,
             api_id=test_graph_ql_api.id,
-            field="pipelineTest",
-            request_template="{}",
-            response_template="$util.toJson($ctx.result)",
-            kind="PIPELINE",
-            pipeline_config=aws.appsync.ResolverPipelineConfigArgs(
-                functions=[
-                    aws_appsync_function["test1"]["function_id"],
-                    aws_appsync_function["test2"]["function_id"],
-                    aws_appsync_function["test3"]["function_id"],
+            field=pipelineTest,
+            request_template={},
+            response_template=$util.toJson($ctx.result),
+            kind=PIPELINE,
+            pipeline_config={
+                functions: [
+                    aws_appsync_function.test1.function_id,
+                    aws_appsync_function.test2.function_id,
+                    aws_appsync_function.test3.function_id,
                 ],
-            ))
+            })
         ```
         ### JS
 
@@ -563,19 +563,19 @@ class Resolver(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.appsync.Resolver("example",
-            type="Query",
-            api_id=aws_appsync_graphql_api["test"]["id"],
-            field="pipelineTest",
-            kind="PIPELINE",
-            code=(lambda path: open(path).read())("some-code-dir"),
-            runtime=aws.appsync.ResolverRuntimeArgs(
-                name="APPSYNC_JS",
-                runtime_version="1.0.0",
-            ),
-            pipeline_config=aws.appsync.ResolverPipelineConfigArgs(
-                functions=[aws_appsync_function["test"]["function_id"]],
-            ))
+        example = aws.appsync.resolver.Resolver("example",
+            type=Query,
+            api_id=aws_appsync_graphql_api.test.id,
+            field=pipelineTest,
+            kind=PIPELINE,
+            code=(lambda path: open(path).read())(some-code-dir),
+            runtime={
+                name: APPSYNC_JS,
+                runtimeVersion: 1.0.0,
+            },
+            pipeline_config={
+                functions: [aws_appsync_function.test.function_id],
+            })
         ```
 
         ## Import
@@ -617,9 +617,9 @@ class Resolver(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_graph_ql_api = aws.appsync.GraphQLApi("testGraphQLApi",
-            authentication_type="API_KEY",
-            schema=\"\"\"type Mutation {
+        test_graph_ql_api = aws.appsync.graph_ql_api.GraphQLApi("testGraphQLApi",
+            authentication_type=API_KEY,
+            schema=type Mutation {
         	putPost(id: ID!, title: String!): Post
         }
 
@@ -636,21 +636,21 @@ class Resolver(pulumi.CustomResource):
         	query: Query
         	mutation: Mutation
         }
-        \"\"\")
-        test_data_source = aws.appsync.DataSource("testDataSource",
+        )
+        test_data_source = aws.appsync.data_source.DataSource("testDataSource",
             api_id=test_graph_ql_api.id,
-            name="my_example",
-            type="HTTP",
-            http_config=aws.appsync.DataSourceHttpConfigArgs(
-                endpoint="http://example.com",
-            ))
+            name=my_example,
+            type=HTTP,
+            http_config={
+                endpoint: http://example.com,
+            })
         # UNIT type resolver (default)
-        test_resolver = aws.appsync.Resolver("testResolver",
+        test_resolver = aws.appsync.resolver.Resolver("testResolver",
             api_id=test_graph_ql_api.id,
-            field="singlePost",
-            type="Query",
+            field=singlePost,
+            type=Query,
             data_source=test_data_source.name,
-            request_template=\"\"\"{
+            request_template={
             "version": "2018-05-29",
             "method": "GET",
             "resourcePath": "/",
@@ -658,35 +658,35 @@ class Resolver(pulumi.CustomResource):
                 "headers": $utils.http.copyheaders($ctx.request.headers)
             }
         }
-        \"\"\",
-            response_template=\"\"\"#if($ctx.result.statusCode == 200)
+        ,
+            response_template=#if($ctx.result.statusCode == 200)
             $ctx.result.body
         #else
             $utils.appendError($ctx.result.body, $ctx.result.statusCode)
         #end
-        \"\"\",
-            caching_config=aws.appsync.ResolverCachingConfigArgs(
-                caching_keys=[
-                    "$context.identity.sub",
-                    "$context.arguments.id",
+        ,
+            caching_config={
+                cachingKeys: [
+                    $context.identity.sub,
+                    $context.arguments.id,
                 ],
-                ttl=60,
-            ))
+                ttl: 60,
+            })
         # PIPELINE type resolver
-        mutation_pipeline_test = aws.appsync.Resolver("mutationPipelineTest",
-            type="Mutation",
+        mutation_pipeline_test = aws.appsync.resolver.Resolver("mutationPipelineTest",
+            type=Mutation,
             api_id=test_graph_ql_api.id,
-            field="pipelineTest",
-            request_template="{}",
-            response_template="$util.toJson($ctx.result)",
-            kind="PIPELINE",
-            pipeline_config=aws.appsync.ResolverPipelineConfigArgs(
-                functions=[
-                    aws_appsync_function["test1"]["function_id"],
-                    aws_appsync_function["test2"]["function_id"],
-                    aws_appsync_function["test3"]["function_id"],
+            field=pipelineTest,
+            request_template={},
+            response_template=$util.toJson($ctx.result),
+            kind=PIPELINE,
+            pipeline_config={
+                functions: [
+                    aws_appsync_function.test1.function_id,
+                    aws_appsync_function.test2.function_id,
+                    aws_appsync_function.test3.function_id,
                 ],
-            ))
+            })
         ```
         ### JS
 
@@ -694,19 +694,19 @@ class Resolver(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.appsync.Resolver("example",
-            type="Query",
-            api_id=aws_appsync_graphql_api["test"]["id"],
-            field="pipelineTest",
-            kind="PIPELINE",
-            code=(lambda path: open(path).read())("some-code-dir"),
-            runtime=aws.appsync.ResolverRuntimeArgs(
-                name="APPSYNC_JS",
-                runtime_version="1.0.0",
-            ),
-            pipeline_config=aws.appsync.ResolverPipelineConfigArgs(
-                functions=[aws_appsync_function["test"]["function_id"]],
-            ))
+        example = aws.appsync.resolver.Resolver("example",
+            type=Query,
+            api_id=aws_appsync_graphql_api.test.id,
+            field=pipelineTest,
+            kind=PIPELINE,
+            code=(lambda path: open(path).read())(some-code-dir),
+            runtime={
+                name: APPSYNC_JS,
+                runtimeVersion: 1.0.0,
+            },
+            pipeline_config={
+                functions: [aws_appsync_function.test.function_id],
+            })
         ```
 
         ## Import

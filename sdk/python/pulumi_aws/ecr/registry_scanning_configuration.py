@@ -126,15 +126,15 @@ class RegistryScanningConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        configuration = aws.ecr.RegistryScanningConfiguration("configuration",
-            rules=[aws.ecr.RegistryScanningConfigurationRuleArgs(
-                repository_filters=[aws.ecr.RegistryScanningConfigurationRuleRepositoryFilterArgs(
-                    filter="example",
-                    filter_type="WILDCARD",
-                )],
-                scan_frequency="CONTINUOUS_SCAN",
-            )],
-            scan_type="ENHANCED")
+        configuration = aws.ecr.registry_scanning_configuration.RegistryScanningConfiguration("configuration",
+            rules=[{
+                repositoryFilters: [{
+                    filter: example,
+                    filterType: WILDCARD,
+                }],
+                scanFrequency: CONTINUOUS_SCAN,
+            }],
+            scan_type=ENHANCED)
         ```
         ### Multiple rules
 
@@ -142,24 +142,24 @@ class RegistryScanningConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.ecr.RegistryScanningConfiguration("test",
+        test = aws.ecr.registry_scanning_configuration.RegistryScanningConfiguration("test",
             rules=[
-                aws.ecr.RegistryScanningConfigurationRuleArgs(
-                    repository_filters=[aws.ecr.RegistryScanningConfigurationRuleRepositoryFilterArgs(
-                        filter="*",
-                        filter_type="WILDCARD",
-                    )],
-                    scan_frequency="SCAN_ON_PUSH",
-                ),
-                aws.ecr.RegistryScanningConfigurationRuleArgs(
-                    repository_filters=[aws.ecr.RegistryScanningConfigurationRuleRepositoryFilterArgs(
-                        filter="example",
-                        filter_type="WILDCARD",
-                    )],
-                    scan_frequency="CONTINUOUS_SCAN",
-                ),
+                {
+                    repositoryFilters: [{
+                        filter: *,
+                        filterType: WILDCARD,
+                    }],
+                    scanFrequency: SCAN_ON_PUSH,
+                },
+                {
+                    repositoryFilters: [{
+                        filter: example,
+                        filterType: WILDCARD,
+                    }],
+                    scanFrequency: CONTINUOUS_SCAN,
+                },
             ],
-            scan_type="ENHANCED")
+            scan_type=ENHANCED)
         ```
 
         ## Import
@@ -191,15 +191,15 @@ class RegistryScanningConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        configuration = aws.ecr.RegistryScanningConfiguration("configuration",
-            rules=[aws.ecr.RegistryScanningConfigurationRuleArgs(
-                repository_filters=[aws.ecr.RegistryScanningConfigurationRuleRepositoryFilterArgs(
-                    filter="example",
-                    filter_type="WILDCARD",
-                )],
-                scan_frequency="CONTINUOUS_SCAN",
-            )],
-            scan_type="ENHANCED")
+        configuration = aws.ecr.registry_scanning_configuration.RegistryScanningConfiguration("configuration",
+            rules=[{
+                repositoryFilters: [{
+                    filter: example,
+                    filterType: WILDCARD,
+                }],
+                scanFrequency: CONTINUOUS_SCAN,
+            }],
+            scan_type=ENHANCED)
         ```
         ### Multiple rules
 
@@ -207,24 +207,24 @@ class RegistryScanningConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.ecr.RegistryScanningConfiguration("test",
+        test = aws.ecr.registry_scanning_configuration.RegistryScanningConfiguration("test",
             rules=[
-                aws.ecr.RegistryScanningConfigurationRuleArgs(
-                    repository_filters=[aws.ecr.RegistryScanningConfigurationRuleRepositoryFilterArgs(
-                        filter="*",
-                        filter_type="WILDCARD",
-                    )],
-                    scan_frequency="SCAN_ON_PUSH",
-                ),
-                aws.ecr.RegistryScanningConfigurationRuleArgs(
-                    repository_filters=[aws.ecr.RegistryScanningConfigurationRuleRepositoryFilterArgs(
-                        filter="example",
-                        filter_type="WILDCARD",
-                    )],
-                    scan_frequency="CONTINUOUS_SCAN",
-                ),
+                {
+                    repositoryFilters: [{
+                        filter: *,
+                        filterType: WILDCARD,
+                    }],
+                    scanFrequency: SCAN_ON_PUSH,
+                },
+                {
+                    repositoryFilters: [{
+                        filter: example,
+                        filterType: WILDCARD,
+                    }],
+                    scanFrequency: CONTINUOUS_SCAN,
+                },
             ],
-            scan_type="ENHANCED")
+            scan_type=ENHANCED)
         ```
 
         ## Import

@@ -22,44 +22,44 @@ namespace Pulumi.Aws.Iot
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Iot.IndexingConfiguration("example", new()
+    ///     var example = new Aws.Iot.IndexingConfiguration.IndexingConfiguration("example", new()
     ///     {
-    ///         ThingIndexingConfiguration = new Aws.Iot.Inputs.IndexingConfigurationThingIndexingConfigurationArgs
+    ///         ThingIndexingConfiguration = 
     ///         {
-    ///             CustomFields = new[]
+    ///             { "customFields", new[]
     ///             {
-    ///                 new Aws.Iot.Inputs.IndexingConfigurationThingIndexingConfigurationCustomFieldArgs
+    ///                 
     ///                 {
-    ///                     Name = "shadow.desired.power",
-    ///                     Type = "Boolean",
+    ///                     { "name", "shadow.desired.power" },
+    ///                     { "type", "Boolean" },
     ///                 },
-    ///                 new Aws.Iot.Inputs.IndexingConfigurationThingIndexingConfigurationCustomFieldArgs
+    ///                 
     ///                 {
-    ///                     Name = "attributes.version",
-    ///                     Type = "Number",
+    ///                     { "name", "attributes.version" },
+    ///                     { "type", "Number" },
     ///                 },
-    ///                 new Aws.Iot.Inputs.IndexingConfigurationThingIndexingConfigurationCustomFieldArgs
+    ///                 
     ///                 {
-    ///                     Name = "shadow.name.thing1shadow.desired.DefaultDesired",
-    ///                     Type = "String",
+    ///                     { "name", "shadow.name.thing1shadow.desired.DefaultDesired" },
+    ///                     { "type", "String" },
     ///                 },
-    ///                 new Aws.Iot.Inputs.IndexingConfigurationThingIndexingConfigurationCustomFieldArgs
+    ///                 
     ///                 {
-    ///                     Name = "deviceDefender.securityProfile1.NUMBER_VALUE_BEHAVIOR.lastViolationValue.number",
-    ///                     Type = "Number",
+    ///                     { "name", "deviceDefender.securityProfile1.NUMBER_VALUE_BEHAVIOR.lastViolationValue.number" },
+    ///                     { "type", "Number" },
     ///                 },
-    ///             },
-    ///             DeviceDefenderIndexingMode = "VIOLATIONS",
-    ///             Filter = new Aws.Iot.Inputs.IndexingConfigurationThingIndexingConfigurationFilterArgs
+    ///             } },
+    ///             { "deviceDefenderIndexingMode", "VIOLATIONS" },
+    ///             { "filter", 
     ///             {
-    ///                 NamedShadowNames = new[]
+    ///                 { "namedShadowNames", new[]
     ///                 {
     ///                     "thing1shadow",
-    ///                 },
-    ///             },
-    ///             NamedShadowIndexingMode = "ON",
-    ///             ThingConnectivityIndexingMode = "STATUS",
-    ///             ThingIndexingMode = "REGISTRY_AND_SHADOW",
+    ///                 } },
+    ///             } },
+    ///             { "namedShadowIndexingMode", "ON" },
+    ///             { "thingConnectivityIndexingMode", "STATUS" },
+    ///             { "thingIndexingMode", "REGISTRY_AND_SHADOW" },
     ///         },
     ///     });
     /// 

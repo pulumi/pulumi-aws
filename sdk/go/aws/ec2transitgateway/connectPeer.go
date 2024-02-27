@@ -21,34 +21,33 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2transitgateway"
+//	ec2transitgateway/connect "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2transitgateway/connect"
+//	ec2transitgateway/connectPeer "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2transitgateway/connectPeer"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleConnect, err := ec2transitgateway.NewConnect(ctx, "exampleConnect", &ec2transitgateway.ConnectArgs{
-//				TransportAttachmentId: pulumi.Any(aws_ec2_transit_gateway_vpc_attachment.Example.Id),
-//				TransitGatewayId:      pulumi.Any(aws_ec2_transit_gateway.Example.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ec2transitgateway.NewConnectPeer(ctx, "exampleConnectPeer", &ec2transitgateway.ConnectPeerArgs{
-//				PeerAddress: pulumi.String("10.1.2.3"),
-//				InsideCidrBlocks: pulumi.StringArray{
-//					pulumi.String("169.254.100.0/29"),
-//				},
-//				TransitGatewayAttachmentId: exampleConnect.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleConnect, err := ec2transitgateway/connect.NewConnect(ctx, "exampleConnect", &ec2transitgateway/connect.ConnectArgs{
+// TransportAttachmentId: aws_ec2_transit_gateway_vpc_attachment.Example.Id,
+// TransitGatewayId: aws_ec2_transit_gateway.Example.Id,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = ec2transitgateway/connectPeer.NewConnectPeer(ctx, "exampleConnectPeer", &ec2transitgateway/connectPeer.ConnectPeerArgs{
+// PeerAddress: "10.1.2.3",
+// InsideCidrBlocks: []string{
+// "169.254.100.0/29",
+// },
+// TransitGatewayAttachmentId: exampleConnect.Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

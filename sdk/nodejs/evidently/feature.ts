@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.evidently.Feature("example", {
+ * const example = new aws.evidently/feature.Feature("example", {
  *     project: aws_evidently_project.example.name,
  *     description: "example description",
  *     variations: [{
@@ -37,7 +37,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.evidently.Feature("example", {
+ * const example = new aws.evidently/feature.Feature("example", {
  *     project: aws_evidently_project.example.name,
  *     defaultVariation: "Variation2",
  *     variations: [
@@ -62,7 +62,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.evidently.Feature("example", {
+ * const example = new aws.evidently/feature.Feature("example", {
  *     project: aws_evidently_project.example.name,
  *     entityOverrides: {
  *         test1: "Variation1",
@@ -89,7 +89,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.evidently.Feature("example", {
+ * const example = new aws.evidently/feature.Feature("example", {
  *     project: aws_evidently_project.example.name,
  *     evaluationStrategy: "ALL_RULES",
  *     entityOverrides: {

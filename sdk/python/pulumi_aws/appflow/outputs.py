@@ -6610,6 +6610,17 @@ class FlowTriggerConfigTriggerPropertiesScheduled(dict):
         :param int schedule_offset: Optional offset that is added to the time interval for a schedule-triggered flow. Maximum value of 36000.
         :param str schedule_start_time: Scheduled start time for a schedule-triggered flow. Must be a valid RFC3339 timestamp.
         :param str timezone: Time zone used when referring to the date and time of a scheduled-triggered flow, such as `America/New_York`.
+               
+               ```python
+               import pulumi
+               import pulumi_aws as aws
+               
+               example = aws.appflow.flow.Flow("example", trigger_config={
+                   scheduled: [{
+                       scheduleExpression: rate(1minutes),
+                   }],
+               })
+               ```
         """
         pulumi.set(__self__, "schedule_expression", schedule_expression)
         if data_pull_mode is not None:
@@ -6678,6 +6689,17 @@ class FlowTriggerConfigTriggerPropertiesScheduled(dict):
     def timezone(self) -> Optional[str]:
         """
         Time zone used when referring to the date and time of a scheduled-triggered flow, such as `America/New_York`.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.appflow.flow.Flow("example", trigger_config={
+            scheduled: [{
+                scheduleExpression: rate(1minutes),
+            }],
+        })
+        ```
         """
         return pulumi.get(self, "timezone")
 

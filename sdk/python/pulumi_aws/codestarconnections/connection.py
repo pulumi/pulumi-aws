@@ -230,35 +230,35 @@ class Connection(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_connection = aws.codestarconnections.Connection("exampleConnection", provider_type="Bitbucket")
-        example_pipeline = aws.codepipeline.Pipeline("examplePipeline",
-            role_arn=aws_iam_role["codepipeline_role"]["arn"],
-            artifact_stores=[aws.codepipeline.PipelineArtifactStoreArgs()],
+        example_connection = aws.codestarconnections.connection.Connection("exampleConnection", provider_type=Bitbucket)
+        example_pipeline = aws.codepipeline.pipeline.Pipeline("examplePipeline",
+            role_arn=aws_iam_role.codepipeline_role.arn,
+            artifact_stores=[{}],
             stages=[
-                aws.codepipeline.PipelineStageArgs(
-                    name="Source",
-                    actions=[aws.codepipeline.PipelineStageActionArgs(
-                        name="Source",
-                        category="Source",
-                        owner="AWS",
-                        provider="CodeStarSourceConnection",
-                        version="1",
-                        output_artifacts=["source_output"],
-                        configuration={
-                            "ConnectionArn": example_connection.arn,
-                            "FullRepositoryId": "my-organization/test",
-                            "BranchName": "main",
+                {
+                    name: Source,
+                    actions: [{
+                        name: Source,
+                        category: Source,
+                        owner: AWS,
+                        provider: CodeStarSourceConnection,
+                        version: 1,
+                        outputArtifacts: [source_output],
+                        configuration: {
+                            ConnectionArn: example_connection.arn,
+                            FullRepositoryId: my-organization/test,
+                            BranchName: main,
                         },
-                    )],
-                ),
-                aws.codepipeline.PipelineStageArgs(
-                    name="Build",
-                    actions=[aws.codepipeline.PipelineStageActionArgs()],
-                ),
-                aws.codepipeline.PipelineStageArgs(
-                    name="Deploy",
-                    actions=[aws.codepipeline.PipelineStageActionArgs()],
-                ),
+                    }],
+                },
+                {
+                    name: Build,
+                    actions: [{}],
+                },
+                {
+                    name: Deploy,
+                    actions: [{}],
+                },
             ])
         ```
 
@@ -294,35 +294,35 @@ class Connection(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_connection = aws.codestarconnections.Connection("exampleConnection", provider_type="Bitbucket")
-        example_pipeline = aws.codepipeline.Pipeline("examplePipeline",
-            role_arn=aws_iam_role["codepipeline_role"]["arn"],
-            artifact_stores=[aws.codepipeline.PipelineArtifactStoreArgs()],
+        example_connection = aws.codestarconnections.connection.Connection("exampleConnection", provider_type=Bitbucket)
+        example_pipeline = aws.codepipeline.pipeline.Pipeline("examplePipeline",
+            role_arn=aws_iam_role.codepipeline_role.arn,
+            artifact_stores=[{}],
             stages=[
-                aws.codepipeline.PipelineStageArgs(
-                    name="Source",
-                    actions=[aws.codepipeline.PipelineStageActionArgs(
-                        name="Source",
-                        category="Source",
-                        owner="AWS",
-                        provider="CodeStarSourceConnection",
-                        version="1",
-                        output_artifacts=["source_output"],
-                        configuration={
-                            "ConnectionArn": example_connection.arn,
-                            "FullRepositoryId": "my-organization/test",
-                            "BranchName": "main",
+                {
+                    name: Source,
+                    actions: [{
+                        name: Source,
+                        category: Source,
+                        owner: AWS,
+                        provider: CodeStarSourceConnection,
+                        version: 1,
+                        outputArtifacts: [source_output],
+                        configuration: {
+                            ConnectionArn: example_connection.arn,
+                            FullRepositoryId: my-organization/test,
+                            BranchName: main,
                         },
-                    )],
-                ),
-                aws.codepipeline.PipelineStageArgs(
-                    name="Build",
-                    actions=[aws.codepipeline.PipelineStageActionArgs()],
-                ),
-                aws.codepipeline.PipelineStageArgs(
-                    name="Deploy",
-                    actions=[aws.codepipeline.PipelineStageActionArgs()],
-                ),
+                    }],
+                },
+                {
+                    name: Build,
+                    actions: [{}],
+                },
+                {
+                    name: Deploy,
+                    actions: [{}],
+                },
             ])
         ```
 

@@ -29,74 +29,12 @@ public final class SecretsmanagerFunctions {
     /**
      * Generate a random password.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
-     * import com.pulumi.aws.secretsmanager.inputs.GetRandomPasswordArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = SecretsmanagerFunctions.getRandomPassword(GetRandomPasswordArgs.builder()
-     *             .excludeNumbers(true)
-     *             .passwordLength(50)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetRandomPasswordResult> getRandomPassword() {
         return getRandomPassword(GetRandomPasswordArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * Generate a random password.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
-     * import com.pulumi.aws.secretsmanager.inputs.GetRandomPasswordArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = SecretsmanagerFunctions.getRandomPassword(GetRandomPasswordArgs.builder()
-     *             .excludeNumbers(true)
-     *             .passwordLength(50)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetRandomPasswordResult> getRandomPasswordPlain() {
@@ -105,74 +43,12 @@ public final class SecretsmanagerFunctions {
     /**
      * Generate a random password.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
-     * import com.pulumi.aws.secretsmanager.inputs.GetRandomPasswordArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = SecretsmanagerFunctions.getRandomPassword(GetRandomPasswordArgs.builder()
-     *             .excludeNumbers(true)
-     *             .passwordLength(50)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetRandomPasswordResult> getRandomPassword(GetRandomPasswordArgs args) {
         return getRandomPassword(args, InvokeOptions.Empty);
     }
     /**
      * Generate a random password.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
-     * import com.pulumi.aws.secretsmanager.inputs.GetRandomPasswordArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = SecretsmanagerFunctions.getRandomPassword(GetRandomPasswordArgs.builder()
-     *             .excludeNumbers(true)
-     *             .passwordLength(50)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetRandomPasswordResult> getRandomPasswordPlain(GetRandomPasswordPlainArgs args) {
@@ -181,74 +57,12 @@ public final class SecretsmanagerFunctions {
     /**
      * Generate a random password.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
-     * import com.pulumi.aws.secretsmanager.inputs.GetRandomPasswordArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = SecretsmanagerFunctions.getRandomPassword(GetRandomPasswordArgs.builder()
-     *             .excludeNumbers(true)
-     *             .passwordLength(50)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetRandomPasswordResult> getRandomPassword(GetRandomPasswordArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:secretsmanager/getRandomPassword:getRandomPassword", TypeShape.of(GetRandomPasswordResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Generate a random password.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
-     * import com.pulumi.aws.secretsmanager.inputs.GetRandomPasswordArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = SecretsmanagerFunctions.getRandomPassword(GetRandomPasswordArgs.builder()
-     *             .excludeNumbers(true)
-     *             .passwordLength(50)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetRandomPasswordResult> getRandomPasswordPlain(GetRandomPasswordPlainArgs args, InvokeOptions options) {
@@ -258,64 +72,6 @@ public final class SecretsmanagerFunctions {
      * Retrieve metadata information about a Secrets Manager secret. To retrieve a secret value, see the `aws.secretsmanager.SecretVersion` data source.
      * 
      * ## Example Usage
-     * ### ARN
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
-     * import com.pulumi.aws.secretsmanager.inputs.GetSecretArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var by-arn = SecretsmanagerFunctions.getSecret(GetSecretArgs.builder()
-     *             .arn(&#34;arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * ### Name
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
-     * import com.pulumi.aws.secretsmanager.inputs.GetSecretArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var by-name = SecretsmanagerFunctions.getSecret(GetSecretArgs.builder()
-     *             .name(&#34;example&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetSecretResult> getSecret() {
@@ -325,64 +81,6 @@ public final class SecretsmanagerFunctions {
      * Retrieve metadata information about a Secrets Manager secret. To retrieve a secret value, see the `aws.secretsmanager.SecretVersion` data source.
      * 
      * ## Example Usage
-     * ### ARN
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
-     * import com.pulumi.aws.secretsmanager.inputs.GetSecretArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var by-arn = SecretsmanagerFunctions.getSecret(GetSecretArgs.builder()
-     *             .arn(&#34;arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * ### Name
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
-     * import com.pulumi.aws.secretsmanager.inputs.GetSecretArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var by-name = SecretsmanagerFunctions.getSecret(GetSecretArgs.builder()
-     *             .name(&#34;example&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetSecretResult> getSecretPlain() {
@@ -392,64 +90,6 @@ public final class SecretsmanagerFunctions {
      * Retrieve metadata information about a Secrets Manager secret. To retrieve a secret value, see the `aws.secretsmanager.SecretVersion` data source.
      * 
      * ## Example Usage
-     * ### ARN
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
-     * import com.pulumi.aws.secretsmanager.inputs.GetSecretArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var by-arn = SecretsmanagerFunctions.getSecret(GetSecretArgs.builder()
-     *             .arn(&#34;arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * ### Name
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
-     * import com.pulumi.aws.secretsmanager.inputs.GetSecretArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var by-name = SecretsmanagerFunctions.getSecret(GetSecretArgs.builder()
-     *             .name(&#34;example&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetSecretResult> getSecret(GetSecretArgs args) {
@@ -459,64 +99,6 @@ public final class SecretsmanagerFunctions {
      * Retrieve metadata information about a Secrets Manager secret. To retrieve a secret value, see the `aws.secretsmanager.SecretVersion` data source.
      * 
      * ## Example Usage
-     * ### ARN
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
-     * import com.pulumi.aws.secretsmanager.inputs.GetSecretArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var by-arn = SecretsmanagerFunctions.getSecret(GetSecretArgs.builder()
-     *             .arn(&#34;arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * ### Name
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
-     * import com.pulumi.aws.secretsmanager.inputs.GetSecretArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var by-name = SecretsmanagerFunctions.getSecret(GetSecretArgs.builder()
-     *             .name(&#34;example&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetSecretResult> getSecretPlain(GetSecretPlainArgs args) {
@@ -526,64 +108,6 @@ public final class SecretsmanagerFunctions {
      * Retrieve metadata information about a Secrets Manager secret. To retrieve a secret value, see the `aws.secretsmanager.SecretVersion` data source.
      * 
      * ## Example Usage
-     * ### ARN
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
-     * import com.pulumi.aws.secretsmanager.inputs.GetSecretArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var by-arn = SecretsmanagerFunctions.getSecret(GetSecretArgs.builder()
-     *             .arn(&#34;arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * ### Name
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
-     * import com.pulumi.aws.secretsmanager.inputs.GetSecretArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var by-name = SecretsmanagerFunctions.getSecret(GetSecretArgs.builder()
-     *             .name(&#34;example&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetSecretResult> getSecret(GetSecretArgs args, InvokeOptions options) {
@@ -593,64 +117,6 @@ public final class SecretsmanagerFunctions {
      * Retrieve metadata information about a Secrets Manager secret. To retrieve a secret value, see the `aws.secretsmanager.SecretVersion` data source.
      * 
      * ## Example Usage
-     * ### ARN
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
-     * import com.pulumi.aws.secretsmanager.inputs.GetSecretArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var by-arn = SecretsmanagerFunctions.getSecret(GetSecretArgs.builder()
-     *             .arn(&#34;arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * ### Name
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
-     * import com.pulumi.aws.secretsmanager.inputs.GetSecretArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var by-name = SecretsmanagerFunctions.getSecret(GetSecretArgs.builder()
-     *             .name(&#34;example&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetSecretResult> getSecretPlain(GetSecretPlainArgs args, InvokeOptions options) {
@@ -660,35 +126,6 @@ public final class SecretsmanagerFunctions {
      * Retrieve information about a Secrets Manager secret rotation. To retrieve secret metadata, see the `aws.secretsmanager.Secret` data source. To retrieve a secret value, see the `aws.secretsmanager.SecretVersion` data source.
      * 
      * ## Example Usage
-     * ### Retrieve Secret Rotation Configuration
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
-     * import com.pulumi.aws.secretsmanager.inputs.GetSecretRotationArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = SecretsmanagerFunctions.getSecretRotation(GetSecretRotationArgs.builder()
-     *             .secretId(data.aws_secretsmanager_secret().example().id())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetSecretRotationResult> getSecretRotation(GetSecretRotationArgs args) {
@@ -698,35 +135,6 @@ public final class SecretsmanagerFunctions {
      * Retrieve information about a Secrets Manager secret rotation. To retrieve secret metadata, see the `aws.secretsmanager.Secret` data source. To retrieve a secret value, see the `aws.secretsmanager.SecretVersion` data source.
      * 
      * ## Example Usage
-     * ### Retrieve Secret Rotation Configuration
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
-     * import com.pulumi.aws.secretsmanager.inputs.GetSecretRotationArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = SecretsmanagerFunctions.getSecretRotation(GetSecretRotationArgs.builder()
-     *             .secretId(data.aws_secretsmanager_secret().example().id())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetSecretRotationResult> getSecretRotationPlain(GetSecretRotationPlainArgs args) {
@@ -736,35 +144,6 @@ public final class SecretsmanagerFunctions {
      * Retrieve information about a Secrets Manager secret rotation. To retrieve secret metadata, see the `aws.secretsmanager.Secret` data source. To retrieve a secret value, see the `aws.secretsmanager.SecretVersion` data source.
      * 
      * ## Example Usage
-     * ### Retrieve Secret Rotation Configuration
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
-     * import com.pulumi.aws.secretsmanager.inputs.GetSecretRotationArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = SecretsmanagerFunctions.getSecretRotation(GetSecretRotationArgs.builder()
-     *             .secretId(data.aws_secretsmanager_secret().example().id())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetSecretRotationResult> getSecretRotation(GetSecretRotationArgs args, InvokeOptions options) {
@@ -774,35 +153,6 @@ public final class SecretsmanagerFunctions {
      * Retrieve information about a Secrets Manager secret rotation. To retrieve secret metadata, see the `aws.secretsmanager.Secret` data source. To retrieve a secret value, see the `aws.secretsmanager.SecretVersion` data source.
      * 
      * ## Example Usage
-     * ### Retrieve Secret Rotation Configuration
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
-     * import com.pulumi.aws.secretsmanager.inputs.GetSecretRotationArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = SecretsmanagerFunctions.getSecretRotation(GetSecretRotationArgs.builder()
-     *             .secretId(data.aws_secretsmanager_secret().example().id())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetSecretRotationResult> getSecretRotationPlain(GetSecretRotationPlainArgs args, InvokeOptions options) {
@@ -812,67 +162,6 @@ public final class SecretsmanagerFunctions {
      * Retrieve information about a Secrets Manager secret version, including its secret value. To retrieve secret metadata, see the `aws.secretsmanager.Secret` data source.
      * 
      * ## Example Usage
-     * ### Retrieve Current Secret Version
-     * 
-     * By default, this data sources retrieves information based on the `AWSCURRENT` staging label.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
-     * import com.pulumi.aws.secretsmanager.inputs.GetSecretVersionArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var secret-version = SecretsmanagerFunctions.getSecretVersion(GetSecretVersionArgs.builder()
-     *             .secretId(data.aws_secretsmanager_secret().example().id())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * ### Retrieve Specific Secret Version
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
-     * import com.pulumi.aws.secretsmanager.inputs.GetSecretVersionArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var by-version-stage = SecretsmanagerFunctions.getSecretVersion(GetSecretVersionArgs.builder()
-     *             .secretId(data.aws_secretsmanager_secret().example().id())
-     *             .versionStage(&#34;example&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetSecretVersionResult> getSecretVersion(GetSecretVersionArgs args) {
@@ -882,67 +171,6 @@ public final class SecretsmanagerFunctions {
      * Retrieve information about a Secrets Manager secret version, including its secret value. To retrieve secret metadata, see the `aws.secretsmanager.Secret` data source.
      * 
      * ## Example Usage
-     * ### Retrieve Current Secret Version
-     * 
-     * By default, this data sources retrieves information based on the `AWSCURRENT` staging label.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
-     * import com.pulumi.aws.secretsmanager.inputs.GetSecretVersionArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var secret-version = SecretsmanagerFunctions.getSecretVersion(GetSecretVersionArgs.builder()
-     *             .secretId(data.aws_secretsmanager_secret().example().id())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * ### Retrieve Specific Secret Version
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
-     * import com.pulumi.aws.secretsmanager.inputs.GetSecretVersionArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var by-version-stage = SecretsmanagerFunctions.getSecretVersion(GetSecretVersionArgs.builder()
-     *             .secretId(data.aws_secretsmanager_secret().example().id())
-     *             .versionStage(&#34;example&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetSecretVersionResult> getSecretVersionPlain(GetSecretVersionPlainArgs args) {
@@ -952,67 +180,6 @@ public final class SecretsmanagerFunctions {
      * Retrieve information about a Secrets Manager secret version, including its secret value. To retrieve secret metadata, see the `aws.secretsmanager.Secret` data source.
      * 
      * ## Example Usage
-     * ### Retrieve Current Secret Version
-     * 
-     * By default, this data sources retrieves information based on the `AWSCURRENT` staging label.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
-     * import com.pulumi.aws.secretsmanager.inputs.GetSecretVersionArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var secret-version = SecretsmanagerFunctions.getSecretVersion(GetSecretVersionArgs.builder()
-     *             .secretId(data.aws_secretsmanager_secret().example().id())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * ### Retrieve Specific Secret Version
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
-     * import com.pulumi.aws.secretsmanager.inputs.GetSecretVersionArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var by-version-stage = SecretsmanagerFunctions.getSecretVersion(GetSecretVersionArgs.builder()
-     *             .secretId(data.aws_secretsmanager_secret().example().id())
-     *             .versionStage(&#34;example&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetSecretVersionResult> getSecretVersion(GetSecretVersionArgs args, InvokeOptions options) {
@@ -1022,67 +189,6 @@ public final class SecretsmanagerFunctions {
      * Retrieve information about a Secrets Manager secret version, including its secret value. To retrieve secret metadata, see the `aws.secretsmanager.Secret` data source.
      * 
      * ## Example Usage
-     * ### Retrieve Current Secret Version
-     * 
-     * By default, this data sources retrieves information based on the `AWSCURRENT` staging label.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
-     * import com.pulumi.aws.secretsmanager.inputs.GetSecretVersionArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var secret-version = SecretsmanagerFunctions.getSecretVersion(GetSecretVersionArgs.builder()
-     *             .secretId(data.aws_secretsmanager_secret().example().id())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * ### Retrieve Specific Secret Version
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
-     * import com.pulumi.aws.secretsmanager.inputs.GetSecretVersionArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var by-version-stage = SecretsmanagerFunctions.getSecretVersion(GetSecretVersionArgs.builder()
-     *             .secretId(data.aws_secretsmanager_secret().example().id())
-     *             .versionStage(&#34;example&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetSecretVersionResult> getSecretVersionPlain(GetSecretVersionPlainArgs args, InvokeOptions options) {
@@ -1091,78 +197,12 @@ public final class SecretsmanagerFunctions {
     /**
      * Use this data source to get the ARNs and names of Secrets Manager secrets matching the specified criteria.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
-     * import com.pulumi.aws.secretsmanager.inputs.GetSecretsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = SecretsmanagerFunctions.getSecrets(GetSecretsArgs.builder()
-     *             .filters(GetSecretsFilterArgs.builder()
-     *                 .name(&#34;name&#34;)
-     *                 .values(&#34;example&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetSecretsResult> getSecrets() {
         return getSecrets(GetSecretsArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * Use this data source to get the ARNs and names of Secrets Manager secrets matching the specified criteria.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
-     * import com.pulumi.aws.secretsmanager.inputs.GetSecretsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = SecretsmanagerFunctions.getSecrets(GetSecretsArgs.builder()
-     *             .filters(GetSecretsFilterArgs.builder()
-     *                 .name(&#34;name&#34;)
-     *                 .values(&#34;example&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetSecretsResult> getSecretsPlain() {
@@ -1171,78 +211,12 @@ public final class SecretsmanagerFunctions {
     /**
      * Use this data source to get the ARNs and names of Secrets Manager secrets matching the specified criteria.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
-     * import com.pulumi.aws.secretsmanager.inputs.GetSecretsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = SecretsmanagerFunctions.getSecrets(GetSecretsArgs.builder()
-     *             .filters(GetSecretsFilterArgs.builder()
-     *                 .name(&#34;name&#34;)
-     *                 .values(&#34;example&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetSecretsResult> getSecrets(GetSecretsArgs args) {
         return getSecrets(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to get the ARNs and names of Secrets Manager secrets matching the specified criteria.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
-     * import com.pulumi.aws.secretsmanager.inputs.GetSecretsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = SecretsmanagerFunctions.getSecrets(GetSecretsArgs.builder()
-     *             .filters(GetSecretsFilterArgs.builder()
-     *                 .name(&#34;name&#34;)
-     *                 .values(&#34;example&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetSecretsResult> getSecretsPlain(GetSecretsPlainArgs args) {
@@ -1251,78 +225,12 @@ public final class SecretsmanagerFunctions {
     /**
      * Use this data source to get the ARNs and names of Secrets Manager secrets matching the specified criteria.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
-     * import com.pulumi.aws.secretsmanager.inputs.GetSecretsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = SecretsmanagerFunctions.getSecrets(GetSecretsArgs.builder()
-     *             .filters(GetSecretsFilterArgs.builder()
-     *                 .name(&#34;name&#34;)
-     *                 .values(&#34;example&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetSecretsResult> getSecrets(GetSecretsArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:secretsmanager/getSecrets:getSecrets", TypeShape.of(GetSecretsResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to get the ARNs and names of Secrets Manager secrets matching the specified criteria.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
-     * import com.pulumi.aws.secretsmanager.inputs.GetSecretsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = SecretsmanagerFunctions.getSecrets(GetSecretsArgs.builder()
-     *             .filters(GetSecretsFilterArgs.builder()
-     *                 .name(&#34;name&#34;)
-     *                 .values(&#34;example&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetSecretsResult> getSecretsPlain(GetSecretsPlainArgs args, InvokeOptions options) {

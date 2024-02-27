@@ -179,11 +179,11 @@ class HumanTaskUI(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.sagemaker.HumanTaskUI("example",
-            human_task_ui_name="example",
-            ui_template=aws.sagemaker.HumanTaskUIUiTemplateArgs(
-                content=(lambda path: open(path).read())("sagemaker-human-task-ui-template.html"),
-            ))
+        example = aws.sagemaker.human_task_ui.HumanTaskUI("example",
+            human_task_ui_name=example,
+            ui_template={
+                content: (lambda path: open(path).read())(sagemaker-human-task-ui-template.html),
+            })
         ```
 
         ## Import
@@ -215,11 +215,11 @@ class HumanTaskUI(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.sagemaker.HumanTaskUI("example",
-            human_task_ui_name="example",
-            ui_template=aws.sagemaker.HumanTaskUIUiTemplateArgs(
-                content=(lambda path: open(path).read())("sagemaker-human-task-ui-template.html"),
-            ))
+        example = aws.sagemaker.human_task_ui.HumanTaskUI("example",
+            human_task_ui_name=example,
+            ui_template={
+                content: (lambda path: open(path).read())(sagemaker-human-task-ui-template.html),
+            })
         ```
 
         ## Import

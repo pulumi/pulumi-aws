@@ -15,54 +15,6 @@ namespace Pulumi.Aws.Cfg
     /// &gt; **Note:** _Starting_ the Configuration Recorder requires a delivery channel (while delivery channel creation requires Configuration Recorder). This is why `aws.cfg.RecorderStatus` is a separate resource.
     /// 
     /// ## Example Usage
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var assumeRole = Aws.Iam.GetPolicyDocument.Invoke(new()
-    ///     {
-    ///         Statements = new[]
-    ///         {
-    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
-    ///             {
-    ///                 Effect = "Allow",
-    ///                 Principals = new[]
-    ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
-    ///                     {
-    ///                         Type = "Service",
-    ///                         Identifiers = new[]
-    ///                         {
-    ///                             "config.amazonaws.com",
-    ///                         },
-    ///                     },
-    ///                 },
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "sts:AssumeRole",
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var role = new Aws.Iam.Role("role", new()
-    ///     {
-    ///         AssumeRolePolicy = assumeRole.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
-    ///     });
-    /// 
-    ///     var foo = new Aws.Cfg.Recorder("foo", new()
-    ///     {
-    ///         RoleArn = role.Arn,
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// ### Exclude Resources Types Usage
     /// 
     /// ```csharp
@@ -73,29 +25,29 @@ namespace Pulumi.Aws.Cfg
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var foo = new Aws.Cfg.Recorder("foo", new()
+    ///     var foo = new Aws.Cfg.Recorder.Recorder("foo", new()
     ///     {
     ///         RoleArn = aws_iam_role.R.Arn,
-    ///         RecordingGroup = new Aws.Cfg.Inputs.RecorderRecordingGroupArgs
+    ///         RecordingGroup = 
     ///         {
-    ///             AllSupported = false,
-    ///             ExclusionByResourceTypes = new[]
+    ///             { "allSupported", false },
+    ///             { "exclusionByResourceTypes", new[]
     ///             {
-    ///                 new Aws.Cfg.Inputs.RecorderRecordingGroupExclusionByResourceTypeArgs
+    ///                 
     ///                 {
-    ///                     ResourceTypes = new[]
+    ///                     { "resourceTypes", new[]
     ///                     {
     ///                         "AWS::EC2::Instance",
-    ///                     },
+    ///                     } },
     ///                 },
-    ///             },
-    ///             RecordingStrategies = new[]
+    ///             } },
+    ///             { "recordingStrategies", new[]
     ///             {
-    ///                 new Aws.Cfg.Inputs.RecorderRecordingGroupRecordingStrategyArgs
+    ///                 
     ///                 {
-    ///                     UseOnly = "EXCLUSION_BY_RESOURCE_TYPES",
+    ///                     { "useOnly", "EXCLUSION_BY_RESOURCE_TYPES" },
     ///                 },
-    ///             },
+    ///             } },
     ///         },
     ///     });
     /// 

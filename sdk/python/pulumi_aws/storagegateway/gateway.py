@@ -718,38 +718,22 @@ class Gateway(pulumi.CustomResource):
         > **NOTE:** The Storage Gateway API requires the gateway to be connected to properly return information after activation. If you are receiving `The specified gateway is not connected` errors during resource creation (gateway activation), ensure your gateway instance meets the [Storage Gateway requirements](https://docs.aws.amazon.com/storagegateway/latest/userguide/Requirements.html).
 
         ## Example Usage
-        ### Local Cache
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test_volume_attachment = aws.ec2.VolumeAttachment("testVolumeAttachment",
-            device_name="/dev/xvdb",
-            volume_id=aws_ebs_volume["test"]["id"],
-            instance_id=aws_instance["test"]["id"])
-        test_local_disk = test_volume_attachment.device_name.apply(lambda device_name: aws.storagegateway.get_local_disk_output(disk_node=device_name,
-            gateway_arn=aws_storagegateway_gateway["test"]["arn"]))
-        test_cache = aws.storagegateway.Cache("testCache",
-            disk_id=test_local_disk.disk_id,
-            gateway_arn=aws_storagegateway_gateway["test"]["arn"])
-        ```
         ### FSx File Gateway
 
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.storagegateway.Gateway("example",
-            gateway_ip_address="1.2.3.4",
-            gateway_name="example",
-            gateway_timezone="GMT",
-            gateway_type="FILE_FSX_SMB",
-            smb_active_directory_settings=aws.storagegateway.GatewaySmbActiveDirectorySettingsArgs(
-                domain_name="corp.example.com",
-                password="avoid-plaintext-passwords",
-                username="Admin",
-            ))
+        example = aws.storagegateway.gateway.Gateway("example",
+            gateway_ip_address=1.2.3.4,
+            gateway_name=example,
+            gateway_timezone=GMT,
+            gateway_type=FILE_FSX_SMB,
+            smb_active_directory_settings={
+                domainName: corp.example.com,
+                password: avoid-plaintext-passwords,
+                username: Admin,
+            })
         ```
         ### S3 File Gateway
 
@@ -757,11 +741,11 @@ class Gateway(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.storagegateway.Gateway("example",
-            gateway_ip_address="1.2.3.4",
-            gateway_name="example",
-            gateway_timezone="GMT",
-            gateway_type="FILE_S3")
+        example = aws.storagegateway.gateway.Gateway("example",
+            gateway_ip_address=1.2.3.4,
+            gateway_name=example,
+            gateway_timezone=GMT,
+            gateway_type=FILE_S3)
         ```
         ### Tape Gateway
 
@@ -769,13 +753,13 @@ class Gateway(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.storagegateway.Gateway("example",
-            gateway_ip_address="1.2.3.4",
-            gateway_name="example",
-            gateway_timezone="GMT",
-            gateway_type="VTL",
-            medium_changer_type="AWS-Gateway-VTL",
-            tape_drive_type="IBM-ULT3580-TD5")
+        example = aws.storagegateway.gateway.Gateway("example",
+            gateway_ip_address=1.2.3.4,
+            gateway_name=example,
+            gateway_timezone=GMT,
+            gateway_type=VTL,
+            medium_changer_type=AWS-Gateway-VTL,
+            tape_drive_type=IBM-ULT3580-TD5)
         ```
         ### Volume Gateway (Cached)
 
@@ -783,11 +767,11 @@ class Gateway(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.storagegateway.Gateway("example",
-            gateway_ip_address="1.2.3.4",
-            gateway_name="example",
-            gateway_timezone="GMT",
-            gateway_type="CACHED")
+        example = aws.storagegateway.gateway.Gateway("example",
+            gateway_ip_address=1.2.3.4,
+            gateway_name=example,
+            gateway_timezone=GMT,
+            gateway_type=CACHED)
         ```
         ### Volume Gateway (Stored)
 
@@ -795,11 +779,11 @@ class Gateway(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.storagegateway.Gateway("example",
-            gateway_ip_address="1.2.3.4",
-            gateway_name="example",
-            gateway_timezone="GMT",
-            gateway_type="STORED")
+        example = aws.storagegateway.gateway.Gateway("example",
+            gateway_ip_address=1.2.3.4,
+            gateway_name=example,
+            gateway_timezone=GMT,
+            gateway_type=STORED)
         ```
 
         ## Import
@@ -843,38 +827,22 @@ class Gateway(pulumi.CustomResource):
         > **NOTE:** The Storage Gateway API requires the gateway to be connected to properly return information after activation. If you are receiving `The specified gateway is not connected` errors during resource creation (gateway activation), ensure your gateway instance meets the [Storage Gateway requirements](https://docs.aws.amazon.com/storagegateway/latest/userguide/Requirements.html).
 
         ## Example Usage
-        ### Local Cache
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test_volume_attachment = aws.ec2.VolumeAttachment("testVolumeAttachment",
-            device_name="/dev/xvdb",
-            volume_id=aws_ebs_volume["test"]["id"],
-            instance_id=aws_instance["test"]["id"])
-        test_local_disk = test_volume_attachment.device_name.apply(lambda device_name: aws.storagegateway.get_local_disk_output(disk_node=device_name,
-            gateway_arn=aws_storagegateway_gateway["test"]["arn"]))
-        test_cache = aws.storagegateway.Cache("testCache",
-            disk_id=test_local_disk.disk_id,
-            gateway_arn=aws_storagegateway_gateway["test"]["arn"])
-        ```
         ### FSx File Gateway
 
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.storagegateway.Gateway("example",
-            gateway_ip_address="1.2.3.4",
-            gateway_name="example",
-            gateway_timezone="GMT",
-            gateway_type="FILE_FSX_SMB",
-            smb_active_directory_settings=aws.storagegateway.GatewaySmbActiveDirectorySettingsArgs(
-                domain_name="corp.example.com",
-                password="avoid-plaintext-passwords",
-                username="Admin",
-            ))
+        example = aws.storagegateway.gateway.Gateway("example",
+            gateway_ip_address=1.2.3.4,
+            gateway_name=example,
+            gateway_timezone=GMT,
+            gateway_type=FILE_FSX_SMB,
+            smb_active_directory_settings={
+                domainName: corp.example.com,
+                password: avoid-plaintext-passwords,
+                username: Admin,
+            })
         ```
         ### S3 File Gateway
 
@@ -882,11 +850,11 @@ class Gateway(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.storagegateway.Gateway("example",
-            gateway_ip_address="1.2.3.4",
-            gateway_name="example",
-            gateway_timezone="GMT",
-            gateway_type="FILE_S3")
+        example = aws.storagegateway.gateway.Gateway("example",
+            gateway_ip_address=1.2.3.4,
+            gateway_name=example,
+            gateway_timezone=GMT,
+            gateway_type=FILE_S3)
         ```
         ### Tape Gateway
 
@@ -894,13 +862,13 @@ class Gateway(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.storagegateway.Gateway("example",
-            gateway_ip_address="1.2.3.4",
-            gateway_name="example",
-            gateway_timezone="GMT",
-            gateway_type="VTL",
-            medium_changer_type="AWS-Gateway-VTL",
-            tape_drive_type="IBM-ULT3580-TD5")
+        example = aws.storagegateway.gateway.Gateway("example",
+            gateway_ip_address=1.2.3.4,
+            gateway_name=example,
+            gateway_timezone=GMT,
+            gateway_type=VTL,
+            medium_changer_type=AWS-Gateway-VTL,
+            tape_drive_type=IBM-ULT3580-TD5)
         ```
         ### Volume Gateway (Cached)
 
@@ -908,11 +876,11 @@ class Gateway(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.storagegateway.Gateway("example",
-            gateway_ip_address="1.2.3.4",
-            gateway_name="example",
-            gateway_timezone="GMT",
-            gateway_type="CACHED")
+        example = aws.storagegateway.gateway.Gateway("example",
+            gateway_ip_address=1.2.3.4,
+            gateway_name=example,
+            gateway_timezone=GMT,
+            gateway_type=CACHED)
         ```
         ### Volume Gateway (Stored)
 
@@ -920,11 +888,11 @@ class Gateway(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.storagegateway.Gateway("example",
-            gateway_ip_address="1.2.3.4",
-            gateway_name="example",
-            gateway_timezone="GMT",
-            gateway_type="STORED")
+        example = aws.storagegateway.gateway.Gateway("example",
+            gateway_ip_address=1.2.3.4,
+            gateway_name=example,
+            gateway_timezone=GMT,
+            gateway_type=STORED)
         ```
 
         ## Import

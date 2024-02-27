@@ -13,40 +13,6 @@ import (
 
 // The VPC Endpoint data source provides details about
 // a specific VPC endpoint.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			s3, err := ec2.LookupVpcEndpoint(ctx, &ec2.LookupVpcEndpointArgs{
-//				VpcId:       pulumi.StringRef(aws_vpc.Foo.Id),
-//				ServiceName: pulumi.StringRef("com.amazonaws.us-west-2.s3"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ec2.NewVpcEndpointRouteTableAssociation(ctx, "privateS3", &ec2.VpcEndpointRouteTableAssociationArgs{
-//				VpcEndpointId: *pulumi.String(s3.Id),
-//				RouteTableId:  pulumi.Any(aws_route_table.Private.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupVpcEndpoint(ctx *pulumi.Context, args *LookupVpcEndpointArgs, opts ...pulumi.InvokeOption) (*LookupVpcEndpointResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupVpcEndpointResult

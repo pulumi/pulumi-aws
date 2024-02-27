@@ -24,7 +24,7 @@ namespace Pulumi.Aws.DataSync
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.DataSync.LocationObjectStorage("example", new()
+    ///     var example = new Aws.Datasync.LocationObjectStorage.LocationObjectStorage("example", new()
     ///     {
     ///         AgentArns = new[]
     ///         {

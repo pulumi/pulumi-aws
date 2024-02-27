@@ -23,13 +23,13 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Sagemaker.DeviceFleet("example", new()
+    ///     var example = new Aws.Sagemaker.DeviceFleet.DeviceFleet("example", new()
     ///     {
     ///         DeviceFleetName = "example",
     ///         RoleArn = aws_iam_role.Test.Arn,
-    ///         OutputConfig = new Aws.Sagemaker.Inputs.DeviceFleetOutputConfigArgs
+    ///         OutputConfig = 
     ///         {
-    ///             S3OutputLocation = $"s3://{aws_s3_bucket.Example.Bucket}/prefix/",
+    ///             { "s3OutputLocation", $"s3://{aws_s3_bucket.Example.Bucket}/prefix/" },
     ///         },
     ///     });
     /// 

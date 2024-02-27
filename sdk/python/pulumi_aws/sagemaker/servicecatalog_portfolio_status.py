@@ -76,7 +76,7 @@ class ServicecatalogPortfolioStatus(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.sagemaker.ServicecatalogPortfolioStatus("example", status="Enabled")
+        example = aws.sagemaker.servicecatalog_portfolio_status.ServicecatalogPortfolioStatus("example", status=Enabled)
         ```
 
         ## Import
@@ -108,7 +108,7 @@ class ServicecatalogPortfolioStatus(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.sagemaker.ServicecatalogPortfolioStatus("example", status="Enabled")
+        example = aws.sagemaker.servicecatalog_portfolio_status.ServicecatalogPortfolioStatus("example", status=Enabled)
         ```
 
         ## Import

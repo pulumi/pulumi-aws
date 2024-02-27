@@ -15,28 +15,6 @@ namespace Pulumi.Aws.Iam
         /// This data source can be used to fetch information about a specific
         /// IAM instance profile. By using this data source, you can reference IAM
         /// instance profile properties without having to hard code ARNs as input.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Iam.GetInstanceProfile.Invoke(new()
-        ///     {
-        ///         Name = "an_example_instance_profile_name",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetInstanceProfileResult> InvokeAsync(GetInstanceProfileArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetInstanceProfileResult>("aws:iam/getInstanceProfile:getInstanceProfile", args ?? new GetInstanceProfileArgs(), options.WithDefaults());
@@ -45,28 +23,6 @@ namespace Pulumi.Aws.Iam
         /// This data source can be used to fetch information about a specific
         /// IAM instance profile. By using this data source, you can reference IAM
         /// instance profile properties without having to hard code ARNs as input.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Iam.GetInstanceProfile.Invoke(new()
-        ///     {
-        ///         Name = "an_example_instance_profile_name",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetInstanceProfileResult> Invoke(GetInstanceProfileInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetInstanceProfileResult>("aws:iam/getInstanceProfile:getInstanceProfile", args ?? new GetInstanceProfileInvokeArgs(), options.WithDefaults());

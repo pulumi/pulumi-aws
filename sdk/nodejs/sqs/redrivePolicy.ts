@@ -18,17 +18,17 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const queue = new aws.sqs.Queue("queue", {});
- * const ddl = new aws.sqs.Queue("ddl", {redriveAllowPolicy: queue.arn.apply(arn => JSON.stringify({
+ * const queue = new aws.sqs/queue.Queue("queue", {});
+ * const ddl = new aws.sqs/queue.Queue("ddl", {redriveAllowPolicy: JSON.stringify({
  *     redrivePermission: "byQueue",
- *     sourceQueueArns: [arn],
- * }))});
- * const redrivePolicy = new aws.sqs.RedrivePolicy("redrivePolicy", {
+ *     sourceQueueArns: [queue.arn],
+ * })});
+ * const redrivePolicy = new aws.sqs/redrivePolicy.RedrivePolicy("redrivePolicy", {
  *     queueUrl: queue.id,
- *     redrivePolicy: ddl.arn.apply(arn => JSON.stringify({
- *         deadLetterTargetArn: arn,
+ *     redrivePolicy: JSON.stringify({
+ *         deadLetterTargetArn: ddl.arn,
  *         maxReceiveCount: 4,
- *     })),
+ *     }),
  * });
  * ```
  *

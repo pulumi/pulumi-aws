@@ -30,7 +30,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var sgEc2 = new Aws.Ec2.SecurityGroupAssociation("sgEc2", new()
+    ///     var sgEc2 = new Aws.Ec2.SecurityGroupAssociation.SecurityGroupAssociation("sgEc2", new()
     ///     {
     ///         VpcEndpointId = aws_vpc_endpoint.Ec2.Id,
     ///         SecurityGroupId = aws_security_group.Sg.Id,

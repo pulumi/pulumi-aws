@@ -6,17 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Data source for managing an AWS Redshift Serverless Namespace.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.redshiftserverless.getNamespace({
- *     namespaceName: "example-namespace",
- * });
- * ```
  */
 export function getNamespace(args: GetNamespaceArgs, opts?: pulumi.InvokeOptions): Promise<GetNamespaceResult> {
 
@@ -80,17 +69,6 @@ export interface GetNamespaceResult {
 }
 /**
  * Data source for managing an AWS Redshift Serverless Namespace.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.redshiftserverless.getNamespace({
- *     namespaceName: "example-namespace",
- * });
- * ```
  */
 export function getNamespaceOutput(args: GetNamespaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNamespaceResult> {
     return pulumi.output(args).apply((a: any) => getNamespace(a, opts))

@@ -30,7 +30,7 @@ namespace Pulumi.Aws.Neptune
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var @default = new Aws.Neptune.Cluster("default", new()
+    ///     var @default = new Aws.Neptune.Cluster.Cluster("default", new()
     ///     {
     ///         ApplyImmediately = true,
     ///         BackupRetentionPeriod = 5,

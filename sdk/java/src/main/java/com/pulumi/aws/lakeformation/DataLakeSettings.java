@@ -64,8 +64,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.lakeformation.DataLakeSettings;
  * import com.pulumi.aws.lakeformation.DataLakeSettingsArgs;
- * import com.pulumi.aws.lakeformation.inputs.DataLakeSettingsCreateDatabaseDefaultPermissionArgs;
- * import com.pulumi.aws.lakeformation.inputs.DataLakeSettingsCreateTableDefaultPermissionArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -83,17 +81,8 @@ import javax.annotation.Nullable;
  *             .admins(            
  *                 aws_iam_user.test().arn(),
  *                 aws_iam_role.test().arn())
- *             .createDatabaseDefaultPermissions(DataLakeSettingsCreateDatabaseDefaultPermissionArgs.builder()
- *                 .permissions(                
- *                     &#34;SELECT&#34;,
- *                     &#34;ALTER&#34;,
- *                     &#34;DROP&#34;)
- *                 .principal(aws_iam_user.test().arn())
- *                 .build())
- *             .createTableDefaultPermissions(DataLakeSettingsCreateTableDefaultPermissionArgs.builder()
- *                 .permissions(&#34;ALL&#34;)
- *                 .principal(aws_iam_role.test().arn())
- *                 .build())
+ *             .createDatabaseDefaultPermissions(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .createTableDefaultPermissions(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -108,8 +97,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.lakeformation.DataLakeSettings;
  * import com.pulumi.aws.lakeformation.DataLakeSettingsArgs;
- * import com.pulumi.aws.lakeformation.inputs.DataLakeSettingsCreateDatabaseDefaultPermissionArgs;
- * import com.pulumi.aws.lakeformation.inputs.DataLakeSettingsCreateTableDefaultPermissionArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -127,17 +114,8 @@ import javax.annotation.Nullable;
  *             .admins(            
  *                 aws_iam_user.test().arn(),
  *                 aws_iam_role.test().arn())
- *             .createDatabaseDefaultPermissions(DataLakeSettingsCreateDatabaseDefaultPermissionArgs.builder()
- *                 .permissions(                
- *                     &#34;SELECT&#34;,
- *                     &#34;ALTER&#34;,
- *                     &#34;DROP&#34;)
- *                 .principal(aws_iam_user.test().arn())
- *                 .build())
- *             .createTableDefaultPermissions(DataLakeSettingsCreateTableDefaultPermissionArgs.builder()
- *                 .permissions(&#34;ALL&#34;)
- *                 .principal(aws_iam_role.test().arn())
- *                 .build())
+ *             .createDatabaseDefaultPermissions(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .createTableDefaultPermissions(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .allowExternalDataFiltering(true)
  *             .externalDataFilteringAllowLists(            
  *                 data.aws_caller_identity().current().account_id(),

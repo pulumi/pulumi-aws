@@ -13,8 +13,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleCidrCollection = new aws.route53.CidrCollection("exampleCidrCollection", {});
- * const exampleCidrLocation = new aws.route53.CidrLocation("exampleCidrLocation", {
+ * const exampleCidrCollection = new aws.route53/cidrCollection.CidrCollection("exampleCidrCollection", {});
+ * const exampleCidrLocation = new aws.route53/cidrLocation.CidrLocation("exampleCidrLocation", {
  *     cidrCollectionId: exampleCidrCollection.id,
  *     cidrBlocks: [
  *         "200.5.3.0/24",

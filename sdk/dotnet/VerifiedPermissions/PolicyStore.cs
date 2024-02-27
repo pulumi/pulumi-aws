@@ -21,11 +21,11 @@ namespace Pulumi.Aws.VerifiedPermissions
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.VerifiedPermissions.PolicyStore("example", new()
+    ///     var example = new Aws.Verifiedpermissions.PolicyStore.PolicyStore("example", new()
     ///     {
-    ///         ValidationSettings = new Aws.VerifiedPermissions.Inputs.PolicyStoreValidationSettingsArgs
+    ///         ValidationSettings = 
     ///         {
-    ///             Mode = "STRICT",
+    ///             { "mode", "STRICT" },
     ///         },
     ///     });
     /// 

@@ -23,7 +23,7 @@ namespace Pulumi.Aws.Rds
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var @default = new Aws.Rds.Cluster("default", new()
+    ///     var @default = new Aws.Rds.Cluster.Cluster("default", new()
     ///     {
     ///         ClusterIdentifier = "aurora-cluster-demo",
     ///         AvailabilityZones = new[]
@@ -39,7 +39,7 @@ namespace Pulumi.Aws.Rds
     ///         PreferredBackupWindow = "07:00-09:00",
     ///     });
     /// 
-    ///     var test1 = new Aws.Rds.ClusterInstance("test1", new()
+    ///     var test1 = new Aws.Rds.ClusterInstance.ClusterInstance("test1", new()
     ///     {
     ///         ApplyImmediately = true,
     ///         ClusterIdentifier = @default.Id,
@@ -49,7 +49,7 @@ namespace Pulumi.Aws.Rds
     ///         EngineVersion = @default.EngineVersion,
     ///     });
     /// 
-    ///     var test2 = new Aws.Rds.ClusterInstance("test2", new()
+    ///     var test2 = new Aws.Rds.ClusterInstance.ClusterInstance("test2", new()
     ///     {
     ///         ApplyImmediately = true,
     ///         ClusterIdentifier = @default.Id,
@@ -59,7 +59,7 @@ namespace Pulumi.Aws.Rds
     ///         EngineVersion = @default.EngineVersion,
     ///     });
     /// 
-    ///     var test3 = new Aws.Rds.ClusterInstance("test3", new()
+    ///     var test3 = new Aws.Rds.ClusterInstance.ClusterInstance("test3", new()
     ///     {
     ///         ApplyImmediately = true,
     ///         ClusterIdentifier = @default.Id,
@@ -69,7 +69,7 @@ namespace Pulumi.Aws.Rds
     ///         EngineVersion = @default.EngineVersion,
     ///     });
     /// 
-    ///     var eligible = new Aws.Rds.ClusterEndpoint("eligible", new()
+    ///     var eligible = new Aws.Rds.ClusterEndpoint.ClusterEndpoint("eligible", new()
     ///     {
     ///         ClusterIdentifier = @default.Id,
     ///         ClusterEndpointIdentifier = "reader",
@@ -81,7 +81,7 @@ namespace Pulumi.Aws.Rds
     ///         },
     ///     });
     /// 
-    ///     var @static = new Aws.Rds.ClusterEndpoint("static", new()
+    ///     var @static = new Aws.Rds.ClusterEndpoint.ClusterEndpoint("static", new()
     ///     {
     ///         ClusterIdentifier = @default.Id,
     ///         ClusterEndpointIdentifier = "static",

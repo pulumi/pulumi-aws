@@ -26,41 +26,41 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	ec2/eip "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/eip"
+//	ec2/eipAssociation "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/eipAssociation"
+//	ec2/instance "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/instance"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			web, err := ec2.NewInstance(ctx, "web", &ec2.InstanceArgs{
-//				Ami:              pulumi.String("ami-21f78e11"),
-//				AvailabilityZone: pulumi.String("us-west-2a"),
-//				InstanceType:     pulumi.String("t2.micro"),
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("HelloWorld"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			example, err := ec2.NewEip(ctx, "example", &ec2.EipArgs{
-//				Domain: pulumi.String("vpc"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ec2.NewEipAssociation(ctx, "eipAssoc", &ec2.EipAssociationArgs{
-//				InstanceId:   web.ID(),
-//				AllocationId: example.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// web, err := ec2/instance.NewInstance(ctx, "web", &ec2/instance.InstanceArgs{
+// Ami: "ami-21f78e11",
+// AvailabilityZone: "us-west-2a",
+// InstanceType: "t2.micro",
+// Tags: map[string]interface{}{
+// "Name": "HelloWorld",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// example, err := ec2/eip.NewEip(ctx, "example", &ec2/eip.EipArgs{
+// Domain: "vpc",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = ec2/eipAssociation.NewEipAssociation(ctx, "eipAssoc", &ec2/eipAssociation.EipAssociationArgs{
+// InstanceId: web.Id,
+// AllocationId: example.Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

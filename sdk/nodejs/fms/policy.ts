@@ -18,17 +18,17 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleRuleGroup = new aws.wafregional.RuleGroup("exampleRuleGroup", {metricName: "WAFRuleGroupExample"});
- * const examplePolicy = new aws.fms.Policy("examplePolicy", {
+ * const exampleRuleGroup = new aws.wafregional/ruleGroup.RuleGroup("exampleRuleGroup", {metricName: "WAFRuleGroupExample"});
+ * const examplePolicy = new aws.fms/policy.Policy("examplePolicy", {
  *     excludeResourceTags: false,
  *     remediationEnabled: false,
  *     resourceType: "AWS::ElasticLoadBalancingV2::LoadBalancer",
  *     securityServicePolicyData: {
  *         type: "WAF",
- *         managedServiceData: exampleRuleGroup.id.apply(id => JSON.stringify({
+ *         managedServiceData: JSON.stringify({
  *             type: "WAF",
  *             ruleGroups: [{
- *                 id: id,
+ *                 id: exampleRuleGroup.id,
  *                 overrideAction: {
  *                     type: "COUNT",
  *                 },
@@ -37,7 +37,7 @@ import * as utilities from "../utilities";
  *                 type: "BLOCK",
  *             },
  *             overrideCustomerWebACLAssociation: false,
- *         })),
+ *         }),
  *     },
  *     tags: {
  *         Name: "example-fms-policy",

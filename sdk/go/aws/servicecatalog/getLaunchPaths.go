@@ -14,31 +14,6 @@ import (
 // Lists the paths to the specified product. A path is how the user has access to a specified product, and is necessary when provisioning a product. A path also determines the constraints put on the product.
 //
 // ## Example Usage
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/servicecatalog"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := servicecatalog.GetLaunchPaths(ctx, &servicecatalog.GetLaunchPathsArgs{
-//				ProductId: "prod-yakog5pdriver",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetLaunchPaths(ctx *pulumi.Context, args *GetLaunchPathsArgs, opts ...pulumi.InvokeOption) (*GetLaunchPathsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetLaunchPathsResult

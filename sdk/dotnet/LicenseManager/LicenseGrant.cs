@@ -12,6 +12,34 @@ namespace Pulumi.Aws.LicenseManager
     /// <summary>
     /// Provides a License Manager grant. This allows for sharing licenses with other AWS accounts.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var test = new Aws.Licensemanager.LicenseGrant.LicenseGrant("test", new()
+    ///     {
+    ///         AllowedOperations = new[]
+    ///         {
+    ///             "ListPurchasedLicenses",
+    ///             "CheckoutLicense",
+    ///             "CheckInLicense",
+    ///             "ExtendConsumptionLicense",
+    ///             "CreateToken",
+    ///         },
+    ///         HomeRegion = "us-east-1",
+    ///         LicenseArn = "arn:aws:license-manager::111111111111:license:l-exampleARN",
+    ///         Principal = "arn:aws:iam::111111111112:root",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_licensemanager_grant` using the grant arn. For example:

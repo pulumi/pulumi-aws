@@ -194,7 +194,7 @@ class ClientCertificate(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        demo = aws.apigateway.ClientCertificate("demo", description="My client certificate")
+        demo = aws.apigateway.client_certificate.ClientCertificate("demo", description=My client certificate)
         ```
 
         ## Import
@@ -225,7 +225,7 @@ class ClientCertificate(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        demo = aws.apigateway.ClientCertificate("demo", description="My client certificate")
+        demo = aws.apigateway.client_certificate.ClientCertificate("demo", description=My client certificate)
         ```
 
         ## Import

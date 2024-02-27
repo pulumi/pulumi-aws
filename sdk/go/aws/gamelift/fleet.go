@@ -21,33 +21,31 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/gamelift"
+//	gamelift/fleet "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/gamelift/fleet"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := gamelift.NewFleet(ctx, "example", &gamelift.FleetArgs{
-//				BuildId:         pulumi.Any(aws_gamelift_build.Example.Id),
-//				Ec2InstanceType: pulumi.String("t2.micro"),
-//				FleetType:       pulumi.String("ON_DEMAND"),
-//				RuntimeConfiguration: &gamelift.FleetRuntimeConfigurationArgs{
-//					ServerProcesses: gamelift.FleetRuntimeConfigurationServerProcessArray{
-//						&gamelift.FleetRuntimeConfigurationServerProcessArgs{
-//							ConcurrentExecutions: pulumi.Int(1),
-//							LaunchPath:           pulumi.String("C:\\game\\GomokuServer.exe"),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := gamelift/fleet.NewFleet(ctx, "example", &gamelift/fleet.FleetArgs{
+// BuildId: aws_gamelift_build.Example.Id,
+// Ec2InstanceType: "t2.micro",
+// FleetType: "ON_DEMAND",
+// RuntimeConfiguration: map[string]interface{}{
+// "serverProcesses": []map[string]interface{}{
+// map[string]interface{}{
+// "concurrentExecutions": 1,
+// "launchPath": "C:\\game\\GomokuServer.exe",
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

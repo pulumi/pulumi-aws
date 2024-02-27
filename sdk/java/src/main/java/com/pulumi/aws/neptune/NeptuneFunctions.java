@@ -20,78 +20,12 @@ public final class NeptuneFunctions {
     /**
      * Information about a Neptune engine version.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.neptune.NeptuneFunctions;
-     * import com.pulumi.aws.neptune.inputs.GetEngineVersionArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = NeptuneFunctions.getEngineVersion(GetEngineVersionArgs.builder()
-     *             .preferredVersions(            
-     *                 &#34;1.0.3.0&#34;,
-     *                 &#34;1.0.2.2&#34;,
-     *                 &#34;1.0.2.1&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetEngineVersionResult> getEngineVersion() {
         return getEngineVersion(GetEngineVersionArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * Information about a Neptune engine version.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.neptune.NeptuneFunctions;
-     * import com.pulumi.aws.neptune.inputs.GetEngineVersionArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = NeptuneFunctions.getEngineVersion(GetEngineVersionArgs.builder()
-     *             .preferredVersions(            
-     *                 &#34;1.0.3.0&#34;,
-     *                 &#34;1.0.2.2&#34;,
-     *                 &#34;1.0.2.1&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetEngineVersionResult> getEngineVersionPlain() {
@@ -100,78 +34,12 @@ public final class NeptuneFunctions {
     /**
      * Information about a Neptune engine version.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.neptune.NeptuneFunctions;
-     * import com.pulumi.aws.neptune.inputs.GetEngineVersionArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = NeptuneFunctions.getEngineVersion(GetEngineVersionArgs.builder()
-     *             .preferredVersions(            
-     *                 &#34;1.0.3.0&#34;,
-     *                 &#34;1.0.2.2&#34;,
-     *                 &#34;1.0.2.1&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetEngineVersionResult> getEngineVersion(GetEngineVersionArgs args) {
         return getEngineVersion(args, InvokeOptions.Empty);
     }
     /**
      * Information about a Neptune engine version.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.neptune.NeptuneFunctions;
-     * import com.pulumi.aws.neptune.inputs.GetEngineVersionArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = NeptuneFunctions.getEngineVersion(GetEngineVersionArgs.builder()
-     *             .preferredVersions(            
-     *                 &#34;1.0.3.0&#34;,
-     *                 &#34;1.0.2.2&#34;,
-     *                 &#34;1.0.2.1&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetEngineVersionResult> getEngineVersionPlain(GetEngineVersionPlainArgs args) {
@@ -180,78 +48,12 @@ public final class NeptuneFunctions {
     /**
      * Information about a Neptune engine version.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.neptune.NeptuneFunctions;
-     * import com.pulumi.aws.neptune.inputs.GetEngineVersionArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = NeptuneFunctions.getEngineVersion(GetEngineVersionArgs.builder()
-     *             .preferredVersions(            
-     *                 &#34;1.0.3.0&#34;,
-     *                 &#34;1.0.2.2&#34;,
-     *                 &#34;1.0.2.1&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetEngineVersionResult> getEngineVersion(GetEngineVersionArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:neptune/getEngineVersion:getEngineVersion", TypeShape.of(GetEngineVersionResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Information about a Neptune engine version.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.neptune.NeptuneFunctions;
-     * import com.pulumi.aws.neptune.inputs.GetEngineVersionArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = NeptuneFunctions.getEngineVersion(GetEngineVersionArgs.builder()
-     *             .preferredVersions(            
-     *                 &#34;1.0.3.0&#34;,
-     *                 &#34;1.0.2.2&#34;,
-     *                 &#34;1.0.2.1&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetEngineVersionResult> getEngineVersionPlain(GetEngineVersionPlainArgs args, InvokeOptions options) {
@@ -260,80 +62,12 @@ public final class NeptuneFunctions {
     /**
      * Information about Neptune orderable DB instances.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.neptune.NeptuneFunctions;
-     * import com.pulumi.aws.neptune.inputs.GetOrderableDbInstanceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = NeptuneFunctions.getOrderableDbInstance(GetOrderableDbInstanceArgs.builder()
-     *             .engineVersion(&#34;1.0.3.0&#34;)
-     *             .preferredInstanceClasses(            
-     *                 &#34;db.r5.large&#34;,
-     *                 &#34;db.r4.large&#34;,
-     *                 &#34;db.t3.medium&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetOrderableDbInstanceResult> getOrderableDbInstance() {
         return getOrderableDbInstance(GetOrderableDbInstanceArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * Information about Neptune orderable DB instances.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.neptune.NeptuneFunctions;
-     * import com.pulumi.aws.neptune.inputs.GetOrderableDbInstanceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = NeptuneFunctions.getOrderableDbInstance(GetOrderableDbInstanceArgs.builder()
-     *             .engineVersion(&#34;1.0.3.0&#34;)
-     *             .preferredInstanceClasses(            
-     *                 &#34;db.r5.large&#34;,
-     *                 &#34;db.r4.large&#34;,
-     *                 &#34;db.t3.medium&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetOrderableDbInstanceResult> getOrderableDbInstancePlain() {
@@ -342,80 +76,12 @@ public final class NeptuneFunctions {
     /**
      * Information about Neptune orderable DB instances.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.neptune.NeptuneFunctions;
-     * import com.pulumi.aws.neptune.inputs.GetOrderableDbInstanceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = NeptuneFunctions.getOrderableDbInstance(GetOrderableDbInstanceArgs.builder()
-     *             .engineVersion(&#34;1.0.3.0&#34;)
-     *             .preferredInstanceClasses(            
-     *                 &#34;db.r5.large&#34;,
-     *                 &#34;db.r4.large&#34;,
-     *                 &#34;db.t3.medium&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetOrderableDbInstanceResult> getOrderableDbInstance(GetOrderableDbInstanceArgs args) {
         return getOrderableDbInstance(args, InvokeOptions.Empty);
     }
     /**
      * Information about Neptune orderable DB instances.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.neptune.NeptuneFunctions;
-     * import com.pulumi.aws.neptune.inputs.GetOrderableDbInstanceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = NeptuneFunctions.getOrderableDbInstance(GetOrderableDbInstanceArgs.builder()
-     *             .engineVersion(&#34;1.0.3.0&#34;)
-     *             .preferredInstanceClasses(            
-     *                 &#34;db.r5.large&#34;,
-     *                 &#34;db.r4.large&#34;,
-     *                 &#34;db.t3.medium&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetOrderableDbInstanceResult> getOrderableDbInstancePlain(GetOrderableDbInstancePlainArgs args) {
@@ -424,80 +90,12 @@ public final class NeptuneFunctions {
     /**
      * Information about Neptune orderable DB instances.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.neptune.NeptuneFunctions;
-     * import com.pulumi.aws.neptune.inputs.GetOrderableDbInstanceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = NeptuneFunctions.getOrderableDbInstance(GetOrderableDbInstanceArgs.builder()
-     *             .engineVersion(&#34;1.0.3.0&#34;)
-     *             .preferredInstanceClasses(            
-     *                 &#34;db.r5.large&#34;,
-     *                 &#34;db.r4.large&#34;,
-     *                 &#34;db.t3.medium&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetOrderableDbInstanceResult> getOrderableDbInstance(GetOrderableDbInstanceArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:neptune/getOrderableDbInstance:getOrderableDbInstance", TypeShape.of(GetOrderableDbInstanceResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Information about Neptune orderable DB instances.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.neptune.NeptuneFunctions;
-     * import com.pulumi.aws.neptune.inputs.GetOrderableDbInstanceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = NeptuneFunctions.getOrderableDbInstance(GetOrderableDbInstanceArgs.builder()
-     *             .engineVersion(&#34;1.0.3.0&#34;)
-     *             .preferredInstanceClasses(            
-     *                 &#34;db.r5.large&#34;,
-     *                 &#34;db.r4.large&#34;,
-     *                 &#34;db.t3.medium&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetOrderableDbInstanceResult> getOrderableDbInstancePlain(GetOrderableDbInstancePlainArgs args, InvokeOptions options) {

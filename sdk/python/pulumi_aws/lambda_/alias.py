@@ -242,15 +242,15 @@ class Alias(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_lambda_alias = aws.lambda_.Alias("testLambdaAlias",
-            description="a sample description",
-            function_name=aws_lambda_function["lambda_function_test"]["arn"],
-            function_version="1",
-            routing_config=aws.lambda_.AliasRoutingConfigArgs(
-                additional_version_weights={
-                    "2": 0.5,
+        test_lambda_alias = aws.lambda_.alias.Alias("testLambdaAlias",
+            description=a sample description,
+            function_name=aws_lambda_function.lambda_function_test.arn,
+            function_version=1,
+            routing_config={
+                additionalVersionWeights: {
+                    2: 0.5,
                 },
-            ))
+            })
         ```
 
         ## Import
@@ -287,15 +287,15 @@ class Alias(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_lambda_alias = aws.lambda_.Alias("testLambdaAlias",
-            description="a sample description",
-            function_name=aws_lambda_function["lambda_function_test"]["arn"],
-            function_version="1",
-            routing_config=aws.lambda_.AliasRoutingConfigArgs(
-                additional_version_weights={
-                    "2": 0.5,
+        test_lambda_alias = aws.lambda_.alias.Alias("testLambdaAlias",
+            description=a sample description,
+            function_name=aws_lambda_function.lambda_function_test.arn,
+            function_version=1,
+            routing_config={
+                additionalVersionWeights: {
+                    2: 0.5,
                 },
-            ))
+            })
         ```
 
         ## Import

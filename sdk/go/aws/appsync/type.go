@@ -21,38 +21,36 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/appsync"
+//	appsync/graphQLApi "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/appsync/graphQLApi"
+//	appsync/type "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/appsync/type"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleGraphQLApi, err := appsync.NewGraphQLApi(ctx, "exampleGraphQLApi", &appsync.GraphQLApiArgs{
-//				AuthenticationType: pulumi.String("API_KEY"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = appsync.NewType(ctx, "exampleType", &appsync.TypeArgs{
-//				ApiId:  exampleGraphQLApi.ID(),
-//				Format: pulumi.String("SDL"),
-//				Definition: pulumi.String(`type Mutation
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleGraphQLApi, err := appsync/graphQLApi.NewGraphQLApi(ctx, "exampleGraphQLApi", &appsync/graphQLApi.GraphQLApiArgs{
+// AuthenticationType: "API_KEY",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = appsync/type.NewType(ctx, "exampleType", &appsync/type.TypeArgs{
+// ApiId: exampleGraphQLApi.Id,
+// Format: "SDL",
+// Definition: `type Mutation
 //
 // {
 // putPost(id: ID!,title: String! ): Post
 //
 // }
-// `),
-//
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// `,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

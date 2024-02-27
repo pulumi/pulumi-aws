@@ -23,33 +23,22 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/redshift"
+//	redshift/authenticationProfile "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/redshift/authenticationProfile"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"AllowDBUserOverride": "1",
-//				"Client_ID":           "ExampleClientID",
-//				"App_ID":              "example",
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			_, err = redshift.NewAuthenticationProfile(ctx, "example", &redshift.AuthenticationProfileArgs{
-//				AuthenticationProfileName:    pulumi.String("example"),
-//				AuthenticationProfileContent: pulumi.String(json0),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := redshift/authenticationProfile.NewAuthenticationProfile(ctx, "example", &redshift/authenticationProfile.AuthenticationProfileArgs{
+// AuthenticationProfileName: "example",
+// AuthenticationProfileContent: %!v(PANIC=Format method: fatal: An assertion has failed: unlowered function toJSON),
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

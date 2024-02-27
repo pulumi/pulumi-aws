@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.inspector.AssessmentTemplate("example", {
+ * const example = new aws.inspector/assessmentTemplate.AssessmentTemplate("example", {
  *     targetArn: aws_inspector_assessment_target.example.arn,
  *     duration: 3600,
  *     rulesPackageArns: [

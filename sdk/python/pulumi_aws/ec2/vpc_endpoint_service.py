@@ -432,9 +432,9 @@ class VpcEndpointService(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ec2.VpcEndpointService("example",
+        example = aws.ec2.vpc_endpoint_service.VpcEndpointService("example",
             acceptance_required=False,
-            network_load_balancer_arns=[aws_lb["example"]["arn"]])
+            network_load_balancer_arns=[aws_lb.example.arn])
         ```
         ### Gateway Load Balancers
 
@@ -442,9 +442,9 @@ class VpcEndpointService(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ec2.VpcEndpointService("example",
+        example = aws.ec2.vpc_endpoint_service.VpcEndpointService("example",
             acceptance_required=False,
-            gateway_load_balancer_arns=[aws_lb["example"]["arn"]])
+            gateway_load_balancer_arns=[aws_lb.example.arn])
         ```
 
         ## Import
@@ -488,9 +488,9 @@ class VpcEndpointService(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ec2.VpcEndpointService("example",
+        example = aws.ec2.vpc_endpoint_service.VpcEndpointService("example",
             acceptance_required=False,
-            network_load_balancer_arns=[aws_lb["example"]["arn"]])
+            network_load_balancer_arns=[aws_lb.example.arn])
         ```
         ### Gateway Load Balancers
 
@@ -498,9 +498,9 @@ class VpcEndpointService(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ec2.VpcEndpointService("example",
+        example = aws.ec2.vpc_endpoint_service.VpcEndpointService("example",
             acceptance_required=False,
-            gateway_load_balancer_arns=[aws_lb["example"]["arn"]])
+            gateway_load_balancer_arns=[aws_lb.example.arn])
         ```
 
         ## Import

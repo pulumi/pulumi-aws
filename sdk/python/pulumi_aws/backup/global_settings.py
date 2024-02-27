@@ -74,8 +74,8 @@ class GlobalSettings(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.backup.GlobalSettings("test", global_settings={
-            "isCrossAccountBackupEnabled": "true",
+        test = aws.backup.global_settings.GlobalSettings("test", global_settings={
+            isCrossAccountBackupEnabled: true,
         })
         ```
 
@@ -106,8 +106,8 @@ class GlobalSettings(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.backup.GlobalSettings("test", global_settings={
-            "isCrossAccountBackupEnabled": "true",
+        test = aws.backup.global_settings.GlobalSettings("test", global_settings={
+            isCrossAccountBackupEnabled: true,
         })
         ```
 

@@ -16,11 +16,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const ipset = new aws.waf.IpSet("ipset", {ipSetDescriptors: [{
+ * const ipset = new aws.waf/ipSet.IpSet("ipset", {ipSetDescriptors: [{
  *     type: "IPV4",
  *     value: "192.0.7.0/24",
  * }]});
- * const wafrule = new aws.waf.Rule("wafrule", {
+ * const wafrule = new aws.waf/rule.Rule("wafrule", {
  *     metricName: "tfWAFRule",
  *     predicates: [{
  *         dataId: ipset.id,

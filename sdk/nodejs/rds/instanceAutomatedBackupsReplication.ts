@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const _default = new aws.rds.InstanceAutomatedBackupsReplication("default", {
+ * const _default = new aws.rds/instanceAutomatedBackupsReplication.InstanceAutomatedBackupsReplication("default", {
  *     retentionPeriod: 14,
  *     sourceDbInstanceArn: "arn:aws:rds:us-west-2:123456789012:db:mydatabase",
  * });
@@ -28,7 +28,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const _default = new aws.rds.InstanceAutomatedBackupsReplication("default", {
+ * const _default = new aws.rds/instanceAutomatedBackupsReplication.InstanceAutomatedBackupsReplication("default", {
  *     kmsKeyId: "arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012",
  *     sourceDbInstanceArn: "arn:aws:rds:us-west-2:123456789012:db:mydatabase",
  * });
@@ -40,8 +40,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const replica = new aws.Provider("replica", {region: "us-west-2"});
- * const defaultInstance = new aws.rds.Instance("defaultInstance", {
+ * const replica = new pulumi.providers.Aws("replica", {region: "us-west-2"});
+ * const defaultInstance = new aws.rds/instance.Instance("defaultInstance", {
  *     allocatedStorage: 10,
  *     identifier: "mydb",
  *     engine: "postgres",
@@ -54,10 +54,10 @@ import * as utilities from "../utilities";
  *     storageEncrypted: true,
  *     skipFinalSnapshot: true,
  * });
- * const defaultKey = new aws.kms.Key("defaultKey", {description: "Encryption key for automated backups"}, {
+ * const defaultKey = new aws.kms/key.Key("defaultKey", {description: "Encryption key for automated backups"}, {
  *     provider: aws.replica,
  * });
- * const defaultInstanceAutomatedBackupsReplication = new aws.rds.InstanceAutomatedBackupsReplication("defaultInstanceAutomatedBackupsReplication", {
+ * const defaultInstanceAutomatedBackupsReplication = new aws.rds/instanceAutomatedBackupsReplication.InstanceAutomatedBackupsReplication("defaultInstanceAutomatedBackupsReplication", {
  *     sourceDbInstanceArn: defaultInstance.arn,
  *     kmsKeyId: defaultKey.arn,
  * }, {

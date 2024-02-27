@@ -35,55 +35,47 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/autoscaling"
+//	autoscaling/group "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/autoscaling/group"
+//	autoscaling/lifecycleHook "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/autoscaling/lifecycleHook"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			foobarGroup, err := autoscaling.NewGroup(ctx, "foobarGroup", &autoscaling.GroupArgs{
-//				AvailabilityZones: pulumi.StringArray{
-//					pulumi.String("us-west-2a"),
-//				},
-//				HealthCheckType: pulumi.String("EC2"),
-//				TerminationPolicies: pulumi.StringArray{
-//					pulumi.String("OldestInstance"),
-//				},
-//				Tags: autoscaling.GroupTagArray{
-//					&autoscaling.GroupTagArgs{
-//						Key:               pulumi.String("Foo"),
-//						Value:             pulumi.String("foo-bar"),
-//						PropagateAtLaunch: pulumi.Bool(true),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"foo": "bar",
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			_, err = autoscaling.NewLifecycleHook(ctx, "foobarLifecycleHook", &autoscaling.LifecycleHookArgs{
-//				AutoscalingGroupName:  foobarGroup.Name,
-//				DefaultResult:         pulumi.String("CONTINUE"),
-//				HeartbeatTimeout:      pulumi.Int(2000),
-//				LifecycleTransition:   pulumi.String("autoscaling:EC2_INSTANCE_LAUNCHING"),
-//				NotificationMetadata:  pulumi.String(json0),
-//				NotificationTargetArn: pulumi.String("arn:aws:sqs:us-east-1:444455556666:queue1*"),
-//				RoleArn:               pulumi.String("arn:aws:iam::123456789012:role/S3Access"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// foobarGroup, err := autoscaling/group.NewGroup(ctx, "foobarGroup", &autoscaling/group.GroupArgs{
+// AvailabilityZones: []string{
+// "us-west-2a",
+// },
+// HealthCheckType: "EC2",
+// TerminationPolicies: []string{
+// "OldestInstance",
+// },
+// Tags: []map[string]interface{}{
+// map[string]interface{}{
+// "key": "Foo",
+// "value": "foo-bar",
+// "propagateAtLaunch": true,
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = autoscaling/lifecycleHook.NewLifecycleHook(ctx, "foobarLifecycleHook", &autoscaling/lifecycleHook.LifecycleHookArgs{
+// AutoscalingGroupName: foobarGroup.Name,
+// DefaultResult: "CONTINUE",
+// HeartbeatTimeout: 2000,
+// LifecycleTransition: "autoscaling:EC2_INSTANCE_LAUNCHING",
+// NotificationMetadata: %!v(PANIC=Format method: fatal: An assertion has failed: unlowered function toJSON),
+// NotificationTargetArn: "arn:aws:sqs:us-east-1:444455556666:queue1*",
+// RoleArn: "arn:aws:iam::123456789012:role/S3Access",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -13,19 +13,19 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleUserPool = new aws.cognito.UserPool("exampleUserPool", {passwordPolicy: {
+ * const exampleUserPool = new aws.cognito/userPool.UserPool("exampleUserPool", {passwordPolicy: {
  *     temporaryPasswordValidityDays: 7,
  *     minimumLength: 6,
  *     requireUppercase: false,
  *     requireSymbols: false,
  *     requireNumbers: false,
  * }});
- * const exampleUser = new aws.cognito.User("exampleUser", {
+ * const exampleUser = new aws.cognito/user.User("exampleUser", {
  *     userPoolId: exampleUserPool.id,
  *     username: "example",
  * });
- * const exampleUserGroup = new aws.cognito.UserGroup("exampleUserGroup", {userPoolId: exampleUserPool.id});
- * const exampleUserInGroup = new aws.cognito.UserInGroup("exampleUserInGroup", {
+ * const exampleUserGroup = new aws.cognito/userGroup.UserGroup("exampleUserGroup", {userPoolId: exampleUserPool.id});
+ * const exampleUserInGroup = new aws.cognito/userInGroup.UserInGroup("exampleUserInGroup", {
  *     userPoolId: exampleUserPool.id,
  *     groupName: exampleUserGroup.name,
  *     username: exampleUser.username,

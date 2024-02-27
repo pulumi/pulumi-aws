@@ -14,34 +14,6 @@ import (
 // `route53.ResolverFirewallRuleGroupAssociation` Retrieves the specified firewall rule group association.
 //
 // This data source allows to retrieve details about a specific a Route 53 Resolver DNS Firewall rule group association.
-//
-// ## Example Usage
-//
-// The following example shows how to get a firewall rule group association from its id.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := route53.LookupResolverFirewallRuleGroupAssociation(ctx, &route53.LookupResolverFirewallRuleGroupAssociationArgs{
-//				FirewallRuleGroupAssociationId: "rslvr-frgassoc-example",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupResolverFirewallRuleGroupAssociation(ctx *pulumi.Context, args *LookupResolverFirewallRuleGroupAssociationArgs, opts ...pulumi.InvokeOption) (*LookupResolverFirewallRuleGroupAssociationResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupResolverFirewallRuleGroupAssociationResult

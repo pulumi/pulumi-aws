@@ -21,30 +21,28 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/appconfig"
+//	appconfig/eventIntegration "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/appconfig/eventIntegration"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := appconfig.NewEventIntegration(ctx, "example", &appconfig.EventIntegrationArgs{
-//				Description: pulumi.String("Example Description"),
-//				EventFilter: &appconfig.EventIntegrationEventFilterArgs{
-//					Source: pulumi.String("aws.partner/examplepartner.com"),
-//				},
-//				EventbridgeBus: pulumi.String("default"),
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("Example Event Integration"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := appconfig/eventIntegration.NewEventIntegration(ctx, "example", &appconfig/eventIntegration.EventIntegrationArgs{
+// Description: "Example Description",
+// EventFilter: map[string]interface{}{
+// "source": "aws.partner/examplepartner.com",
+// },
+// EventbridgeBus: "default",
+// Tags: map[string]interface{}{
+// "Name": "Example Event Integration",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.backup.Plan("example", {
+ * const example = new aws.backup/plan.Plan("example", {
  *     rules: [{
  *         ruleName: "my_example_backup_rule",
  *         targetVaultName: aws_backup_vault.test.name,

@@ -21,26 +21,24 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/appstream"
+//	appstream/user "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/appstream/user"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := appstream.NewUser(ctx, "example", &appstream.UserArgs{
-//				AuthenticationType: pulumi.String("USERPOOL"),
-//				FirstName:          pulumi.String("FIRST NAME"),
-//				LastName:           pulumi.String("LAST NAME"),
-//				UserName:           pulumi.String("EMAIL"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := appstream/user.NewUser(ctx, "example", &appstream/user.UserArgs{
+// AuthenticationType: "USERPOOL",
+// FirstName: "FIRST NAME",
+// LastName: "LAST NAME",
+// UserName: "EMAIL",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

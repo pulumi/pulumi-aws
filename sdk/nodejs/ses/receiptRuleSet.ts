@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const main = new aws.ses.ReceiptRuleSet("main", {ruleSetName: "primary-rules"});
+ * const main = new aws.ses/receiptRuleSet.ReceiptRuleSet("main", {ruleSetName: "primary-rules"});
  * ```
  *
  * ## Import

@@ -11,6 +11,14 @@ import * as utilities from "../utilities";
  * Use this data source to manage a response plan in AWS Systems Manager Incident Manager.
  *
  * ## Example Usage
+ * ### Basic Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.ssmincidents/responsePlan.ResponsePlan("example", {arn: "exampleARN"});
+ * ```
  */
 export function getResponsePlan(args: GetResponsePlanArgs, opts?: pulumi.InvokeOptions): Promise<GetResponsePlanResult> {
 
@@ -78,6 +86,14 @@ export interface GetResponsePlanResult {
  * Use this data source to manage a response plan in AWS Systems Manager Incident Manager.
  *
  * ## Example Usage
+ * ### Basic Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.ssmincidents/responsePlan.ResponsePlan("example", {arn: "exampleARN"});
+ * ```
  */
 export function getResponsePlanOutput(args: GetResponsePlanOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResponsePlanResult> {
     return pulumi.output(args).apply((a: any) => getResponsePlan(a, opts))

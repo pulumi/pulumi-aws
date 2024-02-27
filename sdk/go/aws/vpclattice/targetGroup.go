@@ -22,28 +22,26 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/vpclattice"
+//	vpclattice/targetGroup "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/vpclattice/targetGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := vpclattice.NewTargetGroup(ctx, "example", &vpclattice.TargetGroupArgs{
-//				Type: pulumi.String("INSTANCE"),
-//				Config: &vpclattice.TargetGroupConfigArgs{
-//					VpcIdentifier: pulumi.Any(aws_vpc.Example.Id),
-//					Port:          pulumi.Int(443),
-//					Protocol:      pulumi.String("HTTPS"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := vpclattice/targetGroup.NewTargetGroup(ctx, "example", &vpclattice/targetGroup.TargetGroupArgs{
+// Type: "INSTANCE",
+// Config: map[string]interface{}{
+// "vpcIdentifier": aws_vpc.Example.Id,
+// "port": 443,
+// "protocol": "HTTPS",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Basic usage with Health check
 //
@@ -52,44 +50,42 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/vpclattice"
+//	vpclattice/targetGroup "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/vpclattice/targetGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := vpclattice.NewTargetGroup(ctx, "example", &vpclattice.TargetGroupArgs{
-//				Type: pulumi.String("IP"),
-//				Config: &vpclattice.TargetGroupConfigArgs{
-//					VpcIdentifier:   pulumi.Any(aws_vpc.Example.Id),
-//					IpAddressType:   pulumi.String("IPV4"),
-//					Port:            pulumi.Int(443),
-//					Protocol:        pulumi.String("HTTPS"),
-//					ProtocolVersion: pulumi.String("HTTP1"),
-//					HealthCheck: &vpclattice.TargetGroupConfigHealthCheckArgs{
-//						Enabled:                    pulumi.Bool(true),
-//						HealthCheckIntervalSeconds: pulumi.Int(20),
-//						HealthCheckTimeoutSeconds:  pulumi.Int(10),
-//						HealthyThresholdCount:      pulumi.Int(7),
-//						UnhealthyThresholdCount:    pulumi.Int(3),
-//						Matcher: &vpclattice.TargetGroupConfigHealthCheckMatcherArgs{
-//							Value: pulumi.String("200-299"),
-//						},
-//						Path:            pulumi.String("/instance"),
-//						Port:            pulumi.Int(80),
-//						Protocol:        pulumi.String("HTTP"),
-//						ProtocolVersion: pulumi.String("HTTP1"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := vpclattice/targetGroup.NewTargetGroup(ctx, "example", &vpclattice/targetGroup.TargetGroupArgs{
+// Type: "IP",
+// Config: map[string]interface{}{
+// "vpcIdentifier": aws_vpc.Example.Id,
+// "ipAddressType": "IPV4",
+// "port": 443,
+// "protocol": "HTTPS",
+// "protocolVersion": "HTTP1",
+// "healthCheck": map[string]interface{}{
+// "enabled": true,
+// "healthCheckIntervalSeconds": 20,
+// "healthCheckTimeoutSeconds": 10,
+// "healthyThresholdCount": 7,
+// "unhealthyThresholdCount": 3,
+// "matcher": map[string]interface{}{
+// "value": "200-299",
+// },
+// "path": "/instance",
+// "port": 80,
+// "protocol": "HTTP",
+// "protocolVersion": "HTTP1",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### ALB
 //
@@ -100,29 +96,27 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/vpclattice"
+//	vpclattice/targetGroup "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/vpclattice/targetGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := vpclattice.NewTargetGroup(ctx, "example", &vpclattice.TargetGroupArgs{
-//				Type: pulumi.String("ALB"),
-//				Config: &vpclattice.TargetGroupConfigArgs{
-//					VpcIdentifier:   pulumi.Any(aws_vpc.Example.Id),
-//					Port:            pulumi.Int(443),
-//					Protocol:        pulumi.String("HTTPS"),
-//					ProtocolVersion: pulumi.String("HTTP1"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := vpclattice/targetGroup.NewTargetGroup(ctx, "example", &vpclattice/targetGroup.TargetGroupArgs{
+// Type: "ALB",
+// Config: map[string]interface{}{
+// "vpcIdentifier": aws_vpc.Example.Id,
+// "port": 443,
+// "protocol": "HTTPS",
+// "protocolVersion": "HTTP1",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Lambda
 //
@@ -133,23 +127,21 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/vpclattice"
+//	vpclattice/targetGroup "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/vpclattice/targetGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := vpclattice.NewTargetGroup(ctx, "example", &vpclattice.TargetGroupArgs{
-//				Type: pulumi.String("LAMBDA"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := vpclattice/targetGroup.NewTargetGroup(ctx, "example", &vpclattice/targetGroup.TargetGroupArgs{
+// Type: "LAMBDA",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

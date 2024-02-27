@@ -14,66 +14,6 @@ import (
 
 // Attaches a Lightsail Instance to a Lightsail Load Balancer.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lightsail"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			available, err := aws.GetAvailabilityZones(ctx, &aws.GetAvailabilityZonesArgs{
-//				State: pulumi.StringRef("available"),
-//				Filters: []aws.GetAvailabilityZonesFilter{
-//					{
-//						Name: "opt-in-status",
-//						Values: []string{
-//							"opt-in-not-required",
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			testLb, err := lightsail.NewLb(ctx, "testLb", &lightsail.LbArgs{
-//				HealthCheckPath: pulumi.String("/"),
-//				InstancePort:    pulumi.Int(80),
-//				Tags: pulumi.StringMap{
-//					"foo": pulumi.String("bar"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			testInstance, err := lightsail.NewInstance(ctx, "testInstance", &lightsail.InstanceArgs{
-//				AvailabilityZone: *pulumi.String(available.Names[0]),
-//				BlueprintId:      pulumi.String("amazon_linux_2"),
-//				BundleId:         pulumi.String("nano_1_0"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = lightsail.NewLbAttachment(ctx, "testLbAttachment", &lightsail.LbAttachmentArgs{
-//				LbName:       testLb.Name,
-//				InstanceName: testInstance.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Using `pulumi import`, import `aws_lightsail_lb_attachment` using the name attribute. For example:

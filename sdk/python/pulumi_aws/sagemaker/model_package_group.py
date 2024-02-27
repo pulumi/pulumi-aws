@@ -179,7 +179,7 @@ class ModelPackageGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.sagemaker.ModelPackageGroup("example", model_package_group_name="example")
+        example = aws.sagemaker.model_package_group.ModelPackageGroup("example", model_package_group_name=example)
         ```
 
         ## Import
@@ -212,7 +212,7 @@ class ModelPackageGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.sagemaker.ModelPackageGroup("example", model_package_group_name="example")
+        example = aws.sagemaker.model_package_group.ModelPackageGroup("example", model_package_group_name=example)
         ```
 
         ## Import

@@ -8,18 +8,6 @@ import * as utilities from "../utilities";
  * Data source for getting an AWS Organizations Organizational Unit.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const org = aws.organizations.getOrganization({});
- * const ou = org.then(org => aws.organizations.getOrganizationalUnit({
- *     parentId: org.roots?.[0]?.id,
- *     name: "dev",
- * }));
- * ```
  */
 export function getOrganizationalUnit(args: GetOrganizationalUnitArgs, opts?: pulumi.InvokeOptions): Promise<GetOrganizationalUnitResult> {
 
@@ -63,18 +51,6 @@ export interface GetOrganizationalUnitResult {
  * Data source for getting an AWS Organizations Organizational Unit.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const org = aws.organizations.getOrganization({});
- * const ou = org.then(org => aws.organizations.getOrganizationalUnit({
- *     parentId: org.roots?.[0]?.id,
- *     name: "dev",
- * }));
- * ```
  */
 export function getOrganizationalUnitOutput(args: GetOrganizationalUnitOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOrganizationalUnitResult> {
     return pulumi.output(args).apply((a: any) => getOrganizationalUnit(a, opts))

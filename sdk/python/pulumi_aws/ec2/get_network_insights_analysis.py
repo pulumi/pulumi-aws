@@ -224,15 +224,6 @@ def get_network_insights_analysis(filters: Optional[Sequence[pulumi.InputType['G
     """
     `ec2.NetworkInsightsAnalysis` provides details about a specific Network Insights Analysis.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ec2.get_network_insights_analysis(network_insights_analysis_id=aws_ec2_network_insights_analysis["example"]["id"])
-    ```
-
 
     :param Sequence[pulumi.InputType['GetNetworkInsightsAnalysisFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.
     :param str network_insights_analysis_id: ID of the Network Insights Analysis to select.
@@ -270,15 +261,6 @@ def get_network_insights_analysis_output(filters: Optional[pulumi.Input[Optional
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkInsightsAnalysisResult]:
     """
     `ec2.NetworkInsightsAnalysis` provides details about a specific Network Insights Analysis.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ec2.get_network_insights_analysis(network_insights_analysis_id=aws_ec2_network_insights_analysis["example"]["id"])
-    ```
 
 
     :param Sequence[pulumi.InputType['GetNetworkInsightsAnalysisFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.

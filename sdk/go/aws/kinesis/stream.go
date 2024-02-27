@@ -23,34 +23,32 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kinesis"
+//	kinesis/stream "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/kinesis/stream"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := kinesis.NewStream(ctx, "testStream", &kinesis.StreamArgs{
-//				RetentionPeriod: pulumi.Int(48),
-//				ShardCount:      pulumi.Int(1),
-//				ShardLevelMetrics: pulumi.StringArray{
-//					pulumi.String("IncomingBytes"),
-//					pulumi.String("OutgoingBytes"),
-//				},
-//				StreamModeDetails: &kinesis.StreamStreamModeDetailsArgs{
-//					StreamMode: pulumi.String("PROVISIONED"),
-//				},
-//				Tags: pulumi.StringMap{
-//					"Environment": pulumi.String("test"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := kinesis/stream.NewStream(ctx, "testStream", &kinesis/stream.StreamArgs{
+// RetentionPeriod: 48,
+// ShardCount: 1,
+// ShardLevelMetrics: []string{
+// "IncomingBytes",
+// "OutgoingBytes",
+// },
+// StreamModeDetails: map[string]interface{}{
+// "streamMode": "PROVISIONED",
+// },
+// Tags: map[string]interface{}{
+// "Environment": "test",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -296,17 +296,17 @@ class ParameterGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        default = aws.rds.ParameterGroup("default",
-            family="mysql5.6",
+        default = aws.rds.parameter_group.ParameterGroup("default",
+            family=mysql5.6,
             parameters=[
-                aws.rds.ParameterGroupParameterArgs(
-                    name="character_set_server",
-                    value="utf8",
-                ),
-                aws.rds.ParameterGroupParameterArgs(
-                    name="character_set_client",
-                    value="utf8",
-                ),
+                {
+                    name: character_set_server,
+                    value: utf8,
+                },
+                {
+                    name: character_set_client,
+                    value: utf8,
+                },
             ])
         ```
         ### `create_before_destroy` Lifecycle Configuration
@@ -321,13 +321,13 @@ class ParameterGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_parameter_group = aws.rds.ParameterGroup("exampleParameterGroup",
-            family="postgres13",
-            parameters=[aws.rds.ParameterGroupParameterArgs(
-                name="log_connections",
-                value="1",
-            )])
-        example_instance = aws.rds.Instance("exampleInstance",
+        example_parameter_group = aws.rds.parameter_group.ParameterGroup("exampleParameterGroup",
+            family=postgres13,
+            parameters=[{
+                name: log_connections,
+                value: 1,
+            }])
+        example_instance = aws.rds.instance.Instance("exampleInstance",
             parameter_group_name=example_parameter_group.name,
             apply_immediately=True)
         ```
@@ -377,17 +377,17 @@ class ParameterGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        default = aws.rds.ParameterGroup("default",
-            family="mysql5.6",
+        default = aws.rds.parameter_group.ParameterGroup("default",
+            family=mysql5.6,
             parameters=[
-                aws.rds.ParameterGroupParameterArgs(
-                    name="character_set_server",
-                    value="utf8",
-                ),
-                aws.rds.ParameterGroupParameterArgs(
-                    name="character_set_client",
-                    value="utf8",
-                ),
+                {
+                    name: character_set_server,
+                    value: utf8,
+                },
+                {
+                    name: character_set_client,
+                    value: utf8,
+                },
             ])
         ```
         ### `create_before_destroy` Lifecycle Configuration
@@ -402,13 +402,13 @@ class ParameterGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_parameter_group = aws.rds.ParameterGroup("exampleParameterGroup",
-            family="postgres13",
-            parameters=[aws.rds.ParameterGroupParameterArgs(
-                name="log_connections",
-                value="1",
-            )])
-        example_instance = aws.rds.Instance("exampleInstance",
+        example_parameter_group = aws.rds.parameter_group.ParameterGroup("exampleParameterGroup",
+            family=postgres13,
+            parameters=[{
+                name: log_connections,
+                value: 1,
+            }])
+        example_instance = aws.rds.instance.Instance("exampleInstance",
             parameter_group_name=example_parameter_group.name,
             apply_immediately=True)
         ```

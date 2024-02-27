@@ -22,7 +22,7 @@ namespace Pulumi.Aws.DocDB
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var @default = new Aws.DocDB.SubnetGroup("default", new()
+    ///     var @default = new Aws.Docdb.SubnetGroup.SubnetGroup("default", new()
     ///     {
     ///         SubnetIds = new[]
     ///         {

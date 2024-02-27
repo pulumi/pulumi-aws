@@ -22,30 +22,28 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/medialive"
+//	medialive/inputSecurityGroup "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/medialive/inputSecurityGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := medialive.NewInputSecurityGroup(ctx, "example", &medialive.InputSecurityGroupArgs{
-//				Tags: pulumi.StringMap{
-//					"ENVIRONMENT": pulumi.String("prod"),
-//				},
-//				WhitelistRules: medialive.InputSecurityGroupWhitelistRuleArray{
-//					&medialive.InputSecurityGroupWhitelistRuleArgs{
-//						Cidr: pulumi.String("10.0.0.8/32"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := medialive/inputSecurityGroup.NewInputSecurityGroup(ctx, "example", &medialive/inputSecurityGroup.InputSecurityGroupArgs{
+// Tags: map[string]interface{}{
+// "ENVIRONMENT": "prod",
+// },
+// WhitelistRules: []map[string]interface{}{
+// map[string]interface{}{
+// "cidr": "10.0.0.8/32",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

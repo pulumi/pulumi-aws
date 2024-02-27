@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const www = new aws.route53.Record("www", {
+ * const www = new aws.route53/record.Record("www", {
  *     zoneId: aws_route53_zone.primary.zone_id,
  *     name: "www.example.com",
  *     type: "A",
@@ -33,7 +33,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const www_dev = new aws.route53.Record("www-dev", {
+ * const www_dev = new aws.route53/record.Record("www-dev", {
  *     zoneId: aws_route53_zone.primary.zone_id,
  *     name: "www",
  *     type: "CNAME",
@@ -44,7 +44,7 @@ import * as utilities from "../utilities";
  *     setIdentifier: "dev",
  *     records: ["dev.example.com"],
  * });
- * const www_live = new aws.route53.Record("www-live", {
+ * const www_live = new aws.route53/record.Record("www-live", {
  *     zoneId: aws_route53_zone.primary.zone_id,
  *     name: "www",
  *     type: "CNAME",
@@ -62,7 +62,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const www = new aws.route53.Record("www", {
+ * const www = new aws.route53/record.Record("www", {
  *     zoneId: aws_route53_zone.primary.zone_id,
  *     name: "www.example.com",
  *     type: "CNAME",
@@ -89,7 +89,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const main = new aws.elb.LoadBalancer("main", {
+ * const main = new aws.elb/loadBalancer.LoadBalancer("main", {
  *     availabilityZones: ["us-east-1c"],
  *     listeners: [{
  *         instancePort: 80,
@@ -98,7 +98,7 @@ import * as utilities from "../utilities";
  *         lbProtocol: "http",
  *     }],
  * });
- * const www = new aws.route53.Record("www", {
+ * const www = new aws.route53/record.Record("www", {
  *     zoneId: aws_route53_zone.primary.zone_id,
  *     name: "example.com",
  *     type: "A",
@@ -117,8 +117,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleZone = new aws.route53.Zone("exampleZone", {});
- * const exampleRecord = new aws.route53.Record("exampleRecord", {
+ * const exampleZone = new aws.route53/zone.Zone("exampleZone", {});
+ * const exampleRecord = new aws.route53/record.Record("exampleRecord", {
  *     allowOverwrite: true,
  *     name: "test.example.com",
  *     ttl: 172800,

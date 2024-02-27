@@ -23,7 +23,7 @@ namespace Pulumi.Aws.Cognito
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var pool = new Aws.Cognito.UserPool("pool");
+    ///     var pool = new Aws.Cognito.UserPool.UserPool("pool");
     /// 
     /// });
     /// ```
@@ -38,19 +38,19 @@ namespace Pulumi.Aws.Cognito
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // ... other configuration ...
-    ///     var example = new Aws.Cognito.UserPool("example", new()
+    ///     var example = new Aws.Cognito.UserPool.UserPool("example", new()
     ///     {
     ///         MfaConfiguration = "ON",
     ///         SmsAuthenticationMessage = "Your code is {####}",
-    ///         SmsConfiguration = new Aws.Cognito.Inputs.UserPoolSmsConfigurationArgs
+    ///         SmsConfiguration = 
     ///         {
-    ///             ExternalId = "example",
-    ///             SnsCallerArn = aws_iam_role.Example.Arn,
-    ///             SnsRegion = "us-east-1",
+    ///             { "externalId", "example" },
+    ///             { "snsCallerArn", aws_iam_role.Example.Arn },
+    ///             { "snsRegion", "us-east-1" },
     ///         },
-    ///         SoftwareTokenMfaConfiguration = new Aws.Cognito.Inputs.UserPoolSoftwareTokenMfaConfigurationArgs
+    ///         SoftwareTokenMfaConfiguration = 
     ///         {
-    ///             Enabled = true,
+    ///             { "enabled", true },
     ///         },
     ///     });
     /// 
@@ -66,23 +66,23 @@ namespace Pulumi.Aws.Cognito
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Aws.Cognito.UserPool("test", new()
+    ///     var test = new Aws.Cognito.UserPool.UserPool("test", new()
     ///     {
-    ///         AccountRecoverySetting = new Aws.Cognito.Inputs.UserPoolAccountRecoverySettingArgs
+    ///         AccountRecoverySetting = 
     ///         {
-    ///             RecoveryMechanisms = new[]
+    ///             { "recoveryMechanisms", new[]
     ///             {
-    ///                 new Aws.Cognito.Inputs.UserPoolAccountRecoverySettingRecoveryMechanismArgs
+    ///                 
     ///                 {
-    ///                     Name = "verified_email",
-    ///                     Priority = 1,
+    ///                     { "name", "verified_email" },
+    ///                     { "priority", 1 },
     ///                 },
-    ///                 new Aws.Cognito.Inputs.UserPoolAccountRecoverySettingRecoveryMechanismArgs
+    ///                 
     ///                 {
-    ///                     Name = "verified_phone_number",
-    ///                     Priority = 2,
+    ///                     { "name", "verified_phone_number" },
+    ///                     { "priority", 2 },
     ///                 },
-    ///             },
+    ///             } },
     ///         },
     ///     });
     /// 

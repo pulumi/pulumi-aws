@@ -12,32 +12,6 @@ import (
 )
 
 // Returns properties of a specific Amazon Bedrock custom model.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/bedrock"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := bedrock.LookupCustomModel(ctx, &bedrock.LookupCustomModelArgs{
-//				ModelId: "arn:aws:bedrock:us-west-2:123456789012:custom-model/amazon.titan-text-express-v1:0:8k/ly16hhi765j4 ",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupCustomModel(ctx *pulumi.Context, args *LookupCustomModelArgs, opts ...pulumi.InvokeOption) (*LookupCustomModelResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupCustomModelResult

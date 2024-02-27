@@ -118,16 +118,6 @@ def get_site(global_network_id: Optional[str] = None,
     """
     Retrieve information about a site.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.networkmanager.get_site(global_network_id=var["global_network_id"],
-        site_id=var["site_id"])
-    ```
-
 
     :param str global_network_id: ID of the Global Network of the site to retrieve.
     :param str site_id: ID of the specific site to retrieve.
@@ -157,16 +147,6 @@ def get_site_output(global_network_id: Optional[pulumi.Input[str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSiteResult]:
     """
     Retrieve information about a site.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.networkmanager.get_site(global_network_id=var["global_network_id"],
-        site_id=var["site_id"])
-    ```
 
 
     :param str global_network_id: ID of the Global Network of the site to retrieve.

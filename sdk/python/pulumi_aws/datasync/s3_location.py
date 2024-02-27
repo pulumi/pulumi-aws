@@ -289,12 +289,12 @@ class S3Location(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.datasync.S3Location("example",
-            s3_bucket_arn=aws_s3_bucket["example"]["arn"],
-            subdirectory="/example/prefix",
-            s3_config=aws.datasync.S3LocationS3ConfigArgs(
-                bucket_access_role_arn=aws_iam_role["example"]["arn"],
-            ))
+        example = aws.datasync.s3_location.S3Location("example",
+            s3_bucket_arn=aws_s3_bucket.example.arn,
+            subdirectory=/example/prefix,
+            s3_config={
+                bucketAccessRoleArn: aws_iam_role.example.arn,
+            })
         ```
 
         ## Import
@@ -329,12 +329,12 @@ class S3Location(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.datasync.S3Location("example",
-            s3_bucket_arn=aws_s3_bucket["example"]["arn"],
-            subdirectory="/example/prefix",
-            s3_config=aws.datasync.S3LocationS3ConfigArgs(
-                bucket_access_role_arn=aws_iam_role["example"]["arn"],
-            ))
+        example = aws.datasync.s3_location.S3Location("example",
+            s3_bucket_arn=aws_s3_bucket.example.arn,
+            subdirectory=/example/prefix,
+            s3_config={
+                bucketAccessRoleArn: aws_iam_role.example.arn,
+            })
         ```
 
         ## Import

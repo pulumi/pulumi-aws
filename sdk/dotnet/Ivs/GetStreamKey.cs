@@ -16,25 +16,6 @@ namespace Pulumi.Aws.Ivs
         /// 
         /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Ivs.GetStreamKey.Invoke(new()
-        ///     {
-        ///         ChannelArn = "arn:aws:ivs:us-west-2:326937407773:channel/0Y1lcs4U7jk5",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetStreamKeyResult> InvokeAsync(GetStreamKeyArgs args, InvokeOptions? options = null)
@@ -45,25 +26,6 @@ namespace Pulumi.Aws.Ivs
         /// 
         /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Ivs.GetStreamKey.Invoke(new()
-        ///     {
-        ///         ChannelArn = "arn:aws:ivs:us-west-2:326937407773:channel/0Y1lcs4U7jk5",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetStreamKeyResult> Invoke(GetStreamKeyInvokeArgs args, InvokeOptions? options = null)

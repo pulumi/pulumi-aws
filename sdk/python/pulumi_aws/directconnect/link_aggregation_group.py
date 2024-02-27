@@ -359,10 +359,10 @@ class LinkAggregationGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        hoge = aws.directconnect.LinkAggregationGroup("hoge",
-            connections_bandwidth="1Gbps",
+        hoge = aws.directconnect.link_aggregation_group.LinkAggregationGroup("hoge",
+            connections_bandwidth=1Gbps,
             force_destroy=True,
-            location="EqDC2")
+            location=EqDC2)
         ```
 
         ## Import
@@ -400,10 +400,10 @@ class LinkAggregationGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        hoge = aws.directconnect.LinkAggregationGroup("hoge",
-            connections_bandwidth="1Gbps",
+        hoge = aws.directconnect.link_aggregation_group.LinkAggregationGroup("hoge",
+            connections_bandwidth=1Gbps,
             force_destroy=True,
-            location="EqDC2")
+            location=EqDC2)
         ```
 
         ## Import

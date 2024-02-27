@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.cloudformation.CloudFormationType("example", {
+ * const example = new aws.cloudformation/cloudFormationType.CloudFormationType("example", {
  *     schemaHandlerPackage: `s3://${aws_s3_object.example.bucket}/${aws_s3_object.example.key}`,
  *     type: "RESOURCE",
  *     typeName: "ExampleCompany::ExampleService::ExampleResource",

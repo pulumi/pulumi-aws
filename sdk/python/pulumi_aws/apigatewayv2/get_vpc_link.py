@@ -120,14 +120,6 @@ def get_vpc_link(tags: Optional[Mapping[str, str]] = None,
     Data source for managing an AWS API Gateway V2 VPC Link.
 
     ## Example Usage
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.apigatewayv2.get_vpc_link(vpc_link_id="example")
-    ```
 
 
     :param Mapping[str, str] tags: VPC Link Tags.
@@ -157,14 +149,6 @@ def get_vpc_link_output(tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]
     Data source for managing an AWS API Gateway V2 VPC Link.
 
     ## Example Usage
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.apigatewayv2.get_vpc_link(vpc_link_id="example")
-    ```
 
 
     :param Mapping[str, str] tags: VPC Link Tags.

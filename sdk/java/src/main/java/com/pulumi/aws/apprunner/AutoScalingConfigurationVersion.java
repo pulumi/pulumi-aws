@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *             .maxConcurrency(50)
  *             .maxSize(10)
  *             .minSize(2)
- *             .tags(Map.of(&#34;Name&#34;, &#34;example-apprunner-autoscaling&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

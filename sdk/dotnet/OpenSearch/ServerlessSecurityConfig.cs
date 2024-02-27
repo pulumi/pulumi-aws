@@ -13,6 +13,31 @@ namespace Pulumi.Aws.OpenSearch
     /// Resource for managing an AWS OpenSearch Serverless Security Config.
     /// 
     /// ## Example Usage
+    /// ### Basic Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.IO;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Opensearch.ServerlessSecurityConfig.ServerlessSecurityConfig("example", new()
+    ///     {
+    ///         Type = "saml",
+    ///         SamlOptions = new[]
+    ///         {
+    ///             
+    ///             {
+    ///                 { "metadata", File.ReadAllText($"{path.Module}/idp-metadata.xml") },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// 
     /// ## Import
     /// 

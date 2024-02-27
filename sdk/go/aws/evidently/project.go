@@ -21,26 +21,24 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/evidently"
+//	evidently/project "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/evidently/project"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := evidently.NewProject(ctx, "example", &evidently.ProjectArgs{
-//				Description: pulumi.String("Example Description"),
-//				Tags: pulumi.StringMap{
-//					"Key1": pulumi.String("example Project"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := evidently/project.NewProject(ctx, "example", &evidently/project.ProjectArgs{
+// Description: "Example Description",
+// Tags: map[string]interface{}{
+// "Key1": "example Project",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Store evaluation events in a CloudWatch Log Group
 //
@@ -49,31 +47,29 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/evidently"
+//	evidently/project "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/evidently/project"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := evidently.NewProject(ctx, "example", &evidently.ProjectArgs{
-//				DataDelivery: &evidently.ProjectDataDeliveryArgs{
-//					CloudwatchLogs: &evidently.ProjectDataDeliveryCloudwatchLogsArgs{
-//						LogGroup: pulumi.String("example-log-group-name"),
-//					},
-//				},
-//				Description: pulumi.String("Example Description"),
-//				Tags: pulumi.StringMap{
-//					"Key1": pulumi.String("example Project"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := evidently/project.NewProject(ctx, "example", &evidently/project.ProjectArgs{
+// DataDelivery: map[string]interface{}{
+// "cloudwatchLogs": map[string]interface{}{
+// "logGroup": "example-log-group-name",
+// },
+// },
+// Description: "Example Description",
+// Tags: map[string]interface{}{
+// "Key1": "example Project",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Store evaluation events in an S3 bucket
 //
@@ -82,32 +78,30 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/evidently"
+//	evidently/project "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/evidently/project"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := evidently.NewProject(ctx, "example", &evidently.ProjectArgs{
-//				DataDelivery: &evidently.ProjectDataDeliveryArgs{
-//					S3Destination: &evidently.ProjectDataDeliveryS3DestinationArgs{
-//						Bucket: pulumi.String("example-bucket-name"),
-//						Prefix: pulumi.String("example"),
-//					},
-//				},
-//				Description: pulumi.String("Example Description"),
-//				Tags: pulumi.StringMap{
-//					"Key1": pulumi.String("example Project"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := evidently/project.NewProject(ctx, "example", &evidently/project.ProjectArgs{
+// DataDelivery: map[string]interface{}{
+// "s3Destination": map[string]interface{}{
+// "bucket": "example-bucket-name",
+// "prefix": "example",
+// },
+// },
+// Description: "Example Description",
+// Tags: map[string]interface{}{
+// "Key1": "example Project",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -21,41 +21,39 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/appmesh"
+//	appmesh/gatewayRoute "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/appmesh/gatewayRoute"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := appmesh.NewGatewayRoute(ctx, "example", &appmesh.GatewayRouteArgs{
-//				MeshName:           pulumi.String("example-service-mesh"),
-//				VirtualGatewayName: pulumi.Any(aws_appmesh_virtual_gateway.Example.Name),
-//				Spec: &appmesh.GatewayRouteSpecArgs{
-//					HttpRoute: &appmesh.GatewayRouteSpecHttpRouteArgs{
-//						Action: &appmesh.GatewayRouteSpecHttpRouteActionArgs{
-//							Target: &appmesh.GatewayRouteSpecHttpRouteActionTargetArgs{
-//								VirtualService: &appmesh.GatewayRouteSpecHttpRouteActionTargetVirtualServiceArgs{
-//									VirtualServiceName: pulumi.Any(aws_appmesh_virtual_service.Example.Name),
-//								},
-//							},
-//						},
-//						Match: &appmesh.GatewayRouteSpecHttpRouteMatchArgs{
-//							Prefix: pulumi.String("/"),
-//						},
-//					},
-//				},
-//				Tags: pulumi.StringMap{
-//					"Environment": pulumi.String("test"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := appmesh/gatewayRoute.NewGatewayRoute(ctx, "example", &appmesh/gatewayRoute.GatewayRouteArgs{
+// MeshName: "example-service-mesh",
+// VirtualGatewayName: aws_appmesh_virtual_gateway.Example.Name,
+// Spec: map[string]interface{}{
+// "httpRoute": map[string]interface{}{
+// "action": map[string]interface{}{
+// "target": map[string]interface{}{
+// "virtualService": map[string]interface{}{
+// "virtualServiceName": aws_appmesh_virtual_service.Example.Name,
+// },
+// },
+// },
+// "match": map[string]interface{}{
+// "prefix": "/",
+// },
+// },
+// },
+// Tags: map[string]interface{}{
+// "Environment": "test",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

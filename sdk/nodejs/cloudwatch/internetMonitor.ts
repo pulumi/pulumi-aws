@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.cloudwatch.InternetMonitor("example", {monitorName: "exmple"});
+ * const example = new aws.cloudwatch/internetMonitor.InternetMonitor("example", {monitorName: "exmple"});
  * ```
  *
  * ## Import

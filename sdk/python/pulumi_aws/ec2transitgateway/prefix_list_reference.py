@@ -193,10 +193,10 @@ class PrefixListReference(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ec2transitgateway.PrefixListReference("example",
-            prefix_list_id=aws_ec2_managed_prefix_list["example"]["id"],
-            transit_gateway_attachment_id=aws_ec2_transit_gateway_vpc_attachment["example"]["id"],
-            transit_gateway_route_table_id=aws_ec2_transit_gateway["example"]["association_default_route_table_id"])
+        example = aws.ec2transitgateway.prefix_list_reference.PrefixListReference("example",
+            prefix_list_id=aws_ec2_managed_prefix_list.example.id,
+            transit_gateway_attachment_id=aws_ec2_transit_gateway_vpc_attachment.example.id,
+            transit_gateway_route_table_id=aws_ec2_transit_gateway.example.association_default_route_table_id)
         ```
         ### Blackhole Routing
 
@@ -204,10 +204,10 @@ class PrefixListReference(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ec2transitgateway.PrefixListReference("example",
+        example = aws.ec2transitgateway.prefix_list_reference.PrefixListReference("example",
             blackhole=True,
-            prefix_list_id=aws_ec2_managed_prefix_list["example"]["id"],
-            transit_gateway_route_table_id=aws_ec2_transit_gateway["example"]["association_default_route_table_id"])
+            prefix_list_id=aws_ec2_managed_prefix_list.example.id,
+            transit_gateway_route_table_id=aws_ec2_transit_gateway.example.association_default_route_table_id)
         ```
 
         ## Import
@@ -243,10 +243,10 @@ class PrefixListReference(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ec2transitgateway.PrefixListReference("example",
-            prefix_list_id=aws_ec2_managed_prefix_list["example"]["id"],
-            transit_gateway_attachment_id=aws_ec2_transit_gateway_vpc_attachment["example"]["id"],
-            transit_gateway_route_table_id=aws_ec2_transit_gateway["example"]["association_default_route_table_id"])
+        example = aws.ec2transitgateway.prefix_list_reference.PrefixListReference("example",
+            prefix_list_id=aws_ec2_managed_prefix_list.example.id,
+            transit_gateway_attachment_id=aws_ec2_transit_gateway_vpc_attachment.example.id,
+            transit_gateway_route_table_id=aws_ec2_transit_gateway.example.association_default_route_table_id)
         ```
         ### Blackhole Routing
 
@@ -254,10 +254,10 @@ class PrefixListReference(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ec2transitgateway.PrefixListReference("example",
+        example = aws.ec2transitgateway.prefix_list_reference.PrefixListReference("example",
             blackhole=True,
-            prefix_list_id=aws_ec2_managed_prefix_list["example"]["id"],
-            transit_gateway_route_table_id=aws_ec2_transit_gateway["example"]["association_default_route_table_id"])
+            prefix_list_id=aws_ec2_managed_prefix_list.example.id,
+            transit_gateway_route_table_id=aws_ec2_transit_gateway.example.association_default_route_table_id)
         ```
 
         ## Import

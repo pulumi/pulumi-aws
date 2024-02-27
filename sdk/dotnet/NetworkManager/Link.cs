@@ -22,14 +22,14 @@ namespace Pulumi.Aws.NetworkManager
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.NetworkManager.Link("example", new()
+    ///     var example = new Aws.Networkmanager.Link.Link("example", new()
     ///     {
     ///         GlobalNetworkId = aws_networkmanager_global_network.Example.Id,
     ///         SiteId = aws_networkmanager_site.Example.Id,
-    ///         Bandwidth = new Aws.NetworkManager.Inputs.LinkBandwidthArgs
+    ///         Bandwidth = 
     ///         {
-    ///             UploadSpeed = 10,
-    ///             DownloadSpeed = 50,
+    ///             { "uploadSpeed", 10 },
+    ///             { "downloadSpeed", 50 },
     ///         },
     ///         ProviderName = "MegaCorp",
     ///     });

@@ -24,16 +24,16 @@ namespace Pulumi.Aws.ElasticSearch
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleDomain = new Aws.ElasticSearch.Domain("exampleDomain", new()
+    ///     var exampleDomain = new Aws.Elasticsearch.Domain.Domain("exampleDomain", new()
     ///     {
     ///         ElasticsearchVersion = "1.5",
-    ///         ClusterConfig = new Aws.ElasticSearch.Inputs.DomainClusterConfigArgs
+    ///         ClusterConfig = 
     ///         {
-    ///             InstanceType = "r4.large.elasticsearch",
+    ///             { "instanceType", "r4.large.elasticsearch" },
     ///         },
-    ///         SnapshotOptions = new Aws.ElasticSearch.Inputs.DomainSnapshotOptionsArgs
+    ///         SnapshotOptions = 
     ///         {
-    ///             AutomatedSnapshotStartHour = 23,
+    ///             { "automatedSnapshotStartHour", 23 },
     ///         },
     ///         Tags = 
     ///         {
@@ -41,17 +41,17 @@ namespace Pulumi.Aws.ElasticSearch
     ///         },
     ///     });
     /// 
-    ///     var exampleDomainSamlOptions = new Aws.ElasticSearch.DomainSamlOptions("exampleDomainSamlOptions", new()
+    ///     var exampleDomainSamlOptions = new Aws.Elasticsearch.DomainSamlOptions.DomainSamlOptions("exampleDomainSamlOptions", new()
     ///     {
     ///         DomainName = exampleDomain.DomainName,
-    ///         SamlOptions = new Aws.ElasticSearch.Inputs.DomainSamlOptionsSamlOptionsArgs
+    ///         SamlOptions = 
     ///         {
-    ///             Enabled = true,
-    ///             Idp = new Aws.ElasticSearch.Inputs.DomainSamlOptionsSamlOptionsIdpArgs
+    ///             { "enabled", true },
+    ///             { "idp", 
     ///             {
-    ///                 EntityId = "https://example.com",
-    ///                 MetadataContent = File.ReadAllText("./saml-metadata.xml"),
-    ///             },
+    ///                 { "entityId", "https://example.com" },
+    ///                 { "metadataContent", File.ReadAllText("./saml-metadata.xml") },
+    ///             } },
     ///         },
     ///     });
     /// 

@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.lex.V2modelsSlot("example", {
+ * const example = new aws.lex/v2modelsSlot.V2modelsSlot("example", {
  *     botId: aws_lexv2models_bot.example.id,
  *     botVersion: aws_lexv2models_bot_version.example.bot_version,
  *     intentId: aws_lexv2models_intent.example.id,

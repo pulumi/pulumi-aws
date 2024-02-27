@@ -16,35 +16,6 @@ namespace Pulumi.Aws.Rds
     /// 
     /// &gt; **NOTE:** Due to the expense of testing this resource, we provide it as best effort. If you find it useful, and have the ability to help test or notice issues, consider reaching out to us on GitHub.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = Aws.Rds.GetReservedInstanceOffering.Invoke(new()
-    ///     {
-    ///         DbInstanceClass = "db.t2.micro",
-    ///         Duration = 31536000,
-    ///         MultiAz = false,
-    ///         OfferingType = "All Upfront",
-    ///         ProductDescription = "mysql",
-    ///     });
-    /// 
-    ///     var example = new Aws.Rds.ReservedInstance("example", new()
-    ///     {
-    ///         OfferingId = test.Apply(getReservedInstanceOfferingResult =&gt; getReservedInstanceOfferingResult.OfferingId),
-    ///         ReservationId = "optionalCustomReservationID",
-    ///         InstanceCount = 3,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import RDS DB Instance Reservations using the `instance_id`. For example:

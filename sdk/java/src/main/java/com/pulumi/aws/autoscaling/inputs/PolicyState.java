@@ -216,6 +216,36 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
     /**
      * Set of adjustments that manage
      * group scaling. These have the following structure:
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.autoscaling.Policy;
+     * import com.pulumi.aws.autoscaling.PolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var example = new Policy(&#34;example&#34;, PolicyArgs.builder()        
+     *             .stepAdjustments(            
+     *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+     *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
      * 
      * The following fields are available in step adjustments:
      * 
@@ -226,6 +256,36 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
     /**
      * @return Set of adjustments that manage
      * group scaling. These have the following structure:
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.autoscaling.Policy;
+     * import com.pulumi.aws.autoscaling.PolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var example = new Policy(&#34;example&#34;, PolicyArgs.builder()        
+     *             .stepAdjustments(            
+     *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+     *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
      * 
      * The following fields are available in step adjustments:
      * 
@@ -244,8 +304,6 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.autoscaling.Policy;
      * import com.pulumi.aws.autoscaling.PolicyArgs;
-     * import com.pulumi.aws.autoscaling.inputs.PolicyTargetTrackingConfigurationArgs;
-     * import com.pulumi.aws.autoscaling.inputs.PolicyTargetTrackingConfigurationPredefinedMetricSpecificationArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -260,12 +318,7 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
      * 
      *     public static void stack(Context ctx) {
      *         var example = new Policy(&#34;example&#34;, PolicyArgs.builder()        
-     *             .targetTrackingConfiguration(PolicyTargetTrackingConfigurationArgs.builder()
-     *                 .predefinedMetricSpecification(PolicyTargetTrackingConfigurationPredefinedMetricSpecificationArgs.builder()
-     *                     .predefinedMetricType(&#34;ASGAverageCPUUtilization&#34;)
-     *                     .build())
-     *                 .targetValue(40)
-     *                 .build())
+     *             .targetTrackingConfiguration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
      *             .build());
      * 
      *     }
@@ -288,8 +341,6 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.autoscaling.Policy;
      * import com.pulumi.aws.autoscaling.PolicyArgs;
-     * import com.pulumi.aws.autoscaling.inputs.PolicyTargetTrackingConfigurationArgs;
-     * import com.pulumi.aws.autoscaling.inputs.PolicyTargetTrackingConfigurationPredefinedMetricSpecificationArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -304,12 +355,7 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
      * 
      *     public static void stack(Context ctx) {
      *         var example = new Policy(&#34;example&#34;, PolicyArgs.builder()        
-     *             .targetTrackingConfiguration(PolicyTargetTrackingConfigurationArgs.builder()
-     *                 .predefinedMetricSpecification(PolicyTargetTrackingConfigurationPredefinedMetricSpecificationArgs.builder()
-     *                     .predefinedMetricType(&#34;ASGAverageCPUUtilization&#34;)
-     *                     .build())
-     *                 .targetValue(40)
-     *                 .build())
+     *             .targetTrackingConfiguration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
      *             .build());
      * 
      *     }
@@ -627,6 +673,36 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param stepAdjustments Set of adjustments that manage
          * group scaling. These have the following structure:
+         * ```java
+         * package generated_program;
+         * 
+         * import com.pulumi.Context;
+         * import com.pulumi.Pulumi;
+         * import com.pulumi.core.Output;
+         * import com.pulumi.aws.autoscaling.Policy;
+         * import com.pulumi.aws.autoscaling.PolicyArgs;
+         * import java.util.List;
+         * import java.util.ArrayList;
+         * import java.util.Map;
+         * import java.io.File;
+         * import java.nio.file.Files;
+         * import java.nio.file.Paths;
+         * 
+         * public class App {
+         *     public static void main(String[] args) {
+         *         Pulumi.run(App::stack);
+         *     }
+         * 
+         *     public static void stack(Context ctx) {
+         *         var example = new Policy(&#34;example&#34;, PolicyArgs.builder()        
+         *             .stepAdjustments(            
+         *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+         *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+         *             .build());
+         * 
+         *     }
+         * }
+         * ```
          * 
          * The following fields are available in step adjustments:
          * 
@@ -641,6 +717,36 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param stepAdjustments Set of adjustments that manage
          * group scaling. These have the following structure:
+         * ```java
+         * package generated_program;
+         * 
+         * import com.pulumi.Context;
+         * import com.pulumi.Pulumi;
+         * import com.pulumi.core.Output;
+         * import com.pulumi.aws.autoscaling.Policy;
+         * import com.pulumi.aws.autoscaling.PolicyArgs;
+         * import java.util.List;
+         * import java.util.ArrayList;
+         * import java.util.Map;
+         * import java.io.File;
+         * import java.nio.file.Files;
+         * import java.nio.file.Paths;
+         * 
+         * public class App {
+         *     public static void main(String[] args) {
+         *         Pulumi.run(App::stack);
+         *     }
+         * 
+         *     public static void stack(Context ctx) {
+         *         var example = new Policy(&#34;example&#34;, PolicyArgs.builder()        
+         *             .stepAdjustments(            
+         *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+         *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+         *             .build());
+         * 
+         *     }
+         * }
+         * ```
          * 
          * The following fields are available in step adjustments:
          * 
@@ -654,6 +760,36 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param stepAdjustments Set of adjustments that manage
          * group scaling. These have the following structure:
+         * ```java
+         * package generated_program;
+         * 
+         * import com.pulumi.Context;
+         * import com.pulumi.Pulumi;
+         * import com.pulumi.core.Output;
+         * import com.pulumi.aws.autoscaling.Policy;
+         * import com.pulumi.aws.autoscaling.PolicyArgs;
+         * import java.util.List;
+         * import java.util.ArrayList;
+         * import java.util.Map;
+         * import java.io.File;
+         * import java.nio.file.Files;
+         * import java.nio.file.Paths;
+         * 
+         * public class App {
+         *     public static void main(String[] args) {
+         *         Pulumi.run(App::stack);
+         *     }
+         * 
+         *     public static void stack(Context ctx) {
+         *         var example = new Policy(&#34;example&#34;, PolicyArgs.builder()        
+         *             .stepAdjustments(            
+         *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+         *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+         *             .build());
+         * 
+         *     }
+         * }
+         * ```
          * 
          * The following fields are available in step adjustments:
          * 
@@ -674,8 +810,6 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
          * import com.pulumi.core.Output;
          * import com.pulumi.aws.autoscaling.Policy;
          * import com.pulumi.aws.autoscaling.PolicyArgs;
-         * import com.pulumi.aws.autoscaling.inputs.PolicyTargetTrackingConfigurationArgs;
-         * import com.pulumi.aws.autoscaling.inputs.PolicyTargetTrackingConfigurationPredefinedMetricSpecificationArgs;
          * import java.util.List;
          * import java.util.ArrayList;
          * import java.util.Map;
@@ -690,12 +824,7 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
          * 
          *     public static void stack(Context ctx) {
          *         var example = new Policy(&#34;example&#34;, PolicyArgs.builder()        
-         *             .targetTrackingConfiguration(PolicyTargetTrackingConfigurationArgs.builder()
-         *                 .predefinedMetricSpecification(PolicyTargetTrackingConfigurationPredefinedMetricSpecificationArgs.builder()
-         *                     .predefinedMetricType(&#34;ASGAverageCPUUtilization&#34;)
-         *                     .build())
-         *                 .targetValue(40)
-         *                 .build())
+         *             .targetTrackingConfiguration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
          *             .build());
          * 
          *     }
@@ -722,8 +851,6 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
          * import com.pulumi.core.Output;
          * import com.pulumi.aws.autoscaling.Policy;
          * import com.pulumi.aws.autoscaling.PolicyArgs;
-         * import com.pulumi.aws.autoscaling.inputs.PolicyTargetTrackingConfigurationArgs;
-         * import com.pulumi.aws.autoscaling.inputs.PolicyTargetTrackingConfigurationPredefinedMetricSpecificationArgs;
          * import java.util.List;
          * import java.util.ArrayList;
          * import java.util.Map;
@@ -738,12 +865,7 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
          * 
          *     public static void stack(Context ctx) {
          *         var example = new Policy(&#34;example&#34;, PolicyArgs.builder()        
-         *             .targetTrackingConfiguration(PolicyTargetTrackingConfigurationArgs.builder()
-         *                 .predefinedMetricSpecification(PolicyTargetTrackingConfigurationPredefinedMetricSpecificationArgs.builder()
-         *                     .predefinedMetricType(&#34;ASGAverageCPUUtilization&#34;)
-         *                     .build())
-         *                 .targetValue(40)
-         *                 .build())
+         *             .targetTrackingConfiguration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
          *             .build());
          * 
          *     }

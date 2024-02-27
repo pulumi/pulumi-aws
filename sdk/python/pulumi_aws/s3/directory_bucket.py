@@ -224,11 +224,11 @@ class DirectoryBucket(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.s3.DirectoryBucket("example",
-            bucket="example--usw2-az1--x-s3",
-            location=aws.s3.DirectoryBucketLocationArgs(
-                name="usw2-az1",
-            ))
+        example = aws.s3.directory_bucket.DirectoryBucket("example",
+            bucket=example--usw2-az1--x-s3,
+            location={
+                name: usw2-az1,
+            })
         ```
 
         ## Import
@@ -262,11 +262,11 @@ class DirectoryBucket(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.s3.DirectoryBucket("example",
-            bucket="example--usw2-az1--x-s3",
-            location=aws.s3.DirectoryBucketLocationArgs(
-                name="usw2-az1",
-            ))
+        example = aws.s3.directory_bucket.DirectoryBucket("example",
+            bucket=example--usw2-az1--x-s3,
+            location={
+                name: usw2-az1,
+            })
         ```
 
         ## Import

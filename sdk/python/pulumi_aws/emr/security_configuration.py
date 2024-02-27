@@ -160,7 +160,7 @@ class SecurityConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        foo = aws.emr.SecurityConfiguration("foo", configuration=\"\"\"{
+        foo = aws.emr.security_configuration.SecurityConfiguration("foo", configuration={
           "EncryptionConfiguration": {
             "AtRestEncryptionConfiguration": {
               "S3EncryptionConfiguration": {
@@ -176,7 +176,7 @@ class SecurityConfiguration(pulumi.CustomResource):
           }
         }
 
-        \"\"\")
+        )
         ```
 
         ## Import
@@ -209,7 +209,7 @@ class SecurityConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        foo = aws.emr.SecurityConfiguration("foo", configuration=\"\"\"{
+        foo = aws.emr.security_configuration.SecurityConfiguration("foo", configuration={
           "EncryptionConfiguration": {
             "AtRestEncryptionConfiguration": {
               "S3EncryptionConfiguration": {
@@ -225,7 +225,7 @@ class SecurityConfiguration(pulumi.CustomResource):
           }
         }
 
-        \"\"\")
+        )
         ```
 
         ## Import

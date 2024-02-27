@@ -26,22 +26,22 @@ namespace Pulumi.Aws.MemoryDb
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleRandomPassword = new Random.RandomPassword("exampleRandomPassword", new()
+    ///     var exampleRandomPassword = new Random.Index.RandomPassword.RandomPassword("exampleRandomPassword", new()
     ///     {
     ///         Length = 16,
     ///     });
     /// 
-    ///     var exampleUser = new Aws.MemoryDb.User("exampleUser", new()
+    ///     var exampleUser = new Aws.Memorydb.User.User("exampleUser", new()
     ///     {
     ///         UserName = "my-user",
     ///         AccessString = "on ~* &amp;* +@all",
-    ///         AuthenticationMode = new Aws.MemoryDb.Inputs.UserAuthenticationModeArgs
+    ///         AuthenticationMode = 
     ///         {
-    ///             Type = "password",
-    ///             Passwords = new[]
+    ///             { "type", "password" },
+    ///             { "passwords", new[]
     ///             {
     ///                 exampleRandomPassword.Result,
-    ///             },
+    ///             } },
     ///         },
     ///     });
     /// 

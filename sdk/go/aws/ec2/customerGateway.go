@@ -21,28 +21,26 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	ec2/customerGateway "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/customerGateway"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.NewCustomerGateway(ctx, "main", &ec2.CustomerGatewayArgs{
-//				BgpAsn:    pulumi.String("65000"),
-//				IpAddress: pulumi.String("172.83.124.10"),
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("main-customer-gateway"),
-//				},
-//				Type: pulumi.String("ipsec.1"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := ec2/customerGateway.NewCustomerGateway(ctx, "main", &ec2/customerGateway.CustomerGatewayArgs{
+// BgpAsn: 65000,
+// IpAddress: "172.83.124.10",
+// Tags: map[string]interface{}{
+// "Name": "main-customer-gateway",
+// },
+// Type: "ipsec.1",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

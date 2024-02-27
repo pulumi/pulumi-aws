@@ -22,16 +22,16 @@ namespace Pulumi.Aws.Neptune
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Neptune.ClusterParameterGroup("example", new()
+    ///     var example = new Aws.Neptune.ClusterParameterGroup.ClusterParameterGroup("example", new()
     ///     {
     ///         Description = "neptune cluster parameter group",
     ///         Family = "neptune1",
     ///         Parameters = new[]
     ///         {
-    ///             new Aws.Neptune.Inputs.ClusterParameterGroupParameterArgs
+    ///             
     ///             {
-    ///                 Name = "neptune_enable_audit_log",
-    ///                 Value = "1",
+    ///                 { "name", "neptune_enable_audit_log" },
+    ///                 { "value", 1 },
     ///             },
     ///         },
     ///     });

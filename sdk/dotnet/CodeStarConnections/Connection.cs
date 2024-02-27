@@ -24,12 +24,12 @@ namespace Pulumi.Aws.CodeStarConnections
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleConnection = new Aws.CodeStarConnections.Connection("exampleConnection", new()
+    ///     var exampleConnection = new Aws.Codestarconnections.Connection.Connection("exampleConnection", new()
     ///     {
     ///         ProviderType = "Bitbucket",
     ///     });
     /// 
-    ///     var examplePipeline = new Aws.CodePipeline.Pipeline("examplePipeline", new()
+    ///     var examplePipeline = new Aws.Codepipeline.Pipeline.Pipeline("examplePipeline", new()
     ///     {
     ///         RoleArn = aws_iam_role.Codepipeline_role.Arn,
     ///         ArtifactStores = new[]
@@ -38,46 +38,46 @@ namespace Pulumi.Aws.CodeStarConnections
     ///         },
     ///         Stages = new[]
     ///         {
-    ///             new Aws.CodePipeline.Inputs.PipelineStageArgs
+    ///             
     ///             {
-    ///                 Name = "Source",
-    ///                 Actions = new[]
+    ///                 { "name", "Source" },
+    ///                 { "actions", new[]
     ///                 {
-    ///                     new Aws.CodePipeline.Inputs.PipelineStageActionArgs
+    ///                     
     ///                     {
-    ///                         Name = "Source",
-    ///                         Category = "Source",
-    ///                         Owner = "AWS",
-    ///                         Provider = "CodeStarSourceConnection",
-    ///                         Version = "1",
-    ///                         OutputArtifacts = new[]
+    ///                         { "name", "Source" },
+    ///                         { "category", "Source" },
+    ///                         { "owner", "AWS" },
+    ///                         { "provider", "CodeStarSourceConnection" },
+    ///                         { "version", "1" },
+    ///                         { "outputArtifacts", new[]
     ///                         {
     ///                             "source_output",
-    ///                         },
-    ///                         Configuration = 
+    ///                         } },
+    ///                         { "configuration", 
     ///                         {
     ///                             { "ConnectionArn", exampleConnection.Arn },
     ///                             { "FullRepositoryId", "my-organization/test" },
     ///                             { "BranchName", "main" },
-    ///                         },
+    ///                         } },
     ///                     },
-    ///                 },
+    ///                 } },
     ///             },
-    ///             new Aws.CodePipeline.Inputs.PipelineStageArgs
+    ///             
     ///             {
-    ///                 Name = "Build",
-    ///                 Actions = new[]
+    ///                 { "name", "Build" },
+    ///                 { "actions", new[]
     ///                 {
     ///                     null,
-    ///                 },
+    ///                 } },
     ///             },
-    ///             new Aws.CodePipeline.Inputs.PipelineStageArgs
+    ///             
     ///             {
-    ///                 Name = "Deploy",
-    ///                 Actions = new[]
+    ///                 { "name", "Deploy" },
+    ///                 { "actions", new[]
     ///                 {
     ///                     null,
-    ///                 },
+    ///                 } },
     ///             },
     ///         },
     ///     });

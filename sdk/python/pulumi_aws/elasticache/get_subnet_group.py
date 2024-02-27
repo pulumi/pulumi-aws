@@ -107,15 +107,6 @@ def get_subnet_group(name: Optional[str] = None,
     """
     Provides information about a ElastiCache Subnet Group.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.elasticache.get_subnet_group(name="my-subnet-group")
-    ```
-
 
     :param str name: Name of the subnet group.
     :param Mapping[str, str] tags: Map of tags assigned to the subnet group.
@@ -141,15 +132,6 @@ def get_subnet_group_output(name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSubnetGroupResult]:
     """
     Provides information about a ElastiCache Subnet Group.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.elasticache.get_subnet_group(name="my-subnet-group")
-    ```
 
 
     :param str name: Name of the subnet group.

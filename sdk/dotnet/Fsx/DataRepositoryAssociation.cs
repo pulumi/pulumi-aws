@@ -24,15 +24,15 @@ namespace Pulumi.Aws.Fsx
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2");
+    ///     var exampleBucketV2 = new Aws.S3.BucketV2.BucketV2("exampleBucketV2");
     /// 
-    ///     var exampleBucketAclV2 = new Aws.S3.BucketAclV2("exampleBucketAclV2", new()
+    ///     var exampleBucketAclV2 = new Aws.S3.BucketAclV2.BucketAclV2("exampleBucketAclV2", new()
     ///     {
     ///         Bucket = exampleBucketV2.Id,
     ///         Acl = "private",
     ///     });
     /// 
-    ///     var exampleLustreFileSystem = new Aws.Fsx.LustreFileSystem("exampleLustreFileSystem", new()
+    ///     var exampleLustreFileSystem = new Aws.Fsx.LustreFileSystem.LustreFileSystem("exampleLustreFileSystem", new()
     ///     {
     ///         StorageCapacity = 1200,
     ///         SubnetIds = new[]
@@ -43,31 +43,31 @@ namespace Pulumi.Aws.Fsx
     ///         PerUnitStorageThroughput = 125,
     ///     });
     /// 
-    ///     var exampleDataRepositoryAssociation = new Aws.Fsx.DataRepositoryAssociation("exampleDataRepositoryAssociation", new()
+    ///     var exampleDataRepositoryAssociation = new Aws.Fsx.DataRepositoryAssociation.DataRepositoryAssociation("exampleDataRepositoryAssociation", new()
     ///     {
     ///         FileSystemId = exampleLustreFileSystem.Id,
-    ///         DataRepositoryPath = exampleBucketV2.Id.Apply(id =&gt; $"s3://{id}"),
+    ///         DataRepositoryPath = $"s3://{exampleBucketV2.Id}",
     ///         FileSystemPath = "/my-bucket",
-    ///         S3 = new Aws.Fsx.Inputs.DataRepositoryAssociationS3Args
+    ///         S3 = 
     ///         {
-    ///             AutoExportPolicy = new Aws.Fsx.Inputs.DataRepositoryAssociationS3AutoExportPolicyArgs
+    ///             { "autoExportPolicy", 
     ///             {
-    ///                 Events = new[]
+    ///                 { "events", new[]
     ///                 {
     ///                     "NEW",
     ///                     "CHANGED",
     ///                     "DELETED",
-    ///                 },
-    ///             },
-    ///             AutoImportPolicy = new Aws.Fsx.Inputs.DataRepositoryAssociationS3AutoImportPolicyArgs
+    ///                 } },
+    ///             } },
+    ///             { "autoImportPolicy", 
     ///             {
-    ///                 Events = new[]
+    ///                 { "events", new[]
     ///                 {
     ///                     "NEW",
     ///                     "CHANGED",
     ///                     "DELETED",
-    ///                 },
-    ///             },
+    ///                 } },
+    ///             } },
     ///         },
     ///     });
     /// 

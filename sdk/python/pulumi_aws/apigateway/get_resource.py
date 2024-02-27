@@ -93,17 +93,6 @@ def get_resource(path: Optional[str] = None,
     Use this data source to get the id of a Resource in API Gateway.
     To fetch the Resource, you must provide the REST API id as well as the full path.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    my_rest_api = aws.apigateway.get_rest_api(name="my-rest-api")
-    my_resource = aws.apigateway.get_resource(rest_api_id=my_rest_api.id,
-        path="/endpoint/path")
-    ```
-
 
     :param str path: Full path of the resource.  If no path is found, an error will be returned.
     :param str rest_api_id: REST API id that owns the resource. If no REST API is found, an error will be returned.
@@ -129,17 +118,6 @@ def get_resource_output(path: Optional[pulumi.Input[str]] = None,
     """
     Use this data source to get the id of a Resource in API Gateway.
     To fetch the Resource, you must provide the REST API id as well as the full path.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    my_rest_api = aws.apigateway.get_rest_api(name="my-rest-api")
-    my_resource = aws.apigateway.get_resource(rest_api_id=my_rest_api.id,
-        path="/endpoint/path")
-    ```
 
 
     :param str path: Full path of the resource.  If no path is found, an error will be returned.

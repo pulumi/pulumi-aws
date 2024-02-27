@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Ses
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Aws.Ses.IdentityNotificationTopic("test", new()
+    ///     var test = new Aws.Ses.IdentityNotificationTopic.IdentityNotificationTopic("test", new()
     ///     {
     ///         TopicArn = aws_sns_topic.Example.Arn,
     ///         NotificationType = "Bounce",

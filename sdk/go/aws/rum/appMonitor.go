@@ -21,23 +21,21 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/rum"
+//	rum/appMonitor "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/rum/appMonitor"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := rum.NewAppMonitor(ctx, "example", &rum.AppMonitorArgs{
-//				Domain: pulumi.String("localhost"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := rum/appMonitor.NewAppMonitor(ctx, "example", &rum/appMonitor.AppMonitorArgs{
+// Domain: "localhost",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

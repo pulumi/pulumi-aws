@@ -23,7 +23,7 @@ namespace Pulumi.Aws.Lex
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Lex.V2modelsSlot("example", new()
+    ///     var example = new Aws.Lex.V2modelsSlot.V2modelsSlot("example", new()
     ///     {
     ///         BotId = aws_lexv2models_bot.Example.Id,
     ///         BotVersion = aws_lexv2models_bot_version.Example.Bot_version,

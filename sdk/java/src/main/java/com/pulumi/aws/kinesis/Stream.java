@@ -34,7 +34,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.kinesis.Stream;
  * import com.pulumi.aws.kinesis.StreamArgs;
- * import com.pulumi.aws.kinesis.inputs.StreamStreamModeDetailsArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -54,10 +53,8 @@ import javax.annotation.Nullable;
  *             .shardLevelMetrics(            
  *                 &#34;IncomingBytes&#34;,
  *                 &#34;OutgoingBytes&#34;)
- *             .streamModeDetails(StreamStreamModeDetailsArgs.builder()
- *                 .streamMode(&#34;PROVISIONED&#34;)
- *                 .build())
- *             .tags(Map.of(&#34;Environment&#34;, &#34;test&#34;))
+ *             .streamModeDetails(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

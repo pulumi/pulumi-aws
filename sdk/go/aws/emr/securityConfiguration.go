@@ -21,15 +21,15 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/emr"
+//	emr/securityConfiguration "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/emr/securityConfiguration"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := emr/securityConfiguration.NewSecurityConfiguration(ctx, "foo", &emr/securityConfiguration.SecurityConfigurationArgs{
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := emr.NewSecurityConfiguration(ctx, "foo", &emr.SecurityConfigurationArgs{
-//				Configuration: pulumi.String(`{
+//	Configuration: `{
 //	  "EncryptionConfiguration": {
 //	    "AtRestEncryptionConfiguration": {
 //	      "S3EncryptionConfiguration": {
@@ -45,16 +45,14 @@ import (
 //	  }
 //	}
 //
-// `),
-//
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// `,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -24,7 +24,7 @@ namespace Pulumi.Aws.Fsx
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Aws.Fsx.OntapVolume("test", new()
+    ///     var test = new Aws.Fsx.OntapVolume.OntapVolume("test", new()
     ///     {
     ///         JunctionPath = "/test",
     ///         SizeInMegabytes = 1024,
@@ -46,16 +46,16 @@ namespace Pulumi.Aws.Fsx
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Aws.Fsx.OntapVolume("test", new()
+    ///     var test = new Aws.Fsx.OntapVolume.OntapVolume("test", new()
     ///     {
     ///         JunctionPath = "/test",
     ///         SizeInMegabytes = 1024,
     ///         StorageEfficiencyEnabled = true,
     ///         StorageVirtualMachineId = aws_fsx_ontap_storage_virtual_machine.Test.Id,
-    ///         TieringPolicy = new Aws.Fsx.Inputs.OntapVolumeTieringPolicyArgs
+    ///         TieringPolicy = 
     ///         {
-    ///             Name = "AUTO",
-    ///             CoolingPeriod = 31,
+    ///             { "name", "AUTO" },
+    ///             { "coolingPeriod", 31 },
     ///         },
     ///     });
     /// 

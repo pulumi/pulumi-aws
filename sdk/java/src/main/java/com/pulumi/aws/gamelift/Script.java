@@ -28,7 +28,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.gamelift.Script;
  * import com.pulumi.aws.gamelift.ScriptArgs;
- * import com.pulumi.aws.gamelift.inputs.ScriptStorageLocationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -43,11 +42,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Script(&#34;example&#34;, ScriptArgs.builder()        
- *             .storageLocation(ScriptStorageLocationArgs.builder()
- *                 .bucket(aws_s3_bucket.example().id())
- *                 .key(aws_s3_object.example().key())
- *                 .roleArn(aws_iam_role.example().arn())
- *                 .build())
+ *             .storageLocation(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

@@ -19,70 +19,70 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/neptune"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sns"
+//	neptune/cluster "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/neptune/cluster"
+//	neptune/clusterInstance "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/neptune/clusterInstance"
+//	neptune/eventSubscription "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/neptune/eventSubscription"
+//	sns/topic "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/sns/topic"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			defaultCluster, err := neptune.NewCluster(ctx, "defaultCluster", &neptune.ClusterArgs{
-//				ClusterIdentifier:                pulumi.String("neptune-cluster-demo"),
-//				Engine:                           pulumi.String("neptune"),
-//				BackupRetentionPeriod:            pulumi.Int(5),
-//				PreferredBackupWindow:            pulumi.String("07:00-09:00"),
-//				SkipFinalSnapshot:                pulumi.Bool(true),
-//				IamDatabaseAuthenticationEnabled: pulumi.Bool(true),
-//				ApplyImmediately:                 pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			example, err := neptune.NewClusterInstance(ctx, "example", &neptune.ClusterInstanceArgs{
-//				ClusterIdentifier: defaultCluster.ID(),
-//				Engine:            pulumi.String("neptune"),
-//				InstanceClass:     pulumi.String("db.r4.large"),
-//				ApplyImmediately:  pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			defaultTopic, err := sns.NewTopic(ctx, "defaultTopic", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = neptune.NewEventSubscription(ctx, "defaultEventSubscription", &neptune.EventSubscriptionArgs{
-//				SnsTopicArn: defaultTopic.Arn,
-//				SourceType:  pulumi.String("db-instance"),
-//				SourceIds: pulumi.StringArray{
-//					example.ID(),
-//				},
-//				EventCategories: pulumi.StringArray{
-//					pulumi.String("maintenance"),
-//					pulumi.String("availability"),
-//					pulumi.String("creation"),
-//					pulumi.String("backup"),
-//					pulumi.String("restoration"),
-//					pulumi.String("recovery"),
-//					pulumi.String("deletion"),
-//					pulumi.String("failover"),
-//					pulumi.String("failure"),
-//					pulumi.String("notification"),
-//					pulumi.String("configuration change"),
-//					pulumi.String("read replica"),
-//				},
-//				Tags: pulumi.StringMap{
-//					"env": pulumi.String("test"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// defaultCluster, err := neptune/cluster.NewCluster(ctx, "defaultCluster", &neptune/cluster.ClusterArgs{
+// ClusterIdentifier: "neptune-cluster-demo",
+// Engine: "neptune",
+// BackupRetentionPeriod: 5,
+// PreferredBackupWindow: "07:00-09:00",
+// SkipFinalSnapshot: true,
+// IamDatabaseAuthenticationEnabled: "true",
+// ApplyImmediately: "true",
+// })
+// if err != nil {
+// return err
+// }
+// example, err := neptune/clusterInstance.NewClusterInstance(ctx, "example", &neptune/clusterInstance.ClusterInstanceArgs{
+// ClusterIdentifier: defaultCluster.Id,
+// Engine: "neptune",
+// InstanceClass: "db.r4.large",
+// ApplyImmediately: "true",
+// })
+// if err != nil {
+// return err
+// }
+// defaultTopic, err := sns/topic.NewTopic(ctx, "defaultTopic", nil)
+// if err != nil {
+// return err
+// }
+// _, err = neptune/eventSubscription.NewEventSubscription(ctx, "defaultEventSubscription", &neptune/eventSubscription.EventSubscriptionArgs{
+// SnsTopicArn: defaultTopic.Arn,
+// SourceType: "db-instance",
+// SourceIds: []interface{}{
+// example.Id,
+// },
+// EventCategories: []string{
+// "maintenance",
+// "availability",
+// "creation",
+// "backup",
+// "restoration",
+// "recovery",
+// "deletion",
+// "failover",
+// "failure",
+// "notification",
+// "configuration change",
+// "read replica",
+// },
+// Tags: map[string]interface{}{
+// "env": "test",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

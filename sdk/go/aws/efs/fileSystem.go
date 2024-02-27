@@ -21,25 +21,23 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/efs"
+//	efs/fileSystem "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/efs/fileSystem"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := efs.NewFileSystem(ctx, "foo", &efs.FileSystemArgs{
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("MyProduct"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := efs/fileSystem.NewFileSystem(ctx, "foo", &efs/fileSystem.FileSystemArgs{
+// Tags: map[string]interface{}{
+// "Name": "MyProduct",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Using lifecycle policy
 //
@@ -48,27 +46,25 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/efs"
+//	efs/fileSystem "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/efs/fileSystem"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := efs.NewFileSystem(ctx, "fooWithLifecylePolicy", &efs.FileSystemArgs{
-//				LifecyclePolicies: efs.FileSystemLifecyclePolicyArray{
-//					&efs.FileSystemLifecyclePolicyArgs{
-//						TransitionToIa: pulumi.String("AFTER_30_DAYS"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := efs/fileSystem.NewFileSystem(ctx, "fooWithLifecylePolicy", &efs/fileSystem.FileSystemArgs{
+// LifecyclePolicies: []map[string]interface{}{
+// map[string]interface{}{
+// "transitionToIa": "AFTER_30_DAYS",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

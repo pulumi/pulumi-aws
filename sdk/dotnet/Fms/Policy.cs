@@ -25,27 +25,27 @@ namespace Pulumi.Aws.Fms
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleRuleGroup = new Aws.WafRegional.RuleGroup("exampleRuleGroup", new()
+    ///     var exampleRuleGroup = new Aws.Wafregional.RuleGroup.RuleGroup("exampleRuleGroup", new()
     ///     {
     ///         MetricName = "WAFRuleGroupExample",
     ///     });
     /// 
-    ///     var examplePolicy = new Aws.Fms.Policy("examplePolicy", new()
+    ///     var examplePolicy = new Aws.Fms.Policy.Policy("examplePolicy", new()
     ///     {
     ///         ExcludeResourceTags = false,
     ///         RemediationEnabled = false,
     ///         ResourceType = "AWS::ElasticLoadBalancingV2::LoadBalancer",
-    ///         SecurityServicePolicyData = new Aws.Fms.Inputs.PolicySecurityServicePolicyDataArgs
+    ///         SecurityServicePolicyData = 
     ///         {
-    ///             Type = "WAF",
-    ///             ManagedServiceData = exampleRuleGroup.Id.Apply(id =&gt; JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///             { "type", "WAF" },
+    ///             { "managedServiceData", JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///             {
     ///                 ["type"] = "WAF",
     ///                 ["ruleGroups"] = new[]
     ///                 {
     ///                     new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         ["id"] = id,
+    ///                         ["id"] = exampleRuleGroup.Id,
     ///                         ["overrideAction"] = new Dictionary&lt;string, object?&gt;
     ///                         {
     ///                             ["type"] = "COUNT",
@@ -57,7 +57,7 @@ namespace Pulumi.Aws.Fms
     ///                     ["type"] = "BLOCK",
     ///                 },
     ///                 ["overrideCustomerWebACLAssociation"] = false,
-    ///             })),
+    ///             }) },
     ///         },
     ///         Tags = 
     ///         {

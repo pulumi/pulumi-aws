@@ -94,15 +94,6 @@ def get_connector(name: Optional[str] = None,
     """
     Get information on an Amazon MSK Connect Connector.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.mskconnect.get_connector(name="example-mskconnector")
-    ```
-
 
     :param str name: Name of the connector.
     """
@@ -124,15 +115,6 @@ def get_connector_output(name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConnectorResult]:
     """
     Get information on an Amazon MSK Connect Connector.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.mskconnect.get_connector(name="example-mskconnector")
-    ```
 
 
     :param str name: Name of the connector.

@@ -12,30 +12,6 @@ import (
 )
 
 // Data resource to get a list of Lambda Functions.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lambda"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lambda.GetFunctions(ctx, nil, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetFunctions(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetFunctionsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetFunctionsResult

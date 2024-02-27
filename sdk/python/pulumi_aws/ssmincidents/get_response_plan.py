@@ -154,6 +154,14 @@ def get_response_plan(arn: Optional[str] = None,
     Use this data source to manage a response plan in AWS Systems Manager Incident Manager.
 
     ## Example Usage
+    ### Basic Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.ssmincidents.response_plan.ResponsePlan("example", arn=exampleARN)
+    ```
 
 
     :param str arn: The Amazon Resource Name (ARN) of the response plan.
@@ -186,6 +194,14 @@ def get_response_plan_output(arn: Optional[pulumi.Input[str]] = None,
     Use this data source to manage a response plan in AWS Systems Manager Incident Manager.
 
     ## Example Usage
+    ### Basic Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.ssmincidents.response_plan.ResponsePlan("example", arn=exampleARN)
+    ```
 
 
     :param str arn: The Amazon Resource Name (ARN) of the response plan.

@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * // Create a new load balancer
- * const bar = new aws.elb.LoadBalancer("bar", {
+ * const bar = new aws.elb/loadBalancer.LoadBalancer("bar", {
  *     availabilityZones: [
  *         "us-west-2a",
  *         "us-west-2b",

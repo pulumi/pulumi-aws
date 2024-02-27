@@ -12,36 +12,6 @@ import (
 )
 
 // Information about a single RDS Reserved Instance Offering.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/rds"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := rds.GetReservedInstanceOffering(ctx, &rds.GetReservedInstanceOfferingArgs{
-//				DbInstanceClass:    "db.t2.micro",
-//				Duration:           31536000,
-//				MultiAz:            false,
-//				OfferingType:       "All Upfront",
-//				ProductDescription: "mysql",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetReservedInstanceOffering(ctx *pulumi.Context, args *GetReservedInstanceOfferingArgs, opts ...pulumi.InvokeOption) (*GetReservedInstanceOfferingResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetReservedInstanceOfferingResult

@@ -23,35 +23,33 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iot"
+//	iot/eventConfigurations "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/iot/eventConfigurations"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := iot.NewEventConfigurations(ctx, "example", &iot.EventConfigurationsArgs{
-//				EventConfigurations: pulumi.BoolMap{
-//					"CA_CERTIFICATE":         pulumi.Bool(false),
-//					"CERTIFICATE":            pulumi.Bool(true),
-//					"JOB":                    pulumi.Bool(false),
-//					"JOB_EXECUTION":          pulumi.Bool(false),
-//					"POLICY":                 pulumi.Bool(false),
-//					"THING":                  pulumi.Bool(true),
-//					"THING_GROUP":            pulumi.Bool(false),
-//					"THING_GROUP_HIERARCHY":  pulumi.Bool(false),
-//					"THING_GROUP_MEMBERSHIP": pulumi.Bool(false),
-//					"THING_TYPE":             pulumi.Bool(false),
-//					"THING_TYPE_ASSOCIATION": pulumi.Bool(false),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := iot/eventConfigurations.NewEventConfigurations(ctx, "example", &iot/eventConfigurations.EventConfigurationsArgs{
+// EventConfigurations: map[string]interface{}{
+// "CA_CERTIFICATE": false,
+// "CERTIFICATE": true,
+// "JOB": false,
+// "JOB_EXECUTION": false,
+// "POLICY": false,
+// "THING": true,
+// "THING_GROUP": false,
+// "THING_GROUP_HIERARCHY": false,
+// "THING_GROUP_MEMBERSHIP": false,
+// "THING_TYPE": false,
+// "THING_TYPE_ASSOCIATION": false,
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

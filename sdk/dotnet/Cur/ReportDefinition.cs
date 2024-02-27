@@ -24,7 +24,7 @@ namespace Pulumi.Aws.Cur
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleCurReportDefinition = new Aws.Cur.ReportDefinition("exampleCurReportDefinition", new()
+    ///     var exampleCurReportDefinition = new Aws.Cur.ReportDefinition.ReportDefinition("exampleCurReportDefinition", new()
     ///     {
     ///         AdditionalArtifacts = new[]
     ///         {

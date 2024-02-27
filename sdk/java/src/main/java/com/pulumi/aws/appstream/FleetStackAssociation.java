@@ -25,7 +25,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.appstream.Fleet;
  * import com.pulumi.aws.appstream.FleetArgs;
- * import com.pulumi.aws.appstream.inputs.FleetComputeCapacityArgs;
  * import com.pulumi.aws.appstream.Stack;
  * import com.pulumi.aws.appstream.FleetStackAssociation;
  * import com.pulumi.aws.appstream.FleetStackAssociationArgs;
@@ -45,9 +44,7 @@ import javax.annotation.Nullable;
  *         var exampleFleet = new Fleet(&#34;exampleFleet&#34;, FleetArgs.builder()        
  *             .imageName(&#34;Amazon-AppStream2-Sample-Image-03-11-2023&#34;)
  *             .instanceType(&#34;stream.standard.small&#34;)
- *             .computeCapacity(FleetComputeCapacityArgs.builder()
- *                 .desiredInstances(1)
- *                 .build())
+ *             .computeCapacity(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleStack = new Stack(&#34;exampleStack&#34;);

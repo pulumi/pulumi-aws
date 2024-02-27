@@ -2123,12 +2123,12 @@ class VpnConnection(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_transit_gateway = aws.ec2transitgateway.TransitGateway("exampleTransitGateway")
-        example_customer_gateway = aws.ec2.CustomerGateway("exampleCustomerGateway",
-            bgp_asn="65000",
-            ip_address="172.0.0.1",
-            type="ipsec.1")
-        example_vpn_connection = aws.ec2.VpnConnection("exampleVpnConnection",
+        example_transit_gateway = aws.ec2transitgateway.transit_gateway.TransitGateway("exampleTransitGateway")
+        example_customer_gateway = aws.ec2.customer_gateway.CustomerGateway("exampleCustomerGateway",
+            bgp_asn=65000,
+            ip_address=172.0.0.1,
+            type=ipsec.1)
+        example_vpn_connection = aws.ec2.vpn_connection.VpnConnection("exampleVpnConnection",
             customer_gateway_id=example_customer_gateway.id,
             transit_gateway_id=example_transit_gateway.id,
             type=example_customer_gateway.type)
@@ -2139,51 +2139,17 @@ class VpnConnection(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        vpc = aws.ec2.Vpc("vpc", cidr_block="10.0.0.0/16")
-        vpn_gateway = aws.ec2.VpnGateway("vpnGateway", vpc_id=vpc.id)
-        customer_gateway = aws.ec2.CustomerGateway("customerGateway",
-            bgp_asn="65000",
-            ip_address="172.0.0.1",
-            type="ipsec.1")
-        main = aws.ec2.VpnConnection("main",
+        vpc = aws.ec2.vpc.Vpc("vpc", cidr_block=10.0.0.0/16)
+        vpn_gateway = aws.ec2.vpn_gateway.VpnGateway("vpnGateway", vpc_id=vpc.id)
+        customer_gateway = aws.ec2.customer_gateway.CustomerGateway("customerGateway",
+            bgp_asn=65000,
+            ip_address=172.0.0.1,
+            type=ipsec.1)
+        main = aws.ec2.vpn_connection.VpnConnection("main",
             vpn_gateway_id=vpn_gateway.id,
             customer_gateway_id=customer_gateway.id,
-            type="ipsec.1",
+            type=ipsec.1,
             static_routes_only=True)
-        ```
-        ### AWS Site to Site Private VPN
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_gateway = aws.directconnect.Gateway("exampleGateway", amazon_side_asn="64512")
-        example_transit_gateway = aws.ec2transitgateway.TransitGateway("exampleTransitGateway",
-            amazon_side_asn=64513,
-            description="example_ipsec_vpn_example",
-            transit_gateway_cidr_blocks=["10.0.0.0/24"])
-        example_customer_gateway = aws.ec2.CustomerGateway("exampleCustomerGateway",
-            bgp_asn="64514",
-            ip_address="10.0.0.1",
-            type="ipsec.1",
-            tags={
-                "Name": "example_ipsec_vpn_example",
-            })
-        example_gateway_association = aws.directconnect.GatewayAssociation("exampleGatewayAssociation",
-            dx_gateway_id=example_gateway.id,
-            associated_gateway_id=example_transit_gateway.id,
-            allowed_prefixes=["10.0.0.0/8"])
-        example_direct_connect_gateway_attachment = aws.ec2transitgateway.get_direct_connect_gateway_attachment_output(transit_gateway_id=example_transit_gateway.id,
-            dx_gateway_id=example_gateway.id)
-        example_vpn_connection = aws.ec2.VpnConnection("exampleVpnConnection",
-            customer_gateway_id=example_customer_gateway.id,
-            outside_ip_address_type="PrivateIpv4",
-            transit_gateway_id=example_transit_gateway.id,
-            transport_transit_gateway_attachment_id=example_direct_connect_gateway_attachment.id,
-            type="ipsec.1",
-            tags={
-                "Name": "example_ipsec_vpn_example",
-            })
         ```
 
         ## Import
@@ -2271,12 +2237,12 @@ class VpnConnection(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_transit_gateway = aws.ec2transitgateway.TransitGateway("exampleTransitGateway")
-        example_customer_gateway = aws.ec2.CustomerGateway("exampleCustomerGateway",
-            bgp_asn="65000",
-            ip_address="172.0.0.1",
-            type="ipsec.1")
-        example_vpn_connection = aws.ec2.VpnConnection("exampleVpnConnection",
+        example_transit_gateway = aws.ec2transitgateway.transit_gateway.TransitGateway("exampleTransitGateway")
+        example_customer_gateway = aws.ec2.customer_gateway.CustomerGateway("exampleCustomerGateway",
+            bgp_asn=65000,
+            ip_address=172.0.0.1,
+            type=ipsec.1)
+        example_vpn_connection = aws.ec2.vpn_connection.VpnConnection("exampleVpnConnection",
             customer_gateway_id=example_customer_gateway.id,
             transit_gateway_id=example_transit_gateway.id,
             type=example_customer_gateway.type)
@@ -2287,51 +2253,17 @@ class VpnConnection(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        vpc = aws.ec2.Vpc("vpc", cidr_block="10.0.0.0/16")
-        vpn_gateway = aws.ec2.VpnGateway("vpnGateway", vpc_id=vpc.id)
-        customer_gateway = aws.ec2.CustomerGateway("customerGateway",
-            bgp_asn="65000",
-            ip_address="172.0.0.1",
-            type="ipsec.1")
-        main = aws.ec2.VpnConnection("main",
+        vpc = aws.ec2.vpc.Vpc("vpc", cidr_block=10.0.0.0/16)
+        vpn_gateway = aws.ec2.vpn_gateway.VpnGateway("vpnGateway", vpc_id=vpc.id)
+        customer_gateway = aws.ec2.customer_gateway.CustomerGateway("customerGateway",
+            bgp_asn=65000,
+            ip_address=172.0.0.1,
+            type=ipsec.1)
+        main = aws.ec2.vpn_connection.VpnConnection("main",
             vpn_gateway_id=vpn_gateway.id,
             customer_gateway_id=customer_gateway.id,
-            type="ipsec.1",
+            type=ipsec.1,
             static_routes_only=True)
-        ```
-        ### AWS Site to Site Private VPN
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_gateway = aws.directconnect.Gateway("exampleGateway", amazon_side_asn="64512")
-        example_transit_gateway = aws.ec2transitgateway.TransitGateway("exampleTransitGateway",
-            amazon_side_asn=64513,
-            description="example_ipsec_vpn_example",
-            transit_gateway_cidr_blocks=["10.0.0.0/24"])
-        example_customer_gateway = aws.ec2.CustomerGateway("exampleCustomerGateway",
-            bgp_asn="64514",
-            ip_address="10.0.0.1",
-            type="ipsec.1",
-            tags={
-                "Name": "example_ipsec_vpn_example",
-            })
-        example_gateway_association = aws.directconnect.GatewayAssociation("exampleGatewayAssociation",
-            dx_gateway_id=example_gateway.id,
-            associated_gateway_id=example_transit_gateway.id,
-            allowed_prefixes=["10.0.0.0/8"])
-        example_direct_connect_gateway_attachment = aws.ec2transitgateway.get_direct_connect_gateway_attachment_output(transit_gateway_id=example_transit_gateway.id,
-            dx_gateway_id=example_gateway.id)
-        example_vpn_connection = aws.ec2.VpnConnection("exampleVpnConnection",
-            customer_gateway_id=example_customer_gateway.id,
-            outside_ip_address_type="PrivateIpv4",
-            transit_gateway_id=example_transit_gateway.id,
-            transport_transit_gateway_attachment_id=example_direct_connect_gateway_attachment.id,
-            type="ipsec.1",
-            tags={
-                "Name": "example_ipsec_vpn_example",
-            })
         ```
 
         ## Import

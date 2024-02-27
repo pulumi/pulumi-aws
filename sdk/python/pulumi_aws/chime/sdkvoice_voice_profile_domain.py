@@ -202,16 +202,16 @@ class SdkvoiceVoiceProfileDomain(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_key = aws.kms.Key("exampleKey",
-            description="KMS Key for Voice Profile Domain",
+        example_key = aws.kms.key.Key("exampleKey",
+            description=KMS Key for Voice Profile Domain,
             deletion_window_in_days=7)
-        example_sdkvoice_voice_profile_domain = aws.chime.SdkvoiceVoiceProfileDomain("exampleSdkvoiceVoiceProfileDomain",
-            server_side_encryption_configuration=aws.chime.SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgs(
-                kms_key_arn=example_key.arn,
-            ),
-            description="My Voice Profile Domain",
+        example_sdkvoice_voice_profile_domain = aws.chime.sdkvoice_voice_profile_domain.SdkvoiceVoiceProfileDomain("exampleSdkvoiceVoiceProfileDomain",
+            server_side_encryption_configuration={
+                kmsKeyArn: example_key.arn,
+            },
+            description=My Voice Profile Domain,
             tags={
-                "key1": "value1",
+                key1: value1,
             })
         ```
 
@@ -245,16 +245,16 @@ class SdkvoiceVoiceProfileDomain(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_key = aws.kms.Key("exampleKey",
-            description="KMS Key for Voice Profile Domain",
+        example_key = aws.kms.key.Key("exampleKey",
+            description=KMS Key for Voice Profile Domain,
             deletion_window_in_days=7)
-        example_sdkvoice_voice_profile_domain = aws.chime.SdkvoiceVoiceProfileDomain("exampleSdkvoiceVoiceProfileDomain",
-            server_side_encryption_configuration=aws.chime.SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgs(
-                kms_key_arn=example_key.arn,
-            ),
-            description="My Voice Profile Domain",
+        example_sdkvoice_voice_profile_domain = aws.chime.sdkvoice_voice_profile_domain.SdkvoiceVoiceProfileDomain("exampleSdkvoiceVoiceProfileDomain",
+            server_side_encryption_configuration={
+                kmsKeyArn: example_key.arn,
+            },
+            description=My Voice Profile Domain,
             tags={
-                "key1": "value1",
+                key1: value1,
             })
         ```
 

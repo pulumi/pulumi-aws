@@ -22,11 +22,11 @@ namespace Pulumi.Aws.Location
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Location.Map("example", new()
+    ///     var example = new Aws.Location.Map.Map("example", new()
     ///     {
-    ///         Configuration = new Aws.Location.Inputs.MapConfigurationArgs
+    ///         Configuration = 
     ///         {
-    ///             Style = "VectorHereBerlin",
+    ///             { "style", "VectorHereBerlin" },
     ///         },
     ///         MapName = "example",
     ///     });

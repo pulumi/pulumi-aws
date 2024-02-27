@@ -13,8 +13,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleGraphQLApi = new aws.appsync.GraphQLApi("exampleGraphQLApi", {authenticationType: "API_KEY"});
- * const exampleType = new aws.appsync.Type("exampleType", {
+ * const exampleGraphQLApi = new aws.appsync/graphQLApi.GraphQLApi("exampleGraphQLApi", {authenticationType: "API_KEY"});
+ * const exampleType = new aws.appsync/type.Type("exampleType", {
  *     apiId: exampleGraphQLApi.id,
  *     format: "SDL",
  *     definition: `type Mutation

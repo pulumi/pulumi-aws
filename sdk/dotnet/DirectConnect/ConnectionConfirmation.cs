@@ -22,7 +22,7 @@ namespace Pulumi.Aws.DirectConnect
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var confirmation = new Aws.DirectConnect.ConnectionConfirmation("confirmation", new()
+    ///     var confirmation = new Aws.Directconnect.ConnectionConfirmation.ConnectionConfirmation("confirmation", new()
     ///     {
     ///         ConnectionId = "dxcon-ffabc123",
     ///     });

@@ -21,24 +21,22 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/organizations"
+//	organizations/delegatedAdministrator "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/organizations/delegatedAdministrator"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := organizations.NewDelegatedAdministrator(ctx, "example", &organizations.DelegatedAdministratorArgs{
-//				AccountId:        pulumi.String("123456789012"),
-//				ServicePrincipal: pulumi.String("principal"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := organizations/delegatedAdministrator.NewDelegatedAdministrator(ctx, "example", &organizations/delegatedAdministrator.DelegatedAdministratorArgs{
+// AccountId: "123456789012",
+// ServicePrincipal: "principal",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

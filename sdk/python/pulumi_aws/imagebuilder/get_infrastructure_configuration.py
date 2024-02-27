@@ -238,15 +238,6 @@ def get_infrastructure_configuration(arn: Optional[str] = None,
     """
     Provides details about an Image Builder Infrastructure Configuration.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.imagebuilder.get_infrastructure_configuration(arn="arn:aws:imagebuilder:us-west-2:aws:infrastructure-configuration/example")
-    ```
-
 
     :param str arn: ARN of the infrastructure configuration.
     :param Mapping[str, str] resource_tags: Key-value map of resource tags for the infrastructure created by the infrastructure configuration.
@@ -286,15 +277,6 @@ def get_infrastructure_configuration_output(arn: Optional[pulumi.Input[str]] = N
                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInfrastructureConfigurationResult]:
     """
     Provides details about an Image Builder Infrastructure Configuration.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.imagebuilder.get_infrastructure_configuration(arn="arn:aws:imagebuilder:us-west-2:aws:infrastructure-configuration/example")
-    ```
 
 
     :param str arn: ARN of the infrastructure configuration.

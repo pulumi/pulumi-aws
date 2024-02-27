@@ -22,31 +22,29 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/chime"
+//	chime/sdkvoiceSipRule "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/chime/sdkvoiceSipRule"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := chime.NewSdkvoiceSipRule(ctx, "example", &chime.SdkvoiceSipRuleArgs{
-//				TriggerType:  pulumi.String("RequestUriHostname"),
-//				TriggerValue: pulumi.Any(aws_chime_voice_connector.ExampleVoiceConnector.Outbound_host_name),
-//				TargetApplications: chime.SdkvoiceSipRuleTargetApplicationArray{
-//					&chime.SdkvoiceSipRuleTargetApplicationArgs{
-//						Priority:              pulumi.Int(1),
-//						SipMediaApplicationId: pulumi.Any(aws_chimesdkvoice_sip_media_application.ExampleSma.Id),
-//						AwsRegion:             pulumi.String("us-east-1"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := chime/sdkvoiceSipRule.NewSdkvoiceSipRule(ctx, "example", &chime/sdkvoiceSipRule.SdkvoiceSipRuleArgs{
+// TriggerType: "RequestUriHostname",
+// TriggerValue: aws_chime_voice_connector.ExampleVoiceConnector.Outbound_host_name,
+// TargetApplications: []map[string]interface{}{
+// map[string]interface{}{
+// "priority": 1,
+// "sipMediaApplicationId": aws_chimesdkvoice_sip_media_application.ExampleSma.Id,
+// "awsRegion": "us-east-1",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

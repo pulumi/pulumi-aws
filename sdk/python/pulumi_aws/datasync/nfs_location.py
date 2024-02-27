@@ -258,12 +258,12 @@ class NfsLocation(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.datasync.NfsLocation("example",
-            server_hostname="nfs.example.com",
-            subdirectory="/exported/path",
-            on_prem_config=aws.datasync.NfsLocationOnPremConfigArgs(
-                agent_arns=[aws_datasync_agent["example"]["arn"]],
-            ))
+        example = aws.datasync.nfs_location.NfsLocation("example",
+            server_hostname=nfs.example.com,
+            subdirectory=/exported/path,
+            on_prem_config={
+                agentArns: [aws_datasync_agent.example.arn],
+            })
         ```
 
         ## Import
@@ -299,12 +299,12 @@ class NfsLocation(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.datasync.NfsLocation("example",
-            server_hostname="nfs.example.com",
-            subdirectory="/exported/path",
-            on_prem_config=aws.datasync.NfsLocationOnPremConfigArgs(
-                agent_arns=[aws_datasync_agent["example"]["arn"]],
-            ))
+        example = aws.datasync.nfs_location.NfsLocation("example",
+            server_hostname=nfs.example.com,
+            subdirectory=/exported/path,
+            on_prem_config={
+                agentArns: [aws_datasync_agent.example.arn],
+            })
         ```
 
         ## Import

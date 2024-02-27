@@ -138,13 +138,13 @@ class LbStickinessPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_lb = aws.lightsail.Lb("testLb",
-            health_check_path="/",
+        test_lb = aws.lightsail.lb.Lb("testLb",
+            health_check_path=/,
             instance_port=80,
             tags={
-                "foo": "bar",
+                foo: bar,
             })
-        test_lb_stickiness_policy = aws.lightsail.LbStickinessPolicy("testLbStickinessPolicy",
+        test_lb_stickiness_policy = aws.lightsail.lb_stickiness_policy.LbStickinessPolicy("testLbStickinessPolicy",
             lb_name=test_lb.name,
             cookie_duration=900,
             enabled=True)
@@ -179,13 +179,13 @@ class LbStickinessPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_lb = aws.lightsail.Lb("testLb",
-            health_check_path="/",
+        test_lb = aws.lightsail.lb.Lb("testLb",
+            health_check_path=/,
             instance_port=80,
             tags={
-                "foo": "bar",
+                foo: bar,
             })
-        test_lb_stickiness_policy = aws.lightsail.LbStickinessPolicy("testLbStickinessPolicy",
+        test_lb_stickiness_policy = aws.lightsail.lb_stickiness_policy.LbStickinessPolicy("testLbStickinessPolicy",
             lb_name=test_lb.name,
             cookie_duration=900,
             enabled=True)

@@ -6,30 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Provides details about a specific Amazon Connect Instance.
- *
- * ## Example Usage
- *
- * By instanceAlias
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const foo = aws.connect.getInstance({
- *     instanceAlias: "foo",
- * });
- * ```
- *
- * By instanceId
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const foo = aws.connect.getInstance({
- *     instanceId: "97afc98d-101a-ba98-ab97-ae114fc115ec",
- * });
- * ```
  */
 export function getInstance(args?: GetInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetInstanceResult> {
     args = args || {};
@@ -113,30 +89,6 @@ export interface GetInstanceResult {
 }
 /**
  * Provides details about a specific Amazon Connect Instance.
- *
- * ## Example Usage
- *
- * By instanceAlias
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const foo = aws.connect.getInstance({
- *     instanceAlias: "foo",
- * });
- * ```
- *
- * By instanceId
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const foo = aws.connect.getInstance({
- *     instanceId: "97afc98d-101a-ba98-ab97-ae114fc115ec",
- * });
- * ```
  */
 export function getInstanceOutput(args?: GetInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInstanceResult> {
     return pulumi.output(args).apply((a: any) => getInstance(a, opts))

@@ -25,51 +25,50 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53"
+//	ec2/vpc "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/vpc"
+//	route53/zone "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/route53/zone"
+//	route53/zoneAssociation "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/route53/zoneAssociation"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			primary, err := ec2.NewVpc(ctx, "primary", &ec2.VpcArgs{
-//				CidrBlock:          pulumi.String("10.6.0.0/16"),
-//				EnableDnsHostnames: pulumi.Bool(true),
-//				EnableDnsSupport:   pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			secondaryVpc, err := ec2.NewVpc(ctx, "secondaryVpc", &ec2.VpcArgs{
-//				CidrBlock:          pulumi.String("10.7.0.0/16"),
-//				EnableDnsHostnames: pulumi.Bool(true),
-//				EnableDnsSupport:   pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			example, err := route53.NewZone(ctx, "example", &route53.ZoneArgs{
-//				Vpcs: route53.ZoneVpcArray{
-//					&route53.ZoneVpcArgs{
-//						VpcId: primary.ID(),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = route53.NewZoneAssociation(ctx, "secondaryZoneAssociation", &route53.ZoneAssociationArgs{
-//				ZoneId: example.ZoneId,
-//				VpcId:  secondaryVpc.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// primary, err := ec2/vpc.NewVpc(ctx, "primary", &ec2/vpc.VpcArgs{
+// CidrBlock: "10.6.0.0/16",
+// EnableDnsHostnames: true,
+// EnableDnsSupport: true,
+// })
+// if err != nil {
+// return err
+// }
+// secondaryVpc, err := ec2/vpc.NewVpc(ctx, "secondaryVpc", &ec2/vpc.VpcArgs{
+// CidrBlock: "10.7.0.0/16",
+// EnableDnsHostnames: true,
+// EnableDnsSupport: true,
+// })
+// if err != nil {
+// return err
+// }
+// example, err := route53/zone.NewZone(ctx, "example", &route53/zone.ZoneArgs{
+// Vpcs: []map[string]interface{}{
+// map[string]interface{}{
+// "vpcId": primary.Id,
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = route53/zoneAssociation.NewZoneAssociation(ctx, "secondaryZoneAssociation", &route53/zoneAssociation.ZoneAssociationArgs{
+// ZoneId: example.ZoneId,
+// VpcId: secondaryVpc.Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

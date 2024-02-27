@@ -6,17 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Provides information about a MemoryDB ACL.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.memorydb.getAcl({
- *     name: "my-acl",
- * });
- * ```
  */
 export function getAcl(args: GetAclArgs, opts?: pulumi.InvokeOptions): Promise<GetAclResult> {
 
@@ -69,17 +58,6 @@ export interface GetAclResult {
 }
 /**
  * Provides information about a MemoryDB ACL.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.memorydb.getAcl({
- *     name: "my-acl",
- * });
- * ```
  */
 export function getAclOutput(args: GetAclOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAclResult> {
     return pulumi.output(args).apply((a: any) => getAcl(a, opts))

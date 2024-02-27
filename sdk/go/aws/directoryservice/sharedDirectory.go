@@ -21,30 +21,35 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/directoryservice"
+//	directoryservice/directory "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/directoryservice/directory"
+//	directoryservice/sharedDirectory "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/directoryservice/sharedDirectory"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 // func main() {
 // pulumi.Run(func(ctx *pulumi.Context) error {
-// exampleDirectory, err := directoryservice.NewDirectory(ctx, "exampleDirectory", &directoryservice.DirectoryArgs{
-// Name: pulumi.String("tf-example"),
-// Password: pulumi.String("SuperSecretPassw0rd"),
-// Type: pulumi.String("MicrosoftAD"),
-// Edition: pulumi.String("Standard"),
-// VpcSettings: &directoryservice.DirectoryVpcSettingsArgs{
-// VpcId: pulumi.Any(aws_vpc.Example.Id),
-// SubnetIds: %!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ #-resources-aws:directoryservice-sharedDirectory:SharedDirectory.pp:7,17-41),
+// exampleDirectory, err := directoryservice/directory.NewDirectory(ctx, "exampleDirectory", &directoryservice/directory.DirectoryArgs{
+// Name: "tf-example",
+// Password: "SuperSecretPassw0rd",
+// Type: "MicrosoftAD",
+// Edition: "Standard",
+// VpcSettings: var splat0 []interface{}
+// for _, val0 := range aws_subnet.Example {
+// splat0 = append(splat0, val0.Id)
+// }
+// map[string]interface{}{
+// "vpcId": aws_vpc.Example.Id,
+// "subnetIds": splat0,
 // },
 // })
 // if err != nil {
 // return err
 // }
-// _, err = directoryservice.NewSharedDirectory(ctx, "exampleSharedDirectory", &directoryservice.SharedDirectoryArgs{
-// DirectoryId: exampleDirectory.ID(),
-// Notes: pulumi.String("You wanna have a catch?"),
-// Target: &directoryservice.SharedDirectoryTargetArgs{
-// Id: pulumi.Any(data.Aws_caller_identity.Receiver.Account_id),
+// _, err = directoryservice/sharedDirectory.NewSharedDirectory(ctx, "exampleSharedDirectory", &directoryservice/sharedDirectory.SharedDirectoryArgs{
+// DirectoryId: exampleDirectory.Id,
+// Notes: "You wanna have a catch?",
+// Target: map[string]interface{}{
+// "id": data.Aws_caller_identity.Receiver.Account_id,
 // },
 // })
 // if err != nil {

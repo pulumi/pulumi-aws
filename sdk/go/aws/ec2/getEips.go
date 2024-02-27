@@ -12,38 +12,6 @@ import (
 )
 
 // Provides a list of Elastic IPs in a region.
-//
-// ## Example Usage
-//
-// The following shows outputting all Elastic IPs with the a specific tag value.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := ec2.GetEips(ctx, &ec2.GetEipsArgs{
-//				Tags: map[string]interface{}{
-//					"Env": "dev",
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			ctx.Export("allocationIds", example.AllocationIds)
-//			ctx.Export("publicIps", example.PublicIps)
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetEips(ctx *pulumi.Context, args *GetEipsArgs, opts ...pulumi.InvokeOption) (*GetEipsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetEipsResult

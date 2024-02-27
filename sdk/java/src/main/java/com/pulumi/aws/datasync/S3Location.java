@@ -29,7 +29,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.datasync.S3Location;
  * import com.pulumi.aws.datasync.S3LocationArgs;
- * import com.pulumi.aws.datasync.inputs.S3LocationS3ConfigArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -46,9 +45,7 @@ import javax.annotation.Nullable;
  *         var example = new S3Location(&#34;example&#34;, S3LocationArgs.builder()        
  *             .s3BucketArn(aws_s3_bucket.example().arn())
  *             .subdirectory(&#34;/example/prefix&#34;)
- *             .s3Config(S3LocationS3ConfigArgs.builder()
- *                 .bucketAccessRoleArn(aws_iam_role.example().arn())
- *                 .build())
+ *             .s3Config(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

@@ -25,7 +25,7 @@ namespace Pulumi.Aws.ServiceCatalog
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.ServiceCatalog.TagOptionResourceAssociation("example", new()
+    ///     var example = new Aws.Servicecatalog.TagOptionResourceAssociation.TagOptionResourceAssociation("example", new()
     ///     {
     ///         ResourceId = "prod-dnigbtea24ste",
     ///         TagOptionId = "tag-pjtvyakdlyo3m",

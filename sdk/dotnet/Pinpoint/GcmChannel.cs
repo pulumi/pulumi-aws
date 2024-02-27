@@ -23,9 +23,9 @@ namespace Pulumi.Aws.Pinpoint
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var app = new Aws.Pinpoint.App("app");
+    ///     var app = new Aws.Pinpoint.App.App("app");
     /// 
-    ///     var gcm = new Aws.Pinpoint.GcmChannel("gcm", new()
+    ///     var gcm = new Aws.Pinpoint.GcmChannel.GcmChannel("gcm", new()
     ///     {
     ///         ApplicationId = app.ApplicationId,
     ///         ApiKey = "api_key",

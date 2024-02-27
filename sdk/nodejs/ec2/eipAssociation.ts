@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const web = new aws.ec2.Instance("web", {
+ * const web = new aws.ec2/instance.Instance("web", {
  *     ami: "ami-21f78e11",
  *     availabilityZone: "us-west-2a",
  *     instanceType: "t2.micro",
@@ -27,8 +27,8 @@ import * as utilities from "../utilities";
  *         Name: "HelloWorld",
  *     },
  * });
- * const example = new aws.ec2.Eip("example", {domain: "vpc"});
- * const eipAssoc = new aws.ec2.EipAssociation("eipAssoc", {
+ * const example = new aws.ec2/eip.Eip("example", {domain: "vpc"});
+ * const eipAssoc = new aws.ec2/eipAssociation.EipAssociation("eipAssoc", {
  *     instanceId: web.id,
  *     allocationId: example.id,
  * });

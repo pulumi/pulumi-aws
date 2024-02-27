@@ -23,32 +23,30 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lambda"
+//	lambda/codeSigningConfig "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/lambda/codeSigningConfig"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lambda.NewCodeSigningConfig(ctx, "newCsc", &lambda.CodeSigningConfigArgs{
-//				AllowedPublishers: &lambda.CodeSigningConfigAllowedPublishersArgs{
-//					SigningProfileVersionArns: pulumi.StringArray{
-//						aws_signer_signing_profile.Example1.Arn,
-//						aws_signer_signing_profile.Example2.Arn,
-//					},
-//				},
-//				Policies: &lambda.CodeSigningConfigPoliciesArgs{
-//					UntrustedArtifactOnDeployment: pulumi.String("Warn"),
-//				},
-//				Description: pulumi.String("My awesome code signing config."),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := lambda/codeSigningConfig.NewCodeSigningConfig(ctx, "newCsc", &lambda/codeSigningConfig.CodeSigningConfigArgs{
+// AllowedPublishers: map[string]interface{}{
+// "signingProfileVersionArns": []interface{}{
+// aws_signer_signing_profile.Example1.Arn,
+// aws_signer_signing_profile.Example2.Arn,
+// },
+// },
+// Policies: map[string]interface{}{
+// "untrustedArtifactOnDeployment": "Warn",
+// },
+// Description: "My awesome code signing config.",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

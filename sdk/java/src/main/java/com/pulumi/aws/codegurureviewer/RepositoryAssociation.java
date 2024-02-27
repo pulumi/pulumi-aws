@@ -34,9 +34,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.codecommit.RepositoryArgs;
  * import com.pulumi.aws.codegurureviewer.RepositoryAssociation;
  * import com.pulumi.aws.codegurureviewer.RepositoryAssociationArgs;
- * import com.pulumi.aws.codegurureviewer.inputs.RepositoryAssociationRepositoryArgs;
- * import com.pulumi.aws.codegurureviewer.inputs.RepositoryAssociationRepositoryCodecommitArgs;
- * import com.pulumi.aws.codegurureviewer.inputs.RepositoryAssociationKmsKeyDetailsArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -57,15 +54,8 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleRepositoryAssociation = new RepositoryAssociation(&#34;exampleRepositoryAssociation&#34;, RepositoryAssociationArgs.builder()        
- *             .repository(RepositoryAssociationRepositoryArgs.builder()
- *                 .codecommit(RepositoryAssociationRepositoryCodecommitArgs.builder()
- *                     .name(exampleRepository.repositoryName())
- *                     .build())
- *                 .build())
- *             .kmsKeyDetails(RepositoryAssociationKmsKeyDetailsArgs.builder()
- *                 .encryptionOption(&#34;CUSTOMER_MANAGED_CMK&#34;)
- *                 .kmsKeyId(exampleKey.keyId())
- *                 .build())
+ *             .repository(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .kmsKeyDetails(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

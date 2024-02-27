@@ -23,23 +23,116 @@ namespace Pulumi.Aws.Quicksight
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Quicksight.Analysis("example", new()
+    ///     var example = new Aws.Quicksight.Analysis.Analysis("example", new()
     ///     {
     ///         AnalysisId = "example-id",
-    ///         SourceEntity = new Aws.Quicksight.Inputs.AnalysisSourceEntityArgs
+    ///         SourceEntity = 
     ///         {
-    ///             SourceTemplate = new Aws.Quicksight.Inputs.AnalysisSourceEntitySourceTemplateArgs
+    ///             { "sourceTemplate", 
     ///             {
-    ///                 Arn = aws_quicksight_template.Source.Arn,
-    ///                 DataSetReferences = new[]
+    ///                 { "arn", aws_quicksight_template.Source.Arn },
+    ///                 { "dataSetReferences", new[]
     ///                 {
-    ///                     new Aws.Quicksight.Inputs.AnalysisSourceEntitySourceTemplateDataSetReferenceArgs
+    ///                     
     ///                     {
-    ///                         DataSetArn = aws_quicksight_data_set.Dataset.Arn,
-    ///                         DataSetPlaceholder = "1",
+    ///                         { "dataSetArn", aws_quicksight_data_set.Dataset.Arn },
+    ///                         { "dataSetPlaceholder", "1" },
     ///                     },
+    ///                 } },
+    ///             } },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### With Definition
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Quicksight.Analysis.Analysis("example", new()
+    ///     {
+    ///         AnalysisId = "example-id",
+    ///         Definition = 
+    ///         {
+    ///             { "dataSetIdentifiersDeclarations", new[]
+    ///             {
+    ///                 
+    ///                 {
+    ///                     { "dataSetArn", aws_quicksight_data_set.Dataset.Arn },
+    ///                     { "identifier", "1" },
     ///                 },
-    ///             },
+    ///             } },
+    ///             { "sheets", new[]
+    ///             {
+    ///                 
+    ///                 {
+    ///                     { "title", "Example" },
+    ///                     { "sheetId", "Example1" },
+    ///                     { "visuals", new[]
+    ///                     {
+    ///                         
+    ///                         {
+    ///                             { "lineChartVisual", 
+    ///                             {
+    ///                                 { "visualId", "LineChart" },
+    ///                                 { "title", 
+    ///                                 {
+    ///                                     { "formatText", 
+    ///                                     {
+    ///                                         { "plainText", "Line Chart Example" },
+    ///                                     } },
+    ///                                 } },
+    ///                                 { "chartConfiguration", 
+    ///                                 {
+    ///                                     { "fieldWells", 
+    ///                                     {
+    ///                                         { "lineChartAggregatedFieldWells", 
+    ///                                         {
+    ///                                             { "categories", new[]
+    ///                                             {
+    ///                                                 
+    ///                                                 {
+    ///                                                     { "categoricalDimensionField", 
+    ///                                                     {
+    ///                                                         { "fieldId", "1" },
+    ///                                                         { "column", 
+    ///                                                         {
+    ///                                                             { "dataSetIdentifier", "1" },
+    ///                                                             { "columnName", "Column1" },
+    ///                                                         } },
+    ///                                                     } },
+    ///                                                 },
+    ///                                             } },
+    ///                                             { "values", new[]
+    ///                                             {
+    ///                                                 
+    ///                                                 {
+    ///                                                     { "categoricalMeasureField", 
+    ///                                                     {
+    ///                                                         { "fieldId", "2" },
+    ///                                                         { "column", 
+    ///                                                         {
+    ///                                                             { "dataSetIdentifier", "1" },
+    ///                                                             { "columnName", "Column1" },
+    ///                                                         } },
+    ///                                                         { "aggregationFunction", "COUNT" },
+    ///                                                     } },
+    ///                                                 },
+    ///                                             } },
+    ///                                         } },
+    ///                                     } },
+    ///                                 } },
+    ///                             } },
+    ///                         },
+    ///                     } },
+    ///                 },
+    ///             } },
     ///         },
     ///     });
     /// 

@@ -33,7 +33,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.glue.Classifier;
  * import com.pulumi.aws.glue.ClassifierArgs;
- * import com.pulumi.aws.glue.inputs.ClassifierCsvClassifierArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -48,16 +47,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Classifier(&#34;example&#34;, ClassifierArgs.builder()        
- *             .csvClassifier(ClassifierCsvClassifierArgs.builder()
- *                 .allowSingleColumn(false)
- *                 .containsHeader(&#34;PRESENT&#34;)
- *                 .delimiter(&#34;,&#34;)
- *                 .disableValueTrimming(false)
- *                 .headers(                
- *                     &#34;example1&#34;,
- *                     &#34;example2&#34;)
- *                 .quoteSymbol(&#34;&#39;&#34;)
- *                 .build())
+ *             .csvClassifier(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -72,7 +62,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.glue.Classifier;
  * import com.pulumi.aws.glue.ClassifierArgs;
- * import com.pulumi.aws.glue.inputs.ClassifierGrokClassifierArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -87,10 +76,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Classifier(&#34;example&#34;, ClassifierArgs.builder()        
- *             .grokClassifier(ClassifierGrokClassifierArgs.builder()
- *                 .classification(&#34;example&#34;)
- *                 .grokPattern(&#34;example&#34;)
- *                 .build())
+ *             .grokClassifier(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -105,7 +91,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.glue.Classifier;
  * import com.pulumi.aws.glue.ClassifierArgs;
- * import com.pulumi.aws.glue.inputs.ClassifierJsonClassifierArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -120,9 +105,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Classifier(&#34;example&#34;, ClassifierArgs.builder()        
- *             .jsonClassifier(ClassifierJsonClassifierArgs.builder()
- *                 .jsonPath(&#34;example&#34;)
- *                 .build())
+ *             .jsonClassifier(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -137,7 +120,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.glue.Classifier;
  * import com.pulumi.aws.glue.ClassifierArgs;
- * import com.pulumi.aws.glue.inputs.ClassifierXmlClassifierArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -152,10 +134,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Classifier(&#34;example&#34;, ClassifierArgs.builder()        
- *             .xmlClassifier(ClassifierXmlClassifierArgs.builder()
- *                 .classification(&#34;example&#34;)
- *                 .rowTag(&#34;example&#34;)
- *                 .build())
+ *             .xmlClassifier(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

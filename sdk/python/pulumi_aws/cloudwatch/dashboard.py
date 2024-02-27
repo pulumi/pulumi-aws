@@ -123,37 +123,37 @@ class Dashboard(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        main = aws.cloudwatch.Dashboard("main",
-            dashboard_name="my-dashboard",
+        main = aws.cloudwatch.dashboard.Dashboard("main",
+            dashboard_name=my-dashboard,
             dashboard_body=json.dumps({
-                "widgets": [
+                widgets: [
                     {
-                        "type": "metric",
-                        "x": 0,
-                        "y": 0,
-                        "width": 12,
-                        "height": 6,
-                        "properties": {
-                            "metrics": [[
-                                "AWS/EC2",
-                                "CPUUtilization",
-                                "InstanceId",
-                                "i-012345",
+                        type: metric,
+                        x: 0,
+                        y: 0,
+                        width: 12,
+                        height: 6,
+                        properties: {
+                            metrics: [[
+                                AWS/EC2,
+                                CPUUtilization,
+                                InstanceId,
+                                i-012345,
                             ]],
-                            "period": 300,
-                            "stat": "Average",
-                            "region": "us-east-1",
-                            "title": "EC2 Instance CPU",
+                            period: 300,
+                            stat: Average,
+                            region: us-east-1,
+                            title: EC2 Instance CPU,
                         },
                     },
                     {
-                        "type": "text",
-                        "x": 0,
-                        "y": 7,
-                        "width": 3,
-                        "height": 3,
-                        "properties": {
-                            "markdown": "Hello world",
+                        type: text,
+                        x: 0,
+                        y: 7,
+                        width: 3,
+                        height: 3,
+                        properties: {
+                            markdown: Hello world,
                         },
                     },
                 ],
@@ -189,37 +189,37 @@ class Dashboard(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        main = aws.cloudwatch.Dashboard("main",
-            dashboard_name="my-dashboard",
+        main = aws.cloudwatch.dashboard.Dashboard("main",
+            dashboard_name=my-dashboard,
             dashboard_body=json.dumps({
-                "widgets": [
+                widgets: [
                     {
-                        "type": "metric",
-                        "x": 0,
-                        "y": 0,
-                        "width": 12,
-                        "height": 6,
-                        "properties": {
-                            "metrics": [[
-                                "AWS/EC2",
-                                "CPUUtilization",
-                                "InstanceId",
-                                "i-012345",
+                        type: metric,
+                        x: 0,
+                        y: 0,
+                        width: 12,
+                        height: 6,
+                        properties: {
+                            metrics: [[
+                                AWS/EC2,
+                                CPUUtilization,
+                                InstanceId,
+                                i-012345,
                             ]],
-                            "period": 300,
-                            "stat": "Average",
-                            "region": "us-east-1",
-                            "title": "EC2 Instance CPU",
+                            period: 300,
+                            stat: Average,
+                            region: us-east-1,
+                            title: EC2 Instance CPU,
                         },
                     },
                     {
-                        "type": "text",
-                        "x": 0,
-                        "y": 7,
-                        "width": 3,
-                        "height": 3,
-                        "properties": {
-                            "markdown": "Hello world",
+                        type: text,
+                        x: 0,
+                        y: 7,
+                        width: 3,
+                        height: 3,
+                        properties: {
+                            markdown: Hello world,
                         },
                     },
                 ],

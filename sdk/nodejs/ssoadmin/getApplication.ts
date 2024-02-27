@@ -11,16 +11,6 @@ import * as utilities from "../utilities";
  * Data source for managing an AWS SSO Admin Application.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.ssoadmin.getApplication({
- *     applicationArn: "arn:aws:sso::012345678901:application/ssoins-1234/apl-5678",
- * });
- * ```
  */
 export function getApplication(args: GetApplicationArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationResult> {
 
@@ -87,16 +77,6 @@ export interface GetApplicationResult {
  * Data source for managing an AWS SSO Admin Application.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.ssoadmin.getApplication({
- *     applicationArn: "arn:aws:sso::012345678901:application/ssoins-1234/apl-5678",
- * });
- * ```
  */
 export function getApplicationOutput(args: GetApplicationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationResult> {
     return pulumi.output(args).apply((a: any) => getApplication(a, opts))

@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const monitor = new aws.opsworks.GangliaLayer("monitor", {
+ * const monitor = new aws.opsworks/gangliaLayer.GangliaLayer("monitor", {
  *     stackId: aws_opsworks_stack.main.id,
  *     password: "foobarbaz",
  * });

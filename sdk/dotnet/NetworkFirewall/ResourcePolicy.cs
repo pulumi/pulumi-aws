@@ -24,7 +24,7 @@ namespace Pulumi.Aws.NetworkFirewall
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.NetworkFirewall.ResourcePolicy("example", new()
+    ///     var example = new Aws.Networkfirewall.ResourcePolicy.ResourcePolicy("example", new()
     ///     {
     ///         ResourceArn = aws_networkfirewall_firewall_policy.Example.Arn,
     ///         Policy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
@@ -65,7 +65,7 @@ namespace Pulumi.Aws.NetworkFirewall
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.NetworkFirewall.ResourcePolicy("example", new()
+    ///     var example = new Aws.Networkfirewall.ResourcePolicy.ResourcePolicy("example", new()
     ///     {
     ///         ResourceArn = aws_networkfirewall_rule_group.Example.Arn,
     ///         Policy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;

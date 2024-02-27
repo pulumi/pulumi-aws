@@ -36,14 +36,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.sagemaker.DataQualityJobDefinition;
  * import com.pulumi.aws.sagemaker.DataQualityJobDefinitionArgs;
- * import com.pulumi.aws.sagemaker.inputs.DataQualityJobDefinitionDataQualityAppSpecificationArgs;
- * import com.pulumi.aws.sagemaker.inputs.DataQualityJobDefinitionDataQualityJobInputArgs;
- * import com.pulumi.aws.sagemaker.inputs.DataQualityJobDefinitionDataQualityJobInputEndpointInputArgs;
- * import com.pulumi.aws.sagemaker.inputs.DataQualityJobDefinitionDataQualityJobOutputConfigArgs;
- * import com.pulumi.aws.sagemaker.inputs.DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsArgs;
- * import com.pulumi.aws.sagemaker.inputs.DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsS3OutputArgs;
- * import com.pulumi.aws.sagemaker.inputs.DataQualityJobDefinitionJobResourcesArgs;
- * import com.pulumi.aws.sagemaker.inputs.DataQualityJobDefinitionJobResourcesClusterConfigArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -58,28 +50,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new DataQualityJobDefinition(&#34;test&#34;, DataQualityJobDefinitionArgs.builder()        
- *             .dataQualityAppSpecification(DataQualityJobDefinitionDataQualityAppSpecificationArgs.builder()
- *                 .imageUri(data.aws_sagemaker_prebuilt_ecr_image().monitor().registry_path())
- *                 .build())
- *             .dataQualityJobInput(DataQualityJobDefinitionDataQualityJobInputArgs.builder()
- *                 .endpointInput(DataQualityJobDefinitionDataQualityJobInputEndpointInputArgs.builder()
- *                     .endpointName(aws_sagemaker_endpoint.my_endpoint().name())
- *                     .build())
- *                 .build())
- *             .dataQualityJobOutputConfig(DataQualityJobDefinitionDataQualityJobOutputConfigArgs.builder()
- *                 .monitoringOutputs(DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsArgs.builder()
- *                     .s3Output(DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsS3OutputArgs.builder()
- *                         .s3Uri(String.format(&#34;https://%s/output&#34;, aws_s3_bucket.my_bucket().bucket_regional_domain_name()))
- *                         .build())
- *                     .build())
- *                 .build())
- *             .jobResources(DataQualityJobDefinitionJobResourcesArgs.builder()
- *                 .clusterConfig(DataQualityJobDefinitionJobResourcesClusterConfigArgs.builder()
- *                     .instanceCount(1)
- *                     .instanceType(&#34;ml.t3.medium&#34;)
- *                     .volumeSizeInGb(20)
- *                     .build())
- *                 .build())
+ *             .dataQualityAppSpecification(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .dataQualityJobInput(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .dataQualityJobOutputConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .jobResources(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .roleArn(aws_iam_role.my_role().arn())
  *             .build());
  * 

@@ -13,11 +13,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const bar = new aws.inspector.ResourceGroup("bar", {tags: {
+ * const bar = new aws.inspector/resourceGroup.ResourceGroup("bar", {tags: {
  *     Name: "foo",
  *     Env: "bar",
  * }});
- * const foo = new aws.inspector.AssessmentTarget("foo", {resourceGroupArn: bar.arn});
+ * const foo = new aws.inspector/assessmentTarget.AssessmentTarget("foo", {resourceGroupArn: bar.arn});
  * ```
  *
  * ## Import

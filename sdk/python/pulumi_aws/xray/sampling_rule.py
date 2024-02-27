@@ -499,20 +499,20 @@ class SamplingRule(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.xray.SamplingRule("example",
+        example = aws.xray.sampling_rule.SamplingRule("example",
             attributes={
-                "Hello": "Tris",
+                Hello: Tris,
             },
             fixed_rate=0.05,
-            host="*",
-            http_method="*",
+            host=*,
+            http_method=*,
             priority=9999,
             reservoir_size=1,
-            resource_arn="*",
-            rule_name="example",
-            service_name="*",
-            service_type="*",
-            url_path="*",
+            resource_arn=*,
+            rule_name=example,
+            service_name=*,
+            service_type=*,
+            url_path=*,
             version=1)
         ```
 
@@ -555,20 +555,20 @@ class SamplingRule(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.xray.SamplingRule("example",
+        example = aws.xray.sampling_rule.SamplingRule("example",
             attributes={
-                "Hello": "Tris",
+                Hello: Tris,
             },
             fixed_rate=0.05,
-            host="*",
-            http_method="*",
+            host=*,
+            http_method=*,
             priority=9999,
             reservoir_size=1,
-            resource_arn="*",
-            rule_name="example",
-            service_name="*",
-            service_type="*",
-            url_path="*",
+            resource_arn=*,
+            rule_name=example,
+            service_name=*,
+            service_type=*,
+            url_path=*,
             version=1)
         ```
 

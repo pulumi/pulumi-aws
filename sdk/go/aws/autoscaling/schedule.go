@@ -21,45 +21,44 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/autoscaling"
+//	autoscaling/group "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/autoscaling/group"
+//	autoscaling/schedule "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/autoscaling/schedule"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			foobarGroup, err := autoscaling.NewGroup(ctx, "foobarGroup", &autoscaling.GroupArgs{
-//				AvailabilityZones: pulumi.StringArray{
-//					pulumi.String("us-west-2a"),
-//				},
-//				MaxSize:                pulumi.Int(1),
-//				MinSize:                pulumi.Int(1),
-//				HealthCheckGracePeriod: pulumi.Int(300),
-//				HealthCheckType:        pulumi.String("ELB"),
-//				ForceDelete:            pulumi.Bool(true),
-//				TerminationPolicies: pulumi.StringArray{
-//					pulumi.String("OldestInstance"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = autoscaling.NewSchedule(ctx, "foobarSchedule", &autoscaling.ScheduleArgs{
-//				ScheduledActionName:  pulumi.String("foobar"),
-//				MinSize:              pulumi.Int(0),
-//				MaxSize:              pulumi.Int(1),
-//				DesiredCapacity:      pulumi.Int(0),
-//				StartTime:            pulumi.String("2016-12-11T18:00:00Z"),
-//				EndTime:              pulumi.String("2016-12-12T06:00:00Z"),
-//				AutoscalingGroupName: foobarGroup.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// foobarGroup, err := autoscaling/group.NewGroup(ctx, "foobarGroup", &autoscaling/group.GroupArgs{
+// AvailabilityZones: []string{
+// "us-west-2a",
+// },
+// MaxSize: 1,
+// MinSize: 1,
+// HealthCheckGracePeriod: 300,
+// HealthCheckType: "ELB",
+// ForceDelete: true,
+// TerminationPolicies: []string{
+// "OldestInstance",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = autoscaling/schedule.NewSchedule(ctx, "foobarSchedule", &autoscaling/schedule.ScheduleArgs{
+// ScheduledActionName: "foobar",
+// MinSize: 0,
+// MaxSize: 1,
+// DesiredCapacity: 0,
+// StartTime: "2016-12-11T18:00:00Z",
+// EndTime: "2016-12-12T06:00:00Z",
+// AutoscalingGroupName: foobarGroup.Name,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

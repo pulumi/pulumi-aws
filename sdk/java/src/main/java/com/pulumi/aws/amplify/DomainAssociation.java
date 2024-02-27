@@ -29,12 +29,10 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.amplify.App;
  * import com.pulumi.aws.amplify.AppArgs;
- * import com.pulumi.aws.amplify.inputs.AppCustomRuleArgs;
  * import com.pulumi.aws.amplify.Branch;
  * import com.pulumi.aws.amplify.BranchArgs;
  * import com.pulumi.aws.amplify.DomainAssociation;
  * import com.pulumi.aws.amplify.DomainAssociationArgs;
- * import com.pulumi.aws.amplify.inputs.DomainAssociationSubDomainArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -49,11 +47,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var exampleApp = new App(&#34;exampleApp&#34;, AppArgs.builder()        
- *             .customRules(AppCustomRuleArgs.builder()
- *                 .source(&#34;https://example.com&#34;)
- *                 .status(&#34;302&#34;)
- *                 .target(&#34;https://www.example.com&#34;)
- *                 .build())
+ *             .customRules(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var master = new Branch(&#34;master&#34;, BranchArgs.builder()        
@@ -65,14 +59,8 @@ import javax.annotation.Nullable;
  *             .appId(exampleApp.id())
  *             .domainName(&#34;example.com&#34;)
  *             .subDomains(            
- *                 DomainAssociationSubDomainArgs.builder()
- *                     .branchName(master.branchName())
- *                     .prefix(&#34;&#34;)
- *                     .build(),
- *                 DomainAssociationSubDomainArgs.builder()
- *                     .branchName(master.branchName())
- *                     .prefix(&#34;www&#34;)
- *                     .build())
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

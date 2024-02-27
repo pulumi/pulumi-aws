@@ -24,7 +24,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const _default = new aws.ec2.DefaultVpcDhcpOptions("default", {tags: {
+ * const _default = new aws.ec2/defaultVpcDhcpOptions.DefaultVpcDhcpOptions("default", {tags: {
  *     Name: "Default DHCP Option Set",
  * }});
  * ```

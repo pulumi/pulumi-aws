@@ -128,16 +128,6 @@ def get_serverless_security_policy(name: Optional[str] = None,
     """
     Use this data source to get information about an AWS OpenSearch Serverless Security Policy.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.opensearch.get_serverless_security_policy(name="example-security-policy",
-        type="encryption")
-    ```
-
 
     :param str name: Name of the policy
     :param str type: Type of security policy. One of `encryption` or `network`.
@@ -165,16 +155,6 @@ def get_serverless_security_policy_output(name: Optional[pulumi.Input[str]] = No
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServerlessSecurityPolicyResult]:
     """
     Use this data source to get information about an AWS OpenSearch Serverless Security Policy.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.opensearch.get_serverless_security_policy(name="example-security-policy",
-        type="encryption")
-    ```
 
 
     :param str name: Name of the policy

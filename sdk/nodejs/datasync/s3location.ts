@@ -18,7 +18,7 @@ import {ARN} from "..";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.datasync.S3Location("example", {
+ * const example = new aws.datasync/s3Location.S3Location("example", {
  *     s3BucketArn: aws_s3_bucket.example.arn,
  *     subdirectory: "/example/prefix",
  *     s3Config: {

@@ -21,7 +21,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.cloudfront.ResponseHeadersPolicy("example", {
+ * const example = new aws.cloudfront/responseHeadersPolicy.ResponseHeadersPolicy("example", {
  *     comment: "test comment",
  *     corsConfig: {
  *         accessControlAllowCredentials: true,
@@ -45,7 +45,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.cloudfront.ResponseHeadersPolicy("example", {customHeadersConfig: {
+ * const example = new aws.cloudfront/responseHeadersPolicy.ResponseHeadersPolicy("example", {customHeadersConfig: {
  *     items: [
  *         {
  *             header: "X-Permitted-Cross-Domain-Policies",
@@ -67,7 +67,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.cloudfront.ResponseHeadersPolicy("example", {
+ * const example = new aws.cloudfront/responseHeadersPolicy.ResponseHeadersPolicy("example", {
  *     customHeadersConfig: {
  *         items: [{
  *             header: "X-Permitted-Cross-Domain-Policies",

@@ -412,8 +412,8 @@ class Workflow(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.imagebuilder.Workflow("example",
-            data=\"\"\"  name: example
+        example = aws.imagebuilder.workflow.Workflow("example",
+            data=  name: example
           description: Workflow to test an image
           schemaVersion: 1.0
 
@@ -440,9 +440,9 @@ class Workflow(pulumi.CustomResource):
                 booleanEquals: true
                 value: "$.parameters.waitForActionAtEnd"
 
-        \"\"\",
-            type="TEST",
-            version="1.0.0")
+        ,
+            type=TEST,
+            version=1.0.0)
         ```
 
         ## Import
@@ -484,8 +484,8 @@ class Workflow(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.imagebuilder.Workflow("example",
-            data=\"\"\"  name: example
+        example = aws.imagebuilder.workflow.Workflow("example",
+            data=  name: example
           description: Workflow to test an image
           schemaVersion: 1.0
 
@@ -512,9 +512,9 @@ class Workflow(pulumi.CustomResource):
                 booleanEquals: true
                 value: "$.parameters.waitForActionAtEnd"
 
-        \"\"\",
-            type="TEST",
-            version="1.0.0")
+        ,
+            type=TEST,
+            version=1.0.0)
         ```
 
         ## Import

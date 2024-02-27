@@ -26,16 +26,16 @@ namespace Pulumi.Aws.Alb
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleCertificate = new Aws.Acm.Certificate("exampleCertificate");
+    ///     var exampleCertificate = new Aws.Acm.Certificate.Certificate("exampleCertificate");
     /// 
     ///     // ...
-    ///     var frontEndLoadBalancer = new Aws.LB.LoadBalancer("frontEndLoadBalancer");
+    ///     var frontEndLoadBalancer = new Aws.Lb.LoadBalancer.LoadBalancer("frontEndLoadBalancer");
     /// 
     ///     // ...
-    ///     var frontEndListener = new Aws.LB.Listener("frontEndListener");
+    ///     var frontEndListener = new Aws.Lb.Listener.Listener("frontEndListener");
     /// 
     ///     // ...
-    ///     var exampleListenerCertificate = new Aws.LB.ListenerCertificate("exampleListenerCertificate", new()
+    ///     var exampleListenerCertificate = new Aws.Lb.ListenerCertificate.ListenerCertificate("exampleListenerCertificate", new()
     ///     {
     ///         ListenerArn = frontEndListener.Arn,
     ///         CertificateArn = exampleCertificate.Arn,

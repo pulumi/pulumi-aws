@@ -22,26 +22,24 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	ec2/vpcDhcpOptions "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/vpcDhcpOptions"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.NewVpcDhcpOptions(ctx, "dnsResolver", &ec2.VpcDhcpOptionsArgs{
-//				DomainNameServers: pulumi.StringArray{
-//					pulumi.String("8.8.8.8"),
-//					pulumi.String("8.8.4.4"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := ec2/vpcDhcpOptions.NewVpcDhcpOptions(ctx, "dnsResolver", &ec2/vpcDhcpOptions.VpcDhcpOptionsArgs{
+// DomainNameServers: []string{
+// "8.8.8.8",
+// "8.8.4.4",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // Full usage:
@@ -51,37 +49,35 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	ec2/vpcDhcpOptions "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/vpcDhcpOptions"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.NewVpcDhcpOptions(ctx, "foo", &ec2.VpcDhcpOptionsArgs{
-//				DomainName: pulumi.String("service.consul"),
-//				DomainNameServers: pulumi.StringArray{
-//					pulumi.String("127.0.0.1"),
-//					pulumi.String("10.0.0.2"),
-//				},
-//				NetbiosNameServers: pulumi.StringArray{
-//					pulumi.String("127.0.0.1"),
-//				},
-//				NetbiosNodeType: pulumi.String("2"),
-//				NtpServers: pulumi.StringArray{
-//					pulumi.String("127.0.0.1"),
-//				},
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("foo-name"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := ec2/vpcDhcpOptions.NewVpcDhcpOptions(ctx, "foo", &ec2/vpcDhcpOptions.VpcDhcpOptionsArgs{
+// DomainName: "service.consul",
+// DomainNameServers: []string{
+// "127.0.0.1",
+// "10.0.0.2",
+// },
+// NetbiosNameServers: []string{
+// "127.0.0.1",
+// },
+// NetbiosNodeType: 2,
+// NtpServers: []string{
+// "127.0.0.1",
+// },
+// Tags: map[string]interface{}{
+// "Name": "foo-name",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ## Remarks
 //

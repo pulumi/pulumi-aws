@@ -6,29 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Provides the aliases, ARNs, and workspace IDs of Amazon Prometheus workspaces.
- *
- * ## Example Usage
- *
- * The following example returns all of the workspaces in a region:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.amp.getWorkspaces({});
- * ```
- *
- * The following example filters the workspaces by alias. Only the workspaces with
- * aliases that begin with the value of `aliasPrefix` will be returned:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.amp.getWorkspaces({
- *     aliasPrefix: "example",
- * });
- * ```
  */
 export function getWorkspaces(args?: GetWorkspacesArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspacesResult> {
     args = args || {};
@@ -73,29 +50,6 @@ export interface GetWorkspacesResult {
 }
 /**
  * Provides the aliases, ARNs, and workspace IDs of Amazon Prometheus workspaces.
- *
- * ## Example Usage
- *
- * The following example returns all of the workspaces in a region:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.amp.getWorkspaces({});
- * ```
- *
- * The following example filters the workspaces by alias. Only the workspaces with
- * aliases that begin with the value of `aliasPrefix` will be returned:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.amp.getWorkspaces({
- *     aliasPrefix: "example",
- * });
- * ```
  */
 export function getWorkspacesOutput(args?: GetWorkspacesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspacesResult> {
     return pulumi.output(args).apply((a: any) => getWorkspaces(a, opts))

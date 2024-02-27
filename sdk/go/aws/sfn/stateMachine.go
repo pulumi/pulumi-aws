@@ -24,16 +24,17 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sfn"
+//	sfn/stateMachine "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/sfn/stateMachine"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// // ...
+// _, err := sfn/stateMachine.NewStateMachine(ctx, "sfnStateMachine", &sfn/stateMachine.StateMachineArgs{
+// RoleArn: aws_iam_role.Iam_for_sfn.Arn,
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := sfn.NewStateMachine(ctx, "sfnStateMachine", &sfn.StateMachineArgs{
-//				RoleArn: pulumi.Any(aws_iam_role.Iam_for_sfn.Arn),
-//				Definition: pulumi.String(fmt.Sprintf(`{
+//	Definition: fmt.Sprintf(`{
 //	  "Comment": "A Hello World example of the Amazon States Language using an AWS Lambda Function",
 //	  "StartAt": "HelloWorld",
 //	  "States": {
@@ -45,16 +46,14 @@ import (
 //	  }
 //	}
 //
-// `, aws_lambda_function.Lambda.Arn)),
-//
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// `, aws_lambda_function.Lambda.Arn),
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Basic (Express Workflow)
 //
@@ -65,17 +64,18 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sfn"
+//	sfn/stateMachine "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/sfn/stateMachine"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// // ...
+// _, err := sfn/stateMachine.NewStateMachine(ctx, "sfnStateMachine", &sfn/stateMachine.StateMachineArgs{
+// RoleArn: aws_iam_role.Iam_for_sfn.Arn,
+// Type: "EXPRESS",
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := sfn.NewStateMachine(ctx, "sfnStateMachine", &sfn.StateMachineArgs{
-//				RoleArn: pulumi.Any(aws_iam_role.Iam_for_sfn.Arn),
-//				Type:    pulumi.String("EXPRESS"),
-//				Definition: pulumi.String(fmt.Sprintf(`{
+//	Definition: fmt.Sprintf(`{
 //	  "Comment": "A Hello World example of the Amazon States Language using an AWS Lambda Function",
 //	  "StartAt": "HelloWorld",
 //	  "States": {
@@ -87,16 +87,14 @@ import (
 //	  }
 //	}
 //
-// `, aws_lambda_function.Lambda.Arn)),
-//
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// `, aws_lambda_function.Lambda.Arn),
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Publish (Publish SFN version)
 //
@@ -107,18 +105,19 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sfn"
+//	sfn/stateMachine "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/sfn/stateMachine"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// // ...
+// _, err := sfn/stateMachine.NewStateMachine(ctx, "sfnStateMachine", &sfn/stateMachine.StateMachineArgs{
+// RoleArn: aws_iam_role.Iam_for_sfn.Arn,
+// Publish: true,
+// Type: "EXPRESS",
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := sfn.NewStateMachine(ctx, "sfnStateMachine", &sfn.StateMachineArgs{
-//				RoleArn: pulumi.Any(aws_iam_role.Iam_for_sfn.Arn),
-//				Publish: pulumi.Bool(true),
-//				Type:    pulumi.String("EXPRESS"),
-//				Definition: pulumi.String(fmt.Sprintf(`{
+//	Definition: fmt.Sprintf(`{
 //	  "Comment": "A Hello World example of the Amazon States Language using an AWS Lambda Function",
 //	  "StartAt": "HelloWorld",
 //	  "States": {
@@ -130,16 +129,14 @@ import (
 //	  }
 //	}
 //
-// `, aws_lambda_function.Lambda.Arn)),
-//
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// `, aws_lambda_function.Lambda.Arn),
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Logging
 //
@@ -152,16 +149,17 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sfn"
+//	sfn/stateMachine "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/sfn/stateMachine"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// // ...
+// _, err := sfn/stateMachine.NewStateMachine(ctx, "sfnStateMachine", &sfn/stateMachine.StateMachineArgs{
+// RoleArn: aws_iam_role.Iam_for_sfn.Arn,
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := sfn.NewStateMachine(ctx, "sfnStateMachine", &sfn.StateMachineArgs{
-//				RoleArn: pulumi.Any(aws_iam_role.Iam_for_sfn.Arn),
-//				Definition: pulumi.String(fmt.Sprintf(`{
+//	Definition: fmt.Sprintf(`{
 //	  "Comment": "A Hello World example of the Amazon States Language using an AWS Lambda Function",
 //	  "StartAt": "HelloWorld",
 //	  "States": {
@@ -173,21 +171,19 @@ import (
 //	  }
 //	}
 //
-// `, aws_lambda_function.Lambda.Arn)),
-//
-//				LoggingConfiguration: &sfn.StateMachineLoggingConfigurationArgs{
-//					LogDestination:       pulumi.String(fmt.Sprintf("%v:*", aws_cloudwatch_log_group.Log_group_for_sfn.Arn)),
-//					IncludeExecutionData: pulumi.Bool(true),
-//					Level:                pulumi.String("ERROR"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// `, aws_lambda_function.Lambda.Arn),
+// LoggingConfiguration: map[string]interface{}{
+// "logDestination": fmt.Sprintf("%v:*", aws_cloudwatch_log_group.Log_group_for_sfn.Arn),
+// "includeExecutionData": true,
+// "level": "ERROR",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

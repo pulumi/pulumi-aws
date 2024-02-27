@@ -152,16 +152,6 @@ def get_virtual_router(mesh_name: Optional[str] = None,
     """
     The App Mesh Virtual Router data source allows details of an App Mesh Virtual Service to be retrieved by its name and mesh_name.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.appmesh.get_virtual_router(mesh_name="example-mesh-name",
-        name="example-router-name")
-    ```
-
 
     :param str mesh_name: Name of the mesh in which the virtual router exists
     :param str name: Name of the virtual router.
@@ -196,16 +186,6 @@ def get_virtual_router_output(mesh_name: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualRouterResult]:
     """
     The App Mesh Virtual Router data source allows details of an App Mesh Virtual Service to be retrieved by its name and mesh_name.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.appmesh.get_virtual_router(mesh_name="example-mesh-name",
-        name="example-router-name")
-    ```
 
 
     :param str mesh_name: Name of the mesh in which the virtual router exists

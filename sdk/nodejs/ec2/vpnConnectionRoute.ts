@@ -13,20 +13,20 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const vpc = new aws.ec2.Vpc("vpc", {cidrBlock: "10.0.0.0/16"});
- * const vpnGateway = new aws.ec2.VpnGateway("vpnGateway", {vpcId: vpc.id});
- * const customerGateway = new aws.ec2.CustomerGateway("customerGateway", {
- *     bgpAsn: "65000",
+ * const vpc = new aws.ec2/vpc.Vpc("vpc", {cidrBlock: "10.0.0.0/16"});
+ * const vpnGateway = new aws.ec2/vpnGateway.VpnGateway("vpnGateway", {vpcId: vpc.id});
+ * const customerGateway = new aws.ec2/customerGateway.CustomerGateway("customerGateway", {
+ *     bgpAsn: 65000,
  *     ipAddress: "172.0.0.1",
  *     type: "ipsec.1",
  * });
- * const main = new aws.ec2.VpnConnection("main", {
+ * const main = new aws.ec2/vpnConnection.VpnConnection("main", {
  *     vpnGatewayId: vpnGateway.id,
  *     customerGatewayId: customerGateway.id,
  *     type: "ipsec.1",
  *     staticRoutesOnly: true,
  * });
- * const office = new aws.ec2.VpnConnectionRoute("office", {
+ * const office = new aws.ec2/vpnConnectionRoute.VpnConnectionRoute("office", {
  *     destinationCidrBlock: "192.168.10.0/24",
  *     vpnConnectionId: main.id,
  * });

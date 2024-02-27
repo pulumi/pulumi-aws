@@ -15,26 +15,26 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const _default = new aws.elasticache.User("default", {
+ * const _default = new aws.elasticache/user.User("default", {
  *     userId: "defaultUserID",
  *     userName: "default",
  *     accessString: "on ~app::* -@all +@read +@hash +@bitmap +@geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember",
  *     engine: "REDIS",
  *     passwords: ["password123456789"],
  * });
- * const exampleUserGroup = new aws.elasticache.UserGroup("exampleUserGroup", {
+ * const exampleUserGroup = new aws.elasticache/userGroup.UserGroup("exampleUserGroup", {
  *     engine: "REDIS",
  *     userGroupId: "userGroupId",
  *     userIds: [_default.userId],
  * });
- * const exampleUser = new aws.elasticache.User("exampleUser", {
+ * const exampleUser = new aws.elasticache/user.User("exampleUser", {
  *     userId: "exampleUserID",
  *     userName: "exampleuser",
  *     accessString: "on ~app::* -@all +@read +@hash +@bitmap +@geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember",
  *     engine: "REDIS",
  *     passwords: ["password123456789"],
  * });
- * const exampleUserGroupAssociation = new aws.elasticache.UserGroupAssociation("exampleUserGroupAssociation", {
+ * const exampleUserGroupAssociation = new aws.elasticache/userGroupAssociation.UserGroupAssociation("exampleUserGroupAssociation", {
  *     userGroupId: exampleUserGroup.userGroupId,
  *     userId: exampleUser.userId,
  * });

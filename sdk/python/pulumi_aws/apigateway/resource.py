@@ -154,11 +154,11 @@ class Resource(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        my_demo_api = aws.apigateway.RestApi("myDemoAPI", description="This is my API for demonstration purposes")
-        my_demo_resource = aws.apigateway.Resource("myDemoResource",
+        my_demo_api = aws.apigateway.rest_api.RestApi("myDemoAPI", description=This is my API for demonstration purposes)
+        my_demo_resource = aws.apigateway.resource.Resource("myDemoResource",
             rest_api=my_demo_api.id,
             parent_id=my_demo_api.root_resource_id,
-            path_part="mydemoresource")
+            path_part=mydemoresource)
         ```
 
         ## Import
@@ -190,11 +190,11 @@ class Resource(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        my_demo_api = aws.apigateway.RestApi("myDemoAPI", description="This is my API for demonstration purposes")
-        my_demo_resource = aws.apigateway.Resource("myDemoResource",
+        my_demo_api = aws.apigateway.rest_api.RestApi("myDemoAPI", description=This is my API for demonstration purposes)
+        my_demo_resource = aws.apigateway.resource.Resource("myDemoResource",
             rest_api=my_demo_api.id,
             parent_id=my_demo_api.root_resource_id,
-            path_part="mydemoresource")
+            path_part=mydemoresource)
         ```
 
         ## Import

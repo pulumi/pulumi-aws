@@ -25,32 +25,31 @@ import (
 //	"fmt"
 //	"os"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/controltower"
+//	controltower/landingZone "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/controltower/landingZone"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func readFileOrPanic(path string) pulumi.StringPtrInput {
-//		data, err := os.ReadFile(path)
-//		if err != nil {
-//			panic(err.Error())
-//		}
-//		return pulumi.String(string(data))
-//	}
+//					data, err := os.ReadFile(path)
+//					if err != nil {
+//						panic(err.Error())
+//					}
+//					return pulumi.String(string(data))
+//				}
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := controltower.NewLandingZone(ctx, "example", &controltower.LandingZoneArgs{
-//				ManifestJson: readFileOrPanic(fmt.Sprintf("%v/LandingZoneManifest.json", path.Module)),
-//				Version:      pulumi.String("3.2"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := controltower/landingZone.NewLandingZone(ctx, "example", &controltower/landingZone.LandingZoneArgs{
+// ManifestJson: readFileOrPanic(fmt.Sprintf("%v/LandingZoneManifest.json", path.Module)),
+// Version: "3.2",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

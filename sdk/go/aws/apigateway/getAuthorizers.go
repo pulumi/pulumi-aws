@@ -12,32 +12,6 @@ import (
 )
 
 // Provides details about multiple API Gateway Authorizers.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigateway"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := apigateway.GetAuthorizers(ctx, &apigateway.GetAuthorizersArgs{
-//				RestApiId: aws_api_gateway_rest_api.Example.Id,
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetAuthorizers(ctx *pulumi.Context, args *GetAuthorizersArgs, opts ...pulumi.InvokeOption) (*GetAuthorizersResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetAuthorizersResult

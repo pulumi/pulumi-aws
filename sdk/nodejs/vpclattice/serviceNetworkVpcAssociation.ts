@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.vpclattice.ServiceNetworkVpcAssociation("example", {
+ * const example = new aws.vpclattice/serviceNetworkVpcAssociation.ServiceNetworkVpcAssociation("example", {
  *     vpcIdentifier: aws_vpc.example.id,
  *     serviceNetworkIdentifier: aws_vpclattice_service_network.example.id,
  *     securityGroupIds: [aws_security_group.example.id],

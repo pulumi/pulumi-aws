@@ -15,56 +15,6 @@ import (
 // Manages an [AWS Opensearch Inbound Connection Accepter](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_AcceptInboundConnection.html). If connecting domains from different AWS accounts, ensure that the accepter is configured to use the AWS account where the _remote_ opensearch domain exists.
 //
 // ## Example Usage
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/opensearch"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			currentCallerIdentity, err := aws.GetCallerIdentity(ctx, nil, nil)
-//			if err != nil {
-//				return err
-//			}
-//			currentRegion, err := aws.GetRegion(ctx, nil, nil)
-//			if err != nil {
-//				return err
-//			}
-//			fooOutboundConnection, err := opensearch.NewOutboundConnection(ctx, "fooOutboundConnection", &opensearch.OutboundConnectionArgs{
-//				ConnectionAlias: pulumi.String("outbound_connection"),
-//				LocalDomainInfo: &opensearch.OutboundConnectionLocalDomainInfoArgs{
-//					OwnerId:    *pulumi.String(currentCallerIdentity.AccountId),
-//					Region:     *pulumi.String(currentRegion.Name),
-//					DomainName: pulumi.Any(aws_opensearch_domain.Local_domain.Domain_name),
-//				},
-//				RemoteDomainInfo: &opensearch.OutboundConnectionRemoteDomainInfoArgs{
-//					OwnerId:    *pulumi.String(currentCallerIdentity.AccountId),
-//					Region:     *pulumi.String(currentRegion.Name),
-//					DomainName: pulumi.Any(aws_opensearch_domain.Remote_domain.Domain_name),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = opensearch.NewInboundConnectionAccepter(ctx, "fooInboundConnectionAccepter", &opensearch.InboundConnectionAccepterArgs{
-//				ConnectionId: fooOutboundConnection.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 //
 // ## Import
 //

@@ -22,24 +22,22 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/servicecatalog"
+//	servicecatalog/principalPortfolioAssociation "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/servicecatalog/principalPortfolioAssociation"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := servicecatalog.NewPrincipalPortfolioAssociation(ctx, "example", &servicecatalog.PrincipalPortfolioAssociationArgs{
-//				PortfolioId:  pulumi.String("port-68656c6c6f"),
-//				PrincipalArn: pulumi.String("arn:aws:iam::123456789012:user/Eleanor"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := servicecatalog/principalPortfolioAssociation.NewPrincipalPortfolioAssociation(ctx, "example", &servicecatalog/principalPortfolioAssociation.PrincipalPortfolioAssociationArgs{
+// PortfolioId: "port-68656c6c6f",
+// PrincipalArn: "arn:aws:iam::123456789012:user/Eleanor",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

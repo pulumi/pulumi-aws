@@ -696,28 +696,6 @@ class DevEndpoint(pulumi.CustomResource):
         """
         Provides a Glue Development Endpoint resource.
 
-        ## Example Usage
-
-        Basic usage:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            actions=["sts:AssumeRole"],
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["glue.amazonaws.com"],
-            )],
-        )])
-        example_role = aws.iam.Role("exampleRole", assume_role_policy=example_policy_document.json)
-        example_dev_endpoint = aws.glue.DevEndpoint("exampleDevEndpoint", role_arn=example_role.arn)
-        example__aws_glue_service_role = aws.iam.RolePolicyAttachment("example-AWSGlueServiceRole",
-            policy_arn="arn:aws:iam::aws:policy/service-role/AWSGlueServiceRole",
-            role=example_role.name)
-        ```
-
         ## Import
 
         Using `pulumi import`, import a Glue Development Endpoint using the `name`. For example:
@@ -752,28 +730,6 @@ class DevEndpoint(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Glue Development Endpoint resource.
-
-        ## Example Usage
-
-        Basic usage:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            actions=["sts:AssumeRole"],
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["glue.amazonaws.com"],
-            )],
-        )])
-        example_role = aws.iam.Role("exampleRole", assume_role_policy=example_policy_document.json)
-        example_dev_endpoint = aws.glue.DevEndpoint("exampleDevEndpoint", role_arn=example_role.arn)
-        example__aws_glue_service_role = aws.iam.RolePolicyAttachment("example-AWSGlueServiceRole",
-            policy_arn="arn:aws:iam::aws:policy/service-role/AWSGlueServiceRole",
-            role=example_role.name)
-        ```
 
         ## Import
 

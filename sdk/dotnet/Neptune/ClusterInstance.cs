@@ -27,7 +27,7 @@ namespace Pulumi.Aws.Neptune
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var @default = new Aws.Neptune.Cluster("default", new()
+    ///     var @default = new Aws.Neptune.Cluster.Cluster("default", new()
     ///     {
     ///         ClusterIdentifier = "neptune-cluster-demo",
     ///         Engine = "neptune",
@@ -38,11 +38,11 @@ namespace Pulumi.Aws.Neptune
     ///         ApplyImmediately = true,
     ///     });
     /// 
-    ///     var example = new List&lt;Aws.Neptune.ClusterInstance&gt;();
+    ///     var example = new List&lt;Aws.Neptune.ClusterInstance.ClusterInstance&gt;();
     ///     for (var rangeIndex = 0; rangeIndex &lt; 2; rangeIndex++)
     ///     {
     ///         var range = new { Value = rangeIndex };
-    ///         example.Add(new Aws.Neptune.ClusterInstance($"example-{range.Value}", new()
+    ///         example.Add(new Aws.Neptune.ClusterInstance.ClusterInstance($"example-{range.Value}", new()
     ///         {
     ///             ClusterIdentifier = @default.Id,
     ///             Engine = "neptune",

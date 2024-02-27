@@ -13,56 +13,12 @@ namespace Pulumi.Aws.Batch
     {
         /// <summary>
         /// The Batch Scheduling Policy data source allows access to details of a specific Scheduling Policy within AWS Batch.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Aws.Batch.GetSchedulingPolicy.Invoke(new()
-        ///     {
-        ///         Arn = "arn:aws:batch:us-east-1:012345678910:scheduling-policy/example",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetSchedulingPolicyResult> InvokeAsync(GetSchedulingPolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSchedulingPolicyResult>("aws:batch/getSchedulingPolicy:getSchedulingPolicy", args ?? new GetSchedulingPolicyArgs(), options.WithDefaults());
 
         /// <summary>
         /// The Batch Scheduling Policy data source allows access to details of a specific Scheduling Policy within AWS Batch.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Aws.Batch.GetSchedulingPolicy.Invoke(new()
-        ///     {
-        ///         Arn = "arn:aws:batch:us-east-1:012345678910:scheduling-policy/example",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetSchedulingPolicyResult> Invoke(GetSchedulingPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSchedulingPolicyResult>("aws:batch/getSchedulingPolicy:getSchedulingPolicy", args ?? new GetSchedulingPolicyInvokeArgs(), options.WithDefaults());

@@ -23,29 +23,27 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudformation"
+//	cloudformation/cloudFormationType "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/cloudformation/cloudFormationType"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cloudformation.NewCloudFormationType(ctx, "example", &cloudformation.CloudFormationTypeArgs{
-//				SchemaHandlerPackage: pulumi.String(fmt.Sprintf("s3://%v/%v", aws_s3_object.Example.Bucket, aws_s3_object.Example.Key)),
-//				Type:                 pulumi.String("RESOURCE"),
-//				TypeName:             pulumi.String("ExampleCompany::ExampleService::ExampleResource"),
-//				LoggingConfig: &cloudformation.CloudFormationTypeLoggingConfigArgs{
-//					LogGroupName: pulumi.Any(aws_cloudwatch_log_group.Example.Name),
-//					LogRoleArn:   pulumi.Any(aws_iam_role.Example.Arn),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := cloudformation/cloudFormationType.NewCloudFormationType(ctx, "example", &cloudformation/cloudFormationType.CloudFormationTypeArgs{
+// SchemaHandlerPackage: fmt.Sprintf("s3://%v/%v", aws_s3_object.Example.Bucket, aws_s3_object.Example.Key),
+// Type: "RESOURCE",
+// TypeName: "ExampleCompany::ExampleService::ExampleResource",
+// LoggingConfig: map[string]interface{}{
+// "logGroupName": aws_cloudwatch_log_group.Example.Name,
+// "logRoleArn": aws_iam_role.Example.Arn,
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

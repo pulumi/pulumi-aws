@@ -22,11 +22,11 @@ namespace Pulumi.Aws.ResourceGroups
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Aws.ResourceGroups.Group("test", new()
+    ///     var test = new Aws.Resourcegroups.Group.Group("test", new()
     ///     {
-    ///         ResourceQuery = new Aws.ResourceGroups.Inputs.GroupResourceQueryArgs
+    ///         ResourceQuery = 
     ///         {
-    ///             Query = @"{
+    ///             { "query", @"{
     ///   ""ResourceTypeFilters"": [
     ///     ""AWS::EC2::Instance""
     ///   ],
@@ -38,7 +38,7 @@ namespace Pulumi.Aws.ResourceGroups
     ///   ]
     /// }
     /// 
-    /// ",
+    /// " },
     ///         },
     ///     });
     /// 

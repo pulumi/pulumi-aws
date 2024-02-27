@@ -12,33 +12,6 @@ import (
 )
 
 // Provides details about a specific Amazon Lex Bot Alias.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lex"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lex.LookupBotAlias(ctx, &lex.LookupBotAliasArgs{
-//				BotName: "OrderFlowers",
-//				Name:    "OrderFlowersProd",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupBotAlias(ctx *pulumi.Context, args *LookupBotAliasArgs, opts ...pulumi.InvokeOption) (*LookupBotAliasResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupBotAliasResult

@@ -24,9 +24,9 @@ namespace Pulumi.Aws.Transfer
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Transfer.Certificate("example", new()
+    ///     var example = new Aws.Transfer.Certificate.Certificate("example", new()
     ///     {
-    ///         CertificateFile = File.ReadAllText($"{path.Module}/example.com/example.crt"),
+    ///         Certificate = File.ReadAllText($"{path.Module}/example.com/example.crt"),
     ///         CertificateChain = File.ReadAllText($"{path.Module}/example.com/ca.crt"),
     ///         PrivateKey = File.ReadAllText($"{path.Module}/example.com/example.key"),
     ///         Description = "example",

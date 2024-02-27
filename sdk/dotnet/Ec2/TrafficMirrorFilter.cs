@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var foo = new Aws.Ec2.TrafficMirrorFilter("foo", new()
+    ///     var foo = new Aws.Ec2.TrafficMirrorFilter.TrafficMirrorFilter("foo", new()
     ///     {
     ///         Description = "traffic mirror filter - example",
     ///         NetworkServices = new[]

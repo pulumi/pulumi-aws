@@ -40,8 +40,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.ec2transitgateway.TransitGateway;
  * import com.pulumi.aws.ec2.CustomerGateway;
  * import com.pulumi.aws.ec2.CustomerGatewayArgs;
- * import com.pulumi.aws.ec2.VpnConnection;
- * import com.pulumi.aws.ec2.VpnConnectionArgs;
+ * import com.pulumi.aws.ec2_vpnConnection.VpnConnection;
+ * import com.pulumi.aws.ec2_vpnConnection.VpnConnectionArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -79,14 +79,14 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.ec2.Vpc;
- * import com.pulumi.aws.ec2.VpcArgs;
- * import com.pulumi.aws.ec2.VpnGateway;
- * import com.pulumi.aws.ec2.VpnGatewayArgs;
+ * import com.pulumi.aws.ec2_vpc.Vpc;
+ * import com.pulumi.aws.ec2_vpc.VpcArgs;
+ * import com.pulumi.aws.ec2_vpnGateway.VpnGateway;
+ * import com.pulumi.aws.ec2_vpnGateway.VpnGatewayArgs;
  * import com.pulumi.aws.ec2.CustomerGateway;
  * import com.pulumi.aws.ec2.CustomerGatewayArgs;
- * import com.pulumi.aws.ec2.VpnConnection;
- * import com.pulumi.aws.ec2.VpnConnectionArgs;
+ * import com.pulumi.aws.ec2_vpnConnection.VpnConnection;
+ * import com.pulumi.aws.ec2_vpnConnection.VpnConnectionArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -119,78 +119,6 @@ import javax.annotation.Nullable;
  *             .customerGatewayId(customerGateway.id())
  *             .type(&#34;ipsec.1&#34;)
  *             .staticRoutesOnly(true)
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### AWS Site to Site Private VPN
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.directconnect.Gateway;
- * import com.pulumi.aws.directconnect.GatewayArgs;
- * import com.pulumi.aws.ec2transitgateway.TransitGateway;
- * import com.pulumi.aws.ec2transitgateway.TransitGatewayArgs;
- * import com.pulumi.aws.ec2.CustomerGateway;
- * import com.pulumi.aws.ec2.CustomerGatewayArgs;
- * import com.pulumi.aws.directconnect.GatewayAssociation;
- * import com.pulumi.aws.directconnect.GatewayAssociationArgs;
- * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
- * import com.pulumi.aws.ec2transitgateway.inputs.GetDirectConnectGatewayAttachmentArgs;
- * import com.pulumi.aws.ec2.VpnConnection;
- * import com.pulumi.aws.ec2.VpnConnectionArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var exampleGateway = new Gateway(&#34;exampleGateway&#34;, GatewayArgs.builder()        
- *             .amazonSideAsn(&#34;64512&#34;)
- *             .build());
- * 
- *         var exampleTransitGateway = new TransitGateway(&#34;exampleTransitGateway&#34;, TransitGatewayArgs.builder()        
- *             .amazonSideAsn(&#34;64513&#34;)
- *             .description(&#34;example_ipsec_vpn_example&#34;)
- *             .transitGatewayCidrBlocks(&#34;10.0.0.0/24&#34;)
- *             .build());
- * 
- *         var exampleCustomerGateway = new CustomerGateway(&#34;exampleCustomerGateway&#34;, CustomerGatewayArgs.builder()        
- *             .bgpAsn(64514)
- *             .ipAddress(&#34;10.0.0.1&#34;)
- *             .type(&#34;ipsec.1&#34;)
- *             .tags(Map.of(&#34;Name&#34;, &#34;example_ipsec_vpn_example&#34;))
- *             .build());
- * 
- *         var exampleGatewayAssociation = new GatewayAssociation(&#34;exampleGatewayAssociation&#34;, GatewayAssociationArgs.builder()        
- *             .dxGatewayId(exampleGateway.id())
- *             .associatedGatewayId(exampleTransitGateway.id())
- *             .allowedPrefixes(&#34;10.0.0.0/8&#34;)
- *             .build());
- * 
- *         final var exampleDirectConnectGatewayAttachment = Ec2transitgatewayFunctions.getDirectConnectGatewayAttachment(GetDirectConnectGatewayAttachmentArgs.builder()
- *             .transitGatewayId(exampleTransitGateway.id())
- *             .dxGatewayId(exampleGateway.id())
- *             .build());
- * 
- *         var exampleVpnConnection = new VpnConnection(&#34;exampleVpnConnection&#34;, VpnConnectionArgs.builder()        
- *             .customerGatewayId(exampleCustomerGateway.id())
- *             .outsideIpAddressType(&#34;PrivateIpv4&#34;)
- *             .transitGatewayId(exampleTransitGateway.id())
- *             .transportTransitGatewayAttachmentId(exampleDirectConnectGatewayAttachment.applyValue(getDirectConnectGatewayAttachmentResult -&gt; getDirectConnectGatewayAttachmentResult).applyValue(exampleDirectConnectGatewayAttachment -&gt; exampleDirectConnectGatewayAttachment.applyValue(getDirectConnectGatewayAttachmentResult -&gt; getDirectConnectGatewayAttachmentResult.id())))
- *             .type(&#34;ipsec.1&#34;)
- *             .tags(Map.of(&#34;Name&#34;, &#34;example_ipsec_vpn_example&#34;))
  *             .build());
  * 
  *     }

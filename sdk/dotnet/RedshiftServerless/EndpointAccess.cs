@@ -22,7 +22,7 @@ namespace Pulumi.Aws.RedshiftServerless
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.RedshiftServerless.EndpointAccess("example", new()
+    ///     var example = new Aws.Redshiftserverless.EndpointAccess.EndpointAccess("example", new()
     ///     {
     ///         EndpointName = "example",
     ///         WorkgroupName = "example",

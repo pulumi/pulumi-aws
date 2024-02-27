@@ -24,7 +24,7 @@ namespace Pulumi.Aws.RedShift
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.RedShift.ClusterIamRoles("example", new()
+    ///     var example = new Aws.Redshift.ClusterIamRoles.ClusterIamRoles("example", new()
     ///     {
     ///         ClusterIdentifier = aws_redshift_cluster.Example.Cluster_identifier,
     ///         IamRoleArns = new[]

@@ -355,12 +355,12 @@ class LocationSmb(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.datasync.LocationSmb("example",
-            server_hostname="smb.example.com",
-            subdirectory="/exported/path",
-            user="Guest",
-            password="ANotGreatPassword",
-            agent_arns=[aws_datasync_agent["example"]["arn"]])
+        example = aws.datasync.location_smb.LocationSmb("example",
+            server_hostname=smb.example.com,
+            subdirectory=/exported/path,
+            user=Guest,
+            password=ANotGreatPassword,
+            agent_arns=[aws_datasync_agent.example.arn])
         ```
 
         ## Import
@@ -399,12 +399,12 @@ class LocationSmb(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.datasync.LocationSmb("example",
-            server_hostname="smb.example.com",
-            subdirectory="/exported/path",
-            user="Guest",
-            password="ANotGreatPassword",
-            agent_arns=[aws_datasync_agent["example"]["arn"]])
+        example = aws.datasync.location_smb.LocationSmb("example",
+            server_hostname=smb.example.com,
+            subdirectory=/exported/path,
+            user=Guest,
+            password=ANotGreatPassword,
+            agent_arns=[aws_datasync_agent.example.arn])
         ```
 
         ## Import

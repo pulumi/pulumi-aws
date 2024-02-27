@@ -25,26 +25,24 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	s3/bucketV2 "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/s3/bucketV2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := s3.NewBucketV2(ctx, "example", &s3.BucketV2Args{
-//				Tags: pulumi.StringMap{
-//					"Environment": pulumi.String("Dev"),
-//					"Name":        pulumi.String("My bucket"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := s3/bucketV2.NewBucketV2(ctx, "example", &s3/bucketV2.BucketV2Args{
+// Tags: map[string]interface{}{
+// "Environment": "Dev",
+// "Name": "My bucket",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

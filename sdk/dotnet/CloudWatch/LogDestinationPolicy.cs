@@ -12,61 +12,6 @@ namespace Pulumi.Aws.CloudWatch
     /// <summary>
     /// Provides a CloudWatch Logs destination policy resource.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var testDestination = new Aws.CloudWatch.LogDestination("testDestination", new()
-    ///     {
-    ///         RoleArn = aws_iam_role.Iam_for_cloudwatch.Arn,
-    ///         TargetArn = aws_kinesis_stream.Kinesis_for_cloudwatch.Arn,
-    ///     });
-    /// 
-    ///     var testDestinationPolicyPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
-    ///     {
-    ///         Statements = new[]
-    ///         {
-    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
-    ///             {
-    ///                 Effect = "Allow",
-    ///                 Principals = new[]
-    ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
-    ///                     {
-    ///                         Type = "AWS",
-    ///                         Identifiers = new[]
-    ///                         {
-    ///                             "123456789012",
-    ///                         },
-    ///                     },
-    ///                 },
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "logs:PutSubscriptionFilter",
-    ///                 },
-    ///                 Resources = new[]
-    ///                 {
-    ///                     testDestination.Arn,
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var testDestinationPolicyLogDestinationPolicy = new Aws.CloudWatch.LogDestinationPolicy("testDestinationPolicyLogDestinationPolicy", new()
-    ///     {
-    ///         DestinationName = testDestination.Name,
-    ///         AccessPolicy = testDestinationPolicyPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import CloudWatch Logs destination policies using the `destination_name`. For example:

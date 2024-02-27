@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * // Add a header to the email and store it in S3
- * const store = new aws.ses.ReceiptRule("store", {
+ * const store = new aws.ses/receiptRule.ReceiptRule("store", {
  *     addHeaderActions: [{
  *         headerName: "Custom-Header",
  *         headerValue: "Added by SES",

@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Inspector
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Inspector.ResourceGroup("example", new()
+    ///     var example = new Aws.Inspector.ResourceGroup.ResourceGroup("example", new()
     ///     {
     ///         Tags = 
     ///         {

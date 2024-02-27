@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const pubsub = new aws.iot.Policy("pubsub", {policy: JSON.stringify({
+ * const pubsub = new aws.iot/policy.Policy("pubsub", {policy: JSON.stringify({
  *     Version: "2012-10-17",
  *     Statement: [{
  *         Action: ["iot:*"],

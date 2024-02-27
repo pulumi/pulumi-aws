@@ -15,54 +15,6 @@ import (
 //
 // > **NOTE:** This data source does not apply to snapshots created on Aurora DB clusters.
 // See the `rds.ClusterSnapshot` data source for DB Cluster snapshots.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/rds"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			prod, err := rds.NewInstance(ctx, "prod", &rds.InstanceArgs{
-//				AllocatedStorage:   pulumi.Int(10),
-//				Engine:             pulumi.String("mysql"),
-//				EngineVersion:      pulumi.String("5.6.17"),
-//				InstanceClass:      pulumi.String("db.t2.micro"),
-//				DbName:             pulumi.String("mydb"),
-//				Username:           pulumi.String("foo"),
-//				Password:           pulumi.String("bar"),
-//				DbSubnetGroupName:  pulumi.String("my_database_subnet_group"),
-//				ParameterGroupName: pulumi.String("default.mysql5.6"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			latestProdSnapshot := rds.LookupSnapshotOutput(ctx, rds.GetSnapshotOutputArgs{
-//				DbInstanceIdentifier: prod.Identifier,
-//				MostRecent:           pulumi.Bool(true),
-//			}, nil)
-//			_, err = rds.NewInstance(ctx, "dev", &rds.InstanceArgs{
-//				InstanceClass: pulumi.String("db.t2.micro"),
-//				DbName:        pulumi.String("mydbdev"),
-//				SnapshotIdentifier: latestProdSnapshot.ApplyT(func(latestProdSnapshot rds.GetSnapshotResult) (*string, error) {
-//					return &latestProdSnapshot.Id, nil
-//				}).(pulumi.StringPtrOutput),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupSnapshot(ctx *pulumi.Context, args *LookupSnapshotArgs, opts ...pulumi.InvokeOption) (*LookupSnapshotResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupSnapshotResult

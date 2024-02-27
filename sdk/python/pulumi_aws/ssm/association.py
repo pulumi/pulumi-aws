@@ -592,10 +592,10 @@ class Association(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ssm.Association("example", targets=[aws.ssm.AssociationTargetArgs(
-            key="InstanceIds",
-            values=[aws_instance["example"]["id"]],
-        )])
+        example = aws.ssm.association.Association("example", targets=[{
+            key: InstanceIds,
+            values: [aws_instance.example.id],
+        }])
         ```
         ### Create an association for all managed instances in an AWS account
 
@@ -605,10 +605,10 @@ class Association(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ssm.Association("example", targets=[aws.ssm.AssociationTargetArgs(
-            key="InstanceIds",
-            values=["*"],
-        )])
+        example = aws.ssm.association.Association("example", targets=[{
+            key: InstanceIds,
+            values: [*],
+        }])
         ```
         ### Create an association for a specific tag
 
@@ -618,10 +618,10 @@ class Association(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ssm.Association("example", targets=[aws.ssm.AssociationTargetArgs(
-            key="tag:Environment",
-            values=["Development"],
-        )])
+        example = aws.ssm.association.Association("example", targets=[{
+            key: tag:Environment,
+            values: [Development],
+        }])
         ```
         ### Create an association with a specific schedule
 
@@ -631,12 +631,12 @@ class Association(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ssm.Association("example",
-            schedule_expression="cron(0 2 ? * SUN *)",
-            targets=[aws.ssm.AssociationTargetArgs(
-                key="InstanceIds",
-                values=[aws_instance["example"]["id"]],
-            )])
+        example = aws.ssm.association.Association("example",
+            schedule_expression=cron(0 2 ? * SUN *),
+            targets=[{
+                key: InstanceIds,
+                values: [aws_instance.example.id],
+            }])
         ```
 
         ## Import
@@ -683,10 +683,10 @@ class Association(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ssm.Association("example", targets=[aws.ssm.AssociationTargetArgs(
-            key="InstanceIds",
-            values=[aws_instance["example"]["id"]],
-        )])
+        example = aws.ssm.association.Association("example", targets=[{
+            key: InstanceIds,
+            values: [aws_instance.example.id],
+        }])
         ```
         ### Create an association for all managed instances in an AWS account
 
@@ -696,10 +696,10 @@ class Association(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ssm.Association("example", targets=[aws.ssm.AssociationTargetArgs(
-            key="InstanceIds",
-            values=["*"],
-        )])
+        example = aws.ssm.association.Association("example", targets=[{
+            key: InstanceIds,
+            values: [*],
+        }])
         ```
         ### Create an association for a specific tag
 
@@ -709,10 +709,10 @@ class Association(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ssm.Association("example", targets=[aws.ssm.AssociationTargetArgs(
-            key="tag:Environment",
-            values=["Development"],
-        )])
+        example = aws.ssm.association.Association("example", targets=[{
+            key: tag:Environment,
+            values: [Development],
+        }])
         ```
         ### Create an association with a specific schedule
 
@@ -722,12 +722,12 @@ class Association(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ssm.Association("example",
-            schedule_expression="cron(0 2 ? * SUN *)",
-            targets=[aws.ssm.AssociationTargetArgs(
-                key="InstanceIds",
-                values=[aws_instance["example"]["id"]],
-            )])
+        example = aws.ssm.association.Association("example",
+            schedule_expression=cron(0 2 ? * SUN *),
+            targets=[{
+                key: InstanceIds,
+                values: [aws_instance.example.id],
+            }])
         ```
 
         ## Import

@@ -9,27 +9,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to get information about a specific EC2 Key Pair.
- *
- * ## Example Usage
- *
- * The following example shows how to get a EC2 Key Pair including the public key material from its name.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.ec2.getKeyPair({
- *     keyName: "test",
- *     includePublicKey: true,
- *     filters: [{
- *         name: "tag:Component",
- *         values: ["web"],
- *     }],
- * });
- * export const fingerprint = example.then(example => example.fingerprint);
- * export const name = example.then(example => example.keyName);
- * export const id = example.then(example => example.id);
- * ```
  */
 export function getKeyPair(args?: GetKeyPairArgs, opts?: pulumi.InvokeOptions): Promise<GetKeyPairResult> {
     args = args || {};
@@ -109,27 +88,6 @@ export interface GetKeyPairResult {
 }
 /**
  * Use this data source to get information about a specific EC2 Key Pair.
- *
- * ## Example Usage
- *
- * The following example shows how to get a EC2 Key Pair including the public key material from its name.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.ec2.getKeyPair({
- *     keyName: "test",
- *     includePublicKey: true,
- *     filters: [{
- *         name: "tag:Component",
- *         values: ["web"],
- *     }],
- * });
- * export const fingerprint = example.then(example => example.fingerprint);
- * export const name = example.then(example => example.keyName);
- * export const id = example.then(example => example.id);
- * ```
  */
 export function getKeyPairOutput(args?: GetKeyPairOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKeyPairResult> {
     return pulumi.output(args).apply((a: any) => getKeyPair(a, opts))

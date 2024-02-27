@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * import * as fs from "fs";
  *
- * const test = new aws.kms.CustomKeyStore("test", {
+ * const test = new aws.kms/customKeyStore.CustomKeyStore("test", {
  *     cloudHsmClusterId: _var.cloud_hsm_cluster_id,
  *     customKeyStoreName: "kms-custom-key-store-test",
  *     keyStorePassword: "noplaintextpasswords1",

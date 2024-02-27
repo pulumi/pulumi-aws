@@ -24,30 +24,28 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/acmpca"
+//	acmpca/certificateAuthority "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/acmpca/certificateAuthority"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := acmpca.NewCertificateAuthority(ctx, "example", &acmpca.CertificateAuthorityArgs{
-//				CertificateAuthorityConfiguration: &acmpca.CertificateAuthorityCertificateAuthorityConfigurationArgs{
-//					KeyAlgorithm:     pulumi.String("RSA_4096"),
-//					SigningAlgorithm: pulumi.String("SHA512WITHRSA"),
-//					Subject: &acmpca.CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs{
-//						CommonName: pulumi.String("example.com"),
-//					},
-//				},
-//				PermanentDeletionTimeInDays: pulumi.Int(7),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := acmpca/certificateAuthority.NewCertificateAuthority(ctx, "example", &acmpca/certificateAuthority.CertificateAuthorityArgs{
+// CertificateAuthorityConfiguration: map[string]interface{}{
+// "keyAlgorithm": "RSA_4096",
+// "signingAlgorithm": "SHA512WITHRSA",
+// "subject": map[string]interface{}{
+// "commonName": "example.com",
+// },
+// },
+// PermanentDeletionTimeInDays: 7,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Short-lived certificate
 //
@@ -56,117 +54,28 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/acmpca"
+//	acmpca/certificateAuthority "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/acmpca/certificateAuthority"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := acmpca.NewCertificateAuthority(ctx, "example", &acmpca.CertificateAuthorityArgs{
-//				CertificateAuthorityConfiguration: &acmpca.CertificateAuthorityCertificateAuthorityConfigurationArgs{
-//					KeyAlgorithm:     pulumi.String("RSA_4096"),
-//					SigningAlgorithm: pulumi.String("SHA512WITHRSA"),
-//					Subject: &acmpca.CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs{
-//						CommonName: pulumi.String("example.com"),
-//					},
-//				},
-//				UsageMode: pulumi.String("SHORT_LIVED_CERTIFICATE"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// ### Enable Certificate Revocation List
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/acmpca"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", &s3.BucketV2Args{
-//				ForceDestroy: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			acmpcaBucketAccess := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
-//				Statements: iam.GetPolicyDocumentStatementArray{
-//					&iam.GetPolicyDocumentStatementArgs{
-//						Actions: pulumi.StringArray{
-//							pulumi.String("s3:GetBucketAcl"),
-//							pulumi.String("s3:GetBucketLocation"),
-//							pulumi.String("s3:PutObject"),
-//							pulumi.String("s3:PutObjectAcl"),
-//						},
-//						Resources: pulumi.StringArray{
-//							exampleBucketV2.Arn,
-//							exampleBucketV2.Arn.ApplyT(func(arn string) (string, error) {
-//								return fmt.Sprintf("%v/*", arn), nil
-//							}).(pulumi.StringOutput),
-//						},
-//						Principals: iam.GetPolicyDocumentStatementPrincipalArray{
-//							&iam.GetPolicyDocumentStatementPrincipalArgs{
-//								Identifiers: pulumi.StringArray{
-//									pulumi.String("acm-pca.amazonaws.com"),
-//								},
-//								Type: pulumi.String("Service"),
-//							},
-//						},
-//					},
-//				},
-//			}, nil)
-//			exampleBucketPolicy, err := s3.NewBucketPolicy(ctx, "exampleBucketPolicy", &s3.BucketPolicyArgs{
-//				Bucket: exampleBucketV2.ID(),
-//				Policy: acmpcaBucketAccess.ApplyT(func(acmpcaBucketAccess iam.GetPolicyDocumentResult) (*string, error) {
-//					return &acmpcaBucketAccess.Json, nil
-//				}).(pulumi.StringPtrOutput),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = acmpca.NewCertificateAuthority(ctx, "exampleCertificateAuthority", &acmpca.CertificateAuthorityArgs{
-//				CertificateAuthorityConfiguration: &acmpca.CertificateAuthorityCertificateAuthorityConfigurationArgs{
-//					KeyAlgorithm:     pulumi.String("RSA_4096"),
-//					SigningAlgorithm: pulumi.String("SHA512WITHRSA"),
-//					Subject: &acmpca.CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs{
-//						CommonName: pulumi.String("example.com"),
-//					},
-//				},
-//				RevocationConfiguration: &acmpca.CertificateAuthorityRevocationConfigurationArgs{
-//					CrlConfiguration: &acmpca.CertificateAuthorityRevocationConfigurationCrlConfigurationArgs{
-//						CustomCname:      pulumi.String("crl.example.com"),
-//						Enabled:          pulumi.Bool(true),
-//						ExpirationInDays: pulumi.Int(7),
-//						S3BucketName:     exampleBucketV2.ID(),
-//						S3ObjectAcl:      pulumi.String("BUCKET_OWNER_FULL_CONTROL"),
-//					},
-//				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleBucketPolicy,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := acmpca/certificateAuthority.NewCertificateAuthority(ctx, "example", &acmpca/certificateAuthority.CertificateAuthorityArgs{
+// CertificateAuthorityConfiguration: map[string]interface{}{
+// "keyAlgorithm": "RSA_4096",
+// "signingAlgorithm": "SHA512WITHRSA",
+// "subject": map[string]interface{}{
+// "commonName": "example.com",
+// },
+// },
+// UsageMode: "SHORT_LIVED_CERTIFICATE",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

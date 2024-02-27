@@ -25,9 +25,9 @@ namespace Pulumi.Aws.Iot
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var pubsub = new Aws.Iot.Policy("pubsub", new()
+    ///     var pubsub = new Aws.Iot.Policy.Policy("pubsub", new()
     ///     {
-    ///         PolicyDocument = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///         Policy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
     ///             ["Version"] = "2012-10-17",
     ///             ["Statement"] = new[]

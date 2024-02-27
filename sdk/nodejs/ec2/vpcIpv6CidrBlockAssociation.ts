@@ -15,8 +15,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const testVpc = new aws.ec2.Vpc("testVpc", {cidrBlock: "10.0.0.0/16"});
- * const testVpcIpv6CidrBlockAssociation = new aws.ec2.VpcIpv6CidrBlockAssociation("testVpcIpv6CidrBlockAssociation", {
+ * const testVpc = new aws.ec2/vpc.Vpc("testVpc", {cidrBlock: "10.0.0.0/16"});
+ * const testVpcIpv6CidrBlockAssociation = new aws.ec2/vpcIpv6CidrBlockAssociation.VpcIpv6CidrBlockAssociation("testVpcIpv6CidrBlockAssociation", {
  *     ipv6IpamPoolId: aws_vpc_ipam_pool.test.id,
  *     vpcId: testVpc.id,
  * });

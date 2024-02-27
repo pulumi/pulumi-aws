@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Location
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Location.Tracker("example", new()
+    ///     var example = new Aws.Location.Tracker.Tracker("example", new()
     ///     {
     ///         TrackerName = "example",
     ///     });

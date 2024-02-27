@@ -13,56 +13,12 @@ namespace Pulumi.Aws.MemoryDb
     {
         /// <summary>
         /// Provides information about a MemoryDB Parameter Group.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.MemoryDb.GetParameterGroup.Invoke(new()
-        ///     {
-        ///         Name = "my-parameter-group",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetParameterGroupResult> InvokeAsync(GetParameterGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetParameterGroupResult>("aws:memorydb/getParameterGroup:getParameterGroup", args ?? new GetParameterGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Provides information about a MemoryDB Parameter Group.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.MemoryDb.GetParameterGroup.Invoke(new()
-        ///     {
-        ///         Name = "my-parameter-group",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetParameterGroupResult> Invoke(GetParameterGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetParameterGroupResult>("aws:memorydb/getParameterGroup:getParameterGroup", args ?? new GetParameterGroupInvokeArgs(), options.WithDefaults());

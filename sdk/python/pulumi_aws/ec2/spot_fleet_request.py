@@ -1035,37 +1035,37 @@ class SpotFleetRequest(pulumi.CustomResource):
         import pulumi_aws as aws
 
         # Request a Spot fleet
-        cheap_compute = aws.ec2.SpotFleetRequest("cheapCompute",
-            iam_fleet_role="arn:aws:iam::12345678:role/spot-fleet",
-            spot_price="0.03",
-            allocation_strategy="diversified",
+        cheap_compute = aws.ec2.spot_fleet_request.SpotFleetRequest("cheapCompute",
+            iam_fleet_role=arn:aws:iam::12345678:role/spot-fleet,
+            spot_price=0.03,
+            allocation_strategy=diversified,
             target_capacity=6,
-            valid_until="2019-11-04T20:44:20Z",
+            valid_until=2019-11-04T20:44:20Z,
             launch_specifications=[
-                aws.ec2.SpotFleetRequestLaunchSpecificationArgs(
-                    instance_type="m4.10xlarge",
-                    ami="ami-1234",
-                    spot_price="2.793",
-                    placement_tenancy="dedicated",
-                    iam_instance_profile_arn=aws_iam_instance_profile["example"]["arn"],
-                ),
-                aws.ec2.SpotFleetRequestLaunchSpecificationArgs(
-                    instance_type="m4.4xlarge",
-                    ami="ami-5678",
-                    key_name="my-key",
-                    spot_price="1.117",
-                    iam_instance_profile_arn=aws_iam_instance_profile["example"]["arn"],
-                    availability_zone="us-west-1a",
-                    subnet_id="subnet-1234",
-                    weighted_capacity="35",
-                    root_block_devices=[aws.ec2.SpotFleetRequestLaunchSpecificationRootBlockDeviceArgs(
-                        volume_size=300,
-                        volume_type="gp2",
-                    )],
-                    tags={
-                        "Name": "spot-fleet-example",
+                {
+                    instanceType: m4.10xlarge,
+                    ami: ami-1234,
+                    spotPrice: 2.793,
+                    placementTenancy: dedicated,
+                    iamInstanceProfileArn: aws_iam_instance_profile.example.arn,
+                },
+                {
+                    instanceType: m4.4xlarge,
+                    ami: ami-5678,
+                    keyName: my-key,
+                    spotPrice: 1.117,
+                    iamInstanceProfileArn: aws_iam_instance_profile.example.arn,
+                    availabilityZone: us-west-1a,
+                    subnetId: subnet-1234,
+                    weightedCapacity: 35,
+                    rootBlockDevices: [{
+                        volumeSize: 300,
+                        volumeType: gp2,
+                    }],
+                    tags: {
+                        Name: spot-fleet-example,
                     },
-                ),
+                },
             ])
         ```
         ### Using launch templates
@@ -1074,63 +1074,89 @@ class SpotFleetRequest(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        foo_launch_template = aws.ec2.LaunchTemplate("fooLaunchTemplate",
-            image_id="ami-516b9131",
-            instance_type="m1.small",
-            key_name="some-key")
-        foo_spot_fleet_request = aws.ec2.SpotFleetRequest("fooSpotFleetRequest",
-            iam_fleet_role="arn:aws:iam::12345678:role/spot-fleet",
-            spot_price="0.005",
+        foo_launch_template = aws.ec2.launch_template.LaunchTemplate("fooLaunchTemplate",
+            image_id=ami-516b9131,
+            instance_type=m1.small,
+            key_name=some-key)
+        foo_spot_fleet_request = aws.ec2.spot_fleet_request.SpotFleetRequest("fooSpotFleetRequest",
+            iam_fleet_role=arn:aws:iam::12345678:role/spot-fleet,
+            spot_price=0.005,
             target_capacity=2,
-            valid_until="2019-11-04T20:44:20Z",
-            launch_template_configs=[aws.ec2.SpotFleetRequestLaunchTemplateConfigArgs(
-                launch_template_specification=aws.ec2.SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationArgs(
-                    id=foo_launch_template.id,
-                    version=foo_launch_template.latest_version,
-                ),
-            )],
+            valid_until=2019-11-04T20:44:20Z,
+            launch_template_configs=[{
+                launchTemplateSpecification: {
+                    id: foo_launch_template.id,
+                    version: foo_launch_template.latest_version,
+                },
+            }],
             opts=pulumi.ResourceOptions(depends_on=[aws_iam_policy_attachment["test-attach"]]))
         ```
 
         > **NOTE:** This provider does not support the functionality where multiple `subnet_id` or `availability_zone` parameters can be specified in the same
         launch configuration block. If you want to specify multiple values, then separate launch configuration blocks should be used or launch template overrides should be configured, one per subnet:
-        ### Using multiple launch configurations
+        ### Using multiple launch specifications
 
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ec2.get_subnets(filters=[aws.ec2.GetSubnetsFilterArgs(
-            name="vpc-id",
-            values=[var["vpc_id"]],
-        )])
-        foo_launch_template = aws.ec2.LaunchTemplate("fooLaunchTemplate",
-            image_id="ami-516b9131",
-            instance_type="m1.small",
-            key_name="some-key")
-        foo_spot_fleet_request = aws.ec2.SpotFleetRequest("fooSpotFleetRequest",
-            iam_fleet_role="arn:aws:iam::12345678:role/spot-fleet",
-            spot_price="0.005",
+        foo = aws.ec2.spot_fleet_request.SpotFleetRequest("foo",
+            iam_fleet_role=arn:aws:iam::12345678:role/spot-fleet,
+            launch_specifications=[
+                {
+                    ami: ami-d06a90b0,
+                    availabilityZone: us-west-2a,
+                    instanceType: m1.small,
+                    keyName: my-key,
+                },
+                {
+                    ami: ami-d06a90b0,
+                    availabilityZone: us-west-2a,
+                    instanceType: m5.large,
+                    keyName: my-key,
+                },
+            ],
+            spot_price=0.005,
             target_capacity=2,
-            valid_until="2019-11-04T20:44:20Z",
-            launch_template_configs=[aws.ec2.SpotFleetRequestLaunchTemplateConfigArgs(
-                launch_template_specification=aws.ec2.SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationArgs(
-                    id=foo_launch_template.id,
-                    version=foo_launch_template.latest_version,
-                ),
-                overrides=[
-                    aws.ec2.SpotFleetRequestLaunchTemplateConfigOverrideArgs(
-                        subnet_id=example.ids[0],
-                    ),
-                    aws.ec2.SpotFleetRequestLaunchTemplateConfigOverrideArgs(
-                        subnet_id=example.ids[1],
-                    ),
-                    aws.ec2.SpotFleetRequestLaunchTemplateConfigOverrideArgs(
-                        subnet_id=example.ids[2],
-                    ),
-                ],
-            )],
-            opts=pulumi.ResourceOptions(depends_on=[aws_iam_policy_attachment["test-attach"]]))
+            valid_until=2019-11-04T20:44:20Z)
+        ```
+
+        > In this example, we use a `dynamic` block to define zero or more `launch_specification` blocks, producing one for each element in the list of subnet ids.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        config = pulumi.Config()
+        subnets = config.require_object("subnets")
+        example = aws.ec2.spot_fleet_request.SpotFleetRequest("example",
+            iam_fleet_role=arn:aws:iam::12345678:role/spot-fleet,
+            target_capacity=3,
+            valid_until=2019-11-04T20:44:20Z,
+            allocation_strategy=lowestPrice,
+            fleet_type=request,
+            wait_for_fulfillment=true,
+            terminate_instances_with_expiration=true,
+            dynamic=[{
+                forEach: [{
+                    subnet_id: s[1],
+                } for s in subnets],
+                content: [{
+                    ami: ami-1234,
+                    instanceType: m4.4xlarge,
+                    subnetId: launch_specification.value.subnet_id,
+                    vpcSecurityGroupIds: sg-123456,
+                    rootBlockDevice: [{
+                        volumeSize: 8,
+                        volumeType: gp2,
+                        deleteOnTermination: true,
+                    }],
+                    tags: {
+                        Name: Spot Node,
+                        tagBuilder: builder,
+                    },
+                }],
+            }])
         ```
 
         ## Import
@@ -1218,37 +1244,37 @@ class SpotFleetRequest(pulumi.CustomResource):
         import pulumi_aws as aws
 
         # Request a Spot fleet
-        cheap_compute = aws.ec2.SpotFleetRequest("cheapCompute",
-            iam_fleet_role="arn:aws:iam::12345678:role/spot-fleet",
-            spot_price="0.03",
-            allocation_strategy="diversified",
+        cheap_compute = aws.ec2.spot_fleet_request.SpotFleetRequest("cheapCompute",
+            iam_fleet_role=arn:aws:iam::12345678:role/spot-fleet,
+            spot_price=0.03,
+            allocation_strategy=diversified,
             target_capacity=6,
-            valid_until="2019-11-04T20:44:20Z",
+            valid_until=2019-11-04T20:44:20Z,
             launch_specifications=[
-                aws.ec2.SpotFleetRequestLaunchSpecificationArgs(
-                    instance_type="m4.10xlarge",
-                    ami="ami-1234",
-                    spot_price="2.793",
-                    placement_tenancy="dedicated",
-                    iam_instance_profile_arn=aws_iam_instance_profile["example"]["arn"],
-                ),
-                aws.ec2.SpotFleetRequestLaunchSpecificationArgs(
-                    instance_type="m4.4xlarge",
-                    ami="ami-5678",
-                    key_name="my-key",
-                    spot_price="1.117",
-                    iam_instance_profile_arn=aws_iam_instance_profile["example"]["arn"],
-                    availability_zone="us-west-1a",
-                    subnet_id="subnet-1234",
-                    weighted_capacity="35",
-                    root_block_devices=[aws.ec2.SpotFleetRequestLaunchSpecificationRootBlockDeviceArgs(
-                        volume_size=300,
-                        volume_type="gp2",
-                    )],
-                    tags={
-                        "Name": "spot-fleet-example",
+                {
+                    instanceType: m4.10xlarge,
+                    ami: ami-1234,
+                    spotPrice: 2.793,
+                    placementTenancy: dedicated,
+                    iamInstanceProfileArn: aws_iam_instance_profile.example.arn,
+                },
+                {
+                    instanceType: m4.4xlarge,
+                    ami: ami-5678,
+                    keyName: my-key,
+                    spotPrice: 1.117,
+                    iamInstanceProfileArn: aws_iam_instance_profile.example.arn,
+                    availabilityZone: us-west-1a,
+                    subnetId: subnet-1234,
+                    weightedCapacity: 35,
+                    rootBlockDevices: [{
+                        volumeSize: 300,
+                        volumeType: gp2,
+                    }],
+                    tags: {
+                        Name: spot-fleet-example,
                     },
-                ),
+                },
             ])
         ```
         ### Using launch templates
@@ -1257,63 +1283,89 @@ class SpotFleetRequest(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        foo_launch_template = aws.ec2.LaunchTemplate("fooLaunchTemplate",
-            image_id="ami-516b9131",
-            instance_type="m1.small",
-            key_name="some-key")
-        foo_spot_fleet_request = aws.ec2.SpotFleetRequest("fooSpotFleetRequest",
-            iam_fleet_role="arn:aws:iam::12345678:role/spot-fleet",
-            spot_price="0.005",
+        foo_launch_template = aws.ec2.launch_template.LaunchTemplate("fooLaunchTemplate",
+            image_id=ami-516b9131,
+            instance_type=m1.small,
+            key_name=some-key)
+        foo_spot_fleet_request = aws.ec2.spot_fleet_request.SpotFleetRequest("fooSpotFleetRequest",
+            iam_fleet_role=arn:aws:iam::12345678:role/spot-fleet,
+            spot_price=0.005,
             target_capacity=2,
-            valid_until="2019-11-04T20:44:20Z",
-            launch_template_configs=[aws.ec2.SpotFleetRequestLaunchTemplateConfigArgs(
-                launch_template_specification=aws.ec2.SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationArgs(
-                    id=foo_launch_template.id,
-                    version=foo_launch_template.latest_version,
-                ),
-            )],
+            valid_until=2019-11-04T20:44:20Z,
+            launch_template_configs=[{
+                launchTemplateSpecification: {
+                    id: foo_launch_template.id,
+                    version: foo_launch_template.latest_version,
+                },
+            }],
             opts=pulumi.ResourceOptions(depends_on=[aws_iam_policy_attachment["test-attach"]]))
         ```
 
         > **NOTE:** This provider does not support the functionality where multiple `subnet_id` or `availability_zone` parameters can be specified in the same
         launch configuration block. If you want to specify multiple values, then separate launch configuration blocks should be used or launch template overrides should be configured, one per subnet:
-        ### Using multiple launch configurations
+        ### Using multiple launch specifications
 
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ec2.get_subnets(filters=[aws.ec2.GetSubnetsFilterArgs(
-            name="vpc-id",
-            values=[var["vpc_id"]],
-        )])
-        foo_launch_template = aws.ec2.LaunchTemplate("fooLaunchTemplate",
-            image_id="ami-516b9131",
-            instance_type="m1.small",
-            key_name="some-key")
-        foo_spot_fleet_request = aws.ec2.SpotFleetRequest("fooSpotFleetRequest",
-            iam_fleet_role="arn:aws:iam::12345678:role/spot-fleet",
-            spot_price="0.005",
+        foo = aws.ec2.spot_fleet_request.SpotFleetRequest("foo",
+            iam_fleet_role=arn:aws:iam::12345678:role/spot-fleet,
+            launch_specifications=[
+                {
+                    ami: ami-d06a90b0,
+                    availabilityZone: us-west-2a,
+                    instanceType: m1.small,
+                    keyName: my-key,
+                },
+                {
+                    ami: ami-d06a90b0,
+                    availabilityZone: us-west-2a,
+                    instanceType: m5.large,
+                    keyName: my-key,
+                },
+            ],
+            spot_price=0.005,
             target_capacity=2,
-            valid_until="2019-11-04T20:44:20Z",
-            launch_template_configs=[aws.ec2.SpotFleetRequestLaunchTemplateConfigArgs(
-                launch_template_specification=aws.ec2.SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationArgs(
-                    id=foo_launch_template.id,
-                    version=foo_launch_template.latest_version,
-                ),
-                overrides=[
-                    aws.ec2.SpotFleetRequestLaunchTemplateConfigOverrideArgs(
-                        subnet_id=example.ids[0],
-                    ),
-                    aws.ec2.SpotFleetRequestLaunchTemplateConfigOverrideArgs(
-                        subnet_id=example.ids[1],
-                    ),
-                    aws.ec2.SpotFleetRequestLaunchTemplateConfigOverrideArgs(
-                        subnet_id=example.ids[2],
-                    ),
-                ],
-            )],
-            opts=pulumi.ResourceOptions(depends_on=[aws_iam_policy_attachment["test-attach"]]))
+            valid_until=2019-11-04T20:44:20Z)
+        ```
+
+        > In this example, we use a `dynamic` block to define zero or more `launch_specification` blocks, producing one for each element in the list of subnet ids.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        config = pulumi.Config()
+        subnets = config.require_object("subnets")
+        example = aws.ec2.spot_fleet_request.SpotFleetRequest("example",
+            iam_fleet_role=arn:aws:iam::12345678:role/spot-fleet,
+            target_capacity=3,
+            valid_until=2019-11-04T20:44:20Z,
+            allocation_strategy=lowestPrice,
+            fleet_type=request,
+            wait_for_fulfillment=true,
+            terminate_instances_with_expiration=true,
+            dynamic=[{
+                forEach: [{
+                    subnet_id: s[1],
+                } for s in subnets],
+                content: [{
+                    ami: ami-1234,
+                    instanceType: m4.4xlarge,
+                    subnetId: launch_specification.value.subnet_id,
+                    vpcSecurityGroupIds: sg-123456,
+                    rootBlockDevice: [{
+                        volumeSize: 8,
+                        volumeType: gp2,
+                        deleteOnTermination: true,
+                    }],
+                    tags: {
+                        Name: Spot Node,
+                        tagBuilder: builder,
+                    },
+                }],
+            }])
         ```
 
         ## Import

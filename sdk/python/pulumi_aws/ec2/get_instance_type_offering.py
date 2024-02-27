@@ -92,25 +92,6 @@ def get_instance_type_offering(filters: Optional[Sequence[pulumi.InputType['GetI
     """
     Information about single EC2 Instance Type Offering.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ec2.get_instance_type_offering(filters=[aws.ec2.GetInstanceTypeOfferingFilterArgs(
-            name="instance-type",
-            values=[
-                "t2.micro",
-                "t3.micro",
-            ],
-        )],
-        preferred_instance_types=[
-            "t3.micro",
-            "t2.micro",
-        ])
-    ```
-
 
     :param Sequence[pulumi.InputType['GetInstanceTypeOfferingFilterArgs']] filters: One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstanceTypeOfferings.html) for supported filters. Detailed below.
     :param str location_type: Location type. Defaults to `region`. Valid values: `availability-zone`, `availability-zone-id`, and `region`.
@@ -138,25 +119,6 @@ def get_instance_type_offering_output(filters: Optional[pulumi.Input[Optional[Se
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInstanceTypeOfferingResult]:
     """
     Information about single EC2 Instance Type Offering.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ec2.get_instance_type_offering(filters=[aws.ec2.GetInstanceTypeOfferingFilterArgs(
-            name="instance-type",
-            values=[
-                "t2.micro",
-                "t3.micro",
-            ],
-        )],
-        preferred_instance_types=[
-            "t3.micro",
-            "t2.micro",
-        ])
-    ```
 
 
     :param Sequence[pulumi.InputType['GetInstanceTypeOfferingFilterArgs']] filters: One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstanceTypeOfferings.html) for supported filters. Detailed below.

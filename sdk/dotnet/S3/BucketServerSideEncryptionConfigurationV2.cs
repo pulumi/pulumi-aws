@@ -26,26 +26,26 @@ namespace Pulumi.Aws.S3
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var mykey = new Aws.Kms.Key("mykey", new()
+    ///     var mykey = new Aws.Kms.Key.Key("mykey", new()
     ///     {
     ///         Description = "This key is used to encrypt bucket objects",
     ///         DeletionWindowInDays = 10,
     ///     });
     /// 
-    ///     var mybucket = new Aws.S3.BucketV2("mybucket");
+    ///     var mybucket = new Aws.S3.BucketV2.BucketV2("mybucket");
     /// 
-    ///     var example = new Aws.S3.BucketServerSideEncryptionConfigurationV2("example", new()
+    ///     var example = new Aws.S3.BucketServerSideEncryptionConfigurationV2.BucketServerSideEncryptionConfigurationV2("example", new()
     ///     {
     ///         Bucket = mybucket.Id,
     ///         Rules = new[]
     ///         {
-    ///             new Aws.S3.Inputs.BucketServerSideEncryptionConfigurationV2RuleArgs
+    ///             
     ///             {
-    ///                 ApplyServerSideEncryptionByDefault = new Aws.S3.Inputs.BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultArgs
+    ///                 { "applyServerSideEncryptionByDefault", 
     ///                 {
-    ///                     KmsMasterKeyId = mykey.Arn,
-    ///                     SseAlgorithm = "aws:kms",
-    ///                 },
+    ///                     { "kmsMasterKeyId", mykey.Arn },
+    ///                     { "sseAlgorithm", "aws:kms" },
+    ///                 } },
     ///             },
     ///         },
     ///     });

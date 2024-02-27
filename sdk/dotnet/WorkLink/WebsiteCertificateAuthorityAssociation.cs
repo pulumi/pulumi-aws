@@ -21,9 +21,9 @@ namespace Pulumi.Aws.WorkLink
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.WorkLink.Fleet("example");
+    ///     var example = new Aws.Worklink.Fleet.Fleet("example");
     /// 
-    ///     var test = new Aws.WorkLink.WebsiteCertificateAuthorityAssociation("test", new()
+    ///     var test = new Aws.Worklink.WebsiteCertificateAuthorityAssociation.WebsiteCertificateAuthorityAssociation("test", new()
     ///     {
     ///         FleetArn = aws_worklink_fleet.Test.Arn,
     ///         Certificate = File.ReadAllText("certificate.pem"),

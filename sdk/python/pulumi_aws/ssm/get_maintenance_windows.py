@@ -72,18 +72,6 @@ def get_maintenance_windows(filters: Optional[Sequence[pulumi.InputType['GetMain
     """
     Use this data source to get the window IDs of SSM maintenance windows.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ssm.get_maintenance_windows(filters=[aws.ssm.GetMaintenanceWindowsFilterArgs(
-        name="Enabled",
-        values=["true"],
-    )])
-    ```
-
 
     :param Sequence[pulumi.InputType['GetMaintenanceWindowsFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.
     """
@@ -103,18 +91,6 @@ def get_maintenance_windows_output(filters: Optional[pulumi.Input[Optional[Seque
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMaintenanceWindowsResult]:
     """
     Use this data source to get the window IDs of SSM maintenance windows.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ssm.get_maintenance_windows(filters=[aws.ssm.GetMaintenanceWindowsFilterArgs(
-        name="Enabled",
-        values=["true"],
-    )])
-    ```
 
 
     :param Sequence[pulumi.InputType['GetMaintenanceWindowsFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.

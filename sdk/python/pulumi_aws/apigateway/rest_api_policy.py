@@ -103,31 +103,6 @@ class RestApiPolicy(pulumi.CustomResource):
         > **Note:** Amazon API Gateway Version 1 resources are used for creating and deploying REST APIs. To create and deploy WebSocket and HTTP APIs, use Amazon API Gateway Version 2 resources.
 
         ## Example Usage
-        ### Basic
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test_rest_api = aws.apigateway.RestApi("testRestApi")
-        test_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="AWS",
-                identifiers=["*"],
-            )],
-            actions=["execute-api:Invoke"],
-            resources=[test_rest_api.execution_arn],
-            conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
-                test="IpAddress",
-                variable="aws:SourceIp",
-                values=["123.123.123.123/32"],
-            )],
-        )])
-        test_rest_api_policy = aws.apigateway.RestApiPolicy("testRestApiPolicy",
-            rest_api_id=test_rest_api.id,
-            policy=test_policy_document.json)
-        ```
 
         ## Import
 
@@ -154,31 +129,6 @@ class RestApiPolicy(pulumi.CustomResource):
         > **Note:** Amazon API Gateway Version 1 resources are used for creating and deploying REST APIs. To create and deploy WebSocket and HTTP APIs, use Amazon API Gateway Version 2 resources.
 
         ## Example Usage
-        ### Basic
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test_rest_api = aws.apigateway.RestApi("testRestApi")
-        test_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="AWS",
-                identifiers=["*"],
-            )],
-            actions=["execute-api:Invoke"],
-            resources=[test_rest_api.execution_arn],
-            conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
-                test="IpAddress",
-                variable="aws:SourceIp",
-                values=["123.123.123.123/32"],
-            )],
-        )])
-        test_rest_api_policy = aws.apigateway.RestApiPolicy("testRestApiPolicy",
-            rest_api_id=test_rest_api.id,
-            policy=test_policy_document.json)
-        ```
 
         ## Import
 

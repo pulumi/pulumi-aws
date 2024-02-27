@@ -30,9 +30,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.costexplorer.CostCategory;
  * import com.pulumi.aws.costexplorer.CostCategoryArgs;
- * import com.pulumi.aws.costexplorer.inputs.CostCategoryRuleArgs;
- * import com.pulumi.aws.costexplorer.inputs.CostCategoryRuleRuleArgs;
- * import com.pulumi.aws.costexplorer.inputs.CostCategoryRuleRuleDimensionArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -48,36 +45,9 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var test = new CostCategory(&#34;test&#34;, CostCategoryArgs.builder()        
  *             .rules(            
- *                 CostCategoryRuleArgs.builder()
- *                     .rule(CostCategoryRuleRuleArgs.builder()
- *                         .dimension(CostCategoryRuleRuleDimensionArgs.builder()
- *                             .key(&#34;LINKED_ACCOUNT_NAME&#34;)
- *                             .matchOptions(&#34;ENDS_WITH&#34;)
- *                             .values(&#34;-prod&#34;)
- *                             .build())
- *                         .build())
- *                     .value(&#34;production&#34;)
- *                     .build(),
- *                 CostCategoryRuleArgs.builder()
- *                     .rule(CostCategoryRuleRuleArgs.builder()
- *                         .dimension(CostCategoryRuleRuleDimensionArgs.builder()
- *                             .key(&#34;LINKED_ACCOUNT_NAME&#34;)
- *                             .matchOptions(&#34;ENDS_WITH&#34;)
- *                             .values(&#34;-stg&#34;)
- *                             .build())
- *                         .build())
- *                     .value(&#34;staging&#34;)
- *                     .build(),
- *                 CostCategoryRuleArgs.builder()
- *                     .rule(CostCategoryRuleRuleArgs.builder()
- *                         .dimension(CostCategoryRuleRuleDimensionArgs.builder()
- *                             .key(&#34;LINKED_ACCOUNT_NAME&#34;)
- *                             .matchOptions(&#34;ENDS_WITH&#34;)
- *                             .values(&#34;-dev&#34;)
- *                             .build())
- *                         .build())
- *                     .value(&#34;testing&#34;)
- *                     .build())
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .ruleVersion(&#34;CostCategoryExpression.v1&#34;)
  *             .build());
  * 

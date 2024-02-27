@@ -24,7 +24,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Ec2.AvailabilityZoneGroup("example", new()
+    ///     var example = new Aws.Ec2.AvailabilityZoneGroup.AvailabilityZoneGroup("example", new()
     ///     {
     ///         GroupName = "us-west-2-lax-1",
     ///         OptInStatus = "opted-in",

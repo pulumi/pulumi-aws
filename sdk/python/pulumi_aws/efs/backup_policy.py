@@ -109,12 +109,12 @@ class BackupPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        fs = aws.efs.FileSystem("fs")
-        policy = aws.efs.BackupPolicy("policy",
+        fs = aws.efs.file_system.FileSystem("fs")
+        policy = aws.efs.backup_policy.BackupPolicy("policy",
             file_system_id=fs.id,
-            backup_policy=aws.efs.BackupPolicyBackupPolicyArgs(
-                status="ENABLED",
-            ))
+            backup_policy={
+                status: ENABLED,
+            })
         ```
 
         ## Import
@@ -146,12 +146,12 @@ class BackupPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        fs = aws.efs.FileSystem("fs")
-        policy = aws.efs.BackupPolicy("policy",
+        fs = aws.efs.file_system.FileSystem("fs")
+        policy = aws.efs.backup_policy.BackupPolicy("policy",
             file_system_id=fs.id,
-            backup_policy=aws.efs.BackupPolicyBackupPolicyArgs(
-                status="ENABLED",
-            ))
+            backup_policy={
+                status: ENABLED,
+            })
         ```
 
         ## Import

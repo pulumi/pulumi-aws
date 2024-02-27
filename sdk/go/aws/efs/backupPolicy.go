@@ -22,30 +22,29 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/efs"
+//	efs/backupPolicy "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/efs/backupPolicy"
+//	efs/fileSystem "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/efs/fileSystem"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			fs, err := efs.NewFileSystem(ctx, "fs", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = efs.NewBackupPolicy(ctx, "policy", &efs.BackupPolicyArgs{
-//				FileSystemId: fs.ID(),
-//				BackupPolicy: &efs.BackupPolicyBackupPolicyArgs{
-//					Status: pulumi.String("ENABLED"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// fs, err := efs/fileSystem.NewFileSystem(ctx, "fs", nil)
+// if err != nil {
+// return err
+// }
+// _, err = efs/backupPolicy.NewBackupPolicy(ctx, "policy", &efs/backupPolicy.BackupPolicyArgs{
+// FileSystemId: fs.Id,
+// BackupPolicy: map[string]interface{}{
+// "status": "ENABLED",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

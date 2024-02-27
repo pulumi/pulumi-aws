@@ -232,24 +232,24 @@ class Detector(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        my_detector = aws.guardduty.Detector("myDetector",
-            datasources=aws.guardduty.DetectorDatasourcesArgs(
-                kubernetes=aws.guardduty.DetectorDatasourcesKubernetesArgs(
-                    audit_logs=aws.guardduty.DetectorDatasourcesKubernetesAuditLogsArgs(
-                        enable=False,
-                    ),
-                ),
-                malware_protection=aws.guardduty.DetectorDatasourcesMalwareProtectionArgs(
-                    scan_ec2_instance_with_findings=aws.guardduty.DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsArgs(
-                        ebs_volumes=aws.guardduty.DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesArgs(
-                            enable=True,
-                        ),
-                    ),
-                ),
-                s3_logs=aws.guardduty.DetectorDatasourcesS3LogsArgs(
-                    enable=True,
-                ),
-            ),
+        my_detector = aws.guardduty.detector.Detector("myDetector",
+            datasources={
+                kubernetes: {
+                    auditLogs: {
+                        enable: False,
+                    },
+                },
+                malwareProtection: {
+                    scanEc2InstanceWithFindings: {
+                        ebsVolumes: {
+                            enable: True,
+                        },
+                    },
+                },
+                s3Logs: {
+                    enable: True,
+                },
+            },
             enable=True)
         ```
 
@@ -286,24 +286,24 @@ class Detector(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        my_detector = aws.guardduty.Detector("myDetector",
-            datasources=aws.guardduty.DetectorDatasourcesArgs(
-                kubernetes=aws.guardduty.DetectorDatasourcesKubernetesArgs(
-                    audit_logs=aws.guardduty.DetectorDatasourcesKubernetesAuditLogsArgs(
-                        enable=False,
-                    ),
-                ),
-                malware_protection=aws.guardduty.DetectorDatasourcesMalwareProtectionArgs(
-                    scan_ec2_instance_with_findings=aws.guardduty.DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsArgs(
-                        ebs_volumes=aws.guardduty.DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesArgs(
-                            enable=True,
-                        ),
-                    ),
-                ),
-                s3_logs=aws.guardduty.DetectorDatasourcesS3LogsArgs(
-                    enable=True,
-                ),
-            ),
+        my_detector = aws.guardduty.detector.Detector("myDetector",
+            datasources={
+                kubernetes: {
+                    auditLogs: {
+                        enable: False,
+                    },
+                },
+                malwareProtection: {
+                    scanEc2InstanceWithFindings: {
+                        ebsVolumes: {
+                            enable: True,
+                        },
+                    },
+                },
+                s3Logs: {
+                    enable: True,
+                },
+            },
             enable=True)
         ```
 

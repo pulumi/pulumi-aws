@@ -28,23 +28,23 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cfg"
+//	cfg/conformancePack "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/cfg/conformancePack"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := cfg/conformancePack.NewConformancePack(ctx, "example", &cfg/conformancePack.ConformancePackArgs{
+// InputParameters: []map[string]interface{}{
+// map[string]interface{}{
+// "parameterName": "AccessKeysRotatedParameterMaxAccessKeyAge",
+// "parameterValue": "90",
+// },
+// },
+// TemplateBody: `Parameters:
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cfg.NewConformancePack(ctx, "example", &cfg.ConformancePackArgs{
-//				InputParameters: cfg.ConformancePackInputParameterArray{
-//					&cfg.ConformancePackInputParameterArgs{
-//						ParameterName:  pulumi.String("AccessKeysRotatedParameterMaxAccessKeyAge"),
-//						ParameterValue: pulumi.String("90"),
-//					},
-//				},
-//				TemplateBody: pulumi.String(`Parameters:
-//	  AccessKeysRotatedParameterMaxAccessKeyAge:
-//	    Type: String
+//	AccessKeysRotatedParameterMaxAccessKeyAge:
+//	  Type: String
 //
 // Resources:
 //
@@ -56,18 +56,16 @@ import (
 //	      SourceIdentifier: IAM_PASSWORD_POLICY
 //	  Type: AWS::Config::ConfigRule
 //
-// `),
-//
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				aws_config_configuration_recorder.Example,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// `,
+// }, pulumi.DependsOn([]pulumi.Resource{
+// aws_config_configuration_recorder.Example,
+// }))
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Template S3 URI
 //
@@ -78,52 +76,47 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cfg"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	cfg/conformancePack "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/cfg/conformancePack"
+//	s3/bucketObjectv2 "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/s3/bucketObjectv2"
+//	s3/bucketV2 "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/s3/bucketV2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleBucketV2, err := s3/bucketV2.NewBucketV2(ctx, "exampleBucketV2", nil)
+// if err != nil {
+// return err
+// }
+// exampleBucketObjectv2, err := s3/bucketObjectv2.NewBucketObjectv2(ctx, "exampleBucketObjectv2", &s3/bucketObjectv2.BucketObjectv2Args{
+// Bucket: exampleBucketV2.Id,
+// Key: "example-key",
+// Content: `Resources:
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleBucketObjectv2, err := s3.NewBucketObjectv2(ctx, "exampleBucketObjectv2", &s3.BucketObjectv2Args{
-//				Bucket: exampleBucketV2.ID(),
-//				Key:    pulumi.String("example-key"),
-//				Content: pulumi.String(`Resources:
-//	  IAMPasswordPolicy:
-//	    Properties:
-//	      ConfigRuleName: IAMPasswordPolicy
-//	      Source:
-//	        Owner: AWS
-//	        SourceIdentifier: IAM_PASSWORD_POLICY
-//	    Type: AWS::Config::ConfigRule
+//	IAMPasswordPolicy:
+//	  Properties:
+//	    ConfigRuleName: IAMPasswordPolicy
+//	    Source:
+//	      Owner: AWS
+//	      SourceIdentifier: IAM_PASSWORD_POLICY
+//	  Type: AWS::Config::ConfigRule
 //
-// `),
-//
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = cfg.NewConformancePack(ctx, "exampleConformancePack", &cfg.ConformancePackArgs{
-//				TemplateS3Uri: pulumi.All(exampleBucketV2.Bucket, exampleBucketObjectv2.Key).ApplyT(func(_args []interface{}) (string, error) {
-//					bucket := _args[0].(string)
-//					key := _args[1].(string)
-//					return fmt.Sprintf("s3://%v/%v", bucket, key), nil
-//				}).(pulumi.StringOutput),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				aws_config_configuration_recorder.Example,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// `,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = cfg/conformancePack.NewConformancePack(ctx, "exampleConformancePack", &cfg/conformancePack.ConformancePackArgs{
+// TemplateS3Uri: fmt.Sprintf("s3://%v/%v", exampleBucketV2.Bucket, exampleBucketObjectv2.Key),
+// }, pulumi.DependsOn([]pulumi.Resource{
+// aws_config_configuration_recorder.Example,
+// }))
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

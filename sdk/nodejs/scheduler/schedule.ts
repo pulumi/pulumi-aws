@@ -21,7 +21,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.scheduler.Schedule("example", {
+ * const example = new aws.scheduler/schedule.Schedule("example", {
  *     groupName: "default",
  *     flexibleTimeWindow: {
  *         mode: "OFF",
@@ -39,8 +39,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleQueue = new aws.sqs.Queue("exampleQueue", {});
- * const exampleSchedule = new aws.scheduler.Schedule("exampleSchedule", {
+ * const exampleQueue = new aws.sqs/queue.Queue("exampleQueue", {});
+ * const exampleSchedule = new aws.scheduler/schedule.Schedule("exampleSchedule", {
  *     flexibleTimeWindow: {
  *         mode: "OFF",
  *     },
@@ -48,10 +48,10 @@ import * as utilities from "../utilities";
  *     target: {
  *         arn: "arn:aws:scheduler:::aws-sdk:sqs:sendMessage",
  *         roleArn: aws_iam_role.example.arn,
- *         input: exampleQueue.url.apply(url => JSON.stringify({
+ *         input: JSON.stringify({
  *             MessageBody: "Greetings, programs!",
- *             QueueUrl: url,
- *         })),
+ *             QueueUrl: exampleQueue.url,
+ *         }),
  *     },
  * });
  * ```

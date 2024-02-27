@@ -43,7 +43,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new SamplingRule(&#34;example&#34;, SamplingRuleArgs.builder()        
- *             .attributes(Map.of(&#34;Hello&#34;, &#34;Tris&#34;))
+ *             .attributes(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .fixedRate(0.05)
  *             .host(&#34;*&#34;)
  *             .httpMethod(&#34;*&#34;)

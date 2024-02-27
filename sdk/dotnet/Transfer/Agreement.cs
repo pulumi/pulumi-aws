@@ -23,7 +23,7 @@ namespace Pulumi.Aws.Transfer
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Transfer.Agreement("example", new()
+    ///     var example = new Aws.Transfer.Agreement.Agreement("example", new()
     ///     {
     ///         AccessRole = aws_iam_role.Test.Arn,
     ///         BaseDirectory = "/DOC-EXAMPLE-BUCKET/home/mydirectory",

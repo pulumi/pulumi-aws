@@ -27,48 +27,6 @@ import javax.annotation.Nullable;
  * 
  * &gt; **NOTE:** Due to the expense of testing this resource, we provide it as best effort. If you find it useful, and have the ability to help test or notice issues, consider reaching out to us on GitHub.
  * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.rds.RdsFunctions;
- * import com.pulumi.aws.rds.inputs.GetReservedInstanceOfferingArgs;
- * import com.pulumi.aws.rds.ReservedInstance;
- * import com.pulumi.aws.rds.ReservedInstanceArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var test = RdsFunctions.getReservedInstanceOffering(GetReservedInstanceOfferingArgs.builder()
- *             .dbInstanceClass(&#34;db.t2.micro&#34;)
- *             .duration(31536000)
- *             .multiAz(false)
- *             .offeringType(&#34;All Upfront&#34;)
- *             .productDescription(&#34;mysql&#34;)
- *             .build());
- * 
- *         var example = new ReservedInstance(&#34;example&#34;, ReservedInstanceArgs.builder()        
- *             .offeringId(test.applyValue(getReservedInstanceOfferingResult -&gt; getReservedInstanceOfferingResult.offeringId()))
- *             .reservationId(&#34;optionalCustomReservationID&#34;)
- *             .instanceCount(3)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
  * ## Import
  * 
  * Using `pulumi import`, import RDS DB Instance Reservations using the `instance_id`. For example:

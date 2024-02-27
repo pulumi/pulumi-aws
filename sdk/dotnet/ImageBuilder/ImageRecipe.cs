@@ -22,39 +22,39 @@ namespace Pulumi.Aws.ImageBuilder
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.ImageBuilder.ImageRecipe("example", new()
+    ///     var example = new Aws.Imagebuilder.ImageRecipe.ImageRecipe("example", new()
     ///     {
     ///         BlockDeviceMappings = new[]
     ///         {
-    ///             new Aws.ImageBuilder.Inputs.ImageRecipeBlockDeviceMappingArgs
+    ///             
     ///             {
-    ///                 DeviceName = "/dev/xvdb",
-    ///                 Ebs = new Aws.ImageBuilder.Inputs.ImageRecipeBlockDeviceMappingEbsArgs
+    ///                 { "deviceName", "/dev/xvdb" },
+    ///                 { "ebs", 
     ///                 {
-    ///                     DeleteOnTermination = "true",
-    ///                     VolumeSize = 100,
-    ///                     VolumeType = "gp2",
-    ///                 },
+    ///                     { "deleteOnTermination", true },
+    ///                     { "volumeSize", 100 },
+    ///                     { "volumeType", "gp2" },
+    ///                 } },
     ///             },
     ///         },
     ///         Components = new[]
     ///         {
-    ///             new Aws.ImageBuilder.Inputs.ImageRecipeComponentArgs
+    ///             
     ///             {
-    ///                 ComponentArn = aws_imagebuilder_component.Example.Arn,
-    ///                 Parameters = new[]
+    ///                 { "componentArn", aws_imagebuilder_component.Example.Arn },
+    ///                 { "parameters", new[]
     ///                 {
-    ///                     new Aws.ImageBuilder.Inputs.ImageRecipeComponentParameterArgs
+    ///                     
     ///                     {
-    ///                         Name = "Parameter1",
-    ///                         Value = "Value1",
+    ///                         { "name", "Parameter1" },
+    ///                         { "value", "Value1" },
     ///                     },
-    ///                     new Aws.ImageBuilder.Inputs.ImageRecipeComponentParameterArgs
+    ///                     
     ///                     {
-    ///                         Name = "Parameter2",
-    ///                         Value = "Value2",
+    ///                         { "name", "Parameter2" },
+    ///                         { "value", "Value2" },
     ///                     },
-    ///                 },
+    ///                 } },
     ///             },
     ///         },
     ///         ParentImage = $"arn:{data.Aws_partition.Current.Partition}:imagebuilder:{data.Aws_region.Current.Name}:aws:image/amazon-linux-2-x86/x.x.x",

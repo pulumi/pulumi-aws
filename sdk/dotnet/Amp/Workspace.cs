@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Amp
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Amp.Workspace("example", new()
+    ///     var example = new Aws.Amp.Workspace.Workspace("example", new()
     ///     {
     ///         Alias = "example",
     ///         Tags = 
@@ -43,13 +43,13 @@ namespace Pulumi.Aws.Amp
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleLogGroup = new Aws.CloudWatch.LogGroup("exampleLogGroup");
+    ///     var exampleLogGroup = new Aws.Cloudwatch.LogGroup.LogGroup("exampleLogGroup");
     /// 
-    ///     var exampleWorkspace = new Aws.Amp.Workspace("exampleWorkspace", new()
+    ///     var exampleWorkspace = new Aws.Amp.Workspace.Workspace("exampleWorkspace", new()
     ///     {
-    ///         LoggingConfiguration = new Aws.Amp.Inputs.WorkspaceLoggingConfigurationArgs
+    ///         LoggingConfiguration = 
     ///         {
-    ///             LogGroupArn = exampleLogGroup.Arn.Apply(arn =&gt; $"{arn}:*"),
+    ///             { "logGroupArn", $"{exampleLogGroup.Arn}:*" },
     ///         },
     ///     });
     /// 
@@ -65,13 +65,13 @@ namespace Pulumi.Aws.Amp
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleKey = new Aws.Kms.Key("exampleKey", new()
+    ///     var exampleKey = new Aws.Kms.Key.Key("exampleKey", new()
     ///     {
     ///         Description = "example",
     ///         DeletionWindowInDays = 7,
     ///     });
     /// 
-    ///     var exampleWorkspace = new Aws.Amp.Workspace("exampleWorkspace", new()
+    ///     var exampleWorkspace = new Aws.Amp.Workspace.Workspace("exampleWorkspace", new()
     ///     {
     ///         Alias = "example",
     ///         KmsKeyArn = exampleKey.Arn,

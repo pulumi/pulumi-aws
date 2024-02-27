@@ -7,36 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Registers an on-premises server or virtual machine with Amazon EC2 so that it can be managed using Run Command.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const assumeRole = aws.iam.getPolicyDocument({
- *     statements: [{
- *         effect: "Allow",
- *         principals: [{
- *             type: "Service",
- *             identifiers: ["ssm.amazonaws.com"],
- *         }],
- *         actions: ["sts:AssumeRole"],
- *     }],
- * });
- * const testRole = new aws.iam.Role("testRole", {assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json)});
- * const testAttach = new aws.iam.RolePolicyAttachment("testAttach", {
- *     role: testRole.name,
- *     policyArn: "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore",
- * });
- * const foo = new aws.ssm.Activation("foo", {
- *     description: "Test",
- *     iamRole: testRole.id,
- *     registrationLimit: 5,
- * }, {
- *     dependsOn: [testAttach],
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import AWS SSM Activation using the `id`. For example:

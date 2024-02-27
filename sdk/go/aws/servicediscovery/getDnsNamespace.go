@@ -12,33 +12,6 @@ import (
 )
 
 // Retrieves information about a Service Discovery private or public DNS namespace.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/servicediscovery"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := servicediscovery.GetDnsNamespace(ctx, &servicediscovery.GetDnsNamespaceArgs{
-//				Name: "example.service.local",
-//				Type: "DNS_PRIVATE",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetDnsNamespace(ctx *pulumi.Context, args *GetDnsNamespaceArgs, opts ...pulumi.InvokeOption) (*GetDnsNamespaceResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetDnsNamespaceResult

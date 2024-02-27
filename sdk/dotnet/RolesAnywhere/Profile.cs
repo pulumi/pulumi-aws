@@ -23,7 +23,7 @@ namespace Pulumi.Aws.RolesAnywhere
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testRole = new Aws.Iam.Role("testRole", new()
+    ///     var testRole = new Aws.Iam.Role.Role("testRole", new()
     ///     {
     ///         Path = "/",
     ///         AssumeRolePolicy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
@@ -50,7 +50,7 @@ namespace Pulumi.Aws.RolesAnywhere
     ///         }),
     ///     });
     /// 
-    ///     var testProfile = new Aws.RolesAnywhere.Profile("testProfile", new()
+    ///     var testProfile = new Aws.Rolesanywhere.Profile.Profile("testProfile", new()
     ///     {
     ///         RoleArns = new[]
     ///         {

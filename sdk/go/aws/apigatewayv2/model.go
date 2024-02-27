@@ -24,39 +24,23 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigatewayv2"
+//	apigatewayv2/model "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/apigatewayv2/model"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"$schema": "http://json-schema.org/draft-04/schema#",
-//				"title":   "ExampleModel",
-//				"type":    "object",
-//				"properties": map[string]interface{}{
-//					"id": map[string]interface{}{
-//						"type": "string",
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			_, err = apigatewayv2.NewModel(ctx, "example", &apigatewayv2.ModelArgs{
-//				ApiId:       pulumi.Any(aws_apigatewayv2_api.Example.Id),
-//				ContentType: pulumi.String("application/json"),
-//				Schema:      pulumi.String(json0),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := apigatewayv2/model.NewModel(ctx, "example", &apigatewayv2/model.ModelArgs{
+// ApiId: aws_apigatewayv2_api.Example.Id,
+// ContentType: "application/json",
+// Schema: %!v(PANIC=Format method: fatal: An assertion has failed: unlowered function toJSON),
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

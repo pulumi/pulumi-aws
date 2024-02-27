@@ -15,21 +15,21 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const primary = new aws.guardduty.Detector("primary", {enable: true});
- * const bucket = new aws.s3.BucketV2("bucket", {});
+ * const primary = new aws.guardduty/detector.Detector("primary", {enable: true});
+ * const bucket = new aws.s3/bucketV2.BucketV2("bucket", {});
  * // ... other configuration
- * const myIPSet = new aws.s3.BucketObjectv2("myIPSet", {
+ * const myIPSet = new aws.s3/bucketObjectv2.BucketObjectv2("myIPSet", {
  *     content: "10.0.0.0/8\n",
  *     bucket: bucket.id,
  *     key: "MyIPSet",
  * });
- * const example = new aws.guardduty.IPSet("example", {
+ * const example = new aws.guardduty/iPSet.IPSet("example", {
  *     activate: true,
  *     detectorId: primary.id,
  *     format: "TXT",
- *     location: pulumi.interpolate`https://s3.amazonaws.com/${myIPSet.bucket}/${myIPSet.key}`,
+ *     location: `https://s3.amazonaws.com/${myIPSet.bucket}/${myIPSet.key}`,
  * });
- * const bucketAcl = new aws.s3.BucketAclV2("bucketAcl", {
+ * const bucketAcl = new aws.s3/bucketAclV2.BucketAclV2("bucketAcl", {
  *     bucket: bucket.id,
  *     acl: "private",
  * });

@@ -26,55 +26,54 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/dynamodb"
+//	"github.com/pulumi/pulumi-aws/sdk/v1/go/aws"
+//	dynamodb/table "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/dynamodb/table"
+//	dynamodb/tableReplica "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/dynamodb/tableReplica"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := aws.NewProvider(ctx, "main", &aws.ProviderArgs{
-//				Region: pulumi.String("us-west-2"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = aws.NewProvider(ctx, "alt", &aws.ProviderArgs{
-//				Region: pulumi.String("us-east-2"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleTable, err := dynamodb.NewTable(ctx, "exampleTable", &dynamodb.TableArgs{
-//				HashKey:        pulumi.String("BrodoBaggins"),
-//				BillingMode:    pulumi.String("PAY_PER_REQUEST"),
-//				StreamEnabled:  pulumi.Bool(true),
-//				StreamViewType: pulumi.String("NEW_AND_OLD_IMAGES"),
-//				Attributes: dynamodb.TableAttributeArray{
-//					&dynamodb.TableAttributeArgs{
-//						Name: pulumi.String("BrodoBaggins"),
-//						Type: pulumi.String("S"),
-//					},
-//				},
-//			}, pulumi.Provider(aws.Main))
-//			if err != nil {
-//				return err
-//			}
-//			_, err = dynamodb.NewTableReplica(ctx, "exampleTableReplica", &dynamodb.TableReplicaArgs{
-//				GlobalTableArn: exampleTable.Arn,
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("IZPAWS"),
-//					"Pozo": pulumi.String("Amargo"),
-//				},
-//			}, pulumi.Provider(aws.Alt))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := aws.NewProvider(ctx, "main", &aws.ProviderArgs{
+// Region: "us-west-2",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = aws.NewProvider(ctx, "alt", &aws.ProviderArgs{
+// Region: "us-east-2",
+// })
+// if err != nil {
+// return err
+// }
+// exampleTable, err := dynamodb/table.NewTable(ctx, "exampleTable", &dynamodb/table.TableArgs{
+// HashKey: "BrodoBaggins",
+// BillingMode: "PAY_PER_REQUEST",
+// StreamEnabled: true,
+// StreamViewType: "NEW_AND_OLD_IMAGES",
+// Attributes: []map[string]interface{}{
+// map[string]interface{}{
+// "name": "BrodoBaggins",
+// "type": "S",
+// },
+// },
+// }, pulumi.Provider(aws.Main))
+// if err != nil {
+// return err
+// }
+// _, err = dynamodb/tableReplica.NewTableReplica(ctx, "exampleTableReplica", &dynamodb/tableReplica.TableReplicaArgs{
+// GlobalTableArn: exampleTable.Arn,
+// Tags: map[string]interface{}{
+// "Name": "IZPAWS",
+// "Pozo": "Amargo",
+// },
+// }, pulumi.Provider(aws.Alt))
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

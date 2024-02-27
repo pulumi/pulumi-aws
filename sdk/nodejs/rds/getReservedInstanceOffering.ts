@@ -6,21 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Information about a single RDS Reserved Instance Offering.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = aws.rds.getReservedInstanceOffering({
- *     dbInstanceClass: "db.t2.micro",
- *     duration: 31536000,
- *     multiAz: false,
- *     offeringType: "All Upfront",
- *     productDescription: "mysql",
- * });
- * ```
  */
 export function getReservedInstanceOffering(args: GetReservedInstanceOfferingArgs, opts?: pulumi.InvokeOptions): Promise<GetReservedInstanceOfferingResult> {
 
@@ -88,21 +73,6 @@ export interface GetReservedInstanceOfferingResult {
 }
 /**
  * Information about a single RDS Reserved Instance Offering.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = aws.rds.getReservedInstanceOffering({
- *     dbInstanceClass: "db.t2.micro",
- *     duration: 31536000,
- *     multiAz: false,
- *     offeringType: "All Upfront",
- *     productDescription: "mysql",
- * });
- * ```
  */
 export function getReservedInstanceOfferingOutput(args: GetReservedInstanceOfferingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReservedInstanceOfferingResult> {
     return pulumi.output(args).apply((a: any) => getReservedInstanceOffering(a, opts))

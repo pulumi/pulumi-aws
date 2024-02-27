@@ -25,7 +25,7 @@ namespace Pulumi.Aws.CostExplorer
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var serviceMonitor = new Aws.CostExplorer.AnomalyMonitor("serviceMonitor", new()
+    ///     var serviceMonitor = new Aws.Costexplorer.AnomalyMonitor.AnomalyMonitor("serviceMonitor", new()
     ///     {
     ///         MonitorDimension = "SERVICE",
     ///         MonitorType = "DIMENSIONAL",
@@ -44,7 +44,7 @@ namespace Pulumi.Aws.CostExplorer
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Aws.CostExplorer.AnomalyMonitor("test", new()
+    ///     var test = new Aws.Costexplorer.AnomalyMonitor.AnomalyMonitor("test", new()
     ///     {
     ///         MonitorType = "CUSTOM",
     ///         MonitorSpecification = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;

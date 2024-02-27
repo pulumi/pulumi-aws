@@ -322,31 +322,6 @@ def get_snapshot(db_instance_identifier: Optional[str] = None,
     > **NOTE:** This data source does not apply to snapshots created on Aurora DB clusters.
     See the `rds.ClusterSnapshot` data source for DB Cluster snapshots.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    prod = aws.rds.Instance("prod",
-        allocated_storage=10,
-        engine="mysql",
-        engine_version="5.6.17",
-        instance_class="db.t2.micro",
-        db_name="mydb",
-        username="foo",
-        password="bar",
-        db_subnet_group_name="my_database_subnet_group",
-        parameter_group_name="default.mysql5.6")
-    latest_prod_snapshot = aws.rds.get_snapshot_output(db_instance_identifier=prod.identifier,
-        most_recent=True)
-    # Use the latest production snapshot to create a dev instance.
-    dev = aws.rds.Instance("dev",
-        instance_class="db.t2.micro",
-        db_name="mydbdev",
-        snapshot_identifier=latest_prod_snapshot.id)
-    ```
-
 
     :param str db_instance_identifier: Returns the list of snapshots created by the specific db_instance
     :param str db_snapshot_identifier: Returns information on a specific snapshot_id.
@@ -416,31 +391,6 @@ def get_snapshot_output(db_instance_identifier: Optional[pulumi.Input[Optional[s
 
     > **NOTE:** This data source does not apply to snapshots created on Aurora DB clusters.
     See the `rds.ClusterSnapshot` data source for DB Cluster snapshots.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    prod = aws.rds.Instance("prod",
-        allocated_storage=10,
-        engine="mysql",
-        engine_version="5.6.17",
-        instance_class="db.t2.micro",
-        db_name="mydb",
-        username="foo",
-        password="bar",
-        db_subnet_group_name="my_database_subnet_group",
-        parameter_group_name="default.mysql5.6")
-    latest_prod_snapshot = aws.rds.get_snapshot_output(db_instance_identifier=prod.identifier,
-        most_recent=True)
-    # Use the latest production snapshot to create a dev instance.
-    dev = aws.rds.Instance("dev",
-        instance_class="db.t2.micro",
-        db_name="mydbdev",
-        snapshot_identifier=latest_prod_snapshot.id)
-    ```
 
 
     :param str db_instance_identifier: Returns the list of snapshots created by the specific db_instance

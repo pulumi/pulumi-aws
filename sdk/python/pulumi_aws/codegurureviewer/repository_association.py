@@ -300,18 +300,18 @@ class RepositoryAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_key = aws.kms.Key("exampleKey")
-        example_repository = aws.codecommit.Repository("exampleRepository", repository_name="example-repo")
-        example_repository_association = aws.codegurureviewer.RepositoryAssociation("exampleRepositoryAssociation",
-            repository=aws.codegurureviewer.RepositoryAssociationRepositoryArgs(
-                codecommit=aws.codegurureviewer.RepositoryAssociationRepositoryCodecommitArgs(
-                    name=example_repository.repository_name,
-                ),
-            ),
-            kms_key_details=aws.codegurureviewer.RepositoryAssociationKmsKeyDetailsArgs(
-                encryption_option="CUSTOMER_MANAGED_CMK",
-                kms_key_id=example_key.key_id,
-            ))
+        example_key = aws.kms.key.Key("exampleKey")
+        example_repository = aws.codecommit.repository.Repository("exampleRepository", repository_name=example-repo)
+        example_repository_association = aws.codegurureviewer.repository_association.RepositoryAssociation("exampleRepositoryAssociation",
+            repository={
+                codecommit: {
+                    name: example_repository.repository_name,
+                },
+            },
+            kms_key_details={
+                encryptionOption: CUSTOMER_MANAGED_CMK,
+                kmsKeyId: example_key.key_id,
+            })
         ```
 
         :param str resource_name: The name of the resource.
@@ -336,18 +336,18 @@ class RepositoryAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_key = aws.kms.Key("exampleKey")
-        example_repository = aws.codecommit.Repository("exampleRepository", repository_name="example-repo")
-        example_repository_association = aws.codegurureviewer.RepositoryAssociation("exampleRepositoryAssociation",
-            repository=aws.codegurureviewer.RepositoryAssociationRepositoryArgs(
-                codecommit=aws.codegurureviewer.RepositoryAssociationRepositoryCodecommitArgs(
-                    name=example_repository.repository_name,
-                ),
-            ),
-            kms_key_details=aws.codegurureviewer.RepositoryAssociationKmsKeyDetailsArgs(
-                encryption_option="CUSTOMER_MANAGED_CMK",
-                kms_key_id=example_key.key_id,
-            ))
+        example_key = aws.kms.key.Key("exampleKey")
+        example_repository = aws.codecommit.repository.Repository("exampleRepository", repository_name=example-repo)
+        example_repository_association = aws.codegurureviewer.repository_association.RepositoryAssociation("exampleRepositoryAssociation",
+            repository={
+                codecommit: {
+                    name: example_repository.repository_name,
+                },
+            },
+            kms_key_details={
+                encryptionOption: CUSTOMER_MANAGED_CMK,
+                kmsKeyId: example_key.key_id,
+            })
         ```
 
         :param str resource_name: The name of the resource.

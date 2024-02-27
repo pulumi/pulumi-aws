@@ -179,10 +179,10 @@ class Application(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.appconfig.Application("example",
-            description="Example AppConfig Application",
+        example = aws.appconfig.application.Application("example",
+            description=Example AppConfig Application,
             tags={
-                "Type": "AppConfig Application",
+                Type: AppConfig Application,
             })
         ```
 
@@ -215,10 +215,10 @@ class Application(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.appconfig.Application("example",
-            description="Example AppConfig Application",
+        example = aws.appconfig.application.Application("example",
+            description=Example AppConfig Application,
             tags={
-                "Type": "AppConfig Application",
+                Type: AppConfig Application,
             })
         ```
 

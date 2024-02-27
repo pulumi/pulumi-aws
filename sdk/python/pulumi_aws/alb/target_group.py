@@ -879,10 +879,10 @@ class TargetGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        main = aws.ec2.Vpc("main", cidr_block="10.0.0.0/16")
-        test = aws.lb.TargetGroup("test",
+        main = aws.ec2.vpc.Vpc("main", cidr_block=10.0.0.0/16)
+        test = aws.lb.target_group.TargetGroup("test",
             port=80,
-            protocol="HTTP",
+            protocol=HTTP,
             vpc_id=main.id)
         ```
         ### IP Target Group
@@ -891,11 +891,11 @@ class TargetGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        main = aws.ec2.Vpc("main", cidr_block="10.0.0.0/16")
-        ip_example = aws.lb.TargetGroup("ip-example",
+        main = aws.ec2.vpc.Vpc("main", cidr_block=10.0.0.0/16)
+        ip_example = aws.lb.target_group.TargetGroup("ip-example",
             port=80,
-            protocol="HTTP",
-            target_type="ip",
+            protocol=HTTP,
+            target_type=ip,
             vpc_id=main.id)
         ```
         ### Lambda Target Group
@@ -904,7 +904,7 @@ class TargetGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        lambda_example = aws.lb.TargetGroup("lambda-example", target_type="lambda")
+        lambda_example = aws.lb.target_group.TargetGroup("lambda-example", target_type=lambda)
         ```
         ### ALB Target Group
 
@@ -912,11 +912,11 @@ class TargetGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        alb_example = aws.lb.TargetGroup("alb-example",
-            target_type="alb",
+        alb_example = aws.lb.target_group.TargetGroup("alb-example",
+            target_type=alb,
             port=80,
-            protocol="TCP",
-            vpc_id=aws_vpc["main"]["id"])
+            protocol=TCP,
+            vpc_id=aws_vpc.main.id)
         ```
         ### Target group with unhealthy connection termination disabled
 
@@ -924,13 +924,13 @@ class TargetGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        tcp_example = aws.lb.TargetGroup("tcp-example",
+        tcp_example = aws.lb.target_group.TargetGroup("tcp-example",
             port=25,
-            protocol="TCP",
-            vpc_id=aws_vpc["main"]["id"],
-            target_health_states=[aws.lb.TargetGroupTargetHealthStateArgs(
-                enable_unhealthy_connection_termination=False,
-            )])
+            protocol=TCP,
+            vpc_id=aws_vpc.main.id,
+            target_health_states=[{
+                enableUnhealthyConnectionTermination: False,
+            }])
         ```
 
         ## Import
@@ -997,10 +997,10 @@ class TargetGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        main = aws.ec2.Vpc("main", cidr_block="10.0.0.0/16")
-        test = aws.lb.TargetGroup("test",
+        main = aws.ec2.vpc.Vpc("main", cidr_block=10.0.0.0/16)
+        test = aws.lb.target_group.TargetGroup("test",
             port=80,
-            protocol="HTTP",
+            protocol=HTTP,
             vpc_id=main.id)
         ```
         ### IP Target Group
@@ -1009,11 +1009,11 @@ class TargetGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        main = aws.ec2.Vpc("main", cidr_block="10.0.0.0/16")
-        ip_example = aws.lb.TargetGroup("ip-example",
+        main = aws.ec2.vpc.Vpc("main", cidr_block=10.0.0.0/16)
+        ip_example = aws.lb.target_group.TargetGroup("ip-example",
             port=80,
-            protocol="HTTP",
-            target_type="ip",
+            protocol=HTTP,
+            target_type=ip,
             vpc_id=main.id)
         ```
         ### Lambda Target Group
@@ -1022,7 +1022,7 @@ class TargetGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        lambda_example = aws.lb.TargetGroup("lambda-example", target_type="lambda")
+        lambda_example = aws.lb.target_group.TargetGroup("lambda-example", target_type=lambda)
         ```
         ### ALB Target Group
 
@@ -1030,11 +1030,11 @@ class TargetGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        alb_example = aws.lb.TargetGroup("alb-example",
-            target_type="alb",
+        alb_example = aws.lb.target_group.TargetGroup("alb-example",
+            target_type=alb,
             port=80,
-            protocol="TCP",
-            vpc_id=aws_vpc["main"]["id"])
+            protocol=TCP,
+            vpc_id=aws_vpc.main.id)
         ```
         ### Target group with unhealthy connection termination disabled
 
@@ -1042,13 +1042,13 @@ class TargetGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        tcp_example = aws.lb.TargetGroup("tcp-example",
+        tcp_example = aws.lb.target_group.TargetGroup("tcp-example",
             port=25,
-            protocol="TCP",
-            vpc_id=aws_vpc["main"]["id"],
-            target_health_states=[aws.lb.TargetGroupTargetHealthStateArgs(
-                enable_unhealthy_connection_termination=False,
-            )])
+            protocol=TCP,
+            vpc_id=aws_vpc.main.id,
+            target_health_states=[{
+                enableUnhealthyConnectionTermination: False,
+            }])
         ```
 
         ## Import

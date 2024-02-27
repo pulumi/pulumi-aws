@@ -321,12 +321,12 @@ class Certificate(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.transfer.Certificate("example",
-            certificate=(lambda path: open(path).read())(f"{path['module']}/example.com/example.crt"),
-            certificate_chain=(lambda path: open(path).read())(f"{path['module']}/example.com/ca.crt"),
-            private_key=(lambda path: open(path).read())(f"{path['module']}/example.com/example.key"),
-            description="example",
-            usage="SIGNING")
+        example = aws.transfer.certificate.Certificate("example",
+            certificate=(lambda path: open(path).read())(f{path.module}/example.com/example.crt),
+            certificate_chain=(lambda path: open(path).read())(f{path.module}/example.com/ca.crt),
+            private_key=(lambda path: open(path).read())(f{path.module}/example.com/example.key),
+            description=example,
+            usage=SIGNING)
         ```
 
         ## Import
@@ -362,12 +362,12 @@ class Certificate(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.transfer.Certificate("example",
-            certificate=(lambda path: open(path).read())(f"{path['module']}/example.com/example.crt"),
-            certificate_chain=(lambda path: open(path).read())(f"{path['module']}/example.com/ca.crt"),
-            private_key=(lambda path: open(path).read())(f"{path['module']}/example.com/example.key"),
-            description="example",
-            usage="SIGNING")
+        example = aws.transfer.certificate.Certificate("example",
+            certificate=(lambda path: open(path).read())(f{path.module}/example.com/example.crt),
+            certificate_chain=(lambda path: open(path).read())(f{path.module}/example.com/ca.crt),
+            private_key=(lambda path: open(path).read())(f{path.module}/example.com/example.key),
+            description=example,
+            usage=SIGNING)
         ```
 
         ## Import

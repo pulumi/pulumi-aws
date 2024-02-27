@@ -77,7 +77,7 @@ class EncryptionByDefault(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ebs.EncryptionByDefault("example", enabled=True)
+        example = aws.ebs.encryption_by_default.EncryptionByDefault("example", enabled=True)
         ```
 
         ## Import
@@ -109,7 +109,7 @@ class EncryptionByDefault(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ebs.EncryptionByDefault("example", enabled=True)
+        example = aws.ebs.encryption_by_default.EncryptionByDefault("example", enabled=True)
         ```
 
         ## Import

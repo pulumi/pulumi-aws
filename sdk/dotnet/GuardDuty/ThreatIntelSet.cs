@@ -24,21 +24,21 @@ namespace Pulumi.Aws.GuardDuty
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var primary = new Aws.GuardDuty.Detector("primary", new()
+    ///     var primary = new Aws.Guardduty.Detector.Detector("primary", new()
     ///     {
     ///         Enable = true,
     ///     });
     /// 
-    ///     var bucket = new Aws.S3.BucketV2("bucket");
+    ///     var bucket = new Aws.S3.BucketV2.BucketV2("bucket");
     /// 
     ///     // ... other configuration ...
-    ///     var bucketAcl = new Aws.S3.BucketAclV2("bucketAcl", new()
+    ///     var bucketAcl = new Aws.S3.BucketAclV2.BucketAclV2("bucketAcl", new()
     ///     {
     ///         Bucket = bucket.Id,
     ///         Acl = "private",
     ///     });
     /// 
-    ///     var myThreatIntelSetBucketObjectv2 = new Aws.S3.BucketObjectv2("myThreatIntelSetBucketObjectv2", new()
+    ///     var myThreatIntelSetBucketObjectv2 = new Aws.S3.BucketObjectv2.BucketObjectv2("myThreatIntelSetBucketObjectv2", new()
     ///     {
     ///         Acl = "public-read",
     ///         Content = @"10.0.0.0/8
@@ -47,17 +47,12 @@ namespace Pulumi.Aws.GuardDuty
     ///         Key = "MyThreatIntelSet",
     ///     });
     /// 
-    ///     var myThreatIntelSetThreatIntelSet = new Aws.GuardDuty.ThreatIntelSet("myThreatIntelSetThreatIntelSet", new()
+    ///     var myThreatIntelSetThreatIntelSet = new Aws.Guardduty.ThreatIntelSet.ThreatIntelSet("myThreatIntelSetThreatIntelSet", new()
     ///     {
     ///         Activate = true,
     ///         DetectorId = primary.Id,
     ///         Format = "TXT",
-    ///         Location = Output.Tuple(myThreatIntelSetBucketObjectv2.Bucket, myThreatIntelSetBucketObjectv2.Key).Apply(values =&gt;
-    ///         {
-    ///             var bucket = values.Item1;
-    ///             var key = values.Item2;
-    ///             return $"https://s3.amazonaws.com/{bucket}/{key}";
-    ///         }),
+    ///         Location = $"https://s3.amazonaws.com/{myThreatIntelSetBucketObjectv2.Bucket}/{myThreatIntelSetBucketObjectv2.Key}",
     ///     });
     /// 
     /// });

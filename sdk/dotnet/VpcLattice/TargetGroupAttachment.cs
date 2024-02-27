@@ -23,13 +23,13 @@ namespace Pulumi.Aws.VpcLattice
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.VpcLattice.TargetGroupAttachment("example", new()
+    ///     var example = new Aws.Vpclattice.TargetGroupAttachment.TargetGroupAttachment("example", new()
     ///     {
     ///         TargetGroupIdentifier = aws_vpclattice_target_group.Example.Id,
-    ///         Target = new Aws.VpcLattice.Inputs.TargetGroupAttachmentTargetArgs
+    ///         Target = 
     ///         {
-    ///             Id = aws_lb.Example.Arn,
-    ///             Port = 80,
+    ///             { "id", aws_lb.Example.Arn },
+    ///             { "port", 80 },
     ///         },
     ///     });
     /// 

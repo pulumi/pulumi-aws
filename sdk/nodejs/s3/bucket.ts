@@ -24,7 +24,7 @@ import {RoutingRule} from "./index";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const bucket = new aws.s3.Bucket("bucket", {
+ * const bucket = new aws.s3/bucket.Bucket("bucket", {
  *     acl: "private",
  *     tags: {
  *         Environment: "Dev",
@@ -39,7 +39,7 @@ import {RoutingRule} from "./index";
  * import * as aws from "@pulumi/aws";
  * import * as fs from "fs";
  *
- * const bucket = new aws.s3.Bucket("bucket", {
+ * const bucket = new aws.s3/bucket.Bucket("bucket", {
  *     acl: "public-read",
  *     policy: fs.readFileSync("policy.json", "utf8"),
  *     website: {
@@ -63,7 +63,7 @@ import {RoutingRule} from "./index";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const bucket = new aws.s3.Bucket("bucket", {
+ * const bucket = new aws.s3/bucket.Bucket("bucket", {
  *     acl: "public-read",
  *     corsRules: [{
  *         allowedHeaders: ["*"],
@@ -83,7 +83,7 @@ import {RoutingRule} from "./index";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const bucket = new aws.s3.Bucket("bucket", {
+ * const bucket = new aws.s3/bucket.Bucket("bucket", {
  *     acl: "private",
  *     versioning: {
  *         enabled: true,
@@ -96,8 +96,8 @@ import {RoutingRule} from "./index";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const logBucket = new aws.s3.Bucket("logBucket", {acl: "log-delivery-write"});
- * const bucket = new aws.s3.Bucket("bucket", {
+ * const logBucket = new aws.s3/bucket.Bucket("logBucket", {acl: "log-delivery-write"});
+ * const bucket = new aws.s3/bucket.Bucket("bucket", {
  *     acl: "private",
  *     loggings: [{
  *         targetBucket: logBucket.id,
@@ -111,7 +111,7 @@ import {RoutingRule} from "./index";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const bucket = new aws.s3.Bucket("bucket", {
+ * const bucket = new aws.s3/bucket.Bucket("bucket", {
  *     acl: "private",
  *     lifecycleRules: [
  *         {
@@ -146,7 +146,7 @@ import {RoutingRule} from "./index";
  *         },
  *     ],
  * });
- * const versioningBucket = new aws.s3.Bucket("versioningBucket", {
+ * const versioningBucket = new aws.s3/bucket.Bucket("versioningBucket", {
  *     acl: "private",
  *     lifecycleRules: [{
  *         enabled: true,
@@ -178,8 +178,8 @@ import {RoutingRule} from "./index";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const central = new aws.Provider("central", {region: "eu-central-1"});
- * const replicationRole = new aws.iam.Role("replicationRole", {assumeRolePolicy: `{
+ * const central = new pulumi.providers.Aws("central", {region: "eu-central-1"});
+ * const replicationRole = new aws.iam/role.Role("replicationRole", {assumeRolePolicy: `{
  *   "Version": "2012-10-17",
  *   "Statement": [
  *     {
@@ -193,10 +193,10 @@ import {RoutingRule} from "./index";
  *   ]
  * }
  * `});
- * const destination = new aws.s3.Bucket("destination", {versioning: {
+ * const destination = new aws.s3/bucket.Bucket("destination", {versioning: {
  *     enabled: true,
  * }});
- * const source = new aws.s3.Bucket("source", {
+ * const source = new aws.s3/bucket.Bucket("source", {
  *     acl: "private",
  *     versioning: {
  *         enabled: true,
@@ -226,7 +226,7 @@ import {RoutingRule} from "./index";
  * }, {
  *     provider: aws.central,
  * });
- * const replicationPolicy = new aws.iam.Policy("replicationPolicy", {policy: pulumi.interpolate`{
+ * const replicationPolicy = new aws.iam/policy.Policy("replicationPolicy", {policy: `{
  *   "Version": "2012-10-17",
  *   "Statement": [
  *     {
@@ -262,7 +262,7 @@ import {RoutingRule} from "./index";
  *   ]
  * }
  * `});
- * const replicationRolePolicyAttachment = new aws.iam.RolePolicyAttachment("replicationRolePolicyAttachment", {
+ * const replicationRolePolicyAttachment = new aws.iam/rolePolicyAttachment.RolePolicyAttachment("replicationRolePolicyAttachment", {
  *     role: replicationRole.name,
  *     policyArn: replicationPolicy.arn,
  * });
@@ -273,11 +273,11 @@ import {RoutingRule} from "./index";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const mykey = new aws.kms.Key("mykey", {
+ * const mykey = new aws.kms/key.Key("mykey", {
  *     description: "This key is used to encrypt bucket objects",
  *     deletionWindowInDays: 10,
  * });
- * const mybucket = new aws.s3.Bucket("mybucket", {serverSideEncryptionConfiguration: {
+ * const mybucket = new aws.s3/bucket.Bucket("mybucket", {serverSideEncryptionConfiguration: {
  *     rule: {
  *         applyServerSideEncryptionByDefault: {
  *             kmsMasterKeyId: mykey.arn,
@@ -285,29 +285,6 @@ import {RoutingRule} from "./index";
  *         },
  *     },
  * }});
- * ```
- * ### Using ACL policy grants
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const currentUser = aws.s3.getCanonicalUserId({});
- * const bucket = new aws.s3.Bucket("bucket", {grants: [
- *     {
- *         id: currentUser.then(currentUser => currentUser.id),
- *         type: "CanonicalUser",
- *         permissions: ["FULL_CONTROL"],
- *     },
- *     {
- *         type: "Group",
- *         permissions: [
- *             "READ_ACP",
- *             "WRITE",
- *         ],
- *         uri: "http://acs.amazonaws.com/groups/s3/LogDelivery",
- *     },
- * ]});
  * ```
  *
  * ## Import

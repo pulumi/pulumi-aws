@@ -22,28 +22,26 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sagemaker"
+//	sagemaker/appImageConfig "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/sagemaker/appImageConfig"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := sagemaker.NewAppImageConfig(ctx, "test", &sagemaker.AppImageConfigArgs{
-//				AppImageConfigName: pulumi.String("example"),
-//				KernelGatewayImageConfig: &sagemaker.AppImageConfigKernelGatewayImageConfigArgs{
-//					KernelSpec: &sagemaker.AppImageConfigKernelGatewayImageConfigKernelSpecArgs{
-//						Name: pulumi.String("example"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := sagemaker/appImageConfig.NewAppImageConfig(ctx, "test", &sagemaker/appImageConfig.AppImageConfigArgs{
+// AppImageConfigName: "example",
+// KernelGatewayImageConfig: map[string]interface{}{
+// "kernelSpec": map[string]interface{}{
+// "name": "example",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Default File System Config
 //
@@ -52,29 +50,27 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sagemaker"
+//	sagemaker/appImageConfig "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/sagemaker/appImageConfig"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := sagemaker.NewAppImageConfig(ctx, "test", &sagemaker.AppImageConfigArgs{
-//				AppImageConfigName: pulumi.String("example"),
-//				KernelGatewayImageConfig: &sagemaker.AppImageConfigKernelGatewayImageConfigArgs{
-//					FileSystemConfig: nil,
-//					KernelSpec: &sagemaker.AppImageConfigKernelGatewayImageConfigKernelSpecArgs{
-//						Name: pulumi.String("example"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := sagemaker/appImageConfig.NewAppImageConfig(ctx, "test", &sagemaker/appImageConfig.AppImageConfigArgs{
+// AppImageConfigName: "example",
+// KernelGatewayImageConfig: map[string]interface{}{
+// "fileSystemConfig": nil,
+// "kernelSpec": map[string]interface{}{
+// "name": "example",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -26,29 +26,27 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/fsx"
+//	fsx/windowsFileSystem "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/fsx/windowsFileSystem"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := fsx.NewWindowsFileSystem(ctx, "example", &fsx.WindowsFileSystemArgs{
-//				ActiveDirectoryId: pulumi.Any(aws_directory_service_directory.Example.Id),
-//				KmsKeyId:          pulumi.Any(aws_kms_key.Example.Arn),
-//				StorageCapacity:   pulumi.Int(300),
-//				SubnetIds: pulumi.StringArray{
-//					aws_subnet.Example.Id,
-//				},
-//				ThroughputCapacity: pulumi.Int(1024),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := fsx/windowsFileSystem.NewWindowsFileSystem(ctx, "example", &fsx/windowsFileSystem.WindowsFileSystemArgs{
+// ActiveDirectoryId: aws_directory_service_directory.Example.Id,
+// KmsKeyId: aws_kms_key.Example.Arn,
+// StorageCapacity: 300,
+// SubnetIds: []interface{}{
+// aws_subnet.Example.Id,
+// },
+// ThroughputCapacity: 1024,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Using a Self-Managed Microsoft Active Directory
 //
@@ -59,37 +57,35 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/fsx"
+//	fsx/windowsFileSystem "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/fsx/windowsFileSystem"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := fsx.NewWindowsFileSystem(ctx, "example", &fsx.WindowsFileSystemArgs{
-//				KmsKeyId:        pulumi.Any(aws_kms_key.Example.Arn),
-//				StorageCapacity: pulumi.Int(300),
-//				SubnetIds: pulumi.StringArray{
-//					aws_subnet.Example.Id,
-//				},
-//				ThroughputCapacity: pulumi.Int(1024),
-//				SelfManagedActiveDirectory: &fsx.WindowsFileSystemSelfManagedActiveDirectoryArgs{
-//					DnsIps: pulumi.StringArray{
-//						pulumi.String("10.0.0.111"),
-//						pulumi.String("10.0.0.222"),
-//					},
-//					DomainName: pulumi.String("corp.example.com"),
-//					Password:   pulumi.String("avoid-plaintext-passwords"),
-//					Username:   pulumi.String("Admin"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := fsx/windowsFileSystem.NewWindowsFileSystem(ctx, "example", &fsx/windowsFileSystem.WindowsFileSystemArgs{
+// KmsKeyId: aws_kms_key.Example.Arn,
+// StorageCapacity: 300,
+// SubnetIds: []interface{}{
+// aws_subnet.Example.Id,
+// },
+// ThroughputCapacity: 1024,
+// SelfManagedActiveDirectory: map[string]interface{}{
+// "dnsIps": []string{
+// "10.0.0.111",
+// "10.0.0.222",
+// },
+// "domainName": "corp.example.com",
+// "password": "avoid-plaintext-passwords",
+// "username": "Admin",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -109,11 +109,11 @@ class Plan(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ssmcontacts.Plan("example",
-            contact_id="arn:aws:ssm-contacts:us-west-2:123456789012:contact/contactalias",
-            stages=[aws.ssmcontacts.PlanStageArgs(
-                duration_in_minutes=1,
-            )])
+        example = aws.ssmcontacts.plan.Plan("example",
+            contact_id=arn:aws:ssm-contacts:us-west-2:123456789012:contact/contactalias,
+            stages=[{
+                durationInMinutes: 1,
+            }])
         ```
         ### Usage with SSM Contact
 
@@ -121,14 +121,14 @@ class Plan(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        contact = aws.ssmcontacts.Contact("contact",
-            alias="alias",
-            type="PERSONAL")
-        plan = aws.ssmcontacts.Plan("plan",
+        contact = aws.ssmcontacts.contact.Contact("contact",
+            alias=alias,
+            type=PERSONAL)
+        plan = aws.ssmcontacts.plan.Plan("plan",
             contact_id=contact.arn,
-            stages=[aws.ssmcontacts.PlanStageArgs(
-                duration_in_minutes=1,
-            )])
+            stages=[{
+                durationInMinutes: 1,
+            }])
         ```
         ### Usage With All Fields
 
@@ -136,40 +136,40 @@ class Plan(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        escalation_plan = aws.ssmcontacts.Contact("escalationPlan",
-            alias="escalation-plan-alias",
-            type="ESCALATION")
-        contact_one = aws.ssmcontacts.Contact("contactOne",
-            alias="alias",
-            type="PERSONAL")
-        contact_two = aws.ssmcontacts.Contact("contactTwo",
-            alias="alias",
-            type="PERSONAL")
-        test = aws.ssmcontacts.Plan("test",
+        escalation_plan = aws.ssmcontacts.contact.Contact("escalationPlan",
+            alias=escalation-plan-alias,
+            type=ESCALATION)
+        contact_one = aws.ssmcontacts.contact.Contact("contactOne",
+            alias=alias,
+            type=PERSONAL)
+        contact_two = aws.ssmcontacts.contact.Contact("contactTwo",
+            alias=alias,
+            type=PERSONAL)
+        test = aws.ssmcontacts.plan.Plan("test",
             contact_id=escalation_plan.arn,
-            stages=[aws.ssmcontacts.PlanStageArgs(
-                duration_in_minutes=0,
-                targets=[
-                    aws.ssmcontacts.PlanStageTargetArgs(
-                        contact_target_info=aws.ssmcontacts.PlanStageTargetContactTargetInfoArgs(
-                            is_essential=False,
-                            contact_id=contact_one.arn,
-                        ),
-                    ),
-                    aws.ssmcontacts.PlanStageTargetArgs(
-                        contact_target_info=aws.ssmcontacts.PlanStageTargetContactTargetInfoArgs(
-                            is_essential=True,
-                            contact_id=contact_two.arn,
-                        ),
-                    ),
-                    aws.ssmcontacts.PlanStageTargetArgs(
-                        channel_target_info=aws.ssmcontacts.PlanStageTargetChannelTargetInfoArgs(
-                            retry_interval_in_minutes=2,
-                            contact_channel_id=aws_ssmcontacts_contact_channel["channel"]["arn"],
-                        ),
-                    ),
+            stages=[{
+                durationInMinutes: 0,
+                targets: [
+                    {
+                        contactTargetInfo: {
+                            isEssential: False,
+                            contactId: contact_one.arn,
+                        },
+                    },
+                    {
+                        contactTargetInfo: {
+                            isEssential: True,
+                            contactId: contact_two.arn,
+                        },
+                    },
+                    {
+                        channelTargetInfo: {
+                            retryIntervalInMinutes: 2,
+                            contactChannelId: aws_ssmcontacts_contact_channel.channel.arn,
+                        },
+                    },
                 ],
-            )])
+            }])
         ```
 
         ## Import
@@ -201,11 +201,11 @@ class Plan(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ssmcontacts.Plan("example",
-            contact_id="arn:aws:ssm-contacts:us-west-2:123456789012:contact/contactalias",
-            stages=[aws.ssmcontacts.PlanStageArgs(
-                duration_in_minutes=1,
-            )])
+        example = aws.ssmcontacts.plan.Plan("example",
+            contact_id=arn:aws:ssm-contacts:us-west-2:123456789012:contact/contactalias,
+            stages=[{
+                durationInMinutes: 1,
+            }])
         ```
         ### Usage with SSM Contact
 
@@ -213,14 +213,14 @@ class Plan(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        contact = aws.ssmcontacts.Contact("contact",
-            alias="alias",
-            type="PERSONAL")
-        plan = aws.ssmcontacts.Plan("plan",
+        contact = aws.ssmcontacts.contact.Contact("contact",
+            alias=alias,
+            type=PERSONAL)
+        plan = aws.ssmcontacts.plan.Plan("plan",
             contact_id=contact.arn,
-            stages=[aws.ssmcontacts.PlanStageArgs(
-                duration_in_minutes=1,
-            )])
+            stages=[{
+                durationInMinutes: 1,
+            }])
         ```
         ### Usage With All Fields
 
@@ -228,40 +228,40 @@ class Plan(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        escalation_plan = aws.ssmcontacts.Contact("escalationPlan",
-            alias="escalation-plan-alias",
-            type="ESCALATION")
-        contact_one = aws.ssmcontacts.Contact("contactOne",
-            alias="alias",
-            type="PERSONAL")
-        contact_two = aws.ssmcontacts.Contact("contactTwo",
-            alias="alias",
-            type="PERSONAL")
-        test = aws.ssmcontacts.Plan("test",
+        escalation_plan = aws.ssmcontacts.contact.Contact("escalationPlan",
+            alias=escalation-plan-alias,
+            type=ESCALATION)
+        contact_one = aws.ssmcontacts.contact.Contact("contactOne",
+            alias=alias,
+            type=PERSONAL)
+        contact_two = aws.ssmcontacts.contact.Contact("contactTwo",
+            alias=alias,
+            type=PERSONAL)
+        test = aws.ssmcontacts.plan.Plan("test",
             contact_id=escalation_plan.arn,
-            stages=[aws.ssmcontacts.PlanStageArgs(
-                duration_in_minutes=0,
-                targets=[
-                    aws.ssmcontacts.PlanStageTargetArgs(
-                        contact_target_info=aws.ssmcontacts.PlanStageTargetContactTargetInfoArgs(
-                            is_essential=False,
-                            contact_id=contact_one.arn,
-                        ),
-                    ),
-                    aws.ssmcontacts.PlanStageTargetArgs(
-                        contact_target_info=aws.ssmcontacts.PlanStageTargetContactTargetInfoArgs(
-                            is_essential=True,
-                            contact_id=contact_two.arn,
-                        ),
-                    ),
-                    aws.ssmcontacts.PlanStageTargetArgs(
-                        channel_target_info=aws.ssmcontacts.PlanStageTargetChannelTargetInfoArgs(
-                            retry_interval_in_minutes=2,
-                            contact_channel_id=aws_ssmcontacts_contact_channel["channel"]["arn"],
-                        ),
-                    ),
+            stages=[{
+                durationInMinutes: 0,
+                targets: [
+                    {
+                        contactTargetInfo: {
+                            isEssential: False,
+                            contactId: contact_one.arn,
+                        },
+                    },
+                    {
+                        contactTargetInfo: {
+                            isEssential: True,
+                            contactId: contact_two.arn,
+                        },
+                    },
+                    {
+                        channelTargetInfo: {
+                            retryIntervalInMinutes: 2,
+                            contactChannelId: aws_ssmcontacts_contact_channel.channel.arn,
+                        },
+                    },
                 ],
-            )])
+            }])
         ```
 
         ## Import

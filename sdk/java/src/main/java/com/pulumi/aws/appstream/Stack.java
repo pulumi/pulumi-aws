@@ -33,9 +33,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.appstream.Stack;
  * import com.pulumi.aws.appstream.StackArgs;
- * import com.pulumi.aws.appstream.inputs.StackApplicationSettingsArgs;
- * import com.pulumi.aws.appstream.inputs.StackStorageConnectorArgs;
- * import com.pulumi.aws.appstream.inputs.StackUserSettingArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -50,47 +47,21 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Stack(&#34;example&#34;, StackArgs.builder()        
- *             .applicationSettings(StackApplicationSettingsArgs.builder()
- *                 .enabled(true)
- *                 .settingsGroup(&#34;SettingsGroup&#34;)
- *                 .build())
+ *             .applicationSettings(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .description(&#34;stack description&#34;)
  *             .displayName(&#34;stack display name&#34;)
  *             .feedbackUrl(&#34;http://your-domain/feedback&#34;)
  *             .redirectUrl(&#34;http://your-domain/redirect&#34;)
- *             .storageConnectors(StackStorageConnectorArgs.builder()
- *                 .connectorType(&#34;HOMEFOLDERS&#34;)
- *                 .build())
- *             .tags(Map.of(&#34;TagName&#34;, &#34;TagValue&#34;))
+ *             .storageConnectors(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .userSettings(            
- *                 StackUserSettingArgs.builder()
- *                     .action(&#34;CLIPBOARD_COPY_FROM_LOCAL_DEVICE&#34;)
- *                     .permission(&#34;ENABLED&#34;)
- *                     .build(),
- *                 StackUserSettingArgs.builder()
- *                     .action(&#34;CLIPBOARD_COPY_TO_LOCAL_DEVICE&#34;)
- *                     .permission(&#34;ENABLED&#34;)
- *                     .build(),
- *                 StackUserSettingArgs.builder()
- *                     .action(&#34;DOMAIN_PASSWORD_SIGNIN&#34;)
- *                     .permission(&#34;ENABLED&#34;)
- *                     .build(),
- *                 StackUserSettingArgs.builder()
- *                     .action(&#34;DOMAIN_SMART_CARD_SIGNIN&#34;)
- *                     .permission(&#34;DISABLED&#34;)
- *                     .build(),
- *                 StackUserSettingArgs.builder()
- *                     .action(&#34;FILE_DOWNLOAD&#34;)
- *                     .permission(&#34;ENABLED&#34;)
- *                     .build(),
- *                 StackUserSettingArgs.builder()
- *                     .action(&#34;FILE_UPLOAD&#34;)
- *                     .permission(&#34;ENABLED&#34;)
- *                     .build(),
- *                 StackUserSettingArgs.builder()
- *                     .action(&#34;PRINTING_TO_LOCAL_DEVICE&#34;)
- *                     .permission(&#34;ENABLED&#34;)
- *                     .build())
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

@@ -13,67 +13,6 @@ import (
 
 // The ECS task definition data source allows access to details of
 // a specific AWS ECS task definition.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ecs"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			mongoTaskDefinition, err := ecs.LookupTaskDefinition(ctx, &ecs.LookupTaskDefinitionArgs{
-//				TaskDefinition: mongoEcs / taskDefinitionTaskDefinition.Family,
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			foo, err := ecs.NewCluster(ctx, "foo", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ecs.NewTaskDefinition(ctx, "mongoEcs/taskDefinitionTaskDefinition", &ecs.TaskDefinitionArgs{
-//				Family: pulumi.String("mongodb"),
-//				ContainerDefinitions: pulumi.String(`[
-//	  {
-//	    "cpu": 128,
-//	    "environment": [{
-//	      "name": "SECRET",
-//	      "value": "KEY"
-//	    }],
-//	    "essential": true,
-//	    "image": "mongo:latest",
-//	    "memory": 128,
-//	    "memoryReservation": 64,
-//	    "name": "mongodb"
-//	  }
-//
-// ]
-// `),
-//
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ecs.NewService(ctx, "mongoService", &ecs.ServiceArgs{
-//				Cluster:        foo.ID(),
-//				DesiredCount:   pulumi.Int(2),
-//				TaskDefinition: *pulumi.String(mongoTaskDefinition.Arn),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupTaskDefinition(ctx *pulumi.Context, args *LookupTaskDefinitionArgs, opts ...pulumi.InvokeOption) (*LookupTaskDefinitionResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupTaskDefinitionResult

@@ -180,9 +180,9 @@ class PolicyTemplate(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.verifiedpermissions.PolicyTemplate("example",
-            policy_store_id=aws_verifiedpermissions_policy_store["example"]["id"],
-            statement="permit (principal in ?principal, action in PhotoFlash::Action::\\"FullPhotoAccess\\", resource == ?resource) unless { resource.IsPrivate };")
+        example = aws.verifiedpermissions.policy_template.PolicyTemplate("example",
+            policy_store_id=aws_verifiedpermissions_policy_store.example.id,
+            statement=permit (principal in ?principal, action in PhotoFlash::Action::"FullPhotoAccess", resource == ?resource) unless { resource.IsPrivate };)
         ```
 
         ## Import
@@ -217,9 +217,9 @@ class PolicyTemplate(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.verifiedpermissions.PolicyTemplate("example",
-            policy_store_id=aws_verifiedpermissions_policy_store["example"]["id"],
-            statement="permit (principal in ?principal, action in PhotoFlash::Action::\\"FullPhotoAccess\\", resource == ?resource) unless { resource.IsPrivate };")
+        example = aws.verifiedpermissions.policy_template.PolicyTemplate("example",
+            policy_store_id=aws_verifiedpermissions_policy_store.example.id,
+            statement=permit (principal in ?principal, action in PhotoFlash::Action::"FullPhotoAccess", resource == ?resource) unless { resource.IsPrivate };)
         ```
 
         ## Import

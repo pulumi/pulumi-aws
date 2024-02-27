@@ -24,45 +24,43 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/auditmanager"
+//	auditmanager/assessment "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/auditmanager/assessment"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := auditmanager.NewAssessment(ctx, "test", &auditmanager.AssessmentArgs{
-//				AssessmentReportsDestination: &auditmanager.AssessmentAssessmentReportsDestinationArgs{
-//					Destination:     pulumi.String(fmt.Sprintf("s3://%v", aws_s3_bucket.Test.Id)),
-//					DestinationType: pulumi.String("S3"),
-//				},
-//				FrameworkId: pulumi.Any(aws_auditmanager_framework.Test.Id),
-//				Roles: auditmanager.AssessmentRoleArray{
-//					&auditmanager.AssessmentRoleArgs{
-//						RoleArn:  pulumi.Any(aws_iam_role.Test.Arn),
-//						RoleType: pulumi.String("PROCESS_OWNER"),
-//					},
-//				},
-//				Scope: &auditmanager.AssessmentScopeArgs{
-//					AwsAccounts: auditmanager.AssessmentScopeAwsAccountArray{
-//						&auditmanager.AssessmentScopeAwsAccountArgs{
-//							Id: pulumi.Any(data.Aws_caller_identity.Current.Account_id),
-//						},
-//					},
-//					AwsServices: auditmanager.AssessmentScopeAwsServiceArray{
-//						&auditmanager.AssessmentScopeAwsServiceArgs{
-//							ServiceName: pulumi.String("S3"),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := auditmanager/assessment.NewAssessment(ctx, "test", &auditmanager/assessment.AssessmentArgs{
+// AssessmentReportsDestination: map[string]interface{}{
+// "destination": fmt.Sprintf("s3://%v", aws_s3_bucket.Test.Id),
+// "destinationType": "S3",
+// },
+// FrameworkId: aws_auditmanager_framework.Test.Id,
+// Roles: []map[string]interface{}{
+// map[string]interface{}{
+// "roleArn": aws_iam_role.Test.Arn,
+// "roleType": "PROCESS_OWNER",
+// },
+// },
+// Scope: map[string]interface{}{
+// "awsAccounts": []map[string]interface{}{
+// map[string]interface{}{
+// "id": data.Aws_caller_identity.Current.Account_id,
+// },
+// },
+// "awsServices": []map[string]interface{}{
+// map[string]interface{}{
+// "serviceName": "S3",
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

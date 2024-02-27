@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = new aws.s3.ObjectCopy("test", {
+ * const test = new aws.s3/objectCopy.ObjectCopy("test", {
  *     bucket: "destination_bucket",
  *     grants: [{
  *         permissions: ["READ"],

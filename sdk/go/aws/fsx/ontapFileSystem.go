@@ -22,30 +22,28 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/fsx"
+//	fsx/ontapFileSystem "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/fsx/ontapFileSystem"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := fsx.NewOntapFileSystem(ctx, "test", &fsx.OntapFileSystemArgs{
-//				StorageCapacity: pulumi.Int(1024),
-//				SubnetIds: pulumi.StringArray{
-//					aws_subnet.Test1.Id,
-//					aws_subnet.Test2.Id,
-//				},
-//				DeploymentType:     pulumi.String("MULTI_AZ_1"),
-//				ThroughputCapacity: pulumi.Int(512),
-//				PreferredSubnetId:  pulumi.Any(aws_subnet.Test1.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := fsx/ontapFileSystem.NewOntapFileSystem(ctx, "test", &fsx/ontapFileSystem.OntapFileSystemArgs{
+// StorageCapacity: 1024,
+// SubnetIds: []interface{}{
+// aws_subnet.Test1.Id,
+// aws_subnet.Test2.Id,
+// },
+// DeploymentType: "MULTI_AZ_1",
+// ThroughputCapacity: 512,
+// PreferredSubnetId: aws_subnet.Test1.Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

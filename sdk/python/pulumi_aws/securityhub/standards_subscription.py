@@ -108,20 +108,6 @@ class StandardsSubscription(pulumi.CustomResource):
         """
         Subscribes to a Security Hub standard.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.securityhub.Account("example")
-        current = aws.get_region()
-        cis = aws.securityhub.StandardsSubscription("cis", standards_arn="arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0",
-        opts=pulumi.ResourceOptions(depends_on=[example]))
-        pci321 = aws.securityhub.StandardsSubscription("pci321", standards_arn=f"arn:aws:securityhub:{current.name}::standards/pci-dss/v/3.2.1",
-        opts=pulumi.ResourceOptions(depends_on=[example]))
-        ```
-
         ## Import
 
         Using `pulumi import`, import Security Hub standards subscriptions using the standards subscription ARN. For example:
@@ -158,20 +144,6 @@ class StandardsSubscription(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Subscribes to a Security Hub standard.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.securityhub.Account("example")
-        current = aws.get_region()
-        cis = aws.securityhub.StandardsSubscription("cis", standards_arn="arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0",
-        opts=pulumi.ResourceOptions(depends_on=[example]))
-        pci321 = aws.securityhub.StandardsSubscription("pci321", standards_arn=f"arn:aws:securityhub:{current.name}::standards/pci-dss/v/3.2.1",
-        opts=pulumi.ResourceOptions(depends_on=[example]))
-        ```
 
         ## Import
 

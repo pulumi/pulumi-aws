@@ -20,26 +20,24 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/amp"
+//	amp/workspace "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/amp/workspace"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := amp.NewWorkspace(ctx, "example", &amp.WorkspaceArgs{
-//				Alias: pulumi.String("example"),
-//				Tags: pulumi.StringMap{
-//					"Environment": pulumi.String("production"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := amp/workspace.NewWorkspace(ctx, "example", &amp/workspace.WorkspaceArgs{
+// Alias: "example",
+// Tags: map[string]interface{}{
+// "Environment": "production",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### CloudWatch Logging
 //
@@ -50,32 +48,28 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/amp"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
+//	amp/workspace "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/amp/workspace"
+//	cloudwatch/logGroup "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/cloudwatch/logGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleLogGroup, err := cloudwatch.NewLogGroup(ctx, "exampleLogGroup", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = amp.NewWorkspace(ctx, "exampleWorkspace", &amp.WorkspaceArgs{
-//				LoggingConfiguration: &amp.WorkspaceLoggingConfigurationArgs{
-//					LogGroupArn: exampleLogGroup.Arn.ApplyT(func(arn string) (string, error) {
-//						return fmt.Sprintf("%v:*", arn), nil
-//					}).(pulumi.StringOutput),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleLogGroup, err := cloudwatch/logGroup.NewLogGroup(ctx, "exampleLogGroup", nil)
+// if err != nil {
+// return err
+// }
+// _, err = amp/workspace.NewWorkspace(ctx, "exampleWorkspace", &amp/workspace.WorkspaceArgs{
+// LoggingConfiguration: map[string]interface{}{
+// "logGroupArn": fmt.Sprintf("%v:*", exampleLogGroup.Arn),
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### AWS KMS Customer Managed Keys (CMK)
 //
@@ -84,32 +78,30 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/amp"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kms"
+//	amp/workspace "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/amp/workspace"
+//	kms/key "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/kms/key"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleKey, err := kms.NewKey(ctx, "exampleKey", &kms.KeyArgs{
-//				Description:          pulumi.String("example"),
-//				DeletionWindowInDays: pulumi.Int(7),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = amp.NewWorkspace(ctx, "exampleWorkspace", &amp.WorkspaceArgs{
-//				Alias:     pulumi.String("example"),
-//				KmsKeyArn: exampleKey.Arn,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleKey, err := kms/key.NewKey(ctx, "exampleKey", &kms/key.KeyArgs{
+// Description: "example",
+// DeletionWindowInDays: 7,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = amp/workspace.NewWorkspace(ctx, "exampleWorkspace", &amp/workspace.WorkspaceArgs{
+// Alias: "example",
+// KmsKeyArn: exampleKey.Arn,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

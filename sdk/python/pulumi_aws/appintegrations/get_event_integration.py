@@ -120,15 +120,6 @@ def get_event_integration(name: Optional[str] = None,
     """
     Use this data source to get information on an existing AppIntegrations Event Integration.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.appintegrations.get_event_integration(name="example")
-    ```
-
 
     :param str name: The AppIntegrations Event Integration name.
     :param Mapping[str, str] tags: Metadata that you can assign to help organize the report plans you create.
@@ -155,15 +146,6 @@ def get_event_integration_output(name: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEventIntegrationResult]:
     """
     Use this data source to get information on an existing AppIntegrations Event Integration.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.appintegrations.get_event_integration(name="example")
-    ```
 
 
     :param str name: The AppIntegrations Event Integration name.

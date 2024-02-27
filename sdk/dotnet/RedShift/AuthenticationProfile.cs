@@ -23,7 +23,7 @@ namespace Pulumi.Aws.RedShift
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.RedShift.AuthenticationProfile("example", new()
+    ///     var example = new Aws.Redshift.AuthenticationProfile.AuthenticationProfile("example", new()
     ///     {
     ///         AuthenticationProfileName = "example",
     ///         AuthenticationProfileContent = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;

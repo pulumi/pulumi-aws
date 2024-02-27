@@ -21,26 +21,24 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	ec2/carrierGateway "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/carrierGateway"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.NewCarrierGateway(ctx, "example", &ec2.CarrierGatewayArgs{
-//				VpcId: pulumi.Any(aws_vpc.Example.Id),
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("example-carrier-gateway"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := ec2/carrierGateway.NewCarrierGateway(ctx, "example", &ec2/carrierGateway.CarrierGatewayArgs{
+// VpcId: aws_vpc.Example.Id,
+// Tags: map[string]interface{}{
+// "Name": "example-carrier-gateway",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

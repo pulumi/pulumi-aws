@@ -22,23 +22,21 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/auditmanager"
+//	auditmanager/assessmentReport "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/auditmanager/assessmentReport"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := auditmanager.NewAssessmentReport(ctx, "test", &auditmanager.AssessmentReportArgs{
-//				AssessmentId: pulumi.Any(aws_auditmanager_assessment.Test.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := auditmanager/assessmentReport.NewAssessmentReport(ctx, "test", &auditmanager/assessmentReport.AssessmentReportArgs{
+// AssessmentId: aws_auditmanager_assessment.Test.Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

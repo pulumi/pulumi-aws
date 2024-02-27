@@ -508,9 +508,9 @@ class Addon(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.eks.Addon("example",
-            cluster_name=aws_eks_cluster["example"]["name"],
-            addon_name="vpc-cni")
+        example = aws.eks.addon.Addon("example",
+            cluster_name=aws_eks_cluster.example.name,
+            addon_name=vpc-cni)
         ```
         ## Example Update add-on usage with resolve_conflicts_on_update and PRESERVE
 
@@ -520,11 +520,11 @@ class Addon(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.eks.Addon("example",
-            cluster_name=aws_eks_cluster["example"]["name"],
-            addon_name="coredns",
-            addon_version="v1.10.1-eksbuild.1",
-            resolve_conflicts_on_update="PRESERVE")
+        example = aws.eks.addon.Addon("example",
+            cluster_name=aws_eks_cluster.example.name,
+            addon_name=coredns,
+            addon_version=v1.10.1-eksbuild.1,
+            resolve_conflicts_on_update=PRESERVE)
         ```
 
         ## Example add-on usage with custom configuration_values
@@ -547,21 +547,21 @@ class Addon(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        example = aws.eks.Addon("example",
-            cluster_name="mycluster",
-            addon_name="coredns",
-            addon_version="v1.10.1-eksbuild.1",
-            resolve_conflicts_on_create="OVERWRITE",
+        example = aws.eks.addon.Addon("example",
+            cluster_name=mycluster,
+            addon_name=coredns,
+            addon_version=v1.10.1-eksbuild.1,
+            resolve_conflicts_on_create=OVERWRITE,
             configuration_values=json.dumps({
-                "replicaCount": 4,
-                "resources": {
-                    "limits": {
-                        "cpu": "100m",
-                        "memory": "150Mi",
+                replicaCount: 4,
+                resources: {
+                    limits: {
+                        cpu: 100m,
+                        memory: 150Mi,
                     },
-                    "requests": {
-                        "cpu": "100m",
-                        "memory": "150Mi",
+                    requests: {
+                        cpu: 100m,
+                        memory: 150Mi,
                     },
                 },
             }))
@@ -617,9 +617,9 @@ class Addon(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.eks.Addon("example",
-            cluster_name=aws_eks_cluster["example"]["name"],
-            addon_name="vpc-cni")
+        example = aws.eks.addon.Addon("example",
+            cluster_name=aws_eks_cluster.example.name,
+            addon_name=vpc-cni)
         ```
         ## Example Update add-on usage with resolve_conflicts_on_update and PRESERVE
 
@@ -629,11 +629,11 @@ class Addon(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.eks.Addon("example",
-            cluster_name=aws_eks_cluster["example"]["name"],
-            addon_name="coredns",
-            addon_version="v1.10.1-eksbuild.1",
-            resolve_conflicts_on_update="PRESERVE")
+        example = aws.eks.addon.Addon("example",
+            cluster_name=aws_eks_cluster.example.name,
+            addon_name=coredns,
+            addon_version=v1.10.1-eksbuild.1,
+            resolve_conflicts_on_update=PRESERVE)
         ```
 
         ## Example add-on usage with custom configuration_values
@@ -656,21 +656,21 @@ class Addon(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        example = aws.eks.Addon("example",
-            cluster_name="mycluster",
-            addon_name="coredns",
-            addon_version="v1.10.1-eksbuild.1",
-            resolve_conflicts_on_create="OVERWRITE",
+        example = aws.eks.addon.Addon("example",
+            cluster_name=mycluster,
+            addon_name=coredns,
+            addon_version=v1.10.1-eksbuild.1,
+            resolve_conflicts_on_create=OVERWRITE,
             configuration_values=json.dumps({
-                "replicaCount": 4,
-                "resources": {
-                    "limits": {
-                        "cpu": "100m",
-                        "memory": "150Mi",
+                replicaCount: 4,
+                resources: {
+                    limits: {
+                        cpu: 100m,
+                        memory: 150Mi,
                     },
-                    "requests": {
-                        "cpu": "100m",
-                        "memory": "150Mi",
+                    requests: {
+                        cpu: 100m,
+                        memory: 150Mi,
                     },
                 },
             }))

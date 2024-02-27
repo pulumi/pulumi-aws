@@ -155,7 +155,6 @@ import javax.annotation.Nullable;
  * }
  * ```
  * ### Job Definitionn of type EKS
- * 
  * ```java
  * package generated_program;
  * 
@@ -164,11 +163,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.batch.JobDefinition;
  * import com.pulumi.aws.batch.JobDefinitionArgs;
- * import com.pulumi.aws.batch.inputs.JobDefinitionEksPropertiesArgs;
- * import com.pulumi.aws.batch.inputs.JobDefinitionEksPropertiesPodPropertiesArgs;
- * import com.pulumi.aws.batch.inputs.JobDefinitionEksPropertiesPodPropertiesContainersArgs;
- * import com.pulumi.aws.batch.inputs.JobDefinitionEksPropertiesPodPropertiesContainersResourcesArgs;
- * import com.pulumi.aws.batch.inputs.JobDefinitionEksPropertiesPodPropertiesMetadataArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -183,106 +177,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new JobDefinition(&#34;test&#34;, JobDefinitionArgs.builder()        
- *             .eksProperties(JobDefinitionEksPropertiesArgs.builder()
- *                 .podProperties(JobDefinitionEksPropertiesPodPropertiesArgs.builder()
- *                     .containers(JobDefinitionEksPropertiesPodPropertiesContainersArgs.builder()
- *                         .command(                        
- *                             &#34;sleep&#34;,
- *                             &#34;60&#34;)
- *                         .image(&#34;public.ecr.aws/amazonlinux/amazonlinux:1&#34;)
- *                         .resources(JobDefinitionEksPropertiesPodPropertiesContainersResourcesArgs.builder()
- *                             .limits(Map.ofEntries(
- *                                 Map.entry(&#34;cpu&#34;, &#34;1&#34;),
- *                                 Map.entry(&#34;memory&#34;, &#34;1024Mi&#34;)
- *                             ))
- *                             .build())
- *                         .build())
- *                     .hostNetwork(true)
- *                     .metadata(JobDefinitionEksPropertiesPodPropertiesMetadataArgs.builder()
- *                         .labels(Map.of(&#34;environment&#34;, &#34;test&#34;))
- *                         .build())
- *                     .build())
- *                 .build())
+ *             .eksProperties(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .type(&#34;container&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### Fargate Platform Capability
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.iam.IamFunctions;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
- * import com.pulumi.aws.iam.Role;
- * import com.pulumi.aws.iam.RoleArgs;
- * import com.pulumi.aws.iam.RolePolicyAttachment;
- * import com.pulumi.aws.iam.RolePolicyAttachmentArgs;
- * import com.pulumi.aws.batch.JobDefinition;
- * import com.pulumi.aws.batch.JobDefinitionArgs;
- * import static com.pulumi.codegen.internal.Serialization.*;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var assumeRolePolicy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .actions(&#34;sts:AssumeRole&#34;)
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type(&#34;Service&#34;)
- *                     .identifiers(&#34;ecs-tasks.amazonaws.com&#34;)
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *         var ecsTaskExecutionRole = new Role(&#34;ecsTaskExecutionRole&#34;, RoleArgs.builder()        
- *             .assumeRolePolicy(assumeRolePolicy.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
- *             .build());
- * 
- *         var ecsTaskExecutionRolePolicy = new RolePolicyAttachment(&#34;ecsTaskExecutionRolePolicy&#34;, RolePolicyAttachmentArgs.builder()        
- *             .role(ecsTaskExecutionRole.name())
- *             .policyArn(&#34;arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy&#34;)
- *             .build());
- * 
- *         var test = new JobDefinition(&#34;test&#34;, JobDefinitionArgs.builder()        
- *             .type(&#34;container&#34;)
- *             .platformCapabilities(&#34;FARGATE&#34;)
- *             .containerProperties(ecsTaskExecutionRole.arn().applyValue(arn -&gt; serializeJson(
- *                 jsonObject(
- *                     jsonProperty(&#34;command&#34;, jsonArray(
- *                         &#34;echo&#34;, 
- *                         &#34;test&#34;
- *                     )),
- *                     jsonProperty(&#34;image&#34;, &#34;busybox&#34;),
- *                     jsonProperty(&#34;jobRoleArn&#34;, &#34;arn:aws:iam::123456789012:role/AWSBatchS3ReadOnly&#34;),
- *                     jsonProperty(&#34;fargatePlatformConfiguration&#34;, jsonObject(
- *                         jsonProperty(&#34;platformVersion&#34;, &#34;LATEST&#34;)
- *                     )),
- *                     jsonProperty(&#34;resourceRequirements&#34;, jsonArray(
- *                         jsonObject(
- *                             jsonProperty(&#34;type&#34;, &#34;VCPU&#34;),
- *                             jsonProperty(&#34;value&#34;, &#34;0.25&#34;)
- *                         ), 
- *                         jsonObject(
- *                             jsonProperty(&#34;type&#34;, &#34;MEMORY&#34;),
- *                             jsonProperty(&#34;value&#34;, &#34;512&#34;)
- *                         )
- *                     )),
- *                     jsonProperty(&#34;executionRoleArn&#34;, arn)
- *                 ))))
  *             .build());
  * 
  *     }

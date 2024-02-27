@@ -211,9 +211,9 @@ class Bucket(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.s3control.Bucket("example",
-            bucket="example",
-            outpost_id=data["aws_outposts_outpost"]["example"]["id"])
+        example = aws.s3control.bucket.Bucket("example",
+            bucket=example,
+            outpost_id=data.aws_outposts_outpost.example.id)
         ```
 
         ## Import
@@ -247,9 +247,9 @@ class Bucket(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.s3control.Bucket("example",
-            bucket="example",
-            outpost_id=data["aws_outposts_outpost"]["example"]["id"])
+        example = aws.s3control.bucket.Bucket("example",
+            bucket=example,
+            outpost_id=data.aws_outposts_outpost.example.id)
         ```
 
         ## Import

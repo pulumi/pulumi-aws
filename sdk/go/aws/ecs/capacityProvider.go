@@ -23,45 +23,44 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/autoscaling"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ecs"
+//	autoscaling/group "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/autoscaling/group"
+//	ecs/capacityProvider "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ecs/capacityProvider"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testGroup, err := autoscaling.NewGroup(ctx, "testGroup", &autoscaling.GroupArgs{
-//				Tags: autoscaling.GroupTagArray{
-//					&autoscaling.GroupTagArgs{
-//						Key:               pulumi.String("AmazonECSManaged"),
-//						Value:             pulumi.String("true"),
-//						PropagateAtLaunch: pulumi.Bool(true),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ecs.NewCapacityProvider(ctx, "testCapacityProvider", &ecs.CapacityProviderArgs{
-//				AutoScalingGroupProvider: &ecs.CapacityProviderAutoScalingGroupProviderArgs{
-//					AutoScalingGroupArn:          testGroup.Arn,
-//					ManagedTerminationProtection: pulumi.String("ENABLED"),
-//					ManagedScaling: &ecs.CapacityProviderAutoScalingGroupProviderManagedScalingArgs{
-//						MaximumScalingStepSize: pulumi.Int(1000),
-//						MinimumScalingStepSize: pulumi.Int(1),
-//						Status:                 pulumi.String("ENABLED"),
-//						TargetCapacity:         pulumi.Int(10),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// // ... other configuration, including potentially other tags ...
+// testGroup, err := autoscaling/group.NewGroup(ctx, "testGroup", &autoscaling/group.GroupArgs{
+// Tags: []map[string]interface{}{
+// map[string]interface{}{
+// "key": "AmazonECSManaged",
+// "value": true,
+// "propagateAtLaunch": true,
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = ecs/capacityProvider.NewCapacityProvider(ctx, "testCapacityProvider", &ecs/capacityProvider.CapacityProviderArgs{
+// AutoScalingGroupProvider: map[string]interface{}{
+// "autoScalingGroupArn": testGroup.Arn,
+// "managedTerminationProtection": "ENABLED",
+// "managedScaling": map[string]interface{}{
+// "maximumScalingStepSize": 1000,
+// "minimumScalingStepSize": 1,
+// "status": "ENABLED",
+// "targetCapacity": 10,
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

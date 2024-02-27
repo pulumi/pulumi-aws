@@ -17,7 +17,7 @@ import {PolicyDocument, Role} from "./index";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const testRole = new aws.iam.Role("testRole", {assumeRolePolicy: JSON.stringify({
+ * const testRole = new aws.iam/role.Role("testRole", {assumeRolePolicy: JSON.stringify({
  *     Version: "2012-10-17",
  *     Statement: [{
  *         Action: "sts:AssumeRole",
@@ -28,7 +28,7 @@ import {PolicyDocument, Role} from "./index";
  *         },
  *     }],
  * })});
- * const testPolicy = new aws.iam.RolePolicy("testPolicy", {
+ * const testPolicy = new aws.iam/rolePolicy.RolePolicy("testPolicy", {
  *     role: testRole.id,
  *     policy: JSON.stringify({
  *         Version: "2012-10-17",

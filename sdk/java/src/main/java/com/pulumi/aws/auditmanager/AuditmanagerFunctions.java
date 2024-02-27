@@ -21,90 +21,6 @@ public final class AuditmanagerFunctions {
      * Data source for managing an AWS Audit Manager Control.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.auditmanager.AuditmanagerFunctions;
-     * import com.pulumi.aws.auditmanager.inputs.GetControlArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = AuditmanagerFunctions.getControl(GetControlArgs.builder()
-     *             .name(&#34;1. Risk Management&#34;)
-     *             .type(&#34;Standard&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * ### With Framework Resource
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.auditmanager.AuditmanagerFunctions;
-     * import com.pulumi.aws.auditmanager.inputs.GetControlArgs;
-     * import com.pulumi.aws.auditmanager.Framework;
-     * import com.pulumi.aws.auditmanager.FrameworkArgs;
-     * import com.pulumi.aws.auditmanager.inputs.FrameworkControlSetArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var exampleControl = AuditmanagerFunctions.getControl(GetControlArgs.builder()
-     *             .name(&#34;1. Risk Management&#34;)
-     *             .type(&#34;Standard&#34;)
-     *             .build());
-     * 
-     *         final var example2 = AuditmanagerFunctions.getControl(GetControlArgs.builder()
-     *             .name(&#34;2. Personnel&#34;)
-     *             .type(&#34;Standard&#34;)
-     *             .build());
-     * 
-     *         var exampleFramework = new Framework(&#34;exampleFramework&#34;, FrameworkArgs.builder()        
-     *             .controlSets(            
-     *                 FrameworkControlSetArgs.builder()
-     *                     .name(&#34;example&#34;)
-     *                     .controls(FrameworkControlSetControlArgs.builder()
-     *                         .id(exampleControl.applyValue(getControlResult -&gt; getControlResult.id()))
-     *                         .build())
-     *                     .build(),
-     *                 FrameworkControlSetArgs.builder()
-     *                     .name(&#34;example2&#34;)
-     *                     .controls(FrameworkControlSetControlArgs.builder()
-     *                         .id(example2.applyValue(getControlResult -&gt; getControlResult.id()))
-     *                         .build())
-     *                     .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetControlResult> getControl(GetControlArgs args) {
@@ -114,90 +30,6 @@ public final class AuditmanagerFunctions {
      * Data source for managing an AWS Audit Manager Control.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.auditmanager.AuditmanagerFunctions;
-     * import com.pulumi.aws.auditmanager.inputs.GetControlArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = AuditmanagerFunctions.getControl(GetControlArgs.builder()
-     *             .name(&#34;1. Risk Management&#34;)
-     *             .type(&#34;Standard&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * ### With Framework Resource
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.auditmanager.AuditmanagerFunctions;
-     * import com.pulumi.aws.auditmanager.inputs.GetControlArgs;
-     * import com.pulumi.aws.auditmanager.Framework;
-     * import com.pulumi.aws.auditmanager.FrameworkArgs;
-     * import com.pulumi.aws.auditmanager.inputs.FrameworkControlSetArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var exampleControl = AuditmanagerFunctions.getControl(GetControlArgs.builder()
-     *             .name(&#34;1. Risk Management&#34;)
-     *             .type(&#34;Standard&#34;)
-     *             .build());
-     * 
-     *         final var example2 = AuditmanagerFunctions.getControl(GetControlArgs.builder()
-     *             .name(&#34;2. Personnel&#34;)
-     *             .type(&#34;Standard&#34;)
-     *             .build());
-     * 
-     *         var exampleFramework = new Framework(&#34;exampleFramework&#34;, FrameworkArgs.builder()        
-     *             .controlSets(            
-     *                 FrameworkControlSetArgs.builder()
-     *                     .name(&#34;example&#34;)
-     *                     .controls(FrameworkControlSetControlArgs.builder()
-     *                         .id(exampleControl.applyValue(getControlResult -&gt; getControlResult.id()))
-     *                         .build())
-     *                     .build(),
-     *                 FrameworkControlSetArgs.builder()
-     *                     .name(&#34;example2&#34;)
-     *                     .controls(FrameworkControlSetControlArgs.builder()
-     *                         .id(example2.applyValue(getControlResult -&gt; getControlResult.id()))
-     *                         .build())
-     *                     .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetControlResult> getControlPlain(GetControlPlainArgs args) {
@@ -207,90 +39,6 @@ public final class AuditmanagerFunctions {
      * Data source for managing an AWS Audit Manager Control.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.auditmanager.AuditmanagerFunctions;
-     * import com.pulumi.aws.auditmanager.inputs.GetControlArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = AuditmanagerFunctions.getControl(GetControlArgs.builder()
-     *             .name(&#34;1. Risk Management&#34;)
-     *             .type(&#34;Standard&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * ### With Framework Resource
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.auditmanager.AuditmanagerFunctions;
-     * import com.pulumi.aws.auditmanager.inputs.GetControlArgs;
-     * import com.pulumi.aws.auditmanager.Framework;
-     * import com.pulumi.aws.auditmanager.FrameworkArgs;
-     * import com.pulumi.aws.auditmanager.inputs.FrameworkControlSetArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var exampleControl = AuditmanagerFunctions.getControl(GetControlArgs.builder()
-     *             .name(&#34;1. Risk Management&#34;)
-     *             .type(&#34;Standard&#34;)
-     *             .build());
-     * 
-     *         final var example2 = AuditmanagerFunctions.getControl(GetControlArgs.builder()
-     *             .name(&#34;2. Personnel&#34;)
-     *             .type(&#34;Standard&#34;)
-     *             .build());
-     * 
-     *         var exampleFramework = new Framework(&#34;exampleFramework&#34;, FrameworkArgs.builder()        
-     *             .controlSets(            
-     *                 FrameworkControlSetArgs.builder()
-     *                     .name(&#34;example&#34;)
-     *                     .controls(FrameworkControlSetControlArgs.builder()
-     *                         .id(exampleControl.applyValue(getControlResult -&gt; getControlResult.id()))
-     *                         .build())
-     *                     .build(),
-     *                 FrameworkControlSetArgs.builder()
-     *                     .name(&#34;example2&#34;)
-     *                     .controls(FrameworkControlSetControlArgs.builder()
-     *                         .id(example2.applyValue(getControlResult -&gt; getControlResult.id()))
-     *                         .build())
-     *                     .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetControlResult> getControl(GetControlArgs args, InvokeOptions options) {
@@ -300,90 +48,6 @@ public final class AuditmanagerFunctions {
      * Data source for managing an AWS Audit Manager Control.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.auditmanager.AuditmanagerFunctions;
-     * import com.pulumi.aws.auditmanager.inputs.GetControlArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = AuditmanagerFunctions.getControl(GetControlArgs.builder()
-     *             .name(&#34;1. Risk Management&#34;)
-     *             .type(&#34;Standard&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * ### With Framework Resource
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.auditmanager.AuditmanagerFunctions;
-     * import com.pulumi.aws.auditmanager.inputs.GetControlArgs;
-     * import com.pulumi.aws.auditmanager.Framework;
-     * import com.pulumi.aws.auditmanager.FrameworkArgs;
-     * import com.pulumi.aws.auditmanager.inputs.FrameworkControlSetArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var exampleControl = AuditmanagerFunctions.getControl(GetControlArgs.builder()
-     *             .name(&#34;1. Risk Management&#34;)
-     *             .type(&#34;Standard&#34;)
-     *             .build());
-     * 
-     *         final var example2 = AuditmanagerFunctions.getControl(GetControlArgs.builder()
-     *             .name(&#34;2. Personnel&#34;)
-     *             .type(&#34;Standard&#34;)
-     *             .build());
-     * 
-     *         var exampleFramework = new Framework(&#34;exampleFramework&#34;, FrameworkArgs.builder()        
-     *             .controlSets(            
-     *                 FrameworkControlSetArgs.builder()
-     *                     .name(&#34;example&#34;)
-     *                     .controls(FrameworkControlSetControlArgs.builder()
-     *                         .id(exampleControl.applyValue(getControlResult -&gt; getControlResult.id()))
-     *                         .build())
-     *                     .build(),
-     *                 FrameworkControlSetArgs.builder()
-     *                     .name(&#34;example2&#34;)
-     *                     .controls(FrameworkControlSetControlArgs.builder()
-     *                         .id(example2.applyValue(getControlResult -&gt; getControlResult.id()))
-     *                         .build())
-     *                     .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetControlResult> getControlPlain(GetControlPlainArgs args, InvokeOptions options) {
@@ -393,36 +57,6 @@ public final class AuditmanagerFunctions {
      * Data source for managing an AWS Audit Manager Framework.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.auditmanager.AuditmanagerFunctions;
-     * import com.pulumi.aws.auditmanager.inputs.GetFrameworkArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = AuditmanagerFunctions.getFramework(GetFrameworkArgs.builder()
-     *             .frameworkType(&#34;Standard&#34;)
-     *             .name(&#34;Essential Eight&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetFrameworkResult> getFramework(GetFrameworkArgs args) {
@@ -432,36 +66,6 @@ public final class AuditmanagerFunctions {
      * Data source for managing an AWS Audit Manager Framework.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.auditmanager.AuditmanagerFunctions;
-     * import com.pulumi.aws.auditmanager.inputs.GetFrameworkArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = AuditmanagerFunctions.getFramework(GetFrameworkArgs.builder()
-     *             .frameworkType(&#34;Standard&#34;)
-     *             .name(&#34;Essential Eight&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetFrameworkResult> getFrameworkPlain(GetFrameworkPlainArgs args) {
@@ -471,36 +75,6 @@ public final class AuditmanagerFunctions {
      * Data source for managing an AWS Audit Manager Framework.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.auditmanager.AuditmanagerFunctions;
-     * import com.pulumi.aws.auditmanager.inputs.GetFrameworkArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = AuditmanagerFunctions.getFramework(GetFrameworkArgs.builder()
-     *             .frameworkType(&#34;Standard&#34;)
-     *             .name(&#34;Essential Eight&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetFrameworkResult> getFramework(GetFrameworkArgs args, InvokeOptions options) {
@@ -510,36 +84,6 @@ public final class AuditmanagerFunctions {
      * Data source for managing an AWS Audit Manager Framework.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.auditmanager.AuditmanagerFunctions;
-     * import com.pulumi.aws.auditmanager.inputs.GetFrameworkArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = AuditmanagerFunctions.getFramework(GetFrameworkArgs.builder()
-     *             .frameworkType(&#34;Standard&#34;)
-     *             .name(&#34;Essential Eight&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetFrameworkResult> getFrameworkPlain(GetFrameworkPlainArgs args, InvokeOptions options) {

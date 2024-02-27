@@ -51,7 +51,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Server(&#34;example&#34;, ServerArgs.builder()        
- *             .tags(Map.of(&#34;Name&#34;, &#34;Example&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -95,7 +95,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.transfer.Server;
  * import com.pulumi.aws.transfer.ServerArgs;
- * import com.pulumi.aws.transfer.inputs.ServerEndpointDetailsArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -111,11 +110,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Server(&#34;example&#34;, ServerArgs.builder()        
  *             .endpointType(&#34;VPC&#34;)
- *             .endpointDetails(ServerEndpointDetailsArgs.builder()
- *                 .addressAllocationIds(aws_eip.example().id())
- *                 .subnetIds(aws_subnet.example().id())
- *                 .vpcId(aws_vpc.example().id())
- *                 .build())
+ *             .endpointDetails(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -190,7 +185,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.transfer.Server;
  * import com.pulumi.aws.transfer.ServerArgs;
- * import com.pulumi.aws.transfer.inputs.ServerEndpointDetailsArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -206,75 +200,13 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Server(&#34;example&#34;, ServerArgs.builder()        
  *             .endpointType(&#34;VPC&#34;)
- *             .endpointDetails(ServerEndpointDetailsArgs.builder()
- *                 .subnetIds(aws_subnet.example().id())
- *                 .vpcId(aws_vpc.example().id())
- *                 .build())
+ *             .endpointDetails(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .protocols(            
  *                 &#34;FTP&#34;,
  *                 &#34;FTPS&#34;)
  *             .certificate(aws_acm_certificate.example().arn())
  *             .identityProviderType(&#34;API_GATEWAY&#34;)
  *             .url(String.format(&#34;%s%s&#34;, aws_api_gateway_deployment.example().invoke_url(),aws_api_gateway_resource.example().path()))
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### Using Structured Logging Destinations
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.cloudwatch.LogGroup;
- * import com.pulumi.aws.cloudwatch.LogGroupArgs;
- * import com.pulumi.aws.iam.IamFunctions;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
- * import com.pulumi.aws.iam.Role;
- * import com.pulumi.aws.iam.RoleArgs;
- * import com.pulumi.aws.transfer.Server;
- * import com.pulumi.aws.transfer.ServerArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var transferLogGroup = new LogGroup(&#34;transferLogGroup&#34;, LogGroupArgs.builder()        
- *             .namePrefix(&#34;transfer_test_&#34;)
- *             .build());
- * 
- *         final var transferAssumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect(&#34;Allow&#34;)
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type(&#34;Service&#34;)
- *                     .identifiers(&#34;transfer.amazonaws.com&#34;)
- *                     .build())
- *                 .actions(&#34;sts:AssumeRole&#34;)
- *                 .build())
- *             .build());
- * 
- *         var iamForTransfer = new Role(&#34;iamForTransfer&#34;, RoleArgs.builder()        
- *             .namePrefix(&#34;iam_for_transfer_&#34;)
- *             .assumeRolePolicy(transferAssumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
- *             .managedPolicyArns(&#34;arn:aws:iam::aws:policy/service-role/AWSTransferLoggingAccess&#34;)
- *             .build());
- * 
- *         var transferServer = new Server(&#34;transferServer&#34;, ServerArgs.builder()        
- *             .endpointType(&#34;PUBLIC&#34;)
- *             .loggingRole(iamForTransfer.arn())
- *             .protocols(&#34;SFTP&#34;)
- *             .structuredLogDestinations(transferLogGroup.arn().applyValue(arn -&gt; String.format(&#34;%s:*&#34;, arn)))
  *             .build());
  * 
  *     }

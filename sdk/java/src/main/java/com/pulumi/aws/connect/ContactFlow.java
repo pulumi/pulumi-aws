@@ -84,11 +84,7 @@ import javax.annotation.Nullable;
  *                         )
  *                     ))
  *                 )))
- *             .tags(Map.ofEntries(
- *                 Map.entry(&#34;Name&#34;, &#34;Test Contact Flow&#34;),
- *                 Map.entry(&#34;Application&#34;, &#34;Example&#34;),
- *                 Map.entry(&#34;Method&#34;, &#34;Create&#34;)
- *             ))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

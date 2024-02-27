@@ -23,7 +23,7 @@ namespace Pulumi.Aws.CloudFront
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.CloudFront.KeyValueStore("example", new()
+    ///     var example = new Aws.Cloudfront.KeyValueStore.KeyValueStore("example", new()
     ///     {
     ///         Comment = "This is an example key value store",
     ///     });

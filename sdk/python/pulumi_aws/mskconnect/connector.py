@@ -465,52 +465,52 @@ class Connector(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.mskconnect.Connector("example",
-            kafkaconnect_version="2.7.1",
-            capacity=aws.mskconnect.ConnectorCapacityArgs(
-                autoscaling=aws.mskconnect.ConnectorCapacityAutoscalingArgs(
-                    mcu_count=1,
-                    min_worker_count=1,
-                    max_worker_count=2,
-                    scale_in_policy=aws.mskconnect.ConnectorCapacityAutoscalingScaleInPolicyArgs(
-                        cpu_utilization_percentage=20,
-                    ),
-                    scale_out_policy=aws.mskconnect.ConnectorCapacityAutoscalingScaleOutPolicyArgs(
-                        cpu_utilization_percentage=80,
-                    ),
-                ),
-            ),
-            connector_configuration={
-                "connector.class": "com.github.jcustenborder.kafka.connect.simulator.SimulatorSinkConnector",
-                "tasks.max": "1",
-                "topics": "example",
+        example = aws.mskconnect.connector.Connector("example",
+            kafkaconnect_version=2.7.1,
+            capacity={
+                autoscaling: {
+                    mcuCount: 1,
+                    minWorkerCount: 1,
+                    maxWorkerCount: 2,
+                    scaleInPolicy: {
+                        cpuUtilizationPercentage: 20,
+                    },
+                    scaleOutPolicy: {
+                        cpuUtilizationPercentage: 80,
+                    },
+                },
             },
-            kafka_cluster=aws.mskconnect.ConnectorKafkaClusterArgs(
-                apache_kafka_cluster=aws.mskconnect.ConnectorKafkaClusterApacheKafkaClusterArgs(
-                    bootstrap_servers=aws_msk_cluster["example"]["bootstrap_brokers_tls"],
-                    vpc=aws.mskconnect.ConnectorKafkaClusterApacheKafkaClusterVpcArgs(
-                        security_groups=[aws_security_group["example"]["id"]],
-                        subnets=[
-                            aws_subnet["example1"]["id"],
-                            aws_subnet["example2"]["id"],
-                            aws_subnet["example3"]["id"],
+            connector_configuration={
+                connector.class: com.github.jcustenborder.kafka.connect.simulator.SimulatorSinkConnector,
+                tasks.max: 1,
+                topics: example,
+            },
+            kafka_cluster={
+                apacheKafkaCluster: {
+                    bootstrapServers: aws_msk_cluster.example.bootstrap_brokers_tls,
+                    vpc: {
+                        securityGroups: [aws_security_group.example.id],
+                        subnets: [
+                            aws_subnet.example1.id,
+                            aws_subnet.example2.id,
+                            aws_subnet.example3.id,
                         ],
-                    ),
-                ),
-            ),
-            kafka_cluster_client_authentication=aws.mskconnect.ConnectorKafkaClusterClientAuthenticationArgs(
-                authentication_type="NONE",
-            ),
-            kafka_cluster_encryption_in_transit=aws.mskconnect.ConnectorKafkaClusterEncryptionInTransitArgs(
-                encryption_type="TLS",
-            ),
-            plugins=[aws.mskconnect.ConnectorPluginArgs(
-                custom_plugin=aws.mskconnect.ConnectorPluginCustomPluginArgs(
-                    arn=aws_mskconnect_custom_plugin["example"]["arn"],
-                    revision=aws_mskconnect_custom_plugin["example"]["latest_revision"],
-                ),
-            )],
-            service_execution_role_arn=aws_iam_role["example"]["arn"])
+                    },
+                },
+            },
+            kafka_cluster_client_authentication={
+                authenticationType: NONE,
+            },
+            kafka_cluster_encryption_in_transit={
+                encryptionType: TLS,
+            },
+            plugins=[{
+                customPlugin: {
+                    arn: aws_mskconnect_custom_plugin.example.arn,
+                    revision: aws_mskconnect_custom_plugin.example.latest_revision,
+                },
+            }],
+            service_execution_role_arn=aws_iam_role.example.arn)
         ```
 
         ## Import
@@ -552,52 +552,52 @@ class Connector(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.mskconnect.Connector("example",
-            kafkaconnect_version="2.7.1",
-            capacity=aws.mskconnect.ConnectorCapacityArgs(
-                autoscaling=aws.mskconnect.ConnectorCapacityAutoscalingArgs(
-                    mcu_count=1,
-                    min_worker_count=1,
-                    max_worker_count=2,
-                    scale_in_policy=aws.mskconnect.ConnectorCapacityAutoscalingScaleInPolicyArgs(
-                        cpu_utilization_percentage=20,
-                    ),
-                    scale_out_policy=aws.mskconnect.ConnectorCapacityAutoscalingScaleOutPolicyArgs(
-                        cpu_utilization_percentage=80,
-                    ),
-                ),
-            ),
-            connector_configuration={
-                "connector.class": "com.github.jcustenborder.kafka.connect.simulator.SimulatorSinkConnector",
-                "tasks.max": "1",
-                "topics": "example",
+        example = aws.mskconnect.connector.Connector("example",
+            kafkaconnect_version=2.7.1,
+            capacity={
+                autoscaling: {
+                    mcuCount: 1,
+                    minWorkerCount: 1,
+                    maxWorkerCount: 2,
+                    scaleInPolicy: {
+                        cpuUtilizationPercentage: 20,
+                    },
+                    scaleOutPolicy: {
+                        cpuUtilizationPercentage: 80,
+                    },
+                },
             },
-            kafka_cluster=aws.mskconnect.ConnectorKafkaClusterArgs(
-                apache_kafka_cluster=aws.mskconnect.ConnectorKafkaClusterApacheKafkaClusterArgs(
-                    bootstrap_servers=aws_msk_cluster["example"]["bootstrap_brokers_tls"],
-                    vpc=aws.mskconnect.ConnectorKafkaClusterApacheKafkaClusterVpcArgs(
-                        security_groups=[aws_security_group["example"]["id"]],
-                        subnets=[
-                            aws_subnet["example1"]["id"],
-                            aws_subnet["example2"]["id"],
-                            aws_subnet["example3"]["id"],
+            connector_configuration={
+                connector.class: com.github.jcustenborder.kafka.connect.simulator.SimulatorSinkConnector,
+                tasks.max: 1,
+                topics: example,
+            },
+            kafka_cluster={
+                apacheKafkaCluster: {
+                    bootstrapServers: aws_msk_cluster.example.bootstrap_brokers_tls,
+                    vpc: {
+                        securityGroups: [aws_security_group.example.id],
+                        subnets: [
+                            aws_subnet.example1.id,
+                            aws_subnet.example2.id,
+                            aws_subnet.example3.id,
                         ],
-                    ),
-                ),
-            ),
-            kafka_cluster_client_authentication=aws.mskconnect.ConnectorKafkaClusterClientAuthenticationArgs(
-                authentication_type="NONE",
-            ),
-            kafka_cluster_encryption_in_transit=aws.mskconnect.ConnectorKafkaClusterEncryptionInTransitArgs(
-                encryption_type="TLS",
-            ),
-            plugins=[aws.mskconnect.ConnectorPluginArgs(
-                custom_plugin=aws.mskconnect.ConnectorPluginCustomPluginArgs(
-                    arn=aws_mskconnect_custom_plugin["example"]["arn"],
-                    revision=aws_mskconnect_custom_plugin["example"]["latest_revision"],
-                ),
-            )],
-            service_execution_role_arn=aws_iam_role["example"]["arn"])
+                    },
+                },
+            },
+            kafka_cluster_client_authentication={
+                authenticationType: NONE,
+            },
+            kafka_cluster_encryption_in_transit={
+                encryptionType: TLS,
+            },
+            plugins=[{
+                customPlugin: {
+                    arn: aws_mskconnect_custom_plugin.example.arn,
+                    revision: aws_mskconnect_custom_plugin.example.latest_revision,
+                },
+            }],
+            service_execution_role_arn=aws_iam_role.example.arn)
         ```
 
         ## Import

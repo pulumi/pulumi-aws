@@ -143,35 +143,6 @@ class InstanceState(pulumi.CustomResource):
 
         > **NOTE on Instance State Management:** AWS does not currently have an EC2 API operation to determine an instance has finished processing user data. As a result, this resource can interfere with user data processing. For example, this resource may stop an instance while the user data script is in mid run.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        ubuntu = aws.ec2.get_ami(most_recent=True,
-            filters=[
-                aws.ec2.GetAmiFilterArgs(
-                    name="name",
-                    values=["ubuntu/images/hvm-ssd/ubuntu-focal-20.04-amd64-server-*"],
-                ),
-                aws.ec2.GetAmiFilterArgs(
-                    name="virtualization-type",
-                    values=["hvm"],
-                ),
-            ],
-            owners=["099720109477"])
-        test_instance = aws.ec2.Instance("testInstance",
-            ami=ubuntu.id,
-            instance_type="t3.micro",
-            tags={
-                "Name": "HelloWorld",
-            })
-        test_instance_state = aws.ec2transitgateway.InstanceState("testInstanceState",
-            instance_id=test_instance.id,
-            state="stopped")
-        ```
-
         ## Import
 
         Using `pulumi import`, import `aws_ec2_instance_state` using the `instance_id` attribute. For example:
@@ -198,35 +169,6 @@ class InstanceState(pulumi.CustomResource):
         Provides an EC2 instance state resource. This allows managing an instance power state.
 
         > **NOTE on Instance State Management:** AWS does not currently have an EC2 API operation to determine an instance has finished processing user data. As a result, this resource can interfere with user data processing. For example, this resource may stop an instance while the user data script is in mid run.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        ubuntu = aws.ec2.get_ami(most_recent=True,
-            filters=[
-                aws.ec2.GetAmiFilterArgs(
-                    name="name",
-                    values=["ubuntu/images/hvm-ssd/ubuntu-focal-20.04-amd64-server-*"],
-                ),
-                aws.ec2.GetAmiFilterArgs(
-                    name="virtualization-type",
-                    values=["hvm"],
-                ),
-            ],
-            owners=["099720109477"])
-        test_instance = aws.ec2.Instance("testInstance",
-            ami=ubuntu.id,
-            instance_type="t3.micro",
-            tags={
-                "Name": "HelloWorld",
-            })
-        test_instance_state = aws.ec2transitgateway.InstanceState("testInstanceState",
-            instance_id=test_instance.id,
-            state="stopped")
-        ```
 
         ## Import
 

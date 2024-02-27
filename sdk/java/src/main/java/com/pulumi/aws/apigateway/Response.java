@@ -47,8 +47,8 @@ import javax.annotation.Nullable;
  *             .restApiId(main.id())
  *             .statusCode(&#34;401&#34;)
  *             .responseType(&#34;UNAUTHORIZED&#34;)
- *             .responseTemplates(Map.of(&#34;application/json&#34;, &#34;{\&#34;message\&#34;:$context.error.messageString}&#34;))
- *             .responseParameters(Map.of(&#34;gatewayresponse.header.Authorization&#34;, &#34;&#39;Basic&#39;&#34;))
+ *             .responseTemplates(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .responseParameters(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

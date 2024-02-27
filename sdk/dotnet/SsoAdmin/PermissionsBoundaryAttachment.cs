@@ -25,13 +25,13 @@ namespace Pulumi.Aws.SsoAdmin
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.SsoAdmin.PermissionsBoundaryAttachment("example", new()
+    ///     var example = new Aws.Ssoadmin.PermissionsBoundaryAttachment.PermissionsBoundaryAttachment("example", new()
     ///     {
     ///         InstanceArn = aws_ssoadmin_permission_set.Example.Instance_arn,
     ///         PermissionSetArn = aws_ssoadmin_permission_set.Example.Arn,
-    ///         PermissionsBoundary = new Aws.SsoAdmin.Inputs.PermissionsBoundaryAttachmentPermissionsBoundaryArgs
+    ///         PermissionsBoundary = 
     ///         {
-    ///             ManagedPolicyArn = "arn:aws:iam::aws:policy/ReadOnlyAccess",
+    ///             { "managedPolicyArn", "arn:aws:iam::aws:policy/ReadOnlyAccess" },
     ///         },
     ///     });
     /// 

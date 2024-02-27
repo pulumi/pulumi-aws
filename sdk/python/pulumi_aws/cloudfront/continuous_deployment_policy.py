@@ -175,23 +175,23 @@ class ContinuousDeploymentPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        staging = aws.cloudfront.Distribution("staging",
+        staging = aws.cloudfront.distribution.Distribution("staging",
             enabled=True,
             staging=True)
         # ... other configuration ...
-        example = aws.cloudfront.ContinuousDeploymentPolicy("example",
+        example = aws.cloudfront.continuous_deployment_policy.ContinuousDeploymentPolicy("example",
             enabled=True,
-            staging_distribution_dns_names=aws.cloudfront.ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs(
-                items=[staging.domain_name],
-                quantity=1,
-            ),
-            traffic_config=aws.cloudfront.ContinuousDeploymentPolicyTrafficConfigArgs(
-                type="SingleWeight",
-                single_weight_config=aws.cloudfront.ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigArgs(
-                    weight=0.01,
-                ),
-            ))
-        production = aws.cloudfront.Distribution("production",
+            staging_distribution_dns_names={
+                items: [staging.domain_name],
+                quantity: 1,
+            },
+            traffic_config={
+                type: SingleWeight,
+                singleWeightConfig: {
+                    weight: 0.01,
+                },
+            })
+        production = aws.cloudfront.distribution.Distribution("production",
             enabled=True,
             continuous_deployment_policy_id=example.id)
         # ... other configuration ...
@@ -202,22 +202,22 @@ class ContinuousDeploymentPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.cloudfront.ContinuousDeploymentPolicy("example",
+        example = aws.cloudfront.continuous_deployment_policy.ContinuousDeploymentPolicy("example",
             enabled=True,
-            staging_distribution_dns_names=aws.cloudfront.ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs(
-                items=[aws_cloudfront_distribution["staging"]["domain_name"]],
-                quantity=1,
-            ),
-            traffic_config=aws.cloudfront.ContinuousDeploymentPolicyTrafficConfigArgs(
-                type="SingleWeight",
-                single_weight_config=aws.cloudfront.ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigArgs(
-                    weight=0.01,
-                    session_stickiness_config=aws.cloudfront.ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigArgs(
-                        idle_ttl=300,
-                        maximum_ttl=600,
-                    ),
-                ),
-            ))
+            staging_distribution_dns_names={
+                items: [aws_cloudfront_distribution.staging.domain_name],
+                quantity: 1,
+            },
+            traffic_config={
+                type: SingleWeight,
+                singleWeightConfig: {
+                    weight: 0.01,
+                    sessionStickinessConfig: {
+                        idleTtl: 300,
+                        maximumTtl: 600,
+                    },
+                },
+            })
         ```
         ### Single Header Config
 
@@ -225,19 +225,19 @@ class ContinuousDeploymentPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.cloudfront.ContinuousDeploymentPolicy("example",
+        example = aws.cloudfront.continuous_deployment_policy.ContinuousDeploymentPolicy("example",
             enabled=True,
-            staging_distribution_dns_names=aws.cloudfront.ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs(
-                items=[aws_cloudfront_distribution["staging"]["domain_name"]],
-                quantity=1,
-            ),
-            traffic_config=aws.cloudfront.ContinuousDeploymentPolicyTrafficConfigArgs(
-                type="SingleHeader",
-                single_header_config=aws.cloudfront.ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigArgs(
-                    header="aws-cf-cd-example",
-                    value="example",
-                ),
-            ))
+            staging_distribution_dns_names={
+                items: [aws_cloudfront_distribution.staging.domain_name],
+                quantity: 1,
+            },
+            traffic_config={
+                type: SingleHeader,
+                singleHeaderConfig: {
+                    header: aws-cf-cd-example,
+                    value: example,
+                },
+            })
         ```
 
         ## Import
@@ -270,23 +270,23 @@ class ContinuousDeploymentPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        staging = aws.cloudfront.Distribution("staging",
+        staging = aws.cloudfront.distribution.Distribution("staging",
             enabled=True,
             staging=True)
         # ... other configuration ...
-        example = aws.cloudfront.ContinuousDeploymentPolicy("example",
+        example = aws.cloudfront.continuous_deployment_policy.ContinuousDeploymentPolicy("example",
             enabled=True,
-            staging_distribution_dns_names=aws.cloudfront.ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs(
-                items=[staging.domain_name],
-                quantity=1,
-            ),
-            traffic_config=aws.cloudfront.ContinuousDeploymentPolicyTrafficConfigArgs(
-                type="SingleWeight",
-                single_weight_config=aws.cloudfront.ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigArgs(
-                    weight=0.01,
-                ),
-            ))
-        production = aws.cloudfront.Distribution("production",
+            staging_distribution_dns_names={
+                items: [staging.domain_name],
+                quantity: 1,
+            },
+            traffic_config={
+                type: SingleWeight,
+                singleWeightConfig: {
+                    weight: 0.01,
+                },
+            })
+        production = aws.cloudfront.distribution.Distribution("production",
             enabled=True,
             continuous_deployment_policy_id=example.id)
         # ... other configuration ...
@@ -297,22 +297,22 @@ class ContinuousDeploymentPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.cloudfront.ContinuousDeploymentPolicy("example",
+        example = aws.cloudfront.continuous_deployment_policy.ContinuousDeploymentPolicy("example",
             enabled=True,
-            staging_distribution_dns_names=aws.cloudfront.ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs(
-                items=[aws_cloudfront_distribution["staging"]["domain_name"]],
-                quantity=1,
-            ),
-            traffic_config=aws.cloudfront.ContinuousDeploymentPolicyTrafficConfigArgs(
-                type="SingleWeight",
-                single_weight_config=aws.cloudfront.ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigArgs(
-                    weight=0.01,
-                    session_stickiness_config=aws.cloudfront.ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigArgs(
-                        idle_ttl=300,
-                        maximum_ttl=600,
-                    ),
-                ),
-            ))
+            staging_distribution_dns_names={
+                items: [aws_cloudfront_distribution.staging.domain_name],
+                quantity: 1,
+            },
+            traffic_config={
+                type: SingleWeight,
+                singleWeightConfig: {
+                    weight: 0.01,
+                    sessionStickinessConfig: {
+                        idleTtl: 300,
+                        maximumTtl: 600,
+                    },
+                },
+            })
         ```
         ### Single Header Config
 
@@ -320,19 +320,19 @@ class ContinuousDeploymentPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.cloudfront.ContinuousDeploymentPolicy("example",
+        example = aws.cloudfront.continuous_deployment_policy.ContinuousDeploymentPolicy("example",
             enabled=True,
-            staging_distribution_dns_names=aws.cloudfront.ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs(
-                items=[aws_cloudfront_distribution["staging"]["domain_name"]],
-                quantity=1,
-            ),
-            traffic_config=aws.cloudfront.ContinuousDeploymentPolicyTrafficConfigArgs(
-                type="SingleHeader",
-                single_header_config=aws.cloudfront.ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigArgs(
-                    header="aws-cf-cd-example",
-                    value="example",
-                ),
-            ))
+            staging_distribution_dns_names={
+                items: [aws_cloudfront_distribution.staging.domain_name],
+                quantity: 1,
+            },
+            traffic_config={
+                type: SingleHeader,
+                singleHeaderConfig: {
+                    header: aws-cf-cd-example,
+                    value: example,
+                },
+            })
         ```
 
         ## Import

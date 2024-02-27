@@ -22,12 +22,12 @@ namespace Pulumi.Aws.AppStream
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.AppStream.Stack("example", new()
+    ///     var example = new Aws.Appstream.Stack.Stack("example", new()
     ///     {
-    ///         ApplicationSettings = new Aws.AppStream.Inputs.StackApplicationSettingsArgs
+    ///         ApplicationSettings = 
     ///         {
-    ///             Enabled = true,
-    ///             SettingsGroup = "SettingsGroup",
+    ///             { "enabled", true },
+    ///             { "settingsGroup", "SettingsGroup" },
     ///         },
     ///         Description = "stack description",
     ///         DisplayName = "stack display name",
@@ -35,9 +35,9 @@ namespace Pulumi.Aws.AppStream
     ///         RedirectUrl = "http://your-domain/redirect",
     ///         StorageConnectors = new[]
     ///         {
-    ///             new Aws.AppStream.Inputs.StackStorageConnectorArgs
+    ///             
     ///             {
-    ///                 ConnectorType = "HOMEFOLDERS",
+    ///                 { "connectorType", "HOMEFOLDERS" },
     ///             },
     ///         },
     ///         Tags = 
@@ -46,40 +46,40 @@ namespace Pulumi.Aws.AppStream
     ///         },
     ///         UserSettings = new[]
     ///         {
-    ///             new Aws.AppStream.Inputs.StackUserSettingArgs
+    ///             
     ///             {
-    ///                 Action = "CLIPBOARD_COPY_FROM_LOCAL_DEVICE",
-    ///                 Permission = "ENABLED",
+    ///                 { "action", "CLIPBOARD_COPY_FROM_LOCAL_DEVICE" },
+    ///                 { "permission", "ENABLED" },
     ///             },
-    ///             new Aws.AppStream.Inputs.StackUserSettingArgs
+    ///             
     ///             {
-    ///                 Action = "CLIPBOARD_COPY_TO_LOCAL_DEVICE",
-    ///                 Permission = "ENABLED",
+    ///                 { "action", "CLIPBOARD_COPY_TO_LOCAL_DEVICE" },
+    ///                 { "permission", "ENABLED" },
     ///             },
-    ///             new Aws.AppStream.Inputs.StackUserSettingArgs
+    ///             
     ///             {
-    ///                 Action = "DOMAIN_PASSWORD_SIGNIN",
-    ///                 Permission = "ENABLED",
+    ///                 { "action", "DOMAIN_PASSWORD_SIGNIN" },
+    ///                 { "permission", "ENABLED" },
     ///             },
-    ///             new Aws.AppStream.Inputs.StackUserSettingArgs
+    ///             
     ///             {
-    ///                 Action = "DOMAIN_SMART_CARD_SIGNIN",
-    ///                 Permission = "DISABLED",
+    ///                 { "action", "DOMAIN_SMART_CARD_SIGNIN" },
+    ///                 { "permission", "DISABLED" },
     ///             },
-    ///             new Aws.AppStream.Inputs.StackUserSettingArgs
+    ///             
     ///             {
-    ///                 Action = "FILE_DOWNLOAD",
-    ///                 Permission = "ENABLED",
+    ///                 { "action", "FILE_DOWNLOAD" },
+    ///                 { "permission", "ENABLED" },
     ///             },
-    ///             new Aws.AppStream.Inputs.StackUserSettingArgs
+    ///             
     ///             {
-    ///                 Action = "FILE_UPLOAD",
-    ///                 Permission = "ENABLED",
+    ///                 { "action", "FILE_UPLOAD" },
+    ///                 { "permission", "ENABLED" },
     ///             },
-    ///             new Aws.AppStream.Inputs.StackUserSettingArgs
+    ///             
     ///             {
-    ///                 Action = "PRINTING_TO_LOCAL_DEVICE",
-    ///                 Permission = "ENABLED",
+    ///                 { "action", "PRINTING_TO_LOCAL_DEVICE" },
+    ///                 { "permission", "ENABLED" },
     ///             },
     ///         },
     ///     });

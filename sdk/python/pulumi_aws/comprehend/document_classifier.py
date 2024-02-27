@@ -560,16 +560,16 @@ class DocumentClassifier(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        documents = aws.s3.BucketObjectv2("documents")
+        documents = aws.s3.bucket_objectv2.BucketObjectv2("documents")
         # ...
-        example = aws.comprehend.DocumentClassifier("example",
-            data_access_role_arn=aws_iam_role["example"]["arn"],
-            language_code="en",
-            input_data_config=aws.comprehend.DocumentClassifierInputDataConfigArgs(
-                s3_uri=documents.id.apply(lambda id: f"s3://{aws_s3_bucket['test']['bucket']}/{id}"),
-            ),
+        example = aws.comprehend.document_classifier.DocumentClassifier("example",
+            data_access_role_arn=aws_iam_role.example.arn,
+            language_code=en,
+            input_data_config={
+                s3Uri: fs3://{aws_s3_bucket.test.bucket}/{documents.id},
+            },
             opts=pulumi.ResourceOptions(depends_on=[aws_iam_role_policy["example"]]))
-        entities = aws.s3.BucketObjectv2("entities")
+        entities = aws.s3.bucket_objectv2.BucketObjectv2("entities")
         # ...
         ```
 
@@ -633,16 +633,16 @@ class DocumentClassifier(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        documents = aws.s3.BucketObjectv2("documents")
+        documents = aws.s3.bucket_objectv2.BucketObjectv2("documents")
         # ...
-        example = aws.comprehend.DocumentClassifier("example",
-            data_access_role_arn=aws_iam_role["example"]["arn"],
-            language_code="en",
-            input_data_config=aws.comprehend.DocumentClassifierInputDataConfigArgs(
-                s3_uri=documents.id.apply(lambda id: f"s3://{aws_s3_bucket['test']['bucket']}/{id}"),
-            ),
+        example = aws.comprehend.document_classifier.DocumentClassifier("example",
+            data_access_role_arn=aws_iam_role.example.arn,
+            language_code=en,
+            input_data_config={
+                s3Uri: fs3://{aws_s3_bucket.test.bucket}/{documents.id},
+            },
             opts=pulumi.ResourceOptions(depends_on=[aws_iam_role_policy["example"]]))
-        entities = aws.s3.BucketObjectv2("entities")
+        entities = aws.s3.bucket_objectv2.BucketObjectv2("entities")
         # ...
         ```
 

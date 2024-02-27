@@ -100,16 +100,6 @@ def get_resource(identifier: Optional[str] = None,
     """
     Provides details for a Cloud Control API Resource. The reading of these resources is proxied through Cloud Control API handlers to the backend service.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.cloudcontrol.get_resource(identifier="example",
-        type_name="AWS::ECS::Cluster")
-    ```
-
 
     :param str identifier: Identifier of the CloudFormation resource type. For example, `vpc-12345678`.
     :param str role_arn: ARN of the IAM Role to assume for operations.
@@ -143,16 +133,6 @@ def get_resource_output(identifier: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResourceResult]:
     """
     Provides details for a Cloud Control API Resource. The reading of these resources is proxied through Cloud Control API handlers to the backend service.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.cloudcontrol.get_resource(identifier="example",
-        type_name="AWS::ECS::Cluster")
-    ```
 
 
     :param str identifier: Identifier of the CloudFormation resource type. For example, `vpc-12345678`.

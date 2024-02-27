@@ -19,8 +19,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const main = new aws.ec2.Vpc("main", {cidrBlock: "10.0.0.0/16"});
- * const test = new aws.lb.TargetGroup("test", {
+ * const main = new aws.ec2/vpc.Vpc("main", {cidrBlock: "10.0.0.0/16"});
+ * const test = new aws.lb/targetGroup.TargetGroup("test", {
  *     port: 80,
  *     protocol: "HTTP",
  *     vpcId: main.id,
@@ -32,8 +32,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const main = new aws.ec2.Vpc("main", {cidrBlock: "10.0.0.0/16"});
- * const ip_example = new aws.lb.TargetGroup("ip-example", {
+ * const main = new aws.ec2/vpc.Vpc("main", {cidrBlock: "10.0.0.0/16"});
+ * const ip_example = new aws.lb/targetGroup.TargetGroup("ip-example", {
  *     port: 80,
  *     protocol: "HTTP",
  *     targetType: "ip",
@@ -46,7 +46,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const lambda_example = new aws.lb.TargetGroup("lambda-example", {targetType: "lambda"});
+ * const lambda_example = new aws.lb/targetGroup.TargetGroup("lambda-example", {targetType: "lambda"});
  * ```
  * ### ALB Target Group
  *
@@ -54,7 +54,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const alb_example = new aws.lb.TargetGroup("alb-example", {
+ * const alb_example = new aws.lb/targetGroup.TargetGroup("alb-example", {
  *     targetType: "alb",
  *     port: 80,
  *     protocol: "TCP",
@@ -67,7 +67,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const tcp_example = new aws.lb.TargetGroup("tcp-example", {
+ * const tcp_example = new aws.lb/targetGroup.TargetGroup("tcp-example", {
  *     port: 25,
  *     protocol: "TCP",
  *     vpcId: aws_vpc.main.id,

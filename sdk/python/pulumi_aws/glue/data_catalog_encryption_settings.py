@@ -109,16 +109,16 @@ class DataCatalogEncryptionSettings(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.glue.DataCatalogEncryptionSettings("example", data_catalog_encryption_settings=aws.glue.DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs(
-            connection_password_encryption=aws.glue.DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionArgs(
-                aws_kms_key_id=aws_kms_key["test"]["arn"],
-                return_connection_password_encrypted=True,
-            ),
-            encryption_at_rest=aws.glue.DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestArgs(
-                catalog_encryption_mode="SSE-KMS",
-                sse_aws_kms_key_id=aws_kms_key["test"]["arn"],
-            ),
-        ))
+        example = aws.glue.data_catalog_encryption_settings.DataCatalogEncryptionSettings("example", data_catalog_encryption_settings={
+            connectionPasswordEncryption: {
+                awsKmsKeyId: aws_kms_key.test.arn,
+                returnConnectionPasswordEncrypted: True,
+            },
+            encryptionAtRest: {
+                catalogEncryptionMode: SSE-KMS,
+                sseAwsKmsKeyId: aws_kms_key.test.arn,
+            },
+        })
         ```
 
         ## Import
@@ -149,16 +149,16 @@ class DataCatalogEncryptionSettings(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.glue.DataCatalogEncryptionSettings("example", data_catalog_encryption_settings=aws.glue.DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs(
-            connection_password_encryption=aws.glue.DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionArgs(
-                aws_kms_key_id=aws_kms_key["test"]["arn"],
-                return_connection_password_encrypted=True,
-            ),
-            encryption_at_rest=aws.glue.DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestArgs(
-                catalog_encryption_mode="SSE-KMS",
-                sse_aws_kms_key_id=aws_kms_key["test"]["arn"],
-            ),
-        ))
+        example = aws.glue.data_catalog_encryption_settings.DataCatalogEncryptionSettings("example", data_catalog_encryption_settings={
+            connectionPasswordEncryption: {
+                awsKmsKeyId: aws_kms_key.test.arn,
+                returnConnectionPasswordEncrypted: True,
+            },
+            encryptionAtRest: {
+                catalogEncryptionMode: SSE-KMS,
+                sseAwsKmsKeyId: aws_kms_key.test.arn,
+            },
+        })
         ```
 
         ## Import

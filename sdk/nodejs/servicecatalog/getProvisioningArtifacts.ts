@@ -11,16 +11,6 @@ import * as utilities from "../utilities";
  * Lists the provisioning artifacts for the specified product.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.servicecatalog.getProvisioningArtifacts({
- *     productId: "prod-yakog5pdriver",
- * });
- * ```
  */
 export function getProvisioningArtifacts(args: GetProvisioningArtifactsArgs, opts?: pulumi.InvokeOptions): Promise<GetProvisioningArtifactsResult> {
 
@@ -66,16 +56,6 @@ export interface GetProvisioningArtifactsResult {
  * Lists the provisioning artifacts for the specified product.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.servicecatalog.getProvisioningArtifacts({
- *     productId: "prod-yakog5pdriver",
- * });
- * ```
  */
 export function getProvisioningArtifactsOutput(args: GetProvisioningArtifactsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProvisioningArtifactsResult> {
     return pulumi.output(args).apply((a: any) => getProvisioningArtifacts(a, opts))

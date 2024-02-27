@@ -15,39 +15,6 @@ namespace Pulumi.Aws.Ec2
         /// `aws.ec2.RouteTable` provides details about a specific Route Table.
         /// 
         /// This resource can prove useful when a module accepts a Subnet ID as an input variable and needs to, for example, add a route in the Route Table.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// The following example shows how one might accept a Route Table ID as a variable and use this data source to obtain the data necessary to create a route.
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var config = new Config();
-        ///     var subnetId = config.RequireObject&lt;dynamic&gt;("subnetId");
-        ///     var selected = Aws.Ec2.GetRouteTable.Invoke(new()
-        ///     {
-        ///         SubnetId = subnetId,
-        ///     });
-        /// 
-        ///     var route = new Aws.Ec2.Route("route", new()
-        ///     {
-        ///         RouteTableId = selected.Apply(getRouteTableResult =&gt; getRouteTableResult.Id),
-        ///         DestinationCidrBlock = "10.0.1.0/22",
-        ///         VpcPeeringConnectionId = "pcx-45ff3dc1",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetRouteTableResult> InvokeAsync(GetRouteTableArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRouteTableResult>("aws:ec2/getRouteTable:getRouteTable", args ?? new GetRouteTableArgs(), options.WithDefaults());
@@ -56,39 +23,6 @@ namespace Pulumi.Aws.Ec2
         /// `aws.ec2.RouteTable` provides details about a specific Route Table.
         /// 
         /// This resource can prove useful when a module accepts a Subnet ID as an input variable and needs to, for example, add a route in the Route Table.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// The following example shows how one might accept a Route Table ID as a variable and use this data source to obtain the data necessary to create a route.
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var config = new Config();
-        ///     var subnetId = config.RequireObject&lt;dynamic&gt;("subnetId");
-        ///     var selected = Aws.Ec2.GetRouteTable.Invoke(new()
-        ///     {
-        ///         SubnetId = subnetId,
-        ///     });
-        /// 
-        ///     var route = new Aws.Ec2.Route("route", new()
-        ///     {
-        ///         RouteTableId = selected.Apply(getRouteTableResult =&gt; getRouteTableResult.Id),
-        ///         DestinationCidrBlock = "10.0.1.0/22",
-        ///         VpcPeeringConnectionId = "pcx-45ff3dc1",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetRouteTableResult> Invoke(GetRouteTableInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRouteTableResult>("aws:ec2/getRouteTable:getRouteTable", args ?? new GetRouteTableInvokeArgs(), options.WithDefaults());

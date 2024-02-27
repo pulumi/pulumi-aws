@@ -29,29 +29,27 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/docdb"
+//	docdb/cluster "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/docdb/cluster"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := docdb.NewCluster(ctx, "docdb", &docdb.ClusterArgs{
-//				BackupRetentionPeriod: pulumi.Int(5),
-//				ClusterIdentifier:     pulumi.String("my-docdb-cluster"),
-//				Engine:                pulumi.String("docdb"),
-//				MasterPassword:        pulumi.String("mustbeeightchars"),
-//				MasterUsername:        pulumi.String("foo"),
-//				PreferredBackupWindow: pulumi.String("07:00-09:00"),
-//				SkipFinalSnapshot:     pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := docdb/cluster.NewCluster(ctx, "docdb", &docdb/cluster.ClusterArgs{
+// BackupRetentionPeriod: 5,
+// ClusterIdentifier: "my-docdb-cluster",
+// Engine: "docdb",
+// MasterPassword: "mustbeeightchars",
+// MasterUsername: "foo",
+// PreferredBackupWindow: "07:00-09:00",
+// SkipFinalSnapshot: true,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

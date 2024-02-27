@@ -24,29 +24,29 @@ namespace Pulumi.Aws.Ses
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleDomainIdentity = new Aws.Ses.DomainIdentity("exampleDomainIdentity", new()
+    ///     var exampleDomainIdentity = new Aws.Ses.DomainIdentity.DomainIdentity("exampleDomainIdentity", new()
     ///     {
     ///         Domain = "example.com",
     ///     });
     /// 
-    ///     var exampleDomainDkim = new Aws.Ses.DomainDkim("exampleDomainDkim", new()
+    ///     var exampleDomainDkim = new Aws.Ses.DomainDkim.DomainDkim("exampleDomainDkim", new()
     ///     {
     ///         Domain = exampleDomainIdentity.Domain,
     ///     });
     /// 
-    ///     var exampleAmazonsesDkimRecord = new List&lt;Aws.Route53.Record&gt;();
+    ///     var exampleAmazonsesDkimRecord = new List&lt;Aws.Route53.Record.Record&gt;();
     ///     for (var rangeIndex = 0; rangeIndex &lt; 3; rangeIndex++)
     ///     {
     ///         var range = new { Value = rangeIndex };
-    ///         exampleAmazonsesDkimRecord.Add(new Aws.Route53.Record($"exampleAmazonsesDkimRecord-{range.Value}", new()
+    ///         exampleAmazonsesDkimRecord.Add(new Aws.Route53.Record.Record($"exampleAmazonsesDkimRecord-{range.Value}", new()
     ///         {
     ///             ZoneId = "ABCDEFGHIJ123",
-    ///             Name = exampleDomainDkim.DkimTokens.Apply(dkimTokens =&gt; $"{dkimTokens[range.Value]}._domainkey"),
+    ///             Name = $"{exampleDomainDkim.DkimTokens[range.Value]}._domainkey",
     ///             Type = "CNAME",
-    ///             Ttl = 600,
+    ///             Ttl = "600",
     ///             Records = new[]
     ///             {
-    ///                 exampleDomainDkim.DkimTokens.Apply(dkimTokens =&gt; $"{dkimTokens[range.Value]}.dkim.amazonses.com"),
+    ///                 $"{exampleDomainDkim.DkimTokens[range.Value]}.dkim.amazonses.com",
     ///             },
     ///         }));
     ///     }

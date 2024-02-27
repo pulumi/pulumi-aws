@@ -14,63 +14,6 @@ import (
 // `route53.ResolverEndpoint` provides details about a specific Route53 Resolver Endpoint.
 //
 // This data source allows to find a list of IPaddresses associated with a specific Route53 Resolver Endpoint.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := route53.LookupResolverEndpoint(ctx, &route53.LookupResolverEndpointArgs{
-//				ResolverEndpointId: pulumi.StringRef("rslvr-in-1abc2345ef678g91h"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := route53.LookupResolverEndpoint(ctx, &route53.LookupResolverEndpointArgs{
-//				Filters: []route53.GetResolverEndpointFilter{
-//					{
-//						Name: "NAME",
-//						Values: []string{
-//							"MyResolverExampleName",
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupResolverEndpoint(ctx *pulumi.Context, args *LookupResolverEndpointArgs, opts ...pulumi.InvokeOption) (*LookupResolverEndpointResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupResolverEndpointResult

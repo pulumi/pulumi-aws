@@ -20,37 +20,35 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/gamelift"
+//	gamelift/gameSessionQueue "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/gamelift/gameSessionQueue"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := gamelift.NewGameSessionQueue(ctx, "test", &gamelift.GameSessionQueueArgs{
-//				Destinations: pulumi.StringArray{
-//					aws_gamelift_fleet.Us_west_2_fleet.Arn,
-//					aws_gamelift_fleet.Eu_central_1_fleet.Arn,
-//				},
-//				NotificationTarget: pulumi.Any(aws_sns_topic.Game_session_queue_notifications.Arn),
-//				PlayerLatencyPolicies: gamelift.GameSessionQueuePlayerLatencyPolicyArray{
-//					&gamelift.GameSessionQueuePlayerLatencyPolicyArgs{
-//						MaximumIndividualPlayerLatencyMilliseconds: pulumi.Int(100),
-//						PolicyDurationSeconds:                      pulumi.Int(5),
-//					},
-//					&gamelift.GameSessionQueuePlayerLatencyPolicyArgs{
-//						MaximumIndividualPlayerLatencyMilliseconds: pulumi.Int(200),
-//					},
-//				},
-//				TimeoutInSeconds: pulumi.Int(60),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := gamelift/gameSessionQueue.NewGameSessionQueue(ctx, "test", &gamelift/gameSessionQueue.GameSessionQueueArgs{
+// Destinations: []interface{}{
+// aws_gamelift_fleet.Us_west_2_fleet.Arn,
+// aws_gamelift_fleet.Eu_central_1_fleet.Arn,
+// },
+// NotificationTarget: aws_sns_topic.Game_session_queue_notifications.Arn,
+// PlayerLatencyPolicies: []interface{}{
+// map[string]interface{}{
+// "maximumIndividualPlayerLatencyMilliseconds": 100,
+// "policyDurationSeconds": 5,
+// },
+// map[string]interface{}{
+// "maximumIndividualPlayerLatencyMilliseconds": 200,
+// },
+// },
+// TimeoutInSeconds: 60,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

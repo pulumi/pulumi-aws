@@ -22,23 +22,21 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sesv2"
+//	sesv2/dedicatedIpPool "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/sesv2/dedicatedIpPool"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := sesv2.NewDedicatedIpPool(ctx, "example", &sesv2.DedicatedIpPoolArgs{
-//				PoolName: pulumi.String("my-pool"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := sesv2/dedicatedIpPool.NewDedicatedIpPool(ctx, "example", &sesv2/dedicatedIpPool.DedicatedIpPoolArgs{
+// PoolName: "my-pool",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Managed Pool
 //
@@ -47,24 +45,22 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sesv2"
+//	sesv2/dedicatedIpPool "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/sesv2/dedicatedIpPool"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := sesv2.NewDedicatedIpPool(ctx, "example", &sesv2.DedicatedIpPoolArgs{
-//				PoolName:    pulumi.String("my-managed-pool"),
-//				ScalingMode: pulumi.String("MANAGED"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := sesv2/dedicatedIpPool.NewDedicatedIpPool(ctx, "example", &sesv2/dedicatedIpPool.DedicatedIpPoolArgs{
+// PoolName: "my-managed-pool",
+// ScalingMode: "MANAGED",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

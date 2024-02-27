@@ -24,7 +24,7 @@ namespace Pulumi.Aws.Fsx
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Fsx.LustreFileSystem("example", new()
+    ///     var example = new Aws.Fsx.LustreFileSystem.LustreFileSystem("example", new()
     ///     {
     ///         ImportPath = $"s3://{aws_s3_bucket.Example.Bucket}",
     ///         StorageCapacity = 1200,

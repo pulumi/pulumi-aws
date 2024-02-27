@@ -22,24 +22,22 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/emrserverless"
+//	emrserverless/application "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/emrserverless/application"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := emrserverless.NewApplication(ctx, "example", &emrserverless.ApplicationArgs{
-//				ReleaseLabel: pulumi.String("emr-6.6.0"),
-//				Type:         pulumi.String("hive"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := emrserverless/application.NewApplication(ctx, "example", &emrserverless/application.ApplicationArgs{
+// ReleaseLabel: "emr-6.6.0",
+// Type: "hive",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Initial Capacity Usage
 //
@@ -48,36 +46,34 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/emrserverless"
+//	emrserverless/application "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/emrserverless/application"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := emrserverless.NewApplication(ctx, "example", &emrserverless.ApplicationArgs{
-//				InitialCapacities: emrserverless.ApplicationInitialCapacityArray{
-//					&emrserverless.ApplicationInitialCapacityArgs{
-//						InitialCapacityConfig: &emrserverless.ApplicationInitialCapacityInitialCapacityConfigArgs{
-//							WorkerConfiguration: &emrserverless.ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationArgs{
-//								Cpu:    pulumi.String("2 vCPU"),
-//								Memory: pulumi.String("10 GB"),
-//							},
-//							WorkerCount: pulumi.Int(1),
-//						},
-//						InitialCapacityType: pulumi.String("HiveDriver"),
-//					},
-//				},
-//				ReleaseLabel: pulumi.String("emr-6.6.0"),
-//				Type:         pulumi.String("hive"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := emrserverless/application.NewApplication(ctx, "example", &emrserverless/application.ApplicationArgs{
+// InitialCapacities: []map[string]interface{}{
+// map[string]interface{}{
+// "initialCapacityConfig": map[string]interface{}{
+// "workerConfiguration": map[string]interface{}{
+// "cpu": "2 vCPU",
+// "memory": "10 GB",
+// },
+// "workerCount": 1,
+// },
+// "initialCapacityType": "HiveDriver",
+// },
+// },
+// ReleaseLabel: "emr-6.6.0",
+// Type: "hive",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Maximum Capacity Usage
 //
@@ -86,28 +82,26 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/emrserverless"
+//	emrserverless/application "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/emrserverless/application"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := emrserverless.NewApplication(ctx, "example", &emrserverless.ApplicationArgs{
-//				MaximumCapacity: &emrserverless.ApplicationMaximumCapacityArgs{
-//					Cpu:    pulumi.String("2 vCPU"),
-//					Memory: pulumi.String("10 GB"),
-//				},
-//				ReleaseLabel: pulumi.String("emr-6.6.0"),
-//				Type:         pulumi.String("hive"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := emrserverless/application.NewApplication(ctx, "example", &emrserverless/application.ApplicationArgs{
+// MaximumCapacity: map[string]interface{}{
+// "cpu": "2 vCPU",
+// "memory": "10 GB",
+// },
+// ReleaseLabel: "emr-6.6.0",
+// Type: "hive",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

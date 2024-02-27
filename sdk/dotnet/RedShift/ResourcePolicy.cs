@@ -23,7 +23,7 @@ namespace Pulumi.Aws.RedShift
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.RedShift.ResourcePolicy("example", new()
+    ///     var example = new Aws.Redshift.ResourcePolicy.ResourcePolicy("example", new()
     ///     {
     ///         ResourceArn = aws_redshift_cluster.Example.Cluster_namespace_arn,
     ///         Policy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;

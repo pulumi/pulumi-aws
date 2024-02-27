@@ -22,41 +22,41 @@ namespace Pulumi.Aws.ServiceDiscovery
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleVpc = new Aws.Ec2.Vpc("exampleVpc", new()
+    ///     var exampleVpc = new Aws.Ec2.Vpc.Vpc("exampleVpc", new()
     ///     {
     ///         CidrBlock = "10.0.0.0/16",
     ///         EnableDnsSupport = true,
     ///         EnableDnsHostnames = true,
     ///     });
     /// 
-    ///     var examplePrivateDnsNamespace = new Aws.ServiceDiscovery.PrivateDnsNamespace("examplePrivateDnsNamespace", new()
+    ///     var examplePrivateDnsNamespace = new Aws.Servicediscovery.PrivateDnsNamespace.PrivateDnsNamespace("examplePrivateDnsNamespace", new()
     ///     {
     ///         Description = "example",
     ///         Vpc = exampleVpc.Id,
     ///     });
     /// 
-    ///     var exampleService = new Aws.ServiceDiscovery.Service("exampleService", new()
+    ///     var exampleService = new Aws.Servicediscovery.Service.Service("exampleService", new()
     ///     {
-    ///         DnsConfig = new Aws.ServiceDiscovery.Inputs.ServiceDnsConfigArgs
+    ///         DnsConfig = 
     ///         {
-    ///             NamespaceId = examplePrivateDnsNamespace.Id,
-    ///             DnsRecords = new[]
+    ///             { "namespaceId", examplePrivateDnsNamespace.Id },
+    ///             { "dnsRecords", new[]
     ///             {
-    ///                 new Aws.ServiceDiscovery.Inputs.ServiceDnsConfigDnsRecordArgs
+    ///                 
     ///                 {
-    ///                     Ttl = 10,
-    ///                     Type = "A",
+    ///                     { "ttl", 10 },
+    ///                     { "type", "A" },
     ///                 },
-    ///             },
-    ///             RoutingPolicy = "MULTIVALUE",
+    ///             } },
+    ///             { "routingPolicy", "MULTIVALUE" },
     ///         },
-    ///         HealthCheckCustomConfig = new Aws.ServiceDiscovery.Inputs.ServiceHealthCheckCustomConfigArgs
+    ///         HealthCheckCustomConfig = 
     ///         {
-    ///             FailureThreshold = 1,
+    ///             { "failureThreshold", 1 },
     ///         },
     ///     });
     /// 
-    ///     var exampleInstance = new Aws.ServiceDiscovery.Instance("exampleInstance", new()
+    ///     var exampleInstance = new Aws.Servicediscovery.Instance.Instance("exampleInstance", new()
     ///     {
     ///         InstanceId = "example-instance-id",
     ///         ServiceId = exampleService.Id,
@@ -78,17 +78,17 @@ namespace Pulumi.Aws.ServiceDiscovery
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleHttpNamespace = new Aws.ServiceDiscovery.HttpNamespace("exampleHttpNamespace", new()
+    ///     var exampleHttpNamespace = new Aws.Servicediscovery.HttpNamespace.HttpNamespace("exampleHttpNamespace", new()
     ///     {
     ///         Description = "example",
     ///     });
     /// 
-    ///     var exampleService = new Aws.ServiceDiscovery.Service("exampleService", new()
+    ///     var exampleService = new Aws.Servicediscovery.Service.Service("exampleService", new()
     ///     {
     ///         NamespaceId = exampleHttpNamespace.Id,
     ///     });
     /// 
-    ///     var exampleInstance = new Aws.ServiceDiscovery.Instance("exampleInstance", new()
+    ///     var exampleInstance = new Aws.Servicediscovery.Instance.Instance("exampleInstance", new()
     ///     {
     ///         InstanceId = "example-instance-id",
     ///         ServiceId = exampleService.Id,

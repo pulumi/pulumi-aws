@@ -35,9 +35,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.apigateway.StageArgs;
  * import com.pulumi.aws.wafv2.WebAcl;
  * import com.pulumi.aws.wafv2.WebAclArgs;
- * import com.pulumi.aws.wafv2.inputs.WebAclDefaultActionArgs;
- * import com.pulumi.aws.wafv2.inputs.WebAclDefaultActionAllowArgs;
- * import com.pulumi.aws.wafv2.inputs.WebAclVisibilityConfigArgs;
  * import com.pulumi.aws.wafv2.WebAclAssociation;
  * import com.pulumi.aws.wafv2.WebAclAssociationArgs;
  * import static com.pulumi.codegen.internal.Serialization.*;
@@ -79,8 +76,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleDeployment = new Deployment(&#34;exampleDeployment&#34;, DeploymentArgs.builder()        
  *             .restApi(exampleRestApi.id())
- *             .triggers(Map.of(&#34;redeployment&#34;, exampleRestApi.body().applyValue(body -&gt; serializeJson(
- *                 body)).applyValue(toJSON -&gt; computeSHA1(toJSON))))
+ *             .triggers(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleStage = new Stage(&#34;exampleStage&#34;, StageArgs.builder()        
@@ -91,14 +87,8 @@ import javax.annotation.Nullable;
  * 
  *         var exampleWebAcl = new WebAcl(&#34;exampleWebAcl&#34;, WebAclArgs.builder()        
  *             .scope(&#34;REGIONAL&#34;)
- *             .defaultAction(WebAclDefaultActionArgs.builder()
- *                 .allow()
- *                 .build())
- *             .visibilityConfig(WebAclVisibilityConfigArgs.builder()
- *                 .cloudwatchMetricsEnabled(false)
- *                 .metricName(&#34;friendly-metric-name&#34;)
- *                 .sampledRequestsEnabled(false)
- *                 .build())
+ *             .defaultAction(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .visibilityConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleWebAclAssociation = new WebAclAssociation(&#34;exampleWebAclAssociation&#34;, WebAclAssociationArgs.builder()        

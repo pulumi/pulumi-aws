@@ -22,53 +22,52 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/glue"
+//	glue/trigger "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/glue/trigger"
+//	glue/workflow "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/glue/workflow"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := glue.NewWorkflow(ctx, "example", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = glue.NewTrigger(ctx, "example-start", &glue.TriggerArgs{
-//				Type:         pulumi.String("ON_DEMAND"),
-//				WorkflowName: example.Name,
-//				Actions: glue.TriggerActionArray{
-//					&glue.TriggerActionArgs{
-//						JobName: pulumi.String("example-job"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = glue.NewTrigger(ctx, "example-inner", &glue.TriggerArgs{
-//				Type:         pulumi.String("CONDITIONAL"),
-//				WorkflowName: example.Name,
-//				Predicate: &glue.TriggerPredicateArgs{
-//					Conditions: glue.TriggerPredicateConditionArray{
-//						&glue.TriggerPredicateConditionArgs{
-//							JobName: pulumi.String("example-job"),
-//							State:   pulumi.String("SUCCEEDED"),
-//						},
-//					},
-//				},
-//				Actions: glue.TriggerActionArray{
-//					&glue.TriggerActionArgs{
-//						JobName: pulumi.String("another-example-job"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := glue/workflow.NewWorkflow(ctx, "example", nil)
+// if err != nil {
+// return err
+// }
+// _, err = glue/trigger.NewTrigger(ctx, "example-start", &glue/trigger.TriggerArgs{
+// Type: "ON_DEMAND",
+// WorkflowName: example.Name,
+// Actions: []map[string]interface{}{
+// map[string]interface{}{
+// "jobName": "example-job",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = glue/trigger.NewTrigger(ctx, "example-inner", &glue/trigger.TriggerArgs{
+// Type: "CONDITIONAL",
+// WorkflowName: example.Name,
+// Predicate: map[string]interface{}{
+// "conditions": []map[string]interface{}{
+// map[string]interface{}{
+// "jobName": "example-job",
+// "state": "SUCCEEDED",
+// },
+// },
+// },
+// Actions: []map[string]interface{}{
+// map[string]interface{}{
+// "jobName": "another-example-job",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.connect.User("example", {
+ * const example = new aws.connect/user.User("example", {
  *     instanceId: aws_connect_instance.example.id,
  *     password: "Password123",
  *     routingProfileId: aws_connect_routing_profile.example.routing_profile_id,
@@ -39,7 +39,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.connect.User("example", {
+ * const example = new aws.connect/user.User("example", {
  *     instanceId: aws_connect_instance.example.id,
  *     password: "Password123",
  *     routingProfileId: aws_connect_routing_profile.example.routing_profile_id,
@@ -61,7 +61,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.connect.User("example", {
+ * const example = new aws.connect/user.User("example", {
  *     instanceId: aws_connect_instance.example.id,
  *     password: "Password123",
  *     routingProfileId: aws_connect_routing_profile.example.routing_profile_id,
@@ -83,7 +83,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.connect.User("example", {
+ * const example = new aws.connect/user.User("example", {
  *     instanceId: aws_connect_instance.example.id,
  *     password: "Password123",
  *     routingProfileId: aws_connect_routing_profile.example.routing_profile_id,
@@ -100,7 +100,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.connect.User("example", {
+ * const example = new aws.connect/user.User("example", {
  *     instanceId: aws_connect_instance.example.id,
  *     password: "Password123",
  *     routingProfileId: aws_connect_routing_profile.example.routing_profile_id,

@@ -31,7 +31,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.elasticache.ParameterGroup;
  * import com.pulumi.aws.elasticache.ParameterGroupArgs;
- * import com.pulumi.aws.elasticache.inputs.ParameterGroupParameterArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -48,14 +47,8 @@ import javax.annotation.Nullable;
  *         var default_ = new ParameterGroup(&#34;default&#34;, ParameterGroupArgs.builder()        
  *             .family(&#34;redis2.8&#34;)
  *             .parameters(            
- *                 ParameterGroupParameterArgs.builder()
- *                     .name(&#34;activerehashing&#34;)
- *                     .value(&#34;yes&#34;)
- *                     .build(),
- *                 ParameterGroupParameterArgs.builder()
- *                     .name(&#34;min-slaves-to-write&#34;)
- *                     .value(&#34;2&#34;)
- *                     .build())
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

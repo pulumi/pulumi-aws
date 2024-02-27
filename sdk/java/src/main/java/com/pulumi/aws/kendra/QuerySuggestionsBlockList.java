@@ -29,7 +29,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.kendra.QuerySuggestionsBlockList;
  * import com.pulumi.aws.kendra.QuerySuggestionsBlockListArgs;
- * import com.pulumi.aws.kendra.inputs.QuerySuggestionsBlockListSourceS3PathArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -46,11 +45,8 @@ import javax.annotation.Nullable;
  *         var example = new QuerySuggestionsBlockList(&#34;example&#34;, QuerySuggestionsBlockListArgs.builder()        
  *             .indexId(aws_kendra_index.example().id())
  *             .roleArn(aws_iam_role.example().arn())
- *             .sourceS3Path(QuerySuggestionsBlockListSourceS3PathArgs.builder()
- *                 .bucket(aws_s3_bucket.example().id())
- *                 .key(&#34;example/suggestions.txt&#34;)
- *                 .build())
- *             .tags(Map.of(&#34;Name&#34;, &#34;Example Kendra Index&#34;))
+ *             .sourceS3Path(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

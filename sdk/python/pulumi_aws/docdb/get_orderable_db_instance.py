@@ -120,22 +120,6 @@ def get_orderable_db_instance(engine: Optional[str] = None,
     """
     Information about DocumentDB orderable DB instances.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.docdb.get_orderable_db_instance(engine="docdb",
-        engine_version="3.6.0",
-        license_model="na",
-        preferred_instance_classes=[
-            "db.r5.large",
-            "db.r4.large",
-            "db.t3.medium",
-        ])
-    ```
-
 
     :param str engine: DB engine. Default: `docdb`
     :param str engine_version: Version of the DB engine.
@@ -175,22 +159,6 @@ def get_orderable_db_instance_output(engine: Optional[pulumi.Input[Optional[str]
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOrderableDbInstanceResult]:
     """
     Information about DocumentDB orderable DB instances.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.docdb.get_orderable_db_instance(engine="docdb",
-        engine_version="3.6.0",
-        license_model="na",
-        preferred_instance_classes=[
-            "db.r5.large",
-            "db.r4.large",
-            "db.t3.medium",
-        ])
-    ```
 
 
     :param str engine: DB engine. Default: `docdb`

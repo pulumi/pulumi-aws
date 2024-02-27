@@ -31,8 +31,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.s3.BucketV2Args;
  * import com.pulumi.aws.s3.BucketObjectv2;
  * import com.pulumi.aws.s3.BucketObjectv2Args;
- * import com.pulumi.aws.transcribe.Vocabulary;
- * import com.pulumi.aws.transcribe.VocabularyArgs;
+ * import com.pulumi.aws.transcribe_vocabulary.Vocabulary;
+ * import com.pulumi.aws.transcribe_vocabulary.VocabularyArgs;
  * import com.pulumi.resources.CustomResourceOptions;
  * import com.pulumi.asset.FileAsset;
  * import java.util.List;
@@ -61,15 +61,8 @@ import javax.annotation.Nullable;
  *         var exampleVocabulary = new Vocabulary(&#34;exampleVocabulary&#34;, VocabularyArgs.builder()        
  *             .vocabularyName(&#34;example&#34;)
  *             .languageCode(&#34;en-US&#34;)
- *             .vocabularyFileUri(Output.tuple(exampleBucketV2.id(), object.key()).applyValue(values -&gt; {
- *                 var id = values.t1;
- *                 var key = values.t2;
- *                 return String.format(&#34;s3://%s/%s&#34;, id,key);
- *             }))
- *             .tags(Map.ofEntries(
- *                 Map.entry(&#34;tag1&#34;, &#34;value1&#34;),
- *                 Map.entry(&#34;tag2&#34;, &#34;value3&#34;)
- *             ))
+ *             .vocabularyFileUri(String.format(&#34;s3://%s/%s&#34;, exampleBucketV2.id(),object.key()))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(object)
  *                 .build());

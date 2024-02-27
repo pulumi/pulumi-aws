@@ -26,34 +26,25 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/servicecatalog"
+//	servicecatalog/constraint "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/servicecatalog/constraint"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"RoleArn": "arn:aws:iam::123456789012:role/LaunchRole",
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			_, err = servicecatalog.NewConstraint(ctx, "example", &servicecatalog.ConstraintArgs{
-//				Description: pulumi.String("Back off, man. I'm a scientist."),
-//				PortfolioId: pulumi.Any(aws_servicecatalog_portfolio.Example.Id),
-//				ProductId:   pulumi.Any(aws_servicecatalog_product.Example.Id),
-//				Type:        pulumi.String("LAUNCH"),
-//				Parameters:  pulumi.String(json0),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := servicecatalog/constraint.NewConstraint(ctx, "example", &servicecatalog/constraint.ConstraintArgs{
+// Description: "Back off, man. I'm a scientist.",
+// PortfolioId: aws_servicecatalog_portfolio.Example.Id,
+// ProductId: aws_servicecatalog_product.Example.Id,
+// Type: "LAUNCH",
+// Parameters: %!v(PANIC=Format method: fatal: An assertion has failed: unlowered function toJSON),
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

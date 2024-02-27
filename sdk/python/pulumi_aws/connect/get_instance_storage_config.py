@@ -91,17 +91,6 @@ def get_instance_storage_config(association_id: Optional[str] = None,
     """
     Provides details about a specific Amazon Connect Instance Storage Config.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.connect.get_instance_storage_config(association_id="1234567890123456789012345678901234567890123456789012345678901234",
-        instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
-        resource_type="CONTACT_TRACE_RECORDS")
-    ```
-
 
     :param str association_id: The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.
     :param str instance_id: Reference to the hosting Amazon Connect Instance
@@ -129,17 +118,6 @@ def get_instance_storage_config_output(association_id: Optional[pulumi.Input[str
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInstanceStorageConfigResult]:
     """
     Provides details about a specific Amazon Connect Instance Storage Config.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.connect.get_instance_storage_config(association_id="1234567890123456789012345678901234567890123456789012345678901234",
-        instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
-        resource_type="CONTACT_TRACE_RECORDS")
-    ```
 
 
     :param str association_id: The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.

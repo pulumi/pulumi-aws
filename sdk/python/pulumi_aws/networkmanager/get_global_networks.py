@@ -70,17 +70,6 @@ def get_global_networks(tags: Optional[Mapping[str, str]] = None,
     """
     Retrieve information about global networks.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.networkmanager.get_global_networks(tags={
-        "Env": "test",
-    })
-    ```
-
 
     :param Mapping[str, str] tags: Restricts the list to the global networks with these tags.
     """
@@ -100,17 +89,6 @@ def get_global_networks_output(tags: Optional[pulumi.Input[Optional[Mapping[str,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGlobalNetworksResult]:
     """
     Retrieve information about global networks.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.networkmanager.get_global_networks(tags={
-        "Env": "test",
-    })
-    ```
 
 
     :param Mapping[str, str] tags: Restricts the list to the global networks with these tags.

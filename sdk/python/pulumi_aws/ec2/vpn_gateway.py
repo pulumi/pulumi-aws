@@ -212,10 +212,10 @@ class VpnGateway(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        vpn_gw = aws.ec2.VpnGateway("vpnGw",
-            vpc_id=aws_vpc["main"]["id"],
+        vpn_gw = aws.ec2.vpn_gateway.VpnGateway("vpnGw",
+            vpc_id=aws_vpc.main.id,
             tags={
-                "Name": "main",
+                Name: main,
             })
         ```
 
@@ -249,10 +249,10 @@ class VpnGateway(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        vpn_gw = aws.ec2.VpnGateway("vpnGw",
-            vpc_id=aws_vpc["main"]["id"],
+        vpn_gw = aws.ec2.vpn_gateway.VpnGateway("vpnGw",
+            vpc_id=aws_vpc.main.id,
             tags={
-                "Name": "main",
+                Name: main,
             })
         ```
 

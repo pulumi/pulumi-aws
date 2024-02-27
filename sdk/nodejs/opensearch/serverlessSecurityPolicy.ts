@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.opensearch.ServerlessSecurityPolicy("example", {
+ * const example = new aws.opensearch/serverlessSecurityPolicy.ServerlessSecurityPolicy("example", {
  *     type: "encryption",
  *     description: "encryption security policy for example-collection",
  *     policy: JSON.stringify({
@@ -34,7 +34,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.opensearch.ServerlessSecurityPolicy("example", {
+ * const example = new aws.opensearch/serverlessSecurityPolicy.ServerlessSecurityPolicy("example", {
  *     type: "encryption",
  *     description: "encryption security policy for collections that begin with \"example\"",
  *     policy: JSON.stringify({
@@ -52,7 +52,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.opensearch.ServerlessSecurityPolicy("example", {
+ * const example = new aws.opensearch/serverlessSecurityPolicy.ServerlessSecurityPolicy("example", {
  *     type: "encryption",
  *     description: "encryption security policy using customer KMS key",
  *     policy: JSON.stringify({
@@ -72,7 +72,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.opensearch.ServerlessSecurityPolicy("example", {
+ * const example = new aws.opensearch/serverlessSecurityPolicy.ServerlessSecurityPolicy("example", {
  *     type: "network",
  *     description: "Public access",
  *     policy: JSON.stringify([{
@@ -97,7 +97,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.opensearch.ServerlessSecurityPolicy("example", {
+ * const example = new aws.opensearch/serverlessSecurityPolicy.ServerlessSecurityPolicy("example", {
  *     type: "network",
  *     description: "VPC access",
  *     policy: JSON.stringify([{
@@ -123,7 +123,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.opensearch.ServerlessSecurityPolicy("example", {
+ * const example = new aws.opensearch/serverlessSecurityPolicy.ServerlessSecurityPolicy("example", {
  *     type: "network",
  *     description: "Mixed access for marketing and sales",
  *     policy: JSON.stringify([

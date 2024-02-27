@@ -12,30 +12,6 @@ import (
 )
 
 // The ECR Authorization Token data source allows the authorization token, proxy endpoint, token expiration date, user name and password to be retrieved for an ECR repository.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ecr"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ecr.GetAuthorizationToken(ctx, nil, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetAuthorizationToken(ctx *pulumi.Context, args *GetAuthorizationTokenArgs, opts ...pulumi.InvokeOption) (*GetAuthorizationTokenResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetAuthorizationTokenResult

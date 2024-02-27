@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Ses
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Ses.EmailIdentity("example", new()
+    ///     var example = new Aws.Ses.EmailIdentity.EmailIdentity("example", new()
     ///     {
     ///         Email = "email@example.com",
     ///     });

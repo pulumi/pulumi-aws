@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.vpclattice.TargetGroup("example", {
+ * const example = new aws.vpclattice/targetGroup.TargetGroup("example", {
  *     type: "INSTANCE",
  *     config: {
  *         vpcIdentifier: aws_vpc.example.id,
@@ -32,7 +32,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.vpclattice.TargetGroup("example", {
+ * const example = new aws.vpclattice/targetGroup.TargetGroup("example", {
  *     type: "IP",
  *     config: {
  *         vpcIdentifier: aws_vpc.example.id,
@@ -65,7 +65,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.vpclattice.TargetGroup("example", {
+ * const example = new aws.vpclattice/targetGroup.TargetGroup("example", {
  *     type: "ALB",
  *     config: {
  *         vpcIdentifier: aws_vpc.example.id,
@@ -83,7 +83,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.vpclattice.TargetGroup("example", {type: "LAMBDA"});
+ * const example = new aws.vpclattice/targetGroup.TargetGroup("example", {type: "LAMBDA"});
  * ```
  *
  * ## Import

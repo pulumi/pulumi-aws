@@ -23,27 +23,25 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apprunner"
+//	apprunner/connection "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/apprunner/connection"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := apprunner.NewConnection(ctx, "example", &apprunner.ConnectionArgs{
-//				ConnectionName: pulumi.String("example"),
-//				ProviderType:   pulumi.String("GITHUB"),
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("example-apprunner-connection"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := apprunner/connection.NewConnection(ctx, "example", &apprunner/connection.ConnectionArgs{
+// ConnectionName: "example",
+// ProviderType: "GITHUB",
+// Tags: map[string]interface{}{
+// "Name": "example-apprunner-connection",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -23,32 +23,62 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ecs"
+//	ecs/taskSet "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ecs/taskSet"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := ecs/taskSet.NewTaskSet(ctx, "example", &ecs/taskSet.TaskSetArgs{
+// Service: aws_ecs_service.Example.Id,
+// Cluster: aws_ecs_cluster.Example.Id,
+// TaskDefinition: aws_ecs_task_definition.Example.Arn,
+// LoadBalancers: []map[string]interface{}{
+// map[string]interface{}{
+// "targetGroupArn": aws_lb_target_group.Example.Arn,
+// "containerName": "mongo",
+// "containerPort": 8080,
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
+// ```
+// ### Ignoring Changes to Scale
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ecs.NewTaskSet(ctx, "example", &ecs.TaskSetArgs{
-//				Service:        pulumi.Any(aws_ecs_service.Example.Id),
-//				Cluster:        pulumi.Any(aws_ecs_cluster.Example.Id),
-//				TaskDefinition: pulumi.Any(aws_ecs_task_definition.Example.Arn),
-//				LoadBalancers: ecs.TaskSetLoadBalancerArray{
-//					&ecs.TaskSetLoadBalancerArgs{
-//						TargetGroupArn: pulumi.Any(aws_lb_target_group.Example.Arn),
-//						ContainerName:  pulumi.String("mongo"),
-//						ContainerPort:  pulumi.Int(8080),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
+// You can utilize the generic resource lifecycle configuration block with `ignoreChanges` to create an ECS service with an initial count of running instances, then ignore any changes to that count caused externally (e.g. Application Autoscaling).
 //
+// ```go
+// package main
+//
+// import (
+//
+//	ecs/taskSet "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ecs/taskSet"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := ecs/taskSet.NewTaskSet(ctx, "example", &ecs/taskSet.TaskSetArgs{
+// Lifecycle: map[string]interface{}{
+// "ignoreChanges": []string{
+// "scale",
+// },
+// },
+// Scale: map[string]interface{}{
+// "value": 50,
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

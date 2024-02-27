@@ -21,7 +21,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.inspector2.OrganizationConfiguration("example", {autoEnable: {
+ * const example = new aws.inspector2/organizationConfiguration.OrganizationConfiguration("example", {autoEnable: {
  *     ec2: true,
  *     ecr: false,
  *     lambda: true,

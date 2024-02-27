@@ -21,42 +21,41 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/appconfig"
+//	appconfig/application "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/appconfig/application"
+//	appconfig/environment "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/appconfig/environment"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleApplication, err := appconfig.NewApplication(ctx, "exampleApplication", &appconfig.ApplicationArgs{
-//				Description: pulumi.String("Example AppConfig Application"),
-//				Tags: pulumi.StringMap{
-//					"Type": pulumi.String("AppConfig Application"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = appconfig.NewEnvironment(ctx, "exampleEnvironment", &appconfig.EnvironmentArgs{
-//				Description:   pulumi.String("Example AppConfig Environment"),
-//				ApplicationId: exampleApplication.ID(),
-//				Monitors: appconfig.EnvironmentMonitorArray{
-//					&appconfig.EnvironmentMonitorArgs{
-//						AlarmArn:     pulumi.Any(aws_cloudwatch_metric_alarm.Example.Arn),
-//						AlarmRoleArn: pulumi.Any(aws_iam_role.Example.Arn),
-//					},
-//				},
-//				Tags: pulumi.StringMap{
-//					"Type": pulumi.String("AppConfig Environment"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleApplication, err := appconfig/application.NewApplication(ctx, "exampleApplication", &appconfig/application.ApplicationArgs{
+// Description: "Example AppConfig Application",
+// Tags: map[string]interface{}{
+// "Type": "AppConfig Application",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = appconfig/environment.NewEnvironment(ctx, "exampleEnvironment", &appconfig/environment.EnvironmentArgs{
+// Description: "Example AppConfig Environment",
+// ApplicationId: exampleApplication.Id,
+// Monitors: []map[string]interface{}{
+// map[string]interface{}{
+// "alarmArn": aws_cloudwatch_metric_alarm.Example.Arn,
+// "alarmRoleArn": aws_iam_role.Example.Arn,
+// },
+// },
+// Tags: map[string]interface{}{
+// "Type": "AppConfig Environment",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -21,27 +21,25 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
+//	cloudwatch/logSubscriptionFilter "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/cloudwatch/logSubscriptionFilter"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cloudwatch.NewLogSubscriptionFilter(ctx, "testLambdafunctionLogfilter", &cloudwatch.LogSubscriptionFilterArgs{
-//				RoleArn:        pulumi.Any(aws_iam_role.Iam_for_lambda.Arn),
-//				LogGroup:       pulumi.Any("/aws/lambda/example_lambda_name"),
-//				FilterPattern:  pulumi.String("logtype test"),
-//				DestinationArn: pulumi.Any(aws_kinesis_stream.Test_logstream.Arn),
-//				Distribution:   pulumi.String("Random"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := cloudwatch/logSubscriptionFilter.NewLogSubscriptionFilter(ctx, "testLambdafunctionLogfilter", &cloudwatch/logSubscriptionFilter.LogSubscriptionFilterArgs{
+// RoleArn: aws_iam_role.Iam_for_lambda.Arn,
+// LogGroup: "/aws/lambda/example_lambda_name",
+// FilterPattern: "logtype test",
+// DestinationArn: aws_kinesis_stream.Test_logstream.Arn,
+// Distribution: "Random",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -22,19 +22,19 @@ namespace Pulumi.Aws.AppStream
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleFleet = new Aws.AppStream.Fleet("exampleFleet", new()
+    ///     var exampleFleet = new Aws.Appstream.Fleet.Fleet("exampleFleet", new()
     ///     {
     ///         ImageName = "Amazon-AppStream2-Sample-Image-03-11-2023",
     ///         InstanceType = "stream.standard.small",
-    ///         ComputeCapacity = new Aws.AppStream.Inputs.FleetComputeCapacityArgs
+    ///         ComputeCapacity = 
     ///         {
-    ///             DesiredInstances = 1,
+    ///             { "desiredInstances", 1 },
     ///         },
     ///     });
     /// 
-    ///     var exampleStack = new Aws.AppStream.Stack("exampleStack");
+    ///     var exampleStack = new Aws.Appstream.Stack.Stack("exampleStack");
     /// 
-    ///     var exampleFleetStackAssociation = new Aws.AppStream.FleetStackAssociation("exampleFleetStackAssociation", new()
+    ///     var exampleFleetStackAssociation = new Aws.Appstream.FleetStackAssociation.FleetStackAssociation("exampleFleetStackAssociation", new()
     ///     {
     ///         FleetName = exampleFleet.Name,
     ///         StackName = exampleStack.Name,

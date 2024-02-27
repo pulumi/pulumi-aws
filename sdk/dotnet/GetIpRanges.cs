@@ -13,112 +13,12 @@ namespace Pulumi.Aws
     {
         /// <summary>
         /// Use this data source to get the IP ranges of various AWS products and services. For more information about the contents of this data source and required JSON syntax if referencing a custom URL, see the [AWS IP Address Ranges documentation](https://docs.aws.amazon.com/general/latest/gr/aws-ip-ranges.html).
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var europeanEc2 = Aws.GetIpRanges.Invoke(new()
-        ///     {
-        ///         Regions = new[]
-        ///         {
-        ///             "eu-west-1",
-        ///             "eu-central-1",
-        ///         },
-        ///         Services = new[]
-        ///         {
-        ///             "ec2",
-        ///         },
-        ///     });
-        /// 
-        ///     var fromEurope = new Aws.Ec2.SecurityGroup("fromEurope", new()
-        ///     {
-        ///         Ingress = new[]
-        ///         {
-        ///             new Aws.Ec2.Inputs.SecurityGroupIngressArgs
-        ///             {
-        ///                 FromPort = 443,
-        ///                 ToPort = 443,
-        ///                 Protocol = "tcp",
-        ///                 CidrBlocks = europeanEc2.Apply(getIpRangesResult =&gt; getIpRangesResult.CidrBlocks),
-        ///                 Ipv6CidrBlocks = europeanEc2.Apply(getIpRangesResult =&gt; getIpRangesResult.Ipv6CidrBlocks),
-        ///             },
-        ///         },
-        ///         Tags = 
-        ///         {
-        ///             { "CreateDate", europeanEc2.Apply(getIpRangesResult =&gt; getIpRangesResult.CreateDate) },
-        ///             { "SyncToken", europeanEc2.Apply(getIpRangesResult =&gt; getIpRangesResult.SyncToken) },
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetIpRangesResult> InvokeAsync(GetIpRangesArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetIpRangesResult>("aws:index/getIpRanges:getIpRanges", args ?? new GetIpRangesArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to get the IP ranges of various AWS products and services. For more information about the contents of this data source and required JSON syntax if referencing a custom URL, see the [AWS IP Address Ranges documentation](https://docs.aws.amazon.com/general/latest/gr/aws-ip-ranges.html).
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var europeanEc2 = Aws.GetIpRanges.Invoke(new()
-        ///     {
-        ///         Regions = new[]
-        ///         {
-        ///             "eu-west-1",
-        ///             "eu-central-1",
-        ///         },
-        ///         Services = new[]
-        ///         {
-        ///             "ec2",
-        ///         },
-        ///     });
-        /// 
-        ///     var fromEurope = new Aws.Ec2.SecurityGroup("fromEurope", new()
-        ///     {
-        ///         Ingress = new[]
-        ///         {
-        ///             new Aws.Ec2.Inputs.SecurityGroupIngressArgs
-        ///             {
-        ///                 FromPort = 443,
-        ///                 ToPort = 443,
-        ///                 Protocol = "tcp",
-        ///                 CidrBlocks = europeanEc2.Apply(getIpRangesResult =&gt; getIpRangesResult.CidrBlocks),
-        ///                 Ipv6CidrBlocks = europeanEc2.Apply(getIpRangesResult =&gt; getIpRangesResult.Ipv6CidrBlocks),
-        ///             },
-        ///         },
-        ///         Tags = 
-        ///         {
-        ///             { "CreateDate", europeanEc2.Apply(getIpRangesResult =&gt; getIpRangesResult.CreateDate) },
-        ///             { "SyncToken", europeanEc2.Apply(getIpRangesResult =&gt; getIpRangesResult.SyncToken) },
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetIpRangesResult> Invoke(GetIpRangesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIpRangesResult>("aws:index/getIpRanges:getIpRanges", args ?? new GetIpRangesInvokeArgs(), options.WithDefaults());

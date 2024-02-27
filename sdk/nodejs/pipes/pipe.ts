@@ -17,65 +17,30 @@ import * as utilities from "../utilities";
  * > **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
  *
  * ## Example Usage
- * ### Basic Usage
+ * ### Enrichment Usage
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const main = aws.getCallerIdentity({});
- * const exampleRole = new aws.iam.Role("exampleRole", {assumeRolePolicy: main.then(main => JSON.stringify({
- *     Version: "2012-10-17",
- *     Statement: {
- *         Effect: "Allow",
- *         Action: "sts:AssumeRole",
- *         Principal: {
- *             Service: "pipes.amazonaws.com",
- *         },
- *         Condition: {
- *             StringEquals: {
- *                 "aws:SourceAccount": main.accountId,
+ * const example = new aws.pipes/pipe.Pipe("example", {
+ *     roleArn: aws_iam_role.example.arn,
+ *     source: aws_sqs_queue.source.arn,
+ *     target: aws_sqs_queue.target.arn,
+ *     enrichment: aws_cloudwatch_event_api_destination.example.arn,
+ *     enrichmentParameters: {
+ *         httpParameters: {
+ *             pathParameterValues: ["example-path-param"],
+ *             headerParameters: {
+ *                 "example-header": "example-value",
+ *                 "second-example-header": "second-example-value",
+ *             },
+ *             queryStringParameters: {
+ *                 "example-query-string": "example-value",
+ *                 "second-example-query-string": "second-example-value",
  *             },
  *         },
  *     },
- * }))});
- * const sourceQueue = new aws.sqs.Queue("sourceQueue", {});
- * const sourceRolePolicy = new aws.iam.RolePolicy("sourceRolePolicy", {
- *     role: exampleRole.id,
- *     policy: sourceQueue.arn.apply(arn => JSON.stringify({
- *         Version: "2012-10-17",
- *         Statement: [{
- *             Effect: "Allow",
- *             Action: [
- *                 "sqs:DeleteMessage",
- *                 "sqs:GetQueueAttributes",
- *                 "sqs:ReceiveMessage",
- *             ],
- *             Resource: [arn],
- *         }],
- *     })),
- * });
- * const targetQueue = new aws.sqs.Queue("targetQueue", {});
- * const targetRolePolicy = new aws.iam.RolePolicy("targetRolePolicy", {
- *     role: exampleRole.id,
- *     policy: targetQueue.arn.apply(arn => JSON.stringify({
- *         Version: "2012-10-17",
- *         Statement: [{
- *             Effect: "Allow",
- *             Action: ["sqs:SendMessage"],
- *             Resource: [arn],
- *         }],
- *     })),
- * });
- * const examplePipe = new aws.pipes.Pipe("examplePipe", {
- *     roleArn: exampleRole.arn,
- *     source: sourceQueue.arn,
- *     target: targetQueue.arn,
- * }, {
- *     dependsOn: [
- *         sourceRolePolicy,
- *         targetRolePolicy,
- *     ],
  * });
  * ```
  * ### Filter Usage
@@ -84,7 +49,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.pipes.Pipe("example", {
+ * const example = new aws.pipes/pipe.Pipe("example", {
  *     roleArn: aws_iam_role.example.arn,
  *     source: aws_sqs_queue.source.arn,
  *     target: aws_sqs_queue.target.arn,
@@ -96,6 +61,30 @@ import * as utilities from "../utilities";
  *                 }),
  *             }],
  *         },
+ *     },
+ * });
+ * ```
+ * ### SQS Source and Target Configuration Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.pipes/pipe.Pipe("example", {
+ *     roleArn: aws_iam_role.example.arn,
+ *     source: aws_sqs_queue.source.arn,
+ *     target: aws_sqs_queue.target.arn,
+ *     sourceParameters: {
+ *         sqsQueueParameters: {
+ *             batchSize: 1,
+ *             maximumBatchingWindowInSeconds: 2,
+ *         },
+ *     },
+ *     targetParameters: {
+ *         sqsQueue: [{
+ *             messageDeduplicationId: "example-dedupe",
+ *             messageGroupId: "example-group",
+ *         }],
  *     },
  * });
  * ```

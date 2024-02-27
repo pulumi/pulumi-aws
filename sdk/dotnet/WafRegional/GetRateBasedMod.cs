@@ -13,56 +13,12 @@ namespace Pulumi.Aws.WafRegional
     {
         /// <summary>
         /// `aws.wafregional.RateBasedRule` Retrieves a WAF Regional Rate Based Rule Resource Id.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.WafRegional.GetRateBasedMod.Invoke(new()
-        ///     {
-        ///         Name = "tfWAFRegionalRateBasedRule",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetRateBasedModResult> InvokeAsync(GetRateBasedModArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRateBasedModResult>("aws:wafregional/getRateBasedMod:getRateBasedMod", args ?? new GetRateBasedModArgs(), options.WithDefaults());
 
         /// <summary>
         /// `aws.wafregional.RateBasedRule` Retrieves a WAF Regional Rate Based Rule Resource Id.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.WafRegional.GetRateBasedMod.Invoke(new()
-        ///     {
-        ///         Name = "tfWAFRegionalRateBasedRule",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetRateBasedModResult> Invoke(GetRateBasedModInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRateBasedModResult>("aws:wafregional/getRateBasedMod:getRateBasedMod", args ?? new GetRateBasedModInvokeArgs(), options.WithDefaults());

@@ -220,22 +220,22 @@ class KxUser(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        example_key = aws.kms.Key("exampleKey",
-            description="Example KMS Key",
+        example_key = aws.kms.key.Key("exampleKey",
+            description=Example KMS Key,
             deletion_window_in_days=7)
-        example_kx_environment = aws.finspace.KxEnvironment("exampleKxEnvironment", kms_key_id=example_key.arn)
-        example_role = aws.iam.Role("exampleRole", assume_role_policy=json.dumps({
-            "Version": "2012-10-17",
-            "Statement": [{
-                "Action": "sts:AssumeRole",
-                "Effect": "Allow",
-                "Sid": "",
-                "Principal": {
-                    "Service": "ec2.amazonaws.com",
+        example_kx_environment = aws.finspace.kx_environment.KxEnvironment("exampleKxEnvironment", kms_key_id=example_key.arn)
+        example_role = aws.iam.role.Role("exampleRole", assume_role_policy=json.dumps({
+            Version: 2012-10-17,
+            Statement: [{
+                Action: sts:AssumeRole,
+                Effect: Allow,
+                Sid: ,
+                Principal: {
+                    Service: ec2.amazonaws.com,
                 },
             }],
         }))
-        example_kx_user = aws.finspace.KxUser("exampleKxUser",
+        example_kx_user = aws.finspace.kx_user.KxUser("exampleKxUser",
             environment_id=example_kx_environment.id,
             iam_role=example_role.arn)
         ```
@@ -274,22 +274,22 @@ class KxUser(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        example_key = aws.kms.Key("exampleKey",
-            description="Example KMS Key",
+        example_key = aws.kms.key.Key("exampleKey",
+            description=Example KMS Key,
             deletion_window_in_days=7)
-        example_kx_environment = aws.finspace.KxEnvironment("exampleKxEnvironment", kms_key_id=example_key.arn)
-        example_role = aws.iam.Role("exampleRole", assume_role_policy=json.dumps({
-            "Version": "2012-10-17",
-            "Statement": [{
-                "Action": "sts:AssumeRole",
-                "Effect": "Allow",
-                "Sid": "",
-                "Principal": {
-                    "Service": "ec2.amazonaws.com",
+        example_kx_environment = aws.finspace.kx_environment.KxEnvironment("exampleKxEnvironment", kms_key_id=example_key.arn)
+        example_role = aws.iam.role.Role("exampleRole", assume_role_policy=json.dumps({
+            Version: 2012-10-17,
+            Statement: [{
+                Action: sts:AssumeRole,
+                Effect: Allow,
+                Sid: ,
+                Principal: {
+                    Service: ec2.amazonaws.com,
                 },
             }],
         }))
-        example_kx_user = aws.finspace.KxUser("exampleKxUser",
+        example_kx_user = aws.finspace.kx_user.KxUser("exampleKxUser",
             environment_id=example_kx_environment.id,
             iam_role=example_role.arn)
         ```

@@ -22,33 +22,32 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/directconnect"
+//	directconnect/gateway "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/directconnect/gateway"
+//	directconnect/transitVirtualInterface "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/directconnect/transitVirtualInterface"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleGateway, err := directconnect.NewGateway(ctx, "exampleGateway", &directconnect.GatewayArgs{
-//				AmazonSideAsn: pulumi.String("64512"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = directconnect.NewTransitVirtualInterface(ctx, "exampleTransitVirtualInterface", &directconnect.TransitVirtualInterfaceArgs{
-//				ConnectionId:  pulumi.Any(aws_dx_connection.Example.Id),
-//				DxGatewayId:   exampleGateway.ID(),
-//				Vlan:          pulumi.Int(4094),
-//				AddressFamily: pulumi.String("ipv4"),
-//				BgpAsn:        pulumi.Int(65352),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleGateway, err := directconnect/gateway.NewGateway(ctx, "exampleGateway", &directconnect/gateway.GatewayArgs{
+// AmazonSideAsn: 64512,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = directconnect/transitVirtualInterface.NewTransitVirtualInterface(ctx, "exampleTransitVirtualInterface", &directconnect/transitVirtualInterface.TransitVirtualInterfaceArgs{
+// ConnectionId: aws_dx_connection.Example.Id,
+// DxGatewayId: exampleGateway.Id,
+// Vlan: 4094,
+// AddressFamily: "ipv4",
+// BgpAsn: 65352,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

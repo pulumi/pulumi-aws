@@ -24,14 +24,12 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.ec2.Vpc;
- * import com.pulumi.aws.ec2.VpcArgs;
+ * import com.pulumi.aws.ec2_vpc.Vpc;
+ * import com.pulumi.aws.ec2_vpc.VpcArgs;
  * import com.pulumi.aws.servicediscovery.PrivateDnsNamespace;
  * import com.pulumi.aws.servicediscovery.PrivateDnsNamespaceArgs;
  * import com.pulumi.aws.servicediscovery.Service;
  * import com.pulumi.aws.servicediscovery.ServiceArgs;
- * import com.pulumi.aws.servicediscovery.inputs.ServiceDnsConfigArgs;
- * import com.pulumi.aws.servicediscovery.inputs.ServiceHealthCheckCustomConfigArgs;
  * import com.pulumi.aws.servicediscovery.Instance;
  * import com.pulumi.aws.servicediscovery.InstanceArgs;
  * import java.util.List;
@@ -59,26 +57,14 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleService = new Service(&#34;exampleService&#34;, ServiceArgs.builder()        
- *             .dnsConfig(ServiceDnsConfigArgs.builder()
- *                 .namespaceId(examplePrivateDnsNamespace.id())
- *                 .dnsRecords(ServiceDnsConfigDnsRecordArgs.builder()
- *                     .ttl(10)
- *                     .type(&#34;A&#34;)
- *                     .build())
- *                 .routingPolicy(&#34;MULTIVALUE&#34;)
- *                 .build())
- *             .healthCheckCustomConfig(ServiceHealthCheckCustomConfigArgs.builder()
- *                 .failureThreshold(1)
- *                 .build())
+ *             .dnsConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .healthCheckCustomConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleInstance = new Instance(&#34;exampleInstance&#34;, InstanceArgs.builder()        
  *             .instanceId(&#34;example-instance-id&#34;)
  *             .serviceId(exampleService.id())
- *             .attributes(Map.ofEntries(
- *                 Map.entry(&#34;AWS_INSTANCE_IPV4&#34;, &#34;172.18.0.1&#34;),
- *                 Map.entry(&#34;custom_attribute&#34;, &#34;custom&#34;)
- *             ))
+ *             .attributes(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -120,7 +106,7 @@ import javax.annotation.Nullable;
  *         var exampleInstance = new Instance(&#34;exampleInstance&#34;, InstanceArgs.builder()        
  *             .instanceId(&#34;example-instance-id&#34;)
  *             .serviceId(exampleService.id())
- *             .attributes(Map.of(&#34;AWS_EC2_INSTANCE_ID&#34;, &#34;i-0abdg374kd892cj6dl&#34;))
+ *             .attributes(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

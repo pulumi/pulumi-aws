@@ -23,7 +23,7 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Sagemaker.App("example", new()
+    ///     var example = new Aws.Sagemaker.App.App("example", new()
     ///     {
     ///         DomainId = aws_sagemaker_domain.Example.Id,
     ///         UserProfileName = aws_sagemaker_user_profile.Example.User_profile_name,

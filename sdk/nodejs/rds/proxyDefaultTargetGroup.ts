@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleProxy = new aws.rds.Proxy("exampleProxy", {
+ * const exampleProxy = new aws.rds/proxy.Proxy("exampleProxy", {
  *     debugLogging: false,
  *     engineFamily: "MYSQL",
  *     idleClientTimeout: 1800,
@@ -37,7 +37,7 @@ import * as utilities from "../utilities";
  *         Key: "value",
  *     },
  * });
- * const exampleProxyDefaultTargetGroup = new aws.rds.ProxyDefaultTargetGroup("exampleProxyDefaultTargetGroup", {
+ * const exampleProxyDefaultTargetGroup = new aws.rds/proxyDefaultTargetGroup.ProxyDefaultTargetGroup("exampleProxyDefaultTargetGroup", {
  *     dbProxyName: exampleProxy.name,
  *     connectionPoolConfig: {
  *         connectionBorrowTimeout: 120,

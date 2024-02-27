@@ -24,26 +24,24 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudfront"
+//	cloudfront/originAccessControl "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/cloudfront/originAccessControl"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cloudfront.NewOriginAccessControl(ctx, "example", &cloudfront.OriginAccessControlArgs{
-//				Description:                   pulumi.String("Example Policy"),
-//				OriginAccessControlOriginType: pulumi.String("s3"),
-//				SigningBehavior:               pulumi.String("always"),
-//				SigningProtocol:               pulumi.String("sigv4"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := cloudfront/originAccessControl.NewOriginAccessControl(ctx, "example", &cloudfront/originAccessControl.OriginAccessControlArgs{
+// Description: "Example Policy",
+// OriginAccessControlOriginType: "s3",
+// SigningBehavior: "always",
+// SigningProtocol: "sigv4",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

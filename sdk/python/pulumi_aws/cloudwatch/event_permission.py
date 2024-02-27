@@ -216,9 +216,9 @@ class EventPermission(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        dev_account_access = aws.cloudwatch.EventPermission("devAccountAccess",
-            principal="123456789012",
-            statement_id="DevAccountAccess")
+        dev_account_access = aws.cloudwatch.event_permission.EventPermission("devAccountAccess",
+            principal=123456789012,
+            statement_id=DevAccountAccess)
         ```
         ### Organization Access
 
@@ -226,14 +226,14 @@ class EventPermission(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        organization_access = aws.cloudwatch.EventPermission("organizationAccess",
-            principal="*",
-            statement_id="OrganizationAccess",
-            condition=aws.cloudwatch.EventPermissionConditionArgs(
-                key="aws:PrincipalOrgID",
-                type="StringEquals",
-                value=aws_organizations_organization["example"]["id"],
-            ))
+        organization_access = aws.cloudwatch.event_permission.EventPermission("organizationAccess",
+            principal=*,
+            statement_id=OrganizationAccess,
+            condition={
+                key: aws:PrincipalOrgID,
+                type: StringEquals,
+                value: aws_organizations_organization.example.id,
+            })
         ```
 
         ## Import
@@ -273,9 +273,9 @@ class EventPermission(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        dev_account_access = aws.cloudwatch.EventPermission("devAccountAccess",
-            principal="123456789012",
-            statement_id="DevAccountAccess")
+        dev_account_access = aws.cloudwatch.event_permission.EventPermission("devAccountAccess",
+            principal=123456789012,
+            statement_id=DevAccountAccess)
         ```
         ### Organization Access
 
@@ -283,14 +283,14 @@ class EventPermission(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        organization_access = aws.cloudwatch.EventPermission("organizationAccess",
-            principal="*",
-            statement_id="OrganizationAccess",
-            condition=aws.cloudwatch.EventPermissionConditionArgs(
-                key="aws:PrincipalOrgID",
-                type="StringEquals",
-                value=aws_organizations_organization["example"]["id"],
-            ))
+        organization_access = aws.cloudwatch.event_permission.EventPermission("organizationAccess",
+            principal=*,
+            statement_id=OrganizationAccess,
+            condition={
+                key: aws:PrincipalOrgID,
+                type: StringEquals,
+                value: aws_organizations_organization.example.id,
+            })
         ```
 
         ## Import

@@ -16,16 +16,16 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleVpc = new aws.ec2.Vpc("exampleVpc", {
+ * const exampleVpc = new aws.ec2/vpc.Vpc("exampleVpc", {
  *     cidrBlock: "10.0.0.0/16",
  *     enableDnsSupport: true,
  *     enableDnsHostnames: true,
  * });
- * const examplePrivateDnsNamespace = new aws.servicediscovery.PrivateDnsNamespace("examplePrivateDnsNamespace", {
+ * const examplePrivateDnsNamespace = new aws.servicediscovery/privateDnsNamespace.PrivateDnsNamespace("examplePrivateDnsNamespace", {
  *     description: "example",
  *     vpc: exampleVpc.id,
  * });
- * const exampleService = new aws.servicediscovery.Service("exampleService", {
+ * const exampleService = new aws.servicediscovery/service.Service("exampleService", {
  *     dnsConfig: {
  *         namespaceId: examplePrivateDnsNamespace.id,
  *         dnsRecords: [{
@@ -44,8 +44,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const examplePublicDnsNamespace = new aws.servicediscovery.PublicDnsNamespace("examplePublicDnsNamespace", {description: "example"});
- * const exampleService = new aws.servicediscovery.Service("exampleService", {
+ * const examplePublicDnsNamespace = new aws.servicediscovery/publicDnsNamespace.PublicDnsNamespace("examplePublicDnsNamespace", {description: "example"});
+ * const exampleService = new aws.servicediscovery/service.Service("exampleService", {
  *     dnsConfig: {
  *         namespaceId: examplePublicDnsNamespace.id,
  *         dnsRecords: [{

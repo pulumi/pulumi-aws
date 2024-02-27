@@ -22,23 +22,23 @@ namespace Pulumi.Aws.GameLift
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.GameLift.GameServerGroup("example", new()
+    ///     var example = new Aws.Gamelift.GameServerGroup.GameServerGroup("example", new()
     ///     {
     ///         GameServerGroupName = "example",
     ///         InstanceDefinitions = new[]
     ///         {
-    ///             new Aws.GameLift.Inputs.GameServerGroupInstanceDefinitionArgs
+    ///             
     ///             {
-    ///                 InstanceType = "c5.large",
+    ///                 { "instanceType", "c5.large" },
     ///             },
-    ///             new Aws.GameLift.Inputs.GameServerGroupInstanceDefinitionArgs
+    ///             
     ///             {
-    ///                 InstanceType = "c5a.large",
+    ///                 { "instanceType", "c5a.large" },
     ///             },
     ///         },
-    ///         LaunchTemplate = new Aws.GameLift.Inputs.GameServerGroupLaunchTemplateArgs
+    ///         LaunchTemplate = 
     ///         {
-    ///             Id = aws_launch_template.Example.Id,
+    ///             { "id", aws_launch_template.Example.Id },
     ///         },
     ///         MaxSize = 1,
     ///         MinSize = 1,
@@ -64,36 +64,36 @@ namespace Pulumi.Aws.GameLift
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.GameLift.GameServerGroup("example", new()
+    ///     var example = new Aws.Gamelift.GameServerGroup.GameServerGroup("example", new()
     ///     {
-    ///         AutoScalingPolicy = new Aws.GameLift.Inputs.GameServerGroupAutoScalingPolicyArgs
+    ///         AutoScalingPolicy = 
     ///         {
-    ///             EstimatedInstanceWarmup = 60,
-    ///             TargetTrackingConfiguration = new Aws.GameLift.Inputs.GameServerGroupAutoScalingPolicyTargetTrackingConfigurationArgs
+    ///             { "estimatedInstanceWarmup", 60 },
+    ///             { "targetTrackingConfiguration", 
     ///             {
-    ///                 TargetValue = 75,
-    ///             },
+    ///                 { "targetValue", 75 },
+    ///             } },
     ///         },
     ///         BalancingStrategy = "SPOT_ONLY",
     ///         GameServerGroupName = "example",
     ///         GameServerProtectionPolicy = "FULL_PROTECTION",
     ///         InstanceDefinitions = new[]
     ///         {
-    ///             new Aws.GameLift.Inputs.GameServerGroupInstanceDefinitionArgs
+    ///             
     ///             {
-    ///                 InstanceType = "c5.large",
-    ///                 WeightedCapacity = "1",
+    ///                 { "instanceType", "c5.large" },
+    ///                 { "weightedCapacity", "1" },
     ///             },
-    ///             new Aws.GameLift.Inputs.GameServerGroupInstanceDefinitionArgs
+    ///             
     ///             {
-    ///                 InstanceType = "c5.2xlarge",
-    ///                 WeightedCapacity = "2",
+    ///                 { "instanceType", "c5.2xlarge" },
+    ///                 { "weightedCapacity", "2" },
     ///             },
     ///         },
-    ///         LaunchTemplate = new Aws.GameLift.Inputs.GameServerGroupLaunchTemplateArgs
+    ///         LaunchTemplate = 
     ///         {
-    ///             Id = aws_launch_template.Example.Id,
-    ///             Version = "1",
+    ///             { "id", aws_launch_template.Example.Id },
+    ///             { "version", "1" },
     ///         },
     ///         MaxSize = 1,
     ///         MinSize = 1,
@@ -113,58 +113,6 @@ namespace Pulumi.Aws.GameLift
     ///         {
     ///             aws_iam_role_policy_attachment.Example,
     ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### Example IAM Role for GameLift Game Server Group
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var current = Aws.GetPartition.Invoke();
-    /// 
-    ///     var assumeRole = Aws.Iam.GetPolicyDocument.Invoke(new()
-    ///     {
-    ///         Statements = new[]
-    ///         {
-    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
-    ///             {
-    ///                 Effect = "Allow",
-    ///                 Principals = new[]
-    ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
-    ///                     {
-    ///                         Type = "Service",
-    ///                         Identifiers = new[]
-    ///                         {
-    ///                             "autoscaling.amazonaws.com",
-    ///                             "gamelift.amazonaws.com",
-    ///                         },
-    ///                     },
-    ///                 },
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "sts:AssumeRole",
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleRole = new Aws.Iam.Role("exampleRole", new()
-    ///     {
-    ///         AssumeRolePolicy = assumeRole.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
-    ///     });
-    /// 
-    ///     var exampleRolePolicyAttachment = new Aws.Iam.RolePolicyAttachment("exampleRolePolicyAttachment", new()
-    ///     {
-    ///         PolicyArn = $"arn:{current.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:iam::aws:policy/GameLiftGameServerGroupPolicy",
-    ///         Role = exampleRole.Name,
     ///     });
     /// 
     /// });

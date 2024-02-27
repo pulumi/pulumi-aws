@@ -14,8 +14,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleSink = new aws.oam.Sink("exampleSink", {});
- * const exampleSinkPolicy = new aws.oam.SinkPolicy("exampleSinkPolicy", {
+ * const exampleSink = new aws.oam/sink.Sink("exampleSink", {});
+ * const exampleSinkPolicy = new aws.oam/sinkPolicy.SinkPolicy("exampleSinkPolicy", {
  *     sinkIdentifier: exampleSink.id,
  *     policy: JSON.stringify({
  *         Version: "2012-10-17",

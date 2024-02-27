@@ -22,12 +22,12 @@ namespace Pulumi.Aws.RedShift
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var fooVpc = new Aws.Ec2.Vpc("fooVpc", new()
+    ///     var fooVpc = new Aws.Ec2.Vpc.Vpc("fooVpc", new()
     ///     {
     ///         CidrBlock = "10.1.0.0/16",
     ///     });
     /// 
-    ///     var fooSubnet = new Aws.Ec2.Subnet("fooSubnet", new()
+    ///     var fooSubnet = new Aws.Ec2.Subnet.Subnet("fooSubnet", new()
     ///     {
     ///         CidrBlock = "10.1.1.0/24",
     ///         AvailabilityZone = "us-west-2a",
@@ -38,7 +38,7 @@ namespace Pulumi.Aws.RedShift
     ///         },
     ///     });
     /// 
-    ///     var bar = new Aws.Ec2.Subnet("bar", new()
+    ///     var bar = new Aws.Ec2.Subnet.Subnet("bar", new()
     ///     {
     ///         CidrBlock = "10.1.2.0/24",
     ///         AvailabilityZone = "us-west-2b",
@@ -49,7 +49,7 @@ namespace Pulumi.Aws.RedShift
     ///         },
     ///     });
     /// 
-    ///     var fooSubnetGroup = new Aws.RedShift.SubnetGroup("fooSubnetGroup", new()
+    ///     var fooSubnetGroup = new Aws.Redshift.SubnetGroup.SubnetGroup("fooSubnetGroup", new()
     ///     {
     ///         SubnetIds = new[]
     ///         {

@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var filter = new Aws.Ec2.TrafficMirrorFilter("filter", new()
+    ///     var filter = new Aws.Ec2.TrafficMirrorFilter.TrafficMirrorFilter("filter", new()
     ///     {
     ///         Description = "traffic mirror filter - example",
     ///         NetworkServices = new[]
@@ -34,12 +34,12 @@ namespace Pulumi.Aws.Ec2
     ///         },
     ///     });
     /// 
-    ///     var target = new Aws.Ec2.TrafficMirrorTarget("target", new()
+    ///     var target = new Aws.Ec2.TrafficMirrorTarget.TrafficMirrorTarget("target", new()
     ///     {
     ///         NetworkLoadBalancerArn = aws_lb.Lb.Arn,
     ///     });
     /// 
-    ///     var session = new Aws.Ec2.TrafficMirrorSession("session", new()
+    ///     var session = new Aws.Ec2.TrafficMirrorSession.TrafficMirrorSession("session", new()
     ///     {
     ///         Description = "traffic mirror session - example",
     ///         NetworkInterfaceId = aws_instance.Test.Primary_network_interface_id,

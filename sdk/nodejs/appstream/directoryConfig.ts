@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.appstream.DirectoryConfig("example", {
+ * const example = new aws.appstream/directoryConfig.DirectoryConfig("example", {
  *     directoryName: "NAME OF DIRECTORY",
  *     organizationalUnitDistinguishedNames: ["DISTINGUISHED NAME"],
  *     serviceAccountCredentials: {

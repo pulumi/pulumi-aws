@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.storagegateway.StoredIscsiVolume("example", {
+ * const example = new aws.storagegateway/storedIscsiVolume.StoredIscsiVolume("example", {
  *     gatewayArn: aws_storagegateway_cache.example.gateway_arn,
  *     networkInterfaceId: aws_instance.example.private_ip,
  *     targetName: "example",
@@ -30,7 +30,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.storagegateway.StoredIscsiVolume("example", {
+ * const example = new aws.storagegateway/storedIscsiVolume.StoredIscsiVolume("example", {
  *     gatewayArn: aws_storagegateway_cache.example.gateway_arn,
  *     networkInterfaceId: aws_instance.example.private_ip,
  *     snapshotId: aws_ebs_snapshot.example.id,

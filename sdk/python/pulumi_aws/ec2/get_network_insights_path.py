@@ -191,15 +191,6 @@ def get_network_insights_path(filters: Optional[Sequence[pulumi.InputType['GetNe
     """
     `ec2.NetworkInsightsPath` provides details about a specific Network Insights Path.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ec2.get_network_insights_path(network_insights_path_id=aws_ec2_network_insights_path["example"]["id"])
-    ```
-
 
     :param Sequence[pulumi.InputType['GetNetworkInsightsPathFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.
     :param str network_insights_path_id: ID of the Network Insights Path to select.
@@ -235,15 +226,6 @@ def get_network_insights_path_output(filters: Optional[pulumi.Input[Optional[Seq
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkInsightsPathResult]:
     """
     `ec2.NetworkInsightsPath` provides details about a specific Network Insights Path.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ec2.get_network_insights_path(network_insights_path_id=aws_ec2_network_insights_path["example"]["id"])
-    ```
 
 
     :param Sequence[pulumi.InputType['GetNetworkInsightsPathFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.

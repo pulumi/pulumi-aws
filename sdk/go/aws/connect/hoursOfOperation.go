@@ -22,52 +22,50 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/connect"
+//	connect/hoursOfOperation "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/connect/hoursOfOperation"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := connect.NewHoursOfOperation(ctx, "test", &connect.HoursOfOperationArgs{
-//				Configs: connect.HoursOfOperationConfigArray{
-//					&connect.HoursOfOperationConfigArgs{
-//						Day: pulumi.String("MONDAY"),
-//						EndTime: &connect.HoursOfOperationConfigEndTimeArgs{
-//							Hours:   pulumi.Int(23),
-//							Minutes: pulumi.Int(8),
-//						},
-//						StartTime: &connect.HoursOfOperationConfigStartTimeArgs{
-//							Hours:   pulumi.Int(8),
-//							Minutes: pulumi.Int(0),
-//						},
-//					},
-//					&connect.HoursOfOperationConfigArgs{
-//						Day: pulumi.String("TUESDAY"),
-//						EndTime: &connect.HoursOfOperationConfigEndTimeArgs{
-//							Hours:   pulumi.Int(21),
-//							Minutes: pulumi.Int(0),
-//						},
-//						StartTime: &connect.HoursOfOperationConfigStartTimeArgs{
-//							Hours:   pulumi.Int(9),
-//							Minutes: pulumi.Int(0),
-//						},
-//					},
-//				},
-//				Description: pulumi.String("Monday office hours"),
-//				InstanceId:  pulumi.String("aaaaaaaa-bbbb-cccc-dddd-111111111111"),
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("Example Hours of Operation"),
-//				},
-//				TimeZone: pulumi.String("EST"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := connect/hoursOfOperation.NewHoursOfOperation(ctx, "test", &connect/hoursOfOperation.HoursOfOperationArgs{
+// Configs: []interface{}{
+// map[string]interface{}{
+// "day": "MONDAY",
+// "endTime": map[string]interface{}{
+// "hours": 23,
+// "minutes": 8,
+// },
+// "startTime": map[string]interface{}{
+// "hours": 8,
+// "minutes": 0,
+// },
+// },
+// map[string]interface{}{
+// "day": "TUESDAY",
+// "endTime": map[string]interface{}{
+// "hours": 21,
+// "minutes": 0,
+// },
+// "startTime": map[string]interface{}{
+// "hours": 9,
+// "minutes": 0,
+// },
+// },
+// },
+// Description: "Monday office hours",
+// InstanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+// Tags: map[string]interface{}{
+// "Name": "Example Hours of Operation",
+// },
+// TimeZone: "EST",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

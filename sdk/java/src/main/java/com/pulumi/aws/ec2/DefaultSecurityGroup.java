@@ -31,6 +31,82 @@ import javax.annotation.Nullable;
  * For more information about default security groups, see the AWS documentation on [Default Security Groups][aws-default-security-groups]. To manage normal security groups, see the `aws.ec2.SecurityGroup` resource.
  * 
  * ## Example Usage
+ * 
+ * The following config gives the default security group the same rules that AWS provides by default but under management by this provider. This means that any ingress or egress rules added or changed will be detected as drift.
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ec2_vpc.Vpc;
+ * import com.pulumi.aws.ec2_vpc.VpcArgs;
+ * import com.pulumi.aws.ec2.DefaultSecurityGroup;
+ * import com.pulumi.aws.ec2.DefaultSecurityGroupArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var mainvpc = new Vpc(&#34;mainvpc&#34;, VpcArgs.builder()        
+ *             .cidrBlock(&#34;10.1.0.0/16&#34;)
+ *             .build());
+ * 
+ *         var default_ = new DefaultSecurityGroup(&#34;default&#34;, DefaultSecurityGroupArgs.builder()        
+ *             .vpcId(mainvpc.id())
+ *             .ingress(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .egress(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### Example Config To Deny All Egress Traffic, Allowing Ingress
+ * 
+ * The following denies all Egress traffic by omitting any `egress` rules, while including the default `ingress` rule to allow all traffic.
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ec2_vpc.Vpc;
+ * import com.pulumi.aws.ec2_vpc.VpcArgs;
+ * import com.pulumi.aws.ec2.DefaultSecurityGroup;
+ * import com.pulumi.aws.ec2.DefaultSecurityGroupArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var mainvpc = new Vpc(&#34;mainvpc&#34;, VpcArgs.builder()        
+ *             .cidrBlock(&#34;10.1.0.0/16&#34;)
+ *             .build());
+ * 
+ *         var default_ = new DefaultSecurityGroup(&#34;default&#34;, DefaultSecurityGroupArgs.builder()        
+ *             .vpcId(mainvpc.id())
+ *             .ingress(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
  * ### Removing `aws.ec2.DefaultSecurityGroup` From Your Configuration
  * 
  * Removing this resource from your configuration will remove it from your statefile and management, but will not destroy the Security Group. All ingress or egress rules will be left as they are at the time of removal. You can resume managing them via the AWS Console.

@@ -23,224 +23,226 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cognito"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lb"
+//	cognito/userPool "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/cognito/userPool"
+//	cognito/userPoolClient "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/cognito/userPoolClient"
+//	cognito/userPoolDomain "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/cognito/userPoolDomain"
+//	lb/listener "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/lb/listener"
+//	lb/listenerRule "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/lb/listenerRule"
+//	lb/loadBalancer "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/lb/loadBalancer"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lb.NewLoadBalancer(ctx, "frontEndLoadBalancer", nil)
-//			if err != nil {
-//				return err
-//			}
-//			frontEndListener, err := lb.NewListener(ctx, "frontEndListener", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = lb.NewListenerRule(ctx, "static", &lb.ListenerRuleArgs{
-//				ListenerArn: frontEndListener.Arn,
-//				Priority:    pulumi.Int(100),
-//				Actions: lb.ListenerRuleActionArray{
-//					&lb.ListenerRuleActionArgs{
-//						Type:           pulumi.String("forward"),
-//						TargetGroupArn: pulumi.Any(aws_lb_target_group.Static.Arn),
-//					},
-//				},
-//				Conditions: lb.ListenerRuleConditionArray{
-//					&lb.ListenerRuleConditionArgs{
-//						PathPattern: &lb.ListenerRuleConditionPathPatternArgs{
-//							Values: pulumi.StringArray{
-//								pulumi.String("/static/*"),
-//							},
-//						},
-//					},
-//					&lb.ListenerRuleConditionArgs{
-//						HostHeader: &lb.ListenerRuleConditionHostHeaderArgs{
-//							Values: pulumi.StringArray{
-//								pulumi.String("example.com"),
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = lb.NewListenerRule(ctx, "hostBasedWeightedRouting", &lb.ListenerRuleArgs{
-//				ListenerArn: frontEndListener.Arn,
-//				Priority:    pulumi.Int(99),
-//				Actions: lb.ListenerRuleActionArray{
-//					&lb.ListenerRuleActionArgs{
-//						Type:           pulumi.String("forward"),
-//						TargetGroupArn: pulumi.Any(aws_lb_target_group.Static.Arn),
-//					},
-//				},
-//				Conditions: lb.ListenerRuleConditionArray{
-//					&lb.ListenerRuleConditionArgs{
-//						HostHeader: &lb.ListenerRuleConditionHostHeaderArgs{
-//							Values: pulumi.StringArray{
-//								pulumi.String("my-service.*.mycompany.io"),
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = lb.NewListenerRule(ctx, "hostBasedRouting", &lb.ListenerRuleArgs{
-//				ListenerArn: frontEndListener.Arn,
-//				Priority:    pulumi.Int(99),
-//				Actions: lb.ListenerRuleActionArray{
-//					&lb.ListenerRuleActionArgs{
-//						Type: pulumi.String("forward"),
-//						Forward: &lb.ListenerRuleActionForwardArgs{
-//							TargetGroups: lb.ListenerRuleActionForwardTargetGroupArray{
-//								&lb.ListenerRuleActionForwardTargetGroupArgs{
-//									Arn:    pulumi.Any(aws_lb_target_group.Main.Arn),
-//									Weight: pulumi.Int(80),
-//								},
-//								&lb.ListenerRuleActionForwardTargetGroupArgs{
-//									Arn:    pulumi.Any(aws_lb_target_group.Canary.Arn),
-//									Weight: pulumi.Int(20),
-//								},
-//							},
-//							Stickiness: &lb.ListenerRuleActionForwardStickinessArgs{
-//								Enabled:  pulumi.Bool(true),
-//								Duration: pulumi.Int(600),
-//							},
-//						},
-//					},
-//				},
-//				Conditions: lb.ListenerRuleConditionArray{
-//					&lb.ListenerRuleConditionArgs{
-//						HostHeader: &lb.ListenerRuleConditionHostHeaderArgs{
-//							Values: pulumi.StringArray{
-//								pulumi.String("my-service.*.mycompany.io"),
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = lb.NewListenerRule(ctx, "redirectHttpToHttps", &lb.ListenerRuleArgs{
-//				ListenerArn: frontEndListener.Arn,
-//				Actions: lb.ListenerRuleActionArray{
-//					&lb.ListenerRuleActionArgs{
-//						Type: pulumi.String("redirect"),
-//						Redirect: &lb.ListenerRuleActionRedirectArgs{
-//							Port:       pulumi.String("443"),
-//							Protocol:   pulumi.String("HTTPS"),
-//							StatusCode: pulumi.String("HTTP_301"),
-//						},
-//					},
-//				},
-//				Conditions: lb.ListenerRuleConditionArray{
-//					&lb.ListenerRuleConditionArgs{
-//						HttpHeader: &lb.ListenerRuleConditionHttpHeaderArgs{
-//							HttpHeaderName: pulumi.String("X-Forwarded-For"),
-//							Values: pulumi.StringArray{
-//								pulumi.String("192.168.1.*"),
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = lb.NewListenerRule(ctx, "healthCheck", &lb.ListenerRuleArgs{
-//				ListenerArn: frontEndListener.Arn,
-//				Actions: lb.ListenerRuleActionArray{
-//					&lb.ListenerRuleActionArgs{
-//						Type: pulumi.String("fixed-response"),
-//						FixedResponse: &lb.ListenerRuleActionFixedResponseArgs{
-//							ContentType: pulumi.String("text/plain"),
-//							MessageBody: pulumi.String("HEALTHY"),
-//							StatusCode:  pulumi.String("200"),
-//						},
-//					},
-//				},
-//				Conditions: lb.ListenerRuleConditionArray{
-//					&lb.ListenerRuleConditionArgs{
-//						QueryStrings: lb.ListenerRuleConditionQueryStringArray{
-//							&lb.ListenerRuleConditionQueryStringArgs{
-//								Key:   pulumi.String("health"),
-//								Value: pulumi.String("check"),
-//							},
-//							&lb.ListenerRuleConditionQueryStringArgs{
-//								Value: pulumi.String("bar"),
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			pool, err := cognito.NewUserPool(ctx, "pool", nil)
-//			if err != nil {
-//				return err
-//			}
-//			client, err := cognito.NewUserPoolClient(ctx, "client", nil)
-//			if err != nil {
-//				return err
-//			}
-//			domain, err := cognito.NewUserPoolDomain(ctx, "domain", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = lb.NewListenerRule(ctx, "admin", &lb.ListenerRuleArgs{
-//				ListenerArn: frontEndListener.Arn,
-//				Actions: lb.ListenerRuleActionArray{
-//					&lb.ListenerRuleActionArgs{
-//						Type: pulumi.String("authenticate-cognito"),
-//						AuthenticateCognito: &lb.ListenerRuleActionAuthenticateCognitoArgs{
-//							UserPoolArn:      pool.Arn,
-//							UserPoolClientId: client.ID(),
-//							UserPoolDomain:   domain.Domain,
-//						},
-//					},
-//					&lb.ListenerRuleActionArgs{
-//						Type:           pulumi.String("forward"),
-//						TargetGroupArn: pulumi.Any(aws_lb_target_group.Static.Arn),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = lb.NewListenerRule(ctx, "oidc", &lb.ListenerRuleArgs{
-//				ListenerArn: frontEndListener.Arn,
-//				Actions: lb.ListenerRuleActionArray{
-//					&lb.ListenerRuleActionArgs{
-//						Type: pulumi.String("authenticate-oidc"),
-//						AuthenticateOidc: &lb.ListenerRuleActionAuthenticateOidcArgs{
-//							AuthorizationEndpoint: pulumi.String("https://example.com/authorization_endpoint"),
-//							ClientId:              pulumi.String("client_id"),
-//							ClientSecret:          pulumi.String("client_secret"),
-//							Issuer:                pulumi.String("https://example.com"),
-//							TokenEndpoint:         pulumi.String("https://example.com/token_endpoint"),
-//							UserInfoEndpoint:      pulumi.String("https://example.com/user_info_endpoint"),
-//						},
-//					},
-//					&lb.ListenerRuleActionArgs{
-//						Type:           pulumi.String("forward"),
-//						TargetGroupArn: pulumi.Any(aws_lb_target_group.Static.Arn),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := lb/loadBalancer.NewLoadBalancer(ctx, "frontEndLoadBalancer", nil)
+// if err != nil {
+// return err
+// }
+// frontEndListener, err := lb/listener.NewListener(ctx, "frontEndListener", nil)
+// if err != nil {
+// return err
+// }
+// _, err = lb/listenerRule.NewListenerRule(ctx, "static", &lb/listenerRule.ListenerRuleArgs{
+// ListenerArn: frontEndListener.Arn,
+// Priority: 100,
+// Actions: []map[string]interface{}{
+// map[string]interface{}{
+// "type": "forward",
+// "targetGroupArn": aws_lb_target_group.Static.Arn,
+// },
+// },
+// Conditions: []interface{}{
+// map[string]interface{}{
+// "pathPattern": map[string]interface{}{
+// "values": []string{
+// "/static/*",
+// },
+// },
+// },
+// map[string]interface{}{
+// "hostHeader": map[string]interface{}{
+// "values": []string{
+// "example.com",
+// },
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = lb/listenerRule.NewListenerRule(ctx, "hostBasedWeightedRouting", &lb/listenerRule.ListenerRuleArgs{
+// ListenerArn: frontEndListener.Arn,
+// Priority: 99,
+// Actions: []map[string]interface{}{
+// map[string]interface{}{
+// "type": "forward",
+// "targetGroupArn": aws_lb_target_group.Static.Arn,
+// },
+// },
+// Conditions: []map[string]interface{}{
+// map[string]interface{}{
+// "hostHeader": map[string]interface{}{
+// "values": []string{
+// "my-service.*.mycompany.io",
+// },
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = lb/listenerRule.NewListenerRule(ctx, "hostBasedRouting", &lb/listenerRule.ListenerRuleArgs{
+// ListenerArn: frontEndListener.Arn,
+// Priority: 99,
+// Actions: []map[string]interface{}{
+// map[string]interface{}{
+// "type": "forward",
+// "forward": map[string]interface{}{
+// "targetGroups": []interface{}{
+// map[string]interface{}{
+// "arn": aws_lb_target_group.Main.Arn,
+// "weight": 80,
+// },
+// map[string]interface{}{
+// "arn": aws_lb_target_group.Canary.Arn,
+// "weight": 20,
+// },
+// },
+// "stickiness": map[string]interface{}{
+// "enabled": true,
+// "duration": 600,
+// },
+// },
+// },
+// },
+// Conditions: []map[string]interface{}{
+// map[string]interface{}{
+// "hostHeader": map[string]interface{}{
+// "values": []string{
+// "my-service.*.mycompany.io",
+// },
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = lb/listenerRule.NewListenerRule(ctx, "redirectHttpToHttps", &lb/listenerRule.ListenerRuleArgs{
+// ListenerArn: frontEndListener.Arn,
+// Actions: []map[string]interface{}{
+// map[string]interface{}{
+// "type": "redirect",
+// "redirect": map[string]interface{}{
+// "port": "443",
+// "protocol": "HTTPS",
+// "statusCode": "HTTP_301",
+// },
+// },
+// },
+// Conditions: []map[string]interface{}{
+// map[string]interface{}{
+// "httpHeader": map[string]interface{}{
+// "httpHeaderName": "X-Forwarded-For",
+// "values": []string{
+// "192.168.1.*",
+// },
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = lb/listenerRule.NewListenerRule(ctx, "healthCheck", &lb/listenerRule.ListenerRuleArgs{
+// ListenerArn: frontEndListener.Arn,
+// Actions: []map[string]interface{}{
+// map[string]interface{}{
+// "type": "fixed-response",
+// "fixedResponse": map[string]interface{}{
+// "contentType": "text/plain",
+// "messageBody": "HEALTHY",
+// "statusCode": "200",
+// },
+// },
+// },
+// Conditions: []map[string]interface{}{
+// map[string]interface{}{
+// "queryStrings": []interface{}{
+// map[string]interface{}{
+// "key": "health",
+// "value": "check",
+// },
+// map[string]interface{}{
+// "value": "bar",
+// },
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// pool, err := cognito/userPool.NewUserPool(ctx, "pool", nil)
+// if err != nil {
+// return err
+// }
+// client, err := cognito/userPoolClient.NewUserPoolClient(ctx, "client", nil)
+// if err != nil {
+// return err
+// }
+// domain, err := cognito/userPoolDomain.NewUserPoolDomain(ctx, "domain", nil)
+// if err != nil {
+// return err
+// }
+// _, err = lb/listenerRule.NewListenerRule(ctx, "admin", &lb/listenerRule.ListenerRuleArgs{
+// ListenerArn: frontEndListener.Arn,
+// Actions: []interface{}{
+// map[string]interface{}{
+// "type": "authenticate-cognito",
+// "authenticateCognito": map[string]interface{}{
+// "userPoolArn": pool.Arn,
+// "userPoolClientId": client.Id,
+// "userPoolDomain": domain.Domain,
+// },
+// },
+// map[string]interface{}{
+// "type": "forward",
+// "targetGroupArn": aws_lb_target_group.Static.Arn,
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = lb/listenerRule.NewListenerRule(ctx, "oidc", &lb/listenerRule.ListenerRuleArgs{
+// ListenerArn: frontEndListener.Arn,
+// Actions: []interface{}{
+// map[string]interface{}{
+// "type": "authenticate-oidc",
+// "authenticateOidc": map[string]interface{}{
+// "authorizationEndpoint": "https://example.com/authorization_endpoint",
+// "clientId": "client_id",
+// "clientSecret": "client_secret",
+// "issuer": "https://example.com",
+// "tokenEndpoint": "https://example.com/token_endpoint",
+// "userInfoEndpoint": "https://example.com/user_info_endpoint",
+// },
+// },
+// map[string]interface{}{
+// "type": "forward",
+// "targetGroupArn": aws_lb_target_group.Static.Arn,
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

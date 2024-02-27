@@ -21,29 +21,28 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/macie2"
+//	macie2/account "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/macie2/account"
+//	macie2/organizationAdminAccount "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/macie2/organizationAdminAccount"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleAccount, err := macie2.NewAccount(ctx, "exampleAccount", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = macie2.NewOrganizationAdminAccount(ctx, "exampleOrganizationAdminAccount", &macie2.OrganizationAdminAccountArgs{
-//				AdminAccountId: pulumi.String("ID OF THE ADMIN ACCOUNT"),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleAccount,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleAccount, err := macie2/account.NewAccount(ctx, "exampleAccount", nil)
+// if err != nil {
+// return err
+// }
+// _, err = macie2/organizationAdminAccount.NewOrganizationAdminAccount(ctx, "exampleOrganizationAdminAccount", &macie2/organizationAdminAccount.OrganizationAdminAccountArgs{
+// AdminAccountId: "ID OF THE ADMIN ACCOUNT",
+// }, pulumi.DependsOn([]pulumi.Resource{
+// exampleAccount,
+// }))
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

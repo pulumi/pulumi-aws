@@ -14,34 +14,6 @@ import (
 // `route53.ResolverFirewallConfig` provides details about a specific a Route 53 Resolver DNS Firewall config.
 //
 // This data source allows to find a details about a specific a Route 53 Resolver DNS Firewall config.
-//
-// ## Example Usage
-//
-// The following example shows how to get a firewall config using the VPC ID.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := route53.LookupResolverFirewallConfig(ctx, &route53.LookupResolverFirewallConfigArgs{
-//				ResourceId: "vpc-exampleid",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupResolverFirewallConfig(ctx *pulumi.Context, args *LookupResolverFirewallConfigArgs, opts ...pulumi.InvokeOption) (*LookupResolverFirewallConfigResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupResolverFirewallConfigResult

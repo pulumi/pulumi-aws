@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.servicecatalog.TagOptionResourceAssociation("example", {
+ * const example = new aws.servicecatalog/tagOptionResourceAssociation.TagOptionResourceAssociation("example", {
  *     resourceId: "prod-dnigbtea24ste",
  *     tagOptionId: "tag-pjtvyakdlyo3m",
  * });

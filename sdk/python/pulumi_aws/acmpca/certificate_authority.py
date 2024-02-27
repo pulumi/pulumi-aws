@@ -444,14 +444,14 @@ class CertificateAuthority(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.acmpca.CertificateAuthority("example",
-            certificate_authority_configuration=aws.acmpca.CertificateAuthorityCertificateAuthorityConfigurationArgs(
-                key_algorithm="RSA_4096",
-                signing_algorithm="SHA512WITHRSA",
-                subject=aws.acmpca.CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs(
-                    common_name="example.com",
-                ),
-            ),
+        example = aws.acmpca.certificate_authority.CertificateAuthority("example",
+            certificate_authority_configuration={
+                keyAlgorithm: RSA_4096,
+                signingAlgorithm: SHA512WITHRSA,
+                subject: {
+                    commonName: example.com,
+                },
+            },
             permanent_deletion_time_in_days=7)
         ```
         ### Short-lived certificate
@@ -460,60 +460,15 @@ class CertificateAuthority(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.acmpca.CertificateAuthority("example",
-            certificate_authority_configuration=aws.acmpca.CertificateAuthorityCertificateAuthorityConfigurationArgs(
-                key_algorithm="RSA_4096",
-                signing_algorithm="SHA512WITHRSA",
-                subject=aws.acmpca.CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs(
-                    common_name="example.com",
-                ),
-            ),
-            usage_mode="SHORT_LIVED_CERTIFICATE")
-        ```
-        ### Enable Certificate Revocation List
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2", force_destroy=True)
-        acmpca_bucket_access = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            actions=[
-                "s3:GetBucketAcl",
-                "s3:GetBucketLocation",
-                "s3:PutObject",
-                "s3:PutObjectAcl",
-            ],
-            resources=[
-                example_bucket_v2.arn,
-                example_bucket_v2.arn.apply(lambda arn: f"{arn}/*"),
-            ],
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                identifiers=["acm-pca.amazonaws.com"],
-                type="Service",
-            )],
-        )])
-        example_bucket_policy = aws.s3.BucketPolicy("exampleBucketPolicy",
-            bucket=example_bucket_v2.id,
-            policy=acmpca_bucket_access.json)
-        example_certificate_authority = aws.acmpca.CertificateAuthority("exampleCertificateAuthority",
-            certificate_authority_configuration=aws.acmpca.CertificateAuthorityCertificateAuthorityConfigurationArgs(
-                key_algorithm="RSA_4096",
-                signing_algorithm="SHA512WITHRSA",
-                subject=aws.acmpca.CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs(
-                    common_name="example.com",
-                ),
-            ),
-            revocation_configuration=aws.acmpca.CertificateAuthorityRevocationConfigurationArgs(
-                crl_configuration=aws.acmpca.CertificateAuthorityRevocationConfigurationCrlConfigurationArgs(
-                    custom_cname="crl.example.com",
-                    enabled=True,
-                    expiration_in_days=7,
-                    s3_bucket_name=example_bucket_v2.id,
-                    s3_object_acl="BUCKET_OWNER_FULL_CONTROL",
-                ),
-            ),
-            opts=pulumi.ResourceOptions(depends_on=[example_bucket_policy]))
+        example = aws.acmpca.certificate_authority.CertificateAuthority("example",
+            certificate_authority_configuration={
+                keyAlgorithm: RSA_4096,
+                signingAlgorithm: SHA512WITHRSA,
+                subject: {
+                    commonName: example.com,
+                },
+            },
+            usage_mode=SHORT_LIVED_CERTIFICATE)
         ```
 
         ## Import
@@ -553,14 +508,14 @@ class CertificateAuthority(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.acmpca.CertificateAuthority("example",
-            certificate_authority_configuration=aws.acmpca.CertificateAuthorityCertificateAuthorityConfigurationArgs(
-                key_algorithm="RSA_4096",
-                signing_algorithm="SHA512WITHRSA",
-                subject=aws.acmpca.CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs(
-                    common_name="example.com",
-                ),
-            ),
+        example = aws.acmpca.certificate_authority.CertificateAuthority("example",
+            certificate_authority_configuration={
+                keyAlgorithm: RSA_4096,
+                signingAlgorithm: SHA512WITHRSA,
+                subject: {
+                    commonName: example.com,
+                },
+            },
             permanent_deletion_time_in_days=7)
         ```
         ### Short-lived certificate
@@ -569,60 +524,15 @@ class CertificateAuthority(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.acmpca.CertificateAuthority("example",
-            certificate_authority_configuration=aws.acmpca.CertificateAuthorityCertificateAuthorityConfigurationArgs(
-                key_algorithm="RSA_4096",
-                signing_algorithm="SHA512WITHRSA",
-                subject=aws.acmpca.CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs(
-                    common_name="example.com",
-                ),
-            ),
-            usage_mode="SHORT_LIVED_CERTIFICATE")
-        ```
-        ### Enable Certificate Revocation List
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2", force_destroy=True)
-        acmpca_bucket_access = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            actions=[
-                "s3:GetBucketAcl",
-                "s3:GetBucketLocation",
-                "s3:PutObject",
-                "s3:PutObjectAcl",
-            ],
-            resources=[
-                example_bucket_v2.arn,
-                example_bucket_v2.arn.apply(lambda arn: f"{arn}/*"),
-            ],
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                identifiers=["acm-pca.amazonaws.com"],
-                type="Service",
-            )],
-        )])
-        example_bucket_policy = aws.s3.BucketPolicy("exampleBucketPolicy",
-            bucket=example_bucket_v2.id,
-            policy=acmpca_bucket_access.json)
-        example_certificate_authority = aws.acmpca.CertificateAuthority("exampleCertificateAuthority",
-            certificate_authority_configuration=aws.acmpca.CertificateAuthorityCertificateAuthorityConfigurationArgs(
-                key_algorithm="RSA_4096",
-                signing_algorithm="SHA512WITHRSA",
-                subject=aws.acmpca.CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs(
-                    common_name="example.com",
-                ),
-            ),
-            revocation_configuration=aws.acmpca.CertificateAuthorityRevocationConfigurationArgs(
-                crl_configuration=aws.acmpca.CertificateAuthorityRevocationConfigurationCrlConfigurationArgs(
-                    custom_cname="crl.example.com",
-                    enabled=True,
-                    expiration_in_days=7,
-                    s3_bucket_name=example_bucket_v2.id,
-                    s3_object_acl="BUCKET_OWNER_FULL_CONTROL",
-                ),
-            ),
-            opts=pulumi.ResourceOptions(depends_on=[example_bucket_policy]))
+        example = aws.acmpca.certificate_authority.CertificateAuthority("example",
+            certificate_authority_configuration={
+                keyAlgorithm: RSA_4096,
+                signingAlgorithm: SHA512WITHRSA,
+                subject: {
+                    commonName: example.com,
+                },
+            },
+            usage_mode=SHORT_LIVED_CERTIFICATE)
         ```
 
         ## Import

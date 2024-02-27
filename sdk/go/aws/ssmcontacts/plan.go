@@ -22,28 +22,26 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssmcontacts"
+//	ssmcontacts/plan "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ssmcontacts/plan"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ssmcontacts.NewPlan(ctx, "example", &ssmcontacts.PlanArgs{
-//				ContactId: pulumi.String("arn:aws:ssm-contacts:us-west-2:123456789012:contact/contactalias"),
-//				Stages: ssmcontacts.PlanStageArray{
-//					&ssmcontacts.PlanStageArgs{
-//						DurationInMinutes: pulumi.Int(1),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := ssmcontacts/plan.NewPlan(ctx, "example", &ssmcontacts/plan.PlanArgs{
+// ContactId: "arn:aws:ssm-contacts:us-west-2:123456789012:contact/contactalias",
+// Stages: []map[string]interface{}{
+// map[string]interface{}{
+// "durationInMinutes": 1,
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Usage with SSM Contact
 //
@@ -52,35 +50,34 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssmcontacts"
+//	ssmcontacts/contact "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ssmcontacts/contact"
+//	ssmcontacts/plan "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ssmcontacts/plan"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			contact, err := ssmcontacts.NewContact(ctx, "contact", &ssmcontacts.ContactArgs{
-//				Alias: pulumi.String("alias"),
-//				Type:  pulumi.String("PERSONAL"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ssmcontacts.NewPlan(ctx, "plan", &ssmcontacts.PlanArgs{
-//				ContactId: contact.Arn,
-//				Stages: ssmcontacts.PlanStageArray{
-//					&ssmcontacts.PlanStageArgs{
-//						DurationInMinutes: pulumi.Int(1),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// contact, err := ssmcontacts/contact.NewContact(ctx, "contact", &ssmcontacts/contact.ContactArgs{
+// Alias: "alias",
+// Type: "PERSONAL",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = ssmcontacts/plan.NewPlan(ctx, "plan", &ssmcontacts/plan.PlanArgs{
+// ContactId: contact.Arn,
+// Stages: []map[string]interface{}{
+// map[string]interface{}{
+// "durationInMinutes": 1,
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Usage With All Fields
 //
@@ -89,69 +86,68 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssmcontacts"
+//	ssmcontacts/contact "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ssmcontacts/contact"
+//	ssmcontacts/plan "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ssmcontacts/plan"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			escalationPlan, err := ssmcontacts.NewContact(ctx, "escalationPlan", &ssmcontacts.ContactArgs{
-//				Alias: pulumi.String("escalation-plan-alias"),
-//				Type:  pulumi.String("ESCALATION"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			contactOne, err := ssmcontacts.NewContact(ctx, "contactOne", &ssmcontacts.ContactArgs{
-//				Alias: pulumi.String("alias"),
-//				Type:  pulumi.String("PERSONAL"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			contactTwo, err := ssmcontacts.NewContact(ctx, "contactTwo", &ssmcontacts.ContactArgs{
-//				Alias: pulumi.String("alias"),
-//				Type:  pulumi.String("PERSONAL"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ssmcontacts.NewPlan(ctx, "test", &ssmcontacts.PlanArgs{
-//				ContactId: escalationPlan.Arn,
-//				Stages: ssmcontacts.PlanStageArray{
-//					&ssmcontacts.PlanStageArgs{
-//						DurationInMinutes: pulumi.Int(0),
-//						Targets: ssmcontacts.PlanStageTargetArray{
-//							&ssmcontacts.PlanStageTargetArgs{
-//								ContactTargetInfo: &ssmcontacts.PlanStageTargetContactTargetInfoArgs{
-//									IsEssential: pulumi.Bool(false),
-//									ContactId:   contactOne.Arn,
-//								},
-//							},
-//							&ssmcontacts.PlanStageTargetArgs{
-//								ContactTargetInfo: &ssmcontacts.PlanStageTargetContactTargetInfoArgs{
-//									IsEssential: pulumi.Bool(true),
-//									ContactId:   contactTwo.Arn,
-//								},
-//							},
-//							&ssmcontacts.PlanStageTargetArgs{
-//								ChannelTargetInfo: &ssmcontacts.PlanStageTargetChannelTargetInfoArgs{
-//									RetryIntervalInMinutes: pulumi.Int(2),
-//									ContactChannelId:       pulumi.Any(aws_ssmcontacts_contact_channel.Channel.Arn),
-//								},
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// escalationPlan, err := ssmcontacts/contact.NewContact(ctx, "escalationPlan", &ssmcontacts/contact.ContactArgs{
+// Alias: "escalation-plan-alias",
+// Type: "ESCALATION",
+// })
+// if err != nil {
+// return err
+// }
+// contactOne, err := ssmcontacts/contact.NewContact(ctx, "contactOne", &ssmcontacts/contact.ContactArgs{
+// Alias: "alias",
+// Type: "PERSONAL",
+// })
+// if err != nil {
+// return err
+// }
+// contactTwo, err := ssmcontacts/contact.NewContact(ctx, "contactTwo", &ssmcontacts/contact.ContactArgs{
+// Alias: "alias",
+// Type: "PERSONAL",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = ssmcontacts/plan.NewPlan(ctx, "test", &ssmcontacts/plan.PlanArgs{
+// ContactId: escalationPlan.Arn,
+// Stages: []map[string]interface{}{
+// map[string]interface{}{
+// "durationInMinutes": 0,
+// "targets": []interface{}{
+// map[string]interface{}{
+// "contactTargetInfo": map[string]interface{}{
+// "isEssential": false,
+// "contactId": contactOne.Arn,
+// },
+// },
+// map[string]interface{}{
+// "contactTargetInfo": map[string]interface{}{
+// "isEssential": true,
+// "contactId": contactTwo.Arn,
+// },
+// },
+// map[string]interface{}{
+// "channelTargetInfo": map[string]interface{}{
+// "retryIntervalInMinutes": 2,
+// "contactChannelId": aws_ssmcontacts_contact_channel.Channel.Arn,
+// },
+// },
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -82,14 +82,6 @@ def get_launch_paths(accept_language: Optional[str] = None,
     Lists the paths to the specified product. A path is how the user has access to a specified product, and is necessary when provisioning a product. A path also determines the constraints put on the product.
 
     ## Example Usage
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.servicecatalog.get_launch_paths(product_id="prod-yakog5pdriver")
-    ```
 
 
     :param str accept_language: Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
@@ -118,14 +110,6 @@ def get_launch_paths_output(accept_language: Optional[pulumi.Input[Optional[str]
     Lists the paths to the specified product. A path is how the user has access to a specified product, and is necessary when provisioning a product. A path also determines the constraints put on the product.
 
     ## Example Usage
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.servicecatalog.get_launch_paths(product_id="prod-yakog5pdriver")
-    ```
 
 
     :param str accept_language: Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.

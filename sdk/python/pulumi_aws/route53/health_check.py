@@ -797,16 +797,16 @@ class HealthCheck(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.route53.HealthCheck("example",
+        example = aws.route53.health_check.HealthCheck("example",
             failure_threshold=5,
-            fqdn="example.com",
+            fqdn=example.com,
             port=80,
             request_interval=30,
-            resource_path="/",
+            resource_path=/,
             tags={
-                "Name": "tf-test-health-check",
+                Name: tf-test-health-check,
             },
-            type="HTTP")
+            type=HTTP)
         ```
         ### Connectivity and String Matching Check
 
@@ -814,14 +814,14 @@ class HealthCheck(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.route53.HealthCheck("example",
+        example = aws.route53.health_check.HealthCheck("example",
             failure_threshold=5,
-            fqdn="example.com",
+            fqdn=example.com,
             port=443,
             request_interval=30,
-            resource_path="/",
-            search_string="example",
-            type="HTTPS_STR_MATCH")
+            resource_path=/,
+            search_string=example,
+            type=HTTPS_STR_MATCH)
         ```
         ### Aggregate Check
 
@@ -829,12 +829,12 @@ class HealthCheck(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        parent = aws.route53.HealthCheck("parent",
-            type="CALCULATED",
+        parent = aws.route53.health_check.HealthCheck("parent",
+            type=CALCULATED,
             child_health_threshold=1,
-            child_healthchecks=[aws_route53_health_check["child"]["id"]],
+            child_healthchecks=[aws_route53_health_check.child.id],
             tags={
-                "Name": "tf-test-calculated-health-check",
+                Name: tf-test-calculated-health-check,
             })
         ```
         ### CloudWatch Alarm Check
@@ -843,20 +843,20 @@ class HealthCheck(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        foobar = aws.cloudwatch.MetricAlarm("foobar",
-            comparison_operator="GreaterThanOrEqualToThreshold",
+        foobar = aws.cloudwatch.metric_alarm.MetricAlarm("foobar",
+            comparison_operator=GreaterThanOrEqualToThreshold,
             evaluation_periods=2,
-            metric_name="CPUUtilization",
-            namespace="AWS/EC2",
+            metric_name=CPUUtilization,
+            namespace=AWS/EC2,
             period=120,
-            statistic="Average",
+            statistic=Average,
             threshold=80,
-            alarm_description="This metric monitors ec2 cpu utilization")
-        foo = aws.route53.HealthCheck("foo",
-            type="CLOUDWATCH_METRIC",
+            alarm_description=This metric monitors ec2 cpu utilization)
+        foo = aws.route53.health_check.HealthCheck("foo",
+            type=CLOUDWATCH_METRIC,
             cloudwatch_alarm_name=foobar.name,
-            cloudwatch_alarm_region="us-west-2",
-            insufficient_data_health_status="Healthy")
+            cloudwatch_alarm_region=us-west-2,
+            insufficient_data_health_status=Healthy)
         ```
 
         ## Import
@@ -913,16 +913,16 @@ class HealthCheck(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.route53.HealthCheck("example",
+        example = aws.route53.health_check.HealthCheck("example",
             failure_threshold=5,
-            fqdn="example.com",
+            fqdn=example.com,
             port=80,
             request_interval=30,
-            resource_path="/",
+            resource_path=/,
             tags={
-                "Name": "tf-test-health-check",
+                Name: tf-test-health-check,
             },
-            type="HTTP")
+            type=HTTP)
         ```
         ### Connectivity and String Matching Check
 
@@ -930,14 +930,14 @@ class HealthCheck(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.route53.HealthCheck("example",
+        example = aws.route53.health_check.HealthCheck("example",
             failure_threshold=5,
-            fqdn="example.com",
+            fqdn=example.com,
             port=443,
             request_interval=30,
-            resource_path="/",
-            search_string="example",
-            type="HTTPS_STR_MATCH")
+            resource_path=/,
+            search_string=example,
+            type=HTTPS_STR_MATCH)
         ```
         ### Aggregate Check
 
@@ -945,12 +945,12 @@ class HealthCheck(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        parent = aws.route53.HealthCheck("parent",
-            type="CALCULATED",
+        parent = aws.route53.health_check.HealthCheck("parent",
+            type=CALCULATED,
             child_health_threshold=1,
-            child_healthchecks=[aws_route53_health_check["child"]["id"]],
+            child_healthchecks=[aws_route53_health_check.child.id],
             tags={
-                "Name": "tf-test-calculated-health-check",
+                Name: tf-test-calculated-health-check,
             })
         ```
         ### CloudWatch Alarm Check
@@ -959,20 +959,20 @@ class HealthCheck(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        foobar = aws.cloudwatch.MetricAlarm("foobar",
-            comparison_operator="GreaterThanOrEqualToThreshold",
+        foobar = aws.cloudwatch.metric_alarm.MetricAlarm("foobar",
+            comparison_operator=GreaterThanOrEqualToThreshold,
             evaluation_periods=2,
-            metric_name="CPUUtilization",
-            namespace="AWS/EC2",
+            metric_name=CPUUtilization,
+            namespace=AWS/EC2,
             period=120,
-            statistic="Average",
+            statistic=Average,
             threshold=80,
-            alarm_description="This metric monitors ec2 cpu utilization")
-        foo = aws.route53.HealthCheck("foo",
-            type="CLOUDWATCH_METRIC",
+            alarm_description=This metric monitors ec2 cpu utilization)
+        foo = aws.route53.health_check.HealthCheck("foo",
+            type=CLOUDWATCH_METRIC,
             cloudwatch_alarm_name=foobar.name,
-            cloudwatch_alarm_region="us-west-2",
-            insufficient_data_health_status="Healthy")
+            cloudwatch_alarm_region=us-west-2,
+            insufficient_data_health_status=Healthy)
         ```
 
         ## Import

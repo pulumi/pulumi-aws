@@ -110,33 +110,33 @@ class IndexingConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.iot.IndexingConfiguration("example", thing_indexing_configuration=aws.iot.IndexingConfigurationThingIndexingConfigurationArgs(
-            custom_fields=[
-                aws.iot.IndexingConfigurationThingIndexingConfigurationCustomFieldArgs(
-                    name="shadow.desired.power",
-                    type="Boolean",
-                ),
-                aws.iot.IndexingConfigurationThingIndexingConfigurationCustomFieldArgs(
-                    name="attributes.version",
-                    type="Number",
-                ),
-                aws.iot.IndexingConfigurationThingIndexingConfigurationCustomFieldArgs(
-                    name="shadow.name.thing1shadow.desired.DefaultDesired",
-                    type="String",
-                ),
-                aws.iot.IndexingConfigurationThingIndexingConfigurationCustomFieldArgs(
-                    name="deviceDefender.securityProfile1.NUMBER_VALUE_BEHAVIOR.lastViolationValue.number",
-                    type="Number",
-                ),
+        example = aws.iot.indexing_configuration.IndexingConfiguration("example", thing_indexing_configuration={
+            customFields: [
+                {
+                    name: shadow.desired.power,
+                    type: Boolean,
+                },
+                {
+                    name: attributes.version,
+                    type: Number,
+                },
+                {
+                    name: shadow.name.thing1shadow.desired.DefaultDesired,
+                    type: String,
+                },
+                {
+                    name: deviceDefender.securityProfile1.NUMBER_VALUE_BEHAVIOR.lastViolationValue.number,
+                    type: Number,
+                },
             ],
-            device_defender_indexing_mode="VIOLATIONS",
-            filter=aws.iot.IndexingConfigurationThingIndexingConfigurationFilterArgs(
-                named_shadow_names=["thing1shadow"],
-            ),
-            named_shadow_indexing_mode="ON",
-            thing_connectivity_indexing_mode="STATUS",
-            thing_indexing_mode="REGISTRY_AND_SHADOW",
-        ))
+            deviceDefenderIndexingMode: VIOLATIONS,
+            filter: {
+                namedShadowNames: [thing1shadow],
+            },
+            namedShadowIndexingMode: ON,
+            thingConnectivityIndexingMode: STATUS,
+            thingIndexingMode: REGISTRY_AND_SHADOW,
+        })
         ```
 
         :param str resource_name: The name of the resource.
@@ -159,33 +159,33 @@ class IndexingConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.iot.IndexingConfiguration("example", thing_indexing_configuration=aws.iot.IndexingConfigurationThingIndexingConfigurationArgs(
-            custom_fields=[
-                aws.iot.IndexingConfigurationThingIndexingConfigurationCustomFieldArgs(
-                    name="shadow.desired.power",
-                    type="Boolean",
-                ),
-                aws.iot.IndexingConfigurationThingIndexingConfigurationCustomFieldArgs(
-                    name="attributes.version",
-                    type="Number",
-                ),
-                aws.iot.IndexingConfigurationThingIndexingConfigurationCustomFieldArgs(
-                    name="shadow.name.thing1shadow.desired.DefaultDesired",
-                    type="String",
-                ),
-                aws.iot.IndexingConfigurationThingIndexingConfigurationCustomFieldArgs(
-                    name="deviceDefender.securityProfile1.NUMBER_VALUE_BEHAVIOR.lastViolationValue.number",
-                    type="Number",
-                ),
+        example = aws.iot.indexing_configuration.IndexingConfiguration("example", thing_indexing_configuration={
+            customFields: [
+                {
+                    name: shadow.desired.power,
+                    type: Boolean,
+                },
+                {
+                    name: attributes.version,
+                    type: Number,
+                },
+                {
+                    name: shadow.name.thing1shadow.desired.DefaultDesired,
+                    type: String,
+                },
+                {
+                    name: deviceDefender.securityProfile1.NUMBER_VALUE_BEHAVIOR.lastViolationValue.number,
+                    type: Number,
+                },
             ],
-            device_defender_indexing_mode="VIOLATIONS",
-            filter=aws.iot.IndexingConfigurationThingIndexingConfigurationFilterArgs(
-                named_shadow_names=["thing1shadow"],
-            ),
-            named_shadow_indexing_mode="ON",
-            thing_connectivity_indexing_mode="STATUS",
-            thing_indexing_mode="REGISTRY_AND_SHADOW",
-        ))
+            deviceDefenderIndexingMode: VIOLATIONS,
+            filter: {
+                namedShadowNames: [thing1shadow],
+            },
+            namedShadowIndexingMode: ON,
+            thingConnectivityIndexingMode: STATUS,
+            thingIndexingMode: REGISTRY_AND_SHADOW,
+        })
         ```
 
         :param str resource_name: The name of the resource.

@@ -13,58 +13,12 @@ namespace Pulumi.Aws.ElasticBeanstalk
     {
         /// <summary>
         /// Use this data source to get the name of a elastic beanstalk solution stack.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var multiDocker = Aws.ElasticBeanstalk.GetSolutionStack.Invoke(new()
-        ///     {
-        ///         MostRecent = true,
-        ///         NameRegex = "^64bit Amazon Linux (.*) Multi-container Docker (.*)$",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetSolutionStackResult> InvokeAsync(GetSolutionStackArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSolutionStackResult>("aws:elasticbeanstalk/getSolutionStack:getSolutionStack", args ?? new GetSolutionStackArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to get the name of a elastic beanstalk solution stack.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var multiDocker = Aws.ElasticBeanstalk.GetSolutionStack.Invoke(new()
-        ///     {
-        ///         MostRecent = true,
-        ///         NameRegex = "^64bit Amazon Linux (.*) Multi-container Docker (.*)$",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetSolutionStackResult> Invoke(GetSolutionStackInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSolutionStackResult>("aws:elasticbeanstalk/getSolutionStack:getSolutionStack", args ?? new GetSolutionStackInvokeArgs(), options.WithDefaults());

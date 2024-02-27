@@ -11,73 +11,9 @@ namespace Pulumi.Aws.ApiGateway
 {
     public static class GetSdk
     {
-        /// <summary>
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.ApiGateway.GetSdk.Invoke(new()
-        ///     {
-        ///         RestApiId = aws_api_gateway_stage.Example.Rest_api_id,
-        ///         StageName = aws_api_gateway_stage.Example.Stage_name,
-        ///         SdkType = "android",
-        ///         Parameters = 
-        ///         {
-        ///             { "groupId", "example" },
-        ///             { "artifactId", "example" },
-        ///             { "artifactVersion", "example" },
-        ///             { "invokerPackage", "example" },
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Task<GetSdkResult> InvokeAsync(GetSdkArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSdkResult>("aws:apigateway/getSdk:getSdk", args ?? new GetSdkArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.ApiGateway.GetSdk.Invoke(new()
-        ///     {
-        ///         RestApiId = aws_api_gateway_stage.Example.Rest_api_id,
-        ///         StageName = aws_api_gateway_stage.Example.Stage_name,
-        ///         SdkType = "android",
-        ///         Parameters = 
-        ///         {
-        ///             { "groupId", "example" },
-        ///             { "artifactId", "example" },
-        ///             { "artifactVersion", "example" },
-        ///             { "invokerPackage", "example" },
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Output<GetSdkResult> Invoke(GetSdkInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSdkResult>("aws:apigateway/getSdk:getSdk", args ?? new GetSdkInvokeArgs(), options.WithDefaults());
     }

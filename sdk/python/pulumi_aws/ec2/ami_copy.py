@@ -777,12 +777,12 @@ class AmiCopy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ec2.AmiCopy("example",
-            description="A copy of ami-xxxxxxxx",
-            source_ami_id="ami-xxxxxxxx",
-            source_ami_region="us-west-1",
+        example = aws.ec2.ami_copy.AmiCopy("example",
+            description=A copy of ami-xxxxxxxx,
+            source_ami_id=ami-xxxxxxxx,
+            source_ami_region=us-west-1,
             tags={
-                "Name": "HelloWorld",
+                Name: HelloWorld,
             })
         ```
 
@@ -830,12 +830,12 @@ class AmiCopy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ec2.AmiCopy("example",
-            description="A copy of ami-xxxxxxxx",
-            source_ami_id="ami-xxxxxxxx",
-            source_ami_region="us-west-1",
+        example = aws.ec2.ami_copy.AmiCopy("example",
+            description=A copy of ami-xxxxxxxx,
+            source_ami_id=ami-xxxxxxxx,
+            source_ami_region=us-west-1,
             tags={
-                "Name": "HelloWorld",
+                Name: HelloWorld,
             })
         ```
 

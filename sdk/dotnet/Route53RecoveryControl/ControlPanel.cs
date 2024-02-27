@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Route53RecoveryControl
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Route53RecoveryControl.ControlPanel("example", new()
+    ///     var example = new Aws.Route53recoverycontrol.ControlPanel.ControlPanel("example", new()
     ///     {
     ///         ClusterArn = "arn:aws:route53-recovery-control::123456789012:cluster/8d47920e-d789-437d-803a-2dcc4b204393",
     ///     });

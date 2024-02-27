@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.redshift.ResourcePolicy("example", {
+ * const example = new aws.redshift/resourcePolicy.ResourcePolicy("example", {
  *     resourceArn: aws_redshift_cluster.example.cluster_namespace_arn,
  *     policy: JSON.stringify({
  *         Version: "2012-10-17",

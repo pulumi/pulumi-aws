@@ -118,7 +118,7 @@ class BlockPublicAccessConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.emr.BlockPublicAccessConfiguration("example", block_public_security_group_rules=True)
+        example = aws.emr.block_public_access_configuration.BlockPublicAccessConfiguration("example", block_public_security_group_rules=True)
         ```
         ### Default Configuration
 
@@ -128,12 +128,12 @@ class BlockPublicAccessConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.emr.BlockPublicAccessConfiguration("example",
+        example = aws.emr.block_public_access_configuration.BlockPublicAccessConfiguration("example",
             block_public_security_group_rules=True,
-            permitted_public_security_group_rule_ranges=[aws.emr.BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgs(
-                max_range=22,
-                min_range=22,
-            )])
+            permitted_public_security_group_rule_ranges=[{
+                maxRange: 22,
+                minRange: 22,
+            }])
         ```
 
         > **NOTE:** If an `emr.BlockPublicAccessConfiguration` resource is destroyed, the configuration will reset to this default configuration.
@@ -145,17 +145,17 @@ class BlockPublicAccessConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.emr.BlockPublicAccessConfiguration("example",
+        example = aws.emr.block_public_access_configuration.BlockPublicAccessConfiguration("example",
             block_public_security_group_rules=True,
             permitted_public_security_group_rule_ranges=[
-                aws.emr.BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgs(
-                    max_range=22,
-                    min_range=22,
-                ),
-                aws.emr.BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgs(
-                    max_range=101,
-                    min_range=100,
-                ),
+                {
+                    maxRange: 22,
+                    minRange: 22,
+                },
+                {
+                    maxRange: 101,
+                    minRange: 100,
+                },
             ])
         ```
         ### Disabling Block Public Access
@@ -166,7 +166,7 @@ class BlockPublicAccessConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.emr.BlockPublicAccessConfiguration("example", block_public_security_group_rules=False)
+        example = aws.emr.block_public_access_configuration.BlockPublicAccessConfiguration("example", block_public_security_group_rules=False)
         ```
 
         ## Import
@@ -200,7 +200,7 @@ class BlockPublicAccessConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.emr.BlockPublicAccessConfiguration("example", block_public_security_group_rules=True)
+        example = aws.emr.block_public_access_configuration.BlockPublicAccessConfiguration("example", block_public_security_group_rules=True)
         ```
         ### Default Configuration
 
@@ -210,12 +210,12 @@ class BlockPublicAccessConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.emr.BlockPublicAccessConfiguration("example",
+        example = aws.emr.block_public_access_configuration.BlockPublicAccessConfiguration("example",
             block_public_security_group_rules=True,
-            permitted_public_security_group_rule_ranges=[aws.emr.BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgs(
-                max_range=22,
-                min_range=22,
-            )])
+            permitted_public_security_group_rule_ranges=[{
+                maxRange: 22,
+                minRange: 22,
+            }])
         ```
 
         > **NOTE:** If an `emr.BlockPublicAccessConfiguration` resource is destroyed, the configuration will reset to this default configuration.
@@ -227,17 +227,17 @@ class BlockPublicAccessConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.emr.BlockPublicAccessConfiguration("example",
+        example = aws.emr.block_public_access_configuration.BlockPublicAccessConfiguration("example",
             block_public_security_group_rules=True,
             permitted_public_security_group_rule_ranges=[
-                aws.emr.BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgs(
-                    max_range=22,
-                    min_range=22,
-                ),
-                aws.emr.BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgs(
-                    max_range=101,
-                    min_range=100,
-                ),
+                {
+                    maxRange: 22,
+                    minRange: 22,
+                },
+                {
+                    maxRange: 101,
+                    minRange: 100,
+                },
             ])
         ```
         ### Disabling Block Public Access
@@ -248,7 +248,7 @@ class BlockPublicAccessConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.emr.BlockPublicAccessConfiguration("example", block_public_security_group_rules=False)
+        example = aws.emr.block_public_access_configuration.BlockPublicAccessConfiguration("example", block_public_security_group_rules=False)
         ```
 
         ## Import

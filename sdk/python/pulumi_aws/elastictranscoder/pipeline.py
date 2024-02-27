@@ -416,17 +416,17 @@ class Pipeline(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        bar = aws.elastictranscoder.Pipeline("bar",
-            input_bucket=aws_s3_bucket["input_bucket"]["id"],
-            role=aws_iam_role["test_role"]["arn"],
-            content_config=aws.elastictranscoder.PipelineContentConfigArgs(
-                bucket=aws_s3_bucket["content_bucket"]["id"],
-                storage_class="Standard",
-            ),
-            thumbnail_config=aws.elastictranscoder.PipelineThumbnailConfigArgs(
-                bucket=aws_s3_bucket["thumb_bucket"]["id"],
-                storage_class="Standard",
-            ))
+        bar = aws.elastictranscoder.pipeline.Pipeline("bar",
+            input_bucket=aws_s3_bucket.input_bucket.id,
+            role=aws_iam_role.test_role.arn,
+            content_config={
+                bucket: aws_s3_bucket.content_bucket.id,
+                storageClass: Standard,
+            },
+            thumbnail_config={
+                bucket: aws_s3_bucket.thumb_bucket.id,
+                storageClass: Standard,
+            })
         ```
 
         ## Import
@@ -472,17 +472,17 @@ class Pipeline(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        bar = aws.elastictranscoder.Pipeline("bar",
-            input_bucket=aws_s3_bucket["input_bucket"]["id"],
-            role=aws_iam_role["test_role"]["arn"],
-            content_config=aws.elastictranscoder.PipelineContentConfigArgs(
-                bucket=aws_s3_bucket["content_bucket"]["id"],
-                storage_class="Standard",
-            ),
-            thumbnail_config=aws.elastictranscoder.PipelineThumbnailConfigArgs(
-                bucket=aws_s3_bucket["thumb_bucket"]["id"],
-                storage_class="Standard",
-            ))
+        bar = aws.elastictranscoder.pipeline.Pipeline("bar",
+            input_bucket=aws_s3_bucket.input_bucket.id,
+            role=aws_iam_role.test_role.arn,
+            content_config={
+                bucket: aws_s3_bucket.content_bucket.id,
+                storageClass: Standard,
+            },
+            thumbnail_config={
+                bucket: aws_s3_bucket.thumb_bucket.id,
+                storageClass: Standard,
+            })
         ```
 
         ## Import

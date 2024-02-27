@@ -10,47 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Bedrock
 {
     /// <summary>
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleModel = Aws.BedrockFoundation.GetModel.Invoke(new()
-    ///     {
-    ///         ModelId = "amazon.titan-text-express-v1",
-    ///     });
-    /// 
-    ///     var exampleCustomModel = new Aws.Bedrock.CustomModel("exampleCustomModel", new()
-    ///     {
-    ///         CustomModelName = "example-model",
-    ///         JobName = "example-job-1",
-    ///         BaseModelIdentifier = exampleModel.Apply(getModelResult =&gt; getModelResult.ModelArn),
-    ///         RoleArn = aws_iam_role.Example.Arn,
-    ///         Hyperparameters = 
-    ///         {
-    ///             { "epochCount", "1" },
-    ///             { "batchSize", "1" },
-    ///             { "learningRate", "0.005" },
-    ///             { "learningRateWarmupSteps", "0" },
-    ///         },
-    ///         OutputDataConfig = new Aws.Bedrock.Inputs.CustomModelOutputDataConfigArgs
-    ///         {
-    ///             S3Uri = $"s3://{aws_s3_bucket.Output.Id}/data/",
-    ///         },
-    ///         TrainingDataConfig = new Aws.Bedrock.Inputs.CustomModelTrainingDataConfigArgs
-    ///         {
-    ///             S3Uri = $"s3://{aws_s3_bucket.Training.Id}/data/train.jsonl",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Bedrock custom model using the `job_arn`. For example:

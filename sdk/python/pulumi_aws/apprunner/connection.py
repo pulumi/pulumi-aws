@@ -195,11 +195,11 @@ class Connection(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.apprunner.Connection("example",
-            connection_name="example",
-            provider_type="GITHUB",
+        example = aws.apprunner.connection.Connection("example",
+            connection_name=example,
+            provider_type=GITHUB,
             tags={
-                "Name": "example-apprunner-connection",
+                Name: example-apprunner-connection,
             })
         ```
 
@@ -234,11 +234,11 @@ class Connection(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.apprunner.Connection("example",
-            connection_name="example",
-            provider_type="GITHUB",
+        example = aws.apprunner.connection.Connection("example",
+            connection_name=example,
+            provider_type=GITHUB,
             tags={
-                "Name": "example-apprunner-connection",
+                Name: example-apprunner-connection,
             })
         ```
 

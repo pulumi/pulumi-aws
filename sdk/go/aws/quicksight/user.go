@@ -21,28 +21,26 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/quicksight"
+//	quicksight/user "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/quicksight/user"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := quicksight.NewUser(ctx, "example", &quicksight.UserArgs{
-//				Email:        pulumi.String("author@example.com"),
-//				IamArn:       pulumi.String("arn:aws:iam::123456789012:user/Example"),
-//				IdentityType: pulumi.String("IAM"),
-//				Namespace:    pulumi.String("foo"),
-//				SessionName:  pulumi.String("an-author"),
-//				UserRole:     pulumi.String("AUTHOR"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := quicksight/user.NewUser(ctx, "example", &quicksight/user.UserArgs{
+// Email: "author@example.com",
+// IamArn: "arn:aws:iam::123456789012:user/Example",
+// IdentityType: "IAM",
+// Namespace: "foo",
+// SessionName: "an-author",
+// UserRole: "AUTHOR",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

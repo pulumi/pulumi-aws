@@ -22,7 +22,7 @@ namespace Pulumi.Aws.DirectConnect
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var hosted = new Aws.DirectConnect.HostedConnection("hosted", new()
+    ///     var hosted = new Aws.Directconnect.HostedConnection.HostedConnection("hosted", new()
     ///     {
     ///         Bandwidth = "100Mbps",
     ///         ConnectionId = "dxcon-ffabc123",

@@ -116,23 +116,6 @@ def get_security_group(filters: Optional[Sequence[pulumi.InputType['GetSecurityG
     an input variable and needs to, for example, determine the id of the
     VPC that the security group belongs to.
 
-    ## Example Usage
-
-    The following example shows how one might accept a Security Group id as a variable
-    and use this data source to obtain the data necessary to create a subnet.
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    config = pulumi.Config()
-    security_group_id = config.require_object("securityGroupId")
-    selected = aws.ec2.get_security_group(id=security_group_id)
-    subnet = aws.ec2.Subnet("subnet",
-        vpc_id=selected.vpc_id,
-        cidr_block="10.0.1.0/24")
-    ```
-
 
     :param Sequence[pulumi.InputType['GetSecurityGroupFilterArgs']] filters: Custom filter block as described below.
     :param str id: Id of the specific security group to retrieve.
@@ -177,23 +160,6 @@ def get_security_group_output(filters: Optional[pulumi.Input[Optional[Sequence[p
     This resource can prove useful when a module accepts a Security Group id as
     an input variable and needs to, for example, determine the id of the
     VPC that the security group belongs to.
-
-    ## Example Usage
-
-    The following example shows how one might accept a Security Group id as a variable
-    and use this data source to obtain the data necessary to create a subnet.
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    config = pulumi.Config()
-    security_group_id = config.require_object("securityGroupId")
-    selected = aws.ec2.get_security_group(id=security_group_id)
-    subnet = aws.ec2.Subnet("subnet",
-        vpc_id=selected.vpc_id,
-        cidr_block="10.0.1.0/24")
-    ```
 
 
     :param Sequence[pulumi.InputType['GetSecurityGroupFilterArgs']] filters: Custom filter block as described below.

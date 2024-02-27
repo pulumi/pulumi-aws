@@ -23,11 +23,11 @@ namespace Pulumi.Aws.S3Control
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleAccessGrantsInstance = new Aws.S3Control.AccessGrantsInstance("exampleAccessGrantsInstance");
+    ///     var exampleAccessGrantsInstance = new Aws.S3control.AccessGrantsInstance.AccessGrantsInstance("exampleAccessGrantsInstance");
     /// 
-    ///     var exampleAccessGrantsInstanceResourcePolicy = new Aws.S3Control.AccessGrantsInstanceResourcePolicy("exampleAccessGrantsInstanceResourcePolicy", new()
+    ///     var exampleAccessGrantsInstanceResourcePolicy = new Aws.S3control.AccessGrantsInstanceResourcePolicy.AccessGrantsInstanceResourcePolicy("exampleAccessGrantsInstanceResourcePolicy", new()
     ///     {
-    ///         Policy = exampleAccessGrantsInstance.AccessGrantsInstanceArn.Apply(accessGrantsInstanceArn =&gt; @$"{{
+    ///         Policy = @$"{{
     ///   ""Version"": ""2012-10-17"",
     ///   ""Id"": ""S3AccessGrantsPolicy"",
     ///   ""Statement"": [{{
@@ -41,11 +41,11 @@ namespace Pulumi.Aws.S3Control
     ///       ""s3:ListAccessGrantsLocations"",
     ///       ""s3:GetDataAccess""
     ///     ],
-    ///     ""Resource"": ""{accessGrantsInstanceArn}""
+    ///     ""Resource"": ""{exampleAccessGrantsInstance.AccessGrantsInstanceArn}""
     ///   }}]
     /// }}
     /// 
-    /// "),
+    /// ",
     ///     });
     /// 
     /// });

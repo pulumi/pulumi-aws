@@ -23,7 +23,7 @@ namespace Pulumi.Aws.Evidently
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Evidently.Project("example", new()
+    ///     var example = new Aws.Evidently.Project.Project("example", new()
     ///     {
     ///         Description = "Example Description",
     ///         Tags = 
@@ -44,14 +44,14 @@ namespace Pulumi.Aws.Evidently
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Evidently.Project("example", new()
+    ///     var example = new Aws.Evidently.Project.Project("example", new()
     ///     {
-    ///         DataDelivery = new Aws.Evidently.Inputs.ProjectDataDeliveryArgs
+    ///         DataDelivery = 
     ///         {
-    ///             CloudwatchLogs = new Aws.Evidently.Inputs.ProjectDataDeliveryCloudwatchLogsArgs
+    ///             { "cloudwatchLogs", 
     ///             {
-    ///                 LogGroup = "example-log-group-name",
-    ///             },
+    ///                 { "logGroup", "example-log-group-name" },
+    ///             } },
     ///         },
     ///         Description = "Example Description",
     ///         Tags = 
@@ -72,15 +72,15 @@ namespace Pulumi.Aws.Evidently
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Evidently.Project("example", new()
+    ///     var example = new Aws.Evidently.Project.Project("example", new()
     ///     {
-    ///         DataDelivery = new Aws.Evidently.Inputs.ProjectDataDeliveryArgs
+    ///         DataDelivery = 
     ///         {
-    ///             S3Destination = new Aws.Evidently.Inputs.ProjectDataDeliveryS3DestinationArgs
+    ///             { "s3Destination", 
     ///             {
-    ///                 Bucket = "example-bucket-name",
-    ///                 Prefix = "example",
-    ///             },
+    ///                 { "bucket", "example-bucket-name" },
+    ///                 { "prefix", "example" },
+    ///             } },
     ///         },
     ///         Description = "Example Description",
     ///         Tags = 

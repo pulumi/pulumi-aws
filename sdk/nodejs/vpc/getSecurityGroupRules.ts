@@ -9,20 +9,6 @@ import * as utilities from "../utilities";
 
 /**
  * This resource can be useful for getting back a set of security group rule IDs.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.vpc.getSecurityGroupRules({
- *     filters: [{
- *         name: "group-id",
- *         values: [_var.security_group_id],
- *     }],
- * });
- * ```
  */
 export function getSecurityGroupRules(args?: GetSecurityGroupRulesArgs, opts?: pulumi.InvokeOptions): Promise<GetSecurityGroupRulesResult> {
     args = args || {};
@@ -66,20 +52,6 @@ export interface GetSecurityGroupRulesResult {
 }
 /**
  * This resource can be useful for getting back a set of security group rule IDs.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.vpc.getSecurityGroupRules({
- *     filters: [{
- *         name: "group-id",
- *         values: [_var.security_group_id],
- *     }],
- * });
- * ```
  */
 export function getSecurityGroupRulesOutput(args?: GetSecurityGroupRulesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecurityGroupRulesResult> {
     return pulumi.output(args).apply((a: any) => getSecurityGroupRules(a, opts))

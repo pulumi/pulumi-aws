@@ -28,7 +28,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.efs.FileSystem;
  * import com.pulumi.aws.efs.BackupPolicy;
  * import com.pulumi.aws.efs.BackupPolicyArgs;
- * import com.pulumi.aws.efs.inputs.BackupPolicyBackupPolicyArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -46,9 +45,7 @@ import javax.annotation.Nullable;
  * 
  *         var policy = new BackupPolicy(&#34;policy&#34;, BackupPolicyArgs.builder()        
  *             .fileSystemId(fs.id())
- *             .backupPolicy(BackupPolicyBackupPolicyArgs.builder()
- *                 .status(&#34;ENABLED&#34;)
- *                 .build())
+ *             .backupPolicy(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

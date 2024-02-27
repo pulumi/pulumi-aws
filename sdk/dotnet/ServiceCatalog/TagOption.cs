@@ -23,7 +23,7 @@ namespace Pulumi.Aws.ServiceCatalog
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.ServiceCatalog.TagOption("example", new()
+    ///     var example = new Aws.Servicecatalog.TagOption.TagOption("example", new()
     ///     {
     ///         Key = "nyckel",
     ///         Value = "värde",

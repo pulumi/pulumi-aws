@@ -22,23 +22,21 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/workspaces"
+//	workspaces/connectionAlias "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/workspaces/connectionAlias"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := workspaces.NewConnectionAlias(ctx, "example", &workspaces.ConnectionAliasArgs{
-//				ConnectionString: pulumi.String("testdomain.test"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := workspaces/connectionAlias.NewConnectionAlias(ctx, "example", &workspaces/connectionAlias.ConnectionAliasArgs{
+// ConnectionString: "testdomain.test",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

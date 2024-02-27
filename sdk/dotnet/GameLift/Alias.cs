@@ -22,13 +22,13 @@ namespace Pulumi.Aws.GameLift
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.GameLift.Alias("example", new()
+    ///     var example = new Aws.Gamelift.Alias.Alias("example", new()
     ///     {
     ///         Description = "Example Description",
-    ///         RoutingStrategy = new Aws.GameLift.Inputs.AliasRoutingStrategyArgs
+    ///         RoutingStrategy = 
     ///         {
-    ///             Message = "Example Message",
-    ///             Type = "TERMINAL",
+    ///             { "message", "Example Message" },
+    ///             { "type", "TERMINAL" },
     ///         },
     ///     });
     /// 

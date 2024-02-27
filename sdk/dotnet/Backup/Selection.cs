@@ -13,65 +13,6 @@ namespace Pulumi.Aws.Backup
     /// Manages selection conditions for AWS Backup plan resources.
     /// 
     /// ## Example Usage
-    /// ### IAM Role
-    /// 
-    /// &gt; For more information about creating and managing IAM Roles for backups and restores, see the [AWS Backup Developer Guide](https://docs.aws.amazon.com/aws-backup/latest/devguide/iam-service-roles.html).
-    /// 
-    /// The below example creates an IAM role with the default managed IAM Policy for allowing AWS Backup to create backups.
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var assumeRole = Aws.Iam.GetPolicyDocument.Invoke(new()
-    ///     {
-    ///         Statements = new[]
-    ///         {
-    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
-    ///             {
-    ///                 Effect = "Allow",
-    ///                 Principals = new[]
-    ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
-    ///                     {
-    ///                         Type = "Service",
-    ///                         Identifiers = new[]
-    ///                         {
-    ///                             "backup.amazonaws.com",
-    ///                         },
-    ///                     },
-    ///                 },
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "sts:AssumeRole",
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleRole = new Aws.Iam.Role("exampleRole", new()
-    ///     {
-    ///         AssumeRolePolicy = assumeRole.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
-    ///     });
-    /// 
-    ///     var exampleRolePolicyAttachment = new Aws.Iam.RolePolicyAttachment("exampleRolePolicyAttachment", new()
-    ///     {
-    ///         PolicyArn = "arn:aws:iam::aws:policy/service-role/AWSBackupServiceRolePolicyForBackup",
-    ///         Role = exampleRole.Name,
-    ///     });
-    /// 
-    ///     // ... other configuration ...
-    ///     var exampleSelection = new Aws.Backup.Selection("exampleSelection", new()
-    ///     {
-    ///         IamRoleArn = exampleRole.Arn,
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// ### Selecting Backups By Tag
     /// 
     /// ```csharp
@@ -82,17 +23,17 @@ namespace Pulumi.Aws.Backup
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Backup.Selection("example", new()
+    ///     var example = new Aws.Backup.Selection.Selection("example", new()
     ///     {
     ///         IamRoleArn = aws_iam_role.Example.Arn,
     ///         PlanId = aws_backup_plan.Example.Id,
     ///         SelectionTags = new[]
     ///         {
-    ///             new Aws.Backup.Inputs.SelectionSelectionTagArgs
+    ///             
     ///             {
-    ///                 Type = "STRINGEQUALS",
-    ///                 Key = "foo",
-    ///                 Value = "bar",
+    ///                 { "type", "STRINGEQUALS" },
+    ///                 { "key", "foo" },
+    ///                 { "value", "bar" },
     ///             },
     ///         },
     ///     });
@@ -109,7 +50,7 @@ namespace Pulumi.Aws.Backup
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Backup.Selection("example", new()
+    ///     var example = new Aws.Backup.Selection.Selection("example", new()
     ///     {
     ///         IamRoleArn = aws_iam_role.Example.Arn,
     ///         PlanId = aws_backup_plan.Example.Id,
@@ -119,40 +60,40 @@ namespace Pulumi.Aws.Backup
     ///         },
     ///         Conditions = new[]
     ///         {
-    ///             new Aws.Backup.Inputs.SelectionConditionArgs
+    ///             
     ///             {
-    ///                 StringEquals = new[]
+    ///                 { "stringEquals", new[]
     ///                 {
-    ///                     new Aws.Backup.Inputs.SelectionConditionStringEqualArgs
+    ///                     
     ///                     {
-    ///                         Key = "aws:ResourceTag/Component",
-    ///                         Value = "rds",
+    ///                         { "key", "aws:ResourceTag/Component" },
+    ///                         { "value", "rds" },
     ///                     },
-    ///                 },
-    ///                 StringLikes = new[]
+    ///                 } },
+    ///                 { "stringLikes", new[]
     ///                 {
-    ///                     new Aws.Backup.Inputs.SelectionConditionStringLikeArgs
+    ///                     
     ///                     {
-    ///                         Key = "aws:ResourceTag/Application",
-    ///                         Value = "app*",
+    ///                         { "key", "aws:ResourceTag/Application" },
+    ///                         { "value", "app*" },
     ///                     },
-    ///                 },
-    ///                 StringNotEquals = new[]
+    ///                 } },
+    ///                 { "stringNotEquals", new[]
     ///                 {
-    ///                     new Aws.Backup.Inputs.SelectionConditionStringNotEqualArgs
+    ///                     
     ///                     {
-    ///                         Key = "aws:ResourceTag/Backup",
-    ///                         Value = "false",
+    ///                         { "key", "aws:ResourceTag/Backup" },
+    ///                         { "value", "false" },
     ///                     },
-    ///                 },
-    ///                 StringNotLikes = new[]
+    ///                 } },
+    ///                 { "stringNotLikes", new[]
     ///                 {
-    ///                     new Aws.Backup.Inputs.SelectionConditionStringNotLikeArgs
+    ///                     
     ///                     {
-    ///                         Key = "aws:ResourceTag/Environment",
-    ///                         Value = "test*",
+    ///                         { "key", "aws:ResourceTag/Environment" },
+    ///                         { "value", "test*" },
     ///                     },
-    ///                 },
+    ///                 } },
     ///             },
     ///         },
     ///     });
@@ -169,7 +110,7 @@ namespace Pulumi.Aws.Backup
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Backup.Selection("example", new()
+    ///     var example = new Aws.Backup.Selection.Selection("example", new()
     ///     {
     ///         IamRoleArn = aws_iam_role.Example.Arn,
     ///         PlanId = aws_backup_plan.Example.Id,
@@ -193,7 +134,7 @@ namespace Pulumi.Aws.Backup
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Backup.Selection("example", new()
+    ///     var example = new Aws.Backup.Selection.Selection("example", new()
     ///     {
     ///         IamRoleArn = aws_iam_role.Example.Arn,
     ///         PlanId = aws_backup_plan.Example.Id,

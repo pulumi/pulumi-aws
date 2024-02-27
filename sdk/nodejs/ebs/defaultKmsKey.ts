@@ -20,7 +20,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.ebs.DefaultKmsKey("example", {keyArn: aws_kms_key.example.arn});
+ * const example = new aws.ebs/defaultKmsKey.DefaultKmsKey("example", {keyArn: aws_kms_key.example.arn});
  * ```
  *
  * ## Import

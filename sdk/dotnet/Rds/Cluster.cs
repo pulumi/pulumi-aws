@@ -38,7 +38,7 @@ namespace Pulumi.Aws.Rds
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var @default = new Aws.Rds.Cluster("default", new()
+    ///     var @default = new Aws.Rds.Cluster.Cluster("default", new()
     ///     {
     ///         AvailabilityZones = new[]
     ///         {
@@ -68,7 +68,7 @@ namespace Pulumi.Aws.Rds
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var @default = new Aws.Rds.Cluster("default", new()
+    ///     var @default = new Aws.Rds.Cluster.Cluster("default", new()
     ///     {
     ///         AvailabilityZones = new[]
     ///         {
@@ -96,7 +96,7 @@ namespace Pulumi.Aws.Rds
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var postgresql = new Aws.Rds.Cluster("postgresql", new()
+    ///     var postgresql = new Aws.Rds.Cluster.Cluster("postgresql", new()
     ///     {
     ///         AvailabilityZones = new[]
     ///         {
@@ -129,7 +129,7 @@ namespace Pulumi.Aws.Rds
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Rds.Cluster("example", new()
+    ///     var example = new Aws.Rds.Cluster.Cluster("example", new()
     ///     {
     ///         AllocatedStorage = 100,
     ///         AvailabilityZones = new[]
@@ -166,7 +166,7 @@ namespace Pulumi.Aws.Rds
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleCluster = new Aws.Rds.Cluster("exampleCluster", new()
+    ///     var exampleCluster = new Aws.Rds.Cluster.Cluster("exampleCluster", new()
     ///     {
     ///         ClusterIdentifier = "example",
     ///         Engine = "aurora-postgresql",
@@ -176,14 +176,14 @@ namespace Pulumi.Aws.Rds
     ///         MasterUsername = "test",
     ///         MasterPassword = "must_be_eight_characters",
     ///         StorageEncrypted = true,
-    ///         Serverlessv2ScalingConfiguration = new Aws.Rds.Inputs.ClusterServerlessv2ScalingConfigurationArgs
+    ///         Serverlessv2ScalingConfiguration = 
     ///         {
-    ///             MaxCapacity = 1,
-    ///             MinCapacity = 0.5,
+    ///             { "maxCapacity", 1 },
+    ///             { "minCapacity", 0.5 },
     ///         },
     ///     });
     /// 
-    ///     var exampleClusterInstance = new Aws.Rds.ClusterInstance("exampleClusterInstance", new()
+    ///     var exampleClusterInstance = new Aws.Rds.ClusterInstance.ClusterInstance("exampleClusterInstance", new()
     ///     {
     ///         ClusterIdentifier = exampleCluster.Id,
     ///         InstanceClass = "db.serverless",
@@ -207,7 +207,7 @@ namespace Pulumi.Aws.Rds
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Aws.Rds.Cluster("test", new()
+    ///     var test = new Aws.Rds.Cluster.Cluster("test", new()
     ///     {
     ///         ClusterIdentifier = "example",
     ///         DatabaseName = "test",
@@ -231,51 +231,18 @@ namespace Pulumi.Aws.Rds
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Kms.Key("example", new()
+    ///     var example = new Aws.Kms.Key.Key("example", new()
     ///     {
     ///         Description = "Example KMS Key",
     ///     });
     /// 
-    ///     var test = new Aws.Rds.Cluster("test", new()
+    ///     var test = new Aws.Rds.Cluster.Cluster("test", new()
     ///     {
     ///         ClusterIdentifier = "example",
     ///         DatabaseName = "test",
     ///         ManageMasterUserPassword = true,
     ///         MasterUsername = "test",
     ///         MasterUserSecretKmsKeyId = example.KeyId,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### Global Cluster Restored From Snapshot
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleClusterSnapshot = Aws.Rds.GetClusterSnapshot.Invoke(new()
-    ///     {
-    ///         DbClusterIdentifier = "example-original-cluster",
-    ///         MostRecent = true,
-    ///     });
-    /// 
-    ///     var exampleCluster = new Aws.Rds.Cluster("exampleCluster", new()
-    ///     {
-    ///         Engine = "aurora",
-    ///         EngineVersion = "5.6.mysql_aurora.1.22.4",
-    ///         ClusterIdentifier = "example",
-    ///         SnapshotIdentifier = exampleClusterSnapshot.Apply(getClusterSnapshotResult =&gt; getClusterSnapshotResult.Id),
-    ///     });
-    /// 
-    ///     var exampleGlobalCluster = new Aws.Rds.GlobalCluster("exampleGlobalCluster", new()
-    ///     {
-    ///         GlobalClusterIdentifier = "example",
-    ///         SourceDbClusterIdentifier = exampleCluster.Arn,
-    ///         ForceDestroy = true,
     ///     });
     /// 
     /// });

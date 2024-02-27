@@ -188,21 +188,21 @@ class Permission(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_certificate_authority = aws.acmpca.CertificateAuthority("exampleCertificateAuthority", certificate_authority_configuration=aws.acmpca.CertificateAuthorityCertificateAuthorityConfigurationArgs(
-            key_algorithm="RSA_4096",
-            signing_algorithm="SHA512WITHRSA",
-            subject=aws.acmpca.CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs(
-                common_name="example.com",
-            ),
-        ))
-        example_permission = aws.acmpca.Permission("examplePermission",
+        example_certificate_authority = aws.acmpca.certificate_authority.CertificateAuthority("exampleCertificateAuthority", certificate_authority_configuration={
+            keyAlgorithm: RSA_4096,
+            signingAlgorithm: SHA512WITHRSA,
+            subject: {
+                commonName: example.com,
+            },
+        })
+        example_permission = aws.acmpca.permission.Permission("examplePermission",
             certificate_authority_arn=example_certificate_authority.arn,
             actions=[
-                "IssueCertificate",
-                "GetCertificate",
-                "ListPermissions",
+                IssueCertificate,
+                GetCertificate,
+                ListPermissions,
             ],
-            principal="acm.amazonaws.com")
+            principal=acm.amazonaws.com)
         ```
 
         :param str resource_name: The name of the resource.
@@ -228,21 +228,21 @@ class Permission(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_certificate_authority = aws.acmpca.CertificateAuthority("exampleCertificateAuthority", certificate_authority_configuration=aws.acmpca.CertificateAuthorityCertificateAuthorityConfigurationArgs(
-            key_algorithm="RSA_4096",
-            signing_algorithm="SHA512WITHRSA",
-            subject=aws.acmpca.CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs(
-                common_name="example.com",
-            ),
-        ))
-        example_permission = aws.acmpca.Permission("examplePermission",
+        example_certificate_authority = aws.acmpca.certificate_authority.CertificateAuthority("exampleCertificateAuthority", certificate_authority_configuration={
+            keyAlgorithm: RSA_4096,
+            signingAlgorithm: SHA512WITHRSA,
+            subject: {
+                commonName: example.com,
+            },
+        })
+        example_permission = aws.acmpca.permission.Permission("examplePermission",
             certificate_authority_arn=example_certificate_authority.arn,
             actions=[
-                "IssueCertificate",
-                "GetCertificate",
-                "ListPermissions",
+                IssueCertificate,
+                GetCertificate,
+                ListPermissions,
             ],
-            principal="acm.amazonaws.com")
+            principal=acm.amazonaws.com)
         ```
 
         :param str resource_name: The name of the resource.

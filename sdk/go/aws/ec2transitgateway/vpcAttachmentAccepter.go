@@ -27,26 +27,24 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2transitgateway"
+//	ec2transitgateway/vpcAttachmentAccepter "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2transitgateway/vpcAttachmentAccepter"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2transitgateway.NewVpcAttachmentAccepter(ctx, "example", &ec2transitgateway.VpcAttachmentAccepterArgs{
-//				TransitGatewayAttachmentId: pulumi.Any(aws_ec2_transit_gateway_vpc_attachment.Example.Id),
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("Example cross-account attachment"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := ec2transitgateway/vpcAttachmentAccepter.NewVpcAttachmentAccepter(ctx, "example", &ec2transitgateway/vpcAttachmentAccepter.VpcAttachmentAccepterArgs{
+// TransitGatewayAttachmentId: aws_ec2_transit_gateway_vpc_attachment.Example.Id,
+// Tags: map[string]interface{}{
+// "Name": "Example cross-account attachment",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

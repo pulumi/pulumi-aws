@@ -13,52 +13,6 @@ import (
 
 // The CloudFront Log Delivery Canonical User ID data source allows access to the [canonical user ID](http://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html) of the AWS `awslogsdelivery` account for CloudFront bucket logging.
 // See the [Amazon CloudFront Developer Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/AccessLogs.html) for more information.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudfront"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleLogDeliveryCanonicalUserId, err := cloudfront.GetLogDeliveryCanonicalUserId(ctx, nil, nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = s3.NewBucketAclV2(ctx, "exampleBucketAclV2", &s3.BucketAclV2Args{
-//				Bucket: exampleBucketV2.ID(),
-//				AccessControlPolicy: &s3.BucketAclV2AccessControlPolicyArgs{
-//					Grants: s3.BucketAclV2AccessControlPolicyGrantArray{
-//						&s3.BucketAclV2AccessControlPolicyGrantArgs{
-//							Grantee: &s3.BucketAclV2AccessControlPolicyGrantGranteeArgs{
-//								Id:   *pulumi.String(exampleLogDeliveryCanonicalUserId.Id),
-//								Type: pulumi.String("CanonicalUser"),
-//							},
-//							Permission: pulumi.String("FULL_CONTROL"),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetLogDeliveryCanonicalUserId(ctx *pulumi.Context, args *GetLogDeliveryCanonicalUserIdArgs, opts ...pulumi.InvokeOption) (*GetLogDeliveryCanonicalUserIdResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetLogDeliveryCanonicalUserIdResult

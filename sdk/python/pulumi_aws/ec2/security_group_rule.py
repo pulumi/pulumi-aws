@@ -449,56 +449,14 @@ class SecurityGroupRule(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ec2.SecurityGroupRule("example",
-            type="ingress",
+        example = aws.ec2.security_group_rule.SecurityGroupRule("example",
+            type=ingress,
             from_port=0,
             to_port=65535,
-            protocol="tcp",
-            cidr_blocks=[aws_vpc["example"]["cidr_block"]],
-            ipv6_cidr_blocks=[aws_vpc["example"]["ipv6_cidr_block"]],
-            security_group_id="sg-123456")
-        ```
-        ### Usage With Prefix List IDs
-
-        Prefix Lists are either managed by AWS internally, or created by the customer using a
-        Managed Prefix List resource. Prefix Lists provided by
-        AWS are associated with a prefix list name, or service name, that is linked to a specific region.
-
-        Prefix list IDs are exported on VPC Endpoints, so you can use this format:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        # ...
-        my_endpoint = aws.ec2.VpcEndpoint("myEndpoint")
-        # ...
-        allow_all = aws.ec2.SecurityGroupRule("allowAll",
-            type="egress",
-            to_port=0,
-            protocol="-1",
-            prefix_list_ids=[my_endpoint.prefix_list_id],
-            from_port=0,
-            security_group_id="sg-123456")
-        ```
-
-        You can also find a specific Prefix List using the `ec2_get_prefix_list`
-        or `ec2_managed_prefix_list` data sources:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        current = aws.get_region()
-        s3 = aws.ec2.get_prefix_list(name=f"com.amazonaws.{current.name}.s3")
-        s3_gateway_egress = aws.ec2.SecurityGroupRule("s3GatewayEgress",
-            description="S3 Gateway Egress",
-            type="egress",
-            security_group_id="sg-123456",
-            from_port=443,
-            to_port=443,
-            protocol="tcp",
-            prefix_list_ids=[s3.id])
+            protocol=tcp,
+            cidr_blocks=[aws_vpc.example.cidr_block],
+            ipv6_cidr_blocks=[aws_vpc.example.ipv6_cidr_block],
+            security_group_id=sg-123456)
         ```
 
         ## Import
@@ -601,56 +559,14 @@ class SecurityGroupRule(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ec2.SecurityGroupRule("example",
-            type="ingress",
+        example = aws.ec2.security_group_rule.SecurityGroupRule("example",
+            type=ingress,
             from_port=0,
             to_port=65535,
-            protocol="tcp",
-            cidr_blocks=[aws_vpc["example"]["cidr_block"]],
-            ipv6_cidr_blocks=[aws_vpc["example"]["ipv6_cidr_block"]],
-            security_group_id="sg-123456")
-        ```
-        ### Usage With Prefix List IDs
-
-        Prefix Lists are either managed by AWS internally, or created by the customer using a
-        Managed Prefix List resource. Prefix Lists provided by
-        AWS are associated with a prefix list name, or service name, that is linked to a specific region.
-
-        Prefix list IDs are exported on VPC Endpoints, so you can use this format:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        # ...
-        my_endpoint = aws.ec2.VpcEndpoint("myEndpoint")
-        # ...
-        allow_all = aws.ec2.SecurityGroupRule("allowAll",
-            type="egress",
-            to_port=0,
-            protocol="-1",
-            prefix_list_ids=[my_endpoint.prefix_list_id],
-            from_port=0,
-            security_group_id="sg-123456")
-        ```
-
-        You can also find a specific Prefix List using the `ec2_get_prefix_list`
-        or `ec2_managed_prefix_list` data sources:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        current = aws.get_region()
-        s3 = aws.ec2.get_prefix_list(name=f"com.amazonaws.{current.name}.s3")
-        s3_gateway_egress = aws.ec2.SecurityGroupRule("s3GatewayEgress",
-            description="S3 Gateway Egress",
-            type="egress",
-            security_group_id="sg-123456",
-            from_port=443,
-            to_port=443,
-            protocol="tcp",
-            prefix_list_ids=[s3.id])
+            protocol=tcp,
+            cidr_blocks=[aws_vpc.example.cidr_block],
+            ipv6_cidr_blocks=[aws_vpc.example.ipv6_cidr_block],
+            security_group_id=sg-123456)
         ```
 
         ## Import

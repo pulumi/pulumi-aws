@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const testConfiguredTable = new aws.cleanrooms.ConfiguredTable("testConfiguredTable", {
+ * const testConfiguredTable = new aws.cleanrooms/configuredTable.ConfiguredTable("testConfiguredTable", {
  *     allowedColumns: [
  *         "column1",
  *         "column2",

@@ -27,8 +27,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.ec2clientvpn.Endpoint;
  * import com.pulumi.aws.ec2clientvpn.EndpointArgs;
- * import com.pulumi.aws.ec2clientvpn.inputs.EndpointAuthenticationOptionArgs;
- * import com.pulumi.aws.ec2clientvpn.inputs.EndpointConnectionLogOptionsArgs;
  * import com.pulumi.aws.ec2clientvpn.NetworkAssociation;
  * import com.pulumi.aws.ec2clientvpn.NetworkAssociationArgs;
  * import com.pulumi.aws.ec2clientvpn.Route;
@@ -50,13 +48,8 @@ import javax.annotation.Nullable;
  *             .description(&#34;Example Client VPN endpoint&#34;)
  *             .serverCertificateArn(aws_acm_certificate.example().arn())
  *             .clientCidrBlock(&#34;10.0.0.0/16&#34;)
- *             .authenticationOptions(EndpointAuthenticationOptionArgs.builder()
- *                 .type(&#34;certificate-authentication&#34;)
- *                 .rootCertificateChainArn(aws_acm_certificate.example().arn())
- *                 .build())
- *             .connectionLogOptions(EndpointConnectionLogOptionsArgs.builder()
- *                 .enabled(false)
- *                 .build())
+ *             .authenticationOptions(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .connectionLogOptions(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleNetworkAssociation = new NetworkAssociation(&#34;exampleNetworkAssociation&#34;, NetworkAssociationArgs.builder()        

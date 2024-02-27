@@ -26,30 +26,28 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssmincidents"
+//	ssmincidents/replicationSet "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ssmincidents/replicationSet"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ssmincidents.NewReplicationSet(ctx, "replicationSetName", &ssmincidents.ReplicationSetArgs{
-//				Regions: ssmincidents.ReplicationSetRegionArray{
-//					&ssmincidents.ReplicationSetRegionArgs{
-//						Name: pulumi.String("us-west-2"),
-//					},
-//				},
-//				Tags: pulumi.StringMap{
-//					"exampleTag": pulumi.String("exampleValue"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := ssmincidents/replicationSet.NewReplicationSet(ctx, "replicationSetName", &ssmincidents/replicationSet.ReplicationSetArgs{
+// Regions: []map[string]interface{}{
+// map[string]interface{}{
+// "name": "us-west-2",
+// },
+// },
+// Tags: map[string]interface{}{
+// "exampleTag": "exampleValue",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // Add a Region to a replication set. (You can add only one Region at a time.)
@@ -59,30 +57,28 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssmincidents"
+//	ssmincidents/replicationSet "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ssmincidents/replicationSet"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ssmincidents.NewReplicationSet(ctx, "replicationSetName", &ssmincidents.ReplicationSetArgs{
-//				Regions: ssmincidents.ReplicationSetRegionArray{
-//					&ssmincidents.ReplicationSetRegionArgs{
-//						Name: pulumi.String("us-west-2"),
-//					},
-//					&ssmincidents.ReplicationSetRegionArgs{
-//						Name: pulumi.String("ap-southeast-2"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := ssmincidents/replicationSet.NewReplicationSet(ctx, "replicationSetName", &ssmincidents/replicationSet.ReplicationSetArgs{
+// Regions: []map[string]interface{}{
+// map[string]interface{}{
+// "name": "us-west-2",
+// },
+// map[string]interface{}{
+// "name": "ap-southeast-2",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // Delete a Region from a replication set. (You can delete only one Region at a time.)
@@ -92,27 +88,25 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssmincidents"
+//	ssmincidents/replicationSet "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ssmincidents/replicationSet"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ssmincidents.NewReplicationSet(ctx, "replicationSetName", &ssmincidents.ReplicationSetArgs{
-//				Regions: ssmincidents.ReplicationSetRegionArray{
-//					&ssmincidents.ReplicationSetRegionArgs{
-//						Name: pulumi.String("us-west-2"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := ssmincidents/replicationSet.NewReplicationSet(ctx, "replicationSetName", &ssmincidents/replicationSet.ReplicationSetArgs{
+// Regions: []map[string]interface{}{
+// map[string]interface{}{
+// "name": "us-west-2",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ## Basic Usage with an AWS Customer Managed Key
 //
@@ -123,36 +117,34 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kms"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssmincidents"
+//	kms/key "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/kms/key"
+//	ssmincidents/replicationSet "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ssmincidents/replicationSet"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleKey, err := kms.NewKey(ctx, "exampleKey", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ssmincidents.NewReplicationSet(ctx, "replicationSetName", &ssmincidents.ReplicationSetArgs{
-//				Regions: ssmincidents.ReplicationSetRegionArray{
-//					&ssmincidents.ReplicationSetRegionArgs{
-//						Name:      pulumi.String("us-west-2"),
-//						KmsKeyArn: exampleKey.Arn,
-//					},
-//				},
-//				Tags: pulumi.StringMap{
-//					"exampleTag": pulumi.String("exampleValue"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleKey, err := kms/key.NewKey(ctx, "exampleKey", nil)
+// if err != nil {
+// return err
+// }
+// _, err = ssmincidents/replicationSet.NewReplicationSet(ctx, "replicationSetName", &ssmincidents/replicationSet.ReplicationSetArgs{
+// Regions: []map[string]interface{}{
+// map[string]interface{}{
+// "name": "us-west-2",
+// "kmsKeyArn": exampleKey.Arn,
+// },
+// },
+// Tags: map[string]interface{}{
+// "exampleTag": "exampleValue",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

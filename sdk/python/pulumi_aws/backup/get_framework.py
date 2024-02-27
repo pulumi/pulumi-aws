@@ -147,15 +147,6 @@ def get_framework(name: Optional[str] = None,
     """
     Use this data source to get information on an existing backup framework.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.backup.get_framework(name="my_example_backup_framework_name")
-    ```
-
 
     :param str name: Backup framework name.
     :param Mapping[str, str] tags: Tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
@@ -184,15 +175,6 @@ def get_framework_output(name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFrameworkResult]:
     """
     Use this data source to get information on an existing backup framework.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.backup.get_framework(name="my_example_backup_framework_name")
-    ```
 
 
     :param str name: Backup framework name.

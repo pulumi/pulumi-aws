@@ -797,20 +797,20 @@ class ClusterInstance(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        default = aws.neptune.Cluster("default",
-            cluster_identifier="neptune-cluster-demo",
-            engine="neptune",
+        default = aws.neptune.cluster.Cluster("default",
+            cluster_identifier=neptune-cluster-demo,
+            engine=neptune,
             backup_retention_period=5,
-            preferred_backup_window="07:00-09:00",
+            preferred_backup_window=07:00-09:00,
             skip_final_snapshot=True,
             iam_database_authentication_enabled=True,
             apply_immediately=True)
         example = []
         for range in [{"value": i} for i in range(0, 2)]:
-            example.append(aws.neptune.ClusterInstance(f"example-{range['value']}",
+            example.append(aws.neptune.cluster_instance.ClusterInstance(f"example-{range['value']}",
                 cluster_identifier=default.id,
-                engine="neptune",
-                instance_class="db.r4.large",
+                engine=neptune,
+                instance_class=db.r4.large,
                 apply_immediately=True))
         ```
 
@@ -865,20 +865,20 @@ class ClusterInstance(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        default = aws.neptune.Cluster("default",
-            cluster_identifier="neptune-cluster-demo",
-            engine="neptune",
+        default = aws.neptune.cluster.Cluster("default",
+            cluster_identifier=neptune-cluster-demo,
+            engine=neptune,
             backup_retention_period=5,
-            preferred_backup_window="07:00-09:00",
+            preferred_backup_window=07:00-09:00,
             skip_final_snapshot=True,
             iam_database_authentication_enabled=True,
             apply_immediately=True)
         example = []
         for range in [{"value": i} for i in range(0, 2)]:
-            example.append(aws.neptune.ClusterInstance(f"example-{range['value']}",
+            example.append(aws.neptune.cluster_instance.ClusterInstance(f"example-{range['value']}",
                 cluster_identifier=default.id,
-                engine="neptune",
-                instance_class="db.r4.large",
+                engine=neptune,
+                instance_class=db.r4.large,
                 apply_immediately=True))
         ```
 

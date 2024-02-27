@@ -159,18 +159,18 @@ class ZoneAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        primary = aws.ec2.Vpc("primary",
-            cidr_block="10.6.0.0/16",
+        primary = aws.ec2.vpc.Vpc("primary",
+            cidr_block=10.6.0.0/16,
             enable_dns_hostnames=True,
             enable_dns_support=True)
-        secondary_vpc = aws.ec2.Vpc("secondaryVpc",
-            cidr_block="10.7.0.0/16",
+        secondary_vpc = aws.ec2.vpc.Vpc("secondaryVpc",
+            cidr_block=10.7.0.0/16,
             enable_dns_hostnames=True,
             enable_dns_support=True)
-        example = aws.route53.Zone("example", vpcs=[aws.route53.ZoneVpcArgs(
-            vpc_id=primary.id,
-        )])
-        secondary_zone_association = aws.route53.ZoneAssociation("secondaryZoneAssociation",
+        example = aws.route53.zone.Zone("example", vpcs=[{
+            vpcId: primary.id,
+        }])
+        secondary_zone_association = aws.route53.zone_association.ZoneAssociation("secondaryZoneAssociation",
             zone_id=example.zone_id,
             vpc_id=secondary_vpc.id)
         ```
@@ -217,18 +217,18 @@ class ZoneAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        primary = aws.ec2.Vpc("primary",
-            cidr_block="10.6.0.0/16",
+        primary = aws.ec2.vpc.Vpc("primary",
+            cidr_block=10.6.0.0/16,
             enable_dns_hostnames=True,
             enable_dns_support=True)
-        secondary_vpc = aws.ec2.Vpc("secondaryVpc",
-            cidr_block="10.7.0.0/16",
+        secondary_vpc = aws.ec2.vpc.Vpc("secondaryVpc",
+            cidr_block=10.7.0.0/16,
             enable_dns_hostnames=True,
             enable_dns_support=True)
-        example = aws.route53.Zone("example", vpcs=[aws.route53.ZoneVpcArgs(
-            vpc_id=primary.id,
-        )])
-        secondary_zone_association = aws.route53.ZoneAssociation("secondaryZoneAssociation",
+        example = aws.route53.zone.Zone("example", vpcs=[{
+            vpcId: primary.id,
+        }])
+        secondary_zone_association = aws.route53.zone_association.ZoneAssociation("secondaryZoneAssociation",
             zone_id=example.zone_id,
             vpc_id=secondary_vpc.id)
         ```

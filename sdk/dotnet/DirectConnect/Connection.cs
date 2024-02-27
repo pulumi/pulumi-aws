@@ -23,7 +23,7 @@ namespace Pulumi.Aws.DirectConnect
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var hoge = new Aws.DirectConnect.Connection("hoge", new()
+    ///     var hoge = new Aws.Directconnect.Connection.Connection("hoge", new()
     ///     {
     ///         Bandwidth = "1Gbps",
     ///         Location = "EqDC2",
@@ -41,7 +41,7 @@ namespace Pulumi.Aws.DirectConnect
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.DirectConnect.Connection("example", new()
+    ///     var example = new Aws.Directconnect.Connection.Connection("example", new()
     ///     {
     ///         Bandwidth = "10Gbps",
     ///         Location = "EqDA2",
@@ -62,7 +62,7 @@ namespace Pulumi.Aws.DirectConnect
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.DirectConnect.Connection("example", new()
+    ///     var example = new Aws.Directconnect.Connection.Connection("example", new()
     ///     {
     ///         Bandwidth = "10Gbps",
     ///         EncryptionMode = "must_encrypt",

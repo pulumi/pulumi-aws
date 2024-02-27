@@ -37,9 +37,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.fsx.LustreFileSystemArgs;
  * import com.pulumi.aws.fsx.DataRepositoryAssociation;
  * import com.pulumi.aws.fsx.DataRepositoryAssociationArgs;
- * import com.pulumi.aws.fsx.inputs.DataRepositoryAssociationS3Args;
- * import com.pulumi.aws.fsx.inputs.DataRepositoryAssociationS3AutoExportPolicyArgs;
- * import com.pulumi.aws.fsx.inputs.DataRepositoryAssociationS3AutoImportPolicyArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -69,22 +66,9 @@ import javax.annotation.Nullable;
  * 
  *         var exampleDataRepositoryAssociation = new DataRepositoryAssociation(&#34;exampleDataRepositoryAssociation&#34;, DataRepositoryAssociationArgs.builder()        
  *             .fileSystemId(exampleLustreFileSystem.id())
- *             .dataRepositoryPath(exampleBucketV2.id().applyValue(id -&gt; String.format(&#34;s3://%s&#34;, id)))
+ *             .dataRepositoryPath(String.format(&#34;s3://%s&#34;, exampleBucketV2.id()))
  *             .fileSystemPath(&#34;/my-bucket&#34;)
- *             .s3(DataRepositoryAssociationS3Args.builder()
- *                 .autoExportPolicy(DataRepositoryAssociationS3AutoExportPolicyArgs.builder()
- *                     .events(                    
- *                         &#34;NEW&#34;,
- *                         &#34;CHANGED&#34;,
- *                         &#34;DELETED&#34;)
- *                     .build())
- *                 .autoImportPolicy(DataRepositoryAssociationS3AutoImportPolicyArgs.builder()
- *                     .events(                    
- *                         &#34;NEW&#34;,
- *                         &#34;CHANGED&#34;,
- *                         &#34;DELETED&#34;)
- *                     .build())
- *                 .build())
+ *             .s3(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

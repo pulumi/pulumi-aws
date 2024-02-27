@@ -30,7 +30,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.appautoscaling.TargetArgs;
  * import com.pulumi.aws.appautoscaling.ScheduledAction;
  * import com.pulumi.aws.appautoscaling.ScheduledActionArgs;
- * import com.pulumi.aws.appautoscaling.inputs.ScheduledActionScalableTargetActionArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -57,10 +56,7 @@ import javax.annotation.Nullable;
  *             .resourceId(dynamodbTarget.resourceId())
  *             .scalableDimension(dynamodbTarget.scalableDimension())
  *             .schedule(&#34;at(2006-01-02T15:04:05)&#34;)
- *             .scalableTargetAction(ScheduledActionScalableTargetActionArgs.builder()
- *                 .minCapacity(1)
- *                 .maxCapacity(200)
- *                 .build())
+ *             .scalableTargetAction(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -77,7 +73,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.appautoscaling.TargetArgs;
  * import com.pulumi.aws.appautoscaling.ScheduledAction;
  * import com.pulumi.aws.appautoscaling.ScheduledActionArgs;
- * import com.pulumi.aws.appautoscaling.inputs.ScheduledActionScalableTargetActionArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -104,10 +99,7 @@ import javax.annotation.Nullable;
  *             .resourceId(ecsTarget.resourceId())
  *             .scalableDimension(ecsTarget.scalableDimension())
  *             .schedule(&#34;at(2006-01-02T15:04:05)&#34;)
- *             .scalableTargetAction(ScheduledActionScalableTargetActionArgs.builder()
- *                 .minCapacity(1)
- *                 .maxCapacity(10)
- *                 .build())
+ *             .scalableTargetAction(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

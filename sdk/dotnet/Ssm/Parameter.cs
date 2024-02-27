@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Ssm
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var foo = new Aws.Ssm.Parameter("foo", new()
+    ///     var foo = new Aws.Ssm.Parameter.Parameter("foo", new()
     ///     {
     ///         Type = "String",
     ///         Value = "bar",
@@ -43,7 +43,7 @@ namespace Pulumi.Aws.Ssm
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var @default = new Aws.Rds.Instance("default", new()
+    ///     var @default = new Aws.Rds.Instance.Instance("default", new()
     ///     {
     ///         AllocatedStorage = 10,
     ///         StorageType = "gp2",
@@ -57,7 +57,7 @@ namespace Pulumi.Aws.Ssm
     ///         ParameterGroupName = "default.mysql5.7",
     ///     });
     /// 
-    ///     var secret = new Aws.Ssm.Parameter("secret", new()
+    ///     var secret = new Aws.Ssm.Parameter.Parameter("secret", new()
     ///     {
     ///         Description = "The parameter description",
     ///         Type = "SecureString",

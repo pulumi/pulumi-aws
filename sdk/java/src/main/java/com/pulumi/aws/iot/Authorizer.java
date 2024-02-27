@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *             .signingDisabled(false)
  *             .status(&#34;ACTIVE&#34;)
  *             .tokenKeyName(&#34;Token-Header&#34;)
- *             .tokenSigningPublicKeys(Map.of(&#34;Key1&#34;, Files.readString(Paths.get(&#34;test-fixtures/iot-authorizer-signing-key.pem&#34;))))
+ *             .tokenSigningPublicKeys(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

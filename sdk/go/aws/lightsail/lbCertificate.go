@@ -21,34 +21,33 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lightsail"
+//	lightsail/lb "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/lightsail/lb"
+//	lightsail/lbCertificate "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/lightsail/lbCertificate"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testLb, err := lightsail.NewLb(ctx, "testLb", &lightsail.LbArgs{
-//				HealthCheckPath: pulumi.String("/"),
-//				InstancePort:    pulumi.Int(80),
-//				Tags: pulumi.StringMap{
-//					"foo": pulumi.String("bar"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = lightsail.NewLbCertificate(ctx, "testLbCertificate", &lightsail.LbCertificateArgs{
-//				LbName:     testLb.ID(),
-//				DomainName: pulumi.String("test.com"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// testLb, err := lightsail/lb.NewLb(ctx, "testLb", &lightsail/lb.LbArgs{
+// HealthCheckPath: "/",
+// InstancePort: "80",
+// Tags: map[string]interface{}{
+// "foo": "bar",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = lightsail/lbCertificate.NewLbCertificate(ctx, "testLbCertificate", &lightsail/lbCertificate.LbCertificateArgs{
+// LbName: testLb.Id,
+// DomainName: "test.com",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

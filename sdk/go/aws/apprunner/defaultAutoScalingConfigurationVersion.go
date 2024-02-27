@@ -24,32 +24,31 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apprunner"
+//	apprunner/autoScalingConfigurationVersion "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/apprunner/autoScalingConfigurationVersion"
+//	apprunner/defaultAutoScalingConfigurationVersion "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/apprunner/defaultAutoScalingConfigurationVersion"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleAutoScalingConfigurationVersion, err := apprunner.NewAutoScalingConfigurationVersion(ctx, "exampleAutoScalingConfigurationVersion", &apprunner.AutoScalingConfigurationVersionArgs{
-//				AutoScalingConfigurationName: pulumi.String("example"),
-//				MaxConcurrency:               pulumi.Int(50),
-//				MaxSize:                      pulumi.Int(10),
-//				MinSize:                      pulumi.Int(2),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = apprunner.NewDefaultAutoScalingConfigurationVersion(ctx, "exampleDefaultAutoScalingConfigurationVersion", &apprunner.DefaultAutoScalingConfigurationVersionArgs{
-//				AutoScalingConfigurationArn: exampleAutoScalingConfigurationVersion.Arn,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleAutoScalingConfigurationVersion, err := apprunner/autoScalingConfigurationVersion.NewAutoScalingConfigurationVersion(ctx, "exampleAutoScalingConfigurationVersion", &apprunner/autoScalingConfigurationVersion.AutoScalingConfigurationVersionArgs{
+// AutoScalingConfigurationName: "example",
+// MaxConcurrency: 50,
+// MaxSize: 10,
+// MinSize: 2,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = apprunner/defaultAutoScalingConfigurationVersion.NewDefaultAutoScalingConfigurationVersion(ctx, "exampleDefaultAutoScalingConfigurationVersion", &apprunner/defaultAutoScalingConfigurationVersion.DefaultAutoScalingConfigurationVersionArgs{
+// AutoScalingConfigurationArn: exampleAutoScalingConfigurationVersion.Arn,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

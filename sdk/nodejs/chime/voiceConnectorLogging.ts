@@ -13,8 +13,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const defaultVoiceConnector = new aws.chime.VoiceConnector("defaultVoiceConnector", {requireEncryption: true});
- * const defaultVoiceConnectorLogging = new aws.chime.VoiceConnectorLogging("defaultVoiceConnectorLogging", {
+ * const defaultVoiceConnector = new aws.chime/voiceConnector.VoiceConnector("defaultVoiceConnector", {requireEncryption: true});
+ * const defaultVoiceConnectorLogging = new aws.chime/voiceConnectorLogging.VoiceConnectorLogging("defaultVoiceConnectorLogging", {
  *     enableSipLogs: true,
  *     enableMediaMetricLogs: true,
  *     voiceConnectorId: defaultVoiceConnector.id,

@@ -32,30 +32,29 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ram"
+//	ram/principalAssociation "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ram/principalAssociation"
+//	ram/resourceShare "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ram/resourceShare"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceShare, err := ram.NewResourceShare(ctx, "exampleResourceShare", &ram.ResourceShareArgs{
-//				AllowExternalPrincipals: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ram.NewPrincipalAssociation(ctx, "examplePrincipalAssociation", &ram.PrincipalAssociationArgs{
-//				Principal:        pulumi.String("111111111111"),
-//				ResourceShareArn: exampleResourceShare.Arn,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleResourceShare, err := ram/resourceShare.NewResourceShare(ctx, "exampleResourceShare", &ram/resourceShare.ResourceShareArgs{
+// AllowExternalPrincipals: true,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = ram/principalAssociation.NewPrincipalAssociation(ctx, "examplePrincipalAssociation", &ram/principalAssociation.PrincipalAssociationArgs{
+// Principal: "111111111111",
+// ResourceShareArn: exampleResourceShare.Arn,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### AWS Organization
 //
@@ -64,24 +63,22 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ram"
+//	ram/principalAssociation "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ram/principalAssociation"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ram.NewPrincipalAssociation(ctx, "example", &ram.PrincipalAssociationArgs{
-//				Principal:        pulumi.Any(aws_organizations_organization.Example.Arn),
-//				ResourceShareArn: pulumi.Any(aws_ram_resource_share.Example.Arn),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := ram/principalAssociation.NewPrincipalAssociation(ctx, "example", &ram/principalAssociation.PrincipalAssociationArgs{
+// Principal: aws_organizations_organization.Example.Arn,
+// ResourceShareArn: aws_ram_resource_share.Example.Arn,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

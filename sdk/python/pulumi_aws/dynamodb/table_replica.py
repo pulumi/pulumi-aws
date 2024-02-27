@@ -257,23 +257,23 @@ class TableReplica(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        main = aws.Provider("main", region="us-west-2")
-        alt = aws.Provider("alt", region="us-east-2")
-        example_table = aws.dynamodb.Table("exampleTable",
-            hash_key="BrodoBaggins",
-            billing_mode="PAY_PER_REQUEST",
+        main = pulumi.providers.Aws("main", region=us-west-2)
+        alt = pulumi.providers.Aws("alt", region=us-east-2)
+        example_table = aws.dynamodb.table.Table("exampleTable",
+            hash_key=BrodoBaggins,
+            billing_mode=PAY_PER_REQUEST,
             stream_enabled=True,
-            stream_view_type="NEW_AND_OLD_IMAGES",
-            attributes=[aws.dynamodb.TableAttributeArgs(
-                name="BrodoBaggins",
-                type="S",
-            )],
+            stream_view_type=NEW_AND_OLD_IMAGES,
+            attributes=[{
+                name: BrodoBaggins,
+                type: S,
+            }],
             opts=pulumi.ResourceOptions(provider=aws["main"]))
-        example_table_replica = aws.dynamodb.TableReplica("exampleTableReplica",
+        example_table_replica = aws.dynamodb.table_replica.TableReplica("exampleTableReplica",
             global_table_arn=example_table.arn,
             tags={
-                "Name": "IZPAWS",
-                "Pozo": "Amargo",
+                Name: IZPAWS,
+                Pozo: Amargo,
             },
             opts=pulumi.ResourceOptions(provider=aws["alt"]))
         ```
@@ -318,23 +318,23 @@ class TableReplica(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        main = aws.Provider("main", region="us-west-2")
-        alt = aws.Provider("alt", region="us-east-2")
-        example_table = aws.dynamodb.Table("exampleTable",
-            hash_key="BrodoBaggins",
-            billing_mode="PAY_PER_REQUEST",
+        main = pulumi.providers.Aws("main", region=us-west-2)
+        alt = pulumi.providers.Aws("alt", region=us-east-2)
+        example_table = aws.dynamodb.table.Table("exampleTable",
+            hash_key=BrodoBaggins,
+            billing_mode=PAY_PER_REQUEST,
             stream_enabled=True,
-            stream_view_type="NEW_AND_OLD_IMAGES",
-            attributes=[aws.dynamodb.TableAttributeArgs(
-                name="BrodoBaggins",
-                type="S",
-            )],
+            stream_view_type=NEW_AND_OLD_IMAGES,
+            attributes=[{
+                name: BrodoBaggins,
+                type: S,
+            }],
             opts=pulumi.ResourceOptions(provider=aws["main"]))
-        example_table_replica = aws.dynamodb.TableReplica("exampleTableReplica",
+        example_table_replica = aws.dynamodb.table_replica.TableReplica("exampleTableReplica",
             global_table_arn=example_table.arn,
             tags={
-                "Name": "IZPAWS",
-                "Pozo": "Amargo",
+                Name: IZPAWS,
+                Pozo: Amargo,
             },
             opts=pulumi.ResourceOptions(provider=aws["alt"]))
         ```

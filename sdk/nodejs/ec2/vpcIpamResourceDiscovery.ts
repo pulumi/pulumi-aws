@@ -10,26 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Provides an IPAM Resource Discovery resource. IPAM Resource Discoveries are resources meant for multi-organization customers. If you wish to use a single IPAM across multiple orgs, a resource discovery can be created and shared from a subordinate organization to the management organizations IPAM delegated admin account. For a full deployment example, see `aws.ec2.VpcIpamResourceDiscoveryAssociation` resource.
  *
- * ## Example Usage
- *
- * Basic usage:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const current = aws.getRegion({});
- * const main = new aws.ec2.VpcIpamResourceDiscovery("main", {
- *     description: "My IPAM Resource Discovery",
- *     operatingRegions: [{
- *         regionName: current.then(current => current.name),
- *     }],
- *     tags: {
- *         Test: "Main",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import IPAMs using the IPAM resource discovery `id`. For example:

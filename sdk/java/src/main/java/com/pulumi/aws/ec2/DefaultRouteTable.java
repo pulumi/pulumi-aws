@@ -35,7 +35,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.ec2.DefaultRouteTable;
  * import com.pulumi.aws.ec2.DefaultRouteTableArgs;
- * import com.pulumi.aws.ec2.inputs.DefaultRouteTableRouteArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -52,15 +51,9 @@ import javax.annotation.Nullable;
  *         var example = new DefaultRouteTable(&#34;example&#34;, DefaultRouteTableArgs.builder()        
  *             .defaultRouteTableId(aws_vpc.example().default_route_table_id())
  *             .routes(            
- *                 DefaultRouteTableRouteArgs.builder()
- *                     .cidrBlock(&#34;10.0.1.0/24&#34;)
- *                     .gatewayId(aws_internet_gateway.example().id())
- *                     .build(),
- *                 DefaultRouteTableRouteArgs.builder()
- *                     .ipv6CidrBlock(&#34;::/0&#34;)
- *                     .egressOnlyGatewayId(aws_egress_only_internet_gateway.example().id())
- *                     .build())
- *             .tags(Map.of(&#34;Name&#34;, &#34;example&#34;))
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -92,7 +85,7 @@ import javax.annotation.Nullable;
  *         var example = new DefaultRouteTable(&#34;example&#34;, DefaultRouteTableArgs.builder()        
  *             .defaultRouteTableId(aws_vpc.example().default_route_table_id())
  *             .routes()
- *             .tags(Map.of(&#34;Name&#34;, &#34;example&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

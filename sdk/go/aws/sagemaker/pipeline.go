@@ -24,42 +24,24 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sagemaker"
+//	sagemaker/pipeline "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/sagemaker/pipeline"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"Version": "2020-12-01",
-//				"Steps": []map[string]interface{}{
-//					map[string]interface{}{
-//						"Name": "Test",
-//						"Type": "Fail",
-//						"Arguments": map[string]interface{}{
-//							"ErrorMessage": "test",
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			_, err = sagemaker.NewPipeline(ctx, "example", &sagemaker.PipelineArgs{
-//				PipelineName:        pulumi.String("example"),
-//				PipelineDisplayName: pulumi.String("example"),
-//				RoleArn:             pulumi.Any(aws_iam_role.Example.Arn),
-//				PipelineDefinition:  pulumi.String(json0),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := sagemaker/pipeline.NewPipeline(ctx, "example", &sagemaker/pipeline.PipelineArgs{
+// PipelineName: "example",
+// PipelineDisplayName: "example",
+// RoleArn: aws_iam_role.Example.Arn,
+// PipelineDefinition: %!v(PANIC=Format method: fatal: An assertion has failed: unlowered function toJSON),
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -27,66 +27,6 @@ import javax.annotation.Nullable;
  * Pod Identity is a simpler method than IAM roles for service accounts, as this method doesn’t use OIDC identity providers. Additionally, you can configure a role for Pod Identity once, and reuse it across clusters.
  * 
  * ## Example Usage
- * ### Basic Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.iam.IamFunctions;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
- * import com.pulumi.aws.iam.Role;
- * import com.pulumi.aws.iam.RoleArgs;
- * import com.pulumi.aws.iam.RolePolicyAttachment;
- * import com.pulumi.aws.iam.RolePolicyAttachmentArgs;
- * import com.pulumi.aws.eks.PodIdentityAssociation;
- * import com.pulumi.aws.eks.PodIdentityAssociationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect(&#34;Allow&#34;)
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type(&#34;Service&#34;)
- *                     .identifiers(&#34;pods.eks.amazonaws.com&#34;)
- *                     .build())
- *                 .actions(                
- *                     &#34;sts:AssumeRole&#34;,
- *                     &#34;sts:TagSession&#34;)
- *                 .build())
- *             .build());
- * 
- *         var exampleRole = new Role(&#34;exampleRole&#34;, RoleArgs.builder()        
- *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
- *             .build());
- * 
- *         var exampleS3 = new RolePolicyAttachment(&#34;exampleS3&#34;, RolePolicyAttachmentArgs.builder()        
- *             .policyArn(&#34;arn:aws:iam::aws:policy/AmazonS3ReadOnlyAccess&#34;)
- *             .role(exampleRole.name())
- *             .build());
- * 
- *         var examplePodIdentityAssociation = new PodIdentityAssociation(&#34;examplePodIdentityAssociation&#34;, PodIdentityAssociationArgs.builder()        
- *             .clusterName(aws_eks_cluster.example().name())
- *             .namespace(&#34;example&#34;)
- *             .serviceAccount(&#34;example-sa&#34;)
- *             .roleArn(exampleRole.arn())
- *             .build());
- * 
- *     }
- * }
- * ```
  * 
  * ## Import
  * 

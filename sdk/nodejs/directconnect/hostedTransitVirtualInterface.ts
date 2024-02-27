@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.directconnect.HostedTransitVirtualInterface("example", {
+ * const example = new aws.directconnect/hostedTransitVirtualInterface.HostedTransitVirtualInterface("example", {
  *     connectionId: aws_dx_connection.example.id,
  *     vlan: 4094,
  *     addressFamily: "ipv4",

@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * // ...
- * const sfnStateMachine = new aws.sfn.StateMachine("sfnStateMachine", {
+ * const sfnStateMachine = new aws.sfn/stateMachine.StateMachine("sfnStateMachine", {
  *     roleArn: aws_iam_role.iam_for_sfn.arn,
  *     definition: `{
  *   "Comment": "A Hello World example of the Amazon States Language using an AWS Lambda Function",
@@ -41,7 +41,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * // ...
- * const sfnStateMachine = new aws.sfn.StateMachine("sfnStateMachine", {
+ * const sfnStateMachine = new aws.sfn/stateMachine.StateMachine("sfnStateMachine", {
  *     roleArn: aws_iam_role.iam_for_sfn.arn,
  *     type: "EXPRESS",
  *     definition: `{
@@ -65,7 +65,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * // ...
- * const sfnStateMachine = new aws.sfn.StateMachine("sfnStateMachine", {
+ * const sfnStateMachine = new aws.sfn/stateMachine.StateMachine("sfnStateMachine", {
  *     roleArn: aws_iam_role.iam_for_sfn.arn,
  *     publish: true,
  *     type: "EXPRESS",
@@ -92,7 +92,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * // ...
- * const sfnStateMachine = new aws.sfn.StateMachine("sfnStateMachine", {
+ * const sfnStateMachine = new aws.sfn/stateMachine.StateMachine("sfnStateMachine", {
  *     roleArn: aws_iam_role.iam_for_sfn.arn,
  *     definition: `{
  *   "Comment": "A Hello World example of the Amazon States Language using an AWS Lambda Function",

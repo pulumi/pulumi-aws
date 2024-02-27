@@ -22,18 +22,18 @@ namespace Pulumi.Aws.WafV2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.WafV2.RegexPatternSet("example", new()
+    ///     var example = new Aws.Wafv2.RegexPatternSet.RegexPatternSet("example", new()
     ///     {
     ///         Description = "Example regex pattern set",
     ///         RegularExpressions = new[]
     ///         {
-    ///             new Aws.WafV2.Inputs.RegexPatternSetRegularExpressionArgs
+    ///             
     ///             {
-    ///                 RegexString = "one",
+    ///                 { "regexString", "one" },
     ///             },
-    ///             new Aws.WafV2.Inputs.RegexPatternSetRegularExpressionArgs
+    ///             
     ///             {
-    ///                 RegexString = "two",
+    ///                 { "regexString", "two" },
     ///             },
     ///         },
     ///         Scope = "REGIONAL",

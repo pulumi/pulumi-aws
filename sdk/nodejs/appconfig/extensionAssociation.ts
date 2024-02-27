@@ -7,44 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Associates an AppConfig Extension with a Resource.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const testTopic = new aws.sns.Topic("testTopic", {});
- * const testPolicyDocument = aws.iam.getPolicyDocument({
- *     statements: [{
- *         actions: ["sts:AssumeRole"],
- *         principals: [{
- *             type: "Service",
- *             identifiers: ["appconfig.amazonaws.com"],
- *         }],
- *     }],
- * });
- * const testRole = new aws.iam.Role("testRole", {assumeRolePolicy: testPolicyDocument.then(testPolicyDocument => testPolicyDocument.json)});
- * const testExtension = new aws.appconfig.Extension("testExtension", {
- *     description: "test description",
- *     actionPoints: [{
- *         point: "ON_DEPLOYMENT_COMPLETE",
- *         actions: [{
- *             name: "test",
- *             roleArn: testRole.arn,
- *             uri: testTopic.arn,
- *         }],
- *     }],
- *     tags: {
- *         Type: "AppConfig Extension",
- *     },
- * });
- * const testApplication = new aws.appconfig.Application("testApplication", {});
- * const testExtensionAssociation = new aws.appconfig.ExtensionAssociation("testExtensionAssociation", {
- *     extensionArn: testExtension.arn,
- *     resourceArn: testApplication.arn,
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import AppConfig Extension Associations using their extension association ID. For example:

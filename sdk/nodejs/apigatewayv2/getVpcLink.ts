@@ -8,16 +8,6 @@ import * as utilities from "../utilities";
  * Data source for managing an AWS API Gateway V2 VPC Link.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.apigatewayv2.getVpcLink({
- *     vpcLinkId: "example",
- * });
- * ```
  */
 export function getVpcLink(args: GetVpcLinkArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcLinkResult> {
 
@@ -76,16 +66,6 @@ export interface GetVpcLinkResult {
  * Data source for managing an AWS API Gateway V2 VPC Link.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.apigatewayv2.getVpcLink({
- *     vpcLinkId: "example",
- * });
- * ```
  */
 export function getVpcLinkOutput(args: GetVpcLinkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpcLinkResult> {
     return pulumi.output(args).apply((a: any) => getVpcLink(a, opts))

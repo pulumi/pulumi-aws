@@ -353,15 +353,6 @@ def get_domain(domain_name: Optional[str] = None,
     """
     Use this data source to get information about an OpenSearch Domain
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    my_domain = aws.opensearch.get_domain(domain_name="my-domain-name")
-    ```
-
 
     :param str domain_name: Name of the domain.
     :param pulumi.InputType['GetDomainOffPeakWindowOptionsArgs'] off_peak_window_options: Off Peak update options
@@ -410,15 +401,6 @@ def get_domain_output(domain_name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDomainResult]:
     """
     Use this data source to get information about an OpenSearch Domain
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    my_domain = aws.opensearch.get_domain(domain_name="my-domain-name")
-    ```
 
 
     :param str domain_name: Name of the domain.

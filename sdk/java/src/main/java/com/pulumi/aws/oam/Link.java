@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *             .labelTemplate(&#34;$AccountName&#34;)
  *             .resourceTypes(&#34;AWS::CloudWatch::Metric&#34;)
  *             .sinkIdentifier(aws_oam_sink.test().id())
- *             .tags(Map.of(&#34;Env&#34;, &#34;prod&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

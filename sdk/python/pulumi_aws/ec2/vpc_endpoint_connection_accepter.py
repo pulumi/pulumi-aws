@@ -123,17 +123,17 @@ class VpcEndpointConnectionAccepter(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_vpc_endpoint_service = aws.ec2.VpcEndpointService("exampleVpcEndpointService",
+        example_vpc_endpoint_service = aws.ec2.vpc_endpoint_service.VpcEndpointService("exampleVpcEndpointService",
             acceptance_required=False,
-            network_load_balancer_arns=[aws_lb["example"]["arn"]])
-        example_vpc_endpoint = aws.ec2.VpcEndpoint("exampleVpcEndpoint",
-            vpc_id=aws_vpc["test_alternate"]["id"],
-            service_name=aws_vpc_endpoint_service["test"]["service_name"],
-            vpc_endpoint_type="Interface",
+            network_load_balancer_arns=[aws_lb.example.arn])
+        example_vpc_endpoint = aws.ec2.vpc_endpoint.VpcEndpoint("exampleVpcEndpoint",
+            vpc_id=aws_vpc.test_alternate.id,
+            service_name=aws_vpc_endpoint_service.test.service_name,
+            vpc_endpoint_type=Interface,
             private_dns_enabled=False,
-            security_group_ids=[aws_security_group["test"]["id"]],
+            security_group_ids=[aws_security_group.test.id],
             opts=pulumi.ResourceOptions(provider=aws["alternate"]))
-        example_vpc_endpoint_connection_accepter = aws.ec2.VpcEndpointConnectionAccepter("exampleVpcEndpointConnectionAccepter",
+        example_vpc_endpoint_connection_accepter = aws.ec2.vpc_endpoint_connection_accepter.VpcEndpointConnectionAccepter("exampleVpcEndpointConnectionAccepter",
             vpc_endpoint_service_id=example_vpc_endpoint_service.id,
             vpc_endpoint_id=example_vpc_endpoint.id)
         ```
@@ -167,17 +167,17 @@ class VpcEndpointConnectionAccepter(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_vpc_endpoint_service = aws.ec2.VpcEndpointService("exampleVpcEndpointService",
+        example_vpc_endpoint_service = aws.ec2.vpc_endpoint_service.VpcEndpointService("exampleVpcEndpointService",
             acceptance_required=False,
-            network_load_balancer_arns=[aws_lb["example"]["arn"]])
-        example_vpc_endpoint = aws.ec2.VpcEndpoint("exampleVpcEndpoint",
-            vpc_id=aws_vpc["test_alternate"]["id"],
-            service_name=aws_vpc_endpoint_service["test"]["service_name"],
-            vpc_endpoint_type="Interface",
+            network_load_balancer_arns=[aws_lb.example.arn])
+        example_vpc_endpoint = aws.ec2.vpc_endpoint.VpcEndpoint("exampleVpcEndpoint",
+            vpc_id=aws_vpc.test_alternate.id,
+            service_name=aws_vpc_endpoint_service.test.service_name,
+            vpc_endpoint_type=Interface,
             private_dns_enabled=False,
-            security_group_ids=[aws_security_group["test"]["id"]],
+            security_group_ids=[aws_security_group.test.id],
             opts=pulumi.ResourceOptions(provider=aws["alternate"]))
-        example_vpc_endpoint_connection_accepter = aws.ec2.VpcEndpointConnectionAccepter("exampleVpcEndpointConnectionAccepter",
+        example_vpc_endpoint_connection_accepter = aws.ec2.vpc_endpoint_connection_accepter.VpcEndpointConnectionAccepter("exampleVpcEndpointConnectionAccepter",
             vpc_endpoint_service_id=example_vpc_endpoint_service.id,
             vpc_endpoint_id=example_vpc_endpoint.id)
         ```

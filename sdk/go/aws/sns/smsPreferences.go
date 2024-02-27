@@ -20,21 +20,19 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sns"
+//	sns/smsPreferences "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/sns/smsPreferences"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := sns.NewSmsPreferences(ctx, "updateSmsPrefs", nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := sns/smsPreferences.NewSmsPreferences(ctx, "updateSmsPrefs", nil)
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

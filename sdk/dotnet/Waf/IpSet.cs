@@ -22,19 +22,19 @@ namespace Pulumi.Aws.Waf
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var ipset = new Aws.Waf.IpSet("ipset", new()
+    ///     var ipset = new Aws.Waf.IpSet.IpSet("ipset", new()
     ///     {
     ///         IpSetDescriptors = new[]
     ///         {
-    ///             new Aws.Waf.Inputs.IpSetIpSetDescriptorArgs
+    ///             
     ///             {
-    ///                 Type = "IPV4",
-    ///                 Value = "192.0.7.0/24",
+    ///                 { "type", "IPV4" },
+    ///                 { "value", "192.0.7.0/24" },
     ///             },
-    ///             new Aws.Waf.Inputs.IpSetIpSetDescriptorArgs
+    ///             
     ///             {
-    ///                 Type = "IPV4",
-    ///                 Value = "10.16.16.0/16",
+    ///                 { "type", "IPV4" },
+    ///                 { "value", "10.16.16.0/16" },
     ///             },
     ///         },
     ///     });

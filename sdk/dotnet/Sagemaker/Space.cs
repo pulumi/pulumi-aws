@@ -23,7 +23,7 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Sagemaker.Space("example", new()
+    ///     var example = new Aws.Sagemaker.Space.Space("example", new()
     ///     {
     ///         DomainId = aws_sagemaker_domain.Test.Id,
     ///         SpaceName = "example",

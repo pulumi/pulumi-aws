@@ -432,83 +432,12 @@ class ExportTask(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.rds.ExportTask("example",
-            export_task_identifier="example",
-            source_arn=aws_db_snapshot["example"]["db_snapshot_arn"],
-            s3_bucket_name=aws_s3_bucket["example"]["id"],
-            iam_role_arn=aws_iam_role["example"]["arn"],
-            kms_key_id=aws_kms_key["example"]["arn"])
-        ```
-        ### Complete Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2", force_destroy=True)
-        example_bucket_acl_v2 = aws.s3.BucketAclV2("exampleBucketAclV2",
-            bucket=example_bucket_v2.id,
-            acl="private")
-        example_role = aws.iam.Role("exampleRole", assume_role_policy=json.dumps({
-            "Version": "2012-10-17",
-            "Statement": [{
-                "Action": "sts:AssumeRole",
-                "Effect": "Allow",
-                "Sid": "",
-                "Principal": {
-                    "Service": "export.rds.amazonaws.com",
-                },
-            }],
-        }))
-        example_policy_document = aws.iam.get_policy_document_output(statements=[
-            aws.iam.GetPolicyDocumentStatementArgs(
-                actions=["s3:ListAllMyBuckets"],
-                resources=["*"],
-            ),
-            aws.iam.GetPolicyDocumentStatementArgs(
-                actions=[
-                    "s3:GetBucketLocation",
-                    "s3:ListBucket",
-                ],
-                resources=[example_bucket_v2.arn],
-            ),
-            aws.iam.GetPolicyDocumentStatementArgs(
-                actions=[
-                    "s3:GetObject",
-                    "s3:PutObject",
-                    "s3:DeleteObject",
-                ],
-                resources=[example_bucket_v2.arn.apply(lambda arn: f"{arn}/*")],
-            ),
-        ])
-        example_policy = aws.iam.Policy("examplePolicy", policy=example_policy_document.json)
-        example_role_policy_attachment = aws.iam.RolePolicyAttachment("exampleRolePolicyAttachment",
-            role=example_role.name,
-            policy_arn=example_policy.arn)
-        example_key = aws.kms.Key("exampleKey", deletion_window_in_days=10)
-        example_instance = aws.rds.Instance("exampleInstance",
-            identifier="example",
-            allocated_storage=10,
-            db_name="test",
-            engine="mysql",
-            engine_version="5.7",
-            instance_class="db.t3.micro",
-            username="foo",
-            password="foobarbaz",
-            parameter_group_name="default.mysql5.7",
-            skip_final_snapshot=True)
-        example_snapshot = aws.rds.Snapshot("exampleSnapshot",
-            db_instance_identifier=example_instance.identifier,
-            db_snapshot_identifier="example")
-        example_export_task = aws.rds.ExportTask("exampleExportTask",
-            export_task_identifier="example",
-            source_arn=example_snapshot.db_snapshot_arn,
-            s3_bucket_name=example_bucket_v2.id,
-            iam_role_arn=example_role.arn,
-            kms_key_id=example_key.arn,
-            export_onlies=["database"],
-            s3_prefix="my_prefix/example")
+        example = aws.rds.export_task.ExportTask("example",
+            export_task_identifier=example,
+            source_arn=aws_db_snapshot.example.db_snapshot_arn,
+            s3_bucket_name=aws_s3_bucket.example.id,
+            iam_role_arn=aws_iam_role.example.arn,
+            kms_key_id=aws_kms_key.example.arn)
         ```
 
         ## Import
@@ -547,83 +476,12 @@ class ExportTask(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.rds.ExportTask("example",
-            export_task_identifier="example",
-            source_arn=aws_db_snapshot["example"]["db_snapshot_arn"],
-            s3_bucket_name=aws_s3_bucket["example"]["id"],
-            iam_role_arn=aws_iam_role["example"]["arn"],
-            kms_key_id=aws_kms_key["example"]["arn"])
-        ```
-        ### Complete Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2", force_destroy=True)
-        example_bucket_acl_v2 = aws.s3.BucketAclV2("exampleBucketAclV2",
-            bucket=example_bucket_v2.id,
-            acl="private")
-        example_role = aws.iam.Role("exampleRole", assume_role_policy=json.dumps({
-            "Version": "2012-10-17",
-            "Statement": [{
-                "Action": "sts:AssumeRole",
-                "Effect": "Allow",
-                "Sid": "",
-                "Principal": {
-                    "Service": "export.rds.amazonaws.com",
-                },
-            }],
-        }))
-        example_policy_document = aws.iam.get_policy_document_output(statements=[
-            aws.iam.GetPolicyDocumentStatementArgs(
-                actions=["s3:ListAllMyBuckets"],
-                resources=["*"],
-            ),
-            aws.iam.GetPolicyDocumentStatementArgs(
-                actions=[
-                    "s3:GetBucketLocation",
-                    "s3:ListBucket",
-                ],
-                resources=[example_bucket_v2.arn],
-            ),
-            aws.iam.GetPolicyDocumentStatementArgs(
-                actions=[
-                    "s3:GetObject",
-                    "s3:PutObject",
-                    "s3:DeleteObject",
-                ],
-                resources=[example_bucket_v2.arn.apply(lambda arn: f"{arn}/*")],
-            ),
-        ])
-        example_policy = aws.iam.Policy("examplePolicy", policy=example_policy_document.json)
-        example_role_policy_attachment = aws.iam.RolePolicyAttachment("exampleRolePolicyAttachment",
-            role=example_role.name,
-            policy_arn=example_policy.arn)
-        example_key = aws.kms.Key("exampleKey", deletion_window_in_days=10)
-        example_instance = aws.rds.Instance("exampleInstance",
-            identifier="example",
-            allocated_storage=10,
-            db_name="test",
-            engine="mysql",
-            engine_version="5.7",
-            instance_class="db.t3.micro",
-            username="foo",
-            password="foobarbaz",
-            parameter_group_name="default.mysql5.7",
-            skip_final_snapshot=True)
-        example_snapshot = aws.rds.Snapshot("exampleSnapshot",
-            db_instance_identifier=example_instance.identifier,
-            db_snapshot_identifier="example")
-        example_export_task = aws.rds.ExportTask("exampleExportTask",
-            export_task_identifier="example",
-            source_arn=example_snapshot.db_snapshot_arn,
-            s3_bucket_name=example_bucket_v2.id,
-            iam_role_arn=example_role.arn,
-            kms_key_id=example_key.arn,
-            export_onlies=["database"],
-            s3_prefix="my_prefix/example")
+        example = aws.rds.export_task.ExportTask("example",
+            export_task_identifier=example,
+            source_arn=aws_db_snapshot.example.db_snapshot_arn,
+            s3_bucket_name=aws_s3_bucket.example.id,
+            iam_role_arn=aws_iam_role.example.arn,
+            kms_key_id=aws_kms_key.example.arn)
         ```
 
         ## Import

@@ -145,15 +145,15 @@ class ManagedPrefixListEntry(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ec2.ManagedPrefixList("example",
-            address_family="IPv4",
+        example = aws.ec2.managed_prefix_list.ManagedPrefixList("example",
+            address_family=IPv4,
             max_entries=5,
             tags={
-                "Env": "live",
+                Env: live,
             })
-        entry1 = aws.ec2.ManagedPrefixListEntry("entry1",
-            cidr=aws_vpc["example"]["cidr_block"],
-            description="Primary",
+        entry1 = aws.ec2.managed_prefix_list_entry.ManagedPrefixListEntry("entry1",
+            cidr=aws_vpc.example.cidr_block,
+            description=Primary,
             prefix_list_id=example.id)
         ```
 
@@ -192,15 +192,15 @@ class ManagedPrefixListEntry(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ec2.ManagedPrefixList("example",
-            address_family="IPv4",
+        example = aws.ec2.managed_prefix_list.ManagedPrefixList("example",
+            address_family=IPv4,
             max_entries=5,
             tags={
-                "Env": "live",
+                Env: live,
             })
-        entry1 = aws.ec2.ManagedPrefixListEntry("entry1",
-            cidr=aws_vpc["example"]["cidr_block"],
-            description="Primary",
+        entry1 = aws.ec2.managed_prefix_list_entry.ManagedPrefixListEntry("entry1",
+            cidr=aws_vpc.example.cidr_block,
+            description=Primary,
             prefix_list_id=example.id)
         ```
 

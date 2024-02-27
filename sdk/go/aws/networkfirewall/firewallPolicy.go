@@ -21,41 +21,39 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/networkfirewall"
+//	networkfirewall/firewallPolicy "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/networkfirewall/firewallPolicy"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := networkfirewall.NewFirewallPolicy(ctx, "example", &networkfirewall.FirewallPolicyArgs{
-//				FirewallPolicy: &networkfirewall.FirewallPolicyFirewallPolicyArgs{
-//					StatelessDefaultActions: pulumi.StringArray{
-//						pulumi.String("aws:pass"),
-//					},
-//					StatelessFragmentDefaultActions: pulumi.StringArray{
-//						pulumi.String("aws:drop"),
-//					},
-//					StatelessRuleGroupReferences: networkfirewall.FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArray{
-//						&networkfirewall.FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArgs{
-//							Priority:    pulumi.Int(1),
-//							ResourceArn: pulumi.Any(aws_networkfirewall_rule_group.Example.Arn),
-//						},
-//					},
-//					TlsInspectionConfigurationArn: pulumi.String("arn:aws:network-firewall:REGION:ACCT:tls-configuration/example"),
-//				},
-//				Tags: pulumi.StringMap{
-//					"Tag1": pulumi.String("Value1"),
-//					"Tag2": pulumi.String("Value2"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := networkfirewall/firewallPolicy.NewFirewallPolicy(ctx, "example", &networkfirewall/firewallPolicy.FirewallPolicyArgs{
+// FirewallPolicy: map[string]interface{}{
+// "statelessDefaultActions": []string{
+// "aws:pass",
+// },
+// "statelessFragmentDefaultActions": []string{
+// "aws:drop",
+// },
+// "statelessRuleGroupReferences": []map[string]interface{}{
+// map[string]interface{}{
+// "priority": 1,
+// "resourceArn": aws_networkfirewall_rule_group.Example.Arn,
+// },
+// },
+// "tlsInspectionConfigurationArn": "arn:aws:network-firewall:REGION:ACCT:tls-configuration/example",
+// },
+// Tags: map[string]interface{}{
+// "Tag1": "Value1",
+// "Tag2": "Value2",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ## Policy with a HOME_NET Override
 //
@@ -64,53 +62,97 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/networkfirewall"
+//	networkfirewall/firewallPolicy "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/networkfirewall/firewallPolicy"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := networkfirewall/firewallPolicy.NewFirewallPolicy(ctx, "example", &networkfirewall/firewallPolicy.FirewallPolicyArgs{
+// FirewallPolicy: map[string]interface{}{
+// "policyVariables": map[string]interface{}{
+// "ruleVariables": []map[string]interface{}{
+// map[string]interface{}{
+// "key": "HOME_NET",
+// "ipSet": map[string]interface{}{
+// "definitions": []string{
+// "10.0.0.0/16",
+// "10.1.0.0/24",
+// },
+// },
+// },
+// },
+// },
+// "statelessDefaultActions": []string{
+// "aws:pass",
+// },
+// "statelessFragmentDefaultActions": []string{
+// "aws:drop",
+// },
+// "statelessRuleGroupReferences": []map[string]interface{}{
+// map[string]interface{}{
+// "priority": 1,
+// "resourceArn": aws_networkfirewall_rule_group.Example.Arn,
+// },
+// },
+// },
+// Tags: map[string]interface{}{
+// "Tag1": "Value1",
+// "Tag2": "Value2",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
+// ```
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := networkfirewall.NewFirewallPolicy(ctx, "example", &networkfirewall.FirewallPolicyArgs{
-//				FirewallPolicy: &networkfirewall.FirewallPolicyFirewallPolicyArgs{
-//					PolicyVariables: &networkfirewall.FirewallPolicyFirewallPolicyPolicyVariablesArgs{
-//						RuleVariables: networkfirewall.FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArray{
-//							&networkfirewall.FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArgs{
-//								Key: pulumi.String("HOME_NET"),
-//								IpSet: &networkfirewall.FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSetArgs{
-//									Definitions: pulumi.StringArray{
-//										pulumi.String("10.0.0.0/16"),
-//										pulumi.String("10.1.0.0/24"),
-//									},
-//								},
-//							},
-//						},
-//					},
-//					StatelessDefaultActions: pulumi.StringArray{
-//						pulumi.String("aws:pass"),
-//					},
-//					StatelessFragmentDefaultActions: pulumi.StringArray{
-//						pulumi.String("aws:drop"),
-//					},
-//					StatelessRuleGroupReferences: networkfirewall.FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArray{
-//						&networkfirewall.FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArgs{
-//							Priority:    pulumi.Int(1),
-//							ResourceArn: pulumi.Any(aws_networkfirewall_rule_group.Example.Arn),
-//						},
-//					},
-//				},
-//				Tags: pulumi.StringMap{
-//					"Tag1": pulumi.String("Value1"),
-//					"Tag2": pulumi.String("Value2"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
+// ## Policy with a Custom Action for Stateless Inspection
 //
+// ```go
+// package main
+//
+// import (
+//
+//	networkfirewall/firewallPolicy "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/networkfirewall/firewallPolicy"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := networkfirewall/firewallPolicy.NewFirewallPolicy(ctx, "test", &networkfirewall/firewallPolicy.FirewallPolicyArgs{
+// FirewallPolicy: map[string]interface{}{
+// "statelessCustomActions": []map[string]interface{}{
+// map[string]interface{}{
+// "actionDefinition": map[string]interface{}{
+// "publishMetricAction": map[string]interface{}{
+// "dimension": []map[string]interface{}{
+// map[string]interface{}{
+// "value": "1",
+// },
+// },
+// },
+// },
+// "actionName": "ExampleCustomAction",
+// },
+// },
+// "statelessDefaultActions": []string{
+// "aws:pass",
+// "ExampleCustomAction",
+// },
+// "statelessFragmentDefaultActions": []string{
+// "aws:drop",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

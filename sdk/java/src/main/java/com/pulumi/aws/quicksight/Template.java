@@ -32,8 +32,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.quicksight.Template;
  * import com.pulumi.aws.quicksight.TemplateArgs;
- * import com.pulumi.aws.quicksight.inputs.TemplateSourceEntityArgs;
- * import com.pulumi.aws.quicksight.inputs.TemplateSourceEntitySourceTemplateArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -50,18 +48,13 @@ import javax.annotation.Nullable;
  *         var example = new Template(&#34;example&#34;, TemplateArgs.builder()        
  *             .templateId(&#34;example-id&#34;)
  *             .versionDescription(&#34;version&#34;)
- *             .sourceEntity(TemplateSourceEntityArgs.builder()
- *                 .sourceTemplate(TemplateSourceEntitySourceTemplateArgs.builder()
- *                     .arn(aws_quicksight_template.source().arn())
- *                     .build())
- *                 .build())
+ *             .sourceEntity(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
  * }
  * ```
  * ### With Definition
- * 
  * ```java
  * package generated_program;
  * 

@@ -109,7 +109,6 @@ public final class FlowTriggerConfigTriggerPropertiesScheduledArgs extends com.p
 
     /**
      * Time zone used when referring to the date and time of a scheduled-triggered flow, such as `America/New_York`.
-     * 
      * ```java
      * package generated_program;
      * 
@@ -118,7 +117,6 @@ public final class FlowTriggerConfigTriggerPropertiesScheduledArgs extends com.p
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.appflow.Flow;
      * import com.pulumi.aws.appflow.FlowArgs;
-     * import com.pulumi.aws.appflow.inputs.FlowTriggerConfigArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -133,9 +131,7 @@ public final class FlowTriggerConfigTriggerPropertiesScheduledArgs extends com.p
      * 
      *     public static void stack(Context ctx) {
      *         var example = new Flow(&#34;example&#34;, FlowArgs.builder()        
-     *             .triggerConfig(FlowTriggerConfigArgs.builder()
-     *                 .scheduled(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
-     *                 .build())
+     *             .triggerConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
      *             .build());
      * 
      *     }
@@ -148,7 +144,6 @@ public final class FlowTriggerConfigTriggerPropertiesScheduledArgs extends com.p
 
     /**
      * @return Time zone used when referring to the date and time of a scheduled-triggered flow, such as `America/New_York`.
-     * 
      * ```java
      * package generated_program;
      * 
@@ -157,7 +152,6 @@ public final class FlowTriggerConfigTriggerPropertiesScheduledArgs extends com.p
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.appflow.Flow;
      * import com.pulumi.aws.appflow.FlowArgs;
-     * import com.pulumi.aws.appflow.inputs.FlowTriggerConfigArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -172,9 +166,7 @@ public final class FlowTriggerConfigTriggerPropertiesScheduledArgs extends com.p
      * 
      *     public static void stack(Context ctx) {
      *         var example = new Flow(&#34;example&#34;, FlowArgs.builder()        
-     *             .triggerConfig(FlowTriggerConfigArgs.builder()
-     *                 .scheduled(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
-     *                 .build())
+     *             .triggerConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
      *             .build());
      * 
      *     }
@@ -344,7 +336,6 @@ public final class FlowTriggerConfigTriggerPropertiesScheduledArgs extends com.p
 
         /**
          * @param timezone Time zone used when referring to the date and time of a scheduled-triggered flow, such as `America/New_York`.
-         * 
          * ```java
          * package generated_program;
          * 
@@ -353,7 +344,6 @@ public final class FlowTriggerConfigTriggerPropertiesScheduledArgs extends com.p
          * import com.pulumi.core.Output;
          * import com.pulumi.aws.appflow.Flow;
          * import com.pulumi.aws.appflow.FlowArgs;
-         * import com.pulumi.aws.appflow.inputs.FlowTriggerConfigArgs;
          * import java.util.List;
          * import java.util.ArrayList;
          * import java.util.Map;
@@ -368,9 +358,7 @@ public final class FlowTriggerConfigTriggerPropertiesScheduledArgs extends com.p
          * 
          *     public static void stack(Context ctx) {
          *         var example = new Flow(&#34;example&#34;, FlowArgs.builder()        
-         *             .triggerConfig(FlowTriggerConfigArgs.builder()
-         *                 .scheduled(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
-         *                 .build())
+         *             .triggerConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
          *             .build());
          * 
          *     }
@@ -387,7 +375,6 @@ public final class FlowTriggerConfigTriggerPropertiesScheduledArgs extends com.p
 
         /**
          * @param timezone Time zone used when referring to the date and time of a scheduled-triggered flow, such as `America/New_York`.
-         * 
          * ```java
          * package generated_program;
          * 
@@ -396,7 +383,6 @@ public final class FlowTriggerConfigTriggerPropertiesScheduledArgs extends com.p
          * import com.pulumi.core.Output;
          * import com.pulumi.aws.appflow.Flow;
          * import com.pulumi.aws.appflow.FlowArgs;
-         * import com.pulumi.aws.appflow.inputs.FlowTriggerConfigArgs;
          * import java.util.List;
          * import java.util.ArrayList;
          * import java.util.Map;
@@ -411,9 +397,7 @@ public final class FlowTriggerConfigTriggerPropertiesScheduledArgs extends com.p
          * 
          *     public static void stack(Context ctx) {
          *         var example = new Flow(&#34;example&#34;, FlowArgs.builder()        
-         *             .triggerConfig(FlowTriggerConfigArgs.builder()
-         *                 .scheduled(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
-         *                 .build())
+         *             .triggerConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
          *             .build());
          * 
          *     }

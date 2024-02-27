@@ -22,21 +22,21 @@ namespace Pulumi.Aws.CodeArtifact
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleKey = new Aws.Kms.Key("exampleKey", new()
+    ///     var exampleKey = new Aws.Kms.Key.Key("exampleKey", new()
     ///     {
     ///         Description = "domain key",
     ///     });
     /// 
-    ///     var exampleDomain = new Aws.CodeArtifact.Domain("exampleDomain", new()
+    ///     var exampleDomain = new Aws.Codeartifact.Domain.Domain("exampleDomain", new()
     ///     {
-    ///         DomainName = "example",
+    ///         Domain = "example",
     ///         EncryptionKey = exampleKey.Arn,
     ///     });
     /// 
-    ///     var test = new Aws.CodeArtifact.Repository("test", new()
+    ///     var test = new Aws.Codeartifact.Repository.Repository("test", new()
     ///     {
-    ///         RepositoryName = "example",
-    ///         Domain = exampleDomain.DomainName,
+    ///         Repository = "example",
+    ///         Domain = exampleDomain.Domain,
     ///     });
     /// 
     /// });
@@ -51,21 +51,21 @@ namespace Pulumi.Aws.CodeArtifact
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var upstream = new Aws.CodeArtifact.Repository("upstream", new()
+    ///     var upstream = new Aws.Codeartifact.Repository.Repository("upstream", new()
     ///     {
-    ///         RepositoryName = "upstream",
+    ///         Repository = "upstream",
     ///         Domain = aws_codeartifact_domain.Test.Domain,
     ///     });
     /// 
-    ///     var test = new Aws.CodeArtifact.Repository("test", new()
+    ///     var test = new Aws.Codeartifact.Repository.Repository("test", new()
     ///     {
-    ///         RepositoryName = "example",
+    ///         Repository = "example",
     ///         Domain = aws_codeartifact_domain.Example.Domain,
     ///         Upstreams = new[]
     ///         {
-    ///             new Aws.CodeArtifact.Inputs.RepositoryUpstreamArgs
+    ///             
     ///             {
-    ///                 RepositoryName = upstream.RepositoryName,
+    ///                 { "repositoryName", upstream.Repository },
     ///             },
     ///         },
     ///     });
@@ -82,19 +82,19 @@ namespace Pulumi.Aws.CodeArtifact
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var upstream = new Aws.CodeArtifact.Repository("upstream", new()
+    ///     var upstream = new Aws.Codeartifact.Repository.Repository("upstream", new()
     ///     {
-    ///         RepositoryName = "upstream",
+    ///         Repository = "upstream",
     ///         Domain = aws_codeartifact_domain.Test.Domain,
     ///     });
     /// 
-    ///     var test = new Aws.CodeArtifact.Repository("test", new()
+    ///     var test = new Aws.Codeartifact.Repository.Repository("test", new()
     ///     {
-    ///         RepositoryName = "example",
+    ///         Repository = "example",
     ///         Domain = aws_codeartifact_domain.Example.Domain,
-    ///         ExternalConnections = new Aws.CodeArtifact.Inputs.RepositoryExternalConnectionsArgs
+    ///         ExternalConnections = 
     ///         {
-    ///             ExternalConnectionName = "public:npmjs",
+    ///             { "externalConnectionName", "public:npmjs" },
     ///         },
     ///     });
     /// 

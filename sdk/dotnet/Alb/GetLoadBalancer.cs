@@ -19,32 +19,6 @@ namespace Pulumi.Aws.Alb
         /// This data source can prove useful when a module accepts an LB as an input
         /// variable and needs to, for example, determine the security groups associated
         /// with it, etc.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var config = new Config();
-        ///     var lbArn = config.Get("lbArn") ?? "";
-        ///     var lbName = config.Get("lbName") ?? "";
-        ///     var test = Aws.LB.GetLoadBalancer.Invoke(new()
-        ///     {
-        ///         Arn = lbArn,
-        ///         Name = lbName,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetLoadBalancerResult> InvokeAsync(GetLoadBalancerArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLoadBalancerResult>("aws:alb/getLoadBalancer:getLoadBalancer", args ?? new GetLoadBalancerArgs(), options.WithDefaults());
@@ -57,32 +31,6 @@ namespace Pulumi.Aws.Alb
         /// This data source can prove useful when a module accepts an LB as an input
         /// variable and needs to, for example, determine the security groups associated
         /// with it, etc.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var config = new Config();
-        ///     var lbArn = config.Get("lbArn") ?? "";
-        ///     var lbName = config.Get("lbName") ?? "";
-        ///     var test = Aws.LB.GetLoadBalancer.Invoke(new()
-        ///     {
-        ///         Arn = lbArn,
-        ///         Name = lbName,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetLoadBalancerResult> Invoke(GetLoadBalancerInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLoadBalancerResult>("aws:alb/getLoadBalancer:getLoadBalancer", args ?? new GetLoadBalancerInvokeArgs(), options.WithDefaults());

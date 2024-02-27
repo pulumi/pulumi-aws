@@ -95,15 +95,6 @@ def get_detector(id: Optional[str] = None,
     """
     Retrieve information about a GuardDuty detector.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.guardduty.get_detector()
-    ```
-
 
     :param str id: ID of the detector.
     """
@@ -125,15 +116,6 @@ def get_detector_output(id: Optional[pulumi.Input[Optional[str]]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDetectorResult]:
     """
     Retrieve information about a GuardDuty detector.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.guardduty.get_detector()
-    ```
 
 
     :param str id: ID of the detector.

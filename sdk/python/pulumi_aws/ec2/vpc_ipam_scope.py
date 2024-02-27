@@ -228,23 +228,6 @@ class VpcIpamScope(pulumi.CustomResource):
         """
         Creates a scope for AWS IPAM.
 
-        ## Example Usage
-
-        Basic usage:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        current = aws.get_region()
-        example_vpc_ipam = aws.ec2.VpcIpam("exampleVpcIpam", operating_regions=[aws.ec2.VpcIpamOperatingRegionArgs(
-            region_name=current.name,
-        )])
-        example_vpc_ipam_scope = aws.ec2.VpcIpamScope("exampleVpcIpamScope",
-            ipam_id=example_vpc_ipam.id,
-            description="Another Scope")
-        ```
-
         ## Import
 
         Using `pulumi import`, import IPAMs using the `scope_id`. For example:
@@ -267,23 +250,6 @@ class VpcIpamScope(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Creates a scope for AWS IPAM.
-
-        ## Example Usage
-
-        Basic usage:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        current = aws.get_region()
-        example_vpc_ipam = aws.ec2.VpcIpam("exampleVpcIpam", operating_regions=[aws.ec2.VpcIpamOperatingRegionArgs(
-            region_name=current.name,
-        )])
-        example_vpc_ipam_scope = aws.ec2.VpcIpamScope("exampleVpcIpamScope",
-            ipam_id=example_vpc_ipam.id,
-            description="Another Scope")
-        ```
 
         ## Import
 

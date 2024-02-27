@@ -11,45 +11,6 @@ import {PolicyDocument} from "../iam";
  *
  * Note that currently only one policy may be applied to a repository.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const foo = new aws.ecr.Repository("foo", {});
- * const foopolicyPolicyDocument = aws.iam.getPolicyDocument({
- *     statements: [{
- *         sid: "new policy",
- *         effect: "Allow",
- *         principals: [{
- *             type: "AWS",
- *             identifiers: ["123456789012"],
- *         }],
- *         actions: [
- *             "ecr:GetDownloadUrlForLayer",
- *             "ecr:BatchGetImage",
- *             "ecr:BatchCheckLayerAvailability",
- *             "ecr:PutImage",
- *             "ecr:InitiateLayerUpload",
- *             "ecr:UploadLayerPart",
- *             "ecr:CompleteLayerUpload",
- *             "ecr:DescribeRepositories",
- *             "ecr:GetRepositoryPolicy",
- *             "ecr:ListImages",
- *             "ecr:DeleteRepository",
- *             "ecr:BatchDeleteImage",
- *             "ecr:SetRepositoryPolicy",
- *             "ecr:DeleteRepositoryPolicy",
- *         ],
- *     }],
- * });
- * const foopolicyRepositoryPolicy = new aws.ecr.RepositoryPolicy("foopolicyRepositoryPolicy", {
- *     repository: foo.name,
- *     policy: foopolicyPolicyDocument.then(foopolicyPolicyDocument => foopolicyPolicyDocument.json),
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import ECR Repository Policy using the repository name. For example:

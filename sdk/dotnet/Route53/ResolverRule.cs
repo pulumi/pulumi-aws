@@ -23,7 +23,7 @@ namespace Pulumi.Aws.Route53
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var sys = new Aws.Route53.ResolverRule("sys", new()
+    ///     var sys = new Aws.Route53.ResolverRule.ResolverRule("sys", new()
     ///     {
     ///         DomainName = "subdomain.example.com",
     ///         RuleType = "SYSTEM",
@@ -41,16 +41,16 @@ namespace Pulumi.Aws.Route53
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var fwd = new Aws.Route53.ResolverRule("fwd", new()
+    ///     var fwd = new Aws.Route53.ResolverRule.ResolverRule("fwd", new()
     ///     {
     ///         DomainName = "example.com",
     ///         RuleType = "FORWARD",
     ///         ResolverEndpointId = aws_route53_resolver_endpoint.Foo.Id,
     ///         TargetIps = new[]
     ///         {
-    ///             new Aws.Route53.Inputs.ResolverRuleTargetIpArgs
+    ///             
     ///             {
-    ///                 Ip = "123.45.67.89",
+    ///                 { "ip", "123.45.67.89" },
     ///             },
     ///         },
     ///         Tags = 

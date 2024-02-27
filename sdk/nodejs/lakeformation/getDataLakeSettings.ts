@@ -9,17 +9,6 @@ import * as utilities from "../utilities";
 
 /**
  * Get Lake Formation principals designated as data lake administrators and lists of principal permission entries for default create database and default create table permissions.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.lakeformation.getDataLakeSettings({
- *     catalogId: "14916253649",
- * });
- * ```
  */
 export function getDataLakeSettings(args?: GetDataLakeSettingsArgs, opts?: pulumi.InvokeOptions): Promise<GetDataLakeSettingsResult> {
     args = args || {};
@@ -84,17 +73,6 @@ export interface GetDataLakeSettingsResult {
 }
 /**
  * Get Lake Formation principals designated as data lake administrators and lists of principal permission entries for default create database and default create table permissions.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.lakeformation.getDataLakeSettings({
- *     catalogId: "14916253649",
- * });
- * ```
  */
 export function getDataLakeSettingsOutput(args?: GetDataLakeSettingsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataLakeSettingsResult> {
     return pulumi.output(args).apply((a: any) => getDataLakeSettings(a, opts))

@@ -13,56 +13,12 @@ namespace Pulumi.Aws.Athena
     {
         /// <summary>
         /// Provides an Athena Named Query data source.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Athena.GetNamedQuery.Invoke(new()
-        ///     {
-        ///         Name = "athenaQueryName",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetNamedQueryResult> InvokeAsync(GetNamedQueryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNamedQueryResult>("aws:athena/getNamedQuery:getNamedQuery", args ?? new GetNamedQueryArgs(), options.WithDefaults());
 
         /// <summary>
         /// Provides an Athena Named Query data source.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Athena.GetNamedQuery.Invoke(new()
-        ///     {
-        ///         Name = "athenaQueryName",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetNamedQueryResult> Invoke(GetNamedQueryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNamedQueryResult>("aws:athena/getNamedQuery:getNamedQuery", args ?? new GetNamedQueryInvokeArgs(), options.WithDefaults());

@@ -39,27 +39,25 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/elasticache"
+//	elasticache/cluster "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/elasticache/cluster"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := elasticache.NewCluster(ctx, "example", &elasticache.ClusterArgs{
-//				Engine:             pulumi.String("memcached"),
-//				NodeType:           pulumi.String("cache.m4.large"),
-//				NumCacheNodes:      pulumi.Int(2),
-//				ParameterGroupName: pulumi.String("default.memcached1.4"),
-//				Port:               pulumi.Int(11211),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := elasticache/cluster.NewCluster(ctx, "example", &elasticache/cluster.ClusterArgs{
+// Engine: "memcached",
+// NodeType: "cache.m4.large",
+// NumCacheNodes: 2,
+// ParameterGroupName: "default.memcached1.4",
+// Port: 11211,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Redis Instance
 //
@@ -68,28 +66,26 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/elasticache"
+//	elasticache/cluster "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/elasticache/cluster"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := elasticache.NewCluster(ctx, "example", &elasticache.ClusterArgs{
-//				Engine:             pulumi.String("redis"),
-//				EngineVersion:      pulumi.String("3.2.10"),
-//				NodeType:           pulumi.String("cache.m4.large"),
-//				NumCacheNodes:      pulumi.Int(1),
-//				ParameterGroupName: pulumi.String("default.redis3.2"),
-//				Port:               pulumi.Int(6379),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := elasticache/cluster.NewCluster(ctx, "example", &elasticache/cluster.ClusterArgs{
+// Engine: "redis",
+// EngineVersion: "3.2.10",
+// NodeType: "cache.m4.large",
+// NumCacheNodes: 1,
+// ParameterGroupName: "default.redis3.2",
+// Port: 6379,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Redis Cluster Mode Disabled Read Replica Instance
 //
@@ -100,23 +96,21 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/elasticache"
+//	elasticache/cluster "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/elasticache/cluster"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := elasticache.NewCluster(ctx, "replica", &elasticache.ClusterArgs{
-//				ReplicationGroupId: pulumi.Any(aws_elasticache_replication_group.Example.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := elasticache/cluster.NewCluster(ctx, "replica", &elasticache/cluster.ClusterArgs{
+// ReplicationGroupId: aws_elasticache_replication_group.Example.Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Redis Log Delivery configuration
 //
@@ -125,41 +119,39 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/elasticache"
+//	elasticache/cluster "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/elasticache/cluster"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := elasticache.NewCluster(ctx, "test", &elasticache.ClusterArgs{
-//				Engine:           pulumi.String("redis"),
-//				NodeType:         pulumi.String("cache.t3.micro"),
-//				NumCacheNodes:    pulumi.Int(1),
-//				Port:             pulumi.Int(6379),
-//				ApplyImmediately: pulumi.Bool(true),
-//				LogDeliveryConfigurations: elasticache.ClusterLogDeliveryConfigurationArray{
-//					&elasticache.ClusterLogDeliveryConfigurationArgs{
-//						Destination:     pulumi.Any(aws_cloudwatch_log_group.Example.Name),
-//						DestinationType: pulumi.String("cloudwatch-logs"),
-//						LogFormat:       pulumi.String("text"),
-//						LogType:         pulumi.String("slow-log"),
-//					},
-//					&elasticache.ClusterLogDeliveryConfigurationArgs{
-//						Destination:     pulumi.Any(aws_kinesis_firehose_delivery_stream.Example.Name),
-//						DestinationType: pulumi.String("kinesis-firehose"),
-//						LogFormat:       pulumi.String("json"),
-//						LogType:         pulumi.String("engine-log"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := elasticache/cluster.NewCluster(ctx, "test", &elasticache/cluster.ClusterArgs{
+// Engine: "redis",
+// NodeType: "cache.t3.micro",
+// NumCacheNodes: 1,
+// Port: 6379,
+// ApplyImmediately: true,
+// LogDeliveryConfigurations: []map[string]interface{}{
+// map[string]interface{}{
+// "destination": aws_cloudwatch_log_group.Example.Name,
+// "destinationType": "cloudwatch-logs",
+// "logFormat": "text",
+// "logType": "slow-log",
+// },
+// map[string]interface{}{
+// "destination": aws_kinesis_firehose_delivery_stream.Example.Name,
+// "destinationType": "kinesis-firehose",
+// "logFormat": "json",
+// "logType": "engine-log",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

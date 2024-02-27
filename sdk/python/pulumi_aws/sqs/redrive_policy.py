@@ -112,17 +112,17 @@ class RedrivePolicy(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        queue = aws.sqs.Queue("queue")
-        ddl = aws.sqs.Queue("ddl", redrive_allow_policy=queue.arn.apply(lambda arn: json.dumps({
-            "redrivePermission": "byQueue",
-            "sourceQueueArns": [arn],
-        })))
-        redrive_policy = aws.sqs.RedrivePolicy("redrivePolicy",
+        queue = aws.sqs.queue.Queue("queue")
+        ddl = aws.sqs.queue.Queue("ddl", redrive_allow_policy=json.dumps({
+            redrivePermission: byQueue,
+            sourceQueueArns: [queue.arn],
+        }))
+        redrive_policy = aws.sqs.redrive_policy.RedrivePolicy("redrivePolicy",
             queue_url=queue.id,
-            redrive_policy=ddl.arn.apply(lambda arn: json.dumps({
-                "deadLetterTargetArn": arn,
-                "maxReceiveCount": 4,
-            })))
+            redrive_policy=json.dumps({
+                deadLetterTargetArn: ddl.arn,
+                maxReceiveCount: 4,
+            }))
         ```
 
         ## Import
@@ -159,17 +159,17 @@ class RedrivePolicy(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        queue = aws.sqs.Queue("queue")
-        ddl = aws.sqs.Queue("ddl", redrive_allow_policy=queue.arn.apply(lambda arn: json.dumps({
-            "redrivePermission": "byQueue",
-            "sourceQueueArns": [arn],
-        })))
-        redrive_policy = aws.sqs.RedrivePolicy("redrivePolicy",
+        queue = aws.sqs.queue.Queue("queue")
+        ddl = aws.sqs.queue.Queue("ddl", redrive_allow_policy=json.dumps({
+            redrivePermission: byQueue,
+            sourceQueueArns: [queue.arn],
+        }))
+        redrive_policy = aws.sqs.redrive_policy.RedrivePolicy("redrivePolicy",
             queue_url=queue.id,
-            redrive_policy=ddl.arn.apply(lambda arn: json.dumps({
-                "deadLetterTargetArn": arn,
-                "maxReceiveCount": 4,
-            })))
+            redrive_policy=json.dumps({
+                deadLetterTargetArn: ddl.arn,
+                maxReceiveCount: 4,
+            }))
         ```
 
         ## Import

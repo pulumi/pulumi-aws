@@ -109,38 +109,38 @@ class LogDataProtectionPolicy(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        example_log_group = aws.cloudwatch.LogGroup("exampleLogGroup")
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
-        example_log_data_protection_policy = aws.cloudwatch.LogDataProtectionPolicy("exampleLogDataProtectionPolicy",
+        example_log_group = aws.cloudwatch.log_group.LogGroup("exampleLogGroup")
+        example_bucket_v2 = aws.s3.bucket_v2.BucketV2("exampleBucketV2")
+        example_log_data_protection_policy = aws.cloudwatch.log_data_protection_policy.LogDataProtectionPolicy("exampleLogDataProtectionPolicy",
             log_group_name=example_log_group.name,
-            policy_document=example_bucket_v2.bucket.apply(lambda bucket: json.dumps({
-                "Name": "Example",
-                "Version": "2021-06-01",
-                "Statement": [
+            policy_document=json.dumps({
+                Name: Example,
+                Version: 2021-06-01,
+                Statement: [
                     {
-                        "Sid": "Audit",
-                        "DataIdentifier": ["arn:aws:dataprotection::aws:data-identifier/EmailAddress"],
-                        "Operation": {
-                            "Audit": {
-                                "FindingsDestination": {
-                                    "S3": {
-                                        "Bucket": bucket,
+                        Sid: Audit,
+                        DataIdentifier: [arn:aws:dataprotection::aws:data-identifier/EmailAddress],
+                        Operation: {
+                            Audit: {
+                                FindingsDestination: {
+                                    S3: {
+                                        Bucket: example_bucket_v2.bucket,
                                     },
                                 },
                             },
                         },
                     },
                     {
-                        "Sid": "Redact",
-                        "DataIdentifier": ["arn:aws:dataprotection::aws:data-identifier/EmailAddress"],
-                        "Operation": {
-                            "Deidentify": {
-                                "MaskConfig": {},
+                        Sid: Redact,
+                        DataIdentifier: [arn:aws:dataprotection::aws:data-identifier/EmailAddress],
+                        Operation: {
+                            Deidentify: {
+                                MaskConfig: {},
                             },
                         },
                     },
                 ],
-            })))
+            }))
         ```
 
         ## Import
@@ -174,38 +174,38 @@ class LogDataProtectionPolicy(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        example_log_group = aws.cloudwatch.LogGroup("exampleLogGroup")
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
-        example_log_data_protection_policy = aws.cloudwatch.LogDataProtectionPolicy("exampleLogDataProtectionPolicy",
+        example_log_group = aws.cloudwatch.log_group.LogGroup("exampleLogGroup")
+        example_bucket_v2 = aws.s3.bucket_v2.BucketV2("exampleBucketV2")
+        example_log_data_protection_policy = aws.cloudwatch.log_data_protection_policy.LogDataProtectionPolicy("exampleLogDataProtectionPolicy",
             log_group_name=example_log_group.name,
-            policy_document=example_bucket_v2.bucket.apply(lambda bucket: json.dumps({
-                "Name": "Example",
-                "Version": "2021-06-01",
-                "Statement": [
+            policy_document=json.dumps({
+                Name: Example,
+                Version: 2021-06-01,
+                Statement: [
                     {
-                        "Sid": "Audit",
-                        "DataIdentifier": ["arn:aws:dataprotection::aws:data-identifier/EmailAddress"],
-                        "Operation": {
-                            "Audit": {
-                                "FindingsDestination": {
-                                    "S3": {
-                                        "Bucket": bucket,
+                        Sid: Audit,
+                        DataIdentifier: [arn:aws:dataprotection::aws:data-identifier/EmailAddress],
+                        Operation: {
+                            Audit: {
+                                FindingsDestination: {
+                                    S3: {
+                                        Bucket: example_bucket_v2.bucket,
                                     },
                                 },
                             },
                         },
                     },
                     {
-                        "Sid": "Redact",
-                        "DataIdentifier": ["arn:aws:dataprotection::aws:data-identifier/EmailAddress"],
-                        "Operation": {
-                            "Deidentify": {
-                                "MaskConfig": {},
+                        Sid: Redact,
+                        DataIdentifier: [arn:aws:dataprotection::aws:data-identifier/EmailAddress],
+                        Operation: {
+                            Deidentify: {
+                                MaskConfig: {},
                             },
                         },
                     },
                 ],
-            })))
+            }))
         ```
 
         ## Import

@@ -12,21 +12,6 @@ import * as utilities from "../utilities";
  * This data source can prove useful when a module accepts an LB Trust Store as an
  * input variable and needs to know its attributes. It can also be used to get the ARN of
  * an LB Trust Store for use in other resources, given LB Trust Store name.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const config = new pulumi.Config();
- * const lbTsArn = config.get("lbTsArn") || "";
- * const lbTsName = config.get("lbTsName") || "";
- * const test = aws.lb.getTrustStore({
- *     arn: lbTsArn,
- *     name: lbTsName,
- * });
- * ```
  */
 export function getTrustStore(args?: GetTrustStoreArgs, opts?: pulumi.InvokeOptions): Promise<GetTrustStoreResult> {
     args = args || {};
@@ -73,21 +58,6 @@ export interface GetTrustStoreResult {
  * This data source can prove useful when a module accepts an LB Trust Store as an
  * input variable and needs to know its attributes. It can also be used to get the ARN of
  * an LB Trust Store for use in other resources, given LB Trust Store name.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const config = new pulumi.Config();
- * const lbTsArn = config.get("lbTsArn") || "";
- * const lbTsName = config.get("lbTsName") || "";
- * const test = aws.lb.getTrustStore({
- *     arn: lbTsArn,
- *     name: lbTsName,
- * });
- * ```
  */
 export function getTrustStoreOutput(args?: GetTrustStoreOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTrustStoreResult> {
     return pulumi.output(args).apply((a: any) => getTrustStore(a, opts))

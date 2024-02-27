@@ -9,17 +9,6 @@ import * as utilities from "../utilities";
 
 /**
  * Provides information about a DynamoDB table.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const tableName = aws.dynamodb.getTable({
- *     name: "tableName",
- * });
- * ```
  */
 export function getTable(args: GetTableArgs, opts?: pulumi.InvokeOptions): Promise<GetTableResult> {
 
@@ -75,17 +64,6 @@ export interface GetTableResult {
 }
 /**
  * Provides information about a DynamoDB table.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const tableName = aws.dynamodb.getTable({
- *     name: "tableName",
- * });
- * ```
  */
 export function getTableOutput(args: GetTableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTableResult> {
     return pulumi.output(args).apply((a: any) => getTable(a, opts))

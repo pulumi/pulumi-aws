@@ -275,7 +275,7 @@ class ServiceLinkedRole(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        elasticbeanstalk = aws.iam.ServiceLinkedRole("elasticbeanstalk", aws_service_name="elasticbeanstalk.amazonaws.com")
+        elasticbeanstalk = aws.iam.service_linked_role.ServiceLinkedRole("elasticbeanstalk", aws_service_name=elasticbeanstalk.amazonaws.com)
         ```
 
         ## Import
@@ -308,7 +308,7 @@ class ServiceLinkedRole(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        elasticbeanstalk = aws.iam.ServiceLinkedRole("elasticbeanstalk", aws_service_name="elasticbeanstalk.amazonaws.com")
+        elasticbeanstalk = aws.iam.service_linked_role.ServiceLinkedRole("elasticbeanstalk", aws_service_name=elasticbeanstalk.amazonaws.com)
         ```
 
         ## Import

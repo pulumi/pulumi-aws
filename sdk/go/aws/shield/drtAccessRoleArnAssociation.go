@@ -24,54 +24,36 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/shield"
+//	iam/role "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/iam/role"
+//	iam/rolePolicyAttachment "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/iam/rolePolicyAttachment"
+//	shield/drtAccessRoleArnAssociation "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/shield/drtAccessRoleArnAssociation"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"Version": "2012-10-17",
-//				"Statement": []map[string]interface{}{
-//					map[string]interface{}{
-//						"Sid":    "",
-//						"Effect": "Allow",
-//						"Principal": map[string]interface{}{
-//							"Service": "drt.shield.amazonaws.com",
-//						},
-//						"Action": "sts:AssumeRole",
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			testRole, err := iam.NewRole(ctx, "testRole", &iam.RoleArgs{
-//				AssumeRolePolicy: pulumi.String(json0),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = iam.NewRolePolicyAttachment(ctx, "testRolePolicyAttachment", &iam.RolePolicyAttachmentArgs{
-//				Role:      testRole.Name,
-//				PolicyArn: pulumi.String("arn:aws:iam::aws:policy/service-role/AWSShieldDRTAccessPolicy"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = shield.NewDrtAccessRoleArnAssociation(ctx, "testDrtAccessRoleArnAssociation", &shield.DrtAccessRoleArnAssociationArgs{
-//				RoleArn: testRole.Arn,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// testRole, err := iam/role.NewRole(ctx, "testRole", &iam/role.RoleArgs{
+// AssumeRolePolicy: %!v(PANIC=Format method: fatal: An assertion has failed: unlowered function toJSON),
+// })
+// if err != nil {
+// return err
+// }
+// _, err = iam/rolePolicyAttachment.NewRolePolicyAttachment(ctx, "testRolePolicyAttachment", &iam/rolePolicyAttachment.RolePolicyAttachmentArgs{
+// Role: testRole.Name,
+// PolicyArn: "arn:aws:iam::aws:policy/service-role/AWSShieldDRTAccessPolicy",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = shield/drtAccessRoleArnAssociation.NewDrtAccessRoleArnAssociation(ctx, "testDrtAccessRoleArnAssociation", &shield/drtAccessRoleArnAssociation.DrtAccessRoleArnAssociationArgs{
+// RoleArn: testRole.Arn,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 type DrtAccessRoleArnAssociation struct {
 	pulumi.CustomResourceState

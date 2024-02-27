@@ -31,8 +31,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.connect.RoutingProfile;
  * import com.pulumi.aws.connect.RoutingProfileArgs;
- * import com.pulumi.aws.connect.inputs.RoutingProfileMediaConcurrencyArgs;
- * import com.pulumi.aws.connect.inputs.RoutingProfileQueueConfigArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -50,17 +48,9 @@ import javax.annotation.Nullable;
  *             .defaultOutboundQueueId(&#34;12345678-1234-1234-1234-123456789012&#34;)
  *             .description(&#34;example description&#34;)
  *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
- *             .mediaConcurrencies(RoutingProfileMediaConcurrencyArgs.builder()
- *                 .channel(&#34;VOICE&#34;)
- *                 .concurrency(1)
- *                 .build())
- *             .queueConfigs(RoutingProfileQueueConfigArgs.builder()
- *                 .channel(&#34;VOICE&#34;)
- *                 .delay(2)
- *                 .priority(1)
- *                 .queueId(&#34;12345678-1234-1234-1234-123456789012&#34;)
- *                 .build())
- *             .tags(Map.of(&#34;Name&#34;, &#34;Example Routing Profile&#34;))
+ *             .mediaConcurrencies(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .queueConfigs(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

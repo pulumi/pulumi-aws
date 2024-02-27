@@ -25,15 +25,15 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssm"
+//	ssm/document "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ssm/document"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := ssm/document.NewDocument(ctx, "foo", &ssm/document.DocumentArgs{
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ssm.NewDocument(ctx, "foo", &ssm.DocumentArgs{
-//				Content: pulumi.String(`  {
+//	Content: `  {
 //	    "schemaVersion": "1.2",
 //	    "description": "Check ip configuration of a Linux instance.",
 //	    "parameters": {
@@ -51,17 +51,15 @@ import (
 //	    }
 //	  }
 //
-// `),
-//
-//				DocumentType: pulumi.String("Command"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// `,
+// DocumentType: "Command",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Create an ssm document in YAML format
 //
@@ -70,16 +68,14 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssm"
+//	ssm/document "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ssm/document"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ssm.NewDocument(ctx, "foo", &ssm.DocumentArgs{
-//				Content: pulumi.String(`schemaVersion: '1.2'
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := ssm/document.NewDocument(ctx, "foo", &ssm/document.DocumentArgs{
+// Content: `schemaVersion: '1.2'
 // description: Check ip configuration of a Linux instance.
 // parameters: {}
 // runtimeConfig:
@@ -90,18 +86,16 @@ import (
 //	      runCommand:
 //	        - ifconfig
 //
-// `),
-//
-//				DocumentFormat: pulumi.String("YAML"),
-//				DocumentType:   pulumi.String("Command"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// `,
+// DocumentFormat: "YAML",
+// DocumentType: "Command",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ## Permissions
 //

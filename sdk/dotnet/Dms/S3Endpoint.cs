@@ -29,7 +29,7 @@ namespace Pulumi.Aws.Dms
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Dms.S3Endpoint("example", new()
+    ///     var example = new Aws.Dms.S3Endpoint.S3Endpoint("example", new()
     ///     {
     ///         EndpointId = "donnedtipi",
     ///         EndpointType = "target",
@@ -55,7 +55,7 @@ namespace Pulumi.Aws.Dms
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Dms.S3Endpoint("example", new()
+    ///     var example = new Aws.Dms.S3Endpoint.S3Endpoint("example", new()
     ///     {
     ///         EndpointId = "donnedtipi",
     ///         EndpointType = "target",

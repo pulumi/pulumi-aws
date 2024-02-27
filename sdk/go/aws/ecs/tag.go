@@ -25,34 +25,32 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/batch"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ecs"
+//	batch/computeEnvironment "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/batch/computeEnvironment"
+//	ecs/tag "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ecs/tag"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleComputeEnvironment, err := batch.NewComputeEnvironment(ctx, "exampleComputeEnvironment", &batch.ComputeEnvironmentArgs{
-//				ComputeEnvironmentName: pulumi.String("example"),
-//				ServiceRole:            pulumi.Any(aws_iam_role.Example.Arn),
-//				Type:                   pulumi.String("UNMANAGED"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ecs.NewTag(ctx, "exampleTag", &ecs.TagArgs{
-//				ResourceArn: exampleComputeEnvironment.EcsClusterArn,
-//				Key:         pulumi.String("Name"),
-//				Value:       pulumi.String("Hello World"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleComputeEnvironment, err := batch/computeEnvironment.NewComputeEnvironment(ctx, "exampleComputeEnvironment", &batch/computeEnvironment.ComputeEnvironmentArgs{
+// ComputeEnvironmentName: "example",
+// ServiceRole: aws_iam_role.Example.Arn,
+// Type: "UNMANAGED",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = ecs/tag.NewTag(ctx, "exampleTag", &ecs/tag.TagArgs{
+// ResourceArn: exampleComputeEnvironment.EcsClusterArn,
+// Key: "Name",
+// Value: "Hello World",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

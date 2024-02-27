@@ -27,7 +27,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.sagemaker.Device;
  * import com.pulumi.aws.sagemaker.DeviceArgs;
- * import com.pulumi.aws.sagemaker.inputs.DeviceDeviceArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -43,9 +42,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Device(&#34;example&#34;, DeviceArgs.builder()        
  *             .deviceFleetName(aws_sagemaker_device_fleet.example().device_fleet_name())
- *             .device(DeviceDeviceArgs.builder()
- *                 .deviceName(&#34;example&#34;)
- *                 .build())
+ *             .device(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

@@ -22,7 +22,7 @@ namespace Pulumi.Aws.RedshiftServerless
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.RedshiftServerless.Workgroup("example", new()
+    ///     var example = new Aws.Redshiftserverless.Workgroup.Workgroup("example", new()
     ///     {
     ///         NamespaceName = "concurrency-scaling",
     ///         WorkgroupName = "concurrency-scaling",

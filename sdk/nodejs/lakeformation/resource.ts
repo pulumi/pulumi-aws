@@ -11,18 +11,6 @@ import * as utilities from "../utilities";
  * When you register the S3 path, the service-linked role and a new inline policy are created on your behalf.
  * Lake Formation adds the first path to the inline policy and attaches it to the service-linked role.
  * When you register subsequent paths, Lake Formation adds the path to the existing policy.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleBucket = aws.s3.getBucket({
- *     bucket: "an-example-bucket",
- * });
- * const exampleResource = new aws.lakeformation.Resource("exampleResource", {arn: exampleBucket.then(exampleBucket => exampleBucket.arn)});
- * ```
  */
 export class Resource extends pulumi.CustomResource {
     /**

@@ -23,26 +23,24 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sagemaker"
+//	sagemaker/project "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/sagemaker/project"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := sagemaker.NewProject(ctx, "example", &sagemaker.ProjectArgs{
-//				ProjectName: pulumi.String("example"),
-//				ServiceCatalogProvisioningDetails: &sagemaker.ProjectServiceCatalogProvisioningDetailsArgs{
-//					ProductId: pulumi.Any(aws_servicecatalog_product.Example.Id),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := sagemaker/project.NewProject(ctx, "example", &sagemaker/project.ProjectArgs{
+// ProjectName: "example",
+// ServiceCatalogProvisioningDetails: map[string]interface{}{
+// "productId": aws_servicecatalog_product.Example.Id,
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

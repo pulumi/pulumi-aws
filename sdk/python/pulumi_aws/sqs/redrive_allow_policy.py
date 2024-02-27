@@ -107,17 +107,17 @@ class RedriveAllowPolicy(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        example_queue = aws.sqs.Queue("exampleQueue")
-        src = aws.sqs.Queue("src", redrive_policy=example_queue.arn.apply(lambda arn: json.dumps({
-            "deadLetterTargetArn": arn,
-            "maxReceiveCount": 4,
-        })))
-        example_redrive_allow_policy = aws.sqs.RedriveAllowPolicy("exampleRedriveAllowPolicy",
+        example_queue = aws.sqs.queue.Queue("exampleQueue")
+        src = aws.sqs.queue.Queue("src", redrive_policy=json.dumps({
+            deadLetterTargetArn: example_queue.arn,
+            maxReceiveCount: 4,
+        }))
+        example_redrive_allow_policy = aws.sqs.redrive_allow_policy.RedriveAllowPolicy("exampleRedriveAllowPolicy",
             queue_url=example_queue.id,
-            redrive_allow_policy=src.arn.apply(lambda arn: json.dumps({
-                "redrivePermission": "byQueue",
-                "sourceQueueArns": [arn],
-            })))
+            redrive_allow_policy=json.dumps({
+                redrivePermission: byQueue,
+                sourceQueueArns: [src.arn],
+            }))
         ```
 
         ## Import
@@ -149,17 +149,17 @@ class RedriveAllowPolicy(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        example_queue = aws.sqs.Queue("exampleQueue")
-        src = aws.sqs.Queue("src", redrive_policy=example_queue.arn.apply(lambda arn: json.dumps({
-            "deadLetterTargetArn": arn,
-            "maxReceiveCount": 4,
-        })))
-        example_redrive_allow_policy = aws.sqs.RedriveAllowPolicy("exampleRedriveAllowPolicy",
+        example_queue = aws.sqs.queue.Queue("exampleQueue")
+        src = aws.sqs.queue.Queue("src", redrive_policy=json.dumps({
+            deadLetterTargetArn: example_queue.arn,
+            maxReceiveCount: 4,
+        }))
+        example_redrive_allow_policy = aws.sqs.redrive_allow_policy.RedriveAllowPolicy("exampleRedriveAllowPolicy",
             queue_url=example_queue.id,
-            redrive_allow_policy=src.arn.apply(lambda arn: json.dumps({
-                "redrivePermission": "byQueue",
-                "sourceQueueArns": [arn],
-            })))
+            redrive_allow_policy=json.dumps({
+                redrivePermission: byQueue,
+                sourceQueueArns: [src.arn],
+            }))
         ```
 
         ## Import

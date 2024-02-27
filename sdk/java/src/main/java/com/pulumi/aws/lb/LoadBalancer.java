@@ -37,7 +37,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.lb.LoadBalancer;
  * import com.pulumi.aws.lb.LoadBalancerArgs;
- * import com.pulumi.aws.lb.inputs.LoadBalancerSubnetMappingArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -54,14 +53,8 @@ import javax.annotation.Nullable;
  *         var example = new LoadBalancer(&#34;example&#34;, LoadBalancerArgs.builder()        
  *             .loadBalancerType(&#34;network&#34;)
  *             .subnetMappings(            
- *                 LoadBalancerSubnetMappingArgs.builder()
- *                     .subnetId(aws_subnet.example1().id())
- *                     .allocationId(aws_eip.example1().id())
- *                     .build(),
- *                 LoadBalancerSubnetMappingArgs.builder()
- *                     .subnetId(aws_subnet.example2().id())
- *                     .allocationId(aws_eip.example2().id())
- *                     .build())
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -76,7 +69,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.lb.LoadBalancer;
  * import com.pulumi.aws.lb.LoadBalancerArgs;
- * import com.pulumi.aws.lb.inputs.LoadBalancerSubnetMappingArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -93,14 +85,8 @@ import javax.annotation.Nullable;
  *         var example = new LoadBalancer(&#34;example&#34;, LoadBalancerArgs.builder()        
  *             .loadBalancerType(&#34;network&#34;)
  *             .subnetMappings(            
- *                 LoadBalancerSubnetMappingArgs.builder()
- *                     .subnetId(aws_subnet.example1().id())
- *                     .privateIpv4Address(&#34;10.0.1.15&#34;)
- *                     .build(),
- *                 LoadBalancerSubnetMappingArgs.builder()
- *                     .subnetId(aws_subnet.example2().id())
- *                     .privateIpv4Address(&#34;10.0.2.15&#34;)
- *                     .build())
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

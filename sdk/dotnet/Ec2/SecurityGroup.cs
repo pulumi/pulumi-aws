@@ -31,7 +31,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var allowTls = new Aws.Ec2.SecurityGroup("allowTls", new()
+    ///     var allowTls = new Aws.Ec2.SecurityGroup.SecurityGroup("allowTls", new()
     ///     {
     ///         Description = "Allow TLS inbound traffic and all outbound traffic",
     ///         VpcId = aws_vpc.Main.Id,
@@ -41,7 +41,7 @@ namespace Pulumi.Aws.Ec2
     ///         },
     ///     });
     /// 
-    ///     var allowTlsIpv4 = new Aws.Vpc.SecurityGroupIngressRule("allowTlsIpv4", new()
+    ///     var allowTlsIpv4 = new Aws.Vpc.SecurityGroupIngressRule.SecurityGroupIngressRule("allowTlsIpv4", new()
     ///     {
     ///         SecurityGroupId = allowTls.Id,
     ///         CidrIpv4 = aws_vpc.Main.Cidr_block,
@@ -50,7 +50,7 @@ namespace Pulumi.Aws.Ec2
     ///         ToPort = 443,
     ///     });
     /// 
-    ///     var allowTlsIpv6 = new Aws.Vpc.SecurityGroupIngressRule("allowTlsIpv6", new()
+    ///     var allowTlsIpv6 = new Aws.Vpc.SecurityGroupIngressRule.SecurityGroupIngressRule("allowTlsIpv6", new()
     ///     {
     ///         SecurityGroupId = allowTls.Id,
     ///         CidrIpv6 = aws_vpc.Main.Ipv6_cidr_block,
@@ -59,7 +59,7 @@ namespace Pulumi.Aws.Ec2
     ///         ToPort = 443,
     ///     });
     /// 
-    ///     var allowAllTrafficIpv4 = new Aws.Vpc.SecurityGroupEgressRule("allowAllTrafficIpv4", new()
+    ///     var allowAllTrafficIpv4 = new Aws.Vpc.SecurityGroupEgressRule.SecurityGroupEgressRule("allowAllTrafficIpv4", new()
     ///     {
     ///         SecurityGroupId = allowTls.Id,
     ///         CidrIpv4 = "0.0.0.0/0",
@@ -67,7 +67,7 @@ namespace Pulumi.Aws.Ec2
     ///     });
     /// 
     ///     // semantically equivalent to all ports
-    ///     var allowAllTrafficIpv6 = new Aws.Vpc.SecurityGroupEgressRule("allowAllTrafficIpv6", new()
+    ///     var allowAllTrafficIpv6 = new Aws.Vpc.SecurityGroupEgressRule.SecurityGroupEgressRule("allowAllTrafficIpv6", new()
     ///     {
     ///         SecurityGroupId = allowTls.Id,
     ///         CidrIpv6 = "::/0",
@@ -88,23 +88,23 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Ec2.SecurityGroup("example", new()
+    ///     var example = new Aws.Ec2.SecurityGroup.SecurityGroup("example", new()
     ///     {
     ///         Egress = new[]
     ///         {
-    ///             new Aws.Ec2.Inputs.SecurityGroupEgressArgs
+    ///             
     ///             {
-    ///                 CidrBlocks = new[]
+    ///                 { "cidrBlocks", new[]
     ///                 {
     ///                     "0.0.0.0/0",
-    ///                 },
-    ///                 FromPort = 0,
-    ///                 Ipv6CidrBlocks = new[]
+    ///                 } },
+    ///                 { "fromPort", 0 },
+    ///                 { "ipv6CidrBlocks", new[]
     ///                 {
     ///                     "::/0",
-    ///                 },
-    ///                 Protocol = "-1",
-    ///                 ToPort = 0,
+    ///                 } },
+    ///                 { "protocol", "-1" },
+    ///                 { "toPort", 0 },
     ///             },
     ///         },
     ///     });
@@ -126,23 +126,23 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var myEndpoint = new Aws.Ec2.VpcEndpoint("myEndpoint");
+    ///     var myEndpoint = new Aws.Ec2.VpcEndpoint.VpcEndpoint("myEndpoint");
     /// 
     ///     // ... other configuration ...
     ///     // ... other configuration ...
-    ///     var example = new Aws.Ec2.SecurityGroup("example", new()
+    ///     var example = new Aws.Ec2.SecurityGroup.SecurityGroup("example", new()
     ///     {
     ///         Egress = new[]
     ///         {
-    ///             new Aws.Ec2.Inputs.SecurityGroupEgressArgs
+    ///             
     ///             {
-    ///                 FromPort = 0,
-    ///                 ToPort = 0,
-    ///                 Protocol = "-1",
-    ///                 PrefixListIds = new[]
+    ///                 { "fromPort", 0 },
+    ///                 { "toPort", 0 },
+    ///                 { "protocol", "-1" },
+    ///                 { "prefixListIds", new[]
     ///                 {
     ///                     myEndpoint.PrefixListId,
-    ///                 },
+    ///                 } },
     ///             },
     ///         },
     ///     });
@@ -163,7 +163,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Ec2.SecurityGroup("example", new()
+    ///     var example = new Aws.Ec2.SecurityGroup.SecurityGroup("example", new()
     ///     {
     ///         VpcId = aws_vpc.Example.Id,
     ///         Ingress = new[] {},
@@ -197,7 +197,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Ec2.SecurityGroup("example");
+    ///     var example = new Aws.Ec2.SecurityGroup.SecurityGroup("example");
     /// 
     /// });
     /// ```
@@ -215,10 +215,10 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleSecurityGroup = new Aws.Ec2.SecurityGroup("exampleSecurityGroup");
+    ///     var exampleSecurityGroup = new Aws.Ec2.SecurityGroup.SecurityGroup("exampleSecurityGroup");
     /// 
     ///     // ... other configuration ...
-    ///     var exampleInstance = new Aws.Ec2.Instance("exampleInstance", new()
+    ///     var exampleInstance = new Aws.Ec2.Instance.Instance("exampleInstance", new()
     ///     {
     ///         InstanceType = "t3.small",
     ///         VpcSecurityGroupIds = new[]
@@ -243,7 +243,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Ec2.SecurityGroup("example");
+    ///     var example = new Aws.Ec2.SecurityGroup.SecurityGroup("example");
     /// 
     /// });
     /// ```

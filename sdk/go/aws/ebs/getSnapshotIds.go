@@ -13,48 +13,6 @@ import (
 
 // Use this data source to get a list of EBS Snapshot IDs matching the specified
 // criteria.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ebs"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ebs.GetSnapshotIds(ctx, &ebs.GetSnapshotIdsArgs{
-//				Filters: []ebs.GetSnapshotIdsFilter{
-//					{
-//						Name: "volume-size",
-//						Values: []string{
-//							"40",
-//						},
-//					},
-//					{
-//						Name: "tag:Name",
-//						Values: []string{
-//							"Example",
-//						},
-//					},
-//				},
-//				Owners: []string{
-//					"self",
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetSnapshotIds(ctx *pulumi.Context, args *GetSnapshotIdsArgs, opts ...pulumi.InvokeOption) (*GetSnapshotIdsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetSnapshotIdsResult

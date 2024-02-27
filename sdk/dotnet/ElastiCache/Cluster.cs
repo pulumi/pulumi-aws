@@ -41,7 +41,7 @@ namespace Pulumi.Aws.ElastiCache
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.ElastiCache.Cluster("example", new()
+    ///     var example = new Aws.Elasticache.Cluster.Cluster("example", new()
     ///     {
     ///         Engine = "memcached",
     ///         NodeType = "cache.m4.large",
@@ -62,7 +62,7 @@ namespace Pulumi.Aws.ElastiCache
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.ElastiCache.Cluster("example", new()
+    ///     var example = new Aws.Elasticache.Cluster.Cluster("example", new()
     ///     {
     ///         Engine = "redis",
     ///         EngineVersion = "3.2.10",
@@ -86,7 +86,7 @@ namespace Pulumi.Aws.ElastiCache
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var replica = new Aws.ElastiCache.Cluster("replica", new()
+    ///     var replica = new Aws.Elasticache.Cluster.Cluster("replica", new()
     ///     {
     ///         ReplicationGroupId = aws_elasticache_replication_group.Example.Id,
     ///     });
@@ -103,7 +103,7 @@ namespace Pulumi.Aws.ElastiCache
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Aws.ElastiCache.Cluster("test", new()
+    ///     var test = new Aws.Elasticache.Cluster.Cluster("test", new()
     ///     {
     ///         Engine = "redis",
     ///         NodeType = "cache.t3.micro",
@@ -112,19 +112,19 @@ namespace Pulumi.Aws.ElastiCache
     ///         ApplyImmediately = true,
     ///         LogDeliveryConfigurations = new[]
     ///         {
-    ///             new Aws.ElastiCache.Inputs.ClusterLogDeliveryConfigurationArgs
+    ///             
     ///             {
-    ///                 Destination = aws_cloudwatch_log_group.Example.Name,
-    ///                 DestinationType = "cloudwatch-logs",
-    ///                 LogFormat = "text",
-    ///                 LogType = "slow-log",
+    ///                 { "destination", aws_cloudwatch_log_group.Example.Name },
+    ///                 { "destinationType", "cloudwatch-logs" },
+    ///                 { "logFormat", "text" },
+    ///                 { "logType", "slow-log" },
     ///             },
-    ///             new Aws.ElastiCache.Inputs.ClusterLogDeliveryConfigurationArgs
+    ///             
     ///             {
-    ///                 Destination = aws_kinesis_firehose_delivery_stream.Example.Name,
-    ///                 DestinationType = "kinesis-firehose",
-    ///                 LogFormat = "json",
-    ///                 LogType = "engine-log",
+    ///                 { "destination", aws_kinesis_firehose_delivery_stream.Example.Name },
+    ///                 { "destinationType", "kinesis-firehose" },
+    ///                 { "logFormat", "json" },
+    ///                 { "logType", "engine-log" },
     ///             },
     ///         },
     ///     });

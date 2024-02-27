@@ -22,37 +22,35 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/rbin"
+//	rbin/rule "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/rbin/rule"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := rbin.NewRule(ctx, "example", &rbin.RuleArgs{
-//				Description: pulumi.String("example_rule"),
-//				ResourceTags: rbin.RuleResourceTagArray{
-//					&rbin.RuleResourceTagArgs{
-//						ResourceTagKey:   pulumi.String("tag_key"),
-//						ResourceTagValue: pulumi.String("tag_value"),
-//					},
-//				},
-//				ResourceType: pulumi.String("EBS_SNAPSHOT"),
-//				RetentionPeriod: &rbin.RuleRetentionPeriodArgs{
-//					RetentionPeriodUnit:  pulumi.String("DAYS"),
-//					RetentionPeriodValue: pulumi.Int(10),
-//				},
-//				Tags: pulumi.StringMap{
-//					"test_tag_key": pulumi.String("test_tag_value"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := rbin/rule.NewRule(ctx, "example", &rbin/rule.RuleArgs{
+// Description: "example_rule",
+// ResourceTags: []map[string]interface{}{
+// map[string]interface{}{
+// "resourceTagKey": "tag_key",
+// "resourceTagValue": "tag_value",
+// },
+// },
+// ResourceType: "EBS_SNAPSHOT",
+// RetentionPeriod: map[string]interface{}{
+// "retentionPeriodUnit": "DAYS",
+// "retentionPeriodValue": 10,
+// },
+// Tags: map[string]interface{}{
+// "test_tag_key": "test_tag_value",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

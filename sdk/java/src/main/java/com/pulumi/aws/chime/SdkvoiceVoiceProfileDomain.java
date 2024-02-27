@@ -31,7 +31,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.kms.KeyArgs;
  * import com.pulumi.aws.chime.SdkvoiceVoiceProfileDomain;
  * import com.pulumi.aws.chime.SdkvoiceVoiceProfileDomainArgs;
- * import com.pulumi.aws.chime.inputs.SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -51,11 +50,9 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleSdkvoiceVoiceProfileDomain = new SdkvoiceVoiceProfileDomain(&#34;exampleSdkvoiceVoiceProfileDomain&#34;, SdkvoiceVoiceProfileDomainArgs.builder()        
- *             .serverSideEncryptionConfiguration(SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgs.builder()
- *                 .kmsKeyArn(exampleKey.arn())
- *                 .build())
+ *             .serverSideEncryptionConfiguration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .description(&#34;My Voice Profile Domain&#34;)
- *             .tags(Map.of(&#34;key1&#34;, &#34;value1&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

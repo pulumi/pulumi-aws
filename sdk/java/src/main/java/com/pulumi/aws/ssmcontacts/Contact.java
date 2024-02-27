@@ -79,7 +79,7 @@ import javax.annotation.Nullable;
  *             .alias(&#34;alias&#34;)
  *             .displayName(&#34;displayName&#34;)
  *             .type(&#34;ESCALATION&#34;)
- *             .tags(Map.of(&#34;key&#34;, &#34;value&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(aws_ssmincidents_replication_set.example())
  *                 .build());

@@ -176,88 +176,6 @@ class BucketReplicationConfig(pulumi.CustomResource):
         > This resource cannot be used with S3 directory buckets.
 
         ## Example Usage
-        ### Using replication configuration
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        central = aws.Provider("central", region="eu-central-1")
-        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["s3.amazonaws.com"],
-            )],
-            actions=["sts:AssumeRole"],
-        )])
-        replication_role = aws.iam.Role("replicationRole", assume_role_policy=assume_role.json)
-        destination_bucket_v2 = aws.s3.BucketV2("destinationBucketV2")
-        source_bucket_v2 = aws.s3.BucketV2("sourceBucketV2", opts=pulumi.ResourceOptions(provider=aws["central"]))
-        replication_policy_document = aws.iam.get_policy_document_output(statements=[
-            aws.iam.GetPolicyDocumentStatementArgs(
-                effect="Allow",
-                actions=[
-                    "s3:GetReplicationConfiguration",
-                    "s3:ListBucket",
-                ],
-                resources=[source_bucket_v2.arn],
-            ),
-            aws.iam.GetPolicyDocumentStatementArgs(
-                effect="Allow",
-                actions=[
-                    "s3:GetObjectVersionForReplication",
-                    "s3:GetObjectVersionAcl",
-                    "s3:GetObjectVersionTagging",
-                ],
-                resources=[source_bucket_v2.arn.apply(lambda arn: f"{arn}/*")],
-            ),
-            aws.iam.GetPolicyDocumentStatementArgs(
-                effect="Allow",
-                actions=[
-                    "s3:ReplicateObject",
-                    "s3:ReplicateDelete",
-                    "s3:ReplicateTags",
-                ],
-                resources=[destination_bucket_v2.arn.apply(lambda arn: f"{arn}/*")],
-            ),
-        ])
-        replication_policy = aws.iam.Policy("replicationPolicy", policy=replication_policy_document.json)
-        replication_role_policy_attachment = aws.iam.RolePolicyAttachment("replicationRolePolicyAttachment",
-            role=replication_role.name,
-            policy_arn=replication_policy.arn)
-        destination_bucket_versioning_v2 = aws.s3.BucketVersioningV2("destinationBucketVersioningV2",
-            bucket=destination_bucket_v2.id,
-            versioning_configuration=aws.s3.BucketVersioningV2VersioningConfigurationArgs(
-                status="Enabled",
-            ))
-        source_bucket_acl = aws.s3.BucketAclV2("sourceBucketAcl",
-            bucket=source_bucket_v2.id,
-            acl="private",
-            opts=pulumi.ResourceOptions(provider=aws["central"]))
-        source_bucket_versioning_v2 = aws.s3.BucketVersioningV2("sourceBucketVersioningV2",
-            bucket=source_bucket_v2.id,
-            versioning_configuration=aws.s3.BucketVersioningV2VersioningConfigurationArgs(
-                status="Enabled",
-            ),
-            opts=pulumi.ResourceOptions(provider=aws["central"]))
-        replication_bucket_replication_config = aws.s3.BucketReplicationConfig("replicationBucketReplicationConfig",
-            role=replication_role.arn,
-            bucket=source_bucket_v2.id,
-            rules=[aws.s3.BucketReplicationConfigRuleArgs(
-                id="foobar",
-                filter=aws.s3.BucketReplicationConfigRuleFilterArgs(
-                    prefix="foo",
-                ),
-                status="Enabled",
-                destination=aws.s3.BucketReplicationConfigRuleDestinationArgs(
-                    bucket=destination_bucket_v2.arn,
-                    storage_class="STANDARD",
-                ),
-            )],
-            opts=pulumi.ResourceOptions(provider=aws["central"],
-                depends_on=[source_bucket_versioning_v2]))
-        ```
         ### Bi-Directional Replication
 
         ```python
@@ -265,48 +183,48 @@ class BucketReplicationConfig(pulumi.CustomResource):
         import pulumi_aws as aws
 
         # ... other configuration ...
-        east_bucket_v2 = aws.s3.BucketV2("eastBucketV2")
-        east_bucket_versioning_v2 = aws.s3.BucketVersioningV2("eastBucketVersioningV2",
+        east_bucket_v2 = aws.s3.bucket_v2.BucketV2("eastBucketV2")
+        east_bucket_versioning_v2 = aws.s3.bucket_versioning_v2.BucketVersioningV2("eastBucketVersioningV2",
             bucket=east_bucket_v2.id,
-            versioning_configuration=aws.s3.BucketVersioningV2VersioningConfigurationArgs(
-                status="Enabled",
-            ))
-        west_bucket_v2 = aws.s3.BucketV2("westBucketV2", opts=pulumi.ResourceOptions(provider=aws["west"]))
-        west_bucket_versioning_v2 = aws.s3.BucketVersioningV2("westBucketVersioningV2",
+            versioning_configuration={
+                status: Enabled,
+            })
+        west_bucket_v2 = aws.s3.bucket_v2.BucketV2("westBucketV2", opts=pulumi.ResourceOptions(provider=aws["west"]))
+        west_bucket_versioning_v2 = aws.s3.bucket_versioning_v2.BucketVersioningV2("westBucketVersioningV2",
             bucket=west_bucket_v2.id,
-            versioning_configuration=aws.s3.BucketVersioningV2VersioningConfigurationArgs(
-                status="Enabled",
-            ),
+            versioning_configuration={
+                status: Enabled,
+            },
             opts=pulumi.ResourceOptions(provider=aws["west"]))
-        east_to_west = aws.s3.BucketReplicationConfig("eastToWest",
-            role=aws_iam_role["east_replication"]["arn"],
+        east_to_west = aws.s3.bucket_replication_config.BucketReplicationConfig("eastToWest",
+            role=aws_iam_role.east_replication.arn,
             bucket=east_bucket_v2.id,
-            rules=[aws.s3.BucketReplicationConfigRuleArgs(
-                id="foobar",
-                filter=aws.s3.BucketReplicationConfigRuleFilterArgs(
-                    prefix="foo",
-                ),
-                status="Enabled",
-                destination=aws.s3.BucketReplicationConfigRuleDestinationArgs(
-                    bucket=west_bucket_v2.arn,
-                    storage_class="STANDARD",
-                ),
-            )],
+            rules=[{
+                id: foobar,
+                filter: {
+                    prefix: foo,
+                },
+                status: Enabled,
+                destination: {
+                    bucket: west_bucket_v2.arn,
+                    storageClass: STANDARD,
+                },
+            }],
             opts=pulumi.ResourceOptions(depends_on=[east_bucket_versioning_v2]))
-        west_to_east = aws.s3.BucketReplicationConfig("westToEast",
-            role=aws_iam_role["west_replication"]["arn"],
+        west_to_east = aws.s3.bucket_replication_config.BucketReplicationConfig("westToEast",
+            role=aws_iam_role.west_replication.arn,
             bucket=west_bucket_v2.id,
-            rules=[aws.s3.BucketReplicationConfigRuleArgs(
-                id="foobar",
-                filter=aws.s3.BucketReplicationConfigRuleFilterArgs(
-                    prefix="foo",
-                ),
-                status="Enabled",
-                destination=aws.s3.BucketReplicationConfigRuleDestinationArgs(
-                    bucket=east_bucket_v2.arn,
-                    storage_class="STANDARD",
-                ),
-            )],
+            rules=[{
+                id: foobar,
+                filter: {
+                    prefix: foo,
+                },
+                status: Enabled,
+                destination: {
+                    bucket: east_bucket_v2.arn,
+                    storageClass: STANDARD,
+                },
+            }],
             opts=pulumi.ResourceOptions(provider=aws["west"],
                 depends_on=[west_bucket_versioning_v2]))
         ```
@@ -341,88 +259,6 @@ class BucketReplicationConfig(pulumi.CustomResource):
         > This resource cannot be used with S3 directory buckets.
 
         ## Example Usage
-        ### Using replication configuration
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        central = aws.Provider("central", region="eu-central-1")
-        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["s3.amazonaws.com"],
-            )],
-            actions=["sts:AssumeRole"],
-        )])
-        replication_role = aws.iam.Role("replicationRole", assume_role_policy=assume_role.json)
-        destination_bucket_v2 = aws.s3.BucketV2("destinationBucketV2")
-        source_bucket_v2 = aws.s3.BucketV2("sourceBucketV2", opts=pulumi.ResourceOptions(provider=aws["central"]))
-        replication_policy_document = aws.iam.get_policy_document_output(statements=[
-            aws.iam.GetPolicyDocumentStatementArgs(
-                effect="Allow",
-                actions=[
-                    "s3:GetReplicationConfiguration",
-                    "s3:ListBucket",
-                ],
-                resources=[source_bucket_v2.arn],
-            ),
-            aws.iam.GetPolicyDocumentStatementArgs(
-                effect="Allow",
-                actions=[
-                    "s3:GetObjectVersionForReplication",
-                    "s3:GetObjectVersionAcl",
-                    "s3:GetObjectVersionTagging",
-                ],
-                resources=[source_bucket_v2.arn.apply(lambda arn: f"{arn}/*")],
-            ),
-            aws.iam.GetPolicyDocumentStatementArgs(
-                effect="Allow",
-                actions=[
-                    "s3:ReplicateObject",
-                    "s3:ReplicateDelete",
-                    "s3:ReplicateTags",
-                ],
-                resources=[destination_bucket_v2.arn.apply(lambda arn: f"{arn}/*")],
-            ),
-        ])
-        replication_policy = aws.iam.Policy("replicationPolicy", policy=replication_policy_document.json)
-        replication_role_policy_attachment = aws.iam.RolePolicyAttachment("replicationRolePolicyAttachment",
-            role=replication_role.name,
-            policy_arn=replication_policy.arn)
-        destination_bucket_versioning_v2 = aws.s3.BucketVersioningV2("destinationBucketVersioningV2",
-            bucket=destination_bucket_v2.id,
-            versioning_configuration=aws.s3.BucketVersioningV2VersioningConfigurationArgs(
-                status="Enabled",
-            ))
-        source_bucket_acl = aws.s3.BucketAclV2("sourceBucketAcl",
-            bucket=source_bucket_v2.id,
-            acl="private",
-            opts=pulumi.ResourceOptions(provider=aws["central"]))
-        source_bucket_versioning_v2 = aws.s3.BucketVersioningV2("sourceBucketVersioningV2",
-            bucket=source_bucket_v2.id,
-            versioning_configuration=aws.s3.BucketVersioningV2VersioningConfigurationArgs(
-                status="Enabled",
-            ),
-            opts=pulumi.ResourceOptions(provider=aws["central"]))
-        replication_bucket_replication_config = aws.s3.BucketReplicationConfig("replicationBucketReplicationConfig",
-            role=replication_role.arn,
-            bucket=source_bucket_v2.id,
-            rules=[aws.s3.BucketReplicationConfigRuleArgs(
-                id="foobar",
-                filter=aws.s3.BucketReplicationConfigRuleFilterArgs(
-                    prefix="foo",
-                ),
-                status="Enabled",
-                destination=aws.s3.BucketReplicationConfigRuleDestinationArgs(
-                    bucket=destination_bucket_v2.arn,
-                    storage_class="STANDARD",
-                ),
-            )],
-            opts=pulumi.ResourceOptions(provider=aws["central"],
-                depends_on=[source_bucket_versioning_v2]))
-        ```
         ### Bi-Directional Replication
 
         ```python
@@ -430,48 +266,48 @@ class BucketReplicationConfig(pulumi.CustomResource):
         import pulumi_aws as aws
 
         # ... other configuration ...
-        east_bucket_v2 = aws.s3.BucketV2("eastBucketV2")
-        east_bucket_versioning_v2 = aws.s3.BucketVersioningV2("eastBucketVersioningV2",
+        east_bucket_v2 = aws.s3.bucket_v2.BucketV2("eastBucketV2")
+        east_bucket_versioning_v2 = aws.s3.bucket_versioning_v2.BucketVersioningV2("eastBucketVersioningV2",
             bucket=east_bucket_v2.id,
-            versioning_configuration=aws.s3.BucketVersioningV2VersioningConfigurationArgs(
-                status="Enabled",
-            ))
-        west_bucket_v2 = aws.s3.BucketV2("westBucketV2", opts=pulumi.ResourceOptions(provider=aws["west"]))
-        west_bucket_versioning_v2 = aws.s3.BucketVersioningV2("westBucketVersioningV2",
+            versioning_configuration={
+                status: Enabled,
+            })
+        west_bucket_v2 = aws.s3.bucket_v2.BucketV2("westBucketV2", opts=pulumi.ResourceOptions(provider=aws["west"]))
+        west_bucket_versioning_v2 = aws.s3.bucket_versioning_v2.BucketVersioningV2("westBucketVersioningV2",
             bucket=west_bucket_v2.id,
-            versioning_configuration=aws.s3.BucketVersioningV2VersioningConfigurationArgs(
-                status="Enabled",
-            ),
+            versioning_configuration={
+                status: Enabled,
+            },
             opts=pulumi.ResourceOptions(provider=aws["west"]))
-        east_to_west = aws.s3.BucketReplicationConfig("eastToWest",
-            role=aws_iam_role["east_replication"]["arn"],
+        east_to_west = aws.s3.bucket_replication_config.BucketReplicationConfig("eastToWest",
+            role=aws_iam_role.east_replication.arn,
             bucket=east_bucket_v2.id,
-            rules=[aws.s3.BucketReplicationConfigRuleArgs(
-                id="foobar",
-                filter=aws.s3.BucketReplicationConfigRuleFilterArgs(
-                    prefix="foo",
-                ),
-                status="Enabled",
-                destination=aws.s3.BucketReplicationConfigRuleDestinationArgs(
-                    bucket=west_bucket_v2.arn,
-                    storage_class="STANDARD",
-                ),
-            )],
+            rules=[{
+                id: foobar,
+                filter: {
+                    prefix: foo,
+                },
+                status: Enabled,
+                destination: {
+                    bucket: west_bucket_v2.arn,
+                    storageClass: STANDARD,
+                },
+            }],
             opts=pulumi.ResourceOptions(depends_on=[east_bucket_versioning_v2]))
-        west_to_east = aws.s3.BucketReplicationConfig("westToEast",
-            role=aws_iam_role["west_replication"]["arn"],
+        west_to_east = aws.s3.bucket_replication_config.BucketReplicationConfig("westToEast",
+            role=aws_iam_role.west_replication.arn,
             bucket=west_bucket_v2.id,
-            rules=[aws.s3.BucketReplicationConfigRuleArgs(
-                id="foobar",
-                filter=aws.s3.BucketReplicationConfigRuleFilterArgs(
-                    prefix="foo",
-                ),
-                status="Enabled",
-                destination=aws.s3.BucketReplicationConfigRuleDestinationArgs(
-                    bucket=east_bucket_v2.arn,
-                    storage_class="STANDARD",
-                ),
-            )],
+            rules=[{
+                id: foobar,
+                filter: {
+                    prefix: foo,
+                },
+                status: Enabled,
+                destination: {
+                    bucket: east_bucket_v2.arn,
+                    storageClass: STANDARD,
+                },
+            }],
             opts=pulumi.ResourceOptions(provider=aws["west"],
                 depends_on=[west_bucket_versioning_v2]))
         ```

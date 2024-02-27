@@ -12,32 +12,6 @@ import (
 )
 
 // Use this data source to get information on an existing backup report plan.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/backup"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := backup.LookupReportPlan(ctx, &backup.LookupReportPlanArgs{
-//				Name: "my_example_backup_report_plan_name",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupReportPlan(ctx *pulumi.Context, args *LookupReportPlanArgs, opts ...pulumi.InvokeOption) (*LookupReportPlanResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupReportPlanResult

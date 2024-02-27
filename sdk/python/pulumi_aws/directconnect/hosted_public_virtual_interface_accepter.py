@@ -140,37 +140,6 @@ class HostedPublicVirtualInterfaceAccepter(pulumi.CustomResource):
         Provides a resource to manage the accepter's side of a Direct Connect hosted public virtual interface.
         This resource accepts ownership of a public virtual interface created by another AWS account.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        accepter = aws.Provider("accepter")
-        # Accepter's credentials.
-        accepter_caller_identity = aws.get_caller_identity()
-        # Creator's side of the VIF
-        creator = aws.directconnect.HostedPublicVirtualInterface("creator",
-            connection_id="dxcon-zzzzzzzz",
-            owner_account_id=accepter_caller_identity.account_id,
-            vlan=4094,
-            address_family="ipv4",
-            bgp_asn=65352,
-            customer_address="175.45.176.1/30",
-            amazon_address="175.45.176.2/30",
-            route_filter_prefixes=[
-                "210.52.109.0/24",
-                "175.45.176.0/22",
-            ])
-        # Accepter's side of the VIF.
-        accepter_hosted_public_virtual_interface_accepter = aws.directconnect.HostedPublicVirtualInterfaceAccepter("accepterHostedPublicVirtualInterfaceAccepter",
-            virtual_interface_id=creator.id,
-            tags={
-                "Side": "Accepter",
-            },
-            opts=pulumi.ResourceOptions(provider=aws["accepter"]))
-        ```
-
         ## Import
 
         Using `pulumi import`, import Direct Connect hosted public virtual interfaces using the VIF `id`. For example:
@@ -193,37 +162,6 @@ class HostedPublicVirtualInterfaceAccepter(pulumi.CustomResource):
         """
         Provides a resource to manage the accepter's side of a Direct Connect hosted public virtual interface.
         This resource accepts ownership of a public virtual interface created by another AWS account.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        accepter = aws.Provider("accepter")
-        # Accepter's credentials.
-        accepter_caller_identity = aws.get_caller_identity()
-        # Creator's side of the VIF
-        creator = aws.directconnect.HostedPublicVirtualInterface("creator",
-            connection_id="dxcon-zzzzzzzz",
-            owner_account_id=accepter_caller_identity.account_id,
-            vlan=4094,
-            address_family="ipv4",
-            bgp_asn=65352,
-            customer_address="175.45.176.1/30",
-            amazon_address="175.45.176.2/30",
-            route_filter_prefixes=[
-                "210.52.109.0/24",
-                "175.45.176.0/22",
-            ])
-        # Accepter's side of the VIF.
-        accepter_hosted_public_virtual_interface_accepter = aws.directconnect.HostedPublicVirtualInterfaceAccepter("accepterHostedPublicVirtualInterfaceAccepter",
-            virtual_interface_id=creator.id,
-            tags={
-                "Side": "Accepter",
-            },
-            opts=pulumi.ResourceOptions(provider=aws["accepter"]))
-        ```
 
         ## Import
 

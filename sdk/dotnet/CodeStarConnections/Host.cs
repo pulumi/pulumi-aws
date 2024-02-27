@@ -24,7 +24,7 @@ namespace Pulumi.Aws.CodeStarConnections
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.CodeStarConnections.Host("example", new()
+    ///     var example = new Aws.Codestarconnections.Host.Host("example", new()
     ///     {
     ///         ProviderEndpoint = "https://example.com",
     ///         ProviderType = "GitHubEnterpriseServer",

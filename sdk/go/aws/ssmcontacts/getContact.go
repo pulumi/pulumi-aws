@@ -14,31 +14,6 @@ import (
 // Data source for managing an AWS SSM Contact.
 //
 // ## Example Usage
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssmcontacts"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ssmcontacts.LookupContact(ctx, &ssmcontacts.LookupContactArgs{
-//				Arn: "arn:aws:ssm-contacts:us-west-2:123456789012:contact/contactalias",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupContact(ctx *pulumi.Context, args *LookupContactArgs, opts ...pulumi.InvokeOption) (*LookupContactResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupContactResult

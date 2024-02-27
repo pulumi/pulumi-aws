@@ -21,27 +21,25 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/gamelift"
+//	gamelift/alias "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/gamelift/alias"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := gamelift.NewAlias(ctx, "example", &gamelift.AliasArgs{
-//				Description: pulumi.String("Example Description"),
-//				RoutingStrategy: &gamelift.AliasRoutingStrategyArgs{
-//					Message: pulumi.String("Example Message"),
-//					Type:    pulumi.String("TERMINAL"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := gamelift/alias.NewAlias(ctx, "example", &gamelift/alias.AliasArgs{
+// Description: "Example Description",
+// RoutingStrategy: map[string]interface{}{
+// "message": "Example Message",
+// "type": "TERMINAL",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

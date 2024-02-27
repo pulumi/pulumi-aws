@@ -26,7 +26,7 @@ namespace Pulumi.Aws.ServiceCatalog
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.ServiceCatalog.Constraint("example", new()
+    ///     var example = new Aws.Servicecatalog.Constraint.Constraint("example", new()
     ///     {
     ///         Description = "Back off, man. I'm a scientist.",
     ///         PortfolioId = aws_servicecatalog_portfolio.Example.Id,

@@ -31,7 +31,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.ecs.Cluster;
  * import com.pulumi.aws.ecs.ClusterCapacityProviders;
  * import com.pulumi.aws.ecs.ClusterCapacityProvidersArgs;
- * import com.pulumi.aws.ecs.inputs.ClusterCapacityProvidersDefaultCapacityProviderStrategyArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -50,11 +49,7 @@ import javax.annotation.Nullable;
  *         var exampleClusterCapacityProviders = new ClusterCapacityProviders(&#34;exampleClusterCapacityProviders&#34;, ClusterCapacityProvidersArgs.builder()        
  *             .clusterName(exampleCluster.name())
  *             .capacityProviders(&#34;FARGATE&#34;)
- *             .defaultCapacityProviderStrategies(ClusterCapacityProvidersDefaultCapacityProviderStrategyArgs.builder()
- *                 .base(1)
- *                 .weight(100)
- *                 .capacityProvider(&#34;FARGATE&#34;)
- *                 .build())
+ *             .defaultCapacityProviderStrategies(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

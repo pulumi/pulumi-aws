@@ -22,30 +22,29 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/pinpoint"
+//	pinpoint/admChannel "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/pinpoint/admChannel"
+//	pinpoint/app "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/pinpoint/app"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			app, err := pinpoint.NewApp(ctx, "app", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = pinpoint.NewAdmChannel(ctx, "channel", &pinpoint.AdmChannelArgs{
-//				ApplicationId: app.ApplicationId,
-//				ClientId:      pulumi.String(""),
-//				ClientSecret:  pulumi.String(""),
-//				Enabled:       pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// app, err := pinpoint/app.NewApp(ctx, "app", nil)
+// if err != nil {
+// return err
+// }
+// _, err = pinpoint/admChannel.NewAdmChannel(ctx, "channel", &pinpoint/admChannel.AdmChannelArgs{
+// ApplicationId: app.ApplicationId,
+// ClientId: "",
+// ClientSecret: "",
+// Enabled: true,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

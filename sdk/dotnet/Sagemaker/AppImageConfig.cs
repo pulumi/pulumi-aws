@@ -23,15 +23,15 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Aws.Sagemaker.AppImageConfig("test", new()
+    ///     var test = new Aws.Sagemaker.AppImageConfig.AppImageConfig("test", new()
     ///     {
     ///         AppImageConfigName = "example",
-    ///         KernelGatewayImageConfig = new Aws.Sagemaker.Inputs.AppImageConfigKernelGatewayImageConfigArgs
+    ///         KernelGatewayImageConfig = 
     ///         {
-    ///             KernelSpec = new Aws.Sagemaker.Inputs.AppImageConfigKernelGatewayImageConfigKernelSpecArgs
+    ///             { "kernelSpec", 
     ///             {
-    ///                 Name = "example",
-    ///             },
+    ///                 { "name", "example" },
+    ///             } },
     ///         },
     ///     });
     /// 
@@ -47,16 +47,16 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Aws.Sagemaker.AppImageConfig("test", new()
+    ///     var test = new Aws.Sagemaker.AppImageConfig.AppImageConfig("test", new()
     ///     {
     ///         AppImageConfigName = "example",
-    ///         KernelGatewayImageConfig = new Aws.Sagemaker.Inputs.AppImageConfigKernelGatewayImageConfigArgs
+    ///         KernelGatewayImageConfig = 
     ///         {
-    ///             FileSystemConfig = null,
-    ///             KernelSpec = new Aws.Sagemaker.Inputs.AppImageConfigKernelGatewayImageConfigKernelSpecArgs
+    ///             { "fileSystemConfig", null },
+    ///             { "kernelSpec", 
     ///             {
-    ///                 Name = "example",
-    ///             },
+    ///                 { "name", "example" },
+    ///             } },
     ///         },
     ///     });
     /// 

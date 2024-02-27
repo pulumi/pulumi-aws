@@ -23,7 +23,7 @@ namespace Pulumi.Aws.Kms
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Kms.ExternalKey("example", new()
+    ///     var example = new Aws.Kms.ExternalKey.ExternalKey("example", new()
     ///     {
     ///         Description = "KMS EXTERNAL for AMI encryption",
     ///     });

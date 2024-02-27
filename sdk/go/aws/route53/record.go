@@ -22,29 +22,27 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53"
+//	route53/record "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/route53/record"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := route53.NewRecord(ctx, "www", &route53.RecordArgs{
-//				ZoneId: pulumi.Any(aws_route53_zone.Primary.Zone_id),
-//				Name:   pulumi.String("www.example.com"),
-//				Type:   pulumi.String("A"),
-//				Ttl:    pulumi.Int(300),
-//				Records: pulumi.StringArray{
-//					aws_eip.Lb.Public_ip,
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := route53/record.NewRecord(ctx, "www", &route53/record.RecordArgs{
+// ZoneId: aws_route53_zone.Primary.Zone_id,
+// Name: "www.example.com",
+// Type: "A",
+// Ttl: 300,
+// Records: []interface{}{
+// aws_eip.Lb.Public_ip,
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Weighted routing policy
 //
@@ -55,53 +53,51 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53"
+//	route53/record "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/route53/record"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := route53.NewRecord(ctx, "www-dev", &route53.RecordArgs{
-//				ZoneId: pulumi.Any(aws_route53_zone.Primary.Zone_id),
-//				Name:   pulumi.String("www"),
-//				Type:   pulumi.String("CNAME"),
-//				Ttl:    pulumi.Int(5),
-//				WeightedRoutingPolicies: route53.RecordWeightedRoutingPolicyArray{
-//					&route53.RecordWeightedRoutingPolicyArgs{
-//						Weight: pulumi.Int(10),
-//					},
-//				},
-//				SetIdentifier: pulumi.String("dev"),
-//				Records: pulumi.StringArray{
-//					pulumi.String("dev.example.com"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = route53.NewRecord(ctx, "www-live", &route53.RecordArgs{
-//				ZoneId: pulumi.Any(aws_route53_zone.Primary.Zone_id),
-//				Name:   pulumi.String("www"),
-//				Type:   pulumi.String("CNAME"),
-//				Ttl:    pulumi.Int(5),
-//				WeightedRoutingPolicies: route53.RecordWeightedRoutingPolicyArray{
-//					&route53.RecordWeightedRoutingPolicyArgs{
-//						Weight: pulumi.Int(90),
-//					},
-//				},
-//				SetIdentifier: pulumi.String("live"),
-//				Records: pulumi.StringArray{
-//					pulumi.String("live.example.com"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := route53/record.NewRecord(ctx, "www-dev", &route53/record.RecordArgs{
+// ZoneId: aws_route53_zone.Primary.Zone_id,
+// Name: "www",
+// Type: "CNAME",
+// Ttl: 5,
+// WeightedRoutingPolicies: []map[string]interface{}{
+// map[string]interface{}{
+// "weight": 10,
+// },
+// },
+// SetIdentifier: "dev",
+// Records: []string{
+// "dev.example.com",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = route53/record.NewRecord(ctx, "www-live", &route53/record.RecordArgs{
+// ZoneId: aws_route53_zone.Primary.Zone_id,
+// Name: "www",
+// Type: "CNAME",
+// Ttl: 5,
+// WeightedRoutingPolicies: []map[string]interface{}{
+// map[string]interface{}{
+// "weight": 90,
+// },
+// },
+// SetIdentifier: "live",
+// Records: []string{
+// "live.example.com",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Geoproximity routing policy
 //
@@ -110,38 +106,36 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53"
+//	route53/record "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/route53/record"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := route53.NewRecord(ctx, "www", &route53.RecordArgs{
-//				ZoneId: pulumi.Any(aws_route53_zone.Primary.Zone_id),
-//				Name:   pulumi.String("www.example.com"),
-//				Type:   pulumi.String("CNAME"),
-//				Ttl:    pulumi.Int(300),
-//				GeoproximityRoutingPolicy: &route53.RecordGeoproximityRoutingPolicyArgs{
-//					Coordinates: route53.RecordGeoproximityRoutingPolicyCoordinateArray{
-//						&route53.RecordGeoproximityRoutingPolicyCoordinateArgs{
-//							Latitude:  pulumi.String("49.22"),
-//							Longitude: pulumi.String("-74.01"),
-//						},
-//					},
-//				},
-//				SetIdentifier: pulumi.String("dev"),
-//				Records: pulumi.StringArray{
-//					pulumi.String("dev.example.com"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := route53/record.NewRecord(ctx, "www", &route53/record.RecordArgs{
+// ZoneId: aws_route53_zone.Primary.Zone_id,
+// Name: "www.example.com",
+// Type: "CNAME",
+// Ttl: 300,
+// GeoproximityRoutingPolicy: map[string]interface{}{
+// "coordinates": []map[string]interface{}{
+// map[string]interface{}{
+// "latitude": "49.22",
+// "longitude": "-74.01",
+// },
+// },
+// },
+// SetIdentifier: "dev",
+// Records: []string{
+// "dev.example.com",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Alias record
 //
@@ -156,49 +150,47 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/elb"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53"
+//	elb/loadBalancer "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/elb/loadBalancer"
+//	route53/record "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/route53/record"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			main, err := elb.NewLoadBalancer(ctx, "main", &elb.LoadBalancerArgs{
-//				AvailabilityZones: pulumi.StringArray{
-//					pulumi.String("us-east-1c"),
-//				},
-//				Listeners: elb.LoadBalancerListenerArray{
-//					&elb.LoadBalancerListenerArgs{
-//						InstancePort:     pulumi.Int(80),
-//						InstanceProtocol: pulumi.String("http"),
-//						LbPort:           pulumi.Int(80),
-//						LbProtocol:       pulumi.String("http"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = route53.NewRecord(ctx, "www", &route53.RecordArgs{
-//				ZoneId: pulumi.Any(aws_route53_zone.Primary.Zone_id),
-//				Name:   pulumi.String("example.com"),
-//				Type:   pulumi.String("A"),
-//				Aliases: route53.RecordAliasArray{
-//					&route53.RecordAliasArgs{
-//						Name:                 main.DnsName,
-//						ZoneId:               main.ZoneId,
-//						EvaluateTargetHealth: pulumi.Bool(true),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// main, err := elb/loadBalancer.NewLoadBalancer(ctx, "main", &elb/loadBalancer.LoadBalancerArgs{
+// AvailabilityZones: []string{
+// "us-east-1c",
+// },
+// Listeners: []map[string]interface{}{
+// map[string]interface{}{
+// "instancePort": 80,
+// "instanceProtocol": "http",
+// "lbPort": 80,
+// "lbProtocol": "http",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = route53/record.NewRecord(ctx, "www", &route53/record.RecordArgs{
+// ZoneId: aws_route53_zone.Primary.Zone_id,
+// Name: "example.com",
+// Type: "A",
+// Aliases: []map[string]interface{}{
+// map[string]interface{}{
+// "name": main.DnsName,
+// "zoneId": main.ZoneId,
+// "evaluateTargetHealth": true,
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### NS and SOA Record Management
 //
@@ -209,45 +201,36 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53"
+//	route53/record "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/route53/record"
+//	route53/zone "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/route53/zone"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleZone, err := route53.NewZone(ctx, "exampleZone", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = route53.NewRecord(ctx, "exampleRecord", &route53.RecordArgs{
-//				AllowOverwrite: pulumi.Bool(true),
-//				Name:           pulumi.String("test.example.com"),
-//				Ttl:            pulumi.Int(172800),
-//				Type:           pulumi.String("NS"),
-//				ZoneId:         exampleZone.ZoneId,
-//				Records: pulumi.StringArray{
-//					exampleZone.NameServers.ApplyT(func(nameServers []string) (string, error) {
-//						return nameServers[0], nil
-//					}).(pulumi.StringOutput),
-//					exampleZone.NameServers.ApplyT(func(nameServers []string) (string, error) {
-//						return nameServers[1], nil
-//					}).(pulumi.StringOutput),
-//					exampleZone.NameServers.ApplyT(func(nameServers []string) (string, error) {
-//						return nameServers[2], nil
-//					}).(pulumi.StringOutput),
-//					exampleZone.NameServers.ApplyT(func(nameServers []string) (string, error) {
-//						return nameServers[3], nil
-//					}).(pulumi.StringOutput),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleZone, err := route53/zone.NewZone(ctx, "exampleZone", nil)
+// if err != nil {
+// return err
+// }
+// _, err = route53/record.NewRecord(ctx, "exampleRecord", &route53/record.RecordArgs{
+// AllowOverwrite: true,
+// Name: "test.example.com",
+// Ttl: 172800,
+// Type: "NS",
+// ZoneId: exampleZone.ZoneId,
+// Records: []interface{}{
+// exampleZone.NameServers[0],
+// exampleZone.NameServers[1],
+// exampleZone.NameServers[2],
+// exampleZone.NameServers[3],
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

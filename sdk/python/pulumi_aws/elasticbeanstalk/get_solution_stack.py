@@ -80,16 +80,6 @@ def get_solution_stack(most_recent: Optional[bool] = None,
     """
     Use this data source to get the name of a elastic beanstalk solution stack.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    multi_docker = aws.elasticbeanstalk.get_solution_stack(most_recent=True,
-        name_regex="^64bit Amazon Linux (.*) Multi-container Docker (.*)$")
-    ```
-
 
     :param bool most_recent: If more than one result is returned, use the most
            recent solution stack.
@@ -120,16 +110,6 @@ def get_solution_stack_output(most_recent: Optional[pulumi.Input[Optional[bool]]
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSolutionStackResult]:
     """
     Use this data source to get the name of a elastic beanstalk solution stack.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    multi_docker = aws.elasticbeanstalk.get_solution_stack(most_recent=True,
-        name_regex="^64bit Amazon Linux (.*) Multi-container Docker (.*)$")
-    ```
 
 
     :param bool most_recent: If more than one result is returned, use the most

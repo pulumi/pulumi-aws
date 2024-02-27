@@ -24,7 +24,7 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Sagemaker.Pipeline("example", new()
+    ///     var example = new Aws.Sagemaker.Pipeline.Pipeline("example", new()
     ///     {
     ///         PipelineName = "example",
     ///         PipelineDisplayName = "example",

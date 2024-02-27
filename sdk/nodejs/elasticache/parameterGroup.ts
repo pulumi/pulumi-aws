@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const _default = new aws.elasticache.ParameterGroup("default", {
+ * const _default = new aws.elasticache/parameterGroup.ParameterGroup("default", {
  *     family: "redis2.8",
  *     parameters: [
  *         {

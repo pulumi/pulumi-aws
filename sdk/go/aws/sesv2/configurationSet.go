@@ -22,41 +22,39 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sesv2"
+//	sesv2/configurationSet "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/sesv2/configurationSet"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := sesv2.NewConfigurationSet(ctx, "example", &sesv2.ConfigurationSetArgs{
-//				ConfigurationSetName: pulumi.String("example"),
-//				DeliveryOptions: &sesv2.ConfigurationSetDeliveryOptionsArgs{
-//					TlsPolicy: pulumi.String("REQUIRE"),
-//				},
-//				ReputationOptions: &sesv2.ConfigurationSetReputationOptionsArgs{
-//					ReputationMetricsEnabled: pulumi.Bool(false),
-//				},
-//				SendingOptions: &sesv2.ConfigurationSetSendingOptionsArgs{
-//					SendingEnabled: pulumi.Bool(true),
-//				},
-//				SuppressionOptions: &sesv2.ConfigurationSetSuppressionOptionsArgs{
-//					SuppressedReasons: pulumi.StringArray{
-//						pulumi.String("BOUNCE"),
-//						pulumi.String("COMPLAINT"),
-//					},
-//				},
-//				TrackingOptions: &sesv2.ConfigurationSetTrackingOptionsArgs{
-//					CustomRedirectDomain: pulumi.String("example.com"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := sesv2/configurationSet.NewConfigurationSet(ctx, "example", &sesv2/configurationSet.ConfigurationSetArgs{
+// ConfigurationSetName: "example",
+// DeliveryOptions: map[string]interface{}{
+// "tlsPolicy": "REQUIRE",
+// },
+// ReputationOptions: map[string]interface{}{
+// "reputationMetricsEnabled": false,
+// },
+// SendingOptions: map[string]interface{}{
+// "sendingEnabled": true,
+// },
+// SuppressionOptions: map[string]interface{}{
+// "suppressedReasons": []string{
+// "BOUNCE",
+// "COMPLAINT",
+// },
+// },
+// TrackingOptions: map[string]interface{}{
+// "customRedirectDomain": "example.com",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

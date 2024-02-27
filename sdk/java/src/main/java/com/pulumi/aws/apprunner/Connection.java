@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *         var example = new Connection(&#34;example&#34;, ConnectionArgs.builder()        
  *             .connectionName(&#34;example&#34;)
  *             .providerType(&#34;GITHUB&#34;)
- *             .tags(Map.of(&#34;Name&#34;, &#34;example-apprunner-connection&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

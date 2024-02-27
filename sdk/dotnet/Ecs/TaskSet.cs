@@ -24,19 +24,48 @@ namespace Pulumi.Aws.Ecs
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Ecs.TaskSet("example", new()
+    ///     var example = new Aws.Ecs.TaskSet.TaskSet("example", new()
     ///     {
     ///         Service = aws_ecs_service.Example.Id,
     ///         Cluster = aws_ecs_cluster.Example.Id,
     ///         TaskDefinition = aws_ecs_task_definition.Example.Arn,
     ///         LoadBalancers = new[]
     ///         {
-    ///             new Aws.Ecs.Inputs.TaskSetLoadBalancerArgs
+    ///             
     ///             {
-    ///                 TargetGroupArn = aws_lb_target_group.Example.Arn,
-    ///                 ContainerName = "mongo",
-    ///                 ContainerPort = 8080,
+    ///                 { "targetGroupArn", aws_lb_target_group.Example.Arn },
+    ///                 { "containerName", "mongo" },
+    ///                 { "containerPort", 8080 },
     ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### Ignoring Changes to Scale
+    /// 
+    /// You can utilize the generic resource lifecycle configuration block with `ignore_changes` to create an ECS service with an initial count of running instances, then ignore any changes to that count caused externally (e.g. Application Autoscaling).
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Ecs.TaskSet.TaskSet("example", new()
+    ///     {
+    ///         Lifecycle = 
+    ///         {
+    ///             { "ignoreChanges", new[]
+    ///             {
+    ///                 "scale",
+    ///             } },
+    ///         },
+    ///         Scale = 
+    ///         {
+    ///             { "value", 50 },
     ///         },
     ///     });
     /// 

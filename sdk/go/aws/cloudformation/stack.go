@@ -22,55 +22,24 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudformation"
+//	cloudformation/stack "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/cloudformation/stack"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"Parameters": map[string]interface{}{
-//					"VPCCidr": map[string]interface{}{
-//						"Type":        "String",
-//						"Default":     "10.0.0.0/16",
-//						"Description": "Enter the CIDR block for the VPC. Default is 10.0.0.0/16.",
-//					},
-//				},
-//				"Resources": map[string]interface{}{
-//					"myVpc": map[string]interface{}{
-//						"Type": "AWS::EC2::VPC",
-//						"Properties": map[string]interface{}{
-//							"CidrBlock": map[string]interface{}{
-//								"Ref": "VPCCidr",
-//							},
-//							"Tags": []map[string]interface{}{
-//								map[string]interface{}{
-//									"Key":   "Name",
-//									"Value": "Primary_CF_VPC",
-//								},
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			_, err = cloudformation.NewStack(ctx, "network", &cloudformation.StackArgs{
-//				Parameters: pulumi.StringMap{
-//					"VPCCidr": pulumi.String("10.0.0.0/16"),
-//				},
-//				TemplateBody: pulumi.String(json0),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := cloudformation/stack.NewStack(ctx, "network", &cloudformation/stack.StackArgs{
+// Parameters: map[string]interface{}{
+// "VPCCidr": "10.0.0.0/16",
+// },
+// TemplateBody: %!v(PANIC=Format method: fatal: An assertion has failed: unlowered function toJSON),
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

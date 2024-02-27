@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.securitylake.DataLake("example", {
+ * const example = new aws.securitylake/dataLake.DataLake("example", {
  *     metaStoreManagerRoleArn: aws_iam_role.meta_store_manager.arn,
  *     configuration: {
  *         region: "eu-west-1",
@@ -47,7 +47,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.securitylake.DataLake("example", {
+ * const example = new aws.securitylake/dataLake.DataLake("example", {
  *     metaStoreManagerRoleArn: aws_iam_role.meta_store_manager.arn,
  *     configuration: {
  *         region: "eu-west-1",

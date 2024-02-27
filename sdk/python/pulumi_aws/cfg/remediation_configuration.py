@@ -399,39 +399,39 @@ class RemediationConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        this_rule = aws.cfg.Rule("thisRule", source=aws.cfg.RuleSourceArgs(
-            owner="AWS",
-            source_identifier="S3_BUCKET_VERSIONING_ENABLED",
-        ))
-        this_remediation_configuration = aws.cfg.RemediationConfiguration("thisRemediationConfiguration",
+        this_rule = aws.cfg.rule.Rule("thisRule", source={
+            owner: AWS,
+            sourceIdentifier: S3_BUCKET_VERSIONING_ENABLED,
+        })
+        this_remediation_configuration = aws.cfg.remediation_configuration.RemediationConfiguration("thisRemediationConfiguration",
             config_rule_name=this_rule.name,
-            resource_type="AWS::S3::Bucket",
-            target_type="SSM_DOCUMENT",
-            target_id="AWS-EnableS3BucketEncryption",
-            target_version="1",
+            resource_type=AWS::S3::Bucket,
+            target_type=SSM_DOCUMENT,
+            target_id=AWS-EnableS3BucketEncryption,
+            target_version=1,
             parameters=[
-                aws.cfg.RemediationConfigurationParameterArgs(
-                    name="AutomationAssumeRole",
-                    static_value="arn:aws:iam::875924563244:role/security_config",
-                ),
-                aws.cfg.RemediationConfigurationParameterArgs(
-                    name="BucketName",
-                    resource_value="RESOURCE_ID",
-                ),
-                aws.cfg.RemediationConfigurationParameterArgs(
-                    name="SSEAlgorithm",
-                    static_value="AES256",
-                ),
+                {
+                    name: AutomationAssumeRole,
+                    staticValue: arn:aws:iam::875924563244:role/security_config,
+                },
+                {
+                    name: BucketName,
+                    resourceValue: RESOURCE_ID,
+                },
+                {
+                    name: SSEAlgorithm,
+                    staticValue: AES256,
+                },
             ],
             automatic=True,
             maximum_automatic_attempts=10,
             retry_attempt_seconds=600,
-            execution_controls=aws.cfg.RemediationConfigurationExecutionControlsArgs(
-                ssm_controls=aws.cfg.RemediationConfigurationExecutionControlsSsmControlsArgs(
-                    concurrent_execution_rate_percentage=25,
-                    error_percentage=20,
-                ),
-            ))
+            execution_controls={
+                ssmControls: {
+                    concurrentExecutionRatePercentage: 25,
+                    errorPercentage: 20,
+                },
+            })
         ```
 
         ## Import
@@ -476,39 +476,39 @@ class RemediationConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        this_rule = aws.cfg.Rule("thisRule", source=aws.cfg.RuleSourceArgs(
-            owner="AWS",
-            source_identifier="S3_BUCKET_VERSIONING_ENABLED",
-        ))
-        this_remediation_configuration = aws.cfg.RemediationConfiguration("thisRemediationConfiguration",
+        this_rule = aws.cfg.rule.Rule("thisRule", source={
+            owner: AWS,
+            sourceIdentifier: S3_BUCKET_VERSIONING_ENABLED,
+        })
+        this_remediation_configuration = aws.cfg.remediation_configuration.RemediationConfiguration("thisRemediationConfiguration",
             config_rule_name=this_rule.name,
-            resource_type="AWS::S3::Bucket",
-            target_type="SSM_DOCUMENT",
-            target_id="AWS-EnableS3BucketEncryption",
-            target_version="1",
+            resource_type=AWS::S3::Bucket,
+            target_type=SSM_DOCUMENT,
+            target_id=AWS-EnableS3BucketEncryption,
+            target_version=1,
             parameters=[
-                aws.cfg.RemediationConfigurationParameterArgs(
-                    name="AutomationAssumeRole",
-                    static_value="arn:aws:iam::875924563244:role/security_config",
-                ),
-                aws.cfg.RemediationConfigurationParameterArgs(
-                    name="BucketName",
-                    resource_value="RESOURCE_ID",
-                ),
-                aws.cfg.RemediationConfigurationParameterArgs(
-                    name="SSEAlgorithm",
-                    static_value="AES256",
-                ),
+                {
+                    name: AutomationAssumeRole,
+                    staticValue: arn:aws:iam::875924563244:role/security_config,
+                },
+                {
+                    name: BucketName,
+                    resourceValue: RESOURCE_ID,
+                },
+                {
+                    name: SSEAlgorithm,
+                    staticValue: AES256,
+                },
             ],
             automatic=True,
             maximum_automatic_attempts=10,
             retry_attempt_seconds=600,
-            execution_controls=aws.cfg.RemediationConfigurationExecutionControlsArgs(
-                ssm_controls=aws.cfg.RemediationConfigurationExecutionControlsSsmControlsArgs(
-                    concurrent_execution_rate_percentage=25,
-                    error_percentage=20,
-                ),
-            ))
+            execution_controls={
+                ssmControls: {
+                    concurrentExecutionRatePercentage: 25,
+                    errorPercentage: 20,
+                },
+            })
         ```
 
         ## Import

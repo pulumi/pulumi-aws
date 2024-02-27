@@ -82,8 +82,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.autoscaling.Policy;
  * import com.pulumi.aws.autoscaling.PolicyArgs;
- * import com.pulumi.aws.autoscaling.inputs.PolicyTargetTrackingConfigurationArgs;
- * import com.pulumi.aws.autoscaling.inputs.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -100,50 +98,7 @@ import javax.annotation.Nullable;
  *         var example = new Policy(&#34;example&#34;, PolicyArgs.builder()        
  *             .autoscalingGroupName(&#34;my-test-asg&#34;)
  *             .policyType(&#34;TargetTrackingScaling&#34;)
- *             .targetTrackingConfiguration(PolicyTargetTrackingConfigurationArgs.builder()
- *                 .customizedMetricSpecification(PolicyTargetTrackingConfigurationCustomizedMetricSpecificationArgs.builder()
- *                     .metrics(                    
- *                         PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricArgs.builder()
- *                             .id(&#34;m1&#34;)
- *                             .label(&#34;Get the queue size (the number of messages waiting to be processed)&#34;)
- *                             .metricStat(PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatArgs.builder()
- *                                 .metric(PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricArgs.builder()
- *                                     .dimensions(PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionArgs.builder()
- *                                         .name(&#34;QueueName&#34;)
- *                                         .value(&#34;my-queue&#34;)
- *                                         .build())
- *                                     .metricName(&#34;ApproximateNumberOfMessagesVisible&#34;)
- *                                     .namespace(&#34;AWS/SQS&#34;)
- *                                     .build())
- *                                 .stat(&#34;Sum&#34;)
- *                                 .build())
- *                             .returnData(false)
- *                             .build(),
- *                         PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricArgs.builder()
- *                             .id(&#34;m2&#34;)
- *                             .label(&#34;Get the group size (the number of InService instances)&#34;)
- *                             .metricStat(PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatArgs.builder()
- *                                 .metric(PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricArgs.builder()
- *                                     .dimensions(PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionArgs.builder()
- *                                         .name(&#34;AutoScalingGroupName&#34;)
- *                                         .value(&#34;my-asg&#34;)
- *                                         .build())
- *                                     .metricName(&#34;GroupInServiceInstances&#34;)
- *                                     .namespace(&#34;AWS/AutoScaling&#34;)
- *                                     .build())
- *                                 .stat(&#34;Average&#34;)
- *                                 .build())
- *                             .returnData(false)
- *                             .build(),
- *                         PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricArgs.builder()
- *                             .expression(&#34;m1 / m2&#34;)
- *                             .id(&#34;e1&#34;)
- *                             .label(&#34;Calculate the backlog per instance&#34;)
- *                             .returnData(true)
- *                             .build())
- *                     .build())
- *                 .targetValue(100)
- *                 .build())
+ *             .targetTrackingConfiguration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -158,11 +113,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.autoscaling.Policy;
  * import com.pulumi.aws.autoscaling.PolicyArgs;
- * import com.pulumi.aws.autoscaling.inputs.PolicyPredictiveScalingConfigurationArgs;
- * import com.pulumi.aws.autoscaling.inputs.PolicyPredictiveScalingConfigurationMetricSpecificationArgs;
- * import com.pulumi.aws.autoscaling.inputs.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationArgs;
- * import com.pulumi.aws.autoscaling.inputs.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationArgs;
- * import com.pulumi.aws.autoscaling.inputs.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -179,40 +129,7 @@ import javax.annotation.Nullable;
  *         var example = new Policy(&#34;example&#34;, PolicyArgs.builder()        
  *             .autoscalingGroupName(&#34;my-test-asg&#34;)
  *             .policyType(&#34;PredictiveScaling&#34;)
- *             .predictiveScalingConfiguration(PolicyPredictiveScalingConfigurationArgs.builder()
- *                 .metricSpecification(PolicyPredictiveScalingConfigurationMetricSpecificationArgs.builder()
- *                     .customizedCapacityMetricSpecification(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationArgs.builder()
- *                         .metricDataQueries(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryArgs.builder()
- *                             .expression(&#34;SUM(SEARCH(&#39;{AWS/AutoScaling,AutoScalingGroupName} MetricName=\&#34;GroupInServiceIntances\&#34; my-test-asg&#39;, &#39;Average&#39;, 300))&#34;)
- *                             .id(&#34;capacity_sum&#34;)
- *                             .build())
- *                         .build())
- *                     .customizedLoadMetricSpecification(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationArgs.builder()
- *                         .metricDataQueries(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryArgs.builder()
- *                             .expression(&#34;SUM(SEARCH(&#39;{AWS/EC2,AutoScalingGroupName} MetricName=\&#34;CPUUtilization\&#34; my-test-asg&#39;, &#39;Sum&#39;, 3600))&#34;)
- *                             .id(&#34;load_sum&#34;)
- *                             .build())
- *                         .build())
- *                     .customizedScalingMetricSpecification(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationArgs.builder()
- *                         .metricDataQueries(                        
- *                             PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryArgs.builder()
- *                                 .expression(&#34;SUM(SEARCH(&#39;{AWS/AutoScaling,AutoScalingGroupName} MetricName=\&#34;GroupInServiceIntances\&#34; my-test-asg&#39;, &#39;Average&#39;, 300))&#34;)
- *                                 .id(&#34;capacity_sum&#34;)
- *                                 .returnData(false)
- *                                 .build(),
- *                             PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryArgs.builder()
- *                                 .expression(&#34;SUM(SEARCH(&#39;{AWS/EC2,AutoScalingGroupName} MetricName=\&#34;CPUUtilization\&#34; my-test-asg&#39;, &#39;Sum&#39;, 300))&#34;)
- *                                 .id(&#34;load_sum&#34;)
- *                                 .returnData(false)
- *                                 .build(),
- *                             PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryArgs.builder()
- *                                 .expression(&#34;load_sum / (capacity_sum * PERIOD(capacity_sum) / 60)&#34;)
- *                                 .id(&#34;weighted_average&#34;)
- *                                 .build())
- *                         .build())
- *                     .targetValue(10)
- *                     .build())
- *                 .build())
+ *             .predictiveScalingConfiguration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -227,10 +144,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.autoscaling.Policy;
  * import com.pulumi.aws.autoscaling.PolicyArgs;
- * import com.pulumi.aws.autoscaling.inputs.PolicyPredictiveScalingConfigurationArgs;
- * import com.pulumi.aws.autoscaling.inputs.PolicyPredictiveScalingConfigurationMetricSpecificationArgs;
- * import com.pulumi.aws.autoscaling.inputs.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationArgs;
- * import com.pulumi.aws.autoscaling.inputs.PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -247,31 +160,7 @@ import javax.annotation.Nullable;
  *         var example = new Policy(&#34;example&#34;, PolicyArgs.builder()        
  *             .autoscalingGroupName(&#34;my-test-asg&#34;)
  *             .policyType(&#34;PredictiveScaling&#34;)
- *             .predictiveScalingConfiguration(PolicyPredictiveScalingConfigurationArgs.builder()
- *                 .metricSpecification(PolicyPredictiveScalingConfigurationMetricSpecificationArgs.builder()
- *                     .customizedScalingMetricSpecification(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationArgs.builder()
- *                         .metricDataQueries(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryArgs.builder()
- *                             .id(&#34;scaling&#34;)
- *                             .metricStat(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatArgs.builder()
- *                                 .metric(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricArgs.builder()
- *                                     .dimensions(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricDimensionArgs.builder()
- *                                         .name(&#34;AutoScalingGroupName&#34;)
- *                                         .value(&#34;my-test-asg&#34;)
- *                                         .build())
- *                                     .metricName(&#34;CPUUtilization&#34;)
- *                                     .namespace(&#34;AWS/EC2&#34;)
- *                                     .build())
- *                                 .stat(&#34;Average&#34;)
- *                                 .build())
- *                             .build())
- *                         .build())
- *                     .predefinedLoadMetricSpecification(PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationArgs.builder()
- *                         .predefinedMetricType(&#34;ASGTotalCPUUtilization&#34;)
- *                         .resourceLabel(&#34;app/my-alb/778d41231b141a0f/targetgroup/my-alb-target-group/943f017f100becff&#34;)
- *                         .build())
- *                     .targetValue(10)
- *                     .build())
- *                 .build())
+ *             .predictiveScalingConfiguration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -472,6 +361,36 @@ public class Policy extends com.pulumi.resources.CustomResource {
     /**
      * Set of adjustments that manage
      * group scaling. These have the following structure:
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.autoscaling.Policy;
+     * import com.pulumi.aws.autoscaling.PolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var example = new Policy(&#34;example&#34;, PolicyArgs.builder()        
+     *             .stepAdjustments(            
+     *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+     *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
      * 
      * The following fields are available in step adjustments:
      * 
@@ -482,6 +401,36 @@ public class Policy extends com.pulumi.resources.CustomResource {
     /**
      * @return Set of adjustments that manage
      * group scaling. These have the following structure:
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.autoscaling.Policy;
+     * import com.pulumi.aws.autoscaling.PolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var example = new Policy(&#34;example&#34;, PolicyArgs.builder()        
+     *             .stepAdjustments(            
+     *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+     *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
      * 
      * The following fields are available in step adjustments:
      * 
@@ -499,8 +448,6 @@ public class Policy extends com.pulumi.resources.CustomResource {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.autoscaling.Policy;
      * import com.pulumi.aws.autoscaling.PolicyArgs;
-     * import com.pulumi.aws.autoscaling.inputs.PolicyTargetTrackingConfigurationArgs;
-     * import com.pulumi.aws.autoscaling.inputs.PolicyTargetTrackingConfigurationPredefinedMetricSpecificationArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -515,12 +462,7 @@ public class Policy extends com.pulumi.resources.CustomResource {
      * 
      *     public static void stack(Context ctx) {
      *         var example = new Policy(&#34;example&#34;, PolicyArgs.builder()        
-     *             .targetTrackingConfiguration(PolicyTargetTrackingConfigurationArgs.builder()
-     *                 .predefinedMetricSpecification(PolicyTargetTrackingConfigurationPredefinedMetricSpecificationArgs.builder()
-     *                     .predefinedMetricType(&#34;ASGAverageCPUUtilization&#34;)
-     *                     .build())
-     *                 .targetValue(40)
-     *                 .build())
+     *             .targetTrackingConfiguration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
      *             .build());
      * 
      *     }
@@ -543,8 +485,6 @@ public class Policy extends com.pulumi.resources.CustomResource {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.autoscaling.Policy;
      * import com.pulumi.aws.autoscaling.PolicyArgs;
-     * import com.pulumi.aws.autoscaling.inputs.PolicyTargetTrackingConfigurationArgs;
-     * import com.pulumi.aws.autoscaling.inputs.PolicyTargetTrackingConfigurationPredefinedMetricSpecificationArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -559,12 +499,7 @@ public class Policy extends com.pulumi.resources.CustomResource {
      * 
      *     public static void stack(Context ctx) {
      *         var example = new Policy(&#34;example&#34;, PolicyArgs.builder()        
-     *             .targetTrackingConfiguration(PolicyTargetTrackingConfigurationArgs.builder()
-     *                 .predefinedMetricSpecification(PolicyTargetTrackingConfigurationPredefinedMetricSpecificationArgs.builder()
-     *                     .predefinedMetricType(&#34;ASGAverageCPUUtilization&#34;)
-     *                     .build())
-     *                 .targetValue(40)
-     *                 .build())
+     *             .targetTrackingConfiguration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
      *             .build());
      * 
      *     }

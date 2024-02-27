@@ -24,9 +24,9 @@ namespace Pulumi.Aws.Iot
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Iot.EventConfigurations("example", new()
+    ///     var example = new Aws.Iot.EventConfigurations.EventConfigurations("example", new()
     ///     {
-    ///         Configurations = 
+    ///         EventConfigurations = 
     ///         {
     ///             { "CA_CERTIFICATE", false },
     ///             { "CERTIFICATE", true },

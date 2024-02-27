@@ -22,13 +22,13 @@ namespace Pulumi.Aws.Qldb
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Qldb.Stream("example", new()
+    ///     var example = new Aws.Qldb.Stream.Stream("example", new()
     ///     {
     ///         InclusiveStartTime = "2021-01-01T00:00:00Z",
-    ///         KinesisConfiguration = new Aws.Qldb.Inputs.StreamKinesisConfigurationArgs
+    ///         KinesisConfiguration = 
     ///         {
-    ///             AggregationEnabled = false,
-    ///             StreamArn = "arn:aws:kinesis:us-east-1:xxxxxxxxxxxx:stream/example-kinesis-stream",
+    ///             { "aggregationEnabled", false },
+    ///             { "streamArn", "arn:aws:kinesis:us-east-1:xxxxxxxxxxxx:stream/example-kinesis-stream" },
     ///         },
     ///         LedgerName = "existing-ledger-name",
     ///         RoleArn = "sample-role-arn",

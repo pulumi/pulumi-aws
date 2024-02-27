@@ -13,15 +13,15 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const primary = new aws.Provider("primary", {});
- * const member = new aws.Provider("member", {});
- * const primaryDetector = new aws.guardduty.Detector("primaryDetector", {}, {
+ * const primary = new pulumi.providers.Aws("primary", {});
+ * const member = new pulumi.providers.Aws("member", {});
+ * const primaryDetector = new aws.guardduty/detector.Detector("primaryDetector", {}, {
  *     provider: aws.primary,
  * });
- * const memberDetector = new aws.guardduty.Detector("memberDetector", {}, {
+ * const memberDetector = new aws.guardduty/detector.Detector("memberDetector", {}, {
  *     provider: aws.member,
  * });
- * const memberMember = new aws.guardduty.Member("memberMember", {
+ * const memberMember = new aws.guardduty/member.Member("memberMember", {
  *     accountId: memberDetector.accountId,
  *     detectorId: primaryDetector.id,
  *     email: "required@example.com",
@@ -29,7 +29,7 @@ import * as utilities from "../utilities";
  * }, {
  *     provider: aws.primary,
  * });
- * const memberInviteAccepter = new aws.guardduty.InviteAccepter("memberInviteAccepter", {
+ * const memberInviteAccepter = new aws.guardduty/inviteAccepter.InviteAccepter("memberInviteAccepter", {
  *     detectorId: memberDetector.id,
  *     masterAccountId: primaryDetector.accountId,
  * }, {

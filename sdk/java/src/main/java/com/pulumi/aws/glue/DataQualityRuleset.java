@@ -103,7 +103,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new DataQualityRuleset(&#34;example&#34;, DataQualityRulesetArgs.builder()        
  *             .ruleset(&#34;Rules = [Completeness \&#34;colA\&#34; between 0.4 and 0.8]&#34;)
- *             .tags(Map.of(&#34;hello&#34;, &#34;world&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -118,7 +118,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.glue.DataQualityRuleset;
  * import com.pulumi.aws.glue.DataQualityRulesetArgs;
- * import com.pulumi.aws.glue.inputs.DataQualityRulesetTargetTableArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -134,10 +133,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new DataQualityRuleset(&#34;example&#34;, DataQualityRulesetArgs.builder()        
  *             .ruleset(&#34;Rules = [Completeness \&#34;colA\&#34; between 0.4 and 0.8]&#34;)
- *             .targetTable(DataQualityRulesetTargetTableArgs.builder()
- *                 .databaseName(aws_glue_catalog_database.example().name())
- *                 .tableName(aws_glue_catalog_table.example().name())
- *                 .build())
+ *             .targetTable(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

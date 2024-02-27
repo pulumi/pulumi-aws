@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const testGraphQLApi = new aws.appsync.GraphQLApi("testGraphQLApi", {
+ * const testGraphQLApi = new aws.appsync/graphQLApi.GraphQLApi("testGraphQLApi", {
  *     authenticationType: "API_KEY",
  *     schema: `type Mutation {
  * 	putPost(id: ID!, title: String!): Post
@@ -37,7 +37,7 @@ import * as utilities from "../utilities";
  * }
  * `,
  * });
- * const testDataSource = new aws.appsync.DataSource("testDataSource", {
+ * const testDataSource = new aws.appsync/dataSource.DataSource("testDataSource", {
  *     apiId: testGraphQLApi.id,
  *     name: "my_example",
  *     type: "HTTP",
@@ -46,7 +46,7 @@ import * as utilities from "../utilities";
  *     },
  * });
  * // UNIT type resolver (default)
- * const testResolver = new aws.appsync.Resolver("testResolver", {
+ * const testResolver = new aws.appsync/resolver.Resolver("testResolver", {
  *     apiId: testGraphQLApi.id,
  *     field: "singlePost",
  *     type: "Query",
@@ -75,7 +75,7 @@ import * as utilities from "../utilities";
  *     },
  * });
  * // PIPELINE type resolver
- * const mutationPipelineTest = new aws.appsync.Resolver("mutationPipelineTest", {
+ * const mutationPipelineTest = new aws.appsync/resolver.Resolver("mutationPipelineTest", {
  *     type: "Mutation",
  *     apiId: testGraphQLApi.id,
  *     field: "pipelineTest",
@@ -98,7 +98,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * import * as fs from "fs";
  *
- * const example = new aws.appsync.Resolver("example", {
+ * const example = new aws.appsync/resolver.Resolver("example", {
  *     type: "Query",
  *     apiId: aws_appsync_graphql_api.test.id,
  *     field: "pipelineTest",

@@ -15,6 +15,33 @@ import (
 // Provides a AWS Transfer AS2 Profile resource.
 //
 // ## Example Usage
+// ### Basic
+//
+// ```go
+// package main
+//
+// import (
+//
+//	transfer/profile "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/transfer/profile"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := transfer/profile.NewProfile(ctx, "example", &transfer/profile.ProfileArgs{
+// As2Id: "example",
+// CertificateIds: []interface{}{
+// aws_transfer_certificate.Example.Certificate_id,
+// },
+// Usage: "LOCAL",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
+// ```
 //
 // ## Import
 //

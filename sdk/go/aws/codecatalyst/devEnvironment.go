@@ -21,40 +21,38 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/codecatalyst"
+//	codecatalyst/devEnvironment "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/codecatalyst/devEnvironment"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := codecatalyst.NewDevEnvironment(ctx, "test", &codecatalyst.DevEnvironmentArgs{
-//				Alias: pulumi.String("devenv"),
-//				Ides: &codecatalyst.DevEnvironmentIdesArgs{
-//					Name:    pulumi.String("PyCharm"),
-//					Runtime: pulumi.String("public.ecr.aws/jetbrains/py"),
-//				},
-//				InactivityTimeoutMinutes: pulumi.Int(40),
-//				InstanceType:             pulumi.String("dev.standard1.small"),
-//				PersistentStorage: &codecatalyst.DevEnvironmentPersistentStorageArgs{
-//					Size: pulumi.Int(16),
-//				},
-//				ProjectName: pulumi.String("myproject"),
-//				Repositories: codecatalyst.DevEnvironmentRepositoryArray{
-//					&codecatalyst.DevEnvironmentRepositoryArgs{
-//						BranchName:     pulumi.String("main"),
-//						RepositoryName: pulumi.String("pulumi-provider-aws"),
-//					},
-//				},
-//				SpaceName: pulumi.String("myspace"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := codecatalyst/devEnvironment.NewDevEnvironment(ctx, "test", &codecatalyst/devEnvironment.DevEnvironmentArgs{
+// Alias: "devenv",
+// Ides: map[string]interface{}{
+// "name": "PyCharm",
+// "runtime": "public.ecr.aws/jetbrains/py",
+// },
+// InactivityTimeoutMinutes: 40,
+// InstanceType: "dev.standard1.small",
+// PersistentStorage: map[string]interface{}{
+// "size": 16,
+// },
+// ProjectName: "myproject",
+// Repositories: []map[string]interface{}{
+// map[string]interface{}{
+// "branchName": "main",
+// "repositoryName": "pulumi-provider-aws",
+// },
+// },
+// SpaceName: "myspace",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 type DevEnvironment struct {
 	pulumi.CustomResourceState

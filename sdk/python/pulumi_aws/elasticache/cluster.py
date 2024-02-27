@@ -1174,11 +1174,11 @@ class Cluster(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.elasticache.Cluster("example",
-            engine="memcached",
-            node_type="cache.m4.large",
+        example = aws.elasticache.cluster.Cluster("example",
+            engine=memcached,
+            node_type=cache.m4.large,
             num_cache_nodes=2,
-            parameter_group_name="default.memcached1.4",
+            parameter_group_name=default.memcached1.4,
             port=11211)
         ```
         ### Redis Instance
@@ -1187,12 +1187,12 @@ class Cluster(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.elasticache.Cluster("example",
-            engine="redis",
-            engine_version="3.2.10",
-            node_type="cache.m4.large",
+        example = aws.elasticache.cluster.Cluster("example",
+            engine=redis,
+            engine_version=3.2.10,
+            node_type=cache.m4.large,
             num_cache_nodes=1,
-            parameter_group_name="default.redis3.2",
+            parameter_group_name=default.redis3.2,
             port=6379)
         ```
         ### Redis Cluster Mode Disabled Read Replica Instance
@@ -1203,7 +1203,7 @@ class Cluster(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        replica = aws.elasticache.Cluster("replica", replication_group_id=aws_elasticache_replication_group["example"]["id"])
+        replica = aws.elasticache.cluster.Cluster("replica", replication_group_id=aws_elasticache_replication_group.example.id)
         ```
         ### Redis Log Delivery configuration
 
@@ -1211,25 +1211,25 @@ class Cluster(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.elasticache.Cluster("test",
-            engine="redis",
-            node_type="cache.t3.micro",
+        test = aws.elasticache.cluster.Cluster("test",
+            engine=redis,
+            node_type=cache.t3.micro,
             num_cache_nodes=1,
             port=6379,
             apply_immediately=True,
             log_delivery_configurations=[
-                aws.elasticache.ClusterLogDeliveryConfigurationArgs(
-                    destination=aws_cloudwatch_log_group["example"]["name"],
-                    destination_type="cloudwatch-logs",
-                    log_format="text",
-                    log_type="slow-log",
-                ),
-                aws.elasticache.ClusterLogDeliveryConfigurationArgs(
-                    destination=aws_kinesis_firehose_delivery_stream["example"]["name"],
-                    destination_type="kinesis-firehose",
-                    log_format="json",
-                    log_type="engine-log",
-                ),
+                {
+                    destination: aws_cloudwatch_log_group.example.name,
+                    destinationType: cloudwatch-logs,
+                    logFormat: text,
+                    logType: slow-log,
+                },
+                {
+                    destination: aws_kinesis_firehose_delivery_stream.example.name,
+                    destinationType: kinesis-firehose,
+                    logFormat: json,
+                    logType: engine-log,
+                },
             ])
         ```
 
@@ -1320,11 +1320,11 @@ class Cluster(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.elasticache.Cluster("example",
-            engine="memcached",
-            node_type="cache.m4.large",
+        example = aws.elasticache.cluster.Cluster("example",
+            engine=memcached,
+            node_type=cache.m4.large,
             num_cache_nodes=2,
-            parameter_group_name="default.memcached1.4",
+            parameter_group_name=default.memcached1.4,
             port=11211)
         ```
         ### Redis Instance
@@ -1333,12 +1333,12 @@ class Cluster(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.elasticache.Cluster("example",
-            engine="redis",
-            engine_version="3.2.10",
-            node_type="cache.m4.large",
+        example = aws.elasticache.cluster.Cluster("example",
+            engine=redis,
+            engine_version=3.2.10,
+            node_type=cache.m4.large,
             num_cache_nodes=1,
-            parameter_group_name="default.redis3.2",
+            parameter_group_name=default.redis3.2,
             port=6379)
         ```
         ### Redis Cluster Mode Disabled Read Replica Instance
@@ -1349,7 +1349,7 @@ class Cluster(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        replica = aws.elasticache.Cluster("replica", replication_group_id=aws_elasticache_replication_group["example"]["id"])
+        replica = aws.elasticache.cluster.Cluster("replica", replication_group_id=aws_elasticache_replication_group.example.id)
         ```
         ### Redis Log Delivery configuration
 
@@ -1357,25 +1357,25 @@ class Cluster(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.elasticache.Cluster("test",
-            engine="redis",
-            node_type="cache.t3.micro",
+        test = aws.elasticache.cluster.Cluster("test",
+            engine=redis,
+            node_type=cache.t3.micro,
             num_cache_nodes=1,
             port=6379,
             apply_immediately=True,
             log_delivery_configurations=[
-                aws.elasticache.ClusterLogDeliveryConfigurationArgs(
-                    destination=aws_cloudwatch_log_group["example"]["name"],
-                    destination_type="cloudwatch-logs",
-                    log_format="text",
-                    log_type="slow-log",
-                ),
-                aws.elasticache.ClusterLogDeliveryConfigurationArgs(
-                    destination=aws_kinesis_firehose_delivery_stream["example"]["name"],
-                    destination_type="kinesis-firehose",
-                    log_format="json",
-                    log_type="engine-log",
-                ),
+                {
+                    destination: aws_cloudwatch_log_group.example.name,
+                    destinationType: cloudwatch-logs,
+                    logFormat: text,
+                    logType: slow-log,
+                },
+                {
+                    destination: aws_kinesis_firehose_delivery_stream.example.name,
+                    destinationType: kinesis-firehose,
+                    logFormat: json,
+                    logType: engine-log,
+                },
             ])
         ```
 

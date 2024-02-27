@@ -24,24 +24,22 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sesv2"
+//	sesv2/dedicatedIpAssignment "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/sesv2/dedicatedIpAssignment"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := sesv2.NewDedicatedIpAssignment(ctx, "example", &sesv2.DedicatedIpAssignmentArgs{
-//				DestinationPoolName: pulumi.String("my-pool"),
-//				Ip:                  pulumi.String("0.0.0.0"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := sesv2/dedicatedIpAssignment.NewDedicatedIpAssignment(ctx, "example", &sesv2/dedicatedIpAssignment.DedicatedIpAssignmentArgs{
+// DestinationPoolName: "my-pool",
+// Ip: "0.0.0.0",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

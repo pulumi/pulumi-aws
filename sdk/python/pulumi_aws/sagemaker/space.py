@@ -344,9 +344,9 @@ class Space(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.sagemaker.Space("example",
-            domain_id=aws_sagemaker_domain["test"]["id"],
-            space_name="example")
+        example = aws.sagemaker.space.Space("example",
+            domain_id=aws_sagemaker_domain.test.id,
+            space_name=example)
         ```
 
         ## Import
@@ -383,9 +383,9 @@ class Space(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.sagemaker.Space("example",
-            domain_id=aws_sagemaker_domain["test"]["id"],
-            space_name="example")
+        example = aws.sagemaker.space.Space("example",
+            domain_id=aws_sagemaker_domain.test.id,
+            space_name=example)
         ```
 
         ## Import

@@ -144,25 +144,6 @@ def get_resolver_endpoint(filters: Optional[Sequence[pulumi.InputType['GetResolv
 
     This data source allows to find a list of IPaddresses associated with a specific Route53 Resolver Endpoint.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.route53.get_resolver_endpoint(resolver_endpoint_id="rslvr-in-1abc2345ef678g91h")
-    ```
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.route53.get_resolver_endpoint(filters=[aws.route53.GetResolverEndpointFilterArgs(
-        name="NAME",
-        values=["MyResolverExampleName"],
-    )])
-    ```
-
 
     :param Sequence[pulumi.InputType['GetResolverEndpointFilterArgs']] filters: One or more name/value pairs to use as filters. There are
            several valid keys, for a full reference, check out
@@ -199,25 +180,6 @@ def get_resolver_endpoint_output(filters: Optional[pulumi.Input[Optional[Sequenc
     `route53.ResolverEndpoint` provides details about a specific Route53 Resolver Endpoint.
 
     This data source allows to find a list of IPaddresses associated with a specific Route53 Resolver Endpoint.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.route53.get_resolver_endpoint(resolver_endpoint_id="rslvr-in-1abc2345ef678g91h")
-    ```
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.route53.get_resolver_endpoint(filters=[aws.route53.GetResolverEndpointFilterArgs(
-        name="NAME",
-        values=["MyResolverExampleName"],
-    )])
-    ```
 
 
     :param Sequence[pulumi.InputType['GetResolverEndpointFilterArgs']] filters: One or more name/value pairs to use as filters. There are

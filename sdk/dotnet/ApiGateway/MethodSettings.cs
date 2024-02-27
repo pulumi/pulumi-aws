@@ -37,7 +37,7 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleRestApi = new Aws.ApiGateway.RestApi("exampleRestApi", new()
+    ///     var exampleRestApi = new Aws.Apigateway.RestApi.RestApi("exampleRestApi", new()
     ///     {
     ///         Body = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
@@ -66,43 +66,43 @@ namespace Pulumi.Aws.ApiGateway
     ///         }),
     ///     });
     /// 
-    ///     var exampleDeployment = new Aws.ApiGateway.Deployment("exampleDeployment", new()
+    ///     var exampleDeployment = new Aws.Apigateway.Deployment.Deployment("exampleDeployment", new()
     ///     {
     ///         RestApi = exampleRestApi.Id,
     ///         Triggers = 
     ///         {
-    ///             { "redeployment", exampleRestApi.Body.Apply(body =&gt; JsonSerializer.Serialize(body)).Apply(toJSON =&gt; ComputeSHA1(toJSON)) },
+    ///             { "redeployment", ComputeSHA1(JsonSerializer.Serialize(exampleRestApi.Body)) },
     ///         },
     ///     });
     /// 
-    ///     var exampleStage = new Aws.ApiGateway.Stage("exampleStage", new()
+    ///     var exampleStage = new Aws.Apigateway.Stage.Stage("exampleStage", new()
     ///     {
     ///         Deployment = exampleDeployment.Id,
     ///         RestApi = exampleRestApi.Id,
     ///         StageName = "example",
     ///     });
     /// 
-    ///     var all = new Aws.ApiGateway.MethodSettings("all", new()
+    ///     var all = new Aws.Apigateway.MethodSettings.MethodSettings("all", new()
     ///     {
     ///         RestApi = exampleRestApi.Id,
     ///         StageName = exampleStage.StageName,
     ///         MethodPath = "*/*",
-    ///         Settings = new Aws.ApiGateway.Inputs.MethodSettingsSettingsArgs
+    ///         Settings = 
     ///         {
-    ///             MetricsEnabled = true,
-    ///             LoggingLevel = "ERROR",
+    ///             { "metricsEnabled", true },
+    ///             { "loggingLevel", "ERROR" },
     ///         },
     ///     });
     /// 
-    ///     var pathSpecific = new Aws.ApiGateway.MethodSettings("pathSpecific", new()
+    ///     var pathSpecific = new Aws.Apigateway.MethodSettings.MethodSettings("pathSpecific", new()
     ///     {
     ///         RestApi = exampleRestApi.Id,
     ///         StageName = exampleStage.StageName,
     ///         MethodPath = "path1/GET",
-    ///         Settings = new Aws.ApiGateway.Inputs.MethodSettingsSettingsArgs
+    ///         Settings = 
     ///         {
-    ///             MetricsEnabled = true,
-    ///             LoggingLevel = "INFO",
+    ///             { "metricsEnabled", true },
+    ///             { "loggingLevel", "INFO" },
     ///         },
     ///     });
     /// 
@@ -121,14 +121,14 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var pathSpecific = new Aws.ApiGateway.MethodSettings("pathSpecific", new()
+    ///     var pathSpecific = new Aws.Apigateway.MethodSettings.MethodSettings("pathSpecific", new()
     ///     {
     ///         RestApi = aws_api_gateway_rest_api.Example.Id,
     ///         StageName = aws_api_gateway_stage.Example.Stage_name,
     ///         MethodPath = "path1/GET",
-    ///         Settings = new Aws.ApiGateway.Inputs.MethodSettingsSettingsArgs
+    ///         Settings = 
     ///         {
-    ///             LoggingLevel = "OFF",
+    ///             { "loggingLevel", "OFF" },
     ///         },
     ///     });
     /// 
@@ -144,16 +144,16 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var pathSpecific = new Aws.ApiGateway.MethodSettings("pathSpecific", new()
+    ///     var pathSpecific = new Aws.Apigateway.MethodSettings.MethodSettings("pathSpecific", new()
     ///     {
     ///         RestApi = aws_api_gateway_rest_api.Example.Id,
     ///         StageName = aws_api_gateway_stage.Example.Stage_name,
     ///         MethodPath = "path1/GET",
-    ///         Settings = new Aws.ApiGateway.Inputs.MethodSettingsSettingsArgs
+    ///         Settings = 
     ///         {
-    ///             LoggingLevel = "ERROR",
-    ///             MetricsEnabled = true,
-    ///             DataTraceEnabled = false,
+    ///             { "loggingLevel", "ERROR" },
+    ///             { "metricsEnabled", true },
+    ///             { "dataTraceEnabled", false },
     ///         },
     ///     });
     /// 
@@ -169,16 +169,16 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var pathSpecific = new Aws.ApiGateway.MethodSettings("pathSpecific", new()
+    ///     var pathSpecific = new Aws.Apigateway.MethodSettings.MethodSettings("pathSpecific", new()
     ///     {
     ///         RestApi = aws_api_gateway_rest_api.Example.Id,
     ///         StageName = aws_api_gateway_stage.Example.Stage_name,
     ///         MethodPath = "path1/GET",
-    ///         Settings = new Aws.ApiGateway.Inputs.MethodSettingsSettingsArgs
+    ///         Settings = 
     ///         {
-    ///             LoggingLevel = "INFO",
-    ///             MetricsEnabled = true,
-    ///             DataTraceEnabled = false,
+    ///             { "loggingLevel", "INFO" },
+    ///             { "metricsEnabled", true },
+    ///             { "dataTraceEnabled", false },
     ///         },
     ///     });
     /// 
@@ -194,16 +194,16 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var pathSpecific = new Aws.ApiGateway.MethodSettings("pathSpecific", new()
+    ///     var pathSpecific = new Aws.Apigateway.MethodSettings.MethodSettings("pathSpecific", new()
     ///     {
     ///         RestApi = aws_api_gateway_rest_api.Example.Id,
     ///         StageName = aws_api_gateway_stage.Example.Stage_name,
     ///         MethodPath = "path1/GET",
-    ///         Settings = new Aws.ApiGateway.Inputs.MethodSettingsSettingsArgs
+    ///         Settings = 
     ///         {
-    ///             LoggingLevel = "INFO",
-    ///             MetricsEnabled = true,
-    ///             DataTraceEnabled = true,
+    ///             { "loggingLevel", "INFO" },
+    ///             { "metricsEnabled", true },
+    ///             { "dataTraceEnabled", true },
     ///         },
     ///     });
     /// 

@@ -22,30 +22,28 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/oam"
+//	oam/link "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/oam/link"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := oam.NewLink(ctx, "example", &oam.LinkArgs{
-//				LabelTemplate: pulumi.String("$AccountName"),
-//				ResourceTypes: pulumi.StringArray{
-//					pulumi.String("AWS::CloudWatch::Metric"),
-//				},
-//				SinkIdentifier: pulumi.Any(aws_oam_sink.Test.Id),
-//				Tags: pulumi.StringMap{
-//					"Env": pulumi.String("prod"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := oam/link.NewLink(ctx, "example", &oam/link.LinkArgs{
+// LabelTemplate: "$AccountName",
+// ResourceTypes: []string{
+// "AWS::CloudWatch::Metric",
+// },
+// SinkIdentifier: aws_oam_sink.Test.Id,
+// Tags: map[string]interface{}{
+// "Env": "prod",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

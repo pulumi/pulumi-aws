@@ -6,17 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Provides details about a specific CodeCommit Approval Rule Template.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.codecommit.getApprovalRuleTemplate({
- *     name: "MyExampleApprovalRuleTemplate",
- * });
- * ```
  */
 export function getApprovalRuleTemplate(args: GetApprovalRuleTemplateArgs, opts?: pulumi.InvokeOptions): Promise<GetApprovalRuleTemplateResult> {
 
@@ -76,17 +65,6 @@ export interface GetApprovalRuleTemplateResult {
 }
 /**
  * Provides details about a specific CodeCommit Approval Rule Template.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.codecommit.getApprovalRuleTemplate({
- *     name: "MyExampleApprovalRuleTemplate",
- * });
- * ```
  */
 export function getApprovalRuleTemplateOutput(args: GetApprovalRuleTemplateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApprovalRuleTemplateResult> {
     return pulumi.output(args).apply((a: any) => getApprovalRuleTemplate(a, opts))

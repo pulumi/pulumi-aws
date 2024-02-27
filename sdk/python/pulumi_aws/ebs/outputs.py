@@ -256,19 +256,6 @@ class GetEbsVolumesFilterResult(dict):
         :param str name: Name of the field to filter by, as defined by
                [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVolumes.html).
                For example, if matching against the `size` filter, use:
-               
-               ```python
-               import pulumi
-               import pulumi_aws as aws
-               
-               ten_or_twenty_gb_volumes = aws.ebs.get_ebs_volumes(filters=[aws.ebs.GetEbsVolumesFilterArgs(
-                   name="size",
-                   values=[
-                       "10",
-                       "20",
-                   ],
-               )])
-               ```
         :param Sequence[str] values: Set of values that are accepted for the given field.
                EBS Volume IDs will be selected if any one of the given values match.
         """
@@ -282,19 +269,6 @@ class GetEbsVolumesFilterResult(dict):
         Name of the field to filter by, as defined by
         [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVolumes.html).
         For example, if matching against the `size` filter, use:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        ten_or_twenty_gb_volumes = aws.ebs.get_ebs_volumes(filters=[aws.ebs.GetEbsVolumesFilterArgs(
-            name="size",
-            values=[
-                "10",
-                "20",
-            ],
-        )])
-        ```
         """
         return pulumi.get(self, "name")
 

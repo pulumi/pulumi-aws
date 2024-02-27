@@ -140,24 +140,24 @@ class LicenseAssociation(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        assume = aws.iam.Role("assume", assume_role_policy=json.dumps({
-            "Version": "2012-10-17",
-            "Statement": [{
-                "Action": "sts:AssumeRole",
-                "Effect": "Allow",
-                "Sid": "",
-                "Principal": {
-                    "Service": "grafana.amazonaws.com",
+        assume = aws.iam.role.Role("assume", assume_role_policy=json.dumps({
+            Version: 2012-10-17,
+            Statement: [{
+                Action: sts:AssumeRole,
+                Effect: Allow,
+                Sid: ,
+                Principal: {
+                    Service: grafana.amazonaws.com,
                 },
             }],
         }))
-        example_workspace = aws.grafana.Workspace("exampleWorkspace",
-            account_access_type="CURRENT_ACCOUNT",
-            authentication_providers=["SAML"],
-            permission_type="SERVICE_MANAGED",
+        example_workspace = aws.grafana.workspace.Workspace("exampleWorkspace",
+            account_access_type=CURRENT_ACCOUNT,
+            authentication_providers=[SAML],
+            permission_type=SERVICE_MANAGED,
             role_arn=assume.arn)
-        example_license_association = aws.grafana.LicenseAssociation("exampleLicenseAssociation",
-            license_type="ENTERPRISE_FREE_TRIAL",
+        example_license_association = aws.grafana.license_association.LicenseAssociation("exampleLicenseAssociation",
+            license_type=ENTERPRISE_FREE_TRIAL,
             workspace_id=example_workspace.id)
         ```
 
@@ -191,24 +191,24 @@ class LicenseAssociation(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        assume = aws.iam.Role("assume", assume_role_policy=json.dumps({
-            "Version": "2012-10-17",
-            "Statement": [{
-                "Action": "sts:AssumeRole",
-                "Effect": "Allow",
-                "Sid": "",
-                "Principal": {
-                    "Service": "grafana.amazonaws.com",
+        assume = aws.iam.role.Role("assume", assume_role_policy=json.dumps({
+            Version: 2012-10-17,
+            Statement: [{
+                Action: sts:AssumeRole,
+                Effect: Allow,
+                Sid: ,
+                Principal: {
+                    Service: grafana.amazonaws.com,
                 },
             }],
         }))
-        example_workspace = aws.grafana.Workspace("exampleWorkspace",
-            account_access_type="CURRENT_ACCOUNT",
-            authentication_providers=["SAML"],
-            permission_type="SERVICE_MANAGED",
+        example_workspace = aws.grafana.workspace.Workspace("exampleWorkspace",
+            account_access_type=CURRENT_ACCOUNT,
+            authentication_providers=[SAML],
+            permission_type=SERVICE_MANAGED,
             role_arn=assume.arn)
-        example_license_association = aws.grafana.LicenseAssociation("exampleLicenseAssociation",
-            license_type="ENTERPRISE_FREE_TRIAL",
+        example_license_association = aws.grafana.license_association.LicenseAssociation("exampleLicenseAssociation",
+            license_type=ENTERPRISE_FREE_TRIAL,
             workspace_id=example_workspace.id)
         ```
 

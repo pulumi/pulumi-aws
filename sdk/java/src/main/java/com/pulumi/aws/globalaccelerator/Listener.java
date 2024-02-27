@@ -28,10 +28,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.globalaccelerator.Accelerator;
  * import com.pulumi.aws.globalaccelerator.AcceleratorArgs;
- * import com.pulumi.aws.globalaccelerator.inputs.AcceleratorAttributesArgs;
  * import com.pulumi.aws.globalaccelerator.Listener;
  * import com.pulumi.aws.globalaccelerator.ListenerArgs;
- * import com.pulumi.aws.globalaccelerator.inputs.ListenerPortRangeArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -48,21 +46,14 @@ import javax.annotation.Nullable;
  *         var exampleAccelerator = new Accelerator(&#34;exampleAccelerator&#34;, AcceleratorArgs.builder()        
  *             .ipAddressType(&#34;IPV4&#34;)
  *             .enabled(true)
- *             .attributes(AcceleratorAttributesArgs.builder()
- *                 .flowLogsEnabled(true)
- *                 .flowLogsS3Bucket(&#34;example-bucket&#34;)
- *                 .flowLogsS3Prefix(&#34;flow-logs/&#34;)
- *                 .build())
+ *             .attributes(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleListener = new Listener(&#34;exampleListener&#34;, ListenerArgs.builder()        
  *             .acceleratorArn(exampleAccelerator.id())
  *             .clientAffinity(&#34;SOURCE_IP&#34;)
  *             .protocol(&#34;TCP&#34;)
- *             .portRanges(ListenerPortRangeArgs.builder()
- *                 .fromPort(80)
- *                 .toPort(80)
- *                 .build())
+ *             .portRanges(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

@@ -28,24 +28,23 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/elb"
+//	elb/attachment "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/elb/attachment"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := elb.NewAttachment(ctx, "baz", &elb.AttachmentArgs{
-//				Elb:      pulumi.Any(aws_elb.Bar.Id),
-//				Instance: pulumi.Any(aws_instance.Foo.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// // Create a new load balancer attachment
+// _, err := elb/attachment.NewAttachment(ctx, "baz", &elb/attachment.AttachmentArgs{
+// Elb: aws_elb.Bar.Id,
+// Instance: aws_instance.Foo.Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 type Attachment struct {
 	pulumi.CustomResourceState

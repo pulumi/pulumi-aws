@@ -10,6 +10,30 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Detective
 {
     /// <summary>
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleGraph = new Aws.Detective.Graph.Graph("exampleGraph", new()
+    ///     {
+    ///         Enable = true,
+    ///     });
+    /// 
+    ///     var exampleOrganizationConfiguration = new Aws.Detective.OrganizationConfiguration.OrganizationConfiguration("exampleOrganizationConfiguration", new()
+    ///     {
+    ///         AutoEnable = true,
+    ///         GraphArn = exampleGraph.Id,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_detective_organization_admin_account` using the Detective Graph ID. For example:

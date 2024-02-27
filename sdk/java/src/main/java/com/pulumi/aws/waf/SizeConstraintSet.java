@@ -28,8 +28,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.waf.SizeConstraintSet;
  * import com.pulumi.aws.waf.SizeConstraintSetArgs;
- * import com.pulumi.aws.waf.inputs.SizeConstraintSetSizeConstraintArgs;
- * import com.pulumi.aws.waf.inputs.SizeConstraintSetSizeConstraintFieldToMatchArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -44,14 +42,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var sizeConstraintSet = new SizeConstraintSet(&#34;sizeConstraintSet&#34;, SizeConstraintSetArgs.builder()        
- *             .sizeConstraints(SizeConstraintSetSizeConstraintArgs.builder()
- *                 .comparisonOperator(&#34;EQ&#34;)
- *                 .fieldToMatch(SizeConstraintSetSizeConstraintFieldToMatchArgs.builder()
- *                     .type(&#34;BODY&#34;)
- *                     .build())
- *                 .size(&#34;4096&#34;)
- *                 .textTransformation(&#34;NONE&#34;)
- *                 .build())
+ *             .sizeConstraints(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

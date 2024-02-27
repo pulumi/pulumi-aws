@@ -22,16 +22,16 @@ namespace Pulumi.Aws.Pinpoint
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Pinpoint.App("example", new()
+    ///     var example = new Aws.Pinpoint.App.App("example", new()
     ///     {
-    ///         Limits = new Aws.Pinpoint.Inputs.AppLimitsArgs
+    ///         Limits = 
     ///         {
-    ///             MaximumDuration = 600,
+    ///             { "maximumDuration", 600 },
     ///         },
-    ///         QuietTime = new Aws.Pinpoint.Inputs.AppQuietTimeArgs
+    ///         QuietTime = 
     ///         {
-    ///             End = "06:00",
-    ///             Start = "00:00",
+    ///             { "end", "06:00" },
+    ///             { "start", "00:00" },
     ///         },
     ///     });
     /// 

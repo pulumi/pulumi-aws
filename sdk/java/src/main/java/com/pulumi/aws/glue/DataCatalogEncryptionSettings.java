@@ -26,9 +26,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.glue.DataCatalogEncryptionSettings;
  * import com.pulumi.aws.glue.DataCatalogEncryptionSettingsArgs;
- * import com.pulumi.aws.glue.inputs.DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs;
- * import com.pulumi.aws.glue.inputs.DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionArgs;
- * import com.pulumi.aws.glue.inputs.DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -43,16 +40,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new DataCatalogEncryptionSettings(&#34;example&#34;, DataCatalogEncryptionSettingsArgs.builder()        
- *             .dataCatalogEncryptionSettings(DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs.builder()
- *                 .connectionPasswordEncryption(DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionArgs.builder()
- *                     .awsKmsKeyId(aws_kms_key.test().arn())
- *                     .returnConnectionPasswordEncrypted(true)
- *                     .build())
- *                 .encryptionAtRest(DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestArgs.builder()
- *                     .catalogEncryptionMode(&#34;SSE-KMS&#34;)
- *                     .sseAwsKmsKeyId(aws_kms_key.test().arn())
- *                     .build())
- *                 .build())
+ *             .dataCatalogEncryptionSettings(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

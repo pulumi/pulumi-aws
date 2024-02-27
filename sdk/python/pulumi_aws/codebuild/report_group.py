@@ -255,42 +255,6 @@ class ReportGroup(pulumi.CustomResource):
         """
         Provides a CodeBuild Report Groups Resource.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        current = aws.get_caller_identity()
-        example_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            sid="Enable IAM User Permissions",
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="AWS",
-                identifiers=[f"arn:aws:iam::{current.account_id}:root"],
-            )],
-            actions=["kms:*"],
-            resources=["*"],
-        )])
-        example_key = aws.kms.Key("exampleKey",
-            description="my test kms key",
-            deletion_window_in_days=7,
-            policy=example_policy_document.json)
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
-        example_report_group = aws.codebuild.ReportGroup("exampleReportGroup",
-            type="TEST",
-            export_config=aws.codebuild.ReportGroupExportConfigArgs(
-                type="S3",
-                s3_destination=aws.codebuild.ReportGroupExportConfigS3DestinationArgs(
-                    bucket=example_bucket_v2.id,
-                    encryption_disabled=False,
-                    encryption_key=example_key.arn,
-                    packaging="NONE",
-                    path="/some",
-                ),
-            ))
-        ```
-
         ## Import
 
         Using `pulumi import`, import CodeBuild Report Group using the CodeBuild Report Group arn. For example:
@@ -315,42 +279,6 @@ class ReportGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a CodeBuild Report Groups Resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        current = aws.get_caller_identity()
-        example_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            sid="Enable IAM User Permissions",
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="AWS",
-                identifiers=[f"arn:aws:iam::{current.account_id}:root"],
-            )],
-            actions=["kms:*"],
-            resources=["*"],
-        )])
-        example_key = aws.kms.Key("exampleKey",
-            description="my test kms key",
-            deletion_window_in_days=7,
-            policy=example_policy_document.json)
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
-        example_report_group = aws.codebuild.ReportGroup("exampleReportGroup",
-            type="TEST",
-            export_config=aws.codebuild.ReportGroupExportConfigArgs(
-                type="S3",
-                s3_destination=aws.codebuild.ReportGroupExportConfigS3DestinationArgs(
-                    bucket=example_bucket_v2.id,
-                    encryption_disabled=False,
-                    encryption_key=example_key.arn,
-                    packaging="NONE",
-                    path="/some",
-                ),
-            ))
-        ```
 
         ## Import
 

@@ -49,7 +49,7 @@ import javax.annotation.Nullable;
  *             .description(&#34;My example deployment&#34;)
  *             .environmentId(aws_appconfig_environment.example().environment_id())
  *             .kmsKeyIdentifier(aws_kms_key.example().arn())
- *             .tags(Map.of(&#34;Type&#34;, &#34;AppConfig Deployment&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

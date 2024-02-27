@@ -11,56 +11,6 @@ import * as utilities from "../utilities";
  *
  * > **Note:** Route53 hosted zones are global resources, and as such any `aws.kms.Key` that you use as part of a signing key needs to be located in the `us-east-1` region. In the example below, the main AWS provider declaration is for `us-east-1`, however if you are provisioning your AWS resources in a different region, you will need to specify a provider alias and use that attached to the `aws.kms.Key` resource as described in the provider alias documentation.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const current = aws.getCallerIdentity({});
- * const exampleKey = new aws.kms.Key("exampleKey", {
- *     customerMasterKeySpec: "ECC_NIST_P256",
- *     deletionWindowInDays: 7,
- *     keyUsage: "SIGN_VERIFY",
- *     policy: current.then(current => JSON.stringify({
- *         Statement: [
- *             {
- *                 Action: [
- *                     "kms:DescribeKey",
- *                     "kms:GetPublicKey",
- *                     "kms:Sign",
- *                     "kms:Verify",
- *                 ],
- *                 Effect: "Allow",
- *                 Principal: {
- *                     Service: "dnssec-route53.amazonaws.com",
- *                 },
- *                 Resource: "*",
- *                 Sid: "Allow Route 53 DNSSEC Service",
- *             },
- *             {
- *                 Action: "kms:*",
- *                 Effect: "Allow",
- *                 Principal: {
- *                     AWS: `arn:aws:iam::${current.accountId}:root`,
- *                 },
- *                 Resource: "*",
- *                 Sid: "Enable IAM User Permissions",
- *             },
- *         ],
- *         Version: "2012-10-17",
- *     })),
- * });
- * const exampleZone = new aws.route53.Zone("exampleZone", {});
- * const exampleKeySigningKey = new aws.route53.KeySigningKey("exampleKeySigningKey", {
- *     hostedZoneId: exampleZone.id,
- *     keyManagementServiceArn: exampleKey.arn,
- * });
- * const exampleHostedZoneDnsSec = new aws.route53.HostedZoneDnsSec("exampleHostedZoneDnsSec", {hostedZoneId: exampleKeySigningKey.hostedZoneId}, {
- *     dependsOn: [exampleKeySigningKey],
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import `aws_route53_hosted_zone_dnssec` resources using the Route 53 Hosted Zone identifier. For example:

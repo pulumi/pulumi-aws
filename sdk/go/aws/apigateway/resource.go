@@ -21,31 +21,30 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigateway"
+//	apigateway/resource "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/apigateway/resource"
+//	apigateway/restApi "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/apigateway/restApi"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			myDemoAPI, err := apigateway.NewRestApi(ctx, "myDemoAPI", &apigateway.RestApiArgs{
-//				Description: pulumi.String("This is my API for demonstration purposes"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = apigateway.NewResource(ctx, "myDemoResource", &apigateway.ResourceArgs{
-//				RestApi:  myDemoAPI.ID(),
-//				ParentId: myDemoAPI.RootResourceId,
-//				PathPart: pulumi.String("mydemoresource"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// myDemoAPI, err := apigateway/restApi.NewRestApi(ctx, "myDemoAPI", &apigateway/restApi.RestApiArgs{
+// Description: "This is my API for demonstration purposes",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = apigateway/resource.NewResource(ctx, "myDemoResource", &apigateway/resource.ResourceArgs{
+// RestApi: myDemoAPI.Id,
+// ParentId: myDemoAPI.RootResourceId,
+// PathPart: "mydemoresource",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -17,49 +17,6 @@ import (
 // > **NOTE:** The Storage Gateway API requires the gateway to be connected to properly return information after activation. If you are receiving `The specified gateway is not connected` errors during resource creation (gateway activation), ensure your gateway instance meets the [Storage Gateway requirements](https://docs.aws.amazon.com/storagegateway/latest/userguide/Requirements.html).
 //
 // ## Example Usage
-// ### Local Cache
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/storagegateway"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testVolumeAttachment, err := ec2.NewVolumeAttachment(ctx, "testVolumeAttachment", &ec2.VolumeAttachmentArgs{
-//				DeviceName: pulumi.String("/dev/xvdb"),
-//				VolumeId:   pulumi.Any(aws_ebs_volume.Test.Id),
-//				InstanceId: pulumi.Any(aws_instance.Test.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			testLocalDisk := testVolumeAttachment.DeviceName.ApplyT(func(deviceName string) (storagegateway.GetLocalDiskResult, error) {
-//				return storagegateway.GetLocalDiskOutput(ctx, storagegateway.GetLocalDiskOutputArgs{
-//					DiskNode:   deviceName,
-//					GatewayArn: aws_storagegateway_gateway.Test.Arn,
-//				}, nil), nil
-//			}).(storagegateway.GetLocalDiskResultOutput)
-//			_, err = storagegateway.NewCache(ctx, "testCache", &storagegateway.CacheArgs{
-//				DiskId: testLocalDisk.ApplyT(func(testLocalDisk storagegateway.GetLocalDiskResult) (*string, error) {
-//					return &testLocalDisk.DiskId, nil
-//				}).(pulumi.StringPtrOutput),
-//				GatewayArn: pulumi.Any(aws_storagegateway_gateway.Test.Arn),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 // ### FSx File Gateway
 //
 // ```go
@@ -67,31 +24,29 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/storagegateway"
+//	storagegateway/gateway "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/storagegateway/gateway"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := storagegateway.NewGateway(ctx, "example", &storagegateway.GatewayArgs{
-//				GatewayIpAddress: pulumi.String("1.2.3.4"),
-//				GatewayName:      pulumi.String("example"),
-//				GatewayTimezone:  pulumi.String("GMT"),
-//				GatewayType:      pulumi.String("FILE_FSX_SMB"),
-//				SmbActiveDirectorySettings: &storagegateway.GatewaySmbActiveDirectorySettingsArgs{
-//					DomainName: pulumi.String("corp.example.com"),
-//					Password:   pulumi.String("avoid-plaintext-passwords"),
-//					Username:   pulumi.String("Admin"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := storagegateway/gateway.NewGateway(ctx, "example", &storagegateway/gateway.GatewayArgs{
+// GatewayIpAddress: "1.2.3.4",
+// GatewayName: "example",
+// GatewayTimezone: "GMT",
+// GatewayType: "FILE_FSX_SMB",
+// SmbActiveDirectorySettings: map[string]interface{}{
+// "domainName": "corp.example.com",
+// "password": "avoid-plaintext-passwords",
+// "username": "Admin",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### S3 File Gateway
 //
@@ -100,26 +55,24 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/storagegateway"
+//	storagegateway/gateway "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/storagegateway/gateway"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := storagegateway.NewGateway(ctx, "example", &storagegateway.GatewayArgs{
-//				GatewayIpAddress: pulumi.String("1.2.3.4"),
-//				GatewayName:      pulumi.String("example"),
-//				GatewayTimezone:  pulumi.String("GMT"),
-//				GatewayType:      pulumi.String("FILE_S3"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := storagegateway/gateway.NewGateway(ctx, "example", &storagegateway/gateway.GatewayArgs{
+// GatewayIpAddress: "1.2.3.4",
+// GatewayName: "example",
+// GatewayTimezone: "GMT",
+// GatewayType: "FILE_S3",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Tape Gateway
 //
@@ -128,28 +81,26 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/storagegateway"
+//	storagegateway/gateway "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/storagegateway/gateway"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := storagegateway.NewGateway(ctx, "example", &storagegateway.GatewayArgs{
-//				GatewayIpAddress:  pulumi.String("1.2.3.4"),
-//				GatewayName:       pulumi.String("example"),
-//				GatewayTimezone:   pulumi.String("GMT"),
-//				GatewayType:       pulumi.String("VTL"),
-//				MediumChangerType: pulumi.String("AWS-Gateway-VTL"),
-//				TapeDriveType:     pulumi.String("IBM-ULT3580-TD5"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := storagegateway/gateway.NewGateway(ctx, "example", &storagegateway/gateway.GatewayArgs{
+// GatewayIpAddress: "1.2.3.4",
+// GatewayName: "example",
+// GatewayTimezone: "GMT",
+// GatewayType: "VTL",
+// MediumChangerType: "AWS-Gateway-VTL",
+// TapeDriveType: "IBM-ULT3580-TD5",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Volume Gateway (Cached)
 //
@@ -158,26 +109,24 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/storagegateway"
+//	storagegateway/gateway "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/storagegateway/gateway"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := storagegateway.NewGateway(ctx, "example", &storagegateway.GatewayArgs{
-//				GatewayIpAddress: pulumi.String("1.2.3.4"),
-//				GatewayName:      pulumi.String("example"),
-//				GatewayTimezone:  pulumi.String("GMT"),
-//				GatewayType:      pulumi.String("CACHED"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := storagegateway/gateway.NewGateway(ctx, "example", &storagegateway/gateway.GatewayArgs{
+// GatewayIpAddress: "1.2.3.4",
+// GatewayName: "example",
+// GatewayTimezone: "GMT",
+// GatewayType: "CACHED",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Volume Gateway (Stored)
 //
@@ -186,26 +135,24 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/storagegateway"
+//	storagegateway/gateway "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/storagegateway/gateway"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := storagegateway.NewGateway(ctx, "example", &storagegateway.GatewayArgs{
-//				GatewayIpAddress: pulumi.String("1.2.3.4"),
-//				GatewayName:      pulumi.String("example"),
-//				GatewayTimezone:  pulumi.String("GMT"),
-//				GatewayType:      pulumi.String("STORED"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := storagegateway/gateway.NewGateway(ctx, "example", &storagegateway/gateway.GatewayArgs{
+// GatewayIpAddress: "1.2.3.4",
+// GatewayName: "example",
+// GatewayTimezone: "GMT",
+// GatewayType: "STORED",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

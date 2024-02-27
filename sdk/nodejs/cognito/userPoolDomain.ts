@@ -14,36 +14,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.cognito.UserPool("example", {});
- * const main = new aws.cognito.UserPoolDomain("main", {
+ * const example = new aws.cognito/userPool.UserPool("example", {});
+ * const main = new aws.cognito/userPoolDomain.UserPoolDomain("main", {
  *     domain: "example-domain",
  *     userPoolId: example.id,
- * });
- * ```
- * ### Custom Cognito domain
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleUserPool = new aws.cognito.UserPool("exampleUserPool", {});
- * const main = new aws.cognito.UserPoolDomain("main", {
- *     domain: "example-domain",
- *     certificateArn: aws_acm_certificate.cert.arn,
- *     userPoolId: exampleUserPool.id,
- * });
- * const exampleZone = aws.route53.getZone({
- *     name: "example.com",
- * });
- * const auth_cognito_A = new aws.route53.Record("auth-cognito-A", {
- *     name: main.domain,
- *     type: "A",
- *     zoneId: exampleZone.then(exampleZone => exampleZone.zoneId),
- *     aliases: [{
- *         evaluateTargetHealth: false,
- *         name: main.cloudfrontDistribution,
- *         zoneId: main.cloudfrontDistributionZoneId,
- *     }],
  * });
  * ```
  *

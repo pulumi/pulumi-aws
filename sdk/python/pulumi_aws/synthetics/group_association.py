@@ -135,9 +135,9 @@ class GroupAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.synthetics.GroupAssociation("example",
-            group_name=aws_synthetics_group["example"]["name"],
-            canary_arn=aws_synthetics_canary["example"]["arn"])
+        example = aws.synthetics.group_association.GroupAssociation("example",
+            group_name=aws_synthetics_group.example.name,
+            canary_arn=aws_synthetics_canary.example.arn)
         ```
 
         ## Import
@@ -169,9 +169,9 @@ class GroupAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.synthetics.GroupAssociation("example",
-            group_name=aws_synthetics_group["example"]["name"],
-            canary_arn=aws_synthetics_canary["example"]["arn"])
+        example = aws.synthetics.group_association.GroupAssociation("example",
+            group_name=aws_synthetics_group.example.name,
+            canary_arn=aws_synthetics_canary.example.arn)
         ```
 
         ## Import

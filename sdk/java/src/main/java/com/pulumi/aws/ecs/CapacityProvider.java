@@ -30,11 +30,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.autoscaling.Group;
  * import com.pulumi.aws.autoscaling.GroupArgs;
- * import com.pulumi.aws.autoscaling.inputs.GroupTagArgs;
  * import com.pulumi.aws.ecs.CapacityProvider;
  * import com.pulumi.aws.ecs.CapacityProviderArgs;
- * import com.pulumi.aws.ecs.inputs.CapacityProviderAutoScalingGroupProviderArgs;
- * import com.pulumi.aws.ecs.inputs.CapacityProviderAutoScalingGroupProviderManagedScalingArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -49,24 +46,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var testGroup = new Group(&#34;testGroup&#34;, GroupArgs.builder()        
- *             .tags(GroupTagArgs.builder()
- *                 .key(&#34;AmazonECSManaged&#34;)
- *                 .value(true)
- *                 .propagateAtLaunch(true)
- *                 .build())
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var testCapacityProvider = new CapacityProvider(&#34;testCapacityProvider&#34;, CapacityProviderArgs.builder()        
- *             .autoScalingGroupProvider(CapacityProviderAutoScalingGroupProviderArgs.builder()
- *                 .autoScalingGroupArn(testGroup.arn())
- *                 .managedTerminationProtection(&#34;ENABLED&#34;)
- *                 .managedScaling(CapacityProviderAutoScalingGroupProviderManagedScalingArgs.builder()
- *                     .maximumScalingStepSize(1000)
- *                     .minimumScalingStepSize(1)
- *                     .status(&#34;ENABLED&#34;)
- *                     .targetCapacity(10)
- *                     .build())
- *                 .build())
+ *             .autoScalingGroupProvider(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

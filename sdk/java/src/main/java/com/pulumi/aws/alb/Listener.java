@@ -37,7 +37,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.lb.TargetGroup;
  * import com.pulumi.aws.lb.Listener;
  * import com.pulumi.aws.lb.ListenerArgs;
- * import com.pulumi.aws.lb.inputs.ListenerDefaultActionArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -61,10 +60,7 @@ import javax.annotation.Nullable;
  *             .protocol(&#34;HTTPS&#34;)
  *             .sslPolicy(&#34;ELBSecurityPolicy-2016-08&#34;)
  *             .certificateArn(&#34;arn:aws:iam::187416307283:server-certificate/test_cert_rab3wuqwgja25ct3n4jdj2tzu4&#34;)
- *             .defaultActions(ListenerDefaultActionArgs.builder()
- *                 .type(&#34;forward&#34;)
- *                 .targetGroupArn(frontEndTargetGroup.arn())
- *                 .build())
+ *             .defaultActions(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -80,7 +76,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.lb.Listener;
  * import com.pulumi.aws.lb.ListenerArgs;
- * import com.pulumi.aws.lb.inputs.ListenerDefaultActionArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -100,10 +95,7 @@ import javax.annotation.Nullable;
  *             .protocol(&#34;TLS&#34;)
  *             .certificateArn(&#34;arn:aws:iam::187416307283:server-certificate/test_cert_rab3wuqwgja25ct3n4jdj2tzu4&#34;)
  *             .alpnPolicy(&#34;HTTP2Preferred&#34;)
- *             .defaultActions(ListenerDefaultActionArgs.builder()
- *                 .type(&#34;forward&#34;)
- *                 .targetGroupArn(aws_lb_target_group.front_end().arn())
- *                 .build())
+ *             .defaultActions(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -119,8 +111,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.lb.LoadBalancer;
  * import com.pulumi.aws.lb.Listener;
  * import com.pulumi.aws.lb.ListenerArgs;
- * import com.pulumi.aws.lb.inputs.ListenerDefaultActionArgs;
- * import com.pulumi.aws.lb.inputs.ListenerDefaultActionRedirectArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -140,14 +130,7 @@ import javax.annotation.Nullable;
  *             .loadBalancerArn(frontEndLoadBalancer.arn())
  *             .port(&#34;80&#34;)
  *             .protocol(&#34;HTTP&#34;)
- *             .defaultActions(ListenerDefaultActionArgs.builder()
- *                 .type(&#34;redirect&#34;)
- *                 .redirect(ListenerDefaultActionRedirectArgs.builder()
- *                     .port(&#34;443&#34;)
- *                     .protocol(&#34;HTTPS&#34;)
- *                     .statusCode(&#34;HTTP_301&#34;)
- *                     .build())
- *                 .build())
+ *             .defaultActions(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -163,8 +146,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.lb.LoadBalancer;
  * import com.pulumi.aws.lb.Listener;
  * import com.pulumi.aws.lb.ListenerArgs;
- * import com.pulumi.aws.lb.inputs.ListenerDefaultActionArgs;
- * import com.pulumi.aws.lb.inputs.ListenerDefaultActionFixedResponseArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -184,14 +165,7 @@ import javax.annotation.Nullable;
  *             .loadBalancerArn(frontEndLoadBalancer.arn())
  *             .port(&#34;80&#34;)
  *             .protocol(&#34;HTTP&#34;)
- *             .defaultActions(ListenerDefaultActionArgs.builder()
- *                 .type(&#34;fixed-response&#34;)
- *                 .fixedResponse(ListenerDefaultActionFixedResponseArgs.builder()
- *                     .contentType(&#34;text/plain&#34;)
- *                     .messageBody(&#34;Fixed response content&#34;)
- *                     .statusCode(&#34;200&#34;)
- *                     .build())
- *                 .build())
+ *             .defaultActions(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -211,8 +185,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.cognito.UserPoolDomain;
  * import com.pulumi.aws.lb.Listener;
  * import com.pulumi.aws.lb.ListenerArgs;
- * import com.pulumi.aws.lb.inputs.ListenerDefaultActionArgs;
- * import com.pulumi.aws.lb.inputs.ListenerDefaultActionAuthenticateCognitoArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -241,18 +213,8 @@ import javax.annotation.Nullable;
  *             .port(&#34;80&#34;)
  *             .protocol(&#34;HTTP&#34;)
  *             .defaultActions(            
- *                 ListenerDefaultActionArgs.builder()
- *                     .type(&#34;authenticate-cognito&#34;)
- *                     .authenticateCognito(ListenerDefaultActionAuthenticateCognitoArgs.builder()
- *                         .userPoolArn(pool.arn())
- *                         .userPoolClientId(client.id())
- *                         .userPoolDomain(domain.domain())
- *                         .build())
- *                     .build(),
- *                 ListenerDefaultActionArgs.builder()
- *                     .type(&#34;forward&#34;)
- *                     .targetGroupArn(frontEndTargetGroup.arn())
- *                     .build())
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -269,8 +231,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.lb.TargetGroup;
  * import com.pulumi.aws.lb.Listener;
  * import com.pulumi.aws.lb.ListenerArgs;
- * import com.pulumi.aws.lb.inputs.ListenerDefaultActionArgs;
- * import com.pulumi.aws.lb.inputs.ListenerDefaultActionAuthenticateOidcArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -293,21 +253,8 @@ import javax.annotation.Nullable;
  *             .port(&#34;80&#34;)
  *             .protocol(&#34;HTTP&#34;)
  *             .defaultActions(            
- *                 ListenerDefaultActionArgs.builder()
- *                     .type(&#34;authenticate-oidc&#34;)
- *                     .authenticateOidc(ListenerDefaultActionAuthenticateOidcArgs.builder()
- *                         .authorizationEndpoint(&#34;https://example.com/authorization_endpoint&#34;)
- *                         .clientId(&#34;client_id&#34;)
- *                         .clientSecret(&#34;client_secret&#34;)
- *                         .issuer(&#34;https://example.com&#34;)
- *                         .tokenEndpoint(&#34;https://example.com/token_endpoint&#34;)
- *                         .userInfoEndpoint(&#34;https://example.com/user_info_endpoint&#34;)
- *                         .build())
- *                     .build(),
- *                 ListenerDefaultActionArgs.builder()
- *                     .type(&#34;forward&#34;)
- *                     .targetGroupArn(frontEndTargetGroup.arn())
- *                     .build())
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -322,13 +269,10 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.lb.LoadBalancer;
  * import com.pulumi.aws.lb.LoadBalancerArgs;
- * import com.pulumi.aws.lb.inputs.LoadBalancerSubnetMappingArgs;
  * import com.pulumi.aws.lb.TargetGroup;
  * import com.pulumi.aws.lb.TargetGroupArgs;
- * import com.pulumi.aws.lb.inputs.TargetGroupHealthCheckArgs;
  * import com.pulumi.aws.lb.Listener;
  * import com.pulumi.aws.lb.ListenerArgs;
- * import com.pulumi.aws.lb.inputs.ListenerDefaultActionArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -344,27 +288,19 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var exampleLoadBalancer = new LoadBalancer(&#34;exampleLoadBalancer&#34;, LoadBalancerArgs.builder()        
  *             .loadBalancerType(&#34;gateway&#34;)
- *             .subnetMappings(LoadBalancerSubnetMappingArgs.builder()
- *                 .subnetId(aws_subnet.example().id())
- *                 .build())
+ *             .subnetMappings(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleTargetGroup = new TargetGroup(&#34;exampleTargetGroup&#34;, TargetGroupArgs.builder()        
  *             .port(6081)
  *             .protocol(&#34;GENEVE&#34;)
  *             .vpcId(aws_vpc.example().id())
- *             .healthCheck(TargetGroupHealthCheckArgs.builder()
- *                 .port(80)
- *                 .protocol(&#34;HTTP&#34;)
- *                 .build())
+ *             .healthCheck(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleListener = new Listener(&#34;exampleListener&#34;, ListenerArgs.builder()        
  *             .loadBalancerArn(exampleLoadBalancer.id())
- *             .defaultActions(ListenerDefaultActionArgs.builder()
- *                 .targetGroupArn(exampleTargetGroup.id())
- *                 .type(&#34;forward&#34;)
- *                 .build())
+ *             .defaultActions(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -382,8 +318,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.lb.TargetGroup;
  * import com.pulumi.aws.lb.Listener;
  * import com.pulumi.aws.lb.ListenerArgs;
- * import com.pulumi.aws.lb.inputs.ListenerDefaultActionArgs;
- * import com.pulumi.aws.lb.inputs.ListenerMutualAuthenticationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -405,14 +339,8 @@ import javax.annotation.Nullable;
  * 
  *         var exampleListener = new Listener(&#34;exampleListener&#34;, ListenerArgs.builder()        
  *             .loadBalancerArn(exampleLoadBalancer.id())
- *             .defaultActions(ListenerDefaultActionArgs.builder()
- *                 .targetGroupArn(exampleTargetGroup.id())
- *                 .type(&#34;forward&#34;)
- *                 .build())
- *             .mutualAuthentication(ListenerMutualAuthenticationArgs.builder()
- *                 .mode(&#34;verify&#34;)
- *                 .trustStoreArn(&#34;...&#34;)
- *                 .build())
+ *             .defaultActions(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .mutualAuthentication(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

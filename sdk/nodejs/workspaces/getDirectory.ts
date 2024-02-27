@@ -9,17 +9,6 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieve information about an AWS WorkSpaces directory.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.workspaces.getDirectory({
- *     directoryId: "d-9067783251",
- * });
- * ```
  */
 export function getDirectory(args: GetDirectoryArgs, opts?: pulumi.InvokeOptions): Promise<GetDirectoryResult> {
 
@@ -112,17 +101,6 @@ export interface GetDirectoryResult {
 }
 /**
  * Retrieve information about an AWS WorkSpaces directory.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.workspaces.getDirectory({
- *     directoryId: "d-9067783251",
- * });
- * ```
  */
 export function getDirectoryOutput(args: GetDirectoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDirectoryResult> {
     return pulumi.output(args).apply((a: any) => getDirectory(a, opts))

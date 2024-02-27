@@ -122,14 +122,6 @@ def get_serverless_security_config(id: Optional[str] = None,
     Data source for managing an AWS OpenSearch Serverless Security Config.
 
     ## Example Usage
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.opensearch.get_serverless_security_config(id="saml/12345678912/example")
-    ```
 
 
     :param str id: The unique identifier of the security configuration.
@@ -159,14 +151,6 @@ def get_serverless_security_config_output(id: Optional[pulumi.Input[str]] = None
     Data source for managing an AWS OpenSearch Serverless Security Config.
 
     ## Example Usage
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.opensearch.get_serverless_security_config(id="saml/12345678912/example")
-    ```
 
 
     :param str id: The unique identifier of the security configuration.

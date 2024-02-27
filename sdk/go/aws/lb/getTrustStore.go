@@ -18,43 +18,6 @@ import (
 // This data source can prove useful when a module accepts an LB Trust Store as an
 // input variable and needs to know its attributes. It can also be used to get the ARN of
 // an LB Trust Store for use in other resources, given LB Trust Store name.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lb"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			cfg := config.New(ctx, "")
-//			lbTsArn := ""
-//			if param := cfg.Get("lbTsArn"); param != "" {
-//				lbTsArn = param
-//			}
-//			lbTsName := ""
-//			if param := cfg.Get("lbTsName"); param != "" {
-//				lbTsName = param
-//			}
-//			_, err := lb.LookupTrustStore(ctx, &lb.LookupTrustStoreArgs{
-//				Arn:  pulumi.StringRef(lbTsArn),
-//				Name: pulumi.StringRef(lbTsName),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupTrustStore(ctx *pulumi.Context, args *LookupTrustStoreArgs, opts ...pulumi.InvokeOption) (*LookupTrustStoreResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupTrustStoreResult

@@ -22,24 +22,22 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53"
+//	route53/resolverRule "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/route53/resolverRule"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := route53.NewResolverRule(ctx, "sys", &route53.ResolverRuleArgs{
-//				DomainName: pulumi.String("subdomain.example.com"),
-//				RuleType:   pulumi.String("SYSTEM"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := route53/resolverRule.NewResolverRule(ctx, "sys", &route53/resolverRule.ResolverRuleArgs{
+// DomainName: "subdomain.example.com",
+// RuleType: "SYSTEM",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Forward rule
 //
@@ -48,33 +46,31 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53"
+//	route53/resolverRule "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/route53/resolverRule"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := route53.NewResolverRule(ctx, "fwd", &route53.ResolverRuleArgs{
-//				DomainName:         pulumi.String("example.com"),
-//				RuleType:           pulumi.String("FORWARD"),
-//				ResolverEndpointId: pulumi.Any(aws_route53_resolver_endpoint.Foo.Id),
-//				TargetIps: route53.ResolverRuleTargetIpArray{
-//					&route53.ResolverRuleTargetIpArgs{
-//						Ip: pulumi.String("123.45.67.89"),
-//					},
-//				},
-//				Tags: pulumi.StringMap{
-//					"Environment": pulumi.String("Prod"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := route53/resolverRule.NewResolverRule(ctx, "fwd", &route53/resolverRule.ResolverRuleArgs{
+// DomainName: "example.com",
+// RuleType: "FORWARD",
+// ResolverEndpointId: aws_route53_resolver_endpoint.Foo.Id,
+// TargetIps: []map[string]interface{}{
+// map[string]interface{}{
+// "ip": "123.45.67.89",
+// },
+// },
+// Tags: map[string]interface{}{
+// "Environment": "Prod",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

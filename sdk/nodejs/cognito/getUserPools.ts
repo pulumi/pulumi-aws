@@ -6,25 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to get a list of cognito user pools.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const selectedRestApi = aws.apigateway.getRestApi({
- *     name: _var.api_gateway_name,
- * });
- * const selectedUserPools = aws.cognito.getUserPools({
- *     name: _var.cognito_user_pool_name,
- * });
- * const cognito = new aws.apigateway.Authorizer("cognito", {
- *     type: "COGNITO_USER_POOLS",
- *     restApi: selectedRestApi.then(selectedRestApi => selectedRestApi.id),
- *     providerArns: selectedUserPools.then(selectedUserPools => selectedUserPools.arns),
- * });
- * ```
  */
 export function getUserPools(args: GetUserPoolsArgs, opts?: pulumi.InvokeOptions): Promise<GetUserPoolsResult> {
 
@@ -64,25 +45,6 @@ export interface GetUserPoolsResult {
 }
 /**
  * Use this data source to get a list of cognito user pools.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const selectedRestApi = aws.apigateway.getRestApi({
- *     name: _var.api_gateway_name,
- * });
- * const selectedUserPools = aws.cognito.getUserPools({
- *     name: _var.cognito_user_pool_name,
- * });
- * const cognito = new aws.apigateway.Authorizer("cognito", {
- *     type: "COGNITO_USER_POOLS",
- *     restApi: selectedRestApi.then(selectedRestApi => selectedRestApi.id),
- *     providerArns: selectedUserPools.then(selectedUserPools => selectedUserPools.arns),
- * });
- * ```
  */
 export function getUserPoolsOutput(args: GetUserPoolsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserPoolsResult> {
     return pulumi.output(args).apply((a: any) => getUserPools(a, opts))

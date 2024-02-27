@@ -22,28 +22,26 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kinesis"
+//	kinesis/videoStream "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/kinesis/videoStream"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := kinesis.NewVideoStream(ctx, "default", &kinesis.VideoStreamArgs{
-//				DataRetentionInHours: pulumi.Int(1),
-//				DeviceName:           pulumi.String("kinesis-video-device-name"),
-//				MediaType:            pulumi.String("video/h264"),
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("kinesis-video-stream"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := kinesis/videoStream.NewVideoStream(ctx, "default", &kinesis/videoStream.VideoStreamArgs{
+// DataRetentionInHours: 1,
+// DeviceName: "kinesis-video-device-name",
+// MediaType: "video/h264",
+// Tags: map[string]interface{}{
+// "Name": "kinesis-video-stream",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

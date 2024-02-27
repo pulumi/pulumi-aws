@@ -17,32 +17,6 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// Name of the field to filter by, as defined by
         /// [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
         /// For example, if matching against tag `Name`, use:
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var selected = Aws.Ec2.GetSubnets.Invoke(new()
-        ///     {
-        ///         Filters = new[]
-        ///         {
-        ///             new Aws.Ec2.Inputs.GetSubnetsFilterInputArgs
-        ///             {
-        ///                 Name = "tag:Name",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "",
-        ///                 },
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
         /// </summary>
         public readonly string Name;
         /// <summary>

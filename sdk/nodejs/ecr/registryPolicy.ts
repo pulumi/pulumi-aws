@@ -7,29 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Provides an Elastic Container Registry Policy.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const currentCallerIdentity = aws.getCallerIdentity({});
- * const currentRegion = aws.getRegion({});
- * const currentPartition = aws.getPartition({});
- * const example = new aws.ecr.RegistryPolicy("example", {policy: Promise.all([currentPartition, currentCallerIdentity, currentPartition, currentRegion, currentCallerIdentity]).then(([currentPartition, currentCallerIdentity, currentPartition1, currentRegion, currentCallerIdentity1]) => JSON.stringify({
- *     Version: "2012-10-17",
- *     Statement: [{
- *         Sid: "testpolicy",
- *         Effect: "Allow",
- *         Principal: {
- *             AWS: `arn:${currentPartition.partition}:iam::${currentCallerIdentity.accountId}:root`,
- *         },
- *         Action: ["ecr:ReplicateImage"],
- *         Resource: [`arn:${currentPartition1.partition}:ecr:${currentRegion.name}:${currentCallerIdentity1.accountId}:repository/*`],
- *     }],
- * }))});
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import ECR Registry Policy using the registry id. For example:

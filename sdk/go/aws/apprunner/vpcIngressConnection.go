@@ -21,30 +21,28 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apprunner"
+//	apprunner/vpcIngressConnection "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/apprunner/vpcIngressConnection"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := apprunner.NewVpcIngressConnection(ctx, "example", &apprunner.VpcIngressConnectionArgs{
-//				ServiceArn: pulumi.Any(aws_apprunner_service.Example.Arn),
-//				IngressVpcConfiguration: &apprunner.VpcIngressConnectionIngressVpcConfigurationArgs{
-//					VpcId:         pulumi.Any(aws_default_vpc.Default.Id),
-//					VpcEndpointId: pulumi.Any(aws_vpc_endpoint.Apprunner.Id),
-//				},
-//				Tags: pulumi.StringMap{
-//					"foo": pulumi.String("bar"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := apprunner/vpcIngressConnection.NewVpcIngressConnection(ctx, "example", &apprunner/vpcIngressConnection.VpcIngressConnectionArgs{
+// ServiceArn: aws_apprunner_service.Example.Arn,
+// IngressVpcConfiguration: map[string]interface{}{
+// "vpcId": aws_default_vpc.Default.Id,
+// "vpcEndpointId": aws_vpc_endpoint.Apprunner.Id,
+// },
+// Tags: map[string]interface{}{
+// "foo": "bar",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -32,15 +32,14 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.iam.RolePolicyAttachment;
  * import com.pulumi.aws.iam.RolePolicyAttachmentArgs;
- * import com.pulumi.aws.lex.V2modelsBot;
- * import com.pulumi.aws.lex.V2modelsBotArgs;
- * import com.pulumi.aws.lex.inputs.V2modelsBotDataPrivacyArgs;
- * import com.pulumi.aws.lex.V2modelsBotLocale;
- * import com.pulumi.aws.lex.V2modelsBotLocaleArgs;
- * import com.pulumi.aws.lex.V2modelsBotVersion;
- * import com.pulumi.aws.lex.V2modelsBotVersionArgs;
- * import com.pulumi.aws.lex.V2modelsSlotType;
- * import com.pulumi.aws.lex.V2modelsSlotTypeArgs;
+ * import com.pulumi.aws.lex_v2modelsBot.V2modelsBot;
+ * import com.pulumi.aws.lex_v2modelsBot.V2modelsBotArgs;
+ * import com.pulumi.aws.lex_v2modelsBotLocale.V2modelsBotLocale;
+ * import com.pulumi.aws.lex_v2modelsBotLocale.V2modelsBotLocaleArgs;
+ * import com.pulumi.aws.lex_v2modelsBotVersion.V2modelsBotVersion;
+ * import com.pulumi.aws.lex_v2modelsBotVersion.V2modelsBotVersionArgs;
+ * import com.pulumi.aws.lex_v2modelsSlotType.V2modelsSlotType;
+ * import com.pulumi.aws.lex_v2modelsSlotType.V2modelsSlotTypeArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -62,9 +61,7 @@ import javax.annotation.Nullable;
  *         var testV2modelsBot = new V2modelsBot(&#34;testV2modelsBot&#34;, V2modelsBotArgs.builder()        
  *             .idleSessionTtlInSeconds(60)
  *             .roleArn(aws_iam_role.test().arn())
- *             .dataPrivacies(V2modelsBotDataPrivacyArgs.builder()
- *                 .childDirected(true)
- *                 .build())
+ *             .dataPrivacies(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var testV2modelsBotLocale = new V2modelsBotLocale(&#34;testV2modelsBotLocale&#34;, V2modelsBotLocaleArgs.builder()        
@@ -76,7 +73,7 @@ import javax.annotation.Nullable;
  * 
  *         var testV2modelsBotVersion = new V2modelsBotVersion(&#34;testV2modelsBotVersion&#34;, V2modelsBotVersionArgs.builder()        
  *             .botId(testV2modelsBot.id())
- *             .localeSpecification(testV2modelsBotLocale.localeId().applyValue(localeId -&gt; Map.of(localeId, Map.of(&#34;sourceBotVersion&#34;, &#34;DRAFT&#34;))))
+ *             .localeSpecification(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var testV2modelsSlotType = new V2modelsSlotType(&#34;testV2modelsSlotType&#34;, V2modelsSlotTypeArgs.builder()        

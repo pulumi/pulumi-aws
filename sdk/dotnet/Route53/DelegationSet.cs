@@ -22,17 +22,17 @@ namespace Pulumi.Aws.Route53
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var main = new Aws.Route53.DelegationSet("main", new()
+    ///     var main = new Aws.Route53.DelegationSet.DelegationSet("main", new()
     ///     {
     ///         ReferenceName = "DynDNS",
     ///     });
     /// 
-    ///     var primary = new Aws.Route53.Zone("primary", new()
+    ///     var primary = new Aws.Route53.Zone.Zone("primary", new()
     ///     {
     ///         DelegationSetId = main.Id,
     ///     });
     /// 
-    ///     var secondary = new Aws.Route53.Zone("secondary", new()
+    ///     var secondary = new Aws.Route53.Zone.Zone("secondary", new()
     ///     {
     ///         DelegationSetId = main.Id,
     ///     });

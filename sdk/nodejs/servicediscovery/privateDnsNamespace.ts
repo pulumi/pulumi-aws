@@ -13,8 +13,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleVpc = new aws.ec2.Vpc("exampleVpc", {cidrBlock: "10.0.0.0/16"});
- * const examplePrivateDnsNamespace = new aws.servicediscovery.PrivateDnsNamespace("examplePrivateDnsNamespace", {
+ * const exampleVpc = new aws.ec2/vpc.Vpc("exampleVpc", {cidrBlock: "10.0.0.0/16"});
+ * const examplePrivateDnsNamespace = new aws.servicediscovery/privateDnsNamespace.PrivateDnsNamespace("examplePrivateDnsNamespace", {
  *     description: "example",
  *     vpc: exampleVpc.id,
  * });

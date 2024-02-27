@@ -23,7 +23,7 @@ namespace Pulumi.Aws.VerifiedAccess
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.VerifiedAccess.Endpoint("example", new()
+    ///     var example = new Aws.Verifiedaccess.Endpoint.Endpoint("example", new()
     ///     {
     ///         ApplicationDomain = "example.com",
     ///         AttachmentType = "vpc",
@@ -31,15 +31,15 @@ namespace Pulumi.Aws.VerifiedAccess
     ///         DomainCertificateArn = aws_acm_certificate.Example.Arn,
     ///         EndpointDomainPrefix = "example",
     ///         EndpointType = "load-balancer",
-    ///         LoadBalancerOptions = new Aws.VerifiedAccess.Inputs.EndpointLoadBalancerOptionsArgs
+    ///         LoadBalancerOptions = 
     ///         {
-    ///             LoadBalancerArn = aws_lb.Example.Arn,
-    ///             Port = 443,
-    ///             Protocol = "https",
-    ///             SubnetIds = .Select(subnet =&gt; 
+    ///             { "loadBalancerArn", aws_lb.Example.Arn },
+    ///             { "port", 443 },
+    ///             { "protocol", "https" },
+    ///             { "subnetIds", .Select(subnet =&gt; 
     ///             {
     ///                 return subnet.Id;
-    ///             }).ToList(),
+    ///             }).ToList() },
     ///         },
     ///         SecurityGroupIds = new[]
     ///         {
@@ -60,7 +60,7 @@ namespace Pulumi.Aws.VerifiedAccess
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.VerifiedAccess.Endpoint("example", new()
+    ///     var example = new Aws.Verifiedaccess.Endpoint.Endpoint("example", new()
     ///     {
     ///         ApplicationDomain = "example.com",
     ///         AttachmentType = "vpc",
@@ -68,11 +68,11 @@ namespace Pulumi.Aws.VerifiedAccess
     ///         DomainCertificateArn = aws_acm_certificate.Example.Arn,
     ///         EndpointDomainPrefix = "example",
     ///         EndpointType = "network-interface",
-    ///         NetworkInterfaceOptions = new Aws.VerifiedAccess.Inputs.EndpointNetworkInterfaceOptionsArgs
+    ///         NetworkInterfaceOptions = 
     ///         {
-    ///             NetworkInterfaceId = aws_network_interface.Example.Id,
-    ///             Port = 443,
-    ///             Protocol = "https",
+    ///             { "networkInterfaceId", aws_network_interface.Example.Id },
+    ///             { "port", 443 },
+    ///             { "protocol", "https" },
     ///         },
     ///         SecurityGroupIds = new[]
     ///         {

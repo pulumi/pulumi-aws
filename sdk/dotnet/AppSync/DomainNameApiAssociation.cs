@@ -22,7 +22,7 @@ namespace Pulumi.Aws.AppSync
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.AppSync.DomainNameApiAssociation("example", new()
+    ///     var example = new Aws.Appsync.DomainNameApiAssociation.DomainNameApiAssociation("example", new()
     ///     {
     ///         ApiId = aws_appsync_graphql_api.Example.Id,
     ///         DomainName = aws_appsync_domain_name.Example.Domain_name,

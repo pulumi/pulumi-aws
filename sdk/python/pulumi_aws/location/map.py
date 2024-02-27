@@ -252,11 +252,11 @@ class Map(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.location.Map("example",
-            configuration=aws.location.MapConfigurationArgs(
-                style="VectorHereBerlin",
-            ),
-            map_name="example")
+        example = aws.location.map.Map("example",
+            configuration={
+                style: VectorHereBerlin,
+            },
+            map_name=example)
         ```
 
         ## Import
@@ -291,11 +291,11 @@ class Map(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.location.Map("example",
-            configuration=aws.location.MapConfigurationArgs(
-                style="VectorHereBerlin",
-            ),
-            map_name="example")
+        example = aws.location.map.Map("example",
+            configuration={
+                style: VectorHereBerlin,
+            },
+            map_name=example)
         ```
 
         ## Import

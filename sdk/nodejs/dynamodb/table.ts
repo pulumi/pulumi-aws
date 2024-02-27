@@ -32,7 +32,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const basic_dynamodb_table = new aws.dynamodb.Table("basic-dynamodb-table", {
+ * const basic_dynamodb_table = new aws.dynamodb/table.Table("basic-dynamodb-table", {
  *     attributes: [
  *         {
  *             name: "UserId",
@@ -81,7 +81,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.dynamodb.Table("example", {
+ * const example = new aws.dynamodb/table.Table("example", {
  *     attributes: [{
  *         name: "TestTableHashKey",
  *         type: "S",

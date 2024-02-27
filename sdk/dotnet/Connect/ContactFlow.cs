@@ -31,7 +31,7 @@ namespace Pulumi.Aws.Connect
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Aws.Connect.ContactFlow("test", new()
+    ///     var test = new Aws.Connect.ContactFlow.ContactFlow("test", new()
     ///     {
     ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
     ///         Description = "Test Contact Flow Description",

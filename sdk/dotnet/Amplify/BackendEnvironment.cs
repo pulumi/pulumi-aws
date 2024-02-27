@@ -22,9 +22,9 @@ namespace Pulumi.Aws.Amplify
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleApp = new Aws.Amplify.App("exampleApp");
+    ///     var exampleApp = new Aws.Amplify.App.App("exampleApp");
     /// 
-    ///     var exampleBackendEnvironment = new Aws.Amplify.BackendEnvironment("exampleBackendEnvironment", new()
+    ///     var exampleBackendEnvironment = new Aws.Amplify.BackendEnvironment.BackendEnvironment("exampleBackendEnvironment", new()
     ///     {
     ///         AppId = exampleApp.Id,
     ///         EnvironmentName = "example",

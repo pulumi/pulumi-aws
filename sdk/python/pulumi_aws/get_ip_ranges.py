@@ -125,31 +125,6 @@ def get_ip_ranges(id: Optional[str] = None,
     """
     Use this data source to get the IP ranges of various AWS products and services. For more information about the contents of this data source and required JSON syntax if referencing a custom URL, see the [AWS IP Address Ranges documentation](https://docs.aws.amazon.com/general/latest/gr/aws-ip-ranges.html).
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    european_ec2 = aws.get_ip_ranges(regions=[
-            "eu-west-1",
-            "eu-central-1",
-        ],
-        services=["ec2"])
-    from_europe = aws.ec2.SecurityGroup("fromEurope",
-        ingress=[aws.ec2.SecurityGroupIngressArgs(
-            from_port=443,
-            to_port=443,
-            protocol="tcp",
-            cidr_blocks=european_ec2.cidr_blocks,
-            ipv6_cidr_blocks=european_ec2.ipv6_cidr_blocks,
-        )],
-        tags={
-            "CreateDate": european_ec2.create_date,
-            "SyncToken": european_ec2.sync_token,
-        })
-    ```
-
 
     :param Sequence[str] regions: Filter IP ranges by regions (or include all regions, if
            omitted). Valid items are `global` (for `cloudfront`) as well as all AWS regions
@@ -191,31 +166,6 @@ def get_ip_ranges_output(id: Optional[pulumi.Input[Optional[str]]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIpRangesResult]:
     """
     Use this data source to get the IP ranges of various AWS products and services. For more information about the contents of this data source and required JSON syntax if referencing a custom URL, see the [AWS IP Address Ranges documentation](https://docs.aws.amazon.com/general/latest/gr/aws-ip-ranges.html).
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    european_ec2 = aws.get_ip_ranges(regions=[
-            "eu-west-1",
-            "eu-central-1",
-        ],
-        services=["ec2"])
-    from_europe = aws.ec2.SecurityGroup("fromEurope",
-        ingress=[aws.ec2.SecurityGroupIngressArgs(
-            from_port=443,
-            to_port=443,
-            protocol="tcp",
-            cidr_blocks=european_ec2.cidr_blocks,
-            ipv6_cidr_blocks=european_ec2.ipv6_cidr_blocks,
-        )],
-        tags={
-            "CreateDate": european_ec2.create_date,
-            "SyncToken": european_ec2.sync_token,
-        })
-    ```
 
 
     :param Sequence[str] regions: Filter IP ranges by regions (or include all regions, if

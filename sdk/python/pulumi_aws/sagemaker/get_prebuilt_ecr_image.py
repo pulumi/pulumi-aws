@@ -114,18 +114,6 @@ def get_prebuilt_ecr_image(dns_suffix: Optional[str] = None,
 
     > **NOTE:** The AWS provider creates a validly constructed `registry_path` but does not verify that the `registry_path` corresponds to an existing image. For example, using a `registry_path` containing an `image_tag` that does not correspond to a Docker image in the ECR repository, will result in an error.
 
-    ## Example Usage
-
-    Basic usage:
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.sagemaker.get_prebuilt_ecr_image(image_tag="2.2-1.0.11.0",
-        repository_name="sagemaker-scikit-learn")
-    ```
-
 
     :param str dns_suffix: DNS suffix to use in the registry path. If not specified, the AWS provider sets it to the DNS suffix for the current region.
     :param str image_tag: Image tag for the Docker image. If not specified, the AWS provider sets the value to `1`, which for many repositories indicates the latest version. Some repositories, such as XGBoost, do not support `1` or `latest` and specific version must be used.
@@ -160,18 +148,6 @@ def get_prebuilt_ecr_image_output(dns_suffix: Optional[pulumi.Input[Optional[str
     Get information about prebuilt Amazon SageMaker Docker images.
 
     > **NOTE:** The AWS provider creates a validly constructed `registry_path` but does not verify that the `registry_path` corresponds to an existing image. For example, using a `registry_path` containing an `image_tag` that does not correspond to a Docker image in the ECR repository, will result in an error.
-
-    ## Example Usage
-
-    Basic usage:
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.sagemaker.get_prebuilt_ecr_image(image_tag="2.2-1.0.11.0",
-        repository_name="sagemaker-scikit-learn")
-    ```
 
 
     :param str dns_suffix: DNS suffix to use in the registry path. If not specified, the AWS provider sets it to the DNS suffix for the current region.

@@ -246,15 +246,15 @@ class DataCatalog(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.athena.DataCatalog("example",
-            description="Example Athena data catalog",
+        example = aws.athena.data_catalog.DataCatalog("example",
+            description=Example Athena data catalog,
             parameters={
-                "function": "arn:aws:lambda:eu-central-1:123456789012:function:not-important-lambda-function",
+                function: arn:aws:lambda:eu-central-1:123456789012:function:not-important-lambda-function,
             },
             tags={
-                "Name": "example-athena-data-catalog",
+                Name: example-athena-data-catalog,
             },
-            type="LAMBDA")
+            type=LAMBDA)
         ```
         ### Hive based Data Catalog
 
@@ -262,12 +262,12 @@ class DataCatalog(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.athena.DataCatalog("example",
-            description="Hive based Data Catalog",
+        example = aws.athena.data_catalog.DataCatalog("example",
+            description=Hive based Data Catalog,
             parameters={
-                "metadata-function": "arn:aws:lambda:eu-central-1:123456789012:function:not-important-lambda-function",
+                metadata-function: arn:aws:lambda:eu-central-1:123456789012:function:not-important-lambda-function,
             },
-            type="HIVE")
+            type=HIVE)
         ```
         ### Glue based Data Catalog
 
@@ -275,12 +275,12 @@ class DataCatalog(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.athena.DataCatalog("example",
-            description="Glue based Data Catalog",
+        example = aws.athena.data_catalog.DataCatalog("example",
+            description=Glue based Data Catalog,
             parameters={
-                "catalog-id": "123456789012",
+                catalog-id: 123456789012,
             },
-            type="GLUE")
+            type=GLUE)
         ```
         ### Lambda based Data Catalog
 
@@ -288,13 +288,13 @@ class DataCatalog(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.athena.DataCatalog("example",
-            description="Lambda based Data Catalog",
+        example = aws.athena.data_catalog.DataCatalog("example",
+            description=Lambda based Data Catalog,
             parameters={
-                "metadata-function": "arn:aws:lambda:eu-central-1:123456789012:function:not-important-lambda-function-1",
-                "record-function": "arn:aws:lambda:eu-central-1:123456789012:function:not-important-lambda-function-2",
+                metadata-function: arn:aws:lambda:eu-central-1:123456789012:function:not-important-lambda-function-1,
+                record-function: arn:aws:lambda:eu-central-1:123456789012:function:not-important-lambda-function-2,
             },
-            type="LAMBDA")
+            type=LAMBDA)
         ```
 
         ## Import
@@ -332,15 +332,15 @@ class DataCatalog(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.athena.DataCatalog("example",
-            description="Example Athena data catalog",
+        example = aws.athena.data_catalog.DataCatalog("example",
+            description=Example Athena data catalog,
             parameters={
-                "function": "arn:aws:lambda:eu-central-1:123456789012:function:not-important-lambda-function",
+                function: arn:aws:lambda:eu-central-1:123456789012:function:not-important-lambda-function,
             },
             tags={
-                "Name": "example-athena-data-catalog",
+                Name: example-athena-data-catalog,
             },
-            type="LAMBDA")
+            type=LAMBDA)
         ```
         ### Hive based Data Catalog
 
@@ -348,12 +348,12 @@ class DataCatalog(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.athena.DataCatalog("example",
-            description="Hive based Data Catalog",
+        example = aws.athena.data_catalog.DataCatalog("example",
+            description=Hive based Data Catalog,
             parameters={
-                "metadata-function": "arn:aws:lambda:eu-central-1:123456789012:function:not-important-lambda-function",
+                metadata-function: arn:aws:lambda:eu-central-1:123456789012:function:not-important-lambda-function,
             },
-            type="HIVE")
+            type=HIVE)
         ```
         ### Glue based Data Catalog
 
@@ -361,12 +361,12 @@ class DataCatalog(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.athena.DataCatalog("example",
-            description="Glue based Data Catalog",
+        example = aws.athena.data_catalog.DataCatalog("example",
+            description=Glue based Data Catalog,
             parameters={
-                "catalog-id": "123456789012",
+                catalog-id: 123456789012,
             },
-            type="GLUE")
+            type=GLUE)
         ```
         ### Lambda based Data Catalog
 
@@ -374,13 +374,13 @@ class DataCatalog(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.athena.DataCatalog("example",
-            description="Lambda based Data Catalog",
+        example = aws.athena.data_catalog.DataCatalog("example",
+            description=Lambda based Data Catalog,
             parameters={
-                "metadata-function": "arn:aws:lambda:eu-central-1:123456789012:function:not-important-lambda-function-1",
-                "record-function": "arn:aws:lambda:eu-central-1:123456789012:function:not-important-lambda-function-2",
+                metadata-function: arn:aws:lambda:eu-central-1:123456789012:function:not-important-lambda-function-1,
+                record-function: arn:aws:lambda:eu-central-1:123456789012:function:not-important-lambda-function-2,
             },
-            type="LAMBDA")
+            type=LAMBDA)
         ```
 
         ## Import

@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Macie2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Aws.Macie2.Account("test", new()
+    ///     var test = new Aws.Macie2.Account.Account("test", new()
     ///     {
     ///         FindingPublishingFrequency = "FIFTEEN_MINUTES",
     ///         Status = "ENABLED",

@@ -21,27 +21,26 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
+//	cloudwatch/logGroup "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/cloudwatch/logGroup"
+//	cloudwatch/logStream "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/cloudwatch/logStream"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			yada, err := cloudwatch.NewLogGroup(ctx, "yada", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = cloudwatch.NewLogStream(ctx, "foo", &cloudwatch.LogStreamArgs{
-//				LogGroupName: yada.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// yada, err := cloudwatch/logGroup.NewLogGroup(ctx, "yada", nil)
+// if err != nil {
+// return err
+// }
+// _, err = cloudwatch/logStream.NewLogStream(ctx, "foo", &cloudwatch/logStream.LogStreamArgs{
+// LogGroupName: yada.Name,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

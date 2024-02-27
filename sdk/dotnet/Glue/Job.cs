@@ -25,12 +25,12 @@ namespace Pulumi.Aws.Glue
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Glue.Job("example", new()
+    ///     var example = new Aws.Glue.Job.Job("example", new()
     ///     {
     ///         RoleArn = aws_iam_role.Example.Arn,
-    ///         Command = new Aws.Glue.Inputs.JobCommandArgs
+    ///         Command = 
     ///         {
-    ///             ScriptLocation = $"s3://{aws_s3_bucket.Example.Bucket}/example.py",
+    ///             { "scriptLocation", $"s3://{aws_s3_bucket.Example.Bucket}/example.py" },
     ///         },
     ///     });
     /// 
@@ -46,17 +46,17 @@ namespace Pulumi.Aws.Glue
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Glue.Job("example", new()
+    ///     var example = new Aws.Glue.Job.Job("example", new()
     ///     {
     ///         RoleArn = aws_iam_role.Example.Arn,
     ///         GlueVersion = "4.0",
     ///         WorkerType = "Z.2X",
-    ///         Command = new Aws.Glue.Inputs.JobCommandArgs
+    ///         Command = 
     ///         {
-    ///             Name = "glueray",
-    ///             PythonVersion = "3.9",
-    ///             Runtime = "Ray2.4",
-    ///             ScriptLocation = $"s3://{aws_s3_bucket.Example.Bucket}/example.py",
+    ///             { "name", "glueray" },
+    ///             { "pythonVersion", "3.9" },
+    ///             { "runtime", "Ray2.4" },
+    ///             { "scriptLocation", $"s3://{aws_s3_bucket.Example.Bucket}/example.py" },
     ///         },
     ///     });
     /// 
@@ -72,12 +72,12 @@ namespace Pulumi.Aws.Glue
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Glue.Job("example", new()
+    ///     var example = new Aws.Glue.Job.Job("example", new()
     ///     {
     ///         RoleArn = aws_iam_role.Example.Arn,
-    ///         Command = new Aws.Glue.Inputs.JobCommandArgs
+    ///         Command = 
     ///         {
-    ///             ScriptLocation = $"s3://{aws_s3_bucket.Example.Bucket}/example.scala",
+    ///             { "scriptLocation", $"s3://{aws_s3_bucket.Example.Bucket}/example.scala" },
     ///         },
     ///         DefaultArguments = 
     ///         {
@@ -97,13 +97,13 @@ namespace Pulumi.Aws.Glue
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Glue.Job("example", new()
+    ///     var example = new Aws.Glue.Job.Job("example", new()
     ///     {
     ///         RoleArn = aws_iam_role.Example.Arn,
-    ///         Command = new Aws.Glue.Inputs.JobCommandArgs
+    ///         Command = 
     ///         {
-    ///             Name = "gluestreaming",
-    ///             ScriptLocation = $"s3://{aws_s3_bucket.Example.Bucket}/example.script",
+    ///             { "name", "gluestreaming" },
+    ///             { "scriptLocation", $"s3://{aws_s3_bucket.Example.Bucket}/example.script" },
     ///         },
     ///     });
     /// 
@@ -119,13 +119,13 @@ namespace Pulumi.Aws.Glue
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleLogGroup = new Aws.CloudWatch.LogGroup("exampleLogGroup", new()
+    ///     var exampleLogGroup = new Aws.Cloudwatch.LogGroup.LogGroup("exampleLogGroup", new()
     ///     {
     ///         RetentionInDays = 14,
     ///     });
     /// 
     ///     // ... other configuration ...
-    ///     var exampleJob = new Aws.Glue.Job("exampleJob", new()
+    ///     var exampleJob = new Aws.Glue.Job.Job("exampleJob", new()
     ///     {
     ///         DefaultArguments = 
     ///         {

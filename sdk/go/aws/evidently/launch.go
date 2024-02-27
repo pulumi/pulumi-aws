@@ -22,40 +22,38 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/evidently"
+//	evidently/launch "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/evidently/launch"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := evidently.NewLaunch(ctx, "example", &evidently.LaunchArgs{
-//				Project: pulumi.Any(aws_evidently_project.Example.Name),
-//				Groups: evidently.LaunchGroupArray{
-//					&evidently.LaunchGroupArgs{
-//						Feature:   pulumi.Any(aws_evidently_feature.Example.Name),
-//						Name:      pulumi.String("Variation1"),
-//						Variation: pulumi.String("Variation1"),
-//					},
-//				},
-//				ScheduledSplitsConfig: &evidently.LaunchScheduledSplitsConfigArgs{
-//					Steps: evidently.LaunchScheduledSplitsConfigStepArray{
-//						&evidently.LaunchScheduledSplitsConfigStepArgs{
-//							GroupWeights: pulumi.IntMap{
-//								"Variation1": pulumi.Int(0),
-//							},
-//							StartTime: pulumi.String("2024-01-07 01:43:59+00:00"),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := evidently/launch.NewLaunch(ctx, "example", &evidently/launch.LaunchArgs{
+// Project: aws_evidently_project.Example.Name,
+// Groups: []map[string]interface{}{
+// map[string]interface{}{
+// "feature": aws_evidently_feature.Example.Name,
+// "name": "Variation1",
+// "variation": "Variation1",
+// },
+// },
+// ScheduledSplitsConfig: map[string]interface{}{
+// "steps": []map[string]interface{}{
+// map[string]interface{}{
+// "groupWeights": map[string]interface{}{
+// "Variation1": 0,
+// },
+// "startTime": "2024-01-07 01:43:59+00:00",
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### With description
 //
@@ -64,41 +62,39 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/evidently"
+//	evidently/launch "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/evidently/launch"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := evidently.NewLaunch(ctx, "example", &evidently.LaunchArgs{
-//				Project:     pulumi.Any(aws_evidently_project.Example.Name),
-//				Description: pulumi.String("example description"),
-//				Groups: evidently.LaunchGroupArray{
-//					&evidently.LaunchGroupArgs{
-//						Feature:   pulumi.Any(aws_evidently_feature.Example.Name),
-//						Name:      pulumi.String("Variation1"),
-//						Variation: pulumi.String("Variation1"),
-//					},
-//				},
-//				ScheduledSplitsConfig: &evidently.LaunchScheduledSplitsConfigArgs{
-//					Steps: evidently.LaunchScheduledSplitsConfigStepArray{
-//						&evidently.LaunchScheduledSplitsConfigStepArgs{
-//							GroupWeights: pulumi.IntMap{
-//								"Variation1": pulumi.Int(0),
-//							},
-//							StartTime: pulumi.String("2024-01-07 01:43:59+00:00"),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := evidently/launch.NewLaunch(ctx, "example", &evidently/launch.LaunchArgs{
+// Project: aws_evidently_project.Example.Name,
+// Description: "example description",
+// Groups: []map[string]interface{}{
+// map[string]interface{}{
+// "feature": aws_evidently_feature.Example.Name,
+// "name": "Variation1",
+// "variation": "Variation1",
+// },
+// },
+// ScheduledSplitsConfig: map[string]interface{}{
+// "steps": []map[string]interface{}{
+// map[string]interface{}{
+// "groupWeights": map[string]interface{}{
+// "Variation1": 0,
+// },
+// "startTime": "2024-01-07 01:43:59+00:00",
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### With multiple groups
 //
@@ -107,48 +103,46 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/evidently"
+//	evidently/launch "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/evidently/launch"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := evidently.NewLaunch(ctx, "example", &evidently.LaunchArgs{
-//				Project: pulumi.Any(aws_evidently_project.Example.Name),
-//				Groups: evidently.LaunchGroupArray{
-//					&evidently.LaunchGroupArgs{
-//						Feature:     pulumi.Any(aws_evidently_feature.Example.Name),
-//						Name:        pulumi.String("Variation1"),
-//						Variation:   pulumi.String("Variation1"),
-//						Description: pulumi.String("first-group"),
-//					},
-//					&evidently.LaunchGroupArgs{
-//						Feature:     pulumi.Any(aws_evidently_feature.Example.Name),
-//						Name:        pulumi.String("Variation2"),
-//						Variation:   pulumi.String("Variation2"),
-//						Description: pulumi.String("second-group"),
-//					},
-//				},
-//				ScheduledSplitsConfig: &evidently.LaunchScheduledSplitsConfigArgs{
-//					Steps: evidently.LaunchScheduledSplitsConfigStepArray{
-//						&evidently.LaunchScheduledSplitsConfigStepArgs{
-//							GroupWeights: pulumi.IntMap{
-//								"Variation1": pulumi.Int(0),
-//								"Variation2": pulumi.Int(0),
-//							},
-//							StartTime: pulumi.String("2024-01-07 01:43:59+00:00"),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := evidently/launch.NewLaunch(ctx, "example", &evidently/launch.LaunchArgs{
+// Project: aws_evidently_project.Example.Name,
+// Groups: []map[string]interface{}{
+// map[string]interface{}{
+// "feature": aws_evidently_feature.Example.Name,
+// "name": "Variation1",
+// "variation": "Variation1",
+// "description": "first-group",
+// },
+// map[string]interface{}{
+// "feature": aws_evidently_feature.Example.Name,
+// "name": "Variation2",
+// "variation": "Variation2",
+// "description": "second-group",
+// },
+// },
+// ScheduledSplitsConfig: map[string]interface{}{
+// "steps": []map[string]interface{}{
+// map[string]interface{}{
+// "groupWeights": map[string]interface{}{
+// "Variation1": 0,
+// "Variation2": 0,
+// },
+// "startTime": "2024-01-07 01:43:59+00:00",
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### With metricMonitors
 //
@@ -157,60 +151,58 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/evidently"
+//	evidently/launch "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/evidently/launch"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := evidently.NewLaunch(ctx, "example", &evidently.LaunchArgs{
-//				Project: pulumi.Any(aws_evidently_project.Example.Name),
-//				Groups: evidently.LaunchGroupArray{
-//					&evidently.LaunchGroupArgs{
-//						Feature:   pulumi.Any(aws_evidently_feature.Example.Name),
-//						Name:      pulumi.String("Variation1"),
-//						Variation: pulumi.String("Variation1"),
-//					},
-//				},
-//				MetricMonitors: evidently.LaunchMetricMonitorArray{
-//					&evidently.LaunchMetricMonitorArgs{
-//						MetricDefinition: &evidently.LaunchMetricMonitorMetricDefinitionArgs{
-//							EntityIdKey:  pulumi.String("entity_id_key1"),
-//							EventPattern: pulumi.String("{\"Price\":[{\"numeric\":[\">\",11,\"<=\",22]}]}"),
-//							Name:         pulumi.String("name1"),
-//							UnitLabel:    pulumi.String("unit_label1"),
-//							ValueKey:     pulumi.String("value_key1"),
-//						},
-//					},
-//					&evidently.LaunchMetricMonitorArgs{
-//						MetricDefinition: &evidently.LaunchMetricMonitorMetricDefinitionArgs{
-//							EntityIdKey:  pulumi.String("entity_id_key2"),
-//							EventPattern: pulumi.String("{\"Price\":[{\"numeric\":[\">\",9,\"<=\",19]}]}"),
-//							Name:         pulumi.String("name2"),
-//							UnitLabel:    pulumi.String("unit_label2"),
-//							ValueKey:     pulumi.String("value_key2"),
-//						},
-//					},
-//				},
-//				ScheduledSplitsConfig: &evidently.LaunchScheduledSplitsConfigArgs{
-//					Steps: evidently.LaunchScheduledSplitsConfigStepArray{
-//						&evidently.LaunchScheduledSplitsConfigStepArgs{
-//							GroupWeights: pulumi.IntMap{
-//								"Variation1": pulumi.Int(0),
-//							},
-//							StartTime: pulumi.String("2024-01-07 01:43:59+00:00"),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := evidently/launch.NewLaunch(ctx, "example", &evidently/launch.LaunchArgs{
+// Project: aws_evidently_project.Example.Name,
+// Groups: []map[string]interface{}{
+// map[string]interface{}{
+// "feature": aws_evidently_feature.Example.Name,
+// "name": "Variation1",
+// "variation": "Variation1",
+// },
+// },
+// MetricMonitors: []map[string]interface{}{
+// map[string]interface{}{
+// "metricDefinition": map[string]interface{}{
+// "entityIdKey": "entity_id_key1",
+// "eventPattern": "{\"Price\":[{\"numeric\":[\">\",11,\"<=\",22]}]}",
+// "name": "name1",
+// "unitLabel": "unit_label1",
+// "valueKey": "value_key1",
+// },
+// },
+// map[string]interface{}{
+// "metricDefinition": map[string]interface{}{
+// "entityIdKey": "entity_id_key2",
+// "eventPattern": "{\"Price\":[{\"numeric\":[\">\",9,\"<=\",19]}]}",
+// "name": "name2",
+// "unitLabel": "unit_label2",
+// "valueKey": "value_key2",
+// },
+// },
+// },
+// ScheduledSplitsConfig: map[string]interface{}{
+// "steps": []map[string]interface{}{
+// map[string]interface{}{
+// "groupWeights": map[string]interface{}{
+// "Variation1": 0,
+// },
+// "startTime": "2024-01-07 01:43:59+00:00",
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### With randomizationSalt
 //
@@ -219,41 +211,39 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/evidently"
+//	evidently/launch "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/evidently/launch"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := evidently.NewLaunch(ctx, "example", &evidently.LaunchArgs{
-//				Project:           pulumi.Any(aws_evidently_project.Example.Name),
-//				RandomizationSalt: pulumi.String("example randomization salt"),
-//				Groups: evidently.LaunchGroupArray{
-//					&evidently.LaunchGroupArgs{
-//						Feature:   pulumi.Any(aws_evidently_feature.Example.Name),
-//						Name:      pulumi.String("Variation1"),
-//						Variation: pulumi.String("Variation1"),
-//					},
-//				},
-//				ScheduledSplitsConfig: &evidently.LaunchScheduledSplitsConfigArgs{
-//					Steps: evidently.LaunchScheduledSplitsConfigStepArray{
-//						&evidently.LaunchScheduledSplitsConfigStepArgs{
-//							GroupWeights: pulumi.IntMap{
-//								"Variation1": pulumi.Int(0),
-//							},
-//							StartTime: pulumi.String("2024-01-07 01:43:59+00:00"),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := evidently/launch.NewLaunch(ctx, "example", &evidently/launch.LaunchArgs{
+// Project: aws_evidently_project.Example.Name,
+// RandomizationSalt: "example randomization salt",
+// Groups: []map[string]interface{}{
+// map[string]interface{}{
+// "feature": aws_evidently_feature.Example.Name,
+// "name": "Variation1",
+// "variation": "Variation1",
+// },
+// },
+// ScheduledSplitsConfig: map[string]interface{}{
+// "steps": []map[string]interface{}{
+// map[string]interface{}{
+// "groupWeights": map[string]interface{}{
+// "Variation1": 0,
+// },
+// "startTime": "2024-01-07 01:43:59+00:00",
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### With multiple steps
 //
@@ -262,53 +252,51 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/evidently"
+//	evidently/launch "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/evidently/launch"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := evidently.NewLaunch(ctx, "example", &evidently.LaunchArgs{
-//				Project: pulumi.Any(aws_evidently_project.Example.Name),
-//				Groups: evidently.LaunchGroupArray{
-//					&evidently.LaunchGroupArgs{
-//						Feature:   pulumi.Any(aws_evidently_feature.Example.Name),
-//						Name:      pulumi.String("Variation1"),
-//						Variation: pulumi.String("Variation1"),
-//					},
-//					&evidently.LaunchGroupArgs{
-//						Feature:   pulumi.Any(aws_evidently_feature.Example.Name),
-//						Name:      pulumi.String("Variation2"),
-//						Variation: pulumi.String("Variation2"),
-//					},
-//				},
-//				ScheduledSplitsConfig: &evidently.LaunchScheduledSplitsConfigArgs{
-//					Steps: evidently.LaunchScheduledSplitsConfigStepArray{
-//						&evidently.LaunchScheduledSplitsConfigStepArgs{
-//							GroupWeights: pulumi.IntMap{
-//								"Variation1": pulumi.Int(15),
-//								"Variation2": pulumi.Int(10),
-//							},
-//							StartTime: pulumi.String("2024-01-07 01:43:59+00:00"),
-//						},
-//						&evidently.LaunchScheduledSplitsConfigStepArgs{
-//							GroupWeights: pulumi.IntMap{
-//								"Variation1": pulumi.Int(20),
-//								"Variation2": pulumi.Int(25),
-//							},
-//							StartTime: pulumi.String("2024-01-08 01:43:59+00:00"),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := evidently/launch.NewLaunch(ctx, "example", &evidently/launch.LaunchArgs{
+// Project: aws_evidently_project.Example.Name,
+// Groups: []map[string]interface{}{
+// map[string]interface{}{
+// "feature": aws_evidently_feature.Example.Name,
+// "name": "Variation1",
+// "variation": "Variation1",
+// },
+// map[string]interface{}{
+// "feature": aws_evidently_feature.Example.Name,
+// "name": "Variation2",
+// "variation": "Variation2",
+// },
+// },
+// ScheduledSplitsConfig: map[string]interface{}{
+// "steps": []interface{}{
+// map[string]interface{}{
+// "groupWeights": map[string]interface{}{
+// "Variation1": 15,
+// "Variation2": 10,
+// },
+// "startTime": "2024-01-07 01:43:59+00:00",
+// },
+// map[string]interface{}{
+// "groupWeights": map[string]interface{}{
+// "Variation1": 20,
+// "Variation2": 25,
+// },
+// "startTime": "2024-01-08 01:43:59+00:00",
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### With segment overrides
 //
@@ -317,63 +305,61 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/evidently"
+//	evidently/launch "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/evidently/launch"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := evidently.NewLaunch(ctx, "example", &evidently.LaunchArgs{
-//				Project: pulumi.Any(aws_evidently_project.Example.Name),
-//				Groups: evidently.LaunchGroupArray{
-//					&evidently.LaunchGroupArgs{
-//						Feature:   pulumi.Any(aws_evidently_feature.Example.Name),
-//						Name:      pulumi.String("Variation1"),
-//						Variation: pulumi.String("Variation1"),
-//					},
-//					&evidently.LaunchGroupArgs{
-//						Feature:   pulumi.Any(aws_evidently_feature.Example.Name),
-//						Name:      pulumi.String("Variation2"),
-//						Variation: pulumi.String("Variation2"),
-//					},
-//				},
-//				ScheduledSplitsConfig: &evidently.LaunchScheduledSplitsConfigArgs{
-//					Steps: evidently.LaunchScheduledSplitsConfigStepArray{
-//						&evidently.LaunchScheduledSplitsConfigStepArgs{
-//							GroupWeights: pulumi.IntMap{
-//								"Variation1": pulumi.Int(0),
-//								"Variation2": pulumi.Int(0),
-//							},
-//							SegmentOverrides: evidently.LaunchScheduledSplitsConfigStepSegmentOverrideArray{
-//								&evidently.LaunchScheduledSplitsConfigStepSegmentOverrideArgs{
-//									EvaluationOrder: pulumi.Int(1),
-//									Segment:         pulumi.Any(aws_evidently_segment.Example.Name),
-//									Weights: pulumi.IntMap{
-//										"Variation2": pulumi.Int(10000),
-//									},
-//								},
-//								&evidently.LaunchScheduledSplitsConfigStepSegmentOverrideArgs{
-//									EvaluationOrder: pulumi.Int(2),
-//									Segment:         pulumi.Any(aws_evidently_segment.Example.Name),
-//									Weights: pulumi.IntMap{
-//										"Variation1": pulumi.Int(40000),
-//										"Variation2": pulumi.Int(30000),
-//									},
-//								},
-//							},
-//							StartTime: pulumi.String("2024-01-08 01:43:59+00:00"),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := evidently/launch.NewLaunch(ctx, "example", &evidently/launch.LaunchArgs{
+// Project: aws_evidently_project.Example.Name,
+// Groups: []map[string]interface{}{
+// map[string]interface{}{
+// "feature": aws_evidently_feature.Example.Name,
+// "name": "Variation1",
+// "variation": "Variation1",
+// },
+// map[string]interface{}{
+// "feature": aws_evidently_feature.Example.Name,
+// "name": "Variation2",
+// "variation": "Variation2",
+// },
+// },
+// ScheduledSplitsConfig: map[string]interface{}{
+// "steps": []map[string]interface{}{
+// map[string]interface{}{
+// "groupWeights": map[string]interface{}{
+// "Variation1": 0,
+// "Variation2": 0,
+// },
+// "segmentOverrides": []interface{}{
+// map[string]interface{}{
+// "evaluationOrder": 1,
+// "segment": aws_evidently_segment.Example.Name,
+// "weights": map[string]interface{}{
+// "Variation2": 10000,
+// },
+// },
+// map[string]interface{}{
+// "evaluationOrder": 2,
+// "segment": aws_evidently_segment.Example.Name,
+// "weights": map[string]interface{}{
+// "Variation1": 40000,
+// "Variation2": 30000,
+// },
+// },
+// },
+// "startTime": "2024-01-08 01:43:59+00:00",
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

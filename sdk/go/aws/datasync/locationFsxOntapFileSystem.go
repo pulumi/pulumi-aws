@@ -15,6 +15,40 @@ import (
 // Resource for managing an AWS DataSync Location FSx Ontap File System.
 //
 // ## Example Usage
+// ### Basic Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	datasync/locationFsxOntapFileSystem "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/datasync/locationFsxOntapFileSystem"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := datasync/locationFsxOntapFileSystem.NewLocationFsxOntapFileSystem(ctx, "test", &datasync/locationFsxOntapFileSystem.LocationFsxOntapFileSystemArgs{
+// FsxFilesystemArn: aws_fsx_ontap_file_system.Test.Arn,
+// SecurityGroupArns: []interface{}{
+// aws_security_group.Test.Arn,
+// },
+// StorageVirtualMachineArn: aws_fsx_ontap_storage_virtual_machine.Test.Arn,
+// Protocol: map[string]interface{}{
+// "nfs": map[string]interface{}{
+// "mountOptions": map[string]interface{}{
+// "version": "NFS3",
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
+// ```
 //
 // ## Import
 //

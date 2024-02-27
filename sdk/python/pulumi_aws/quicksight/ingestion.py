@@ -212,10 +212,10 @@ class Ingestion(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.quicksight.Ingestion("example",
-            data_set_id=aws_quicksight_data_set["example"]["data_set_id"],
-            ingestion_id="example-id",
-            ingestion_type="FULL_REFRESH")
+        example = aws.quicksight.ingestion.Ingestion("example",
+            data_set_id=aws_quicksight_data_set.example.data_set_id,
+            ingestion_id=example-id,
+            ingestion_type=FULL_REFRESH)
         ```
 
         ## Import
@@ -251,10 +251,10 @@ class Ingestion(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.quicksight.Ingestion("example",
-            data_set_id=aws_quicksight_data_set["example"]["data_set_id"],
-            ingestion_id="example-id",
-            ingestion_type="FULL_REFRESH")
+        example = aws.quicksight.ingestion.Ingestion("example",
+            data_set_id=aws_quicksight_data_set.example.data_set_id,
+            ingestion_id=example-id,
+            ingestion_type=FULL_REFRESH)
         ```
 
         ## Import

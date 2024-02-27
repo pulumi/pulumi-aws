@@ -22,14 +22,14 @@ namespace Pulumi.Aws.Eks
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Eks.IdentityProviderConfig("example", new()
+    ///     var example = new Aws.Eks.IdentityProviderConfig.IdentityProviderConfig("example", new()
     ///     {
     ///         ClusterName = aws_eks_cluster.Example.Name,
-    ///         Oidc = new Aws.Eks.Inputs.IdentityProviderConfigOidcArgs
+    ///         Oidc = 
     ///         {
-    ///             ClientId = "your client_id",
-    ///             IdentityProviderConfigName = "example",
-    ///             IssuerUrl = "your issuer_url",
+    ///             { "clientId", "your client_id" },
+    ///             { "identityProviderConfigName", "example" },
+    ///             { "issuerUrl", "your issuer_url" },
     ///         },
     ///     });
     /// 

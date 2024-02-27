@@ -22,12 +22,12 @@ namespace Pulumi.Aws.Iam
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var userUser = new Aws.Iam.User("userUser", new()
+    ///     var userUser = new Aws.Iam.User.User("userUser", new()
     ///     {
     ///         Path = "/",
     ///     });
     /// 
-    ///     var userSshKey = new Aws.Iam.SshKey("userSshKey", new()
+    ///     var userSshKey = new Aws.Iam.SshKey.SshKey("userSshKey", new()
     ///     {
     ///         Username = userUser.Name,
     ///         Encoding = "SSH",

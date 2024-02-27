@@ -190,22 +190,6 @@ def get_route(carrier_gateway_id: Optional[str] = None,
 
     This resource can prove useful when finding the resource associated with a CIDR. For example, finding the peering connection associated with a CIDR value.
 
-    ## Example Usage
-
-    The following example shows how one might use a CIDR value to find a network interface id and use this to create a data source of that network interface.
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    config = pulumi.Config()
-    subnet_id = config.require_object("subnetId")
-    selected = aws.ec2.get_route_table(subnet_id=subnet_id)
-    route = aws.ec2.get_route(route_table_id=aws_route_table["selected"]["id"],
-        destination_cidr_block="10.0.1.0/24")
-    interface = aws.ec2.get_network_interface(id=route.network_interface_id)
-    ```
-
 
     :param str carrier_gateway_id: EC2 Carrier Gateway ID of the Route belonging to the Route Table.
     :param str core_network_arn: Core network ARN of the Route belonging to the Route Table.
@@ -280,22 +264,6 @@ def get_route_output(carrier_gateway_id: Optional[pulumi.Input[Optional[str]]] =
     `ec2.Route` provides details about a specific Route.
 
     This resource can prove useful when finding the resource associated with a CIDR. For example, finding the peering connection associated with a CIDR value.
-
-    ## Example Usage
-
-    The following example shows how one might use a CIDR value to find a network interface id and use this to create a data source of that network interface.
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    config = pulumi.Config()
-    subnet_id = config.require_object("subnetId")
-    selected = aws.ec2.get_route_table(subnet_id=subnet_id)
-    route = aws.ec2.get_route(route_table_id=aws_route_table["selected"]["id"],
-        destination_cidr_block="10.0.1.0/24")
-    interface = aws.ec2.get_network_interface(id=route.network_interface_id)
-    ```
 
 
     :param str carrier_gateway_id: EC2 Carrier Gateway ID of the Route belonging to the Route Table.

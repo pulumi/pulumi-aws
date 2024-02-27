@@ -192,9 +192,9 @@ class Project(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.rekognition.Project("example",
-            auto_update="ENABLED",
-            feature="CONTENT_MODERATION")
+        example = aws.rekognition.project.Project("example",
+            auto_update=ENABLED,
+            feature=CONTENT_MODERATION)
         ```
 
         ## Import
@@ -228,9 +228,9 @@ class Project(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.rekognition.Project("example",
-            auto_update="ENABLED",
-            feature="CONTENT_MODERATION")
+        example = aws.rekognition.project.Project("example",
+            auto_update=ENABLED,
+            feature=CONTENT_MODERATION)
         ```
 
         ## Import

@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * import * as fs from "fs";
  *
- * const example = new aws.transfer.Certificate("example", {
+ * const example = new aws.transfer/certificate.Certificate("example", {
  *     certificate: fs.readFileSync(`${path.module}/example.com/example.crt`, "utf8"),
  *     certificateChain: fs.readFileSync(`${path.module}/example.com/ca.crt`, "utf8"),
  *     privateKey: fs.readFileSync(`${path.module}/example.com/example.key`, "utf8"),

@@ -203,9 +203,9 @@ class TrafficPolicyInstance(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.route53.TrafficPolicyInstance("test",
-            hosted_zone_id="Z033120931TAQO548OGJC",
-            traffic_policy_id="b3gb108f-ea6f-45a5-baab-9d112d8b4037",
+        test = aws.route53.traffic_policy_instance.TrafficPolicyInstance("test",
+            hosted_zone_id=Z033120931TAQO548OGJC,
+            traffic_policy_id=b3gb108f-ea6f-45a5-baab-9d112d8b4037,
             traffic_policy_version=1,
             ttl=360)
         ```
@@ -241,9 +241,9 @@ class TrafficPolicyInstance(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.route53.TrafficPolicyInstance("test",
-            hosted_zone_id="Z033120931TAQO548OGJC",
-            traffic_policy_id="b3gb108f-ea6f-45a5-baab-9d112d8b4037",
+        test = aws.route53.traffic_policy_instance.TrafficPolicyInstance("test",
+            hosted_zone_id=Z033120931TAQO548OGJC,
+            traffic_policy_id=b3gb108f-ea6f-45a5-baab-9d112d8b4037,
             traffic_policy_version=1,
             ttl=360)
         ```

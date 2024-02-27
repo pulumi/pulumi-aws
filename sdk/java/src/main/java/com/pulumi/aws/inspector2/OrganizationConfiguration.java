@@ -31,7 +31,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.inspector2.OrganizationConfiguration;
  * import com.pulumi.aws.inspector2.OrganizationConfigurationArgs;
- * import com.pulumi.aws.inspector2.inputs.OrganizationConfigurationAutoEnableArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -46,12 +45,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new OrganizationConfiguration(&#34;example&#34;, OrganizationConfigurationArgs.builder()        
- *             .autoEnable(OrganizationConfigurationAutoEnableArgs.builder()
- *                 .ec2(true)
- *                 .ecr(false)
- *                 .lambda(true)
- *                 .lambdaCode(true)
- *                 .build())
+ *             .autoEnable(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

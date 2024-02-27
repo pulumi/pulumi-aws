@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Dms
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // Create a new endpoint
-    ///     var test = new Aws.Dms.Endpoint("test", new()
+    ///     var test = new Aws.Dms.Endpoint.Endpoint("test", new()
     ///     {
     ///         CertificateArn = "arn:aws:acm:us-east-1:123456789012:certificate/12345678-1234-1234-1234-123456789012",
     ///         DatabaseName = "test",

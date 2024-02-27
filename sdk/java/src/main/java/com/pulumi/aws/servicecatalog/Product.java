@@ -34,7 +34,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.servicecatalog.Product;
  * import com.pulumi.aws.servicecatalog.ProductArgs;
- * import com.pulumi.aws.servicecatalog.inputs.ProductProvisioningArtifactParametersArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -50,10 +49,8 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Product(&#34;example&#34;, ProductArgs.builder()        
  *             .owner(&#34;example-owner&#34;)
- *             .provisioningArtifactParameters(ProductProvisioningArtifactParametersArgs.builder()
- *                 .templateUrl(&#34;https://s3.amazonaws.com/cf-templates-ozkq9d3hgiq2-us-east-1/temp1.json&#34;)
- *                 .build())
- *             .tags(Map.of(&#34;foo&#34;, &#34;bar&#34;))
+ *             .provisioningArtifactParameters(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .type(&#34;CLOUD_FORMATION_TEMPLATE&#34;)
  *             .build());
  * 

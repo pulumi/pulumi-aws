@@ -22,7 +22,7 @@ namespace Pulumi.Aws.RedShift
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.RedShift.EndpointAuthorization("example", new()
+    ///     var example = new Aws.Redshift.EndpointAuthorization.EndpointAuthorization("example", new()
     ///     {
     ///         Account = "01234567910",
     ///         ClusterIdentifier = aws_redshift_cluster.Example.Cluster_identifier,

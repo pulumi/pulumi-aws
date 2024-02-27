@@ -12,35 +12,6 @@ import (
 )
 
 // Provides information about a Lambda function URL.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lambda"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			cfg := config.New(ctx, "")
-//			functionName := cfg.Require("functionName")
-//			_, err := lambda.LookupFunctionUrl(ctx, &lambda.LookupFunctionUrlArgs{
-//				FunctionName: functionName,
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupFunctionUrl(ctx *pulumi.Context, args *LookupFunctionUrlArgs, opts ...pulumi.InvokeOption) (*LookupFunctionUrlResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupFunctionUrlResult

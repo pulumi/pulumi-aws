@@ -31,20 +31,20 @@ namespace Pulumi.Aws.S3
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2");
+    ///     var exampleBucketV2 = new Aws.S3.BucketV2.BucketV2("exampleBucketV2");
     /// 
-    ///     var exampleBucketAclV2 = new Aws.S3.BucketAclV2("exampleBucketAclV2", new()
+    ///     var exampleBucketAclV2 = new Aws.S3.BucketAclV2.BucketAclV2("exampleBucketAclV2", new()
     ///     {
     ///         Bucket = exampleBucketV2.Id,
     ///         Acl = "private",
     ///     });
     /// 
-    ///     var versioningExample = new Aws.S3.BucketVersioningV2("versioningExample", new()
+    ///     var versioningExample = new Aws.S3.BucketVersioningV2.BucketVersioningV2("versioningExample", new()
     ///     {
     ///         Bucket = exampleBucketV2.Id,
-    ///         VersioningConfiguration = new Aws.S3.Inputs.BucketVersioningV2VersioningConfigurationArgs
+    ///         VersioningConfiguration = 
     ///         {
-    ///             Status = "Enabled",
+    ///             { "status", "Enabled" },
     ///         },
     ///     });
     /// 
@@ -60,20 +60,20 @@ namespace Pulumi.Aws.S3
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2");
+    ///     var exampleBucketV2 = new Aws.S3.BucketV2.BucketV2("exampleBucketV2");
     /// 
-    ///     var exampleBucketAclV2 = new Aws.S3.BucketAclV2("exampleBucketAclV2", new()
+    ///     var exampleBucketAclV2 = new Aws.S3.BucketAclV2.BucketAclV2("exampleBucketAclV2", new()
     ///     {
     ///         Bucket = exampleBucketV2.Id,
     ///         Acl = "private",
     ///     });
     /// 
-    ///     var versioningExample = new Aws.S3.BucketVersioningV2("versioningExample", new()
+    ///     var versioningExample = new Aws.S3.BucketVersioningV2.BucketVersioningV2("versioningExample", new()
     ///     {
     ///         Bucket = exampleBucketV2.Id,
-    ///         VersioningConfiguration = new Aws.S3.Inputs.BucketVersioningV2VersioningConfigurationArgs
+    ///         VersioningConfiguration = 
     ///         {
-    ///             Status = "Disabled",
+    ///             { "status", "Disabled" },
     ///         },
     ///     });
     /// 
@@ -95,18 +95,18 @@ namespace Pulumi.Aws.S3
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2");
+    ///     var exampleBucketV2 = new Aws.S3.BucketV2.BucketV2("exampleBucketV2");
     /// 
-    ///     var exampleBucketVersioningV2 = new Aws.S3.BucketVersioningV2("exampleBucketVersioningV2", new()
+    ///     var exampleBucketVersioningV2 = new Aws.S3.BucketVersioningV2.BucketVersioningV2("exampleBucketVersioningV2", new()
     ///     {
     ///         Bucket = exampleBucketV2.Id,
-    ///         VersioningConfiguration = new Aws.S3.Inputs.BucketVersioningV2VersioningConfigurationArgs
+    ///         VersioningConfiguration = 
     ///         {
-    ///             Status = "Enabled",
+    ///             { "status", "Enabled" },
     ///         },
     ///     });
     /// 
-    ///     var exampleBucketObjectv2 = new Aws.S3.BucketObjectv2("exampleBucketObjectv2", new()
+    ///     var exampleBucketObjectv2 = new Aws.S3.BucketObjectv2.BucketObjectv2("exampleBucketObjectv2", new()
     ///     {
     ///         Bucket = exampleBucketVersioningV2.Id,
     ///         Key = "droeloe",

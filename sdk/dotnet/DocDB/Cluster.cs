@@ -31,7 +31,7 @@ namespace Pulumi.Aws.DocDB
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var docdb = new Aws.DocDB.Cluster("docdb", new()
+    ///     var docdb = new Aws.Docdb.Cluster.Cluster("docdb", new()
     ///     {
     ///         BackupRetentionPeriod = 5,
     ///         ClusterIdentifier = "my-docdb-cluster",

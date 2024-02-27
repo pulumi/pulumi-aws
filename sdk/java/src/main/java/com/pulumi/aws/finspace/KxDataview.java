@@ -23,7 +23,6 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * ### Basic Usage
- * 
  * ```java
  * package generated_program;
  * 
@@ -32,7 +31,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.finspace.KxDataview;
  * import com.pulumi.aws.finspace.KxDataviewArgs;
- * import com.pulumi.aws.finspace.inputs.KxDataviewSegmentConfigurationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -53,10 +51,7 @@ import javax.annotation.Nullable;
  *             .description(&#34;Terraform managed Kx Dataview&#34;)
  *             .azMode(&#34;SINGLE&#34;)
  *             .autoUpdate(true)
- *             .segmentConfigurations(KxDataviewSegmentConfigurationArgs.builder()
- *                 .volumeName(aws_finspace_kx_volume.example().name())
- *                 .dbPaths(&#34;/*&#34;)
- *                 .build())
+ *             .segmentConfigurations(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .timeouts(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 

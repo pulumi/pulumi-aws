@@ -23,27 +23,27 @@ namespace Pulumi.Aws.OpenSearch
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var myDomain = new Aws.OpenSearch.Domain("myDomain", new()
+    ///     var myDomain = new Aws.Opensearch.Domain.Domain("myDomain", new()
     ///     {
     ///         EngineVersion = "Elasticsearch_7.10",
-    ///         ClusterConfig = new Aws.OpenSearch.Inputs.DomainClusterConfigArgs
+    ///         ClusterConfig = 
     ///         {
-    ///             InstanceType = "r4.large.search",
+    ///             { "instanceType", "r4.large.search" },
     ///         },
     ///     });
     /// 
-    ///     var examplePackage = new Aws.OpenSearch.Package("examplePackage", new()
+    ///     var examplePackage = new Aws.Opensearch.Package.Package("examplePackage", new()
     ///     {
     ///         PackageName = "example-txt",
-    ///         PackageSource = new Aws.OpenSearch.Inputs.PackagePackageSourceArgs
+    ///         PackageSource = 
     ///         {
-    ///             S3BucketName = aws_s3_bucket.My_opensearch_packages.Bucket,
-    ///             S3Key = aws_s3_object.Example.Key,
+    ///             { "s3BucketName", aws_s3_bucket.My_opensearch_packages.Bucket },
+    ///             { "s3Key", aws_s3_object.Example.Key },
     ///         },
     ///         PackageType = "TXT-DICTIONARY",
     ///     });
     /// 
-    ///     var examplePackageAssociation = new Aws.OpenSearch.PackageAssociation("examplePackageAssociation", new()
+    ///     var examplePackageAssociation = new Aws.Opensearch.PackageAssociation.PackageAssociation("examplePackageAssociation", new()
     ///     {
     ///         PackageId = examplePackage.Id,
     ///         DomainName = myDomain.DomainName,

@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = new aws.sagemaker.DataQualityJobDefinition("test", {
+ * const test = new aws.sagemaker/dataQualityJobDefinition.DataQualityJobDefinition("test", {
  *     dataQualityAppSpecification: {
  *         imageUri: data.aws_sagemaker_prebuilt_ecr_image.monitor.registry_path,
  *     },

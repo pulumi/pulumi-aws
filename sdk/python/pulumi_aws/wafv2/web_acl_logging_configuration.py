@@ -177,14 +177,14 @@ class WebAclLoggingConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.wafv2.WebAclLoggingConfiguration("example",
-            log_destination_configs=[aws_kinesis_firehose_delivery_stream["example"]["arn"]],
-            resource_arn=aws_wafv2_web_acl["example"]["arn"],
-            redacted_fields=[aws.wafv2.WebAclLoggingConfigurationRedactedFieldArgs(
-                single_header=aws.wafv2.WebAclLoggingConfigurationRedactedFieldSingleHeaderArgs(
-                    name="user-agent",
-                ),
-            )])
+        example = aws.wafv2.web_acl_logging_configuration.WebAclLoggingConfiguration("example",
+            log_destination_configs=[aws_kinesis_firehose_delivery_stream.example.arn],
+            resource_arn=aws_wafv2_web_acl.example.arn,
+            redacted_fields=[{
+                singleHeader: {
+                    name: user-agent,
+                },
+            }])
         ```
         ### With Logging Filter
 
@@ -192,39 +192,39 @@ class WebAclLoggingConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.wafv2.WebAclLoggingConfiguration("example",
-            log_destination_configs=[aws_kinesis_firehose_delivery_stream["example"]["arn"]],
-            resource_arn=aws_wafv2_web_acl["example"]["arn"],
-            logging_filter=aws.wafv2.WebAclLoggingConfigurationLoggingFilterArgs(
-                default_behavior="KEEP",
-                filters=[
-                    aws.wafv2.WebAclLoggingConfigurationLoggingFilterFilterArgs(
-                        behavior="DROP",
-                        conditions=[
-                            aws.wafv2.WebAclLoggingConfigurationLoggingFilterFilterConditionArgs(
-                                action_condition=aws.wafv2.WebAclLoggingConfigurationLoggingFilterFilterConditionActionConditionArgs(
-                                    action="COUNT",
-                                ),
-                            ),
-                            aws.wafv2.WebAclLoggingConfigurationLoggingFilterFilterConditionArgs(
-                                label_name_condition=aws.wafv2.WebAclLoggingConfigurationLoggingFilterFilterConditionLabelNameConditionArgs(
-                                    label_name="awswaf:111122223333:rulegroup:testRules:LabelNameZ",
-                                ),
-                            ),
+        example = aws.wafv2.web_acl_logging_configuration.WebAclLoggingConfiguration("example",
+            log_destination_configs=[aws_kinesis_firehose_delivery_stream.example.arn],
+            resource_arn=aws_wafv2_web_acl.example.arn,
+            logging_filter={
+                defaultBehavior: KEEP,
+                filters: [
+                    {
+                        behavior: DROP,
+                        conditions: [
+                            {
+                                actionCondition: {
+                                    action: COUNT,
+                                },
+                            },
+                            {
+                                labelNameCondition: {
+                                    labelName: awswaf:111122223333:rulegroup:testRules:LabelNameZ,
+                                },
+                            },
                         ],
-                        requirement="MEETS_ALL",
-                    ),
-                    aws.wafv2.WebAclLoggingConfigurationLoggingFilterFilterArgs(
-                        behavior="KEEP",
-                        conditions=[aws.wafv2.WebAclLoggingConfigurationLoggingFilterFilterConditionArgs(
-                            action_condition=aws.wafv2.WebAclLoggingConfigurationLoggingFilterFilterConditionActionConditionArgs(
-                                action="ALLOW",
-                            ),
-                        )],
-                        requirement="MEETS_ANY",
-                    ),
+                        requirement: MEETS_ALL,
+                    },
+                    {
+                        behavior: KEEP,
+                        conditions: [{
+                            actionCondition: {
+                                action: ALLOW,
+                            },
+                        }],
+                        requirement: MEETS_ANY,
+                    },
                 ],
-            ))
+            })
         ```
 
         ## Import
@@ -260,14 +260,14 @@ class WebAclLoggingConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.wafv2.WebAclLoggingConfiguration("example",
-            log_destination_configs=[aws_kinesis_firehose_delivery_stream["example"]["arn"]],
-            resource_arn=aws_wafv2_web_acl["example"]["arn"],
-            redacted_fields=[aws.wafv2.WebAclLoggingConfigurationRedactedFieldArgs(
-                single_header=aws.wafv2.WebAclLoggingConfigurationRedactedFieldSingleHeaderArgs(
-                    name="user-agent",
-                ),
-            )])
+        example = aws.wafv2.web_acl_logging_configuration.WebAclLoggingConfiguration("example",
+            log_destination_configs=[aws_kinesis_firehose_delivery_stream.example.arn],
+            resource_arn=aws_wafv2_web_acl.example.arn,
+            redacted_fields=[{
+                singleHeader: {
+                    name: user-agent,
+                },
+            }])
         ```
         ### With Logging Filter
 
@@ -275,39 +275,39 @@ class WebAclLoggingConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.wafv2.WebAclLoggingConfiguration("example",
-            log_destination_configs=[aws_kinesis_firehose_delivery_stream["example"]["arn"]],
-            resource_arn=aws_wafv2_web_acl["example"]["arn"],
-            logging_filter=aws.wafv2.WebAclLoggingConfigurationLoggingFilterArgs(
-                default_behavior="KEEP",
-                filters=[
-                    aws.wafv2.WebAclLoggingConfigurationLoggingFilterFilterArgs(
-                        behavior="DROP",
-                        conditions=[
-                            aws.wafv2.WebAclLoggingConfigurationLoggingFilterFilterConditionArgs(
-                                action_condition=aws.wafv2.WebAclLoggingConfigurationLoggingFilterFilterConditionActionConditionArgs(
-                                    action="COUNT",
-                                ),
-                            ),
-                            aws.wafv2.WebAclLoggingConfigurationLoggingFilterFilterConditionArgs(
-                                label_name_condition=aws.wafv2.WebAclLoggingConfigurationLoggingFilterFilterConditionLabelNameConditionArgs(
-                                    label_name="awswaf:111122223333:rulegroup:testRules:LabelNameZ",
-                                ),
-                            ),
+        example = aws.wafv2.web_acl_logging_configuration.WebAclLoggingConfiguration("example",
+            log_destination_configs=[aws_kinesis_firehose_delivery_stream.example.arn],
+            resource_arn=aws_wafv2_web_acl.example.arn,
+            logging_filter={
+                defaultBehavior: KEEP,
+                filters: [
+                    {
+                        behavior: DROP,
+                        conditions: [
+                            {
+                                actionCondition: {
+                                    action: COUNT,
+                                },
+                            },
+                            {
+                                labelNameCondition: {
+                                    labelName: awswaf:111122223333:rulegroup:testRules:LabelNameZ,
+                                },
+                            },
                         ],
-                        requirement="MEETS_ALL",
-                    ),
-                    aws.wafv2.WebAclLoggingConfigurationLoggingFilterFilterArgs(
-                        behavior="KEEP",
-                        conditions=[aws.wafv2.WebAclLoggingConfigurationLoggingFilterFilterConditionArgs(
-                            action_condition=aws.wafv2.WebAclLoggingConfigurationLoggingFilterFilterConditionActionConditionArgs(
-                                action="ALLOW",
-                            ),
-                        )],
-                        requirement="MEETS_ANY",
-                    ),
+                        requirement: MEETS_ALL,
+                    },
+                    {
+                        behavior: KEEP,
+                        conditions: [{
+                            actionCondition: {
+                                action: ALLOW,
+                            },
+                        }],
+                        requirement: MEETS_ANY,
+                    },
                 ],
-            ))
+            })
         ```
 
         ## Import

@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.ssm.Association("example", {targets: [{
+ * const example = new aws.ssm/association.Association("example", {targets: [{
  *     key: "InstanceIds",
  *     values: [aws_instance.example.id],
  * }]});
@@ -30,7 +30,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.ssm.Association("example", {targets: [{
+ * const example = new aws.ssm/association.Association("example", {targets: [{
  *     key: "InstanceIds",
  *     values: ["*"],
  * }]});
@@ -43,7 +43,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.ssm.Association("example", {targets: [{
+ * const example = new aws.ssm/association.Association("example", {targets: [{
  *     key: "tag:Environment",
  *     values: ["Development"],
  * }]});
@@ -56,7 +56,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.ssm.Association("example", {
+ * const example = new aws.ssm/association.Association("example", {
  *     scheduleExpression: "cron(0 2 ? * SUN *)",
  *     targets: [{
  *         key: "InstanceIds",

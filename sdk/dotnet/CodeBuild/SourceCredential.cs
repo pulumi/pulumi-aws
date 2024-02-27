@@ -25,7 +25,7 @@ namespace Pulumi.Aws.CodeBuild
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.CodeBuild.SourceCredential("example", new()
+    ///     var example = new Aws.Codebuild.SourceCredential.SourceCredential("example", new()
     ///     {
     ///         AuthType = "PERSONAL_ACCESS_TOKEN",
     ///         ServerType = "GITHUB",
@@ -44,7 +44,7 @@ namespace Pulumi.Aws.CodeBuild
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.CodeBuild.SourceCredential("example", new()
+    ///     var example = new Aws.Codebuild.SourceCredential.SourceCredential("example", new()
     ///     {
     ///         AuthType = "BASIC_AUTH",
     ///         ServerType = "BITBUCKET",

@@ -30,7 +30,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.resourcegroups.Group;
  * import com.pulumi.aws.resourcegroups.GroupArgs;
- * import com.pulumi.aws.resourcegroups.inputs.GroupResourceQueryArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -45,22 +44,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new Group(&#34;test&#34;, GroupArgs.builder()        
- *             .resourceQuery(GroupResourceQueryArgs.builder()
- *                 .query(&#34;&#34;&#34;
- * {
- *   &#34;ResourceTypeFilters&#34;: [
- *     &#34;AWS::EC2::Instance&#34;
- *   ],
- *   &#34;TagFilters&#34;: [
- *     {
- *       &#34;Key&#34;: &#34;Stage&#34;,
- *       &#34;Values&#34;: [&#34;Test&#34;]
- *     }
- *   ]
- * }
- * 
- *                 &#34;&#34;&#34;)
- *                 .build())
+ *             .resourceQuery(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

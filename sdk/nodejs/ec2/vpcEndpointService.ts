@@ -24,7 +24,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.ec2.VpcEndpointService("example", {
+ * const example = new aws.ec2/vpcEndpointService.VpcEndpointService("example", {
  *     acceptanceRequired: false,
  *     networkLoadBalancerArns: [aws_lb.example.arn],
  * });
@@ -35,7 +35,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.ec2.VpcEndpointService("example", {
+ * const example = new aws.ec2/vpcEndpointService.VpcEndpointService("example", {
  *     acceptanceRequired: false,
  *     gatewayLoadBalancerArns: [aws_lb.example.arn],
  * });

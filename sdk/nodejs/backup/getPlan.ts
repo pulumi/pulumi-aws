@@ -6,17 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to get information on an existing backup plan.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.backup.getPlan({
- *     planId: "my_example_backup_plan_id",
- * });
- * ```
  */
 export function getPlan(args: GetPlanArgs, opts?: pulumi.InvokeOptions): Promise<GetPlanResult> {
 
@@ -69,17 +58,6 @@ export interface GetPlanResult {
 }
 /**
  * Use this data source to get information on an existing backup plan.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.backup.getPlan({
- *     planId: "my_example_backup_plan_id",
- * });
- * ```
  */
 export function getPlanOutput(args: GetPlanOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPlanResult> {
     return pulumi.output(args).apply((a: any) => getPlan(a, opts))

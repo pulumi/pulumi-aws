@@ -236,19 +236,19 @@ class IdentityProvider(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.cognito.UserPool("example", auto_verified_attributes=["email"])
-        example_provider = aws.cognito.IdentityProvider("exampleProvider",
+        example = aws.cognito.user_pool.UserPool("example", auto_verified_attributes=[email])
+        example_provider = aws.cognito.identity_provider.IdentityProvider("exampleProvider",
             user_pool_id=example.id,
-            provider_name="Google",
-            provider_type="Google",
+            provider_name=Google,
+            provider_type=Google,
             provider_details={
-                "authorize_scopes": "email",
-                "client_id": "your client_id",
-                "client_secret": "your client_secret",
+                authorize_scopes: email,
+                client_id: your client_id,
+                client_secret: your client_secret,
             },
             attribute_mapping={
-                "email": "email",
-                "username": "sub",
+                email: email,
+                username: sub,
             })
         ```
 
@@ -284,19 +284,19 @@ class IdentityProvider(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.cognito.UserPool("example", auto_verified_attributes=["email"])
-        example_provider = aws.cognito.IdentityProvider("exampleProvider",
+        example = aws.cognito.user_pool.UserPool("example", auto_verified_attributes=[email])
+        example_provider = aws.cognito.identity_provider.IdentityProvider("exampleProvider",
             user_pool_id=example.id,
-            provider_name="Google",
-            provider_type="Google",
+            provider_name=Google,
+            provider_type=Google,
             provider_details={
-                "authorize_scopes": "email",
-                "client_id": "your client_id",
-                "client_secret": "your client_secret",
+                authorize_scopes: email,
+                client_id: your client_id,
+                client_secret: your client_secret,
             },
             attribute_mapping={
-                "email": "email",
-                "username": "sub",
+                email: email,
+                username: sub,
             })
         ```
 

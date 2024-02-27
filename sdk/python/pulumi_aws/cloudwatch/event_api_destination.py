@@ -255,12 +255,12 @@ class EventApiDestination(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.cloudwatch.EventApiDestination("test",
-            description="An API Destination",
-            invocation_endpoint="https://api.destination.com/endpoint",
-            http_method="POST",
+        test = aws.cloudwatch.event_api_destination.EventApiDestination("test",
+            description=An API Destination,
+            invocation_endpoint=https://api.destination.com/endpoint,
+            http_method=POST,
             invocation_rate_limit_per_second=20,
-            connection_arn=aws_cloudwatch_event_connection["test"]["arn"])
+            connection_arn=aws_cloudwatch_event_connection.test.arn)
         ```
 
         ## Import
@@ -297,12 +297,12 @@ class EventApiDestination(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.cloudwatch.EventApiDestination("test",
-            description="An API Destination",
-            invocation_endpoint="https://api.destination.com/endpoint",
-            http_method="POST",
+        test = aws.cloudwatch.event_api_destination.EventApiDestination("test",
+            description=An API Destination,
+            invocation_endpoint=https://api.destination.com/endpoint,
+            http_method=POST,
             invocation_rate_limit_per_second=20,
-            connection_arn=aws_cloudwatch_event_connection["test"]["arn"])
+            connection_arn=aws_cloudwatch_event_connection.test.arn)
         ```
 
         ## Import

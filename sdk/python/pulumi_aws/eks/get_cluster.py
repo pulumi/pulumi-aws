@@ -252,18 +252,6 @@ def get_cluster(name: Optional[str] = None,
     """
     Retrieve information about an EKS Cluster.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.eks.get_cluster(name="example")
-    pulumi.export("endpoint", example.endpoint)
-    pulumi.export("kubeconfig-certificate-authority-data", example.certificate_authorities[0].data)
-    pulumi.export("identity-oidc-issuer", example.identities[0].oidcs[0].issuer)
-    ```
-
 
     :param str name: Name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\\-_]+$`).
     :param Mapping[str, str] tags: Key-value map of resource tags.
@@ -301,18 +289,6 @@ def get_cluster_output(name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetClusterResult]:
     """
     Retrieve information about an EKS Cluster.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.eks.get_cluster(name="example")
-    pulumi.export("endpoint", example.endpoint)
-    pulumi.export("kubeconfig-certificate-authority-data", example.certificate_authorities[0].data)
-    pulumi.export("identity-oidc-issuer", example.identities[0].oidcs[0].issuer)
-    ```
 
 
     :param str name: Name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\\-_]+$`).

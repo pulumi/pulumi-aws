@@ -26,28 +26,26 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/inspector2"
+//	inspector2/organizationConfiguration "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/inspector2/organizationConfiguration"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := inspector2.NewOrganizationConfiguration(ctx, "example", &inspector2.OrganizationConfigurationArgs{
-//				AutoEnable: &inspector2.OrganizationConfigurationAutoEnableArgs{
-//					Ec2:        pulumi.Bool(true),
-//					Ecr:        pulumi.Bool(false),
-//					Lambda:     pulumi.Bool(true),
-//					LambdaCode: pulumi.Bool(true),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := inspector2/organizationConfiguration.NewOrganizationConfiguration(ctx, "example", &inspector2/organizationConfiguration.OrganizationConfigurationArgs{
+// AutoEnable: map[string]interface{}{
+// "ec2": true,
+// "ecr": false,
+// "lambda": true,
+// "lambdaCode": true,
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 type OrganizationConfiguration struct {
 	pulumi.CustomResourceState

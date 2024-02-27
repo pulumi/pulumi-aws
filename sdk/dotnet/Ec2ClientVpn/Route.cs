@@ -23,32 +23,32 @@ namespace Pulumi.Aws.Ec2ClientVpn
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleEndpoint = new Aws.Ec2ClientVpn.Endpoint("exampleEndpoint", new()
+    ///     var exampleEndpoint = new Aws.Ec2clientvpn.Endpoint.Endpoint("exampleEndpoint", new()
     ///     {
     ///         Description = "Example Client VPN endpoint",
     ///         ServerCertificateArn = aws_acm_certificate.Example.Arn,
     ///         ClientCidrBlock = "10.0.0.0/16",
     ///         AuthenticationOptions = new[]
     ///         {
-    ///             new Aws.Ec2ClientVpn.Inputs.EndpointAuthenticationOptionArgs
+    ///             
     ///             {
-    ///                 Type = "certificate-authentication",
-    ///                 RootCertificateChainArn = aws_acm_certificate.Example.Arn,
+    ///                 { "type", "certificate-authentication" },
+    ///                 { "rootCertificateChainArn", aws_acm_certificate.Example.Arn },
     ///             },
     ///         },
-    ///         ConnectionLogOptions = new Aws.Ec2ClientVpn.Inputs.EndpointConnectionLogOptionsArgs
+    ///         ConnectionLogOptions = 
     ///         {
-    ///             Enabled = false,
+    ///             { "enabled", false },
     ///         },
     ///     });
     /// 
-    ///     var exampleNetworkAssociation = new Aws.Ec2ClientVpn.NetworkAssociation("exampleNetworkAssociation", new()
+    ///     var exampleNetworkAssociation = new Aws.Ec2clientvpn.NetworkAssociation.NetworkAssociation("exampleNetworkAssociation", new()
     ///     {
     ///         ClientVpnEndpointId = exampleEndpoint.Id,
     ///         SubnetId = aws_subnet.Example.Id,
     ///     });
     /// 
-    ///     var exampleRoute = new Aws.Ec2ClientVpn.Route("exampleRoute", new()
+    ///     var exampleRoute = new Aws.Ec2clientvpn.Route.Route("exampleRoute", new()
     ///     {
     ///         ClientVpnEndpointId = exampleEndpoint.Id,
     ///         DestinationCidrBlock = "0.0.0.0/0",

@@ -22,30 +22,28 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/quicksight"
+//	quicksight/refreshSchedule "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/quicksight/refreshSchedule"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := quicksight.NewRefreshSchedule(ctx, "example", &quicksight.RefreshScheduleArgs{
-//				DataSetId: pulumi.String("dataset-id"),
-//				Schedule: &quicksight.RefreshScheduleScheduleArgs{
-//					RefreshType: pulumi.String("FULL_REFRESH"),
-//					ScheduleFrequency: &quicksight.RefreshScheduleScheduleScheduleFrequencyArgs{
-//						Interval: pulumi.String("HOURLY"),
-//					},
-//				},
-//				ScheduleId: pulumi.String("schedule-id"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := quicksight/refreshSchedule.NewRefreshSchedule(ctx, "example", &quicksight/refreshSchedule.RefreshScheduleArgs{
+// DataSetId: "dataset-id",
+// Schedule: map[string]interface{}{
+// "refreshType": "FULL_REFRESH",
+// "scheduleFrequency": map[string]interface{}{
+// "interval": "HOURLY",
+// },
+// },
+// ScheduleId: "schedule-id",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### With Weekly Refresh
 //
@@ -54,35 +52,33 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/quicksight"
+//	quicksight/refreshSchedule "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/quicksight/refreshSchedule"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := quicksight.NewRefreshSchedule(ctx, "example", &quicksight.RefreshScheduleArgs{
-//				DataSetId: pulumi.String("dataset-id"),
-//				Schedule: &quicksight.RefreshScheduleScheduleArgs{
-//					RefreshType: pulumi.String("INCREMENTAL_REFRESH"),
-//					ScheduleFrequency: &quicksight.RefreshScheduleScheduleScheduleFrequencyArgs{
-//						Interval: pulumi.String("WEEKLY"),
-//						RefreshOnDay: &quicksight.RefreshScheduleScheduleScheduleFrequencyRefreshOnDayArgs{
-//							DayOfWeek: pulumi.String("MONDAY"),
-//						},
-//						TimeOfTheDay: pulumi.String("01:00"),
-//						Timezone:     pulumi.String("Europe/London"),
-//					},
-//				},
-//				ScheduleId: pulumi.String("schedule-id"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := quicksight/refreshSchedule.NewRefreshSchedule(ctx, "example", &quicksight/refreshSchedule.RefreshScheduleArgs{
+// DataSetId: "dataset-id",
+// Schedule: map[string]interface{}{
+// "refreshType": "INCREMENTAL_REFRESH",
+// "scheduleFrequency": map[string]interface{}{
+// "interval": "WEEKLY",
+// "refreshOnDay": map[string]interface{}{
+// "dayOfWeek": "MONDAY",
+// },
+// "timeOfTheDay": "01:00",
+// "timezone": "Europe/London",
+// },
+// },
+// ScheduleId: "schedule-id",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### With Monthly Refresh
 //
@@ -91,35 +87,33 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/quicksight"
+//	quicksight/refreshSchedule "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/quicksight/refreshSchedule"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := quicksight.NewRefreshSchedule(ctx, "example", &quicksight.RefreshScheduleArgs{
-//				DataSetId: pulumi.String("dataset-id"),
-//				Schedule: &quicksight.RefreshScheduleScheduleArgs{
-//					RefreshType: pulumi.String("INCREMENTAL_REFRESH"),
-//					ScheduleFrequency: &quicksight.RefreshScheduleScheduleScheduleFrequencyArgs{
-//						Interval: pulumi.String("MONTHLY"),
-//						RefreshOnDay: &quicksight.RefreshScheduleScheduleScheduleFrequencyRefreshOnDayArgs{
-//							DayOfMonth: pulumi.String("1"),
-//						},
-//						TimeOfTheDay: pulumi.String("01:00"),
-//						Timezone:     pulumi.String("Europe/London"),
-//					},
-//				},
-//				ScheduleId: pulumi.String("schedule-id"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := quicksight/refreshSchedule.NewRefreshSchedule(ctx, "example", &quicksight/refreshSchedule.RefreshScheduleArgs{
+// DataSetId: "dataset-id",
+// Schedule: map[string]interface{}{
+// "refreshType": "INCREMENTAL_REFRESH",
+// "scheduleFrequency": map[string]interface{}{
+// "interval": "MONTHLY",
+// "refreshOnDay": map[string]interface{}{
+// "dayOfMonth": "1",
+// },
+// "timeOfTheDay": "01:00",
+// "timezone": "Europe/London",
+// },
+// },
+// ScheduleId: "schedule-id",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

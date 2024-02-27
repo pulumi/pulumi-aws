@@ -22,29 +22,28 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/customerprofiles"
+//	customerprofiles/domain "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/customerprofiles/domain"
+//	customerprofiles/profile "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/customerprofiles/profile"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleDomain, err := customerprofiles.NewDomain(ctx, "exampleDomain", &customerprofiles.DomainArgs{
-//				DomainName: pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = customerprofiles.NewProfile(ctx, "exampleProfile", &customerprofiles.ProfileArgs{
-//				DomainName: exampleDomain.DomainName,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleDomain, err := customerprofiles/domain.NewDomain(ctx, "exampleDomain", &customerprofiles/domain.DomainArgs{
+// DomainName: "example",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = customerprofiles/profile.NewProfile(ctx, "exampleProfile", &customerprofiles/profile.ProfileArgs{
+// DomainName: exampleDomain.DomainName,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

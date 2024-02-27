@@ -125,17 +125,6 @@ def get_origin_access_identity(id: Optional[str] = None,
     """
     Use this data source to retrieve information for an Amazon CloudFront origin access identity.
 
-    ## Example Usage
-
-    The following example below creates a CloudFront origin access identity.
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.cloudfront.get_origin_access_identity(id="E1ZAKK699EOLAL")
-    ```
-
 
     :param str id: The identifier for the origin access identity. For example: `E1ZAKK699EOLAL`.
     """
@@ -159,17 +148,6 @@ def get_origin_access_identity_output(id: Optional[pulumi.Input[str]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOriginAccessIdentityResult]:
     """
     Use this data source to retrieve information for an Amazon CloudFront origin access identity.
-
-    ## Example Usage
-
-    The following example below creates a CloudFront origin access identity.
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.cloudfront.get_origin_access_identity(id="E1ZAKK699EOLAL")
-    ```
 
 
     :param str id: The identifier for the origin access identity. For example: `E1ZAKK699EOLAL`.

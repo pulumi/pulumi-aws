@@ -246,151 +246,151 @@ class ListenerRule(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        front_end_load_balancer = aws.lb.LoadBalancer("frontEndLoadBalancer")
+        front_end_load_balancer = aws.lb.load_balancer.LoadBalancer("frontEndLoadBalancer")
         # ...
-        front_end_listener = aws.lb.Listener("frontEndListener")
+        front_end_listener = aws.lb.listener.Listener("frontEndListener")
         # Other parameters
-        static = aws.lb.ListenerRule("static",
+        static = aws.lb.listener_rule.ListenerRule("static",
             listener_arn=front_end_listener.arn,
             priority=100,
-            actions=[aws.lb.ListenerRuleActionArgs(
-                type="forward",
-                target_group_arn=aws_lb_target_group["static"]["arn"],
-            )],
+            actions=[{
+                type: forward,
+                targetGroupArn: aws_lb_target_group.static.arn,
+            }],
             conditions=[
-                aws.lb.ListenerRuleConditionArgs(
-                    path_pattern=aws.lb.ListenerRuleConditionPathPatternArgs(
-                        values=["/static/*"],
-                    ),
-                ),
-                aws.lb.ListenerRuleConditionArgs(
-                    host_header=aws.lb.ListenerRuleConditionHostHeaderArgs(
-                        values=["example.com"],
-                    ),
-                ),
+                {
+                    pathPattern: {
+                        values: [/static/*],
+                    },
+                },
+                {
+                    hostHeader: {
+                        values: [example.com],
+                    },
+                },
             ])
         # Forward action
-        host_based_weighted_routing = aws.lb.ListenerRule("hostBasedWeightedRouting",
+        host_based_weighted_routing = aws.lb.listener_rule.ListenerRule("hostBasedWeightedRouting",
             listener_arn=front_end_listener.arn,
             priority=99,
-            actions=[aws.lb.ListenerRuleActionArgs(
-                type="forward",
-                target_group_arn=aws_lb_target_group["static"]["arn"],
-            )],
-            conditions=[aws.lb.ListenerRuleConditionArgs(
-                host_header=aws.lb.ListenerRuleConditionHostHeaderArgs(
-                    values=["my-service.*.mycompany.io"],
-                ),
-            )])
+            actions=[{
+                type: forward,
+                targetGroupArn: aws_lb_target_group.static.arn,
+            }],
+            conditions=[{
+                hostHeader: {
+                    values: [my-service.*.mycompany.io],
+                },
+            }])
         # Weighted Forward action
-        host_based_routing = aws.lb.ListenerRule("hostBasedRouting",
+        host_based_routing = aws.lb.listener_rule.ListenerRule("hostBasedRouting",
             listener_arn=front_end_listener.arn,
             priority=99,
-            actions=[aws.lb.ListenerRuleActionArgs(
-                type="forward",
-                forward=aws.lb.ListenerRuleActionForwardArgs(
-                    target_groups=[
-                        aws.lb.ListenerRuleActionForwardTargetGroupArgs(
-                            arn=aws_lb_target_group["main"]["arn"],
-                            weight=80,
-                        ),
-                        aws.lb.ListenerRuleActionForwardTargetGroupArgs(
-                            arn=aws_lb_target_group["canary"]["arn"],
-                            weight=20,
-                        ),
+            actions=[{
+                type: forward,
+                forward: {
+                    targetGroups: [
+                        {
+                            arn: aws_lb_target_group.main.arn,
+                            weight: 80,
+                        },
+                        {
+                            arn: aws_lb_target_group.canary.arn,
+                            weight: 20,
+                        },
                     ],
-                    stickiness=aws.lb.ListenerRuleActionForwardStickinessArgs(
-                        enabled=True,
-                        duration=600,
-                    ),
-                ),
-            )],
-            conditions=[aws.lb.ListenerRuleConditionArgs(
-                host_header=aws.lb.ListenerRuleConditionHostHeaderArgs(
-                    values=["my-service.*.mycompany.io"],
-                ),
-            )])
+                    stickiness: {
+                        enabled: True,
+                        duration: 600,
+                    },
+                },
+            }],
+            conditions=[{
+                hostHeader: {
+                    values: [my-service.*.mycompany.io],
+                },
+            }])
         # Redirect action
-        redirect_http_to_https = aws.lb.ListenerRule("redirectHttpToHttps",
+        redirect_http_to_https = aws.lb.listener_rule.ListenerRule("redirectHttpToHttps",
             listener_arn=front_end_listener.arn,
-            actions=[aws.lb.ListenerRuleActionArgs(
-                type="redirect",
-                redirect=aws.lb.ListenerRuleActionRedirectArgs(
-                    port="443",
-                    protocol="HTTPS",
-                    status_code="HTTP_301",
-                ),
-            )],
-            conditions=[aws.lb.ListenerRuleConditionArgs(
-                http_header=aws.lb.ListenerRuleConditionHttpHeaderArgs(
-                    http_header_name="X-Forwarded-For",
-                    values=["192.168.1.*"],
-                ),
-            )])
+            actions=[{
+                type: redirect,
+                redirect: {
+                    port: 443,
+                    protocol: HTTPS,
+                    statusCode: HTTP_301,
+                },
+            }],
+            conditions=[{
+                httpHeader: {
+                    httpHeaderName: X-Forwarded-For,
+                    values: [192.168.1.*],
+                },
+            }])
         # Fixed-response action
-        health_check = aws.lb.ListenerRule("healthCheck",
+        health_check = aws.lb.listener_rule.ListenerRule("healthCheck",
             listener_arn=front_end_listener.arn,
-            actions=[aws.lb.ListenerRuleActionArgs(
-                type="fixed-response",
-                fixed_response=aws.lb.ListenerRuleActionFixedResponseArgs(
-                    content_type="text/plain",
-                    message_body="HEALTHY",
-                    status_code="200",
-                ),
-            )],
-            conditions=[aws.lb.ListenerRuleConditionArgs(
-                query_strings=[
-                    aws.lb.ListenerRuleConditionQueryStringArgs(
-                        key="health",
-                        value="check",
-                    ),
-                    aws.lb.ListenerRuleConditionQueryStringArgs(
-                        value="bar",
-                    ),
+            actions=[{
+                type: fixed-response,
+                fixedResponse: {
+                    contentType: text/plain,
+                    messageBody: HEALTHY,
+                    statusCode: 200,
+                },
+            }],
+            conditions=[{
+                queryStrings: [
+                    {
+                        key: health,
+                        value: check,
+                    },
+                    {
+                        value: bar,
+                    },
                 ],
-            )])
+            }])
         # Authenticate-cognito Action
-        pool = aws.cognito.UserPool("pool")
+        pool = aws.cognito.user_pool.UserPool("pool")
         # ...
-        client = aws.cognito.UserPoolClient("client")
+        client = aws.cognito.user_pool_client.UserPoolClient("client")
         # ...
-        domain = aws.cognito.UserPoolDomain("domain")
+        domain = aws.cognito.user_pool_domain.UserPoolDomain("domain")
         # ...
-        admin = aws.lb.ListenerRule("admin",
+        admin = aws.lb.listener_rule.ListenerRule("admin",
             listener_arn=front_end_listener.arn,
             actions=[
-                aws.lb.ListenerRuleActionArgs(
-                    type="authenticate-cognito",
-                    authenticate_cognito=aws.lb.ListenerRuleActionAuthenticateCognitoArgs(
-                        user_pool_arn=pool.arn,
-                        user_pool_client_id=client.id,
-                        user_pool_domain=domain.domain,
-                    ),
-                ),
-                aws.lb.ListenerRuleActionArgs(
-                    type="forward",
-                    target_group_arn=aws_lb_target_group["static"]["arn"],
-                ),
+                {
+                    type: authenticate-cognito,
+                    authenticateCognito: {
+                        userPoolArn: pool.arn,
+                        userPoolClientId: client.id,
+                        userPoolDomain: domain.domain,
+                    },
+                },
+                {
+                    type: forward,
+                    targetGroupArn: aws_lb_target_group.static.arn,
+                },
             ])
         # Authenticate-oidc Action
-        oidc = aws.lb.ListenerRule("oidc",
+        oidc = aws.lb.listener_rule.ListenerRule("oidc",
             listener_arn=front_end_listener.arn,
             actions=[
-                aws.lb.ListenerRuleActionArgs(
-                    type="authenticate-oidc",
-                    authenticate_oidc=aws.lb.ListenerRuleActionAuthenticateOidcArgs(
-                        authorization_endpoint="https://example.com/authorization_endpoint",
-                        client_id="client_id",
-                        client_secret="client_secret",
-                        issuer="https://example.com",
-                        token_endpoint="https://example.com/token_endpoint",
-                        user_info_endpoint="https://example.com/user_info_endpoint",
-                    ),
-                ),
-                aws.lb.ListenerRuleActionArgs(
-                    type="forward",
-                    target_group_arn=aws_lb_target_group["static"]["arn"],
-                ),
+                {
+                    type: authenticate-oidc,
+                    authenticateOidc: {
+                        authorizationEndpoint: https://example.com/authorization_endpoint,
+                        clientId: client_id,
+                        clientSecret: client_secret,
+                        issuer: https://example.com,
+                        tokenEndpoint: https://example.com/token_endpoint,
+                        userInfoEndpoint: https://example.com/user_info_endpoint,
+                    },
+                },
+                {
+                    type: forward,
+                    targetGroupArn: aws_lb_target_group.static.arn,
+                },
             ])
         ```
 
@@ -427,151 +427,151 @@ class ListenerRule(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        front_end_load_balancer = aws.lb.LoadBalancer("frontEndLoadBalancer")
+        front_end_load_balancer = aws.lb.load_balancer.LoadBalancer("frontEndLoadBalancer")
         # ...
-        front_end_listener = aws.lb.Listener("frontEndListener")
+        front_end_listener = aws.lb.listener.Listener("frontEndListener")
         # Other parameters
-        static = aws.lb.ListenerRule("static",
+        static = aws.lb.listener_rule.ListenerRule("static",
             listener_arn=front_end_listener.arn,
             priority=100,
-            actions=[aws.lb.ListenerRuleActionArgs(
-                type="forward",
-                target_group_arn=aws_lb_target_group["static"]["arn"],
-            )],
+            actions=[{
+                type: forward,
+                targetGroupArn: aws_lb_target_group.static.arn,
+            }],
             conditions=[
-                aws.lb.ListenerRuleConditionArgs(
-                    path_pattern=aws.lb.ListenerRuleConditionPathPatternArgs(
-                        values=["/static/*"],
-                    ),
-                ),
-                aws.lb.ListenerRuleConditionArgs(
-                    host_header=aws.lb.ListenerRuleConditionHostHeaderArgs(
-                        values=["example.com"],
-                    ),
-                ),
+                {
+                    pathPattern: {
+                        values: [/static/*],
+                    },
+                },
+                {
+                    hostHeader: {
+                        values: [example.com],
+                    },
+                },
             ])
         # Forward action
-        host_based_weighted_routing = aws.lb.ListenerRule("hostBasedWeightedRouting",
+        host_based_weighted_routing = aws.lb.listener_rule.ListenerRule("hostBasedWeightedRouting",
             listener_arn=front_end_listener.arn,
             priority=99,
-            actions=[aws.lb.ListenerRuleActionArgs(
-                type="forward",
-                target_group_arn=aws_lb_target_group["static"]["arn"],
-            )],
-            conditions=[aws.lb.ListenerRuleConditionArgs(
-                host_header=aws.lb.ListenerRuleConditionHostHeaderArgs(
-                    values=["my-service.*.mycompany.io"],
-                ),
-            )])
+            actions=[{
+                type: forward,
+                targetGroupArn: aws_lb_target_group.static.arn,
+            }],
+            conditions=[{
+                hostHeader: {
+                    values: [my-service.*.mycompany.io],
+                },
+            }])
         # Weighted Forward action
-        host_based_routing = aws.lb.ListenerRule("hostBasedRouting",
+        host_based_routing = aws.lb.listener_rule.ListenerRule("hostBasedRouting",
             listener_arn=front_end_listener.arn,
             priority=99,
-            actions=[aws.lb.ListenerRuleActionArgs(
-                type="forward",
-                forward=aws.lb.ListenerRuleActionForwardArgs(
-                    target_groups=[
-                        aws.lb.ListenerRuleActionForwardTargetGroupArgs(
-                            arn=aws_lb_target_group["main"]["arn"],
-                            weight=80,
-                        ),
-                        aws.lb.ListenerRuleActionForwardTargetGroupArgs(
-                            arn=aws_lb_target_group["canary"]["arn"],
-                            weight=20,
-                        ),
+            actions=[{
+                type: forward,
+                forward: {
+                    targetGroups: [
+                        {
+                            arn: aws_lb_target_group.main.arn,
+                            weight: 80,
+                        },
+                        {
+                            arn: aws_lb_target_group.canary.arn,
+                            weight: 20,
+                        },
                     ],
-                    stickiness=aws.lb.ListenerRuleActionForwardStickinessArgs(
-                        enabled=True,
-                        duration=600,
-                    ),
-                ),
-            )],
-            conditions=[aws.lb.ListenerRuleConditionArgs(
-                host_header=aws.lb.ListenerRuleConditionHostHeaderArgs(
-                    values=["my-service.*.mycompany.io"],
-                ),
-            )])
+                    stickiness: {
+                        enabled: True,
+                        duration: 600,
+                    },
+                },
+            }],
+            conditions=[{
+                hostHeader: {
+                    values: [my-service.*.mycompany.io],
+                },
+            }])
         # Redirect action
-        redirect_http_to_https = aws.lb.ListenerRule("redirectHttpToHttps",
+        redirect_http_to_https = aws.lb.listener_rule.ListenerRule("redirectHttpToHttps",
             listener_arn=front_end_listener.arn,
-            actions=[aws.lb.ListenerRuleActionArgs(
-                type="redirect",
-                redirect=aws.lb.ListenerRuleActionRedirectArgs(
-                    port="443",
-                    protocol="HTTPS",
-                    status_code="HTTP_301",
-                ),
-            )],
-            conditions=[aws.lb.ListenerRuleConditionArgs(
-                http_header=aws.lb.ListenerRuleConditionHttpHeaderArgs(
-                    http_header_name="X-Forwarded-For",
-                    values=["192.168.1.*"],
-                ),
-            )])
+            actions=[{
+                type: redirect,
+                redirect: {
+                    port: 443,
+                    protocol: HTTPS,
+                    statusCode: HTTP_301,
+                },
+            }],
+            conditions=[{
+                httpHeader: {
+                    httpHeaderName: X-Forwarded-For,
+                    values: [192.168.1.*],
+                },
+            }])
         # Fixed-response action
-        health_check = aws.lb.ListenerRule("healthCheck",
+        health_check = aws.lb.listener_rule.ListenerRule("healthCheck",
             listener_arn=front_end_listener.arn,
-            actions=[aws.lb.ListenerRuleActionArgs(
-                type="fixed-response",
-                fixed_response=aws.lb.ListenerRuleActionFixedResponseArgs(
-                    content_type="text/plain",
-                    message_body="HEALTHY",
-                    status_code="200",
-                ),
-            )],
-            conditions=[aws.lb.ListenerRuleConditionArgs(
-                query_strings=[
-                    aws.lb.ListenerRuleConditionQueryStringArgs(
-                        key="health",
-                        value="check",
-                    ),
-                    aws.lb.ListenerRuleConditionQueryStringArgs(
-                        value="bar",
-                    ),
+            actions=[{
+                type: fixed-response,
+                fixedResponse: {
+                    contentType: text/plain,
+                    messageBody: HEALTHY,
+                    statusCode: 200,
+                },
+            }],
+            conditions=[{
+                queryStrings: [
+                    {
+                        key: health,
+                        value: check,
+                    },
+                    {
+                        value: bar,
+                    },
                 ],
-            )])
+            }])
         # Authenticate-cognito Action
-        pool = aws.cognito.UserPool("pool")
+        pool = aws.cognito.user_pool.UserPool("pool")
         # ...
-        client = aws.cognito.UserPoolClient("client")
+        client = aws.cognito.user_pool_client.UserPoolClient("client")
         # ...
-        domain = aws.cognito.UserPoolDomain("domain")
+        domain = aws.cognito.user_pool_domain.UserPoolDomain("domain")
         # ...
-        admin = aws.lb.ListenerRule("admin",
+        admin = aws.lb.listener_rule.ListenerRule("admin",
             listener_arn=front_end_listener.arn,
             actions=[
-                aws.lb.ListenerRuleActionArgs(
-                    type="authenticate-cognito",
-                    authenticate_cognito=aws.lb.ListenerRuleActionAuthenticateCognitoArgs(
-                        user_pool_arn=pool.arn,
-                        user_pool_client_id=client.id,
-                        user_pool_domain=domain.domain,
-                    ),
-                ),
-                aws.lb.ListenerRuleActionArgs(
-                    type="forward",
-                    target_group_arn=aws_lb_target_group["static"]["arn"],
-                ),
+                {
+                    type: authenticate-cognito,
+                    authenticateCognito: {
+                        userPoolArn: pool.arn,
+                        userPoolClientId: client.id,
+                        userPoolDomain: domain.domain,
+                    },
+                },
+                {
+                    type: forward,
+                    targetGroupArn: aws_lb_target_group.static.arn,
+                },
             ])
         # Authenticate-oidc Action
-        oidc = aws.lb.ListenerRule("oidc",
+        oidc = aws.lb.listener_rule.ListenerRule("oidc",
             listener_arn=front_end_listener.arn,
             actions=[
-                aws.lb.ListenerRuleActionArgs(
-                    type="authenticate-oidc",
-                    authenticate_oidc=aws.lb.ListenerRuleActionAuthenticateOidcArgs(
-                        authorization_endpoint="https://example.com/authorization_endpoint",
-                        client_id="client_id",
-                        client_secret="client_secret",
-                        issuer="https://example.com",
-                        token_endpoint="https://example.com/token_endpoint",
-                        user_info_endpoint="https://example.com/user_info_endpoint",
-                    ),
-                ),
-                aws.lb.ListenerRuleActionArgs(
-                    type="forward",
-                    target_group_arn=aws_lb_target_group["static"]["arn"],
-                ),
+                {
+                    type: authenticate-oidc,
+                    authenticateOidc: {
+                        authorizationEndpoint: https://example.com/authorization_endpoint,
+                        clientId: client_id,
+                        clientSecret: client_secret,
+                        issuer: https://example.com,
+                        tokenEndpoint: https://example.com/token_endpoint,
+                        userInfoEndpoint: https://example.com/user_info_endpoint,
+                    },
+                },
+                {
+                    type: forward,
+                    targetGroupArn: aws_lb_target_group.static.arn,
+                },
             ])
         ```
 

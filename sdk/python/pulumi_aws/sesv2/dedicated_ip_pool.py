@@ -183,7 +183,7 @@ class DedicatedIpPool(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.sesv2.DedicatedIpPool("example", pool_name="my-pool")
+        example = aws.sesv2.dedicated_ip_pool.DedicatedIpPool("example", pool_name=my-pool)
         ```
         ### Managed Pool
 
@@ -191,9 +191,9 @@ class DedicatedIpPool(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.sesv2.DedicatedIpPool("example",
-            pool_name="my-managed-pool",
-            scaling_mode="MANAGED")
+        example = aws.sesv2.dedicated_ip_pool.DedicatedIpPool("example",
+            pool_name=my-managed-pool,
+            scaling_mode=MANAGED)
         ```
 
         ## Import
@@ -228,7 +228,7 @@ class DedicatedIpPool(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.sesv2.DedicatedIpPool("example", pool_name="my-pool")
+        example = aws.sesv2.dedicated_ip_pool.DedicatedIpPool("example", pool_name=my-pool)
         ```
         ### Managed Pool
 
@@ -236,9 +236,9 @@ class DedicatedIpPool(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.sesv2.DedicatedIpPool("example",
-            pool_name="my-managed-pool",
-            scaling_mode="MANAGED")
+        example = aws.sesv2.dedicated_ip_pool.DedicatedIpPool("example",
+            pool_name=my-managed-pool,
+            scaling_mode=MANAGED)
         ```
 
         ## Import

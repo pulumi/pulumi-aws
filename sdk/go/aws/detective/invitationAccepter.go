@@ -21,38 +21,38 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/detective"
+//	detective/graph "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/detective/graph"
+//	detective/invitationAccepter "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/detective/invitationAccepter"
+//	detective/member "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/detective/member"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			primaryGraph, err := detective.NewGraph(ctx, "primaryGraph", nil)
-//			if err != nil {
-//				return err
-//			}
-//			primaryMember, err := detective.NewMember(ctx, "primaryMember", &detective.MemberArgs{
-//				AccountId:    pulumi.String("ACCOUNT ID"),
-//				EmailAddress: pulumi.String("EMAIL"),
-//				GraphArn:     primaryGraph.ID(),
-//				Message:      pulumi.String("Message of the invite"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = detective.NewInvitationAccepter(ctx, "member", &detective.InvitationAccepterArgs{
-//				GraphArn: primaryGraph.GraphArn,
-//			}, pulumi.Provider("awsalternate"), pulumi.DependsOn([]pulumi.Resource{
-//				primaryMember,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// primaryGraph, err := detective/graph.NewGraph(ctx, "primaryGraph", nil)
+// if err != nil {
+// return err
+// }
+// primaryMember, err := detective/member.NewMember(ctx, "primaryMember", &detective/member.MemberArgs{
+// AccountId: "ACCOUNT ID",
+// EmailAddress: "EMAIL",
+// GraphArn: primaryGraph.Id,
+// Message: "Message of the invite",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = detective/invitationAccepter.NewInvitationAccepter(ctx, "member", &detective/invitationAccepter.InvitationAccepterArgs{
+// GraphArn: primaryGraph.GraphArn,
+// }, pulumi.Provider("awsalternate"), pulumi.DependsOn([]pulumi.Resource{
+// primaryMember,
+// }))
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

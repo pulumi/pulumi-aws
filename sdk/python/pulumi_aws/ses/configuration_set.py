@@ -250,7 +250,7 @@ class ConfigurationSet(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.ses.ConfigurationSet("test")
+        test = aws.ses.configuration_set.ConfigurationSet("test")
         ```
         ### Require TLS Connections
 
@@ -258,9 +258,9 @@ class ConfigurationSet(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.ses.ConfigurationSet("test", delivery_options=aws.ses.ConfigurationSetDeliveryOptionsArgs(
-            tls_policy="Require",
-        ))
+        test = aws.ses.configuration_set.ConfigurationSet("test", delivery_options={
+            tlsPolicy: Require,
+        })
         ```
         ### Tracking Options
 
@@ -268,9 +268,9 @@ class ConfigurationSet(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.ses.ConfigurationSet("test", tracking_options=aws.ses.ConfigurationSetTrackingOptionsArgs(
-            custom_redirect_domain="sub.example.com",
-        ))
+        test = aws.ses.configuration_set.ConfigurationSet("test", tracking_options={
+            customRedirectDomain: sub.example.com,
+        })
         ```
 
         ## Import
@@ -307,7 +307,7 @@ class ConfigurationSet(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.ses.ConfigurationSet("test")
+        test = aws.ses.configuration_set.ConfigurationSet("test")
         ```
         ### Require TLS Connections
 
@@ -315,9 +315,9 @@ class ConfigurationSet(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.ses.ConfigurationSet("test", delivery_options=aws.ses.ConfigurationSetDeliveryOptionsArgs(
-            tls_policy="Require",
-        ))
+        test = aws.ses.configuration_set.ConfigurationSet("test", delivery_options={
+            tlsPolicy: Require,
+        })
         ```
         ### Tracking Options
 
@@ -325,9 +325,9 @@ class ConfigurationSet(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.ses.ConfigurationSet("test", tracking_options=aws.ses.ConfigurationSetTrackingOptionsArgs(
-            custom_redirect_domain="sub.example.com",
-        ))
+        test = aws.ses.configuration_set.ConfigurationSet("test", tracking_options={
+            customRedirectDomain: sub.example.com,
+        })
         ```
 
         ## Import

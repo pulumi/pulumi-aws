@@ -12,48 +12,6 @@ import (
 )
 
 // This resource can be used to get a set of license grant ARNs matching a filter.
-//
-// ## Example Usage
-//
-// The following shows getting all license grant ARNs granted to your account.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/licensemanager"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			current, err := aws.GetCallerIdentity(ctx, nil, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = licensemanager.GetLicenseGrants(ctx, &licensemanager.GetLicenseGrantsArgs{
-//				Filters: []licensemanager.GetLicenseGrantsFilter{
-//					{
-//						Name: "GranteePrincipalARN",
-//						Values: []string{
-//							fmt.Sprintf("arn:aws:iam::%v:root", current.AccountId),
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetLicenseGrants(ctx *pulumi.Context, args *GetLicenseGrantsArgs, opts ...pulumi.InvokeOption) (*GetLicenseGrantsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetLicenseGrantsResult

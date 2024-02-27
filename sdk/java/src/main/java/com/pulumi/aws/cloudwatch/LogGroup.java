@@ -43,10 +43,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var yada = new LogGroup(&#34;yada&#34;, LogGroupArgs.builder()        
- *             .tags(Map.ofEntries(
- *                 Map.entry(&#34;Application&#34;, &#34;serviceA&#34;),
- *                 Map.entry(&#34;Environment&#34;, &#34;production&#34;)
- *             ))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

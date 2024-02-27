@@ -23,7 +23,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.Provider;
+ * import com.pulumi.pulumi.providers.aws;
  * import com.pulumi.aws.guardduty.Detector;
  * import com.pulumi.aws.guardduty.DetectorArgs;
  * import com.pulumi.aws.guardduty.Member;

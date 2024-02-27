@@ -24,28 +24,26 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	iam/accountPasswordPolicy "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/iam/accountPasswordPolicy"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := iam.NewAccountPasswordPolicy(ctx, "strict", &iam.AccountPasswordPolicyArgs{
-//				AllowUsersToChangePassword: pulumi.Bool(true),
-//				MinimumPasswordLength:      pulumi.Int(8),
-//				RequireLowercaseCharacters: pulumi.Bool(true),
-//				RequireNumbers:             pulumi.Bool(true),
-//				RequireSymbols:             pulumi.Bool(true),
-//				RequireUppercaseCharacters: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := iam/accountPasswordPolicy.NewAccountPasswordPolicy(ctx, "strict", &iam/accountPasswordPolicy.AccountPasswordPolicyArgs{
+// AllowUsersToChangePassword: true,
+// MinimumPasswordLength: 8,
+// RequireLowercaseCharacters: true,
+// RequireNumbers: true,
+// RequireSymbols: true,
+// RequireUppercaseCharacters: true,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -16,28 +16,6 @@ namespace Pulumi.Aws.ApiGateway
         /// API Gateway. To fetch the REST API you must provide a name to match against.
         /// As there is no unique name constraint on REST APIs this data source will
         /// error if there is more than one match.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var myRestApi = Aws.ApiGateway.GetRestApi.Invoke(new()
-        ///     {
-        ///         Name = "my-rest-api",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetRestApiResult> InvokeAsync(GetRestApiArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRestApiResult>("aws:apigateway/getRestApi:getRestApi", args ?? new GetRestApiArgs(), options.WithDefaults());
@@ -47,28 +25,6 @@ namespace Pulumi.Aws.ApiGateway
         /// API Gateway. To fetch the REST API you must provide a name to match against.
         /// As there is no unique name constraint on REST APIs this data source will
         /// error if there is more than one match.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var myRestApi = Aws.ApiGateway.GetRestApi.Invoke(new()
-        ///     {
-        ///         Name = "my-rest-api",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetRestApiResult> Invoke(GetRestApiInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRestApiResult>("aws:apigateway/getRestApi:getRestApi", args ?? new GetRestApiInvokeArgs(), options.WithDefaults());

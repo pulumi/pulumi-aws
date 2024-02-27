@@ -16,48 +16,6 @@ import (
 // Provides information about a Load Balancer Listener.
 //
 // This data source can prove useful when a module accepts an LB Listener as an input variable and needs to know the LB it is attached to, or other information specific to the listener in question.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lb"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			cfg := config.New(ctx, "")
-//			listenerArn := cfg.Require("listenerArn")
-//			_, err := lb.LookupListener(ctx, &lb.LookupListenerArgs{
-//				Arn: pulumi.StringRef(listenerArn),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			selected, err := lb.LookupLoadBalancer(ctx, &lb.LookupLoadBalancerArgs{
-//				Name: pulumi.StringRef("default-public"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = lb.LookupListener(ctx, &lb.LookupListenerArgs{
-//				LoadBalancerArn: pulumi.StringRef(selected.Arn),
-//				Port:            pulumi.IntRef(443),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupListener(ctx *pulumi.Context, args *LookupListenerArgs, opts ...pulumi.InvokeOption) (*LookupListenerResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupListenerResult

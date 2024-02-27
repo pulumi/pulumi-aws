@@ -29,8 +29,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.cloudwatch.EventConnection;
  * import com.pulumi.aws.cloudwatch.EventConnectionArgs;
- * import com.pulumi.aws.cloudwatch.inputs.EventConnectionAuthParametersArgs;
- * import com.pulumi.aws.cloudwatch.inputs.EventConnectionAuthParametersApiKeyArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -45,12 +43,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new EventConnection(&#34;test&#34;, EventConnectionArgs.builder()        
- *             .authParameters(EventConnectionAuthParametersArgs.builder()
- *                 .apiKey(EventConnectionAuthParametersApiKeyArgs.builder()
- *                     .key(&#34;x-signature&#34;)
- *                     .value(&#34;1234&#34;)
- *                     .build())
- *                 .build())
+ *             .authParameters(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .authorizationType(&#34;API_KEY&#34;)
  *             .description(&#34;A connection description&#34;)
  *             .build());
@@ -67,8 +60,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.cloudwatch.EventConnection;
  * import com.pulumi.aws.cloudwatch.EventConnectionArgs;
- * import com.pulumi.aws.cloudwatch.inputs.EventConnectionAuthParametersArgs;
- * import com.pulumi.aws.cloudwatch.inputs.EventConnectionAuthParametersBasicArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -83,12 +74,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new EventConnection(&#34;test&#34;, EventConnectionArgs.builder()        
- *             .authParameters(EventConnectionAuthParametersArgs.builder()
- *                 .basic(EventConnectionAuthParametersBasicArgs.builder()
- *                     .password(&#34;Pass1234!&#34;)
- *                     .username(&#34;user&#34;)
- *                     .build())
- *                 .build())
+ *             .authParameters(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .authorizationType(&#34;BASIC&#34;)
  *             .description(&#34;A connection description&#34;)
  *             .build());
@@ -97,7 +83,6 @@ import javax.annotation.Nullable;
  * }
  * ```
  * ### OAuth Authorization
- * 
  * ```java
  * package generated_program;
  * 
@@ -106,10 +91,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.cloudwatch.EventConnection;
  * import com.pulumi.aws.cloudwatch.EventConnectionArgs;
- * import com.pulumi.aws.cloudwatch.inputs.EventConnectionAuthParametersArgs;
- * import com.pulumi.aws.cloudwatch.inputs.EventConnectionAuthParametersOauthArgs;
- * import com.pulumi.aws.cloudwatch.inputs.EventConnectionAuthParametersOauthClientParametersArgs;
- * import com.pulumi.aws.cloudwatch.inputs.EventConnectionAuthParametersOauthOauthHttpParametersArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -124,21 +105,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new EventConnection(&#34;test&#34;, EventConnectionArgs.builder()        
- *             .authParameters(EventConnectionAuthParametersArgs.builder()
- *                 .oauth(EventConnectionAuthParametersOauthArgs.builder()
- *                     .authorizationEndpoint(&#34;https://auth.url.com/endpoint&#34;)
- *                     .clientParameters(EventConnectionAuthParametersOauthClientParametersArgs.builder()
- *                         .clientId(&#34;1234567890&#34;)
- *                         .clientSecret(&#34;Pass1234!&#34;)
- *                         .build())
- *                     .httpMethod(&#34;GET&#34;)
- *                     .oauthHttpParameters(EventConnectionAuthParametersOauthOauthHttpParametersArgs.builder()
- *                         .body(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
- *                         .header(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
- *                         .queryString(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
- *                         .build())
- *                     .build())
- *                 .build())
+ *             .authParameters(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .authorizationType(&#34;OAUTH_CLIENT_CREDENTIALS&#34;)
  *             .description(&#34;A connection description&#34;)
  *             .build());
@@ -147,7 +114,6 @@ import javax.annotation.Nullable;
  * }
  * ```
  * ### Invocation Http Parameters
- * 
  * ```java
  * package generated_program;
  * 
@@ -156,9 +122,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.cloudwatch.EventConnection;
  * import com.pulumi.aws.cloudwatch.EventConnectionArgs;
- * import com.pulumi.aws.cloudwatch.inputs.EventConnectionAuthParametersArgs;
- * import com.pulumi.aws.cloudwatch.inputs.EventConnectionAuthParametersBasicArgs;
- * import com.pulumi.aws.cloudwatch.inputs.EventConnectionAuthParametersInvocationHttpParametersArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -173,19 +136,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new EventConnection(&#34;test&#34;, EventConnectionArgs.builder()        
- *             .authParameters(EventConnectionAuthParametersArgs.builder()
- *                 .basic(EventConnectionAuthParametersBasicArgs.builder()
- *                     .password(&#34;Pass1234!&#34;)
- *                     .username(&#34;user&#34;)
- *                     .build())
- *                 .invocationHttpParameters(EventConnectionAuthParametersInvocationHttpParametersArgs.builder()
- *                     .body(                    
- *                         %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
- *                         %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
- *                     .header(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
- *                     .queryString(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
- *                     .build())
- *                 .build())
+ *             .authParameters(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .authorizationType(&#34;BASIC&#34;)
  *             .description(&#34;A connection description&#34;)
  *             .build());

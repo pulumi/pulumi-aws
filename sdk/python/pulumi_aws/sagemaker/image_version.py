@@ -167,9 +167,9 @@ class ImageVersion(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.sagemaker.ImageVersion("test",
-            image_name=aws_sagemaker_image["test"]["id"],
-            base_image="012345678912.dkr.ecr.us-west-2.amazonaws.com/image:latest")
+        test = aws.sagemaker.image_version.ImageVersion("test",
+            image_name=aws_sagemaker_image.test.id,
+            base_image=012345678912.dkr.ecr.us-west-2.amazonaws.com/image:latest)
         ```
 
         ## Import
@@ -201,9 +201,9 @@ class ImageVersion(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.sagemaker.ImageVersion("test",
-            image_name=aws_sagemaker_image["test"]["id"],
-            base_image="012345678912.dkr.ecr.us-west-2.amazonaws.com/image:latest")
+        test = aws.sagemaker.image_version.ImageVersion("test",
+            image_name=aws_sagemaker_image.test.id,
+            base_image=012345678912.dkr.ecr.us-west-2.amazonaws.com/image:latest)
         ```
 
         ## Import

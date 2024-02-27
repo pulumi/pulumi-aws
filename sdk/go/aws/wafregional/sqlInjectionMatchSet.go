@@ -20,30 +20,28 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/wafregional"
+//	wafregional/sqlInjectionMatchSet "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/wafregional/sqlInjectionMatchSet"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := wafregional.NewSqlInjectionMatchSet(ctx, "sqlInjectionMatchSet", &wafregional.SqlInjectionMatchSetArgs{
-//				SqlInjectionMatchTuples: wafregional.SqlInjectionMatchSetSqlInjectionMatchTupleArray{
-//					&wafregional.SqlInjectionMatchSetSqlInjectionMatchTupleArgs{
-//						FieldToMatch: &wafregional.SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatchArgs{
-//							Type: pulumi.String("QUERY_STRING"),
-//						},
-//						TextTransformation: pulumi.String("URL_DECODE"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := wafregional/sqlInjectionMatchSet.NewSqlInjectionMatchSet(ctx, "sqlInjectionMatchSet", &wafregional/sqlInjectionMatchSet.SqlInjectionMatchSetArgs{
+// SqlInjectionMatchTuples: []map[string]interface{}{
+// map[string]interface{}{
+// "fieldToMatch": map[string]interface{}{
+// "type": "QUERY_STRING",
+// },
+// "textTransformation": "URL_DECODE",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

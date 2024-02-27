@@ -189,8 +189,8 @@ class VaultLockConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.backup.VaultLockConfiguration("test",
-            backup_vault_name="example_backup_vault",
+        test = aws.backup.vault_lock_configuration.VaultLockConfiguration("test",
+            backup_vault_name=example_backup_vault,
             changeable_for_days=3,
             max_retention_days=1200,
             min_retention_days=7)
@@ -226,8 +226,8 @@ class VaultLockConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.backup.VaultLockConfiguration("test",
-            backup_vault_name="example_backup_vault",
+        test = aws.backup.vault_lock_configuration.VaultLockConfiguration("test",
+            backup_vault_name=example_backup_vault,
             changeable_for_days=3,
             max_retention_days=1200,
             min_retention_days=7)

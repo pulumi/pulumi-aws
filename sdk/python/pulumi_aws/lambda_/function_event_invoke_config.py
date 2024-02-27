@@ -219,16 +219,16 @@ class FunctionEventInvokeConfig(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.lambda_.FunctionEventInvokeConfig("example",
-            function_name=aws_lambda_alias["example"]["function_name"],
-            destination_config=aws.lambda_.FunctionEventInvokeConfigDestinationConfigArgs(
-                on_failure=aws.lambda_.FunctionEventInvokeConfigDestinationConfigOnFailureArgs(
-                    destination=aws_sqs_queue["example"]["arn"],
-                ),
-                on_success=aws.lambda_.FunctionEventInvokeConfigDestinationConfigOnSuccessArgs(
-                    destination=aws_sns_topic["example"]["arn"],
-                ),
-            ))
+        example = aws.lambda_.function_event_invoke_config.FunctionEventInvokeConfig("example",
+            function_name=aws_lambda_alias.example.function_name,
+            destination_config={
+                onFailure: {
+                    destination: aws_sqs_queue.example.arn,
+                },
+                onSuccess: {
+                    destination: aws_sns_topic.example.arn,
+                },
+            })
         ```
         ### Error Handling Configuration
 
@@ -236,8 +236,8 @@ class FunctionEventInvokeConfig(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.lambda_.FunctionEventInvokeConfig("example",
-            function_name=aws_lambda_alias["example"]["function_name"],
+        example = aws.lambda_.function_event_invoke_config.FunctionEventInvokeConfig("example",
+            function_name=aws_lambda_alias.example.function_name,
             maximum_event_age_in_seconds=60,
             maximum_retry_attempts=0)
         ```
@@ -247,9 +247,9 @@ class FunctionEventInvokeConfig(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.lambda_.FunctionEventInvokeConfig("example",
-            function_name=aws_lambda_alias["example"]["function_name"],
-            qualifier=aws_lambda_alias["example"]["name"])
+        example = aws.lambda_.function_event_invoke_config.FunctionEventInvokeConfig("example",
+            function_name=aws_lambda_alias.example.function_name,
+            qualifier=aws_lambda_alias.example.name)
         # ... other configuration ...
         ```
         ### Configuration for Function Latest Unpublished Version
@@ -258,9 +258,9 @@ class FunctionEventInvokeConfig(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.lambda_.FunctionEventInvokeConfig("example",
-            function_name=aws_lambda_function["example"]["function_name"],
-            qualifier="$LATEST")
+        example = aws.lambda_.function_event_invoke_config.FunctionEventInvokeConfig("example",
+            function_name=aws_lambda_function.example.function_name,
+            qualifier=$LATEST)
         # ... other configuration ...
         ```
         ### Configuration for Function Published Version
@@ -269,9 +269,9 @@ class FunctionEventInvokeConfig(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.lambda_.FunctionEventInvokeConfig("example",
-            function_name=aws_lambda_function["example"]["function_name"],
-            qualifier=aws_lambda_function["example"]["version"])
+        example = aws.lambda_.function_event_invoke_config.FunctionEventInvokeConfig("example",
+            function_name=aws_lambda_function.example.function_name,
+            qualifier=aws_lambda_function.example.version)
         # ... other configuration ...
         ```
 
@@ -334,16 +334,16 @@ class FunctionEventInvokeConfig(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.lambda_.FunctionEventInvokeConfig("example",
-            function_name=aws_lambda_alias["example"]["function_name"],
-            destination_config=aws.lambda_.FunctionEventInvokeConfigDestinationConfigArgs(
-                on_failure=aws.lambda_.FunctionEventInvokeConfigDestinationConfigOnFailureArgs(
-                    destination=aws_sqs_queue["example"]["arn"],
-                ),
-                on_success=aws.lambda_.FunctionEventInvokeConfigDestinationConfigOnSuccessArgs(
-                    destination=aws_sns_topic["example"]["arn"],
-                ),
-            ))
+        example = aws.lambda_.function_event_invoke_config.FunctionEventInvokeConfig("example",
+            function_name=aws_lambda_alias.example.function_name,
+            destination_config={
+                onFailure: {
+                    destination: aws_sqs_queue.example.arn,
+                },
+                onSuccess: {
+                    destination: aws_sns_topic.example.arn,
+                },
+            })
         ```
         ### Error Handling Configuration
 
@@ -351,8 +351,8 @@ class FunctionEventInvokeConfig(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.lambda_.FunctionEventInvokeConfig("example",
-            function_name=aws_lambda_alias["example"]["function_name"],
+        example = aws.lambda_.function_event_invoke_config.FunctionEventInvokeConfig("example",
+            function_name=aws_lambda_alias.example.function_name,
             maximum_event_age_in_seconds=60,
             maximum_retry_attempts=0)
         ```
@@ -362,9 +362,9 @@ class FunctionEventInvokeConfig(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.lambda_.FunctionEventInvokeConfig("example",
-            function_name=aws_lambda_alias["example"]["function_name"],
-            qualifier=aws_lambda_alias["example"]["name"])
+        example = aws.lambda_.function_event_invoke_config.FunctionEventInvokeConfig("example",
+            function_name=aws_lambda_alias.example.function_name,
+            qualifier=aws_lambda_alias.example.name)
         # ... other configuration ...
         ```
         ### Configuration for Function Latest Unpublished Version
@@ -373,9 +373,9 @@ class FunctionEventInvokeConfig(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.lambda_.FunctionEventInvokeConfig("example",
-            function_name=aws_lambda_function["example"]["function_name"],
-            qualifier="$LATEST")
+        example = aws.lambda_.function_event_invoke_config.FunctionEventInvokeConfig("example",
+            function_name=aws_lambda_function.example.function_name,
+            qualifier=$LATEST)
         # ... other configuration ...
         ```
         ### Configuration for Function Published Version
@@ -384,9 +384,9 @@ class FunctionEventInvokeConfig(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.lambda_.FunctionEventInvokeConfig("example",
-            function_name=aws_lambda_function["example"]["function_name"],
-            qualifier=aws_lambda_function["example"]["version"])
+        example = aws.lambda_.function_event_invoke_config.FunctionEventInvokeConfig("example",
+            function_name=aws_lambda_function.example.function_name,
+            qualifier=aws_lambda_function.example.version)
         # ... other configuration ...
         ```
 

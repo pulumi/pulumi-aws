@@ -14,13 +14,13 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const myDomain = new aws.opensearch.Domain("myDomain", {
+ * const myDomain = new aws.opensearch/domain.Domain("myDomain", {
  *     engineVersion: "Elasticsearch_7.10",
  *     clusterConfig: {
  *         instanceType: "r4.large.search",
  *     },
  * });
- * const examplePackage = new aws.opensearch.Package("examplePackage", {
+ * const examplePackage = new aws.opensearch/package.Package("examplePackage", {
  *     packageName: "example-txt",
  *     packageSource: {
  *         s3BucketName: aws_s3_bucket.my_opensearch_packages.bucket,
@@ -28,7 +28,7 @@ import * as utilities from "../utilities";
  *     },
  *     packageType: "TXT-DICTIONARY",
  * });
- * const examplePackageAssociation = new aws.opensearch.PackageAssociation("examplePackageAssociation", {
+ * const examplePackageAssociation = new aws.opensearch/packageAssociation.PackageAssociation("examplePackageAssociation", {
  *     packageId: examplePackage.id,
  *     domainName: myDomain.domainName,
  * });

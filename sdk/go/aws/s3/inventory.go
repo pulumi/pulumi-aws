@@ -24,41 +24,40 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	s3/bucketV2 "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/s3/bucketV2"
+//	s3/inventory "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/s3/inventory"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testBucketV2, err := s3.NewBucketV2(ctx, "testBucketV2", nil)
-//			if err != nil {
-//				return err
-//			}
-//			inventory, err := s3.NewBucketV2(ctx, "inventory", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = s3.NewInventory(ctx, "testInventory", &s3.InventoryArgs{
-//				Bucket:                 testBucketV2.ID(),
-//				IncludedObjectVersions: pulumi.String("All"),
-//				Schedule: &s3.InventoryScheduleArgs{
-//					Frequency: pulumi.String("Daily"),
-//				},
-//				Destination: &s3.InventoryDestinationArgs{
-//					Bucket: &s3.InventoryDestinationBucketArgs{
-//						Format:    pulumi.String("ORC"),
-//						BucketArn: inventory.Arn,
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// testBucketV2, err := s3/bucketV2.NewBucketV2(ctx, "testBucketV2", nil)
+// if err != nil {
+// return err
+// }
+// inventory, err := s3/bucketV2.NewBucketV2(ctx, "inventory", nil)
+// if err != nil {
+// return err
+// }
+// _, err = s3/inventory.NewInventory(ctx, "testInventory", &s3/inventory.InventoryArgs{
+// Bucket: testBucketV2.Id,
+// IncludedObjectVersions: "All",
+// Schedule: map[string]interface{}{
+// "frequency": "Daily",
+// },
+// Destination: map[string]interface{}{
+// "bucket": map[string]interface{}{
+// "format": "ORC",
+// "bucketArn": inventory.Arn,
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Add inventory configuration with S3 object prefix
 //
@@ -67,45 +66,44 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	s3/bucketV2 "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/s3/bucketV2"
+//	s3/inventory "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/s3/inventory"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			test, err := s3.NewBucketV2(ctx, "test", nil)
-//			if err != nil {
-//				return err
-//			}
-//			inventory, err := s3.NewBucketV2(ctx, "inventory", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = s3.NewInventory(ctx, "test-prefix", &s3.InventoryArgs{
-//				Bucket:                 test.ID(),
-//				IncludedObjectVersions: pulumi.String("All"),
-//				Schedule: &s3.InventoryScheduleArgs{
-//					Frequency: pulumi.String("Daily"),
-//				},
-//				Filter: &s3.InventoryFilterArgs{
-//					Prefix: pulumi.String("documents/"),
-//				},
-//				Destination: &s3.InventoryDestinationArgs{
-//					Bucket: &s3.InventoryDestinationBucketArgs{
-//						Format:    pulumi.String("ORC"),
-//						BucketArn: inventory.Arn,
-//						Prefix:    pulumi.String("inventory"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// test, err := s3/bucketV2.NewBucketV2(ctx, "test", nil)
+// if err != nil {
+// return err
+// }
+// inventory, err := s3/bucketV2.NewBucketV2(ctx, "inventory", nil)
+// if err != nil {
+// return err
+// }
+// _, err = s3/inventory.NewInventory(ctx, "test-prefix", &s3/inventory.InventoryArgs{
+// Bucket: test.Id,
+// IncludedObjectVersions: "All",
+// Schedule: map[string]interface{}{
+// "frequency": "Daily",
+// },
+// Filter: map[string]interface{}{
+// "prefix": "documents/",
+// },
+// Destination: map[string]interface{}{
+// "bucket": map[string]interface{}{
+// "format": "ORC",
+// "bucketArn": inventory.Arn,
+// "prefix": "inventory",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

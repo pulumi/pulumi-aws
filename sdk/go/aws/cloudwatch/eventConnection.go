@@ -23,30 +23,28 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
+//	cloudwatch/eventConnection "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/cloudwatch/eventConnection"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cloudwatch.NewEventConnection(ctx, "test", &cloudwatch.EventConnectionArgs{
-//				AuthParameters: &cloudwatch.EventConnectionAuthParametersArgs{
-//					ApiKey: &cloudwatch.EventConnectionAuthParametersApiKeyArgs{
-//						Key:   pulumi.String("x-signature"),
-//						Value: pulumi.String("1234"),
-//					},
-//				},
-//				AuthorizationType: pulumi.String("API_KEY"),
-//				Description:       pulumi.String("A connection description"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := cloudwatch/eventConnection.NewEventConnection(ctx, "test", &cloudwatch/eventConnection.EventConnectionArgs{
+// AuthParameters: map[string]interface{}{
+// "apiKey": map[string]interface{}{
+// "key": "x-signature",
+// "value": "1234",
+// },
+// },
+// AuthorizationType: "API_KEY",
+// Description: "A connection description",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Basic Authorization
 //
@@ -55,30 +53,143 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
+//	cloudwatch/eventConnection "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/cloudwatch/eventConnection"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := cloudwatch/eventConnection.NewEventConnection(ctx, "test", &cloudwatch/eventConnection.EventConnectionArgs{
+// AuthParameters: map[string]interface{}{
+// "basic": map[string]interface{}{
+// "password": "Pass1234!",
+// "username": "user",
+// },
+// },
+// AuthorizationType: "BASIC",
+// Description: "A connection description",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
+// ```
+// ### OAuth Authorization
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cloudwatch.NewEventConnection(ctx, "test", &cloudwatch.EventConnectionArgs{
-//				AuthParameters: &cloudwatch.EventConnectionAuthParametersArgs{
-//					Basic: &cloudwatch.EventConnectionAuthParametersBasicArgs{
-//						Password: pulumi.String("Pass1234!"),
-//						Username: pulumi.String("user"),
-//					},
-//				},
-//				AuthorizationType: pulumi.String("BASIC"),
-//				Description:       pulumi.String("A connection description"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
+// ```go
+// package main
 //
+// import (
+//
+//	cloudwatch/eventConnection "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/cloudwatch/eventConnection"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := cloudwatch/eventConnection.NewEventConnection(ctx, "test", &cloudwatch/eventConnection.EventConnectionArgs{
+// AuthParameters: map[string]interface{}{
+// "oauth": map[string]interface{}{
+// "authorizationEndpoint": "https://auth.url.com/endpoint",
+// "clientParameters": map[string]interface{}{
+// "clientId": "1234567890",
+// "clientSecret": "Pass1234!",
+// },
+// "httpMethod": "GET",
+// "oauthHttpParameters": map[string]interface{}{
+// "body": []map[string]interface{}{
+// map[string]interface{}{
+// "isValueSecret": false,
+// "key": "body-parameter-key",
+// "value": "body-parameter-value",
+// },
+// },
+// "header": []map[string]interface{}{
+// map[string]interface{}{
+// "isValueSecret": false,
+// "key": "header-parameter-key",
+// "value": "header-parameter-value",
+// },
+// },
+// "queryString": []map[string]interface{}{
+// map[string]interface{}{
+// "isValueSecret": false,
+// "key": "query-string-parameter-key",
+// "value": "query-string-parameter-value",
+// },
+// },
+// },
+// },
+// },
+// AuthorizationType: "OAUTH_CLIENT_CREDENTIALS",
+// Description: "A connection description",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
+// ```
+// ### Invocation Http Parameters
+//
+// ```go
+// package main
+//
+// import (
+//
+//	cloudwatch/eventConnection "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/cloudwatch/eventConnection"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := cloudwatch/eventConnection.NewEventConnection(ctx, "test", &cloudwatch/eventConnection.EventConnectionArgs{
+// AuthParameters: map[string]interface{}{
+// "basic": map[string]interface{}{
+// "password": "Pass1234!",
+// "username": "user",
+// },
+// "invocationHttpParameters": map[string]interface{}{
+// "body": []interface{}{
+// map[string]interface{}{
+// "isValueSecret": false,
+// "key": "body-parameter-key",
+// "value": "body-parameter-value",
+// },
+// map[string]interface{}{
+// "isValueSecret": true,
+// "key": "body-parameter-key2",
+// "value": "body-parameter-value2",
+// },
+// },
+// "header": []map[string]interface{}{
+// map[string]interface{}{
+// "isValueSecret": false,
+// "key": "header-parameter-key",
+// "value": "header-parameter-value",
+// },
+// },
+// "queryString": []map[string]interface{}{
+// map[string]interface{}{
+// "isValueSecret": false,
+// "key": "query-string-parameter-key",
+// "value": "query-string-parameter-value",
+// },
+// },
+// },
+// },
+// AuthorizationType: "BASIC",
+// Description: "A connection description",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

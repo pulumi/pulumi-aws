@@ -198,46 +198,27 @@ class LoggingConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_log_group = aws.cloudwatch.LogGroup("exampleLogGroup")
-        example_logging_configuration = aws.ivschat.LoggingConfiguration("exampleLoggingConfiguration", destination_configuration=aws.ivschat.LoggingConfigurationDestinationConfigurationArgs(
-            cloudwatch_logs=aws.ivschat.LoggingConfigurationDestinationConfigurationCloudwatchLogsArgs(
-                log_group_name=example_log_group.name,
-            ),
-        ))
+        example_log_group = aws.cloudwatch.log_group.LogGroup("exampleLogGroup")
+        example_logging_configuration = aws.ivschat.logging_configuration.LoggingConfiguration("exampleLoggingConfiguration", destination_configuration={
+            cloudwatchLogs: {
+                logGroupName: example_log_group.name,
+            },
+        })
         ```
-        ### Basic Usage - Logging to Kinesis Firehose with Extended S3
+        ### Basic Usage - Logging to S3
 
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2", bucket_prefix="tf-ivschat-logging-bucket")
-        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["firehose.amazonaws.com"],
-            )],
-            actions=["sts:AssumeRole"],
-        )])
-        example_role = aws.iam.Role("exampleRole", assume_role_policy=assume_role.json)
-        example_firehose_delivery_stream = aws.kinesis.FirehoseDeliveryStream("exampleFirehoseDeliveryStream",
-            destination="extended_s3",
-            extended_s3_configuration=aws.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationArgs(
-                role_arn=example_role.arn,
-                bucket_arn=example_bucket_v2.arn,
-            ),
-            tags={
-                "LogDeliveryEnabled": "true",
-            })
-        example_bucket_acl_v2 = aws.s3.BucketAclV2("exampleBucketAclV2",
-            bucket=example_bucket_v2.id,
-            acl="private")
-        example_logging_configuration = aws.ivschat.LoggingConfiguration("exampleLoggingConfiguration", destination_configuration=aws.ivschat.LoggingConfigurationDestinationConfigurationArgs(
-            firehose=aws.ivschat.LoggingConfigurationDestinationConfigurationFirehoseArgs(
-                delivery_stream_name=example_firehose_delivery_stream.name,
-            ),
-        ))
+        example_bucket_v2 = aws.s3.bucket_v2.BucketV2("exampleBucketV2",
+            bucket_name=tf-ivschat-logging,
+            force_destroy=True)
+        example_logging_configuration = aws.ivschat.logging_configuration.LoggingConfiguration("exampleLoggingConfiguration", destination_configuration={
+            s3: {
+                bucketName: example_bucket_v2.id,
+            },
+        })
         ```
 
         ## Import
@@ -270,46 +251,27 @@ class LoggingConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_log_group = aws.cloudwatch.LogGroup("exampleLogGroup")
-        example_logging_configuration = aws.ivschat.LoggingConfiguration("exampleLoggingConfiguration", destination_configuration=aws.ivschat.LoggingConfigurationDestinationConfigurationArgs(
-            cloudwatch_logs=aws.ivschat.LoggingConfigurationDestinationConfigurationCloudwatchLogsArgs(
-                log_group_name=example_log_group.name,
-            ),
-        ))
+        example_log_group = aws.cloudwatch.log_group.LogGroup("exampleLogGroup")
+        example_logging_configuration = aws.ivschat.logging_configuration.LoggingConfiguration("exampleLoggingConfiguration", destination_configuration={
+            cloudwatchLogs: {
+                logGroupName: example_log_group.name,
+            },
+        })
         ```
-        ### Basic Usage - Logging to Kinesis Firehose with Extended S3
+        ### Basic Usage - Logging to S3
 
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2", bucket_prefix="tf-ivschat-logging-bucket")
-        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["firehose.amazonaws.com"],
-            )],
-            actions=["sts:AssumeRole"],
-        )])
-        example_role = aws.iam.Role("exampleRole", assume_role_policy=assume_role.json)
-        example_firehose_delivery_stream = aws.kinesis.FirehoseDeliveryStream("exampleFirehoseDeliveryStream",
-            destination="extended_s3",
-            extended_s3_configuration=aws.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationArgs(
-                role_arn=example_role.arn,
-                bucket_arn=example_bucket_v2.arn,
-            ),
-            tags={
-                "LogDeliveryEnabled": "true",
-            })
-        example_bucket_acl_v2 = aws.s3.BucketAclV2("exampleBucketAclV2",
-            bucket=example_bucket_v2.id,
-            acl="private")
-        example_logging_configuration = aws.ivschat.LoggingConfiguration("exampleLoggingConfiguration", destination_configuration=aws.ivschat.LoggingConfigurationDestinationConfigurationArgs(
-            firehose=aws.ivschat.LoggingConfigurationDestinationConfigurationFirehoseArgs(
-                delivery_stream_name=example_firehose_delivery_stream.name,
-            ),
-        ))
+        example_bucket_v2 = aws.s3.bucket_v2.BucketV2("exampleBucketV2",
+            bucket_name=tf-ivschat-logging,
+            force_destroy=True)
+        example_logging_configuration = aws.ivschat.logging_configuration.LoggingConfiguration("exampleLoggingConfiguration", destination_configuration={
+            s3: {
+                bucketName: example_bucket_v2.id,
+            },
+        })
         ```
 
         ## Import

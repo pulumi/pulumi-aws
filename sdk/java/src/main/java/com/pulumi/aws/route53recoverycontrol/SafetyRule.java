@@ -29,7 +29,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.route53recoverycontrol.SafetyRule;
  * import com.pulumi.aws.route53recoverycontrol.SafetyRuleArgs;
- * import com.pulumi.aws.route53recoverycontrol.inputs.SafetyRuleRuleConfigArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -47,11 +46,7 @@ import javax.annotation.Nullable;
  *             .assertedControls(aws_route53recoverycontrolconfig_routing_control.example().arn())
  *             .controlPanelArn(&#34;arn:aws:route53-recovery-control::313517334327:controlpanel/abd5fbfc052d4844a082dbf400f61da8&#34;)
  *             .waitPeriodMs(5000)
- *             .ruleConfig(SafetyRuleRuleConfigArgs.builder()
- *                 .inverted(false)
- *                 .threshold(1)
- *                 .type(&#34;ATLEAST&#34;)
- *                 .build())
+ *             .ruleConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -65,7 +60,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.route53recoverycontrol.SafetyRule;
  * import com.pulumi.aws.route53recoverycontrol.SafetyRuleArgs;
- * import com.pulumi.aws.route53recoverycontrol.inputs.SafetyRuleRuleConfigArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -84,11 +78,7 @@ import javax.annotation.Nullable;
  *             .waitPeriodMs(5000)
  *             .gatingControls(aws_route53recoverycontrolconfig_routing_control.example().arn())
  *             .targetControls(aws_route53recoverycontrolconfig_routing_control.example().arn())
- *             .ruleConfig(SafetyRuleRuleConfigArgs.builder()
- *                 .inverted(false)
- *                 .threshold(1)
- *                 .type(&#34;ATLEAST&#34;)
- *                 .build())
+ *             .ruleConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

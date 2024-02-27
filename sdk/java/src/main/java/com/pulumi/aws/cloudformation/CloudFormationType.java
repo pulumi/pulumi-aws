@@ -28,7 +28,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.cloudformation.CloudFormationType;
  * import com.pulumi.aws.cloudformation.CloudFormationTypeArgs;
- * import com.pulumi.aws.cloudformation.inputs.CloudFormationTypeLoggingConfigArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -46,10 +45,7 @@ import javax.annotation.Nullable;
  *             .schemaHandlerPackage(String.format(&#34;s3://%s/%s&#34;, aws_s3_object.example().bucket(),aws_s3_object.example().key()))
  *             .type(&#34;RESOURCE&#34;)
  *             .typeName(&#34;ExampleCompany::ExampleService::ExampleResource&#34;)
- *             .loggingConfig(CloudFormationTypeLoggingConfigArgs.builder()
- *                 .logGroupName(aws_cloudwatch_log_group.example().name())
- *                 .logRoleArn(aws_iam_role.example().arn())
- *                 .build())
+ *             .loggingConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

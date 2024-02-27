@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Account
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Aws.Account.PrimaryContact("test", new()
+    ///     var test = new Aws.Account.PrimaryContact.PrimaryContact("test", new()
     ///     {
     ///         AddressLine1 = "123 Any Street",
     ///         City = "Seattle",

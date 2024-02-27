@@ -486,10 +486,10 @@ class ElasticCluster(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.docdb.ElasticCluster("example",
-            admin_user_name="foo",
-            admin_user_password="mustbeeightchars",
-            auth_type="PLAIN_TEXT",
+        example = aws.docdb.elastic_cluster.ElasticCluster("example",
+            admin_user_name=foo,
+            admin_user_password=mustbeeightchars,
+            auth_type=PLAIN_TEXT,
             shard_capacity=2,
             shard_count=1)
         ```
@@ -534,10 +534,10 @@ class ElasticCluster(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.docdb.ElasticCluster("example",
-            admin_user_name="foo",
-            admin_user_password="mustbeeightchars",
-            auth_type="PLAIN_TEXT",
+        example = aws.docdb.elastic_cluster.ElasticCluster("example",
+            admin_user_name=foo,
+            admin_user_password=mustbeeightchars,
+            auth_type=PLAIN_TEXT,
             shard_capacity=2,
             shard_count=1)
         ```

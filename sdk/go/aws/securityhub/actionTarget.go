@@ -21,30 +21,29 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/securityhub"
+//	securityhub/account "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/securityhub/account"
+//	securityhub/actionTarget "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/securityhub/actionTarget"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleAccount, err := securityhub.NewAccount(ctx, "exampleAccount", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = securityhub.NewActionTarget(ctx, "exampleActionTarget", &securityhub.ActionTargetArgs{
-//				Identifier:  pulumi.String("SendToChat"),
-//				Description: pulumi.String("This is custom action sends selected findings to chat"),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleAccount,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleAccount, err := securityhub/account.NewAccount(ctx, "exampleAccount", nil)
+// if err != nil {
+// return err
+// }
+// _, err = securityhub/actionTarget.NewActionTarget(ctx, "exampleActionTarget", &securityhub/actionTarget.ActionTargetArgs{
+// Identifier: "SendToChat",
+// Description: "This is custom action sends selected findings to chat",
+// }, pulumi.DependsOn([]pulumi.Resource{
+// exampleAccount,
+// }))
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

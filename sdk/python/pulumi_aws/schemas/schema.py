@@ -326,25 +326,25 @@ class Schema(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        test_registry = aws.schemas.Registry("testRegistry")
-        test_schema = aws.schemas.Schema("testSchema",
+        test_registry = aws.schemas.registry.Registry("testRegistry")
+        test_schema = aws.schemas.schema.Schema("testSchema",
             registry_name=test_registry.name,
-            type="OpenApi3",
-            description="The schema definition for my event",
+            type=OpenApi3,
+            description=The schema definition for my event,
             content=json.dumps({
-                "openapi": "3.0.0",
-                "info": {
-                    "version": "1.0.0",
-                    "title": "Event",
+                openapi: 3.0.0,
+                info: {
+                    version: 1.0.0,
+                    title: Event,
                 },
-                "paths": {},
-                "components": {
-                    "schemas": {
-                        "Event": {
-                            "type": "object",
-                            "properties": {
-                                "name": {
-                                    "type": "string",
+                paths: {},
+                components: {
+                    schemas: {
+                        Event: {
+                            type: object,
+                            properties: {
+                                name: {
+                                    type: string,
                                 },
                             },
                         },
@@ -388,25 +388,25 @@ class Schema(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        test_registry = aws.schemas.Registry("testRegistry")
-        test_schema = aws.schemas.Schema("testSchema",
+        test_registry = aws.schemas.registry.Registry("testRegistry")
+        test_schema = aws.schemas.schema.Schema("testSchema",
             registry_name=test_registry.name,
-            type="OpenApi3",
-            description="The schema definition for my event",
+            type=OpenApi3,
+            description=The schema definition for my event,
             content=json.dumps({
-                "openapi": "3.0.0",
-                "info": {
-                    "version": "1.0.0",
-                    "title": "Event",
+                openapi: 3.0.0,
+                info: {
+                    version: 1.0.0,
+                    title: Event,
                 },
-                "paths": {},
-                "components": {
-                    "schemas": {
-                        "Event": {
-                            "type": "object",
-                            "properties": {
-                                "name": {
-                                    "type": "string",
+                paths: {},
+                components: {
+                    schemas: {
+                        Event: {
+                            type: object,
+                            properties: {
+                                name: {
+                                    type: string,
                                 },
                             },
                         },

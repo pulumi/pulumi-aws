@@ -24,7 +24,7 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Aws.CloudWatch.EventApiDestination("test", new()
+    ///     var test = new Aws.Cloudwatch.EventApiDestination.EventApiDestination("test", new()
     ///     {
     ///         Description = "An API Destination",
     ///         InvocationEndpoint = "https://api.destination.com/endpoint",

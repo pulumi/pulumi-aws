@@ -24,7 +24,7 @@ namespace Pulumi.Aws.Grafana
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var assume = new Aws.Iam.Role("assume", new()
+    ///     var assume = new Aws.Iam.Role.Role("assume", new()
     ///     {
     ///         AssumeRolePolicy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
@@ -45,7 +45,7 @@ namespace Pulumi.Aws.Grafana
     ///         }),
     ///     });
     /// 
-    ///     var example = new Aws.Grafana.Workspace("example", new()
+    ///     var example = new Aws.Grafana.Workspace.Workspace("example", new()
     ///     {
     ///         AccountAccessType = "CURRENT_ACCOUNT",
     ///         AuthenticationProviders = new[]

@@ -425,10 +425,10 @@ class LocationObjectStorage(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.datasync.LocationObjectStorage("example",
-            agent_arns=[aws_datasync_agent["example"]["arn"]],
-            server_hostname="example",
-            bucket_name="example")
+        example = aws.datasync.location_object_storage.LocationObjectStorage("example",
+            agent_arns=[aws_datasync_agent.example.arn],
+            server_hostname=example,
+            bucket_name=example)
         ```
 
         ## Import
@@ -469,10 +469,10 @@ class LocationObjectStorage(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.datasync.LocationObjectStorage("example",
-            agent_arns=[aws_datasync_agent["example"]["arn"]],
-            server_hostname="example",
-            bucket_name="example")
+        example = aws.datasync.location_object_storage.LocationObjectStorage("example",
+            agent_arns=[aws_datasync_agent.example.arn],
+            server_hostname=example,
+            bucket_name=example)
         ```
 
         ## Import

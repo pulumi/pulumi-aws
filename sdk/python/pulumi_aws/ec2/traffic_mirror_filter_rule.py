@@ -395,34 +395,34 @@ class TrafficMirrorFilterRule(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        filter = aws.ec2.TrafficMirrorFilter("filter",
-            description="traffic mirror filter - example",
-            network_services=["amazon-dns"])
-        ruleout = aws.ec2.TrafficMirrorFilterRule("ruleout",
-            description="test rule",
+        filter = aws.ec2.traffic_mirror_filter.TrafficMirrorFilter("filter",
+            description=traffic mirror filter - example,
+            network_services=[amazon-dns])
+        ruleout = aws.ec2.traffic_mirror_filter_rule.TrafficMirrorFilterRule("ruleout",
+            description=test rule,
             traffic_mirror_filter_id=filter.id,
-            destination_cidr_block="10.0.0.0/8",
-            source_cidr_block="10.0.0.0/8",
+            destination_cidr_block=10.0.0.0/8,
+            source_cidr_block=10.0.0.0/8,
             rule_number=1,
-            rule_action="accept",
-            traffic_direction="egress")
-        rulein = aws.ec2.TrafficMirrorFilterRule("rulein",
-            description="test rule",
+            rule_action=accept,
+            traffic_direction=egress)
+        rulein = aws.ec2.traffic_mirror_filter_rule.TrafficMirrorFilterRule("rulein",
+            description=test rule,
             traffic_mirror_filter_id=filter.id,
-            destination_cidr_block="10.0.0.0/8",
-            source_cidr_block="10.0.0.0/8",
+            destination_cidr_block=10.0.0.0/8,
+            source_cidr_block=10.0.0.0/8,
             rule_number=1,
-            rule_action="accept",
-            traffic_direction="ingress",
+            rule_action=accept,
+            traffic_direction=ingress,
             protocol=6,
-            destination_port_range=aws.ec2.TrafficMirrorFilterRuleDestinationPortRangeArgs(
-                from_port=22,
-                to_port=53,
-            ),
-            source_port_range=aws.ec2.TrafficMirrorFilterRuleSourcePortRangeArgs(
-                from_port=0,
-                to_port=10,
-            ))
+            destination_port_range={
+                fromPort: 22,
+                toPort: 53,
+            },
+            source_port_range={
+                fromPort: 0,
+                toPort: 10,
+            })
         ```
 
         ## Import
@@ -466,34 +466,34 @@ class TrafficMirrorFilterRule(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        filter = aws.ec2.TrafficMirrorFilter("filter",
-            description="traffic mirror filter - example",
-            network_services=["amazon-dns"])
-        ruleout = aws.ec2.TrafficMirrorFilterRule("ruleout",
-            description="test rule",
+        filter = aws.ec2.traffic_mirror_filter.TrafficMirrorFilter("filter",
+            description=traffic mirror filter - example,
+            network_services=[amazon-dns])
+        ruleout = aws.ec2.traffic_mirror_filter_rule.TrafficMirrorFilterRule("ruleout",
+            description=test rule,
             traffic_mirror_filter_id=filter.id,
-            destination_cidr_block="10.0.0.0/8",
-            source_cidr_block="10.0.0.0/8",
+            destination_cidr_block=10.0.0.0/8,
+            source_cidr_block=10.0.0.0/8,
             rule_number=1,
-            rule_action="accept",
-            traffic_direction="egress")
-        rulein = aws.ec2.TrafficMirrorFilterRule("rulein",
-            description="test rule",
+            rule_action=accept,
+            traffic_direction=egress)
+        rulein = aws.ec2.traffic_mirror_filter_rule.TrafficMirrorFilterRule("rulein",
+            description=test rule,
             traffic_mirror_filter_id=filter.id,
-            destination_cidr_block="10.0.0.0/8",
-            source_cidr_block="10.0.0.0/8",
+            destination_cidr_block=10.0.0.0/8,
+            source_cidr_block=10.0.0.0/8,
             rule_number=1,
-            rule_action="accept",
-            traffic_direction="ingress",
+            rule_action=accept,
+            traffic_direction=ingress,
             protocol=6,
-            destination_port_range=aws.ec2.TrafficMirrorFilterRuleDestinationPortRangeArgs(
-                from_port=22,
-                to_port=53,
-            ),
-            source_port_range=aws.ec2.TrafficMirrorFilterRuleSourcePortRangeArgs(
-                from_port=0,
-                to_port=10,
-            ))
+            destination_port_range={
+                fromPort: 22,
+                toPort: 53,
+            },
+            source_port_range={
+                fromPort: 0,
+                toPort: 10,
+            })
         ```
 
         ## Import

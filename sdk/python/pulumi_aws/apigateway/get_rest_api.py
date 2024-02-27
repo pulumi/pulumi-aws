@@ -183,15 +183,6 @@ def get_rest_api(name: Optional[str] = None,
     As there is no unique name constraint on REST APIs this data source will
     error if there is more than one match.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    my_rest_api = aws.apigateway.get_rest_api(name="my-rest-api")
-    ```
-
 
     :param str name: Name of the REST API to look up. If no REST API is found with this name, an error will be returned. If multiple REST APIs are found with this name, an error will be returned.
     :param Mapping[str, str] tags: Key-value map of resource tags.
@@ -226,15 +217,6 @@ def get_rest_api_output(name: Optional[pulumi.Input[str]] = None,
     API Gateway. To fetch the REST API you must provide a name to match against.
     As there is no unique name constraint on REST APIs this data source will
     error if there is more than one match.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    my_rest_api = aws.apigateway.get_rest_api(name="my-rest-api")
-    ```
 
 
     :param str name: Name of the REST API to look up. If no REST API is found with this name, an error will be returned. If multiple REST APIs are found with this name, an error will be returned.

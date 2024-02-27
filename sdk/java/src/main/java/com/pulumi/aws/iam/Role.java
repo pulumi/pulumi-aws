@@ -63,108 +63,7 @@ import javax.annotation.Nullable;
  *                         ))
  *                     )))
  *                 )))
- *             .tags(Map.of(&#34;tag-key&#34;, &#34;tag-value&#34;))
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### Example of Using Data Source for Assume Role Policy
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.iam.IamFunctions;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
- * import com.pulumi.aws.iam.Role;
- * import com.pulumi.aws.iam.RoleArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var instanceAssumeRolePolicy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .actions(&#34;sts:AssumeRole&#34;)
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type(&#34;Service&#34;)
- *                     .identifiers(&#34;ec2.amazonaws.com&#34;)
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *         var instance = new Role(&#34;instance&#34;, RoleArgs.builder()        
- *             .path(&#34;/system/&#34;)
- *             .assumeRolePolicy(instanceAssumeRolePolicy.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### Example of Exclusive Inline Policies
- * 
- * This example creates an IAM role with two inline IAM policies. If someone adds another inline policy out-of-band, on the next apply, this provider will remove that policy. If someone deletes these policies out-of-band, this provider will recreate them.
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.iam.IamFunctions;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
- * import com.pulumi.aws.iam.Role;
- * import com.pulumi.aws.iam.RoleArgs;
- * import com.pulumi.aws.iam.inputs.RoleInlinePolicyArgs;
- * import static com.pulumi.codegen.internal.Serialization.*;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var inlinePolicy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .actions(&#34;ec2:DescribeAccountAttributes&#34;)
- *                 .resources(&#34;*&#34;)
- *                 .build())
- *             .build());
- * 
- *         var example = new Role(&#34;example&#34;, RoleArgs.builder()        
- *             .assumeRolePolicy(data.aws_iam_policy_document().instance_assume_role_policy().json())
- *             .inlinePolicies(            
- *                 RoleInlinePolicyArgs.builder()
- *                     .name(&#34;my_inline_policy&#34;)
- *                     .policy(serializeJson(
- *                         jsonObject(
- *                             jsonProperty(&#34;Version&#34;, &#34;2012-10-17&#34;),
- *                             jsonProperty(&#34;Statement&#34;, jsonArray(jsonObject(
- *                                 jsonProperty(&#34;Action&#34;, jsonArray(&#34;ec2:Describe*&#34;)),
- *                                 jsonProperty(&#34;Effect&#34;, &#34;Allow&#34;),
- *                                 jsonProperty(&#34;Resource&#34;, &#34;*&#34;)
- *                             )))
- *                         )))
- *                     .build(),
- *                 RoleInlinePolicyArgs.builder()
- *                     .name(&#34;policy-8675309&#34;)
- *                     .policy(inlinePolicy.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
- *                     .build())
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -181,7 +80,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.iam.Role;
  * import com.pulumi.aws.iam.RoleArgs;
- * import com.pulumi.aws.iam.inputs.RoleInlinePolicyArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;

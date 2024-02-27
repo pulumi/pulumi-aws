@@ -21,23 +21,21 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ses"
+//	ses/activeReceiptRuleSet "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ses/activeReceiptRuleSet"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ses.NewActiveReceiptRuleSet(ctx, "main", &ses.ActiveReceiptRuleSetArgs{
-//				RuleSetName: pulumi.String("primary-rules"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := ses/activeReceiptRuleSet.NewActiveReceiptRuleSet(ctx, "main", &ses/activeReceiptRuleSet.ActiveReceiptRuleSetArgs{
+// RuleSetName: "primary-rules",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

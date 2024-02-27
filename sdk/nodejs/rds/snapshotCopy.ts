@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleInstance = new aws.rds.Instance("exampleInstance", {
+ * const exampleInstance = new aws.rds/instance.Instance("exampleInstance", {
  *     allocatedStorage: 10,
  *     engine: "mysql",
  *     engineVersion: "5.6.21",
@@ -25,11 +25,11 @@ import * as utilities from "../utilities";
  *     backupRetentionPeriod: 0,
  *     parameterGroupName: "default.mysql5.6",
  * });
- * const exampleSnapshot = new aws.rds.Snapshot("exampleSnapshot", {
+ * const exampleSnapshot = new aws.rds/snapshot.Snapshot("exampleSnapshot", {
  *     dbInstanceIdentifier: exampleInstance.identifier,
  *     dbSnapshotIdentifier: "testsnapshot1234",
  * });
- * const exampleSnapshotCopy = new aws.rds.SnapshotCopy("exampleSnapshotCopy", {
+ * const exampleSnapshotCopy = new aws.rds/snapshotCopy.SnapshotCopy("exampleSnapshotCopy", {
  *     sourceDbSnapshotIdentifier: exampleSnapshot.dbSnapshotArn,
  *     targetDbSnapshotIdentifier: "testsnapshot1234-copy",
  * });

@@ -25,7 +25,7 @@ namespace Pulumi.Aws.ServiceQuotas
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.ServiceQuotas.TemplateAssociation("example");
+    ///     var example = new Aws.Servicequotas.TemplateAssociation.TemplateAssociation("example");
     /// 
     /// });
     /// ```

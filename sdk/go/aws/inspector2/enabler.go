@@ -24,64 +24,26 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/inspector2"
+//	inspector2/enabler "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/inspector2/enabler"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := inspector2.NewEnabler(ctx, "example", &inspector2.EnablerArgs{
-//				AccountIds: pulumi.StringArray{
-//					pulumi.String("123456789012"),
-//				},
-//				ResourceTypes: pulumi.StringArray{
-//					pulumi.String("EC2"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// ### For the Calling Account
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/inspector2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			current, err := aws.GetCallerIdentity(ctx, nil, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = inspector2.NewEnabler(ctx, "test", &inspector2.EnablerArgs{
-//				AccountIds: pulumi.StringArray{
-//					*pulumi.String(current.AccountId),
-//				},
-//				ResourceTypes: pulumi.StringArray{
-//					pulumi.String("ECR"),
-//					pulumi.String("EC2"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := inspector2/enabler.NewEnabler(ctx, "example", &inspector2/enabler.EnablerArgs{
+// AccountIds: []string{
+// "123456789012",
+// },
+// ResourceTypes: []string{
+// "EC2",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 type Enabler struct {
 	pulumi.CustomResourceState

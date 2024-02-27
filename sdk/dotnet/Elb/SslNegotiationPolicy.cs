@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Elb
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var lb = new Aws.Elb.LoadBalancer("lb", new()
+    ///     var lb = new Aws.Elb.LoadBalancer.LoadBalancer("lb", new()
     ///     {
     ///         AvailabilityZones = new[]
     ///         {
@@ -30,57 +30,57 @@ namespace Pulumi.Aws.Elb
     ///         },
     ///         Listeners = new[]
     ///         {
-    ///             new Aws.Elb.Inputs.LoadBalancerListenerArgs
+    ///             
     ///             {
-    ///                 InstancePort = 8000,
-    ///                 InstanceProtocol = "https",
-    ///                 LbPort = 443,
-    ///                 LbProtocol = "https",
-    ///                 SslCertificateId = "arn:aws:iam::123456789012:server-certificate/certName",
+    ///                 { "instancePort", 8000 },
+    ///                 { "instanceProtocol", "https" },
+    ///                 { "lbPort", 443 },
+    ///                 { "lbProtocol", "https" },
+    ///                 { "sslCertificateId", "arn:aws:iam::123456789012:server-certificate/certName" },
     ///             },
     ///         },
     ///     });
     /// 
-    ///     var foo = new Aws.Elb.SslNegotiationPolicy("foo", new()
+    ///     var foo = new Aws.Elb.SslNegotiationPolicy.SslNegotiationPolicy("foo", new()
     ///     {
     ///         LoadBalancer = lb.Id,
     ///         LbPort = 443,
     ///         Attributes = new[]
     ///         {
-    ///             new Aws.Elb.Inputs.SslNegotiationPolicyAttributeArgs
+    ///             
     ///             {
-    ///                 Name = "Protocol-TLSv1",
-    ///                 Value = "false",
+    ///                 { "name", "Protocol-TLSv1" },
+    ///                 { "value", "false" },
     ///             },
-    ///             new Aws.Elb.Inputs.SslNegotiationPolicyAttributeArgs
+    ///             
     ///             {
-    ///                 Name = "Protocol-TLSv1.1",
-    ///                 Value = "false",
+    ///                 { "name", "Protocol-TLSv1.1" },
+    ///                 { "value", "false" },
     ///             },
-    ///             new Aws.Elb.Inputs.SslNegotiationPolicyAttributeArgs
+    ///             
     ///             {
-    ///                 Name = "Protocol-TLSv1.2",
-    ///                 Value = "true",
+    ///                 { "name", "Protocol-TLSv1.2" },
+    ///                 { "value", "true" },
     ///             },
-    ///             new Aws.Elb.Inputs.SslNegotiationPolicyAttributeArgs
+    ///             
     ///             {
-    ///                 Name = "Server-Defined-Cipher-Order",
-    ///                 Value = "true",
+    ///                 { "name", "Server-Defined-Cipher-Order" },
+    ///                 { "value", "true" },
     ///             },
-    ///             new Aws.Elb.Inputs.SslNegotiationPolicyAttributeArgs
+    ///             
     ///             {
-    ///                 Name = "ECDHE-RSA-AES128-GCM-SHA256",
-    ///                 Value = "true",
+    ///                 { "name", "ECDHE-RSA-AES128-GCM-SHA256" },
+    ///                 { "value", "true" },
     ///             },
-    ///             new Aws.Elb.Inputs.SslNegotiationPolicyAttributeArgs
+    ///             
     ///             {
-    ///                 Name = "AES128-GCM-SHA256",
-    ///                 Value = "true",
+    ///                 { "name", "AES128-GCM-SHA256" },
+    ///                 { "value", "true" },
     ///             },
-    ///             new Aws.Elb.Inputs.SslNegotiationPolicyAttributeArgs
+    ///             
     ///             {
-    ///                 Name = "EDH-RSA-DES-CBC3-SHA",
-    ///                 Value = "false",
+    ///                 { "name", "EDH-RSA-DES-CBC3-SHA" },
+    ///                 { "value", "false" },
     ///             },
     ///         },
     ///     });

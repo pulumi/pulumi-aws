@@ -21,23 +21,21 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/opsworks"
+//	opsworks/mysqlLayer "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/opsworks/mysqlLayer"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := opsworks.NewMysqlLayer(ctx, "db", &opsworks.MysqlLayerArgs{
-//				StackId: pulumi.Any(aws_opsworks_stack.Main.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := opsworks/mysqlLayer.NewMysqlLayer(ctx, "db", &opsworks/mysqlLayer.MysqlLayerArgs{
+// StackId: aws_opsworks_stack.Main.Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 type MysqlLayer struct {
 	pulumi.CustomResourceState

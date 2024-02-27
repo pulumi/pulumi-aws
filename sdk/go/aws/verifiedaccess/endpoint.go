@@ -22,38 +22,36 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/verifiedaccess"
+//	verifiedaccess/endpoint "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/verifiedaccess/endpoint"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := verifiedaccess.NewEndpoint(ctx, "example", &verifiedaccess.EndpointArgs{
-//				ApplicationDomain:    pulumi.String("example.com"),
-//				AttachmentType:       pulumi.String("vpc"),
-//				Description:          pulumi.String("example"),
-//				DomainCertificateArn: pulumi.Any(aws_acm_certificate.Example.Arn),
-//				EndpointDomainPrefix: pulumi.String("example"),
-//				EndpointType:         pulumi.String("load-balancer"),
-//				LoadBalancerOptions: &verifiedaccess.EndpointLoadBalancerOptionsArgs{
-//					LoadBalancerArn: pulumi.Any(aws_lb.Example.Arn),
-//					Port:            pulumi.Int(443),
-//					Protocol:        pulumi.String("https"),
-//					SubnetIds:       "TODO: For expression",
-//				},
-//				SecurityGroupIds: pulumi.StringArray{
-//					aws_security_group.Example.Id,
-//				},
-//				VerifiedAccessGroupId: pulumi.Any(aws_verifiedaccess_group.Example.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := verifiedaccess/endpoint.NewEndpoint(ctx, "example", &verifiedaccess/endpoint.EndpointArgs{
+// ApplicationDomain: "example.com",
+// AttachmentType: "vpc",
+// Description: "example",
+// DomainCertificateArn: aws_acm_certificate.Example.Arn,
+// EndpointDomainPrefix: "example",
+// EndpointType: "load-balancer",
+// LoadBalancerOptions: map[string]interface{}{
+// "loadBalancerArn": aws_lb.Example.Arn,
+// "port": 443,
+// "protocol": "https",
+// "subnetIds": "TODO: For expression",
+// },
+// SecurityGroupIds: []interface{}{
+// aws_security_group.Example.Id,
+// },
+// VerifiedAccessGroupId: aws_verifiedaccess_group.Example.Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Network Interface Example
 //
@@ -62,37 +60,35 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/verifiedaccess"
+//	verifiedaccess/endpoint "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/verifiedaccess/endpoint"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := verifiedaccess.NewEndpoint(ctx, "example", &verifiedaccess.EndpointArgs{
-//				ApplicationDomain:    pulumi.String("example.com"),
-//				AttachmentType:       pulumi.String("vpc"),
-//				Description:          pulumi.String("example"),
-//				DomainCertificateArn: pulumi.Any(aws_acm_certificate.Example.Arn),
-//				EndpointDomainPrefix: pulumi.String("example"),
-//				EndpointType:         pulumi.String("network-interface"),
-//				NetworkInterfaceOptions: &verifiedaccess.EndpointNetworkInterfaceOptionsArgs{
-//					NetworkInterfaceId: pulumi.Any(aws_network_interface.Example.Id),
-//					Port:               pulumi.Int(443),
-//					Protocol:           pulumi.String("https"),
-//				},
-//				SecurityGroupIds: pulumi.StringArray{
-//					aws_security_group.Example.Id,
-//				},
-//				VerifiedAccessGroupId: pulumi.Any(aws_verifiedaccess_group.Example.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := verifiedaccess/endpoint.NewEndpoint(ctx, "example", &verifiedaccess/endpoint.EndpointArgs{
+// ApplicationDomain: "example.com",
+// AttachmentType: "vpc",
+// Description: "example",
+// DomainCertificateArn: aws_acm_certificate.Example.Arn,
+// EndpointDomainPrefix: "example",
+// EndpointType: "network-interface",
+// NetworkInterfaceOptions: map[string]interface{}{
+// "networkInterfaceId": aws_network_interface.Example.Id,
+// "port": 443,
+// "protocol": "https",
+// },
+// SecurityGroupIds: []interface{}{
+// aws_security_group.Example.Id,
+// },
+// VerifiedAccessGroupId: aws_verifiedaccess_group.Example.Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

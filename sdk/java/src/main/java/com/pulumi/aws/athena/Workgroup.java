@@ -29,9 +29,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.athena.Workgroup;
  * import com.pulumi.aws.athena.WorkgroupArgs;
- * import com.pulumi.aws.athena.inputs.WorkgroupConfigurationArgs;
- * import com.pulumi.aws.athena.inputs.WorkgroupConfigurationResultConfigurationArgs;
- * import com.pulumi.aws.athena.inputs.WorkgroupConfigurationResultConfigurationEncryptionConfigurationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -46,17 +43,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Workgroup(&#34;example&#34;, WorkgroupArgs.builder()        
- *             .configuration(WorkgroupConfigurationArgs.builder()
- *                 .enforceWorkgroupConfiguration(true)
- *                 .publishCloudwatchMetricsEnabled(true)
- *                 .resultConfiguration(WorkgroupConfigurationResultConfigurationArgs.builder()
- *                     .outputLocation(String.format(&#34;s3://%s/output/&#34;, aws_s3_bucket.example().bucket()))
- *                     .encryptionConfiguration(WorkgroupConfigurationResultConfigurationEncryptionConfigurationArgs.builder()
- *                         .encryptionOption(&#34;SSE_KMS&#34;)
- *                         .kmsKeyArn(aws_kms_key.example().arn())
- *                         .build())
- *                     .build())
- *                 .build())
+ *             .configuration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

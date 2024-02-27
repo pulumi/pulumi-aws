@@ -18,7 +18,6 @@ import javax.annotation.Nullable;
  * Provides a License Manager grant. This allows for sharing licenses with other AWS accounts.
  * 
  * ## Example Usage
- * 
  * ```java
  * package generated_program;
  * 

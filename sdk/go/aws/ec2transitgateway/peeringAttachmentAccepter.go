@@ -21,26 +21,24 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2transitgateway"
+//	ec2transitgateway/peeringAttachmentAccepter "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2transitgateway/peeringAttachmentAccepter"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2transitgateway.NewPeeringAttachmentAccepter(ctx, "example", &ec2transitgateway.PeeringAttachmentAccepterArgs{
-//				TransitGatewayAttachmentId: pulumi.Any(aws_ec2_transit_gateway_peering_attachment.Example.Id),
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("Example cross-account attachment"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := ec2transitgateway/peeringAttachmentAccepter.NewPeeringAttachmentAccepter(ctx, "example", &ec2transitgateway/peeringAttachmentAccepter.PeeringAttachmentAccepterArgs{
+// TransitGatewayAttachmentId: aws_ec2_transit_gateway_peering_attachment.Example.Id,
+// Tags: map[string]interface{}{
+// "Name": "Example cross-account attachment",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

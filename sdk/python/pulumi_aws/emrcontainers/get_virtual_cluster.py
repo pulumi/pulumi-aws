@@ -132,17 +132,6 @@ def get_virtual_cluster(tags: Optional[Mapping[str, str]] = None,
     """
     Retrieve information about an EMR Containers (EMR on EKS) Virtual Cluster.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.emrcontainers.get_virtual_cluster(virtual_cluster_id="example id")
-    pulumi.export("name", example.name)
-    pulumi.export("arn", example.arn)
-    ```
-
 
     :param Mapping[str, str] tags: Key-value mapping of resource tags.
     :param str virtual_cluster_id: ID of the cluster.
@@ -170,17 +159,6 @@ def get_virtual_cluster_output(tags: Optional[pulumi.Input[Optional[Mapping[str,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualClusterResult]:
     """
     Retrieve information about an EMR Containers (EMR on EKS) Virtual Cluster.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.emrcontainers.get_virtual_cluster(virtual_cluster_id="example id")
-    pulumi.export("name", example.name)
-    pulumi.export("arn", example.arn)
-    ```
 
 
     :param Mapping[str, str] tags: Key-value mapping of resource tags.

@@ -17,8 +17,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const pool = new aws.cognito.UserPool("pool", {});
- * const resource = new aws.cognito.ResourceServer("resource", {
+ * const pool = new aws.cognito/userPool.UserPool("pool", {});
+ * const resource = new aws.cognito/resourceServer.ResourceServer("resource", {
  *     identifier: "https://example.com",
  *     userPoolId: pool.id,
  * });
@@ -29,8 +29,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const pool = new aws.cognito.UserPool("pool", {});
- * const resource = new aws.cognito.ResourceServer("resource", {
+ * const pool = new aws.cognito/userPool.UserPool("pool", {});
+ * const resource = new aws.cognito/resourceServer.ResourceServer("resource", {
  *     identifier: "https://example.com",
  *     scopes: [{
  *         scopeName: "sample-scope",

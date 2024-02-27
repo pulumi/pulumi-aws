@@ -17,59 +17,6 @@ import javax.annotation.Nullable;
 /**
  * Provides a Glue resource policy. Only one can exist per region.
  * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.AwsFunctions;
- * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
- * import com.pulumi.aws.inputs.GetPartitionArgs;
- * import com.pulumi.aws.inputs.GetRegionArgs;
- * import com.pulumi.aws.iam.IamFunctions;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
- * import com.pulumi.aws.glue.ResourcePolicy;
- * import com.pulumi.aws.glue.ResourcePolicyArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var currentCallerIdentity = AwsFunctions.getCallerIdentity();
- * 
- *         final var currentPartition = AwsFunctions.getPartition();
- * 
- *         final var currentRegion = AwsFunctions.getRegion();
- * 
- *         final var glue-example-policy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .actions(&#34;glue:CreateTable&#34;)
- *                 .resources(String.format(&#34;arn:%s:glue:%s:%s:*&#34;, currentPartition.applyValue(getPartitionResult -&gt; getPartitionResult.partition()),currentRegion.applyValue(getRegionResult -&gt; getRegionResult.name()),currentCallerIdentity.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId())))
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .identifiers(&#34;*&#34;)
- *                     .type(&#34;AWS&#34;)
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *         var example = new ResourcePolicy(&#34;example&#34;, ResourcePolicyArgs.builder()        
- *             .policy(glue_example_policy.json())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
  * ## Import
  * 
  * Using `pulumi import`, import Glue Resource Policy using the account ID. For example:

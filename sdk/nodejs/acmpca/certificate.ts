@@ -16,6 +16,41 @@ import * as utilities from "../utilities";
  * with the parameter `certificateAuthorityArn`.
  *
  * ## Example Usage
+ * ### Basic
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * import * as tls from "@pulumi/tls";
+ *
+ * const exampleCertificateAuthority = new aws.acmpca/certificateAuthority.CertificateAuthority("exampleCertificateAuthority", {
+ *     privateCertificateConfiguration: [{
+ *         keyAlgorithm: "RSA_4096",
+ *         signingAlgorithm: "SHA512WITHRSA",
+ *         subject: [{
+ *             commonName: "example.com",
+ *         }],
+ *     }],
+ *     permanentDeletionTimeInDays: 7,
+ * });
+ * const key = new tls.index/privateKey.PrivateKey("key", {algorithm: "RSA"});
+ * const csr = new tls.index/certRequest.CertRequest("csr", {
+ *     keyAlgorithm: "RSA",
+ *     privateKeyPem: key.privateKeyPem,
+ *     subject: {
+ *         commonName: "example",
+ *     },
+ * });
+ * const exampleCertificate = new aws.acmpca/certificate.Certificate("exampleCertificate", {
+ *     certificateAuthorityArn: exampleCertificateAuthority.arn,
+ *     certificateSigningRequest: csr.certRequestPem,
+ *     signingAlgorithm: "SHA256WITHRSA",
+ *     validity: {
+ *         type: "YEARS",
+ *         value: 1,
+ *     },
+ * });
+ * ```
  *
  * ## Import
  *

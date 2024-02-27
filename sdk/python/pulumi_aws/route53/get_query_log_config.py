@@ -126,31 +126,6 @@ def get_query_log_config(filters: Optional[Sequence[pulumi.InputType['GetQueryLo
     """
     `route53.ResolverQueryLogConfig` provides details about a specific Route53 Resolver Query Logging Configuration.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.route53.get_query_log_config(resolver_query_log_config_id="rqlc-1abc2345ef678g91h")
-    ```
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.route53.get_query_log_config(filters=[
-        aws.route53.GetQueryLogConfigFilterArgs(
-            name="Name",
-            values=["shared-query-log-config"],
-        ),
-        aws.route53.GetQueryLogConfigFilterArgs(
-            name="ShareStatus",
-            values=["SHARED_WITH_ME"],
-        ),
-    ])
-    ```
-
 
     :param Sequence[pulumi.InputType['GetQueryLogConfigFilterArgs']] filters: One or more name/value pairs to use as filters. There are
            several valid keys, for a full reference, check out
@@ -191,31 +166,6 @@ def get_query_log_config_output(filters: Optional[pulumi.Input[Optional[Sequence
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetQueryLogConfigResult]:
     """
     `route53.ResolverQueryLogConfig` provides details about a specific Route53 Resolver Query Logging Configuration.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.route53.get_query_log_config(resolver_query_log_config_id="rqlc-1abc2345ef678g91h")
-    ```
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.route53.get_query_log_config(filters=[
-        aws.route53.GetQueryLogConfigFilterArgs(
-            name="Name",
-            values=["shared-query-log-config"],
-        ),
-        aws.route53.GetQueryLogConfigFilterArgs(
-            name="ShareStatus",
-            values=["SHARED_WITH_ME"],
-        ),
-    ])
-    ```
 
 
     :param Sequence[pulumi.InputType['GetQueryLogConfigFilterArgs']] filters: One or more name/value pairs to use as filters. There are

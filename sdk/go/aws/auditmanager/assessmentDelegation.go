@@ -22,26 +22,24 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/auditmanager"
+//	auditmanager/assessmentDelegation "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/auditmanager/assessmentDelegation"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := auditmanager.NewAssessmentDelegation(ctx, "example", &auditmanager.AssessmentDelegationArgs{
-//				AssessmentId: pulumi.Any(aws_auditmanager_assessment.Example.Id),
-//				RoleArn:      pulumi.Any(aws_iam_role.Example.Arn),
-//				RoleType:     pulumi.String("RESOURCE_OWNER"),
-//				ControlSetId: pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := auditmanager/assessmentDelegation.NewAssessmentDelegation(ctx, "example", &auditmanager/assessmentDelegation.AssessmentDelegationArgs{
+// AssessmentId: aws_auditmanager_assessment.Example.Id,
+// RoleArn: aws_iam_role.Example.Arn,
+// RoleType: "RESOURCE_OWNER",
+// ControlSetId: "example",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

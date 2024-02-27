@@ -14,14 +14,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleDedicatedHost = new aws.ec2.DedicatedHost("exampleDedicatedHost", {
+ * const exampleDedicatedHost = new aws.ec2/dedicatedHost.DedicatedHost("exampleDedicatedHost", {
  *     instanceFamily: "t3",
  *     availabilityZone: "us-east-1a",
  *     hostRecovery: "off",
  *     autoPlacement: "on",
  * });
- * const exampleGroup = new aws.resourcegroups.Group("exampleGroup", {});
- * const exampleResource = new aws.resourcegroups.Resource("exampleResource", {
+ * const exampleGroup = new aws.resourcegroups/group.Group("exampleGroup", {});
+ * const exampleResource = new aws.resourcegroups/resource.Resource("exampleResource", {
  *     groupArn: exampleGroup.arn,
  *     resourceArn: exampleDedicatedHost.arn,
  * });

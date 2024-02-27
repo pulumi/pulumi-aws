@@ -30,7 +30,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.s3.ObjectCopy;
  * import com.pulumi.aws.s3.ObjectCopyArgs;
- * import com.pulumi.aws.s3.inputs.ObjectCopyGrantArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -46,11 +45,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var test = new ObjectCopy(&#34;test&#34;, ObjectCopyArgs.builder()        
  *             .bucket(&#34;destination_bucket&#34;)
- *             .grants(ObjectCopyGrantArgs.builder()
- *                 .permissions(&#34;READ&#34;)
- *                 .type(&#34;Group&#34;)
- *                 .uri(&#34;http://acs.amazonaws.com/groups/global/AllUsers&#34;)
- *                 .build())
+ *             .grants(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .key(&#34;destination_key&#34;)
  *             .source(&#34;source_bucket/source_key&#34;)
  *             .build());

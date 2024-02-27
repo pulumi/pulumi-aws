@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const foo = new aws.ecs.Cluster("foo", {settings: [{
+ * const foo = new aws.ecs/cluster.Cluster("foo", {settings: [{
  *     name: "containerInsights",
  *     value: "enabled",
  * }]});
@@ -27,12 +27,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleKey = new aws.kms.Key("exampleKey", {
+ * const exampleKey = new aws.kms/key.Key("exampleKey", {
  *     description: "example",
  *     deletionWindowInDays: 7,
  * });
- * const exampleLogGroup = new aws.cloudwatch.LogGroup("exampleLogGroup", {});
- * const test = new aws.ecs.Cluster("test", {configuration: {
+ * const exampleLogGroup = new aws.cloudwatch/logGroup.LogGroup("exampleLogGroup", {});
+ * const test = new aws.ecs/cluster.Cluster("test", {configuration: {
  *     executeCommandConfiguration: {
  *         kmsKeyId: exampleKey.arn,
  *         logging: "OVERRIDE",

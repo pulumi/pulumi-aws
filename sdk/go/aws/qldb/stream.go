@@ -21,33 +21,31 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/qldb"
+//	qldb/stream "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/qldb/stream"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := qldb.NewStream(ctx, "example", &qldb.StreamArgs{
-//				InclusiveStartTime: pulumi.String("2021-01-01T00:00:00Z"),
-//				KinesisConfiguration: &qldb.StreamKinesisConfigurationArgs{
-//					AggregationEnabled: pulumi.Bool(false),
-//					StreamArn:          pulumi.String("arn:aws:kinesis:us-east-1:xxxxxxxxxxxx:stream/example-kinesis-stream"),
-//				},
-//				LedgerName: pulumi.String("existing-ledger-name"),
-//				RoleArn:    pulumi.String("sample-role-arn"),
-//				StreamName: pulumi.String("sample-ledger-stream"),
-//				Tags: pulumi.StringMap{
-//					"example": pulumi.String("tag"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := qldb/stream.NewStream(ctx, "example", &qldb/stream.StreamArgs{
+// InclusiveStartTime: "2021-01-01T00:00:00Z",
+// KinesisConfiguration: map[string]interface{}{
+// "aggregationEnabled": false,
+// "streamArn": "arn:aws:kinesis:us-east-1:xxxxxxxxxxxx:stream/example-kinesis-stream",
+// },
+// LedgerName: "existing-ledger-name",
+// RoleArn: "sample-role-arn",
+// StreamName: "sample-ledger-stream",
+// Tags: map[string]interface{}{
+// "example": "tag",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 type Stream struct {
 	pulumi.CustomResourceState

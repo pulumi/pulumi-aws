@@ -26,7 +26,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.verifiedaccess.Instance;
  * import com.pulumi.aws.verifiedaccess.TrustProvider;
  * import com.pulumi.aws.verifiedaccess.TrustProviderArgs;
- * import com.pulumi.aws.verifiedaccess.inputs.TrustProviderDeviceOptionsArgs;
  * import com.pulumi.aws.verifiedaccess.InstanceTrustProviderAttachment;
  * import com.pulumi.aws.verifiedaccess.InstanceTrustProviderAttachmentArgs;
  * import java.util.List;
@@ -48,9 +47,7 @@ import javax.annotation.Nullable;
  *             .deviceTrustProviderType(&#34;jamf&#34;)
  *             .policyReferenceName(&#34;example&#34;)
  *             .trustProviderType(&#34;device&#34;)
- *             .deviceOptions(TrustProviderDeviceOptionsArgs.builder()
- *                 .tenantId(&#34;example&#34;)
- *                 .build())
+ *             .deviceOptions(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleInstanceTrustProviderAttachment = new InstanceTrustProviderAttachment(&#34;exampleInstanceTrustProviderAttachment&#34;, InstanceTrustProviderAttachmentArgs.builder()        

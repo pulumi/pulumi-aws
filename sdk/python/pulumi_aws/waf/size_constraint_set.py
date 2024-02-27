@@ -126,14 +126,14 @@ class SizeConstraintSet(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        size_constraint_set = aws.waf.SizeConstraintSet("sizeConstraintSet", size_constraints=[aws.waf.SizeConstraintSetSizeConstraintArgs(
-            comparison_operator="EQ",
-            field_to_match=aws.waf.SizeConstraintSetSizeConstraintFieldToMatchArgs(
-                type="BODY",
-            ),
-            size=4096,
-            text_transformation="NONE",
-        )])
+        size_constraint_set = aws.waf.size_constraint_set.SizeConstraintSet("sizeConstraintSet", size_constraints=[{
+            comparisonOperator: EQ,
+            fieldToMatch: {
+                type: BODY,
+            },
+            size: 4096,
+            textTransformation: NONE,
+        }])
         ```
 
         ## Import
@@ -164,14 +164,14 @@ class SizeConstraintSet(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        size_constraint_set = aws.waf.SizeConstraintSet("sizeConstraintSet", size_constraints=[aws.waf.SizeConstraintSetSizeConstraintArgs(
-            comparison_operator="EQ",
-            field_to_match=aws.waf.SizeConstraintSetSizeConstraintFieldToMatchArgs(
-                type="BODY",
-            ),
-            size=4096,
-            text_transformation="NONE",
-        )])
+        size_constraint_set = aws.waf.size_constraint_set.SizeConstraintSet("sizeConstraintSet", size_constraints=[{
+            comparisonOperator: EQ,
+            fieldToMatch: {
+                type: BODY,
+            },
+            size: 4096,
+            textTransformation: NONE,
+        }])
         ```
 
         ## Import

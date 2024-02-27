@@ -24,7 +24,7 @@ namespace Pulumi.Aws.Sfn
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // ...
-    ///     var sfnStateMachine = new Aws.Sfn.StateMachine("sfnStateMachine", new()
+    ///     var sfnStateMachine = new Aws.Sfn.StateMachine.StateMachine("sfnStateMachine", new()
     ///     {
     ///         RoleArn = aws_iam_role.Iam_for_sfn.Arn,
     ///         Definition = @$"{{
@@ -54,7 +54,7 @@ namespace Pulumi.Aws.Sfn
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // ...
-    ///     var sfnStateMachine = new Aws.Sfn.StateMachine("sfnStateMachine", new()
+    ///     var sfnStateMachine = new Aws.Sfn.StateMachine.StateMachine("sfnStateMachine", new()
     ///     {
     ///         RoleArn = aws_iam_role.Iam_for_sfn.Arn,
     ///         Type = "EXPRESS",
@@ -85,7 +85,7 @@ namespace Pulumi.Aws.Sfn
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // ...
-    ///     var sfnStateMachine = new Aws.Sfn.StateMachine("sfnStateMachine", new()
+    ///     var sfnStateMachine = new Aws.Sfn.StateMachine.StateMachine("sfnStateMachine", new()
     ///     {
     ///         RoleArn = aws_iam_role.Iam_for_sfn.Arn,
     ///         Publish = true,
@@ -119,7 +119,7 @@ namespace Pulumi.Aws.Sfn
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // ...
-    ///     var sfnStateMachine = new Aws.Sfn.StateMachine("sfnStateMachine", new()
+    ///     var sfnStateMachine = new Aws.Sfn.StateMachine.StateMachine("sfnStateMachine", new()
     ///     {
     ///         RoleArn = aws_iam_role.Iam_for_sfn.Arn,
     ///         Definition = @$"{{
@@ -134,11 +134,11 @@ namespace Pulumi.Aws.Sfn
     ///   }}
     /// }}
     /// ",
-    ///         LoggingConfiguration = new Aws.Sfn.Inputs.StateMachineLoggingConfigurationArgs
+    ///         LoggingConfiguration = 
     ///         {
-    ///             LogDestination = $"{aws_cloudwatch_log_group.Log_group_for_sfn.Arn}:*",
-    ///             IncludeExecutionData = true,
-    ///             Level = "ERROR",
+    ///             { "logDestination", $"{aws_cloudwatch_log_group.Log_group_for_sfn.Arn}:*" },
+    ///             { "includeExecutionData", true },
+    ///             { "level", "ERROR" },
     ///         },
     ///     });
     /// 

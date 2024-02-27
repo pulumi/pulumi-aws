@@ -16,59 +16,6 @@ import javax.annotation.Nullable;
 /**
  * Provides an Elastic Container Registry Policy.
  * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.AwsFunctions;
- * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
- * import com.pulumi.aws.inputs.GetRegionArgs;
- * import com.pulumi.aws.inputs.GetPartitionArgs;
- * import com.pulumi.aws.ecr.RegistryPolicy;
- * import com.pulumi.aws.ecr.RegistryPolicyArgs;
- * import static com.pulumi.codegen.internal.Serialization.*;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var currentCallerIdentity = AwsFunctions.getCallerIdentity();
- * 
- *         final var currentRegion = AwsFunctions.getRegion();
- * 
- *         final var currentPartition = AwsFunctions.getPartition();
- * 
- *         var example = new RegistryPolicy(&#34;example&#34;, RegistryPolicyArgs.builder()        
- *             .policy(serializeJson(
- *                 jsonObject(
- *                     jsonProperty(&#34;Version&#34;, &#34;2012-10-17&#34;),
- *                     jsonProperty(&#34;Statement&#34;, jsonArray(jsonObject(
- *                         jsonProperty(&#34;Sid&#34;, &#34;testpolicy&#34;),
- *                         jsonProperty(&#34;Effect&#34;, &#34;Allow&#34;),
- *                         jsonProperty(&#34;Principal&#34;, jsonObject(
- *                             jsonProperty(&#34;AWS&#34;, String.format(&#34;arn:%s:iam::%s:root&#34;, currentPartition.applyValue(getPartitionResult -&gt; getPartitionResult.partition()),currentCallerIdentity.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId())))
- *                         )),
- *                         jsonProperty(&#34;Action&#34;, jsonArray(&#34;ecr:ReplicateImage&#34;)),
- *                         jsonProperty(&#34;Resource&#34;, jsonArray(String.format(&#34;arn:%s:ecr:%s:%s:repository/*&#34;, currentPartition.applyValue(getPartitionResult -&gt; getPartitionResult.partition()),currentRegion.applyValue(getRegionResult -&gt; getRegionResult.name()),currentCallerIdentity.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()))))
- *                     )))
- *                 )))
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
  * ## Import
  * 
  * Using `pulumi import`, import ECR Registry Policy using the registry id. For example:

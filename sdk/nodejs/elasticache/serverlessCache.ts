@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.elasticache.ServerlessCache("example", {
+ * const example = new aws.elasticache/serverlessCache.ServerlessCache("example", {
  *     engine: "memcached",
  *     cacheUsageLimits: {
  *         dataStorage: {
@@ -41,7 +41,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.elasticache.ServerlessCache("example", {
+ * const example = new aws.elasticache/serverlessCache.ServerlessCache("example", {
  *     engine: "redis",
  *     cacheUsageLimits: {
  *         dataStorage: {

@@ -16,26 +16,6 @@ namespace Pulumi.Aws.OpenSearch
         /// 
         /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.OpenSearch.GetServerlessLifecyclePolicy.Invoke(new()
-        ///     {
-        ///         Name = "example-lifecycle-policy",
-        ///         Type = "retention",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetServerlessLifecyclePolicyResult> InvokeAsync(GetServerlessLifecyclePolicyArgs args, InvokeOptions? options = null)
@@ -46,26 +26,6 @@ namespace Pulumi.Aws.OpenSearch
         /// 
         /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.OpenSearch.GetServerlessLifecyclePolicy.Invoke(new()
-        ///     {
-        ///         Name = "example-lifecycle-policy",
-        ///         Type = "retention",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetServerlessLifecyclePolicyResult> Invoke(GetServerlessLifecyclePolicyInvokeArgs args, InvokeOptions? options = null)

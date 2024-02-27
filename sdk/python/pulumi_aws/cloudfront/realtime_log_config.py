@@ -183,50 +183,6 @@ class RealtimeLogConfig(pulumi.CustomResource):
         """
         Provides a CloudFront real-time log configuration resource.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["cloudfront.amazonaws.com"],
-            )],
-            actions=["sts:AssumeRole"],
-        )])
-        example_role = aws.iam.Role("exampleRole", assume_role_policy=assume_role.json)
-        example_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            actions=[
-                "kinesis:DescribeStreamSummary",
-                "kinesis:DescribeStream",
-                "kinesis:PutRecord",
-                "kinesis:PutRecords",
-            ],
-            resources=[aws_kinesis_stream["example"]["arn"]],
-        )])
-        example_role_policy = aws.iam.RolePolicy("exampleRolePolicy",
-            role=example_role.id,
-            policy=example_policy_document.json)
-        example_realtime_log_config = aws.cloudfront.RealtimeLogConfig("exampleRealtimeLogConfig",
-            sampling_rate=75,
-            fields=[
-                "timestamp",
-                "c-ip",
-            ],
-            endpoint=aws.cloudfront.RealtimeLogConfigEndpointArgs(
-                stream_type="Kinesis",
-                kinesis_stream_config=aws.cloudfront.RealtimeLogConfigEndpointKinesisStreamConfigArgs(
-                    role_arn=example_role.arn,
-                    stream_arn=aws_kinesis_stream["example"]["arn"],
-                ),
-            ),
-            opts=pulumi.ResourceOptions(depends_on=[example_role_policy]))
-        ```
-
         ## Import
 
         Using `pulumi import`, import CloudFront real-time log configurations using the ARN. For example:
@@ -250,50 +206,6 @@ class RealtimeLogConfig(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a CloudFront real-time log configuration resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["cloudfront.amazonaws.com"],
-            )],
-            actions=["sts:AssumeRole"],
-        )])
-        example_role = aws.iam.Role("exampleRole", assume_role_policy=assume_role.json)
-        example_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            actions=[
-                "kinesis:DescribeStreamSummary",
-                "kinesis:DescribeStream",
-                "kinesis:PutRecord",
-                "kinesis:PutRecords",
-            ],
-            resources=[aws_kinesis_stream["example"]["arn"]],
-        )])
-        example_role_policy = aws.iam.RolePolicy("exampleRolePolicy",
-            role=example_role.id,
-            policy=example_policy_document.json)
-        example_realtime_log_config = aws.cloudfront.RealtimeLogConfig("exampleRealtimeLogConfig",
-            sampling_rate=75,
-            fields=[
-                "timestamp",
-                "c-ip",
-            ],
-            endpoint=aws.cloudfront.RealtimeLogConfigEndpointArgs(
-                stream_type="Kinesis",
-                kinesis_stream_config=aws.cloudfront.RealtimeLogConfigEndpointKinesisStreamConfigArgs(
-                    role_arn=example_role.arn,
-                    stream_arn=aws_kinesis_stream["example"]["arn"],
-                ),
-            ),
-            opts=pulumi.ResourceOptions(depends_on=[example_role_policy]))
-        ```
 
         ## Import
 

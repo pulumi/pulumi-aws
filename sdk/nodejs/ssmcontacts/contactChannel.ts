@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.ssmcontacts.ContactChannel("example", {
+ * const example = new aws.ssmcontacts/contactChannel.ContactChannel("example", {
  *     contactId: "arn:aws:ssm-contacts:us-west-2:123456789012:contact/contactalias",
  *     deliveryAddress: {
  *         simpleAddress: "email@example.com",
@@ -31,11 +31,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleContact = new aws.ssmcontacts.Contact("exampleContact", {
+ * const exampleContact = new aws.ssmcontacts/contact.Contact("exampleContact", {
  *     alias: "example_contact",
  *     type: "PERSONAL",
  * });
- * const example = new aws.ssmcontacts.ContactChannel("example", {
+ * const example = new aws.ssmcontacts/contactChannel.ContactChannel("example", {
  *     contactId: exampleContact.arn,
  *     deliveryAddress: {
  *         simpleAddress: "email@example.com",

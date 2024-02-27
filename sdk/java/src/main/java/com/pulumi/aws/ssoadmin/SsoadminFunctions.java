@@ -32,35 +32,6 @@ public final class SsoadminFunctions {
      * Data source for managing an AWS SSO Admin Application.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
-     * import com.pulumi.aws.ssoadmin.inputs.GetApplicationArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = SsoadminFunctions.getApplication(GetApplicationArgs.builder()
-     *             .applicationArn(&#34;arn:aws:sso::012345678901:application/ssoins-1234/apl-5678&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetApplicationResult> getApplication(GetApplicationArgs args) {
@@ -70,35 +41,6 @@ public final class SsoadminFunctions {
      * Data source for managing an AWS SSO Admin Application.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
-     * import com.pulumi.aws.ssoadmin.inputs.GetApplicationArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = SsoadminFunctions.getApplication(GetApplicationArgs.builder()
-     *             .applicationArn(&#34;arn:aws:sso::012345678901:application/ssoins-1234/apl-5678&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetApplicationResult> getApplicationPlain(GetApplicationPlainArgs args) {
@@ -108,35 +50,6 @@ public final class SsoadminFunctions {
      * Data source for managing an AWS SSO Admin Application.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
-     * import com.pulumi.aws.ssoadmin.inputs.GetApplicationArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = SsoadminFunctions.getApplication(GetApplicationArgs.builder()
-     *             .applicationArn(&#34;arn:aws:sso::012345678901:application/ssoins-1234/apl-5678&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetApplicationResult> getApplication(GetApplicationArgs args, InvokeOptions options) {
@@ -146,35 +59,6 @@ public final class SsoadminFunctions {
      * Data source for managing an AWS SSO Admin Application.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
-     * import com.pulumi.aws.ssoadmin.inputs.GetApplicationArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = SsoadminFunctions.getApplication(GetApplicationArgs.builder()
-     *             .applicationArn(&#34;arn:aws:sso::012345678901:application/ssoins-1234/apl-5678&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetApplicationResult> getApplicationPlain(GetApplicationPlainArgs args, InvokeOptions options) {
@@ -184,35 +68,6 @@ public final class SsoadminFunctions {
      * Data source for managing AWS SSO Admin Application Assignments.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
-     * import com.pulumi.aws.ssoadmin.inputs.GetApplicationAssignmentsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = SsoadminFunctions.getApplicationAssignments(GetApplicationAssignmentsArgs.builder()
-     *             .applicationArn(aws_ssoadmin_application.example().application_arn())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetApplicationAssignmentsResult> getApplicationAssignments(GetApplicationAssignmentsArgs args) {
@@ -222,35 +77,6 @@ public final class SsoadminFunctions {
      * Data source for managing AWS SSO Admin Application Assignments.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
-     * import com.pulumi.aws.ssoadmin.inputs.GetApplicationAssignmentsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = SsoadminFunctions.getApplicationAssignments(GetApplicationAssignmentsArgs.builder()
-     *             .applicationArn(aws_ssoadmin_application.example().application_arn())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetApplicationAssignmentsResult> getApplicationAssignmentsPlain(GetApplicationAssignmentsPlainArgs args) {
@@ -260,35 +86,6 @@ public final class SsoadminFunctions {
      * Data source for managing AWS SSO Admin Application Assignments.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
-     * import com.pulumi.aws.ssoadmin.inputs.GetApplicationAssignmentsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = SsoadminFunctions.getApplicationAssignments(GetApplicationAssignmentsArgs.builder()
-     *             .applicationArn(aws_ssoadmin_application.example().application_arn())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetApplicationAssignmentsResult> getApplicationAssignments(GetApplicationAssignmentsArgs args, InvokeOptions options) {
@@ -298,35 +95,6 @@ public final class SsoadminFunctions {
      * Data source for managing AWS SSO Admin Application Assignments.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
-     * import com.pulumi.aws.ssoadmin.inputs.GetApplicationAssignmentsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = SsoadminFunctions.getApplicationAssignments(GetApplicationAssignmentsArgs.builder()
-     *             .applicationArn(aws_ssoadmin_application.example().application_arn())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetApplicationAssignmentsResult> getApplicationAssignmentsPlain(GetApplicationAssignmentsPlainArgs args, InvokeOptions options) {
@@ -336,33 +104,6 @@ public final class SsoadminFunctions {
      * Data source for managing AWS SSO Admin Application Providers.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
-     * import com.pulumi.aws.ssoadmin.inputs.GetApplicationProvidersArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = SsoadminFunctions.getApplicationProviders();
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetApplicationProvidersResult> getApplicationProviders() {
@@ -372,33 +113,6 @@ public final class SsoadminFunctions {
      * Data source for managing AWS SSO Admin Application Providers.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
-     * import com.pulumi.aws.ssoadmin.inputs.GetApplicationProvidersArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = SsoadminFunctions.getApplicationProviders();
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetApplicationProvidersResult> getApplicationProvidersPlain() {
@@ -408,33 +122,6 @@ public final class SsoadminFunctions {
      * Data source for managing AWS SSO Admin Application Providers.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
-     * import com.pulumi.aws.ssoadmin.inputs.GetApplicationProvidersArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = SsoadminFunctions.getApplicationProviders();
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetApplicationProvidersResult> getApplicationProviders(GetApplicationProvidersArgs args) {
@@ -444,33 +131,6 @@ public final class SsoadminFunctions {
      * Data source for managing AWS SSO Admin Application Providers.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
-     * import com.pulumi.aws.ssoadmin.inputs.GetApplicationProvidersArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = SsoadminFunctions.getApplicationProviders();
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetApplicationProvidersResult> getApplicationProvidersPlain(GetApplicationProvidersPlainArgs args) {
@@ -480,33 +140,6 @@ public final class SsoadminFunctions {
      * Data source for managing AWS SSO Admin Application Providers.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
-     * import com.pulumi.aws.ssoadmin.inputs.GetApplicationProvidersArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = SsoadminFunctions.getApplicationProviders();
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetApplicationProvidersResult> getApplicationProviders(GetApplicationProvidersArgs args, InvokeOptions options) {
@@ -516,33 +149,6 @@ public final class SsoadminFunctions {
      * Data source for managing AWS SSO Admin Application Providers.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
-     * import com.pulumi.aws.ssoadmin.inputs.GetApplicationProvidersArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = SsoadminFunctions.getApplicationProviders();
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetApplicationProvidersResult> getApplicationProvidersPlain(GetApplicationProvidersPlainArgs args, InvokeOptions options) {

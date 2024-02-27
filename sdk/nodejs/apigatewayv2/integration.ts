@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.apigatewayv2.Integration("example", {
+ * const example = new aws.apigatewayv2/integration.Integration("example", {
  *     apiId: aws_apigatewayv2_api.example.id,
  *     integrationType: "MOCK",
  * });
@@ -29,13 +29,13 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleFunction = new aws.lambda.Function("exampleFunction", {
+ * const exampleFunction = new aws.lambda/function.Function("exampleFunction", {
  *     code: new pulumi.asset.FileArchive("example.zip"),
  *     role: aws_iam_role.example.arn,
  *     handler: "index.handler",
  *     runtime: "nodejs16.x",
  * });
- * const exampleIntegration = new aws.apigatewayv2.Integration("exampleIntegration", {
+ * const exampleIntegration = new aws.apigatewayv2/integration.Integration("exampleIntegration", {
  *     apiId: aws_apigatewayv2_api.example.id,
  *     integrationType: "AWS_PROXY",
  *     connectionType: "INTERNET",
@@ -52,7 +52,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.apigatewayv2.Integration("example", {
+ * const example = new aws.apigatewayv2/integration.Integration("example", {
  *     apiId: aws_apigatewayv2_api.example.id,
  *     credentialsArn: aws_iam_role.example.arn,
  *     description: "SQS example",
@@ -70,7 +70,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.apigatewayv2.Integration("example", {
+ * const example = new aws.apigatewayv2/integration.Integration("example", {
  *     apiId: aws_apigatewayv2_api.example.id,
  *     credentialsArn: aws_iam_role.example.arn,
  *     description: "Example with a load balancer",
@@ -88,13 +88,13 @@ import * as utilities from "../utilities";
  *     },
  *     responseParameters: [
  *         {
- *             statusCode: "403",
+ *             statusCode: 403,
  *             mappings: {
  *                 "append:header.auth": "$context.authorizer.authorizerResponse",
  *             },
  *         },
  *         {
- *             statusCode: "200",
+ *             statusCode: 200,
  *             mappings: {
  *                 "overwrite:statuscode": "204",
  *             },

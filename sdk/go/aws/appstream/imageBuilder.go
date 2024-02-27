@@ -21,35 +21,33 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/appstream"
+//	appstream/imageBuilder "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/appstream/imageBuilder"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := appstream.NewImageBuilder(ctx, "testFleet", &appstream.ImageBuilderArgs{
-//				Description:                 pulumi.String("Description of a ImageBuilder"),
-//				DisplayName:                 pulumi.String("Display name of a ImageBuilder"),
-//				EnableDefaultInternetAccess: pulumi.Bool(false),
-//				ImageName:                   pulumi.String("AppStream-WinServer2019-10-05-2022"),
-//				InstanceType:                pulumi.String("stream.standard.large"),
-//				VpcConfig: &appstream.ImageBuilderVpcConfigArgs{
-//					SubnetIds: pulumi.StringArray{
-//						aws_subnet.Example.Id,
-//					},
-//				},
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("Example Image Builder"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := appstream/imageBuilder.NewImageBuilder(ctx, "testFleet", &appstream/imageBuilder.ImageBuilderArgs{
+// Description: "Description of a ImageBuilder",
+// DisplayName: "Display name of a ImageBuilder",
+// EnableDefaultInternetAccess: false,
+// ImageName: "AppStream-WinServer2019-10-05-2022",
+// InstanceType: "stream.standard.large",
+// VpcConfig: map[string]interface{}{
+// "subnetIds": []interface{}{
+// aws_subnet.Example.Id,
+// },
+// },
+// Tags: map[string]interface{}{
+// "Name": "Example Image Builder",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

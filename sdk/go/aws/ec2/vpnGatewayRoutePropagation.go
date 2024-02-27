@@ -25,24 +25,22 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	ec2/vpnGatewayRoutePropagation "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/vpnGatewayRoutePropagation"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.NewVpnGatewayRoutePropagation(ctx, "example", &ec2.VpnGatewayRoutePropagationArgs{
-//				VpnGatewayId: pulumi.Any(aws_vpn_gateway.Example.Id),
-//				RouteTableId: pulumi.Any(aws_route_table.Example.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := ec2/vpnGatewayRoutePropagation.NewVpnGatewayRoutePropagation(ctx, "example", &ec2/vpnGatewayRoutePropagation.VpnGatewayRoutePropagationArgs{
+// VpnGatewayId: aws_vpn_gateway.Example.Id,
+// RouteTableId: aws_route_table.Example.Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 type VpnGatewayRoutePropagation struct {
 	pulumi.CustomResourceState

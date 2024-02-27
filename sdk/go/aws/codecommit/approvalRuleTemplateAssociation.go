@@ -21,24 +21,22 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/codecommit"
+//	codecommit/approvalRuleTemplateAssociation "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/codecommit/approvalRuleTemplateAssociation"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := codecommit.NewApprovalRuleTemplateAssociation(ctx, "example", &codecommit.ApprovalRuleTemplateAssociationArgs{
-//				ApprovalRuleTemplateName: pulumi.Any(aws_codecommit_approval_rule_template.Example.Name),
-//				RepositoryName:           pulumi.Any(aws_codecommit_repository.Example.Repository_name),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := codecommit/approvalRuleTemplateAssociation.NewApprovalRuleTemplateAssociation(ctx, "example", &codecommit/approvalRuleTemplateAssociation.ApprovalRuleTemplateAssociationArgs{
+// ApprovalRuleTemplateName: aws_codecommit_approval_rule_template.Example.Name,
+// RepositoryName: aws_codecommit_repository.Example.Repository_name,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

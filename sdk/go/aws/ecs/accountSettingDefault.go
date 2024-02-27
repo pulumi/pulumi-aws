@@ -25,23 +25,21 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ecs"
+//	ecs/accountSettingDefault "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ecs/accountSettingDefault"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ecs.NewAccountSettingDefault(ctx, "test", &ecs.AccountSettingDefaultArgs{
-//				Value: pulumi.String("enabled"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := ecs/accountSettingDefault.NewAccountSettingDefault(ctx, "test", &ecs/accountSettingDefault.AccountSettingDefaultArgs{
+// Value: "enabled",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

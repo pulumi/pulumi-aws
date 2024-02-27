@@ -311,7 +311,7 @@ class AppMonitor(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.rum.AppMonitor("example", domain="localhost")
+        example = aws.rum.app_monitor.AppMonitor("example", domain=localhost)
         ```
 
         ## Import
@@ -346,7 +346,7 @@ class AppMonitor(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.rum.AppMonitor("example", domain="localhost")
+        example = aws.rum.app_monitor.AppMonitor("example", domain=localhost)
         ```
 
         ## Import

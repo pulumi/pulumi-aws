@@ -331,7 +331,20 @@ class Group(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.verifiedaccess.Group("example", verifiedaccess_instance_id=aws_verifiedaccess_instance["example"]["id"])
+        example = aws.verifiedaccess.group.Group("example", verifiedaccess_instance_id=aws_verifiedaccess_instance.example.id)
+        ```
+        ### Usage with KMS Key
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test_key = aws.kms.key.Key("testKey", description=KMS key for Verified Access Group test)
+        test = aws.verifiedaccess.group.Group("test",
+            verifiedaccess_instance_id=aws_verifiedaccess_instance_trust_provider_attachment.test.verifiedaccess_instance_id,
+            server_side_encryption_configuration=[{
+                kmsKeyArn: test_key.arn,
+            }])
         ```
 
         :param str resource_name: The name of the resource.
@@ -360,7 +373,20 @@ class Group(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.verifiedaccess.Group("example", verifiedaccess_instance_id=aws_verifiedaccess_instance["example"]["id"])
+        example = aws.verifiedaccess.group.Group("example", verifiedaccess_instance_id=aws_verifiedaccess_instance.example.id)
+        ```
+        ### Usage with KMS Key
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test_key = aws.kms.key.Key("testKey", description=KMS key for Verified Access Group test)
+        test = aws.verifiedaccess.group.Group("test",
+            verifiedaccess_instance_id=aws_verifiedaccess_instance_trust_provider_attachment.test.verifiedaccess_instance_id,
+            server_side_encryption_configuration=[{
+                kmsKeyArn: test_key.arn,
+            }])
         ```
 
         :param str resource_name: The name of the resource.

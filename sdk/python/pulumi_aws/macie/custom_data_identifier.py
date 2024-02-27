@@ -356,13 +356,13 @@ class CustomDataIdentifier(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_account = aws.macie2.Account("exampleAccount")
-        example_custom_data_identifier = aws.macie.CustomDataIdentifier("exampleCustomDataIdentifier",
-            regex="[0-9]{3}-[0-9]{2}-[0-9]{4}",
-            description="DESCRIPTION",
+        example_account = aws.macie2.account.Account("exampleAccount")
+        example_custom_data_identifier = aws.macie.custom_data_identifier.CustomDataIdentifier("exampleCustomDataIdentifier",
+            regex=[0-9]{3}-[0-9]{2}-[0-9]{4},
+            description=DESCRIPTION,
             maximum_match_distance=10,
-            keywords=["keyword"],
-            ignore_words=["ignore"],
+            keywords=[keyword],
+            ignore_words=[ignore],
             opts=pulumi.ResourceOptions(depends_on=[aws_macie2_account["test"]]))
         ```
 
@@ -400,13 +400,13 @@ class CustomDataIdentifier(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_account = aws.macie2.Account("exampleAccount")
-        example_custom_data_identifier = aws.macie.CustomDataIdentifier("exampleCustomDataIdentifier",
-            regex="[0-9]{3}-[0-9]{2}-[0-9]{4}",
-            description="DESCRIPTION",
+        example_account = aws.macie2.account.Account("exampleAccount")
+        example_custom_data_identifier = aws.macie.custom_data_identifier.CustomDataIdentifier("exampleCustomDataIdentifier",
+            regex=[0-9]{3}-[0-9]{2}-[0-9]{4},
+            description=DESCRIPTION,
             maximum_match_distance=10,
-            keywords=["keyword"],
-            ignore_words=["ignore"],
+            keywords=[keyword],
+            ignore_words=[ignore],
             opts=pulumi.ResourceOptions(depends_on=[aws_macie2_account["test"]]))
         ```
 

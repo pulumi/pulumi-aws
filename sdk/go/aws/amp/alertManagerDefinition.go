@@ -21,35 +21,34 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/amp"
+//	amp/alertManagerDefinition "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/amp/alertManagerDefinition"
+//	amp/workspace "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/amp/workspace"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// demoWorkspace, err := amp/workspace.NewWorkspace(ctx, "demoWorkspace", nil)
+// if err != nil {
+// return err
+// }
+// _, err = amp/alertManagerDefinition.NewAlertManagerDefinition(ctx, "demoAlertManagerDefinition", &amp/alertManagerDefinition.AlertManagerDefinitionArgs{
+// WorkspaceId: demoWorkspace.Id,
+// Definition: `alertmanager_config: |
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			demoWorkspace, err := amp.NewWorkspace(ctx, "demoWorkspace", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = amp.NewAlertManagerDefinition(ctx, "demoAlertManagerDefinition", &amp.AlertManagerDefinitionArgs{
-//				WorkspaceId: demoWorkspace.ID(),
-//				Definition: pulumi.String(`alertmanager_config: |
-//	  route:
-//	    receiver: 'default'
-//	  receivers:
-//	    - name: 'default'
+//	route:
+//	  receiver: 'default'
+//	receivers:
+//	  - name: 'default'
 //
-// `),
-//
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// `,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

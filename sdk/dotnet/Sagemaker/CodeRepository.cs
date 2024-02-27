@@ -23,12 +23,12 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Sagemaker.CodeRepository("example", new()
+    ///     var example = new Aws.Sagemaker.CodeRepository.CodeRepository("example", new()
     ///     {
     ///         CodeRepositoryName = "example",
-    ///         GitConfig = new Aws.Sagemaker.Inputs.CodeRepositoryGitConfigArgs
+    ///         GitConfig = 
     ///         {
-    ///             RepositoryUrl = "https://github.com/github/docs.git",
+    ///             { "repositoryUrl", "https://github.com/github/docs.git" },
     ///         },
     ///     });
     /// 
@@ -45,9 +45,9 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleSecret = new Aws.SecretsManager.Secret("exampleSecret");
+    ///     var exampleSecret = new Aws.Secretsmanager.Secret.Secret("exampleSecret");
     /// 
-    ///     var exampleSecretVersion = new Aws.SecretsManager.SecretVersion("exampleSecretVersion", new()
+    ///     var exampleSecretVersion = new Aws.Secretsmanager.SecretVersion.SecretVersion("exampleSecretVersion", new()
     ///     {
     ///         SecretId = exampleSecret.Id,
     ///         SecretString = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
@@ -57,13 +57,13 @@ namespace Pulumi.Aws.Sagemaker
     ///         }),
     ///     });
     /// 
-    ///     var exampleCodeRepository = new Aws.Sagemaker.CodeRepository("exampleCodeRepository", new()
+    ///     var exampleCodeRepository = new Aws.Sagemaker.CodeRepository.CodeRepository("exampleCodeRepository", new()
     ///     {
     ///         CodeRepositoryName = "example",
-    ///         GitConfig = new Aws.Sagemaker.Inputs.CodeRepositoryGitConfigArgs
+    ///         GitConfig = 
     ///         {
-    ///             RepositoryUrl = "https://github.com/github/docs.git",
-    ///             SecretArn = exampleSecret.Arn,
+    ///             { "repositoryUrl", "https://github.com/github/docs.git" },
+    ///             { "secretArn", exampleSecret.Arn },
     ///         },
     ///     }, new CustomResourceOptions
     ///     {

@@ -23,37 +23,37 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lightsail"
+//	lightsail/instance "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/lightsail/instance"
+//	lightsail/staticIp "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/lightsail/staticIp"
+//	lightsail/staticIpAttachment "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/lightsail/staticIpAttachment"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testStaticIp, err := lightsail.NewStaticIp(ctx, "testStaticIp", nil)
-//			if err != nil {
-//				return err
-//			}
-//			testInstance, err := lightsail.NewInstance(ctx, "testInstance", &lightsail.InstanceArgs{
-//				AvailabilityZone: pulumi.String("us-east-1b"),
-//				BlueprintId:      pulumi.String("string"),
-//				BundleId:         pulumi.String("string"),
-//				KeyPairName:      pulumi.String("some_key_name"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = lightsail.NewStaticIpAttachment(ctx, "testStaticIpAttachment", &lightsail.StaticIpAttachmentArgs{
-//				StaticIpName: testStaticIp.ID(),
-//				InstanceName: testInstance.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// testStaticIp, err := lightsail/staticIp.NewStaticIp(ctx, "testStaticIp", nil)
+// if err != nil {
+// return err
+// }
+// testInstance, err := lightsail/instance.NewInstance(ctx, "testInstance", &lightsail/instance.InstanceArgs{
+// AvailabilityZone: "us-east-1b",
+// BlueprintId: "string",
+// BundleId: "string",
+// KeyPairName: "some_key_name",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = lightsail/staticIpAttachment.NewStaticIpAttachment(ctx, "testStaticIpAttachment", &lightsail/staticIpAttachment.StaticIpAttachmentArgs{
+// StaticIpName: testStaticIp.Id,
+// InstanceName: testInstance.Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 type StaticIpAttachment struct {
 	pulumi.CustomResourceState

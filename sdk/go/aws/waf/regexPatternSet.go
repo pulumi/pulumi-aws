@@ -20,26 +20,24 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/waf"
+//	waf/regexPatternSet "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/waf/regexPatternSet"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := waf.NewRegexPatternSet(ctx, "example", &waf.RegexPatternSetArgs{
-//				RegexPatternStrings: pulumi.StringArray{
-//					pulumi.String("one"),
-//					pulumi.String("two"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := waf/regexPatternSet.NewRegexPatternSet(ctx, "example", &waf/regexPatternSet.RegexPatternSetArgs{
+// RegexPatternStrings: []string{
+// "one",
+// "two",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

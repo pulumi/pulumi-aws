@@ -296,14 +296,14 @@ class App(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.pinpoint.App("example",
-            limits=aws.pinpoint.AppLimitsArgs(
-                maximum_duration=600,
-            ),
-            quiet_time=aws.pinpoint.AppQuietTimeArgs(
-                end="06:00",
-                start="00:00",
-            ))
+        example = aws.pinpoint.app.App("example",
+            limits={
+                maximumDuration: 600,
+            },
+            quiet_time={
+                end: 06:00,
+                start: 00:00,
+            })
         ```
 
         ## Import
@@ -338,14 +338,14 @@ class App(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.pinpoint.App("example",
-            limits=aws.pinpoint.AppLimitsArgs(
-                maximum_duration=600,
-            ),
-            quiet_time=aws.pinpoint.AppQuietTimeArgs(
-                end="06:00",
-                start="00:00",
-            ))
+        example = aws.pinpoint.app.App("example",
+            limits={
+                maximumDuration: 600,
+            },
+            quiet_time={
+                end: 06:00,
+                start: 00:00,
+            })
         ```
 
         ## Import

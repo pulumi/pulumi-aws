@@ -34,39 +34,39 @@ namespace Pulumi.Aws.AppMesh
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var serviceb1 = new Aws.AppMesh.VirtualNode("serviceb1", new()
+    ///     var serviceb1 = new Aws.Appmesh.VirtualNode.VirtualNode("serviceb1", new()
     ///     {
     ///         MeshName = aws_appmesh_mesh.Simple.Id,
-    ///         Spec = new Aws.AppMesh.Inputs.VirtualNodeSpecArgs
+    ///         Spec = 
     ///         {
-    ///             Backends = new[]
+    ///             { "backends", new[]
     ///             {
-    ///                 new Aws.AppMesh.Inputs.VirtualNodeSpecBackendArgs
+    ///                 
     ///                 {
-    ///                     VirtualService = new Aws.AppMesh.Inputs.VirtualNodeSpecBackendVirtualServiceArgs
+    ///                     { "virtualService", 
     ///                     {
-    ///                         VirtualServiceName = "servicea.simpleapp.local",
-    ///                     },
+    ///                         { "virtualServiceName", "servicea.simpleapp.local" },
+    ///                     } },
     ///                 },
-    ///             },
-    ///             Listeners = new[]
+    ///             } },
+    ///             { "listeners", new[]
     ///             {
-    ///                 new Aws.AppMesh.Inputs.VirtualNodeSpecListenerArgs
+    ///                 
     ///                 {
-    ///                     PortMapping = new Aws.AppMesh.Inputs.VirtualNodeSpecListenerPortMappingArgs
+    ///                     { "portMapping", 
     ///                     {
-    ///                         Port = 8080,
-    ///                         Protocol = "http",
-    ///                     },
+    ///                         { "port", 8080 },
+    ///                         { "protocol", "http" },
+    ///                     } },
     ///                 },
-    ///             },
-    ///             ServiceDiscovery = new Aws.AppMesh.Inputs.VirtualNodeSpecServiceDiscoveryArgs
+    ///             } },
+    ///             { "serviceDiscovery", 
     ///             {
-    ///                 Dns = new Aws.AppMesh.Inputs.VirtualNodeSpecServiceDiscoveryDnsArgs
+    ///                 { "dns", 
     ///                 {
-    ///                     Hostname = "serviceb.simpleapp.local",
-    ///                 },
-    ///             },
+    ///                     { "hostname", "serviceb.simpleapp.local" },
+    ///                 } },
+    ///             } },
     ///         },
     ///     });
     /// 
@@ -82,46 +82,46 @@ namespace Pulumi.Aws.AppMesh
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.ServiceDiscovery.HttpNamespace("example");
+    ///     var example = new Aws.Servicediscovery.HttpNamespace.HttpNamespace("example");
     /// 
-    ///     var serviceb1 = new Aws.AppMesh.VirtualNode("serviceb1", new()
+    ///     var serviceb1 = new Aws.Appmesh.VirtualNode.VirtualNode("serviceb1", new()
     ///     {
     ///         MeshName = aws_appmesh_mesh.Simple.Id,
-    ///         Spec = new Aws.AppMesh.Inputs.VirtualNodeSpecArgs
+    ///         Spec = 
     ///         {
-    ///             Backends = new[]
+    ///             { "backends", new[]
     ///             {
-    ///                 new Aws.AppMesh.Inputs.VirtualNodeSpecBackendArgs
+    ///                 
     ///                 {
-    ///                     VirtualService = new Aws.AppMesh.Inputs.VirtualNodeSpecBackendVirtualServiceArgs
+    ///                     { "virtualService", 
     ///                     {
-    ///                         VirtualServiceName = "servicea.simpleapp.local",
-    ///                     },
+    ///                         { "virtualServiceName", "servicea.simpleapp.local" },
+    ///                     } },
     ///                 },
-    ///             },
-    ///             Listeners = new[]
+    ///             } },
+    ///             { "listeners", new[]
     ///             {
-    ///                 new Aws.AppMesh.Inputs.VirtualNodeSpecListenerArgs
+    ///                 
     ///                 {
-    ///                     PortMapping = new Aws.AppMesh.Inputs.VirtualNodeSpecListenerPortMappingArgs
+    ///                     { "portMapping", 
     ///                     {
-    ///                         Port = 8080,
-    ///                         Protocol = "http",
-    ///                     },
+    ///                         { "port", 8080 },
+    ///                         { "protocol", "http" },
+    ///                     } },
     ///                 },
-    ///             },
-    ///             ServiceDiscovery = new Aws.AppMesh.Inputs.VirtualNodeSpecServiceDiscoveryArgs
+    ///             } },
+    ///             { "serviceDiscovery", 
     ///             {
-    ///                 AwsCloudMap = new Aws.AppMesh.Inputs.VirtualNodeSpecServiceDiscoveryAwsCloudMapArgs
+    ///                 { "awsCloudMap", 
     ///                 {
-    ///                     Attributes = 
+    ///                     { "attributes", 
     ///                     {
     ///                         { "stack", "blue" },
-    ///                     },
-    ///                     ServiceName = "serviceb1",
-    ///                     NamespaceName = example.Name,
-    ///                 },
-    ///             },
+    ///                     } },
+    ///                     { "serviceName", "serviceb1" },
+    ///                     { "namespaceName", example.Name },
+    ///                 } },
+    ///             } },
     ///         },
     ///     });
     /// 
@@ -137,48 +137,48 @@ namespace Pulumi.Aws.AppMesh
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var serviceb1 = new Aws.AppMesh.VirtualNode("serviceb1", new()
+    ///     var serviceb1 = new Aws.Appmesh.VirtualNode.VirtualNode("serviceb1", new()
     ///     {
     ///         MeshName = aws_appmesh_mesh.Simple.Id,
-    ///         Spec = new Aws.AppMesh.Inputs.VirtualNodeSpecArgs
+    ///         Spec = 
     ///         {
-    ///             Backends = new[]
+    ///             { "backends", new[]
     ///             {
-    ///                 new Aws.AppMesh.Inputs.VirtualNodeSpecBackendArgs
+    ///                 
     ///                 {
-    ///                     VirtualService = new Aws.AppMesh.Inputs.VirtualNodeSpecBackendVirtualServiceArgs
+    ///                     { "virtualService", 
     ///                     {
-    ///                         VirtualServiceName = "servicea.simpleapp.local",
-    ///                     },
+    ///                         { "virtualServiceName", "servicea.simpleapp.local" },
+    ///                     } },
     ///                 },
-    ///             },
-    ///             Listeners = new[]
+    ///             } },
+    ///             { "listeners", new[]
     ///             {
-    ///                 new Aws.AppMesh.Inputs.VirtualNodeSpecListenerArgs
+    ///                 
     ///                 {
-    ///                     PortMapping = new Aws.AppMesh.Inputs.VirtualNodeSpecListenerPortMappingArgs
+    ///                     { "portMapping", 
     ///                     {
-    ///                         Port = 8080,
-    ///                         Protocol = "http",
-    ///                     },
-    ///                     HealthCheck = new Aws.AppMesh.Inputs.VirtualNodeSpecListenerHealthCheckArgs
+    ///                         { "port", 8080 },
+    ///                         { "protocol", "http" },
+    ///                     } },
+    ///                     { "healthCheck", 
     ///                     {
-    ///                         Protocol = "http",
-    ///                         Path = "/ping",
-    ///                         HealthyThreshold = 2,
-    ///                         UnhealthyThreshold = 2,
-    ///                         TimeoutMillis = 2000,
-    ///                         IntervalMillis = 5000,
-    ///                     },
+    ///                         { "protocol", "http" },
+    ///                         { "path", "/ping" },
+    ///                         { "healthyThreshold", 2 },
+    ///                         { "unhealthyThreshold", 2 },
+    ///                         { "timeoutMillis", 2000 },
+    ///                         { "intervalMillis", 5000 },
+    ///                     } },
     ///                 },
-    ///             },
-    ///             ServiceDiscovery = new Aws.AppMesh.Inputs.VirtualNodeSpecServiceDiscoveryArgs
+    ///             } },
+    ///             { "serviceDiscovery", 
     ///             {
-    ///                 Dns = new Aws.AppMesh.Inputs.VirtualNodeSpecServiceDiscoveryDnsArgs
+    ///                 { "dns", 
     ///                 {
-    ///                     Hostname = "serviceb.simpleapp.local",
-    ///                 },
-    ///             },
+    ///                     { "hostname", "serviceb.simpleapp.local" },
+    ///                 } },
+    ///             } },
     ///         },
     ///     });
     /// 
@@ -194,49 +194,49 @@ namespace Pulumi.Aws.AppMesh
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var serviceb1 = new Aws.AppMesh.VirtualNode("serviceb1", new()
+    ///     var serviceb1 = new Aws.Appmesh.VirtualNode.VirtualNode("serviceb1", new()
     ///     {
     ///         MeshName = aws_appmesh_mesh.Simple.Id,
-    ///         Spec = new Aws.AppMesh.Inputs.VirtualNodeSpecArgs
+    ///         Spec = 
     ///         {
-    ///             Backends = new[]
+    ///             { "backends", new[]
     ///             {
-    ///                 new Aws.AppMesh.Inputs.VirtualNodeSpecBackendArgs
+    ///                 
     ///                 {
-    ///                     VirtualService = new Aws.AppMesh.Inputs.VirtualNodeSpecBackendVirtualServiceArgs
+    ///                     { "virtualService", 
     ///                     {
-    ///                         VirtualServiceName = "servicea.simpleapp.local",
-    ///                     },
+    ///                         { "virtualServiceName", "servicea.simpleapp.local" },
+    ///                     } },
     ///                 },
-    ///             },
-    ///             Listeners = new[]
+    ///             } },
+    ///             { "listeners", new[]
     ///             {
-    ///                 new Aws.AppMesh.Inputs.VirtualNodeSpecListenerArgs
+    ///                 
     ///                 {
-    ///                     PortMapping = new Aws.AppMesh.Inputs.VirtualNodeSpecListenerPortMappingArgs
+    ///                     { "portMapping", 
     ///                     {
-    ///                         Port = 8080,
-    ///                         Protocol = "http",
-    ///                     },
+    ///                         { "port", 8080 },
+    ///                         { "protocol", "http" },
+    ///                     } },
     ///                 },
-    ///             },
-    ///             ServiceDiscovery = new Aws.AppMesh.Inputs.VirtualNodeSpecServiceDiscoveryArgs
+    ///             } },
+    ///             { "serviceDiscovery", 
     ///             {
-    ///                 Dns = new Aws.AppMesh.Inputs.VirtualNodeSpecServiceDiscoveryDnsArgs
+    ///                 { "dns", 
     ///                 {
-    ///                     Hostname = "serviceb.simpleapp.local",
-    ///                 },
-    ///             },
-    ///             Logging = new Aws.AppMesh.Inputs.VirtualNodeSpecLoggingArgs
+    ///                     { "hostname", "serviceb.simpleapp.local" },
+    ///                 } },
+    ///             } },
+    ///             { "logging", 
     ///             {
-    ///                 AccessLog = new Aws.AppMesh.Inputs.VirtualNodeSpecLoggingAccessLogArgs
+    ///                 { "accessLog", 
     ///                 {
-    ///                     File = new Aws.AppMesh.Inputs.VirtualNodeSpecLoggingAccessLogFileArgs
+    ///                     { "file", 
     ///                     {
-    ///                         Path = "/dev/stdout",
-    ///                     },
-    ///                 },
-    ///             },
+    ///                         { "path", "/dev/stdout" },
+    ///                     } },
+    ///                 } },
+    ///             } },
     ///         },
     ///     });
     /// 

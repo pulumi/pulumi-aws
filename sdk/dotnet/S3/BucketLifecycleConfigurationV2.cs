@@ -44,15 +44,15 @@ namespace Pulumi.Aws.S3
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.S3.BucketLifecycleConfigurationV2("example", new()
+    ///     var example = new Aws.S3.BucketLifecycleConfigurationV2.BucketLifecycleConfigurationV2("example", new()
     ///     {
     ///         Bucket = aws_s3_bucket.Bucket.Id,
     ///         Rules = new[]
     ///         {
-    ///             new Aws.S3.Inputs.BucketLifecycleConfigurationV2RuleArgs
+    ///             
     ///             {
-    ///                 Id = "rule-1",
-    ///                 Status = "Enabled",
+    ///                 { "id", "rule-1" },
+    ///                 { "status", "Enabled" },
     ///             },
     ///         },
     ///     });
@@ -71,16 +71,16 @@ namespace Pulumi.Aws.S3
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.S3.BucketLifecycleConfigurationV2("example", new()
+    ///     var example = new Aws.S3.BucketLifecycleConfigurationV2.BucketLifecycleConfigurationV2("example", new()
     ///     {
     ///         Bucket = aws_s3_bucket.Bucket.Id,
     ///         Rules = new[]
     ///         {
-    ///             new Aws.S3.Inputs.BucketLifecycleConfigurationV2RuleArgs
+    ///             
     ///             {
-    ///                 Id = "rule-1",
-    ///                 Filter = null,
-    ///                 Status = "Enabled",
+    ///                 { "id", "rule-1" },
+    ///                 { "filter", null },
+    ///                 { "status", "Enabled" },
     ///             },
     ///         },
     ///     });
@@ -99,19 +99,19 @@ namespace Pulumi.Aws.S3
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.S3.BucketLifecycleConfigurationV2("example", new()
+    ///     var example = new Aws.S3.BucketLifecycleConfigurationV2.BucketLifecycleConfigurationV2("example", new()
     ///     {
     ///         Bucket = aws_s3_bucket.Bucket.Id,
     ///         Rules = new[]
     ///         {
-    ///             new Aws.S3.Inputs.BucketLifecycleConfigurationV2RuleArgs
+    ///             
     ///             {
-    ///                 Id = "rule-1",
-    ///                 Filter = new Aws.S3.Inputs.BucketLifecycleConfigurationV2RuleFilterArgs
+    ///                 { "id", "rule-1" },
+    ///                 { "filter", 
     ///                 {
-    ///                     Prefix = "logs/",
-    ///                 },
-    ///                 Status = "Enabled",
+    ///                     { "prefix", "logs/" },
+    ///                 } },
+    ///                 { "status", "Enabled" },
     ///             },
     ///         },
     ///     });
@@ -129,28 +129,28 @@ namespace Pulumi.Aws.S3
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.S3.BucketLifecycleConfigurationV2("example", new()
+    ///     var example = new Aws.S3.BucketLifecycleConfigurationV2.BucketLifecycleConfigurationV2("example", new()
     ///     {
     ///         Bucket = aws_s3_bucket.Bucket.Id,
     ///         Rules = new[]
     ///         {
-    ///             new Aws.S3.Inputs.BucketLifecycleConfigurationV2RuleArgs
+    ///             
     ///             {
-    ///                 Id = "rule-1",
-    ///                 Filter = new Aws.S3.Inputs.BucketLifecycleConfigurationV2RuleFilterArgs
+    ///                 { "id", "rule-1" },
+    ///                 { "filter", 
     ///                 {
-    ///                     Prefix = "logs/",
-    ///                 },
-    ///                 Status = "Enabled",
+    ///                     { "prefix", "logs/" },
+    ///                 } },
+    ///                 { "status", "Enabled" },
     ///             },
-    ///             new Aws.S3.Inputs.BucketLifecycleConfigurationV2RuleArgs
+    ///             
     ///             {
-    ///                 Id = "rule-2",
-    ///                 Filter = new Aws.S3.Inputs.BucketLifecycleConfigurationV2RuleFilterArgs
+    ///                 { "id", "rule-2" },
+    ///                 { "filter", 
     ///                 {
-    ///                     Prefix = "tmp/",
-    ///                 },
-    ///                 Status = "Enabled",
+    ///                     { "prefix", "tmp/" },
+    ///                 } },
+    ///                 { "status", "Enabled" },
     ///             },
     ///         },
     ///     });
@@ -169,23 +169,23 @@ namespace Pulumi.Aws.S3
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.S3.BucketLifecycleConfigurationV2("example", new()
+    ///     var example = new Aws.S3.BucketLifecycleConfigurationV2.BucketLifecycleConfigurationV2("example", new()
     ///     {
     ///         Bucket = aws_s3_bucket.Bucket.Id,
     ///         Rules = new[]
     ///         {
-    ///             new Aws.S3.Inputs.BucketLifecycleConfigurationV2RuleArgs
+    ///             
     ///             {
-    ///                 Id = "rule-1",
-    ///                 Filter = new Aws.S3.Inputs.BucketLifecycleConfigurationV2RuleFilterArgs
+    ///                 { "id", "rule-1" },
+    ///                 { "filter", 
     ///                 {
-    ///                     Tag = new Aws.S3.Inputs.BucketLifecycleConfigurationV2RuleFilterTagArgs
+    ///                     { "tag", 
     ///                     {
-    ///                         Key = "Name",
-    ///                         Value = "Staging",
-    ///                     },
-    ///                 },
-    ///                 Status = "Enabled",
+    ///                         { "key", "Name" },
+    ///                         { "value", "Staging" },
+    ///                     } },
+    ///                 } },
+    ///                 { "status", "Enabled" },
     ///             },
     ///         },
     ///     });
@@ -204,26 +204,26 @@ namespace Pulumi.Aws.S3
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.S3.BucketLifecycleConfigurationV2("example", new()
+    ///     var example = new Aws.S3.BucketLifecycleConfigurationV2.BucketLifecycleConfigurationV2("example", new()
     ///     {
     ///         Bucket = aws_s3_bucket.Bucket.Id,
     ///         Rules = new[]
     ///         {
-    ///             new Aws.S3.Inputs.BucketLifecycleConfigurationV2RuleArgs
+    ///             
     ///             {
-    ///                 Id = "rule-1",
-    ///                 Filter = new Aws.S3.Inputs.BucketLifecycleConfigurationV2RuleFilterArgs
+    ///                 { "id", "rule-1" },
+    ///                 { "filter", 
     ///                 {
-    ///                     And = new Aws.S3.Inputs.BucketLifecycleConfigurationV2RuleFilterAndArgs
+    ///                     { "and", 
     ///                     {
-    ///                         Tags = 
+    ///                         { "tags", 
     ///                         {
     ///                             { "Key1", "Value1" },
     ///                             { "Key2", "Value2" },
-    ///                         },
-    ///                     },
-    ///                 },
-    ///                 Status = "Enabled",
+    ///                         } },
+    ///                     } },
+    ///                 } },
+    ///                 { "status", "Enabled" },
     ///             },
     ///         },
     ///     });
@@ -242,27 +242,27 @@ namespace Pulumi.Aws.S3
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.S3.BucketLifecycleConfigurationV2("example", new()
+    ///     var example = new Aws.S3.BucketLifecycleConfigurationV2.BucketLifecycleConfigurationV2("example", new()
     ///     {
     ///         Bucket = aws_s3_bucket.Bucket.Id,
     ///         Rules = new[]
     ///         {
-    ///             new Aws.S3.Inputs.BucketLifecycleConfigurationV2RuleArgs
+    ///             
     ///             {
-    ///                 Id = "rule-1",
-    ///                 Filter = new Aws.S3.Inputs.BucketLifecycleConfigurationV2RuleFilterArgs
+    ///                 { "id", "rule-1" },
+    ///                 { "filter", 
     ///                 {
-    ///                     And = new Aws.S3.Inputs.BucketLifecycleConfigurationV2RuleFilterAndArgs
+    ///                     { "and", 
     ///                     {
-    ///                         Prefix = "logs/",
-    ///                         Tags = 
+    ///                         { "prefix", "logs/" },
+    ///                         { "tags", 
     ///                         {
     ///                             { "Key1", "Value1" },
     ///                             { "Key2", "Value2" },
-    ///                         },
-    ///                     },
-    ///                 },
-    ///                 Status = "Enabled",
+    ///                         } },
+    ///                     } },
+    ///                 } },
+    ///                 { "status", "Enabled" },
     ///             },
     ///         },
     ///     });
@@ -281,19 +281,19 @@ namespace Pulumi.Aws.S3
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.S3.BucketLifecycleConfigurationV2("example", new()
+    ///     var example = new Aws.S3.BucketLifecycleConfigurationV2.BucketLifecycleConfigurationV2("example", new()
     ///     {
     ///         Bucket = aws_s3_bucket.Bucket.Id,
     ///         Rules = new[]
     ///         {
-    ///             new Aws.S3.Inputs.BucketLifecycleConfigurationV2RuleArgs
+    ///             
     ///             {
-    ///                 Id = "rule-1",
-    ///                 Filter = new Aws.S3.Inputs.BucketLifecycleConfigurationV2RuleFilterArgs
+    ///                 { "id", "rule-1" },
+    ///                 { "filter", 
     ///                 {
-    ///                     ObjectSizeGreaterThan = "500",
-    ///                 },
-    ///                 Status = "Enabled",
+    ///                     { "objectSizeGreaterThan", 500 },
+    ///                 } },
+    ///                 { "status", "Enabled" },
     ///             },
     ///         },
     ///     });
@@ -312,24 +312,24 @@ namespace Pulumi.Aws.S3
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.S3.BucketLifecycleConfigurationV2("example", new()
+    ///     var example = new Aws.S3.BucketLifecycleConfigurationV2.BucketLifecycleConfigurationV2("example", new()
     ///     {
     ///         Bucket = aws_s3_bucket.Bucket.Id,
     ///         Rules = new[]
     ///         {
-    ///             new Aws.S3.Inputs.BucketLifecycleConfigurationV2RuleArgs
+    ///             
     ///             {
-    ///                 Id = "rule-1",
-    ///                 Filter = new Aws.S3.Inputs.BucketLifecycleConfigurationV2RuleFilterArgs
+    ///                 { "id", "rule-1" },
+    ///                 { "filter", 
     ///                 {
-    ///                     And = new Aws.S3.Inputs.BucketLifecycleConfigurationV2RuleFilterAndArgs
+    ///                     { "and", 
     ///                     {
-    ///                         Prefix = "logs/",
-    ///                         ObjectSizeGreaterThan = 500,
-    ///                         ObjectSizeLessThan = 64000,
-    ///                     },
-    ///                 },
-    ///                 Status = "Enabled",
+    ///                         { "prefix", "logs/" },
+    ///                         { "objectSizeGreaterThan", 500 },
+    ///                         { "objectSizeLessThan", 64000 },
+    ///                     } },
+    ///                 } },
+    ///                 { "status", "Enabled" },
     ///             },
     ///         },
     ///     });
@@ -346,116 +346,116 @@ namespace Pulumi.Aws.S3
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var bucket = new Aws.S3.BucketV2("bucket");
+    ///     var bucket = new Aws.S3.BucketV2.BucketV2("bucket");
     /// 
-    ///     var bucketAcl = new Aws.S3.BucketAclV2("bucketAcl", new()
+    ///     var bucketAcl = new Aws.S3.BucketAclV2.BucketAclV2("bucketAcl", new()
     ///     {
     ///         Bucket = bucket.Id,
     ///         Acl = "private",
     ///     });
     /// 
-    ///     var bucket_config = new Aws.S3.BucketLifecycleConfigurationV2("bucket-config", new()
+    ///     var bucket_config = new Aws.S3.BucketLifecycleConfigurationV2.BucketLifecycleConfigurationV2("bucket-config", new()
     ///     {
     ///         Bucket = bucket.Id,
     ///         Rules = new[]
     ///         {
-    ///             new Aws.S3.Inputs.BucketLifecycleConfigurationV2RuleArgs
+    ///             
     ///             {
-    ///                 Id = "log",
-    ///                 Expiration = new Aws.S3.Inputs.BucketLifecycleConfigurationV2RuleExpirationArgs
+    ///                 { "id", "log" },
+    ///                 { "expiration", 
     ///                 {
-    ///                     Days = 90,
-    ///                 },
-    ///                 Filter = new Aws.S3.Inputs.BucketLifecycleConfigurationV2RuleFilterArgs
+    ///                     { "days", 90 },
+    ///                 } },
+    ///                 { "filter", 
     ///                 {
-    ///                     And = new Aws.S3.Inputs.BucketLifecycleConfigurationV2RuleFilterAndArgs
+    ///                     { "and", 
     ///                     {
-    ///                         Prefix = "log/",
-    ///                         Tags = 
+    ///                         { "prefix", "log/" },
+    ///                         { "tags", 
     ///                         {
     ///                             { "rule", "log" },
     ///                             { "autoclean", "true" },
-    ///                         },
-    ///                     },
-    ///                 },
-    ///                 Status = "Enabled",
-    ///                 Transitions = new[]
+    ///                         } },
+    ///                     } },
+    ///                 } },
+    ///                 { "status", "Enabled" },
+    ///                 { "transitions", new[]
     ///                 {
-    ///                     new Aws.S3.Inputs.BucketLifecycleConfigurationV2RuleTransitionArgs
+    ///                     
     ///                     {
-    ///                         Days = 30,
-    ///                         StorageClass = "STANDARD_IA",
+    ///                         { "days", 30 },
+    ///                         { "storageClass", "STANDARD_IA" },
     ///                     },
-    ///                     new Aws.S3.Inputs.BucketLifecycleConfigurationV2RuleTransitionArgs
+    ///                     
     ///                     {
-    ///                         Days = 60,
-    ///                         StorageClass = "GLACIER",
+    ///                         { "days", 60 },
+    ///                         { "storageClass", "GLACIER" },
     ///                     },
-    ///                 },
+    ///                 } },
     ///             },
-    ///             new Aws.S3.Inputs.BucketLifecycleConfigurationV2RuleArgs
+    ///             
     ///             {
-    ///                 Id = "tmp",
-    ///                 Filter = new Aws.S3.Inputs.BucketLifecycleConfigurationV2RuleFilterArgs
+    ///                 { "id", "tmp" },
+    ///                 { "filter", 
     ///                 {
-    ///                     Prefix = "tmp/",
-    ///                 },
-    ///                 Expiration = new Aws.S3.Inputs.BucketLifecycleConfigurationV2RuleExpirationArgs
+    ///                     { "prefix", "tmp/" },
+    ///                 } },
+    ///                 { "expiration", 
     ///                 {
-    ///                     Date = "2023-01-13T00:00:00Z",
-    ///                 },
-    ///                 Status = "Enabled",
+    ///                     { "date", "2023-01-13T00:00:00Z" },
+    ///                 } },
+    ///                 { "status", "Enabled" },
     ///             },
     ///         },
     ///     });
     /// 
-    ///     var versioningBucket = new Aws.S3.BucketV2("versioningBucket");
+    ///     var versioningBucket = new Aws.S3.BucketV2.BucketV2("versioningBucket");
     /// 
-    ///     var versioningBucketAcl = new Aws.S3.BucketAclV2("versioningBucketAcl", new()
+    ///     var versioningBucketAcl = new Aws.S3.BucketAclV2.BucketAclV2("versioningBucketAcl", new()
     ///     {
     ///         Bucket = versioningBucket.Id,
     ///         Acl = "private",
     ///     });
     /// 
-    ///     var versioning = new Aws.S3.BucketVersioningV2("versioning", new()
+    ///     var versioning = new Aws.S3.BucketVersioningV2.BucketVersioningV2("versioning", new()
     ///     {
     ///         Bucket = versioningBucket.Id,
-    ///         VersioningConfiguration = new Aws.S3.Inputs.BucketVersioningV2VersioningConfigurationArgs
+    ///         VersioningConfiguration = 
     ///         {
-    ///             Status = "Enabled",
+    ///             { "status", "Enabled" },
     ///         },
     ///     });
     /// 
-    ///     var versioning_bucket_config = new Aws.S3.BucketLifecycleConfigurationV2("versioning-bucket-config", new()
+    ///     var versioning_bucket_config = new Aws.S3.BucketLifecycleConfigurationV2.BucketLifecycleConfigurationV2("versioning-bucket-config", new()
     ///     {
     ///         Bucket = versioningBucket.Id,
     ///         Rules = new[]
     ///         {
-    ///             new Aws.S3.Inputs.BucketLifecycleConfigurationV2RuleArgs
+    ///             
     ///             {
-    ///                 Id = "config",
-    ///                 Filter = new Aws.S3.Inputs.BucketLifecycleConfigurationV2RuleFilterArgs
+    ///                 { "id", "config" },
+    ///                 { "filter", 
     ///                 {
-    ///                     Prefix = "config/",
-    ///                 },
-    ///                 NoncurrentVersionExpiration = new Aws.S3.Inputs.BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationArgs
+    ///                     { "prefix", "config/" },
+    ///                 } },
+    ///                 { "noncurrentVersionExpiration", 
     ///                 {
-    ///                     NoncurrentDays = 90,
-    ///                 },
-    ///                 NoncurrentVersionTransitions = new[]
+    ///                     { "noncurrentDays", 90 },
+    ///                 } },
+    ///                 { "noncurrentVersionTransitions", new[]
     ///                 {
-    ///                     new Aws.S3.Inputs.BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionArgs
+    ///                     
     ///                     {
-    ///                         NoncurrentDays = 30,
-    ///                         StorageClass = "STANDARD_IA",
+    ///                         { "noncurrentDays", 30 },
+    ///                         { "storageClass", "STANDARD_IA" },
     ///                     },
-    ///                     new Aws.S3.Inputs.BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionArgs
+    ///                     
     ///                     {
-    ///                         NoncurrentDays = 60,
-    ///                         StorageClass = "GLACIER",
+    ///                         { "noncurrentDays", 60 },
+    ///                         { "storageClass", "GLACIER" },
     ///                     },
-    ///                 },
-    ///                 Status = "Enabled",
+    ///                 } },
+    ///                 { "status", "Enabled" },
     ///             },
     ///         },
     ///     }, new CustomResourceOptions

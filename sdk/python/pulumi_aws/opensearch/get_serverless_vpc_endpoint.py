@@ -118,15 +118,6 @@ def get_serverless_vpc_endpoint(vpc_endpoint_id: Optional[str] = None,
     """
     Data source for managing an AWS OpenSearch Serverless VPC Endpoint.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.opensearch.get_serverless_vpc_endpoint(vpc_endpoint_id="vpce-829a4487959e2a839")
-    ```
-
 
     :param str vpc_endpoint_id: The unique identifier of the endpoint.
     """
@@ -150,15 +141,6 @@ def get_serverless_vpc_endpoint_output(vpc_endpoint_id: Optional[pulumi.Input[st
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServerlessVpcEndpointResult]:
     """
     Data source for managing an AWS OpenSearch Serverless VPC Endpoint.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.opensearch.get_serverless_vpc_endpoint(vpc_endpoint_id="vpce-829a4487959e2a839")
-    ```
 
 
     :param str vpc_endpoint_id: The unique identifier of the endpoint.

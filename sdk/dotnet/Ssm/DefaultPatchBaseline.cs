@@ -23,7 +23,7 @@ namespace Pulumi.Aws.Ssm
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var examplePatchBaseline = new Aws.Ssm.PatchBaseline("examplePatchBaseline", new()
+    ///     var examplePatchBaseline = new Aws.Ssm.PatchBaseline.PatchBaseline("examplePatchBaseline", new()
     ///     {
     ///         ApprovedPatches = new[]
     ///         {
@@ -31,7 +31,7 @@ namespace Pulumi.Aws.Ssm
     ///         },
     ///     });
     /// 
-    ///     var exampleDefaultPatchBaseline = new Aws.Ssm.DefaultPatchBaseline("exampleDefaultPatchBaseline", new()
+    ///     var exampleDefaultPatchBaseline = new Aws.Ssm.DefaultPatchBaseline.DefaultPatchBaseline("exampleDefaultPatchBaseline", new()
     ///     {
     ///         BaselineId = examplePatchBaseline.Id,
     ///         OperatingSystem = examplePatchBaseline.OperatingSystem,

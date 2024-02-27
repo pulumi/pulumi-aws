@@ -37,8 +37,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.ecs.TaskDefinition;
  * import com.pulumi.aws.ecs.TaskDefinitionArgs;
- * import com.pulumi.aws.ecs.inputs.TaskDefinitionVolumeArgs;
- * import com.pulumi.aws.ecs.inputs.TaskDefinitionPlacementConstraintArgs;
  * import static com.pulumi.codegen.internal.Serialization.*;
  * import java.util.List;
  * import java.util.ArrayList;
@@ -80,14 +78,8 @@ import javax.annotation.Nullable;
  *                         )))
  *                     )
  *                 )))
- *             .volumes(TaskDefinitionVolumeArgs.builder()
- *                 .name(&#34;service-storage&#34;)
- *                 .hostPath(&#34;/ecs/service-storage&#34;)
- *                 .build())
- *             .placementConstraints(TaskDefinitionPlacementConstraintArgs.builder()
- *                 .type(&#34;memberOf&#34;)
- *                 .expression(&#34;attribute:ecs.availability-zone in [us-west-2a, us-west-2b]&#34;)
- *                 .build())
+ *             .volumes(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .placementConstraints(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -102,7 +94,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.ecs.TaskDefinition;
  * import com.pulumi.aws.ecs.TaskDefinitionArgs;
- * import com.pulumi.aws.ecs.inputs.TaskDefinitionProxyConfigurationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -119,17 +110,7 @@ import javax.annotation.Nullable;
  *         var service = new TaskDefinition(&#34;service&#34;, TaskDefinitionArgs.builder()        
  *             .family(&#34;service&#34;)
  *             .containerDefinitions(Files.readString(Paths.get(&#34;task-definitions/service.json&#34;)))
- *             .proxyConfiguration(TaskDefinitionProxyConfigurationArgs.builder()
- *                 .type(&#34;APPMESH&#34;)
- *                 .containerName(&#34;applicationContainerName&#34;)
- *                 .properties(Map.ofEntries(
- *                     Map.entry(&#34;AppPorts&#34;, &#34;8080&#34;),
- *                     Map.entry(&#34;EgressIgnoredIPs&#34;, &#34;169.254.170.2,169.254.169.254&#34;),
- *                     Map.entry(&#34;IgnoredUID&#34;, &#34;1337&#34;),
- *                     Map.entry(&#34;ProxyEgressPort&#34;, 15001),
- *                     Map.entry(&#34;ProxyIngressPort&#34;, 15000)
- *                 ))
- *                 .build())
+ *             .proxyConfiguration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -144,8 +125,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.ecs.TaskDefinition;
  * import com.pulumi.aws.ecs.TaskDefinitionArgs;
- * import com.pulumi.aws.ecs.inputs.TaskDefinitionVolumeArgs;
- * import com.pulumi.aws.ecs.inputs.TaskDefinitionVolumeDockerVolumeConfigurationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -162,19 +141,7 @@ import javax.annotation.Nullable;
  *         var service = new TaskDefinition(&#34;service&#34;, TaskDefinitionArgs.builder()        
  *             .family(&#34;service&#34;)
  *             .containerDefinitions(Files.readString(Paths.get(&#34;task-definitions/service.json&#34;)))
- *             .volumes(TaskDefinitionVolumeArgs.builder()
- *                 .name(&#34;service-storage&#34;)
- *                 .dockerVolumeConfiguration(TaskDefinitionVolumeDockerVolumeConfigurationArgs.builder()
- *                     .scope(&#34;shared&#34;)
- *                     .autoprovision(true)
- *                     .driver(&#34;local&#34;)
- *                     .driverOpts(Map.ofEntries(
- *                         Map.entry(&#34;type&#34;, &#34;nfs&#34;),
- *                         Map.entry(&#34;device&#34;, String.format(&#34;%s:/&#34;, aws_efs_file_system.fs().dns_name())),
- *                         Map.entry(&#34;o&#34;, String.format(&#34;addr=%s,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport&#34;, aws_efs_file_system.fs().dns_name()))
- *                     ))
- *                     .build())
- *                 .build())
+ *             .volumes(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -189,9 +156,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.ecs.TaskDefinition;
  * import com.pulumi.aws.ecs.TaskDefinitionArgs;
- * import com.pulumi.aws.ecs.inputs.TaskDefinitionVolumeArgs;
- * import com.pulumi.aws.ecs.inputs.TaskDefinitionVolumeEfsVolumeConfigurationArgs;
- * import com.pulumi.aws.ecs.inputs.TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -208,19 +172,7 @@ import javax.annotation.Nullable;
  *         var service = new TaskDefinition(&#34;service&#34;, TaskDefinitionArgs.builder()        
  *             .family(&#34;service&#34;)
  *             .containerDefinitions(Files.readString(Paths.get(&#34;task-definitions/service.json&#34;)))
- *             .volumes(TaskDefinitionVolumeArgs.builder()
- *                 .name(&#34;service-storage&#34;)
- *                 .efsVolumeConfiguration(TaskDefinitionVolumeEfsVolumeConfigurationArgs.builder()
- *                     .fileSystemId(aws_efs_file_system.fs().id())
- *                     .rootDirectory(&#34;/opt/data&#34;)
- *                     .transitEncryption(&#34;ENABLED&#34;)
- *                     .transitEncryptionPort(2999)
- *                     .authorizationConfig(TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArgs.builder()
- *                         .accessPointId(aws_efs_access_point.test().id())
- *                         .iam(&#34;ENABLED&#34;)
- *                         .build())
- *                     .build())
- *                 .build())
+ *             .volumes(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -237,9 +189,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.secretsmanager.SecretVersionArgs;
  * import com.pulumi.aws.ecs.TaskDefinition;
  * import com.pulumi.aws.ecs.TaskDefinitionArgs;
- * import com.pulumi.aws.ecs.inputs.TaskDefinitionVolumeArgs;
- * import com.pulumi.aws.ecs.inputs.TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArgs;
- * import com.pulumi.aws.ecs.inputs.TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArgs;
  * import static com.pulumi.codegen.internal.Serialization.*;
  * import java.util.List;
  * import java.util.ArrayList;
@@ -266,17 +215,7 @@ import javax.annotation.Nullable;
  *         var service = new TaskDefinition(&#34;service&#34;, TaskDefinitionArgs.builder()        
  *             .family(&#34;service&#34;)
  *             .containerDefinitions(Files.readString(Paths.get(&#34;task-definitions/service.json&#34;)))
- *             .volumes(TaskDefinitionVolumeArgs.builder()
- *                 .name(&#34;service-storage&#34;)
- *                 .fsxWindowsFileServerVolumeConfiguration(TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArgs.builder()
- *                     .fileSystemId(aws_fsx_windows_file_system.test().id())
- *                     .rootDirectory(&#34;\\data&#34;)
- *                     .authorizationConfig(TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArgs.builder()
- *                         .credentialsParameter(test.arn())
- *                         .domain(aws_directory_service_directory.test().name())
- *                         .build())
- *                     .build())
- *                 .build())
+ *             .volumes(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -291,7 +230,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.ecs.TaskDefinition;
  * import com.pulumi.aws.ecs.TaskDefinitionArgs;
- * import com.pulumi.aws.ecs.inputs.TaskDefinitionInferenceAcceleratorArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -336,10 +274,7 @@ import javax.annotation.Nullable;
  * 
  *             &#34;&#34;&#34;)
  *             .family(&#34;test&#34;)
- *             .inferenceAccelerators(TaskDefinitionInferenceAcceleratorArgs.builder()
- *                 .deviceName(&#34;device_1&#34;)
- *                 .deviceType(&#34;eia1.medium&#34;)
- *                 .build())
+ *             .inferenceAccelerators(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -354,7 +289,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.ecs.TaskDefinition;
  * import com.pulumi.aws.ecs.TaskDefinitionArgs;
- * import com.pulumi.aws.ecs.inputs.TaskDefinitionRuntimePlatformArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -386,10 +320,7 @@ import javax.annotation.Nullable;
  *             .memory(2048)
  *             .networkMode(&#34;awsvpc&#34;)
  *             .requiresCompatibilities(&#34;FARGATE&#34;)
- *             .runtimePlatform(TaskDefinitionRuntimePlatformArgs.builder()
- *                 .cpuArchitecture(&#34;X86_64&#34;)
- *                 .operatingSystemFamily(&#34;WINDOWS_SERVER_2019_CORE&#34;)
- *                 .build())
+ *             .runtimePlatform(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

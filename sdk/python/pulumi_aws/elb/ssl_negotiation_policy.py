@@ -235,47 +235,47 @@ class SslNegotiationPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        lb = aws.elb.LoadBalancer("lb",
-            availability_zones=["us-east-1a"],
-            listeners=[aws.elb.LoadBalancerListenerArgs(
-                instance_port=8000,
-                instance_protocol="https",
-                lb_port=443,
-                lb_protocol="https",
-                ssl_certificate_id="arn:aws:iam::123456789012:server-certificate/certName",
-            )])
-        foo = aws.elb.SslNegotiationPolicy("foo",
+        lb = aws.elb.load_balancer.LoadBalancer("lb",
+            availability_zones=[us-east-1a],
+            listeners=[{
+                instancePort: 8000,
+                instanceProtocol: https,
+                lbPort: 443,
+                lbProtocol: https,
+                sslCertificateId: arn:aws:iam::123456789012:server-certificate/certName,
+            }])
+        foo = aws.elb.ssl_negotiation_policy.SslNegotiationPolicy("foo",
             load_balancer=lb.id,
             lb_port=443,
             attributes=[
-                aws.elb.SslNegotiationPolicyAttributeArgs(
-                    name="Protocol-TLSv1",
-                    value="false",
-                ),
-                aws.elb.SslNegotiationPolicyAttributeArgs(
-                    name="Protocol-TLSv1.1",
-                    value="false",
-                ),
-                aws.elb.SslNegotiationPolicyAttributeArgs(
-                    name="Protocol-TLSv1.2",
-                    value="true",
-                ),
-                aws.elb.SslNegotiationPolicyAttributeArgs(
-                    name="Server-Defined-Cipher-Order",
-                    value="true",
-                ),
-                aws.elb.SslNegotiationPolicyAttributeArgs(
-                    name="ECDHE-RSA-AES128-GCM-SHA256",
-                    value="true",
-                ),
-                aws.elb.SslNegotiationPolicyAttributeArgs(
-                    name="AES128-GCM-SHA256",
-                    value="true",
-                ),
-                aws.elb.SslNegotiationPolicyAttributeArgs(
-                    name="EDH-RSA-DES-CBC3-SHA",
-                    value="false",
-                ),
+                {
+                    name: Protocol-TLSv1,
+                    value: false,
+                },
+                {
+                    name: Protocol-TLSv1.1,
+                    value: false,
+                },
+                {
+                    name: Protocol-TLSv1.2,
+                    value: true,
+                },
+                {
+                    name: Server-Defined-Cipher-Order,
+                    value: true,
+                },
+                {
+                    name: ECDHE-RSA-AES128-GCM-SHA256,
+                    value: true,
+                },
+                {
+                    name: AES128-GCM-SHA256,
+                    value: true,
+                },
+                {
+                    name: EDH-RSA-DES-CBC3-SHA,
+                    value: false,
+                },
             ])
         ```
 
@@ -309,47 +309,47 @@ class SslNegotiationPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        lb = aws.elb.LoadBalancer("lb",
-            availability_zones=["us-east-1a"],
-            listeners=[aws.elb.LoadBalancerListenerArgs(
-                instance_port=8000,
-                instance_protocol="https",
-                lb_port=443,
-                lb_protocol="https",
-                ssl_certificate_id="arn:aws:iam::123456789012:server-certificate/certName",
-            )])
-        foo = aws.elb.SslNegotiationPolicy("foo",
+        lb = aws.elb.load_balancer.LoadBalancer("lb",
+            availability_zones=[us-east-1a],
+            listeners=[{
+                instancePort: 8000,
+                instanceProtocol: https,
+                lbPort: 443,
+                lbProtocol: https,
+                sslCertificateId: arn:aws:iam::123456789012:server-certificate/certName,
+            }])
+        foo = aws.elb.ssl_negotiation_policy.SslNegotiationPolicy("foo",
             load_balancer=lb.id,
             lb_port=443,
             attributes=[
-                aws.elb.SslNegotiationPolicyAttributeArgs(
-                    name="Protocol-TLSv1",
-                    value="false",
-                ),
-                aws.elb.SslNegotiationPolicyAttributeArgs(
-                    name="Protocol-TLSv1.1",
-                    value="false",
-                ),
-                aws.elb.SslNegotiationPolicyAttributeArgs(
-                    name="Protocol-TLSv1.2",
-                    value="true",
-                ),
-                aws.elb.SslNegotiationPolicyAttributeArgs(
-                    name="Server-Defined-Cipher-Order",
-                    value="true",
-                ),
-                aws.elb.SslNegotiationPolicyAttributeArgs(
-                    name="ECDHE-RSA-AES128-GCM-SHA256",
-                    value="true",
-                ),
-                aws.elb.SslNegotiationPolicyAttributeArgs(
-                    name="AES128-GCM-SHA256",
-                    value="true",
-                ),
-                aws.elb.SslNegotiationPolicyAttributeArgs(
-                    name="EDH-RSA-DES-CBC3-SHA",
-                    value="false",
-                ),
+                {
+                    name: Protocol-TLSv1,
+                    value: false,
+                },
+                {
+                    name: Protocol-TLSv1.1,
+                    value: false,
+                },
+                {
+                    name: Protocol-TLSv1.2,
+                    value: true,
+                },
+                {
+                    name: Server-Defined-Cipher-Order,
+                    value: true,
+                },
+                {
+                    name: ECDHE-RSA-AES128-GCM-SHA256,
+                    value: true,
+                },
+                {
+                    name: AES128-GCM-SHA256,
+                    value: true,
+                },
+                {
+                    name: EDH-RSA-DES-CBC3-SHA,
+                    value: false,
+                },
             ])
         ```
 

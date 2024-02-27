@@ -14,52 +14,6 @@ import (
 // The Amazon Inspector Classic Rules Packages data source allows access to the list of AWS
 // Inspector Rules Packages which can be used by Amazon Inspector Classic within the region
 // configured in the provider.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/inspector"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			rules, err := inspector.GetRulesPackages(ctx, nil, nil)
-//			if err != nil {
-//				return err
-//			}
-//			group, err := inspector.NewResourceGroup(ctx, "group", &inspector.ResourceGroupArgs{
-//				Tags: pulumi.StringMap{
-//					"test": pulumi.String("test"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			assessmentAssessmentTarget, err := inspector.NewAssessmentTarget(ctx, "assessmentAssessmentTarget", &inspector.AssessmentTargetArgs{
-//				ResourceGroupArn: group.Arn,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = inspector.NewAssessmentTemplate(ctx, "assessmentAssessmentTemplate", &inspector.AssessmentTemplateArgs{
-//				TargetArn:        assessmentAssessmentTarget.Arn,
-//				Duration:         pulumi.Int(60),
-//				RulesPackageArns: interface{}(rules.Arns),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetRulesPackages(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetRulesPackagesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetRulesPackagesResult

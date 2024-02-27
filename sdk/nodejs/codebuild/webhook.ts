@@ -23,7 +23,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.codebuild.Webhook("example", {
+ * const example = new aws.codebuild/webhook.Webhook("example", {
  *     projectName: aws_codebuild_project.example.name,
  *     buildType: "BUILD",
  *     filterGroups: [{
@@ -51,8 +51,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * import * as github from "@pulumi/github";
  *
- * const exampleWebhook = new aws.codebuild.Webhook("exampleWebhook", {projectName: aws_codebuild_project.example.name});
- * const exampleRepositoryWebhook = new github.RepositoryWebhook("exampleRepositoryWebhook", {
+ * const exampleWebhook = new aws.codebuild/webhook.Webhook("exampleWebhook", {projectName: aws_codebuild_project.example.name});
+ * const exampleRepositoryWebhook = new github.index/repositoryWebhook.RepositoryWebhook("exampleRepositoryWebhook", {
  *     active: true,
  *     events: ["push"],
  *     repository: github_repository.example.name,

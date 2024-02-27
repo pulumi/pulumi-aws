@@ -12,69 +12,6 @@ import (
 )
 
 // `route53.ResolverQueryLogConfig` provides details about a specific Route53 Resolver Query Logging Configuration.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := route53.GetQueryLogConfig(ctx, &route53.GetQueryLogConfigArgs{
-//				ResolverQueryLogConfigId: pulumi.StringRef("rqlc-1abc2345ef678g91h"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := route53.GetQueryLogConfig(ctx, &route53.GetQueryLogConfigArgs{
-//				Filters: []route53.GetQueryLogConfigFilter{
-//					{
-//						Name: "Name",
-//						Values: []string{
-//							"shared-query-log-config",
-//						},
-//					},
-//					{
-//						Name: "ShareStatus",
-//						Values: []string{
-//							"SHARED_WITH_ME",
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetQueryLogConfig(ctx *pulumi.Context, args *GetQueryLogConfigArgs, opts ...pulumi.InvokeOption) (*GetQueryLogConfigResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetQueryLogConfigResult

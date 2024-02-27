@@ -28,183 +28,6 @@ import javax.annotation.Nullable;
  * &gt; **Note:** This resource manages _provisioned_ clusters. To manage a _serverless_ Amazon MSK cluster, use the `aws.msk.ServerlessCluster` resource.
  * 
  * ## Example Usage
- * ### Basic
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ec2.Vpc;
- * import com.pulumi.aws.ec2.VpcArgs;
- * import com.pulumi.aws.AwsFunctions;
- * import com.pulumi.aws.inputs.GetAvailabilityZonesArgs;
- * import com.pulumi.aws.ec2.Subnet;
- * import com.pulumi.aws.ec2.SubnetArgs;
- * import com.pulumi.aws.ec2.SecurityGroup;
- * import com.pulumi.aws.ec2.SecurityGroupArgs;
- * import com.pulumi.aws.kms.Key;
- * import com.pulumi.aws.kms.KeyArgs;
- * import com.pulumi.aws.cloudwatch.LogGroup;
- * import com.pulumi.aws.s3.BucketV2;
- * import com.pulumi.aws.s3.BucketAclV2;
- * import com.pulumi.aws.s3.BucketAclV2Args;
- * import com.pulumi.aws.iam.IamFunctions;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
- * import com.pulumi.aws.iam.Role;
- * import com.pulumi.aws.iam.RoleArgs;
- * import com.pulumi.aws.kinesis.FirehoseDeliveryStream;
- * import com.pulumi.aws.kinesis.FirehoseDeliveryStreamArgs;
- * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamExtendedS3ConfigurationArgs;
- * import com.pulumi.aws.msk.Cluster;
- * import com.pulumi.aws.msk.ClusterArgs;
- * import com.pulumi.aws.msk.inputs.ClusterBrokerNodeGroupInfoArgs;
- * import com.pulumi.aws.msk.inputs.ClusterBrokerNodeGroupInfoStorageInfoArgs;
- * import com.pulumi.aws.msk.inputs.ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs;
- * import com.pulumi.aws.msk.inputs.ClusterEncryptionInfoArgs;
- * import com.pulumi.aws.msk.inputs.ClusterOpenMonitoringArgs;
- * import com.pulumi.aws.msk.inputs.ClusterOpenMonitoringPrometheusArgs;
- * import com.pulumi.aws.msk.inputs.ClusterOpenMonitoringPrometheusJmxExporterArgs;
- * import com.pulumi.aws.msk.inputs.ClusterOpenMonitoringPrometheusNodeExporterArgs;
- * import com.pulumi.aws.msk.inputs.ClusterLoggingInfoArgs;
- * import com.pulumi.aws.msk.inputs.ClusterLoggingInfoBrokerLogsArgs;
- * import com.pulumi.aws.msk.inputs.ClusterLoggingInfoBrokerLogsCloudwatchLogsArgs;
- * import com.pulumi.aws.msk.inputs.ClusterLoggingInfoBrokerLogsFirehoseArgs;
- * import com.pulumi.aws.msk.inputs.ClusterLoggingInfoBrokerLogsS3Args;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var vpc = new Vpc(&#34;vpc&#34;, VpcArgs.builder()        
- *             .cidrBlock(&#34;192.168.0.0/22&#34;)
- *             .build());
- * 
- *         final var azs = AwsFunctions.getAvailabilityZones(GetAvailabilityZonesArgs.builder()
- *             .state(&#34;available&#34;)
- *             .build());
- * 
- *         var subnetAz1 = new Subnet(&#34;subnetAz1&#34;, SubnetArgs.builder()        
- *             .availabilityZone(azs.applyValue(getAvailabilityZonesResult -&gt; getAvailabilityZonesResult.names()[0]))
- *             .cidrBlock(&#34;192.168.0.0/24&#34;)
- *             .vpcId(vpc.id())
- *             .build());
- * 
- *         var subnetAz2 = new Subnet(&#34;subnetAz2&#34;, SubnetArgs.builder()        
- *             .availabilityZone(azs.applyValue(getAvailabilityZonesResult -&gt; getAvailabilityZonesResult.names()[1]))
- *             .cidrBlock(&#34;192.168.1.0/24&#34;)
- *             .vpcId(vpc.id())
- *             .build());
- * 
- *         var subnetAz3 = new Subnet(&#34;subnetAz3&#34;, SubnetArgs.builder()        
- *             .availabilityZone(azs.applyValue(getAvailabilityZonesResult -&gt; getAvailabilityZonesResult.names()[2]))
- *             .cidrBlock(&#34;192.168.2.0/24&#34;)
- *             .vpcId(vpc.id())
- *             .build());
- * 
- *         var sg = new SecurityGroup(&#34;sg&#34;, SecurityGroupArgs.builder()        
- *             .vpcId(vpc.id())
- *             .build());
- * 
- *         var kms = new Key(&#34;kms&#34;, KeyArgs.builder()        
- *             .description(&#34;example&#34;)
- *             .build());
- * 
- *         var test = new LogGroup(&#34;test&#34;);
- * 
- *         var bucket = new BucketV2(&#34;bucket&#34;);
- * 
- *         var bucketAcl = new BucketAclV2(&#34;bucketAcl&#34;, BucketAclV2Args.builder()        
- *             .bucket(bucket.id())
- *             .acl(&#34;private&#34;)
- *             .build());
- * 
- *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect(&#34;Allow&#34;)
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type(&#34;Service&#34;)
- *                     .identifiers(&#34;firehose.amazonaws.com&#34;)
- *                     .build())
- *                 .actions(&#34;sts:AssumeRole&#34;)
- *                 .build())
- *             .build());
- * 
- *         var firehoseRole = new Role(&#34;firehoseRole&#34;, RoleArgs.builder()        
- *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
- *             .build());
- * 
- *         var testStream = new FirehoseDeliveryStream(&#34;testStream&#34;, FirehoseDeliveryStreamArgs.builder()        
- *             .destination(&#34;extended_s3&#34;)
- *             .extendedS3Configuration(FirehoseDeliveryStreamExtendedS3ConfigurationArgs.builder()
- *                 .roleArn(firehoseRole.arn())
- *                 .bucketArn(bucket.arn())
- *                 .build())
- *             .tags(Map.of(&#34;LogDeliveryEnabled&#34;, &#34;placeholder&#34;))
- *             .build());
- * 
- *         var example = new Cluster(&#34;example&#34;, ClusterArgs.builder()        
- *             .kafkaVersion(&#34;3.2.0&#34;)
- *             .numberOfBrokerNodes(3)
- *             .brokerNodeGroupInfo(ClusterBrokerNodeGroupInfoArgs.builder()
- *                 .instanceType(&#34;kafka.m5.large&#34;)
- *                 .clientSubnets(                
- *                     subnetAz1.id(),
- *                     subnetAz2.id(),
- *                     subnetAz3.id())
- *                 .storageInfo(ClusterBrokerNodeGroupInfoStorageInfoArgs.builder()
- *                     .ebsStorageInfo(ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs.builder()
- *                         .volumeSize(1000)
- *                         .build())
- *                     .build())
- *                 .securityGroups(sg.id())
- *                 .build())
- *             .encryptionInfo(ClusterEncryptionInfoArgs.builder()
- *                 .encryptionAtRestKmsKeyArn(kms.arn())
- *                 .build())
- *             .openMonitoring(ClusterOpenMonitoringArgs.builder()
- *                 .prometheus(ClusterOpenMonitoringPrometheusArgs.builder()
- *                     .jmxExporter(ClusterOpenMonitoringPrometheusJmxExporterArgs.builder()
- *                         .enabledInBroker(true)
- *                         .build())
- *                     .nodeExporter(ClusterOpenMonitoringPrometheusNodeExporterArgs.builder()
- *                         .enabledInBroker(true)
- *                         .build())
- *                     .build())
- *                 .build())
- *             .loggingInfo(ClusterLoggingInfoArgs.builder()
- *                 .brokerLogs(ClusterLoggingInfoBrokerLogsArgs.builder()
- *                     .cloudwatchLogs(ClusterLoggingInfoBrokerLogsCloudwatchLogsArgs.builder()
- *                         .enabled(true)
- *                         .logGroup(test.name())
- *                         .build())
- *                     .firehose(ClusterLoggingInfoBrokerLogsFirehoseArgs.builder()
- *                         .enabled(true)
- *                         .deliveryStream(testStream.name())
- *                         .build())
- *                     .s3(ClusterLoggingInfoBrokerLogsS3Args.builder()
- *                         .enabled(true)
- *                         .bucket(bucket.id())
- *                         .prefix(&#34;logs/msk-&#34;)
- *                         .build())
- *                     .build())
- *                 .build())
- *             .tags(Map.of(&#34;foo&#34;, &#34;bar&#34;))
- *             .build());
- * 
- *         ctx.export(&#34;zookeeperConnectString&#34;, example.zookeeperConnectString());
- *         ctx.export(&#34;bootstrapBrokersTls&#34;, example.bootstrapBrokersTls());
- *     }
- * }
- * ```
  * ### With volume_throughput argument
  * ```java
  * package generated_program;
@@ -214,10 +37,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.msk.Cluster;
  * import com.pulumi.aws.msk.ClusterArgs;
- * import com.pulumi.aws.msk.inputs.ClusterBrokerNodeGroupInfoArgs;
- * import com.pulumi.aws.msk.inputs.ClusterBrokerNodeGroupInfoStorageInfoArgs;
- * import com.pulumi.aws.msk.inputs.ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs;
- * import com.pulumi.aws.msk.inputs.ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -234,23 +53,7 @@ import javax.annotation.Nullable;
  *         var example = new Cluster(&#34;example&#34;, ClusterArgs.builder()        
  *             .kafkaVersion(&#34;2.7.1&#34;)
  *             .numberOfBrokerNodes(3)
- *             .brokerNodeGroupInfo(ClusterBrokerNodeGroupInfoArgs.builder()
- *                 .instanceType(&#34;kafka.m5.4xlarge&#34;)
- *                 .clientSubnets(                
- *                     aws_subnet.subnet_az1().id(),
- *                     aws_subnet.subnet_az2().id(),
- *                     aws_subnet.subnet_az3().id())
- *                 .storageInfo(ClusterBrokerNodeGroupInfoStorageInfoArgs.builder()
- *                     .ebsStorageInfo(ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs.builder()
- *                         .provisionedThroughput(ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArgs.builder()
- *                             .enabled(true)
- *                             .volumeThroughput(250)
- *                             .build())
- *                         .volumeSize(1000)
- *                         .build())
- *                     .build())
- *                 .securityGroups(aws_security_group.sg().id())
- *                 .build())
+ *             .brokerNodeGroupInfo(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

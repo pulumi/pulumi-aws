@@ -50,7 +50,6 @@ import javax.annotation.Nullable;
  * }
  * ```
  * ### Usage with KMS Key
- * 
  * ```java
  * package generated_program;
  * 

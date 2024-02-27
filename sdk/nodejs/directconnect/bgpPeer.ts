@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const peer = new aws.directconnect.BgpPeer("peer", {
+ * const peer = new aws.directconnect/bgpPeer.BgpPeer("peer", {
  *     virtualInterfaceId: aws_dx_private_virtual_interface.foo.id,
  *     addressFamily: "ipv6",
  *     bgpAsn: 65351,

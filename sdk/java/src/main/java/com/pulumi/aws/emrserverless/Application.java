@@ -65,9 +65,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.emrserverless.Application;
  * import com.pulumi.aws.emrserverless.ApplicationArgs;
- * import com.pulumi.aws.emrserverless.inputs.ApplicationInitialCapacityArgs;
- * import com.pulumi.aws.emrserverless.inputs.ApplicationInitialCapacityInitialCapacityConfigArgs;
- * import com.pulumi.aws.emrserverless.inputs.ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -82,16 +79,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Application(&#34;example&#34;, ApplicationArgs.builder()        
- *             .initialCapacities(ApplicationInitialCapacityArgs.builder()
- *                 .initialCapacityConfig(ApplicationInitialCapacityInitialCapacityConfigArgs.builder()
- *                     .workerConfiguration(ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationArgs.builder()
- *                         .cpu(&#34;2 vCPU&#34;)
- *                         .memory(&#34;10 GB&#34;)
- *                         .build())
- *                     .workerCount(1)
- *                     .build())
- *                 .initialCapacityType(&#34;HiveDriver&#34;)
- *                 .build())
+ *             .initialCapacities(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .releaseLabel(&#34;emr-6.6.0&#34;)
  *             .type(&#34;hive&#34;)
  *             .build());
@@ -108,7 +96,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.emrserverless.Application;
  * import com.pulumi.aws.emrserverless.ApplicationArgs;
- * import com.pulumi.aws.emrserverless.inputs.ApplicationMaximumCapacityArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -123,10 +110,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Application(&#34;example&#34;, ApplicationArgs.builder()        
- *             .maximumCapacity(ApplicationMaximumCapacityArgs.builder()
- *                 .cpu(&#34;2 vCPU&#34;)
- *                 .memory(&#34;10 GB&#34;)
- *                 .build())
+ *             .maximumCapacity(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .releaseLabel(&#34;emr-6.6.0&#34;)
  *             .type(&#34;hive&#34;)
  *             .build());

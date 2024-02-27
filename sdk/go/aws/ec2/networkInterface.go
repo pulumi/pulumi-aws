@@ -21,35 +21,33 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	ec2/networkInterface "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/networkInterface"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.NewNetworkInterface(ctx, "test", &ec2.NetworkInterfaceArgs{
-//				SubnetId: pulumi.Any(aws_subnet.Public_a.Id),
-//				PrivateIps: pulumi.StringArray{
-//					pulumi.String("10.0.0.50"),
-//				},
-//				SecurityGroups: pulumi.StringArray{
-//					aws_security_group.Web.Id,
-//				},
-//				Attachments: ec2.NetworkInterfaceAttachmentTypeArray{
-//					&ec2.NetworkInterfaceAttachmentTypeArgs{
-//						Instance:    pulumi.Any(aws_instance.Test.Id),
-//						DeviceIndex: pulumi.Int(1),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := ec2/networkInterface.NewNetworkInterface(ctx, "test", &ec2/networkInterface.NetworkInterfaceArgs{
+// SubnetId: aws_subnet.Public_a.Id,
+// PrivateIps: []string{
+// "10.0.0.50",
+// },
+// SecurityGroups: []interface{}{
+// aws_security_group.Web.Id,
+// },
+// Attachments: []map[string]interface{}{
+// map[string]interface{}{
+// "instance": aws_instance.Test.Id,
+// "deviceIndex": 1,
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Example of Managing Multiple IPs on a Network Interface
 //

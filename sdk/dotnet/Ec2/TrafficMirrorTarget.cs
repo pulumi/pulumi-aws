@@ -25,19 +25,19 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var nlb = new Aws.Ec2.TrafficMirrorTarget("nlb", new()
+    ///     var nlb = new Aws.Ec2.TrafficMirrorTarget.TrafficMirrorTarget("nlb", new()
     ///     {
     ///         Description = "NLB target",
     ///         NetworkLoadBalancerArn = aws_lb.Lb.Arn,
     ///     });
     /// 
-    ///     var eni = new Aws.Ec2.TrafficMirrorTarget("eni", new()
+    ///     var eni = new Aws.Ec2.TrafficMirrorTarget.TrafficMirrorTarget("eni", new()
     ///     {
     ///         Description = "ENI target",
     ///         NetworkInterfaceId = aws_instance.Test.Primary_network_interface_id,
     ///     });
     /// 
-    ///     var gwlb = new Aws.Ec2.TrafficMirrorTarget("gwlb", new()
+    ///     var gwlb = new Aws.Ec2.TrafficMirrorTarget.TrafficMirrorTarget("gwlb", new()
     ///     {
     ///         Description = "GWLB target",
     ///         GatewayLoadBalancerEndpointId = aws_vpc_endpoint.Example.Id,

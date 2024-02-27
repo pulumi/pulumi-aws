@@ -73,18 +73,6 @@ def get_vpc_attachments(filters: Optional[Sequence[pulumi.InputType['GetVpcAttac
     Get information on EC2 Transit Gateway VPC Attachments.
 
     ## Example Usage
-    ### By Filter
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    filtered = aws.ec2transitgateway.get_vpc_attachments(filters=[aws.ec2transitgateway.GetVpcAttachmentsFilterArgs(
-        name="state",
-        values=["pendingAcceptance"],
-    )])
-    unit = [aws.ec2transitgateway.get_vpc_attachment(id=filtered.ids[__index]) for __index in range(len(filtered.ids))]
-    ```
 
 
     :param Sequence[pulumi.InputType['GetVpcAttachmentsFilterArgs']] filters: One or more configuration blocks containing name-values filters. Detailed below.
@@ -107,18 +95,6 @@ def get_vpc_attachments_output(filters: Optional[pulumi.Input[Optional[Sequence[
     Get information on EC2 Transit Gateway VPC Attachments.
 
     ## Example Usage
-    ### By Filter
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    filtered = aws.ec2transitgateway.get_vpc_attachments(filters=[aws.ec2transitgateway.GetVpcAttachmentsFilterArgs(
-        name="state",
-        values=["pendingAcceptance"],
-    )])
-    unit = [aws.ec2transitgateway.get_vpc_attachment(id=filtered.ids[__index]) for __index in range(len(filtered.ids))]
-    ```
 
 
     :param Sequence[pulumi.InputType['GetVpcAttachmentsFilterArgs']] filters: One or more configuration blocks containing name-values filters. Detailed below.

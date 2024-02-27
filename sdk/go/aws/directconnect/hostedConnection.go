@@ -21,26 +21,24 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/directconnect"
+//	directconnect/hostedConnection "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/directconnect/hostedConnection"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := directconnect.NewHostedConnection(ctx, "hosted", &directconnect.HostedConnectionArgs{
-//				Bandwidth:      pulumi.String("100Mbps"),
-//				ConnectionId:   pulumi.String("dxcon-ffabc123"),
-//				OwnerAccountId: pulumi.String("123456789012"),
-//				Vlan:           pulumi.Int(1),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := directconnect/hostedConnection.NewHostedConnection(ctx, "hosted", &directconnect/hostedConnection.HostedConnectionArgs{
+// Bandwidth: "100Mbps",
+// ConnectionId: "dxcon-ffabc123",
+// OwnerAccountId: "123456789012",
+// Vlan: 1,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 type HostedConnection struct {
 	pulumi.CustomResourceState

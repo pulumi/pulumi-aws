@@ -23,7 +23,7 @@ namespace Pulumi.Aws.Synthetics
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Synthetics.Group("example");
+    ///     var example = new Aws.Synthetics.Group.Group("example");
     /// 
     /// });
     /// ```

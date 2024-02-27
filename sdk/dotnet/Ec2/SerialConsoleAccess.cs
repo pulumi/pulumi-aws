@@ -24,7 +24,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Ec2.SerialConsoleAccess("example", new()
+    ///     var example = new Aws.Ec2.SerialConsoleAccess.SerialConsoleAccess("example", new()
     ///     {
     ///         Enabled = true,
     ///     });

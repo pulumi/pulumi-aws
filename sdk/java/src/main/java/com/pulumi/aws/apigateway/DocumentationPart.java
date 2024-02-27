@@ -27,7 +27,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.apigateway.RestApi;
  * import com.pulumi.aws.apigateway.DocumentationPart;
  * import com.pulumi.aws.apigateway.DocumentationPartArgs;
- * import com.pulumi.aws.apigateway.inputs.DocumentationPartLocationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -44,11 +43,7 @@ import javax.annotation.Nullable;
  *         var exampleRestApi = new RestApi(&#34;exampleRestApi&#34;);
  * 
  *         var exampleDocumentationPart = new DocumentationPart(&#34;exampleDocumentationPart&#34;, DocumentationPartArgs.builder()        
- *             .location(DocumentationPartLocationArgs.builder()
- *                 .type(&#34;METHOD&#34;)
- *                 .method(&#34;GET&#34;)
- *                 .path(&#34;/example&#34;)
- *                 .build())
+ *             .location(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .properties(&#34;{\&#34;description\&#34;:\&#34;Example description\&#34;}&#34;)
  *             .restApiId(exampleRestApi.id())
  *             .build());

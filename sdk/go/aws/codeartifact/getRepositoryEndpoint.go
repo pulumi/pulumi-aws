@@ -12,34 +12,6 @@ import (
 )
 
 // The CodeArtifact Repository Endpoint data source returns the endpoint of a repository for a specific package format.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/codeartifact"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := codeartifact.GetRepositoryEndpoint(ctx, &codeartifact.GetRepositoryEndpointArgs{
-//				Domain:     aws_codeartifact_domain.Test.Domain,
-//				Repository: aws_codeartifact_repository.Test.Repository,
-//				Format:     "npm",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetRepositoryEndpoint(ctx *pulumi.Context, args *GetRepositoryEndpointArgs, opts ...pulumi.InvokeOption) (*GetRepositoryEndpointResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetRepositoryEndpointResult

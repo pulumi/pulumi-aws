@@ -22,24 +22,22 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/networkmanager"
+//	networkmanager/device "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/networkmanager/device"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := networkmanager.NewDevice(ctx, "example", &networkmanager.DeviceArgs{
-//				GlobalNetworkId: pulumi.Any(aws_networkmanager_global_network.Example.Id),
-//				SiteId:          pulumi.Any(aws_networkmanager_site.Example.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := networkmanager/device.NewDevice(ctx, "example", &networkmanager/device.DeviceArgs{
+// GlobalNetworkId: aws_networkmanager_global_network.Example.Id,
+// SiteId: aws_networkmanager_site.Example.Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

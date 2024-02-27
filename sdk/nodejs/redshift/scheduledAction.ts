@@ -9,56 +9,13 @@ import * as utilities from "../utilities";
 
 /**
  * ## Example Usage
- * ### Pause Cluster Action
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const assumeRole = aws.iam.getPolicyDocument({
- *     statements: [{
- *         effect: "Allow",
- *         principals: [{
- *             type: "Service",
- *             identifiers: ["scheduler.redshift.amazonaws.com"],
- *         }],
- *         actions: ["sts:AssumeRole"],
- *     }],
- * });
- * const exampleRole = new aws.iam.Role("exampleRole", {assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json)});
- * const examplePolicyDocument = aws.iam.getPolicyDocument({
- *     statements: [{
- *         effect: "Allow",
- *         actions: [
- *             "redshift:PauseCluster",
- *             "redshift:ResumeCluster",
- *             "redshift:ResizeCluster",
- *         ],
- *         resources: ["*"],
- *     }],
- * });
- * const examplePolicy = new aws.iam.Policy("examplePolicy", {policy: examplePolicyDocument.then(examplePolicyDocument => examplePolicyDocument.json)});
- * const exampleRolePolicyAttachment = new aws.iam.RolePolicyAttachment("exampleRolePolicyAttachment", {
- *     policyArn: examplePolicy.arn,
- *     role: exampleRole.name,
- * });
- * const exampleScheduledAction = new aws.redshift.ScheduledAction("exampleScheduledAction", {
- *     schedule: "cron(00 23 * * ? *)",
- *     iamRole: exampleRole.arn,
- *     targetAction: {
- *         pauseCluster: {
- *             clusterIdentifier: "tf-redshift001",
- *         },
- *     },
- * });
- * ```
  * ### Resize Cluster Action
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.redshift.ScheduledAction("example", {
+ * const example = new aws.redshift/scheduledAction.ScheduledAction("example", {
  *     schedule: "cron(00 23 * * ? *)",
  *     iamRole: aws_iam_role.example.arn,
  *     targetAction: {

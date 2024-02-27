@@ -230,16 +230,6 @@ def get_cloud_formation_type(arn: Optional[str] = None,
     """
     Provides details about a CloudFormation Type.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.cloudformation.get_cloud_formation_type(type="RESOURCE",
-        type_name="AWS::Athena::WorkGroup")
-    ```
-
 
     :param str arn: ARN of the CloudFormation Type. For example, `arn:aws:cloudformation:us-west-2::type/resource/AWS-EC2-VPC`.
     :param str type: CloudFormation Registry Type. For example, `RESOURCE`.
@@ -282,16 +272,6 @@ def get_cloud_formation_type_output(arn: Optional[pulumi.Input[Optional[str]]] =
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCloudFormationTypeResult]:
     """
     Provides details about a CloudFormation Type.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.cloudformation.get_cloud_formation_type(type="RESOURCE",
-        type_name="AWS::Athena::WorkGroup")
-    ```
 
 
     :param str arn: ARN of the CloudFormation Type. For example, `arn:aws:cloudformation:us-west-2::type/resource/AWS-EC2-VPC`.

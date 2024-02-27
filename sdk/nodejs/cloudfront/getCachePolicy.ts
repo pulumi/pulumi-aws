@@ -11,28 +11,6 @@ import * as utilities from "../utilities";
  * Use this data source to retrieve information about a CloudFront cache policy.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.cloudfront.getCachePolicy({
- *     name: "example-policy",
- * });
- * ```
- * ### AWS-Managed Policies
- *
- * AWS managed cache policy names are prefixed with `Managed-`:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.cloudfront.getCachePolicy({
- *     name: "Managed-CachingOptimized",
- * });
- * ```
  */
 export function getCachePolicy(args?: GetCachePolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetCachePolicyResult> {
     args = args || {};
@@ -93,28 +71,6 @@ export interface GetCachePolicyResult {
  * Use this data source to retrieve information about a CloudFront cache policy.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.cloudfront.getCachePolicy({
- *     name: "example-policy",
- * });
- * ```
- * ### AWS-Managed Policies
- *
- * AWS managed cache policy names are prefixed with `Managed-`:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.cloudfront.getCachePolicy({
- *     name: "Managed-CachingOptimized",
- * });
- * ```
  */
 export function getCachePolicyOutput(args?: GetCachePolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCachePolicyResult> {
     return pulumi.output(args).apply((a: any) => getCachePolicy(a, opts))

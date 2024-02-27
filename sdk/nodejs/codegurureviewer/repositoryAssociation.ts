@@ -16,9 +16,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleKey = new aws.kms.Key("exampleKey", {});
- * const exampleRepository = new aws.codecommit.Repository("exampleRepository", {repositoryName: "example-repo"});
- * const exampleRepositoryAssociation = new aws.codegurureviewer.RepositoryAssociation("exampleRepositoryAssociation", {
+ * const exampleKey = new aws.kms/key.Key("exampleKey", {});
+ * const exampleRepository = new aws.codecommit/repository.Repository("exampleRepository", {repositoryName: "example-repo"});
+ * const exampleRepositoryAssociation = new aws.codegurureviewer/repositoryAssociation.RepositoryAssociation("exampleRepositoryAssociation", {
  *     repository: {
  *         codecommit: {
  *             name: exampleRepository.repositoryName,

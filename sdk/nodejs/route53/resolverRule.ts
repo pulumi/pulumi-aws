@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const sys = new aws.route53.ResolverRule("sys", {
+ * const sys = new aws.route53/resolverRule.ResolverRule("sys", {
  *     domainName: "subdomain.example.com",
  *     ruleType: "SYSTEM",
  * });
@@ -28,7 +28,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const fwd = new aws.route53.ResolverRule("fwd", {
+ * const fwd = new aws.route53/resolverRule.ResolverRule("fwd", {
  *     domainName: "example.com",
  *     ruleType: "FORWARD",
  *     resolverEndpointId: aws_route53_resolver_endpoint.foo.id,

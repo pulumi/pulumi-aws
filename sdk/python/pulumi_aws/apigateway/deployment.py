@@ -303,34 +303,34 @@ class Deployment(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        example_rest_api = aws.apigateway.RestApi("exampleRestApi", body=json.dumps({
-            "openapi": "3.0.1",
-            "info": {
-                "title": "example",
-                "version": "1.0",
+        example_rest_api = aws.apigateway.rest_api.RestApi("exampleRestApi", body=json.dumps({
+            openapi: 3.0.1,
+            info: {
+                title: example,
+                version: 1.0,
             },
-            "paths": {
-                "/path1": {
-                    "get": {
-                        "x-amazon-apigateway-integration": {
-                            "httpMethod": "GET",
-                            "payloadFormatVersion": "1.0",
-                            "type": "HTTP_PROXY",
-                            "uri": "https://ip-ranges.amazonaws.com/ip-ranges.json",
+            paths: {
+                /path1: {
+                    get: {
+                        x-amazon-apigateway-integration: {
+                            httpMethod: GET,
+                            payloadFormatVersion: 1.0,
+                            type: HTTP_PROXY,
+                            uri: https://ip-ranges.amazonaws.com/ip-ranges.json,
                         },
                     },
                 },
             },
         }))
-        example_deployment = aws.apigateway.Deployment("exampleDeployment",
+        example_deployment = aws.apigateway.deployment.Deployment("exampleDeployment",
             rest_api=example_rest_api.id,
             triggers={
-                "redeployment": example_rest_api.body.apply(lambda body: json.dumps(body)).apply(lambda to_json: hashlib.sha1(to_json.encode()).hexdigest()),
+                redeployment: hashlib.sha1(json.dumps(example_rest_api.body).encode()).hexdigest(),
             })
-        example_stage = aws.apigateway.Stage("exampleStage",
+        example_stage = aws.apigateway.stage.Stage("exampleStage",
             deployment=example_deployment.id,
             rest_api=example_rest_api.id,
-            stage_name="example")
+            stage_name=example)
         ```
         ### Resources
 
@@ -340,34 +340,34 @@ class Deployment(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        example_rest_api = aws.apigateway.RestApi("exampleRestApi")
-        example_resource = aws.apigateway.Resource("exampleResource",
+        example_rest_api = aws.apigateway.rest_api.RestApi("exampleRestApi")
+        example_resource = aws.apigateway.resource.Resource("exampleResource",
             parent_id=example_rest_api.root_resource_id,
-            path_part="example",
+            path_part=example,
             rest_api=example_rest_api.id)
-        example_method = aws.apigateway.Method("exampleMethod",
-            authorization="NONE",
-            http_method="GET",
+        example_method = aws.apigateway.method.Method("exampleMethod",
+            authorization=NONE,
+            http_method=GET,
             resource_id=example_resource.id,
             rest_api=example_rest_api.id)
-        example_integration = aws.apigateway.Integration("exampleIntegration",
+        example_integration = aws.apigateway.integration.Integration("exampleIntegration",
             http_method=example_method.http_method,
             resource_id=example_resource.id,
             rest_api=example_rest_api.id,
-            type="MOCK")
-        example_deployment = aws.apigateway.Deployment("exampleDeployment",
+            type=MOCK)
+        example_deployment = aws.apigateway.deployment.Deployment("exampleDeployment",
             rest_api=example_rest_api.id,
             triggers={
-                "redeployment": pulumi.Output.all(example_resource.id, example_method.id, example_integration.id).apply(lambda exampleResourceId, exampleMethodId, exampleIntegrationId: json.dumps([
-                    example_resource_id,
-                    example_method_id,
-                    example_integration_id,
-                ])).apply(lambda to_json: hashlib.sha1(to_json.encode()).hexdigest()),
+                redeployment: hashlib.sha1(json.dumps([
+                    example_resource.id,
+                    example_method.id,
+                    example_integration.id,
+                ]).encode()).hexdigest(),
             })
-        example_stage = aws.apigateway.Stage("exampleStage",
+        example_stage = aws.apigateway.stage.Stage("exampleStage",
             deployment=example_deployment.id,
             rest_api=example_rest_api.id,
-            stage_name="example")
+            stage_name=example)
         ```
 
         ## Import
@@ -415,34 +415,34 @@ class Deployment(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        example_rest_api = aws.apigateway.RestApi("exampleRestApi", body=json.dumps({
-            "openapi": "3.0.1",
-            "info": {
-                "title": "example",
-                "version": "1.0",
+        example_rest_api = aws.apigateway.rest_api.RestApi("exampleRestApi", body=json.dumps({
+            openapi: 3.0.1,
+            info: {
+                title: example,
+                version: 1.0,
             },
-            "paths": {
-                "/path1": {
-                    "get": {
-                        "x-amazon-apigateway-integration": {
-                            "httpMethod": "GET",
-                            "payloadFormatVersion": "1.0",
-                            "type": "HTTP_PROXY",
-                            "uri": "https://ip-ranges.amazonaws.com/ip-ranges.json",
+            paths: {
+                /path1: {
+                    get: {
+                        x-amazon-apigateway-integration: {
+                            httpMethod: GET,
+                            payloadFormatVersion: 1.0,
+                            type: HTTP_PROXY,
+                            uri: https://ip-ranges.amazonaws.com/ip-ranges.json,
                         },
                     },
                 },
             },
         }))
-        example_deployment = aws.apigateway.Deployment("exampleDeployment",
+        example_deployment = aws.apigateway.deployment.Deployment("exampleDeployment",
             rest_api=example_rest_api.id,
             triggers={
-                "redeployment": example_rest_api.body.apply(lambda body: json.dumps(body)).apply(lambda to_json: hashlib.sha1(to_json.encode()).hexdigest()),
+                redeployment: hashlib.sha1(json.dumps(example_rest_api.body).encode()).hexdigest(),
             })
-        example_stage = aws.apigateway.Stage("exampleStage",
+        example_stage = aws.apigateway.stage.Stage("exampleStage",
             deployment=example_deployment.id,
             rest_api=example_rest_api.id,
-            stage_name="example")
+            stage_name=example)
         ```
         ### Resources
 
@@ -452,34 +452,34 @@ class Deployment(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        example_rest_api = aws.apigateway.RestApi("exampleRestApi")
-        example_resource = aws.apigateway.Resource("exampleResource",
+        example_rest_api = aws.apigateway.rest_api.RestApi("exampleRestApi")
+        example_resource = aws.apigateway.resource.Resource("exampleResource",
             parent_id=example_rest_api.root_resource_id,
-            path_part="example",
+            path_part=example,
             rest_api=example_rest_api.id)
-        example_method = aws.apigateway.Method("exampleMethod",
-            authorization="NONE",
-            http_method="GET",
+        example_method = aws.apigateway.method.Method("exampleMethod",
+            authorization=NONE,
+            http_method=GET,
             resource_id=example_resource.id,
             rest_api=example_rest_api.id)
-        example_integration = aws.apigateway.Integration("exampleIntegration",
+        example_integration = aws.apigateway.integration.Integration("exampleIntegration",
             http_method=example_method.http_method,
             resource_id=example_resource.id,
             rest_api=example_rest_api.id,
-            type="MOCK")
-        example_deployment = aws.apigateway.Deployment("exampleDeployment",
+            type=MOCK)
+        example_deployment = aws.apigateway.deployment.Deployment("exampleDeployment",
             rest_api=example_rest_api.id,
             triggers={
-                "redeployment": pulumi.Output.all(example_resource.id, example_method.id, example_integration.id).apply(lambda exampleResourceId, exampleMethodId, exampleIntegrationId: json.dumps([
-                    example_resource_id,
-                    example_method_id,
-                    example_integration_id,
-                ])).apply(lambda to_json: hashlib.sha1(to_json.encode()).hexdigest()),
+                redeployment: hashlib.sha1(json.dumps([
+                    example_resource.id,
+                    example_method.id,
+                    example_integration.id,
+                ]).encode()).hexdigest(),
             })
-        example_stage = aws.apigateway.Stage("exampleStage",
+        example_stage = aws.apigateway.stage.Stage("exampleStage",
             deployment=example_deployment.id,
             rest_api=example_rest_api.id,
-            stage_name="example")
+            stage_name=example)
         ```
 
         ## Import

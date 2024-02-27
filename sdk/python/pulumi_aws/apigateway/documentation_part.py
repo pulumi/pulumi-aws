@@ -140,14 +140,14 @@ class DocumentationPart(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_rest_api = aws.apigateway.RestApi("exampleRestApi")
-        example_documentation_part = aws.apigateway.DocumentationPart("exampleDocumentationPart",
-            location=aws.apigateway.DocumentationPartLocationArgs(
-                type="METHOD",
-                method="GET",
-                path="/example",
-            ),
-            properties="{\\"description\\":\\"Example description\\"}",
+        example_rest_api = aws.apigateway.rest_api.RestApi("exampleRestApi")
+        example_documentation_part = aws.apigateway.documentation_part.DocumentationPart("exampleDocumentationPart",
+            location={
+                type: METHOD,
+                method: GET,
+                path: /example,
+            },
+            properties={"description":"Example description"},
             rest_api_id=example_rest_api.id)
         ```
 
@@ -180,14 +180,14 @@ class DocumentationPart(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_rest_api = aws.apigateway.RestApi("exampleRestApi")
-        example_documentation_part = aws.apigateway.DocumentationPart("exampleDocumentationPart",
-            location=aws.apigateway.DocumentationPartLocationArgs(
-                type="METHOD",
-                method="GET",
-                path="/example",
-            ),
-            properties="{\\"description\\":\\"Example description\\"}",
+        example_rest_api = aws.apigateway.rest_api.RestApi("exampleRestApi")
+        example_documentation_part = aws.apigateway.documentation_part.DocumentationPart("exampleDocumentationPart",
+            location={
+                type: METHOD,
+                method: GET,
+                path: /example,
+            },
+            properties={"description":"Example description"},
             rest_api_id=example_rest_api.id)
         ```
 

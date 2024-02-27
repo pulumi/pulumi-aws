@@ -23,7 +23,7 @@ namespace Pulumi.Aws.Auditmanager
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Auditmanager.AccountRegistration("example");
+    ///     var example = new Aws.Auditmanager.AccountRegistration.AccountRegistration("example");
     /// 
     /// });
     /// ```
@@ -37,7 +37,7 @@ namespace Pulumi.Aws.Auditmanager
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Auditmanager.AccountRegistration("example", new()
+    ///     var example = new Aws.Auditmanager.AccountRegistration.AccountRegistration("example", new()
     ///     {
     ///         DeregisterOnDestroy = true,
     ///     });

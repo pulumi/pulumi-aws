@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Eks
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Eks.AccessEntry("example", new()
+    ///     var example = new Aws.Eks.AccessEntry.AccessEntry("example", new()
     ///     {
     ///         ClusterName = aws_eks_cluster.Example.Name,
     ///         PrincipalArn = aws_iam_role.Example.Arn,

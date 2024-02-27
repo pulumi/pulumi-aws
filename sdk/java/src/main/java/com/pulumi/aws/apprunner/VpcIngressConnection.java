@@ -26,9 +26,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.apprunner.VpcIngressConnection;
- * import com.pulumi.aws.apprunner.VpcIngressConnectionArgs;
- * import com.pulumi.aws.apprunner.inputs.VpcIngressConnectionIngressVpcConfigurationArgs;
+ * import com.pulumi.aws.apprunner_vpcIngressConnection.VpcIngressConnection;
+ * import com.pulumi.aws.apprunner_vpcIngressConnection.VpcIngressConnectionArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -44,11 +43,8 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new VpcIngressConnection(&#34;example&#34;, VpcIngressConnectionArgs.builder()        
  *             .serviceArn(aws_apprunner_service.example().arn())
- *             .ingressVpcConfiguration(VpcIngressConnectionIngressVpcConfigurationArgs.builder()
- *                 .vpcId(aws_default_vpc.default().id())
- *                 .vpcEndpointId(aws_vpc_endpoint.apprunner().id())
- *                 .build())
- *             .tags(Map.of(&#34;foo&#34;, &#34;bar&#34;))
+ *             .ingressVpcConfiguration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

@@ -6,17 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Get information on an Amazon MSK Configuration.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.msk.getConfiguration({
- *     name: "example",
- * });
- * ```
  */
 export function getConfiguration(args: GetConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigurationResult> {
 
@@ -68,17 +57,6 @@ export interface GetConfigurationResult {
 }
 /**
  * Get information on an Amazon MSK Configuration.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.msk.getConfiguration({
- *     name: "example",
- * });
- * ```
  */
 export function getConfigurationOutput(args: GetConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigurationResult> {
     return pulumi.output(args).apply((a: any) => getConfiguration(a, opts))

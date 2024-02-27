@@ -12,6 +12,31 @@ namespace Pulumi.Aws.RedShift
     /// <summary>
     /// Creates a Redshift cluster snapshot
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using System.Text.Json;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Redshift.ClusterSnapshot.ClusterSnapshot("example", new()
+    ///     {
+    ///         ClusterSnapshotName = "example",
+    ///         ClusterSnapshotContent = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///         {
+    ///             ["AllowDBUserOverride"] = "1",
+    ///             ["Client_ID"] = "ExampleClientID",
+    ///             ["App_ID"] = "example",
+    ///         }),
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Redshift Cluster Snapshots using `snapshot_identifier`. For example:

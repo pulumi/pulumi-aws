@@ -104,34 +104,6 @@ class RolePolicyAttachment(pulumi.CustomResource):
 
         > **NOTE:** For a given role, this resource is incompatible with using the `iam.Role` resource `managed_policy_arns` argument. When using that argument and this resource, both will attempt to manage the role's managed policy attachments and Pulumi will show a permanent difference.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["ec2.amazonaws.com"],
-            )],
-            actions=["sts:AssumeRole"],
-        )])
-        role = aws.iam.Role("role", assume_role_policy=assume_role.json)
-        policy_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            actions=["ec2:Describe*"],
-            resources=["*"],
-        )])
-        policy_policy = aws.iam.Policy("policyPolicy",
-            description="A test policy",
-            policy=policy_policy_document.json)
-        test_attach = aws.iam.RolePolicyAttachment("test-attach",
-            role=role.name,
-            policy_arn=policy_policy.arn)
-        ```
-
         ## Import
 
         Using `pulumi import`, import IAM role policy attachments using the role name and policy arn separated by `/`. For example:
@@ -157,34 +129,6 @@ class RolePolicyAttachment(pulumi.CustomResource):
         > **NOTE:** The usage of this resource conflicts with the `iam.PolicyAttachment` resource and will permanently show a difference if both are defined.
 
         > **NOTE:** For a given role, this resource is incompatible with using the `iam.Role` resource `managed_policy_arns` argument. When using that argument and this resource, both will attempt to manage the role's managed policy attachments and Pulumi will show a permanent difference.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["ec2.amazonaws.com"],
-            )],
-            actions=["sts:AssumeRole"],
-        )])
-        role = aws.iam.Role("role", assume_role_policy=assume_role.json)
-        policy_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            actions=["ec2:Describe*"],
-            resources=["*"],
-        )])
-        policy_policy = aws.iam.Policy("policyPolicy",
-            description="A test policy",
-            policy=policy_policy_document.json)
-        test_attach = aws.iam.RolePolicyAttachment("test-attach",
-            role=role.name,
-            policy_arn=policy_policy.arn)
-        ```
 
         ## Import
 

@@ -23,14 +23,14 @@ namespace Pulumi.Aws.VpcLattice
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.VpcLattice.TargetGroup("example", new()
+    ///     var example = new Aws.Vpclattice.TargetGroup.TargetGroup("example", new()
     ///     {
     ///         Type = "INSTANCE",
-    ///         Config = new Aws.VpcLattice.Inputs.TargetGroupConfigArgs
+    ///         Config = 
     ///         {
-    ///             VpcIdentifier = aws_vpc.Example.Id,
-    ///             Port = 443,
-    ///             Protocol = "HTTPS",
+    ///             { "vpcIdentifier", aws_vpc.Example.Id },
+    ///             { "port", 443 },
+    ///             { "protocol", "HTTPS" },
     ///         },
     ///     });
     /// 
@@ -46,32 +46,32 @@ namespace Pulumi.Aws.VpcLattice
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.VpcLattice.TargetGroup("example", new()
+    ///     var example = new Aws.Vpclattice.TargetGroup.TargetGroup("example", new()
     ///     {
     ///         Type = "IP",
-    ///         Config = new Aws.VpcLattice.Inputs.TargetGroupConfigArgs
+    ///         Config = 
     ///         {
-    ///             VpcIdentifier = aws_vpc.Example.Id,
-    ///             IpAddressType = "IPV4",
-    ///             Port = 443,
-    ///             Protocol = "HTTPS",
-    ///             ProtocolVersion = "HTTP1",
-    ///             HealthCheck = new Aws.VpcLattice.Inputs.TargetGroupConfigHealthCheckArgs
+    ///             { "vpcIdentifier", aws_vpc.Example.Id },
+    ///             { "ipAddressType", "IPV4" },
+    ///             { "port", 443 },
+    ///             { "protocol", "HTTPS" },
+    ///             { "protocolVersion", "HTTP1" },
+    ///             { "healthCheck", 
     ///             {
-    ///                 Enabled = true,
-    ///                 HealthCheckIntervalSeconds = 20,
-    ///                 HealthCheckTimeoutSeconds = 10,
-    ///                 HealthyThresholdCount = 7,
-    ///                 UnhealthyThresholdCount = 3,
-    ///                 Matcher = new Aws.VpcLattice.Inputs.TargetGroupConfigHealthCheckMatcherArgs
+    ///                 { "enabled", true },
+    ///                 { "healthCheckIntervalSeconds", 20 },
+    ///                 { "healthCheckTimeoutSeconds", 10 },
+    ///                 { "healthyThresholdCount", 7 },
+    ///                 { "unhealthyThresholdCount", 3 },
+    ///                 { "matcher", 
     ///                 {
-    ///                     Value = "200-299",
-    ///                 },
-    ///                 Path = "/instance",
-    ///                 Port = 80,
-    ///                 Protocol = "HTTP",
-    ///                 ProtocolVersion = "HTTP1",
-    ///             },
+    ///                     { "value", "200-299" },
+    ///                 } },
+    ///                 { "path", "/instance" },
+    ///                 { "port", 80 },
+    ///                 { "protocol", "HTTP" },
+    ///                 { "protocolVersion", "HTTP1" },
+    ///             } },
     ///         },
     ///     });
     /// 
@@ -89,15 +89,15 @@ namespace Pulumi.Aws.VpcLattice
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.VpcLattice.TargetGroup("example", new()
+    ///     var example = new Aws.Vpclattice.TargetGroup.TargetGroup("example", new()
     ///     {
     ///         Type = "ALB",
-    ///         Config = new Aws.VpcLattice.Inputs.TargetGroupConfigArgs
+    ///         Config = 
     ///         {
-    ///             VpcIdentifier = aws_vpc.Example.Id,
-    ///             Port = 443,
-    ///             Protocol = "HTTPS",
-    ///             ProtocolVersion = "HTTP1",
+    ///             { "vpcIdentifier", aws_vpc.Example.Id },
+    ///             { "port", 443 },
+    ///             { "protocol", "HTTPS" },
+    ///             { "protocolVersion", "HTTP1" },
     ///         },
     ///     });
     /// 
@@ -115,7 +115,7 @@ namespace Pulumi.Aws.VpcLattice
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.VpcLattice.TargetGroup("example", new()
+    ///     var example = new Aws.Vpclattice.TargetGroup.TargetGroup("example", new()
     ///     {
     ///         Type = "LAMBDA",
     ///     });

@@ -139,10 +139,10 @@ class ThingGroupMembership(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.iot.ThingGroupMembership("example",
+        example = aws.iot.thing_group_membership.ThingGroupMembership("example",
             override_dynamic_group=True,
-            thing_group_name="example-group",
-            thing_name="example-thing")
+            thing_group_name=example-group,
+            thing_name=example-thing)
         ```
 
         ## Import
@@ -174,10 +174,10 @@ class ThingGroupMembership(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.iot.ThingGroupMembership("example",
+        example = aws.iot.thing_group_membership.ThingGroupMembership("example",
             override_dynamic_group=True,
-            thing_group_name="example-group",
-            thing_name="example-thing")
+            thing_group_name=example-group,
+            thing_name=example-thing)
         ```
 
         ## Import

@@ -31,7 +31,7 @@ namespace Pulumi.Aws.ServiceCatalog
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.ServiceCatalog.PortfolioShare("example", new()
+    ///     var example = new Aws.Servicecatalog.PortfolioShare.PortfolioShare("example", new()
     ///     {
     ///         PrincipalId = "012128675309",
     ///         PortfolioId = aws_servicecatalog_portfolio.Example.Id,

@@ -13,68 +13,12 @@ namespace Pulumi.Aws.S3
     {
         /// <summary>
         /// The bucket policy data source returns IAM policy of an S3 bucket.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// The following example retrieves IAM policy of a specified S3 bucket.
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.S3.GetBucketPolicy.Invoke(new()
-        ///     {
-        ///         Bucket = "example-bucket-name",
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["foo"] = example.Apply(getBucketPolicyResult =&gt; getBucketPolicyResult.Policy),
-        ///     };
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetBucketPolicyResult> InvokeAsync(GetBucketPolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBucketPolicyResult>("aws:s3/getBucketPolicy:getBucketPolicy", args ?? new GetBucketPolicyArgs(), options.WithDefaults());
 
         /// <summary>
         /// The bucket policy data source returns IAM policy of an S3 bucket.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// The following example retrieves IAM policy of a specified S3 bucket.
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.S3.GetBucketPolicy.Invoke(new()
-        ///     {
-        ///         Bucket = "example-bucket-name",
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["foo"] = example.Apply(getBucketPolicyResult =&gt; getBucketPolicyResult.Policy),
-        ///     };
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetBucketPolicyResult> Invoke(GetBucketPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBucketPolicyResult>("aws:s3/getBucketPolicy:getBucketPolicy", args ?? new GetBucketPolicyInvokeArgs(), options.WithDefaults());

@@ -29,7 +29,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.ssoadmin.PermissionsBoundaryAttachment;
  * import com.pulumi.aws.ssoadmin.PermissionsBoundaryAttachmentArgs;
- * import com.pulumi.aws.ssoadmin.inputs.PermissionsBoundaryAttachmentPermissionsBoundaryArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -46,9 +45,7 @@ import javax.annotation.Nullable;
  *         var example = new PermissionsBoundaryAttachment(&#34;example&#34;, PermissionsBoundaryAttachmentArgs.builder()        
  *             .instanceArn(aws_ssoadmin_permission_set.example().instance_arn())
  *             .permissionSetArn(aws_ssoadmin_permission_set.example().arn())
- *             .permissionsBoundary(PermissionsBoundaryAttachmentPermissionsBoundaryArgs.builder()
- *                 .managedPolicyArn(&#34;arn:aws:iam::aws:policy/ReadOnlyAccess&#34;)
- *                 .build())
+ *             .permissionsBoundary(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

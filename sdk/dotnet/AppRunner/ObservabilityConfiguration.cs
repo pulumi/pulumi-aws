@@ -22,16 +22,16 @@ namespace Pulumi.Aws.AppRunner
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.AppRunner.ObservabilityConfiguration("example", new()
+    ///     var example = new Aws.Apprunner.ObservabilityConfiguration.ObservabilityConfiguration("example", new()
     ///     {
     ///         ObservabilityConfigurationName = "example",
     ///         Tags = 
     ///         {
     ///             { "Name", "example-apprunner-observability-configuration" },
     ///         },
-    ///         TraceConfiguration = new Aws.AppRunner.Inputs.ObservabilityConfigurationTraceConfigurationArgs
+    ///         TraceConfiguration = 
     ///         {
-    ///             Vendor = "AWSXRAY",
+    ///             { "vendor", "AWSXRAY" },
     ///         },
     ///     });
     /// 

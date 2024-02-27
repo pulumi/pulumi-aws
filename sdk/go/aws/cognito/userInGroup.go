@@ -21,50 +21,51 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cognito"
+//	cognito/user "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/cognito/user"
+//	cognito/userGroup "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/cognito/userGroup"
+//	cognito/userInGroup "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/cognito/userInGroup"
+//	cognito/userPool "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/cognito/userPool"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleUserPool, err := cognito.NewUserPool(ctx, "exampleUserPool", &cognito.UserPoolArgs{
-//				PasswordPolicy: &cognito.UserPoolPasswordPolicyArgs{
-//					TemporaryPasswordValidityDays: pulumi.Int(7),
-//					MinimumLength:                 pulumi.Int(6),
-//					RequireUppercase:              pulumi.Bool(false),
-//					RequireSymbols:                pulumi.Bool(false),
-//					RequireNumbers:                pulumi.Bool(false),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleUser, err := cognito.NewUser(ctx, "exampleUser", &cognito.UserArgs{
-//				UserPoolId: exampleUserPool.ID(),
-//				Username:   pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleUserGroup, err := cognito.NewUserGroup(ctx, "exampleUserGroup", &cognito.UserGroupArgs{
-//				UserPoolId: exampleUserPool.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = cognito.NewUserInGroup(ctx, "exampleUserInGroup", &cognito.UserInGroupArgs{
-//				UserPoolId: exampleUserPool.ID(),
-//				GroupName:  exampleUserGroup.Name,
-//				Username:   exampleUser.Username,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleUserPool, err := cognito/userPool.NewUserPool(ctx, "exampleUserPool", &cognito/userPool.UserPoolArgs{
+// PasswordPolicy: map[string]interface{}{
+// "temporaryPasswordValidityDays": 7,
+// "minimumLength": 6,
+// "requireUppercase": false,
+// "requireSymbols": false,
+// "requireNumbers": false,
+// },
+// })
+// if err != nil {
+// return err
+// }
+// exampleUser, err := cognito/user.NewUser(ctx, "exampleUser", &cognito/user.UserArgs{
+// UserPoolId: exampleUserPool.Id,
+// Username: "example",
+// })
+// if err != nil {
+// return err
+// }
+// exampleUserGroup, err := cognito/userGroup.NewUserGroup(ctx, "exampleUserGroup", &cognito/userGroup.UserGroupArgs{
+// UserPoolId: exampleUserPool.Id,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = cognito/userInGroup.NewUserInGroup(ctx, "exampleUserInGroup", &cognito/userInGroup.UserInGroupArgs{
+// UserPoolId: exampleUserPool.Id,
+// GroupName: exampleUserGroup.Name,
+// Username: exampleUser.Username,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 type UserInGroup struct {
 	pulumi.CustomResourceState

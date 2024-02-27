@@ -22,53 +22,51 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/imagebuilder"
+//	imagebuilder/workflow "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/imagebuilder/workflow"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := imagebuilder/workflow.NewWorkflow(ctx, "example", &imagebuilder/workflow.WorkflowArgs{
+// Data: `  name: example
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := imagebuilder.NewWorkflow(ctx, "example", &imagebuilder.WorkflowArgs{
-//				Data: pulumi.String(`  name: example
-//	  description: Workflow to test an image
-//	  schemaVersion: 1.0
+//	description: Workflow to test an image
+//	schemaVersion: 1.0
 //
-//	  parameters:
-//	    - name: waitForActionAtEnd
-//	      type: boolean
+//	parameters:
+//	  - name: waitForActionAtEnd
+//	    type: boolean
 //
-//	  steps:
-//	    - name: LaunchTestInstance
-//	      action: LaunchInstance
-//	      onFailure: Abort
-//	      inputs:
-//	        waitFor: "ssmAgent"
+//	steps:
+//	  - name: LaunchTestInstance
+//	    action: LaunchInstance
+//	    onFailure: Abort
+//	    inputs:
+//	      waitFor: "ssmAgent"
 //
-//	    - name: TerminateTestInstance
-//	      action: TerminateInstance
-//	      onFailure: Continue
-//	      inputs:
-//	        instanceId.$: "$.stepOutputs.LaunchTestInstance.instanceId"
+//	  - name: TerminateTestInstance
+//	    action: TerminateInstance
+//	    onFailure: Continue
+//	    inputs:
+//	      instanceId.$: "$.stepOutputs.LaunchTestInstance.instanceId"
 //
-//	    - name: WaitForActionAtEnd
-//	      action: WaitForAction
-//	      if:
-//	        booleanEquals: true
-//	        value: "$.parameters.waitForActionAtEnd"
+//	  - name: WaitForActionAtEnd
+//	    action: WaitForAction
+//	    if:
+//	      booleanEquals: true
+//	      value: "$.parameters.waitForActionAtEnd"
 //
-// `),
-//
-//				Type:    pulumi.String("TEST"),
-//				Version: pulumi.String("1.0.0"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// `,
+// Type: "TEST",
+// Version: "1.0.0",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

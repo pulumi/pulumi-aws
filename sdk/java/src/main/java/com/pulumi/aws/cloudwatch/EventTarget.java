@@ -45,7 +45,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.kinesis.StreamArgs;
  * import com.pulumi.aws.cloudwatch.EventTarget;
  * import com.pulumi.aws.cloudwatch.EventTargetArgs;
- * import com.pulumi.aws.cloudwatch.inputs.EventTargetRunCommandTargetArgs;
  * import static com.pulumi.codegen.internal.Serialization.*;
  * import java.util.List;
  * import java.util.ArrayList;
@@ -82,130 +81,8 @@ import javax.annotation.Nullable;
  *             .rule(console.name())
  *             .arn(testStream.arn())
  *             .runCommandTargets(            
- *                 EventTargetRunCommandTargetArgs.builder()
- *                     .key(&#34;tag:Name&#34;)
- *                     .values(&#34;FooBar&#34;)
- *                     .build(),
- *                 EventTargetRunCommandTargetArgs.builder()
- *                     .key(&#34;InstanceIds&#34;)
- *                     .values(&#34;i-162058cd308bffec2&#34;)
- *                     .build())
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### SSM Document Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.iam.IamFunctions;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
- * import com.pulumi.aws.ssm.Document;
- * import com.pulumi.aws.ssm.DocumentArgs;
- * import com.pulumi.aws.iam.Role;
- * import com.pulumi.aws.iam.RoleArgs;
- * import com.pulumi.aws.iam.Policy;
- * import com.pulumi.aws.iam.PolicyArgs;
- * import com.pulumi.aws.iam.RolePolicyAttachment;
- * import com.pulumi.aws.iam.RolePolicyAttachmentArgs;
- * import com.pulumi.aws.cloudwatch.EventRule;
- * import com.pulumi.aws.cloudwatch.EventRuleArgs;
- * import com.pulumi.aws.cloudwatch.EventTarget;
- * import com.pulumi.aws.cloudwatch.EventTargetArgs;
- * import com.pulumi.aws.cloudwatch.inputs.EventTargetRunCommandTargetArgs;
- * import static com.pulumi.codegen.internal.Serialization.*;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var ssmLifecycleTrust = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .actions(&#34;sts:AssumeRole&#34;)
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type(&#34;Service&#34;)
- *                     .identifiers(&#34;events.amazonaws.com&#34;)
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *         var stopInstance = new Document(&#34;stopInstance&#34;, DocumentArgs.builder()        
- *             .documentType(&#34;Command&#34;)
- *             .content(serializeJson(
- *                 jsonObject(
- *                     jsonProperty(&#34;schemaVersion&#34;, &#34;1.2&#34;),
- *                     jsonProperty(&#34;description&#34;, &#34;Stop an instance&#34;),
- *                     jsonProperty(&#34;parameters&#34;, jsonObject(
- * 
- *                     )),
- *                     jsonProperty(&#34;runtimeConfig&#34;, jsonObject(
- *                         jsonProperty(&#34;aws:runShellScript&#34;, jsonObject(
- *                             jsonProperty(&#34;properties&#34;, jsonArray(jsonObject(
- *                                 jsonProperty(&#34;id&#34;, &#34;0.aws:runShellScript&#34;),
- *                                 jsonProperty(&#34;runCommand&#34;, jsonArray(&#34;halt&#34;))
- *                             )))
- *                         ))
- *                     ))
- *                 )))
- *             .build());
- * 
- *         final var ssmLifecyclePolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(            
- *                 GetPolicyDocumentStatementArgs.builder()
- *                     .effect(&#34;Allow&#34;)
- *                     .actions(&#34;ssm:SendCommand&#34;)
- *                     .resources(&#34;arn:aws:ec2:eu-west-1:1234567890:instance/*&#34;)
- *                     .conditions(GetPolicyDocumentStatementConditionArgs.builder()
- *                         .test(&#34;StringEquals&#34;)
- *                         .variable(&#34;ec2:ResourceTag/Terminate&#34;)
- *                         .values(&#34;*&#34;)
- *                         .build())
- *                     .build(),
- *                 GetPolicyDocumentStatementArgs.builder()
- *                     .effect(&#34;Allow&#34;)
- *                     .actions(&#34;ssm:SendCommand&#34;)
- *                     .resources(stopInstance.arn())
- *                     .build())
- *             .build());
- * 
- *         var ssmLifecycleRole = new Role(&#34;ssmLifecycleRole&#34;, RoleArgs.builder()        
- *             .assumeRolePolicy(ssmLifecycleTrust.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
- *             .build());
- * 
- *         var ssmLifecyclePolicy = new Policy(&#34;ssmLifecyclePolicy&#34;, PolicyArgs.builder()        
- *             .policy(ssmLifecyclePolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(ssmLifecyclePolicyDocument -&gt; ssmLifecyclePolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
- *             .build());
- * 
- *         var ssmLifecycleRolePolicyAttachment = new RolePolicyAttachment(&#34;ssmLifecycleRolePolicyAttachment&#34;, RolePolicyAttachmentArgs.builder()        
- *             .policyArn(ssmLifecyclePolicy.arn())
- *             .role(ssmLifecycleRole.name())
- *             .build());
- * 
- *         var stopInstancesEventRule = new EventRule(&#34;stopInstancesEventRule&#34;, EventRuleArgs.builder()        
- *             .description(&#34;Stop instances nightly&#34;)
- *             .scheduleExpression(&#34;cron(0 0 * * ? *)&#34;)
- *             .build());
- * 
- *         var stopInstancesEventTarget = new EventTarget(&#34;stopInstancesEventTarget&#34;, EventTargetArgs.builder()        
- *             .arn(stopInstance.arn())
- *             .rule(stopInstancesEventRule.name())
- *             .roleArn(ssmLifecycleRole.arn())
- *             .runCommandTargets(EventTargetRunCommandTargetArgs.builder()
- *                 .key(&#34;tag:Terminate&#34;)
- *                 .values(&#34;midnight&#34;)
- *                 .build())
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -222,7 +99,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.cloudwatch.EventRuleArgs;
  * import com.pulumi.aws.cloudwatch.EventTarget;
  * import com.pulumi.aws.cloudwatch.EventTargetArgs;
- * import com.pulumi.aws.cloudwatch.inputs.EventTargetRunCommandTargetArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -246,10 +122,7 @@ import javax.annotation.Nullable;
  *             .input(&#34;{\&#34;commands\&#34;:[\&#34;halt\&#34;]}&#34;)
  *             .rule(stopInstancesEventRule.name())
  *             .roleArn(aws_iam_role.ssm_lifecycle().arn())
- *             .runCommandTargets(EventTargetRunCommandTargetArgs.builder()
- *                 .key(&#34;tag:Terminate&#34;)
- *                 .values(&#34;midnight&#34;)
- *                 .build())
+ *             .runCommandTargets(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -269,7 +142,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.apigateway.StageArgs;
  * import com.pulumi.aws.cloudwatch.EventTarget;
  * import com.pulumi.aws.cloudwatch.EventTargetArgs;
- * import com.pulumi.aws.cloudwatch.inputs.EventTargetHttpTargetArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -295,90 +167,9 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleEventTarget = new EventTarget(&#34;exampleEventTarget&#34;, EventTargetArgs.builder()        
- *             .arn(exampleStage.executionArn().applyValue(executionArn -&gt; String.format(&#34;%s/GET&#34;, executionArn)))
+ *             .arn(String.format(&#34;%s/GET&#34;, exampleStage.executionArn()))
  *             .rule(exampleEventRule.id())
- *             .httpTarget(EventTargetHttpTargetArgs.builder()
- *                 .queryStringParameters(Map.of(&#34;Body&#34;, &#34;$.detail.body&#34;))
- *                 .headerParameters(Map.of(&#34;Env&#34;, &#34;Test&#34;))
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### Cross-Account Event Bus target
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.iam.IamFunctions;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
- * import com.pulumi.aws.iam.Role;
- * import com.pulumi.aws.iam.RoleArgs;
- * import com.pulumi.aws.iam.Policy;
- * import com.pulumi.aws.iam.PolicyArgs;
- * import com.pulumi.aws.iam.RolePolicyAttachment;
- * import com.pulumi.aws.iam.RolePolicyAttachmentArgs;
- * import com.pulumi.aws.cloudwatch.EventRule;
- * import com.pulumi.aws.cloudwatch.EventRuleArgs;
- * import com.pulumi.aws.cloudwatch.EventTarget;
- * import com.pulumi.aws.cloudwatch.EventTargetArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect(&#34;Allow&#34;)
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type(&#34;Service&#34;)
- *                     .identifiers(&#34;events.amazonaws.com&#34;)
- *                     .build())
- *                 .actions(&#34;sts:AssumeRole&#34;)
- *                 .build())
- *             .build());
- * 
- *         var eventBusInvokeRemoteEventBusRole = new Role(&#34;eventBusInvokeRemoteEventBusRole&#34;, RoleArgs.builder()        
- *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
- *             .build());
- * 
- *         final var eventBusInvokeRemoteEventBusPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect(&#34;Allow&#34;)
- *                 .actions(&#34;events:PutEvents&#34;)
- *                 .resources(&#34;arn:aws:events:eu-west-1:1234567890:event-bus/My-Event-Bus&#34;)
- *                 .build())
- *             .build());
- * 
- *         var eventBusInvokeRemoteEventBusPolicy = new Policy(&#34;eventBusInvokeRemoteEventBusPolicy&#34;, PolicyArgs.builder()        
- *             .policy(eventBusInvokeRemoteEventBusPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
- *             .build());
- * 
- *         var eventBusInvokeRemoteEventBusRolePolicyAttachment = new RolePolicyAttachment(&#34;eventBusInvokeRemoteEventBusRolePolicyAttachment&#34;, RolePolicyAttachmentArgs.builder()        
- *             .role(eventBusInvokeRemoteEventBusRole.name())
- *             .policyArn(eventBusInvokeRemoteEventBusPolicy.arn())
- *             .build());
- * 
- *         var stopInstancesEventRule = new EventRule(&#34;stopInstancesEventRule&#34;, EventRuleArgs.builder()        
- *             .description(&#34;Stop instances nightly&#34;)
- *             .scheduleExpression(&#34;cron(0 0 * * ? *)&#34;)
- *             .build());
- * 
- *         var stopInstancesEventTarget = new EventTarget(&#34;stopInstancesEventTarget&#34;, EventTargetArgs.builder()        
- *             .arn(&#34;arn:aws:events:eu-west-1:1234567890:event-bus/My-Event-Bus&#34;)
- *             .rule(stopInstancesEventRule.name())
- *             .roleArn(eventBusInvokeRemoteEventBusRole.arn())
+ *             .httpTarget(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -394,7 +185,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.cloudwatch.EventRule;
  * import com.pulumi.aws.cloudwatch.EventTarget;
  * import com.pulumi.aws.cloudwatch.EventTargetArgs;
- * import com.pulumi.aws.cloudwatch.inputs.EventTargetInputTransformerArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -413,18 +203,7 @@ import javax.annotation.Nullable;
  *         var exampleEventTarget = new EventTarget(&#34;exampleEventTarget&#34;, EventTargetArgs.builder()        
  *             .arn(aws_lambda_function.example().arn())
  *             .rule(exampleEventRule.id())
- *             .inputTransformer(EventTargetInputTransformerArgs.builder()
- *                 .inputPaths(Map.ofEntries(
- *                     Map.entry(&#34;instance&#34;, &#34;$.detail.instance&#34;),
- *                     Map.entry(&#34;status&#34;, &#34;$.detail.status&#34;)
- *                 ))
- *                 .inputTemplate(&#34;&#34;&#34;
- * {
- *   &#34;instance_id&#34;: &lt;instance&gt;,
- *   &#34;instance_status&#34;: &lt;status&gt;
- * }
- *                 &#34;&#34;&#34;)
- *                 .build())
+ *             .inputTransformer(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -440,7 +219,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.cloudwatch.EventRule;
  * import com.pulumi.aws.cloudwatch.EventTarget;
  * import com.pulumi.aws.cloudwatch.EventTargetArgs;
- * import com.pulumi.aws.cloudwatch.inputs.EventTargetInputTransformerArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -459,101 +237,7 @@ import javax.annotation.Nullable;
  *         var exampleEventTarget = new EventTarget(&#34;exampleEventTarget&#34;, EventTargetArgs.builder()        
  *             .arn(aws_lambda_function.example().arn())
  *             .rule(exampleEventRule.id())
- *             .inputTransformer(EventTargetInputTransformerArgs.builder()
- *                 .inputPaths(Map.ofEntries(
- *                     Map.entry(&#34;instance&#34;, &#34;$.detail.instance&#34;),
- *                     Map.entry(&#34;status&#34;, &#34;$.detail.status&#34;)
- *                 ))
- *                 .inputTemplate(&#34;\&#34;&lt;instance&gt; is in state &lt;status&gt;\&#34;&#34;)
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### Cloudwatch Log Group Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.cloudwatch.LogGroup;
- * import com.pulumi.aws.cloudwatch.LogGroupArgs;
- * import com.pulumi.aws.cloudwatch.EventRule;
- * import com.pulumi.aws.cloudwatch.EventRuleArgs;
- * import com.pulumi.aws.iam.IamFunctions;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
- * import com.pulumi.aws.cloudwatch.LogResourcePolicy;
- * import com.pulumi.aws.cloudwatch.LogResourcePolicyArgs;
- * import com.pulumi.aws.cloudwatch.EventTarget;
- * import com.pulumi.aws.cloudwatch.EventTargetArgs;
- * import static com.pulumi.codegen.internal.Serialization.*;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var exampleLogGroup = new LogGroup(&#34;exampleLogGroup&#34;, LogGroupArgs.builder()        
- *             .retentionInDays(1)
- *             .build());
- * 
- *         var exampleEventRule = new EventRule(&#34;exampleEventRule&#34;, EventRuleArgs.builder()        
- *             .description(&#34;GuardDuty Findings&#34;)
- *             .eventPattern(serializeJson(
- *                 jsonObject(
- *                     jsonProperty(&#34;source&#34;, jsonArray(&#34;aws.guardduty&#34;))
- *                 )))
- *             .tags(Map.of(&#34;Environment&#34;, &#34;example&#34;))
- *             .build());
- * 
- *         final var exampleLogPolicy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(            
- *                 GetPolicyDocumentStatementArgs.builder()
- *                     .effect(&#34;Allow&#34;)
- *                     .actions(&#34;logs:CreateLogStream&#34;)
- *                     .resources(exampleLogGroup.arn().applyValue(arn -&gt; String.format(&#34;%s:*&#34;, arn)))
- *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                         .type(&#34;Service&#34;)
- *                         .identifiers(                        
- *                             &#34;events.amazonaws.com&#34;,
- *                             &#34;delivery.logs.amazonaws.com&#34;)
- *                         .build())
- *                     .build(),
- *                 GetPolicyDocumentStatementArgs.builder()
- *                     .effect(&#34;Allow&#34;)
- *                     .actions(&#34;logs:PutLogEvents&#34;)
- *                     .resources(exampleLogGroup.arn().applyValue(arn -&gt; String.format(&#34;%s:*:*&#34;, arn)))
- *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                         .type(&#34;Service&#34;)
- *                         .identifiers(                        
- *                             &#34;events.amazonaws.com&#34;,
- *                             &#34;delivery.logs.amazonaws.com&#34;)
- *                         .build())
- *                     .conditions(GetPolicyDocumentStatementConditionArgs.builder()
- *                         .test(&#34;ArnEquals&#34;)
- *                         .values(exampleEventRule.arn())
- *                         .variable(&#34;aws:SourceArn&#34;)
- *                         .build())
- *                     .build())
- *             .build());
- * 
- *         var exampleLogResourcePolicy = new LogResourcePolicy(&#34;exampleLogResourcePolicy&#34;, LogResourcePolicyArgs.builder()        
- *             .policyDocument(exampleLogPolicy.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(exampleLogPolicy -&gt; exampleLogPolicy.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
- *             .policyName(&#34;guardduty-log-publishing-policy&#34;)
- *             .build());
- * 
- *         var exampleEventTarget = new EventTarget(&#34;exampleEventTarget&#34;, EventTargetArgs.builder()        
- *             .rule(exampleEventRule.name())
- *             .arn(exampleLogGroup.arn())
+ *             .inputTransformer(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

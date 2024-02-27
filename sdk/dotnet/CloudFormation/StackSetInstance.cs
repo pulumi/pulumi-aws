@@ -27,81 +27,11 @@ namespace Pulumi.Aws.CloudFormation
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.CloudFormation.StackSetInstance("example", new()
+    ///     var example = new Aws.Cloudformation.StackSetInstance.StackSetInstance("example", new()
     ///     {
     ///         AccountId = "123456789012",
     ///         Region = "us-east-1",
     ///         StackSetName = aws_cloudformation_stack_set.Example.Name,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### Example IAM Setup in Target Account
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var aWSCloudFormationStackSetExecutionRoleAssumeRolePolicy = Aws.Iam.GetPolicyDocument.Invoke(new()
-    ///     {
-    ///         Statements = new[]
-    ///         {
-    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
-    ///             {
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "sts:AssumeRole",
-    ///                 },
-    ///                 Effect = "Allow",
-    ///                 Principals = new[]
-    ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
-    ///                     {
-    ///                         Identifiers = new[]
-    ///                         {
-    ///                             aws_iam_role.AWSCloudFormationStackSetAdministrationRole.Arn,
-    ///                         },
-    ///                         Type = "AWS",
-    ///                     },
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var aWSCloudFormationStackSetExecutionRole = new Aws.Iam.Role("aWSCloudFormationStackSetExecutionRole", new()
-    ///     {
-    ///         AssumeRolePolicy = aWSCloudFormationStackSetExecutionRoleAssumeRolePolicy.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
-    ///     });
-    /// 
-    ///     var aWSCloudFormationStackSetExecutionRoleMinimumExecutionPolicyPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
-    ///     {
-    ///         Statements = new[]
-    ///         {
-    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
-    ///             {
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "cloudformation:*",
-    ///                     "s3:*",
-    ///                     "sns:*",
-    ///                 },
-    ///                 Effect = "Allow",
-    ///                 Resources = new[]
-    ///                 {
-    ///                     "*",
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var aWSCloudFormationStackSetExecutionRoleMinimumExecutionPolicyRolePolicy = new Aws.Iam.RolePolicy("aWSCloudFormationStackSetExecutionRoleMinimumExecutionPolicyRolePolicy", new()
-    ///     {
-    ///         Policy = aWSCloudFormationStackSetExecutionRoleMinimumExecutionPolicyPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
-    ///         Role = aWSCloudFormationStackSetExecutionRole.Name,
     ///     });
     /// 
     /// });
@@ -116,14 +46,14 @@ namespace Pulumi.Aws.CloudFormation
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.CloudFormation.StackSetInstance("example", new()
+    ///     var example = new Aws.Cloudformation.StackSetInstance.StackSetInstance("example", new()
     ///     {
-    ///         DeploymentTargets = new Aws.CloudFormation.Inputs.StackSetInstanceDeploymentTargetsArgs
+    ///         DeploymentTargets = 
     ///         {
-    ///             OrganizationalUnitIds = new[]
+    ///             { "organizationalUnitIds", new[]
     ///             {
     ///                 aws_organizations_organization.Example.Roots[0].Id,
-    ///             },
+    ///             } },
     ///         },
     ///         Region = "us-east-1",
     ///         StackSetName = aws_cloudformation_stack_set.Example.Name,

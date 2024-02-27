@@ -35,72 +35,12 @@ public final class OpensearchFunctions {
     /**
      * Use this data source to get information about an OpenSearch Domain
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.opensearch.OpensearchFunctions;
-     * import com.pulumi.aws.opensearch.inputs.GetDomainArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var myDomain = OpensearchFunctions.getDomain(GetDomainArgs.builder()
-     *             .domainName(&#34;my-domain-name&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetDomainResult> getDomain(GetDomainArgs args) {
         return getDomain(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to get information about an OpenSearch Domain
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.opensearch.OpensearchFunctions;
-     * import com.pulumi.aws.opensearch.inputs.GetDomainArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var myDomain = OpensearchFunctions.getDomain(GetDomainArgs.builder()
-     *             .domainName(&#34;my-domain-name&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetDomainResult> getDomainPlain(GetDomainPlainArgs args) {
@@ -109,72 +49,12 @@ public final class OpensearchFunctions {
     /**
      * Use this data source to get information about an OpenSearch Domain
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.opensearch.OpensearchFunctions;
-     * import com.pulumi.aws.opensearch.inputs.GetDomainArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var myDomain = OpensearchFunctions.getDomain(GetDomainArgs.builder()
-     *             .domainName(&#34;my-domain-name&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetDomainResult> getDomain(GetDomainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:opensearch/getDomain:getDomain", TypeShape.of(GetDomainResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to get information about an OpenSearch Domain
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.opensearch.OpensearchFunctions;
-     * import com.pulumi.aws.opensearch.inputs.GetDomainArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var myDomain = OpensearchFunctions.getDomain(GetDomainArgs.builder()
-     *             .domainName(&#34;my-domain-name&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetDomainResult> getDomainPlain(GetDomainPlainArgs args, InvokeOptions options) {
@@ -184,36 +64,6 @@ public final class OpensearchFunctions {
      * Data source for managing an AWS OpenSearch Serverless Access Policy.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.opensearch.OpensearchFunctions;
-     * import com.pulumi.aws.opensearch.inputs.GetServerlessAccessPolicyArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = OpensearchFunctions.getServerlessAccessPolicy(GetServerlessAccessPolicyArgs.builder()
-     *             .name(aws_opensearchserverless_access_policy.example().name())
-     *             .type(aws_opensearchserverless_access_policy.example().type())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetServerlessAccessPolicyResult> getServerlessAccessPolicy(GetServerlessAccessPolicyArgs args) {
@@ -223,36 +73,6 @@ public final class OpensearchFunctions {
      * Data source for managing an AWS OpenSearch Serverless Access Policy.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.opensearch.OpensearchFunctions;
-     * import com.pulumi.aws.opensearch.inputs.GetServerlessAccessPolicyArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = OpensearchFunctions.getServerlessAccessPolicy(GetServerlessAccessPolicyArgs.builder()
-     *             .name(aws_opensearchserverless_access_policy.example().name())
-     *             .type(aws_opensearchserverless_access_policy.example().type())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetServerlessAccessPolicyResult> getServerlessAccessPolicyPlain(GetServerlessAccessPolicyPlainArgs args) {
@@ -262,36 +82,6 @@ public final class OpensearchFunctions {
      * Data source for managing an AWS OpenSearch Serverless Access Policy.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.opensearch.OpensearchFunctions;
-     * import com.pulumi.aws.opensearch.inputs.GetServerlessAccessPolicyArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = OpensearchFunctions.getServerlessAccessPolicy(GetServerlessAccessPolicyArgs.builder()
-     *             .name(aws_opensearchserverless_access_policy.example().name())
-     *             .type(aws_opensearchserverless_access_policy.example().type())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetServerlessAccessPolicyResult> getServerlessAccessPolicy(GetServerlessAccessPolicyArgs args, InvokeOptions options) {
@@ -301,36 +91,6 @@ public final class OpensearchFunctions {
      * Data source for managing an AWS OpenSearch Serverless Access Policy.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.opensearch.OpensearchFunctions;
-     * import com.pulumi.aws.opensearch.inputs.GetServerlessAccessPolicyArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = OpensearchFunctions.getServerlessAccessPolicy(GetServerlessAccessPolicyArgs.builder()
-     *             .name(aws_opensearchserverless_access_policy.example().name())
-     *             .type(aws_opensearchserverless_access_policy.example().type())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetServerlessAccessPolicyResult> getServerlessAccessPolicyPlain(GetServerlessAccessPolicyPlainArgs args, InvokeOptions options) {
@@ -340,35 +100,6 @@ public final class OpensearchFunctions {
      * Data source for managing an AWS OpenSearch Serverless Collection.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.opensearch.OpensearchFunctions;
-     * import com.pulumi.aws.opensearch.inputs.GetServerlessCollectionArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = OpensearchFunctions.getServerlessCollection(GetServerlessCollectionArgs.builder()
-     *             .name(&#34;example&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetServerlessCollectionResult> getServerlessCollection() {
@@ -378,35 +109,6 @@ public final class OpensearchFunctions {
      * Data source for managing an AWS OpenSearch Serverless Collection.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.opensearch.OpensearchFunctions;
-     * import com.pulumi.aws.opensearch.inputs.GetServerlessCollectionArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = OpensearchFunctions.getServerlessCollection(GetServerlessCollectionArgs.builder()
-     *             .name(&#34;example&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetServerlessCollectionResult> getServerlessCollectionPlain() {
@@ -416,35 +118,6 @@ public final class OpensearchFunctions {
      * Data source for managing an AWS OpenSearch Serverless Collection.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.opensearch.OpensearchFunctions;
-     * import com.pulumi.aws.opensearch.inputs.GetServerlessCollectionArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = OpensearchFunctions.getServerlessCollection(GetServerlessCollectionArgs.builder()
-     *             .name(&#34;example&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetServerlessCollectionResult> getServerlessCollection(GetServerlessCollectionArgs args) {
@@ -454,35 +127,6 @@ public final class OpensearchFunctions {
      * Data source for managing an AWS OpenSearch Serverless Collection.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.opensearch.OpensearchFunctions;
-     * import com.pulumi.aws.opensearch.inputs.GetServerlessCollectionArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = OpensearchFunctions.getServerlessCollection(GetServerlessCollectionArgs.builder()
-     *             .name(&#34;example&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetServerlessCollectionResult> getServerlessCollectionPlain(GetServerlessCollectionPlainArgs args) {
@@ -492,35 +136,6 @@ public final class OpensearchFunctions {
      * Data source for managing an AWS OpenSearch Serverless Collection.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.opensearch.OpensearchFunctions;
-     * import com.pulumi.aws.opensearch.inputs.GetServerlessCollectionArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = OpensearchFunctions.getServerlessCollection(GetServerlessCollectionArgs.builder()
-     *             .name(&#34;example&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetServerlessCollectionResult> getServerlessCollection(GetServerlessCollectionArgs args, InvokeOptions options) {
@@ -530,35 +145,6 @@ public final class OpensearchFunctions {
      * Data source for managing an AWS OpenSearch Serverless Collection.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.opensearch.OpensearchFunctions;
-     * import com.pulumi.aws.opensearch.inputs.GetServerlessCollectionArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = OpensearchFunctions.getServerlessCollection(GetServerlessCollectionArgs.builder()
-     *             .name(&#34;example&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetServerlessCollectionResult> getServerlessCollectionPlain(GetServerlessCollectionPlainArgs args, InvokeOptions options) {
@@ -568,36 +154,6 @@ public final class OpensearchFunctions {
      * Data source for managing an AWS OpenSearch Serverless Lifecycle Policy.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.opensearch.OpensearchFunctions;
-     * import com.pulumi.aws.opensearch.inputs.GetServerlessLifecyclePolicyArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = OpensearchFunctions.getServerlessLifecyclePolicy(GetServerlessLifecyclePolicyArgs.builder()
-     *             .name(&#34;example-lifecycle-policy&#34;)
-     *             .type(&#34;retention&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetServerlessLifecyclePolicyResult> getServerlessLifecyclePolicy(GetServerlessLifecyclePolicyArgs args) {
@@ -607,36 +163,6 @@ public final class OpensearchFunctions {
      * Data source for managing an AWS OpenSearch Serverless Lifecycle Policy.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.opensearch.OpensearchFunctions;
-     * import com.pulumi.aws.opensearch.inputs.GetServerlessLifecyclePolicyArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = OpensearchFunctions.getServerlessLifecyclePolicy(GetServerlessLifecyclePolicyArgs.builder()
-     *             .name(&#34;example-lifecycle-policy&#34;)
-     *             .type(&#34;retention&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetServerlessLifecyclePolicyResult> getServerlessLifecyclePolicyPlain(GetServerlessLifecyclePolicyPlainArgs args) {
@@ -646,36 +172,6 @@ public final class OpensearchFunctions {
      * Data source for managing an AWS OpenSearch Serverless Lifecycle Policy.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.opensearch.OpensearchFunctions;
-     * import com.pulumi.aws.opensearch.inputs.GetServerlessLifecyclePolicyArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = OpensearchFunctions.getServerlessLifecyclePolicy(GetServerlessLifecyclePolicyArgs.builder()
-     *             .name(&#34;example-lifecycle-policy&#34;)
-     *             .type(&#34;retention&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetServerlessLifecyclePolicyResult> getServerlessLifecyclePolicy(GetServerlessLifecyclePolicyArgs args, InvokeOptions options) {
@@ -685,36 +181,6 @@ public final class OpensearchFunctions {
      * Data source for managing an AWS OpenSearch Serverless Lifecycle Policy.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.opensearch.OpensearchFunctions;
-     * import com.pulumi.aws.opensearch.inputs.GetServerlessLifecyclePolicyArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = OpensearchFunctions.getServerlessLifecyclePolicy(GetServerlessLifecyclePolicyArgs.builder()
-     *             .name(&#34;example-lifecycle-policy&#34;)
-     *             .type(&#34;retention&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetServerlessLifecyclePolicyResult> getServerlessLifecyclePolicyPlain(GetServerlessLifecyclePolicyPlainArgs args, InvokeOptions options) {
@@ -724,35 +190,6 @@ public final class OpensearchFunctions {
      * Data source for managing an AWS OpenSearch Serverless Security Config.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.opensearch.OpensearchFunctions;
-     * import com.pulumi.aws.opensearch.inputs.GetServerlessSecurityConfigArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = OpensearchFunctions.getServerlessSecurityConfig(GetServerlessSecurityConfigArgs.builder()
-     *             .id(&#34;saml/12345678912/example&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetServerlessSecurityConfigResult> getServerlessSecurityConfig(GetServerlessSecurityConfigArgs args) {
@@ -762,35 +199,6 @@ public final class OpensearchFunctions {
      * Data source for managing an AWS OpenSearch Serverless Security Config.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.opensearch.OpensearchFunctions;
-     * import com.pulumi.aws.opensearch.inputs.GetServerlessSecurityConfigArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = OpensearchFunctions.getServerlessSecurityConfig(GetServerlessSecurityConfigArgs.builder()
-     *             .id(&#34;saml/12345678912/example&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetServerlessSecurityConfigResult> getServerlessSecurityConfigPlain(GetServerlessSecurityConfigPlainArgs args) {
@@ -800,35 +208,6 @@ public final class OpensearchFunctions {
      * Data source for managing an AWS OpenSearch Serverless Security Config.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.opensearch.OpensearchFunctions;
-     * import com.pulumi.aws.opensearch.inputs.GetServerlessSecurityConfigArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = OpensearchFunctions.getServerlessSecurityConfig(GetServerlessSecurityConfigArgs.builder()
-     *             .id(&#34;saml/12345678912/example&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetServerlessSecurityConfigResult> getServerlessSecurityConfig(GetServerlessSecurityConfigArgs args, InvokeOptions options) {
@@ -838,35 +217,6 @@ public final class OpensearchFunctions {
      * Data source for managing an AWS OpenSearch Serverless Security Config.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.opensearch.OpensearchFunctions;
-     * import com.pulumi.aws.opensearch.inputs.GetServerlessSecurityConfigArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = OpensearchFunctions.getServerlessSecurityConfig(GetServerlessSecurityConfigArgs.builder()
-     *             .id(&#34;saml/12345678912/example&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetServerlessSecurityConfigResult> getServerlessSecurityConfigPlain(GetServerlessSecurityConfigPlainArgs args, InvokeOptions options) {
@@ -875,74 +225,12 @@ public final class OpensearchFunctions {
     /**
      * Use this data source to get information about an AWS OpenSearch Serverless Security Policy.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.opensearch.OpensearchFunctions;
-     * import com.pulumi.aws.opensearch.inputs.GetServerlessSecurityPolicyArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = OpensearchFunctions.getServerlessSecurityPolicy(GetServerlessSecurityPolicyArgs.builder()
-     *             .name(&#34;example-security-policy&#34;)
-     *             .type(&#34;encryption&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetServerlessSecurityPolicyResult> getServerlessSecurityPolicy(GetServerlessSecurityPolicyArgs args) {
         return getServerlessSecurityPolicy(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to get information about an AWS OpenSearch Serverless Security Policy.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.opensearch.OpensearchFunctions;
-     * import com.pulumi.aws.opensearch.inputs.GetServerlessSecurityPolicyArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = OpensearchFunctions.getServerlessSecurityPolicy(GetServerlessSecurityPolicyArgs.builder()
-     *             .name(&#34;example-security-policy&#34;)
-     *             .type(&#34;encryption&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetServerlessSecurityPolicyResult> getServerlessSecurityPolicyPlain(GetServerlessSecurityPolicyPlainArgs args) {
@@ -951,74 +239,12 @@ public final class OpensearchFunctions {
     /**
      * Use this data source to get information about an AWS OpenSearch Serverless Security Policy.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.opensearch.OpensearchFunctions;
-     * import com.pulumi.aws.opensearch.inputs.GetServerlessSecurityPolicyArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = OpensearchFunctions.getServerlessSecurityPolicy(GetServerlessSecurityPolicyArgs.builder()
-     *             .name(&#34;example-security-policy&#34;)
-     *             .type(&#34;encryption&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetServerlessSecurityPolicyResult> getServerlessSecurityPolicy(GetServerlessSecurityPolicyArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:opensearch/getServerlessSecurityPolicy:getServerlessSecurityPolicy", TypeShape.of(GetServerlessSecurityPolicyResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to get information about an AWS OpenSearch Serverless Security Policy.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.opensearch.OpensearchFunctions;
-     * import com.pulumi.aws.opensearch.inputs.GetServerlessSecurityPolicyArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = OpensearchFunctions.getServerlessSecurityPolicy(GetServerlessSecurityPolicyArgs.builder()
-     *             .name(&#34;example-security-policy&#34;)
-     *             .type(&#34;encryption&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetServerlessSecurityPolicyResult> getServerlessSecurityPolicyPlain(GetServerlessSecurityPolicyPlainArgs args, InvokeOptions options) {
@@ -1027,72 +253,12 @@ public final class OpensearchFunctions {
     /**
      * Data source for managing an AWS OpenSearch Serverless VPC Endpoint.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.opensearch.OpensearchFunctions;
-     * import com.pulumi.aws.opensearch.inputs.GetServerlessVpcEndpointArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = OpensearchFunctions.getServerlessVpcEndpoint(GetServerlessVpcEndpointArgs.builder()
-     *             .vpcEndpointId(&#34;vpce-829a4487959e2a839&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetServerlessVpcEndpointResult> getServerlessVpcEndpoint(GetServerlessVpcEndpointArgs args) {
         return getServerlessVpcEndpoint(args, InvokeOptions.Empty);
     }
     /**
      * Data source for managing an AWS OpenSearch Serverless VPC Endpoint.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.opensearch.OpensearchFunctions;
-     * import com.pulumi.aws.opensearch.inputs.GetServerlessVpcEndpointArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = OpensearchFunctions.getServerlessVpcEndpoint(GetServerlessVpcEndpointArgs.builder()
-     *             .vpcEndpointId(&#34;vpce-829a4487959e2a839&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetServerlessVpcEndpointResult> getServerlessVpcEndpointPlain(GetServerlessVpcEndpointPlainArgs args) {
@@ -1101,72 +267,12 @@ public final class OpensearchFunctions {
     /**
      * Data source for managing an AWS OpenSearch Serverless VPC Endpoint.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.opensearch.OpensearchFunctions;
-     * import com.pulumi.aws.opensearch.inputs.GetServerlessVpcEndpointArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = OpensearchFunctions.getServerlessVpcEndpoint(GetServerlessVpcEndpointArgs.builder()
-     *             .vpcEndpointId(&#34;vpce-829a4487959e2a839&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetServerlessVpcEndpointResult> getServerlessVpcEndpoint(GetServerlessVpcEndpointArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:opensearch/getServerlessVpcEndpoint:getServerlessVpcEndpoint", TypeShape.of(GetServerlessVpcEndpointResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Data source for managing an AWS OpenSearch Serverless VPC Endpoint.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.opensearch.OpensearchFunctions;
-     * import com.pulumi.aws.opensearch.inputs.GetServerlessVpcEndpointArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = OpensearchFunctions.getServerlessVpcEndpoint(GetServerlessVpcEndpointArgs.builder()
-     *             .vpcEndpointId(&#34;vpce-829a4487959e2a839&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetServerlessVpcEndpointResult> getServerlessVpcEndpointPlain(GetServerlessVpcEndpointPlainArgs args, InvokeOptions options) {

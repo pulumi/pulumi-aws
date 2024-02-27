@@ -241,7 +241,7 @@ class AccessPoint(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.efs.AccessPoint("test", file_system_id=aws_efs_file_system["foo"]["id"])
+        test = aws.efs.access_point.AccessPoint("test", file_system_id=aws_efs_file_system.foo.id)
         ```
 
         ## Import
@@ -274,7 +274,7 @@ class AccessPoint(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.efs.AccessPoint("test", file_system_id=aws_efs_file_system["foo"]["id"])
+        test = aws.efs.access_point.AccessPoint("test", file_system_id=aws_efs_file_system.foo.id)
         ```
 
         ## Import

@@ -24,7 +24,7 @@ namespace Pulumi.Aws.Grafana
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var assume = new Aws.Iam.Role("assume", new()
+    ///     var assume = new Aws.Iam.Role.Role("assume", new()
     ///     {
     ///         AssumeRolePolicy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
@@ -45,7 +45,7 @@ namespace Pulumi.Aws.Grafana
     ///         }),
     ///     });
     /// 
-    ///     var exampleWorkspace = new Aws.Grafana.Workspace("exampleWorkspace", new()
+    ///     var exampleWorkspace = new Aws.Grafana.Workspace.Workspace("exampleWorkspace", new()
     ///     {
     ///         AccountAccessType = "CURRENT_ACCOUNT",
     ///         AuthenticationProviders = new[]
@@ -56,7 +56,7 @@ namespace Pulumi.Aws.Grafana
     ///         RoleArn = assume.Arn,
     ///     });
     /// 
-    ///     var exampleWorkspaceSamlConfiguration = new Aws.Grafana.WorkspaceSamlConfiguration("exampleWorkspaceSamlConfiguration", new()
+    ///     var exampleWorkspaceSamlConfiguration = new Aws.Grafana.WorkspaceSamlConfiguration.WorkspaceSamlConfiguration("exampleWorkspaceSamlConfiguration", new()
     ///     {
     ///         EditorRoleValues = new[]
     ///         {

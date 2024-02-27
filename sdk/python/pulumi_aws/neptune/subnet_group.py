@@ -248,13 +248,13 @@ class SubnetGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        default = aws.neptune.SubnetGroup("default",
+        default = aws.neptune.subnet_group.SubnetGroup("default",
             subnet_ids=[
-                aws_subnet["frontend"]["id"],
-                aws_subnet["backend"]["id"],
+                aws_subnet.frontend.id,
+                aws_subnet.backend.id,
             ],
             tags={
-                "Name": "My neptune subnet group",
+                Name: My neptune subnet group,
             })
         ```
 
@@ -289,13 +289,13 @@ class SubnetGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        default = aws.neptune.SubnetGroup("default",
+        default = aws.neptune.subnet_group.SubnetGroup("default",
             subnet_ids=[
-                aws_subnet["frontend"]["id"],
-                aws_subnet["backend"]["id"],
+                aws_subnet.frontend.id,
+                aws_subnet.backend.id,
             ],
             tags={
-                "Name": "My neptune subnet group",
+                Name: My neptune subnet group,
             })
         ```
 

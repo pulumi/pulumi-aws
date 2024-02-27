@@ -28,23 +28,23 @@ namespace Pulumi.Aws.S3
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2");
+    ///     var exampleBucketV2 = new Aws.S3.BucketV2.BucketV2("exampleBucketV2");
     /// 
-    ///     var exampleBucketAclV2 = new Aws.S3.BucketAclV2("exampleBucketAclV2", new()
+    ///     var exampleBucketAclV2 = new Aws.S3.BucketAclV2.BucketAclV2("exampleBucketAclV2", new()
     ///     {
     ///         Bucket = exampleBucketV2.Id,
     ///         Acl = "private",
     ///     });
     /// 
-    ///     var logBucket = new Aws.S3.BucketV2("logBucket");
+    ///     var logBucket = new Aws.S3.BucketV2.BucketV2("logBucket");
     /// 
-    ///     var logBucketAcl = new Aws.S3.BucketAclV2("logBucketAcl", new()
+    ///     var logBucketAcl = new Aws.S3.BucketAclV2.BucketAclV2("logBucketAcl", new()
     ///     {
     ///         Bucket = logBucket.Id,
     ///         Acl = "log-delivery-write",
     ///     });
     /// 
-    ///     var exampleBucketLoggingV2 = new Aws.S3.BucketLoggingV2("exampleBucketLoggingV2", new()
+    ///     var exampleBucketLoggingV2 = new Aws.S3.BucketLoggingV2.BucketLoggingV2("exampleBucketLoggingV2", new()
     ///     {
     ///         Bucket = exampleBucketV2.Id,
     ///         TargetBucket = logBucket.Id,

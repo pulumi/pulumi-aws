@@ -16,13 +16,13 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleAutoScalingConfigurationVersion = new aws.apprunner.AutoScalingConfigurationVersion("exampleAutoScalingConfigurationVersion", {
+ * const exampleAutoScalingConfigurationVersion = new aws.apprunner/autoScalingConfigurationVersion.AutoScalingConfigurationVersion("exampleAutoScalingConfigurationVersion", {
  *     autoScalingConfigurationName: "example",
  *     maxConcurrency: 50,
  *     maxSize: 10,
  *     minSize: 2,
  * });
- * const exampleDefaultAutoScalingConfigurationVersion = new aws.apprunner.DefaultAutoScalingConfigurationVersion("exampleDefaultAutoScalingConfigurationVersion", {autoScalingConfigurationArn: exampleAutoScalingConfigurationVersion.arn});
+ * const exampleDefaultAutoScalingConfigurationVersion = new aws.apprunner/defaultAutoScalingConfigurationVersion.DefaultAutoScalingConfigurationVersion("exampleDefaultAutoScalingConfigurationVersion", {autoScalingConfigurationArn: exampleAutoScalingConfigurationVersion.arn});
  * ```
  *
  * ## Import

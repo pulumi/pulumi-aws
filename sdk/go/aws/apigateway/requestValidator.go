@@ -21,25 +21,23 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigateway"
+//	apigateway/requestValidator "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/apigateway/requestValidator"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := apigateway.NewRequestValidator(ctx, "example", &apigateway.RequestValidatorArgs{
-//				RestApi:                   pulumi.Any(aws_api_gateway_rest_api.Example.Id),
-//				ValidateRequestBody:       pulumi.Bool(true),
-//				ValidateRequestParameters: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := apigateway/requestValidator.NewRequestValidator(ctx, "example", &apigateway/requestValidator.RequestValidatorArgs{
+// RestApi: aws_api_gateway_rest_api.Example.Id,
+// ValidateRequestBody: true,
+// ValidateRequestParameters: true,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

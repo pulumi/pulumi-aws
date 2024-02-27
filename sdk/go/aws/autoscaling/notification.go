@@ -25,46 +25,45 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/autoscaling"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sns"
+//	autoscaling/group "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/autoscaling/group"
+//	autoscaling/notification "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/autoscaling/notification"
+//	sns/topic "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/sns/topic"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := sns.NewTopic(ctx, "example", nil)
-//			if err != nil {
-//				return err
-//			}
-//			bar, err := autoscaling.NewGroup(ctx, "bar", nil)
-//			if err != nil {
-//				return err
-//			}
-//			foo, err := autoscaling.NewGroup(ctx, "foo", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = autoscaling.NewNotification(ctx, "exampleNotifications", &autoscaling.NotificationArgs{
-//				GroupNames: pulumi.StringArray{
-//					bar.Name,
-//					foo.Name,
-//				},
-//				Notifications: pulumi.StringArray{
-//					pulumi.String("autoscaling:EC2_INSTANCE_LAUNCH"),
-//					pulumi.String("autoscaling:EC2_INSTANCE_TERMINATE"),
-//					pulumi.String("autoscaling:EC2_INSTANCE_LAUNCH_ERROR"),
-//					pulumi.String("autoscaling:EC2_INSTANCE_TERMINATE_ERROR"),
-//				},
-//				TopicArn: example.Arn,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := sns/topic.NewTopic(ctx, "example", nil)
+// if err != nil {
+// return err
+// }
+// bar, err := autoscaling/group.NewGroup(ctx, "bar", nil)
+// if err != nil {
+// return err
+// }
+// foo, err := autoscaling/group.NewGroup(ctx, "foo", nil)
+// if err != nil {
+// return err
+// }
+// _, err = autoscaling/notification.NewNotification(ctx, "exampleNotifications", &autoscaling/notification.NotificationArgs{
+// GroupNames: []interface{}{
+// bar.Name,
+// foo.Name,
+// },
+// Notifications: []string{
+// "autoscaling:EC2_INSTANCE_LAUNCH",
+// "autoscaling:EC2_INSTANCE_TERMINATE",
+// "autoscaling:EC2_INSTANCE_LAUNCH_ERROR",
+// "autoscaling:EC2_INSTANCE_TERMINATE_ERROR",
+// },
+// TopicArn: example.Arn,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 type Notification struct {
 	pulumi.CustomResourceState

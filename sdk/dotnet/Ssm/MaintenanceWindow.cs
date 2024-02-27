@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Ssm
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var production = new Aws.Ssm.MaintenanceWindow("production", new()
+    ///     var production = new Aws.Ssm.MaintenanceWindow.MaintenanceWindow("production", new()
     ///     {
     ///         Cutoff = 1,
     ///         Duration = 3,

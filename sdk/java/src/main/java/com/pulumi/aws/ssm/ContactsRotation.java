@@ -28,7 +28,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.ssm.ContactsRotation;
  * import com.pulumi.aws.ssm.ContactsRotationArgs;
- * import com.pulumi.aws.ssm.inputs.ContactsRotationRecurrenceArgs;
  * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
@@ -45,14 +44,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new ContactsRotation(&#34;example&#34;, ContactsRotationArgs.builder()        
  *             .contactIds(aws_ssmcontacts_contact.example().arn())
- *             .recurrence(ContactsRotationRecurrenceArgs.builder()
- *                 .numberOfOnCalls(1)
- *                 .recurrenceMultiplier(1)
- *                 .dailySettings(ContactsRotationRecurrenceDailySettingArgs.builder()
- *                     .hourOfDay(9)
- *                     .minuteOfHour(0)
- *                     .build())
- *                 .build())
+ *             .recurrence(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .timeZoneId(&#34;Australia/Sydney&#34;)
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(aws_ssmincidents_replication_set.example())
@@ -70,7 +62,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.ssm.ContactsRotation;
  * import com.pulumi.aws.ssm.ContactsRotationArgs;
- * import com.pulumi.aws.ssm.inputs.ContactsRotationRecurrenceArgs;
  * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
@@ -87,44 +78,10 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new ContactsRotation(&#34;example&#34;, ContactsRotationArgs.builder()        
  *             .contactIds(aws_ssmcontacts_contact.example().arn())
- *             .recurrence(ContactsRotationRecurrenceArgs.builder()
- *                 .numberOfOnCalls(1)
- *                 .recurrenceMultiplier(1)
- *                 .weeklySettings(                
- *                     ContactsRotationRecurrenceWeeklySettingArgs.builder()
- *                         .dayOfWeek(&#34;WED&#34;)
- *                         .handOffTime(ContactsRotationRecurrenceWeeklySettingHandOffTimeArgs.builder()
- *                             .hourOfDay(4)
- *                             .minuteOfHour(25)
- *                             .build())
- *                         .build(),
- *                     ContactsRotationRecurrenceWeeklySettingArgs.builder()
- *                         .dayOfWeek(&#34;FRI&#34;)
- *                         .handOffTime(ContactsRotationRecurrenceWeeklySettingHandOffTimeArgs.builder()
- *                             .hourOfDay(15)
- *                             .minuteOfHour(57)
- *                             .build())
- *                         .build())
- *                 .shiftCoverages(ContactsRotationRecurrenceShiftCoverageArgs.builder()
- *                     .mapBlockKey(&#34;MON&#34;)
- *                     .coverageTimes(ContactsRotationRecurrenceShiftCoverageCoverageTimeArgs.builder()
- *                         .start(ContactsRotationRecurrenceShiftCoverageCoverageTimeStartArgs.builder()
- *                             .hourOfDay(1)
- *                             .minuteOfHour(0)
- *                             .build())
- *                         .end(ContactsRotationRecurrenceShiftCoverageCoverageTimeEndArgs.builder()
- *                             .hourOfDay(23)
- *                             .minuteOfHour(0)
- *                             .build())
- *                         .build())
- *                     .build())
- *                 .build())
+ *             .recurrence(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .startTime(&#34;2023-07-20T02:21:49+00:00&#34;)
  *             .timeZoneId(&#34;Australia/Sydney&#34;)
- *             .tags(Map.ofEntries(
- *                 Map.entry(&#34;key1&#34;, &#34;tag1&#34;),
- *                 Map.entry(&#34;key2&#34;, &#34;tag2&#34;)
- *             ))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(aws_ssmincidents_replication_set.example())
  *                 .build());
@@ -141,7 +98,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.ssm.ContactsRotation;
  * import com.pulumi.aws.ssm.ContactsRotationArgs;
- * import com.pulumi.aws.ssm.inputs.ContactsRotationRecurrenceArgs;
  * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
@@ -158,25 +114,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new ContactsRotation(&#34;example&#34;, ContactsRotationArgs.builder()        
  *             .contactIds(aws_ssmcontacts_contact.example().arn())
- *             .recurrence(ContactsRotationRecurrenceArgs.builder()
- *                 .numberOfOnCalls(1)
- *                 .recurrenceMultiplier(1)
- *                 .monthlySettings(                
- *                     ContactsRotationRecurrenceMonthlySettingArgs.builder()
- *                         .dayOfMonth(20)
- *                         .handOffTime(ContactsRotationRecurrenceMonthlySettingHandOffTimeArgs.builder()
- *                             .hourOfDay(8)
- *                             .minuteOfHour(0)
- *                             .build())
- *                         .build(),
- *                     ContactsRotationRecurrenceMonthlySettingArgs.builder()
- *                         .dayOfMonth(13)
- *                         .handOffTime(ContactsRotationRecurrenceMonthlySettingHandOffTimeArgs.builder()
- *                             .hourOfDay(12)
- *                             .minuteOfHour(34)
- *                             .build())
- *                         .build())
- *                 .build())
+ *             .recurrence(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .timeZoneId(&#34;Australia/Sydney&#34;)
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(aws_ssmincidents_replication_set.example())

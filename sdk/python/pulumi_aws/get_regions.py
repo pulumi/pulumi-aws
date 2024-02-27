@@ -83,39 +83,6 @@ def get_regions(all_regions: Optional[bool] = None,
     """
     Provides information about AWS Regions. Can be used to filter regions i.e., by Opt-In status or only regions enabled for current account. To get details like endpoint and description of each region the data source can be combined with the `get_region` data source.
 
-    ## Example Usage
-
-    Enabled AWS Regions:
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    current = aws.get_regions()
-    ```
-
-    All the regions regardless of the availability
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    current = aws.get_regions(all_regions=True)
-    ```
-
-    To see regions that are filtered by `"not-opted-in"`, the `all_regions` argument needs to be set to `true` or no results will be returned.
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    current = aws.get_regions(all_regions=True,
-        filters=[aws.GetRegionsFilterArgs(
-            name="opt-in-status",
-            values=["not-opted-in"],
-        )])
-    ```
-
 
     :param bool all_regions: If true the source will query all regions regardless of availability.
     :param Sequence[pulumi.InputType['GetRegionsFilterArgs']] filters: Configuration block(s) to use as filters. Detailed below.
@@ -142,39 +109,6 @@ def get_regions_output(all_regions: Optional[pulumi.Input[Optional[bool]]] = Non
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRegionsResult]:
     """
     Provides information about AWS Regions. Can be used to filter regions i.e., by Opt-In status or only regions enabled for current account. To get details like endpoint and description of each region the data source can be combined with the `get_region` data source.
-
-    ## Example Usage
-
-    Enabled AWS Regions:
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    current = aws.get_regions()
-    ```
-
-    All the regions regardless of the availability
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    current = aws.get_regions(all_regions=True)
-    ```
-
-    To see regions that are filtered by `"not-opted-in"`, the `all_regions` argument needs to be set to `true` or no results will be returned.
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    current = aws.get_regions(all_regions=True,
-        filters=[aws.GetRegionsFilterArgs(
-            name="opt-in-status",
-            values=["not-opted-in"],
-        )])
-    ```
 
 
     :param bool all_regions: If true the source will query all regions regardless of availability.

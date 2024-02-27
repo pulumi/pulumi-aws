@@ -15,8 +15,8 @@ import {PolicyDocument} from "./index";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const lbUser = new aws.iam.User("lbUser", {path: "/system/"});
- * const lbRo = new aws.iam.UserPolicy("lbRo", {
+ * const lbUser = new aws.iam/user.User("lbUser", {path: "/system/"});
+ * const lbRo = new aws.iam/userPolicy.UserPolicy("lbRo", {
  *     user: lbUser.name,
  *     policy: JSON.stringify({
  *         Version: "2012-10-17",
@@ -27,7 +27,7 @@ import {PolicyDocument} from "./index";
  *         }],
  *     }),
  * });
- * const lbAccessKey = new aws.iam.AccessKey("lbAccessKey", {user: lbUser.name});
+ * const lbAccessKey = new aws.iam/accessKey.AccessKey("lbAccessKey", {user: lbUser.name});
  * ```
  *
  * ## Import

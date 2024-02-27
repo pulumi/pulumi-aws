@@ -68,15 +68,6 @@ class AwaitableGetDirectoryBucketsResult(GetDirectoryBucketsResult):
 def get_directory_buckets(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDirectoryBucketsResult:
     """
     Lists Amazon S3 Express directory buckets.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.s3.get_directory_buckets()
-    ```
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -92,14 +83,5 @@ def get_directory_buckets(opts: Optional[pulumi.InvokeOptions] = None) -> Awaita
 def get_directory_buckets_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDirectoryBucketsResult]:
     """
     Lists Amazon S3 Express directory buckets.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.s3.get_directory_buckets()
-    ```
     """
     ...

@@ -23,11 +23,11 @@ namespace Pulumi.Aws.CodeGuruProfiler
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.CodeGuruProfiler.ProfilingGroup("example", new()
+    ///     var example = new Aws.Codeguruprofiler.ProfilingGroup.ProfilingGroup("example", new()
     ///     {
-    ///         AgentOrchestrationConfig = new Aws.CodeGuruProfiler.Inputs.ProfilingGroupAgentOrchestrationConfigArgs
+    ///         AgentOrchestrationConfig = 
     ///         {
-    ///             ProfilingEnabled = true,
+    ///             { "profilingEnabled", true },
     ///         },
     ///         ComputePlatform = "Default",
     ///     });

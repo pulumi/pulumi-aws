@@ -16,45 +16,6 @@ import javax.annotation.Nullable;
 /**
  * Creates an HSM module in Amazon CloudHSM v2 cluster.
  * 
- * ## Example Usage
- * 
- * The following example below creates an HSM module in CloudHSM cluster.
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.cloudhsmv2.Cloudhsmv2Functions;
- * import com.pulumi.aws.cloudhsmv2.inputs.GetClusterArgs;
- * import com.pulumi.aws.cloudhsmv2.Hsm;
- * import com.pulumi.aws.cloudhsmv2.HsmArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var cluster = Cloudhsmv2Functions.getCluster(GetClusterArgs.builder()
- *             .clusterId(var_.cloudhsm_cluster_id())
- *             .build());
- * 
- *         var cloudhsmV2Hsm = new Hsm(&#34;cloudhsmV2Hsm&#34;, HsmArgs.builder()        
- *             .subnetId(cluster.applyValue(getClusterResult -&gt; getClusterResult.subnetIds()[0]))
- *             .clusterId(cluster.applyValue(getClusterResult -&gt; getClusterResult.clusterId()))
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
  * ## Import
  * 
  * Using `pulumi import`, import HSM modules using their HSM ID. For example:

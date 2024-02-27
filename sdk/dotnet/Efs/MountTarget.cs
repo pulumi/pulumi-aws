@@ -22,19 +22,19 @@ namespace Pulumi.Aws.Efs
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var foo = new Aws.Ec2.Vpc("foo", new()
+    ///     var foo = new Aws.Ec2.Vpc.Vpc("foo", new()
     ///     {
     ///         CidrBlock = "10.0.0.0/16",
     ///     });
     /// 
-    ///     var alphaSubnet = new Aws.Ec2.Subnet("alphaSubnet", new()
+    ///     var alphaSubnet = new Aws.Ec2.Subnet.Subnet("alphaSubnet", new()
     ///     {
     ///         VpcId = foo.Id,
     ///         AvailabilityZone = "us-west-2a",
     ///         CidrBlock = "10.0.1.0/24",
     ///     });
     /// 
-    ///     var alphaMountTarget = new Aws.Efs.MountTarget("alphaMountTarget", new()
+    ///     var alphaMountTarget = new Aws.Efs.MountTarget.MountTarget("alphaMountTarget", new()
     ///     {
     ///         FileSystemId = aws_efs_file_system.Foo.Id,
     ///         SubnetId = alphaSubnet.Id,

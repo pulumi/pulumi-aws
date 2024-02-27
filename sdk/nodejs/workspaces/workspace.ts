@@ -12,35 +12,6 @@ import * as utilities from "../utilities";
  *
  * > **NOTE:** AWS WorkSpaces service requires [`workspaces_DefaultRole`](https://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-access-control.html#create-default-role) IAM role to operate normally.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const valueWindows10 = aws.workspaces.getBundle({
- *     bundleId: "wsb-bh8rsxt14",
- * });
- * const example = new aws.workspaces.Workspace("example", {
- *     directoryId: aws_workspaces_directory.example.id,
- *     bundleId: valueWindows10.then(valueWindows10 => valueWindows10.id),
- *     userName: "john.doe",
- *     rootVolumeEncryptionEnabled: true,
- *     userVolumeEncryptionEnabled: true,
- *     volumeEncryptionKey: "alias/aws/workspaces",
- *     workspaceProperties: {
- *         computeTypeName: "VALUE",
- *         userVolumeSizeGib: 10,
- *         rootVolumeSizeGib: 80,
- *         runningMode: "AUTO_STOP",
- *         runningModeAutoStopTimeoutInMinutes: 60,
- *     },
- *     tags: {
- *         Department: "IT",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import Workspaces using their ID. For example:

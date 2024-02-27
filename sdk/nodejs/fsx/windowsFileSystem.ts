@@ -21,7 +21,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.fsx.WindowsFileSystem("example", {
+ * const example = new aws.fsx/windowsFileSystem.WindowsFileSystem("example", {
  *     activeDirectoryId: aws_directory_service_directory.example.id,
  *     kmsKeyId: aws_kms_key.example.arn,
  *     storageCapacity: 300,
@@ -37,7 +37,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.fsx.WindowsFileSystem("example", {
+ * const example = new aws.fsx/windowsFileSystem.WindowsFileSystem("example", {
  *     kmsKeyId: aws_kms_key.example.arn,
  *     storageCapacity: 300,
  *     subnetIds: [aws_subnet.example.id],

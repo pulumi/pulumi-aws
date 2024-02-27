@@ -22,9 +22,9 @@ namespace Pulumi.Aws.Detective
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleGraph = new Aws.Detective.Graph("exampleGraph");
+    ///     var exampleGraph = new Aws.Detective.Graph.Graph("exampleGraph");
     /// 
-    ///     var exampleMember = new Aws.Detective.Member("exampleMember", new()
+    ///     var exampleMember = new Aws.Detective.Member.Member("exampleMember", new()
     ///     {
     ///         AccountId = "AWS ACCOUNT ID",
     ///         EmailAddress = "EMAIL",

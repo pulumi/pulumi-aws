@@ -31,7 +31,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.rds.Proxy;
  * import com.pulumi.aws.rds.ProxyArgs;
- * import com.pulumi.aws.rds.inputs.ProxyAuthArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -53,16 +52,8 @@ import javax.annotation.Nullable;
  *             .roleArn(aws_iam_role.example().arn())
  *             .vpcSecurityGroupIds(aws_security_group.example().id())
  *             .vpcSubnetIds(aws_subnet.example().id())
- *             .auths(ProxyAuthArgs.builder()
- *                 .authScheme(&#34;SECRETS&#34;)
- *                 .description(&#34;example&#34;)
- *                 .iamAuth(&#34;DISABLED&#34;)
- *                 .secretArn(aws_secretsmanager_secret.example().arn())
- *                 .build())
- *             .tags(Map.ofEntries(
- *                 Map.entry(&#34;Name&#34;, &#34;example&#34;),
- *                 Map.entry(&#34;Key&#34;, &#34;value&#34;)
- *             ))
+ *             .auths(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

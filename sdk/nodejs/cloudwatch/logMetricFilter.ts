@@ -16,8 +16,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const dada = new aws.cloudwatch.LogGroup("dada", {});
- * const yada = new aws.cloudwatch.LogMetricFilter("yada", {
+ * const dada = new aws.cloudwatch/logGroup.LogGroup("dada", {});
+ * const yada = new aws.cloudwatch/logMetricFilter.LogMetricFilter("yada", {
  *     pattern: "",
  *     logGroupName: dada.name,
  *     metricTransformation: {

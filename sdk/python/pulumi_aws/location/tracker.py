@@ -284,7 +284,7 @@ class Tracker(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.location.Tracker("example", tracker_name="example")
+        example = aws.location.tracker.Tracker("example", tracker_name=example)
         ```
 
         ## Import
@@ -320,7 +320,7 @@ class Tracker(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.location.Tracker("example", tracker_name="example")
+        example = aws.location.tracker.Tracker("example", tracker_name=example)
         ```
 
         ## Import

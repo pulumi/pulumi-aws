@@ -10,69 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Provides an Elastic Container Registry Replication Configuration.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const current = aws.getCallerIdentity({});
- * const exampleRegions = aws.getRegions({});
- * const exampleReplicationConfiguration = new aws.ecr.ReplicationConfiguration("exampleReplicationConfiguration", {replicationConfiguration: {
- *     rules: [{
- *         destinations: [{
- *             region: exampleRegions.then(exampleRegions => exampleRegions.names?.[0]),
- *             registryId: current.then(current => current.accountId),
- *         }],
- *     }],
- * }});
- * ```
- * ## Multiple Region Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const current = aws.getCallerIdentity({});
- * const exampleRegions = aws.getRegions({});
- * const exampleReplicationConfiguration = new aws.ecr.ReplicationConfiguration("exampleReplicationConfiguration", {replicationConfiguration: {
- *     rules: [{
- *         destinations: [
- *             {
- *                 region: exampleRegions.then(exampleRegions => exampleRegions.names?.[0]),
- *                 registryId: current.then(current => current.accountId),
- *             },
- *             {
- *                 region: exampleRegions.then(exampleRegions => exampleRegions.names?.[1]),
- *                 registryId: current.then(current => current.accountId),
- *             },
- *         ],
- *     }],
- * }});
- * ```
- *
- * ## Repository Filter Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const current = aws.getCallerIdentity({});
- * const exampleRegions = aws.getRegions({});
- * const exampleReplicationConfiguration = new aws.ecr.ReplicationConfiguration("exampleReplicationConfiguration", {replicationConfiguration: {
- *     rules: [{
- *         destinations: [{
- *             region: exampleRegions.then(exampleRegions => exampleRegions.names?.[0]),
- *             registryId: current.then(current => current.accountId),
- *         }],
- *         repositoryFilters: [{
- *             filter: "prod-microservice",
- *             filterType: "PREFIX_MATCH",
- *         }],
- *     }],
- * }});
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import ECR Replication Configuration using the `registry_id`. For example:

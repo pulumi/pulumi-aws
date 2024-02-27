@@ -22,23 +22,21 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sesv2"
+//	sesv2/contactList "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/sesv2/contactList"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := sesv2.NewContactList(ctx, "example", &sesv2.ContactListArgs{
-//				ContactListName: pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := sesv2/contactList.NewContactList(ctx, "example", &sesv2/contactList.ContactListArgs{
+// ContactListName: "example",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Extended Usage
 //
@@ -47,32 +45,30 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sesv2"
+//	sesv2/contactList "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/sesv2/contactList"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := sesv2.NewContactList(ctx, "example", &sesv2.ContactListArgs{
-//				ContactListName: pulumi.String("example"),
-//				Description:     pulumi.String("description"),
-//				Topics: sesv2.ContactListTopicArray{
-//					&sesv2.ContactListTopicArgs{
-//						DefaultSubscriptionStatus: pulumi.String("OPT_IN"),
-//						Description:               pulumi.String("topic description"),
-//						DisplayName:               pulumi.String("Example Topic"),
-//						TopicName:                 pulumi.String("example-topic"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := sesv2/contactList.NewContactList(ctx, "example", &sesv2/contactList.ContactListArgs{
+// ContactListName: "example",
+// Description: "description",
+// Topics: []map[string]interface{}{
+// map[string]interface{}{
+// "defaultSubscriptionStatus": "OPT_IN",
+// "description": "topic description",
+// "displayName": "Example Topic",
+// "topicName": "example-topic",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

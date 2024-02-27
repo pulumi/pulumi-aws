@@ -24,39 +24,39 @@ namespace Pulumi.Aws.Lambda
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testLatest = new Aws.Lambda.FunctionUrl("testLatest", new()
+    ///     var testLatest = new Aws.Lambda.FunctionUrl.FunctionUrl("testLatest", new()
     ///     {
     ///         FunctionName = aws_lambda_function.Test.Function_name,
     ///         AuthorizationType = "NONE",
     ///     });
     /// 
-    ///     var testLive = new Aws.Lambda.FunctionUrl("testLive", new()
+    ///     var testLive = new Aws.Lambda.FunctionUrl.FunctionUrl("testLive", new()
     ///     {
     ///         FunctionName = aws_lambda_function.Test.Function_name,
     ///         Qualifier = "my_alias",
     ///         AuthorizationType = "AWS_IAM",
-    ///         Cors = new Aws.Lambda.Inputs.FunctionUrlCorsArgs
+    ///         Cors = 
     ///         {
-    ///             AllowCredentials = true,
-    ///             AllowOrigins = new[]
+    ///             { "allowCredentials", true },
+    ///             { "allowOrigins", new[]
     ///             {
     ///                 "*",
-    ///             },
-    ///             AllowMethods = new[]
+    ///             } },
+    ///             { "allowMethods", new[]
     ///             {
     ///                 "*",
-    ///             },
-    ///             AllowHeaders = new[]
+    ///             } },
+    ///             { "allowHeaders", new[]
     ///             {
     ///                 "date",
     ///                 "keep-alive",
-    ///             },
-    ///             ExposeHeaders = new[]
+    ///             } },
+    ///             { "exposeHeaders", new[]
     ///             {
     ///                 "keep-alive",
     ///                 "date",
-    ///             },
-    ///             MaxAge = 86400,
+    ///             } },
+    ///             { "maxAge", 86400 },
     ///         },
     ///     });
     /// 

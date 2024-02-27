@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.kendra.Experience("example", {
+ * const example = new aws.kendra/experience.Experience("example", {
  *     indexId: aws_kendra_index.example.id,
  *     description: "My Kendra Experience",
  *     roleArn: aws_iam_role.example.arn,

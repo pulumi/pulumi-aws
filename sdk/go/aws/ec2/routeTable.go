@@ -41,36 +41,34 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	ec2/routeTable "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/routeTable"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.NewRouteTable(ctx, "example", &ec2.RouteTableArgs{
-//				VpcId: pulumi.Any(aws_vpc.Example.Id),
-//				Routes: ec2.RouteTableRouteArray{
-//					&ec2.RouteTableRouteArgs{
-//						CidrBlock: pulumi.String("10.0.1.0/24"),
-//						GatewayId: pulumi.Any(aws_internet_gateway.Example.Id),
-//					},
-//					&ec2.RouteTableRouteArgs{
-//						Ipv6CidrBlock:       pulumi.String("::/0"),
-//						EgressOnlyGatewayId: pulumi.Any(aws_egress_only_internet_gateway.Example.Id),
-//					},
-//				},
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("example"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := ec2/routeTable.NewRouteTable(ctx, "example", &ec2/routeTable.RouteTableArgs{
+// VpcId: aws_vpc.Example.Id,
+// Routes: []interface{}{
+// map[string]interface{}{
+// "cidrBlock": "10.0.1.0/24",
+// "gatewayId": aws_internet_gateway.Example.Id,
+// },
+// map[string]interface{}{
+// "ipv6CidrBlock": "::/0",
+// "egressOnlyGatewayId": aws_egress_only_internet_gateway.Example.Id,
+// },
+// },
+// Tags: map[string]interface{}{
+// "Name": "example",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // To subsequently remove all managed routes:
@@ -80,27 +78,26 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	ec2/routeTable "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/routeTable"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.NewRouteTable(ctx, "example", &ec2.RouteTableArgs{
-//				VpcId:  pulumi.Any(aws_vpc.Example.Id),
-//				Routes: ec2.RouteTableRouteArray{},
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("example"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := ec2/routeTable.NewRouteTable(ctx, "example", &ec2/routeTable.RouteTableArgs{
+// VpcId: aws_vpc.Example.Id,
+// Routes: []interface{}{
+// },
+// Tags: map[string]interface{}{
+// "Name": "example",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Adopting an existing local route
 //
@@ -113,35 +110,34 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	ec2/routeTable "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/routeTable"
+//	ec2/vpc "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/vpc"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testVpc, err := ec2.NewVpc(ctx, "testVpc", &ec2.VpcArgs{
-//				CidrBlock: pulumi.String("10.1.0.0/16"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ec2.NewRouteTable(ctx, "testRouteTable", &ec2.RouteTableArgs{
-//				VpcId: testVpc.ID(),
-//				Routes: ec2.RouteTableRouteArray{
-//					&ec2.RouteTableRouteArgs{
-//						CidrBlock: pulumi.String("10.1.0.0/16"),
-//						GatewayId: pulumi.String("local"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// testVpc, err := ec2/vpc.NewVpc(ctx, "testVpc", &ec2/vpc.VpcArgs{
+// CidrBlock: "10.1.0.0/16",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = ec2/routeTable.NewRouteTable(ctx, "testRouteTable", &ec2/routeTable.RouteTableArgs{
+// VpcId: testVpc.Id,
+// Routes: []map[string]interface{}{
+// map[string]interface{}{
+// "cidrBlock": "10.1.0.0/16",
+// "gatewayId": "local",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // Next, update the target of the route:
@@ -151,48 +147,49 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	ec2/networkInterface "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/networkInterface"
+//	ec2/routeTable "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/routeTable"
+//	ec2/subnet "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/subnet"
+//	ec2/vpc "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/vpc"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testVpc, err := ec2.NewVpc(ctx, "testVpc", &ec2.VpcArgs{
-//				CidrBlock: pulumi.String("10.1.0.0/16"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			testSubnet, err := ec2.NewSubnet(ctx, "testSubnet", &ec2.SubnetArgs{
-//				CidrBlock: pulumi.String("10.1.1.0/24"),
-//				VpcId:     testVpc.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			testNetworkInterface, err := ec2.NewNetworkInterface(ctx, "testNetworkInterface", &ec2.NetworkInterfaceArgs{
-//				SubnetId: testSubnet.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ec2.NewRouteTable(ctx, "testRouteTable", &ec2.RouteTableArgs{
-//				VpcId: testVpc.ID(),
-//				Routes: ec2.RouteTableRouteArray{
-//					&ec2.RouteTableRouteArgs{
-//						CidrBlock:          testVpc.CidrBlock,
-//						NetworkInterfaceId: testNetworkInterface.ID(),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// testVpc, err := ec2/vpc.NewVpc(ctx, "testVpc", &ec2/vpc.VpcArgs{
+// CidrBlock: "10.1.0.0/16",
+// })
+// if err != nil {
+// return err
+// }
+// testSubnet, err := ec2/subnet.NewSubnet(ctx, "testSubnet", &ec2/subnet.SubnetArgs{
+// CidrBlock: "10.1.1.0/24",
+// VpcId: testVpc.Id,
+// })
+// if err != nil {
+// return err
+// }
+// testNetworkInterface, err := ec2/networkInterface.NewNetworkInterface(ctx, "testNetworkInterface", &ec2/networkInterface.NetworkInterfaceArgs{
+// SubnetId: testSubnet.Id,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = ec2/routeTable.NewRouteTable(ctx, "testRouteTable", &ec2/routeTable.RouteTableArgs{
+// VpcId: testVpc.Id,
+// Routes: []map[string]interface{}{
+// map[string]interface{}{
+// "cidrBlock": testVpc.CidrBlock,
+// "networkInterfaceId": testNetworkInterface.Id,
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // The target could then be updated again back to `local`.

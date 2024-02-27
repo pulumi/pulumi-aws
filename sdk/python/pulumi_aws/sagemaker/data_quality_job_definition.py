@@ -409,30 +409,30 @@ class DataQualityJobDefinition(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.sagemaker.DataQualityJobDefinition("test",
-            data_quality_app_specification=aws.sagemaker.DataQualityJobDefinitionDataQualityAppSpecificationArgs(
-                image_uri=data["aws_sagemaker_prebuilt_ecr_image"]["monitor"]["registry_path"],
-            ),
-            data_quality_job_input=aws.sagemaker.DataQualityJobDefinitionDataQualityJobInputArgs(
-                endpoint_input=aws.sagemaker.DataQualityJobDefinitionDataQualityJobInputEndpointInputArgs(
-                    endpoint_name=aws_sagemaker_endpoint["my_endpoint"]["name"],
-                ),
-            ),
-            data_quality_job_output_config=aws.sagemaker.DataQualityJobDefinitionDataQualityJobOutputConfigArgs(
-                monitoring_outputs=aws.sagemaker.DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsArgs(
-                    s3_output=aws.sagemaker.DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsS3OutputArgs(
-                        s3_uri=f"https://{aws_s3_bucket['my_bucket']['bucket_regional_domain_name']}/output",
-                    ),
-                ),
-            ),
-            job_resources=aws.sagemaker.DataQualityJobDefinitionJobResourcesArgs(
-                cluster_config=aws.sagemaker.DataQualityJobDefinitionJobResourcesClusterConfigArgs(
-                    instance_count=1,
-                    instance_type="ml.t3.medium",
-                    volume_size_in_gb=20,
-                ),
-            ),
-            role_arn=aws_iam_role["my_role"]["arn"])
+        test = aws.sagemaker.data_quality_job_definition.DataQualityJobDefinition("test",
+            data_quality_app_specification={
+                imageUri: data.aws_sagemaker_prebuilt_ecr_image.monitor.registry_path,
+            },
+            data_quality_job_input={
+                endpointInput: {
+                    endpointName: aws_sagemaker_endpoint.my_endpoint.name,
+                },
+            },
+            data_quality_job_output_config={
+                monitoringOutputs: {
+                    s3Output: {
+                        s3Uri: fhttps://{aws_s3_bucket.my_bucket.bucket_regional_domain_name}/output,
+                    },
+                },
+            },
+            job_resources={
+                clusterConfig: {
+                    instanceCount: 1,
+                    instanceType: ml.t3.medium,
+                    volumeSizeInGb: 20,
+                },
+            },
+            role_arn=aws_iam_role.my_role.arn)
         ```
 
         ## Import
@@ -473,30 +473,30 @@ class DataQualityJobDefinition(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.sagemaker.DataQualityJobDefinition("test",
-            data_quality_app_specification=aws.sagemaker.DataQualityJobDefinitionDataQualityAppSpecificationArgs(
-                image_uri=data["aws_sagemaker_prebuilt_ecr_image"]["monitor"]["registry_path"],
-            ),
-            data_quality_job_input=aws.sagemaker.DataQualityJobDefinitionDataQualityJobInputArgs(
-                endpoint_input=aws.sagemaker.DataQualityJobDefinitionDataQualityJobInputEndpointInputArgs(
-                    endpoint_name=aws_sagemaker_endpoint["my_endpoint"]["name"],
-                ),
-            ),
-            data_quality_job_output_config=aws.sagemaker.DataQualityJobDefinitionDataQualityJobOutputConfigArgs(
-                monitoring_outputs=aws.sagemaker.DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsArgs(
-                    s3_output=aws.sagemaker.DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsS3OutputArgs(
-                        s3_uri=f"https://{aws_s3_bucket['my_bucket']['bucket_regional_domain_name']}/output",
-                    ),
-                ),
-            ),
-            job_resources=aws.sagemaker.DataQualityJobDefinitionJobResourcesArgs(
-                cluster_config=aws.sagemaker.DataQualityJobDefinitionJobResourcesClusterConfigArgs(
-                    instance_count=1,
-                    instance_type="ml.t3.medium",
-                    volume_size_in_gb=20,
-                ),
-            ),
-            role_arn=aws_iam_role["my_role"]["arn"])
+        test = aws.sagemaker.data_quality_job_definition.DataQualityJobDefinition("test",
+            data_quality_app_specification={
+                imageUri: data.aws_sagemaker_prebuilt_ecr_image.monitor.registry_path,
+            },
+            data_quality_job_input={
+                endpointInput: {
+                    endpointName: aws_sagemaker_endpoint.my_endpoint.name,
+                },
+            },
+            data_quality_job_output_config={
+                monitoringOutputs: {
+                    s3Output: {
+                        s3Uri: fhttps://{aws_s3_bucket.my_bucket.bucket_regional_domain_name}/output,
+                    },
+                },
+            },
+            job_resources={
+                clusterConfig: {
+                    instanceCount: 1,
+                    instanceType: ml.t3.medium,
+                    volumeSizeInGb: 20,
+                },
+            },
+            role_arn=aws_iam_role.my_role.arn)
         ```
 
         ## Import

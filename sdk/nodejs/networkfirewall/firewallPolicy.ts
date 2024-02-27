@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.networkfirewall.FirewallPolicy("example", {
+ * const example = new aws.networkfirewall/firewallPolicy.FirewallPolicy("example", {
  *     firewallPolicy: {
  *         statelessDefaultActions: ["aws:pass"],
  *         statelessFragmentDefaultActions: ["aws:drop"],
@@ -38,7 +38,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.networkfirewall.FirewallPolicy("example", {
+ * const example = new aws.networkfirewall/firewallPolicy.FirewallPolicy("example", {
  *     firewallPolicy: {
  *         policyVariables: {
  *             ruleVariables: [{
@@ -63,6 +63,31 @@ import * as utilities from "../utilities";
  *         Tag2: "Value2",
  *     },
  * });
+ * ```
+ *
+ * ## Policy with a Custom Action for Stateless Inspection
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const test = new aws.networkfirewall/firewallPolicy.FirewallPolicy("test", {firewallPolicy: {
+ *     statelessCustomActions: [{
+ *         actionDefinition: {
+ *             publishMetricAction: {
+ *                 dimension: [{
+ *                     value: "1",
+ *                 }],
+ *             },
+ *         },
+ *         actionName: "ExampleCustomAction",
+ *     }],
+ *     statelessDefaultActions: [
+ *         "aws:pass",
+ *         "ExampleCustomAction",
+ *     ],
+ *     statelessFragmentDefaultActions: ["aws:drop"],
+ * }});
  * ```
  *
  * ## Import

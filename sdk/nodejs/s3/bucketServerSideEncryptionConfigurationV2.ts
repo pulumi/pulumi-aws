@@ -20,12 +20,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const mykey = new aws.kms.Key("mykey", {
+ * const mykey = new aws.kms/key.Key("mykey", {
  *     description: "This key is used to encrypt bucket objects",
  *     deletionWindowInDays: 10,
  * });
- * const mybucket = new aws.s3.BucketV2("mybucket", {});
- * const example = new aws.s3.BucketServerSideEncryptionConfigurationV2("example", {
+ * const mybucket = new aws.s3/bucketV2.BucketV2("mybucket", {});
+ * const example = new aws.s3/bucketServerSideEncryptionConfigurationV2.BucketServerSideEncryptionConfigurationV2("example", {
  *     bucket: mybucket.id,
  *     rules: [{
  *         applyServerSideEncryptionByDefault: {

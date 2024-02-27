@@ -22,34 +22,32 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ecr"
+//	ecr/registryScanningConfiguration "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ecr/registryScanningConfiguration"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ecr.NewRegistryScanningConfiguration(ctx, "configuration", &ecr.RegistryScanningConfigurationArgs{
-//				Rules: ecr.RegistryScanningConfigurationRuleArray{
-//					&ecr.RegistryScanningConfigurationRuleArgs{
-//						RepositoryFilters: ecr.RegistryScanningConfigurationRuleRepositoryFilterArray{
-//							&ecr.RegistryScanningConfigurationRuleRepositoryFilterArgs{
-//								Filter:     pulumi.String("example"),
-//								FilterType: pulumi.String("WILDCARD"),
-//							},
-//						},
-//						ScanFrequency: pulumi.String("CONTINUOUS_SCAN"),
-//					},
-//				},
-//				ScanType: pulumi.String("ENHANCED"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := ecr/registryScanningConfiguration.NewRegistryScanningConfiguration(ctx, "configuration", &ecr/registryScanningConfiguration.RegistryScanningConfigurationArgs{
+// Rules: []map[string]interface{}{
+// map[string]interface{}{
+// "repositoryFilters": []map[string]interface{}{
+// map[string]interface{}{
+// "filter": "example",
+// "filterType": "WILDCARD",
+// },
+// },
+// "scanFrequency": "CONTINUOUS_SCAN",
+// },
+// },
+// ScanType: "ENHANCED",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Multiple rules
 //
@@ -58,43 +56,41 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ecr"
+//	ecr/registryScanningConfiguration "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ecr/registryScanningConfiguration"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ecr.NewRegistryScanningConfiguration(ctx, "test", &ecr.RegistryScanningConfigurationArgs{
-//				Rules: ecr.RegistryScanningConfigurationRuleArray{
-//					&ecr.RegistryScanningConfigurationRuleArgs{
-//						RepositoryFilters: ecr.RegistryScanningConfigurationRuleRepositoryFilterArray{
-//							&ecr.RegistryScanningConfigurationRuleRepositoryFilterArgs{
-//								Filter:     pulumi.String("*"),
-//								FilterType: pulumi.String("WILDCARD"),
-//							},
-//						},
-//						ScanFrequency: pulumi.String("SCAN_ON_PUSH"),
-//					},
-//					&ecr.RegistryScanningConfigurationRuleArgs{
-//						RepositoryFilters: ecr.RegistryScanningConfigurationRuleRepositoryFilterArray{
-//							&ecr.RegistryScanningConfigurationRuleRepositoryFilterArgs{
-//								Filter:     pulumi.String("example"),
-//								FilterType: pulumi.String("WILDCARD"),
-//							},
-//						},
-//						ScanFrequency: pulumi.String("CONTINUOUS_SCAN"),
-//					},
-//				},
-//				ScanType: pulumi.String("ENHANCED"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := ecr/registryScanningConfiguration.NewRegistryScanningConfiguration(ctx, "test", &ecr/registryScanningConfiguration.RegistryScanningConfigurationArgs{
+// Rules: []map[string]interface{}{
+// map[string]interface{}{
+// "repositoryFilters": []map[string]interface{}{
+// map[string]interface{}{
+// "filter": "*",
+// "filterType": "WILDCARD",
+// },
+// },
+// "scanFrequency": "SCAN_ON_PUSH",
+// },
+// map[string]interface{}{
+// "repositoryFilters": []map[string]interface{}{
+// map[string]interface{}{
+// "filter": "example",
+// "filterType": "WILDCARD",
+// },
+// },
+// "scanFrequency": "CONTINUOUS_SCAN",
+// },
+// },
+// ScanType: "ENHANCED",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

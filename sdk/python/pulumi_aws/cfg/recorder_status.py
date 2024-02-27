@@ -103,42 +103,6 @@ class RecorderStatus(pulumi.CustomResource):
 
         > **Note:** Starting Configuration Recorder requires a Delivery Channel to be present. Use of `depends_on` (as shown below) is recommended to avoid race conditions.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        bucket_v2 = aws.s3.BucketV2("bucketV2")
-        foo_delivery_channel = aws.cfg.DeliveryChannel("fooDeliveryChannel", s3_bucket_name=bucket_v2.bucket)
-        foo_recorder_status = aws.cfg.RecorderStatus("fooRecorderStatus", is_enabled=True,
-        opts=pulumi.ResourceOptions(depends_on=[foo_delivery_channel]))
-        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["config.amazonaws.com"],
-            )],
-            actions=["sts:AssumeRole"],
-        )])
-        role = aws.iam.Role("role", assume_role_policy=assume_role.json)
-        role_policy_attachment = aws.iam.RolePolicyAttachment("rolePolicyAttachment",
-            role=role.name,
-            policy_arn="arn:aws:iam::aws:policy/service-role/AWS_ConfigRole")
-        foo_recorder = aws.cfg.Recorder("fooRecorder", role_arn=role.arn)
-        policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            actions=["s3:*"],
-            resources=[
-                bucket_v2.arn,
-                bucket_v2.arn.apply(lambda arn: f"{arn}/*"),
-            ],
-        )])
-        role_policy = aws.iam.RolePolicy("rolePolicy",
-            role=role.id,
-            policy=policy_document.json)
-        ```
-
         ## Import
 
         Using `pulumi import`, import Configuration Recorder Status using the name of the Configuration Recorder. For example:
@@ -162,42 +126,6 @@ class RecorderStatus(pulumi.CustomResource):
         Manages status (recording / stopped) of an AWS Config Configuration Recorder.
 
         > **Note:** Starting Configuration Recorder requires a Delivery Channel to be present. Use of `depends_on` (as shown below) is recommended to avoid race conditions.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        bucket_v2 = aws.s3.BucketV2("bucketV2")
-        foo_delivery_channel = aws.cfg.DeliveryChannel("fooDeliveryChannel", s3_bucket_name=bucket_v2.bucket)
-        foo_recorder_status = aws.cfg.RecorderStatus("fooRecorderStatus", is_enabled=True,
-        opts=pulumi.ResourceOptions(depends_on=[foo_delivery_channel]))
-        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["config.amazonaws.com"],
-            )],
-            actions=["sts:AssumeRole"],
-        )])
-        role = aws.iam.Role("role", assume_role_policy=assume_role.json)
-        role_policy_attachment = aws.iam.RolePolicyAttachment("rolePolicyAttachment",
-            role=role.name,
-            policy_arn="arn:aws:iam::aws:policy/service-role/AWS_ConfigRole")
-        foo_recorder = aws.cfg.Recorder("fooRecorder", role_arn=role.arn)
-        policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            actions=["s3:*"],
-            resources=[
-                bucket_v2.arn,
-                bucket_v2.arn.apply(lambda arn: f"{arn}/*"),
-            ],
-        )])
-        role_policy = aws.iam.RolePolicy("rolePolicy",
-            role=role.id,
-            policy=policy_document.json)
-        ```
 
         ## Import
 

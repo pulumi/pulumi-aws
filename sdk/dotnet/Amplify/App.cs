@@ -24,7 +24,7 @@ namespace Pulumi.Aws.Amplify
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Amplify.App("example", new()
+    ///     var example = new Aws.Amplify.App.App("example", new()
     ///     {
     ///         BuildSpec = @"  version: 0.1
     ///   frontend:
@@ -46,11 +46,11 @@ namespace Pulumi.Aws.Amplify
     /// ",
     ///         CustomRules = new[]
     ///         {
-    ///             new Aws.Amplify.Inputs.AppCustomRuleArgs
+    ///             
     ///             {
-    ///                 Source = "/&lt;*&gt;",
-    ///                 Status = "404",
-    ///                 Target = "/index.html",
+    ///                 { "source", "/&lt;*&gt;" },
+    ///                 { "status", "404" },
+    ///                 { "target", "/index.html" },
     ///             },
     ///         },
     ///         EnvironmentVariables = 
@@ -74,7 +74,7 @@ namespace Pulumi.Aws.Amplify
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Amplify.App("example", new()
+    ///     var example = new Aws.Amplify.App.App("example", new()
     ///     {
     ///         AccessToken = "...",
     ///         Repository = "https://github.com/example/app",
@@ -94,11 +94,11 @@ namespace Pulumi.Aws.Amplify
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Amplify.App("example", new()
+    ///     var example = new Aws.Amplify.App.App("example", new()
     ///     {
-    ///         AutoBranchCreationConfig = new Aws.Amplify.Inputs.AppAutoBranchCreationConfigArgs
+    ///         AutoBranchCreationConfig = 
     ///         {
-    ///             EnableAutoBuild = true,
+    ///             { "enableAutoBuild", true },
     ///         },
     ///         AutoBranchCreationPatterns = new[]
     ///         {
@@ -120,21 +120,21 @@ namespace Pulumi.Aws.Amplify
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Amplify.App("example", new()
+    ///     var example = new Aws.Amplify.App.App("example", new()
     ///     {
     ///         CustomRules = new[]
     ///         {
-    ///             new Aws.Amplify.Inputs.AppCustomRuleArgs
+    ///             
     ///             {
-    ///                 Source = "/api/&lt;*&gt;",
-    ///                 Status = "200",
-    ///                 Target = "https://api.example.com/api/&lt;*&gt;",
+    ///                 { "source", "/api/&lt;*&gt;" },
+    ///                 { "status", "200" },
+    ///                 { "target", "https://api.example.com/api/&lt;*&gt;" },
     ///             },
-    ///             new Aws.Amplify.Inputs.AppCustomRuleArgs
+    ///             
     ///             {
-    ///                 Source = "&lt;/^[^.]+$|\\.(?!(css|gif|ico|jpg|js|png|txt|svg|woff|ttf|map|json)$)([^.]+$)/&gt;",
-    ///                 Status = "200",
-    ///                 Target = "/index.html",
+    ///                 { "source", "&lt;/^[^.]+$|\\.(?!(css|gif|ico|jpg|js|png|txt|svg|woff|ttf|map|json)$)([^.]+$)/&gt;" },
+    ///                 { "status", "200" },
+    ///                 { "target", "/index.html" },
     ///             },
     ///         },
     ///     });
@@ -151,7 +151,7 @@ namespace Pulumi.Aws.Amplify
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Amplify.App("example", new()
+    ///     var example = new Aws.Amplify.App.App("example", new()
     ///     {
     ///         EnvironmentVariables = 
     ///         {
@@ -171,7 +171,7 @@ namespace Pulumi.Aws.Amplify
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Amplify.App("example", new()
+    ///     var example = new Aws.Amplify.App.App("example", new()
     ///     {
     ///         CustomHeaders = @"  customHeaders:
     ///     - pattern: '**'

@@ -19,8 +19,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const testBucket = new aws.lightsail.Bucket("testBucket", {bundleId: "small_1_0"});
- * const testDistribution = new aws.lightsail.Distribution("testDistribution", {
+ * const testBucket = new aws.lightsail/bucket.Bucket("testBucket", {bundleId: "small_1_0"});
+ * const testDistribution = new aws.lightsail/distribution.Distribution("testDistribution", {
  *     bundleId: "small_1_0",
  *     origin: {
  *         name: testBucket.name,
@@ -45,88 +45,6 @@ import * as utilities from "../utilities";
  *             option: false,
  *         },
  *     },
- * });
- * ```
- * ### instance origin example
- *
- * Below is an example of an instance as the origin.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const available = aws.getAvailabilityZones({
- *     state: "available",
- *     filters: [{
- *         name: "opt-in-status",
- *         values: ["opt-in-not-required"],
- *     }],
- * });
- * const testStaticIp = new aws.lightsail.StaticIp("testStaticIp", {});
- * const testInstance = new aws.lightsail.Instance("testInstance", {
- *     availabilityZone: available.then(available => available.names?.[0]),
- *     blueprintId: "amazon_linux_2",
- *     bundleId: "micro_1_0",
- * });
- * const testStaticIpAttachment = new aws.lightsail.StaticIpAttachment("testStaticIpAttachment", {
- *     staticIpName: testStaticIp.name,
- *     instanceName: testInstance.name,
- * });
- * const testDistribution = new aws.lightsail.Distribution("testDistribution", {
- *     bundleId: "small_1_0",
- *     origin: {
- *         name: testInstance.name,
- *         regionName: available.then(available => available.id),
- *     },
- *     defaultCacheBehavior: {
- *         behavior: "cache",
- *     },
- * }, {
- *     dependsOn: [testStaticIpAttachment],
- * });
- * ```
- * ### lb origin example
- *
- * Below is an example with a load balancer as an origin
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const available = aws.getAvailabilityZones({
- *     state: "available",
- *     filters: [{
- *         name: "opt-in-status",
- *         values: ["opt-in-not-required"],
- *     }],
- * });
- * const testLb = new aws.lightsail.Lb("testLb", {
- *     healthCheckPath: "/",
- *     instancePort: 80,
- *     tags: {
- *         foo: "bar",
- *     },
- * });
- * const testInstance = new aws.lightsail.Instance("testInstance", {
- *     availabilityZone: available.then(available => available.names?.[0]),
- *     blueprintId: "amazon_linux_2",
- *     bundleId: "nano_1_0",
- * });
- * const testLbAttachment = new aws.lightsail.LbAttachment("testLbAttachment", {
- *     lbName: testLb.name,
- *     instanceName: testInstance.name,
- * });
- * const testDistribution = new aws.lightsail.Distribution("testDistribution", {
- *     bundleId: "small_1_0",
- *     origin: {
- *         name: testLb.name,
- *         regionName: available.then(available => available.id),
- *     },
- *     defaultCacheBehavior: {
- *         behavior: "cache",
- *     },
- * }, {
- *     dependsOn: [testLbAttachment],
  * });
  * ```
  *

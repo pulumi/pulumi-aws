@@ -21,42 +21,40 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/macie"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/macie2"
+//	macie/findingsFilter "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/macie/findingsFilter"
+//	macie2/account "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/macie2/account"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := macie2.NewAccount(ctx, "example", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = macie.NewFindingsFilter(ctx, "test", &macie.FindingsFilterArgs{
-//				Description: pulumi.String("DESCRIPTION"),
-//				Position:    pulumi.Int(1),
-//				Action:      pulumi.String("ARCHIVE"),
-//				FindingCriteria: &macie.FindingsFilterFindingCriteriaArgs{
-//					Criterions: macie.FindingsFilterFindingCriteriaCriterionArray{
-//						&macie.FindingsFilterFindingCriteriaCriterionArgs{
-//							Field: pulumi.String("region"),
-//							Eqs: pulumi.StringArray{
-//								data.Aws_region.Current.Name,
-//							},
-//						},
-//					},
-//				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				aws_macie2_account.Test,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := macie2/account.NewAccount(ctx, "example", nil)
+// if err != nil {
+// return err
+// }
+// _, err = macie/findingsFilter.NewFindingsFilter(ctx, "test", &macie/findingsFilter.FindingsFilterArgs{
+// Description: "DESCRIPTION",
+// Position: 1,
+// Action: "ARCHIVE",
+// FindingCriteria: map[string]interface{}{
+// "criterions": []map[string]interface{}{
+// map[string]interface{}{
+// "field": "region",
+// "eqs": []interface{}{
+// data.Aws_region.Current.Name,
+// },
+// },
+// },
+// },
+// }, pulumi.DependsOn([]pulumi.Resource{
+// aws_macie2_account.Test,
+// }))
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

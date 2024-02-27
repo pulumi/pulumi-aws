@@ -24,23 +24,23 @@ namespace Pulumi.Aws.SecurityHub
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleAccount = new Aws.SecurityHub.Account("exampleAccount");
+    ///     var exampleAccount = new Aws.Securityhub.Account.Account("exampleAccount");
     /// 
-    ///     var exampleMember = new Aws.SecurityHub.Member("exampleMember", new()
+    ///     var exampleMember = new Aws.Securityhub.Member.Member("exampleMember", new()
     ///     {
     ///         AccountId = "123456789012",
     ///         Email = "example@example.com",
     ///         Invite = true,
     ///     });
     /// 
-    ///     var inviteeAccount = new Aws.SecurityHub.Account("inviteeAccount", new()
+    ///     var inviteeAccount = new Aws.Securityhub.Account.Account("inviteeAccount", new()
     ///     {
     ///     }, new CustomResourceOptions
     ///     {
     ///         Provider = "aws.invitee",
     ///     });
     /// 
-    ///     var inviteeInviteAccepter = new Aws.SecurityHub.InviteAccepter("inviteeInviteAccepter", new()
+    ///     var inviteeInviteAccepter = new Aws.Securityhub.InviteAccepter.InviteAccepter("inviteeInviteAccepter", new()
     ///     {
     ///         MasterId = exampleMember.MasterId,
     ///     }, new CustomResourceOptions

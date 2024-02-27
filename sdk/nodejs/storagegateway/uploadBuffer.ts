@@ -10,36 +10,6 @@ import * as utilities from "../utilities";
  * > **NOTE:** The Storage Gateway API provides no method to remove an upload buffer disk. Destroying this resource does not perform any Storage Gateway actions.
  *
  * ## Example Usage
- * ### Cached and VTL Gateway Type
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const testLocalDisk = aws.storagegateway.getLocalDisk({
- *     diskNode: aws_volume_attachment.test.device_name,
- *     gatewayArn: aws_storagegateway_gateway.test.arn,
- * });
- * const testUploadBuffer = new aws.storagegateway.UploadBuffer("testUploadBuffer", {
- *     diskPath: testLocalDisk.then(testLocalDisk => testLocalDisk.diskPath),
- *     gatewayArn: aws_storagegateway_gateway.test.arn,
- * });
- * ```
- * ### Stored Gateway Type
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = aws.storagegateway.getLocalDisk({
- *     diskNode: aws_volume_attachment.test.device_name,
- *     gatewayArn: aws_storagegateway_gateway.test.arn,
- * });
- * const example = new aws.storagegateway.UploadBuffer("example", {
- *     diskId: data.aws_storagegateway_local_disk.example.id,
- *     gatewayArn: aws_storagegateway_gateway.example.arn,
- * });
- * ```
  *
  * ## Import
  *

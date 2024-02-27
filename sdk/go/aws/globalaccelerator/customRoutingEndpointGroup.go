@@ -21,37 +21,35 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/globalaccelerator"
+//	globalaccelerator/customRoutingEndpointGroup "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/globalaccelerator/customRoutingEndpointGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := globalaccelerator.NewCustomRoutingEndpointGroup(ctx, "example", &globalaccelerator.CustomRoutingEndpointGroupArgs{
-//				ListenerArn: pulumi.Any(aws_globalaccelerator_custom_routing_listener.Example.Id),
-//				DestinationConfigurations: globalaccelerator.CustomRoutingEndpointGroupDestinationConfigurationArray{
-//					&globalaccelerator.CustomRoutingEndpointGroupDestinationConfigurationArgs{
-//						FromPort: pulumi.Int(80),
-//						ToPort:   pulumi.Int(8080),
-//						Protocols: pulumi.StringArray{
-//							pulumi.String("TCP"),
-//						},
-//					},
-//				},
-//				EndpointConfigurations: globalaccelerator.CustomRoutingEndpointGroupEndpointConfigurationArray{
-//					&globalaccelerator.CustomRoutingEndpointGroupEndpointConfigurationArgs{
-//						EndpointId: pulumi.Any(aws_subnet.Example.Id),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := globalaccelerator/customRoutingEndpointGroup.NewCustomRoutingEndpointGroup(ctx, "example", &globalaccelerator/customRoutingEndpointGroup.CustomRoutingEndpointGroupArgs{
+// ListenerArn: aws_globalaccelerator_custom_routing_listener.Example.Id,
+// DestinationConfigurations: []map[string]interface{}{
+// map[string]interface{}{
+// "fromPort": 80,
+// "toPort": 8080,
+// "protocols": []string{
+// "TCP",
+// },
+// },
+// },
+// EndpointConfigurations: []map[string]interface{}{
+// map[string]interface{}{
+// "endpointId": aws_subnet.Example.Id,
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

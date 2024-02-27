@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = new aws.sagemaker.MonitoringSchedule("test", {monitoringScheduleConfig: {
+ * const test = new aws.sagemaker/monitoringSchedule.MonitoringSchedule("test", {monitoringScheduleConfig: {
  *     monitoringJobDefinitionName: aws_sagemaker_data_quality_job_definition.test.name,
  *     monitoringType: "DataQuality",
  * }});

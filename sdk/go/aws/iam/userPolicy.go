@@ -23,52 +23,36 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	iam/accessKey "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/iam/accessKey"
+//	iam/user "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/iam/user"
+//	iam/userPolicy "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/iam/userPolicy"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			lbUser, err := iam.NewUser(ctx, "lbUser", &iam.UserArgs{
-//				Path: pulumi.String("/system/"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"Version": "2012-10-17",
-//				"Statement": []map[string]interface{}{
-//					map[string]interface{}{
-//						"Action": []string{
-//							"ec2:Describe*",
-//						},
-//						"Effect":   "Allow",
-//						"Resource": "*",
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			_, err = iam.NewUserPolicy(ctx, "lbRo", &iam.UserPolicyArgs{
-//				User:   lbUser.Name,
-//				Policy: pulumi.String(json0),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = iam.NewAccessKey(ctx, "lbAccessKey", &iam.AccessKeyArgs{
-//				User: lbUser.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// lbUser, err := iam/user.NewUser(ctx, "lbUser", &iam/user.UserArgs{
+// Path: "/system/",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = iam/userPolicy.NewUserPolicy(ctx, "lbRo", &iam/userPolicy.UserPolicyArgs{
+// User: lbUser.Name,
+// Policy: %!v(PANIC=Format method: fatal: An assertion has failed: unlowered function toJSON),
+// })
+// if err != nil {
+// return err
+// }
+// _, err = iam/accessKey.NewAccessKey(ctx, "lbAccessKey", &iam/accessKey.AccessKeyArgs{
+// User: lbUser.Name,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

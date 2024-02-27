@@ -25,27 +25,25 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lambda"
+//	lambda/layerVersionPermission "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/lambda/layerVersionPermission"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lambda.NewLayerVersionPermission(ctx, "lambdaLayerPermission", &lambda.LayerVersionPermissionArgs{
-//				Action:        pulumi.String("lambda:GetLayerVersion"),
-//				LayerName:     pulumi.String("arn:aws:lambda:us-west-2:123456654321:layer:test_layer1"),
-//				Principal:     pulumi.String("111111111111"),
-//				StatementId:   pulumi.String("dev-account"),
-//				VersionNumber: pulumi.Int(1),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := lambda/layerVersionPermission.NewLayerVersionPermission(ctx, "lambdaLayerPermission", &lambda/layerVersionPermission.LayerVersionPermissionArgs{
+// Action: "lambda:GetLayerVersion",
+// LayerName: "arn:aws:lambda:us-west-2:123456654321:layer:test_layer1",
+// Principal: "111111111111",
+// StatementId: "dev-account",
+// VersionNumber: 1,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

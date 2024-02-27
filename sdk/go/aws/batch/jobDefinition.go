@@ -24,73 +24,22 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/batch"
+//	batch/jobDefinition "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/batch/jobDefinition"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"command": []string{
-//					"ls",
-//					"-la",
-//				},
-//				"image": "busybox",
-//				"resourceRequirements": []map[string]interface{}{
-//					map[string]interface{}{
-//						"type":  "VCPU",
-//						"value": "0.25",
-//					},
-//					map[string]interface{}{
-//						"type":  "MEMORY",
-//						"value": "512",
-//					},
-//				},
-//				"volumes": []map[string]interface{}{
-//					map[string]interface{}{
-//						"host": map[string]interface{}{
-//							"sourcePath": "/tmp",
-//						},
-//						"name": "tmp",
-//					},
-//				},
-//				"environment": []map[string]interface{}{
-//					map[string]interface{}{
-//						"name":  "VARNAME",
-//						"value": "VARVAL",
-//					},
-//				},
-//				"mountPoints": []map[string]interface{}{
-//					map[string]interface{}{
-//						"sourceVolume":  "tmp",
-//						"containerPath": "/tmp",
-//						"readOnly":      false,
-//					},
-//				},
-//				"ulimits": []map[string]interface{}{
-//					map[string]interface{}{
-//						"hardLimit": 1024,
-//						"name":      "nofile",
-//						"softLimit": 1024,
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			_, err = batch.NewJobDefinition(ctx, "test", &batch.JobDefinitionArgs{
-//				Type:                pulumi.String("container"),
-//				ContainerProperties: pulumi.String(json0),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := batch/jobDefinition.NewJobDefinition(ctx, "test", &batch/jobDefinition.JobDefinitionArgs{
+// Type: "container",
+// ContainerProperties: %!v(PANIC=Format method: fatal: An assertion has failed: unlowered function toJSON),
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Job definition of type multinode
 //
@@ -101,152 +50,68 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/batch"
+//	batch/jobDefinition "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/batch/jobDefinition"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"mainNode": 0,
-//				"nodeRangeProperties": []map[string]interface{}{
-//					map[string]interface{}{
-//						"container": map[string]interface{}{
-//							"command": []string{
-//								"ls",
-//								"-la",
-//							},
-//							"image":  "busybox",
-//							"memory": 128,
-//							"vcpus":  1,
-//						},
-//						"targetNodes": "0:",
-//					},
-//					map[string]interface{}{
-//						"container": map[string]interface{}{
-//							"command": []string{
-//								"echo",
-//								"test",
-//							},
-//							"image":  "busybox",
-//							"memory": 128,
-//							"vcpus":  1,
-//						},
-//						"targetNodes": "1:",
-//					},
-//				},
-//				"numNodes": 2,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			_, err = batch.NewJobDefinition(ctx, "test", &batch.JobDefinitionArgs{
-//				Type:           pulumi.String("multinode"),
-//				NodeProperties: pulumi.String(json0),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := batch/jobDefinition.NewJobDefinition(ctx, "test", &batch/jobDefinition.JobDefinitionArgs{
+// Type: "multinode",
+// NodeProperties: %!v(PANIC=Format method: fatal: An assertion has failed: unlowered function toJSON),
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
-// ### Fargate Platform Capability
+// ### Job Definitionn of type EKS
 //
 // ```go
 // package main
 //
 // import (
 //
-//	"encoding/json"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/batch"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	batch/jobDefinition "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/batch/jobDefinition"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			assumeRolePolicy, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-//				Statements: []iam.GetPolicyDocumentStatement{
-//					{
-//						Actions: []string{
-//							"sts:AssumeRole",
-//						},
-//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
-//							{
-//								Type: "Service",
-//								Identifiers: []string{
-//									"ecs-tasks.amazonaws.com",
-//								},
-//							},
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			ecsTaskExecutionRole, err := iam.NewRole(ctx, "ecsTaskExecutionRole", &iam.RoleArgs{
-//				AssumeRolePolicy: *pulumi.String(assumeRolePolicy.Json),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = iam.NewRolePolicyAttachment(ctx, "ecsTaskExecutionRolePolicy", &iam.RolePolicyAttachmentArgs{
-//				Role:      ecsTaskExecutionRole.Name,
-//				PolicyArn: pulumi.String("arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = batch.NewJobDefinition(ctx, "test", &batch.JobDefinitionArgs{
-//				Type: pulumi.String("container"),
-//				PlatformCapabilities: pulumi.StringArray{
-//					pulumi.String("FARGATE"),
-//				},
-//				ContainerProperties: ecsTaskExecutionRole.Arn.ApplyT(func(arn string) (pulumi.String, error) {
-//					var _zero pulumi.String
-//					tmpJSON0, err := json.Marshal(map[string]interface{}{
-//						"command": []string{
-//							"echo",
-//							"test",
-//						},
-//						"image":      "busybox",
-//						"jobRoleArn": "arn:aws:iam::123456789012:role/AWSBatchS3ReadOnly",
-//						"fargatePlatformConfiguration": map[string]interface{}{
-//							"platformVersion": "LATEST",
-//						},
-//						"resourceRequirements": []map[string]interface{}{
-//							map[string]interface{}{
-//								"type":  "VCPU",
-//								"value": "0.25",
-//							},
-//							map[string]interface{}{
-//								"type":  "MEMORY",
-//								"value": "512",
-//							},
-//						},
-//						"executionRoleArn": arn,
-//					})
-//					if err != nil {
-//						return _zero, err
-//					}
-//					json0 := string(tmpJSON0)
-//					return pulumi.String(json0), nil
-//				}).(pulumi.StringOutput),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := batch/jobDefinition.NewJobDefinition(ctx, "test", &batch/jobDefinition.JobDefinitionArgs{
+// EksProperties: map[string]interface{}{
+// "podProperties": map[string]interface{}{
+// "containers": map[string]interface{}{
+// "command": []string{
+// "sleep",
+// "60",
+// },
+// "image": "public.ecr.aws/amazonlinux/amazonlinux:1",
+// "resources": map[string]interface{}{
+// "limits": map[string]interface{}{
+// "cpu": "1",
+// "memory": "1024Mi",
+// },
+// },
+// },
+// "hostNetwork": true,
+// "metadata": map[string]interface{}{
+// "labels": map[string]interface{}{
+// "environment": "test",
+// },
+// },
+// },
+// },
+// Type: "container",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

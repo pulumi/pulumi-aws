@@ -145,7 +145,7 @@ class ResourcePolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.organizations.ResourcePolicy("example", content=\"\"\"{
+        example = aws.organizations.resource_policy.ResourcePolicy("example", content={
           "Version": "2012-10-17",
           "Statement": [
             {
@@ -176,7 +176,7 @@ class ResourcePolicy(pulumi.CustomResource):
           ]
         }
 
-        \"\"\")
+        )
         ```
 
         ## Import
@@ -207,7 +207,7 @@ class ResourcePolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.organizations.ResourcePolicy("example", content=\"\"\"{
+        example = aws.organizations.resource_policy.ResourcePolicy("example", content={
           "Version": "2012-10-17",
           "Statement": [
             {
@@ -238,7 +238,7 @@ class ResourcePolicy(pulumi.CustomResource):
           ]
         }
 
-        \"\"\")
+        )
         ```
 
         ## Import

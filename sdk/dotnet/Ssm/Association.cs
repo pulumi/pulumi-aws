@@ -23,17 +23,17 @@ namespace Pulumi.Aws.Ssm
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Ssm.Association("example", new()
+    ///     var example = new Aws.Ssm.Association.Association("example", new()
     ///     {
     ///         Targets = new[]
     ///         {
-    ///             new Aws.Ssm.Inputs.AssociationTargetArgs
+    ///             
     ///             {
-    ///                 Key = "InstanceIds",
-    ///                 Values = new[]
+    ///                 { "key", "InstanceIds" },
+    ///                 { "values", new[]
     ///                 {
     ///                     aws_instance.Example.Id,
-    ///                 },
+    ///                 } },
     ///             },
     ///         },
     ///     });
@@ -52,17 +52,17 @@ namespace Pulumi.Aws.Ssm
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Ssm.Association("example", new()
+    ///     var example = new Aws.Ssm.Association.Association("example", new()
     ///     {
     ///         Targets = new[]
     ///         {
-    ///             new Aws.Ssm.Inputs.AssociationTargetArgs
+    ///             
     ///             {
-    ///                 Key = "InstanceIds",
-    ///                 Values = new[]
+    ///                 { "key", "InstanceIds" },
+    ///                 { "values", new[]
     ///                 {
     ///                     "*",
-    ///                 },
+    ///                 } },
     ///             },
     ///         },
     ///     });
@@ -81,17 +81,17 @@ namespace Pulumi.Aws.Ssm
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Ssm.Association("example", new()
+    ///     var example = new Aws.Ssm.Association.Association("example", new()
     ///     {
     ///         Targets = new[]
     ///         {
-    ///             new Aws.Ssm.Inputs.AssociationTargetArgs
+    ///             
     ///             {
-    ///                 Key = "tag:Environment",
-    ///                 Values = new[]
+    ///                 { "key", "tag:Environment" },
+    ///                 { "values", new[]
     ///                 {
     ///                     "Development",
-    ///                 },
+    ///                 } },
     ///             },
     ///         },
     ///     });
@@ -110,18 +110,18 @@ namespace Pulumi.Aws.Ssm
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Ssm.Association("example", new()
+    ///     var example = new Aws.Ssm.Association.Association("example", new()
     ///     {
     ///         ScheduleExpression = "cron(0 2 ? * SUN *)",
     ///         Targets = new[]
     ///         {
-    ///             new Aws.Ssm.Inputs.AssociationTargetArgs
+    ///             
     ///             {
-    ///                 Key = "InstanceIds",
-    ///                 Values = new[]
+    ///                 { "key", "InstanceIds" },
+    ///                 { "values", new[]
     ///                 {
     ///                     aws_instance.Example.Id,
-    ///                 },
+    ///                 } },
     ///             },
     ///         },
     ///     });

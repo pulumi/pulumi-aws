@@ -236,15 +236,6 @@ def get_custom_model(model_id: Optional[str] = None,
     """
     Returns properties of a specific Amazon Bedrock custom model.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.bedrock.get_custom_model(model_id="arn:aws:bedrock:us-west-2:123456789012:custom-model/amazon.titan-text-express-v1:0:8k/ly16hhi765j4 ")
-    ```
-
 
     :param str model_id: Name or ARN of the custom model.
     """
@@ -278,15 +269,6 @@ def get_custom_model_output(model_id: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCustomModelResult]:
     """
     Returns properties of a specific Amazon Bedrock custom model.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.bedrock.get_custom_model(model_id="arn:aws:bedrock:us-west-2:123456789012:custom-model/amazon.titan-text-express-v1:0:8k/ly16hhi765j4 ")
-    ```
 
 
     :param str model_id: Name or ARN of the custom model.

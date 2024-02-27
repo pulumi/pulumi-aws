@@ -257,27 +257,27 @@ class FunctionUrl(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_latest = aws.lambda_.FunctionUrl("testLatest",
-            function_name=aws_lambda_function["test"]["function_name"],
-            authorization_type="NONE")
-        test_live = aws.lambda_.FunctionUrl("testLive",
-            function_name=aws_lambda_function["test"]["function_name"],
-            qualifier="my_alias",
-            authorization_type="AWS_IAM",
-            cors=aws.lambda_.FunctionUrlCorsArgs(
-                allow_credentials=True,
-                allow_origins=["*"],
-                allow_methods=["*"],
-                allow_headers=[
-                    "date",
-                    "keep-alive",
+        test_latest = aws.lambda_.function_url.FunctionUrl("testLatest",
+            function_name=aws_lambda_function.test.function_name,
+            authorization_type=NONE)
+        test_live = aws.lambda_.function_url.FunctionUrl("testLive",
+            function_name=aws_lambda_function.test.function_name,
+            qualifier=my_alias,
+            authorization_type=AWS_IAM,
+            cors={
+                allowCredentials: True,
+                allowOrigins: [*],
+                allowMethods: [*],
+                allowHeaders: [
+                    date,
+                    keep-alive,
                 ],
-                expose_headers=[
-                    "keep-alive",
-                    "date",
+                exposeHeaders: [
+                    keep-alive,
+                    date,
                 ],
-                max_age=86400,
-            ))
+                maxAge: 86400,
+            })
         ```
 
         ## Import
@@ -313,27 +313,27 @@ class FunctionUrl(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_latest = aws.lambda_.FunctionUrl("testLatest",
-            function_name=aws_lambda_function["test"]["function_name"],
-            authorization_type="NONE")
-        test_live = aws.lambda_.FunctionUrl("testLive",
-            function_name=aws_lambda_function["test"]["function_name"],
-            qualifier="my_alias",
-            authorization_type="AWS_IAM",
-            cors=aws.lambda_.FunctionUrlCorsArgs(
-                allow_credentials=True,
-                allow_origins=["*"],
-                allow_methods=["*"],
-                allow_headers=[
-                    "date",
-                    "keep-alive",
+        test_latest = aws.lambda_.function_url.FunctionUrl("testLatest",
+            function_name=aws_lambda_function.test.function_name,
+            authorization_type=NONE)
+        test_live = aws.lambda_.function_url.FunctionUrl("testLive",
+            function_name=aws_lambda_function.test.function_name,
+            qualifier=my_alias,
+            authorization_type=AWS_IAM,
+            cors={
+                allowCredentials: True,
+                allowOrigins: [*],
+                allowMethods: [*],
+                allowHeaders: [
+                    date,
+                    keep-alive,
                 ],
-                expose_headers=[
-                    "keep-alive",
-                    "date",
+                exposeHeaders: [
+                    keep-alive,
+                    date,
                 ],
-                max_age=86400,
-            ))
+                maxAge: 86400,
+            })
         ```
 
         ## Import

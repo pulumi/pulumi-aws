@@ -109,15 +109,6 @@ def get_location(location_code: Optional[str] = None,
 
     > **Note:** This data source is different from the `directconnect_get_locations` data source which retrieves information about all the AWS Direct Connect locations in the current AWS Region.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.directconnect.get_location(location_code="CS32A-24FL")
-    ```
-
 
     :param str location_code: Code for the location to retrieve.
     """
@@ -143,15 +134,6 @@ def get_location_output(location_code: Optional[pulumi.Input[str]] = None,
     These are the locations that can be specified when configuring `directconnect.Connection` or `directconnect.LinkAggregationGroup` resources.
 
     > **Note:** This data source is different from the `directconnect_get_locations` data source which retrieves information about all the AWS Direct Connect locations in the current AWS Region.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.directconnect.get_location(location_code="CS32A-24FL")
-    ```
 
 
     :param str location_code: Code for the location to retrieve.

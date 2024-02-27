@@ -21,24 +21,22 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/rum"
+//	rum/metricsDestination "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/rum/metricsDestination"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := rum.NewMetricsDestination(ctx, "example", &rum.MetricsDestinationArgs{
-//				AppMonitorName: pulumi.Any(aws_rum_app_monitor.Example.Name),
-//				Destination:    pulumi.String("CloudWatch"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := rum/metricsDestination.NewMetricsDestination(ctx, "example", &rum/metricsDestination.MetricsDestinationArgs{
+// AppMonitorName: aws_rum_app_monitor.Example.Name,
+// Destination: "CloudWatch",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -23,23 +23,21 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sagemaker"
+//	sagemaker/servicecatalogPortfolioStatus "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/sagemaker/servicecatalogPortfolioStatus"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := sagemaker.NewServicecatalogPortfolioStatus(ctx, "example", &sagemaker.ServicecatalogPortfolioStatusArgs{
-//				Status: pulumi.String("Enabled"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := sagemaker/servicecatalogPortfolioStatus.NewServicecatalogPortfolioStatus(ctx, "example", &sagemaker/servicecatalogPortfolioStatus.ServicecatalogPortfolioStatusArgs{
+// Status: "Enabled",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -37,35 +37,33 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/rds"
+//	rds/cluster "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/rds/cluster"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := rds.NewCluster(ctx, "default", &rds.ClusterArgs{
-//				AvailabilityZones: pulumi.StringArray{
-//					pulumi.String("us-west-2a"),
-//					pulumi.String("us-west-2b"),
-//					pulumi.String("us-west-2c"),
-//				},
-//				BackupRetentionPeriod: pulumi.Int(5),
-//				ClusterIdentifier:     pulumi.String("aurora-cluster-demo"),
-//				DatabaseName:          pulumi.String("mydb"),
-//				Engine:                pulumi.String("aurora-mysql"),
-//				EngineVersion:         pulumi.String("5.7.mysql_aurora.2.03.2"),
-//				MasterPassword:        pulumi.String("bar"),
-//				MasterUsername:        pulumi.String("foo"),
-//				PreferredBackupWindow: pulumi.String("07:00-09:00"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := rds/cluster.NewCluster(ctx, "default", &rds/cluster.ClusterArgs{
+// AvailabilityZones: []string{
+// "us-west-2a",
+// "us-west-2b",
+// "us-west-2c",
+// },
+// BackupRetentionPeriod: 5,
+// ClusterIdentifier: "aurora-cluster-demo",
+// DatabaseName: "mydb",
+// Engine: "aurora-mysql",
+// EngineVersion: "5.7.mysql_aurora.2.03.2",
+// MasterPassword: "bar",
+// MasterUsername: "foo",
+// PreferredBackupWindow: "07:00-09:00",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Aurora MySQL 1.x (MySQL 5.6)
 //
@@ -74,33 +72,31 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/rds"
+//	rds/cluster "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/rds/cluster"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := rds.NewCluster(ctx, "default", &rds.ClusterArgs{
-//				AvailabilityZones: pulumi.StringArray{
-//					pulumi.String("us-west-2a"),
-//					pulumi.String("us-west-2b"),
-//					pulumi.String("us-west-2c"),
-//				},
-//				BackupRetentionPeriod: pulumi.Int(5),
-//				ClusterIdentifier:     pulumi.String("aurora-cluster-demo"),
-//				DatabaseName:          pulumi.String("mydb"),
-//				MasterPassword:        pulumi.String("bar"),
-//				MasterUsername:        pulumi.String("foo"),
-//				PreferredBackupWindow: pulumi.String("07:00-09:00"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := rds/cluster.NewCluster(ctx, "default", &rds/cluster.ClusterArgs{
+// AvailabilityZones: []string{
+// "us-west-2a",
+// "us-west-2b",
+// "us-west-2c",
+// },
+// BackupRetentionPeriod: 5,
+// ClusterIdentifier: "aurora-cluster-demo",
+// DatabaseName: "mydb",
+// MasterPassword: "bar",
+// MasterUsername: "foo",
+// PreferredBackupWindow: "07:00-09:00",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Aurora with PostgreSQL engine
 //
@@ -109,34 +105,32 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/rds"
+//	rds/cluster "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/rds/cluster"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := rds.NewCluster(ctx, "postgresql", &rds.ClusterArgs{
-//				AvailabilityZones: pulumi.StringArray{
-//					pulumi.String("us-west-2a"),
-//					pulumi.String("us-west-2b"),
-//					pulumi.String("us-west-2c"),
-//				},
-//				BackupRetentionPeriod: pulumi.Int(5),
-//				ClusterIdentifier:     pulumi.String("aurora-cluster-demo"),
-//				DatabaseName:          pulumi.String("mydb"),
-//				Engine:                pulumi.String("aurora-postgresql"),
-//				MasterPassword:        pulumi.String("bar"),
-//				MasterUsername:        pulumi.String("foo"),
-//				PreferredBackupWindow: pulumi.String("07:00-09:00"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := rds/cluster.NewCluster(ctx, "postgresql", &rds/cluster.ClusterArgs{
+// AvailabilityZones: []string{
+// "us-west-2a",
+// "us-west-2b",
+// "us-west-2c",
+// },
+// BackupRetentionPeriod: 5,
+// ClusterIdentifier: "aurora-cluster-demo",
+// DatabaseName: "mydb",
+// Engine: "aurora-postgresql",
+// MasterPassword: "bar",
+// MasterUsername: "foo",
+// PreferredBackupWindow: "07:00-09:00",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### RDS Multi-AZ Cluster
 //
@@ -149,35 +143,33 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/rds"
+//	rds/cluster "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/rds/cluster"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := rds.NewCluster(ctx, "example", &rds.ClusterArgs{
-//				AllocatedStorage: pulumi.Int(100),
-//				AvailabilityZones: pulumi.StringArray{
-//					pulumi.String("us-west-2a"),
-//					pulumi.String("us-west-2b"),
-//					pulumi.String("us-west-2c"),
-//				},
-//				ClusterIdentifier:      pulumi.String("example"),
-//				DbClusterInstanceClass: pulumi.String("db.r6gd.xlarge"),
-//				Engine:                 pulumi.String("mysql"),
-//				Iops:                   pulumi.Int(1000),
-//				MasterPassword:         pulumi.String("mustbeeightcharaters"),
-//				MasterUsername:         pulumi.String("test"),
-//				StorageType:            pulumi.String("io1"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := rds/cluster.NewCluster(ctx, "example", &rds/cluster.ClusterArgs{
+// AllocatedStorage: 100,
+// AvailabilityZones: []string{
+// "us-west-2a",
+// "us-west-2b",
+// "us-west-2c",
+// },
+// ClusterIdentifier: "example",
+// DbClusterInstanceClass: "db.r6gd.xlarge",
+// Engine: "mysql",
+// Iops: 1000,
+// MasterPassword: "mustbeeightcharaters",
+// MasterUsername: "test",
+// StorageType: "io1",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### RDS Serverless v2 Cluster
 //
@@ -193,43 +185,42 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/rds"
+//	rds/cluster "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/rds/cluster"
+//	rds/clusterInstance "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/rds/clusterInstance"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleCluster, err := rds.NewCluster(ctx, "exampleCluster", &rds.ClusterArgs{
-//				ClusterIdentifier: pulumi.String("example"),
-//				Engine:            pulumi.String("aurora-postgresql"),
-//				EngineMode:        pulumi.String("provisioned"),
-//				EngineVersion:     pulumi.String("13.6"),
-//				DatabaseName:      pulumi.String("test"),
-//				MasterUsername:    pulumi.String("test"),
-//				MasterPassword:    pulumi.String("must_be_eight_characters"),
-//				StorageEncrypted:  pulumi.Bool(true),
-//				Serverlessv2ScalingConfiguration: &rds.ClusterServerlessv2ScalingConfigurationArgs{
-//					MaxCapacity: pulumi.Float64(1),
-//					MinCapacity: pulumi.Float64(0.5),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = rds.NewClusterInstance(ctx, "exampleClusterInstance", &rds.ClusterInstanceArgs{
-//				ClusterIdentifier: exampleCluster.ID(),
-//				InstanceClass:     pulumi.String("db.serverless"),
-//				Engine:            exampleCluster.Engine,
-//				EngineVersion:     exampleCluster.EngineVersion,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleCluster, err := rds/cluster.NewCluster(ctx, "exampleCluster", &rds/cluster.ClusterArgs{
+// ClusterIdentifier: "example",
+// Engine: "aurora-postgresql",
+// EngineMode: "provisioned",
+// EngineVersion: "13.6",
+// DatabaseName: "test",
+// MasterUsername: "test",
+// MasterPassword: "must_be_eight_characters",
+// StorageEncrypted: true,
+// Serverlessv2ScalingConfiguration: map[string]interface{}{
+// "maxCapacity": 1,
+// "minCapacity": 0.5,
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = rds/clusterInstance.NewClusterInstance(ctx, "exampleClusterInstance", &rds/clusterInstance.ClusterInstanceArgs{
+// ClusterIdentifier: exampleCluster.Id,
+// InstanceClass: "db.serverless",
+// Engine: exampleCluster.Engine,
+// EngineVersion: exampleCluster.EngineVersion,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### RDS/Aurora Managed Master Passwords via Secrets Manager, default KMS Key
 //
@@ -242,26 +233,24 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/rds"
+//	rds/cluster "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/rds/cluster"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := rds.NewCluster(ctx, "test", &rds.ClusterArgs{
-//				ClusterIdentifier:        pulumi.String("example"),
-//				DatabaseName:             pulumi.String("test"),
-//				ManageMasterUserPassword: pulumi.Bool(true),
-//				MasterUsername:           pulumi.String("test"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := rds/cluster.NewCluster(ctx, "test", &rds/cluster.ClusterArgs{
+// ClusterIdentifier: "example",
+// DatabaseName: "test",
+// ManageMasterUserPassword: true,
+// MasterUsername: "test",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### RDS/Aurora Managed Master Passwords via Secrets Manager, specific KMS Key
 //
@@ -274,77 +263,32 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kms"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/rds"
+//	kms/key "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/kms/key"
+//	rds/cluster "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/rds/cluster"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := kms.NewKey(ctx, "example", &kms.KeyArgs{
-//				Description: pulumi.String("Example KMS Key"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = rds.NewCluster(ctx, "test", &rds.ClusterArgs{
-//				ClusterIdentifier:        pulumi.String("example"),
-//				DatabaseName:             pulumi.String("test"),
-//				ManageMasterUserPassword: pulumi.Bool(true),
-//				MasterUsername:           pulumi.String("test"),
-//				MasterUserSecretKmsKeyId: example.KeyId,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// ### Global Cluster Restored From Snapshot
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/rds"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleClusterSnapshot, err := rds.LookupClusterSnapshot(ctx, &rds.LookupClusterSnapshotArgs{
-//				DbClusterIdentifier: pulumi.StringRef("example-original-cluster"),
-//				MostRecent:          pulumi.BoolRef(true),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleCluster, err := rds.NewCluster(ctx, "exampleCluster", &rds.ClusterArgs{
-//				Engine:             pulumi.String("aurora"),
-//				EngineVersion:      pulumi.String("5.6.mysql_aurora.1.22.4"),
-//				ClusterIdentifier:  pulumi.String("example"),
-//				SnapshotIdentifier: *pulumi.String(exampleClusterSnapshot.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = rds.NewGlobalCluster(ctx, "exampleGlobalCluster", &rds.GlobalClusterArgs{
-//				GlobalClusterIdentifier:   pulumi.String("example"),
-//				SourceDbClusterIdentifier: exampleCluster.Arn,
-//				ForceDestroy:              pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := kms/key.NewKey(ctx, "example", &kms/key.KeyArgs{
+// Description: "Example KMS Key",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = rds/cluster.NewCluster(ctx, "test", &rds/cluster.ClusterArgs{
+// ClusterIdentifier: "example",
+// DatabaseName: "test",
+// ManageMasterUserPassword: true,
+// MasterUsername: "test",
+// MasterUserSecretKmsKeyId: example.KeyId,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

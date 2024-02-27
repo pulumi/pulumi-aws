@@ -22,9 +22,9 @@ namespace Pulumi.Aws.Route53
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResolverFirewallRuleGroup = new Aws.Route53.ResolverFirewallRuleGroup("exampleResolverFirewallRuleGroup");
+    ///     var exampleResolverFirewallRuleGroup = new Aws.Route53.ResolverFirewallRuleGroup.ResolverFirewallRuleGroup("exampleResolverFirewallRuleGroup");
     /// 
-    ///     var exampleResolverFirewallRuleGroupAssociation = new Aws.Route53.ResolverFirewallRuleGroupAssociation("exampleResolverFirewallRuleGroupAssociation", new()
+    ///     var exampleResolverFirewallRuleGroupAssociation = new Aws.Route53.ResolverFirewallRuleGroupAssociation.ResolverFirewallRuleGroupAssociation("exampleResolverFirewallRuleGroupAssociation", new()
     ///     {
     ///         FirewallRuleGroupId = exampleResolverFirewallRuleGroup.Id,
     ///         Priority = 100,

@@ -50,25 +50,25 @@ namespace Pulumi.Aws.AppAutoScaling.Inputs
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var ecsPolicy = new Aws.AppAutoScaling.Policy("ecsPolicy", new()
+        ///     var ecsPolicy = new Aws.Appautoscaling.Policy.Policy("ecsPolicy", new()
         ///     {
-        ///         StepScalingPolicyConfiguration = new Aws.AppAutoScaling.Inputs.PolicyStepScalingPolicyConfigurationArgs
+        ///         StepScalingPolicyConfiguration = 
         ///         {
-        ///             StepAdjustments = new[]
+        ///             { "stepAdjustments", new[]
         ///             {
-        ///                 new Aws.AppAutoScaling.Inputs.PolicyStepScalingPolicyConfigurationStepAdjustmentArgs
+        ///                 
         ///                 {
-        ///                     MetricIntervalLowerBound = "1",
-        ///                     MetricIntervalUpperBound = "2",
-        ///                     ScalingAdjustment = -1,
+        ///                     { "metricIntervalLowerBound", 1 },
+        ///                     { "metricIntervalUpperBound", 2 },
+        ///                     { "scalingAdjustment", -1 },
         ///                 },
-        ///                 new Aws.AppAutoScaling.Inputs.PolicyStepScalingPolicyConfigurationStepAdjustmentArgs
+        ///                 
         ///                 {
-        ///                     MetricIntervalLowerBound = "2",
-        ///                     MetricIntervalUpperBound = "3",
-        ///                     ScalingAdjustment = 1,
+        ///                     { "metricIntervalLowerBound", 2 },
+        ///                     { "metricIntervalUpperBound", 3 },
+        ///                     { "scalingAdjustment", 1 },
         ///                 },
-        ///             },
+        ///             } },
         ///         },
         ///     });
         /// 

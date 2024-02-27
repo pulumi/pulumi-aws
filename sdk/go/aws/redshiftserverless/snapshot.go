@@ -21,24 +21,22 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/redshiftserverless"
+//	redshiftserverless/snapshot "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/redshiftserverless/snapshot"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := redshiftserverless.NewSnapshot(ctx, "example", &redshiftserverless.SnapshotArgs{
-//				NamespaceName: pulumi.Any(aws_redshiftserverless_workgroup.Example.Namespace_name),
-//				SnapshotName:  pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := redshiftserverless/snapshot.NewSnapshot(ctx, "example", &redshiftserverless/snapshot.SnapshotArgs{
+// NamespaceName: aws_redshiftserverless_workgroup.Example.Namespace_name,
+// SnapshotName: "example",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

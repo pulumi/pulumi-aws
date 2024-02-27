@@ -28,7 +28,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.elb.LoadBalancer;
  * import com.pulumi.aws.elb.LoadBalancerArgs;
- * import com.pulumi.aws.elb.inputs.LoadBalancerListenerArgs;
  * import com.pulumi.aws.elb.AppCookieStickinessPolicy;
  * import com.pulumi.aws.elb.AppCookieStickinessPolicyArgs;
  * import java.util.List;
@@ -46,12 +45,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var lb = new LoadBalancer(&#34;lb&#34;, LoadBalancerArgs.builder()        
  *             .availabilityZones(&#34;us-east-1a&#34;)
- *             .listeners(LoadBalancerListenerArgs.builder()
- *                 .instancePort(8000)
- *                 .instanceProtocol(&#34;http&#34;)
- *                 .lbPort(80)
- *                 .lbProtocol(&#34;http&#34;)
- *                 .build())
+ *             .listeners(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var foo = new AppCookieStickinessPolicy(&#34;foo&#34;, AppCookieStickinessPolicyArgs.builder()        

@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * import * as crypto from "crypto";
  *
- * const exampleRestApi = new aws.apigateway.RestApi("exampleRestApi", {body: JSON.stringify({
+ * const exampleRestApi = new aws.apigateway/restApi.RestApi("exampleRestApi", {body: JSON.stringify({
  *     openapi: "3.0.1",
  *     info: {
  *         title: "example",
@@ -37,18 +37,18 @@ import * as utilities from "../utilities";
  *         },
  *     },
  * })});
- * const exampleDeployment = new aws.apigateway.Deployment("exampleDeployment", {
+ * const exampleDeployment = new aws.apigateway/deployment.Deployment("exampleDeployment", {
  *     restApi: exampleRestApi.id,
  *     triggers: {
- *         redeployment: exampleRestApi.body.apply(body => JSON.stringify(body)).apply(toJSON => crypto.createHash('sha1').update(toJSON).digest('hex')),
+ *         redeployment: crypto.createHash('sha1').update(JSON.stringify(exampleRestApi.body)).digest('hex'),
  *     },
  * });
- * const exampleStage = new aws.apigateway.Stage("exampleStage", {
+ * const exampleStage = new aws.apigateway/stage.Stage("exampleStage", {
  *     deployment: exampleDeployment.id,
  *     restApi: exampleRestApi.id,
  *     stageName: "example",
  * });
- * const exampleWebAcl = new aws.wafv2.WebAcl("exampleWebAcl", {
+ * const exampleWebAcl = new aws.wafv2/webAcl.WebAcl("exampleWebAcl", {
  *     scope: "REGIONAL",
  *     defaultAction: {
  *         allow: {},
@@ -59,7 +59,7 @@ import * as utilities from "../utilities";
  *         sampledRequestsEnabled: false,
  *     },
  * });
- * const exampleWebAclAssociation = new aws.wafv2.WebAclAssociation("exampleWebAclAssociation", {
+ * const exampleWebAclAssociation = new aws.wafv2/webAclAssociation.WebAclAssociation("exampleWebAclAssociation", {
  *     resourceArn: exampleStage.arn,
  *     webAclArn: exampleWebAcl.arn,
  * });

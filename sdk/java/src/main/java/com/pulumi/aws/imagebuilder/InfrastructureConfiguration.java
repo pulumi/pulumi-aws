@@ -31,8 +31,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.imagebuilder.InfrastructureConfiguration;
  * import com.pulumi.aws.imagebuilder.InfrastructureConfigurationArgs;
- * import com.pulumi.aws.imagebuilder.inputs.InfrastructureConfigurationLoggingArgs;
- * import com.pulumi.aws.imagebuilder.inputs.InfrastructureConfigurationLoggingS3LogsArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -57,13 +55,8 @@ import javax.annotation.Nullable;
  *             .snsTopicArn(aws_sns_topic.example().arn())
  *             .subnetId(aws_subnet.main().id())
  *             .terminateInstanceOnFailure(true)
- *             .logging(InfrastructureConfigurationLoggingArgs.builder()
- *                 .s3Logs(InfrastructureConfigurationLoggingS3LogsArgs.builder()
- *                     .s3BucketName(aws_s3_bucket.example().bucket())
- *                     .s3KeyPrefix(&#34;logs&#34;)
- *                     .build())
- *                 .build())
- *             .tags(Map.of(&#34;foo&#34;, &#34;bar&#34;))
+ *             .logging(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

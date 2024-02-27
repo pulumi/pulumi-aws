@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.timestreamwrite.Table("example", {
+ * const example = new aws.timestreamwrite/table.Table("example", {
  *     databaseName: aws_timestreamwrite_database.example.database_name,
  *     tableName: "example",
  * });
@@ -28,7 +28,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.timestreamwrite.Table("example", {
+ * const example = new aws.timestreamwrite/table.Table("example", {
  *     databaseName: aws_timestreamwrite_database.example.database_name,
  *     tableName: "example",
  *     retentionProperties: {
@@ -46,7 +46,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.timestreamwrite.Table("example", {
+ * const example = new aws.timestreamwrite/table.Table("example", {
  *     databaseName: aws_timestreamwrite_database.example.database_name,
  *     tableName: "example",
  *     schema: {

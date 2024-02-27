@@ -32,7 +32,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Ec2.AmiCopy("example", new()
+    ///     var example = new Aws.Ec2.AmiCopy.AmiCopy("example", new()
     ///     {
     ///         Description = "A copy of ami-xxxxxxxx",
     ///         SourceAmiId = "ami-xxxxxxxx",

@@ -13,16 +13,16 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleVpc = new aws.ec2.Vpc("exampleVpc", {
+ * const exampleVpc = new aws.ec2/vpc.Vpc("exampleVpc", {
  *     cidrBlock: "10.0.0.0/16",
  *     enableDnsSupport: true,
  *     enableDnsHostnames: true,
  * });
- * const examplePrivateDnsNamespace = new aws.servicediscovery.PrivateDnsNamespace("examplePrivateDnsNamespace", {
+ * const examplePrivateDnsNamespace = new aws.servicediscovery/privateDnsNamespace.PrivateDnsNamespace("examplePrivateDnsNamespace", {
  *     description: "example",
  *     vpc: exampleVpc.id,
  * });
- * const exampleService = new aws.servicediscovery.Service("exampleService", {
+ * const exampleService = new aws.servicediscovery/service.Service("exampleService", {
  *     dnsConfig: {
  *         namespaceId: examplePrivateDnsNamespace.id,
  *         dnsRecords: [{
@@ -35,7 +35,7 @@ import * as utilities from "../utilities";
  *         failureThreshold: 1,
  *     },
  * });
- * const exampleInstance = new aws.servicediscovery.Instance("exampleInstance", {
+ * const exampleInstance = new aws.servicediscovery/instance.Instance("exampleInstance", {
  *     instanceId: "example-instance-id",
  *     serviceId: exampleService.id,
  *     attributes: {
@@ -49,9 +49,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleHttpNamespace = new aws.servicediscovery.HttpNamespace("exampleHttpNamespace", {description: "example"});
- * const exampleService = new aws.servicediscovery.Service("exampleService", {namespaceId: exampleHttpNamespace.id});
- * const exampleInstance = new aws.servicediscovery.Instance("exampleInstance", {
+ * const exampleHttpNamespace = new aws.servicediscovery/httpNamespace.HttpNamespace("exampleHttpNamespace", {description: "example"});
+ * const exampleService = new aws.servicediscovery/service.Service("exampleService", {namespaceId: exampleHttpNamespace.id});
+ * const exampleInstance = new aws.servicediscovery/instance.Instance("exampleInstance", {
  *     instanceId: "example-instance-id",
  *     serviceId: exampleService.id,
  *     attributes: {

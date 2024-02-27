@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Ssm
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var production = new Aws.Ssm.PatchBaseline("production", new()
+    ///     var production = new Aws.Ssm.PatchBaseline.PatchBaseline("production", new()
     ///     {
     ///         ApprovedPatches = new[]
     ///         {
@@ -30,10 +30,10 @@ namespace Pulumi.Aws.Ssm
     ///         },
     ///     });
     /// 
-    ///     var patchgroup = new Aws.Ssm.PatchGroup("patchgroup", new()
+    ///     var patchgroup = new Aws.Ssm.PatchGroup.PatchGroup("patchgroup", new()
     ///     {
     ///         BaselineId = production.Id,
-    ///         PatchGroupName = "patch-group-name",
+    ///         PatchGroup = "patch-group-name",
     ///     });
     /// 
     /// });

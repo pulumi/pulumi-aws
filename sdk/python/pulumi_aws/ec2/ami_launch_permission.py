@@ -207,9 +207,9 @@ class AmiLaunchPermission(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ec2.AmiLaunchPermission("example",
-            account_id="123456789012",
-            image_id="ami-12345678")
+        example = aws.ec2.ami_launch_permission.AmiLaunchPermission("example",
+            account_id=123456789012,
+            image_id=ami-12345678)
         ```
         ### Public Access
 
@@ -217,20 +217,9 @@ class AmiLaunchPermission(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ec2.AmiLaunchPermission("example",
-            group="all",
-            image_id="ami-12345678")
-        ```
-        ### Organization Access
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        current = aws.organizations.get_organization()
-        example = aws.ec2.AmiLaunchPermission("example",
-            image_id="ami-12345678",
-            organization_arn=current.arn)
+        example = aws.ec2.ami_launch_permission.AmiLaunchPermission("example",
+            group=all,
+            image_id=ami-12345678)
         ```
 
         ## Import
@@ -265,9 +254,9 @@ class AmiLaunchPermission(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ec2.AmiLaunchPermission("example",
-            account_id="123456789012",
-            image_id="ami-12345678")
+        example = aws.ec2.ami_launch_permission.AmiLaunchPermission("example",
+            account_id=123456789012,
+            image_id=ami-12345678)
         ```
         ### Public Access
 
@@ -275,20 +264,9 @@ class AmiLaunchPermission(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ec2.AmiLaunchPermission("example",
-            group="all",
-            image_id="ami-12345678")
-        ```
-        ### Organization Access
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        current = aws.organizations.get_organization()
-        example = aws.ec2.AmiLaunchPermission("example",
-            image_id="ami-12345678",
-            organization_arn=current.arn)
+        example = aws.ec2.ami_launch_permission.AmiLaunchPermission("example",
+            group=all,
+            image_id=ami-12345678)
         ```
 
         ## Import

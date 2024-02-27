@@ -33,7 +33,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.datasync.LocationHdfs;
  * import com.pulumi.aws.datasync.LocationHdfsArgs;
- * import com.pulumi.aws.datasync.inputs.LocationHdfsNameNodeArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -51,10 +50,7 @@ import javax.annotation.Nullable;
  *             .agentArns(aws_datasync_agent.example().arn())
  *             .authenticationType(&#34;SIMPLE&#34;)
  *             .simpleUser(&#34;example&#34;)
- *             .nameNodes(LocationHdfsNameNodeArgs.builder()
- *                 .hostname(aws_instance.example().private_dns())
- *                 .port(80)
- *                 .build())
+ *             .nameNodes(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

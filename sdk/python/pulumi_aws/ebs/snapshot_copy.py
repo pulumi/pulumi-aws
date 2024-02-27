@@ -463,22 +463,22 @@ class SnapshotCopy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ebs.Volume("example",
-            availability_zone="us-west-2a",
+        example = aws.ebs.volume.Volume("example",
+            availability_zone=us-west-2a,
             size=40,
             tags={
-                "Name": "HelloWorld",
+                Name: HelloWorld,
             })
-        example_snapshot = aws.ebs.Snapshot("exampleSnapshot",
+        example_snapshot = aws.ebs.snapshot.Snapshot("exampleSnapshot",
             volume_id=example.id,
             tags={
-                "Name": "HelloWorld_snap",
+                Name: HelloWorld_snap,
             })
-        example_copy = aws.ebs.SnapshotCopy("exampleCopy",
+        example_copy = aws.ebs.snapshot_copy.SnapshotCopy("exampleCopy",
             source_snapshot_id=example_snapshot.id,
-            source_region="us-west-2",
+            source_region=us-west-2,
             tags={
-                "Name": "HelloWorld_copy_snap",
+                Name: HelloWorld_copy_snap,
             })
         ```
 
@@ -509,22 +509,22 @@ class SnapshotCopy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ebs.Volume("example",
-            availability_zone="us-west-2a",
+        example = aws.ebs.volume.Volume("example",
+            availability_zone=us-west-2a,
             size=40,
             tags={
-                "Name": "HelloWorld",
+                Name: HelloWorld,
             })
-        example_snapshot = aws.ebs.Snapshot("exampleSnapshot",
+        example_snapshot = aws.ebs.snapshot.Snapshot("exampleSnapshot",
             volume_id=example.id,
             tags={
-                "Name": "HelloWorld_snap",
+                Name: HelloWorld_snap,
             })
-        example_copy = aws.ebs.SnapshotCopy("exampleCopy",
+        example_copy = aws.ebs.snapshot_copy.SnapshotCopy("exampleCopy",
             source_snapshot_id=example_snapshot.id,
-            source_region="us-west-2",
+            source_region=us-west-2,
             tags={
-                "Name": "HelloWorld_copy_snap",
+                Name: HelloWorld_copy_snap,
             })
         ```
 

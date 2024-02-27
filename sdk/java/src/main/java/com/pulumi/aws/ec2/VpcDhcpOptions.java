@@ -28,8 +28,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.ec2.VpcDhcpOptions;
- * import com.pulumi.aws.ec2.VpcDhcpOptionsArgs;
+ * import com.pulumi.aws.ec2_vpcDhcpOptions.VpcDhcpOptions;
+ * import com.pulumi.aws.ec2_vpcDhcpOptions.VpcDhcpOptionsArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -60,8 +60,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.ec2.VpcDhcpOptions;
- * import com.pulumi.aws.ec2.VpcDhcpOptionsArgs;
+ * import com.pulumi.aws.ec2_vpcDhcpOptions.VpcDhcpOptions;
+ * import com.pulumi.aws.ec2_vpcDhcpOptions.VpcDhcpOptionsArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -83,7 +83,7 @@ import javax.annotation.Nullable;
  *             .netbiosNameServers(&#34;127.0.0.1&#34;)
  *             .netbiosNodeType(2)
  *             .ntpServers(&#34;127.0.0.1&#34;)
- *             .tags(Map.of(&#34;Name&#34;, &#34;foo-name&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

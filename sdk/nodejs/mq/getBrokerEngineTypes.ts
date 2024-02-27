@@ -11,16 +11,6 @@ import * as utilities from "../utilities";
  * Retrieve information about available broker engines.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.mq.getBrokerEngineTypes({
- *     engineType: "ACTIVEMQ",
- * });
- * ```
  */
 export function getBrokerEngineTypes(args?: GetBrokerEngineTypesArgs, opts?: pulumi.InvokeOptions): Promise<GetBrokerEngineTypesResult> {
     args = args || {};
@@ -62,16 +52,6 @@ export interface GetBrokerEngineTypesResult {
  * Retrieve information about available broker engines.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.mq.getBrokerEngineTypes({
- *     engineType: "ACTIVEMQ",
- * });
- * ```
  */
 export function getBrokerEngineTypesOutput(args?: GetBrokerEngineTypesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBrokerEngineTypesResult> {
     return pulumi.output(args).apply((a: any) => getBrokerEngineTypes(a, opts))

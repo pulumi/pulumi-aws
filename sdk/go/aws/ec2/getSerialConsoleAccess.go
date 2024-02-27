@@ -12,30 +12,6 @@ import (
 )
 
 // Provides a way to check whether serial console access is enabled for your AWS account in the current AWS region.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.LookupSerialConsoleAccess(ctx, nil, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupSerialConsoleAccess(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*LookupSerialConsoleAccessResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupSerialConsoleAccessResult

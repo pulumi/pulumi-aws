@@ -30,47 +30,38 @@ import (
 //	"encoding/hex"
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lambda"
+//	lambda/invocation "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/lambda/invocation"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func sha1Hash(input string) string {
-//		hash := sha1.Sum([]byte(input))
-//		return hex.EncodeToString(hash[:])
-//	}
+//					hash := sha1.Sum([]byte(input))
+//					return hex.EncodeToString(hash[:])
+//				}
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			tmpJSON0, err := json.Marshal([]interface{}{
-//				aws_lambda_function.Example.Environment,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			tmpJSON1, err := json.Marshal(map[string]interface{}{
-//				"key1": "value1",
-//				"key2": "value2",
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json1 := string(tmpJSON1)
-//			_, err = lambda.NewInvocation(ctx, "example", &lambda.InvocationArgs{
-//				FunctionName: pulumi.Any(aws_lambda_function.Lambda_function_test.Function_name),
-//				Triggers: pulumi.StringMap{
-//					"redeployment": sha1Hash(json0),
-//				},
-//				Input: pulumi.String(json1),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := lambda/invocation.NewInvocation(ctx, "example", &lambda/invocation.InvocationArgs{
+// FunctionName: aws_lambda_function.Lambda_function_test.Function_name,
+// Triggers: tmpJSON0, err := json.Marshal([]interface{}{
+// aws_lambda_function.Example.Environment,
+// })
+// if err != nil {
+// return err
+// }
+// json0 := string(tmpJSON0)
+// map[string]interface{}{
+// "redeployment": sha1Hash(json0),
+// },
+// Input: %!v(PANIC=Format method: fatal: An assertion has failed: unlowered function toJSON),
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### CRUD Lifecycle Scope
 //
@@ -81,33 +72,23 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lambda"
+//	lambda/invocation "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/lambda/invocation"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"key1": "value1",
-//				"key2": "value2",
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			_, err = lambda.NewInvocation(ctx, "example", &lambda.InvocationArgs{
-//				FunctionName:   pulumi.Any(aws_lambda_function.Lambda_function_test.Function_name),
-//				Input:          pulumi.String(json0),
-//				LifecycleScope: pulumi.String("CRUD"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := lambda/invocation.NewInvocation(ctx, "example", &lambda/invocation.InvocationArgs{
+// FunctionName: aws_lambda_function.Lambda_function_test.Function_name,
+// Input: %!v(PANIC=Format method: fatal: An assertion has failed: unlowered function toJSON),
+// LifecycleScope: "CRUD",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // > **NOTE:** `lifecycleScope = "CRUD"` will inject a key `tf` in the input event to pass lifecycle information! This allows the lambda function to handle different lifecycle transitions uniquely.  If you need to use a key `tf` in your own input JSON, the default key name can be overridden with the `pulumiKey` argument.

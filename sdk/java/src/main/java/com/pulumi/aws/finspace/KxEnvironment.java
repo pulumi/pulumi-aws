@@ -71,8 +71,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.ec2transitgateway.TransitGatewayArgs;
  * import com.pulumi.aws.finspace.KxEnvironment;
  * import com.pulumi.aws.finspace.KxEnvironmentArgs;
- * import com.pulumi.aws.finspace.inputs.KxEnvironmentTransitGatewayConfigurationArgs;
- * import com.pulumi.aws.finspace.inputs.KxEnvironmentCustomDnsConfigurationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -98,14 +96,53 @@ import javax.annotation.Nullable;
  *         var exampleEnv = new KxEnvironment(&#34;exampleEnv&#34;, KxEnvironmentArgs.builder()        
  *             .description(&#34;Environment description&#34;)
  *             .kmsKeyId(exampleKey.arn())
- *             .transitGatewayConfiguration(KxEnvironmentTransitGatewayConfigurationArgs.builder()
- *                 .transitGatewayId(exampleTransitGateway.id())
- *                 .routableCidrSpace(&#34;100.64.0.0/26&#34;)
- *                 .build())
- *             .customDnsConfigurations(KxEnvironmentCustomDnsConfigurationArgs.builder()
- *                 .customDnsServerName(&#34;example.finspace.amazonaws.com&#34;)
- *                 .customDnsServerIp(&#34;10.0.0.76&#34;)
- *                 .build())
+ *             .transitGatewayConfiguration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .customDnsConfigurations(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### With Transit Gateway Attachment Network ACL Configuration
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.kms.Key;
+ * import com.pulumi.aws.kms.KeyArgs;
+ * import com.pulumi.aws.ec2transitgateway.TransitGateway;
+ * import com.pulumi.aws.ec2transitgateway.TransitGatewayArgs;
+ * import com.pulumi.aws.finspace.KxEnvironment;
+ * import com.pulumi.aws.finspace.KxEnvironmentArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var exampleKey = new Key(&#34;exampleKey&#34;, KeyArgs.builder()        
+ *             .description(&#34;Sample KMS Key&#34;)
+ *             .deletionWindowInDays(7)
+ *             .build());
+ * 
+ *         var exampleTransitGateway = new TransitGateway(&#34;exampleTransitGateway&#34;, TransitGatewayArgs.builder()        
+ *             .description(&#34;example&#34;)
+ *             .build());
+ * 
+ *         var exampleEnv = new KxEnvironment(&#34;exampleEnv&#34;, KxEnvironmentArgs.builder()        
+ *             .description(&#34;Environment description&#34;)
+ *             .kmsKeyId(exampleKey.arn())
+ *             .transitGatewayConfiguration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .customDnsConfigurations(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

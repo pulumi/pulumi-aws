@@ -77,9 +77,9 @@ class SdkvoiceGlobalSettings(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.chime.SdkvoiceGlobalSettings("example", voice_connector=aws.chime.SdkvoiceGlobalSettingsVoiceConnectorArgs(
-            cdr_bucket="example-bucket-name",
-        ))
+        example = aws.chime.sdkvoice_global_settings.SdkvoiceGlobalSettings("example", voice_connector={
+            cdrBucket: example-bucket-name,
+        })
         ```
 
         ## Import
@@ -110,9 +110,9 @@ class SdkvoiceGlobalSettings(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.chime.SdkvoiceGlobalSettings("example", voice_connector=aws.chime.SdkvoiceGlobalSettingsVoiceConnectorArgs(
-            cdr_bucket="example-bucket-name",
-        ))
+        example = aws.chime.sdkvoice_global_settings.SdkvoiceGlobalSettings("example", voice_connector={
+            cdrBucket: example-bucket-name,
+        })
         ```
 
         ## Import

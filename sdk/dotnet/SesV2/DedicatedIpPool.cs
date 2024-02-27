@@ -23,7 +23,7 @@ namespace Pulumi.Aws.SesV2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.SesV2.DedicatedIpPool("example", new()
+    ///     var example = new Aws.Sesv2.DedicatedIpPool.DedicatedIpPool("example", new()
     ///     {
     ///         PoolName = "my-pool",
     ///     });
@@ -40,7 +40,7 @@ namespace Pulumi.Aws.SesV2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.SesV2.DedicatedIpPool("example", new()
+    ///     var example = new Aws.Sesv2.DedicatedIpPool.DedicatedIpPool("example", new()
     ///     {
     ///         PoolName = "my-managed-pool",
     ///         ScalingMode = "MANAGED",

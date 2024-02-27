@@ -461,32 +461,32 @@ class AnalyticsApplication(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_stream = aws.kinesis.Stream("testStream", shard_count=1)
-        test_application = aws.kinesis.AnalyticsApplication("testApplication", inputs=aws.kinesis.AnalyticsApplicationInputsArgs(
-            name_prefix="test_prefix",
-            kinesis_stream=aws.kinesis.AnalyticsApplicationInputsKinesisStreamArgs(
-                resource_arn=test_stream.arn,
-                role_arn=aws_iam_role["test"]["arn"],
-            ),
-            parallelism=aws.kinesis.AnalyticsApplicationInputsParallelismArgs(
-                count=1,
-            ),
-            schema=aws.kinesis.AnalyticsApplicationInputsSchemaArgs(
-                record_columns=[aws.kinesis.AnalyticsApplicationInputsSchemaRecordColumnArgs(
-                    mapping="$.test",
-                    name="test",
-                    sql_type="VARCHAR(8)",
-                )],
-                record_encoding="UTF-8",
-                record_format=aws.kinesis.AnalyticsApplicationInputsSchemaRecordFormatArgs(
-                    mapping_parameters=aws.kinesis.AnalyticsApplicationInputsSchemaRecordFormatMappingParametersArgs(
-                        json=aws.kinesis.AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJsonArgs(
-                            record_row_path="$",
-                        ),
-                    ),
-                ),
-            ),
-        ))
+        test_stream = aws.kinesis.stream.Stream("testStream", shard_count=1)
+        test_application = aws.kinesis.analytics_application.AnalyticsApplication("testApplication", inputs={
+            namePrefix: test_prefix,
+            kinesisStream: {
+                resourceArn: test_stream.arn,
+                roleArn: aws_iam_role.test.arn,
+            },
+            parallelism: {
+                count: 1,
+            },
+            schema: {
+                recordColumns: [{
+                    mapping: $.test,
+                    name: test,
+                    sqlType: VARCHAR(8),
+                }],
+                recordEncoding: UTF-8,
+                recordFormat: {
+                    mappingParameters: {
+                        json: {
+                            recordRowPath: $,
+                        },
+                    },
+                },
+            },
+        })
         ```
         ### Starting An Application
 
@@ -494,54 +494,54 @@ class AnalyticsApplication(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_log_group = aws.cloudwatch.LogGroup("exampleLogGroup")
-        example_log_stream = aws.cloudwatch.LogStream("exampleLogStream", log_group_name=example_log_group.name)
-        example_stream = aws.kinesis.Stream("exampleStream", shard_count=1)
-        example_firehose_delivery_stream = aws.kinesis.FirehoseDeliveryStream("exampleFirehoseDeliveryStream",
-            destination="extended_s3",
-            extended_s3_configuration=aws.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationArgs(
-                bucket_arn=aws_s3_bucket["example"]["arn"],
-                role_arn=aws_iam_role["example"]["arn"],
-            ))
-        test = aws.kinesis.AnalyticsApplication("test",
-            cloudwatch_logging_options=aws.kinesis.AnalyticsApplicationCloudwatchLoggingOptionsArgs(
-                log_stream_arn=example_log_stream.arn,
-                role_arn=aws_iam_role["example"]["arn"],
-            ),
-            inputs=aws.kinesis.AnalyticsApplicationInputsArgs(
-                name_prefix="example_prefix",
-                schema=aws.kinesis.AnalyticsApplicationInputsSchemaArgs(
-                    record_columns=[aws.kinesis.AnalyticsApplicationInputsSchemaRecordColumnArgs(
-                        name="COLUMN_1",
-                        sql_type="INTEGER",
-                    )],
-                    record_format=aws.kinesis.AnalyticsApplicationInputsSchemaRecordFormatArgs(
-                        mapping_parameters=aws.kinesis.AnalyticsApplicationInputsSchemaRecordFormatMappingParametersArgs(
-                            csv=aws.kinesis.AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvArgs(
-                                record_column_delimiter=",",
-                                record_row_delimiter="|",
-                            ),
-                        ),
-                    ),
-                ),
-                kinesis_stream=aws.kinesis.AnalyticsApplicationInputsKinesisStreamArgs(
-                    resource_arn=example_stream.arn,
-                    role_arn=aws_iam_role["example"]["arn"],
-                ),
-                starting_position_configurations=[aws.kinesis.AnalyticsApplicationInputsStartingPositionConfigurationArgs(
-                    starting_position="NOW",
-                )],
-            ),
-            outputs=[aws.kinesis.AnalyticsApplicationOutputArgs(
-                name="OUTPUT_1",
-                schema=aws.kinesis.AnalyticsApplicationOutputSchemaArgs(
-                    record_format_type="CSV",
-                ),
-                kinesis_firehose=aws.kinesis.AnalyticsApplicationOutputKinesisFirehoseArgs(
-                    resource_arn=example_firehose_delivery_stream.arn,
-                    role_arn=aws_iam_role["example"]["arn"],
-                ),
-            )],
+        example_log_group = aws.cloudwatch.log_group.LogGroup("exampleLogGroup")
+        example_log_stream = aws.cloudwatch.log_stream.LogStream("exampleLogStream", log_group_name=example_log_group.name)
+        example_stream = aws.kinesis.stream.Stream("exampleStream", shard_count=1)
+        example_firehose_delivery_stream = aws.kinesis.firehose_delivery_stream.FirehoseDeliveryStream("exampleFirehoseDeliveryStream",
+            destination=extended_s3,
+            extended_s3_configuration={
+                bucketArn: aws_s3_bucket.example.arn,
+                roleArn: aws_iam_role.example.arn,
+            })
+        test = aws.kinesis.analytics_application.AnalyticsApplication("test",
+            cloudwatch_logging_options={
+                logStreamArn: example_log_stream.arn,
+                roleArn: aws_iam_role.example.arn,
+            },
+            inputs={
+                namePrefix: example_prefix,
+                schema: {
+                    recordColumns: [{
+                        name: COLUMN_1,
+                        sqlType: INTEGER,
+                    }],
+                    recordFormat: {
+                        mappingParameters: {
+                            csv: {
+                                recordColumnDelimiter: ,,
+                                recordRowDelimiter: |,
+                            },
+                        },
+                    },
+                },
+                kinesisStream: {
+                    resourceArn: example_stream.arn,
+                    roleArn: aws_iam_role.example.arn,
+                },
+                startingPositionConfigurations: [{
+                    startingPosition: NOW,
+                }],
+            },
+            outputs=[{
+                name: OUTPUT_1,
+                schema: {
+                    recordFormatType: CSV,
+                },
+                kinesisFirehose: {
+                    resourceArn: example_firehose_delivery_stream.arn,
+                    roleArn: aws_iam_role.example.arn,
+                },
+            }],
             start_application=True)
         ```
 
@@ -589,32 +589,32 @@ class AnalyticsApplication(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_stream = aws.kinesis.Stream("testStream", shard_count=1)
-        test_application = aws.kinesis.AnalyticsApplication("testApplication", inputs=aws.kinesis.AnalyticsApplicationInputsArgs(
-            name_prefix="test_prefix",
-            kinesis_stream=aws.kinesis.AnalyticsApplicationInputsKinesisStreamArgs(
-                resource_arn=test_stream.arn,
-                role_arn=aws_iam_role["test"]["arn"],
-            ),
-            parallelism=aws.kinesis.AnalyticsApplicationInputsParallelismArgs(
-                count=1,
-            ),
-            schema=aws.kinesis.AnalyticsApplicationInputsSchemaArgs(
-                record_columns=[aws.kinesis.AnalyticsApplicationInputsSchemaRecordColumnArgs(
-                    mapping="$.test",
-                    name="test",
-                    sql_type="VARCHAR(8)",
-                )],
-                record_encoding="UTF-8",
-                record_format=aws.kinesis.AnalyticsApplicationInputsSchemaRecordFormatArgs(
-                    mapping_parameters=aws.kinesis.AnalyticsApplicationInputsSchemaRecordFormatMappingParametersArgs(
-                        json=aws.kinesis.AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJsonArgs(
-                            record_row_path="$",
-                        ),
-                    ),
-                ),
-            ),
-        ))
+        test_stream = aws.kinesis.stream.Stream("testStream", shard_count=1)
+        test_application = aws.kinesis.analytics_application.AnalyticsApplication("testApplication", inputs={
+            namePrefix: test_prefix,
+            kinesisStream: {
+                resourceArn: test_stream.arn,
+                roleArn: aws_iam_role.test.arn,
+            },
+            parallelism: {
+                count: 1,
+            },
+            schema: {
+                recordColumns: [{
+                    mapping: $.test,
+                    name: test,
+                    sqlType: VARCHAR(8),
+                }],
+                recordEncoding: UTF-8,
+                recordFormat: {
+                    mappingParameters: {
+                        json: {
+                            recordRowPath: $,
+                        },
+                    },
+                },
+            },
+        })
         ```
         ### Starting An Application
 
@@ -622,54 +622,54 @@ class AnalyticsApplication(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_log_group = aws.cloudwatch.LogGroup("exampleLogGroup")
-        example_log_stream = aws.cloudwatch.LogStream("exampleLogStream", log_group_name=example_log_group.name)
-        example_stream = aws.kinesis.Stream("exampleStream", shard_count=1)
-        example_firehose_delivery_stream = aws.kinesis.FirehoseDeliveryStream("exampleFirehoseDeliveryStream",
-            destination="extended_s3",
-            extended_s3_configuration=aws.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationArgs(
-                bucket_arn=aws_s3_bucket["example"]["arn"],
-                role_arn=aws_iam_role["example"]["arn"],
-            ))
-        test = aws.kinesis.AnalyticsApplication("test",
-            cloudwatch_logging_options=aws.kinesis.AnalyticsApplicationCloudwatchLoggingOptionsArgs(
-                log_stream_arn=example_log_stream.arn,
-                role_arn=aws_iam_role["example"]["arn"],
-            ),
-            inputs=aws.kinesis.AnalyticsApplicationInputsArgs(
-                name_prefix="example_prefix",
-                schema=aws.kinesis.AnalyticsApplicationInputsSchemaArgs(
-                    record_columns=[aws.kinesis.AnalyticsApplicationInputsSchemaRecordColumnArgs(
-                        name="COLUMN_1",
-                        sql_type="INTEGER",
-                    )],
-                    record_format=aws.kinesis.AnalyticsApplicationInputsSchemaRecordFormatArgs(
-                        mapping_parameters=aws.kinesis.AnalyticsApplicationInputsSchemaRecordFormatMappingParametersArgs(
-                            csv=aws.kinesis.AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvArgs(
-                                record_column_delimiter=",",
-                                record_row_delimiter="|",
-                            ),
-                        ),
-                    ),
-                ),
-                kinesis_stream=aws.kinesis.AnalyticsApplicationInputsKinesisStreamArgs(
-                    resource_arn=example_stream.arn,
-                    role_arn=aws_iam_role["example"]["arn"],
-                ),
-                starting_position_configurations=[aws.kinesis.AnalyticsApplicationInputsStartingPositionConfigurationArgs(
-                    starting_position="NOW",
-                )],
-            ),
-            outputs=[aws.kinesis.AnalyticsApplicationOutputArgs(
-                name="OUTPUT_1",
-                schema=aws.kinesis.AnalyticsApplicationOutputSchemaArgs(
-                    record_format_type="CSV",
-                ),
-                kinesis_firehose=aws.kinesis.AnalyticsApplicationOutputKinesisFirehoseArgs(
-                    resource_arn=example_firehose_delivery_stream.arn,
-                    role_arn=aws_iam_role["example"]["arn"],
-                ),
-            )],
+        example_log_group = aws.cloudwatch.log_group.LogGroup("exampleLogGroup")
+        example_log_stream = aws.cloudwatch.log_stream.LogStream("exampleLogStream", log_group_name=example_log_group.name)
+        example_stream = aws.kinesis.stream.Stream("exampleStream", shard_count=1)
+        example_firehose_delivery_stream = aws.kinesis.firehose_delivery_stream.FirehoseDeliveryStream("exampleFirehoseDeliveryStream",
+            destination=extended_s3,
+            extended_s3_configuration={
+                bucketArn: aws_s3_bucket.example.arn,
+                roleArn: aws_iam_role.example.arn,
+            })
+        test = aws.kinesis.analytics_application.AnalyticsApplication("test",
+            cloudwatch_logging_options={
+                logStreamArn: example_log_stream.arn,
+                roleArn: aws_iam_role.example.arn,
+            },
+            inputs={
+                namePrefix: example_prefix,
+                schema: {
+                    recordColumns: [{
+                        name: COLUMN_1,
+                        sqlType: INTEGER,
+                    }],
+                    recordFormat: {
+                        mappingParameters: {
+                            csv: {
+                                recordColumnDelimiter: ,,
+                                recordRowDelimiter: |,
+                            },
+                        },
+                    },
+                },
+                kinesisStream: {
+                    resourceArn: example_stream.arn,
+                    roleArn: aws_iam_role.example.arn,
+                },
+                startingPositionConfigurations: [{
+                    startingPosition: NOW,
+                }],
+            },
+            outputs=[{
+                name: OUTPUT_1,
+                schema: {
+                    recordFormatType: CSV,
+                },
+                kinesisFirehose: {
+                    resourceArn: example_firehose_delivery_stream.arn,
+                    roleArn: aws_iam_role.example.arn,
+                },
+            }],
             start_application=True)
         ```
 

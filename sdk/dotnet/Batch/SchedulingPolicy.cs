@@ -22,25 +22,25 @@ namespace Pulumi.Aws.Batch
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Batch.SchedulingPolicy("example", new()
+    ///     var example = new Aws.Batch.SchedulingPolicy.SchedulingPolicy("example", new()
     ///     {
-    ///         FairSharePolicy = new Aws.Batch.Inputs.SchedulingPolicyFairSharePolicyArgs
+    ///         FairSharePolicy = 
     ///         {
-    ///             ComputeReservation = 1,
-    ///             ShareDecaySeconds = 3600,
-    ///             ShareDistributions = new[]
+    ///             { "computeReservation", 1 },
+    ///             { "shareDecaySeconds", 3600 },
+    ///             { "shareDistributions", new[]
     ///             {
-    ///                 new Aws.Batch.Inputs.SchedulingPolicyFairSharePolicyShareDistributionArgs
+    ///                 
     ///                 {
-    ///                     ShareIdentifier = "A1*",
-    ///                     WeightFactor = 0.1,
+    ///                     { "shareIdentifier", "A1*" },
+    ///                     { "weightFactor", 0.1 },
     ///                 },
-    ///                 new Aws.Batch.Inputs.SchedulingPolicyFairSharePolicyShareDistributionArgs
+    ///                 
     ///                 {
-    ///                     ShareIdentifier = "A2",
-    ///                     WeightFactor = 0.2,
+    ///                     { "shareIdentifier", "A2" },
+    ///                     { "weightFactor", 0.2 },
     ///                 },
-    ///             },
+    ///             } },
     ///         },
     ///         Tags = 
     ///         {

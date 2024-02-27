@@ -23,7 +23,7 @@ namespace Pulumi.Aws.IvsChat
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.IvsChat.Room("example");
+    ///     var example = new Aws.Ivschat.Room.Room("example");
     /// 
     /// });
     /// ```
@@ -37,24 +37,24 @@ namespace Pulumi.Aws.IvsChat
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2", new()
+    ///     var exampleBucketV2 = new Aws.S3.BucketV2.BucketV2("exampleBucketV2", new()
     ///     {
     ///         BucketPrefix = "tf-ivschat-logging-bucket-",
     ///         ForceDestroy = true,
     ///     });
     /// 
-    ///     var exampleLoggingConfiguration = new Aws.IvsChat.LoggingConfiguration("exampleLoggingConfiguration", new()
+    ///     var exampleLoggingConfiguration = new Aws.Ivschat.LoggingConfiguration.LoggingConfiguration("exampleLoggingConfiguration", new()
     ///     {
-    ///         DestinationConfiguration = new Aws.IvsChat.Inputs.LoggingConfigurationDestinationConfigurationArgs
+    ///         DestinationConfiguration = 
     ///         {
-    ///             S3 = new Aws.IvsChat.Inputs.LoggingConfigurationDestinationConfigurationS3Args
+    ///             { "s3", 
     ///             {
-    ///                 BucketName = exampleBucketV2.Id,
-    ///             },
+    ///                 { "bucketName", exampleBucketV2.Id },
+    ///             } },
     ///         },
     ///     });
     /// 
-    ///     var exampleRoom = new Aws.IvsChat.Room("exampleRoom", new()
+    ///     var exampleRoom = new Aws.Ivschat.Room.Room("exampleRoom", new()
     ///     {
     ///         LoggingConfigurationIdentifiers = new[]
     ///         {

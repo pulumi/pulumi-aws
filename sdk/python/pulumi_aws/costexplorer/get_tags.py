@@ -112,18 +112,6 @@ def get_tags(filter: Optional[pulumi.InputType['GetTagsFilterArgs']] = None,
     """
     Provides details about a specific CE Tags.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.costexplorer.get_tags(time_period=aws.costexplorer.GetTagsTimePeriodArgs(
-        end="2022-12-01",
-        start="2021-01-01",
-    ))
-    ```
-
 
     :param pulumi.InputType['GetTagsFilterArgs'] filter: Configuration block for the `Expression` object used to categorize costs. See below.
     :param str search_string: Value that you want to search for.
@@ -161,18 +149,6 @@ def get_tags_output(filter: Optional[pulumi.Input[Optional[pulumi.InputType['Get
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTagsResult]:
     """
     Provides details about a specific CE Tags.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.costexplorer.get_tags(time_period=aws.costexplorer.GetTagsTimePeriodArgs(
-        end="2022-12-01",
-        start="2021-01-01",
-    ))
-    ```
 
 
     :param pulumi.InputType['GetTagsFilterArgs'] filter: Configuration block for the `Expression` object used to categorize costs. See below.

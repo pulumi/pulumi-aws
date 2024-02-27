@@ -35,7 +35,7 @@ namespace Pulumi.Aws.AutoScaling
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var foobarGroup = new Aws.AutoScaling.Group("foobarGroup", new()
+    ///     var foobarGroup = new Aws.Autoscaling.Group.Group("foobarGroup", new()
     ///     {
     ///         AvailabilityZones = new[]
     ///         {
@@ -48,16 +48,16 @@ namespace Pulumi.Aws.AutoScaling
     ///         },
     ///         Tags = new[]
     ///         {
-    ///             new Aws.AutoScaling.Inputs.GroupTagArgs
+    ///             
     ///             {
-    ///                 Key = "Foo",
-    ///                 Value = "foo-bar",
-    ///                 PropagateAtLaunch = true,
+    ///                 { "key", "Foo" },
+    ///                 { "value", "foo-bar" },
+    ///                 { "propagateAtLaunch", true },
     ///             },
     ///         },
     ///     });
     /// 
-    ///     var foobarLifecycleHook = new Aws.AutoScaling.LifecycleHook("foobarLifecycleHook", new()
+    ///     var foobarLifecycleHook = new Aws.Autoscaling.LifecycleHook.LifecycleHook("foobarLifecycleHook", new()
     ///     {
     ///         AutoscalingGroupName = foobarGroup.Name,
     ///         DefaultResult = "CONTINUE",

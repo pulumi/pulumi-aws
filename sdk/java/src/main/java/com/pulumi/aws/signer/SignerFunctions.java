@@ -20,72 +20,12 @@ public final class SignerFunctions {
     /**
      * Provides information about a Signer Signing Job.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.signer.SignerFunctions;
-     * import com.pulumi.aws.signer.inputs.GetSigningJobArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var buildSigningJob = SignerFunctions.getSigningJob(GetSigningJobArgs.builder()
-     *             .jobId(&#34;9ed7e5c3-b8d4-4da0-8459-44e0b068f7ee&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetSigningJobResult> getSigningJob(GetSigningJobArgs args) {
         return getSigningJob(args, InvokeOptions.Empty);
     }
     /**
      * Provides information about a Signer Signing Job.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.signer.SignerFunctions;
-     * import com.pulumi.aws.signer.inputs.GetSigningJobArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var buildSigningJob = SignerFunctions.getSigningJob(GetSigningJobArgs.builder()
-     *             .jobId(&#34;9ed7e5c3-b8d4-4da0-8459-44e0b068f7ee&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetSigningJobResult> getSigningJobPlain(GetSigningJobPlainArgs args) {
@@ -94,72 +34,12 @@ public final class SignerFunctions {
     /**
      * Provides information about a Signer Signing Job.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.signer.SignerFunctions;
-     * import com.pulumi.aws.signer.inputs.GetSigningJobArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var buildSigningJob = SignerFunctions.getSigningJob(GetSigningJobArgs.builder()
-     *             .jobId(&#34;9ed7e5c3-b8d4-4da0-8459-44e0b068f7ee&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetSigningJobResult> getSigningJob(GetSigningJobArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:signer/getSigningJob:getSigningJob", TypeShape.of(GetSigningJobResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Provides information about a Signer Signing Job.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.signer.SignerFunctions;
-     * import com.pulumi.aws.signer.inputs.GetSigningJobArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var buildSigningJob = SignerFunctions.getSigningJob(GetSigningJobArgs.builder()
-     *             .jobId(&#34;9ed7e5c3-b8d4-4da0-8459-44e0b068f7ee&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetSigningJobResult> getSigningJobPlain(GetSigningJobPlainArgs args, InvokeOptions options) {
@@ -168,72 +48,12 @@ public final class SignerFunctions {
     /**
      * Provides information about a Signer Signing Profile.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.signer.SignerFunctions;
-     * import com.pulumi.aws.signer.inputs.GetSigningProfileArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var productionSigningProfile = SignerFunctions.getSigningProfile(GetSigningProfileArgs.builder()
-     *             .name(&#34;prod_profile_DdW3Mk1foYL88fajut4mTVFGpuwfd4ACO6ANL0D1uIj7lrn8adK&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetSigningProfileResult> getSigningProfile(GetSigningProfileArgs args) {
         return getSigningProfile(args, InvokeOptions.Empty);
     }
     /**
      * Provides information about a Signer Signing Profile.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.signer.SignerFunctions;
-     * import com.pulumi.aws.signer.inputs.GetSigningProfileArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var productionSigningProfile = SignerFunctions.getSigningProfile(GetSigningProfileArgs.builder()
-     *             .name(&#34;prod_profile_DdW3Mk1foYL88fajut4mTVFGpuwfd4ACO6ANL0D1uIj7lrn8adK&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetSigningProfileResult> getSigningProfilePlain(GetSigningProfilePlainArgs args) {
@@ -242,72 +62,12 @@ public final class SignerFunctions {
     /**
      * Provides information about a Signer Signing Profile.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.signer.SignerFunctions;
-     * import com.pulumi.aws.signer.inputs.GetSigningProfileArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var productionSigningProfile = SignerFunctions.getSigningProfile(GetSigningProfileArgs.builder()
-     *             .name(&#34;prod_profile_DdW3Mk1foYL88fajut4mTVFGpuwfd4ACO6ANL0D1uIj7lrn8adK&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetSigningProfileResult> getSigningProfile(GetSigningProfileArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:signer/getSigningProfile:getSigningProfile", TypeShape.of(GetSigningProfileResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Provides information about a Signer Signing Profile.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.signer.SignerFunctions;
-     * import com.pulumi.aws.signer.inputs.GetSigningProfileArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var productionSigningProfile = SignerFunctions.getSigningProfile(GetSigningProfileArgs.builder()
-     *             .name(&#34;prod_profile_DdW3Mk1foYL88fajut4mTVFGpuwfd4ACO6ANL0D1uIj7lrn8adK&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetSigningProfileResult> getSigningProfilePlain(GetSigningProfilePlainArgs args, InvokeOptions options) {

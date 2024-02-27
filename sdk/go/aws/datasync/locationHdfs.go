@@ -23,33 +23,31 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/datasync"
+//	datasync/locationHdfs "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/datasync/locationHdfs"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := datasync.NewLocationHdfs(ctx, "example", &datasync.LocationHdfsArgs{
-//				AgentArns: pulumi.StringArray{
-//					aws_datasync_agent.Example.Arn,
-//				},
-//				AuthenticationType: pulumi.String("SIMPLE"),
-//				SimpleUser:         pulumi.String("example"),
-//				NameNodes: datasync.LocationHdfsNameNodeArray{
-//					&datasync.LocationHdfsNameNodeArgs{
-//						Hostname: pulumi.Any(aws_instance.Example.Private_dns),
-//						Port:     pulumi.Int(80),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := datasync/locationHdfs.NewLocationHdfs(ctx, "example", &datasync/locationHdfs.LocationHdfsArgs{
+// AgentArns: []interface{}{
+// aws_datasync_agent.Example.Arn,
+// },
+// AuthenticationType: "SIMPLE",
+// SimpleUser: "example",
+// NameNodes: []map[string]interface{}{
+// map[string]interface{}{
+// "hostname": aws_instance.Example.Private_dns,
+// "port": 80,
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

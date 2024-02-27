@@ -21,24 +21,22 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/codecommit"
+//	codecommit/repository "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/codecommit/repository"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := codecommit.NewRepository(ctx, "test", &codecommit.RepositoryArgs{
-//				Description:    pulumi.String("This is the Sample App Repository"),
-//				RepositoryName: pulumi.String("MyTestRepository"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := codecommit/repository.NewRepository(ctx, "test", &codecommit/repository.RepositoryArgs{
+// Description: "This is the Sample App Repository",
+// RepositoryName: "MyTestRepository",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### AWS KMS Customer Managed Keys (CMK)
 //
@@ -47,33 +45,31 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/codecommit"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kms"
+//	codecommit/repository "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/codecommit/repository"
+//	kms/key "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/kms/key"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testKey, err := kms.NewKey(ctx, "testKey", &kms.KeyArgs{
-//				Description:          pulumi.String("test"),
-//				DeletionWindowInDays: pulumi.Int(7),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = codecommit.NewRepository(ctx, "testRepository", &codecommit.RepositoryArgs{
-//				RepositoryName: pulumi.String("MyTestRepository"),
-//				Description:    pulumi.String("This is the Sample App Repository"),
-//				KmsKeyId:       testKey.Arn,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// testKey, err := kms/key.NewKey(ctx, "testKey", &kms/key.KeyArgs{
+// Description: "test",
+// DeletionWindowInDays: 7,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = codecommit/repository.NewRepository(ctx, "testRepository", &codecommit/repository.RepositoryArgs{
+// RepositoryName: "MyTestRepository",
+// Description: "This is the Sample App Repository",
+// KmsKeyId: testKey.Arn,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

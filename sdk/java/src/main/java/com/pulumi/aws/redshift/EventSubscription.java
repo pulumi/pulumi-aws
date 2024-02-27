@@ -62,7 +62,7 @@ import javax.annotation.Nullable;
  *                 &#34;management&#34;,
  *                 &#34;monitoring&#34;,
  *                 &#34;security&#34;)
- *             .tags(Map.of(&#34;Name&#34;, &#34;default&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

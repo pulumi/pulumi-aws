@@ -82,18 +82,6 @@ def get_local_gateway_route_tables(filters: Optional[Sequence[pulumi.InputType['
     """
     Provides information for multiple EC2 Local Gateway Route Tables, such as their identifiers.
 
-    ## Example Usage
-
-    The following shows outputting all Local Gateway Route Table Ids.
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    foo_local_gateway_route_tables = aws.ec2.get_local_gateway_route_tables()
-    pulumi.export("foo", foo_local_gateway_route_tables.ids)
-    ```
-
 
     :param Sequence[pulumi.InputType['GetLocalGatewayRouteTablesFilterArgs']] filters: Custom filter block as described below.
            
@@ -121,18 +109,6 @@ def get_local_gateway_route_tables_output(filters: Optional[pulumi.Input[Optiona
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLocalGatewayRouteTablesResult]:
     """
     Provides information for multiple EC2 Local Gateway Route Tables, such as their identifiers.
-
-    ## Example Usage
-
-    The following shows outputting all Local Gateway Route Table Ids.
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    foo_local_gateway_route_tables = aws.ec2.get_local_gateway_route_tables()
-    pulumi.export("foo", foo_local_gateway_route_tables.ids)
-    ```
 
 
     :param Sequence[pulumi.InputType['GetLocalGatewayRouteTablesFilterArgs']] filters: Custom filter block as described below.

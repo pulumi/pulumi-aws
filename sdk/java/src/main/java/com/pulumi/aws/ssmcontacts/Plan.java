@@ -28,7 +28,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.ssmcontacts.Plan;
  * import com.pulumi.aws.ssmcontacts.PlanArgs;
- * import com.pulumi.aws.ssmcontacts.inputs.PlanStageArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -44,9 +43,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Plan(&#34;example&#34;, PlanArgs.builder()        
  *             .contactId(&#34;arn:aws:ssm-contacts:us-west-2:123456789012:contact/contactalias&#34;)
- *             .stages(PlanStageArgs.builder()
- *                 .durationInMinutes(1)
- *                 .build())
+ *             .stages(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -63,7 +60,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.ssmcontacts.ContactArgs;
  * import com.pulumi.aws.ssmcontacts.Plan;
  * import com.pulumi.aws.ssmcontacts.PlanArgs;
- * import com.pulumi.aws.ssmcontacts.inputs.PlanStageArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -84,9 +80,7 @@ import javax.annotation.Nullable;
  * 
  *         var plan = new Plan(&#34;plan&#34;, PlanArgs.builder()        
  *             .contactId(contact.arn())
- *             .stages(PlanStageArgs.builder()
- *                 .durationInMinutes(1)
- *                 .build())
+ *             .stages(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -103,7 +97,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.ssmcontacts.ContactArgs;
  * import com.pulumi.aws.ssmcontacts.Plan;
  * import com.pulumi.aws.ssmcontacts.PlanArgs;
- * import com.pulumi.aws.ssmcontacts.inputs.PlanStageArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -134,28 +127,7 @@ import javax.annotation.Nullable;
  * 
  *         var test = new Plan(&#34;test&#34;, PlanArgs.builder()        
  *             .contactId(escalationPlan.arn())
- *             .stages(PlanStageArgs.builder()
- *                 .durationInMinutes(0)
- *                 .targets(                
- *                     PlanStageTargetArgs.builder()
- *                         .contactTargetInfo(PlanStageTargetContactTargetInfoArgs.builder()
- *                             .isEssential(false)
- *                             .contactId(contactOne.arn())
- *                             .build())
- *                         .build(),
- *                     PlanStageTargetArgs.builder()
- *                         .contactTargetInfo(PlanStageTargetContactTargetInfoArgs.builder()
- *                             .isEssential(true)
- *                             .contactId(contactTwo.arn())
- *                             .build())
- *                         .build(),
- *                     PlanStageTargetArgs.builder()
- *                         .channelTargetInfo(PlanStageTargetChannelTargetInfoArgs.builder()
- *                             .retryIntervalInMinutes(2)
- *                             .contactChannelId(aws_ssmcontacts_contact_channel.channel().arn())
- *                             .build())
- *                         .build())
- *                 .build())
+ *             .stages(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

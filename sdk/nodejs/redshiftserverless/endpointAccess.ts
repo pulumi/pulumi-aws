@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.redshiftserverless.EndpointAccess("example", {
+ * const example = new aws.redshiftserverless/endpointAccess.EndpointAccess("example", {
  *     endpointName: "example",
  *     workgroupName: "example",
  * });

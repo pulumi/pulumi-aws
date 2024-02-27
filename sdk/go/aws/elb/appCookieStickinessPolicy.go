@@ -21,41 +21,40 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/elb"
+//	elb/appCookieStickinessPolicy "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/elb/appCookieStickinessPolicy"
+//	elb/loadBalancer "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/elb/loadBalancer"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			lb, err := elb.NewLoadBalancer(ctx, "lb", &elb.LoadBalancerArgs{
-//				AvailabilityZones: pulumi.StringArray{
-//					pulumi.String("us-east-1a"),
-//				},
-//				Listeners: elb.LoadBalancerListenerArray{
-//					&elb.LoadBalancerListenerArgs{
-//						InstancePort:     pulumi.Int(8000),
-//						InstanceProtocol: pulumi.String("http"),
-//						LbPort:           pulumi.Int(80),
-//						LbProtocol:       pulumi.String("http"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = elb.NewAppCookieStickinessPolicy(ctx, "foo", &elb.AppCookieStickinessPolicyArgs{
-//				LoadBalancer: lb.Name,
-//				LbPort:       pulumi.Int(80),
-//				CookieName:   pulumi.String("MyAppCookie"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// lb, err := elb/loadBalancer.NewLoadBalancer(ctx, "lb", &elb/loadBalancer.LoadBalancerArgs{
+// AvailabilityZones: []string{
+// "us-east-1a",
+// },
+// Listeners: []map[string]interface{}{
+// map[string]interface{}{
+// "instancePort": 8000,
+// "instanceProtocol": "http",
+// "lbPort": 80,
+// "lbProtocol": "http",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = elb/appCookieStickinessPolicy.NewAppCookieStickinessPolicy(ctx, "foo", &elb/appCookieStickinessPolicy.AppCookieStickinessPolicyArgs{
+// LoadBalancer: lb.Name,
+// LbPort: 80,
+// CookieName: "MyAppCookie",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -24,9 +24,9 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var orderEventBus = new Aws.CloudWatch.EventBus("orderEventBus");
+    ///     var orderEventBus = new Aws.Cloudwatch.EventBus.EventBus("orderEventBus");
     /// 
-    ///     var orderEventArchive = new Aws.CloudWatch.EventArchive("orderEventArchive", new()
+    ///     var orderEventArchive = new Aws.Cloudwatch.EventArchive.EventArchive("orderEventArchive", new()
     ///     {
     ///         EventSourceArn = orderEventBus.Arn,
     ///     });
@@ -44,9 +44,9 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var orderEventBus = new Aws.CloudWatch.EventBus("orderEventBus");
+    ///     var orderEventBus = new Aws.Cloudwatch.EventBus.EventBus("orderEventBus");
     /// 
-    ///     var orderEventArchive = new Aws.CloudWatch.EventArchive("orderEventArchive", new()
+    ///     var orderEventArchive = new Aws.Cloudwatch.EventArchive.EventArchive("orderEventArchive", new()
     ///     {
     ///         Description = "Archived events from order service",
     ///         EventSourceArn = orderEventBus.Arn,

@@ -25,37 +25,37 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/acm"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lb"
+//	acm/certificate "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/acm/certificate"
+//	lb/listener "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/lb/listener"
+//	lb/listenerCertificate "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/lb/listenerCertificate"
+//	lb/loadBalancer "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/lb/loadBalancer"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleCertificate, err := acm.NewCertificate(ctx, "exampleCertificate", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = lb.NewLoadBalancer(ctx, "frontEndLoadBalancer", nil)
-//			if err != nil {
-//				return err
-//			}
-//			frontEndListener, err := lb.NewListener(ctx, "frontEndListener", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = lb.NewListenerCertificate(ctx, "exampleListenerCertificate", &lb.ListenerCertificateArgs{
-//				ListenerArn:    frontEndListener.Arn,
-//				CertificateArn: exampleCertificate.Arn,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleCertificate, err := acm/certificate.NewCertificate(ctx, "exampleCertificate", nil)
+// if err != nil {
+// return err
+// }
+// _, err = lb/loadBalancer.NewLoadBalancer(ctx, "frontEndLoadBalancer", nil)
+// if err != nil {
+// return err
+// }
+// frontEndListener, err := lb/listener.NewListener(ctx, "frontEndListener", nil)
+// if err != nil {
+// return err
+// }
+// _, err = lb/listenerCertificate.NewListenerCertificate(ctx, "exampleListenerCertificate", &lb/listenerCertificate.ListenerCertificateArgs{
+// ListenerArn: frontEndListener.Arn,
+// CertificateArn: exampleCertificate.Arn,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -21,33 +21,32 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
+//	cloudwatch/logGroup "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/cloudwatch/logGroup"
+//	cloudwatch/logMetricFilter "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/cloudwatch/logMetricFilter"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			dada, err := cloudwatch.NewLogGroup(ctx, "dada", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = cloudwatch.NewLogMetricFilter(ctx, "yada", &cloudwatch.LogMetricFilterArgs{
-//				Pattern:      pulumi.String(""),
-//				LogGroupName: dada.Name,
-//				MetricTransformation: &cloudwatch.LogMetricFilterMetricTransformationArgs{
-//					Name:      pulumi.String("EventCount"),
-//					Namespace: pulumi.String("YourNamespace"),
-//					Value:     pulumi.String("1"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// dada, err := cloudwatch/logGroup.NewLogGroup(ctx, "dada", nil)
+// if err != nil {
+// return err
+// }
+// _, err = cloudwatch/logMetricFilter.NewLogMetricFilter(ctx, "yada", &cloudwatch/logMetricFilter.LogMetricFilterArgs{
+// Pattern: "",
+// LogGroupName: dada.Name,
+// MetricTransformation: map[string]interface{}{
+// "name": "EventCount",
+// "namespace": "YourNamespace",
+// "value": "1",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

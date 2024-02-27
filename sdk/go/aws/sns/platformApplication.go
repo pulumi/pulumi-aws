@@ -22,25 +22,23 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sns"
+//	sns/platformApplication "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/sns/platformApplication"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := sns.NewPlatformApplication(ctx, "apnsApplication", &sns.PlatformApplicationArgs{
-//				Platform:           pulumi.String("APNS"),
-//				PlatformCredential: pulumi.String("<APNS PRIVATE KEY>"),
-//				PlatformPrincipal:  pulumi.String("<APNS CERTIFICATE>"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := sns/platformApplication.NewPlatformApplication(ctx, "apnsApplication", &sns/platformApplication.PlatformApplicationArgs{
+// Platform: "APNS",
+// PlatformCredential: "<APNS PRIVATE KEY>",
+// PlatformPrincipal: "<APNS CERTIFICATE>",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Apple Push Notification Service (APNS) using token-based authentication
 //
@@ -49,27 +47,25 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sns"
+//	sns/platformApplication "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/sns/platformApplication"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := sns.NewPlatformApplication(ctx, "apnsApplication", &sns.PlatformApplicationArgs{
-//				ApplePlatformBundleId: pulumi.String("<APPLE BUNDLE ID>"),
-//				ApplePlatformTeamId:   pulumi.String("<APPLE TEAM ID>"),
-//				Platform:              pulumi.String("APNS"),
-//				PlatformCredential:    pulumi.String("<APNS SIGNING KEY>"),
-//				PlatformPrincipal:     pulumi.String("<APNS SIGNING KEY ID>"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := sns/platformApplication.NewPlatformApplication(ctx, "apnsApplication", &sns/platformApplication.PlatformApplicationArgs{
+// ApplePlatformBundleId: "<APPLE BUNDLE ID>",
+// ApplePlatformTeamId: "<APPLE TEAM ID>",
+// Platform: "APNS",
+// PlatformCredential: "<APNS SIGNING KEY>",
+// PlatformPrincipal: "<APNS SIGNING KEY ID>",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Google Cloud Messaging (GCM)
 //
@@ -78,24 +74,22 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sns"
+//	sns/platformApplication "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/sns/platformApplication"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := sns.NewPlatformApplication(ctx, "gcmApplication", &sns.PlatformApplicationArgs{
-//				Platform:           pulumi.String("GCM"),
-//				PlatformCredential: pulumi.String("<GCM API KEY>"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := sns/platformApplication.NewPlatformApplication(ctx, "gcmApplication", &sns/platformApplication.PlatformApplicationArgs{
+// Platform: "GCM",
+// PlatformCredential: "<GCM API KEY>",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

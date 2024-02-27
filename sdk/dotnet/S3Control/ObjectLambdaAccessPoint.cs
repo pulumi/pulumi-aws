@@ -23,35 +23,35 @@ namespace Pulumi.Aws.S3Control
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2");
+    ///     var exampleBucketV2 = new Aws.S3.BucketV2.BucketV2("exampleBucketV2");
     /// 
-    ///     var exampleAccessPoint = new Aws.S3.AccessPoint("exampleAccessPoint", new()
+    ///     var exampleAccessPoint = new Aws.S3.AccessPoint.AccessPoint("exampleAccessPoint", new()
     ///     {
     ///         Bucket = exampleBucketV2.Id,
     ///     });
     /// 
-    ///     var exampleObjectLambdaAccessPoint = new Aws.S3Control.ObjectLambdaAccessPoint("exampleObjectLambdaAccessPoint", new()
+    ///     var exampleObjectLambdaAccessPoint = new Aws.S3control.ObjectLambdaAccessPoint.ObjectLambdaAccessPoint("exampleObjectLambdaAccessPoint", new()
     ///     {
-    ///         Configuration = new Aws.S3Control.Inputs.ObjectLambdaAccessPointConfigurationArgs
+    ///         Configuration = 
     ///         {
-    ///             SupportingAccessPoint = exampleAccessPoint.Arn,
-    ///             TransformationConfigurations = new[]
+    ///             { "supportingAccessPoint", exampleAccessPoint.Arn },
+    ///             { "transformationConfigurations", new[]
     ///             {
-    ///                 new Aws.S3Control.Inputs.ObjectLambdaAccessPointConfigurationTransformationConfigurationArgs
+    ///                 
     ///                 {
-    ///                     Actions = new[]
+    ///                     { "actions", new[]
     ///                     {
     ///                         "GetObject",
-    ///                     },
-    ///                     ContentTransformation = new Aws.S3Control.Inputs.ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationArgs
+    ///                     } },
+    ///                     { "contentTransformation", 
     ///                     {
-    ///                         AwsLambda = new Aws.S3Control.Inputs.ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaArgs
+    ///                         { "awsLambda", 
     ///                         {
-    ///                             FunctionArn = aws_lambda_function.Example.Arn,
-    ///                         },
-    ///                     },
+    ///                             { "functionArn", aws_lambda_function.Example.Arn },
+    ///                         } },
+    ///                     } },
     ///                 },
-    ///             },
+    ///             } },
     ///         },
     ///     });
     /// 

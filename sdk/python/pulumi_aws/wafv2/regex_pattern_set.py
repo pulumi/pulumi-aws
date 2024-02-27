@@ -258,20 +258,20 @@ class RegexPatternSet(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.wafv2.RegexPatternSet("example",
-            description="Example regex pattern set",
+        example = aws.wafv2.regex_pattern_set.RegexPatternSet("example",
+            description=Example regex pattern set,
             regular_expressions=[
-                aws.wafv2.RegexPatternSetRegularExpressionArgs(
-                    regex_string="one",
-                ),
-                aws.wafv2.RegexPatternSetRegularExpressionArgs(
-                    regex_string="two",
-                ),
+                {
+                    regexString: one,
+                },
+                {
+                    regexString: two,
+                },
             ],
-            scope="REGIONAL",
+            scope=REGIONAL,
             tags={
-                "Tag1": "Value1",
-                "Tag2": "Value2",
+                Tag1: Value1,
+                Tag2: Value2,
             })
         ```
 
@@ -306,20 +306,20 @@ class RegexPatternSet(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.wafv2.RegexPatternSet("example",
-            description="Example regex pattern set",
+        example = aws.wafv2.regex_pattern_set.RegexPatternSet("example",
+            description=Example regex pattern set,
             regular_expressions=[
-                aws.wafv2.RegexPatternSetRegularExpressionArgs(
-                    regex_string="one",
-                ),
-                aws.wafv2.RegexPatternSetRegularExpressionArgs(
-                    regex_string="two",
-                ),
+                {
+                    regexString: one,
+                },
+                {
+                    regexString: two,
+                },
             ],
-            scope="REGIONAL",
+            scope=REGIONAL,
             tags={
-                "Tag1": "Value1",
-                "Tag2": "Value2",
+                Tag1: Value1,
+                Tag2: Value2,
             })
         ```
 

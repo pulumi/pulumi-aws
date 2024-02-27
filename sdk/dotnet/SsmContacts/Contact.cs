@@ -23,7 +23,7 @@ namespace Pulumi.Aws.SsmContacts
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.SsmContacts.Contact("example", new()
+    ///     var example = new Aws.Ssmcontacts.Contact.Contact("example", new()
     ///     {
     ///         Alias = "alias",
     ///         Type = "PERSONAL",
@@ -47,7 +47,7 @@ namespace Pulumi.Aws.SsmContacts
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.SsmContacts.Contact("example", new()
+    ///     var example = new Aws.Ssmcontacts.Contact.Contact("example", new()
     ///     {
     ///         Alias = "alias",
     ///         DisplayName = "displayName",

@@ -136,41 +136,6 @@ class MultiRegionAccessPointPolicy(pulumi.CustomResource):
         Provides a resource to manage an S3 Multi-Region Access Point access control policy.
 
         ## Example Usage
-        ### Basic Example
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        current_caller_identity = aws.get_caller_identity()
-        current_partition = aws.get_partition()
-        foo_bucket = aws.s3.BucketV2("fooBucket")
-        example_multi_region_access_point = aws.s3control.MultiRegionAccessPoint("exampleMultiRegionAccessPoint", details=aws.s3control.MultiRegionAccessPointDetailsArgs(
-            name="example",
-            regions=[aws.s3control.MultiRegionAccessPointDetailsRegionArgs(
-                bucket=foo_bucket.id,
-            )],
-        ))
-        example_multi_region_access_point_policy = aws.s3control.MultiRegionAccessPointPolicy("exampleMultiRegionAccessPointPolicy", details=aws.s3control.MultiRegionAccessPointPolicyDetailsArgs(
-            name=example_multi_region_access_point.id.apply(lambda id: id.split(":"))[1],
-            policy=example_multi_region_access_point.alias.apply(lambda alias: json.dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Sid": "Example",
-                    "Effect": "Allow",
-                    "Principal": {
-                        "AWS": current_caller_identity.account_id,
-                    },
-                    "Action": [
-                        "s3:GetObject",
-                        "s3:PutObject",
-                    ],
-                    "Resource": f"arn:{current_partition.partition}:s3::{current_caller_identity.account_id}:accesspoint/{alias}/object/*",
-                }],
-            })),
-        ))
-        ```
 
         ## Import
 
@@ -195,41 +160,6 @@ class MultiRegionAccessPointPolicy(pulumi.CustomResource):
         Provides a resource to manage an S3 Multi-Region Access Point access control policy.
 
         ## Example Usage
-        ### Basic Example
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        current_caller_identity = aws.get_caller_identity()
-        current_partition = aws.get_partition()
-        foo_bucket = aws.s3.BucketV2("fooBucket")
-        example_multi_region_access_point = aws.s3control.MultiRegionAccessPoint("exampleMultiRegionAccessPoint", details=aws.s3control.MultiRegionAccessPointDetailsArgs(
-            name="example",
-            regions=[aws.s3control.MultiRegionAccessPointDetailsRegionArgs(
-                bucket=foo_bucket.id,
-            )],
-        ))
-        example_multi_region_access_point_policy = aws.s3control.MultiRegionAccessPointPolicy("exampleMultiRegionAccessPointPolicy", details=aws.s3control.MultiRegionAccessPointPolicyDetailsArgs(
-            name=example_multi_region_access_point.id.apply(lambda id: id.split(":"))[1],
-            policy=example_multi_region_access_point.alias.apply(lambda alias: json.dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Sid": "Example",
-                    "Effect": "Allow",
-                    "Principal": {
-                        "AWS": current_caller_identity.account_id,
-                    },
-                    "Action": [
-                        "s3:GetObject",
-                        "s3:PutObject",
-                    ],
-                    "Resource": f"arn:{current_partition.partition}:s3::{current_caller_identity.account_id}:accesspoint/{alias}/object/*",
-                }],
-            })),
-        ))
-        ```
 
         ## Import
 

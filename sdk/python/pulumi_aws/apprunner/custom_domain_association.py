@@ -191,9 +191,9 @@ class CustomDomainAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.apprunner.CustomDomainAssociation("example",
-            domain_name="example.com",
-            service_arn=aws_apprunner_service["example"]["arn"])
+        example = aws.apprunner.custom_domain_association.CustomDomainAssociation("example",
+            domain_name=example.com,
+            service_arn=aws_apprunner_service.example.arn)
         ```
 
         ## Import
@@ -227,9 +227,9 @@ class CustomDomainAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.apprunner.CustomDomainAssociation("example",
-            domain_name="example.com",
-            service_arn=aws_apprunner_service["example"]["arn"])
+        example = aws.apprunner.custom_domain_association.CustomDomainAssociation("example",
+            domain_name=example.com,
+            service_arn=aws_apprunner_service.example.arn)
         ```
 
         ## Import

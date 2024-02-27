@@ -792,7 +792,7 @@ class StaticWebLayer(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        web = aws.opsworks.StaticWebLayer("web", stack_id=aws_opsworks_stack["main"]["id"])
+        web = aws.opsworks.static_web_layer.StaticWebLayer("web", stack_id=aws_opsworks_stack.main.id)
         ```
 
         ## Import
@@ -840,7 +840,7 @@ class StaticWebLayer(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        web = aws.opsworks.StaticWebLayer("web", stack_id=aws_opsworks_stack["main"]["id"])
+        web = aws.opsworks.static_web_layer.StaticWebLayer("web", stack_id=aws_opsworks_stack.main.id)
         ```
 
         ## Import

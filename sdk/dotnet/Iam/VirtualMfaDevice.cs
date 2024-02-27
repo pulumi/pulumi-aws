@@ -29,7 +29,7 @@ namespace Pulumi.Aws.Iam
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Iam.VirtualMfaDevice("example", new()
+    ///     var example = new Aws.Iam.VirtualMfaDevice.VirtualMfaDevice("example", new()
     ///     {
     ///         VirtualMfaDeviceName = "example",
     ///     });

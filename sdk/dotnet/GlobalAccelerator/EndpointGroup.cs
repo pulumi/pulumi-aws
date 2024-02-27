@@ -22,15 +22,15 @@ namespace Pulumi.Aws.GlobalAccelerator
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.GlobalAccelerator.EndpointGroup("example", new()
+    ///     var example = new Aws.Globalaccelerator.EndpointGroup.EndpointGroup("example", new()
     ///     {
     ///         ListenerArn = aws_globalaccelerator_listener.Example.Id,
     ///         EndpointConfigurations = new[]
     ///         {
-    ///             new Aws.GlobalAccelerator.Inputs.EndpointGroupEndpointConfigurationArgs
+    ///             
     ///             {
-    ///                 EndpointId = aws_lb.Example.Arn,
-    ///                 Weight = 100,
+    ///                 { "endpointId", aws_lb.Example.Arn },
+    ///                 { "weight", 100 },
     ///             },
     ///         },
     ///     });

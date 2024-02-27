@@ -15,62 +15,6 @@ import (
 // Provides a resource to manage the accepter's side of a Direct Connect hosted private virtual interface.
 // This resource accepts ownership of a private virtual interface created by another AWS account.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/directconnect"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := aws.NewProvider(ctx, "accepter", nil)
-//			if err != nil {
-//				return err
-//			}
-//			accepterCallerIdentity, err := aws.GetCallerIdentity(ctx, nil, nil)
-//			if err != nil {
-//				return err
-//			}
-//			vpnGw, err := ec2.NewVpnGateway(ctx, "vpnGw", nil, pulumi.Provider(aws.Accepter))
-//			if err != nil {
-//				return err
-//			}
-//			creator, err := directconnect.NewHostedPrivateVirtualInterface(ctx, "creator", &directconnect.HostedPrivateVirtualInterfaceArgs{
-//				ConnectionId:   pulumi.String("dxcon-zzzzzzzz"),
-//				OwnerAccountId: *pulumi.String(accepterCallerIdentity.AccountId),
-//				Vlan:           pulumi.Int(4094),
-//				AddressFamily:  pulumi.String("ipv4"),
-//				BgpAsn:         pulumi.Int(65352),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				vpnGw,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			_, err = directconnect.NewHostedPrivateVirtualInterfaceAccepter(ctx, "accepterHostedPrivateVirtualInterfaceAccepter", &directconnect.HostedPrivateVirtualInterfaceAccepterArgs{
-//				VirtualInterfaceId: creator.ID(),
-//				VpnGatewayId:       vpnGw.ID(),
-//				Tags: pulumi.StringMap{
-//					"Side": pulumi.String("Accepter"),
-//				},
-//			}, pulumi.Provider(aws.Accepter))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Using `pulumi import`, import Direct Connect hosted private virtual interfaces using the VIF `id`. For example:

@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.connect.LambdaFunctionAssociation("example", {
+ * const example = new aws.connect/lambdaFunctionAssociation.LambdaFunctionAssociation("example", {
  *     functionArn: aws_lambda_function.example.arn,
  *     instanceId: aws_connect_instance.example.id,
  * });

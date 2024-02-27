@@ -37,9 +37,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.apigateway.StageArgs;
  * import com.pulumi.aws.apigateway.UsagePlan;
  * import com.pulumi.aws.apigateway.UsagePlanArgs;
- * import com.pulumi.aws.apigateway.inputs.UsagePlanApiStageArgs;
- * import com.pulumi.aws.apigateway.inputs.UsagePlanQuotaSettingsArgs;
- * import com.pulumi.aws.apigateway.inputs.UsagePlanThrottleSettingsArgs;
  * import static com.pulumi.codegen.internal.Serialization.*;
  * import java.util.List;
  * import java.util.ArrayList;
@@ -79,8 +76,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleDeployment = new Deployment(&#34;exampleDeployment&#34;, DeploymentArgs.builder()        
  *             .restApi(exampleRestApi.id())
- *             .triggers(Map.of(&#34;redeployment&#34;, exampleRestApi.body().applyValue(body -&gt; serializeJson(
- *                 body)).applyValue(toJSON -&gt; computeSHA1(toJSON))))
+ *             .triggers(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var development = new Stage(&#34;development&#34;, StageArgs.builder()        
@@ -99,23 +95,10 @@ import javax.annotation.Nullable;
  *             .description(&#34;my description&#34;)
  *             .productCode(&#34;MYCODE&#34;)
  *             .apiStages(            
- *                 UsagePlanApiStageArgs.builder()
- *                     .apiId(exampleRestApi.id())
- *                     .stage(development.stageName())
- *                     .build(),
- *                 UsagePlanApiStageArgs.builder()
- *                     .apiId(exampleRestApi.id())
- *                     .stage(production.stageName())
- *                     .build())
- *             .quotaSettings(UsagePlanQuotaSettingsArgs.builder()
- *                 .limit(20)
- *                 .offset(2)
- *                 .period(&#34;WEEK&#34;)
- *                 .build())
- *             .throttleSettings(UsagePlanThrottleSettingsArgs.builder()
- *                 .burstLimit(5)
- *                 .rateLimit(10)
- *                 .build())
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .quotaSettings(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .throttleSettings(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

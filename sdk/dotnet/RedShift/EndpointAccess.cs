@@ -22,7 +22,7 @@ namespace Pulumi.Aws.RedShift
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.RedShift.EndpointAccess("example", new()
+    ///     var example = new Aws.Redshift.EndpointAccess.EndpointAccess("example", new()
     ///     {
     ///         EndpointName = "example",
     ///         SubnetGroupName = aws_redshift_subnet_group.Example.Id,

@@ -190,10 +190,10 @@ class SourceCredential(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.codebuild.SourceCredential("example",
-            auth_type="PERSONAL_ACCESS_TOKEN",
-            server_type="GITHUB",
-            token="example")
+        example = aws.codebuild.source_credential.SourceCredential("example",
+            auth_type=PERSONAL_ACCESS_TOKEN,
+            server_type=GITHUB,
+            token=example)
         ```
         ### Bitbucket Server Usage
 
@@ -201,11 +201,11 @@ class SourceCredential(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.codebuild.SourceCredential("example",
-            auth_type="BASIC_AUTH",
-            server_type="BITBUCKET",
-            token="example",
-            user_name="test-user")
+        example = aws.codebuild.source_credential.SourceCredential("example",
+            auth_type=BASIC_AUTH,
+            server_type=BITBUCKET,
+            token=example,
+            user_name=test-user)
         ```
 
         ## Import
@@ -241,10 +241,10 @@ class SourceCredential(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.codebuild.SourceCredential("example",
-            auth_type="PERSONAL_ACCESS_TOKEN",
-            server_type="GITHUB",
-            token="example")
+        example = aws.codebuild.source_credential.SourceCredential("example",
+            auth_type=PERSONAL_ACCESS_TOKEN,
+            server_type=GITHUB,
+            token=example)
         ```
         ### Bitbucket Server Usage
 
@@ -252,11 +252,11 @@ class SourceCredential(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.codebuild.SourceCredential("example",
-            auth_type="BASIC_AUTH",
-            server_type="BITBUCKET",
-            token="example",
-            user_name="test-user")
+        example = aws.codebuild.source_credential.SourceCredential("example",
+            auth_type=BASIC_AUTH,
+            server_type=BITBUCKET,
+            token=example,
+            user_name=test-user)
         ```
 
         ## Import

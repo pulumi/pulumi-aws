@@ -23,19 +23,19 @@ namespace Pulumi.Aws.Transfer
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Transfer.Connector("example", new()
+    ///     var example = new Aws.Transfer.Connector.Connector("example", new()
     ///     {
     ///         AccessRole = aws_iam_role.Test.Arn,
-    ///         As2Config = new Aws.Transfer.Inputs.ConnectorAs2ConfigArgs
+    ///         As2Config = 
     ///         {
-    ///             Compression = "DISABLED",
-    ///             EncryptionAlgorithm = "AWS128_CBC",
-    ///             MessageSubject = "For Connector",
-    ///             LocalProfileId = aws_transfer_profile.Local.Profile_id,
-    ///             MdnResponse = "NONE",
-    ///             MdnSigningAlgorithm = "NONE",
-    ///             PartnerProfileId = aws_transfer_profile.Partner.Profile_id,
-    ///             SigningAlgorithm = "NONE",
+    ///             { "compression", "DISABLED" },
+    ///             { "encryptionAlgorithm", "AWS128_CBC" },
+    ///             { "messageSubject", "For Connector" },
+    ///             { "localProfileId", aws_transfer_profile.Local.Profile_id },
+    ///             { "mdnResponse", "NONE" },
+    ///             { "mdnSigningAlgorithm", "NONE" },
+    ///             { "partnerProfileId", aws_transfer_profile.Partner.Profile_id },
+    ///             { "signingAlgorithm", "NONE" },
     ///         },
     ///         Url = "http://www.test.com",
     ///     });
@@ -52,16 +52,16 @@ namespace Pulumi.Aws.Transfer
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Transfer.Connector("example", new()
+    ///     var example = new Aws.Transfer.Connector.Connector("example", new()
     ///     {
     ///         AccessRole = aws_iam_role.Test.Arn,
-    ///         SftpConfig = new Aws.Transfer.Inputs.ConnectorSftpConfigArgs
+    ///         SftpConfig = 
     ///         {
-    ///             TrustedHostKeys = new[]
+    ///             { "trustedHostKeys", new[]
     ///             {
     ///                 "ssh-rsa AAAAB3NYourKeysHere",
-    ///             },
-    ///             UserSecretId = aws_secretsmanager_secret.Example.Id,
+    ///             } },
+    ///             { "userSecretId", aws_secretsmanager_secret.Example.Id },
     ///         },
     ///         Url = "sftp://test.com",
     ///     });

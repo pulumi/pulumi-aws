@@ -36,7 +36,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var foo = new Aws.Ec2.VpcPeeringConnection("foo", new()
+    ///     var foo = new Aws.Ec2.VpcPeeringConnection.VpcPeeringConnection("foo", new()
     ///     {
     ///         PeerOwnerId = @var.Peer_owner_id,
     ///         PeerVpcId = aws_vpc.Bar.Id,
@@ -56,18 +56,18 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var foo = new Aws.Ec2.VpcPeeringConnection("foo", new()
+    ///     var foo = new Aws.Ec2.VpcPeeringConnection.VpcPeeringConnection("foo", new()
     ///     {
     ///         PeerOwnerId = @var.Peer_owner_id,
     ///         PeerVpcId = aws_vpc.Bar.Id,
     ///         VpcId = aws_vpc.Foo.Id,
-    ///         Accepter = new Aws.Ec2.Inputs.VpcPeeringConnectionAccepterArgs
+    ///         Accepter = 
     ///         {
-    ///             AllowRemoteVpcDnsResolution = true,
+    ///             { "allowRemoteVpcDnsResolution", true },
     ///         },
-    ///         Requester = new Aws.Ec2.Inputs.VpcPeeringConnectionRequesterArgs
+    ///         Requester = 
     ///         {
-    ///             AllowRemoteVpcDnsResolution = true,
+    ///             { "allowRemoteVpcDnsResolution", true },
     ///         },
     ///     });
     /// 
@@ -84,17 +84,17 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var fooVpc = new Aws.Ec2.Vpc("fooVpc", new()
+    ///     var fooVpc = new Aws.Ec2.Vpc.Vpc("fooVpc", new()
     ///     {
     ///         CidrBlock = "10.1.0.0/16",
     ///     });
     /// 
-    ///     var bar = new Aws.Ec2.Vpc("bar", new()
+    ///     var bar = new Aws.Ec2.Vpc.Vpc("bar", new()
     ///     {
     ///         CidrBlock = "10.2.0.0/16",
     ///     });
     /// 
-    ///     var fooVpcPeeringConnection = new Aws.Ec2.VpcPeeringConnection("fooVpcPeeringConnection", new()
+    ///     var fooVpcPeeringConnection = new Aws.Ec2.VpcPeeringConnection.VpcPeeringConnection("fooVpcPeeringConnection", new()
     ///     {
     ///         PeerOwnerId = @var.Peer_owner_id,
     ///         PeerVpcId = bar.Id,
@@ -119,7 +119,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var fooVpc = new Aws.Ec2.Vpc("fooVpc", new()
+    ///     var fooVpc = new Aws.Ec2.Vpc.Vpc("fooVpc", new()
     ///     {
     ///         CidrBlock = "10.1.0.0/16",
     ///     }, new CustomResourceOptions
@@ -127,7 +127,7 @@ namespace Pulumi.Aws.Ec2
     ///         Provider = aws.Us_west_2,
     ///     });
     /// 
-    ///     var bar = new Aws.Ec2.Vpc("bar", new()
+    ///     var bar = new Aws.Ec2.Vpc.Vpc("bar", new()
     ///     {
     ///         CidrBlock = "10.2.0.0/16",
     ///     }, new CustomResourceOptions
@@ -135,7 +135,7 @@ namespace Pulumi.Aws.Ec2
     ///         Provider = aws.Us_east_1,
     ///     });
     /// 
-    ///     var fooVpcPeeringConnection = new Aws.Ec2.VpcPeeringConnection("fooVpcPeeringConnection", new()
+    ///     var fooVpcPeeringConnection = new Aws.Ec2.VpcPeeringConnection.VpcPeeringConnection("fooVpcPeeringConnection", new()
     ///     {
     ///         PeerOwnerId = @var.Peer_owner_id,
     ///         PeerVpcId = bar.Id,

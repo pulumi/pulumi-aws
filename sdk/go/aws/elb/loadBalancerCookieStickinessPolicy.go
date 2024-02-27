@@ -21,41 +21,40 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/elb"
+//	elb/loadBalancer "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/elb/loadBalancer"
+//	elb/loadBalancerCookieStickinessPolicy "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/elb/loadBalancerCookieStickinessPolicy"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			lb, err := elb.NewLoadBalancer(ctx, "lb", &elb.LoadBalancerArgs{
-//				AvailabilityZones: pulumi.StringArray{
-//					pulumi.String("us-east-1a"),
-//				},
-//				Listeners: elb.LoadBalancerListenerArray{
-//					&elb.LoadBalancerListenerArgs{
-//						InstancePort:     pulumi.Int(8000),
-//						InstanceProtocol: pulumi.String("http"),
-//						LbPort:           pulumi.Int(80),
-//						LbProtocol:       pulumi.String("http"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = elb.NewLoadBalancerCookieStickinessPolicy(ctx, "foo", &elb.LoadBalancerCookieStickinessPolicyArgs{
-//				LoadBalancer:           lb.ID(),
-//				LbPort:                 pulumi.Int(80),
-//				CookieExpirationPeriod: pulumi.Int(600),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// lb, err := elb/loadBalancer.NewLoadBalancer(ctx, "lb", &elb/loadBalancer.LoadBalancerArgs{
+// AvailabilityZones: []string{
+// "us-east-1a",
+// },
+// Listeners: []map[string]interface{}{
+// map[string]interface{}{
+// "instancePort": 8000,
+// "instanceProtocol": "http",
+// "lbPort": 80,
+// "lbProtocol": "http",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = elb/loadBalancerCookieStickinessPolicy.NewLoadBalancerCookieStickinessPolicy(ctx, "foo", &elb/loadBalancerCookieStickinessPolicy.LoadBalancerCookieStickinessPolicyArgs{
+// LoadBalancer: lb.Id,
+// LbPort: 80,
+// CookieExpirationPeriod: 600,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 type LoadBalancerCookieStickinessPolicy struct {
 	pulumi.CustomResourceState

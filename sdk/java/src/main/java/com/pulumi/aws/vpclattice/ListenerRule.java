@@ -30,12 +30,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.vpclattice.ListenerRule;
  * import com.pulumi.aws.vpclattice.ListenerRuleArgs;
- * import com.pulumi.aws.vpclattice.inputs.ListenerRuleMatchArgs;
- * import com.pulumi.aws.vpclattice.inputs.ListenerRuleMatchHttpMatchArgs;
- * import com.pulumi.aws.vpclattice.inputs.ListenerRuleMatchHttpMatchPathMatchArgs;
- * import com.pulumi.aws.vpclattice.inputs.ListenerRuleMatchHttpMatchPathMatchMatchArgs;
- * import com.pulumi.aws.vpclattice.inputs.ListenerRuleActionArgs;
- * import com.pulumi.aws.vpclattice.inputs.ListenerRuleActionForwardArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -53,36 +47,8 @@ import javax.annotation.Nullable;
  *             .listenerIdentifier(aws_vpclattice_listener.example().listener_id())
  *             .serviceIdentifier(aws_vpclattice_service.example().id())
  *             .priority(20)
- *             .match(ListenerRuleMatchArgs.builder()
- *                 .httpMatch(ListenerRuleMatchHttpMatchArgs.builder()
- *                     .headerMatches(ListenerRuleMatchHttpMatchHeaderMatchArgs.builder()
- *                         .name(&#34;example-header&#34;)
- *                         .caseSensitive(false)
- *                         .match(ListenerRuleMatchHttpMatchHeaderMatchMatchArgs.builder()
- *                             .exact(&#34;example-contains&#34;)
- *                             .build())
- *                         .build())
- *                     .pathMatch(ListenerRuleMatchHttpMatchPathMatchArgs.builder()
- *                         .caseSensitive(true)
- *                         .match(ListenerRuleMatchHttpMatchPathMatchMatchArgs.builder()
- *                             .prefix(&#34;/example-path&#34;)
- *                             .build())
- *                         .build())
- *                     .build())
- *                 .build())
- *             .action(ListenerRuleActionArgs.builder()
- *                 .forward(ListenerRuleActionForwardArgs.builder()
- *                     .targetGroups(                    
- *                         ListenerRuleActionForwardTargetGroupArgs.builder()
- *                             .targetGroupIdentifier(aws_vpclattice_target_group.example().id())
- *                             .weight(1)
- *                             .build(),
- *                         ListenerRuleActionForwardTargetGroupArgs.builder()
- *                             .targetGroupIdentifier(aws_vpclattice_target_group.example2().id())
- *                             .weight(2)
- *                             .build())
- *                     .build())
- *                 .build())
+ *             .match(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .action(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -97,12 +63,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.vpclattice.ListenerRule;
  * import com.pulumi.aws.vpclattice.ListenerRuleArgs;
- * import com.pulumi.aws.vpclattice.inputs.ListenerRuleMatchArgs;
- * import com.pulumi.aws.vpclattice.inputs.ListenerRuleMatchHttpMatchArgs;
- * import com.pulumi.aws.vpclattice.inputs.ListenerRuleMatchHttpMatchPathMatchArgs;
- * import com.pulumi.aws.vpclattice.inputs.ListenerRuleMatchHttpMatchPathMatchMatchArgs;
- * import com.pulumi.aws.vpclattice.inputs.ListenerRuleActionArgs;
- * import com.pulumi.aws.vpclattice.inputs.ListenerRuleActionFixedResponseArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -120,21 +80,8 @@ import javax.annotation.Nullable;
  *             .listenerIdentifier(aws_vpclattice_listener.example().listener_id())
  *             .serviceIdentifier(aws_vpclattice_service.example().id())
  *             .priority(10)
- *             .match(ListenerRuleMatchArgs.builder()
- *                 .httpMatch(ListenerRuleMatchHttpMatchArgs.builder()
- *                     .pathMatch(ListenerRuleMatchHttpMatchPathMatchArgs.builder()
- *                         .caseSensitive(false)
- *                         .match(ListenerRuleMatchHttpMatchPathMatchMatchArgs.builder()
- *                             .exact(&#34;/example-path&#34;)
- *                             .build())
- *                         .build())
- *                     .build())
- *                 .build())
- *             .action(ListenerRuleActionArgs.builder()
- *                 .fixedResponse(ListenerRuleActionFixedResponseArgs.builder()
- *                     .statusCode(404)
- *                     .build())
- *                 .build())
+ *             .match(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .action(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

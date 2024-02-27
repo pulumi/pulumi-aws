@@ -31,7 +31,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.imagebuilder.ImagePipeline;
  * import com.pulumi.aws.imagebuilder.ImagePipelineArgs;
- * import com.pulumi.aws.imagebuilder.inputs.ImagePipelineScheduleArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -48,9 +47,7 @@ import javax.annotation.Nullable;
  *         var example = new ImagePipeline(&#34;example&#34;, ImagePipelineArgs.builder()        
  *             .imageRecipeArn(aws_imagebuilder_image_recipe.example().arn())
  *             .infrastructureConfigurationArn(aws_imagebuilder_infrastructure_configuration.example().arn())
- *             .schedule(ImagePipelineScheduleArgs.builder()
- *                 .scheduleExpression(&#34;cron(0 0 * * ? *)&#34;)
- *                 .build())
+ *             .schedule(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

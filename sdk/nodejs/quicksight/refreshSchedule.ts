@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.quicksight.RefreshSchedule("example", {
+ * const example = new aws.quicksight/refreshSchedule.RefreshSchedule("example", {
  *     dataSetId: "dataset-id",
  *     schedule: {
  *         refreshType: "FULL_REFRESH",
@@ -34,7 +34,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.quicksight.RefreshSchedule("example", {
+ * const example = new aws.quicksight/refreshSchedule.RefreshSchedule("example", {
  *     dataSetId: "dataset-id",
  *     schedule: {
  *         refreshType: "INCREMENTAL_REFRESH",
@@ -56,7 +56,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.quicksight.RefreshSchedule("example", {
+ * const example = new aws.quicksight/refreshSchedule.RefreshSchedule("example", {
  *     dataSetId: "dataset-id",
  *     schedule: {
  *         refreshType: "INCREMENTAL_REFRESH",

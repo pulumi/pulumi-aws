@@ -12,56 +12,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/bedrock"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/bedrockfoundation"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleModel, err := bedrockfoundation.GetModel(ctx, &bedrockfoundation.GetModelArgs{
-//				ModelId: "amazon.titan-text-express-v1",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = bedrock.NewCustomModel(ctx, "exampleCustomModel", &bedrock.CustomModelArgs{
-//				CustomModelName:     pulumi.String("example-model"),
-//				JobName:             pulumi.String("example-job-1"),
-//				BaseModelIdentifier: *pulumi.String(exampleModel.ModelArn),
-//				RoleArn:             pulumi.Any(aws_iam_role.Example.Arn),
-//				Hyperparameters: pulumi.StringMap{
-//					"epochCount":              pulumi.String("1"),
-//					"batchSize":               pulumi.String("1"),
-//					"learningRate":            pulumi.String("0.005"),
-//					"learningRateWarmupSteps": pulumi.String("0"),
-//				},
-//				OutputDataConfig: &bedrock.CustomModelOutputDataConfigArgs{
-//					S3Uri: pulumi.String(fmt.Sprintf("s3://%v/data/", aws_s3_bucket.Output.Id)),
-//				},
-//				TrainingDataConfig: &bedrock.CustomModelTrainingDataConfigArgs{
-//					S3Uri: pulumi.String(fmt.Sprintf("s3://%v/data/train.jsonl", aws_s3_bucket.Training.Id)),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Using `pulumi import`, import Bedrock custom model using the `job_arn`. For example:

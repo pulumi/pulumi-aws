@@ -21,29 +21,27 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/opsworks"
+//	opsworks/stack "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/opsworks/stack"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := opsworks.NewStack(ctx, "main", &opsworks.StackArgs{
-//				Region:                    pulumi.String("us-west-1"),
-//				ServiceRoleArn:            pulumi.Any(aws_iam_role.Opsworks.Arn),
-//				DefaultInstanceProfileArn: pulumi.Any(aws_iam_instance_profile.Opsworks.Arn),
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("foobar-stack"),
-//				},
-//				CustomJson: pulumi.String("{\n \"foobar\": {\n    \"version\": \"1.0.0\"\n  }\n}\n"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := opsworks/stack.NewStack(ctx, "main", &opsworks/stack.StackArgs{
+// Region: "us-west-1",
+// ServiceRoleArn: aws_iam_role.Opsworks.Arn,
+// DefaultInstanceProfileArn: aws_iam_instance_profile.Opsworks.Arn,
+// Tags: map[string]interface{}{
+// "Name": "foobar-stack",
+// },
+// CustomJson: "{\n \"foobar\": {\n    \"version\": \"1.0.0\"\n  }\n}\n",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

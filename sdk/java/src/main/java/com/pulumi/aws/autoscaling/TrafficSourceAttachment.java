@@ -30,7 +30,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.autoscaling.TrafficSourceAttachment;
  * import com.pulumi.aws.autoscaling.TrafficSourceAttachmentArgs;
- * import com.pulumi.aws.autoscaling.inputs.TrafficSourceAttachmentTrafficSourceArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -46,10 +45,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new TrafficSourceAttachment(&#34;example&#34;, TrafficSourceAttachmentArgs.builder()        
  *             .autoscalingGroupName(aws_autoscaling_group.example().id())
- *             .trafficSource(TrafficSourceAttachmentTrafficSourceArgs.builder()
- *                 .identifier(aws_lb_target_group.example().arn())
- *                 .type(&#34;elbv2&#34;)
- *                 .build())
+ *             .trafficSource(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

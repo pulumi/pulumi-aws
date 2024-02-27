@@ -14,31 +14,6 @@ import (
 // Data source for managing an AWS Cognito Identity Pool.
 //
 // ## Example Usage
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cognito"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cognito.LookupIdentityPool(ctx, &cognito.LookupIdentityPoolArgs{
-//				IdentityPoolName: "test pool",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupIdentityPool(ctx *pulumi.Context, args *LookupIdentityPoolArgs, opts ...pulumi.InvokeOption) (*LookupIdentityPoolResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupIdentityPoolResult

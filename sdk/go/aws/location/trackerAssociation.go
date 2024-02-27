@@ -21,36 +21,36 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/location"
+//	location/geofenceCollection "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/location/geofenceCollection"
+//	location/tracker "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/location/tracker"
+//	location/trackerAssociation "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/location/trackerAssociation"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleGeofenceCollection, err := location.NewGeofenceCollection(ctx, "exampleGeofenceCollection", &location.GeofenceCollectionArgs{
-//				CollectionName: pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleTracker, err := location.NewTracker(ctx, "exampleTracker", &location.TrackerArgs{
-//				TrackerName: pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = location.NewTrackerAssociation(ctx, "exampleTrackerAssociation", &location.TrackerAssociationArgs{
-//				ConsumerArn: exampleGeofenceCollection.CollectionArn,
-//				TrackerName: exampleTracker.TrackerName,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleGeofenceCollection, err := location/geofenceCollection.NewGeofenceCollection(ctx, "exampleGeofenceCollection", &location/geofenceCollection.GeofenceCollectionArgs{
+// CollectionName: "example",
+// })
+// if err != nil {
+// return err
+// }
+// exampleTracker, err := location/tracker.NewTracker(ctx, "exampleTracker", &location/tracker.TrackerArgs{
+// TrackerName: "example",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = location/trackerAssociation.NewTrackerAssociation(ctx, "exampleTrackerAssociation", &location/trackerAssociation.TrackerAssociationArgs{
+// ConsumerArn: exampleGeofenceCollection.CollectionArn,
+// TrackerName: exampleTracker.TrackerName,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

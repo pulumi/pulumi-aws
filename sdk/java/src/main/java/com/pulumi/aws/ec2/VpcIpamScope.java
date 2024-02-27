@@ -20,52 +20,6 @@ import javax.annotation.Nullable;
 /**
  * Creates a scope for AWS IPAM.
  * 
- * ## Example Usage
- * 
- * Basic usage:
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.AwsFunctions;
- * import com.pulumi.aws.inputs.GetRegionArgs;
- * import com.pulumi.aws.ec2.VpcIpam;
- * import com.pulumi.aws.ec2.VpcIpamArgs;
- * import com.pulumi.aws.ec2.inputs.VpcIpamOperatingRegionArgs;
- * import com.pulumi.aws.ec2.VpcIpamScope;
- * import com.pulumi.aws.ec2.VpcIpamScopeArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var current = AwsFunctions.getRegion();
- * 
- *         var exampleVpcIpam = new VpcIpam(&#34;exampleVpcIpam&#34;, VpcIpamArgs.builder()        
- *             .operatingRegions(VpcIpamOperatingRegionArgs.builder()
- *                 .regionName(current.applyValue(getRegionResult -&gt; getRegionResult.name()))
- *                 .build())
- *             .build());
- * 
- *         var exampleVpcIpamScope = new VpcIpamScope(&#34;exampleVpcIpamScope&#34;, VpcIpamScopeArgs.builder()        
- *             .ipamId(exampleVpcIpam.id())
- *             .description(&#34;Another Scope&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
  * ## Import
  * 
  * Using `pulumi import`, import IPAMs using the `scope_id`. For example:

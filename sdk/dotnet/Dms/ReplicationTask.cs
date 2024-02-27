@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Dms
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // Create a new replication task
-    ///     var test = new Aws.Dms.ReplicationTask("test", new()
+    ///     var test = new Aws.Dms.ReplicationTask.ReplicationTask("test", new()
     ///     {
     ///         CdcStartTime = "1993-05-21T05:50:00Z",
     ///         MigrationType = "full-load",

@@ -21,31 +21,30 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/detective"
+//	detective/graph "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/detective/graph"
+//	detective/member "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/detective/member"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleGraph, err := detective.NewGraph(ctx, "exampleGraph", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = detective.NewMember(ctx, "exampleMember", &detective.MemberArgs{
-//				AccountId:                pulumi.String("AWS ACCOUNT ID"),
-//				EmailAddress:             pulumi.String("EMAIL"),
-//				GraphArn:                 exampleGraph.ID(),
-//				Message:                  pulumi.String("Message of the invitation"),
-//				DisableEmailNotification: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleGraph, err := detective/graph.NewGraph(ctx, "exampleGraph", nil)
+// if err != nil {
+// return err
+// }
+// _, err = detective/member.NewMember(ctx, "exampleMember", &detective/member.MemberArgs{
+// AccountId: "AWS ACCOUNT ID",
+// EmailAddress: "EMAIL",
+// GraphArn: exampleGraph.Id,
+// Message: "Message of the invitation",
+// DisableEmailNotification: true,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Ec2TransitGateway.PeeringAttachmentAccepter("example", new()
+    ///     var example = new Aws.Ec2transitgateway.PeeringAttachmentAccepter.PeeringAttachmentAccepter("example", new()
     ///     {
     ///         TransitGatewayAttachmentId = aws_ec2_transit_gateway_peering_attachment.Example.Id,
     ///         Tags = 

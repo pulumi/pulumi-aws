@@ -142,9 +142,9 @@ class ClusterIamRoles(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.redshift.ClusterIamRoles("example",
-            cluster_identifier=aws_redshift_cluster["example"]["cluster_identifier"],
-            iam_role_arns=[aws_iam_role["example"]["arn"]])
+        example = aws.redshift.cluster_iam_roles.ClusterIamRoles("example",
+            cluster_identifier=aws_redshift_cluster.example.cluster_identifier,
+            iam_role_arns=[aws_iam_role.example.arn])
         ```
 
         ## Import
@@ -178,9 +178,9 @@ class ClusterIamRoles(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.redshift.ClusterIamRoles("example",
-            cluster_identifier=aws_redshift_cluster["example"]["cluster_identifier"],
-            iam_role_arns=[aws_iam_role["example"]["arn"]])
+        example = aws.redshift.cluster_iam_roles.ClusterIamRoles("example",
+            cluster_identifier=aws_redshift_cluster.example.cluster_identifier,
+            iam_role_arns=[aws_iam_role.example.arn])
         ```
 
         ## Import

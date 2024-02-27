@@ -230,13 +230,13 @@ class Resource(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        example = aws.cloudcontrol.Resource("example",
-            type_name="AWS::ECS::Cluster",
+        example = aws.cloudcontrol.resource.Resource("example",
+            type_name=AWS::ECS::Cluster,
             desired_state=json.dumps({
-                "ClusterName": "example",
-                "Tags": [{
-                    "Key": "CostCenter",
-                    "Value": "IT",
+                ClusterName: example,
+                Tags: [{
+                    Key: CostCenter,
+                    Value: IT,
                 }],
             }))
         ```
@@ -267,13 +267,13 @@ class Resource(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        example = aws.cloudcontrol.Resource("example",
-            type_name="AWS::ECS::Cluster",
+        example = aws.cloudcontrol.resource.Resource("example",
+            type_name=AWS::ECS::Cluster,
             desired_state=json.dumps({
-                "ClusterName": "example",
-                "Tags": [{
-                    "Key": "CostCenter",
-                    "Value": "IT",
+                ClusterName: example,
+                Tags: [{
+                    Key: CostCenter,
+                    Value: IT,
                 }],
             }))
         ```

@@ -22,33 +22,32 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/vpclattice"
+//	vpclattice/listener "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/vpclattice/listener"
+//	vpclattice/service "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/vpclattice/service"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleService, err := vpclattice.NewService(ctx, "exampleService", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = vpclattice.NewListener(ctx, "exampleListener", &vpclattice.ListenerArgs{
-//				Protocol:          pulumi.String("HTTPS"),
-//				ServiceIdentifier: exampleService.ID(),
-//				DefaultAction: &vpclattice.ListenerDefaultActionArgs{
-//					FixedResponse: &vpclattice.ListenerDefaultActionFixedResponseArgs{
-//						StatusCode: pulumi.Int(404),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleService, err := vpclattice/service.NewService(ctx, "exampleService", nil)
+// if err != nil {
+// return err
+// }
+// _, err = vpclattice/listener.NewListener(ctx, "exampleListener", &vpclattice/listener.ListenerArgs{
+// Protocol: "HTTPS",
+// ServiceIdentifier: exampleService.Id,
+// DefaultAction: map[string]interface{}{
+// "fixedResponse": map[string]interface{}{
+// "statusCode": 404,
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Forward action
 //
@@ -57,50 +56,50 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/vpclattice"
+//	vpclattice/listener "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/vpclattice/listener"
+//	vpclattice/service "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/vpclattice/service"
+//	vpclattice/targetGroup "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/vpclattice/targetGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleService, err := vpclattice.NewService(ctx, "exampleService", nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleTargetGroup, err := vpclattice.NewTargetGroup(ctx, "exampleTargetGroup", &vpclattice.TargetGroupArgs{
-//				Type: pulumi.String("INSTANCE"),
-//				Config: &vpclattice.TargetGroupConfigArgs{
-//					Port:          pulumi.Int(80),
-//					Protocol:      pulumi.String("HTTP"),
-//					VpcIdentifier: pulumi.Any(aws_vpc.Example.Id),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = vpclattice.NewListener(ctx, "exampleListener", &vpclattice.ListenerArgs{
-//				Protocol:          pulumi.String("HTTP"),
-//				ServiceIdentifier: exampleService.ID(),
-//				DefaultAction: &vpclattice.ListenerDefaultActionArgs{
-//					Forwards: vpclattice.ListenerDefaultActionForwardArray{
-//						&vpclattice.ListenerDefaultActionForwardArgs{
-//							TargetGroups: vpclattice.ListenerDefaultActionForwardTargetGroupArray{
-//								&vpclattice.ListenerDefaultActionForwardTargetGroupArgs{
-//									TargetGroupIdentifier: exampleTargetGroup.ID(),
-//								},
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleService, err := vpclattice/service.NewService(ctx, "exampleService", nil)
+// if err != nil {
+// return err
+// }
+// exampleTargetGroup, err := vpclattice/targetGroup.NewTargetGroup(ctx, "exampleTargetGroup", &vpclattice/targetGroup.TargetGroupArgs{
+// Type: "INSTANCE",
+// Config: map[string]interface{}{
+// "port": 80,
+// "protocol": "HTTP",
+// "vpcIdentifier": aws_vpc.Example.Id,
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = vpclattice/listener.NewListener(ctx, "exampleListener", &vpclattice/listener.ListenerArgs{
+// Protocol: "HTTP",
+// ServiceIdentifier: exampleService.Id,
+// DefaultAction: map[string]interface{}{
+// "forwards": []map[string]interface{}{
+// map[string]interface{}{
+// "targetGroups": []map[string]interface{}{
+// map[string]interface{}{
+// "targetGroupIdentifier": exampleTargetGroup.Id,
+// },
+// },
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Forward action with weighted target groups
 //
@@ -109,66 +108,66 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/vpclattice"
+//	vpclattice/listener "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/vpclattice/listener"
+//	vpclattice/service "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/vpclattice/service"
+//	vpclattice/targetGroup "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/vpclattice/targetGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleService, err := vpclattice.NewService(ctx, "exampleService", nil)
-//			if err != nil {
-//				return err
-//			}
-//			example1, err := vpclattice.NewTargetGroup(ctx, "example1", &vpclattice.TargetGroupArgs{
-//				Type: pulumi.String("INSTANCE"),
-//				Config: &vpclattice.TargetGroupConfigArgs{
-//					Port:          pulumi.Int(80),
-//					Protocol:      pulumi.String("HTTP"),
-//					VpcIdentifier: pulumi.Any(aws_vpc.Example.Id),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			example2, err := vpclattice.NewTargetGroup(ctx, "example2", &vpclattice.TargetGroupArgs{
-//				Type: pulumi.String("INSTANCE"),
-//				Config: &vpclattice.TargetGroupConfigArgs{
-//					Port:          pulumi.Int(8080),
-//					Protocol:      pulumi.String("HTTP"),
-//					VpcIdentifier: pulumi.Any(aws_vpc.Example.Id),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = vpclattice.NewListener(ctx, "exampleListener", &vpclattice.ListenerArgs{
-//				Protocol:          pulumi.String("HTTP"),
-//				ServiceIdentifier: exampleService.ID(),
-//				DefaultAction: &vpclattice.ListenerDefaultActionArgs{
-//					Forwards: vpclattice.ListenerDefaultActionForwardArray{
-//						&vpclattice.ListenerDefaultActionForwardArgs{
-//							TargetGroups: vpclattice.ListenerDefaultActionForwardTargetGroupArray{
-//								&vpclattice.ListenerDefaultActionForwardTargetGroupArgs{
-//									TargetGroupIdentifier: example1.ID(),
-//									Weight:                pulumi.Int(80),
-//								},
-//								&vpclattice.ListenerDefaultActionForwardTargetGroupArgs{
-//									TargetGroupIdentifier: example2.ID(),
-//									Weight:                pulumi.Int(20),
-//								},
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleService, err := vpclattice/service.NewService(ctx, "exampleService", nil)
+// if err != nil {
+// return err
+// }
+// example1, err := vpclattice/targetGroup.NewTargetGroup(ctx, "example1", &vpclattice/targetGroup.TargetGroupArgs{
+// Type: "INSTANCE",
+// Config: map[string]interface{}{
+// "port": 80,
+// "protocol": "HTTP",
+// "vpcIdentifier": aws_vpc.Example.Id,
+// },
+// })
+// if err != nil {
+// return err
+// }
+// example2, err := vpclattice/targetGroup.NewTargetGroup(ctx, "example2", &vpclattice/targetGroup.TargetGroupArgs{
+// Type: "INSTANCE",
+// Config: map[string]interface{}{
+// "port": 8080,
+// "protocol": "HTTP",
+// "vpcIdentifier": aws_vpc.Example.Id,
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = vpclattice/listener.NewListener(ctx, "exampleListener", &vpclattice/listener.ListenerArgs{
+// Protocol: "HTTP",
+// ServiceIdentifier: exampleService.Id,
+// DefaultAction: map[string]interface{}{
+// "forwards": []map[string]interface{}{
+// map[string]interface{}{
+// "targetGroups": []interface{}{
+// map[string]interface{}{
+// "targetGroupIdentifier": example1.Id,
+// "weight": 80,
+// },
+// map[string]interface{}{
+// "targetGroupIdentifier": example2.Id,
+// "weight": 20,
+// },
+// },
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

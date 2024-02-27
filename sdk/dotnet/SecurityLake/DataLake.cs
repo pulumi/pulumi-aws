@@ -22,39 +22,39 @@ namespace Pulumi.Aws.SecurityLake
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.SecurityLake.DataLake("example", new()
+    ///     var example = new Aws.Securitylake.DataLake.DataLake("example", new()
     ///     {
     ///         MetaStoreManagerRoleArn = aws_iam_role.Meta_store_manager.Arn,
-    ///         Configuration = new Aws.SecurityLake.Inputs.DataLakeConfigurationArgs
+    ///         Configuration = 
     ///         {
-    ///             Region = "eu-west-1",
-    ///             EncryptionConfigurations = new[]
+    ///             { "region", "eu-west-1" },
+    ///             { "encryptionConfigurations", new[]
     ///             {
-    ///                 new Aws.SecurityLake.Inputs.DataLakeConfigurationEncryptionConfigurationArgs
+    ///                 
     ///                 {
-    ///                     KmsKeyId = "S3_MANAGED_KEY",
+    ///                     { "kmsKeyId", "S3_MANAGED_KEY" },
     ///                 },
-    ///             },
-    ///             LifecycleConfiguration = new Aws.SecurityLake.Inputs.DataLakeConfigurationLifecycleConfigurationArgs
+    ///             } },
+    ///             { "lifecycleConfiguration", 
     ///             {
-    ///                 Transitions = new[]
+    ///                 { "transitions", new[]
     ///                 {
-    ///                     new Aws.SecurityLake.Inputs.DataLakeConfigurationLifecycleConfigurationTransitionArgs
+    ///                     
     ///                     {
-    ///                         Days = 31,
-    ///                         StorageClass = "STANDARD_IA",
+    ///                         { "days", 31 },
+    ///                         { "storageClass", "STANDARD_IA" },
     ///                     },
-    ///                     new Aws.SecurityLake.Inputs.DataLakeConfigurationLifecycleConfigurationTransitionArgs
+    ///                     
     ///                     {
-    ///                         Days = 80,
-    ///                         StorageClass = "ONEZONE_IA",
+    ///                         { "days", 80 },
+    ///                         { "storageClass", "ONEZONE_IA" },
     ///                     },
-    ///                 },
-    ///                 Expiration = new Aws.SecurityLake.Inputs.DataLakeConfigurationLifecycleConfigurationExpirationArgs
+    ///                 } },
+    ///                 { "expiration", 
     ///                 {
-    ///                     Days = 300,
-    ///                 },
-    ///             },
+    ///                     { "days", 300 },
+    ///                 } },
+    ///             } },
     ///         },
     ///     });
     /// 
@@ -70,19 +70,19 @@ namespace Pulumi.Aws.SecurityLake
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.SecurityLake.DataLake("example", new()
+    ///     var example = new Aws.Securitylake.DataLake.DataLake("example", new()
     ///     {
     ///         MetaStoreManagerRoleArn = aws_iam_role.Meta_store_manager.Arn,
-    ///         Configuration = new Aws.SecurityLake.Inputs.DataLakeConfigurationArgs
+    ///         Configuration = 
     ///         {
-    ///             Region = "eu-west-1",
-    ///             EncryptionConfigurations = new[]
+    ///             { "region", "eu-west-1" },
+    ///             { "encryptionConfigurations", new[]
     ///             {
-    ///                 new Aws.SecurityLake.Inputs.DataLakeConfigurationEncryptionConfigurationArgs
+    ///                 
     ///                 {
-    ///                     KmsKeyId = "S3_MANAGED_KEY",
+    ///                     { "kmsKeyId", "S3_MANAGED_KEY" },
     ///                 },
-    ///             },
+    ///             } },
     ///         },
     ///     });
     /// 

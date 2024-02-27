@@ -22,7 +22,7 @@ namespace Pulumi.Aws.OpsWorks
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var myStackPermission = new Aws.OpsWorks.Permission("myStackPermission", new()
+    ///     var myStackPermission = new Aws.Opsworks.Permission.Permission("myStackPermission", new()
     ///     {
     ///         AllowSsh = true,
     ///         AllowSudo = true,

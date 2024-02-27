@@ -19358,6 +19358,32 @@ type FlowTriggerConfigTriggerPropertiesScheduled struct {
 	// Scheduled start time for a schedule-triggered flow. Must be a valid RFC3339 timestamp.
 	ScheduleStartTime *string `pulumi:"scheduleStartTime"`
 	// Time zone used when referring to the date and time of a scheduled-triggered flow, such as `America/New_York`.
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	appflow/flow "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/appflow/flow"
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	// func main() {
+	// pulumi.Run(func(ctx *pulumi.Context) error {
+	// _, err := appflow/flow.NewFlow(ctx, "example", &appflow/flow.FlowArgs{
+	// TriggerConfig: map[string]interface{}{
+	// "scheduled": []map[string]interface{}{
+	// map[string]interface{}{
+	// "scheduleExpression": "rate(1minutes)",
+	// },
+	// },
+	// },
+	// })
+	// if err != nil {
+	// return err
+	// }
+	// return nil
+	// })
+	// }
+	// ```
 	Timezone *string `pulumi:"timezone"`
 }
 
@@ -19386,6 +19412,32 @@ type FlowTriggerConfigTriggerPropertiesScheduledArgs struct {
 	// Scheduled start time for a schedule-triggered flow. Must be a valid RFC3339 timestamp.
 	ScheduleStartTime pulumi.StringPtrInput `pulumi:"scheduleStartTime"`
 	// Time zone used when referring to the date and time of a scheduled-triggered flow, such as `America/New_York`.
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	appflow/flow "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/appflow/flow"
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	// func main() {
+	// pulumi.Run(func(ctx *pulumi.Context) error {
+	// _, err := appflow/flow.NewFlow(ctx, "example", &appflow/flow.FlowArgs{
+	// TriggerConfig: map[string]interface{}{
+	// "scheduled": []map[string]interface{}{
+	// map[string]interface{}{
+	// "scheduleExpression": "rate(1minutes)",
+	// },
+	// },
+	// },
+	// })
+	// if err != nil {
+	// return err
+	// }
+	// return nil
+	// })
+	// }
+	// ```
 	Timezone pulumi.StringPtrInput `pulumi:"timezone"`
 }
 
@@ -19497,6 +19549,34 @@ func (o FlowTriggerConfigTriggerPropertiesScheduledOutput) ScheduleStartTime() p
 }
 
 // Time zone used when referring to the date and time of a scheduled-triggered flow, such as `America/New_York`.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	appflow/flow "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/appflow/flow"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := appflow/flow.NewFlow(ctx, "example", &appflow/flow.FlowArgs{
+// TriggerConfig: map[string]interface{}{
+// "scheduled": []map[string]interface{}{
+// map[string]interface{}{
+// "scheduleExpression": "rate(1minutes)",
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
+// ```
 func (o FlowTriggerConfigTriggerPropertiesScheduledOutput) Timezone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlowTriggerConfigTriggerPropertiesScheduled) *string { return v.Timezone }).(pulumi.StringPtrOutput)
 }
@@ -19586,6 +19666,34 @@ func (o FlowTriggerConfigTriggerPropertiesScheduledPtrOutput) ScheduleStartTime(
 }
 
 // Time zone used when referring to the date and time of a scheduled-triggered flow, such as `America/New_York`.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	appflow/flow "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/appflow/flow"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := appflow/flow.NewFlow(ctx, "example", &appflow/flow.FlowArgs{
+// TriggerConfig: map[string]interface{}{
+// "scheduled": []map[string]interface{}{
+// map[string]interface{}{
+// "scheduleExpression": "rate(1minutes)",
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
+// ```
 func (o FlowTriggerConfigTriggerPropertiesScheduledPtrOutput) Timezone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowTriggerConfigTriggerPropertiesScheduled) *string {
 		if v == nil {

@@ -24,35 +24,6 @@ public final class SsmcontactsFunctions {
      * Data source for managing an AWS SSM Contact.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ssmcontacts.SsmcontactsFunctions;
-     * import com.pulumi.aws.ssmcontacts.inputs.GetContactArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = SsmcontactsFunctions.getContact(GetContactArgs.builder()
-     *             .arn(&#34;arn:aws:ssm-contacts:us-west-2:123456789012:contact/contactalias&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetContactResult> getContact(GetContactArgs args) {
@@ -62,35 +33,6 @@ public final class SsmcontactsFunctions {
      * Data source for managing an AWS SSM Contact.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ssmcontacts.SsmcontactsFunctions;
-     * import com.pulumi.aws.ssmcontacts.inputs.GetContactArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = SsmcontactsFunctions.getContact(GetContactArgs.builder()
-     *             .arn(&#34;arn:aws:ssm-contacts:us-west-2:123456789012:contact/contactalias&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetContactResult> getContactPlain(GetContactPlainArgs args) {
@@ -100,35 +42,6 @@ public final class SsmcontactsFunctions {
      * Data source for managing an AWS SSM Contact.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ssmcontacts.SsmcontactsFunctions;
-     * import com.pulumi.aws.ssmcontacts.inputs.GetContactArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = SsmcontactsFunctions.getContact(GetContactArgs.builder()
-     *             .arn(&#34;arn:aws:ssm-contacts:us-west-2:123456789012:contact/contactalias&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetContactResult> getContact(GetContactArgs args, InvokeOptions options) {
@@ -138,35 +51,6 @@ public final class SsmcontactsFunctions {
      * Data source for managing an AWS SSM Contact.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ssmcontacts.SsmcontactsFunctions;
-     * import com.pulumi.aws.ssmcontacts.inputs.GetContactArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = SsmcontactsFunctions.getContact(GetContactArgs.builder()
-     *             .arn(&#34;arn:aws:ssm-contacts:us-west-2:123456789012:contact/contactalias&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetContactResult> getContactPlain(GetContactPlainArgs args, InvokeOptions options) {
@@ -176,35 +60,6 @@ public final class SsmcontactsFunctions {
      * Data source for managing an AWS SSM Contacts Contact Channel.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ssmcontacts.SsmcontactsFunctions;
-     * import com.pulumi.aws.ssmcontacts.inputs.GetContactChannelArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = SsmcontactsFunctions.getContactChannel(GetContactChannelArgs.builder()
-     *             .arn(&#34;arn:aws:ssm-contacts:us-west-2:123456789012:contact-channel/example&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetContactChannelResult> getContactChannel(GetContactChannelArgs args) {
@@ -214,35 +69,6 @@ public final class SsmcontactsFunctions {
      * Data source for managing an AWS SSM Contacts Contact Channel.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ssmcontacts.SsmcontactsFunctions;
-     * import com.pulumi.aws.ssmcontacts.inputs.GetContactChannelArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = SsmcontactsFunctions.getContactChannel(GetContactChannelArgs.builder()
-     *             .arn(&#34;arn:aws:ssm-contacts:us-west-2:123456789012:contact-channel/example&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetContactChannelResult> getContactChannelPlain(GetContactChannelPlainArgs args) {
@@ -252,35 +78,6 @@ public final class SsmcontactsFunctions {
      * Data source for managing an AWS SSM Contacts Contact Channel.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ssmcontacts.SsmcontactsFunctions;
-     * import com.pulumi.aws.ssmcontacts.inputs.GetContactChannelArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = SsmcontactsFunctions.getContactChannel(GetContactChannelArgs.builder()
-     *             .arn(&#34;arn:aws:ssm-contacts:us-west-2:123456789012:contact-channel/example&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetContactChannelResult> getContactChannel(GetContactChannelArgs args, InvokeOptions options) {
@@ -290,35 +87,6 @@ public final class SsmcontactsFunctions {
      * Data source for managing an AWS SSM Contacts Contact Channel.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ssmcontacts.SsmcontactsFunctions;
-     * import com.pulumi.aws.ssmcontacts.inputs.GetContactChannelArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = SsmcontactsFunctions.getContactChannel(GetContactChannelArgs.builder()
-     *             .arn(&#34;arn:aws:ssm-contacts:us-west-2:123456789012:contact-channel/example&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetContactChannelResult> getContactChannelPlain(GetContactChannelPlainArgs args, InvokeOptions options) {
@@ -328,35 +96,6 @@ public final class SsmcontactsFunctions {
      * Data source for managing a Plan of an AWS SSM Contact.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ssmcontacts.SsmcontactsFunctions;
-     * import com.pulumi.aws.ssmcontacts.inputs.GetPlanArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = SsmcontactsFunctions.getPlan(GetPlanArgs.builder()
-     *             .contactId(&#34;arn:aws:ssm-contacts:us-west-2:123456789012:contact/contactalias&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetPlanResult> getPlan(GetPlanArgs args) {
@@ -366,35 +105,6 @@ public final class SsmcontactsFunctions {
      * Data source for managing a Plan of an AWS SSM Contact.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ssmcontacts.SsmcontactsFunctions;
-     * import com.pulumi.aws.ssmcontacts.inputs.GetPlanArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = SsmcontactsFunctions.getPlan(GetPlanArgs.builder()
-     *             .contactId(&#34;arn:aws:ssm-contacts:us-west-2:123456789012:contact/contactalias&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetPlanResult> getPlanPlain(GetPlanPlainArgs args) {
@@ -404,35 +114,6 @@ public final class SsmcontactsFunctions {
      * Data source for managing a Plan of an AWS SSM Contact.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ssmcontacts.SsmcontactsFunctions;
-     * import com.pulumi.aws.ssmcontacts.inputs.GetPlanArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = SsmcontactsFunctions.getPlan(GetPlanArgs.builder()
-     *             .contactId(&#34;arn:aws:ssm-contacts:us-west-2:123456789012:contact/contactalias&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetPlanResult> getPlan(GetPlanArgs args, InvokeOptions options) {
@@ -442,35 +123,6 @@ public final class SsmcontactsFunctions {
      * Data source for managing a Plan of an AWS SSM Contact.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ssmcontacts.SsmcontactsFunctions;
-     * import com.pulumi.aws.ssmcontacts.inputs.GetPlanArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = SsmcontactsFunctions.getPlan(GetPlanArgs.builder()
-     *             .contactId(&#34;arn:aws:ssm-contacts:us-west-2:123456789012:contact/contactalias&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetPlanResult> getPlanPlain(GetPlanPlainArgs args, InvokeOptions options) {

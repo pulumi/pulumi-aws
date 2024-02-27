@@ -13,47 +13,6 @@ import (
 
 // The VPC Peering Connection data source provides details about
 // a specific VPC peering connection.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			pc, err := ec2.LookupVpcPeeringConnection(ctx, &ec2.LookupVpcPeeringConnectionArgs{
-//				VpcId:         pulumi.StringRef(aws_vpc.Foo.Id),
-//				PeerCidrBlock: pulumi.StringRef("10.0.1.0/22"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			rt, err := ec2.NewRouteTable(ctx, "rt", &ec2.RouteTableArgs{
-//				VpcId: pulumi.Any(aws_vpc.Foo.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ec2.NewRoute(ctx, "route", &ec2.RouteArgs{
-//				RouteTableId:           rt.ID(),
-//				DestinationCidrBlock:   *pulumi.String(pc.PeerCidrBlock),
-//				VpcPeeringConnectionId: *pulumi.String(pc.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupVpcPeeringConnection(ctx *pulumi.Context, args *LookupVpcPeeringConnectionArgs, opts ...pulumi.InvokeOption) (*LookupVpcPeeringConnectionResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupVpcPeeringConnectionResult

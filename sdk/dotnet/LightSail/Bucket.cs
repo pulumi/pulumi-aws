@@ -22,7 +22,7 @@ namespace Pulumi.Aws.LightSail
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Aws.LightSail.Bucket("test", new()
+    ///     var test = new Aws.Lightsail.Bucket.Bucket("test", new()
     ///     {
     ///         BundleId = "small_1_0",
     ///     });

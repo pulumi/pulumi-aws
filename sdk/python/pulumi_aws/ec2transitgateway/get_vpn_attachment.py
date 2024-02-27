@@ -96,26 +96,6 @@ def get_vpn_attachment(filters: Optional[Sequence[pulumi.InputType['GetVpnAttach
     > EC2 Transit Gateway VPN Attachments are implicitly created by VPN Connections referencing an EC2 Transit Gateway so there is no managed resource. For ease, the `ec2.VpnConnection` resource includes a `transit_gateway_attachment_id` attribute which can replace some usage of this data source. For tagging the attachment, see the `ec2.Tag` resource.
 
     ## Example Usage
-    ### By Transit Gateway and VPN Connection Identifiers
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ec2transitgateway.get_vpn_attachment(transit_gateway_id=aws_ec2_transit_gateway["example"]["id"],
-        vpn_connection_id=aws_vpn_connection["example"]["id"])
-    ```
-    ### Filter
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.ec2transitgateway.get_vpn_attachment(filters=[aws.ec2transitgateway.GetVpnAttachmentFilterArgs(
-        name="resource-id",
-        values=["some-resource"],
-    )])
-    ```
 
 
     :param Sequence[pulumi.InputType['GetVpnAttachmentFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.
@@ -151,26 +131,6 @@ def get_vpn_attachment_output(filters: Optional[pulumi.Input[Optional[Sequence[p
     > EC2 Transit Gateway VPN Attachments are implicitly created by VPN Connections referencing an EC2 Transit Gateway so there is no managed resource. For ease, the `ec2.VpnConnection` resource includes a `transit_gateway_attachment_id` attribute which can replace some usage of this data source. For tagging the attachment, see the `ec2.Tag` resource.
 
     ## Example Usage
-    ### By Transit Gateway and VPN Connection Identifiers
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ec2transitgateway.get_vpn_attachment(transit_gateway_id=aws_ec2_transit_gateway["example"]["id"],
-        vpn_connection_id=aws_vpn_connection["example"]["id"])
-    ```
-    ### Filter
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.ec2transitgateway.get_vpn_attachment(filters=[aws.ec2transitgateway.GetVpnAttachmentFilterArgs(
-        name="resource-id",
-        values=["some-resource"],
-    )])
-    ```
 
 
     :param Sequence[pulumi.InputType['GetVpnAttachmentFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.

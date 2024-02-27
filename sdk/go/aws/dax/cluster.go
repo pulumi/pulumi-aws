@@ -21,26 +21,24 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/dax"
+//	dax/cluster "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/dax/cluster"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := dax.NewCluster(ctx, "bar", &dax.ClusterArgs{
-//				ClusterName:       pulumi.String("cluster-example"),
-//				IamRoleArn:        pulumi.Any(data.Aws_iam_role.Example.Arn),
-//				NodeType:          pulumi.String("dax.r4.large"),
-//				ReplicationFactor: pulumi.Int(1),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := dax/cluster.NewCluster(ctx, "bar", &dax/cluster.ClusterArgs{
+// ClusterName: "cluster-example",
+// IamRoleArn: data.Aws_iam_role.Example.Arn,
+// NodeType: "dax.r4.large",
+// ReplicationFactor: 1,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

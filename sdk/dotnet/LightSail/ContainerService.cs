@@ -28,7 +28,7 @@ namespace Pulumi.Aws.LightSail
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var myContainerService = new Aws.LightSail.ContainerService("myContainerService", new()
+    ///     var myContainerService = new Aws.Lightsail.ContainerService.ContainerService("myContainerService", new()
     ///     {
     ///         IsDisabled = false,
     ///         Power = "nano",
@@ -52,79 +52,22 @@ namespace Pulumi.Aws.LightSail
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var myContainerService = new Aws.LightSail.ContainerService("myContainerService", new()
+    ///     var myContainerService = new Aws.Lightsail.ContainerService.ContainerService("myContainerService", new()
     ///     {
-    ///         PublicDomainNames = new Aws.LightSail.Inputs.ContainerServicePublicDomainNamesArgs
+    ///         PublicDomainNames = 
     ///         {
-    ///             Certificates = new[]
+    ///             { "certificates", new[]
     ///             {
-    ///                 new Aws.LightSail.Inputs.ContainerServicePublicDomainNamesCertificateArgs
+    ///                 
     ///                 {
-    ///                     CertificateName = "example-certificate",
-    ///                     DomainNames = new[]
+    ///                     { "certificateName", "example-certificate" },
+    ///                     { "domainNames", new[]
     ///                     {
     ///                         "www.example.com",
-    ///                     },
+    ///                     } },
     ///                 },
-    ///             },
+    ///             } },
     ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### Private Registry Access
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     // ... other configuration ...
-    ///     var defaultContainerService = new Aws.LightSail.ContainerService("defaultContainerService", new()
-    ///     {
-    ///         PrivateRegistryAccess = new Aws.LightSail.Inputs.ContainerServicePrivateRegistryAccessArgs
-    ///         {
-    ///             EcrImagePullerRole = new Aws.LightSail.Inputs.ContainerServicePrivateRegistryAccessEcrImagePullerRoleArgs
-    ///             {
-    ///                 IsActive = true,
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var defaultPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
-    ///     {
-    ///         Statements = new[]
-    ///         {
-    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
-    ///             {
-    ///                 Effect = "Allow",
-    ///                 Principals = new[]
-    ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
-    ///                     {
-    ///                         Type = "AWS",
-    ///                         Identifiers = new[]
-    ///                         {
-    ///                             defaultContainerService.PrivateRegistryAccess.EcrImagePullerRole?.PrincipalArn,
-    ///                         },
-    ///                     },
-    ///                 },
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "ecr:BatchGetImage",
-    ///                     "ecr:GetDownloadUrlForLayer",
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var defaultRepositoryPolicy = new Aws.Ecr.RepositoryPolicy("defaultRepositoryPolicy", new()
-    ///     {
-    ///         Repository = aws_ecr_repository.Default.Name,
-    ///         Policy = defaultPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
     /// });

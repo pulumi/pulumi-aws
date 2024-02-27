@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Inspector
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Inspector.AssessmentTemplate("example", new()
+    ///     var example = new Aws.Inspector.AssessmentTemplate.AssessmentTemplate("example", new()
     ///     {
     ///         TargetArn = aws_inspector_assessment_target.Example.Arn,
     ///         Duration = 3600,
@@ -35,10 +35,10 @@ namespace Pulumi.Aws.Inspector
     ///         },
     ///         EventSubscriptions = new[]
     ///         {
-    ///             new Aws.Inspector.Inputs.AssessmentTemplateEventSubscriptionArgs
+    ///             
     ///             {
-    ///                 Event = "ASSESSMENT_RUN_COMPLETED",
-    ///                 TopicArn = aws_sns_topic.Example.Arn,
+    ///                 { "event", "ASSESSMENT_RUN_COMPLETED" },
+    ///                 { "topicArn", aws_sns_topic.Example.Arn },
     ///             },
     ///         },
     ///     });

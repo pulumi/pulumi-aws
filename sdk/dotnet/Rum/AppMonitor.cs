@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Rum
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Rum.AppMonitor("example", new()
+    ///     var example = new Aws.Rum.AppMonitor.AppMonitor("example", new()
     ///     {
     ///         Domain = "localhost",
     ///     });

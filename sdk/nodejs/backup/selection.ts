@@ -11,41 +11,13 @@ import * as utilities from "../utilities";
  * Manages selection conditions for AWS Backup plan resources.
  *
  * ## Example Usage
- * ### IAM Role
- *
- * > For more information about creating and managing IAM Roles for backups and restores, see the [AWS Backup Developer Guide](https://docs.aws.amazon.com/aws-backup/latest/devguide/iam-service-roles.html).
- *
- * The below example creates an IAM role with the default managed IAM Policy for allowing AWS Backup to create backups.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const assumeRole = aws.iam.getPolicyDocument({
- *     statements: [{
- *         effect: "Allow",
- *         principals: [{
- *             type: "Service",
- *             identifiers: ["backup.amazonaws.com"],
- *         }],
- *         actions: ["sts:AssumeRole"],
- *     }],
- * });
- * const exampleRole = new aws.iam.Role("exampleRole", {assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json)});
- * const exampleRolePolicyAttachment = new aws.iam.RolePolicyAttachment("exampleRolePolicyAttachment", {
- *     policyArn: "arn:aws:iam::aws:policy/service-role/AWSBackupServiceRolePolicyForBackup",
- *     role: exampleRole.name,
- * });
- * // ... other configuration ...
- * const exampleSelection = new aws.backup.Selection("exampleSelection", {iamRoleArn: exampleRole.arn});
- * ```
  * ### Selecting Backups By Tag
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.backup.Selection("example", {
+ * const example = new aws.backup/selection.Selection("example", {
  *     iamRoleArn: aws_iam_role.example.arn,
  *     planId: aws_backup_plan.example.id,
  *     selectionTags: [{
@@ -61,7 +33,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.backup.Selection("example", {
+ * const example = new aws.backup/selection.Selection("example", {
  *     iamRoleArn: aws_iam_role.example.arn,
  *     planId: aws_backup_plan.example.id,
  *     resources: ["*"],
@@ -91,7 +63,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.backup.Selection("example", {
+ * const example = new aws.backup/selection.Selection("example", {
  *     iamRoleArn: aws_iam_role.example.arn,
  *     planId: aws_backup_plan.example.id,
  *     resources: [
@@ -107,7 +79,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.backup.Selection("example", {
+ * const example = new aws.backup/selection.Selection("example", {
  *     iamRoleArn: aws_iam_role.example.arn,
  *     planId: aws_backup_plan.example.id,
  *     notResources: [

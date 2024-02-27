@@ -12,34 +12,6 @@ import (
 )
 
 // Retrieve information about an EMR Containers (EMR on EKS) Virtual Cluster.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/emrcontainers"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := emrcontainers.LookupVirtualCluster(ctx, &emrcontainers.LookupVirtualClusterArgs{
-//				VirtualClusterId: "example id",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			ctx.Export("name", example.Name)
-//			ctx.Export("arn", example.Arn)
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupVirtualCluster(ctx *pulumi.Context, args *LookupVirtualClusterArgs, opts ...pulumi.InvokeOption) (*LookupVirtualClusterResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupVirtualClusterResult

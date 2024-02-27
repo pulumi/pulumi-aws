@@ -42,8 +42,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.ec2.VpcPeeringConnection;
- * import com.pulumi.aws.ec2.VpcPeeringConnectionArgs;
+ * import com.pulumi.aws.ec2_vpcPeeringConnection.VpcPeeringConnection;
+ * import com.pulumi.aws.ec2_vpcPeeringConnection.VpcPeeringConnectionArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -74,10 +74,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.ec2.VpcPeeringConnection;
- * import com.pulumi.aws.ec2.VpcPeeringConnectionArgs;
- * import com.pulumi.aws.ec2.inputs.VpcPeeringConnectionAccepterArgs;
- * import com.pulumi.aws.ec2.inputs.VpcPeeringConnectionRequesterArgs;
+ * import com.pulumi.aws.ec2_vpcPeeringConnection.VpcPeeringConnection;
+ * import com.pulumi.aws.ec2_vpcPeeringConnection.VpcPeeringConnectionArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -95,12 +93,8 @@ import javax.annotation.Nullable;
  *             .peerOwnerId(var_.peer_owner_id())
  *             .peerVpcId(aws_vpc.bar().id())
  *             .vpcId(aws_vpc.foo().id())
- *             .accepter(VpcPeeringConnectionAccepterArgs.builder()
- *                 .allowRemoteVpcDnsResolution(true)
- *                 .build())
- *             .requester(VpcPeeringConnectionRequesterArgs.builder()
- *                 .allowRemoteVpcDnsResolution(true)
- *                 .build())
+ *             .accepter(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .requester(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -114,10 +108,10 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.ec2.Vpc;
- * import com.pulumi.aws.ec2.VpcArgs;
- * import com.pulumi.aws.ec2.VpcPeeringConnection;
- * import com.pulumi.aws.ec2.VpcPeeringConnectionArgs;
+ * import com.pulumi.aws.ec2_vpc.Vpc;
+ * import com.pulumi.aws.ec2_vpc.VpcArgs;
+ * import com.pulumi.aws.ec2_vpcPeeringConnection.VpcPeeringConnection;
+ * import com.pulumi.aws.ec2_vpcPeeringConnection.VpcPeeringConnectionArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -144,7 +138,7 @@ import javax.annotation.Nullable;
  *             .peerVpcId(bar.id())
  *             .vpcId(fooVpc.id())
  *             .autoAccept(true)
- *             .tags(Map.of(&#34;Name&#34;, &#34;VPC Peering between foo and bar&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -158,10 +152,10 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.ec2.Vpc;
- * import com.pulumi.aws.ec2.VpcArgs;
- * import com.pulumi.aws.ec2.VpcPeeringConnection;
- * import com.pulumi.aws.ec2.VpcPeeringConnectionArgs;
+ * import com.pulumi.aws.ec2_vpc.Vpc;
+ * import com.pulumi.aws.ec2_vpc.VpcArgs;
+ * import com.pulumi.aws.ec2_vpcPeeringConnection.VpcPeeringConnection;
+ * import com.pulumi.aws.ec2_vpcPeeringConnection.VpcPeeringConnectionArgs;
  * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;

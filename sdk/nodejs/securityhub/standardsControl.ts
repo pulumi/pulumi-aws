@@ -17,11 +17,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.securityhub.Account("example", {});
- * const cisAwsFoundationsBenchmark = new aws.securityhub.StandardsSubscription("cisAwsFoundationsBenchmark", {standardsArn: "arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0"}, {
+ * const example = new aws.securityhub/account.Account("example", {});
+ * const cisAwsFoundationsBenchmark = new aws.securityhub/standardsSubscription.StandardsSubscription("cisAwsFoundationsBenchmark", {standardsArn: "arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0"}, {
  *     dependsOn: [example],
  * });
- * const ensureIamPasswordPolicyPreventsPasswordReuse = new aws.securityhub.StandardsControl("ensureIamPasswordPolicyPreventsPasswordReuse", {
+ * const ensureIamPasswordPolicyPreventsPasswordReuse = new aws.securityhub/standardsControl.StandardsControl("ensureIamPasswordPolicyPreventsPasswordReuse", {
  *     standardsControlArn: "arn:aws:securityhub:us-east-1:111111111111:control/cis-aws-foundations-benchmark/v/1.2.0/1.10",
  *     controlStatus: "DISABLED",
  *     disabledReason: "We handle password policies within Okta",

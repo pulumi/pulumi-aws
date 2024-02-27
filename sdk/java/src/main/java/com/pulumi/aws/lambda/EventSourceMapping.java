@@ -135,8 +135,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.lambda.EventSourceMapping;
  * import com.pulumi.aws.lambda.EventSourceMappingArgs;
- * import com.pulumi.aws.lambda.inputs.EventSourceMappingSelfManagedEventSourceArgs;
- * import com.pulumi.aws.lambda.inputs.EventSourceMappingSourceAccessConfigurationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -154,22 +152,11 @@ import javax.annotation.Nullable;
  *             .functionName(aws_lambda_function.example().arn())
  *             .topics(&#34;Example&#34;)
  *             .startingPosition(&#34;TRIM_HORIZON&#34;)
- *             .selfManagedEventSource(EventSourceMappingSelfManagedEventSourceArgs.builder()
- *                 .endpoints(Map.of(&#34;KAFKA_BOOTSTRAP_SERVERS&#34;, &#34;kafka1.example.com:9092,kafka2.example.com:9092&#34;))
- *                 .build())
+ *             .selfManagedEventSource(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .sourceAccessConfigurations(            
- *                 EventSourceMappingSourceAccessConfigurationArgs.builder()
- *                     .type(&#34;VPC_SUBNET&#34;)
- *                     .uri(&#34;subnet:subnet-example1&#34;)
- *                     .build(),
- *                 EventSourceMappingSourceAccessConfigurationArgs.builder()
- *                     .type(&#34;VPC_SUBNET&#34;)
- *                     .uri(&#34;subnet:subnet-example2&#34;)
- *                     .build(),
- *                 EventSourceMappingSourceAccessConfigurationArgs.builder()
- *                     .type(&#34;VPC_SECURITY_GROUP&#34;)
- *                     .uri(&#34;security_group:sg-example&#34;)
- *                     .build())
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -214,7 +201,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.lambda.EventSourceMapping;
  * import com.pulumi.aws.lambda.EventSourceMappingArgs;
- * import com.pulumi.aws.lambda.inputs.EventSourceMappingFilterCriteriaArgs;
  * import static com.pulumi.codegen.internal.Serialization.*;
  * import java.util.List;
  * import java.util.ArrayList;
@@ -232,31 +218,13 @@ import javax.annotation.Nullable;
  *         var example = new EventSourceMapping(&#34;example&#34;, EventSourceMappingArgs.builder()        
  *             .eventSourceArn(aws_sqs_queue.sqs_queue_test().arn())
  *             .functionName(aws_lambda_function.example().arn())
- *             .filterCriteria(EventSourceMappingFilterCriteriaArgs.builder()
- *                 .filters(EventSourceMappingFilterCriteriaFilterArgs.builder()
- *                     .pattern(serializeJson(
- *                         jsonObject(
- *                             jsonProperty(&#34;body&#34;, jsonObject(
- *                                 jsonProperty(&#34;Temperature&#34;, jsonArray(jsonObject(
- *                                     jsonProperty(&#34;numeric&#34;, jsonArray(
- *                                         &#34;&gt;&#34;, 
- *                                         0, 
- *                                         &#34;&lt;=&#34;, 
- *                                         100
- *                                     ))
- *                                 ))),
- *                                 jsonProperty(&#34;Location&#34;, jsonArray(&#34;New York&#34;))
- *                             ))
- *                         )))
- *                     .build())
- *                 .build())
+ *             .filterCriteria(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
  * }
  * ```
  * ### Amazon MQ (ActiveMQ)
- * 
  * ```java
  * package generated_program;
  * 
@@ -265,7 +233,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.lambda.EventSourceMapping;
  * import com.pulumi.aws.lambda.EventSourceMappingArgs;
- * import com.pulumi.aws.lambda.inputs.EventSourceMappingSourceAccessConfigurationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -285,17 +252,13 @@ import javax.annotation.Nullable;
  *             .enabled(true)
  *             .functionName(aws_lambda_function.example().arn())
  *             .queues(&#34;example&#34;)
- *             .sourceAccessConfigurations(EventSourceMappingSourceAccessConfigurationArgs.builder()
- *                 .type(&#34;BASIC_AUTH&#34;)
- *                 .uri(aws_secretsmanager_secret_version.example().arn())
- *                 .build())
+ *             .sourceAccessConfigurations(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
  * }
  * ```
  * ### Amazon MQ (RabbitMQ)
- * 
  * ```java
  * package generated_program;
  * 
@@ -304,7 +267,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.lambda.EventSourceMapping;
  * import com.pulumi.aws.lambda.EventSourceMappingArgs;
- * import com.pulumi.aws.lambda.inputs.EventSourceMappingSourceAccessConfigurationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -325,14 +287,8 @@ import javax.annotation.Nullable;
  *             .functionName(aws_lambda_function.example().arn())
  *             .queues(&#34;example&#34;)
  *             .sourceAccessConfigurations(            
- *                 EventSourceMappingSourceAccessConfigurationArgs.builder()
- *                     .type(&#34;VIRTUAL_HOST&#34;)
- *                     .uri(&#34;/example&#34;)
- *                     .build(),
- *                 EventSourceMappingSourceAccessConfigurationArgs.builder()
- *                     .type(&#34;BASIC_AUTH&#34;)
- *                     .uri(aws_secretsmanager_secret_version.example().arn())
- *                     .build())
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

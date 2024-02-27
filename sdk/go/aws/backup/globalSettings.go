@@ -21,25 +21,23 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/backup"
+//	backup/globalSettings "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/backup/globalSettings"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := backup.NewGlobalSettings(ctx, "test", &backup.GlobalSettingsArgs{
-//				GlobalSettings: pulumi.StringMap{
-//					"isCrossAccountBackupEnabled": pulumi.String("true"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := backup/globalSettings.NewGlobalSettings(ctx, "test", &backup/globalSettings.GlobalSettingsArgs{
+// GlobalSettings: map[string]interface{}{
+// "isCrossAccountBackupEnabled": "true",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

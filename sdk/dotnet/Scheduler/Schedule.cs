@@ -27,18 +27,18 @@ namespace Pulumi.Aws.Scheduler
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Scheduler.Schedule("example", new()
+    ///     var example = new Aws.Scheduler.Schedule.Schedule("example", new()
     ///     {
     ///         GroupName = "default",
-    ///         FlexibleTimeWindow = new Aws.Scheduler.Inputs.ScheduleFlexibleTimeWindowArgs
+    ///         FlexibleTimeWindow = 
     ///         {
-    ///             Mode = "OFF",
+    ///             { "mode", "OFF" },
     ///         },
     ///         ScheduleExpression = "rate(1 hours)",
-    ///         Target = new Aws.Scheduler.Inputs.ScheduleTargetArgs
+    ///         Target = 
     ///         {
-    ///             Arn = aws_sqs_queue.Example.Arn,
-    ///             RoleArn = aws_iam_role.Example.Arn,
+    ///             { "arn", aws_sqs_queue.Example.Arn },
+    ///             { "roleArn", aws_iam_role.Example.Arn },
     ///         },
     ///     });
     /// 
@@ -55,24 +55,24 @@ namespace Pulumi.Aws.Scheduler
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleQueue = new Aws.Sqs.Queue("exampleQueue");
+    ///     var exampleQueue = new Aws.Sqs.Queue.Queue("exampleQueue");
     /// 
-    ///     var exampleSchedule = new Aws.Scheduler.Schedule("exampleSchedule", new()
+    ///     var exampleSchedule = new Aws.Scheduler.Schedule.Schedule("exampleSchedule", new()
     ///     {
-    ///         FlexibleTimeWindow = new Aws.Scheduler.Inputs.ScheduleFlexibleTimeWindowArgs
+    ///         FlexibleTimeWindow = 
     ///         {
-    ///             Mode = "OFF",
+    ///             { "mode", "OFF" },
     ///         },
     ///         ScheduleExpression = "rate(1 hours)",
-    ///         Target = new Aws.Scheduler.Inputs.ScheduleTargetArgs
+    ///         Target = 
     ///         {
-    ///             Arn = "arn:aws:scheduler:::aws-sdk:sqs:sendMessage",
-    ///             RoleArn = aws_iam_role.Example.Arn,
-    ///             Input = exampleQueue.Url.Apply(url =&gt; JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///             { "arn", "arn:aws:scheduler:::aws-sdk:sqs:sendMessage" },
+    ///             { "roleArn", aws_iam_role.Example.Arn },
+    ///             { "input", JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///             {
     ///                 ["MessageBody"] = "Greetings, programs!",
-    ///                 ["QueueUrl"] = url,
-    ///             })),
+    ///                 ["QueueUrl"] = exampleQueue.Url,
+    ///             }) },
     ///         },
     ///     });
     /// 

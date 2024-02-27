@@ -237,32 +237,32 @@ class SigningProfilePermission(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        prod_sp = aws.signer.SigningProfile("prodSp",
-            platform_id="AWSLambda-SHA384-ECDSA",
-            name_prefix="prod_sp_",
-            signature_validity_period=aws.signer.SigningProfileSignatureValidityPeriodArgs(
-                value=5,
-                type="YEARS",
-            ),
+        prod_sp = aws.signer.signing_profile.SigningProfile("prodSp",
+            platform_id=AWSLambda-SHA384-ECDSA,
+            name_prefix=prod_sp_,
+            signature_validity_period={
+                value: 5,
+                type: YEARS,
+            },
             tags={
-                "tag1": "value1",
-                "tag2": "value2",
+                tag1: value1,
+                tag2: value2,
             })
-        sp_permission1 = aws.signer.SigningProfilePermission("spPermission1",
+        sp_permission1 = aws.signer.signing_profile_permission.SigningProfilePermission("spPermission1",
             profile_name=prod_sp.name,
-            action="signer:StartSigningJob",
-            principal=var["aws_account"])
-        sp_permission2 = aws.signer.SigningProfilePermission("spPermission2",
+            action=signer:StartSigningJob,
+            principal=var.aws_account)
+        sp_permission2 = aws.signer.signing_profile_permission.SigningProfilePermission("spPermission2",
             profile_name=prod_sp.name,
-            action="signer:GetSigningProfile",
-            principal=var["aws_team_role_arn"],
-            statement_id="ProdAccountStartSigningJob_StatementId")
-        sp_permission3 = aws.signer.SigningProfilePermission("spPermission3",
+            action=signer:GetSigningProfile,
+            principal=var.aws_team_role_arn,
+            statement_id=ProdAccountStartSigningJob_StatementId)
+        sp_permission3 = aws.signer.signing_profile_permission.SigningProfilePermission("spPermission3",
             profile_name=prod_sp.name,
-            action="signer:RevokeSignature",
-            principal="123456789012",
+            action=signer:RevokeSignature,
+            principal=123456789012,
             profile_version=prod_sp.version,
-            statement_id_prefix="version-permission-")
+            statement_id_prefix=version-permission-)
         ```
 
         ## Import
@@ -297,32 +297,32 @@ class SigningProfilePermission(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        prod_sp = aws.signer.SigningProfile("prodSp",
-            platform_id="AWSLambda-SHA384-ECDSA",
-            name_prefix="prod_sp_",
-            signature_validity_period=aws.signer.SigningProfileSignatureValidityPeriodArgs(
-                value=5,
-                type="YEARS",
-            ),
+        prod_sp = aws.signer.signing_profile.SigningProfile("prodSp",
+            platform_id=AWSLambda-SHA384-ECDSA,
+            name_prefix=prod_sp_,
+            signature_validity_period={
+                value: 5,
+                type: YEARS,
+            },
             tags={
-                "tag1": "value1",
-                "tag2": "value2",
+                tag1: value1,
+                tag2: value2,
             })
-        sp_permission1 = aws.signer.SigningProfilePermission("spPermission1",
+        sp_permission1 = aws.signer.signing_profile_permission.SigningProfilePermission("spPermission1",
             profile_name=prod_sp.name,
-            action="signer:StartSigningJob",
-            principal=var["aws_account"])
-        sp_permission2 = aws.signer.SigningProfilePermission("spPermission2",
+            action=signer:StartSigningJob,
+            principal=var.aws_account)
+        sp_permission2 = aws.signer.signing_profile_permission.SigningProfilePermission("spPermission2",
             profile_name=prod_sp.name,
-            action="signer:GetSigningProfile",
-            principal=var["aws_team_role_arn"],
-            statement_id="ProdAccountStartSigningJob_StatementId")
-        sp_permission3 = aws.signer.SigningProfilePermission("spPermission3",
+            action=signer:GetSigningProfile,
+            principal=var.aws_team_role_arn,
+            statement_id=ProdAccountStartSigningJob_StatementId)
+        sp_permission3 = aws.signer.signing_profile_permission.SigningProfilePermission("spPermission3",
             profile_name=prod_sp.name,
-            action="signer:RevokeSignature",
-            principal="123456789012",
+            action=signer:RevokeSignature,
+            principal=123456789012,
             profile_version=prod_sp.version,
-            statement_id_prefix="version-permission-")
+            statement_id_prefix=version-permission-)
         ```
 
         ## Import

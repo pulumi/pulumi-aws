@@ -218,9 +218,9 @@ class DelegatedAdministrator(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.organizations.DelegatedAdministrator("example",
-            account_id="123456789012",
-            service_principal="principal")
+        example = aws.organizations.delegated_administrator.DelegatedAdministrator("example",
+            account_id=123456789012,
+            service_principal=principal)
         ```
 
         ## Import
@@ -251,9 +251,9 @@ class DelegatedAdministrator(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.organizations.DelegatedAdministrator("example",
-            account_id="123456789012",
-            service_principal="principal")
+        example = aws.organizations.delegated_administrator.DelegatedAdministrator("example",
+            account_id=123456789012,
+            service_principal=principal)
         ```
 
         ## Import

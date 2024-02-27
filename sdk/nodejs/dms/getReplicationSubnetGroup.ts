@@ -8,16 +8,6 @@ import * as utilities from "../utilities";
  * Data source for managing an AWS DMS (Database Migration) Replication Subnet Group.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = aws.dms.getReplicationSubnetGroup({
- *     replicationSubnetGroupId: aws_dms_replication_subnet_group.test.replication_subnet_group_id,
- * });
- * ```
  */
 export function getReplicationSubnetGroup(args: GetReplicationSubnetGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationSubnetGroupResult> {
 
@@ -68,16 +58,6 @@ export interface GetReplicationSubnetGroupResult {
  * Data source for managing an AWS DMS (Database Migration) Replication Subnet Group.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = aws.dms.getReplicationSubnetGroup({
- *     replicationSubnetGroupId: aws_dms_replication_subnet_group.test.replication_subnet_group_id,
- * });
- * ```
  */
 export function getReplicationSubnetGroupOutput(args: GetReplicationSubnetGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicationSubnetGroupResult> {
     return pulumi.output(args).apply((a: any) => getReplicationSubnetGroup(a, opts))

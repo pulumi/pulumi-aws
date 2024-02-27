@@ -237,14 +237,14 @@ class VoiceConnectorTermination(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        default_voice_connector = aws.chime.VoiceConnector("defaultVoiceConnector", require_encryption=True)
-        default_voice_connector_termination = aws.chime.VoiceConnectorTermination("defaultVoiceConnectorTermination",
+        default_voice_connector = aws.chime.voice_connector.VoiceConnector("defaultVoiceConnector", require_encryption=True)
+        default_voice_connector_termination = aws.chime.voice_connector_termination.VoiceConnectorTermination("defaultVoiceConnectorTermination",
             disabled=False,
             cps_limit=1,
-            cidr_allow_lists=["50.35.78.96/31"],
+            cidr_allow_lists=[50.35.78.96/31],
             calling_regions=[
-                "US",
-                "CA",
+                US,
+                CA,
             ],
             voice_connector_id=default_voice_connector.id)
         ```
@@ -281,14 +281,14 @@ class VoiceConnectorTermination(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        default_voice_connector = aws.chime.VoiceConnector("defaultVoiceConnector", require_encryption=True)
-        default_voice_connector_termination = aws.chime.VoiceConnectorTermination("defaultVoiceConnectorTermination",
+        default_voice_connector = aws.chime.voice_connector.VoiceConnector("defaultVoiceConnector", require_encryption=True)
+        default_voice_connector_termination = aws.chime.voice_connector_termination.VoiceConnectorTermination("defaultVoiceConnectorTermination",
             disabled=False,
             cps_limit=1,
-            cidr_allow_lists=["50.35.78.96/31"],
+            cidr_allow_lists=[50.35.78.96/31],
             calling_regions=[
-                "US",
-                "CA",
+                US,
+                CA,
             ],
             voice_connector_id=default_voice_connector.id)
         ```

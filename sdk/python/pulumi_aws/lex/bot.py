@@ -620,32 +620,32 @@ class Bot(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        order_flowers_bot = aws.lex.Bot("orderFlowersBot",
-            abort_statement=aws.lex.BotAbortStatementArgs(
-                messages=[aws.lex.BotAbortStatementMessageArgs(
-                    content="Sorry, I am not able to assist at this time",
-                    content_type="PlainText",
-                )],
-            ),
+        order_flowers_bot = aws.lex.bot.Bot("orderFlowersBot",
+            abort_statement={
+                messages: [{
+                    content: Sorry, I am not able to assist at this time,
+                    contentType: PlainText,
+                }],
+            },
             child_directed=False,
-            clarification_prompt=aws.lex.BotClarificationPromptArgs(
-                max_attempts=2,
-                messages=[aws.lex.BotClarificationPromptMessageArgs(
-                    content="I didn't understand you, what would you like to do?",
-                    content_type="PlainText",
-                )],
-            ),
+            clarification_prompt={
+                maxAttempts: 2,
+                messages: [{
+                    content: I didn't understand you, what would you like to do?,
+                    contentType: PlainText,
+                }],
+            },
             create_version=False,
-            description="Bot to order flowers on the behalf of a user",
+            description=Bot to order flowers on the behalf of a user,
             idle_session_ttl_in_seconds=600,
-            intents=[aws.lex.BotIntentArgs(
-                intent_name="OrderFlowers",
-                intent_version="1",
-            )],
-            locale="en-US",
-            name="OrderFlowers",
-            process_behavior="BUILD",
-            voice_id="Salli")
+            intents=[{
+                intentName: OrderFlowers,
+                intentVersion: 1,
+            }],
+            locale=en-US,
+            name=OrderFlowers,
+            process_behavior=BUILD,
+            voice_id=Salli)
         ```
 
         ## Import
@@ -689,32 +689,32 @@ class Bot(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        order_flowers_bot = aws.lex.Bot("orderFlowersBot",
-            abort_statement=aws.lex.BotAbortStatementArgs(
-                messages=[aws.lex.BotAbortStatementMessageArgs(
-                    content="Sorry, I am not able to assist at this time",
-                    content_type="PlainText",
-                )],
-            ),
+        order_flowers_bot = aws.lex.bot.Bot("orderFlowersBot",
+            abort_statement={
+                messages: [{
+                    content: Sorry, I am not able to assist at this time,
+                    contentType: PlainText,
+                }],
+            },
             child_directed=False,
-            clarification_prompt=aws.lex.BotClarificationPromptArgs(
-                max_attempts=2,
-                messages=[aws.lex.BotClarificationPromptMessageArgs(
-                    content="I didn't understand you, what would you like to do?",
-                    content_type="PlainText",
-                )],
-            ),
+            clarification_prompt={
+                maxAttempts: 2,
+                messages: [{
+                    content: I didn't understand you, what would you like to do?,
+                    contentType: PlainText,
+                }],
+            },
             create_version=False,
-            description="Bot to order flowers on the behalf of a user",
+            description=Bot to order flowers on the behalf of a user,
             idle_session_ttl_in_seconds=600,
-            intents=[aws.lex.BotIntentArgs(
-                intent_name="OrderFlowers",
-                intent_version="1",
-            )],
-            locale="en-US",
-            name="OrderFlowers",
-            process_behavior="BUILD",
-            voice_id="Salli")
+            intents=[{
+                intentName: OrderFlowers,
+                intentVersion: 1,
+            }],
+            locale=en-US,
+            name=OrderFlowers,
+            process_behavior=BUILD,
+            voice_id=Salli)
         ```
 
         ## Import

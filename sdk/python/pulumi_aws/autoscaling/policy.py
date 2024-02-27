@@ -55,17 +55,17 @@ class PolicyArgs:
                import pulumi
                import pulumi_aws as aws
                
-               example = aws.autoscaling.Policy("example", step_adjustments=[
-                   aws.autoscaling.PolicyStepAdjustmentArgs(
-                       metric_interval_lower_bound="1",
-                       metric_interval_upper_bound="2",
-                       scaling_adjustment=-1,
-                   ),
-                   aws.autoscaling.PolicyStepAdjustmentArgs(
-                       metric_interval_lower_bound="2",
-                       metric_interval_upper_bound="3",
-                       scaling_adjustment=1,
-                   ),
+               example = aws.autoscaling.policy.Policy("example", step_adjustments=[
+                   {
+                       metricIntervalLowerBound: 1,
+                       metricIntervalUpperBound: 2,
+                       scalingAdjustment: -1,
+                   },
+                   {
+                       metricIntervalLowerBound: 2,
+                       metricIntervalUpperBound: 3,
+                       scalingAdjustment: 1,
+                   },
                ])
                ```
                
@@ -76,12 +76,12 @@ class PolicyArgs:
                import pulumi
                import pulumi_aws as aws
                
-               example = aws.autoscaling.Policy("example", target_tracking_configuration=aws.autoscaling.PolicyTargetTrackingConfigurationArgs(
-                   predefined_metric_specification=aws.autoscaling.PolicyTargetTrackingConfigurationPredefinedMetricSpecificationArgs(
-                       predefined_metric_type="ASGAverageCPUUtilization",
-                   ),
-                   target_value=40,
-               ))
+               example = aws.autoscaling.policy.Policy("example", target_tracking_configuration={
+                   predefinedMetricSpecification: {
+                       predefinedMetricType: ASGAverageCPUUtilization,
+                   },
+                   targetValue: 40,
+               })
                ```
                
                The following fields are available in target tracking configuration:
@@ -261,17 +261,17 @@ class PolicyArgs:
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.autoscaling.Policy("example", step_adjustments=[
-            aws.autoscaling.PolicyStepAdjustmentArgs(
-                metric_interval_lower_bound="1",
-                metric_interval_upper_bound="2",
-                scaling_adjustment=-1,
-            ),
-            aws.autoscaling.PolicyStepAdjustmentArgs(
-                metric_interval_lower_bound="2",
-                metric_interval_upper_bound="3",
-                scaling_adjustment=1,
-            ),
+        example = aws.autoscaling.policy.Policy("example", step_adjustments=[
+            {
+                metricIntervalLowerBound: 1,
+                metricIntervalUpperBound: 2,
+                scalingAdjustment: -1,
+            },
+            {
+                metricIntervalLowerBound: 2,
+                metricIntervalUpperBound: 3,
+                scalingAdjustment: 1,
+            },
         ])
         ```
 
@@ -293,12 +293,12 @@ class PolicyArgs:
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.autoscaling.Policy("example", target_tracking_configuration=aws.autoscaling.PolicyTargetTrackingConfigurationArgs(
-            predefined_metric_specification=aws.autoscaling.PolicyTargetTrackingConfigurationPredefinedMetricSpecificationArgs(
-                predefined_metric_type="ASGAverageCPUUtilization",
-            ),
-            target_value=40,
-        ))
+        example = aws.autoscaling.policy.Policy("example", target_tracking_configuration={
+            predefinedMetricSpecification: {
+                predefinedMetricType: ASGAverageCPUUtilization,
+            },
+            targetValue: 40,
+        })
         ```
 
         The following fields are available in target tracking configuration:
@@ -354,17 +354,17 @@ class _PolicyState:
                import pulumi
                import pulumi_aws as aws
                
-               example = aws.autoscaling.Policy("example", step_adjustments=[
-                   aws.autoscaling.PolicyStepAdjustmentArgs(
-                       metric_interval_lower_bound="1",
-                       metric_interval_upper_bound="2",
-                       scaling_adjustment=-1,
-                   ),
-                   aws.autoscaling.PolicyStepAdjustmentArgs(
-                       metric_interval_lower_bound="2",
-                       metric_interval_upper_bound="3",
-                       scaling_adjustment=1,
-                   ),
+               example = aws.autoscaling.policy.Policy("example", step_adjustments=[
+                   {
+                       metricIntervalLowerBound: 1,
+                       metricIntervalUpperBound: 2,
+                       scalingAdjustment: -1,
+                   },
+                   {
+                       metricIntervalLowerBound: 2,
+                       metricIntervalUpperBound: 3,
+                       scalingAdjustment: 1,
+                   },
                ])
                ```
                
@@ -375,12 +375,12 @@ class _PolicyState:
                import pulumi
                import pulumi_aws as aws
                
-               example = aws.autoscaling.Policy("example", target_tracking_configuration=aws.autoscaling.PolicyTargetTrackingConfigurationArgs(
-                   predefined_metric_specification=aws.autoscaling.PolicyTargetTrackingConfigurationPredefinedMetricSpecificationArgs(
-                       predefined_metric_type="ASGAverageCPUUtilization",
-                   ),
-                   target_value=40,
-               ))
+               example = aws.autoscaling.policy.Policy("example", target_tracking_configuration={
+                   predefinedMetricSpecification: {
+                       predefinedMetricType: ASGAverageCPUUtilization,
+                   },
+                   targetValue: 40,
+               })
                ```
                
                The following fields are available in target tracking configuration:
@@ -575,17 +575,17 @@ class _PolicyState:
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.autoscaling.Policy("example", step_adjustments=[
-            aws.autoscaling.PolicyStepAdjustmentArgs(
-                metric_interval_lower_bound="1",
-                metric_interval_upper_bound="2",
-                scaling_adjustment=-1,
-            ),
-            aws.autoscaling.PolicyStepAdjustmentArgs(
-                metric_interval_lower_bound="2",
-                metric_interval_upper_bound="3",
-                scaling_adjustment=1,
-            ),
+        example = aws.autoscaling.policy.Policy("example", step_adjustments=[
+            {
+                metricIntervalLowerBound: 1,
+                metricIntervalUpperBound: 2,
+                scalingAdjustment: -1,
+            },
+            {
+                metricIntervalLowerBound: 2,
+                metricIntervalUpperBound: 3,
+                scalingAdjustment: 1,
+            },
         ])
         ```
 
@@ -607,12 +607,12 @@ class _PolicyState:
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.autoscaling.Policy("example", target_tracking_configuration=aws.autoscaling.PolicyTargetTrackingConfigurationArgs(
-            predefined_metric_specification=aws.autoscaling.PolicyTargetTrackingConfigurationPredefinedMetricSpecificationArgs(
-                predefined_metric_type="ASGAverageCPUUtilization",
-            ),
-            target_value=40,
-        ))
+        example = aws.autoscaling.policy.Policy("example", target_tracking_configuration={
+            predefinedMetricSpecification: {
+                predefinedMetricType: ASGAverageCPUUtilization,
+            },
+            targetValue: 40,
+        })
         ```
 
         The following fields are available in target tracking configuration:
@@ -658,17 +658,17 @@ class Policy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        bar = aws.autoscaling.Group("bar",
-            availability_zones=["us-east-1a"],
+        bar = aws.autoscaling.group.Group("bar",
+            availability_zones=[us-east-1a],
             max_size=5,
             min_size=2,
             health_check_grace_period=300,
-            health_check_type="ELB",
+            health_check_type=ELB,
             force_delete=True,
-            launch_configuration=aws_launch_configuration["foo"]["name"])
-        bat = aws.autoscaling.Policy("bat",
+            launch_configuration=aws_launch_configuration.foo.name)
+        bat = aws.autoscaling.policy.Policy("bat",
             scaling_adjustment=4,
-            adjustment_type="ChangeInCapacity",
+            adjustment_type=ChangeInCapacity,
             cooldown=300,
             autoscaling_group_name=bar.name)
         ```
@@ -678,54 +678,54 @@ class Policy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.autoscaling.Policy("example",
-            autoscaling_group_name="my-test-asg",
-            policy_type="TargetTrackingScaling",
-            target_tracking_configuration=aws.autoscaling.PolicyTargetTrackingConfigurationArgs(
-                customized_metric_specification=aws.autoscaling.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationArgs(
-                    metrics=[
-                        aws.autoscaling.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricArgs(
-                            id="m1",
-                            label="Get the queue size (the number of messages waiting to be processed)",
-                            metric_stat=aws.autoscaling.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatArgs(
-                                metric=aws.autoscaling.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricArgs(
-                                    dimensions=[aws.autoscaling.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionArgs(
-                                        name="QueueName",
-                                        value="my-queue",
-                                    )],
-                                    metric_name="ApproximateNumberOfMessagesVisible",
-                                    namespace="AWS/SQS",
-                                ),
-                                stat="Sum",
-                            ),
-                            return_data=False,
-                        ),
-                        aws.autoscaling.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricArgs(
-                            id="m2",
-                            label="Get the group size (the number of InService instances)",
-                            metric_stat=aws.autoscaling.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatArgs(
-                                metric=aws.autoscaling.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricArgs(
-                                    dimensions=[aws.autoscaling.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionArgs(
-                                        name="AutoScalingGroupName",
-                                        value="my-asg",
-                                    )],
-                                    metric_name="GroupInServiceInstances",
-                                    namespace="AWS/AutoScaling",
-                                ),
-                                stat="Average",
-                            ),
-                            return_data=False,
-                        ),
-                        aws.autoscaling.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricArgs(
-                            expression="m1 / m2",
-                            id="e1",
-                            label="Calculate the backlog per instance",
-                            return_data=True,
-                        ),
+        example = aws.autoscaling.policy.Policy("example",
+            autoscaling_group_name=my-test-asg,
+            policy_type=TargetTrackingScaling,
+            target_tracking_configuration={
+                customizedMetricSpecification: {
+                    metrics: [
+                        {
+                            id: m1,
+                            label: Get the queue size (the number of messages waiting to be processed),
+                            metricStat: {
+                                metric: {
+                                    dimensions: [{
+                                        name: QueueName,
+                                        value: my-queue,
+                                    }],
+                                    metricName: ApproximateNumberOfMessagesVisible,
+                                    namespace: AWS/SQS,
+                                },
+                                stat: Sum,
+                            },
+                            returnData: False,
+                        },
+                        {
+                            id: m2,
+                            label: Get the group size (the number of InService instances),
+                            metricStat: {
+                                metric: {
+                                    dimensions: [{
+                                        name: AutoScalingGroupName,
+                                        value: my-asg,
+                                    }],
+                                    metricName: GroupInServiceInstances,
+                                    namespace: AWS/AutoScaling,
+                                },
+                                stat: Average,
+                            },
+                            returnData: False,
+                        },
+                        {
+                            expression: m1 / m2,
+                            id: e1,
+                            label: Calculate the backlog per instance,
+                            returnData: True,
+                        },
                     ],
-                ),
-                target_value=100,
-            ))
+                },
+                targetValue: 100,
+            })
         ```
         ### Create predictive scaling policy using customized metrics
 
@@ -733,44 +733,44 @@ class Policy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.autoscaling.Policy("example",
-            autoscaling_group_name="my-test-asg",
-            policy_type="PredictiveScaling",
-            predictive_scaling_configuration=aws.autoscaling.PolicyPredictiveScalingConfigurationArgs(
-                metric_specification=aws.autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationArgs(
-                    customized_capacity_metric_specification=aws.autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationArgs(
-                        metric_data_queries=[aws.autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryArgs(
-                            expression="SUM(SEARCH('{AWS/AutoScaling,AutoScalingGroupName} MetricName=\\"GroupInServiceIntances\\" my-test-asg', 'Average', 300))",
-                            id="capacity_sum",
-                        )],
-                    ),
-                    customized_load_metric_specification=aws.autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationArgs(
-                        metric_data_queries=[aws.autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryArgs(
-                            expression="SUM(SEARCH('{AWS/EC2,AutoScalingGroupName} MetricName=\\"CPUUtilization\\" my-test-asg', 'Sum', 3600))",
-                            id="load_sum",
-                        )],
-                    ),
-                    customized_scaling_metric_specification=aws.autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationArgs(
-                        metric_data_queries=[
-                            aws.autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryArgs(
-                                expression="SUM(SEARCH('{AWS/AutoScaling,AutoScalingGroupName} MetricName=\\"GroupInServiceIntances\\" my-test-asg', 'Average', 300))",
-                                id="capacity_sum",
-                                return_data=False,
-                            ),
-                            aws.autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryArgs(
-                                expression="SUM(SEARCH('{AWS/EC2,AutoScalingGroupName} MetricName=\\"CPUUtilization\\" my-test-asg', 'Sum', 300))",
-                                id="load_sum",
-                                return_data=False,
-                            ),
-                            aws.autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryArgs(
-                                expression="load_sum / (capacity_sum * PERIOD(capacity_sum) / 60)",
-                                id="weighted_average",
-                            ),
+        example = aws.autoscaling.policy.Policy("example",
+            autoscaling_group_name=my-test-asg,
+            policy_type=PredictiveScaling,
+            predictive_scaling_configuration={
+                metricSpecification: {
+                    customizedCapacityMetricSpecification: {
+                        metricDataQueries: [{
+                            expression: SUM(SEARCH('{AWS/AutoScaling,AutoScalingGroupName} MetricName="GroupInServiceIntances" my-test-asg', 'Average', 300)),
+                            id: capacity_sum,
+                        }],
+                    },
+                    customizedLoadMetricSpecification: {
+                        metricDataQueries: [{
+                            expression: SUM(SEARCH('{AWS/EC2,AutoScalingGroupName} MetricName="CPUUtilization" my-test-asg', 'Sum', 3600)),
+                            id: load_sum,
+                        }],
+                    },
+                    customizedScalingMetricSpecification: {
+                        metricDataQueries: [
+                            {
+                                expression: SUM(SEARCH('{AWS/AutoScaling,AutoScalingGroupName} MetricName="GroupInServiceIntances" my-test-asg', 'Average', 300)),
+                                id: capacity_sum,
+                                returnData: False,
+                            },
+                            {
+                                expression: SUM(SEARCH('{AWS/EC2,AutoScalingGroupName} MetricName="CPUUtilization" my-test-asg', 'Sum', 300)),
+                                id: load_sum,
+                                returnData: False,
+                            },
+                            {
+                                expression: load_sum / (capacity_sum * PERIOD(capacity_sum) / 60),
+                                id: weighted_average,
+                            },
                         ],
-                    ),
-                    target_value=10,
-                ),
-            ))
+                    },
+                    targetValue: 10,
+                },
+            })
         ```
         ### Create predictive scaling policy using customized scaling and predefined load metric
 
@@ -778,34 +778,34 @@ class Policy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.autoscaling.Policy("example",
-            autoscaling_group_name="my-test-asg",
-            policy_type="PredictiveScaling",
-            predictive_scaling_configuration=aws.autoscaling.PolicyPredictiveScalingConfigurationArgs(
-                metric_specification=aws.autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationArgs(
-                    customized_scaling_metric_specification=aws.autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationArgs(
-                        metric_data_queries=[aws.autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryArgs(
-                            id="scaling",
-                            metric_stat=aws.autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatArgs(
-                                metric=aws.autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricArgs(
-                                    dimensions=[aws.autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricDimensionArgs(
-                                        name="AutoScalingGroupName",
-                                        value="my-test-asg",
-                                    )],
-                                    metric_name="CPUUtilization",
-                                    namespace="AWS/EC2",
-                                ),
-                                stat="Average",
-                            ),
-                        )],
-                    ),
-                    predefined_load_metric_specification=aws.autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationArgs(
-                        predefined_metric_type="ASGTotalCPUUtilization",
-                        resource_label="app/my-alb/778d41231b141a0f/targetgroup/my-alb-target-group/943f017f100becff",
-                    ),
-                    target_value=10,
-                ),
-            ))
+        example = aws.autoscaling.policy.Policy("example",
+            autoscaling_group_name=my-test-asg,
+            policy_type=PredictiveScaling,
+            predictive_scaling_configuration={
+                metricSpecification: {
+                    customizedScalingMetricSpecification: {
+                        metricDataQueries: [{
+                            id: scaling,
+                            metricStat: {
+                                metric: {
+                                    dimensions: [{
+                                        name: AutoScalingGroupName,
+                                        value: my-test-asg,
+                                    }],
+                                    metricName: CPUUtilization,
+                                    namespace: AWS/EC2,
+                                },
+                                stat: Average,
+                            },
+                        }],
+                    },
+                    predefinedLoadMetricSpecification: {
+                        predefinedMetricType: ASGTotalCPUUtilization,
+                        resourceLabel: app/my-alb/778d41231b141a0f/targetgroup/my-alb-target-group/943f017f100becff,
+                    },
+                    targetValue: 10,
+                },
+            })
         ```
 
         ## Import
@@ -842,17 +842,17 @@ class Policy(pulumi.CustomResource):
                import pulumi
                import pulumi_aws as aws
                
-               example = aws.autoscaling.Policy("example", step_adjustments=[
-                   aws.autoscaling.PolicyStepAdjustmentArgs(
-                       metric_interval_lower_bound="1",
-                       metric_interval_upper_bound="2",
-                       scaling_adjustment=-1,
-                   ),
-                   aws.autoscaling.PolicyStepAdjustmentArgs(
-                       metric_interval_lower_bound="2",
-                       metric_interval_upper_bound="3",
-                       scaling_adjustment=1,
-                   ),
+               example = aws.autoscaling.policy.Policy("example", step_adjustments=[
+                   {
+                       metricIntervalLowerBound: 1,
+                       metricIntervalUpperBound: 2,
+                       scalingAdjustment: -1,
+                   },
+                   {
+                       metricIntervalLowerBound: 2,
+                       metricIntervalUpperBound: 3,
+                       scalingAdjustment: 1,
+                   },
                ])
                ```
                
@@ -863,12 +863,12 @@ class Policy(pulumi.CustomResource):
                import pulumi
                import pulumi_aws as aws
                
-               example = aws.autoscaling.Policy("example", target_tracking_configuration=aws.autoscaling.PolicyTargetTrackingConfigurationArgs(
-                   predefined_metric_specification=aws.autoscaling.PolicyTargetTrackingConfigurationPredefinedMetricSpecificationArgs(
-                       predefined_metric_type="ASGAverageCPUUtilization",
-                   ),
-                   target_value=40,
-               ))
+               example = aws.autoscaling.policy.Policy("example", target_tracking_configuration={
+                   predefinedMetricSpecification: {
+                       predefinedMetricType: ASGAverageCPUUtilization,
+                   },
+                   targetValue: 40,
+               })
                ```
                
                The following fields are available in target tracking configuration:
@@ -894,17 +894,17 @@ class Policy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        bar = aws.autoscaling.Group("bar",
-            availability_zones=["us-east-1a"],
+        bar = aws.autoscaling.group.Group("bar",
+            availability_zones=[us-east-1a],
             max_size=5,
             min_size=2,
             health_check_grace_period=300,
-            health_check_type="ELB",
+            health_check_type=ELB,
             force_delete=True,
-            launch_configuration=aws_launch_configuration["foo"]["name"])
-        bat = aws.autoscaling.Policy("bat",
+            launch_configuration=aws_launch_configuration.foo.name)
+        bat = aws.autoscaling.policy.Policy("bat",
             scaling_adjustment=4,
-            adjustment_type="ChangeInCapacity",
+            adjustment_type=ChangeInCapacity,
             cooldown=300,
             autoscaling_group_name=bar.name)
         ```
@@ -914,54 +914,54 @@ class Policy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.autoscaling.Policy("example",
-            autoscaling_group_name="my-test-asg",
-            policy_type="TargetTrackingScaling",
-            target_tracking_configuration=aws.autoscaling.PolicyTargetTrackingConfigurationArgs(
-                customized_metric_specification=aws.autoscaling.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationArgs(
-                    metrics=[
-                        aws.autoscaling.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricArgs(
-                            id="m1",
-                            label="Get the queue size (the number of messages waiting to be processed)",
-                            metric_stat=aws.autoscaling.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatArgs(
-                                metric=aws.autoscaling.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricArgs(
-                                    dimensions=[aws.autoscaling.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionArgs(
-                                        name="QueueName",
-                                        value="my-queue",
-                                    )],
-                                    metric_name="ApproximateNumberOfMessagesVisible",
-                                    namespace="AWS/SQS",
-                                ),
-                                stat="Sum",
-                            ),
-                            return_data=False,
-                        ),
-                        aws.autoscaling.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricArgs(
-                            id="m2",
-                            label="Get the group size (the number of InService instances)",
-                            metric_stat=aws.autoscaling.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatArgs(
-                                metric=aws.autoscaling.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricArgs(
-                                    dimensions=[aws.autoscaling.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionArgs(
-                                        name="AutoScalingGroupName",
-                                        value="my-asg",
-                                    )],
-                                    metric_name="GroupInServiceInstances",
-                                    namespace="AWS/AutoScaling",
-                                ),
-                                stat="Average",
-                            ),
-                            return_data=False,
-                        ),
-                        aws.autoscaling.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricArgs(
-                            expression="m1 / m2",
-                            id="e1",
-                            label="Calculate the backlog per instance",
-                            return_data=True,
-                        ),
+        example = aws.autoscaling.policy.Policy("example",
+            autoscaling_group_name=my-test-asg,
+            policy_type=TargetTrackingScaling,
+            target_tracking_configuration={
+                customizedMetricSpecification: {
+                    metrics: [
+                        {
+                            id: m1,
+                            label: Get the queue size (the number of messages waiting to be processed),
+                            metricStat: {
+                                metric: {
+                                    dimensions: [{
+                                        name: QueueName,
+                                        value: my-queue,
+                                    }],
+                                    metricName: ApproximateNumberOfMessagesVisible,
+                                    namespace: AWS/SQS,
+                                },
+                                stat: Sum,
+                            },
+                            returnData: False,
+                        },
+                        {
+                            id: m2,
+                            label: Get the group size (the number of InService instances),
+                            metricStat: {
+                                metric: {
+                                    dimensions: [{
+                                        name: AutoScalingGroupName,
+                                        value: my-asg,
+                                    }],
+                                    metricName: GroupInServiceInstances,
+                                    namespace: AWS/AutoScaling,
+                                },
+                                stat: Average,
+                            },
+                            returnData: False,
+                        },
+                        {
+                            expression: m1 / m2,
+                            id: e1,
+                            label: Calculate the backlog per instance,
+                            returnData: True,
+                        },
                     ],
-                ),
-                target_value=100,
-            ))
+                },
+                targetValue: 100,
+            })
         ```
         ### Create predictive scaling policy using customized metrics
 
@@ -969,44 +969,44 @@ class Policy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.autoscaling.Policy("example",
-            autoscaling_group_name="my-test-asg",
-            policy_type="PredictiveScaling",
-            predictive_scaling_configuration=aws.autoscaling.PolicyPredictiveScalingConfigurationArgs(
-                metric_specification=aws.autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationArgs(
-                    customized_capacity_metric_specification=aws.autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationArgs(
-                        metric_data_queries=[aws.autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryArgs(
-                            expression="SUM(SEARCH('{AWS/AutoScaling,AutoScalingGroupName} MetricName=\\"GroupInServiceIntances\\" my-test-asg', 'Average', 300))",
-                            id="capacity_sum",
-                        )],
-                    ),
-                    customized_load_metric_specification=aws.autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationArgs(
-                        metric_data_queries=[aws.autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryArgs(
-                            expression="SUM(SEARCH('{AWS/EC2,AutoScalingGroupName} MetricName=\\"CPUUtilization\\" my-test-asg', 'Sum', 3600))",
-                            id="load_sum",
-                        )],
-                    ),
-                    customized_scaling_metric_specification=aws.autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationArgs(
-                        metric_data_queries=[
-                            aws.autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryArgs(
-                                expression="SUM(SEARCH('{AWS/AutoScaling,AutoScalingGroupName} MetricName=\\"GroupInServiceIntances\\" my-test-asg', 'Average', 300))",
-                                id="capacity_sum",
-                                return_data=False,
-                            ),
-                            aws.autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryArgs(
-                                expression="SUM(SEARCH('{AWS/EC2,AutoScalingGroupName} MetricName=\\"CPUUtilization\\" my-test-asg', 'Sum', 300))",
-                                id="load_sum",
-                                return_data=False,
-                            ),
-                            aws.autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryArgs(
-                                expression="load_sum / (capacity_sum * PERIOD(capacity_sum) / 60)",
-                                id="weighted_average",
-                            ),
+        example = aws.autoscaling.policy.Policy("example",
+            autoscaling_group_name=my-test-asg,
+            policy_type=PredictiveScaling,
+            predictive_scaling_configuration={
+                metricSpecification: {
+                    customizedCapacityMetricSpecification: {
+                        metricDataQueries: [{
+                            expression: SUM(SEARCH('{AWS/AutoScaling,AutoScalingGroupName} MetricName="GroupInServiceIntances" my-test-asg', 'Average', 300)),
+                            id: capacity_sum,
+                        }],
+                    },
+                    customizedLoadMetricSpecification: {
+                        metricDataQueries: [{
+                            expression: SUM(SEARCH('{AWS/EC2,AutoScalingGroupName} MetricName="CPUUtilization" my-test-asg', 'Sum', 3600)),
+                            id: load_sum,
+                        }],
+                    },
+                    customizedScalingMetricSpecification: {
+                        metricDataQueries: [
+                            {
+                                expression: SUM(SEARCH('{AWS/AutoScaling,AutoScalingGroupName} MetricName="GroupInServiceIntances" my-test-asg', 'Average', 300)),
+                                id: capacity_sum,
+                                returnData: False,
+                            },
+                            {
+                                expression: SUM(SEARCH('{AWS/EC2,AutoScalingGroupName} MetricName="CPUUtilization" my-test-asg', 'Sum', 300)),
+                                id: load_sum,
+                                returnData: False,
+                            },
+                            {
+                                expression: load_sum / (capacity_sum * PERIOD(capacity_sum) / 60),
+                                id: weighted_average,
+                            },
                         ],
-                    ),
-                    target_value=10,
-                ),
-            ))
+                    },
+                    targetValue: 10,
+                },
+            })
         ```
         ### Create predictive scaling policy using customized scaling and predefined load metric
 
@@ -1014,34 +1014,34 @@ class Policy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.autoscaling.Policy("example",
-            autoscaling_group_name="my-test-asg",
-            policy_type="PredictiveScaling",
-            predictive_scaling_configuration=aws.autoscaling.PolicyPredictiveScalingConfigurationArgs(
-                metric_specification=aws.autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationArgs(
-                    customized_scaling_metric_specification=aws.autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationArgs(
-                        metric_data_queries=[aws.autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryArgs(
-                            id="scaling",
-                            metric_stat=aws.autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatArgs(
-                                metric=aws.autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricArgs(
-                                    dimensions=[aws.autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricDimensionArgs(
-                                        name="AutoScalingGroupName",
-                                        value="my-test-asg",
-                                    )],
-                                    metric_name="CPUUtilization",
-                                    namespace="AWS/EC2",
-                                ),
-                                stat="Average",
-                            ),
-                        )],
-                    ),
-                    predefined_load_metric_specification=aws.autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationArgs(
-                        predefined_metric_type="ASGTotalCPUUtilization",
-                        resource_label="app/my-alb/778d41231b141a0f/targetgroup/my-alb-target-group/943f017f100becff",
-                    ),
-                    target_value=10,
-                ),
-            ))
+        example = aws.autoscaling.policy.Policy("example",
+            autoscaling_group_name=my-test-asg,
+            policy_type=PredictiveScaling,
+            predictive_scaling_configuration={
+                metricSpecification: {
+                    customizedScalingMetricSpecification: {
+                        metricDataQueries: [{
+                            id: scaling,
+                            metricStat: {
+                                metric: {
+                                    dimensions: [{
+                                        name: AutoScalingGroupName,
+                                        value: my-test-asg,
+                                    }],
+                                    metricName: CPUUtilization,
+                                    namespace: AWS/EC2,
+                                },
+                                stat: Average,
+                            },
+                        }],
+                    },
+                    predefinedLoadMetricSpecification: {
+                        predefinedMetricType: ASGTotalCPUUtilization,
+                        resourceLabel: app/my-alb/778d41231b141a0f/targetgroup/my-alb-target-group/943f017f100becff,
+                    },
+                    targetValue: 10,
+                },
+            })
         ```
 
         ## Import
@@ -1161,17 +1161,17 @@ class Policy(pulumi.CustomResource):
                import pulumi
                import pulumi_aws as aws
                
-               example = aws.autoscaling.Policy("example", step_adjustments=[
-                   aws.autoscaling.PolicyStepAdjustmentArgs(
-                       metric_interval_lower_bound="1",
-                       metric_interval_upper_bound="2",
-                       scaling_adjustment=-1,
-                   ),
-                   aws.autoscaling.PolicyStepAdjustmentArgs(
-                       metric_interval_lower_bound="2",
-                       metric_interval_upper_bound="3",
-                       scaling_adjustment=1,
-                   ),
+               example = aws.autoscaling.policy.Policy("example", step_adjustments=[
+                   {
+                       metricIntervalLowerBound: 1,
+                       metricIntervalUpperBound: 2,
+                       scalingAdjustment: -1,
+                   },
+                   {
+                       metricIntervalLowerBound: 2,
+                       metricIntervalUpperBound: 3,
+                       scalingAdjustment: 1,
+                   },
                ])
                ```
                
@@ -1182,12 +1182,12 @@ class Policy(pulumi.CustomResource):
                import pulumi
                import pulumi_aws as aws
                
-               example = aws.autoscaling.Policy("example", target_tracking_configuration=aws.autoscaling.PolicyTargetTrackingConfigurationArgs(
-                   predefined_metric_specification=aws.autoscaling.PolicyTargetTrackingConfigurationPredefinedMetricSpecificationArgs(
-                       predefined_metric_type="ASGAverageCPUUtilization",
-                   ),
-                   target_value=40,
-               ))
+               example = aws.autoscaling.policy.Policy("example", target_tracking_configuration={
+                   predefinedMetricSpecification: {
+                       predefinedMetricType: ASGAverageCPUUtilization,
+                   },
+                   targetValue: 40,
+               })
                ```
                
                The following fields are available in target tracking configuration:
@@ -1325,17 +1325,17 @@ class Policy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.autoscaling.Policy("example", step_adjustments=[
-            aws.autoscaling.PolicyStepAdjustmentArgs(
-                metric_interval_lower_bound="1",
-                metric_interval_upper_bound="2",
-                scaling_adjustment=-1,
-            ),
-            aws.autoscaling.PolicyStepAdjustmentArgs(
-                metric_interval_lower_bound="2",
-                metric_interval_upper_bound="3",
-                scaling_adjustment=1,
-            ),
+        example = aws.autoscaling.policy.Policy("example", step_adjustments=[
+            {
+                metricIntervalLowerBound: 1,
+                metricIntervalUpperBound: 2,
+                scalingAdjustment: -1,
+            },
+            {
+                metricIntervalLowerBound: 2,
+                metricIntervalUpperBound: 3,
+                scalingAdjustment: 1,
+            },
         ])
         ```
 
@@ -1353,12 +1353,12 @@ class Policy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.autoscaling.Policy("example", target_tracking_configuration=aws.autoscaling.PolicyTargetTrackingConfigurationArgs(
-            predefined_metric_specification=aws.autoscaling.PolicyTargetTrackingConfigurationPredefinedMetricSpecificationArgs(
-                predefined_metric_type="ASGAverageCPUUtilization",
-            ),
-            target_value=40,
-        ))
+        example = aws.autoscaling.policy.Policy("example", target_tracking_configuration={
+            predefinedMetricSpecification: {
+                predefinedMetricType: ASGAverageCPUUtilization,
+            },
+            targetValue: 40,
+        })
         ```
 
         The following fields are available in target tracking configuration:

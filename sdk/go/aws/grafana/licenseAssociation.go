@@ -24,59 +24,41 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/grafana"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	grafana/licenseAssociation "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/grafana/licenseAssociation"
+//	grafana/workspace "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/grafana/workspace"
+//	iam/role "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/iam/role"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"Version": "2012-10-17",
-//				"Statement": []map[string]interface{}{
-//					map[string]interface{}{
-//						"Action": "sts:AssumeRole",
-//						"Effect": "Allow",
-//						"Sid":    "",
-//						"Principal": map[string]interface{}{
-//							"Service": "grafana.amazonaws.com",
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			assume, err := iam.NewRole(ctx, "assume", &iam.RoleArgs{
-//				AssumeRolePolicy: pulumi.String(json0),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleWorkspace, err := grafana.NewWorkspace(ctx, "exampleWorkspace", &grafana.WorkspaceArgs{
-//				AccountAccessType: pulumi.String("CURRENT_ACCOUNT"),
-//				AuthenticationProviders: pulumi.StringArray{
-//					pulumi.String("SAML"),
-//				},
-//				PermissionType: pulumi.String("SERVICE_MANAGED"),
-//				RoleArn:        assume.Arn,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = grafana.NewLicenseAssociation(ctx, "exampleLicenseAssociation", &grafana.LicenseAssociationArgs{
-//				LicenseType: pulumi.String("ENTERPRISE_FREE_TRIAL"),
-//				WorkspaceId: exampleWorkspace.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// assume, err := iam/role.NewRole(ctx, "assume", &iam/role.RoleArgs{
+// AssumeRolePolicy: %!v(PANIC=Format method: fatal: An assertion has failed: unlowered function toJSON),
+// })
+// if err != nil {
+// return err
+// }
+// exampleWorkspace, err := grafana/workspace.NewWorkspace(ctx, "exampleWorkspace", &grafana/workspace.WorkspaceArgs{
+// AccountAccessType: "CURRENT_ACCOUNT",
+// AuthenticationProviders: []string{
+// "SAML",
+// },
+// PermissionType: "SERVICE_MANAGED",
+// RoleArn: assume.Arn,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = grafana/licenseAssociation.NewLicenseAssociation(ctx, "exampleLicenseAssociation", &grafana/licenseAssociation.LicenseAssociationArgs{
+// LicenseType: "ENTERPRISE_FREE_TRIAL",
+// WorkspaceId: exampleWorkspace.Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

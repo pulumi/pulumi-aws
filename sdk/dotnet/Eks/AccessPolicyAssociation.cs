@@ -22,18 +22,18 @@ namespace Pulumi.Aws.Eks
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Eks.AccessPolicyAssociation("example", new()
+    ///     var example = new Aws.Eks.AccessPolicyAssociation.AccessPolicyAssociation("example", new()
     ///     {
     ///         ClusterName = aws_eks_cluster.Example.Name,
     ///         PolicyArn = "arn:aws:eks::aws:cluster-access-policy/AmazonEKSViewPolicy",
     ///         PrincipalArn = aws_iam_user.Example.Arn,
-    ///         AccessScope = new Aws.Eks.Inputs.AccessPolicyAssociationAccessScopeArgs
+    ///         AccessScope = 
     ///         {
-    ///             Type = "namespace",
-    ///             Namespaces = new[]
+    ///             { "type", "namespace" },
+    ///             { "namespaces", new[]
     ///             {
     ///                 "example-namespace",
-    ///             },
+    ///             } },
     ///         },
     ///     });
     /// 

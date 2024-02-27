@@ -22,9 +22,9 @@ namespace Pulumi.Aws.Iam
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleUser = new Aws.Iam.User("exampleUser");
+    ///     var exampleUser = new Aws.Iam.User.User("exampleUser");
     /// 
-    ///     var exampleServiceSpecificCredential = new Aws.Iam.ServiceSpecificCredential("exampleServiceSpecificCredential", new()
+    ///     var exampleServiceSpecificCredential = new Aws.Iam.ServiceSpecificCredential.ServiceSpecificCredential("exampleServiceSpecificCredential", new()
     ///     {
     ///         ServiceName = "codecommit.amazonaws.com",
     ///         UserName = exampleUser.Name,

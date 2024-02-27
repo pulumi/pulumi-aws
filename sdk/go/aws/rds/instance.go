@@ -57,103 +57,29 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/rds"
+//	rds/instance "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/rds/instance"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := rds.NewInstance(ctx, "default", &rds.InstanceArgs{
-//				AllocatedStorage:   pulumi.Int(10),
-//				DbName:             pulumi.String("mydb"),
-//				Engine:             pulumi.String("mysql"),
-//				EngineVersion:      pulumi.String("5.7"),
-//				InstanceClass:      pulumi.String("db.t3.micro"),
-//				ParameterGroupName: pulumi.String("default.mysql5.7"),
-//				Password:           pulumi.String("foobarbaz"),
-//				SkipFinalSnapshot:  pulumi.Bool(true),
-//				Username:           pulumi.String("foo"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// ### RDS Db2 Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/rds"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_default, err := rds.GetEngineVersion(ctx, &rds.GetEngineVersionArgs{
-//				Engine: "db2-se",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleOrderableDbInstance, err := rds.GetOrderableDbInstance(ctx, &rds.GetOrderableDbInstanceArgs{
-//				Engine:        _default.Engine,
-//				EngineVersion: pulumi.StringRef(_default.Version),
-//				LicenseModel:  pulumi.StringRef("bring-your-own-license"),
-//				StorageType:   pulumi.StringRef("gp3"),
-//				PreferredInstanceClasses: []string{
-//					"db.t3.small",
-//					"db.r6i.large",
-//					"db.m6i.large",
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleParameterGroup, err := rds.NewParameterGroup(ctx, "exampleParameterGroup", &rds.ParameterGroupArgs{
-//				Family: *pulumi.String(_default.ParameterGroupFamily),
-//				Parameters: rds.ParameterGroupParameterArray{
-//					&rds.ParameterGroupParameterArgs{
-//						ApplyMethod: pulumi.String("immediate"),
-//						Name:        pulumi.String("rds.ibm_customer_id"),
-//						Value:       pulumi.String("0"),
-//					},
-//					&rds.ParameterGroupParameterArgs{
-//						ApplyMethod: pulumi.String("immediate"),
-//						Name:        pulumi.String("rds.ibm_site_id"),
-//						Value:       pulumi.String("0"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = rds.NewInstance(ctx, "exampleInstance", &rds.InstanceArgs{
-//				AllocatedStorage:      pulumi.Int(100),
-//				BackupRetentionPeriod: pulumi.Int(7),
-//				DbName:                pulumi.String("test"),
-//				Engine:                *pulumi.String(exampleOrderableDbInstance.Engine),
-//				EngineVersion:         *pulumi.String(exampleOrderableDbInstance.EngineVersion),
-//				Identifier:            pulumi.String("db2-instance-demo"),
-//				InstanceClass:         exampleOrderableDbInstance.InstanceClass.ApplyT(func(x *string) rds.InstanceType { return rds.InstanceType(*x) }).(rds.InstanceTypeOutput),
-//				ParameterGroupName:    exampleParameterGroup.Name,
-//				Password:              pulumi.String("avoid-plaintext-passwords"),
-//				Username:              pulumi.String("test"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := rds/instance.NewInstance(ctx, "default", &rds/instance.InstanceArgs{
+// AllocatedStorage: 10,
+// DbName: "mydb",
+// Engine: "mysql",
+// EngineVersion: "5.7",
+// InstanceClass: "db.t3.micro",
+// ParameterGroupName: "default.mysql5.7",
+// Password: "foobarbaz",
+// SkipFinalSnapshot: true,
+// Username: "foo",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Storage Autoscaling
 //
@@ -164,24 +90,22 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/rds"
+//	rds/instance "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/rds/instance"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := rds.NewInstance(ctx, "example", &rds.InstanceArgs{
-//				AllocatedStorage:    pulumi.Int(50),
-//				MaxAllocatedStorage: pulumi.Int(100),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := rds/instance.NewInstance(ctx, "example", &rds/instance.InstanceArgs{
+// AllocatedStorage: 50,
+// MaxAllocatedStorage: 100,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Managed Master Passwords via Secrets Manager, default KMS Key
 //
@@ -194,30 +118,28 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/rds"
+//	rds/instance "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/rds/instance"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := rds.NewInstance(ctx, "default", &rds.InstanceArgs{
-//				AllocatedStorage:         pulumi.Int(10),
-//				DbName:                   pulumi.String("mydb"),
-//				Engine:                   pulumi.String("mysql"),
-//				EngineVersion:            pulumi.String("5.7"),
-//				InstanceClass:            pulumi.String("db.t3.micro"),
-//				ManageMasterUserPassword: pulumi.Bool(true),
-//				ParameterGroupName:       pulumi.String("default.mysql5.7"),
-//				Username:                 pulumi.String("foo"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := rds/instance.NewInstance(ctx, "default", &rds/instance.InstanceArgs{
+// AllocatedStorage: 10,
+// DbName: "mydb",
+// Engine: "mysql",
+// EngineVersion: "5.7",
+// InstanceClass: "db.t3.micro",
+// ManageMasterUserPassword: true,
+// ParameterGroupName: "default.mysql5.7",
+// Username: "foo",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Managed Master Passwords via Secrets Manager, specific KMS Key
 //
@@ -230,38 +152,36 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kms"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/rds"
+//	kms/key "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/kms/key"
+//	rds/instance "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/rds/instance"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := kms.NewKey(ctx, "example", &kms.KeyArgs{
-//				Description: pulumi.String("Example KMS Key"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = rds.NewInstance(ctx, "default", &rds.InstanceArgs{
-//				AllocatedStorage:         pulumi.Int(10),
-//				DbName:                   pulumi.String("mydb"),
-//				Engine:                   pulumi.String("mysql"),
-//				EngineVersion:            pulumi.String("5.7"),
-//				InstanceClass:            pulumi.String("db.t3.micro"),
-//				ManageMasterUserPassword: pulumi.Bool(true),
-//				MasterUserSecretKmsKeyId: example.KeyId,
-//				Username:                 pulumi.String("foo"),
-//				ParameterGroupName:       pulumi.String("default.mysql5.7"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := kms/key.NewKey(ctx, "example", &kms/key.KeyArgs{
+// Description: "Example KMS Key",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = rds/instance.NewInstance(ctx, "default", &rds/instance.InstanceArgs{
+// AllocatedStorage: 10,
+// DbName: "mydb",
+// Engine: "mysql",
+// EngineVersion: "5.7",
+// InstanceClass: "db.t3.micro",
+// ManageMasterUserPassword: true,
+// MasterUserSecretKmsKeyId: example.KeyId,
+// Username: "foo",
+// ParameterGroupName: "default.mysql5.7",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

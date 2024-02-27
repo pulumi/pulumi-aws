@@ -22,29 +22,27 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	ec2/natGateway "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/natGateway"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.NewNatGateway(ctx, "example", &ec2.NatGatewayArgs{
-//				AllocationId: pulumi.Any(aws_eip.Example.Id),
-//				SubnetId:     pulumi.Any(aws_subnet.Example.Id),
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("gw NAT"),
-//				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				aws_internet_gateway.Example,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := ec2/natGateway.NewNatGateway(ctx, "example", &ec2/natGateway.NatGatewayArgs{
+// AllocationId: aws_eip.Example.Id,
+// SubnetId: aws_subnet.Example.Id,
+// Tags: map[string]interface{}{
+// "Name": "gw NAT",
+// },
+// }, pulumi.DependsOn([]pulumi.Resource{
+// aws_internet_gateway.Example,
+// }))
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Public NAT with Secondary Private IP Addresses
 //
@@ -53,30 +51,28 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	ec2/natGateway "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/natGateway"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.NewNatGateway(ctx, "example", &ec2.NatGatewayArgs{
-//				AllocationId: pulumi.Any(aws_eip.Example.Id),
-//				SubnetId:     pulumi.Any(aws_subnet.Example.Id),
-//				SecondaryAllocationIds: pulumi.StringArray{
-//					aws_eip.Secondary.Id,
-//				},
-//				SecondaryPrivateIpAddresses: pulumi.StringArray{
-//					pulumi.String("10.0.1.5"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := ec2/natGateway.NewNatGateway(ctx, "example", &ec2/natGateway.NatGatewayArgs{
+// AllocationId: aws_eip.Example.Id,
+// SubnetId: aws_subnet.Example.Id,
+// SecondaryAllocationIds: []interface{}{
+// aws_eip.Secondary.Id,
+// },
+// SecondaryPrivateIpAddresses: []string{
+// "10.0.1.5",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Private NAT
 //
@@ -85,24 +81,22 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	ec2/natGateway "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/natGateway"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.NewNatGateway(ctx, "example", &ec2.NatGatewayArgs{
-//				ConnectivityType: pulumi.String("private"),
-//				SubnetId:         pulumi.Any(aws_subnet.Example.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := ec2/natGateway.NewNatGateway(ctx, "example", &ec2/natGateway.NatGatewayArgs{
+// ConnectivityType: "private",
+// SubnetId: aws_subnet.Example.Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Private NAT with Secondary Private IP Addresses
 //
@@ -111,25 +105,23 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	ec2/natGateway "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/natGateway"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.NewNatGateway(ctx, "example", &ec2.NatGatewayArgs{
-//				ConnectivityType:               pulumi.String("private"),
-//				SubnetId:                       pulumi.Any(aws_subnet.Example.Id),
-//				SecondaryPrivateIpAddressCount: pulumi.Int(7),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := ec2/natGateway.NewNatGateway(ctx, "example", &ec2/natGateway.NatGatewayArgs{
+// ConnectivityType: "private",
+// SubnetId: aws_subnet.Example.Id,
+// SecondaryPrivateIpAddressCount: 7,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -24,105 +24,104 @@ import (
 //	"fmt"
 //	"os"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	ec2/launchTemplate "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/launchTemplate"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func filebase64OrPanic(path string) string {
-//		if fileData, err := os.ReadFile(path); err == nil {
-//			return base64.StdEncoding.EncodeToString(fileData[:])
-//		} else {
-//			panic(err.Error())
-//		}
-//	}
+//						if fileData, err := os.ReadFile(path); err == nil {
+//							return base64.StdEncoding.EncodeToString(fileData[:])
+//						} else {
+//							panic(err.Error())
+//						}
+//					}
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.NewLaunchTemplate(ctx, "foo", &ec2.LaunchTemplateArgs{
-//				BlockDeviceMappings: ec2.LaunchTemplateBlockDeviceMappingArray{
-//					&ec2.LaunchTemplateBlockDeviceMappingArgs{
-//						DeviceName: pulumi.String("/dev/sdf"),
-//						Ebs: &ec2.LaunchTemplateBlockDeviceMappingEbsArgs{
-//							VolumeSize: pulumi.Int(20),
-//						},
-//					},
-//				},
-//				CapacityReservationSpecification: &ec2.LaunchTemplateCapacityReservationSpecificationArgs{
-//					CapacityReservationPreference: pulumi.String("open"),
-//				},
-//				CpuOptions: &ec2.LaunchTemplateCpuOptionsArgs{
-//					CoreCount:      pulumi.Int(4),
-//					ThreadsPerCore: pulumi.Int(2),
-//				},
-//				CreditSpecification: &ec2.LaunchTemplateCreditSpecificationArgs{
-//					CpuCredits: pulumi.String("standard"),
-//				},
-//				DisableApiStop:        pulumi.Bool(true),
-//				DisableApiTermination: pulumi.Bool(true),
-//				EbsOptimized:          pulumi.String("true"),
-//				ElasticGpuSpecifications: ec2.LaunchTemplateElasticGpuSpecificationArray{
-//					&ec2.LaunchTemplateElasticGpuSpecificationArgs{
-//						Type: pulumi.String("test"),
-//					},
-//				},
-//				ElasticInferenceAccelerator: &ec2.LaunchTemplateElasticInferenceAcceleratorArgs{
-//					Type: pulumi.String("eia1.medium"),
-//				},
-//				IamInstanceProfile: &ec2.LaunchTemplateIamInstanceProfileArgs{
-//					Name: pulumi.String("test"),
-//				},
-//				ImageId:                           pulumi.String("ami-test"),
-//				InstanceInitiatedShutdownBehavior: pulumi.String("terminate"),
-//				InstanceMarketOptions: &ec2.LaunchTemplateInstanceMarketOptionsArgs{
-//					MarketType: pulumi.String("spot"),
-//				},
-//				InstanceType: pulumi.String("t2.micro"),
-//				KernelId:     pulumi.String("test"),
-//				KeyName:      pulumi.String("test"),
-//				LicenseSpecifications: ec2.LaunchTemplateLicenseSpecificationArray{
-//					&ec2.LaunchTemplateLicenseSpecificationArgs{
-//						LicenseConfigurationArn: pulumi.String("arn:aws:license-manager:eu-west-1:123456789012:license-configuration:lic-0123456789abcdef0123456789abcdef"),
-//					},
-//				},
-//				MetadataOptions: &ec2.LaunchTemplateMetadataOptionsArgs{
-//					HttpEndpoint:            pulumi.String("enabled"),
-//					HttpTokens:              pulumi.String("required"),
-//					HttpPutResponseHopLimit: pulumi.Int(1),
-//					InstanceMetadataTags:    pulumi.String("enabled"),
-//				},
-//				Monitoring: &ec2.LaunchTemplateMonitoringArgs{
-//					Enabled: pulumi.Bool(true),
-//				},
-//				NetworkInterfaces: ec2.LaunchTemplateNetworkInterfaceArray{
-//					&ec2.LaunchTemplateNetworkInterfaceArgs{
-//						AssociatePublicIpAddress: pulumi.String("true"),
-//					},
-//				},
-//				Placement: &ec2.LaunchTemplatePlacementArgs{
-//					AvailabilityZone: pulumi.String("us-west-2a"),
-//				},
-//				RamDiskId: pulumi.String("test"),
-//				VpcSecurityGroupIds: pulumi.StringArray{
-//					pulumi.String("sg-12345678"),
-//				},
-//				TagSpecifications: ec2.LaunchTemplateTagSpecificationArray{
-//					&ec2.LaunchTemplateTagSpecificationArgs{
-//						ResourceType: pulumi.String("instance"),
-//						Tags: pulumi.StringMap{
-//							"Name": pulumi.String("test"),
-//						},
-//					},
-//				},
-//				UserData: filebase64OrPanic(fmt.Sprintf("%v/example.sh", path.Module)),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := ec2/launchTemplate.NewLaunchTemplate(ctx, "foo", &ec2/launchTemplate.LaunchTemplateArgs{
+// BlockDeviceMappings: []map[string]interface{}{
+// map[string]interface{}{
+// "deviceName": "/dev/sdf",
+// "ebs": map[string]interface{}{
+// "volumeSize": 20,
+// },
+// },
+// },
+// CapacityReservationSpecification: map[string]interface{}{
+// "capacityReservationPreference": "open",
+// },
+// CpuOptions: map[string]interface{}{
+// "coreCount": 4,
+// "threadsPerCore": 2,
+// },
+// CreditSpecification: map[string]interface{}{
+// "cpuCredits": "standard",
+// },
+// DisableApiStop: true,
+// DisableApiTermination: true,
+// EbsOptimized: true,
+// ElasticGpuSpecifications: []map[string]interface{}{
+// map[string]interface{}{
+// "type": "test",
+// },
+// },
+// ElasticInferenceAccelerator: map[string]interface{}{
+// "type": "eia1.medium",
+// },
+// IamInstanceProfile: map[string]interface{}{
+// "name": "test",
+// },
+// ImageId: "ami-test",
+// InstanceInitiatedShutdownBehavior: "terminate",
+// InstanceMarketOptions: map[string]interface{}{
+// "marketType": "spot",
+// },
+// InstanceType: "t2.micro",
+// KernelId: "test",
+// KeyName: "test",
+// LicenseSpecifications: []map[string]interface{}{
+// map[string]interface{}{
+// "licenseConfigurationArn": "arn:aws:license-manager:eu-west-1:123456789012:license-configuration:lic-0123456789abcdef0123456789abcdef",
+// },
+// },
+// MetadataOptions: map[string]interface{}{
+// "httpEndpoint": "enabled",
+// "httpTokens": "required",
+// "httpPutResponseHopLimit": 1,
+// "instanceMetadataTags": "enabled",
+// },
+// Monitoring: map[string]interface{}{
+// "enabled": true,
+// },
+// NetworkInterfaces: []map[string]interface{}{
+// map[string]interface{}{
+// "associatePublicIpAddress": true,
+// },
+// },
+// Placement: map[string]interface{}{
+// "availabilityZone": "us-west-2a",
+// },
+// RamDiskId: "test",
+// VpcSecurityGroupIds: []string{
+// "sg-12345678",
+// },
+// TagSpecifications: []map[string]interface{}{
+// map[string]interface{}{
+// "resourceType": "instance",
+// "tags": map[string]interface{}{
+// "Name": "test",
+// },
+// },
+// },
+// UserData: filebase64OrPanic(fmt.Sprintf("%v/example.sh", path.Module)),
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -47,7 +47,7 @@ namespace Pulumi.Aws.Ec2
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // Request a spot instance at $0.03
-    ///     var cheapWorker = new Aws.Ec2.SpotInstanceRequest("cheapWorker", new()
+    ///     var cheapWorker = new Aws.Ec2.SpotInstanceRequest.SpotInstanceRequest("cheapWorker", new()
     ///     {
     ///         Ami = "ami-1234",
     ///         InstanceType = "c4.xlarge",

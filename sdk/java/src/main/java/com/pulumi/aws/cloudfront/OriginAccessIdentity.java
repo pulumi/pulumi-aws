@@ -68,8 +68,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.cloudfront.Distribution;
  * import com.pulumi.aws.cloudfront.DistributionArgs;
- * import com.pulumi.aws.cloudfront.inputs.DistributionOriginArgs;
- * import com.pulumi.aws.cloudfront.inputs.DistributionOriginS3OriginConfigArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -84,68 +82,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Distribution(&#34;example&#34;, DistributionArgs.builder()        
- *             .origins(DistributionOriginArgs.builder()
- *                 .s3OriginConfig(DistributionOriginS3OriginConfigArgs.builder()
- *                     .originAccessIdentity(aws_cloudfront_origin_access_identity.example().cloudfront_access_identity_path())
- *                     .build())
- *                 .build())
+ *             .origins(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
  * }
  * ```
- * 
- * ### Updating your bucket policy
- * 
- * Note that the AWS API may translate the `s3_canonical_user_id` `CanonicalUser`
- * principal into an `AWS` IAM ARN principal when supplied in an
- * `aws.s3.BucketV2` bucket policy, causing spurious diffs. If
- * you see this behaviour, use the `iam_arn` instead:
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.iam.IamFunctions;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
- * import com.pulumi.aws.s3.BucketPolicy;
- * import com.pulumi.aws.s3.BucketPolicyArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var s3Policy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .actions(&#34;s3:GetObject&#34;)
- *                 .resources(String.format(&#34;%s/*&#34;, aws_s3_bucket.example().arn()))
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type(&#34;AWS&#34;)
- *                     .identifiers(aws_cloudfront_origin_access_identity.example().iam_arn())
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *         var example = new BucketPolicy(&#34;example&#34;, BucketPolicyArgs.builder()        
- *             .bucket(aws_s3_bucket.example().id())
- *             .policy(s3Policy.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * [1]: http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Introduction.html
- * [2]: http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html
  * 
  * ## Import
  * 

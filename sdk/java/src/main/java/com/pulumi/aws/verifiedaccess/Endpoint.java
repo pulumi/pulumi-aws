@@ -23,6 +23,43 @@ import javax.annotation.Nullable;
  * Resource for managing an AWS EC2 (Elastic Compute Cloud) Verified Access Endpoint.
  * 
  * ## Example Usage
+ * ### ALB Example
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.verifiedaccess.Endpoint;
+ * import com.pulumi.aws.verifiedaccess.EndpointArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Endpoint(&#34;example&#34;, EndpointArgs.builder()        
+ *             .applicationDomain(&#34;example.com&#34;)
+ *             .attachmentType(&#34;vpc&#34;)
+ *             .description(&#34;example&#34;)
+ *             .domainCertificateArn(aws_acm_certificate.example().arn())
+ *             .endpointDomainPrefix(&#34;example&#34;)
+ *             .endpointType(&#34;load-balancer&#34;)
+ *             .loadBalancerOptions(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .securityGroupIds(aws_security_group.example().id())
+ *             .verifiedAccessGroupId(aws_verifiedaccess_group.example().id())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
  * ### Network Interface Example
  * ```java
  * package generated_program;
@@ -32,7 +69,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.verifiedaccess.Endpoint;
  * import com.pulumi.aws.verifiedaccess.EndpointArgs;
- * import com.pulumi.aws.verifiedaccess.inputs.EndpointNetworkInterfaceOptionsArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -53,11 +89,7 @@ import javax.annotation.Nullable;
  *             .domainCertificateArn(aws_acm_certificate.example().arn())
  *             .endpointDomainPrefix(&#34;example&#34;)
  *             .endpointType(&#34;network-interface&#34;)
- *             .networkInterfaceOptions(EndpointNetworkInterfaceOptionsArgs.builder()
- *                 .networkInterfaceId(aws_network_interface.example().id())
- *                 .port(443)
- *                 .protocol(&#34;https&#34;)
- *                 .build())
+ *             .networkInterfaceOptions(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .securityGroupIds(aws_security_group.example().id())
  *             .verifiedAccessGroupId(aws_verifiedaccess_group.example().id())
  *             .build());

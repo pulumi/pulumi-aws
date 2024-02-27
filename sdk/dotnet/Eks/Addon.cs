@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Eks
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Eks.Addon("example", new()
+    ///     var example = new Aws.Eks.Addon.Addon("example", new()
     ///     {
     ///         ClusterName = aws_eks_cluster.Example.Name,
     ///         AddonName = "vpc-cni",
@@ -42,7 +42,7 @@ namespace Pulumi.Aws.Eks
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Eks.Addon("example", new()
+    ///     var example = new Aws.Eks.Addon.Addon("example", new()
     ///     {
     ///         ClusterName = aws_eks_cluster.Example.Name,
     ///         AddonName = "coredns",
@@ -83,7 +83,7 @@ namespace Pulumi.Aws.Eks
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Eks.Addon("example", new()
+    ///     var example = new Aws.Eks.Addon.Addon("example", new()
     ///     {
     ///         ClusterName = "mycluster",
     ///         AddonName = "coredns",

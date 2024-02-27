@@ -154,16 +154,6 @@ def get_link(global_network_id: Optional[str] = None,
     """
     Retrieve information about a link.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.networkmanager.get_link(global_network_id=var["global_network_id"],
-        link_id=var["link_id"])
-    ```
-
 
     :param str global_network_id: ID of the Global Network of the link to retrieve.
     :param str link_id: ID of the specific link to retrieve.
@@ -196,16 +186,6 @@ def get_link_output(global_network_id: Optional[pulumi.Input[str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLinkResult]:
     """
     Retrieve information about a link.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.networkmanager.get_link(global_network_id=var["global_network_id"],
-        link_id=var["link_id"])
-    ```
 
 
     :param str global_network_id: ID of the Global Network of the link to retrieve.

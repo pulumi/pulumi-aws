@@ -423,15 +423,15 @@ class KxVolume(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.finspace.KxVolume("example",
-            environment_id=aws_finspace_kx_environment["example"]["id"],
-            availability_zones="use1-az2",
-            az_mode="SINGLE",
-            type="NAS_1",
-            nas1_configurations=[aws.finspace.KxVolumeNas1ConfigurationArgs(
-                size=1200,
-                type="SSD_250",
-            )])
+        example = aws.finspace.kx_volume.KxVolume("example",
+            environment_id=aws_finspace_kx_environment.example.id,
+            availability_zones=use1-az2,
+            az_mode=SINGLE,
+            type=NAS_1,
+            nas1_configurations=[{
+                size: 1200,
+                type: SSD_250,
+            }])
         ```
 
         ## Import
@@ -471,15 +471,15 @@ class KxVolume(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.finspace.KxVolume("example",
-            environment_id=aws_finspace_kx_environment["example"]["id"],
-            availability_zones="use1-az2",
-            az_mode="SINGLE",
-            type="NAS_1",
-            nas1_configurations=[aws.finspace.KxVolumeNas1ConfigurationArgs(
-                size=1200,
-                type="SSD_250",
-            )])
+        example = aws.finspace.kx_volume.KxVolume("example",
+            environment_id=aws_finspace_kx_environment.example.id,
+            availability_zones=use1-az2,
+            az_mode=SINGLE,
+            type=NAS_1,
+            nas1_configurations=[{
+                size: 1200,
+                type: SSD_250,
+            }])
         ```
 
         ## Import

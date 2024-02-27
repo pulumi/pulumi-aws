@@ -22,45 +22,44 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sesv2"
+//	sesv2/configurationSet "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/sesv2/configurationSet"
+//	sesv2/configurationSetEventDestination "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/sesv2/configurationSetEventDestination"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleConfigurationSet, err := sesv2.NewConfigurationSet(ctx, "exampleConfigurationSet", &sesv2.ConfigurationSetArgs{
-//				ConfigurationSetName: pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = sesv2.NewConfigurationSetEventDestination(ctx, "exampleConfigurationSetEventDestination", &sesv2.ConfigurationSetEventDestinationArgs{
-//				ConfigurationSetName: exampleConfigurationSet.ConfigurationSetName,
-//				EventDestinationName: pulumi.String("example"),
-//				EventDestination: &sesv2.ConfigurationSetEventDestinationEventDestinationArgs{
-//					CloudWatchDestination: &sesv2.ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationArgs{
-//						DimensionConfigurations: sesv2.ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationArray{
-//							&sesv2.ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationArgs{
-//								DefaultDimensionValue: pulumi.String("example"),
-//								DimensionName:         pulumi.String("example"),
-//								DimensionValueSource:  pulumi.String("MESSAGE_TAG"),
-//							},
-//						},
-//					},
-//					Enabled: pulumi.Bool(true),
-//					MatchingEventTypes: pulumi.StringArray{
-//						pulumi.String("SEND"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleConfigurationSet, err := sesv2/configurationSet.NewConfigurationSet(ctx, "exampleConfigurationSet", &sesv2/configurationSet.ConfigurationSetArgs{
+// ConfigurationSetName: "example",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = sesv2/configurationSetEventDestination.NewConfigurationSetEventDestination(ctx, "exampleConfigurationSetEventDestination", &sesv2/configurationSetEventDestination.ConfigurationSetEventDestinationArgs{
+// ConfigurationSetName: exampleConfigurationSet.ConfigurationSetName,
+// EventDestinationName: "example",
+// EventDestination: map[string]interface{}{
+// "cloudWatchDestination": map[string]interface{}{
+// "dimensionConfigurations": []map[string]interface{}{
+// map[string]interface{}{
+// "defaultDimensionValue": "example",
+// "dimensionName": "example",
+// "dimensionValueSource": "MESSAGE_TAG",
+// },
+// },
+// },
+// "enabled": true,
+// "matchingEventTypes": []string{
+// "SEND",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Kinesis Firehose Destination
 //
@@ -69,40 +68,39 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sesv2"
+//	sesv2/configurationSet "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/sesv2/configurationSet"
+//	sesv2/configurationSetEventDestination "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/sesv2/configurationSetEventDestination"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleConfigurationSet, err := sesv2.NewConfigurationSet(ctx, "exampleConfigurationSet", &sesv2.ConfigurationSetArgs{
-//				ConfigurationSetName: pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = sesv2.NewConfigurationSetEventDestination(ctx, "exampleConfigurationSetEventDestination", &sesv2.ConfigurationSetEventDestinationArgs{
-//				ConfigurationSetName: exampleConfigurationSet.ConfigurationSetName,
-//				EventDestinationName: pulumi.String("example"),
-//				EventDestination: &sesv2.ConfigurationSetEventDestinationEventDestinationArgs{
-//					KinesisFirehoseDestination: &sesv2.ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationArgs{
-//						DeliveryStreamArn: pulumi.Any(aws_kinesis_firehose_delivery_stream.Example.Arn),
-//						IamRoleArn:        pulumi.Any(aws_iam_role.Example.Arn),
-//					},
-//					Enabled: pulumi.Bool(true),
-//					MatchingEventTypes: pulumi.StringArray{
-//						pulumi.String("SEND"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleConfigurationSet, err := sesv2/configurationSet.NewConfigurationSet(ctx, "exampleConfigurationSet", &sesv2/configurationSet.ConfigurationSetArgs{
+// ConfigurationSetName: "example",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = sesv2/configurationSetEventDestination.NewConfigurationSetEventDestination(ctx, "exampleConfigurationSetEventDestination", &sesv2/configurationSetEventDestination.ConfigurationSetEventDestinationArgs{
+// ConfigurationSetName: exampleConfigurationSet.ConfigurationSetName,
+// EventDestinationName: "example",
+// EventDestination: map[string]interface{}{
+// "kinesisFirehoseDestination": map[string]interface{}{
+// "deliveryStreamArn": aws_kinesis_firehose_delivery_stream.Example.Arn,
+// "iamRoleArn": aws_iam_role.Example.Arn,
+// },
+// "enabled": true,
+// "matchingEventTypes": []string{
+// "SEND",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Pinpoint Destination
 //
@@ -111,39 +109,38 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sesv2"
+//	sesv2/configurationSet "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/sesv2/configurationSet"
+//	sesv2/configurationSetEventDestination "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/sesv2/configurationSetEventDestination"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleConfigurationSet, err := sesv2.NewConfigurationSet(ctx, "exampleConfigurationSet", &sesv2.ConfigurationSetArgs{
-//				ConfigurationSetName: pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = sesv2.NewConfigurationSetEventDestination(ctx, "exampleConfigurationSetEventDestination", &sesv2.ConfigurationSetEventDestinationArgs{
-//				ConfigurationSetName: exampleConfigurationSet.ConfigurationSetName,
-//				EventDestinationName: pulumi.String("example"),
-//				EventDestination: &sesv2.ConfigurationSetEventDestinationEventDestinationArgs{
-//					PinpointDestination: &sesv2.ConfigurationSetEventDestinationEventDestinationPinpointDestinationArgs{
-//						ApplicationArn: pulumi.Any(aws_pinpoint_app.Example.Arn),
-//					},
-//					Enabled: pulumi.Bool(true),
-//					MatchingEventTypes: pulumi.StringArray{
-//						pulumi.String("SEND"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleConfigurationSet, err := sesv2/configurationSet.NewConfigurationSet(ctx, "exampleConfigurationSet", &sesv2/configurationSet.ConfigurationSetArgs{
+// ConfigurationSetName: "example",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = sesv2/configurationSetEventDestination.NewConfigurationSetEventDestination(ctx, "exampleConfigurationSetEventDestination", &sesv2/configurationSetEventDestination.ConfigurationSetEventDestinationArgs{
+// ConfigurationSetName: exampleConfigurationSet.ConfigurationSetName,
+// EventDestinationName: "example",
+// EventDestination: map[string]interface{}{
+// "pinpointDestination": map[string]interface{}{
+// "applicationArn": aws_pinpoint_app.Example.Arn,
+// },
+// "enabled": true,
+// "matchingEventTypes": []string{
+// "SEND",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### SNS Destination
 //
@@ -152,39 +149,38 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sesv2"
+//	sesv2/configurationSet "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/sesv2/configurationSet"
+//	sesv2/configurationSetEventDestination "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/sesv2/configurationSetEventDestination"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleConfigurationSet, err := sesv2.NewConfigurationSet(ctx, "exampleConfigurationSet", &sesv2.ConfigurationSetArgs{
-//				ConfigurationSetName: pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = sesv2.NewConfigurationSetEventDestination(ctx, "exampleConfigurationSetEventDestination", &sesv2.ConfigurationSetEventDestinationArgs{
-//				ConfigurationSetName: exampleConfigurationSet.ConfigurationSetName,
-//				EventDestinationName: pulumi.String("example"),
-//				EventDestination: &sesv2.ConfigurationSetEventDestinationEventDestinationArgs{
-//					SnsDestination: &sesv2.ConfigurationSetEventDestinationEventDestinationSnsDestinationArgs{
-//						TopicArn: pulumi.Any(aws_sns_topic.Example.Arn),
-//					},
-//					Enabled: pulumi.Bool(true),
-//					MatchingEventTypes: pulumi.StringArray{
-//						pulumi.String("SEND"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleConfigurationSet, err := sesv2/configurationSet.NewConfigurationSet(ctx, "exampleConfigurationSet", &sesv2/configurationSet.ConfigurationSetArgs{
+// ConfigurationSetName: "example",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = sesv2/configurationSetEventDestination.NewConfigurationSetEventDestination(ctx, "exampleConfigurationSetEventDestination", &sesv2/configurationSetEventDestination.ConfigurationSetEventDestinationArgs{
+// ConfigurationSetName: exampleConfigurationSet.ConfigurationSetName,
+// EventDestinationName: "example",
+// EventDestination: map[string]interface{}{
+// "snsDestination": map[string]interface{}{
+// "topicArn": aws_sns_topic.Example.Arn,
+// },
+// "enabled": true,
+// "matchingEventTypes": []string{
+// "SEND",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *         var example = new NatGateway(&#34;example&#34;, NatGatewayArgs.builder()        
  *             .allocationId(aws_eip.example().id())
  *             .subnetId(aws_subnet.example().id())
- *             .tags(Map.of(&#34;Name&#34;, &#34;gw NAT&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(aws_internet_gateway.example())
  *                 .build());

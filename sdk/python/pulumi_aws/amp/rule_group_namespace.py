@@ -139,15 +139,15 @@ class RuleGroupNamespace(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        demo_workspace = aws.amp.Workspace("demoWorkspace")
-        demo_rule_group_namespace = aws.amp.RuleGroupNamespace("demoRuleGroupNamespace",
+        demo_workspace = aws.amp.workspace.Workspace("demoWorkspace")
+        demo_rule_group_namespace = aws.amp.rule_group_namespace.RuleGroupNamespace("demoRuleGroupNamespace",
             workspace_id=demo_workspace.id,
-            data=\"\"\"groups:
+            data=groups:
           - name: test
             rules:
             - record: metric:recording_rule
               expr: avg(rate(container_cpu_usage_seconds_total[5m]))
-        \"\"\")
+        )
         ```
 
         ## Import
@@ -179,15 +179,15 @@ class RuleGroupNamespace(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        demo_workspace = aws.amp.Workspace("demoWorkspace")
-        demo_rule_group_namespace = aws.amp.RuleGroupNamespace("demoRuleGroupNamespace",
+        demo_workspace = aws.amp.workspace.Workspace("demoWorkspace")
+        demo_rule_group_namespace = aws.amp.rule_group_namespace.RuleGroupNamespace("demoRuleGroupNamespace",
             workspace_id=demo_workspace.id,
-            data=\"\"\"groups:
+            data=groups:
           - name: test
             rules:
             - record: metric:recording_rule
               expr: avg(rate(container_cpu_usage_seconds_total[5m]))
-        \"\"\")
+        )
         ```
 
         ## Import

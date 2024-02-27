@@ -13,6 +13,28 @@ namespace Pulumi.Aws.Transfer
     /// Provides a AWS Transfer AS2 Profile resource.
     /// 
     /// ## Example Usage
+    /// ### Basic
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Transfer.Profile.Profile("example", new()
+    ///     {
+    ///         As2Id = "example",
+    ///         CertificateIds = new[]
+    ///         {
+    ///             aws_transfer_certificate.Example.Certificate_id,
+    ///         },
+    ///         Usage = "LOCAL",
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// 
     /// ## Import
     /// 

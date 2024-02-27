@@ -23,12 +23,12 @@ namespace Pulumi.Aws.Kms
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleKey = new Aws.Kms.Key("exampleKey", new()
+    ///     var exampleKey = new Aws.Kms.Key.Key("exampleKey", new()
     ///     {
     ///         Description = "example",
     ///     });
     /// 
-    ///     var exampleKeyPolicy = new Aws.Kms.KeyPolicy("exampleKeyPolicy", new()
+    ///     var exampleKeyPolicy = new Aws.Kms.KeyPolicy.KeyPolicy("exampleKeyPolicy", new()
     ///     {
     ///         KeyId = exampleKey.Id,
     ///         Policy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;

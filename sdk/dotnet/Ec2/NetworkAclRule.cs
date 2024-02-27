@@ -28,12 +28,12 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var barNetworkAcl = new Aws.Ec2.NetworkAcl("barNetworkAcl", new()
+    ///     var barNetworkAcl = new Aws.Ec2.NetworkAcl.NetworkAcl("barNetworkAcl", new()
     ///     {
     ///         VpcId = aws_vpc.Foo.Id,
     ///     });
     /// 
-    ///     var barNetworkAclRule = new Aws.Ec2.NetworkAclRule("barNetworkAclRule", new()
+    ///     var barNetworkAclRule = new Aws.Ec2.NetworkAclRule.NetworkAclRule("barNetworkAclRule", new()
     ///     {
     ///         NetworkAclId = barNetworkAcl.Id,
     ///         RuleNumber = 200,

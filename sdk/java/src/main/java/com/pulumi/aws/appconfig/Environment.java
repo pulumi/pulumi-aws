@@ -31,7 +31,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.appconfig.ApplicationArgs;
  * import com.pulumi.aws.appconfig.Environment;
  * import com.pulumi.aws.appconfig.EnvironmentArgs;
- * import com.pulumi.aws.appconfig.inputs.EnvironmentMonitorArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -47,17 +46,14 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var exampleApplication = new Application(&#34;exampleApplication&#34;, ApplicationArgs.builder()        
  *             .description(&#34;Example AppConfig Application&#34;)
- *             .tags(Map.of(&#34;Type&#34;, &#34;AppConfig Application&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleEnvironment = new Environment(&#34;exampleEnvironment&#34;, EnvironmentArgs.builder()        
  *             .description(&#34;Example AppConfig Environment&#34;)
  *             .applicationId(exampleApplication.id())
- *             .monitors(EnvironmentMonitorArgs.builder()
- *                 .alarmArn(aws_cloudwatch_metric_alarm.example().arn())
- *                 .alarmRoleArn(aws_iam_role.example().arn())
- *                 .build())
- *             .tags(Map.of(&#34;Type&#34;, &#34;AppConfig Environment&#34;))
+ *             .monitors(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

@@ -228,15 +228,6 @@ def get_directory(directory_id: Optional[str] = None,
     """
     Retrieve information about an AWS WorkSpaces directory.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.workspaces.get_directory(directory_id="d-9067783251")
-    ```
-
 
     :param str directory_id: Directory identifier for registration in WorkSpaces service.
     :param Mapping[str, str] tags: A map of tags assigned to the WorkSpaces directory.
@@ -272,15 +263,6 @@ def get_directory_output(directory_id: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDirectoryResult]:
     """
     Retrieve information about an AWS WorkSpaces directory.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.workspaces.get_directory(directory_id="d-9067783251")
-    ```
 
 
     :param str directory_id: Directory identifier for registration in WorkSpaces service.

@@ -22,31 +22,29 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/transfer"
+//	transfer/workflow "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/transfer/workflow"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := transfer.NewWorkflow(ctx, "example", &transfer.WorkflowArgs{
-//				Steps: transfer.WorkflowStepArray{
-//					&transfer.WorkflowStepArgs{
-//						DeleteStepDetails: &transfer.WorkflowStepDeleteStepDetailsArgs{
-//							Name:               pulumi.String("example"),
-//							SourceFileLocation: pulumi.String("${original.file}"),
-//						},
-//						Type: pulumi.String("DELETE"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := transfer/workflow.NewWorkflow(ctx, "example", &transfer/workflow.WorkflowArgs{
+// Steps: []map[string]interface{}{
+// map[string]interface{}{
+// "deleteStepDetails": map[string]interface{}{
+// "name": "example",
+// "sourceFileLocation": "${original.file}",
+// },
+// "type": "DELETE",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Multistep example
 //
@@ -55,46 +53,44 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/transfer"
+//	transfer/workflow "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/transfer/workflow"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := transfer.NewWorkflow(ctx, "example", &transfer.WorkflowArgs{
-//				Steps: transfer.WorkflowStepArray{
-//					&transfer.WorkflowStepArgs{
-//						CustomStepDetails: &transfer.WorkflowStepCustomStepDetailsArgs{
-//							Name:               pulumi.String("example"),
-//							SourceFileLocation: pulumi.String("${original.file}"),
-//							Target:             pulumi.Any(aws_lambda_function.Example.Arn),
-//							TimeoutSeconds:     pulumi.Int(60),
-//						},
-//						Type: pulumi.String("CUSTOM"),
-//					},
-//					&transfer.WorkflowStepArgs{
-//						TagStepDetails: &transfer.WorkflowStepTagStepDetailsArgs{
-//							Name:               pulumi.String("example"),
-//							SourceFileLocation: pulumi.String("${original.file}"),
-//							Tags: transfer.WorkflowStepTagStepDetailsTagArray{
-//								&transfer.WorkflowStepTagStepDetailsTagArgs{
-//									Key:   pulumi.String("Name"),
-//									Value: pulumi.String("Hello World"),
-//								},
-//							},
-//						},
-//						Type: pulumi.String("TAG"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := transfer/workflow.NewWorkflow(ctx, "example", &transfer/workflow.WorkflowArgs{
+// Steps: []interface{}{
+// map[string]interface{}{
+// "customStepDetails": map[string]interface{}{
+// "name": "example",
+// "sourceFileLocation": "${original.file}",
+// "target": aws_lambda_function.Example.Arn,
+// "timeoutSeconds": 60,
+// },
+// "type": "CUSTOM",
+// },
+// map[string]interface{}{
+// "tagStepDetails": map[string]interface{}{
+// "name": "example",
+// "sourceFileLocation": "${original.file}",
+// "tags": []map[string]interface{}{
+// map[string]interface{}{
+// "key": "Name",
+// "value": "Hello World",
+// },
+// },
+// },
+// "type": "TAG",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

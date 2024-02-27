@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * import * as fs from "fs";
  *
- * const foo_app = new aws.opsworks.Application("foo-app", {
+ * const foo_app = new aws.opsworks/application.Application("foo-app", {
  *     shortName: "foobar",
  *     stackId: aws_opsworks_stack.main.id,
  *     type: "rails",
@@ -42,7 +42,7 @@ import * as utilities from "../utilities";
  *         certificate: fs.readFileSync("./foobar.crt", "utf8"),
  *     }],
  *     documentRoot: "public",
- *     autoBundleOnDeploy: "true",
+ *     autoBundleOnDeploy: true,
  *     railsEnv: "staging",
  * });
  * ```

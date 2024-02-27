@@ -25,38 +25,37 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lightsail"
+//	lightsail/instance "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/lightsail/instance"
+//	lightsail/instancePublicPorts "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/lightsail/instancePublicPorts"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testInstance, err := lightsail.NewInstance(ctx, "testInstance", &lightsail.InstanceArgs{
-//				AvailabilityZone: pulumi.Any(data.Aws_availability_zones.Available.Names[0]),
-//				BlueprintId:      pulumi.String("amazon_linux_2"),
-//				BundleId:         pulumi.String("nano_1_0"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = lightsail.NewInstancePublicPorts(ctx, "testInstancePublicPorts", &lightsail.InstancePublicPortsArgs{
-//				InstanceName: testInstance.Name,
-//				PortInfos: lightsail.InstancePublicPortsPortInfoArray{
-//					&lightsail.InstancePublicPortsPortInfoArgs{
-//						Protocol: pulumi.String("tcp"),
-//						FromPort: pulumi.Int(80),
-//						ToPort:   pulumi.Int(80),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// testInstance, err := lightsail/instance.NewInstance(ctx, "testInstance", &lightsail/instance.InstanceArgs{
+// AvailabilityZone: data.Aws_availability_zones.Available.Names[0],
+// BlueprintId: "amazon_linux_2",
+// BundleId: "nano_1_0",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = lightsail/instancePublicPorts.NewInstancePublicPorts(ctx, "testInstancePublicPorts", &lightsail/instancePublicPorts.InstancePublicPortsArgs{
+// InstanceName: testInstance.Name,
+// PortInfos: []map[string]interface{}{
+// map[string]interface{}{
+// "protocol": "tcp",
+// "fromPort": 80,
+// "toPort": 80,
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 type InstancePublicPorts struct {
 	pulumi.CustomResourceState

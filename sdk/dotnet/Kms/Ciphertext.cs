@@ -25,13 +25,13 @@ namespace Pulumi.Aws.Kms
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var oauthConfig = new Aws.Kms.Key("oauthConfig", new()
+    ///     var oauthConfig = new Aws.Kms.Key.Key("oauthConfig", new()
     ///     {
     ///         Description = "oauth config",
     ///         IsEnabled = true,
     ///     });
     /// 
-    ///     var oauth = new Aws.Kms.Ciphertext("oauth", new()
+    ///     var oauth = new Aws.Kms.Ciphertext.Ciphertext("oauth", new()
     ///     {
     ///         KeyId = oauthConfig.KeyId,
     ///         Plaintext = @"{

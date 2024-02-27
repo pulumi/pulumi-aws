@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const wu_tang = new aws.elb.LoadBalancer("wu-tang", {
+ * const wu_tang = new aws.elb/loadBalancer.LoadBalancer("wu-tang", {
  *     availabilityZones: ["us-east-1a"],
  *     listeners: [{
  *         instancePort: 443,
@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  *         Name: "wu-tang",
  *     },
  * });
- * const wu_tang_ssl = new aws.elb.LoadBalancerPolicy("wu-tang-ssl", {
+ * const wu_tang_ssl = new aws.elb/loadBalancerPolicy.LoadBalancerPolicy("wu-tang-ssl", {
  *     loadBalancerName: wu_tang.name,
  *     policyName: "wu-tang-ssl",
  *     policyTypeName: "SSLNegotiationPolicyType",
@@ -42,7 +42,7 @@ import * as utilities from "../utilities";
  *         },
  *     ],
  * });
- * const wu_tang_listener_policies_443 = new aws.elb.ListenerPolicy("wu-tang-listener-policies-443", {
+ * const wu_tang_listener_policies_443 = new aws.elb/listenerPolicy.ListenerPolicy("wu-tang-listener-policies-443", {
  *     loadBalancerName: wu_tang.name,
  *     loadBalancerPort: 443,
  *     policyNames: [wu_tang_ssl.policyName],
@@ -56,7 +56,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const wu_tang = new aws.elb.LoadBalancer("wu-tang", {
+ * const wu_tang = new aws.elb/loadBalancer.LoadBalancer("wu-tang", {
  *     availabilityZones: ["us-east-1a"],
  *     listeners: [{
  *         instancePort: 443,
@@ -69,7 +69,7 @@ import * as utilities from "../utilities";
  *         Name: "wu-tang",
  *     },
  * });
- * const wu_tang_ssl_tls_1_1 = new aws.elb.LoadBalancerPolicy("wu-tang-ssl-tls-1-1", {
+ * const wu_tang_ssl_tls_1_1 = new aws.elb/loadBalancerPolicy.LoadBalancerPolicy("wu-tang-ssl-tls-1-1", {
  *     loadBalancerName: wu_tang.name,
  *     policyName: "wu-tang-ssl",
  *     policyTypeName: "SSLNegotiationPolicyType",
@@ -78,7 +78,7 @@ import * as utilities from "../utilities";
  *         value: "ELBSecurityPolicy-TLS-1-1-2017-01",
  *     }],
  * });
- * const wu_tang_listener_policies_443 = new aws.elb.ListenerPolicy("wu-tang-listener-policies-443", {
+ * const wu_tang_listener_policies_443 = new aws.elb/listenerPolicy.ListenerPolicy("wu-tang-listener-policies-443", {
  *     loadBalancerName: wu_tang.name,
  *     loadBalancerPort: 443,
  *     policyNames: [wu_tang_ssl_tls_1_1.policyName],

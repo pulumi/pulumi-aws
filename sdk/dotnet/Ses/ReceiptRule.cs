@@ -23,15 +23,15 @@ namespace Pulumi.Aws.Ses
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // Add a header to the email and store it in S3
-    ///     var store = new Aws.Ses.ReceiptRule("store", new()
+    ///     var store = new Aws.Ses.ReceiptRule.ReceiptRule("store", new()
     ///     {
     ///         AddHeaderActions = new[]
     ///         {
-    ///             new Aws.Ses.Inputs.ReceiptRuleAddHeaderActionArgs
+    ///             
     ///             {
-    ///                 HeaderName = "Custom-Header",
-    ///                 HeaderValue = "Added by SES",
-    ///                 Position = 1,
+    ///                 { "headerName", "Custom-Header" },
+    ///                 { "headerValue", "Added by SES" },
+    ///                 { "position", 1 },
     ///             },
     ///         },
     ///         Enabled = true,
@@ -42,10 +42,10 @@ namespace Pulumi.Aws.Ses
     ///         RuleSetName = "default-rule-set",
     ///         S3Actions = new[]
     ///         {
-    ///             new Aws.Ses.Inputs.ReceiptRuleS3ActionArgs
+    ///             
     ///             {
-    ///                 BucketName = "emails",
-    ///                 Position = 2,
+    ///                 { "bucketName", "emails" },
+    ///                 { "position", 2 },
     ///             },
     ///         },
     ///         ScanEnabled = true,

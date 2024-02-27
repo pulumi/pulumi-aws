@@ -15,13 +15,13 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleOpenZfsFileSystem = new aws.fsx.OpenZfsFileSystem("exampleOpenZfsFileSystem", {
+ * const exampleOpenZfsFileSystem = new aws.fsx/openZfsFileSystem.OpenZfsFileSystem("exampleOpenZfsFileSystem", {
  *     storageCapacity: 64,
  *     subnetIds: [aws_subnet.example.id],
  *     deploymentType: "SINGLE_AZ_1",
  *     throughputCapacity: 64,
  * });
- * const exampleOpenZfsSnapshot = new aws.fsx.OpenZfsSnapshot("exampleOpenZfsSnapshot", {volumeId: exampleOpenZfsFileSystem.rootVolumeId});
+ * const exampleOpenZfsSnapshot = new aws.fsx/openZfsSnapshot.OpenZfsSnapshot("exampleOpenZfsSnapshot", {volumeId: exampleOpenZfsFileSystem.rootVolumeId});
  * ```
  * ### Child volume Example
  *
@@ -29,14 +29,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleOpenZfsFileSystem = new aws.fsx.OpenZfsFileSystem("exampleOpenZfsFileSystem", {
+ * const exampleOpenZfsFileSystem = new aws.fsx/openZfsFileSystem.OpenZfsFileSystem("exampleOpenZfsFileSystem", {
  *     storageCapacity: 64,
  *     subnetIds: [aws_subnet.example.id],
  *     deploymentType: "SINGLE_AZ_1",
  *     throughputCapacity: 64,
  * });
- * const exampleOpenZfsVolume = new aws.fsx.OpenZfsVolume("exampleOpenZfsVolume", {parentVolumeId: exampleOpenZfsFileSystem.rootVolumeId});
- * const exampleOpenZfsSnapshot = new aws.fsx.OpenZfsSnapshot("exampleOpenZfsSnapshot", {volumeId: exampleOpenZfsVolume.id});
+ * const exampleOpenZfsVolume = new aws.fsx/openZfsVolume.OpenZfsVolume("exampleOpenZfsVolume", {parentVolumeId: exampleOpenZfsFileSystem.rootVolumeId});
+ * const exampleOpenZfsSnapshot = new aws.fsx/openZfsSnapshot.OpenZfsSnapshot("exampleOpenZfsSnapshot", {volumeId: exampleOpenZfsVolume.id});
  * ```
  *
  * ## Import

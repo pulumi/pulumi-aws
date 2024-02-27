@@ -978,19 +978,19 @@ class LoadBalancer(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.lb.LoadBalancer("test",
+        test = aws.lb.load_balancer.LoadBalancer("test",
             internal=False,
-            load_balancer_type="application",
-            security_groups=[aws_security_group["lb_sg"]["id"]],
-            subnets=[subnet["id"] for subnet in aws_subnet["public"]],
+            load_balancer_type=application,
+            security_groups=[aws_security_group.lb_sg.id],
+            subnets=[subnet.id for subnet in aws_subnet.public],
             enable_deletion_protection=True,
-            access_logs=aws.lb.LoadBalancerAccessLogsArgs(
-                bucket=aws_s3_bucket["lb_logs"]["id"],
-                prefix="test-lb",
-                enabled=True,
-            ),
+            access_logs={
+                bucket: aws_s3_bucket.lb_logs.id,
+                prefix: test-lb,
+                enabled: True,
+            },
             tags={
-                "Environment": "production",
+                Environment: production,
             })
         ```
         ### Network Load Balancer
@@ -999,13 +999,13 @@ class LoadBalancer(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.lb.LoadBalancer("test",
+        test = aws.lb.load_balancer.LoadBalancer("test",
             internal=False,
-            load_balancer_type="network",
-            subnets=[subnet["id"] for subnet in aws_subnet["public"]],
+            load_balancer_type=network,
+            subnets=[subnet.id for subnet in aws_subnet.public],
             enable_deletion_protection=True,
             tags={
-                "Environment": "production",
+                Environment: production,
             })
         ```
         ### Specifying Elastic IPs
@@ -1014,17 +1014,17 @@ class LoadBalancer(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.lb.LoadBalancer("example",
-            load_balancer_type="network",
+        example = aws.lb.load_balancer.LoadBalancer("example",
+            load_balancer_type=network,
             subnet_mappings=[
-                aws.lb.LoadBalancerSubnetMappingArgs(
-                    subnet_id=aws_subnet["example1"]["id"],
-                    allocation_id=aws_eip["example1"]["id"],
-                ),
-                aws.lb.LoadBalancerSubnetMappingArgs(
-                    subnet_id=aws_subnet["example2"]["id"],
-                    allocation_id=aws_eip["example2"]["id"],
-                ),
+                {
+                    subnetId: aws_subnet.example1.id,
+                    allocationId: aws_eip.example1.id,
+                },
+                {
+                    subnetId: aws_subnet.example2.id,
+                    allocationId: aws_eip.example2.id,
+                },
             ])
         ```
         ### Specifying private IP addresses for an internal-facing load balancer
@@ -1033,17 +1033,17 @@ class LoadBalancer(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.lb.LoadBalancer("example",
-            load_balancer_type="network",
+        example = aws.lb.load_balancer.LoadBalancer("example",
+            load_balancer_type=network,
             subnet_mappings=[
-                aws.lb.LoadBalancerSubnetMappingArgs(
-                    subnet_id=aws_subnet["example1"]["id"],
-                    private_ipv4_address="10.0.1.15",
-                ),
-                aws.lb.LoadBalancerSubnetMappingArgs(
-                    subnet_id=aws_subnet["example2"]["id"],
-                    private_ipv4_address="10.0.2.15",
-                ),
+                {
+                    subnetId: aws_subnet.example1.id,
+                    privateIpv4Address: 10.0.1.15,
+                },
+                {
+                    subnetId: aws_subnet.example2.id,
+                    privateIpv4Address: 10.0.2.15,
+                },
             ])
         ```
 
@@ -1103,19 +1103,19 @@ class LoadBalancer(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.lb.LoadBalancer("test",
+        test = aws.lb.load_balancer.LoadBalancer("test",
             internal=False,
-            load_balancer_type="application",
-            security_groups=[aws_security_group["lb_sg"]["id"]],
-            subnets=[subnet["id"] for subnet in aws_subnet["public"]],
+            load_balancer_type=application,
+            security_groups=[aws_security_group.lb_sg.id],
+            subnets=[subnet.id for subnet in aws_subnet.public],
             enable_deletion_protection=True,
-            access_logs=aws.lb.LoadBalancerAccessLogsArgs(
-                bucket=aws_s3_bucket["lb_logs"]["id"],
-                prefix="test-lb",
-                enabled=True,
-            ),
+            access_logs={
+                bucket: aws_s3_bucket.lb_logs.id,
+                prefix: test-lb,
+                enabled: True,
+            },
             tags={
-                "Environment": "production",
+                Environment: production,
             })
         ```
         ### Network Load Balancer
@@ -1124,13 +1124,13 @@ class LoadBalancer(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.lb.LoadBalancer("test",
+        test = aws.lb.load_balancer.LoadBalancer("test",
             internal=False,
-            load_balancer_type="network",
-            subnets=[subnet["id"] for subnet in aws_subnet["public"]],
+            load_balancer_type=network,
+            subnets=[subnet.id for subnet in aws_subnet.public],
             enable_deletion_protection=True,
             tags={
-                "Environment": "production",
+                Environment: production,
             })
         ```
         ### Specifying Elastic IPs
@@ -1139,17 +1139,17 @@ class LoadBalancer(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.lb.LoadBalancer("example",
-            load_balancer_type="network",
+        example = aws.lb.load_balancer.LoadBalancer("example",
+            load_balancer_type=network,
             subnet_mappings=[
-                aws.lb.LoadBalancerSubnetMappingArgs(
-                    subnet_id=aws_subnet["example1"]["id"],
-                    allocation_id=aws_eip["example1"]["id"],
-                ),
-                aws.lb.LoadBalancerSubnetMappingArgs(
-                    subnet_id=aws_subnet["example2"]["id"],
-                    allocation_id=aws_eip["example2"]["id"],
-                ),
+                {
+                    subnetId: aws_subnet.example1.id,
+                    allocationId: aws_eip.example1.id,
+                },
+                {
+                    subnetId: aws_subnet.example2.id,
+                    allocationId: aws_eip.example2.id,
+                },
             ])
         ```
         ### Specifying private IP addresses for an internal-facing load balancer
@@ -1158,17 +1158,17 @@ class LoadBalancer(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.lb.LoadBalancer("example",
-            load_balancer_type="network",
+        example = aws.lb.load_balancer.LoadBalancer("example",
+            load_balancer_type=network,
             subnet_mappings=[
-                aws.lb.LoadBalancerSubnetMappingArgs(
-                    subnet_id=aws_subnet["example1"]["id"],
-                    private_ipv4_address="10.0.1.15",
-                ),
-                aws.lb.LoadBalancerSubnetMappingArgs(
-                    subnet_id=aws_subnet["example2"]["id"],
-                    private_ipv4_address="10.0.2.15",
-                ),
+                {
+                    subnetId: aws_subnet.example1.id,
+                    privateIpv4Address: 10.0.1.15,
+                },
+                {
+                    subnetId: aws_subnet.example2.id,
+                    privateIpv4Address: 10.0.2.15,
+                },
             ])
         ```
 

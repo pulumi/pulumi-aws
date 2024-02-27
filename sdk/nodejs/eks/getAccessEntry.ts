@@ -6,19 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Access Entry Configurations for an EKS Cluster.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.eks.getAccessEntry({
- *     clusterName: aws_eks_cluster.example.name,
- *     principalArn: aws_iam_role.example.arn,
- * });
- * export const eksAccessEntryOutputs = aws_eks_access_entry.example;
- * ```
  */
 export function getAccessEntry(args: GetAccessEntryArgs, opts?: pulumi.InvokeOptions): Promise<GetAccessEntryResult> {
 
@@ -87,19 +74,6 @@ export interface GetAccessEntryResult {
 }
 /**
  * Access Entry Configurations for an EKS Cluster.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.eks.getAccessEntry({
- *     clusterName: aws_eks_cluster.example.name,
- *     principalArn: aws_iam_role.example.arn,
- * });
- * export const eksAccessEntryOutputs = aws_eks_access_entry.example;
- * ```
  */
 export function getAccessEntryOutput(args: GetAccessEntryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccessEntryResult> {
     return pulumi.output(args).apply((a: any) => getAccessEntry(a, opts))

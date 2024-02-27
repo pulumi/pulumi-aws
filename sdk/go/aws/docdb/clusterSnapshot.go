@@ -21,24 +21,22 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/docdb"
+//	docdb/clusterSnapshot "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/docdb/clusterSnapshot"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := docdb.NewClusterSnapshot(ctx, "example", &docdb.ClusterSnapshotArgs{
-//				DbClusterIdentifier:         pulumi.Any(aws_docdb_cluster.Example.Id),
-//				DbClusterSnapshotIdentifier: pulumi.String("resourcetestsnapshot1234"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := docdb/clusterSnapshot.NewClusterSnapshot(ctx, "example", &docdb/clusterSnapshot.ClusterSnapshotArgs{
+// DbClusterIdentifier: aws_docdb_cluster.Example.Id,
+// DbClusterSnapshotIdentifier: "resourcetestsnapshot1234",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

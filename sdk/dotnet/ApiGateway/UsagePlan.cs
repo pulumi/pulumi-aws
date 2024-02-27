@@ -32,7 +32,7 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleRestApi = new Aws.ApiGateway.RestApi("exampleRestApi", new()
+    ///     var exampleRestApi = new Aws.Apigateway.RestApi.RestApi("exampleRestApi", new()
     ///     {
     ///         Body = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
@@ -61,56 +61,56 @@ namespace Pulumi.Aws.ApiGateway
     ///         }),
     ///     });
     /// 
-    ///     var exampleDeployment = new Aws.ApiGateway.Deployment("exampleDeployment", new()
+    ///     var exampleDeployment = new Aws.Apigateway.Deployment.Deployment("exampleDeployment", new()
     ///     {
     ///         RestApi = exampleRestApi.Id,
     ///         Triggers = 
     ///         {
-    ///             { "redeployment", exampleRestApi.Body.Apply(body =&gt; JsonSerializer.Serialize(body)).Apply(toJSON =&gt; ComputeSHA1(toJSON)) },
+    ///             { "redeployment", ComputeSHA1(JsonSerializer.Serialize(exampleRestApi.Body)) },
     ///         },
     ///     });
     /// 
-    ///     var development = new Aws.ApiGateway.Stage("development", new()
+    ///     var development = new Aws.Apigateway.Stage.Stage("development", new()
     ///     {
     ///         Deployment = exampleDeployment.Id,
     ///         RestApi = exampleRestApi.Id,
     ///         StageName = "development",
     ///     });
     /// 
-    ///     var production = new Aws.ApiGateway.Stage("production", new()
+    ///     var production = new Aws.Apigateway.Stage.Stage("production", new()
     ///     {
     ///         Deployment = exampleDeployment.Id,
     ///         RestApi = exampleRestApi.Id,
     ///         StageName = "production",
     ///     });
     /// 
-    ///     var exampleUsagePlan = new Aws.ApiGateway.UsagePlan("exampleUsagePlan", new()
+    ///     var exampleUsagePlan = new Aws.Apigateway.UsagePlan.UsagePlan("exampleUsagePlan", new()
     ///     {
     ///         Description = "my description",
     ///         ProductCode = "MYCODE",
     ///         ApiStages = new[]
     ///         {
-    ///             new Aws.ApiGateway.Inputs.UsagePlanApiStageArgs
+    ///             
     ///             {
-    ///                 ApiId = exampleRestApi.Id,
-    ///                 Stage = development.StageName,
+    ///                 { "apiId", exampleRestApi.Id },
+    ///                 { "stage", development.StageName },
     ///             },
-    ///             new Aws.ApiGateway.Inputs.UsagePlanApiStageArgs
+    ///             
     ///             {
-    ///                 ApiId = exampleRestApi.Id,
-    ///                 Stage = production.StageName,
+    ///                 { "apiId", exampleRestApi.Id },
+    ///                 { "stage", production.StageName },
     ///             },
     ///         },
-    ///         QuotaSettings = new Aws.ApiGateway.Inputs.UsagePlanQuotaSettingsArgs
+    ///         QuotaSettings = 
     ///         {
-    ///             Limit = 20,
-    ///             Offset = 2,
-    ///             Period = "WEEK",
+    ///             { "limit", 20 },
+    ///             { "offset", 2 },
+    ///             { "period", "WEEK" },
     ///         },
-    ///         ThrottleSettings = new Aws.ApiGateway.Inputs.UsagePlanThrottleSettingsArgs
+    ///         ThrottleSettings = 
     ///         {
-    ///             BurstLimit = 5,
-    ///             RateLimit = 10,
+    ///             { "burstLimit", 5 },
+    ///             { "rateLimit", 10 },
     ///         },
     ///     });
     /// 

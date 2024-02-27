@@ -156,16 +156,16 @@ class QueryDefinition(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.cloudwatch.QueryDefinition("example",
+        example = aws.cloudwatch.query_definition.QueryDefinition("example",
             log_group_names=[
-                "/aws/logGroup1",
-                "/aws/logGroup2",
+                /aws/logGroup1,
+                /aws/logGroup2,
             ],
-            query_string=\"\"\"fields @timestamp, @message
+            query_string=fields @timestamp, @message
         | sort @timestamp desc
         | limit 25
 
-        \"\"\")
+        )
         ```
 
         ## Import
@@ -197,16 +197,16 @@ class QueryDefinition(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.cloudwatch.QueryDefinition("example",
+        example = aws.cloudwatch.query_definition.QueryDefinition("example",
             log_group_names=[
-                "/aws/logGroup1",
-                "/aws/logGroup2",
+                /aws/logGroup1,
+                /aws/logGroup2,
             ],
-            query_string=\"\"\"fields @timestamp, @message
+            query_string=fields @timestamp, @message
         | sort @timestamp desc
         | limit 25
 
-        \"\"\")
+        )
         ```
 
         ## Import

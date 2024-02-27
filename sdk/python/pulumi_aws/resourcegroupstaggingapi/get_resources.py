@@ -113,36 +113,6 @@ def get_resources(exclude_compliant_resources: Optional[bool] = None,
     Provides details about resource tagging.
 
     ## Example Usage
-    ### Get All Resource Tag Mappings
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.resourcegroupstaggingapi.get_resources()
-    ```
-    ### Filter By Tag Key and Value
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.resourcegroupstaggingapi.get_resources(tag_filters=[aws.resourcegroupstaggingapi.GetResourcesTagFilterArgs(
-        key="tag-key",
-        values=[
-            "tag-value-1",
-            "tag-value-2",
-        ],
-    )])
-    ```
-    ### Filter By Resource Type
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.resourcegroupstaggingapi.get_resources(resource_type_filters=["ec2:instance"])
-    ```
 
 
     :param bool exclude_compliant_resources: Specifies whether to exclude resources that are compliant with the tag policy. You can use this parameter only if the `include_compliance_details` argument is also set to `true`.
@@ -181,36 +151,6 @@ def get_resources_output(exclude_compliant_resources: Optional[pulumi.Input[Opti
     Provides details about resource tagging.
 
     ## Example Usage
-    ### Get All Resource Tag Mappings
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.resourcegroupstaggingapi.get_resources()
-    ```
-    ### Filter By Tag Key and Value
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.resourcegroupstaggingapi.get_resources(tag_filters=[aws.resourcegroupstaggingapi.GetResourcesTagFilterArgs(
-        key="tag-key",
-        values=[
-            "tag-value-1",
-            "tag-value-2",
-        ],
-    )])
-    ```
-    ### Filter By Resource Type
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.resourcegroupstaggingapi.get_resources(resource_type_filters=["ec2:instance"])
-    ```
 
 
     :param bool exclude_compliant_resources: Specifies whether to exclude resources that are compliant with the tag policy. You can use this parameter only if the `include_compliance_details` argument is also set to `true`.

@@ -213,16 +213,16 @@ class RuleGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_rule = aws.wafregional.Rule("exampleRule", metric_name="example")
-        example_rule_group = aws.wafregional.RuleGroup("exampleRuleGroup",
-            metric_name="example",
-            activated_rules=[aws.wafregional.RuleGroupActivatedRuleArgs(
-                action=aws.wafregional.RuleGroupActivatedRuleActionArgs(
-                    type="COUNT",
-                ),
-                priority=50,
-                rule_id=example_rule.id,
-            )])
+        example_rule = aws.wafregional.rule.Rule("exampleRule", metric_name=example)
+        example_rule_group = aws.wafregional.rule_group.RuleGroup("exampleRuleGroup",
+            metric_name=example,
+            activated_rules=[{
+                action: {
+                    type: COUNT,
+                },
+                priority: 50,
+                ruleId: example_rule.id,
+            }])
         ```
 
         ## Import
@@ -255,16 +255,16 @@ class RuleGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_rule = aws.wafregional.Rule("exampleRule", metric_name="example")
-        example_rule_group = aws.wafregional.RuleGroup("exampleRuleGroup",
-            metric_name="example",
-            activated_rules=[aws.wafregional.RuleGroupActivatedRuleArgs(
-                action=aws.wafregional.RuleGroupActivatedRuleActionArgs(
-                    type="COUNT",
-                ),
-                priority=50,
-                rule_id=example_rule.id,
-            )])
+        example_rule = aws.wafregional.rule.Rule("exampleRule", metric_name=example)
+        example_rule_group = aws.wafregional.rule_group.RuleGroup("exampleRuleGroup",
+            metric_name=example,
+            activated_rules=[{
+                action: {
+                    type: COUNT,
+                },
+                priority: 50,
+                ruleId: example_rule.id,
+            }])
         ```
 
         ## Import

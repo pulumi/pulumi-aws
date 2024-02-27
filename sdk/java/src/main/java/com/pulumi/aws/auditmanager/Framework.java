@@ -30,7 +30,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.auditmanager.Framework;
  * import com.pulumi.aws.auditmanager.FrameworkArgs;
- * import com.pulumi.aws.auditmanager.inputs.FrameworkControlSetArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -45,12 +44,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new Framework(&#34;test&#34;, FrameworkArgs.builder()        
- *             .controlSets(FrameworkControlSetArgs.builder()
- *                 .name(&#34;example&#34;)
- *                 .controls(FrameworkControlSetControlArgs.builder()
- *                     .id(aws_auditmanager_control.test().id())
- *                     .build())
- *                 .build())
+ *             .controlSets(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

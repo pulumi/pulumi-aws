@@ -21,26 +21,24 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	ec2/capacityReservation "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/capacityReservation"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.NewCapacityReservation(ctx, "default", &ec2.CapacityReservationArgs{
-//				AvailabilityZone: pulumi.String("eu-west-1a"),
-//				InstanceCount:    pulumi.Int(1),
-//				InstancePlatform: pulumi.String("Linux/UNIX"),
-//				InstanceType:     pulumi.String("t2.micro"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := ec2/capacityReservation.NewCapacityReservation(ctx, "default", &ec2/capacityReservation.CapacityReservationArgs{
+// AvailabilityZone: "eu-west-1a",
+// InstanceCount: 1,
+// InstancePlatform: "Linux/UNIX",
+// InstanceType: "t2.micro",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

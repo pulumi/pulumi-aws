@@ -23,7 +23,7 @@ namespace Pulumi.Aws.Efs
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var foo = new Aws.Efs.FileSystem("foo", new()
+    ///     var foo = new Aws.Efs.FileSystem.FileSystem("foo", new()
     ///     {
     ///         Tags = 
     ///         {
@@ -43,13 +43,13 @@ namespace Pulumi.Aws.Efs
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var fooWithLifecylePolicy = new Aws.Efs.FileSystem("fooWithLifecylePolicy", new()
+    ///     var fooWithLifecylePolicy = new Aws.Efs.FileSystem.FileSystem("fooWithLifecylePolicy", new()
     ///     {
     ///         LifecyclePolicies = new[]
     ///         {
-    ///             new Aws.Efs.Inputs.FileSystemLifecyclePolicyArgs
+    ///             
     ///             {
-    ///                 TransitionToIa = "AFTER_30_DAYS",
+    ///                 { "transitionToIa", "AFTER_30_DAYS" },
     ///             },
     ///         },
     ///     });

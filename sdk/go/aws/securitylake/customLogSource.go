@@ -22,36 +22,34 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/securitylake"
+//	securitylake/customLogSource "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/securitylake/customLogSource"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := securitylake.NewCustomLogSource(ctx, "example", &securitylake.CustomLogSourceArgs{
-//				SourceName:    pulumi.String("example-name"),
-//				SourceVersion: pulumi.String("1.0"),
-//				EventClasses: pulumi.StringArray{
-//					pulumi.String("FILE_ACTIVITY"),
-//				},
-//				Configuration: &securitylake.CustomLogSourceConfigurationArgs{
-//					CrawlerConfiguration: &securitylake.CustomLogSourceConfigurationCrawlerConfigurationArgs{
-//						RoleArn: pulumi.Any(aws_iam_role.Custom_log.Arn),
-//					},
-//					ProviderIdentity: &securitylake.CustomLogSourceConfigurationProviderIdentityArgs{
-//						ExternalId: pulumi.String("example-id"),
-//						Principal:  pulumi.String("123456789012"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := securitylake/customLogSource.NewCustomLogSource(ctx, "example", &securitylake/customLogSource.CustomLogSourceArgs{
+// SourceName: "example-name",
+// SourceVersion: "1.0",
+// EventClasses: []string{
+// "FILE_ACTIVITY",
+// },
+// Configuration: map[string]interface{}{
+// "crawlerConfiguration": map[string]interface{}{
+// "roleArn": aws_iam_role.Custom_log.Arn,
+// },
+// "providerIdentity": map[string]interface{}{
+// "externalId": "example-id",
+// "principal": "123456789012",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

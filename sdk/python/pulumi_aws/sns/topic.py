@@ -1003,7 +1003,7 @@ class Topic(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        user_updates = aws.sns.Topic("userUpdates")
+        user_updates = aws.sns.topic.Topic("userUpdates")
         ```
         ## Example with Delivery Policy
 
@@ -1011,7 +1011,7 @@ class Topic(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        user_updates = aws.sns.Topic("userUpdates", delivery_policy=\"\"\"{
+        user_updates = aws.sns.topic.Topic("userUpdates", delivery_policy={
           "http": {
             "defaultHealthyRetryPolicy": {
               "minDelayTarget": 20,
@@ -1029,7 +1029,7 @@ class Topic(pulumi.CustomResource):
           }
         }
 
-        \"\"\")
+        )
         ```
 
         ## Example with Server-side encryption (SSE)
@@ -1038,7 +1038,7 @@ class Topic(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        user_updates = aws.sns.Topic("userUpdates", kms_master_key_id="alias/aws/sns")
+        user_updates = aws.sns.topic.Topic("userUpdates", kms_master_key_id=alias/aws/sns)
         ```
 
         ## Example with First-In-First-Out (FIFO)
@@ -1047,7 +1047,7 @@ class Topic(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        user_updates = aws.sns.Topic("userUpdates",
+        user_updates = aws.sns.topic.Topic("userUpdates",
             content_based_deduplication=True,
             fifo_topic=True)
         ```
@@ -1109,7 +1109,7 @@ class Topic(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        user_updates = aws.sns.Topic("userUpdates")
+        user_updates = aws.sns.topic.Topic("userUpdates")
         ```
         ## Example with Delivery Policy
 
@@ -1117,7 +1117,7 @@ class Topic(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        user_updates = aws.sns.Topic("userUpdates", delivery_policy=\"\"\"{
+        user_updates = aws.sns.topic.Topic("userUpdates", delivery_policy={
           "http": {
             "defaultHealthyRetryPolicy": {
               "minDelayTarget": 20,
@@ -1135,7 +1135,7 @@ class Topic(pulumi.CustomResource):
           }
         }
 
-        \"\"\")
+        )
         ```
 
         ## Example with Server-side encryption (SSE)
@@ -1144,7 +1144,7 @@ class Topic(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        user_updates = aws.sns.Topic("userUpdates", kms_master_key_id="alias/aws/sns")
+        user_updates = aws.sns.topic.Topic("userUpdates", kms_master_key_id=alias/aws/sns)
         ```
 
         ## Example with First-In-First-Out (FIFO)
@@ -1153,7 +1153,7 @@ class Topic(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        user_updates = aws.sns.Topic("userUpdates",
+        user_updates = aws.sns.topic.Topic("userUpdates",
             content_based_deduplication=True,
             fifo_topic=True)
         ```

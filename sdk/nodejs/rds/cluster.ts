@@ -32,7 +32,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const _default = new aws.rds.Cluster("default", {
+ * const _default = new aws.rds/cluster.Cluster("default", {
  *     availabilityZones: [
  *         "us-west-2a",
  *         "us-west-2b",
@@ -54,7 +54,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const _default = new aws.rds.Cluster("default", {
+ * const _default = new aws.rds/cluster.Cluster("default", {
  *     availabilityZones: [
  *         "us-west-2a",
  *         "us-west-2b",
@@ -74,7 +74,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const postgresql = new aws.rds.Cluster("postgresql", {
+ * const postgresql = new aws.rds/cluster.Cluster("postgresql", {
  *     availabilityZones: [
  *         "us-west-2a",
  *         "us-west-2b",
@@ -99,7 +99,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.rds.Cluster("example", {
+ * const example = new aws.rds/cluster.Cluster("example", {
  *     allocatedStorage: 100,
  *     availabilityZones: [
  *         "us-west-2a",
@@ -128,7 +128,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleCluster = new aws.rds.Cluster("exampleCluster", {
+ * const exampleCluster = new aws.rds/cluster.Cluster("exampleCluster", {
  *     clusterIdentifier: "example",
  *     engine: "aurora-postgresql",
  *     engineMode: "provisioned",
@@ -142,7 +142,7 @@ import * as utilities from "../utilities";
  *         minCapacity: 0.5,
  *     },
  * });
- * const exampleClusterInstance = new aws.rds.ClusterInstance("exampleClusterInstance", {
+ * const exampleClusterInstance = new aws.rds/clusterInstance.ClusterInstance("exampleClusterInstance", {
  *     clusterIdentifier: exampleCluster.id,
  *     instanceClass: "db.serverless",
  *     engine: exampleCluster.engine,
@@ -159,7 +159,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = new aws.rds.Cluster("test", {
+ * const test = new aws.rds/cluster.Cluster("test", {
  *     clusterIdentifier: "example",
  *     databaseName: "test",
  *     manageMasterUserPassword: true,
@@ -176,35 +176,13 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.kms.Key("example", {description: "Example KMS Key"});
- * const test = new aws.rds.Cluster("test", {
+ * const example = new aws.kms/key.Key("example", {description: "Example KMS Key"});
+ * const test = new aws.rds/cluster.Cluster("test", {
  *     clusterIdentifier: "example",
  *     databaseName: "test",
  *     manageMasterUserPassword: true,
  *     masterUsername: "test",
  *     masterUserSecretKmsKeyId: example.keyId,
- * });
- * ```
- * ### Global Cluster Restored From Snapshot
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleClusterSnapshot = aws.rds.getClusterSnapshot({
- *     dbClusterIdentifier: "example-original-cluster",
- *     mostRecent: true,
- * });
- * const exampleCluster = new aws.rds.Cluster("exampleCluster", {
- *     engine: "aurora",
- *     engineVersion: "5.6.mysql_aurora.1.22.4",
- *     clusterIdentifier: "example",
- *     snapshotIdentifier: exampleClusterSnapshot.then(exampleClusterSnapshot => exampleClusterSnapshot.id),
- * });
- * const exampleGlobalCluster = new aws.rds.GlobalCluster("exampleGlobalCluster", {
- *     globalClusterIdentifier: "example",
- *     sourceDbClusterIdentifier: exampleCluster.arn,
- *     forceDestroy: true,
  * });
  * ```
  *

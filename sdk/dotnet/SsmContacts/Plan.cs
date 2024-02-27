@@ -23,14 +23,14 @@ namespace Pulumi.Aws.SsmContacts
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.SsmContacts.Plan("example", new()
+    ///     var example = new Aws.Ssmcontacts.Plan.Plan("example", new()
     ///     {
     ///         ContactId = "arn:aws:ssm-contacts:us-west-2:123456789012:contact/contactalias",
     ///         Stages = new[]
     ///         {
-    ///             new Aws.SsmContacts.Inputs.PlanStageArgs
+    ///             
     ///             {
-    ///                 DurationInMinutes = 1,
+    ///                 { "durationInMinutes", 1 },
     ///             },
     ///         },
     ///     });
@@ -47,20 +47,20 @@ namespace Pulumi.Aws.SsmContacts
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var contact = new Aws.SsmContacts.Contact("contact", new()
+    ///     var contact = new Aws.Ssmcontacts.Contact.Contact("contact", new()
     ///     {
     ///         Alias = "alias",
     ///         Type = "PERSONAL",
     ///     });
     /// 
-    ///     var plan = new Aws.SsmContacts.Plan("plan", new()
+    ///     var plan = new Aws.Ssmcontacts.Plan.Plan("plan", new()
     ///     {
     ///         ContactId = contact.Arn,
     ///         Stages = new[]
     ///         {
-    ///             new Aws.SsmContacts.Inputs.PlanStageArgs
+    ///             
     ///             {
-    ///                 DurationInMinutes = 1,
+    ///                 { "durationInMinutes", 1 },
     ///             },
     ///         },
     ///     });
@@ -77,59 +77,59 @@ namespace Pulumi.Aws.SsmContacts
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var escalationPlan = new Aws.SsmContacts.Contact("escalationPlan", new()
+    ///     var escalationPlan = new Aws.Ssmcontacts.Contact.Contact("escalationPlan", new()
     ///     {
     ///         Alias = "escalation-plan-alias",
     ///         Type = "ESCALATION",
     ///     });
     /// 
-    ///     var contactOne = new Aws.SsmContacts.Contact("contactOne", new()
+    ///     var contactOne = new Aws.Ssmcontacts.Contact.Contact("contactOne", new()
     ///     {
     ///         Alias = "alias",
     ///         Type = "PERSONAL",
     ///     });
     /// 
-    ///     var contactTwo = new Aws.SsmContacts.Contact("contactTwo", new()
+    ///     var contactTwo = new Aws.Ssmcontacts.Contact.Contact("contactTwo", new()
     ///     {
     ///         Alias = "alias",
     ///         Type = "PERSONAL",
     ///     });
     /// 
-    ///     var test = new Aws.SsmContacts.Plan("test", new()
+    ///     var test = new Aws.Ssmcontacts.Plan.Plan("test", new()
     ///     {
     ///         ContactId = escalationPlan.Arn,
     ///         Stages = new[]
     ///         {
-    ///             new Aws.SsmContacts.Inputs.PlanStageArgs
+    ///             
     ///             {
-    ///                 DurationInMinutes = 0,
-    ///                 Targets = new[]
+    ///                 { "durationInMinutes", 0 },
+    ///                 { "targets", new[]
     ///                 {
-    ///                     new Aws.SsmContacts.Inputs.PlanStageTargetArgs
+    ///                     
     ///                     {
-    ///                         ContactTargetInfo = new Aws.SsmContacts.Inputs.PlanStageTargetContactTargetInfoArgs
+    ///                         { "contactTargetInfo", 
     ///                         {
-    ///                             IsEssential = false,
-    ///                             ContactId = contactOne.Arn,
-    ///                         },
+    ///                             { "isEssential", false },
+    ///                             { "contactId", contactOne.Arn },
+    ///                         } },
     ///                     },
-    ///                     new Aws.SsmContacts.Inputs.PlanStageTargetArgs
+    ///                     
     ///                     {
-    ///                         ContactTargetInfo = new Aws.SsmContacts.Inputs.PlanStageTargetContactTargetInfoArgs
+    ///                         { "contactTargetInfo", 
     ///                         {
-    ///                             IsEssential = true,
-    ///                             ContactId = contactTwo.Arn,
-    ///                         },
+    ///                             { "isEssential", true },
+    ///                             { "contactId", contactTwo.Arn },
+    ///                         } },
     ///                     },
-    ///                     new Aws.SsmContacts.Inputs.PlanStageTargetArgs
+    ///                     
     ///                     {
-    ///                         ChannelTargetInfo = new Aws.SsmContacts.Inputs.PlanStageTargetChannelTargetInfoArgs
+    ///                         { "channelTargetInfo", 
     ///                         {
-    ///                             RetryIntervalInMinutes = 2,
-    ///                             ContactChannelId = aws_ssmcontacts_contact_channel.Channel.Arn,
-    ///                         },
+    ///                             { "retryIntervalInMinutes", 2 },
+    ///                             { "contactChannelId", aws_ssmcontacts_contact_channel.Channel.Arn },
+    ///                         } },
     ///                     },
-    ///                 },
+    ///                 } },
     ///             },
     ///         },
     ///     });

@@ -22,43 +22,6 @@ import javax.annotation.Nullable;
  * a VPC Endpoint Service resource and a VPC Endpoint Service Allowed Principal resource. Doing so will cause a conflict
  * and will overwrite the association.
  * 
- * ## Example Usage
- * 
- * Basic usage:
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.AwsFunctions;
- * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
- * import com.pulumi.aws.ec2.VpcEndpointServiceAllowedPrinciple;
- * import com.pulumi.aws.ec2.VpcEndpointServiceAllowedPrincipleArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var current = AwsFunctions.getCallerIdentity();
- * 
- *         var allowMeToFoo = new VpcEndpointServiceAllowedPrinciple(&#34;allowMeToFoo&#34;, VpcEndpointServiceAllowedPrincipleArgs.builder()        
- *             .vpcEndpointServiceId(aws_vpc_endpoint_service.foo().id())
- *             .principalArn(current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.arn()))
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
  */
 @ResourceType(type="aws:ec2/vpcEndpointServiceAllowedPrinciple:VpcEndpointServiceAllowedPrinciple")
 public class VpcEndpointServiceAllowedPrinciple extends com.pulumi.resources.CustomResource {

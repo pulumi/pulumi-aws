@@ -11,16 +11,6 @@ import * as utilities from "../utilities";
  * Data source for managing an AWS Verified Permissions Policy Store.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.verifiedpermissions.getPolicyStore({
- *     id: "example",
- * });
- * ```
  */
 export function getPolicyStore(args: GetPolicyStoreArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyStoreResult> {
 
@@ -67,16 +57,6 @@ export interface GetPolicyStoreResult {
  * Data source for managing an AWS Verified Permissions Policy Store.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.verifiedpermissions.getPolicyStore({
- *     id: "example",
- * });
- * ```
  */
 export function getPolicyStoreOutput(args: GetPolicyStoreOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicyStoreResult> {
     return pulumi.output(args).apply((a: any) => getPolicyStore(a, opts))

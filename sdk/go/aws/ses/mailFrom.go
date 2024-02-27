@@ -26,57 +26,57 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ses"
+//	route53/record "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/route53/record"
+//	ses/domainIdentity "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ses/domainIdentity"
+//	ses/mailFrom "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ses/mailFrom"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleDomainIdentity, err := ses.NewDomainIdentity(ctx, "exampleDomainIdentity", &ses.DomainIdentityArgs{
-//				Domain: pulumi.String("example.com"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleMailFrom, err := ses.NewMailFrom(ctx, "exampleMailFrom", &ses.MailFromArgs{
-//				Domain: exampleDomainIdentity.Domain,
-//				MailFromDomain: exampleDomainIdentity.Domain.ApplyT(func(domain string) (string, error) {
-//					return fmt.Sprintf("bounce.%v", domain), nil
-//				}).(pulumi.StringOutput),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = route53.NewRecord(ctx, "exampleSesDomainMailFromMx", &route53.RecordArgs{
-//				ZoneId: pulumi.Any(aws_route53_zone.Example.Id),
-//				Name:   exampleMailFrom.MailFromDomain,
-//				Type:   pulumi.String("MX"),
-//				Ttl:    pulumi.Int(600),
-//				Records: pulumi.StringArray{
-//					pulumi.String("10 feedback-smtp.us-east-1.amazonses.com"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = route53.NewRecord(ctx, "exampleSesDomainMailFromTxt", &route53.RecordArgs{
-//				ZoneId: pulumi.Any(aws_route53_zone.Example.Id),
-//				Name:   exampleMailFrom.MailFromDomain,
-//				Type:   pulumi.String("TXT"),
-//				Ttl:    pulumi.Int(600),
-//				Records: pulumi.StringArray{
-//					pulumi.String("v=spf1 include:amazonses.com -all"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// // Example SES Domain Identity
+// exampleDomainIdentity, err := ses/domainIdentity.NewDomainIdentity(ctx, "exampleDomainIdentity", &ses/domainIdentity.DomainIdentityArgs{
+// Domain: "example.com",
+// })
+// if err != nil {
+// return err
+// }
+// exampleMailFrom, err := ses/mailFrom.NewMailFrom(ctx, "exampleMailFrom", &ses/mailFrom.MailFromArgs{
+// Domain: exampleDomainIdentity.Domain,
+// MailFromDomain: fmt.Sprintf("bounce.%v", exampleDomainIdentity.Domain),
+// })
+// if err != nil {
+// return err
+// }
+// // Example Route53 MX record
+// _, err = route53/record.NewRecord(ctx, "exampleSesDomainMailFromMx", &route53/record.RecordArgs{
+// ZoneId: aws_route53_zone.Example.Id,
+// Name: exampleMailFrom.MailFromDomain,
+// Type: "MX",
+// Ttl: "600",
+// Records: []string{
+// "10 feedback-smtp.us-east-1.amazonses.com",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// // Example Route53 TXT record for SPF
+// _, err = route53/record.NewRecord(ctx, "exampleSesDomainMailFromTxt", &route53/record.RecordArgs{
+// ZoneId: aws_route53_zone.Example.Id,
+// Name: exampleMailFrom.MailFromDomain,
+// Type: "TXT",
+// Ttl: "600",
+// Records: []string{
+// "v=spf1 include:amazonses.com -all",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Email Identity MAIL FROM
 //
@@ -85,30 +85,30 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ses"
+//	ses/emailIdentity "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ses/emailIdentity"
+//	ses/mailFrom "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ses/mailFrom"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleEmailIdentity, err := ses.NewEmailIdentity(ctx, "exampleEmailIdentity", &ses.EmailIdentityArgs{
-//				Email: pulumi.String("user@example.com"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ses.NewMailFrom(ctx, "exampleMailFrom", &ses.MailFromArgs{
-//				Domain:         exampleEmailIdentity.Email,
-//				MailFromDomain: pulumi.String("mail.example.com"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// // Example SES Email Identity
+// exampleEmailIdentity, err := ses/emailIdentity.NewEmailIdentity(ctx, "exampleEmailIdentity", &ses/emailIdentity.EmailIdentityArgs{
+// Email: "user@example.com",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = ses/mailFrom.NewMailFrom(ctx, "exampleMailFrom", &ses/mailFrom.MailFromArgs{
+// Domain: exampleEmailIdentity.Email,
+// MailFromDomain: "mail.example.com",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

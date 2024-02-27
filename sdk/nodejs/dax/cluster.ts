@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const bar = new aws.dax.Cluster("bar", {
+ * const bar = new aws.dax/cluster.Cluster("bar", {
  *     clusterName: "cluster-example",
  *     iamRoleArn: data.aws_iam_role.example.arn,
  *     nodeType: "dax.r4.large",

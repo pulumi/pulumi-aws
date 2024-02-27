@@ -18,35 +18,6 @@ public final class BudgetsFunctions {
      * Data source for managing an AWS Web Services Budgets Budget.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.budgets.BudgetsFunctions;
-     * import com.pulumi.aws.budgets.inputs.GetBudgetArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = BudgetsFunctions.getBudget(GetBudgetArgs.builder()
-     *             .name(aws_budgets_budget.test().name())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetBudgetResult> getBudget(GetBudgetArgs args) {
@@ -56,35 +27,6 @@ public final class BudgetsFunctions {
      * Data source for managing an AWS Web Services Budgets Budget.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.budgets.BudgetsFunctions;
-     * import com.pulumi.aws.budgets.inputs.GetBudgetArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = BudgetsFunctions.getBudget(GetBudgetArgs.builder()
-     *             .name(aws_budgets_budget.test().name())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetBudgetResult> getBudgetPlain(GetBudgetPlainArgs args) {
@@ -94,35 +36,6 @@ public final class BudgetsFunctions {
      * Data source for managing an AWS Web Services Budgets Budget.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.budgets.BudgetsFunctions;
-     * import com.pulumi.aws.budgets.inputs.GetBudgetArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = BudgetsFunctions.getBudget(GetBudgetArgs.builder()
-     *             .name(aws_budgets_budget.test().name())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetBudgetResult> getBudget(GetBudgetArgs args, InvokeOptions options) {
@@ -132,35 +45,6 @@ public final class BudgetsFunctions {
      * Data source for managing an AWS Web Services Budgets Budget.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.budgets.BudgetsFunctions;
-     * import com.pulumi.aws.budgets.inputs.GetBudgetArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = BudgetsFunctions.getBudget(GetBudgetArgs.builder()
-     *             .name(aws_budgets_budget.test().name())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetBudgetResult> getBudgetPlain(GetBudgetPlainArgs args, InvokeOptions options) {

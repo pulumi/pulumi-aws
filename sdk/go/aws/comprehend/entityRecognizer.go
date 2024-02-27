@@ -24,55 +24,49 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/comprehend"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	comprehend/entityRecognizer "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/comprehend/entityRecognizer"
+//	s3/bucketObjectv2 "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/s3/bucketObjectv2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			documents, err := s3.NewBucketObjectv2(ctx, "documents", nil)
-//			if err != nil {
-//				return err
-//			}
-//			entities, err := s3.NewBucketObjectv2(ctx, "entities", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = comprehend.NewEntityRecognizer(ctx, "example", &comprehend.EntityRecognizerArgs{
-//				DataAccessRoleArn: pulumi.Any(aws_iam_role.Example.Arn),
-//				LanguageCode:      pulumi.String("en"),
-//				InputDataConfig: &comprehend.EntityRecognizerInputDataConfigArgs{
-//					EntityTypes: comprehend.EntityRecognizerInputDataConfigEntityTypeArray{
-//						&comprehend.EntityRecognizerInputDataConfigEntityTypeArgs{
-//							Type: pulumi.String("ENTITY_1"),
-//						},
-//						&comprehend.EntityRecognizerInputDataConfigEntityTypeArgs{
-//							Type: pulumi.String("ENTITY_2"),
-//						},
-//					},
-//					Documents: &comprehend.EntityRecognizerInputDataConfigDocumentsArgs{
-//						S3Uri: documents.ID().ApplyT(func(id string) (string, error) {
-//							return fmt.Sprintf("s3://%v/%v", aws_s3_bucket.Documents.Bucket, id), nil
-//						}).(pulumi.StringOutput),
-//					},
-//					EntityList: &comprehend.EntityRecognizerInputDataConfigEntityListArgs{
-//						S3Uri: entities.ID().ApplyT(func(id string) (string, error) {
-//							return fmt.Sprintf("s3://%v/%v", aws_s3_bucket.Entities.Bucket, id), nil
-//						}).(pulumi.StringOutput),
-//					},
-//				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				aws_iam_role_policy.Example,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// documents, err := s3/bucketObjectv2.NewBucketObjectv2(ctx, "documents", nil)
+// if err != nil {
+// return err
+// }
+// entities, err := s3/bucketObjectv2.NewBucketObjectv2(ctx, "entities", nil)
+// if err != nil {
+// return err
+// }
+// _, err = comprehend/entityRecognizer.NewEntityRecognizer(ctx, "example", &comprehend/entityRecognizer.EntityRecognizerArgs{
+// DataAccessRoleArn: aws_iam_role.Example.Arn,
+// LanguageCode: "en",
+// InputDataConfig: map[string]interface{}{
+// "entityTypes": []map[string]interface{}{
+// map[string]interface{}{
+// "type": "ENTITY_1",
+// },
+// map[string]interface{}{
+// "type": "ENTITY_2",
+// },
+// },
+// "documents": map[string]interface{}{
+// "s3Uri": fmt.Sprintf("s3://%v/%v", aws_s3_bucket.Documents.Bucket, documents.Id),
+// },
+// "entityList": map[string]interface{}{
+// "s3Uri": fmt.Sprintf("s3://%v/%v", aws_s3_bucket.Entities.Bucket, entities.Id),
+// },
+// },
+// }, pulumi.DependsOn([]pulumi.Resource{
+// aws_iam_role_policy.Example,
+// }))
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -21,26 +21,24 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53"
+//	route53/resolverQueryLogConfig "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/route53/resolverQueryLogConfig"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := route53.NewResolverQueryLogConfig(ctx, "example", &route53.ResolverQueryLogConfigArgs{
-//				DestinationArn: pulumi.Any(aws_s3_bucket.Example.Arn),
-//				Tags: pulumi.StringMap{
-//					"Environment": pulumi.String("Prod"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := route53/resolverQueryLogConfig.NewResolverQueryLogConfig(ctx, "example", &route53/resolverQueryLogConfig.ResolverQueryLogConfigArgs{
+// DestinationArn: aws_s3_bucket.Example.Arn,
+// Tags: map[string]interface{}{
+// "Environment": "Prod",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

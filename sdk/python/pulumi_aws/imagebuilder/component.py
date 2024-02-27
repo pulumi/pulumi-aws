@@ -522,10 +522,10 @@ class Component(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.imagebuilder.Component("example",
-            platform="Linux",
-            uri=f"s3://{aws_s3_object['example']['bucket']}/{aws_s3_object['example']['key']}",
-            version="1.0.0")
+        example = aws.imagebuilder.component.Component("example",
+            platform=Linux,
+            uri=fs3://{aws_s3_object.example.bucket}/{aws_s3_object.example.key},
+            version=1.0.0)
         ```
 
         ## Import
@@ -571,10 +571,10 @@ class Component(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.imagebuilder.Component("example",
-            platform="Linux",
-            uri=f"s3://{aws_s3_object['example']['bucket']}/{aws_s3_object['example']['key']}",
-            version="1.0.0")
+        example = aws.imagebuilder.component.Component("example",
+            platform=Linux,
+            uri=fs3://{aws_s3_object.example.bucket}/{aws_s3_object.example.key},
+            version=1.0.0)
         ```
 
         ## Import

@@ -182,10 +182,10 @@ class ProvisionedConcurrencyConfig(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.lambda_.ProvisionedConcurrencyConfig("example",
-            function_name=aws_lambda_alias["example"]["function_name"],
+        example = aws.lambda_.provisioned_concurrency_config.ProvisionedConcurrencyConfig("example",
+            function_name=aws_lambda_alias.example.function_name,
             provisioned_concurrent_executions=1,
-            qualifier=aws_lambda_alias["example"]["name"])
+            qualifier=aws_lambda_alias.example.name)
         ```
         ### Function Version
 
@@ -193,10 +193,10 @@ class ProvisionedConcurrencyConfig(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.lambda_.ProvisionedConcurrencyConfig("example",
-            function_name=aws_lambda_function["example"]["function_name"],
+        example = aws.lambda_.provisioned_concurrency_config.ProvisionedConcurrencyConfig("example",
+            function_name=aws_lambda_function.example.function_name,
             provisioned_concurrent_executions=1,
-            qualifier=aws_lambda_function["example"]["version"])
+            qualifier=aws_lambda_function.example.version)
         ```
 
         ## Import
@@ -234,10 +234,10 @@ class ProvisionedConcurrencyConfig(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.lambda_.ProvisionedConcurrencyConfig("example",
-            function_name=aws_lambda_alias["example"]["function_name"],
+        example = aws.lambda_.provisioned_concurrency_config.ProvisionedConcurrencyConfig("example",
+            function_name=aws_lambda_alias.example.function_name,
             provisioned_concurrent_executions=1,
-            qualifier=aws_lambda_alias["example"]["name"])
+            qualifier=aws_lambda_alias.example.name)
         ```
         ### Function Version
 
@@ -245,10 +245,10 @@ class ProvisionedConcurrencyConfig(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.lambda_.ProvisionedConcurrencyConfig("example",
-            function_name=aws_lambda_function["example"]["function_name"],
+        example = aws.lambda_.provisioned_concurrency_config.ProvisionedConcurrencyConfig("example",
+            function_name=aws_lambda_function.example.function_name,
             provisioned_concurrent_executions=1,
-            qualifier=aws_lambda_function["example"]["version"])
+            qualifier=aws_lambda_function.example.version)
         ```
 
         ## Import

@@ -23,7 +23,7 @@ namespace Pulumi.Aws.SesV2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.SesV2.ContactList("example", new()
+    ///     var example = new Aws.Sesv2.ContactList.ContactList("example", new()
     ///     {
     ///         ContactListName = "example",
     ///     });
@@ -40,18 +40,18 @@ namespace Pulumi.Aws.SesV2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.SesV2.ContactList("example", new()
+    ///     var example = new Aws.Sesv2.ContactList.ContactList("example", new()
     ///     {
     ///         ContactListName = "example",
     ///         Description = "description",
     ///         Topics = new[]
     ///         {
-    ///             new Aws.SesV2.Inputs.ContactListTopicArgs
+    ///             
     ///             {
-    ///                 DefaultSubscriptionStatus = "OPT_IN",
-    ///                 Description = "topic description",
-    ///                 DisplayName = "Example Topic",
-    ///                 TopicName = "example-topic",
+    ///                 { "defaultSubscriptionStatus", "OPT_IN" },
+    ///                 { "description", "topic description" },
+    ///                 { "displayName", "Example Topic" },
+    ///                 { "topicName", "example-topic" },
     ///             },
     ///         },
     ///     });

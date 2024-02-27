@@ -37,76 +37,12 @@ public final class EksFunctions {
     /**
      * Access Entry Configurations for an EKS Cluster.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.eks.EksFunctions;
-     * import com.pulumi.aws.eks.inputs.GetAccessEntryArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = EksFunctions.getAccessEntry(GetAccessEntryArgs.builder()
-     *             .clusterName(aws_eks_cluster.example().name())
-     *             .principalArn(aws_iam_role.example().arn())
-     *             .build());
-     * 
-     *         ctx.export(&#34;eksAccessEntryOutputs&#34;, aws_eks_access_entry.example());
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetAccessEntryResult> getAccessEntry(GetAccessEntryArgs args) {
         return getAccessEntry(args, InvokeOptions.Empty);
     }
     /**
      * Access Entry Configurations for an EKS Cluster.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.eks.EksFunctions;
-     * import com.pulumi.aws.eks.inputs.GetAccessEntryArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = EksFunctions.getAccessEntry(GetAccessEntryArgs.builder()
-     *             .clusterName(aws_eks_cluster.example().name())
-     *             .principalArn(aws_iam_role.example().arn())
-     *             .build());
-     * 
-     *         ctx.export(&#34;eksAccessEntryOutputs&#34;, aws_eks_access_entry.example());
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetAccessEntryResult> getAccessEntryPlain(GetAccessEntryPlainArgs args) {
@@ -115,76 +51,12 @@ public final class EksFunctions {
     /**
      * Access Entry Configurations for an EKS Cluster.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.eks.EksFunctions;
-     * import com.pulumi.aws.eks.inputs.GetAccessEntryArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = EksFunctions.getAccessEntry(GetAccessEntryArgs.builder()
-     *             .clusterName(aws_eks_cluster.example().name())
-     *             .principalArn(aws_iam_role.example().arn())
-     *             .build());
-     * 
-     *         ctx.export(&#34;eksAccessEntryOutputs&#34;, aws_eks_access_entry.example());
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetAccessEntryResult> getAccessEntry(GetAccessEntryArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:eks/getAccessEntry:getAccessEntry", TypeShape.of(GetAccessEntryResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Access Entry Configurations for an EKS Cluster.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.eks.EksFunctions;
-     * import com.pulumi.aws.eks.inputs.GetAccessEntryArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = EksFunctions.getAccessEntry(GetAccessEntryArgs.builder()
-     *             .clusterName(aws_eks_cluster.example().name())
-     *             .principalArn(aws_iam_role.example().arn())
-     *             .build());
-     * 
-     *         ctx.export(&#34;eksAccessEntryOutputs&#34;, aws_eks_access_entry.example());
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetAccessEntryResult> getAccessEntryPlain(GetAccessEntryPlainArgs args, InvokeOptions options) {
@@ -193,76 +65,12 @@ public final class EksFunctions {
     /**
      * Retrieve information about an EKS add-on.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.eks.EksFunctions;
-     * import com.pulumi.aws.eks.inputs.GetAddonArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = EksFunctions.getAddon(GetAddonArgs.builder()
-     *             .addonName(&#34;vpc-cni&#34;)
-     *             .clusterName(aws_eks_cluster.example().name())
-     *             .build());
-     * 
-     *         ctx.export(&#34;eksAddonOutputs&#34;, aws_eks_addon.example());
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetAddonResult> getAddon(GetAddonArgs args) {
         return getAddon(args, InvokeOptions.Empty);
     }
     /**
      * Retrieve information about an EKS add-on.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.eks.EksFunctions;
-     * import com.pulumi.aws.eks.inputs.GetAddonArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = EksFunctions.getAddon(GetAddonArgs.builder()
-     *             .addonName(&#34;vpc-cni&#34;)
-     *             .clusterName(aws_eks_cluster.example().name())
-     *             .build());
-     * 
-     *         ctx.export(&#34;eksAddonOutputs&#34;, aws_eks_addon.example());
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetAddonResult> getAddonPlain(GetAddonPlainArgs args) {
@@ -271,76 +79,12 @@ public final class EksFunctions {
     /**
      * Retrieve information about an EKS add-on.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.eks.EksFunctions;
-     * import com.pulumi.aws.eks.inputs.GetAddonArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = EksFunctions.getAddon(GetAddonArgs.builder()
-     *             .addonName(&#34;vpc-cni&#34;)
-     *             .clusterName(aws_eks_cluster.example().name())
-     *             .build());
-     * 
-     *         ctx.export(&#34;eksAddonOutputs&#34;, aws_eks_addon.example());
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetAddonResult> getAddon(GetAddonArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:eks/getAddon:getAddon", TypeShape.of(GetAddonResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Retrieve information about an EKS add-on.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.eks.EksFunctions;
-     * import com.pulumi.aws.eks.inputs.GetAddonArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = EksFunctions.getAddon(GetAddonArgs.builder()
-     *             .addonName(&#34;vpc-cni&#34;)
-     *             .clusterName(aws_eks_cluster.example().name())
-     *             .build());
-     * 
-     *         ctx.export(&#34;eksAddonOutputs&#34;, aws_eks_addon.example());
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetAddonResult> getAddonPlain(GetAddonPlainArgs args, InvokeOptions options) {
@@ -349,106 +93,12 @@ public final class EksFunctions {
     /**
      * Retrieve information about a specific EKS add-on version compatible with an EKS cluster version.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.eks.EksFunctions;
-     * import com.pulumi.aws.eks.inputs.GetAddonVersionArgs;
-     * import com.pulumi.aws.eks.Addon;
-     * import com.pulumi.aws.eks.AddonArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var defaultAddonVersion = EksFunctions.getAddonVersion(GetAddonVersionArgs.builder()
-     *             .addonName(&#34;vpc-cni&#34;)
-     *             .kubernetesVersion(aws_eks_cluster.example().version())
-     *             .build());
-     * 
-     *         final var latestAddonVersion = EksFunctions.getAddonVersion(GetAddonVersionArgs.builder()
-     *             .addonName(&#34;vpc-cni&#34;)
-     *             .kubernetesVersion(aws_eks_cluster.example().version())
-     *             .mostRecent(true)
-     *             .build());
-     * 
-     *         var vpcCni = new Addon(&#34;vpcCni&#34;, AddonArgs.builder()        
-     *             .clusterName(aws_eks_cluster.example().name())
-     *             .addonName(&#34;vpc-cni&#34;)
-     *             .addonVersion(latestAddonVersion.applyValue(getAddonVersionResult -&gt; getAddonVersionResult.version()))
-     *             .build());
-     * 
-     *         ctx.export(&#34;default&#34;, defaultAddonVersion.applyValue(getAddonVersionResult -&gt; getAddonVersionResult.version()));
-     *         ctx.export(&#34;latest&#34;, latestAddonVersion.applyValue(getAddonVersionResult -&gt; getAddonVersionResult.version()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetAddonVersionResult> getAddonVersion(GetAddonVersionArgs args) {
         return getAddonVersion(args, InvokeOptions.Empty);
     }
     /**
      * Retrieve information about a specific EKS add-on version compatible with an EKS cluster version.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.eks.EksFunctions;
-     * import com.pulumi.aws.eks.inputs.GetAddonVersionArgs;
-     * import com.pulumi.aws.eks.Addon;
-     * import com.pulumi.aws.eks.AddonArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var defaultAddonVersion = EksFunctions.getAddonVersion(GetAddonVersionArgs.builder()
-     *             .addonName(&#34;vpc-cni&#34;)
-     *             .kubernetesVersion(aws_eks_cluster.example().version())
-     *             .build());
-     * 
-     *         final var latestAddonVersion = EksFunctions.getAddonVersion(GetAddonVersionArgs.builder()
-     *             .addonName(&#34;vpc-cni&#34;)
-     *             .kubernetesVersion(aws_eks_cluster.example().version())
-     *             .mostRecent(true)
-     *             .build());
-     * 
-     *         var vpcCni = new Addon(&#34;vpcCni&#34;, AddonArgs.builder()        
-     *             .clusterName(aws_eks_cluster.example().name())
-     *             .addonName(&#34;vpc-cni&#34;)
-     *             .addonVersion(latestAddonVersion.applyValue(getAddonVersionResult -&gt; getAddonVersionResult.version()))
-     *             .build());
-     * 
-     *         ctx.export(&#34;default&#34;, defaultAddonVersion.applyValue(getAddonVersionResult -&gt; getAddonVersionResult.version()));
-     *         ctx.export(&#34;latest&#34;, latestAddonVersion.applyValue(getAddonVersionResult -&gt; getAddonVersionResult.version()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetAddonVersionResult> getAddonVersionPlain(GetAddonVersionPlainArgs args) {
@@ -457,106 +107,12 @@ public final class EksFunctions {
     /**
      * Retrieve information about a specific EKS add-on version compatible with an EKS cluster version.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.eks.EksFunctions;
-     * import com.pulumi.aws.eks.inputs.GetAddonVersionArgs;
-     * import com.pulumi.aws.eks.Addon;
-     * import com.pulumi.aws.eks.AddonArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var defaultAddonVersion = EksFunctions.getAddonVersion(GetAddonVersionArgs.builder()
-     *             .addonName(&#34;vpc-cni&#34;)
-     *             .kubernetesVersion(aws_eks_cluster.example().version())
-     *             .build());
-     * 
-     *         final var latestAddonVersion = EksFunctions.getAddonVersion(GetAddonVersionArgs.builder()
-     *             .addonName(&#34;vpc-cni&#34;)
-     *             .kubernetesVersion(aws_eks_cluster.example().version())
-     *             .mostRecent(true)
-     *             .build());
-     * 
-     *         var vpcCni = new Addon(&#34;vpcCni&#34;, AddonArgs.builder()        
-     *             .clusterName(aws_eks_cluster.example().name())
-     *             .addonName(&#34;vpc-cni&#34;)
-     *             .addonVersion(latestAddonVersion.applyValue(getAddonVersionResult -&gt; getAddonVersionResult.version()))
-     *             .build());
-     * 
-     *         ctx.export(&#34;default&#34;, defaultAddonVersion.applyValue(getAddonVersionResult -&gt; getAddonVersionResult.version()));
-     *         ctx.export(&#34;latest&#34;, latestAddonVersion.applyValue(getAddonVersionResult -&gt; getAddonVersionResult.version()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetAddonVersionResult> getAddonVersion(GetAddonVersionArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:eks/getAddonVersion:getAddonVersion", TypeShape.of(GetAddonVersionResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Retrieve information about a specific EKS add-on version compatible with an EKS cluster version.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.eks.EksFunctions;
-     * import com.pulumi.aws.eks.inputs.GetAddonVersionArgs;
-     * import com.pulumi.aws.eks.Addon;
-     * import com.pulumi.aws.eks.AddonArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var defaultAddonVersion = EksFunctions.getAddonVersion(GetAddonVersionArgs.builder()
-     *             .addonName(&#34;vpc-cni&#34;)
-     *             .kubernetesVersion(aws_eks_cluster.example().version())
-     *             .build());
-     * 
-     *         final var latestAddonVersion = EksFunctions.getAddonVersion(GetAddonVersionArgs.builder()
-     *             .addonName(&#34;vpc-cni&#34;)
-     *             .kubernetesVersion(aws_eks_cluster.example().version())
-     *             .mostRecent(true)
-     *             .build());
-     * 
-     *         var vpcCni = new Addon(&#34;vpcCni&#34;, AddonArgs.builder()        
-     *             .clusterName(aws_eks_cluster.example().name())
-     *             .addonName(&#34;vpc-cni&#34;)
-     *             .addonVersion(latestAddonVersion.applyValue(getAddonVersionResult -&gt; getAddonVersionResult.version()))
-     *             .build());
-     * 
-     *         ctx.export(&#34;default&#34;, defaultAddonVersion.applyValue(getAddonVersionResult -&gt; getAddonVersionResult.version()));
-     *         ctx.export(&#34;latest&#34;, latestAddonVersion.applyValue(getAddonVersionResult -&gt; getAddonVersionResult.version()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetAddonVersionResult> getAddonVersionPlain(GetAddonVersionPlainArgs args, InvokeOptions options) {
@@ -565,78 +121,12 @@ public final class EksFunctions {
     /**
      * Retrieve information about an EKS Cluster.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.eks.EksFunctions;
-     * import com.pulumi.aws.eks.inputs.GetClusterArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = EksFunctions.getCluster(GetClusterArgs.builder()
-     *             .name(&#34;example&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;endpoint&#34;, example.applyValue(getClusterResult -&gt; getClusterResult.endpoint()));
-     *         ctx.export(&#34;kubeconfig-certificate-authority-data&#34;, example.applyValue(getClusterResult -&gt; getClusterResult.certificateAuthorities()[0].data()));
-     *         ctx.export(&#34;identity-oidc-issuer&#34;, example.applyValue(getClusterResult -&gt; getClusterResult.identities()[0].oidcs()[0].issuer()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetClusterResult> getCluster(GetClusterArgs args) {
         return getCluster(args, InvokeOptions.Empty);
     }
     /**
      * Retrieve information about an EKS Cluster.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.eks.EksFunctions;
-     * import com.pulumi.aws.eks.inputs.GetClusterArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = EksFunctions.getCluster(GetClusterArgs.builder()
-     *             .name(&#34;example&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;endpoint&#34;, example.applyValue(getClusterResult -&gt; getClusterResult.endpoint()));
-     *         ctx.export(&#34;kubeconfig-certificate-authority-data&#34;, example.applyValue(getClusterResult -&gt; getClusterResult.certificateAuthorities()[0].data()));
-     *         ctx.export(&#34;identity-oidc-issuer&#34;, example.applyValue(getClusterResult -&gt; getClusterResult.identities()[0].oidcs()[0].issuer()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetClusterResult> getClusterPlain(GetClusterPlainArgs args) {
@@ -645,78 +135,12 @@ public final class EksFunctions {
     /**
      * Retrieve information about an EKS Cluster.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.eks.EksFunctions;
-     * import com.pulumi.aws.eks.inputs.GetClusterArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = EksFunctions.getCluster(GetClusterArgs.builder()
-     *             .name(&#34;example&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;endpoint&#34;, example.applyValue(getClusterResult -&gt; getClusterResult.endpoint()));
-     *         ctx.export(&#34;kubeconfig-certificate-authority-data&#34;, example.applyValue(getClusterResult -&gt; getClusterResult.certificateAuthorities()[0].data()));
-     *         ctx.export(&#34;identity-oidc-issuer&#34;, example.applyValue(getClusterResult -&gt; getClusterResult.identities()[0].oidcs()[0].issuer()));
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetClusterResult> getCluster(GetClusterArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:eks/getCluster:getCluster", TypeShape.of(GetClusterResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Retrieve information about an EKS Cluster.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.eks.EksFunctions;
-     * import com.pulumi.aws.eks.inputs.GetClusterArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = EksFunctions.getCluster(GetClusterArgs.builder()
-     *             .name(&#34;example&#34;)
-     *             .build());
-     * 
-     *         ctx.export(&#34;endpoint&#34;, example.applyValue(getClusterResult -&gt; getClusterResult.endpoint()));
-     *         ctx.export(&#34;kubeconfig-certificate-authority-data&#34;, example.applyValue(getClusterResult -&gt; getClusterResult.certificateAuthorities()[0].data()));
-     *         ctx.export(&#34;identity-oidc-issuer&#34;, example.applyValue(getClusterResult -&gt; getClusterResult.identities()[0].oidcs()[0].issuer()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetClusterResult> getClusterPlain(GetClusterPlainArgs args, InvokeOptions options) {
@@ -815,74 +239,12 @@ public final class EksFunctions {
     /**
      * Retrieve information about an EKS Node Group.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.eks.EksFunctions;
-     * import com.pulumi.aws.eks.inputs.GetNodeGroupArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = EksFunctions.getNodeGroup(GetNodeGroupArgs.builder()
-     *             .clusterName(&#34;example&#34;)
-     *             .nodeGroupName(&#34;example&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetNodeGroupResult> getNodeGroup(GetNodeGroupArgs args) {
         return getNodeGroup(args, InvokeOptions.Empty);
     }
     /**
      * Retrieve information about an EKS Node Group.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.eks.EksFunctions;
-     * import com.pulumi.aws.eks.inputs.GetNodeGroupArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = EksFunctions.getNodeGroup(GetNodeGroupArgs.builder()
-     *             .clusterName(&#34;example&#34;)
-     *             .nodeGroupName(&#34;example&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetNodeGroupResult> getNodeGroupPlain(GetNodeGroupPlainArgs args) {
@@ -891,74 +253,12 @@ public final class EksFunctions {
     /**
      * Retrieve information about an EKS Node Group.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.eks.EksFunctions;
-     * import com.pulumi.aws.eks.inputs.GetNodeGroupArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = EksFunctions.getNodeGroup(GetNodeGroupArgs.builder()
-     *             .clusterName(&#34;example&#34;)
-     *             .nodeGroupName(&#34;example&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetNodeGroupResult> getNodeGroup(GetNodeGroupArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:eks/getNodeGroup:getNodeGroup", TypeShape.of(GetNodeGroupResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Retrieve information about an EKS Node Group.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.eks.EksFunctions;
-     * import com.pulumi.aws.eks.inputs.GetNodeGroupArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = EksFunctions.getNodeGroup(GetNodeGroupArgs.builder()
-     *             .clusterName(&#34;example&#34;)
-     *             .nodeGroupName(&#34;example&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetNodeGroupResult> getNodeGroupPlain(GetNodeGroupPlainArgs args, InvokeOptions options) {
@@ -967,16 +267,12 @@ public final class EksFunctions {
     /**
      * Retrieve the EKS Node Groups associated with a named EKS cluster. This will allow you to pass a list of Node Group names to other resources.
      * 
-     * ## Example Usage
-     * 
      */
     public static Output<GetNodeGroupsResult> getNodeGroups(GetNodeGroupsArgs args) {
         return getNodeGroups(args, InvokeOptions.Empty);
     }
     /**
      * Retrieve the EKS Node Groups associated with a named EKS cluster. This will allow you to pass a list of Node Group names to other resources.
-     * 
-     * ## Example Usage
      * 
      */
     public static CompletableFuture<GetNodeGroupsResult> getNodeGroupsPlain(GetNodeGroupsPlainArgs args) {
@@ -985,16 +281,12 @@ public final class EksFunctions {
     /**
      * Retrieve the EKS Node Groups associated with a named EKS cluster. This will allow you to pass a list of Node Group names to other resources.
      * 
-     * ## Example Usage
-     * 
      */
     public static Output<GetNodeGroupsResult> getNodeGroups(GetNodeGroupsArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:eks/getNodeGroups:getNodeGroups", TypeShape.of(GetNodeGroupsResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Retrieve the EKS Node Groups associated with a named EKS cluster. This will allow you to pass a list of Node Group names to other resources.
-     * 
-     * ## Example Usage
      * 
      */
     public static CompletableFuture<GetNodeGroupsResult> getNodeGroupsPlain(GetNodeGroupsPlainArgs args, InvokeOptions options) {

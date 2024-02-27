@@ -19,13 +19,13 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.rds.GlobalCluster("example", {
+ * const example = new aws.rds/globalCluster.GlobalCluster("example", {
  *     globalClusterIdentifier: "global-test",
  *     engine: "aurora",
  *     engineVersion: "5.6.mysql_aurora.1.22.2",
  *     databaseName: "example_db",
  * });
- * const primaryCluster = new aws.rds.Cluster("primaryCluster", {
+ * const primaryCluster = new aws.rds/cluster.Cluster("primaryCluster", {
  *     engine: example.engine,
  *     engineVersion: example.engineVersion,
  *     clusterIdentifier: "test-primary-cluster",
@@ -37,7 +37,7 @@ import * as utilities from "../utilities";
  * }, {
  *     provider: aws.primary,
  * });
- * const primaryClusterInstance = new aws.rds.ClusterInstance("primaryClusterInstance", {
+ * const primaryClusterInstance = new aws.rds/clusterInstance.ClusterInstance("primaryClusterInstance", {
  *     engine: example.engine,
  *     engineVersion: example.engineVersion,
  *     identifier: "test-primary-cluster-instance",
@@ -47,7 +47,7 @@ import * as utilities from "../utilities";
  * }, {
  *     provider: aws.primary,
  * });
- * const secondaryCluster = new aws.rds.Cluster("secondaryCluster", {
+ * const secondaryCluster = new aws.rds/cluster.Cluster("secondaryCluster", {
  *     engine: example.engine,
  *     engineVersion: example.engineVersion,
  *     clusterIdentifier: "test-secondary-cluster",
@@ -57,7 +57,7 @@ import * as utilities from "../utilities";
  *     provider: aws.secondary,
  *     dependsOn: [primaryClusterInstance],
  * });
- * const secondaryClusterInstance = new aws.rds.ClusterInstance("secondaryClusterInstance", {
+ * const secondaryClusterInstance = new aws.rds/clusterInstance.ClusterInstance("secondaryClusterInstance", {
  *     engine: example.engine,
  *     engineVersion: example.engineVersion,
  *     identifier: "test-secondary-cluster-instance",
@@ -74,15 +74,15 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const primary = new aws.Provider("primary", {region: "us-east-2"});
- * const secondary = new aws.Provider("secondary", {region: "us-east-1"});
- * const example = new aws.rds.GlobalCluster("example", {
+ * const primary = new pulumi.providers.Aws("primary", {region: "us-east-2"});
+ * const secondary = new pulumi.providers.Aws("secondary", {region: "us-east-1"});
+ * const example = new aws.rds/globalCluster.GlobalCluster("example", {
  *     globalClusterIdentifier: "global-test",
  *     engine: "aurora-postgresql",
  *     engineVersion: "11.9",
  *     databaseName: "example_db",
  * });
- * const primaryCluster = new aws.rds.Cluster("primaryCluster", {
+ * const primaryCluster = new aws.rds/cluster.Cluster("primaryCluster", {
  *     engine: example.engine,
  *     engineVersion: example.engineVersion,
  *     clusterIdentifier: "test-primary-cluster",
@@ -94,7 +94,7 @@ import * as utilities from "../utilities";
  * }, {
  *     provider: aws.primary,
  * });
- * const primaryClusterInstance = new aws.rds.ClusterInstance("primaryClusterInstance", {
+ * const primaryClusterInstance = new aws.rds/clusterInstance.ClusterInstance("primaryClusterInstance", {
  *     engine: example.engine,
  *     engineVersion: example.engineVersion,
  *     identifier: "test-primary-cluster-instance",
@@ -104,7 +104,7 @@ import * as utilities from "../utilities";
  * }, {
  *     provider: aws.primary,
  * });
- * const secondaryCluster = new aws.rds.Cluster("secondaryCluster", {
+ * const secondaryCluster = new aws.rds/cluster.Cluster("secondaryCluster", {
  *     engine: example.engine,
  *     engineVersion: example.engineVersion,
  *     clusterIdentifier: "test-secondary-cluster",
@@ -115,7 +115,7 @@ import * as utilities from "../utilities";
  *     provider: aws.secondary,
  *     dependsOn: [primaryClusterInstance],
  * });
- * const secondaryClusterInstance = new aws.rds.ClusterInstance("secondaryClusterInstance", {
+ * const secondaryClusterInstance = new aws.rds/clusterInstance.ClusterInstance("secondaryClusterInstance", {
  *     engine: example.engine,
  *     engineVersion: example.engineVersion,
  *     identifier: "test-secondary-cluster-instance",
@@ -133,8 +133,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * // ... other configuration ...
- * const exampleCluster = new aws.rds.Cluster("exampleCluster", {});
- * const exampleGlobalCluster = new aws.rds.GlobalCluster("exampleGlobalCluster", {
+ * const exampleCluster = new aws.rds/cluster.Cluster("exampleCluster", {});
+ * const exampleGlobalCluster = new aws.rds/globalCluster.GlobalCluster("exampleGlobalCluster", {
  *     forceDestroy: true,
  *     globalClusterIdentifier: "example",
  *     sourceDbClusterIdentifier: exampleCluster.arn,
@@ -148,12 +148,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.rds.GlobalCluster("example", {
+ * const example = new aws.rds/globalCluster.GlobalCluster("example", {
  *     globalClusterIdentifier: "kyivkharkiv",
  *     engine: "aurora-mysql",
  *     engineVersion: "5.7.mysql_aurora.2.07.5",
  * });
- * const primaryCluster = new aws.rds.Cluster("primaryCluster", {
+ * const primaryCluster = new aws.rds/cluster.Cluster("primaryCluster", {
  *     allowMajorVersionUpgrade: true,
  *     applyImmediately: true,
  *     clusterIdentifier: "odessadnipro",
@@ -165,7 +165,7 @@ import * as utilities from "../utilities";
  *     masterUsername: "maesatsuki",
  *     skipFinalSnapshot: true,
  * });
- * const primaryClusterInstance = new aws.rds.ClusterInstance("primaryClusterInstance", {
+ * const primaryClusterInstance = new aws.rds/clusterInstance.ClusterInstance("primaryClusterInstance", {
  *     applyImmediately: true,
  *     clusterIdentifier: primaryCluster.id,
  *     engine: primaryCluster.engine,

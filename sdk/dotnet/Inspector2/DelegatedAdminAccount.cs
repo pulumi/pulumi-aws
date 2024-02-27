@@ -13,25 +13,6 @@ namespace Pulumi.Aws.Inspector2
     /// Resource for managing an Amazon Inspector Delegated Admin Account.
     /// 
     /// ## Example Usage
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var current = Aws.GetCallerIdentity.Invoke();
-    /// 
-    ///     var example = new Aws.Inspector2.DelegatedAdminAccount("example", new()
-    ///     {
-    ///         AccountId = current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 

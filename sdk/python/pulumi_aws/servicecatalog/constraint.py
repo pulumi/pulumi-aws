@@ -276,13 +276,13 @@ class Constraint(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        example = aws.servicecatalog.Constraint("example",
-            description="Back off, man. I'm a scientist.",
-            portfolio_id=aws_servicecatalog_portfolio["example"]["id"],
-            product_id=aws_servicecatalog_product["example"]["id"],
-            type="LAUNCH",
+        example = aws.servicecatalog.constraint.Constraint("example",
+            description=Back off, man. I'm a scientist.,
+            portfolio_id=aws_servicecatalog_portfolio.example.id,
+            product_id=aws_servicecatalog_product.example.id,
+            type=LAUNCH,
             parameters=json.dumps({
-                "RoleArn": "arn:aws:iam::123456789012:role/LaunchRole",
+                RoleArn: arn:aws:iam::123456789012:role/LaunchRole,
             }))
         ```
 
@@ -324,13 +324,13 @@ class Constraint(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        example = aws.servicecatalog.Constraint("example",
-            description="Back off, man. I'm a scientist.",
-            portfolio_id=aws_servicecatalog_portfolio["example"]["id"],
-            product_id=aws_servicecatalog_product["example"]["id"],
-            type="LAUNCH",
+        example = aws.servicecatalog.constraint.Constraint("example",
+            description=Back off, man. I'm a scientist.,
+            portfolio_id=aws_servicecatalog_portfolio.example.id,
+            product_id=aws_servicecatalog_product.example.id,
+            type=LAUNCH,
             parameters=json.dumps({
-                "RoleArn": "arn:aws:iam::123456789012:role/LaunchRole",
+                RoleArn: arn:aws:iam::123456789012:role/LaunchRole,
             }))
         ```
 

@@ -21,29 +21,27 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/rds"
+//	rds/subnetGroup "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/rds/subnetGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := rds.NewSubnetGroup(ctx, "default", &rds.SubnetGroupArgs{
-//				SubnetIds: pulumi.StringArray{
-//					aws_subnet.Frontend.Id,
-//					aws_subnet.Backend.Id,
-//				},
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("My DB subnet group"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := rds/subnetGroup.NewSubnetGroup(ctx, "default", &rds/subnetGroup.SubnetGroupArgs{
+// SubnetIds: []interface{}{
+// aws_subnet.Frontend.Id,
+// aws_subnet.Backend.Id,
+// },
+// Tags: map[string]interface{}{
+// "Name": "My DB subnet group",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

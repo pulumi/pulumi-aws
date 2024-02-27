@@ -23,21 +23,21 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Sagemaker.Workteam("example", new()
+    ///     var example = new Aws.Sagemaker.Workteam.Workteam("example", new()
     ///     {
     ///         WorkteamName = "example",
     ///         WorkforceName = aws_sagemaker_workforce.Example.Id,
     ///         Description = "example",
     ///         MemberDefinitions = new[]
     ///         {
-    ///             new Aws.Sagemaker.Inputs.WorkteamMemberDefinitionArgs
+    ///             
     ///             {
-    ///                 CognitoMemberDefinition = new Aws.Sagemaker.Inputs.WorkteamMemberDefinitionCognitoMemberDefinitionArgs
+    ///                 { "cognitoMemberDefinition", 
     ///                 {
-    ///                     ClientId = aws_cognito_user_pool_client.Example.Id,
-    ///                     UserPool = aws_cognito_user_pool_domain.Example.User_pool_id,
-    ///                     UserGroup = aws_cognito_user_group.Example.Id,
-    ///                 },
+    ///                     { "clientId", aws_cognito_user_pool_client.Example.Id },
+    ///                     { "userPool", aws_cognito_user_pool_domain.Example.User_pool_id },
+    ///                     { "userGroup", aws_cognito_user_group.Example.Id },
+    ///                 } },
     ///             },
     ///         },
     ///     });
@@ -54,22 +54,22 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Sagemaker.Workteam("example", new()
+    ///     var example = new Aws.Sagemaker.Workteam.Workteam("example", new()
     ///     {
     ///         WorkteamName = "example",
     ///         WorkforceName = aws_sagemaker_workforce.Example.Id,
     ///         Description = "example",
     ///         MemberDefinitions = new[]
     ///         {
-    ///             new Aws.Sagemaker.Inputs.WorkteamMemberDefinitionArgs
+    ///             
     ///             {
-    ///                 OidcMemberDefinition = new Aws.Sagemaker.Inputs.WorkteamMemberDefinitionOidcMemberDefinitionArgs
+    ///                 { "oidcMemberDefinition", 
     ///                 {
-    ///                     Groups = new[]
+    ///                     { "groups", new[]
     ///                     {
     ///                         "example",
-    ///                     },
-    ///                 },
+    ///                     } },
+    ///                 } },
     ///             },
     ///         },
     ///     });

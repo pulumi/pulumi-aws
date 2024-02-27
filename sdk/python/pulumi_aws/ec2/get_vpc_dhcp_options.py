@@ -171,31 +171,6 @@ def get_vpc_dhcp_options(dhcp_options_id: Optional[str] = None,
     Retrieve information about an EC2 DHCP Options configuration.
 
     ## Example Usage
-    ### Lookup by DHCP Options ID
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ec2.get_vpc_dhcp_options(dhcp_options_id="dopts-12345678")
-    ```
-    ### Lookup by Filter
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ec2.get_vpc_dhcp_options(filters=[
-        aws.ec2.GetVpcDhcpOptionsFilterArgs(
-            name="key",
-            values=["domain-name"],
-        ),
-        aws.ec2.GetVpcDhcpOptionsFilterArgs(
-            name="value",
-            values=["example.com"],
-        ),
-    ])
-    ```
 
 
     :param str dhcp_options_id: EC2 DHCP Options ID.
@@ -232,31 +207,6 @@ def get_vpc_dhcp_options_output(dhcp_options_id: Optional[pulumi.Input[Optional[
     Retrieve information about an EC2 DHCP Options configuration.
 
     ## Example Usage
-    ### Lookup by DHCP Options ID
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ec2.get_vpc_dhcp_options(dhcp_options_id="dopts-12345678")
-    ```
-    ### Lookup by Filter
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ec2.get_vpc_dhcp_options(filters=[
-        aws.ec2.GetVpcDhcpOptionsFilterArgs(
-            name="key",
-            values=["domain-name"],
-        ),
-        aws.ec2.GetVpcDhcpOptionsFilterArgs(
-            name="value",
-            values=["example.com"],
-        ),
-    ])
-    ```
 
 
     :param str dhcp_options_id: EC2 DHCP Options ID.

@@ -28,7 +28,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.sagemaker.HumanTaskUI;
  * import com.pulumi.aws.sagemaker.HumanTaskUIArgs;
- * import com.pulumi.aws.sagemaker.inputs.HumanTaskUIUiTemplateArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -44,9 +43,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new HumanTaskUI(&#34;example&#34;, HumanTaskUIArgs.builder()        
  *             .humanTaskUiName(&#34;example&#34;)
- *             .uiTemplate(HumanTaskUIUiTemplateArgs.builder()
- *                 .content(Files.readString(Paths.get(&#34;sagemaker-human-task-ui-template.html&#34;)))
- *                 .build())
+ *             .uiTemplate(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

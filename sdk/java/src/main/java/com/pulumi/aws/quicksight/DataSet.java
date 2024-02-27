@@ -40,9 +40,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.quicksight.DataSet;
  * import com.pulumi.aws.quicksight.DataSetArgs;
- * import com.pulumi.aws.quicksight.inputs.DataSetPhysicalTableMapArgs;
- * import com.pulumi.aws.quicksight.inputs.DataSetPhysicalTableMapS3SourceArgs;
- * import com.pulumi.aws.quicksight.inputs.DataSetPhysicalTableMapS3SourceUploadSettingsArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -59,19 +56,7 @@ import javax.annotation.Nullable;
  *         var example = new DataSet(&#34;example&#34;, DataSetArgs.builder()        
  *             .dataSetId(&#34;example-id&#34;)
  *             .importMode(&#34;SPICE&#34;)
- *             .physicalTableMaps(DataSetPhysicalTableMapArgs.builder()
- *                 .physicalTableMapId(&#34;example-id&#34;)
- *                 .s3Source(DataSetPhysicalTableMapS3SourceArgs.builder()
- *                     .dataSourceArn(aws_quicksight_data_source.example().arn())
- *                     .inputColumns(DataSetPhysicalTableMapS3SourceInputColumnArgs.builder()
- *                         .name(&#34;Column1&#34;)
- *                         .type(&#34;STRING&#34;)
- *                         .build())
- *                     .uploadSettings(DataSetPhysicalTableMapS3SourceUploadSettingsArgs.builder()
- *                         .format(&#34;JSON&#34;)
- *                         .build())
- *                     .build())
- *                 .build())
+ *             .physicalTableMaps(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -86,10 +71,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.quicksight.DataSet;
  * import com.pulumi.aws.quicksight.DataSetArgs;
- * import com.pulumi.aws.quicksight.inputs.DataSetPhysicalTableMapArgs;
- * import com.pulumi.aws.quicksight.inputs.DataSetPhysicalTableMapS3SourceArgs;
- * import com.pulumi.aws.quicksight.inputs.DataSetPhysicalTableMapS3SourceUploadSettingsArgs;
- * import com.pulumi.aws.quicksight.inputs.DataSetColumnLevelPermissionRuleArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -106,23 +87,8 @@ import javax.annotation.Nullable;
  *         var example = new DataSet(&#34;example&#34;, DataSetArgs.builder()        
  *             .dataSetId(&#34;example-id&#34;)
  *             .importMode(&#34;SPICE&#34;)
- *             .physicalTableMaps(DataSetPhysicalTableMapArgs.builder()
- *                 .physicalTableMapId(&#34;example-id&#34;)
- *                 .s3Source(DataSetPhysicalTableMapS3SourceArgs.builder()
- *                     .dataSourceArn(aws_quicksight_data_source.example().arn())
- *                     .inputColumns(DataSetPhysicalTableMapS3SourceInputColumnArgs.builder()
- *                         .name(&#34;Column1&#34;)
- *                         .type(&#34;STRING&#34;)
- *                         .build())
- *                     .uploadSettings(DataSetPhysicalTableMapS3SourceUploadSettingsArgs.builder()
- *                         .format(&#34;JSON&#34;)
- *                         .build())
- *                     .build())
- *                 .build())
- *             .columnLevelPermissionRules(DataSetColumnLevelPermissionRuleArgs.builder()
- *                 .columnNames(&#34;Column1&#34;)
- *                 .principals(aws_quicksight_user.example().arn())
- *                 .build())
+ *             .physicalTableMaps(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .columnLevelPermissionRules(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -137,10 +103,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.quicksight.DataSet;
  * import com.pulumi.aws.quicksight.DataSetArgs;
- * import com.pulumi.aws.quicksight.inputs.DataSetPhysicalTableMapArgs;
- * import com.pulumi.aws.quicksight.inputs.DataSetPhysicalTableMapS3SourceArgs;
- * import com.pulumi.aws.quicksight.inputs.DataSetPhysicalTableMapS3SourceUploadSettingsArgs;
- * import com.pulumi.aws.quicksight.inputs.DataSetFieldFolderArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -157,24 +119,8 @@ import javax.annotation.Nullable;
  *         var example = new DataSet(&#34;example&#34;, DataSetArgs.builder()        
  *             .dataSetId(&#34;example-id&#34;)
  *             .importMode(&#34;SPICE&#34;)
- *             .physicalTableMaps(DataSetPhysicalTableMapArgs.builder()
- *                 .physicalTableMapId(&#34;example-id&#34;)
- *                 .s3Source(DataSetPhysicalTableMapS3SourceArgs.builder()
- *                     .dataSourceArn(aws_quicksight_data_source.example().arn())
- *                     .inputColumns(DataSetPhysicalTableMapS3SourceInputColumnArgs.builder()
- *                         .name(&#34;Column1&#34;)
- *                         .type(&#34;STRING&#34;)
- *                         .build())
- *                     .uploadSettings(DataSetPhysicalTableMapS3SourceUploadSettingsArgs.builder()
- *                         .format(&#34;JSON&#34;)
- *                         .build())
- *                     .build())
- *                 .build())
- *             .fieldFolders(DataSetFieldFolderArgs.builder()
- *                 .fieldFoldersId(&#34;example-id&#34;)
- *                 .columns(&#34;Column1&#34;)
- *                 .description(&#34;example description&#34;)
- *                 .build())
+ *             .physicalTableMaps(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .fieldFolders(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -189,10 +135,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.quicksight.DataSet;
  * import com.pulumi.aws.quicksight.DataSetArgs;
- * import com.pulumi.aws.quicksight.inputs.DataSetPhysicalTableMapArgs;
- * import com.pulumi.aws.quicksight.inputs.DataSetPhysicalTableMapS3SourceArgs;
- * import com.pulumi.aws.quicksight.inputs.DataSetPhysicalTableMapS3SourceUploadSettingsArgs;
- * import com.pulumi.aws.quicksight.inputs.DataSetPermissionArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -209,28 +151,8 @@ import javax.annotation.Nullable;
  *         var example = new DataSet(&#34;example&#34;, DataSetArgs.builder()        
  *             .dataSetId(&#34;example-id&#34;)
  *             .importMode(&#34;SPICE&#34;)
- *             .physicalTableMaps(DataSetPhysicalTableMapArgs.builder()
- *                 .physicalTableMapId(&#34;example-id&#34;)
- *                 .s3Source(DataSetPhysicalTableMapS3SourceArgs.builder()
- *                     .dataSourceArn(aws_quicksight_data_source.example().arn())
- *                     .inputColumns(DataSetPhysicalTableMapS3SourceInputColumnArgs.builder()
- *                         .name(&#34;Column1&#34;)
- *                         .type(&#34;STRING&#34;)
- *                         .build())
- *                     .uploadSettings(DataSetPhysicalTableMapS3SourceUploadSettingsArgs.builder()
- *                         .format(&#34;JSON&#34;)
- *                         .build())
- *                     .build())
- *                 .build())
- *             .permissions(DataSetPermissionArgs.builder()
- *                 .actions(                
- *                     &#34;quicksight:DescribeDataSet&#34;,
- *                     &#34;quicksight:DescribeDataSetPermissions&#34;,
- *                     &#34;quicksight:PassDataSet&#34;,
- *                     &#34;quicksight:DescribeIngestion&#34;,
- *                     &#34;quicksight:ListIngestions&#34;)
- *                 .principal(aws_quicksight_user.example().arn())
- *                 .build())
+ *             .physicalTableMaps(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .permissions(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -245,10 +167,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.quicksight.DataSet;
  * import com.pulumi.aws.quicksight.DataSetArgs;
- * import com.pulumi.aws.quicksight.inputs.DataSetPhysicalTableMapArgs;
- * import com.pulumi.aws.quicksight.inputs.DataSetPhysicalTableMapS3SourceArgs;
- * import com.pulumi.aws.quicksight.inputs.DataSetPhysicalTableMapS3SourceUploadSettingsArgs;
- * import com.pulumi.aws.quicksight.inputs.DataSetRowLevelPermissionTagConfigurationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -265,28 +183,8 @@ import javax.annotation.Nullable;
  *         var example = new DataSet(&#34;example&#34;, DataSetArgs.builder()        
  *             .dataSetId(&#34;example-id&#34;)
  *             .importMode(&#34;SPICE&#34;)
- *             .physicalTableMaps(DataSetPhysicalTableMapArgs.builder()
- *                 .physicalTableMapId(&#34;example-id&#34;)
- *                 .s3Source(DataSetPhysicalTableMapS3SourceArgs.builder()
- *                     .dataSourceArn(aws_quicksight_data_source.example().arn())
- *                     .inputColumns(DataSetPhysicalTableMapS3SourceInputColumnArgs.builder()
- *                         .name(&#34;Column1&#34;)
- *                         .type(&#34;STRING&#34;)
- *                         .build())
- *                     .uploadSettings(DataSetPhysicalTableMapS3SourceUploadSettingsArgs.builder()
- *                         .format(&#34;JSON&#34;)
- *                         .build())
- *                     .build())
- *                 .build())
- *             .rowLevelPermissionTagConfiguration(DataSetRowLevelPermissionTagConfigurationArgs.builder()
- *                 .status(&#34;ENABLED&#34;)
- *                 .tagRules(DataSetRowLevelPermissionTagConfigurationTagRuleArgs.builder()
- *                     .columnName(&#34;Column1&#34;)
- *                     .tagKey(&#34;tagkey&#34;)
- *                     .matchAllValue(&#34;*&#34;)
- *                     .tagMultiValueDelimiter(&#34;,&#34;)
- *                     .build())
- *                 .build())
+ *             .physicalTableMaps(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .rowLevelPermissionTagConfiguration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

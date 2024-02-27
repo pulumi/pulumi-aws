@@ -25,21 +25,21 @@ namespace Pulumi.Aws.Rds
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var @default = new Aws.Rds.ClusterParameterGroup("default", new()
+    ///     var @default = new Aws.Rds.ClusterParameterGroup.ClusterParameterGroup("default", new()
     ///     {
     ///         Description = "RDS default cluster parameter group",
     ///         Family = "aurora5.6",
     ///         Parameters = new[]
     ///         {
-    ///             new Aws.Rds.Inputs.ClusterParameterGroupParameterArgs
+    ///             
     ///             {
-    ///                 Name = "character_set_server",
-    ///                 Value = "utf8",
+    ///                 { "name", "character_set_server" },
+    ///                 { "value", "utf8" },
     ///             },
-    ///             new Aws.Rds.Inputs.ClusterParameterGroupParameterArgs
+    ///             
     ///             {
-    ///                 Name = "character_set_client",
-    ///                 Value = "utf8",
+    ///                 { "name", "character_set_client" },
+    ///                 { "value", "utf8" },
     ///             },
     ///         },
     ///     });

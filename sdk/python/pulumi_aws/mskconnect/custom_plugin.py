@@ -231,19 +231,19 @@ class CustomPlugin(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
-        example_bucket_objectv2 = aws.s3.BucketObjectv2("exampleBucketObjectv2",
+        example_bucket_v2 = aws.s3.bucket_v2.BucketV2("exampleBucketV2")
+        example_bucket_objectv2 = aws.s3.bucket_objectv2.BucketObjectv2("exampleBucketObjectv2",
             bucket=example_bucket_v2.id,
-            key="debezium.zip",
-            source=pulumi.FileAsset("debezium.zip"))
-        example_custom_plugin = aws.mskconnect.CustomPlugin("exampleCustomPlugin",
-            content_type="ZIP",
-            location=aws.mskconnect.CustomPluginLocationArgs(
-                s3=aws.mskconnect.CustomPluginLocationS3Args(
-                    bucket_arn=example_bucket_v2.arn,
-                    file_key=example_bucket_objectv2.key,
-                ),
-            ))
+            key=debezium.zip,
+            source=pulumi.FileAsset(debezium.zip))
+        example_custom_plugin = aws.mskconnect.custom_plugin.CustomPlugin("exampleCustomPlugin",
+            content_type=ZIP,
+            location={
+                s3: {
+                    bucketArn: example_bucket_v2.arn,
+                    fileKey: example_bucket_objectv2.key,
+                },
+            })
         ```
 
         ## Import
@@ -279,19 +279,19 @@ class CustomPlugin(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
-        example_bucket_objectv2 = aws.s3.BucketObjectv2("exampleBucketObjectv2",
+        example_bucket_v2 = aws.s3.bucket_v2.BucketV2("exampleBucketV2")
+        example_bucket_objectv2 = aws.s3.bucket_objectv2.BucketObjectv2("exampleBucketObjectv2",
             bucket=example_bucket_v2.id,
-            key="debezium.zip",
-            source=pulumi.FileAsset("debezium.zip"))
-        example_custom_plugin = aws.mskconnect.CustomPlugin("exampleCustomPlugin",
-            content_type="ZIP",
-            location=aws.mskconnect.CustomPluginLocationArgs(
-                s3=aws.mskconnect.CustomPluginLocationS3Args(
-                    bucket_arn=example_bucket_v2.arn,
-                    file_key=example_bucket_objectv2.key,
-                ),
-            ))
+            key=debezium.zip,
+            source=pulumi.FileAsset(debezium.zip))
+        example_custom_plugin = aws.mskconnect.custom_plugin.CustomPlugin("exampleCustomPlugin",
+            content_type=ZIP,
+            location={
+                s3: {
+                    bucketArn: example_bucket_v2.arn,
+                    fileKey: example_bucket_objectv2.key,
+                },
+            })
         ```
 
         ## Import

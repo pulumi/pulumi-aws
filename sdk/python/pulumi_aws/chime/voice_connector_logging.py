@@ -140,8 +140,8 @@ class VoiceConnectorLogging(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        default_voice_connector = aws.chime.VoiceConnector("defaultVoiceConnector", require_encryption=True)
-        default_voice_connector_logging = aws.chime.VoiceConnectorLogging("defaultVoiceConnectorLogging",
+        default_voice_connector = aws.chime.voice_connector.VoiceConnector("defaultVoiceConnector", require_encryption=True)
+        default_voice_connector_logging = aws.chime.voice_connector_logging.VoiceConnectorLogging("defaultVoiceConnectorLogging",
             enable_sip_logs=True,
             enable_media_metric_logs=True,
             voice_connector_id=default_voice_connector.id)
@@ -176,8 +176,8 @@ class VoiceConnectorLogging(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        default_voice_connector = aws.chime.VoiceConnector("defaultVoiceConnector", require_encryption=True)
-        default_voice_connector_logging = aws.chime.VoiceConnectorLogging("defaultVoiceConnectorLogging",
+        default_voice_connector = aws.chime.voice_connector.VoiceConnector("defaultVoiceConnector", require_encryption=True)
+        default_voice_connector_logging = aws.chime.voice_connector_logging.VoiceConnectorLogging("defaultVoiceConnectorLogging",
             enable_sip_logs=True,
             enable_media_metric_logs=True,
             voice_connector_id=default_voice_connector.id)

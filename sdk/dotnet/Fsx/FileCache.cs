@@ -23,49 +23,49 @@ namespace Pulumi.Aws.Fsx
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Fsx.FileCache("example", new()
+    ///     var example = new Aws.Fsx.FileCache.FileCache("example", new()
     ///     {
     ///         DataRepositoryAssociations = new[]
     ///         {
-    ///             new Aws.Fsx.Inputs.FileCacheDataRepositoryAssociationArgs
+    ///             
     ///             {
-    ///                 DataRepositoryPath = "nfs://filer.domain.com",
-    ///                 DataRepositorySubdirectories = new[]
+    ///                 { "dataRepositoryPath", "nfs://filer.domain.com" },
+    ///                 { "dataRepositorySubdirectories", new[]
     ///                 {
     ///                     "test",
     ///                     "test2",
-    ///                 },
-    ///                 FileCachePath = "/ns1",
-    ///                 Nfs = new[]
+    ///                 } },
+    ///                 { "fileCachePath", "/ns1" },
+    ///                 { "nfs", new[]
     ///                 {
-    ///                     new Aws.Fsx.Inputs.FileCacheDataRepositoryAssociationNfArgs
+    ///                     
     ///                     {
-    ///                         DnsIps = new[]
+    ///                         { "dnsIps", new[]
     ///                         {
     ///                             "192.168.0.1",
     ///                             "192.168.0.2",
-    ///                         },
-    ///                         Version = "NFS3",
+    ///                         } },
+    ///                         { "version", "NFS3" },
     ///                     },
-    ///                 },
+    ///                 } },
     ///             },
     ///         },
     ///         FileCacheType = "LUSTRE",
     ///         FileCacheTypeVersion = "2.12",
     ///         LustreConfigurations = new[]
     ///         {
-    ///             new Aws.Fsx.Inputs.FileCacheLustreConfigurationArgs
+    ///             
     ///             {
-    ///                 DeploymentType = "CACHE_1",
-    ///                 MetadataConfigurations = new[]
+    ///                 { "deploymentType", "CACHE_1" },
+    ///                 { "metadataConfigurations", new[]
     ///                 {
-    ///                     new Aws.Fsx.Inputs.FileCacheLustreConfigurationMetadataConfigurationArgs
+    ///                     
     ///                     {
-    ///                         StorageCapacity = 2400,
+    ///                         { "storageCapacity", 2400 },
     ///                     },
-    ///                 },
-    ///                 PerUnitStorageThroughput = 1000,
-    ///                 WeeklyMaintenanceStartTime = "2:05:00",
+    ///                 } },
+    ///                 { "perUnitStorageThroughput", 1000 },
+    ///                 { "weeklyMaintenanceStartTime", "2:05:00" },
     ///             },
     ///         },
     ///         SubnetIds = new[]

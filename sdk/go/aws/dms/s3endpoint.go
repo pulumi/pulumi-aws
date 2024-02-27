@@ -28,28 +28,26 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/dms"
+//	dms/s3Endpoint "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/dms/s3Endpoint"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := dms.NewS3Endpoint(ctx, "example", &dms.S3EndpointArgs{
-//				EndpointId:           pulumi.String("donnedtipi"),
-//				EndpointType:         pulumi.String("target"),
-//				BucketName:           pulumi.String("beckut_name"),
-//				ServiceAccessRoleArn: pulumi.Any(aws_iam_role.Example.Arn),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				aws_iam_role_policy.Example,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := dms/s3Endpoint.NewS3Endpoint(ctx, "example", &dms/s3Endpoint.S3EndpointArgs{
+// EndpointId: "donnedtipi",
+// EndpointType: "target",
+// BucketName: "beckut_name",
+// ServiceAccessRoleArn: aws_iam_role.Example.Arn,
+// }, pulumi.DependsOn([]pulumi.Resource{
+// aws_iam_role_policy.Example,
+// }))
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Complete Configuration
 //
@@ -58,73 +56,71 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/dms"
+//	dms/s3Endpoint "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/dms/s3Endpoint"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := dms.NewS3Endpoint(ctx, "example", &dms.S3EndpointArgs{
-//				EndpointId:   pulumi.String("donnedtipi"),
-//				EndpointType: pulumi.String("target"),
-//				SslMode:      pulumi.String("none"),
-//				Tags: pulumi.StringMap{
-//					"Name":   pulumi.String("donnedtipi"),
-//					"Update": pulumi.String("to-update"),
-//					"Remove": pulumi.String("to-remove"),
-//				},
-//				AddColumnName:                        pulumi.Bool(true),
-//				AddTrailingPaddingCharacter:          pulumi.Bool(false),
-//				BucketFolder:                         pulumi.String("folder"),
-//				BucketName:                           pulumi.String("bucket_name"),
-//				CannedAclForObjects:                  pulumi.String("private"),
-//				CdcInsertsAndUpdates:                 pulumi.Bool(true),
-//				CdcInsertsOnly:                       pulumi.Bool(false),
-//				CdcMaxBatchInterval:                  pulumi.Int(100),
-//				CdcMinFileSize:                       pulumi.Int(16),
-//				CdcPath:                              pulumi.String("cdc/path"),
-//				CompressionType:                      pulumi.String("GZIP"),
-//				CsvDelimiter:                         pulumi.String(";"),
-//				CsvNoSupValue:                        pulumi.String("x"),
-//				CsvNullValue:                         pulumi.String("?"),
-//				CsvRowDelimiter:                      pulumi.String("\\r\\n"),
-//				DataFormat:                           pulumi.String("parquet"),
-//				DataPageSize:                         pulumi.Int(1100000),
-//				DatePartitionDelimiter:               pulumi.String("UNDERSCORE"),
-//				DatePartitionEnabled:                 pulumi.Bool(true),
-//				DatePartitionSequence:                pulumi.String("yyyymmddhh"),
-//				DatePartitionTimezone:                pulumi.String("Asia/Seoul"),
-//				DictPageSizeLimit:                    pulumi.Int(1000000),
-//				EnableStatistics:                     pulumi.Bool(false),
-//				EncodingType:                         pulumi.String("plain"),
-//				EncryptionMode:                       pulumi.String("SSE_S3"),
-//				ExpectedBucketOwner:                  pulumi.Any(data.Aws_caller_identity.Current.Account_id),
-//				ExternalTableDefinition:              pulumi.String("etd"),
-//				IgnoreHeaderRows:                     pulumi.Int(1),
-//				IncludeOpForFullLoad:                 pulumi.Bool(true),
-//				MaxFileSize:                          pulumi.Int(1000000),
-//				ParquetTimestampInMillisecond:        pulumi.Bool(true),
-//				ParquetVersion:                       pulumi.String("parquet-2-0"),
-//				PreserveTransactions:                 pulumi.Bool(false),
-//				Rfc4180:                              pulumi.Bool(false),
-//				RowGroupLength:                       pulumi.Int(11000),
-//				ServerSideEncryptionKmsKeyId:         pulumi.Any(aws_kms_key.Example.Arn),
-//				ServiceAccessRoleArn:                 pulumi.Any(aws_iam_role.Example.Arn),
-//				TimestampColumnName:                  pulumi.String("tx_commit_time"),
-//				UseCsvNoSupValue:                     pulumi.Bool(false),
-//				UseTaskStartTimeForFullLoadTimestamp: pulumi.Bool(true),
-//				GlueCatalogGeneration:                pulumi.Bool(true),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				aws_iam_role_policy.Example,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := dms/s3Endpoint.NewS3Endpoint(ctx, "example", &dms/s3Endpoint.S3EndpointArgs{
+// EndpointId: "donnedtipi",
+// EndpointType: "target",
+// SslMode: "none",
+// Tags: map[string]interface{}{
+// "Name": "donnedtipi",
+// "Update": "to-update",
+// "Remove": "to-remove",
+// },
+// AddColumnName: true,
+// AddTrailingPaddingCharacter: false,
+// BucketFolder: "folder",
+// BucketName: "bucket_name",
+// CannedAclForObjects: "private",
+// CdcInsertsAndUpdates: true,
+// CdcInsertsOnly: false,
+// CdcMaxBatchInterval: 100,
+// CdcMinFileSize: 16,
+// CdcPath: "cdc/path",
+// CompressionType: "GZIP",
+// CsvDelimiter: ";",
+// CsvNoSupValue: "x",
+// CsvNullValue: "?",
+// CsvRowDelimiter: "\\r\\n",
+// DataFormat: "parquet",
+// DataPageSize: 1100000,
+// DatePartitionDelimiter: "UNDERSCORE",
+// DatePartitionEnabled: true,
+// DatePartitionSequence: "yyyymmddhh",
+// DatePartitionTimezone: "Asia/Seoul",
+// DictPageSizeLimit: 1000000,
+// EnableStatistics: false,
+// EncodingType: "plain",
+// EncryptionMode: "SSE_S3",
+// ExpectedBucketOwner: data.Aws_caller_identity.Current.Account_id,
+// ExternalTableDefinition: "etd",
+// IgnoreHeaderRows: 1,
+// IncludeOpForFullLoad: true,
+// MaxFileSize: 1000000,
+// ParquetTimestampInMillisecond: true,
+// ParquetVersion: "parquet-2-0",
+// PreserveTransactions: false,
+// Rfc4180: false,
+// RowGroupLength: 11000,
+// ServerSideEncryptionKmsKeyId: aws_kms_key.Example.Arn,
+// ServiceAccessRoleArn: aws_iam_role.Example.Arn,
+// TimestampColumnName: "tx_commit_time",
+// UseCsvNoSupValue: false,
+// UseTaskStartTimeForFullLoadTimestamp: true,
+// GlueCatalogGeneration: true,
+// }, pulumi.DependsOn([]pulumi.Resource{
+// aws_iam_role_policy.Example,
+// }))
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

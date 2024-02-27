@@ -142,14 +142,14 @@ class Tag(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_compute_environment = aws.batch.ComputeEnvironment("exampleComputeEnvironment",
-            compute_environment_name="example",
-            service_role=aws_iam_role["example"]["arn"],
-            type="UNMANAGED")
-        example_tag = aws.ecs.Tag("exampleTag",
+        example_compute_environment = aws.batch.compute_environment.ComputeEnvironment("exampleComputeEnvironment",
+            compute_environment_name=example,
+            service_role=aws_iam_role.example.arn,
+            type=UNMANAGED)
+        example_tag = aws.ecs.tag.Tag("exampleTag",
             resource_arn=example_compute_environment.ecs_cluster_arn,
-            key="Name",
-            value="Hello World")
+            key=Name,
+            value=Hello World)
         ```
 
         ## Import
@@ -185,14 +185,14 @@ class Tag(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_compute_environment = aws.batch.ComputeEnvironment("exampleComputeEnvironment",
-            compute_environment_name="example",
-            service_role=aws_iam_role["example"]["arn"],
-            type="UNMANAGED")
-        example_tag = aws.ecs.Tag("exampleTag",
+        example_compute_environment = aws.batch.compute_environment.ComputeEnvironment("exampleComputeEnvironment",
+            compute_environment_name=example,
+            service_role=aws_iam_role.example.arn,
+            type=UNMANAGED)
+        example_tag = aws.ecs.tag.Tag("exampleTag",
             resource_arn=example_compute_environment.ecs_cluster_arn,
-            key="Name",
-            value="Hello World")
+            key=Name,
+            value=Hello World)
         ```
 
         ## Import

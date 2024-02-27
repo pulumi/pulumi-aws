@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.ec2transitgateway.PrefixListReference("example", {
+ * const example = new aws.ec2transitgateway/prefixListReference.PrefixListReference("example", {
  *     prefixListId: aws_ec2_managed_prefix_list.example.id,
  *     transitGatewayAttachmentId: aws_ec2_transit_gateway_vpc_attachment.example.id,
  *     transitGatewayRouteTableId: aws_ec2_transit_gateway.example.association_default_route_table_id,
@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.ec2transitgateway.PrefixListReference("example", {
+ * const example = new aws.ec2transitgateway/prefixListReference.PrefixListReference("example", {
  *     blackhole: true,
  *     prefixListId: aws_ec2_managed_prefix_list.example.id,
  *     transitGatewayRouteTableId: aws_ec2_transit_gateway.example.association_default_route_table_id,

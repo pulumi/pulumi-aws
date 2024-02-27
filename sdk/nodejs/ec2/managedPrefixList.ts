@@ -30,7 +30,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.ec2.ManagedPrefixList("example", {
+ * const example = new aws.ec2/managedPrefixList.ManagedPrefixList("example", {
  *     addressFamily: "IPv4",
  *     maxEntries: 5,
  *     entries: [

@@ -16,8 +16,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleRule = new aws.waf.Rule("exampleRule", {metricName: "example"});
- * const exampleRuleGroup = new aws.waf.RuleGroup("exampleRuleGroup", {
+ * const exampleRule = new aws.waf/rule.Rule("exampleRule", {metricName: "example"});
+ * const exampleRuleGroup = new aws.waf/ruleGroup.RuleGroup("exampleRuleGroup", {
  *     metricName: "example",
  *     activatedRules: [{
  *         action: {

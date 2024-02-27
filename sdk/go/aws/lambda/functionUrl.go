@@ -23,50 +23,48 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lambda"
+//	lambda/functionUrl "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/lambda/functionUrl"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lambda.NewFunctionUrl(ctx, "testLatest", &lambda.FunctionUrlArgs{
-//				FunctionName:      pulumi.Any(aws_lambda_function.Test.Function_name),
-//				AuthorizationType: pulumi.String("NONE"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = lambda.NewFunctionUrl(ctx, "testLive", &lambda.FunctionUrlArgs{
-//				FunctionName:      pulumi.Any(aws_lambda_function.Test.Function_name),
-//				Qualifier:         pulumi.String("my_alias"),
-//				AuthorizationType: pulumi.String("AWS_IAM"),
-//				Cors: &lambda.FunctionUrlCorsArgs{
-//					AllowCredentials: pulumi.Bool(true),
-//					AllowOrigins: pulumi.StringArray{
-//						pulumi.String("*"),
-//					},
-//					AllowMethods: pulumi.StringArray{
-//						pulumi.String("*"),
-//					},
-//					AllowHeaders: pulumi.StringArray{
-//						pulumi.String("date"),
-//						pulumi.String("keep-alive"),
-//					},
-//					ExposeHeaders: pulumi.StringArray{
-//						pulumi.String("keep-alive"),
-//						pulumi.String("date"),
-//					},
-//					MaxAge: pulumi.Int(86400),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := lambda/functionUrl.NewFunctionUrl(ctx, "testLatest", &lambda/functionUrl.FunctionUrlArgs{
+// FunctionName: aws_lambda_function.Test.Function_name,
+// AuthorizationType: "NONE",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = lambda/functionUrl.NewFunctionUrl(ctx, "testLive", &lambda/functionUrl.FunctionUrlArgs{
+// FunctionName: aws_lambda_function.Test.Function_name,
+// Qualifier: "my_alias",
+// AuthorizationType: "AWS_IAM",
+// Cors: map[string]interface{}{
+// "allowCredentials": true,
+// "allowOrigins": []string{
+// "*",
+// },
+// "allowMethods": []string{
+// "*",
+// },
+// "allowHeaders": []string{
+// "date",
+// "keep-alive",
+// },
+// "exposeHeaders": []string{
+// "keep-alive",
+// "date",
+// },
+// "maxAge": 86400,
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

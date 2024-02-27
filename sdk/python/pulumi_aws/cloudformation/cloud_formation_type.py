@@ -399,14 +399,14 @@ class CloudFormationType(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.cloudformation.CloudFormationType("example",
-            schema_handler_package=f"s3://{aws_s3_object['example']['bucket']}/{aws_s3_object['example']['key']}",
-            type="RESOURCE",
-            type_name="ExampleCompany::ExampleService::ExampleResource",
-            logging_config=aws.cloudformation.CloudFormationTypeLoggingConfigArgs(
-                log_group_name=aws_cloudwatch_log_group["example"]["name"],
-                log_role_arn=aws_iam_role["example"]["arn"],
-            ))
+        example = aws.cloudformation.cloud_formation_type.CloudFormationType("example",
+            schema_handler_package=fs3://{aws_s3_object.example.bucket}/{aws_s3_object.example.key},
+            type=RESOURCE,
+            type_name=ExampleCompany::ExampleService::ExampleResource,
+            logging_config={
+                logGroupName: aws_cloudwatch_log_group.example.name,
+                logRoleArn: aws_iam_role.example.arn,
+            })
         ```
 
         ## Import
@@ -440,14 +440,14 @@ class CloudFormationType(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.cloudformation.CloudFormationType("example",
-            schema_handler_package=f"s3://{aws_s3_object['example']['bucket']}/{aws_s3_object['example']['key']}",
-            type="RESOURCE",
-            type_name="ExampleCompany::ExampleService::ExampleResource",
-            logging_config=aws.cloudformation.CloudFormationTypeLoggingConfigArgs(
-                log_group_name=aws_cloudwatch_log_group["example"]["name"],
-                log_role_arn=aws_iam_role["example"]["arn"],
-            ))
+        example = aws.cloudformation.cloud_formation_type.CloudFormationType("example",
+            schema_handler_package=fs3://{aws_s3_object.example.bucket}/{aws_s3_object.example.key},
+            type=RESOURCE,
+            type_name=ExampleCompany::ExampleService::ExampleResource,
+            logging_config={
+                logGroupName: aws_cloudwatch_log_group.example.name,
+                logRoleArn: aws_iam_role.example.arn,
+            })
         ```
 
         ## Import

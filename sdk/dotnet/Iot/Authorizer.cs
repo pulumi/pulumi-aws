@@ -23,7 +23,7 @@ namespace Pulumi.Aws.Iot
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Iot.Authorizer("example", new()
+    ///     var example = new Aws.Iot.Authorizer.Authorizer("example", new()
     ///     {
     ///         AuthorizerFunctionArn = aws_lambda_function.Example.Arn,
     ///         SigningDisabled = false,

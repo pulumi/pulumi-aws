@@ -38,8 +38,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.ec2.VpcEndpoint;
- * import com.pulumi.aws.ec2.VpcEndpointArgs;
+ * import com.pulumi.aws.ec2_vpcEndpoint.VpcEndpoint;
+ * import com.pulumi.aws.ec2_vpcEndpoint.VpcEndpointArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -68,8 +68,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.ec2.VpcEndpoint;
- * import com.pulumi.aws.ec2.VpcEndpointArgs;
+ * import com.pulumi.aws.ec2_vpcEndpoint.VpcEndpoint;
+ * import com.pulumi.aws.ec2_vpcEndpoint.VpcEndpointArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -86,7 +86,7 @@ import javax.annotation.Nullable;
  *         var s3 = new VpcEndpoint(&#34;s3&#34;, VpcEndpointArgs.builder()        
  *             .vpcId(aws_vpc.main().id())
  *             .serviceName(&#34;com.amazonaws.us-west-2.s3&#34;)
- *             .tags(Map.of(&#34;Environment&#34;, &#34;test&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -99,8 +99,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.ec2.VpcEndpoint;
- * import com.pulumi.aws.ec2.VpcEndpointArgs;
+ * import com.pulumi.aws.ec2_vpcEndpoint.VpcEndpoint;
+ * import com.pulumi.aws.ec2_vpcEndpoint.VpcEndpointArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -120,50 +120,6 @@ import javax.annotation.Nullable;
  *             .vpcEndpointType(&#34;Interface&#34;)
  *             .securityGroupIds(aws_security_group.sg1().id())
  *             .privateDnsEnabled(true)
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### Gateway Load Balancer Endpoint Type
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.AwsFunctions;
- * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
- * import com.pulumi.aws.ec2.VpcEndpointService;
- * import com.pulumi.aws.ec2.VpcEndpointServiceArgs;
- * import com.pulumi.aws.ec2.VpcEndpoint;
- * import com.pulumi.aws.ec2.VpcEndpointArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var current = AwsFunctions.getCallerIdentity();
- * 
- *         var exampleVpcEndpointService = new VpcEndpointService(&#34;exampleVpcEndpointService&#34;, VpcEndpointServiceArgs.builder()        
- *             .acceptanceRequired(false)
- *             .allowedPrincipals(current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.arn()))
- *             .gatewayLoadBalancerArns(aws_lb.example().arn())
- *             .build());
- * 
- *         var exampleVpcEndpoint = new VpcEndpoint(&#34;exampleVpcEndpoint&#34;, VpcEndpointArgs.builder()        
- *             .serviceName(exampleVpcEndpointService.serviceName())
- *             .subnetIds(aws_subnet.example().id())
- *             .vpcEndpointType(exampleVpcEndpointService.serviceType())
- *             .vpcId(aws_vpc.example().id())
  *             .build());
  * 
  *     }

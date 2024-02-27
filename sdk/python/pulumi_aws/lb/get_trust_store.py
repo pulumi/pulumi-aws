@@ -74,23 +74,6 @@ def get_trust_store(arn: Optional[str] = None,
     input variable and needs to know its attributes. It can also be used to get the ARN of
     an LB Trust Store for use in other resources, given LB Trust Store name.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    config = pulumi.Config()
-    lb_ts_arn = config.get("lbTsArn")
-    if lb_ts_arn is None:
-        lb_ts_arn = ""
-    lb_ts_name = config.get("lbTsName")
-    if lb_ts_name is None:
-        lb_ts_name = ""
-    test = aws.lb.get_trust_store(arn=lb_ts_arn,
-        name=lb_ts_name)
-    ```
-
 
     :param str arn: Full ARN of the trust store.
     :param str name: Unique name of the trust store.
@@ -121,23 +104,6 @@ def get_trust_store_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
     This data source can prove useful when a module accepts an LB Trust Store as an
     input variable and needs to know its attributes. It can also be used to get the ARN of
     an LB Trust Store for use in other resources, given LB Trust Store name.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    config = pulumi.Config()
-    lb_ts_arn = config.get("lbTsArn")
-    if lb_ts_arn is None:
-        lb_ts_arn = ""
-    lb_ts_name = config.get("lbTsName")
-    if lb_ts_name is None:
-        lb_ts_name = ""
-    test = aws.lb.get_trust_store(arn=lb_ts_arn,
-        name=lb_ts_name)
-    ```
 
 
     :param str arn: Full ARN of the trust store.

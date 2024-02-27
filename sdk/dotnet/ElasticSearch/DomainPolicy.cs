@@ -22,15 +22,15 @@ namespace Pulumi.Aws.ElasticSearch
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.ElasticSearch.Domain("example", new()
+    ///     var example = new Aws.Elasticsearch.Domain.Domain("example", new()
     ///     {
     ///         ElasticsearchVersion = "2.3",
     ///     });
     /// 
-    ///     var main = new Aws.ElasticSearch.DomainPolicy("main", new()
+    ///     var main = new Aws.Elasticsearch.DomainPolicy.DomainPolicy("main", new()
     ///     {
     ///         DomainName = example.DomainName,
-    ///         AccessPolicies = example.Arn.Apply(arn =&gt; @$"{{
+    ///         AccessPolicies = @$"{{
     ///     ""Version"": ""2012-10-17"",
     ///     ""Statement"": [
     ///         {{
@@ -40,11 +40,11 @@ namespace Pulumi.Aws.ElasticSearch
     ///             ""Condition"": {{
     ///                 ""IpAddress"": {{""aws:SourceIp"": ""127.0.0.1/32""}}
     ///             }},
-    ///             ""Resource"": ""{arn}/*""
+    ///             ""Resource"": ""{example.Arn}/*""
     ///         }}
     ///     ]
     /// }}
-    /// "),
+    /// ",
     ///     });
     /// 
     /// });

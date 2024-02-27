@@ -106,19 +106,19 @@ class LbHttpsRedirectionPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_lb = aws.lightsail.Lb("testLb",
-            health_check_path="/",
+        test_lb = aws.lightsail.lb.Lb("testLb",
+            health_check_path=/,
             instance_port=80,
             tags={
-                "foo": "bar",
+                foo: bar,
             })
-        test_lb_certificate = aws.lightsail.LbCertificate("testLbCertificate",
+        test_lb_certificate = aws.lightsail.lb_certificate.LbCertificate("testLbCertificate",
             lb_name=test_lb.id,
-            domain_name="test.com")
-        test_lb_certificate_attachment = aws.lightsail.LbCertificateAttachment("testLbCertificateAttachment",
+            domain_name=test.com)
+        test_lb_certificate_attachment = aws.lightsail.lb_certificate_attachment.LbCertificateAttachment("testLbCertificateAttachment",
             lb_name=test_lb.name,
             certificate_name=test_lb_certificate.name)
-        test_lb_https_redirection_policy = aws.lightsail.LbHttpsRedirectionPolicy("testLbHttpsRedirectionPolicy",
+        test_lb_https_redirection_policy = aws.lightsail.lb_https_redirection_policy.LbHttpsRedirectionPolicy("testLbHttpsRedirectionPolicy",
             lb_name=test_lb.name,
             enabled=True)
         ```
@@ -151,19 +151,19 @@ class LbHttpsRedirectionPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_lb = aws.lightsail.Lb("testLb",
-            health_check_path="/",
+        test_lb = aws.lightsail.lb.Lb("testLb",
+            health_check_path=/,
             instance_port=80,
             tags={
-                "foo": "bar",
+                foo: bar,
             })
-        test_lb_certificate = aws.lightsail.LbCertificate("testLbCertificate",
+        test_lb_certificate = aws.lightsail.lb_certificate.LbCertificate("testLbCertificate",
             lb_name=test_lb.id,
-            domain_name="test.com")
-        test_lb_certificate_attachment = aws.lightsail.LbCertificateAttachment("testLbCertificateAttachment",
+            domain_name=test.com)
+        test_lb_certificate_attachment = aws.lightsail.lb_certificate_attachment.LbCertificateAttachment("testLbCertificateAttachment",
             lb_name=test_lb.name,
             certificate_name=test_lb_certificate.name)
-        test_lb_https_redirection_policy = aws.lightsail.LbHttpsRedirectionPolicy("testLbHttpsRedirectionPolicy",
+        test_lb_https_redirection_policy = aws.lightsail.lb_https_redirection_policy.LbHttpsRedirectionPolicy("testLbHttpsRedirectionPolicy",
             lb_name=test_lb.name,
             enabled=True)
         ```

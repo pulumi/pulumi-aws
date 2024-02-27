@@ -23,7 +23,7 @@ namespace Pulumi.Aws.NetworkManager
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Aws.NetworkManager.AttachmentAccepter("test", new()
+    ///     var test = new Aws.Networkmanager.AttachmentAccepter.AttachmentAccepter("test", new()
     ///     {
     ///         AttachmentId = aws_networkmanager_vpc_attachment.Vpc.Id,
     ///         AttachmentType = aws_networkmanager_vpc_attachment.Vpc.Attachment_type,
@@ -41,7 +41,7 @@ namespace Pulumi.Aws.NetworkManager
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Aws.NetworkManager.AttachmentAccepter("test", new()
+    ///     var test = new Aws.Networkmanager.AttachmentAccepter.AttachmentAccepter("test", new()
     ///     {
     ///         AttachmentId = aws_networkmanager_site_to_site_vpn_attachment.Vpn.Id,
     ///         AttachmentType = aws_networkmanager_site_to_site_vpn_attachment.Vpn.Attachment_type,

@@ -483,11 +483,11 @@ class Volume(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ebs.Volume("example",
-            availability_zone="us-west-2a",
+        example = aws.ebs.volume.Volume("example",
+            availability_zone=us-west-2a,
             size=40,
             tags={
-                "Name": "HelloWorld",
+                Name: HelloWorld,
             })
         ```
 
@@ -533,11 +533,11 @@ class Volume(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ebs.Volume("example",
-            availability_zone="us-west-2a",
+        example = aws.ebs.volume.Volume("example",
+            availability_zone=us-west-2a,
             size=40,
             tags={
-                "Name": "HelloWorld",
+                Name: HelloWorld,
             })
         ```
 

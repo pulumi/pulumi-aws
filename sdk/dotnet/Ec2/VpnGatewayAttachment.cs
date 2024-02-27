@@ -27,12 +27,12 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var network = new Aws.Ec2.Vpc("network", new()
+    ///     var network = new Aws.Ec2.Vpc.Vpc("network", new()
     ///     {
     ///         CidrBlock = "10.0.0.0/16",
     ///     });
     /// 
-    ///     var vpn = new Aws.Ec2.VpnGateway("vpn", new()
+    ///     var vpn = new Aws.Ec2.VpnGateway.VpnGateway("vpn", new()
     ///     {
     ///         Tags = 
     ///         {
@@ -40,7 +40,7 @@ namespace Pulumi.Aws.Ec2
     ///         },
     ///     });
     /// 
-    ///     var vpnAttachment = new Aws.Ec2.VpnGatewayAttachment("vpnAttachment", new()
+    ///     var vpnAttachment = new Aws.Ec2.VpnGatewayAttachment.VpnGatewayAttachment("vpnAttachment", new()
     ///     {
     ///         VpcId = network.Id,
     ///         VpnGatewayId = vpn.Id,

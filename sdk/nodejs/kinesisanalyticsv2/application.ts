@@ -20,13 +20,13 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleBucketV2 = new aws.s3.BucketV2("exampleBucketV2", {});
- * const exampleBucketObjectv2 = new aws.s3.BucketObjectv2("exampleBucketObjectv2", {
+ * const exampleBucketV2 = new aws.s3/bucketV2.BucketV2("exampleBucketV2", {});
+ * const exampleBucketObjectv2 = new aws.s3/bucketObjectv2.BucketObjectv2("exampleBucketObjectv2", {
  *     bucket: exampleBucketV2.id,
  *     key: "example-flink-application",
  *     source: new pulumi.asset.FileAsset("flink-app.jar"),
  * });
- * const exampleApplication = new aws.kinesisanalyticsv2.Application("exampleApplication", {
+ * const exampleApplication = new aws.kinesisanalyticsv2/application.Application("exampleApplication", {
  *     runtimeEnvironment: "FLINK-1_8",
  *     serviceExecutionRole: aws_iam_role.example.arn,
  *     applicationConfiguration: {
@@ -84,9 +84,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleLogGroup = new aws.cloudwatch.LogGroup("exampleLogGroup", {});
- * const exampleLogStream = new aws.cloudwatch.LogStream("exampleLogStream", {logGroupName: exampleLogGroup.name});
- * const exampleApplication = new aws.kinesisanalyticsv2.Application("exampleApplication", {
+ * const exampleLogGroup = new aws.cloudwatch/logGroup.LogGroup("exampleLogGroup", {});
+ * const exampleLogStream = new aws.cloudwatch/logStream.LogStream("exampleLogStream", {logGroupName: exampleLogGroup.name});
+ * const exampleApplication = new aws.kinesisanalyticsv2/application.Application("exampleApplication", {
  *     runtimeEnvironment: "SQL-1_0",
  *     serviceExecutionRole: aws_iam_role.example.arn,
  *     applicationConfiguration: {
@@ -183,13 +183,13 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleBucketV2 = new aws.s3.BucketV2("exampleBucketV2", {});
- * const exampleBucketObjectv2 = new aws.s3.BucketObjectv2("exampleBucketObjectv2", {
+ * const exampleBucketV2 = new aws.s3/bucketV2.BucketV2("exampleBucketV2", {});
+ * const exampleBucketObjectv2 = new aws.s3/bucketObjectv2.BucketObjectv2("exampleBucketObjectv2", {
  *     bucket: exampleBucketV2.id,
  *     key: "example-flink-application",
  *     source: new pulumi.asset.FileAsset("flink-app.jar"),
  * });
- * const exampleApplication = new aws.kinesisanalyticsv2.Application("exampleApplication", {
+ * const exampleApplication = new aws.kinesisanalyticsv2/application.Application("exampleApplication", {
  *     runtimeEnvironment: "FLINK-1_8",
  *     serviceExecutionRole: aws_iam_role.example.arn,
  *     applicationConfiguration: {

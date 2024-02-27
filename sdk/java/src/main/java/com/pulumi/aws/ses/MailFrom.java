@@ -52,7 +52,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleMailFrom = new MailFrom(&#34;exampleMailFrom&#34;, MailFromArgs.builder()        
  *             .domain(exampleDomainIdentity.domain())
- *             .mailFromDomain(exampleDomainIdentity.domain().applyValue(domain -&gt; String.format(&#34;bounce.%s&#34;, domain)))
+ *             .mailFromDomain(String.format(&#34;bounce.%s&#34;, exampleDomainIdentity.domain()))
  *             .build());
  * 
  *         var exampleSesDomainMailFromMx = new Record(&#34;exampleSesDomainMailFromMx&#34;, RecordArgs.builder()        

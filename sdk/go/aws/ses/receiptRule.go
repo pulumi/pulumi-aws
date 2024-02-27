@@ -21,41 +21,40 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ses"
+//	ses/receiptRule "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ses/receiptRule"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ses.NewReceiptRule(ctx, "store", &ses.ReceiptRuleArgs{
-//				AddHeaderActions: ses.ReceiptRuleAddHeaderActionArray{
-//					&ses.ReceiptRuleAddHeaderActionArgs{
-//						HeaderName:  pulumi.String("Custom-Header"),
-//						HeaderValue: pulumi.String("Added by SES"),
-//						Position:    pulumi.Int(1),
-//					},
-//				},
-//				Enabled: pulumi.Bool(true),
-//				Recipients: pulumi.StringArray{
-//					pulumi.String("karen@example.com"),
-//				},
-//				RuleSetName: pulumi.String("default-rule-set"),
-//				S3Actions: ses.ReceiptRuleS3ActionArray{
-//					&ses.ReceiptRuleS3ActionArgs{
-//						BucketName: pulumi.String("emails"),
-//						Position:   pulumi.Int(2),
-//					},
-//				},
-//				ScanEnabled: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// // Add a header to the email and store it in S3
+// _, err := ses/receiptRule.NewReceiptRule(ctx, "store", &ses/receiptRule.ReceiptRuleArgs{
+// AddHeaderActions: []map[string]interface{}{
+// map[string]interface{}{
+// "headerName": "Custom-Header",
+// "headerValue": "Added by SES",
+// "position": 1,
+// },
+// },
+// Enabled: true,
+// Recipients: []string{
+// "karen@example.com",
+// },
+// RuleSetName: "default-rule-set",
+// S3Actions: []map[string]interface{}{
+// map[string]interface{}{
+// "bucketName": "emails",
+// "position": 2,
+// },
+// },
+// ScanEnabled: true,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

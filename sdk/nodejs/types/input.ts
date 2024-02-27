@@ -2654,16 +2654,16 @@ export namespace appautoscaling {
          * import * as pulumi from "@pulumi/pulumi";
          * import * as aws from "@pulumi/aws";
          *
-         * const ecsPolicy = new aws.appautoscaling.Policy("ecsPolicy", {stepScalingPolicyConfiguration: {
+         * const ecsPolicy = new aws.appautoscaling/policy.Policy("ecsPolicy", {stepScalingPolicyConfiguration: {
          *     stepAdjustments: [
          *         {
-         *             metricIntervalLowerBound: "1",
-         *             metricIntervalUpperBound: "2",
+         *             metricIntervalLowerBound: 1,
+         *             metricIntervalUpperBound: 2,
          *             scalingAdjustment: -1,
          *         },
          *         {
-         *             metricIntervalLowerBound: "2",
-         *             metricIntervalUpperBound: "3",
+         *             metricIntervalLowerBound: 2,
+         *             metricIntervalUpperBound: 3,
          *             scalingAdjustment: 1,
          *         },
          *     ],
@@ -4609,6 +4609,17 @@ export namespace appflow {
         scheduleStartTime?: pulumi.Input<string>;
         /**
          * Time zone used when referring to the date and time of a scheduled-triggered flow, such as `America/New_York`.
+         *
+         * ```typescript
+         * import * as pulumi from "@pulumi/pulumi";
+         * import * as aws from "@pulumi/aws";
+         *
+         * const example = new aws.appflow/flow.Flow("example", {triggerConfig: {
+         *     scheduled: [{
+         *         scheduleExpression: "rate(1minutes)",
+         *     }],
+         * }});
+         * ```
          */
         timezone?: pulumi.Input<string>;
     }
@@ -18449,21 +18460,6 @@ export namespace ebs {
          * Name of the field to filter by, as defined by
          * [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVolumes.html).
          * For example, if matching against the `size` filter, use:
-         *
-         * ```typescript
-         * import * as pulumi from "@pulumi/pulumi";
-         * import * as aws from "@pulumi/aws";
-         *
-         * const tenOrTwentyGbVolumes = aws.ebs.getEbsVolumes({
-         *     filters: [{
-         *         name: "size",
-         *         values: [
-         *             "10",
-         *             "20",
-         *         ],
-         *     }],
-         * });
-         * ```
          */
         name: string;
         /**
@@ -18478,21 +18474,6 @@ export namespace ebs {
          * Name of the field to filter by, as defined by
          * [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVolumes.html).
          * For example, if matching against the `size` filter, use:
-         *
-         * ```typescript
-         * import * as pulumi from "@pulumi/pulumi";
-         * import * as aws from "@pulumi/aws";
-         *
-         * const tenOrTwentyGbVolumes = aws.ebs.getEbsVolumes({
-         *     filters: [{
-         *         name: "size",
-         *         values: [
-         *             "10",
-         *             "20",
-         *         ],
-         *     }],
-         * });
-         * ```
          */
         name: pulumi.Input<string>;
         /**
@@ -20206,18 +20187,6 @@ export namespace ec2 {
          * Name of the field to filter by, as defined by
          * [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
          * For example, if matching against tag `Name`, use:
-         *
-         * ```typescript
-         * import * as pulumi from "@pulumi/pulumi";
-         * import * as aws from "@pulumi/aws";
-         *
-         * const selected = aws.ec2.getSubnets({
-         *     filters: [{
-         *         name: "tag:Name",
-         *         values: [""],
-         *     }],
-         * });
-         * ```
          */
         name: string;
         /**
@@ -20232,18 +20201,6 @@ export namespace ec2 {
          * Name of the field to filter by, as defined by
          * [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
          * For example, if matching against tag `Name`, use:
-         *
-         * ```typescript
-         * import * as pulumi from "@pulumi/pulumi";
-         * import * as aws from "@pulumi/aws";
-         *
-         * const selected = aws.ec2.getSubnets({
-         *     filters: [{
-         *         name: "tag:Name",
-         *         values: [""],
-         *     }],
-         * });
-         * ```
          */
         name: pulumi.Input<string>;
         /**
@@ -48941,18 +48898,6 @@ export namespace licensemanager {
          * Name of the field to filter by, as defined by
          * [the underlying AWS API](https://docs.aws.amazon.com/license-manager/latest/APIReference/API_ListReceivedGrants.html#API_ListReceivedGrants_RequestSyntax).
          * For example, if filtering using `ProductSKU`, use:
-         *
-         * ```typescript
-         * import * as pulumi from "@pulumi/pulumi";
-         * import * as aws from "@pulumi/aws";
-         *
-         * const selected = aws.licensemanager.getLicenseGrants({
-         *     filters: [{
-         *         name: "ProductSKU",
-         *         values: [""],
-         *     }],
-         * });
-         * ```
          */
         name: string;
         /**
@@ -48966,18 +48911,6 @@ export namespace licensemanager {
          * Name of the field to filter by, as defined by
          * [the underlying AWS API](https://docs.aws.amazon.com/license-manager/latest/APIReference/API_ListReceivedGrants.html#API_ListReceivedGrants_RequestSyntax).
          * For example, if filtering using `ProductSKU`, use:
-         *
-         * ```typescript
-         * import * as pulumi from "@pulumi/pulumi";
-         * import * as aws from "@pulumi/aws";
-         *
-         * const selected = aws.licensemanager.getLicenseGrants({
-         *     filters: [{
-         *         name: "ProductSKU",
-         *         values: [""],
-         *     }],
-         * });
-         * ```
          */
         name: pulumi.Input<string>;
         /**
@@ -48991,18 +48924,6 @@ export namespace licensemanager {
          * Name of the field to filter by, as defined by
          * [the underlying AWS API](https://docs.aws.amazon.com/license-manager/latest/APIReference/API_ListReceivedLicenses.html#API_ListReceivedLicenses_RequestSyntax).
          * For example, if filtering using `ProductSKU`, use:
-         *
-         * ```typescript
-         * import * as pulumi from "@pulumi/pulumi";
-         * import * as aws from "@pulumi/aws";
-         *
-         * const selected = aws.licensemanager.getReceivedLicenses({
-         *     filters: [{
-         *         name: "ProductSKU",
-         *         values: [""],
-         *     }],
-         * });
-         * ```
          */
         name: string;
         /**
@@ -49016,18 +48937,6 @@ export namespace licensemanager {
          * Name of the field to filter by, as defined by
          * [the underlying AWS API](https://docs.aws.amazon.com/license-manager/latest/APIReference/API_ListReceivedLicenses.html#API_ListReceivedLicenses_RequestSyntax).
          * For example, if filtering using `ProductSKU`, use:
-         *
-         * ```typescript
-         * import * as pulumi from "@pulumi/pulumi";
-         * import * as aws from "@pulumi/aws";
-         *
-         * const selected = aws.licensemanager.getReceivedLicenses({
-         *     filters: [{
-         *         name: "ProductSKU",
-         *         values: [""],
-         *     }],
-         * });
-         * ```
          */
         name: pulumi.Input<string>;
         /**

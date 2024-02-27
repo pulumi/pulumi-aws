@@ -26,7 +26,7 @@ namespace Pulumi.Aws.Athena
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Athena.DataCatalog("example", new()
+    ///     var example = new Aws.Athena.DataCatalog.DataCatalog("example", new()
     ///     {
     ///         Description = "Example Athena data catalog",
     ///         Parameters = 
@@ -52,7 +52,7 @@ namespace Pulumi.Aws.Athena
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Athena.DataCatalog("example", new()
+    ///     var example = new Aws.Athena.DataCatalog.DataCatalog("example", new()
     ///     {
     ///         Description = "Hive based Data Catalog",
     ///         Parameters = 
@@ -74,7 +74,7 @@ namespace Pulumi.Aws.Athena
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Athena.DataCatalog("example", new()
+    ///     var example = new Aws.Athena.DataCatalog.DataCatalog("example", new()
     ///     {
     ///         Description = "Glue based Data Catalog",
     ///         Parameters = 
@@ -96,7 +96,7 @@ namespace Pulumi.Aws.Athena
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Athena.DataCatalog("example", new()
+    ///     var example = new Aws.Athena.DataCatalog.DataCatalog("example", new()
     ///     {
     ///         Description = "Lambda based Data Catalog",
     ///         Parameters = 

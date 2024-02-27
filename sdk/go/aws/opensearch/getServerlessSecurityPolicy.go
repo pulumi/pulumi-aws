@@ -12,33 +12,6 @@ import (
 )
 
 // Use this data source to get information about an AWS OpenSearch Serverless Security Policy.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/opensearch"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := opensearch.LookupServerlessSecurityPolicy(ctx, &opensearch.LookupServerlessSecurityPolicyArgs{
-//				Name: "example-security-policy",
-//				Type: "encryption",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupServerlessSecurityPolicy(ctx *pulumi.Context, args *LookupServerlessSecurityPolicyArgs, opts ...pulumi.InvokeOption) (*LookupServerlessSecurityPolicyResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupServerlessSecurityPolicyResult

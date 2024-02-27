@@ -22,26 +22,24 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sagemaker"
+//	sagemaker/codeRepository "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/sagemaker/codeRepository"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := sagemaker.NewCodeRepository(ctx, "example", &sagemaker.CodeRepositoryArgs{
-//				CodeRepositoryName: pulumi.String("example"),
-//				GitConfig: &sagemaker.CodeRepositoryGitConfigArgs{
-//					RepositoryUrl: pulumi.String("https://github.com/github/docs.git"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := sagemaker/codeRepository.NewCodeRepository(ctx, "example", &sagemaker/codeRepository.CodeRepositoryArgs{
+// CodeRepositoryName: "example",
+// GitConfig: map[string]interface{}{
+// "repositoryUrl": "https://github.com/github/docs.git",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Example with Secret
 //
@@ -52,49 +50,40 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sagemaker"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/secretsmanager"
+//	sagemaker/codeRepository "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/sagemaker/codeRepository"
+//	secretsmanager/secret "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/secretsmanager/secret"
+//	secretsmanager/secretVersion "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/secretsmanager/secretVersion"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleSecret, err := secretsmanager.NewSecret(ctx, "exampleSecret", nil)
-//			if err != nil {
-//				return err
-//			}
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"username": "example",
-//				"password": "example",
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			exampleSecretVersion, err := secretsmanager.NewSecretVersion(ctx, "exampleSecretVersion", &secretsmanager.SecretVersionArgs{
-//				SecretId:     exampleSecret.ID(),
-//				SecretString: pulumi.String(json0),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = sagemaker.NewCodeRepository(ctx, "exampleCodeRepository", &sagemaker.CodeRepositoryArgs{
-//				CodeRepositoryName: pulumi.String("example"),
-//				GitConfig: &sagemaker.CodeRepositoryGitConfigArgs{
-//					RepositoryUrl: pulumi.String("https://github.com/github/docs.git"),
-//					SecretArn:     exampleSecret.Arn,
-//				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleSecretVersion,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleSecret, err := secretsmanager/secret.NewSecret(ctx, "exampleSecret", nil)
+// if err != nil {
+// return err
+// }
+// exampleSecretVersion, err := secretsmanager/secretVersion.NewSecretVersion(ctx, "exampleSecretVersion", &secretsmanager/secretVersion.SecretVersionArgs{
+// SecretId: exampleSecret.Id,
+// SecretString: %!v(PANIC=Format method: fatal: An assertion has failed: unlowered function toJSON),
+// })
+// if err != nil {
+// return err
+// }
+// _, err = sagemaker/codeRepository.NewCodeRepository(ctx, "exampleCodeRepository", &sagemaker/codeRepository.CodeRepositoryArgs{
+// CodeRepositoryName: "example",
+// GitConfig: map[string]interface{}{
+// "repositoryUrl": "https://github.com/github/docs.git",
+// "secretArn": exampleSecret.Arn,
+// },
+// }, pulumi.DependsOn([]pulumi.Resource{
+// exampleSecretVersion,
+// }))
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

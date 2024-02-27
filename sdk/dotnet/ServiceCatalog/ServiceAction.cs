@@ -23,11 +23,11 @@ namespace Pulumi.Aws.ServiceCatalog
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.ServiceCatalog.ServiceAction("example", new()
+    ///     var example = new Aws.Servicecatalog.ServiceAction.ServiceAction("example", new()
     ///     {
-    ///         Definition = new Aws.ServiceCatalog.Inputs.ServiceActionDefinitionArgs
+    ///         Definition = 
     ///         {
-    ///             Name = "AWS-RestartEC2Instance",
+    ///             { "name", "AWS-RestartEC2Instance" },
     ///         },
     ///         Description = "Motor generator unit",
     ///     });

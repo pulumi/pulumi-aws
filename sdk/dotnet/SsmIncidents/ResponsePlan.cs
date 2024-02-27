@@ -23,12 +23,12 @@ namespace Pulumi.Aws.SsmIncidents
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.SsmIncidents.ResponsePlan("example", new()
+    ///     var example = new Aws.Ssmincidents.ResponsePlan.ResponsePlan("example", new()
     ///     {
-    ///         IncidentTemplate = new Aws.SsmIncidents.Inputs.ResponsePlanIncidentTemplateArgs
+    ///         IncidentTemplate = 
     ///         {
-    ///             Title = "title",
-    ///             Impact = 3,
+    ///             { "title", "title" },
+    ///             { "impact", "3" },
     ///         },
     ///         Tags = 
     ///         {
@@ -54,29 +54,29 @@ namespace Pulumi.Aws.SsmIncidents
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.SsmIncidents.ResponsePlan("example", new()
+    ///     var example = new Aws.Ssmincidents.ResponsePlan.ResponsePlan("example", new()
     ///     {
-    ///         IncidentTemplate = new Aws.SsmIncidents.Inputs.ResponsePlanIncidentTemplateArgs
+    ///         IncidentTemplate = 
     ///         {
-    ///             Title = "title",
-    ///             Impact = 3,
-    ///             DedupeString = "dedupe",
-    ///             IncidentTags = 
+    ///             { "title", "title" },
+    ///             { "impact", "3" },
+    ///             { "dedupeString", "dedupe" },
+    ///             { "incidentTags", 
     ///             {
     ///                 { "key", "value" },
-    ///             },
-    ///             NotificationTargets = new[]
+    ///             } },
+    ///             { "notificationTargets", new[]
     ///             {
-    ///                 new Aws.SsmIncidents.Inputs.ResponsePlanIncidentTemplateNotificationTargetArgs
+    ///                 
     ///                 {
-    ///                     SnsTopicArn = aws_sns_topic.Example1.Arn,
+    ///                     { "snsTopicArn", aws_sns_topic.Example1.Arn },
     ///                 },
-    ///                 new Aws.SsmIncidents.Inputs.ResponsePlanIncidentTemplateNotificationTargetArgs
+    ///                 
     ///                 {
-    ///                     SnsTopicArn = aws_sns_topic.Example2.Arn,
+    ///                     { "snsTopicArn", aws_sns_topic.Example2.Arn },
     ///                 },
-    ///             },
-    ///             Summary = "summary",
+    ///             } },
+    ///             { "summary", "summary" },
     ///         },
     ///         DisplayName = "display name",
     ///         ChatChannels = new[]
@@ -87,55 +87,55 @@ namespace Pulumi.Aws.SsmIncidents
     ///         {
     ///             "arn:aws:ssm-contacts:us-east-2:111122223333:contact/test1",
     ///         },
-    ///         Action = new Aws.SsmIncidents.Inputs.ResponsePlanActionArgs
+    ///         Action = 
     ///         {
-    ///             SsmAutomations = new[]
+    ///             { "ssmAutomations", new[]
     ///             {
-    ///                 new Aws.SsmIncidents.Inputs.ResponsePlanActionSsmAutomationArgs
+    ///                 
     ///                 {
-    ///                     DocumentName = aws_ssm_document.Document1.Name,
-    ///                     RoleArn = aws_iam_role.Role1.Arn,
-    ///                     DocumentVersion = "version1",
-    ///                     TargetAccount = "RESPONSE_PLAN_OWNER_ACCOUNT",
-    ///                     Parameters = new[]
+    ///                     { "documentName", aws_ssm_document.Document1.Name },
+    ///                     { "roleArn", aws_iam_role.Role1.Arn },
+    ///                     { "documentVersion", "version1" },
+    ///                     { "targetAccount", "RESPONSE_PLAN_OWNER_ACCOUNT" },
+    ///                     { "parameters", new[]
     ///                     {
-    ///                         new Aws.SsmIncidents.Inputs.ResponsePlanActionSsmAutomationParameterArgs
+    ///                         
     ///                         {
-    ///                             Name = "key",
-    ///                             Values = new[]
+    ///                             { "name", "key" },
+    ///                             { "values", new[]
     ///                             {
     ///                                 "value1",
     ///                                 "value2",
-    ///                             },
+    ///                             } },
     ///                         },
-    ///                         new Aws.SsmIncidents.Inputs.ResponsePlanActionSsmAutomationParameterArgs
+    ///                         
     ///                         {
-    ///                             Name = "foo",
-    ///                             Values = new[]
+    ///                             { "name", "foo" },
+    ///                             { "values", new[]
     ///                             {
     ///                                 "bar",
-    ///                             },
+    ///                             } },
     ///                         },
-    ///                     },
-    ///                     DynamicParameters = 
+    ///                     } },
+    ///                     { "dynamicParameters", 
     ///                     {
     ///                         { "someKey", "INVOLVED_RESOURCES" },
     ///                         { "anotherKey", "INCIDENT_RECORD_ARN" },
-    ///                     },
+    ///                     } },
     ///                 },
-    ///             },
+    ///             } },
     ///         },
-    ///         Integration = new Aws.SsmIncidents.Inputs.ResponsePlanIntegrationArgs
+    ///         Integration = 
     ///         {
-    ///             Pagerduties = new[]
+    ///             { "pagerduties", new[]
     ///             {
-    ///                 new Aws.SsmIncidents.Inputs.ResponsePlanIntegrationPagerdutyArgs
+    ///                 
     ///                 {
-    ///                     Name = "pagerdutyIntergration",
-    ///                     ServiceId = "example",
-    ///                     SecretId = "example",
+    ///                     { "name", "pagerdutyIntergration" },
+    ///                     { "serviceId", "example" },
+    ///                     { "secretId", "example" },
     ///                 },
-    ///             },
+    ///             } },
     ///         },
     ///         Tags = 
     ///         {

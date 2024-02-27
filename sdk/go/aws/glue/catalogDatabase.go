@@ -20,23 +20,21 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/glue"
+//	glue/catalogDatabase "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/glue/catalogDatabase"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := glue.NewCatalogDatabase(ctx, "example", &glue.CatalogDatabaseArgs{
-//				Name: pulumi.String("MyCatalogDatabase"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := glue/catalogDatabase.NewCatalogDatabase(ctx, "example", &glue/catalogDatabase.CatalogDatabaseArgs{
+// Name: "MyCatalogDatabase",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Create Table Default Permissions
 //
@@ -45,33 +43,31 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/glue"
+//	glue/catalogDatabase "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/glue/catalogDatabase"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := glue.NewCatalogDatabase(ctx, "example", &glue.CatalogDatabaseArgs{
-//				CreateTableDefaultPermissions: glue.CatalogDatabaseCreateTableDefaultPermissionArray{
-//					&glue.CatalogDatabaseCreateTableDefaultPermissionArgs{
-//						Permissions: pulumi.StringArray{
-//							pulumi.String("SELECT"),
-//						},
-//						Principal: &glue.CatalogDatabaseCreateTableDefaultPermissionPrincipalArgs{
-//							DataLakePrincipalIdentifier: pulumi.String("IAM_ALLOWED_PRINCIPALS"),
-//						},
-//					},
-//				},
-//				Name: pulumi.String("MyCatalogDatabase"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := glue/catalogDatabase.NewCatalogDatabase(ctx, "example", &glue/catalogDatabase.CatalogDatabaseArgs{
+// CreateTableDefaultPermissions: []map[string]interface{}{
+// map[string]interface{}{
+// "permissions": []string{
+// "SELECT",
+// },
+// "principal": map[string]interface{}{
+// "dataLakePrincipalIdentifier": "IAM_ALLOWED_PRINCIPALS",
+// },
+// },
+// },
+// Name: "MyCatalogDatabase",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

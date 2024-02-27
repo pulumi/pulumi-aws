@@ -10,17 +10,6 @@ import * as utilities from "../utilities";
 /**
  * The ECS Cluster data source allows access to details of a specific
  * cluster within an AWS ECS service.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const ecs-mongo = aws.ecs.getCluster({
- *     clusterName: "ecs-mongo-production",
- * });
- * ```
  */
 export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> {
 
@@ -90,17 +79,6 @@ export interface GetClusterResult {
 /**
  * The ECS Cluster data source allows access to details of a specific
  * cluster within an AWS ECS service.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const ecs-mongo = aws.ecs.getCluster({
- *     clusterName: "ecs-mongo-production",
- * });
- * ```
  */
 export function getClusterOutput(args: GetClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterResult> {
     return pulumi.output(args).apply((a: any) => getCluster(a, opts))

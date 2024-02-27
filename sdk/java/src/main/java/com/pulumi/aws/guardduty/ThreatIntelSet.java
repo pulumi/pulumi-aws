@@ -74,11 +74,7 @@ import javax.annotation.Nullable;
  *             .activate(true)
  *             .detectorId(primary.id())
  *             .format(&#34;TXT&#34;)
- *             .location(Output.tuple(myThreatIntelSetBucketObjectv2.bucket(), myThreatIntelSetBucketObjectv2.key()).applyValue(values -&gt; {
- *                 var bucket = values.t1;
- *                 var key = values.t2;
- *                 return String.format(&#34;https://s3.amazonaws.com/%s/%s&#34;, bucket,key);
- *             }))
+ *             .location(String.format(&#34;https://s3.amazonaws.com/%s/%s&#34;, myThreatIntelSetBucketObjectv2.bucket(),myThreatIntelSetBucketObjectv2.key()))
  *             .build());
  * 
  *     }

@@ -27,11 +27,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.appmesh.VirtualService;
- * import com.pulumi.aws.appmesh.VirtualServiceArgs;
- * import com.pulumi.aws.appmesh.inputs.VirtualServiceSpecArgs;
- * import com.pulumi.aws.appmesh.inputs.VirtualServiceSpecProviderArgs;
- * import com.pulumi.aws.appmesh.inputs.VirtualServiceSpecProviderVirtualNodeArgs;
+ * import com.pulumi.aws.appmesh_virtualService.VirtualService;
+ * import com.pulumi.aws.appmesh_virtualService.VirtualServiceArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -47,13 +44,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var servicea = new VirtualService(&#34;servicea&#34;, VirtualServiceArgs.builder()        
  *             .meshName(aws_appmesh_mesh.simple().id())
- *             .spec(VirtualServiceSpecArgs.builder()
- *                 .provider(VirtualServiceSpecProviderArgs.builder()
- *                     .virtualNode(VirtualServiceSpecProviderVirtualNodeArgs.builder()
- *                         .virtualNodeName(aws_appmesh_virtual_node.serviceb1().name())
- *                         .build())
- *                     .build())
- *                 .build())
+ *             .spec(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -66,11 +57,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.appmesh.VirtualService;
- * import com.pulumi.aws.appmesh.VirtualServiceArgs;
- * import com.pulumi.aws.appmesh.inputs.VirtualServiceSpecArgs;
- * import com.pulumi.aws.appmesh.inputs.VirtualServiceSpecProviderArgs;
- * import com.pulumi.aws.appmesh.inputs.VirtualServiceSpecProviderVirtualRouterArgs;
+ * import com.pulumi.aws.appmesh_virtualService.VirtualService;
+ * import com.pulumi.aws.appmesh_virtualService.VirtualServiceArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -86,13 +74,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var servicea = new VirtualService(&#34;servicea&#34;, VirtualServiceArgs.builder()        
  *             .meshName(aws_appmesh_mesh.simple().id())
- *             .spec(VirtualServiceSpecArgs.builder()
- *                 .provider(VirtualServiceSpecProviderArgs.builder()
- *                     .virtualRouter(VirtualServiceSpecProviderVirtualRouterArgs.builder()
- *                         .virtualRouterName(aws_appmesh_virtual_router.serviceb().name())
- *                         .build())
- *                     .build())
- *                 .build())
+ *             .spec(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

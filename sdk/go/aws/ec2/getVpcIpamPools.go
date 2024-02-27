@@ -16,45 +16,6 @@ import (
 // This resource can prove useful when IPAM pools are created in another root
 // module and you need the pool ids as input variables. For example, pools
 // can be shared via RAM and used to create vpcs with CIDRs from that pool.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.GetVpcIpamPools(ctx, &ec2.GetVpcIpamPoolsArgs{
-//				Filters: []ec2.GetVpcIpamPoolsFilter{
-//					{
-//						Name: "description",
-//						Values: []string{
-//							"*test*",
-//						},
-//					},
-//					{
-//						Name: "address-family",
-//						Values: []string{
-//							"ipv4",
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetVpcIpamPools(ctx *pulumi.Context, args *GetVpcIpamPoolsArgs, opts ...pulumi.InvokeOption) (*GetVpcIpamPoolsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetVpcIpamPoolsResult

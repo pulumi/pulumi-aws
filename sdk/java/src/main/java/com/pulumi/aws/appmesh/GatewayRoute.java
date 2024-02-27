@@ -28,12 +28,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.appmesh.GatewayRoute;
  * import com.pulumi.aws.appmesh.GatewayRouteArgs;
- * import com.pulumi.aws.appmesh.inputs.GatewayRouteSpecArgs;
- * import com.pulumi.aws.appmesh.inputs.GatewayRouteSpecHttpRouteArgs;
- * import com.pulumi.aws.appmesh.inputs.GatewayRouteSpecHttpRouteActionArgs;
- * import com.pulumi.aws.appmesh.inputs.GatewayRouteSpecHttpRouteActionTargetArgs;
- * import com.pulumi.aws.appmesh.inputs.GatewayRouteSpecHttpRouteActionTargetVirtualServiceArgs;
- * import com.pulumi.aws.appmesh.inputs.GatewayRouteSpecHttpRouteMatchArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -50,21 +44,8 @@ import javax.annotation.Nullable;
  *         var example = new GatewayRoute(&#34;example&#34;, GatewayRouteArgs.builder()        
  *             .meshName(&#34;example-service-mesh&#34;)
  *             .virtualGatewayName(aws_appmesh_virtual_gateway.example().name())
- *             .spec(GatewayRouteSpecArgs.builder()
- *                 .httpRoute(GatewayRouteSpecHttpRouteArgs.builder()
- *                     .action(GatewayRouteSpecHttpRouteActionArgs.builder()
- *                         .target(GatewayRouteSpecHttpRouteActionTargetArgs.builder()
- *                             .virtualService(GatewayRouteSpecHttpRouteActionTargetVirtualServiceArgs.builder()
- *                                 .virtualServiceName(aws_appmesh_virtual_service.example().name())
- *                                 .build())
- *                             .build())
- *                         .build())
- *                     .match(GatewayRouteSpecHttpRouteMatchArgs.builder()
- *                         .prefix(&#34;/&#34;)
- *                         .build())
- *                     .build())
- *                 .build())
- *             .tags(Map.of(&#34;Environment&#34;, &#34;test&#34;))
+ *             .spec(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

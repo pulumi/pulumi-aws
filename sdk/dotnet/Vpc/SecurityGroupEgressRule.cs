@@ -29,7 +29,7 @@ namespace Pulumi.Aws.Vpc
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Vpc.SecurityGroupEgressRule("example", new()
+    ///     var example = new Aws.Vpc.SecurityGroupEgressRule.SecurityGroupEgressRule("example", new()
     ///     {
     ///         SecurityGroupId = aws_security_group.Example.Id,
     ///         CidrIpv4 = "10.0.0.0/8",

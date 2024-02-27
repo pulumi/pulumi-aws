@@ -30,47 +30,46 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	ec2/defaultSecurityGroup "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/defaultSecurityGroup"
+//	ec2/vpc "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/vpc"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			mainvpc, err := ec2.NewVpc(ctx, "mainvpc", &ec2.VpcArgs{
-//				CidrBlock: pulumi.String("10.1.0.0/16"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ec2.NewDefaultSecurityGroup(ctx, "default", &ec2.DefaultSecurityGroupArgs{
-//				VpcId: mainvpc.ID(),
-//				Ingress: ec2.DefaultSecurityGroupIngressArray{
-//					&ec2.DefaultSecurityGroupIngressArgs{
-//						Protocol: pulumi.String("-1"),
-//						Self:     pulumi.Bool(true),
-//						FromPort: pulumi.Int(0),
-//						ToPort:   pulumi.Int(0),
-//					},
-//				},
-//				Egress: ec2.DefaultSecurityGroupEgressArray{
-//					&ec2.DefaultSecurityGroupEgressArgs{
-//						FromPort: pulumi.Int(0),
-//						ToPort:   pulumi.Int(0),
-//						Protocol: pulumi.String("-1"),
-//						CidrBlocks: pulumi.StringArray{
-//							pulumi.String("0.0.0.0/0"),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// mainvpc, err := ec2/vpc.NewVpc(ctx, "mainvpc", &ec2/vpc.VpcArgs{
+// CidrBlock: "10.1.0.0/16",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = ec2/defaultSecurityGroup.NewDefaultSecurityGroup(ctx, "default", &ec2/defaultSecurityGroup.DefaultSecurityGroupArgs{
+// VpcId: mainvpc.Id,
+// Ingress: []map[string]interface{}{
+// map[string]interface{}{
+// "protocol": -1,
+// "self": true,
+// "fromPort": 0,
+// "toPort": 0,
+// },
+// },
+// Egress: []map[string]interface{}{
+// map[string]interface{}{
+// "fromPort": 0,
+// "toPort": 0,
+// "protocol": "-1",
+// "cidrBlocks": []string{
+// "0.0.0.0/0",
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Example Config To Deny All Egress Traffic, Allowing Ingress
 //
@@ -81,37 +80,36 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	ec2/defaultSecurityGroup "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/defaultSecurityGroup"
+//	ec2/vpc "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/vpc"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			mainvpc, err := ec2.NewVpc(ctx, "mainvpc", &ec2.VpcArgs{
-//				CidrBlock: pulumi.String("10.1.0.0/16"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ec2.NewDefaultSecurityGroup(ctx, "default", &ec2.DefaultSecurityGroupArgs{
-//				VpcId: mainvpc.ID(),
-//				Ingress: ec2.DefaultSecurityGroupIngressArray{
-//					&ec2.DefaultSecurityGroupIngressArgs{
-//						Protocol: pulumi.String("-1"),
-//						Self:     pulumi.Bool(true),
-//						FromPort: pulumi.Int(0),
-//						ToPort:   pulumi.Int(0),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// mainvpc, err := ec2/vpc.NewVpc(ctx, "mainvpc", &ec2/vpc.VpcArgs{
+// CidrBlock: "10.1.0.0/16",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = ec2/defaultSecurityGroup.NewDefaultSecurityGroup(ctx, "default", &ec2/defaultSecurityGroup.DefaultSecurityGroupArgs{
+// VpcId: mainvpc.Id,
+// Ingress: []map[string]interface{}{
+// map[string]interface{}{
+// "protocol": -1,
+// "self": true,
+// "fromPort": 0,
+// "toPort": 0,
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Removing `ec2.DefaultSecurityGroup` From Your Configuration
 //

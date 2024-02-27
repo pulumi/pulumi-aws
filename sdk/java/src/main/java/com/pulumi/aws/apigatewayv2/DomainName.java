@@ -34,7 +34,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.apigatewayv2.DomainName;
  * import com.pulumi.aws.apigatewayv2.DomainNameArgs;
- * import com.pulumi.aws.apigatewayv2.inputs.DomainNameDomainNameConfigurationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -50,11 +49,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new DomainName(&#34;example&#34;, DomainNameArgs.builder()        
  *             .domainName(&#34;ws-api.example.com&#34;)
- *             .domainNameConfiguration(DomainNameDomainNameConfigurationArgs.builder()
- *                 .certificateArn(aws_acm_certificate.example().arn())
- *                 .endpointType(&#34;REGIONAL&#34;)
- *                 .securityPolicy(&#34;TLS_1_2&#34;)
- *                 .build())
+ *             .domainNameConfiguration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -69,10 +64,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.apigatewayv2.DomainName;
  * import com.pulumi.aws.apigatewayv2.DomainNameArgs;
- * import com.pulumi.aws.apigatewayv2.inputs.DomainNameDomainNameConfigurationArgs;
  * import com.pulumi.aws.route53.Record;
  * import com.pulumi.aws.route53.RecordArgs;
- * import com.pulumi.aws.route53.inputs.RecordAliasArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -88,22 +81,14 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var exampleDomainName = new DomainName(&#34;exampleDomainName&#34;, DomainNameArgs.builder()        
  *             .domainName(&#34;http-api.example.com&#34;)
- *             .domainNameConfiguration(DomainNameDomainNameConfigurationArgs.builder()
- *                 .certificateArn(aws_acm_certificate.example().arn())
- *                 .endpointType(&#34;REGIONAL&#34;)
- *                 .securityPolicy(&#34;TLS_1_2&#34;)
- *                 .build())
+ *             .domainNameConfiguration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleRecord = new Record(&#34;exampleRecord&#34;, RecordArgs.builder()        
  *             .name(exampleDomainName.domainName())
  *             .type(&#34;A&#34;)
  *             .zoneId(aws_route53_zone.example().zone_id())
- *             .aliases(RecordAliasArgs.builder()
- *                 .name(exampleDomainName.domainNameConfiguration().applyValue(domainNameConfiguration -&gt; domainNameConfiguration.targetDomainName()))
- *                 .zoneId(exampleDomainName.domainNameConfiguration().applyValue(domainNameConfiguration -&gt; domainNameConfiguration.hostedZoneId()))
- *                 .evaluateTargetHealth(false)
- *                 .build())
+ *             .aliases(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

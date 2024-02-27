@@ -17,9 +17,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleBucketV2 = new aws.s3.BucketV2("exampleBucketV2", {});
- * const exampleAccessPoint = new aws.s3.AccessPoint("exampleAccessPoint", {bucket: exampleBucketV2.id});
- * const exampleObjectLambdaAccessPoint = new aws.s3control.ObjectLambdaAccessPoint("exampleObjectLambdaAccessPoint", {configuration: {
+ * const exampleBucketV2 = new aws.s3/bucketV2.BucketV2("exampleBucketV2", {});
+ * const exampleAccessPoint = new aws.s3/accessPoint.AccessPoint("exampleAccessPoint", {bucket: exampleBucketV2.id});
+ * const exampleObjectLambdaAccessPoint = new aws.s3control/objectLambdaAccessPoint.ObjectLambdaAccessPoint("exampleObjectLambdaAccessPoint", {configuration: {
  *     supportingAccessPoint: exampleAccessPoint.arn,
  *     transformationConfigurations: [{
  *         actions: ["GetObject"],

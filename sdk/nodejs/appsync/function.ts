@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleGraphQLApi = new aws.appsync.GraphQLApi("exampleGraphQLApi", {
+ * const exampleGraphQLApi = new aws.appsync/graphQLApi.GraphQLApi("exampleGraphQLApi", {
  *     authenticationType: "API_KEY",
  *     schema: `type Mutation {
  *   putPost(id: ID!, title: String!): Post
@@ -37,7 +37,7 @@ import * as utilities from "../utilities";
  * }
  * `,
  * });
- * const exampleDataSource = new aws.appsync.DataSource("exampleDataSource", {
+ * const exampleDataSource = new aws.appsync/dataSource.DataSource("exampleDataSource", {
  *     apiId: exampleGraphQLApi.id,
  *     name: "example",
  *     type: "HTTP",
@@ -45,7 +45,7 @@ import * as utilities from "../utilities";
  *         endpoint: "http://example.com",
  *     },
  * });
- * const exampleFunction = new aws.appsync.Function("exampleFunction", {
+ * const exampleFunction = new aws.appsync/function.Function("exampleFunction", {
  *     apiId: exampleGraphQLApi.id,
  *     dataSource: exampleDataSource.name,
  *     name: "example",
@@ -73,7 +73,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * import * as fs from "fs";
  *
- * const example = new aws.appsync.Function("example", {
+ * const example = new aws.appsync/function.Function("example", {
  *     apiId: aws_appsync_graphql_api.example.id,
  *     dataSource: aws_appsync_datasource.example.name,
  *     name: "example",

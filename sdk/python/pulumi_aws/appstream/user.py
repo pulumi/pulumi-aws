@@ -278,11 +278,11 @@ class User(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.appstream.User("example",
-            authentication_type="USERPOOL",
-            first_name="FIRST NAME",
-            last_name="LAST NAME",
-            user_name="EMAIL")
+        example = aws.appstream.user.User("example",
+            authentication_type=USERPOOL,
+            first_name=FIRST NAME,
+            last_name=LAST NAME,
+            user_name=EMAIL)
         ```
 
         ## Import
@@ -319,11 +319,11 @@ class User(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.appstream.User("example",
-            authentication_type="USERPOOL",
-            first_name="FIRST NAME",
-            last_name="LAST NAME",
-            user_name="EMAIL")
+        example = aws.appstream.user.User("example",
+            authentication_type=USERPOOL,
+            first_name=FIRST NAME,
+            last_name=LAST NAME,
+            user_name=EMAIL)
         ```
 
         ## Import

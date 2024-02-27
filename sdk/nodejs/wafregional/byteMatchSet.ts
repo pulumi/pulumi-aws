@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const byteSet = new aws.wafregional.ByteMatchSet("byteSet", {byteMatchTuples: [{
+ * const byteSet = new aws.wafregional/byteMatchSet.ByteMatchSet("byteSet", {byteMatchTuples: [{
  *     fieldToMatch: {
  *         data: "referer",
  *         type: "HEADER",

@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * import * as fs from "fs";
  *
- * const testCert = new aws.iam.SigningCertificate("testCert", {
+ * const testCert = new aws.iam/signingCertificate.SigningCertificate("testCert", {
  *     username: "some_test_cert",
  *     certificateBody: fs.readFileSync("self-ca-cert.pem", "utf8"),
  * });
@@ -29,7 +29,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const testCertAlt = new aws.iam.SigningCertificate("testCertAlt", {
+ * const testCertAlt = new aws.iam/signingCertificate.SigningCertificate("testCertAlt", {
  *     certificateBody: `-----BEGIN CERTIFICATE-----
  * [......] # cert contents
  * -----END CERTIFICATE-----

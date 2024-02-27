@@ -12,35 +12,6 @@ import (
 )
 
 // The bucket policy data source returns IAM policy of an S3 bucket.
-//
-// ## Example Usage
-//
-// The following example retrieves IAM policy of a specified S3 bucket.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := s3.LookupBucketPolicy(ctx, &s3.LookupBucketPolicyArgs{
-//				Bucket: "example-bucket-name",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			ctx.Export("foo", example.Policy)
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupBucketPolicy(ctx *pulumi.Context, args *LookupBucketPolicyArgs, opts ...pulumi.InvokeOption) (*LookupBucketPolicyResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupBucketPolicyResult

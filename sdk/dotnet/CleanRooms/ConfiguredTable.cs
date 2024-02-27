@@ -23,7 +23,7 @@ namespace Pulumi.Aws.CleanRooms
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testConfiguredTable = new Aws.CleanRooms.ConfiguredTable("testConfiguredTable", new()
+    ///     var testConfiguredTable = new Aws.Cleanrooms.ConfiguredTable.ConfiguredTable("testConfiguredTable", new()
     ///     {
     ///         AllowedColumns = new[]
     ///         {
@@ -33,10 +33,10 @@ namespace Pulumi.Aws.CleanRooms
     ///         },
     ///         AnalysisMethod = "DIRECT_QUERY",
     ///         Description = "I made this table with Pulumi!",
-    ///         TableReference = new Aws.CleanRooms.Inputs.ConfiguredTableTableReferenceArgs
+    ///         TableReference = 
     ///         {
-    ///             DatabaseName = "example_database",
-    ///             TableName = "example_table",
+    ///             { "databaseName", "example_database" },
+    ///             { "tableName", "example_table" },
     ///         },
     ///         Tags = 
     ///         {

@@ -51,15 +51,8 @@ import javax.annotation.Nullable;
  *             .userPoolId(example.id())
  *             .providerName(&#34;Google&#34;)
  *             .providerType(&#34;Google&#34;)
- *             .providerDetails(Map.ofEntries(
- *                 Map.entry(&#34;authorize_scopes&#34;, &#34;email&#34;),
- *                 Map.entry(&#34;client_id&#34;, &#34;your client_id&#34;),
- *                 Map.entry(&#34;client_secret&#34;, &#34;your client_secret&#34;)
- *             ))
- *             .attributeMapping(Map.ofEntries(
- *                 Map.entry(&#34;email&#34;, &#34;email&#34;),
- *                 Map.entry(&#34;username&#34;, &#34;sub&#34;)
- *             ))
+ *             .providerDetails(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .attributeMapping(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

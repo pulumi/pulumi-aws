@@ -12,32 +12,6 @@ import (
 )
 
 // Provides details about an Image builder Container Recipe.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/imagebuilder"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := imagebuilder.LookupContainerRecipe(ctx, &imagebuilder.LookupContainerRecipeArgs{
-//				Arn: "arn:aws:imagebuilder:us-east-1:aws:container-recipe/example/1.0.0",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupContainerRecipe(ctx *pulumi.Context, args *LookupContainerRecipeArgs, opts ...pulumi.InvokeOption) (*LookupContainerRecipeResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupContainerRecipeResult

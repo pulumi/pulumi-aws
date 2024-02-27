@@ -18,37 +18,6 @@ public final class CodecatalystFunctions {
      * Data source for managing an AWS CodeCatalyst Dev Environment.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.codecatalyst.CodecatalystFunctions;
-     * import com.pulumi.aws.codecatalyst.inputs.GetDevEnvironmentArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = CodecatalystFunctions.getDevEnvironment(GetDevEnvironmentArgs.builder()
-     *             .spaceName(&#34;myspace&#34;)
-     *             .projectName(&#34;myproject&#34;)
-     *             .envId(aws_codecatalyst_dev_environment.example().id())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetDevEnvironmentResult> getDevEnvironment(GetDevEnvironmentArgs args) {
@@ -58,37 +27,6 @@ public final class CodecatalystFunctions {
      * Data source for managing an AWS CodeCatalyst Dev Environment.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.codecatalyst.CodecatalystFunctions;
-     * import com.pulumi.aws.codecatalyst.inputs.GetDevEnvironmentArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = CodecatalystFunctions.getDevEnvironment(GetDevEnvironmentArgs.builder()
-     *             .spaceName(&#34;myspace&#34;)
-     *             .projectName(&#34;myproject&#34;)
-     *             .envId(aws_codecatalyst_dev_environment.example().id())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetDevEnvironmentResult> getDevEnvironmentPlain(GetDevEnvironmentPlainArgs args) {
@@ -98,37 +36,6 @@ public final class CodecatalystFunctions {
      * Data source for managing an AWS CodeCatalyst Dev Environment.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.codecatalyst.CodecatalystFunctions;
-     * import com.pulumi.aws.codecatalyst.inputs.GetDevEnvironmentArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = CodecatalystFunctions.getDevEnvironment(GetDevEnvironmentArgs.builder()
-     *             .spaceName(&#34;myspace&#34;)
-     *             .projectName(&#34;myproject&#34;)
-     *             .envId(aws_codecatalyst_dev_environment.example().id())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetDevEnvironmentResult> getDevEnvironment(GetDevEnvironmentArgs args, InvokeOptions options) {
@@ -138,37 +45,6 @@ public final class CodecatalystFunctions {
      * Data source for managing an AWS CodeCatalyst Dev Environment.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.codecatalyst.CodecatalystFunctions;
-     * import com.pulumi.aws.codecatalyst.inputs.GetDevEnvironmentArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = CodecatalystFunctions.getDevEnvironment(GetDevEnvironmentArgs.builder()
-     *             .spaceName(&#34;myspace&#34;)
-     *             .projectName(&#34;myproject&#34;)
-     *             .envId(aws_codecatalyst_dev_environment.example().id())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetDevEnvironmentResult> getDevEnvironmentPlain(GetDevEnvironmentPlainArgs args, InvokeOptions options) {

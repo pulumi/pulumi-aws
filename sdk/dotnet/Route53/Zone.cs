@@ -23,7 +23,7 @@ namespace Pulumi.Aws.Route53
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var primary = new Aws.Route53.Zone("primary");
+    ///     var primary = new Aws.Route53.Zone.Zone("primary");
     /// 
     /// });
     /// ```
@@ -41,9 +41,9 @@ namespace Pulumi.Aws.Route53
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var main = new Aws.Route53.Zone("main");
+    ///     var main = new Aws.Route53.Zone.Zone("main");
     /// 
-    ///     var dev = new Aws.Route53.Zone("dev", new()
+    ///     var dev = new Aws.Route53.Zone.Zone("dev", new()
     ///     {
     ///         Tags = 
     ///         {
@@ -51,12 +51,12 @@ namespace Pulumi.Aws.Route53
     ///         },
     ///     });
     /// 
-    ///     var dev_ns = new Aws.Route53.Record("dev-ns", new()
+    ///     var dev_ns = new Aws.Route53.Record.Record("dev-ns", new()
     ///     {
     ///         ZoneId = main.ZoneId,
     ///         Name = "dev.example.com",
     ///         Type = "NS",
-    ///         Ttl = 30,
+    ///         Ttl = "30",
     ///         Records = dev.NameServers,
     ///     });
     /// 
@@ -76,13 +76,13 @@ namespace Pulumi.Aws.Route53
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var @private = new Aws.Route53.Zone("private", new()
+    ///     var @private = new Aws.Route53.Zone.Zone("private", new()
     ///     {
     ///         Vpcs = new[]
     ///         {
-    ///             new Aws.Route53.Inputs.ZoneVpcArgs
+    ///             
     ///             {
-    ///                 VpcId = aws_vpc.Example.Id,
+    ///                 { "vpcId", aws_vpc.Example.Id },
     ///             },
     ///         },
     ///     });

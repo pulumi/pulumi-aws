@@ -27,7 +27,7 @@ namespace Pulumi.Aws.Transfer
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Transfer.Server("example", new()
+    ///     var example = new Aws.Transfer.Server.Server("example", new()
     ///     {
     ///         Tags = 
     ///         {
@@ -47,7 +47,7 @@ namespace Pulumi.Aws.Transfer
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Transfer.Server("example", new()
+    ///     var example = new Aws.Transfer.Server.Server("example", new()
     ///     {
     ///         SecurityPolicyName = "TransferSecurityPolicy-2020-06",
     ///     });
@@ -64,20 +64,20 @@ namespace Pulumi.Aws.Transfer
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Transfer.Server("example", new()
+    ///     var example = new Aws.Transfer.Server.Server("example", new()
     ///     {
     ///         EndpointType = "VPC",
-    ///         EndpointDetails = new Aws.Transfer.Inputs.ServerEndpointDetailsArgs
+    ///         EndpointDetails = 
     ///         {
-    ///             AddressAllocationIds = new[]
+    ///             { "addressAllocationIds", new[]
     ///             {
     ///                 aws_eip.Example.Id,
-    ///             },
-    ///             SubnetIds = new[]
+    ///             } },
+    ///             { "subnetIds", new[]
     ///             {
     ///                 aws_subnet.Example.Id,
-    ///             },
-    ///             VpcId = aws_vpc.Example.Id,
+    ///             } },
+    ///             { "vpcId", aws_vpc.Example.Id },
     ///         },
     ///     });
     /// 
@@ -93,7 +93,7 @@ namespace Pulumi.Aws.Transfer
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Transfer.Server("example", new()
+    ///     var example = new Aws.Transfer.Server.Server("example", new()
     ///     {
     ///         IdentityProviderType = "AWS_DIRECTORY_SERVICE",
     ///         DirectoryId = aws_directory_service_directory.Example.Id,
@@ -111,7 +111,7 @@ namespace Pulumi.Aws.Transfer
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Transfer.Server("example", new()
+    ///     var example = new Aws.Transfer.Server.Server("example", new()
     ///     {
     ///         IdentityProviderType = "AWS_LAMBDA",
     ///         Function = aws_lambda_identity_provider.Example.Arn,
@@ -129,16 +129,16 @@ namespace Pulumi.Aws.Transfer
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Transfer.Server("example", new()
+    ///     var example = new Aws.Transfer.Server.Server("example", new()
     ///     {
     ///         EndpointType = "VPC",
-    ///         EndpointDetails = new Aws.Transfer.Inputs.ServerEndpointDetailsArgs
+    ///         EndpointDetails = 
     ///         {
-    ///             SubnetIds = new[]
+    ///             { "subnetIds", new[]
     ///             {
     ///                 aws_subnet.Example.Id,
-    ///             },
-    ///             VpcId = aws_vpc.Example.Id,
+    ///             } },
+    ///             { "vpcId", aws_vpc.Example.Id },
     ///         },
     ///         Protocols = new[]
     ///         {
@@ -148,73 +148,6 @@ namespace Pulumi.Aws.Transfer
     ///         Certificate = aws_acm_certificate.Example.Arn,
     ///         IdentityProviderType = "API_GATEWAY",
     ///         Url = $"{aws_api_gateway_deployment.Example.Invoke_url}{aws_api_gateway_resource.Example.Path}",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### Using Structured Logging Destinations
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var transferLogGroup = new Aws.CloudWatch.LogGroup("transferLogGroup", new()
-    ///     {
-    ///         NamePrefix = "transfer_test_",
-    ///     });
-    /// 
-    ///     var transferAssumeRole = Aws.Iam.GetPolicyDocument.Invoke(new()
-    ///     {
-    ///         Statements = new[]
-    ///         {
-    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
-    ///             {
-    ///                 Effect = "Allow",
-    ///                 Principals = new[]
-    ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
-    ///                     {
-    ///                         Type = "Service",
-    ///                         Identifiers = new[]
-    ///                         {
-    ///                             "transfer.amazonaws.com",
-    ///                         },
-    ///                     },
-    ///                 },
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "sts:AssumeRole",
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var iamForTransfer = new Aws.Iam.Role("iamForTransfer", new()
-    ///     {
-    ///         NamePrefix = "iam_for_transfer_",
-    ///         AssumeRolePolicy = transferAssumeRole.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
-    ///         ManagedPolicyArns = new[]
-    ///         {
-    ///             "arn:aws:iam::aws:policy/service-role/AWSTransferLoggingAccess",
-    ///         },
-    ///     });
-    /// 
-    ///     var transferServer = new Aws.Transfer.Server("transferServer", new()
-    ///     {
-    ///         EndpointType = "PUBLIC",
-    ///         LoggingRole = iamForTransfer.Arn,
-    ///         Protocols = new[]
-    ///         {
-    ///             "SFTP",
-    ///         },
-    ///         StructuredLogDestinations = new[]
-    ///         {
-    ///             transferLogGroup.Arn.Apply(arn =&gt; $"{arn}:*"),
-    ///         },
     ///     });
     /// 
     /// });

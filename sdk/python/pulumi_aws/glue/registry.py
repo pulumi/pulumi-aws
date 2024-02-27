@@ -178,7 +178,7 @@ class Registry(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.glue.Registry("example", registry_name="example")
+        example = aws.glue.registry.Registry("example", registry_name=example)
         ```
 
         ## Import
@@ -210,7 +210,7 @@ class Registry(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.glue.Registry("example", registry_name="example")
+        example = aws.glue.registry.Registry("example", registry_name=example)
         ```
 
         ## Import

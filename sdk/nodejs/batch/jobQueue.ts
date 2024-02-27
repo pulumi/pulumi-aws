@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const testQueue = new aws.batch.JobQueue("testQueue", {
+ * const testQueue = new aws.batch/jobQueue.JobQueue("testQueue", {
  *     state: "ENABLED",
  *     priority: 1,
  *     computeEnvironments: [
@@ -32,7 +32,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleSchedulingPolicy = new aws.batch.SchedulingPolicy("exampleSchedulingPolicy", {fairSharePolicy: {
+ * const exampleSchedulingPolicy = new aws.batch/schedulingPolicy.SchedulingPolicy("exampleSchedulingPolicy", {fairSharePolicy: {
  *     computeReservation: 1,
  *     shareDecaySeconds: 3600,
  *     shareDistributions: [{
@@ -40,7 +40,7 @@ import * as utilities from "../utilities";
  *         weightFactor: 0.1,
  *     }],
  * }});
- * const exampleJobQueue = new aws.batch.JobQueue("exampleJobQueue", {
+ * const exampleJobQueue = new aws.batch/jobQueue.JobQueue("exampleJobQueue", {
  *     schedulingPolicyArn: exampleSchedulingPolicy.arn,
  *     state: "ENABLED",
  *     priority: 1,

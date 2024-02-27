@@ -22,7 +22,7 @@ namespace Pulumi.Aws.StorageGateway
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.StorageGateway.TapePool("example", new()
+    ///     var example = new Aws.Storagegateway.TapePool.TapePool("example", new()
     ///     {
     ///         PoolName = "example",
     ///         StorageClass = "GLACIER",

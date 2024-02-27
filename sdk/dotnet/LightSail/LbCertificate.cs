@@ -22,17 +22,17 @@ namespace Pulumi.Aws.LightSail
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testLb = new Aws.LightSail.Lb("testLb", new()
+    ///     var testLb = new Aws.Lightsail.Lb.Lb("testLb", new()
     ///     {
     ///         HealthCheckPath = "/",
-    ///         InstancePort = 80,
+    ///         InstancePort = "80",
     ///         Tags = 
     ///         {
     ///             { "foo", "bar" },
     ///         },
     ///     });
     /// 
-    ///     var testLbCertificate = new Aws.LightSail.LbCertificate("testLbCertificate", new()
+    ///     var testLbCertificate = new Aws.Lightsail.LbCertificate.LbCertificate("testLbCertificate", new()
     ///     {
     ///         LbName = testLb.Id,
     ///         DomainName = "test.com",

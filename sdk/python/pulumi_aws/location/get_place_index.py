@@ -144,15 +144,6 @@ def get_place_index(index_name: Optional[str] = None,
     """
     Retrieve information about a Location Service Place Index.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.location.get_place_index(index_name="example")
-    ```
-
 
     :param str index_name: Name of the place index resource.
     :param Mapping[str, str] tags: Key-value map of resource tags for the place index.
@@ -181,15 +172,6 @@ def get_place_index_output(index_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPlaceIndexResult]:
     """
     Retrieve information about a Location Service Place Index.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.location.get_place_index(index_name="example")
-    ```
 
 
     :param str index_name: Name of the place index resource.

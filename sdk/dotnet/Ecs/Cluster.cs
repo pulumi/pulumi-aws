@@ -22,14 +22,14 @@ namespace Pulumi.Aws.Ecs
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var foo = new Aws.Ecs.Cluster("foo", new()
+    ///     var foo = new Aws.Ecs.Cluster.Cluster("foo", new()
     ///     {
     ///         Settings = new[]
     ///         {
-    ///             new Aws.Ecs.Inputs.ClusterSettingArgs
+    ///             
     ///             {
-    ///                 Name = "containerInsights",
-    ///                 Value = "enabled",
+    ///                 { "name", "containerInsights" },
+    ///                 { "value", "enabled" },
     ///             },
     ///         },
     ///     });
@@ -46,28 +46,28 @@ namespace Pulumi.Aws.Ecs
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleKey = new Aws.Kms.Key("exampleKey", new()
+    ///     var exampleKey = new Aws.Kms.Key.Key("exampleKey", new()
     ///     {
     ///         Description = "example",
     ///         DeletionWindowInDays = 7,
     ///     });
     /// 
-    ///     var exampleLogGroup = new Aws.CloudWatch.LogGroup("exampleLogGroup");
+    ///     var exampleLogGroup = new Aws.Cloudwatch.LogGroup.LogGroup("exampleLogGroup");
     /// 
-    ///     var test = new Aws.Ecs.Cluster("test", new()
+    ///     var test = new Aws.Ecs.Cluster.Cluster("test", new()
     ///     {
-    ///         Configuration = new Aws.Ecs.Inputs.ClusterConfigurationArgs
+    ///         Configuration = 
     ///         {
-    ///             ExecuteCommandConfiguration = new Aws.Ecs.Inputs.ClusterConfigurationExecuteCommandConfigurationArgs
+    ///             { "executeCommandConfiguration", 
     ///             {
-    ///                 KmsKeyId = exampleKey.Arn,
-    ///                 Logging = "OVERRIDE",
-    ///                 LogConfiguration = new Aws.Ecs.Inputs.ClusterConfigurationExecuteCommandConfigurationLogConfigurationArgs
+    ///                 { "kmsKeyId", exampleKey.Arn },
+    ///                 { "logging", "OVERRIDE" },
+    ///                 { "logConfiguration", 
     ///                 {
-    ///                     CloudWatchEncryptionEnabled = true,
-    ///                     CloudWatchLogGroupName = exampleLogGroup.Name,
-    ///                 },
-    ///             },
+    ///                     { "cloudWatchEncryptionEnabled", true },
+    ///                     { "cloudWatchLogGroupName", exampleLogGroup.Name },
+    ///                 } },
+    ///             } },
     ///         },
     ///     });
     /// 

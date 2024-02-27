@@ -21,29 +21,27 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apprunner"
+//	apprunner/observabilityConfiguration "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/apprunner/observabilityConfiguration"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := apprunner.NewObservabilityConfiguration(ctx, "example", &apprunner.ObservabilityConfigurationArgs{
-//				ObservabilityConfigurationName: pulumi.String("example"),
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("example-apprunner-observability-configuration"),
-//				},
-//				TraceConfiguration: &apprunner.ObservabilityConfigurationTraceConfigurationArgs{
-//					Vendor: pulumi.String("AWSXRAY"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := apprunner/observabilityConfiguration.NewObservabilityConfiguration(ctx, "example", &apprunner/observabilityConfiguration.ObservabilityConfigurationArgs{
+// ObservabilityConfigurationName: "example",
+// Tags: map[string]interface{}{
+// "Name": "example-apprunner-observability-configuration",
+// },
+// TraceConfiguration: map[string]interface{}{
+// "vendor": "AWSXRAY",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

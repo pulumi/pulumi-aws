@@ -6,26 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to get the public key about the specified KMS Key with flexible key id input. This can be useful to reference key alias without having to hard code the ARN as input.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const byAlias = aws.kms.getPublicKey({
- *     keyId: "alias/my-key",
- * });
- * const byId = aws.kms.getPublicKey({
- *     keyId: "1234abcd-12ab-34cd-56ef-1234567890ab",
- * });
- * const byAliasArn = aws.kms.getPublicKey({
- *     keyId: "arn:aws:kms:us-east-1:111122223333:alias/my-key",
- * });
- * const byKeyArn = aws.kms.getPublicKey({
- *     keyId: "arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
- * });
- * ```
  */
 export function getPublicKey(args: GetPublicKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetPublicKeyResult> {
 
@@ -95,26 +75,6 @@ export interface GetPublicKeyResult {
 }
 /**
  * Use this data source to get the public key about the specified KMS Key with flexible key id input. This can be useful to reference key alias without having to hard code the ARN as input.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const byAlias = aws.kms.getPublicKey({
- *     keyId: "alias/my-key",
- * });
- * const byId = aws.kms.getPublicKey({
- *     keyId: "1234abcd-12ab-34cd-56ef-1234567890ab",
- * });
- * const byAliasArn = aws.kms.getPublicKey({
- *     keyId: "arn:aws:kms:us-east-1:111122223333:alias/my-key",
- * });
- * const byKeyArn = aws.kms.getPublicKey({
- *     keyId: "arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
- * });
- * ```
  */
 export function getPublicKeyOutput(args: GetPublicKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPublicKeyResult> {
     return pulumi.output(args).apply((a: any) => getPublicKey(a, opts))

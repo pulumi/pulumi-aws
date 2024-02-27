@@ -181,9 +181,9 @@ class ProductPortfolioAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.servicecatalog.ProductPortfolioAssociation("example",
-            portfolio_id="port-68656c6c6f",
-            product_id="prod-dnigbtea24ste")
+        example = aws.servicecatalog.product_portfolio_association.ProductPortfolioAssociation("example",
+            portfolio_id=port-68656c6c6f,
+            product_id=prod-dnigbtea24ste)
         ```
 
         ## Import
@@ -219,9 +219,9 @@ class ProductPortfolioAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.servicecatalog.ProductPortfolioAssociation("example",
-            portfolio_id="port-68656c6c6f",
-            product_id="prod-dnigbtea24ste")
+        example = aws.servicecatalog.product_portfolio_association.ProductPortfolioAssociation("example",
+            portfolio_id=port-68656c6c6f,
+            product_id=prod-dnigbtea24ste)
         ```
 
         ## Import

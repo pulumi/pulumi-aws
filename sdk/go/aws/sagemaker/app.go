@@ -22,26 +22,24 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sagemaker"
+//	sagemaker/app "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/sagemaker/app"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := sagemaker.NewApp(ctx, "example", &sagemaker.AppArgs{
-//				DomainId:        pulumi.Any(aws_sagemaker_domain.Example.Id),
-//				UserProfileName: pulumi.Any(aws_sagemaker_user_profile.Example.User_profile_name),
-//				AppName:         pulumi.String("example"),
-//				AppType:         pulumi.String("JupyterServer"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := sagemaker/app.NewApp(ctx, "example", &sagemaker/app.AppArgs{
+// DomainId: aws_sagemaker_domain.Example.Id,
+// UserProfileName: aws_sagemaker_user_profile.Example.User_profile_name,
+// AppName: "example",
+// AppType: "JupyterServer",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -21,23 +21,21 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53recoveryreadiness"
+//	route53recoveryreadiness/recoveryGroup "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/route53recoveryreadiness/recoveryGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := route53recoveryreadiness.NewRecoveryGroup(ctx, "example", &route53recoveryreadiness.RecoveryGroupArgs{
-//				RecoveryGroupName: pulumi.String("my-high-availability-app"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := route53recoveryreadiness/recoveryGroup.NewRecoveryGroup(ctx, "example", &route53recoveryreadiness/recoveryGroup.RecoveryGroupArgs{
+// RecoveryGroupName: "my-high-availability-app",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

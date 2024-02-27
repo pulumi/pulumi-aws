@@ -23,14 +23,14 @@ namespace Pulumi.Aws.Kendra
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Kendra.Faq("example", new()
+    ///     var example = new Aws.Kendra.Faq.Faq("example", new()
     ///     {
     ///         IndexId = aws_kendra_index.Example.Id,
     ///         RoleArn = aws_iam_role.Example.Arn,
-    ///         S3Path = new Aws.Kendra.Inputs.FaqS3PathArgs
+    ///         S3Path = 
     ///         {
-    ///             Bucket = aws_s3_bucket.Example.Id,
-    ///             Key = aws_s3_object.Example.Key,
+    ///             { "bucket", aws_s3_bucket.Example.Id },
+    ///             { "key", aws_s3_object.Example.Key },
     ///         },
     ///         Tags = 
     ///         {
@@ -50,15 +50,15 @@ namespace Pulumi.Aws.Kendra
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Kendra.Faq("example", new()
+    ///     var example = new Aws.Kendra.Faq.Faq("example", new()
     ///     {
     ///         IndexId = aws_kendra_index.Example.Id,
     ///         FileFormat = "CSV",
     ///         RoleArn = aws_iam_role.Example.Arn,
-    ///         S3Path = new Aws.Kendra.Inputs.FaqS3PathArgs
+    ///         S3Path = 
     ///         {
-    ///             Bucket = aws_s3_bucket.Example.Id,
-    ///             Key = aws_s3_object.Example.Key,
+    ///             { "bucket", aws_s3_bucket.Example.Id },
+    ///             { "key", aws_s3_object.Example.Key },
     ///         },
     ///     });
     /// 
@@ -74,15 +74,15 @@ namespace Pulumi.Aws.Kendra
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Kendra.Faq("example", new()
+    ///     var example = new Aws.Kendra.Faq.Faq("example", new()
     ///     {
     ///         IndexId = aws_kendra_index.Example.Id,
     ///         LanguageCode = "en",
     ///         RoleArn = aws_iam_role.Example.Arn,
-    ///         S3Path = new Aws.Kendra.Inputs.FaqS3PathArgs
+    ///         S3Path = 
     ///         {
-    ///             Bucket = aws_s3_bucket.Example.Id,
-    ///             Key = aws_s3_object.Example.Key,
+    ///             { "bucket", aws_s3_bucket.Example.Id },
+    ///             { "key", aws_s3_object.Example.Key },
     ///         },
     ///     });
     /// 

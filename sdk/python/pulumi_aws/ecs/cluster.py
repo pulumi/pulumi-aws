@@ -247,10 +247,10 @@ class Cluster(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        foo = aws.ecs.Cluster("foo", settings=[aws.ecs.ClusterSettingArgs(
-            name="containerInsights",
-            value="enabled",
-        )])
+        foo = aws.ecs.cluster.Cluster("foo", settings=[{
+            name: containerInsights,
+            value: enabled,
+        }])
         ```
         ### Example with Log Configuration
 
@@ -258,20 +258,20 @@ class Cluster(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_key = aws.kms.Key("exampleKey",
-            description="example",
+        example_key = aws.kms.key.Key("exampleKey",
+            description=example,
             deletion_window_in_days=7)
-        example_log_group = aws.cloudwatch.LogGroup("exampleLogGroup")
-        test = aws.ecs.Cluster("test", configuration=aws.ecs.ClusterConfigurationArgs(
-            execute_command_configuration=aws.ecs.ClusterConfigurationExecuteCommandConfigurationArgs(
-                kms_key_id=example_key.arn,
-                logging="OVERRIDE",
-                log_configuration=aws.ecs.ClusterConfigurationExecuteCommandConfigurationLogConfigurationArgs(
-                    cloud_watch_encryption_enabled=True,
-                    cloud_watch_log_group_name=example_log_group.name,
-                ),
-            ),
-        ))
+        example_log_group = aws.cloudwatch.log_group.LogGroup("exampleLogGroup")
+        test = aws.ecs.cluster.Cluster("test", configuration={
+            executeCommandConfiguration: {
+                kmsKeyId: example_key.arn,
+                logging: OVERRIDE,
+                logConfiguration: {
+                    cloudWatchEncryptionEnabled: True,
+                    cloudWatchLogGroupName: example_log_group.name,
+                },
+            },
+        })
         ```
 
         ## Import
@@ -305,10 +305,10 @@ class Cluster(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        foo = aws.ecs.Cluster("foo", settings=[aws.ecs.ClusterSettingArgs(
-            name="containerInsights",
-            value="enabled",
-        )])
+        foo = aws.ecs.cluster.Cluster("foo", settings=[{
+            name: containerInsights,
+            value: enabled,
+        }])
         ```
         ### Example with Log Configuration
 
@@ -316,20 +316,20 @@ class Cluster(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_key = aws.kms.Key("exampleKey",
-            description="example",
+        example_key = aws.kms.key.Key("exampleKey",
+            description=example,
             deletion_window_in_days=7)
-        example_log_group = aws.cloudwatch.LogGroup("exampleLogGroup")
-        test = aws.ecs.Cluster("test", configuration=aws.ecs.ClusterConfigurationArgs(
-            execute_command_configuration=aws.ecs.ClusterConfigurationExecuteCommandConfigurationArgs(
-                kms_key_id=example_key.arn,
-                logging="OVERRIDE",
-                log_configuration=aws.ecs.ClusterConfigurationExecuteCommandConfigurationLogConfigurationArgs(
-                    cloud_watch_encryption_enabled=True,
-                    cloud_watch_log_group_name=example_log_group.name,
-                ),
-            ),
-        ))
+        example_log_group = aws.cloudwatch.log_group.LogGroup("exampleLogGroup")
+        test = aws.ecs.cluster.Cluster("test", configuration={
+            executeCommandConfiguration: {
+                kmsKeyId: example_key.arn,
+                logging: OVERRIDE,
+                logConfiguration: {
+                    cloudWatchEncryptionEnabled: True,
+                    cloudWatchLogGroupName: example_log_group.name,
+                },
+            },
+        })
         ```
 
         ## Import

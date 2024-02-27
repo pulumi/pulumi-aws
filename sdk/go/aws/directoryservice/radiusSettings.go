@@ -21,32 +21,30 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/directoryservice"
+//	directoryservice/radiusSettings "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/directoryservice/radiusSettings"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := directoryservice.NewRadiusSettings(ctx, "example", &directoryservice.RadiusSettingsArgs{
-//				DirectoryId:            pulumi.Any(aws_directory_service_directory.Example.Id),
-//				AuthenticationProtocol: pulumi.String("PAP"),
-//				DisplayLabel:           pulumi.String("example"),
-//				RadiusPort:             pulumi.Int(1812),
-//				RadiusRetries:          pulumi.Int(4),
-//				RadiusServers: pulumi.StringArray{
-//					pulumi.String("10.0.1.5"),
-//				},
-//				RadiusTimeout: pulumi.Int(1),
-//				SharedSecret:  pulumi.String("12345678"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := directoryservice/radiusSettings.NewRadiusSettings(ctx, "example", &directoryservice/radiusSettings.RadiusSettingsArgs{
+// DirectoryId: aws_directory_service_directory.Example.Id,
+// AuthenticationProtocol: "PAP",
+// DisplayLabel: "example",
+// RadiusPort: 1812,
+// RadiusRetries: 4,
+// RadiusServers: []string{
+// "10.0.1.5",
+// },
+// RadiusTimeout: 1,
+// SharedSecret: "12345678",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -50,7 +50,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.s3.BucketLifecycleConfigurationV2;
  * import com.pulumi.aws.s3.BucketLifecycleConfigurationV2Args;
- * import com.pulumi.aws.s3.inputs.BucketLifecycleConfigurationV2RuleArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -66,10 +65,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new BucketLifecycleConfigurationV2(&#34;example&#34;, BucketLifecycleConfigurationV2Args.builder()        
  *             .bucket(aws_s3_bucket.bucket().id())
- *             .rules(BucketLifecycleConfigurationV2RuleArgs.builder()
- *                 .id(&#34;rule-1&#34;)
- *                 .status(&#34;Enabled&#34;)
- *                 .build())
+ *             .rules(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -86,8 +82,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.s3.BucketLifecycleConfigurationV2;
  * import com.pulumi.aws.s3.BucketLifecycleConfigurationV2Args;
- * import com.pulumi.aws.s3.inputs.BucketLifecycleConfigurationV2RuleArgs;
- * import com.pulumi.aws.s3.inputs.BucketLifecycleConfigurationV2RuleFilterArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -103,11 +97,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new BucketLifecycleConfigurationV2(&#34;example&#34;, BucketLifecycleConfigurationV2Args.builder()        
  *             .bucket(aws_s3_bucket.bucket().id())
- *             .rules(BucketLifecycleConfigurationV2RuleArgs.builder()
- *                 .id(&#34;rule-1&#34;)
- *                 .filter()
- *                 .status(&#34;Enabled&#34;)
- *                 .build())
+ *             .rules(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -124,8 +114,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.s3.BucketLifecycleConfigurationV2;
  * import com.pulumi.aws.s3.BucketLifecycleConfigurationV2Args;
- * import com.pulumi.aws.s3.inputs.BucketLifecycleConfigurationV2RuleArgs;
- * import com.pulumi.aws.s3.inputs.BucketLifecycleConfigurationV2RuleFilterArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -141,13 +129,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new BucketLifecycleConfigurationV2(&#34;example&#34;, BucketLifecycleConfigurationV2Args.builder()        
  *             .bucket(aws_s3_bucket.bucket().id())
- *             .rules(BucketLifecycleConfigurationV2RuleArgs.builder()
- *                 .id(&#34;rule-1&#34;)
- *                 .filter(BucketLifecycleConfigurationV2RuleFilterArgs.builder()
- *                     .prefix(&#34;logs/&#34;)
- *                     .build())
- *                 .status(&#34;Enabled&#34;)
- *                 .build())
+ *             .rules(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -163,8 +145,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.s3.BucketLifecycleConfigurationV2;
  * import com.pulumi.aws.s3.BucketLifecycleConfigurationV2Args;
- * import com.pulumi.aws.s3.inputs.BucketLifecycleConfigurationV2RuleArgs;
- * import com.pulumi.aws.s3.inputs.BucketLifecycleConfigurationV2RuleFilterArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -181,20 +161,8 @@ import javax.annotation.Nullable;
  *         var example = new BucketLifecycleConfigurationV2(&#34;example&#34;, BucketLifecycleConfigurationV2Args.builder()        
  *             .bucket(aws_s3_bucket.bucket().id())
  *             .rules(            
- *                 BucketLifecycleConfigurationV2RuleArgs.builder()
- *                     .id(&#34;rule-1&#34;)
- *                     .filter(BucketLifecycleConfigurationV2RuleFilterArgs.builder()
- *                         .prefix(&#34;logs/&#34;)
- *                         .build())
- *                     .status(&#34;Enabled&#34;)
- *                     .build(),
- *                 BucketLifecycleConfigurationV2RuleArgs.builder()
- *                     .id(&#34;rule-2&#34;)
- *                     .filter(BucketLifecycleConfigurationV2RuleFilterArgs.builder()
- *                         .prefix(&#34;tmp/&#34;)
- *                         .build())
- *                     .status(&#34;Enabled&#34;)
- *                     .build())
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -211,9 +179,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.s3.BucketLifecycleConfigurationV2;
  * import com.pulumi.aws.s3.BucketLifecycleConfigurationV2Args;
- * import com.pulumi.aws.s3.inputs.BucketLifecycleConfigurationV2RuleArgs;
- * import com.pulumi.aws.s3.inputs.BucketLifecycleConfigurationV2RuleFilterArgs;
- * import com.pulumi.aws.s3.inputs.BucketLifecycleConfigurationV2RuleFilterTagArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -229,16 +194,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new BucketLifecycleConfigurationV2(&#34;example&#34;, BucketLifecycleConfigurationV2Args.builder()        
  *             .bucket(aws_s3_bucket.bucket().id())
- *             .rules(BucketLifecycleConfigurationV2RuleArgs.builder()
- *                 .id(&#34;rule-1&#34;)
- *                 .filter(BucketLifecycleConfigurationV2RuleFilterArgs.builder()
- *                     .tag(BucketLifecycleConfigurationV2RuleFilterTagArgs.builder()
- *                         .key(&#34;Name&#34;)
- *                         .value(&#34;Staging&#34;)
- *                         .build())
- *                     .build())
- *                 .status(&#34;Enabled&#34;)
- *                 .build())
+ *             .rules(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -255,9 +211,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.s3.BucketLifecycleConfigurationV2;
  * import com.pulumi.aws.s3.BucketLifecycleConfigurationV2Args;
- * import com.pulumi.aws.s3.inputs.BucketLifecycleConfigurationV2RuleArgs;
- * import com.pulumi.aws.s3.inputs.BucketLifecycleConfigurationV2RuleFilterArgs;
- * import com.pulumi.aws.s3.inputs.BucketLifecycleConfigurationV2RuleFilterAndArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -273,18 +226,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new BucketLifecycleConfigurationV2(&#34;example&#34;, BucketLifecycleConfigurationV2Args.builder()        
  *             .bucket(aws_s3_bucket.bucket().id())
- *             .rules(BucketLifecycleConfigurationV2RuleArgs.builder()
- *                 .id(&#34;rule-1&#34;)
- *                 .filter(BucketLifecycleConfigurationV2RuleFilterArgs.builder()
- *                     .and(BucketLifecycleConfigurationV2RuleFilterAndArgs.builder()
- *                         .tags(Map.ofEntries(
- *                             Map.entry(&#34;Key1&#34;, &#34;Value1&#34;),
- *                             Map.entry(&#34;Key2&#34;, &#34;Value2&#34;)
- *                         ))
- *                         .build())
- *                     .build())
- *                 .status(&#34;Enabled&#34;)
- *                 .build())
+ *             .rules(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -301,9 +243,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.s3.BucketLifecycleConfigurationV2;
  * import com.pulumi.aws.s3.BucketLifecycleConfigurationV2Args;
- * import com.pulumi.aws.s3.inputs.BucketLifecycleConfigurationV2RuleArgs;
- * import com.pulumi.aws.s3.inputs.BucketLifecycleConfigurationV2RuleFilterArgs;
- * import com.pulumi.aws.s3.inputs.BucketLifecycleConfigurationV2RuleFilterAndArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -319,19 +258,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new BucketLifecycleConfigurationV2(&#34;example&#34;, BucketLifecycleConfigurationV2Args.builder()        
  *             .bucket(aws_s3_bucket.bucket().id())
- *             .rules(BucketLifecycleConfigurationV2RuleArgs.builder()
- *                 .id(&#34;rule-1&#34;)
- *                 .filter(BucketLifecycleConfigurationV2RuleFilterArgs.builder()
- *                     .and(BucketLifecycleConfigurationV2RuleFilterAndArgs.builder()
- *                         .prefix(&#34;logs/&#34;)
- *                         .tags(Map.ofEntries(
- *                             Map.entry(&#34;Key1&#34;, &#34;Value1&#34;),
- *                             Map.entry(&#34;Key2&#34;, &#34;Value2&#34;)
- *                         ))
- *                         .build())
- *                     .build())
- *                 .status(&#34;Enabled&#34;)
- *                 .build())
+ *             .rules(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -348,8 +275,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.s3.BucketLifecycleConfigurationV2;
  * import com.pulumi.aws.s3.BucketLifecycleConfigurationV2Args;
- * import com.pulumi.aws.s3.inputs.BucketLifecycleConfigurationV2RuleArgs;
- * import com.pulumi.aws.s3.inputs.BucketLifecycleConfigurationV2RuleFilterArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -365,13 +290,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new BucketLifecycleConfigurationV2(&#34;example&#34;, BucketLifecycleConfigurationV2Args.builder()        
  *             .bucket(aws_s3_bucket.bucket().id())
- *             .rules(BucketLifecycleConfigurationV2RuleArgs.builder()
- *                 .id(&#34;rule-1&#34;)
- *                 .filter(BucketLifecycleConfigurationV2RuleFilterArgs.builder()
- *                     .objectSizeGreaterThan(500)
- *                     .build())
- *                 .status(&#34;Enabled&#34;)
- *                 .build())
+ *             .rules(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -388,9 +307,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.s3.BucketLifecycleConfigurationV2;
  * import com.pulumi.aws.s3.BucketLifecycleConfigurationV2Args;
- * import com.pulumi.aws.s3.inputs.BucketLifecycleConfigurationV2RuleArgs;
- * import com.pulumi.aws.s3.inputs.BucketLifecycleConfigurationV2RuleFilterArgs;
- * import com.pulumi.aws.s3.inputs.BucketLifecycleConfigurationV2RuleFilterAndArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -406,17 +322,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new BucketLifecycleConfigurationV2(&#34;example&#34;, BucketLifecycleConfigurationV2Args.builder()        
  *             .bucket(aws_s3_bucket.bucket().id())
- *             .rules(BucketLifecycleConfigurationV2RuleArgs.builder()
- *                 .id(&#34;rule-1&#34;)
- *                 .filter(BucketLifecycleConfigurationV2RuleFilterArgs.builder()
- *                     .and(BucketLifecycleConfigurationV2RuleFilterAndArgs.builder()
- *                         .prefix(&#34;logs/&#34;)
- *                         .objectSizeGreaterThan(500)
- *                         .objectSizeLessThan(64000)
- *                         .build())
- *                     .build())
- *                 .status(&#34;Enabled&#34;)
- *                 .build())
+ *             .rules(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -434,14 +340,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.s3.BucketAclV2Args;
  * import com.pulumi.aws.s3.BucketLifecycleConfigurationV2;
  * import com.pulumi.aws.s3.BucketLifecycleConfigurationV2Args;
- * import com.pulumi.aws.s3.inputs.BucketLifecycleConfigurationV2RuleArgs;
- * import com.pulumi.aws.s3.inputs.BucketLifecycleConfigurationV2RuleExpirationArgs;
- * import com.pulumi.aws.s3.inputs.BucketLifecycleConfigurationV2RuleFilterArgs;
- * import com.pulumi.aws.s3.inputs.BucketLifecycleConfigurationV2RuleFilterAndArgs;
  * import com.pulumi.aws.s3.BucketVersioningV2;
  * import com.pulumi.aws.s3.BucketVersioningV2Args;
- * import com.pulumi.aws.s3.inputs.BucketVersioningV2VersioningConfigurationArgs;
- * import com.pulumi.aws.s3.inputs.BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationArgs;
  * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
@@ -466,41 +366,8 @@ import javax.annotation.Nullable;
  *         var bucket_config = new BucketLifecycleConfigurationV2(&#34;bucket-config&#34;, BucketLifecycleConfigurationV2Args.builder()        
  *             .bucket(bucket.id())
  *             .rules(            
- *                 BucketLifecycleConfigurationV2RuleArgs.builder()
- *                     .id(&#34;log&#34;)
- *                     .expiration(BucketLifecycleConfigurationV2RuleExpirationArgs.builder()
- *                         .days(90)
- *                         .build())
- *                     .filter(BucketLifecycleConfigurationV2RuleFilterArgs.builder()
- *                         .and(BucketLifecycleConfigurationV2RuleFilterAndArgs.builder()
- *                             .prefix(&#34;log/&#34;)
- *                             .tags(Map.ofEntries(
- *                                 Map.entry(&#34;rule&#34;, &#34;log&#34;),
- *                                 Map.entry(&#34;autoclean&#34;, &#34;true&#34;)
- *                             ))
- *                             .build())
- *                         .build())
- *                     .status(&#34;Enabled&#34;)
- *                     .transitions(                    
- *                         BucketLifecycleConfigurationV2RuleTransitionArgs.builder()
- *                             .days(30)
- *                             .storageClass(&#34;STANDARD_IA&#34;)
- *                             .build(),
- *                         BucketLifecycleConfigurationV2RuleTransitionArgs.builder()
- *                             .days(60)
- *                             .storageClass(&#34;GLACIER&#34;)
- *                             .build())
- *                     .build(),
- *                 BucketLifecycleConfigurationV2RuleArgs.builder()
- *                     .id(&#34;tmp&#34;)
- *                     .filter(BucketLifecycleConfigurationV2RuleFilterArgs.builder()
- *                         .prefix(&#34;tmp/&#34;)
- *                         .build())
- *                     .expiration(BucketLifecycleConfigurationV2RuleExpirationArgs.builder()
- *                         .date(&#34;2023-01-13T00:00:00Z&#34;)
- *                         .build())
- *                     .status(&#34;Enabled&#34;)
- *                     .build())
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var versioningBucket = new BucketV2(&#34;versioningBucket&#34;);
@@ -512,32 +379,12 @@ import javax.annotation.Nullable;
  * 
  *         var versioning = new BucketVersioningV2(&#34;versioning&#34;, BucketVersioningV2Args.builder()        
  *             .bucket(versioningBucket.id())
- *             .versioningConfiguration(BucketVersioningV2VersioningConfigurationArgs.builder()
- *                 .status(&#34;Enabled&#34;)
- *                 .build())
+ *             .versioningConfiguration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var versioning_bucket_config = new BucketLifecycleConfigurationV2(&#34;versioning-bucket-config&#34;, BucketLifecycleConfigurationV2Args.builder()        
  *             .bucket(versioningBucket.id())
- *             .rules(BucketLifecycleConfigurationV2RuleArgs.builder()
- *                 .id(&#34;config&#34;)
- *                 .filter(BucketLifecycleConfigurationV2RuleFilterArgs.builder()
- *                     .prefix(&#34;config/&#34;)
- *                     .build())
- *                 .noncurrentVersionExpiration(BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationArgs.builder()
- *                     .noncurrentDays(90)
- *                     .build())
- *                 .noncurrentVersionTransitions(                
- *                     BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionArgs.builder()
- *                         .noncurrentDays(30)
- *                         .storageClass(&#34;STANDARD_IA&#34;)
- *                         .build(),
- *                     BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionArgs.builder()
- *                         .noncurrentDays(60)
- *                         .storageClass(&#34;GLACIER&#34;)
- *                         .build())
- *                 .status(&#34;Enabled&#34;)
- *                 .build())
+ *             .rules(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(versioning)
  *                 .build());

@@ -386,43 +386,6 @@ def get_orderable_db_instance(availability_zone_group: Optional[str] = None,
     """
     Information about RDS orderable DB instances and valid parameter combinations.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.rds.get_orderable_db_instance(engine="mysql",
-        engine_version="5.7.22",
-        license_model="general-public-license",
-        preferred_instance_classes=[
-            "db.r6.xlarge",
-            "db.m4.large",
-            "db.t3.small",
-        ],
-        storage_type="standard")
-    ```
-
-    Valid parameter combinations can also be found with `preferred_engine_versions` and/or `preferred_instance_classes`.
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.rds.get_orderable_db_instance(engine="mysql",
-        license_model="general-public-license",
-        preferred_engine_versions=[
-            "5.6.35",
-            "5.6.41",
-            "5.6.44",
-        ],
-        preferred_instance_classes=[
-            "db.t2.small",
-            "db.t3.medium",
-            "db.t3.large",
-        ])
-    ```
-
 
     :param str availability_zone_group: Availability zone group.
     :param str engine: DB engine. Engine values include `aurora`, `aurora-mysql`, `aurora-postgresql`, `docdb`, `mariadb`, `mysql`, `neptune`, `oracle-ee`, `oracle-se`, `oracle-se1`, `oracle-se2`, `postgres`, `sqlserver-ee`, `sqlserver-ex`, `sqlserver-se`, and `sqlserver-web`.
@@ -538,43 +501,6 @@ def get_orderable_db_instance_output(availability_zone_group: Optional[pulumi.In
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOrderableDbInstanceResult]:
     """
     Information about RDS orderable DB instances and valid parameter combinations.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.rds.get_orderable_db_instance(engine="mysql",
-        engine_version="5.7.22",
-        license_model="general-public-license",
-        preferred_instance_classes=[
-            "db.r6.xlarge",
-            "db.m4.large",
-            "db.t3.small",
-        ],
-        storage_type="standard")
-    ```
-
-    Valid parameter combinations can also be found with `preferred_engine_versions` and/or `preferred_instance_classes`.
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.rds.get_orderable_db_instance(engine="mysql",
-        license_model="general-public-license",
-        preferred_engine_versions=[
-            "5.6.35",
-            "5.6.41",
-            "5.6.44",
-        ],
-        preferred_instance_classes=[
-            "db.t2.small",
-            "db.t3.medium",
-            "db.t3.large",
-        ])
-    ```
 
 
     :param str availability_zone_group: Availability zone group.

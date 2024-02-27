@@ -28,7 +28,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.kendra.Thesaurus;
  * import com.pulumi.aws.kendra.ThesaurusArgs;
- * import com.pulumi.aws.kendra.inputs.ThesaurusSourceS3PathArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -45,11 +44,8 @@ import javax.annotation.Nullable;
  *         var example = new Thesaurus(&#34;example&#34;, ThesaurusArgs.builder()        
  *             .indexId(aws_kendra_index.example().id())
  *             .roleArn(aws_iam_role.example().arn())
- *             .sourceS3Path(ThesaurusSourceS3PathArgs.builder()
- *                 .bucket(aws_s3_bucket.example().id())
- *                 .key(aws_s3_object.example().key())
- *                 .build())
- *             .tags(Map.of(&#34;Name&#34;, &#34;Example Kendra Thesaurus&#34;))
+ *             .sourceS3Path(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

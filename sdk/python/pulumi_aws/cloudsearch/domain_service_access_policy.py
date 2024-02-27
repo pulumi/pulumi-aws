@@ -102,35 +102,6 @@ class DomainServiceAccessPolicy(pulumi.CustomResource):
 
         The provider waits for the domain service access policy to become `Active` when applying a configuration.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_domain = aws.cloudsearch.Domain("exampleDomain")
-        example_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            sid="search_only",
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="*",
-                identifiers=["*"],
-            )],
-            actions=[
-                "cloudsearch:search",
-                "cloudsearch:document",
-            ],
-            conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
-                test="IpAddress",
-                variable="aws:SourceIp",
-                values=["192.0.2.0/32"],
-            )],
-        )])
-        example_domain_service_access_policy = aws.cloudsearch.DomainServiceAccessPolicy("exampleDomainServiceAccessPolicy",
-            domain_name=example_domain.id,
-            access_policy=example_policy_document.json)
-        ```
-
         ## Import
 
         Using `pulumi import`, import CloudSearch domain service access policies using the domain name. For example:
@@ -154,35 +125,6 @@ class DomainServiceAccessPolicy(pulumi.CustomResource):
         Provides an CloudSearch domain service access policy resource.
 
         The provider waits for the domain service access policy to become `Active` when applying a configuration.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_domain = aws.cloudsearch.Domain("exampleDomain")
-        example_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            sid="search_only",
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="*",
-                identifiers=["*"],
-            )],
-            actions=[
-                "cloudsearch:search",
-                "cloudsearch:document",
-            ],
-            conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
-                test="IpAddress",
-                variable="aws:SourceIp",
-                values=["192.0.2.0/32"],
-            )],
-        )])
-        example_domain_service_access_policy = aws.cloudsearch.DomainServiceAccessPolicy("exampleDomainServiceAccessPolicy",
-            domain_name=example_domain.id,
-            access_policy=example_policy_document.json)
-        ```
 
         ## Import
 

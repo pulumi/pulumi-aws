@@ -21,102 +21,40 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigateway"
+//	apigateway/method "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/apigateway/method"
+//	apigateway/resource "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/apigateway/resource"
+//	apigateway/restApi "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/apigateway/restApi"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			myDemoAPI, err := apigateway.NewRestApi(ctx, "myDemoAPI", &apigateway.RestApiArgs{
-//				Description: pulumi.String("This is my API for demonstration purposes"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			myDemoResource, err := apigateway.NewResource(ctx, "myDemoResource", &apigateway.ResourceArgs{
-//				RestApi:  myDemoAPI.ID(),
-//				ParentId: myDemoAPI.RootResourceId,
-//				PathPart: pulumi.String("mydemoresource"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = apigateway.NewMethod(ctx, "myDemoMethod", &apigateway.MethodArgs{
-//				RestApi:       myDemoAPI.ID(),
-//				ResourceId:    myDemoResource.ID(),
-//				HttpMethod:    pulumi.String("GET"),
-//				Authorization: pulumi.String("NONE"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// ## Usage with Cognito User Pool Authorizer
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigateway"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cognito"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			cfg := config.New(ctx, "")
-//			cognitoUserPoolName := cfg.RequireObject("cognitoUserPoolName")
-//			thisUserPools, err := cognito.GetUserPools(ctx, &cognito.GetUserPoolsArgs{
-//				Name: cognitoUserPoolName,
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			thisRestApi, err := apigateway.NewRestApi(ctx, "thisRestApi", nil)
-//			if err != nil {
-//				return err
-//			}
-//			thisResource, err := apigateway.NewResource(ctx, "thisResource", &apigateway.ResourceArgs{
-//				RestApi:  thisRestApi.ID(),
-//				ParentId: thisRestApi.RootResourceId,
-//				PathPart: pulumi.String("{proxy+}"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			thisAuthorizer, err := apigateway.NewAuthorizer(ctx, "thisAuthorizer", &apigateway.AuthorizerArgs{
-//				Type:         pulumi.String("COGNITO_USER_POOLS"),
-//				RestApi:      thisRestApi.ID(),
-//				ProviderArns: interface{}(thisUserPools.Arns),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = apigateway.NewMethod(ctx, "any", &apigateway.MethodArgs{
-//				RestApi:       thisRestApi.ID(),
-//				ResourceId:    thisResource.ID(),
-//				HttpMethod:    pulumi.String("ANY"),
-//				Authorization: pulumi.String("COGNITO_USER_POOLS"),
-//				AuthorizerId:  thisAuthorizer.ID(),
-//				RequestParameters: pulumi.BoolMap{
-//					"method.request.path.proxy": pulumi.Bool(true),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// myDemoAPI, err := apigateway/restApi.NewRestApi(ctx, "myDemoAPI", &apigateway/restApi.RestApiArgs{
+// Description: "This is my API for demonstration purposes",
+// })
+// if err != nil {
+// return err
+// }
+// myDemoResource, err := apigateway/resource.NewResource(ctx, "myDemoResource", &apigateway/resource.ResourceArgs{
+// RestApi: myDemoAPI.Id,
+// ParentId: myDemoAPI.RootResourceId,
+// PathPart: "mydemoresource",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = apigateway/method.NewMethod(ctx, "myDemoMethod", &apigateway/method.MethodArgs{
+// RestApi: myDemoAPI.Id,
+// ResourceId: myDemoResource.Id,
+// HttpMethod: "GET",
+// Authorization: "NONE",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

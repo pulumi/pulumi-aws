@@ -243,9 +243,9 @@ class TapePool(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.storagegateway.TapePool("example",
-            pool_name="example",
-            storage_class="GLACIER")
+        example = aws.storagegateway.tape_pool.TapePool("example",
+            pool_name=example,
+            storage_class=GLACIER)
         ```
 
         ## Import
@@ -279,9 +279,9 @@ class TapePool(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.storagegateway.TapePool("example",
-            pool_name="example",
-            storage_class="GLACIER")
+        example = aws.storagegateway.tape_pool.TapePool("example",
+            pool_name=example,
+            storage_class=GLACIER)
         ```
 
         ## Import

@@ -20,72 +20,12 @@ public final class VpcFunctions {
     /**
      * `aws.vpc.getSecurityGroupRule` provides details about a specific security group rule.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.vpc.VpcFunctions;
-     * import com.pulumi.aws.vpc.inputs.GetSecurityGroupRuleArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = VpcFunctions.getSecurityGroupRule(GetSecurityGroupRuleArgs.builder()
-     *             .securityGroupRuleId(var_.security_group_rule_id())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetSecurityGroupRuleResult> getSecurityGroupRule() {
         return getSecurityGroupRule(GetSecurityGroupRuleArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * `aws.vpc.getSecurityGroupRule` provides details about a specific security group rule.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.vpc.VpcFunctions;
-     * import com.pulumi.aws.vpc.inputs.GetSecurityGroupRuleArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = VpcFunctions.getSecurityGroupRule(GetSecurityGroupRuleArgs.builder()
-     *             .securityGroupRuleId(var_.security_group_rule_id())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetSecurityGroupRuleResult> getSecurityGroupRulePlain() {
@@ -94,72 +34,12 @@ public final class VpcFunctions {
     /**
      * `aws.vpc.getSecurityGroupRule` provides details about a specific security group rule.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.vpc.VpcFunctions;
-     * import com.pulumi.aws.vpc.inputs.GetSecurityGroupRuleArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = VpcFunctions.getSecurityGroupRule(GetSecurityGroupRuleArgs.builder()
-     *             .securityGroupRuleId(var_.security_group_rule_id())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetSecurityGroupRuleResult> getSecurityGroupRule(GetSecurityGroupRuleArgs args) {
         return getSecurityGroupRule(args, InvokeOptions.Empty);
     }
     /**
      * `aws.vpc.getSecurityGroupRule` provides details about a specific security group rule.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.vpc.VpcFunctions;
-     * import com.pulumi.aws.vpc.inputs.GetSecurityGroupRuleArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = VpcFunctions.getSecurityGroupRule(GetSecurityGroupRuleArgs.builder()
-     *             .securityGroupRuleId(var_.security_group_rule_id())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetSecurityGroupRuleResult> getSecurityGroupRulePlain(GetSecurityGroupRulePlainArgs args) {
@@ -168,72 +48,12 @@ public final class VpcFunctions {
     /**
      * `aws.vpc.getSecurityGroupRule` provides details about a specific security group rule.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.vpc.VpcFunctions;
-     * import com.pulumi.aws.vpc.inputs.GetSecurityGroupRuleArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = VpcFunctions.getSecurityGroupRule(GetSecurityGroupRuleArgs.builder()
-     *             .securityGroupRuleId(var_.security_group_rule_id())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetSecurityGroupRuleResult> getSecurityGroupRule(GetSecurityGroupRuleArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:vpc/getSecurityGroupRule:getSecurityGroupRule", TypeShape.of(GetSecurityGroupRuleResult.class), args, Utilities.withVersion(options));
     }
     /**
      * `aws.vpc.getSecurityGroupRule` provides details about a specific security group rule.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.vpc.VpcFunctions;
-     * import com.pulumi.aws.vpc.inputs.GetSecurityGroupRuleArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = VpcFunctions.getSecurityGroupRule(GetSecurityGroupRuleArgs.builder()
-     *             .securityGroupRuleId(var_.security_group_rule_id())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetSecurityGroupRuleResult> getSecurityGroupRulePlain(GetSecurityGroupRulePlainArgs args, InvokeOptions options) {
@@ -242,78 +62,12 @@ public final class VpcFunctions {
     /**
      * This resource can be useful for getting back a set of security group rule IDs.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.vpc.VpcFunctions;
-     * import com.pulumi.aws.vpc.inputs.GetSecurityGroupRulesArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = VpcFunctions.getSecurityGroupRules(GetSecurityGroupRulesArgs.builder()
-     *             .filters(GetSecurityGroupRulesFilterArgs.builder()
-     *                 .name(&#34;group-id&#34;)
-     *                 .values(var_.security_group_id())
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetSecurityGroupRulesResult> getSecurityGroupRules() {
         return getSecurityGroupRules(GetSecurityGroupRulesArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * This resource can be useful for getting back a set of security group rule IDs.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.vpc.VpcFunctions;
-     * import com.pulumi.aws.vpc.inputs.GetSecurityGroupRulesArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = VpcFunctions.getSecurityGroupRules(GetSecurityGroupRulesArgs.builder()
-     *             .filters(GetSecurityGroupRulesFilterArgs.builder()
-     *                 .name(&#34;group-id&#34;)
-     *                 .values(var_.security_group_id())
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetSecurityGroupRulesResult> getSecurityGroupRulesPlain() {
@@ -322,78 +76,12 @@ public final class VpcFunctions {
     /**
      * This resource can be useful for getting back a set of security group rule IDs.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.vpc.VpcFunctions;
-     * import com.pulumi.aws.vpc.inputs.GetSecurityGroupRulesArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = VpcFunctions.getSecurityGroupRules(GetSecurityGroupRulesArgs.builder()
-     *             .filters(GetSecurityGroupRulesFilterArgs.builder()
-     *                 .name(&#34;group-id&#34;)
-     *                 .values(var_.security_group_id())
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetSecurityGroupRulesResult> getSecurityGroupRules(GetSecurityGroupRulesArgs args) {
         return getSecurityGroupRules(args, InvokeOptions.Empty);
     }
     /**
      * This resource can be useful for getting back a set of security group rule IDs.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.vpc.VpcFunctions;
-     * import com.pulumi.aws.vpc.inputs.GetSecurityGroupRulesArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = VpcFunctions.getSecurityGroupRules(GetSecurityGroupRulesArgs.builder()
-     *             .filters(GetSecurityGroupRulesFilterArgs.builder()
-     *                 .name(&#34;group-id&#34;)
-     *                 .values(var_.security_group_id())
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetSecurityGroupRulesResult> getSecurityGroupRulesPlain(GetSecurityGroupRulesPlainArgs args) {
@@ -402,78 +90,12 @@ public final class VpcFunctions {
     /**
      * This resource can be useful for getting back a set of security group rule IDs.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.vpc.VpcFunctions;
-     * import com.pulumi.aws.vpc.inputs.GetSecurityGroupRulesArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = VpcFunctions.getSecurityGroupRules(GetSecurityGroupRulesArgs.builder()
-     *             .filters(GetSecurityGroupRulesFilterArgs.builder()
-     *                 .name(&#34;group-id&#34;)
-     *                 .values(var_.security_group_id())
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetSecurityGroupRulesResult> getSecurityGroupRules(GetSecurityGroupRulesArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:vpc/getSecurityGroupRules:getSecurityGroupRules", TypeShape.of(GetSecurityGroupRulesResult.class), args, Utilities.withVersion(options));
     }
     /**
      * This resource can be useful for getting back a set of security group rule IDs.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.vpc.VpcFunctions;
-     * import com.pulumi.aws.vpc.inputs.GetSecurityGroupRulesArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = VpcFunctions.getSecurityGroupRules(GetSecurityGroupRulesArgs.builder()
-     *             .filters(GetSecurityGroupRulesFilterArgs.builder()
-     *                 .name(&#34;group-id&#34;)
-     *                 .values(var_.security_group_id())
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetSecurityGroupRulesResult> getSecurityGroupRulesPlain(GetSecurityGroupRulesPlainArgs args, InvokeOptions options) {

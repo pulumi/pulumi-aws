@@ -101,34 +101,6 @@ class VpcEndpointPolicy(pulumi.CustomResource):
         """
         Provides a VPC Endpoint Policy resource.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        example_vpc_endpoint_service = aws.ec2.get_vpc_endpoint_service(service="dynamodb")
-        example_vpc = aws.ec2.Vpc("exampleVpc", cidr_block="10.0.0.0/16")
-        example_vpc_endpoint = aws.ec2.VpcEndpoint("exampleVpcEndpoint",
-            service_name=example_vpc_endpoint_service.service_name,
-            vpc_id=example_vpc.id)
-        example_vpc_endpoint_policy = aws.ec2.VpcEndpointPolicy("exampleVpcEndpointPolicy",
-            vpc_endpoint_id=example_vpc_endpoint.id,
-            policy=json.dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Sid": "AllowAll",
-                    "Effect": "Allow",
-                    "Principal": {
-                        "AWS": "*",
-                    },
-                    "Action": ["dynamodb:*"],
-                    "Resource": "*",
-                }],
-            }))
-        ```
-
         ## Import
 
         Using `pulumi import`, import VPC Endpoint Policies using the `id`. For example:
@@ -150,34 +122,6 @@ class VpcEndpointPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a VPC Endpoint Policy resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        example_vpc_endpoint_service = aws.ec2.get_vpc_endpoint_service(service="dynamodb")
-        example_vpc = aws.ec2.Vpc("exampleVpc", cidr_block="10.0.0.0/16")
-        example_vpc_endpoint = aws.ec2.VpcEndpoint("exampleVpcEndpoint",
-            service_name=example_vpc_endpoint_service.service_name,
-            vpc_id=example_vpc.id)
-        example_vpc_endpoint_policy = aws.ec2.VpcEndpointPolicy("exampleVpcEndpointPolicy",
-            vpc_endpoint_id=example_vpc_endpoint.id,
-            policy=json.dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Sid": "AllowAll",
-                    "Effect": "Allow",
-                    "Principal": {
-                        "AWS": "*",
-                    },
-                    "Action": ["dynamodb:*"],
-                    "Resource": "*",
-                }],
-            }))
-        ```
 
         ## Import
 

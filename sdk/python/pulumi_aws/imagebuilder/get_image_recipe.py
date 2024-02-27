@@ -204,15 +204,6 @@ def get_image_recipe(arn: Optional[str] = None,
     """
     Provides details about an Image Builder Image Recipe.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.imagebuilder.get_image_recipe(arn="arn:aws:imagebuilder:us-east-1:aws:image-recipe/example/1.0.0")
-    ```
-
 
     :param str arn: ARN of the image recipe.
     :param Mapping[str, str] tags: Key-value map of resource tags for the image recipe.
@@ -246,15 +237,6 @@ def get_image_recipe_output(arn: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetImageRecipeResult]:
     """
     Provides details about an Image Builder Image Recipe.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.imagebuilder.get_image_recipe(arn="arn:aws:imagebuilder:us-east-1:aws:image-recipe/example/1.0.0")
-    ```
 
 
     :param str arn: ARN of the image recipe.

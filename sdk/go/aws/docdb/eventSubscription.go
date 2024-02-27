@@ -21,51 +21,50 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/docdb"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sns"
+//	docdb/cluster "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/docdb/cluster"
+//	docdb/eventSubscription "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/docdb/eventSubscription"
+//	sns/topic "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/sns/topic"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleCluster, err := docdb.NewCluster(ctx, "exampleCluster", &docdb.ClusterArgs{
-//				ClusterIdentifier: pulumi.String("example"),
-//				AvailabilityZones: pulumi.StringArray{
-//					data.Aws_availability_zones.Available.Names[0],
-//					data.Aws_availability_zones.Available.Names[1],
-//					data.Aws_availability_zones.Available.Names[2],
-//				},
-//				MasterUsername:    pulumi.String("foo"),
-//				MasterPassword:    pulumi.String("mustbeeightcharaters"),
-//				SkipFinalSnapshot: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleTopic, err := sns.NewTopic(ctx, "exampleTopic", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = docdb.NewEventSubscription(ctx, "exampleEventSubscription", &docdb.EventSubscriptionArgs{
-//				Enabled: pulumi.Bool(true),
-//				EventCategories: pulumi.StringArray{
-//					pulumi.String("creation"),
-//					pulumi.String("failure"),
-//				},
-//				SourceType: pulumi.String("db-cluster"),
-//				SourceIds: pulumi.StringArray{
-//					exampleCluster.ID(),
-//				},
-//				SnsTopicArn: exampleTopic.Arn,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleCluster, err := docdb/cluster.NewCluster(ctx, "exampleCluster", &docdb/cluster.ClusterArgs{
+// ClusterIdentifier: "example",
+// AvailabilityZones: []interface{}{
+// data.Aws_availability_zones.Available.Names[0],
+// data.Aws_availability_zones.Available.Names[1],
+// data.Aws_availability_zones.Available.Names[2],
+// },
+// MasterUsername: "foo",
+// MasterPassword: "mustbeeightcharaters",
+// SkipFinalSnapshot: true,
+// })
+// if err != nil {
+// return err
+// }
+// exampleTopic, err := sns/topic.NewTopic(ctx, "exampleTopic", nil)
+// if err != nil {
+// return err
+// }
+// _, err = docdb/eventSubscription.NewEventSubscription(ctx, "exampleEventSubscription", &docdb/eventSubscription.EventSubscriptionArgs{
+// Enabled: true,
+// EventCategories: []string{
+// "creation",
+// "failure",
+// },
+// SourceType: "db-cluster",
+// SourceIds: []interface{}{
+// exampleCluster.Id,
+// },
+// SnsTopicArn: exampleTopic.Arn,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

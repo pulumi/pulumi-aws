@@ -26,82 +26,18 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const fooVpc = new aws.ec2.Vpc("fooVpc", {cidrBlock: "10.0.0.0/16"});
- * const bar = new aws.ec2.Vpc("bar", {cidrBlock: "10.1.0.0/16"});
- * const fooVpcPeeringConnection = new aws.ec2.VpcPeeringConnection("fooVpcPeeringConnection", {
+ * const fooVpc = new aws.ec2/vpc.Vpc("fooVpc", {cidrBlock: "10.0.0.0/16"});
+ * const bar = new aws.ec2/vpc.Vpc("bar", {cidrBlock: "10.1.0.0/16"});
+ * const fooVpcPeeringConnection = new aws.ec2/vpcPeeringConnection.VpcPeeringConnection("fooVpcPeeringConnection", {
  *     vpcId: fooVpc.id,
  *     peerVpcId: bar.id,
  *     autoAccept: true,
  * });
- * const fooPeeringConnectionOptions = new aws.ec2.PeeringConnectionOptions("fooPeeringConnectionOptions", {
+ * const fooPeeringConnectionOptions = new aws.ec2/peeringConnectionOptions.PeeringConnectionOptions("fooPeeringConnectionOptions", {
  *     vpcPeeringConnectionId: fooVpcPeeringConnection.id,
  *     accepter: {
  *         allowRemoteVpcDnsResolution: true,
  *     },
- * });
- * ```
- * ### Cross-Account Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const requester = new aws.Provider("requester", {});
- * // Requester's credentials.
- * const accepter = new aws.Provider("accepter", {});
- * // Accepter's credentials.
- * const main = new aws.ec2.Vpc("main", {
- *     cidrBlock: "10.0.0.0/16",
- *     enableDnsSupport: true,
- *     enableDnsHostnames: true,
- * }, {
- *     provider: aws.requester,
- * });
- * const peerVpc = new aws.ec2.Vpc("peerVpc", {
- *     cidrBlock: "10.1.0.0/16",
- *     enableDnsSupport: true,
- *     enableDnsHostnames: true,
- * }, {
- *     provider: aws.accepter,
- * });
- * const peerCallerIdentity = aws.getCallerIdentity({});
- * // Requester's side of the connection.
- * const peerVpcPeeringConnection = new aws.ec2.VpcPeeringConnection("peerVpcPeeringConnection", {
- *     vpcId: main.id,
- *     peerVpcId: peerVpc.id,
- *     peerOwnerId: peerCallerIdentity.then(peerCallerIdentity => peerCallerIdentity.accountId),
- *     autoAccept: false,
- *     tags: {
- *         Side: "Requester",
- *     },
- * }, {
- *     provider: aws.requester,
- * });
- * // Accepter's side of the connection.
- * const peerVpcPeeringConnectionAccepter = new aws.ec2.VpcPeeringConnectionAccepter("peerVpcPeeringConnectionAccepter", {
- *     vpcPeeringConnectionId: peerVpcPeeringConnection.id,
- *     autoAccept: true,
- *     tags: {
- *         Side: "Accepter",
- *     },
- * }, {
- *     provider: aws.accepter,
- * });
- * const requesterPeeringConnectionOptions = new aws.ec2.PeeringConnectionOptions("requesterPeeringConnectionOptions", {
- *     vpcPeeringConnectionId: peerVpcPeeringConnectionAccepter.id,
- *     requester: {
- *         allowRemoteVpcDnsResolution: true,
- *     },
- * }, {
- *     provider: aws.requester,
- * });
- * const accepterPeeringConnectionOptions = new aws.ec2.PeeringConnectionOptions("accepterPeeringConnectionOptions", {
- *     vpcPeeringConnectionId: peerVpcPeeringConnectionAccepter.id,
- *     accepter: {
- *         allowRemoteVpcDnsResolution: true,
- *     },
- * }, {
- *     provider: aws.accepter,
  * });
  * ```
  *

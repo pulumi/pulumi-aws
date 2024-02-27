@@ -31,8 +31,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.backup.Framework;
  * import com.pulumi.aws.backup.FrameworkArgs;
- * import com.pulumi.aws.backup.inputs.FrameworkControlArgs;
- * import com.pulumi.aws.backup.inputs.FrameworkControlScopeArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -48,73 +46,15 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Framework(&#34;example&#34;, FrameworkArgs.builder()        
  *             .controls(            
- *                 FrameworkControlArgs.builder()
- *                     .inputParameters(FrameworkControlInputParameterArgs.builder()
- *                         .name(&#34;requiredRetentionDays&#34;)
- *                         .value(&#34;35&#34;)
- *                         .build())
- *                     .name(&#34;BACKUP_RECOVERY_POINT_MINIMUM_RETENTION_CHECK&#34;)
- *                     .build(),
- *                 FrameworkControlArgs.builder()
- *                     .inputParameters(                    
- *                         FrameworkControlInputParameterArgs.builder()
- *                             .name(&#34;requiredFrequencyUnit&#34;)
- *                             .value(&#34;hours&#34;)
- *                             .build(),
- *                         FrameworkControlInputParameterArgs.builder()
- *                             .name(&#34;requiredRetentionDays&#34;)
- *                             .value(&#34;35&#34;)
- *                             .build(),
- *                         FrameworkControlInputParameterArgs.builder()
- *                             .name(&#34;requiredFrequencyValue&#34;)
- *                             .value(&#34;1&#34;)
- *                             .build())
- *                     .name(&#34;BACKUP_PLAN_MIN_FREQUENCY_AND_MIN_RETENTION_CHECK&#34;)
- *                     .build(),
- *                 FrameworkControlArgs.builder()
- *                     .name(&#34;BACKUP_RECOVERY_POINT_ENCRYPTED&#34;)
- *                     .build(),
- *                 FrameworkControlArgs.builder()
- *                     .name(&#34;BACKUP_RESOURCES_PROTECTED_BY_BACKUP_PLAN&#34;)
- *                     .scope(FrameworkControlScopeArgs.builder()
- *                         .complianceResourceTypes(&#34;EBS&#34;)
- *                         .build())
- *                     .build(),
- *                 FrameworkControlArgs.builder()
- *                     .name(&#34;BACKUP_RECOVERY_POINT_MANUAL_DELETION_DISABLED&#34;)
- *                     .build(),
- *                 FrameworkControlArgs.builder()
- *                     .inputParameters(                    
- *                         FrameworkControlInputParameterArgs.builder()
- *                             .name(&#34;maxRetentionDays&#34;)
- *                             .value(&#34;100&#34;)
- *                             .build(),
- *                         FrameworkControlInputParameterArgs.builder()
- *                             .name(&#34;minRetentionDays&#34;)
- *                             .value(&#34;1&#34;)
- *                             .build())
- *                     .name(&#34;BACKUP_RESOURCES_PROTECTED_BY_BACKUP_VAULT_LOCK&#34;)
- *                     .scope(FrameworkControlScopeArgs.builder()
- *                         .complianceResourceTypes(&#34;EBS&#34;)
- *                         .build())
- *                     .build(),
- *                 FrameworkControlArgs.builder()
- *                     .inputParameters(                    
- *                         FrameworkControlInputParameterArgs.builder()
- *                             .name(&#34;recoveryPointAgeUnit&#34;)
- *                             .value(&#34;days&#34;)
- *                             .build(),
- *                         FrameworkControlInputParameterArgs.builder()
- *                             .name(&#34;recoveryPointAgeValue&#34;)
- *                             .value(&#34;1&#34;)
- *                             .build())
- *                     .name(&#34;BACKUP_LAST_RECOVERY_POINT_CREATED&#34;)
- *                     .scope(FrameworkControlScopeArgs.builder()
- *                         .complianceResourceTypes(&#34;EBS&#34;)
- *                         .build())
- *                     .build())
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .description(&#34;this is an example framework&#34;)
- *             .tags(Map.of(&#34;Name&#34;, &#34;Example Framework&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

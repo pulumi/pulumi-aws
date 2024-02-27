@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.ssmcontacts.Contact("example", {
+ * const example = new aws.ssmcontacts/contact.Contact("example", {
  *     alias: "alias",
  *     type: "PERSONAL",
  * }, {
@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.ssmcontacts.Contact("example", {
+ * const example = new aws.ssmcontacts/contact.Contact("example", {
  *     alias: "alias",
  *     displayName: "displayName",
  *     type: "ESCALATION",

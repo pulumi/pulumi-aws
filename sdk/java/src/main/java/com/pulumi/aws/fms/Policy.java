@@ -36,7 +36,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.wafregional.RuleGroupArgs;
  * import com.pulumi.aws.fms.Policy;
  * import com.pulumi.aws.fms.PolicyArgs;
- * import com.pulumi.aws.fms.inputs.PolicySecurityServicePolicyDataArgs;
  * import static com.pulumi.codegen.internal.Serialization.*;
  * import java.util.List;
  * import java.util.ArrayList;
@@ -59,24 +58,8 @@ import javax.annotation.Nullable;
  *             .excludeResourceTags(false)
  *             .remediationEnabled(false)
  *             .resourceType(&#34;AWS::ElasticLoadBalancingV2::LoadBalancer&#34;)
- *             .securityServicePolicyData(PolicySecurityServicePolicyDataArgs.builder()
- *                 .type(&#34;WAF&#34;)
- *                 .managedServiceData(exampleRuleGroup.id().applyValue(id -&gt; serializeJson(
- *                     jsonObject(
- *                         jsonProperty(&#34;type&#34;, &#34;WAF&#34;),
- *                         jsonProperty(&#34;ruleGroups&#34;, jsonArray(jsonObject(
- *                             jsonProperty(&#34;id&#34;, id),
- *                             jsonProperty(&#34;overrideAction&#34;, jsonObject(
- *                                 jsonProperty(&#34;type&#34;, &#34;COUNT&#34;)
- *                             ))
- *                         ))),
- *                         jsonProperty(&#34;defaultAction&#34;, jsonObject(
- *                             jsonProperty(&#34;type&#34;, &#34;BLOCK&#34;)
- *                         )),
- *                         jsonProperty(&#34;overrideCustomerWebACLAssociation&#34;, false)
- *                     ))))
- *                 .build())
- *             .tags(Map.of(&#34;Name&#34;, &#34;example-fms-policy&#34;))
+ *             .securityServicePolicyData(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

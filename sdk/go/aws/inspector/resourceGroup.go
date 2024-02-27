@@ -21,26 +21,24 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/inspector"
+//	inspector/resourceGroup "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/inspector/resourceGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := inspector.NewResourceGroup(ctx, "example", &inspector.ResourceGroupArgs{
-//				Tags: pulumi.StringMap{
-//					"Env":  pulumi.String("bar"),
-//					"Name": pulumi.String("foo"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := inspector/resourceGroup.NewResourceGroup(ctx, "example", &inspector/resourceGroup.ResourceGroupArgs{
+// Tags: map[string]interface{}{
+// "Env": "bar",
+// "Name": "foo",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 type ResourceGroup struct {
 	pulumi.CustomResourceState

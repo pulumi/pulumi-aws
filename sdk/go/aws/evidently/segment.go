@@ -22,26 +22,24 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/evidently"
+//	evidently/segment "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/evidently/segment"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := evidently.NewSegment(ctx, "example", &evidently.SegmentArgs{
-//				Pattern: pulumi.String("{\"Price\":[{\"numeric\":[\">\",10,\"<=\",20]}]}"),
-//				Tags: pulumi.StringMap{
-//					"Key1": pulumi.String("example Segment"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := evidently/segment.NewSegment(ctx, "example", &evidently/segment.SegmentArgs{
+// Pattern: "{\"Price\":[{\"numeric\":[\">\",10,\"<=\",20]}]}",
+// Tags: map[string]interface{}{
+// "Key1": "example Segment",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### With JSON object in pattern
 //
@@ -50,15 +48,15 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/evidently"
+//	evidently/segment "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/evidently/segment"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := evidently/segment.NewSegment(ctx, "example", &evidently/segment.SegmentArgs{
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := evidently.NewSegment(ctx, "example", &evidently.SegmentArgs{
-//				Pattern: pulumi.String(`  {
+//	Pattern: `  {
 //	    "Price": [
 //	      {
 //	        "numeric": [">",10,"<=",20]
@@ -66,19 +64,17 @@ import (
 //	    ]
 //	  }
 //
-// `),
-//
-//				Tags: pulumi.StringMap{
-//					"Key1": pulumi.String("example Segment"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// `,
+// Tags: map[string]interface{}{
+// "Key1": "example Segment",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### With Description
 //
@@ -87,24 +83,22 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/evidently"
+//	evidently/segment "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/evidently/segment"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := evidently.NewSegment(ctx, "example", &evidently.SegmentArgs{
-//				Description: pulumi.String("example"),
-//				Pattern:     pulumi.String("{\"Price\":[{\"numeric\":[\">\",10,\"<=\",20]}]}"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := evidently/segment.NewSegment(ctx, "example", &evidently/segment.SegmentArgs{
+// Description: "example",
+// Pattern: "{\"Price\":[{\"numeric\":[\">\",10,\"<=\",20]}]}",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

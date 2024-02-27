@@ -156,13 +156,13 @@ class DirectoryConfig(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.appstream.DirectoryConfig("example",
-            directory_name="NAME OF DIRECTORY",
-            organizational_unit_distinguished_names=["DISTINGUISHED NAME"],
-            service_account_credentials=aws.appstream.DirectoryConfigServiceAccountCredentialsArgs(
-                account_name="NAME OF ACCOUNT",
-                account_password="PASSWORD OF ACCOUNT",
-            ))
+        example = aws.appstream.directory_config.DirectoryConfig("example",
+            directory_name=NAME OF DIRECTORY,
+            organizational_unit_distinguished_names=[DISTINGUISHED NAME],
+            service_account_credentials={
+                accountName: NAME OF ACCOUNT,
+                accountPassword: PASSWORD OF ACCOUNT,
+            })
         ```
 
         ## Import
@@ -194,13 +194,13 @@ class DirectoryConfig(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.appstream.DirectoryConfig("example",
-            directory_name="NAME OF DIRECTORY",
-            organizational_unit_distinguished_names=["DISTINGUISHED NAME"],
-            service_account_credentials=aws.appstream.DirectoryConfigServiceAccountCredentialsArgs(
-                account_name="NAME OF ACCOUNT",
-                account_password="PASSWORD OF ACCOUNT",
-            ))
+        example = aws.appstream.directory_config.DirectoryConfig("example",
+            directory_name=NAME OF DIRECTORY,
+            organizational_unit_distinguished_names=[DISTINGUISHED NAME],
+            service_account_credentials={
+                accountName: NAME OF ACCOUNT,
+                accountPassword: PASSWORD OF ACCOUNT,
+            })
         ```
 
         ## Import

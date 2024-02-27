@@ -25,46 +25,46 @@ namespace Pulumi.Aws.S3Control
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var primaryRegion = new Aws.Provider("primaryRegion", new()
+    ///     var primaryRegion = new Pulumi.Providers.Aws("primaryRegion", new()
     ///     {
     ///         Region = "us-east-1",
     ///     });
     /// 
-    ///     var secondaryRegion = new Aws.Provider("secondaryRegion", new()
+    ///     var secondaryRegion = new Pulumi.Providers.Aws("secondaryRegion", new()
     ///     {
     ///         Region = "us-west-2",
     ///     });
     /// 
-    ///     var fooBucket = new Aws.S3.BucketV2("fooBucket", new()
+    ///     var fooBucket = new Aws.S3.BucketV2.BucketV2("fooBucket", new()
     ///     {
     ///     }, new CustomResourceOptions
     ///     {
     ///         Provider = aws.Primary_region,
     ///     });
     /// 
-    ///     var barBucket = new Aws.S3.BucketV2("barBucket", new()
+    ///     var barBucket = new Aws.S3.BucketV2.BucketV2("barBucket", new()
     ///     {
     ///     }, new CustomResourceOptions
     ///     {
     ///         Provider = aws.Secondary_region,
     ///     });
     /// 
-    ///     var example = new Aws.S3Control.MultiRegionAccessPoint("example", new()
+    ///     var example = new Aws.S3control.MultiRegionAccessPoint.MultiRegionAccessPoint("example", new()
     ///     {
-    ///         Details = new Aws.S3Control.Inputs.MultiRegionAccessPointDetailsArgs
+    ///         Details = 
     ///         {
-    ///             Name = "example",
-    ///             Regions = new[]
+    ///             { "name", "example" },
+    ///             { "regions", new[]
     ///             {
-    ///                 new Aws.S3Control.Inputs.MultiRegionAccessPointDetailsRegionArgs
+    ///                 
     ///                 {
-    ///                     Bucket = fooBucket.Id,
+    ///                     { "bucket", fooBucket.Id },
     ///                 },
-    ///                 new Aws.S3Control.Inputs.MultiRegionAccessPointDetailsRegionArgs
+    ///                 
     ///                 {
-    ///                     Bucket = barBucket.Id,
+    ///                     { "bucket", barBucket.Id },
     ///                 },
-    ///             },
+    ///             } },
     ///         },
     ///     });
     /// 

@@ -23,14 +23,14 @@ namespace Pulumi.Aws.Ivs
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Ivs.RecordingConfiguration("example", new()
+    ///     var example = new Aws.Ivs.RecordingConfiguration.RecordingConfiguration("example", new()
     ///     {
-    ///         DestinationConfiguration = new Aws.Ivs.Inputs.RecordingConfigurationDestinationConfigurationArgs
+    ///         DestinationConfiguration = 
     ///         {
-    ///             S3 = new Aws.Ivs.Inputs.RecordingConfigurationDestinationConfigurationS3Args
+    ///             { "s3", 
     ///             {
-    ///                 BucketName = "ivs-stream-archive",
-    ///             },
+    ///                 { "bucketName", "ivs-stream-archive" },
+    ///             } },
     ///         },
     ///     });
     /// 

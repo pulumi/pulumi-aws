@@ -160,9 +160,9 @@ class Deployment(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.apigatewayv2.Deployment("example",
-            api_id=aws_apigatewayv2_api["example"]["id"],
-            description="Example deployment")
+        example = aws.apigatewayv2.deployment.Deployment("example",
+            api_id=aws_apigatewayv2_api.example.id,
+            description=Example deployment)
         ```
 
         ## Import
@@ -199,9 +199,9 @@ class Deployment(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.apigatewayv2.Deployment("example",
-            api_id=aws_apigatewayv2_api["example"]["id"],
-            description="Example deployment")
+        example = aws.apigatewayv2.deployment.Deployment("example",
+            api_id=aws_apigatewayv2_api.example.id,
+            description=Example deployment)
         ```
 
         ## Import

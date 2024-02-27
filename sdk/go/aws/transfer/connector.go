@@ -22,34 +22,32 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/transfer"
+//	transfer/connector "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/transfer/connector"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := transfer.NewConnector(ctx, "example", &transfer.ConnectorArgs{
-//				AccessRole: pulumi.Any(aws_iam_role.Test.Arn),
-//				As2Config: &transfer.ConnectorAs2ConfigArgs{
-//					Compression:         pulumi.String("DISABLED"),
-//					EncryptionAlgorithm: pulumi.String("AWS128_CBC"),
-//					MessageSubject:      pulumi.String("For Connector"),
-//					LocalProfileId:      pulumi.Any(aws_transfer_profile.Local.Profile_id),
-//					MdnResponse:         pulumi.String("NONE"),
-//					MdnSigningAlgorithm: pulumi.String("NONE"),
-//					PartnerProfileId:    pulumi.Any(aws_transfer_profile.Partner.Profile_id),
-//					SigningAlgorithm:    pulumi.String("NONE"),
-//				},
-//				Url: pulumi.String("http://www.test.com"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := transfer/connector.NewConnector(ctx, "example", &transfer/connector.ConnectorArgs{
+// AccessRole: aws_iam_role.Test.Arn,
+// As2Config: map[string]interface{}{
+// "compression": "DISABLED",
+// "encryptionAlgorithm": "AWS128_CBC",
+// "messageSubject": "For Connector",
+// "localProfileId": aws_transfer_profile.Local.Profile_id,
+// "mdnResponse": "NONE",
+// "mdnSigningAlgorithm": "NONE",
+// "partnerProfileId": aws_transfer_profile.Partner.Profile_id,
+// "signingAlgorithm": "NONE",
+// },
+// Url: "http://www.test.com",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### SFTP Connector
 //
@@ -58,30 +56,28 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/transfer"
+//	transfer/connector "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/transfer/connector"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := transfer.NewConnector(ctx, "example", &transfer.ConnectorArgs{
-//				AccessRole: pulumi.Any(aws_iam_role.Test.Arn),
-//				SftpConfig: &transfer.ConnectorSftpConfigArgs{
-//					TrustedHostKeys: pulumi.StringArray{
-//						pulumi.String("ssh-rsa AAAAB3NYourKeysHere"),
-//					},
-//					UserSecretId: pulumi.Any(aws_secretsmanager_secret.Example.Id),
-//				},
-//				Url: pulumi.String("sftp://test.com"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := transfer/connector.NewConnector(ctx, "example", &transfer/connector.ConnectorArgs{
+// AccessRole: aws_iam_role.Test.Arn,
+// SftpConfig: map[string]interface{}{
+// "trustedHostKeys": []string{
+// "ssh-rsa AAAAB3NYourKeysHere",
+// },
+// "userSecretId": aws_secretsmanager_secret.Example.Id,
+// },
+// Url: "sftp://test.com",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

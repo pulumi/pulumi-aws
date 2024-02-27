@@ -23,7 +23,7 @@ namespace Pulumi.Aws.EmrServerless
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.EmrServerless.Application("example", new()
+    ///     var example = new Aws.Emrserverless.Application.Application("example", new()
     ///     {
     ///         ReleaseLabel = "emr-6.6.0",
     ///         Type = "hive",
@@ -41,22 +41,22 @@ namespace Pulumi.Aws.EmrServerless
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.EmrServerless.Application("example", new()
+    ///     var example = new Aws.Emrserverless.Application.Application("example", new()
     ///     {
     ///         InitialCapacities = new[]
     ///         {
-    ///             new Aws.EmrServerless.Inputs.ApplicationInitialCapacityArgs
+    ///             
     ///             {
-    ///                 InitialCapacityConfig = new Aws.EmrServerless.Inputs.ApplicationInitialCapacityInitialCapacityConfigArgs
+    ///                 { "initialCapacityConfig", 
     ///                 {
-    ///                     WorkerConfiguration = new Aws.EmrServerless.Inputs.ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationArgs
+    ///                     { "workerConfiguration", 
     ///                     {
-    ///                         Cpu = "2 vCPU",
-    ///                         Memory = "10 GB",
-    ///                     },
-    ///                     WorkerCount = 1,
-    ///                 },
-    ///                 InitialCapacityType = "HiveDriver",
+    ///                         { "cpu", "2 vCPU" },
+    ///                         { "memory", "10 GB" },
+    ///                     } },
+    ///                     { "workerCount", 1 },
+    ///                 } },
+    ///                 { "initialCapacityType", "HiveDriver" },
     ///             },
     ///         },
     ///         ReleaseLabel = "emr-6.6.0",
@@ -75,12 +75,12 @@ namespace Pulumi.Aws.EmrServerless
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.EmrServerless.Application("example", new()
+    ///     var example = new Aws.Emrserverless.Application.Application("example", new()
     ///     {
-    ///         MaximumCapacity = new Aws.EmrServerless.Inputs.ApplicationMaximumCapacityArgs
+    ///         MaximumCapacity = 
     ///         {
-    ///             Cpu = "2 vCPU",
-    ///             Memory = "10 GB",
+    ///             { "cpu", "2 vCPU" },
+    ///             { "memory", "10 GB" },
     ///         },
     ///         ReleaseLabel = "emr-6.6.0",
     ///         Type = "hive",

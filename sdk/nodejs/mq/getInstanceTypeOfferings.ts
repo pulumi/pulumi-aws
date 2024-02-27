@@ -9,29 +9,6 @@ import * as utilities from "../utilities";
 
 /**
  * Provides information about a MQ Broker Instance Offerings.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const empty = aws.mq.getInstanceTypeOfferings({});
- * const engine = aws.mq.getInstanceTypeOfferings({
- *     engineType: "ACTIVEMQ",
- * });
- * const storage = aws.mq.getInstanceTypeOfferings({
- *     storageType: "EBS",
- * });
- * const instance = aws.mq.getInstanceTypeOfferings({
- *     hostInstanceType: "mq.m5.large",
- * });
- * const all = aws.mq.getInstanceTypeOfferings({
- *     engineType: "ACTIVEMQ",
- *     hostInstanceType: "mq.m5.large",
- *     storageType: "EBS",
- * });
- * ```
  */
 export function getInstanceTypeOfferings(args?: GetInstanceTypeOfferingsArgs, opts?: pulumi.InvokeOptions): Promise<GetInstanceTypeOfferingsResult> {
     args = args || {};
@@ -89,29 +66,6 @@ export interface GetInstanceTypeOfferingsResult {
 }
 /**
  * Provides information about a MQ Broker Instance Offerings.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const empty = aws.mq.getInstanceTypeOfferings({});
- * const engine = aws.mq.getInstanceTypeOfferings({
- *     engineType: "ACTIVEMQ",
- * });
- * const storage = aws.mq.getInstanceTypeOfferings({
- *     storageType: "EBS",
- * });
- * const instance = aws.mq.getInstanceTypeOfferings({
- *     hostInstanceType: "mq.m5.large",
- * });
- * const all = aws.mq.getInstanceTypeOfferings({
- *     engineType: "ACTIVEMQ",
- *     hostInstanceType: "mq.m5.large",
- *     storageType: "EBS",
- * });
- * ```
  */
 export function getInstanceTypeOfferingsOutput(args?: GetInstanceTypeOfferingsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInstanceTypeOfferingsResult> {
     return pulumi.output(args).apply((a: any) => getInstanceTypeOfferings(a, opts))

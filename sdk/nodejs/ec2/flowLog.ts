@@ -12,56 +12,14 @@ import * as utilities from "../utilities";
  * interface, subnet, or VPC. Logs are sent to a CloudWatch Log Group, a S3 Bucket, or Amazon Kinesis Data Firehose
  *
  * ## Example Usage
- * ### CloudWatch Logging
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleLogGroup = new aws.cloudwatch.LogGroup("exampleLogGroup", {});
- * const assumeRole = aws.iam.getPolicyDocument({
- *     statements: [{
- *         effect: "Allow",
- *         principals: [{
- *             type: "Service",
- *             identifiers: ["vpc-flow-logs.amazonaws.com"],
- *         }],
- *         actions: ["sts:AssumeRole"],
- *     }],
- * });
- * const exampleRole = new aws.iam.Role("exampleRole", {assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json)});
- * const exampleFlowLog = new aws.ec2.FlowLog("exampleFlowLog", {
- *     iamRoleArn: exampleRole.arn,
- *     logDestination: exampleLogGroup.arn,
- *     trafficType: "ALL",
- *     vpcId: aws_vpc.example.id,
- * });
- * const examplePolicyDocument = aws.iam.getPolicyDocument({
- *     statements: [{
- *         effect: "Allow",
- *         actions: [
- *             "logs:CreateLogGroup",
- *             "logs:CreateLogStream",
- *             "logs:PutLogEvents",
- *             "logs:DescribeLogGroups",
- *             "logs:DescribeLogStreams",
- *         ],
- *         resources: ["*"],
- *     }],
- * });
- * const exampleRolePolicy = new aws.iam.RolePolicy("exampleRolePolicy", {
- *     role: exampleRole.id,
- *     policy: examplePolicyDocument.then(examplePolicyDocument => examplePolicyDocument.json),
- * });
- * ```
  * ### S3 Logging
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleBucketV2 = new aws.s3.BucketV2("exampleBucketV2", {});
- * const exampleFlowLog = new aws.ec2.FlowLog("exampleFlowLog", {
+ * const exampleBucketV2 = new aws.s3/bucketV2.BucketV2("exampleBucketV2", {});
+ * const exampleFlowLog = new aws.ec2/flowLog.FlowLog("exampleFlowLog", {
  *     logDestination: exampleBucketV2.arn,
  *     logDestinationType: "s3",
  *     trafficType: "ALL",
@@ -74,8 +32,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleBucketV2 = new aws.s3.BucketV2("exampleBucketV2", {});
- * const exampleFlowLog = new aws.ec2.FlowLog("exampleFlowLog", {
+ * const exampleBucketV2 = new aws.s3/bucketV2.BucketV2("exampleBucketV2", {});
+ * const exampleFlowLog = new aws.ec2/flowLog.FlowLog("exampleFlowLog", {
  *     logDestination: exampleBucketV2.arn,
  *     logDestinationType: "s3",
  *     trafficType: "ALL",

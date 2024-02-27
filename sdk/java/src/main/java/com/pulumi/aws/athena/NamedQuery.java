@@ -29,9 +29,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.kms.KeyArgs;
  * import com.pulumi.aws.athena.Workgroup;
  * import com.pulumi.aws.athena.WorkgroupArgs;
- * import com.pulumi.aws.athena.inputs.WorkgroupConfigurationArgs;
- * import com.pulumi.aws.athena.inputs.WorkgroupConfigurationResultConfigurationArgs;
- * import com.pulumi.aws.athena.inputs.WorkgroupConfigurationResultConfigurationEncryptionConfigurationArgs;
  * import com.pulumi.aws.athena.Database;
  * import com.pulumi.aws.athena.DatabaseArgs;
  * import com.pulumi.aws.athena.NamedQuery;
@@ -57,14 +54,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var testWorkgroup = new Workgroup(&#34;testWorkgroup&#34;, WorkgroupArgs.builder()        
- *             .configuration(WorkgroupConfigurationArgs.builder()
- *                 .resultConfiguration(WorkgroupConfigurationResultConfigurationArgs.builder()
- *                     .encryptionConfiguration(WorkgroupConfigurationResultConfigurationEncryptionConfigurationArgs.builder()
- *                         .encryptionOption(&#34;SSE_KMS&#34;)
- *                         .kmsKeyArn(testKey.arn())
- *                         .build())
- *                     .build())
- *                 .build())
+ *             .configuration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var hogeDatabase = new Database(&#34;hogeDatabase&#34;, DatabaseArgs.builder()        
@@ -75,7 +65,7 @@ import javax.annotation.Nullable;
  *         var foo = new NamedQuery(&#34;foo&#34;, NamedQueryArgs.builder()        
  *             .workgroup(testWorkgroup.id())
  *             .database(hogeDatabase.name())
- *             .query(hogeDatabase.name().applyValue(name -&gt; String.format(&#34;SELECT * FROM %s limit 10;&#34;, name)))
+ *             .query(String.format(&#34;SELECT * FROM %s limit 10;&#34;, hogeDatabase.name()))
  *             .build());
  * 
  *     }

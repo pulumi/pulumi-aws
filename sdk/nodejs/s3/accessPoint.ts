@@ -23,8 +23,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleBucketV2 = new aws.s3.BucketV2("exampleBucketV2", {});
- * const exampleAccessPoint = new aws.s3.AccessPoint("exampleAccessPoint", {bucket: exampleBucketV2.id});
+ * const exampleBucketV2 = new aws.s3/bucketV2.BucketV2("exampleBucketV2", {});
+ * const exampleAccessPoint = new aws.s3/accessPoint.AccessPoint("exampleAccessPoint", {bucket: exampleBucketV2.id});
  * ```
  * ### S3 on Outposts Bucket
  *
@@ -32,9 +32,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleBucket = new aws.s3control.Bucket("exampleBucket", {bucket: "example"});
- * const exampleVpc = new aws.ec2.Vpc("exampleVpc", {cidrBlock: "10.0.0.0/16"});
- * const exampleAccessPoint = new aws.s3.AccessPoint("exampleAccessPoint", {
+ * const exampleBucket = new aws.s3control/bucket.Bucket("exampleBucket", {bucket: "example"});
+ * const exampleVpc = new aws.ec2/vpc.Vpc("exampleVpc", {cidrBlock: "10.0.0.0/16"});
+ * const exampleAccessPoint = new aws.s3/accessPoint.AccessPoint("exampleAccessPoint", {
  *     bucket: exampleBucket.arn,
  *     vpcConfiguration: {
  *         vpcId: exampleVpc.id,

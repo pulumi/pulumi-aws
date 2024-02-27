@@ -62,7 +62,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.transfer.Access;
  * import com.pulumi.aws.transfer.AccessArgs;
- * import com.pulumi.aws.transfer.inputs.AccessPosixProfileArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -81,10 +80,7 @@ import javax.annotation.Nullable;
  *             .serverId(aws_transfer_server.test().id())
  *             .role(aws_iam_role.test().arn())
  *             .homeDirectory(String.format(&#34;/%s/&#34;, aws_efs_file_system.test().id()))
- *             .posixProfile(AccessPosixProfileArgs.builder()
- *                 .gid(1000)
- *                 .uid(1000)
- *                 .build())
+ *             .posixProfile(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

@@ -22,7 +22,7 @@ namespace Pulumi.Aws.RedShift
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.RedShift.HsmClientCertificate("example", new()
+    ///     var example = new Aws.Redshift.HsmClientCertificate.HsmClientCertificate("example", new()
     ///     {
     ///         HsmClientCertificateIdentifier = "example",
     ///     });

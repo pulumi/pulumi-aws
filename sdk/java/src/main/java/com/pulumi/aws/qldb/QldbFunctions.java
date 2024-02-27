@@ -17,72 +17,12 @@ public final class QldbFunctions {
     /**
      * Use this data source to fetch information about a Quantum Ledger Database.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.qldb.QldbFunctions;
-     * import com.pulumi.aws.qldb.inputs.GetLedgerArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = QldbFunctions.getLedger(GetLedgerArgs.builder()
-     *             .name(&#34;an_example_ledger&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetLedgerResult> getLedger(GetLedgerArgs args) {
         return getLedger(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to fetch information about a Quantum Ledger Database.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.qldb.QldbFunctions;
-     * import com.pulumi.aws.qldb.inputs.GetLedgerArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = QldbFunctions.getLedger(GetLedgerArgs.builder()
-     *             .name(&#34;an_example_ledger&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetLedgerResult> getLedgerPlain(GetLedgerPlainArgs args) {
@@ -91,72 +31,12 @@ public final class QldbFunctions {
     /**
      * Use this data source to fetch information about a Quantum Ledger Database.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.qldb.QldbFunctions;
-     * import com.pulumi.aws.qldb.inputs.GetLedgerArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = QldbFunctions.getLedger(GetLedgerArgs.builder()
-     *             .name(&#34;an_example_ledger&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetLedgerResult> getLedger(GetLedgerArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:qldb/getLedger:getLedger", TypeShape.of(GetLedgerResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to fetch information about a Quantum Ledger Database.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.qldb.QldbFunctions;
-     * import com.pulumi.aws.qldb.inputs.GetLedgerArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = QldbFunctions.getLedger(GetLedgerArgs.builder()
-     *             .name(&#34;an_example_ledger&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetLedgerResult> getLedgerPlain(GetLedgerPlainArgs args, InvokeOptions options) {

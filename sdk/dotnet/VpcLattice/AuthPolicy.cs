@@ -24,13 +24,13 @@ namespace Pulumi.Aws.VpcLattice
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleService = new Aws.VpcLattice.Service("exampleService", new()
+    ///     var exampleService = new Aws.Vpclattice.Service.Service("exampleService", new()
     ///     {
     ///         AuthType = "AWS_IAM",
     ///         CustomDomainName = "example.com",
     ///     });
     /// 
-    ///     var exampleAuthPolicy = new Aws.VpcLattice.AuthPolicy("exampleAuthPolicy", new()
+    ///     var exampleAuthPolicy = new Aws.Vpclattice.AuthPolicy.AuthPolicy("exampleAuthPolicy", new()
     ///     {
     ///         ResourceIdentifier = exampleService.Arn,
     ///         Policy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;

@@ -211,19 +211,19 @@ class SubnetGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        foo_vpc = aws.ec2.Vpc("fooVpc",
-            cidr_block="10.0.0.0/16",
+        foo_vpc = aws.ec2.vpc.Vpc("fooVpc",
+            cidr_block=10.0.0.0/16,
             tags={
-                "Name": "tf-test",
+                Name: tf-test,
             })
-        foo_subnet = aws.ec2.Subnet("fooSubnet",
+        foo_subnet = aws.ec2.subnet.Subnet("fooSubnet",
             vpc_id=foo_vpc.id,
-            cidr_block="10.0.0.0/24",
-            availability_zone="us-west-2a",
+            cidr_block=10.0.0.0/24,
+            availability_zone=us-west-2a,
             tags={
-                "Name": "tf-test",
+                Name: tf-test,
             })
-        bar = aws.elasticache.SubnetGroup("bar", subnet_ids=[foo_subnet.id])
+        bar = aws.elasticache.subnet_group.SubnetGroup("bar", subnet_ids=[foo_subnet.id])
         ```
 
         ## Import
@@ -256,19 +256,19 @@ class SubnetGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        foo_vpc = aws.ec2.Vpc("fooVpc",
-            cidr_block="10.0.0.0/16",
+        foo_vpc = aws.ec2.vpc.Vpc("fooVpc",
+            cidr_block=10.0.0.0/16,
             tags={
-                "Name": "tf-test",
+                Name: tf-test,
             })
-        foo_subnet = aws.ec2.Subnet("fooSubnet",
+        foo_subnet = aws.ec2.subnet.Subnet("fooSubnet",
             vpc_id=foo_vpc.id,
-            cidr_block="10.0.0.0/24",
-            availability_zone="us-west-2a",
+            cidr_block=10.0.0.0/24,
+            availability_zone=us-west-2a,
             tags={
-                "Name": "tf-test",
+                Name: tf-test,
             })
-        bar = aws.elasticache.SubnetGroup("bar", subnet_ids=[foo_subnet.id])
+        bar = aws.elasticache.subnet_group.SubnetGroup("bar", subnet_ids=[foo_subnet.id])
         ```
 
         ## Import

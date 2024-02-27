@@ -274,31 +274,6 @@ def get_vpc_iam_pool(allocation_resource_tags: Optional[Mapping[str, str]] = Non
     module and you need the pool's id as an input variable. For example, pools
     can be shared via RAM and used to create vpcs with CIDRs from that pool.
 
-    ## Example Usage
-
-    The following example shows an account that has only 1 pool, perhaps shared
-    via RAM, and using that pool id to create a VPC with a CIDR derived from
-    AWS IPAM.
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test_vpc_ipam_pool = aws.ec2.get_vpc_ipam_pool(filters=[
-        aws.ec2.GetVpcIpamPoolFilterArgs(
-            name="description",
-            values=["*test*"],
-        ),
-        aws.ec2.GetVpcIpamPoolFilterArgs(
-            name="address-family",
-            values=["ipv4"],
-        ),
-    ])
-    test_vpc = aws.ec2.Vpc("testVpc",
-        ipv4_ipam_pool_id=test_vpc_ipam_pool.id,
-        ipv4_netmask_length=28)
-    ```
-
 
     :param Mapping[str, str] allocation_resource_tags: Tags that are required to create resources in using this pool.
     :param Sequence[pulumi.InputType['GetVpcIamPoolFilterArgs']] filters: Custom filter block as described below.
@@ -352,31 +327,6 @@ def get_vpc_iam_pool_output(allocation_resource_tags: Optional[pulumi.Input[Opti
     This resource can prove useful when an ipam pool was created in another root
     module and you need the pool's id as an input variable. For example, pools
     can be shared via RAM and used to create vpcs with CIDRs from that pool.
-
-    ## Example Usage
-
-    The following example shows an account that has only 1 pool, perhaps shared
-    via RAM, and using that pool id to create a VPC with a CIDR derived from
-    AWS IPAM.
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test_vpc_ipam_pool = aws.ec2.get_vpc_ipam_pool(filters=[
-        aws.ec2.GetVpcIpamPoolFilterArgs(
-            name="description",
-            values=["*test*"],
-        ),
-        aws.ec2.GetVpcIpamPoolFilterArgs(
-            name="address-family",
-            values=["ipv4"],
-        ),
-    ])
-    test_vpc = aws.ec2.Vpc("testVpc",
-        ipv4_ipam_pool_id=test_vpc_ipam_pool.id,
-        ipv4_netmask_length=28)
-    ```
 
 
     :param Mapping[str, str] allocation_resource_tags: Tags that are required to create resources in using this pool.

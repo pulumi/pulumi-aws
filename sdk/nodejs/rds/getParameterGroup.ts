@@ -6,17 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Information about a database parameter group.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = aws.rds.getParameterGroup({
- *     name: "default.postgres15",
- * });
- * ```
  */
 export function getParameterGroup(args: GetParameterGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetParameterGroupResult> {
 
@@ -60,17 +49,6 @@ export interface GetParameterGroupResult {
 }
 /**
  * Information about a database parameter group.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = aws.rds.getParameterGroup({
- *     name: "default.postgres15",
- * });
- * ```
  */
 export function getParameterGroupOutput(args: GetParameterGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetParameterGroupResult> {
     return pulumi.output(args).apply((a: any) => getParameterGroup(a, opts))

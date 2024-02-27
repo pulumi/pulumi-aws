@@ -12,34 +12,6 @@ import (
 )
 
 // `route53.getResolverFirewallRules` Provides details about rules in a specific Route53 Resolver Firewall rule group.
-//
-// ## Example Usage
-//
-// The following example shows how to get Route53 Resolver Firewall rules based on its associated firewall group id.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := route53.GetResolverFirewallRules(ctx, &route53.GetResolverFirewallRulesArgs{
-//				FirewallRuleGroupId: aws_route53_resolver_firewall_rule_group.Example.Id,
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetResolverFirewallRules(ctx *pulumi.Context, args *GetResolverFirewallRulesArgs, opts ...pulumi.InvokeOption) (*GetResolverFirewallRulesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetResolverFirewallRulesResult

@@ -22,40 +22,40 @@ namespace Pulumi.Aws.Amplify
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleApp = new Aws.Amplify.App("exampleApp", new()
+    ///     var exampleApp = new Aws.Amplify.App.App("exampleApp", new()
     ///     {
     ///         CustomRules = new[]
     ///         {
-    ///             new Aws.Amplify.Inputs.AppCustomRuleArgs
+    ///             
     ///             {
-    ///                 Source = "https://example.com",
-    ///                 Status = "302",
-    ///                 Target = "https://www.example.com",
+    ///                 { "source", "https://example.com" },
+    ///                 { "status", "302" },
+    ///                 { "target", "https://www.example.com" },
     ///             },
     ///         },
     ///     });
     /// 
-    ///     var master = new Aws.Amplify.Branch("master", new()
+    ///     var master = new Aws.Amplify.Branch.Branch("master", new()
     ///     {
     ///         AppId = exampleApp.Id,
     ///         BranchName = "master",
     ///     });
     /// 
-    ///     var exampleDomainAssociation = new Aws.Amplify.DomainAssociation("exampleDomainAssociation", new()
+    ///     var exampleDomainAssociation = new Aws.Amplify.DomainAssociation.DomainAssociation("exampleDomainAssociation", new()
     ///     {
     ///         AppId = exampleApp.Id,
     ///         DomainName = "example.com",
     ///         SubDomains = new[]
     ///         {
-    ///             new Aws.Amplify.Inputs.DomainAssociationSubDomainArgs
+    ///             
     ///             {
-    ///                 BranchName = master.BranchName,
-    ///                 Prefix = "",
+    ///                 { "branchName", master.BranchName },
+    ///                 { "prefix", "" },
     ///             },
-    ///             new Aws.Amplify.Inputs.DomainAssociationSubDomainArgs
+    ///             
     ///             {
-    ///                 BranchName = master.BranchName,
-    ///                 Prefix = "www",
+    ///                 { "branchName", master.BranchName },
+    ///                 { "prefix", "www" },
     ///             },
     ///         },
     ///     });

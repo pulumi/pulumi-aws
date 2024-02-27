@@ -22,23 +22,56 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/verifiedaccess"
+//	verifiedaccess/group "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/verifiedaccess/group"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := verifiedaccess/group.NewGroup(ctx, "example", &verifiedaccess/group.GroupArgs{
+// VerifiedaccessInstanceId: aws_verifiedaccess_instance.Example.Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
+// ```
+// ### Usage with KMS Key
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := verifiedaccess.NewGroup(ctx, "example", &verifiedaccess.GroupArgs{
-//				VerifiedaccessInstanceId: pulumi.Any(aws_verifiedaccess_instance.Example.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
+// ```go
+// package main
 //
+// import (
+//
+//	kms/key "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/kms/key"
+//	verifiedaccess/group "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/verifiedaccess/group"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// testKey, err := kms/key.NewKey(ctx, "testKey", &kms/key.KeyArgs{
+// Description: "KMS key for Verified Access Group test",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = verifiedaccess/group.NewGroup(ctx, "test", &verifiedaccess/group.GroupArgs{
+// VerifiedaccessInstanceId: aws_verifiedaccess_instance_trust_provider_attachment.Test.Verifiedaccess_instance_id,
+// ServerSideEncryptionConfiguration: []map[string]interface{}{
+// map[string]interface{}{
+// "kmsKeyArn": testKey.Arn,
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 type Group struct {
 	pulumi.CustomResourceState

@@ -23,20 +23,20 @@ namespace Pulumi.Aws.SecurityLake
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Aws.SecurityLake.AwsLogSource("test", new()
+    ///     var test = new Aws.Securitylake.AwsLogSource.AwsLogSource("test", new()
     ///     {
-    ///         Source = new Aws.SecurityLake.Inputs.AwsLogSourceSourceArgs
+    ///         Source = 
     ///         {
-    ///             Accounts = new[]
+    ///             { "accounts", new[]
     ///             {
     ///                 "123456789012",
-    ///             },
-    ///             Regions = new[]
+    ///             } },
+    ///             { "regions", new[]
     ///             {
     ///                 "eu-west-1",
-    ///             },
-    ///             SourceName = "ROUTE53",
-    ///             SourceVersion = "1.0",
+    ///             } },
+    ///             { "sourceName", "ROUTE53" },
+    ///             { "sourceVersion", "1.0" },
     ///         },
     ///     });
     /// 

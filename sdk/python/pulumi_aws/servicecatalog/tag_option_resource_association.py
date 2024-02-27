@@ -173,9 +173,9 @@ class TagOptionResourceAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.servicecatalog.TagOptionResourceAssociation("example",
-            resource_id="prod-dnigbtea24ste",
-            tag_option_id="tag-pjtvyakdlyo3m")
+        example = aws.servicecatalog.tag_option_resource_association.TagOptionResourceAssociation("example",
+            resource_id=prod-dnigbtea24ste,
+            tag_option_id=tag-pjtvyakdlyo3m)
         ```
 
         ## Import
@@ -209,9 +209,9 @@ class TagOptionResourceAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.servicecatalog.TagOptionResourceAssociation("example",
-            resource_id="prod-dnigbtea24ste",
-            tag_option_id="tag-pjtvyakdlyo3m")
+        example = aws.servicecatalog.tag_option_resource_association.TagOptionResourceAssociation("example",
+            resource_id=prod-dnigbtea24ste,
+            tag_option_id=tag-pjtvyakdlyo3m)
         ```
 
         ## Import

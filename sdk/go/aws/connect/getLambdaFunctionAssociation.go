@@ -12,33 +12,6 @@ import (
 )
 
 // Provides details about a specific Connect Lambda Function Association.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/connect"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := connect.LookupLambdaFunctionAssociation(ctx, &connect.LookupLambdaFunctionAssociationArgs{
-//				FunctionArn: "arn:aws:lambda:us-west-2:123456789123:function:abcdefg",
-//				InstanceId:  "aaaaaaaa-bbbb-cccc-dddd-111111111111",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupLambdaFunctionAssociation(ctx *pulumi.Context, args *LookupLambdaFunctionAssociationArgs, opts ...pulumi.InvokeOption) (*LookupLambdaFunctionAssociationResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupLambdaFunctionAssociationResult

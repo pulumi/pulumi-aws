@@ -578,50 +578,6 @@ class VpcIpamPool(pulumi.CustomResource):
         """
         Provides an IP address pool resource for IPAM.
 
-        ## Example Usage
-
-        Basic usage:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        current = aws.get_region()
-        example_vpc_ipam = aws.ec2.VpcIpam("exampleVpcIpam", operating_regions=[aws.ec2.VpcIpamOperatingRegionArgs(
-            region_name=current.name,
-        )])
-        example_vpc_ipam_pool = aws.ec2.VpcIpamPool("exampleVpcIpamPool",
-            address_family="ipv4",
-            ipam_scope_id=example_vpc_ipam.private_default_scope_id,
-            locale=current.name)
-        ```
-
-        Nested Pools:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        current = aws.get_region()
-        example = aws.ec2.VpcIpam("example", operating_regions=[aws.ec2.VpcIpamOperatingRegionArgs(
-            region_name=current.name,
-        )])
-        parent = aws.ec2.VpcIpamPool("parent",
-            address_family="ipv4",
-            ipam_scope_id=example.private_default_scope_id)
-        parent_test = aws.ec2.VpcIpamPoolCidr("parentTest",
-            ipam_pool_id=parent.id,
-            cidr="172.20.0.0/16")
-        child = aws.ec2.VpcIpamPool("child",
-            address_family="ipv4",
-            ipam_scope_id=example.private_default_scope_id,
-            locale=current.name,
-            source_ipam_pool_id=parent.id)
-        child_test = aws.ec2.VpcIpamPoolCidr("childTest",
-            ipam_pool_id=child.id,
-            cidr="172.20.0.0/24")
-        ```
-
         ## Import
 
         Using `pulumi import`, import IPAMs using the IPAM pool `id`. For example:
@@ -656,50 +612,6 @@ class VpcIpamPool(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an IP address pool resource for IPAM.
-
-        ## Example Usage
-
-        Basic usage:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        current = aws.get_region()
-        example_vpc_ipam = aws.ec2.VpcIpam("exampleVpcIpam", operating_regions=[aws.ec2.VpcIpamOperatingRegionArgs(
-            region_name=current.name,
-        )])
-        example_vpc_ipam_pool = aws.ec2.VpcIpamPool("exampleVpcIpamPool",
-            address_family="ipv4",
-            ipam_scope_id=example_vpc_ipam.private_default_scope_id,
-            locale=current.name)
-        ```
-
-        Nested Pools:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        current = aws.get_region()
-        example = aws.ec2.VpcIpam("example", operating_regions=[aws.ec2.VpcIpamOperatingRegionArgs(
-            region_name=current.name,
-        )])
-        parent = aws.ec2.VpcIpamPool("parent",
-            address_family="ipv4",
-            ipam_scope_id=example.private_default_scope_id)
-        parent_test = aws.ec2.VpcIpamPoolCidr("parentTest",
-            ipam_pool_id=parent.id,
-            cidr="172.20.0.0/16")
-        child = aws.ec2.VpcIpamPool("child",
-            address_family="ipv4",
-            ipam_scope_id=example.private_default_scope_id,
-            locale=current.name,
-            source_ipam_pool_id=parent.id)
-        child_test = aws.ec2.VpcIpamPoolCidr("childTest",
-            ipam_pool_id=child.id,
-            cidr="172.20.0.0/24")
-        ```
 
         ## Import
 

@@ -21,29 +21,27 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/eks"
+//	eks/accessEntry "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/eks/accessEntry"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := eks.NewAccessEntry(ctx, "example", &eks.AccessEntryArgs{
-//				ClusterName:  pulumi.Any(aws_eks_cluster.Example.Name),
-//				PrincipalArn: pulumi.Any(aws_iam_role.Example.Arn),
-//				KubernetesGroups: pulumi.StringArray{
-//					pulumi.String("group-1"),
-//					pulumi.String("group-2"),
-//				},
-//				Type: pulumi.String("STANDARD"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := eks/accessEntry.NewAccessEntry(ctx, "example", &eks/accessEntry.AccessEntryArgs{
+// ClusterName: aws_eks_cluster.Example.Name,
+// PrincipalArn: aws_iam_role.Example.Arn,
+// KubernetesGroups: []string{
+// "group-1",
+// "group-2",
+// },
+// Type: "STANDARD",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

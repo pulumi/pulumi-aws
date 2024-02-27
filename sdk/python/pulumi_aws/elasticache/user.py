@@ -347,44 +347,44 @@ class User(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.elasticache.User("test",
-            access_string="on ~app::* -@all +@read +@hash +@bitmap +@geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember",
-            engine="REDIS",
-            passwords=["password123456789"],
-            user_id="testUserId",
-            user_name="testUserName")
+        test = aws.elasticache.user.User("test",
+            access_string=on ~app::* -@all +@read +@hash +@bitmap +@geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember,
+            engine=REDIS,
+            passwords=[password123456789],
+            user_id=testUserId,
+            user_name=testUserName)
         ```
 
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.elasticache.User("test",
-            access_string="on ~* +@all",
-            authentication_mode=aws.elasticache.UserAuthenticationModeArgs(
-                type="iam",
-            ),
-            engine="REDIS",
-            user_id="testUserId",
-            user_name="testUserName")
+        test = aws.elasticache.user.User("test",
+            access_string=on ~* +@all,
+            authentication_mode={
+                type: iam,
+            },
+            engine=REDIS,
+            user_id=testUserId,
+            user_name=testUserName)
         ```
 
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.elasticache.User("test",
-            access_string="on ~* +@all",
-            authentication_mode=aws.elasticache.UserAuthenticationModeArgs(
-                passwords=[
-                    "password1",
-                    "password2",
+        test = aws.elasticache.user.User("test",
+            access_string=on ~* +@all,
+            authentication_mode={
+                passwords: [
+                    password1,
+                    password2,
                 ],
-                type="password",
-            ),
-            engine="REDIS",
-            user_id="testUserId",
-            user_name="testUserName")
+                type: password,
+            },
+            engine=REDIS,
+            user_id=testUserId,
+            user_name=testUserName)
         ```
 
         ## Import
@@ -424,44 +424,44 @@ class User(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.elasticache.User("test",
-            access_string="on ~app::* -@all +@read +@hash +@bitmap +@geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember",
-            engine="REDIS",
-            passwords=["password123456789"],
-            user_id="testUserId",
-            user_name="testUserName")
+        test = aws.elasticache.user.User("test",
+            access_string=on ~app::* -@all +@read +@hash +@bitmap +@geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember,
+            engine=REDIS,
+            passwords=[password123456789],
+            user_id=testUserId,
+            user_name=testUserName)
         ```
 
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.elasticache.User("test",
-            access_string="on ~* +@all",
-            authentication_mode=aws.elasticache.UserAuthenticationModeArgs(
-                type="iam",
-            ),
-            engine="REDIS",
-            user_id="testUserId",
-            user_name="testUserName")
+        test = aws.elasticache.user.User("test",
+            access_string=on ~* +@all,
+            authentication_mode={
+                type: iam,
+            },
+            engine=REDIS,
+            user_id=testUserId,
+            user_name=testUserName)
         ```
 
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.elasticache.User("test",
-            access_string="on ~* +@all",
-            authentication_mode=aws.elasticache.UserAuthenticationModeArgs(
-                passwords=[
-                    "password1",
-                    "password2",
+        test = aws.elasticache.user.User("test",
+            access_string=on ~* +@all,
+            authentication_mode={
+                passwords: [
+                    password1,
+                    password2,
                 ],
-                type="password",
-            ),
-            engine="REDIS",
-            user_id="testUserId",
-            user_name="testUserName")
+                type: password,
+            },
+            engine=REDIS,
+            user_id=testUserId,
+            user_name=testUserName)
         ```
 
         ## Import

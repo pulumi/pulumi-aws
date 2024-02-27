@@ -22,24 +22,22 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/organizations"
+//	organizations/policyAttachment "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/organizations/policyAttachment"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := organizations.NewPolicyAttachment(ctx, "account", &organizations.PolicyAttachmentArgs{
-//				PolicyId: pulumi.Any(aws_organizations_policy.Example.Id),
-//				TargetId: pulumi.String("123456789012"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := organizations/policyAttachment.NewPolicyAttachment(ctx, "account", &organizations/policyAttachment.PolicyAttachmentArgs{
+// PolicyId: aws_organizations_policy.Example.Id,
+// TargetId: "123456789012",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Organization Root
 //
@@ -48,24 +46,22 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/organizations"
+//	organizations/policyAttachment "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/organizations/policyAttachment"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := organizations.NewPolicyAttachment(ctx, "root", &organizations.PolicyAttachmentArgs{
-//				PolicyId: pulumi.Any(aws_organizations_policy.Example.Id),
-//				TargetId: pulumi.Any(aws_organizations_organization.Example.Roots[0].Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := organizations/policyAttachment.NewPolicyAttachment(ctx, "root", &organizations/policyAttachment.PolicyAttachmentArgs{
+// PolicyId: aws_organizations_policy.Example.Id,
+// TargetId: aws_organizations_organization.Example.Roots[0].Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Organization Unit
 //
@@ -74,24 +70,22 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/organizations"
+//	organizations/policyAttachment "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/organizations/policyAttachment"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := organizations.NewPolicyAttachment(ctx, "unit", &organizations.PolicyAttachmentArgs{
-//				PolicyId: pulumi.Any(aws_organizations_policy.Example.Id),
-//				TargetId: pulumi.Any(aws_organizations_organizational_unit.Example.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := organizations/policyAttachment.NewPolicyAttachment(ctx, "unit", &organizations/policyAttachment.PolicyAttachmentArgs{
+// PolicyId: aws_organizations_policy.Example.Id,
+// TargetId: aws_organizations_organizational_unit.Example.Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

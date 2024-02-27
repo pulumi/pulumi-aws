@@ -23,32 +23,32 @@ namespace Pulumi.Aws.NetworkManager
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleGlobalNetwork = new Aws.NetworkManager.GlobalNetwork("exampleGlobalNetwork", new()
+    ///     var exampleGlobalNetwork = new Aws.Networkmanager.GlobalNetwork.GlobalNetwork("exampleGlobalNetwork", new()
     ///     {
     ///         Description = "example",
     ///     });
     /// 
-    ///     var exampleSite = new Aws.NetworkManager.Site("exampleSite", new()
+    ///     var exampleSite = new Aws.Networkmanager.Site.Site("exampleSite", new()
     ///     {
     ///         GlobalNetworkId = exampleGlobalNetwork.Id,
     ///     });
     /// 
-    ///     var exampleDevice = new Aws.NetworkManager.Device("exampleDevice", new()
+    ///     var exampleDevice = new Aws.Networkmanager.Device.Device("exampleDevice", new()
     ///     {
     ///         GlobalNetworkId = exampleGlobalNetwork.Id,
     ///         SiteId = exampleSite.Id,
     ///     });
     /// 
-    ///     var exampleCustomerGateway = new Aws.Ec2.CustomerGateway("exampleCustomerGateway", new()
+    ///     var exampleCustomerGateway = new Aws.Ec2.CustomerGateway.CustomerGateway("exampleCustomerGateway", new()
     ///     {
-    ///         BgpAsn = "65000",
+    ///         BgpAsn = 65000,
     ///         IpAddress = "172.83.124.10",
     ///         Type = "ipsec.1",
     ///     });
     /// 
-    ///     var exampleTransitGateway = new Aws.Ec2TransitGateway.TransitGateway("exampleTransitGateway");
+    ///     var exampleTransitGateway = new Aws.Ec2transitgateway.TransitGateway.TransitGateway("exampleTransitGateway");
     /// 
-    ///     var exampleVpnConnection = new Aws.Ec2.VpnConnection("exampleVpnConnection", new()
+    ///     var exampleVpnConnection = new Aws.Ec2.VpnConnection.VpnConnection("exampleVpnConnection", new()
     ///     {
     ///         CustomerGatewayId = exampleCustomerGateway.Id,
     ///         TransitGatewayId = exampleTransitGateway.Id,
@@ -56,7 +56,7 @@ namespace Pulumi.Aws.NetworkManager
     ///         StaticRoutesOnly = true,
     ///     });
     /// 
-    ///     var exampleTransitGatewayRegistration = new Aws.NetworkManager.TransitGatewayRegistration("exampleTransitGatewayRegistration", new()
+    ///     var exampleTransitGatewayRegistration = new Aws.Networkmanager.TransitGatewayRegistration.TransitGatewayRegistration("exampleTransitGatewayRegistration", new()
     ///     {
     ///         GlobalNetworkId = exampleGlobalNetwork.Id,
     ///         TransitGatewayArn = exampleTransitGateway.Arn,
@@ -68,7 +68,7 @@ namespace Pulumi.Aws.NetworkManager
     ///         },
     ///     });
     /// 
-    ///     var exampleCustomerGatewayAssociation = new Aws.NetworkManager.CustomerGatewayAssociation("exampleCustomerGatewayAssociation", new()
+    ///     var exampleCustomerGatewayAssociation = new Aws.Networkmanager.CustomerGatewayAssociation.CustomerGatewayAssociation("exampleCustomerGatewayAssociation", new()
     ///     {
     ///         GlobalNetworkId = exampleGlobalNetwork.Id,
     ///         CustomerGatewayArn = exampleCustomerGateway.Arn,

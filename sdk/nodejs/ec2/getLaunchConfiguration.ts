@@ -9,17 +9,6 @@ import * as utilities from "../utilities";
 
 /**
  * Provides information about a Launch Configuration.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const ubuntu = aws.ec2.getLaunchConfiguration({
- *     name: "test-launch-config",
- * });
- * ```
  */
 export function getLaunchConfiguration(args: GetLaunchConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetLaunchConfigurationResult> {
 
@@ -118,17 +107,6 @@ export interface GetLaunchConfigurationResult {
 }
 /**
  * Provides information about a Launch Configuration.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const ubuntu = aws.ec2.getLaunchConfiguration({
- *     name: "test-launch-config",
- * });
- * ```
  */
 export function getLaunchConfigurationOutput(args: GetLaunchConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLaunchConfigurationResult> {
     return pulumi.output(args).apply((a: any) => getLaunchConfiguration(a, opts))

@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.apigatewayv2.Authorizer("example", {
+ * const example = new aws.apigatewayv2/authorizer.Authorizer("example", {
  *     apiId: aws_apigatewayv2_api.example.id,
  *     authorizerType: "REQUEST",
  *     authorizerUri: aws_lambda_function.example.invoke_arn,
@@ -31,7 +31,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.apigatewayv2.Authorizer("example", {
+ * const example = new aws.apigatewayv2/authorizer.Authorizer("example", {
  *     apiId: aws_apigatewayv2_api.example.id,
  *     authorizerType: "REQUEST",
  *     authorizerUri: aws_lambda_function.example.invoke_arn,

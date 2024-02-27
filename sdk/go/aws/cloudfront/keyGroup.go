@@ -23,41 +23,41 @@ import (
 //
 //	"os"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudfront"
+//	cloudfront/keyGroup "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/cloudfront/keyGroup"
+//	cloudfront/publicKey "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/cloudfront/publicKey"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func readFileOrPanic(path string) pulumi.StringPtrInput {
-//		data, err := os.ReadFile(path)
-//		if err != nil {
-//			panic(err.Error())
-//		}
-//		return pulumi.String(string(data))
-//	}
+//					data, err := os.ReadFile(path)
+//					if err != nil {
+//						panic(err.Error())
+//					}
+//					return pulumi.String(string(data))
+//				}
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			examplePublicKey, err := cloudfront.NewPublicKey(ctx, "examplePublicKey", &cloudfront.PublicKeyArgs{
-//				Comment:    pulumi.String("example public key"),
-//				EncodedKey: readFileOrPanic("public_key.pem"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = cloudfront.NewKeyGroup(ctx, "exampleKeyGroup", &cloudfront.KeyGroupArgs{
-//				Comment: pulumi.String("example key group"),
-//				Items: pulumi.StringArray{
-//					examplePublicKey.ID(),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// examplePublicKey, err := cloudfront/publicKey.NewPublicKey(ctx, "examplePublicKey", &cloudfront/publicKey.PublicKeyArgs{
+// Comment: "example public key",
+// EncodedKey: readFileOrPanic("public_key.pem"),
+// })
+// if err != nil {
+// return err
+// }
+// _, err = cloudfront/keyGroup.NewKeyGroup(ctx, "exampleKeyGroup", &cloudfront/keyGroup.KeyGroupArgs{
+// Comment: "example key group",
+// Items: []interface{}{
+// examplePublicKey.Id,
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

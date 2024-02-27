@@ -13,12 +13,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleResolverFirewallDomainList = new aws.route53.ResolverFirewallDomainList("exampleResolverFirewallDomainList", {
+ * const exampleResolverFirewallDomainList = new aws.route53/resolverFirewallDomainList.ResolverFirewallDomainList("exampleResolverFirewallDomainList", {
  *     domains: ["example.com"],
  *     tags: {},
  * });
- * const exampleResolverFirewallRuleGroup = new aws.route53.ResolverFirewallRuleGroup("exampleResolverFirewallRuleGroup", {tags: {}});
- * const exampleResolverFirewallRule = new aws.route53.ResolverFirewallRule("exampleResolverFirewallRule", {
+ * const exampleResolverFirewallRuleGroup = new aws.route53/resolverFirewallRuleGroup.ResolverFirewallRuleGroup("exampleResolverFirewallRuleGroup", {tags: {}});
+ * const exampleResolverFirewallRule = new aws.route53/resolverFirewallRule.ResolverFirewallRule("exampleResolverFirewallRule", {
  *     action: "BLOCK",
  *     blockOverrideDnsType: "CNAME",
  *     blockOverrideDomain: "example.com",

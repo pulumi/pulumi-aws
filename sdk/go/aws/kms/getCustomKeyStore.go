@@ -14,32 +14,6 @@ import (
 // Use this data source to get the metadata KMS custom key store.
 // By using this data source, you can reference KMS custom key store
 // without having to hard code the ID as input.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kms"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := kms.LookupCustomKeyStore(ctx, &kms.LookupCustomKeyStoreArgs{
-//				CustomKeyStoreName: pulumi.StringRef("my_cloudhsm"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupCustomKeyStore(ctx *pulumi.Context, args *LookupCustomKeyStoreArgs, opts ...pulumi.InvokeOption) (*LookupCustomKeyStoreResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupCustomKeyStoreResult

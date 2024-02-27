@@ -24,7 +24,7 @@ namespace Pulumi.Aws.Ecs
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var service = new Aws.Ecs.TaskDefinition("service", new()
+    ///     var service = new Aws.Ecs.TaskDefinition.TaskDefinition("service", new()
     ///     {
     ///         Family = "service",
     ///         ContainerDefinitions = JsonSerializer.Serialize(new[]
@@ -64,18 +64,18 @@ namespace Pulumi.Aws.Ecs
     ///         }),
     ///         Volumes = new[]
     ///         {
-    ///             new Aws.Ecs.Inputs.TaskDefinitionVolumeArgs
+    ///             
     ///             {
-    ///                 Name = "service-storage",
-    ///                 HostPath = "/ecs/service-storage",
+    ///                 { "name", "service-storage" },
+    ///                 { "hostPath", "/ecs/service-storage" },
     ///             },
     ///         },
     ///         PlacementConstraints = new[]
     ///         {
-    ///             new Aws.Ecs.Inputs.TaskDefinitionPlacementConstraintArgs
+    ///             
     ///             {
-    ///                 Type = "memberOf",
-    ///                 Expression = "attribute:ecs.availability-zone in [us-west-2a, us-west-2b]",
+    ///                 { "type", "memberOf" },
+    ///                 { "expression", "attribute:ecs.availability-zone in [us-west-2a, us-west-2b]" },
     ///             },
     ///         },
     ///     });
@@ -93,22 +93,22 @@ namespace Pulumi.Aws.Ecs
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var service = new Aws.Ecs.TaskDefinition("service", new()
+    ///     var service = new Aws.Ecs.TaskDefinition.TaskDefinition("service", new()
     ///     {
     ///         Family = "service",
     ///         ContainerDefinitions = File.ReadAllText("task-definitions/service.json"),
-    ///         ProxyConfiguration = new Aws.Ecs.Inputs.TaskDefinitionProxyConfigurationArgs
+    ///         ProxyConfiguration = 
     ///         {
-    ///             Type = "APPMESH",
-    ///             ContainerName = "applicationContainerName",
-    ///             Properties = 
+    ///             { "type", "APPMESH" },
+    ///             { "containerName", "applicationContainerName" },
+    ///             { "properties", 
     ///             {
     ///                 { "AppPorts", "8080" },
     ///                 { "EgressIgnoredIPs", "169.254.170.2,169.254.169.254" },
     ///                 { "IgnoredUID", "1337" },
-    ///                 { "ProxyEgressPort", "15001" },
-    ///                 { "ProxyIngressPort", "15000" },
-    ///             },
+    ///                 { "ProxyEgressPort", 15001 },
+    ///                 { "ProxyIngressPort", 15000 },
+    ///             } },
     ///         },
     ///     });
     /// 
@@ -125,27 +125,27 @@ namespace Pulumi.Aws.Ecs
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var service = new Aws.Ecs.TaskDefinition("service", new()
+    ///     var service = new Aws.Ecs.TaskDefinition.TaskDefinition("service", new()
     ///     {
     ///         Family = "service",
     ///         ContainerDefinitions = File.ReadAllText("task-definitions/service.json"),
     ///         Volumes = new[]
     ///         {
-    ///             new Aws.Ecs.Inputs.TaskDefinitionVolumeArgs
+    ///             
     ///             {
-    ///                 Name = "service-storage",
-    ///                 DockerVolumeConfiguration = new Aws.Ecs.Inputs.TaskDefinitionVolumeDockerVolumeConfigurationArgs
+    ///                 { "name", "service-storage" },
+    ///                 { "dockerVolumeConfiguration", 
     ///                 {
-    ///                     Scope = "shared",
-    ///                     Autoprovision = true,
-    ///                     Driver = "local",
-    ///                     DriverOpts = 
+    ///                     { "scope", "shared" },
+    ///                     { "autoprovision", true },
+    ///                     { "driver", "local" },
+    ///                     { "driverOpts", 
     ///                     {
     ///                         { "type", "nfs" },
     ///                         { "device", $"{aws_efs_file_system.Fs.Dns_name}:/" },
     ///                         { "o", $"addr={aws_efs_file_system.Fs.Dns_name},rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport" },
-    ///                     },
-    ///                 },
+    ///                     } },
+    ///                 } },
     ///             },
     ///         },
     ///     });
@@ -163,27 +163,27 @@ namespace Pulumi.Aws.Ecs
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var service = new Aws.Ecs.TaskDefinition("service", new()
+    ///     var service = new Aws.Ecs.TaskDefinition.TaskDefinition("service", new()
     ///     {
     ///         Family = "service",
     ///         ContainerDefinitions = File.ReadAllText("task-definitions/service.json"),
     ///         Volumes = new[]
     ///         {
-    ///             new Aws.Ecs.Inputs.TaskDefinitionVolumeArgs
+    ///             
     ///             {
-    ///                 Name = "service-storage",
-    ///                 EfsVolumeConfiguration = new Aws.Ecs.Inputs.TaskDefinitionVolumeEfsVolumeConfigurationArgs
+    ///                 { "name", "service-storage" },
+    ///                 { "efsVolumeConfiguration", 
     ///                 {
-    ///                     FileSystemId = aws_efs_file_system.Fs.Id,
-    ///                     RootDirectory = "/opt/data",
-    ///                     TransitEncryption = "ENABLED",
-    ///                     TransitEncryptionPort = 2999,
-    ///                     AuthorizationConfig = new Aws.Ecs.Inputs.TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArgs
+    ///                     { "fileSystemId", aws_efs_file_system.Fs.Id },
+    ///                     { "rootDirectory", "/opt/data" },
+    ///                     { "transitEncryption", "ENABLED" },
+    ///                     { "transitEncryptionPort", 2999 },
+    ///                     { "authorizationConfig", 
     ///                     {
-    ///                         AccessPointId = aws_efs_access_point.Test.Id,
-    ///                         Iam = "ENABLED",
-    ///                     },
-    ///                 },
+    ///                         { "accessPointId", aws_efs_access_point.Test.Id },
+    ///                         { "iam", "ENABLED" },
+    ///                     } },
+    ///                 } },
     ///             },
     ///         },
     ///     });
@@ -202,7 +202,7 @@ namespace Pulumi.Aws.Ecs
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Aws.SecretsManager.SecretVersion("test", new()
+    ///     var test = new Aws.Secretsmanager.SecretVersion.SecretVersion("test", new()
     ///     {
     ///         SecretId = aws_secretsmanager_secret.Test.Id,
     ///         SecretString = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
@@ -212,25 +212,25 @@ namespace Pulumi.Aws.Ecs
     ///         }),
     ///     });
     /// 
-    ///     var service = new Aws.Ecs.TaskDefinition("service", new()
+    ///     var service = new Aws.Ecs.TaskDefinition.TaskDefinition("service", new()
     ///     {
     ///         Family = "service",
     ///         ContainerDefinitions = File.ReadAllText("task-definitions/service.json"),
     ///         Volumes = new[]
     ///         {
-    ///             new Aws.Ecs.Inputs.TaskDefinitionVolumeArgs
+    ///             
     ///             {
-    ///                 Name = "service-storage",
-    ///                 FsxWindowsFileServerVolumeConfiguration = new Aws.Ecs.Inputs.TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArgs
+    ///                 { "name", "service-storage" },
+    ///                 { "fsxWindowsFileServerVolumeConfiguration", 
     ///                 {
-    ///                     FileSystemId = aws_fsx_windows_file_system.Test.Id,
-    ///                     RootDirectory = "\\data",
-    ///                     AuthorizationConfig = new Aws.Ecs.Inputs.TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArgs
+    ///                     { "fileSystemId", aws_fsx_windows_file_system.Test.Id },
+    ///                     { "rootDirectory", "\\data" },
+    ///                     { "authorizationConfig", 
     ///                     {
-    ///                         CredentialsParameter = test.Arn,
-    ///                         Domain = aws_directory_service_directory.Test.Name,
-    ///                     },
-    ///                 },
+    ///                         { "credentialsParameter", test.Arn },
+    ///                         { "domain", aws_directory_service_directory.Test.Name },
+    ///                     } },
+    ///                 } },
     ///             },
     ///         },
     ///     });
@@ -247,7 +247,7 @@ namespace Pulumi.Aws.Ecs
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Aws.Ecs.TaskDefinition("test", new()
+    ///     var test = new Aws.Ecs.TaskDefinition.TaskDefinition("test", new()
     ///     {
     ///         ContainerDefinitions = @"[
     ///   {
@@ -280,10 +280,10 @@ namespace Pulumi.Aws.Ecs
     ///         Family = "test",
     ///         InferenceAccelerators = new[]
     ///         {
-    ///             new Aws.Ecs.Inputs.TaskDefinitionInferenceAcceleratorArgs
+    ///             
     ///             {
-    ///                 DeviceName = "device_1",
-    ///                 DeviceType = "eia1.medium",
+    ///                 { "deviceName", "device_1" },
+    ///                 { "deviceType", "eia1.medium" },
     ///             },
     ///         },
     ///     });
@@ -300,7 +300,7 @@ namespace Pulumi.Aws.Ecs
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Aws.Ecs.TaskDefinition("test", new()
+    ///     var test = new Aws.Ecs.TaskDefinition.TaskDefinition("test", new()
     ///     {
     ///         ContainerDefinitions = @"[
     ///   {
@@ -313,18 +313,18 @@ namespace Pulumi.Aws.Ecs
     /// ]
     /// 
     /// ",
-    ///         Cpu = "1024",
+    ///         Cpu = 1024,
     ///         Family = "test",
-    ///         Memory = "2048",
+    ///         Memory = 2048,
     ///         NetworkMode = "awsvpc",
     ///         RequiresCompatibilities = new[]
     ///         {
     ///             "FARGATE",
     ///         },
-    ///         RuntimePlatform = new Aws.Ecs.Inputs.TaskDefinitionRuntimePlatformArgs
+    ///         RuntimePlatform = 
     ///         {
-    ///             CpuArchitecture = "X86_64",
-    ///             OperatingSystemFamily = "WINDOWS_SERVER_2019_CORE",
+    ///             { "cpuArchitecture", "X86_64" },
+    ///             { "operatingSystemFamily", "WINDOWS_SERVER_2019_CORE" },
     ///         },
     ///     });
     /// 

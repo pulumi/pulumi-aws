@@ -352,16 +352,16 @@ class Application(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        example_group = aws.resourcegroups.Group("exampleGroup", resource_query=aws.resourcegroups.GroupResourceQueryArgs(
-            query=json.dumps({
-                "ResourceTypeFilters": ["AWS::EC2::Instance"],
-                "TagFilters": [{
-                    "Key": "Stage",
-                    "Values": ["Test"],
+        example_group = aws.resourcegroups.group.Group("exampleGroup", resource_query={
+            query: json.dumps({
+                ResourceTypeFilters: [AWS::EC2::Instance],
+                TagFilters: [{
+                    Key: Stage,
+                    Values: [Test],
                 }],
             }),
-        ))
-        example_application = aws.applicationinsights.Application("exampleApplication", resource_group_name=example_group.name)
+        })
+        example_application = aws.applicationinsights.application.Application("exampleApplication", resource_group_name=example_group.name)
         ```
 
         ## Import
@@ -401,16 +401,16 @@ class Application(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        example_group = aws.resourcegroups.Group("exampleGroup", resource_query=aws.resourcegroups.GroupResourceQueryArgs(
-            query=json.dumps({
-                "ResourceTypeFilters": ["AWS::EC2::Instance"],
-                "TagFilters": [{
-                    "Key": "Stage",
-                    "Values": ["Test"],
+        example_group = aws.resourcegroups.group.Group("exampleGroup", resource_query={
+            query: json.dumps({
+                ResourceTypeFilters: [AWS::EC2::Instance],
+                TagFilters: [{
+                    Key: Stage,
+                    Values: [Test],
                 }],
             }),
-        ))
-        example_application = aws.applicationinsights.Application("exampleApplication", resource_group_name=example_group.name)
+        })
+        example_application = aws.applicationinsights.application.Application("exampleApplication", resource_group_name=example_group.name)
         ```
 
         ## Import

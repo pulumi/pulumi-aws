@@ -219,7 +219,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.rds.Cluster;
  * import com.pulumi.aws.rds.ClusterArgs;
- * import com.pulumi.aws.rds.inputs.ClusterServerlessv2ScalingConfigurationArgs;
  * import com.pulumi.aws.rds.ClusterInstance;
  * import com.pulumi.aws.rds.ClusterInstanceArgs;
  * import java.util.List;
@@ -244,10 +243,7 @@ import javax.annotation.Nullable;
  *             .masterUsername(&#34;test&#34;)
  *             .masterPassword(&#34;must_be_eight_characters&#34;)
  *             .storageEncrypted(true)
- *             .serverlessv2ScalingConfiguration(ClusterServerlessv2ScalingConfigurationArgs.builder()
- *                 .maxCapacity(1)
- *                 .minCapacity(0.5)
- *                 .build())
+ *             .serverlessv2ScalingConfiguration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleClusterInstance = new ClusterInstance(&#34;exampleClusterInstance&#34;, ClusterInstanceArgs.builder()        
@@ -334,53 +330,6 @@ import javax.annotation.Nullable;
  *             .manageMasterUserPassword(true)
  *             .masterUsername(&#34;test&#34;)
  *             .masterUserSecretKmsKeyId(example.keyId())
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### Global Cluster Restored From Snapshot
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.rds.RdsFunctions;
- * import com.pulumi.aws.rds.inputs.GetClusterSnapshotArgs;
- * import com.pulumi.aws.rds.Cluster;
- * import com.pulumi.aws.rds.ClusterArgs;
- * import com.pulumi.aws.rds.GlobalCluster;
- * import com.pulumi.aws.rds.GlobalClusterArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var exampleClusterSnapshot = RdsFunctions.getClusterSnapshot(GetClusterSnapshotArgs.builder()
- *             .dbClusterIdentifier(&#34;example-original-cluster&#34;)
- *             .mostRecent(true)
- *             .build());
- * 
- *         var exampleCluster = new Cluster(&#34;exampleCluster&#34;, ClusterArgs.builder()        
- *             .engine(&#34;aurora&#34;)
- *             .engineVersion(&#34;5.6.mysql_aurora.1.22.4&#34;)
- *             .clusterIdentifier(&#34;example&#34;)
- *             .snapshotIdentifier(exampleClusterSnapshot.applyValue(getClusterSnapshotResult -&gt; getClusterSnapshotResult.id()))
- *             .build());
- * 
- *         var exampleGlobalCluster = new GlobalCluster(&#34;exampleGlobalCluster&#34;, GlobalClusterArgs.builder()        
- *             .globalClusterIdentifier(&#34;example&#34;)
- *             .sourceDbClusterIdentifier(exampleCluster.arn())
- *             .forceDestroy(true)
  *             .build());
  * 
  *     }

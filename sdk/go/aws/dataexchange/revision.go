@@ -21,23 +21,21 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/dataexchange"
+//	dataexchange/revision "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/dataexchange/revision"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := dataexchange.NewRevision(ctx, "example", &dataexchange.RevisionArgs{
-//				DataSetId: pulumi.Any(aws_dataexchange_data_set.Example.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := dataexchange/revision.NewRevision(ctx, "example", &dataexchange/revision.RevisionArgs{
+// DataSetId: aws_dataexchange_data_set.Example.Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

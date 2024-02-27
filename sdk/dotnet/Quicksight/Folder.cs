@@ -23,7 +23,7 @@ namespace Pulumi.Aws.Quicksight
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Quicksight.Folder("example", new()
+    ///     var example = new Aws.Quicksight.Folder.Folder("example", new()
     ///     {
     ///         FolderId = "example-id",
     ///     });
@@ -40,14 +40,14 @@ namespace Pulumi.Aws.Quicksight
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Quicksight.Folder("example", new()
+    ///     var example = new Aws.Quicksight.Folder.Folder("example", new()
     ///     {
     ///         FolderId = "example-id",
     ///         Permissions = new[]
     ///         {
-    ///             new Aws.Quicksight.Inputs.FolderPermissionArgs
+    ///             
     ///             {
-    ///                 Actions = new[]
+    ///                 { "actions", new[]
     ///                 {
     ///                     "quicksight:CreateFolder",
     ///                     "quicksight:DescribeFolder",
@@ -57,8 +57,8 @@ namespace Pulumi.Aws.Quicksight
     ///                     "quicksight:DeleteFolderMembership",
     ///                     "quicksight:DescribeFolderPermissions",
     ///                     "quicksight:UpdateFolderPermissions",
-    ///                 },
-    ///                 Principal = aws_quicksight_user.Example.Arn,
+    ///                 } },
+    ///                 { "principal", aws_quicksight_user.Example.Arn },
     ///             },
     ///         },
     ///     });
@@ -75,12 +75,12 @@ namespace Pulumi.Aws.Quicksight
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var parent = new Aws.Quicksight.Folder("parent", new()
+    ///     var parent = new Aws.Quicksight.Folder.Folder("parent", new()
     ///     {
     ///         FolderId = "parent-id",
     ///     });
     /// 
-    ///     var example = new Aws.Quicksight.Folder("example", new()
+    ///     var example = new Aws.Quicksight.Folder.Folder("example", new()
     ///     {
     ///         FolderId = "example-id",
     ///         ParentFolderArn = parent.Arn,

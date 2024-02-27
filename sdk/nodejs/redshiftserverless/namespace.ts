@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.redshiftserverless.Namespace("example", {namespaceName: "concurrency-scaling"});
+ * const example = new aws.redshiftserverless/namespace.Namespace("example", {namespaceName: "concurrency-scaling"});
  * ```
  *
  * ## Import

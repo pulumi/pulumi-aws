@@ -187,9 +187,9 @@ class ServiceSpecificCredential(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_user = aws.iam.User("exampleUser")
-        example_service_specific_credential = aws.iam.ServiceSpecificCredential("exampleServiceSpecificCredential",
-            service_name="codecommit.amazonaws.com",
+        example_user = aws.iam.user.User("exampleUser")
+        example_service_specific_credential = aws.iam.service_specific_credential.ServiceSpecificCredential("exampleServiceSpecificCredential",
+            service_name=codecommit.amazonaws.com,
             user_name=example_user.name)
         ```
 
@@ -222,9 +222,9 @@ class ServiceSpecificCredential(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_user = aws.iam.User("exampleUser")
-        example_service_specific_credential = aws.iam.ServiceSpecificCredential("exampleServiceSpecificCredential",
-            service_name="codecommit.amazonaws.com",
+        example_user = aws.iam.user.User("exampleUser")
+        example_service_specific_credential = aws.iam.service_specific_credential.ServiceSpecificCredential("exampleServiceSpecificCredential",
+            service_name=codecommit.amazonaws.com,
             user_name=example_user.name)
         ```
 

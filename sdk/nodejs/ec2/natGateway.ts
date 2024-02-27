@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.ec2.NatGateway("example", {
+ * const example = new aws.ec2/natGateway.NatGateway("example", {
  *     allocationId: aws_eip.example.id,
  *     subnetId: aws_subnet.example.id,
  *     tags: {
@@ -30,7 +30,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.ec2.NatGateway("example", {
+ * const example = new aws.ec2/natGateway.NatGateway("example", {
  *     allocationId: aws_eip.example.id,
  *     subnetId: aws_subnet.example.id,
  *     secondaryAllocationIds: [aws_eip.secondary.id],
@@ -43,7 +43,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.ec2.NatGateway("example", {
+ * const example = new aws.ec2/natGateway.NatGateway("example", {
  *     connectivityType: "private",
  *     subnetId: aws_subnet.example.id,
  * });
@@ -54,7 +54,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.ec2.NatGateway("example", {
+ * const example = new aws.ec2/natGateway.NatGateway("example", {
  *     connectivityType: "private",
  *     subnetId: aws_subnet.example.id,
  *     secondaryPrivateIpAddressCount: 7,

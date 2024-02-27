@@ -23,112 +23,25 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/storagegateway"
+//	storagegateway/fileSystemAssociation "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/storagegateway/fileSystemAssociation"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := storagegateway.NewFileSystemAssociation(ctx, "example", &storagegateway.FileSystemAssociationArgs{
-//				GatewayArn:          pulumi.Any(aws_storagegateway_gateway.Example.Arn),
-//				LocationArn:         pulumi.Any(aws_fsx_windows_file_system.Example.Arn),
-//				Username:            pulumi.String("Admin"),
-//				Password:            pulumi.String("avoid-plaintext-passwords"),
-//				AuditDestinationArn: pulumi.Any(aws_s3_bucket.Example.Arn),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// ## Required Services Example
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/fsx"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssm"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/storagegateway"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			awsServiceStoragegatewayAmiFILES3Latest, err := ssm.LookupParameter(ctx, &ssm.LookupParameterArgs{
-//				Name: "/aws/service/storagegateway/ami/FILE_S3/latest",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			testInstance, err := ec2.NewInstance(ctx, "testInstance", &ec2.InstanceArgs{
-//				Ami:                      *pulumi.String(awsServiceStoragegatewayAmiFILES3Latest.Value),
-//				AssociatePublicIpAddress: pulumi.Bool(true),
-//				InstanceType:             ec2.InstanceType(data.Aws_ec2_instance_type_offering.Available.Instance_type),
-//				VpcSecurityGroupIds: pulumi.StringArray{
-//					aws_security_group.Test.Id,
-//				},
-//				SubnetId: pulumi.Any(aws_subnet.Test[0].Id),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				aws_route.Test,
-//				aws_vpc_dhcp_options_association.Test,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			testGateway, err := storagegateway.NewGateway(ctx, "testGateway", &storagegateway.GatewayArgs{
-//				GatewayIpAddress: testInstance.PublicIp,
-//				GatewayName:      pulumi.String("test-sgw"),
-//				GatewayTimezone:  pulumi.String("GMT"),
-//				GatewayType:      pulumi.String("FILE_FSX_SMB"),
-//				SmbActiveDirectorySettings: &storagegateway.GatewaySmbActiveDirectorySettingsArgs{
-//					DomainName: pulumi.Any(aws_directory_service_directory.Test.Name),
-//					Password:   pulumi.Any(aws_directory_service_directory.Test.Password),
-//					Username:   pulumi.String("Admin"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			testWindowsFileSystem, err := fsx.NewWindowsFileSystem(ctx, "testWindowsFileSystem", &fsx.WindowsFileSystemArgs{
-//				ActiveDirectoryId: pulumi.Any(aws_directory_service_directory.Test.Id),
-//				SecurityGroupIds: pulumi.StringArray{
-//					aws_security_group.Test.Id,
-//				},
-//				SkipFinalBackup: pulumi.Bool(true),
-//				StorageCapacity: pulumi.Int(32),
-//				SubnetIds: pulumi.StringArray{
-//					aws_subnet.Test[0].Id,
-//				},
-//				ThroughputCapacity: pulumi.Int(8),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = storagegateway.NewFileSystemAssociation(ctx, "fsx", &storagegateway.FileSystemAssociationArgs{
-//				GatewayArn:  testGateway.Arn,
-//				LocationArn: testWindowsFileSystem.Arn,
-//				Username:    pulumi.String("Admin"),
-//				Password:    pulumi.Any(aws_directory_service_directory.Test.Password),
-//				CacheAttributes: &storagegateway.FileSystemAssociationCacheAttributesArgs{
-//					CacheStaleTimeoutInSeconds: pulumi.Int(400),
-//				},
-//				AuditDestinationArn: pulumi.Any(aws_cloudwatch_log_group.Test.Arn),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := storagegateway/fileSystemAssociation.NewFileSystemAssociation(ctx, "example", &storagegateway/fileSystemAssociation.FileSystemAssociationArgs{
+// GatewayArn: aws_storagegateway_gateway.Example.Arn,
+// LocationArn: aws_fsx_windows_file_system.Example.Arn,
+// Username: "Admin",
+// Password: "avoid-plaintext-passwords",
+// AuditDestinationArn: aws_s3_bucket.Example.Arn,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

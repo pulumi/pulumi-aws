@@ -152,69 +152,17 @@ class PeeringConnectionOptions(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        foo_vpc = aws.ec2.Vpc("fooVpc", cidr_block="10.0.0.0/16")
-        bar = aws.ec2.Vpc("bar", cidr_block="10.1.0.0/16")
-        foo_vpc_peering_connection = aws.ec2.VpcPeeringConnection("fooVpcPeeringConnection",
+        foo_vpc = aws.ec2.vpc.Vpc("fooVpc", cidr_block=10.0.0.0/16)
+        bar = aws.ec2.vpc.Vpc("bar", cidr_block=10.1.0.0/16)
+        foo_vpc_peering_connection = aws.ec2.vpc_peering_connection.VpcPeeringConnection("fooVpcPeeringConnection",
             vpc_id=foo_vpc.id,
             peer_vpc_id=bar.id,
             auto_accept=True)
-        foo_peering_connection_options = aws.ec2.PeeringConnectionOptions("fooPeeringConnectionOptions",
+        foo_peering_connection_options = aws.ec2.peering_connection_options.PeeringConnectionOptions("fooPeeringConnectionOptions",
             vpc_peering_connection_id=foo_vpc_peering_connection.id,
-            accepter=aws.ec2.PeeringConnectionOptionsAccepterArgs(
-                allow_remote_vpc_dns_resolution=True,
-            ))
-        ```
-        ### Cross-Account Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        requester = aws.Provider("requester")
-        # Requester's credentials.
-        accepter = aws.Provider("accepter")
-        # Accepter's credentials.
-        main = aws.ec2.Vpc("main",
-            cidr_block="10.0.0.0/16",
-            enable_dns_support=True,
-            enable_dns_hostnames=True,
-            opts=pulumi.ResourceOptions(provider=aws["requester"]))
-        peer_vpc = aws.ec2.Vpc("peerVpc",
-            cidr_block="10.1.0.0/16",
-            enable_dns_support=True,
-            enable_dns_hostnames=True,
-            opts=pulumi.ResourceOptions(provider=aws["accepter"]))
-        peer_caller_identity = aws.get_caller_identity()
-        # Requester's side of the connection.
-        peer_vpc_peering_connection = aws.ec2.VpcPeeringConnection("peerVpcPeeringConnection",
-            vpc_id=main.id,
-            peer_vpc_id=peer_vpc.id,
-            peer_owner_id=peer_caller_identity.account_id,
-            auto_accept=False,
-            tags={
-                "Side": "Requester",
-            },
-            opts=pulumi.ResourceOptions(provider=aws["requester"]))
-        # Accepter's side of the connection.
-        peer_vpc_peering_connection_accepter = aws.ec2.VpcPeeringConnectionAccepter("peerVpcPeeringConnectionAccepter",
-            vpc_peering_connection_id=peer_vpc_peering_connection.id,
-            auto_accept=True,
-            tags={
-                "Side": "Accepter",
-            },
-            opts=pulumi.ResourceOptions(provider=aws["accepter"]))
-        requester_peering_connection_options = aws.ec2.PeeringConnectionOptions("requesterPeeringConnectionOptions",
-            vpc_peering_connection_id=peer_vpc_peering_connection_accepter.id,
-            requester=aws.ec2.PeeringConnectionOptionsRequesterArgs(
-                allow_remote_vpc_dns_resolution=True,
-            ),
-            opts=pulumi.ResourceOptions(provider=aws["requester"]))
-        accepter_peering_connection_options = aws.ec2.PeeringConnectionOptions("accepterPeeringConnectionOptions",
-            vpc_peering_connection_id=peer_vpc_peering_connection_accepter.id,
-            accepter=aws.ec2.PeeringConnectionOptionsAccepterArgs(
-                allow_remote_vpc_dns_resolution=True,
-            ),
-            opts=pulumi.ResourceOptions(provider=aws["accepter"]))
+            accepter={
+                allowRemoteVpcDnsResolution: True,
+            })
         ```
 
         ## Import
@@ -256,69 +204,17 @@ class PeeringConnectionOptions(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        foo_vpc = aws.ec2.Vpc("fooVpc", cidr_block="10.0.0.0/16")
-        bar = aws.ec2.Vpc("bar", cidr_block="10.1.0.0/16")
-        foo_vpc_peering_connection = aws.ec2.VpcPeeringConnection("fooVpcPeeringConnection",
+        foo_vpc = aws.ec2.vpc.Vpc("fooVpc", cidr_block=10.0.0.0/16)
+        bar = aws.ec2.vpc.Vpc("bar", cidr_block=10.1.0.0/16)
+        foo_vpc_peering_connection = aws.ec2.vpc_peering_connection.VpcPeeringConnection("fooVpcPeeringConnection",
             vpc_id=foo_vpc.id,
             peer_vpc_id=bar.id,
             auto_accept=True)
-        foo_peering_connection_options = aws.ec2.PeeringConnectionOptions("fooPeeringConnectionOptions",
+        foo_peering_connection_options = aws.ec2.peering_connection_options.PeeringConnectionOptions("fooPeeringConnectionOptions",
             vpc_peering_connection_id=foo_vpc_peering_connection.id,
-            accepter=aws.ec2.PeeringConnectionOptionsAccepterArgs(
-                allow_remote_vpc_dns_resolution=True,
-            ))
-        ```
-        ### Cross-Account Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        requester = aws.Provider("requester")
-        # Requester's credentials.
-        accepter = aws.Provider("accepter")
-        # Accepter's credentials.
-        main = aws.ec2.Vpc("main",
-            cidr_block="10.0.0.0/16",
-            enable_dns_support=True,
-            enable_dns_hostnames=True,
-            opts=pulumi.ResourceOptions(provider=aws["requester"]))
-        peer_vpc = aws.ec2.Vpc("peerVpc",
-            cidr_block="10.1.0.0/16",
-            enable_dns_support=True,
-            enable_dns_hostnames=True,
-            opts=pulumi.ResourceOptions(provider=aws["accepter"]))
-        peer_caller_identity = aws.get_caller_identity()
-        # Requester's side of the connection.
-        peer_vpc_peering_connection = aws.ec2.VpcPeeringConnection("peerVpcPeeringConnection",
-            vpc_id=main.id,
-            peer_vpc_id=peer_vpc.id,
-            peer_owner_id=peer_caller_identity.account_id,
-            auto_accept=False,
-            tags={
-                "Side": "Requester",
-            },
-            opts=pulumi.ResourceOptions(provider=aws["requester"]))
-        # Accepter's side of the connection.
-        peer_vpc_peering_connection_accepter = aws.ec2.VpcPeeringConnectionAccepter("peerVpcPeeringConnectionAccepter",
-            vpc_peering_connection_id=peer_vpc_peering_connection.id,
-            auto_accept=True,
-            tags={
-                "Side": "Accepter",
-            },
-            opts=pulumi.ResourceOptions(provider=aws["accepter"]))
-        requester_peering_connection_options = aws.ec2.PeeringConnectionOptions("requesterPeeringConnectionOptions",
-            vpc_peering_connection_id=peer_vpc_peering_connection_accepter.id,
-            requester=aws.ec2.PeeringConnectionOptionsRequesterArgs(
-                allow_remote_vpc_dns_resolution=True,
-            ),
-            opts=pulumi.ResourceOptions(provider=aws["requester"]))
-        accepter_peering_connection_options = aws.ec2.PeeringConnectionOptions("accepterPeeringConnectionOptions",
-            vpc_peering_connection_id=peer_vpc_peering_connection_accepter.id,
-            accepter=aws.ec2.PeeringConnectionOptionsAccepterArgs(
-                allow_remote_vpc_dns_resolution=True,
-            ),
-            opts=pulumi.ResourceOptions(provider=aws["accepter"]))
+            accepter={
+                allowRemoteVpcDnsResolution: True,
+            })
         ```
 
         ## Import

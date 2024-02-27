@@ -77,12 +77,12 @@ class ClassificationExportConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_account = aws.macie2.Account("exampleAccount")
-        example_classification_export_configuration = aws.macie2.ClassificationExportConfiguration("exampleClassificationExportConfiguration", s3_destination=aws.macie2.ClassificationExportConfigurationS3DestinationArgs(
-            bucket_name=aws_s3_bucket["example"]["bucket"],
-            key_prefix="exampleprefix/",
-            kms_key_arn=aws_kms_key["example"]["arn"],
-        ),
+        example_account = aws.macie2.account.Account("exampleAccount")
+        example_classification_export_configuration = aws.macie2.classification_export_configuration.ClassificationExportConfiguration("exampleClassificationExportConfiguration", s3_destination={
+            bucketName: aws_s3_bucket.example.bucket,
+            keyPrefix: exampleprefix/,
+            kmsKeyArn: aws_kms_key.example.arn,
+        },
         opts=pulumi.ResourceOptions(depends_on=[example_account]))
         ```
 
@@ -113,12 +113,12 @@ class ClassificationExportConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_account = aws.macie2.Account("exampleAccount")
-        example_classification_export_configuration = aws.macie2.ClassificationExportConfiguration("exampleClassificationExportConfiguration", s3_destination=aws.macie2.ClassificationExportConfigurationS3DestinationArgs(
-            bucket_name=aws_s3_bucket["example"]["bucket"],
-            key_prefix="exampleprefix/",
-            kms_key_arn=aws_kms_key["example"]["arn"],
-        ),
+        example_account = aws.macie2.account.Account("exampleAccount")
+        example_classification_export_configuration = aws.macie2.classification_export_configuration.ClassificationExportConfiguration("exampleClassificationExportConfiguration", s3_destination={
+            bucketName: aws_s3_bucket.example.bucket,
+            keyPrefix: exampleprefix/,
+            kmsKeyArn: aws_kms_key.example.arn,
+        },
         opts=pulumi.ResourceOptions(depends_on=[example_account]))
         ```
 

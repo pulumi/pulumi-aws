@@ -393,16 +393,16 @@ class ConfigurationProfile(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.appconfig.ConfigurationProfile("example",
-            application_id=aws_appconfig_application["example"]["id"],
-            description="Example Configuration Profile",
-            location_uri="hosted",
-            validators=[aws.appconfig.ConfigurationProfileValidatorArgs(
-                content=aws_lambda_function["example"]["arn"],
-                type="LAMBDA",
-            )],
+        example = aws.appconfig.configuration_profile.ConfigurationProfile("example",
+            application_id=aws_appconfig_application.example.id,
+            description=Example Configuration Profile,
+            location_uri=hosted,
+            validators=[{
+                content: aws_lambda_function.example.arn,
+                type: LAMBDA,
+            }],
             tags={
-                "Type": "AppConfig Configuration Profile",
+                Type: AppConfig Configuration Profile,
             })
         ```
 
@@ -441,16 +441,16 @@ class ConfigurationProfile(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.appconfig.ConfigurationProfile("example",
-            application_id=aws_appconfig_application["example"]["id"],
-            description="Example Configuration Profile",
-            location_uri="hosted",
-            validators=[aws.appconfig.ConfigurationProfileValidatorArgs(
-                content=aws_lambda_function["example"]["arn"],
-                type="LAMBDA",
-            )],
+        example = aws.appconfig.configuration_profile.ConfigurationProfile("example",
+            application_id=aws_appconfig_application.example.id,
+            description=Example Configuration Profile,
+            location_uri=hosted,
+            validators=[{
+                content: aws_lambda_function.example.arn,
+                type: LAMBDA,
+            }],
             tags={
-                "Type": "AppConfig Configuration Profile",
+                Type: AppConfig Configuration Profile,
             })
         ```
 

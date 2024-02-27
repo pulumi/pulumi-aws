@@ -42,20 +42,20 @@ class PolicyStepScalingPolicyConfigurationArgs:
                import pulumi
                import pulumi_aws as aws
                
-               ecs_policy = aws.appautoscaling.Policy("ecsPolicy", step_scaling_policy_configuration=aws.appautoscaling.PolicyStepScalingPolicyConfigurationArgs(
-                   step_adjustments=[
-                       aws.appautoscaling.PolicyStepScalingPolicyConfigurationStepAdjustmentArgs(
-                           metric_interval_lower_bound="1",
-                           metric_interval_upper_bound="2",
-                           scaling_adjustment=-1,
-                       ),
-                       aws.appautoscaling.PolicyStepScalingPolicyConfigurationStepAdjustmentArgs(
-                           metric_interval_lower_bound="2",
-                           metric_interval_upper_bound="3",
-                           scaling_adjustment=1,
-                       ),
+               ecs_policy = aws.appautoscaling.policy.Policy("ecsPolicy", step_scaling_policy_configuration={
+                   stepAdjustments: [
+                       {
+                           metricIntervalLowerBound: 1,
+                           metricIntervalUpperBound: 2,
+                           scalingAdjustment: -1,
+                       },
+                       {
+                           metricIntervalLowerBound: 2,
+                           metricIntervalUpperBound: 3,
+                           scalingAdjustment: 1,
+                       },
                    ],
-               ))
+               })
                ```
         """
         if adjustment_type is not None:
@@ -127,20 +127,20 @@ class PolicyStepScalingPolicyConfigurationArgs:
         import pulumi
         import pulumi_aws as aws
 
-        ecs_policy = aws.appautoscaling.Policy("ecsPolicy", step_scaling_policy_configuration=aws.appautoscaling.PolicyStepScalingPolicyConfigurationArgs(
-            step_adjustments=[
-                aws.appautoscaling.PolicyStepScalingPolicyConfigurationStepAdjustmentArgs(
-                    metric_interval_lower_bound="1",
-                    metric_interval_upper_bound="2",
-                    scaling_adjustment=-1,
-                ),
-                aws.appautoscaling.PolicyStepScalingPolicyConfigurationStepAdjustmentArgs(
-                    metric_interval_lower_bound="2",
-                    metric_interval_upper_bound="3",
-                    scaling_adjustment=1,
-                ),
+        ecs_policy = aws.appautoscaling.policy.Policy("ecsPolicy", step_scaling_policy_configuration={
+            stepAdjustments: [
+                {
+                    metricIntervalLowerBound: 1,
+                    metricIntervalUpperBound: 2,
+                    scalingAdjustment: -1,
+                },
+                {
+                    metricIntervalLowerBound: 2,
+                    metricIntervalUpperBound: 3,
+                    scalingAdjustment: 1,
+                },
             ],
-        ))
+        })
         ```
         """
         return pulumi.get(self, "step_adjustments")

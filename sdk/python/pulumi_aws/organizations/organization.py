@@ -259,12 +259,12 @@ class Organization(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        org = aws.organizations.Organization("org",
+        org = aws.organizations.organization.Organization("org",
             aws_service_access_principals=[
-                "cloudtrail.amazonaws.com",
-                "config.amazonaws.com",
+                cloudtrail.amazonaws.com,
+                config.amazonaws.com,
             ],
-            feature_set="ALL")
+            feature_set=ALL)
         ```
 
         ## Import
@@ -300,12 +300,12 @@ class Organization(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        org = aws.organizations.Organization("org",
+        org = aws.organizations.organization.Organization("org",
             aws_service_access_principals=[
-                "cloudtrail.amazonaws.com",
-                "config.amazonaws.com",
+                cloudtrail.amazonaws.com,
+                config.amazonaws.com,
             ],
-            feature_set="ALL")
+            feature_set=ALL)
         ```
 
         ## Import

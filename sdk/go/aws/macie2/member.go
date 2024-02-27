@@ -21,33 +21,32 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/macie2"
+//	macie2/account "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/macie2/account"
+//	macie2/member "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/macie2/member"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleAccount, err := macie2.NewAccount(ctx, "exampleAccount", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = macie2.NewMember(ctx, "exampleMember", &macie2.MemberArgs{
-//				AccountId:                          pulumi.String("AWS ACCOUNT ID"),
-//				Email:                              pulumi.String("EMAIL"),
-//				Invite:                             pulumi.Bool(true),
-//				InvitationMessage:                  pulumi.String("Message of the invitation"),
-//				InvitationDisableEmailNotification: pulumi.Bool(true),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleAccount,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleAccount, err := macie2/account.NewAccount(ctx, "exampleAccount", nil)
+// if err != nil {
+// return err
+// }
+// _, err = macie2/member.NewMember(ctx, "exampleMember", &macie2/member.MemberArgs{
+// AccountId: "AWS ACCOUNT ID",
+// Email: "EMAIL",
+// Invite: true,
+// InvitationMessage: "Message of the invitation",
+// InvitationDisableEmailNotification: true,
+// }, pulumi.DependsOn([]pulumi.Resource{
+// exampleAccount,
+// }))
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

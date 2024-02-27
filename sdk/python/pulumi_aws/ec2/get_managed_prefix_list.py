@@ -158,26 +158,6 @@ def get_managed_prefix_list(filters: Optional[Sequence[pulumi.InputType['GetMana
     customer-managed prefix list in the current region.
 
     ## Example Usage
-    ### Find the regional DynamoDB prefix list
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    current = aws.get_region()
-    example = aws.ec2.get_managed_prefix_list(name=f"com.amazonaws.{current.name}.dynamodb")
-    ```
-    ### Find a managed prefix list using filters
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ec2.get_managed_prefix_list(filters=[aws.ec2.GetManagedPrefixListFilterArgs(
-        name="prefix-list-name",
-        values=["my-prefix-list"],
-    )])
-    ```
 
 
     :param Sequence[pulumi.InputType['GetManagedPrefixListFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.
@@ -217,26 +197,6 @@ def get_managed_prefix_list_output(filters: Optional[pulumi.Input[Optional[Seque
     customer-managed prefix list in the current region.
 
     ## Example Usage
-    ### Find the regional DynamoDB prefix list
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    current = aws.get_region()
-    example = aws.ec2.get_managed_prefix_list(name=f"com.amazonaws.{current.name}.dynamodb")
-    ```
-    ### Find a managed prefix list using filters
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ec2.get_managed_prefix_list(filters=[aws.ec2.GetManagedPrefixListFilterArgs(
-        name="prefix-list-name",
-        values=["my-prefix-list"],
-    )])
-    ```
 
 
     :param Sequence[pulumi.InputType['GetManagedPrefixListFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.

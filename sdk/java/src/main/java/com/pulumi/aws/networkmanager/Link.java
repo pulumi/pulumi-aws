@@ -28,7 +28,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.networkmanager.Link;
  * import com.pulumi.aws.networkmanager.LinkArgs;
- * import com.pulumi.aws.networkmanager.inputs.LinkBandwidthArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -45,10 +44,7 @@ import javax.annotation.Nullable;
  *         var example = new Link(&#34;example&#34;, LinkArgs.builder()        
  *             .globalNetworkId(aws_networkmanager_global_network.example().id())
  *             .siteId(aws_networkmanager_site.example().id())
- *             .bandwidth(LinkBandwidthArgs.builder()
- *                 .uploadSpeed(10)
- *                 .downloadSpeed(50)
- *                 .build())
+ *             .bandwidth(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .providerName(&#34;MegaCorp&#34;)
  *             .build());
  * 

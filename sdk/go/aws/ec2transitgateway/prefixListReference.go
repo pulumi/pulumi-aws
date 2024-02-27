@@ -22,25 +22,23 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2transitgateway"
+//	ec2transitgateway/prefixListReference "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2transitgateway/prefixListReference"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2transitgateway.NewPrefixListReference(ctx, "example", &ec2transitgateway.PrefixListReferenceArgs{
-//				PrefixListId:               pulumi.Any(aws_ec2_managed_prefix_list.Example.Id),
-//				TransitGatewayAttachmentId: pulumi.Any(aws_ec2_transit_gateway_vpc_attachment.Example.Id),
-//				TransitGatewayRouteTableId: pulumi.Any(aws_ec2_transit_gateway.Example.Association_default_route_table_id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := ec2transitgateway/prefixListReference.NewPrefixListReference(ctx, "example", &ec2transitgateway/prefixListReference.PrefixListReferenceArgs{
+// PrefixListId: aws_ec2_managed_prefix_list.Example.Id,
+// TransitGatewayAttachmentId: aws_ec2_transit_gateway_vpc_attachment.Example.Id,
+// TransitGatewayRouteTableId: aws_ec2_transit_gateway.Example.Association_default_route_table_id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Blackhole Routing
 //
@@ -49,25 +47,23 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2transitgateway"
+//	ec2transitgateway/prefixListReference "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2transitgateway/prefixListReference"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2transitgateway.NewPrefixListReference(ctx, "example", &ec2transitgateway.PrefixListReferenceArgs{
-//				Blackhole:                  pulumi.Bool(true),
-//				PrefixListId:               pulumi.Any(aws_ec2_managed_prefix_list.Example.Id),
-//				TransitGatewayRouteTableId: pulumi.Any(aws_ec2_transit_gateway.Example.Association_default_route_table_id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := ec2transitgateway/prefixListReference.NewPrefixListReference(ctx, "example", &ec2transitgateway/prefixListReference.PrefixListReferenceArgs{
+// Blackhole: true,
+// PrefixListId: aws_ec2_managed_prefix_list.Example.Id,
+// TransitGatewayRouteTableId: aws_ec2_transit_gateway.Example.Association_default_route_table_id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

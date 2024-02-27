@@ -22,9 +22,9 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var main = new Aws.Ec2.CustomerGateway("main", new()
+    ///     var main = new Aws.Ec2.CustomerGateway.CustomerGateway("main", new()
     ///     {
-    ///         BgpAsn = "65000",
+    ///         BgpAsn = 65000,
     ///         IpAddress = "172.83.124.10",
     ///         Tags = 
     ///         {

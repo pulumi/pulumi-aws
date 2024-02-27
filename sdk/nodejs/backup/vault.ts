@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.backup.Vault("example", {kmsKeyArn: aws_kms_key.example.arn});
+ * const example = new aws.backup/vault.Vault("example", {kmsKeyArn: aws_kms_key.example.arn});
  * ```
  *
  * ## Import

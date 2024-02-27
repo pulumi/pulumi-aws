@@ -28,7 +28,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.batch.SchedulingPolicy;
  * import com.pulumi.aws.batch.SchedulingPolicyArgs;
- * import com.pulumi.aws.batch.inputs.SchedulingPolicyFairSharePolicyArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -43,20 +42,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new SchedulingPolicy(&#34;example&#34;, SchedulingPolicyArgs.builder()        
- *             .fairSharePolicy(SchedulingPolicyFairSharePolicyArgs.builder()
- *                 .computeReservation(1)
- *                 .shareDecaySeconds(3600)
- *                 .shareDistributions(                
- *                     SchedulingPolicyFairSharePolicyShareDistributionArgs.builder()
- *                         .shareIdentifier(&#34;A1*&#34;)
- *                         .weightFactor(0.1)
- *                         .build(),
- *                     SchedulingPolicyFairSharePolicyShareDistributionArgs.builder()
- *                         .shareIdentifier(&#34;A2&#34;)
- *                         .weightFactor(0.2)
- *                         .build())
- *                 .build())
- *             .tags(Map.of(&#34;Name&#34;, &#34;Example Batch Scheduling Policy&#34;))
+ *             .fairSharePolicy(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

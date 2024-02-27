@@ -23,23 +23,21 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/fsx"
+//	fsx/ontapStorageVirtualMachine "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/fsx/ontapStorageVirtualMachine"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := fsx.NewOntapStorageVirtualMachine(ctx, "test", &fsx.OntapStorageVirtualMachineArgs{
-//				FileSystemId: pulumi.Any(aws_fsx_ontap_file_system.Test.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := fsx/ontapStorageVirtualMachine.NewOntapStorageVirtualMachine(ctx, "test", &fsx/ontapStorageVirtualMachine.OntapStorageVirtualMachineArgs{
+// FileSystemId: aws_fsx_ontap_file_system.Test.Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Using a Self-Managed Microsoft Active Directory
 //
@@ -50,35 +48,33 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/fsx"
+//	fsx/ontapStorageVirtualMachine "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/fsx/ontapStorageVirtualMachine"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := fsx.NewOntapStorageVirtualMachine(ctx, "test", &fsx.OntapStorageVirtualMachineArgs{
-//				FileSystemId: pulumi.Any(aws_fsx_ontap_file_system.Test.Id),
-//				ActiveDirectoryConfiguration: &fsx.OntapStorageVirtualMachineActiveDirectoryConfigurationArgs{
-//					NetbiosName: pulumi.String("mysvm"),
-//					SelfManagedActiveDirectoryConfiguration: &fsx.OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationArgs{
-//						DnsIps: pulumi.StringArray{
-//							pulumi.String("10.0.0.111"),
-//							pulumi.String("10.0.0.222"),
-//						},
-//						DomainName: pulumi.String("corp.example.com"),
-//						Password:   pulumi.String("avoid-plaintext-passwords"),
-//						Username:   pulumi.String("Admin"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := fsx/ontapStorageVirtualMachine.NewOntapStorageVirtualMachine(ctx, "test", &fsx/ontapStorageVirtualMachine.OntapStorageVirtualMachineArgs{
+// FileSystemId: aws_fsx_ontap_file_system.Test.Id,
+// ActiveDirectoryConfiguration: map[string]interface{}{
+// "netbiosName": "mysvm",
+// "selfManagedActiveDirectoryConfiguration": map[string]interface{}{
+// "dnsIps": []string{
+// "10.0.0.111",
+// "10.0.0.222",
+// },
+// "domainName": "corp.example.com",
+// "password": "avoid-plaintext-passwords",
+// "username": "Admin",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

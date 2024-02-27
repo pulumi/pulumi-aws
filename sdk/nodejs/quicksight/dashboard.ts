@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.quicksight.Dashboard("example", {
+ * const example = new aws.quicksight/dashboard.Dashboard("example", {
  *     dashboardId: "example-id",
  *     versionDescription: "version",
  *     sourceEntity: {
@@ -28,6 +28,62 @@ import * as utilities from "../utilities";
  *                 dataSetPlaceholder: "1",
  *             }],
  *         },
+ *     },
+ * });
+ * ```
+ * ### With Definition
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.quicksight/dashboard.Dashboard("example", {
+ *     dashboardId: "example-id",
+ *     versionDescription: "version",
+ *     definition: {
+ *         dataSetIdentifiersDeclarations: [{
+ *             dataSetArn: aws_quicksight_data_set.dataset.arn,
+ *             identifier: "1",
+ *         }],
+ *         sheets: [{
+ *             title: "Example",
+ *             sheetId: "Example1",
+ *             visuals: [{
+ *                 lineChartVisual: {
+ *                     visualId: "LineChart",
+ *                     title: {
+ *                         formatText: {
+ *                             plainText: "Line Chart Example",
+ *                         },
+ *                     },
+ *                     chartConfiguration: {
+ *                         fieldWells: {
+ *                             lineChartAggregatedFieldWells: {
+ *                                 categories: [{
+ *                                     categoricalDimensionField: {
+ *                                         fieldId: "1",
+ *                                         column: {
+ *                                             dataSetIdentifier: "1",
+ *                                             columnName: "Column1",
+ *                                         },
+ *                                     },
+ *                                 }],
+ *                                 values: [{
+ *                                     categoricalMeasureField: {
+ *                                         fieldId: "2",
+ *                                         column: {
+ *                                             dataSetIdentifier: "1",
+ *                                             columnName: "Column1",
+ *                                         },
+ *                                         aggregationFunction: "COUNT",
+ *                                     },
+ *                                 }],
+ *                             },
+ *                         },
+ *                     },
+ *                 },
+ *             }],
+ *         }],
  *     },
  * });
  * ```

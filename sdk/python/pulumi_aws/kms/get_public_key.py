@@ -152,18 +152,6 @@ def get_public_key(grant_tokens: Optional[Sequence[str]] = None,
     """
     Use this data source to get the public key about the specified KMS Key with flexible key id input. This can be useful to reference key alias without having to hard code the ARN as input.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    by_alias = aws.kms.get_public_key(key_id="alias/my-key")
-    by_id = aws.kms.get_public_key(key_id="1234abcd-12ab-34cd-56ef-1234567890ab")
-    by_alias_arn = aws.kms.get_public_key(key_id="arn:aws:kms:us-east-1:111122223333:alias/my-key")
-    by_key_arn = aws.kms.get_public_key(key_id="arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab")
-    ```
-
 
     :param Sequence[str] grant_tokens: List of grant tokens
     :param str key_id: Key identifier which can be one of the following format:
@@ -197,18 +185,6 @@ def get_public_key_output(grant_tokens: Optional[pulumi.Input[Optional[Sequence[
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPublicKeyResult]:
     """
     Use this data source to get the public key about the specified KMS Key with flexible key id input. This can be useful to reference key alias without having to hard code the ARN as input.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    by_alias = aws.kms.get_public_key(key_id="alias/my-key")
-    by_id = aws.kms.get_public_key(key_id="1234abcd-12ab-34cd-56ef-1234567890ab")
-    by_alias_arn = aws.kms.get_public_key(key_id="arn:aws:kms:us-east-1:111122223333:alias/my-key")
-    by_key_arn = aws.kms.get_public_key(key_id="arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab")
-    ```
 
 
     :param Sequence[str] grant_tokens: List of grant tokens

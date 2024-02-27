@@ -22,23 +22,21 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/auditmanager"
+//	auditmanager/organizationAdminAccountRegistration "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/auditmanager/organizationAdminAccountRegistration"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := auditmanager.NewOrganizationAdminAccountRegistration(ctx, "example", &auditmanager.OrganizationAdminAccountRegistrationArgs{
-//				AdminAccountId: pulumi.String("012345678901"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := auditmanager/organizationAdminAccountRegistration.NewOrganizationAdminAccountRegistration(ctx, "example", &auditmanager/organizationAdminAccountRegistration.OrganizationAdminAccountRegistrationArgs{
+// AdminAccountId: "012345678901",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

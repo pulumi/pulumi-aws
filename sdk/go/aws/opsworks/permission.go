@@ -21,27 +21,25 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/opsworks"
+//	opsworks/permission "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/opsworks/permission"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := opsworks.NewPermission(ctx, "myStackPermission", &opsworks.PermissionArgs{
-//				AllowSsh:  pulumi.Bool(true),
-//				AllowSudo: pulumi.Bool(true),
-//				Level:     pulumi.String("iam_only"),
-//				UserArn:   pulumi.Any(aws_iam_user.User.Arn),
-//				StackId:   pulumi.Any(aws_opsworks_stack.Stack.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := opsworks/permission.NewPermission(ctx, "myStackPermission", &opsworks/permission.PermissionArgs{
+// AllowSsh: true,
+// AllowSudo: true,
+// Level: "iam_only",
+// UserArn: aws_iam_user.User.Arn,
+// StackId: aws_opsworks_stack.Stack.Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 type Permission struct {
 	pulumi.CustomResourceState

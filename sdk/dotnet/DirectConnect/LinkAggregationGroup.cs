@@ -24,7 +24,7 @@ namespace Pulumi.Aws.DirectConnect
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var hoge = new Aws.DirectConnect.LinkAggregationGroup("hoge", new()
+    ///     var hoge = new Aws.Directconnect.LinkAggregationGroup.LinkAggregationGroup("hoge", new()
     ///     {
     ///         ConnectionsBandwidth = "1Gbps",
     ///         ForceDestroy = true,

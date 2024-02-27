@@ -120,15 +120,6 @@ def get_user(tags: Optional[Mapping[str, str]] = None,
     """
     Provides information about a MemoryDB User.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.memorydb.get_user(user_name="my-user")
-    ```
-
 
     :param Mapping[str, str] tags: Map of tags assigned to the subnet group.
     :param str user_name: Name of the user.
@@ -155,15 +146,6 @@ def get_user_output(tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = 
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserResult]:
     """
     Provides information about a MemoryDB User.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.memorydb.get_user(user_name="my-user")
-    ```
 
 
     :param Mapping[str, str] tags: Map of tags assigned to the subnet group.

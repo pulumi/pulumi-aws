@@ -31,68 +31,12 @@ public final class EcrFunctions {
     /**
      * The ECR Authorization Token data source allows the authorization token, proxy endpoint, token expiration date, user name and password to be retrieved for an ECR repository.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ecr.EcrFunctions;
-     * import com.pulumi.aws.ecr.inputs.GetAuthorizationTokenArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var token = EcrFunctions.getAuthorizationToken();
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetAuthorizationTokenResult> getAuthorizationToken() {
         return getAuthorizationToken(GetAuthorizationTokenArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * The ECR Authorization Token data source allows the authorization token, proxy endpoint, token expiration date, user name and password to be retrieved for an ECR repository.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ecr.EcrFunctions;
-     * import com.pulumi.aws.ecr.inputs.GetAuthorizationTokenArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var token = EcrFunctions.getAuthorizationToken();
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetAuthorizationTokenResult> getAuthorizationTokenPlain() {
@@ -101,68 +45,12 @@ public final class EcrFunctions {
     /**
      * The ECR Authorization Token data source allows the authorization token, proxy endpoint, token expiration date, user name and password to be retrieved for an ECR repository.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ecr.EcrFunctions;
-     * import com.pulumi.aws.ecr.inputs.GetAuthorizationTokenArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var token = EcrFunctions.getAuthorizationToken();
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetAuthorizationTokenResult> getAuthorizationToken(GetAuthorizationTokenArgs args) {
         return getAuthorizationToken(args, InvokeOptions.Empty);
     }
     /**
      * The ECR Authorization Token data source allows the authorization token, proxy endpoint, token expiration date, user name and password to be retrieved for an ECR repository.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ecr.EcrFunctions;
-     * import com.pulumi.aws.ecr.inputs.GetAuthorizationTokenArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var token = EcrFunctions.getAuthorizationToken();
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetAuthorizationTokenResult> getAuthorizationTokenPlain(GetAuthorizationTokenPlainArgs args) {
@@ -171,68 +59,12 @@ public final class EcrFunctions {
     /**
      * The ECR Authorization Token data source allows the authorization token, proxy endpoint, token expiration date, user name and password to be retrieved for an ECR repository.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ecr.EcrFunctions;
-     * import com.pulumi.aws.ecr.inputs.GetAuthorizationTokenArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var token = EcrFunctions.getAuthorizationToken();
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetAuthorizationTokenResult> getAuthorizationToken(GetAuthorizationTokenArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:ecr/getAuthorizationToken:getAuthorizationToken", TypeShape.of(GetAuthorizationTokenResult.class), args, Utilities.withVersion(options));
     }
     /**
      * The ECR Authorization Token data source allows the authorization token, proxy endpoint, token expiration date, user name and password to be retrieved for an ECR repository.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ecr.EcrFunctions;
-     * import com.pulumi.aws.ecr.inputs.GetAuthorizationTokenArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var token = EcrFunctions.getAuthorizationToken();
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetAuthorizationTokenResult> getAuthorizationTokenPlain(GetAuthorizationTokenPlainArgs args, InvokeOptions options) {
@@ -253,74 +85,12 @@ public final class EcrFunctions {
     /**
      * The ECR Image data source allows the details of an image with a particular tag or digest to be retrieved.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ecr.EcrFunctions;
-     * import com.pulumi.aws.ecr.inputs.GetImageArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var serviceImage = EcrFunctions.getImage(GetImageArgs.builder()
-     *             .imageTag(&#34;latest&#34;)
-     *             .repositoryName(&#34;my/service&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetImageResult> getImage(GetImageArgs args) {
         return getImage(args, InvokeOptions.Empty);
     }
     /**
      * The ECR Image data source allows the details of an image with a particular tag or digest to be retrieved.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ecr.EcrFunctions;
-     * import com.pulumi.aws.ecr.inputs.GetImageArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var serviceImage = EcrFunctions.getImage(GetImageArgs.builder()
-     *             .imageTag(&#34;latest&#34;)
-     *             .repositoryName(&#34;my/service&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetImageResult> getImagePlain(GetImagePlainArgs args) {
@@ -329,74 +99,12 @@ public final class EcrFunctions {
     /**
      * The ECR Image data source allows the details of an image with a particular tag or digest to be retrieved.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ecr.EcrFunctions;
-     * import com.pulumi.aws.ecr.inputs.GetImageArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var serviceImage = EcrFunctions.getImage(GetImageArgs.builder()
-     *             .imageTag(&#34;latest&#34;)
-     *             .repositoryName(&#34;my/service&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetImageResult> getImage(GetImageArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:ecr/getImage:getImage", TypeShape.of(GetImageResult.class), args, Utilities.withVersion(options));
     }
     /**
      * The ECR Image data source allows the details of an image with a particular tag or digest to be retrieved.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ecr.EcrFunctions;
-     * import com.pulumi.aws.ecr.inputs.GetImageArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var serviceImage = EcrFunctions.getImage(GetImageArgs.builder()
-     *             .imageTag(&#34;latest&#34;)
-     *             .repositoryName(&#34;my/service&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetImageResult> getImagePlain(GetImagePlainArgs args, InvokeOptions options) {
@@ -405,72 +113,12 @@ public final class EcrFunctions {
     /**
      * The ECR Pull Through Cache Rule data source allows the upstream registry URL and registry ID to be retrieved for a Pull Through Cache Rule.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ecr.EcrFunctions;
-     * import com.pulumi.aws.ecr.inputs.GetPullThroughCacheRuleArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var ecrPublic = EcrFunctions.getPullThroughCacheRule(GetPullThroughCacheRuleArgs.builder()
-     *             .ecrRepositoryPrefix(&#34;ecr-public&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetPullThroughCacheRuleResult> getPullThroughCacheRule(GetPullThroughCacheRuleArgs args) {
         return getPullThroughCacheRule(args, InvokeOptions.Empty);
     }
     /**
      * The ECR Pull Through Cache Rule data source allows the upstream registry URL and registry ID to be retrieved for a Pull Through Cache Rule.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ecr.EcrFunctions;
-     * import com.pulumi.aws.ecr.inputs.GetPullThroughCacheRuleArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var ecrPublic = EcrFunctions.getPullThroughCacheRule(GetPullThroughCacheRuleArgs.builder()
-     *             .ecrRepositoryPrefix(&#34;ecr-public&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetPullThroughCacheRuleResult> getPullThroughCacheRulePlain(GetPullThroughCacheRulePlainArgs args) {
@@ -479,72 +127,12 @@ public final class EcrFunctions {
     /**
      * The ECR Pull Through Cache Rule data source allows the upstream registry URL and registry ID to be retrieved for a Pull Through Cache Rule.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ecr.EcrFunctions;
-     * import com.pulumi.aws.ecr.inputs.GetPullThroughCacheRuleArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var ecrPublic = EcrFunctions.getPullThroughCacheRule(GetPullThroughCacheRuleArgs.builder()
-     *             .ecrRepositoryPrefix(&#34;ecr-public&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetPullThroughCacheRuleResult> getPullThroughCacheRule(GetPullThroughCacheRuleArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:ecr/getPullThroughCacheRule:getPullThroughCacheRule", TypeShape.of(GetPullThroughCacheRuleResult.class), args, Utilities.withVersion(options));
     }
     /**
      * The ECR Pull Through Cache Rule data source allows the upstream registry URL and registry ID to be retrieved for a Pull Through Cache Rule.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ecr.EcrFunctions;
-     * import com.pulumi.aws.ecr.inputs.GetPullThroughCacheRuleArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var ecrPublic = EcrFunctions.getPullThroughCacheRule(GetPullThroughCacheRuleArgs.builder()
-     *             .ecrRepositoryPrefix(&#34;ecr-public&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetPullThroughCacheRuleResult> getPullThroughCacheRulePlain(GetPullThroughCacheRulePlainArgs args, InvokeOptions options) {
@@ -554,32 +142,6 @@ public final class EcrFunctions {
      * Data source for providing information on AWS ECR (Elastic Container Registry) Repositories.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ecr.EcrFunctions;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = EcrFunctions.getRepositories();
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetRepositoriesResult> getRepositories() {
@@ -589,32 +151,6 @@ public final class EcrFunctions {
      * Data source for providing information on AWS ECR (Elastic Container Registry) Repositories.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ecr.EcrFunctions;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = EcrFunctions.getRepositories();
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetRepositoriesResult> getRepositoriesPlain() {
@@ -624,32 +160,6 @@ public final class EcrFunctions {
      * Data source for providing information on AWS ECR (Elastic Container Registry) Repositories.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ecr.EcrFunctions;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = EcrFunctions.getRepositories();
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetRepositoriesResult> getRepositories(InvokeArgs args) {
@@ -659,32 +169,6 @@ public final class EcrFunctions {
      * Data source for providing information on AWS ECR (Elastic Container Registry) Repositories.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ecr.EcrFunctions;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = EcrFunctions.getRepositories();
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetRepositoriesResult> getRepositoriesPlain(InvokeArgs args) {
@@ -694,32 +178,6 @@ public final class EcrFunctions {
      * Data source for providing information on AWS ECR (Elastic Container Registry) Repositories.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ecr.EcrFunctions;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = EcrFunctions.getRepositories();
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetRepositoriesResult> getRepositories(InvokeArgs args, InvokeOptions options) {
@@ -729,32 +187,6 @@ public final class EcrFunctions {
      * Data source for providing information on AWS ECR (Elastic Container Registry) Repositories.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ecr.EcrFunctions;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = EcrFunctions.getRepositories();
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetRepositoriesResult> getRepositoriesPlain(InvokeArgs args, InvokeOptions options) {
@@ -763,72 +195,12 @@ public final class EcrFunctions {
     /**
      * The ECR Repository data source allows the ARN, Repository URI and Registry ID to be retrieved for an ECR repository.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ecr.EcrFunctions;
-     * import com.pulumi.aws.ecr.inputs.GetRepositoryArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var service = EcrFunctions.getRepository(GetRepositoryArgs.builder()
-     *             .name(&#34;ecr-repository&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetRepositoryResult> getRepository(GetRepositoryArgs args) {
         return getRepository(args, InvokeOptions.Empty);
     }
     /**
      * The ECR Repository data source allows the ARN, Repository URI and Registry ID to be retrieved for an ECR repository.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ecr.EcrFunctions;
-     * import com.pulumi.aws.ecr.inputs.GetRepositoryArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var service = EcrFunctions.getRepository(GetRepositoryArgs.builder()
-     *             .name(&#34;ecr-repository&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetRepositoryResult> getRepositoryPlain(GetRepositoryPlainArgs args) {
@@ -837,72 +209,12 @@ public final class EcrFunctions {
     /**
      * The ECR Repository data source allows the ARN, Repository URI and Registry ID to be retrieved for an ECR repository.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ecr.EcrFunctions;
-     * import com.pulumi.aws.ecr.inputs.GetRepositoryArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var service = EcrFunctions.getRepository(GetRepositoryArgs.builder()
-     *             .name(&#34;ecr-repository&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetRepositoryResult> getRepository(GetRepositoryArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:ecr/getRepository:getRepository", TypeShape.of(GetRepositoryResult.class), args, Utilities.withVersion(options));
     }
     /**
      * The ECR Repository data source allows the ARN, Repository URI and Registry ID to be retrieved for an ECR repository.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ecr.EcrFunctions;
-     * import com.pulumi.aws.ecr.inputs.GetRepositoryArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var service = EcrFunctions.getRepository(GetRepositoryArgs.builder()
-     *             .name(&#34;ecr-repository&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetRepositoryResult> getRepositoryPlain(GetRepositoryPlainArgs args, InvokeOptions options) {

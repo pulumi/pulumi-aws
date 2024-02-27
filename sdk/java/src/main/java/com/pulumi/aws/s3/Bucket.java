@@ -58,10 +58,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var bucket = new Bucket(&#34;bucket&#34;, BucketArgs.builder()        
  *             .acl(&#34;private&#34;)
- *             .tags(Map.ofEntries(
- *                 Map.entry(&#34;Environment&#34;, &#34;Dev&#34;),
- *                 Map.entry(&#34;Name&#34;, &#34;My bucket&#34;)
- *             ))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -76,7 +73,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.s3.Bucket;
  * import com.pulumi.aws.s3.BucketArgs;
- * import com.pulumi.aws.s3.inputs.BucketWebsiteArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -93,20 +89,7 @@ import javax.annotation.Nullable;
  *         var bucket = new Bucket(&#34;bucket&#34;, BucketArgs.builder()        
  *             .acl(&#34;public-read&#34;)
  *             .policy(Files.readString(Paths.get(&#34;policy.json&#34;)))
- *             .website(BucketWebsiteArgs.builder()
- *                 .indexDocument(&#34;index.html&#34;)
- *                 .errorDocument(&#34;error.html&#34;)
- *                 .routingRules(&#34;&#34;&#34;
- * [{
- *     &#34;Condition&#34;: {
- *         &#34;KeyPrefixEquals&#34;: &#34;docs/&#34;
- *     },
- *     &#34;Redirect&#34;: {
- *         &#34;ReplaceKeyPrefixWith&#34;: &#34;documents/&#34;
- *     }
- * }]
- *                 &#34;&#34;&#34;)
- *                 .build())
+ *             .website(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -121,7 +104,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.s3.Bucket;
  * import com.pulumi.aws.s3.BucketArgs;
- * import com.pulumi.aws.s3.inputs.BucketCorsRuleArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -137,15 +119,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var bucket = new Bucket(&#34;bucket&#34;, BucketArgs.builder()        
  *             .acl(&#34;public-read&#34;)
- *             .corsRules(BucketCorsRuleArgs.builder()
- *                 .allowedHeaders(&#34;*&#34;)
- *                 .allowedMethods(                
- *                     &#34;PUT&#34;,
- *                     &#34;POST&#34;)
- *                 .allowedOrigins(&#34;https://s3-website-test.mydomain.com&#34;)
- *                 .exposeHeaders(&#34;ETag&#34;)
- *                 .maxAgeSeconds(3000)
- *                 .build())
+ *             .corsRules(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -160,7 +134,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.s3.Bucket;
  * import com.pulumi.aws.s3.BucketArgs;
- * import com.pulumi.aws.s3.inputs.BucketVersioningArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -176,9 +149,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var bucket = new Bucket(&#34;bucket&#34;, BucketArgs.builder()        
  *             .acl(&#34;private&#34;)
- *             .versioning(BucketVersioningArgs.builder()
- *                 .enabled(true)
- *                 .build())
+ *             .versioning(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -193,7 +164,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.s3.Bucket;
  * import com.pulumi.aws.s3.BucketArgs;
- * import com.pulumi.aws.s3.inputs.BucketLoggingArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -213,10 +183,7 @@ import javax.annotation.Nullable;
  * 
  *         var bucket = new Bucket(&#34;bucket&#34;, BucketArgs.builder()        
  *             .acl(&#34;private&#34;)
- *             .loggings(BucketLoggingArgs.builder()
- *                 .targetBucket(logBucket.id())
- *                 .targetPrefix(&#34;log/&#34;)
- *                 .build())
+ *             .loggings(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -231,10 +198,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.s3.Bucket;
  * import com.pulumi.aws.s3.BucketArgs;
- * import com.pulumi.aws.s3.inputs.BucketLifecycleRuleArgs;
- * import com.pulumi.aws.s3.inputs.BucketLifecycleRuleExpirationArgs;
- * import com.pulumi.aws.s3.inputs.BucketLifecycleRuleNoncurrentVersionExpirationArgs;
- * import com.pulumi.aws.s3.inputs.BucketVersioningArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -251,58 +214,14 @@ import javax.annotation.Nullable;
  *         var bucket = new Bucket(&#34;bucket&#34;, BucketArgs.builder()        
  *             .acl(&#34;private&#34;)
  *             .lifecycleRules(            
- *                 BucketLifecycleRuleArgs.builder()
- *                     .enabled(true)
- *                     .expiration(BucketLifecycleRuleExpirationArgs.builder()
- *                         .days(90)
- *                         .build())
- *                     .id(&#34;log&#34;)
- *                     .prefix(&#34;log/&#34;)
- *                     .tags(Map.ofEntries(
- *                         Map.entry(&#34;autoclean&#34;, &#34;true&#34;),
- *                         Map.entry(&#34;rule&#34;, &#34;log&#34;)
- *                     ))
- *                     .transitions(                    
- *                         BucketLifecycleRuleTransitionArgs.builder()
- *                             .days(30)
- *                             .storageClass(&#34;STANDARD_IA&#34;)
- *                             .build(),
- *                         BucketLifecycleRuleTransitionArgs.builder()
- *                             .days(60)
- *                             .storageClass(&#34;GLACIER&#34;)
- *                             .build())
- *                     .build(),
- *                 BucketLifecycleRuleArgs.builder()
- *                     .enabled(true)
- *                     .expiration(BucketLifecycleRuleExpirationArgs.builder()
- *                         .date(&#34;2016-01-12&#34;)
- *                         .build())
- *                     .id(&#34;tmp&#34;)
- *                     .prefix(&#34;tmp/&#34;)
- *                     .build())
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var versioningBucket = new Bucket(&#34;versioningBucket&#34;, BucketArgs.builder()        
  *             .acl(&#34;private&#34;)
- *             .lifecycleRules(BucketLifecycleRuleArgs.builder()
- *                 .enabled(true)
- *                 .noncurrentVersionExpiration(BucketLifecycleRuleNoncurrentVersionExpirationArgs.builder()
- *                     .days(90)
- *                     .build())
- *                 .noncurrentVersionTransitions(                
- *                     BucketLifecycleRuleNoncurrentVersionTransitionArgs.builder()
- *                         .days(30)
- *                         .storageClass(&#34;STANDARD_IA&#34;)
- *                         .build(),
- *                     BucketLifecycleRuleNoncurrentVersionTransitionArgs.builder()
- *                         .days(60)
- *                         .storageClass(&#34;GLACIER&#34;)
- *                         .build())
- *                 .prefix(&#34;config/&#34;)
- *                 .build())
- *             .versioning(BucketVersioningArgs.builder()
- *                 .enabled(true)
- *                 .build())
+ *             .lifecycleRules(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .versioning(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -317,14 +236,12 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.Provider;
- * import com.pulumi.aws.ProviderArgs;
+ * import com.pulumi.pulumi.providers.aws;
+ * import com.pulumi.pulumi.providers.ProviderArgs;
  * import com.pulumi.aws.iam.Role;
  * import com.pulumi.aws.iam.RoleArgs;
  * import com.pulumi.aws.s3.Bucket;
  * import com.pulumi.aws.s3.BucketArgs;
- * import com.pulumi.aws.s3.inputs.BucketVersioningArgs;
- * import com.pulumi.aws.s3.inputs.BucketReplicationConfigurationArgs;
  * import com.pulumi.aws.iam.Policy;
  * import com.pulumi.aws.iam.PolicyArgs;
  * import com.pulumi.aws.iam.RolePolicyAttachment;
@@ -366,48 +283,19 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var destination = new Bucket(&#34;destination&#34;, BucketArgs.builder()        
- *             .versioning(BucketVersioningArgs.builder()
- *                 .enabled(true)
- *                 .build())
+ *             .versioning(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var source = new Bucket(&#34;source&#34;, BucketArgs.builder()        
  *             .acl(&#34;private&#34;)
- *             .versioning(BucketVersioningArgs.builder()
- *                 .enabled(true)
- *                 .build())
- *             .replicationConfiguration(BucketReplicationConfigurationArgs.builder()
- *                 .role(replicationRole.arn())
- *                 .rules(BucketReplicationConfigurationRuleArgs.builder()
- *                     .id(&#34;foobar&#34;)
- *                     .status(&#34;Enabled&#34;)
- *                     .filter(BucketReplicationConfigurationRuleFilterArgs.builder()
- *                         .tags()
- *                         .build())
- *                     .destination(BucketReplicationConfigurationRuleDestinationArgs.builder()
- *                         .bucket(destination.arn())
- *                         .storageClass(&#34;STANDARD&#34;)
- *                         .replicationTime(BucketReplicationConfigurationRuleDestinationReplicationTimeArgs.builder()
- *                             .status(&#34;Enabled&#34;)
- *                             .minutes(15)
- *                             .build())
- *                         .metrics(BucketReplicationConfigurationRuleDestinationMetricsArgs.builder()
- *                             .status(&#34;Enabled&#34;)
- *                             .minutes(15)
- *                             .build())
- *                         .build())
- *                     .build())
- *                 .build())
+ *             .versioning(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .replicationConfiguration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build(), CustomResourceOptions.builder()
  *                 .provider(aws.central())
  *                 .build());
  * 
  *         var replicationPolicy = new Policy(&#34;replicationPolicy&#34;, PolicyArgs.builder()        
- *             .policy(Output.tuple(source.arn(), source.arn(), destination.arn()).applyValue(values -&gt; {
- *                 var sourceArn = values.t1;
- *                 var sourceArn1 = values.t2;
- *                 var destinationArn = values.t3;
- *                 return &#34;&#34;&#34;
+ *             .policy(&#34;&#34;&#34;
  * {
  *   &#34;Version&#34;: &#34;2012-10-17&#34;,
  *   &#34;Statement&#34;: [
@@ -443,8 +331,7 @@ import javax.annotation.Nullable;
  *     }
  *   ]
  * }
- * &#34;, sourceArn,sourceArn1,destinationArn);
- *             }))
+ * &#34;, source.arn(),source.arn(),destination.arn()))
  *             .build());
  * 
  *         var replicationRolePolicyAttachment = new RolePolicyAttachment(&#34;replicationRolePolicyAttachment&#34;, RolePolicyAttachmentArgs.builder()        
@@ -466,9 +353,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.kms.KeyArgs;
  * import com.pulumi.aws.s3.Bucket;
  * import com.pulumi.aws.s3.BucketArgs;
- * import com.pulumi.aws.s3.inputs.BucketServerSideEncryptionConfigurationArgs;
- * import com.pulumi.aws.s3.inputs.BucketServerSideEncryptionConfigurationRuleArgs;
- * import com.pulumi.aws.s3.inputs.BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -488,59 +372,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var mybucket = new Bucket(&#34;mybucket&#34;, BucketArgs.builder()        
- *             .serverSideEncryptionConfiguration(BucketServerSideEncryptionConfigurationArgs.builder()
- *                 .rule(BucketServerSideEncryptionConfigurationRuleArgs.builder()
- *                     .applyServerSideEncryptionByDefault(BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArgs.builder()
- *                         .kmsMasterKeyId(mykey.arn())
- *                         .sseAlgorithm(&#34;aws:kms&#34;)
- *                         .build())
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### Using ACL policy grants
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.s3.S3Functions;
- * import com.pulumi.aws.s3.Bucket;
- * import com.pulumi.aws.s3.BucketArgs;
- * import com.pulumi.aws.s3.inputs.BucketGrantArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var currentUser = S3Functions.getCanonicalUserId();
- * 
- *         var bucket = new Bucket(&#34;bucket&#34;, BucketArgs.builder()        
- *             .grants(            
- *                 BucketGrantArgs.builder()
- *                     .id(currentUser.applyValue(getCanonicalUserIdResult -&gt; getCanonicalUserIdResult.id()))
- *                     .type(&#34;CanonicalUser&#34;)
- *                     .permissions(&#34;FULL_CONTROL&#34;)
- *                     .build(),
- *                 BucketGrantArgs.builder()
- *                     .type(&#34;Group&#34;)
- *                     .permissions(                    
- *                         &#34;READ_ACP&#34;,
- *                         &#34;WRITE&#34;)
- *                     .uri(&#34;http://acs.amazonaws.com/groups/s3/LogDelivery&#34;)
- *                     .build())
+ *             .serverSideEncryptionConfiguration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

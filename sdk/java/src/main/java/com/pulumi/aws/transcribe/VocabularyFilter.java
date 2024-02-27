@@ -27,8 +27,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.transcribe.VocabularyFilter;
- * import com.pulumi.aws.transcribe.VocabularyFilterArgs;
+ * import com.pulumi.aws.transcribe_vocabularyFilter.VocabularyFilter;
+ * import com.pulumi.aws.transcribe_vocabularyFilter.VocabularyFilterArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -44,10 +44,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new VocabularyFilter(&#34;example&#34;, VocabularyFilterArgs.builder()        
  *             .languageCode(&#34;en-US&#34;)
- *             .tags(Map.ofEntries(
- *                 Map.entry(&#34;tag1&#34;, &#34;value1&#34;),
- *                 Map.entry(&#34;tag2&#34;, &#34;value3&#34;)
- *             ))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .vocabularyFilterName(&#34;example&#34;)
  *             .words(            
  *                 &#34;cars&#34;,

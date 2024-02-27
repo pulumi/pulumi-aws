@@ -19,8 +19,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const barNetworkAcl = new aws.ec2.NetworkAcl("barNetworkAcl", {vpcId: aws_vpc.foo.id});
- * const barNetworkAclRule = new aws.ec2.NetworkAclRule("barNetworkAclRule", {
+ * const barNetworkAcl = new aws.ec2/networkAcl.NetworkAcl("barNetworkAcl", {vpcId: aws_vpc.foo.id});
+ * const barNetworkAclRule = new aws.ec2/networkAclRule.NetworkAclRule("barNetworkAclRule", {
  *     networkAclId: barNetworkAcl.id,
  *     ruleNumber: 200,
  *     egress: false,

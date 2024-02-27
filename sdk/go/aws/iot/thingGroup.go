@@ -20,39 +20,37 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iot"
+//	iot/thingGroup "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/iot/thingGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			parent, err := iot.NewThingGroup(ctx, "parent", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = iot.NewThingGroup(ctx, "example", &iot.ThingGroupArgs{
-//				ParentGroupName: parent.Name,
-//				Properties: &iot.ThingGroupPropertiesArgs{
-//					AttributePayload: &iot.ThingGroupPropertiesAttributePayloadArgs{
-//						Attributes: pulumi.StringMap{
-//							"One": pulumi.String("11111"),
-//							"Two": pulumi.String("TwoTwo"),
-//						},
-//					},
-//					Description: pulumi.String("This is my thing group"),
-//				},
-//				Tags: pulumi.StringMap{
-//					"managed": pulumi.String("true"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// parent, err := iot/thingGroup.NewThingGroup(ctx, "parent", nil)
+// if err != nil {
+// return err
+// }
+// _, err = iot/thingGroup.NewThingGroup(ctx, "example", &iot/thingGroup.ThingGroupArgs{
+// ParentGroupName: parent.Name,
+// Properties: map[string]interface{}{
+// "attributePayload": map[string]interface{}{
+// "attributes": map[string]interface{}{
+// "One": "11111",
+// "Two": "TwoTwo",
+// },
+// },
+// "description": "This is my thing group",
+// },
+// Tags: map[string]interface{}{
+// "managed": "true",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

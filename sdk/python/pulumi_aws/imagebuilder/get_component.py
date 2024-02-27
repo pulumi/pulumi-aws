@@ -215,15 +215,6 @@ def get_component(arn: Optional[str] = None,
     """
     Provides details about an Image Builder Component.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.imagebuilder.get_component(arn="arn:aws:imagebuilder:us-west-2:aws:component/amazon-cloudwatch-agent-linux/1.0.0")
-    ```
-
 
     :param str arn: ARN of the component.
     :param Mapping[str, str] tags: Key-value map of resource tags for the component.
@@ -258,15 +249,6 @@ def get_component_output(arn: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetComponentResult]:
     """
     Provides details about an Image Builder Component.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.imagebuilder.get_component(arn="arn:aws:imagebuilder:us-west-2:aws:component/amazon-cloudwatch-agent-linux/1.0.0")
-    ```
 
 
     :param str arn: ARN of the component.

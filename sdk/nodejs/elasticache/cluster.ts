@@ -35,7 +35,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.elasticache.Cluster("example", {
+ * const example = new aws.elasticache/cluster.Cluster("example", {
  *     engine: "memcached",
  *     nodeType: "cache.m4.large",
  *     numCacheNodes: 2,
@@ -49,7 +49,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.elasticache.Cluster("example", {
+ * const example = new aws.elasticache/cluster.Cluster("example", {
  *     engine: "redis",
  *     engineVersion: "3.2.10",
  *     nodeType: "cache.m4.large",
@@ -66,7 +66,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const replica = new aws.elasticache.Cluster("replica", {replicationGroupId: aws_elasticache_replication_group.example.id});
+ * const replica = new aws.elasticache/cluster.Cluster("replica", {replicationGroupId: aws_elasticache_replication_group.example.id});
  * ```
  * ### Redis Log Delivery configuration
  *
@@ -74,7 +74,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = new aws.elasticache.Cluster("test", {
+ * const test = new aws.elasticache/cluster.Cluster("test", {
  *     engine: "redis",
  *     nodeType: "cache.t3.micro",
  *     numCacheNodes: 1,

@@ -21,28 +21,26 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/xray"
+//	xray/group "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/xray/group"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := xray.NewGroup(ctx, "example", &xray.GroupArgs{
-//				FilterExpression: pulumi.String("responsetime > 5"),
-//				GroupName:        pulumi.String("example"),
-//				InsightsConfiguration: &xray.GroupInsightsConfigurationArgs{
-//					InsightsEnabled:      pulumi.Bool(true),
-//					NotificationsEnabled: pulumi.Bool(true),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := xray/group.NewGroup(ctx, "example", &xray/group.GroupArgs{
+// FilterExpression: "responsetime > 5",
+// GroupName: "example",
+// InsightsConfiguration: map[string]interface{}{
+// "insightsEnabled": true,
+// "notificationsEnabled": true,
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

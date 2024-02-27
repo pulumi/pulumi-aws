@@ -9,17 +9,6 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieve information about a Location Service Place Index.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.location.getPlaceIndex({
- *     indexName: "example",
- * });
- * ```
  */
 export function getPlaceIndex(args: GetPlaceIndexArgs, opts?: pulumi.InvokeOptions): Promise<GetPlaceIndexResult> {
 
@@ -84,17 +73,6 @@ export interface GetPlaceIndexResult {
 }
 /**
  * Retrieve information about a Location Service Place Index.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.location.getPlaceIndex({
- *     indexName: "example",
- * });
- * ```
  */
 export function getPlaceIndexOutput(args: GetPlaceIndexOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPlaceIndexResult> {
     return pulumi.output(args).apply((a: any) => getPlaceIndex(a, opts))

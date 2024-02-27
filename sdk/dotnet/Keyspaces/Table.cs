@@ -24,27 +24,27 @@ namespace Pulumi.Aws.Keyspaces
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Keyspaces.Table("example", new()
+    ///     var example = new Aws.Keyspaces.Table.Table("example", new()
     ///     {
     ///         KeyspaceName = aws_keyspaces_keyspace.Example.Name,
     ///         TableName = "my_table",
-    ///         SchemaDefinition = new Aws.Keyspaces.Inputs.TableSchemaDefinitionArgs
+    ///         SchemaDefinition = 
     ///         {
-    ///             Columns = new[]
+    ///             { "columns", new[]
     ///             {
-    ///                 new Aws.Keyspaces.Inputs.TableSchemaDefinitionColumnArgs
+    ///                 
     ///                 {
-    ///                     Name = "Message",
-    ///                     Type = "ASCII",
+    ///                     { "name", "Message" },
+    ///                     { "type", "ASCII" },
     ///                 },
-    ///             },
-    ///             PartitionKeys = new[]
+    ///             } },
+    ///             { "partitionKeys", new[]
     ///             {
-    ///                 new Aws.Keyspaces.Inputs.TableSchemaDefinitionPartitionKeyArgs
+    ///                 
     ///                 {
-    ///                     Name = "Message",
+    ///                     { "name", "Message" },
     ///                 },
-    ///             },
+    ///             } },
     ///         },
     ///     });
     /// 

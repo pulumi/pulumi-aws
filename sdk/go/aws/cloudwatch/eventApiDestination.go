@@ -23,27 +23,25 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
+//	cloudwatch/eventApiDestination "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/cloudwatch/eventApiDestination"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cloudwatch.NewEventApiDestination(ctx, "test", &cloudwatch.EventApiDestinationArgs{
-//				Description:                  pulumi.String("An API Destination"),
-//				InvocationEndpoint:           pulumi.String("https://api.destination.com/endpoint"),
-//				HttpMethod:                   pulumi.String("POST"),
-//				InvocationRateLimitPerSecond: pulumi.Int(20),
-//				ConnectionArn:                pulumi.Any(aws_cloudwatch_event_connection.Test.Arn),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := cloudwatch/eventApiDestination.NewEventApiDestination(ctx, "test", &cloudwatch/eventApiDestination.EventApiDestinationArgs{
+// Description: "An API Destination",
+// InvocationEndpoint: "https://api.destination.com/endpoint",
+// HttpMethod: "POST",
+// InvocationRateLimitPerSecond: 20,
+// ConnectionArn: aws_cloudwatch_event_connection.Test.Arn,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

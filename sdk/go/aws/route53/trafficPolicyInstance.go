@@ -21,26 +21,24 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53"
+//	route53/trafficPolicyInstance "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/route53/trafficPolicyInstance"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := route53.NewTrafficPolicyInstance(ctx, "test", &route53.TrafficPolicyInstanceArgs{
-//				HostedZoneId:         pulumi.String("Z033120931TAQO548OGJC"),
-//				TrafficPolicyId:      pulumi.String("b3gb108f-ea6f-45a5-baab-9d112d8b4037"),
-//				TrafficPolicyVersion: pulumi.Int(1),
-//				Ttl:                  pulumi.Int(360),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := route53/trafficPolicyInstance.NewTrafficPolicyInstance(ctx, "test", &route53/trafficPolicyInstance.TrafficPolicyInstanceArgs{
+// HostedZoneId: "Z033120931TAQO548OGJC",
+// TrafficPolicyId: "b3gb108f-ea6f-45a5-baab-9d112d8b4037",
+// TrafficPolicyVersion: 1,
+// Ttl: 360,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

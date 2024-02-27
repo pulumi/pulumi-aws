@@ -26,42 +26,42 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	s3/bucketObjectLockConfigurationV2 "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/s3/bucketObjectLockConfigurationV2"
+//	s3/bucketV2 "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/s3/bucketV2"
+//	s3/bucketVersioningV2 "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/s3/bucketVersioningV2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = s3.NewBucketVersioningV2(ctx, "exampleBucketVersioningV2", &s3.BucketVersioningV2Args{
-//				Bucket: exampleBucketV2.ID(),
-//				VersioningConfiguration: &s3.BucketVersioningV2VersioningConfigurationArgs{
-//					Status: pulumi.String("Enabled"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = s3.NewBucketObjectLockConfigurationV2(ctx, "exampleBucketObjectLockConfigurationV2", &s3.BucketObjectLockConfigurationV2Args{
-//				Bucket: exampleBucketV2.ID(),
-//				Rule: &s3.BucketObjectLockConfigurationV2RuleArgs{
-//					DefaultRetention: &s3.BucketObjectLockConfigurationV2RuleDefaultRetentionArgs{
-//						Mode: pulumi.String("COMPLIANCE"),
-//						Days: pulumi.Int(5),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleBucketV2, err := s3/bucketV2.NewBucketV2(ctx, "exampleBucketV2", nil)
+// if err != nil {
+// return err
+// }
+// _, err = s3/bucketVersioningV2.NewBucketVersioningV2(ctx, "exampleBucketVersioningV2", &s3/bucketVersioningV2.BucketVersioningV2Args{
+// Bucket: exampleBucketV2.Id,
+// VersioningConfiguration: map[string]interface{}{
+// "status": "Enabled",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = s3/bucketObjectLockConfigurationV2.NewBucketObjectLockConfigurationV2(ctx, "exampleBucketObjectLockConfigurationV2", &s3/bucketObjectLockConfigurationV2.BucketObjectLockConfigurationV2Args{
+// Bucket: exampleBucketV2.Id,
+// Rule: map[string]interface{}{
+// "defaultRetention": map[string]interface{}{
+// "mode": "COMPLIANCE",
+// "days": 5,
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

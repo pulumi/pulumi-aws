@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.route53recoveryreadiness.ReadinessCheck("example", {
+ * const example = new aws.route53recoveryreadiness/readinessCheck.ReadinessCheck("example", {
  *     readinessCheckName: my_cw_alarm_check,
  *     resourceSetName: my_cw_alarm_set,
  * });

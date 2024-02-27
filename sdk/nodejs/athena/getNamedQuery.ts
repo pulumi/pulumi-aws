@@ -6,17 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an Athena Named Query data source.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.athena.getNamedQuery({
- *     name: "athenaQueryName",
- * });
- * ```
  */
 export function getNamedQuery(args: GetNamedQueryArgs, opts?: pulumi.InvokeOptions): Promise<GetNamedQueryResult> {
 
@@ -63,17 +52,6 @@ export interface GetNamedQueryResult {
 }
 /**
  * Provides an Athena Named Query data source.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.athena.getNamedQuery({
- *     name: "athenaQueryName",
- * });
- * ```
  */
 export function getNamedQueryOutput(args: GetNamedQueryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNamedQueryResult> {
     return pulumi.output(args).apply((a: any) => getNamedQuery(a, opts))

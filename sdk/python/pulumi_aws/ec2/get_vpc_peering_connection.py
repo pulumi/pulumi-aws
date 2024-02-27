@@ -212,23 +212,6 @@ def get_vpc_peering_connection(cidr_block: Optional[str] = None,
     The VPC Peering Connection data source provides details about
     a specific VPC peering connection.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    pc = aws.ec2.get_vpc_peering_connection(vpc_id=aws_vpc["foo"]["id"],
-        peer_cidr_block="10.0.1.0/22")
-    # Create a route table
-    rt = aws.ec2.RouteTable("rt", vpc_id=aws_vpc["foo"]["id"])
-    # Create a route
-    route = aws.ec2.Route("route",
-        route_table_id=rt.id,
-        destination_cidr_block=pc.peer_cidr_block,
-        vpc_peering_connection_id=pc.id)
-    ```
-
 
     :param str cidr_block: Primary CIDR block of the requester VPC of the specific VPC Peering Connection to retrieve.
     :param Sequence[pulumi.InputType['GetVpcPeeringConnectionFilterArgs']] filters: Custom filter block as described below.
@@ -299,23 +282,6 @@ def get_vpc_peering_connection_output(cidr_block: Optional[pulumi.Input[Optional
     """
     The VPC Peering Connection data source provides details about
     a specific VPC peering connection.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    pc = aws.ec2.get_vpc_peering_connection(vpc_id=aws_vpc["foo"]["id"],
-        peer_cidr_block="10.0.1.0/22")
-    # Create a route table
-    rt = aws.ec2.RouteTable("rt", vpc_id=aws_vpc["foo"]["id"])
-    # Create a route
-    route = aws.ec2.Route("route",
-        route_table_id=rt.id,
-        destination_cidr_block=pc.peer_cidr_block,
-        vpc_peering_connection_id=pc.id)
-    ```
 
 
     :param str cidr_block: Primary CIDR block of the requester VPC of the specific VPC Peering Connection to retrieve.

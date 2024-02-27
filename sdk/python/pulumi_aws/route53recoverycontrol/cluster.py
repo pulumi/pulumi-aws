@@ -125,7 +125,7 @@ class Cluster(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.route53recoverycontrol.Cluster("example")
+        example = aws.route53recoverycontrol.cluster.Cluster("example")
         ```
 
         ## Import
@@ -155,7 +155,7 @@ class Cluster(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.route53recoverycontrol.Cluster("example")
+        example = aws.route53recoverycontrol.cluster.Cluster("example")
         ```
 
         ## Import

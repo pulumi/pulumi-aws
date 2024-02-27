@@ -24,30 +24,29 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	ec2/vpc "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/vpc"
+//	ec2/vpcIpv4CidrBlockAssociation "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/vpcIpv4CidrBlockAssociation"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			main, err := ec2.NewVpc(ctx, "main", &ec2.VpcArgs{
-//				CidrBlock: pulumi.String("10.0.0.0/16"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ec2.NewVpcIpv4CidrBlockAssociation(ctx, "secondaryCidr", &ec2.VpcIpv4CidrBlockAssociationArgs{
-//				VpcId:     main.ID(),
-//				CidrBlock: pulumi.String("172.20.0.0/16"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// main, err := ec2/vpc.NewVpc(ctx, "main", &ec2/vpc.VpcArgs{
+// CidrBlock: "10.0.0.0/16",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = ec2/vpcIpv4CidrBlockAssociation.NewVpcIpv4CidrBlockAssociation(ctx, "secondaryCidr", &ec2/vpcIpv4CidrBlockAssociation.VpcIpv4CidrBlockAssociationArgs{
+// VpcId: main.Id,
+// CidrBlock: "172.20.0.0/16",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -12,6 +12,29 @@ namespace Pulumi.Aws.Glue
     /// <summary>
     /// Provides a Glue Partition Resource.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Glue.Partition.Partition("example", new()
+    ///     {
+    ///         DatabaseName = "some-database",
+    ///         TableName = "some-table",
+    ///         Values = new[]
+    ///         {
+    ///             "some-value",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Glue Partitions using the catalog ID (usually AWS account ID), database name, table name and partition values. For example:

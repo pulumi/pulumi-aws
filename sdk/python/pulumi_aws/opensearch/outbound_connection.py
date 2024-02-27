@@ -250,28 +250,6 @@ class OutboundConnection(pulumi.CustomResource):
         Manages an AWS Opensearch Outbound Connection.
 
         ## Example Usage
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        current_caller_identity = aws.get_caller_identity()
-        current_region = aws.get_region()
-        foo = aws.opensearch.OutboundConnection("foo",
-            connection_alias="outbound_connection",
-            connection_mode="DIRECT",
-            local_domain_info=aws.opensearch.OutboundConnectionLocalDomainInfoArgs(
-                owner_id=current_caller_identity.account_id,
-                region=current_region.name,
-                domain_name=aws_opensearch_domain["local_domain"]["domain_name"],
-            ),
-            remote_domain_info=aws.opensearch.OutboundConnectionRemoteDomainInfoArgs(
-                owner_id=current_caller_identity.account_id,
-                region=current_region.name,
-                domain_name=aws_opensearch_domain["remote_domain"]["domain_name"],
-            ))
-        ```
 
         ## Import
 
@@ -300,28 +278,6 @@ class OutboundConnection(pulumi.CustomResource):
         Manages an AWS Opensearch Outbound Connection.
 
         ## Example Usage
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        current_caller_identity = aws.get_caller_identity()
-        current_region = aws.get_region()
-        foo = aws.opensearch.OutboundConnection("foo",
-            connection_alias="outbound_connection",
-            connection_mode="DIRECT",
-            local_domain_info=aws.opensearch.OutboundConnectionLocalDomainInfoArgs(
-                owner_id=current_caller_identity.account_id,
-                region=current_region.name,
-                domain_name=aws_opensearch_domain["local_domain"]["domain_name"],
-            ),
-            remote_domain_info=aws.opensearch.OutboundConnectionRemoteDomainInfoArgs(
-                owner_id=current_caller_identity.account_id,
-                region=current_region.name,
-                domain_name=aws_opensearch_domain["remote_domain"]["domain_name"],
-            ))
-        ```
 
         ## Import
 

@@ -21,34 +21,23 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/rds"
+//	rds/proxyEndpoint "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/rds/proxyEndpoint"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 // func main() {
 // pulumi.Run(func(ctx *pulumi.Context) error {
-// var splat0 []interface{}
-// for _, val0 := range aws_subnet.Test {
-// splat0 = append(splat0, val0.Id)
-// }
-// _, err := rds.NewProxyEndpoint(ctx, "example", &rds.ProxyEndpointArgs{
-// DbProxyName: pulumi.Any(aws_db_proxy.Test.Name),
-// DbProxyEndpointName: pulumi.String("example"),
-// VpcSubnetIds: toPulumiArray(splat0),
-// TargetRole: pulumi.String("READ_ONLY"),
+// _, err := rds/proxyEndpoint.NewProxyEndpoint(ctx, "example", &rds/proxyEndpoint.ProxyEndpointArgs{
+// DbProxyName: aws_db_proxy.Test.Name,
+// DbProxyEndpointName: "example",
+// VpcSubnetIds: %!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ #-resources-aws:rds-proxyEndpoint:ProxyEndpoint.pp:3,26-47),
+// TargetRole: "READ_ONLY",
 // })
 // if err != nil {
 // return err
 // }
 // return nil
 // })
-// }
-// func toPulumiArray(arr []) pulumi.Array {
-// var pulumiArr pulumi.Array
-// for _, v := range arr {
-// pulumiArr = append(pulumiArr, pulumi.(v))
-// }
-// return pulumiArr
 // }
 // ```
 //

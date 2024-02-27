@@ -31,9 +31,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.imagebuilder.ImageRecipe;
  * import com.pulumi.aws.imagebuilder.ImageRecipeArgs;
- * import com.pulumi.aws.imagebuilder.inputs.ImageRecipeBlockDeviceMappingArgs;
- * import com.pulumi.aws.imagebuilder.inputs.ImageRecipeBlockDeviceMappingEbsArgs;
- * import com.pulumi.aws.imagebuilder.inputs.ImageRecipeComponentArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -48,26 +45,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ImageRecipe(&#34;example&#34;, ImageRecipeArgs.builder()        
- *             .blockDeviceMappings(ImageRecipeBlockDeviceMappingArgs.builder()
- *                 .deviceName(&#34;/dev/xvdb&#34;)
- *                 .ebs(ImageRecipeBlockDeviceMappingEbsArgs.builder()
- *                     .deleteOnTermination(true)
- *                     .volumeSize(100)
- *                     .volumeType(&#34;gp2&#34;)
- *                     .build())
- *                 .build())
- *             .components(ImageRecipeComponentArgs.builder()
- *                 .componentArn(aws_imagebuilder_component.example().arn())
- *                 .parameters(                
- *                     ImageRecipeComponentParameterArgs.builder()
- *                         .name(&#34;Parameter1&#34;)
- *                         .value(&#34;Value1&#34;)
- *                         .build(),
- *                     ImageRecipeComponentParameterArgs.builder()
- *                         .name(&#34;Parameter2&#34;)
- *                         .value(&#34;Value2&#34;)
- *                         .build())
- *                 .build())
+ *             .blockDeviceMappings(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .components(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .parentImage(String.format(&#34;arn:%s:imagebuilder:%s:aws:image/amazon-linux-2-x86/x.x.x&#34;, data.aws_partition().current().partition(),data.aws_region().current().name()))
  *             .version(&#34;1.0.0&#34;)
  *             .build());

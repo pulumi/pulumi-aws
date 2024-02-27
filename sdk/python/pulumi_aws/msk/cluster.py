@@ -698,131 +698,33 @@ class Cluster(pulumi.CustomResource):
         > **Note:** This resource manages _provisioned_ clusters. To manage a _serverless_ Amazon MSK cluster, use the `msk.ServerlessCluster` resource.
 
         ## Example Usage
-        ### Basic
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        vpc = aws.ec2.Vpc("vpc", cidr_block="192.168.0.0/22")
-        azs = aws.get_availability_zones(state="available")
-        subnet_az1 = aws.ec2.Subnet("subnetAz1",
-            availability_zone=azs.names[0],
-            cidr_block="192.168.0.0/24",
-            vpc_id=vpc.id)
-        subnet_az2 = aws.ec2.Subnet("subnetAz2",
-            availability_zone=azs.names[1],
-            cidr_block="192.168.1.0/24",
-            vpc_id=vpc.id)
-        subnet_az3 = aws.ec2.Subnet("subnetAz3",
-            availability_zone=azs.names[2],
-            cidr_block="192.168.2.0/24",
-            vpc_id=vpc.id)
-        sg = aws.ec2.SecurityGroup("sg", vpc_id=vpc.id)
-        kms = aws.kms.Key("kms", description="example")
-        test = aws.cloudwatch.LogGroup("test")
-        bucket = aws.s3.BucketV2("bucket")
-        bucket_acl = aws.s3.BucketAclV2("bucketAcl",
-            bucket=bucket.id,
-            acl="private")
-        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["firehose.amazonaws.com"],
-            )],
-            actions=["sts:AssumeRole"],
-        )])
-        firehose_role = aws.iam.Role("firehoseRole", assume_role_policy=assume_role.json)
-        test_stream = aws.kinesis.FirehoseDeliveryStream("testStream",
-            destination="extended_s3",
-            extended_s3_configuration=aws.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationArgs(
-                role_arn=firehose_role.arn,
-                bucket_arn=bucket.arn,
-            ),
-            tags={
-                "LogDeliveryEnabled": "placeholder",
-            })
-        example = aws.msk.Cluster("example",
-            kafka_version="3.2.0",
-            number_of_broker_nodes=3,
-            broker_node_group_info=aws.msk.ClusterBrokerNodeGroupInfoArgs(
-                instance_type="kafka.m5.large",
-                client_subnets=[
-                    subnet_az1.id,
-                    subnet_az2.id,
-                    subnet_az3.id,
-                ],
-                storage_info=aws.msk.ClusterBrokerNodeGroupInfoStorageInfoArgs(
-                    ebs_storage_info=aws.msk.ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs(
-                        volume_size=1000,
-                    ),
-                ),
-                security_groups=[sg.id],
-            ),
-            encryption_info=aws.msk.ClusterEncryptionInfoArgs(
-                encryption_at_rest_kms_key_arn=kms.arn,
-            ),
-            open_monitoring=aws.msk.ClusterOpenMonitoringArgs(
-                prometheus=aws.msk.ClusterOpenMonitoringPrometheusArgs(
-                    jmx_exporter=aws.msk.ClusterOpenMonitoringPrometheusJmxExporterArgs(
-                        enabled_in_broker=True,
-                    ),
-                    node_exporter=aws.msk.ClusterOpenMonitoringPrometheusNodeExporterArgs(
-                        enabled_in_broker=True,
-                    ),
-                ),
-            ),
-            logging_info=aws.msk.ClusterLoggingInfoArgs(
-                broker_logs=aws.msk.ClusterLoggingInfoBrokerLogsArgs(
-                    cloudwatch_logs=aws.msk.ClusterLoggingInfoBrokerLogsCloudwatchLogsArgs(
-                        enabled=True,
-                        log_group=test.name,
-                    ),
-                    firehose=aws.msk.ClusterLoggingInfoBrokerLogsFirehoseArgs(
-                        enabled=True,
-                        delivery_stream=test_stream.name,
-                    ),
-                    s3=aws.msk.ClusterLoggingInfoBrokerLogsS3Args(
-                        enabled=True,
-                        bucket=bucket.id,
-                        prefix="logs/msk-",
-                    ),
-                ),
-            ),
-            tags={
-                "foo": "bar",
-            })
-        pulumi.export("zookeeperConnectString", example.zookeeper_connect_string)
-        pulumi.export("bootstrapBrokersTls", example.bootstrap_brokers_tls)
-        ```
         ### With volume_throughput argument
 
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.msk.Cluster("example",
-            kafka_version="2.7.1",
+        example = aws.msk.cluster.Cluster("example",
+            kafka_version=2.7.1,
             number_of_broker_nodes=3,
-            broker_node_group_info=aws.msk.ClusterBrokerNodeGroupInfoArgs(
-                instance_type="kafka.m5.4xlarge",
-                client_subnets=[
-                    aws_subnet["subnet_az1"]["id"],
-                    aws_subnet["subnet_az2"]["id"],
-                    aws_subnet["subnet_az3"]["id"],
+            broker_node_group_info={
+                instanceType: kafka.m5.4xlarge,
+                clientSubnets: [
+                    aws_subnet.subnet_az1.id,
+                    aws_subnet.subnet_az2.id,
+                    aws_subnet.subnet_az3.id,
                 ],
-                storage_info=aws.msk.ClusterBrokerNodeGroupInfoStorageInfoArgs(
-                    ebs_storage_info=aws.msk.ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs(
-                        provisioned_throughput=aws.msk.ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArgs(
-                            enabled=True,
-                            volume_throughput=250,
-                        ),
-                        volume_size=1000,
-                    ),
-                ),
-                security_groups=[aws_security_group["sg"]["id"]],
-            ))
+                storageInfo: {
+                    ebsStorageInfo: {
+                        provisionedThroughput: {
+                            enabled: True,
+                            volumeThroughput: 250,
+                        },
+                        volumeSize: 1000,
+                    },
+                },
+                securityGroups: [aws_security_group.sg.id],
+            })
         ```
 
         ## Import
@@ -860,131 +762,33 @@ class Cluster(pulumi.CustomResource):
         > **Note:** This resource manages _provisioned_ clusters. To manage a _serverless_ Amazon MSK cluster, use the `msk.ServerlessCluster` resource.
 
         ## Example Usage
-        ### Basic
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        vpc = aws.ec2.Vpc("vpc", cidr_block="192.168.0.0/22")
-        azs = aws.get_availability_zones(state="available")
-        subnet_az1 = aws.ec2.Subnet("subnetAz1",
-            availability_zone=azs.names[0],
-            cidr_block="192.168.0.0/24",
-            vpc_id=vpc.id)
-        subnet_az2 = aws.ec2.Subnet("subnetAz2",
-            availability_zone=azs.names[1],
-            cidr_block="192.168.1.0/24",
-            vpc_id=vpc.id)
-        subnet_az3 = aws.ec2.Subnet("subnetAz3",
-            availability_zone=azs.names[2],
-            cidr_block="192.168.2.0/24",
-            vpc_id=vpc.id)
-        sg = aws.ec2.SecurityGroup("sg", vpc_id=vpc.id)
-        kms = aws.kms.Key("kms", description="example")
-        test = aws.cloudwatch.LogGroup("test")
-        bucket = aws.s3.BucketV2("bucket")
-        bucket_acl = aws.s3.BucketAclV2("bucketAcl",
-            bucket=bucket.id,
-            acl="private")
-        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["firehose.amazonaws.com"],
-            )],
-            actions=["sts:AssumeRole"],
-        )])
-        firehose_role = aws.iam.Role("firehoseRole", assume_role_policy=assume_role.json)
-        test_stream = aws.kinesis.FirehoseDeliveryStream("testStream",
-            destination="extended_s3",
-            extended_s3_configuration=aws.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationArgs(
-                role_arn=firehose_role.arn,
-                bucket_arn=bucket.arn,
-            ),
-            tags={
-                "LogDeliveryEnabled": "placeholder",
-            })
-        example = aws.msk.Cluster("example",
-            kafka_version="3.2.0",
-            number_of_broker_nodes=3,
-            broker_node_group_info=aws.msk.ClusterBrokerNodeGroupInfoArgs(
-                instance_type="kafka.m5.large",
-                client_subnets=[
-                    subnet_az1.id,
-                    subnet_az2.id,
-                    subnet_az3.id,
-                ],
-                storage_info=aws.msk.ClusterBrokerNodeGroupInfoStorageInfoArgs(
-                    ebs_storage_info=aws.msk.ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs(
-                        volume_size=1000,
-                    ),
-                ),
-                security_groups=[sg.id],
-            ),
-            encryption_info=aws.msk.ClusterEncryptionInfoArgs(
-                encryption_at_rest_kms_key_arn=kms.arn,
-            ),
-            open_monitoring=aws.msk.ClusterOpenMonitoringArgs(
-                prometheus=aws.msk.ClusterOpenMonitoringPrometheusArgs(
-                    jmx_exporter=aws.msk.ClusterOpenMonitoringPrometheusJmxExporterArgs(
-                        enabled_in_broker=True,
-                    ),
-                    node_exporter=aws.msk.ClusterOpenMonitoringPrometheusNodeExporterArgs(
-                        enabled_in_broker=True,
-                    ),
-                ),
-            ),
-            logging_info=aws.msk.ClusterLoggingInfoArgs(
-                broker_logs=aws.msk.ClusterLoggingInfoBrokerLogsArgs(
-                    cloudwatch_logs=aws.msk.ClusterLoggingInfoBrokerLogsCloudwatchLogsArgs(
-                        enabled=True,
-                        log_group=test.name,
-                    ),
-                    firehose=aws.msk.ClusterLoggingInfoBrokerLogsFirehoseArgs(
-                        enabled=True,
-                        delivery_stream=test_stream.name,
-                    ),
-                    s3=aws.msk.ClusterLoggingInfoBrokerLogsS3Args(
-                        enabled=True,
-                        bucket=bucket.id,
-                        prefix="logs/msk-",
-                    ),
-                ),
-            ),
-            tags={
-                "foo": "bar",
-            })
-        pulumi.export("zookeeperConnectString", example.zookeeper_connect_string)
-        pulumi.export("bootstrapBrokersTls", example.bootstrap_brokers_tls)
-        ```
         ### With volume_throughput argument
 
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.msk.Cluster("example",
-            kafka_version="2.7.1",
+        example = aws.msk.cluster.Cluster("example",
+            kafka_version=2.7.1,
             number_of_broker_nodes=3,
-            broker_node_group_info=aws.msk.ClusterBrokerNodeGroupInfoArgs(
-                instance_type="kafka.m5.4xlarge",
-                client_subnets=[
-                    aws_subnet["subnet_az1"]["id"],
-                    aws_subnet["subnet_az2"]["id"],
-                    aws_subnet["subnet_az3"]["id"],
+            broker_node_group_info={
+                instanceType: kafka.m5.4xlarge,
+                clientSubnets: [
+                    aws_subnet.subnet_az1.id,
+                    aws_subnet.subnet_az2.id,
+                    aws_subnet.subnet_az3.id,
                 ],
-                storage_info=aws.msk.ClusterBrokerNodeGroupInfoStorageInfoArgs(
-                    ebs_storage_info=aws.msk.ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs(
-                        provisioned_throughput=aws.msk.ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArgs(
-                            enabled=True,
-                            volume_throughput=250,
-                        ),
-                        volume_size=1000,
-                    ),
-                ),
-                security_groups=[aws_security_group["sg"]["id"]],
-            ))
+                storageInfo: {
+                    ebsStorageInfo: {
+                        provisionedThroughput: {
+                            enabled: True,
+                            volumeThroughput: 250,
+                        },
+                        volumeSize: 1000,
+                    },
+                },
+                securityGroups: [aws_security_group.sg.id],
+            })
         ```
 
         ## Import

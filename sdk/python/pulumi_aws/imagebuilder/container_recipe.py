@@ -611,31 +611,31 @@ class ContainerRecipe(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.imagebuilder.ContainerRecipe("example",
-            version="1.0.0",
-            container_type="DOCKER",
-            parent_image="arn:aws:imagebuilder:eu-central-1:aws:image/amazon-linux-x86-latest/x.x.x",
-            target_repository=aws.imagebuilder.ContainerRecipeTargetRepositoryArgs(
-                repository_name=aws_ecr_repository["example"]["name"],
-                service="ECR",
-            ),
-            components=[aws.imagebuilder.ContainerRecipeComponentArgs(
-                component_arn=aws_imagebuilder_component["example"]["arn"],
-                parameters=[
-                    aws.imagebuilder.ContainerRecipeComponentParameterArgs(
-                        name="Parameter1",
-                        value="Value1",
-                    ),
-                    aws.imagebuilder.ContainerRecipeComponentParameterArgs(
-                        name="Parameter2",
-                        value="Value2",
-                    ),
+        example = aws.imagebuilder.container_recipe.ContainerRecipe("example",
+            version=1.0.0,
+            container_type=DOCKER,
+            parent_image=arn:aws:imagebuilder:eu-central-1:aws:image/amazon-linux-x86-latest/x.x.x,
+            target_repository={
+                repositoryName: aws_ecr_repository.example.name,
+                service: ECR,
+            },
+            components=[{
+                componentArn: aws_imagebuilder_component.example.arn,
+                parameters: [
+                    {
+                        name: Parameter1,
+                        value: Value1,
+                    },
+                    {
+                        name: Parameter2,
+                        value: Value2,
+                    },
                 ],
-            )],
-            dockerfile_template_data=\"\"\"FROM {{{ imagebuilder:parentImage }}}
+            }],
+            dockerfile_template_data=FROM {{{ imagebuilder:parentImage }}}
         {{{ imagebuilder:environments }}}
         {{{ imagebuilder:components }}}
-        \"\"\")
+        )
         ```
 
         ## Import
@@ -680,31 +680,31 @@ class ContainerRecipe(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.imagebuilder.ContainerRecipe("example",
-            version="1.0.0",
-            container_type="DOCKER",
-            parent_image="arn:aws:imagebuilder:eu-central-1:aws:image/amazon-linux-x86-latest/x.x.x",
-            target_repository=aws.imagebuilder.ContainerRecipeTargetRepositoryArgs(
-                repository_name=aws_ecr_repository["example"]["name"],
-                service="ECR",
-            ),
-            components=[aws.imagebuilder.ContainerRecipeComponentArgs(
-                component_arn=aws_imagebuilder_component["example"]["arn"],
-                parameters=[
-                    aws.imagebuilder.ContainerRecipeComponentParameterArgs(
-                        name="Parameter1",
-                        value="Value1",
-                    ),
-                    aws.imagebuilder.ContainerRecipeComponentParameterArgs(
-                        name="Parameter2",
-                        value="Value2",
-                    ),
+        example = aws.imagebuilder.container_recipe.ContainerRecipe("example",
+            version=1.0.0,
+            container_type=DOCKER,
+            parent_image=arn:aws:imagebuilder:eu-central-1:aws:image/amazon-linux-x86-latest/x.x.x,
+            target_repository={
+                repositoryName: aws_ecr_repository.example.name,
+                service: ECR,
+            },
+            components=[{
+                componentArn: aws_imagebuilder_component.example.arn,
+                parameters: [
+                    {
+                        name: Parameter1,
+                        value: Value1,
+                    },
+                    {
+                        name: Parameter2,
+                        value: Value2,
+                    },
                 ],
-            )],
-            dockerfile_template_data=\"\"\"FROM {{{ imagebuilder:parentImage }}}
+            }],
+            dockerfile_template_data=FROM {{{ imagebuilder:parentImage }}}
         {{{ imagebuilder:environments }}}
         {{{ imagebuilder:components }}}
-        \"\"\")
+        )
         ```
 
         ## Import

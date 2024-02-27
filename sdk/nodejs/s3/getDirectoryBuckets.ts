@@ -6,15 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Lists Amazon S3 Express directory buckets.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.s3.getDirectoryBuckets({});
- * ```
  */
 export function getDirectoryBuckets(opts?: pulumi.InvokeOptions): Promise<GetDirectoryBucketsResult> {
 
@@ -39,15 +30,6 @@ export interface GetDirectoryBucketsResult {
 }
 /**
  * Lists Amazon S3 Express directory buckets.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.s3.getDirectoryBuckets({});
- * ```
  */
 export function getDirectoryBucketsOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetDirectoryBucketsResult> {
     return pulumi.output(getDirectoryBuckets(opts))

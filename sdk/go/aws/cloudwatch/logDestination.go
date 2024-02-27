@@ -21,24 +21,22 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
+//	cloudwatch/logDestination "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/cloudwatch/logDestination"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cloudwatch.NewLogDestination(ctx, "testDestination", &cloudwatch.LogDestinationArgs{
-//				RoleArn:   pulumi.Any(aws_iam_role.Iam_for_cloudwatch.Arn),
-//				TargetArn: pulumi.Any(aws_kinesis_stream.Kinesis_for_cloudwatch.Arn),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := cloudwatch/logDestination.NewLogDestination(ctx, "testDestination", &cloudwatch/logDestination.LogDestinationArgs{
+// RoleArn: aws_iam_role.Iam_for_cloudwatch.Arn,
+// TargetArn: aws_kinesis_stream.Kinesis_for_cloudwatch.Arn,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

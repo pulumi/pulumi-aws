@@ -12,33 +12,6 @@ import (
 )
 
 // Provides details about a specific Amazon Lex Slot Type.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lex"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lex.LookupSlotType(ctx, &lex.LookupSlotTypeArgs{
-//				Name:    "FlowerTypes",
-//				Version: pulumi.StringRef("1"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupSlotType(ctx *pulumi.Context, args *LookupSlotTypeArgs, opts ...pulumi.InvokeOption) (*LookupSlotTypeResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupSlotTypeResult

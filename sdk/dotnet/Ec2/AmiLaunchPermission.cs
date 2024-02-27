@@ -23,7 +23,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Ec2.AmiLaunchPermission("example", new()
+    ///     var example = new Aws.Ec2.AmiLaunchPermission.AmiLaunchPermission("example", new()
     ///     {
     ///         AccountId = "123456789012",
     ///         ImageId = "ami-12345678",
@@ -41,30 +41,10 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Ec2.AmiLaunchPermission("example", new()
+    ///     var example = new Aws.Ec2.AmiLaunchPermission.AmiLaunchPermission("example", new()
     ///     {
     ///         Group = "all",
     ///         ImageId = "ami-12345678",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### Organization Access
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var current = Aws.Organizations.GetOrganization.Invoke();
-    /// 
-    ///     var example = new Aws.Ec2.AmiLaunchPermission("example", new()
-    ///     {
-    ///         ImageId = "ami-12345678",
-    ///         OrganizationArn = current.Apply(getOrganizationResult =&gt; getOrganizationResult.Arn),
     ///     });
     /// 
     /// });

@@ -21,32 +21,30 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/quicksight"
+//	quicksight/dataSource "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/quicksight/dataSource"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := quicksight.NewDataSource(ctx, "default", &quicksight.DataSourceArgs{
-//				DataSourceId: pulumi.String("example-id"),
-//				Parameters: &quicksight.DataSourceParametersArgs{
-//					S3: &quicksight.DataSourceParametersS3Args{
-//						ManifestFileLocation: &quicksight.DataSourceParametersS3ManifestFileLocationArgs{
-//							Bucket: pulumi.String("my-bucket"),
-//							Key:    pulumi.String("path/to/manifest.json"),
-//						},
-//					},
-//				},
-//				Type: pulumi.String("S3"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := quicksight/dataSource.NewDataSource(ctx, "default", &quicksight/dataSource.DataSourceArgs{
+// DataSourceId: "example-id",
+// Parameters: map[string]interface{}{
+// "s3": map[string]interface{}{
+// "manifestFileLocation": map[string]interface{}{
+// "bucket": "my-bucket",
+// "key": "path/to/manifest.json",
+// },
+// },
+// },
+// Type: "S3",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -34,11 +34,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.sesv2.ConfigurationSet;
  * import com.pulumi.aws.sesv2.ConfigurationSetArgs;
- * import com.pulumi.aws.sesv2.inputs.ConfigurationSetDeliveryOptionsArgs;
- * import com.pulumi.aws.sesv2.inputs.ConfigurationSetReputationOptionsArgs;
- * import com.pulumi.aws.sesv2.inputs.ConfigurationSetSendingOptionsArgs;
- * import com.pulumi.aws.sesv2.inputs.ConfigurationSetSuppressionOptionsArgs;
- * import com.pulumi.aws.sesv2.inputs.ConfigurationSetTrackingOptionsArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -54,23 +49,11 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new ConfigurationSet(&#34;example&#34;, ConfigurationSetArgs.builder()        
  *             .configurationSetName(&#34;example&#34;)
- *             .deliveryOptions(ConfigurationSetDeliveryOptionsArgs.builder()
- *                 .tlsPolicy(&#34;REQUIRE&#34;)
- *                 .build())
- *             .reputationOptions(ConfigurationSetReputationOptionsArgs.builder()
- *                 .reputationMetricsEnabled(false)
- *                 .build())
- *             .sendingOptions(ConfigurationSetSendingOptionsArgs.builder()
- *                 .sendingEnabled(true)
- *                 .build())
- *             .suppressionOptions(ConfigurationSetSuppressionOptionsArgs.builder()
- *                 .suppressedReasons(                
- *                     &#34;BOUNCE&#34;,
- *                     &#34;COMPLAINT&#34;)
- *                 .build())
- *             .trackingOptions(ConfigurationSetTrackingOptionsArgs.builder()
- *                 .customRedirectDomain(&#34;example.com&#34;)
- *                 .build())
+ *             .deliveryOptions(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .reputationOptions(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .sendingOptions(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .suppressionOptions(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .trackingOptions(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

@@ -32,8 +32,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.connect.User;
  * import com.pulumi.aws.connect.UserArgs;
- * import com.pulumi.aws.connect.inputs.UserIdentityInfoArgs;
- * import com.pulumi.aws.connect.inputs.UserPhoneConfigArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -52,14 +50,8 @@ import javax.annotation.Nullable;
  *             .password(&#34;Password123&#34;)
  *             .routingProfileId(aws_connect_routing_profile.example().routing_profile_id())
  *             .securityProfileIds(aws_connect_security_profile.example().security_profile_id())
- *             .identityInfo(UserIdentityInfoArgs.builder()
- *                 .firstName(&#34;example&#34;)
- *                 .lastName(&#34;example2&#34;)
- *                 .build())
- *             .phoneConfig(UserPhoneConfigArgs.builder()
- *                 .afterContactWorkTimeLimit(0)
- *                 .phoneType(&#34;SOFT_PHONE&#34;)
- *                 .build())
+ *             .identityInfo(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .phoneConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -74,8 +66,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.connect.User;
  * import com.pulumi.aws.connect.UserArgs;
- * import com.pulumi.aws.connect.inputs.UserIdentityInfoArgs;
- * import com.pulumi.aws.connect.inputs.UserPhoneConfigArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -95,14 +85,8 @@ import javax.annotation.Nullable;
  *             .routingProfileId(aws_connect_routing_profile.example().routing_profile_id())
  *             .hierarchyGroupId(aws_connect_user_hierarchy_group.example().hierarchy_group_id())
  *             .securityProfileIds(aws_connect_security_profile.example().security_profile_id())
- *             .identityInfo(UserIdentityInfoArgs.builder()
- *                 .firstName(&#34;example&#34;)
- *                 .lastName(&#34;example2&#34;)
- *                 .build())
- *             .phoneConfig(UserPhoneConfigArgs.builder()
- *                 .afterContactWorkTimeLimit(0)
- *                 .phoneType(&#34;SOFT_PHONE&#34;)
- *                 .build())
+ *             .identityInfo(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .phoneConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -117,8 +101,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.connect.User;
  * import com.pulumi.aws.connect.UserArgs;
- * import com.pulumi.aws.connect.inputs.UserIdentityInfoArgs;
- * import com.pulumi.aws.connect.inputs.UserPhoneConfigArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -137,15 +119,8 @@ import javax.annotation.Nullable;
  *             .password(&#34;Password123&#34;)
  *             .routingProfileId(aws_connect_routing_profile.example().routing_profile_id())
  *             .securityProfileIds(aws_connect_security_profile.example().security_profile_id())
- *             .identityInfo(UserIdentityInfoArgs.builder()
- *                 .email(&#34;example@example.com&#34;)
- *                 .firstName(&#34;example&#34;)
- *                 .lastName(&#34;example2&#34;)
- *                 .build())
- *             .phoneConfig(UserPhoneConfigArgs.builder()
- *                 .afterContactWorkTimeLimit(0)
- *                 .phoneType(&#34;SOFT_PHONE&#34;)
- *                 .build())
+ *             .identityInfo(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .phoneConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -160,7 +135,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.connect.User;
  * import com.pulumi.aws.connect.UserArgs;
- * import com.pulumi.aws.connect.inputs.UserPhoneConfigArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -179,10 +153,7 @@ import javax.annotation.Nullable;
  *             .password(&#34;Password123&#34;)
  *             .routingProfileId(aws_connect_routing_profile.example().routing_profile_id())
  *             .securityProfileIds(aws_connect_security_profile.example().security_profile_id())
- *             .phoneConfig(UserPhoneConfigArgs.builder()
- *                 .afterContactWorkTimeLimit(0)
- *                 .phoneType(&#34;SOFT_PHONE&#34;)
- *                 .build())
+ *             .phoneConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -197,7 +168,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.connect.User;
  * import com.pulumi.aws.connect.UserArgs;
- * import com.pulumi.aws.connect.inputs.UserPhoneConfigArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -218,12 +188,7 @@ import javax.annotation.Nullable;
  *             .securityProfileIds(            
  *                 aws_connect_security_profile.example().security_profile_id(),
  *                 aws_connect_security_profile.example2().security_profile_id())
- *             .phoneConfig(UserPhoneConfigArgs.builder()
- *                 .afterContactWorkTimeLimit(0)
- *                 .autoAccept(false)
- *                 .deskPhoneNumber(&#34;+112345678912&#34;)
- *                 .phoneType(&#34;DESK_PHONE&#34;)
- *                 .build())
+ *             .phoneConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

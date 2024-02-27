@@ -22,15 +22,15 @@ namespace Pulumi.Aws.Neptune
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Neptune.ParameterGroup("example", new()
+    ///     var example = new Aws.Neptune.ParameterGroup.ParameterGroup("example", new()
     ///     {
     ///         Family = "neptune1",
     ///         Parameters = new[]
     ///         {
-    ///             new Aws.Neptune.Inputs.ParameterGroupParameterArgs
+    ///             
     ///             {
-    ///                 Name = "neptune_query_timeout",
-    ///                 Value = "25",
+    ///                 { "name", "neptune_query_timeout" },
+    ///                 { "value", "25" },
     ///             },
     ///         },
     ///     });

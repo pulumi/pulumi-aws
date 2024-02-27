@@ -18,35 +18,6 @@ public final class CodeguruprofilerFunctions {
      * Data source for managing an AWS CodeGuru Profiler Profiling Group.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.codeguruprofiler.CodeguruprofilerFunctions;
-     * import com.pulumi.aws.codeguruprofiler.inputs.GetProfilingGroupArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = CodeguruprofilerFunctions.getProfilingGroup(GetProfilingGroupArgs.builder()
-     *             .name(&#34;example&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetProfilingGroupResult> getProfilingGroup(GetProfilingGroupArgs args) {
@@ -56,35 +27,6 @@ public final class CodeguruprofilerFunctions {
      * Data source for managing an AWS CodeGuru Profiler Profiling Group.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.codeguruprofiler.CodeguruprofilerFunctions;
-     * import com.pulumi.aws.codeguruprofiler.inputs.GetProfilingGroupArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = CodeguruprofilerFunctions.getProfilingGroup(GetProfilingGroupArgs.builder()
-     *             .name(&#34;example&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetProfilingGroupResult> getProfilingGroupPlain(GetProfilingGroupPlainArgs args) {
@@ -94,35 +36,6 @@ public final class CodeguruprofilerFunctions {
      * Data source for managing an AWS CodeGuru Profiler Profiling Group.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.codeguruprofiler.CodeguruprofilerFunctions;
-     * import com.pulumi.aws.codeguruprofiler.inputs.GetProfilingGroupArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = CodeguruprofilerFunctions.getProfilingGroup(GetProfilingGroupArgs.builder()
-     *             .name(&#34;example&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetProfilingGroupResult> getProfilingGroup(GetProfilingGroupArgs args, InvokeOptions options) {
@@ -132,35 +45,6 @@ public final class CodeguruprofilerFunctions {
      * Data source for managing an AWS CodeGuru Profiler Profiling Group.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.codeguruprofiler.CodeguruprofilerFunctions;
-     * import com.pulumi.aws.codeguruprofiler.inputs.GetProfilingGroupArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = CodeguruprofilerFunctions.getProfilingGroup(GetProfilingGroupArgs.builder()
-     *             .name(&#34;example&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetProfilingGroupResult> getProfilingGroupPlain(GetProfilingGroupPlainArgs args, InvokeOptions options) {

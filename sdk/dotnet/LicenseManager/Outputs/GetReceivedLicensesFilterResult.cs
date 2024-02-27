@@ -17,32 +17,6 @@ namespace Pulumi.Aws.LicenseManager.Outputs
         /// Name of the field to filter by, as defined by
         /// [the underlying AWS API](https://docs.aws.amazon.com/license-manager/latest/APIReference/API_ListReceivedLicenses.html#API_ListReceivedLicenses_RequestSyntax).
         /// For example, if filtering using `ProductSKU`, use:
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var selected = Aws.LicenseManager.GetReceivedLicenses.Invoke(new()
-        ///     {
-        ///         Filters = new[]
-        ///         {
-        ///             new Aws.LicenseManager.Inputs.GetReceivedLicensesFilterInputArgs
-        ///             {
-        ///                 Name = "ProductSKU",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "",
-        ///                 },
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
         /// </summary>
         public readonly string Name;
         /// <summary>

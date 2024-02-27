@@ -14,6 +14,39 @@ import (
 
 // Provides a License Manager grant. This allows for sharing licenses with other AWS accounts.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	licensemanager/licenseGrant "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/licensemanager/licenseGrant"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := licensemanager/licenseGrant.NewLicenseGrant(ctx, "test", &licensemanager/licenseGrant.LicenseGrantArgs{
+// AllowedOperations: []string{
+// "ListPurchasedLicenses",
+// "CheckoutLicense",
+// "CheckInLicense",
+// "ExtendConsumptionLicense",
+// "CreateToken",
+// },
+// HomeRegion: "us-east-1",
+// LicenseArn: "arn:aws:license-manager::111111111111:license:l-exampleARN",
+// Principal: "arn:aws:iam::111111111112:root",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
+// ```
+//
 // ## Import
 //
 // Using `pulumi import`, import `aws_licensemanager_grant` using the grant arn. For example:

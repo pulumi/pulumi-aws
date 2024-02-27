@@ -17,60 +17,6 @@ import javax.annotation.Nullable;
  * Allows you to set a policy of an SQS Queue
  * while referencing ARN of the queue within the policy.
  * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.sqs.Queue;
- * import com.pulumi.aws.iam.IamFunctions;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
- * import com.pulumi.aws.sqs.QueuePolicy;
- * import com.pulumi.aws.sqs.QueuePolicyArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var queue = new Queue(&#34;queue&#34;);
- * 
- *         final var testPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .sid(&#34;First&#34;)
- *                 .effect(&#34;Allow&#34;)
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type(&#34;*&#34;)
- *                     .identifiers(&#34;*&#34;)
- *                     .build())
- *                 .actions(&#34;sqs:SendMessage&#34;)
- *                 .resources(queue.arn())
- *                 .conditions(GetPolicyDocumentStatementConditionArgs.builder()
- *                     .test(&#34;ArnEquals&#34;)
- *                     .variable(&#34;aws:SourceArn&#34;)
- *                     .values(aws_sns_topic.example().arn())
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *         var testQueuePolicy = new QueuePolicy(&#34;testQueuePolicy&#34;, QueuePolicyArgs.builder()        
- *             .queueUrl(queue.id())
- *             .policy(testPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(testPolicyDocument -&gt; testPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
  * ## Import
  * 
  * Using `pulumi import`, import SQS Queue Policies using the queue URL. For example:

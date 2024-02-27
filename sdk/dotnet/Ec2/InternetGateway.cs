@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var gw = new Aws.Ec2.InternetGateway("gw", new()
+    ///     var gw = new Aws.Ec2.InternetGateway.InternetGateway("gw", new()
     ///     {
     ///         VpcId = aws_vpc.Main.Id,
     ///         Tags = 
@@ -70,13 +70,13 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var gw = new Aws.Ec2.InternetGateway("gw", new()
+        ///     var gw = new Aws.Ec2.InternetGateway.InternetGateway("gw", new()
         ///     {
         ///         VpcId = aws_vpc.Main.Id,
         ///     });
         /// 
         ///     // ... other arguments ...
-        ///     var foo = new Aws.Ec2.Instance("foo", new()
+        ///     var foo = new Aws.Ec2.Instance.Instance("foo", new()
         ///     {
         ///     }, new CustomResourceOptions
         ///     {
@@ -166,13 +166,13 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var gw = new Aws.Ec2.InternetGateway("gw", new()
+        ///     var gw = new Aws.Ec2.InternetGateway.InternetGateway("gw", new()
         ///     {
         ///         VpcId = aws_vpc.Main.Id,
         ///     });
         /// 
         ///     // ... other arguments ...
-        ///     var foo = new Aws.Ec2.Instance("foo", new()
+        ///     var foo = new Aws.Ec2.Instance.Instance("foo", new()
         ///     {
         ///     }, new CustomResourceOptions
         ///     {
@@ -233,13 +233,13 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var gw = new Aws.Ec2.InternetGateway("gw", new()
+        ///     var gw = new Aws.Ec2.InternetGateway.InternetGateway("gw", new()
         ///     {
         ///         VpcId = aws_vpc.Main.Id,
         ///     });
         /// 
         ///     // ... other arguments ...
-        ///     var foo = new Aws.Ec2.Instance("foo", new()
+        ///     var foo = new Aws.Ec2.Instance.Instance("foo", new()
         ///     {
         ///     }, new CustomResourceOptions
         ///     {

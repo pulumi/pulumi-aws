@@ -35,37 +35,35 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	ec2/managedPrefixList "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/managedPrefixList"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.NewManagedPrefixList(ctx, "example", &ec2.ManagedPrefixListArgs{
-//				AddressFamily: pulumi.String("IPv4"),
-//				MaxEntries:    pulumi.Int(5),
-//				Entries: ec2.ManagedPrefixListEntryTypeArray{
-//					&ec2.ManagedPrefixListEntryTypeArgs{
-//						Cidr:        pulumi.Any(aws_vpc.Example.Cidr_block),
-//						Description: pulumi.String("Primary"),
-//					},
-//					&ec2.ManagedPrefixListEntryTypeArgs{
-//						Cidr:        pulumi.Any(aws_vpc_ipv4_cidr_block_association.Example.Cidr_block),
-//						Description: pulumi.String("Secondary"),
-//					},
-//				},
-//				Tags: pulumi.StringMap{
-//					"Env": pulumi.String("live"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := ec2/managedPrefixList.NewManagedPrefixList(ctx, "example", &ec2/managedPrefixList.ManagedPrefixListArgs{
+// AddressFamily: "IPv4",
+// MaxEntries: 5,
+// Entries: []map[string]interface{}{
+// map[string]interface{}{
+// "cidr": aws_vpc.Example.Cidr_block,
+// "description": "Primary",
+// },
+// map[string]interface{}{
+// "cidr": aws_vpc_ipv4_cidr_block_association.Example.Cidr_block,
+// "description": "Secondary",
+// },
+// },
+// Tags: map[string]interface{}{
+// "Env": "live",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

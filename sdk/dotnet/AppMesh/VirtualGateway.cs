@@ -23,22 +23,22 @@ namespace Pulumi.Aws.AppMesh
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.AppMesh.VirtualGateway("example", new()
+    ///     var example = new Aws.Appmesh.VirtualGateway.VirtualGateway("example", new()
     ///     {
     ///         MeshName = "example-service-mesh",
-    ///         Spec = new Aws.AppMesh.Inputs.VirtualGatewaySpecArgs
+    ///         Spec = 
     ///         {
-    ///             Listeners = new[]
+    ///             { "listeners", new[]
     ///             {
-    ///                 new Aws.AppMesh.Inputs.VirtualGatewaySpecListenerArgs
+    ///                 
     ///                 {
-    ///                     PortMapping = new Aws.AppMesh.Inputs.VirtualGatewaySpecListenerPortMappingArgs
+    ///                     { "portMapping", 
     ///                     {
-    ///                         Port = 8080,
-    ///                         Protocol = "http",
-    ///                     },
+    ///                         { "port", 8080 },
+    ///                         { "protocol", "http" },
+    ///                     } },
     ///                 },
-    ///             },
+    ///             } },
     ///         },
     ///         Tags = 
     ///         {
@@ -58,43 +58,43 @@ namespace Pulumi.Aws.AppMesh
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.AppMesh.VirtualGateway("example", new()
+    ///     var example = new Aws.Appmesh.VirtualGateway.VirtualGateway("example", new()
     ///     {
     ///         MeshName = "example-service-mesh",
-    ///         Spec = new Aws.AppMesh.Inputs.VirtualGatewaySpecArgs
+    ///         Spec = 
     ///         {
-    ///             Listeners = new[]
+    ///             { "listeners", new[]
     ///             {
-    ///                 new Aws.AppMesh.Inputs.VirtualGatewaySpecListenerArgs
+    ///                 
     ///                 {
-    ///                     PortMapping = new Aws.AppMesh.Inputs.VirtualGatewaySpecListenerPortMappingArgs
+    ///                     { "portMapping", 
     ///                     {
-    ///                         Port = 8080,
-    ///                         Protocol = "http",
-    ///                     },
-    ///                     Tls = new Aws.AppMesh.Inputs.VirtualGatewaySpecListenerTlsArgs
+    ///                         { "port", 8080 },
+    ///                         { "protocol", "http" },
+    ///                     } },
+    ///                     { "tls", 
     ///                     {
-    ///                         Certificate = new Aws.AppMesh.Inputs.VirtualGatewaySpecListenerTlsCertificateArgs
+    ///                         { "certificate", 
     ///                         {
-    ///                             Acm = new Aws.AppMesh.Inputs.VirtualGatewaySpecListenerTlsCertificateAcmArgs
+    ///                             { "acm", 
     ///                             {
-    ///                                 CertificateArn = aws_acm_certificate.Example.Arn,
-    ///                             },
-    ///                         },
-    ///                         Mode = "STRICT",
-    ///                     },
+    ///                                 { "certificateArn", aws_acm_certificate.Example.Arn },
+    ///                             } },
+    ///                         } },
+    ///                         { "mode", "STRICT" },
+    ///                     } },
     ///                 },
-    ///             },
-    ///             Logging = new Aws.AppMesh.Inputs.VirtualGatewaySpecLoggingArgs
+    ///             } },
+    ///             { "logging", 
     ///             {
-    ///                 AccessLog = new Aws.AppMesh.Inputs.VirtualGatewaySpecLoggingAccessLogArgs
+    ///                 { "accessLog", 
     ///                 {
-    ///                     File = new Aws.AppMesh.Inputs.VirtualGatewaySpecLoggingAccessLogFileArgs
+    ///                     { "file", 
     ///                     {
-    ///                         Path = "/var/log/access.log",
-    ///                     },
-    ///                 },
-    ///             },
+    ///                         { "path", "/var/log/access.log" },
+    ///                     } },
+    ///                 } },
+    ///             } },
     ///         },
     ///     });
     /// 

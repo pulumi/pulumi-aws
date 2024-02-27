@@ -23,24 +23,22 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3control"
+//	s3control/bucket "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/s3control/bucket"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := s3control.NewBucket(ctx, "example", &s3control.BucketArgs{
-//				Bucket:    pulumi.String("example"),
-//				OutpostId: pulumi.Any(data.Aws_outposts_outpost.Example.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := s3control/bucket.NewBucket(ctx, "example", &s3control/bucket.BucketArgs{
+// Bucket: "example",
+// OutpostId: data.Aws_outposts_outpost.Example.Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

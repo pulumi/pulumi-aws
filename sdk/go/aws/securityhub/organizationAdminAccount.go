@@ -21,45 +21,46 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/organizations"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/securityhub"
+//	organizations/organization "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/organizations/organization"
+//	securityhub/account "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/securityhub/account"
+//	securityhub/organizationAdminAccount "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/securityhub/organizationAdminAccount"
+//	securityhub/organizationConfiguration "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/securityhub/organizationConfiguration"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleOrganization, err := organizations.NewOrganization(ctx, "exampleOrganization", &organizations.OrganizationArgs{
-//				AwsServiceAccessPrincipals: pulumi.StringArray{
-//					pulumi.String("securityhub.amazonaws.com"),
-//				},
-//				FeatureSet: pulumi.String("ALL"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = securityhub.NewAccount(ctx, "exampleAccount", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = securityhub.NewOrganizationAdminAccount(ctx, "exampleOrganizationAdminAccount", &securityhub.OrganizationAdminAccountArgs{
-//				AdminAccountId: pulumi.String("123456789012"),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleOrganization,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			_, err = securityhub.NewOrganizationConfiguration(ctx, "exampleOrganizationConfiguration", &securityhub.OrganizationConfigurationArgs{
-//				AutoEnable: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleOrganization, err := organizations/organization.NewOrganization(ctx, "exampleOrganization", &organizations/organization.OrganizationArgs{
+// AwsServiceAccessPrincipals: []string{
+// "securityhub.amazonaws.com",
+// },
+// FeatureSet: "ALL",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = securityhub/account.NewAccount(ctx, "exampleAccount", nil)
+// if err != nil {
+// return err
+// }
+// _, err = securityhub/organizationAdminAccount.NewOrganizationAdminAccount(ctx, "exampleOrganizationAdminAccount", &securityhub/organizationAdminAccount.OrganizationAdminAccountArgs{
+// AdminAccountId: "123456789012",
+// }, pulumi.DependsOn([]pulumi.Resource{
+// exampleOrganization,
+// }))
+// if err != nil {
+// return err
+// }
+// // Auto enable security hub in organization member accounts
+// _, err = securityhub/organizationConfiguration.NewOrganizationConfiguration(ctx, "exampleOrganizationConfiguration", &securityhub/organizationConfiguration.OrganizationConfigurationArgs{
+// AutoEnable: true,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

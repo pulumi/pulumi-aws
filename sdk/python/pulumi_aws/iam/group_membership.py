@@ -146,10 +146,10 @@ class GroupMembership(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        group = aws.iam.Group("group")
-        user_one = aws.iam.User("userOne")
-        user_two = aws.iam.User("userTwo")
-        team = aws.iam.GroupMembership("team",
+        group = aws.iam.group.Group("group")
+        user_one = aws.iam.user.User("userOne")
+        user_two = aws.iam.user.User("userTwo")
+        team = aws.iam.group_membership.GroupMembership("team",
             users=[
                 user_one.name,
                 user_two.name,
@@ -185,10 +185,10 @@ class GroupMembership(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        group = aws.iam.Group("group")
-        user_one = aws.iam.User("userOne")
-        user_two = aws.iam.User("userTwo")
-        team = aws.iam.GroupMembership("team",
+        group = aws.iam.group.Group("group")
+        user_one = aws.iam.user.User("userOne")
+        user_two = aws.iam.user.User("userTwo")
+        team = aws.iam.group_membership.GroupMembership("team",
             users=[
                 user_one.name,
                 user_two.name,

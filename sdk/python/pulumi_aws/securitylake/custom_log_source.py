@@ -208,19 +208,19 @@ class CustomLogSource(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.securitylake.CustomLogSource("example",
-            source_name="example-name",
-            source_version="1.0",
-            event_classes=["FILE_ACTIVITY"],
-            configuration=aws.securitylake.CustomLogSourceConfigurationArgs(
-                crawler_configuration=aws.securitylake.CustomLogSourceConfigurationCrawlerConfigurationArgs(
-                    role_arn=aws_iam_role["custom_log"]["arn"],
-                ),
-                provider_identity=aws.securitylake.CustomLogSourceConfigurationProviderIdentityArgs(
-                    external_id="example-id",
-                    principal="123456789012",
-                ),
-            ))
+        example = aws.securitylake.custom_log_source.CustomLogSource("example",
+            source_name=example-name,
+            source_version=1.0,
+            event_classes=[FILE_ACTIVITY],
+            configuration={
+                crawlerConfiguration: {
+                    roleArn: aws_iam_role.custom_log.arn,
+                },
+                providerIdentity: {
+                    externalId: example-id,
+                    principal: 123456789012,
+                },
+            })
         ```
 
         ## Import
@@ -254,19 +254,19 @@ class CustomLogSource(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.securitylake.CustomLogSource("example",
-            source_name="example-name",
-            source_version="1.0",
-            event_classes=["FILE_ACTIVITY"],
-            configuration=aws.securitylake.CustomLogSourceConfigurationArgs(
-                crawler_configuration=aws.securitylake.CustomLogSourceConfigurationCrawlerConfigurationArgs(
-                    role_arn=aws_iam_role["custom_log"]["arn"],
-                ),
-                provider_identity=aws.securitylake.CustomLogSourceConfigurationProviderIdentityArgs(
-                    external_id="example-id",
-                    principal="123456789012",
-                ),
-            ))
+        example = aws.securitylake.custom_log_source.CustomLogSource("example",
+            source_name=example-name,
+            source_version=1.0,
+            event_classes=[FILE_ACTIVITY],
+            configuration={
+                crawlerConfiguration: {
+                    roleArn: aws_iam_role.custom_log.arn,
+                },
+                providerIdentity: {
+                    externalId: example-id,
+                    principal: 123456789012,
+                },
+            })
         ```
 
         ## Import

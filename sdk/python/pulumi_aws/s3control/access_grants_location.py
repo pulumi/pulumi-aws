@@ -225,10 +225,10 @@ class AccessGrantsLocation(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_access_grants_instance = aws.s3control.AccessGrantsInstance("exampleAccessGrantsInstance")
-        example_access_grants_location = aws.s3control.AccessGrantsLocation("exampleAccessGrantsLocation",
-            iam_role_arn=aws_iam_role["example"]["arn"],
-            location_scope="s3://",
+        example_access_grants_instance = aws.s3control.access_grants_instance.AccessGrantsInstance("exampleAccessGrantsInstance")
+        example_access_grants_location = aws.s3control.access_grants_location.AccessGrantsLocation("exampleAccessGrantsLocation",
+            iam_role_arn=aws_iam_role.example.arn,
+            location_scope=s3://,
             opts=pulumi.ResourceOptions(depends_on=[example_access_grants_instance]))
         # Default scope.
         ```
@@ -266,10 +266,10 @@ class AccessGrantsLocation(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_access_grants_instance = aws.s3control.AccessGrantsInstance("exampleAccessGrantsInstance")
-        example_access_grants_location = aws.s3control.AccessGrantsLocation("exampleAccessGrantsLocation",
-            iam_role_arn=aws_iam_role["example"]["arn"],
-            location_scope="s3://",
+        example_access_grants_instance = aws.s3control.access_grants_instance.AccessGrantsInstance("exampleAccessGrantsInstance")
+        example_access_grants_location = aws.s3control.access_grants_location.AccessGrantsLocation("exampleAccessGrantsLocation",
+            iam_role_arn=aws_iam_role.example.arn,
+            location_scope=s3://,
             opts=pulumi.ResourceOptions(depends_on=[example_access_grants_instance]))
         # Default scope.
         ```

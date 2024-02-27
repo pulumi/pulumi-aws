@@ -218,12 +218,12 @@ class ReplicationSet(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        replication_set_name = aws.ssmincidents.ReplicationSet("replicationSetName",
-            regions=[aws.ssmincidents.ReplicationSetRegionArgs(
-                name="us-west-2",
-            )],
+        replication_set_name = aws.ssmincidents.replication_set.ReplicationSet("replicationSetName",
+            regions=[{
+                name: us-west-2,
+            }],
             tags={
-                "exampleTag": "exampleValue",
+                exampleTag: exampleValue,
             })
         ```
 
@@ -233,13 +233,13 @@ class ReplicationSet(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        replication_set_name = aws.ssmincidents.ReplicationSet("replicationSetName", regions=[
-            aws.ssmincidents.ReplicationSetRegionArgs(
-                name="us-west-2",
-            ),
-            aws.ssmincidents.ReplicationSetRegionArgs(
-                name="ap-southeast-2",
-            ),
+        replication_set_name = aws.ssmincidents.replication_set.ReplicationSet("replicationSetName", regions=[
+            {
+                name: us-west-2,
+            },
+            {
+                name: ap-southeast-2,
+            },
         ])
         ```
 
@@ -249,9 +249,9 @@ class ReplicationSet(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        replication_set_name = aws.ssmincidents.ReplicationSet("replicationSetName", regions=[aws.ssmincidents.ReplicationSetRegionArgs(
-            name="us-west-2",
-        )])
+        replication_set_name = aws.ssmincidents.replication_set.ReplicationSet("replicationSetName", regions=[{
+            name: us-west-2,
+        }])
         ```
         ## Basic Usage with an AWS Customer Managed Key
 
@@ -261,14 +261,14 @@ class ReplicationSet(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_key = aws.kms.Key("exampleKey")
-        replication_set_name = aws.ssmincidents.ReplicationSet("replicationSetName",
-            regions=[aws.ssmincidents.ReplicationSetRegionArgs(
-                name="us-west-2",
-                kms_key_arn=example_key.arn,
-            )],
+        example_key = aws.kms.key.Key("exampleKey")
+        replication_set_name = aws.ssmincidents.replication_set.ReplicationSet("replicationSetName",
+            regions=[{
+                name: us-west-2,
+                kmsKeyArn: example_key.arn,
+            }],
             tags={
-                "exampleTag": "exampleValue",
+                exampleTag: exampleValue,
             })
         ```
 
@@ -306,12 +306,12 @@ class ReplicationSet(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        replication_set_name = aws.ssmincidents.ReplicationSet("replicationSetName",
-            regions=[aws.ssmincidents.ReplicationSetRegionArgs(
-                name="us-west-2",
-            )],
+        replication_set_name = aws.ssmincidents.replication_set.ReplicationSet("replicationSetName",
+            regions=[{
+                name: us-west-2,
+            }],
             tags={
-                "exampleTag": "exampleValue",
+                exampleTag: exampleValue,
             })
         ```
 
@@ -321,13 +321,13 @@ class ReplicationSet(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        replication_set_name = aws.ssmincidents.ReplicationSet("replicationSetName", regions=[
-            aws.ssmincidents.ReplicationSetRegionArgs(
-                name="us-west-2",
-            ),
-            aws.ssmincidents.ReplicationSetRegionArgs(
-                name="ap-southeast-2",
-            ),
+        replication_set_name = aws.ssmincidents.replication_set.ReplicationSet("replicationSetName", regions=[
+            {
+                name: us-west-2,
+            },
+            {
+                name: ap-southeast-2,
+            },
         ])
         ```
 
@@ -337,9 +337,9 @@ class ReplicationSet(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        replication_set_name = aws.ssmincidents.ReplicationSet("replicationSetName", regions=[aws.ssmincidents.ReplicationSetRegionArgs(
-            name="us-west-2",
-        )])
+        replication_set_name = aws.ssmincidents.replication_set.ReplicationSet("replicationSetName", regions=[{
+            name: us-west-2,
+        }])
         ```
         ## Basic Usage with an AWS Customer Managed Key
 
@@ -349,14 +349,14 @@ class ReplicationSet(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_key = aws.kms.Key("exampleKey")
-        replication_set_name = aws.ssmincidents.ReplicationSet("replicationSetName",
-            regions=[aws.ssmincidents.ReplicationSetRegionArgs(
-                name="us-west-2",
-                kms_key_arn=example_key.arn,
-            )],
+        example_key = aws.kms.key.Key("exampleKey")
+        replication_set_name = aws.ssmincidents.replication_set.ReplicationSet("replicationSetName",
+            regions=[{
+                name: us-west-2,
+                kmsKeyArn: example_key.arn,
+            }],
             tags={
-                "exampleTag": "exampleValue",
+                exampleTag: exampleValue,
             })
         ```
 

@@ -17,8 +17,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const fs = new aws.efs.FileSystem("fs", {});
- * const policy = new aws.efs.BackupPolicy("policy", {
+ * const fs = new aws.efs/fileSystem.FileSystem("fs", {});
+ * const policy = new aws.efs/backupPolicy.BackupPolicy("policy", {
  *     fileSystemId: fs.id,
  *     backupPolicy: {
  *         status: "ENABLED",

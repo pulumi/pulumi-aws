@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.acmpca.CertificateAuthority("example", {
+ * const example = new aws.acmpca/certificateAuthority.CertificateAuthority("example", {
  *     certificateAuthorityConfiguration: {
  *         keyAlgorithm: "RSA_4096",
  *         signingAlgorithm: "SHA512WITHRSA",
@@ -36,7 +36,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.acmpca.CertificateAuthority("example", {
+ * const example = new aws.acmpca/certificateAuthority.CertificateAuthority("example", {
  *     certificateAuthorityConfiguration: {
  *         keyAlgorithm: "RSA_4096",
  *         signingAlgorithm: "SHA512WITHRSA",
@@ -45,56 +45,6 @@ import * as utilities from "../utilities";
  *         },
  *     },
  *     usageMode: "SHORT_LIVED_CERTIFICATE",
- * });
- * ```
- * ### Enable Certificate Revocation List
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleBucketV2 = new aws.s3.BucketV2("exampleBucketV2", {forceDestroy: true});
- * const acmpcaBucketAccess = aws.iam.getPolicyDocumentOutput({
- *     statements: [{
- *         actions: [
- *             "s3:GetBucketAcl",
- *             "s3:GetBucketLocation",
- *             "s3:PutObject",
- *             "s3:PutObjectAcl",
- *         ],
- *         resources: [
- *             exampleBucketV2.arn,
- *             pulumi.interpolate`${exampleBucketV2.arn}/*`,
- *         ],
- *         principals: [{
- *             identifiers: ["acm-pca.amazonaws.com"],
- *             type: "Service",
- *         }],
- *     }],
- * });
- * const exampleBucketPolicy = new aws.s3.BucketPolicy("exampleBucketPolicy", {
- *     bucket: exampleBucketV2.id,
- *     policy: acmpcaBucketAccess.apply(acmpcaBucketAccess => acmpcaBucketAccess.json),
- * });
- * const exampleCertificateAuthority = new aws.acmpca.CertificateAuthority("exampleCertificateAuthority", {
- *     certificateAuthorityConfiguration: {
- *         keyAlgorithm: "RSA_4096",
- *         signingAlgorithm: "SHA512WITHRSA",
- *         subject: {
- *             commonName: "example.com",
- *         },
- *     },
- *     revocationConfiguration: {
- *         crlConfiguration: {
- *             customCname: "crl.example.com",
- *             enabled: true,
- *             expirationInDays: 7,
- *             s3BucketName: exampleBucketV2.id,
- *             s3ObjectAcl: "BUCKET_OWNER_FULL_CONTROL",
- *         },
- *     },
- * }, {
- *     dependsOn: [exampleBucketPolicy],
  * });
  * ```
  *

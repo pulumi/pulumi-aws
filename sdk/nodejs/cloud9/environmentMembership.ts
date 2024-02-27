@@ -13,9 +13,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const testEnvironmentEC2 = new aws.cloud9.EnvironmentEC2("testEnvironmentEC2", {instanceType: "t2.micro"});
- * const testUser = new aws.iam.User("testUser", {});
- * const testEnvironmentMembership = new aws.cloud9.EnvironmentMembership("testEnvironmentMembership", {
+ * const testEnvironmentEC2 = new aws.cloud9/environmentEC2.EnvironmentEC2("testEnvironmentEC2", {instanceType: "t2.micro"});
+ * const testUser = new aws.iam/user.User("testUser", {});
+ * const testEnvironmentMembership = new aws.cloud9/environmentMembership.EnvironmentMembership("testEnvironmentMembership", {
  *     environmentId: testEnvironmentEC2.id,
  *     permissions: "read-only",
  *     userArn: testUser.arn,

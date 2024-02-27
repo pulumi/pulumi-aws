@@ -205,16 +205,16 @@ class Response(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        main = aws.apigateway.RestApi("main")
-        test = aws.apigateway.Response("test",
+        main = aws.apigateway.rest_api.RestApi("main")
+        test = aws.apigateway.response.Response("test",
             rest_api_id=main.id,
-            status_code="401",
-            response_type="UNAUTHORIZED",
+            status_code=401,
+            response_type=UNAUTHORIZED,
             response_templates={
-                "application/json": "{\\"message\\":$context.error.messageString}",
+                application/json: {"message":$context.error.messageString},
             },
             response_parameters={
-                "gatewayresponse.header.Authorization": "'Basic'",
+                gatewayresponse.header.Authorization: 'Basic',
             })
         ```
 
@@ -249,16 +249,16 @@ class Response(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        main = aws.apigateway.RestApi("main")
-        test = aws.apigateway.Response("test",
+        main = aws.apigateway.rest_api.RestApi("main")
+        test = aws.apigateway.response.Response("test",
             rest_api_id=main.id,
-            status_code="401",
-            response_type="UNAUTHORIZED",
+            status_code=401,
+            response_type=UNAUTHORIZED,
             response_templates={
-                "application/json": "{\\"message\\":$context.error.messageString}",
+                application/json: {"message":$context.error.messageString},
             },
             response_parameters={
-                "gatewayresponse.header.Authorization": "'Basic'",
+                gatewayresponse.header.Authorization: 'Basic',
             })
         ```
 

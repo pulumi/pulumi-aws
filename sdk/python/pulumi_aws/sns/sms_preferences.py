@@ -240,7 +240,7 @@ class SmsPreferences(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        update_sms_prefs = aws.sns.SmsPreferences("updateSmsPrefs")
+        update_sms_prefs = aws.sns.sms_preferences.SmsPreferences("updateSmsPrefs")
         ```
 
         ## Import
@@ -271,7 +271,7 @@ class SmsPreferences(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        update_sms_prefs = aws.sns.SmsPreferences("updateSmsPrefs")
+        update_sms_prefs = aws.sns.sms_preferences.SmsPreferences("updateSmsPrefs")
         ```
 
         ## Import

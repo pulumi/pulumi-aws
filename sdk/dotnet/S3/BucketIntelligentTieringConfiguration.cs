@@ -25,22 +25,22 @@ namespace Pulumi.Aws.S3
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.S3.BucketV2("example");
+    ///     var example = new Aws.S3.BucketV2.BucketV2("example");
     /// 
-    ///     var example_entire_bucket = new Aws.S3.BucketIntelligentTieringConfiguration("example-entire-bucket", new()
+    ///     var example_entire_bucket = new Aws.S3.BucketIntelligentTieringConfiguration.BucketIntelligentTieringConfiguration("example-entire-bucket", new()
     ///     {
     ///         Bucket = example.Id,
     ///         Tierings = new[]
     ///         {
-    ///             new Aws.S3.Inputs.BucketIntelligentTieringConfigurationTieringArgs
+    ///             
     ///             {
-    ///                 AccessTier = "DEEP_ARCHIVE_ACCESS",
-    ///                 Days = 180,
+    ///                 { "accessTier", "DEEP_ARCHIVE_ACCESS" },
+    ///                 { "days", 180 },
     ///             },
-    ///             new Aws.S3.Inputs.BucketIntelligentTieringConfigurationTieringArgs
+    ///             
     ///             {
-    ///                 AccessTier = "ARCHIVE_ACCESS",
-    ///                 Days = 125,
+    ///                 { "accessTier", "ARCHIVE_ACCESS" },
+    ///                 { "days", 125 },
     ///             },
     ///         },
     ///     });
@@ -57,27 +57,27 @@ namespace Pulumi.Aws.S3
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.S3.BucketV2("example");
+    ///     var example = new Aws.S3.BucketV2.BucketV2("example");
     /// 
-    ///     var example_filtered = new Aws.S3.BucketIntelligentTieringConfiguration("example-filtered", new()
+    ///     var example_filtered = new Aws.S3.BucketIntelligentTieringConfiguration.BucketIntelligentTieringConfiguration("example-filtered", new()
     ///     {
     ///         Bucket = example.Id,
     ///         Status = "Disabled",
-    ///         Filter = new Aws.S3.Inputs.BucketIntelligentTieringConfigurationFilterArgs
+    ///         Filter = 
     ///         {
-    ///             Prefix = "documents/",
-    ///             Tags = 
+    ///             { "prefix", "documents/" },
+    ///             { "tags", 
     ///             {
     ///                 { "priority", "high" },
     ///                 { "class", "blue" },
-    ///             },
+    ///             } },
     ///         },
     ///         Tierings = new[]
     ///         {
-    ///             new Aws.S3.Inputs.BucketIntelligentTieringConfigurationTieringArgs
+    ///             
     ///             {
-    ///                 AccessTier = "ARCHIVE_ACCESS",
-    ///                 Days = 125,
+    ///                 { "accessTier", "ARCHIVE_ACCESS" },
+    ///                 { "days", 125 },
     ///             },
     ///         },
     ///     });

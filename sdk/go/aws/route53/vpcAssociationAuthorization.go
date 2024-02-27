@@ -21,63 +21,63 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53"
+//	"github.com/pulumi/pulumi-aws/sdk/v1/go/aws"
+//	ec2/vpc "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/vpc"
+//	route53/vpcAssociationAuthorization "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/route53/vpcAssociationAuthorization"
+//	route53/zone "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/route53/zone"
+//	route53/zoneAssociation "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/route53/zoneAssociation"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := aws.NewProvider(ctx, "alternate", nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleVpc, err := ec2.NewVpc(ctx, "exampleVpc", &ec2.VpcArgs{
-//				CidrBlock:          pulumi.String("10.6.0.0/16"),
-//				EnableDnsHostnames: pulumi.Bool(true),
-//				EnableDnsSupport:   pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleZone, err := route53.NewZone(ctx, "exampleZone", &route53.ZoneArgs{
-//				Vpcs: route53.ZoneVpcArray{
-//					&route53.ZoneVpcArgs{
-//						VpcId: exampleVpc.ID(),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			alternateVpc, err := ec2.NewVpc(ctx, "alternateVpc", &ec2.VpcArgs{
-//				CidrBlock:          pulumi.String("10.7.0.0/16"),
-//				EnableDnsHostnames: pulumi.Bool(true),
-//				EnableDnsSupport:   pulumi.Bool(true),
-//			}, pulumi.Provider(aws.Alternate))
-//			if err != nil {
-//				return err
-//			}
-//			exampleVpcAssociationAuthorization, err := route53.NewVpcAssociationAuthorization(ctx, "exampleVpcAssociationAuthorization", &route53.VpcAssociationAuthorizationArgs{
-//				VpcId:  alternateVpc.ID(),
-//				ZoneId: exampleZone.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = route53.NewZoneAssociation(ctx, "exampleZoneAssociation", &route53.ZoneAssociationArgs{
-//				VpcId:  exampleVpcAssociationAuthorization.VpcId,
-//				ZoneId: exampleVpcAssociationAuthorization.ZoneId,
-//			}, pulumi.Provider(aws.Alternate))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := aws.NewProvider(ctx, "alternate", nil)
+// if err != nil {
+// return err
+// }
+// exampleVpc, err := ec2/vpc.NewVpc(ctx, "exampleVpc", &ec2/vpc.VpcArgs{
+// CidrBlock: "10.6.0.0/16",
+// EnableDnsHostnames: true,
+// EnableDnsSupport: true,
+// })
+// if err != nil {
+// return err
+// }
+// exampleZone, err := route53/zone.NewZone(ctx, "exampleZone", &route53/zone.ZoneArgs{
+// Vpcs: []map[string]interface{}{
+// map[string]interface{}{
+// "vpcId": exampleVpc.Id,
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// alternateVpc, err := ec2/vpc.NewVpc(ctx, "alternateVpc", &ec2/vpc.VpcArgs{
+// CidrBlock: "10.7.0.0/16",
+// EnableDnsHostnames: true,
+// EnableDnsSupport: true,
+// }, pulumi.Provider(aws.Alternate))
+// if err != nil {
+// return err
+// }
+// exampleVpcAssociationAuthorization, err := route53/vpcAssociationAuthorization.NewVpcAssociationAuthorization(ctx, "exampleVpcAssociationAuthorization", &route53/vpcAssociationAuthorization.VpcAssociationAuthorizationArgs{
+// VpcId: alternateVpc.Id,
+// ZoneId: exampleZone.Id,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = route53/zoneAssociation.NewZoneAssociation(ctx, "exampleZoneAssociation", &route53/zoneAssociation.ZoneAssociationArgs{
+// VpcId: exampleVpcAssociationAuthorization.VpcId,
+// ZoneId: exampleVpcAssociationAuthorization.ZoneId,
+// }, pulumi.Provider(aws.Alternate))
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

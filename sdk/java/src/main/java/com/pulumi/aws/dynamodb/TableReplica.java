@@ -31,11 +31,10 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.Provider;
- * import com.pulumi.aws.ProviderArgs;
+ * import com.pulumi.pulumi.providers.aws;
+ * import com.pulumi.pulumi.providers.ProviderArgs;
  * import com.pulumi.aws.dynamodb.Table;
  * import com.pulumi.aws.dynamodb.TableArgs;
- * import com.pulumi.aws.dynamodb.inputs.TableAttributeArgs;
  * import com.pulumi.aws.dynamodb.TableReplica;
  * import com.pulumi.aws.dynamodb.TableReplicaArgs;
  * import com.pulumi.resources.CustomResourceOptions;
@@ -65,20 +64,14 @@ import javax.annotation.Nullable;
  *             .billingMode(&#34;PAY_PER_REQUEST&#34;)
  *             .streamEnabled(true)
  *             .streamViewType(&#34;NEW_AND_OLD_IMAGES&#34;)
- *             .attributes(TableAttributeArgs.builder()
- *                 .name(&#34;BrodoBaggins&#34;)
- *                 .type(&#34;S&#34;)
- *                 .build())
+ *             .attributes(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build(), CustomResourceOptions.builder()
  *                 .provider(aws.main())
  *                 .build());
  * 
  *         var exampleTableReplica = new TableReplica(&#34;exampleTableReplica&#34;, TableReplicaArgs.builder()        
  *             .globalTableArn(exampleTable.arn())
- *             .tags(Map.ofEntries(
- *                 Map.entry(&#34;Name&#34;, &#34;IZPAWS&#34;),
- *                 Map.entry(&#34;Pozo&#34;, &#34;Amargo&#34;)
- *             ))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build(), CustomResourceOptions.builder()
  *                 .provider(aws.alt())
  *                 .build());

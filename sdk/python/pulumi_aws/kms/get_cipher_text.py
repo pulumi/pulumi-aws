@@ -93,23 +93,6 @@ def get_cipher_text(context: Optional[Mapping[str, str]] = None,
     changes every apply. For a stable ciphertext value, see the `kms.Ciphertext`
     resource.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    oauth_config = aws.kms.Key("oauthConfig",
-        description="oauth config",
-        is_enabled=True)
-    oauth = aws.kms.get_cipher_text_output(key_id=oauth_config.key_id,
-        plaintext=\"\"\"{
-      "client_id": "e587dbae22222f55da22",
-      "client_secret": "8289575d00000ace55e1815ec13673955721b8a5"
-    }
-    \"\"\")
-    ```
-
 
     :param Mapping[str, str] context: An optional mapping that makes up the encryption context.
     :param str key_id: Globally unique key ID for the customer master key.
@@ -140,23 +123,6 @@ def get_cipher_text_output(context: Optional[pulumi.Input[Optional[Mapping[str, 
     by using an AWS KMS customer master key. The value returned by this data source
     changes every apply. For a stable ciphertext value, see the `kms.Ciphertext`
     resource.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    oauth_config = aws.kms.Key("oauthConfig",
-        description="oauth config",
-        is_enabled=True)
-    oauth = aws.kms.get_cipher_text_output(key_id=oauth_config.key_id,
-        plaintext=\"\"\"{
-      "client_id": "e587dbae22222f55da22",
-      "client_secret": "8289575d00000ace55e1815ec13673955721b8a5"
-    }
-    \"\"\")
-    ```
 
 
     :param Mapping[str, str] context: An optional mapping that makes up the encryption context.

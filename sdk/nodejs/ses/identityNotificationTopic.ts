@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = new aws.ses.IdentityNotificationTopic("test", {
+ * const test = new aws.ses/identityNotificationTopic.IdentityNotificationTopic("test", {
  *     topicArn: aws_sns_topic.example.arn,
  *     notificationType: "Bounce",
  *     identity: aws_ses_domain_identity.example.domain,

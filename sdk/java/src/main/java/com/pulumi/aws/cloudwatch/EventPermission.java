@@ -62,7 +62,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.cloudwatch.EventPermission;
  * import com.pulumi.aws.cloudwatch.EventPermissionArgs;
- * import com.pulumi.aws.cloudwatch.inputs.EventPermissionConditionArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -79,11 +78,7 @@ import javax.annotation.Nullable;
  *         var organizationAccess = new EventPermission(&#34;organizationAccess&#34;, EventPermissionArgs.builder()        
  *             .principal(&#34;*&#34;)
  *             .statementId(&#34;OrganizationAccess&#34;)
- *             .condition(EventPermissionConditionArgs.builder()
- *                 .key(&#34;aws:PrincipalOrgID&#34;)
- *                 .type(&#34;StringEquals&#34;)
- *                 .value(aws_organizations_organization.example().id())
- *                 .build())
+ *             .condition(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

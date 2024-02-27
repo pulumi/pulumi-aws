@@ -23,35 +23,33 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/dms"
+//	dms/replicationConfig "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/dms/replicationConfig"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := dms.NewReplicationConfig(ctx, "name", &dms.ReplicationConfigArgs{
-//				ReplicationConfigIdentifier: pulumi.String("test-dms-serverless-replication-tf"),
-//				ResourceIdentifier:          pulumi.String("test-dms-serverless-replication-tf"),
-//				ReplicationType:             pulumi.String("cdc"),
-//				SourceEndpointArn:           pulumi.Any(aws_dms_endpoint.Source.Endpoint_arn),
-//				TargetEndpointArn:           pulumi.Any(aws_dms_endpoint.Target.Endpoint_arn),
-//				TableMappings:               pulumi.String("  {\n    \"rules\":[{\"rule-type\":\"selection\",\"rule-id\":\"1\",\"rule-name\":\"1\",\"rule-action\":\"include\",\"object-locator\":{\"schema-name\":\"%%\",\"table-name\":\"%%\"}}]\n  }\n"),
-//				StartReplication:            pulumi.Bool(true),
-//				ComputeConfig: &dms.ReplicationConfigComputeConfigArgs{
-//					ReplicationSubnetGroupId:   pulumi.Any(aws_dms_replication_subnet_group.Default.Replication_subnet_group_id),
-//					MaxCapacityUnits:           pulumi.Int(64),
-//					MinCapacityUnits:           pulumi.Int(2),
-//					PreferredMaintenanceWindow: pulumi.String("sun:23:45-mon:00:30"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := dms/replicationConfig.NewReplicationConfig(ctx, "name", &dms/replicationConfig.ReplicationConfigArgs{
+// ReplicationConfigIdentifier: "test-dms-serverless-replication-tf",
+// ResourceIdentifier: "test-dms-serverless-replication-tf",
+// ReplicationType: "cdc",
+// SourceEndpointArn: aws_dms_endpoint.Source.Endpoint_arn,
+// TargetEndpointArn: aws_dms_endpoint.Target.Endpoint_arn,
+// TableMappings: "  {\n    \"rules\":[{\"rule-type\":\"selection\",\"rule-id\":\"1\",\"rule-name\":\"1\",\"rule-action\":\"include\",\"object-locator\":{\"schema-name\":\"%%\",\"table-name\":\"%%\"}}]\n  }\n",
+// StartReplication: true,
+// ComputeConfig: map[string]interface{}{
+// "replicationSubnetGroupId": aws_dms_replication_subnet_group.Default.Replication_subnet_group_id,
+// "maxCapacityUnits": "64",
+// "minCapacityUnits": "2",
+// "preferredMaintenanceWindow": "sun:23:45-mon:00:30",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

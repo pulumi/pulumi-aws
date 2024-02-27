@@ -6,19 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Provides information about an Elastic File System Mount Target (EFS).
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const config = new pulumi.Config();
- * const mountTargetId = config.get("mountTargetId") || "";
- * const byId = aws.efs.getMountTarget({
- *     mountTargetId: mountTargetId,
- * });
- * ```
  */
 export function getMountTarget(args?: GetMountTargetArgs, opts?: pulumi.InvokeOptions): Promise<GetMountTargetResult> {
     args = args || {};
@@ -103,19 +90,6 @@ export interface GetMountTargetResult {
 }
 /**
  * Provides information about an Elastic File System Mount Target (EFS).
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const config = new pulumi.Config();
- * const mountTargetId = config.get("mountTargetId") || "";
- * const byId = aws.efs.getMountTarget({
- *     mountTargetId: mountTargetId,
- * });
- * ```
  */
 export function getMountTargetOutput(args?: GetMountTargetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMountTargetResult> {
     return pulumi.output(args).apply((a: any) => getMountTarget(a, opts))

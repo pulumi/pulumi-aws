@@ -25,7 +25,7 @@ namespace Pulumi.Aws.StorageGateway
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.StorageGateway.SmbFileShare("example", new()
+    ///     var example = new Aws.Storagegateway.SmbFileShare.SmbFileShare("example", new()
     ///     {
     ///         Authentication = "ActiveDirectory",
     ///         GatewayArn = aws_storagegateway_gateway.Example.Arn,
@@ -47,7 +47,7 @@ namespace Pulumi.Aws.StorageGateway
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.StorageGateway.SmbFileShare("example", new()
+    ///     var example = new Aws.Storagegateway.SmbFileShare.SmbFileShare("example", new()
     ///     {
     ///         Authentication = "GuestAccess",
     ///         GatewayArn = aws_storagegateway_gateway.Example.Arn,

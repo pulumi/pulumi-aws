@@ -27,36 +27,6 @@ public final class AppconfigFunctions {
      * Provides access to an AppConfig Configuration Profile.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.appconfig.AppconfigFunctions;
-     * import com.pulumi.aws.appconfig.inputs.GetConfigurationProfileArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = AppconfigFunctions.getConfigurationProfile(GetConfigurationProfileArgs.builder()
-     *             .applicationId(&#34;b5d5gpj&#34;)
-     *             .configurationProfileId(&#34;qrbb1c1&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetConfigurationProfileResult> getConfigurationProfile(GetConfigurationProfileArgs args) {
@@ -66,36 +36,6 @@ public final class AppconfigFunctions {
      * Provides access to an AppConfig Configuration Profile.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.appconfig.AppconfigFunctions;
-     * import com.pulumi.aws.appconfig.inputs.GetConfigurationProfileArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = AppconfigFunctions.getConfigurationProfile(GetConfigurationProfileArgs.builder()
-     *             .applicationId(&#34;b5d5gpj&#34;)
-     *             .configurationProfileId(&#34;qrbb1c1&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetConfigurationProfileResult> getConfigurationProfilePlain(GetConfigurationProfilePlainArgs args) {
@@ -105,36 +45,6 @@ public final class AppconfigFunctions {
      * Provides access to an AppConfig Configuration Profile.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.appconfig.AppconfigFunctions;
-     * import com.pulumi.aws.appconfig.inputs.GetConfigurationProfileArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = AppconfigFunctions.getConfigurationProfile(GetConfigurationProfileArgs.builder()
-     *             .applicationId(&#34;b5d5gpj&#34;)
-     *             .configurationProfileId(&#34;qrbb1c1&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetConfigurationProfileResult> getConfigurationProfile(GetConfigurationProfileArgs args, InvokeOptions options) {
@@ -144,36 +54,6 @@ public final class AppconfigFunctions {
      * Provides access to an AppConfig Configuration Profile.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.appconfig.AppconfigFunctions;
-     * import com.pulumi.aws.appconfig.inputs.GetConfigurationProfileArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = AppconfigFunctions.getConfigurationProfile(GetConfigurationProfileArgs.builder()
-     *             .applicationId(&#34;b5d5gpj&#34;)
-     *             .configurationProfileId(&#34;qrbb1c1&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetConfigurationProfileResult> getConfigurationProfilePlain(GetConfigurationProfilePlainArgs args, InvokeOptions options) {
@@ -223,36 +103,6 @@ public final class AppconfigFunctions {
      * Provides access to an AppConfig Environment.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.appconfig.AppconfigFunctions;
-     * import com.pulumi.aws.appconfig.inputs.GetEnvironmentArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = AppconfigFunctions.getEnvironment(GetEnvironmentArgs.builder()
-     *             .applicationId(&#34;b5d5gpj&#34;)
-     *             .environmentId(&#34;qrbb1c1&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetEnvironmentResult> getEnvironment(GetEnvironmentArgs args) {
@@ -262,36 +112,6 @@ public final class AppconfigFunctions {
      * Provides access to an AppConfig Environment.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.appconfig.AppconfigFunctions;
-     * import com.pulumi.aws.appconfig.inputs.GetEnvironmentArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = AppconfigFunctions.getEnvironment(GetEnvironmentArgs.builder()
-     *             .applicationId(&#34;b5d5gpj&#34;)
-     *             .environmentId(&#34;qrbb1c1&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetEnvironmentResult> getEnvironmentPlain(GetEnvironmentPlainArgs args) {
@@ -301,36 +121,6 @@ public final class AppconfigFunctions {
      * Provides access to an AppConfig Environment.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.appconfig.AppconfigFunctions;
-     * import com.pulumi.aws.appconfig.inputs.GetEnvironmentArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = AppconfigFunctions.getEnvironment(GetEnvironmentArgs.builder()
-     *             .applicationId(&#34;b5d5gpj&#34;)
-     *             .environmentId(&#34;qrbb1c1&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetEnvironmentResult> getEnvironment(GetEnvironmentArgs args, InvokeOptions options) {
@@ -340,36 +130,6 @@ public final class AppconfigFunctions {
      * Provides access to an AppConfig Environment.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.appconfig.AppconfigFunctions;
-     * import com.pulumi.aws.appconfig.inputs.GetEnvironmentArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = AppconfigFunctions.getEnvironment(GetEnvironmentArgs.builder()
-     *             .applicationId(&#34;b5d5gpj&#34;)
-     *             .environmentId(&#34;qrbb1c1&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetEnvironmentResult> getEnvironmentPlain(GetEnvironmentPlainArgs args, InvokeOptions options) {
@@ -380,35 +140,6 @@ public final class AppconfigFunctions {
      * resource.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.appconfig.AppconfigFunctions;
-     * import com.pulumi.aws.appconfig.inputs.GetEnvironmentsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = AppconfigFunctions.getEnvironments(GetEnvironmentsArgs.builder()
-     *             .applicationId(&#34;a1d3rpe&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetEnvironmentsResult> getEnvironments(GetEnvironmentsArgs args) {
@@ -419,35 +150,6 @@ public final class AppconfigFunctions {
      * resource.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.appconfig.AppconfigFunctions;
-     * import com.pulumi.aws.appconfig.inputs.GetEnvironmentsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = AppconfigFunctions.getEnvironments(GetEnvironmentsArgs.builder()
-     *             .applicationId(&#34;a1d3rpe&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetEnvironmentsResult> getEnvironmentsPlain(GetEnvironmentsPlainArgs args) {
@@ -458,35 +160,6 @@ public final class AppconfigFunctions {
      * resource.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.appconfig.AppconfigFunctions;
-     * import com.pulumi.aws.appconfig.inputs.GetEnvironmentsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = AppconfigFunctions.getEnvironments(GetEnvironmentsArgs.builder()
-     *             .applicationId(&#34;a1d3rpe&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetEnvironmentsResult> getEnvironments(GetEnvironmentsArgs args, InvokeOptions options) {
@@ -497,35 +170,6 @@ public final class AppconfigFunctions {
      * resource.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.appconfig.AppconfigFunctions;
-     * import com.pulumi.aws.appconfig.inputs.GetEnvironmentsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = AppconfigFunctions.getEnvironments(GetEnvironmentsArgs.builder()
-     *             .applicationId(&#34;a1d3rpe&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetEnvironmentsResult> getEnvironmentsPlain(GetEnvironmentsPlainArgs args, InvokeOptions options) {

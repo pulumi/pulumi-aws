@@ -20,7 +20,6 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * ### Basic Usage
- * 
  * ```java
  * package generated_program;
  * 
@@ -44,9 +43,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new ServerlessSecurityConfig(&#34;example&#34;, ServerlessSecurityConfigArgs.builder()        
  *             .type(&#34;saml&#34;)
- *             .samlOptions(ServerlessSecurityConfigSamlOptionsArgs.builder()
- *                 .metadata(Files.readString(Paths.get(String.format(&#34;%s/idp-metadata.xml&#34;, path.module()))))
- *                 .build())
+ *             .samlOptions(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

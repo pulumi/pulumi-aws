@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Iot
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var foo = new Aws.Iot.ThingType("foo");
+    ///     var foo = new Aws.Iot.ThingType.ThingType("foo");
     /// 
     /// });
     /// ```

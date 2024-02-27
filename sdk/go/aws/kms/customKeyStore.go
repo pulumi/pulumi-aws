@@ -24,34 +24,33 @@ import (
 //
 //	"os"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kms"
+//	kms/customKeyStore "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/kms/customKeyStore"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func readFileOrPanic(path string) pulumi.StringPtrInput {
-//		data, err := os.ReadFile(path)
-//		if err != nil {
-//			panic(err.Error())
-//		}
-//		return pulumi.String(string(data))
-//	}
+//					data, err := os.ReadFile(path)
+//					if err != nil {
+//						panic(err.Error())
+//					}
+//					return pulumi.String(string(data))
+//				}
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := kms.NewCustomKeyStore(ctx, "test", &kms.CustomKeyStoreArgs{
-//				CloudHsmClusterId:      pulumi.Any(_var.Cloud_hsm_cluster_id),
-//				CustomKeyStoreName:     pulumi.String("kms-custom-key-store-test"),
-//				KeyStorePassword:       pulumi.String("noplaintextpasswords1"),
-//				TrustAnchorCertificate: readFileOrPanic("anchor-certificate.crt"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := kms/customKeyStore.NewCustomKeyStore(ctx, "test", &kms/customKeyStore.CustomKeyStoreArgs{
+// CloudHsmClusterId: _var.Cloud_hsm_cluster_id,
+// CustomKeyStoreName: "kms-custom-key-store-test",
+// KeyStorePassword: "noplaintextpasswords1",
+// TrustAnchorCertificate: readFileOrPanic("anchor-certificate.crt"),
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

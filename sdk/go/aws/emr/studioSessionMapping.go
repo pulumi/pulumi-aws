@@ -21,26 +21,24 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/emr"
+//	emr/studioSessionMapping "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/emr/studioSessionMapping"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := emr.NewStudioSessionMapping(ctx, "example", &emr.StudioSessionMappingArgs{
-//				StudioId:         pulumi.Any(aws_emr_studio.Example.Id),
-//				IdentityType:     pulumi.String("USER"),
-//				IdentityId:       pulumi.String("example"),
-//				SessionPolicyArn: pulumi.Any(aws_iam_policy.Example.Arn),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := emr/studioSessionMapping.NewStudioSessionMapping(ctx, "example", &emr/studioSessionMapping.StudioSessionMappingArgs{
+// StudioId: aws_emr_studio.Example.Id,
+// IdentityType: "USER",
+// IdentityId: "example",
+// SessionPolicyArn: aws_iam_policy.Example.Arn,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

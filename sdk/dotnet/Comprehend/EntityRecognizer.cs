@@ -23,37 +23,37 @@ namespace Pulumi.Aws.Comprehend
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var documents = new Aws.S3.BucketObjectv2("documents");
+    ///     var documents = new Aws.S3.BucketObjectv2.BucketObjectv2("documents");
     /// 
     ///     // ...
-    ///     var entities = new Aws.S3.BucketObjectv2("entities");
+    ///     var entities = new Aws.S3.BucketObjectv2.BucketObjectv2("entities");
     /// 
     ///     // ...
-    ///     var example = new Aws.Comprehend.EntityRecognizer("example", new()
+    ///     var example = new Aws.Comprehend.EntityRecognizer.EntityRecognizer("example", new()
     ///     {
     ///         DataAccessRoleArn = aws_iam_role.Example.Arn,
     ///         LanguageCode = "en",
-    ///         InputDataConfig = new Aws.Comprehend.Inputs.EntityRecognizerInputDataConfigArgs
+    ///         InputDataConfig = 
     ///         {
-    ///             EntityTypes = new[]
+    ///             { "entityTypes", new[]
     ///             {
-    ///                 new Aws.Comprehend.Inputs.EntityRecognizerInputDataConfigEntityTypeArgs
+    ///                 
     ///                 {
-    ///                     Type = "ENTITY_1",
+    ///                     { "type", "ENTITY_1" },
     ///                 },
-    ///                 new Aws.Comprehend.Inputs.EntityRecognizerInputDataConfigEntityTypeArgs
+    ///                 
     ///                 {
-    ///                     Type = "ENTITY_2",
+    ///                     { "type", "ENTITY_2" },
     ///                 },
-    ///             },
-    ///             Documents = new Aws.Comprehend.Inputs.EntityRecognizerInputDataConfigDocumentsArgs
+    ///             } },
+    ///             { "documents", 
     ///             {
-    ///                 S3Uri = documents.Id.Apply(id =&gt; $"s3://{aws_s3_bucket.Documents.Bucket}/{id}"),
-    ///             },
-    ///             EntityList = new Aws.Comprehend.Inputs.EntityRecognizerInputDataConfigEntityListArgs
+    ///                 { "s3Uri", $"s3://{aws_s3_bucket.Documents.Bucket}/{documents.Id}" },
+    ///             } },
+    ///             { "entityList", 
     ///             {
-    ///                 S3Uri = entities.Id.Apply(id =&gt; $"s3://{aws_s3_bucket.Entities.Bucket}/{id}"),
-    ///             },
+    ///                 { "s3Uri", $"s3://{aws_s3_bucket.Entities.Bucket}/{entities.Id}" },
+    ///             } },
     ///         },
     ///     }, new CustomResourceOptions
     ///     {

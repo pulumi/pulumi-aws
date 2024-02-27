@@ -9,21 +9,6 @@ import * as utilities from "../utilities";
 
 /**
  * Provides information about a Global Accelerator custom routing accelerator.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const config = new pulumi.Config();
- * const acceleratorArn = config.get("acceleratorArn") || "";
- * const acceleratorName = config.get("acceleratorName") || "";
- * const example = aws.globalaccelerator.getCustomRoutingAccelerator({
- *     arn: acceleratorArn,
- *     name: acceleratorName,
- * });
- * ```
  */
 export function getCustomRoutingAccelerator(args?: GetCustomRoutingAcceleratorArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomRoutingAcceleratorResult> {
     args = args || {};
@@ -73,21 +58,6 @@ export interface GetCustomRoutingAcceleratorResult {
 }
 /**
  * Provides information about a Global Accelerator custom routing accelerator.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const config = new pulumi.Config();
- * const acceleratorArn = config.get("acceleratorArn") || "";
- * const acceleratorName = config.get("acceleratorName") || "";
- * const example = aws.globalaccelerator.getCustomRoutingAccelerator({
- *     arn: acceleratorArn,
- *     name: acceleratorName,
- * });
- * ```
  */
 export function getCustomRoutingAcceleratorOutput(args?: GetCustomRoutingAcceleratorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomRoutingAcceleratorResult> {
     return pulumi.output(args).apply((a: any) => getCustomRoutingAccelerator(a, opts))

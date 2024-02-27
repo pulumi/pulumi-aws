@@ -23,7 +23,7 @@ namespace Pulumi.Aws.RedShift
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.RedShift.DataShareConsumerAssociation("example", new()
+    ///     var example = new Aws.Redshift.DataShareConsumerAssociation.DataShareConsumerAssociation("example", new()
     ///     {
     ///         AssociateEntireAccount = true,
     ///         DataShareArn = "arn:aws:redshift:us-west-2:012345678901:datashare:b3bfde75-73fd-408b-9086-d6fccfd6d588/example",
@@ -41,7 +41,7 @@ namespace Pulumi.Aws.RedShift
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.RedShift.DataShareConsumerAssociation("example", new()
+    ///     var example = new Aws.Redshift.DataShareConsumerAssociation.DataShareConsumerAssociation("example", new()
     ///     {
     ///         ConsumerRegion = "us-west-2",
     ///         DataShareArn = "arn:aws:redshift:us-west-2:012345678901:datashare:b3bfde75-73fd-408b-9086-d6fccfd6d588/example",

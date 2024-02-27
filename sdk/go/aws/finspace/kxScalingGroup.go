@@ -22,25 +22,23 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/finspace"
+//	finspace/kxScalingGroup "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/finspace/kxScalingGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := finspace.NewKxScalingGroup(ctx, "example", &finspace.KxScalingGroupArgs{
-//				EnvironmentId:      pulumi.Any(aws_finspace_kx_environment.Example.Id),
-//				AvailabilityZoneId: pulumi.String("use1-az2"),
-//				HostType:           pulumi.String("kx.sg.4xlarge"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := finspace/kxScalingGroup.NewKxScalingGroup(ctx, "example", &finspace/kxScalingGroup.KxScalingGroupArgs{
+// EnvironmentId: aws_finspace_kx_environment.Example.Id,
+// AvailabilityZoneId: "use1-az2",
+// HostType: "kx.sg.4xlarge",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

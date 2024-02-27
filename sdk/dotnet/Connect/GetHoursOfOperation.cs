@@ -13,100 +13,12 @@ namespace Pulumi.Aws.Connect
     {
         /// <summary>
         /// Provides details about a specific Amazon Connect Hours of Operation.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// By `name`
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Aws.Connect.GetHoursOfOperation.Invoke(new()
-        ///     {
-        ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
-        ///         Name = "Test",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// 
-        /// By `hours_of_operation_id`
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Aws.Connect.GetHoursOfOperation.Invoke(new()
-        ///     {
-        ///         HoursOfOperationId = "cccccccc-bbbb-cccc-dddd-111111111111",
-        ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetHoursOfOperationResult> InvokeAsync(GetHoursOfOperationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetHoursOfOperationResult>("aws:connect/getHoursOfOperation:getHoursOfOperation", args ?? new GetHoursOfOperationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Provides details about a specific Amazon Connect Hours of Operation.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// By `name`
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Aws.Connect.GetHoursOfOperation.Invoke(new()
-        ///     {
-        ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
-        ///         Name = "Test",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// 
-        /// By `hours_of_operation_id`
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Aws.Connect.GetHoursOfOperation.Invoke(new()
-        ///     {
-        ///         HoursOfOperationId = "cccccccc-bbbb-cccc-dddd-111111111111",
-        ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetHoursOfOperationResult> Invoke(GetHoursOfOperationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetHoursOfOperationResult>("aws:connect/getHoursOfOperation:getHoursOfOperation", args ?? new GetHoursOfOperationInvokeArgs(), options.WithDefaults());

@@ -21,42 +21,41 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cognito"
+//	cognito/identityProvider "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/cognito/identityProvider"
+//	cognito/userPool "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/cognito/userPool"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := cognito.NewUserPool(ctx, "example", &cognito.UserPoolArgs{
-//				AutoVerifiedAttributes: pulumi.StringArray{
-//					pulumi.String("email"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = cognito.NewIdentityProvider(ctx, "exampleProvider", &cognito.IdentityProviderArgs{
-//				UserPoolId:   example.ID(),
-//				ProviderName: pulumi.String("Google"),
-//				ProviderType: pulumi.String("Google"),
-//				ProviderDetails: pulumi.StringMap{
-//					"authorize_scopes": pulumi.String("email"),
-//					"client_id":        pulumi.String("your client_id"),
-//					"client_secret":    pulumi.String("your client_secret"),
-//				},
-//				AttributeMapping: pulumi.StringMap{
-//					"email":    pulumi.String("email"),
-//					"username": pulumi.String("sub"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := cognito/userPool.NewUserPool(ctx, "example", &cognito/userPool.UserPoolArgs{
+// AutoVerifiedAttributes: []string{
+// "email",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = cognito/identityProvider.NewIdentityProvider(ctx, "exampleProvider", &cognito/identityProvider.IdentityProviderArgs{
+// UserPoolId: example.Id,
+// ProviderName: "Google",
+// ProviderType: "Google",
+// ProviderDetails: map[string]interface{}{
+// "authorize_scopes": "email",
+// "client_id": "your client_id",
+// "client_secret": "your client_secret",
+// },
+// AttributeMapping: map[string]interface{}{
+// "email": "email",
+// "username": "sub",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

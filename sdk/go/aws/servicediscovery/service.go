@@ -20,51 +20,50 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/servicediscovery"
+//	ec2/vpc "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/vpc"
+//	servicediscovery/privateDnsNamespace "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/servicediscovery/privateDnsNamespace"
+//	servicediscovery/service "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/servicediscovery/service"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleVpc, err := ec2.NewVpc(ctx, "exampleVpc", &ec2.VpcArgs{
-//				CidrBlock:          pulumi.String("10.0.0.0/16"),
-//				EnableDnsSupport:   pulumi.Bool(true),
-//				EnableDnsHostnames: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			examplePrivateDnsNamespace, err := servicediscovery.NewPrivateDnsNamespace(ctx, "examplePrivateDnsNamespace", &servicediscovery.PrivateDnsNamespaceArgs{
-//				Description: pulumi.String("example"),
-//				Vpc:         exampleVpc.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = servicediscovery.NewService(ctx, "exampleService", &servicediscovery.ServiceArgs{
-//				DnsConfig: &servicediscovery.ServiceDnsConfigArgs{
-//					NamespaceId: examplePrivateDnsNamespace.ID(),
-//					DnsRecords: servicediscovery.ServiceDnsConfigDnsRecordArray{
-//						&servicediscovery.ServiceDnsConfigDnsRecordArgs{
-//							Ttl:  pulumi.Int(10),
-//							Type: pulumi.String("A"),
-//						},
-//					},
-//					RoutingPolicy: pulumi.String("MULTIVALUE"),
-//				},
-//				HealthCheckCustomConfig: &servicediscovery.ServiceHealthCheckCustomConfigArgs{
-//					FailureThreshold: pulumi.Int(1),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleVpc, err := ec2/vpc.NewVpc(ctx, "exampleVpc", &ec2/vpc.VpcArgs{
+// CidrBlock: "10.0.0.0/16",
+// EnableDnsSupport: true,
+// EnableDnsHostnames: true,
+// })
+// if err != nil {
+// return err
+// }
+// examplePrivateDnsNamespace, err := servicediscovery/privateDnsNamespace.NewPrivateDnsNamespace(ctx, "examplePrivateDnsNamespace", &servicediscovery/privateDnsNamespace.PrivateDnsNamespaceArgs{
+// Description: "example",
+// Vpc: exampleVpc.Id,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = servicediscovery/service.NewService(ctx, "exampleService", &servicediscovery/service.ServiceArgs{
+// DnsConfig: map[string]interface{}{
+// "namespaceId": examplePrivateDnsNamespace.Id,
+// "dnsRecords": []map[string]interface{}{
+// map[string]interface{}{
+// "ttl": 10,
+// "type": "A",
+// },
+// },
+// "routingPolicy": "MULTIVALUE",
+// },
+// HealthCheckCustomConfig: map[string]interface{}{
+// "failureThreshold": 1,
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ```go
@@ -72,42 +71,41 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/servicediscovery"
+//	servicediscovery/publicDnsNamespace "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/servicediscovery/publicDnsNamespace"
+//	servicediscovery/service "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/servicediscovery/service"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			examplePublicDnsNamespace, err := servicediscovery.NewPublicDnsNamespace(ctx, "examplePublicDnsNamespace", &servicediscovery.PublicDnsNamespaceArgs{
-//				Description: pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = servicediscovery.NewService(ctx, "exampleService", &servicediscovery.ServiceArgs{
-//				DnsConfig: &servicediscovery.ServiceDnsConfigArgs{
-//					NamespaceId: examplePublicDnsNamespace.ID(),
-//					DnsRecords: servicediscovery.ServiceDnsConfigDnsRecordArray{
-//						&servicediscovery.ServiceDnsConfigDnsRecordArgs{
-//							Ttl:  pulumi.Int(10),
-//							Type: pulumi.String("A"),
-//						},
-//					},
-//				},
-//				HealthCheckConfig: &servicediscovery.ServiceHealthCheckConfigArgs{
-//					FailureThreshold: pulumi.Int(10),
-//					ResourcePath:     pulumi.String("path"),
-//					Type:             pulumi.String("HTTP"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// examplePublicDnsNamespace, err := servicediscovery/publicDnsNamespace.NewPublicDnsNamespace(ctx, "examplePublicDnsNamespace", &servicediscovery/publicDnsNamespace.PublicDnsNamespaceArgs{
+// Description: "example",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = servicediscovery/service.NewService(ctx, "exampleService", &servicediscovery/service.ServiceArgs{
+// DnsConfig: map[string]interface{}{
+// "namespaceId": examplePublicDnsNamespace.Id,
+// "dnsRecords": []map[string]interface{}{
+// map[string]interface{}{
+// "ttl": 10,
+// "type": "A",
+// },
+// },
+// },
+// HealthCheckConfig: map[string]interface{}{
+// "failureThreshold": 10,
+// "resourcePath": "path",
+// "type": "HTTP",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

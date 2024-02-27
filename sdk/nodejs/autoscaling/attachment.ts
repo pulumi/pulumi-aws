@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * // Create a new load balancer attachment
- * const example = new aws.autoscaling.Attachment("example", {
+ * const example = new aws.autoscaling/attachment.Attachment("example", {
  *     autoscalingGroupName: aws_autoscaling_group.example.id,
  *     elb: aws_elb.example.id,
  * });
@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * // Create a new ALB Target Group attachment
- * const example = new aws.autoscaling.Attachment("example", {
+ * const example = new aws.autoscaling/attachment.Attachment("example", {
  *     autoscalingGroupName: aws_autoscaling_group.example.id,
  *     lbTargetGroupArn: aws_lb_target_group.example.arn,
  * });

@@ -22,14 +22,14 @@ namespace Pulumi.Aws.GameLift
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Aws.GameLift.Build("test", new()
+    ///     var test = new Aws.Gamelift.Build.Build("test", new()
     ///     {
     ///         OperatingSystem = "WINDOWS_2012",
-    ///         StorageLocation = new Aws.GameLift.Inputs.BuildStorageLocationArgs
+    ///         StorageLocation = 
     ///         {
-    ///             Bucket = aws_s3_bucket.Test.Id,
-    ///             Key = aws_s3_object.Test.Key,
-    ///             RoleArn = aws_iam_role.Test.Arn,
+    ///             { "bucket", aws_s3_bucket.Test.Id },
+    ///             { "key", aws_s3_object.Test.Key },
+    ///             { "roleArn", aws_iam_role.Test.Arn },
     ///         },
     ///     });
     /// 

@@ -21,47 +21,6 @@ import javax.annotation.Nullable;
 /**
  * Provides an IPAM Resource Discovery resource. IPAM Resource Discoveries are resources meant for multi-organization customers. If you wish to use a single IPAM across multiple orgs, a resource discovery can be created and shared from a subordinate organization to the management organizations IPAM delegated admin account. For a full deployment example, see `aws.ec2.VpcIpamResourceDiscoveryAssociation` resource.
  * 
- * ## Example Usage
- * 
- * Basic usage:
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.AwsFunctions;
- * import com.pulumi.aws.inputs.GetRegionArgs;
- * import com.pulumi.aws.ec2.VpcIpamResourceDiscovery;
- * import com.pulumi.aws.ec2.VpcIpamResourceDiscoveryArgs;
- * import com.pulumi.aws.ec2.inputs.VpcIpamResourceDiscoveryOperatingRegionArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var current = AwsFunctions.getRegion();
- * 
- *         var main = new VpcIpamResourceDiscovery(&#34;main&#34;, VpcIpamResourceDiscoveryArgs.builder()        
- *             .description(&#34;My IPAM Resource Discovery&#34;)
- *             .operatingRegions(VpcIpamResourceDiscoveryOperatingRegionArgs.builder()
- *                 .regionName(current.applyValue(getRegionResult -&gt; getRegionResult.name()))
- *                 .build())
- *             .tags(Map.of(&#34;Test&#34;, &#34;Main&#34;))
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
  * ## Import
  * 
  * Using `pulumi import`, import IPAMs using the IPAM resource discovery `id`. For example:

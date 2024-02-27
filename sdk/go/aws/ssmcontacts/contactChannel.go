@@ -22,27 +22,25 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssmcontacts"
+//	ssmcontacts/contactChannel "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ssmcontacts/contactChannel"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ssmcontacts.NewContactChannel(ctx, "example", &ssmcontacts.ContactChannelArgs{
-//				ContactId: pulumi.String("arn:aws:ssm-contacts:us-west-2:123456789012:contact/contactalias"),
-//				DeliveryAddress: &ssmcontacts.ContactChannelDeliveryAddressArgs{
-//					SimpleAddress: pulumi.String("email@example.com"),
-//				},
-//				Type: pulumi.String("EMAIL"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := ssmcontacts/contactChannel.NewContactChannel(ctx, "example", &ssmcontacts/contactChannel.ContactChannelArgs{
+// ContactId: "arn:aws:ssm-contacts:us-west-2:123456789012:contact/contactalias",
+// DeliveryAddress: map[string]interface{}{
+// "simpleAddress": "email@example.com",
+// },
+// Type: "EMAIL",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Usage with SSM Contact
 //
@@ -51,34 +49,33 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssmcontacts"
+//	ssmcontacts/contact "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ssmcontacts/contact"
+//	ssmcontacts/contactChannel "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ssmcontacts/contactChannel"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleContact, err := ssmcontacts.NewContact(ctx, "exampleContact", &ssmcontacts.ContactArgs{
-//				Alias: pulumi.String("example_contact"),
-//				Type:  pulumi.String("PERSONAL"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ssmcontacts.NewContactChannel(ctx, "example", &ssmcontacts.ContactChannelArgs{
-//				ContactId: exampleContact.Arn,
-//				DeliveryAddress: &ssmcontacts.ContactChannelDeliveryAddressArgs{
-//					SimpleAddress: pulumi.String("email@example.com"),
-//				},
-//				Type: pulumi.String("EMAIL"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleContact, err := ssmcontacts/contact.NewContact(ctx, "exampleContact", &ssmcontacts/contact.ContactArgs{
+// Alias: "example_contact",
+// Type: "PERSONAL",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = ssmcontacts/contactChannel.NewContactChannel(ctx, "example", &ssmcontacts/contactChannel.ContactChannelArgs{
+// ContactId: exampleContact.Arn,
+// DeliveryAddress: map[string]interface{}{
+// "simpleAddress": "email@example.com",
+// },
+// Type: "EMAIL",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

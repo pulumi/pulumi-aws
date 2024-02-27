@@ -172,13 +172,13 @@ class PreparedStatement(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_bucket_v2 = aws.s3.BucketV2("testBucketV2", force_destroy=True)
-        test_workgroup = aws.athena.Workgroup("testWorkgroup")
-        test_database = aws.athena.Database("testDatabase",
-            name="example",
+        test_bucket_v2 = aws.s3.bucket_v2.BucketV2("testBucketV2", force_destroy=True)
+        test_workgroup = aws.athena.workgroup.Workgroup("testWorkgroup")
+        test_database = aws.athena.database.Database("testDatabase",
+            name=example,
             bucket=test_bucket_v2.bucket)
-        test_prepared_statement = aws.athena.PreparedStatement("testPreparedStatement",
-            query_statement=test_database.name.apply(lambda name: f"SELECT * FROM {name} WHERE x = ?"),
+        test_prepared_statement = aws.athena.prepared_statement.PreparedStatement("testPreparedStatement",
+            query_statement=fSELECT * FROM {test_database.name} WHERE x = ?,
             workgroup=test_workgroup.name)
         ```
 
@@ -212,13 +212,13 @@ class PreparedStatement(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_bucket_v2 = aws.s3.BucketV2("testBucketV2", force_destroy=True)
-        test_workgroup = aws.athena.Workgroup("testWorkgroup")
-        test_database = aws.athena.Database("testDatabase",
-            name="example",
+        test_bucket_v2 = aws.s3.bucket_v2.BucketV2("testBucketV2", force_destroy=True)
+        test_workgroup = aws.athena.workgroup.Workgroup("testWorkgroup")
+        test_database = aws.athena.database.Database("testDatabase",
+            name=example,
             bucket=test_bucket_v2.bucket)
-        test_prepared_statement = aws.athena.PreparedStatement("testPreparedStatement",
-            query_statement=test_database.name.apply(lambda name: f"SELECT * FROM {name} WHERE x = ?"),
+        test_prepared_statement = aws.athena.prepared_statement.PreparedStatement("testPreparedStatement",
+            query_statement=fSELECT * FROM {test_database.name} WHERE x = ?,
             workgroup=test_workgroup.name)
         ```
 

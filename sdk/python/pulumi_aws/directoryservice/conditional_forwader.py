@@ -138,12 +138,12 @@ class ConditionalForwader(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.directoryservice.ConditionalForwader("example",
-            directory_id=aws_directory_service_directory["ad"]["id"],
-            remote_domain_name="example.com",
+        example = aws.directoryservice.conditional_forwader.ConditionalForwader("example",
+            directory_id=aws_directory_service_directory.ad.id,
+            remote_domain_name=example.com,
             dns_ips=[
-                "8.8.8.8",
-                "8.8.4.4",
+                8.8.8.8,
+                8.8.4.4,
             ])
         ```
 
@@ -176,12 +176,12 @@ class ConditionalForwader(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.directoryservice.ConditionalForwader("example",
-            directory_id=aws_directory_service_directory["ad"]["id"],
-            remote_domain_name="example.com",
+        example = aws.directoryservice.conditional_forwader.ConditionalForwader("example",
+            directory_id=aws_directory_service_directory.ad.id,
+            remote_domain_name=example.com,
             dns_ips=[
-                "8.8.8.8",
-                "8.8.4.4",
+                8.8.8.8,
+                8.8.4.4,
             ])
         ```
 

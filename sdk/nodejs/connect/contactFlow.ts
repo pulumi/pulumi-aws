@@ -21,7 +21,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = new aws.connect.ContactFlow("test", {
+ * const test = new aws.connect/contactFlow.ContactFlow("test", {
  *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
  *     description: "Test Contact Flow Description",
  *     type: "CONTACT_FLOW",

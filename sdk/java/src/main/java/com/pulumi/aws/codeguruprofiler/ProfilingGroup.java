@@ -29,7 +29,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.codeguruprofiler.ProfilingGroup;
  * import com.pulumi.aws.codeguruprofiler.ProfilingGroupArgs;
- * import com.pulumi.aws.codeguruprofiler.inputs.ProfilingGroupAgentOrchestrationConfigArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -44,9 +43,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ProfilingGroup(&#34;example&#34;, ProfilingGroupArgs.builder()        
- *             .agentOrchestrationConfig(ProfilingGroupAgentOrchestrationConfigArgs.builder()
- *                 .profilingEnabled(true)
- *                 .build())
+ *             .agentOrchestrationConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .computePlatform(&#34;Default&#34;)
  *             .build());
  * 

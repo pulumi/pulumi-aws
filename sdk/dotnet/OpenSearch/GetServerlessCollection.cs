@@ -16,25 +16,6 @@ namespace Pulumi.Aws.OpenSearch
         /// 
         /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.OpenSearch.GetServerlessCollection.Invoke(new()
-        ///     {
-        ///         Name = "example",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetServerlessCollectionResult> InvokeAsync(GetServerlessCollectionArgs? args = null, InvokeOptions? options = null)
@@ -45,25 +26,6 @@ namespace Pulumi.Aws.OpenSearch
         /// 
         /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.OpenSearch.GetServerlessCollection.Invoke(new()
-        ///     {
-        ///         Name = "example",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetServerlessCollectionResult> Invoke(GetServerlessCollectionInvokeArgs? args = null, InvokeOptions? options = null)

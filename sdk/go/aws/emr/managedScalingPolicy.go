@@ -21,44 +21,43 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/emr"
+//	emr/cluster "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/emr/cluster"
+//	emr/managedScalingPolicy "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/emr/managedScalingPolicy"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			sample, err := emr.NewCluster(ctx, "sample", &emr.ClusterArgs{
-//				ReleaseLabel: pulumi.String("emr-5.30.0"),
-//				MasterInstanceGroup: &emr.ClusterMasterInstanceGroupArgs{
-//					InstanceType: pulumi.String("m4.large"),
-//				},
-//				CoreInstanceGroup: &emr.ClusterCoreInstanceGroupArgs{
-//					InstanceType: pulumi.String("c4.large"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = emr.NewManagedScalingPolicy(ctx, "samplepolicy", &emr.ManagedScalingPolicyArgs{
-//				ClusterId: sample.ID(),
-//				ComputeLimits: emr.ManagedScalingPolicyComputeLimitArray{
-//					&emr.ManagedScalingPolicyComputeLimitArgs{
-//						UnitType:                     pulumi.String("Instances"),
-//						MinimumCapacityUnits:         pulumi.Int(2),
-//						MaximumCapacityUnits:         pulumi.Int(10),
-//						MaximumOndemandCapacityUnits: pulumi.Int(2),
-//						MaximumCoreCapacityUnits:     pulumi.Int(10),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// sample, err := emr/cluster.NewCluster(ctx, "sample", &emr/cluster.ClusterArgs{
+// ReleaseLabel: "emr-5.30.0",
+// MasterInstanceGroup: map[string]interface{}{
+// "instanceType": "m4.large",
+// },
+// CoreInstanceGroup: map[string]interface{}{
+// "instanceType": "c4.large",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = emr/managedScalingPolicy.NewManagedScalingPolicy(ctx, "samplepolicy", &emr/managedScalingPolicy.ManagedScalingPolicyArgs{
+// ClusterId: sample.Id,
+// ComputeLimits: []map[string]interface{}{
+// map[string]interface{}{
+// "unitType": "Instances",
+// "minimumCapacityUnits": 2,
+// "maximumCapacityUnits": 10,
+// "maximumOndemandCapacityUnits": 2,
+// "maximumCoreCapacityUnits": 10,
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -17,56 +17,6 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
-        /// ### Find the regional DynamoDB prefix list
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var current = Aws.GetRegion.Invoke();
-        /// 
-        ///     var example = Aws.Ec2.GetManagedPrefixList.Invoke(new()
-        ///     {
-        ///         Name = $"com.amazonaws.{current.Apply(getRegionResult =&gt; getRegionResult.Name)}.dynamodb",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% example %}}
-        /// ### Find a managed prefix list using filters
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Ec2.GetManagedPrefixList.Invoke(new()
-        ///     {
-        ///         Filters = new[]
-        ///         {
-        ///             new Aws.Ec2.Inputs.GetManagedPrefixListFilterInputArgs
-        ///             {
-        ///                 Name = "prefix-list-name",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "my-prefix-list",
-        ///                 },
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetManagedPrefixListResult> InvokeAsync(GetManagedPrefixListArgs? args = null, InvokeOptions? options = null)
@@ -78,56 +28,6 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
-        /// ### Find the regional DynamoDB prefix list
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var current = Aws.GetRegion.Invoke();
-        /// 
-        ///     var example = Aws.Ec2.GetManagedPrefixList.Invoke(new()
-        ///     {
-        ///         Name = $"com.amazonaws.{current.Apply(getRegionResult =&gt; getRegionResult.Name)}.dynamodb",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% example %}}
-        /// ### Find a managed prefix list using filters
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Ec2.GetManagedPrefixList.Invoke(new()
-        ///     {
-        ///         Filters = new[]
-        ///         {
-        ///             new Aws.Ec2.Inputs.GetManagedPrefixListFilterInputArgs
-        ///             {
-        ///                 Name = "prefix-list-name",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "my-prefix-list",
-        ///                 },
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetManagedPrefixListResult> Invoke(GetManagedPrefixListInvokeArgs? args = null, InvokeOptions? options = null)

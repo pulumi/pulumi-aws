@@ -67,7 +67,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.fsx.OntapVolume;
  * import com.pulumi.aws.fsx.OntapVolumeArgs;
- * import com.pulumi.aws.fsx.inputs.OntapVolumeTieringPolicyArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -86,10 +85,7 @@ import javax.annotation.Nullable;
  *             .sizeInMegabytes(1024)
  *             .storageEfficiencyEnabled(true)
  *             .storageVirtualMachineId(aws_fsx_ontap_storage_virtual_machine.test().id())
- *             .tieringPolicy(OntapVolumeTieringPolicyArgs.builder()
- *                 .name(&#34;AUTO&#34;)
- *                 .coolingPeriod(31)
- *                 .build())
+ *             .tieringPolicy(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

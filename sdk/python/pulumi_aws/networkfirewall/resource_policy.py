@@ -108,23 +108,23 @@ class ResourcePolicy(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        example = aws.networkfirewall.ResourcePolicy("example",
-            resource_arn=aws_networkfirewall_firewall_policy["example"]["arn"],
+        example = aws.networkfirewall.resource_policy.ResourcePolicy("example",
+            resource_arn=aws_networkfirewall_firewall_policy.example.arn,
             policy=json.dumps({
-                "Statement": [{
-                    "Action": [
-                        "network-firewall:ListFirewallPolicies",
-                        "network-firewall:CreateFirewall",
-                        "network-firewall:UpdateFirewall",
-                        "network-firewall:AssociateFirewallPolicy",
+                Statement: [{
+                    Action: [
+                        network-firewall:ListFirewallPolicies,
+                        network-firewall:CreateFirewall,
+                        network-firewall:UpdateFirewall,
+                        network-firewall:AssociateFirewallPolicy,
                     ],
-                    "Effect": "Allow",
-                    "Resource": aws_networkfirewall_firewall_policy["example"]["arn"],
-                    "Principal": {
-                        "AWS": "arn:aws:iam::123456789012:root",
+                    Effect: Allow,
+                    Resource: aws_networkfirewall_firewall_policy.example.arn,
+                    Principal: {
+                        AWS: arn:aws:iam::123456789012:root,
                     },
                 }],
-                "Version": "2012-10-17",
+                Version: 2012-10-17,
             }))
         ```
         ### For a Rule Group resource
@@ -134,22 +134,22 @@ class ResourcePolicy(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        example = aws.networkfirewall.ResourcePolicy("example",
-            resource_arn=aws_networkfirewall_rule_group["example"]["arn"],
+        example = aws.networkfirewall.resource_policy.ResourcePolicy("example",
+            resource_arn=aws_networkfirewall_rule_group.example.arn,
             policy=json.dumps({
-                "Statement": [{
-                    "Action": [
-                        "network-firewall:ListRuleGroups",
-                        "network-firewall:CreateFirewallPolicy",
-                        "network-firewall:UpdateFirewallPolicy",
+                Statement: [{
+                    Action: [
+                        network-firewall:ListRuleGroups,
+                        network-firewall:CreateFirewallPolicy,
+                        network-firewall:UpdateFirewallPolicy,
                     ],
-                    "Effect": "Allow",
-                    "Resource": aws_networkfirewall_rule_group["example"]["arn"],
-                    "Principal": {
-                        "AWS": "arn:aws:iam::123456789012:root",
+                    Effect: Allow,
+                    Resource: aws_networkfirewall_rule_group.example.arn,
+                    Principal: {
+                        AWS: arn:aws:iam::123456789012:root,
                     },
                 }],
-                "Version": "2012-10-17",
+                Version: 2012-10-17,
             }))
         ```
 
@@ -183,23 +183,23 @@ class ResourcePolicy(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        example = aws.networkfirewall.ResourcePolicy("example",
-            resource_arn=aws_networkfirewall_firewall_policy["example"]["arn"],
+        example = aws.networkfirewall.resource_policy.ResourcePolicy("example",
+            resource_arn=aws_networkfirewall_firewall_policy.example.arn,
             policy=json.dumps({
-                "Statement": [{
-                    "Action": [
-                        "network-firewall:ListFirewallPolicies",
-                        "network-firewall:CreateFirewall",
-                        "network-firewall:UpdateFirewall",
-                        "network-firewall:AssociateFirewallPolicy",
+                Statement: [{
+                    Action: [
+                        network-firewall:ListFirewallPolicies,
+                        network-firewall:CreateFirewall,
+                        network-firewall:UpdateFirewall,
+                        network-firewall:AssociateFirewallPolicy,
                     ],
-                    "Effect": "Allow",
-                    "Resource": aws_networkfirewall_firewall_policy["example"]["arn"],
-                    "Principal": {
-                        "AWS": "arn:aws:iam::123456789012:root",
+                    Effect: Allow,
+                    Resource: aws_networkfirewall_firewall_policy.example.arn,
+                    Principal: {
+                        AWS: arn:aws:iam::123456789012:root,
                     },
                 }],
-                "Version": "2012-10-17",
+                Version: 2012-10-17,
             }))
         ```
         ### For a Rule Group resource
@@ -209,22 +209,22 @@ class ResourcePolicy(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        example = aws.networkfirewall.ResourcePolicy("example",
-            resource_arn=aws_networkfirewall_rule_group["example"]["arn"],
+        example = aws.networkfirewall.resource_policy.ResourcePolicy("example",
+            resource_arn=aws_networkfirewall_rule_group.example.arn,
             policy=json.dumps({
-                "Statement": [{
-                    "Action": [
-                        "network-firewall:ListRuleGroups",
-                        "network-firewall:CreateFirewallPolicy",
-                        "network-firewall:UpdateFirewallPolicy",
+                Statement: [{
+                    Action: [
+                        network-firewall:ListRuleGroups,
+                        network-firewall:CreateFirewallPolicy,
+                        network-firewall:UpdateFirewallPolicy,
                     ],
-                    "Effect": "Allow",
-                    "Resource": aws_networkfirewall_rule_group["example"]["arn"],
-                    "Principal": {
-                        "AWS": "arn:aws:iam::123456789012:root",
+                    Effect: Allow,
+                    Resource: aws_networkfirewall_rule_group.example.arn,
+                    Principal: {
+                        AWS: arn:aws:iam::123456789012:root,
                     },
                 }],
-                "Version": "2012-10-17",
+                Version: 2012-10-17,
             }))
         ```
 

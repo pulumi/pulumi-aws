@@ -16,29 +16,6 @@ namespace Pulumi.Aws.Connect
         /// 
         /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
-        /// ### By name
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Connect.GetBotAssociation.Invoke(new()
-        ///     {
-        ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
-        ///         LexBot = new Aws.Connect.Inputs.GetBotAssociationLexBotInputArgs
-        ///         {
-        ///             Name = "Test",
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetBotAssociationResult> InvokeAsync(GetBotAssociationArgs args, InvokeOptions? options = null)
@@ -49,29 +26,6 @@ namespace Pulumi.Aws.Connect
         /// 
         /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
-        /// ### By name
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Connect.GetBotAssociation.Invoke(new()
-        ///     {
-        ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
-        ///         LexBot = new Aws.Connect.Inputs.GetBotAssociationLexBotInputArgs
-        ///         {
-        ///             Name = "Test",
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetBotAssociationResult> Invoke(GetBotAssociationInvokeArgs args, InvokeOptions? options = null)

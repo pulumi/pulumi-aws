@@ -124,13 +124,13 @@ class StaticIpAttachment(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_static_ip = aws.lightsail.StaticIp("testStaticIp")
-        test_instance = aws.lightsail.Instance("testInstance",
-            availability_zone="us-east-1b",
-            blueprint_id="string",
-            bundle_id="string",
-            key_pair_name="some_key_name")
-        test_static_ip_attachment = aws.lightsail.StaticIpAttachment("testStaticIpAttachment",
+        test_static_ip = aws.lightsail.static_ip.StaticIp("testStaticIp")
+        test_instance = aws.lightsail.instance.Instance("testInstance",
+            availability_zone=us-east-1b,
+            blueprint_id=string,
+            bundle_id=string,
+            key_pair_name=some_key_name)
+        test_static_ip_attachment = aws.lightsail.static_ip_attachment.StaticIpAttachment("testStaticIpAttachment",
             static_ip_name=test_static_ip.id,
             instance_name=test_instance.id)
         ```
@@ -157,13 +157,13 @@ class StaticIpAttachment(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_static_ip = aws.lightsail.StaticIp("testStaticIp")
-        test_instance = aws.lightsail.Instance("testInstance",
-            availability_zone="us-east-1b",
-            blueprint_id="string",
-            bundle_id="string",
-            key_pair_name="some_key_name")
-        test_static_ip_attachment = aws.lightsail.StaticIpAttachment("testStaticIpAttachment",
+        test_static_ip = aws.lightsail.static_ip.StaticIp("testStaticIp")
+        test_instance = aws.lightsail.instance.Instance("testInstance",
+            availability_zone=us-east-1b,
+            blueprint_id=string,
+            bundle_id=string,
+            key_pair_name=some_key_name)
+        test_static_ip_attachment = aws.lightsail.static_ip_attachment.StaticIpAttachment("testStaticIpAttachment",
             static_ip_name=test_static_ip.id,
             instance_name=test_instance.id)
         ```

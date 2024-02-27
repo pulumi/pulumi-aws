@@ -28,38 +28,36 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/mq"
+//	mq/broker "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/mq/broker"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := mq.NewBroker(ctx, "example", &mq.BrokerArgs{
-//				Configuration: &mq.BrokerConfigurationArgs{
-//					Id:       pulumi.Any(aws_mq_configuration.Test.Id),
-//					Revision: pulumi.Any(aws_mq_configuration.Test.Latest_revision),
-//				},
-//				EngineType:       pulumi.String("ActiveMQ"),
-//				EngineVersion:    pulumi.String("5.17.6"),
-//				HostInstanceType: pulumi.String("mq.t2.micro"),
-//				SecurityGroups: pulumi.StringArray{
-//					aws_security_group.Test.Id,
-//				},
-//				Users: mq.BrokerUserArray{
-//					&mq.BrokerUserArgs{
-//						Username: pulumi.String("ExampleUser"),
-//						Password: pulumi.String("MindTheGap"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := mq/broker.NewBroker(ctx, "example", &mq/broker.BrokerArgs{
+// Configuration: map[string]interface{}{
+// "id": aws_mq_configuration.Test.Id,
+// "revision": aws_mq_configuration.Test.Latest_revision,
+// },
+// EngineType: "ActiveMQ",
+// EngineVersion: "5.17.6",
+// HostInstanceType: "mq.t2.micro",
+// SecurityGroups: []interface{}{
+// aws_security_group.Test.Id,
+// },
+// Users: []map[string]interface{}{
+// map[string]interface{}{
+// "username": "ExampleUser",
+// "password": "MindTheGap",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### High-throughput Optimized Example
 //
@@ -70,39 +68,37 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/mq"
+//	mq/broker "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/mq/broker"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := mq.NewBroker(ctx, "example", &mq.BrokerArgs{
-//				Configuration: &mq.BrokerConfigurationArgs{
-//					Id:       pulumi.Any(aws_mq_configuration.Test.Id),
-//					Revision: pulumi.Any(aws_mq_configuration.Test.Latest_revision),
-//				},
-//				EngineType:       pulumi.String("ActiveMQ"),
-//				EngineVersion:    pulumi.String("5.17.6"),
-//				StorageType:      pulumi.String("ebs"),
-//				HostInstanceType: pulumi.String("mq.m5.large"),
-//				SecurityGroups: pulumi.StringArray{
-//					aws_security_group.Test.Id,
-//				},
-//				Users: mq.BrokerUserArray{
-//					&mq.BrokerUserArgs{
-//						Username: pulumi.String("ExampleUser"),
-//						Password: pulumi.String("MindTheGap"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := mq/broker.NewBroker(ctx, "example", &mq/broker.BrokerArgs{
+// Configuration: map[string]interface{}{
+// "id": aws_mq_configuration.Test.Id,
+// "revision": aws_mq_configuration.Test.Latest_revision,
+// },
+// EngineType: "ActiveMQ",
+// EngineVersion: "5.17.6",
+// StorageType: "ebs",
+// HostInstanceType: "mq.m5.large",
+// SecurityGroups: []interface{}{
+// aws_security_group.Test.Id,
+// },
+// Users: []map[string]interface{}{
+// map[string]interface{}{
+// "username": "ExampleUser",
+// "password": "MindTheGap",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

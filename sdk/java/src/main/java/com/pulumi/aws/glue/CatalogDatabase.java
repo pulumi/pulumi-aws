@@ -60,8 +60,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.glue.CatalogDatabase;
  * import com.pulumi.aws.glue.CatalogDatabaseArgs;
- * import com.pulumi.aws.glue.inputs.CatalogDatabaseCreateTableDefaultPermissionArgs;
- * import com.pulumi.aws.glue.inputs.CatalogDatabaseCreateTableDefaultPermissionPrincipalArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -76,12 +74,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new CatalogDatabase(&#34;example&#34;, CatalogDatabaseArgs.builder()        
- *             .createTableDefaultPermissions(CatalogDatabaseCreateTableDefaultPermissionArgs.builder()
- *                 .permissions(&#34;SELECT&#34;)
- *                 .principal(CatalogDatabaseCreateTableDefaultPermissionPrincipalArgs.builder()
- *                     .dataLakePrincipalIdentifier(&#34;IAM_ALLOWED_PRINCIPALS&#34;)
- *                     .build())
- *                 .build())
+ *             .createTableDefaultPermissions(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .name(&#34;MyCatalogDatabase&#34;)
  *             .build());
  * 

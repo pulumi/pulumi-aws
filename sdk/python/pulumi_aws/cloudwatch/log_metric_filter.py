@@ -177,15 +177,15 @@ class LogMetricFilter(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        dada = aws.cloudwatch.LogGroup("dada")
-        yada = aws.cloudwatch.LogMetricFilter("yada",
-            pattern="",
+        dada = aws.cloudwatch.log_group.LogGroup("dada")
+        yada = aws.cloudwatch.log_metric_filter.LogMetricFilter("yada",
+            pattern=,
             log_group_name=dada.name,
-            metric_transformation=aws.cloudwatch.LogMetricFilterMetricTransformationArgs(
-                name="EventCount",
-                namespace="YourNamespace",
-                value="1",
-            ))
+            metric_transformation={
+                name: EventCount,
+                namespace: YourNamespace,
+                value: 1,
+            })
         ```
 
         ## Import
@@ -219,15 +219,15 @@ class LogMetricFilter(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        dada = aws.cloudwatch.LogGroup("dada")
-        yada = aws.cloudwatch.LogMetricFilter("yada",
-            pattern="",
+        dada = aws.cloudwatch.log_group.LogGroup("dada")
+        yada = aws.cloudwatch.log_metric_filter.LogMetricFilter("yada",
+            pattern=,
             log_group_name=dada.name,
-            metric_transformation=aws.cloudwatch.LogMetricFilterMetricTransformationArgs(
-                name="EventCount",
-                namespace="YourNamespace",
-                value="1",
-            ))
+            metric_transformation={
+                name: EventCount,
+                namespace: YourNamespace,
+                value: 1,
+            })
         ```
 
         ## Import

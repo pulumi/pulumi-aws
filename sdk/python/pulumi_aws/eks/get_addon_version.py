@@ -90,25 +90,6 @@ def get_addon_version(addon_name: Optional[str] = None,
     """
     Retrieve information about a specific EKS add-on version compatible with an EKS cluster version.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    default_addon_version = aws.eks.get_addon_version(addon_name="vpc-cni",
-        kubernetes_version=aws_eks_cluster["example"]["version"])
-    latest_addon_version = aws.eks.get_addon_version(addon_name="vpc-cni",
-        kubernetes_version=aws_eks_cluster["example"]["version"],
-        most_recent=True)
-    vpc_cni = aws.eks.Addon("vpcCni",
-        cluster_name=aws_eks_cluster["example"]["name"],
-        addon_name="vpc-cni",
-        addon_version=latest_addon_version.version)
-    pulumi.export("default", default_addon_version.version)
-    pulumi.export("latest", latest_addon_version.version)
-    ```
-
 
     :param str addon_name: Name of the EKS add-on. The name must match one of
            the names returned by [list-addon](https://docs.aws.amazon.com/cli/latest/reference/eks/list-addons.html).
@@ -137,25 +118,6 @@ def get_addon_version_output(addon_name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAddonVersionResult]:
     """
     Retrieve information about a specific EKS add-on version compatible with an EKS cluster version.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    default_addon_version = aws.eks.get_addon_version(addon_name="vpc-cni",
-        kubernetes_version=aws_eks_cluster["example"]["version"])
-    latest_addon_version = aws.eks.get_addon_version(addon_name="vpc-cni",
-        kubernetes_version=aws_eks_cluster["example"]["version"],
-        most_recent=True)
-    vpc_cni = aws.eks.Addon("vpcCni",
-        cluster_name=aws_eks_cluster["example"]["name"],
-        addon_name="vpc-cni",
-        addon_version=latest_addon_version.version)
-    pulumi.export("default", default_addon_version.version)
-    pulumi.export("latest", latest_addon_version.version)
-    ```
 
 
     :param str addon_name: Name of the EKS add-on. The name must match one of

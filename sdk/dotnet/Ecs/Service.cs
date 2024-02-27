@@ -26,7 +26,7 @@ namespace Pulumi.Aws.Ecs
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var mongo = new Aws.Ecs.Service("mongo", new()
+    ///     var mongo = new Aws.Ecs.Service.Service("mongo", new()
     ///     {
     ///         Cluster = aws_ecs_cluster.Foo.Id,
     ///         TaskDefinition = aws_ecs_task_definition.Mongo.Arn,
@@ -34,27 +34,27 @@ namespace Pulumi.Aws.Ecs
     ///         IamRole = aws_iam_role.Foo.Arn,
     ///         OrderedPlacementStrategies = new[]
     ///         {
-    ///             new Aws.Ecs.Inputs.ServiceOrderedPlacementStrategyArgs
+    ///             
     ///             {
-    ///                 Type = "binpack",
-    ///                 Field = "cpu",
+    ///                 { "type", "binpack" },
+    ///                 { "field", "cpu" },
     ///             },
     ///         },
     ///         LoadBalancers = new[]
     ///         {
-    ///             new Aws.Ecs.Inputs.ServiceLoadBalancerArgs
+    ///             
     ///             {
-    ///                 TargetGroupArn = aws_lb_target_group.Foo.Arn,
-    ///                 ContainerName = "mongo",
-    ///                 ContainerPort = 8080,
+    ///                 { "targetGroupArn", aws_lb_target_group.Foo.Arn },
+    ///                 { "containerName", "mongo" },
+    ///                 { "containerPort", 8080 },
     ///             },
     ///         },
     ///         PlacementConstraints = new[]
     ///         {
-    ///             new Aws.Ecs.Inputs.ServicePlacementConstraintArgs
+    ///             
     ///             {
-    ///                 Type = "memberOf",
-    ///                 Expression = "attribute:ecs.availability-zone in [us-west-2a, us-west-2b]",
+    ///                 { "type", "memberOf" },
+    ///                 { "expression", "attribute:ecs.availability-zone in [us-west-2a, us-west-2b]" },
     ///             },
     ///         },
     ///     }, new CustomResourceOptions
@@ -80,7 +80,7 @@ namespace Pulumi.Aws.Ecs
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // ... other configurations ...
-    ///     var example = new Aws.Ecs.Service("example", new()
+    ///     var example = new Aws.Ecs.Service.Service("example", new()
     ///     {
     ///         DesiredCount = 2,
     ///     });
@@ -97,7 +97,7 @@ namespace Pulumi.Aws.Ecs
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var bar = new Aws.Ecs.Service("bar", new()
+    ///     var bar = new Aws.Ecs.Service.Service("bar", new()
     ///     {
     ///         Cluster = aws_ecs_cluster.Foo.Id,
     ///         TaskDefinition = aws_ecs_task_definition.Bar.Arn,
@@ -116,17 +116,17 @@ namespace Pulumi.Aws.Ecs
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Ecs.Service("example", new()
+    ///     var example = new Aws.Ecs.Service.Service("example", new()
     ///     {
     ///         Cluster = aws_ecs_cluster.Example.Id,
-    ///         Alarms = new Aws.Ecs.Inputs.ServiceAlarmsArgs
+    ///         Alarms = 
     ///         {
-    ///             Enable = true,
-    ///             Rollback = true,
-    ///             AlarmNames = new[]
+    ///             { "enable", true },
+    ///             { "rollback", true },
+    ///             { "alarmNames", new[]
     ///             {
     ///                 aws_cloudwatch_metric_alarm.Example.Alarm_name,
-    ///             },
+    ///             } },
     ///         },
     ///     });
     /// 
@@ -142,12 +142,12 @@ namespace Pulumi.Aws.Ecs
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Ecs.Service("example", new()
+    ///     var example = new Aws.Ecs.Service.Service("example", new()
     ///     {
     ///         Cluster = aws_ecs_cluster.Example.Id,
-    ///         DeploymentController = new Aws.Ecs.Inputs.ServiceDeploymentControllerArgs
+    ///         DeploymentController = 
     ///         {
-    ///             Type = "EXTERNAL",
+    ///             { "type", "EXTERNAL" },
     ///         },
     ///     });
     /// 

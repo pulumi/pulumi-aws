@@ -24,7 +24,7 @@ namespace Pulumi.Aws.Ram
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Ram.SharingWithOrganization("example");
+    ///     var example = new Aws.Ram.SharingWithOrganization.SharingWithOrganization("example");
     /// 
     /// });
     /// ```

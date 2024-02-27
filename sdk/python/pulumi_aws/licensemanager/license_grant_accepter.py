@@ -202,7 +202,7 @@ class LicenseGrantAccepter(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.licensemanager.LicenseGrantAccepter("test", grant_arn="arn:aws:license-manager::123456789012:grant:g-1cf9fba4ba2f42dcab11c686c4b4d329")
+        test = aws.licensemanager.license_grant_accepter.LicenseGrantAccepter("test", grant_arn=arn:aws:license-manager::123456789012:grant:g-1cf9fba4ba2f42dcab11c686c4b4d329)
         ```
 
         ## Import
@@ -232,7 +232,7 @@ class LicenseGrantAccepter(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.licensemanager.LicenseGrantAccepter("test", grant_arn="arn:aws:license-manager::123456789012:grant:g-1cf9fba4ba2f42dcab11c686c4b4d329")
+        test = aws.licensemanager.license_grant_accepter.LicenseGrantAccepter("test", grant_arn=arn:aws:license-manager::123456789012:grant:g-1cf9fba4ba2f42dcab11c686c4b4d329)
         ```
 
         ## Import

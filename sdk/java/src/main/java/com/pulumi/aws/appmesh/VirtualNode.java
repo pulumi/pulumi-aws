@@ -38,11 +38,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.appmesh.VirtualNode;
- * import com.pulumi.aws.appmesh.VirtualNodeArgs;
- * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecArgs;
- * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecServiceDiscoveryArgs;
- * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecServiceDiscoveryDnsArgs;
+ * import com.pulumi.aws.appmesh_virtualNode.VirtualNode;
+ * import com.pulumi.aws.appmesh_virtualNode.VirtualNodeArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -58,24 +55,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var serviceb1 = new VirtualNode(&#34;serviceb1&#34;, VirtualNodeArgs.builder()        
  *             .meshName(aws_appmesh_mesh.simple().id())
- *             .spec(VirtualNodeSpecArgs.builder()
- *                 .backends(VirtualNodeSpecBackendArgs.builder()
- *                     .virtualService(VirtualNodeSpecBackendVirtualServiceArgs.builder()
- *                         .virtualServiceName(&#34;servicea.simpleapp.local&#34;)
- *                         .build())
- *                     .build())
- *                 .listeners(VirtualNodeSpecListenerArgs.builder()
- *                     .portMapping(VirtualNodeSpecListenerPortMappingArgs.builder()
- *                         .port(8080)
- *                         .protocol(&#34;http&#34;)
- *                         .build())
- *                     .build())
- *                 .serviceDiscovery(VirtualNodeSpecServiceDiscoveryArgs.builder()
- *                     .dns(VirtualNodeSpecServiceDiscoveryDnsArgs.builder()
- *                         .hostname(&#34;serviceb.simpleapp.local&#34;)
- *                         .build())
- *                     .build())
- *                 .build())
+ *             .spec(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -89,11 +69,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.servicediscovery.HttpNamespace;
- * import com.pulumi.aws.appmesh.VirtualNode;
- * import com.pulumi.aws.appmesh.VirtualNodeArgs;
- * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecArgs;
- * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecServiceDiscoveryArgs;
- * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecServiceDiscoveryAwsCloudMapArgs;
+ * import com.pulumi.aws.appmesh_virtualNode.VirtualNode;
+ * import com.pulumi.aws.appmesh_virtualNode.VirtualNodeArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -111,26 +88,7 @@ import javax.annotation.Nullable;
  * 
  *         var serviceb1 = new VirtualNode(&#34;serviceb1&#34;, VirtualNodeArgs.builder()        
  *             .meshName(aws_appmesh_mesh.simple().id())
- *             .spec(VirtualNodeSpecArgs.builder()
- *                 .backends(VirtualNodeSpecBackendArgs.builder()
- *                     .virtualService(VirtualNodeSpecBackendVirtualServiceArgs.builder()
- *                         .virtualServiceName(&#34;servicea.simpleapp.local&#34;)
- *                         .build())
- *                     .build())
- *                 .listeners(VirtualNodeSpecListenerArgs.builder()
- *                     .portMapping(VirtualNodeSpecListenerPortMappingArgs.builder()
- *                         .port(8080)
- *                         .protocol(&#34;http&#34;)
- *                         .build())
- *                     .build())
- *                 .serviceDiscovery(VirtualNodeSpecServiceDiscoveryArgs.builder()
- *                     .awsCloudMap(VirtualNodeSpecServiceDiscoveryAwsCloudMapArgs.builder()
- *                         .attributes(Map.of(&#34;stack&#34;, &#34;blue&#34;))
- *                         .serviceName(&#34;serviceb1&#34;)
- *                         .namespaceName(example.name())
- *                         .build())
- *                     .build())
- *                 .build())
+ *             .spec(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -143,11 +101,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.appmesh.VirtualNode;
- * import com.pulumi.aws.appmesh.VirtualNodeArgs;
- * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecArgs;
- * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecServiceDiscoveryArgs;
- * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecServiceDiscoveryDnsArgs;
+ * import com.pulumi.aws.appmesh_virtualNode.VirtualNode;
+ * import com.pulumi.aws.appmesh_virtualNode.VirtualNodeArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -163,32 +118,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var serviceb1 = new VirtualNode(&#34;serviceb1&#34;, VirtualNodeArgs.builder()        
  *             .meshName(aws_appmesh_mesh.simple().id())
- *             .spec(VirtualNodeSpecArgs.builder()
- *                 .backends(VirtualNodeSpecBackendArgs.builder()
- *                     .virtualService(VirtualNodeSpecBackendVirtualServiceArgs.builder()
- *                         .virtualServiceName(&#34;servicea.simpleapp.local&#34;)
- *                         .build())
- *                     .build())
- *                 .listeners(VirtualNodeSpecListenerArgs.builder()
- *                     .portMapping(VirtualNodeSpecListenerPortMappingArgs.builder()
- *                         .port(8080)
- *                         .protocol(&#34;http&#34;)
- *                         .build())
- *                     .healthCheck(VirtualNodeSpecListenerHealthCheckArgs.builder()
- *                         .protocol(&#34;http&#34;)
- *                         .path(&#34;/ping&#34;)
- *                         .healthyThreshold(2)
- *                         .unhealthyThreshold(2)
- *                         .timeoutMillis(2000)
- *                         .intervalMillis(5000)
- *                         .build())
- *                     .build())
- *                 .serviceDiscovery(VirtualNodeSpecServiceDiscoveryArgs.builder()
- *                     .dns(VirtualNodeSpecServiceDiscoveryDnsArgs.builder()
- *                         .hostname(&#34;serviceb.simpleapp.local&#34;)
- *                         .build())
- *                     .build())
- *                 .build())
+ *             .spec(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -201,14 +131,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.appmesh.VirtualNode;
- * import com.pulumi.aws.appmesh.VirtualNodeArgs;
- * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecArgs;
- * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecServiceDiscoveryArgs;
- * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecServiceDiscoveryDnsArgs;
- * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecLoggingArgs;
- * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecLoggingAccessLogArgs;
- * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecLoggingAccessLogFileArgs;
+ * import com.pulumi.aws.appmesh_virtualNode.VirtualNode;
+ * import com.pulumi.aws.appmesh_virtualNode.VirtualNodeArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -224,31 +148,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var serviceb1 = new VirtualNode(&#34;serviceb1&#34;, VirtualNodeArgs.builder()        
  *             .meshName(aws_appmesh_mesh.simple().id())
- *             .spec(VirtualNodeSpecArgs.builder()
- *                 .backends(VirtualNodeSpecBackendArgs.builder()
- *                     .virtualService(VirtualNodeSpecBackendVirtualServiceArgs.builder()
- *                         .virtualServiceName(&#34;servicea.simpleapp.local&#34;)
- *                         .build())
- *                     .build())
- *                 .listeners(VirtualNodeSpecListenerArgs.builder()
- *                     .portMapping(VirtualNodeSpecListenerPortMappingArgs.builder()
- *                         .port(8080)
- *                         .protocol(&#34;http&#34;)
- *                         .build())
- *                     .build())
- *                 .serviceDiscovery(VirtualNodeSpecServiceDiscoveryArgs.builder()
- *                     .dns(VirtualNodeSpecServiceDiscoveryDnsArgs.builder()
- *                         .hostname(&#34;serviceb.simpleapp.local&#34;)
- *                         .build())
- *                     .build())
- *                 .logging(VirtualNodeSpecLoggingArgs.builder()
- *                     .accessLog(VirtualNodeSpecLoggingAccessLogArgs.builder()
- *                         .file(VirtualNodeSpecLoggingAccessLogFileArgs.builder()
- *                             .path(&#34;/dev/stdout&#34;)
- *                             .build())
- *                         .build())
- *                     .build())
- *                 .build())
+ *             .spec(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

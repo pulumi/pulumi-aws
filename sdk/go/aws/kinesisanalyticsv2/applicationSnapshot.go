@@ -22,24 +22,22 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kinesisanalyticsv2"
+//	kinesisanalyticsv2/applicationSnapshot "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/kinesisanalyticsv2/applicationSnapshot"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := kinesisanalyticsv2.NewApplicationSnapshot(ctx, "example", &kinesisanalyticsv2.ApplicationSnapshotArgs{
-//				ApplicationName: pulumi.Any(aws_kinesisanalyticsv2_application.Example.Name),
-//				SnapshotName:    pulumi.String("example-snapshot"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := kinesisanalyticsv2/applicationSnapshot.NewApplicationSnapshot(ctx, "example", &kinesisanalyticsv2/applicationSnapshot.ApplicationSnapshotArgs{
+// ApplicationName: aws_kinesisanalyticsv2_application.Example.Name,
+// SnapshotName: "example-snapshot",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

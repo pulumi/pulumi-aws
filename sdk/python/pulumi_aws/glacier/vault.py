@@ -230,40 +230,6 @@ class Vault(pulumi.CustomResource):
 
         > **NOTE:** When removing a Glacier Vault, the Vault must be empty.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        aws_sns_topic = aws.sns.Topic("awsSnsTopic")
-        my_archive_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            sid="add-read-only-perm",
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="*",
-                identifiers=["*"],
-            )],
-            actions=[
-                "glacier:InitiateJob",
-                "glacier:GetJobOutput",
-            ],
-            resources=["arn:aws:glacier:eu-west-1:432981146916:vaults/MyArchive"],
-        )])
-        my_archive_vault = aws.glacier.Vault("myArchiveVault",
-            notification=aws.glacier.VaultNotificationArgs(
-                sns_topic=aws_sns_topic.arn,
-                events=[
-                    "ArchiveRetrievalCompleted",
-                    "InventoryRetrievalCompleted",
-                ],
-            ),
-            access_policy=my_archive_policy_document.json,
-            tags={
-                "Test": "MyArchive",
-            })
-        ```
-
         ## Import
 
         Using `pulumi import`, import Glacier Vaults using the `name`. For example:
@@ -290,40 +256,6 @@ class Vault(pulumi.CustomResource):
         Provides a Glacier Vault Resource. You can refer to the [Glacier Developer Guide](https://docs.aws.amazon.com/amazonglacier/latest/dev/working-with-vaults.html) for a full explanation of the Glacier Vault functionality
 
         > **NOTE:** When removing a Glacier Vault, the Vault must be empty.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        aws_sns_topic = aws.sns.Topic("awsSnsTopic")
-        my_archive_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            sid="add-read-only-perm",
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="*",
-                identifiers=["*"],
-            )],
-            actions=[
-                "glacier:InitiateJob",
-                "glacier:GetJobOutput",
-            ],
-            resources=["arn:aws:glacier:eu-west-1:432981146916:vaults/MyArchive"],
-        )])
-        my_archive_vault = aws.glacier.Vault("myArchiveVault",
-            notification=aws.glacier.VaultNotificationArgs(
-                sns_topic=aws_sns_topic.arn,
-                events=[
-                    "ArchiveRetrievalCompleted",
-                    "InventoryRetrievalCompleted",
-                ],
-            ),
-            access_policy=my_archive_policy_document.json,
-            tags={
-                "Test": "MyArchive",
-            })
-        ```
 
         ## Import
 

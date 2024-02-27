@@ -17,14 +17,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const fooDeploymentConfig = new aws.codedeploy.DeploymentConfig("fooDeploymentConfig", {
+ * const fooDeploymentConfig = new aws.codedeploy/deploymentConfig.DeploymentConfig("fooDeploymentConfig", {
  *     deploymentConfigName: "test-deployment-config",
  *     minimumHealthyHosts: {
  *         type: "HOST_COUNT",
  *         value: 2,
  *     },
  * });
- * const fooDeploymentGroup = new aws.codedeploy.DeploymentGroup("fooDeploymentGroup", {
+ * const fooDeploymentGroup = new aws.codedeploy/deploymentGroup.DeploymentGroup("fooDeploymentGroup", {
  *     appName: aws_codedeploy_app.foo_app.name,
  *     deploymentGroupName: "bar",
  *     serviceRoleArn: aws_iam_role.foo_role.arn,
@@ -55,7 +55,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const fooDeploymentConfig = new aws.codedeploy.DeploymentConfig("fooDeploymentConfig", {
+ * const fooDeploymentConfig = new aws.codedeploy/deploymentConfig.DeploymentConfig("fooDeploymentConfig", {
  *     deploymentConfigName: "test-deployment-config",
  *     computePlatform: "Lambda",
  *     trafficRoutingConfig: {
@@ -66,7 +66,7 @@ import * as utilities from "../utilities";
  *         },
  *     },
  * });
- * const fooDeploymentGroup = new aws.codedeploy.DeploymentGroup("fooDeploymentGroup", {
+ * const fooDeploymentGroup = new aws.codedeploy/deploymentGroup.DeploymentGroup("fooDeploymentGroup", {
  *     appName: aws_codedeploy_app.foo_app.name,
  *     deploymentGroupName: "bar",
  *     serviceRoleArn: aws_iam_role.foo_role.arn,

@@ -23,26 +23,24 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sagemaker"
+//	sagemaker/monitoringSchedule "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/sagemaker/monitoringSchedule"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := sagemaker.NewMonitoringSchedule(ctx, "test", &sagemaker.MonitoringScheduleArgs{
-//				MonitoringScheduleConfig: &sagemaker.MonitoringScheduleMonitoringScheduleConfigArgs{
-//					MonitoringJobDefinitionName: pulumi.Any(aws_sagemaker_data_quality_job_definition.Test.Name),
-//					MonitoringType:              pulumi.String("DataQuality"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := sagemaker/monitoringSchedule.NewMonitoringSchedule(ctx, "test", &sagemaker/monitoringSchedule.MonitoringScheduleArgs{
+// MonitoringScheduleConfig: map[string]interface{}{
+// "monitoringJobDefinitionName": aws_sagemaker_data_quality_job_definition.Test.Name,
+// "monitoringType": "DataQuality",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -207,34 +207,6 @@ class VpcEndpointConnectionNotification(pulumi.CustomResource):
         Provides a VPC Endpoint connection notification resource.
         Connection notifications notify subscribers of VPC Endpoint events.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        topic_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["vpce.amazonaws.com"],
-            )],
-            actions=["SNS:Publish"],
-            resources=["arn:aws:sns:*:*:vpce-notification-topic"],
-        )])
-        topic_topic = aws.sns.Topic("topicTopic", policy=topic_policy_document.json)
-        foo_vpc_endpoint_service = aws.ec2.VpcEndpointService("fooVpcEndpointService",
-            acceptance_required=False,
-            network_load_balancer_arns=[aws_lb["test"]["arn"]])
-        foo_vpc_endpoint_connection_notification = aws.ec2.VpcEndpointConnectionNotification("fooVpcEndpointConnectionNotification",
-            vpc_endpoint_service_id=foo_vpc_endpoint_service.id,
-            connection_notification_arn=topic_topic.arn,
-            connection_events=[
-                "Accept",
-                "Reject",
-            ])
-        ```
-
         ## Import
 
         Using `pulumi import`, import VPC Endpoint connection notifications using the VPC endpoint connection notification `id`. For example:
@@ -261,34 +233,6 @@ class VpcEndpointConnectionNotification(pulumi.CustomResource):
         """
         Provides a VPC Endpoint connection notification resource.
         Connection notifications notify subscribers of VPC Endpoint events.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        topic_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["vpce.amazonaws.com"],
-            )],
-            actions=["SNS:Publish"],
-            resources=["arn:aws:sns:*:*:vpce-notification-topic"],
-        )])
-        topic_topic = aws.sns.Topic("topicTopic", policy=topic_policy_document.json)
-        foo_vpc_endpoint_service = aws.ec2.VpcEndpointService("fooVpcEndpointService",
-            acceptance_required=False,
-            network_load_balancer_arns=[aws_lb["test"]["arn"]])
-        foo_vpc_endpoint_connection_notification = aws.ec2.VpcEndpointConnectionNotification("fooVpcEndpointConnectionNotification",
-            vpc_endpoint_service_id=foo_vpc_endpoint_service.id,
-            connection_notification_arn=topic_topic.arn,
-            connection_events=[
-                "Accept",
-                "Reject",
-            ])
-        ```
 
         ## Import
 

@@ -23,33 +23,33 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cfg"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/organizations"
+//	cfg/organizationConformancePack "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/cfg/organizationConformancePack"
+//	organizations/organization "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/organizations/organization"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleOrganization, err := organizations/organization.NewOrganization(ctx, "exampleOrganization", &organizations/organization.OrganizationArgs{
+// AwsServiceAccessPrincipals: []string{
+// "config-multiaccountsetup.amazonaws.com",
+// },
+// FeatureSet: "ALL",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = cfg/organizationConformancePack.NewOrganizationConformancePack(ctx, "exampleOrganizationConformancePack", &cfg/organizationConformancePack.OrganizationConformancePackArgs{
+// InputParameters: []map[string]interface{}{
+// map[string]interface{}{
+// "parameterName": "AccessKeysRotatedParameterMaxAccessKeyAge",
+// "parameterValue": "90",
+// },
+// },
+// TemplateBody: `Parameters:
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleOrganization, err := organizations.NewOrganization(ctx, "exampleOrganization", &organizations.OrganizationArgs{
-//				AwsServiceAccessPrincipals: pulumi.StringArray{
-//					pulumi.String("config-multiaccountsetup.amazonaws.com"),
-//				},
-//				FeatureSet: pulumi.String("ALL"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = cfg.NewOrganizationConformancePack(ctx, "exampleOrganizationConformancePack", &cfg.OrganizationConformancePackArgs{
-//				InputParameters: cfg.OrganizationConformancePackInputParameterArray{
-//					&cfg.OrganizationConformancePackInputParameterArgs{
-//						ParameterName:  pulumi.String("AccessKeysRotatedParameterMaxAccessKeyAge"),
-//						ParameterValue: pulumi.String("90"),
-//					},
-//				},
-//				TemplateBody: pulumi.String(`Parameters:
-//	  AccessKeysRotatedParameterMaxAccessKeyAge:
-//	    Type: String
+//	AccessKeysRotatedParameterMaxAccessKeyAge:
+//	  Type: String
 //
 // Resources:
 //
@@ -61,19 +61,17 @@ import (
 //	      SourceIdentifier: IAM_PASSWORD_POLICY
 //	  Type: AWS::Config::ConfigRule
 //
-// `),
-//
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				aws_config_configuration_recorder.Example,
-//				exampleOrganization,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// `,
+// }, pulumi.DependsOn([]pulumi.Resource{
+// aws_config_configuration_recorder.Example,
+// exampleOrganization,
+// }))
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Using Template S3 URI
 //
@@ -84,63 +82,58 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cfg"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/organizations"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	cfg/organizationConformancePack "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/cfg/organizationConformancePack"
+//	organizations/organization "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/organizations/organization"
+//	s3/bucketObjectv2 "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/s3/bucketObjectv2"
+//	s3/bucketV2 "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/s3/bucketV2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleOrganization, err := organizations/organization.NewOrganization(ctx, "exampleOrganization", &organizations/organization.OrganizationArgs{
+// AwsServiceAccessPrincipals: []string{
+// "config-multiaccountsetup.amazonaws.com",
+// },
+// FeatureSet: "ALL",
+// })
+// if err != nil {
+// return err
+// }
+// exampleBucketV2, err := s3/bucketV2.NewBucketV2(ctx, "exampleBucketV2", nil)
+// if err != nil {
+// return err
+// }
+// exampleBucketObjectv2, err := s3/bucketObjectv2.NewBucketObjectv2(ctx, "exampleBucketObjectv2", &s3/bucketObjectv2.BucketObjectv2Args{
+// Bucket: exampleBucketV2.Id,
+// Key: "example-key",
+// Content: `Resources:
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleOrganization, err := organizations.NewOrganization(ctx, "exampleOrganization", &organizations.OrganizationArgs{
-//				AwsServiceAccessPrincipals: pulumi.StringArray{
-//					pulumi.String("config-multiaccountsetup.amazonaws.com"),
-//				},
-//				FeatureSet: pulumi.String("ALL"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleBucketObjectv2, err := s3.NewBucketObjectv2(ctx, "exampleBucketObjectv2", &s3.BucketObjectv2Args{
-//				Bucket: exampleBucketV2.ID(),
-//				Key:    pulumi.String("example-key"),
-//				Content: pulumi.String(`Resources:
-//	  IAMPasswordPolicy:
-//	    Properties:
-//	      ConfigRuleName: IAMPasswordPolicy
-//	      Source:
-//	        Owner: AWS
-//	        SourceIdentifier: IAM_PASSWORD_POLICY
-//	    Type: AWS::Config::ConfigRule
+//	IAMPasswordPolicy:
+//	  Properties:
+//	    ConfigRuleName: IAMPasswordPolicy
+//	    Source:
+//	      Owner: AWS
+//	      SourceIdentifier: IAM_PASSWORD_POLICY
+//	  Type: AWS::Config::ConfigRule
 //
-// `),
-//
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = cfg.NewOrganizationConformancePack(ctx, "exampleOrganizationConformancePack", &cfg.OrganizationConformancePackArgs{
-//				TemplateS3Uri: pulumi.All(exampleBucketV2.Bucket, exampleBucketObjectv2.Key).ApplyT(func(_args []interface{}) (string, error) {
-//					bucket := _args[0].(string)
-//					key := _args[1].(string)
-//					return fmt.Sprintf("s3://%v/%v", bucket, key), nil
-//				}).(pulumi.StringOutput),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				aws_config_configuration_recorder.Example,
-//				exampleOrganization,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// `,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = cfg/organizationConformancePack.NewOrganizationConformancePack(ctx, "exampleOrganizationConformancePack", &cfg/organizationConformancePack.OrganizationConformancePackArgs{
+// TemplateS3Uri: fmt.Sprintf("s3://%v/%v", exampleBucketV2.Bucket, exampleBucketObjectv2.Key),
+// }, pulumi.DependsOn([]pulumi.Resource{
+// aws_config_configuration_recorder.Example,
+// exampleOrganization,
+// }))
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

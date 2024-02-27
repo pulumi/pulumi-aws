@@ -8,16 +8,6 @@ import * as utilities from "../utilities";
  * Data source for managing an AWS OpenSearch Serverless Collection.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.opensearch.getServerlessCollection({
- *     name: "example",
- * });
- * ```
  */
 export function getServerlessCollection(args?: GetServerlessCollectionArgs, opts?: pulumi.InvokeOptions): Promise<GetServerlessCollectionResult> {
     args = args || {};
@@ -94,16 +84,6 @@ export interface GetServerlessCollectionResult {
  * Data source for managing an AWS OpenSearch Serverless Collection.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.opensearch.getServerlessCollection({
- *     name: "example",
- * });
- * ```
  */
 export function getServerlessCollectionOutput(args?: GetServerlessCollectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerlessCollectionResult> {
     return pulumi.output(args).apply((a: any) => getServerlessCollection(a, opts))

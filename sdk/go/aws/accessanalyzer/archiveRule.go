@@ -22,42 +22,40 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/accessanalyzer"
+//	accessanalyzer/archiveRule "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/accessanalyzer/archiveRule"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := accessanalyzer.NewArchiveRule(ctx, "example", &accessanalyzer.ArchiveRuleArgs{
-//				AnalyzerName: pulumi.String("example-analyzer"),
-//				Filters: accessanalyzer.ArchiveRuleFilterArray{
-//					&accessanalyzer.ArchiveRuleFilterArgs{
-//						Criteria: pulumi.String("condition.aws:UserId"),
-//						Eqs: pulumi.StringArray{
-//							pulumi.String("userid"),
-//						},
-//					},
-//					&accessanalyzer.ArchiveRuleFilterArgs{
-//						Criteria: pulumi.String("error"),
-//						Exists:   pulumi.String("true"),
-//					},
-//					&accessanalyzer.ArchiveRuleFilterArgs{
-//						Criteria: pulumi.String("isPublic"),
-//						Eqs: pulumi.StringArray{
-//							pulumi.String("false"),
-//						},
-//					},
-//				},
-//				RuleName: pulumi.String("example-rule"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := accessanalyzer/archiveRule.NewArchiveRule(ctx, "example", &accessanalyzer/archiveRule.ArchiveRuleArgs{
+// AnalyzerName: "example-analyzer",
+// Filters: []interface{}{
+// map[string]interface{}{
+// "criteria": "condition.aws:UserId",
+// "eqs": []string{
+// "userid",
+// },
+// },
+// map[string]interface{}{
+// "criteria": "error",
+// "exists": true,
+// },
+// map[string]interface{}{
+// "criteria": "isPublic",
+// "eqs": []string{
+// "false",
+// },
+// },
+// },
+// RuleName: "example-rule",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

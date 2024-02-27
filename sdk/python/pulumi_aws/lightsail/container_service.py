@@ -495,13 +495,13 @@ class ContainerService(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        my_container_service = aws.lightsail.ContainerService("myContainerService",
+        my_container_service = aws.lightsail.container_service.ContainerService("myContainerService",
             is_disabled=False,
-            power="nano",
+            power=nano,
             scale=1,
             tags={
-                "foo1": "bar1",
-                "foo2": "",
+                foo1: bar1,
+                foo2: ,
             })
         ```
         ### Public Domain Names
@@ -510,39 +510,12 @@ class ContainerService(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        my_container_service = aws.lightsail.ContainerService("myContainerService", public_domain_names=aws.lightsail.ContainerServicePublicDomainNamesArgs(
-            certificates=[aws.lightsail.ContainerServicePublicDomainNamesCertificateArgs(
-                certificate_name="example-certificate",
-                domain_names=["www.example.com"],
-            )],
-        ))
-        ```
-        ### Private Registry Access
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        # ... other configuration ...
-        default_container_service = aws.lightsail.ContainerService("defaultContainerService", private_registry_access=aws.lightsail.ContainerServicePrivateRegistryAccessArgs(
-            ecr_image_puller_role=aws.lightsail.ContainerServicePrivateRegistryAccessEcrImagePullerRoleArgs(
-                is_active=True,
-            ),
-        ))
-        default_policy_document = default_container_service.private_registry_access.apply(lambda private_registry_access: aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="AWS",
-                identifiers=[private_registry_access.ecr_image_puller_role.principal_arn],
-            )],
-            actions=[
-                "ecr:BatchGetImage",
-                "ecr:GetDownloadUrlForLayer",
-            ],
-        )]))
-        default_repository_policy = aws.ecr.RepositoryPolicy("defaultRepositoryPolicy",
-            repository=aws_ecr_repository["default"]["name"],
-            policy=default_policy_document.json)
+        my_container_service = aws.lightsail.container_service.ContainerService("myContainerService", public_domain_names={
+            certificates: [{
+                certificateName: example-certificate,
+                domainNames: [www.example.com],
+            }],
+        })
         ```
 
         ## Import
@@ -595,13 +568,13 @@ class ContainerService(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        my_container_service = aws.lightsail.ContainerService("myContainerService",
+        my_container_service = aws.lightsail.container_service.ContainerService("myContainerService",
             is_disabled=False,
-            power="nano",
+            power=nano,
             scale=1,
             tags={
-                "foo1": "bar1",
-                "foo2": "",
+                foo1: bar1,
+                foo2: ,
             })
         ```
         ### Public Domain Names
@@ -610,39 +583,12 @@ class ContainerService(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        my_container_service = aws.lightsail.ContainerService("myContainerService", public_domain_names=aws.lightsail.ContainerServicePublicDomainNamesArgs(
-            certificates=[aws.lightsail.ContainerServicePublicDomainNamesCertificateArgs(
-                certificate_name="example-certificate",
-                domain_names=["www.example.com"],
-            )],
-        ))
-        ```
-        ### Private Registry Access
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        # ... other configuration ...
-        default_container_service = aws.lightsail.ContainerService("defaultContainerService", private_registry_access=aws.lightsail.ContainerServicePrivateRegistryAccessArgs(
-            ecr_image_puller_role=aws.lightsail.ContainerServicePrivateRegistryAccessEcrImagePullerRoleArgs(
-                is_active=True,
-            ),
-        ))
-        default_policy_document = default_container_service.private_registry_access.apply(lambda private_registry_access: aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="AWS",
-                identifiers=[private_registry_access.ecr_image_puller_role.principal_arn],
-            )],
-            actions=[
-                "ecr:BatchGetImage",
-                "ecr:GetDownloadUrlForLayer",
-            ],
-        )]))
-        default_repository_policy = aws.ecr.RepositoryPolicy("defaultRepositoryPolicy",
-            repository=aws_ecr_repository["default"]["name"],
-            policy=default_policy_document.json)
+        my_container_service = aws.lightsail.container_service.ContainerService("myContainerService", public_domain_names={
+            certificates: [{
+                certificateName: example-certificate,
+                domainNames: [www.example.com],
+            }],
+        })
         ```
 
         ## Import

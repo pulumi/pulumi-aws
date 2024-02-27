@@ -375,58 +375,6 @@ class BudgetAction(pulumi.CustomResource):
         """
         Provides a budget action resource. Budget actions are cost savings controls that run either automatically on your behalf or by using a workflow approval process.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            actions=["ec2:Describe*"],
-            resources=["*"],
-        )])
-        example_policy = aws.iam.Policy("examplePolicy",
-            description="My example policy",
-            policy=example_policy_document.json)
-        current = aws.get_partition()
-        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=[f"budgets.{current.dns_suffix}"],
-            )],
-            actions=["sts:AssumeRole"],
-        )])
-        example_role = aws.iam.Role("exampleRole", assume_role_policy=assume_role.json)
-        example_budget = aws.budgets.Budget("exampleBudget",
-            budget_type="USAGE",
-            limit_amount="10.0",
-            limit_unit="dollars",
-            time_period_start="2006-01-02_15:04",
-            time_unit="MONTHLY")
-        example_budget_action = aws.budgets.BudgetAction("exampleBudgetAction",
-            budget_name=example_budget.name,
-            action_type="APPLY_IAM_POLICY",
-            approval_model="AUTOMATIC",
-            notification_type="ACTUAL",
-            execution_role_arn=example_role.arn,
-            action_threshold=aws.budgets.BudgetActionActionThresholdArgs(
-                action_threshold_type="ABSOLUTE_VALUE",
-                action_threshold_value=100,
-            ),
-            definition=aws.budgets.BudgetActionDefinitionArgs(
-                iam_action_definition=aws.budgets.BudgetActionDefinitionIamActionDefinitionArgs(
-                    policy_arn=example_policy.arn,
-                    roles=[example_role.name],
-                ),
-            ),
-            subscribers=[aws.budgets.BudgetActionSubscriberArgs(
-                address="example@example.example",
-                subscription_type="EMAIL",
-            )])
-        ```
-
         ## Import
 
         Using `pulumi import`, import budget actions using `AccountID:ActionID:BudgetName`. For example:
@@ -455,58 +403,6 @@ class BudgetAction(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a budget action resource. Budget actions are cost savings controls that run either automatically on your behalf or by using a workflow approval process.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            actions=["ec2:Describe*"],
-            resources=["*"],
-        )])
-        example_policy = aws.iam.Policy("examplePolicy",
-            description="My example policy",
-            policy=example_policy_document.json)
-        current = aws.get_partition()
-        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=[f"budgets.{current.dns_suffix}"],
-            )],
-            actions=["sts:AssumeRole"],
-        )])
-        example_role = aws.iam.Role("exampleRole", assume_role_policy=assume_role.json)
-        example_budget = aws.budgets.Budget("exampleBudget",
-            budget_type="USAGE",
-            limit_amount="10.0",
-            limit_unit="dollars",
-            time_period_start="2006-01-02_15:04",
-            time_unit="MONTHLY")
-        example_budget_action = aws.budgets.BudgetAction("exampleBudgetAction",
-            budget_name=example_budget.name,
-            action_type="APPLY_IAM_POLICY",
-            approval_model="AUTOMATIC",
-            notification_type="ACTUAL",
-            execution_role_arn=example_role.arn,
-            action_threshold=aws.budgets.BudgetActionActionThresholdArgs(
-                action_threshold_type="ABSOLUTE_VALUE",
-                action_threshold_value=100,
-            ),
-            definition=aws.budgets.BudgetActionDefinitionArgs(
-                iam_action_definition=aws.budgets.BudgetActionDefinitionIamActionDefinitionArgs(
-                    policy_arn=example_policy.arn,
-                    roles=[example_role.name],
-                ),
-            ),
-            subscribers=[aws.budgets.BudgetActionSubscriberArgs(
-                address="example@example.example",
-                subscription_type="EMAIL",
-            )])
-        ```
 
         ## Import
 

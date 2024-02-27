@@ -16,13 +16,13 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const bar = new aws.elastictranscoder.Preset("bar", {
+ * const bar = new aws.elastictranscoder/preset.Preset("bar", {
  *     audio: {
  *         audioPackingMode: "SingleTrack",
- *         bitRate: "96",
- *         channels: "2",
+ *         bitRate: 96,
+ *         channels: 2,
  *         codec: "AAC",
- *         sampleRate: "44100",
+ *         sampleRate: 44100,
  *     },
  *     audioCodecOptions: {
  *         profile: "AAC-LC",
@@ -31,7 +31,7 @@ import * as utilities from "../utilities";
  *     description: "Sample Preset",
  *     thumbnails: {
  *         format: "png",
- *         interval: "120",
+ *         interval: 120,
  *         maxHeight: "auto",
  *         maxWidth: "auto",
  *         paddingPolicy: "Pad",
@@ -43,7 +43,7 @@ import * as utilities from "../utilities";
  *         displayAspectRatio: "16:9",
  *         fixedGop: "false",
  *         frameRate: "auto",
- *         keyframesMaxDist: "240",
+ *         keyframesMaxDist: 240,
  *         maxFrameRate: "60",
  *         maxHeight: "auto",
  *         maxWidth: "auto",
@@ -54,7 +54,7 @@ import * as utilities from "../utilities";
  *         ColorSpaceConversionMode: "None",
  *         InterlacedMode: "Progressive",
  *         Level: "2.2",
- *         MaxReferenceFrames: "3",
+ *         MaxReferenceFrames: 3,
  *         Profile: "main",
  *     },
  *     videoWatermarks: [{

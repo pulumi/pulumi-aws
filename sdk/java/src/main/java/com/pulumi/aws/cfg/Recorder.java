@@ -20,54 +20,6 @@ import javax.annotation.Nullable;
  * &gt; **Note:** _Starting_ the Configuration Recorder requires a delivery channel (while delivery channel creation requires Configuration Recorder). This is why `aws.cfg.RecorderStatus` is a separate resource.
  * 
  * ## Example Usage
- * ### Basic Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.iam.IamFunctions;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
- * import com.pulumi.aws.iam.Role;
- * import com.pulumi.aws.iam.RoleArgs;
- * import com.pulumi.aws.cfg.Recorder;
- * import com.pulumi.aws.cfg.RecorderArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect(&#34;Allow&#34;)
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type(&#34;Service&#34;)
- *                     .identifiers(&#34;config.amazonaws.com&#34;)
- *                     .build())
- *                 .actions(&#34;sts:AssumeRole&#34;)
- *                 .build())
- *             .build());
- * 
- *         var role = new Role(&#34;role&#34;, RoleArgs.builder()        
- *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
- *             .build());
- * 
- *         var foo = new Recorder(&#34;foo&#34;, RecorderArgs.builder()        
- *             .roleArn(role.arn())
- *             .build());
- * 
- *     }
- * }
- * ```
  * ### Exclude Resources Types Usage
  * ```java
  * package generated_program;
@@ -77,7 +29,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.cfg.Recorder;
  * import com.pulumi.aws.cfg.RecorderArgs;
- * import com.pulumi.aws.cfg.inputs.RecorderRecordingGroupArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -93,15 +44,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var foo = new Recorder(&#34;foo&#34;, RecorderArgs.builder()        
  *             .roleArn(aws_iam_role.r().arn())
- *             .recordingGroup(RecorderRecordingGroupArgs.builder()
- *                 .allSupported(false)
- *                 .exclusionByResourceTypes(RecorderRecordingGroupExclusionByResourceTypeArgs.builder()
- *                     .resourceTypes(&#34;AWS::EC2::Instance&#34;)
- *                     .build())
- *                 .recordingStrategies(RecorderRecordingGroupRecordingStrategyArgs.builder()
- *                     .useOnly(&#34;EXCLUSION_BY_RESOURCE_TYPES&#34;)
- *                     .build())
- *                 .build())
+ *             .recordingGroup(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

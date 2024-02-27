@@ -7,24 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Creates a scope for AWS IPAM.
  *
- * ## Example Usage
- *
- * Basic usage:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const current = aws.getRegion({});
- * const exampleVpcIpam = new aws.ec2.VpcIpam("exampleVpcIpam", {operatingRegions: [{
- *     regionName: current.then(current => current.name),
- * }]});
- * const exampleVpcIpamScope = new aws.ec2.VpcIpamScope("exampleVpcIpamScope", {
- *     ipamId: exampleVpcIpam.id,
- *     description: "Another Scope",
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import IPAMs using the `scope_id`. For example:

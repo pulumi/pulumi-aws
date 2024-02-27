@@ -23,7 +23,7 @@ namespace Pulumi.Aws.AppAutoScaling
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var dynamodbTarget = new Aws.AppAutoScaling.Target("dynamodbTarget", new()
+    ///     var dynamodbTarget = new Aws.Appautoscaling.Target.Target("dynamodbTarget", new()
     ///     {
     ///         MaxCapacity = 100,
     ///         MinCapacity = 5,
@@ -32,16 +32,16 @@ namespace Pulumi.Aws.AppAutoScaling
     ///         ServiceNamespace = "dynamodb",
     ///     });
     /// 
-    ///     var dynamodbScheduledAction = new Aws.AppAutoScaling.ScheduledAction("dynamodbScheduledAction", new()
+    ///     var dynamodbScheduledAction = new Aws.Appautoscaling.ScheduledAction.ScheduledAction("dynamodbScheduledAction", new()
     ///     {
     ///         ServiceNamespace = dynamodbTarget.ServiceNamespace,
     ///         ResourceId = dynamodbTarget.ResourceId,
     ///         ScalableDimension = dynamodbTarget.ScalableDimension,
     ///         Schedule = "at(2006-01-02T15:04:05)",
-    ///         ScalableTargetAction = new Aws.AppAutoScaling.Inputs.ScheduledActionScalableTargetActionArgs
+    ///         ScalableTargetAction = 
     ///         {
-    ///             MinCapacity = 1,
-    ///             MaxCapacity = 200,
+    ///             { "minCapacity", 1 },
+    ///             { "maxCapacity", 200 },
     ///         },
     ///     });
     /// 
@@ -57,7 +57,7 @@ namespace Pulumi.Aws.AppAutoScaling
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var ecsTarget = new Aws.AppAutoScaling.Target("ecsTarget", new()
+    ///     var ecsTarget = new Aws.Appautoscaling.Target.Target("ecsTarget", new()
     ///     {
     ///         MaxCapacity = 4,
     ///         MinCapacity = 1,
@@ -66,16 +66,16 @@ namespace Pulumi.Aws.AppAutoScaling
     ///         ServiceNamespace = "ecs",
     ///     });
     /// 
-    ///     var ecsScheduledAction = new Aws.AppAutoScaling.ScheduledAction("ecsScheduledAction", new()
+    ///     var ecsScheduledAction = new Aws.Appautoscaling.ScheduledAction.ScheduledAction("ecsScheduledAction", new()
     ///     {
     ///         ServiceNamespace = ecsTarget.ServiceNamespace,
     ///         ResourceId = ecsTarget.ResourceId,
     ///         ScalableDimension = ecsTarget.ScalableDimension,
     ///         Schedule = "at(2006-01-02T15:04:05)",
-    ///         ScalableTargetAction = new Aws.AppAutoScaling.Inputs.ScheduledActionScalableTargetActionArgs
+    ///         ScalableTargetAction = 
     ///         {
-    ///             MinCapacity = 1,
-    ///             MaxCapacity = 10,
+    ///             { "minCapacity", 1 },
+    ///             { "maxCapacity", 10 },
     ///         },
     ///     });
     /// 

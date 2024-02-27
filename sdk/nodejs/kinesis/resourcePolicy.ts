@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.kinesis.ResourcePolicy("example", {
+ * const example = new aws.kinesis/resourcePolicy.ResourcePolicy("example", {
  *     resourceArn: aws_kinesis_stream.example.arn,
  *     policy: `{
  *   "Version": "2012-10-17",

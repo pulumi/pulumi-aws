@@ -21,7 +21,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.servicecatalog.Product("example", {
+ * const example = new aws.servicecatalog/product.Product("example", {
  *     owner: "example-owner",
  *     provisioningArtifactParameters: {
  *         templateUrl: "https://s3.amazonaws.com/cf-templates-ozkq9d3hgiq2-us-east-1/temp1.json",

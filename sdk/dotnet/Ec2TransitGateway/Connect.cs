@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Ec2TransitGateway.VpcAttachment("example", new()
+    ///     var example = new Aws.Ec2transitgateway.VpcAttachment.VpcAttachment("example", new()
     ///     {
     ///         SubnetIds = new[]
     ///         {
@@ -32,7 +32,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
     ///         VpcId = aws_vpc.Example.Id,
     ///     });
     /// 
-    ///     var attachment = new Aws.Ec2TransitGateway.Connect("attachment", new()
+    ///     var attachment = new Aws.Ec2transitgateway.Connect.Connect("attachment", new()
     ///     {
     ///         TransportAttachmentId = example.Id,
     ///         TransitGatewayId = aws_ec2_transit_gateway.Example.Id,

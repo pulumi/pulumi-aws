@@ -21,38 +21,37 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/codecommit"
+//	codecommit/repository "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/codecommit/repository"
+//	codecommit/trigger "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/codecommit/trigger"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testRepository, err := codecommit.NewRepository(ctx, "testRepository", &codecommit.RepositoryArgs{
-//				RepositoryName: pulumi.String("test"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = codecommit.NewTrigger(ctx, "testTrigger", &codecommit.TriggerArgs{
-//				RepositoryName: testRepository.RepositoryName,
-//				Triggers: codecommit.TriggerTriggerArray{
-//					&codecommit.TriggerTriggerArgs{
-//						Name: pulumi.String("all"),
-//						Events: pulumi.StringArray{
-//							pulumi.String("all"),
-//						},
-//						DestinationArn: pulumi.Any(aws_sns_topic.Test.Arn),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// testRepository, err := codecommit/repository.NewRepository(ctx, "testRepository", &codecommit/repository.RepositoryArgs{
+// RepositoryName: "test",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = codecommit/trigger.NewTrigger(ctx, "testTrigger", &codecommit/trigger.TriggerArgs{
+// RepositoryName: testRepository.RepositoryName,
+// Triggers: []map[string]interface{}{
+// map[string]interface{}{
+// "name": "all",
+// "events": []string{
+// "all",
+// },
+// "destinationArn": aws_sns_topic.Test.Arn,
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 type Trigger struct {
 	pulumi.CustomResourceState

@@ -22,31 +22,29 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kendra"
+//	kendra/querySuggestionsBlockList "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/kendra/querySuggestionsBlockList"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := kendra.NewQuerySuggestionsBlockList(ctx, "example", &kendra.QuerySuggestionsBlockListArgs{
-//				IndexId: pulumi.Any(aws_kendra_index.Example.Id),
-//				RoleArn: pulumi.Any(aws_iam_role.Example.Arn),
-//				SourceS3Path: &kendra.QuerySuggestionsBlockListSourceS3PathArgs{
-//					Bucket: pulumi.Any(aws_s3_bucket.Example.Id),
-//					Key:    pulumi.String("example/suggestions.txt"),
-//				},
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("Example Kendra Index"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := kendra/querySuggestionsBlockList.NewQuerySuggestionsBlockList(ctx, "example", &kendra/querySuggestionsBlockList.QuerySuggestionsBlockListArgs{
+// IndexId: aws_kendra_index.Example.Id,
+// RoleArn: aws_iam_role.Example.Arn,
+// SourceS3Path: map[string]interface{}{
+// "bucket": aws_s3_bucket.Example.Id,
+// "key": "example/suggestions.txt",
+// },
+// Tags: map[string]interface{}{
+// "Name": "Example Kendra Index",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

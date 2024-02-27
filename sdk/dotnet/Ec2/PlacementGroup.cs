@@ -23,7 +23,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var web = new Aws.Ec2.PlacementGroup("web", new()
+    ///     var web = new Aws.Ec2.PlacementGroup.PlacementGroup("web", new()
     ///     {
     ///         Strategy = "cluster",
     ///     });

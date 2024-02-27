@@ -33,7 +33,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.ssm.Association;
  * import com.pulumi.aws.ssm.AssociationArgs;
- * import com.pulumi.aws.ssm.inputs.AssociationTargetArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -48,10 +47,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Association(&#34;example&#34;, AssociationArgs.builder()        
- *             .targets(AssociationTargetArgs.builder()
- *                 .key(&#34;InstanceIds&#34;)
- *                 .values(aws_instance.example().id())
- *                 .build())
+ *             .targets(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -68,7 +64,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.ssm.Association;
  * import com.pulumi.aws.ssm.AssociationArgs;
- * import com.pulumi.aws.ssm.inputs.AssociationTargetArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -83,10 +78,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Association(&#34;example&#34;, AssociationArgs.builder()        
- *             .targets(AssociationTargetArgs.builder()
- *                 .key(&#34;InstanceIds&#34;)
- *                 .values(&#34;*&#34;)
- *                 .build())
+ *             .targets(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -103,7 +95,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.ssm.Association;
  * import com.pulumi.aws.ssm.AssociationArgs;
- * import com.pulumi.aws.ssm.inputs.AssociationTargetArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -118,10 +109,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Association(&#34;example&#34;, AssociationArgs.builder()        
- *             .targets(AssociationTargetArgs.builder()
- *                 .key(&#34;tag:Environment&#34;)
- *                 .values(&#34;Development&#34;)
- *                 .build())
+ *             .targets(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -138,7 +126,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.ssm.Association;
  * import com.pulumi.aws.ssm.AssociationArgs;
- * import com.pulumi.aws.ssm.inputs.AssociationTargetArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -154,10 +141,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Association(&#34;example&#34;, AssociationArgs.builder()        
  *             .scheduleExpression(&#34;cron(0 2 ? * SUN *)&#34;)
- *             .targets(AssociationTargetArgs.builder()
- *                 .key(&#34;InstanceIds&#34;)
- *                 .values(aws_instance.example().id())
- *                 .build())
+ *             .targets(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

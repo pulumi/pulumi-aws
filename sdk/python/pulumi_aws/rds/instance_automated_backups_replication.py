@@ -177,9 +177,9 @@ class InstanceAutomatedBackupsReplication(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        default = aws.rds.InstanceAutomatedBackupsReplication("default",
+        default = aws.rds.instance_automated_backups_replication.InstanceAutomatedBackupsReplication("default",
             retention_period=14,
-            source_db_instance_arn="arn:aws:rds:us-west-2:123456789012:db:mydatabase")
+            source_db_instance_arn=arn:aws:rds:us-west-2:123456789012:db:mydatabase)
         ```
         ## Encrypting the automated backup with KMS
 
@@ -187,9 +187,9 @@ class InstanceAutomatedBackupsReplication(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        default = aws.rds.InstanceAutomatedBackupsReplication("default",
-            kms_key_id="arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012",
-            source_db_instance_arn="arn:aws:rds:us-west-2:123456789012:db:mydatabase")
+        default = aws.rds.instance_automated_backups_replication.InstanceAutomatedBackupsReplication("default",
+            kms_key_id=arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012,
+            source_db_instance_arn=arn:aws:rds:us-west-2:123456789012:db:mydatabase)
         ```
 
         ## Example including a RDS DB instance
@@ -198,22 +198,22 @@ class InstanceAutomatedBackupsReplication(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        replica = aws.Provider("replica", region="us-west-2")
-        default_instance = aws.rds.Instance("defaultInstance",
+        replica = pulumi.providers.Aws("replica", region=us-west-2)
+        default_instance = aws.rds.instance.Instance("defaultInstance",
             allocated_storage=10,
-            identifier="mydb",
-            engine="postgres",
-            engine_version="13.4",
-            instance_class="db.t3.micro",
-            db_name="mydb",
-            username="masterusername",
-            password="mustbeeightcharacters",
+            identifier=mydb,
+            engine=postgres,
+            engine_version=13.4,
+            instance_class=db.t3.micro,
+            db_name=mydb,
+            username=masterusername,
+            password=mustbeeightcharacters,
             backup_retention_period=7,
             storage_encrypted=True,
             skip_final_snapshot=True)
-        default_key = aws.kms.Key("defaultKey", description="Encryption key for automated backups",
+        default_key = aws.kms.key.Key("defaultKey", description=Encryption key for automated backups,
         opts=pulumi.ResourceOptions(provider=aws["replica"]))
-        default_instance_automated_backups_replication = aws.rds.InstanceAutomatedBackupsReplication("defaultInstanceAutomatedBackupsReplication",
+        default_instance_automated_backups_replication = aws.rds.instance_automated_backups_replication.InstanceAutomatedBackupsReplication("defaultInstanceAutomatedBackupsReplication",
             source_db_instance_arn=default_instance.arn,
             kms_key_id=default_key.arn,
             opts=pulumi.ResourceOptions(provider=aws["replica"]))
@@ -253,9 +253,9 @@ class InstanceAutomatedBackupsReplication(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        default = aws.rds.InstanceAutomatedBackupsReplication("default",
+        default = aws.rds.instance_automated_backups_replication.InstanceAutomatedBackupsReplication("default",
             retention_period=14,
-            source_db_instance_arn="arn:aws:rds:us-west-2:123456789012:db:mydatabase")
+            source_db_instance_arn=arn:aws:rds:us-west-2:123456789012:db:mydatabase)
         ```
         ## Encrypting the automated backup with KMS
 
@@ -263,9 +263,9 @@ class InstanceAutomatedBackupsReplication(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        default = aws.rds.InstanceAutomatedBackupsReplication("default",
-            kms_key_id="arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012",
-            source_db_instance_arn="arn:aws:rds:us-west-2:123456789012:db:mydatabase")
+        default = aws.rds.instance_automated_backups_replication.InstanceAutomatedBackupsReplication("default",
+            kms_key_id=arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012,
+            source_db_instance_arn=arn:aws:rds:us-west-2:123456789012:db:mydatabase)
         ```
 
         ## Example including a RDS DB instance
@@ -274,22 +274,22 @@ class InstanceAutomatedBackupsReplication(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        replica = aws.Provider("replica", region="us-west-2")
-        default_instance = aws.rds.Instance("defaultInstance",
+        replica = pulumi.providers.Aws("replica", region=us-west-2)
+        default_instance = aws.rds.instance.Instance("defaultInstance",
             allocated_storage=10,
-            identifier="mydb",
-            engine="postgres",
-            engine_version="13.4",
-            instance_class="db.t3.micro",
-            db_name="mydb",
-            username="masterusername",
-            password="mustbeeightcharacters",
+            identifier=mydb,
+            engine=postgres,
+            engine_version=13.4,
+            instance_class=db.t3.micro,
+            db_name=mydb,
+            username=masterusername,
+            password=mustbeeightcharacters,
             backup_retention_period=7,
             storage_encrypted=True,
             skip_final_snapshot=True)
-        default_key = aws.kms.Key("defaultKey", description="Encryption key for automated backups",
+        default_key = aws.kms.key.Key("defaultKey", description=Encryption key for automated backups,
         opts=pulumi.ResourceOptions(provider=aws["replica"]))
-        default_instance_automated_backups_replication = aws.rds.InstanceAutomatedBackupsReplication("defaultInstanceAutomatedBackupsReplication",
+        default_instance_automated_backups_replication = aws.rds.instance_automated_backups_replication.InstanceAutomatedBackupsReplication("defaultInstanceAutomatedBackupsReplication",
             source_db_instance_arn=default_instance.arn,
             kms_key_id=default_key.arn,
             opts=pulumi.ResourceOptions(provider=aws["replica"]))

@@ -236,11 +236,11 @@ class AlternativeContact(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        operations = aws.account.AlternativeContact("operations",
-            alternate_contact_type="OPERATIONS",
-            email_address="test@example.com",
-            phone_number="+1234567890",
-            title="Example")
+        operations = aws.account.alternative_contact.AlternativeContact("operations",
+            alternate_contact_type=OPERATIONS,
+            email_address=test@example.com,
+            phone_number=+1234567890,
+            title=Example)
         ```
 
         ## Import
@@ -284,11 +284,11 @@ class AlternativeContact(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        operations = aws.account.AlternativeContact("operations",
-            alternate_contact_type="OPERATIONS",
-            email_address="test@example.com",
-            phone_number="+1234567890",
-            title="Example")
+        operations = aws.account.alternative_contact.AlternativeContact("operations",
+            alternate_contact_type=OPERATIONS,
+            email_address=test@example.com,
+            phone_number=+1234567890,
+            title=Example)
         ```
 
         ## Import

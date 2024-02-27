@@ -290,6 +290,38 @@ class Certificate(pulumi.CustomResource):
         with the parameter `certificate_authority_arn`.
 
         ## Example Usage
+        ### Basic
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+        import pulumi_tls as tls
+
+        example_certificate_authority = aws.acmpca.certificate_authority.CertificateAuthority("exampleCertificateAuthority",
+            private_certificate_configuration=[{
+                keyAlgorithm: RSA_4096,
+                signingAlgorithm: SHA512WITHRSA,
+                subject: [{
+                    commonName: example.com,
+                }],
+            }],
+            permanent_deletion_time_in_days=7)
+        key = tls.index.private_key.PrivateKey("key", algorithm=RSA)
+        csr = tls.index.cert_request.CertRequest("csr",
+            key_algorithm=RSA,
+            private_key_pem=key.private_key_pem,
+            subject={
+                commonName: example,
+            })
+        example_certificate = aws.acmpca.certificate.Certificate("exampleCertificate",
+            certificate_authority_arn=example_certificate_authority.arn,
+            certificate_signing_request=csr.cert_request_pem,
+            signing_algorithm=SHA256WITHRSA,
+            validity={
+                type: YEARS,
+                value: 1,
+            })
+        ```
 
         ## Import
 
@@ -324,6 +356,38 @@ class Certificate(pulumi.CustomResource):
         with the parameter `certificate_authority_arn`.
 
         ## Example Usage
+        ### Basic
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+        import pulumi_tls as tls
+
+        example_certificate_authority = aws.acmpca.certificate_authority.CertificateAuthority("exampleCertificateAuthority",
+            private_certificate_configuration=[{
+                keyAlgorithm: RSA_4096,
+                signingAlgorithm: SHA512WITHRSA,
+                subject: [{
+                    commonName: example.com,
+                }],
+            }],
+            permanent_deletion_time_in_days=7)
+        key = tls.index.private_key.PrivateKey("key", algorithm=RSA)
+        csr = tls.index.cert_request.CertRequest("csr",
+            key_algorithm=RSA,
+            private_key_pem=key.private_key_pem,
+            subject={
+                commonName: example,
+            })
+        example_certificate = aws.acmpca.certificate.Certificate("exampleCertificate",
+            certificate_authority_arn=example_certificate_authority.arn,
+            certificate_signing_request=csr.cert_request_pem,
+            signing_algorithm=SHA256WITHRSA,
+            validity={
+                type: YEARS,
+                value: 1,
+            })
+        ```
 
         ## Import
 

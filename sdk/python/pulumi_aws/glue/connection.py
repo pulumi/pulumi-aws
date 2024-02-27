@@ -347,10 +347,10 @@ class Connection(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.glue.Connection("example", connection_properties={
-            "JDBC_CONNECTION_URL": "jdbc:mysql://example.com/exampledatabase",
-            "PASSWORD": "examplepassword",
-            "USERNAME": "exampleusername",
+        example = aws.glue.connection.Connection("example", connection_properties={
+            JDBC_CONNECTION_URL: jdbc:mysql://example.com/exampledatabase,
+            PASSWORD: examplepassword,
+            USERNAME: exampleusername,
         })
         ```
         ### VPC Connection
@@ -361,17 +361,17 @@ class Connection(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.glue.Connection("example",
+        example = aws.glue.connection.Connection("example",
             connection_properties={
-                "JDBC_CONNECTION_URL": f"jdbc:mysql://{aws_rds_cluster['example']['endpoint']}/exampledatabase",
-                "PASSWORD": "examplepassword",
-                "USERNAME": "exampleusername",
+                JDBC_CONNECTION_URL: fjdbc:mysql://{aws_rds_cluster.example.endpoint}/exampledatabase,
+                PASSWORD: examplepassword,
+                USERNAME: exampleusername,
             },
-            physical_connection_requirements=aws.glue.ConnectionPhysicalConnectionRequirementsArgs(
-                availability_zone=aws_subnet["example"]["availability_zone"],
-                security_group_id_lists=[aws_security_group["example"]["id"]],
-                subnet_id=aws_subnet["example"]["id"],
-            ))
+            physical_connection_requirements={
+                availabilityZone: aws_subnet.example.availability_zone,
+                securityGroupIdLists: [aws_security_group.example.id],
+                subnetId: aws_subnet.example.id,
+            })
         ```
 
         ## Import
@@ -409,10 +409,10 @@ class Connection(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.glue.Connection("example", connection_properties={
-            "JDBC_CONNECTION_URL": "jdbc:mysql://example.com/exampledatabase",
-            "PASSWORD": "examplepassword",
-            "USERNAME": "exampleusername",
+        example = aws.glue.connection.Connection("example", connection_properties={
+            JDBC_CONNECTION_URL: jdbc:mysql://example.com/exampledatabase,
+            PASSWORD: examplepassword,
+            USERNAME: exampleusername,
         })
         ```
         ### VPC Connection
@@ -423,17 +423,17 @@ class Connection(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.glue.Connection("example",
+        example = aws.glue.connection.Connection("example",
             connection_properties={
-                "JDBC_CONNECTION_URL": f"jdbc:mysql://{aws_rds_cluster['example']['endpoint']}/exampledatabase",
-                "PASSWORD": "examplepassword",
-                "USERNAME": "exampleusername",
+                JDBC_CONNECTION_URL: fjdbc:mysql://{aws_rds_cluster.example.endpoint}/exampledatabase,
+                PASSWORD: examplepassword,
+                USERNAME: exampleusername,
             },
-            physical_connection_requirements=aws.glue.ConnectionPhysicalConnectionRequirementsArgs(
-                availability_zone=aws_subnet["example"]["availability_zone"],
-                security_group_id_lists=[aws_security_group["example"]["id"]],
-                subnet_id=aws_subnet["example"]["id"],
-            ))
+            physical_connection_requirements={
+                availabilityZone: aws_subnet.example.availability_zone,
+                securityGroupIdLists: [aws_security_group.example.id],
+                subnetId: aws_subnet.example.id,
+            })
         ```
 
         ## Import

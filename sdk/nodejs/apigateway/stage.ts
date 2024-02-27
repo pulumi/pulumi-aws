@@ -19,7 +19,7 @@ import {Deployment, RestApi} from "./index";
  * import * as aws from "@pulumi/aws";
  * import * as crypto from "crypto";
  *
- * const exampleRestApi = new aws.apigateway.RestApi("exampleRestApi", {body: JSON.stringify({
+ * const exampleRestApi = new aws.apigateway/restApi.RestApi("exampleRestApi", {body: JSON.stringify({
  *     openapi: "3.0.1",
  *     info: {
  *         title: "example",
@@ -38,18 +38,18 @@ import {Deployment, RestApi} from "./index";
  *         },
  *     },
  * })});
- * const exampleDeployment = new aws.apigateway.Deployment("exampleDeployment", {
+ * const exampleDeployment = new aws.apigateway/deployment.Deployment("exampleDeployment", {
  *     restApi: exampleRestApi.id,
  *     triggers: {
- *         redeployment: exampleRestApi.body.apply(body => JSON.stringify(body)).apply(toJSON => crypto.createHash('sha1').update(toJSON).digest('hex')),
+ *         redeployment: crypto.createHash('sha1').update(JSON.stringify(exampleRestApi.body)).digest('hex'),
  *     },
  * });
- * const exampleStage = new aws.apigateway.Stage("exampleStage", {
+ * const exampleStage = new aws.apigateway/stage.Stage("exampleStage", {
  *     deployment: exampleDeployment.id,
  *     restApi: exampleRestApi.id,
  *     stageName: "example",
  * });
- * const exampleMethodSettings = new aws.apigateway.MethodSettings("exampleMethodSettings", {
+ * const exampleMethodSettings = new aws.apigateway/methodSettings.MethodSettings("exampleMethodSettings", {
  *     restApi: exampleRestApi.id,
  *     stageName: exampleStage.stageName,
  *     methodPath: "*&#47;*",
@@ -69,11 +69,11 @@ import {Deployment, RestApi} from "./index";
  *
  * const config = new pulumi.Config();
  * const stageName = config.get("stageName") || "example";
- * const exampleRestApi = new aws.apigateway.RestApi("exampleRestApi", {});
+ * const exampleRestApi = new aws.apigateway/restApi.RestApi("exampleRestApi", {});
  * // ... other configuration ...
- * const exampleLogGroup = new aws.cloudwatch.LogGroup("exampleLogGroup", {retentionInDays: 7});
+ * const exampleLogGroup = new aws.cloudwatch/logGroup.LogGroup("exampleLogGroup", {retentionInDays: 7});
  * // ... potentially other configuration ...
- * const exampleStage = new aws.apigateway.Stage("exampleStage", {stageName: stageName}, {
+ * const exampleStage = new aws.apigateway/stage.Stage("exampleStage", {stageName: stageName}, {
  *     dependsOn: [exampleLogGroup],
  * });
  * // ... other configuration ...

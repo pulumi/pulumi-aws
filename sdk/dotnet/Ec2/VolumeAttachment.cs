@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var web = new Aws.Ec2.Instance("web", new()
+    ///     var web = new Aws.Ec2.Instance.Instance("web", new()
     ///     {
     ///         Ami = "ami-21f78e11",
     ///         AvailabilityZone = "us-west-2a",
@@ -36,13 +36,13 @@ namespace Pulumi.Aws.Ec2
     ///         },
     ///     });
     /// 
-    ///     var example = new Aws.Ebs.Volume("example", new()
+    ///     var example = new Aws.Ebs.Volume.Volume("example", new()
     ///     {
     ///         AvailabilityZone = "us-west-2a",
     ///         Size = 1,
     ///     });
     /// 
-    ///     var ebsAtt = new Aws.Ec2.VolumeAttachment("ebsAtt", new()
+    ///     var ebsAtt = new Aws.Ec2.VolumeAttachment.VolumeAttachment("ebsAtt", new()
     ///     {
     ///         DeviceName = "/dev/sdh",
     ///         VolumeId = example.Id,

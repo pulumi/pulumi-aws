@@ -11,19 +11,6 @@ import * as utilities from "../utilities";
  * Provides details about a specific Lex (V1) Bot associated with an Amazon Connect instance.
  *
  * ## Example Usage
- * ### By name
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.connect.getBotAssociation({
- *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
- *     lexBot: {
- *         name: "Test",
- *     },
- * });
- * ```
  */
 export function getBotAssociation(args: GetBotAssociationArgs, opts?: pulumi.InvokeOptions): Promise<GetBotAssociationResult> {
 
@@ -63,19 +50,6 @@ export interface GetBotAssociationResult {
  * Provides details about a specific Lex (V1) Bot associated with an Amazon Connect instance.
  *
  * ## Example Usage
- * ### By name
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.connect.getBotAssociation({
- *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
- *     lexBot: {
- *         name: "Test",
- *     },
- * });
- * ```
  */
 export function getBotAssociationOutput(args: GetBotAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBotAssociationResult> {
     return pulumi.output(args).apply((a: any) => getBotAssociation(a, opts))

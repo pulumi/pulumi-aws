@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.msk.Configuration("example", {
+ * const example = new aws.msk/configuration.Configuration("example", {
  *     kafkaVersions: ["2.1.0"],
  *     serverProperties: `auto.create.topics.enable = true
  * delete.topic.enable = true

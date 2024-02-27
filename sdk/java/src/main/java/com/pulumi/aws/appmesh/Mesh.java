@@ -55,8 +55,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.appmesh.Mesh;
  * import com.pulumi.aws.appmesh.MeshArgs;
- * import com.pulumi.aws.appmesh.inputs.MeshSpecArgs;
- * import com.pulumi.aws.appmesh.inputs.MeshSpecEgressFilterArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -71,11 +69,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var simple = new Mesh(&#34;simple&#34;, MeshArgs.builder()        
- *             .spec(MeshSpecArgs.builder()
- *                 .egressFilter(MeshSpecEgressFilterArgs.builder()
- *                     .type(&#34;ALLOW_ALL&#34;)
- *                     .build())
- *                 .build())
+ *             .spec(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

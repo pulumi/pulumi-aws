@@ -214,16 +214,6 @@ def get_faq(faq_id: Optional[str] = None,
     """
     Provides details about a specific Amazon Kendra Faq.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.kendra.get_faq(faq_id="87654321-1234-4321-4321-321987654321",
-        index_id="12345678-1234-1234-1234-123456789123")
-    ```
-
 
     :param str faq_id: Identifier of the FAQ.
     :param str index_id: Identifier of the index that contains the FAQ.
@@ -261,16 +251,6 @@ def get_faq_output(faq_id: Optional[pulumi.Input[str]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFaqResult]:
     """
     Provides details about a specific Amazon Kendra Faq.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.kendra.get_faq(faq_id="87654321-1234-4321-4321-321987654321",
-        index_id="12345678-1234-1234-1234-123456789123")
-    ```
 
 
     :param str faq_id: Identifier of the FAQ.

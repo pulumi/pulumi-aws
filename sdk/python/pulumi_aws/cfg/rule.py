@@ -358,38 +358,6 @@ class Rule(pulumi.CustomResource):
         > **Note:** Config Rule requires an existing Configuration Recorder to be present. Use of `depends_on` is recommended (as shown below) to avoid race conditions.
 
         ## Example Usage
-        ### AWS Managed Rules
-
-        AWS managed rules can be used by setting the source owner to `AWS` and the source identifier to the name of the managed rule. More information about AWS managed rules can be found in the [AWS Config Developer Guide](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html).
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["config.amazonaws.com"],
-            )],
-            actions=["sts:AssumeRole"],
-        )])
-        role = aws.iam.Role("role", assume_role_policy=assume_role.json)
-        foo = aws.cfg.Recorder("foo", role_arn=role.arn)
-        rule = aws.cfg.Rule("rule", source=aws.cfg.RuleSourceArgs(
-            owner="AWS",
-            source_identifier="S3_BUCKET_VERSIONING_ENABLED",
-        ),
-        opts=pulumi.ResourceOptions(depends_on=[foo]))
-        policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            actions=["config:Put*"],
-            resources=["*"],
-        )])
-        role_policy = aws.iam.RolePolicy("rolePolicy",
-            role=role.id,
-            policy=policy_document.json)
-        ```
         ### Custom Rules
 
         Custom rules can be used by setting the source owner to `CUSTOM_LAMBDA` and the source identifier to the Amazon Resource Name (ARN) of the Lambda Function. The AWS Config service must have permissions to invoke the Lambda Function, e.g., via the `lambda.Permission` resource. More information about custom rules can be found in the [AWS Config Developer Guide](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_develop-rules.html).
@@ -398,19 +366,19 @@ class Rule(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_recorder = aws.cfg.Recorder("exampleRecorder")
+        example_recorder = aws.cfg.recorder.Recorder("exampleRecorder")
         # ... other configuration ...
-        example_function = aws.lambda_.Function("exampleFunction")
+        example_function = aws.lambda_.function.Function("exampleFunction")
         # ... other configuration ...
-        example_permission = aws.lambda_.Permission("examplePermission",
-            action="lambda:InvokeFunction",
+        example_permission = aws.lambda_.permission.Permission("examplePermission",
+            action=lambda:InvokeFunction,
             function=example_function.arn,
-            principal="config.amazonaws.com")
+            principal=config.amazonaws.com)
         # ... other configuration ...
-        example_rule = aws.cfg.Rule("exampleRule", source=aws.cfg.RuleSourceArgs(
-            owner="CUSTOM_LAMBDA",
-            source_identifier=example_function.arn,
-        ),
+        example_rule = aws.cfg.rule.Rule("exampleRule", source={
+            owner: CUSTOM_LAMBDA,
+            sourceIdentifier: example_function.arn,
+        },
         opts=pulumi.ResourceOptions(depends_on=[
                 example_recorder,
                 example_permission,
@@ -422,14 +390,14 @@ class Rule(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.cfg.Rule("example", source=aws.cfg.RuleSourceArgs(
-            owner="CUSTOM_POLICY",
-            source_details=[aws.cfg.RuleSourceSourceDetailArgs(
-                message_type="ConfigurationItemChangeNotification",
-            )],
-            custom_policy_details=aws.cfg.RuleSourceCustomPolicyDetailsArgs(
-                policy_runtime="guard-2.x.x",
-                policy_text=\"\"\"	  rule tableisactive when
+        example = aws.cfg.rule.Rule("example", source={
+            owner: CUSTOM_POLICY,
+            sourceDetails: [{
+                messageType: ConfigurationItemChangeNotification,
+            }],
+            customPolicyDetails: {
+                policyRuntime: guard-2.x.x,
+                policyText: 	  rule tableisactive when
         		  resourceType == "AWS::DynamoDB::Table" {
         		  configuration.tableStatus == ['ACTIVE']
         	  }
@@ -439,9 +407,9 @@ class Rule(pulumi.CustomResource):
         		  tableisactive {
         			  supplementaryConfiguration.ContinuousBackupsDescription.pointInTimeRecoveryDescription.pointInTimeRecoveryStatus == "ENABLED"
         	  }
-        \"\"\",
-            ),
-        ))
+        ,
+            },
+        })
         ```
 
         ## Import
@@ -475,38 +443,6 @@ class Rule(pulumi.CustomResource):
         > **Note:** Config Rule requires an existing Configuration Recorder to be present. Use of `depends_on` is recommended (as shown below) to avoid race conditions.
 
         ## Example Usage
-        ### AWS Managed Rules
-
-        AWS managed rules can be used by setting the source owner to `AWS` and the source identifier to the name of the managed rule. More information about AWS managed rules can be found in the [AWS Config Developer Guide](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html).
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["config.amazonaws.com"],
-            )],
-            actions=["sts:AssumeRole"],
-        )])
-        role = aws.iam.Role("role", assume_role_policy=assume_role.json)
-        foo = aws.cfg.Recorder("foo", role_arn=role.arn)
-        rule = aws.cfg.Rule("rule", source=aws.cfg.RuleSourceArgs(
-            owner="AWS",
-            source_identifier="S3_BUCKET_VERSIONING_ENABLED",
-        ),
-        opts=pulumi.ResourceOptions(depends_on=[foo]))
-        policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            actions=["config:Put*"],
-            resources=["*"],
-        )])
-        role_policy = aws.iam.RolePolicy("rolePolicy",
-            role=role.id,
-            policy=policy_document.json)
-        ```
         ### Custom Rules
 
         Custom rules can be used by setting the source owner to `CUSTOM_LAMBDA` and the source identifier to the Amazon Resource Name (ARN) of the Lambda Function. The AWS Config service must have permissions to invoke the Lambda Function, e.g., via the `lambda.Permission` resource. More information about custom rules can be found in the [AWS Config Developer Guide](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_develop-rules.html).
@@ -515,19 +451,19 @@ class Rule(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_recorder = aws.cfg.Recorder("exampleRecorder")
+        example_recorder = aws.cfg.recorder.Recorder("exampleRecorder")
         # ... other configuration ...
-        example_function = aws.lambda_.Function("exampleFunction")
+        example_function = aws.lambda_.function.Function("exampleFunction")
         # ... other configuration ...
-        example_permission = aws.lambda_.Permission("examplePermission",
-            action="lambda:InvokeFunction",
+        example_permission = aws.lambda_.permission.Permission("examplePermission",
+            action=lambda:InvokeFunction,
             function=example_function.arn,
-            principal="config.amazonaws.com")
+            principal=config.amazonaws.com)
         # ... other configuration ...
-        example_rule = aws.cfg.Rule("exampleRule", source=aws.cfg.RuleSourceArgs(
-            owner="CUSTOM_LAMBDA",
-            source_identifier=example_function.arn,
-        ),
+        example_rule = aws.cfg.rule.Rule("exampleRule", source={
+            owner: CUSTOM_LAMBDA,
+            sourceIdentifier: example_function.arn,
+        },
         opts=pulumi.ResourceOptions(depends_on=[
                 example_recorder,
                 example_permission,
@@ -539,14 +475,14 @@ class Rule(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.cfg.Rule("example", source=aws.cfg.RuleSourceArgs(
-            owner="CUSTOM_POLICY",
-            source_details=[aws.cfg.RuleSourceSourceDetailArgs(
-                message_type="ConfigurationItemChangeNotification",
-            )],
-            custom_policy_details=aws.cfg.RuleSourceCustomPolicyDetailsArgs(
-                policy_runtime="guard-2.x.x",
-                policy_text=\"\"\"	  rule tableisactive when
+        example = aws.cfg.rule.Rule("example", source={
+            owner: CUSTOM_POLICY,
+            sourceDetails: [{
+                messageType: ConfigurationItemChangeNotification,
+            }],
+            customPolicyDetails: {
+                policyRuntime: guard-2.x.x,
+                policyText: 	  rule tableisactive when
         		  resourceType == "AWS::DynamoDB::Table" {
         		  configuration.tableStatus == ['ACTIVE']
         	  }
@@ -556,9 +492,9 @@ class Rule(pulumi.CustomResource):
         		  tableisactive {
         			  supplementaryConfiguration.ContinuousBackupsDescription.pointInTimeRecoveryDescription.pointInTimeRecoveryStatus == "ENABLED"
         	  }
-        \"\"\",
-            ),
-        ))
+        ,
+            },
+        })
         ```
 
         ## Import

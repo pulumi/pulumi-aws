@@ -25,28 +25,26 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/elasticbeanstalk"
+//	elasticbeanstalk/application "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/elasticbeanstalk/application"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := elasticbeanstalk.NewApplication(ctx, "tftest", &elasticbeanstalk.ApplicationArgs{
-//				Description: pulumi.String("tf-test-desc"),
-//				AppversionLifecycle: &elasticbeanstalk.ApplicationAppversionLifecycleArgs{
-//					ServiceRole:        pulumi.Any(aws_iam_role.Beanstalk_service.Arn),
-//					MaxCount:           pulumi.Int(128),
-//					DeleteSourceFromS3: pulumi.Bool(true),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := elasticbeanstalk/application.NewApplication(ctx, "tftest", &elasticbeanstalk/application.ApplicationArgs{
+// Description: "tf-test-desc",
+// AppversionLifecycle: map[string]interface{}{
+// "serviceRole": aws_iam_role.Beanstalk_service.Arn,
+// "maxCount": 128,
+// "deleteSourceFromS3": true,
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

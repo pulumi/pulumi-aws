@@ -22,26 +22,24 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/servicecatalog"
+//	servicecatalog/serviceAction "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/servicecatalog/serviceAction"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := servicecatalog.NewServiceAction(ctx, "example", &servicecatalog.ServiceActionArgs{
-//				Definition: &servicecatalog.ServiceActionDefinitionArgs{
-//					Name: pulumi.String("AWS-RestartEC2Instance"),
-//				},
-//				Description: pulumi.String("Motor generator unit"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := servicecatalog/serviceAction.NewServiceAction(ctx, "example", &servicecatalog/serviceAction.ServiceActionArgs{
+// Definition: map[string]interface{}{
+// "name": "AWS-RestartEC2Instance",
+// },
+// Description: "Motor generator unit",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

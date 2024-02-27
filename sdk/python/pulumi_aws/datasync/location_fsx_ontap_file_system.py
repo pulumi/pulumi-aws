@@ -295,6 +295,24 @@ class LocationFsxOntapFileSystem(pulumi.CustomResource):
         Resource for managing an AWS DataSync Location FSx Ontap File System.
 
         ## Example Usage
+        ### Basic Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.datasync.location_fsx_ontap_file_system.LocationFsxOntapFileSystem("test",
+            fsx_filesystem_arn=aws_fsx_ontap_file_system.test.arn,
+            security_group_arns=[aws_security_group.test.arn],
+            storage_virtual_machine_arn=aws_fsx_ontap_storage_virtual_machine.test.arn,
+            protocol={
+                nfs: {
+                    mountOptions: {
+                        version: NFS3,
+                    },
+                },
+            })
+        ```
 
         ## Import
 
@@ -326,6 +344,24 @@ class LocationFsxOntapFileSystem(pulumi.CustomResource):
         Resource for managing an AWS DataSync Location FSx Ontap File System.
 
         ## Example Usage
+        ### Basic Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.datasync.location_fsx_ontap_file_system.LocationFsxOntapFileSystem("test",
+            fsx_filesystem_arn=aws_fsx_ontap_file_system.test.arn,
+            security_group_arns=[aws_security_group.test.arn],
+            storage_virtual_machine_arn=aws_fsx_ontap_storage_virtual_machine.test.arn,
+            protocol={
+                nfs: {
+                    mountOptions: {
+                        version: NFS3,
+                    },
+                },
+            })
+        ```
 
         ## Import
 

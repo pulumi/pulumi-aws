@@ -32,15 +32,15 @@ namespace Pulumi.Aws.Ec2
     ///     // Create an AMI that will start a machine whose root device is backed by
     ///     // an EBS volume populated from a snapshot. We assume that such a snapshot
     ///     // already exists with the id "snap-xxxxxxxx".
-    ///     var example = new Aws.Ec2.Ami("example", new()
+    ///     var example = new Aws.Ec2.Ami.Ami("example", new()
     ///     {
     ///         EbsBlockDevices = new[]
     ///         {
-    ///             new Aws.Ec2.Inputs.AmiEbsBlockDeviceArgs
+    ///             
     ///             {
-    ///                 DeviceName = "/dev/xvda",
-    ///                 SnapshotId = "snap-xxxxxxxx",
-    ///                 VolumeSize = 8,
+    ///                 { "deviceName", "/dev/xvda" },
+    ///                 { "snapshotId", "snap-xxxxxxxx" },
+    ///                 { "volumeSize", 8 },
     ///             },
     ///         },
     ///         ImdsSupport = "v2.0",

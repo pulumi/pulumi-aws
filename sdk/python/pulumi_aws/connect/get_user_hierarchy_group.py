@@ -131,28 +131,6 @@ def get_user_hierarchy_group(hierarchy_group_id: Optional[str] = None,
     """
     Provides details about a specific Amazon Connect User Hierarchy Group.
 
-    ## Example Usage
-
-    By `name`
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.connect.get_user_hierarchy_group(instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
-        name="Example")
-    ```
-
-    By `hierarchy_group_id`
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.connect.get_user_hierarchy_group(hierarchy_group_id="cccccccc-bbbb-cccc-dddd-111111111111",
-        instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111")
-    ```
-
 
     :param str hierarchy_group_id: Returns information on a specific hierarchy group by hierarchy group id
     :param str instance_id: Reference to the hosting Amazon Connect Instance
@@ -186,28 +164,6 @@ def get_user_hierarchy_group_output(hierarchy_group_id: Optional[pulumi.Input[Op
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserHierarchyGroupResult]:
     """
     Provides details about a specific Amazon Connect User Hierarchy Group.
-
-    ## Example Usage
-
-    By `name`
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.connect.get_user_hierarchy_group(instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
-        name="Example")
-    ```
-
-    By `hierarchy_group_id`
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.connect.get_user_hierarchy_group(hierarchy_group_id="cccccccc-bbbb-cccc-dddd-111111111111",
-        instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111")
-    ```
 
 
     :param str hierarchy_group_id: Returns information on a specific hierarchy group by hierarchy group id

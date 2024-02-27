@@ -6,32 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Provides details about a specific Amazon Connect Vocabulary.
- *
- * ## Example Usage
- *
- * By `name`
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.connect.getVocabulary({
- *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
- *     name: "Example",
- * });
- * ```
- *
- * By `vocabularyId`
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.connect.getVocabulary({
- *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
- *     vocabularyId: "cccccccc-bbbb-cccc-dddd-111111111111",
- * });
- * ```
  */
 export function getVocabulary(args: GetVocabularyArgs, opts?: pulumi.InvokeOptions): Promise<GetVocabularyResult> {
 
@@ -111,32 +85,6 @@ export interface GetVocabularyResult {
 }
 /**
  * Provides details about a specific Amazon Connect Vocabulary.
- *
- * ## Example Usage
- *
- * By `name`
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.connect.getVocabulary({
- *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
- *     name: "Example",
- * });
- * ```
- *
- * By `vocabularyId`
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.connect.getVocabulary({
- *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
- *     vocabularyId: "cccccccc-bbbb-cccc-dddd-111111111111",
- * });
- * ```
  */
 export function getVocabularyOutput(args: GetVocabularyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVocabularyResult> {
     return pulumi.output(args).apply((a: any) => getVocabulary(a, opts))

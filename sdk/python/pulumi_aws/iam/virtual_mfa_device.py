@@ -249,7 +249,7 @@ class VirtualMfaDevice(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.iam.VirtualMfaDevice("example", virtual_mfa_device_name="example")
+        example = aws.iam.virtual_mfa_device.VirtualMfaDevice("example", virtual_mfa_device_name=example)
         ```
 
         ## Import
@@ -288,7 +288,7 @@ class VirtualMfaDevice(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.iam.VirtualMfaDevice("example", virtual_mfa_device_name="example")
+        example = aws.iam.virtual_mfa_device.VirtualMfaDevice("example", virtual_mfa_device_name=example)
         ```
 
         ## Import

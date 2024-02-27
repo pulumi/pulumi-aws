@@ -36,7 +36,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.eks.Cluster;
  * import com.pulumi.aws.eks.ClusterArgs;
- * import com.pulumi.aws.eks.inputs.ClusterVpcConfigArgs;
  * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
@@ -53,11 +52,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Cluster(&#34;example&#34;, ClusterArgs.builder()        
  *             .roleArn(aws_iam_role.example().arn())
- *             .vpcConfig(ClusterVpcConfigArgs.builder()
- *                 .subnetIds(                
- *                     aws_subnet.example1().id(),
- *                     aws_subnet.example2().id())
- *                 .build())
+ *             .vpcConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(                
  *                     aws_iam_role_policy_attachment.example-AmazonEKSClusterPolicy(),
@@ -65,61 +60,7 @@ import javax.annotation.Nullable;
  *                 .build());
  * 
  *         ctx.export(&#34;endpoint&#34;, example.endpoint());
- *         ctx.export(&#34;kubeconfig-certificate-authority-data&#34;, example.certificateAuthority().applyValue(certificateAuthority -&gt; certificateAuthority.data()));
- *     }
- * }
- * ```
- * ### Example IAM Role for EKS Cluster
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.iam.IamFunctions;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
- * import com.pulumi.aws.iam.Role;
- * import com.pulumi.aws.iam.RoleArgs;
- * import com.pulumi.aws.iam.RolePolicyAttachment;
- * import com.pulumi.aws.iam.RolePolicyAttachmentArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect(&#34;Allow&#34;)
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type(&#34;Service&#34;)
- *                     .identifiers(&#34;eks.amazonaws.com&#34;)
- *                     .build())
- *                 .actions(&#34;sts:AssumeRole&#34;)
- *                 .build())
- *             .build());
- * 
- *         var example = new Role(&#34;example&#34;, RoleArgs.builder()        
- *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
- *             .build());
- * 
- *         var example_AmazonEKSClusterPolicy = new RolePolicyAttachment(&#34;example-AmazonEKSClusterPolicy&#34;, RolePolicyAttachmentArgs.builder()        
- *             .policyArn(&#34;arn:aws:iam::aws:policy/AmazonEKSClusterPolicy&#34;)
- *             .role(example.name())
- *             .build());
- * 
- *         var example_AmazonEKSVPCResourceController = new RolePolicyAttachment(&#34;example-AmazonEKSVPCResourceController&#34;, RolePolicyAttachmentArgs.builder()        
- *             .policyArn(&#34;arn:aws:iam::aws:policy/AmazonEKSVPCResourceController&#34;)
- *             .role(example.name())
- *             .build());
- * 
+ *         ctx.export(&#34;kubeconfig-certificate-authority-data&#34;, example.certificateAuthority().data());
  *     }
  * }
  * ```
@@ -182,8 +123,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.iam.RoleArgs;
  * import com.pulumi.aws.eks.Cluster;
  * import com.pulumi.aws.eks.ClusterArgs;
- * import com.pulumi.aws.eks.inputs.ClusterVpcConfigArgs;
- * import com.pulumi.aws.eks.inputs.ClusterOutpostConfigArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -203,14 +142,8 @@ import javax.annotation.Nullable;
  * 
  *         var exampleCluster = new Cluster(&#34;exampleCluster&#34;, ClusterArgs.builder()        
  *             .roleArn(exampleRole.arn())
- *             .vpcConfig(ClusterVpcConfigArgs.builder()
- *                 .endpointPrivateAccess(true)
- *                 .endpointPublicAccess(false)
- *                 .build())
- *             .outpostConfig(ClusterOutpostConfigArgs.builder()
- *                 .controlPlaneInstanceType(&#34;m5d.large&#34;)
- *                 .outpostArns(data.aws_outposts_outpost().example().arn())
- *                 .build())
+ *             .vpcConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .outpostConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -227,8 +160,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.iam.RoleArgs;
  * import com.pulumi.aws.eks.Cluster;
  * import com.pulumi.aws.eks.ClusterArgs;
- * import com.pulumi.aws.eks.inputs.ClusterVpcConfigArgs;
- * import com.pulumi.aws.eks.inputs.ClusterAccessConfigArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -248,14 +179,8 @@ import javax.annotation.Nullable;
  * 
  *         var exampleCluster = new Cluster(&#34;exampleCluster&#34;, ClusterArgs.builder()        
  *             .roleArn(exampleRole.arn())
- *             .vpcConfig(ClusterVpcConfigArgs.builder()
- *                 .endpointPrivateAccess(true)
- *                 .endpointPublicAccess(false)
- *                 .build())
- *             .accessConfig(ClusterAccessConfigArgs.builder()
- *                 .authenticationMode(&#34;CONFIG_MAP&#34;)
- *                 .bootstrapClusterCreatorAdminPermissions(true)
- *                 .build())
+ *             .vpcConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .accessConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

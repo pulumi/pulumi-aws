@@ -8,17 +8,6 @@ import * as utilities from "../utilities";
  * Use this data source to get the ARN and URL of queue in AWS Simple Queue Service (SQS).
  * By using this data source, you can reference SQS queues without having to hardcode
  * the ARNs as input.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.sqs.getQueue({
- *     name: "queue",
- * });
- * ```
  */
 export function getQueue(args: GetQueueArgs, opts?: pulumi.InvokeOptions): Promise<GetQueueResult> {
 
@@ -69,17 +58,6 @@ export interface GetQueueResult {
  * Use this data source to get the ARN and URL of queue in AWS Simple Queue Service (SQS).
  * By using this data source, you can reference SQS queues without having to hardcode
  * the ARNs as input.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.sqs.getQueue({
- *     name: "queue",
- * });
- * ```
  */
 export function getQueueOutput(args: GetQueueOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetQueueResult> {
     return pulumi.output(args).apply((a: any) => getQueue(a, opts))

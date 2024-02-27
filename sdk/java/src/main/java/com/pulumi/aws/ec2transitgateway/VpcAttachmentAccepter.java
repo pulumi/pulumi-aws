@@ -33,8 +33,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.ec2transitgateway.VpcAttachmentAccepter;
- * import com.pulumi.aws.ec2transitgateway.VpcAttachmentAccepterArgs;
+ * import com.pulumi.aws.ec2transitgateway_vpcAttachmentAccepter.VpcAttachmentAccepter;
+ * import com.pulumi.aws.ec2transitgateway_vpcAttachmentAccepter.VpcAttachmentAccepterArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -50,7 +50,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new VpcAttachmentAccepter(&#34;example&#34;, VpcAttachmentAccepterArgs.builder()        
  *             .transitGatewayAttachmentId(aws_ec2_transit_gateway_vpc_attachment.example().id())
- *             .tags(Map.of(&#34;Name&#34;, &#34;Example cross-account attachment&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

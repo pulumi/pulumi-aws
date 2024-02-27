@@ -21,35 +21,33 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/detective"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/organizations"
+//	detective/organizationAdminAccount "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/detective/organizationAdminAccount"
+//	organizations/organization "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/organizations/organization"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleOrganization, err := organizations.NewOrganization(ctx, "exampleOrganization", &organizations.OrganizationArgs{
-//				AwsServiceAccessPrincipals: pulumi.StringArray{
-//					pulumi.String("detective.amazonaws.com"),
-//				},
-//				FeatureSet: pulumi.String("ALL"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = detective.NewOrganizationAdminAccount(ctx, "exampleOrganizationAdminAccount", &detective.OrganizationAdminAccountArgs{
-//				AccountId: pulumi.String("123456789012"),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleOrganization,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleOrganization, err := organizations/organization.NewOrganization(ctx, "exampleOrganization", &organizations/organization.OrganizationArgs{
+// AwsServiceAccessPrincipals: []string{
+// "detective.amazonaws.com",
+// },
+// FeatureSet: "ALL",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = detective/organizationAdminAccount.NewOrganizationAdminAccount(ctx, "exampleOrganizationAdminAccount", &detective/organizationAdminAccount.OrganizationAdminAccountArgs{
+// AccountId: "123456789012",
+// }, pulumi.DependsOn([]pulumi.Resource{
+// exampleOrganization,
+// }))
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

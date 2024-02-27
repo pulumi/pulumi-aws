@@ -17,14 +17,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const dynamodbTarget = new aws.appautoscaling.Target("dynamodbTarget", {
+ * const dynamodbTarget = new aws.appautoscaling/target.Target("dynamodbTarget", {
  *     maxCapacity: 100,
  *     minCapacity: 5,
  *     resourceId: "table/tableName",
  *     scalableDimension: "dynamodb:table:ReadCapacityUnits",
  *     serviceNamespace: "dynamodb",
  * });
- * const dynamodbScheduledAction = new aws.appautoscaling.ScheduledAction("dynamodbScheduledAction", {
+ * const dynamodbScheduledAction = new aws.appautoscaling/scheduledAction.ScheduledAction("dynamodbScheduledAction", {
  *     serviceNamespace: dynamodbTarget.serviceNamespace,
  *     resourceId: dynamodbTarget.resourceId,
  *     scalableDimension: dynamodbTarget.scalableDimension,
@@ -41,14 +41,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const ecsTarget = new aws.appautoscaling.Target("ecsTarget", {
+ * const ecsTarget = new aws.appautoscaling/target.Target("ecsTarget", {
  *     maxCapacity: 4,
  *     minCapacity: 1,
  *     resourceId: "service/clusterName/serviceName",
  *     scalableDimension: "ecs:service:DesiredCount",
  *     serviceNamespace: "ecs",
  * });
- * const ecsScheduledAction = new aws.appautoscaling.ScheduledAction("ecsScheduledAction", {
+ * const ecsScheduledAction = new aws.appautoscaling/scheduledAction.ScheduledAction("ecsScheduledAction", {
  *     serviceNamespace: ecsTarget.serviceNamespace,
  *     resourceId: ecsTarget.resourceId,
  *     scalableDimension: ecsTarget.scalableDimension,

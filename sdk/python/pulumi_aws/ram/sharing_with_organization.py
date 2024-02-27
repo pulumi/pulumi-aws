@@ -37,7 +37,7 @@ class SharingWithOrganization(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ram.SharingWithOrganization("example")
+        example = aws.ram.sharing_with_organization.SharingWithOrganization("example")
         ```
 
         ## Import
@@ -68,7 +68,7 @@ class SharingWithOrganization(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ram.SharingWithOrganization("example")
+        example = aws.ram.sharing_with_organization.SharingWithOrganization("example")
         ```
 
         ## Import

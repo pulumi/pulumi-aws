@@ -100,26 +100,6 @@ class PolicyAttachment(pulumi.CustomResource):
         """
         Provides an IoT policy attachment.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        pubsub_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            actions=["iot:*"],
-            resources=["*"],
-        )])
-        pubsub_policy = aws.iot.Policy("pubsubPolicy", policy=pubsub_policy_document.json)
-        cert = aws.iot.Certificate("cert",
-            csr=(lambda path: open(path).read())("csr.pem"),
-            active=True)
-        att = aws.iot.PolicyAttachment("att",
-            policy=pubsub_policy.name,
-            target=cert.arn)
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] policy: The name of the policy to attach.
@@ -133,26 +113,6 @@ class PolicyAttachment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an IoT policy attachment.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        pubsub_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            actions=["iot:*"],
-            resources=["*"],
-        )])
-        pubsub_policy = aws.iot.Policy("pubsubPolicy", policy=pubsub_policy_document.json)
-        cert = aws.iot.Certificate("cert",
-            csr=(lambda path: open(path).read())("csr.pem"),
-            active=True)
-        att = aws.iot.PolicyAttachment("att",
-            policy=pubsub_policy.name,
-            target=cert.arn)
-        ```
 
         :param str resource_name: The name of the resource.
         :param PolicyAttachmentArgs args: The arguments to use to populate this resource's properties.

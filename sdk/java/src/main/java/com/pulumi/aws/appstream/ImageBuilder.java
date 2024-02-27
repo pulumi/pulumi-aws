@@ -32,7 +32,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.appstream.ImageBuilder;
  * import com.pulumi.aws.appstream.ImageBuilderArgs;
- * import com.pulumi.aws.appstream.inputs.ImageBuilderVpcConfigArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -52,10 +51,8 @@ import javax.annotation.Nullable;
  *             .enableDefaultInternetAccess(false)
  *             .imageName(&#34;AppStream-WinServer2019-10-05-2022&#34;)
  *             .instanceType(&#34;stream.standard.large&#34;)
- *             .vpcConfig(ImageBuilderVpcConfigArgs.builder()
- *                 .subnetIds(aws_subnet.example().id())
- *                 .build())
- *             .tags(Map.of(&#34;Name&#34;, &#34;Example Image Builder&#34;))
+ *             .vpcConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

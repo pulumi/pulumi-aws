@@ -6,17 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Provides information for a Service Catalog Portfolio.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const portfolio = aws.servicecatalog.getPortfolio({
- *     id: "port-07052002",
- * });
- * ```
  */
 export function getPortfolio(args: GetPortfolioArgs, opts?: pulumi.InvokeOptions): Promise<GetPortfolioResult> {
 
@@ -81,17 +70,6 @@ export interface GetPortfolioResult {
 }
 /**
  * Provides information for a Service Catalog Portfolio.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const portfolio = aws.servicecatalog.getPortfolio({
- *     id: "port-07052002",
- * });
- * ```
  */
 export function getPortfolioOutput(args: GetPortfolioOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPortfolioResult> {
     return pulumi.output(args).apply((a: any) => getPortfolio(a, opts))

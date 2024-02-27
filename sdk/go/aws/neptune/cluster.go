@@ -28,29 +28,27 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/neptune"
+//	neptune/cluster "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/neptune/cluster"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := neptune.NewCluster(ctx, "default", &neptune.ClusterArgs{
-//				ApplyImmediately:                 pulumi.Bool(true),
-//				BackupRetentionPeriod:            pulumi.Int(5),
-//				ClusterIdentifier:                pulumi.String("neptune-cluster-demo"),
-//				Engine:                           pulumi.String("neptune"),
-//				IamDatabaseAuthenticationEnabled: pulumi.Bool(true),
-//				PreferredBackupWindow:            pulumi.String("07:00-09:00"),
-//				SkipFinalSnapshot:                pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := neptune/cluster.NewCluster(ctx, "default", &neptune/cluster.ClusterArgs{
+// ApplyImmediately: true,
+// BackupRetentionPeriod: 5,
+// ClusterIdentifier: "neptune-cluster-demo",
+// Engine: "neptune",
+// IamDatabaseAuthenticationEnabled: true,
+// PreferredBackupWindow: "07:00-09:00",
+// SkipFinalSnapshot: true,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // > **Note:** AWS Neptune does not support user name/password–based access control.

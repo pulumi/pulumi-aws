@@ -216,15 +216,6 @@ def get_domain_name(domain_name: Optional[str] = None,
     """
     Use this data source to get the custom domain name for use with AWS API Gateway.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.apigateway.get_domain_name(domain_name="api.example.com")
-    ```
-
 
     :param str domain_name: Fully-qualified domain name to look up. If no domain name is found, an error will be returned.
     :param Mapping[str, str] tags: Key-value map of tags for the resource.
@@ -259,15 +250,6 @@ def get_domain_name_output(domain_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDomainNameResult]:
     """
     Use this data source to get the custom domain name for use with AWS API Gateway.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.apigateway.get_domain_name(domain_name="api.example.com")
-    ```
 
 
     :param str domain_name: Fully-qualified domain name to look up. If no domain name is found, an error will be returned.

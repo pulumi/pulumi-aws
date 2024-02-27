@@ -31,16 +31,16 @@ namespace Pulumi.Aws.ServiceCatalog
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.ServiceCatalog.ProvisionedProduct("example", new()
+    ///     var example = new Aws.Servicecatalog.ProvisionedProduct.ProvisionedProduct("example", new()
     ///     {
     ///         ProductName = "Example product",
     ///         ProvisioningArtifactName = "Example version",
     ///         ProvisioningParameters = new[]
     ///         {
-    ///             new Aws.ServiceCatalog.Inputs.ProvisionedProductProvisioningParameterArgs
+    ///             
     ///             {
-    ///                 Key = "foo",
-    ///                 Value = "bar",
+    ///                 { "key", "foo" },
+    ///                 { "value", "bar" },
     ///             },
     ///         },
     ///         Tags = 

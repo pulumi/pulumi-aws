@@ -10,53 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Provides a AWS Transfer User resource. Managing SSH keys can be accomplished with the `aws.transfer.SshKey` resource.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const fooServer = new aws.transfer.Server("fooServer", {
- *     identityProviderType: "SERVICE_MANAGED",
- *     tags: {
- *         NAME: "tf-acc-test-transfer-server",
- *     },
- * });
- * const assumeRole = aws.iam.getPolicyDocument({
- *     statements: [{
- *         effect: "Allow",
- *         principals: [{
- *             type: "Service",
- *             identifiers: ["transfer.amazonaws.com"],
- *         }],
- *         actions: ["sts:AssumeRole"],
- *     }],
- * });
- * const fooRole = new aws.iam.Role("fooRole", {assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json)});
- * const fooPolicyDocument = aws.iam.getPolicyDocument({
- *     statements: [{
- *         sid: "AllowFullAccesstoS3",
- *         effect: "Allow",
- *         actions: ["s3:*"],
- *         resources: ["*"],
- *     }],
- * });
- * const fooRolePolicy = new aws.iam.RolePolicy("fooRolePolicy", {
- *     role: fooRole.id,
- *     policy: fooPolicyDocument.then(fooPolicyDocument => fooPolicyDocument.json),
- * });
- * const fooUser = new aws.transfer.User("fooUser", {
- *     serverId: fooServer.id,
- *     userName: "tftestuser",
- *     role: fooRole.arn,
- *     homeDirectoryType: "LOGICAL",
- *     homeDirectoryMappings: [{
- *         entry: "/test.pdf",
- *         target: "/bucket3/test-path/tftestuser.pdf",
- *     }],
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import Transfer Users using the `server_id` and `user_name` separated by `/`. For example:

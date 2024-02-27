@@ -23,60 +23,58 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/athena"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kms"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	athena/database "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/athena/database"
+//	athena/namedQuery "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/athena/namedQuery"
+//	athena/workgroup "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/athena/workgroup"
+//	kms/key "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/kms/key"
+//	s3/bucketV2 "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/s3/bucketV2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			hogeBucketV2, err := s3.NewBucketV2(ctx, "hogeBucketV2", nil)
-//			if err != nil {
-//				return err
-//			}
-//			testKey, err := kms.NewKey(ctx, "testKey", &kms.KeyArgs{
-//				DeletionWindowInDays: pulumi.Int(7),
-//				Description:          pulumi.String("Athena KMS Key"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			testWorkgroup, err := athena.NewWorkgroup(ctx, "testWorkgroup", &athena.WorkgroupArgs{
-//				Configuration: &athena.WorkgroupConfigurationArgs{
-//					ResultConfiguration: &athena.WorkgroupConfigurationResultConfigurationArgs{
-//						EncryptionConfiguration: &athena.WorkgroupConfigurationResultConfigurationEncryptionConfigurationArgs{
-//							EncryptionOption: pulumi.String("SSE_KMS"),
-//							KmsKeyArn:        testKey.Arn,
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			hogeDatabase, err := athena.NewDatabase(ctx, "hogeDatabase", &athena.DatabaseArgs{
-//				Name:   pulumi.String("users"),
-//				Bucket: hogeBucketV2.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = athena.NewNamedQuery(ctx, "foo", &athena.NamedQueryArgs{
-//				Workgroup: testWorkgroup.ID(),
-//				Database:  hogeDatabase.Name,
-//				Query: hogeDatabase.Name.ApplyT(func(name string) (string, error) {
-//					return fmt.Sprintf("SELECT * FROM %v limit 10;", name), nil
-//				}).(pulumi.StringOutput),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// hogeBucketV2, err := s3/bucketV2.NewBucketV2(ctx, "hogeBucketV2", nil)
+// if err != nil {
+// return err
+// }
+// testKey, err := kms/key.NewKey(ctx, "testKey", &kms/key.KeyArgs{
+// DeletionWindowInDays: 7,
+// Description: "Athena KMS Key",
+// })
+// if err != nil {
+// return err
+// }
+// testWorkgroup, err := athena/workgroup.NewWorkgroup(ctx, "testWorkgroup", &athena/workgroup.WorkgroupArgs{
+// Configuration: map[string]interface{}{
+// "resultConfiguration": map[string]interface{}{
+// "encryptionConfiguration": map[string]interface{}{
+// "encryptionOption": "SSE_KMS",
+// "kmsKeyArn": testKey.Arn,
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// hogeDatabase, err := athena/database.NewDatabase(ctx, "hogeDatabase", &athena/database.DatabaseArgs{
+// Name: "users",
+// Bucket: hogeBucketV2.Id,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = athena/namedQuery.NewNamedQuery(ctx, "foo", &athena/namedQuery.NamedQueryArgs{
+// Workgroup: testWorkgroup.Id,
+// Database: hogeDatabase.Name,
+// Query: fmt.Sprintf("SELECT * FROM %v limit 10;", hogeDatabase.Name),
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

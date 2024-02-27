@@ -28,27 +28,25 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/appautoscaling"
+//	appautoscaling/target "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/appautoscaling/target"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := appautoscaling.NewTarget(ctx, "dynamodbTableReadTarget", &appautoscaling.TargetArgs{
-//				MaxCapacity:       pulumi.Int(100),
-//				MinCapacity:       pulumi.Int(5),
-//				ResourceId:        pulumi.String(fmt.Sprintf("table/%v", aws_dynamodb_table.Example.Name)),
-//				ScalableDimension: pulumi.String("dynamodb:table:ReadCapacityUnits"),
-//				ServiceNamespace:  pulumi.String("dynamodb"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := appautoscaling/target.NewTarget(ctx, "dynamodbTableReadTarget", &appautoscaling/target.TargetArgs{
+// MaxCapacity: 100,
+// MinCapacity: 5,
+// ResourceId: fmt.Sprintf("table/%v", aws_dynamodb_table.Example.Name),
+// ScalableDimension: "dynamodb:table:ReadCapacityUnits",
+// ServiceNamespace: "dynamodb",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### DynamoDB Index Autoscaling
 //
@@ -59,27 +57,25 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/appautoscaling"
+//	appautoscaling/target "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/appautoscaling/target"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := appautoscaling.NewTarget(ctx, "dynamodbIndexReadTarget", &appautoscaling.TargetArgs{
-//				MaxCapacity:       pulumi.Int(100),
-//				MinCapacity:       pulumi.Int(5),
-//				ResourceId:        pulumi.String(fmt.Sprintf("table/%v/index/%v", aws_dynamodb_table.Example.Name, _var.Index_name)),
-//				ScalableDimension: pulumi.String("dynamodb:index:ReadCapacityUnits"),
-//				ServiceNamespace:  pulumi.String("dynamodb"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := appautoscaling/target.NewTarget(ctx, "dynamodbIndexReadTarget", &appautoscaling/target.TargetArgs{
+// MaxCapacity: 100,
+// MinCapacity: 5,
+// ResourceId: fmt.Sprintf("table/%v/index/%v", aws_dynamodb_table.Example.Name, _var.Index_name),
+// ScalableDimension: "dynamodb:index:ReadCapacityUnits",
+// ServiceNamespace: "dynamodb",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### ECS Service Autoscaling
 //
@@ -90,27 +86,25 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/appautoscaling"
+//	appautoscaling/target "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/appautoscaling/target"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := appautoscaling.NewTarget(ctx, "ecsTarget", &appautoscaling.TargetArgs{
-//				MaxCapacity:       pulumi.Int(4),
-//				MinCapacity:       pulumi.Int(1),
-//				ResourceId:        pulumi.String(fmt.Sprintf("service/%v/%v", aws_ecs_cluster.Example.Name, aws_ecs_service.Example.Name)),
-//				ScalableDimension: pulumi.String("ecs:service:DesiredCount"),
-//				ServiceNamespace:  pulumi.String("ecs"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := appautoscaling/target.NewTarget(ctx, "ecsTarget", &appautoscaling/target.TargetArgs{
+// MaxCapacity: 4,
+// MinCapacity: 1,
+// ResourceId: fmt.Sprintf("service/%v/%v", aws_ecs_cluster.Example.Name, aws_ecs_service.Example.Name),
+// ScalableDimension: "ecs:service:DesiredCount",
+// ServiceNamespace: "ecs",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Aurora Read Replica Autoscaling
 //
@@ -121,27 +115,25 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/appautoscaling"
+//	appautoscaling/target "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/appautoscaling/target"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := appautoscaling.NewTarget(ctx, "replicas", &appautoscaling.TargetArgs{
-//				MaxCapacity:       pulumi.Int(15),
-//				MinCapacity:       pulumi.Int(1),
-//				ResourceId:        pulumi.String(fmt.Sprintf("cluster:%v", aws_rds_cluster.Example.Id)),
-//				ScalableDimension: pulumi.String("rds:cluster:ReadReplicaCount"),
-//				ServiceNamespace:  pulumi.String("rds"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := appautoscaling/target.NewTarget(ctx, "replicas", &appautoscaling/target.TargetArgs{
+// MaxCapacity: 15,
+// MinCapacity: 1,
+// ResourceId: fmt.Sprintf("cluster:%v", aws_rds_cluster.Example.Id),
+// ScalableDimension: "rds:cluster:ReadReplicaCount",
+// ServiceNamespace: "rds",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Suppressing `tagsAll` Differences For Older Resources
 //
@@ -152,27 +144,25 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/appautoscaling"
+//	appautoscaling/target "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/appautoscaling/target"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := appautoscaling.NewTarget(ctx, "ecsTarget", &appautoscaling.TargetArgs{
-//				MaxCapacity:       pulumi.Int(4),
-//				MinCapacity:       pulumi.Int(1),
-//				ResourceId:        pulumi.String(fmt.Sprintf("service/%v/%v", aws_ecs_cluster.Example.Name, aws_ecs_service.Example.Name)),
-//				ScalableDimension: pulumi.String("ecs:service:DesiredCount"),
-//				ServiceNamespace:  pulumi.String("ecs"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := appautoscaling/target.NewTarget(ctx, "ecsTarget", &appautoscaling/target.TargetArgs{
+// MaxCapacity: 4,
+// MinCapacity: 1,
+// ResourceId: fmt.Sprintf("service/%v/%v", aws_ecs_cluster.Example.Name, aws_ecs_service.Example.Name),
+// ScalableDimension: "ecs:service:DesiredCount",
+// ServiceNamespace: "ecs",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### MSK / Kafka Autoscaling
 //
@@ -181,27 +171,25 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/appautoscaling"
+//	appautoscaling/target "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/appautoscaling/target"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := appautoscaling.NewTarget(ctx, "mskTarget", &appautoscaling.TargetArgs{
-//				MaxCapacity:       pulumi.Int(8),
-//				MinCapacity:       pulumi.Int(1),
-//				ResourceId:        pulumi.Any(aws_msk_cluster.Example.Arn),
-//				ScalableDimension: pulumi.String("kafka:broker-storage:VolumeSize"),
-//				ServiceNamespace:  pulumi.String("kafka"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := appautoscaling/target.NewTarget(ctx, "mskTarget", &appautoscaling/target.TargetArgs{
+// MaxCapacity: 8,
+// MinCapacity: 1,
+// ResourceId: aws_msk_cluster.Example.Arn,
+// ScalableDimension: "kafka:broker-storage:VolumeSize",
+// ServiceNamespace: "kafka",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

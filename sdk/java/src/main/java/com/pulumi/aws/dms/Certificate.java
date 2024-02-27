@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  *         var test = new Certificate(&#34;test&#34;, CertificateArgs.builder()        
  *             .certificateId(&#34;test-dms-certificate-tf&#34;)
  *             .certificatePem(&#34;...&#34;)
- *             .tags(Map.of(&#34;Name&#34;, &#34;test&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

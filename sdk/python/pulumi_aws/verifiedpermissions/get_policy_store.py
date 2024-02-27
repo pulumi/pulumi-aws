@@ -105,14 +105,6 @@ def get_policy_store(id: Optional[str] = None,
     Data source for managing an AWS Verified Permissions Policy Store.
 
     ## Example Usage
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.verifiedpermissions.get_policy_store(id="example")
-    ```
 
 
     :param str id: The ID of the Policy Store.
@@ -138,14 +130,6 @@ def get_policy_store_output(id: Optional[pulumi.Input[str]] = None,
     Data source for managing an AWS Verified Permissions Policy Store.
 
     ## Example Usage
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.verifiedpermissions.get_policy_store(id="example")
-    ```
 
 
     :param str id: The ID of the Policy Store.

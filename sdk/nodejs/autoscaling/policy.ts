@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const bar = new aws.autoscaling.Group("bar", {
+ * const bar = new aws.autoscaling/group.Group("bar", {
  *     availabilityZones: ["us-east-1a"],
  *     maxSize: 5,
  *     minSize: 2,
@@ -31,7 +31,7 @@ import * as utilities from "../utilities";
  *     forceDelete: true,
  *     launchConfiguration: aws_launch_configuration.foo.name,
  * });
- * const bat = new aws.autoscaling.Policy("bat", {
+ * const bat = new aws.autoscaling/policy.Policy("bat", {
  *     scalingAdjustment: 4,
  *     adjustmentType: "ChangeInCapacity",
  *     cooldown: 300,
@@ -44,7 +44,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.autoscaling.Policy("example", {
+ * const example = new aws.autoscaling/policy.Policy("example", {
  *     autoscalingGroupName: "my-test-asg",
  *     policyType: "TargetTrackingScaling",
  *     targetTrackingConfiguration: {
@@ -100,7 +100,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.autoscaling.Policy("example", {
+ * const example = new aws.autoscaling/policy.Policy("example", {
  *     autoscalingGroupName: "my-test-asg",
  *     policyType: "PredictiveScaling",
  *     predictiveScalingConfiguration: {
@@ -146,7 +146,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.autoscaling.Policy("example", {
+ * const example = new aws.autoscaling/policy.Policy("example", {
  *     autoscalingGroupName: "my-test-asg",
  *     policyType: "PredictiveScaling",
  *     predictiveScalingConfiguration: {
@@ -275,15 +275,15 @@ export class Policy extends pulumi.CustomResource {
      * import * as pulumi from "@pulumi/pulumi";
      * import * as aws from "@pulumi/aws";
      *
-     * const example = new aws.autoscaling.Policy("example", {stepAdjustments: [
+     * const example = new aws.autoscaling/policy.Policy("example", {stepAdjustments: [
      *     {
-     *         metricIntervalLowerBound: "1",
-     *         metricIntervalUpperBound: "2",
+     *         metricIntervalLowerBound: 1,
+     *         metricIntervalUpperBound: 2,
      *         scalingAdjustment: -1,
      *     },
      *     {
-     *         metricIntervalLowerBound: "2",
-     *         metricIntervalUpperBound: "3",
+     *         metricIntervalLowerBound: 2,
+     *         metricIntervalUpperBound: 3,
      *         scalingAdjustment: 1,
      *     },
      * ]});
@@ -299,7 +299,7 @@ export class Policy extends pulumi.CustomResource {
      * import * as pulumi from "@pulumi/pulumi";
      * import * as aws from "@pulumi/aws";
      *
-     * const example = new aws.autoscaling.Policy("example", {targetTrackingConfiguration: {
+     * const example = new aws.autoscaling/policy.Policy("example", {targetTrackingConfiguration: {
      *     predefinedMetricSpecification: {
      *         predefinedMetricType: "ASGAverageCPUUtilization",
      *     },
@@ -429,15 +429,15 @@ export interface PolicyState {
      * import * as pulumi from "@pulumi/pulumi";
      * import * as aws from "@pulumi/aws";
      *
-     * const example = new aws.autoscaling.Policy("example", {stepAdjustments: [
+     * const example = new aws.autoscaling/policy.Policy("example", {stepAdjustments: [
      *     {
-     *         metricIntervalLowerBound: "1",
-     *         metricIntervalUpperBound: "2",
+     *         metricIntervalLowerBound: 1,
+     *         metricIntervalUpperBound: 2,
      *         scalingAdjustment: -1,
      *     },
      *     {
-     *         metricIntervalLowerBound: "2",
-     *         metricIntervalUpperBound: "3",
+     *         metricIntervalLowerBound: 2,
+     *         metricIntervalUpperBound: 3,
      *         scalingAdjustment: 1,
      *     },
      * ]});
@@ -453,7 +453,7 @@ export interface PolicyState {
      * import * as pulumi from "@pulumi/pulumi";
      * import * as aws from "@pulumi/aws";
      *
-     * const example = new aws.autoscaling.Policy("example", {targetTrackingConfiguration: {
+     * const example = new aws.autoscaling/policy.Policy("example", {targetTrackingConfiguration: {
      *     predefinedMetricSpecification: {
      *         predefinedMetricType: "ASGAverageCPUUtilization",
      *     },
@@ -528,15 +528,15 @@ export interface PolicyArgs {
      * import * as pulumi from "@pulumi/pulumi";
      * import * as aws from "@pulumi/aws";
      *
-     * const example = new aws.autoscaling.Policy("example", {stepAdjustments: [
+     * const example = new aws.autoscaling/policy.Policy("example", {stepAdjustments: [
      *     {
-     *         metricIntervalLowerBound: "1",
-     *         metricIntervalUpperBound: "2",
+     *         metricIntervalLowerBound: 1,
+     *         metricIntervalUpperBound: 2,
      *         scalingAdjustment: -1,
      *     },
      *     {
-     *         metricIntervalLowerBound: "2",
-     *         metricIntervalUpperBound: "3",
+     *         metricIntervalLowerBound: 2,
+     *         metricIntervalUpperBound: 3,
      *         scalingAdjustment: 1,
      *     },
      * ]});
@@ -552,7 +552,7 @@ export interface PolicyArgs {
      * import * as pulumi from "@pulumi/pulumi";
      * import * as aws from "@pulumi/aws";
      *
-     * const example = new aws.autoscaling.Policy("example", {targetTrackingConfiguration: {
+     * const example = new aws.autoscaling/policy.Policy("example", {targetTrackingConfiguration: {
      *     predefinedMetricSpecification: {
      *         predefinedMetricType: "ASGAverageCPUUtilization",
      *     },

@@ -25,9 +25,9 @@ namespace Pulumi.Aws.SecurityHub
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleAccount = new Aws.SecurityHub.Account("exampleAccount");
+    ///     var exampleAccount = new Aws.Securityhub.Account.Account("exampleAccount");
     /// 
-    ///     var exampleFindingAggregator = new Aws.SecurityHub.FindingAggregator("exampleFindingAggregator", new()
+    ///     var exampleFindingAggregator = new Aws.Securityhub.FindingAggregator.FindingAggregator("exampleFindingAggregator", new()
     ///     {
     ///         LinkingMode = "ALL_REGIONS",
     ///     }, new CustomResourceOptions
@@ -52,9 +52,9 @@ namespace Pulumi.Aws.SecurityHub
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleAccount = new Aws.SecurityHub.Account("exampleAccount");
+    ///     var exampleAccount = new Aws.Securityhub.Account.Account("exampleAccount");
     /// 
-    ///     var exampleFindingAggregator = new Aws.SecurityHub.FindingAggregator("exampleFindingAggregator", new()
+    ///     var exampleFindingAggregator = new Aws.Securityhub.FindingAggregator.FindingAggregator("exampleFindingAggregator", new()
     ///     {
     ///         LinkingMode = "ALL_REGIONS_EXCEPT_SPECIFIED",
     ///         SpecifiedRegions = new[]
@@ -84,9 +84,9 @@ namespace Pulumi.Aws.SecurityHub
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleAccount = new Aws.SecurityHub.Account("exampleAccount");
+    ///     var exampleAccount = new Aws.Securityhub.Account.Account("exampleAccount");
     /// 
-    ///     var exampleFindingAggregator = new Aws.SecurityHub.FindingAggregator("exampleFindingAggregator", new()
+    ///     var exampleFindingAggregator = new Aws.Securityhub.FindingAggregator.FindingAggregator("exampleFindingAggregator", new()
     ///     {
     ///         LinkingMode = "SPECIFIED_REGIONS",
     ///         SpecifiedRegions = new[]

@@ -22,12 +22,12 @@ namespace Pulumi.Aws.GuardDuty
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var primary = new Aws.GuardDuty.Detector("primary", new()
+    ///     var primary = new Aws.Guardduty.Detector.Detector("primary", new()
     ///     {
     ///         Enable = true,
     ///     });
     /// 
-    ///     var memberDetector = new Aws.GuardDuty.Detector("memberDetector", new()
+    ///     var memberDetector = new Aws.Guardduty.Detector.Detector("memberDetector", new()
     ///     {
     ///         Enable = true,
     ///     }, new CustomResourceOptions
@@ -35,7 +35,7 @@ namespace Pulumi.Aws.GuardDuty
     ///         Provider = aws.Dev,
     ///     });
     /// 
-    ///     var memberMember = new Aws.GuardDuty.Member("memberMember", new()
+    ///     var memberMember = new Aws.Guardduty.Member.Member("memberMember", new()
     ///     {
     ///         AccountId = memberDetector.AccountId,
     ///         DetectorId = primary.Id,

@@ -22,47 +22,47 @@ namespace Pulumi.Aws.CloudFront
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.CloudFront.CachePolicy("example", new()
+    ///     var example = new Aws.Cloudfront.CachePolicy.CachePolicy("example", new()
     ///     {
     ///         Comment = "test comment",
     ///         DefaultTtl = 50,
     ///         MaxTtl = 100,
     ///         MinTtl = 1,
-    ///         ParametersInCacheKeyAndForwardedToOrigin = new Aws.CloudFront.Inputs.CachePolicyParametersInCacheKeyAndForwardedToOriginArgs
+    ///         ParametersInCacheKeyAndForwardedToOrigin = 
     ///         {
-    ///             CookiesConfig = new Aws.CloudFront.Inputs.CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArgs
+    ///             { "cookiesConfig", 
     ///             {
-    ///                 CookieBehavior = "whitelist",
-    ///                 Cookies = new Aws.CloudFront.Inputs.CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesArgs
+    ///                 { "cookieBehavior", "whitelist" },
+    ///                 { "cookies", 
     ///                 {
-    ///                     Items = new[]
+    ///                     { "items", new[]
     ///                     {
     ///                         "example",
-    ///                     },
-    ///                 },
-    ///             },
-    ///             HeadersConfig = new Aws.CloudFront.Inputs.CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArgs
+    ///                     } },
+    ///                 } },
+    ///             } },
+    ///             { "headersConfig", 
     ///             {
-    ///                 HeaderBehavior = "whitelist",
-    ///                 Headers = new Aws.CloudFront.Inputs.CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersArgs
+    ///                 { "headerBehavior", "whitelist" },
+    ///                 { "headers", 
     ///                 {
-    ///                     Items = new[]
+    ///                     { "items", new[]
     ///                     {
     ///                         "example",
-    ///                     },
-    ///                 },
-    ///             },
-    ///             QueryStringsConfig = new Aws.CloudFront.Inputs.CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArgs
+    ///                     } },
+    ///                 } },
+    ///             } },
+    ///             { "queryStringsConfig", 
     ///             {
-    ///                 QueryStringBehavior = "whitelist",
-    ///                 QueryStrings = new Aws.CloudFront.Inputs.CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsArgs
+    ///                 { "queryStringBehavior", "whitelist" },
+    ///                 { "queryStrings", 
     ///                 {
-    ///                     Items = new[]
+    ///                     { "items", new[]
     ///                     {
     ///                         "example",
-    ///                     },
-    ///                 },
-    ///             },
+    ///                     } },
+    ///                 } },
+    ///             } },
     ///         },
     ///     });
     /// 

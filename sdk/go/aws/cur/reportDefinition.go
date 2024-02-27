@@ -23,36 +23,34 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cur"
+//	cur/reportDefinition "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/cur/reportDefinition"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cur.NewReportDefinition(ctx, "exampleCurReportDefinition", &cur.ReportDefinitionArgs{
-//				AdditionalArtifacts: pulumi.StringArray{
-//					pulumi.String("REDSHIFT"),
-//					pulumi.String("QUICKSIGHT"),
-//				},
-//				AdditionalSchemaElements: pulumi.StringArray{
-//					pulumi.String("RESOURCES"),
-//					pulumi.String("SPLIT_COST_ALLOCATION_DATA"),
-//				},
-//				Compression: pulumi.String("GZIP"),
-//				Format:      pulumi.String("textORcsv"),
-//				ReportName:  pulumi.String("example-cur-report-definition"),
-//				S3Bucket:    pulumi.String("example-bucket-name"),
-//				S3Region:    pulumi.String("us-east-1"),
-//				TimeUnit:    pulumi.String("HOURLY"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := cur/reportDefinition.NewReportDefinition(ctx, "exampleCurReportDefinition", &cur/reportDefinition.ReportDefinitionArgs{
+// AdditionalArtifacts: []string{
+// "REDSHIFT",
+// "QUICKSIGHT",
+// },
+// AdditionalSchemaElements: []string{
+// "RESOURCES",
+// "SPLIT_COST_ALLOCATION_DATA",
+// },
+// Compression: "GZIP",
+// Format: "textORcsv",
+// ReportName: "example-cur-report-definition",
+// S3Bucket: "example-bucket-name",
+// S3Region: "us-east-1",
+// TimeUnit: "HOURLY",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

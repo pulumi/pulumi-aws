@@ -70,15 +70,6 @@ def get_resource_policy(resource_arn: Optional[str] = None,
     """
     Retrieve information about a Network Firewall resource policy.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.networkfirewall.get_resource_policy(resource_arn=var["resource_policy_arn"])
-    ```
-
 
     :param str resource_arn: The Amazon Resource Name (ARN) that identifies the resource policy.
     """
@@ -98,15 +89,6 @@ def get_resource_policy_output(resource_arn: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResourcePolicyResult]:
     """
     Retrieve information about a Network Firewall resource policy.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.networkfirewall.get_resource_policy(resource_arn=var["resource_policy_arn"])
-    ```
 
 
     :param str resource_arn: The Amazon Resource Name (ARN) that identifies the resource policy.

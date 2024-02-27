@@ -23,28 +23,26 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/connect"
+//	connect/queue "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/connect/queue"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := connect.NewQueue(ctx, "test", &connect.QueueArgs{
-//				Description:        pulumi.String("Example Description"),
-//				HoursOfOperationId: pulumi.String("12345678-1234-1234-1234-123456789012"),
-//				InstanceId:         pulumi.String("aaaaaaaa-bbbb-cccc-dddd-111111111111"),
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("Example Queue"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := connect/queue.NewQueue(ctx, "test", &connect/queue.QueueArgs{
+// Description: "Example Description",
+// HoursOfOperationId: "12345678-1234-1234-1234-123456789012",
+// InstanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+// Tags: map[string]interface{}{
+// "Name": "Example Queue",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### With Quick Connect IDs
 //
@@ -53,31 +51,29 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/connect"
+//	connect/queue "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/connect/queue"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := connect.NewQueue(ctx, "test", &connect.QueueArgs{
-//				Description:        pulumi.String("Example Description"),
-//				HoursOfOperationId: pulumi.String("12345678-1234-1234-1234-123456789012"),
-//				InstanceId:         pulumi.String("aaaaaaaa-bbbb-cccc-dddd-111111111111"),
-//				QuickConnectIds: pulumi.StringArray{
-//					pulumi.String("12345678-abcd-1234-abcd-123456789012"),
-//				},
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("Example Queue with Quick Connect IDs"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := connect/queue.NewQueue(ctx, "test", &connect/queue.QueueArgs{
+// Description: "Example Description",
+// HoursOfOperationId: "12345678-1234-1234-1234-123456789012",
+// InstanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+// QuickConnectIds: []string{
+// "12345678-abcd-1234-abcd-123456789012",
+// },
+// Tags: map[string]interface{}{
+// "Name": "Example Queue with Quick Connect IDs",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### With Outbound Caller Config
 //
@@ -86,33 +82,31 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/connect"
+//	connect/queue "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/connect/queue"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := connect.NewQueue(ctx, "test", &connect.QueueArgs{
-//				Description:        pulumi.String("Example Description"),
-//				HoursOfOperationId: pulumi.String("12345678-1234-1234-1234-123456789012"),
-//				InstanceId:         pulumi.String("aaaaaaaa-bbbb-cccc-dddd-111111111111"),
-//				OutboundCallerConfig: &connect.QueueOutboundCallerConfigArgs{
-//					OutboundCallerIdName:     pulumi.String("example"),
-//					OutboundCallerIdNumberId: pulumi.String("12345678-abcd-1234-abcd-123456789012"),
-//					OutboundFlowId:           pulumi.String("87654321-defg-1234-defg-987654321234"),
-//				},
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("Example Queue with Outbound Caller Config"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := connect/queue.NewQueue(ctx, "test", &connect/queue.QueueArgs{
+// Description: "Example Description",
+// HoursOfOperationId: "12345678-1234-1234-1234-123456789012",
+// InstanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+// OutboundCallerConfig: map[string]interface{}{
+// "outboundCallerIdName": "example",
+// "outboundCallerIdNumberId": "12345678-abcd-1234-abcd-123456789012",
+// "outboundFlowId": "87654321-defg-1234-defg-987654321234",
+// },
+// Tags: map[string]interface{}{
+// "Name": "Example Queue with Outbound Caller Config",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

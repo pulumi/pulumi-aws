@@ -25,36 +25,6 @@ public final class ServicequotasFunctions {
      * 
      * &gt; **NOTE:** Global quotas apply to all AWS regions, but can only be accessed in `us-east-1` in the Commercial partition or `us-gov-west-1` in the GovCloud partition. In other regions, the AWS API will return the error `The request failed because the specified service does not exist.`
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.servicequotas.ServicequotasFunctions;
-     * import com.pulumi.aws.servicequotas.inputs.GetServiceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ServicequotasFunctions.getService(GetServiceArgs.builder()
-     *             .serviceName(&#34;Amazon Virtual Private Cloud (Amazon VPC)&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetServiceResult> getService(GetServiceArgs args) {
         return getService(args, InvokeOptions.Empty);
@@ -63,36 +33,6 @@ public final class ServicequotasFunctions {
      * Retrieve information about a Service Quotas Service.
      * 
      * &gt; **NOTE:** Global quotas apply to all AWS regions, but can only be accessed in `us-east-1` in the Commercial partition or `us-gov-west-1` in the GovCloud partition. In other regions, the AWS API will return the error `The request failed because the specified service does not exist.`
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.servicequotas.ServicequotasFunctions;
-     * import com.pulumi.aws.servicequotas.inputs.GetServiceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ServicequotasFunctions.getService(GetServiceArgs.builder()
-     *             .serviceName(&#34;Amazon Virtual Private Cloud (Amazon VPC)&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetServiceResult> getServicePlain(GetServicePlainArgs args) {
@@ -103,36 +43,6 @@ public final class ServicequotasFunctions {
      * 
      * &gt; **NOTE:** Global quotas apply to all AWS regions, but can only be accessed in `us-east-1` in the Commercial partition or `us-gov-west-1` in the GovCloud partition. In other regions, the AWS API will return the error `The request failed because the specified service does not exist.`
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.servicequotas.ServicequotasFunctions;
-     * import com.pulumi.aws.servicequotas.inputs.GetServiceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ServicequotasFunctions.getService(GetServiceArgs.builder()
-     *             .serviceName(&#34;Amazon Virtual Private Cloud (Amazon VPC)&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetServiceResult> getService(GetServiceArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:servicequotas/getService:getService", TypeShape.of(GetServiceResult.class), args, Utilities.withVersion(options));
@@ -141,36 +51,6 @@ public final class ServicequotasFunctions {
      * Retrieve information about a Service Quotas Service.
      * 
      * &gt; **NOTE:** Global quotas apply to all AWS regions, but can only be accessed in `us-east-1` in the Commercial partition or `us-gov-west-1` in the GovCloud partition. In other regions, the AWS API will return the error `The request failed because the specified service does not exist.`
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.servicequotas.ServicequotasFunctions;
-     * import com.pulumi.aws.servicequotas.inputs.GetServiceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ServicequotasFunctions.getService(GetServiceArgs.builder()
-     *             .serviceName(&#34;Amazon Virtual Private Cloud (Amazon VPC)&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetServiceResult> getServicePlain(GetServicePlainArgs args, InvokeOptions options) {
@@ -181,42 +61,6 @@ public final class ServicequotasFunctions {
      * 
      * &gt; **NOTE:** Global quotas apply to all AWS regions, but can only be accessed in `us-east-1` in the Commercial partition or `us-gov-west-1` in the GovCloud partition. In other regions, the AWS API will return the error `The request failed because the specified service does not exist.`
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.servicequotas.ServicequotasFunctions;
-     * import com.pulumi.aws.servicequotas.inputs.GetServiceQuotaArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var byQuotaCode = ServicequotasFunctions.getServiceQuota(GetServiceQuotaArgs.builder()
-     *             .quotaCode(&#34;L-F678F1CE&#34;)
-     *             .serviceCode(&#34;vpc&#34;)
-     *             .build());
-     * 
-     *         final var byQuotaName = ServicequotasFunctions.getServiceQuota(GetServiceQuotaArgs.builder()
-     *             .quotaName(&#34;VPCs per Region&#34;)
-     *             .serviceCode(&#34;vpc&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetServiceQuotaResult> getServiceQuota(GetServiceQuotaArgs args) {
         return getServiceQuota(args, InvokeOptions.Empty);
@@ -225,42 +69,6 @@ public final class ServicequotasFunctions {
      * Retrieve information about a Service Quota.
      * 
      * &gt; **NOTE:** Global quotas apply to all AWS regions, but can only be accessed in `us-east-1` in the Commercial partition or `us-gov-west-1` in the GovCloud partition. In other regions, the AWS API will return the error `The request failed because the specified service does not exist.`
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.servicequotas.ServicequotasFunctions;
-     * import com.pulumi.aws.servicequotas.inputs.GetServiceQuotaArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var byQuotaCode = ServicequotasFunctions.getServiceQuota(GetServiceQuotaArgs.builder()
-     *             .quotaCode(&#34;L-F678F1CE&#34;)
-     *             .serviceCode(&#34;vpc&#34;)
-     *             .build());
-     * 
-     *         final var byQuotaName = ServicequotasFunctions.getServiceQuota(GetServiceQuotaArgs.builder()
-     *             .quotaName(&#34;VPCs per Region&#34;)
-     *             .serviceCode(&#34;vpc&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetServiceQuotaResult> getServiceQuotaPlain(GetServiceQuotaPlainArgs args) {
@@ -271,42 +79,6 @@ public final class ServicequotasFunctions {
      * 
      * &gt; **NOTE:** Global quotas apply to all AWS regions, but can only be accessed in `us-east-1` in the Commercial partition or `us-gov-west-1` in the GovCloud partition. In other regions, the AWS API will return the error `The request failed because the specified service does not exist.`
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.servicequotas.ServicequotasFunctions;
-     * import com.pulumi.aws.servicequotas.inputs.GetServiceQuotaArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var byQuotaCode = ServicequotasFunctions.getServiceQuota(GetServiceQuotaArgs.builder()
-     *             .quotaCode(&#34;L-F678F1CE&#34;)
-     *             .serviceCode(&#34;vpc&#34;)
-     *             .build());
-     * 
-     *         final var byQuotaName = ServicequotasFunctions.getServiceQuota(GetServiceQuotaArgs.builder()
-     *             .quotaName(&#34;VPCs per Region&#34;)
-     *             .serviceCode(&#34;vpc&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetServiceQuotaResult> getServiceQuota(GetServiceQuotaArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:servicequotas/getServiceQuota:getServiceQuota", TypeShape.of(GetServiceQuotaResult.class), args, Utilities.withVersion(options));
@@ -316,42 +88,6 @@ public final class ServicequotasFunctions {
      * 
      * &gt; **NOTE:** Global quotas apply to all AWS regions, but can only be accessed in `us-east-1` in the Commercial partition or `us-gov-west-1` in the GovCloud partition. In other regions, the AWS API will return the error `The request failed because the specified service does not exist.`
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.servicequotas.ServicequotasFunctions;
-     * import com.pulumi.aws.servicequotas.inputs.GetServiceQuotaArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var byQuotaCode = ServicequotasFunctions.getServiceQuota(GetServiceQuotaArgs.builder()
-     *             .quotaCode(&#34;L-F678F1CE&#34;)
-     *             .serviceCode(&#34;vpc&#34;)
-     *             .build());
-     * 
-     *         final var byQuotaName = ServicequotasFunctions.getServiceQuota(GetServiceQuotaArgs.builder()
-     *             .quotaName(&#34;VPCs per Region&#34;)
-     *             .serviceCode(&#34;vpc&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static CompletableFuture<GetServiceQuotaResult> getServiceQuotaPlain(GetServiceQuotaPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:servicequotas/getServiceQuota:getServiceQuota", TypeShape.of(GetServiceQuotaResult.class), args, Utilities.withVersion(options));
@@ -360,35 +96,6 @@ public final class ServicequotasFunctions {
      * Data source for managing an AWS Service Quotas Templates.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.servicequotas.ServicequotasFunctions;
-     * import com.pulumi.aws.servicequotas.inputs.GetTemplatesArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ServicequotasFunctions.getTemplates(GetTemplatesArgs.builder()
-     *             .region(&#34;us-east-1&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetTemplatesResult> getTemplates(GetTemplatesArgs args) {
@@ -398,35 +105,6 @@ public final class ServicequotasFunctions {
      * Data source for managing an AWS Service Quotas Templates.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.servicequotas.ServicequotasFunctions;
-     * import com.pulumi.aws.servicequotas.inputs.GetTemplatesArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ServicequotasFunctions.getTemplates(GetTemplatesArgs.builder()
-     *             .region(&#34;us-east-1&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetTemplatesResult> getTemplatesPlain(GetTemplatesPlainArgs args) {
@@ -436,35 +114,6 @@ public final class ServicequotasFunctions {
      * Data source for managing an AWS Service Quotas Templates.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.servicequotas.ServicequotasFunctions;
-     * import com.pulumi.aws.servicequotas.inputs.GetTemplatesArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ServicequotasFunctions.getTemplates(GetTemplatesArgs.builder()
-     *             .region(&#34;us-east-1&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetTemplatesResult> getTemplates(GetTemplatesArgs args, InvokeOptions options) {
@@ -474,35 +123,6 @@ public final class ServicequotasFunctions {
      * Data source for managing an AWS Service Quotas Templates.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.servicequotas.ServicequotasFunctions;
-     * import com.pulumi.aws.servicequotas.inputs.GetTemplatesArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ServicequotasFunctions.getTemplates(GetTemplatesArgs.builder()
-     *             .region(&#34;us-east-1&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetTemplatesResult> getTemplatesPlain(GetTemplatesPlainArgs args, InvokeOptions options) {

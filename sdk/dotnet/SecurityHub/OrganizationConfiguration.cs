@@ -26,7 +26,7 @@ namespace Pulumi.Aws.SecurityHub
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleOrganization = new Aws.Organizations.Organization("exampleOrganization", new()
+    ///     var exampleOrganization = new Aws.Organizations.Organization.Organization("exampleOrganization", new()
     ///     {
     ///         AwsServiceAccessPrincipals = new[]
     ///         {
@@ -35,7 +35,7 @@ namespace Pulumi.Aws.SecurityHub
     ///         FeatureSet = "ALL",
     ///     });
     /// 
-    ///     var exampleOrganizationAdminAccount = new Aws.SecurityHub.OrganizationAdminAccount("exampleOrganizationAdminAccount", new()
+    ///     var exampleOrganizationAdminAccount = new Aws.Securityhub.OrganizationAdminAccount.OrganizationAdminAccount("exampleOrganizationAdminAccount", new()
     ///     {
     ///         AdminAccountId = "123456789012",
     ///     }, new CustomResourceOptions
@@ -46,7 +46,7 @@ namespace Pulumi.Aws.SecurityHub
     ///         },
     ///     });
     /// 
-    ///     var exampleOrganizationConfiguration = new Aws.SecurityHub.OrganizationConfiguration("exampleOrganizationConfiguration", new()
+    ///     var exampleOrganizationConfiguration = new Aws.Securityhub.OrganizationConfiguration.OrganizationConfiguration("exampleOrganizationConfiguration", new()
     ///     {
     ///         AutoEnable = true,
     ///     });

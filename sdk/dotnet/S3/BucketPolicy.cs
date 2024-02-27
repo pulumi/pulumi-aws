@@ -15,57 +15,6 @@ namespace Pulumi.Aws.S3
     /// &gt; Policies can be attached to both S3 general purpose buckets and S3 directory buckets.
     /// 
     /// ## Example Usage
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.S3.BucketV2("example");
-    /// 
-    ///     var allowAccessFromAnotherAccountPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
-    ///     {
-    ///         Statements = new[]
-    ///         {
-    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
-    ///             {
-    ///                 Principals = new[]
-    ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
-    ///                     {
-    ///                         Type = "AWS",
-    ///                         Identifiers = new[]
-    ///                         {
-    ///                             "123456789012",
-    ///                         },
-    ///                     },
-    ///                 },
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "s3:GetObject",
-    ///                     "s3:ListBucket",
-    ///                 },
-    ///                 Resources = new[]
-    ///                 {
-    ///                     example.Arn,
-    ///                     $"{example.Arn}/*",
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var allowAccessFromAnotherAccountBucketPolicy = new Aws.S3.BucketPolicy("allowAccessFromAnotherAccountBucketPolicy", new()
-    ///     {
-    ///         Bucket = example.Id,
-    ///         Policy = allowAccessFromAnotherAccountPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 

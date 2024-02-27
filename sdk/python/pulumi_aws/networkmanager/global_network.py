@@ -146,7 +146,7 @@ class GlobalNetwork(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.networkmanager.GlobalNetwork("example", description="example")
+        example = aws.networkmanager.global_network.GlobalNetwork("example", description=example)
         ```
 
         ## Import
@@ -177,7 +177,7 @@ class GlobalNetwork(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.networkmanager.GlobalNetwork("example", description="example")
+        example = aws.networkmanager.global_network.GlobalNetwork("example", description=example)
         ```
 
         ## Import

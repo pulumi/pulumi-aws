@@ -22,130 +22,33 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/chime"
+//	chime/voiceConnector "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/chime/voiceConnector"
+//	chime/voiceConnectorStreaming "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/chime/voiceConnectorStreaming"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			defaultVoiceConnector, err := chime.NewVoiceConnector(ctx, "defaultVoiceConnector", &chime.VoiceConnectorArgs{
-//				RequireEncryption: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = chime.NewVoiceConnectorStreaming(ctx, "defaultVoiceConnectorStreaming", &chime.VoiceConnectorStreamingArgs{
-//				Disabled:         pulumi.Bool(false),
-//				VoiceConnectorId: defaultVoiceConnector.ID(),
-//				DataRetention:    pulumi.Int(7),
-//				StreamingNotificationTargets: pulumi.StringArray{
-//					pulumi.String("SQS"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// ### Example Usage With Media Insights
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/chime"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/chimesdkmediapipelines"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kinesis"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			defaultVoiceConnector, err := chime.NewVoiceConnector(ctx, "defaultVoiceConnector", &chime.VoiceConnectorArgs{
-//				RequireEncryption: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			assumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-//				Statements: []iam.GetPolicyDocumentStatement{
-//					{
-//						Effect: pulumi.StringRef("Allow"),
-//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
-//							{
-//								Type: "Service",
-//								Identifiers: []string{
-//									"mediapipelines.chime.amazonaws.com",
-//								},
-//							},
-//						},
-//						Actions: []string{
-//							"sts:AssumeRole",
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleRole, err := iam.NewRole(ctx, "exampleRole", &iam.RoleArgs{
-//				AssumeRolePolicy: *pulumi.String(assumeRole.Json),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleStream, err := kinesis.NewStream(ctx, "exampleStream", &kinesis.StreamArgs{
-//				ShardCount: pulumi.Int(2),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleMediaInsightsPipelineConfiguration, err := chimesdkmediapipelines.NewMediaInsightsPipelineConfiguration(ctx, "exampleMediaInsightsPipelineConfiguration", &chimesdkmediapipelines.MediaInsightsPipelineConfigurationArgs{
-//				ResourceAccessRoleArn: exampleRole.Arn,
-//				Elements: chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArray{
-//					&chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArgs{
-//						Type: pulumi.String("AmazonTranscribeCallAnalyticsProcessor"),
-//						AmazonTranscribeCallAnalyticsProcessorConfiguration: &chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationArgs{
-//							LanguageCode: pulumi.String("en-US"),
-//						},
-//					},
-//					&chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArgs{
-//						Type: pulumi.String("KinesisDataStreamSink"),
-//						KinesisDataStreamSinkConfiguration: &chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationArgs{
-//							InsightsTarget: exampleStream.Arn,
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = chime.NewVoiceConnectorStreaming(ctx, "defaultVoiceConnectorStreaming", &chime.VoiceConnectorStreamingArgs{
-//				Disabled:         pulumi.Bool(false),
-//				VoiceConnectorId: defaultVoiceConnector.ID(),
-//				DataRetention:    pulumi.Int(7),
-//				StreamingNotificationTargets: pulumi.StringArray{
-//					pulumi.String("SQS"),
-//				},
-//				MediaInsightsConfiguration: &chime.VoiceConnectorStreamingMediaInsightsConfigurationArgs{
-//					Disabled:         pulumi.Bool(false),
-//					ConfigurationArn: exampleMediaInsightsPipelineConfiguration.Arn,
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// defaultVoiceConnector, err := chime/voiceConnector.NewVoiceConnector(ctx, "defaultVoiceConnector", &chime/voiceConnector.VoiceConnectorArgs{
+// RequireEncryption: true,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = chime/voiceConnectorStreaming.NewVoiceConnectorStreaming(ctx, "defaultVoiceConnectorStreaming", &chime/voiceConnectorStreaming.VoiceConnectorStreamingArgs{
+// Disabled: false,
+// VoiceConnectorId: defaultVoiceConnector.Id,
+// DataRetention: 7,
+// StreamingNotificationTargets: []string{
+// "SQS",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

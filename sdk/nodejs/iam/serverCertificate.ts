@@ -25,7 +25,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * import * as fs from "fs";
  *
- * const testCert = new aws.iam.ServerCertificate("testCert", {
+ * const testCert = new aws.iam/serverCertificate.ServerCertificate("testCert", {
  *     certificateBody: fs.readFileSync("self-ca-cert.pem", "utf8"),
  *     privateKey: fs.readFileSync("test-key.pem", "utf8"),
  * });
@@ -37,7 +37,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const testCertAlt = new aws.iam.ServerCertificate("testCertAlt", {
+ * const testCertAlt = new aws.iam/serverCertificate.ServerCertificate("testCertAlt", {
  *     certificateBody: `-----BEGIN CERTIFICATE-----
  * [......] # cert contents
  * -----END CERTIFICATE-----
@@ -65,12 +65,12 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * import * as fs from "fs";
  *
- * const testCert = new aws.iam.ServerCertificate("testCert", {
+ * const testCert = new aws.iam/serverCertificate.ServerCertificate("testCert", {
  *     namePrefix: "example-cert",
  *     certificateBody: fs.readFileSync("self-ca-cert.pem", "utf8"),
  *     privateKey: fs.readFileSync("test-key.pem", "utf8"),
  * });
- * const ourapp = new aws.elb.LoadBalancer("ourapp", {
+ * const ourapp = new aws.elb/loadBalancer.LoadBalancer("ourapp", {
  *     availabilityZones: ["us-west-2a"],
  *     crossZoneLoadBalancing: true,
  *     listeners: [{

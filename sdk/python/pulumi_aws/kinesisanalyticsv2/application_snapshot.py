@@ -139,9 +139,9 @@ class ApplicationSnapshot(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.kinesisanalyticsv2.ApplicationSnapshot("example",
-            application_name=aws_kinesisanalyticsv2_application["example"]["name"],
-            snapshot_name="example-snapshot")
+        example = aws.kinesisanalyticsv2.application_snapshot.ApplicationSnapshot("example",
+            application_name=aws_kinesisanalyticsv2_application.example.name,
+            snapshot_name=example-snapshot)
         ```
 
         ## Import
@@ -173,9 +173,9 @@ class ApplicationSnapshot(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.kinesisanalyticsv2.ApplicationSnapshot("example",
-            application_name=aws_kinesisanalyticsv2_application["example"]["name"],
-            snapshot_name="example-snapshot")
+        example = aws.kinesisanalyticsv2.application_snapshot.ApplicationSnapshot("example",
+            application_name=aws_kinesisanalyticsv2_application.example.name,
+            snapshot_name=example-snapshot)
         ```
 
         ## Import

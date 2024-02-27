@@ -28,7 +28,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.eks.IdentityProviderConfig;
  * import com.pulumi.aws.eks.IdentityProviderConfigArgs;
- * import com.pulumi.aws.eks.inputs.IdentityProviderConfigOidcArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -44,11 +43,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new IdentityProviderConfig(&#34;example&#34;, IdentityProviderConfigArgs.builder()        
  *             .clusterName(aws_eks_cluster.example().name())
- *             .oidc(IdentityProviderConfigOidcArgs.builder()
- *                 .clientId(&#34;your client_id&#34;)
- *                 .identityProviderConfigName(&#34;example&#34;)
- *                 .issuerUrl(&#34;your issuer_url&#34;)
- *                 .build())
+ *             .oidc(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

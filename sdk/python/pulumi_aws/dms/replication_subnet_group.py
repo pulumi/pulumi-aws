@@ -225,15 +225,15 @@ class ReplicationSubnetGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         # Create a new replication subnet group
-        example = aws.dms.ReplicationSubnetGroup("example",
-            replication_subnet_group_description="Example replication subnet group",
-            replication_subnet_group_id="example-dms-replication-subnet-group-tf",
+        example = aws.dms.replication_subnet_group.ReplicationSubnetGroup("example",
+            replication_subnet_group_description=Example replication subnet group,
+            replication_subnet_group_id=example-dms-replication-subnet-group-tf,
             subnet_ids=[
-                "subnet-12345678",
-                "subnet-12345679",
+                subnet-12345678,
+                subnet-12345679,
             ],
             tags={
-                "Name": "example",
+                Name: example,
             })
         ```
         ### Creating special IAM role
@@ -245,30 +245,30 @@ class ReplicationSubnetGroup(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        dms_vpc_role = aws.iam.Role("dms-vpc-role",
-            description="Allows DMS to manage VPC",
+        dms_vpc_role = aws.iam.role.Role("dms-vpc-role",
+            description=Allows DMS to manage VPC,
             assume_role_policy=json.dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Effect": "Allow",
-                    "Principal": {
-                        "Service": "dms.amazonaws.com",
+                Version: 2012-10-17,
+                Statement: [{
+                    Effect: Allow,
+                    Principal: {
+                        Service: dms.amazonaws.com,
                     },
-                    "Action": "sts:AssumeRole",
+                    Action: sts:AssumeRole,
                 }],
             }))
-        example_role_policy_attachment = aws.iam.RolePolicyAttachment("exampleRolePolicyAttachment",
+        example_role_policy_attachment = aws.iam.role_policy_attachment.RolePolicyAttachment("exampleRolePolicyAttachment",
             role=dms_vpc_role.name,
-            policy_arn="arn:aws:iam::aws:policy/service-role/AmazonDMSVPCManagementRole")
-        example_replication_subnet_group = aws.dms.ReplicationSubnetGroup("exampleReplicationSubnetGroup",
-            replication_subnet_group_description="Example",
-            replication_subnet_group_id="example-id",
+            policy_arn=arn:aws:iam::aws:policy/service-role/AmazonDMSVPCManagementRole)
+        example_replication_subnet_group = aws.dms.replication_subnet_group.ReplicationSubnetGroup("exampleReplicationSubnetGroup",
+            replication_subnet_group_description=Example,
+            replication_subnet_group_id=example-id,
             subnet_ids=[
-                "subnet-12345678",
-                "subnet-12345679",
+                subnet-12345678,
+                subnet-12345679,
             ],
             tags={
-                "Name": "example-id",
+                Name: example-id,
             },
             opts=pulumi.ResourceOptions(depends_on=[example_role_policy_attachment]))
         ```
@@ -307,15 +307,15 @@ class ReplicationSubnetGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         # Create a new replication subnet group
-        example = aws.dms.ReplicationSubnetGroup("example",
-            replication_subnet_group_description="Example replication subnet group",
-            replication_subnet_group_id="example-dms-replication-subnet-group-tf",
+        example = aws.dms.replication_subnet_group.ReplicationSubnetGroup("example",
+            replication_subnet_group_description=Example replication subnet group,
+            replication_subnet_group_id=example-dms-replication-subnet-group-tf,
             subnet_ids=[
-                "subnet-12345678",
-                "subnet-12345679",
+                subnet-12345678,
+                subnet-12345679,
             ],
             tags={
-                "Name": "example",
+                Name: example,
             })
         ```
         ### Creating special IAM role
@@ -327,30 +327,30 @@ class ReplicationSubnetGroup(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        dms_vpc_role = aws.iam.Role("dms-vpc-role",
-            description="Allows DMS to manage VPC",
+        dms_vpc_role = aws.iam.role.Role("dms-vpc-role",
+            description=Allows DMS to manage VPC,
             assume_role_policy=json.dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Effect": "Allow",
-                    "Principal": {
-                        "Service": "dms.amazonaws.com",
+                Version: 2012-10-17,
+                Statement: [{
+                    Effect: Allow,
+                    Principal: {
+                        Service: dms.amazonaws.com,
                     },
-                    "Action": "sts:AssumeRole",
+                    Action: sts:AssumeRole,
                 }],
             }))
-        example_role_policy_attachment = aws.iam.RolePolicyAttachment("exampleRolePolicyAttachment",
+        example_role_policy_attachment = aws.iam.role_policy_attachment.RolePolicyAttachment("exampleRolePolicyAttachment",
             role=dms_vpc_role.name,
-            policy_arn="arn:aws:iam::aws:policy/service-role/AmazonDMSVPCManagementRole")
-        example_replication_subnet_group = aws.dms.ReplicationSubnetGroup("exampleReplicationSubnetGroup",
-            replication_subnet_group_description="Example",
-            replication_subnet_group_id="example-id",
+            policy_arn=arn:aws:iam::aws:policy/service-role/AmazonDMSVPCManagementRole)
+        example_replication_subnet_group = aws.dms.replication_subnet_group.ReplicationSubnetGroup("exampleReplicationSubnetGroup",
+            replication_subnet_group_description=Example,
+            replication_subnet_group_id=example-id,
             subnet_ids=[
-                "subnet-12345678",
-                "subnet-12345679",
+                subnet-12345678,
+                subnet-12345679,
             ],
             tags={
-                "Name": "example-id",
+                Name: example-id,
             },
             opts=pulumi.ResourceOptions(depends_on=[example_role_policy_attachment]))
         ```

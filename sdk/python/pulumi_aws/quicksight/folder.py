@@ -369,7 +369,7 @@ class Folder(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.quicksight.Folder("example", folder_id="example-id")
+        example = aws.quicksight.folder.Folder("example", folder_id=example-id)
         ```
         ### With Permissions
 
@@ -377,21 +377,21 @@ class Folder(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.quicksight.Folder("example",
-            folder_id="example-id",
-            permissions=[aws.quicksight.FolderPermissionArgs(
-                actions=[
-                    "quicksight:CreateFolder",
-                    "quicksight:DescribeFolder",
-                    "quicksight:UpdateFolder",
-                    "quicksight:DeleteFolder",
-                    "quicksight:CreateFolderMembership",
-                    "quicksight:DeleteFolderMembership",
-                    "quicksight:DescribeFolderPermissions",
-                    "quicksight:UpdateFolderPermissions",
+        example = aws.quicksight.folder.Folder("example",
+            folder_id=example-id,
+            permissions=[{
+                actions: [
+                    quicksight:CreateFolder,
+                    quicksight:DescribeFolder,
+                    quicksight:UpdateFolder,
+                    quicksight:DeleteFolder,
+                    quicksight:CreateFolderMembership,
+                    quicksight:DeleteFolderMembership,
+                    quicksight:DescribeFolderPermissions,
+                    quicksight:UpdateFolderPermissions,
                 ],
-                principal=aws_quicksight_user["example"]["arn"],
-            )])
+                principal: aws_quicksight_user.example.arn,
+            }])
         ```
         ### With Parent Folder
 
@@ -399,9 +399,9 @@ class Folder(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        parent = aws.quicksight.Folder("parent", folder_id="parent-id")
-        example = aws.quicksight.Folder("example",
-            folder_id="example-id",
+        parent = aws.quicksight.folder.Folder("parent", folder_id=parent-id)
+        example = aws.quicksight.folder.Folder("example",
+            folder_id=example-id,
             parent_folder_arn=parent.arn)
         ```
 
@@ -441,7 +441,7 @@ class Folder(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.quicksight.Folder("example", folder_id="example-id")
+        example = aws.quicksight.folder.Folder("example", folder_id=example-id)
         ```
         ### With Permissions
 
@@ -449,21 +449,21 @@ class Folder(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.quicksight.Folder("example",
-            folder_id="example-id",
-            permissions=[aws.quicksight.FolderPermissionArgs(
-                actions=[
-                    "quicksight:CreateFolder",
-                    "quicksight:DescribeFolder",
-                    "quicksight:UpdateFolder",
-                    "quicksight:DeleteFolder",
-                    "quicksight:CreateFolderMembership",
-                    "quicksight:DeleteFolderMembership",
-                    "quicksight:DescribeFolderPermissions",
-                    "quicksight:UpdateFolderPermissions",
+        example = aws.quicksight.folder.Folder("example",
+            folder_id=example-id,
+            permissions=[{
+                actions: [
+                    quicksight:CreateFolder,
+                    quicksight:DescribeFolder,
+                    quicksight:UpdateFolder,
+                    quicksight:DeleteFolder,
+                    quicksight:CreateFolderMembership,
+                    quicksight:DeleteFolderMembership,
+                    quicksight:DescribeFolderPermissions,
+                    quicksight:UpdateFolderPermissions,
                 ],
-                principal=aws_quicksight_user["example"]["arn"],
-            )])
+                principal: aws_quicksight_user.example.arn,
+            }])
         ```
         ### With Parent Folder
 
@@ -471,9 +471,9 @@ class Folder(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        parent = aws.quicksight.Folder("parent", folder_id="parent-id")
-        example = aws.quicksight.Folder("example",
-            folder_id="example-id",
+        parent = aws.quicksight.folder.Folder("parent", folder_id=parent-id)
+        example = aws.quicksight.folder.Folder("example",
+            folder_id=example-id,
             parent_folder_arn=parent.arn)
         ```
 

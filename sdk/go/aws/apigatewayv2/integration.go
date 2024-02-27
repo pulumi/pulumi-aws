@@ -23,24 +23,22 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigatewayv2"
+//	apigatewayv2/integration "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/apigatewayv2/integration"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := apigatewayv2.NewIntegration(ctx, "example", &apigatewayv2.IntegrationArgs{
-//				ApiId:           pulumi.Any(aws_apigatewayv2_api.Example.Id),
-//				IntegrationType: pulumi.String("MOCK"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := apigatewayv2/integration.NewIntegration(ctx, "example", &apigatewayv2/integration.IntegrationArgs{
+// ApiId: aws_apigatewayv2_api.Example.Id,
+// IntegrationType: "MOCK",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Lambda Integration
 //
@@ -49,41 +47,38 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigatewayv2"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lambda"
+//	apigatewayv2/integration "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/apigatewayv2/integration"
+//	lambda/function "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/lambda/function"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleFunction, err := lambda.NewFunction(ctx, "exampleFunction", &lambda.FunctionArgs{
-//				Code:    pulumi.NewFileArchive("example.zip"),
-//				Role:    pulumi.Any(aws_iam_role.Example.Arn),
-//				Handler: pulumi.String("index.handler"),
-//				Runtime: pulumi.String("nodejs16.x"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = apigatewayv2.NewIntegration(ctx, "exampleIntegration", &apigatewayv2.IntegrationArgs{
-//				ApiId:                   pulumi.Any(aws_apigatewayv2_api.Example.Id),
-//				IntegrationType:         pulumi.String("AWS_PROXY"),
-//				ConnectionType:          pulumi.String("INTERNET"),
-//				ContentHandlingStrategy: pulumi.String("CONVERT_TO_TEXT"),
-//				Description:             pulumi.String("Lambda example"),
-//				IntegrationMethod:       pulumi.String("POST"),
-//				IntegrationUri:          exampleFunction.InvokeArn,
-//				PassthroughBehavior:     pulumi.String("WHEN_NO_MATCH"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleFunction, err := lambda/function.NewFunction(ctx, "exampleFunction", &lambda/function.FunctionArgs{
+// Code: pulumi.NewFileArchive("example.zip"),
+// Role: aws_iam_role.Example.Arn,
+// Handler: "index.handler",
+// Runtime: "nodejs16.x",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = apigatewayv2/integration.NewIntegration(ctx, "exampleIntegration", &apigatewayv2/integration.IntegrationArgs{
+// ApiId: aws_apigatewayv2_api.Example.Id,
+// IntegrationType: "AWS_PROXY",
+// ConnectionType: "INTERNET",
+// ContentHandlingStrategy: "CONVERT_TO_TEXT",
+// Description: "Lambda example",
+// IntegrationMethod: "POST",
+// IntegrationUri: exampleFunction.InvokeArn,
+// PassthroughBehavior: "WHEN_NO_MATCH",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### AWS Service Integration
 //
@@ -92,31 +87,29 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigatewayv2"
+//	apigatewayv2/integration "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/apigatewayv2/integration"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := apigatewayv2.NewIntegration(ctx, "example", &apigatewayv2.IntegrationArgs{
-//				ApiId:              pulumi.Any(aws_apigatewayv2_api.Example.Id),
-//				CredentialsArn:     pulumi.Any(aws_iam_role.Example.Arn),
-//				Description:        pulumi.String("SQS example"),
-//				IntegrationType:    pulumi.String("AWS_PROXY"),
-//				IntegrationSubtype: pulumi.String("SQS-SendMessage"),
-//				RequestParameters: pulumi.StringMap{
-//					"QueueUrl":    pulumi.String("$request.header.queueUrl"),
-//					"MessageBody": pulumi.String("$request.body.message"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := apigatewayv2/integration.NewIntegration(ctx, "example", &apigatewayv2/integration.IntegrationArgs{
+// ApiId: aws_apigatewayv2_api.Example.Id,
+// CredentialsArn: aws_iam_role.Example.Arn,
+// Description: "SQS example",
+// IntegrationType: "AWS_PROXY",
+// IntegrationSubtype: "SQS-SendMessage",
+// RequestParameters: map[string]interface{}{
+// "QueueUrl": "$request.header.queueUrl",
+// "MessageBody": "$request.body.message",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Private Integration
 //
@@ -125,51 +118,49 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigatewayv2"
+//	apigatewayv2/integration "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/apigatewayv2/integration"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := apigatewayv2.NewIntegration(ctx, "example", &apigatewayv2.IntegrationArgs{
-//				ApiId:             pulumi.Any(aws_apigatewayv2_api.Example.Id),
-//				CredentialsArn:    pulumi.Any(aws_iam_role.Example.Arn),
-//				Description:       pulumi.String("Example with a load balancer"),
-//				IntegrationType:   pulumi.String("HTTP_PROXY"),
-//				IntegrationUri:    pulumi.Any(aws_lb_listener.Example.Arn),
-//				IntegrationMethod: pulumi.String("ANY"),
-//				ConnectionType:    pulumi.String("VPC_LINK"),
-//				ConnectionId:      pulumi.Any(aws_apigatewayv2_vpc_link.Example.Id),
-//				TlsConfig: &apigatewayv2.IntegrationTlsConfigArgs{
-//					ServerNameToVerify: pulumi.String("example.com"),
-//				},
-//				RequestParameters: pulumi.StringMap{
-//					"append:header.authforintegration": pulumi.String("$context.authorizer.authorizerResponse"),
-//					"overwrite:path":                   pulumi.String("staticValueForIntegration"),
-//				},
-//				ResponseParameters: apigatewayv2.IntegrationResponseParameterArray{
-//					&apigatewayv2.IntegrationResponseParameterArgs{
-//						StatusCode: pulumi.String("403"),
-//						Mappings: pulumi.StringMap{
-//							"append:header.auth": pulumi.String("$context.authorizer.authorizerResponse"),
-//						},
-//					},
-//					&apigatewayv2.IntegrationResponseParameterArgs{
-//						StatusCode: pulumi.String("200"),
-//						Mappings: pulumi.StringMap{
-//							"overwrite:statuscode": pulumi.String("204"),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := apigatewayv2/integration.NewIntegration(ctx, "example", &apigatewayv2/integration.IntegrationArgs{
+// ApiId: aws_apigatewayv2_api.Example.Id,
+// CredentialsArn: aws_iam_role.Example.Arn,
+// Description: "Example with a load balancer",
+// IntegrationType: "HTTP_PROXY",
+// IntegrationUri: aws_lb_listener.Example.Arn,
+// IntegrationMethod: "ANY",
+// ConnectionType: "VPC_LINK",
+// ConnectionId: aws_apigatewayv2_vpc_link.Example.Id,
+// TlsConfig: map[string]interface{}{
+// "serverNameToVerify": "example.com",
+// },
+// RequestParameters: map[string]interface{}{
+// "append:header.authforintegration": "$context.authorizer.authorizerResponse",
+// "overwrite:path": "staticValueForIntegration",
+// },
+// ResponseParameters: []interface{}{
+// map[string]interface{}{
+// "statusCode": 403,
+// "mappings": map[string]interface{}{
+// "append:header.auth": "$context.authorizer.authorizerResponse",
+// },
+// },
+// map[string]interface{}{
+// "statusCode": 200,
+// "mappings": map[string]interface{}{
+// "overwrite:statuscode": "204",
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

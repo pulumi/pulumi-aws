@@ -12,33 +12,6 @@ import (
 )
 
 // Provides details about a specific Amazon Kendra block list used for query suggestions for an index.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kendra"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := kendra.LookupQuerySuggestionsBlockList(ctx, &kendra.LookupQuerySuggestionsBlockListArgs{
-//				IndexId:                     "12345678-1234-1234-1234-123456789123",
-//				QuerySuggestionsBlockListId: "87654321-1234-4321-4321-321987654321",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupQuerySuggestionsBlockList(ctx *pulumi.Context, args *LookupQuerySuggestionsBlockListArgs, opts ...pulumi.InvokeOption) (*LookupQuerySuggestionsBlockListResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupQuerySuggestionsBlockListResult

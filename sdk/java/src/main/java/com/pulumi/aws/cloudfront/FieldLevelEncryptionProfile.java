@@ -29,7 +29,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.cloudfront.PublicKeyArgs;
  * import com.pulumi.aws.cloudfront.FieldLevelEncryptionProfile;
  * import com.pulumi.aws.cloudfront.FieldLevelEncryptionProfileArgs;
- * import com.pulumi.aws.cloudfront.inputs.FieldLevelEncryptionProfileEncryptionEntitiesArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -50,15 +49,7 @@ import javax.annotation.Nullable;
  * 
  *         var test = new FieldLevelEncryptionProfile(&#34;test&#34;, FieldLevelEncryptionProfileArgs.builder()        
  *             .comment(&#34;test comment&#34;)
- *             .encryptionEntities(FieldLevelEncryptionProfileEncryptionEntitiesArgs.builder()
- *                 .items(FieldLevelEncryptionProfileEncryptionEntitiesItemArgs.builder()
- *                     .publicKeyId(example.id())
- *                     .providerId(&#34;test provider&#34;)
- *                     .fieldPatterns(FieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatternsArgs.builder()
- *                         .items(&#34;DateOfBirth&#34;)
- *                         .build())
- *                     .build())
- *                 .build())
+ *             .encryptionEntities(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

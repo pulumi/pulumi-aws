@@ -303,27 +303,27 @@ class SlotType(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        flower_types = aws.lex.SlotType("flowerTypes",
+        flower_types = aws.lex.slot_type.SlotType("flowerTypes",
             create_version=True,
-            description="Types of flowers to order",
+            description=Types of flowers to order,
             enumeration_values=[
-                aws.lex.SlotTypeEnumerationValueArgs(
-                    synonyms=[
-                        "Lirium",
-                        "Martagon",
+                {
+                    synonyms: [
+                        Lirium,
+                        Martagon,
                     ],
-                    value="lilies",
-                ),
-                aws.lex.SlotTypeEnumerationValueArgs(
-                    synonyms=[
-                        "Eduardoregelia",
-                        "Podonix",
+                    value: lilies,
+                },
+                {
+                    synonyms: [
+                        Eduardoregelia,
+                        Podonix,
                     ],
-                    value="tulips",
-                ),
+                    value: tulips,
+                },
             ],
-            name="FlowerTypes",
-            value_selection_strategy="ORIGINAL_VALUE")
+            name=FlowerTypes,
+            value_selection_strategy=ORIGINAL_VALUE)
         ```
 
         ## Import
@@ -365,27 +365,27 @@ class SlotType(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        flower_types = aws.lex.SlotType("flowerTypes",
+        flower_types = aws.lex.slot_type.SlotType("flowerTypes",
             create_version=True,
-            description="Types of flowers to order",
+            description=Types of flowers to order,
             enumeration_values=[
-                aws.lex.SlotTypeEnumerationValueArgs(
-                    synonyms=[
-                        "Lirium",
-                        "Martagon",
+                {
+                    synonyms: [
+                        Lirium,
+                        Martagon,
                     ],
-                    value="lilies",
-                ),
-                aws.lex.SlotTypeEnumerationValueArgs(
-                    synonyms=[
-                        "Eduardoregelia",
-                        "Podonix",
+                    value: lilies,
+                },
+                {
+                    synonyms: [
+                        Eduardoregelia,
+                        Podonix,
                     ],
-                    value="tulips",
-                ),
+                    value: tulips,
+                },
             ],
-            name="FlowerTypes",
-            value_selection_strategy="ORIGINAL_VALUE")
+            name=FlowerTypes,
+            value_selection_strategy=ORIGINAL_VALUE)
         ```
 
         ## Import

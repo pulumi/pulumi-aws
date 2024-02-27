@@ -30,7 +30,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.transfer.Connector;
  * import com.pulumi.aws.transfer.ConnectorArgs;
- * import com.pulumi.aws.transfer.inputs.ConnectorAs2ConfigArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -46,16 +45,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Connector(&#34;example&#34;, ConnectorArgs.builder()        
  *             .accessRole(aws_iam_role.test().arn())
- *             .as2Config(ConnectorAs2ConfigArgs.builder()
- *                 .compression(&#34;DISABLED&#34;)
- *                 .encryptionAlgorithm(&#34;AWS128_CBC&#34;)
- *                 .messageSubject(&#34;For Connector&#34;)
- *                 .localProfileId(aws_transfer_profile.local().profile_id())
- *                 .mdnResponse(&#34;NONE&#34;)
- *                 .mdnSigningAlgorithm(&#34;NONE&#34;)
- *                 .partnerProfileId(aws_transfer_profile.partner().profile_id())
- *                 .signingAlgorithm(&#34;NONE&#34;)
- *                 .build())
+ *             .as2Config(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .url(&#34;http://www.test.com&#34;)
  *             .build());
  * 
@@ -71,7 +61,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.transfer.Connector;
  * import com.pulumi.aws.transfer.ConnectorArgs;
- * import com.pulumi.aws.transfer.inputs.ConnectorSftpConfigArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -87,10 +76,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Connector(&#34;example&#34;, ConnectorArgs.builder()        
  *             .accessRole(aws_iam_role.test().arn())
- *             .sftpConfig(ConnectorSftpConfigArgs.builder()
- *                 .trustedHostKeys(&#34;ssh-rsa AAAAB3NYourKeysHere&#34;)
- *                 .userSecretId(aws_secretsmanager_secret.example().id())
- *                 .build())
+ *             .sftpConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .url(&#34;sftp://test.com&#34;)
  *             .build());
  * 

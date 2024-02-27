@@ -24,35 +24,33 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sagemaker"
+//	sagemaker/flowDefinition "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/sagemaker/flowDefinition"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := sagemaker.NewFlowDefinition(ctx, "example", &sagemaker.FlowDefinitionArgs{
-//				FlowDefinitionName: pulumi.String("example"),
-//				RoleArn:            pulumi.Any(aws_iam_role.Example.Arn),
-//				HumanLoopConfig: &sagemaker.FlowDefinitionHumanLoopConfigArgs{
-//					HumanTaskUiArn:                    pulumi.Any(aws_sagemaker_human_task_ui.Example.Arn),
-//					TaskAvailabilityLifetimeInSeconds: pulumi.Int(1),
-//					TaskCount:                         pulumi.Int(1),
-//					TaskDescription:                   pulumi.String("example"),
-//					TaskTitle:                         pulumi.String("example"),
-//					WorkteamArn:                       pulumi.Any(aws_sagemaker_workteam.Example.Arn),
-//				},
-//				OutputConfig: &sagemaker.FlowDefinitionOutputConfigArgs{
-//					S3OutputPath: pulumi.String(fmt.Sprintf("s3://%v/", aws_s3_bucket.Example.Bucket)),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := sagemaker/flowDefinition.NewFlowDefinition(ctx, "example", &sagemaker/flowDefinition.FlowDefinitionArgs{
+// FlowDefinitionName: "example",
+// RoleArn: aws_iam_role.Example.Arn,
+// HumanLoopConfig: map[string]interface{}{
+// "humanTaskUiArn": aws_sagemaker_human_task_ui.Example.Arn,
+// "taskAvailabilityLifetimeInSeconds": 1,
+// "taskCount": 1,
+// "taskDescription": "example",
+// "taskTitle": "example",
+// "workteamArn": aws_sagemaker_workteam.Example.Arn,
+// },
+// OutputConfig: map[string]interface{}{
+// "s3OutputPath": fmt.Sprintf("s3://%v/", aws_s3_bucket.Example.Bucket),
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Public Workteam Usage
 //
@@ -63,41 +61,39 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sagemaker"
+//	sagemaker/flowDefinition "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/sagemaker/flowDefinition"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := sagemaker.NewFlowDefinition(ctx, "example", &sagemaker.FlowDefinitionArgs{
-//				FlowDefinitionName: pulumi.String("example"),
-//				RoleArn:            pulumi.Any(aws_iam_role.Example.Arn),
-//				HumanLoopConfig: &sagemaker.FlowDefinitionHumanLoopConfigArgs{
-//					HumanTaskUiArn:                    pulumi.Any(aws_sagemaker_human_task_ui.Example.Arn),
-//					TaskAvailabilityLifetimeInSeconds: pulumi.Int(1),
-//					TaskCount:                         pulumi.Int(1),
-//					TaskDescription:                   pulumi.String("example"),
-//					TaskTitle:                         pulumi.String("example"),
-//					WorkteamArn:                       pulumi.String(fmt.Sprintf("arn:aws:sagemaker:%v:394669845002:workteam/public-crowd/default", data.Aws_region.Current.Name)),
-//					PublicWorkforceTaskPrice: &sagemaker.FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceArgs{
-//						AmountInUsd: &sagemaker.FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdArgs{
-//							Cents:                 pulumi.Int(1),
-//							TenthFractionsOfACent: pulumi.Int(2),
-//						},
-//					},
-//				},
-//				OutputConfig: &sagemaker.FlowDefinitionOutputConfigArgs{
-//					S3OutputPath: pulumi.String(fmt.Sprintf("s3://%v/", aws_s3_bucket.Example.Bucket)),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := sagemaker/flowDefinition.NewFlowDefinition(ctx, "example", &sagemaker/flowDefinition.FlowDefinitionArgs{
+// FlowDefinitionName: "example",
+// RoleArn: aws_iam_role.Example.Arn,
+// HumanLoopConfig: map[string]interface{}{
+// "humanTaskUiArn": aws_sagemaker_human_task_ui.Example.Arn,
+// "taskAvailabilityLifetimeInSeconds": 1,
+// "taskCount": 1,
+// "taskDescription": "example",
+// "taskTitle": "example",
+// "workteamArn": fmt.Sprintf("arn:aws:sagemaker:%v:394669845002:workteam/public-crowd/default", data.Aws_region.Current.Name),
+// "publicWorkforceTaskPrice": map[string]interface{}{
+// "amountInUsd": map[string]interface{}{
+// "cents": 1,
+// "tenthFractionsOfACent": 2,
+// },
+// },
+// },
+// OutputConfig: map[string]interface{}{
+// "s3OutputPath": fmt.Sprintf("s3://%v/", aws_s3_bucket.Example.Bucket),
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Human Loop Activation Config Usage
 //
@@ -108,30 +104,30 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sagemaker"
+//	sagemaker/flowDefinition "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/sagemaker/flowDefinition"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := sagemaker/flowDefinition.NewFlowDefinition(ctx, "example", &sagemaker/flowDefinition.FlowDefinitionArgs{
+// FlowDefinitionName: "example",
+// RoleArn: aws_iam_role.Example.Arn,
+// HumanLoopConfig: map[string]interface{}{
+// "humanTaskUiArn": aws_sagemaker_human_task_ui.Example.Arn,
+// "taskAvailabilityLifetimeInSeconds": 1,
+// "taskCount": 1,
+// "taskDescription": "example",
+// "taskTitle": "example",
+// "workteamArn": aws_sagemaker_workteam.Example.Arn,
+// },
+// HumanLoopRequestSource: map[string]interface{}{
+// "awsManagedHumanLoopRequestSource": "AWS/Textract/AnalyzeDocument/Forms/V1",
+// },
+// HumanLoopActivationConfig: map[string]interface{}{
+// "humanLoopActivationConditionsConfig": map[string]interface{}{
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := sagemaker.NewFlowDefinition(ctx, "example", &sagemaker.FlowDefinitionArgs{
-//				FlowDefinitionName: pulumi.String("example"),
-//				RoleArn:            pulumi.Any(aws_iam_role.Example.Arn),
-//				HumanLoopConfig: &sagemaker.FlowDefinitionHumanLoopConfigArgs{
-//					HumanTaskUiArn:                    pulumi.Any(aws_sagemaker_human_task_ui.Example.Arn),
-//					TaskAvailabilityLifetimeInSeconds: pulumi.Int(1),
-//					TaskCount:                         pulumi.Int(1),
-//					TaskDescription:                   pulumi.String("example"),
-//					TaskTitle:                         pulumi.String("example"),
-//					WorkteamArn:                       pulumi.Any(aws_sagemaker_workteam.Example.Arn),
-//				},
-//				HumanLoopRequestSource: &sagemaker.FlowDefinitionHumanLoopRequestSourceArgs{
-//					AwsManagedHumanLoopRequestSource: pulumi.String("AWS/Textract/AnalyzeDocument/Forms/V1"),
-//				},
-//				HumanLoopActivationConfig: &sagemaker.FlowDefinitionHumanLoopActivationConfigArgs{
-//					HumanLoopActivationConditionsConfig: &sagemaker.FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigArgs{
-//						HumanLoopActivationConditions: pulumi.String(`        {
+//	"humanLoopActivationConditions": `        {
 //				"Conditions": [
 //				  {
 //					"ConditionType": "Sampling",
@@ -142,21 +138,19 @@ import (
 //				]
 //			}
 //
-// `),
-//
-//					},
-//				},
-//				OutputConfig: &sagemaker.FlowDefinitionOutputConfigArgs{
-//					S3OutputPath: pulumi.String(fmt.Sprintf("s3://%v/", aws_s3_bucket.Example.Bucket)),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// `,
+// },
+// },
+// OutputConfig: map[string]interface{}{
+// "s3OutputPath": fmt.Sprintf("s3://%v/", aws_s3_bucket.Example.Bucket),
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

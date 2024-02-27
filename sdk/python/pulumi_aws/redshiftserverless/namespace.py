@@ -392,7 +392,7 @@ class Namespace(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.redshiftserverless.Namespace("example", namespace_name="concurrency-scaling")
+        example = aws.redshiftserverless.namespace.Namespace("example", namespace_name=concurrency-scaling)
         ```
 
         ## Import
@@ -430,7 +430,7 @@ class Namespace(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.redshiftserverless.Namespace("example", namespace_name="concurrency-scaling")
+        example = aws.redshiftserverless.namespace.Namespace("example", namespace_name=concurrency-scaling)
         ```
 
         ## Import

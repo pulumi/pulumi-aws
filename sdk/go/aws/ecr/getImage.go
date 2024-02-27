@@ -12,33 +12,6 @@ import (
 )
 
 // The ECR Image data source allows the details of an image with a particular tag or digest to be retrieved.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ecr"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ecr.GetImage(ctx, &ecr.GetImageArgs{
-//				ImageTag:       pulumi.StringRef("latest"),
-//				RepositoryName: "my/service",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetImage(ctx *pulumi.Context, args *GetImageArgs, opts ...pulumi.InvokeOption) (*GetImageResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetImageResult

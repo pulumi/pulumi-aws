@@ -141,10 +141,10 @@ class ClusterRoleAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.rds.ClusterRoleAssociation("example",
-            db_cluster_identifier=aws_rds_cluster["example"]["id"],
-            feature_name="S3_INTEGRATION",
-            role_arn=aws_iam_role["example"]["arn"])
+        example = aws.rds.cluster_role_association.ClusterRoleAssociation("example",
+            db_cluster_identifier=aws_rds_cluster.example.id,
+            feature_name=S3_INTEGRATION,
+            role_arn=aws_iam_role.example.arn)
         ```
 
         ## Import
@@ -179,10 +179,10 @@ class ClusterRoleAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.rds.ClusterRoleAssociation("example",
-            db_cluster_identifier=aws_rds_cluster["example"]["id"],
-            feature_name="S3_INTEGRATION",
-            role_arn=aws_iam_role["example"]["arn"])
+        example = aws.rds.cluster_role_association.ClusterRoleAssociation("example",
+            db_cluster_identifier=aws_rds_cluster.example.id,
+            feature_name=S3_INTEGRATION,
+            role_arn=aws_iam_role.example.arn)
         ```
 
         ## Import

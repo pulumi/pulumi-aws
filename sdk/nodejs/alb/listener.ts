@@ -19,13 +19,13 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const frontEndLoadBalancer = new aws.lb.LoadBalancer("frontEndLoadBalancer", {});
+ * const frontEndLoadBalancer = new aws.lb/loadBalancer.LoadBalancer("frontEndLoadBalancer", {});
  * // ...
- * const frontEndTargetGroup = new aws.lb.TargetGroup("frontEndTargetGroup", {});
+ * const frontEndTargetGroup = new aws.lb/targetGroup.TargetGroup("frontEndTargetGroup", {});
  * // ...
- * const frontEndListener = new aws.lb.Listener("frontEndListener", {
+ * const frontEndListener = new aws.lb/listener.Listener("frontEndListener", {
  *     loadBalancerArn: frontEndLoadBalancer.arn,
- *     port: 443,
+ *     port: "443",
  *     protocol: "HTTPS",
  *     sslPolicy: "ELBSecurityPolicy-2016-08",
  *     certificateArn: "arn:aws:iam::187416307283:server-certificate/test_cert_rab3wuqwgja25ct3n4jdj2tzu4",
@@ -42,9 +42,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const frontEnd = new aws.lb.Listener("frontEnd", {
+ * const frontEnd = new aws.lb/listener.Listener("frontEnd", {
  *     loadBalancerArn: aws_lb.front_end.arn,
- *     port: 443,
+ *     port: "443",
  *     protocol: "TLS",
  *     certificateArn: "arn:aws:iam::187416307283:server-certificate/test_cert_rab3wuqwgja25ct3n4jdj2tzu4",
  *     alpnPolicy: "HTTP2Preferred",
@@ -60,11 +60,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const frontEndLoadBalancer = new aws.lb.LoadBalancer("frontEndLoadBalancer", {});
+ * const frontEndLoadBalancer = new aws.lb/loadBalancer.LoadBalancer("frontEndLoadBalancer", {});
  * // ...
- * const frontEndListener = new aws.lb.Listener("frontEndListener", {
+ * const frontEndListener = new aws.lb/listener.Listener("frontEndListener", {
  *     loadBalancerArn: frontEndLoadBalancer.arn,
- *     port: 80,
+ *     port: "80",
  *     protocol: "HTTP",
  *     defaultActions: [{
  *         type: "redirect",
@@ -82,11 +82,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const frontEndLoadBalancer = new aws.lb.LoadBalancer("frontEndLoadBalancer", {});
+ * const frontEndLoadBalancer = new aws.lb/loadBalancer.LoadBalancer("frontEndLoadBalancer", {});
  * // ...
- * const frontEndListener = new aws.lb.Listener("frontEndListener", {
+ * const frontEndListener = new aws.lb/listener.Listener("frontEndListener", {
  *     loadBalancerArn: frontEndLoadBalancer.arn,
- *     port: 80,
+ *     port: "80",
  *     protocol: "HTTP",
  *     defaultActions: [{
  *         type: "fixed-response",
@@ -104,19 +104,19 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const frontEndLoadBalancer = new aws.lb.LoadBalancer("frontEndLoadBalancer", {});
+ * const frontEndLoadBalancer = new aws.lb/loadBalancer.LoadBalancer("frontEndLoadBalancer", {});
  * // ...
- * const frontEndTargetGroup = new aws.lb.TargetGroup("frontEndTargetGroup", {});
+ * const frontEndTargetGroup = new aws.lb/targetGroup.TargetGroup("frontEndTargetGroup", {});
  * // ...
- * const pool = new aws.cognito.UserPool("pool", {});
+ * const pool = new aws.cognito/userPool.UserPool("pool", {});
  * // ...
- * const client = new aws.cognito.UserPoolClient("client", {});
+ * const client = new aws.cognito/userPoolClient.UserPoolClient("client", {});
  * // ...
- * const domain = new aws.cognito.UserPoolDomain("domain", {});
+ * const domain = new aws.cognito/userPoolDomain.UserPoolDomain("domain", {});
  * // ...
- * const frontEndListener = new aws.lb.Listener("frontEndListener", {
+ * const frontEndListener = new aws.lb/listener.Listener("frontEndListener", {
  *     loadBalancerArn: frontEndLoadBalancer.arn,
- *     port: 80,
+ *     port: "80",
  *     protocol: "HTTP",
  *     defaultActions: [
  *         {
@@ -140,13 +140,13 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const frontEndLoadBalancer = new aws.lb.LoadBalancer("frontEndLoadBalancer", {});
+ * const frontEndLoadBalancer = new aws.lb/loadBalancer.LoadBalancer("frontEndLoadBalancer", {});
  * // ...
- * const frontEndTargetGroup = new aws.lb.TargetGroup("frontEndTargetGroup", {});
+ * const frontEndTargetGroup = new aws.lb/targetGroup.TargetGroup("frontEndTargetGroup", {});
  * // ...
- * const frontEndListener = new aws.lb.Listener("frontEndListener", {
+ * const frontEndListener = new aws.lb/listener.Listener("frontEndListener", {
  *     loadBalancerArn: frontEndLoadBalancer.arn,
- *     port: 80,
+ *     port: "80",
  *     protocol: "HTTP",
  *     defaultActions: [
  *         {
@@ -173,22 +173,22 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleLoadBalancer = new aws.lb.LoadBalancer("exampleLoadBalancer", {
+ * const exampleLoadBalancer = new aws.lb/loadBalancer.LoadBalancer("exampleLoadBalancer", {
  *     loadBalancerType: "gateway",
  *     subnetMappings: [{
  *         subnetId: aws_subnet.example.id,
  *     }],
  * });
- * const exampleTargetGroup = new aws.lb.TargetGroup("exampleTargetGroup", {
+ * const exampleTargetGroup = new aws.lb/targetGroup.TargetGroup("exampleTargetGroup", {
  *     port: 6081,
  *     protocol: "GENEVE",
  *     vpcId: aws_vpc.example.id,
  *     healthCheck: {
- *         port: "80",
+ *         port: 80,
  *         protocol: "HTTP",
  *     },
  * });
- * const exampleListener = new aws.lb.Listener("exampleListener", {
+ * const exampleListener = new aws.lb/listener.Listener("exampleListener", {
  *     loadBalancerArn: exampleLoadBalancer.id,
  *     defaultActions: [{
  *         targetGroupArn: exampleTargetGroup.id,
@@ -202,11 +202,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleLoadBalancer = new aws.lb.LoadBalancer("exampleLoadBalancer", {loadBalancerType: "application"});
+ * const exampleLoadBalancer = new aws.lb/loadBalancer.LoadBalancer("exampleLoadBalancer", {loadBalancerType: "application"});
  * // ...
- * const exampleTargetGroup = new aws.lb.TargetGroup("exampleTargetGroup", {});
+ * const exampleTargetGroup = new aws.lb/targetGroup.TargetGroup("exampleTargetGroup", {});
  * // ...
- * const exampleListener = new aws.lb.Listener("exampleListener", {
+ * const exampleListener = new aws.lb/listener.Listener("exampleListener", {
  *     loadBalancerArn: exampleLoadBalancer.id,
  *     defaultActions: [{
  *         targetGroupArn: exampleTargetGroup.id,

@@ -32,8 +32,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.rbin.Rule;
  * import com.pulumi.aws.rbin.RuleArgs;
- * import com.pulumi.aws.rbin.inputs.RuleResourceTagArgs;
- * import com.pulumi.aws.rbin.inputs.RuleRetentionPeriodArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -49,16 +47,10 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Rule(&#34;example&#34;, RuleArgs.builder()        
  *             .description(&#34;example_rule&#34;)
- *             .resourceTags(RuleResourceTagArgs.builder()
- *                 .resourceTagKey(&#34;tag_key&#34;)
- *                 .resourceTagValue(&#34;tag_value&#34;)
- *                 .build())
+ *             .resourceTags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .resourceType(&#34;EBS_SNAPSHOT&#34;)
- *             .retentionPeriod(RuleRetentionPeriodArgs.builder()
- *                 .retentionPeriodUnit(&#34;DAYS&#34;)
- *                 .retentionPeriodValue(10)
- *                 .build())
- *             .tags(Map.of(&#34;test_tag_key&#34;, &#34;test_tag_value&#34;))
+ *             .retentionPeriod(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

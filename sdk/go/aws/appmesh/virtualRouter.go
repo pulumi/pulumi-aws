@@ -31,33 +31,31 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/appmesh"
+//	appmesh/virtualRouter "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/appmesh/virtualRouter"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := appmesh.NewVirtualRouter(ctx, "serviceb", &appmesh.VirtualRouterArgs{
-//				MeshName: pulumi.Any(aws_appmesh_mesh.Simple.Id),
-//				Spec: &appmesh.VirtualRouterSpecArgs{
-//					Listeners: appmesh.VirtualRouterSpecListenerArray{
-//						&appmesh.VirtualRouterSpecListenerArgs{
-//							PortMapping: &appmesh.VirtualRouterSpecListenerPortMappingArgs{
-//								Port:     pulumi.Int(8080),
-//								Protocol: pulumi.String("http"),
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := appmesh/virtualRouter.NewVirtualRouter(ctx, "serviceb", &appmesh/virtualRouter.VirtualRouterArgs{
+// MeshName: aws_appmesh_mesh.Simple.Id,
+// Spec: map[string]interface{}{
+// "listeners": []map[string]interface{}{
+// map[string]interface{}{
+// "portMapping": map[string]interface{}{
+// "port": 8080,
+// "protocol": "http",
+// },
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

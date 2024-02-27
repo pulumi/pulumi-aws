@@ -22,30 +22,28 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/appmesh"
+//	appmesh/virtualService "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/appmesh/virtualService"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := appmesh.NewVirtualService(ctx, "servicea", &appmesh.VirtualServiceArgs{
-//				MeshName: pulumi.Any(aws_appmesh_mesh.Simple.Id),
-//				Spec: &appmesh.VirtualServiceSpecArgs{
-//					Provider: &appmesh.VirtualServiceSpecProviderArgs{
-//						VirtualNode: &appmesh.VirtualServiceSpecProviderVirtualNodeArgs{
-//							VirtualNodeName: pulumi.Any(aws_appmesh_virtual_node.Serviceb1.Name),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := appmesh/virtualService.NewVirtualService(ctx, "servicea", &appmesh/virtualService.VirtualServiceArgs{
+// MeshName: aws_appmesh_mesh.Simple.Id,
+// Spec: map[string]interface{}{
+// "provider": map[string]interface{}{
+// "virtualNode": map[string]interface{}{
+// "virtualNodeName": aws_appmesh_virtual_node.Serviceb1.Name,
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Virtual Router Provider
 //
@@ -54,30 +52,28 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/appmesh"
+//	appmesh/virtualService "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/appmesh/virtualService"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := appmesh.NewVirtualService(ctx, "servicea", &appmesh.VirtualServiceArgs{
-//				MeshName: pulumi.Any(aws_appmesh_mesh.Simple.Id),
-//				Spec: &appmesh.VirtualServiceSpecArgs{
-//					Provider: &appmesh.VirtualServiceSpecProviderArgs{
-//						VirtualRouter: &appmesh.VirtualServiceSpecProviderVirtualRouterArgs{
-//							VirtualRouterName: pulumi.Any(aws_appmesh_virtual_router.Serviceb.Name),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := appmesh/virtualService.NewVirtualService(ctx, "servicea", &appmesh/virtualService.VirtualServiceArgs{
+// MeshName: aws_appmesh_mesh.Simple.Id,
+// Spec: map[string]interface{}{
+// "provider": map[string]interface{}{
+// "virtualRouter": map[string]interface{}{
+// "virtualRouterName": aws_appmesh_virtual_router.Serviceb.Name,
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

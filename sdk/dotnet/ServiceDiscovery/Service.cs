@@ -22,37 +22,37 @@ namespace Pulumi.Aws.ServiceDiscovery
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleVpc = new Aws.Ec2.Vpc("exampleVpc", new()
+    ///     var exampleVpc = new Aws.Ec2.Vpc.Vpc("exampleVpc", new()
     ///     {
     ///         CidrBlock = "10.0.0.0/16",
     ///         EnableDnsSupport = true,
     ///         EnableDnsHostnames = true,
     ///     });
     /// 
-    ///     var examplePrivateDnsNamespace = new Aws.ServiceDiscovery.PrivateDnsNamespace("examplePrivateDnsNamespace", new()
+    ///     var examplePrivateDnsNamespace = new Aws.Servicediscovery.PrivateDnsNamespace.PrivateDnsNamespace("examplePrivateDnsNamespace", new()
     ///     {
     ///         Description = "example",
     ///         Vpc = exampleVpc.Id,
     ///     });
     /// 
-    ///     var exampleService = new Aws.ServiceDiscovery.Service("exampleService", new()
+    ///     var exampleService = new Aws.Servicediscovery.Service.Service("exampleService", new()
     ///     {
-    ///         DnsConfig = new Aws.ServiceDiscovery.Inputs.ServiceDnsConfigArgs
+    ///         DnsConfig = 
     ///         {
-    ///             NamespaceId = examplePrivateDnsNamespace.Id,
-    ///             DnsRecords = new[]
+    ///             { "namespaceId", examplePrivateDnsNamespace.Id },
+    ///             { "dnsRecords", new[]
     ///             {
-    ///                 new Aws.ServiceDiscovery.Inputs.ServiceDnsConfigDnsRecordArgs
+    ///                 
     ///                 {
-    ///                     Ttl = 10,
-    ///                     Type = "A",
+    ///                     { "ttl", 10 },
+    ///                     { "type", "A" },
     ///                 },
-    ///             },
-    ///             RoutingPolicy = "MULTIVALUE",
+    ///             } },
+    ///             { "routingPolicy", "MULTIVALUE" },
     ///         },
-    ///         HealthCheckCustomConfig = new Aws.ServiceDiscovery.Inputs.ServiceHealthCheckCustomConfigArgs
+    ///         HealthCheckCustomConfig = 
     ///         {
-    ///             FailureThreshold = 1,
+    ///             { "failureThreshold", 1 },
     ///         },
     ///     });
     /// 
@@ -67,30 +67,30 @@ namespace Pulumi.Aws.ServiceDiscovery
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var examplePublicDnsNamespace = new Aws.ServiceDiscovery.PublicDnsNamespace("examplePublicDnsNamespace", new()
+    ///     var examplePublicDnsNamespace = new Aws.Servicediscovery.PublicDnsNamespace.PublicDnsNamespace("examplePublicDnsNamespace", new()
     ///     {
     ///         Description = "example",
     ///     });
     /// 
-    ///     var exampleService = new Aws.ServiceDiscovery.Service("exampleService", new()
+    ///     var exampleService = new Aws.Servicediscovery.Service.Service("exampleService", new()
     ///     {
-    ///         DnsConfig = new Aws.ServiceDiscovery.Inputs.ServiceDnsConfigArgs
+    ///         DnsConfig = 
     ///         {
-    ///             NamespaceId = examplePublicDnsNamespace.Id,
-    ///             DnsRecords = new[]
+    ///             { "namespaceId", examplePublicDnsNamespace.Id },
+    ///             { "dnsRecords", new[]
     ///             {
-    ///                 new Aws.ServiceDiscovery.Inputs.ServiceDnsConfigDnsRecordArgs
+    ///                 
     ///                 {
-    ///                     Ttl = 10,
-    ///                     Type = "A",
+    ///                     { "ttl", 10 },
+    ///                     { "type", "A" },
     ///                 },
-    ///             },
+    ///             } },
     ///         },
-    ///         HealthCheckConfig = new Aws.ServiceDiscovery.Inputs.ServiceHealthCheckConfigArgs
+    ///         HealthCheckConfig = 
     ///         {
-    ///             FailureThreshold = 10,
-    ///             ResourcePath = "path",
-    ///             Type = "HTTP",
+    ///             { "failureThreshold", 10 },
+    ///             { "resourcePath", "path" },
+    ///             { "type", "HTTP" },
     ///         },
     ///     });
     /// 

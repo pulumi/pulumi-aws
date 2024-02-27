@@ -19,69 +19,6 @@ import javax.annotation.Nullable;
  * Manages an EC2 Transit Gateway Peering Attachment.
  * For examples of custom route table association and propagation, see the [EC2 Transit Gateway Networking Examples Guide](https://docs.aws.amazon.com/vpc/latest/tgw/TGW_Scenarios.html).
  * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.Provider;
- * import com.pulumi.aws.ProviderArgs;
- * import com.pulumi.aws.AwsFunctions;
- * import com.pulumi.aws.inputs.GetRegionArgs;
- * import com.pulumi.aws.ec2transitgateway.TransitGateway;
- * import com.pulumi.aws.ec2transitgateway.TransitGatewayArgs;
- * import com.pulumi.aws.ec2transitgateway.PeeringAttachment;
- * import com.pulumi.aws.ec2transitgateway.PeeringAttachmentArgs;
- * import com.pulumi.resources.CustomResourceOptions;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var local = new Provider(&#34;local&#34;, ProviderArgs.builder()        
- *             .region(&#34;us-east-1&#34;)
- *             .build());
- * 
- *         var peer = new Provider(&#34;peer&#34;, ProviderArgs.builder()        
- *             .region(&#34;us-west-2&#34;)
- *             .build());
- * 
- *         final var peerRegion = AwsFunctions.getRegion();
- * 
- *         var localTransitGateway = new TransitGateway(&#34;localTransitGateway&#34;, TransitGatewayArgs.builder()        
- *             .tags(Map.of(&#34;Name&#34;, &#34;Local TGW&#34;))
- *             .build(), CustomResourceOptions.builder()
- *                 .provider(aws.local())
- *                 .build());
- * 
- *         var peerTransitGateway = new TransitGateway(&#34;peerTransitGateway&#34;, TransitGatewayArgs.builder()        
- *             .tags(Map.of(&#34;Name&#34;, &#34;Peer TGW&#34;))
- *             .build(), CustomResourceOptions.builder()
- *                 .provider(aws.peer())
- *                 .build());
- * 
- *         var example = new PeeringAttachment(&#34;example&#34;, PeeringAttachmentArgs.builder()        
- *             .peerAccountId(peerTransitGateway.ownerId())
- *             .peerRegion(peerRegion.applyValue(getRegionResult -&gt; getRegionResult.name()))
- *             .peerTransitGatewayId(peerTransitGateway.id())
- *             .transitGatewayId(localTransitGateway.id())
- *             .tags(Map.of(&#34;Name&#34;, &#34;TGW Peering Requestor&#34;))
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
  * ## Import
  * 
  * Using `pulumi import`, import `aws_ec2_transit_gateway_peering_attachment` using the EC2 Transit Gateway Attachment identifier. For example:

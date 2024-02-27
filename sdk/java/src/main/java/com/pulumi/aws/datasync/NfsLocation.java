@@ -31,7 +31,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.datasync.NfsLocation;
  * import com.pulumi.aws.datasync.NfsLocationArgs;
- * import com.pulumi.aws.datasync.inputs.NfsLocationOnPremConfigArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -48,9 +47,7 @@ import javax.annotation.Nullable;
  *         var example = new NfsLocation(&#34;example&#34;, NfsLocationArgs.builder()        
  *             .serverHostname(&#34;nfs.example.com&#34;)
  *             .subdirectory(&#34;/exported/path&#34;)
- *             .onPremConfig(NfsLocationOnPremConfigArgs.builder()
- *                 .agentArns(aws_datasync_agent.example().arn())
- *                 .build())
+ *             .onPremConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

@@ -12,42 +12,6 @@ import (
 )
 
 // Use this data source to get a list of AMI IDs matching the specified criteria.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.GetAmiIds(ctx, &ec2.GetAmiIdsArgs{
-//				Filters: []ec2.GetAmiIdsFilter{
-//					{
-//						Name: "name",
-//						Values: []string{
-//							"ubuntu/images/ubuntu-*-*-amd64-server-*",
-//						},
-//					},
-//				},
-//				Owners: []string{
-//					"099720109477",
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetAmiIds(ctx *pulumi.Context, args *GetAmiIdsArgs, opts ...pulumi.InvokeOption) (*GetAmiIdsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetAmiIdsResult

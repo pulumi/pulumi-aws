@@ -13,6 +13,46 @@ import (
 )
 
 // ## Example Usage
+// ### Basic Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"encoding/json"
+//
+//	verifiedpermissions/schema "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/verifiedpermissions/schema"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := verifiedpermissions/schema.NewSchema(ctx, "example", &verifiedpermissions/schema.SchemaArgs{
+// PolicyStoreId: aws_verifiedpermissions_policy_store.Example.Policy_store_id,
+// Definition: tmpJSON0, err := json.Marshal(map[string]interface{}{
+// "Namespace": map[string]interface{}{
+// "entityTypes": nil,
+// "actions": nil,
+// },
+// })
+// if err != nil {
+// return err
+// }
+// json0 := string(tmpJSON0)
+// []map[string]interface{}{
+// map[string]interface{}{
+// "value": json0,
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
+// ```
 //
 // ## Import
 //

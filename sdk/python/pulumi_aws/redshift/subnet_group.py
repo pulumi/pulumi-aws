@@ -215,28 +215,28 @@ class SubnetGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        foo_vpc = aws.ec2.Vpc("fooVpc", cidr_block="10.1.0.0/16")
-        foo_subnet = aws.ec2.Subnet("fooSubnet",
-            cidr_block="10.1.1.0/24",
-            availability_zone="us-west-2a",
+        foo_vpc = aws.ec2.vpc.Vpc("fooVpc", cidr_block=10.1.0.0/16)
+        foo_subnet = aws.ec2.subnet.Subnet("fooSubnet",
+            cidr_block=10.1.1.0/24,
+            availability_zone=us-west-2a,
             vpc_id=foo_vpc.id,
             tags={
-                "Name": "tf-dbsubnet-test-1",
+                Name: tf-dbsubnet-test-1,
             })
-        bar = aws.ec2.Subnet("bar",
-            cidr_block="10.1.2.0/24",
-            availability_zone="us-west-2b",
+        bar = aws.ec2.subnet.Subnet("bar",
+            cidr_block=10.1.2.0/24,
+            availability_zone=us-west-2b,
             vpc_id=foo_vpc.id,
             tags={
-                "Name": "tf-dbsubnet-test-2",
+                Name: tf-dbsubnet-test-2,
             })
-        foo_subnet_group = aws.redshift.SubnetGroup("fooSubnetGroup",
+        foo_subnet_group = aws.redshift.subnet_group.SubnetGroup("fooSubnetGroup",
             subnet_ids=[
                 foo_subnet.id,
                 bar.id,
             ],
             tags={
-                "environment": "Production",
+                environment: Production,
             })
         ```
 
@@ -270,28 +270,28 @@ class SubnetGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        foo_vpc = aws.ec2.Vpc("fooVpc", cidr_block="10.1.0.0/16")
-        foo_subnet = aws.ec2.Subnet("fooSubnet",
-            cidr_block="10.1.1.0/24",
-            availability_zone="us-west-2a",
+        foo_vpc = aws.ec2.vpc.Vpc("fooVpc", cidr_block=10.1.0.0/16)
+        foo_subnet = aws.ec2.subnet.Subnet("fooSubnet",
+            cidr_block=10.1.1.0/24,
+            availability_zone=us-west-2a,
             vpc_id=foo_vpc.id,
             tags={
-                "Name": "tf-dbsubnet-test-1",
+                Name: tf-dbsubnet-test-1,
             })
-        bar = aws.ec2.Subnet("bar",
-            cidr_block="10.1.2.0/24",
-            availability_zone="us-west-2b",
+        bar = aws.ec2.subnet.Subnet("bar",
+            cidr_block=10.1.2.0/24,
+            availability_zone=us-west-2b,
             vpc_id=foo_vpc.id,
             tags={
-                "Name": "tf-dbsubnet-test-2",
+                Name: tf-dbsubnet-test-2,
             })
-        foo_subnet_group = aws.redshift.SubnetGroup("fooSubnetGroup",
+        foo_subnet_group = aws.redshift.subnet_group.SubnetGroup("fooSubnetGroup",
             subnet_ids=[
                 foo_subnet.id,
                 bar.id,
             ],
             tags={
-                "environment": "Production",
+                environment: Production,
             })
         ```
 

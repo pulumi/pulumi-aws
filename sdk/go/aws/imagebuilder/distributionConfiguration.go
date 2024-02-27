@@ -21,43 +21,41 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/imagebuilder"
+//	imagebuilder/distributionConfiguration "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/imagebuilder/distributionConfiguration"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := imagebuilder.NewDistributionConfiguration(ctx, "example", &imagebuilder.DistributionConfigurationArgs{
-//				Distributions: imagebuilder.DistributionConfigurationDistributionArray{
-//					&imagebuilder.DistributionConfigurationDistributionArgs{
-//						AmiDistributionConfiguration: &imagebuilder.DistributionConfigurationDistributionAmiDistributionConfigurationArgs{
-//							AmiTags: pulumi.StringMap{
-//								"CostCenter": pulumi.String("IT"),
-//							},
-//							LaunchPermission: &imagebuilder.DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArgs{
-//								UserIds: pulumi.StringArray{
-//									pulumi.String("123456789012"),
-//								},
-//							},
-//							Name: pulumi.String("example-{{ imagebuilder:buildDate }}"),
-//						},
-//						LaunchTemplateConfigurations: imagebuilder.DistributionConfigurationDistributionLaunchTemplateConfigurationArray{
-//							&imagebuilder.DistributionConfigurationDistributionLaunchTemplateConfigurationArgs{
-//								LaunchTemplateId: pulumi.String("lt-0aaa1bcde2ff3456"),
-//							},
-//						},
-//						Region: pulumi.String("us-east-1"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := imagebuilder/distributionConfiguration.NewDistributionConfiguration(ctx, "example", &imagebuilder/distributionConfiguration.DistributionConfigurationArgs{
+// Distributions: []map[string]interface{}{
+// map[string]interface{}{
+// "amiDistributionConfiguration": map[string]interface{}{
+// "amiTags": map[string]interface{}{
+// "CostCenter": "IT",
+// },
+// "launchPermission": map[string]interface{}{
+// "userIds": []string{
+// "123456789012",
+// },
+// },
+// "name": "example-{{ imagebuilder:buildDate }}",
+// },
+// "launchTemplateConfigurations": []map[string]interface{}{
+// map[string]interface{}{
+// "launchTemplateId": "lt-0aaa1bcde2ff3456",
+// },
+// },
+// "region": "us-east-1",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

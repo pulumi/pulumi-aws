@@ -30,7 +30,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.s3.AccessPointArgs;
  * import com.pulumi.aws.s3control.ObjectLambdaAccessPoint;
  * import com.pulumi.aws.s3control.ObjectLambdaAccessPointArgs;
- * import com.pulumi.aws.s3control.inputs.ObjectLambdaAccessPointConfigurationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -51,17 +50,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleObjectLambdaAccessPoint = new ObjectLambdaAccessPoint(&#34;exampleObjectLambdaAccessPoint&#34;, ObjectLambdaAccessPointArgs.builder()        
- *             .configuration(ObjectLambdaAccessPointConfigurationArgs.builder()
- *                 .supportingAccessPoint(exampleAccessPoint.arn())
- *                 .transformationConfigurations(ObjectLambdaAccessPointConfigurationTransformationConfigurationArgs.builder()
- *                     .actions(&#34;GetObject&#34;)
- *                     .contentTransformation(ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationArgs.builder()
- *                         .awsLambda(ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaArgs.builder()
- *                             .functionArn(aws_lambda_function.example().arn())
- *                             .build())
- *                         .build())
- *                     .build())
- *                 .build())
+ *             .configuration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

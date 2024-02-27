@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *         var test = new Lb(&#34;test&#34;, LbArgs.builder()        
  *             .healthCheckPath(&#34;/&#34;)
  *             .instancePort(&#34;80&#34;)
- *             .tags(Map.of(&#34;foo&#34;, &#34;bar&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

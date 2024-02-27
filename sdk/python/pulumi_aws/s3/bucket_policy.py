@@ -103,31 +103,6 @@ class BucketPolicy(pulumi.CustomResource):
         > Policies can be attached to both S3 general purpose buckets and S3 directory buckets.
 
         ## Example Usage
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.s3.BucketV2("example")
-        allow_access_from_another_account_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="AWS",
-                identifiers=["123456789012"],
-            )],
-            actions=[
-                "s3:GetObject",
-                "s3:ListBucket",
-            ],
-            resources=[
-                example.arn,
-                example.arn.apply(lambda arn: f"{arn}/*"),
-            ],
-        )])
-        allow_access_from_another_account_bucket_policy = aws.s3.BucketPolicy("allowAccessFromAnotherAccountBucketPolicy",
-            bucket=example.id,
-            policy=allow_access_from_another_account_policy_document.json)
-        ```
 
         ## Import
 
@@ -154,31 +129,6 @@ class BucketPolicy(pulumi.CustomResource):
         > Policies can be attached to both S3 general purpose buckets and S3 directory buckets.
 
         ## Example Usage
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.s3.BucketV2("example")
-        allow_access_from_another_account_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="AWS",
-                identifiers=["123456789012"],
-            )],
-            actions=[
-                "s3:GetObject",
-                "s3:ListBucket",
-            ],
-            resources=[
-                example.arn,
-                example.arn.apply(lambda arn: f"{arn}/*"),
-            ],
-        )])
-        allow_access_from_another_account_bucket_policy = aws.s3.BucketPolicy("allowAccessFromAnotherAccountBucketPolicy",
-            bucket=example.id,
-            policy=allow_access_from_another_account_policy_document.json)
-        ```
 
         ## Import
 

@@ -31,7 +31,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.iot.BillingGroup;
  * import com.pulumi.aws.iot.BillingGroupArgs;
- * import com.pulumi.aws.iot.inputs.BillingGroupPropertiesArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -46,10 +45,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new BillingGroup(&#34;example&#34;, BillingGroupArgs.builder()        
- *             .properties(BillingGroupPropertiesArgs.builder()
- *                 .description(&#34;This is my billing group&#34;)
- *                 .build())
- *             .tags(Map.of(&#34;terraform&#34;, &#34;true&#34;))
+ *             .properties(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

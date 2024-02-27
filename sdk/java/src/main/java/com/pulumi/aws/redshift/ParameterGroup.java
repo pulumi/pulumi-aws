@@ -29,7 +29,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.redshift.ParameterGroup;
  * import com.pulumi.aws.redshift.ParameterGroupArgs;
- * import com.pulumi.aws.redshift.inputs.ParameterGroupParameterArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -46,18 +45,9 @@ import javax.annotation.Nullable;
  *         var bar = new ParameterGroup(&#34;bar&#34;, ParameterGroupArgs.builder()        
  *             .family(&#34;redshift-1.0&#34;)
  *             .parameters(            
- *                 ParameterGroupParameterArgs.builder()
- *                     .name(&#34;require_ssl&#34;)
- *                     .value(&#34;true&#34;)
- *                     .build(),
- *                 ParameterGroupParameterArgs.builder()
- *                     .name(&#34;query_group&#34;)
- *                     .value(&#34;example&#34;)
- *                     .build(),
- *                 ParameterGroupParameterArgs.builder()
- *                     .name(&#34;enable_user_activity_logging&#34;)
- *                     .value(&#34;true&#34;)
- *                     .build())
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

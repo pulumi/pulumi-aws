@@ -83,7 +83,7 @@ import javax.annotation.Nullable;
  *             .ami(&#34;ami-1234&#34;)
  *             .instanceType(&#34;c4.xlarge&#34;)
  *             .spotPrice(&#34;0.03&#34;)
- *             .tags(Map.of(&#34;Name&#34;, &#34;CheapWorker&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

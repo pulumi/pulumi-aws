@@ -28,10 +28,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.cloudfront.FieldLevelEncryptionConfig;
  * import com.pulumi.aws.cloudfront.FieldLevelEncryptionConfigArgs;
- * import com.pulumi.aws.cloudfront.inputs.FieldLevelEncryptionConfigContentTypeProfileConfigArgs;
- * import com.pulumi.aws.cloudfront.inputs.FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesArgs;
- * import com.pulumi.aws.cloudfront.inputs.FieldLevelEncryptionConfigQueryArgProfileConfigArgs;
- * import com.pulumi.aws.cloudfront.inputs.FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -47,24 +43,8 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var test = new FieldLevelEncryptionConfig(&#34;test&#34;, FieldLevelEncryptionConfigArgs.builder()        
  *             .comment(&#34;test comment&#34;)
- *             .contentTypeProfileConfig(FieldLevelEncryptionConfigContentTypeProfileConfigArgs.builder()
- *                 .forwardWhenContentTypeIsUnknown(true)
- *                 .contentTypeProfiles(FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesArgs.builder()
- *                     .items(FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemArgs.builder()
- *                         .contentType(&#34;application/x-www-form-urlencoded&#34;)
- *                         .format(&#34;URLEncoded&#34;)
- *                         .build())
- *                     .build())
- *                 .build())
- *             .queryArgProfileConfig(FieldLevelEncryptionConfigQueryArgProfileConfigArgs.builder()
- *                 .forwardWhenQueryArgProfileIsUnknown(true)
- *                 .queryArgProfiles(FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesArgs.builder()
- *                     .items(FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemArgs.builder()
- *                         .profileId(aws_cloudfront_field_level_encryption_profile.test().id())
- *                         .queryArg(&#34;Arg1&#34;)
- *                         .build())
- *                     .build())
- *                 .build())
+ *             .contentTypeProfileConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .queryArgProfileConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

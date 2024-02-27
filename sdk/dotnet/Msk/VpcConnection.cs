@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Msk
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Aws.Msk.VpcConnection("test", new()
+    ///     var test = new Aws.Msk.VpcConnection.VpcConnection("test", new()
     ///     {
     ///         Authentication = "SASL_IAM",
     ///         TargetClusterArn = "aws_msk_cluster.arn",

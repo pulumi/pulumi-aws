@@ -20,6 +20,71 @@ import (
 // with the parameter `certificateAuthorityArn`.
 //
 // ## Example Usage
+// ### Basic
+//
+// ```go
+// package main
+//
+// import (
+//
+//	acmpca/certificate "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/acmpca/certificate"
+//	acmpca/certificateAuthority "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/acmpca/certificateAuthority"
+//	index/certRequest "github.com/pulumi/pulumi-tls/sdk/v1/go/tls/index/certRequest"
+//	index/privateKey "github.com/pulumi/pulumi-tls/sdk/v1/go/tls/index/privateKey"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleCertificateAuthority, err := acmpca/certificateAuthority.NewCertificateAuthority(ctx, "exampleCertificateAuthority", &acmpca/certificateAuthority.CertificateAuthorityArgs{
+// PrivateCertificateConfiguration: []map[string]interface{}{
+// map[string]interface{}{
+// "keyAlgorithm": "RSA_4096",
+// "signingAlgorithm": "SHA512WITHRSA",
+// "subject": []map[string]interface{}{
+// map[string]interface{}{
+// "commonName": "example.com",
+// },
+// },
+// },
+// },
+// PermanentDeletionTimeInDays: 7,
+// })
+// if err != nil {
+// return err
+// }
+// key, err := tls.NewPrivateKey(ctx, "key", &tls.PrivateKeyArgs{
+// Algorithm: "RSA",
+// })
+// if err != nil {
+// return err
+// }
+// csr, err := tls.NewCertRequest(ctx, "csr", &tls.CertRequestArgs{
+// KeyAlgorithm: "RSA",
+// PrivateKeyPem: key.PrivateKeyPem,
+// Subject: map[string]interface{}{
+// "commonName": "example",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = acmpca/certificate.NewCertificate(ctx, "exampleCertificate", &acmpca/certificate.CertificateArgs{
+// CertificateAuthorityArn: exampleCertificateAuthority.Arn,
+// CertificateSigningRequest: csr.CertRequestPem,
+// SigningAlgorithm: "SHA256WITHRSA",
+// Validity: map[string]interface{}{
+// "type": "YEARS",
+// "value": 1,
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
+// ```
 //
 // ## Import
 //

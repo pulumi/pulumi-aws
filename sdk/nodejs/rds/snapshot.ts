@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const bar = new aws.rds.Instance("bar", {
+ * const bar = new aws.rds/instance.Instance("bar", {
  *     allocatedStorage: 10,
  *     engine: "mysql",
  *     engineVersion: "5.6.21",
@@ -25,7 +25,7 @@ import * as utilities from "../utilities";
  *     backupRetentionPeriod: 0,
  *     parameterGroupName: "default.mysql5.6",
  * });
- * const test = new aws.rds.Snapshot("test", {
+ * const test = new aws.rds/snapshot.Snapshot("test", {
  *     dbInstanceIdentifier: bar.identifier,
  *     dbSnapshotIdentifier: "testsnapshot1234",
  * });

@@ -13,26 +13,6 @@ import * as utilities from "../utilities";
  * Provides information about a Load Balancer Listener.
  *
  * This data source can prove useful when a module accepts an LB Listener as an input variable and needs to know the LB it is attached to, or other information specific to the listener in question.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const config = new pulumi.Config();
- * const listenerArn = config.require("listenerArn");
- * const listener = aws.lb.getListener({
- *     arn: listenerArn,
- * });
- * const selected = aws.lb.getLoadBalancer({
- *     name: "default-public",
- * });
- * const selected443 = selected.then(selected => aws.lb.getListener({
- *     loadBalancerArn: selected.arn,
- *     port: 443,
- * }));
- * ```
  */
 export function getListener(args?: GetListenerArgs, opts?: pulumi.InvokeOptions): Promise<GetListenerResult> {
     args = args || {};
@@ -90,26 +70,6 @@ export interface GetListenerResult {
  * Provides information about a Load Balancer Listener.
  *
  * This data source can prove useful when a module accepts an LB Listener as an input variable and needs to know the LB it is attached to, or other information specific to the listener in question.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const config = new pulumi.Config();
- * const listenerArn = config.require("listenerArn");
- * const listener = aws.lb.getListener({
- *     arn: listenerArn,
- * });
- * const selected = aws.lb.getLoadBalancer({
- *     name: "default-public",
- * });
- * const selected443 = selected.then(selected => aws.lb.getListener({
- *     loadBalancerArn: selected.arn,
- *     port: 443,
- * }));
- * ```
  */
 export function getListenerOutput(args?: GetListenerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetListenerResult> {
     return pulumi.output(args).apply((a: any) => getListener(a, opts))

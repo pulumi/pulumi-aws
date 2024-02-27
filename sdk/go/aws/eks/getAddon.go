@@ -12,34 +12,6 @@ import (
 )
 
 // Retrieve information about an EKS add-on.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/eks"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := eks.LookupAddon(ctx, &eks.LookupAddonArgs{
-//				AddonName:   "vpc-cni",
-//				ClusterName: aws_eks_cluster.Example.Name,
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			ctx.Export("eksAddonOutputs", aws_eks_addon.Example)
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupAddon(ctx *pulumi.Context, args *LookupAddonArgs, opts ...pulumi.InvokeOption) (*LookupAddonResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupAddonResult

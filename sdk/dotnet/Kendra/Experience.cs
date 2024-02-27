@@ -23,25 +23,25 @@ namespace Pulumi.Aws.Kendra
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Kendra.Experience("example", new()
+    ///     var example = new Aws.Kendra.Experience.Experience("example", new()
     ///     {
     ///         IndexId = aws_kendra_index.Example.Id,
     ///         Description = "My Kendra Experience",
     ///         RoleArn = aws_iam_role.Example.Arn,
-    ///         Configuration = new Aws.Kendra.Inputs.ExperienceConfigurationArgs
+    ///         Configuration = 
     ///         {
-    ///             ContentSourceConfiguration = new Aws.Kendra.Inputs.ExperienceConfigurationContentSourceConfigurationArgs
+    ///             { "contentSourceConfiguration", 
     ///             {
-    ///                 DirectPutContent = true,
-    ///                 FaqIds = new[]
+    ///                 { "directPutContent", true },
+    ///                 { "faqIds", new[]
     ///                 {
     ///                     aws_kendra_faq.Example.Faq_id,
-    ///                 },
-    ///             },
-    ///             UserIdentityConfiguration = new Aws.Kendra.Inputs.ExperienceConfigurationUserIdentityConfigurationArgs
+    ///                 } },
+    ///             } },
+    ///             { "userIdentityConfiguration", 
     ///             {
-    ///                 IdentityAttributeName = "12345ec453-1546651e-79c4-4554-91fa-00b43ccfa245",
-    ///             },
+    ///                 { "identityAttributeName", "12345ec453-1546651e-79c4-4554-91fa-00b43ccfa245" },
+    ///             } },
     ///         },
     ///     });
     /// 

@@ -28,7 +28,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.waf.IpSet;
  * import com.pulumi.aws.waf.IpSetArgs;
- * import com.pulumi.aws.waf.inputs.IpSetIpSetDescriptorArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -44,14 +43,8 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var ipset = new IpSet(&#34;ipset&#34;, IpSetArgs.builder()        
  *             .ipSetDescriptors(            
- *                 IpSetIpSetDescriptorArgs.builder()
- *                     .type(&#34;IPV4&#34;)
- *                     .value(&#34;192.0.7.0/24&#34;)
- *                     .build(),
- *                 IpSetIpSetDescriptorArgs.builder()
- *                     .type(&#34;IPV4&#34;)
- *                     .value(&#34;10.16.16.0/16&#34;)
- *                     .build())
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

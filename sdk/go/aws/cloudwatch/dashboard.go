@@ -23,63 +23,22 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
+//	cloudwatch/dashboard "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/cloudwatch/dashboard"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"widgets": []interface{}{
-//					map[string]interface{}{
-//						"type":   "metric",
-//						"x":      0,
-//						"y":      0,
-//						"width":  12,
-//						"height": 6,
-//						"properties": map[string]interface{}{
-//							"metrics": [][]string{
-//								[]string{
-//									"AWS/EC2",
-//									"CPUUtilization",
-//									"InstanceId",
-//									"i-012345",
-//								},
-//							},
-//							"period": 300,
-//							"stat":   "Average",
-//							"region": "us-east-1",
-//							"title":  "EC2 Instance CPU",
-//						},
-//					},
-//					map[string]interface{}{
-//						"type":   "text",
-//						"x":      0,
-//						"y":      7,
-//						"width":  3,
-//						"height": 3,
-//						"properties": map[string]interface{}{
-//							"markdown": "Hello world",
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			_, err = cloudwatch.NewDashboard(ctx, "main", &cloudwatch.DashboardArgs{
-//				DashboardName: pulumi.String("my-dashboard"),
-//				DashboardBody: pulumi.String(json0),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := cloudwatch/dashboard.NewDashboard(ctx, "main", &cloudwatch/dashboard.DashboardArgs{
+// DashboardName: "my-dashboard",
+// DashboardBody: %!v(PANIC=Format method: fatal: An assertion has failed: unlowered function toJSON),
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -28,8 +28,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.waf.XssMatchSet;
  * import com.pulumi.aws.waf.XssMatchSetArgs;
- * import com.pulumi.aws.waf.inputs.XssMatchSetXssMatchTupleArgs;
- * import com.pulumi.aws.waf.inputs.XssMatchSetXssMatchTupleFieldToMatchArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -45,18 +43,8 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var xssMatchSet = new XssMatchSet(&#34;xssMatchSet&#34;, XssMatchSetArgs.builder()        
  *             .xssMatchTuples(            
- *                 XssMatchSetXssMatchTupleArgs.builder()
- *                     .fieldToMatch(XssMatchSetXssMatchTupleFieldToMatchArgs.builder()
- *                         .type(&#34;URI&#34;)
- *                         .build())
- *                     .textTransformation(&#34;NONE&#34;)
- *                     .build(),
- *                 XssMatchSetXssMatchTupleArgs.builder()
- *                     .fieldToMatch(XssMatchSetXssMatchTupleFieldToMatchArgs.builder()
- *                         .type(&#34;QUERY_STRING&#34;)
- *                         .build())
- *                     .textTransformation(&#34;NONE&#34;)
- *                     .build())
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

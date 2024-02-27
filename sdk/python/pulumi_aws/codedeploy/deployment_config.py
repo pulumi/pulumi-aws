@@ -193,35 +193,35 @@ class DeploymentConfig(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        foo_deployment_config = aws.codedeploy.DeploymentConfig("fooDeploymentConfig",
-            deployment_config_name="test-deployment-config",
-            minimum_healthy_hosts=aws.codedeploy.DeploymentConfigMinimumHealthyHostsArgs(
-                type="HOST_COUNT",
-                value=2,
-            ))
-        foo_deployment_group = aws.codedeploy.DeploymentGroup("fooDeploymentGroup",
-            app_name=aws_codedeploy_app["foo_app"]["name"],
-            deployment_group_name="bar",
-            service_role_arn=aws_iam_role["foo_role"]["arn"],
+        foo_deployment_config = aws.codedeploy.deployment_config.DeploymentConfig("fooDeploymentConfig",
+            deployment_config_name=test-deployment-config,
+            minimum_healthy_hosts={
+                type: HOST_COUNT,
+                value: 2,
+            })
+        foo_deployment_group = aws.codedeploy.deployment_group.DeploymentGroup("fooDeploymentGroup",
+            app_name=aws_codedeploy_app.foo_app.name,
+            deployment_group_name=bar,
+            service_role_arn=aws_iam_role.foo_role.arn,
             deployment_config_name=foo_deployment_config.id,
-            ec2_tag_filters=[aws.codedeploy.DeploymentGroupEc2TagFilterArgs(
-                key="filterkey",
-                type="KEY_AND_VALUE",
-                value="filtervalue",
-            )],
-            trigger_configurations=[aws.codedeploy.DeploymentGroupTriggerConfigurationArgs(
-                trigger_events=["DeploymentFailure"],
-                trigger_name="foo-trigger",
-                trigger_target_arn="foo-topic-arn",
-            )],
-            auto_rollback_configuration=aws.codedeploy.DeploymentGroupAutoRollbackConfigurationArgs(
-                enabled=True,
-                events=["DEPLOYMENT_FAILURE"],
-            ),
-            alarm_configuration=aws.codedeploy.DeploymentGroupAlarmConfigurationArgs(
-                alarms=["my-alarm-name"],
-                enabled=True,
-            ))
+            ec2_tag_filters=[{
+                key: filterkey,
+                type: KEY_AND_VALUE,
+                value: filtervalue,
+            }],
+            trigger_configurations=[{
+                triggerEvents: [DeploymentFailure],
+                triggerName: foo-trigger,
+                triggerTargetArn: foo-topic-arn,
+            }],
+            auto_rollback_configuration={
+                enabled: True,
+                events: [DEPLOYMENT_FAILURE],
+            },
+            alarm_configuration={
+                alarms: [my-alarm-name],
+                enabled: True,
+            })
         ```
         ### Lambda Usage
 
@@ -229,29 +229,29 @@ class DeploymentConfig(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        foo_deployment_config = aws.codedeploy.DeploymentConfig("fooDeploymentConfig",
-            deployment_config_name="test-deployment-config",
-            compute_platform="Lambda",
-            traffic_routing_config=aws.codedeploy.DeploymentConfigTrafficRoutingConfigArgs(
-                type="TimeBasedLinear",
-                time_based_linear=aws.codedeploy.DeploymentConfigTrafficRoutingConfigTimeBasedLinearArgs(
-                    interval=10,
-                    percentage=10,
-                ),
-            ))
-        foo_deployment_group = aws.codedeploy.DeploymentGroup("fooDeploymentGroup",
-            app_name=aws_codedeploy_app["foo_app"]["name"],
-            deployment_group_name="bar",
-            service_role_arn=aws_iam_role["foo_role"]["arn"],
+        foo_deployment_config = aws.codedeploy.deployment_config.DeploymentConfig("fooDeploymentConfig",
+            deployment_config_name=test-deployment-config,
+            compute_platform=Lambda,
+            traffic_routing_config={
+                type: TimeBasedLinear,
+                timeBasedLinear: {
+                    interval: 10,
+                    percentage: 10,
+                },
+            })
+        foo_deployment_group = aws.codedeploy.deployment_group.DeploymentGroup("fooDeploymentGroup",
+            app_name=aws_codedeploy_app.foo_app.name,
+            deployment_group_name=bar,
+            service_role_arn=aws_iam_role.foo_role.arn,
             deployment_config_name=foo_deployment_config.id,
-            auto_rollback_configuration=aws.codedeploy.DeploymentGroupAutoRollbackConfigurationArgs(
-                enabled=True,
-                events=["DEPLOYMENT_STOP_ON_ALARM"],
-            ),
-            alarm_configuration=aws.codedeploy.DeploymentGroupAlarmConfigurationArgs(
-                alarms=["my-alarm-name"],
-                enabled=True,
-            ))
+            auto_rollback_configuration={
+                enabled: True,
+                events: [DEPLOYMENT_STOP_ON_ALARM],
+            },
+            alarm_configuration={
+                alarms: [my-alarm-name],
+                enabled: True,
+            })
         ```
 
         ## Import
@@ -285,35 +285,35 @@ class DeploymentConfig(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        foo_deployment_config = aws.codedeploy.DeploymentConfig("fooDeploymentConfig",
-            deployment_config_name="test-deployment-config",
-            minimum_healthy_hosts=aws.codedeploy.DeploymentConfigMinimumHealthyHostsArgs(
-                type="HOST_COUNT",
-                value=2,
-            ))
-        foo_deployment_group = aws.codedeploy.DeploymentGroup("fooDeploymentGroup",
-            app_name=aws_codedeploy_app["foo_app"]["name"],
-            deployment_group_name="bar",
-            service_role_arn=aws_iam_role["foo_role"]["arn"],
+        foo_deployment_config = aws.codedeploy.deployment_config.DeploymentConfig("fooDeploymentConfig",
+            deployment_config_name=test-deployment-config,
+            minimum_healthy_hosts={
+                type: HOST_COUNT,
+                value: 2,
+            })
+        foo_deployment_group = aws.codedeploy.deployment_group.DeploymentGroup("fooDeploymentGroup",
+            app_name=aws_codedeploy_app.foo_app.name,
+            deployment_group_name=bar,
+            service_role_arn=aws_iam_role.foo_role.arn,
             deployment_config_name=foo_deployment_config.id,
-            ec2_tag_filters=[aws.codedeploy.DeploymentGroupEc2TagFilterArgs(
-                key="filterkey",
-                type="KEY_AND_VALUE",
-                value="filtervalue",
-            )],
-            trigger_configurations=[aws.codedeploy.DeploymentGroupTriggerConfigurationArgs(
-                trigger_events=["DeploymentFailure"],
-                trigger_name="foo-trigger",
-                trigger_target_arn="foo-topic-arn",
-            )],
-            auto_rollback_configuration=aws.codedeploy.DeploymentGroupAutoRollbackConfigurationArgs(
-                enabled=True,
-                events=["DEPLOYMENT_FAILURE"],
-            ),
-            alarm_configuration=aws.codedeploy.DeploymentGroupAlarmConfigurationArgs(
-                alarms=["my-alarm-name"],
-                enabled=True,
-            ))
+            ec2_tag_filters=[{
+                key: filterkey,
+                type: KEY_AND_VALUE,
+                value: filtervalue,
+            }],
+            trigger_configurations=[{
+                triggerEvents: [DeploymentFailure],
+                triggerName: foo-trigger,
+                triggerTargetArn: foo-topic-arn,
+            }],
+            auto_rollback_configuration={
+                enabled: True,
+                events: [DEPLOYMENT_FAILURE],
+            },
+            alarm_configuration={
+                alarms: [my-alarm-name],
+                enabled: True,
+            })
         ```
         ### Lambda Usage
 
@@ -321,29 +321,29 @@ class DeploymentConfig(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        foo_deployment_config = aws.codedeploy.DeploymentConfig("fooDeploymentConfig",
-            deployment_config_name="test-deployment-config",
-            compute_platform="Lambda",
-            traffic_routing_config=aws.codedeploy.DeploymentConfigTrafficRoutingConfigArgs(
-                type="TimeBasedLinear",
-                time_based_linear=aws.codedeploy.DeploymentConfigTrafficRoutingConfigTimeBasedLinearArgs(
-                    interval=10,
-                    percentage=10,
-                ),
-            ))
-        foo_deployment_group = aws.codedeploy.DeploymentGroup("fooDeploymentGroup",
-            app_name=aws_codedeploy_app["foo_app"]["name"],
-            deployment_group_name="bar",
-            service_role_arn=aws_iam_role["foo_role"]["arn"],
+        foo_deployment_config = aws.codedeploy.deployment_config.DeploymentConfig("fooDeploymentConfig",
+            deployment_config_name=test-deployment-config,
+            compute_platform=Lambda,
+            traffic_routing_config={
+                type: TimeBasedLinear,
+                timeBasedLinear: {
+                    interval: 10,
+                    percentage: 10,
+                },
+            })
+        foo_deployment_group = aws.codedeploy.deployment_group.DeploymentGroup("fooDeploymentGroup",
+            app_name=aws_codedeploy_app.foo_app.name,
+            deployment_group_name=bar,
+            service_role_arn=aws_iam_role.foo_role.arn,
             deployment_config_name=foo_deployment_config.id,
-            auto_rollback_configuration=aws.codedeploy.DeploymentGroupAutoRollbackConfigurationArgs(
-                enabled=True,
-                events=["DEPLOYMENT_STOP_ON_ALARM"],
-            ),
-            alarm_configuration=aws.codedeploy.DeploymentGroupAlarmConfigurationArgs(
-                alarms=["my-alarm-name"],
-                enabled=True,
-            ))
+            auto_rollback_configuration={
+                enabled: True,
+                events: [DEPLOYMENT_STOP_ON_ALARM],
+            },
+            alarm_configuration={
+                alarms: [my-alarm-name],
+                enabled: True,
+            })
         ```
 
         ## Import

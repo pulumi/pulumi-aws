@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *             .subnetIds(            
  *                 aws_subnet.frontend().id(),
  *                 aws_subnet.backend().id())
- *             .tags(Map.of(&#34;Name&#34;, &#34;My DB subnet group&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

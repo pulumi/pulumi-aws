@@ -223,17 +223,6 @@ def get_layer_version(compatible_architecture: Optional[str] = None,
     """
     Provides information about a Lambda Layer Version.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    config = pulumi.Config()
-    layer_name = config.require("layerName")
-    existing = aws.lambda.get_layer_version(layer_name=layer_name)
-    ```
-
 
     :param str compatible_architecture: Specific architecture the layer version could support. Conflicts with `version`. If specified, the latest available layer version supporting the provided architecture will be used.
     :param str compatible_runtime: Specific runtime the layer version must support. Conflicts with `version`. If specified, the latest available layer version supporting the provided runtime will be used.
@@ -275,17 +264,6 @@ def get_layer_version_output(compatible_architecture: Optional[pulumi.Input[Opti
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLayerVersionResult]:
     """
     Provides information about a Lambda Layer Version.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    config = pulumi.Config()
-    layer_name = config.require("layerName")
-    existing = aws.lambda.get_layer_version(layer_name=layer_name)
-    ```
 
 
     :param str compatible_architecture: Specific architecture the layer version could support. Conflicts with `version`. If specified, the latest available layer version supporting the provided architecture will be used.

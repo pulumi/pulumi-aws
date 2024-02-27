@@ -22,15 +22,15 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleRestApi = new Aws.ApiGateway.RestApi("exampleRestApi");
+    ///     var exampleRestApi = new Aws.Apigateway.RestApi.RestApi("exampleRestApi");
     /// 
-    ///     var exampleDocumentationPart = new Aws.ApiGateway.DocumentationPart("exampleDocumentationPart", new()
+    ///     var exampleDocumentationPart = new Aws.Apigateway.DocumentationPart.DocumentationPart("exampleDocumentationPart", new()
     ///     {
-    ///         Location = new Aws.ApiGateway.Inputs.DocumentationPartLocationArgs
+    ///         Location = 
     ///         {
-    ///             Type = "METHOD",
-    ///             Method = "GET",
-    ///             Path = "/example",
+    ///             { "type", "METHOD" },
+    ///             { "method", "GET" },
+    ///             { "path", "/example" },
     ///         },
     ///         Properties = "{\"description\":\"Example description\"}",
     ///         RestApiId = exampleRestApi.Id,

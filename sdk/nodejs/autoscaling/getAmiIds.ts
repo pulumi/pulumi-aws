@@ -10,36 +10,6 @@ import * as utilities from "../utilities";
 /**
  * The Autoscaling Groups data source allows access to the list of AWS
  * ASGs within a specific region. This will allow you to pass a list of AutoScaling Groups to other resources.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const groups = aws.autoscaling.getAmiIds({
- *     filters: [
- *         {
- *             name: "tag:Team",
- *             values: ["Pets"],
- *         },
- *         {
- *             name: "tag-key",
- *             values: ["Environment"],
- *         },
- *     ],
- * });
- * const slackNotifications = new aws.autoscaling.Notification("slackNotifications", {
- *     groupNames: groups.then(groups => groups.names),
- *     notifications: [
- *         "autoscaling:EC2_INSTANCE_LAUNCH",
- *         "autoscaling:EC2_INSTANCE_TERMINATE",
- *         "autoscaling:EC2_INSTANCE_LAUNCH_ERROR",
- *         "autoscaling:EC2_INSTANCE_TERMINATE_ERROR",
- *     ],
- *     topicArn: "TOPIC ARN",
- * });
- * ```
  */
 export function getAmiIds(args?: GetAmiIdsArgs, opts?: pulumi.InvokeOptions): Promise<GetAmiIdsResult> {
     args = args || {};
@@ -86,36 +56,6 @@ export interface GetAmiIdsResult {
 /**
  * The Autoscaling Groups data source allows access to the list of AWS
  * ASGs within a specific region. This will allow you to pass a list of AutoScaling Groups to other resources.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const groups = aws.autoscaling.getAmiIds({
- *     filters: [
- *         {
- *             name: "tag:Team",
- *             values: ["Pets"],
- *         },
- *         {
- *             name: "tag-key",
- *             values: ["Environment"],
- *         },
- *     ],
- * });
- * const slackNotifications = new aws.autoscaling.Notification("slackNotifications", {
- *     groupNames: groups.then(groups => groups.names),
- *     notifications: [
- *         "autoscaling:EC2_INSTANCE_LAUNCH",
- *         "autoscaling:EC2_INSTANCE_TERMINATE",
- *         "autoscaling:EC2_INSTANCE_LAUNCH_ERROR",
- *         "autoscaling:EC2_INSTANCE_TERMINATE_ERROR",
- *     ],
- *     topicArn: "TOPIC ARN",
- * });
- * ```
  */
 export function getAmiIdsOutput(args?: GetAmiIdsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAmiIdsResult> {
     return pulumi.output(args).apply((a: any) => getAmiIds(a, opts))

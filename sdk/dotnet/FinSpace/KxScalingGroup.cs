@@ -23,7 +23,7 @@ namespace Pulumi.Aws.FinSpace
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.FinSpace.KxScalingGroup("example", new()
+    ///     var example = new Aws.Finspace.KxScalingGroup.KxScalingGroup("example", new()
     ///     {
     ///         EnvironmentId = aws_finspace_kx_environment.Example.Id,
     ///         AvailabilityZoneId = "use1-az2",

@@ -23,37 +23,35 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/keyspaces"
+//	keyspaces/table "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/keyspaces/table"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := keyspaces.NewTable(ctx, "example", &keyspaces.TableArgs{
-//				KeyspaceName: pulumi.Any(aws_keyspaces_keyspace.Example.Name),
-//				TableName:    pulumi.String("my_table"),
-//				SchemaDefinition: &keyspaces.TableSchemaDefinitionArgs{
-//					Columns: keyspaces.TableSchemaDefinitionColumnArray{
-//						&keyspaces.TableSchemaDefinitionColumnArgs{
-//							Name: pulumi.String("Message"),
-//							Type: pulumi.String("ASCII"),
-//						},
-//					},
-//					PartitionKeys: keyspaces.TableSchemaDefinitionPartitionKeyArray{
-//						&keyspaces.TableSchemaDefinitionPartitionKeyArgs{
-//							Name: pulumi.String("Message"),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := keyspaces/table.NewTable(ctx, "example", &keyspaces/table.TableArgs{
+// KeyspaceName: aws_keyspaces_keyspace.Example.Name,
+// TableName: "my_table",
+// SchemaDefinition: map[string]interface{}{
+// "columns": []map[string]interface{}{
+// map[string]interface{}{
+// "name": "Message",
+// "type": "ASCII",
+// },
+// },
+// "partitionKeys": []map[string]interface{}{
+// map[string]interface{}{
+// "name": "Message",
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

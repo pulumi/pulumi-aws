@@ -170,16 +170,16 @@ class UsagePlanKey(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.apigateway.RestApi("test")
+        test = aws.apigateway.rest_api.RestApi("test")
         # ...
-        myusageplan = aws.apigateway.UsagePlan("myusageplan", api_stages=[aws.apigateway.UsagePlanApiStageArgs(
-            api_id=test.id,
-            stage=aws_api_gateway_stage["foo"]["stage_name"],
-        )])
-        mykey = aws.apigateway.ApiKey("mykey")
-        main = aws.apigateway.UsagePlanKey("main",
+        myusageplan = aws.apigateway.usage_plan.UsagePlan("myusageplan", api_stages=[{
+            apiId: test.id,
+            stage: aws_api_gateway_stage.foo.stage_name,
+        }])
+        mykey = aws.apigateway.api_key.ApiKey("mykey")
+        main = aws.apigateway.usage_plan_key.UsagePlanKey("main",
             key_id=mykey.id,
-            key_type="API_KEY",
+            key_type=API_KEY,
             usage_plan_id=myusageplan.id)
         ```
 
@@ -212,16 +212,16 @@ class UsagePlanKey(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.apigateway.RestApi("test")
+        test = aws.apigateway.rest_api.RestApi("test")
         # ...
-        myusageplan = aws.apigateway.UsagePlan("myusageplan", api_stages=[aws.apigateway.UsagePlanApiStageArgs(
-            api_id=test.id,
-            stage=aws_api_gateway_stage["foo"]["stage_name"],
-        )])
-        mykey = aws.apigateway.ApiKey("mykey")
-        main = aws.apigateway.UsagePlanKey("main",
+        myusageplan = aws.apigateway.usage_plan.UsagePlan("myusageplan", api_stages=[{
+            apiId: test.id,
+            stage: aws_api_gateway_stage.foo.stage_name,
+        }])
+        mykey = aws.apigateway.api_key.ApiKey("mykey")
+        main = aws.apigateway.usage_plan_key.UsagePlanKey("main",
             key_id=mykey.id,
-            key_type="API_KEY",
+            key_type=API_KEY,
             usage_plan_id=myusageplan.id)
         ```
 

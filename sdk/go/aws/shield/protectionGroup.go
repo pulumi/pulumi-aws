@@ -24,85 +24,23 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/shield"
+//	shield/protectionGroup "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/shield/protectionGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := shield.NewProtectionGroup(ctx, "example", &shield.ProtectionGroupArgs{
-//				Aggregation:       pulumi.String("MAX"),
-//				Pattern:           pulumi.String("ALL"),
-//				ProtectionGroupId: pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// ### Create protection group for arbitrary number of resources
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/shield"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			currentRegion, err := aws.GetRegion(ctx, nil, nil)
-//			if err != nil {
-//				return err
-//			}
-//			currentCallerIdentity, err := aws.GetCallerIdentity(ctx, nil, nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleEip, err := ec2.NewEip(ctx, "exampleEip", &ec2.EipArgs{
-//				Domain: pulumi.String("vpc"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleProtection, err := shield.NewProtection(ctx, "exampleProtection", &shield.ProtectionArgs{
-//				ResourceArn: exampleEip.ID().ApplyT(func(id string) (string, error) {
-//					return fmt.Sprintf("arn:aws:ec2:%v:%v:eip-allocation/%v", currentRegion.Name, currentCallerIdentity.AccountId, id), nil
-//				}).(pulumi.StringOutput),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = shield.NewProtectionGroup(ctx, "exampleProtectionGroup", &shield.ProtectionGroupArgs{
-//				ProtectionGroupId: pulumi.String("example"),
-//				Aggregation:       pulumi.String("MEAN"),
-//				Pattern:           pulumi.String("ARBITRARY"),
-//				Members: pulumi.StringArray{
-//					exampleEip.ID().ApplyT(func(id string) (string, error) {
-//						return fmt.Sprintf("arn:aws:ec2:%v:%v:eip-allocation/%v", currentRegion.Name, currentCallerIdentity.AccountId, id), nil
-//					}).(pulumi.StringOutput),
-//				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleProtection,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := shield/protectionGroup.NewProtectionGroup(ctx, "example", &shield/protectionGroup.ProtectionGroupArgs{
+// Aggregation: "MAX",
+// Pattern: "ALL",
+// ProtectionGroupId: "example",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Create protection group for a type of resource
 //
@@ -111,26 +49,24 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/shield"
+//	shield/protectionGroup "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/shield/protectionGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := shield.NewProtectionGroup(ctx, "example", &shield.ProtectionGroupArgs{
-//				Aggregation:       pulumi.String("SUM"),
-//				Pattern:           pulumi.String("BY_RESOURCE_TYPE"),
-//				ProtectionGroupId: pulumi.String("example"),
-//				ResourceType:      pulumi.String("ELASTIC_IP_ALLOCATION"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := shield/protectionGroup.NewProtectionGroup(ctx, "example", &shield/protectionGroup.ProtectionGroupArgs{
+// Aggregation: "SUM",
+// Pattern: "BY_RESOURCE_TYPE",
+// ProtectionGroupId: "example",
+// ResourceType: "ELASTIC_IP_ALLOCATION",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

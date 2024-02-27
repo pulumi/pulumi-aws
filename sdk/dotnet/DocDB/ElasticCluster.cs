@@ -23,7 +23,7 @@ namespace Pulumi.Aws.DocDB
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.DocDB.ElasticCluster("example", new()
+    ///     var example = new Aws.Docdb.ElasticCluster.ElasticCluster("example", new()
     ///     {
     ///         AdminUserName = "foo",
     ///         AdminUserPassword = "mustbeeightchars",

@@ -9,18 +9,6 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieve information about an EKS Node Group.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.eks.getNodeGroup({
- *     clusterName: "example",
- *     nodeGroupName: "example",
- * });
- * ```
  */
 export function getNodeGroup(args: GetNodeGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetNodeGroupResult> {
 
@@ -131,18 +119,6 @@ export interface GetNodeGroupResult {
 }
 /**
  * Retrieve information about an EKS Node Group.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.eks.getNodeGroup({
- *     clusterName: "example",
- *     nodeGroupName: "example",
- * });
- * ```
  */
 export function getNodeGroupOutput(args: GetNodeGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNodeGroupResult> {
     return pulumi.output(args).apply((a: any) => getNodeGroup(a, opts))

@@ -179,50 +179,50 @@ class MethodSettings(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        example_rest_api = aws.apigateway.RestApi("exampleRestApi", body=json.dumps({
-            "openapi": "3.0.1",
-            "info": {
-                "title": "example",
-                "version": "1.0",
+        example_rest_api = aws.apigateway.rest_api.RestApi("exampleRestApi", body=json.dumps({
+            openapi: 3.0.1,
+            info: {
+                title: example,
+                version: 1.0,
             },
-            "paths": {
-                "/path1": {
-                    "get": {
-                        "x-amazon-apigateway-integration": {
-                            "httpMethod": "GET",
-                            "payloadFormatVersion": "1.0",
-                            "type": "HTTP_PROXY",
-                            "uri": "https://ip-ranges.amazonaws.com/ip-ranges.json",
+            paths: {
+                /path1: {
+                    get: {
+                        x-amazon-apigateway-integration: {
+                            httpMethod: GET,
+                            payloadFormatVersion: 1.0,
+                            type: HTTP_PROXY,
+                            uri: https://ip-ranges.amazonaws.com/ip-ranges.json,
                         },
                     },
                 },
             },
         }))
-        example_deployment = aws.apigateway.Deployment("exampleDeployment",
+        example_deployment = aws.apigateway.deployment.Deployment("exampleDeployment",
             rest_api=example_rest_api.id,
             triggers={
-                "redeployment": example_rest_api.body.apply(lambda body: json.dumps(body)).apply(lambda to_json: hashlib.sha1(to_json.encode()).hexdigest()),
+                redeployment: hashlib.sha1(json.dumps(example_rest_api.body).encode()).hexdigest(),
             })
-        example_stage = aws.apigateway.Stage("exampleStage",
+        example_stage = aws.apigateway.stage.Stage("exampleStage",
             deployment=example_deployment.id,
             rest_api=example_rest_api.id,
-            stage_name="example")
-        all = aws.apigateway.MethodSettings("all",
+            stage_name=example)
+        all = aws.apigateway.method_settings.MethodSettings("all",
             rest_api=example_rest_api.id,
             stage_name=example_stage.stage_name,
-            method_path="*/*",
-            settings=aws.apigateway.MethodSettingsSettingsArgs(
-                metrics_enabled=True,
-                logging_level="ERROR",
-            ))
-        path_specific = aws.apigateway.MethodSettings("pathSpecific",
+            method_path=*/*,
+            settings={
+                metricsEnabled: True,
+                loggingLevel: ERROR,
+            })
+        path_specific = aws.apigateway.method_settings.MethodSettings("pathSpecific",
             rest_api=example_rest_api.id,
             stage_name=example_stage.stage_name,
-            method_path="path1/GET",
-            settings=aws.apigateway.MethodSettingsSettingsArgs(
-                metrics_enabled=True,
-                logging_level="INFO",
-            ))
+            method_path=path1/GET,
+            settings={
+                metricsEnabled: True,
+                loggingLevel: INFO,
+            })
         ```
         ### CloudWatch Logging and Tracing
 
@@ -233,13 +233,13 @@ class MethodSettings(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        path_specific = aws.apigateway.MethodSettings("pathSpecific",
-            rest_api=aws_api_gateway_rest_api["example"]["id"],
-            stage_name=aws_api_gateway_stage["example"]["stage_name"],
-            method_path="path1/GET",
-            settings=aws.apigateway.MethodSettingsSettingsArgs(
-                logging_level="OFF",
-            ))
+        path_specific = aws.apigateway.method_settings.MethodSettings("pathSpecific",
+            rest_api=aws_api_gateway_rest_api.example.id,
+            stage_name=aws_api_gateway_stage.example.stage_name,
+            method_path=path1/GET,
+            settings={
+                loggingLevel: OFF,
+            })
         ```
         ### Errors Only
 
@@ -247,15 +247,15 @@ class MethodSettings(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        path_specific = aws.apigateway.MethodSettings("pathSpecific",
-            rest_api=aws_api_gateway_rest_api["example"]["id"],
-            stage_name=aws_api_gateway_stage["example"]["stage_name"],
-            method_path="path1/GET",
-            settings=aws.apigateway.MethodSettingsSettingsArgs(
-                logging_level="ERROR",
-                metrics_enabled=True,
-                data_trace_enabled=False,
-            ))
+        path_specific = aws.apigateway.method_settings.MethodSettings("pathSpecific",
+            rest_api=aws_api_gateway_rest_api.example.id,
+            stage_name=aws_api_gateway_stage.example.stage_name,
+            method_path=path1/GET,
+            settings={
+                loggingLevel: ERROR,
+                metricsEnabled: True,
+                dataTraceEnabled: False,
+            })
         ```
         ### Errors and Info Logs
 
@@ -263,15 +263,15 @@ class MethodSettings(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        path_specific = aws.apigateway.MethodSettings("pathSpecific",
-            rest_api=aws_api_gateway_rest_api["example"]["id"],
-            stage_name=aws_api_gateway_stage["example"]["stage_name"],
-            method_path="path1/GET",
-            settings=aws.apigateway.MethodSettingsSettingsArgs(
-                logging_level="INFO",
-                metrics_enabled=True,
-                data_trace_enabled=False,
-            ))
+        path_specific = aws.apigateway.method_settings.MethodSettings("pathSpecific",
+            rest_api=aws_api_gateway_rest_api.example.id,
+            stage_name=aws_api_gateway_stage.example.stage_name,
+            method_path=path1/GET,
+            settings={
+                loggingLevel: INFO,
+                metricsEnabled: True,
+                dataTraceEnabled: False,
+            })
         ```
         ### Full Request and Response Logs
 
@@ -279,15 +279,15 @@ class MethodSettings(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        path_specific = aws.apigateway.MethodSettings("pathSpecific",
-            rest_api=aws_api_gateway_rest_api["example"]["id"],
-            stage_name=aws_api_gateway_stage["example"]["stage_name"],
-            method_path="path1/GET",
-            settings=aws.apigateway.MethodSettingsSettingsArgs(
-                logging_level="INFO",
-                metrics_enabled=True,
-                data_trace_enabled=True,
-            ))
+        path_specific = aws.apigateway.method_settings.MethodSettings("pathSpecific",
+            rest_api=aws_api_gateway_rest_api.example.id,
+            stage_name=aws_api_gateway_stage.example.stage_name,
+            method_path=path1/GET,
+            settings={
+                loggingLevel: INFO,
+                metricsEnabled: True,
+                dataTraceEnabled: True,
+            })
         ```
 
         ## Import
@@ -327,50 +327,50 @@ class MethodSettings(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        example_rest_api = aws.apigateway.RestApi("exampleRestApi", body=json.dumps({
-            "openapi": "3.0.1",
-            "info": {
-                "title": "example",
-                "version": "1.0",
+        example_rest_api = aws.apigateway.rest_api.RestApi("exampleRestApi", body=json.dumps({
+            openapi: 3.0.1,
+            info: {
+                title: example,
+                version: 1.0,
             },
-            "paths": {
-                "/path1": {
-                    "get": {
-                        "x-amazon-apigateway-integration": {
-                            "httpMethod": "GET",
-                            "payloadFormatVersion": "1.0",
-                            "type": "HTTP_PROXY",
-                            "uri": "https://ip-ranges.amazonaws.com/ip-ranges.json",
+            paths: {
+                /path1: {
+                    get: {
+                        x-amazon-apigateway-integration: {
+                            httpMethod: GET,
+                            payloadFormatVersion: 1.0,
+                            type: HTTP_PROXY,
+                            uri: https://ip-ranges.amazonaws.com/ip-ranges.json,
                         },
                     },
                 },
             },
         }))
-        example_deployment = aws.apigateway.Deployment("exampleDeployment",
+        example_deployment = aws.apigateway.deployment.Deployment("exampleDeployment",
             rest_api=example_rest_api.id,
             triggers={
-                "redeployment": example_rest_api.body.apply(lambda body: json.dumps(body)).apply(lambda to_json: hashlib.sha1(to_json.encode()).hexdigest()),
+                redeployment: hashlib.sha1(json.dumps(example_rest_api.body).encode()).hexdigest(),
             })
-        example_stage = aws.apigateway.Stage("exampleStage",
+        example_stage = aws.apigateway.stage.Stage("exampleStage",
             deployment=example_deployment.id,
             rest_api=example_rest_api.id,
-            stage_name="example")
-        all = aws.apigateway.MethodSettings("all",
+            stage_name=example)
+        all = aws.apigateway.method_settings.MethodSettings("all",
             rest_api=example_rest_api.id,
             stage_name=example_stage.stage_name,
-            method_path="*/*",
-            settings=aws.apigateway.MethodSettingsSettingsArgs(
-                metrics_enabled=True,
-                logging_level="ERROR",
-            ))
-        path_specific = aws.apigateway.MethodSettings("pathSpecific",
+            method_path=*/*,
+            settings={
+                metricsEnabled: True,
+                loggingLevel: ERROR,
+            })
+        path_specific = aws.apigateway.method_settings.MethodSettings("pathSpecific",
             rest_api=example_rest_api.id,
             stage_name=example_stage.stage_name,
-            method_path="path1/GET",
-            settings=aws.apigateway.MethodSettingsSettingsArgs(
-                metrics_enabled=True,
-                logging_level="INFO",
-            ))
+            method_path=path1/GET,
+            settings={
+                metricsEnabled: True,
+                loggingLevel: INFO,
+            })
         ```
         ### CloudWatch Logging and Tracing
 
@@ -381,13 +381,13 @@ class MethodSettings(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        path_specific = aws.apigateway.MethodSettings("pathSpecific",
-            rest_api=aws_api_gateway_rest_api["example"]["id"],
-            stage_name=aws_api_gateway_stage["example"]["stage_name"],
-            method_path="path1/GET",
-            settings=aws.apigateway.MethodSettingsSettingsArgs(
-                logging_level="OFF",
-            ))
+        path_specific = aws.apigateway.method_settings.MethodSettings("pathSpecific",
+            rest_api=aws_api_gateway_rest_api.example.id,
+            stage_name=aws_api_gateway_stage.example.stage_name,
+            method_path=path1/GET,
+            settings={
+                loggingLevel: OFF,
+            })
         ```
         ### Errors Only
 
@@ -395,15 +395,15 @@ class MethodSettings(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        path_specific = aws.apigateway.MethodSettings("pathSpecific",
-            rest_api=aws_api_gateway_rest_api["example"]["id"],
-            stage_name=aws_api_gateway_stage["example"]["stage_name"],
-            method_path="path1/GET",
-            settings=aws.apigateway.MethodSettingsSettingsArgs(
-                logging_level="ERROR",
-                metrics_enabled=True,
-                data_trace_enabled=False,
-            ))
+        path_specific = aws.apigateway.method_settings.MethodSettings("pathSpecific",
+            rest_api=aws_api_gateway_rest_api.example.id,
+            stage_name=aws_api_gateway_stage.example.stage_name,
+            method_path=path1/GET,
+            settings={
+                loggingLevel: ERROR,
+                metricsEnabled: True,
+                dataTraceEnabled: False,
+            })
         ```
         ### Errors and Info Logs
 
@@ -411,15 +411,15 @@ class MethodSettings(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        path_specific = aws.apigateway.MethodSettings("pathSpecific",
-            rest_api=aws_api_gateway_rest_api["example"]["id"],
-            stage_name=aws_api_gateway_stage["example"]["stage_name"],
-            method_path="path1/GET",
-            settings=aws.apigateway.MethodSettingsSettingsArgs(
-                logging_level="INFO",
-                metrics_enabled=True,
-                data_trace_enabled=False,
-            ))
+        path_specific = aws.apigateway.method_settings.MethodSettings("pathSpecific",
+            rest_api=aws_api_gateway_rest_api.example.id,
+            stage_name=aws_api_gateway_stage.example.stage_name,
+            method_path=path1/GET,
+            settings={
+                loggingLevel: INFO,
+                metricsEnabled: True,
+                dataTraceEnabled: False,
+            })
         ```
         ### Full Request and Response Logs
 
@@ -427,15 +427,15 @@ class MethodSettings(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        path_specific = aws.apigateway.MethodSettings("pathSpecific",
-            rest_api=aws_api_gateway_rest_api["example"]["id"],
-            stage_name=aws_api_gateway_stage["example"]["stage_name"],
-            method_path="path1/GET",
-            settings=aws.apigateway.MethodSettingsSettingsArgs(
-                logging_level="INFO",
-                metrics_enabled=True,
-                data_trace_enabled=True,
-            ))
+        path_specific = aws.apigateway.method_settings.MethodSettings("pathSpecific",
+            rest_api=aws_api_gateway_rest_api.example.id,
+            stage_name=aws_api_gateway_stage.example.stage_name,
+            method_path=path1/GET,
+            settings={
+                loggingLevel: INFO,
+                metricsEnabled: True,
+                dataTraceEnabled: True,
+            })
         ```
 
         ## Import

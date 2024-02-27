@@ -20,52 +20,6 @@ import javax.annotation.Nullable;
  * The resource can be an Amazon CloudFront distribution, Elastic Load Balancing load balancer, AWS Global Accelerator accelerator, Elastic IP Address, or an Amazon Route 53 hosted zone.
  * 
  * ## Example Usage
- * ### Create protection
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.AwsFunctions;
- * import com.pulumi.aws.inputs.GetAvailabilityZonesArgs;
- * import com.pulumi.aws.inputs.GetRegionArgs;
- * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
- * import com.pulumi.aws.ec2.Eip;
- * import com.pulumi.aws.ec2.EipArgs;
- * import com.pulumi.aws.shield.Protection;
- * import com.pulumi.aws.shield.ProtectionArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var available = AwsFunctions.getAvailabilityZones();
- * 
- *         final var currentRegion = AwsFunctions.getRegion();
- * 
- *         final var currentCallerIdentity = AwsFunctions.getCallerIdentity();
- * 
- *         var exampleEip = new Eip(&#34;exampleEip&#34;, EipArgs.builder()        
- *             .domain(&#34;vpc&#34;)
- *             .build());
- * 
- *         var exampleProtection = new Protection(&#34;exampleProtection&#34;, ProtectionArgs.builder()        
- *             .resourceArn(exampleEip.id().applyValue(id -&gt; String.format(&#34;arn:aws:ec2:%s:%s:eip-allocation/%s&#34;, currentRegion.applyValue(getRegionResult -&gt; getRegionResult.name()),currentCallerIdentity.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()),id)))
- *             .tags(Map.of(&#34;Environment&#34;, &#34;Dev&#34;))
- *             .build());
- * 
- *     }
- * }
- * ```
  * 
  * ## Import
  * 

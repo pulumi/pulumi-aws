@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const apnsApplication = new aws.sns.PlatformApplication("apnsApplication", {
+ * const apnsApplication = new aws.sns/platformApplication.PlatformApplication("apnsApplication", {
  *     platform: "APNS",
  *     platformCredential: "<APNS PRIVATE KEY>",
  *     platformPrincipal: "<APNS CERTIFICATE>",
@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const apnsApplication = new aws.sns.PlatformApplication("apnsApplication", {
+ * const apnsApplication = new aws.sns/platformApplication.PlatformApplication("apnsApplication", {
  *     applePlatformBundleId: "<APPLE BUNDLE ID>",
  *     applePlatformTeamId: "<APPLE TEAM ID>",
  *     platform: "APNS",
@@ -40,7 +40,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const gcmApplication = new aws.sns.PlatformApplication("gcmApplication", {
+ * const gcmApplication = new aws.sns/platformApplication.PlatformApplication("gcmApplication", {
  *     platform: "GCM",
  *     platformCredential: "<GCM API KEY>",
  * });

@@ -21,30 +21,29 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/amplify"
+//	amplify/app "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/amplify/app"
+//	amplify/backendEnvironment "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/amplify/backendEnvironment"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleApp, err := amplify.NewApp(ctx, "exampleApp", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = amplify.NewBackendEnvironment(ctx, "exampleBackendEnvironment", &amplify.BackendEnvironmentArgs{
-//				AppId:               exampleApp.ID(),
-//				EnvironmentName:     pulumi.String("example"),
-//				DeploymentArtifacts: pulumi.String("app-example-deployment"),
-//				StackName:           pulumi.String("amplify-app-example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleApp, err := amplify/app.NewApp(ctx, "exampleApp", nil)
+// if err != nil {
+// return err
+// }
+// _, err = amplify/backendEnvironment.NewBackendEnvironment(ctx, "exampleBackendEnvironment", &amplify/backendEnvironment.BackendEnvironmentArgs{
+// AppId: exampleApp.Id,
+// EnvironmentName: "example",
+// DeploymentArtifacts: "app-example-deployment",
+// StackName: "amplify-app-example",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

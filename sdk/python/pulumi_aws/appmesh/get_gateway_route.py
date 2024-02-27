@@ -162,17 +162,6 @@ def get_gateway_route(mesh_name: Optional[str] = None,
     """
     The App Mesh Gateway Route data source allows details of an App Mesh Gateway Route to be retrieved by its name, mesh_name, virtual_gateway_name, and optionally the mesh_owner.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.appmesh.get_gateway_route(mesh_name="test-mesh",
-        name="test-route",
-        virtual_gateway_name="test-gateway")
-    ```
-
 
     :param str mesh_name: Name of the service mesh in which the virtual gateway exists.
     :param str mesh_owner: AWS account ID of the service mesh's owner.
@@ -212,17 +201,6 @@ def get_gateway_route_output(mesh_name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGatewayRouteResult]:
     """
     The App Mesh Gateway Route data source allows details of an App Mesh Gateway Route to be retrieved by its name, mesh_name, virtual_gateway_name, and optionally the mesh_owner.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.appmesh.get_gateway_route(mesh_name="test-mesh",
-        name="test-route",
-        virtual_gateway_name="test-gateway")
-    ```
 
 
     :param str mesh_name: Name of the service mesh in which the virtual gateway exists.

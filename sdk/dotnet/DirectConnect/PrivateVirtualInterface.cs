@@ -22,7 +22,7 @@ namespace Pulumi.Aws.DirectConnect
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var foo = new Aws.DirectConnect.PrivateVirtualInterface("foo", new()
+    ///     var foo = new Aws.Directconnect.PrivateVirtualInterface.PrivateVirtualInterface("foo", new()
     ///     {
     ///         AddressFamily = "ipv4",
     ///         BgpAsn = 65352,

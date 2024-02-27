@@ -23,7 +23,7 @@ namespace Pulumi.Aws.LakeFormation
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleLfTag = new Aws.LakeFormation.LfTag("exampleLfTag", new()
+    ///     var exampleLfTag = new Aws.Lakeformation.LfTag.LfTag("exampleLfTag", new()
     ///     {
     ///         Key = "right",
     ///         Values = new[]
@@ -39,18 +39,18 @@ namespace Pulumi.Aws.LakeFormation
     ///         },
     ///     });
     /// 
-    ///     var exampleResourceLfTags = new Aws.LakeFormation.ResourceLfTags("exampleResourceLfTags", new()
+    ///     var exampleResourceLfTags = new Aws.Lakeformation.ResourceLfTags.ResourceLfTags("exampleResourceLfTags", new()
     ///     {
-    ///         Database = new Aws.LakeFormation.Inputs.ResourceLfTagsDatabaseArgs
+    ///         Database = 
     ///         {
-    ///             Name = aws_glue_catalog_database.Example.Name,
+    ///             { "name", aws_glue_catalog_database.Example.Name },
     ///         },
     ///         LfTags = new[]
     ///         {
-    ///             new Aws.LakeFormation.Inputs.ResourceLfTagsLfTagArgs
+    ///             
     ///             {
-    ///                 Key = exampleLfTag.Key,
-    ///                 Value = "stowe",
+    ///                 { "key", exampleLfTag.Key },
+    ///                 { "value", "stowe" },
     ///             },
     ///         },
     ///     });
@@ -67,7 +67,7 @@ namespace Pulumi.Aws.LakeFormation
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleLfTag = new Aws.LakeFormation.LfTag("exampleLfTag", new()
+    ///     var exampleLfTag = new Aws.Lakeformation.LfTag.LfTag("exampleLfTag", new()
     ///     {
     ///         Key = "right",
     ///         Values = new[]
@@ -83,7 +83,7 @@ namespace Pulumi.Aws.LakeFormation
     ///         },
     ///     });
     /// 
-    ///     var example2 = new Aws.LakeFormation.LfTag("example2", new()
+    ///     var example2 = new Aws.Lakeformation.LfTag.LfTag("example2", new()
     ///     {
     ///         Key = "left",
     ///         Values = new[]
@@ -98,23 +98,23 @@ namespace Pulumi.Aws.LakeFormation
     ///         },
     ///     });
     /// 
-    ///     var exampleResourceLfTags = new Aws.LakeFormation.ResourceLfTags("exampleResourceLfTags", new()
+    ///     var exampleResourceLfTags = new Aws.Lakeformation.ResourceLfTags.ResourceLfTags("exampleResourceLfTags", new()
     ///     {
-    ///         Database = new Aws.LakeFormation.Inputs.ResourceLfTagsDatabaseArgs
+    ///         Database = 
     ///         {
-    ///             Name = aws_glue_catalog_database.Example.Name,
+    ///             { "name", aws_glue_catalog_database.Example.Name },
     ///         },
     ///         LfTags = new[]
     ///         {
-    ///             new Aws.LakeFormation.Inputs.ResourceLfTagsLfTagArgs
+    ///             
     ///             {
-    ///                 Key = "right",
-    ///                 Value = "luffield",
+    ///                 { "key", "right" },
+    ///                 { "value", "luffield" },
     ///             },
-    ///             new Aws.LakeFormation.Inputs.ResourceLfTagsLfTagArgs
+    ///             
     ///             {
-    ///                 Key = "left",
-    ///                 Value = "aintree",
+    ///                 { "key", "left" },
+    ///                 { "value", "aintree" },
     ///             },
     ///         },
     ///     });

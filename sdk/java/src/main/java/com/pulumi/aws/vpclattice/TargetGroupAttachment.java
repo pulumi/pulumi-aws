@@ -27,7 +27,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.vpclattice.TargetGroupAttachment;
  * import com.pulumi.aws.vpclattice.TargetGroupAttachmentArgs;
- * import com.pulumi.aws.vpclattice.inputs.TargetGroupAttachmentTargetArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -43,10 +42,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new TargetGroupAttachment(&#34;example&#34;, TargetGroupAttachmentArgs.builder()        
  *             .targetGroupIdentifier(aws_vpclattice_target_group.example().id())
- *             .target(TargetGroupAttachmentTargetArgs.builder()
- *                 .id(aws_lb.example().arn())
- *                 .port(80)
- *                 .build())
+ *             .target(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

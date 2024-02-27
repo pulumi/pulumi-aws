@@ -39,7 +39,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.autoscaling.Group;
  * import com.pulumi.aws.autoscaling.GroupArgs;
- * import com.pulumi.aws.autoscaling.inputs.GroupTagArgs;
  * import com.pulumi.aws.autoscaling.LifecycleHook;
  * import com.pulumi.aws.autoscaling.LifecycleHookArgs;
  * import static com.pulumi.codegen.internal.Serialization.*;
@@ -60,11 +59,7 @@ import javax.annotation.Nullable;
  *             .availabilityZones(&#34;us-west-2a&#34;)
  *             .healthCheckType(&#34;EC2&#34;)
  *             .terminationPolicies(&#34;OldestInstance&#34;)
- *             .tags(GroupTagArgs.builder()
- *                 .key(&#34;Foo&#34;)
- *                 .value(&#34;foo-bar&#34;)
- *                 .propagateAtLaunch(true)
- *                 .build())
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var foobarLifecycleHook = new LifecycleHook(&#34;foobarLifecycleHook&#34;, LifecycleHookArgs.builder()        

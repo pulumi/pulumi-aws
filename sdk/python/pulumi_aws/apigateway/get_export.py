@@ -132,17 +132,7 @@ def get_export(accepts: Optional[str] = None,
                stage_name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetExportResult:
     """
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.apigateway.get_export(rest_api_id=aws_api_gateway_stage["example"]["rest_api_id"],
-        stage_name=aws_api_gateway_stage["example"]["stage_name"],
-        export_type="oas30")
-    ```
-
+    Use this data source to access information about an existing resource.
 
     :param str accepts: Content-type of the export. Valid values are `application/json` and `application/yaml` are supported for `export_type` `ofoas30` and `swagger`.
     :param str export_type: Type of export. Acceptable values are `oas30` for OpenAPI 3.0.x and `swagger` for Swagger/OpenAPI 2.0.
@@ -179,17 +169,7 @@ def get_export_output(accepts: Optional[pulumi.Input[Optional[str]]] = None,
                       stage_name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetExportResult]:
     """
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.apigateway.get_export(rest_api_id=aws_api_gateway_stage["example"]["rest_api_id"],
-        stage_name=aws_api_gateway_stage["example"]["stage_name"],
-        export_type="oas30")
-    ```
-
+    Use this data source to access information about an existing resource.
 
     :param str accepts: Content-type of the export. Valid values are `application/json` and `application/yaml` are supported for `export_type` `ofoas30` and `swagger`.
     :param str export_type: Type of export. Acceptable values are `oas30` for OpenAPI 3.0.x and `swagger` for Swagger/OpenAPI 2.0.

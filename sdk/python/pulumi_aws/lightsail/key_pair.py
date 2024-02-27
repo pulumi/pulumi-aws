@@ -311,7 +311,7 @@ class KeyPair(pulumi.CustomResource):
         import pulumi_aws as aws
 
         # Create a new Lightsail Key Pair
-        lg_key_pair = aws.lightsail.KeyPair("lgKeyPair")
+        lg_key_pair = aws.lightsail.key_pair.KeyPair("lgKeyPair")
         ```
         ### Create New Key Pair with PGP Encrypted Private Key
 
@@ -319,7 +319,7 @@ class KeyPair(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        lg_key_pair = aws.lightsail.KeyPair("lgKeyPair", pgp_key="keybase:keybaseusername")
+        lg_key_pair = aws.lightsail.key_pair.KeyPair("lgKeyPair", pgp_key=keybase:keybaseusername)
         ```
         ### Existing Public Key Import
 
@@ -327,7 +327,7 @@ class KeyPair(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        lg_key_pair = aws.lightsail.KeyPair("lgKeyPair", public_key=(lambda path: open(path).read())("~/.ssh/id_rsa.pub"))
+        lg_key_pair = aws.lightsail.key_pair.KeyPair("lgKeyPair", public_key=(lambda path: open(path).read())(~/.ssh/id_rsa.pub))
         ```
 
         ## Import
@@ -364,7 +364,7 @@ class KeyPair(pulumi.CustomResource):
         import pulumi_aws as aws
 
         # Create a new Lightsail Key Pair
-        lg_key_pair = aws.lightsail.KeyPair("lgKeyPair")
+        lg_key_pair = aws.lightsail.key_pair.KeyPair("lgKeyPair")
         ```
         ### Create New Key Pair with PGP Encrypted Private Key
 
@@ -372,7 +372,7 @@ class KeyPair(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        lg_key_pair = aws.lightsail.KeyPair("lgKeyPair", pgp_key="keybase:keybaseusername")
+        lg_key_pair = aws.lightsail.key_pair.KeyPair("lgKeyPair", pgp_key=keybase:keybaseusername)
         ```
         ### Existing Public Key Import
 
@@ -380,7 +380,7 @@ class KeyPair(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        lg_key_pair = aws.lightsail.KeyPair("lgKeyPair", public_key=(lambda path: open(path).read())("~/.ssh/id_rsa.pub"))
+        lg_key_pair = aws.lightsail.key_pair.KeyPair("lgKeyPair", public_key=(lambda path: open(path).read())(~/.ssh/id_rsa.pub))
         ```
 
         ## Import

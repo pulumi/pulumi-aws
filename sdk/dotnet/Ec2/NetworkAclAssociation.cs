@@ -26,7 +26,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var main = new Aws.Ec2.NetworkAclAssociation("main", new()
+    ///     var main = new Aws.Ec2.NetworkAclAssociation.NetworkAclAssociation("main", new()
     ///     {
     ///         NetworkAclId = aws_network_acl.Main.Id,
     ///         SubnetId = aws_subnet.Main.Id,

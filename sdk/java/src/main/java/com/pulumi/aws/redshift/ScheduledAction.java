@@ -18,86 +18,6 @@ import javax.annotation.Nullable;
 
 /**
  * ## Example Usage
- * ### Pause Cluster Action
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.iam.IamFunctions;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
- * import com.pulumi.aws.iam.Role;
- * import com.pulumi.aws.iam.RoleArgs;
- * import com.pulumi.aws.iam.Policy;
- * import com.pulumi.aws.iam.PolicyArgs;
- * import com.pulumi.aws.iam.RolePolicyAttachment;
- * import com.pulumi.aws.iam.RolePolicyAttachmentArgs;
- * import com.pulumi.aws.redshift.ScheduledAction;
- * import com.pulumi.aws.redshift.ScheduledActionArgs;
- * import com.pulumi.aws.redshift.inputs.ScheduledActionTargetActionArgs;
- * import com.pulumi.aws.redshift.inputs.ScheduledActionTargetActionPauseClusterArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect(&#34;Allow&#34;)
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type(&#34;Service&#34;)
- *                     .identifiers(&#34;scheduler.redshift.amazonaws.com&#34;)
- *                     .build())
- *                 .actions(&#34;sts:AssumeRole&#34;)
- *                 .build())
- *             .build());
- * 
- *         var exampleRole = new Role(&#34;exampleRole&#34;, RoleArgs.builder()        
- *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
- *             .build());
- * 
- *         final var examplePolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect(&#34;Allow&#34;)
- *                 .actions(                
- *                     &#34;redshift:PauseCluster&#34;,
- *                     &#34;redshift:ResumeCluster&#34;,
- *                     &#34;redshift:ResizeCluster&#34;)
- *                 .resources(&#34;*&#34;)
- *                 .build())
- *             .build());
- * 
- *         var examplePolicy = new Policy(&#34;examplePolicy&#34;, PolicyArgs.builder()        
- *             .policy(examplePolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
- *             .build());
- * 
- *         var exampleRolePolicyAttachment = new RolePolicyAttachment(&#34;exampleRolePolicyAttachment&#34;, RolePolicyAttachmentArgs.builder()        
- *             .policyArn(examplePolicy.arn())
- *             .role(exampleRole.name())
- *             .build());
- * 
- *         var exampleScheduledAction = new ScheduledAction(&#34;exampleScheduledAction&#34;, ScheduledActionArgs.builder()        
- *             .schedule(&#34;cron(00 23 * * ? *)&#34;)
- *             .iamRole(exampleRole.arn())
- *             .targetAction(ScheduledActionTargetActionArgs.builder()
- *                 .pauseCluster(ScheduledActionTargetActionPauseClusterArgs.builder()
- *                     .clusterIdentifier(&#34;tf-redshift001&#34;)
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * ```
  * ### Resize Cluster Action
  * ```java
  * package generated_program;
@@ -107,8 +27,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.redshift.ScheduledAction;
  * import com.pulumi.aws.redshift.ScheduledActionArgs;
- * import com.pulumi.aws.redshift.inputs.ScheduledActionTargetActionArgs;
- * import com.pulumi.aws.redshift.inputs.ScheduledActionTargetActionResizeClusterArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -125,14 +43,7 @@ import javax.annotation.Nullable;
  *         var example = new ScheduledAction(&#34;example&#34;, ScheduledActionArgs.builder()        
  *             .schedule(&#34;cron(00 23 * * ? *)&#34;)
  *             .iamRole(aws_iam_role.example().arn())
- *             .targetAction(ScheduledActionTargetActionArgs.builder()
- *                 .resizeCluster(ScheduledActionTargetActionResizeClusterArgs.builder()
- *                     .clusterIdentifier(&#34;tf-redshift001&#34;)
- *                     .clusterType(&#34;multi-node&#34;)
- *                     .nodeType(&#34;dc1.large&#34;)
- *                     .numberOfNodes(2)
- *                     .build())
- *                 .build())
+ *             .targetAction(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

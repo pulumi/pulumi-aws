@@ -23,29 +23,27 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/memorydb"
+//	memorydb/parameterGroup "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/memorydb/parameterGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := memorydb.NewParameterGroup(ctx, "example", &memorydb.ParameterGroupArgs{
-//				Family: pulumi.String("memorydb_redis6"),
-//				Parameters: memorydb.ParameterGroupParameterArray{
-//					&memorydb.ParameterGroupParameterArgs{
-//						Name:  pulumi.String("activedefrag"),
-//						Value: pulumi.String("yes"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := memorydb/parameterGroup.NewParameterGroup(ctx, "example", &memorydb/parameterGroup.ParameterGroupArgs{
+// Family: "memorydb_redis6",
+// Parameters: []map[string]interface{}{
+// map[string]interface{}{
+// "name": "activedefrag",
+// "value": "yes",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

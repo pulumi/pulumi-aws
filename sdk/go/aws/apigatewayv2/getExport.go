@@ -12,34 +12,6 @@ import (
 )
 
 // Exports a definition of an API in a particular output format and specification.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigatewayv2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := apigatewayv2.GetExport(ctx, &apigatewayv2.GetExportArgs{
-//				ApiId:         aws_apigatewayv2_route.Test.Api_id,
-//				Specification: "OAS30",
-//				OutputType:    "JSON",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetExport(ctx *pulumi.Context, args *GetExportArgs, opts ...pulumi.InvokeOption) (*GetExportResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetExportResult

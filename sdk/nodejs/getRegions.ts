@@ -9,43 +9,6 @@ import * as utilities from "./utilities";
 
 /**
  * Provides information about AWS Regions. Can be used to filter regions i.e., by Opt-In status or only regions enabled for current account. To get details like endpoint and description of each region the data source can be combined with the `aws.getRegion` data source.
- *
- * ## Example Usage
- *
- * Enabled AWS Regions:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const current = aws.getRegions({});
- * ```
- *
- * All the regions regardless of the availability
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const current = aws.getRegions({
- *     allRegions: true,
- * });
- * ```
- *
- * To see regions that are filtered by `"not-opted-in"`, the `allRegions` argument needs to be set to `true` or no results will be returned.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const current = aws.getRegions({
- *     allRegions: true,
- *     filters: [{
- *         name: "opt-in-status",
- *         values: ["not-opted-in"],
- *     }],
- * });
- * ```
  */
 export function getRegions(args?: GetRegionsArgs, opts?: pulumi.InvokeOptions): Promise<GetRegionsResult> {
     args = args || {};
@@ -93,43 +56,6 @@ export interface GetRegionsResult {
 }
 /**
  * Provides information about AWS Regions. Can be used to filter regions i.e., by Opt-In status or only regions enabled for current account. To get details like endpoint and description of each region the data source can be combined with the `aws.getRegion` data source.
- *
- * ## Example Usage
- *
- * Enabled AWS Regions:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const current = aws.getRegions({});
- * ```
- *
- * All the regions regardless of the availability
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const current = aws.getRegions({
- *     allRegions: true,
- * });
- * ```
- *
- * To see regions that are filtered by `"not-opted-in"`, the `allRegions` argument needs to be set to `true` or no results will be returned.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const current = aws.getRegions({
- *     allRegions: true,
- *     filters: [{
- *         name: "opt-in-status",
- *         values: ["not-opted-in"],
- *     }],
- * });
- * ```
  */
 export function getRegionsOutput(args?: GetRegionsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRegionsResult> {
     return pulumi.output(args).apply((a: any) => getRegions(a, opts))

@@ -26,24 +26,22 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
+//	cloudwatch/eventPermission "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/cloudwatch/eventPermission"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cloudwatch.NewEventPermission(ctx, "devAccountAccess", &cloudwatch.EventPermissionArgs{
-//				Principal:   pulumi.String("123456789012"),
-//				StatementId: pulumi.String("DevAccountAccess"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := cloudwatch/eventPermission.NewEventPermission(ctx, "devAccountAccess", &cloudwatch/eventPermission.EventPermissionArgs{
+// Principal: "123456789012",
+// StatementId: "DevAccountAccess",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Organization Access
 //
@@ -52,29 +50,27 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
+//	cloudwatch/eventPermission "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/cloudwatch/eventPermission"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cloudwatch.NewEventPermission(ctx, "organizationAccess", &cloudwatch.EventPermissionArgs{
-//				Principal:   pulumi.String("*"),
-//				StatementId: pulumi.String("OrganizationAccess"),
-//				Condition: &cloudwatch.EventPermissionConditionArgs{
-//					Key:   pulumi.String("aws:PrincipalOrgID"),
-//					Type:  pulumi.String("StringEquals"),
-//					Value: pulumi.Any(aws_organizations_organization.Example.Id),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := cloudwatch/eventPermission.NewEventPermission(ctx, "organizationAccess", &cloudwatch/eventPermission.EventPermissionArgs{
+// Principal: "*",
+// StatementId: "OrganizationAccess",
+// Condition: map[string]interface{}{
+// "key": "aws:PrincipalOrgID",
+// "type": "StringEquals",
+// "value": aws_organizations_organization.Example.Id,
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

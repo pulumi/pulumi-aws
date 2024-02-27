@@ -23,7 +23,7 @@ namespace Pulumi.Aws.Quicksight
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Quicksight.Ingestion("example", new()
+    ///     var example = new Aws.Quicksight.Ingestion.Ingestion("example", new()
     ///     {
     ///         DataSetId = aws_quicksight_data_set.Example.Data_set_id,
     ///         IngestionId = "example-id",

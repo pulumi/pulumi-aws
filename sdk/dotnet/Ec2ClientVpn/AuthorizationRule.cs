@@ -23,7 +23,7 @@ namespace Pulumi.Aws.Ec2ClientVpn
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Ec2ClientVpn.AuthorizationRule("example", new()
+    ///     var example = new Aws.Ec2clientvpn.AuthorizationRule.AuthorizationRule("example", new()
     ///     {
     ///         ClientVpnEndpointId = aws_ec2_client_vpn_endpoint.Example.Id,
     ///         TargetNetworkCidr = aws_subnet.Example.Cidr_block,

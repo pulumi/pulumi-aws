@@ -21,28 +21,25 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/datasync"
+//	datasync/s3Location "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/datasync/s3Location"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := datasync.NewS3Location(ctx, "example", &datasync.S3LocationArgs{
-//				S3BucketArn:  pulumi.Any(aws_s3_bucket.Example.Arn),
-//				Subdirectory: pulumi.String("/example/prefix"),
-//				S3Config: &datasync.S3LocationS3ConfigArgs{
-//					BucketAccessRoleArn: pulumi.Any(aws_iam_role.Example.Arn),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := datasync/s3Location.NewS3Location(ctx, "example", &datasync/s3Location.S3LocationArgs{
+// S3BucketArn: aws_s3_bucket.Example.Arn,
+// Subdirectory: "/example/prefix",
+// S3Config: map[string]interface{}{
+// "bucketAccessRoleArn": aws_iam_role.Example.Arn,
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

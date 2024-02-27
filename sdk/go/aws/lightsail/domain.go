@@ -27,23 +27,21 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lightsail"
+//	lightsail/domain "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/lightsail/domain"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lightsail.NewDomain(ctx, "domainTest", &lightsail.DomainArgs{
-//				DomainName: pulumi.String("mydomain.com"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := lightsail/domain.NewDomain(ctx, "domainTest", &lightsail/domain.DomainArgs{
+// DomainName: "mydomain.com",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 type Domain struct {
 	pulumi.CustomResourceState

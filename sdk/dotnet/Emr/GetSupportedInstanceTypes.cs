@@ -16,25 +16,6 @@ namespace Pulumi.Aws.Emr
         /// 
         /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Emr.GetSupportedInstanceTypes.Invoke(new()
-        ///     {
-        ///         ReleaseLabel = "ebs-6.15.0",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetSupportedInstanceTypesResult> InvokeAsync(GetSupportedInstanceTypesArgs args, InvokeOptions? options = null)
@@ -45,25 +26,6 @@ namespace Pulumi.Aws.Emr
         /// 
         /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Emr.GetSupportedInstanceTypes.Invoke(new()
-        ///     {
-        ///         ReleaseLabel = "ebs-6.15.0",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetSupportedInstanceTypesResult> Invoke(GetSupportedInstanceTypesInvokeArgs args, InvokeOptions? options = null)

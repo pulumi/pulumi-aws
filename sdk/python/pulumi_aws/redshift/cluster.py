@@ -1634,13 +1634,13 @@ class Cluster(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.redshift.Cluster("example",
-            cluster_identifier="tf-redshift-cluster",
-            cluster_type="single-node",
-            database_name="mydb",
-            master_password="Mustbe8characters",
-            master_username="exampleuser",
-            node_type="dc1.large")
+        example = aws.redshift.cluster.Cluster("example",
+            cluster_identifier=tf-redshift-cluster,
+            cluster_type=single-node,
+            database_name=mydb,
+            master_password=Mustbe8characters,
+            master_username=exampleuser,
+            node_type=dc1.large)
         ```
         ### With Managed Credentials
 
@@ -1648,13 +1648,13 @@ class Cluster(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.redshift.Cluster("example",
-            cluster_identifier="tf-redshift-cluster",
-            cluster_type="single-node",
-            database_name="mydb",
+        example = aws.redshift.cluster.Cluster("example",
+            cluster_identifier=tf-redshift-cluster,
+            cluster_type=single-node,
+            database_name=mydb,
             manage_master_password=True,
-            master_username="exampleuser",
-            node_type="dc1.large")
+            master_username=exampleuser,
+            node_type=dc1.large)
         ```
 
         ## Import
@@ -1743,13 +1743,13 @@ class Cluster(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.redshift.Cluster("example",
-            cluster_identifier="tf-redshift-cluster",
-            cluster_type="single-node",
-            database_name="mydb",
-            master_password="Mustbe8characters",
-            master_username="exampleuser",
-            node_type="dc1.large")
+        example = aws.redshift.cluster.Cluster("example",
+            cluster_identifier=tf-redshift-cluster,
+            cluster_type=single-node,
+            database_name=mydb,
+            master_password=Mustbe8characters,
+            master_username=exampleuser,
+            node_type=dc1.large)
         ```
         ### With Managed Credentials
 
@@ -1757,13 +1757,13 @@ class Cluster(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.redshift.Cluster("example",
-            cluster_identifier="tf-redshift-cluster",
-            cluster_type="single-node",
-            database_name="mydb",
+        example = aws.redshift.cluster.Cluster("example",
+            cluster_identifier=tf-redshift-cluster,
+            cluster_type=single-node,
+            database_name=mydb,
             manage_master_password=True,
-            master_username="exampleuser",
-            node_type="dc1.large")
+            master_username=exampleuser,
+            node_type=dc1.large)
         ```
 
         ## Import

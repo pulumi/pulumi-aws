@@ -29,9 +29,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.securitylake.DataLake;
  * import com.pulumi.aws.securitylake.DataLakeArgs;
- * import com.pulumi.aws.securitylake.inputs.DataLakeConfigurationArgs;
- * import com.pulumi.aws.securitylake.inputs.DataLakeConfigurationLifecycleConfigurationArgs;
- * import com.pulumi.aws.securitylake.inputs.DataLakeConfigurationLifecycleConfigurationExpirationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -47,26 +44,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new DataLake(&#34;example&#34;, DataLakeArgs.builder()        
  *             .metaStoreManagerRoleArn(aws_iam_role.meta_store_manager().arn())
- *             .configuration(DataLakeConfigurationArgs.builder()
- *                 .region(&#34;eu-west-1&#34;)
- *                 .encryptionConfigurations(DataLakeConfigurationEncryptionConfigurationArgs.builder()
- *                     .kmsKeyId(&#34;S3_MANAGED_KEY&#34;)
- *                     .build())
- *                 .lifecycleConfiguration(DataLakeConfigurationLifecycleConfigurationArgs.builder()
- *                     .transitions(                    
- *                         DataLakeConfigurationLifecycleConfigurationTransitionArgs.builder()
- *                             .days(31)
- *                             .storageClass(&#34;STANDARD_IA&#34;)
- *                             .build(),
- *                         DataLakeConfigurationLifecycleConfigurationTransitionArgs.builder()
- *                             .days(80)
- *                             .storageClass(&#34;ONEZONE_IA&#34;)
- *                             .build())
- *                     .expiration(DataLakeConfigurationLifecycleConfigurationExpirationArgs.builder()
- *                         .days(300)
- *                         .build())
- *                     .build())
- *                 .build())
+ *             .configuration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -81,7 +59,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.securitylake.DataLake;
  * import com.pulumi.aws.securitylake.DataLakeArgs;
- * import com.pulumi.aws.securitylake.inputs.DataLakeConfigurationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -97,12 +74,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new DataLake(&#34;example&#34;, DataLakeArgs.builder()        
  *             .metaStoreManagerRoleArn(aws_iam_role.meta_store_manager().arn())
- *             .configuration(DataLakeConfigurationArgs.builder()
- *                 .region(&#34;eu-west-1&#34;)
- *                 .encryptionConfigurations(DataLakeConfigurationEncryptionConfigurationArgs.builder()
- *                     .kmsKeyId(&#34;S3_MANAGED_KEY&#34;)
- *                     .build())
- *                 .build())
+ *             .configuration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

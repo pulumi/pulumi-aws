@@ -24,9 +24,9 @@ namespace Pulumi.Aws.Ecs
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleCluster = new Aws.Ecs.Cluster("exampleCluster");
+    ///     var exampleCluster = new Aws.Ecs.Cluster.Cluster("exampleCluster");
     /// 
-    ///     var exampleClusterCapacityProviders = new Aws.Ecs.ClusterCapacityProviders("exampleClusterCapacityProviders", new()
+    ///     var exampleClusterCapacityProviders = new Aws.Ecs.ClusterCapacityProviders.ClusterCapacityProviders("exampleClusterCapacityProviders", new()
     ///     {
     ///         ClusterName = exampleCluster.Name,
     ///         CapacityProviders = new[]
@@ -35,11 +35,11 @@ namespace Pulumi.Aws.Ecs
     ///         },
     ///         DefaultCapacityProviderStrategies = new[]
     ///         {
-    ///             new Aws.Ecs.Inputs.ClusterCapacityProvidersDefaultCapacityProviderStrategyArgs
+    ///             
     ///             {
-    ///                 Base = 1,
-    ///                 Weight = 100,
-    ///                 CapacityProvider = "FARGATE",
+    ///                 { "base", 1 },
+    ///                 { "weight", 100 },
+    ///                 { "capacityProvider", "FARGATE" },
     ///             },
     ///         },
     ///     });

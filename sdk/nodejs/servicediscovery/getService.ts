@@ -9,18 +9,6 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieves information about a Service Discovery Service.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = aws.servicediscovery.getService({
- *     name: "example",
- *     namespaceId: "NAMESPACE_ID_VALUE",
- * });
- * ```
  */
 export function getService(args: GetServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceResult> {
 
@@ -103,18 +91,6 @@ export interface GetServiceResult {
 }
 /**
  * Retrieves information about a Service Discovery Service.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = aws.servicediscovery.getService({
- *     name: "example",
- *     namespaceId: "NAMESPACE_ID_VALUE",
- * });
- * ```
  */
 export function getServiceOutput(args: GetServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceResult> {
     return pulumi.output(args).apply((a: any) => getService(a, opts))

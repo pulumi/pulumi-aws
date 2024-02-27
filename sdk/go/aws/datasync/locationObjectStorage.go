@@ -23,27 +23,25 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/datasync"
+//	datasync/locationObjectStorage "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/datasync/locationObjectStorage"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := datasync.NewLocationObjectStorage(ctx, "example", &datasync.LocationObjectStorageArgs{
-//				AgentArns: pulumi.StringArray{
-//					aws_datasync_agent.Example.Arn,
-//				},
-//				ServerHostname: pulumi.String("example"),
-//				BucketName:     pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := datasync/locationObjectStorage.NewLocationObjectStorage(ctx, "example", &datasync/locationObjectStorage.LocationObjectStorageArgs{
+// AgentArns: []interface{}{
+// aws_datasync_agent.Example.Arn,
+// },
+// ServerHostname: "example",
+// BucketName: "example",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

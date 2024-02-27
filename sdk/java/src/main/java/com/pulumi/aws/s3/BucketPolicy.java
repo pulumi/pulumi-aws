@@ -19,56 +19,6 @@ import javax.annotation.Nullable;
  * &gt; Policies can be attached to both S3 general purpose buckets and S3 directory buckets.
  * 
  * ## Example Usage
- * ### Basic Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.s3.BucketV2;
- * import com.pulumi.aws.iam.IamFunctions;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
- * import com.pulumi.aws.s3.BucketPolicy;
- * import com.pulumi.aws.s3.BucketPolicyArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new BucketV2(&#34;example&#34;);
- * 
- *         final var allowAccessFromAnotherAccountPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type(&#34;AWS&#34;)
- *                     .identifiers(&#34;123456789012&#34;)
- *                     .build())
- *                 .actions(                
- *                     &#34;s3:GetObject&#34;,
- *                     &#34;s3:ListBucket&#34;)
- *                 .resources(                
- *                     example.arn(),
- *                     example.arn().applyValue(arn -&gt; String.format(&#34;%s/*&#34;, arn)))
- *                 .build())
- *             .build());
- * 
- *         var allowAccessFromAnotherAccountBucketPolicy = new BucketPolicy(&#34;allowAccessFromAnotherAccountBucketPolicy&#34;, BucketPolicyArgs.builder()        
- *             .bucket(example.id())
- *             .policy(allowAccessFromAnotherAccountPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(allowAccessFromAnotherAccountPolicyDocument -&gt; allowAccessFromAnotherAccountPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
- *             .build());
- * 
- *     }
- * }
- * ```
  * 
  * ## Import
  * 

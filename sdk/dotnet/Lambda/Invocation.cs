@@ -37,7 +37,7 @@ namespace Pulumi.Aws.Lambda
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Lambda.Invocation("example", new()
+    ///     var example = new Aws.Lambda.Invocation.Invocation("example", new()
     ///     {
     ///         FunctionName = aws_lambda_function.Lambda_function_test.Function_name,
     ///         Triggers = 
@@ -67,7 +67,7 @@ namespace Pulumi.Aws.Lambda
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Lambda.Invocation("example", new()
+    ///     var example = new Aws.Lambda.Invocation.Invocation("example", new()
     ///     {
     ///         FunctionName = aws_lambda_function.Lambda_function_test.Function_name,
     ///         Input = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;

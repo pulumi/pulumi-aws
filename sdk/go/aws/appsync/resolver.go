@@ -21,16 +21,18 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/appsync"
+//	appsync/dataSource "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/appsync/dataSource"
+//	appsync/graphQLApi "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/appsync/graphQLApi"
+//	appsync/resolver "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/appsync/resolver"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// testGraphQLApi, err := appsync/graphQLApi.NewGraphQLApi(ctx, "testGraphQLApi", &appsync/graphQLApi.GraphQLApiArgs{
+// AuthenticationType: "API_KEY",
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testGraphQLApi, err := appsync.NewGraphQLApi(ctx, "testGraphQLApi", &appsync.GraphQLApiArgs{
-//				AuthenticationType: pulumi.String("API_KEY"),
-//				Schema: pulumi.String(`type Mutation {
+//	Schema: `type Mutation {
 //		putPost(id: ID!, title: String!): Post
 //	}
 //
@@ -48,29 +50,30 @@ import (
 //		mutation: Mutation
 //	}
 //
-// `),
+// `,
+// })
+// if err != nil {
+// return err
+// }
+// testDataSource, err := appsync/dataSource.NewDataSource(ctx, "testDataSource", &appsync/dataSource.DataSourceArgs{
+// ApiId: testGraphQLApi.Id,
+// Name: "my_example",
+// Type: "HTTP",
+// HttpConfig: map[string]interface{}{
+// "endpoint": "http://example.com",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// // UNIT type resolver (default)
+// _, err = appsync/resolver.NewResolver(ctx, "testResolver", &appsync/resolver.ResolverArgs{
+// ApiId: testGraphQLApi.Id,
+// Field: "singlePost",
+// Type: "Query",
+// DataSource: testDataSource.Name,
 //
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			testDataSource, err := appsync.NewDataSource(ctx, "testDataSource", &appsync.DataSourceArgs{
-//				ApiId: testGraphQLApi.ID(),
-//				Name:  pulumi.String("my_example"),
-//				Type:  pulumi.String("HTTP"),
-//				HttpConfig: &appsync.DataSourceHttpConfigArgs{
-//					Endpoint: pulumi.String("http://example.com"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = appsync.NewResolver(ctx, "testResolver", &appsync.ResolverArgs{
-//				ApiId:      testGraphQLApi.ID(),
-//				Field:      pulumi.String("singlePost"),
-//				Type:       pulumi.String("Query"),
-//				DataSource: testDataSource.Name,
-//				RequestTemplate: pulumi.String(`{
+//	RequestTemplate: `{
 //	    "version": "2018-05-29",
 //	    "method": "GET",
 //	    "resourcePath": "/",
@@ -79,51 +82,50 @@ import (
 //	    }
 //	}
 //
-// `),
+// `,
+// ResponseTemplate: `#if($ctx.result.statusCode == 200)
 //
-//				ResponseTemplate: pulumi.String(`#if($ctx.result.statusCode == 200)
-//	    $ctx.result.body
+//	$ctx.result.body
 //
 // #else
 //
 //	$utils.appendError($ctx.result.body, $ctx.result.statusCode)
 //
 // #end
-// `),
-//
-//				CachingConfig: &appsync.ResolverCachingConfigArgs{
-//					CachingKeys: pulumi.StringArray{
-//						pulumi.String("$context.identity.sub"),
-//						pulumi.String("$context.arguments.id"),
-//					},
-//					Ttl: pulumi.Int(60),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = appsync.NewResolver(ctx, "mutationPipelineTest", &appsync.ResolverArgs{
-//				Type:             pulumi.String("Mutation"),
-//				ApiId:            testGraphQLApi.ID(),
-//				Field:            pulumi.String("pipelineTest"),
-//				RequestTemplate:  pulumi.String("{}"),
-//				ResponseTemplate: pulumi.String("$util.toJson($ctx.result)"),
-//				Kind:             pulumi.String("PIPELINE"),
-//				PipelineConfig: &appsync.ResolverPipelineConfigArgs{
-//					Functions: pulumi.StringArray{
-//						aws_appsync_function.Test1.Function_id,
-//						aws_appsync_function.Test2.Function_id,
-//						aws_appsync_function.Test3.Function_id,
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// `,
+// CachingConfig: map[string]interface{}{
+// "cachingKeys": []string{
+// "$context.identity.sub",
+// "$context.arguments.id",
+// },
+// "ttl": 60,
+// },
+// })
+// if err != nil {
+// return err
+// }
+// // PIPELINE type resolver
+// _, err = appsync/resolver.NewResolver(ctx, "mutationPipelineTest", &appsync/resolver.ResolverArgs{
+// Type: "Mutation",
+// ApiId: testGraphQLApi.Id,
+// Field: "pipelineTest",
+// RequestTemplate: "{}",
+// ResponseTemplate: "$util.toJson($ctx.result)",
+// Kind: "PIPELINE",
+// PipelineConfig: map[string]interface{}{
+// "functions": []interface{}{
+// aws_appsync_function.Test1.Function_id,
+// aws_appsync_function.Test2.Function_id,
+// aws_appsync_function.Test3.Function_id,
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### JS
 //
@@ -134,44 +136,43 @@ import (
 //
 //	"os"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/appsync"
+//	appsync/resolver "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/appsync/resolver"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func readFileOrPanic(path string) pulumi.StringPtrInput {
-//		data, err := os.ReadFile(path)
-//		if err != nil {
-//			panic(err.Error())
-//		}
-//		return pulumi.String(string(data))
-//	}
+//					data, err := os.ReadFile(path)
+//					if err != nil {
+//						panic(err.Error())
+//					}
+//					return pulumi.String(string(data))
+//				}
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := appsync.NewResolver(ctx, "example", &appsync.ResolverArgs{
-//				Type:  pulumi.String("Query"),
-//				ApiId: pulumi.Any(aws_appsync_graphql_api.Test.Id),
-//				Field: pulumi.String("pipelineTest"),
-//				Kind:  pulumi.String("PIPELINE"),
-//				Code:  readFileOrPanic("some-code-dir"),
-//				Runtime: &appsync.ResolverRuntimeArgs{
-//					Name:           pulumi.String("APPSYNC_JS"),
-//					RuntimeVersion: pulumi.String("1.0.0"),
-//				},
-//				PipelineConfig: &appsync.ResolverPipelineConfigArgs{
-//					Functions: pulumi.StringArray{
-//						aws_appsync_function.Test.Function_id,
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := appsync/resolver.NewResolver(ctx, "example", &appsync/resolver.ResolverArgs{
+// Type: "Query",
+// ApiId: aws_appsync_graphql_api.Test.Id,
+// Field: "pipelineTest",
+// Kind: "PIPELINE",
+// Code: readFileOrPanic("some-code-dir"),
+// Runtime: map[string]interface{}{
+// "name": "APPSYNC_JS",
+// "runtimeVersion": "1.0.0",
+// },
+// PipelineConfig: map[string]interface{}{
+// "functions": []interface{}{
+// aws_appsync_function.Test.Function_id,
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

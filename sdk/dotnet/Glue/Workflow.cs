@@ -24,41 +24,41 @@ namespace Pulumi.Aws.Glue
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Glue.Workflow("example");
+    ///     var example = new Aws.Glue.Workflow.Workflow("example");
     /// 
-    ///     var example_start = new Aws.Glue.Trigger("example-start", new()
+    ///     var example_start = new Aws.Glue.Trigger.Trigger("example-start", new()
     ///     {
     ///         Type = "ON_DEMAND",
     ///         WorkflowName = example.Name,
     ///         Actions = new[]
     ///         {
-    ///             new Aws.Glue.Inputs.TriggerActionArgs
+    ///             
     ///             {
-    ///                 JobName = "example-job",
+    ///                 { "jobName", "example-job" },
     ///             },
     ///         },
     ///     });
     /// 
-    ///     var example_inner = new Aws.Glue.Trigger("example-inner", new()
+    ///     var example_inner = new Aws.Glue.Trigger.Trigger("example-inner", new()
     ///     {
     ///         Type = "CONDITIONAL",
     ///         WorkflowName = example.Name,
-    ///         Predicate = new Aws.Glue.Inputs.TriggerPredicateArgs
+    ///         Predicate = 
     ///         {
-    ///             Conditions = new[]
+    ///             { "conditions", new[]
     ///             {
-    ///                 new Aws.Glue.Inputs.TriggerPredicateConditionArgs
+    ///                 
     ///                 {
-    ///                     JobName = "example-job",
-    ///                     State = "SUCCEEDED",
+    ///                     { "jobName", "example-job" },
+    ///                     { "state", "SUCCEEDED" },
     ///                 },
-    ///             },
+    ///             } },
     ///         },
     ///         Actions = new[]
     ///         {
-    ///             new Aws.Glue.Inputs.TriggerActionArgs
+    ///             
     ///             {
-    ///                 JobName = "another-example-job",
+    ///                 { "jobName", "another-example-job" },
     ///             },
     ///         },
     ///     });

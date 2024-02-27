@@ -27,11 +27,10 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.ec2.Vpc;
- * import com.pulumi.aws.ec2.VpcArgs;
+ * import com.pulumi.aws.ec2_vpc.Vpc;
+ * import com.pulumi.aws.ec2_vpc.VpcArgs;
  * import com.pulumi.aws.route53.Zone;
  * import com.pulumi.aws.route53.ZoneArgs;
- * import com.pulumi.aws.route53.inputs.ZoneVpcArgs;
  * import com.pulumi.aws.route53.ZoneAssociation;
  * import com.pulumi.aws.route53.ZoneAssociationArgs;
  * import java.util.List;
@@ -60,9 +59,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var example = new Zone(&#34;example&#34;, ZoneArgs.builder()        
- *             .vpcs(ZoneVpcArgs.builder()
- *                 .vpcId(primary.id())
- *                 .build())
+ *             .vpcs(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var secondaryZoneAssociation = new ZoneAssociation(&#34;secondaryZoneAssociation&#34;, ZoneAssociationArgs.builder()        

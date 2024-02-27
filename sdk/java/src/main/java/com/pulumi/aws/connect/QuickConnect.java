@@ -29,7 +29,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.connect.QuickConnect;
  * import com.pulumi.aws.connect.QuickConnectArgs;
- * import com.pulumi.aws.connect.inputs.QuickConnectQuickConnectConfigArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -46,13 +45,8 @@ import javax.annotation.Nullable;
  *         var test = new QuickConnect(&#34;test&#34;, QuickConnectArgs.builder()        
  *             .description(&#34;quick connect phone number&#34;)
  *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
- *             .quickConnectConfig(QuickConnectQuickConnectConfigArgs.builder()
- *                 .phoneConfigs(QuickConnectQuickConnectConfigPhoneConfigArgs.builder()
- *                     .phoneNumber(&#34;+12345678912&#34;)
- *                     .build())
- *                 .quickConnectType(&#34;PHONE_NUMBER&#34;)
- *                 .build())
- *             .tags(Map.of(&#34;Name&#34;, &#34;Example Quick Connect&#34;))
+ *             .quickConnectConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

@@ -29,7 +29,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.lambda.FunctionUrl;
  * import com.pulumi.aws.lambda.FunctionUrlArgs;
- * import com.pulumi.aws.lambda.inputs.FunctionUrlCorsArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -52,18 +51,7 @@ import javax.annotation.Nullable;
  *             .functionName(aws_lambda_function.test().function_name())
  *             .qualifier(&#34;my_alias&#34;)
  *             .authorizationType(&#34;AWS_IAM&#34;)
- *             .cors(FunctionUrlCorsArgs.builder()
- *                 .allowCredentials(true)
- *                 .allowOrigins(&#34;*&#34;)
- *                 .allowMethods(&#34;*&#34;)
- *                 .allowHeaders(                
- *                     &#34;date&#34;,
- *                     &#34;keep-alive&#34;)
- *                 .exposeHeaders(                
- *                     &#34;keep-alive&#34;,
- *                     &#34;date&#34;)
- *                 .maxAge(86400)
- *                 .build())
+ *             .cors(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

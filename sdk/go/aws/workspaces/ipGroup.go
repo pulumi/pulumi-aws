@@ -20,37 +20,35 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/workspaces"
+//	workspaces/ipGroup "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/workspaces/ipGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := workspaces.NewIpGroup(ctx, "contractors", &workspaces.IpGroupArgs{
-//				Description: pulumi.String("Contractors IP access control group"),
-//				Rules: workspaces.IpGroupRuleArray{
-//					&workspaces.IpGroupRuleArgs{
-//						Description: pulumi.String("NY"),
-//						Source:      pulumi.String("150.24.14.0/24"),
-//					},
-//					&workspaces.IpGroupRuleArgs{
-//						Description: pulumi.String("LA"),
-//						Source:      pulumi.String("125.191.14.85/32"),
-//					},
-//					&workspaces.IpGroupRuleArgs{
-//						Description: pulumi.String("STL"),
-//						Source:      pulumi.String("44.98.100.0/24"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := workspaces/ipGroup.NewIpGroup(ctx, "contractors", &workspaces/ipGroup.IpGroupArgs{
+// Description: "Contractors IP access control group",
+// Rules: []map[string]interface{}{
+// map[string]interface{}{
+// "description": "NY",
+// "source": "150.24.14.0/24",
+// },
+// map[string]interface{}{
+// "description": "LA",
+// "source": "125.191.14.85/32",
+// },
+// map[string]interface{}{
+// "description": "STL",
+// "source": "44.98.100.0/24",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

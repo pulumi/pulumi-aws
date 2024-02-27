@@ -17,28 +17,6 @@ namespace Pulumi.Aws.LB
         /// 
         /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.LB.GetLbs.Invoke(new()
-        ///     {
-        ///         Tags = 
-        ///         {
-        ///             { "elbv2.k8s.aws/cluster", "my-cluster" },
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetLbsResult> InvokeAsync(GetLbsArgs? args = null, InvokeOptions? options = null)
@@ -50,28 +28,6 @@ namespace Pulumi.Aws.LB
         /// 
         /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.LB.GetLbs.Invoke(new()
-        ///     {
-        ///         Tags = 
-        ///         {
-        ///             { "elbv2.k8s.aws/cluster", "my-cluster" },
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetLbsResult> Invoke(GetLbsInvokeArgs? args = null, InvokeOptions? options = null)

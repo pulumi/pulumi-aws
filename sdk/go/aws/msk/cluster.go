@@ -17,193 +17,6 @@ import (
 // > **Note:** This resource manages _provisioned_ clusters. To manage a _serverless_ Amazon MSK cluster, use the `msk.ServerlessCluster` resource.
 //
 // ## Example Usage
-// ### Basic
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kinesis"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kms"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/msk"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			vpc, err := ec2.NewVpc(ctx, "vpc", &ec2.VpcArgs{
-//				CidrBlock: pulumi.String("192.168.0.0/22"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			azs, err := aws.GetAvailabilityZones(ctx, &aws.GetAvailabilityZonesArgs{
-//				State: pulumi.StringRef("available"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			subnetAz1, err := ec2.NewSubnet(ctx, "subnetAz1", &ec2.SubnetArgs{
-//				AvailabilityZone: *pulumi.String(azs.Names[0]),
-//				CidrBlock:        pulumi.String("192.168.0.0/24"),
-//				VpcId:            vpc.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			subnetAz2, err := ec2.NewSubnet(ctx, "subnetAz2", &ec2.SubnetArgs{
-//				AvailabilityZone: *pulumi.String(azs.Names[1]),
-//				CidrBlock:        pulumi.String("192.168.1.0/24"),
-//				VpcId:            vpc.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			subnetAz3, err := ec2.NewSubnet(ctx, "subnetAz3", &ec2.SubnetArgs{
-//				AvailabilityZone: *pulumi.String(azs.Names[2]),
-//				CidrBlock:        pulumi.String("192.168.2.0/24"),
-//				VpcId:            vpc.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			sg, err := ec2.NewSecurityGroup(ctx, "sg", &ec2.SecurityGroupArgs{
-//				VpcId: vpc.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			kms, err := kms.NewKey(ctx, "kms", &kms.KeyArgs{
-//				Description: pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			test, err := cloudwatch.NewLogGroup(ctx, "test", nil)
-//			if err != nil {
-//				return err
-//			}
-//			bucket, err := s3.NewBucketV2(ctx, "bucket", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = s3.NewBucketAclV2(ctx, "bucketAcl", &s3.BucketAclV2Args{
-//				Bucket: bucket.ID(),
-//				Acl:    pulumi.String("private"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			assumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-//				Statements: []iam.GetPolicyDocumentStatement{
-//					{
-//						Effect: pulumi.StringRef("Allow"),
-//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
-//							{
-//								Type: "Service",
-//								Identifiers: []string{
-//									"firehose.amazonaws.com",
-//								},
-//							},
-//						},
-//						Actions: []string{
-//							"sts:AssumeRole",
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			firehoseRole, err := iam.NewRole(ctx, "firehoseRole", &iam.RoleArgs{
-//				AssumeRolePolicy: *pulumi.String(assumeRole.Json),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			testStream, err := kinesis.NewFirehoseDeliveryStream(ctx, "testStream", &kinesis.FirehoseDeliveryStreamArgs{
-//				Destination: pulumi.String("extended_s3"),
-//				ExtendedS3Configuration: &kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationArgs{
-//					RoleArn:   firehoseRole.Arn,
-//					BucketArn: bucket.Arn,
-//				},
-//				Tags: pulumi.StringMap{
-//					"LogDeliveryEnabled": pulumi.String("placeholder"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			example, err := msk.NewCluster(ctx, "example", &msk.ClusterArgs{
-//				KafkaVersion:        pulumi.String("3.2.0"),
-//				NumberOfBrokerNodes: pulumi.Int(3),
-//				BrokerNodeGroupInfo: &msk.ClusterBrokerNodeGroupInfoArgs{
-//					InstanceType: pulumi.String("kafka.m5.large"),
-//					ClientSubnets: pulumi.StringArray{
-//						subnetAz1.ID(),
-//						subnetAz2.ID(),
-//						subnetAz3.ID(),
-//					},
-//					StorageInfo: &msk.ClusterBrokerNodeGroupInfoStorageInfoArgs{
-//						EbsStorageInfo: &msk.ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs{
-//							VolumeSize: pulumi.Int(1000),
-//						},
-//					},
-//					SecurityGroups: pulumi.StringArray{
-//						sg.ID(),
-//					},
-//				},
-//				EncryptionInfo: &msk.ClusterEncryptionInfoArgs{
-//					EncryptionAtRestKmsKeyArn: kms.Arn,
-//				},
-//				OpenMonitoring: &msk.ClusterOpenMonitoringArgs{
-//					Prometheus: &msk.ClusterOpenMonitoringPrometheusArgs{
-//						JmxExporter: &msk.ClusterOpenMonitoringPrometheusJmxExporterArgs{
-//							EnabledInBroker: pulumi.Bool(true),
-//						},
-//						NodeExporter: &msk.ClusterOpenMonitoringPrometheusNodeExporterArgs{
-//							EnabledInBroker: pulumi.Bool(true),
-//						},
-//					},
-//				},
-//				LoggingInfo: &msk.ClusterLoggingInfoArgs{
-//					BrokerLogs: &msk.ClusterLoggingInfoBrokerLogsArgs{
-//						CloudwatchLogs: &msk.ClusterLoggingInfoBrokerLogsCloudwatchLogsArgs{
-//							Enabled:  pulumi.Bool(true),
-//							LogGroup: test.Name,
-//						},
-//						Firehose: &msk.ClusterLoggingInfoBrokerLogsFirehoseArgs{
-//							Enabled:        pulumi.Bool(true),
-//							DeliveryStream: testStream.Name,
-//						},
-//						S3: &msk.ClusterLoggingInfoBrokerLogsS3Args{
-//							Enabled: pulumi.Bool(true),
-//							Bucket:  bucket.ID(),
-//							Prefix:  pulumi.String("logs/msk-"),
-//						},
-//					},
-//				},
-//				Tags: pulumi.StringMap{
-//					"foo": pulumi.String("bar"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			ctx.Export("zookeeperConnectString", example.ZookeeperConnectString)
-//			ctx.Export("bootstrapBrokersTls", example.BootstrapBrokersTls)
-//			return nil
-//		})
-//	}
-//
-// ```
 // ### With volumeThroughput argument
 //
 // ```go
@@ -211,44 +24,42 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/msk"
+//	msk/cluster "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/msk/cluster"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := msk.NewCluster(ctx, "example", &msk.ClusterArgs{
-//				KafkaVersion:        pulumi.String("2.7.1"),
-//				NumberOfBrokerNodes: pulumi.Int(3),
-//				BrokerNodeGroupInfo: &msk.ClusterBrokerNodeGroupInfoArgs{
-//					InstanceType: pulumi.String("kafka.m5.4xlarge"),
-//					ClientSubnets: pulumi.StringArray{
-//						aws_subnet.Subnet_az1.Id,
-//						aws_subnet.Subnet_az2.Id,
-//						aws_subnet.Subnet_az3.Id,
-//					},
-//					StorageInfo: &msk.ClusterBrokerNodeGroupInfoStorageInfoArgs{
-//						EbsStorageInfo: &msk.ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs{
-//							ProvisionedThroughput: &msk.ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArgs{
-//								Enabled:          pulumi.Bool(true),
-//								VolumeThroughput: pulumi.Int(250),
-//							},
-//							VolumeSize: pulumi.Int(1000),
-//						},
-//					},
-//					SecurityGroups: pulumi.StringArray{
-//						aws_security_group.Sg.Id,
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := msk/cluster.NewCluster(ctx, "example", &msk/cluster.ClusterArgs{
+// KafkaVersion: "2.7.1",
+// NumberOfBrokerNodes: 3,
+// BrokerNodeGroupInfo: map[string]interface{}{
+// "instanceType": "kafka.m5.4xlarge",
+// "clientSubnets": []interface{}{
+// aws_subnet.Subnet_az1.Id,
+// aws_subnet.Subnet_az2.Id,
+// aws_subnet.Subnet_az3.Id,
+// },
+// "storageInfo": map[string]interface{}{
+// "ebsStorageInfo": map[string]interface{}{
+// "provisionedThroughput": map[string]interface{}{
+// "enabled": true,
+// "volumeThroughput": 250,
+// },
+// "volumeSize": 1000,
+// },
+// },
+// "securityGroups": []interface{}{
+// aws_security_group.Sg.Id,
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -54,10 +54,7 @@ import javax.annotation.Nullable;
  *             .isDisabled(false)
  *             .power(&#34;nano&#34;)
  *             .scale(1)
- *             .tags(Map.ofEntries(
- *                 Map.entry(&#34;foo1&#34;, &#34;bar1&#34;),
- *                 Map.entry(&#34;foo2&#34;, &#34;&#34;)
- *             ))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -72,7 +69,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.lightsail.ContainerService;
  * import com.pulumi.aws.lightsail.ContainerServiceArgs;
- * import com.pulumi.aws.lightsail.inputs.ContainerServicePublicDomainNamesArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -87,69 +83,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var myContainerService = new ContainerService(&#34;myContainerService&#34;, ContainerServiceArgs.builder()        
- *             .publicDomainNames(ContainerServicePublicDomainNamesArgs.builder()
- *                 .certificates(ContainerServicePublicDomainNamesCertificateArgs.builder()
- *                     .certificateName(&#34;example-certificate&#34;)
- *                     .domainNames(&#34;www.example.com&#34;)
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### Private Registry Access
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.lightsail.ContainerService;
- * import com.pulumi.aws.lightsail.ContainerServiceArgs;
- * import com.pulumi.aws.lightsail.inputs.ContainerServicePrivateRegistryAccessArgs;
- * import com.pulumi.aws.lightsail.inputs.ContainerServicePrivateRegistryAccessEcrImagePullerRoleArgs;
- * import com.pulumi.aws.iam.IamFunctions;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
- * import com.pulumi.aws.ecr.RepositoryPolicy;
- * import com.pulumi.aws.ecr.RepositoryPolicyArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var defaultContainerService = new ContainerService(&#34;defaultContainerService&#34;, ContainerServiceArgs.builder()        
- *             .privateRegistryAccess(ContainerServicePrivateRegistryAccessArgs.builder()
- *                 .ecrImagePullerRole(ContainerServicePrivateRegistryAccessEcrImagePullerRoleArgs.builder()
- *                     .isActive(true)
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *         final var defaultPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect(&#34;Allow&#34;)
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type(&#34;AWS&#34;)
- *                     .identifiers(defaultContainerService.privateRegistryAccess().applyValue(privateRegistryAccess -&gt; privateRegistryAccess.ecrImagePullerRole().principalArn()))
- *                     .build())
- *                 .actions(                
- *                     &#34;ecr:BatchGetImage&#34;,
- *                     &#34;ecr:GetDownloadUrlForLayer&#34;)
- *                 .build())
- *             .build());
- * 
- *         var defaultRepositoryPolicy = new RepositoryPolicy(&#34;defaultRepositoryPolicy&#34;, RepositoryPolicyArgs.builder()        
- *             .repository(aws_ecr_repository.default().name())
- *             .policy(defaultPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(defaultPolicyDocument -&gt; defaultPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+ *             .publicDomainNames(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

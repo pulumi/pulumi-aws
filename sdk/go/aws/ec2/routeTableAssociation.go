@@ -22,24 +22,22 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	ec2/routeTableAssociation "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/routeTableAssociation"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.NewRouteTableAssociation(ctx, "routeTableAssociation", &ec2.RouteTableAssociationArgs{
-//				SubnetId:     pulumi.Any(aws_subnet.Foo.Id),
-//				RouteTableId: pulumi.Any(aws_route_table.Bar.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := ec2/routeTableAssociation.NewRouteTableAssociation(ctx, "routeTableAssociation", &ec2/routeTableAssociation.RouteTableAssociationArgs{
+// SubnetId: aws_subnet.Foo.Id,
+// RouteTableId: aws_route_table.Bar.Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ```go
@@ -47,24 +45,22 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	ec2/routeTableAssociation "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/routeTableAssociation"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.NewRouteTableAssociation(ctx, "routeTableAssociation", &ec2.RouteTableAssociationArgs{
-//				GatewayId:    pulumi.Any(aws_internet_gateway.Foo.Id),
-//				RouteTableId: pulumi.Any(aws_route_table.Bar.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := ec2/routeTableAssociation.NewRouteTableAssociation(ctx, "routeTableAssociation", &ec2/routeTableAssociation.RouteTableAssociationArgs{
+// GatewayId: aws_internet_gateway.Foo.Id,
+// RouteTableId: aws_route_table.Bar.Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

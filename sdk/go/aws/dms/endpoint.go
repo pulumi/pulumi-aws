@@ -23,37 +23,36 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/dms"
+//	dms/endpoint "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/dms/endpoint"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := dms.NewEndpoint(ctx, "test", &dms.EndpointArgs{
-//				CertificateArn:            pulumi.String("arn:aws:acm:us-east-1:123456789012:certificate/12345678-1234-1234-1234-123456789012"),
-//				DatabaseName:              pulumi.String("test"),
-//				EndpointId:                pulumi.String("test-dms-endpoint-tf"),
-//				EndpointType:              pulumi.String("source"),
-//				EngineName:                pulumi.String("aurora"),
-//				ExtraConnectionAttributes: pulumi.String(""),
-//				KmsKeyArn:                 pulumi.String("arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012"),
-//				Password:                  pulumi.String("test"),
-//				Port:                      pulumi.Int(3306),
-//				ServerName:                pulumi.String("test"),
-//				SslMode:                   pulumi.String("none"),
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("test"),
-//				},
-//				Username: pulumi.String("test"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// // Create a new endpoint
+// _, err := dms/endpoint.NewEndpoint(ctx, "test", &dms/endpoint.EndpointArgs{
+// CertificateArn: "arn:aws:acm:us-east-1:123456789012:certificate/12345678-1234-1234-1234-123456789012",
+// DatabaseName: "test",
+// EndpointId: "test-dms-endpoint-tf",
+// EndpointType: "source",
+// EngineName: "aurora",
+// ExtraConnectionAttributes: "",
+// KmsKeyArn: "arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012",
+// Password: "test",
+// Port: 3306,
+// ServerName: "test",
+// SslMode: "none",
+// Tags: map[string]interface{}{
+// "Name": "test",
+// },
+// Username: "test",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -21,46 +21,45 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/chime"
+//	chime/voiceConnector "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/chime/voiceConnector"
+//	chime/voiceConnectorOrganization "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/chime/voiceConnectorOrganization"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			defaultVoiceConnector, err := chime.NewVoiceConnector(ctx, "defaultVoiceConnector", &chime.VoiceConnectorArgs{
-//				RequireEncryption: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = chime.NewVoiceConnectorOrganization(ctx, "defaultVoiceConnectorOrganization", &chime.VoiceConnectorOrganizationArgs{
-//				Disabled:         pulumi.Bool(false),
-//				VoiceConnectorId: defaultVoiceConnector.ID(),
-//				Routes: chime.VoiceConnectorOrganizationRouteArray{
-//					&chime.VoiceConnectorOrganizationRouteArgs{
-//						Host:     pulumi.String("127.0.0.1"),
-//						Port:     pulumi.Int(8081),
-//						Protocol: pulumi.String("TCP"),
-//						Priority: pulumi.Int(1),
-//						Weight:   pulumi.Int(1),
-//					},
-//					&chime.VoiceConnectorOrganizationRouteArgs{
-//						Host:     pulumi.String("127.0.0.2"),
-//						Port:     pulumi.Int(8082),
-//						Protocol: pulumi.String("TCP"),
-//						Priority: pulumi.Int(2),
-//						Weight:   pulumi.Int(10),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// defaultVoiceConnector, err := chime/voiceConnector.NewVoiceConnector(ctx, "defaultVoiceConnector", &chime/voiceConnector.VoiceConnectorArgs{
+// RequireEncryption: true,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = chime/voiceConnectorOrganization.NewVoiceConnectorOrganization(ctx, "defaultVoiceConnectorOrganization", &chime/voiceConnectorOrganization.VoiceConnectorOrganizationArgs{
+// Disabled: false,
+// VoiceConnectorId: defaultVoiceConnector.Id,
+// Routes: []interface{}{
+// map[string]interface{}{
+// "host": "127.0.0.1",
+// "port": 8081,
+// "protocol": "TCP",
+// "priority": 1,
+// "weight": 1,
+// },
+// map[string]interface{}{
+// "host": "127.0.0.2",
+// "port": 8082,
+// "protocol": "TCP",
+// "priority": 2,
+// "weight": 10,
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

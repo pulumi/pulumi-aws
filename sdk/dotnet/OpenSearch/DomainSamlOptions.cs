@@ -24,16 +24,16 @@ namespace Pulumi.Aws.OpenSearch
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleDomain = new Aws.OpenSearch.Domain("exampleDomain", new()
+    ///     var exampleDomain = new Aws.Opensearch.Domain.Domain("exampleDomain", new()
     ///     {
     ///         EngineVersion = "OpenSearch_1.1",
-    ///         ClusterConfig = new Aws.OpenSearch.Inputs.DomainClusterConfigArgs
+    ///         ClusterConfig = 
     ///         {
-    ///             InstanceType = "r4.large.search",
+    ///             { "instanceType", "r4.large.search" },
     ///         },
-    ///         SnapshotOptions = new Aws.OpenSearch.Inputs.DomainSnapshotOptionsArgs
+    ///         SnapshotOptions = 
     ///         {
-    ///             AutomatedSnapshotStartHour = 23,
+    ///             { "automatedSnapshotStartHour", 23 },
     ///         },
     ///         Tags = 
     ///         {
@@ -41,17 +41,17 @@ namespace Pulumi.Aws.OpenSearch
     ///         },
     ///     });
     /// 
-    ///     var exampleDomainSamlOptions = new Aws.OpenSearch.DomainSamlOptions("exampleDomainSamlOptions", new()
+    ///     var exampleDomainSamlOptions = new Aws.Opensearch.DomainSamlOptions.DomainSamlOptions("exampleDomainSamlOptions", new()
     ///     {
     ///         DomainName = exampleDomain.DomainName,
-    ///         SamlOptions = new Aws.OpenSearch.Inputs.DomainSamlOptionsSamlOptionsArgs
+    ///         SamlOptions = 
     ///         {
-    ///             Enabled = true,
-    ///             Idp = new Aws.OpenSearch.Inputs.DomainSamlOptionsSamlOptionsIdpArgs
+    ///             { "enabled", true },
+    ///             { "idp", 
     ///             {
-    ///                 EntityId = "https://example.com",
-    ///                 MetadataContent = File.ReadAllText("./saml-metadata.xml"),
-    ///             },
+    ///                 { "entityId", "https://example.com" },
+    ///                 { "metadataContent", File.ReadAllText("./saml-metadata.xml") },
+    ///             } },
     ///         },
     ///     });
     /// 

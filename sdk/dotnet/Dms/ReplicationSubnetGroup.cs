@@ -26,7 +26,7 @@ namespace Pulumi.Aws.Dms
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // Create a new replication subnet group
-    ///     var example = new Aws.Dms.ReplicationSubnetGroup("example", new()
+    ///     var example = new Aws.Dms.ReplicationSubnetGroup.ReplicationSubnetGroup("example", new()
     ///     {
     ///         ReplicationSubnetGroupDescription = "Example replication subnet group",
     ///         ReplicationSubnetGroupId = "example-dms-replication-subnet-group-tf",
@@ -56,7 +56,7 @@ namespace Pulumi.Aws.Dms
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var dms_vpc_role = new Aws.Iam.Role("dms-vpc-role", new()
+    ///     var dms_vpc_role = new Aws.Iam.Role.Role("dms-vpc-role", new()
     ///     {
     ///         Description = "Allows DMS to manage VPC",
     ///         AssumeRolePolicy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
@@ -77,13 +77,13 @@ namespace Pulumi.Aws.Dms
     ///         }),
     ///     });
     /// 
-    ///     var exampleRolePolicyAttachment = new Aws.Iam.RolePolicyAttachment("exampleRolePolicyAttachment", new()
+    ///     var exampleRolePolicyAttachment = new Aws.Iam.RolePolicyAttachment.RolePolicyAttachment("exampleRolePolicyAttachment", new()
     ///     {
     ///         Role = dms_vpc_role.Name,
     ///         PolicyArn = "arn:aws:iam::aws:policy/service-role/AmazonDMSVPCManagementRole",
     ///     });
     /// 
-    ///     var exampleReplicationSubnetGroup = new Aws.Dms.ReplicationSubnetGroup("exampleReplicationSubnetGroup", new()
+    ///     var exampleReplicationSubnetGroup = new Aws.Dms.ReplicationSubnetGroup.ReplicationSubnetGroup("exampleReplicationSubnetGroup", new()
     ///     {
     ///         ReplicationSubnetGroupDescription = "Example",
     ///         ReplicationSubnetGroupId = "example-id",

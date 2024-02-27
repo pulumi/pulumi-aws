@@ -15,8 +15,8 @@ import {PolicyDocument} from "./index";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const myDevelopers = new aws.iam.Group("myDevelopers", {path: "/users/"});
- * const myDeveloperPolicy = new aws.iam.GroupPolicy("myDeveloperPolicy", {
+ * const myDevelopers = new aws.iam/group.Group("myDevelopers", {path: "/users/"});
+ * const myDeveloperPolicy = new aws.iam/groupPolicy.GroupPolicy("myDeveloperPolicy", {
  *     group: myDevelopers.name,
  *     policy: JSON.stringify({
  *         Version: "2012-10-17",

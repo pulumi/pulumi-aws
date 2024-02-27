@@ -12,33 +12,6 @@ import (
 )
 
 // Data source for managing an AWS App Mesh Virtual Node.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/appmesh"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := appmesh.LookupVirtualNode(ctx, &appmesh.LookupVirtualNodeArgs{
-//				MeshName: "example-mesh",
-//				Name:     "serviceBv1",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupVirtualNode(ctx *pulumi.Context, args *LookupVirtualNodeArgs, opts ...pulumi.InvokeOption) (*LookupVirtualNodeResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupVirtualNodeResult

@@ -23,7 +23,7 @@ namespace Pulumi.Aws.Kinesis
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Kinesis.ResourcePolicy("example", new()
+    ///     var example = new Aws.Kinesis.ResourcePolicy.ResourcePolicy("example", new()
     ///     {
     ///         ResourceArn = aws_kinesis_stream.Example.Arn,
     ///         Policy = @$"{{

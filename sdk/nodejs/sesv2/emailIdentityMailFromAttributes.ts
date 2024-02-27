@@ -14,11 +14,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleEmailIdentity = new aws.sesv2.EmailIdentity("exampleEmailIdentity", {emailIdentity: "example.com"});
- * const exampleEmailIdentityMailFromAttributes = new aws.sesv2.EmailIdentityMailFromAttributes("exampleEmailIdentityMailFromAttributes", {
+ * const exampleEmailIdentity = new aws.sesv2/emailIdentity.EmailIdentity("exampleEmailIdentity", {emailIdentity: "example.com"});
+ * const exampleEmailIdentityMailFromAttributes = new aws.sesv2/emailIdentityMailFromAttributes.EmailIdentityMailFromAttributes("exampleEmailIdentityMailFromAttributes", {
  *     emailIdentity: exampleEmailIdentity.emailIdentity,
  *     behaviorOnMxFailure: "REJECT_MESSAGE",
- *     mailFromDomain: pulumi.interpolate`subdomain.${exampleEmailIdentity.emailIdentity}`,
+ *     mailFromDomain: `subdomain.${exampleEmailIdentity.emailIdentity}`,
  * });
  * ```
  *

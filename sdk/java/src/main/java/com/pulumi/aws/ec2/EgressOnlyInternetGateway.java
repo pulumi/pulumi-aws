@@ -28,8 +28,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.ec2.Vpc;
- * import com.pulumi.aws.ec2.VpcArgs;
+ * import com.pulumi.aws.ec2_vpc.Vpc;
+ * import com.pulumi.aws.ec2_vpc.VpcArgs;
  * import com.pulumi.aws.ec2.EgressOnlyInternetGateway;
  * import com.pulumi.aws.ec2.EgressOnlyInternetGatewayArgs;
  * import java.util.List;
@@ -52,7 +52,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleEgressOnlyInternetGateway = new EgressOnlyInternetGateway(&#34;exampleEgressOnlyInternetGateway&#34;, EgressOnlyInternetGatewayArgs.builder()        
  *             .vpcId(exampleVpc.id())
- *             .tags(Map.of(&#34;Name&#34;, &#34;main&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

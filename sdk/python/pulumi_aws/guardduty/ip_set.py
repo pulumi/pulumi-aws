@@ -276,21 +276,22 @@ class IPSet(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        primary = aws.guardduty.Detector("primary", enable=True)
-        bucket = aws.s3.BucketV2("bucket")
+        primary = aws.guardduty.detector.Detector("primary", enable=True)
+        bucket = aws.s3.bucket_v2.BucketV2("bucket")
         # ... other configuration
-        my_ip_set = aws.s3.BucketObjectv2("myIPSet",
-            content="10.0.0.0/8\\n",
+        my_ip_set = aws.s3.bucket_objectv2.BucketObjectv2("myIPSet",
+            content=10.0.0.0/8
+        ,
             bucket=bucket.id,
-            key="MyIPSet")
-        example = aws.guardduty.IPSet("example",
+            key=MyIPSet)
+        example = aws.guardduty.i_p_set.IPSet("example",
             activate=True,
             detector_id=primary.id,
-            format="TXT",
-            location=pulumi.Output.all(my_ip_set.bucket, my_ip_set.key).apply(lambda bucket, key: f"https://s3.amazonaws.com/{bucket}/{key}"))
-        bucket_acl = aws.s3.BucketAclV2("bucketAcl",
+            format=TXT,
+            location=fhttps://s3.amazonaws.com/{my_ip_set.bucket}/{my_ip_set.key})
+        bucket_acl = aws.s3.bucket_acl_v2.BucketAclV2("bucketAcl",
             bucket=bucket.id,
-            acl="private")
+            acl=private)
         ```
 
         ## Import
@@ -327,21 +328,22 @@ class IPSet(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        primary = aws.guardduty.Detector("primary", enable=True)
-        bucket = aws.s3.BucketV2("bucket")
+        primary = aws.guardduty.detector.Detector("primary", enable=True)
+        bucket = aws.s3.bucket_v2.BucketV2("bucket")
         # ... other configuration
-        my_ip_set = aws.s3.BucketObjectv2("myIPSet",
-            content="10.0.0.0/8\\n",
+        my_ip_set = aws.s3.bucket_objectv2.BucketObjectv2("myIPSet",
+            content=10.0.0.0/8
+        ,
             bucket=bucket.id,
-            key="MyIPSet")
-        example = aws.guardduty.IPSet("example",
+            key=MyIPSet)
+        example = aws.guardduty.i_p_set.IPSet("example",
             activate=True,
             detector_id=primary.id,
-            format="TXT",
-            location=pulumi.Output.all(my_ip_set.bucket, my_ip_set.key).apply(lambda bucket, key: f"https://s3.amazonaws.com/{bucket}/{key}"))
-        bucket_acl = aws.s3.BucketAclV2("bucketAcl",
+            format=TXT,
+            location=fhttps://s3.amazonaws.com/{my_ip_set.bucket}/{my_ip_set.key})
+        bucket_acl = aws.s3.bucket_acl_v2.BucketAclV2("bucketAcl",
             bucket=bucket.id,
-            acl="private")
+            acl=private)
         ```
 
         ## Import

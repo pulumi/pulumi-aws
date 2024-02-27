@@ -22,24 +22,22 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/redshift"
+//	redshift/dataShareConsumerAssociation "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/redshift/dataShareConsumerAssociation"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := redshift.NewDataShareConsumerAssociation(ctx, "example", &redshift.DataShareConsumerAssociationArgs{
-//				AssociateEntireAccount: pulumi.Bool(true),
-//				DataShareArn:           pulumi.String("arn:aws:redshift:us-west-2:012345678901:datashare:b3bfde75-73fd-408b-9086-d6fccfd6d588/example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := redshift/dataShareConsumerAssociation.NewDataShareConsumerAssociation(ctx, "example", &redshift/dataShareConsumerAssociation.DataShareConsumerAssociationArgs{
+// AssociateEntireAccount: true,
+// DataShareArn: "arn:aws:redshift:us-west-2:012345678901:datashare:b3bfde75-73fd-408b-9086-d6fccfd6d588/example",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Consumer Region
 //
@@ -48,24 +46,22 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/redshift"
+//	redshift/dataShareConsumerAssociation "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/redshift/dataShareConsumerAssociation"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := redshift.NewDataShareConsumerAssociation(ctx, "example", &redshift.DataShareConsumerAssociationArgs{
-//				ConsumerRegion: pulumi.String("us-west-2"),
-//				DataShareArn:   pulumi.String("arn:aws:redshift:us-west-2:012345678901:datashare:b3bfde75-73fd-408b-9086-d6fccfd6d588/example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := redshift/dataShareConsumerAssociation.NewDataShareConsumerAssociation(ctx, "example", &redshift/dataShareConsumerAssociation.DataShareConsumerAssociationArgs{
+// ConsumerRegion: "us-west-2",
+// DataShareArn: "arn:aws:redshift:us-west-2:012345678901:datashare:b3bfde75-73fd-408b-9086-d6fccfd6d588/example",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

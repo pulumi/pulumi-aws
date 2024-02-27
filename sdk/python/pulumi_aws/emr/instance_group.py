@@ -37,7 +37,7 @@ class InstanceGroupArgs:
                import pulumi
                import pulumi_aws as aws
                
-               task = aws.emr.InstanceGroup("task", configurations_json=\"\"\"[
+               task = aws.emr.instance_group.InstanceGroup("task", configurations_json=[
                {
                "Classification": "hadoop-env",
                "Configurations": [
@@ -52,7 +52,7 @@ class InstanceGroupArgs:
                }
                ]
                
-               \"\"\")
+               )
                ```
         :param pulumi.Input[Sequence[pulumi.Input['InstanceGroupEbsConfigArgs']]] ebs_configs: One or more `ebs_config` blocks as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] ebs_optimized: Indicates whether an Amazon EBS volume is EBS-optimized. Changing this forces a new resource to be created.
@@ -134,7 +134,7 @@ class InstanceGroupArgs:
         import pulumi
         import pulumi_aws as aws
 
-        task = aws.emr.InstanceGroup("task", configurations_json=\"\"\"[
+        task = aws.emr.instance_group.InstanceGroup("task", configurations_json=[
         {
         "Classification": "hadoop-env",
         "Configurations": [
@@ -149,7 +149,7 @@ class InstanceGroupArgs:
         }
         ]
 
-        \"\"\")
+        )
         ```
         """
         return pulumi.get(self, "configurations_json")
@@ -232,7 +232,7 @@ class _InstanceGroupState:
                import pulumi
                import pulumi_aws as aws
                
-               task = aws.emr.InstanceGroup("task", configurations_json=\"\"\"[
+               task = aws.emr.instance_group.InstanceGroup("task", configurations_json=[
                {
                "Classification": "hadoop-env",
                "Configurations": [
@@ -247,7 +247,7 @@ class _InstanceGroupState:
                }
                ]
                
-               \"\"\")
+               )
                ```
         :param pulumi.Input[Sequence[pulumi.Input['InstanceGroupEbsConfigArgs']]] ebs_configs: One or more `ebs_config` blocks as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] ebs_optimized: Indicates whether an Amazon EBS volume is EBS-optimized. Changing this forces a new resource to be created.
@@ -326,7 +326,7 @@ class _InstanceGroupState:
         import pulumi
         import pulumi_aws as aws
 
-        task = aws.emr.InstanceGroup("task", configurations_json=\"\"\"[
+        task = aws.emr.instance_group.InstanceGroup("task", configurations_json=[
         {
         "Classification": "hadoop-env",
         "Configurations": [
@@ -341,7 +341,7 @@ class _InstanceGroupState:
         }
         ]
 
-        \"\"\")
+        )
         ```
         """
         return pulumi.get(self, "configurations_json")
@@ -464,10 +464,10 @@ class InstanceGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        task = aws.emr.InstanceGroup("task",
-            cluster_id=aws_emr_cluster["tf-test-cluster"]["id"],
+        task = aws.emr.instance_group.InstanceGroup("task",
+            cluster_id=aws_emr_cluster.tf_test_cluster.id,
             instance_count=1,
-            instance_type="m5.xlarge")
+            instance_type=m5.xlarge)
         ```
 
         ## Import
@@ -489,7 +489,7 @@ class InstanceGroup(pulumi.CustomResource):
                import pulumi
                import pulumi_aws as aws
                
-               task = aws.emr.InstanceGroup("task", configurations_json=\"\"\"[
+               task = aws.emr.instance_group.InstanceGroup("task", configurations_json=[
                {
                "Classification": "hadoop-env",
                "Configurations": [
@@ -504,7 +504,7 @@ class InstanceGroup(pulumi.CustomResource):
                }
                ]
                
-               \"\"\")
+               )
                ```
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceGroupEbsConfigArgs']]]] ebs_configs: One or more `ebs_config` blocks as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] ebs_optimized: Indicates whether an Amazon EBS volume is EBS-optimized. Changing this forces a new resource to be created.
@@ -532,10 +532,10 @@ class InstanceGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        task = aws.emr.InstanceGroup("task",
-            cluster_id=aws_emr_cluster["tf-test-cluster"]["id"],
+        task = aws.emr.instance_group.InstanceGroup("task",
+            cluster_id=aws_emr_cluster.tf_test_cluster.id,
             instance_count=1,
-            instance_type="m5.xlarge")
+            instance_type=m5.xlarge)
         ```
 
         ## Import
@@ -631,7 +631,7 @@ class InstanceGroup(pulumi.CustomResource):
                import pulumi
                import pulumi_aws as aws
                
-               task = aws.emr.InstanceGroup("task", configurations_json=\"\"\"[
+               task = aws.emr.instance_group.InstanceGroup("task", configurations_json=[
                {
                "Classification": "hadoop-env",
                "Configurations": [
@@ -646,7 +646,7 @@ class InstanceGroup(pulumi.CustomResource):
                }
                ]
                
-               \"\"\")
+               )
                ```
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceGroupEbsConfigArgs']]]] ebs_configs: One or more `ebs_config` blocks as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] ebs_optimized: Indicates whether an Amazon EBS volume is EBS-optimized. Changing this forces a new resource to be created.
@@ -707,7 +707,7 @@ class InstanceGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        task = aws.emr.InstanceGroup("task", configurations_json=\"\"\"[
+        task = aws.emr.instance_group.InstanceGroup("task", configurations_json=[
         {
         "Classification": "hadoop-env",
         "Configurations": [
@@ -722,7 +722,7 @@ class InstanceGroup(pulumi.CustomResource):
         }
         ]
 
-        \"\"\")
+        )
         ```
         """
         return pulumi.get(self, "configurations_json")

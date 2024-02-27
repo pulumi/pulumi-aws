@@ -263,80 +263,80 @@ class Framework(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.backup.Framework("example",
+        example = aws.backup.framework.Framework("example",
             controls=[
-                aws.backup.FrameworkControlArgs(
-                    input_parameters=[aws.backup.FrameworkControlInputParameterArgs(
-                        name="requiredRetentionDays",
-                        value="35",
-                    )],
-                    name="BACKUP_RECOVERY_POINT_MINIMUM_RETENTION_CHECK",
-                ),
-                aws.backup.FrameworkControlArgs(
-                    input_parameters=[
-                        aws.backup.FrameworkControlInputParameterArgs(
-                            name="requiredFrequencyUnit",
-                            value="hours",
-                        ),
-                        aws.backup.FrameworkControlInputParameterArgs(
-                            name="requiredRetentionDays",
-                            value="35",
-                        ),
-                        aws.backup.FrameworkControlInputParameterArgs(
-                            name="requiredFrequencyValue",
-                            value="1",
-                        ),
+                {
+                    inputParameters: [{
+                        name: requiredRetentionDays,
+                        value: 35,
+                    }],
+                    name: BACKUP_RECOVERY_POINT_MINIMUM_RETENTION_CHECK,
+                },
+                {
+                    inputParameters: [
+                        {
+                            name: requiredFrequencyUnit,
+                            value: hours,
+                        },
+                        {
+                            name: requiredRetentionDays,
+                            value: 35,
+                        },
+                        {
+                            name: requiredFrequencyValue,
+                            value: 1,
+                        },
                     ],
-                    name="BACKUP_PLAN_MIN_FREQUENCY_AND_MIN_RETENTION_CHECK",
-                ),
-                aws.backup.FrameworkControlArgs(
-                    name="BACKUP_RECOVERY_POINT_ENCRYPTED",
-                ),
-                aws.backup.FrameworkControlArgs(
-                    name="BACKUP_RESOURCES_PROTECTED_BY_BACKUP_PLAN",
-                    scope=aws.backup.FrameworkControlScopeArgs(
-                        compliance_resource_types=["EBS"],
-                    ),
-                ),
-                aws.backup.FrameworkControlArgs(
-                    name="BACKUP_RECOVERY_POINT_MANUAL_DELETION_DISABLED",
-                ),
-                aws.backup.FrameworkControlArgs(
-                    input_parameters=[
-                        aws.backup.FrameworkControlInputParameterArgs(
-                            name="maxRetentionDays",
-                            value="100",
-                        ),
-                        aws.backup.FrameworkControlInputParameterArgs(
-                            name="minRetentionDays",
-                            value="1",
-                        ),
+                    name: BACKUP_PLAN_MIN_FREQUENCY_AND_MIN_RETENTION_CHECK,
+                },
+                {
+                    name: BACKUP_RECOVERY_POINT_ENCRYPTED,
+                },
+                {
+                    name: BACKUP_RESOURCES_PROTECTED_BY_BACKUP_PLAN,
+                    scope: {
+                        complianceResourceTypes: [EBS],
+                    },
+                },
+                {
+                    name: BACKUP_RECOVERY_POINT_MANUAL_DELETION_DISABLED,
+                },
+                {
+                    inputParameters: [
+                        {
+                            name: maxRetentionDays,
+                            value: 100,
+                        },
+                        {
+                            name: minRetentionDays,
+                            value: 1,
+                        },
                     ],
-                    name="BACKUP_RESOURCES_PROTECTED_BY_BACKUP_VAULT_LOCK",
-                    scope=aws.backup.FrameworkControlScopeArgs(
-                        compliance_resource_types=["EBS"],
-                    ),
-                ),
-                aws.backup.FrameworkControlArgs(
-                    input_parameters=[
-                        aws.backup.FrameworkControlInputParameterArgs(
-                            name="recoveryPointAgeUnit",
-                            value="days",
-                        ),
-                        aws.backup.FrameworkControlInputParameterArgs(
-                            name="recoveryPointAgeValue",
-                            value="1",
-                        ),
+                    name: BACKUP_RESOURCES_PROTECTED_BY_BACKUP_VAULT_LOCK,
+                    scope: {
+                        complianceResourceTypes: [EBS],
+                    },
+                },
+                {
+                    inputParameters: [
+                        {
+                            name: recoveryPointAgeUnit,
+                            value: days,
+                        },
+                        {
+                            name: recoveryPointAgeValue,
+                            value: 1,
+                        },
                     ],
-                    name="BACKUP_LAST_RECOVERY_POINT_CREATED",
-                    scope=aws.backup.FrameworkControlScopeArgs(
-                        compliance_resource_types=["EBS"],
-                    ),
-                ),
+                    name: BACKUP_LAST_RECOVERY_POINT_CREATED,
+                    scope: {
+                        complianceResourceTypes: [EBS],
+                    },
+                },
             ],
-            description="this is an example framework",
+            description=this is an example framework,
             tags={
-                "Name": "Example Framework",
+                Name: Example Framework,
             })
         ```
 
@@ -372,80 +372,80 @@ class Framework(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.backup.Framework("example",
+        example = aws.backup.framework.Framework("example",
             controls=[
-                aws.backup.FrameworkControlArgs(
-                    input_parameters=[aws.backup.FrameworkControlInputParameterArgs(
-                        name="requiredRetentionDays",
-                        value="35",
-                    )],
-                    name="BACKUP_RECOVERY_POINT_MINIMUM_RETENTION_CHECK",
-                ),
-                aws.backup.FrameworkControlArgs(
-                    input_parameters=[
-                        aws.backup.FrameworkControlInputParameterArgs(
-                            name="requiredFrequencyUnit",
-                            value="hours",
-                        ),
-                        aws.backup.FrameworkControlInputParameterArgs(
-                            name="requiredRetentionDays",
-                            value="35",
-                        ),
-                        aws.backup.FrameworkControlInputParameterArgs(
-                            name="requiredFrequencyValue",
-                            value="1",
-                        ),
+                {
+                    inputParameters: [{
+                        name: requiredRetentionDays,
+                        value: 35,
+                    }],
+                    name: BACKUP_RECOVERY_POINT_MINIMUM_RETENTION_CHECK,
+                },
+                {
+                    inputParameters: [
+                        {
+                            name: requiredFrequencyUnit,
+                            value: hours,
+                        },
+                        {
+                            name: requiredRetentionDays,
+                            value: 35,
+                        },
+                        {
+                            name: requiredFrequencyValue,
+                            value: 1,
+                        },
                     ],
-                    name="BACKUP_PLAN_MIN_FREQUENCY_AND_MIN_RETENTION_CHECK",
-                ),
-                aws.backup.FrameworkControlArgs(
-                    name="BACKUP_RECOVERY_POINT_ENCRYPTED",
-                ),
-                aws.backup.FrameworkControlArgs(
-                    name="BACKUP_RESOURCES_PROTECTED_BY_BACKUP_PLAN",
-                    scope=aws.backup.FrameworkControlScopeArgs(
-                        compliance_resource_types=["EBS"],
-                    ),
-                ),
-                aws.backup.FrameworkControlArgs(
-                    name="BACKUP_RECOVERY_POINT_MANUAL_DELETION_DISABLED",
-                ),
-                aws.backup.FrameworkControlArgs(
-                    input_parameters=[
-                        aws.backup.FrameworkControlInputParameterArgs(
-                            name="maxRetentionDays",
-                            value="100",
-                        ),
-                        aws.backup.FrameworkControlInputParameterArgs(
-                            name="minRetentionDays",
-                            value="1",
-                        ),
+                    name: BACKUP_PLAN_MIN_FREQUENCY_AND_MIN_RETENTION_CHECK,
+                },
+                {
+                    name: BACKUP_RECOVERY_POINT_ENCRYPTED,
+                },
+                {
+                    name: BACKUP_RESOURCES_PROTECTED_BY_BACKUP_PLAN,
+                    scope: {
+                        complianceResourceTypes: [EBS],
+                    },
+                },
+                {
+                    name: BACKUP_RECOVERY_POINT_MANUAL_DELETION_DISABLED,
+                },
+                {
+                    inputParameters: [
+                        {
+                            name: maxRetentionDays,
+                            value: 100,
+                        },
+                        {
+                            name: minRetentionDays,
+                            value: 1,
+                        },
                     ],
-                    name="BACKUP_RESOURCES_PROTECTED_BY_BACKUP_VAULT_LOCK",
-                    scope=aws.backup.FrameworkControlScopeArgs(
-                        compliance_resource_types=["EBS"],
-                    ),
-                ),
-                aws.backup.FrameworkControlArgs(
-                    input_parameters=[
-                        aws.backup.FrameworkControlInputParameterArgs(
-                            name="recoveryPointAgeUnit",
-                            value="days",
-                        ),
-                        aws.backup.FrameworkControlInputParameterArgs(
-                            name="recoveryPointAgeValue",
-                            value="1",
-                        ),
+                    name: BACKUP_RESOURCES_PROTECTED_BY_BACKUP_VAULT_LOCK,
+                    scope: {
+                        complianceResourceTypes: [EBS],
+                    },
+                },
+                {
+                    inputParameters: [
+                        {
+                            name: recoveryPointAgeUnit,
+                            value: days,
+                        },
+                        {
+                            name: recoveryPointAgeValue,
+                            value: 1,
+                        },
                     ],
-                    name="BACKUP_LAST_RECOVERY_POINT_CREATED",
-                    scope=aws.backup.FrameworkControlScopeArgs(
-                        compliance_resource_types=["EBS"],
-                    ),
-                ),
+                    name: BACKUP_LAST_RECOVERY_POINT_CREATED,
+                    scope: {
+                        complianceResourceTypes: [EBS],
+                    },
+                },
             ],
-            description="this is an example framework",
+            description=this is an example framework,
             tags={
-                "Name": "Example Framework",
+                Name: Example Framework,
             })
         ```
 

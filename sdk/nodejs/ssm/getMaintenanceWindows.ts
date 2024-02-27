@@ -9,20 +9,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to get the window IDs of SSM maintenance windows.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.ssm.getMaintenanceWindows({
- *     filters: [{
- *         name: "Enabled",
- *         values: ["true"],
- *     }],
- * });
- * ```
  */
 export function getMaintenanceWindows(args?: GetMaintenanceWindowsArgs, opts?: pulumi.InvokeOptions): Promise<GetMaintenanceWindowsResult> {
     args = args || {};
@@ -59,20 +45,6 @@ export interface GetMaintenanceWindowsResult {
 }
 /**
  * Use this data source to get the window IDs of SSM maintenance windows.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.ssm.getMaintenanceWindows({
- *     filters: [{
- *         name: "Enabled",
- *         values: ["true"],
- *     }],
- * });
- * ```
  */
 export function getMaintenanceWindowsOutput(args?: GetMaintenanceWindowsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMaintenanceWindowsResult> {
     return pulumi.output(args).apply((a: any) => getMaintenanceWindows(a, opts))

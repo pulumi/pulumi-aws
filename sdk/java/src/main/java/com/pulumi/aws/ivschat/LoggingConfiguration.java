@@ -30,8 +30,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.cloudwatch.LogGroup;
  * import com.pulumi.aws.ivschat.LoggingConfiguration;
  * import com.pulumi.aws.ivschat.LoggingConfigurationArgs;
- * import com.pulumi.aws.ivschat.inputs.LoggingConfigurationDestinationConfigurationArgs;
- * import com.pulumi.aws.ivschat.inputs.LoggingConfigurationDestinationConfigurationCloudwatchLogsArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -48,97 +46,13 @@ import javax.annotation.Nullable;
  *         var exampleLogGroup = new LogGroup(&#34;exampleLogGroup&#34;);
  * 
  *         var exampleLoggingConfiguration = new LoggingConfiguration(&#34;exampleLoggingConfiguration&#34;, LoggingConfigurationArgs.builder()        
- *             .destinationConfiguration(LoggingConfigurationDestinationConfigurationArgs.builder()
- *                 .cloudwatchLogs(LoggingConfigurationDestinationConfigurationCloudwatchLogsArgs.builder()
- *                     .logGroupName(exampleLogGroup.name())
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### Basic Usage - Logging to Kinesis Firehose with Extended S3
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.s3.BucketV2;
- * import com.pulumi.aws.s3.BucketV2Args;
- * import com.pulumi.aws.iam.IamFunctions;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
- * import com.pulumi.aws.iam.Role;
- * import com.pulumi.aws.iam.RoleArgs;
- * import com.pulumi.aws.kinesis.FirehoseDeliveryStream;
- * import com.pulumi.aws.kinesis.FirehoseDeliveryStreamArgs;
- * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamExtendedS3ConfigurationArgs;
- * import com.pulumi.aws.s3.BucketAclV2;
- * import com.pulumi.aws.s3.BucketAclV2Args;
- * import com.pulumi.aws.ivschat.LoggingConfiguration;
- * import com.pulumi.aws.ivschat.LoggingConfigurationArgs;
- * import com.pulumi.aws.ivschat.inputs.LoggingConfigurationDestinationConfigurationArgs;
- * import com.pulumi.aws.ivschat.inputs.LoggingConfigurationDestinationConfigurationFirehoseArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var exampleBucketV2 = new BucketV2(&#34;exampleBucketV2&#34;, BucketV2Args.builder()        
- *             .bucketPrefix(&#34;tf-ivschat-logging-bucket&#34;)
- *             .build());
- * 
- *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect(&#34;Allow&#34;)
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type(&#34;Service&#34;)
- *                     .identifiers(&#34;firehose.amazonaws.com&#34;)
- *                     .build())
- *                 .actions(&#34;sts:AssumeRole&#34;)
- *                 .build())
- *             .build());
- * 
- *         var exampleRole = new Role(&#34;exampleRole&#34;, RoleArgs.builder()        
- *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
- *             .build());
- * 
- *         var exampleFirehoseDeliveryStream = new FirehoseDeliveryStream(&#34;exampleFirehoseDeliveryStream&#34;, FirehoseDeliveryStreamArgs.builder()        
- *             .destination(&#34;extended_s3&#34;)
- *             .extendedS3Configuration(FirehoseDeliveryStreamExtendedS3ConfigurationArgs.builder()
- *                 .roleArn(exampleRole.arn())
- *                 .bucketArn(exampleBucketV2.arn())
- *                 .build())
- *             .tags(Map.of(&#34;LogDeliveryEnabled&#34;, &#34;true&#34;))
- *             .build());
- * 
- *         var exampleBucketAclV2 = new BucketAclV2(&#34;exampleBucketAclV2&#34;, BucketAclV2Args.builder()        
- *             .bucket(exampleBucketV2.id())
- *             .acl(&#34;private&#34;)
- *             .build());
- * 
- *         var exampleLoggingConfiguration = new LoggingConfiguration(&#34;exampleLoggingConfiguration&#34;, LoggingConfigurationArgs.builder()        
- *             .destinationConfiguration(LoggingConfigurationDestinationConfigurationArgs.builder()
- *                 .firehose(LoggingConfigurationDestinationConfigurationFirehoseArgs.builder()
- *                     .deliveryStreamName(exampleFirehoseDeliveryStream.name())
- *                     .build())
- *                 .build())
+ *             .destinationConfiguration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
  * }
  * ```
  * ### Basic Usage - Logging to S3
- * 
  * ```java
  * package generated_program;
  * 
@@ -149,8 +63,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.s3.BucketV2Args;
  * import com.pulumi.aws.ivschat.LoggingConfiguration;
  * import com.pulumi.aws.ivschat.LoggingConfigurationArgs;
- * import com.pulumi.aws.ivschat.inputs.LoggingConfigurationDestinationConfigurationArgs;
- * import com.pulumi.aws.ivschat.inputs.LoggingConfigurationDestinationConfigurationS3Args;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -170,11 +82,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleLoggingConfiguration = new LoggingConfiguration(&#34;exampleLoggingConfiguration&#34;, LoggingConfigurationArgs.builder()        
- *             .destinationConfiguration(LoggingConfigurationDestinationConfigurationArgs.builder()
- *                 .s3(LoggingConfigurationDestinationConfigurationS3Args.builder()
- *                     .bucketName(exampleBucketV2.id())
- *                     .build())
- *                 .build())
+ *             .destinationConfiguration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

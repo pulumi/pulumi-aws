@@ -85,19 +85,6 @@ def get_export(name: Optional[str] = None,
 
      > Note: If you are trying to use a value from a Cloudformation Stack in the same deployment please use normal interpolation or Cloudformation Outputs.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    subnet_id = aws.cloudformation.get_export(name="mySubnetIdExportName")
-    web = aws.ec2.Instance("web",
-        ami="ami-abb07bcb",
-        instance_type="t2.micro",
-        subnet_id=subnet_id.value)
-    ```
-
 
     :param str name: Name of the export as it appears in the console or from [list-exports](http://docs.aws.amazon.com/cli/latest/reference/cloudformation/list-exports.html)
     """
@@ -121,19 +108,6 @@ def get_export_output(name: Optional[pulumi.Input[str]] = None,
     exports specified in the [Output](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/outputs-section-structure.html) section of the Cloudformation Template using the optional Export Property.
 
      > Note: If you are trying to use a value from a Cloudformation Stack in the same deployment please use normal interpolation or Cloudformation Outputs.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    subnet_id = aws.cloudformation.get_export(name="mySubnetIdExportName")
-    web = aws.ec2.Instance("web",
-        ami="ami-abb07bcb",
-        instance_type="t2.micro",
-        subnet_id=subnet_id.value)
-    ```
 
 
     :param str name: Name of the export as it appears in the console or from [list-exports](http://docs.aws.amazon.com/cli/latest/reference/cloudformation/list-exports.html)

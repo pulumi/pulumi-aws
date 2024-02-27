@@ -196,10 +196,10 @@ class TemplateAlias(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.quicksight.TemplateAlias("example",
-            alias_name="example-alias",
-            template_id=aws_quicksight_template["test"]["template_id"],
-            template_version_number=aws_quicksight_template["test"]["version_number"])
+        example = aws.quicksight.template_alias.TemplateAlias("example",
+            alias_name=example-alias,
+            template_id=aws_quicksight_template.test.template_id,
+            template_version_number=aws_quicksight_template.test.version_number)
         ```
 
         ## Import
@@ -235,10 +235,10 @@ class TemplateAlias(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.quicksight.TemplateAlias("example",
-            alias_name="example-alias",
-            template_id=aws_quicksight_template["test"]["template_id"],
-            template_version_number=aws_quicksight_template["test"]["version_number"])
+        example = aws.quicksight.template_alias.TemplateAlias("example",
+            alias_name=example-alias,
+            template_id=aws_quicksight_template.test.template_id,
+            template_version_number=aws_quicksight_template.test.version_number)
         ```
 
         ## Import

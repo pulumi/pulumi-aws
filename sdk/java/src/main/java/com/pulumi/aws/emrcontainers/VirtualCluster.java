@@ -27,11 +27,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.emrcontainers.VirtualCluster;
- * import com.pulumi.aws.emrcontainers.VirtualClusterArgs;
- * import com.pulumi.aws.emrcontainers.inputs.VirtualClusterContainerProviderArgs;
- * import com.pulumi.aws.emrcontainers.inputs.VirtualClusterContainerProviderInfoArgs;
- * import com.pulumi.aws.emrcontainers.inputs.VirtualClusterContainerProviderInfoEksInfoArgs;
+ * import com.pulumi.aws.emrcontainers_virtualCluster.VirtualCluster;
+ * import com.pulumi.aws.emrcontainers_virtualCluster.VirtualClusterArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -46,15 +43,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new VirtualCluster(&#34;example&#34;, VirtualClusterArgs.builder()        
- *             .containerProvider(VirtualClusterContainerProviderArgs.builder()
- *                 .id(aws_eks_cluster.example().name())
- *                 .type(&#34;EKS&#34;)
- *                 .info(VirtualClusterContainerProviderInfoArgs.builder()
- *                     .eksInfo(VirtualClusterContainerProviderInfoEksInfoArgs.builder()
- *                         .namespace(&#34;default&#34;)
- *                         .build())
- *                     .build())
- *                 .build())
+ *             .containerProvider(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

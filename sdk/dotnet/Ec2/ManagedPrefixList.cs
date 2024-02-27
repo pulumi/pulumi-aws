@@ -36,21 +36,21 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Ec2.ManagedPrefixList("example", new()
+    ///     var example = new Aws.Ec2.ManagedPrefixList.ManagedPrefixList("example", new()
     ///     {
     ///         AddressFamily = "IPv4",
     ///         MaxEntries = 5,
     ///         Entries = new[]
     ///         {
-    ///             new Aws.Ec2.Inputs.ManagedPrefixListEntryArgs
+    ///             
     ///             {
-    ///                 Cidr = aws_vpc.Example.Cidr_block,
-    ///                 Description = "Primary",
+    ///                 { "cidr", aws_vpc.Example.Cidr_block },
+    ///                 { "description", "Primary" },
     ///             },
-    ///             new Aws.Ec2.Inputs.ManagedPrefixListEntryArgs
+    ///             
     ///             {
-    ///                 Cidr = aws_vpc_ipv4_cidr_block_association.Example.Cidr_block,
-    ///                 Description = "Secondary",
+    ///                 { "cidr", aws_vpc_ipv4_cidr_block_association.Example.Cidr_block },
+    ///                 { "description", "Secondary" },
     ///             },
     ///         },
     ///         Tags = 

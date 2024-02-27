@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.evidently.Launch("example", {
+ * const example = new aws.evidently/launch.Launch("example", {
  *     project: aws_evidently_project.example.name,
  *     groups: [{
  *         feature: aws_evidently_feature.example.name,
@@ -40,7 +40,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.evidently.Launch("example", {
+ * const example = new aws.evidently/launch.Launch("example", {
  *     project: aws_evidently_project.example.name,
  *     description: "example description",
  *     groups: [{
@@ -64,7 +64,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.evidently.Launch("example", {
+ * const example = new aws.evidently/launch.Launch("example", {
  *     project: aws_evidently_project.example.name,
  *     groups: [
  *         {
@@ -97,7 +97,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.evidently.Launch("example", {
+ * const example = new aws.evidently/launch.Launch("example", {
  *     project: aws_evidently_project.example.name,
  *     groups: [{
  *         feature: aws_evidently_feature.example.name,
@@ -140,7 +140,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.evidently.Launch("example", {
+ * const example = new aws.evidently/launch.Launch("example", {
  *     project: aws_evidently_project.example.name,
  *     randomizationSalt: "example randomization salt",
  *     groups: [{
@@ -164,7 +164,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.evidently.Launch("example", {
+ * const example = new aws.evidently/launch.Launch("example", {
  *     project: aws_evidently_project.example.name,
  *     groups: [
  *         {
@@ -204,7 +204,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.evidently.Launch("example", {
+ * const example = new aws.evidently/launch.Launch("example", {
  *     project: aws_evidently_project.example.name,
  *     groups: [
  *         {

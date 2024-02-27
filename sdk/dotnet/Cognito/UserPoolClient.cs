@@ -26,9 +26,9 @@ namespace Pulumi.Aws.Cognito
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var pool = new Aws.Cognito.UserPool("pool");
+    ///     var pool = new Aws.Cognito.UserPool.UserPool("pool");
     /// 
-    ///     var client = new Aws.Cognito.UserPoolClient("client", new()
+    ///     var client = new Aws.Cognito.UserPoolClient.UserPoolClient("client", new()
     ///     {
     ///         UserPoolId = pool.Id,
     ///     });
@@ -45,9 +45,9 @@ namespace Pulumi.Aws.Cognito
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var pool = new Aws.Cognito.UserPool("pool");
+    ///     var pool = new Aws.Cognito.UserPool.UserPool("pool");
     /// 
-    ///     var client = new Aws.Cognito.UserPoolClient("client", new()
+    ///     var client = new Aws.Cognito.UserPoolClient.UserPoolClient("client", new()
     ///     {
     ///         UserPoolId = pool.Id,
     ///         GenerateSecret = true,
@@ -55,93 +55,6 @@ namespace Pulumi.Aws.Cognito
     ///         {
     ///             "ADMIN_NO_SRP_AUTH",
     ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### Create a user pool client with pinpoint analytics
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var testUserPool = new Aws.Cognito.UserPool("testUserPool");
-    /// 
-    ///     var testApp = new Aws.Pinpoint.App("testApp");
-    /// 
-    ///     var assumeRole = Aws.Iam.GetPolicyDocument.Invoke(new()
-    ///     {
-    ///         Statements = new[]
-    ///         {
-    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
-    ///             {
-    ///                 Effect = "Allow",
-    ///                 Principals = new[]
-    ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
-    ///                     {
-    ///                         Type = "Service",
-    ///                         Identifiers = new[]
-    ///                         {
-    ///                             "cognito-idp.amazonaws.com",
-    ///                         },
-    ///                     },
-    ///                 },
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "sts:AssumeRole",
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var testRole = new Aws.Iam.Role("testRole", new()
-    ///     {
-    ///         AssumeRolePolicy = assumeRole.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
-    ///     });
-    /// 
-    ///     var testUserPoolClient = new Aws.Cognito.UserPoolClient("testUserPoolClient", new()
-    ///     {
-    ///         UserPoolId = testUserPool.Id,
-    ///         AnalyticsConfiguration = new Aws.Cognito.Inputs.UserPoolClientAnalyticsConfigurationArgs
-    ///         {
-    ///             ApplicationId = testApp.ApplicationId,
-    ///             ExternalId = "some_id",
-    ///             RoleArn = testRole.Arn,
-    ///             UserDataShared = true,
-    ///         },
-    ///     });
-    /// 
-    ///     var current = Aws.GetCallerIdentity.Invoke();
-    /// 
-    ///     var testPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
-    ///     {
-    ///         Statements = new[]
-    ///         {
-    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
-    ///             {
-    ///                 Effect = "Allow",
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "mobiletargeting:UpdateEndpoint",
-    ///                     "mobiletargeting:PutEvents",
-    ///                 },
-    ///                 Resources = new[]
-    ///                 {
-    ///                     $"arn:aws:mobiletargeting:*:{current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:apps/{testApp.ApplicationId}*",
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var testRolePolicy = new Aws.Iam.RolePolicy("testRolePolicy", new()
-    ///     {
-    ///         Role = testRole.Id,
-    ///         Policy = testPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
     /// });
@@ -156,9 +69,9 @@ namespace Pulumi.Aws.Cognito
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var pool = new Aws.Cognito.UserPool("pool");
+    ///     var pool = new Aws.Cognito.UserPool.UserPool("pool");
     /// 
-    ///     var userpoolClient = new Aws.Cognito.UserPoolClient("userpoolClient", new()
+    ///     var userpoolClient = new Aws.Cognito.UserPoolClient.UserPoolClient("userpoolClient", new()
     ///     {
     ///         UserPoolId = pool.Id,
     ///         CallbackUrls = new[]

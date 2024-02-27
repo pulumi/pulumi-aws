@@ -22,41 +22,40 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/acmpca"
+//	acmpca/certificateAuthority "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/acmpca/certificateAuthority"
+//	acmpca/permission "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/acmpca/permission"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleCertificateAuthority, err := acmpca.NewCertificateAuthority(ctx, "exampleCertificateAuthority", &acmpca.CertificateAuthorityArgs{
-//				CertificateAuthorityConfiguration: &acmpca.CertificateAuthorityCertificateAuthorityConfigurationArgs{
-//					KeyAlgorithm:     pulumi.String("RSA_4096"),
-//					SigningAlgorithm: pulumi.String("SHA512WITHRSA"),
-//					Subject: &acmpca.CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs{
-//						CommonName: pulumi.String("example.com"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = acmpca.NewPermission(ctx, "examplePermission", &acmpca.PermissionArgs{
-//				CertificateAuthorityArn: exampleCertificateAuthority.Arn,
-//				Actions: pulumi.StringArray{
-//					pulumi.String("IssueCertificate"),
-//					pulumi.String("GetCertificate"),
-//					pulumi.String("ListPermissions"),
-//				},
-//				Principal: pulumi.String("acm.amazonaws.com"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleCertificateAuthority, err := acmpca/certificateAuthority.NewCertificateAuthority(ctx, "exampleCertificateAuthority", &acmpca/certificateAuthority.CertificateAuthorityArgs{
+// CertificateAuthorityConfiguration: map[string]interface{}{
+// "keyAlgorithm": "RSA_4096",
+// "signingAlgorithm": "SHA512WITHRSA",
+// "subject": map[string]interface{}{
+// "commonName": "example.com",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = acmpca/permission.NewPermission(ctx, "examplePermission", &acmpca/permission.PermissionArgs{
+// CertificateAuthorityArn: exampleCertificateAuthority.Arn,
+// Actions: []string{
+// "IssueCertificate",
+// "GetCertificate",
+// "ListPermissions",
+// },
+// Principal: "acm.amazonaws.com",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 type Permission struct {
 	pulumi.CustomResourceState

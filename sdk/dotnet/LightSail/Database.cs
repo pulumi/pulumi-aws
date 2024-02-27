@@ -27,7 +27,7 @@ namespace Pulumi.Aws.LightSail
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Aws.LightSail.Database("test", new()
+    ///     var test = new Aws.Lightsail.Database.Database("test", new()
     ///     {
     ///         AvailabilityZone = "us-east-1a",
     ///         BlueprintId = "mysql_8_0",
@@ -50,7 +50,7 @@ namespace Pulumi.Aws.LightSail
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Aws.LightSail.Database("test", new()
+    ///     var test = new Aws.Lightsail.Database.Database("test", new()
     ///     {
     ///         AvailabilityZone = "us-east-1a",
     ///         BlueprintId = "postgres_12",
@@ -75,7 +75,7 @@ namespace Pulumi.Aws.LightSail
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Aws.LightSail.Database("test", new()
+    ///     var test = new Aws.Lightsail.Database.Database("test", new()
     ///     {
     ///         AvailabilityZone = "us-east-1a",
     ///         BlueprintId = "postgres_12",
@@ -102,7 +102,7 @@ namespace Pulumi.Aws.LightSail
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Aws.LightSail.Database("test", new()
+    ///     var test = new Aws.Lightsail.Database.Database("test", new()
     ///     {
     ///         AvailabilityZone = "us-east-1a",
     ///         BlueprintId = "postgres_12",
@@ -130,7 +130,7 @@ namespace Pulumi.Aws.LightSail
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Aws.LightSail.Database("test", new()
+    ///     var test = new Aws.Lightsail.Database.Database("test", new()
     ///     {
     ///         ApplyImmediately = true,
     ///         AvailabilityZone = "us-east-1a",

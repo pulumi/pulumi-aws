@@ -155,9 +155,9 @@ class ReceiptFilter(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        filter = aws.ses.ReceiptFilter("filter",
-            cidr="10.10.10.10",
-            policy="Block")
+        filter = aws.ses.receipt_filter.ReceiptFilter("filter",
+            cidr=10.10.10.10,
+            policy=Block)
         ```
 
         ## Import
@@ -189,9 +189,9 @@ class ReceiptFilter(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        filter = aws.ses.ReceiptFilter("filter",
-            cidr="10.10.10.10",
-            policy="Block")
+        filter = aws.ses.receipt_filter.ReceiptFilter("filter",
+            cidr=10.10.10.10,
+            policy=Block)
         ```
 
         ## Import

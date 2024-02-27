@@ -21,34 +21,32 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	s3/objectCopy "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/s3/objectCopy"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := s3.NewObjectCopy(ctx, "test", &s3.ObjectCopyArgs{
-//				Bucket: pulumi.String("destination_bucket"),
-//				Grants: s3.ObjectCopyGrantArray{
-//					&s3.ObjectCopyGrantArgs{
-//						Permissions: pulumi.StringArray{
-//							pulumi.String("READ"),
-//						},
-//						Type: pulumi.String("Group"),
-//						Uri:  pulumi.String("http://acs.amazonaws.com/groups/global/AllUsers"),
-//					},
-//				},
-//				Key:    pulumi.String("destination_key"),
-//				Source: pulumi.String("source_bucket/source_key"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := s3/objectCopy.NewObjectCopy(ctx, "test", &s3/objectCopy.ObjectCopyArgs{
+// Bucket: "destination_bucket",
+// Grants: []map[string]interface{}{
+// map[string]interface{}{
+// "permissions": []string{
+// "READ",
+// },
+// "type": "Group",
+// "uri": "http://acs.amazonaws.com/groups/global/AllUsers",
+// },
+// },
+// Key: "destination_key",
+// Source: "source_bucket/source_key",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 type ObjectCopy struct {
 	pulumi.CustomResourceState

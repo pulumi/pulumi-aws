@@ -10,65 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Provides a budget action resource. Budget actions are cost savings controls that run either automatically on your behalf or by using a workflow approval process.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const examplePolicyDocument = aws.iam.getPolicyDocument({
- *     statements: [{
- *         effect: "Allow",
- *         actions: ["ec2:Describe*"],
- *         resources: ["*"],
- *     }],
- * });
- * const examplePolicy = new aws.iam.Policy("examplePolicy", {
- *     description: "My example policy",
- *     policy: examplePolicyDocument.then(examplePolicyDocument => examplePolicyDocument.json),
- * });
- * const current = aws.getPartition({});
- * const assumeRole = current.then(current => aws.iam.getPolicyDocument({
- *     statements: [{
- *         effect: "Allow",
- *         principals: [{
- *             type: "Service",
- *             identifiers: [`budgets.${current.dnsSuffix}`],
- *         }],
- *         actions: ["sts:AssumeRole"],
- *     }],
- * }));
- * const exampleRole = new aws.iam.Role("exampleRole", {assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json)});
- * const exampleBudget = new aws.budgets.Budget("exampleBudget", {
- *     budgetType: "USAGE",
- *     limitAmount: "10.0",
- *     limitUnit: "dollars",
- *     timePeriodStart: "2006-01-02_15:04",
- *     timeUnit: "MONTHLY",
- * });
- * const exampleBudgetAction = new aws.budgets.BudgetAction("exampleBudgetAction", {
- *     budgetName: exampleBudget.name,
- *     actionType: "APPLY_IAM_POLICY",
- *     approvalModel: "AUTOMATIC",
- *     notificationType: "ACTUAL",
- *     executionRoleArn: exampleRole.arn,
- *     actionThreshold: {
- *         actionThresholdType: "ABSOLUTE_VALUE",
- *         actionThresholdValue: 100,
- *     },
- *     definition: {
- *         iamActionDefinition: {
- *             policyArn: examplePolicy.arn,
- *             roles: [exampleRole.name],
- *         },
- *     },
- *     subscribers: [{
- *         address: "example@example.example",
- *         subscriptionType: "EMAIL",
- *     }],
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import budget actions using `AccountID:ActionID:BudgetName`. For example:

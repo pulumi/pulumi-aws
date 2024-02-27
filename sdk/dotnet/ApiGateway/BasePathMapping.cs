@@ -25,27 +25,27 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleStage = new Aws.ApiGateway.Stage("exampleStage", new()
+    ///     var exampleStage = new Aws.Apigateway.Stage.Stage("exampleStage", new()
     ///     {
     ///         Deployment = aws_api_gateway_deployment.Example.Id,
     ///         RestApi = aws_api_gateway_rest_api.Example.Id,
     ///         StageName = "example",
     ///     });
     /// 
-    ///     var exampleDomainName = new Aws.ApiGateway.DomainName("exampleDomainName", new()
+    ///     var exampleDomainName = new Aws.Apigateway.DomainName.DomainName("exampleDomainName", new()
     ///     {
-    ///         Domain = "example.com",
+    ///         DomainName = "example.com",
     ///         CertificateName = "example-api",
     ///         CertificateBody = File.ReadAllText($"{path.Module}/example.com/example.crt"),
     ///         CertificateChain = File.ReadAllText($"{path.Module}/example.com/ca.crt"),
     ///         CertificatePrivateKey = File.ReadAllText($"{path.Module}/example.com/example.key"),
     ///     });
     /// 
-    ///     var exampleBasePathMapping = new Aws.ApiGateway.BasePathMapping("exampleBasePathMapping", new()
+    ///     var exampleBasePathMapping = new Aws.Apigateway.BasePathMapping.BasePathMapping("exampleBasePathMapping", new()
     ///     {
     ///         RestApi = aws_api_gateway_rest_api.Example.Id,
     ///         StageName = exampleStage.StageName,
-    ///         DomainName = exampleDomainName.Domain,
+    ///         DomainName = exampleDomainName.DomainName,
     ///     });
     /// 
     /// });

@@ -26,23 +26,23 @@ namespace Pulumi.Aws.LightSail
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testInstance = new Aws.LightSail.Instance("testInstance", new()
+    ///     var testInstance = new Aws.Lightsail.Instance.Instance("testInstance", new()
     ///     {
     ///         AvailabilityZone = data.Aws_availability_zones.Available.Names[0],
     ///         BlueprintId = "amazon_linux_2",
     ///         BundleId = "nano_1_0",
     ///     });
     /// 
-    ///     var testInstancePublicPorts = new Aws.LightSail.InstancePublicPorts("testInstancePublicPorts", new()
+    ///     var testInstancePublicPorts = new Aws.Lightsail.InstancePublicPorts.InstancePublicPorts("testInstancePublicPorts", new()
     ///     {
     ///         InstanceName = testInstance.Name,
     ///         PortInfos = new[]
     ///         {
-    ///             new Aws.LightSail.Inputs.InstancePublicPortsPortInfoArgs
+    ///             
     ///             {
-    ///                 Protocol = "tcp",
-    ///                 FromPort = 80,
-    ///                 ToPort = 80,
+    ///                 { "protocol", "tcp" },
+    ///                 { "fromPort", 80 },
+    ///                 { "toPort", 80 },
     ///             },
     ///         },
     ///     });

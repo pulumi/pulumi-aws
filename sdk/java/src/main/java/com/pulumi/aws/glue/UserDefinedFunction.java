@@ -30,7 +30,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.glue.CatalogDatabaseArgs;
  * import com.pulumi.aws.glue.UserDefinedFunction;
  * import com.pulumi.aws.glue.UserDefinedFunctionArgs;
- * import com.pulumi.aws.glue.inputs.UserDefinedFunctionResourceUriArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -54,10 +53,7 @@ import javax.annotation.Nullable;
  *             .className(&#34;class&#34;)
  *             .ownerName(&#34;owner&#34;)
  *             .ownerType(&#34;GROUP&#34;)
- *             .resourceUris(UserDefinedFunctionResourceUriArgs.builder()
- *                 .resourceType(&#34;ARCHIVE&#34;)
- *                 .uri(&#34;uri&#34;)
- *                 .build())
+ *             .resourceUris(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

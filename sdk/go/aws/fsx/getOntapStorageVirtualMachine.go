@@ -14,63 +14,6 @@ import (
 // Retrieve information on FSx ONTAP Storage Virtual Machine (SVM).
 //
 // ## Example Usage
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/fsx"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := fsx.LookupOntapStorageVirtualMachine(ctx, &fsx.LookupOntapStorageVirtualMachineArgs{
-//				Id: pulumi.StringRef("svm-12345678"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// ### Filter Example
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/fsx"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := fsx.LookupOntapStorageVirtualMachine(ctx, &fsx.LookupOntapStorageVirtualMachineArgs{
-//				Filters: []fsx.GetOntapStorageVirtualMachineFilter{
-//					{
-//						Name: "file-system-id",
-//						Values: []string{
-//							"fs-12345678",
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupOntapStorageVirtualMachine(ctx *pulumi.Context, args *LookupOntapStorageVirtualMachineArgs, opts ...pulumi.InvokeOption) (*LookupOntapStorageVirtualMachineResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupOntapStorageVirtualMachineResult

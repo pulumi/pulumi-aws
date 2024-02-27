@@ -625,11 +625,11 @@ class OntapVolume(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.fsx.OntapVolume("test",
-            junction_path="/test",
+        test = aws.fsx.ontap_volume.OntapVolume("test",
+            junction_path=/test,
             size_in_megabytes=1024,
             storage_efficiency_enabled=True,
-            storage_virtual_machine_id=aws_fsx_ontap_storage_virtual_machine["test"]["id"])
+            storage_virtual_machine_id=aws_fsx_ontap_storage_virtual_machine.test.id)
         ```
         ### Using Tiering Policy
 
@@ -639,15 +639,15 @@ class OntapVolume(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.fsx.OntapVolume("test",
-            junction_path="/test",
+        test = aws.fsx.ontap_volume.OntapVolume("test",
+            junction_path=/test,
             size_in_megabytes=1024,
             storage_efficiency_enabled=True,
-            storage_virtual_machine_id=aws_fsx_ontap_storage_virtual_machine["test"]["id"],
-            tiering_policy=aws.fsx.OntapVolumeTieringPolicyArgs(
-                name="AUTO",
-                cooling_period=31,
-            ))
+            storage_virtual_machine_id=aws_fsx_ontap_storage_virtual_machine.test.id,
+            tiering_policy={
+                name: AUTO,
+                coolingPeriod: 31,
+            })
         ```
 
         ## Import
@@ -693,11 +693,11 @@ class OntapVolume(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.fsx.OntapVolume("test",
-            junction_path="/test",
+        test = aws.fsx.ontap_volume.OntapVolume("test",
+            junction_path=/test,
             size_in_megabytes=1024,
             storage_efficiency_enabled=True,
-            storage_virtual_machine_id=aws_fsx_ontap_storage_virtual_machine["test"]["id"])
+            storage_virtual_machine_id=aws_fsx_ontap_storage_virtual_machine.test.id)
         ```
         ### Using Tiering Policy
 
@@ -707,15 +707,15 @@ class OntapVolume(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.fsx.OntapVolume("test",
-            junction_path="/test",
+        test = aws.fsx.ontap_volume.OntapVolume("test",
+            junction_path=/test,
             size_in_megabytes=1024,
             storage_efficiency_enabled=True,
-            storage_virtual_machine_id=aws_fsx_ontap_storage_virtual_machine["test"]["id"],
-            tiering_policy=aws.fsx.OntapVolumeTieringPolicyArgs(
-                name="AUTO",
-                cooling_period=31,
-            ))
+            storage_virtual_machine_id=aws_fsx_ontap_storage_virtual_machine.test.id,
+            tiering_policy={
+                name: AUTO,
+                coolingPeriod: 31,
+            })
         ```
 
         ## Import

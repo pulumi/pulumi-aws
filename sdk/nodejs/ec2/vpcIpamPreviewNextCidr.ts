@@ -6,36 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Previews a CIDR from an IPAM address pool. Only works for private IPv4.
- *
- * ## Example Usage
- *
- * Basic usage:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const current = aws.getRegion({});
- * const exampleVpcIpam = new aws.ec2.VpcIpam("exampleVpcIpam", {operatingRegions: [{
- *     regionName: current.then(current => current.name),
- * }]});
- * const exampleVpcIpamPool = new aws.ec2.VpcIpamPool("exampleVpcIpamPool", {
- *     addressFamily: "ipv4",
- *     ipamScopeId: exampleVpcIpam.privateDefaultScopeId,
- *     locale: current.then(current => current.name),
- * });
- * const exampleVpcIpamPoolCidr = new aws.ec2.VpcIpamPoolCidr("exampleVpcIpamPoolCidr", {
- *     ipamPoolId: exampleVpcIpamPool.id,
- *     cidr: "172.20.0.0/16",
- * });
- * const exampleVpcIpamPreviewNextCidr = new aws.ec2.VpcIpamPreviewNextCidr("exampleVpcIpamPreviewNextCidr", {
- *     ipamPoolId: exampleVpcIpamPool.id,
- *     netmaskLength: 28,
- *     disallowedCidrs: ["172.2.0.0/32"],
- * }, {
- *     dependsOn: [exampleVpcIpamPoolCidr],
- * });
- * ```
  */
 export class VpcIpamPreviewNextCidr extends pulumi.CustomResource {
     /**

@@ -21,23 +21,21 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/opsworks"
+//	opsworks/memcachedLayer "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/opsworks/memcachedLayer"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := opsworks.NewMemcachedLayer(ctx, "cache", &opsworks.MemcachedLayerArgs{
-//				StackId: pulumi.Any(aws_opsworks_stack.Main.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := opsworks/memcachedLayer.NewMemcachedLayer(ctx, "cache", &opsworks/memcachedLayer.MemcachedLayerArgs{
+// StackId: aws_opsworks_stack.Main.Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 type MemcachedLayer struct {
 	pulumi.CustomResourceState

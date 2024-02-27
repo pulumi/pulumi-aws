@@ -14,64 +14,6 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// Use this data source to get the ID of a registered AMI for use in other
         /// resources.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Ec2.GetAmi.Invoke(new()
-        ///     {
-        ///         ExecutableUsers = new[]
-        ///         {
-        ///             "self",
-        ///         },
-        ///         Filters = new[]
-        ///         {
-        ///             new Aws.Ec2.Inputs.GetAmiFilterInputArgs
-        ///             {
-        ///                 Name = "name",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "myami-*",
-        ///                 },
-        ///             },
-        ///             new Aws.Ec2.Inputs.GetAmiFilterInputArgs
-        ///             {
-        ///                 Name = "root-device-type",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "ebs",
-        ///                 },
-        ///             },
-        ///             new Aws.Ec2.Inputs.GetAmiFilterInputArgs
-        ///             {
-        ///                 Name = "virtualization-type",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "hvm",
-        ///                 },
-        ///             },
-        ///         },
-        ///         MostRecent = true,
-        ///         NameRegex = "^myami-\\d{3}",
-        ///         Owners = new[]
-        ///         {
-        ///             "self",
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetAmiResult> InvokeAsync(GetAmiArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAmiResult>("aws:ec2/getAmi:getAmi", args ?? new GetAmiArgs(), options.WithDefaults());
@@ -79,64 +21,6 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// Use this data source to get the ID of a registered AMI for use in other
         /// resources.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Ec2.GetAmi.Invoke(new()
-        ///     {
-        ///         ExecutableUsers = new[]
-        ///         {
-        ///             "self",
-        ///         },
-        ///         Filters = new[]
-        ///         {
-        ///             new Aws.Ec2.Inputs.GetAmiFilterInputArgs
-        ///             {
-        ///                 Name = "name",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "myami-*",
-        ///                 },
-        ///             },
-        ///             new Aws.Ec2.Inputs.GetAmiFilterInputArgs
-        ///             {
-        ///                 Name = "root-device-type",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "ebs",
-        ///                 },
-        ///             },
-        ///             new Aws.Ec2.Inputs.GetAmiFilterInputArgs
-        ///             {
-        ///                 Name = "virtualization-type",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "hvm",
-        ///                 },
-        ///             },
-        ///         },
-        ///         MostRecent = true,
-        ///         NameRegex = "^myami-\\d{3}",
-        ///         Owners = new[]
-        ///         {
-        ///             "self",
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetAmiResult> Invoke(GetAmiInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAmiResult>("aws:ec2/getAmi:getAmi", args ?? new GetAmiInvokeArgs(), options.WithDefaults());

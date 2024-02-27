@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Rds
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Rds.ClusterRoleAssociation("example", new()
+    ///     var example = new Aws.Rds.ClusterRoleAssociation.ClusterRoleAssociation("example", new()
     ///     {
     ///         DbClusterIdentifier = aws_rds_cluster.Example.Id,
     ///         FeatureName = "S3_INTEGRATION",

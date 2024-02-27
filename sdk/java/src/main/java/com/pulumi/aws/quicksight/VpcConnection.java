@@ -30,9 +30,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.iam.Role;
  * import com.pulumi.aws.iam.RoleArgs;
- * import com.pulumi.aws.iam.inputs.RoleInlinePolicyArgs;
- * import com.pulumi.aws.quicksight.VpcConnection;
- * import com.pulumi.aws.quicksight.VpcConnectionArgs;
+ * import com.pulumi.aws.quicksight_vpcConnection.VpcConnection;
+ * import com.pulumi.aws.quicksight_vpcConnection.VpcConnectionArgs;
  * import static com.pulumi.codegen.internal.Serialization.*;
  * import java.util.List;
  * import java.util.ArrayList;
@@ -59,24 +58,7 @@ import javax.annotation.Nullable;
  *                         ))
  *                     )))
  *                 )))
- *             .inlinePolicies(RoleInlinePolicyArgs.builder()
- *                 .name(&#34;QuickSightVPCConnectionRolePolicy&#34;)
- *                 .policy(serializeJson(
- *                     jsonObject(
- *                         jsonProperty(&#34;Version&#34;, &#34;2012-10-17&#34;),
- *                         jsonProperty(&#34;Statement&#34;, jsonArray(jsonObject(
- *                             jsonProperty(&#34;Effect&#34;, &#34;Allow&#34;),
- *                             jsonProperty(&#34;Action&#34;, jsonArray(
- *                                 &#34;ec2:CreateNetworkInterface&#34;, 
- *                                 &#34;ec2:ModifyNetworkInterfaceAttribute&#34;, 
- *                                 &#34;ec2:DeleteNetworkInterface&#34;, 
- *                                 &#34;ec2:DescribeSubnets&#34;, 
- *                                 &#34;ec2:DescribeSecurityGroups&#34;
- *                             )),
- *                             jsonProperty(&#34;Resource&#34;, jsonArray(&#34;*&#34;))
- *                         )))
- *                     )))
- *                 .build())
+ *             .inlinePolicies(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var example = new VpcConnection(&#34;example&#34;, VpcConnectionArgs.builder()        

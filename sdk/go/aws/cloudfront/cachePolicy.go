@@ -21,52 +21,50 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudfront"
+//	cloudfront/cachePolicy "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/cloudfront/cachePolicy"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cloudfront.NewCachePolicy(ctx, "example", &cloudfront.CachePolicyArgs{
-//				Comment:    pulumi.String("test comment"),
-//				DefaultTtl: pulumi.Int(50),
-//				MaxTtl:     pulumi.Int(100),
-//				MinTtl:     pulumi.Int(1),
-//				ParametersInCacheKeyAndForwardedToOrigin: &cloudfront.CachePolicyParametersInCacheKeyAndForwardedToOriginArgs{
-//					CookiesConfig: &cloudfront.CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArgs{
-//						CookieBehavior: pulumi.String("whitelist"),
-//						Cookies: &cloudfront.CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesArgs{
-//							Items: pulumi.StringArray{
-//								pulumi.String("example"),
-//							},
-//						},
-//					},
-//					HeadersConfig: &cloudfront.CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArgs{
-//						HeaderBehavior: pulumi.String("whitelist"),
-//						Headers: &cloudfront.CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersArgs{
-//							Items: pulumi.StringArray{
-//								pulumi.String("example"),
-//							},
-//						},
-//					},
-//					QueryStringsConfig: &cloudfront.CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArgs{
-//						QueryStringBehavior: pulumi.String("whitelist"),
-//						QueryStrings: &cloudfront.CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsArgs{
-//							Items: pulumi.StringArray{
-//								pulumi.String("example"),
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := cloudfront/cachePolicy.NewCachePolicy(ctx, "example", &cloudfront/cachePolicy.CachePolicyArgs{
+// Comment: "test comment",
+// DefaultTtl: 50,
+// MaxTtl: 100,
+// MinTtl: 1,
+// ParametersInCacheKeyAndForwardedToOrigin: map[string]interface{}{
+// "cookiesConfig": map[string]interface{}{
+// "cookieBehavior": "whitelist",
+// "cookies": map[string]interface{}{
+// "items": []string{
+// "example",
+// },
+// },
+// },
+// "headersConfig": map[string]interface{}{
+// "headerBehavior": "whitelist",
+// "headers": map[string]interface{}{
+// "items": []string{
+// "example",
+// },
+// },
+// },
+// "queryStringsConfig": map[string]interface{}{
+// "queryStringBehavior": "whitelist",
+// "queryStrings": map[string]interface{}{
+// "items": []string{
+// "example",
+// },
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -872,42 +872,42 @@ class Table(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        basic_dynamodb_table = aws.dynamodb.Table("basic-dynamodb-table",
+        basic_dynamodb_table = aws.dynamodb.table.Table("basic-dynamodb-table",
             attributes=[
-                aws.dynamodb.TableAttributeArgs(
-                    name="UserId",
-                    type="S",
-                ),
-                aws.dynamodb.TableAttributeArgs(
-                    name="GameTitle",
-                    type="S",
-                ),
-                aws.dynamodb.TableAttributeArgs(
-                    name="TopScore",
-                    type="N",
-                ),
+                {
+                    name: UserId,
+                    type: S,
+                },
+                {
+                    name: GameTitle,
+                    type: S,
+                },
+                {
+                    name: TopScore,
+                    type: N,
+                },
             ],
-            billing_mode="PROVISIONED",
-            global_secondary_indexes=[aws.dynamodb.TableGlobalSecondaryIndexArgs(
-                hash_key="GameTitle",
-                name="GameTitleIndex",
-                non_key_attributes=["UserId"],
-                projection_type="INCLUDE",
-                range_key="TopScore",
-                read_capacity=10,
-                write_capacity=10,
-            )],
-            hash_key="UserId",
-            range_key="GameTitle",
+            billing_mode=PROVISIONED,
+            global_secondary_indexes=[{
+                hashKey: GameTitle,
+                name: GameTitleIndex,
+                nonKeyAttributes: [UserId],
+                projectionType: INCLUDE,
+                rangeKey: TopScore,
+                readCapacity: 10,
+                writeCapacity: 10,
+            }],
+            hash_key=UserId,
+            range_key=GameTitle,
             read_capacity=20,
             tags={
-                "Environment": "production",
-                "Name": "dynamodb-table-1",
+                Environment: production,
+                Name: dynamodb-table-1,
             },
-            ttl=aws.dynamodb.TableTtlArgs(
-                attribute_name="TimeToExist",
-                enabled=False,
-            ),
+            ttl={
+                attributeName: TimeToExist,
+                enabled: False,
+            },
             write_capacity=20)
         ```
         ### Global Tables
@@ -920,23 +920,23 @@ class Table(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.dynamodb.Table("example",
-            attributes=[aws.dynamodb.TableAttributeArgs(
-                name="TestTableHashKey",
-                type="S",
-            )],
-            billing_mode="PAY_PER_REQUEST",
-            hash_key="TestTableHashKey",
+        example = aws.dynamodb.table.Table("example",
+            attributes=[{
+                name: TestTableHashKey,
+                type: S,
+            }],
+            billing_mode=PAY_PER_REQUEST,
+            hash_key=TestTableHashKey,
             replicas=[
-                aws.dynamodb.TableReplicaArgs(
-                    region_name="us-east-2",
-                ),
-                aws.dynamodb.TableReplicaArgs(
-                    region_name="us-west-2",
-                ),
+                {
+                    regionName: us-east-2,
+                },
+                {
+                    regionName: us-west-2,
+                },
             ],
             stream_enabled=True,
-            stream_view_type="NEW_AND_OLD_IMAGES")
+            stream_view_type=NEW_AND_OLD_IMAGES)
         ```
 
         ## Import
@@ -1007,42 +1007,42 @@ class Table(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        basic_dynamodb_table = aws.dynamodb.Table("basic-dynamodb-table",
+        basic_dynamodb_table = aws.dynamodb.table.Table("basic-dynamodb-table",
             attributes=[
-                aws.dynamodb.TableAttributeArgs(
-                    name="UserId",
-                    type="S",
-                ),
-                aws.dynamodb.TableAttributeArgs(
-                    name="GameTitle",
-                    type="S",
-                ),
-                aws.dynamodb.TableAttributeArgs(
-                    name="TopScore",
-                    type="N",
-                ),
+                {
+                    name: UserId,
+                    type: S,
+                },
+                {
+                    name: GameTitle,
+                    type: S,
+                },
+                {
+                    name: TopScore,
+                    type: N,
+                },
             ],
-            billing_mode="PROVISIONED",
-            global_secondary_indexes=[aws.dynamodb.TableGlobalSecondaryIndexArgs(
-                hash_key="GameTitle",
-                name="GameTitleIndex",
-                non_key_attributes=["UserId"],
-                projection_type="INCLUDE",
-                range_key="TopScore",
-                read_capacity=10,
-                write_capacity=10,
-            )],
-            hash_key="UserId",
-            range_key="GameTitle",
+            billing_mode=PROVISIONED,
+            global_secondary_indexes=[{
+                hashKey: GameTitle,
+                name: GameTitleIndex,
+                nonKeyAttributes: [UserId],
+                projectionType: INCLUDE,
+                rangeKey: TopScore,
+                readCapacity: 10,
+                writeCapacity: 10,
+            }],
+            hash_key=UserId,
+            range_key=GameTitle,
             read_capacity=20,
             tags={
-                "Environment": "production",
-                "Name": "dynamodb-table-1",
+                Environment: production,
+                Name: dynamodb-table-1,
             },
-            ttl=aws.dynamodb.TableTtlArgs(
-                attribute_name="TimeToExist",
-                enabled=False,
-            ),
+            ttl={
+                attributeName: TimeToExist,
+                enabled: False,
+            },
             write_capacity=20)
         ```
         ### Global Tables
@@ -1055,23 +1055,23 @@ class Table(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.dynamodb.Table("example",
-            attributes=[aws.dynamodb.TableAttributeArgs(
-                name="TestTableHashKey",
-                type="S",
-            )],
-            billing_mode="PAY_PER_REQUEST",
-            hash_key="TestTableHashKey",
+        example = aws.dynamodb.table.Table("example",
+            attributes=[{
+                name: TestTableHashKey,
+                type: S,
+            }],
+            billing_mode=PAY_PER_REQUEST,
+            hash_key=TestTableHashKey,
             replicas=[
-                aws.dynamodb.TableReplicaArgs(
-                    region_name="us-east-2",
-                ),
-                aws.dynamodb.TableReplicaArgs(
-                    region_name="us-west-2",
-                ),
+                {
+                    regionName: us-east-2,
+                },
+                {
+                    regionName: us-west-2,
+                },
             ],
             stream_enabled=True,
-            stream_view_type="NEW_AND_OLD_IMAGES")
+            stream_view_type=NEW_AND_OLD_IMAGES)
         ```
 
         ## Import

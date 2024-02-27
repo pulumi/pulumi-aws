@@ -21,28 +21,27 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	iam/serviceSpecificCredential "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/iam/serviceSpecificCredential"
+//	iam/user "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/iam/user"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleUser, err := iam.NewUser(ctx, "exampleUser", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = iam.NewServiceSpecificCredential(ctx, "exampleServiceSpecificCredential", &iam.ServiceSpecificCredentialArgs{
-//				ServiceName: pulumi.String("codecommit.amazonaws.com"),
-//				UserName:    exampleUser.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleUser, err := iam/user.NewUser(ctx, "exampleUser", nil)
+// if err != nil {
+// return err
+// }
+// _, err = iam/serviceSpecificCredential.NewServiceSpecificCredential(ctx, "exampleServiceSpecificCredential", &iam/serviceSpecificCredential.ServiceSpecificCredentialArgs{
+// ServiceName: "codecommit.amazonaws.com",
+// UserName: exampleUser.Name,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

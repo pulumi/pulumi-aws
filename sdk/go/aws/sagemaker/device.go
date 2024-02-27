@@ -22,26 +22,24 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sagemaker"
+//	sagemaker/device "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/sagemaker/device"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := sagemaker.NewDevice(ctx, "example", &sagemaker.DeviceArgs{
-//				DeviceFleetName: pulumi.Any(aws_sagemaker_device_fleet.Example.Device_fleet_name),
-//				Device: &sagemaker.DeviceDeviceArgs{
-//					DeviceName: pulumi.String("example"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := sagemaker/device.NewDevice(ctx, "example", &sagemaker/device.DeviceArgs{
+// DeviceFleetName: aws_sagemaker_device_fleet.Example.Device_fleet_name,
+// Device: map[string]interface{}{
+// "deviceName": "example",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

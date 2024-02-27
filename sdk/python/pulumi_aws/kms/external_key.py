@@ -426,7 +426,7 @@ class ExternalKey(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.kms.ExternalKey("example", description="KMS EXTERNAL for AMI encryption")
+        example = aws.kms.external_key.ExternalKey("example", description=KMS EXTERNAL for AMI encryption)
         ```
 
         ## Import
@@ -465,7 +465,7 @@ class ExternalKey(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.kms.ExternalKey("example", description="KMS EXTERNAL for AMI encryption")
+        example = aws.kms.external_key.ExternalKey("example", description=KMS EXTERNAL for AMI encryption)
         ```
 
         ## Import

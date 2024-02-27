@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * // Create a new endpoint
- * const test = new aws.dms.Endpoint("test", {
+ * const test = new aws.dms/endpoint.Endpoint("test", {
  *     certificateArn: "arn:aws:acm:us-east-1:123456789012:certificate/12345678-1234-1234-1234-123456789012",
  *     databaseName: "test",
  *     endpointId: "test-dms-endpoint-tf",

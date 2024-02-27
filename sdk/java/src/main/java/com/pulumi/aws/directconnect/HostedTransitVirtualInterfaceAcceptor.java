@@ -21,68 +21,6 @@ import javax.annotation.Nullable;
  * 
  * &gt; **NOTE:** AWS allows a Direct Connect hosted transit virtual interface to be deleted from either the allocator&#39;s or accepter&#39;s side. However, this provider only allows the Direct Connect hosted transit virtual interface to be deleted from the allocator&#39;s side by removing the corresponding `aws.directconnect.HostedTransitVirtualInterface` resource from your configuration. Removing a `aws.directconnect.HostedTransitVirtualInterfaceAcceptor` resource from your configuration will remove it from your statefile and management, **but will not delete the Direct Connect virtual interface.**
  * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.Provider;
- * import com.pulumi.aws.AwsFunctions;
- * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
- * import com.pulumi.aws.directconnect.Gateway;
- * import com.pulumi.aws.directconnect.GatewayArgs;
- * import com.pulumi.aws.directconnect.HostedTransitVirtualInterface;
- * import com.pulumi.aws.directconnect.HostedTransitVirtualInterfaceArgs;
- * import com.pulumi.aws.directconnect.HostedTransitVirtualInterfaceAcceptor;
- * import com.pulumi.aws.directconnect.HostedTransitVirtualInterfaceAcceptorArgs;
- * import com.pulumi.resources.CustomResourceOptions;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var accepter = new Provider(&#34;accepter&#34;);
- * 
- *         final var accepterCallerIdentity = AwsFunctions.getCallerIdentity();
- * 
- *         var example = new Gateway(&#34;example&#34;, GatewayArgs.builder()        
- *             .amazonSideAsn(64512)
- *             .build(), CustomResourceOptions.builder()
- *                 .provider(aws.accepter())
- *                 .build());
- * 
- *         var creator = new HostedTransitVirtualInterface(&#34;creator&#34;, HostedTransitVirtualInterfaceArgs.builder()        
- *             .connectionId(&#34;dxcon-zzzzzzzz&#34;)
- *             .ownerAccountId(accepterCallerIdentity.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()))
- *             .vlan(4094)
- *             .addressFamily(&#34;ipv4&#34;)
- *             .bgpAsn(65352)
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(example)
- *                 .build());
- * 
- *         var accepterHostedTransitVirtualInterfaceAcceptor = new HostedTransitVirtualInterfaceAcceptor(&#34;accepterHostedTransitVirtualInterfaceAcceptor&#34;, HostedTransitVirtualInterfaceAcceptorArgs.builder()        
- *             .virtualInterfaceId(creator.id())
- *             .dxGatewayId(example.id())
- *             .tags(Map.of(&#34;Side&#34;, &#34;Accepter&#34;))
- *             .build(), CustomResourceOptions.builder()
- *                 .provider(aws.accepter())
- *                 .build());
- * 
- *     }
- * }
- * ```
- * 
  * ## Import
  * 
  * Using `pulumi import`, import Direct Connect hosted transit virtual interfaces using the VIF `id`. For example:

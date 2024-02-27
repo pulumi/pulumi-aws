@@ -23,49 +23,47 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/applicationinsights"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/resourcegroups"
+//	applicationinsights/application "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/applicationinsights/application"
+//	resourcegroups/group "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/resourcegroups/group"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"ResourceTypeFilters": []string{
-//					"AWS::EC2::Instance",
-//				},
-//				"TagFilters": []map[string]interface{}{
-//					map[string]interface{}{
-//						"Key": "Stage",
-//						"Values": []string{
-//							"Test",
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			exampleGroup, err := resourcegroups.NewGroup(ctx, "exampleGroup", &resourcegroups.GroupArgs{
-//				ResourceQuery: &resourcegroups.GroupResourceQueryArgs{
-//					Query: pulumi.String(json0),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = applicationinsights.NewApplication(ctx, "exampleApplication", &applicationinsights.ApplicationArgs{
-//				ResourceGroupName: exampleGroup.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleGroup, err := resourcegroups/group.NewGroup(ctx, "exampleGroup", &resourcegroups/group.GroupArgs{
+// ResourceQuery: tmpJSON0, err := json.Marshal(map[string]interface{}{
+// "ResourceTypeFilters": []string{
+// "AWS::EC2::Instance",
+// },
+// "TagFilters": []map[string]interface{}{
+// map[string]interface{}{
+// "Key": "Stage",
+// "Values": []string{
+// "Test",
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// json0 := string(tmpJSON0)
+// map[string]interface{}{
+// "query": json0,
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = applicationinsights/application.NewApplication(ctx, "exampleApplication", &applicationinsights/application.ApplicationArgs{
+// ResourceGroupName: exampleGroup.Name,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

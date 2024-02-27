@@ -24,7 +24,7 @@ namespace Pulumi.Aws.ElastiCache
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var @default = new Aws.ElastiCache.User("default", new()
+    ///     var @default = new Aws.Elasticache.User.User("default", new()
     ///     {
     ///         UserId = "defaultUserID",
     ///         UserName = "default",
@@ -36,7 +36,7 @@ namespace Pulumi.Aws.ElastiCache
     ///         },
     ///     });
     /// 
-    ///     var exampleUserGroup = new Aws.ElastiCache.UserGroup("exampleUserGroup", new()
+    ///     var exampleUserGroup = new Aws.Elasticache.UserGroup.UserGroup("exampleUserGroup", new()
     ///     {
     ///         Engine = "REDIS",
     ///         UserGroupId = "userGroupId",
@@ -46,7 +46,7 @@ namespace Pulumi.Aws.ElastiCache
     ///         },
     ///     });
     /// 
-    ///     var exampleUser = new Aws.ElastiCache.User("exampleUser", new()
+    ///     var exampleUser = new Aws.Elasticache.User.User("exampleUser", new()
     ///     {
     ///         UserId = "exampleUserID",
     ///         UserName = "exampleuser",
@@ -58,7 +58,7 @@ namespace Pulumi.Aws.ElastiCache
     ///         },
     ///     });
     /// 
-    ///     var exampleUserGroupAssociation = new Aws.ElastiCache.UserGroupAssociation("exampleUserGroupAssociation", new()
+    ///     var exampleUserGroupAssociation = new Aws.Elasticache.UserGroupAssociation.UserGroupAssociation("exampleUserGroupAssociation", new()
     ///     {
     ///         UserGroupId = exampleUserGroup.UserGroupId,
     ///         UserId = exampleUser.UserId,

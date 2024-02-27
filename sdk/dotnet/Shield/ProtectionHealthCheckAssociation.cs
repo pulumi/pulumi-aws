@@ -16,65 +16,6 @@ namespace Pulumi.Aws.Shield
     /// Blog post: [AWS Shield Advanced now supports Health Based Detection](https://aws.amazon.com/about-aws/whats-new/2020/02/aws-shield-advanced-now-supports-health-based-detection/)
     /// 
     /// ## Example Usage
-    /// ### Create an association between a protected EIP and a Route53 Health Check
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var currentRegion = Aws.GetRegion.Invoke();
-    /// 
-    ///     var currentCallerIdentity = Aws.GetCallerIdentity.Invoke();
-    /// 
-    ///     var currentPartition = Aws.GetPartition.Invoke();
-    /// 
-    ///     var exampleEip = new Aws.Ec2.Eip("exampleEip", new()
-    ///     {
-    ///         Domain = "vpc",
-    ///         Tags = 
-    ///         {
-    ///             { "Name", "example" },
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleProtection = new Aws.Shield.Protection("exampleProtection", new()
-    ///     {
-    ///         ResourceArn = Output.Tuple(currentPartition, currentRegion, currentCallerIdentity, exampleEip.Id).Apply(values =&gt;
-    ///         {
-    ///             var currentPartition = values.Item1;
-    ///             var currentRegion = values.Item2;
-    ///             var currentCallerIdentity = values.Item3;
-    ///             var id = values.Item4;
-    ///             return $"arn:{currentPartition.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:ec2:{currentRegion.Apply(getRegionResult =&gt; getRegionResult.Name)}:{currentCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:eip-allocation/{id}";
-    ///         }),
-    ///     });
-    /// 
-    ///     var exampleHealthCheck = new Aws.Route53.HealthCheck("exampleHealthCheck", new()
-    ///     {
-    ///         IpAddress = exampleEip.PublicIp,
-    ///         Port = 80,
-    ///         Type = "HTTP",
-    ///         ResourcePath = "/ready",
-    ///         FailureThreshold = 3,
-    ///         RequestInterval = 30,
-    ///         Tags = 
-    ///         {
-    ///             { "Name", "tf-example-health-check" },
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleProtectionHealthCheckAssociation = new Aws.Shield.ProtectionHealthCheckAssociation("exampleProtectionHealthCheckAssociation", new()
-    ///     {
-    ///         HealthCheckArn = exampleHealthCheck.Arn,
-    ///         ShieldProtectionId = exampleProtection.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 

@@ -6,17 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Provides details about an Image Builder Component.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.imagebuilder.getComponent({
- *     arn: "arn:aws:imagebuilder:us-west-2:aws:component/amazon-cloudwatch-agent-linux/1.0.0",
- * });
- * ```
  */
 export function getComponent(args: GetComponentArgs, opts?: pulumi.InvokeOptions): Promise<GetComponentResult> {
 
@@ -105,17 +94,6 @@ export interface GetComponentResult {
 }
 /**
  * Provides details about an Image Builder Component.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.imagebuilder.getComponent({
- *     arn: "arn:aws:imagebuilder:us-west-2:aws:component/amazon-cloudwatch-agent-linux/1.0.0",
- * });
- * ```
  */
 export function getComponentOutput(args: GetComponentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetComponentResult> {
     return pulumi.output(args).apply((a: any) => getComponent(a, opts))

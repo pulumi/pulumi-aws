@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = new aws.connect.HoursOfOperation("test", {
+ * const test = new aws.connect/hoursOfOperation.HoursOfOperation("test", {
  *     configs: [
  *         {
  *             day: "MONDAY",

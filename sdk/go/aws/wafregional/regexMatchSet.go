@@ -20,41 +20,40 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/wafregional"
+//	wafregional/regexMatchSet "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/wafregional/regexMatchSet"
+//	wafregional/regexPatternSet "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/wafregional/regexPatternSet"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleRegexPatternSet, err := wafregional.NewRegexPatternSet(ctx, "exampleRegexPatternSet", &wafregional.RegexPatternSetArgs{
-//				RegexPatternStrings: pulumi.StringArray{
-//					pulumi.String("one"),
-//					pulumi.String("two"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = wafregional.NewRegexMatchSet(ctx, "exampleRegexMatchSet", &wafregional.RegexMatchSetArgs{
-//				RegexMatchTuples: wafregional.RegexMatchSetRegexMatchTupleArray{
-//					&wafregional.RegexMatchSetRegexMatchTupleArgs{
-//						FieldToMatch: &wafregional.RegexMatchSetRegexMatchTupleFieldToMatchArgs{
-//							Data: pulumi.String("User-Agent"),
-//							Type: pulumi.String("HEADER"),
-//						},
-//						RegexPatternSetId:  exampleRegexPatternSet.ID(),
-//						TextTransformation: pulumi.String("NONE"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleRegexPatternSet, err := wafregional/regexPatternSet.NewRegexPatternSet(ctx, "exampleRegexPatternSet", &wafregional/regexPatternSet.RegexPatternSetArgs{
+// RegexPatternStrings: []string{
+// "one",
+// "two",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = wafregional/regexMatchSet.NewRegexMatchSet(ctx, "exampleRegexMatchSet", &wafregional/regexMatchSet.RegexMatchSetArgs{
+// RegexMatchTuples: []map[string]interface{}{
+// map[string]interface{}{
+// "fieldToMatch": map[string]interface{}{
+// "data": "User-Agent",
+// "type": "HEADER",
+// },
+// "regexPatternSetId": exampleRegexPatternSet.Id,
+// "textTransformation": "NONE",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

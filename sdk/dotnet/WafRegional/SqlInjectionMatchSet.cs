@@ -22,17 +22,17 @@ namespace Pulumi.Aws.WafRegional
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var sqlInjectionMatchSet = new Aws.WafRegional.SqlInjectionMatchSet("sqlInjectionMatchSet", new()
+    ///     var sqlInjectionMatchSet = new Aws.Wafregional.SqlInjectionMatchSet.SqlInjectionMatchSet("sqlInjectionMatchSet", new()
     ///     {
     ///         SqlInjectionMatchTuples = new[]
     ///         {
-    ///             new Aws.WafRegional.Inputs.SqlInjectionMatchSetSqlInjectionMatchTupleArgs
+    ///             
     ///             {
-    ///                 FieldToMatch = new Aws.WafRegional.Inputs.SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatchArgs
+    ///                 { "fieldToMatch", 
     ///                 {
-    ///                     Type = "QUERY_STRING",
-    ///                 },
-    ///                 TextTransformation = "URL_DECODE",
+    ///                     { "type", "QUERY_STRING" },
+    ///                 } },
+    ///                 { "textTransformation", "URL_DECODE" },
     ///             },
     ///         },
     ///     });

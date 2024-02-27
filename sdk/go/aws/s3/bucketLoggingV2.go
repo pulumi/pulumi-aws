@@ -27,47 +27,47 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	s3/bucketAclV2 "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/s3/bucketAclV2"
+//	s3/bucketLoggingV2 "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/s3/bucketLoggingV2"
+//	s3/bucketV2 "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/s3/bucketV2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = s3.NewBucketAclV2(ctx, "exampleBucketAclV2", &s3.BucketAclV2Args{
-//				Bucket: exampleBucketV2.ID(),
-//				Acl:    pulumi.String("private"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			logBucket, err := s3.NewBucketV2(ctx, "logBucket", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = s3.NewBucketAclV2(ctx, "logBucketAcl", &s3.BucketAclV2Args{
-//				Bucket: logBucket.ID(),
-//				Acl:    pulumi.String("log-delivery-write"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = s3.NewBucketLoggingV2(ctx, "exampleBucketLoggingV2", &s3.BucketLoggingV2Args{
-//				Bucket:       exampleBucketV2.ID(),
-//				TargetBucket: logBucket.ID(),
-//				TargetPrefix: pulumi.String("log/"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleBucketV2, err := s3/bucketV2.NewBucketV2(ctx, "exampleBucketV2", nil)
+// if err != nil {
+// return err
+// }
+// _, err = s3/bucketAclV2.NewBucketAclV2(ctx, "exampleBucketAclV2", &s3/bucketAclV2.BucketAclV2Args{
+// Bucket: exampleBucketV2.Id,
+// Acl: "private",
+// })
+// if err != nil {
+// return err
+// }
+// logBucket, err := s3/bucketV2.NewBucketV2(ctx, "logBucket", nil)
+// if err != nil {
+// return err
+// }
+// _, err = s3/bucketAclV2.NewBucketAclV2(ctx, "logBucketAcl", &s3/bucketAclV2.BucketAclV2Args{
+// Bucket: logBucket.Id,
+// Acl: "log-delivery-write",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = s3/bucketLoggingV2.NewBucketLoggingV2(ctx, "exampleBucketLoggingV2", &s3/bucketLoggingV2.BucketLoggingV2Args{
+// Bucket: exampleBucketV2.Id,
+// TargetBucket: logBucket.Id,
+// TargetPrefix: "log/",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

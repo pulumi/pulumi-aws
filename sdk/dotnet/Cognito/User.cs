@@ -23,9 +23,9 @@ namespace Pulumi.Aws.Cognito
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleUserPool = new Aws.Cognito.UserPool("exampleUserPool");
+    ///     var exampleUserPool = new Aws.Cognito.UserPool.UserPool("exampleUserPool");
     /// 
-    ///     var exampleUser = new Aws.Cognito.User("exampleUser", new()
+    ///     var exampleUser = new Aws.Cognito.User.User("exampleUser", new()
     ///     {
     ///         UserPoolId = exampleUserPool.Id,
     ///         Username = "example",
@@ -43,40 +43,40 @@ namespace Pulumi.Aws.Cognito
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleUserPool = new Aws.Cognito.UserPool("exampleUserPool", new()
+    ///     var exampleUserPool = new Aws.Cognito.UserPool.UserPool("exampleUserPool", new()
     ///     {
     ///         Schemas = new[]
     ///         {
-    ///             new Aws.Cognito.Inputs.UserPoolSchemaArgs
+    ///             
     ///             {
-    ///                 Name = "example",
-    ///                 AttributeDataType = "Boolean",
-    ///                 Mutable = false,
-    ///                 Required = false,
-    ///                 DeveloperOnlyAttribute = false,
+    ///                 { "name", "example" },
+    ///                 { "attributeDataType", "Boolean" },
+    ///                 { "mutable", false },
+    ///                 { "required", false },
+    ///                 { "developerOnlyAttribute", false },
     ///             },
-    ///             new Aws.Cognito.Inputs.UserPoolSchemaArgs
+    ///             
     ///             {
-    ///                 Name = "foo",
-    ///                 AttributeDataType = "String",
-    ///                 Mutable = false,
-    ///                 Required = false,
-    ///                 DeveloperOnlyAttribute = false,
-    ///                 StringAttributeConstraints = null,
+    ///                 { "name", "foo" },
+    ///                 { "attributeDataType", "String" },
+    ///                 { "mutable", false },
+    ///                 { "required", false },
+    ///                 { "developerOnlyAttribute", false },
+    ///                 { "stringAttributeConstraints", null },
     ///             },
     ///         },
     ///     });
     /// 
-    ///     var exampleUser = new Aws.Cognito.User("exampleUser", new()
+    ///     var exampleUser = new Aws.Cognito.User.User("exampleUser", new()
     ///     {
     ///         UserPoolId = exampleUserPool.Id,
     ///         Username = "example",
     ///         Attributes = 
     ///         {
-    ///             { "example", "true" },
+    ///             { "example", true },
     ///             { "foo", "bar" },
     ///             { "email", "no-reply@example.com" },
-    ///             { "email_verified", "true" },
+    ///             { "email_verified", true },
     ///         },
     ///     });
     /// 

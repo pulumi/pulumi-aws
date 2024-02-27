@@ -22,32 +22,31 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssm"
+//	ssm/defaultPatchBaseline "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ssm/defaultPatchBaseline"
+//	ssm/patchBaseline "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ssm/patchBaseline"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			examplePatchBaseline, err := ssm.NewPatchBaseline(ctx, "examplePatchBaseline", &ssm.PatchBaselineArgs{
-//				ApprovedPatches: pulumi.StringArray{
-//					pulumi.String("KB123456"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ssm.NewDefaultPatchBaseline(ctx, "exampleDefaultPatchBaseline", &ssm.DefaultPatchBaselineArgs{
-//				BaselineId:      examplePatchBaseline.ID(),
-//				OperatingSystem: examplePatchBaseline.OperatingSystem,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// examplePatchBaseline, err := ssm/patchBaseline.NewPatchBaseline(ctx, "examplePatchBaseline", &ssm/patchBaseline.PatchBaselineArgs{
+// ApprovedPatches: []string{
+// "KB123456",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = ssm/defaultPatchBaseline.NewDefaultPatchBaseline(ctx, "exampleDefaultPatchBaseline", &ssm/defaultPatchBaseline.DefaultPatchBaselineArgs{
+// BaselineId: examplePatchBaseline.Id,
+// OperatingSystem: examplePatchBaseline.OperatingSystem,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

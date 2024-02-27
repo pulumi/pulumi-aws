@@ -19,47 +19,6 @@ import javax.annotation.Nullable;
 /**
  * Provides a Lightsail Disk resource.
  * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.AwsFunctions;
- * import com.pulumi.aws.inputs.GetAvailabilityZonesArgs;
- * import com.pulumi.aws.lightsail.Disk;
- * import com.pulumi.aws.lightsail.DiskArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var available = AwsFunctions.getAvailabilityZones(GetAvailabilityZonesArgs.builder()
- *             .state(&#34;available&#34;)
- *             .filters(GetAvailabilityZonesFilterArgs.builder()
- *                 .name(&#34;opt-in-status&#34;)
- *                 .values(&#34;opt-in-not-required&#34;)
- *                 .build())
- *             .build());
- * 
- *         var test = new Disk(&#34;test&#34;, DiskArgs.builder()        
- *             .sizeInGb(8)
- *             .availabilityZone(available.applyValue(getAvailabilityZonesResult -&gt; getAvailabilityZonesResult.names()[0]))
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
  * ## Import
  * 
  * Using `pulumi import`, import `aws_lightsail_disk` using the name attribute. For example:

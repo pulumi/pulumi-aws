@@ -20,68 +20,66 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/appstream"
+//	appstream/stack "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/appstream/stack"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := appstream.NewStack(ctx, "example", &appstream.StackArgs{
-//				ApplicationSettings: &appstream.StackApplicationSettingsArgs{
-//					Enabled:       pulumi.Bool(true),
-//					SettingsGroup: pulumi.String("SettingsGroup"),
-//				},
-//				Description: pulumi.String("stack description"),
-//				DisplayName: pulumi.String("stack display name"),
-//				FeedbackUrl: pulumi.String("http://your-domain/feedback"),
-//				RedirectUrl: pulumi.String("http://your-domain/redirect"),
-//				StorageConnectors: appstream.StackStorageConnectorArray{
-//					&appstream.StackStorageConnectorArgs{
-//						ConnectorType: pulumi.String("HOMEFOLDERS"),
-//					},
-//				},
-//				Tags: pulumi.StringMap{
-//					"TagName": pulumi.String("TagValue"),
-//				},
-//				UserSettings: appstream.StackUserSettingArray{
-//					&appstream.StackUserSettingArgs{
-//						Action:     pulumi.String("CLIPBOARD_COPY_FROM_LOCAL_DEVICE"),
-//						Permission: pulumi.String("ENABLED"),
-//					},
-//					&appstream.StackUserSettingArgs{
-//						Action:     pulumi.String("CLIPBOARD_COPY_TO_LOCAL_DEVICE"),
-//						Permission: pulumi.String("ENABLED"),
-//					},
-//					&appstream.StackUserSettingArgs{
-//						Action:     pulumi.String("DOMAIN_PASSWORD_SIGNIN"),
-//						Permission: pulumi.String("ENABLED"),
-//					},
-//					&appstream.StackUserSettingArgs{
-//						Action:     pulumi.String("DOMAIN_SMART_CARD_SIGNIN"),
-//						Permission: pulumi.String("DISABLED"),
-//					},
-//					&appstream.StackUserSettingArgs{
-//						Action:     pulumi.String("FILE_DOWNLOAD"),
-//						Permission: pulumi.String("ENABLED"),
-//					},
-//					&appstream.StackUserSettingArgs{
-//						Action:     pulumi.String("FILE_UPLOAD"),
-//						Permission: pulumi.String("ENABLED"),
-//					},
-//					&appstream.StackUserSettingArgs{
-//						Action:     pulumi.String("PRINTING_TO_LOCAL_DEVICE"),
-//						Permission: pulumi.String("ENABLED"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := appstream/stack.NewStack(ctx, "example", &appstream/stack.StackArgs{
+// ApplicationSettings: map[string]interface{}{
+// "enabled": true,
+// "settingsGroup": "SettingsGroup",
+// },
+// Description: "stack description",
+// DisplayName: "stack display name",
+// FeedbackUrl: "http://your-domain/feedback",
+// RedirectUrl: "http://your-domain/redirect",
+// StorageConnectors: []map[string]interface{}{
+// map[string]interface{}{
+// "connectorType": "HOMEFOLDERS",
+// },
+// },
+// Tags: map[string]interface{}{
+// "TagName": "TagValue",
+// },
+// UserSettings: []map[string]interface{}{
+// map[string]interface{}{
+// "action": "CLIPBOARD_COPY_FROM_LOCAL_DEVICE",
+// "permission": "ENABLED",
+// },
+// map[string]interface{}{
+// "action": "CLIPBOARD_COPY_TO_LOCAL_DEVICE",
+// "permission": "ENABLED",
+// },
+// map[string]interface{}{
+// "action": "DOMAIN_PASSWORD_SIGNIN",
+// "permission": "ENABLED",
+// },
+// map[string]interface{}{
+// "action": "DOMAIN_SMART_CARD_SIGNIN",
+// "permission": "DISABLED",
+// },
+// map[string]interface{}{
+// "action": "FILE_DOWNLOAD",
+// "permission": "ENABLED",
+// },
+// map[string]interface{}{
+// "action": "FILE_UPLOAD",
+// "permission": "ENABLED",
+// },
+// map[string]interface{}{
+// "action": "PRINTING_TO_LOCAL_DEVICE",
+// "permission": "ENABLED",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

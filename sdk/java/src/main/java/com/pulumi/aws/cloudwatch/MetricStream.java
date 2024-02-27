@@ -24,142 +24,6 @@ import javax.annotation.Nullable;
  * Provides a CloudWatch Metric Stream resource.
  * 
  * ## Example Usage
- * ### Filters
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.iam.IamFunctions;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
- * import com.pulumi.aws.iam.Role;
- * import com.pulumi.aws.iam.RoleArgs;
- * import com.pulumi.aws.s3.BucketV2;
- * import com.pulumi.aws.kinesis.FirehoseDeliveryStream;
- * import com.pulumi.aws.kinesis.FirehoseDeliveryStreamArgs;
- * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamExtendedS3ConfigurationArgs;
- * import com.pulumi.aws.cloudwatch.MetricStream;
- * import com.pulumi.aws.cloudwatch.MetricStreamArgs;
- * import com.pulumi.aws.cloudwatch.inputs.MetricStreamIncludeFilterArgs;
- * import com.pulumi.aws.iam.RolePolicy;
- * import com.pulumi.aws.iam.RolePolicyArgs;
- * import com.pulumi.aws.s3.BucketAclV2;
- * import com.pulumi.aws.s3.BucketAclV2Args;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var streamsAssumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect(&#34;Allow&#34;)
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type(&#34;Service&#34;)
- *                     .identifiers(&#34;streams.metrics.cloudwatch.amazonaws.com&#34;)
- *                     .build())
- *                 .actions(&#34;sts:AssumeRole&#34;)
- *                 .build())
- *             .build());
- * 
- *         var metricStreamToFirehoseRole = new Role(&#34;metricStreamToFirehoseRole&#34;, RoleArgs.builder()        
- *             .assumeRolePolicy(streamsAssumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
- *             .build());
- * 
- *         var bucket = new BucketV2(&#34;bucket&#34;);
- * 
- *         final var firehoseAssumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect(&#34;Allow&#34;)
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type(&#34;Service&#34;)
- *                     .identifiers(&#34;firehose.amazonaws.com&#34;)
- *                     .build())
- *                 .actions(&#34;sts:AssumeRole&#34;)
- *                 .build())
- *             .build());
- * 
- *         var firehoseToS3Role = new Role(&#34;firehoseToS3Role&#34;, RoleArgs.builder()        
- *             .assumeRolePolicy(firehoseAssumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
- *             .build());
- * 
- *         var s3Stream = new FirehoseDeliveryStream(&#34;s3Stream&#34;, FirehoseDeliveryStreamArgs.builder()        
- *             .destination(&#34;extended_s3&#34;)
- *             .extendedS3Configuration(FirehoseDeliveryStreamExtendedS3ConfigurationArgs.builder()
- *                 .roleArn(firehoseToS3Role.arn())
- *                 .bucketArn(bucket.arn())
- *                 .build())
- *             .build());
- * 
- *         var main = new MetricStream(&#34;main&#34;, MetricStreamArgs.builder()        
- *             .roleArn(metricStreamToFirehoseRole.arn())
- *             .firehoseArn(s3Stream.arn())
- *             .outputFormat(&#34;json&#34;)
- *             .includeFilters(            
- *                 MetricStreamIncludeFilterArgs.builder()
- *                     .namespace(&#34;AWS/EC2&#34;)
- *                     .metricNames(                    
- *                         &#34;CPUUtilization&#34;,
- *                         &#34;NetworkOut&#34;)
- *                     .build(),
- *                 MetricStreamIncludeFilterArgs.builder()
- *                     .namespace(&#34;AWS/EBS&#34;)
- *                     .metricNames()
- *                     .build())
- *             .build());
- * 
- *         final var metricStreamToFirehosePolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect(&#34;Allow&#34;)
- *                 .actions(                
- *                     &#34;firehose:PutRecord&#34;,
- *                     &#34;firehose:PutRecordBatch&#34;)
- *                 .resources(s3Stream.arn())
- *                 .build())
- *             .build());
- * 
- *         var metricStreamToFirehoseRolePolicy = new RolePolicy(&#34;metricStreamToFirehoseRolePolicy&#34;, RolePolicyArgs.builder()        
- *             .role(metricStreamToFirehoseRole.id())
- *             .policy(metricStreamToFirehosePolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(metricStreamToFirehosePolicyDocument -&gt; metricStreamToFirehosePolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
- *             .build());
- * 
- *         var bucketAcl = new BucketAclV2(&#34;bucketAcl&#34;, BucketAclV2Args.builder()        
- *             .bucket(bucket.id())
- *             .acl(&#34;private&#34;)
- *             .build());
- * 
- *         final var firehoseToS3PolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect(&#34;Allow&#34;)
- *                 .actions(                
- *                     &#34;s3:AbortMultipartUpload&#34;,
- *                     &#34;s3:GetBucketLocation&#34;,
- *                     &#34;s3:GetObject&#34;,
- *                     &#34;s3:ListBucket&#34;,
- *                     &#34;s3:ListBucketMultipartUploads&#34;,
- *                     &#34;s3:PutObject&#34;)
- *                 .resources(                
- *                     bucket.arn(),
- *                     bucket.arn().applyValue(arn -&gt; String.format(&#34;%s/*&#34;, arn)))
- *                 .build())
- *             .build());
- * 
- *         var firehoseToS3RolePolicy = new RolePolicy(&#34;firehoseToS3RolePolicy&#34;, RolePolicyArgs.builder()        
- *             .role(firehoseToS3Role.id())
- *             .policy(firehoseToS3PolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(firehoseToS3PolicyDocument -&gt; firehoseToS3PolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
- *             .build());
- * 
- *     }
- * }
- * ```
  * ### Additional Statistics
  * ```java
  * package generated_program;
@@ -169,7 +33,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.cloudwatch.MetricStream;
  * import com.pulumi.aws.cloudwatch.MetricStreamArgs;
- * import com.pulumi.aws.cloudwatch.inputs.MetricStreamStatisticsConfigurationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -188,22 +51,8 @@ import javax.annotation.Nullable;
  *             .firehoseArn(aws_kinesis_firehose_delivery_stream.s3_stream().arn())
  *             .outputFormat(&#34;json&#34;)
  *             .statisticsConfigurations(            
- *                 MetricStreamStatisticsConfigurationArgs.builder()
- *                     .additionalStatistics(                    
- *                         &#34;p1&#34;,
- *                         &#34;tm99&#34;)
- *                     .includeMetrics(MetricStreamStatisticsConfigurationIncludeMetricArgs.builder()
- *                         .metricName(&#34;CPUUtilization&#34;)
- *                         .namespace(&#34;AWS/EC2&#34;)
- *                         .build())
- *                     .build(),
- *                 MetricStreamStatisticsConfigurationArgs.builder()
- *                     .additionalStatistics(&#34;TS(50.5:)&#34;)
- *                     .includeMetrics(MetricStreamStatisticsConfigurationIncludeMetricArgs.builder()
- *                         .metricName(&#34;CPUUtilization&#34;)
- *                         .namespace(&#34;AWS/EC2&#34;)
- *                         .build())
- *                     .build())
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

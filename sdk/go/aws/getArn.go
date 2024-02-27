@@ -12,32 +12,6 @@ import (
 )
 
 // Parses an ARN into its constituent parts.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := aws.GetArn(ctx, &aws.GetArnArgs{
-//				Arn: "arn:aws:rds:eu-west-1:123456789012:db:mysql-db",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetArn(ctx *pulumi.Context, args *GetArnArgs, opts ...pulumi.InvokeOption) (*GetArnResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetArnResult

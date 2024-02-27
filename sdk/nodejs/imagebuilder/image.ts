@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.imagebuilder.Image("example", {
+ * const example = new aws.imagebuilder/image.Image("example", {
  *     distributionConfigurationArn: aws_imagebuilder_distribution_configuration.example.arn,
  *     imageRecipeArn: aws_imagebuilder_image_recipe.example.arn,
  *     infrastructureConfigurationArn: aws_imagebuilder_infrastructure_configuration.example.arn,

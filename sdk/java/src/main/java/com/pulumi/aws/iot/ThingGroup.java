@@ -31,8 +31,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.iot.ThingGroup;
  * import com.pulumi.aws.iot.ThingGroupArgs;
- * import com.pulumi.aws.iot.inputs.ThingGroupPropertiesArgs;
- * import com.pulumi.aws.iot.inputs.ThingGroupPropertiesAttributePayloadArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -50,16 +48,8 @@ import javax.annotation.Nullable;
  * 
  *         var example = new ThingGroup(&#34;example&#34;, ThingGroupArgs.builder()        
  *             .parentGroupName(parent.name())
- *             .properties(ThingGroupPropertiesArgs.builder()
- *                 .attributePayload(ThingGroupPropertiesAttributePayloadArgs.builder()
- *                     .attributes(Map.ofEntries(
- *                         Map.entry(&#34;One&#34;, &#34;11111&#34;),
- *                         Map.entry(&#34;Two&#34;, &#34;TwoTwo&#34;)
- *                     ))
- *                     .build())
- *                 .description(&#34;This is my thing group&#34;)
- *                 .build())
- *             .tags(Map.of(&#34;managed&#34;, &#34;true&#34;))
+ *             .properties(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

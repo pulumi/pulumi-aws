@@ -6,17 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieve information about a Location Service Tracker.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.location.getTracker({
- *     trackerName: "example",
- * });
- * ```
  */
 export function getTracker(args: GetTrackerArgs, opts?: pulumi.InvokeOptions): Promise<GetTrackerResult> {
 
@@ -81,17 +70,6 @@ export interface GetTrackerResult {
 }
 /**
  * Retrieve information about a Location Service Tracker.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.location.getTracker({
- *     trackerName: "example",
- * });
- * ```
  */
 export function getTrackerOutput(args: GetTrackerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTrackerResult> {
     return pulumi.output(args).apply((a: any) => getTracker(a, opts))

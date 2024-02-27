@@ -13,13 +13,13 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const fooVpc = new aws.ec2.Vpc("fooVpc", {
+ * const fooVpc = new aws.ec2/vpc.Vpc("fooVpc", {
  *     cidrBlock: "10.0.0.0/16",
  *     tags: {
  *         Name: "tf-test",
  *     },
  * });
- * const fooSubnet = new aws.ec2.Subnet("fooSubnet", {
+ * const fooSubnet = new aws.ec2/subnet.Subnet("fooSubnet", {
  *     vpcId: fooVpc.id,
  *     cidrBlock: "10.0.0.0/24",
  *     availabilityZone: "us-west-2a",
@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  *         Name: "tf-test",
  *     },
  * });
- * const bar = new aws.elasticache.SubnetGroup("bar", {subnetIds: [fooSubnet.id]});
+ * const bar = new aws.elasticache/subnetGroup.SubnetGroup("bar", {subnetIds: [fooSubnet.id]});
  * ```
  *
  * ## Import

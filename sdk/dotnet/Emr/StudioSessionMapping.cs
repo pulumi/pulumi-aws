@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Emr
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Emr.StudioSessionMapping("example", new()
+    ///     var example = new Aws.Emr.StudioSessionMapping.StudioSessionMapping("example", new()
     ///     {
     ///         StudioId = aws_emr_studio.Example.Id,
     ///         IdentityType = "USER",

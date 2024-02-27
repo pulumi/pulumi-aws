@@ -274,29 +274,29 @@ class EventEndpoint(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        this = aws.cloudwatch.EventEndpoint("this",
-            role_arn=aws_iam_role["replication"]["arn"],
+        this = aws.cloudwatch.event_endpoint.EventEndpoint("this",
+            role_arn=aws_iam_role.replication.arn,
             event_buses=[
-                aws.cloudwatch.EventEndpointEventBusArgs(
-                    event_bus_arn=aws_cloudwatch_event_bus["primary"]["arn"],
-                ),
-                aws.cloudwatch.EventEndpointEventBusArgs(
-                    event_bus_arn=aws_cloudwatch_event_bus["secondary"]["arn"],
-                ),
+                {
+                    eventBusArn: aws_cloudwatch_event_bus.primary.arn,
+                },
+                {
+                    eventBusArn: aws_cloudwatch_event_bus.secondary.arn,
+                },
             ],
-            replication_config=aws.cloudwatch.EventEndpointReplicationConfigArgs(
-                state="DISABLED",
-            ),
-            routing_config=aws.cloudwatch.EventEndpointRoutingConfigArgs(
-                failover_config=aws.cloudwatch.EventEndpointRoutingConfigFailoverConfigArgs(
-                    primary=aws.cloudwatch.EventEndpointRoutingConfigFailoverConfigPrimaryArgs(
-                        health_check=aws_route53_health_check["primary"]["arn"],
-                    ),
-                    secondary=aws.cloudwatch.EventEndpointRoutingConfigFailoverConfigSecondaryArgs(
-                        route="us-east-2",
-                    ),
-                ),
-            ))
+            replication_config={
+                state: DISABLED,
+            },
+            routing_config={
+                failoverConfig: {
+                    primary: {
+                        healthCheck: aws_route53_health_check.primary.arn,
+                    },
+                    secondary: {
+                        route: us-east-2,
+                    },
+                },
+            })
         ```
 
         ## Import
@@ -333,29 +333,29 @@ class EventEndpoint(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        this = aws.cloudwatch.EventEndpoint("this",
-            role_arn=aws_iam_role["replication"]["arn"],
+        this = aws.cloudwatch.event_endpoint.EventEndpoint("this",
+            role_arn=aws_iam_role.replication.arn,
             event_buses=[
-                aws.cloudwatch.EventEndpointEventBusArgs(
-                    event_bus_arn=aws_cloudwatch_event_bus["primary"]["arn"],
-                ),
-                aws.cloudwatch.EventEndpointEventBusArgs(
-                    event_bus_arn=aws_cloudwatch_event_bus["secondary"]["arn"],
-                ),
+                {
+                    eventBusArn: aws_cloudwatch_event_bus.primary.arn,
+                },
+                {
+                    eventBusArn: aws_cloudwatch_event_bus.secondary.arn,
+                },
             ],
-            replication_config=aws.cloudwatch.EventEndpointReplicationConfigArgs(
-                state="DISABLED",
-            ),
-            routing_config=aws.cloudwatch.EventEndpointRoutingConfigArgs(
-                failover_config=aws.cloudwatch.EventEndpointRoutingConfigFailoverConfigArgs(
-                    primary=aws.cloudwatch.EventEndpointRoutingConfigFailoverConfigPrimaryArgs(
-                        health_check=aws_route53_health_check["primary"]["arn"],
-                    ),
-                    secondary=aws.cloudwatch.EventEndpointRoutingConfigFailoverConfigSecondaryArgs(
-                        route="us-east-2",
-                    ),
-                ),
-            ))
+            replication_config={
+                state: DISABLED,
+            },
+            routing_config={
+                failoverConfig: {
+                    primary: {
+                        healthCheck: aws_route53_health_check.primary.arn,
+                    },
+                    secondary: {
+                        route: us-east-2,
+                    },
+                },
+            })
         ```
 
         ## Import

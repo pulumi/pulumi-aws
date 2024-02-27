@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.ivschat.Room("example", {});
+ * const example = new aws.ivschat/room.Room("example", {});
  * ```
  * ## Usage with Logging Configuration to S3 Bucket
  *
@@ -25,16 +25,16 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleBucketV2 = new aws.s3.BucketV2("exampleBucketV2", {
+ * const exampleBucketV2 = new aws.s3/bucketV2.BucketV2("exampleBucketV2", {
  *     bucketPrefix: "tf-ivschat-logging-bucket-",
  *     forceDestroy: true,
  * });
- * const exampleLoggingConfiguration = new aws.ivschat.LoggingConfiguration("exampleLoggingConfiguration", {destinationConfiguration: {
+ * const exampleLoggingConfiguration = new aws.ivschat/loggingConfiguration.LoggingConfiguration("exampleLoggingConfiguration", {destinationConfiguration: {
  *     s3: {
  *         bucketName: exampleBucketV2.id,
  *     },
  * }});
- * const exampleRoom = new aws.ivschat.Room("exampleRoom", {loggingConfigurationIdentifiers: [exampleLoggingConfiguration.arn]});
+ * const exampleRoom = new aws.ivschat/room.Room("exampleRoom", {loggingConfigurationIdentifiers: [exampleLoggingConfiguration.arn]});
  * ```
  *
  * ## Import

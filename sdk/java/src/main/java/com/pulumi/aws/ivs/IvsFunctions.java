@@ -18,35 +18,6 @@ public final class IvsFunctions {
      * Data source for managing an AWS IVS (Interactive Video) Stream Key.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ivs.IvsFunctions;
-     * import com.pulumi.aws.ivs.inputs.GetStreamKeyArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = IvsFunctions.getStreamKey(GetStreamKeyArgs.builder()
-     *             .channelArn(&#34;arn:aws:ivs:us-west-2:326937407773:channel/0Y1lcs4U7jk5&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetStreamKeyResult> getStreamKey(GetStreamKeyArgs args) {
@@ -56,35 +27,6 @@ public final class IvsFunctions {
      * Data source for managing an AWS IVS (Interactive Video) Stream Key.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ivs.IvsFunctions;
-     * import com.pulumi.aws.ivs.inputs.GetStreamKeyArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = IvsFunctions.getStreamKey(GetStreamKeyArgs.builder()
-     *             .channelArn(&#34;arn:aws:ivs:us-west-2:326937407773:channel/0Y1lcs4U7jk5&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetStreamKeyResult> getStreamKeyPlain(GetStreamKeyPlainArgs args) {
@@ -94,35 +36,6 @@ public final class IvsFunctions {
      * Data source for managing an AWS IVS (Interactive Video) Stream Key.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ivs.IvsFunctions;
-     * import com.pulumi.aws.ivs.inputs.GetStreamKeyArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = IvsFunctions.getStreamKey(GetStreamKeyArgs.builder()
-     *             .channelArn(&#34;arn:aws:ivs:us-west-2:326937407773:channel/0Y1lcs4U7jk5&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetStreamKeyResult> getStreamKey(GetStreamKeyArgs args, InvokeOptions options) {
@@ -132,35 +45,6 @@ public final class IvsFunctions {
      * Data source for managing an AWS IVS (Interactive Video) Stream Key.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ivs.IvsFunctions;
-     * import com.pulumi.aws.ivs.inputs.GetStreamKeyArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = IvsFunctions.getStreamKey(GetStreamKeyArgs.builder()
-     *             .channelArn(&#34;arn:aws:ivs:us-west-2:326937407773:channel/0Y1lcs4U7jk5&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetStreamKeyResult> getStreamKeyPlain(GetStreamKeyPlainArgs args, InvokeOptions options) {

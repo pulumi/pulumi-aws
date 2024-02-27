@@ -23,41 +23,41 @@ namespace Pulumi.Aws.Lex
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var orderFlowersBot = new Aws.Lex.Bot("orderFlowersBot", new()
+    ///     var orderFlowersBot = new Aws.Lex.Bot.Bot("orderFlowersBot", new()
     ///     {
-    ///         AbortStatement = new Aws.Lex.Inputs.BotAbortStatementArgs
+    ///         AbortStatement = 
     ///         {
-    ///             Messages = new[]
+    ///             { "messages", new[]
     ///             {
-    ///                 new Aws.Lex.Inputs.BotAbortStatementMessageArgs
+    ///                 
     ///                 {
-    ///                     Content = "Sorry, I am not able to assist at this time",
-    ///                     ContentType = "PlainText",
+    ///                     { "content", "Sorry, I am not able to assist at this time" },
+    ///                     { "contentType", "PlainText" },
     ///                 },
-    ///             },
+    ///             } },
     ///         },
     ///         ChildDirected = false,
-    ///         ClarificationPrompt = new Aws.Lex.Inputs.BotClarificationPromptArgs
+    ///         ClarificationPrompt = 
     ///         {
-    ///             MaxAttempts = 2,
-    ///             Messages = new[]
+    ///             { "maxAttempts", 2 },
+    ///             { "messages", new[]
     ///             {
-    ///                 new Aws.Lex.Inputs.BotClarificationPromptMessageArgs
+    ///                 
     ///                 {
-    ///                     Content = "I didn't understand you, what would you like to do?",
-    ///                     ContentType = "PlainText",
+    ///                     { "content", "I didn't understand you, what would you like to do?" },
+    ///                     { "contentType", "PlainText" },
     ///                 },
-    ///             },
+    ///             } },
     ///         },
     ///         CreateVersion = false,
     ///         Description = "Bot to order flowers on the behalf of a user",
     ///         IdleSessionTtlInSeconds = 600,
     ///         Intents = new[]
     ///         {
-    ///             new Aws.Lex.Inputs.BotIntentArgs
+    ///             
     ///             {
-    ///                 IntentName = "OrderFlowers",
-    ///                 IntentVersion = "1",
+    ///                 { "intentName", "OrderFlowers" },
+    ///                 { "intentVersion", "1" },
     ///             },
     ///         },
     ///         Locale = "en-US",

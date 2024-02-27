@@ -50,7 +50,7 @@ import javax.annotation.Nullable;
  *             .snsTopicArn(aws_sns_topic.example().arn())
  *             .sourceIds(aws_dms_replication_task.example().replication_task_id())
  *             .sourceType(&#34;replication-task&#34;)
- *             .tags(Map.of(&#34;Name&#34;, &#34;example&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

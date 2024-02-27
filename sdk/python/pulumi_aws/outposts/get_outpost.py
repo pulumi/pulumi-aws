@@ -173,15 +173,6 @@ def get_outpost(arn: Optional[str] = None,
     """
     Provides details about an Outposts Outpost.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.outposts.get_outpost(name="example")
-    ```
-
 
     :param str arn: ARN.
     :param str id: Identifier of the Outpost.
@@ -222,15 +213,6 @@ def get_outpost_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOutpostResult]:
     """
     Provides details about an Outposts Outpost.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.outposts.get_outpost(name="example")
-    ```
 
 
     :param str arn: ARN.

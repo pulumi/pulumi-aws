@@ -12,32 +12,6 @@ import (
 )
 
 // Provides details about multiple Amazon API Gateway Version 2 APIs.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigatewayv2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := apigatewayv2.GetApis(ctx, &apigatewayv2.GetApisArgs{
-//				ProtocolType: pulumi.StringRef("HTTP"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetApis(ctx *pulumi.Context, args *GetApisArgs, opts ...pulumi.InvokeOption) (*GetApisResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetApisResult

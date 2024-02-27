@@ -28,7 +28,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Ec2.ManagedPrefixList("example", new()
+    ///     var example = new Aws.Ec2.ManagedPrefixList.ManagedPrefixList("example", new()
     ///     {
     ///         AddressFamily = "IPv4",
     ///         MaxEntries = 5,
@@ -38,7 +38,7 @@ namespace Pulumi.Aws.Ec2
     ///         },
     ///     });
     /// 
-    ///     var entry1 = new Aws.Ec2.ManagedPrefixListEntry("entry1", new()
+    ///     var entry1 = new Aws.Ec2.ManagedPrefixListEntry.ManagedPrefixListEntry("entry1", new()
     ///     {
     ///         Cidr = aws_vpc.Example.Cidr_block,
     ///         Description = "Primary",

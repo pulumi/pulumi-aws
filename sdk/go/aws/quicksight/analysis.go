@@ -22,34 +22,110 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/quicksight"
+//	quicksight/analysis "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/quicksight/analysis"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := quicksight/analysis.NewAnalysis(ctx, "example", &quicksight/analysis.AnalysisArgs{
+// AnalysisId: "example-id",
+// SourceEntity: map[string]interface{}{
+// "sourceTemplate": map[string]interface{}{
+// "arn": aws_quicksight_template.Source.Arn,
+// "dataSetReferences": []map[string]interface{}{
+// map[string]interface{}{
+// "dataSetArn": aws_quicksight_data_set.Dataset.Arn,
+// "dataSetPlaceholder": "1",
+// },
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
+// ```
+// ### With Definition
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := quicksight.NewAnalysis(ctx, "example", &quicksight.AnalysisArgs{
-//				AnalysisId: pulumi.String("example-id"),
-//				SourceEntity: &quicksight.AnalysisSourceEntityArgs{
-//					SourceTemplate: &quicksight.AnalysisSourceEntitySourceTemplateArgs{
-//						Arn: pulumi.Any(aws_quicksight_template.Source.Arn),
-//						DataSetReferences: quicksight.AnalysisSourceEntitySourceTemplateDataSetReferenceArray{
-//							&quicksight.AnalysisSourceEntitySourceTemplateDataSetReferenceArgs{
-//								DataSetArn:         pulumi.Any(aws_quicksight_data_set.Dataset.Arn),
-//								DataSetPlaceholder: pulumi.String("1"),
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
+// ```go
+// package main
 //
+// import (
+//
+//	quicksight/analysis "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/quicksight/analysis"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := quicksight/analysis.NewAnalysis(ctx, "example", &quicksight/analysis.AnalysisArgs{
+// AnalysisId: "example-id",
+// Definition: map[string]interface{}{
+// "dataSetIdentifiersDeclarations": []map[string]interface{}{
+// map[string]interface{}{
+// "dataSetArn": aws_quicksight_data_set.Dataset.Arn,
+// "identifier": "1",
+// },
+// },
+// "sheets": []map[string]interface{}{
+// map[string]interface{}{
+// "title": "Example",
+// "sheetId": "Example1",
+// "visuals": []map[string]interface{}{
+// map[string]interface{}{
+// "lineChartVisual": map[string]interface{}{
+// "visualId": "LineChart",
+// "title": map[string]interface{}{
+// "formatText": map[string]interface{}{
+// "plainText": "Line Chart Example",
+// },
+// },
+// "chartConfiguration": map[string]interface{}{
+// "fieldWells": map[string]interface{}{
+// "lineChartAggregatedFieldWells": map[string]interface{}{
+// "categories": []map[string]interface{}{
+// map[string]interface{}{
+// "categoricalDimensionField": map[string]interface{}{
+// "fieldId": "1",
+// "column": map[string]interface{}{
+// "dataSetIdentifier": "1",
+// "columnName": "Column1",
+// },
+// },
+// },
+// },
+// "values": []map[string]interface{}{
+// map[string]interface{}{
+// "categoricalMeasureField": map[string]interface{}{
+// "fieldId": "2",
+// "column": map[string]interface{}{
+// "dataSetIdentifier": "1",
+// "columnName": "Column1",
+// },
+// "aggregationFunction": "COUNT",
+// },
+// },
+// },
+// },
+// },
+// },
+// },
+// },
+// },
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

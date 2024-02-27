@@ -32,7 +32,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.gamelift.Fleet;
  * import com.pulumi.aws.gamelift.FleetArgs;
- * import com.pulumi.aws.gamelift.inputs.FleetRuntimeConfigurationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -50,12 +49,7 @@ import javax.annotation.Nullable;
  *             .buildId(aws_gamelift_build.example().id())
  *             .ec2InstanceType(&#34;t2.micro&#34;)
  *             .fleetType(&#34;ON_DEMAND&#34;)
- *             .runtimeConfiguration(FleetRuntimeConfigurationArgs.builder()
- *                 .serverProcesses(FleetRuntimeConfigurationServerProcessArgs.builder()
- *                     .concurrentExecutions(1)
- *                     .launchPath(&#34;C:\\game\\GomokuServer.exe&#34;)
- *                     .build())
- *                 .build())
+ *             .runtimeConfiguration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

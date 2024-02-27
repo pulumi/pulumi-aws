@@ -274,16 +274,6 @@ def get_node_group(cluster_name: Optional[str] = None,
     """
     Retrieve information about an EKS Node Group.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.eks.get_node_group(cluster_name="example",
-        node_group_name="example")
-    ```
-
 
     :param str cluster_name: Name of the cluster.
     :param str node_group_name: Name of the node group.
@@ -326,16 +316,6 @@ def get_node_group_output(cluster_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNodeGroupResult]:
     """
     Retrieve information about an EKS Node Group.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.eks.get_node_group(cluster_name="example",
-        node_group_name="example")
-    ```
 
 
     :param str cluster_name: Name of the cluster.

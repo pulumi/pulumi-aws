@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Location
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Location.RouteCalculation("example", new()
+    ///     var example = new Aws.Location.RouteCalculation.RouteCalculation("example", new()
     ///     {
     ///         CalculatorName = "example",
     ///         DataSource = "Here",

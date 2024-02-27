@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Bedrock
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Bedrock.ProvisionedModelThroughput("example", new()
+    ///     var example = new Aws.Bedrock.ProvisionedModelThroughput.ProvisionedModelThroughput("example", new()
     ///     {
     ///         CommitmentDuration = "SixMonths",
     ///         ModelArn = "arn:aws:bedrock:us-east-1::foundation-model/anthropic.claude-v2",

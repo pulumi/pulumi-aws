@@ -23,24 +23,22 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/codestarconnections"
+//	codestarconnections/host "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/codestarconnections/host"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := codestarconnections.NewHost(ctx, "example", &codestarconnections.HostArgs{
-//				ProviderEndpoint: pulumi.String("https://example.com"),
-//				ProviderType:     pulumi.String("GitHubEnterpriseServer"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := codestarconnections/host.NewHost(ctx, "example", &codestarconnections/host.HostArgs{
+// ProviderEndpoint: "https://example.com",
+// ProviderType: "GitHubEnterpriseServer",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

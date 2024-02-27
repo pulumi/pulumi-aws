@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.ec2.DefaultRouteTable("example", {
+ * const example = new aws.ec2/defaultRouteTable.DefaultRouteTable("example", {
  *     defaultRouteTableId: aws_vpc.example.default_route_table_id,
  *     routes: [
  *         {
@@ -46,7 +46,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.ec2.DefaultRouteTable("example", {
+ * const example = new aws.ec2/defaultRouteTable.DefaultRouteTable("example", {
  *     defaultRouteTableId: aws_vpc.example.default_route_table_id,
  *     routes: [],
  *     tags: {

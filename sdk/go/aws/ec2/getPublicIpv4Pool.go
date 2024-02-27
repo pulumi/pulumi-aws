@@ -14,31 +14,6 @@ import (
 // Provides details about a specific AWS EC2 Public IPv4 Pool.
 //
 // ## Example Usage
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.GetPublicIpv4Pool(ctx, &ec2.GetPublicIpv4PoolArgs{
-//				PoolId: "ipv4pool-ec2-000df99cff0c1ec10",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetPublicIpv4Pool(ctx *pulumi.Context, args *GetPublicIpv4PoolArgs, opts ...pulumi.InvokeOption) (*GetPublicIpv4PoolResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetPublicIpv4PoolResult

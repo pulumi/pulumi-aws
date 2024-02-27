@@ -167,53 +167,6 @@ def get_permissions(catalog_id: Optional[str] = None,
     > **NOTE:** This data source deals with explicitly granted permissions. Lake Formation grants implicit permissions to data lake administrators, database creators, and table creators. For more information, see [Implicit Lake Formation Permissions](https://docs.aws.amazon.com/lake-formation/latest/dg/implicit-permissions.html).
 
     ## Example Usage
-    ### Permissions For A Lake Formation S3 Resource
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.lakeformation.get_permissions(principal=aws_iam_role["workflow_role"]["arn"],
-        data_location=aws.lakeformation.GetPermissionsDataLocationArgs(
-            arn=aws_lakeformation_resource["test"]["arn"],
-        ))
-    ```
-    ### Permissions For A Glue Catalog Database
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.lakeformation.get_permissions(principal=aws_iam_role["workflow_role"]["arn"],
-        database=aws.lakeformation.GetPermissionsDatabaseArgs(
-            name=aws_glue_catalog_database["test"]["name"],
-            catalog_id="110376042874",
-        ))
-    ```
-    ### Permissions For Tag-Based Access Control
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.lakeformation.get_permissions(principal=aws_iam_role["workflow_role"]["arn"],
-        lf_tag_policy=aws.lakeformation.GetPermissionsLfTagPolicyArgs(
-            resource_type="DATABASE",
-            expressions=[
-                aws.lakeformation.GetPermissionsLfTagPolicyExpressionArgs(
-                    key="Team",
-                    values=["Sales"],
-                ),
-                aws.lakeformation.GetPermissionsLfTagPolicyExpressionArgs(
-                    key="Environment",
-                    values=[
-                        "Dev",
-                        "Production",
-                    ],
-                ),
-            ],
-        ))
-    ```
 
 
     :param str catalog_id: Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
@@ -275,53 +228,6 @@ def get_permissions_output(catalog_id: Optional[pulumi.Input[Optional[str]]] = N
     > **NOTE:** This data source deals with explicitly granted permissions. Lake Formation grants implicit permissions to data lake administrators, database creators, and table creators. For more information, see [Implicit Lake Formation Permissions](https://docs.aws.amazon.com/lake-formation/latest/dg/implicit-permissions.html).
 
     ## Example Usage
-    ### Permissions For A Lake Formation S3 Resource
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.lakeformation.get_permissions(principal=aws_iam_role["workflow_role"]["arn"],
-        data_location=aws.lakeformation.GetPermissionsDataLocationArgs(
-            arn=aws_lakeformation_resource["test"]["arn"],
-        ))
-    ```
-    ### Permissions For A Glue Catalog Database
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.lakeformation.get_permissions(principal=aws_iam_role["workflow_role"]["arn"],
-        database=aws.lakeformation.GetPermissionsDatabaseArgs(
-            name=aws_glue_catalog_database["test"]["name"],
-            catalog_id="110376042874",
-        ))
-    ```
-    ### Permissions For Tag-Based Access Control
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.lakeformation.get_permissions(principal=aws_iam_role["workflow_role"]["arn"],
-        lf_tag_policy=aws.lakeformation.GetPermissionsLfTagPolicyArgs(
-            resource_type="DATABASE",
-            expressions=[
-                aws.lakeformation.GetPermissionsLfTagPolicyExpressionArgs(
-                    key="Team",
-                    values=["Sales"],
-                ),
-                aws.lakeformation.GetPermissionsLfTagPolicyExpressionArgs(
-                    key="Environment",
-                    values=[
-                        "Dev",
-                        "Production",
-                    ],
-                ),
-            ],
-        ))
-    ```
 
 
     :param str catalog_id: Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.

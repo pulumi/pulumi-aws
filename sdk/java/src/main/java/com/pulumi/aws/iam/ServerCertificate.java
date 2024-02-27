@@ -120,7 +120,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.iam.ServerCertificateArgs;
  * import com.pulumi.aws.elb.LoadBalancer;
  * import com.pulumi.aws.elb.LoadBalancerArgs;
- * import com.pulumi.aws.elb.inputs.LoadBalancerListenerArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -143,13 +142,7 @@ import javax.annotation.Nullable;
  *         var ourapp = new LoadBalancer(&#34;ourapp&#34;, LoadBalancerArgs.builder()        
  *             .availabilityZones(&#34;us-west-2a&#34;)
  *             .crossZoneLoadBalancing(true)
- *             .listeners(LoadBalancerListenerArgs.builder()
- *                 .instancePort(8000)
- *                 .instanceProtocol(&#34;http&#34;)
- *                 .lbPort(443)
- *                 .lbProtocol(&#34;https&#34;)
- *                 .sslCertificateId(testCert.arn())
- *                 .build())
+ *             .listeners(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

@@ -523,14 +523,14 @@ class LocationHdfs(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.datasync.LocationHdfs("example",
-            agent_arns=[aws_datasync_agent["example"]["arn"]],
-            authentication_type="SIMPLE",
-            simple_user="example",
-            name_nodes=[aws.datasync.LocationHdfsNameNodeArgs(
-                hostname=aws_instance["example"]["private_dns"],
-                port=80,
-            )])
+        example = aws.datasync.location_hdfs.LocationHdfs("example",
+            agent_arns=[aws_datasync_agent.example.arn],
+            authentication_type=SIMPLE,
+            simple_user=example,
+            name_nodes=[{
+                hostname: aws_instance.example.private_dns,
+                port: 80,
+            }])
         ```
 
         ## Import
@@ -574,14 +574,14 @@ class LocationHdfs(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.datasync.LocationHdfs("example",
-            agent_arns=[aws_datasync_agent["example"]["arn"]],
-            authentication_type="SIMPLE",
-            simple_user="example",
-            name_nodes=[aws.datasync.LocationHdfsNameNodeArgs(
-                hostname=aws_instance["example"]["private_dns"],
-                port=80,
-            )])
+        example = aws.datasync.location_hdfs.LocationHdfs("example",
+            agent_arns=[aws_datasync_agent.example.arn],
+            authentication_type=SIMPLE,
+            simple_user=example,
+            name_nodes=[{
+                hostname: aws_instance.example.private_dns,
+                port: 80,
+            }])
         ```
 
         ## Import

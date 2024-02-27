@@ -13,56 +13,12 @@ namespace Pulumi.Aws.Bedrock
     {
         /// <summary>
         /// Returns properties of a specific Amazon Bedrock custom model.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Aws.Bedrock.GetCustomModel.Invoke(new()
-        ///     {
-        ///         ModelId = "arn:aws:bedrock:us-west-2:123456789012:custom-model/amazon.titan-text-express-v1:0:8k/ly16hhi765j4 ",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetCustomModelResult> InvokeAsync(GetCustomModelArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCustomModelResult>("aws:bedrock/getCustomModel:getCustomModel", args ?? new GetCustomModelArgs(), options.WithDefaults());
 
         /// <summary>
         /// Returns properties of a specific Amazon Bedrock custom model.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Aws.Bedrock.GetCustomModel.Invoke(new()
-        ///     {
-        ///         ModelId = "arn:aws:bedrock:us-west-2:123456789012:custom-model/amazon.titan-text-express-v1:0:8k/ly16hhi765j4 ",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetCustomModelResult> Invoke(GetCustomModelInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCustomModelResult>("aws:bedrock/getCustomModel:getCustomModel", args ?? new GetCustomModelInvokeArgs(), options.WithDefaults());

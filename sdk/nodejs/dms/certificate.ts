@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * // Create a new certificate
- * const test = new aws.dms.Certificate("test", {
+ * const test = new aws.dms/certificate.Certificate("test", {
  *     certificateId: "test-dms-certificate-tf",
  *     certificatePem: "...",
  *     tags: {

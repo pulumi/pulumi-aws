@@ -167,15 +167,6 @@ def get_connection(name: Optional[str] = None,
     """
     Retrieve information about a Direct Connect Connection.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.directconnect.get_connection(name="tf-dx-connection")
-    ```
-
 
     :param str name: Name of the connection to retrieve.
     :param Mapping[str, str] tags: Map of tags for the resource.
@@ -206,15 +197,6 @@ def get_connection_output(name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConnectionResult]:
     """
     Retrieve information about a Direct Connect Connection.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.directconnect.get_connection(name="tf-dx-connection")
-    ```
 
 
     :param str name: Name of the connection to retrieve.

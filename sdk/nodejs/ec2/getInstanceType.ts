@@ -9,17 +9,6 @@ import * as utilities from "../utilities";
 
 /**
  * Get characteristics for a single EC2 Instance Type.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.ec2.getInstanceType({
- *     instanceType: "t2.micro",
- * });
- * ```
  */
 export function getInstanceType(args: GetInstanceTypeArgs, opts?: pulumi.InvokeOptions): Promise<GetInstanceTypeResult> {
 
@@ -245,17 +234,6 @@ export interface GetInstanceTypeResult {
 }
 /**
  * Get characteristics for a single EC2 Instance Type.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.ec2.getInstanceType({
- *     instanceType: "t2.micro",
- * });
- * ```
  */
 export function getInstanceTypeOutput(args: GetInstanceTypeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInstanceTypeResult> {
     return pulumi.output(args).apply((a: any) => getInstanceType(a, opts))

@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.eks.NodeGroup("example", {
+ * const example = new aws.eks/nodeGroup.NodeGroup("example", {
  *     clusterName: aws_eks_cluster.example.name,
  *     nodeRoleArn: aws_iam_role.example.arn,
  *     subnetIds: aws_subnet.example.map(__item => __item.id),
@@ -45,7 +45,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * // ... other configurations ...
- * const example = new aws.eks.NodeGroup("example", {scalingConfig: {
+ * const example = new aws.eks/nodeGroup.NodeGroup("example", {scalingConfig: {
  *     desiredSize: 2,
  * }});
  * ```
@@ -55,7 +55,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.iam.Role("example", {assumeRolePolicy: JSON.stringify({
+ * const example = new aws.iam/role.Role("example", {assumeRolePolicy: JSON.stringify({
  *     Statement: [{
  *         Action: "sts:AssumeRole",
  *         Effect: "Allow",
@@ -65,15 +65,15 @@ import * as utilities from "../utilities";
  *     }],
  *     Version: "2012-10-17",
  * })});
- * const example_AmazonEKSWorkerNodePolicy = new aws.iam.RolePolicyAttachment("example-AmazonEKSWorkerNodePolicy", {
+ * const example_AmazonEKSWorkerNodePolicy = new aws.iam/rolePolicyAttachment.RolePolicyAttachment("example-AmazonEKSWorkerNodePolicy", {
  *     policyArn: "arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy",
  *     role: example.name,
  * });
- * const example_AmazonEKSCNIPolicy = new aws.iam.RolePolicyAttachment("example-AmazonEKSCNIPolicy", {
+ * const example_AmazonEKSCNIPolicy = new aws.iam/rolePolicyAttachment.RolePolicyAttachment("example-AmazonEKSCNIPolicy", {
  *     policyArn: "arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy",
  *     role: example.name,
  * });
- * const example_AmazonEC2ContainerRegistryReadOnly = new aws.iam.RolePolicyAttachment("example-AmazonEC2ContainerRegistryReadOnly", {
+ * const example_AmazonEC2ContainerRegistryReadOnly = new aws.iam/rolePolicyAttachment.RolePolicyAttachment("example-AmazonEC2ContainerRegistryReadOnly", {
  *     policyArn: "arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly",
  *     role: example.name,
  * });

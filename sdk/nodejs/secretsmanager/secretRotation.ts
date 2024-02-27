@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.secretsmanager.SecretRotation("example", {
+ * const example = new aws.secretsmanager/secretRotation.SecretRotation("example", {
  *     secretId: aws_secretsmanager_secret.example.id,
  *     rotationLambdaArn: aws_lambda_function.example.arn,
  *     rotationRules: {

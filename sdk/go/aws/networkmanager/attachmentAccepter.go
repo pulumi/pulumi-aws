@@ -22,24 +22,22 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/networkmanager"
+//	networkmanager/attachmentAccepter "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/networkmanager/attachmentAccepter"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := networkmanager.NewAttachmentAccepter(ctx, "test", &networkmanager.AttachmentAccepterArgs{
-//				AttachmentId:   pulumi.Any(aws_networkmanager_vpc_attachment.Vpc.Id),
-//				AttachmentType: pulumi.Any(aws_networkmanager_vpc_attachment.Vpc.Attachment_type),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := networkmanager/attachmentAccepter.NewAttachmentAccepter(ctx, "test", &networkmanager/attachmentAccepter.AttachmentAccepterArgs{
+// AttachmentId: aws_networkmanager_vpc_attachment.Vpc.Id,
+// AttachmentType: aws_networkmanager_vpc_attachment.Vpc.Attachment_type,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Example with site-to-site VPN attachment
 //
@@ -48,24 +46,22 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/networkmanager"
+//	networkmanager/attachmentAccepter "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/networkmanager/attachmentAccepter"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := networkmanager.NewAttachmentAccepter(ctx, "test", &networkmanager.AttachmentAccepterArgs{
-//				AttachmentId:   pulumi.Any(aws_networkmanager_site_to_site_vpn_attachment.Vpn.Id),
-//				AttachmentType: pulumi.Any(aws_networkmanager_site_to_site_vpn_attachment.Vpn.Attachment_type),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := networkmanager/attachmentAccepter.NewAttachmentAccepter(ctx, "test", &networkmanager/attachmentAccepter.AttachmentAccepterArgs{
+// AttachmentId: aws_networkmanager_site_to_site_vpn_attachment.Vpn.Id,
+// AttachmentType: aws_networkmanager_site_to_site_vpn_attachment.Vpn.Attachment_type,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 type AttachmentAccepter struct {
 	pulumi.CustomResourceState

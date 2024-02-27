@@ -22,7 +22,7 @@ namespace Pulumi.Aws.LakeFormation
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.LakeFormation.LfTag("example", new()
+    ///     var example = new Aws.Lakeformation.LfTag.LfTag("example", new()
     ///     {
     ///         Key = "module",
     ///         Values = new[]

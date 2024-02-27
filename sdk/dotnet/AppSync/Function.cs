@@ -22,7 +22,7 @@ namespace Pulumi.Aws.AppSync
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleGraphQLApi = new Aws.AppSync.GraphQLApi("exampleGraphQLApi", new()
+    ///     var exampleGraphQLApi = new Aws.Appsync.GraphQLApi.GraphQLApi("exampleGraphQLApi", new()
     ///     {
     ///         AuthenticationType = "API_KEY",
     ///         Schema = @"type Mutation {
@@ -45,18 +45,18 @@ namespace Pulumi.Aws.AppSync
     /// ",
     ///     });
     /// 
-    ///     var exampleDataSource = new Aws.AppSync.DataSource("exampleDataSource", new()
+    ///     var exampleDataSource = new Aws.Appsync.DataSource.DataSource("exampleDataSource", new()
     ///     {
     ///         ApiId = exampleGraphQLApi.Id,
     ///         Name = "example",
     ///         Type = "HTTP",
-    ///         HttpConfig = new Aws.AppSync.Inputs.DataSourceHttpConfigArgs
+    ///         HttpConfig = 
     ///         {
-    ///             Endpoint = "http://example.com",
+    ///             { "endpoint", "http://example.com" },
     ///         },
     ///     });
     /// 
-    ///     var exampleFunction = new Aws.AppSync.Function("exampleFunction", new()
+    ///     var exampleFunction = new Aws.Appsync.Function.Function("exampleFunction", new()
     ///     {
     ///         ApiId = exampleGraphQLApi.Id,
     ///         DataSource = exampleDataSource.Name,
@@ -91,16 +91,16 @@ namespace Pulumi.Aws.AppSync
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.AppSync.Function("example", new()
+    ///     var example = new Aws.Appsync.Function.Function("example", new()
     ///     {
     ///         ApiId = aws_appsync_graphql_api.Example.Id,
     ///         DataSource = aws_appsync_datasource.Example.Name,
     ///         Name = "example",
     ///         Code = File.ReadAllText("some-code-dir"),
-    ///         Runtime = new Aws.AppSync.Inputs.FunctionRuntimeArgs
+    ///         Runtime = 
     ///         {
-    ///             Name = "APPSYNC_JS",
-    ///             RuntimeVersion = "1.0.0",
+    ///             { "name", "APPSYNC_JS" },
+    ///             { "runtimeVersion", "1.0.0" },
     ///         },
     ///     });
     /// 

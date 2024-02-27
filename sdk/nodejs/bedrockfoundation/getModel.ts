@@ -8,17 +8,6 @@ import * as utilities from "../utilities";
  * Data source for managing an AWS Bedrock Foundation Model.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const testModels = aws.bedrockfoundation.getModels({});
- * const testModel = testModels.then(testModels => aws.bedrockfoundation.getModel({
- *     modelId: testModels.modelSummaries?.[0]?.modelId,
- * }));
- * ```
  */
 export function getModel(args: GetModelArgs, opts?: pulumi.InvokeOptions): Promise<GetModelResult> {
 
@@ -81,17 +70,6 @@ export interface GetModelResult {
  * Data source for managing an AWS Bedrock Foundation Model.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const testModels = aws.bedrockfoundation.getModels({});
- * const testModel = testModels.then(testModels => aws.bedrockfoundation.getModel({
- *     modelId: testModels.modelSummaries?.[0]?.modelId,
- * }));
- * ```
  */
 export function getModelOutput(args: GetModelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetModelResult> {
     return pulumi.output(args).apply((a: any) => getModel(a, opts))

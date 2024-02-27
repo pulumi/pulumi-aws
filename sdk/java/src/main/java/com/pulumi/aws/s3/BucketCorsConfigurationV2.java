@@ -33,7 +33,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.s3.BucketV2;
  * import com.pulumi.aws.s3.BucketCorsConfigurationV2;
  * import com.pulumi.aws.s3.BucketCorsConfigurationV2Args;
- * import com.pulumi.aws.s3.inputs.BucketCorsConfigurationV2CorsRuleArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -52,19 +51,8 @@ import javax.annotation.Nullable;
  *         var exampleBucketCorsConfigurationV2 = new BucketCorsConfigurationV2(&#34;exampleBucketCorsConfigurationV2&#34;, BucketCorsConfigurationV2Args.builder()        
  *             .bucket(exampleBucketV2.id())
  *             .corsRules(            
- *                 BucketCorsConfigurationV2CorsRuleArgs.builder()
- *                     .allowedHeaders(&#34;*&#34;)
- *                     .allowedMethods(                    
- *                         &#34;PUT&#34;,
- *                         &#34;POST&#34;)
- *                     .allowedOrigins(&#34;https://s3-website-test.domain.example&#34;)
- *                     .exposeHeaders(&#34;ETag&#34;)
- *                     .maxAgeSeconds(3000)
- *                     .build(),
- *                 BucketCorsConfigurationV2CorsRuleArgs.builder()
- *                     .allowedMethods(&#34;GET&#34;)
- *                     .allowedOrigins(&#34;*&#34;)
- *                     .build())
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

@@ -21,24 +21,22 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/appsync"
+//	appsync/domainName "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/appsync/domainName"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := appsync.NewDomainName(ctx, "example", &appsync.DomainNameArgs{
-//				DomainName:     pulumi.String("api.example.com"),
-//				CertificateArn: pulumi.Any(aws_acm_certificate.Example.Arn),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := appsync/domainName.NewDomainName(ctx, "example", &appsync/domainName.DomainNameArgs{
+// DomainName: "api.example.com",
+// CertificateArn: aws_acm_certificate.Example.Arn,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -21,24 +21,22 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ses"
+//	ses/receiptFilter "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ses/receiptFilter"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ses.NewReceiptFilter(ctx, "filter", &ses.ReceiptFilterArgs{
-//				Cidr:   pulumi.String("10.10.10.10"),
-//				Policy: pulumi.String("Block"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := ses/receiptFilter.NewReceiptFilter(ctx, "filter", &ses/receiptFilter.ReceiptFilterArgs{
+// Cidr: "10.10.10.10",
+// Policy: "Block",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

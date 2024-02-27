@@ -24,28 +24,26 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/redshift"
+//	redshift/cluster "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/redshift/cluster"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := redshift.NewCluster(ctx, "example", &redshift.ClusterArgs{
-//				ClusterIdentifier: pulumi.String("tf-redshift-cluster"),
-//				ClusterType:       pulumi.String("single-node"),
-//				DatabaseName:      pulumi.String("mydb"),
-//				MasterPassword:    pulumi.String("Mustbe8characters"),
-//				MasterUsername:    pulumi.String("exampleuser"),
-//				NodeType:          pulumi.String("dc1.large"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := redshift/cluster.NewCluster(ctx, "example", &redshift/cluster.ClusterArgs{
+// ClusterIdentifier: "tf-redshift-cluster",
+// ClusterType: "single-node",
+// DatabaseName: "mydb",
+// MasterPassword: "Mustbe8characters",
+// MasterUsername: "exampleuser",
+// NodeType: "dc1.large",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### With Managed Credentials
 //
@@ -54,28 +52,26 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/redshift"
+//	redshift/cluster "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/redshift/cluster"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := redshift.NewCluster(ctx, "example", &redshift.ClusterArgs{
-//				ClusterIdentifier:    pulumi.String("tf-redshift-cluster"),
-//				ClusterType:          pulumi.String("single-node"),
-//				DatabaseName:         pulumi.String("mydb"),
-//				ManageMasterPassword: pulumi.Bool(true),
-//				MasterUsername:       pulumi.String("exampleuser"),
-//				NodeType:             pulumi.String("dc1.large"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := redshift/cluster.NewCluster(ctx, "example", &redshift/cluster.ClusterArgs{
+// ClusterIdentifier: "tf-redshift-cluster",
+// ClusterType: "single-node",
+// DatabaseName: "mydb",
+// ManageMasterPassword: true,
+// MasterUsername: "exampleuser",
+// NodeType: "dc1.large",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

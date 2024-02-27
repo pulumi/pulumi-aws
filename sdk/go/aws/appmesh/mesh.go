@@ -21,21 +21,19 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/appmesh"
+//	appmesh/mesh "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/appmesh/mesh"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := appmesh.NewMesh(ctx, "simple", nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := appmesh/mesh.NewMesh(ctx, "simple", nil)
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Egress Filter
 //
@@ -44,27 +42,25 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/appmesh"
+//	appmesh/mesh "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/appmesh/mesh"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := appmesh.NewMesh(ctx, "simple", &appmesh.MeshArgs{
-//				Spec: &appmesh.MeshSpecArgs{
-//					EgressFilter: &appmesh.MeshSpecEgressFilterArgs{
-//						Type: pulumi.String("ALLOW_ALL"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := appmesh/mesh.NewMesh(ctx, "simple", &appmesh/mesh.MeshArgs{
+// Spec: map[string]interface{}{
+// "egressFilter": map[string]interface{}{
+// "type": "ALLOW_ALL",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

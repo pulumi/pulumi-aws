@@ -109,9 +109,9 @@ class DedicatedIpAssignment(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.sesv2.DedicatedIpAssignment("example",
-            destination_pool_name="my-pool",
-            ip="0.0.0.0")
+        example = aws.sesv2.dedicated_ip_assignment.DedicatedIpAssignment("example",
+            destination_pool_name=my-pool,
+            ip=0.0.0.0)
         ```
 
         ## Import
@@ -145,9 +145,9 @@ class DedicatedIpAssignment(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.sesv2.DedicatedIpAssignment("example",
-            destination_pool_name="my-pool",
-            ip="0.0.0.0")
+        example = aws.sesv2.dedicated_ip_assignment.DedicatedIpAssignment("example",
+            destination_pool_name=my-pool,
+            ip=0.0.0.0)
         ```
 
         ## Import

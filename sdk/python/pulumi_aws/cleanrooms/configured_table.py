@@ -314,20 +314,20 @@ class ConfiguredTable(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_configured_table = aws.cleanrooms.ConfiguredTable("testConfiguredTable",
+        test_configured_table = aws.cleanrooms.configured_table.ConfiguredTable("testConfiguredTable",
             allowed_columns=[
-                "column1",
-                "column2",
-                "column3",
+                column1,
+                column2,
+                column3,
             ],
-            analysis_method="DIRECT_QUERY",
-            description="I made this table with Pulumi!",
-            table_reference=aws.cleanrooms.ConfiguredTableTableReferenceArgs(
-                database_name="example_database",
-                table_name="example_table",
-            ),
+            analysis_method=DIRECT_QUERY,
+            description=I made this table with Pulumi!,
+            table_reference={
+                databaseName: example_database,
+                tableName: example_table,
+            },
             tags={
-                "Project": "Pulumi",
+                Project: Pulumi,
             })
         ```
 
@@ -366,20 +366,20 @@ class ConfiguredTable(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_configured_table = aws.cleanrooms.ConfiguredTable("testConfiguredTable",
+        test_configured_table = aws.cleanrooms.configured_table.ConfiguredTable("testConfiguredTable",
             allowed_columns=[
-                "column1",
-                "column2",
-                "column3",
+                column1,
+                column2,
+                column3,
             ],
-            analysis_method="DIRECT_QUERY",
-            description="I made this table with Pulumi!",
-            table_reference=aws.cleanrooms.ConfiguredTableTableReferenceArgs(
-                database_name="example_database",
-                table_name="example_table",
-            ),
+            analysis_method=DIRECT_QUERY,
+            description=I made this table with Pulumi!,
+            table_reference={
+                databaseName: example_database,
+                tableName: example_table,
+            },
             tags={
-                "Project": "Pulumi",
+                Project: Pulumi,
             })
         ```
 

@@ -216,9 +216,9 @@ class SecretVersion(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.secretsmanager.SecretVersion("example",
-            secret_id=aws_secretsmanager_secret["example"]["id"],
-            secret_string="example-string-to-protect")
+        example = aws.secretsmanager.secret_version.SecretVersion("example",
+            secret_id=aws_secretsmanager_secret.example.id,
+            secret_string=example-string-to-protect)
         ```
 
         ## Import
@@ -256,9 +256,9 @@ class SecretVersion(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.secretsmanager.SecretVersion("example",
-            secret_id=aws_secretsmanager_secret["example"]["id"],
-            secret_string="example-string-to-protect")
+        example = aws.secretsmanager.secret_version.SecretVersion("example",
+            secret_id=aws_secretsmanager_secret.example.id,
+            secret_string=example-string-to-protect)
         ```
 
         ## Import

@@ -21,23 +21,21 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53recoverycontrol"
+//	route53recoverycontrol/controlPanel "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/route53recoverycontrol/controlPanel"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := route53recoverycontrol.NewControlPanel(ctx, "example", &route53recoverycontrol.ControlPanelArgs{
-//				ClusterArn: pulumi.String("arn:aws:route53-recovery-control::123456789012:cluster/8d47920e-d789-437d-803a-2dcc4b204393"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := route53recoverycontrol/controlPanel.NewControlPanel(ctx, "example", &route53recoverycontrol/controlPanel.ControlPanelArgs{
+// ClusterArn: "arn:aws:route53-recovery-control::123456789012:cluster/8d47920e-d789-437d-803a-2dcc4b204393",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

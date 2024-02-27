@@ -22,49 +22,48 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudfront"
+//	cloudfront/continuousDeploymentPolicy "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/cloudfront/continuousDeploymentPolicy"
+//	cloudfront/distribution "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/cloudfront/distribution"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			staging, err := cloudfront.NewDistribution(ctx, "staging", &cloudfront.DistributionArgs{
-//				Enabled: pulumi.Bool(true),
-//				Staging: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			example, err := cloudfront.NewContinuousDeploymentPolicy(ctx, "example", &cloudfront.ContinuousDeploymentPolicyArgs{
-//				Enabled: pulumi.Bool(true),
-//				StagingDistributionDnsNames: &cloudfront.ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs{
-//					Items: pulumi.StringArray{
-//						staging.DomainName,
-//					},
-//					Quantity: pulumi.Int(1),
-//				},
-//				TrafficConfig: &cloudfront.ContinuousDeploymentPolicyTrafficConfigArgs{
-//					Type: pulumi.String("SingleWeight"),
-//					SingleWeightConfig: &cloudfront.ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigArgs{
-//						Weight: pulumi.Float64(0.01),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = cloudfront.NewDistribution(ctx, "production", &cloudfront.DistributionArgs{
-//				Enabled:                      pulumi.Bool(true),
-//				ContinuousDeploymentPolicyId: example.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// staging, err := cloudfront/distribution.NewDistribution(ctx, "staging", &cloudfront/distribution.DistributionArgs{
+// Enabled: true,
+// Staging: true,
+// })
+// if err != nil {
+// return err
+// }
+// example, err := cloudfront/continuousDeploymentPolicy.NewContinuousDeploymentPolicy(ctx, "example", &cloudfront/continuousDeploymentPolicy.ContinuousDeploymentPolicyArgs{
+// Enabled: true,
+// StagingDistributionDnsNames: map[string]interface{}{
+// "items": []interface{}{
+// staging.DomainName,
+// },
+// "quantity": 1,
+// },
+// TrafficConfig: map[string]interface{}{
+// "type": "SingleWeight",
+// "singleWeightConfig": map[string]interface{}{
+// "weight": "0.01",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = cloudfront/distribution.NewDistribution(ctx, "production", &cloudfront/distribution.DistributionArgs{
+// Enabled: true,
+// ContinuousDeploymentPolicyId: example.Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Single Weight Config with Session Stickiness
 //
@@ -73,39 +72,37 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudfront"
+//	cloudfront/continuousDeploymentPolicy "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/cloudfront/continuousDeploymentPolicy"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cloudfront.NewContinuousDeploymentPolicy(ctx, "example", &cloudfront.ContinuousDeploymentPolicyArgs{
-//				Enabled: pulumi.Bool(true),
-//				StagingDistributionDnsNames: &cloudfront.ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs{
-//					Items: pulumi.StringArray{
-//						aws_cloudfront_distribution.Staging.Domain_name,
-//					},
-//					Quantity: pulumi.Int(1),
-//				},
-//				TrafficConfig: &cloudfront.ContinuousDeploymentPolicyTrafficConfigArgs{
-//					Type: pulumi.String("SingleWeight"),
-//					SingleWeightConfig: &cloudfront.ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigArgs{
-//						Weight: pulumi.Float64(0.01),
-//						SessionStickinessConfig: &cloudfront.ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigArgs{
-//							IdleTtl:    pulumi.Int(300),
-//							MaximumTtl: pulumi.Int(600),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := cloudfront/continuousDeploymentPolicy.NewContinuousDeploymentPolicy(ctx, "example", &cloudfront/continuousDeploymentPolicy.ContinuousDeploymentPolicyArgs{
+// Enabled: true,
+// StagingDistributionDnsNames: map[string]interface{}{
+// "items": []interface{}{
+// aws_cloudfront_distribution.Staging.Domain_name,
+// },
+// "quantity": 1,
+// },
+// TrafficConfig: map[string]interface{}{
+// "type": "SingleWeight",
+// "singleWeightConfig": map[string]interface{}{
+// "weight": "0.01",
+// "sessionStickinessConfig": map[string]interface{}{
+// "idleTtl": 300,
+// "maximumTtl": 600,
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Single Header Config
 //
@@ -114,36 +111,34 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudfront"
+//	cloudfront/continuousDeploymentPolicy "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/cloudfront/continuousDeploymentPolicy"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cloudfront.NewContinuousDeploymentPolicy(ctx, "example", &cloudfront.ContinuousDeploymentPolicyArgs{
-//				Enabled: pulumi.Bool(true),
-//				StagingDistributionDnsNames: &cloudfront.ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs{
-//					Items: pulumi.StringArray{
-//						aws_cloudfront_distribution.Staging.Domain_name,
-//					},
-//					Quantity: pulumi.Int(1),
-//				},
-//				TrafficConfig: &cloudfront.ContinuousDeploymentPolicyTrafficConfigArgs{
-//					Type: pulumi.String("SingleHeader"),
-//					SingleHeaderConfig: &cloudfront.ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigArgs{
-//						Header: pulumi.String("aws-cf-cd-example"),
-//						Value:  pulumi.String("example"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := cloudfront/continuousDeploymentPolicy.NewContinuousDeploymentPolicy(ctx, "example", &cloudfront/continuousDeploymentPolicy.ContinuousDeploymentPolicyArgs{
+// Enabled: true,
+// StagingDistributionDnsNames: map[string]interface{}{
+// "items": []interface{}{
+// aws_cloudfront_distribution.Staging.Domain_name,
+// },
+// "quantity": 1,
+// },
+// TrafficConfig: map[string]interface{}{
+// "type": "SingleHeader",
+// "singleHeaderConfig": map[string]interface{}{
+// "header": "aws-cf-cd-example",
+// "value": "example",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

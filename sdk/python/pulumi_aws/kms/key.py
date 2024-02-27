@@ -532,9 +532,9 @@ class Key(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        key = aws.kms.Key("key",
+        key = aws.kms.key.Key("key",
             deletion_window_in_days=10,
-            description="KMS key 1")
+            description=KMS key 1)
         ```
 
         ## Import
@@ -588,9 +588,9 @@ class Key(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        key = aws.kms.Key("key",
+        key = aws.kms.key.Key("key",
             deletion_window_in_days=10,
-            description="KMS key 1")
+            description=KMS key 1)
         ```
 
         ## Import

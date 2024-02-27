@@ -32,8 +32,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.codepipeline.CustomActionType;
  * import com.pulumi.aws.codepipeline.CustomActionTypeArgs;
- * import com.pulumi.aws.codepipeline.inputs.CustomActionTypeInputArtifactDetailsArgs;
- * import com.pulumi.aws.codepipeline.inputs.CustomActionTypeOutputArtifactDetailsArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -49,14 +47,8 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new CustomActionType(&#34;example&#34;, CustomActionTypeArgs.builder()        
  *             .category(&#34;Build&#34;)
- *             .inputArtifactDetails(CustomActionTypeInputArtifactDetailsArgs.builder()
- *                 .maximumCount(1)
- *                 .minimumCount(0)
- *                 .build())
- *             .outputArtifactDetails(CustomActionTypeOutputArtifactDetailsArgs.builder()
- *                 .maximumCount(1)
- *                 .minimumCount(0)
- *                 .build())
+ *             .inputArtifactDetails(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .outputArtifactDetails(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .providerName(&#34;example&#34;)
  *             .version(&#34;1&#34;)
  *             .build());

@@ -538,21 +538,21 @@ class Endpoint(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.verifiedaccess.Endpoint("example",
-            application_domain="example.com",
-            attachment_type="vpc",
-            description="example",
-            domain_certificate_arn=aws_acm_certificate["example"]["arn"],
-            endpoint_domain_prefix="example",
-            endpoint_type="load-balancer",
-            load_balancer_options=aws.verifiedaccess.EndpointLoadBalancerOptionsArgs(
-                load_balancer_arn=aws_lb["example"]["arn"],
-                port=443,
-                protocol="https",
-                subnet_ids=[subnet["id"] for subnet in aws_subnet["public"]],
-            ),
-            security_group_ids=[aws_security_group["example"]["id"]],
-            verified_access_group_id=aws_verifiedaccess_group["example"]["id"])
+        example = aws.verifiedaccess.endpoint.Endpoint("example",
+            application_domain=example.com,
+            attachment_type=vpc,
+            description=example,
+            domain_certificate_arn=aws_acm_certificate.example.arn,
+            endpoint_domain_prefix=example,
+            endpoint_type=load-balancer,
+            load_balancer_options={
+                loadBalancerArn: aws_lb.example.arn,
+                port: 443,
+                protocol: https,
+                subnetIds: [subnet.id for subnet in aws_subnet.public],
+            },
+            security_group_ids=[aws_security_group.example.id],
+            verified_access_group_id=aws_verifiedaccess_group.example.id)
         ```
         ### Network Interface Example
 
@@ -560,20 +560,20 @@ class Endpoint(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.verifiedaccess.Endpoint("example",
-            application_domain="example.com",
-            attachment_type="vpc",
-            description="example",
-            domain_certificate_arn=aws_acm_certificate["example"]["arn"],
-            endpoint_domain_prefix="example",
-            endpoint_type="network-interface",
-            network_interface_options=aws.verifiedaccess.EndpointNetworkInterfaceOptionsArgs(
-                network_interface_id=aws_network_interface["example"]["id"],
-                port=443,
-                protocol="https",
-            ),
-            security_group_ids=[aws_security_group["example"]["id"]],
-            verified_access_group_id=aws_verifiedaccess_group["example"]["id"])
+        example = aws.verifiedaccess.endpoint.Endpoint("example",
+            application_domain=example.com,
+            attachment_type=vpc,
+            description=example,
+            domain_certificate_arn=aws_acm_certificate.example.arn,
+            endpoint_domain_prefix=example,
+            endpoint_type=network-interface,
+            network_interface_options={
+                networkInterfaceId: aws_network_interface.example.id,
+                port: 443,
+                protocol: https,
+            },
+            security_group_ids=[aws_security_group.example.id],
+            verified_access_group_id=aws_verifiedaccess_group.example.id)
         ```
 
         ## Import
@@ -620,21 +620,21 @@ class Endpoint(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.verifiedaccess.Endpoint("example",
-            application_domain="example.com",
-            attachment_type="vpc",
-            description="example",
-            domain_certificate_arn=aws_acm_certificate["example"]["arn"],
-            endpoint_domain_prefix="example",
-            endpoint_type="load-balancer",
-            load_balancer_options=aws.verifiedaccess.EndpointLoadBalancerOptionsArgs(
-                load_balancer_arn=aws_lb["example"]["arn"],
-                port=443,
-                protocol="https",
-                subnet_ids=[subnet["id"] for subnet in aws_subnet["public"]],
-            ),
-            security_group_ids=[aws_security_group["example"]["id"]],
-            verified_access_group_id=aws_verifiedaccess_group["example"]["id"])
+        example = aws.verifiedaccess.endpoint.Endpoint("example",
+            application_domain=example.com,
+            attachment_type=vpc,
+            description=example,
+            domain_certificate_arn=aws_acm_certificate.example.arn,
+            endpoint_domain_prefix=example,
+            endpoint_type=load-balancer,
+            load_balancer_options={
+                loadBalancerArn: aws_lb.example.arn,
+                port: 443,
+                protocol: https,
+                subnetIds: [subnet.id for subnet in aws_subnet.public],
+            },
+            security_group_ids=[aws_security_group.example.id],
+            verified_access_group_id=aws_verifiedaccess_group.example.id)
         ```
         ### Network Interface Example
 
@@ -642,20 +642,20 @@ class Endpoint(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.verifiedaccess.Endpoint("example",
-            application_domain="example.com",
-            attachment_type="vpc",
-            description="example",
-            domain_certificate_arn=aws_acm_certificate["example"]["arn"],
-            endpoint_domain_prefix="example",
-            endpoint_type="network-interface",
-            network_interface_options=aws.verifiedaccess.EndpointNetworkInterfaceOptionsArgs(
-                network_interface_id=aws_network_interface["example"]["id"],
-                port=443,
-                protocol="https",
-            ),
-            security_group_ids=[aws_security_group["example"]["id"]],
-            verified_access_group_id=aws_verifiedaccess_group["example"]["id"])
+        example = aws.verifiedaccess.endpoint.Endpoint("example",
+            application_domain=example.com,
+            attachment_type=vpc,
+            description=example,
+            domain_certificate_arn=aws_acm_certificate.example.arn,
+            endpoint_domain_prefix=example,
+            endpoint_type=network-interface,
+            network_interface_options={
+                networkInterfaceId: aws_network_interface.example.id,
+                port: 443,
+                protocol: https,
+            },
+            security_group_ids=[aws_security_group.example.id],
+            verified_access_group_id=aws_verifiedaccess_group.example.id)
         ```
 
         ## Import

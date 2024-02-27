@@ -23,29 +23,29 @@ namespace Pulumi.Aws.Lex
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var flowerTypes = new Aws.Lex.SlotType("flowerTypes", new()
+    ///     var flowerTypes = new Aws.Lex.SlotType.SlotType("flowerTypes", new()
     ///     {
     ///         CreateVersion = true,
     ///         Description = "Types of flowers to order",
     ///         EnumerationValues = new[]
     ///         {
-    ///             new Aws.Lex.Inputs.SlotTypeEnumerationValueArgs
+    ///             
     ///             {
-    ///                 Synonyms = new[]
+    ///                 { "synonyms", new[]
     ///                 {
     ///                     "Lirium",
     ///                     "Martagon",
-    ///                 },
-    ///                 Value = "lilies",
+    ///                 } },
+    ///                 { "value", "lilies" },
     ///             },
-    ///             new Aws.Lex.Inputs.SlotTypeEnumerationValueArgs
+    ///             
     ///             {
-    ///                 Synonyms = new[]
+    ///                 { "synonyms", new[]
     ///                 {
     ///                     "Eduardoregelia",
     ///                     "Podonix",
-    ///                 },
-    ///                 Value = "tulips",
+    ///                 } },
+    ///                 { "value", "tulips" },
     ///             },
     ///         },
     ///         Name = "FlowerTypes",

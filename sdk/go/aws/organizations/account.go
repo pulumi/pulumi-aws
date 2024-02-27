@@ -25,23 +25,21 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/organizations"
+//	organizations/account "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/organizations/account"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := organizations.NewAccount(ctx, "account", &organizations.AccountArgs{
-//				Email: pulumi.String("john@doe.org"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := organizations/account.NewAccount(ctx, "account", &organizations/account.AccountArgs{
+// Email: "john@doe.org",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

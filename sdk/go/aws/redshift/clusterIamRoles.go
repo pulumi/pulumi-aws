@@ -23,26 +23,24 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/redshift"
+//	redshift/clusterIamRoles "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/redshift/clusterIamRoles"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := redshift.NewClusterIamRoles(ctx, "example", &redshift.ClusterIamRolesArgs{
-//				ClusterIdentifier: pulumi.Any(aws_redshift_cluster.Example.Cluster_identifier),
-//				IamRoleArns: pulumi.StringArray{
-//					aws_iam_role.Example.Arn,
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := redshift/clusterIamRoles.NewClusterIamRoles(ctx, "example", &redshift/clusterIamRoles.ClusterIamRolesArgs{
+// ClusterIdentifier: aws_redshift_cluster.Example.Cluster_identifier,
+// IamRoleArns: []interface{}{
+// aws_iam_role.Example.Arn,
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

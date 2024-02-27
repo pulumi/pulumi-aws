@@ -18,11 +18,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleApi = new aws.apigatewayv2.Api("exampleApi", {
+ * const exampleApi = new aws.apigatewayv2/api.Api("exampleApi", {
  *     protocolType: "WEBSOCKET",
  *     routeSelectionExpression: "$request.body.action",
  * });
- * const exampleRoute = new aws.apigatewayv2.Route("exampleRoute", {
+ * const exampleRoute = new aws.apigatewayv2/route.Route("exampleRoute", {
  *     apiId: exampleApi.id,
  *     routeKey: "$default",
  * });
@@ -33,17 +33,17 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleApi = new aws.apigatewayv2.Api("exampleApi", {protocolType: "HTTP"});
- * const exampleIntegration = new aws.apigatewayv2.Integration("exampleIntegration", {
+ * const exampleApi = new aws.apigatewayv2/api.Api("exampleApi", {protocolType: "HTTP"});
+ * const exampleIntegration = new aws.apigatewayv2/integration.Integration("exampleIntegration", {
  *     apiId: exampleApi.id,
  *     integrationType: "HTTP_PROXY",
  *     integrationMethod: "ANY",
  *     integrationUri: "https://example.com/{proxy}",
  * });
- * const exampleRoute = new aws.apigatewayv2.Route("exampleRoute", {
+ * const exampleRoute = new aws.apigatewayv2/route.Route("exampleRoute", {
  *     apiId: exampleApi.id,
  *     routeKey: "ANY /example/{proxy+}",
- *     target: pulumi.interpolate`integrations/${exampleIntegration.id}`,
+ *     target: `integrations/${exampleIntegration.id}`,
  * });
  * ```
  *

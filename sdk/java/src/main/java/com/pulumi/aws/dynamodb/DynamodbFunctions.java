@@ -20,72 +20,12 @@ public final class DynamodbFunctions {
     /**
      * Provides information about a DynamoDB table.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.dynamodb.DynamodbFunctions;
-     * import com.pulumi.aws.dynamodb.inputs.GetTableArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var tableName = DynamodbFunctions.getTable(GetTableArgs.builder()
-     *             .name(&#34;tableName&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetTableResult> getTable(GetTableArgs args) {
         return getTable(args, InvokeOptions.Empty);
     }
     /**
      * Provides information about a DynamoDB table.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.dynamodb.DynamodbFunctions;
-     * import com.pulumi.aws.dynamodb.inputs.GetTableArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var tableName = DynamodbFunctions.getTable(GetTableArgs.builder()
-     *             .name(&#34;tableName&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetTableResult> getTablePlain(GetTablePlainArgs args) {
@@ -94,72 +34,12 @@ public final class DynamodbFunctions {
     /**
      * Provides information about a DynamoDB table.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.dynamodb.DynamodbFunctions;
-     * import com.pulumi.aws.dynamodb.inputs.GetTableArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var tableName = DynamodbFunctions.getTable(GetTableArgs.builder()
-     *             .name(&#34;tableName&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetTableResult> getTable(GetTableArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:dynamodb/getTable:getTable", TypeShape.of(GetTableResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Provides information about a DynamoDB table.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.dynamodb.DynamodbFunctions;
-     * import com.pulumi.aws.dynamodb.inputs.GetTableArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var tableName = DynamodbFunctions.getTable(GetTableArgs.builder()
-     *             .name(&#34;tableName&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetTableResult> getTablePlain(GetTablePlainArgs args, InvokeOptions options) {
@@ -169,42 +49,6 @@ public final class DynamodbFunctions {
      * Data source for retrieving a value from an AWS DynamoDB table.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.dynamodb.DynamodbFunctions;
-     * import com.pulumi.aws.dynamodb.inputs.GetTableItemArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = DynamodbFunctions.getTableItem(GetTableItemArgs.builder()
-     *             .tableName(aws_dynamodb_table.example().name())
-     *             .expressionAttributeNames(Map.of(&#34;#P&#34;, &#34;Percentile&#34;))
-     *             .projectionExpression(&#34;#P&#34;)
-     *             .key(&#34;&#34;&#34;
-     * {
-     * 	&#34;hashKey&#34;: {&#34;S&#34;: &#34;example&#34;}
-     * }
-     *             &#34;&#34;&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetTableItemResult> getTableItem(GetTableItemArgs args) {
@@ -214,42 +58,6 @@ public final class DynamodbFunctions {
      * Data source for retrieving a value from an AWS DynamoDB table.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.dynamodb.DynamodbFunctions;
-     * import com.pulumi.aws.dynamodb.inputs.GetTableItemArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = DynamodbFunctions.getTableItem(GetTableItemArgs.builder()
-     *             .tableName(aws_dynamodb_table.example().name())
-     *             .expressionAttributeNames(Map.of(&#34;#P&#34;, &#34;Percentile&#34;))
-     *             .projectionExpression(&#34;#P&#34;)
-     *             .key(&#34;&#34;&#34;
-     * {
-     * 	&#34;hashKey&#34;: {&#34;S&#34;: &#34;example&#34;}
-     * }
-     *             &#34;&#34;&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetTableItemResult> getTableItemPlain(GetTableItemPlainArgs args) {
@@ -259,42 +67,6 @@ public final class DynamodbFunctions {
      * Data source for retrieving a value from an AWS DynamoDB table.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.dynamodb.DynamodbFunctions;
-     * import com.pulumi.aws.dynamodb.inputs.GetTableItemArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = DynamodbFunctions.getTableItem(GetTableItemArgs.builder()
-     *             .tableName(aws_dynamodb_table.example().name())
-     *             .expressionAttributeNames(Map.of(&#34;#P&#34;, &#34;Percentile&#34;))
-     *             .projectionExpression(&#34;#P&#34;)
-     *             .key(&#34;&#34;&#34;
-     * {
-     * 	&#34;hashKey&#34;: {&#34;S&#34;: &#34;example&#34;}
-     * }
-     *             &#34;&#34;&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetTableItemResult> getTableItem(GetTableItemArgs args, InvokeOptions options) {
@@ -304,42 +76,6 @@ public final class DynamodbFunctions {
      * Data source for retrieving a value from an AWS DynamoDB table.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.dynamodb.DynamodbFunctions;
-     * import com.pulumi.aws.dynamodb.inputs.GetTableItemArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = DynamodbFunctions.getTableItem(GetTableItemArgs.builder()
-     *             .tableName(aws_dynamodb_table.example().name())
-     *             .expressionAttributeNames(Map.of(&#34;#P&#34;, &#34;Percentile&#34;))
-     *             .projectionExpression(&#34;#P&#34;)
-     *             .key(&#34;&#34;&#34;
-     * {
-     * 	&#34;hashKey&#34;: {&#34;S&#34;: &#34;example&#34;}
-     * }
-     *             &#34;&#34;&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetTableItemResult> getTableItemPlain(GetTableItemPlainArgs args, InvokeOptions options) {

@@ -22,24 +22,22 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/verifiedpermissions"
+//	verifiedpermissions/policyTemplate "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/verifiedpermissions/policyTemplate"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := verifiedpermissions.NewPolicyTemplate(ctx, "example", &verifiedpermissions.PolicyTemplateArgs{
-//				PolicyStoreId: pulumi.Any(aws_verifiedpermissions_policy_store.Example.Id),
-//				Statement:     pulumi.String("permit (principal in ?principal, action in PhotoFlash::Action::\"FullPhotoAccess\", resource == ?resource) unless { resource.IsPrivate };"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := verifiedpermissions/policyTemplate.NewPolicyTemplate(ctx, "example", &verifiedpermissions/policyTemplate.PolicyTemplateArgs{
+// PolicyStoreId: aws_verifiedpermissions_policy_store.Example.Id,
+// Statement: "permit (principal in ?principal, action in PhotoFlash::Action::\"FullPhotoAccess\", resource == ?resource) unless { resource.IsPrivate };",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

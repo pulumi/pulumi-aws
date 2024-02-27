@@ -15,38 +15,6 @@ import * as utilities from "../utilities";
  * > **NOTE:** In general, the `principal` should _NOT_ be a Lake Formation administrator or the entity (e.g., IAM role) that is running the deployment. Administrators have implicit permissions. These should be managed by granting or not granting administrator rights using `aws.lakeformation.DataLakeSettings`, _not_ with this resource.
  *
  * ## Default Behavior and `IAMAllowedPrincipals`
- *
- * **_Lake Formation permissions are not in effect by default within AWS._** `IAMAllowedPrincipals` (i.e., `IAM_ALLOWED_PRINCIPALS`) conflicts with individual Lake Formation permissions (i.e., non-`IAMAllowedPrincipals` permissions), will cause unexpected behavior, and may result in errors.
- *
- * When using Lake Formation, choose ONE of the following options as they are mutually exclusive:
- *
- * 1. Use this resource (`aws.lakeformation.Permissions`), change the default security settings using `aws.lakeformation.DataLakeSettings`, and remove existing `IAMAllowedPrincipals` permissions
- * 2. Use `IAMAllowedPrincipals` without `aws.lakeformation.Permissions`
- *
- * This example shows removing the `IAMAllowedPrincipals` default security settings and making the caller a Lake Formation admin. Since `createDatabaseDefaultPermissions` and `createTableDefaultPermissions` are not set in the `aws.lakeformation.DataLakeSettings` resource, they are cleared.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const currentCallerIdentity = aws.getCallerIdentity({});
- * const currentSessionContext = currentCallerIdentity.then(currentCallerIdentity => aws.iam.getSessionContext({
- *     arn: currentCallerIdentity.arn,
- * }));
- * const test = new aws.lakeformation.DataLakeSettings("test", {admins: [currentSessionContext.then(currentSessionContext => currentSessionContext.issuerArn)]});
- * ```
- *
- * To remove existing `IAMAllowedPrincipals` permissions, use the [AWS Lake Formation Console](https://console.aws.amazon.com/lakeformation/) or [AWS CLI](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lakeformation/batch-revoke-permissions.html).
- *
- * `IAMAllowedPrincipals` is a hook to maintain backwards compatibility with AWS Glue. `IAMAllowedPrincipals` is a pseudo-entity group that acts like a Lake Formation principal. The group includes any IAM users and roles that are allowed access to your Data Catalog resources by your IAM policies.
- *
- * This is Lake Formation's default behavior:
- *
- * * Lake Formation grants `Super` permission to `IAMAllowedPrincipals` on all existing AWS Glue Data Catalog resources.
- * * Lake Formation enables "Use only IAM access control" for new Data Catalog resources.
- *
- * For more details, see [Changing the Default Security Settings for Your Data Lake](https://docs.aws.amazon.com/lake-formation/latest/dg/change-settings.html).
- *
  * ### Problem Using `IAMAllowedPrincipals`
  *
  * AWS does not support combining `IAMAllowedPrincipals` permissions and non-`IAMAllowedPrincipals` permissions. Doing so results in unexpected permissions and behaviors. For example, this configuration grants a user `SELECT` on a column in a table.
@@ -55,8 +23,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleCatalogDatabase = new aws.glue.CatalogDatabase("exampleCatalogDatabase", {name: "sadabate"});
- * const exampleCatalogTable = new aws.glue.CatalogTable("exampleCatalogTable", {
+ * const exampleCatalogDatabase = new aws.glue/catalogDatabase.CatalogDatabase("exampleCatalogDatabase", {name: "sadabate"});
+ * const exampleCatalogTable = new aws.glue/catalogTable.CatalogTable("exampleCatalogTable", {
  *     name: "abelt",
  *     databaseName: aws_glue_catalog_database.test.name,
  *     storageDescriptor: {
@@ -66,7 +34,7 @@ import * as utilities from "../utilities";
  *         }],
  *     },
  * });
- * const examplePermissions = new aws.lakeformation.Permissions("examplePermissions", {
+ * const examplePermissions = new aws.lakeformation/permissions.Permissions("examplePermissions", {
  *     permissions: ["SELECT"],
  *     principal: "arn:aws:iam:us-east-1:123456789012:user/SanHolo",
  *     tableWithColumns: {
@@ -98,7 +66,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.lakeformation.Permissions("example", {
+ * const example = new aws.lakeformation/permissions.Permissions("example", {
  *     principal: aws_iam_role.workflow_role.arn,
  *     permissions: ["DATA_LOCATION_ACCESS"],
  *     dataLocation: {
@@ -112,7 +80,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.lakeformation.Permissions("example", {
+ * const example = new aws.lakeformation/permissions.Permissions("example", {
  *     principal: aws_iam_role.workflow_role.arn,
  *     permissions: [
  *         "CREATE_TABLE",
@@ -131,7 +99,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = new aws.lakeformation.Permissions("test", {
+ * const test = new aws.lakeformation/permissions.Permissions("test", {
  *     principal: aws_iam_role.sales_role.arn,
  *     permissions: [
  *         "CREATE_TABLE",

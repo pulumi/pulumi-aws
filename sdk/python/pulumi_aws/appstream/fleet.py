@@ -677,24 +677,24 @@ class Fleet(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_fleet = aws.appstream.Fleet("testFleet",
-            compute_capacity=aws.appstream.FleetComputeCapacityArgs(
-                desired_instances=1,
-            ),
-            description="test fleet",
-            display_name="test-fleet",
+        test_fleet = aws.appstream.fleet.Fleet("testFleet",
+            compute_capacity={
+                desiredInstances: 1,
+            },
+            description=test fleet,
+            display_name=test-fleet,
             enable_default_internet_access=False,
-            fleet_type="ON_DEMAND",
+            fleet_type=ON_DEMAND,
             idle_disconnect_timeout_in_seconds=60,
-            image_name="Amazon-AppStream2-Sample-Image-03-11-2023",
-            instance_type="stream.standard.large",
+            image_name=Amazon-AppStream2-Sample-Image-03-11-2023,
+            instance_type=stream.standard.large,
             max_user_duration_in_seconds=600,
             tags={
-                "TagName": "tag-value",
+                TagName: tag-value,
             },
-            vpc_config=aws.appstream.FleetVpcConfigArgs(
-                subnet_ids=["subnet-06e9b13400c225127"],
-            ))
+            vpc_config={
+                subnetIds: [subnet-06e9b13400c225127],
+            })
         ```
 
         ## Import
@@ -742,24 +742,24 @@ class Fleet(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_fleet = aws.appstream.Fleet("testFleet",
-            compute_capacity=aws.appstream.FleetComputeCapacityArgs(
-                desired_instances=1,
-            ),
-            description="test fleet",
-            display_name="test-fleet",
+        test_fleet = aws.appstream.fleet.Fleet("testFleet",
+            compute_capacity={
+                desiredInstances: 1,
+            },
+            description=test fleet,
+            display_name=test-fleet,
             enable_default_internet_access=False,
-            fleet_type="ON_DEMAND",
+            fleet_type=ON_DEMAND,
             idle_disconnect_timeout_in_seconds=60,
-            image_name="Amazon-AppStream2-Sample-Image-03-11-2023",
-            instance_type="stream.standard.large",
+            image_name=Amazon-AppStream2-Sample-Image-03-11-2023,
+            instance_type=stream.standard.large,
             max_user_duration_in_seconds=600,
             tags={
-                "TagName": "tag-value",
+                TagName: tag-value,
             },
-            vpc_config=aws.appstream.FleetVpcConfigArgs(
-                subnet_ids=["subnet-06e9b13400c225127"],
-            ))
+            vpc_config={
+                subnetIds: [subnet-06e9b13400c225127],
+            })
         ```
 
         ## Import

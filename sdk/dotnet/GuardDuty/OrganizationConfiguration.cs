@@ -24,38 +24,38 @@ namespace Pulumi.Aws.GuardDuty
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleDetector = new Aws.GuardDuty.Detector("exampleDetector", new()
+    ///     var exampleDetector = new Aws.Guardduty.Detector.Detector("exampleDetector", new()
     ///     {
     ///         Enable = true,
     ///     });
     /// 
-    ///     var exampleOrganizationConfiguration = new Aws.GuardDuty.OrganizationConfiguration("exampleOrganizationConfiguration", new()
+    ///     var exampleOrganizationConfiguration = new Aws.Guardduty.OrganizationConfiguration.OrganizationConfiguration("exampleOrganizationConfiguration", new()
     ///     {
     ///         AutoEnableOrganizationMembers = "ALL",
     ///         DetectorId = exampleDetector.Id,
-    ///         Datasources = new Aws.GuardDuty.Inputs.OrganizationConfigurationDatasourcesArgs
+    ///         Datasources = 
     ///         {
-    ///             S3Logs = new Aws.GuardDuty.Inputs.OrganizationConfigurationDatasourcesS3LogsArgs
+    ///             { "s3Logs", 
     ///             {
-    ///                 AutoEnable = true,
-    ///             },
-    ///             Kubernetes = new Aws.GuardDuty.Inputs.OrganizationConfigurationDatasourcesKubernetesArgs
+    ///                 { "autoEnable", true },
+    ///             } },
+    ///             { "kubernetes", 
     ///             {
-    ///                 AuditLogs = new Aws.GuardDuty.Inputs.OrganizationConfigurationDatasourcesKubernetesAuditLogsArgs
+    ///                 { "auditLogs", 
     ///                 {
-    ///                     Enable = true,
-    ///                 },
-    ///             },
-    ///             MalwareProtection = new Aws.GuardDuty.Inputs.OrganizationConfigurationDatasourcesMalwareProtectionArgs
+    ///                     { "enable", true },
+    ///                 } },
+    ///             } },
+    ///             { "malwareProtection", 
     ///             {
-    ///                 ScanEc2InstanceWithFindings = new Aws.GuardDuty.Inputs.OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsArgs
+    ///                 { "scanEc2InstanceWithFindings", 
     ///                 {
-    ///                     EbsVolumes = new Aws.GuardDuty.Inputs.OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesArgs
+    ///                     { "ebsVolumes", 
     ///                     {
-    ///                         AutoEnable = true,
-    ///                     },
-    ///                 },
-    ///             },
+    ///                         { "autoEnable", true },
+    ///                     } },
+    ///                 } },
+    ///             } },
     ///         },
     ///     });
     /// 

@@ -36,8 +36,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.eks.NodeGroup;
  * import com.pulumi.aws.eks.NodeGroupArgs;
- * import com.pulumi.aws.eks.inputs.NodeGroupScalingConfigArgs;
- * import com.pulumi.aws.eks.inputs.NodeGroupUpdateConfigArgs;
  * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
@@ -56,14 +54,8 @@ import javax.annotation.Nullable;
  *             .clusterName(aws_eks_cluster.example().name())
  *             .nodeRoleArn(aws_iam_role.example().arn())
  *             .subnetIds(aws_subnet.example().stream().map(element -&gt; element.id()).collect(toList()))
- *             .scalingConfig(NodeGroupScalingConfigArgs.builder()
- *                 .desiredSize(1)
- *                 .maxSize(2)
- *                 .minSize(1)
- *                 .build())
- *             .updateConfig(NodeGroupUpdateConfigArgs.builder()
- *                 .maxUnavailable(1)
- *                 .build())
+ *             .scalingConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .updateConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(                
  *                     aws_iam_role_policy_attachment.example-AmazonEKSWorkerNodePolicy(),
@@ -85,7 +77,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.eks.NodeGroup;
  * import com.pulumi.aws.eks.NodeGroupArgs;
- * import com.pulumi.aws.eks.inputs.NodeGroupScalingConfigArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -100,9 +91,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new NodeGroup(&#34;example&#34;, NodeGroupArgs.builder()        
- *             .scalingConfig(NodeGroupScalingConfigArgs.builder()
- *                 .desiredSize(2)
- *                 .build())
+ *             .scalingConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

@@ -22,32 +22,31 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lb"
+//	lb/trustStore "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/lb/trustStore"
+//	lb/trustStoreRevocation "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/lb/trustStoreRevocation"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testTrustStore, err := lb.NewTrustStore(ctx, "testTrustStore", &lb.TrustStoreArgs{
-//				CaCertificatesBundleS3Bucket: pulumi.String("..."),
-//				CaCertificatesBundleS3Key:    pulumi.String("..."),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = lb.NewTrustStoreRevocation(ctx, "testTrustStoreRevocation", &lb.TrustStoreRevocationArgs{
-//				TrustStoreArn:       testTrustStore.Arn,
-//				RevocationsS3Bucket: pulumi.String("..."),
-//				RevocationsS3Key:    pulumi.String("..."),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// testTrustStore, err := lb/trustStore.NewTrustStore(ctx, "testTrustStore", &lb/trustStore.TrustStoreArgs{
+// CaCertificatesBundleS3Bucket: "...",
+// CaCertificatesBundleS3Key: "...",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = lb/trustStoreRevocation.NewTrustStoreRevocation(ctx, "testTrustStoreRevocation", &lb/trustStoreRevocation.TrustStoreRevocationArgs{
+// TrustStoreArn: testTrustStore.Arn,
+// RevocationsS3Bucket: "...",
+// RevocationsS3Key: "...",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

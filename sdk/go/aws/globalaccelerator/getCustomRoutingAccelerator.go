@@ -12,43 +12,6 @@ import (
 )
 
 // Provides information about a Global Accelerator custom routing accelerator.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/globalaccelerator"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			cfg := config.New(ctx, "")
-//			acceleratorArn := ""
-//			if param := cfg.Get("acceleratorArn"); param != "" {
-//				acceleratorArn = param
-//			}
-//			acceleratorName := ""
-//			if param := cfg.Get("acceleratorName"); param != "" {
-//				acceleratorName = param
-//			}
-//			_, err := globalaccelerator.LookupCustomRoutingAccelerator(ctx, &globalaccelerator.LookupCustomRoutingAcceleratorArgs{
-//				Arn:  pulumi.StringRef(acceleratorArn),
-//				Name: pulumi.StringRef(acceleratorName),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupCustomRoutingAccelerator(ctx *pulumi.Context, args *LookupCustomRoutingAcceleratorArgs, opts ...pulumi.InvokeOption) (*LookupCustomRoutingAcceleratorResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupCustomRoutingAcceleratorResult

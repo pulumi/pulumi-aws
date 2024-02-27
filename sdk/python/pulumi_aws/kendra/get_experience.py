@@ -189,16 +189,6 @@ def get_experience(experience_id: Optional[str] = None,
     """
     Provides details about a specific Amazon Kendra Experience.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.kendra.get_experience(experience_id="87654321-1234-4321-4321-321987654321",
-        index_id="12345678-1234-1234-1234-123456789123")
-    ```
-
 
     :param str experience_id: Identifier of the Experience.
     :param str index_id: Identifier of the index that contains the Experience.
@@ -231,16 +221,6 @@ def get_experience_output(experience_id: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetExperienceResult]:
     """
     Provides details about a specific Amazon Kendra Experience.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.kendra.get_experience(experience_id="87654321-1234-4321-4321-321987654321",
-        index_id="12345678-1234-1234-1234-123456789123")
-    ```
 
 
     :param str experience_id: Identifier of the Experience.

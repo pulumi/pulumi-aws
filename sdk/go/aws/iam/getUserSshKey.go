@@ -12,34 +12,6 @@ import (
 )
 
 // Use this data source to get information about a SSH public key associated with the specified IAM user.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := iam.GetUserSshKey(ctx, &iam.GetUserSshKeyArgs{
-//				Encoding:       "SSH",
-//				SshPublicKeyId: "APKARUZ32GUTKIGARLXE",
-//				Username:       "test-user",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetUserSshKey(ctx *pulumi.Context, args *GetUserSshKeyArgs, opts ...pulumi.InvokeOption) (*GetUserSshKeyResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetUserSshKeyResult

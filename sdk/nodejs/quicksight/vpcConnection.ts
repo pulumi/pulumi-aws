@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const vpcConnectionRole = new aws.iam.Role("vpcConnectionRole", {
+ * const vpcConnectionRole = new aws.iam/role.Role("vpcConnectionRole", {
  *     assumeRolePolicy: JSON.stringify({
  *         Version: "2012-10-17",
  *         Statement: [{
@@ -46,7 +46,7 @@ import * as utilities from "../utilities";
  *         }),
  *     }],
  * });
- * const example = new aws.quicksight.VpcConnection("example", {
+ * const example = new aws.quicksight/vpcConnection.VpcConnection("example", {
  *     vpcConnectionId: "example-connection-id",
  *     roleArn: vpcConnectionRole.arn,
  *     securityGroupIds: ["sg-00000000000000000"],

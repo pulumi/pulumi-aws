@@ -94,19 +94,6 @@ def get_components(filters: Optional[Sequence[pulumi.InputType['GetComponentsFil
     """
     Use this data source to get the ARNs and names of Image Builder Components matching the specified criteria.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.imagebuilder.get_components(filters=[aws.imagebuilder.GetComponentsFilterArgs(
-            name="platform",
-            values=["Linux"],
-        )],
-        owner="Self")
-    ```
-
 
     :param Sequence[pulumi.InputType['GetComponentsFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.
     :param str owner: Owner of the image recipes. Valid values are `Self`, `Shared`, `Amazon` and `ThirdParty`. Defaults to `Self`.
@@ -131,19 +118,6 @@ def get_components_output(filters: Optional[pulumi.Input[Optional[Sequence[pulum
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetComponentsResult]:
     """
     Use this data source to get the ARNs and names of Image Builder Components matching the specified criteria.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.imagebuilder.get_components(filters=[aws.imagebuilder.GetComponentsFilterArgs(
-            name="platform",
-            values=["Linux"],
-        )],
-        owner="Self")
-    ```
 
 
     :param Sequence[pulumi.InputType['GetComponentsFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.

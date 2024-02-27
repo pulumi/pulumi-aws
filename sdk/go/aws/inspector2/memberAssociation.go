@@ -22,23 +22,21 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/inspector2"
+//	inspector2/memberAssociation "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/inspector2/memberAssociation"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := inspector2.NewMemberAssociation(ctx, "example", &inspector2.MemberAssociationArgs{
-//				AccountId: pulumi.String("123456789012"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := inspector2/memberAssociation.NewMemberAssociation(ctx, "example", &inspector2/memberAssociation.MemberAssociationArgs{
+// AccountId: "123456789012",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -31,7 +31,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.globalaccelerator.EndpointGroup;
  * import com.pulumi.aws.globalaccelerator.EndpointGroupArgs;
- * import com.pulumi.aws.globalaccelerator.inputs.EndpointGroupEndpointConfigurationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -47,10 +46,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new EndpointGroup(&#34;example&#34;, EndpointGroupArgs.builder()        
  *             .listenerArn(aws_globalaccelerator_listener.example().id())
- *             .endpointConfigurations(EndpointGroupEndpointConfigurationArgs.builder()
- *                 .endpointId(aws_lb.example().arn())
- *                 .weight(100)
- *                 .build())
+ *             .endpointConfigurations(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

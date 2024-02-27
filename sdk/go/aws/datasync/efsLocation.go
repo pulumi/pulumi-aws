@@ -23,30 +23,27 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/datasync"
+//	datasync/efsLocation "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/datasync/efsLocation"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := datasync.NewEfsLocation(ctx, "example", &datasync.EfsLocationArgs{
-//				EfsFileSystemArn: pulumi.Any(aws_efs_mount_target.Example.File_system_arn),
-//				Ec2Config: &datasync.EfsLocationEc2ConfigArgs{
-//					SecurityGroupArns: pulumi.StringArray{
-//						aws_security_group.Example.Arn,
-//					},
-//					SubnetArn: pulumi.Any(aws_subnet.Example.Arn),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := datasync/efsLocation.NewEfsLocation(ctx, "example", &datasync/efsLocation.EfsLocationArgs{
+// EfsFileSystemArn: aws_efs_mount_target.Example.File_system_arn,
+// Ec2Config: map[string]interface{}{
+// "securityGroupArns": []interface{}{
+// aws_security_group.Example.Arn,
+// },
+// "subnetArn": aws_subnet.Example.Arn,
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

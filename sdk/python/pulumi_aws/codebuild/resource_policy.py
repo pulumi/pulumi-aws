@@ -100,42 +100,6 @@ class ResourcePolicy(pulumi.CustomResource):
         """
         Provides a CodeBuild Resource Policy Resource.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        example_report_group = aws.codebuild.ReportGroup("exampleReportGroup",
-            type="TEST",
-            export_config=aws.codebuild.ReportGroupExportConfigArgs(
-                type="NO_EXPORT",
-            ))
-        current_partition = aws.get_partition()
-        current_caller_identity = aws.get_caller_identity()
-        example_resource_policy = aws.codebuild.ResourcePolicy("exampleResourcePolicy",
-            resource_arn=example_report_group.arn,
-            policy=example_report_group.arn.apply(lambda arn: json.dumps({
-                "Version": "2012-10-17",
-                "Id": "default",
-                "Statement": [{
-                    "Sid": "default",
-                    "Effect": "Allow",
-                    "Principal": {
-                        "AWS": f"arn:{current_partition.partition}:iam::{current_caller_identity.account_id}:root",
-                    },
-                    "Action": [
-                        "codebuild:BatchGetReportGroups",
-                        "codebuild:BatchGetReports",
-                        "codebuild:ListReportsForReportGroup",
-                        "codebuild:DescribeTestCases",
-                    ],
-                    "Resource": arn,
-                }],
-            })))
-        ```
-
         ## Import
 
         Using `pulumi import`, import CodeBuild Resource Policy using the CodeBuild Resource Policy arn. For example:
@@ -157,42 +121,6 @@ class ResourcePolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a CodeBuild Resource Policy Resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        example_report_group = aws.codebuild.ReportGroup("exampleReportGroup",
-            type="TEST",
-            export_config=aws.codebuild.ReportGroupExportConfigArgs(
-                type="NO_EXPORT",
-            ))
-        current_partition = aws.get_partition()
-        current_caller_identity = aws.get_caller_identity()
-        example_resource_policy = aws.codebuild.ResourcePolicy("exampleResourcePolicy",
-            resource_arn=example_report_group.arn,
-            policy=example_report_group.arn.apply(lambda arn: json.dumps({
-                "Version": "2012-10-17",
-                "Id": "default",
-                "Statement": [{
-                    "Sid": "default",
-                    "Effect": "Allow",
-                    "Principal": {
-                        "AWS": f"arn:{current_partition.partition}:iam::{current_caller_identity.account_id}:root",
-                    },
-                    "Action": [
-                        "codebuild:BatchGetReportGroups",
-                        "codebuild:BatchGetReports",
-                        "codebuild:ListReportsForReportGroup",
-                        "codebuild:DescribeTestCases",
-                    ],
-                    "Resource": arn,
-                }],
-            })))
-        ```
 
         ## Import
 

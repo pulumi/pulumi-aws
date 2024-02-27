@@ -24,24 +24,24 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sesv2"
+//	sesv2/emailIdentity "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/sesv2/emailIdentity"
+//	sesv2/emailIdentityPolicy "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/sesv2/emailIdentityPolicy"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleEmailIdentity, err := sesv2/emailIdentity.NewEmailIdentity(ctx, "exampleEmailIdentity", &sesv2/emailIdentity.EmailIdentityArgs{
+// EmailIdentity: "testing@example.com",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = sesv2/emailIdentityPolicy.NewEmailIdentityPolicy(ctx, "exampleEmailIdentityPolicy", &sesv2/emailIdentityPolicy.EmailIdentityPolicyArgs{
+// EmailIdentity: exampleEmailIdentity.EmailIdentity,
+// PolicyName: "example",
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleEmailIdentity, err := sesv2.NewEmailIdentity(ctx, "exampleEmailIdentity", &sesv2.EmailIdentityArgs{
-//				EmailIdentity: pulumi.String("testing@example.com"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = sesv2.NewEmailIdentityPolicy(ctx, "exampleEmailIdentityPolicy", &sesv2.EmailIdentityPolicyArgs{
-//				EmailIdentity: exampleEmailIdentity.EmailIdentity,
-//				PolicyName:    pulumi.String("example"),
-//				Policy: exampleEmailIdentity.Arn.ApplyT(func(arn string) (string, error) {
-//					return fmt.Sprintf(`{
+//	Policy: fmt.Sprintf(`{
 //	  "Id":"ExampleAuthorizationPolicy",
 //	  "Version":"2012-10-17",
 //	  "Statement":[
@@ -63,17 +63,14 @@ import (
 //	  ]
 //	}
 //
-// `, arn), nil
-//
-//				}).(pulumi.StringOutput),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// `, exampleEmailIdentity.Arn),
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

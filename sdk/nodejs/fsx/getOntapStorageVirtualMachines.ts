@@ -9,22 +9,6 @@ import * as utilities from "../utilities";
 
 /**
  * This resource can be useful for getting back a set of FSx ONTAP Storage Virtual Machine (SVM) IDs.
- *
- * ## Example Usage
- *
- * The following shows outputting all SVM IDs for a given FSx ONTAP File System.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.fsx.getOntapStorageVirtualMachines({
- *     filters: [{
- *         name: "file-system-id",
- *         values: ["fs-12345678"],
- *     }],
- * });
- * ```
  */
 export function getOntapStorageVirtualMachines(args?: GetOntapStorageVirtualMachinesArgs, opts?: pulumi.InvokeOptions): Promise<GetOntapStorageVirtualMachinesResult> {
     args = args || {};
@@ -61,22 +45,6 @@ export interface GetOntapStorageVirtualMachinesResult {
 }
 /**
  * This resource can be useful for getting back a set of FSx ONTAP Storage Virtual Machine (SVM) IDs.
- *
- * ## Example Usage
- *
- * The following shows outputting all SVM IDs for a given FSx ONTAP File System.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.fsx.getOntapStorageVirtualMachines({
- *     filters: [{
- *         name: "file-system-id",
- *         values: ["fs-12345678"],
- *     }],
- * });
- * ```
  */
 export function getOntapStorageVirtualMachinesOutput(args?: GetOntapStorageVirtualMachinesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOntapStorageVirtualMachinesResult> {
     return pulumi.output(args).apply((a: any) => getOntapStorageVirtualMachines(a, opts))

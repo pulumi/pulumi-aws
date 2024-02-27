@@ -53,60 +53,6 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
- * ### Create protection group for arbitrary number of resources
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.AwsFunctions;
- * import com.pulumi.aws.inputs.GetRegionArgs;
- * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
- * import com.pulumi.aws.ec2.Eip;
- * import com.pulumi.aws.ec2.EipArgs;
- * import com.pulumi.aws.shield.Protection;
- * import com.pulumi.aws.shield.ProtectionArgs;
- * import com.pulumi.aws.shield.ProtectionGroup;
- * import com.pulumi.aws.shield.ProtectionGroupArgs;
- * import com.pulumi.resources.CustomResourceOptions;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var currentRegion = AwsFunctions.getRegion();
- * 
- *         final var currentCallerIdentity = AwsFunctions.getCallerIdentity();
- * 
- *         var exampleEip = new Eip(&#34;exampleEip&#34;, EipArgs.builder()        
- *             .domain(&#34;vpc&#34;)
- *             .build());
- * 
- *         var exampleProtection = new Protection(&#34;exampleProtection&#34;, ProtectionArgs.builder()        
- *             .resourceArn(exampleEip.id().applyValue(id -&gt; String.format(&#34;arn:aws:ec2:%s:%s:eip-allocation/%s&#34;, currentRegion.applyValue(getRegionResult -&gt; getRegionResult.name()),currentCallerIdentity.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()),id)))
- *             .build());
- * 
- *         var exampleProtectionGroup = new ProtectionGroup(&#34;exampleProtectionGroup&#34;, ProtectionGroupArgs.builder()        
- *             .protectionGroupId(&#34;example&#34;)
- *             .aggregation(&#34;MEAN&#34;)
- *             .pattern(&#34;ARBITRARY&#34;)
- *             .members(exampleEip.id().applyValue(id -&gt; String.format(&#34;arn:aws:ec2:%s:%s:eip-allocation/%s&#34;, currentRegion.applyValue(getRegionResult -&gt; getRegionResult.name()),currentCallerIdentity.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()),id)))
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(exampleProtection)
- *                 .build());
- * 
- *     }
- * }
- * ```
  * ### Create protection group for a type of resource
  * ```java
  * package generated_program;

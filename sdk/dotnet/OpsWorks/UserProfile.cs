@@ -22,7 +22,7 @@ namespace Pulumi.Aws.OpsWorks
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var myProfile = new Aws.OpsWorks.UserProfile("myProfile", new()
+    ///     var myProfile = new Aws.Opsworks.UserProfile.UserProfile("myProfile", new()
     ///     {
     ///         UserArn = aws_iam_user.User.Arn,
     ///         SshUsername = "my_user",

@@ -341,15 +341,15 @@ class DeploymentStrategy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.appconfig.DeploymentStrategy("example",
+        example = aws.appconfig.deployment_strategy.DeploymentStrategy("example",
             deployment_duration_in_minutes=3,
-            description="Example Deployment Strategy",
+            description=Example Deployment Strategy,
             final_bake_time_in_minutes=4,
             growth_factor=10,
-            growth_type="LINEAR",
-            replicate_to="NONE",
+            growth_type=LINEAR,
+            replicate_to=NONE,
             tags={
-                "Type": "AppConfig Deployment Strategy",
+                Type: AppConfig Deployment Strategy,
             })
         ```
 
@@ -387,15 +387,15 @@ class DeploymentStrategy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.appconfig.DeploymentStrategy("example",
+        example = aws.appconfig.deployment_strategy.DeploymentStrategy("example",
             deployment_duration_in_minutes=3,
-            description="Example Deployment Strategy",
+            description=Example Deployment Strategy,
             final_bake_time_in_minutes=4,
             growth_factor=10,
-            growth_type="LINEAR",
-            replicate_to="NONE",
+            growth_type=LINEAR,
+            replicate_to=NONE,
             tags={
-                "Type": "AppConfig Deployment Strategy",
+                Type: AppConfig Deployment Strategy,
             })
         ```
 

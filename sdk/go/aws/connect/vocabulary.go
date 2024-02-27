@@ -22,28 +22,26 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/connect"
+//	connect/vocabulary "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/connect/vocabulary"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := connect.NewVocabulary(ctx, "example", &connect.VocabularyArgs{
-//				Content:      pulumi.String("Phrase	IPA	SoundsLike	DisplayAs\nLos-Angeles			Los Angeles\nF.B.I.	ɛ f b i aɪ		FBI\nEtienne		eh-tee-en	\n"),
-//				InstanceId:   pulumi.String("aaaaaaaa-bbbb-cccc-dddd-111111111111"),
-//				LanguageCode: pulumi.String("en-US"),
-//				Tags: pulumi.StringMap{
-//					"Key1": pulumi.String("Value1"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := connect/vocabulary.NewVocabulary(ctx, "example", &connect/vocabulary.VocabularyArgs{
+// Content: "Phrase	IPA	SoundsLike	DisplayAs\nLos-Angeles			Los Angeles\nF.B.I.	ɛ f b i aɪ		FBI\nEtienne		eh-tee-en	\n",
+// InstanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+// LanguageCode: "en-US",
+// Tags: map[string]interface{}{
+// "Key1": "Value1",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

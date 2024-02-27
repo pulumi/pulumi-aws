@@ -182,9 +182,9 @@ class TrafficMirrorFilter(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        foo = aws.ec2.TrafficMirrorFilter("foo",
-            description="traffic mirror filter - example",
-            network_services=["amazon-dns"])
+        foo = aws.ec2.traffic_mirror_filter.TrafficMirrorFilter("foo",
+            description=traffic mirror filter - example,
+            network_services=[amazon-dns])
         ```
 
         ## Import
@@ -219,9 +219,9 @@ class TrafficMirrorFilter(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        foo = aws.ec2.TrafficMirrorFilter("foo",
-            description="traffic mirror filter - example",
-            network_services=["amazon-dns"])
+        foo = aws.ec2.traffic_mirror_filter.TrafficMirrorFilter("foo",
+            description=traffic mirror filter - example,
+            network_services=[amazon-dns])
         ```
 
         ## Import

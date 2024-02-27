@@ -8,17 +8,6 @@ import * as utilities from "../utilities";
  * Use this data source to retrieve information about an EventBridge connection.
  *
  * > **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = aws.cloudwatch.getEventConnection({
- *     name: "test",
- * });
- * ```
  */
 export function getEventConnection(args: GetEventConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetEventConnectionResult> {
 
@@ -67,17 +56,6 @@ export interface GetEventConnectionResult {
  * Use this data source to retrieve information about an EventBridge connection.
  *
  * > **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = aws.cloudwatch.getEventConnection({
- *     name: "test",
- * });
- * ```
  */
 export function getEventConnectionOutput(args: GetEventConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventConnectionResult> {
     return pulumi.output(args).apply((a: any) => getEventConnection(a, opts))

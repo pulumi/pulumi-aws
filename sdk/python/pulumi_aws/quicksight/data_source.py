@@ -417,17 +417,17 @@ class DataSource(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        default = aws.quicksight.DataSource("default",
-            data_source_id="example-id",
-            parameters=aws.quicksight.DataSourceParametersArgs(
-                s3=aws.quicksight.DataSourceParametersS3Args(
-                    manifest_file_location=aws.quicksight.DataSourceParametersS3ManifestFileLocationArgs(
-                        bucket="my-bucket",
-                        key="path/to/manifest.json",
-                    ),
-                ),
-            ),
-            type="S3")
+        default = aws.quicksight.data_source.DataSource("default",
+            data_source_id=example-id,
+            parameters={
+                s3: {
+                    manifestFileLocation: {
+                        bucket: my-bucket,
+                        key: path/to/manifest.json,
+                    },
+                },
+            },
+            type=S3)
         ```
 
         ## Import
@@ -468,17 +468,17 @@ class DataSource(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        default = aws.quicksight.DataSource("default",
-            data_source_id="example-id",
-            parameters=aws.quicksight.DataSourceParametersArgs(
-                s3=aws.quicksight.DataSourceParametersS3Args(
-                    manifest_file_location=aws.quicksight.DataSourceParametersS3ManifestFileLocationArgs(
-                        bucket="my-bucket",
-                        key="path/to/manifest.json",
-                    ),
-                ),
-            ),
-            type="S3")
+        default = aws.quicksight.data_source.DataSource("default",
+            data_source_id=example-id,
+            parameters={
+                s3: {
+                    manifestFileLocation: {
+                        bucket: my-bucket,
+                        key: path/to/manifest.json,
+                    },
+                },
+            },
+            type=S3)
         ```
 
         ## Import

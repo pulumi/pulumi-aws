@@ -17,29 +17,6 @@ namespace Pulumi.Aws.Ec2
     /// and a VPC Endpoint Service resource with an `allowed_principals` attribute. Do not use the same principal ARN in both
     /// a VPC Endpoint Service resource and a VPC Endpoint Service Allowed Principal resource. Doing so will cause a conflict
     /// and will overwrite the association.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// Basic usage:
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var current = Aws.GetCallerIdentity.Invoke();
-    /// 
-    ///     var allowMeToFoo = new Aws.Ec2.VpcEndpointServiceAllowedPrinciple("allowMeToFoo", new()
-    ///     {
-    ///         VpcEndpointServiceId = aws_vpc_endpoint_service.Foo.Id,
-    ///         PrincipalArn = current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.Arn),
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/vpcEndpointServiceAllowedPrinciple:VpcEndpointServiceAllowedPrinciple")]
     public partial class VpcEndpointServiceAllowedPrinciple : global::Pulumi.CustomResource

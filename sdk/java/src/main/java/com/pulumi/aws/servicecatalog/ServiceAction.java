@@ -28,7 +28,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.servicecatalog.ServiceAction;
  * import com.pulumi.aws.servicecatalog.ServiceActionArgs;
- * import com.pulumi.aws.servicecatalog.inputs.ServiceActionDefinitionArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -43,9 +42,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ServiceAction(&#34;example&#34;, ServiceActionArgs.builder()        
- *             .definition(ServiceActionDefinitionArgs.builder()
- *                 .name(&#34;AWS-RestartEC2Instance&#34;)
- *                 .build())
+ *             .definition(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .description(&#34;Motor generator unit&#34;)
  *             .build());
  * 

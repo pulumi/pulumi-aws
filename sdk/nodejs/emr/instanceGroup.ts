@@ -21,7 +21,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const task = new aws.emr.InstanceGroup("task", {
+ * const task = new aws.emr/instanceGroup.InstanceGroup("task", {
  *     clusterId: aws_emr_cluster["tf-test-cluster"].id,
  *     instanceCount: 1,
  *     instanceType: "m5.xlarge",
@@ -83,7 +83,7 @@ export class InstanceGroup extends pulumi.CustomResource {
      * import * as pulumi from "@pulumi/pulumi";
      * import * as aws from "@pulumi/aws";
      *
-     * const task = new aws.emr.InstanceGroup("task", {configurationsJson: `[
+     * const task = new aws.emr/instanceGroup.InstanceGroup("task", {configurationsJson: `[
      * {
      * "Classification": "hadoop-env",
      * "Configurations": [
@@ -203,7 +203,7 @@ export interface InstanceGroupState {
      * import * as pulumi from "@pulumi/pulumi";
      * import * as aws from "@pulumi/aws";
      *
-     * const task = new aws.emr.InstanceGroup("task", {configurationsJson: `[
+     * const task = new aws.emr/instanceGroup.InstanceGroup("task", {configurationsJson: `[
      * {
      * "Classification": "hadoop-env",
      * "Configurations": [
@@ -275,7 +275,7 @@ export interface InstanceGroupArgs {
      * import * as pulumi from "@pulumi/pulumi";
      * import * as aws from "@pulumi/aws";
      *
-     * const task = new aws.emr.InstanceGroup("task", {configurationsJson: `[
+     * const task = new aws.emr/instanceGroup.InstanceGroup("task", {configurationsJson: `[
      * {
      * "Classification": "hadoop-env",
      * "Configurations": [

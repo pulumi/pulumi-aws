@@ -13,8 +13,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleGraph = new aws.detective.Graph("exampleGraph", {});
- * const exampleMember = new aws.detective.Member("exampleMember", {
+ * const exampleGraph = new aws.detective/graph.Graph("exampleGraph", {});
+ * const exampleMember = new aws.detective/member.Member("exampleMember", {
  *     accountId: "AWS ACCOUNT ID",
  *     emailAddress: "EMAIL",
  *     graphArn: exampleGraph.id,

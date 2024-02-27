@@ -22,30 +22,30 @@ namespace Pulumi.Aws.Backup
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Backup.Plan("example", new()
+    ///     var example = new Aws.Backup.Plan.Plan("example", new()
     ///     {
     ///         Rules = new[]
     ///         {
-    ///             new Aws.Backup.Inputs.PlanRuleArgs
+    ///             
     ///             {
-    ///                 RuleName = "my_example_backup_rule",
-    ///                 TargetVaultName = aws_backup_vault.Test.Name,
-    ///                 Schedule = "cron(0 12 * * ? *)",
-    ///                 Lifecycle = new Aws.Backup.Inputs.PlanRuleLifecycleArgs
+    ///                 { "ruleName", "my_example_backup_rule" },
+    ///                 { "targetVaultName", aws_backup_vault.Test.Name },
+    ///                 { "schedule", "cron(0 12 * * ? *)" },
+    ///                 { "lifecycle", 
     ///                 {
-    ///                     DeleteAfter = 14,
-    ///                 },
+    ///                     { "deleteAfter", 14 },
+    ///                 } },
     ///             },
     ///         },
     ///         AdvancedBackupSettings = new[]
     ///         {
-    ///             new Aws.Backup.Inputs.PlanAdvancedBackupSettingArgs
+    ///             
     ///             {
-    ///                 BackupOptions = 
+    ///                 { "backupOptions", 
     ///                 {
     ///                     { "WindowsVSS", "enabled" },
-    ///                 },
-    ///                 ResourceType = "EC2",
+    ///                 } },
+    ///                 { "resourceType", "EC2" },
     ///             },
     ///         },
     ///     });

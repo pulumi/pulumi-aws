@@ -21,27 +21,25 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/imagebuilder"
+//	imagebuilder/imagePipeline "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/imagebuilder/imagePipeline"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := imagebuilder.NewImagePipeline(ctx, "example", &imagebuilder.ImagePipelineArgs{
-//				ImageRecipeArn:                 pulumi.Any(aws_imagebuilder_image_recipe.Example.Arn),
-//				InfrastructureConfigurationArn: pulumi.Any(aws_imagebuilder_infrastructure_configuration.Example.Arn),
-//				Schedule: &imagebuilder.ImagePipelineScheduleArgs{
-//					ScheduleExpression: pulumi.String("cron(0 0 * * ? *)"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := imagebuilder/imagePipeline.NewImagePipeline(ctx, "example", &imagebuilder/imagePipeline.ImagePipelineArgs{
+// ImageRecipeArn: aws_imagebuilder_image_recipe.Example.Arn,
+// InfrastructureConfigurationArn: aws_imagebuilder_infrastructure_configuration.Example.Arn,
+// Schedule: map[string]interface{}{
+// "scheduleExpression": "cron(0 0 * * ? *)",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

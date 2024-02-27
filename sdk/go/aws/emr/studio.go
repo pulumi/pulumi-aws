@@ -23,32 +23,30 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/emr"
+//	emr/studio "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/emr/studio"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := emr.NewStudio(ctx, "example", &emr.StudioArgs{
-//				AuthMode:              pulumi.String("SSO"),
-//				DefaultS3Location:     pulumi.String(fmt.Sprintf("s3://%v/test", aws_s3_bucket.Test.Bucket)),
-//				EngineSecurityGroupId: pulumi.Any(aws_security_group.Test.Id),
-//				ServiceRole:           pulumi.Any(aws_iam_role.Test.Arn),
-//				SubnetIds: pulumi.StringArray{
-//					aws_subnet.Test.Id,
-//				},
-//				UserRole:                 pulumi.Any(aws_iam_role.Test.Arn),
-//				VpcId:                    pulumi.Any(aws_vpc.Test.Id),
-//				WorkspaceSecurityGroupId: pulumi.Any(aws_security_group.Test.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := emr/studio.NewStudio(ctx, "example", &emr/studio.StudioArgs{
+// AuthMode: "SSO",
+// DefaultS3Location: fmt.Sprintf("s3://%v/test", aws_s3_bucket.Test.Bucket),
+// EngineSecurityGroupId: aws_security_group.Test.Id,
+// ServiceRole: aws_iam_role.Test.Arn,
+// SubnetIds: []interface{}{
+// aws_subnet.Test.Id,
+// },
+// UserRole: aws_iam_role.Test.Arn,
+// VpcId: aws_vpc.Test.Id,
+// WorkspaceSecurityGroupId: aws_security_group.Test.Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

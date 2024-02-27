@@ -26,7 +26,7 @@ namespace Pulumi.Aws.Lambda
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var lambdaLayer = new Aws.Lambda.LayerVersion("lambdaLayer", new()
+    ///     var lambdaLayer = new Aws.Lambda.LayerVersion.LayerVersion("lambdaLayer", new()
     ///     {
     ///         CompatibleRuntimes = new[]
     ///         {

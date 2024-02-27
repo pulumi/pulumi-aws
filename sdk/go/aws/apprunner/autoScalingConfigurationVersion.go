@@ -21,29 +21,27 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apprunner"
+//	apprunner/autoScalingConfigurationVersion "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/apprunner/autoScalingConfigurationVersion"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := apprunner.NewAutoScalingConfigurationVersion(ctx, "example", &apprunner.AutoScalingConfigurationVersionArgs{
-//				AutoScalingConfigurationName: pulumi.String("example"),
-//				MaxConcurrency:               pulumi.Int(50),
-//				MaxSize:                      pulumi.Int(10),
-//				MinSize:                      pulumi.Int(2),
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("example-apprunner-autoscaling"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := apprunner/autoScalingConfigurationVersion.NewAutoScalingConfigurationVersion(ctx, "example", &apprunner/autoScalingConfigurationVersion.AutoScalingConfigurationVersionArgs{
+// AutoScalingConfigurationName: "example",
+// MaxConcurrency: 50,
+// MaxSize: 10,
+// MinSize: 2,
+// Tags: map[string]interface{}{
+// "Name": "example-apprunner-autoscaling",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

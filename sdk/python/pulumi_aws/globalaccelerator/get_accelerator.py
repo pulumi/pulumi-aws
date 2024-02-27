@@ -139,23 +139,6 @@ def get_accelerator(arn: Optional[str] = None,
     """
     Provides information about a Global Accelerator accelerator.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    config = pulumi.Config()
-    accelerator_arn = config.get("acceleratorArn")
-    if accelerator_arn is None:
-        accelerator_arn = ""
-    accelerator_name = config.get("acceleratorName")
-    if accelerator_name is None:
-        accelerator_name = ""
-    example = aws.globalaccelerator.get_accelerator(arn=accelerator_arn,
-        name=accelerator_name)
-    ```
-
 
     :param str arn: Full ARN of the Global Accelerator.
     :param str name: Unique name of the Global Accelerator.
@@ -190,23 +173,6 @@ def get_accelerator_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAcceleratorResult]:
     """
     Provides information about a Global Accelerator accelerator.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    config = pulumi.Config()
-    accelerator_arn = config.get("acceleratorArn")
-    if accelerator_arn is None:
-        accelerator_arn = ""
-    accelerator_name = config.get("acceleratorName")
-    if accelerator_name is None:
-        accelerator_name = ""
-    example = aws.globalaccelerator.get_accelerator(arn=accelerator_arn,
-        name=accelerator_name)
-    ```
 
 
     :param str arn: Full ARN of the Global Accelerator.

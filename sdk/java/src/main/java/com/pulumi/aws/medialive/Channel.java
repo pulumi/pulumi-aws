@@ -37,11 +37,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.medialive.Channel;
  * import com.pulumi.aws.medialive.ChannelArgs;
- * import com.pulumi.aws.medialive.inputs.ChannelInputSpecificationArgs;
- * import com.pulumi.aws.medialive.inputs.ChannelInputAttachmentArgs;
- * import com.pulumi.aws.medialive.inputs.ChannelDestinationArgs;
- * import com.pulumi.aws.medialive.inputs.ChannelEncoderSettingsArgs;
- * import com.pulumi.aws.medialive.inputs.ChannelEncoderSettingsTimecodeConfigArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -58,64 +53,10 @@ import javax.annotation.Nullable;
  *         var example = new Channel(&#34;example&#34;, ChannelArgs.builder()        
  *             .channelClass(&#34;STANDARD&#34;)
  *             .roleArn(aws_iam_role.example().arn())
- *             .inputSpecification(ChannelInputSpecificationArgs.builder()
- *                 .codec(&#34;AVC&#34;)
- *                 .inputResolution(&#34;HD&#34;)
- *                 .maximumBitrate(&#34;MAX_20_MBPS&#34;)
- *                 .build())
- *             .inputAttachments(ChannelInputAttachmentArgs.builder()
- *                 .inputAttachmentName(&#34;example-input&#34;)
- *                 .inputId(aws_medialive_input.example().id())
- *                 .build())
- *             .destinations(ChannelDestinationArgs.builder()
- *                 .id(&#34;destination&#34;)
- *                 .settings(                
- *                     ChannelDestinationSettingArgs.builder()
- *                         .url(String.format(&#34;s3://%s/test1&#34;, aws_s3_bucket.main().id()))
- *                         .build(),
- *                     ChannelDestinationSettingArgs.builder()
- *                         .url(String.format(&#34;s3://%s/test2&#34;, aws_s3_bucket.main2().id()))
- *                         .build())
- *                 .build())
- *             .encoderSettings(ChannelEncoderSettingsArgs.builder()
- *                 .timecodeConfig(ChannelEncoderSettingsTimecodeConfigArgs.builder()
- *                     .source(&#34;EMBEDDED&#34;)
- *                     .build())
- *                 .audioDescriptions(ChannelEncoderSettingsAudioDescriptionArgs.builder()
- *                     .audioSelectorName(&#34;example audio selector&#34;)
- *                     .name(&#34;audio-selector&#34;)
- *                     .build())
- *                 .videoDescriptions(ChannelEncoderSettingsVideoDescriptionArgs.builder()
- *                     .name(&#34;example-video&#34;)
- *                     .build())
- *                 .outputGroups(ChannelEncoderSettingsOutputGroupArgs.builder()
- *                     .outputGroupSettings(ChannelEncoderSettingsOutputGroupOutputGroupSettingsArgs.builder()
- *                         .archiveGroupSettings(ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArgs.builder()
- *                             .destination(ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingDestinationArgs.builder()
- *                                 .destinationRefId(&#34;destination&#34;)
- *                                 .build())
- *                             .build())
- *                         .build())
- *                     .outputs(ChannelEncoderSettingsOutputGroupOutputArgs.builder()
- *                         .outputName(&#34;example-name&#34;)
- *                         .videoDescriptionName(&#34;example-video&#34;)
- *                         .audioDescriptionNames(&#34;audio-selector&#34;)
- *                         .outputSettings(ChannelEncoderSettingsOutputGroupOutputOutputSettingsArgs.builder()
- *                             .archiveOutputSettings(ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsArgs.builder()
- *                                 .nameModifier(&#34;_1&#34;)
- *                                 .extension(&#34;m2ts&#34;)
- *                                 .containerSettings(ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsArgs.builder()
- *                                     .m2tsSettings(ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsArgs.builder()
- *                                         .audioBufferModel(&#34;ATSC&#34;)
- *                                         .bufferModel(&#34;MULTIPLEX&#34;)
- *                                         .rateMode(&#34;CBR&#34;)
- *                                         .build())
- *                                     .build())
- *                                 .build())
- *                             .build())
- *                         .build())
- *                     .build())
- *                 .build())
+ *             .inputSpecification(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .inputAttachments(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .destinations(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .encoderSettings(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

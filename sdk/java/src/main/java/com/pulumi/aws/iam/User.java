@@ -21,60 +21,6 @@ import javax.annotation.Nullable;
  * 
  * &gt; *NOTE:* If policies are attached to the user via the `aws.iam.PolicyAttachment` resource and you are modifying the user `name` or `path`, the `force_destroy` argument must be set to `true` and applied before attempting the operation otherwise you will encounter a `DeleteConflict` error. The `aws.iam.UserPolicyAttachment` resource (recommended) does not have this requirement.
  * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.iam.User;
- * import com.pulumi.aws.iam.UserArgs;
- * import com.pulumi.aws.iam.AccessKey;
- * import com.pulumi.aws.iam.AccessKeyArgs;
- * import com.pulumi.aws.iam.IamFunctions;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
- * import com.pulumi.aws.iam.UserPolicy;
- * import com.pulumi.aws.iam.UserPolicyArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var lbUser = new User(&#34;lbUser&#34;, UserArgs.builder()        
- *             .path(&#34;/system/&#34;)
- *             .tags(Map.of(&#34;tag-key&#34;, &#34;tag-value&#34;))
- *             .build());
- * 
- *         var lbAccessKey = new AccessKey(&#34;lbAccessKey&#34;, AccessKeyArgs.builder()        
- *             .user(lbUser.name())
- *             .build());
- * 
- *         final var lbRoPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect(&#34;Allow&#34;)
- *                 .actions(&#34;ec2:Describe*&#34;)
- *                 .resources(&#34;*&#34;)
- *                 .build())
- *             .build());
- * 
- *         var lbRoUserPolicy = new UserPolicy(&#34;lbRoUserPolicy&#34;, UserPolicyArgs.builder()        
- *             .user(lbUser.name())
- *             .policy(lbRoPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
  * ## Import
  * 
  * Using `pulumi import`, import IAM Users using the `name`. For example:

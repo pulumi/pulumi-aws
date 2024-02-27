@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.qldb.Stream("example", {
+ * const example = new aws.qldb/stream.Stream("example", {
  *     inclusiveStartTime: "2021-01-01T00:00:00Z",
  *     kinesisConfiguration: {
  *         aggregationEnabled: false,

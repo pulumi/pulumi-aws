@@ -25,24 +25,24 @@ namespace Pulumi.Aws.DocDB
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var primary = new Aws.Provider("primary", new()
+    ///     var primary = new Pulumi.Providers.Aws("primary", new()
     ///     {
     ///         Region = "us-east-2",
     ///     });
     /// 
-    ///     var secondary = new Aws.Provider("secondary", new()
+    ///     var secondary = new Pulumi.Providers.Aws("secondary", new()
     ///     {
     ///         Region = "us-east-1",
     ///     });
     /// 
-    ///     var example = new Aws.DocDB.GlobalCluster("example", new()
+    ///     var example = new Aws.Docdb.GlobalCluster.GlobalCluster("example", new()
     ///     {
     ///         GlobalClusterIdentifier = "global-test",
     ///         Engine = "docdb",
     ///         EngineVersion = "4.0.0",
     ///     });
     /// 
-    ///     var primaryCluster = new Aws.DocDB.Cluster("primaryCluster", new()
+    ///     var primaryCluster = new Aws.Docdb.Cluster.Cluster("primaryCluster", new()
     ///     {
     ///         Engine = example.Engine,
     ///         EngineVersion = example.EngineVersion,
@@ -56,7 +56,7 @@ namespace Pulumi.Aws.DocDB
     ///         Provider = aws.Primary,
     ///     });
     /// 
-    ///     var primaryClusterInstance = new Aws.DocDB.ClusterInstance("primaryClusterInstance", new()
+    ///     var primaryClusterInstance = new Aws.Docdb.ClusterInstance.ClusterInstance("primaryClusterInstance", new()
     ///     {
     ///         Engine = example.Engine,
     ///         Identifier = "test-primary-cluster-instance",
@@ -67,7 +67,7 @@ namespace Pulumi.Aws.DocDB
     ///         Provider = aws.Primary,
     ///     });
     /// 
-    ///     var secondaryCluster = new Aws.DocDB.Cluster("secondaryCluster", new()
+    ///     var secondaryCluster = new Aws.Docdb.Cluster.Cluster("secondaryCluster", new()
     ///     {
     ///         Engine = example.Engine,
     ///         EngineVersion = example.EngineVersion,
@@ -83,7 +83,7 @@ namespace Pulumi.Aws.DocDB
     ///         },
     ///     });
     /// 
-    ///     var secondaryClusterInstance = new Aws.DocDB.ClusterInstance("secondaryClusterInstance", new()
+    ///     var secondaryClusterInstance = new Aws.Docdb.ClusterInstance.ClusterInstance("secondaryClusterInstance", new()
     ///     {
     ///         Engine = example.Engine,
     ///         Identifier = "test-secondary-cluster-instance",
@@ -111,9 +111,9 @@ namespace Pulumi.Aws.DocDB
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // ... other configuration ...
-    ///     var exampleCluster = new Aws.DocDB.Cluster("exampleCluster");
+    ///     var exampleCluster = new Aws.Docdb.Cluster.Cluster("exampleCluster");
     /// 
-    ///     var exampleGlobalCluster = new Aws.DocDB.GlobalCluster("exampleGlobalCluster", new()
+    ///     var exampleGlobalCluster = new Aws.Docdb.GlobalCluster.GlobalCluster("exampleGlobalCluster", new()
     ///     {
     ///         GlobalClusterIdentifier = "example",
     ///         SourceDbClusterIdentifier = exampleCluster.Arn,

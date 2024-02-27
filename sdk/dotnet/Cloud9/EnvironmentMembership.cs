@@ -22,14 +22,14 @@ namespace Pulumi.Aws.Cloud9
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testEnvironmentEC2 = new Aws.Cloud9.EnvironmentEC2("testEnvironmentEC2", new()
+    ///     var testEnvironmentEC2 = new Aws.Cloud9.EnvironmentEC2.EnvironmentEC2("testEnvironmentEC2", new()
     ///     {
     ///         InstanceType = "t2.micro",
     ///     });
     /// 
-    ///     var testUser = new Aws.Iam.User("testUser");
+    ///     var testUser = new Aws.Iam.User.User("testUser");
     /// 
-    ///     var testEnvironmentMembership = new Aws.Cloud9.EnvironmentMembership("testEnvironmentMembership", new()
+    ///     var testEnvironmentMembership = new Aws.Cloud9.EnvironmentMembership.EnvironmentMembership("testEnvironmentMembership", new()
     ///     {
     ///         EnvironmentId = testEnvironmentEC2.Id,
     ///         Permissions = "read-only",

@@ -68,29 +68,6 @@ def get_subscribed_rule_group(metric_name: Optional[str] = None,
     """
     `wafregional_get_subscribed_rule_group` retrieves information about a Managed WAF Rule Group from AWS Marketplace for use in WAF Regional (needs to be subscribed to first).
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    by_name = aws.wafregional.get_subscribed_rule_group(name="F5 Bot Detection Signatures For AWS WAF")
-    by_metric_name = aws.wafregional.get_subscribed_rule_group(metric_name="F5BotDetectionSignatures")
-    # ...
-    acl = aws.wafregional.WebAcl("acl", rules=[
-        aws.wafregional.WebAclRuleArgs(
-            priority=1,
-            rule_id=by_name.id,
-            type="GROUP",
-        ),
-        aws.wafregional.WebAclRuleArgs(
-            priority=2,
-            rule_id=by_metric_name.id,
-            type="GROUP",
-        ),
-    ])
-    ```
-
 
     :param str metric_name: Name of the WAF rule group.
     :param str name: Name of the WAF rule group.
@@ -113,29 +90,6 @@ def get_subscribed_rule_group_output(metric_name: Optional[pulumi.Input[Optional
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSubscribedRuleGroupResult]:
     """
     `wafregional_get_subscribed_rule_group` retrieves information about a Managed WAF Rule Group from AWS Marketplace for use in WAF Regional (needs to be subscribed to first).
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    by_name = aws.wafregional.get_subscribed_rule_group(name="F5 Bot Detection Signatures For AWS WAF")
-    by_metric_name = aws.wafregional.get_subscribed_rule_group(metric_name="F5BotDetectionSignatures")
-    # ...
-    acl = aws.wafregional.WebAcl("acl", rules=[
-        aws.wafregional.WebAclRuleArgs(
-            priority=1,
-            rule_id=by_name.id,
-            type="GROUP",
-        ),
-        aws.wafregional.WebAclRuleArgs(
-            priority=2,
-            rule_id=by_metric_name.id,
-            type="GROUP",
-        ),
-    ])
-    ```
 
 
     :param str metric_name: Name of the WAF rule group.

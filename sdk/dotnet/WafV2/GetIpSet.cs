@@ -13,58 +13,12 @@ namespace Pulumi.Aws.WafV2
     {
         /// <summary>
         /// Retrieves the summary of a WAFv2 IP Set.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.WafV2.GetIpSet.Invoke(new()
-        ///     {
-        ///         Name = "some-ip-set",
-        ///         Scope = "REGIONAL",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetIpSetResult> InvokeAsync(GetIpSetArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetIpSetResult>("aws:wafv2/getIpSet:getIpSet", args ?? new GetIpSetArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves the summary of a WAFv2 IP Set.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.WafV2.GetIpSet.Invoke(new()
-        ///     {
-        ///         Name = "some-ip-set",
-        ///         Scope = "REGIONAL",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetIpSetResult> Invoke(GetIpSetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIpSetResult>("aws:wafv2/getIpSet:getIpSet", args ?? new GetIpSetInvokeArgs(), options.WithDefaults());

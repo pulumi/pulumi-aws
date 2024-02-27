@@ -25,7 +25,7 @@ namespace Pulumi.Aws.StorageGateway
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.StorageGateway.StoredIscsiVolume("example", new()
+    ///     var example = new Aws.Storagegateway.StoredIscsiVolume.StoredIscsiVolume("example", new()
     ///     {
     ///         GatewayArn = aws_storagegateway_cache.Example.Gateway_arn,
     ///         NetworkInterfaceId = aws_instance.Example.Private_ip,
@@ -46,7 +46,7 @@ namespace Pulumi.Aws.StorageGateway
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.StorageGateway.StoredIscsiVolume("example", new()
+    ///     var example = new Aws.Storagegateway.StoredIscsiVolume.StoredIscsiVolume("example", new()
     ///     {
     ///         GatewayArn = aws_storagegateway_cache.Example.Gateway_arn,
     ///         NetworkInterfaceId = aws_instance.Example.Private_ip,

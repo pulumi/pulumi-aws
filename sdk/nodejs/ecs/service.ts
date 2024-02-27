@@ -20,7 +20,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const mongo = new aws.ecs.Service("mongo", {
+ * const mongo = new aws.ecs/service.Service("mongo", {
  *     cluster: aws_ecs_cluster.foo.id,
  *     taskDefinition: aws_ecs_task_definition.mongo.arn,
  *     desiredCount: 3,
@@ -51,7 +51,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * // ... other configurations ...
- * const example = new aws.ecs.Service("example", {desiredCount: 2});
+ * const example = new aws.ecs/service.Service("example", {desiredCount: 2});
  * ```
  * ### Daemon Scheduling Strategy
  *
@@ -59,7 +59,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const bar = new aws.ecs.Service("bar", {
+ * const bar = new aws.ecs/service.Service("bar", {
  *     cluster: aws_ecs_cluster.foo.id,
  *     taskDefinition: aws_ecs_task_definition.bar.arn,
  *     schedulingStrategy: "DAEMON",
@@ -71,7 +71,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.ecs.Service("example", {
+ * const example = new aws.ecs/service.Service("example", {
  *     cluster: aws_ecs_cluster.example.id,
  *     alarms: {
  *         enable: true,
@@ -86,7 +86,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.ecs.Service("example", {
+ * const example = new aws.ecs/service.Service("example", {
  *     cluster: aws_ecs_cluster.example.id,
  *     deploymentController: {
  *         type: "EXTERNAL",

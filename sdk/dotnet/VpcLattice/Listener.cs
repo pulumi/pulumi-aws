@@ -23,18 +23,18 @@ namespace Pulumi.Aws.VpcLattice
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleService = new Aws.VpcLattice.Service("exampleService");
+    ///     var exampleService = new Aws.Vpclattice.Service.Service("exampleService");
     /// 
-    ///     var exampleListener = new Aws.VpcLattice.Listener("exampleListener", new()
+    ///     var exampleListener = new Aws.Vpclattice.Listener.Listener("exampleListener", new()
     ///     {
     ///         Protocol = "HTTPS",
     ///         ServiceIdentifier = exampleService.Id,
-    ///         DefaultAction = new Aws.VpcLattice.Inputs.ListenerDefaultActionArgs
+    ///         DefaultAction = 
     ///         {
-    ///             FixedResponse = new Aws.VpcLattice.Inputs.ListenerDefaultActionFixedResponseArgs
+    ///             { "fixedResponse", 
     ///             {
-    ///                 StatusCode = 404,
-    ///             },
+    ///                 { "statusCode", 404 },
+    ///             } },
     ///         },
     ///     });
     /// 
@@ -50,38 +50,38 @@ namespace Pulumi.Aws.VpcLattice
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleService = new Aws.VpcLattice.Service("exampleService");
+    ///     var exampleService = new Aws.Vpclattice.Service.Service("exampleService");
     /// 
-    ///     var exampleTargetGroup = new Aws.VpcLattice.TargetGroup("exampleTargetGroup", new()
+    ///     var exampleTargetGroup = new Aws.Vpclattice.TargetGroup.TargetGroup("exampleTargetGroup", new()
     ///     {
     ///         Type = "INSTANCE",
-    ///         Config = new Aws.VpcLattice.Inputs.TargetGroupConfigArgs
+    ///         Config = 
     ///         {
-    ///             Port = 80,
-    ///             Protocol = "HTTP",
-    ///             VpcIdentifier = aws_vpc.Example.Id,
+    ///             { "port", 80 },
+    ///             { "protocol", "HTTP" },
+    ///             { "vpcIdentifier", aws_vpc.Example.Id },
     ///         },
     ///     });
     /// 
-    ///     var exampleListener = new Aws.VpcLattice.Listener("exampleListener", new()
+    ///     var exampleListener = new Aws.Vpclattice.Listener.Listener("exampleListener", new()
     ///     {
     ///         Protocol = "HTTP",
     ///         ServiceIdentifier = exampleService.Id,
-    ///         DefaultAction = new Aws.VpcLattice.Inputs.ListenerDefaultActionArgs
+    ///         DefaultAction = 
     ///         {
-    ///             Forwards = new[]
+    ///             { "forwards", new[]
     ///             {
-    ///                 new Aws.VpcLattice.Inputs.ListenerDefaultActionForwardArgs
+    ///                 
     ///                 {
-    ///                     TargetGroups = new[]
+    ///                     { "targetGroups", new[]
     ///                     {
-    ///                         new Aws.VpcLattice.Inputs.ListenerDefaultActionForwardTargetGroupArgs
+    ///                         
     ///                         {
-    ///                             TargetGroupIdentifier = exampleTargetGroup.Id,
+    ///                             { "targetGroupIdentifier", exampleTargetGroup.Id },
     ///                         },
-    ///                     },
+    ///                     } },
     ///                 },
-    ///             },
+    ///             } },
     ///         },
     ///     });
     /// 
@@ -97,55 +97,55 @@ namespace Pulumi.Aws.VpcLattice
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleService = new Aws.VpcLattice.Service("exampleService");
+    ///     var exampleService = new Aws.Vpclattice.Service.Service("exampleService");
     /// 
-    ///     var example1 = new Aws.VpcLattice.TargetGroup("example1", new()
+    ///     var example1 = new Aws.Vpclattice.TargetGroup.TargetGroup("example1", new()
     ///     {
     ///         Type = "INSTANCE",
-    ///         Config = new Aws.VpcLattice.Inputs.TargetGroupConfigArgs
+    ///         Config = 
     ///         {
-    ///             Port = 80,
-    ///             Protocol = "HTTP",
-    ///             VpcIdentifier = aws_vpc.Example.Id,
+    ///             { "port", 80 },
+    ///             { "protocol", "HTTP" },
+    ///             { "vpcIdentifier", aws_vpc.Example.Id },
     ///         },
     ///     });
     /// 
-    ///     var example2 = new Aws.VpcLattice.TargetGroup("example2", new()
+    ///     var example2 = new Aws.Vpclattice.TargetGroup.TargetGroup("example2", new()
     ///     {
     ///         Type = "INSTANCE",
-    ///         Config = new Aws.VpcLattice.Inputs.TargetGroupConfigArgs
+    ///         Config = 
     ///         {
-    ///             Port = 8080,
-    ///             Protocol = "HTTP",
-    ///             VpcIdentifier = aws_vpc.Example.Id,
+    ///             { "port", 8080 },
+    ///             { "protocol", "HTTP" },
+    ///             { "vpcIdentifier", aws_vpc.Example.Id },
     ///         },
     ///     });
     /// 
-    ///     var exampleListener = new Aws.VpcLattice.Listener("exampleListener", new()
+    ///     var exampleListener = new Aws.Vpclattice.Listener.Listener("exampleListener", new()
     ///     {
     ///         Protocol = "HTTP",
     ///         ServiceIdentifier = exampleService.Id,
-    ///         DefaultAction = new Aws.VpcLattice.Inputs.ListenerDefaultActionArgs
+    ///         DefaultAction = 
     ///         {
-    ///             Forwards = new[]
+    ///             { "forwards", new[]
     ///             {
-    ///                 new Aws.VpcLattice.Inputs.ListenerDefaultActionForwardArgs
+    ///                 
     ///                 {
-    ///                     TargetGroups = new[]
+    ///                     { "targetGroups", new[]
     ///                     {
-    ///                         new Aws.VpcLattice.Inputs.ListenerDefaultActionForwardTargetGroupArgs
+    ///                         
     ///                         {
-    ///                             TargetGroupIdentifier = example1.Id,
-    ///                             Weight = 80,
+    ///                             { "targetGroupIdentifier", example1.Id },
+    ///                             { "weight", 80 },
     ///                         },
-    ///                         new Aws.VpcLattice.Inputs.ListenerDefaultActionForwardTargetGroupArgs
+    ///                         
     ///                         {
-    ///                             TargetGroupIdentifier = example2.Id,
-    ///                             Weight = 20,
+    ///                             { "targetGroupIdentifier", example2.Id },
+    ///                             { "weight", 20 },
     ///                         },
-    ///                     },
+    ///                     } },
     ///                 },
-    ///             },
+    ///             } },
     ///         },
     ///     });
     /// 

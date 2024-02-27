@@ -320,40 +320,6 @@ def get_subnet(availability_zone: Optional[str] = None,
 
     This resource can prove useful when a module accepts a subnet ID as an input variable and needs to, for example, determine the ID of the VPC that the subnet belongs to.
 
-    ## Example Usage
-
-    The following example shows how one might accept a subnet ID as a variable and use this data source to obtain the data necessary to create a security group that allows connections from hosts in that subnet.
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    config = pulumi.Config()
-    subnet_id = config.require_object("subnetId")
-    selected = aws.ec2.get_subnet(id=subnet_id)
-    subnet = aws.ec2.SecurityGroup("subnet",
-        vpc_id=selected.vpc_id,
-        ingress=[aws.ec2.SecurityGroupIngressArgs(
-            cidr_blocks=[selected.cidr_block],
-            from_port=80,
-            to_port=80,
-            protocol="tcp",
-        )])
-    ```
-    ### Filter Example
-
-    If you want to match against tag `Name`, use:
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    selected = aws.ec2.get_subnet(filters=[aws.ec2.GetSubnetFilterArgs(
-        name="tag:Name",
-        values=["yakdriver"],
-    )])
-    ```
-
 
     :param str availability_zone: Availability zone where the subnet must reside.
     :param str availability_zone_id: ID of the Availability Zone for the subnet. This argument is not supported in all regions or partitions. If necessary, use `availability_zone` instead.
@@ -424,40 +390,6 @@ def get_subnet_output(availability_zone: Optional[pulumi.Input[Optional[str]]] =
     `ec2.Subnet` provides details about a specific VPC subnet.
 
     This resource can prove useful when a module accepts a subnet ID as an input variable and needs to, for example, determine the ID of the VPC that the subnet belongs to.
-
-    ## Example Usage
-
-    The following example shows how one might accept a subnet ID as a variable and use this data source to obtain the data necessary to create a security group that allows connections from hosts in that subnet.
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    config = pulumi.Config()
-    subnet_id = config.require_object("subnetId")
-    selected = aws.ec2.get_subnet(id=subnet_id)
-    subnet = aws.ec2.SecurityGroup("subnet",
-        vpc_id=selected.vpc_id,
-        ingress=[aws.ec2.SecurityGroupIngressArgs(
-            cidr_blocks=[selected.cidr_block],
-            from_port=80,
-            to_port=80,
-            protocol="tcp",
-        )])
-    ```
-    ### Filter Example
-
-    If you want to match against tag `Name`, use:
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    selected = aws.ec2.get_subnet(filters=[aws.ec2.GetSubnetFilterArgs(
-        name="tag:Name",
-        values=["yakdriver"],
-    )])
-    ```
 
 
     :param str availability_zone: Availability zone where the subnet must reside.

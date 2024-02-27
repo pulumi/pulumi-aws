@@ -12,32 +12,6 @@ import (
 )
 
 // Retrieve the SES domain identity
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ses"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ses.LookupDomainIdentity(ctx, &ses.LookupDomainIdentityArgs{
-//				Domain: "example.com",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupDomainIdentity(ctx *pulumi.Context, args *LookupDomainIdentityArgs, opts ...pulumi.InvokeOption) (*LookupDomainIdentityResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDomainIdentityResult

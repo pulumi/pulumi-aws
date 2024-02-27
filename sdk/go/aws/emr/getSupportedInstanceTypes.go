@@ -14,31 +14,6 @@ import (
 // Data source for managing AWS EMR Supported Instance Types.
 //
 // ## Example Usage
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/emr"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := emr.GetSupportedInstanceTypes(ctx, &emr.GetSupportedInstanceTypesArgs{
-//				ReleaseLabel: "ebs-6.15.0",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetSupportedInstanceTypes(ctx *pulumi.Context, args *GetSupportedInstanceTypesArgs, opts ...pulumi.InvokeOption) (*GetSupportedInstanceTypesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetSupportedInstanceTypesResult

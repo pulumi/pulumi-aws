@@ -276,10 +276,10 @@ class Segment(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.evidently.Segment("example",
-            pattern="{\\"Price\\":[{\\"numeric\\":[\\">\\",10,\\"<=\\",20]}]}",
+        example = aws.evidently.segment.Segment("example",
+            pattern={"Price":[{"numeric":[">",10,"<=",20]}]},
             tags={
-                "Key1": "example Segment",
+                Key1: example Segment,
             })
         ```
         ### With JSON object in pattern
@@ -288,8 +288,8 @@ class Segment(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.evidently.Segment("example",
-            pattern=\"\"\"  {
+        example = aws.evidently.segment.Segment("example",
+            pattern=  {
             "Price": [
               {
                 "numeric": [">",10,"<=",20]
@@ -297,9 +297,9 @@ class Segment(pulumi.CustomResource):
             ]
           }
           
-        \"\"\",
+        ,
             tags={
-                "Key1": "example Segment",
+                Key1: example Segment,
             })
         ```
         ### With Description
@@ -308,9 +308,9 @@ class Segment(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.evidently.Segment("example",
-            description="example",
-            pattern="{\\"Price\\":[{\\"numeric\\":[\\">\\",10,\\"<=\\",20]}]}")
+        example = aws.evidently.segment.Segment("example",
+            description=example,
+            pattern={"Price":[{"numeric":[">",10,"<=",20]}]})
         ```
 
         ## Import
@@ -344,10 +344,10 @@ class Segment(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.evidently.Segment("example",
-            pattern="{\\"Price\\":[{\\"numeric\\":[\\">\\",10,\\"<=\\",20]}]}",
+        example = aws.evidently.segment.Segment("example",
+            pattern={"Price":[{"numeric":[">",10,"<=",20]}]},
             tags={
-                "Key1": "example Segment",
+                Key1: example Segment,
             })
         ```
         ### With JSON object in pattern
@@ -356,8 +356,8 @@ class Segment(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.evidently.Segment("example",
-            pattern=\"\"\"  {
+        example = aws.evidently.segment.Segment("example",
+            pattern=  {
             "Price": [
               {
                 "numeric": [">",10,"<=",20]
@@ -365,9 +365,9 @@ class Segment(pulumi.CustomResource):
             ]
           }
           
-        \"\"\",
+        ,
             tags={
-                "Key1": "example Segment",
+                Key1: example Segment,
             })
         ```
         ### With Description
@@ -376,9 +376,9 @@ class Segment(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.evidently.Segment("example",
-            description="example",
-            pattern="{\\"Price\\":[{\\"numeric\\":[\\">\\",10,\\"<=\\",20]}]}")
+        example = aws.evidently.segment.Segment("example",
+            description=example,
+            pattern={"Price":[{"numeric":[">",10,"<=",20]}]})
         ```
 
         ## Import

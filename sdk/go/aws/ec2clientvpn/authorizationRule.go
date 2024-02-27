@@ -22,25 +22,23 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2clientvpn"
+//	ec2clientvpn/authorizationRule "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2clientvpn/authorizationRule"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2clientvpn.NewAuthorizationRule(ctx, "example", &ec2clientvpn.AuthorizationRuleArgs{
-//				ClientVpnEndpointId: pulumi.Any(aws_ec2_client_vpn_endpoint.Example.Id),
-//				TargetNetworkCidr:   pulumi.Any(aws_subnet.Example.Cidr_block),
-//				AuthorizeAllGroups:  pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := ec2clientvpn/authorizationRule.NewAuthorizationRule(ctx, "example", &ec2clientvpn/authorizationRule.AuthorizationRuleArgs{
+// ClientVpnEndpointId: aws_ec2_client_vpn_endpoint.Example.Id,
+// TargetNetworkCidr: aws_subnet.Example.Cidr_block,
+// AuthorizeAllGroups: true,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -24,34 +24,32 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/rds"
+//	rds/clusterParameterGroup "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/rds/clusterParameterGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := rds.NewClusterParameterGroup(ctx, "default", &rds.ClusterParameterGroupArgs{
-//				Description: pulumi.String("RDS default cluster parameter group"),
-//				Family:      pulumi.String("aurora5.6"),
-//				Parameters: rds.ClusterParameterGroupParameterArray{
-//					&rds.ClusterParameterGroupParameterArgs{
-//						Name:  pulumi.String("character_set_server"),
-//						Value: pulumi.String("utf8"),
-//					},
-//					&rds.ClusterParameterGroupParameterArgs{
-//						Name:  pulumi.String("character_set_client"),
-//						Value: pulumi.String("utf8"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := rds/clusterParameterGroup.NewClusterParameterGroup(ctx, "default", &rds/clusterParameterGroup.ClusterParameterGroupArgs{
+// Description: "RDS default cluster parameter group",
+// Family: "aurora5.6",
+// Parameters: []map[string]interface{}{
+// map[string]interface{}{
+// "name": "character_set_server",
+// "value": "utf8",
+// },
+// map[string]interface{}{
+// "name": "character_set_client",
+// "value": "utf8",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

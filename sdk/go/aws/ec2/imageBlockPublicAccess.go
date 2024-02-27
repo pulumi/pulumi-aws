@@ -24,23 +24,22 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	ec2/imageBlockPublicAccess "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/imageBlockPublicAccess"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.NewImageBlockPublicAccess(ctx, "test", &ec2.ImageBlockPublicAccessArgs{
-//				State: pulumi.String("block-new-sharing"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// // Prevent making AMIs publicly accessible in the region and account for which the provider is configured
+// _, err := ec2/imageBlockPublicAccess.NewImageBlockPublicAccess(ctx, "test", &ec2/imageBlockPublicAccess.ImageBlockPublicAccessArgs{
+// State: "block-new-sharing",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

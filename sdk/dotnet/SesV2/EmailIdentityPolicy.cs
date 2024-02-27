@@ -23,23 +23,23 @@ namespace Pulumi.Aws.SesV2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleEmailIdentity = new Aws.SesV2.EmailIdentity("exampleEmailIdentity", new()
+    ///     var exampleEmailIdentity = new Aws.Sesv2.EmailIdentity.EmailIdentity("exampleEmailIdentity", new()
     ///     {
-    ///         EmailIdentityDetails = "testing@example.com",
+    ///         EmailIdentity = "testing@example.com",
     ///     });
     /// 
-    ///     var exampleEmailIdentityPolicy = new Aws.SesV2.EmailIdentityPolicy("exampleEmailIdentityPolicy", new()
+    ///     var exampleEmailIdentityPolicy = new Aws.Sesv2.EmailIdentityPolicy.EmailIdentityPolicy("exampleEmailIdentityPolicy", new()
     ///     {
-    ///         EmailIdentity = exampleEmailIdentity.EmailIdentityDetails,
+    ///         EmailIdentity = exampleEmailIdentity.EmailIdentity,
     ///         PolicyName = "example",
-    ///         Policy = exampleEmailIdentity.Arn.Apply(arn =&gt; @$"{{
+    ///         Policy = @$"{{
     ///   ""Id"":""ExampleAuthorizationPolicy"",
     ///   ""Version"":""2012-10-17"",
     ///   ""Statement"":[
     ///     {{
     ///       ""Sid"":""AuthorizeIAMUser"",
     ///       ""Effect"":""Allow"",
-    ///       ""Resource"":""{arn}"",
+    ///       ""Resource"":""{exampleEmailIdentity.Arn}"",
     ///       ""Principal"":{{
     ///         ""AWS"":[
     ///           ""arn:aws:iam::123456789012:user/John"",
@@ -53,7 +53,7 @@ namespace Pulumi.Aws.SesV2
     ///     }}
     ///   ]
     /// }}
-    /// "),
+    /// ",
     ///     });
     /// 
     /// });

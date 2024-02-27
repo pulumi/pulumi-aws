@@ -12,32 +12,6 @@ import (
 )
 
 // Use this data source to get information about a DB Proxy.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/rds"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := rds.LookupProxy(ctx, &rds.LookupProxyArgs{
-//				Name: "my-test-db-proxy",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupProxy(ctx *pulumi.Context, args *LookupProxyArgs, opts ...pulumi.InvokeOption) (*LookupProxyResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupProxyResult

@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const some = new aws.synthetics.Canary("some", {
+ * const some = new aws.synthetics/canary.Canary("some", {
  *     artifactS3Location: "s3://some-bucket/",
  *     executionRoleArn: "some-role",
  *     handler: "exports.handler",

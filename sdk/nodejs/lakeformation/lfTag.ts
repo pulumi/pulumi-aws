@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.lakeformation.LfTag("example", {
+ * const example = new aws.lakeformation/lfTag.LfTag("example", {
  *     key: "module",
  *     values: [
  *         "Orders",

@@ -11,29 +11,6 @@ import * as utilities from "../utilities";
  * Retrieve information on FSx ONTAP Storage Virtual Machine (SVM).
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.fsx.getOntapStorageVirtualMachine({
- *     id: "svm-12345678",
- * });
- * ```
- * ### Filter Example
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.fsx.getOntapStorageVirtualMachine({
- *     filters: [{
- *         name: "file-system-id",
- *         values: ["fs-12345678"],
- *     }],
- * });
- * ```
  */
 export function getOntapStorageVirtualMachine(args?: GetOntapStorageVirtualMachineArgs, opts?: pulumi.InvokeOptions): Promise<GetOntapStorageVirtualMachineResult> {
     args = args || {};
@@ -116,29 +93,6 @@ export interface GetOntapStorageVirtualMachineResult {
  * Retrieve information on FSx ONTAP Storage Virtual Machine (SVM).
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.fsx.getOntapStorageVirtualMachine({
- *     id: "svm-12345678",
- * });
- * ```
- * ### Filter Example
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.fsx.getOntapStorageVirtualMachine({
- *     filters: [{
- *         name: "file-system-id",
- *         values: ["fs-12345678"],
- *     }],
- * });
- * ```
  */
 export function getOntapStorageVirtualMachineOutput(args?: GetOntapStorageVirtualMachineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOntapStorageVirtualMachineResult> {
     return pulumi.output(args).apply((a: any) => getOntapStorageVirtualMachine(a, opts))

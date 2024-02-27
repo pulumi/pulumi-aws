@@ -37,7 +37,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.apigateway.StageArgs;
  * import com.pulumi.aws.apigateway.MethodSettings;
  * import com.pulumi.aws.apigateway.MethodSettingsArgs;
- * import com.pulumi.aws.apigateway.inputs.MethodSettingsSettingsArgs;
  * import static com.pulumi.codegen.internal.Serialization.*;
  * import java.util.List;
  * import java.util.ArrayList;
@@ -77,8 +76,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleDeployment = new Deployment(&#34;exampleDeployment&#34;, DeploymentArgs.builder()        
  *             .restApi(exampleRestApi.id())
- *             .triggers(Map.of(&#34;redeployment&#34;, exampleRestApi.body().applyValue(body -&gt; serializeJson(
- *                 body)).applyValue(toJSON -&gt; computeSHA1(toJSON))))
+ *             .triggers(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleStage = new Stage(&#34;exampleStage&#34;, StageArgs.builder()        
@@ -91,20 +89,14 @@ import javax.annotation.Nullable;
  *             .restApi(exampleRestApi.id())
  *             .stageName(exampleStage.stageName())
  *             .methodPath(&#34;*{@literal /}*&#34;)
- *             .settings(MethodSettingsSettingsArgs.builder()
- *                 .metricsEnabled(true)
- *                 .loggingLevel(&#34;ERROR&#34;)
- *                 .build())
+ *             .settings(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var pathSpecific = new MethodSettings(&#34;pathSpecific&#34;, MethodSettingsArgs.builder()        
  *             .restApi(exampleRestApi.id())
  *             .stageName(exampleStage.stageName())
  *             .methodPath(&#34;path1/GET&#34;)
- *             .settings(MethodSettingsSettingsArgs.builder()
- *                 .metricsEnabled(true)
- *                 .loggingLevel(&#34;INFO&#34;)
- *                 .build())
+ *             .settings(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -122,7 +114,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.apigateway.MethodSettings;
  * import com.pulumi.aws.apigateway.MethodSettingsArgs;
- * import com.pulumi.aws.apigateway.inputs.MethodSettingsSettingsArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -140,9 +131,7 @@ import javax.annotation.Nullable;
  *             .restApi(aws_api_gateway_rest_api.example().id())
  *             .stageName(aws_api_gateway_stage.example().stage_name())
  *             .methodPath(&#34;path1/GET&#34;)
- *             .settings(MethodSettingsSettingsArgs.builder()
- *                 .loggingLevel(&#34;OFF&#34;)
- *                 .build())
+ *             .settings(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -157,7 +146,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.apigateway.MethodSettings;
  * import com.pulumi.aws.apigateway.MethodSettingsArgs;
- * import com.pulumi.aws.apigateway.inputs.MethodSettingsSettingsArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -175,11 +163,7 @@ import javax.annotation.Nullable;
  *             .restApi(aws_api_gateway_rest_api.example().id())
  *             .stageName(aws_api_gateway_stage.example().stage_name())
  *             .methodPath(&#34;path1/GET&#34;)
- *             .settings(MethodSettingsSettingsArgs.builder()
- *                 .loggingLevel(&#34;ERROR&#34;)
- *                 .metricsEnabled(true)
- *                 .dataTraceEnabled(false)
- *                 .build())
+ *             .settings(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -194,7 +178,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.apigateway.MethodSettings;
  * import com.pulumi.aws.apigateway.MethodSettingsArgs;
- * import com.pulumi.aws.apigateway.inputs.MethodSettingsSettingsArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -212,11 +195,7 @@ import javax.annotation.Nullable;
  *             .restApi(aws_api_gateway_rest_api.example().id())
  *             .stageName(aws_api_gateway_stage.example().stage_name())
  *             .methodPath(&#34;path1/GET&#34;)
- *             .settings(MethodSettingsSettingsArgs.builder()
- *                 .loggingLevel(&#34;INFO&#34;)
- *                 .metricsEnabled(true)
- *                 .dataTraceEnabled(false)
- *                 .build())
+ *             .settings(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -231,7 +210,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.apigateway.MethodSettings;
  * import com.pulumi.aws.apigateway.MethodSettingsArgs;
- * import com.pulumi.aws.apigateway.inputs.MethodSettingsSettingsArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -249,11 +227,7 @@ import javax.annotation.Nullable;
  *             .restApi(aws_api_gateway_rest_api.example().id())
  *             .stageName(aws_api_gateway_stage.example().stage_name())
  *             .methodPath(&#34;path1/GET&#34;)
- *             .settings(MethodSettingsSettingsArgs.builder()
- *                 .loggingLevel(&#34;INFO&#34;)
- *                 .metricsEnabled(true)
- *                 .dataTraceEnabled(true)
- *                 .build())
+ *             .settings(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

@@ -26,29 +26,28 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lightsail"
+//	lightsail/instance "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/lightsail/instance"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lightsail.NewInstance(ctx, "gitlabTest", &lightsail.InstanceArgs{
-//				AvailabilityZone: pulumi.String("us-east-1b"),
-//				BlueprintId:      pulumi.String("amazon_linux_2"),
-//				BundleId:         pulumi.String("nano_1_0"),
-//				KeyPairName:      pulumi.String("some_key_name"),
-//				Tags: pulumi.StringMap{
-//					"foo": pulumi.String("bar"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// // Create a new GitLab Lightsail Instance
+// _, err := lightsail/instance.NewInstance(ctx, "gitlabTest", &lightsail/instance.InstanceArgs{
+// AvailabilityZone: "us-east-1b",
+// BlueprintId: "amazon_linux_2",
+// BundleId: "nano_1_0",
+// KeyPairName: "some_key_name",
+// Tags: map[string]interface{}{
+// "foo": "bar",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Example With User Data
 //
@@ -59,26 +58,24 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lightsail"
+//	lightsail/instance "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/lightsail/instance"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lightsail.NewInstance(ctx, "custom", &lightsail.InstanceArgs{
-//				AvailabilityZone: pulumi.String("us-east-1b"),
-//				BlueprintId:      pulumi.String("amazon_linux_2"),
-//				BundleId:         pulumi.String("nano_1_0"),
-//				UserData:         pulumi.String("sudo yum install -y httpd && sudo systemctl start httpd && sudo systemctl enable httpd && echo '<h1>Deployed via Pulumi</h1>' | sudo tee /var/www/html/index.html"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := lightsail/instance.NewInstance(ctx, "custom", &lightsail/instance.InstanceArgs{
+// AvailabilityZone: "us-east-1b",
+// BlueprintId: "amazon_linux_2",
+// BundleId: "nano_1_0",
+// UserData: "sudo yum install -y httpd && sudo systemctl start httpd && sudo systemctl enable httpd && echo '<h1>Deployed via Pulumi</h1>' | sudo tee /var/www/html/index.html",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Enable Auto Snapshots
 //
@@ -87,33 +84,31 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lightsail"
+//	lightsail/instance "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/lightsail/instance"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lightsail.NewInstance(ctx, "test", &lightsail.InstanceArgs{
-//				AddOn: &lightsail.InstanceAddOnArgs{
-//					SnapshotTime: pulumi.String("06:00"),
-//					Status:       pulumi.String("Enabled"),
-//					Type:         pulumi.String("AutoSnapshot"),
-//				},
-//				AvailabilityZone: pulumi.String("us-east-1b"),
-//				BlueprintId:      pulumi.String("amazon_linux_2"),
-//				BundleId:         pulumi.String("nano_1_0"),
-//				Tags: pulumi.StringMap{
-//					"foo": pulumi.String("bar"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := lightsail/instance.NewInstance(ctx, "test", &lightsail/instance.InstanceArgs{
+// AddOn: map[string]interface{}{
+// "snapshotTime": "06:00",
+// "status": "Enabled",
+// "type": "AutoSnapshot",
+// },
+// AvailabilityZone: "us-east-1b",
+// BlueprintId: "amazon_linux_2",
+// BundleId: "nano_1_0",
+// Tags: map[string]interface{}{
+// "foo": "bar",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

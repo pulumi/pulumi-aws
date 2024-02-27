@@ -12,34 +12,6 @@ import (
 )
 
 // Provides details about a specific Amazon Connect Instance Storage Config.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/connect"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := connect.LookupInstanceStorageConfig(ctx, &connect.LookupInstanceStorageConfigArgs{
-//				AssociationId: "1234567890123456789012345678901234567890123456789012345678901234",
-//				InstanceId:    "aaaaaaaa-bbbb-cccc-dddd-111111111111",
-//				ResourceType:  "CONTACT_TRACE_RECORDS",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupInstanceStorageConfig(ctx *pulumi.Context, args *LookupInstanceStorageConfigArgs, opts ...pulumi.InvokeOption) (*LookupInstanceStorageConfigResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupInstanceStorageConfigResult

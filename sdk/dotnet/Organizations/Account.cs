@@ -26,7 +26,7 @@ namespace Pulumi.Aws.Organizations
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var account = new Aws.Organizations.Account("account", new()
+    ///     var account = new Aws.Organizations.Account.Account("account", new()
     ///     {
     ///         Email = "john@doe.org",
     ///     });

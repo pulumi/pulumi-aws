@@ -29,7 +29,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.ecr.RegistryScanningConfiguration;
  * import com.pulumi.aws.ecr.RegistryScanningConfigurationArgs;
- * import com.pulumi.aws.ecr.inputs.RegistryScanningConfigurationRuleArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -44,13 +43,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var configuration = new RegistryScanningConfiguration(&#34;configuration&#34;, RegistryScanningConfigurationArgs.builder()        
- *             .rules(RegistryScanningConfigurationRuleArgs.builder()
- *                 .repositoryFilters(RegistryScanningConfigurationRuleRepositoryFilterArgs.builder()
- *                     .filter(&#34;example&#34;)
- *                     .filterType(&#34;WILDCARD&#34;)
- *                     .build())
- *                 .scanFrequency(&#34;CONTINUOUS_SCAN&#34;)
- *                 .build())
+ *             .rules(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .scanType(&#34;ENHANCED&#34;)
  *             .build());
  * 
@@ -66,7 +59,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.ecr.RegistryScanningConfiguration;
  * import com.pulumi.aws.ecr.RegistryScanningConfigurationArgs;
- * import com.pulumi.aws.ecr.inputs.RegistryScanningConfigurationRuleArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -82,20 +74,8 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var test = new RegistryScanningConfiguration(&#34;test&#34;, RegistryScanningConfigurationArgs.builder()        
  *             .rules(            
- *                 RegistryScanningConfigurationRuleArgs.builder()
- *                     .repositoryFilters(RegistryScanningConfigurationRuleRepositoryFilterArgs.builder()
- *                         .filter(&#34;*&#34;)
- *                         .filterType(&#34;WILDCARD&#34;)
- *                         .build())
- *                     .scanFrequency(&#34;SCAN_ON_PUSH&#34;)
- *                     .build(),
- *                 RegistryScanningConfigurationRuleArgs.builder()
- *                     .repositoryFilters(RegistryScanningConfigurationRuleRepositoryFilterArgs.builder()
- *                         .filter(&#34;example&#34;)
- *                         .filterType(&#34;WILDCARD&#34;)
- *                         .build())
- *                     .scanFrequency(&#34;CONTINUOUS_SCAN&#34;)
- *                     .build())
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .scanType(&#34;ENHANCED&#34;)
  *             .build());
  * 

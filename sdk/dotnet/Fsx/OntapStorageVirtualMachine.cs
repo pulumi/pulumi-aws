@@ -24,7 +24,7 @@ namespace Pulumi.Aws.Fsx
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Aws.Fsx.OntapStorageVirtualMachine("test", new()
+    ///     var test = new Aws.Fsx.OntapStorageVirtualMachine.OntapStorageVirtualMachine("test", new()
     ///     {
     ///         FileSystemId = aws_fsx_ontap_file_system.Test.Id,
     ///     });
@@ -43,23 +43,23 @@ namespace Pulumi.Aws.Fsx
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Aws.Fsx.OntapStorageVirtualMachine("test", new()
+    ///     var test = new Aws.Fsx.OntapStorageVirtualMachine.OntapStorageVirtualMachine("test", new()
     ///     {
     ///         FileSystemId = aws_fsx_ontap_file_system.Test.Id,
-    ///         ActiveDirectoryConfiguration = new Aws.Fsx.Inputs.OntapStorageVirtualMachineActiveDirectoryConfigurationArgs
+    ///         ActiveDirectoryConfiguration = 
     ///         {
-    ///             NetbiosName = "mysvm",
-    ///             SelfManagedActiveDirectoryConfiguration = new Aws.Fsx.Inputs.OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationArgs
+    ///             { "netbiosName", "mysvm" },
+    ///             { "selfManagedActiveDirectoryConfiguration", 
     ///             {
-    ///                 DnsIps = new[]
+    ///                 { "dnsIps", new[]
     ///                 {
     ///                     "10.0.0.111",
     ///                     "10.0.0.222",
-    ///                 },
-    ///                 DomainName = "corp.example.com",
-    ///                 Password = "avoid-plaintext-passwords",
-    ///                 Username = "Admin",
-    ///             },
+    ///                 } },
+    ///                 { "domainName", "corp.example.com" },
+    ///                 { "password", "avoid-plaintext-passwords" },
+    ///                 { "username", "Admin" },
+    ///             } },
     ///         },
     ///     });
     /// 

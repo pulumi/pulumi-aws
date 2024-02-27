@@ -11,17 +11,6 @@ import * as utilities from "../utilities";
  * Provides access to an AppConfig Configuration Profile.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.appconfig.getConfigurationProfile({
- *     applicationId: "b5d5gpj",
- *     configurationProfileId: "qrbb1c1",
- * });
- * ```
  */
 export function getConfigurationProfile(args: GetConfigurationProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigurationProfileResult> {
 
@@ -99,17 +88,6 @@ export interface GetConfigurationProfileResult {
  * Provides access to an AppConfig Configuration Profile.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.appconfig.getConfigurationProfile({
- *     applicationId: "b5d5gpj",
- *     configurationProfileId: "qrbb1c1",
- * });
- * ```
  */
 export function getConfigurationProfileOutput(args: GetConfigurationProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigurationProfileResult> {
     return pulumi.output(args).apply((a: any) => getConfigurationProfile(a, opts))

@@ -23,28 +23,23 @@ namespace Pulumi.Aws.Transcribe
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2", new()
+    ///     var exampleBucketV2 = new Aws.S3.BucketV2.BucketV2("exampleBucketV2", new()
     ///     {
     ///         ForceDestroy = true,
     ///     });
     /// 
-    ///     var @object = new Aws.S3.BucketObjectv2("object", new()
+    ///     var @object = new Aws.S3.BucketObjectv2.BucketObjectv2("object", new()
     ///     {
     ///         Bucket = exampleBucketV2.Id,
     ///         Key = "transcribe/test1.txt",
     ///         Source = new FileAsset("test.txt"),
     ///     });
     /// 
-    ///     var exampleVocabulary = new Aws.Transcribe.Vocabulary("exampleVocabulary", new()
+    ///     var exampleVocabulary = new Aws.Transcribe.Vocabulary.Vocabulary("exampleVocabulary", new()
     ///     {
     ///         VocabularyName = "example",
     ///         LanguageCode = "en-US",
-    ///         VocabularyFileUri = Output.Tuple(exampleBucketV2.Id, @object.Key).Apply(values =&gt;
-    ///         {
-    ///             var id = values.Item1;
-    ///             var key = values.Item2;
-    ///             return $"s3://{id}/{key}";
-    ///         }),
+    ///         VocabularyFileUri = $"s3://{exampleBucketV2.Id}/{@object.Key}",
     ///         Tags = 
     ///         {
     ///             { "tag1", "value1" },

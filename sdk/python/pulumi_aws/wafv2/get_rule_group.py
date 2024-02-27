@@ -92,16 +92,6 @@ def get_rule_group(name: Optional[str] = None,
     """
     Retrieves the summary of a WAFv2 Rule Group.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.wafv2.get_rule_group(name="some-rule-group",
-        scope="REGIONAL")
-    ```
-
 
     :param str name: Name of the WAFv2 Rule Group.
     :param str scope: Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
@@ -126,16 +116,6 @@ def get_rule_group_output(name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRuleGroupResult]:
     """
     Retrieves the summary of a WAFv2 Rule Group.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.wafv2.get_rule_group(name="some-rule-group",
-        scope="REGIONAL")
-    ```
 
 
     :param str name: Name of the WAFv2 Rule Group.

@@ -16,8 +16,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.macie2.Account("example", {});
- * const test = new aws.macie.FindingsFilter("test", {
+ * const example = new aws.macie2/account.Account("example", {});
+ * const test = new aws.macie/findingsFilter.FindingsFilter("test", {
  *     description: "DESCRIPTION",
  *     position: 1,
  *     action: "ARCHIVE",

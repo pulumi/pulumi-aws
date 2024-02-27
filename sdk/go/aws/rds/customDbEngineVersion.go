@@ -22,39 +22,37 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kms"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/rds"
+//	kms/key "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/kms/key"
+//	rds/customDbEngineVersion "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/rds/customDbEngineVersion"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleKey, err := kms.NewKey(ctx, "exampleKey", &kms.KeyArgs{
-//				Description: pulumi.String("KMS symmetric key for RDS Custom for Oracle"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = rds.NewCustomDbEngineVersion(ctx, "exampleCustomDbEngineVersion", &rds.CustomDbEngineVersionArgs{
-//				DatabaseInstallationFilesS3BucketName: pulumi.String("DOC-EXAMPLE-BUCKET"),
-//				DatabaseInstallationFilesS3Prefix:     pulumi.String("1915_GI/"),
-//				Engine:                                pulumi.String("custom-oracle-ee-cdb"),
-//				EngineVersion:                         pulumi.String("19.cdb_cev1"),
-//				KmsKeyId:                              exampleKey.Arn,
-//				Manifest:                              pulumi.String("  {\n	\"databaseInstallationFileNames\":[\"V982063-01.zip\"]\n  }\n"),
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("example"),
-//					"Key":  pulumi.String("value"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleKey, err := kms/key.NewKey(ctx, "exampleKey", &kms/key.KeyArgs{
+// Description: "KMS symmetric key for RDS Custom for Oracle",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = rds/customDbEngineVersion.NewCustomDbEngineVersion(ctx, "exampleCustomDbEngineVersion", &rds/customDbEngineVersion.CustomDbEngineVersionArgs{
+// DatabaseInstallationFilesS3BucketName: "DOC-EXAMPLE-BUCKET",
+// DatabaseInstallationFilesS3Prefix: "1915_GI/",
+// Engine: "custom-oracle-ee-cdb",
+// EngineVersion: "19.cdb_cev1",
+// KmsKeyId: exampleKey.Arn,
+// Manifest: "  {\n	\"databaseInstallationFileNames\":[\"V982063-01.zip\"]\n  }\n",
+// Tags: map[string]interface{}{
+// "Name": "example",
+// "Key": "value",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### RDS Custom for Oracle External Manifest Usage
 //
@@ -66,49 +64,48 @@ import (
 //	"crypto/sha256"
 //	"os"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kms"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/rds"
+//	kms/key "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/kms/key"
+//	rds/customDbEngineVersion "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/rds/customDbEngineVersion"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func filebase64sha256OrPanic(path string) string {
-//		if fileData, err := os.ReadFile(path); err == nil {
-//			hashedData := sha256.Sum256([]byte(fileData))
-//			return base64.StdEncoding.EncodeToString(hashedData[:])
-//		} else {
-//			panic(err.Error())
-//		}
-//	}
+//						if fileData, err := os.ReadFile(path); err == nil {
+//							hashedData := sha256.Sum256([]byte(fileData))
+//							return base64.StdEncoding.EncodeToString(hashedData[:])
+//						} else {
+//							panic(err.Error())
+//						}
+//					}
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleKey, err := kms.NewKey(ctx, "exampleKey", &kms.KeyArgs{
-//				Description: pulumi.String("KMS symmetric key for RDS Custom for Oracle"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = rds.NewCustomDbEngineVersion(ctx, "exampleCustomDbEngineVersion", &rds.CustomDbEngineVersionArgs{
-//				DatabaseInstallationFilesS3BucketName: pulumi.String("DOC-EXAMPLE-BUCKET"),
-//				DatabaseInstallationFilesS3Prefix:     pulumi.String("1915_GI/"),
-//				Engine:                                pulumi.String("custom-oracle-ee-cdb"),
-//				EngineVersion:                         pulumi.String("19.cdb_cev1"),
-//				KmsKeyId:                              exampleKey.Arn,
-//				Filename:                              pulumi.String("manifest_1915_GI.json"),
-//				ManifestHash:                          filebase64sha256OrPanic(manifest_1915_GI.Json),
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("example"),
-//					"Key":  pulumi.String("value"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleKey, err := kms/key.NewKey(ctx, "exampleKey", &kms/key.KeyArgs{
+// Description: "KMS symmetric key for RDS Custom for Oracle",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = rds/customDbEngineVersion.NewCustomDbEngineVersion(ctx, "exampleCustomDbEngineVersion", &rds/customDbEngineVersion.CustomDbEngineVersionArgs{
+// DatabaseInstallationFilesS3BucketName: "DOC-EXAMPLE-BUCKET",
+// DatabaseInstallationFilesS3Prefix: "1915_GI/",
+// Engine: "custom-oracle-ee-cdb",
+// EngineVersion: "19.cdb_cev1",
+// KmsKeyId: exampleKey.Arn,
+// Filename: "manifest_1915_GI.json",
+// ManifestHash: filebase64sha256OrPanic(manifest_1915_GI.Json),
+// Tags: map[string]interface{}{
+// "Name": "example",
+// "Key": "value",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### RDS Custom for SQL Server Usage
 //
@@ -117,25 +114,24 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/rds"
+//	rds/customDbEngineVersion "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/rds/customDbEngineVersion"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := rds.NewCustomDbEngineVersion(ctx, "test", &rds.CustomDbEngineVersionArgs{
-//				Engine:        pulumi.String("custom-sqlserver-se"),
-//				EngineVersion: pulumi.String("15.00.4249.2.cev-1"),
-//				SourceImageId: pulumi.String("ami-0aa12345678a12ab1"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// // CEV creation requires an AMI owned by the operator
+// _, err := rds/customDbEngineVersion.NewCustomDbEngineVersion(ctx, "test", &rds/customDbEngineVersion.CustomDbEngineVersionArgs{
+// Engine: "custom-sqlserver-se",
+// EngineVersion: "15.00.4249.2.cev-1",
+// SourceImageId: "ami-0aa12345678a12ab1",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### RDS Custom for SQL Server Usage with AMI from another region
 //
@@ -144,34 +140,33 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/rds"
+//	ec2/amiCopy "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/amiCopy"
+//	rds/customDbEngineVersion "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/rds/customDbEngineVersion"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := ec2.NewAmiCopy(ctx, "example", &ec2.AmiCopyArgs{
-//				Description:     pulumi.String("A copy of ami-xxxxxxxx"),
-//				SourceAmiId:     pulumi.String("ami-xxxxxxxx"),
-//				SourceAmiRegion: pulumi.String("us-east-1"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = rds.NewCustomDbEngineVersion(ctx, "test", &rds.CustomDbEngineVersionArgs{
-//				Engine:        pulumi.String("custom-sqlserver-se"),
-//				EngineVersion: pulumi.String("15.00.4249.2.cev-1"),
-//				SourceImageId: example.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := ec2/amiCopy.NewAmiCopy(ctx, "example", &ec2/amiCopy.AmiCopyArgs{
+// Description: "A copy of ami-xxxxxxxx",
+// SourceAmiId: "ami-xxxxxxxx",
+// SourceAmiRegion: "us-east-1",
+// })
+// if err != nil {
+// return err
+// }
+// // CEV creation requires an AMI owned by the operator
+// _, err = rds/customDbEngineVersion.NewCustomDbEngineVersion(ctx, "test", &rds/customDbEngineVersion.CustomDbEngineVersionArgs{
+// Engine: "custom-sqlserver-se",
+// EngineVersion: "15.00.4249.2.cev-1",
+// SourceImageId: example.Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

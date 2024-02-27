@@ -474,29 +474,29 @@ class EntityRecognizer(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        documents = aws.s3.BucketObjectv2("documents")
+        documents = aws.s3.bucket_objectv2.BucketObjectv2("documents")
         # ...
-        entities = aws.s3.BucketObjectv2("entities")
+        entities = aws.s3.bucket_objectv2.BucketObjectv2("entities")
         # ...
-        example = aws.comprehend.EntityRecognizer("example",
-            data_access_role_arn=aws_iam_role["example"]["arn"],
-            language_code="en",
-            input_data_config=aws.comprehend.EntityRecognizerInputDataConfigArgs(
-                entity_types=[
-                    aws.comprehend.EntityRecognizerInputDataConfigEntityTypeArgs(
-                        type="ENTITY_1",
-                    ),
-                    aws.comprehend.EntityRecognizerInputDataConfigEntityTypeArgs(
-                        type="ENTITY_2",
-                    ),
+        example = aws.comprehend.entity_recognizer.EntityRecognizer("example",
+            data_access_role_arn=aws_iam_role.example.arn,
+            language_code=en,
+            input_data_config={
+                entityTypes: [
+                    {
+                        type: ENTITY_1,
+                    },
+                    {
+                        type: ENTITY_2,
+                    },
                 ],
-                documents=aws.comprehend.EntityRecognizerInputDataConfigDocumentsArgs(
-                    s3_uri=documents.id.apply(lambda id: f"s3://{aws_s3_bucket['documents']['bucket']}/{id}"),
-                ),
-                entity_list=aws.comprehend.EntityRecognizerInputDataConfigEntityListArgs(
-                    s3_uri=entities.id.apply(lambda id: f"s3://{aws_s3_bucket['entities']['bucket']}/{id}"),
-                ),
-            ),
+                documents: {
+                    s3Uri: fs3://{aws_s3_bucket.documents.bucket}/{documents.id},
+                },
+                entityList: {
+                    s3Uri: fs3://{aws_s3_bucket.entities.bucket}/{entities.id},
+                },
+            },
             opts=pulumi.ResourceOptions(depends_on=[aws_iam_role_policy["example"]]))
         ```
 
@@ -553,29 +553,29 @@ class EntityRecognizer(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        documents = aws.s3.BucketObjectv2("documents")
+        documents = aws.s3.bucket_objectv2.BucketObjectv2("documents")
         # ...
-        entities = aws.s3.BucketObjectv2("entities")
+        entities = aws.s3.bucket_objectv2.BucketObjectv2("entities")
         # ...
-        example = aws.comprehend.EntityRecognizer("example",
-            data_access_role_arn=aws_iam_role["example"]["arn"],
-            language_code="en",
-            input_data_config=aws.comprehend.EntityRecognizerInputDataConfigArgs(
-                entity_types=[
-                    aws.comprehend.EntityRecognizerInputDataConfigEntityTypeArgs(
-                        type="ENTITY_1",
-                    ),
-                    aws.comprehend.EntityRecognizerInputDataConfigEntityTypeArgs(
-                        type="ENTITY_2",
-                    ),
+        example = aws.comprehend.entity_recognizer.EntityRecognizer("example",
+            data_access_role_arn=aws_iam_role.example.arn,
+            language_code=en,
+            input_data_config={
+                entityTypes: [
+                    {
+                        type: ENTITY_1,
+                    },
+                    {
+                        type: ENTITY_2,
+                    },
                 ],
-                documents=aws.comprehend.EntityRecognizerInputDataConfigDocumentsArgs(
-                    s3_uri=documents.id.apply(lambda id: f"s3://{aws_s3_bucket['documents']['bucket']}/{id}"),
-                ),
-                entity_list=aws.comprehend.EntityRecognizerInputDataConfigEntityListArgs(
-                    s3_uri=entities.id.apply(lambda id: f"s3://{aws_s3_bucket['entities']['bucket']}/{id}"),
-                ),
-            ),
+                documents: {
+                    s3Uri: fs3://{aws_s3_bucket.documents.bucket}/{documents.id},
+                },
+                entityList: {
+                    s3Uri: fs3://{aws_s3_bucket.entities.bucket}/{entities.id},
+                },
+            },
             opts=pulumi.ResourceOptions(depends_on=[aws_iam_role_policy["example"]]))
         ```
 

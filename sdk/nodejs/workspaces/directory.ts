@@ -13,110 +13,14 @@ import * as utilities from "../utilities";
  * > **NOTE:** AWS WorkSpaces service requires [`workspaces_DefaultRole`](https://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-access-control.html#create-default-role) IAM role to operate normally.
  *
  * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const workspaces = aws.iam.getPolicyDocument({
- *     statements: [{
- *         actions: ["sts:AssumeRole"],
- *         principals: [{
- *             type: "Service",
- *             identifiers: ["workspaces.amazonaws.com"],
- *         }],
- *     }],
- * });
- * const workspacesDefault = new aws.iam.Role("workspacesDefault", {assumeRolePolicy: workspaces.then(workspaces => workspaces.json)});
- * const workspacesDefaultServiceAccess = new aws.iam.RolePolicyAttachment("workspacesDefaultServiceAccess", {
- *     role: workspacesDefault.name,
- *     policyArn: "arn:aws:iam::aws:policy/AmazonWorkSpacesServiceAccess",
- * });
- * const workspacesDefaultSelfServiceAccess = new aws.iam.RolePolicyAttachment("workspacesDefaultSelfServiceAccess", {
- *     role: workspacesDefault.name,
- *     policyArn: "arn:aws:iam::aws:policy/AmazonWorkSpacesSelfServiceAccess",
- * });
- * const exampleVpc = new aws.ec2.Vpc("exampleVpc", {cidrBlock: "10.0.0.0/16"});
- * const exampleC = new aws.ec2.Subnet("exampleC", {
- *     vpcId: exampleVpc.id,
- *     availabilityZone: "us-east-1c",
- *     cidrBlock: "10.0.2.0/24",
- * });
- * const exampleD = new aws.ec2.Subnet("exampleD", {
- *     vpcId: exampleVpc.id,
- *     availabilityZone: "us-east-1d",
- *     cidrBlock: "10.0.3.0/24",
- * });
- * const exampleDirectory = new aws.workspaces.Directory("exampleDirectory", {
- *     directoryId: exampleDirectoryservice / directoryDirectory.id,
- *     subnetIds: [
- *         exampleC.id,
- *         exampleD.id,
- *     ],
- *     tags: {
- *         Example: "true",
- *     },
- *     selfServicePermissions: {
- *         changeComputeType: true,
- *         increaseVolumeSize: true,
- *         rebuildWorkspace: true,
- *         restartWorkspace: true,
- *         switchRunningMode: true,
- *     },
- *     workspaceAccessProperties: {
- *         deviceTypeAndroid: "ALLOW",
- *         deviceTypeChromeos: "ALLOW",
- *         deviceTypeIos: "ALLOW",
- *         deviceTypeLinux: "DENY",
- *         deviceTypeOsx: "ALLOW",
- *         deviceTypeWeb: "DENY",
- *         deviceTypeWindows: "DENY",
- *         deviceTypeZeroclient: "DENY",
- *     },
- *     workspaceCreationProperties: {
- *         customSecurityGroupId: aws_security_group.example.id,
- *         defaultOu: "OU=AWS,DC=Workgroup,DC=Example,DC=com",
- *         enableInternetAccess: true,
- *         enableMaintenanceMode: true,
- *         userEnabledAsLocalAdministrator: true,
- *     },
- * }, {
- *     dependsOn: [
- *         workspacesDefaultServiceAccess,
- *         workspacesDefaultSelfServiceAccess,
- *     ],
- * });
- * const exampleA = new aws.ec2.Subnet("exampleA", {
- *     vpcId: exampleVpc.id,
- *     availabilityZone: "us-east-1a",
- *     cidrBlock: "10.0.0.0/24",
- * });
- * const exampleB = new aws.ec2.Subnet("exampleB", {
- *     vpcId: exampleVpc.id,
- *     availabilityZone: "us-east-1b",
- *     cidrBlock: "10.0.1.0/24",
- * });
- * const exampleDirectoryservice_directoryDirectory = new aws.directoryservice.Directory("exampleDirectoryservice/directoryDirectory", {
- *     name: "corp.example.com",
- *     password: "#S1ncerely",
- *     size: "Small",
- *     vpcSettings: {
- *         vpcId: exampleVpc.id,
- *         subnetIds: [
- *             exampleA.id,
- *             exampleB.id,
- *         ],
- *     },
- * });
- * ```
  * ### IP Groups
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleIpGroup = new aws.workspaces.IpGroup("exampleIpGroup", {});
- * const exampleDirectory = new aws.workspaces.Directory("exampleDirectory", {
+ * const exampleIpGroup = new aws.workspaces/ipGroup.IpGroup("exampleIpGroup", {});
+ * const exampleDirectory = new aws.workspaces/directory.Directory("exampleDirectory", {
  *     directoryId: aws_directory_service_directory.example.id,
  *     ipGroupIds: [exampleIpGroup.id],
  * });

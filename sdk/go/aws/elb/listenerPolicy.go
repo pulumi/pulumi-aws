@@ -22,65 +22,65 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/elb"
+//	elb/listenerPolicy "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/elb/listenerPolicy"
+//	elb/loadBalancer "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/elb/loadBalancer"
+//	elb/loadBalancerPolicy "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/elb/loadBalancerPolicy"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := elb.NewLoadBalancer(ctx, "wu-tang", &elb.LoadBalancerArgs{
-//				AvailabilityZones: pulumi.StringArray{
-//					pulumi.String("us-east-1a"),
-//				},
-//				Listeners: elb.LoadBalancerListenerArray{
-//					&elb.LoadBalancerListenerArgs{
-//						InstancePort:     pulumi.Int(443),
-//						InstanceProtocol: pulumi.String("http"),
-//						LbPort:           pulumi.Int(443),
-//						LbProtocol:       pulumi.String("https"),
-//						SslCertificateId: pulumi.String("arn:aws:iam::000000000000:server-certificate/wu-tang.net"),
-//					},
-//				},
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("wu-tang"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = elb.NewLoadBalancerPolicy(ctx, "wu-tang-ssl", &elb.LoadBalancerPolicyArgs{
-//				LoadBalancerName: wu_tang.Name,
-//				PolicyName:       pulumi.String("wu-tang-ssl"),
-//				PolicyTypeName:   pulumi.String("SSLNegotiationPolicyType"),
-//				PolicyAttributes: elb.LoadBalancerPolicyPolicyAttributeArray{
-//					&elb.LoadBalancerPolicyPolicyAttributeArgs{
-//						Name:  pulumi.String("ECDHE-ECDSA-AES128-GCM-SHA256"),
-//						Value: pulumi.String("true"),
-//					},
-//					&elb.LoadBalancerPolicyPolicyAttributeArgs{
-//						Name:  pulumi.String("Protocol-TLSv1.2"),
-//						Value: pulumi.String("true"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = elb.NewListenerPolicy(ctx, "wu-tang-listener-policies-443", &elb.ListenerPolicyArgs{
-//				LoadBalancerName: wu_tang.Name,
-//				LoadBalancerPort: pulumi.Int(443),
-//				PolicyNames: pulumi.StringArray{
-//					wu_tang_ssl.PolicyName,
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := elb/loadBalancer.NewLoadBalancer(ctx, "wu-tang", &elb/loadBalancer.LoadBalancerArgs{
+// AvailabilityZones: []string{
+// "us-east-1a",
+// },
+// Listeners: []map[string]interface{}{
+// map[string]interface{}{
+// "instancePort": 443,
+// "instanceProtocol": "http",
+// "lbPort": 443,
+// "lbProtocol": "https",
+// "sslCertificateId": "arn:aws:iam::000000000000:server-certificate/wu-tang.net",
+// },
+// },
+// Tags: map[string]interface{}{
+// "Name": "wu-tang",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = elb/loadBalancerPolicy.NewLoadBalancerPolicy(ctx, "wu-tang-ssl", &elb/loadBalancerPolicy.LoadBalancerPolicyArgs{
+// LoadBalancerName: wu_tang.Name,
+// PolicyName: "wu-tang-ssl",
+// PolicyTypeName: "SSLNegotiationPolicyType",
+// PolicyAttributes: []map[string]interface{}{
+// map[string]interface{}{
+// "name": "ECDHE-ECDSA-AES128-GCM-SHA256",
+// "value": "true",
+// },
+// map[string]interface{}{
+// "name": "Protocol-TLSv1.2",
+// "value": "true",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = elb/listenerPolicy.NewListenerPolicy(ctx, "wu-tang-listener-policies-443", &elb/listenerPolicy.ListenerPolicyArgs{
+// LoadBalancerName: wu_tang.Name,
+// LoadBalancerPort: 443,
+// PolicyNames: []interface{}{
+// wu_tang_ssl.PolicyName,
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // This example shows how to customize the TLS settings of an HTTPS listener.
@@ -91,61 +91,61 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/elb"
+//	elb/listenerPolicy "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/elb/listenerPolicy"
+//	elb/loadBalancer "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/elb/loadBalancer"
+//	elb/loadBalancerPolicy "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/elb/loadBalancerPolicy"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := elb.NewLoadBalancer(ctx, "wu-tang", &elb.LoadBalancerArgs{
-//				AvailabilityZones: pulumi.StringArray{
-//					pulumi.String("us-east-1a"),
-//				},
-//				Listeners: elb.LoadBalancerListenerArray{
-//					&elb.LoadBalancerListenerArgs{
-//						InstancePort:     pulumi.Int(443),
-//						InstanceProtocol: pulumi.String("http"),
-//						LbPort:           pulumi.Int(443),
-//						LbProtocol:       pulumi.String("https"),
-//						SslCertificateId: pulumi.String("arn:aws:iam::000000000000:server-certificate/wu-tang.net"),
-//					},
-//				},
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("wu-tang"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = elb.NewLoadBalancerPolicy(ctx, "wu-tang-ssl-tls-1-1", &elb.LoadBalancerPolicyArgs{
-//				LoadBalancerName: wu_tang.Name,
-//				PolicyName:       pulumi.String("wu-tang-ssl"),
-//				PolicyTypeName:   pulumi.String("SSLNegotiationPolicyType"),
-//				PolicyAttributes: elb.LoadBalancerPolicyPolicyAttributeArray{
-//					&elb.LoadBalancerPolicyPolicyAttributeArgs{
-//						Name:  pulumi.String("Reference-Security-Policy"),
-//						Value: pulumi.String("ELBSecurityPolicy-TLS-1-1-2017-01"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = elb.NewListenerPolicy(ctx, "wu-tang-listener-policies-443", &elb.ListenerPolicyArgs{
-//				LoadBalancerName: wu_tang.Name,
-//				LoadBalancerPort: pulumi.Int(443),
-//				PolicyNames: pulumi.StringArray{
-//					wu_tang_ssl_tls_1_1.PolicyName,
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := elb/loadBalancer.NewLoadBalancer(ctx, "wu-tang", &elb/loadBalancer.LoadBalancerArgs{
+// AvailabilityZones: []string{
+// "us-east-1a",
+// },
+// Listeners: []map[string]interface{}{
+// map[string]interface{}{
+// "instancePort": 443,
+// "instanceProtocol": "http",
+// "lbPort": 443,
+// "lbProtocol": "https",
+// "sslCertificateId": "arn:aws:iam::000000000000:server-certificate/wu-tang.net",
+// },
+// },
+// Tags: map[string]interface{}{
+// "Name": "wu-tang",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = elb/loadBalancerPolicy.NewLoadBalancerPolicy(ctx, "wu-tang-ssl-tls-1-1", &elb/loadBalancerPolicy.LoadBalancerPolicyArgs{
+// LoadBalancerName: wu_tang.Name,
+// PolicyName: "wu-tang-ssl",
+// PolicyTypeName: "SSLNegotiationPolicyType",
+// PolicyAttributes: []map[string]interface{}{
+// map[string]interface{}{
+// "name": "Reference-Security-Policy",
+// "value": "ELBSecurityPolicy-TLS-1-1-2017-01",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = elb/listenerPolicy.NewListenerPolicy(ctx, "wu-tang-listener-policies-443", &elb/listenerPolicy.ListenerPolicyArgs{
+// LoadBalancerName: wu_tang.Name,
+// LoadBalancerPort: 443,
+// PolicyNames: []interface{}{
+// wu_tang_ssl_tls_1_1.PolicyName,
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // This example shows how to add a [Predefined Security Policy for ELBs](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-security-policy-table.html)

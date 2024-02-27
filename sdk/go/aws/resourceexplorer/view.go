@@ -20,38 +20,37 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/resourceexplorer"
+//	resourceexplorer/index "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/resourceexplorer/index"
+//	resourceexplorer/view "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/resourceexplorer/view"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleIndex, err := resourceexplorer.NewIndex(ctx, "exampleIndex", &resourceexplorer.IndexArgs{
-//				Type: pulumi.String("LOCAL"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = resourceexplorer.NewView(ctx, "exampleView", &resourceexplorer.ViewArgs{
-//				Filters: &resourceexplorer.ViewFiltersArgs{
-//					FilterString: pulumi.String("resourcetype:ec2:instance"),
-//				},
-//				IncludedProperties: resourceexplorer.ViewIncludedPropertyArray{
-//					&resourceexplorer.ViewIncludedPropertyArgs{
-//						Name: pulumi.String("tags"),
-//					},
-//				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleIndex,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleIndex, err := resourceexplorer/index.NewIndex(ctx, "exampleIndex", &resourceexplorer/index.IndexArgs{
+// Type: "LOCAL",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = resourceexplorer/view.NewView(ctx, "exampleView", &resourceexplorer/view.ViewArgs{
+// Filters: map[string]interface{}{
+// "filterString": "resourcetype:ec2:instance",
+// },
+// IncludedProperties: []map[string]interface{}{
+// map[string]interface{}{
+// "name": "tags",
+// },
+// },
+// }, pulumi.DependsOn([]pulumi.Resource{
+// exampleIndex,
+// }))
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -30,7 +30,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.devicefarm.DevicePool;
  * import com.pulumi.aws.devicefarm.DevicePoolArgs;
- * import com.pulumi.aws.devicefarm.inputs.DevicePoolRuleArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -46,11 +45,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new DevicePool(&#34;example&#34;, DevicePoolArgs.builder()        
  *             .projectArn(aws_devicefarm_project.example().arn())
- *             .rules(DevicePoolRuleArgs.builder()
- *                 .attribute(&#34;OS_VERSION&#34;)
- *                 .operator(&#34;EQUALS&#34;)
- *                 .value(&#34;\&#34;AVAILABLE\&#34;&#34;)
- *                 .build())
+ *             .rules(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

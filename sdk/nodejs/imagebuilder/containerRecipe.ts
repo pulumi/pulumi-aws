@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.imagebuilder.ContainerRecipe("example", {
+ * const example = new aws.imagebuilder/containerRecipe.ContainerRecipe("example", {
  *     version: "1.0.0",
  *     containerType: "DOCKER",
  *     parentImage: "arn:aws:imagebuilder:eu-central-1:aws:image/amazon-linux-x86-latest/x.x.x",

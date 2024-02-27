@@ -34,14 +34,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.apprunner.Service;
  * import com.pulumi.aws.apprunner.ServiceArgs;
- * import com.pulumi.aws.apprunner.inputs.ServiceSourceConfigurationArgs;
- * import com.pulumi.aws.apprunner.inputs.ServiceSourceConfigurationAuthenticationConfigurationArgs;
- * import com.pulumi.aws.apprunner.inputs.ServiceSourceConfigurationCodeRepositoryArgs;
- * import com.pulumi.aws.apprunner.inputs.ServiceSourceConfigurationCodeRepositoryCodeConfigurationArgs;
- * import com.pulumi.aws.apprunner.inputs.ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValuesArgs;
- * import com.pulumi.aws.apprunner.inputs.ServiceSourceConfigurationCodeRepositorySourceCodeVersionArgs;
- * import com.pulumi.aws.apprunner.inputs.ServiceNetworkConfigurationArgs;
- * import com.pulumi.aws.apprunner.inputs.ServiceNetworkConfigurationEgressConfigurationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -57,34 +49,9 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Service(&#34;example&#34;, ServiceArgs.builder()        
  *             .serviceName(&#34;example&#34;)
- *             .sourceConfiguration(ServiceSourceConfigurationArgs.builder()
- *                 .authenticationConfiguration(ServiceSourceConfigurationAuthenticationConfigurationArgs.builder()
- *                     .connectionArn(aws_apprunner_connection.example().arn())
- *                     .build())
- *                 .codeRepository(ServiceSourceConfigurationCodeRepositoryArgs.builder()
- *                     .codeConfiguration(ServiceSourceConfigurationCodeRepositoryCodeConfigurationArgs.builder()
- *                         .codeConfigurationValues(ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValuesArgs.builder()
- *                             .buildCommand(&#34;python setup.py develop&#34;)
- *                             .port(&#34;8000&#34;)
- *                             .runtime(&#34;PYTHON_3&#34;)
- *                             .startCommand(&#34;python runapp.py&#34;)
- *                             .build())
- *                         .configurationSource(&#34;API&#34;)
- *                         .build())
- *                     .repositoryUrl(&#34;https://github.com/example/my-example-python-app&#34;)
- *                     .sourceCodeVersion(ServiceSourceConfigurationCodeRepositorySourceCodeVersionArgs.builder()
- *                         .type(&#34;BRANCH&#34;)
- *                         .value(&#34;main&#34;)
- *                         .build())
- *                     .build())
- *                 .build())
- *             .networkConfiguration(ServiceNetworkConfigurationArgs.builder()
- *                 .egressConfiguration(ServiceNetworkConfigurationEgressConfigurationArgs.builder()
- *                     .egressType(&#34;VPC&#34;)
- *                     .vpcConnectorArn(aws_apprunner_vpc_connector.connector().arn())
- *                     .build())
- *                 .build())
- *             .tags(Map.of(&#34;Name&#34;, &#34;example-apprunner-service&#34;))
+ *             .sourceConfiguration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .networkConfiguration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -99,9 +66,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.apprunner.Service;
  * import com.pulumi.aws.apprunner.ServiceArgs;
- * import com.pulumi.aws.apprunner.inputs.ServiceSourceConfigurationArgs;
- * import com.pulumi.aws.apprunner.inputs.ServiceSourceConfigurationImageRepositoryArgs;
- * import com.pulumi.aws.apprunner.inputs.ServiceSourceConfigurationImageRepositoryImageConfigurationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -117,17 +81,8 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Service(&#34;example&#34;, ServiceArgs.builder()        
  *             .serviceName(&#34;example&#34;)
- *             .sourceConfiguration(ServiceSourceConfigurationArgs.builder()
- *                 .autoDeploymentsEnabled(false)
- *                 .imageRepository(ServiceSourceConfigurationImageRepositoryArgs.builder()
- *                     .imageConfiguration(ServiceSourceConfigurationImageRepositoryImageConfigurationArgs.builder()
- *                         .port(&#34;8000&#34;)
- *                         .build())
- *                     .imageIdentifier(&#34;public.ecr.aws/aws-containers/hello-app-runner:latest&#34;)
- *                     .imageRepositoryType(&#34;ECR_PUBLIC&#34;)
- *                     .build())
- *                 .build())
- *             .tags(Map.of(&#34;Name&#34;, &#34;example-apprunner-service&#34;))
+ *             .sourceConfiguration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -142,13 +97,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.apprunner.ObservabilityConfiguration;
  * import com.pulumi.aws.apprunner.ObservabilityConfigurationArgs;
- * import com.pulumi.aws.apprunner.inputs.ObservabilityConfigurationTraceConfigurationArgs;
  * import com.pulumi.aws.apprunner.Service;
  * import com.pulumi.aws.apprunner.ServiceArgs;
- * import com.pulumi.aws.apprunner.inputs.ServiceObservabilityConfigurationArgs;
- * import com.pulumi.aws.apprunner.inputs.ServiceSourceConfigurationArgs;
- * import com.pulumi.aws.apprunner.inputs.ServiceSourceConfigurationImageRepositoryArgs;
- * import com.pulumi.aws.apprunner.inputs.ServiceSourceConfigurationImageRepositoryImageConfigurationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -164,28 +114,14 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var exampleObservabilityConfiguration = new ObservabilityConfiguration(&#34;exampleObservabilityConfiguration&#34;, ObservabilityConfigurationArgs.builder()        
  *             .observabilityConfigurationName(&#34;example&#34;)
- *             .traceConfiguration(ObservabilityConfigurationTraceConfigurationArgs.builder()
- *                 .vendor(&#34;AWSXRAY&#34;)
- *                 .build())
+ *             .traceConfiguration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleService = new Service(&#34;exampleService&#34;, ServiceArgs.builder()        
  *             .serviceName(&#34;example&#34;)
- *             .observabilityConfiguration(ServiceObservabilityConfigurationArgs.builder()
- *                 .observabilityConfigurationArn(exampleObservabilityConfiguration.arn())
- *                 .observabilityEnabled(true)
- *                 .build())
- *             .sourceConfiguration(ServiceSourceConfigurationArgs.builder()
- *                 .imageRepository(ServiceSourceConfigurationImageRepositoryArgs.builder()
- *                     .imageConfiguration(ServiceSourceConfigurationImageRepositoryImageConfigurationArgs.builder()
- *                         .port(&#34;8000&#34;)
- *                         .build())
- *                     .imageIdentifier(&#34;public.ecr.aws/aws-containers/hello-app-runner:latest&#34;)
- *                     .imageRepositoryType(&#34;ECR_PUBLIC&#34;)
- *                     .build())
- *                 .autoDeploymentsEnabled(false)
- *                 .build())
- *             .tags(Map.of(&#34;Name&#34;, &#34;example-apprunner-service&#34;))
+ *             .observabilityConfiguration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .sourceConfiguration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

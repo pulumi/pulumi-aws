@@ -15,60 +15,6 @@ import (
 // Provides a resource to manage the accepter's side of a Direct Connect hosted public virtual interface.
 // This resource accepts ownership of a public virtual interface created by another AWS account.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/directconnect"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := aws.NewProvider(ctx, "accepter", nil)
-//			if err != nil {
-//				return err
-//			}
-//			accepterCallerIdentity, err := aws.GetCallerIdentity(ctx, nil, nil)
-//			if err != nil {
-//				return err
-//			}
-//			creator, err := directconnect.NewHostedPublicVirtualInterface(ctx, "creator", &directconnect.HostedPublicVirtualInterfaceArgs{
-//				ConnectionId:    pulumi.String("dxcon-zzzzzzzz"),
-//				OwnerAccountId:  *pulumi.String(accepterCallerIdentity.AccountId),
-//				Vlan:            pulumi.Int(4094),
-//				AddressFamily:   pulumi.String("ipv4"),
-//				BgpAsn:          pulumi.Int(65352),
-//				CustomerAddress: pulumi.String("175.45.176.1/30"),
-//				AmazonAddress:   pulumi.String("175.45.176.2/30"),
-//				RouteFilterPrefixes: pulumi.StringArray{
-//					pulumi.String("210.52.109.0/24"),
-//					pulumi.String("175.45.176.0/22"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = directconnect.NewHostedPublicVirtualInterfaceAccepter(ctx, "accepterHostedPublicVirtualInterfaceAccepter", &directconnect.HostedPublicVirtualInterfaceAccepterArgs{
-//				VirtualInterfaceId: creator.ID(),
-//				Tags: pulumi.StringMap{
-//					"Side": pulumi.String("Accepter"),
-//				},
-//			}, pulumi.Provider(aws.Accepter))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Using `pulumi import`, import Direct Connect hosted public virtual interfaces using the VIF `id`. For example:

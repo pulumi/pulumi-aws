@@ -23,74 +23,12 @@ public final class CloudformationFunctions {
     /**
      * Provides details about a CloudFormation Type.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.cloudformation.CloudformationFunctions;
-     * import com.pulumi.aws.cloudformation.inputs.GetCloudFormationTypeArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = CloudformationFunctions.getCloudFormationType(GetCloudFormationTypeArgs.builder()
-     *             .type(&#34;RESOURCE&#34;)
-     *             .typeName(&#34;AWS::Athena::WorkGroup&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetCloudFormationTypeResult> getCloudFormationType() {
         return getCloudFormationType(GetCloudFormationTypeArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * Provides details about a CloudFormation Type.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.cloudformation.CloudformationFunctions;
-     * import com.pulumi.aws.cloudformation.inputs.GetCloudFormationTypeArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = CloudformationFunctions.getCloudFormationType(GetCloudFormationTypeArgs.builder()
-     *             .type(&#34;RESOURCE&#34;)
-     *             .typeName(&#34;AWS::Athena::WorkGroup&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetCloudFormationTypeResult> getCloudFormationTypePlain() {
@@ -99,74 +37,12 @@ public final class CloudformationFunctions {
     /**
      * Provides details about a CloudFormation Type.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.cloudformation.CloudformationFunctions;
-     * import com.pulumi.aws.cloudformation.inputs.GetCloudFormationTypeArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = CloudformationFunctions.getCloudFormationType(GetCloudFormationTypeArgs.builder()
-     *             .type(&#34;RESOURCE&#34;)
-     *             .typeName(&#34;AWS::Athena::WorkGroup&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetCloudFormationTypeResult> getCloudFormationType(GetCloudFormationTypeArgs args) {
         return getCloudFormationType(args, InvokeOptions.Empty);
     }
     /**
      * Provides details about a CloudFormation Type.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.cloudformation.CloudformationFunctions;
-     * import com.pulumi.aws.cloudformation.inputs.GetCloudFormationTypeArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = CloudformationFunctions.getCloudFormationType(GetCloudFormationTypeArgs.builder()
-     *             .type(&#34;RESOURCE&#34;)
-     *             .typeName(&#34;AWS::Athena::WorkGroup&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetCloudFormationTypeResult> getCloudFormationTypePlain(GetCloudFormationTypePlainArgs args) {
@@ -175,74 +51,12 @@ public final class CloudformationFunctions {
     /**
      * Provides details about a CloudFormation Type.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.cloudformation.CloudformationFunctions;
-     * import com.pulumi.aws.cloudformation.inputs.GetCloudFormationTypeArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = CloudformationFunctions.getCloudFormationType(GetCloudFormationTypeArgs.builder()
-     *             .type(&#34;RESOURCE&#34;)
-     *             .typeName(&#34;AWS::Athena::WorkGroup&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetCloudFormationTypeResult> getCloudFormationType(GetCloudFormationTypeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:cloudformation/getCloudFormationType:getCloudFormationType", TypeShape.of(GetCloudFormationTypeResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Provides details about a CloudFormation Type.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.cloudformation.CloudformationFunctions;
-     * import com.pulumi.aws.cloudformation.inputs.GetCloudFormationTypeArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = CloudformationFunctions.getCloudFormationType(GetCloudFormationTypeArgs.builder()
-     *             .type(&#34;RESOURCE&#34;)
-     *             .typeName(&#34;AWS::Athena::WorkGroup&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetCloudFormationTypeResult> getCloudFormationTypePlain(GetCloudFormationTypePlainArgs args, InvokeOptions options) {
@@ -254,44 +68,6 @@ public final class CloudformationFunctions {
      * 
      *  &gt; Note: If you are trying to use a value from a Cloudformation Stack in the same deployment please use normal interpolation or Cloudformation Outputs.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.cloudformation.CloudformationFunctions;
-     * import com.pulumi.aws.cloudformation.inputs.GetExportArgs;
-     * import com.pulumi.aws.ec2.Instance;
-     * import com.pulumi.aws.ec2.InstanceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var subnetId = CloudformationFunctions.getExport(GetExportArgs.builder()
-     *             .name(&#34;mySubnetIdExportName&#34;)
-     *             .build());
-     * 
-     *         var web = new Instance(&#34;web&#34;, InstanceArgs.builder()        
-     *             .ami(&#34;ami-abb07bcb&#34;)
-     *             .instanceType(&#34;t2.micro&#34;)
-     *             .subnetId(subnetId.applyValue(getExportResult -&gt; getExportResult.value()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetExportResult> getExport(GetExportArgs args) {
         return getExport(args, InvokeOptions.Empty);
@@ -301,44 +77,6 @@ public final class CloudformationFunctions {
      * exports specified in the [Output](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/outputs-section-structure.html) section of the Cloudformation Template using the optional Export Property.
      * 
      *  &gt; Note: If you are trying to use a value from a Cloudformation Stack in the same deployment please use normal interpolation or Cloudformation Outputs.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.cloudformation.CloudformationFunctions;
-     * import com.pulumi.aws.cloudformation.inputs.GetExportArgs;
-     * import com.pulumi.aws.ec2.Instance;
-     * import com.pulumi.aws.ec2.InstanceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var subnetId = CloudformationFunctions.getExport(GetExportArgs.builder()
-     *             .name(&#34;mySubnetIdExportName&#34;)
-     *             .build());
-     * 
-     *         var web = new Instance(&#34;web&#34;, InstanceArgs.builder()        
-     *             .ami(&#34;ami-abb07bcb&#34;)
-     *             .instanceType(&#34;t2.micro&#34;)
-     *             .subnetId(subnetId.applyValue(getExportResult -&gt; getExportResult.value()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetExportResult> getExportPlain(GetExportPlainArgs args) {
@@ -350,44 +88,6 @@ public final class CloudformationFunctions {
      * 
      *  &gt; Note: If you are trying to use a value from a Cloudformation Stack in the same deployment please use normal interpolation or Cloudformation Outputs.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.cloudformation.CloudformationFunctions;
-     * import com.pulumi.aws.cloudformation.inputs.GetExportArgs;
-     * import com.pulumi.aws.ec2.Instance;
-     * import com.pulumi.aws.ec2.InstanceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var subnetId = CloudformationFunctions.getExport(GetExportArgs.builder()
-     *             .name(&#34;mySubnetIdExportName&#34;)
-     *             .build());
-     * 
-     *         var web = new Instance(&#34;web&#34;, InstanceArgs.builder()        
-     *             .ami(&#34;ami-abb07bcb&#34;)
-     *             .instanceType(&#34;t2.micro&#34;)
-     *             .subnetId(subnetId.applyValue(getExportResult -&gt; getExportResult.value()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetExportResult> getExport(GetExportArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:cloudformation/getExport:getExport", TypeShape.of(GetExportResult.class), args, Utilities.withVersion(options));
@@ -398,44 +98,6 @@ public final class CloudformationFunctions {
      * 
      *  &gt; Note: If you are trying to use a value from a Cloudformation Stack in the same deployment please use normal interpolation or Cloudformation Outputs.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.cloudformation.CloudformationFunctions;
-     * import com.pulumi.aws.cloudformation.inputs.GetExportArgs;
-     * import com.pulumi.aws.ec2.Instance;
-     * import com.pulumi.aws.ec2.InstanceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var subnetId = CloudformationFunctions.getExport(GetExportArgs.builder()
-     *             .name(&#34;mySubnetIdExportName&#34;)
-     *             .build());
-     * 
-     *         var web = new Instance(&#34;web&#34;, InstanceArgs.builder()        
-     *             .ami(&#34;ami-abb07bcb&#34;)
-     *             .instanceType(&#34;t2.micro&#34;)
-     *             .subnetId(subnetId.applyValue(getExportResult -&gt; getExportResult.value()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static CompletableFuture<GetExportResult> getExportPlain(GetExportPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:cloudformation/getExport:getExport", TypeShape.of(GetExportResult.class), args, Utilities.withVersion(options));
@@ -443,45 +105,6 @@ public final class CloudformationFunctions {
     /**
      * The CloudFormation Stack data source allows access to stack
      * outputs and other useful data including the template body.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.cloudformation.CloudformationFunctions;
-     * import com.pulumi.aws.cloudformation.inputs.GetStackArgs;
-     * import com.pulumi.aws.ec2.Instance;
-     * import com.pulumi.aws.ec2.InstanceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var network = CloudformationFunctions.getStack(GetStackArgs.builder()
-     *             .name(&#34;my-network-stack&#34;)
-     *             .build());
-     * 
-     *         var web = new Instance(&#34;web&#34;, InstanceArgs.builder()        
-     *             .ami(&#34;ami-abb07bcb&#34;)
-     *             .instanceType(&#34;t2.micro&#34;)
-     *             .subnetId(network.applyValue(getStackResult -&gt; getStackResult.outputs().SubnetId()))
-     *             .tags(Map.of(&#34;Name&#34;, &#34;HelloWorld&#34;))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetStackResult> getStack(GetStackArgs args) {
@@ -491,45 +114,6 @@ public final class CloudformationFunctions {
      * The CloudFormation Stack data source allows access to stack
      * outputs and other useful data including the template body.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.cloudformation.CloudformationFunctions;
-     * import com.pulumi.aws.cloudformation.inputs.GetStackArgs;
-     * import com.pulumi.aws.ec2.Instance;
-     * import com.pulumi.aws.ec2.InstanceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var network = CloudformationFunctions.getStack(GetStackArgs.builder()
-     *             .name(&#34;my-network-stack&#34;)
-     *             .build());
-     * 
-     *         var web = new Instance(&#34;web&#34;, InstanceArgs.builder()        
-     *             .ami(&#34;ami-abb07bcb&#34;)
-     *             .instanceType(&#34;t2.micro&#34;)
-     *             .subnetId(network.applyValue(getStackResult -&gt; getStackResult.outputs().SubnetId()))
-     *             .tags(Map.of(&#34;Name&#34;, &#34;HelloWorld&#34;))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static CompletableFuture<GetStackResult> getStackPlain(GetStackPlainArgs args) {
         return getStackPlain(args, InvokeOptions.Empty);
@@ -538,45 +122,6 @@ public final class CloudformationFunctions {
      * The CloudFormation Stack data source allows access to stack
      * outputs and other useful data including the template body.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.cloudformation.CloudformationFunctions;
-     * import com.pulumi.aws.cloudformation.inputs.GetStackArgs;
-     * import com.pulumi.aws.ec2.Instance;
-     * import com.pulumi.aws.ec2.InstanceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var network = CloudformationFunctions.getStack(GetStackArgs.builder()
-     *             .name(&#34;my-network-stack&#34;)
-     *             .build());
-     * 
-     *         var web = new Instance(&#34;web&#34;, InstanceArgs.builder()        
-     *             .ami(&#34;ami-abb07bcb&#34;)
-     *             .instanceType(&#34;t2.micro&#34;)
-     *             .subnetId(network.applyValue(getStackResult -&gt; getStackResult.outputs().SubnetId()))
-     *             .tags(Map.of(&#34;Name&#34;, &#34;HelloWorld&#34;))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetStackResult> getStack(GetStackArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:cloudformation/getStack:getStack", TypeShape.of(GetStackResult.class), args, Utilities.withVersion(options));
@@ -584,45 +129,6 @@ public final class CloudformationFunctions {
     /**
      * The CloudFormation Stack data source allows access to stack
      * outputs and other useful data including the template body.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.cloudformation.CloudformationFunctions;
-     * import com.pulumi.aws.cloudformation.inputs.GetStackArgs;
-     * import com.pulumi.aws.ec2.Instance;
-     * import com.pulumi.aws.ec2.InstanceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var network = CloudformationFunctions.getStack(GetStackArgs.builder()
-     *             .name(&#34;my-network-stack&#34;)
-     *             .build());
-     * 
-     *         var web = new Instance(&#34;web&#34;, InstanceArgs.builder()        
-     *             .ami(&#34;ami-abb07bcb&#34;)
-     *             .instanceType(&#34;t2.micro&#34;)
-     *             .subnetId(network.applyValue(getStackResult -&gt; getStackResult.outputs().SubnetId()))
-     *             .tags(Map.of(&#34;Name&#34;, &#34;HelloWorld&#34;))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetStackResult> getStackPlain(GetStackPlainArgs args, InvokeOptions options) {

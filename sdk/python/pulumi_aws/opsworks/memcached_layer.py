@@ -833,7 +833,7 @@ class MemcachedLayer(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        cache = aws.opsworks.MemcachedLayer("cache", stack_id=aws_opsworks_stack["main"]["id"])
+        cache = aws.opsworks.memcached_layer.MemcachedLayer("cache", stack_id=aws_opsworks_stack.main.id)
         ```
 
         :param str resource_name: The name of the resource.
@@ -875,7 +875,7 @@ class MemcachedLayer(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        cache = aws.opsworks.MemcachedLayer("cache", stack_id=aws_opsworks_stack["main"]["id"])
+        cache = aws.opsworks.memcached_layer.MemcachedLayer("cache", stack_id=aws_opsworks_stack.main.id)
         ```
 
         :param str resource_name: The name of the resource.

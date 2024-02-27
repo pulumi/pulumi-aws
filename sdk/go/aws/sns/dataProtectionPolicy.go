@@ -23,52 +23,27 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sns"
+//	sns/dataProtectionPolicy "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/sns/dataProtectionPolicy"
+//	sns/topic "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/sns/topic"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleTopic, err := sns.NewTopic(ctx, "exampleTopic", nil)
-//			if err != nil {
-//				return err
-//			}
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"Description": "Example data protection policy",
-//				"Name":        "__example_data_protection_policy",
-//				"Statement": []map[string]interface{}{
-//					map[string]interface{}{
-//						"DataDirection": "Inbound",
-//						"DataIdentifier": []string{
-//							"arn:aws:dataprotection::aws:data-identifier/EmailAddress",
-//						},
-//						"Operation": map[string]interface{}{
-//							"Deny": nil,
-//						},
-//						"Principal": []string{
-//							"*",
-//						},
-//						"Sid": "__deny_statement_11ba9d96",
-//					},
-//				},
-//				"Version": "2021-06-01",
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			_, err = sns.NewDataProtectionPolicy(ctx, "exampleDataProtectionPolicy", &sns.DataProtectionPolicyArgs{
-//				Arn:    exampleTopic.Arn,
-//				Policy: pulumi.String(json0),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleTopic, err := sns/topic.NewTopic(ctx, "exampleTopic", nil)
+// if err != nil {
+// return err
+// }
+// _, err = sns/dataProtectionPolicy.NewDataProtectionPolicy(ctx, "exampleDataProtectionPolicy", &sns/dataProtectionPolicy.DataProtectionPolicyArgs{
+// Arn: exampleTopic.Arn,
+// Policy: %!v(PANIC=Format method: fatal: An assertion has failed: unlowered function toJSON),
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

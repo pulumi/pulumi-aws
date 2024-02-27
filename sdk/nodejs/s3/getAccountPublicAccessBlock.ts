@@ -6,15 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * The S3 account public access block data source returns account-level public access block configuration.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.s3.getAccountPublicAccessBlock({});
- * ```
  */
 export function getAccountPublicAccessBlock(args?: GetAccountPublicAccessBlockArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountPublicAccessBlockResult> {
     args = args || {};
@@ -63,15 +54,6 @@ export interface GetAccountPublicAccessBlockResult {
 }
 /**
  * The S3 account public access block data source returns account-level public access block configuration.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.s3.getAccountPublicAccessBlock({});
- * ```
  */
 export function getAccountPublicAccessBlockOutput(args?: GetAccountPublicAccessBlockOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccountPublicAccessBlockResult> {
     return pulumi.output(args).apply((a: any) => getAccountPublicAccessBlock(a, opts))

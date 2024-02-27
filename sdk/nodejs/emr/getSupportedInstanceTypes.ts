@@ -11,16 +11,6 @@ import * as utilities from "../utilities";
  * Data source for managing AWS EMR Supported Instance Types.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.emr.getSupportedInstanceTypes({
- *     releaseLabel: "ebs-6.15.0",
- * });
- * ```
  */
 export function getSupportedInstanceTypes(args: GetSupportedInstanceTypesArgs, opts?: pulumi.InvokeOptions): Promise<GetSupportedInstanceTypesResult> {
 
@@ -60,16 +50,6 @@ export interface GetSupportedInstanceTypesResult {
  * Data source for managing AWS EMR Supported Instance Types.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.emr.getSupportedInstanceTypes({
- *     releaseLabel: "ebs-6.15.0",
- * });
- * ```
  */
 export function getSupportedInstanceTypesOutput(args: GetSupportedInstanceTypesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSupportedInstanceTypesResult> {
     return pulumi.output(args).apply((a: any) => getSupportedInstanceTypes(a, opts))

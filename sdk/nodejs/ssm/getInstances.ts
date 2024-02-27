@@ -9,20 +9,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to get the instance IDs of SSM managed instances.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.ssm.getInstances({
- *     filters: [{
- *         name: "PlatformTypes",
- *         values: ["Linux"],
- *     }],
- * });
- * ```
  */
 export function getInstances(args?: GetInstancesArgs, opts?: pulumi.InvokeOptions): Promise<GetInstancesResult> {
     args = args || {};
@@ -59,20 +45,6 @@ export interface GetInstancesResult {
 }
 /**
  * Use this data source to get the instance IDs of SSM managed instances.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.ssm.getInstances({
- *     filters: [{
- *         name: "PlatformTypes",
- *         values: ["Linux"],
- *     }],
- * });
- * ```
  */
 export function getInstancesOutput(args?: GetInstancesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInstancesResult> {
     return pulumi.output(args).apply((a: any) => getInstances(a, opts))

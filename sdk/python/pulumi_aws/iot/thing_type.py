@@ -214,7 +214,7 @@ class ThingType(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        foo = aws.iot.ThingType("foo")
+        foo = aws.iot.thing_type.ThingType("foo")
         ```
 
         ## Import
@@ -247,7 +247,7 @@ class ThingType(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        foo = aws.iot.ThingType("foo")
+        foo = aws.iot.thing_type.ThingType("foo")
         ```
 
         ## Import

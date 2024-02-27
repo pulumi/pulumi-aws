@@ -30,7 +30,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.connect.BotAssociation;
  * import com.pulumi.aws.connect.BotAssociationArgs;
- * import com.pulumi.aws.connect.inputs.BotAssociationLexBotArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -46,88 +45,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new BotAssociation(&#34;example&#34;, BotAssociationArgs.builder()        
  *             .instanceId(aws_connect_instance.example().id())
- *             .lexBot(BotAssociationLexBotArgs.builder()
- *                 .lexRegion(&#34;us-west-2&#34;)
- *                 .name(&#34;Test&#34;)
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### Including a sample Lex bot
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.AwsFunctions;
- * import com.pulumi.aws.inputs.GetRegionArgs;
- * import com.pulumi.aws.lex.Intent;
- * import com.pulumi.aws.lex.IntentArgs;
- * import com.pulumi.aws.lex.inputs.IntentFulfillmentActivityArgs;
- * import com.pulumi.aws.lex.Bot;
- * import com.pulumi.aws.lex.BotArgs;
- * import com.pulumi.aws.lex.inputs.BotAbortStatementArgs;
- * import com.pulumi.aws.lex.inputs.BotClarificationPromptArgs;
- * import com.pulumi.aws.lex.inputs.BotIntentArgs;
- * import com.pulumi.aws.connect.BotAssociation;
- * import com.pulumi.aws.connect.BotAssociationArgs;
- * import com.pulumi.aws.connect.inputs.BotAssociationLexBotArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var current = AwsFunctions.getRegion();
- * 
- *         var exampleIntent = new Intent(&#34;exampleIntent&#34;, IntentArgs.builder()        
- *             .createVersion(true)
- *             .name(&#34;connect_lex_intent&#34;)
- *             .fulfillmentActivity(IntentFulfillmentActivityArgs.builder()
- *                 .type(&#34;ReturnIntent&#34;)
- *                 .build())
- *             .sampleUtterances(&#34;I would like to pick up flowers.&#34;)
- *             .build());
- * 
- *         var exampleBot = new Bot(&#34;exampleBot&#34;, BotArgs.builder()        
- *             .abortStatement(BotAbortStatementArgs.builder()
- *                 .messages(BotAbortStatementMessageArgs.builder()
- *                     .content(&#34;Sorry, I am not able to assist at this time.&#34;)
- *                     .contentType(&#34;PlainText&#34;)
- *                     .build())
- *                 .build())
- *             .clarificationPrompt(BotClarificationPromptArgs.builder()
- *                 .maxAttempts(2)
- *                 .messages(BotClarificationPromptMessageArgs.builder()
- *                     .content(&#34;I didn&#39;t understand you, what would you like to do?&#34;)
- *                     .contentType(&#34;PlainText&#34;)
- *                     .build())
- *                 .build())
- *             .intents(BotIntentArgs.builder()
- *                 .intentName(exampleIntent.name())
- *                 .intentVersion(&#34;1&#34;)
- *                 .build())
- *             .childDirected(false)
- *             .name(&#34;connect_lex_bot&#34;)
- *             .processBehavior(&#34;BUILD&#34;)
- *             .build());
- * 
- *         var exampleBotAssociation = new BotAssociation(&#34;exampleBotAssociation&#34;, BotAssociationArgs.builder()        
- *             .instanceId(aws_connect_instance.example().id())
- *             .lexBot(BotAssociationLexBotArgs.builder()
- *                 .lexRegion(current.applyValue(getRegionResult -&gt; getRegionResult.name()))
- *                 .name(exampleBot.name())
- *                 .build())
+ *             .lexBot(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

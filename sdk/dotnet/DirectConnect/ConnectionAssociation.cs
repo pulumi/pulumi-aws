@@ -22,19 +22,19 @@ namespace Pulumi.Aws.DirectConnect
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleConnection = new Aws.DirectConnect.Connection("exampleConnection", new()
+    ///     var exampleConnection = new Aws.Directconnect.Connection.Connection("exampleConnection", new()
     ///     {
     ///         Bandwidth = "1Gbps",
     ///         Location = "EqSe2-EQ",
     ///     });
     /// 
-    ///     var exampleLinkAggregationGroup = new Aws.DirectConnect.LinkAggregationGroup("exampleLinkAggregationGroup", new()
+    ///     var exampleLinkAggregationGroup = new Aws.Directconnect.LinkAggregationGroup.LinkAggregationGroup("exampleLinkAggregationGroup", new()
     ///     {
     ///         ConnectionsBandwidth = "1Gbps",
     ///         Location = "EqSe2-EQ",
     ///     });
     /// 
-    ///     var exampleConnectionAssociation = new Aws.DirectConnect.ConnectionAssociation("exampleConnectionAssociation", new()
+    ///     var exampleConnectionAssociation = new Aws.Directconnect.ConnectionAssociation.ConnectionAssociation("exampleConnectionAssociation", new()
     ///     {
     ///         ConnectionId = exampleConnection.Id,
     ///         LagId = exampleLinkAggregationGroup.Id,

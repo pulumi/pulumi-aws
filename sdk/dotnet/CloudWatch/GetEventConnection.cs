@@ -15,28 +15,6 @@ namespace Pulumi.Aws.CloudWatch
         /// Use this data source to retrieve information about an EventBridge connection.
         /// 
         /// &gt; **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Aws.CloudWatch.GetEventConnection.Invoke(new()
-        ///     {
-        ///         Name = "test",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetEventConnectionResult> InvokeAsync(GetEventConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEventConnectionResult>("aws:cloudwatch/getEventConnection:getEventConnection", args ?? new GetEventConnectionArgs(), options.WithDefaults());
@@ -45,28 +23,6 @@ namespace Pulumi.Aws.CloudWatch
         /// Use this data source to retrieve information about an EventBridge connection.
         /// 
         /// &gt; **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Aws.CloudWatch.GetEventConnection.Invoke(new()
-        ///     {
-        ///         Name = "test",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetEventConnectionResult> Invoke(GetEventConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEventConnectionResult>("aws:cloudwatch/getEventConnection:getEventConnection", args ?? new GetEventConnectionInvokeArgs(), options.WithDefaults());

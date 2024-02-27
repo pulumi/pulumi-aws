@@ -22,25 +22,23 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/quicksight"
+//	quicksight/ingestion "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/quicksight/ingestion"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := quicksight.NewIngestion(ctx, "example", &quicksight.IngestionArgs{
-//				DataSetId:     pulumi.Any(aws_quicksight_data_set.Example.Data_set_id),
-//				IngestionId:   pulumi.String("example-id"),
-//				IngestionType: pulumi.String("FULL_REFRESH"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := quicksight/ingestion.NewIngestion(ctx, "example", &quicksight/ingestion.IngestionArgs{
+// DataSetId: aws_quicksight_data_set.Example.Data_set_id,
+// IngestionId: "example-id",
+// IngestionType: "FULL_REFRESH",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

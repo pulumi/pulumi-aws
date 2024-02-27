@@ -27,7 +27,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var lb = new Aws.Ec2.Eip("lb", new()
+    ///     var lb = new Aws.Ec2.Eip.Eip("lb", new()
     ///     {
     ///         Instance = aws_instance.Web.Id,
     ///         Domain = "vpc",
@@ -45,7 +45,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var multi_ip = new Aws.Ec2.NetworkInterface("multi-ip", new()
+    ///     var multi_ip = new Aws.Ec2.NetworkInterface.NetworkInterface("multi-ip", new()
     ///     {
     ///         SubnetId = aws_subnet.Main.Id,
     ///         PrivateIps = new[]
@@ -55,14 +55,14 @@ namespace Pulumi.Aws.Ec2
     ///         },
     ///     });
     /// 
-    ///     var one = new Aws.Ec2.Eip("one", new()
+    ///     var one = new Aws.Ec2.Eip.Eip("one", new()
     ///     {
     ///         Domain = "vpc",
     ///         NetworkInterface = multi_ip.Id,
     ///         AssociateWithPrivateIp = "10.0.0.10",
     ///     });
     /// 
-    ///     var two = new Aws.Ec2.Eip("two", new()
+    ///     var two = new Aws.Ec2.Eip.Eip("two", new()
     ///     {
     ///         Domain = "vpc",
     ///         NetworkInterface = multi_ip.Id,
@@ -81,18 +81,18 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var @default = new Aws.Ec2.Vpc("default", new()
+    ///     var @default = new Aws.Ec2.Vpc.Vpc("default", new()
     ///     {
     ///         CidrBlock = "10.0.0.0/16",
     ///         EnableDnsHostnames = true,
     ///     });
     /// 
-    ///     var gw = new Aws.Ec2.InternetGateway("gw", new()
+    ///     var gw = new Aws.Ec2.InternetGateway.InternetGateway("gw", new()
     ///     {
     ///         VpcId = @default.Id,
     ///     });
     /// 
-    ///     var myTestSubnet = new Aws.Ec2.Subnet("myTestSubnet", new()
+    ///     var myTestSubnet = new Aws.Ec2.Subnet.Subnet("myTestSubnet", new()
     ///     {
     ///         VpcId = @default.Id,
     ///         CidrBlock = "10.0.0.0/24",
@@ -105,7 +105,7 @@ namespace Pulumi.Aws.Ec2
     ///         },
     ///     });
     /// 
-    ///     var foo = new Aws.Ec2.Instance("foo", new()
+    ///     var foo = new Aws.Ec2.Instance.Instance("foo", new()
     ///     {
     ///         Ami = "ami-5189a661",
     ///         InstanceType = "t2.micro",
@@ -113,7 +113,7 @@ namespace Pulumi.Aws.Ec2
     ///         SubnetId = myTestSubnet.Id,
     ///     });
     /// 
-    ///     var bar = new Aws.Ec2.Eip("bar", new()
+    ///     var bar = new Aws.Ec2.Eip.Eip("bar", new()
     ///     {
     ///         Domain = "vpc",
     ///         Instance = foo.Id,
@@ -138,7 +138,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var byoip_ip = new Aws.Ec2.Eip("byoip-ip", new()
+    ///     var byoip_ip = new Aws.Ec2.Eip.Eip("byoip-ip", new()
     ///     {
     ///         Domain = "vpc",
     ///         PublicIpv4Pool = "ipv4pool-ec2-012345",

@@ -22,7 +22,7 @@ namespace Pulumi.Aws.DataSync
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.DataSync.LocationFsxWindows("example", new()
+    ///     var example = new Aws.Datasync.LocationFsxWindows.LocationFsxWindows("example", new()
     ///     {
     ///         FsxFilesystemArn = aws_fsx_windows_file_system.Example.Arn,
     ///         User = "SomeUser",

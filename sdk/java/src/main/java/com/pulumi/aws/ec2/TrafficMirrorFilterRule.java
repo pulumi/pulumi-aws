@@ -34,8 +34,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.ec2.TrafficMirrorFilterArgs;
  * import com.pulumi.aws.ec2.TrafficMirrorFilterRule;
  * import com.pulumi.aws.ec2.TrafficMirrorFilterRuleArgs;
- * import com.pulumi.aws.ec2.inputs.TrafficMirrorFilterRuleDestinationPortRangeArgs;
- * import com.pulumi.aws.ec2.inputs.TrafficMirrorFilterRuleSourcePortRangeArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -73,14 +71,8 @@ import javax.annotation.Nullable;
  *             .ruleAction(&#34;accept&#34;)
  *             .trafficDirection(&#34;ingress&#34;)
  *             .protocol(6)
- *             .destinationPortRange(TrafficMirrorFilterRuleDestinationPortRangeArgs.builder()
- *                 .fromPort(22)
- *                 .toPort(53)
- *                 .build())
- *             .sourcePortRange(TrafficMirrorFilterRuleSourcePortRangeArgs.builder()
- *                 .fromPort(0)
- *                 .toPort(10)
- *                 .build())
+ *             .destinationPortRange(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .sourcePortRange(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

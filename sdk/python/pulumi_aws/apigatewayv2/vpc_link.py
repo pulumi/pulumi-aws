@@ -213,11 +213,11 @@ class VpcLink(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.apigatewayv2.VpcLink("example",
-            security_group_ids=[data["aws_security_group"]["example"]["id"]],
-            subnet_ids=data["aws_subnets"]["example"]["ids"],
+        example = aws.apigatewayv2.vpc_link.VpcLink("example",
+            security_group_ids=[data.aws_security_group.example.id],
+            subnet_ids=data.aws_subnets.example.ids,
             tags={
-                "Usage": "example",
+                Usage: example,
             })
         ```
 
@@ -254,11 +254,11 @@ class VpcLink(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.apigatewayv2.VpcLink("example",
-            security_group_ids=[data["aws_security_group"]["example"]["id"]],
-            subnet_ids=data["aws_subnets"]["example"]["ids"],
+        example = aws.apigatewayv2.vpc_link.VpcLink("example",
+            security_group_ids=[data.aws_security_group.example.id],
+            subnet_ids=data.aws_subnets.example.ids,
             tags={
-                "Usage": "example",
+                Usage: example,
             })
         ```
 

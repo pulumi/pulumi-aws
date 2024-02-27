@@ -13,58 +13,6 @@ import (
 
 // The Autoscaling Groups data source allows access to the list of AWS
 // ASGs within a specific region. This will allow you to pass a list of AutoScaling Groups to other resources.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/autoscaling"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			groups, err := autoscaling.GetAmiIds(ctx, &autoscaling.GetAmiIdsArgs{
-//				Filters: []autoscaling.GetAmiIdsFilter{
-//					{
-//						Name: "tag:Team",
-//						Values: []string{
-//							"Pets",
-//						},
-//					},
-//					{
-//						Name: "tag-key",
-//						Values: []string{
-//							"Environment",
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = autoscaling.NewNotification(ctx, "slackNotifications", &autoscaling.NotificationArgs{
-//				GroupNames: interface{}(groups.Names),
-//				Notifications: pulumi.StringArray{
-//					pulumi.String("autoscaling:EC2_INSTANCE_LAUNCH"),
-//					pulumi.String("autoscaling:EC2_INSTANCE_TERMINATE"),
-//					pulumi.String("autoscaling:EC2_INSTANCE_LAUNCH_ERROR"),
-//					pulumi.String("autoscaling:EC2_INSTANCE_TERMINATE_ERROR"),
-//				},
-//				TopicArn: pulumi.String("TOPIC ARN"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetAmiIds(ctx *pulumi.Context, args *GetAmiIdsArgs, opts ...pulumi.InvokeOption) (*GetAmiIdsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetAmiIdsResult

@@ -156,21 +156,21 @@ class KeyPolicy(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        example_key = aws.kms.Key("exampleKey", description="example")
-        example_key_policy = aws.kms.KeyPolicy("exampleKeyPolicy",
+        example_key = aws.kms.key.Key("exampleKey", description=example)
+        example_key_policy = aws.kms.key_policy.KeyPolicy("exampleKeyPolicy",
             key_id=example_key.id,
             policy=json.dumps({
-                "Id": "example",
-                "Statement": [{
-                    "Action": "kms:*",
-                    "Effect": "Allow",
-                    "Principal": {
-                        "AWS": "*",
+                Id: example,
+                Statement: [{
+                    Action: kms:*,
+                    Effect: Allow,
+                    Principal: {
+                        AWS: *,
                     },
-                    "Resource": "*",
-                    "Sid": "Enable IAM User Permissions",
+                    Resource: *,
+                    Sid: Enable IAM User Permissions,
                 }],
-                "Version": "2012-10-17",
+                Version: 2012-10-17,
             }))
         ```
 
@@ -208,21 +208,21 @@ class KeyPolicy(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        example_key = aws.kms.Key("exampleKey", description="example")
-        example_key_policy = aws.kms.KeyPolicy("exampleKeyPolicy",
+        example_key = aws.kms.key.Key("exampleKey", description=example)
+        example_key_policy = aws.kms.key_policy.KeyPolicy("exampleKeyPolicy",
             key_id=example_key.id,
             policy=json.dumps({
-                "Id": "example",
-                "Statement": [{
-                    "Action": "kms:*",
-                    "Effect": "Allow",
-                    "Principal": {
-                        "AWS": "*",
+                Id: example,
+                Statement: [{
+                    Action: kms:*,
+                    Effect: Allow,
+                    Principal: {
+                        AWS: *,
                     },
-                    "Resource": "*",
-                    "Sid": "Enable IAM User Permissions",
+                    Resource: *,
+                    Sid: Enable IAM User Permissions,
                 }],
-                "Version": "2012-10-17",
+                Version: 2012-10-17,
             }))
         ```
 

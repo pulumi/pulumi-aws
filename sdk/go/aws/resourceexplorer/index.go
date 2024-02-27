@@ -21,23 +21,21 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/resourceexplorer"
+//	resourceexplorer/index "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/resourceexplorer/index"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := resourceexplorer.NewIndex(ctx, "example", &resourceexplorer.IndexArgs{
-//				Type: pulumi.String("LOCAL"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := resourceexplorer/index.NewIndex(ctx, "example", &resourceexplorer/index.IndexArgs{
+// Type: "LOCAL",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

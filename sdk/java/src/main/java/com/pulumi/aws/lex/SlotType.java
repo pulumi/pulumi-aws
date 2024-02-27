@@ -30,7 +30,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.lex.SlotType;
  * import com.pulumi.aws.lex.SlotTypeArgs;
- * import com.pulumi.aws.lex.inputs.SlotTypeEnumerationValueArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -48,18 +47,8 @@ import javax.annotation.Nullable;
  *             .createVersion(true)
  *             .description(&#34;Types of flowers to order&#34;)
  *             .enumerationValues(            
- *                 SlotTypeEnumerationValueArgs.builder()
- *                     .synonyms(                    
- *                         &#34;Lirium&#34;,
- *                         &#34;Martagon&#34;)
- *                     .value(&#34;lilies&#34;)
- *                     .build(),
- *                 SlotTypeEnumerationValueArgs.builder()
- *                     .synonyms(                    
- *                         &#34;Eduardoregelia&#34;,
- *                         &#34;Podonix&#34;)
- *                     .value(&#34;tulips&#34;)
- *                     .build())
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .name(&#34;FlowerTypes&#34;)
  *             .valueSelectionStrategy(&#34;ORIGINAL_VALUE&#34;)
  *             .build());

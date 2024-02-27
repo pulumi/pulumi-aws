@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = new aws.connect.Instance("test", {
+ * const test = new aws.connect/instance.Instance("test", {
  *     identityManagementType: "CONNECT_MANAGED",
  *     inboundCallsEnabled: true,
  *     instanceAlias: "friendly-name-connect",
@@ -29,7 +29,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = new aws.connect.Instance("test", {
+ * const test = new aws.connect/instance.Instance("test", {
  *     directoryId: aws_directory_service_directory.test.id,
  *     identityManagementType: "EXISTING_DIRECTORY",
  *     inboundCallsEnabled: true,
@@ -43,7 +43,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = new aws.connect.Instance("test", {
+ * const test = new aws.connect/instance.Instance("test", {
  *     identityManagementType: "SAML",
  *     inboundCallsEnabled: true,
  *     instanceAlias: "friendly-name-connect",

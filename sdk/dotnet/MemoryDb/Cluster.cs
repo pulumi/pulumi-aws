@@ -24,7 +24,7 @@ namespace Pulumi.Aws.MemoryDb
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.MemoryDb.Cluster("example", new()
+    ///     var example = new Aws.Memorydb.Cluster.Cluster("example", new()
     ///     {
     ///         AclName = "open-access",
     ///         NodeType = "db.t4g.small",

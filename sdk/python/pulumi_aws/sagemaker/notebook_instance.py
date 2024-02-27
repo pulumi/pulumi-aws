@@ -645,11 +645,11 @@ class NotebookInstance(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        ni = aws.sagemaker.NotebookInstance("ni",
-            role_arn=aws_iam_role["role"]["arn"],
-            instance_type="ml.t2.medium",
+        ni = aws.sagemaker.notebook_instance.NotebookInstance("ni",
+            role_arn=aws_iam_role.role.arn,
+            instance_type=ml.t2.medium,
             tags={
-                "Name": "foo",
+                Name: foo,
             })
         ```
         ### Code repository usage
@@ -658,17 +658,17 @@ class NotebookInstance(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.sagemaker.CodeRepository("example",
-            code_repository_name="my-notebook-instance-code-repo",
-            git_config=aws.sagemaker.CodeRepositoryGitConfigArgs(
-                repository_url="https://github.com/github/docs.git",
-            ))
-        ni = aws.sagemaker.NotebookInstance("ni",
-            role_arn=aws_iam_role["role"]["arn"],
-            instance_type="ml.t2.medium",
+        example = aws.sagemaker.code_repository.CodeRepository("example",
+            code_repository_name=my-notebook-instance-code-repo,
+            git_config={
+                repositoryUrl: https://github.com/github/docs.git,
+            })
+        ni = aws.sagemaker.notebook_instance.NotebookInstance("ni",
+            role_arn=aws_iam_role.role.arn,
+            instance_type=ml.t2.medium,
             default_code_repository=example.code_repository_name,
             tags={
-                "Name": "foo",
+                Name: foo,
             })
         ```
 
@@ -716,11 +716,11 @@ class NotebookInstance(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        ni = aws.sagemaker.NotebookInstance("ni",
-            role_arn=aws_iam_role["role"]["arn"],
-            instance_type="ml.t2.medium",
+        ni = aws.sagemaker.notebook_instance.NotebookInstance("ni",
+            role_arn=aws_iam_role.role.arn,
+            instance_type=ml.t2.medium,
             tags={
-                "Name": "foo",
+                Name: foo,
             })
         ```
         ### Code repository usage
@@ -729,17 +729,17 @@ class NotebookInstance(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.sagemaker.CodeRepository("example",
-            code_repository_name="my-notebook-instance-code-repo",
-            git_config=aws.sagemaker.CodeRepositoryGitConfigArgs(
-                repository_url="https://github.com/github/docs.git",
-            ))
-        ni = aws.sagemaker.NotebookInstance("ni",
-            role_arn=aws_iam_role["role"]["arn"],
-            instance_type="ml.t2.medium",
+        example = aws.sagemaker.code_repository.CodeRepository("example",
+            code_repository_name=my-notebook-instance-code-repo,
+            git_config={
+                repositoryUrl: https://github.com/github/docs.git,
+            })
+        ni = aws.sagemaker.notebook_instance.NotebookInstance("ni",
+            role_arn=aws_iam_role.role.arn,
+            instance_type=ml.t2.medium,
             default_code_repository=example.code_repository_name,
             tags={
-                "Name": "foo",
+                Name: foo,
             })
         ```
 

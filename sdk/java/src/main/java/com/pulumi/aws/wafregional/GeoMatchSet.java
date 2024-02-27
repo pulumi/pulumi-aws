@@ -28,7 +28,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.wafregional.GeoMatchSet;
  * import com.pulumi.aws.wafregional.GeoMatchSetArgs;
- * import com.pulumi.aws.wafregional.inputs.GeoMatchSetGeoMatchConstraintArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -44,14 +43,8 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var geoMatchSet = new GeoMatchSet(&#34;geoMatchSet&#34;, GeoMatchSetArgs.builder()        
  *             .geoMatchConstraints(            
- *                 GeoMatchSetGeoMatchConstraintArgs.builder()
- *                     .type(&#34;Country&#34;)
- *                     .value(&#34;US&#34;)
- *                     .build(),
- *                 GeoMatchSetGeoMatchConstraintArgs.builder()
- *                     .type(&#34;Country&#34;)
- *                     .value(&#34;CA&#34;)
- *                     .build())
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

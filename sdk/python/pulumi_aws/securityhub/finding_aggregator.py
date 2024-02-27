@@ -110,8 +110,8 @@ class FindingAggregator(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_account = aws.securityhub.Account("exampleAccount")
-        example_finding_aggregator = aws.securityhub.FindingAggregator("exampleFindingAggregator", linking_mode="ALL_REGIONS",
+        example_account = aws.securityhub.account.Account("exampleAccount")
+        example_finding_aggregator = aws.securityhub.finding_aggregator.FindingAggregator("exampleFindingAggregator", linking_mode=ALL_REGIONS,
         opts=pulumi.ResourceOptions(depends_on=[example_account]))
         ```
         ### All Regions Except Specified Regions Usage
@@ -122,12 +122,12 @@ class FindingAggregator(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_account = aws.securityhub.Account("exampleAccount")
-        example_finding_aggregator = aws.securityhub.FindingAggregator("exampleFindingAggregator",
-            linking_mode="ALL_REGIONS_EXCEPT_SPECIFIED",
+        example_account = aws.securityhub.account.Account("exampleAccount")
+        example_finding_aggregator = aws.securityhub.finding_aggregator.FindingAggregator("exampleFindingAggregator",
+            linking_mode=ALL_REGIONS_EXCEPT_SPECIFIED,
             specified_regions=[
-                "eu-west-1",
-                "eu-west-2",
+                eu-west-1,
+                eu-west-2,
             ],
             opts=pulumi.ResourceOptions(depends_on=[example_account]))
         ```
@@ -139,12 +139,12 @@ class FindingAggregator(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_account = aws.securityhub.Account("exampleAccount")
-        example_finding_aggregator = aws.securityhub.FindingAggregator("exampleFindingAggregator",
-            linking_mode="SPECIFIED_REGIONS",
+        example_account = aws.securityhub.account.Account("exampleAccount")
+        example_finding_aggregator = aws.securityhub.finding_aggregator.FindingAggregator("exampleFindingAggregator",
+            linking_mode=SPECIFIED_REGIONS,
             specified_regions=[
-                "eu-west-1",
-                "eu-west-2",
+                eu-west-1,
+                eu-west-2,
             ],
             opts=pulumi.ResourceOptions(depends_on=[example_account]))
         ```
@@ -180,8 +180,8 @@ class FindingAggregator(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_account = aws.securityhub.Account("exampleAccount")
-        example_finding_aggregator = aws.securityhub.FindingAggregator("exampleFindingAggregator", linking_mode="ALL_REGIONS",
+        example_account = aws.securityhub.account.Account("exampleAccount")
+        example_finding_aggregator = aws.securityhub.finding_aggregator.FindingAggregator("exampleFindingAggregator", linking_mode=ALL_REGIONS,
         opts=pulumi.ResourceOptions(depends_on=[example_account]))
         ```
         ### All Regions Except Specified Regions Usage
@@ -192,12 +192,12 @@ class FindingAggregator(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_account = aws.securityhub.Account("exampleAccount")
-        example_finding_aggregator = aws.securityhub.FindingAggregator("exampleFindingAggregator",
-            linking_mode="ALL_REGIONS_EXCEPT_SPECIFIED",
+        example_account = aws.securityhub.account.Account("exampleAccount")
+        example_finding_aggregator = aws.securityhub.finding_aggregator.FindingAggregator("exampleFindingAggregator",
+            linking_mode=ALL_REGIONS_EXCEPT_SPECIFIED,
             specified_regions=[
-                "eu-west-1",
-                "eu-west-2",
+                eu-west-1,
+                eu-west-2,
             ],
             opts=pulumi.ResourceOptions(depends_on=[example_account]))
         ```
@@ -209,12 +209,12 @@ class FindingAggregator(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_account = aws.securityhub.Account("exampleAccount")
-        example_finding_aggregator = aws.securityhub.FindingAggregator("exampleFindingAggregator",
-            linking_mode="SPECIFIED_REGIONS",
+        example_account = aws.securityhub.account.Account("exampleAccount")
+        example_finding_aggregator = aws.securityhub.finding_aggregator.FindingAggregator("exampleFindingAggregator",
+            linking_mode=SPECIFIED_REGIONS,
             specified_regions=[
-                "eu-west-1",
-                "eu-west-2",
+                eu-west-1,
+                eu-west-2,
             ],
             opts=pulumi.ResourceOptions(depends_on=[example_account]))
         ```

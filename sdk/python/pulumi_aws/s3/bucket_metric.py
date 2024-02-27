@@ -145,8 +145,8 @@ class BucketMetric(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.s3.BucketV2("example")
-        example_entire_bucket = aws.s3.BucketMetric("example-entire-bucket", bucket=example.id)
+        example = aws.s3.bucket_v2.BucketV2("example")
+        example_entire_bucket = aws.s3.bucket_metric.BucketMetric("example-entire-bucket", bucket=example.id)
         ```
         ### Add metrics configuration with S3 object filter
 
@@ -154,16 +154,16 @@ class BucketMetric(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.s3.BucketV2("example")
-        example_filtered = aws.s3.BucketMetric("example-filtered",
+        example = aws.s3.bucket_v2.BucketV2("example")
+        example_filtered = aws.s3.bucket_metric.BucketMetric("example-filtered",
             bucket=example.id,
-            filter=aws.s3.BucketMetricFilterArgs(
-                prefix="documents/",
-                tags={
-                    "priority": "high",
-                    "class": "blue",
+            filter={
+                prefix: documents/,
+                tags: {
+                    priority: high,
+                    class: blue,
                 },
-            ))
+            })
         ```
         ### Add metrics configuration with S3 object filter for S3 Access Point
 
@@ -171,17 +171,17 @@ class BucketMetric(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.s3.BucketV2("example")
-        example_access_point = aws.s3.AccessPoint("example-access-point", bucket=example.id)
-        example_filtered = aws.s3.BucketMetric("example-filtered",
+        example = aws.s3.bucket_v2.BucketV2("example")
+        example_access_point = aws.s3.access_point.AccessPoint("example-access-point", bucket=example.id)
+        example_filtered = aws.s3.bucket_metric.BucketMetric("example-filtered",
             bucket=example.id,
-            filter=aws.s3.BucketMetricFilterArgs(
-                access_point=example_access_point.arn,
-                tags={
-                    "priority": "high",
-                    "class": "blue",
+            filter={
+                accessPoint: example_access_point.arn,
+                tags: {
+                    priority: high,
+                    class: blue,
                 },
-            ))
+            })
         ```
 
         ## Import
@@ -216,8 +216,8 @@ class BucketMetric(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.s3.BucketV2("example")
-        example_entire_bucket = aws.s3.BucketMetric("example-entire-bucket", bucket=example.id)
+        example = aws.s3.bucket_v2.BucketV2("example")
+        example_entire_bucket = aws.s3.bucket_metric.BucketMetric("example-entire-bucket", bucket=example.id)
         ```
         ### Add metrics configuration with S3 object filter
 
@@ -225,16 +225,16 @@ class BucketMetric(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.s3.BucketV2("example")
-        example_filtered = aws.s3.BucketMetric("example-filtered",
+        example = aws.s3.bucket_v2.BucketV2("example")
+        example_filtered = aws.s3.bucket_metric.BucketMetric("example-filtered",
             bucket=example.id,
-            filter=aws.s3.BucketMetricFilterArgs(
-                prefix="documents/",
-                tags={
-                    "priority": "high",
-                    "class": "blue",
+            filter={
+                prefix: documents/,
+                tags: {
+                    priority: high,
+                    class: blue,
                 },
-            ))
+            })
         ```
         ### Add metrics configuration with S3 object filter for S3 Access Point
 
@@ -242,17 +242,17 @@ class BucketMetric(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.s3.BucketV2("example")
-        example_access_point = aws.s3.AccessPoint("example-access-point", bucket=example.id)
-        example_filtered = aws.s3.BucketMetric("example-filtered",
+        example = aws.s3.bucket_v2.BucketV2("example")
+        example_access_point = aws.s3.access_point.AccessPoint("example-access-point", bucket=example.id)
+        example_filtered = aws.s3.bucket_metric.BucketMetric("example-filtered",
             bucket=example.id,
-            filter=aws.s3.BucketMetricFilterArgs(
-                access_point=example_access_point.arn,
-                tags={
-                    "priority": "high",
-                    "class": "blue",
+            filter={
+                accessPoint: example_access_point.arn,
+                tags: {
+                    priority: high,
+                    class: blue,
                 },
-            ))
+            })
         ```
 
         ## Import

@@ -31,7 +31,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.gamelift.GameSessionQueue;
  * import com.pulumi.aws.gamelift.GameSessionQueueArgs;
- * import com.pulumi.aws.gamelift.inputs.GameSessionQueuePlayerLatencyPolicyArgs;
  * import com.pulumi.aws.gamelift.MatchmakingRuleSet;
  * import com.pulumi.aws.gamelift.MatchmakingRuleSetArgs;
  * import com.pulumi.aws.gamelift.MatchmakingConfiguration;
@@ -53,13 +52,8 @@ import javax.annotation.Nullable;
  *         var exampleGameSessionQueue = new GameSessionQueue(&#34;exampleGameSessionQueue&#34;, GameSessionQueueArgs.builder()        
  *             .destinations()
  *             .playerLatencyPolicies(            
- *                 GameSessionQueuePlayerLatencyPolicyArgs.builder()
- *                     .maximumIndividualPlayerLatencyMilliseconds(3)
- *                     .policyDurationSeconds(7)
- *                     .build(),
- *                 GameSessionQueuePlayerLatencyPolicyArgs.builder()
- *                     .maximumIndividualPlayerLatencyMilliseconds(10)
- *                     .build())
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .timeoutInSeconds(25)
  *             .build());
  * 
@@ -84,7 +78,7 @@ import javax.annotation.Nullable;
  *             .requestTimeoutSeconds(30)
  *             .ruleSetName(aws_gamelift_matchmaking_rule_set.test().name())
  *             .gameSessionQueueArns(aws_gamelift_game_session_queue.test().arn())
- *             .tags(Map.of(&#34;key1&#34;, &#34;value1&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

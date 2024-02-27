@@ -270,12 +270,12 @@ class Framework(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.auditmanager.Framework("test", control_sets=[aws.auditmanager.FrameworkControlSetArgs(
-            name="example",
-            controls=[aws.auditmanager.FrameworkControlSetControlArgs(
-                id=aws_auditmanager_control["test"]["id"],
-            )],
-        )])
+        test = aws.auditmanager.framework.Framework("test", control_sets=[{
+            name: example,
+            controls: [{
+                id: aws_auditmanager_control.test.id,
+            }],
+        }])
         ```
 
         ## Import
@@ -312,12 +312,12 @@ class Framework(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.auditmanager.Framework("test", control_sets=[aws.auditmanager.FrameworkControlSetArgs(
-            name="example",
-            controls=[aws.auditmanager.FrameworkControlSetControlArgs(
-                id=aws_auditmanager_control["test"]["id"],
-            )],
-        )])
+        test = aws.auditmanager.framework.Framework("test", control_sets=[{
+            name: example,
+            controls: [{
+                id: aws_auditmanager_control.test.id,
+            }],
+        }])
         ```
 
         ## Import

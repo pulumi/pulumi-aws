@@ -29,9 +29,9 @@ namespace Pulumi.Aws.S3
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2");
+    ///     var exampleBucketV2 = new Aws.S3.BucketV2.BucketV2("exampleBucketV2");
     /// 
-    ///     var exampleAccessPoint = new Aws.S3.AccessPoint("exampleAccessPoint", new()
+    ///     var exampleAccessPoint = new Aws.S3.AccessPoint.AccessPoint("exampleAccessPoint", new()
     ///     {
     ///         Bucket = exampleBucketV2.Id,
     ///     });
@@ -48,22 +48,22 @@ namespace Pulumi.Aws.S3
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleBucket = new Aws.S3Control.Bucket("exampleBucket", new()
+    ///     var exampleBucket = new Aws.S3control.Bucket.Bucket("exampleBucket", new()
     ///     {
-    ///         BucketName = "example",
+    ///         Bucket = "example",
     ///     });
     /// 
-    ///     var exampleVpc = new Aws.Ec2.Vpc("exampleVpc", new()
+    ///     var exampleVpc = new Aws.Ec2.Vpc.Vpc("exampleVpc", new()
     ///     {
     ///         CidrBlock = "10.0.0.0/16",
     ///     });
     /// 
-    ///     var exampleAccessPoint = new Aws.S3.AccessPoint("exampleAccessPoint", new()
+    ///     var exampleAccessPoint = new Aws.S3.AccessPoint.AccessPoint("exampleAccessPoint", new()
     ///     {
     ///         Bucket = exampleBucket.Arn,
-    ///         VpcConfiguration = new Aws.S3.Inputs.AccessPointVpcConfigurationArgs
+    ///         VpcConfiguration = 
     ///         {
-    ///             VpcId = exampleVpc.Id,
+    ///             { "vpcId", exampleVpc.Id },
     ///         },
     ///     });
     /// 

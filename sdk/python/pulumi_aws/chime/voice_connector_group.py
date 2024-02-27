@@ -112,21 +112,21 @@ class VoiceConnectorGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        vc1 = aws.chime.VoiceConnector("vc1",
+        vc1 = aws.chime.voice_connector.VoiceConnector("vc1",
             require_encryption=True,
-            aws_region="us-east-1")
-        vc2 = aws.chime.VoiceConnector("vc2",
+            aws_region=us-east-1)
+        vc2 = aws.chime.voice_connector.VoiceConnector("vc2",
             require_encryption=True,
-            aws_region="us-west-2")
-        group = aws.chime.VoiceConnectorGroup("group", connectors=[
-            aws.chime.VoiceConnectorGroupConnectorArgs(
-                voice_connector_id=vc1.id,
-                priority=1,
-            ),
-            aws.chime.VoiceConnectorGroupConnectorArgs(
-                voice_connector_id=vc2.id,
-                priority=3,
-            ),
+            aws_region=us-west-2)
+        group = aws.chime.voice_connector_group.VoiceConnectorGroup("group", connectors=[
+            {
+                voiceConnectorId: vc1.id,
+                priority: 1,
+            },
+            {
+                voiceConnectorId: vc2.id,
+                priority: 3,
+            },
         ])
         ```
 
@@ -160,21 +160,21 @@ class VoiceConnectorGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        vc1 = aws.chime.VoiceConnector("vc1",
+        vc1 = aws.chime.voice_connector.VoiceConnector("vc1",
             require_encryption=True,
-            aws_region="us-east-1")
-        vc2 = aws.chime.VoiceConnector("vc2",
+            aws_region=us-east-1)
+        vc2 = aws.chime.voice_connector.VoiceConnector("vc2",
             require_encryption=True,
-            aws_region="us-west-2")
-        group = aws.chime.VoiceConnectorGroup("group", connectors=[
-            aws.chime.VoiceConnectorGroupConnectorArgs(
-                voice_connector_id=vc1.id,
-                priority=1,
-            ),
-            aws.chime.VoiceConnectorGroupConnectorArgs(
-                voice_connector_id=vc2.id,
-                priority=3,
-            ),
+            aws_region=us-west-2)
+        group = aws.chime.voice_connector_group.VoiceConnectorGroup("group", connectors=[
+            {
+                voiceConnectorId: vc1.id,
+                priority: 1,
+            },
+            {
+                voiceConnectorId: vc2.id,
+                priority: 3,
+            },
         ])
         ```
 

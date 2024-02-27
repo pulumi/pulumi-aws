@@ -107,9 +107,9 @@ class LambdaFunctionAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.connect.LambdaFunctionAssociation("example",
-            function_arn=aws_lambda_function["example"]["arn"],
-            instance_id=aws_connect_instance["example"]["id"])
+        example = aws.connect.lambda_function_association.LambdaFunctionAssociation("example",
+            function_arn=aws_lambda_function.example.arn,
+            instance_id=aws_connect_instance.example.id)
         ```
 
         ## Import
@@ -141,9 +141,9 @@ class LambdaFunctionAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.connect.LambdaFunctionAssociation("example",
-            function_arn=aws_lambda_function["example"]["arn"],
-            instance_id=aws_connect_instance["example"]["id"])
+        example = aws.connect.lambda_function_association.LambdaFunctionAssociation("example",
+            function_arn=aws_lambda_function.example.arn,
+            instance_id=aws_connect_instance.example.id)
         ```
 
         ## Import

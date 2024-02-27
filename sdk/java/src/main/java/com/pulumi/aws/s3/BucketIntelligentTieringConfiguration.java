@@ -33,7 +33,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.s3.BucketV2;
  * import com.pulumi.aws.s3.BucketIntelligentTieringConfiguration;
  * import com.pulumi.aws.s3.BucketIntelligentTieringConfigurationArgs;
- * import com.pulumi.aws.s3.inputs.BucketIntelligentTieringConfigurationTieringArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -52,14 +51,8 @@ import javax.annotation.Nullable;
  *         var example_entire_bucket = new BucketIntelligentTieringConfiguration(&#34;example-entire-bucket&#34;, BucketIntelligentTieringConfigurationArgs.builder()        
  *             .bucket(example.id())
  *             .tierings(            
- *                 BucketIntelligentTieringConfigurationTieringArgs.builder()
- *                     .accessTier(&#34;DEEP_ARCHIVE_ACCESS&#34;)
- *                     .days(180)
- *                     .build(),
- *                 BucketIntelligentTieringConfigurationTieringArgs.builder()
- *                     .accessTier(&#34;ARCHIVE_ACCESS&#34;)
- *                     .days(125)
- *                     .build())
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -75,8 +68,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.s3.BucketV2;
  * import com.pulumi.aws.s3.BucketIntelligentTieringConfiguration;
  * import com.pulumi.aws.s3.BucketIntelligentTieringConfigurationArgs;
- * import com.pulumi.aws.s3.inputs.BucketIntelligentTieringConfigurationFilterArgs;
- * import com.pulumi.aws.s3.inputs.BucketIntelligentTieringConfigurationTieringArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -95,17 +86,8 @@ import javax.annotation.Nullable;
  *         var example_filtered = new BucketIntelligentTieringConfiguration(&#34;example-filtered&#34;, BucketIntelligentTieringConfigurationArgs.builder()        
  *             .bucket(example.id())
  *             .status(&#34;Disabled&#34;)
- *             .filter(BucketIntelligentTieringConfigurationFilterArgs.builder()
- *                 .prefix(&#34;documents/&#34;)
- *                 .tags(Map.ofEntries(
- *                     Map.entry(&#34;priority&#34;, &#34;high&#34;),
- *                     Map.entry(&#34;class&#34;, &#34;blue&#34;)
- *                 ))
- *                 .build())
- *             .tierings(BucketIntelligentTieringConfigurationTieringArgs.builder()
- *                 .accessTier(&#34;ARCHIVE_ACCESS&#34;)
- *                 .days(125)
- *                 .build())
+ *             .filter(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .tierings(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

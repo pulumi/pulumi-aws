@@ -28,8 +28,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.lex.V2modelsBotVersion;
- * import com.pulumi.aws.lex.V2modelsBotVersionArgs;
+ * import com.pulumi.aws.lex_v2modelsBotVersion.V2modelsBotVersion;
+ * import com.pulumi.aws.lex_v2modelsBotVersion.V2modelsBotVersionArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var test = new V2modelsBotVersion(&#34;test&#34;, V2modelsBotVersionArgs.builder()        
  *             .botId(aws_lexv2models.test().id())
- *             .localeSpecification(Map.of(&#34;en_US&#34;, Map.of(&#34;sourceBotVersion&#34;, &#34;DRAFT&#34;)))
+ *             .localeSpecification(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

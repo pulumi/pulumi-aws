@@ -22,18 +22,18 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Ebs.Volume("example", new()
+    ///     var example = new Aws.Ebs.Volume.Volume("example", new()
     ///     {
     ///         AvailabilityZone = "us-west-2a",
     ///         Size = 40,
     ///     });
     /// 
-    ///     var exampleSnapshot = new Aws.Ebs.Snapshot("exampleSnapshot", new()
+    ///     var exampleSnapshot = new Aws.Ebs.Snapshot.Snapshot("exampleSnapshot", new()
     ///     {
     ///         VolumeId = example.Id,
     ///     });
     /// 
-    ///     var examplePerm = new Aws.Ec2.SnapshotCreateVolumePermission("examplePerm", new()
+    ///     var examplePerm = new Aws.Ec2.SnapshotCreateVolumePermission.SnapshotCreateVolumePermission("examplePerm", new()
     ///     {
     ///         SnapshotId = exampleSnapshot.Id,
     ///         AccountId = "12345678",

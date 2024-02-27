@@ -21,23 +21,21 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/codedeploy"
+//	codedeploy/application "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/codedeploy/application"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := codedeploy.NewApplication(ctx, "example", &codedeploy.ApplicationArgs{
-//				ComputePlatform: pulumi.String("ECS"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := codedeploy/application.NewApplication(ctx, "example", &codedeploy/application.ApplicationArgs{
+// ComputePlatform: "ECS",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Lambda Application
 //
@@ -46,23 +44,21 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/codedeploy"
+//	codedeploy/application "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/codedeploy/application"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := codedeploy.NewApplication(ctx, "example", &codedeploy.ApplicationArgs{
-//				ComputePlatform: pulumi.String("Lambda"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := codedeploy/application.NewApplication(ctx, "example", &codedeploy/application.ApplicationArgs{
+// ComputePlatform: "Lambda",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Server Application
 //
@@ -71,23 +67,21 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/codedeploy"
+//	codedeploy/application "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/codedeploy/application"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := codedeploy.NewApplication(ctx, "example", &codedeploy.ApplicationArgs{
-//				ComputePlatform: pulumi.String("Server"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := codedeploy/application.NewApplication(ctx, "example", &codedeploy/application.ApplicationArgs{
+// ComputePlatform: "Server",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

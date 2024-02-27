@@ -221,15 +221,15 @@ class ApprovalRuleTemplate(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        example = aws.codecommit.ApprovalRuleTemplate("example",
-            description="This is an example approval rule template",
+        example = aws.codecommit.approval_rule_template.ApprovalRuleTemplate("example",
+            description=This is an example approval rule template,
             content=json.dumps({
-                "Version": "2018-11-08",
-                "DestinationReferences": ["refs/heads/master"],
-                "Statements": [{
-                    "Type": "Approvers",
-                    "NumberOfApprovalsNeeded": 2,
-                    "ApprovalPoolMembers": ["arn:aws:sts::123456789012:assumed-role/CodeCommitReview/*"],
+                Version: 2018-11-08,
+                DestinationReferences: [refs/heads/master],
+                Statements: [{
+                    Type: Approvers,
+                    NumberOfApprovalsNeeded: 2,
+                    ApprovalPoolMembers: [arn:aws:sts::123456789012:assumed-role/CodeCommitReview/*],
                 }],
             }))
         ```
@@ -264,15 +264,15 @@ class ApprovalRuleTemplate(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        example = aws.codecommit.ApprovalRuleTemplate("example",
-            description="This is an example approval rule template",
+        example = aws.codecommit.approval_rule_template.ApprovalRuleTemplate("example",
+            description=This is an example approval rule template,
             content=json.dumps({
-                "Version": "2018-11-08",
-                "DestinationReferences": ["refs/heads/master"],
-                "Statements": [{
-                    "Type": "Approvers",
-                    "NumberOfApprovalsNeeded": 2,
-                    "ApprovalPoolMembers": ["arn:aws:sts::123456789012:assumed-role/CodeCommitReview/*"],
+                Version: 2018-11-08,
+                DestinationReferences: [refs/heads/master],
+                Statements: [{
+                    Type: Approvers,
+                    NumberOfApprovalsNeeded: 2,
+                    ApprovalPoolMembers: [arn:aws:sts::123456789012:assumed-role/CodeCommitReview/*],
                 }],
             }))
         ```

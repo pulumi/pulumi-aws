@@ -23,30 +23,28 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/synthetics"
+//	synthetics/canary "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/synthetics/canary"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := synthetics.NewCanary(ctx, "some", &synthetics.CanaryArgs{
-//				ArtifactS3Location: pulumi.String("s3://some-bucket/"),
-//				ExecutionRoleArn:   pulumi.String("some-role"),
-//				Handler:            pulumi.String("exports.handler"),
-//				RuntimeVersion:     pulumi.String("syn-1.0"),
-//				Schedule: &synthetics.CanaryScheduleArgs{
-//					Expression: pulumi.String("rate(0 minute)"),
-//				},
-//				ZipFile: pulumi.String("test-fixtures/lambdatest.zip"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := synthetics/canary.NewCanary(ctx, "some", &synthetics/canary.CanaryArgs{
+// ArtifactS3Location: "s3://some-bucket/",
+// ExecutionRoleArn: "some-role",
+// Handler: "exports.handler",
+// RuntimeVersion: "syn-1.0",
+// Schedule: map[string]interface{}{
+// "expression": "rate(0 minute)",
+// },
+// ZipFile: "test-fixtures/lambdatest.zip",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.iot.BillingGroup("example", {
+ * const example = new aws.iot/billingGroup.BillingGroup("example", {
  *     properties: {
  *         description: "This is my billing group",
  *     },

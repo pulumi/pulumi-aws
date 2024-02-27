@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const gw = new aws.ec2.InternetGateway("gw", {
+ * const gw = new aws.ec2/internetGateway.InternetGateway("gw", {
  *     vpcId: aws_vpc.main.id,
  *     tags: {
  *         Name: "main",
@@ -74,9 +74,9 @@ export class InternetGateway extends pulumi.CustomResource {
      * import * as pulumi from "@pulumi/pulumi";
      * import * as aws from "@pulumi/aws";
      *
-     * const gw = new aws.ec2.InternetGateway("gw", {vpcId: aws_vpc.main.id});
+     * const gw = new aws.ec2/internetGateway.InternetGateway("gw", {vpcId: aws_vpc.main.id});
      * // ... other arguments ...
-     * const foo = new aws.ec2.Instance("foo", {}, {
+     * const foo = new aws.ec2/instance.Instance("foo", {}, {
      *     dependsOn: [gw],
      * });
      * ```
@@ -145,9 +145,9 @@ export interface InternetGatewayState {
      * import * as pulumi from "@pulumi/pulumi";
      * import * as aws from "@pulumi/aws";
      *
-     * const gw = new aws.ec2.InternetGateway("gw", {vpcId: aws_vpc.main.id});
+     * const gw = new aws.ec2/internetGateway.InternetGateway("gw", {vpcId: aws_vpc.main.id});
      * // ... other arguments ...
-     * const foo = new aws.ec2.Instance("foo", {}, {
+     * const foo = new aws.ec2/instance.Instance("foo", {}, {
      *     dependsOn: [gw],
      * });
      * ```
@@ -178,9 +178,9 @@ export interface InternetGatewayArgs {
      * import * as pulumi from "@pulumi/pulumi";
      * import * as aws from "@pulumi/aws";
      *
-     * const gw = new aws.ec2.InternetGateway("gw", {vpcId: aws_vpc.main.id});
+     * const gw = new aws.ec2/internetGateway.InternetGateway("gw", {vpcId: aws_vpc.main.id});
      * // ... other arguments ...
-     * const foo = new aws.ec2.Instance("foo", {}, {
+     * const foo = new aws.ec2/instance.Instance("foo", {}, {
      *     dependsOn: [gw],
      * });
      * ```

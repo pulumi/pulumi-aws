@@ -24,47 +24,45 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ecs"
+//	ecs/service "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ecs/service"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ecs.NewService(ctx, "mongo", &ecs.ServiceArgs{
-//				Cluster:        pulumi.Any(aws_ecs_cluster.Foo.Id),
-//				TaskDefinition: pulumi.Any(aws_ecs_task_definition.Mongo.Arn),
-//				DesiredCount:   pulumi.Int(3),
-//				IamRole:        pulumi.Any(aws_iam_role.Foo.Arn),
-//				OrderedPlacementStrategies: ecs.ServiceOrderedPlacementStrategyArray{
-//					&ecs.ServiceOrderedPlacementStrategyArgs{
-//						Type:  pulumi.String("binpack"),
-//						Field: pulumi.String("cpu"),
-//					},
-//				},
-//				LoadBalancers: ecs.ServiceLoadBalancerArray{
-//					&ecs.ServiceLoadBalancerArgs{
-//						TargetGroupArn: pulumi.Any(aws_lb_target_group.Foo.Arn),
-//						ContainerName:  pulumi.String("mongo"),
-//						ContainerPort:  pulumi.Int(8080),
-//					},
-//				},
-//				PlacementConstraints: ecs.ServicePlacementConstraintArray{
-//					&ecs.ServicePlacementConstraintArgs{
-//						Type:       pulumi.String("memberOf"),
-//						Expression: pulumi.String("attribute:ecs.availability-zone in [us-west-2a, us-west-2b]"),
-//					},
-//				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				aws_iam_role_policy.Foo,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := ecs/service.NewService(ctx, "mongo", &ecs/service.ServiceArgs{
+// Cluster: aws_ecs_cluster.Foo.Id,
+// TaskDefinition: aws_ecs_task_definition.Mongo.Arn,
+// DesiredCount: 3,
+// IamRole: aws_iam_role.Foo.Arn,
+// OrderedPlacementStrategies: []map[string]interface{}{
+// map[string]interface{}{
+// "type": "binpack",
+// "field": "cpu",
+// },
+// },
+// LoadBalancers: []map[string]interface{}{
+// map[string]interface{}{
+// "targetGroupArn": aws_lb_target_group.Foo.Arn,
+// "containerName": "mongo",
+// "containerPort": 8080,
+// },
+// },
+// PlacementConstraints: []map[string]interface{}{
+// map[string]interface{}{
+// "type": "memberOf",
+// "expression": "attribute:ecs.availability-zone in [us-west-2a, us-west-2b]",
+// },
+// },
+// }, pulumi.DependsOn([]pulumi.Resource{
+// aws_iam_role_policy.Foo,
+// }))
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Ignoring Changes to Desired Count
 //
@@ -75,23 +73,22 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ecs"
+//	ecs/service "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ecs/service"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ecs.NewService(ctx, "example", &ecs.ServiceArgs{
-//				DesiredCount: pulumi.Int(2),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// // ... other configurations ...
+// _, err := ecs/service.NewService(ctx, "example", &ecs/service.ServiceArgs{
+// DesiredCount: 2,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Daemon Scheduling Strategy
 //
@@ -100,25 +97,23 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ecs"
+//	ecs/service "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ecs/service"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ecs.NewService(ctx, "bar", &ecs.ServiceArgs{
-//				Cluster:            pulumi.Any(aws_ecs_cluster.Foo.Id),
-//				TaskDefinition:     pulumi.Any(aws_ecs_task_definition.Bar.Arn),
-//				SchedulingStrategy: pulumi.String("DAEMON"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := ecs/service.NewService(ctx, "bar", &ecs/service.ServiceArgs{
+// Cluster: aws_ecs_cluster.Foo.Id,
+// TaskDefinition: aws_ecs_task_definition.Bar.Arn,
+// SchedulingStrategy: "DAEMON",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### CloudWatch Deployment Alarms
 //
@@ -127,30 +122,28 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ecs"
+//	ecs/service "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ecs/service"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ecs.NewService(ctx, "example", &ecs.ServiceArgs{
-//				Cluster: pulumi.Any(aws_ecs_cluster.Example.Id),
-//				Alarms: &ecs.ServiceAlarmsArgs{
-//					Enable:   pulumi.Bool(true),
-//					Rollback: pulumi.Bool(true),
-//					AlarmNames: pulumi.StringArray{
-//						aws_cloudwatch_metric_alarm.Example.Alarm_name,
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := ecs/service.NewService(ctx, "example", &ecs/service.ServiceArgs{
+// Cluster: aws_ecs_cluster.Example.Id,
+// Alarms: map[string]interface{}{
+// "enable": true,
+// "rollback": true,
+// "alarmNames": []interface{}{
+// aws_cloudwatch_metric_alarm.Example.Alarm_name,
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### External Deployment Controller
 //
@@ -159,26 +152,24 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ecs"
+//	ecs/service "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ecs/service"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ecs.NewService(ctx, "example", &ecs.ServiceArgs{
-//				Cluster: pulumi.Any(aws_ecs_cluster.Example.Id),
-//				DeploymentController: &ecs.ServiceDeploymentControllerArgs{
-//					Type: pulumi.String("EXTERNAL"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := ecs/service.NewService(ctx, "example", &ecs/service.ServiceArgs{
+// Cluster: aws_ecs_cluster.Example.Id,
+// DeploymentController: map[string]interface{}{
+// "type": "EXTERNAL",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

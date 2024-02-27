@@ -25,43 +25,41 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3control"
+//	s3control/bucketLifecycleConfiguration "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/s3control/bucketLifecycleConfiguration"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := s3control.NewBucketLifecycleConfiguration(ctx, "example", &s3control.BucketLifecycleConfigurationArgs{
-//				Bucket: pulumi.Any(aws_s3control_bucket.Example.Arn),
-//				Rules: s3control.BucketLifecycleConfigurationRuleArray{
-//					&s3control.BucketLifecycleConfigurationRuleArgs{
-//						Expiration: &s3control.BucketLifecycleConfigurationRuleExpirationArgs{
-//							Days: pulumi.Int(365),
-//						},
-//						Filter: &s3control.BucketLifecycleConfigurationRuleFilterArgs{
-//							Prefix: pulumi.String("logs/"),
-//						},
-//						Id: pulumi.String("logs"),
-//					},
-//					&s3control.BucketLifecycleConfigurationRuleArgs{
-//						Expiration: &s3control.BucketLifecycleConfigurationRuleExpirationArgs{
-//							Days: pulumi.Int(7),
-//						},
-//						Filter: &s3control.BucketLifecycleConfigurationRuleFilterArgs{
-//							Prefix: pulumi.String("temp/"),
-//						},
-//						Id: pulumi.String("temp"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := s3control/bucketLifecycleConfiguration.NewBucketLifecycleConfiguration(ctx, "example", &s3control/bucketLifecycleConfiguration.BucketLifecycleConfigurationArgs{
+// Bucket: aws_s3control_bucket.Example.Arn,
+// Rules: []interface{}{
+// map[string]interface{}{
+// "expiration": map[string]interface{}{
+// "days": 365,
+// },
+// "filter": map[string]interface{}{
+// "prefix": "logs/",
+// },
+// "id": "logs",
+// },
+// map[string]interface{}{
+// "expiration": map[string]interface{}{
+// "days": 7,
+// },
+// "filter": map[string]interface{}{
+// "prefix": "temp/",
+// },
+// "id": "temp",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

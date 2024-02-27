@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const cloudwatch = new aws.ses.EventDestination("cloudwatch", {
+ * const cloudwatch = new aws.ses/eventDestination.EventDestination("cloudwatch", {
  *     configurationSetName: aws_ses_configuration_set.example.name,
  *     enabled: true,
  *     matchingTypes: [
@@ -37,7 +37,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const kinesis = new aws.ses.EventDestination("kinesis", {
+ * const kinesis = new aws.ses/eventDestination.EventDestination("kinesis", {
  *     configurationSetName: aws_ses_configuration_set.example.name,
  *     enabled: true,
  *     matchingTypes: [
@@ -56,7 +56,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const sns = new aws.ses.EventDestination("sns", {
+ * const sns = new aws.ses/eventDestination.EventDestination("sns", {
  *     configurationSetName: aws_ses_configuration_set.example.name,
  *     enabled: true,
  *     matchingTypes: [

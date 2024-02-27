@@ -23,7 +23,7 @@ namespace Pulumi.Aws.Connect
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Connect.Vocabulary("example", new()
+    ///     var example = new Aws.Connect.Vocabulary.Vocabulary("example", new()
     ///     {
     ///         Content = @"Phrase	IPA	SoundsLike	DisplayAs
     /// Los-Angeles			Los Angeles

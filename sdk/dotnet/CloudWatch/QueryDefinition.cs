@@ -22,7 +22,7 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.CloudWatch.QueryDefinition("example", new()
+    ///     var example = new Aws.Cloudwatch.QueryDefinition.QueryDefinition("example", new()
     ///     {
     ///         LogGroupNames = new[]
     ///         {

@@ -106,10 +106,10 @@ class DomainPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.elasticsearch.Domain("example", elasticsearch_version="2.3")
-        main = aws.elasticsearch.DomainPolicy("main",
+        example = aws.elasticsearch.domain.Domain("example", elasticsearch_version=2.3)
+        main = aws.elasticsearch.domain_policy.DomainPolicy("main",
             domain_name=example.domain_name,
-            access_policies=example.arn.apply(lambda arn: f\"\"\"{{
+            access_policies=f{{
             "Version": "2012-10-17",
             "Statement": [
                 {{
@@ -119,11 +119,11 @@ class DomainPolicy(pulumi.CustomResource):
                     "Condition": {{
                         "IpAddress": {{"aws:SourceIp": "127.0.0.1/32"}}
                     }},
-                    "Resource": "{arn}/*"
+                    "Resource": "{example.arn}/*"
                 }}
             ]
         }}
-        \"\"\"))
+        )
         ```
 
         :param str resource_name: The name of the resource.
@@ -146,10 +146,10 @@ class DomainPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.elasticsearch.Domain("example", elasticsearch_version="2.3")
-        main = aws.elasticsearch.DomainPolicy("main",
+        example = aws.elasticsearch.domain.Domain("example", elasticsearch_version=2.3)
+        main = aws.elasticsearch.domain_policy.DomainPolicy("main",
             domain_name=example.domain_name,
-            access_policies=example.arn.apply(lambda arn: f\"\"\"{{
+            access_policies=f{{
             "Version": "2012-10-17",
             "Statement": [
                 {{
@@ -159,11 +159,11 @@ class DomainPolicy(pulumi.CustomResource):
                     "Condition": {{
                         "IpAddress": {{"aws:SourceIp": "127.0.0.1/32"}}
                     }},
-                    "Resource": "{arn}/*"
+                    "Resource": "{example.arn}/*"
                 }}
             ]
         }}
-        \"\"\"))
+        )
         ```
 
         :param str resource_name: The name of the resource.

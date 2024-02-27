@@ -50,42 +50,6 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
- * ### For the Calling Account
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.AwsFunctions;
- * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
- * import com.pulumi.aws.inspector2.Enabler;
- * import com.pulumi.aws.inspector2.EnablerArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var current = AwsFunctions.getCallerIdentity();
- * 
- *         var test = new Enabler(&#34;test&#34;, EnablerArgs.builder()        
- *             .accountIds(current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()))
- *             .resourceTypes(            
- *                 &#34;ECR&#34;,
- *                 &#34;EC2&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
  * 
  */
 @ResourceType(type="aws:inspector2/enabler:Enabler")

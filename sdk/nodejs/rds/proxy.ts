@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.rds.Proxy("example", {
+ * const example = new aws.rds/proxy.Proxy("example", {
  *     debugLogging: false,
  *     engineFamily: "MYSQL",
  *     idleClientTimeout: 1800,

@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Route53RecoveryReadiness
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Route53RecoveryReadiness.RecoveryGroup("example", new()
+    ///     var example = new Aws.Route53recoveryreadiness.RecoveryGroup.RecoveryGroup("example", new()
     ///     {
     ///         RecoveryGroupName = "my-high-availability-app",
     ///     });

@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const testRole = new aws.iam.Role("testRole", {
+ * const testRole = new aws.iam/role.Role("testRole", {
  *     path: "/",
  *     assumeRolePolicy: JSON.stringify({
  *         Version: "2012-10-17",
@@ -31,7 +31,7 @@ import * as utilities from "../utilities";
  *         }],
  *     }),
  * });
- * const testProfile = new aws.rolesanywhere.Profile("testProfile", {roleArns: [testRole.arn]});
+ * const testProfile = new aws.rolesanywhere/profile.Profile("testProfile", {roleArns: [testRole.arn]});
  * ```
  *
  * ## Import

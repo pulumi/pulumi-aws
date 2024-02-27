@@ -22,12 +22,12 @@ namespace Pulumi.Aws.Chime
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var defaultVoiceConnector = new Aws.Chime.VoiceConnector("defaultVoiceConnector", new()
+    ///     var defaultVoiceConnector = new Aws.Chime.VoiceConnector.VoiceConnector("defaultVoiceConnector", new()
     ///     {
     ///         RequireEncryption = true,
     ///     });
     /// 
-    ///     var defaultVoiceConnectorTermination = new Aws.Chime.VoiceConnectorTermination("defaultVoiceConnectorTermination", new()
+    ///     var defaultVoiceConnectorTermination = new Aws.Chime.VoiceConnectorTermination.VoiceConnectorTermination("defaultVoiceConnectorTermination", new()
     ///     {
     ///         Disabled = false,
     ///         CpsLimit = 1,

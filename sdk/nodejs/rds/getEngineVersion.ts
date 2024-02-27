@@ -11,36 +11,6 @@ import * as utilities from "../utilities";
  * Information about an RDS engine version.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = aws.rds.getEngineVersion({
- *     engine: "mysql",
- *     preferredVersions: [
- *         "8.0.27",
- *         "8.0.26",
- *     ],
- * });
- * ```
- * ### With `filter`
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = aws.rds.getEngineVersion({
- *     engine: "aurora-postgresql",
- *     filters: [{
- *         name: "engine-mode",
- *         values: ["serverless"],
- *     }],
- *     includeAll: true,
- *     version: "10.14",
- * });
- * ```
  */
 export function getEngineVersion(args: GetEngineVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetEngineVersionResult> {
 
@@ -187,36 +157,6 @@ export interface GetEngineVersionResult {
  * Information about an RDS engine version.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = aws.rds.getEngineVersion({
- *     engine: "mysql",
- *     preferredVersions: [
- *         "8.0.27",
- *         "8.0.26",
- *     ],
- * });
- * ```
- * ### With `filter`
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = aws.rds.getEngineVersion({
- *     engine: "aurora-postgresql",
- *     filters: [{
- *         name: "engine-mode",
- *         values: ["serverless"],
- *     }],
- *     includeAll: true,
- *     version: "10.14",
- * });
- * ```
  */
 export function getEngineVersionOutput(args: GetEngineVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEngineVersionResult> {
     return pulumi.output(args).apply((a: any) => getEngineVersion(a, opts))

@@ -18,55 +18,6 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// 
         /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
-        /// ### By Transit Gateway and VPN Connection Identifiers
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Ec2TransitGateway.GetVpnAttachment.Invoke(new()
-        ///     {
-        ///         TransitGatewayId = aws_ec2_transit_gateway.Example.Id,
-        ///         VpnConnectionId = aws_vpn_connection.Example.Id,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% example %}}
-        /// ### Filter
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Aws.Ec2TransitGateway.GetVpnAttachment.Invoke(new()
-        ///     {
-        ///         Filters = new[]
-        ///         {
-        ///             new Aws.Ec2TransitGateway.Inputs.GetVpnAttachmentFilterInputArgs
-        ///             {
-        ///                 Name = "resource-id",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "some-resource",
-        ///                 },
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetVpnAttachmentResult> InvokeAsync(GetVpnAttachmentArgs? args = null, InvokeOptions? options = null)
@@ -79,55 +30,6 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// 
         /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
-        /// ### By Transit Gateway and VPN Connection Identifiers
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Ec2TransitGateway.GetVpnAttachment.Invoke(new()
-        ///     {
-        ///         TransitGatewayId = aws_ec2_transit_gateway.Example.Id,
-        ///         VpnConnectionId = aws_vpn_connection.Example.Id,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% example %}}
-        /// ### Filter
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Aws.Ec2TransitGateway.GetVpnAttachment.Invoke(new()
-        ///     {
-        ///         Filters = new[]
-        ///         {
-        ///             new Aws.Ec2TransitGateway.Inputs.GetVpnAttachmentFilterInputArgs
-        ///             {
-        ///                 Name = "resource-id",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "some-resource",
-        ///                 },
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetVpnAttachmentResult> Invoke(GetVpnAttachmentInvokeArgs? args = null, InvokeOptions? options = null)

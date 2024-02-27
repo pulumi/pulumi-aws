@@ -14,32 +14,6 @@ import (
 // Use this data source to get information about a Kinesis Firehose Delivery Stream for use in other resources.
 //
 // For more details, see the [Amazon Kinesis Firehose Documentation](https://aws.amazon.com/documentation/firehose/).
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kinesis"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := kinesis.LookupFirehoseDeliveryStream(ctx, &kinesis.LookupFirehoseDeliveryStreamArgs{
-//				Name: "stream-name",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupFirehoseDeliveryStream(ctx *pulumi.Context, args *LookupFirehoseDeliveryStreamArgs, opts ...pulumi.InvokeOption) (*LookupFirehoseDeliveryStreamResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupFirehoseDeliveryStreamResult

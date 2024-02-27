@@ -24,7 +24,7 @@ namespace Pulumi.Aws.LightSail
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Aws.LightSail.StaticIp("test");
+    ///     var test = new Aws.Lightsail.StaticIp.StaticIp("test");
     /// 
     /// });
     /// ```

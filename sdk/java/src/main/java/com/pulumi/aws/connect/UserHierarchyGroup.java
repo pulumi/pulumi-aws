@@ -48,7 +48,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new UserHierarchyGroup(&#34;example&#34;, UserHierarchyGroupArgs.builder()        
  *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
- *             .tags(Map.of(&#34;Name&#34;, &#34;Example User Hierarchy Group&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -78,13 +78,13 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var parent = new UserHierarchyGroup(&#34;parent&#34;, UserHierarchyGroupArgs.builder()        
  *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
- *             .tags(Map.of(&#34;Name&#34;, &#34;Example User Hierarchy Group Parent&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var child = new UserHierarchyGroup(&#34;child&#34;, UserHierarchyGroupArgs.builder()        
  *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
  *             .parentGroupId(parent.hierarchyGroupId())
- *             .tags(Map.of(&#34;Name&#34;, &#34;Example User Hierarchy Group Child&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

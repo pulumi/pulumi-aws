@@ -22,7 +22,7 @@ namespace Pulumi.Aws.RedshiftServerless
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.RedshiftServerless.Snapshot("example", new()
+    ///     var example = new Aws.Redshiftserverless.Snapshot.Snapshot("example", new()
     ///     {
     ///         NamespaceName = aws_redshiftserverless_workgroup.Example.Namespace_name,
     ///         SnapshotName = "example",

@@ -122,9 +122,9 @@ class CostAllocationTag(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.costexplorer.CostAllocationTag("example",
-            status="Active",
-            tag_key="example")
+        example = aws.costexplorer.cost_allocation_tag.CostAllocationTag("example",
+            status=Active,
+            tag_key=example)
         ```
 
         ## Import
@@ -155,9 +155,9 @@ class CostAllocationTag(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.costexplorer.CostAllocationTag("example",
-            status="Active",
-            tag_key="example")
+        example = aws.costexplorer.cost_allocation_tag.CostAllocationTag("example",
+            status=Active,
+            tag_key=example)
         ```
 
         ## Import

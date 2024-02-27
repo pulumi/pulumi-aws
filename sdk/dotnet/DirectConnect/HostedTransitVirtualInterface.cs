@@ -24,7 +24,7 @@ namespace Pulumi.Aws.DirectConnect
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.DirectConnect.HostedTransitVirtualInterface("example", new()
+    ///     var example = new Aws.Directconnect.HostedTransitVirtualInterface.HostedTransitVirtualInterface("example", new()
     ///     {
     ///         ConnectionId = aws_dx_connection.Example.Id,
     ///         Vlan = 4094,

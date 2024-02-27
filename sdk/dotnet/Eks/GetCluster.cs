@@ -13,68 +13,12 @@ namespace Pulumi.Aws.Eks
     {
         /// <summary>
         /// Retrieve information about an EKS Cluster.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Eks.GetCluster.Invoke(new()
-        ///     {
-        ///         Name = "example",
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["endpoint"] = example.Apply(getClusterResult =&gt; getClusterResult.Endpoint),
-        ///         ["kubeconfig-certificate-authority-data"] = example.Apply(getClusterResult =&gt; getClusterResult.CertificateAuthorities[0]?.Data),
-        ///         ["identity-oidc-issuer"] = example.Apply(getClusterResult =&gt; getClusterResult.Identities[0]?.Oidcs[0]?.Issuer),
-        ///     };
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetClusterResult> InvokeAsync(GetClusterArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetClusterResult>("aws:eks/getCluster:getCluster", args ?? new GetClusterArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieve information about an EKS Cluster.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Eks.GetCluster.Invoke(new()
-        ///     {
-        ///         Name = "example",
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["endpoint"] = example.Apply(getClusterResult =&gt; getClusterResult.Endpoint),
-        ///         ["kubeconfig-certificate-authority-data"] = example.Apply(getClusterResult =&gt; getClusterResult.CertificateAuthorities[0]?.Data),
-        ///         ["identity-oidc-issuer"] = example.Apply(getClusterResult =&gt; getClusterResult.Identities[0]?.Oidcs[0]?.Issuer),
-        ///     };
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetClusterResult> Invoke(GetClusterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetClusterResult>("aws:eks/getCluster:getCluster", args ?? new GetClusterInvokeArgs(), options.WithDefaults());

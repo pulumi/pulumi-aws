@@ -22,36 +22,34 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2clientvpn"
+//	ec2clientvpn/endpoint "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2clientvpn/endpoint"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2clientvpn.NewEndpoint(ctx, "example", &ec2clientvpn.EndpointArgs{
-//				Description:          pulumi.String("clientvpn-example"),
-//				ServerCertificateArn: pulumi.Any(aws_acm_certificate.Cert.Arn),
-//				ClientCidrBlock:      pulumi.String("10.0.0.0/16"),
-//				AuthenticationOptions: ec2clientvpn.EndpointAuthenticationOptionArray{
-//					&ec2clientvpn.EndpointAuthenticationOptionArgs{
-//						Type:                    pulumi.String("certificate-authentication"),
-//						RootCertificateChainArn: pulumi.Any(aws_acm_certificate.Root_cert.Arn),
-//					},
-//				},
-//				ConnectionLogOptions: &ec2clientvpn.EndpointConnectionLogOptionsArgs{
-//					Enabled:             pulumi.Bool(true),
-//					CloudwatchLogGroup:  pulumi.Any(aws_cloudwatch_log_group.Lg.Name),
-//					CloudwatchLogStream: pulumi.Any(aws_cloudwatch_log_stream.Ls.Name),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := ec2clientvpn/endpoint.NewEndpoint(ctx, "example", &ec2clientvpn/endpoint.EndpointArgs{
+// Description: "clientvpn-example",
+// ServerCertificateArn: aws_acm_certificate.Cert.Arn,
+// ClientCidrBlock: "10.0.0.0/16",
+// AuthenticationOptions: []map[string]interface{}{
+// map[string]interface{}{
+// "type": "certificate-authentication",
+// "rootCertificateChainArn": aws_acm_certificate.Root_cert.Arn,
+// },
+// },
+// ConnectionLogOptions: map[string]interface{}{
+// "enabled": true,
+// "cloudwatchLogGroup": aws_cloudwatch_log_group.Lg.Name,
+// "cloudwatchLogStream": aws_cloudwatch_log_stream.Ls.Name,
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

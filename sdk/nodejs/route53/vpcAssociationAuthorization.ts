@@ -13,27 +13,27 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const alternate = new aws.Provider("alternate", {});
- * const exampleVpc = new aws.ec2.Vpc("exampleVpc", {
+ * const alternate = new pulumi.providers.Aws("alternate", {});
+ * const exampleVpc = new aws.ec2/vpc.Vpc("exampleVpc", {
  *     cidrBlock: "10.6.0.0/16",
  *     enableDnsHostnames: true,
  *     enableDnsSupport: true,
  * });
- * const exampleZone = new aws.route53.Zone("exampleZone", {vpcs: [{
+ * const exampleZone = new aws.route53/zone.Zone("exampleZone", {vpcs: [{
  *     vpcId: exampleVpc.id,
  * }]});
- * const alternateVpc = new aws.ec2.Vpc("alternateVpc", {
+ * const alternateVpc = new aws.ec2/vpc.Vpc("alternateVpc", {
  *     cidrBlock: "10.7.0.0/16",
  *     enableDnsHostnames: true,
  *     enableDnsSupport: true,
  * }, {
  *     provider: aws.alternate,
  * });
- * const exampleVpcAssociationAuthorization = new aws.route53.VpcAssociationAuthorization("exampleVpcAssociationAuthorization", {
+ * const exampleVpcAssociationAuthorization = new aws.route53/vpcAssociationAuthorization.VpcAssociationAuthorization("exampleVpcAssociationAuthorization", {
  *     vpcId: alternateVpc.id,
  *     zoneId: exampleZone.id,
  * });
- * const exampleZoneAssociation = new aws.route53.ZoneAssociation("exampleZoneAssociation", {
+ * const exampleZoneAssociation = new aws.route53/zoneAssociation.ZoneAssociation("exampleZoneAssociation", {
  *     vpcId: exampleVpcAssociationAuthorization.vpcId,
  *     zoneId: exampleVpcAssociationAuthorization.zoneId,
  * }, {

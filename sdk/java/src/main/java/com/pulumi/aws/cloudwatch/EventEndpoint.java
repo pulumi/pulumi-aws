@@ -32,12 +32,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.cloudwatch.EventEndpoint;
  * import com.pulumi.aws.cloudwatch.EventEndpointArgs;
- * import com.pulumi.aws.cloudwatch.inputs.EventEndpointEventBusArgs;
- * import com.pulumi.aws.cloudwatch.inputs.EventEndpointReplicationConfigArgs;
- * import com.pulumi.aws.cloudwatch.inputs.EventEndpointRoutingConfigArgs;
- * import com.pulumi.aws.cloudwatch.inputs.EventEndpointRoutingConfigFailoverConfigArgs;
- * import com.pulumi.aws.cloudwatch.inputs.EventEndpointRoutingConfigFailoverConfigPrimaryArgs;
- * import com.pulumi.aws.cloudwatch.inputs.EventEndpointRoutingConfigFailoverConfigSecondaryArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -54,25 +48,10 @@ import javax.annotation.Nullable;
  *         var this_ = new EventEndpoint(&#34;this&#34;, EventEndpointArgs.builder()        
  *             .roleArn(aws_iam_role.replication().arn())
  *             .eventBuses(            
- *                 EventEndpointEventBusArgs.builder()
- *                     .eventBusArn(aws_cloudwatch_event_bus.primary().arn())
- *                     .build(),
- *                 EventEndpointEventBusArgs.builder()
- *                     .eventBusArn(aws_cloudwatch_event_bus.secondary().arn())
- *                     .build())
- *             .replicationConfig(EventEndpointReplicationConfigArgs.builder()
- *                 .state(&#34;DISABLED&#34;)
- *                 .build())
- *             .routingConfig(EventEndpointRoutingConfigArgs.builder()
- *                 .failoverConfig(EventEndpointRoutingConfigFailoverConfigArgs.builder()
- *                     .primary(EventEndpointRoutingConfigFailoverConfigPrimaryArgs.builder()
- *                         .healthCheck(aws_route53_health_check.primary().arn())
- *                         .build())
- *                     .secondary(EventEndpointRoutingConfigFailoverConfigSecondaryArgs.builder()
- *                         .route(&#34;us-east-2&#34;)
- *                         .build())
- *                     .build())
- *                 .build())
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .replicationConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .routingConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

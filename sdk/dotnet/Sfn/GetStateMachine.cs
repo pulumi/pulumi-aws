@@ -15,28 +15,6 @@ namespace Pulumi.Aws.Sfn
         /// Use this data source to get the ARN of a State Machine in AWS Step
         /// Function (SFN). By using this data source, you can reference a
         /// state machine without having to hard code the ARNs as input.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Sfn.GetStateMachine.Invoke(new()
-        ///     {
-        ///         Name = "an_example_sfn_name",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetStateMachineResult> InvokeAsync(GetStateMachineArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetStateMachineResult>("aws:sfn/getStateMachine:getStateMachine", args ?? new GetStateMachineArgs(), options.WithDefaults());
@@ -45,28 +23,6 @@ namespace Pulumi.Aws.Sfn
         /// Use this data source to get the ARN of a State Machine in AWS Step
         /// Function (SFN). By using this data source, you can reference a
         /// state machine without having to hard code the ARNs as input.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Sfn.GetStateMachine.Invoke(new()
-        ///     {
-        ///         Name = "an_example_sfn_name",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetStateMachineResult> Invoke(GetStateMachineInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetStateMachineResult>("aws:sfn/getStateMachine:getStateMachine", args ?? new GetStateMachineInvokeArgs(), options.WithDefaults());

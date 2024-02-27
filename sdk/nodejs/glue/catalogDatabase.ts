@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.glue.CatalogDatabase("example", {name: "MyCatalogDatabase"});
+ * const example = new aws.glue/catalogDatabase.CatalogDatabase("example", {name: "MyCatalogDatabase"});
  * ```
  * ### Create Table Default Permissions
  *
@@ -24,7 +24,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.glue.CatalogDatabase("example", {
+ * const example = new aws.glue/catalogDatabase.CatalogDatabase("example", {
  *     createTableDefaultPermissions: [{
  *         permissions: ["SELECT"],
  *         principal: {

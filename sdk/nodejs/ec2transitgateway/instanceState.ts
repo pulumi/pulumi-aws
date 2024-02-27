@@ -9,39 +9,6 @@ import * as utilities from "../utilities";
  *
  * > **NOTE on Instance State Management:** AWS does not currently have an EC2 API operation to determine an instance has finished processing user data. As a result, this resource can interfere with user data processing. For example, this resource may stop an instance while the user data script is in mid run.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const ubuntu = aws.ec2.getAmi({
- *     mostRecent: true,
- *     filters: [
- *         {
- *             name: "name",
- *             values: ["ubuntu/images/hvm-ssd/ubuntu-focal-20.04-amd64-server-*"],
- *         },
- *         {
- *             name: "virtualization-type",
- *             values: ["hvm"],
- *         },
- *     ],
- *     owners: ["099720109477"],
- * });
- * const testInstance = new aws.ec2.Instance("testInstance", {
- *     ami: ubuntu.then(ubuntu => ubuntu.id),
- *     instanceType: "t3.micro",
- *     tags: {
- *         Name: "HelloWorld",
- *     },
- * });
- * const testInstanceState = new aws.ec2transitgateway.InstanceState("testInstanceState", {
- *     instanceId: testInstance.id,
- *     state: "stopped",
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import `aws_ec2_instance_state` using the `instance_id` attribute. For example:

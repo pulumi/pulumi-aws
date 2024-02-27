@@ -22,28 +22,27 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cognito"
+//	cognito/resourceServer "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/cognito/resourceServer"
+//	cognito/userPool "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/cognito/userPool"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			pool, err := cognito.NewUserPool(ctx, "pool", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = cognito.NewResourceServer(ctx, "resource", &cognito.ResourceServerArgs{
-//				Identifier: pulumi.String("https://example.com"),
-//				UserPoolId: pool.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// pool, err := cognito/userPool.NewUserPool(ctx, "pool", nil)
+// if err != nil {
+// return err
+// }
+// _, err = cognito/resourceServer.NewResourceServer(ctx, "resource", &cognito/resourceServer.ResourceServerArgs{
+// Identifier: "https://example.com",
+// UserPoolId: pool.Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Create a resource server with sample-scope
 //
@@ -52,34 +51,33 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cognito"
+//	cognito/resourceServer "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/cognito/resourceServer"
+//	cognito/userPool "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/cognito/userPool"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			pool, err := cognito.NewUserPool(ctx, "pool", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = cognito.NewResourceServer(ctx, "resource", &cognito.ResourceServerArgs{
-//				Identifier: pulumi.String("https://example.com"),
-//				Scopes: cognito.ResourceServerScopeArray{
-//					&cognito.ResourceServerScopeArgs{
-//						ScopeName:        pulumi.String("sample-scope"),
-//						ScopeDescription: pulumi.String("a Sample Scope Description"),
-//					},
-//				},
-//				UserPoolId: pool.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// pool, err := cognito/userPool.NewUserPool(ctx, "pool", nil)
+// if err != nil {
+// return err
+// }
+// _, err = cognito/resourceServer.NewResourceServer(ctx, "resource", &cognito/resourceServer.ResourceServerArgs{
+// Identifier: "https://example.com",
+// Scopes: []map[string]interface{}{
+// map[string]interface{}{
+// "scopeName": "sample-scope",
+// "scopeDescription": "a Sample Scope Description",
+// },
+// },
+// UserPoolId: pool.Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

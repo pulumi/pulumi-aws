@@ -31,8 +31,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.wafregional.RuleArgs;
  * import com.pulumi.aws.wafregional.RuleGroup;
  * import com.pulumi.aws.wafregional.RuleGroupArgs;
- * import com.pulumi.aws.wafregional.inputs.RuleGroupActivatedRuleArgs;
- * import com.pulumi.aws.wafregional.inputs.RuleGroupActivatedRuleActionArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -52,13 +50,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleRuleGroup = new RuleGroup(&#34;exampleRuleGroup&#34;, RuleGroupArgs.builder()        
  *             .metricName(&#34;example&#34;)
- *             .activatedRules(RuleGroupActivatedRuleArgs.builder()
- *                 .action(RuleGroupActivatedRuleActionArgs.builder()
- *                     .type(&#34;COUNT&#34;)
- *                     .build())
- *                 .priority(50)
- *                 .ruleId(exampleRule.id())
- *                 .build())
+ *             .activatedRules(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

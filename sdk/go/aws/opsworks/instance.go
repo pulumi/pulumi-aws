@@ -21,29 +21,27 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/opsworks"
+//	opsworks/instance "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/opsworks/instance"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := opsworks.NewInstance(ctx, "my-instance", &opsworks.InstanceArgs{
-//				StackId: pulumi.Any(aws_opsworks_stack.Main.Id),
-//				LayerIds: pulumi.StringArray{
-//					aws_opsworks_custom_layer.MyLayer.Id,
-//				},
-//				InstanceType: pulumi.String("t2.micro"),
-//				Os:           pulumi.String("Amazon Linux 2015.09"),
-//				State:        pulumi.String("stopped"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := opsworks/instance.NewInstance(ctx, "my-instance", &opsworks/instance.InstanceArgs{
+// StackId: aws_opsworks_stack.Main.Id,
+// LayerIds: []interface{}{
+// aws_opsworks_custom_layer.MyLayer.Id,
+// },
+// InstanceType: "t2.micro",
+// Os: "Amazon Linux 2015.09",
+// State: "stopped",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ## Block devices
 //

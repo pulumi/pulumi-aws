@@ -35,8 +35,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.emr.InstanceFleet;
  * import com.pulumi.aws.emr.InstanceFleetArgs;
- * import com.pulumi.aws.emr.inputs.InstanceFleetInstanceTypeConfigArgs;
- * import com.pulumi.aws.emr.inputs.InstanceFleetLaunchSpecificationsArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -53,34 +51,9 @@ import javax.annotation.Nullable;
  *         var task = new InstanceFleet(&#34;task&#34;, InstanceFleetArgs.builder()        
  *             .clusterId(aws_emr_cluster.cluster().id())
  *             .instanceTypeConfigs(            
- *                 InstanceFleetInstanceTypeConfigArgs.builder()
- *                     .bidPriceAsPercentageOfOnDemandPrice(100)
- *                     .ebsConfigs(InstanceFleetInstanceTypeConfigEbsConfigArgs.builder()
- *                         .size(100)
- *                         .type(&#34;gp2&#34;)
- *                         .volumesPerInstance(1)
- *                         .build())
- *                     .instanceType(&#34;m4.xlarge&#34;)
- *                     .weightedCapacity(1)
- *                     .build(),
- *                 InstanceFleetInstanceTypeConfigArgs.builder()
- *                     .bidPriceAsPercentageOfOnDemandPrice(100)
- *                     .ebsConfigs(InstanceFleetInstanceTypeConfigEbsConfigArgs.builder()
- *                         .size(100)
- *                         .type(&#34;gp2&#34;)
- *                         .volumesPerInstance(1)
- *                         .build())
- *                     .instanceType(&#34;m4.2xlarge&#34;)
- *                     .weightedCapacity(2)
- *                     .build())
- *             .launchSpecifications(InstanceFleetLaunchSpecificationsArgs.builder()
- *                 .spotSpecifications(InstanceFleetLaunchSpecificationsSpotSpecificationArgs.builder()
- *                     .allocationStrategy(&#34;capacity-optimized&#34;)
- *                     .blockDurationMinutes(0)
- *                     .timeoutAction(&#34;TERMINATE_CLUSTER&#34;)
- *                     .timeoutDurationMinutes(10)
- *                     .build())
- *                 .build())
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .launchSpecifications(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .targetOnDemandCapacity(1)
  *             .targetSpotCapacity(1)
  *             .build());

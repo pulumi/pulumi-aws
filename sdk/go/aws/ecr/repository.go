@@ -20,26 +20,24 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ecr"
+//	ecr/repository "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ecr/repository"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ecr.NewRepository(ctx, "foo", &ecr.RepositoryArgs{
-//				ImageScanningConfiguration: &ecr.RepositoryImageScanningConfigurationArgs{
-//					ScanOnPush: pulumi.Bool(true),
-//				},
-//				ImageTagMutability: pulumi.String("MUTABLE"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := ecr/repository.NewRepository(ctx, "foo", &ecr/repository.RepositoryArgs{
+// ImageScanningConfiguration: map[string]interface{}{
+// "scanOnPush": true,
+// },
+// ImageTagMutability: "MUTABLE",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

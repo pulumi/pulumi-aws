@@ -17,13 +17,13 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.transfer.Server("example", {identityProviderType: "SERVICE_MANAGED"});
- * const zoneId = new aws.transfer.Tag("zoneId", {
+ * const example = new aws.transfer/server.Server("example", {identityProviderType: "SERVICE_MANAGED"});
+ * const zoneId = new aws.transfer/tag.Tag("zoneId", {
  *     resourceArn: example.arn,
  *     key: "aws:transfer:route53HostedZoneId",
  *     value: "/hostedzone/MyHostedZoneId",
  * });
- * const hostname = new aws.transfer.Tag("hostname", {
+ * const hostname = new aws.transfer/tag.Tag("hostname", {
  *     resourceArn: example.arn,
  *     key: "aws:transfer:customHostname",
  *     value: "example.com",

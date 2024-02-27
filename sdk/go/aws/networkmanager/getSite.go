@@ -12,33 +12,6 @@ import (
 )
 
 // Retrieve information about a site.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/networkmanager"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := networkmanager.LookupSite(ctx, &networkmanager.LookupSiteArgs{
-//				GlobalNetworkId: _var.Global_network_id,
-//				SiteId:          _var.Site_id,
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupSite(ctx *pulumi.Context, args *LookupSiteArgs, opts ...pulumi.InvokeOption) (*LookupSiteResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupSiteResult

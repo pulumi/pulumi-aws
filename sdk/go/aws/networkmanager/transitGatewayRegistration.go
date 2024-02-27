@@ -23,35 +23,34 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2transitgateway"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/networkmanager"
+//	ec2transitgateway/transitGateway "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2transitgateway/transitGateway"
+//	networkmanager/globalNetwork "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/networkmanager/globalNetwork"
+//	networkmanager/transitGatewayRegistration "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/networkmanager/transitGatewayRegistration"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleGlobalNetwork, err := networkmanager.NewGlobalNetwork(ctx, "exampleGlobalNetwork", &networkmanager.GlobalNetworkArgs{
-//				Description: pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleTransitGateway, err := ec2transitgateway.NewTransitGateway(ctx, "exampleTransitGateway", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = networkmanager.NewTransitGatewayRegistration(ctx, "exampleTransitGatewayRegistration", &networkmanager.TransitGatewayRegistrationArgs{
-//				GlobalNetworkId:   exampleGlobalNetwork.ID(),
-//				TransitGatewayArn: exampleTransitGateway.Arn,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleGlobalNetwork, err := networkmanager/globalNetwork.NewGlobalNetwork(ctx, "exampleGlobalNetwork", &networkmanager/globalNetwork.GlobalNetworkArgs{
+// Description: "example",
+// })
+// if err != nil {
+// return err
+// }
+// exampleTransitGateway, err := ec2transitgateway/transitGateway.NewTransitGateway(ctx, "exampleTransitGateway", nil)
+// if err != nil {
+// return err
+// }
+// _, err = networkmanager/transitGatewayRegistration.NewTransitGatewayRegistration(ctx, "exampleTransitGatewayRegistration", &networkmanager/transitGatewayRegistration.TransitGatewayRegistrationArgs{
+// GlobalNetworkId: exampleGlobalNetwork.Id,
+// TransitGatewayArn: exampleTransitGateway.Arn,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

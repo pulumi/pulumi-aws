@@ -22,26 +22,26 @@ namespace Pulumi.Aws.CodeGuruReviewer
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleKey = new Aws.Kms.Key("exampleKey");
+    ///     var exampleKey = new Aws.Kms.Key.Key("exampleKey");
     /// 
-    ///     var exampleRepository = new Aws.CodeCommit.Repository("exampleRepository", new()
+    ///     var exampleRepository = new Aws.Codecommit.Repository.Repository("exampleRepository", new()
     ///     {
     ///         RepositoryName = "example-repo",
     ///     });
     /// 
-    ///     var exampleRepositoryAssociation = new Aws.CodeGuruReviewer.RepositoryAssociation("exampleRepositoryAssociation", new()
+    ///     var exampleRepositoryAssociation = new Aws.Codegurureviewer.RepositoryAssociation.RepositoryAssociation("exampleRepositoryAssociation", new()
     ///     {
-    ///         Repository = new Aws.CodeGuruReviewer.Inputs.RepositoryAssociationRepositoryArgs
+    ///         Repository = 
     ///         {
-    ///             Codecommit = new Aws.CodeGuruReviewer.Inputs.RepositoryAssociationRepositoryCodecommitArgs
+    ///             { "codecommit", 
     ///             {
-    ///                 Name = exampleRepository.RepositoryName,
-    ///             },
+    ///                 { "name", exampleRepository.RepositoryName },
+    ///             } },
     ///         },
-    ///         KmsKeyDetails = new Aws.CodeGuruReviewer.Inputs.RepositoryAssociationKmsKeyDetailsArgs
+    ///         KmsKeyDetails = 
     ///         {
-    ///             EncryptionOption = "CUSTOMER_MANAGED_CMK",
-    ///             KmsKeyId = exampleKey.KeyId,
+    ///             { "encryptionOption", "CUSTOMER_MANAGED_CMK" },
+    ///             { "kmsKeyId", exampleKey.KeyId },
     ///         },
     ///     });
     /// 

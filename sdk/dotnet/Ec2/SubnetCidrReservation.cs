@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Ec2.SubnetCidrReservation("example", new()
+    ///     var example = new Aws.Ec2.SubnetCidrReservation.SubnetCidrReservation("example", new()
     ///     {
     ///         CidrBlock = "10.0.0.16/28",
     ///         ReservationType = "prefix",

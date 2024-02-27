@@ -25,7 +25,7 @@ namespace Pulumi.Aws.SecretsManager
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.SecretsManager.SecretVersion("example", new()
+    ///     var example = new Aws.Secretsmanager.SecretVersion.SecretVersion("example", new()
     ///     {
     ///         SecretId = aws_secretsmanager_secret.Example.Id,
     ///         SecretString = "example-string-to-protect",

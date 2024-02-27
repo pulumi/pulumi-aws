@@ -31,9 +31,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.codecatalyst.DevEnvironment;
  * import com.pulumi.aws.codecatalyst.DevEnvironmentArgs;
- * import com.pulumi.aws.codecatalyst.inputs.DevEnvironmentIdesArgs;
- * import com.pulumi.aws.codecatalyst.inputs.DevEnvironmentPersistentStorageArgs;
- * import com.pulumi.aws.codecatalyst.inputs.DevEnvironmentRepositoryArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -49,20 +46,12 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var test = new DevEnvironment(&#34;test&#34;, DevEnvironmentArgs.builder()        
  *             .alias(&#34;devenv&#34;)
- *             .ides(DevEnvironmentIdesArgs.builder()
- *                 .name(&#34;PyCharm&#34;)
- *                 .runtime(&#34;public.ecr.aws/jetbrains/py&#34;)
- *                 .build())
+ *             .ides(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .inactivityTimeoutMinutes(40)
  *             .instanceType(&#34;dev.standard1.small&#34;)
- *             .persistentStorage(DevEnvironmentPersistentStorageArgs.builder()
- *                 .size(16)
- *                 .build())
+ *             .persistentStorage(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .projectName(&#34;myproject&#34;)
- *             .repositories(DevEnvironmentRepositoryArgs.builder()
- *                 .branchName(&#34;main&#34;)
- *                 .repositoryName(&#34;pulumi-provider-aws&#34;)
- *                 .build())
+ *             .repositories(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .spaceName(&#34;myspace&#34;)
  *             .build());
  * 

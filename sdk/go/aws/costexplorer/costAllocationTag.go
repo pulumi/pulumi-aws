@@ -21,24 +21,22 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/costexplorer"
+//	costexplorer/costAllocationTag "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/costexplorer/costAllocationTag"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := costexplorer.NewCostAllocationTag(ctx, "example", &costexplorer.CostAllocationTagArgs{
-//				Status: pulumi.String("Active"),
-//				TagKey: pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := costexplorer/costAllocationTag.NewCostAllocationTag(ctx, "example", &costexplorer/costAllocationTag.CostAllocationTagArgs{
+// Status: "Active",
+// TagKey: "example",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

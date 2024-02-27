@@ -13,14 +13,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleTransitGateway = new aws.ec2transitgateway.TransitGateway("exampleTransitGateway", {multicastSupport: "enable"});
- * const exampleVpcAttachment = new aws.ec2transitgateway.VpcAttachment("exampleVpcAttachment", {
+ * const exampleTransitGateway = new aws.ec2transitgateway/transitGateway.TransitGateway("exampleTransitGateway", {multicastSupport: "enable"});
+ * const exampleVpcAttachment = new aws.ec2transitgateway/vpcAttachment.VpcAttachment("exampleVpcAttachment", {
  *     subnetIds: [aws_subnet.example.id],
  *     transitGatewayId: exampleTransitGateway.id,
  *     vpcId: aws_vpc.example.id,
  * });
- * const exampleMulticastDomain = new aws.ec2transitgateway.MulticastDomain("exampleMulticastDomain", {transitGatewayId: exampleTransitGateway.id});
- * const exampleMulticastDomainAssociation = new aws.ec2transitgateway.MulticastDomainAssociation("exampleMulticastDomainAssociation", {
+ * const exampleMulticastDomain = new aws.ec2transitgateway/multicastDomain.MulticastDomain("exampleMulticastDomain", {transitGatewayId: exampleTransitGateway.id});
+ * const exampleMulticastDomainAssociation = new aws.ec2transitgateway/multicastDomainAssociation.MulticastDomainAssociation("exampleMulticastDomainAssociation", {
  *     subnetId: aws_subnet.example.id,
  *     transitGatewayAttachmentId: exampleVpcAttachment.id,
  *     transitGatewayMulticastDomainId: exampleMulticastDomain.id,

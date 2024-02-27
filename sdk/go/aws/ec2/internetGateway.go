@@ -20,26 +20,24 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	ec2/internetGateway "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/internetGateway"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.NewInternetGateway(ctx, "gw", &ec2.InternetGatewayArgs{
-//				VpcId: pulumi.Any(aws_vpc.Main.Id),
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("main"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := ec2/internetGateway.NewInternetGateway(ctx, "gw", &ec2/internetGateway.InternetGatewayArgs{
+// VpcId: aws_vpc.Main.Id,
+// Tags: map[string]interface{}{
+// "Name": "main",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import
@@ -66,26 +64,27 @@ type InternetGateway struct {
 	// package main
 	//
 	// import (
-	// 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+	// 	ec2/instance "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/instance"
+	// 	ec2/internetGateway "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/internetGateway"
 	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	// )
-	//
 	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		gw, err := ec2.NewInternetGateway(ctx, "gw", &ec2.InternetGatewayArgs{
-	// 			VpcId: pulumi.Any(aws_vpc.Main.Id),
-	// 		})
-	// 		if err != nil {
-	// 			return err
-	// 		}
-	// 		_, err = ec2.NewInstance(ctx, "foo", nil, pulumi.DependsOn([]pulumi.Resource{
-	// 			gw,
-	// 		}))
-	// 		if err != nil {
-	// 			return err
-	// 		}
-	// 		return nil
-	// 	})
+	// pulumi.Run(func(ctx *pulumi.Context) error {
+	// gw, err := ec2/internetGateway.NewInternetGateway(ctx, "gw", &ec2/internetGateway.InternetGatewayArgs{
+	// VpcId: aws_vpc.Main.Id,
+	// })
+	// if err != nil {
+	// return err
+	// }
+	// // ... other arguments ...
+	// _, err = ec2/instance.NewInstance(ctx, "foo", nil, pulumi.DependsOn([]pulumi.Resource{
+	// gw,
+	// }))
+	// if err != nil {
+	// return err
+	// }
+	// return nil
+	// })
 	// }
 	// ```
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -139,26 +138,27 @@ type internetGatewayState struct {
 	// package main
 	//
 	// import (
-	// 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+	// 	ec2/instance "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/instance"
+	// 	ec2/internetGateway "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/internetGateway"
 	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	// )
-	//
 	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		gw, err := ec2.NewInternetGateway(ctx, "gw", &ec2.InternetGatewayArgs{
-	// 			VpcId: pulumi.Any(aws_vpc.Main.Id),
-	// 		})
-	// 		if err != nil {
-	// 			return err
-	// 		}
-	// 		_, err = ec2.NewInstance(ctx, "foo", nil, pulumi.DependsOn([]pulumi.Resource{
-	// 			gw,
-	// 		}))
-	// 		if err != nil {
-	// 			return err
-	// 		}
-	// 		return nil
-	// 	})
+	// pulumi.Run(func(ctx *pulumi.Context) error {
+	// gw, err := ec2/internetGateway.NewInternetGateway(ctx, "gw", &ec2/internetGateway.InternetGatewayArgs{
+	// VpcId: aws_vpc.Main.Id,
+	// })
+	// if err != nil {
+	// return err
+	// }
+	// // ... other arguments ...
+	// _, err = ec2/instance.NewInstance(ctx, "foo", nil, pulumi.DependsOn([]pulumi.Resource{
+	// gw,
+	// }))
+	// if err != nil {
+	// return err
+	// }
+	// return nil
+	// })
 	// }
 	// ```
 	Tags map[string]string `pulumi:"tags"`
@@ -183,26 +183,27 @@ type InternetGatewayState struct {
 	// package main
 	//
 	// import (
-	// 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+	// 	ec2/instance "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/instance"
+	// 	ec2/internetGateway "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/internetGateway"
 	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	// )
-	//
 	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		gw, err := ec2.NewInternetGateway(ctx, "gw", &ec2.InternetGatewayArgs{
-	// 			VpcId: pulumi.Any(aws_vpc.Main.Id),
-	// 		})
-	// 		if err != nil {
-	// 			return err
-	// 		}
-	// 		_, err = ec2.NewInstance(ctx, "foo", nil, pulumi.DependsOn([]pulumi.Resource{
-	// 			gw,
-	// 		}))
-	// 		if err != nil {
-	// 			return err
-	// 		}
-	// 		return nil
-	// 	})
+	// pulumi.Run(func(ctx *pulumi.Context) error {
+	// gw, err := ec2/internetGateway.NewInternetGateway(ctx, "gw", &ec2/internetGateway.InternetGatewayArgs{
+	// VpcId: aws_vpc.Main.Id,
+	// })
+	// if err != nil {
+	// return err
+	// }
+	// // ... other arguments ...
+	// _, err = ec2/instance.NewInstance(ctx, "foo", nil, pulumi.DependsOn([]pulumi.Resource{
+	// gw,
+	// }))
+	// if err != nil {
+	// return err
+	// }
+	// return nil
+	// })
 	// }
 	// ```
 	Tags pulumi.StringMapInput
@@ -227,26 +228,27 @@ type internetGatewayArgs struct {
 	// package main
 	//
 	// import (
-	// 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+	// 	ec2/instance "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/instance"
+	// 	ec2/internetGateway "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/internetGateway"
 	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	// )
-	//
 	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		gw, err := ec2.NewInternetGateway(ctx, "gw", &ec2.InternetGatewayArgs{
-	// 			VpcId: pulumi.Any(aws_vpc.Main.Id),
-	// 		})
-	// 		if err != nil {
-	// 			return err
-	// 		}
-	// 		_, err = ec2.NewInstance(ctx, "foo", nil, pulumi.DependsOn([]pulumi.Resource{
-	// 			gw,
-	// 		}))
-	// 		if err != nil {
-	// 			return err
-	// 		}
-	// 		return nil
-	// 	})
+	// pulumi.Run(func(ctx *pulumi.Context) error {
+	// gw, err := ec2/internetGateway.NewInternetGateway(ctx, "gw", &ec2/internetGateway.InternetGatewayArgs{
+	// VpcId: aws_vpc.Main.Id,
+	// })
+	// if err != nil {
+	// return err
+	// }
+	// // ... other arguments ...
+	// _, err = ec2/instance.NewInstance(ctx, "foo", nil, pulumi.DependsOn([]pulumi.Resource{
+	// gw,
+	// }))
+	// if err != nil {
+	// return err
+	// }
+	// return nil
+	// })
 	// }
 	// ```
 	Tags map[string]string `pulumi:"tags"`
@@ -264,26 +266,27 @@ type InternetGatewayArgs struct {
 	// package main
 	//
 	// import (
-	// 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+	// 	ec2/instance "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/instance"
+	// 	ec2/internetGateway "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/internetGateway"
 	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	// )
-	//
 	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		gw, err := ec2.NewInternetGateway(ctx, "gw", &ec2.InternetGatewayArgs{
-	// 			VpcId: pulumi.Any(aws_vpc.Main.Id),
-	// 		})
-	// 		if err != nil {
-	// 			return err
-	// 		}
-	// 		_, err = ec2.NewInstance(ctx, "foo", nil, pulumi.DependsOn([]pulumi.Resource{
-	// 			gw,
-	// 		}))
-	// 		if err != nil {
-	// 			return err
-	// 		}
-	// 		return nil
-	// 	})
+	// pulumi.Run(func(ctx *pulumi.Context) error {
+	// gw, err := ec2/internetGateway.NewInternetGateway(ctx, "gw", &ec2/internetGateway.InternetGatewayArgs{
+	// VpcId: aws_vpc.Main.Id,
+	// })
+	// if err != nil {
+	// return err
+	// }
+	// // ... other arguments ...
+	// _, err = ec2/instance.NewInstance(ctx, "foo", nil, pulumi.DependsOn([]pulumi.Resource{
+	// gw,
+	// }))
+	// if err != nil {
+	// return err
+	// }
+	// return nil
+	// })
 	// }
 	// ```
 	Tags pulumi.StringMapInput
@@ -397,29 +400,29 @@ func (o InternetGatewayOutput) OwnerId() pulumi.StringOutput {
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	ec2/instance "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/instance"
+//	ec2/internetGateway "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/internetGateway"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			gw, err := ec2.NewInternetGateway(ctx, "gw", &ec2.InternetGatewayArgs{
-//				VpcId: pulumi.Any(aws_vpc.Main.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ec2.NewInstance(ctx, "foo", nil, pulumi.DependsOn([]pulumi.Resource{
-//				gw,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// gw, err := ec2/internetGateway.NewInternetGateway(ctx, "gw", &ec2/internetGateway.InternetGatewayArgs{
+// VpcId: aws_vpc.Main.Id,
+// })
+// if err != nil {
+// return err
+// }
+// // ... other arguments ...
+// _, err = ec2/instance.NewInstance(ctx, "foo", nil, pulumi.DependsOn([]pulumi.Resource{
+// gw,
+// }))
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 func (o InternetGatewayOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *InternetGateway) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)

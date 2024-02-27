@@ -23,15 +23,15 @@ namespace Pulumi.Aws.Iot
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Iot.Thing("example");
+    ///     var example = new Aws.Iot.Thing.Thing("example");
     /// 
-    ///     var cert = new Aws.Iot.Certificate("cert", new()
+    ///     var cert = new Aws.Iot.Certificate.Certificate("cert", new()
     ///     {
     ///         Csr = File.ReadAllText("csr.pem"),
     ///         Active = true,
     ///     });
     /// 
-    ///     var att = new Aws.Iot.ThingPrincipalAttachment("att", new()
+    ///     var att = new Aws.Iot.ThingPrincipalAttachment.ThingPrincipalAttachment("att", new()
     ///     {
     ///         Principal = cert.Arn,
     ///         Thing = example.Name,

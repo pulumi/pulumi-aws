@@ -25,27 +25,25 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	ec2/vpcIpamResourceDiscoveryAssociation "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/vpcIpamResourceDiscoveryAssociation"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.NewVpcIpamResourceDiscoveryAssociation(ctx, "test", &ec2.VpcIpamResourceDiscoveryAssociationArgs{
-//				IpamId:                  pulumi.Any(aws_vpc_ipam.Test.Id),
-//				IpamResourceDiscoveryId: pulumi.Any(aws_vpc_ipam_resource_discovery.Test.Id),
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("test"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := ec2/vpcIpamResourceDiscoveryAssociation.NewVpcIpamResourceDiscoveryAssociation(ctx, "test", &ec2/vpcIpamResourceDiscoveryAssociation.VpcIpamResourceDiscoveryAssociationArgs{
+// IpamId: aws_vpc_ipam.Test.Id,
+// IpamResourceDiscoveryId: aws_vpc_ipam_resource_discovery.Test.Id,
+// Tags: map[string]interface{}{
+// "Name": "test",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

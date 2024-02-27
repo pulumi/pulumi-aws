@@ -24,27 +24,25 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/storagegateway"
+//	storagegateway/storedIscsiVolume "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/storagegateway/storedIscsiVolume"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := storagegateway.NewStoredIscsiVolume(ctx, "example", &storagegateway.StoredIscsiVolumeArgs{
-//				GatewayArn:           pulumi.Any(aws_storagegateway_cache.Example.Gateway_arn),
-//				NetworkInterfaceId:   pulumi.Any(aws_instance.Example.Private_ip),
-//				TargetName:           pulumi.String("example"),
-//				PreserveExistingData: pulumi.Bool(false),
-//				DiskId:               pulumi.Any(data.Aws_storagegateway_local_disk.Test.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := storagegateway/storedIscsiVolume.NewStoredIscsiVolume(ctx, "example", &storagegateway/storedIscsiVolume.StoredIscsiVolumeArgs{
+// GatewayArn: aws_storagegateway_cache.Example.Gateway_arn,
+// NetworkInterfaceId: aws_instance.Example.Private_ip,
+// TargetName: "example",
+// PreserveExistingData: false,
+// DiskId: data.Aws_storagegateway_local_disk.Test.Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Create Stored iSCSI Volume From Snapshot
 //
@@ -53,28 +51,26 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/storagegateway"
+//	storagegateway/storedIscsiVolume "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/storagegateway/storedIscsiVolume"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := storagegateway.NewStoredIscsiVolume(ctx, "example", &storagegateway.StoredIscsiVolumeArgs{
-//				GatewayArn:           pulumi.Any(aws_storagegateway_cache.Example.Gateway_arn),
-//				NetworkInterfaceId:   pulumi.Any(aws_instance.Example.Private_ip),
-//				SnapshotId:           pulumi.Any(aws_ebs_snapshot.Example.Id),
-//				TargetName:           pulumi.String("example"),
-//				PreserveExistingData: pulumi.Bool(false),
-//				DiskId:               pulumi.Any(data.Aws_storagegateway_local_disk.Test.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := storagegateway/storedIscsiVolume.NewStoredIscsiVolume(ctx, "example", &storagegateway/storedIscsiVolume.StoredIscsiVolumeArgs{
+// GatewayArn: aws_storagegateway_cache.Example.Gateway_arn,
+// NetworkInterfaceId: aws_instance.Example.Private_ip,
+// SnapshotId: aws_ebs_snapshot.Example.Id,
+// TargetName: "example",
+// PreserveExistingData: false,
+// DiskId: data.Aws_storagegateway_local_disk.Test.Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

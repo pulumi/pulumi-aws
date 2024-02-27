@@ -129,15 +129,6 @@ def get_portfolio(accept_language: Optional[str] = None,
     """
     Provides information for a Service Catalog Portfolio.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    portfolio = aws.servicecatalog.get_portfolio(id="port-07052002")
-    ```
-
 
     :param str accept_language: Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
     :param str id: Portfolio identifier.
@@ -170,15 +161,6 @@ def get_portfolio_output(accept_language: Optional[pulumi.Input[Optional[str]]] 
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPortfolioResult]:
     """
     Provides information for a Service Catalog Portfolio.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    portfolio = aws.servicecatalog.get_portfolio(id="port-07052002")
-    ```
 
 
     :param str accept_language: Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.

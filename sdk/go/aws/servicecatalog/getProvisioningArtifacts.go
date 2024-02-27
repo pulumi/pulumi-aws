@@ -14,31 +14,6 @@ import (
 // Lists the provisioning artifacts for the specified product.
 //
 // ## Example Usage
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/servicecatalog"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := servicecatalog.GetProvisioningArtifacts(ctx, &servicecatalog.GetProvisioningArtifactsArgs{
-//				ProductId: "prod-yakog5pdriver",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetProvisioningArtifacts(ctx *pulumi.Context, args *GetProvisioningArtifactsArgs, opts ...pulumi.InvokeOption) (*GetProvisioningArtifactsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetProvisioningArtifactsResult

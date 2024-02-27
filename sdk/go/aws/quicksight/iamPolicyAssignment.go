@@ -22,30 +22,28 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/quicksight"
+//	quicksight/iamPolicyAssignment "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/quicksight/iamPolicyAssignment"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := quicksight.NewIamPolicyAssignment(ctx, "example", &quicksight.IamPolicyAssignmentArgs{
-//				AssignmentName:   pulumi.String("example"),
-//				AssignmentStatus: pulumi.String("ENABLED"),
-//				PolicyArn:        pulumi.Any(aws_iam_policy.Example.Arn),
-//				Identities: &quicksight.IamPolicyAssignmentIdentitiesArgs{
-//					Users: pulumi.StringArray{
-//						aws_quicksight_user.Example.User_name,
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := quicksight/iamPolicyAssignment.NewIamPolicyAssignment(ctx, "example", &quicksight/iamPolicyAssignment.IamPolicyAssignmentArgs{
+// AssignmentName: "example",
+// AssignmentStatus: "ENABLED",
+// PolicyArn: aws_iam_policy.Example.Arn,
+// Identities: map[string]interface{}{
+// "users": []interface{}{
+// aws_quicksight_user.Example.User_name,
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

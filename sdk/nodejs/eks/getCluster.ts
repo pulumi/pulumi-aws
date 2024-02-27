@@ -9,24 +9,6 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieve information about an EKS Cluster.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * export = async () => {
- *     const example = await aws.eks.getCluster({
- *         name: "example",
- *     });
- *     return {
- *         endpoint: example.endpoint,
- *         "kubeconfig-certificate-authority-data": example.certificateAuthorities?.[0]?.data,
- *         "identity-oidc-issuer": example.identities?.[0]?.oidcs?.[0]?.issuer,
- *     };
- * }
- * ```
  */
 export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> {
 
@@ -127,24 +109,6 @@ export interface GetClusterResult {
 }
 /**
  * Retrieve information about an EKS Cluster.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * export = async () => {
- *     const example = await aws.eks.getCluster({
- *         name: "example",
- *     });
- *     return {
- *         endpoint: example.endpoint,
- *         "kubeconfig-certificate-authority-data": example.certificateAuthorities?.[0]?.data,
- *         "identity-oidc-issuer": example.identities?.[0]?.oidcs?.[0]?.issuer,
- *     };
- * }
- * ```
  */
 export function getClusterOutput(args: GetClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterResult> {
     return pulumi.output(args).apply((a: any) => getCluster(a, opts))

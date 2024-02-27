@@ -108,13 +108,13 @@ class MonitoringSubscription(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.cloudfront.MonitoringSubscription("example",
-            distribution_id=aws_cloudfront_distribution["example"]["id"],
-            monitoring_subscription=aws.cloudfront.MonitoringSubscriptionMonitoringSubscriptionArgs(
-                realtime_metrics_subscription_config=aws.cloudfront.MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigArgs(
-                    realtime_metrics_subscription_status="Enabled",
-                ),
-            ))
+        example = aws.cloudfront.monitoring_subscription.MonitoringSubscription("example",
+            distribution_id=aws_cloudfront_distribution.example.id,
+            monitoring_subscription={
+                realtimeMetricsSubscriptionConfig: {
+                    realtimeMetricsSubscriptionStatus: Enabled,
+                },
+            })
         ```
 
         ## Import
@@ -145,13 +145,13 @@ class MonitoringSubscription(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.cloudfront.MonitoringSubscription("example",
-            distribution_id=aws_cloudfront_distribution["example"]["id"],
-            monitoring_subscription=aws.cloudfront.MonitoringSubscriptionMonitoringSubscriptionArgs(
-                realtime_metrics_subscription_config=aws.cloudfront.MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigArgs(
-                    realtime_metrics_subscription_status="Enabled",
-                ),
-            ))
+        example = aws.cloudfront.monitoring_subscription.MonitoringSubscription("example",
+            distribution_id=aws_cloudfront_distribution.example.id,
+            monitoring_subscription={
+                realtimeMetricsSubscriptionConfig: {
+                    realtimeMetricsSubscriptionStatus: Enabled,
+                },
+            })
         ```
 
         ## Import

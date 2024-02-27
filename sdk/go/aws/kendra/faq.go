@@ -22,31 +22,29 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kendra"
+//	kendra/faq "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/kendra/faq"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := kendra.NewFaq(ctx, "example", &kendra.FaqArgs{
-//				IndexId: pulumi.Any(aws_kendra_index.Example.Id),
-//				RoleArn: pulumi.Any(aws_iam_role.Example.Arn),
-//				S3Path: &kendra.FaqS3PathArgs{
-//					Bucket: pulumi.Any(aws_s3_bucket.Example.Id),
-//					Key:    pulumi.Any(aws_s3_object.Example.Key),
-//				},
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("Example Kendra Faq"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := kendra/faq.NewFaq(ctx, "example", &kendra/faq.FaqArgs{
+// IndexId: aws_kendra_index.Example.Id,
+// RoleArn: aws_iam_role.Example.Arn,
+// S3Path: map[string]interface{}{
+// "bucket": aws_s3_bucket.Example.Id,
+// "key": aws_s3_object.Example.Key,
+// },
+// Tags: map[string]interface{}{
+// "Name": "Example Kendra Faq",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### With File Format
 //
@@ -55,29 +53,27 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kendra"
+//	kendra/faq "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/kendra/faq"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := kendra.NewFaq(ctx, "example", &kendra.FaqArgs{
-//				IndexId:    pulumi.Any(aws_kendra_index.Example.Id),
-//				FileFormat: pulumi.String("CSV"),
-//				RoleArn:    pulumi.Any(aws_iam_role.Example.Arn),
-//				S3Path: &kendra.FaqS3PathArgs{
-//					Bucket: pulumi.Any(aws_s3_bucket.Example.Id),
-//					Key:    pulumi.Any(aws_s3_object.Example.Key),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := kendra/faq.NewFaq(ctx, "example", &kendra/faq.FaqArgs{
+// IndexId: aws_kendra_index.Example.Id,
+// FileFormat: "CSV",
+// RoleArn: aws_iam_role.Example.Arn,
+// S3Path: map[string]interface{}{
+// "bucket": aws_s3_bucket.Example.Id,
+// "key": aws_s3_object.Example.Key,
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### With Language Code
 //
@@ -86,29 +82,27 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kendra"
+//	kendra/faq "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/kendra/faq"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := kendra.NewFaq(ctx, "example", &kendra.FaqArgs{
-//				IndexId:      pulumi.Any(aws_kendra_index.Example.Id),
-//				LanguageCode: pulumi.String("en"),
-//				RoleArn:      pulumi.Any(aws_iam_role.Example.Arn),
-//				S3Path: &kendra.FaqS3PathArgs{
-//					Bucket: pulumi.Any(aws_s3_bucket.Example.Id),
-//					Key:    pulumi.Any(aws_s3_object.Example.Key),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := kendra/faq.NewFaq(ctx, "example", &kendra/faq.FaqArgs{
+// IndexId: aws_kendra_index.Example.Id,
+// LanguageCode: "en",
+// RoleArn: aws_iam_role.Example.Arn,
+// S3Path: map[string]interface{}{
+// "bucket": aws_s3_bucket.Example.Id,
+// "key": aws_s3_object.Example.Key,
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

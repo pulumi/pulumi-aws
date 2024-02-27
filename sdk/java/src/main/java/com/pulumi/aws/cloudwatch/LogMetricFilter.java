@@ -27,7 +27,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.cloudwatch.LogGroup;
  * import com.pulumi.aws.cloudwatch.LogMetricFilter;
  * import com.pulumi.aws.cloudwatch.LogMetricFilterArgs;
- * import com.pulumi.aws.cloudwatch.inputs.LogMetricFilterMetricTransformationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -46,11 +45,7 @@ import javax.annotation.Nullable;
  *         var yada = new LogMetricFilter(&#34;yada&#34;, LogMetricFilterArgs.builder()        
  *             .pattern(&#34;&#34;)
  *             .logGroupName(dada.name())
- *             .metricTransformation(LogMetricFilterMetricTransformationArgs.builder()
- *                 .name(&#34;EventCount&#34;)
- *                 .namespace(&#34;YourNamespace&#34;)
- *                 .value(&#34;1&#34;)
- *                 .build())
+ *             .metricTransformation(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

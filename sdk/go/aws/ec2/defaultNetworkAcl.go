@@ -32,49 +32,48 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	ec2/defaultNetworkAcl "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/defaultNetworkAcl"
+//	ec2/vpc "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/vpc"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			mainvpc, err := ec2.NewVpc(ctx, "mainvpc", &ec2.VpcArgs{
-//				CidrBlock: pulumi.String("10.1.0.0/16"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ec2.NewDefaultNetworkAcl(ctx, "default", &ec2.DefaultNetworkAclArgs{
-//				DefaultNetworkAclId: mainvpc.DefaultNetworkAclId,
-//				Ingress: ec2.DefaultNetworkAclIngressArray{
-//					&ec2.DefaultNetworkAclIngressArgs{
-//						Protocol:  pulumi.String("-1"),
-//						RuleNo:    pulumi.Int(100),
-//						Action:    pulumi.String("allow"),
-//						CidrBlock: pulumi.String("0.0.0.0/0"),
-//						FromPort:  pulumi.Int(0),
-//						ToPort:    pulumi.Int(0),
-//					},
-//				},
-//				Egress: ec2.DefaultNetworkAclEgressArray{
-//					&ec2.DefaultNetworkAclEgressArgs{
-//						Protocol:  pulumi.String("-1"),
-//						RuleNo:    pulumi.Int(100),
-//						Action:    pulumi.String("allow"),
-//						CidrBlock: pulumi.String("0.0.0.0/0"),
-//						FromPort:  pulumi.Int(0),
-//						ToPort:    pulumi.Int(0),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// mainvpc, err := ec2/vpc.NewVpc(ctx, "mainvpc", &ec2/vpc.VpcArgs{
+// CidrBlock: "10.1.0.0/16",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = ec2/defaultNetworkAcl.NewDefaultNetworkAcl(ctx, "default", &ec2/defaultNetworkAcl.DefaultNetworkAclArgs{
+// DefaultNetworkAclId: mainvpc.DefaultNetworkAclId,
+// Ingress: []map[string]interface{}{
+// map[string]interface{}{
+// "protocol": -1,
+// "ruleNo": 100,
+// "action": "allow",
+// "cidrBlock": "0.0.0.0/0",
+// "fromPort": 0,
+// "toPort": 0,
+// },
+// },
+// Egress: []map[string]interface{}{
+// map[string]interface{}{
+// "protocol": -1,
+// "ruleNo": 100,
+// "action": "allow",
+// "cidrBlock": "0.0.0.0/0",
+// "fromPort": 0,
+// "toPort": 0,
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Example: Deny All Egress Traffic, Allow Ingress
 //
@@ -85,39 +84,38 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	ec2/defaultNetworkAcl "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/defaultNetworkAcl"
+//	ec2/vpc "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/vpc"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			mainvpc, err := ec2.NewVpc(ctx, "mainvpc", &ec2.VpcArgs{
-//				CidrBlock: pulumi.String("10.1.0.0/16"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ec2.NewDefaultNetworkAcl(ctx, "default", &ec2.DefaultNetworkAclArgs{
-//				DefaultNetworkAclId: mainvpc.DefaultNetworkAclId,
-//				Ingress: ec2.DefaultNetworkAclIngressArray{
-//					&ec2.DefaultNetworkAclIngressArgs{
-//						Protocol:  pulumi.String("-1"),
-//						RuleNo:    pulumi.Int(100),
-//						Action:    pulumi.String("allow"),
-//						CidrBlock: pulumi.Any(aws_default_vpc.Mainvpc.Cidr_block),
-//						FromPort:  pulumi.Int(0),
-//						ToPort:    pulumi.Int(0),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// mainvpc, err := ec2/vpc.NewVpc(ctx, "mainvpc", &ec2/vpc.VpcArgs{
+// CidrBlock: "10.1.0.0/16",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = ec2/defaultNetworkAcl.NewDefaultNetworkAcl(ctx, "default", &ec2/defaultNetworkAcl.DefaultNetworkAclArgs{
+// DefaultNetworkAclId: mainvpc.DefaultNetworkAclId,
+// Ingress: []map[string]interface{}{
+// map[string]interface{}{
+// "protocol": -1,
+// "ruleNo": 100,
+// "action": "allow",
+// "cidrBlock": aws_default_vpc.Mainvpc.Cidr_block,
+// "fromPort": 0,
+// "toPort": 0,
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Example: Deny All Traffic To Any Subnet In The Default Network ACL
 //
@@ -128,29 +126,28 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	ec2/defaultNetworkAcl "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/defaultNetworkAcl"
+//	ec2/vpc "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/vpc"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			mainvpc, err := ec2.NewVpc(ctx, "mainvpc", &ec2.VpcArgs{
-//				CidrBlock: pulumi.String("10.1.0.0/16"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ec2.NewDefaultNetworkAcl(ctx, "default", &ec2.DefaultNetworkAclArgs{
-//				DefaultNetworkAclId: mainvpc.DefaultNetworkAclId,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// mainvpc, err := ec2/vpc.NewVpc(ctx, "mainvpc", &ec2/vpc.VpcArgs{
+// CidrBlock: "10.1.0.0/16",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = ec2/defaultNetworkAcl.NewDefaultNetworkAcl(ctx, "default", &ec2/defaultNetworkAcl.DefaultNetworkAclArgs{
+// DefaultNetworkAclId: mainvpc.DefaultNetworkAclId,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Managing Subnets In A Default Network ACL
 //
@@ -167,21 +164,20 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	ec2/defaultNetworkAcl "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/defaultNetworkAcl"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.NewDefaultNetworkAcl(ctx, "default", nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// // ... other configuration ...
+// _, err := ec2/defaultNetworkAcl.NewDefaultNetworkAcl(ctx, "default", nil)
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Removing `ec2.DefaultNetworkAcl` From Your Configuration
 //

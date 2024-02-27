@@ -23,15 +23,15 @@ namespace Pulumi.Aws.Auditmanager
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Auditmanager.Control("example", new()
+    ///     var example = new Aws.Auditmanager.Control.Control("example", new()
     ///     {
     ///         ControlMappingSources = new[]
     ///         {
-    ///             new Aws.Auditmanager.Inputs.ControlControlMappingSourceArgs
+    ///             
     ///             {
-    ///                 SourceName = "example",
-    ///                 SourceSetUpOption = "Procedural_Controls_Mapping",
-    ///                 SourceType = "MANUAL",
+    ///                 { "sourceName", "example" },
+    ///                 { "sourceSetUpOption", "Procedural_Controls_Mapping" },
+    ///                 { "sourceType", "MANUAL" },
     ///             },
     ///         },
     ///     });

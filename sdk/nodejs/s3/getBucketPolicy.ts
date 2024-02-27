@@ -6,20 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * The bucket policy data source returns IAM policy of an S3 bucket.
- *
- * ## Example Usage
- *
- * The following example retrieves IAM policy of a specified S3 bucket.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.s3.getBucketPolicy({
- *     bucket: "example-bucket-name",
- * });
- * export const foo = example.then(example => example.policy);
- * ```
  */
 export function getBucketPolicy(args: GetBucketPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetBucketPolicyResult> {
 
@@ -55,20 +41,6 @@ export interface GetBucketPolicyResult {
 }
 /**
  * The bucket policy data source returns IAM policy of an S3 bucket.
- *
- * ## Example Usage
- *
- * The following example retrieves IAM policy of a specified S3 bucket.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.s3.getBucketPolicy({
- *     bucket: "example-bucket-name",
- * });
- * export const foo = example.then(example => example.policy);
- * ```
  */
 export function getBucketPolicyOutput(args: GetBucketPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBucketPolicyResult> {
     return pulumi.output(args).apply((a: any) => getBucketPolicy(a, opts))

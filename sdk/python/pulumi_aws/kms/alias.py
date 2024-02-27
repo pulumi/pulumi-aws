@@ -178,8 +178,8 @@ class Alias(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        key = aws.kms.Key("key")
-        alias = aws.kms.Alias("alias", target_key_id=key.key_id)
+        key = aws.kms.key.Key("key")
+        alias = aws.kms.alias.Alias("alias", target_key_id=key.key_id)
         ```
 
         ## Import
@@ -214,8 +214,8 @@ class Alias(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        key = aws.kms.Key("key")
-        alias = aws.kms.Alias("alias", target_key_id=key.key_id)
+        key = aws.kms.key.Key("key")
+        alias = aws.kms.alias.Alias("alias", target_key_id=key.key_id)
         ```
 
         ## Import

@@ -25,7 +25,7 @@ namespace Pulumi.Aws.ApiGatewayV2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.ApiGatewayV2.VpcLink("example", new()
+    ///     var example = new Aws.Apigatewayv2.VpcLink.VpcLink("example", new()
     ///     {
     ///         SecurityGroupIds = new[]
     ///         {

@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const bar = new aws.elastictranscoder.Pipeline("bar", {
+ * const bar = new aws.elastictranscoder/pipeline.Pipeline("bar", {
  *     inputBucket: aws_s3_bucket.input_bucket.id,
  *     role: aws_iam_role.test_role.arn,
  *     contentConfig: {

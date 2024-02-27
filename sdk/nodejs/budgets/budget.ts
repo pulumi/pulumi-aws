@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const ec2 = new aws.budgets.Budget("ec2", {
+ * const ec2 = new aws.budgets/budget.Budget("ec2", {
  *     budgetType: "COST",
  *     costFilters: [{
  *         name: "Service",
@@ -43,7 +43,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const cost = new aws.budgets.Budget("cost", {
+ * const cost = new aws.budgets/budget.Budget("cost", {
  *     budgetType: "COST",
  *     limitAmount: "100",
  *     limitUnit: "USD",
@@ -56,7 +56,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const cost = new aws.budgets.Budget("cost", {plannedLimits: [
+ * const cost = new aws.budgets/budget.Budget("cost", {plannedLimits: [
  *     {
  *         amount: "100",
  *         startTime: "2017-07-01_00:00",
@@ -76,7 +76,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const s3 = new aws.budgets.Budget("s3", {
+ * const s3 = new aws.budgets/budget.Budget("s3", {
  *     budgetType: "USAGE",
  *     limitAmount: "3",
  *     limitUnit: "GB",
@@ -89,7 +89,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const savingsPlanUtilization = new aws.budgets.Budget("savingsPlanUtilization", {
+ * const savingsPlanUtilization = new aws.budgets/budget.Budget("savingsPlanUtilization", {
  *     budgetType: "SAVINGS_PLANS_UTILIZATION",
  *     costTypes: {
  *         includeCredit: false,
@@ -114,7 +114,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const riUtilization = new aws.budgets.Budget("riUtilization", {
+ * const riUtilization = new aws.budgets/budget.Budget("riUtilization", {
  *     budgetType: "RI_UTILIZATION",
  *     costFilters: [{
  *         name: "Service",
@@ -143,7 +143,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const cost = new aws.budgets.Budget("cost", {costFilters: [{
+ * const cost = new aws.budgets/budget.Budget("cost", {costFilters: [{
  *     name: "TagKeyValue",
  *     values: ["TagKey$TagValue"],
  * }]});
@@ -155,7 +155,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const cost = new aws.budgets.Budget("cost", {costFilters: [{
+ * const cost = new aws.budgets/budget.Budget("cost", {costFilters: [{
  *     name: "TagKeyValue",
  *     values: ["TagKey${var.TagValue}"],
  * }]});

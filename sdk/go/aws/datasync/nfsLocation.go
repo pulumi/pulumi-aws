@@ -23,29 +23,27 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/datasync"
+//	datasync/nfsLocation "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/datasync/nfsLocation"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := datasync.NewNfsLocation(ctx, "example", &datasync.NfsLocationArgs{
-//				ServerHostname: pulumi.String("nfs.example.com"),
-//				Subdirectory:   pulumi.String("/exported/path"),
-//				OnPremConfig: &datasync.NfsLocationOnPremConfigArgs{
-//					AgentArns: pulumi.StringArray{
-//						aws_datasync_agent.Example.Arn,
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := datasync/nfsLocation.NewNfsLocation(ctx, "example", &datasync/nfsLocation.NfsLocationArgs{
+// ServerHostname: "nfs.example.com",
+// Subdirectory: "/exported/path",
+// OnPremConfig: map[string]interface{}{
+// "agentArns": []interface{}{
+// aws_datasync_agent.Example.Arn,
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

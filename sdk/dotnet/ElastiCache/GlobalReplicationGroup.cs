@@ -25,7 +25,7 @@ namespace Pulumi.Aws.ElastiCache
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var primary = new Aws.ElastiCache.ReplicationGroup("primary", new()
+    ///     var primary = new Aws.Elasticache.ReplicationGroup.ReplicationGroup("primary", new()
     ///     {
     ///         Description = "primary replication group",
     ///         Engine = "redis",
@@ -34,13 +34,13 @@ namespace Pulumi.Aws.ElastiCache
     ///         NumCacheClusters = 1,
     ///     });
     /// 
-    ///     var example = new Aws.ElastiCache.GlobalReplicationGroup("example", new()
+    ///     var example = new Aws.Elasticache.GlobalReplicationGroup.GlobalReplicationGroup("example", new()
     ///     {
     ///         GlobalReplicationGroupIdSuffix = "example",
     ///         PrimaryReplicationGroupId = primary.Id,
     ///     });
     /// 
-    ///     var secondary = new Aws.ElastiCache.ReplicationGroup("secondary", new()
+    ///     var secondary = new Aws.Elasticache.ReplicationGroup.ReplicationGroup("secondary", new()
     ///     {
     ///         Description = "secondary replication group",
     ///         GlobalReplicationGroupId = example.GlobalReplicationGroupId,
@@ -74,7 +74,7 @@ namespace Pulumi.Aws.ElastiCache
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var primary = new Aws.ElastiCache.ReplicationGroup("primary", new()
+    ///     var primary = new Aws.Elasticache.ReplicationGroup.ReplicationGroup("primary", new()
     ///     {
     ///         Description = "primary replication group",
     ///         Engine = "redis",
@@ -83,14 +83,14 @@ namespace Pulumi.Aws.ElastiCache
     ///         NumCacheClusters = 1,
     ///     });
     /// 
-    ///     var example = new Aws.ElastiCache.GlobalReplicationGroup("example", new()
+    ///     var example = new Aws.Elasticache.GlobalReplicationGroup.GlobalReplicationGroup("example", new()
     ///     {
     ///         GlobalReplicationGroupIdSuffix = "example",
     ///         PrimaryReplicationGroupId = primary.Id,
     ///         EngineVersion = "6.2",
     ///     });
     /// 
-    ///     var secondary = new Aws.ElastiCache.ReplicationGroup("secondary", new()
+    ///     var secondary = new Aws.Elasticache.ReplicationGroup.ReplicationGroup("secondary", new()
     ///     {
     ///         Description = "secondary replication group",
     ///         GlobalReplicationGroupId = example.GlobalReplicationGroupId,

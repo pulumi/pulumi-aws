@@ -236,11 +236,11 @@ class ApiCache(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_graph_ql_api = aws.appsync.GraphQLApi("exampleGraphQLApi", authentication_type="API_KEY")
-        example_api_cache = aws.appsync.ApiCache("exampleApiCache",
+        example_graph_ql_api = aws.appsync.graph_ql_api.GraphQLApi("exampleGraphQLApi", authentication_type=API_KEY)
+        example_api_cache = aws.appsync.api_cache.ApiCache("exampleApiCache",
             api_id=example_graph_ql_api.id,
-            api_caching_behavior="FULL_REQUEST_CACHING",
-            type="LARGE",
+            api_caching_behavior=FULL_REQUEST_CACHING,
+            type=LARGE,
             ttl=900)
         ```
 
@@ -276,11 +276,11 @@ class ApiCache(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_graph_ql_api = aws.appsync.GraphQLApi("exampleGraphQLApi", authentication_type="API_KEY")
-        example_api_cache = aws.appsync.ApiCache("exampleApiCache",
+        example_graph_ql_api = aws.appsync.graph_ql_api.GraphQLApi("exampleGraphQLApi", authentication_type=API_KEY)
+        example_api_cache = aws.appsync.api_cache.ApiCache("exampleApiCache",
             api_id=example_graph_ql_api.id,
-            api_caching_behavior="FULL_REQUEST_CACHING",
-            type="LARGE",
+            api_caching_behavior=FULL_REQUEST_CACHING,
+            type=LARGE,
             ttl=900)
         ```
 

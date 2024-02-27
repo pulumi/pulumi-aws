@@ -18,7 +18,7 @@ import {Topic} from "../sns";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const foobar = new aws.cloudwatch.MetricAlarm("foobar", {
+ * const foobar = new aws.cloudwatch/metricAlarm.MetricAlarm("foobar", {
  *     alarmDescription: "This metric monitors ec2 cpu utilization",
  *     comparisonOperator: "GreaterThanOrEqualToThreshold",
  *     evaluationPeriods: 2,
@@ -36,13 +36,13 @@ import {Topic} from "../sns";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const batPolicy = new aws.autoscaling.Policy("batPolicy", {
+ * const batPolicy = new aws.autoscaling/policy.Policy("batPolicy", {
  *     scalingAdjustment: 4,
  *     adjustmentType: "ChangeInCapacity",
  *     cooldown: 300,
  *     autoscalingGroupName: aws_autoscaling_group.bar.name,
  * });
- * const batMetricAlarm = new aws.cloudwatch.MetricAlarm("batMetricAlarm", {
+ * const batMetricAlarm = new aws.cloudwatch/metricAlarm.MetricAlarm("batMetricAlarm", {
  *     comparisonOperator: "GreaterThanOrEqualToThreshold",
  *     evaluationPeriods: 2,
  *     metricName: "CPUUtilization",
@@ -64,7 +64,7 @@ import {Topic} from "../sns";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const foobar = new aws.cloudwatch.MetricAlarm("foobar", {
+ * const foobar = new aws.cloudwatch/metricAlarm.MetricAlarm("foobar", {
  *     alarmDescription: "Request error rate has exceeded 10%",
  *     comparisonOperator: "GreaterThanOrEqualToThreshold",
  *     evaluationPeriods: 2,
@@ -74,7 +74,7 @@ import {Topic} from "../sns";
  *             expression: "m2/m1*100",
  *             id: "e1",
  *             label: "Error Rate",
- *             returnData: true,
+ *             returnData: "true",
  *         },
  *         {
  *             id: "m1",
@@ -111,7 +111,7 @@ import {Topic} from "../sns";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const xxAnomalyDetection = new aws.cloudwatch.MetricAlarm("xxAnomalyDetection", {
+ * const xxAnomalyDetection = new aws.cloudwatch/metricAlarm.MetricAlarm("xxAnomalyDetection", {
  *     alarmDescription: "This metric monitors ec2 cpu utilization",
  *     comparisonOperator: "GreaterThanUpperThreshold",
  *     evaluationPeriods: 2,
@@ -121,7 +121,7 @@ import {Topic} from "../sns";
  *             expression: "ANOMALY_DETECTION_BAND(m1)",
  *             id: "e1",
  *             label: "CPUUtilization (Expected)",
- *             returnData: true,
+ *             returnData: "true",
  *         },
  *         {
  *             id: "m1",
@@ -135,7 +135,7 @@ import {Topic} from "../sns";
  *                 stat: "Average",
  *                 unit: "Count",
  *             },
- *             returnData: true,
+ *             returnData: "true",
  *         },
  *     ],
  *     thresholdMetricId: "e1",
@@ -148,7 +148,7 @@ import {Topic} from "../sns";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const nlbHealthyhosts = new aws.cloudwatch.MetricAlarm("nlbHealthyhosts", {
+ * const nlbHealthyhosts = new aws.cloudwatch/metricAlarm.MetricAlarm("nlbHealthyhosts", {
  *     comparisonOperator: "LessThanThreshold",
  *     evaluationPeriods: 1,
  *     metricName: "HealthyHostCount",
@@ -157,7 +157,7 @@ import {Topic} from "../sns";
  *     statistic: "Average",
  *     threshold: _var.logstash_servers_count,
  *     alarmDescription: "Number of healthy nodes in Target Group",
- *     actionsEnabled: true,
+ *     actionsEnabled: "true",
  *     alarmActions: [aws_sns_topic.sns.arn],
  *     okActions: [aws_sns_topic.sns.arn],
  *     dimensions: {

@@ -196,7 +196,7 @@ class OrganizationalUnit(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.organizations.OrganizationalUnit("example", parent_id=aws_organizations_organization["example"]["roots"][0]["id"])
+        example = aws.organizations.organizational_unit.OrganizationalUnit("example", parent_id=aws_organizations_organization.example.roots[0].id)
         ```
 
         ## Import
@@ -228,7 +228,7 @@ class OrganizationalUnit(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.organizations.OrganizationalUnit("example", parent_id=aws_organizations_organization["example"]["roots"][0]["id"])
+        example = aws.organizations.organizational_unit.OrganizationalUnit("example", parent_id=aws_organizations_organization.example.roots[0].id)
         ```
 
         ## Import

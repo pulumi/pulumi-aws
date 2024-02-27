@@ -404,15 +404,6 @@ def get_group(name: Optional[str] = None,
     """
     Use this data source to get information on an existing autoscaling group.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    foo = aws.autoscaling.get_group(name="foo")
-    ```
-
 
     :param str name: Specify the exact name of the desired autoscaling group.
     """
@@ -460,15 +451,6 @@ def get_group_output(name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGroupResult]:
     """
     Use this data source to get information on an existing autoscaling group.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    foo = aws.autoscaling.get_group(name="foo")
-    ```
 
 
     :param str name: Specify the exact name of the desired autoscaling group.

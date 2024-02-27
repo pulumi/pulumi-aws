@@ -12,62 +12,6 @@ import (
 )
 
 // Provides details about a specific Amazon Connect Vocabulary.
-//
-// ## Example Usage
-//
-// By `name`
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/connect"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := connect.LookupVocabulary(ctx, &connect.LookupVocabularyArgs{
-//				InstanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
-//				Name:       pulumi.StringRef("Example"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// By `vocabularyId`
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/connect"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := connect.LookupVocabulary(ctx, &connect.LookupVocabularyArgs{
-//				InstanceId:   "aaaaaaaa-bbbb-cccc-dddd-111111111111",
-//				VocabularyId: pulumi.StringRef("cccccccc-bbbb-cccc-dddd-111111111111"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupVocabulary(ctx *pulumi.Context, args *LookupVocabularyArgs, opts ...pulumi.InvokeOption) (*LookupVocabularyResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupVocabularyResult

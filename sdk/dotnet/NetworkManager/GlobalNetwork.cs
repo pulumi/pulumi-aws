@@ -22,7 +22,7 @@ namespace Pulumi.Aws.NetworkManager
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.NetworkManager.GlobalNetwork("example", new()
+    ///     var example = new Aws.Networkmanager.GlobalNetwork.GlobalNetwork("example", new()
     ///     {
     ///         Description = "example",
     ///     });

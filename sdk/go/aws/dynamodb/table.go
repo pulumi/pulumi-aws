@@ -36,62 +36,60 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/dynamodb"
+//	dynamodb/table "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/dynamodb/table"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := dynamodb.NewTable(ctx, "basic-dynamodb-table", &dynamodb.TableArgs{
-//				Attributes: dynamodb.TableAttributeArray{
-//					&dynamodb.TableAttributeArgs{
-//						Name: pulumi.String("UserId"),
-//						Type: pulumi.String("S"),
-//					},
-//					&dynamodb.TableAttributeArgs{
-//						Name: pulumi.String("GameTitle"),
-//						Type: pulumi.String("S"),
-//					},
-//					&dynamodb.TableAttributeArgs{
-//						Name: pulumi.String("TopScore"),
-//						Type: pulumi.String("N"),
-//					},
-//				},
-//				BillingMode: pulumi.String("PROVISIONED"),
-//				GlobalSecondaryIndexes: dynamodb.TableGlobalSecondaryIndexArray{
-//					&dynamodb.TableGlobalSecondaryIndexArgs{
-//						HashKey: pulumi.String("GameTitle"),
-//						Name:    pulumi.String("GameTitleIndex"),
-//						NonKeyAttributes: pulumi.StringArray{
-//							pulumi.String("UserId"),
-//						},
-//						ProjectionType: pulumi.String("INCLUDE"),
-//						RangeKey:       pulumi.String("TopScore"),
-//						ReadCapacity:   pulumi.Int(10),
-//						WriteCapacity:  pulumi.Int(10),
-//					},
-//				},
-//				HashKey:      pulumi.String("UserId"),
-//				RangeKey:     pulumi.String("GameTitle"),
-//				ReadCapacity: pulumi.Int(20),
-//				Tags: pulumi.StringMap{
-//					"Environment": pulumi.String("production"),
-//					"Name":        pulumi.String("dynamodb-table-1"),
-//				},
-//				Ttl: &dynamodb.TableTtlArgs{
-//					AttributeName: pulumi.String("TimeToExist"),
-//					Enabled:       pulumi.Bool(false),
-//				},
-//				WriteCapacity: pulumi.Int(20),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := dynamodb/table.NewTable(ctx, "basic-dynamodb-table", &dynamodb/table.TableArgs{
+// Attributes: []map[string]interface{}{
+// map[string]interface{}{
+// "name": "UserId",
+// "type": "S",
+// },
+// map[string]interface{}{
+// "name": "GameTitle",
+// "type": "S",
+// },
+// map[string]interface{}{
+// "name": "TopScore",
+// "type": "N",
+// },
+// },
+// BillingMode: "PROVISIONED",
+// GlobalSecondaryIndexes: []map[string]interface{}{
+// map[string]interface{}{
+// "hashKey": "GameTitle",
+// "name": "GameTitleIndex",
+// "nonKeyAttributes": []string{
+// "UserId",
+// },
+// "projectionType": "INCLUDE",
+// "rangeKey": "TopScore",
+// "readCapacity": 10,
+// "writeCapacity": 10,
+// },
+// },
+// HashKey: "UserId",
+// RangeKey: "GameTitle",
+// ReadCapacity: 20,
+// Tags: map[string]interface{}{
+// "Environment": "production",
+// "Name": "dynamodb-table-1",
+// },
+// Ttl: map[string]interface{}{
+// "attributeName": "TimeToExist",
+// "enabled": false,
+// },
+// WriteCapacity: 20,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Global Tables
 //
@@ -104,40 +102,38 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/dynamodb"
+//	dynamodb/table "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/dynamodb/table"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := dynamodb.NewTable(ctx, "example", &dynamodb.TableArgs{
-//				Attributes: dynamodb.TableAttributeArray{
-//					&dynamodb.TableAttributeArgs{
-//						Name: pulumi.String("TestTableHashKey"),
-//						Type: pulumi.String("S"),
-//					},
-//				},
-//				BillingMode: pulumi.String("PAY_PER_REQUEST"),
-//				HashKey:     pulumi.String("TestTableHashKey"),
-//				Replicas: dynamodb.TableReplicaTypeArray{
-//					&dynamodb.TableReplicaTypeArgs{
-//						RegionName: pulumi.String("us-east-2"),
-//					},
-//					&dynamodb.TableReplicaTypeArgs{
-//						RegionName: pulumi.String("us-west-2"),
-//					},
-//				},
-//				StreamEnabled:  pulumi.Bool(true),
-//				StreamViewType: pulumi.String("NEW_AND_OLD_IMAGES"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := dynamodb/table.NewTable(ctx, "example", &dynamodb/table.TableArgs{
+// Attributes: []map[string]interface{}{
+// map[string]interface{}{
+// "name": "TestTableHashKey",
+// "type": "S",
+// },
+// },
+// BillingMode: "PAY_PER_REQUEST",
+// HashKey: "TestTableHashKey",
+// Replicas: []map[string]interface{}{
+// map[string]interface{}{
+// "regionName": "us-east-2",
+// },
+// map[string]interface{}{
+// "regionName": "us-west-2",
+// },
+// },
+// StreamEnabled: true,
+// StreamViewType: "NEW_AND_OLD_IMAGES",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -22,59 +22,57 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/fsx"
+//	fsx/fileCache "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/fsx/fileCache"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := fsx.NewFileCache(ctx, "example", &fsx.FileCacheArgs{
-//				DataRepositoryAssociations: fsx.FileCacheDataRepositoryAssociationArray{
-//					&fsx.FileCacheDataRepositoryAssociationArgs{
-//						DataRepositoryPath: pulumi.String("nfs://filer.domain.com"),
-//						DataRepositorySubdirectories: pulumi.StringArray{
-//							pulumi.String("test"),
-//							pulumi.String("test2"),
-//						},
-//						FileCachePath: pulumi.String("/ns1"),
-//						Nfs: fsx.FileCacheDataRepositoryAssociationNfArray{
-//							&fsx.FileCacheDataRepositoryAssociationNfArgs{
-//								DnsIps: pulumi.StringArray{
-//									pulumi.String("192.168.0.1"),
-//									pulumi.String("192.168.0.2"),
-//								},
-//								Version: pulumi.String("NFS3"),
-//							},
-//						},
-//					},
-//				},
-//				FileCacheType:        pulumi.String("LUSTRE"),
-//				FileCacheTypeVersion: pulumi.String("2.12"),
-//				LustreConfigurations: fsx.FileCacheLustreConfigurationArray{
-//					&fsx.FileCacheLustreConfigurationArgs{
-//						DeploymentType: pulumi.String("CACHE_1"),
-//						MetadataConfigurations: fsx.FileCacheLustreConfigurationMetadataConfigurationArray{
-//							&fsx.FileCacheLustreConfigurationMetadataConfigurationArgs{
-//								StorageCapacity: pulumi.Int(2400),
-//							},
-//						},
-//						PerUnitStorageThroughput:   pulumi.Int(1000),
-//						WeeklyMaintenanceStartTime: pulumi.String("2:05:00"),
-//					},
-//				},
-//				SubnetIds: pulumi.StringArray{
-//					aws_subnet.Test1.Id,
-//				},
-//				StorageCapacity: pulumi.Int(1200),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := fsx/fileCache.NewFileCache(ctx, "example", &fsx/fileCache.FileCacheArgs{
+// DataRepositoryAssociations: []map[string]interface{}{
+// map[string]interface{}{
+// "dataRepositoryPath": "nfs://filer.domain.com",
+// "dataRepositorySubdirectories": []string{
+// "test",
+// "test2",
+// },
+// "fileCachePath": "/ns1",
+// "nfs": []map[string]interface{}{
+// map[string]interface{}{
+// "dnsIps": []string{
+// "192.168.0.1",
+// "192.168.0.2",
+// },
+// "version": "NFS3",
+// },
+// },
+// },
+// },
+// FileCacheType: "LUSTRE",
+// FileCacheTypeVersion: "2.12",
+// LustreConfigurations: []map[string]interface{}{
+// map[string]interface{}{
+// "deploymentType": "CACHE_1",
+// "metadataConfigurations": []map[string]interface{}{
+// map[string]interface{}{
+// "storageCapacity": 2400,
+// },
+// },
+// "perUnitStorageThroughput": 1000,
+// "weeklyMaintenanceStartTime": "2:05:00",
+// },
+// },
+// SubnetIds: []interface{}{
+// aws_subnet.Test1.Id,
+// },
+// StorageCapacity: 1200,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

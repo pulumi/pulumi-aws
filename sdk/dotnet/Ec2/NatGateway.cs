@@ -23,7 +23,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Ec2.NatGateway("example", new()
+    ///     var example = new Aws.Ec2.NatGateway.NatGateway("example", new()
     ///     {
     ///         AllocationId = aws_eip.Example.Id,
     ///         SubnetId = aws_subnet.Example.Id,
@@ -51,7 +51,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Ec2.NatGateway("example", new()
+    ///     var example = new Aws.Ec2.NatGateway.NatGateway("example", new()
     ///     {
     ///         AllocationId = aws_eip.Example.Id,
     ///         SubnetId = aws_subnet.Example.Id,
@@ -77,7 +77,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Ec2.NatGateway("example", new()
+    ///     var example = new Aws.Ec2.NatGateway.NatGateway("example", new()
     ///     {
     ///         ConnectivityType = "private",
     ///         SubnetId = aws_subnet.Example.Id,
@@ -95,7 +95,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Ec2.NatGateway("example", new()
+    ///     var example = new Aws.Ec2.NatGateway.NatGateway("example", new()
     ///     {
     ///         ConnectivityType = "private",
     ///         SubnetId = aws_subnet.Example.Id,

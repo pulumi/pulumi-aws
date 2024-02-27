@@ -14,31 +14,6 @@ import (
 // Retrieve information about a Location Service Geofence Collection.
 //
 // ## Example Usage
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/location"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := location.LookupGeofenceCollection(ctx, &location.LookupGeofenceCollectionArgs{
-//				CollectionName: "example",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupGeofenceCollection(ctx *pulumi.Context, args *LookupGeofenceCollectionArgs, opts ...pulumi.InvokeOption) (*LookupGeofenceCollectionResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupGeofenceCollectionResult

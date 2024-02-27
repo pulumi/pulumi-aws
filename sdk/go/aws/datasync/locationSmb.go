@@ -23,29 +23,27 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/datasync"
+//	datasync/locationSmb "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/datasync/locationSmb"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := datasync.NewLocationSmb(ctx, "example", &datasync.LocationSmbArgs{
-//				ServerHostname: pulumi.String("smb.example.com"),
-//				Subdirectory:   pulumi.String("/exported/path"),
-//				User:           pulumi.String("Guest"),
-//				Password:       pulumi.String("ANotGreatPassword"),
-//				AgentArns: pulumi.StringArray{
-//					aws_datasync_agent.Example.Arn,
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := datasync/locationSmb.NewLocationSmb(ctx, "example", &datasync/locationSmb.LocationSmbArgs{
+// ServerHostname: "smb.example.com",
+// Subdirectory: "/exported/path",
+// User: "Guest",
+// Password: "ANotGreatPassword",
+// AgentArns: []interface{}{
+// aws_datasync_agent.Example.Arn,
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

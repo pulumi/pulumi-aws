@@ -24,27 +24,25 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	ec2/subnet "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/subnet"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.NewSubnet(ctx, "main", &ec2.SubnetArgs{
-//				VpcId:     pulumi.Any(aws_vpc.Main.Id),
-//				CidrBlock: pulumi.String("10.0.1.0/24"),
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("Main"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := ec2/subnet.NewSubnet(ctx, "main", &ec2/subnet.SubnetArgs{
+// VpcId: aws_vpc.Main.Id,
+// CidrBlock: "10.0.1.0/24",
+// Tags: map[string]interface{}{
+// "Name": "Main",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Subnets In Secondary VPC CIDR Blocks
 //
@@ -56,31 +54,30 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	ec2/subnet "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/subnet"
+//	ec2/vpcIpv4CidrBlockAssociation "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/vpcIpv4CidrBlockAssociation"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			secondaryCidr, err := ec2.NewVpcIpv4CidrBlockAssociation(ctx, "secondaryCidr", &ec2.VpcIpv4CidrBlockAssociationArgs{
-//				VpcId:     pulumi.Any(aws_vpc.Main.Id),
-//				CidrBlock: pulumi.String("172.20.0.0/16"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ec2.NewSubnet(ctx, "inSecondaryCidr", &ec2.SubnetArgs{
-//				VpcId:     secondaryCidr.VpcId,
-//				CidrBlock: pulumi.String("172.20.0.0/24"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// secondaryCidr, err := ec2/vpcIpv4CidrBlockAssociation.NewVpcIpv4CidrBlockAssociation(ctx, "secondaryCidr", &ec2/vpcIpv4CidrBlockAssociation.VpcIpv4CidrBlockAssociationArgs{
+// VpcId: aws_vpc.Main.Id,
+// CidrBlock: "172.20.0.0/16",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = ec2/subnet.NewSubnet(ctx, "inSecondaryCidr", &ec2/subnet.SubnetArgs{
+// VpcId: secondaryCidr.VpcId,
+// CidrBlock: "172.20.0.0/24",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

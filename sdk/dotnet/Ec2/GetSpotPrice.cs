@@ -13,80 +13,12 @@ namespace Pulumi.Aws.Ec2
     {
         /// <summary>
         /// Information about most recent Spot Price for a given EC2 instance.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Ec2.GetSpotPrice.Invoke(new()
-        ///     {
-        ///         AvailabilityZone = "us-west-2a",
-        ///         Filters = new[]
-        ///         {
-        ///             new Aws.Ec2.Inputs.GetSpotPriceFilterInputArgs
-        ///             {
-        ///                 Name = "product-description",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "Linux/UNIX",
-        ///                 },
-        ///             },
-        ///         },
-        ///         InstanceType = "t3.medium",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetSpotPriceResult> InvokeAsync(GetSpotPriceArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSpotPriceResult>("aws:ec2/getSpotPrice:getSpotPrice", args ?? new GetSpotPriceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Information about most recent Spot Price for a given EC2 instance.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Ec2.GetSpotPrice.Invoke(new()
-        ///     {
-        ///         AvailabilityZone = "us-west-2a",
-        ///         Filters = new[]
-        ///         {
-        ///             new Aws.Ec2.Inputs.GetSpotPriceFilterInputArgs
-        ///             {
-        ///                 Name = "product-description",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "Linux/UNIX",
-        ///                 },
-        ///             },
-        ///         },
-        ///         InstanceType = "t3.medium",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetSpotPriceResult> Invoke(GetSpotPriceInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSpotPriceResult>("aws:ec2/getSpotPrice:getSpotPrice", args ?? new GetSpotPriceInvokeArgs(), options.WithDefaults());

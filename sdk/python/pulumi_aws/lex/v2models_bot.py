@@ -403,14 +403,14 @@ class V2modelsBot(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.lex.V2modelsBot("example",
-            data_privacies=[aws.lex.V2modelsBotDataPrivacyArgs(
-                child_directed="boolean",
-            )],
+        example = aws.lex.v2models_bot.V2modelsBot("example",
+            data_privacies=[{
+                childDirected: boolean,
+            }],
             idle_session_ttl_in_seconds=10,
-            role_arn="bot_example_arn",
+            role_arn=bot_example_arn,
             tags={
-                "foo": "bar",
+                foo: bar,
             })
         ```
 
@@ -452,14 +452,14 @@ class V2modelsBot(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.lex.V2modelsBot("example",
-            data_privacies=[aws.lex.V2modelsBotDataPrivacyArgs(
-                child_directed="boolean",
-            )],
+        example = aws.lex.v2models_bot.V2modelsBot("example",
+            data_privacies=[{
+                childDirected: boolean,
+            }],
             idle_session_ttl_in_seconds=10,
-            role_arn="bot_example_arn",
+            role_arn=bot_example_arn,
             tags={
-                "foo": "bar",
+                foo: bar,
             })
         ```
 

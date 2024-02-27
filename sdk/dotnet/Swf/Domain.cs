@@ -24,10 +24,10 @@ namespace Pulumi.Aws.Swf
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var foo = new Aws.Swf.Domain("foo", new()
+    ///     var foo = new Aws.Swf.Domain.Domain("foo", new()
     ///     {
     ///         Description = "SWF Domain",
-    ///         WorkflowExecutionRetentionPeriodInDays = "30",
+    ///         WorkflowExecutionRetentionPeriodInDays = 30,
     ///     });
     /// 
     /// });

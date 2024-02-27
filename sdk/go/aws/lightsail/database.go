@@ -26,29 +26,27 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lightsail"
+//	lightsail/database "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/lightsail/database"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lightsail.NewDatabase(ctx, "test", &lightsail.DatabaseArgs{
-//				AvailabilityZone:       pulumi.String("us-east-1a"),
-//				BlueprintId:            pulumi.String("mysql_8_0"),
-//				BundleId:               pulumi.String("micro_1_0"),
-//				MasterDatabaseName:     pulumi.String("testdatabasename"),
-//				MasterPassword:         pulumi.String("testdatabasepassword"),
-//				MasterUsername:         pulumi.String("test"),
-//				RelationalDatabaseName: pulumi.String("test"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := lightsail/database.NewDatabase(ctx, "test", &lightsail/database.DatabaseArgs{
+// AvailabilityZone: "us-east-1a",
+// BlueprintId: "mysql_8_0",
+// BundleId: "micro_1_0",
+// MasterDatabaseName: "testdatabasename",
+// MasterPassword: "testdatabasepassword",
+// MasterUsername: "test",
+// RelationalDatabaseName: "test",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Basic postrgres blueprint
 //
@@ -57,29 +55,27 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lightsail"
+//	lightsail/database "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/lightsail/database"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lightsail.NewDatabase(ctx, "test", &lightsail.DatabaseArgs{
-//				AvailabilityZone:       pulumi.String("us-east-1a"),
-//				BlueprintId:            pulumi.String("postgres_12"),
-//				BundleId:               pulumi.String("micro_1_0"),
-//				MasterDatabaseName:     pulumi.String("testdatabasename"),
-//				MasterPassword:         pulumi.String("testdatabasepassword"),
-//				MasterUsername:         pulumi.String("test"),
-//				RelationalDatabaseName: pulumi.String("test"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := lightsail/database.NewDatabase(ctx, "test", &lightsail/database.DatabaseArgs{
+// AvailabilityZone: "us-east-1a",
+// BlueprintId: "postgres_12",
+// BundleId: "micro_1_0",
+// MasterDatabaseName: "testdatabasename",
+// MasterPassword: "testdatabasepassword",
+// MasterUsername: "test",
+// RelationalDatabaseName: "test",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Custom backup and maintenance windows
 //
@@ -90,31 +86,29 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lightsail"
+//	lightsail/database "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/lightsail/database"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lightsail.NewDatabase(ctx, "test", &lightsail.DatabaseArgs{
-//				AvailabilityZone:           pulumi.String("us-east-1a"),
-//				BlueprintId:                pulumi.String("postgres_12"),
-//				BundleId:                   pulumi.String("micro_1_0"),
-//				MasterDatabaseName:         pulumi.String("testdatabasename"),
-//				MasterPassword:             pulumi.String("testdatabasepassword"),
-//				MasterUsername:             pulumi.String("test"),
-//				PreferredBackupWindow:      pulumi.String("16:00-16:30"),
-//				PreferredMaintenanceWindow: pulumi.String("Tue:17:00-Tue:17:30"),
-//				RelationalDatabaseName:     pulumi.String("test"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := lightsail/database.NewDatabase(ctx, "test", &lightsail/database.DatabaseArgs{
+// AvailabilityZone: "us-east-1a",
+// BlueprintId: "postgres_12",
+// BundleId: "micro_1_0",
+// MasterDatabaseName: "testdatabasename",
+// MasterPassword: "testdatabasepassword",
+// MasterUsername: "test",
+// PreferredBackupWindow: "16:00-16:30",
+// PreferredMaintenanceWindow: "Tue:17:00-Tue:17:30",
+// RelationalDatabaseName: "test",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Final Snapshots
 //
@@ -125,32 +119,30 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lightsail"
+//	lightsail/database "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/lightsail/database"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lightsail.NewDatabase(ctx, "test", &lightsail.DatabaseArgs{
-//				AvailabilityZone:           pulumi.String("us-east-1a"),
-//				BlueprintId:                pulumi.String("postgres_12"),
-//				BundleId:                   pulumi.String("micro_1_0"),
-//				FinalSnapshotName:          pulumi.String("MyFinalSnapshot"),
-//				MasterDatabaseName:         pulumi.String("testdatabasename"),
-//				MasterPassword:             pulumi.String("testdatabasepassword"),
-//				MasterUsername:             pulumi.String("test"),
-//				PreferredBackupWindow:      pulumi.String("16:00-16:30"),
-//				PreferredMaintenanceWindow: pulumi.String("Tue:17:00-Tue:17:30"),
-//				RelationalDatabaseName:     pulumi.String("test"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := lightsail/database.NewDatabase(ctx, "test", &lightsail/database.DatabaseArgs{
+// AvailabilityZone: "us-east-1a",
+// BlueprintId: "postgres_12",
+// BundleId: "micro_1_0",
+// FinalSnapshotName: "MyFinalSnapshot",
+// MasterDatabaseName: "testdatabasename",
+// MasterPassword: "testdatabasepassword",
+// MasterUsername: "test",
+// PreferredBackupWindow: "16:00-16:30",
+// PreferredMaintenanceWindow: "Tue:17:00-Tue:17:30",
+// RelationalDatabaseName: "test",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Apply Immediately
 //
@@ -161,30 +153,28 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lightsail"
+//	lightsail/database "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/lightsail/database"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lightsail.NewDatabase(ctx, "test", &lightsail.DatabaseArgs{
-//				ApplyImmediately:       pulumi.Bool(true),
-//				AvailabilityZone:       pulumi.String("us-east-1a"),
-//				BlueprintId:            pulumi.String("postgres_12"),
-//				BundleId:               pulumi.String("micro_1_0"),
-//				MasterDatabaseName:     pulumi.String("testdatabasename"),
-//				MasterPassword:         pulumi.String("testdatabasepassword"),
-//				MasterUsername:         pulumi.String("test"),
-//				RelationalDatabaseName: pulumi.String("test"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := lightsail/database.NewDatabase(ctx, "test", &lightsail/database.DatabaseArgs{
+// ApplyImmediately: true,
+// AvailabilityZone: "us-east-1a",
+// BlueprintId: "postgres_12",
+// BundleId: "micro_1_0",
+// MasterDatabaseName: "testdatabasename",
+// MasterPassword: "testdatabasepassword",
+// MasterUsername: "test",
+// RelationalDatabaseName: "test",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ## Blueprint Ids
 //

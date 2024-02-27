@@ -1513,25 +1513,76 @@ class Group(pulumi.CustomResource):
         > **NOTE on Auto Scaling Groups, Attachments and Traffic Source Attachments:** Pulumi provides standalone Attachment (for attaching Classic Load Balancers and Application Load Balancer, Gateway Load Balancer, or Network Load Balancer target groups) and Traffic Source Attachment (for attaching Load Balancers and VPC Lattice target groups) resources and an Auto Scaling Group resource with `load_balancers`, `target_group_arns` and `traffic_source` attributes. Do not use the same traffic source in more than one of these resources. Doing so will cause a conflict of attachments. A `lifecycle` configuration block can be used to suppress differences if necessary.
 
         ## Example Usage
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_aws as aws
+
+        test = aws.ec2.placement_group.PlacementGroup("test", strategy=cluster)
+        bar = aws.autoscaling.group.Group("bar",
+            max_size=5,
+            min_size=2,
+            health_check_grace_period=300,
+            health_check_type=ELB,
+            desired_capacity=4,
+            force_delete=True,
+            placement_group=test.id,
+            launch_configuration=aws_launch_configuration.foobar.name,
+            vpc_zone_identifiers=[
+                aws_subnet.example1.id,
+                aws_subnet.example2.id,
+            ],
+            instance_maintenance_policy={
+                minHealthyPercentage: 90,
+                maxHealthyPercentage: 120,
+            },
+            initial_lifecycle_hooks=[{
+                name: foobar,
+                defaultResult: CONTINUE,
+                heartbeatTimeout: 2000,
+                lifecycleTransition: autoscaling:EC2_INSTANCE_LAUNCHING,
+                notificationMetadata: json.dumps({
+                    foo: bar,
+                }),
+                notificationTargetArn: arn:aws:sqs:us-east-1:444455556666:queue1*,
+                roleArn: arn:aws:iam::123456789012:role/S3Access,
+            }],
+            tags=[
+                {
+                    key: foo,
+                    value: bar,
+                    propagateAtLaunch: True,
+                },
+                {
+                    key: lorem,
+                    value: ipsum,
+                    propagateAtLaunch: False,
+                },
+            ],
+            timeouts=[{
+                delete: 15m,
+            }])
+        ```
         ### With Latest Version Of Launch Template
 
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        foobar = aws.ec2.LaunchTemplate("foobar",
-            name_prefix="foobar",
-            image_id="ami-1a2b3c",
-            instance_type="t2.micro")
-        bar = aws.autoscaling.Group("bar",
-            availability_zones=["us-east-1a"],
+        foobar = aws.ec2.launch_template.LaunchTemplate("foobar",
+            name_prefix=foobar,
+            image_id=ami-1a2b3c,
+            instance_type=t2.micro)
+        bar = aws.autoscaling.group.Group("bar",
+            availability_zones=[us-east-1a],
             desired_capacity=1,
             max_size=1,
             min_size=1,
-            launch_template=aws.autoscaling.GroupLaunchTemplateArgs(
-                id=foobar.id,
-                version="$Latest",
-            ))
+            launch_template={
+                id: foobar.id,
+                version: $Latest,
+            })
         ```
         ### Mixed Instances Policy
 
@@ -1539,32 +1590,32 @@ class Group(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_launch_template = aws.ec2.LaunchTemplate("exampleLaunchTemplate",
-            name_prefix="example",
-            image_id=data["aws_ami"]["example"]["id"],
-            instance_type="c5.large")
-        example_group = aws.autoscaling.Group("exampleGroup",
-            availability_zones=["us-east-1a"],
+        example_launch_template = aws.ec2.launch_template.LaunchTemplate("exampleLaunchTemplate",
+            name_prefix=example,
+            image_id=data.aws_ami.example.id,
+            instance_type=c5.large)
+        example_group = aws.autoscaling.group.Group("exampleGroup",
+            availability_zones=[us-east-1a],
             desired_capacity=1,
             max_size=1,
             min_size=1,
-            mixed_instances_policy=aws.autoscaling.GroupMixedInstancesPolicyArgs(
-                launch_template=aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateArgs(
-                    launch_template_specification=aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs(
-                        launch_template_id=example_launch_template.id,
-                    ),
-                    overrides=[
-                        aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideArgs(
-                            instance_type="c4.large",
-                            weighted_capacity="3",
-                        ),
-                        aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideArgs(
-                            instance_type="c3.large",
-                            weighted_capacity="2",
-                        ),
+            mixed_instances_policy={
+                launchTemplate: {
+                    launchTemplateSpecification: {
+                        launchTemplateId: example_launch_template.id,
+                    },
+                    overrides: [
+                        {
+                            instanceType: c4.large,
+                            weightedCapacity: 3,
+                        },
+                        {
+                            instanceType: c3.large,
+                            weightedCapacity: 2,
+                        },
                     ],
-                ),
-            ))
+                },
+            })
         ```
         ### Mixed Instances Policy with Spot Instances and Capacity Rebalance
 
@@ -1572,41 +1623,41 @@ class Group(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_launch_template = aws.ec2.LaunchTemplate("exampleLaunchTemplate",
-            name_prefix="example",
-            image_id=data["aws_ami"]["example"]["id"],
-            instance_type="c5.large")
-        example_group = aws.autoscaling.Group("exampleGroup",
+        example_launch_template = aws.ec2.launch_template.LaunchTemplate("exampleLaunchTemplate",
+            name_prefix=example,
+            image_id=data.aws_ami.example.id,
+            instance_type=c5.large)
+        example_group = aws.autoscaling.group.Group("exampleGroup",
             capacity_rebalance=True,
             desired_capacity=12,
             max_size=15,
             min_size=12,
             vpc_zone_identifiers=[
-                aws_subnet["example1"]["id"],
-                aws_subnet["example2"]["id"],
+                aws_subnet.example1.id,
+                aws_subnet.example2.id,
             ],
-            mixed_instances_policy=aws.autoscaling.GroupMixedInstancesPolicyArgs(
-                instances_distribution=aws.autoscaling.GroupMixedInstancesPolicyInstancesDistributionArgs(
-                    on_demand_base_capacity=0,
-                    on_demand_percentage_above_base_capacity=25,
-                    spot_allocation_strategy="capacity-optimized",
-                ),
-                launch_template=aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateArgs(
-                    launch_template_specification=aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs(
-                        launch_template_id=example_launch_template.id,
-                    ),
-                    overrides=[
-                        aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideArgs(
-                            instance_type="c4.large",
-                            weighted_capacity="3",
-                        ),
-                        aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideArgs(
-                            instance_type="c3.large",
-                            weighted_capacity="2",
-                        ),
+            mixed_instances_policy={
+                instancesDistribution: {
+                    onDemandBaseCapacity: 0,
+                    onDemandPercentageAboveBaseCapacity: 25,
+                    spotAllocationStrategy: capacity-optimized,
+                },
+                launchTemplate: {
+                    launchTemplateSpecification: {
+                        launchTemplateId: example_launch_template.id,
+                    },
+                    overrides: [
+                        {
+                            instanceType: c4.large,
+                            weightedCapacity: 3,
+                        },
+                        {
+                            instanceType: c3.large,
+                            weightedCapacity: 2,
+                        },
                     ],
-                ),
-            ))
+                },
+            })
         ```
         ### Mixed Instances Policy with Instance level LaunchTemplateSpecification Overrides
 
@@ -1616,38 +1667,38 @@ class Group(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_launch_template = aws.ec2.LaunchTemplate("exampleLaunchTemplate",
-            name_prefix="example",
-            image_id=data["aws_ami"]["example"]["id"],
-            instance_type="c5.large")
-        example2 = aws.ec2.LaunchTemplate("example2",
-            name_prefix="example2",
-            image_id=data["aws_ami"]["example2"]["id"])
-        example_group = aws.autoscaling.Group("exampleGroup",
-            availability_zones=["us-east-1a"],
+        example_launch_template = aws.ec2.launch_template.LaunchTemplate("exampleLaunchTemplate",
+            name_prefix=example,
+            image_id=data.aws_ami.example.id,
+            instance_type=c5.large)
+        example2 = aws.ec2.launch_template.LaunchTemplate("example2",
+            name_prefix=example2,
+            image_id=data.aws_ami.example2.id)
+        example_group = aws.autoscaling.group.Group("exampleGroup",
+            availability_zones=[us-east-1a],
             desired_capacity=1,
             max_size=1,
             min_size=1,
-            mixed_instances_policy=aws.autoscaling.GroupMixedInstancesPolicyArgs(
-                launch_template=aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateArgs(
-                    launch_template_specification=aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs(
-                        launch_template_id=example_launch_template.id,
-                    ),
-                    overrides=[
-                        aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideArgs(
-                            instance_type="c4.large",
-                            weighted_capacity="3",
-                        ),
-                        aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideArgs(
-                            instance_type="c6g.large",
-                            launch_template_specification=aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationArgs(
-                                launch_template_id=example2.id,
-                            ),
-                            weighted_capacity="2",
-                        ),
+            mixed_instances_policy={
+                launchTemplate: {
+                    launchTemplateSpecification: {
+                        launchTemplateId: example_launch_template.id,
+                    },
+                    overrides: [
+                        {
+                            instanceType: c4.large,
+                            weightedCapacity: 3,
+                        },
+                        {
+                            instanceType: c6g.large,
+                            launchTemplateSpecification: {
+                                launchTemplateId: example2.id,
+                            },
+                            weightedCapacity: 2,
+                        },
                     ],
-                ),
-            ))
+                },
+            })
         ```
         ### Mixed Instances Policy with Attribute-based Instance Type Selection
 
@@ -1657,69 +1708,82 @@ class Group(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_launch_template = aws.ec2.LaunchTemplate("exampleLaunchTemplate",
-            name_prefix="example",
-            image_id=data["aws_ami"]["example"]["id"],
-            instance_type="c5.large")
-        example_group = aws.autoscaling.Group("exampleGroup",
-            availability_zones=["us-east-1a"],
+        example_launch_template = aws.ec2.launch_template.LaunchTemplate("exampleLaunchTemplate",
+            name_prefix=example,
+            image_id=data.aws_ami.example.id,
+            instance_type=c5.large)
+        example_group = aws.autoscaling.group.Group("exampleGroup",
+            availability_zones=[us-east-1a],
             desired_capacity=1,
             max_size=1,
             min_size=1,
-            mixed_instances_policy=aws.autoscaling.GroupMixedInstancesPolicyArgs(
-                launch_template=aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateArgs(
-                    launch_template_specification=aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs(
-                        launch_template_id=example_launch_template.id,
-                    ),
-                    overrides=[aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideArgs(
-                        instance_requirements=aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs(
-                            memory_mib=aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibArgs(
-                                min=1000,
-                            ),
-                            vcpu_count=aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountArgs(
-                                min=4,
-                            ),
-                        ),
-                    )],
-                ),
-            ))
+            mixed_instances_policy={
+                launchTemplate: {
+                    launchTemplateSpecification: {
+                        launchTemplateId: example_launch_template.id,
+                    },
+                    overrides: [{
+                        instanceRequirements: {
+                            memoryMib: {
+                                min: 1000,
+                            },
+                            vcpuCount: {
+                                min: 4,
+                            },
+                        },
+                    }],
+                },
+            })
         ```
-        ### Automatically refresh all instances after the group is updated
+        ### Dynamic tagging
 
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_ami = aws.ec2.get_ami(most_recent=True,
-            owners=["amazon"],
-            filters=[aws.ec2.GetAmiFilterArgs(
-                name="name",
-                values=["amzn-ami-hvm-*-x86_64-gp2"],
-            )])
-        example_launch_template = aws.ec2.LaunchTemplate("exampleLaunchTemplate",
-            image_id=example_ami.id,
-            instance_type="t3.nano")
-        example_group = aws.autoscaling.Group("exampleGroup",
-            availability_zones=["us-east-1a"],
-            desired_capacity=1,
-            max_size=2,
-            min_size=1,
-            launch_template=aws.autoscaling.GroupLaunchTemplateArgs(
-                id=example_launch_template.id,
-                version=example_launch_template.latest_version,
-            ),
-            tags=[aws.autoscaling.GroupTagArgs(
-                key="Key",
-                value="Value",
-                propagate_at_launch=True,
-            )],
-            instance_refresh=aws.autoscaling.GroupInstanceRefreshArgs(
-                strategy="Rolling",
-                preferences=aws.autoscaling.GroupInstanceRefreshPreferencesArgs(
-                    min_healthy_percentage=50,
-                ),
-                triggers=["tag"],
-            ))
+        config = pulumi.Config()
+        extra_tags = config.get_object("extraTags")
+        if extra_tags is None:
+            extra_tags = [
+                {
+                    "key": "Foo",
+                    "value": "Bar",
+                    "propagate_at_launch": True,
+                },
+                {
+                    "key": "Baz",
+                    "value": "Bam",
+                    "propagate_at_launch": True,
+                },
+            ]
+        test = aws.autoscaling.group.Group("test",
+            max_size=5,
+            min_size=2,
+            launch_configuration=aws_launch_configuration.foobar.name,
+            vpc_zone_identifiers=[
+                aws_subnet.example1.id,
+                aws_subnet.example2.id,
+            ],
+            tags=[
+                {
+                    key: explicit1,
+                    value: value1,
+                    propagateAtLaunch: True,
+                },
+                {
+                    key: explicit2,
+                    value: value2,
+                    propagateAtLaunch: True,
+                },
+            ],
+            dynamic=[{
+                forEach: extra_tags,
+                content: [{
+                    key: tag.value.key,
+                    propagateAtLaunch: tag.value.propagate_at_launch,
+                    value: tag.value.value,
+                }],
+            }])
         ```
         ### Auto Scaling group with Warm Pool
 
@@ -1727,23 +1791,42 @@ class Group(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_launch_template = aws.ec2.LaunchTemplate("exampleLaunchTemplate",
-            name_prefix="example",
-            image_id=data["aws_ami"]["example"]["id"],
-            instance_type="c5.large")
-        example_group = aws.autoscaling.Group("exampleGroup",
-            availability_zones=["us-east-1a"],
+        example_launch_template = aws.ec2.launch_template.LaunchTemplate("exampleLaunchTemplate",
+            name_prefix=example,
+            image_id=data.aws_ami.example.id,
+            instance_type=c5.large)
+        example_group = aws.autoscaling.group.Group("exampleGroup",
+            availability_zones=[us-east-1a],
             desired_capacity=1,
             max_size=5,
             min_size=1,
-            warm_pool=aws.autoscaling.GroupWarmPoolArgs(
-                pool_state="Hibernated",
-                min_size=1,
-                max_group_prepared_capacity=10,
-                instance_reuse_policy=aws.autoscaling.GroupWarmPoolInstanceReusePolicyArgs(
-                    reuse_on_scale_in=True,
-                ),
-            ))
+            warm_pool={
+                poolState: Hibernated,
+                minSize: 1,
+                maxGroupPreparedCapacity: 10,
+                instanceReusePolicy: {
+                    reuseOnScaleIn: True,
+                },
+            })
+        ```
+        ### Auto Scaling group with Traffic Sources
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.autoscaling.group.Group("test",
+            vpc_zone_identifiers=aws_subnet.test.id,
+            max_size=1,
+            min_size=1,
+            force_delete=True,
+            dynamic=[{
+                forEach: [__item for __item in aws_vpclattice_target_group.test],
+                content: [{
+                    identifier: traffic_source.value.arn,
+                    type: vpc-lattice,
+                }],
+            }])
         ```
         ## Waiting for Capacity
 
@@ -1905,25 +1988,76 @@ class Group(pulumi.CustomResource):
         > **NOTE on Auto Scaling Groups, Attachments and Traffic Source Attachments:** Pulumi provides standalone Attachment (for attaching Classic Load Balancers and Application Load Balancer, Gateway Load Balancer, or Network Load Balancer target groups) and Traffic Source Attachment (for attaching Load Balancers and VPC Lattice target groups) resources and an Auto Scaling Group resource with `load_balancers`, `target_group_arns` and `traffic_source` attributes. Do not use the same traffic source in more than one of these resources. Doing so will cause a conflict of attachments. A `lifecycle` configuration block can be used to suppress differences if necessary.
 
         ## Example Usage
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_aws as aws
+
+        test = aws.ec2.placement_group.PlacementGroup("test", strategy=cluster)
+        bar = aws.autoscaling.group.Group("bar",
+            max_size=5,
+            min_size=2,
+            health_check_grace_period=300,
+            health_check_type=ELB,
+            desired_capacity=4,
+            force_delete=True,
+            placement_group=test.id,
+            launch_configuration=aws_launch_configuration.foobar.name,
+            vpc_zone_identifiers=[
+                aws_subnet.example1.id,
+                aws_subnet.example2.id,
+            ],
+            instance_maintenance_policy={
+                minHealthyPercentage: 90,
+                maxHealthyPercentage: 120,
+            },
+            initial_lifecycle_hooks=[{
+                name: foobar,
+                defaultResult: CONTINUE,
+                heartbeatTimeout: 2000,
+                lifecycleTransition: autoscaling:EC2_INSTANCE_LAUNCHING,
+                notificationMetadata: json.dumps({
+                    foo: bar,
+                }),
+                notificationTargetArn: arn:aws:sqs:us-east-1:444455556666:queue1*,
+                roleArn: arn:aws:iam::123456789012:role/S3Access,
+            }],
+            tags=[
+                {
+                    key: foo,
+                    value: bar,
+                    propagateAtLaunch: True,
+                },
+                {
+                    key: lorem,
+                    value: ipsum,
+                    propagateAtLaunch: False,
+                },
+            ],
+            timeouts=[{
+                delete: 15m,
+            }])
+        ```
         ### With Latest Version Of Launch Template
 
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        foobar = aws.ec2.LaunchTemplate("foobar",
-            name_prefix="foobar",
-            image_id="ami-1a2b3c",
-            instance_type="t2.micro")
-        bar = aws.autoscaling.Group("bar",
-            availability_zones=["us-east-1a"],
+        foobar = aws.ec2.launch_template.LaunchTemplate("foobar",
+            name_prefix=foobar,
+            image_id=ami-1a2b3c,
+            instance_type=t2.micro)
+        bar = aws.autoscaling.group.Group("bar",
+            availability_zones=[us-east-1a],
             desired_capacity=1,
             max_size=1,
             min_size=1,
-            launch_template=aws.autoscaling.GroupLaunchTemplateArgs(
-                id=foobar.id,
-                version="$Latest",
-            ))
+            launch_template={
+                id: foobar.id,
+                version: $Latest,
+            })
         ```
         ### Mixed Instances Policy
 
@@ -1931,32 +2065,32 @@ class Group(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_launch_template = aws.ec2.LaunchTemplate("exampleLaunchTemplate",
-            name_prefix="example",
-            image_id=data["aws_ami"]["example"]["id"],
-            instance_type="c5.large")
-        example_group = aws.autoscaling.Group("exampleGroup",
-            availability_zones=["us-east-1a"],
+        example_launch_template = aws.ec2.launch_template.LaunchTemplate("exampleLaunchTemplate",
+            name_prefix=example,
+            image_id=data.aws_ami.example.id,
+            instance_type=c5.large)
+        example_group = aws.autoscaling.group.Group("exampleGroup",
+            availability_zones=[us-east-1a],
             desired_capacity=1,
             max_size=1,
             min_size=1,
-            mixed_instances_policy=aws.autoscaling.GroupMixedInstancesPolicyArgs(
-                launch_template=aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateArgs(
-                    launch_template_specification=aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs(
-                        launch_template_id=example_launch_template.id,
-                    ),
-                    overrides=[
-                        aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideArgs(
-                            instance_type="c4.large",
-                            weighted_capacity="3",
-                        ),
-                        aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideArgs(
-                            instance_type="c3.large",
-                            weighted_capacity="2",
-                        ),
+            mixed_instances_policy={
+                launchTemplate: {
+                    launchTemplateSpecification: {
+                        launchTemplateId: example_launch_template.id,
+                    },
+                    overrides: [
+                        {
+                            instanceType: c4.large,
+                            weightedCapacity: 3,
+                        },
+                        {
+                            instanceType: c3.large,
+                            weightedCapacity: 2,
+                        },
                     ],
-                ),
-            ))
+                },
+            })
         ```
         ### Mixed Instances Policy with Spot Instances and Capacity Rebalance
 
@@ -1964,41 +2098,41 @@ class Group(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_launch_template = aws.ec2.LaunchTemplate("exampleLaunchTemplate",
-            name_prefix="example",
-            image_id=data["aws_ami"]["example"]["id"],
-            instance_type="c5.large")
-        example_group = aws.autoscaling.Group("exampleGroup",
+        example_launch_template = aws.ec2.launch_template.LaunchTemplate("exampleLaunchTemplate",
+            name_prefix=example,
+            image_id=data.aws_ami.example.id,
+            instance_type=c5.large)
+        example_group = aws.autoscaling.group.Group("exampleGroup",
             capacity_rebalance=True,
             desired_capacity=12,
             max_size=15,
             min_size=12,
             vpc_zone_identifiers=[
-                aws_subnet["example1"]["id"],
-                aws_subnet["example2"]["id"],
+                aws_subnet.example1.id,
+                aws_subnet.example2.id,
             ],
-            mixed_instances_policy=aws.autoscaling.GroupMixedInstancesPolicyArgs(
-                instances_distribution=aws.autoscaling.GroupMixedInstancesPolicyInstancesDistributionArgs(
-                    on_demand_base_capacity=0,
-                    on_demand_percentage_above_base_capacity=25,
-                    spot_allocation_strategy="capacity-optimized",
-                ),
-                launch_template=aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateArgs(
-                    launch_template_specification=aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs(
-                        launch_template_id=example_launch_template.id,
-                    ),
-                    overrides=[
-                        aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideArgs(
-                            instance_type="c4.large",
-                            weighted_capacity="3",
-                        ),
-                        aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideArgs(
-                            instance_type="c3.large",
-                            weighted_capacity="2",
-                        ),
+            mixed_instances_policy={
+                instancesDistribution: {
+                    onDemandBaseCapacity: 0,
+                    onDemandPercentageAboveBaseCapacity: 25,
+                    spotAllocationStrategy: capacity-optimized,
+                },
+                launchTemplate: {
+                    launchTemplateSpecification: {
+                        launchTemplateId: example_launch_template.id,
+                    },
+                    overrides: [
+                        {
+                            instanceType: c4.large,
+                            weightedCapacity: 3,
+                        },
+                        {
+                            instanceType: c3.large,
+                            weightedCapacity: 2,
+                        },
                     ],
-                ),
-            ))
+                },
+            })
         ```
         ### Mixed Instances Policy with Instance level LaunchTemplateSpecification Overrides
 
@@ -2008,38 +2142,38 @@ class Group(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_launch_template = aws.ec2.LaunchTemplate("exampleLaunchTemplate",
-            name_prefix="example",
-            image_id=data["aws_ami"]["example"]["id"],
-            instance_type="c5.large")
-        example2 = aws.ec2.LaunchTemplate("example2",
-            name_prefix="example2",
-            image_id=data["aws_ami"]["example2"]["id"])
-        example_group = aws.autoscaling.Group("exampleGroup",
-            availability_zones=["us-east-1a"],
+        example_launch_template = aws.ec2.launch_template.LaunchTemplate("exampleLaunchTemplate",
+            name_prefix=example,
+            image_id=data.aws_ami.example.id,
+            instance_type=c5.large)
+        example2 = aws.ec2.launch_template.LaunchTemplate("example2",
+            name_prefix=example2,
+            image_id=data.aws_ami.example2.id)
+        example_group = aws.autoscaling.group.Group("exampleGroup",
+            availability_zones=[us-east-1a],
             desired_capacity=1,
             max_size=1,
             min_size=1,
-            mixed_instances_policy=aws.autoscaling.GroupMixedInstancesPolicyArgs(
-                launch_template=aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateArgs(
-                    launch_template_specification=aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs(
-                        launch_template_id=example_launch_template.id,
-                    ),
-                    overrides=[
-                        aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideArgs(
-                            instance_type="c4.large",
-                            weighted_capacity="3",
-                        ),
-                        aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideArgs(
-                            instance_type="c6g.large",
-                            launch_template_specification=aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationArgs(
-                                launch_template_id=example2.id,
-                            ),
-                            weighted_capacity="2",
-                        ),
+            mixed_instances_policy={
+                launchTemplate: {
+                    launchTemplateSpecification: {
+                        launchTemplateId: example_launch_template.id,
+                    },
+                    overrides: [
+                        {
+                            instanceType: c4.large,
+                            weightedCapacity: 3,
+                        },
+                        {
+                            instanceType: c6g.large,
+                            launchTemplateSpecification: {
+                                launchTemplateId: example2.id,
+                            },
+                            weightedCapacity: 2,
+                        },
                     ],
-                ),
-            ))
+                },
+            })
         ```
         ### Mixed Instances Policy with Attribute-based Instance Type Selection
 
@@ -2049,69 +2183,82 @@ class Group(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_launch_template = aws.ec2.LaunchTemplate("exampleLaunchTemplate",
-            name_prefix="example",
-            image_id=data["aws_ami"]["example"]["id"],
-            instance_type="c5.large")
-        example_group = aws.autoscaling.Group("exampleGroup",
-            availability_zones=["us-east-1a"],
+        example_launch_template = aws.ec2.launch_template.LaunchTemplate("exampleLaunchTemplate",
+            name_prefix=example,
+            image_id=data.aws_ami.example.id,
+            instance_type=c5.large)
+        example_group = aws.autoscaling.group.Group("exampleGroup",
+            availability_zones=[us-east-1a],
             desired_capacity=1,
             max_size=1,
             min_size=1,
-            mixed_instances_policy=aws.autoscaling.GroupMixedInstancesPolicyArgs(
-                launch_template=aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateArgs(
-                    launch_template_specification=aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs(
-                        launch_template_id=example_launch_template.id,
-                    ),
-                    overrides=[aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideArgs(
-                        instance_requirements=aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs(
-                            memory_mib=aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibArgs(
-                                min=1000,
-                            ),
-                            vcpu_count=aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountArgs(
-                                min=4,
-                            ),
-                        ),
-                    )],
-                ),
-            ))
+            mixed_instances_policy={
+                launchTemplate: {
+                    launchTemplateSpecification: {
+                        launchTemplateId: example_launch_template.id,
+                    },
+                    overrides: [{
+                        instanceRequirements: {
+                            memoryMib: {
+                                min: 1000,
+                            },
+                            vcpuCount: {
+                                min: 4,
+                            },
+                        },
+                    }],
+                },
+            })
         ```
-        ### Automatically refresh all instances after the group is updated
+        ### Dynamic tagging
 
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_ami = aws.ec2.get_ami(most_recent=True,
-            owners=["amazon"],
-            filters=[aws.ec2.GetAmiFilterArgs(
-                name="name",
-                values=["amzn-ami-hvm-*-x86_64-gp2"],
-            )])
-        example_launch_template = aws.ec2.LaunchTemplate("exampleLaunchTemplate",
-            image_id=example_ami.id,
-            instance_type="t3.nano")
-        example_group = aws.autoscaling.Group("exampleGroup",
-            availability_zones=["us-east-1a"],
-            desired_capacity=1,
-            max_size=2,
-            min_size=1,
-            launch_template=aws.autoscaling.GroupLaunchTemplateArgs(
-                id=example_launch_template.id,
-                version=example_launch_template.latest_version,
-            ),
-            tags=[aws.autoscaling.GroupTagArgs(
-                key="Key",
-                value="Value",
-                propagate_at_launch=True,
-            )],
-            instance_refresh=aws.autoscaling.GroupInstanceRefreshArgs(
-                strategy="Rolling",
-                preferences=aws.autoscaling.GroupInstanceRefreshPreferencesArgs(
-                    min_healthy_percentage=50,
-                ),
-                triggers=["tag"],
-            ))
+        config = pulumi.Config()
+        extra_tags = config.get_object("extraTags")
+        if extra_tags is None:
+            extra_tags = [
+                {
+                    "key": "Foo",
+                    "value": "Bar",
+                    "propagate_at_launch": True,
+                },
+                {
+                    "key": "Baz",
+                    "value": "Bam",
+                    "propagate_at_launch": True,
+                },
+            ]
+        test = aws.autoscaling.group.Group("test",
+            max_size=5,
+            min_size=2,
+            launch_configuration=aws_launch_configuration.foobar.name,
+            vpc_zone_identifiers=[
+                aws_subnet.example1.id,
+                aws_subnet.example2.id,
+            ],
+            tags=[
+                {
+                    key: explicit1,
+                    value: value1,
+                    propagateAtLaunch: True,
+                },
+                {
+                    key: explicit2,
+                    value: value2,
+                    propagateAtLaunch: True,
+                },
+            ],
+            dynamic=[{
+                forEach: extra_tags,
+                content: [{
+                    key: tag.value.key,
+                    propagateAtLaunch: tag.value.propagate_at_launch,
+                    value: tag.value.value,
+                }],
+            }])
         ```
         ### Auto Scaling group with Warm Pool
 
@@ -2119,23 +2266,42 @@ class Group(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_launch_template = aws.ec2.LaunchTemplate("exampleLaunchTemplate",
-            name_prefix="example",
-            image_id=data["aws_ami"]["example"]["id"],
-            instance_type="c5.large")
-        example_group = aws.autoscaling.Group("exampleGroup",
-            availability_zones=["us-east-1a"],
+        example_launch_template = aws.ec2.launch_template.LaunchTemplate("exampleLaunchTemplate",
+            name_prefix=example,
+            image_id=data.aws_ami.example.id,
+            instance_type=c5.large)
+        example_group = aws.autoscaling.group.Group("exampleGroup",
+            availability_zones=[us-east-1a],
             desired_capacity=1,
             max_size=5,
             min_size=1,
-            warm_pool=aws.autoscaling.GroupWarmPoolArgs(
-                pool_state="Hibernated",
-                min_size=1,
-                max_group_prepared_capacity=10,
-                instance_reuse_policy=aws.autoscaling.GroupWarmPoolInstanceReusePolicyArgs(
-                    reuse_on_scale_in=True,
-                ),
-            ))
+            warm_pool={
+                poolState: Hibernated,
+                minSize: 1,
+                maxGroupPreparedCapacity: 10,
+                instanceReusePolicy: {
+                    reuseOnScaleIn: True,
+                },
+            })
+        ```
+        ### Auto Scaling group with Traffic Sources
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.autoscaling.group.Group("test",
+            vpc_zone_identifiers=aws_subnet.test.id,
+            max_size=1,
+            min_size=1,
+            force_delete=True,
+            dynamic=[{
+                forEach: [__item for __item in aws_vpclattice_target_group.test],
+                content: [{
+                    identifier: traffic_source.value.arn,
+                    type: vpc-lattice,
+                }],
+            }])
         ```
         ## Waiting for Capacity
 

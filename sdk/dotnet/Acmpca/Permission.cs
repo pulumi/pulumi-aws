@@ -23,20 +23,20 @@ namespace Pulumi.Aws.Acmpca
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleCertificateAuthority = new Aws.Acmpca.CertificateAuthority("exampleCertificateAuthority", new()
+    ///     var exampleCertificateAuthority = new Aws.Acmpca.CertificateAuthority.CertificateAuthority("exampleCertificateAuthority", new()
     ///     {
-    ///         CertificateAuthorityConfiguration = new Aws.Acmpca.Inputs.CertificateAuthorityCertificateAuthorityConfigurationArgs
+    ///         CertificateAuthorityConfiguration = 
     ///         {
-    ///             KeyAlgorithm = "RSA_4096",
-    ///             SigningAlgorithm = "SHA512WITHRSA",
-    ///             Subject = new Aws.Acmpca.Inputs.CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs
+    ///             { "keyAlgorithm", "RSA_4096" },
+    ///             { "signingAlgorithm", "SHA512WITHRSA" },
+    ///             { "subject", 
     ///             {
-    ///                 CommonName = "example.com",
-    ///             },
+    ///                 { "commonName", "example.com" },
+    ///             } },
     ///         },
     ///     });
     /// 
-    ///     var examplePermission = new Aws.Acmpca.Permission("examplePermission", new()
+    ///     var examplePermission = new Aws.Acmpca.Permission.Permission("examplePermission", new()
     ///     {
     ///         CertificateAuthorityArn = exampleCertificateAuthority.Arn,
     ///         Actions = new[]

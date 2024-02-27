@@ -24,9 +24,9 @@ namespace Pulumi.Aws.S3
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2");
+    ///     var exampleBucketV2 = new Aws.S3.BucketV2.BucketV2("exampleBucketV2");
     /// 
-    ///     var exampleBucketPublicAccessBlock = new Aws.S3.BucketPublicAccessBlock("exampleBucketPublicAccessBlock", new()
+    ///     var exampleBucketPublicAccessBlock = new Aws.S3.BucketPublicAccessBlock.BucketPublicAccessBlock("exampleBucketPublicAccessBlock", new()
     ///     {
     ///         Bucket = exampleBucketV2.Id,
     ///         BlockPublicAcls = true,

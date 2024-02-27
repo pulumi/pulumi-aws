@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleLfTag = new aws.lakeformation.LfTag("exampleLfTag", {
+ * const exampleLfTag = new aws.lakeformation/lfTag.LfTag("exampleLfTag", {
  *     key: "right",
  *     values: [
  *         "abbey",
@@ -30,7 +30,7 @@ import * as utilities from "../utilities";
  *         "club",
  *     ],
  * });
- * const exampleResourceLfTags = new aws.lakeformation.ResourceLfTags("exampleResourceLfTags", {
+ * const exampleResourceLfTags = new aws.lakeformation/resourceLfTags.ResourceLfTags("exampleResourceLfTags", {
  *     database: {
  *         name: aws_glue_catalog_database.example.name,
  *     },
@@ -46,7 +46,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleLfTag = new aws.lakeformation.LfTag("exampleLfTag", {
+ * const exampleLfTag = new aws.lakeformation/lfTag.LfTag("exampleLfTag", {
  *     key: "right",
  *     values: [
  *         "abbey",
@@ -59,7 +59,7 @@ import * as utilities from "../utilities";
  *         "club",
  *     ],
  * });
- * const example2 = new aws.lakeformation.LfTag("example2", {
+ * const example2 = new aws.lakeformation/lfTag.LfTag("example2", {
  *     key: "left",
  *     values: [
  *         "farm",
@@ -71,7 +71,7 @@ import * as utilities from "../utilities";
  *         "vale",
  *     ],
  * });
- * const exampleResourceLfTags = new aws.lakeformation.ResourceLfTags("exampleResourceLfTags", {
+ * const exampleResourceLfTags = new aws.lakeformation/resourceLfTags.ResourceLfTags("exampleResourceLfTags", {
  *     database: {
  *         name: aws_glue_catalog_database.example.name,
  *     },

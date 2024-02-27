@@ -29,8 +29,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.apigatewayv2.VpcLink;
- * import com.pulumi.aws.apigatewayv2.VpcLinkArgs;
+ * import com.pulumi.aws.apigatewayv2_vpcLink.VpcLink;
+ * import com.pulumi.aws.apigatewayv2_vpcLink.VpcLinkArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *         var example = new VpcLink(&#34;example&#34;, VpcLinkArgs.builder()        
  *             .securityGroupIds(data.aws_security_group().example().id())
  *             .subnetIds(data.aws_subnets().example().ids())
- *             .tags(Map.of(&#34;Usage&#34;, &#34;example&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

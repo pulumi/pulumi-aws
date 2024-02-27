@@ -12,32 +12,6 @@ import (
 )
 
 // Provides details about a specific DataPipeline Pipeline Definition.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/datapipeline"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := datapipeline.LookupPipelineDefinition(ctx, &datapipeline.LookupPipelineDefinitionArgs{
-//				PipelineId: "pipelineID",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupPipelineDefinition(ctx *pulumi.Context, args *LookupPipelineDefinitionArgs, opts ...pulumi.InvokeOption) (*LookupPipelineDefinitionResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupPipelineDefinitionResult

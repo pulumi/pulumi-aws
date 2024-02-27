@@ -22,15 +22,15 @@ namespace Pulumi.Aws.AppStream
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testStack = new Aws.AppStream.Stack("testStack");
+    ///     var testStack = new Aws.Appstream.Stack.Stack("testStack");
     /// 
-    ///     var testUser = new Aws.AppStream.User("testUser", new()
+    ///     var testUser = new Aws.Appstream.User.User("testUser", new()
     ///     {
     ///         AuthenticationType = "USERPOOL",
     ///         UserName = "EMAIL",
     ///     });
     /// 
-    ///     var testUserStackAssociation = new Aws.AppStream.UserStackAssociation("testUserStackAssociation", new()
+    ///     var testUserStackAssociation = new Aws.Appstream.UserStackAssociation.UserStackAssociation("testUserStackAssociation", new()
     ///     {
     ///         AuthenticationType = testUser.AuthenticationType,
     ///         StackName = testStack.Name,

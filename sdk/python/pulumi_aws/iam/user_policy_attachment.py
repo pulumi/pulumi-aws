@@ -108,11 +108,11 @@ class UserPolicyAttachment(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        user = aws.iam.User("user")
-        policy = aws.iam.Policy("policy",
-            description="A test policy",
-            policy="{ ... policy JSON ... }")
-        test_attach = aws.iam.UserPolicyAttachment("test-attach",
+        user = aws.iam.user.User("user")
+        policy = aws.iam.policy.Policy("policy",
+            description=A test policy,
+            policy={ ... policy JSON ... })
+        test_attach = aws.iam.user_policy_attachment.UserPolicyAttachment("test-attach",
             user=user.name,
             policy_arn=policy.arn)
         ```
@@ -147,11 +147,11 @@ class UserPolicyAttachment(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        user = aws.iam.User("user")
-        policy = aws.iam.Policy("policy",
-            description="A test policy",
-            policy="{ ... policy JSON ... }")
-        test_attach = aws.iam.UserPolicyAttachment("test-attach",
+        user = aws.iam.user.User("user")
+        policy = aws.iam.policy.Policy("policy",
+            description=A test policy,
+            policy={ ... policy JSON ... })
+        test_attach = aws.iam.user_policy_attachment.UserPolicyAttachment("test-attach",
             user=user.name,
             policy_arn=policy.arn)
         ```

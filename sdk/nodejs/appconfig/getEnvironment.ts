@@ -11,17 +11,6 @@ import * as utilities from "../utilities";
  * Provides access to an AppConfig Environment.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.appconfig.getEnvironment({
- *     applicationId: "b5d5gpj",
- *     environmentId: "qrbb1c1",
- * });
- * ```
  */
 export function getEnvironment(args: GetEnvironmentArgs, opts?: pulumi.InvokeOptions): Promise<GetEnvironmentResult> {
 
@@ -91,17 +80,6 @@ export interface GetEnvironmentResult {
  * Provides access to an AppConfig Environment.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.appconfig.getEnvironment({
- *     applicationId: "b5d5gpj",
- *     environmentId: "qrbb1c1",
- * });
- * ```
  */
 export function getEnvironmentOutput(args: GetEnvironmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEnvironmentResult> {
     return pulumi.output(args).apply((a: any) => getEnvironment(a, opts))

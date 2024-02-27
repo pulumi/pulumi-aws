@@ -27,8 +27,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.acmpca.CertificateAuthority;
  * import com.pulumi.aws.acmpca.CertificateAuthorityArgs;
- * import com.pulumi.aws.acmpca.inputs.CertificateAuthorityCertificateAuthorityConfigurationArgs;
- * import com.pulumi.aws.acmpca.inputs.CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs;
  * import com.pulumi.aws.acmpca.Permission;
  * import com.pulumi.aws.acmpca.PermissionArgs;
  * import java.util.List;
@@ -45,13 +43,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var exampleCertificateAuthority = new CertificateAuthority(&#34;exampleCertificateAuthority&#34;, CertificateAuthorityArgs.builder()        
- *             .certificateAuthorityConfiguration(CertificateAuthorityCertificateAuthorityConfigurationArgs.builder()
- *                 .keyAlgorithm(&#34;RSA_4096&#34;)
- *                 .signingAlgorithm(&#34;SHA512WITHRSA&#34;)
- *                 .subject(CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs.builder()
- *                     .commonName(&#34;example.com&#34;)
- *                     .build())
- *                 .build())
+ *             .certificateAuthorityConfiguration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var examplePermission = new Permission(&#34;examplePermission&#34;, PermissionArgs.builder()        

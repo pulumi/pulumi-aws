@@ -24,7 +24,7 @@ namespace Pulumi.Aws.S3Control
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.S3Control.AccessGrantsInstance("example");
+    ///     var example = new Aws.S3control.AccessGrantsInstance.AccessGrantsInstance("example");
     /// 
     /// });
     /// ```
@@ -38,7 +38,7 @@ namespace Pulumi.Aws.S3Control
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.S3Control.AccessGrantsInstance("example", new()
+    ///     var example = new Aws.S3control.AccessGrantsInstance.AccessGrantsInstance("example", new()
     ///     {
     ///         IdentityCenterArn = "arn:aws:sso:::instance/ssoins-890759e9c7bfdc1d",
     ///     });

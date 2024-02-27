@@ -22,81 +22,27 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cognito"
+//	cognito/userPool "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/cognito/userPool"
+//	cognito/userPoolDomain "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/cognito/userPoolDomain"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := cognito.NewUserPool(ctx, "example", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = cognito.NewUserPoolDomain(ctx, "main", &cognito.UserPoolDomainArgs{
-//				Domain:     pulumi.String("example-domain"),
-//				UserPoolId: example.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// ### Custom Cognito domain
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cognito"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleUserPool, err := cognito.NewUserPool(ctx, "exampleUserPool", nil)
-//			if err != nil {
-//				return err
-//			}
-//			main, err := cognito.NewUserPoolDomain(ctx, "main", &cognito.UserPoolDomainArgs{
-//				Domain:         pulumi.String("example-domain"),
-//				CertificateArn: pulumi.Any(aws_acm_certificate.Cert.Arn),
-//				UserPoolId:     exampleUserPool.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleZone, err := route53.LookupZone(ctx, &route53.LookupZoneArgs{
-//				Name: pulumi.StringRef("example.com"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = route53.NewRecord(ctx, "auth-cognito-A", &route53.RecordArgs{
-//				Name:   main.Domain,
-//				Type:   pulumi.String("A"),
-//				ZoneId: *pulumi.String(exampleZone.ZoneId),
-//				Aliases: route53.RecordAliasArray{
-//					&route53.RecordAliasArgs{
-//						EvaluateTargetHealth: pulumi.Bool(false),
-//						Name:                 main.CloudfrontDistribution,
-//						ZoneId:               main.CloudfrontDistributionZoneId,
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := cognito/userPool.NewUserPool(ctx, "example", nil)
+// if err != nil {
+// return err
+// }
+// _, err = cognito/userPoolDomain.NewUserPoolDomain(ctx, "main", &cognito/userPoolDomain.UserPoolDomainArgs{
+// Domain: "example-domain",
+// UserPoolId: example.Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

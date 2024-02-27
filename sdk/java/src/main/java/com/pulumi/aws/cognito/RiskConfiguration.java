@@ -29,7 +29,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.cognito.RiskConfiguration;
  * import com.pulumi.aws.cognito.RiskConfigurationArgs;
- * import com.pulumi.aws.cognito.inputs.RiskConfigurationRiskExceptionConfigurationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -45,9 +44,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new RiskConfiguration(&#34;example&#34;, RiskConfigurationArgs.builder()        
  *             .userPoolId(aws_cognito_user_pool.example().id())
- *             .riskExceptionConfiguration(RiskConfigurationRiskExceptionConfigurationArgs.builder()
- *                 .blockedIpRangeLists(&#34;10.10.10.10/32&#34;)
- *                 .build())
+ *             .riskExceptionConfiguration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

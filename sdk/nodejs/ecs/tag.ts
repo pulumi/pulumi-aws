@@ -17,12 +17,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleComputeEnvironment = new aws.batch.ComputeEnvironment("exampleComputeEnvironment", {
+ * const exampleComputeEnvironment = new aws.batch/computeEnvironment.ComputeEnvironment("exampleComputeEnvironment", {
  *     computeEnvironmentName: "example",
  *     serviceRole: aws_iam_role.example.arn,
  *     type: "UNMANAGED",
  * });
- * const exampleTag = new aws.ecs.Tag("exampleTag", {
+ * const exampleTag = new aws.ecs/tag.Tag("exampleTag", {
  *     resourceArn: exampleComputeEnvironment.ecsClusterArn,
  *     key: "Name",
  *     value: "Hello World",

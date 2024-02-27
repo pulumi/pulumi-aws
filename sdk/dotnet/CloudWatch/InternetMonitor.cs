@@ -22,7 +22,7 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.CloudWatch.InternetMonitor("example", new()
+    ///     var example = new Aws.Cloudwatch.InternetMonitor.InternetMonitor("example", new()
     ///     {
     ///         MonitorName = "exmple",
     ///     });

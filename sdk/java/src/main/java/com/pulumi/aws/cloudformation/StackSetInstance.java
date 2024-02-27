@@ -59,66 +59,6 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
- * ### Example IAM Setup in Target Account
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.iam.IamFunctions;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
- * import com.pulumi.aws.iam.Role;
- * import com.pulumi.aws.iam.RoleArgs;
- * import com.pulumi.aws.iam.RolePolicy;
- * import com.pulumi.aws.iam.RolePolicyArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var aWSCloudFormationStackSetExecutionRoleAssumeRolePolicy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .actions(&#34;sts:AssumeRole&#34;)
- *                 .effect(&#34;Allow&#34;)
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .identifiers(aws_iam_role.AWSCloudFormationStackSetAdministrationRole().arn())
- *                     .type(&#34;AWS&#34;)
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *         var aWSCloudFormationStackSetExecutionRole = new Role(&#34;aWSCloudFormationStackSetExecutionRole&#34;, RoleArgs.builder()        
- *             .assumeRolePolicy(aWSCloudFormationStackSetExecutionRoleAssumeRolePolicy.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
- *             .build());
- * 
- *         final var aWSCloudFormationStackSetExecutionRoleMinimumExecutionPolicyPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .actions(                
- *                     &#34;cloudformation:*&#34;,
- *                     &#34;s3:*&#34;,
- *                     &#34;sns:*&#34;)
- *                 .effect(&#34;Allow&#34;)
- *                 .resources(&#34;*&#34;)
- *                 .build())
- *             .build());
- * 
- *         var aWSCloudFormationStackSetExecutionRoleMinimumExecutionPolicyRolePolicy = new RolePolicy(&#34;aWSCloudFormationStackSetExecutionRoleMinimumExecutionPolicyRolePolicy&#34;, RolePolicyArgs.builder()        
- *             .policy(aWSCloudFormationStackSetExecutionRoleMinimumExecutionPolicyPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
- *             .role(aWSCloudFormationStackSetExecutionRole.name())
- *             .build());
- * 
- *     }
- * }
- * ```
  * ### Example Deployment across Organizations account
  * ```java
  * package generated_program;
@@ -128,7 +68,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.cloudformation.StackSetInstance;
  * import com.pulumi.aws.cloudformation.StackSetInstanceArgs;
- * import com.pulumi.aws.cloudformation.inputs.StackSetInstanceDeploymentTargetsArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -143,9 +82,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new StackSetInstance(&#34;example&#34;, StackSetInstanceArgs.builder()        
- *             .deploymentTargets(StackSetInstanceDeploymentTargetsArgs.builder()
- *                 .organizationalUnitIds(aws_organizations_organization.example().roots()[0].id())
- *                 .build())
+ *             .deploymentTargets(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .region(&#34;us-east-1&#34;)
  *             .stackSetName(aws_cloudformation_stack_set.example().name())
  *             .build());

@@ -23,38 +23,38 @@ namespace Pulumi.Aws.DirectoryService
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var main = new Aws.Ec2.Vpc("main", new()
+    ///     var main = new Aws.Ec2.Vpc.Vpc("main", new()
     ///     {
     ///         CidrBlock = "10.0.0.0/16",
     ///     });
     /// 
-    ///     var foo = new Aws.Ec2.Subnet("foo", new()
+    ///     var foo = new Aws.Ec2.Subnet.Subnet("foo", new()
     ///     {
     ///         VpcId = main.Id,
     ///         AvailabilityZone = "us-west-2a",
     ///         CidrBlock = "10.0.1.0/24",
     ///     });
     /// 
-    ///     var barSubnet = new Aws.Ec2.Subnet("barSubnet", new()
+    ///     var barSubnet = new Aws.Ec2.Subnet.Subnet("barSubnet", new()
     ///     {
     ///         VpcId = main.Id,
     ///         AvailabilityZone = "us-west-2b",
     ///         CidrBlock = "10.0.2.0/24",
     ///     });
     /// 
-    ///     var barDirectory = new Aws.DirectoryService.Directory("barDirectory", new()
+    ///     var barDirectory = new Aws.Directoryservice.Directory.Directory("barDirectory", new()
     ///     {
     ///         Name = "corp.notexample.com",
     ///         Password = "SuperSecretPassw0rd",
     ///         Size = "Small",
-    ///         VpcSettings = new Aws.DirectoryService.Inputs.DirectoryVpcSettingsArgs
+    ///         VpcSettings = 
     ///         {
-    ///             VpcId = main.Id,
-    ///             SubnetIds = new[]
+    ///             { "vpcId", main.Id },
+    ///             { "subnetIds", new[]
     ///             {
     ///                 foo.Id,
     ///                 barSubnet.Id,
-    ///             },
+    ///             } },
     ///         },
     ///         Tags = 
     ///         {
@@ -74,39 +74,39 @@ namespace Pulumi.Aws.DirectoryService
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var main = new Aws.Ec2.Vpc("main", new()
+    ///     var main = new Aws.Ec2.Vpc.Vpc("main", new()
     ///     {
     ///         CidrBlock = "10.0.0.0/16",
     ///     });
     /// 
-    ///     var foo = new Aws.Ec2.Subnet("foo", new()
+    ///     var foo = new Aws.Ec2.Subnet.Subnet("foo", new()
     ///     {
     ///         VpcId = main.Id,
     ///         AvailabilityZone = "us-west-2a",
     ///         CidrBlock = "10.0.1.0/24",
     ///     });
     /// 
-    ///     var barSubnet = new Aws.Ec2.Subnet("barSubnet", new()
+    ///     var barSubnet = new Aws.Ec2.Subnet.Subnet("barSubnet", new()
     ///     {
     ///         VpcId = main.Id,
     ///         AvailabilityZone = "us-west-2b",
     ///         CidrBlock = "10.0.2.0/24",
     ///     });
     /// 
-    ///     var barDirectory = new Aws.DirectoryService.Directory("barDirectory", new()
+    ///     var barDirectory = new Aws.Directoryservice.Directory.Directory("barDirectory", new()
     ///     {
     ///         Name = "corp.notexample.com",
     ///         Password = "SuperSecretPassw0rd",
     ///         Edition = "Standard",
     ///         Type = "MicrosoftAD",
-    ///         VpcSettings = new Aws.DirectoryService.Inputs.DirectoryVpcSettingsArgs
+    ///         VpcSettings = 
     ///         {
-    ///             VpcId = main.Id,
-    ///             SubnetIds = new[]
+    ///             { "vpcId", main.Id },
+    ///             { "subnetIds", new[]
     ///             {
     ///                 foo.Id,
     ///                 barSubnet.Id,
-    ///             },
+    ///             } },
     ///         },
     ///         Tags = 
     ///         {
@@ -126,44 +126,44 @@ namespace Pulumi.Aws.DirectoryService
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var main = new Aws.Ec2.Vpc("main", new()
+    ///     var main = new Aws.Ec2.Vpc.Vpc("main", new()
     ///     {
     ///         CidrBlock = "10.0.0.0/16",
     ///     });
     /// 
-    ///     var foo = new Aws.Ec2.Subnet("foo", new()
+    ///     var foo = new Aws.Ec2.Subnet.Subnet("foo", new()
     ///     {
     ///         VpcId = main.Id,
     ///         AvailabilityZone = "us-west-2a",
     ///         CidrBlock = "10.0.1.0/24",
     ///     });
     /// 
-    ///     var bar = new Aws.Ec2.Subnet("bar", new()
+    ///     var bar = new Aws.Ec2.Subnet.Subnet("bar", new()
     ///     {
     ///         VpcId = main.Id,
     ///         AvailabilityZone = "us-west-2b",
     ///         CidrBlock = "10.0.2.0/24",
     ///     });
     /// 
-    ///     var connector = new Aws.DirectoryService.Directory("connector", new()
+    ///     var connector = new Aws.Directoryservice.Directory.Directory("connector", new()
     ///     {
     ///         Name = "corp.notexample.com",
     ///         Password = "SuperSecretPassw0rd",
     ///         Size = "Small",
     ///         Type = "ADConnector",
-    ///         ConnectSettings = new Aws.DirectoryService.Inputs.DirectoryConnectSettingsArgs
+    ///         ConnectSettings = 
     ///         {
-    ///             CustomerDnsIps = new[]
+    ///             { "customerDnsIps", new[]
     ///             {
     ///                 "A.B.C.D",
-    ///             },
-    ///             CustomerUsername = "Admin",
-    ///             SubnetIds = new[]
+    ///             } },
+    ///             { "customerUsername", "Admin" },
+    ///             { "subnetIds", new[]
     ///             {
     ///                 foo.Id,
     ///                 bar.Id,
-    ///             },
-    ///             VpcId = main.Id,
+    ///             } },
+    ///             { "vpcId", main.Id },
     ///         },
     ///     });
     /// 

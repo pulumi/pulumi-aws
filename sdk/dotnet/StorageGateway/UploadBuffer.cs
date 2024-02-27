@@ -15,54 +15,6 @@ namespace Pulumi.Aws.StorageGateway
     /// &gt; **NOTE:** The Storage Gateway API provides no method to remove an upload buffer disk. Destroying this resource does not perform any Storage Gateway actions.
     /// 
     /// ## Example Usage
-    /// ### Cached and VTL Gateway Type
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var testLocalDisk = Aws.StorageGateway.GetLocalDisk.Invoke(new()
-    ///     {
-    ///         DiskNode = aws_volume_attachment.Test.Device_name,
-    ///         GatewayArn = aws_storagegateway_gateway.Test.Arn,
-    ///     });
-    /// 
-    ///     var testUploadBuffer = new Aws.StorageGateway.UploadBuffer("testUploadBuffer", new()
-    ///     {
-    ///         DiskPath = testLocalDisk.Apply(getLocalDiskResult =&gt; getLocalDiskResult.DiskPath),
-    ///         GatewayArn = aws_storagegateway_gateway.Test.Arn,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### Stored Gateway Type
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = Aws.StorageGateway.GetLocalDisk.Invoke(new()
-    ///     {
-    ///         DiskNode = aws_volume_attachment.Test.Device_name,
-    ///         GatewayArn = aws_storagegateway_gateway.Test.Arn,
-    ///     });
-    /// 
-    ///     var example = new Aws.StorageGateway.UploadBuffer("example", new()
-    ///     {
-    ///         DiskId = data.Aws_storagegateway_local_disk.Example.Id,
-    ///         GatewayArn = aws_storagegateway_gateway.Example.Arn,
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 

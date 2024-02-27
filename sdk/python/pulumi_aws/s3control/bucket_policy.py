@@ -109,20 +109,20 @@ class BucketPolicy(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        example = aws.s3control.BucketPolicy("example",
-            bucket=aws_s3control_bucket["example"]["arn"],
+        example = aws.s3control.bucket_policy.BucketPolicy("example",
+            bucket=aws_s3control_bucket.example.arn,
             policy=json.dumps({
-                "Id": "testBucketPolicy",
-                "Statement": [{
-                    "Action": "s3-outposts:PutBucketLifecycleConfiguration",
-                    "Effect": "Deny",
-                    "Principal": {
-                        "AWS": "*",
+                Id: testBucketPolicy,
+                Statement: [{
+                    Action: s3-outposts:PutBucketLifecycleConfiguration,
+                    Effect: Deny,
+                    Principal: {
+                        AWS: *,
                     },
-                    "Resource": aws_s3control_bucket["example"]["arn"],
-                    "Sid": "statement1",
+                    Resource: aws_s3control_bucket.example.arn,
+                    Sid: statement1,
                 }],
-                "Version": "2012-10-17",
+                Version: 2012-10-17,
             }))
         ```
 
@@ -157,20 +157,20 @@ class BucketPolicy(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        example = aws.s3control.BucketPolicy("example",
-            bucket=aws_s3control_bucket["example"]["arn"],
+        example = aws.s3control.bucket_policy.BucketPolicy("example",
+            bucket=aws_s3control_bucket.example.arn,
             policy=json.dumps({
-                "Id": "testBucketPolicy",
-                "Statement": [{
-                    "Action": "s3-outposts:PutBucketLifecycleConfiguration",
-                    "Effect": "Deny",
-                    "Principal": {
-                        "AWS": "*",
+                Id: testBucketPolicy,
+                Statement: [{
+                    Action: s3-outposts:PutBucketLifecycleConfiguration,
+                    Effect: Deny,
+                    Principal: {
+                        AWS: *,
                     },
-                    "Resource": aws_s3control_bucket["example"]["arn"],
-                    "Sid": "statement1",
+                    Resource: aws_s3control_bucket.example.arn,
+                    Sid: statement1,
                 }],
-                "Version": "2012-10-17",
+                Version: 2012-10-17,
             }))
         ```
 

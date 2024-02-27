@@ -23,7 +23,7 @@ namespace Pulumi.Aws.ElastiCache
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Aws.ElastiCache.User("test", new()
+    ///     var test = new Aws.Elasticache.User.User("test", new()
     ///     {
     ///         AccessString = "on ~app::* -@all +@read +@hash +@bitmap +@geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember",
     ///         Engine = "REDIS",
@@ -46,12 +46,12 @@ namespace Pulumi.Aws.ElastiCache
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Aws.ElastiCache.User("test", new()
+    ///     var test = new Aws.Elasticache.User.User("test", new()
     ///     {
     ///         AccessString = "on ~* +@all",
-    ///         AuthenticationMode = new Aws.ElastiCache.Inputs.UserAuthenticationModeArgs
+    ///         AuthenticationMode = 
     ///         {
-    ///             Type = "iam",
+    ///             { "type", "iam" },
     ///         },
     ///         Engine = "REDIS",
     ///         UserId = "testUserId",
@@ -69,17 +69,17 @@ namespace Pulumi.Aws.ElastiCache
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Aws.ElastiCache.User("test", new()
+    ///     var test = new Aws.Elasticache.User.User("test", new()
     ///     {
     ///         AccessString = "on ~* +@all",
-    ///         AuthenticationMode = new Aws.ElastiCache.Inputs.UserAuthenticationModeArgs
+    ///         AuthenticationMode = 
     ///         {
-    ///             Passwords = new[]
+    ///             { "passwords", new[]
     ///             {
     ///                 "password1",
     ///                 "password2",
-    ///             },
-    ///             Type = "password",
+    ///             } },
+    ///             { "type", "password" },
     ///         },
     ///         Engine = "REDIS",
     ///         UserId = "testUserId",

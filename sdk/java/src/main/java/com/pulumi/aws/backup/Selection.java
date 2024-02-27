@@ -21,65 +21,6 @@ import javax.annotation.Nullable;
  * Manages selection conditions for AWS Backup plan resources.
  * 
  * ## Example Usage
- * ### IAM Role
- * 
- * &gt; For more information about creating and managing IAM Roles for backups and restores, see the [AWS Backup Developer Guide](https://docs.aws.amazon.com/aws-backup/latest/devguide/iam-service-roles.html).
- * 
- * The below example creates an IAM role with the default managed IAM Policy for allowing AWS Backup to create backups.
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.iam.IamFunctions;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
- * import com.pulumi.aws.iam.Role;
- * import com.pulumi.aws.iam.RoleArgs;
- * import com.pulumi.aws.iam.RolePolicyAttachment;
- * import com.pulumi.aws.iam.RolePolicyAttachmentArgs;
- * import com.pulumi.aws.backup.Selection;
- * import com.pulumi.aws.backup.SelectionArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect(&#34;Allow&#34;)
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type(&#34;Service&#34;)
- *                     .identifiers(&#34;backup.amazonaws.com&#34;)
- *                     .build())
- *                 .actions(&#34;sts:AssumeRole&#34;)
- *                 .build())
- *             .build());
- * 
- *         var exampleRole = new Role(&#34;exampleRole&#34;, RoleArgs.builder()        
- *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
- *             .build());
- * 
- *         var exampleRolePolicyAttachment = new RolePolicyAttachment(&#34;exampleRolePolicyAttachment&#34;, RolePolicyAttachmentArgs.builder()        
- *             .policyArn(&#34;arn:aws:iam::aws:policy/service-role/AWSBackupServiceRolePolicyForBackup&#34;)
- *             .role(exampleRole.name())
- *             .build());
- * 
- *         var exampleSelection = new Selection(&#34;exampleSelection&#34;, SelectionArgs.builder()        
- *             .iamRoleArn(exampleRole.arn())
- *             .build());
- * 
- *     }
- * }
- * ```
  * ### Selecting Backups By Tag
  * ```java
  * package generated_program;
@@ -89,7 +30,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.backup.Selection;
  * import com.pulumi.aws.backup.SelectionArgs;
- * import com.pulumi.aws.backup.inputs.SelectionSelectionTagArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -106,11 +46,7 @@ import javax.annotation.Nullable;
  *         var example = new Selection(&#34;example&#34;, SelectionArgs.builder()        
  *             .iamRoleArn(aws_iam_role.example().arn())
  *             .planId(aws_backup_plan.example().id())
- *             .selectionTags(SelectionSelectionTagArgs.builder()
- *                 .type(&#34;STRINGEQUALS&#34;)
- *                 .key(&#34;foo&#34;)
- *                 .value(&#34;bar&#34;)
- *                 .build())
+ *             .selectionTags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -125,7 +61,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.backup.Selection;
  * import com.pulumi.aws.backup.SelectionArgs;
- * import com.pulumi.aws.backup.inputs.SelectionConditionArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -143,24 +78,7 @@ import javax.annotation.Nullable;
  *             .iamRoleArn(aws_iam_role.example().arn())
  *             .planId(aws_backup_plan.example().id())
  *             .resources(&#34;*&#34;)
- *             .conditions(SelectionConditionArgs.builder()
- *                 .stringEquals(SelectionConditionStringEqualArgs.builder()
- *                     .key(&#34;aws:ResourceTag/Component&#34;)
- *                     .value(&#34;rds&#34;)
- *                     .build())
- *                 .stringLikes(SelectionConditionStringLikeArgs.builder()
- *                     .key(&#34;aws:ResourceTag/Application&#34;)
- *                     .value(&#34;app*&#34;)
- *                     .build())
- *                 .stringNotEquals(SelectionConditionStringNotEqualArgs.builder()
- *                     .key(&#34;aws:ResourceTag/Backup&#34;)
- *                     .value(&#34;false&#34;)
- *                     .build())
- *                 .stringNotLikes(SelectionConditionStringNotLikeArgs.builder()
- *                     .key(&#34;aws:ResourceTag/Environment&#34;)
- *                     .value(&#34;test*&#34;)
- *                     .build())
- *                 .build())
+ *             .conditions(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

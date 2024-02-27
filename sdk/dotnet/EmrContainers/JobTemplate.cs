@@ -23,19 +23,19 @@ namespace Pulumi.Aws.EmrContainers
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.EmrContainers.JobTemplate("example", new()
+    ///     var example = new Aws.Emrcontainers.JobTemplate.JobTemplate("example", new()
     ///     {
-    ///         JobTemplateData = new Aws.EmrContainers.Inputs.JobTemplateJobTemplateDataArgs
+    ///         JobTemplateData = 
     ///         {
-    ///             ExecutionRoleArn = aws_iam_role.Example.Arn,
-    ///             ReleaseLabel = "emr-6.10.0-latest",
-    ///             JobDriver = new Aws.EmrContainers.Inputs.JobTemplateJobTemplateDataJobDriverArgs
+    ///             { "executionRoleArn", aws_iam_role.Example.Arn },
+    ///             { "releaseLabel", "emr-6.10.0-latest" },
+    ///             { "jobDriver", 
     ///             {
-    ///                 SparkSqlJobDriver = new Aws.EmrContainers.Inputs.JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverArgs
+    ///                 { "sparkSqlJobDriver", 
     ///                 {
-    ///                     EntryPoint = "default",
-    ///                 },
-    ///             },
+    ///                     { "entryPoint", "default" },
+    ///                 } },
+    ///             } },
     ///         },
     ///     });
     /// 

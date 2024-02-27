@@ -22,21 +22,21 @@ namespace Pulumi.Aws.GameLift
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.GameLift.Fleet("example", new()
+    ///     var example = new Aws.Gamelift.Fleet.Fleet("example", new()
     ///     {
     ///         BuildId = aws_gamelift_build.Example.Id,
     ///         Ec2InstanceType = "t2.micro",
     ///         FleetType = "ON_DEMAND",
-    ///         RuntimeConfiguration = new Aws.GameLift.Inputs.FleetRuntimeConfigurationArgs
+    ///         RuntimeConfiguration = 
     ///         {
-    ///             ServerProcesses = new[]
+    ///             { "serverProcesses", new[]
     ///             {
-    ///                 new Aws.GameLift.Inputs.FleetRuntimeConfigurationServerProcessArgs
+    ///                 
     ///                 {
-    ///                     ConcurrentExecutions = 1,
-    ///                     LaunchPath = "C:\\game\\GomokuServer.exe",
+    ///                     { "concurrentExecutions", 1 },
+    ///                     { "launchPath", "C:\\game\\GomokuServer.exe" },
     ///                 },
-    ///             },
+    ///             } },
     ///         },
     ///     });
     /// 

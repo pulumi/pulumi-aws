@@ -695,11 +695,11 @@ class Subnet(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        main = aws.ec2.Subnet("main",
-            vpc_id=aws_vpc["main"]["id"],
-            cidr_block="10.0.1.0/24",
+        main = aws.ec2.subnet.Subnet("main",
+            vpc_id=aws_vpc.main.id,
+            cidr_block=10.0.1.0/24,
             tags={
-                "Name": "Main",
+                Name: Main,
             })
         ```
         ### Subnets In Secondary VPC CIDR Blocks
@@ -711,12 +711,12 @@ class Subnet(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        secondary_cidr = aws.ec2.VpcIpv4CidrBlockAssociation("secondaryCidr",
-            vpc_id=aws_vpc["main"]["id"],
-            cidr_block="172.20.0.0/16")
-        in_secondary_cidr = aws.ec2.Subnet("inSecondaryCidr",
+        secondary_cidr = aws.ec2.vpc_ipv4_cidr_block_association.VpcIpv4CidrBlockAssociation("secondaryCidr",
+            vpc_id=aws_vpc.main.id,
+            cidr_block=172.20.0.0/16)
+        in_secondary_cidr = aws.ec2.subnet.Subnet("inSecondaryCidr",
             vpc_id=secondary_cidr.vpc_id,
-            cidr_block="172.20.0.0/24")
+            cidr_block=172.20.0.0/24)
         ```
 
         ## Import
@@ -770,11 +770,11 @@ class Subnet(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        main = aws.ec2.Subnet("main",
-            vpc_id=aws_vpc["main"]["id"],
-            cidr_block="10.0.1.0/24",
+        main = aws.ec2.subnet.Subnet("main",
+            vpc_id=aws_vpc.main.id,
+            cidr_block=10.0.1.0/24,
             tags={
-                "Name": "Main",
+                Name: Main,
             })
         ```
         ### Subnets In Secondary VPC CIDR Blocks
@@ -786,12 +786,12 @@ class Subnet(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        secondary_cidr = aws.ec2.VpcIpv4CidrBlockAssociation("secondaryCidr",
-            vpc_id=aws_vpc["main"]["id"],
-            cidr_block="172.20.0.0/16")
-        in_secondary_cidr = aws.ec2.Subnet("inSecondaryCidr",
+        secondary_cidr = aws.ec2.vpc_ipv4_cidr_block_association.VpcIpv4CidrBlockAssociation("secondaryCidr",
+            vpc_id=aws_vpc.main.id,
+            cidr_block=172.20.0.0/16)
+        in_secondary_cidr = aws.ec2.subnet.Subnet("inSecondaryCidr",
             vpc_id=secondary_cidr.vpc_id,
-            cidr_block="172.20.0.0/24")
+            cidr_block=172.20.0.0/24)
         ```
 
         ## Import

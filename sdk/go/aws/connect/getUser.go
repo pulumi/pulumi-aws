@@ -12,62 +12,6 @@ import (
 )
 
 // Provides details about a specific Amazon Connect User.
-//
-// ## Example Usage
-//
-// By `name`
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/connect"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := connect.LookupUser(ctx, &connect.LookupUserArgs{
-//				InstanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
-//				Name:       pulumi.StringRef("Example"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// By `userId`
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/connect"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := connect.LookupUser(ctx, &connect.LookupUserArgs{
-//				InstanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
-//				UserId:     pulumi.StringRef("cccccccc-bbbb-cccc-dddd-111111111111"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupUser(ctx *pulumi.Context, args *LookupUserArgs, opts ...pulumi.InvokeOption) (*LookupUserResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupUserResult

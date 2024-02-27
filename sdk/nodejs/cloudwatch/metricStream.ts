@@ -11,107 +11,13 @@ import * as utilities from "../utilities";
  * Provides a CloudWatch Metric Stream resource.
  *
  * ## Example Usage
- * ### Filters
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const streamsAssumeRole = aws.iam.getPolicyDocument({
- *     statements: [{
- *         effect: "Allow",
- *         principals: [{
- *             type: "Service",
- *             identifiers: ["streams.metrics.cloudwatch.amazonaws.com"],
- *         }],
- *         actions: ["sts:AssumeRole"],
- *     }],
- * });
- * const metricStreamToFirehoseRole = new aws.iam.Role("metricStreamToFirehoseRole", {assumeRolePolicy: streamsAssumeRole.then(streamsAssumeRole => streamsAssumeRole.json)});
- * const bucket = new aws.s3.BucketV2("bucket", {});
- * const firehoseAssumeRole = aws.iam.getPolicyDocument({
- *     statements: [{
- *         effect: "Allow",
- *         principals: [{
- *             type: "Service",
- *             identifiers: ["firehose.amazonaws.com"],
- *         }],
- *         actions: ["sts:AssumeRole"],
- *     }],
- * });
- * const firehoseToS3Role = new aws.iam.Role("firehoseToS3Role", {assumeRolePolicy: firehoseAssumeRole.then(firehoseAssumeRole => firehoseAssumeRole.json)});
- * const s3Stream = new aws.kinesis.FirehoseDeliveryStream("s3Stream", {
- *     destination: "extended_s3",
- *     extendedS3Configuration: {
- *         roleArn: firehoseToS3Role.arn,
- *         bucketArn: bucket.arn,
- *     },
- * });
- * const main = new aws.cloudwatch.MetricStream("main", {
- *     roleArn: metricStreamToFirehoseRole.arn,
- *     firehoseArn: s3Stream.arn,
- *     outputFormat: "json",
- *     includeFilters: [
- *         {
- *             namespace: "AWS/EC2",
- *             metricNames: [
- *                 "CPUUtilization",
- *                 "NetworkOut",
- *             ],
- *         },
- *         {
- *             namespace: "AWS/EBS",
- *             metricNames: [],
- *         },
- *     ],
- * });
- * const metricStreamToFirehosePolicyDocument = aws.iam.getPolicyDocumentOutput({
- *     statements: [{
- *         effect: "Allow",
- *         actions: [
- *             "firehose:PutRecord",
- *             "firehose:PutRecordBatch",
- *         ],
- *         resources: [s3Stream.arn],
- *     }],
- * });
- * const metricStreamToFirehoseRolePolicy = new aws.iam.RolePolicy("metricStreamToFirehoseRolePolicy", {
- *     role: metricStreamToFirehoseRole.id,
- *     policy: metricStreamToFirehosePolicyDocument.apply(metricStreamToFirehosePolicyDocument => metricStreamToFirehosePolicyDocument.json),
- * });
- * const bucketAcl = new aws.s3.BucketAclV2("bucketAcl", {
- *     bucket: bucket.id,
- *     acl: "private",
- * });
- * const firehoseToS3PolicyDocument = aws.iam.getPolicyDocumentOutput({
- *     statements: [{
- *         effect: "Allow",
- *         actions: [
- *             "s3:AbortMultipartUpload",
- *             "s3:GetBucketLocation",
- *             "s3:GetObject",
- *             "s3:ListBucket",
- *             "s3:ListBucketMultipartUploads",
- *             "s3:PutObject",
- *         ],
- *         resources: [
- *             bucket.arn,
- *             pulumi.interpolate`${bucket.arn}/*`,
- *         ],
- *     }],
- * });
- * const firehoseToS3RolePolicy = new aws.iam.RolePolicy("firehoseToS3RolePolicy", {
- *     role: firehoseToS3Role.id,
- *     policy: firehoseToS3PolicyDocument.apply(firehoseToS3PolicyDocument => firehoseToS3PolicyDocument.json),
- * });
- * ```
  * ### Additional Statistics
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const main = new aws.cloudwatch.MetricStream("main", {
+ * const main = new aws.cloudwatch/metricStream.MetricStream("main", {
  *     roleArn: aws_iam_role.metric_stream_to_firehose.arn,
  *     firehoseArn: aws_kinesis_firehose_delivery_stream.s3_stream.arn,
  *     outputFormat: "json",

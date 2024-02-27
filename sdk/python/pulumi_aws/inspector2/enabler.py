@@ -121,23 +121,9 @@ class Enabler(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.inspector2.Enabler("example",
-            account_ids=["123456789012"],
-            resource_types=["EC2"])
-        ```
-        ### For the Calling Account
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        current = aws.get_caller_identity()
-        test = aws.inspector2.Enabler("test",
-            account_ids=[current.account_id],
-            resource_types=[
-                "ECR",
-                "EC2",
-            ])
+        example = aws.inspector2.enabler.Enabler("example",
+            account_ids=[123456789012],
+            resource_types=[EC2])
         ```
 
         :param str resource_name: The name of the resource.
@@ -166,23 +152,9 @@ class Enabler(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.inspector2.Enabler("example",
-            account_ids=["123456789012"],
-            resource_types=["EC2"])
-        ```
-        ### For the Calling Account
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        current = aws.get_caller_identity()
-        test = aws.inspector2.Enabler("test",
-            account_ids=[current.account_id],
-            resource_types=[
-                "ECR",
-                "EC2",
-            ])
+        example = aws.inspector2.enabler.Enabler("example",
+            account_ids=[123456789012],
+            resource_types=[EC2])
         ```
 
         :param str resource_name: The name of the resource.

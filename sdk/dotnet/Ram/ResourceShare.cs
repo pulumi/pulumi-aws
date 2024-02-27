@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Ram
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Ram.ResourceShare("example", new()
+    ///     var example = new Aws.Ram.ResourceShare.ResourceShare("example", new()
     ///     {
     ///         AllowExternalPrincipals = true,
     ///         Tags = 

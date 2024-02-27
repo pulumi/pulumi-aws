@@ -20,72 +20,12 @@ public final class CodeartifactFunctions {
     /**
      * The CodeArtifact Authorization Token data source generates a temporary authentication token for accessing repositories in a CodeArtifact domain.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.codeartifact.CodeartifactFunctions;
-     * import com.pulumi.aws.codeartifact.inputs.GetAuthorizationTokenArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = CodeartifactFunctions.getAuthorizationToken(GetAuthorizationTokenArgs.builder()
-     *             .domain(aws_codeartifact_domain.test().domain())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetAuthorizationTokenResult> getAuthorizationToken(GetAuthorizationTokenArgs args) {
         return getAuthorizationToken(args, InvokeOptions.Empty);
     }
     /**
      * The CodeArtifact Authorization Token data source generates a temporary authentication token for accessing repositories in a CodeArtifact domain.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.codeartifact.CodeartifactFunctions;
-     * import com.pulumi.aws.codeartifact.inputs.GetAuthorizationTokenArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = CodeartifactFunctions.getAuthorizationToken(GetAuthorizationTokenArgs.builder()
-     *             .domain(aws_codeartifact_domain.test().domain())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetAuthorizationTokenResult> getAuthorizationTokenPlain(GetAuthorizationTokenPlainArgs args) {
@@ -94,72 +34,12 @@ public final class CodeartifactFunctions {
     /**
      * The CodeArtifact Authorization Token data source generates a temporary authentication token for accessing repositories in a CodeArtifact domain.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.codeartifact.CodeartifactFunctions;
-     * import com.pulumi.aws.codeartifact.inputs.GetAuthorizationTokenArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = CodeartifactFunctions.getAuthorizationToken(GetAuthorizationTokenArgs.builder()
-     *             .domain(aws_codeartifact_domain.test().domain())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetAuthorizationTokenResult> getAuthorizationToken(GetAuthorizationTokenArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:codeartifact/getAuthorizationToken:getAuthorizationToken", TypeShape.of(GetAuthorizationTokenResult.class), args, Utilities.withVersion(options));
     }
     /**
      * The CodeArtifact Authorization Token data source generates a temporary authentication token for accessing repositories in a CodeArtifact domain.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.codeartifact.CodeartifactFunctions;
-     * import com.pulumi.aws.codeartifact.inputs.GetAuthorizationTokenArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = CodeartifactFunctions.getAuthorizationToken(GetAuthorizationTokenArgs.builder()
-     *             .domain(aws_codeartifact_domain.test().domain())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetAuthorizationTokenResult> getAuthorizationTokenPlain(GetAuthorizationTokenPlainArgs args, InvokeOptions options) {
@@ -168,76 +48,12 @@ public final class CodeartifactFunctions {
     /**
      * The CodeArtifact Repository Endpoint data source returns the endpoint of a repository for a specific package format.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.codeartifact.CodeartifactFunctions;
-     * import com.pulumi.aws.codeartifact.inputs.GetRepositoryEndpointArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = CodeartifactFunctions.getRepositoryEndpoint(GetRepositoryEndpointArgs.builder()
-     *             .domain(aws_codeartifact_domain.test().domain())
-     *             .repository(aws_codeartifact_repository.test().repository())
-     *             .format(&#34;npm&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetRepositoryEndpointResult> getRepositoryEndpoint(GetRepositoryEndpointArgs args) {
         return getRepositoryEndpoint(args, InvokeOptions.Empty);
     }
     /**
      * The CodeArtifact Repository Endpoint data source returns the endpoint of a repository for a specific package format.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.codeartifact.CodeartifactFunctions;
-     * import com.pulumi.aws.codeartifact.inputs.GetRepositoryEndpointArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = CodeartifactFunctions.getRepositoryEndpoint(GetRepositoryEndpointArgs.builder()
-     *             .domain(aws_codeartifact_domain.test().domain())
-     *             .repository(aws_codeartifact_repository.test().repository())
-     *             .format(&#34;npm&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetRepositoryEndpointResult> getRepositoryEndpointPlain(GetRepositoryEndpointPlainArgs args) {
@@ -246,76 +62,12 @@ public final class CodeartifactFunctions {
     /**
      * The CodeArtifact Repository Endpoint data source returns the endpoint of a repository for a specific package format.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.codeartifact.CodeartifactFunctions;
-     * import com.pulumi.aws.codeartifact.inputs.GetRepositoryEndpointArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = CodeartifactFunctions.getRepositoryEndpoint(GetRepositoryEndpointArgs.builder()
-     *             .domain(aws_codeartifact_domain.test().domain())
-     *             .repository(aws_codeartifact_repository.test().repository())
-     *             .format(&#34;npm&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetRepositoryEndpointResult> getRepositoryEndpoint(GetRepositoryEndpointArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:codeartifact/getRepositoryEndpoint:getRepositoryEndpoint", TypeShape.of(GetRepositoryEndpointResult.class), args, Utilities.withVersion(options));
     }
     /**
      * The CodeArtifact Repository Endpoint data source returns the endpoint of a repository for a specific package format.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.codeartifact.CodeartifactFunctions;
-     * import com.pulumi.aws.codeartifact.inputs.GetRepositoryEndpointArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = CodeartifactFunctions.getRepositoryEndpoint(GetRepositoryEndpointArgs.builder()
-     *             .domain(aws_codeartifact_domain.test().domain())
-     *             .repository(aws_codeartifact_repository.test().repository())
-     *             .format(&#34;npm&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetRepositoryEndpointResult> getRepositoryEndpointPlain(GetRepositoryEndpointPlainArgs args, InvokeOptions options) {

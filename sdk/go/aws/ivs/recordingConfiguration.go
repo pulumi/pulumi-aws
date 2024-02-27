@@ -22,27 +22,25 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ivs"
+//	ivs/recordingConfiguration "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ivs/recordingConfiguration"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ivs.NewRecordingConfiguration(ctx, "example", &ivs.RecordingConfigurationArgs{
-//				DestinationConfiguration: &ivs.RecordingConfigurationDestinationConfigurationArgs{
-//					S3: &ivs.RecordingConfigurationDestinationConfigurationS3Args{
-//						BucketName: pulumi.String("ivs-stream-archive"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := ivs/recordingConfiguration.NewRecordingConfiguration(ctx, "example", &ivs/recordingConfiguration.RecordingConfigurationArgs{
+// DestinationConfiguration: map[string]interface{}{
+// "s3": map[string]interface{}{
+// "bucketName": "ivs-stream-archive",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

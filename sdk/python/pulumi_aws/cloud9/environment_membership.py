@@ -154,11 +154,11 @@ class EnvironmentMembership(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_environment_ec2 = aws.cloud9.EnvironmentEC2("testEnvironmentEC2", instance_type="t2.micro")
-        test_user = aws.iam.User("testUser")
-        test_environment_membership = aws.cloud9.EnvironmentMembership("testEnvironmentMembership",
+        test_environment_ec2 = aws.cloud9.environment_ec2.EnvironmentEC2("testEnvironmentEC2", instance_type=t2.micro)
+        test_user = aws.iam.user.User("testUser")
+        test_environment_membership = aws.cloud9.environment_membership.EnvironmentMembership("testEnvironmentMembership",
             environment_id=test_environment_ec2.id,
-            permissions="read-only",
+            permissions=read-only,
             user_arn=test_user.arn)
         ```
 
@@ -191,11 +191,11 @@ class EnvironmentMembership(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_environment_ec2 = aws.cloud9.EnvironmentEC2("testEnvironmentEC2", instance_type="t2.micro")
-        test_user = aws.iam.User("testUser")
-        test_environment_membership = aws.cloud9.EnvironmentMembership("testEnvironmentMembership",
+        test_environment_ec2 = aws.cloud9.environment_ec2.EnvironmentEC2("testEnvironmentEC2", instance_type=t2.micro)
+        test_user = aws.iam.user.User("testUser")
+        test_environment_membership = aws.cloud9.environment_membership.EnvironmentMembership("testEnvironmentMembership",
             environment_id=test_environment_ec2.id,
-            permissions="read-only",
+            permissions=read-only,
             user_arn=test_user.arn)
         ```
 

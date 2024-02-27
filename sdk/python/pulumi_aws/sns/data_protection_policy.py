@@ -107,22 +107,22 @@ class DataProtectionPolicy(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        example_topic = aws.sns.Topic("exampleTopic")
-        example_data_protection_policy = aws.sns.DataProtectionPolicy("exampleDataProtectionPolicy",
+        example_topic = aws.sns.topic.Topic("exampleTopic")
+        example_data_protection_policy = aws.sns.data_protection_policy.DataProtectionPolicy("exampleDataProtectionPolicy",
             arn=example_topic.arn,
             policy=json.dumps({
-                "Description": "Example data protection policy",
-                "Name": "__example_data_protection_policy",
-                "Statement": [{
-                    "DataDirection": "Inbound",
-                    "DataIdentifier": ["arn:aws:dataprotection::aws:data-identifier/EmailAddress"],
-                    "Operation": {
-                        "Deny": {},
+                Description: Example data protection policy,
+                Name: __example_data_protection_policy,
+                Statement: [{
+                    DataDirection: Inbound,
+                    DataIdentifier: [arn:aws:dataprotection::aws:data-identifier/EmailAddress],
+                    Operation: {
+                        Deny: {},
                     },
-                    "Principal": ["*"],
-                    "Sid": "__deny_statement_11ba9d96",
+                    Principal: [*],
+                    Sid: __deny_statement_11ba9d96,
                 }],
-                "Version": "2021-06-01",
+                Version: 2021-06-01,
             }))
         ```
 
@@ -155,22 +155,22 @@ class DataProtectionPolicy(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        example_topic = aws.sns.Topic("exampleTopic")
-        example_data_protection_policy = aws.sns.DataProtectionPolicy("exampleDataProtectionPolicy",
+        example_topic = aws.sns.topic.Topic("exampleTopic")
+        example_data_protection_policy = aws.sns.data_protection_policy.DataProtectionPolicy("exampleDataProtectionPolicy",
             arn=example_topic.arn,
             policy=json.dumps({
-                "Description": "Example data protection policy",
-                "Name": "__example_data_protection_policy",
-                "Statement": [{
-                    "DataDirection": "Inbound",
-                    "DataIdentifier": ["arn:aws:dataprotection::aws:data-identifier/EmailAddress"],
-                    "Operation": {
-                        "Deny": {},
+                Description: Example data protection policy,
+                Name: __example_data_protection_policy,
+                Statement: [{
+                    DataDirection: Inbound,
+                    DataIdentifier: [arn:aws:dataprotection::aws:data-identifier/EmailAddress],
+                    Operation: {
+                        Deny: {},
                     },
-                    "Principal": ["*"],
-                    "Sid": "__deny_statement_11ba9d96",
+                    Principal: [*],
+                    Sid: __deny_statement_11ba9d96,
                 }],
-                "Version": "2021-06-01",
+                Version: 2021-06-01,
             }))
         ```
 

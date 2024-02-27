@@ -17,12 +17,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const staging = new aws.cloudfront.Distribution("staging", {
+ * const staging = new aws.cloudfront/distribution.Distribution("staging", {
  *     enabled: true,
  *     staging: true,
  * });
  * // ... other configuration ...
- * const example = new aws.cloudfront.ContinuousDeploymentPolicy("example", {
+ * const example = new aws.cloudfront/continuousDeploymentPolicy.ContinuousDeploymentPolicy("example", {
  *     enabled: true,
  *     stagingDistributionDnsNames: {
  *         items: [staging.domainName],
@@ -31,11 +31,11 @@ import * as utilities from "../utilities";
  *     trafficConfig: {
  *         type: "SingleWeight",
  *         singleWeightConfig: {
- *             weight: 0.01,
+ *             weight: "0.01",
  *         },
  *     },
  * });
- * const production = new aws.cloudfront.Distribution("production", {
+ * const production = new aws.cloudfront/distribution.Distribution("production", {
  *     enabled: true,
  *     continuousDeploymentPolicyId: example.id,
  * });
@@ -47,7 +47,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.cloudfront.ContinuousDeploymentPolicy("example", {
+ * const example = new aws.cloudfront/continuousDeploymentPolicy.ContinuousDeploymentPolicy("example", {
  *     enabled: true,
  *     stagingDistributionDnsNames: {
  *         items: [aws_cloudfront_distribution.staging.domain_name],
@@ -56,7 +56,7 @@ import * as utilities from "../utilities";
  *     trafficConfig: {
  *         type: "SingleWeight",
  *         singleWeightConfig: {
- *             weight: 0.01,
+ *             weight: "0.01",
  *             sessionStickinessConfig: {
  *                 idleTtl: 300,
  *                 maximumTtl: 600,
@@ -71,7 +71,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.cloudfront.ContinuousDeploymentPolicy("example", {
+ * const example = new aws.cloudfront/continuousDeploymentPolicy.ContinuousDeploymentPolicy("example", {
  *     enabled: true,
  *     stagingDistributionDnsNames: {
  *         items: [aws_cloudfront_distribution.staging.domain_name],

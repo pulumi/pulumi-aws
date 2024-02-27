@@ -22,27 +22,25 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sagemaker"
+//	sagemaker/notebookInstance "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/sagemaker/notebookInstance"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := sagemaker.NewNotebookInstance(ctx, "ni", &sagemaker.NotebookInstanceArgs{
-//				RoleArn:      pulumi.Any(aws_iam_role.Role.Arn),
-//				InstanceType: pulumi.String("ml.t2.medium"),
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("foo"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := sagemaker/notebookInstance.NewNotebookInstance(ctx, "ni", &sagemaker/notebookInstance.NotebookInstanceArgs{
+// RoleArn: aws_iam_role.Role.Arn,
+// InstanceType: "ml.t2.medium",
+// Tags: map[string]interface{}{
+// "Name": "foo",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Code repository usage
 //
@@ -51,37 +49,36 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sagemaker"
+//	sagemaker/codeRepository "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/sagemaker/codeRepository"
+//	sagemaker/notebookInstance "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/sagemaker/notebookInstance"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := sagemaker.NewCodeRepository(ctx, "example", &sagemaker.CodeRepositoryArgs{
-//				CodeRepositoryName: pulumi.String("my-notebook-instance-code-repo"),
-//				GitConfig: &sagemaker.CodeRepositoryGitConfigArgs{
-//					RepositoryUrl: pulumi.String("https://github.com/github/docs.git"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = sagemaker.NewNotebookInstance(ctx, "ni", &sagemaker.NotebookInstanceArgs{
-//				RoleArn:               pulumi.Any(aws_iam_role.Role.Arn),
-//				InstanceType:          pulumi.String("ml.t2.medium"),
-//				DefaultCodeRepository: example.CodeRepositoryName,
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("foo"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := sagemaker/codeRepository.NewCodeRepository(ctx, "example", &sagemaker/codeRepository.CodeRepositoryArgs{
+// CodeRepositoryName: "my-notebook-instance-code-repo",
+// GitConfig: map[string]interface{}{
+// "repositoryUrl": "https://github.com/github/docs.git",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = sagemaker/notebookInstance.NewNotebookInstance(ctx, "ni", &sagemaker/notebookInstance.NotebookInstanceArgs{
+// RoleArn: aws_iam_role.Role.Arn,
+// InstanceType: "ml.t2.medium",
+// DefaultCodeRepository: example.CodeRepositoryName,
+// Tags: map[string]interface{}{
+// "Name": "foo",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

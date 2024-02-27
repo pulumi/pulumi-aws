@@ -26,7 +26,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.verifiedpermissions.PolicyStore;
  * import com.pulumi.aws.verifiedpermissions.PolicyStoreArgs;
- * import com.pulumi.aws.verifiedpermissions.inputs.PolicyStoreValidationSettingsArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -41,9 +40,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new PolicyStore(&#34;example&#34;, PolicyStoreArgs.builder()        
- *             .validationSettings(PolicyStoreValidationSettingsArgs.builder()
- *                 .mode(&#34;STRICT&#34;)
- *                 .build())
+ *             .validationSettings(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

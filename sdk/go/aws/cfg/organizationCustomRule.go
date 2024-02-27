@@ -25,48 +25,46 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cfg"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lambda"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/organizations"
+//	cfg/organizationCustomRule "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/cfg/organizationCustomRule"
+//	lambda/permission "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/lambda/permission"
+//	organizations/organization "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/organizations/organization"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			examplePermission, err := lambda.NewPermission(ctx, "examplePermission", &lambda.PermissionArgs{
-//				Action:    pulumi.String("lambda:InvokeFunction"),
-//				Function:  pulumi.Any(aws_lambda_function.Example.Arn),
-//				Principal: pulumi.String("config.amazonaws.com"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleOrganization, err := organizations.NewOrganization(ctx, "exampleOrganization", &organizations.OrganizationArgs{
-//				AwsServiceAccessPrincipals: pulumi.StringArray{
-//					pulumi.String("config-multiaccountsetup.amazonaws.com"),
-//				},
-//				FeatureSet: pulumi.String("ALL"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = cfg.NewOrganizationCustomRule(ctx, "exampleOrganizationCustomRule", &cfg.OrganizationCustomRuleArgs{
-//				LambdaFunctionArn: pulumi.Any(aws_lambda_function.Example.Arn),
-//				TriggerTypes: pulumi.StringArray{
-//					pulumi.String("ConfigurationItemChangeNotification"),
-//				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				examplePermission,
-//				exampleOrganization,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// examplePermission, err := lambda/permission.NewPermission(ctx, "examplePermission", &lambda/permission.PermissionArgs{
+// Action: "lambda:InvokeFunction",
+// Function: aws_lambda_function.Example.Arn,
+// Principal: "config.amazonaws.com",
+// })
+// if err != nil {
+// return err
+// }
+// exampleOrganization, err := organizations/organization.NewOrganization(ctx, "exampleOrganization", &organizations/organization.OrganizationArgs{
+// AwsServiceAccessPrincipals: []string{
+// "config-multiaccountsetup.amazonaws.com",
+// },
+// FeatureSet: "ALL",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = cfg/organizationCustomRule.NewOrganizationCustomRule(ctx, "exampleOrganizationCustomRule", &cfg/organizationCustomRule.OrganizationCustomRuleArgs{
+// LambdaFunctionArn: aws_lambda_function.Example.Arn,
+// TriggerTypes: []string{
+// "ConfigurationItemChangeNotification",
+// },
+// }, pulumi.DependsOn([]pulumi.Resource{
+// examplePermission,
+// exampleOrganization,
+// }))
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -121,22 +121,6 @@ def get_connection(arn: Optional[str] = None,
     Provides details about CodeStar Connection.
 
     ## Example Usage
-    ### By ARN
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.codestarconnections.get_connection(arn=aws_codestarconnections_connection["example"]["arn"])
-    ```
-    ### By Name
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.codestarconnections.get_connection(name=aws_codestarconnections_connection["example"]["name"])
-    ```
 
 
     :param str arn: CodeStar Connection ARN.
@@ -171,22 +155,6 @@ def get_connection_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
     Provides details about CodeStar Connection.
 
     ## Example Usage
-    ### By ARN
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.codestarconnections.get_connection(arn=aws_codestarconnections_connection["example"]["arn"])
-    ```
-    ### By Name
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.codestarconnections.get_connection(name=aws_codestarconnections_connection["example"]["name"])
-    ```
 
 
     :param str arn: CodeStar Connection ARN.

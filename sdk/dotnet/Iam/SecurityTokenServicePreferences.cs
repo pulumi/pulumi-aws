@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Iam
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Iam.SecurityTokenServicePreferences("example", new()
+    ///     var example = new Aws.Iam.SecurityTokenServicePreferences.SecurityTokenServicePreferences("example", new()
     ///     {
     ///         GlobalEndpointTokenVersion = "v2Token",
     ///     });

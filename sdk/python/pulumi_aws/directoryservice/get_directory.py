@@ -231,15 +231,6 @@ def get_directory(directory_id: Optional[str] = None,
     """
     Get attributes of AWS Directory Service directory (SimpleAD, Managed AD, AD Connector). It's especially useful to refer AWS Managed AD or on-premise AD in AD Connector configuration.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.directoryservice.get_directory(directory_id=aws_directory_service_directory["main"]["id"])
-    ```
-
 
     :param str directory_id: ID of the directory.
     :param Mapping[str, str] tags: A map of tags assigned to the directory/connector.
@@ -276,15 +267,6 @@ def get_directory_output(directory_id: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDirectoryResult]:
     """
     Get attributes of AWS Directory Service directory (SimpleAD, Managed AD, AD Connector). It's especially useful to refer AWS Managed AD or on-premise AD in AD Connector configuration.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.directoryservice.get_directory(directory_id=aws_directory_service_directory["main"]["id"])
-    ```
 
 
     :param str directory_id: ID of the directory.

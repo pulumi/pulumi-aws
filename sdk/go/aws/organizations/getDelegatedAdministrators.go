@@ -12,32 +12,6 @@ import (
 )
 
 // Get a list of AWS accounts that are designated as delegated administrators in this organization
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/organizations"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := organizations.GetDelegatedAdministrators(ctx, &organizations.GetDelegatedAdministratorsArgs{
-//				ServicePrincipal: pulumi.StringRef("SERVICE PRINCIPAL"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetDelegatedAdministrators(ctx *pulumi.Context, args *GetDelegatedAdministratorsArgs, opts ...pulumi.InvokeOption) (*GetDelegatedAdministratorsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetDelegatedAdministratorsResult

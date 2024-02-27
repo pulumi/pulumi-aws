@@ -30,7 +30,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.auditmanager.Control;
  * import com.pulumi.aws.auditmanager.ControlArgs;
- * import com.pulumi.aws.auditmanager.inputs.ControlControlMappingSourceArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -45,11 +44,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Control(&#34;example&#34;, ControlArgs.builder()        
- *             .controlMappingSources(ControlControlMappingSourceArgs.builder()
- *                 .sourceName(&#34;example&#34;)
- *                 .sourceSetUpOption(&#34;Procedural_Controls_Mapping&#34;)
- *                 .sourceType(&#34;MANUAL&#34;)
- *                 .build())
+ *             .controlMappingSources(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

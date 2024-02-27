@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.mq.Configuration("example", {
+ * const example = new aws.mq/configuration.Configuration("example", {
  *     data: `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
  * <broker xmlns="http://activemq.apache.org/schema/core">
  *   <plugins>
@@ -38,7 +38,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.mq.Configuration("example", {
+ * const example = new aws.mq/configuration.Configuration("example", {
  *     data: `# Default RabbitMQ delivery acknowledgement timeout is 30 minutes in milliseconds
  * consumer_timeout = 1800000
  *

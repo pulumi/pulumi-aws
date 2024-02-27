@@ -18,10 +18,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleGateway = new aws.directconnect.Gateway("exampleGateway", {amazonSideAsn: "64512"});
- * const exampleVpc = new aws.ec2.Vpc("exampleVpc", {cidrBlock: "10.255.255.0/28"});
- * const exampleVpnGateway = new aws.ec2.VpnGateway("exampleVpnGateway", {vpcId: exampleVpc.id});
- * const exampleGatewayAssociation = new aws.directconnect.GatewayAssociation("exampleGatewayAssociation", {
+ * const exampleGateway = new aws.directconnect/gateway.Gateway("exampleGateway", {amazonSideAsn: "64512"});
+ * const exampleVpc = new aws.ec2/vpc.Vpc("exampleVpc", {cidrBlock: "10.255.255.0/28"});
+ * const exampleVpnGateway = new aws.ec2/vpnGateway.VpnGateway("exampleVpnGateway", {vpcId: exampleVpc.id});
+ * const exampleGatewayAssociation = new aws.directconnect/gatewayAssociation.GatewayAssociation("exampleGatewayAssociation", {
  *     dxGatewayId: exampleGateway.id,
  *     associatedGatewayId: exampleVpnGateway.id,
  * });
@@ -32,9 +32,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleGateway = new aws.directconnect.Gateway("exampleGateway", {amazonSideAsn: "64512"});
- * const exampleTransitGateway = new aws.ec2transitgateway.TransitGateway("exampleTransitGateway", {});
- * const exampleGatewayAssociation = new aws.directconnect.GatewayAssociation("exampleGatewayAssociation", {
+ * const exampleGateway = new aws.directconnect/gateway.Gateway("exampleGateway", {amazonSideAsn: "64512"});
+ * const exampleTransitGateway = new aws.ec2transitgateway/transitGateway.TransitGateway("exampleTransitGateway", {});
+ * const exampleGatewayAssociation = new aws.directconnect/gatewayAssociation.GatewayAssociation("exampleGatewayAssociation", {
  *     dxGatewayId: exampleGateway.id,
  *     associatedGatewayId: exampleTransitGateway.id,
  *     allowedPrefixes: [
@@ -49,10 +49,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleGateway = new aws.directconnect.Gateway("exampleGateway", {amazonSideAsn: "64512"});
- * const exampleVpc = new aws.ec2.Vpc("exampleVpc", {cidrBlock: "10.255.255.0/28"});
- * const exampleVpnGateway = new aws.ec2.VpnGateway("exampleVpnGateway", {vpcId: exampleVpc.id});
- * const exampleGatewayAssociation = new aws.directconnect.GatewayAssociation("exampleGatewayAssociation", {
+ * const exampleGateway = new aws.directconnect/gateway.Gateway("exampleGateway", {amazonSideAsn: "64512"});
+ * const exampleVpc = new aws.ec2/vpc.Vpc("exampleVpc", {cidrBlock: "10.255.255.0/28"});
+ * const exampleVpnGateway = new aws.ec2/vpnGateway.VpnGateway("exampleVpnGateway", {vpcId: exampleVpc.id});
+ * const exampleGatewayAssociation = new aws.directconnect/gatewayAssociation.GatewayAssociation("exampleGatewayAssociation", {
  *     dxGatewayId: exampleGateway.id,
  *     associatedGatewayId: exampleVpnGateway.id,
  *     allowedPrefixes: [

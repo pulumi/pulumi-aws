@@ -24,55 +24,53 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3control"
+//	"github.com/pulumi/pulumi-aws/sdk/v1/go/aws"
+//	s3/bucketV2 "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/s3/bucketV2"
+//	s3control/multiRegionAccessPoint "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/s3control/multiRegionAccessPoint"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := aws.NewProvider(ctx, "primaryRegion", &aws.ProviderArgs{
-//				Region: pulumi.String("us-east-1"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = aws.NewProvider(ctx, "secondaryRegion", &aws.ProviderArgs{
-//				Region: pulumi.String("us-west-2"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			fooBucket, err := s3.NewBucketV2(ctx, "fooBucket", nil, pulumi.Provider(aws.Primary_region))
-//			if err != nil {
-//				return err
-//			}
-//			barBucket, err := s3.NewBucketV2(ctx, "barBucket", nil, pulumi.Provider(aws.Secondary_region))
-//			if err != nil {
-//				return err
-//			}
-//			_, err = s3control.NewMultiRegionAccessPoint(ctx, "example", &s3control.MultiRegionAccessPointArgs{
-//				Details: &s3control.MultiRegionAccessPointDetailsArgs{
-//					Name: pulumi.String("example"),
-//					Regions: s3control.MultiRegionAccessPointDetailsRegionArray{
-//						&s3control.MultiRegionAccessPointDetailsRegionArgs{
-//							Bucket: fooBucket.ID(),
-//						},
-//						&s3control.MultiRegionAccessPointDetailsRegionArgs{
-//							Bucket: barBucket.ID(),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := aws.NewProvider(ctx, "primaryRegion", &aws.ProviderArgs{
+// Region: "us-east-1",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = aws.NewProvider(ctx, "secondaryRegion", &aws.ProviderArgs{
+// Region: "us-west-2",
+// })
+// if err != nil {
+// return err
+// }
+// fooBucket, err := s3/bucketV2.NewBucketV2(ctx, "fooBucket", nil, pulumi.Provider(aws.Primary_region))
+// if err != nil {
+// return err
+// }
+// barBucket, err := s3/bucketV2.NewBucketV2(ctx, "barBucket", nil, pulumi.Provider(aws.Secondary_region))
+// if err != nil {
+// return err
+// }
+// _, err = s3control/multiRegionAccessPoint.NewMultiRegionAccessPoint(ctx, "example", &s3control/multiRegionAccessPoint.MultiRegionAccessPointArgs{
+// Details: map[string]interface{}{
+// "name": "example",
+// "regions": []map[string]interface{}{
+// map[string]interface{}{
+// "bucket": fooBucket.Id,
+// },
+// map[string]interface{}{
+// "bucket": barBucket.Id,
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

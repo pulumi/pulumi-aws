@@ -24,34 +24,34 @@ namespace Pulumi.Aws.CloudSearch
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.CloudSearch.Domain("example", new()
+    ///     var example = new Aws.Cloudsearch.Domain.Domain("example", new()
     ///     {
     ///         IndexFields = new[]
     ///         {
-    ///             new Aws.CloudSearch.Inputs.DomainIndexFieldArgs
+    ///             
     ///             {
-    ///                 AnalysisScheme = "_en_default_",
-    ///                 Highlight = false,
-    ///                 Name = "headline",
-    ///                 Return = true,
-    ///                 Search = true,
-    ///                 Sort = true,
-    ///                 Type = "text",
+    ///                 { "analysisScheme", "_en_default_" },
+    ///                 { "highlight", false },
+    ///                 { "name", "headline" },
+    ///                 { "return", true },
+    ///                 { "search", true },
+    ///                 { "sort", true },
+    ///                 { "type", "text" },
     ///             },
-    ///             new Aws.CloudSearch.Inputs.DomainIndexFieldArgs
+    ///             
     ///             {
-    ///                 Facet = true,
-    ///                 Name = "price",
-    ///                 Return = true,
-    ///                 Search = true,
-    ///                 Sort = true,
-    ///                 SourceFields = "headline",
-    ///                 Type = "double",
+    ///                 { "facet", true },
+    ///                 { "name", "price" },
+    ///                 { "return", true },
+    ///                 { "search", true },
+    ///                 { "sort", true },
+    ///                 { "sourceFields", "headline" },
+    ///                 { "type", "double" },
     ///             },
     ///         },
-    ///         ScalingParameters = new Aws.CloudSearch.Inputs.DomainScalingParametersArgs
+    ///         ScalingParameters = 
     ///         {
-    ///             DesiredInstanceType = "search.medium",
+    ///             { "desiredInstanceType", "search.medium" },
     ///         },
     ///     });
     /// 

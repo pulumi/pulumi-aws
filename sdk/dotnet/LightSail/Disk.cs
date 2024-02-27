@@ -12,41 +12,6 @@ namespace Pulumi.Aws.LightSail
     /// <summary>
     /// Provides a Lightsail Disk resource.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var available = Aws.GetAvailabilityZones.Invoke(new()
-    ///     {
-    ///         State = "available",
-    ///         Filters = new[]
-    ///         {
-    ///             new Aws.Inputs.GetAvailabilityZonesFilterInputArgs
-    ///             {
-    ///                 Name = "opt-in-status",
-    ///                 Values = new[]
-    ///                 {
-    ///                     "opt-in-not-required",
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var test = new Aws.LightSail.Disk("test", new()
-    ///     {
-    ///         SizeInGb = 8,
-    ///         AvailabilityZone = available.Apply(getAvailabilityZonesResult =&gt; getAvailabilityZonesResult.Names[0]),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_lightsail_disk` using the name attribute. For example:

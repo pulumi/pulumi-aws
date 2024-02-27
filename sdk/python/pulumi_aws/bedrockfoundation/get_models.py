@@ -102,22 +102,6 @@ def get_models(by_customization_type: Optional[str] = None,
     Data source for managing AWS Bedrock Foundation Models.
 
     ## Example Usage
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.bedrockfoundation.get_models()
-    ```
-    ### Filter by Inference Type
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.bedrockfoundation.get_models(by_inference_type="ON_DEMAND")
-    ```
 
 
     :param str by_customization_type: Customization type to filter on. Valid values are `FINE_TUNING`.
@@ -152,22 +136,6 @@ def get_models_output(by_customization_type: Optional[pulumi.Input[Optional[str]
     Data source for managing AWS Bedrock Foundation Models.
 
     ## Example Usage
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.bedrockfoundation.get_models()
-    ```
-    ### Filter by Inference Type
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.bedrockfoundation.get_models(by_inference_type="ON_DEMAND")
-    ```
 
 
     :param str by_customization_type: Customization type to filter on. Valid values are `FINE_TUNING`.

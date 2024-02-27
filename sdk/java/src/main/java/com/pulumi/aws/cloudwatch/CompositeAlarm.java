@@ -32,7 +32,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.cloudwatch.CompositeAlarm;
  * import com.pulumi.aws.cloudwatch.CompositeAlarmArgs;
- * import com.pulumi.aws.cloudwatch.inputs.CompositeAlarmActionsSuppressorArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -55,11 +54,7 @@ import javax.annotation.Nullable;
  * ALARM(%s) OR
  * ALARM(%s)
  * &#34;, aws_cloudwatch_metric_alarm.alpha().alarm_name(),aws_cloudwatch_metric_alarm.bravo().alarm_name()))
- *             .actionsSuppressor(CompositeAlarmActionsSuppressorArgs.builder()
- *                 .alarm(&#34;suppressor-alarm&#34;)
- *                 .extensionPeriod(10)
- *                 .waitPeriod(20)
- *                 .build())
+ *             .actionsSuppressor(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

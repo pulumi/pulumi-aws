@@ -24,37 +24,35 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/memorydb"
-//	"github.com/pulumi/pulumi-random/sdk/v4/go/random"
+//	memorydb/user "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/memorydb/user"
+//	index/randomPassword "github.com/pulumi/pulumi-random/sdk/v1/go/random/index/randomPassword"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleRandomPassword, err := random.NewRandomPassword(ctx, "exampleRandomPassword", &random.RandomPasswordArgs{
-//				Length: pulumi.Int(16),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = memorydb.NewUser(ctx, "exampleUser", &memorydb.UserArgs{
-//				UserName:     pulumi.String("my-user"),
-//				AccessString: pulumi.String("on ~* &* +@all"),
-//				AuthenticationMode: &memorydb.UserAuthenticationModeArgs{
-//					Type: pulumi.String("password"),
-//					Passwords: pulumi.StringArray{
-//						exampleRandomPassword.Result,
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleRandomPassword, err := random.NewRandomPassword(ctx, "exampleRandomPassword", &random.RandomPasswordArgs{
+// Length: 16,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = memorydb/user.NewUser(ctx, "exampleUser", &memorydb/user.UserArgs{
+// UserName: "my-user",
+// AccessString: "on ~* &* +@all",
+// AuthenticationMode: map[string]interface{}{
+// "type": "password",
+// "passwords": []interface{}{
+// exampleRandomPassword.Result,
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

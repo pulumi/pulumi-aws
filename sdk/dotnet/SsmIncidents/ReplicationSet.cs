@@ -27,13 +27,13 @@ namespace Pulumi.Aws.SsmIncidents
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var replicationSetName = new Aws.SsmIncidents.ReplicationSet("replicationSetName", new()
+    ///     var replicationSetName = new Aws.Ssmincidents.ReplicationSet.ReplicationSet("replicationSetName", new()
     ///     {
     ///         Regions = new[]
     ///         {
-    ///             new Aws.SsmIncidents.Inputs.ReplicationSetRegionArgs
+    ///             
     ///             {
-    ///                 Name = "us-west-2",
+    ///                 { "name", "us-west-2" },
     ///             },
     ///         },
     ///         Tags = 
@@ -55,17 +55,17 @@ namespace Pulumi.Aws.SsmIncidents
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var replicationSetName = new Aws.SsmIncidents.ReplicationSet("replicationSetName", new()
+    ///     var replicationSetName = new Aws.Ssmincidents.ReplicationSet.ReplicationSet("replicationSetName", new()
     ///     {
     ///         Regions = new[]
     ///         {
-    ///             new Aws.SsmIncidents.Inputs.ReplicationSetRegionArgs
+    ///             
     ///             {
-    ///                 Name = "us-west-2",
+    ///                 { "name", "us-west-2" },
     ///             },
-    ///             new Aws.SsmIncidents.Inputs.ReplicationSetRegionArgs
+    ///             
     ///             {
-    ///                 Name = "ap-southeast-2",
+    ///                 { "name", "ap-southeast-2" },
     ///             },
     ///         },
     ///     });
@@ -83,13 +83,13 @@ namespace Pulumi.Aws.SsmIncidents
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var replicationSetName = new Aws.SsmIncidents.ReplicationSet("replicationSetName", new()
+    ///     var replicationSetName = new Aws.Ssmincidents.ReplicationSet.ReplicationSet("replicationSetName", new()
     ///     {
     ///         Regions = new[]
     ///         {
-    ///             new Aws.SsmIncidents.Inputs.ReplicationSetRegionArgs
+    ///             
     ///             {
-    ///                 Name = "us-west-2",
+    ///                 { "name", "us-west-2" },
     ///             },
     ///         },
     ///     });
@@ -108,16 +108,16 @@ namespace Pulumi.Aws.SsmIncidents
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleKey = new Aws.Kms.Key("exampleKey");
+    ///     var exampleKey = new Aws.Kms.Key.Key("exampleKey");
     /// 
-    ///     var replicationSetName = new Aws.SsmIncidents.ReplicationSet("replicationSetName", new()
+    ///     var replicationSetName = new Aws.Ssmincidents.ReplicationSet.ReplicationSet("replicationSetName", new()
     ///     {
     ///         Regions = new[]
     ///         {
-    ///             new Aws.SsmIncidents.Inputs.ReplicationSetRegionArgs
+    ///             
     ///             {
-    ///                 Name = "us-west-2",
-    ///                 KmsKeyArn = exampleKey.Arn,
+    ///                 { "name", "us-west-2" },
+    ///                 { "kmsKeyArn", exampleKey.Arn },
     ///             },
     ///         },
     ///         Tags = 

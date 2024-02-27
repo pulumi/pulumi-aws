@@ -102,16 +102,16 @@ class DomainDkim(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_domain_identity = aws.ses.DomainIdentity("exampleDomainIdentity", domain="example.com")
-        example_domain_dkim = aws.ses.DomainDkim("exampleDomainDkim", domain=example_domain_identity.domain)
+        example_domain_identity = aws.ses.domain_identity.DomainIdentity("exampleDomainIdentity", domain=example.com)
+        example_domain_dkim = aws.ses.domain_dkim.DomainDkim("exampleDomainDkim", domain=example_domain_identity.domain)
         example_amazonses_dkim_record = []
         for range in [{"value": i} for i in range(0, 3)]:
-            example_amazonses_dkim_record.append(aws.route53.Record(f"exampleAmazonsesDkimRecord-{range['value']}",
-                zone_id="ABCDEFGHIJ123",
-                name=example_domain_dkim.dkim_tokens.apply(lambda dkim_tokens: f"{dkim_tokens[range['value']]}._domainkey"),
-                type="CNAME",
+            example_amazonses_dkim_record.append(aws.route53.record.Record(f"exampleAmazonsesDkimRecord-{range['value']}",
+                zone_id=ABCDEFGHIJ123,
+                name=f{example_domain_dkim.dkim_tokens[range.value]}._domainkey,
+                type=CNAME,
                 ttl=600,
-                records=[example_domain_dkim.dkim_tokens.apply(lambda dkim_tokens: f"{dkim_tokens[range['value']]}.dkim.amazonses.com")]))
+                records=[f{example_domain_dkim.dkim_tokens[range.value]}.dkim.amazonses.com]))
         ```
 
         ## Import
@@ -143,16 +143,16 @@ class DomainDkim(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_domain_identity = aws.ses.DomainIdentity("exampleDomainIdentity", domain="example.com")
-        example_domain_dkim = aws.ses.DomainDkim("exampleDomainDkim", domain=example_domain_identity.domain)
+        example_domain_identity = aws.ses.domain_identity.DomainIdentity("exampleDomainIdentity", domain=example.com)
+        example_domain_dkim = aws.ses.domain_dkim.DomainDkim("exampleDomainDkim", domain=example_domain_identity.domain)
         example_amazonses_dkim_record = []
         for range in [{"value": i} for i in range(0, 3)]:
-            example_amazonses_dkim_record.append(aws.route53.Record(f"exampleAmazonsesDkimRecord-{range['value']}",
-                zone_id="ABCDEFGHIJ123",
-                name=example_domain_dkim.dkim_tokens.apply(lambda dkim_tokens: f"{dkim_tokens[range['value']]}._domainkey"),
-                type="CNAME",
+            example_amazonses_dkim_record.append(aws.route53.record.Record(f"exampleAmazonsesDkimRecord-{range['value']}",
+                zone_id=ABCDEFGHIJ123,
+                name=f{example_domain_dkim.dkim_tokens[range.value]}._domainkey,
+                type=CNAME,
                 ttl=600,
-                records=[example_domain_dkim.dkim_tokens.apply(lambda dkim_tokens: f"{dkim_tokens[range['value']]}.dkim.amazonses.com")]))
+                records=[f{example_domain_dkim.dkim_tokens[range.value]}.dkim.amazonses.com]))
         ```
 
         ## Import

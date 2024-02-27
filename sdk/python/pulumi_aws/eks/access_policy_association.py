@@ -204,14 +204,14 @@ class AccessPolicyAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.eks.AccessPolicyAssociation("example",
-            cluster_name=aws_eks_cluster["example"]["name"],
-            policy_arn="arn:aws:eks::aws:cluster-access-policy/AmazonEKSViewPolicy",
-            principal_arn=aws_iam_user["example"]["arn"],
-            access_scope=aws.eks.AccessPolicyAssociationAccessScopeArgs(
-                type="namespace",
-                namespaces=["example-namespace"],
-            ))
+        example = aws.eks.access_policy_association.AccessPolicyAssociation("example",
+            cluster_name=aws_eks_cluster.example.name,
+            policy_arn=arn:aws:eks::aws:cluster-access-policy/AmazonEKSViewPolicy,
+            principal_arn=aws_iam_user.example.arn,
+            access_scope={
+                type: namespace,
+                namespaces: [example-namespace],
+            })
         ```
 
         ## Import
@@ -244,14 +244,14 @@ class AccessPolicyAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.eks.AccessPolicyAssociation("example",
-            cluster_name=aws_eks_cluster["example"]["name"],
-            policy_arn="arn:aws:eks::aws:cluster-access-policy/AmazonEKSViewPolicy",
-            principal_arn=aws_iam_user["example"]["arn"],
-            access_scope=aws.eks.AccessPolicyAssociationAccessScopeArgs(
-                type="namespace",
-                namespaces=["example-namespace"],
-            ))
+        example = aws.eks.access_policy_association.AccessPolicyAssociation("example",
+            cluster_name=aws_eks_cluster.example.name,
+            policy_arn=arn:aws:eks::aws:cluster-access-policy/AmazonEKSViewPolicy,
+            principal_arn=aws_iam_user.example.arn,
+            access_scope={
+                type: namespace,
+                namespaces: [example-namespace],
+            })
         ```
 
         ## Import

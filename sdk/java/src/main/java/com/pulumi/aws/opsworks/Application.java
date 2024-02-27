@@ -31,9 +31,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.opsworks.Application;
  * import com.pulumi.aws.opsworks.ApplicationArgs;
- * import com.pulumi.aws.opsworks.inputs.ApplicationEnvironmentArgs;
- * import com.pulumi.aws.opsworks.inputs.ApplicationAppSourceArgs;
- * import com.pulumi.aws.opsworks.inputs.ApplicationSslConfigurationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -55,21 +52,10 @@ import javax.annotation.Nullable;
  *             .domains(            
  *                 &#34;example.com&#34;,
  *                 &#34;sub.example.com&#34;)
- *             .environments(ApplicationEnvironmentArgs.builder()
- *                 .key(&#34;key&#34;)
- *                 .value(&#34;value&#34;)
- *                 .secure(false)
- *                 .build())
- *             .appSources(ApplicationAppSourceArgs.builder()
- *                 .type(&#34;git&#34;)
- *                 .revision(&#34;master&#34;)
- *                 .url(&#34;https://github.com/example.git&#34;)
- *                 .build())
+ *             .environments(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .appSources(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .enableSsl(true)
- *             .sslConfigurations(ApplicationSslConfigurationArgs.builder()
- *                 .privateKey(Files.readString(Paths.get(&#34;./foobar.key&#34;)))
- *                 .certificate(Files.readString(Paths.get(&#34;./foobar.crt&#34;)))
- *                 .build())
+ *             .sslConfigurations(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .documentRoot(&#34;public&#34;)
  *             .autoBundleOnDeploy(true)
  *             .railsEnv(&#34;staging&#34;)

@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var lb = new Aws.Elb.LoadBalancer("lb", new()
+    ///     var lb = new Aws.Elb.LoadBalancer.LoadBalancer("lb", new()
     ///     {
     ///         AvailabilityZones = new[]
     ///         {
@@ -30,24 +30,24 @@ namespace Pulumi.Aws.Ec2
     ///         },
     ///         Listeners = new[]
     ///         {
-    ///             new Aws.Elb.Inputs.LoadBalancerListenerArgs
+    ///             
     ///             {
-    ///                 InstancePort = 25,
-    ///                 InstanceProtocol = "tcp",
-    ///                 LbPort = 25,
-    ///                 LbProtocol = "tcp",
+    ///                 { "instancePort", 25 },
+    ///                 { "instanceProtocol", "tcp" },
+    ///                 { "lbPort", 25 },
+    ///                 { "lbProtocol", "tcp" },
     ///             },
-    ///             new Aws.Elb.Inputs.LoadBalancerListenerArgs
+    ///             
     ///             {
-    ///                 InstancePort = 587,
-    ///                 InstanceProtocol = "tcp",
-    ///                 LbPort = 587,
-    ///                 LbProtocol = "tcp",
+    ///                 { "instancePort", 587 },
+    ///                 { "instanceProtocol", "tcp" },
+    ///                 { "lbPort", 587 },
+    ///                 { "lbProtocol", "tcp" },
     ///             },
     ///         },
     ///     });
     /// 
-    ///     var smtp = new Aws.Ec2.ProxyProtocolPolicy("smtp", new()
+    ///     var smtp = new Aws.Ec2.ProxyProtocolPolicy.ProxyProtocolPolicy("smtp", new()
     ///     {
     ///         LoadBalancer = lb.Name,
     ///         InstancePorts = new[]

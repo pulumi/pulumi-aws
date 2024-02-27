@@ -23,7 +23,7 @@ namespace Pulumi.Aws.Batch
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testQueue = new Aws.Batch.JobQueue("testQueue", new()
+    ///     var testQueue = new Aws.Batch.JobQueue.JobQueue("testQueue", new()
     ///     {
     ///         State = "ENABLED",
     ///         Priority = 1,
@@ -46,24 +46,24 @@ namespace Pulumi.Aws.Batch
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleSchedulingPolicy = new Aws.Batch.SchedulingPolicy("exampleSchedulingPolicy", new()
+    ///     var exampleSchedulingPolicy = new Aws.Batch.SchedulingPolicy.SchedulingPolicy("exampleSchedulingPolicy", new()
     ///     {
-    ///         FairSharePolicy = new Aws.Batch.Inputs.SchedulingPolicyFairSharePolicyArgs
+    ///         FairSharePolicy = 
     ///         {
-    ///             ComputeReservation = 1,
-    ///             ShareDecaySeconds = 3600,
-    ///             ShareDistributions = new[]
+    ///             { "computeReservation", 1 },
+    ///             { "shareDecaySeconds", 3600 },
+    ///             { "shareDistributions", new[]
     ///             {
-    ///                 new Aws.Batch.Inputs.SchedulingPolicyFairSharePolicyShareDistributionArgs
+    ///                 
     ///                 {
-    ///                     ShareIdentifier = "A1*",
-    ///                     WeightFactor = 0.1,
+    ///                     { "shareIdentifier", "A1*" },
+    ///                     { "weightFactor", 0.1 },
     ///                 },
-    ///             },
+    ///             } },
     ///         },
     ///     });
     /// 
-    ///     var exampleJobQueue = new Aws.Batch.JobQueue("exampleJobQueue", new()
+    ///     var exampleJobQueue = new Aws.Batch.JobQueue.JobQueue("exampleJobQueue", new()
     ///     {
     ///         SchedulingPolicyArn = exampleSchedulingPolicy.Arn,
     ///         State = "ENABLED",

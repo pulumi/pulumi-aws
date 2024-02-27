@@ -21,38 +21,37 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ebs"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	ebs/snapshot "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ebs/snapshot"
+//	ebs/volume "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ebs/volume"
+//	ec2/snapshotCreateVolumePermission "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/snapshotCreateVolumePermission"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := ebs.NewVolume(ctx, "example", &ebs.VolumeArgs{
-//				AvailabilityZone: pulumi.String("us-west-2a"),
-//				Size:             pulumi.Int(40),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleSnapshot, err := ebs.NewSnapshot(ctx, "exampleSnapshot", &ebs.SnapshotArgs{
-//				VolumeId: example.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ec2.NewSnapshotCreateVolumePermission(ctx, "examplePerm", &ec2.SnapshotCreateVolumePermissionArgs{
-//				SnapshotId: exampleSnapshot.ID(),
-//				AccountId:  pulumi.String("12345678"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := ebs/volume.NewVolume(ctx, "example", &ebs/volume.VolumeArgs{
+// AvailabilityZone: "us-west-2a",
+// Size: 40,
+// })
+// if err != nil {
+// return err
+// }
+// exampleSnapshot, err := ebs/snapshot.NewSnapshot(ctx, "exampleSnapshot", &ebs/snapshot.SnapshotArgs{
+// VolumeId: example.Id,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = ec2/snapshotCreateVolumePermission.NewSnapshotCreateVolumePermission(ctx, "examplePerm", &ec2/snapshotCreateVolumePermission.SnapshotCreateVolumePermissionArgs{
+// SnapshotId: exampleSnapshot.Id,
+// AccountId: "12345678",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 type SnapshotCreateVolumePermission struct {
 	pulumi.CustomResourceState

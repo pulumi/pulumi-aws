@@ -22,27 +22,25 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/vpclattice"
+//	vpclattice/serviceNetworkVpcAssociation "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/vpclattice/serviceNetworkVpcAssociation"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := vpclattice.NewServiceNetworkVpcAssociation(ctx, "example", &vpclattice.ServiceNetworkVpcAssociationArgs{
-//				VpcIdentifier:            pulumi.Any(aws_vpc.Example.Id),
-//				ServiceNetworkIdentifier: pulumi.Any(aws_vpclattice_service_network.Example.Id),
-//				SecurityGroupIds: pulumi.StringArray{
-//					aws_security_group.Example.Id,
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := vpclattice/serviceNetworkVpcAssociation.NewServiceNetworkVpcAssociation(ctx, "example", &vpclattice/serviceNetworkVpcAssociation.ServiceNetworkVpcAssociationArgs{
+// VpcIdentifier: aws_vpc.Example.Id,
+// ServiceNetworkIdentifier: aws_vpclattice_service_network.Example.Id,
+// SecurityGroupIds: []interface{}{
+// aws_security_group.Example.Id,
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

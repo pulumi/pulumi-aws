@@ -24,33 +24,30 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sesv2"
+//	sesv2/emailIdentity "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/sesv2/emailIdentity"
+//	sesv2/emailIdentityMailFromAttributes "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/sesv2/emailIdentityMailFromAttributes"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleEmailIdentity, err := sesv2.NewEmailIdentity(ctx, "exampleEmailIdentity", &sesv2.EmailIdentityArgs{
-//				EmailIdentity: pulumi.String("example.com"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = sesv2.NewEmailIdentityMailFromAttributes(ctx, "exampleEmailIdentityMailFromAttributes", &sesv2.EmailIdentityMailFromAttributesArgs{
-//				EmailIdentity:       exampleEmailIdentity.EmailIdentity,
-//				BehaviorOnMxFailure: pulumi.String("REJECT_MESSAGE"),
-//				MailFromDomain: exampleEmailIdentity.EmailIdentity.ApplyT(func(emailIdentity string) (string, error) {
-//					return fmt.Sprintf("subdomain.%v", emailIdentity), nil
-//				}).(pulumi.StringOutput),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleEmailIdentity, err := sesv2/emailIdentity.NewEmailIdentity(ctx, "exampleEmailIdentity", &sesv2/emailIdentity.EmailIdentityArgs{
+// EmailIdentity: "example.com",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = sesv2/emailIdentityMailFromAttributes.NewEmailIdentityMailFromAttributes(ctx, "exampleEmailIdentityMailFromAttributes", &sesv2/emailIdentityMailFromAttributes.EmailIdentityMailFromAttributesArgs{
+// EmailIdentity: exampleEmailIdentity.EmailIdentity,
+// BehaviorOnMxFailure: "REJECT_MESSAGE",
+// MailFromDomain: fmt.Sprintf("subdomain.%v", exampleEmailIdentity.EmailIdentity),
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

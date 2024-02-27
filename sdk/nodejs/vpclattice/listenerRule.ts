@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = new aws.vpclattice.ListenerRule("test", {
+ * const test = new aws.vpclattice/listenerRule.ListenerRule("test", {
  *     listenerIdentifier: aws_vpclattice_listener.example.listener_id,
  *     serviceIdentifier: aws_vpclattice_service.example.id,
  *     priority: 20,
@@ -59,7 +59,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = new aws.vpclattice.ListenerRule("test", {
+ * const test = new aws.vpclattice/listenerRule.ListenerRule("test", {
  *     listenerIdentifier: aws_vpclattice_listener.example.listener_id,
  *     serviceIdentifier: aws_vpclattice_service.example.id,
  *     priority: 10,

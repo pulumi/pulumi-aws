@@ -172,9 +172,9 @@ class MetricsDestination(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.rum.MetricsDestination("example",
-            app_monitor_name=aws_rum_app_monitor["example"]["name"],
-            destination="CloudWatch")
+        example = aws.rum.metrics_destination.MetricsDestination("example",
+            app_monitor_name=aws_rum_app_monitor.example.name,
+            destination=CloudWatch)
         ```
 
         ## Import
@@ -207,9 +207,9 @@ class MetricsDestination(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.rum.MetricsDestination("example",
-            app_monitor_name=aws_rum_app_monitor["example"]["name"],
-            destination="CloudWatch")
+        example = aws.rum.metrics_destination.MetricsDestination("example",
+            app_monitor_name=aws_rum_app_monitor.example.name,
+            destination=CloudWatch)
         ```
 
         ## Import

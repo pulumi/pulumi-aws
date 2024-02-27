@@ -16,8 +16,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const testRepository = new aws.codecommit.Repository("testRepository", {repositoryName: "test"});
- * const testTrigger = new aws.codecommit.Trigger("testTrigger", {
+ * const testRepository = new aws.codecommit/repository.Repository("testRepository", {repositoryName: "test"});
+ * const testTrigger = new aws.codecommit/trigger.Trigger("testTrigger", {
  *     repositoryName: testRepository.repositoryName,
  *     triggers: [{
  *         name: "all",

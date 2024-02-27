@@ -24,7 +24,7 @@ namespace Pulumi.Aws.Dms
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var name = new Aws.Dms.ReplicationConfig("name", new()
+    ///     var name = new Aws.Dms.ReplicationConfig.ReplicationConfig("name", new()
     ///     {
     ///         ReplicationConfigIdentifier = "test-dms-serverless-replication-tf",
     ///         ResourceIdentifier = "test-dms-serverless-replication-tf",
@@ -36,12 +36,12 @@ namespace Pulumi.Aws.Dms
     ///   }
     /// ",
     ///         StartReplication = true,
-    ///         ComputeConfig = new Aws.Dms.Inputs.ReplicationConfigComputeConfigArgs
+    ///         ComputeConfig = 
     ///         {
-    ///             ReplicationSubnetGroupId = aws_dms_replication_subnet_group.Default.Replication_subnet_group_id,
-    ///             MaxCapacityUnits = 64,
-    ///             MinCapacityUnits = 2,
-    ///             PreferredMaintenanceWindow = "sun:23:45-mon:00:30",
+    ///             { "replicationSubnetGroupId", aws_dms_replication_subnet_group.Default.Replication_subnet_group_id },
+    ///             { "maxCapacityUnits", "64" },
+    ///             { "minCapacityUnits", "2" },
+    ///             { "preferredMaintenanceWindow", "sun:23:45-mon:00:30" },
     ///         },
     ///     });
     /// 

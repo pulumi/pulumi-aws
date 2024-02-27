@@ -27,45 +27,29 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/opensearch"
+//	opensearch/serverlessCollection "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/opensearch/serverlessCollection"
+//	opensearch/serverlessSecurityPolicy "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/opensearch/serverlessSecurityPolicy"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"Rules": []map[string]interface{}{
-//					map[string]interface{}{
-//						"Resource": []string{
-//							"collection/example",
-//						},
-//						"ResourceType": "collection",
-//					},
-//				},
-//				"AWSOwnedKey": true,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			exampleServerlessSecurityPolicy, err := opensearch.NewServerlessSecurityPolicy(ctx, "exampleServerlessSecurityPolicy", &opensearch.ServerlessSecurityPolicyArgs{
-//				Type:   pulumi.String("encryption"),
-//				Policy: pulumi.String(json0),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = opensearch.NewServerlessCollection(ctx, "exampleServerlessCollection", nil, pulumi.DependsOn([]pulumi.Resource{
-//				exampleServerlessSecurityPolicy,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleServerlessSecurityPolicy, err := opensearch/serverlessSecurityPolicy.NewServerlessSecurityPolicy(ctx, "exampleServerlessSecurityPolicy", &opensearch/serverlessSecurityPolicy.ServerlessSecurityPolicyArgs{
+// Type: "encryption",
+// Policy: %!v(PANIC=Format method: fatal: An assertion has failed: unlowered function toJSON),
+// })
+// if err != nil {
+// return err
+// }
+// _, err = opensearch/serverlessCollection.NewServerlessCollection(ctx, "exampleServerlessCollection", nil, pulumi.DependsOn([]pulumi.Resource{
+// exampleServerlessSecurityPolicy,
+// }))
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

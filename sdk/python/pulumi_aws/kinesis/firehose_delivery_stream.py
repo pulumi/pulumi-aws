@@ -586,56 +586,6 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
         For more details, see the [Amazon Kinesis Firehose Documentation](https://aws.amazon.com/documentation/firehose/).
 
         ## Example Usage
-        ### Extended S3 Destination
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        bucket = aws.s3.BucketV2("bucket")
-        firehose_assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["firehose.amazonaws.com"],
-            )],
-            actions=["sts:AssumeRole"],
-        )])
-        firehose_role = aws.iam.Role("firehoseRole", assume_role_policy=firehose_assume_role.json)
-        lambda_assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["lambda.amazonaws.com"],
-            )],
-            actions=["sts:AssumeRole"],
-        )])
-        lambda_iam = aws.iam.Role("lambdaIam", assume_role_policy=lambda_assume_role.json)
-        lambda_processor = aws.lambda_.Function("lambdaProcessor",
-            code=pulumi.FileArchive("lambda.zip"),
-            role=lambda_iam.arn,
-            handler="exports.handler",
-            runtime="nodejs16.x")
-        extended_s3_stream = aws.kinesis.FirehoseDeliveryStream("extendedS3Stream",
-            destination="extended_s3",
-            extended_s3_configuration=aws.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationArgs(
-                role_arn=firehose_role.arn,
-                bucket_arn=bucket.arn,
-                processing_configuration=aws.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationArgs(
-                    enabled=True,
-                    processors=[aws.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorArgs(
-                        type="Lambda",
-                        parameters=[aws.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameterArgs(
-                            parameter_name="LambdaArn",
-                            parameter_value=lambda_processor.arn.apply(lambda arn: f"{arn}:$LATEST"),
-                        )],
-                    )],
-                ),
-            ))
-        bucket_acl = aws.s3.BucketAclV2("bucketAcl",
-            bucket=bucket.id,
-            acl="private")
-        ```
         ### Extended S3 Destination with dynamic partitioning
 
         These examples use built-in Firehose functionality, rather than requiring a lambda.
@@ -644,46 +594,46 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        extended_s3_stream = aws.kinesis.FirehoseDeliveryStream("extendedS3Stream",
-            destination="extended_s3",
-            extended_s3_configuration=aws.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationArgs(
-                role_arn=aws_iam_role["firehose_role"]["arn"],
-                bucket_arn=aws_s3_bucket["bucket"]["arn"],
-                buffering_size=64,
-                dynamic_partitioning_configuration=aws.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationArgs(
-                    enabled=True,
-                ),
-                prefix="data/customer_id=!{partitionKeyFromQuery:customer_id}/year=!{timestamp:yyyy}/month=!{timestamp:MM}/day=!{timestamp:dd}/hour=!{timestamp:HH}/",
-                error_output_prefix="errors/year=!{timestamp:yyyy}/month=!{timestamp:MM}/day=!{timestamp:dd}/hour=!{timestamp:HH}/!{firehose:error-output-type}/",
-                processing_configuration=aws.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationArgs(
-                    enabled=True,
-                    processors=[
-                        aws.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorArgs(
-                            type="RecordDeAggregation",
-                            parameters=[aws.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameterArgs(
-                                parameter_name="SubRecordType",
-                                parameter_value="JSON",
-                            )],
-                        ),
-                        aws.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorArgs(
-                            type="AppendDelimiterToRecord",
-                        ),
-                        aws.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorArgs(
-                            type="MetadataExtraction",
-                            parameters=[
-                                aws.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameterArgs(
-                                    parameter_name="JsonParsingEngine",
-                                    parameter_value="JQ-1.6",
-                                ),
-                                aws.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameterArgs(
-                                    parameter_name="MetadataExtractionQuery",
-                                    parameter_value="{customer_id:.customer_id}",
-                                ),
+        extended_s3_stream = aws.kinesis.firehose_delivery_stream.FirehoseDeliveryStream("extendedS3Stream",
+            destination=extended_s3,
+            extended_s3_configuration={
+                roleArn: aws_iam_role.firehose_role.arn,
+                bucketArn: aws_s3_bucket.bucket.arn,
+                bufferingSize: 64,
+                dynamicPartitioningConfiguration: {
+                    enabled: true,
+                },
+                prefix: data/customer_id=!{partitionKeyFromQuery:customer_id}/year=!{timestamp:yyyy}/month=!{timestamp:MM}/day=!{timestamp:dd}/hour=!{timestamp:HH}/,
+                errorOutputPrefix: errors/year=!{timestamp:yyyy}/month=!{timestamp:MM}/day=!{timestamp:dd}/hour=!{timestamp:HH}/!{firehose:error-output-type}/,
+                processingConfiguration: {
+                    enabled: true,
+                    processors: [
+                        {
+                            type: RecordDeAggregation,
+                            parameters: [{
+                                parameterName: SubRecordType,
+                                parameterValue: JSON,
+                            }],
+                        },
+                        {
+                            type: AppendDelimiterToRecord,
+                        },
+                        {
+                            type: MetadataExtraction,
+                            parameters: [
+                                {
+                                    parameterName: JsonParsingEngine,
+                                    parameterValue: JQ-1.6,
+                                },
+                                {
+                                    parameterName: MetadataExtractionQuery,
+                                    parameterValue: {customer_id:.customer_id},
+                                },
                             ],
-                        ),
+                        },
                     ],
-                ),
-            ))
+                },
+            })
         ```
 
         Multiple Dynamic Partitioning Keys (maximum of 50) can be added by comma separating the `parameter_value`.
@@ -694,34 +644,34 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        extended_s3_stream = aws.kinesis.FirehoseDeliveryStream("extendedS3Stream",
-            destination="extended_s3",
-            extended_s3_configuration=aws.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationArgs(
-                role_arn=aws_iam_role["firehose_role"]["arn"],
-                bucket_arn=aws_s3_bucket["bucket"]["arn"],
-                buffering_size=64,
-                dynamic_partitioning_configuration=aws.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationArgs(
-                    enabled=True,
-                ),
-                prefix="data/store_id=!{partitionKeyFromQuery:store_id}/customer_id=!{partitionKeyFromQuery:customer_id}/year=!{timestamp:yyyy}/month=!{timestamp:MM}/day=!{timestamp:dd}/hour=!{timestamp:HH}/",
-                error_output_prefix="errors/year=!{timestamp:yyyy}/month=!{timestamp:MM}/day=!{timestamp:dd}/hour=!{timestamp:HH}/!{firehose:error-output-type}/",
-                processing_configuration=aws.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationArgs(
-                    enabled=True,
-                    processors=[aws.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorArgs(
-                        type="MetadataExtraction",
-                        parameters=[
-                            aws.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameterArgs(
-                                parameter_name="JsonParsingEngine",
-                                parameter_value="JQ-1.6",
-                            ),
-                            aws.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameterArgs(
-                                parameter_name="MetadataExtractionQuery",
-                                parameter_value="{store_id:.store_id,customer_id:.customer_id}",
-                            ),
+        extended_s3_stream = aws.kinesis.firehose_delivery_stream.FirehoseDeliveryStream("extendedS3Stream",
+            destination=extended_s3,
+            extended_s3_configuration={
+                roleArn: aws_iam_role.firehose_role.arn,
+                bucketArn: aws_s3_bucket.bucket.arn,
+                bufferingSize: 64,
+                dynamicPartitioningConfiguration: {
+                    enabled: true,
+                },
+                prefix: data/store_id=!{partitionKeyFromQuery:store_id}/customer_id=!{partitionKeyFromQuery:customer_id}/year=!{timestamp:yyyy}/month=!{timestamp:MM}/day=!{timestamp:dd}/hour=!{timestamp:HH}/,
+                errorOutputPrefix: errors/year=!{timestamp:yyyy}/month=!{timestamp:MM}/day=!{timestamp:dd}/hour=!{timestamp:HH}/!{firehose:error-output-type}/,
+                processingConfiguration: {
+                    enabled: true,
+                    processors: [{
+                        type: MetadataExtraction,
+                        parameters: [
+                            {
+                                parameterName: JsonParsingEngine,
+                                parameterValue: JQ-1.6,
+                            },
+                            {
+                                parameterName: MetadataExtractionQuery,
+                                parameterValue: {store_id:.store_id,customer_id:.customer_id},
+                            },
                         ],
-                    )],
-                ),
-            ))
+                    }],
+                },
+            })
         ```
         ### Redshift Destination
 
@@ -729,39 +679,39 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_cluster = aws.redshift.Cluster("testCluster",
-            cluster_identifier="tf-redshift-cluster",
-            database_name="test",
-            master_username="testuser",
-            master_password="T3stPass",
-            node_type="dc1.large",
-            cluster_type="single-node")
-        test_stream = aws.kinesis.FirehoseDeliveryStream("testStream",
-            destination="redshift",
-            redshift_configuration=aws.kinesis.FirehoseDeliveryStreamRedshiftConfigurationArgs(
-                role_arn=aws_iam_role["firehose_role"]["arn"],
-                cluster_jdbcurl=pulumi.Output.all(test_cluster.endpoint, test_cluster.database_name).apply(lambda endpoint, database_name: f"jdbc:redshift://{endpoint}/{database_name}"),
-                username="testuser",
-                password="T3stPass",
-                data_table_name="test-table",
-                copy_options="delimiter '|'",
-                data_table_columns="test-col",
-                s3_backup_mode="Enabled",
-                s3_configuration=aws.kinesis.FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationArgs(
-                    role_arn=aws_iam_role["firehose_role"]["arn"],
-                    bucket_arn=aws_s3_bucket["bucket"]["arn"],
-                    buffering_size=10,
-                    buffering_interval=400,
-                    compression_format="GZIP",
-                ),
-                s3_backup_configuration=aws.kinesis.FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationArgs(
-                    role_arn=aws_iam_role["firehose_role"]["arn"],
-                    bucket_arn=aws_s3_bucket["bucket"]["arn"],
-                    buffering_size=15,
-                    buffering_interval=300,
-                    compression_format="GZIP",
-                ),
-            ))
+        test_cluster = aws.redshift.cluster.Cluster("testCluster",
+            cluster_identifier=tf-redshift-cluster,
+            database_name=test,
+            master_username=testuser,
+            master_password=T3stPass,
+            node_type=dc1.large,
+            cluster_type=single-node)
+        test_stream = aws.kinesis.firehose_delivery_stream.FirehoseDeliveryStream("testStream",
+            destination=redshift,
+            redshift_configuration={
+                roleArn: aws_iam_role.firehose_role.arn,
+                clusterJdbcurl: fjdbc:redshift://{test_cluster.endpoint}/{test_cluster.database_name},
+                username: testuser,
+                password: T3stPass,
+                dataTableName: test-table,
+                copyOptions: delimiter '|',
+                dataTableColumns: test-col,
+                s3BackupMode: Enabled,
+                s3Configuration: {
+                    roleArn: aws_iam_role.firehose_role.arn,
+                    bucketArn: aws_s3_bucket.bucket.arn,
+                    bufferingSize: 10,
+                    bufferingInterval: 400,
+                    compressionFormat: GZIP,
+                },
+                s3BackupConfiguration: {
+                    roleArn: aws_iam_role.firehose_role.arn,
+                    bucketArn: aws_s3_bucket.bucket.arn,
+                    bufferingSize: 15,
+                    bufferingInterval: 300,
+                    compressionFormat: GZIP,
+                },
+            })
         ```
         ### Elasticsearch Destination
 
@@ -769,104 +719,32 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_cluster = aws.elasticsearch.Domain("testCluster")
-        test_stream = aws.kinesis.FirehoseDeliveryStream("testStream",
-            destination="elasticsearch",
-            elasticsearch_configuration=aws.kinesis.FirehoseDeliveryStreamElasticsearchConfigurationArgs(
-                domain_arn=test_cluster.arn,
-                role_arn=aws_iam_role["firehose_role"]["arn"],
-                index_name="test",
-                type_name="test",
-                s3_configuration=aws.kinesis.FirehoseDeliveryStreamElasticsearchConfigurationS3ConfigurationArgs(
-                    role_arn=aws_iam_role["firehose_role"]["arn"],
-                    bucket_arn=aws_s3_bucket["bucket"]["arn"],
-                    buffering_size=10,
-                    buffering_interval=400,
-                    compression_format="GZIP",
-                ),
-                processing_configuration=aws.kinesis.FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationArgs(
-                    enabled=True,
-                    processors=[aws.kinesis.FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorArgs(
-                        type="Lambda",
-                        parameters=[aws.kinesis.FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameterArgs(
-                            parameter_name="LambdaArn",
-                            parameter_value=f"{aws_lambda_function['lambda_processor']['arn']}:$LATEST",
-                        )],
-                    )],
-                ),
-            ))
-        ```
-        ### Elasticsearch Destination With VPC
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test_cluster = aws.elasticsearch.Domain("testCluster",
-            cluster_config=aws.elasticsearch.DomainClusterConfigArgs(
-                instance_count=2,
-                zone_awareness_enabled=True,
-                instance_type="t2.small.elasticsearch",
-            ),
-            ebs_options=aws.elasticsearch.DomainEbsOptionsArgs(
-                ebs_enabled=True,
-                volume_size=10,
-            ),
-            vpc_options=aws.elasticsearch.DomainVpcOptionsArgs(
-                security_group_ids=[aws_security_group["first"]["id"]],
-                subnet_ids=[
-                    aws_subnet["first"]["id"],
-                    aws_subnet["second"]["id"],
-                ],
-            ))
-        firehose_elasticsearch_policy_document = aws.iam.get_policy_document_output(statements=[
-            aws.iam.GetPolicyDocumentStatementArgs(
-                effect="Allow",
-                actions=["es:*"],
-                resources=[
-                    test_cluster.arn,
-                    test_cluster.arn.apply(lambda arn: f"{arn}/*"),
-                ],
-            ),
-            aws.iam.GetPolicyDocumentStatementArgs(
-                effect="Allow",
-                actions=[
-                    "ec2:DescribeVpcs",
-                    "ec2:DescribeVpcAttribute",
-                    "ec2:DescribeSubnets",
-                    "ec2:DescribeSecurityGroups",
-                    "ec2:DescribeNetworkInterfaces",
-                    "ec2:CreateNetworkInterface",
-                    "ec2:CreateNetworkInterfacePermission",
-                    "ec2:DeleteNetworkInterface",
-                ],
-                resources=["*"],
-            ),
-        ])
-        firehose_elasticsearch_role_policy = aws.iam.RolePolicy("firehose-elasticsearchRolePolicy",
-            role=aws_iam_role["firehose"]["id"],
-            policy=firehose_elasticsearch_policy_document.json)
-        test = aws.kinesis.FirehoseDeliveryStream("test",
-            destination="elasticsearch",
-            elasticsearch_configuration=aws.kinesis.FirehoseDeliveryStreamElasticsearchConfigurationArgs(
-                domain_arn=test_cluster.arn,
-                role_arn=aws_iam_role["firehose"]["arn"],
-                index_name="test",
-                type_name="test",
-                s3_configuration=aws.kinesis.FirehoseDeliveryStreamElasticsearchConfigurationS3ConfigurationArgs(
-                    role_arn=aws_iam_role["firehose"]["arn"],
-                    bucket_arn=aws_s3_bucket["bucket"]["arn"],
-                ),
-                vpc_config=aws.kinesis.FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigArgs(
-                    subnet_ids=[
-                        aws_subnet["first"]["id"],
-                        aws_subnet["second"]["id"],
-                    ],
-                    security_group_ids=[aws_security_group["first"]["id"]],
-                    role_arn=aws_iam_role["firehose"]["arn"],
-                ),
-            ),
-            opts=pulumi.ResourceOptions(depends_on=[firehose_elasticsearch_role_policy]))
+        test_cluster = aws.elasticsearch.domain.Domain("testCluster")
+        test_stream = aws.kinesis.firehose_delivery_stream.FirehoseDeliveryStream("testStream",
+            destination=elasticsearch,
+            elasticsearch_configuration={
+                domainArn: test_cluster.arn,
+                roleArn: aws_iam_role.firehose_role.arn,
+                indexName: test,
+                typeName: test,
+                s3Configuration: {
+                    roleArn: aws_iam_role.firehose_role.arn,
+                    bucketArn: aws_s3_bucket.bucket.arn,
+                    bufferingSize: 10,
+                    bufferingInterval: 400,
+                    compressionFormat: GZIP,
+                },
+                processingConfiguration: {
+                    enabled: true,
+                    processors: [{
+                        type: Lambda,
+                        parameters: [{
+                            parameterName: LambdaArn,
+                            parameterValue: f{aws_lambda_function.lambda_processor.arn}:$LATEST,
+                        }],
+                    }],
+                },
+            })
         ```
         ### OpenSearch Destination
 
@@ -874,31 +752,31 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_cluster = aws.opensearch.Domain("testCluster")
-        test_stream = aws.kinesis.FirehoseDeliveryStream("testStream",
-            destination="opensearch",
-            opensearch_configuration=aws.kinesis.FirehoseDeliveryStreamOpensearchConfigurationArgs(
-                domain_arn=test_cluster.arn,
-                role_arn=aws_iam_role["firehose_role"]["arn"],
-                index_name="test",
-                s3_configuration=aws.kinesis.FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationArgs(
-                    role_arn=aws_iam_role["firehose_role"]["arn"],
-                    bucket_arn=aws_s3_bucket["bucket"]["arn"],
-                    buffering_size=10,
-                    buffering_interval=400,
-                    compression_format="GZIP",
-                ),
-                processing_configuration=aws.kinesis.FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationArgs(
-                    enabled=True,
-                    processors=[aws.kinesis.FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessorArgs(
-                        type="Lambda",
-                        parameters=[aws.kinesis.FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessorParameterArgs(
-                            parameter_name="LambdaArn",
-                            parameter_value=f"{aws_lambda_function['lambda_processor']['arn']}:$LATEST",
-                        )],
-                    )],
-                ),
-            ))
+        test_cluster = aws.opensearch.domain.Domain("testCluster")
+        test_stream = aws.kinesis.firehose_delivery_stream.FirehoseDeliveryStream("testStream",
+            destination=opensearch,
+            opensearch_configuration={
+                domainArn: test_cluster.arn,
+                roleArn: aws_iam_role.firehose_role.arn,
+                indexName: test,
+                s3Configuration: {
+                    roleArn: aws_iam_role.firehose_role.arn,
+                    bucketArn: aws_s3_bucket.bucket.arn,
+                    bufferingSize: 10,
+                    bufferingInterval: 400,
+                    compressionFormat: GZIP,
+                },
+                processingConfiguration: {
+                    enabled: true,
+                    processors: [{
+                        type: Lambda,
+                        parameters: [{
+                            parameterName: LambdaArn,
+                            parameterValue: f{aws_lambda_function.lambda_processor.arn}:$LATEST,
+                        }],
+                    }],
+                },
+            })
         ```
         ### OpenSearch Destination With VPC
 
@@ -906,26 +784,26 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_cluster = aws.opensearch.Domain("testCluster",
-            cluster_config=aws.opensearch.DomainClusterConfigArgs(
-                instance_count=2,
-                zone_awareness_enabled=True,
-                instance_type="m4.large.search",
-            ),
-            ebs_options=aws.opensearch.DomainEbsOptionsArgs(
-                ebs_enabled=True,
-                volume_size=10,
-            ),
-            vpc_options=aws.opensearch.DomainVpcOptionsArgs(
-                security_group_ids=[aws_security_group["first"]["id"]],
-                subnet_ids=[
-                    aws_subnet["first"]["id"],
-                    aws_subnet["second"]["id"],
+        test_cluster = aws.opensearch.domain.Domain("testCluster",
+            cluster_config={
+                instanceCount: 2,
+                zoneAwarenessEnabled: True,
+                instanceType: m4.large.search,
+            },
+            ebs_options={
+                ebsEnabled: True,
+                volumeSize: 10,
+            },
+            vpc_options={
+                securityGroupIds: [aws_security_group.first.id],
+                subnetIds: [
+                    aws_subnet.first.id,
+                    aws_subnet.second.id,
                 ],
-            ))
-        firehose_opensearch = aws.iam.RolePolicy("firehose-opensearch",
-            role=aws_iam_role["firehose"]["id"],
-            policy=pulumi.Output.all(test_cluster.arn, test_cluster.arn).apply(lambda testClusterArn, testClusterArn1: f\"\"\"{{
+            })
+        firehose_opensearch = aws.iam.role_policy.RolePolicy("firehose-opensearch",
+            role=aws_iam_role.firehose.id,
+            policy=f{{
           "Version": "2012-10-17",
           "Statement": [
             {{
@@ -934,8 +812,8 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
                 "es:*"
               ],
               "Resource": [
-                "{test_cluster_arn}",
-                "{test_cluster_arn1}/*"
+                "{test_cluster.arn}",
+                "{test_cluster.arn}/*"
               ]
                 }},
                 {{
@@ -956,26 +834,26 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
                 }}
           ]
         }}
-        \"\"\"))
-        test = aws.kinesis.FirehoseDeliveryStream("test",
-            destination="opensearch",
-            opensearch_configuration=aws.kinesis.FirehoseDeliveryStreamOpensearchConfigurationArgs(
-                domain_arn=test_cluster.arn,
-                role_arn=aws_iam_role["firehose"]["arn"],
-                index_name="test",
-                s3_configuration=aws.kinesis.FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationArgs(
-                    role_arn=aws_iam_role["firehose"]["arn"],
-                    bucket_arn=aws_s3_bucket["bucket"]["arn"],
-                ),
-                vpc_config=aws.kinesis.FirehoseDeliveryStreamOpensearchConfigurationVpcConfigArgs(
-                    subnet_ids=[
-                        aws_subnet["first"]["id"],
-                        aws_subnet["second"]["id"],
+        )
+        test = aws.kinesis.firehose_delivery_stream.FirehoseDeliveryStream("test",
+            destination=opensearch,
+            opensearch_configuration={
+                domainArn: test_cluster.arn,
+                roleArn: aws_iam_role.firehose.arn,
+                indexName: test,
+                s3Configuration: {
+                    roleArn: aws_iam_role.firehose.arn,
+                    bucketArn: aws_s3_bucket.bucket.arn,
+                },
+                vpcConfig: {
+                    subnetIds: [
+                        aws_subnet.first.id,
+                        aws_subnet.second.id,
                     ],
-                    security_group_ids=[aws_security_group["first"]["id"]],
-                    role_arn=aws_iam_role["firehose"]["arn"],
-                ),
-            ),
+                    securityGroupIds: [aws_security_group.first.id],
+                    roleArn: aws_iam_role.firehose.arn,
+                },
+            },
             opts=pulumi.ResourceOptions(depends_on=[firehose_opensearch]))
         ```
         ### OpenSearch Serverless Destination
@@ -984,31 +862,31 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_collection = aws.opensearch.ServerlessCollection("testCollection")
-        test_stream = aws.kinesis.FirehoseDeliveryStream("testStream",
-            destination="opensearchserverless",
-            opensearchserverless_configuration=aws.kinesis.FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs(
-                collection_endpoint=test_collection.collection_endpoint,
-                role_arn=aws_iam_role["firehose_role"]["arn"],
-                index_name="test",
-                s3_configuration=aws.kinesis.FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationArgs(
-                    role_arn=aws_iam_role["firehose_role"]["arn"],
-                    bucket_arn=aws_s3_bucket["bucket"]["arn"],
-                    buffering_size=10,
-                    buffering_interval=400,
-                    compression_format="GZIP",
-                ),
-                processing_configuration=aws.kinesis.FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationArgs(
-                    enabled=True,
-                    processors=[aws.kinesis.FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorArgs(
-                        type="Lambda",
-                        parameters=[aws.kinesis.FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameterArgs(
-                            parameter_name="LambdaArn",
-                            parameter_value=f"{aws_lambda_function['lambda_processor']['arn']}:$LATEST",
-                        )],
-                    )],
-                ),
-            ))
+        test_collection = aws.opensearch.serverless_collection.ServerlessCollection("testCollection")
+        test_stream = aws.kinesis.firehose_delivery_stream.FirehoseDeliveryStream("testStream",
+            destination=opensearchserverless,
+            opensearchserverless_configuration={
+                collectionEndpoint: test_collection.collection_endpoint,
+                roleArn: aws_iam_role.firehose_role.arn,
+                indexName: test,
+                s3Configuration: {
+                    roleArn: aws_iam_role.firehose_role.arn,
+                    bucketArn: aws_s3_bucket.bucket.arn,
+                    bufferingSize: 10,
+                    bufferingInterval: 400,
+                    compressionFormat: GZIP,
+                },
+                processingConfiguration: {
+                    enabled: true,
+                    processors: [{
+                        type: Lambda,
+                        parameters: [{
+                            parameterName: LambdaArn,
+                            parameterValue: f{aws_lambda_function.lambda_processor.arn}:$LATEST,
+                        }],
+                    }],
+                },
+            })
         ```
         ### Splunk Destination
 
@@ -1016,22 +894,22 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_stream = aws.kinesis.FirehoseDeliveryStream("testStream",
-            destination="splunk",
-            splunk_configuration=aws.kinesis.FirehoseDeliveryStreamSplunkConfigurationArgs(
-                hec_endpoint="https://http-inputs-mydomain.splunkcloud.com:443",
-                hec_token="51D4DA16-C61B-4F5F-8EC7-ED4301342A4A",
-                hec_acknowledgment_timeout=600,
-                hec_endpoint_type="Event",
-                s3_backup_mode="FailedEventsOnly",
-                s3_configuration=aws.kinesis.FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationArgs(
-                    role_arn=aws_iam_role["firehose"]["arn"],
-                    bucket_arn=aws_s3_bucket["bucket"]["arn"],
-                    buffering_size=10,
-                    buffering_interval=400,
-                    compression_format="GZIP",
-                ),
-            ))
+        test_stream = aws.kinesis.firehose_delivery_stream.FirehoseDeliveryStream("testStream",
+            destination=splunk,
+            splunk_configuration={
+                hecEndpoint: https://http-inputs-mydomain.splunkcloud.com:443,
+                hecToken: 51D4DA16-C61B-4F5F-8EC7-ED4301342A4A,
+                hecAcknowledgmentTimeout: 600,
+                hecEndpointType: Event,
+                s3BackupMode: FailedEventsOnly,
+                s3Configuration: {
+                    roleArn: aws_iam_role.firehose.arn,
+                    bucketArn: aws_s3_bucket.bucket.arn,
+                    bufferingSize: 10,
+                    bufferingInterval: 400,
+                    compressionFormat: GZIP,
+                },
+            })
         ```
         ### HTTP Endpoint (e.g., New Relic) Destination
 
@@ -1039,37 +917,37 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_stream = aws.kinesis.FirehoseDeliveryStream("testStream",
-            destination="http_endpoint",
-            http_endpoint_configuration=aws.kinesis.FirehoseDeliveryStreamHttpEndpointConfigurationArgs(
-                url="https://aws-api.newrelic.com/firehose/v1",
-                name="New Relic",
-                access_key="my-key",
-                buffering_size=15,
-                buffering_interval=600,
-                role_arn=aws_iam_role["firehose"]["arn"],
-                s3_backup_mode="FailedDataOnly",
-                s3_configuration=aws.kinesis.FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationArgs(
-                    role_arn=aws_iam_role["firehose"]["arn"],
-                    bucket_arn=aws_s3_bucket["bucket"]["arn"],
-                    buffering_size=10,
-                    buffering_interval=400,
-                    compression_format="GZIP",
-                ),
-                request_configuration=aws.kinesis.FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationArgs(
-                    content_encoding="GZIP",
-                    common_attributes=[
-                        aws.kinesis.FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeArgs(
-                            name="testname",
-                            value="testvalue",
-                        ),
-                        aws.kinesis.FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeArgs(
-                            name="testname2",
-                            value="testvalue2",
-                        ),
+        test_stream = aws.kinesis.firehose_delivery_stream.FirehoseDeliveryStream("testStream",
+            destination=http_endpoint,
+            http_endpoint_configuration={
+                url: https://aws-api.newrelic.com/firehose/v1,
+                name: New Relic,
+                accessKey: my-key,
+                bufferingSize: 15,
+                bufferingInterval: 600,
+                roleArn: aws_iam_role.firehose.arn,
+                s3BackupMode: FailedDataOnly,
+                s3Configuration: {
+                    roleArn: aws_iam_role.firehose.arn,
+                    bucketArn: aws_s3_bucket.bucket.arn,
+                    bufferingSize: 10,
+                    bufferingInterval: 400,
+                    compressionFormat: GZIP,
+                },
+                requestConfiguration: {
+                    contentEncoding: GZIP,
+                    commonAttributes: [
+                        {
+                            name: testname,
+                            value: testvalue,
+                        },
+                        {
+                            name: testname2,
+                            value: testvalue2,
+                        },
                     ],
-                ),
-            ))
+                },
+            })
         ```
 
         ## Import
@@ -1112,56 +990,6 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
         For more details, see the [Amazon Kinesis Firehose Documentation](https://aws.amazon.com/documentation/firehose/).
 
         ## Example Usage
-        ### Extended S3 Destination
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        bucket = aws.s3.BucketV2("bucket")
-        firehose_assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["firehose.amazonaws.com"],
-            )],
-            actions=["sts:AssumeRole"],
-        )])
-        firehose_role = aws.iam.Role("firehoseRole", assume_role_policy=firehose_assume_role.json)
-        lambda_assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["lambda.amazonaws.com"],
-            )],
-            actions=["sts:AssumeRole"],
-        )])
-        lambda_iam = aws.iam.Role("lambdaIam", assume_role_policy=lambda_assume_role.json)
-        lambda_processor = aws.lambda_.Function("lambdaProcessor",
-            code=pulumi.FileArchive("lambda.zip"),
-            role=lambda_iam.arn,
-            handler="exports.handler",
-            runtime="nodejs16.x")
-        extended_s3_stream = aws.kinesis.FirehoseDeliveryStream("extendedS3Stream",
-            destination="extended_s3",
-            extended_s3_configuration=aws.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationArgs(
-                role_arn=firehose_role.arn,
-                bucket_arn=bucket.arn,
-                processing_configuration=aws.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationArgs(
-                    enabled=True,
-                    processors=[aws.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorArgs(
-                        type="Lambda",
-                        parameters=[aws.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameterArgs(
-                            parameter_name="LambdaArn",
-                            parameter_value=lambda_processor.arn.apply(lambda arn: f"{arn}:$LATEST"),
-                        )],
-                    )],
-                ),
-            ))
-        bucket_acl = aws.s3.BucketAclV2("bucketAcl",
-            bucket=bucket.id,
-            acl="private")
-        ```
         ### Extended S3 Destination with dynamic partitioning
 
         These examples use built-in Firehose functionality, rather than requiring a lambda.
@@ -1170,46 +998,46 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        extended_s3_stream = aws.kinesis.FirehoseDeliveryStream("extendedS3Stream",
-            destination="extended_s3",
-            extended_s3_configuration=aws.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationArgs(
-                role_arn=aws_iam_role["firehose_role"]["arn"],
-                bucket_arn=aws_s3_bucket["bucket"]["arn"],
-                buffering_size=64,
-                dynamic_partitioning_configuration=aws.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationArgs(
-                    enabled=True,
-                ),
-                prefix="data/customer_id=!{partitionKeyFromQuery:customer_id}/year=!{timestamp:yyyy}/month=!{timestamp:MM}/day=!{timestamp:dd}/hour=!{timestamp:HH}/",
-                error_output_prefix="errors/year=!{timestamp:yyyy}/month=!{timestamp:MM}/day=!{timestamp:dd}/hour=!{timestamp:HH}/!{firehose:error-output-type}/",
-                processing_configuration=aws.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationArgs(
-                    enabled=True,
-                    processors=[
-                        aws.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorArgs(
-                            type="RecordDeAggregation",
-                            parameters=[aws.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameterArgs(
-                                parameter_name="SubRecordType",
-                                parameter_value="JSON",
-                            )],
-                        ),
-                        aws.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorArgs(
-                            type="AppendDelimiterToRecord",
-                        ),
-                        aws.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorArgs(
-                            type="MetadataExtraction",
-                            parameters=[
-                                aws.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameterArgs(
-                                    parameter_name="JsonParsingEngine",
-                                    parameter_value="JQ-1.6",
-                                ),
-                                aws.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameterArgs(
-                                    parameter_name="MetadataExtractionQuery",
-                                    parameter_value="{customer_id:.customer_id}",
-                                ),
+        extended_s3_stream = aws.kinesis.firehose_delivery_stream.FirehoseDeliveryStream("extendedS3Stream",
+            destination=extended_s3,
+            extended_s3_configuration={
+                roleArn: aws_iam_role.firehose_role.arn,
+                bucketArn: aws_s3_bucket.bucket.arn,
+                bufferingSize: 64,
+                dynamicPartitioningConfiguration: {
+                    enabled: true,
+                },
+                prefix: data/customer_id=!{partitionKeyFromQuery:customer_id}/year=!{timestamp:yyyy}/month=!{timestamp:MM}/day=!{timestamp:dd}/hour=!{timestamp:HH}/,
+                errorOutputPrefix: errors/year=!{timestamp:yyyy}/month=!{timestamp:MM}/day=!{timestamp:dd}/hour=!{timestamp:HH}/!{firehose:error-output-type}/,
+                processingConfiguration: {
+                    enabled: true,
+                    processors: [
+                        {
+                            type: RecordDeAggregation,
+                            parameters: [{
+                                parameterName: SubRecordType,
+                                parameterValue: JSON,
+                            }],
+                        },
+                        {
+                            type: AppendDelimiterToRecord,
+                        },
+                        {
+                            type: MetadataExtraction,
+                            parameters: [
+                                {
+                                    parameterName: JsonParsingEngine,
+                                    parameterValue: JQ-1.6,
+                                },
+                                {
+                                    parameterName: MetadataExtractionQuery,
+                                    parameterValue: {customer_id:.customer_id},
+                                },
                             ],
-                        ),
+                        },
                     ],
-                ),
-            ))
+                },
+            })
         ```
 
         Multiple Dynamic Partitioning Keys (maximum of 50) can be added by comma separating the `parameter_value`.
@@ -1220,34 +1048,34 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        extended_s3_stream = aws.kinesis.FirehoseDeliveryStream("extendedS3Stream",
-            destination="extended_s3",
-            extended_s3_configuration=aws.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationArgs(
-                role_arn=aws_iam_role["firehose_role"]["arn"],
-                bucket_arn=aws_s3_bucket["bucket"]["arn"],
-                buffering_size=64,
-                dynamic_partitioning_configuration=aws.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationArgs(
-                    enabled=True,
-                ),
-                prefix="data/store_id=!{partitionKeyFromQuery:store_id}/customer_id=!{partitionKeyFromQuery:customer_id}/year=!{timestamp:yyyy}/month=!{timestamp:MM}/day=!{timestamp:dd}/hour=!{timestamp:HH}/",
-                error_output_prefix="errors/year=!{timestamp:yyyy}/month=!{timestamp:MM}/day=!{timestamp:dd}/hour=!{timestamp:HH}/!{firehose:error-output-type}/",
-                processing_configuration=aws.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationArgs(
-                    enabled=True,
-                    processors=[aws.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorArgs(
-                        type="MetadataExtraction",
-                        parameters=[
-                            aws.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameterArgs(
-                                parameter_name="JsonParsingEngine",
-                                parameter_value="JQ-1.6",
-                            ),
-                            aws.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameterArgs(
-                                parameter_name="MetadataExtractionQuery",
-                                parameter_value="{store_id:.store_id,customer_id:.customer_id}",
-                            ),
+        extended_s3_stream = aws.kinesis.firehose_delivery_stream.FirehoseDeliveryStream("extendedS3Stream",
+            destination=extended_s3,
+            extended_s3_configuration={
+                roleArn: aws_iam_role.firehose_role.arn,
+                bucketArn: aws_s3_bucket.bucket.arn,
+                bufferingSize: 64,
+                dynamicPartitioningConfiguration: {
+                    enabled: true,
+                },
+                prefix: data/store_id=!{partitionKeyFromQuery:store_id}/customer_id=!{partitionKeyFromQuery:customer_id}/year=!{timestamp:yyyy}/month=!{timestamp:MM}/day=!{timestamp:dd}/hour=!{timestamp:HH}/,
+                errorOutputPrefix: errors/year=!{timestamp:yyyy}/month=!{timestamp:MM}/day=!{timestamp:dd}/hour=!{timestamp:HH}/!{firehose:error-output-type}/,
+                processingConfiguration: {
+                    enabled: true,
+                    processors: [{
+                        type: MetadataExtraction,
+                        parameters: [
+                            {
+                                parameterName: JsonParsingEngine,
+                                parameterValue: JQ-1.6,
+                            },
+                            {
+                                parameterName: MetadataExtractionQuery,
+                                parameterValue: {store_id:.store_id,customer_id:.customer_id},
+                            },
                         ],
-                    )],
-                ),
-            ))
+                    }],
+                },
+            })
         ```
         ### Redshift Destination
 
@@ -1255,39 +1083,39 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_cluster = aws.redshift.Cluster("testCluster",
-            cluster_identifier="tf-redshift-cluster",
-            database_name="test",
-            master_username="testuser",
-            master_password="T3stPass",
-            node_type="dc1.large",
-            cluster_type="single-node")
-        test_stream = aws.kinesis.FirehoseDeliveryStream("testStream",
-            destination="redshift",
-            redshift_configuration=aws.kinesis.FirehoseDeliveryStreamRedshiftConfigurationArgs(
-                role_arn=aws_iam_role["firehose_role"]["arn"],
-                cluster_jdbcurl=pulumi.Output.all(test_cluster.endpoint, test_cluster.database_name).apply(lambda endpoint, database_name: f"jdbc:redshift://{endpoint}/{database_name}"),
-                username="testuser",
-                password="T3stPass",
-                data_table_name="test-table",
-                copy_options="delimiter '|'",
-                data_table_columns="test-col",
-                s3_backup_mode="Enabled",
-                s3_configuration=aws.kinesis.FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationArgs(
-                    role_arn=aws_iam_role["firehose_role"]["arn"],
-                    bucket_arn=aws_s3_bucket["bucket"]["arn"],
-                    buffering_size=10,
-                    buffering_interval=400,
-                    compression_format="GZIP",
-                ),
-                s3_backup_configuration=aws.kinesis.FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationArgs(
-                    role_arn=aws_iam_role["firehose_role"]["arn"],
-                    bucket_arn=aws_s3_bucket["bucket"]["arn"],
-                    buffering_size=15,
-                    buffering_interval=300,
-                    compression_format="GZIP",
-                ),
-            ))
+        test_cluster = aws.redshift.cluster.Cluster("testCluster",
+            cluster_identifier=tf-redshift-cluster,
+            database_name=test,
+            master_username=testuser,
+            master_password=T3stPass,
+            node_type=dc1.large,
+            cluster_type=single-node)
+        test_stream = aws.kinesis.firehose_delivery_stream.FirehoseDeliveryStream("testStream",
+            destination=redshift,
+            redshift_configuration={
+                roleArn: aws_iam_role.firehose_role.arn,
+                clusterJdbcurl: fjdbc:redshift://{test_cluster.endpoint}/{test_cluster.database_name},
+                username: testuser,
+                password: T3stPass,
+                dataTableName: test-table,
+                copyOptions: delimiter '|',
+                dataTableColumns: test-col,
+                s3BackupMode: Enabled,
+                s3Configuration: {
+                    roleArn: aws_iam_role.firehose_role.arn,
+                    bucketArn: aws_s3_bucket.bucket.arn,
+                    bufferingSize: 10,
+                    bufferingInterval: 400,
+                    compressionFormat: GZIP,
+                },
+                s3BackupConfiguration: {
+                    roleArn: aws_iam_role.firehose_role.arn,
+                    bucketArn: aws_s3_bucket.bucket.arn,
+                    bufferingSize: 15,
+                    bufferingInterval: 300,
+                    compressionFormat: GZIP,
+                },
+            })
         ```
         ### Elasticsearch Destination
 
@@ -1295,104 +1123,32 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_cluster = aws.elasticsearch.Domain("testCluster")
-        test_stream = aws.kinesis.FirehoseDeliveryStream("testStream",
-            destination="elasticsearch",
-            elasticsearch_configuration=aws.kinesis.FirehoseDeliveryStreamElasticsearchConfigurationArgs(
-                domain_arn=test_cluster.arn,
-                role_arn=aws_iam_role["firehose_role"]["arn"],
-                index_name="test",
-                type_name="test",
-                s3_configuration=aws.kinesis.FirehoseDeliveryStreamElasticsearchConfigurationS3ConfigurationArgs(
-                    role_arn=aws_iam_role["firehose_role"]["arn"],
-                    bucket_arn=aws_s3_bucket["bucket"]["arn"],
-                    buffering_size=10,
-                    buffering_interval=400,
-                    compression_format="GZIP",
-                ),
-                processing_configuration=aws.kinesis.FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationArgs(
-                    enabled=True,
-                    processors=[aws.kinesis.FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorArgs(
-                        type="Lambda",
-                        parameters=[aws.kinesis.FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameterArgs(
-                            parameter_name="LambdaArn",
-                            parameter_value=f"{aws_lambda_function['lambda_processor']['arn']}:$LATEST",
-                        )],
-                    )],
-                ),
-            ))
-        ```
-        ### Elasticsearch Destination With VPC
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test_cluster = aws.elasticsearch.Domain("testCluster",
-            cluster_config=aws.elasticsearch.DomainClusterConfigArgs(
-                instance_count=2,
-                zone_awareness_enabled=True,
-                instance_type="t2.small.elasticsearch",
-            ),
-            ebs_options=aws.elasticsearch.DomainEbsOptionsArgs(
-                ebs_enabled=True,
-                volume_size=10,
-            ),
-            vpc_options=aws.elasticsearch.DomainVpcOptionsArgs(
-                security_group_ids=[aws_security_group["first"]["id"]],
-                subnet_ids=[
-                    aws_subnet["first"]["id"],
-                    aws_subnet["second"]["id"],
-                ],
-            ))
-        firehose_elasticsearch_policy_document = aws.iam.get_policy_document_output(statements=[
-            aws.iam.GetPolicyDocumentStatementArgs(
-                effect="Allow",
-                actions=["es:*"],
-                resources=[
-                    test_cluster.arn,
-                    test_cluster.arn.apply(lambda arn: f"{arn}/*"),
-                ],
-            ),
-            aws.iam.GetPolicyDocumentStatementArgs(
-                effect="Allow",
-                actions=[
-                    "ec2:DescribeVpcs",
-                    "ec2:DescribeVpcAttribute",
-                    "ec2:DescribeSubnets",
-                    "ec2:DescribeSecurityGroups",
-                    "ec2:DescribeNetworkInterfaces",
-                    "ec2:CreateNetworkInterface",
-                    "ec2:CreateNetworkInterfacePermission",
-                    "ec2:DeleteNetworkInterface",
-                ],
-                resources=["*"],
-            ),
-        ])
-        firehose_elasticsearch_role_policy = aws.iam.RolePolicy("firehose-elasticsearchRolePolicy",
-            role=aws_iam_role["firehose"]["id"],
-            policy=firehose_elasticsearch_policy_document.json)
-        test = aws.kinesis.FirehoseDeliveryStream("test",
-            destination="elasticsearch",
-            elasticsearch_configuration=aws.kinesis.FirehoseDeliveryStreamElasticsearchConfigurationArgs(
-                domain_arn=test_cluster.arn,
-                role_arn=aws_iam_role["firehose"]["arn"],
-                index_name="test",
-                type_name="test",
-                s3_configuration=aws.kinesis.FirehoseDeliveryStreamElasticsearchConfigurationS3ConfigurationArgs(
-                    role_arn=aws_iam_role["firehose"]["arn"],
-                    bucket_arn=aws_s3_bucket["bucket"]["arn"],
-                ),
-                vpc_config=aws.kinesis.FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigArgs(
-                    subnet_ids=[
-                        aws_subnet["first"]["id"],
-                        aws_subnet["second"]["id"],
-                    ],
-                    security_group_ids=[aws_security_group["first"]["id"]],
-                    role_arn=aws_iam_role["firehose"]["arn"],
-                ),
-            ),
-            opts=pulumi.ResourceOptions(depends_on=[firehose_elasticsearch_role_policy]))
+        test_cluster = aws.elasticsearch.domain.Domain("testCluster")
+        test_stream = aws.kinesis.firehose_delivery_stream.FirehoseDeliveryStream("testStream",
+            destination=elasticsearch,
+            elasticsearch_configuration={
+                domainArn: test_cluster.arn,
+                roleArn: aws_iam_role.firehose_role.arn,
+                indexName: test,
+                typeName: test,
+                s3Configuration: {
+                    roleArn: aws_iam_role.firehose_role.arn,
+                    bucketArn: aws_s3_bucket.bucket.arn,
+                    bufferingSize: 10,
+                    bufferingInterval: 400,
+                    compressionFormat: GZIP,
+                },
+                processingConfiguration: {
+                    enabled: true,
+                    processors: [{
+                        type: Lambda,
+                        parameters: [{
+                            parameterName: LambdaArn,
+                            parameterValue: f{aws_lambda_function.lambda_processor.arn}:$LATEST,
+                        }],
+                    }],
+                },
+            })
         ```
         ### OpenSearch Destination
 
@@ -1400,31 +1156,31 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_cluster = aws.opensearch.Domain("testCluster")
-        test_stream = aws.kinesis.FirehoseDeliveryStream("testStream",
-            destination="opensearch",
-            opensearch_configuration=aws.kinesis.FirehoseDeliveryStreamOpensearchConfigurationArgs(
-                domain_arn=test_cluster.arn,
-                role_arn=aws_iam_role["firehose_role"]["arn"],
-                index_name="test",
-                s3_configuration=aws.kinesis.FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationArgs(
-                    role_arn=aws_iam_role["firehose_role"]["arn"],
-                    bucket_arn=aws_s3_bucket["bucket"]["arn"],
-                    buffering_size=10,
-                    buffering_interval=400,
-                    compression_format="GZIP",
-                ),
-                processing_configuration=aws.kinesis.FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationArgs(
-                    enabled=True,
-                    processors=[aws.kinesis.FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessorArgs(
-                        type="Lambda",
-                        parameters=[aws.kinesis.FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessorParameterArgs(
-                            parameter_name="LambdaArn",
-                            parameter_value=f"{aws_lambda_function['lambda_processor']['arn']}:$LATEST",
-                        )],
-                    )],
-                ),
-            ))
+        test_cluster = aws.opensearch.domain.Domain("testCluster")
+        test_stream = aws.kinesis.firehose_delivery_stream.FirehoseDeliveryStream("testStream",
+            destination=opensearch,
+            opensearch_configuration={
+                domainArn: test_cluster.arn,
+                roleArn: aws_iam_role.firehose_role.arn,
+                indexName: test,
+                s3Configuration: {
+                    roleArn: aws_iam_role.firehose_role.arn,
+                    bucketArn: aws_s3_bucket.bucket.arn,
+                    bufferingSize: 10,
+                    bufferingInterval: 400,
+                    compressionFormat: GZIP,
+                },
+                processingConfiguration: {
+                    enabled: true,
+                    processors: [{
+                        type: Lambda,
+                        parameters: [{
+                            parameterName: LambdaArn,
+                            parameterValue: f{aws_lambda_function.lambda_processor.arn}:$LATEST,
+                        }],
+                    }],
+                },
+            })
         ```
         ### OpenSearch Destination With VPC
 
@@ -1432,26 +1188,26 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_cluster = aws.opensearch.Domain("testCluster",
-            cluster_config=aws.opensearch.DomainClusterConfigArgs(
-                instance_count=2,
-                zone_awareness_enabled=True,
-                instance_type="m4.large.search",
-            ),
-            ebs_options=aws.opensearch.DomainEbsOptionsArgs(
-                ebs_enabled=True,
-                volume_size=10,
-            ),
-            vpc_options=aws.opensearch.DomainVpcOptionsArgs(
-                security_group_ids=[aws_security_group["first"]["id"]],
-                subnet_ids=[
-                    aws_subnet["first"]["id"],
-                    aws_subnet["second"]["id"],
+        test_cluster = aws.opensearch.domain.Domain("testCluster",
+            cluster_config={
+                instanceCount: 2,
+                zoneAwarenessEnabled: True,
+                instanceType: m4.large.search,
+            },
+            ebs_options={
+                ebsEnabled: True,
+                volumeSize: 10,
+            },
+            vpc_options={
+                securityGroupIds: [aws_security_group.first.id],
+                subnetIds: [
+                    aws_subnet.first.id,
+                    aws_subnet.second.id,
                 ],
-            ))
-        firehose_opensearch = aws.iam.RolePolicy("firehose-opensearch",
-            role=aws_iam_role["firehose"]["id"],
-            policy=pulumi.Output.all(test_cluster.arn, test_cluster.arn).apply(lambda testClusterArn, testClusterArn1: f\"\"\"{{
+            })
+        firehose_opensearch = aws.iam.role_policy.RolePolicy("firehose-opensearch",
+            role=aws_iam_role.firehose.id,
+            policy=f{{
           "Version": "2012-10-17",
           "Statement": [
             {{
@@ -1460,8 +1216,8 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
                 "es:*"
               ],
               "Resource": [
-                "{test_cluster_arn}",
-                "{test_cluster_arn1}/*"
+                "{test_cluster.arn}",
+                "{test_cluster.arn}/*"
               ]
                 }},
                 {{
@@ -1482,26 +1238,26 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
                 }}
           ]
         }}
-        \"\"\"))
-        test = aws.kinesis.FirehoseDeliveryStream("test",
-            destination="opensearch",
-            opensearch_configuration=aws.kinesis.FirehoseDeliveryStreamOpensearchConfigurationArgs(
-                domain_arn=test_cluster.arn,
-                role_arn=aws_iam_role["firehose"]["arn"],
-                index_name="test",
-                s3_configuration=aws.kinesis.FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationArgs(
-                    role_arn=aws_iam_role["firehose"]["arn"],
-                    bucket_arn=aws_s3_bucket["bucket"]["arn"],
-                ),
-                vpc_config=aws.kinesis.FirehoseDeliveryStreamOpensearchConfigurationVpcConfigArgs(
-                    subnet_ids=[
-                        aws_subnet["first"]["id"],
-                        aws_subnet["second"]["id"],
+        )
+        test = aws.kinesis.firehose_delivery_stream.FirehoseDeliveryStream("test",
+            destination=opensearch,
+            opensearch_configuration={
+                domainArn: test_cluster.arn,
+                roleArn: aws_iam_role.firehose.arn,
+                indexName: test,
+                s3Configuration: {
+                    roleArn: aws_iam_role.firehose.arn,
+                    bucketArn: aws_s3_bucket.bucket.arn,
+                },
+                vpcConfig: {
+                    subnetIds: [
+                        aws_subnet.first.id,
+                        aws_subnet.second.id,
                     ],
-                    security_group_ids=[aws_security_group["first"]["id"]],
-                    role_arn=aws_iam_role["firehose"]["arn"],
-                ),
-            ),
+                    securityGroupIds: [aws_security_group.first.id],
+                    roleArn: aws_iam_role.firehose.arn,
+                },
+            },
             opts=pulumi.ResourceOptions(depends_on=[firehose_opensearch]))
         ```
         ### OpenSearch Serverless Destination
@@ -1510,31 +1266,31 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_collection = aws.opensearch.ServerlessCollection("testCollection")
-        test_stream = aws.kinesis.FirehoseDeliveryStream("testStream",
-            destination="opensearchserverless",
-            opensearchserverless_configuration=aws.kinesis.FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs(
-                collection_endpoint=test_collection.collection_endpoint,
-                role_arn=aws_iam_role["firehose_role"]["arn"],
-                index_name="test",
-                s3_configuration=aws.kinesis.FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationArgs(
-                    role_arn=aws_iam_role["firehose_role"]["arn"],
-                    bucket_arn=aws_s3_bucket["bucket"]["arn"],
-                    buffering_size=10,
-                    buffering_interval=400,
-                    compression_format="GZIP",
-                ),
-                processing_configuration=aws.kinesis.FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationArgs(
-                    enabled=True,
-                    processors=[aws.kinesis.FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorArgs(
-                        type="Lambda",
-                        parameters=[aws.kinesis.FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameterArgs(
-                            parameter_name="LambdaArn",
-                            parameter_value=f"{aws_lambda_function['lambda_processor']['arn']}:$LATEST",
-                        )],
-                    )],
-                ),
-            ))
+        test_collection = aws.opensearch.serverless_collection.ServerlessCollection("testCollection")
+        test_stream = aws.kinesis.firehose_delivery_stream.FirehoseDeliveryStream("testStream",
+            destination=opensearchserverless,
+            opensearchserverless_configuration={
+                collectionEndpoint: test_collection.collection_endpoint,
+                roleArn: aws_iam_role.firehose_role.arn,
+                indexName: test,
+                s3Configuration: {
+                    roleArn: aws_iam_role.firehose_role.arn,
+                    bucketArn: aws_s3_bucket.bucket.arn,
+                    bufferingSize: 10,
+                    bufferingInterval: 400,
+                    compressionFormat: GZIP,
+                },
+                processingConfiguration: {
+                    enabled: true,
+                    processors: [{
+                        type: Lambda,
+                        parameters: [{
+                            parameterName: LambdaArn,
+                            parameterValue: f{aws_lambda_function.lambda_processor.arn}:$LATEST,
+                        }],
+                    }],
+                },
+            })
         ```
         ### Splunk Destination
 
@@ -1542,22 +1298,22 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_stream = aws.kinesis.FirehoseDeliveryStream("testStream",
-            destination="splunk",
-            splunk_configuration=aws.kinesis.FirehoseDeliveryStreamSplunkConfigurationArgs(
-                hec_endpoint="https://http-inputs-mydomain.splunkcloud.com:443",
-                hec_token="51D4DA16-C61B-4F5F-8EC7-ED4301342A4A",
-                hec_acknowledgment_timeout=600,
-                hec_endpoint_type="Event",
-                s3_backup_mode="FailedEventsOnly",
-                s3_configuration=aws.kinesis.FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationArgs(
-                    role_arn=aws_iam_role["firehose"]["arn"],
-                    bucket_arn=aws_s3_bucket["bucket"]["arn"],
-                    buffering_size=10,
-                    buffering_interval=400,
-                    compression_format="GZIP",
-                ),
-            ))
+        test_stream = aws.kinesis.firehose_delivery_stream.FirehoseDeliveryStream("testStream",
+            destination=splunk,
+            splunk_configuration={
+                hecEndpoint: https://http-inputs-mydomain.splunkcloud.com:443,
+                hecToken: 51D4DA16-C61B-4F5F-8EC7-ED4301342A4A,
+                hecAcknowledgmentTimeout: 600,
+                hecEndpointType: Event,
+                s3BackupMode: FailedEventsOnly,
+                s3Configuration: {
+                    roleArn: aws_iam_role.firehose.arn,
+                    bucketArn: aws_s3_bucket.bucket.arn,
+                    bufferingSize: 10,
+                    bufferingInterval: 400,
+                    compressionFormat: GZIP,
+                },
+            })
         ```
         ### HTTP Endpoint (e.g., New Relic) Destination
 
@@ -1565,37 +1321,37 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_stream = aws.kinesis.FirehoseDeliveryStream("testStream",
-            destination="http_endpoint",
-            http_endpoint_configuration=aws.kinesis.FirehoseDeliveryStreamHttpEndpointConfigurationArgs(
-                url="https://aws-api.newrelic.com/firehose/v1",
-                name="New Relic",
-                access_key="my-key",
-                buffering_size=15,
-                buffering_interval=600,
-                role_arn=aws_iam_role["firehose"]["arn"],
-                s3_backup_mode="FailedDataOnly",
-                s3_configuration=aws.kinesis.FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationArgs(
-                    role_arn=aws_iam_role["firehose"]["arn"],
-                    bucket_arn=aws_s3_bucket["bucket"]["arn"],
-                    buffering_size=10,
-                    buffering_interval=400,
-                    compression_format="GZIP",
-                ),
-                request_configuration=aws.kinesis.FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationArgs(
-                    content_encoding="GZIP",
-                    common_attributes=[
-                        aws.kinesis.FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeArgs(
-                            name="testname",
-                            value="testvalue",
-                        ),
-                        aws.kinesis.FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeArgs(
-                            name="testname2",
-                            value="testvalue2",
-                        ),
+        test_stream = aws.kinesis.firehose_delivery_stream.FirehoseDeliveryStream("testStream",
+            destination=http_endpoint,
+            http_endpoint_configuration={
+                url: https://aws-api.newrelic.com/firehose/v1,
+                name: New Relic,
+                accessKey: my-key,
+                bufferingSize: 15,
+                bufferingInterval: 600,
+                roleArn: aws_iam_role.firehose.arn,
+                s3BackupMode: FailedDataOnly,
+                s3Configuration: {
+                    roleArn: aws_iam_role.firehose.arn,
+                    bucketArn: aws_s3_bucket.bucket.arn,
+                    bufferingSize: 10,
+                    bufferingInterval: 400,
+                    compressionFormat: GZIP,
+                },
+                requestConfiguration: {
+                    contentEncoding: GZIP,
+                    commonAttributes: [
+                        {
+                            name: testname,
+                            value: testvalue,
+                        },
+                        {
+                            name: testname2,
+                            value: testvalue2,
+                        },
                     ],
-                ),
-            ))
+                },
+            })
         ```
 
         ## Import

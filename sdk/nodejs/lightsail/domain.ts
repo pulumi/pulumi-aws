@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const domainTest = new aws.lightsail.Domain("domainTest", {domainName: "mydomain.com"});
+ * const domainTest = new aws.lightsail/domain.Domain("domainTest", {domainName: "mydomain.com"});
  * ```
  */
 export class Domain extends pulumi.CustomResource {

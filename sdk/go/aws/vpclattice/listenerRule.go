@@ -21,58 +21,56 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/vpclattice"
+//	vpclattice/listenerRule "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/vpclattice/listenerRule"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := vpclattice.NewListenerRule(ctx, "test", &vpclattice.ListenerRuleArgs{
-//				ListenerIdentifier: pulumi.Any(aws_vpclattice_listener.Example.Listener_id),
-//				ServiceIdentifier:  pulumi.Any(aws_vpclattice_service.Example.Id),
-//				Priority:           pulumi.Int(20),
-//				Match: &vpclattice.ListenerRuleMatchArgs{
-//					HttpMatch: &vpclattice.ListenerRuleMatchHttpMatchArgs{
-//						HeaderMatches: vpclattice.ListenerRuleMatchHttpMatchHeaderMatchArray{
-//							&vpclattice.ListenerRuleMatchHttpMatchHeaderMatchArgs{
-//								Name:          pulumi.String("example-header"),
-//								CaseSensitive: pulumi.Bool(false),
-//								Match: &vpclattice.ListenerRuleMatchHttpMatchHeaderMatchMatchArgs{
-//									Exact: pulumi.String("example-contains"),
-//								},
-//							},
-//						},
-//						PathMatch: &vpclattice.ListenerRuleMatchHttpMatchPathMatchArgs{
-//							CaseSensitive: pulumi.Bool(true),
-//							Match: &vpclattice.ListenerRuleMatchHttpMatchPathMatchMatchArgs{
-//								Prefix: pulumi.String("/example-path"),
-//							},
-//						},
-//					},
-//				},
-//				Action: &vpclattice.ListenerRuleActionArgs{
-//					Forward: &vpclattice.ListenerRuleActionForwardArgs{
-//						TargetGroups: vpclattice.ListenerRuleActionForwardTargetGroupArray{
-//							&vpclattice.ListenerRuleActionForwardTargetGroupArgs{
-//								TargetGroupIdentifier: pulumi.Any(aws_vpclattice_target_group.Example.Id),
-//								Weight:                pulumi.Int(1),
-//							},
-//							&vpclattice.ListenerRuleActionForwardTargetGroupArgs{
-//								TargetGroupIdentifier: pulumi.Any(aws_vpclattice_target_group.Example2.Id),
-//								Weight:                pulumi.Int(2),
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := vpclattice/listenerRule.NewListenerRule(ctx, "test", &vpclattice/listenerRule.ListenerRuleArgs{
+// ListenerIdentifier: aws_vpclattice_listener.Example.Listener_id,
+// ServiceIdentifier: aws_vpclattice_service.Example.Id,
+// Priority: 20,
+// Match: map[string]interface{}{
+// "httpMatch": map[string]interface{}{
+// "headerMatches": []map[string]interface{}{
+// map[string]interface{}{
+// "name": "example-header",
+// "caseSensitive": false,
+// "match": map[string]interface{}{
+// "exact": "example-contains",
+// },
+// },
+// },
+// "pathMatch": map[string]interface{}{
+// "caseSensitive": true,
+// "match": map[string]interface{}{
+// "prefix": "/example-path",
+// },
+// },
+// },
+// },
+// Action: map[string]interface{}{
+// "forward": map[string]interface{}{
+// "targetGroups": []interface{}{
+// map[string]interface{}{
+// "targetGroupIdentifier": aws_vpclattice_target_group.Example.Id,
+// "weight": 1,
+// },
+// map[string]interface{}{
+// "targetGroupIdentifier": aws_vpclattice_target_group.Example2.Id,
+// "weight": 2,
+// },
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Basic Usage
 //
@@ -81,40 +79,38 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/vpclattice"
+//	vpclattice/listenerRule "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/vpclattice/listenerRule"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := vpclattice.NewListenerRule(ctx, "test", &vpclattice.ListenerRuleArgs{
-//				ListenerIdentifier: pulumi.Any(aws_vpclattice_listener.Example.Listener_id),
-//				ServiceIdentifier:  pulumi.Any(aws_vpclattice_service.Example.Id),
-//				Priority:           pulumi.Int(10),
-//				Match: &vpclattice.ListenerRuleMatchArgs{
-//					HttpMatch: &vpclattice.ListenerRuleMatchHttpMatchArgs{
-//						PathMatch: &vpclattice.ListenerRuleMatchHttpMatchPathMatchArgs{
-//							CaseSensitive: pulumi.Bool(false),
-//							Match: &vpclattice.ListenerRuleMatchHttpMatchPathMatchMatchArgs{
-//								Exact: pulumi.String("/example-path"),
-//							},
-//						},
-//					},
-//				},
-//				Action: &vpclattice.ListenerRuleActionArgs{
-//					FixedResponse: &vpclattice.ListenerRuleActionFixedResponseArgs{
-//						StatusCode: pulumi.Int(404),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := vpclattice/listenerRule.NewListenerRule(ctx, "test", &vpclattice/listenerRule.ListenerRuleArgs{
+// ListenerIdentifier: aws_vpclattice_listener.Example.Listener_id,
+// ServiceIdentifier: aws_vpclattice_service.Example.Id,
+// Priority: 10,
+// Match: map[string]interface{}{
+// "httpMatch": map[string]interface{}{
+// "pathMatch": map[string]interface{}{
+// "caseSensitive": false,
+// "match": map[string]interface{}{
+// "exact": "/example-path",
+// },
+// },
+// },
+// },
+// Action: map[string]interface{}{
+// "fixedResponse": map[string]interface{}{
+// "statusCode": 404,
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

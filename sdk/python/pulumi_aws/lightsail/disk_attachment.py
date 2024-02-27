@@ -132,30 +132,6 @@ class Disk_attachment(pulumi.CustomResource):
         """
         Attaches a Lightsail disk to a Lightsail Instance
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        available = aws.get_availability_zones(state="available",
-            filters=[aws.GetAvailabilityZonesFilterArgs(
-                name="opt-in-status",
-                values=["opt-in-not-required"],
-            )])
-        test_disk = aws.lightsail.Disk("testDisk",
-            size_in_gb=8,
-            availability_zone=available.names[0])
-        test_instance = aws.lightsail.Instance("testInstance",
-            availability_zone=available.names[0],
-            blueprint_id="amazon_linux_2",
-            bundle_id="nano_1_0")
-        test_disk_attachment = aws.lightsail.Disk_attachment("testDisk_attachment",
-            disk_name=test_disk.name,
-            instance_name=test_instance.name,
-            disk_path="/dev/xvdf")
-        ```
-
         ## Import
 
         Using `pulumi import`, import `aws_lightsail_disk` using the id attribute. For example:
@@ -178,30 +154,6 @@ class Disk_attachment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Attaches a Lightsail disk to a Lightsail Instance
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        available = aws.get_availability_zones(state="available",
-            filters=[aws.GetAvailabilityZonesFilterArgs(
-                name="opt-in-status",
-                values=["opt-in-not-required"],
-            )])
-        test_disk = aws.lightsail.Disk("testDisk",
-            size_in_gb=8,
-            availability_zone=available.names[0])
-        test_instance = aws.lightsail.Instance("testInstance",
-            availability_zone=available.names[0],
-            blueprint_id="amazon_linux_2",
-            bundle_id="nano_1_0")
-        test_disk_attachment = aws.lightsail.Disk_attachment("testDisk_attachment",
-            disk_name=test_disk.name,
-            instance_name=test_instance.name,
-            disk_path="/dev/xvdf")
-        ```
 
         ## Import
 

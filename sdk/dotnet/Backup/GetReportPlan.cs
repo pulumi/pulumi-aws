@@ -13,56 +13,12 @@ namespace Pulumi.Aws.Backup
     {
         /// <summary>
         /// Use this data source to get information on an existing backup report plan.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Backup.GetReportPlan.Invoke(new()
-        ///     {
-        ///         Name = "my_example_backup_report_plan_name",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetReportPlanResult> InvokeAsync(GetReportPlanArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetReportPlanResult>("aws:backup/getReportPlan:getReportPlan", args ?? new GetReportPlanArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to get information on an existing backup report plan.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Backup.GetReportPlan.Invoke(new()
-        ///     {
-        ///         Name = "my_example_backup_report_plan_name",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetReportPlanResult> Invoke(GetReportPlanInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetReportPlanResult>("aws:backup/getReportPlan:getReportPlan", args ?? new GetReportPlanInvokeArgs(), options.WithDefaults());

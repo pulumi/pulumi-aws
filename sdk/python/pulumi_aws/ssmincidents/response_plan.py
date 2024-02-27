@@ -338,13 +338,13 @@ class ResponsePlan(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ssmincidents.ResponsePlan("example",
-            incident_template=aws.ssmincidents.ResponsePlanIncidentTemplateArgs(
-                title="title",
-                impact=3,
-            ),
+        example = aws.ssmincidents.response_plan.ResponsePlan("example",
+            incident_template={
+                title: title,
+                impact: 3,
+            },
             tags={
-                "key": "value",
+                key: value,
             },
             opts=pulumi.ResourceOptions(depends_on=[aws_ssmincidents_replication_set["example"]]))
         ```
@@ -354,61 +354,61 @@ class ResponsePlan(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ssmincidents.ResponsePlan("example",
-            incident_template=aws.ssmincidents.ResponsePlanIncidentTemplateArgs(
-                title="title",
-                impact=3,
-                dedupe_string="dedupe",
-                incident_tags={
-                    "key": "value",
+        example = aws.ssmincidents.response_plan.ResponsePlan("example",
+            incident_template={
+                title: title,
+                impact: 3,
+                dedupeString: dedupe,
+                incidentTags: {
+                    key: value,
                 },
-                notification_targets=[
-                    aws.ssmincidents.ResponsePlanIncidentTemplateNotificationTargetArgs(
-                        sns_topic_arn=aws_sns_topic["example1"]["arn"],
-                    ),
-                    aws.ssmincidents.ResponsePlanIncidentTemplateNotificationTargetArgs(
-                        sns_topic_arn=aws_sns_topic["example2"]["arn"],
-                    ),
-                ],
-                summary="summary",
-            ),
-            display_name="display name",
-            chat_channels=[aws_sns_topic["topic"]["arn"]],
-            engagements=["arn:aws:ssm-contacts:us-east-2:111122223333:contact/test1"],
-            action=aws.ssmincidents.ResponsePlanActionArgs(
-                ssm_automations=[aws.ssmincidents.ResponsePlanActionSsmAutomationArgs(
-                    document_name=aws_ssm_document["document1"]["name"],
-                    role_arn=aws_iam_role["role1"]["arn"],
-                    document_version="version1",
-                    target_account="RESPONSE_PLAN_OWNER_ACCOUNT",
-                    parameters=[
-                        aws.ssmincidents.ResponsePlanActionSsmAutomationParameterArgs(
-                            name="key",
-                            values=[
-                                "value1",
-                                "value2",
-                            ],
-                        ),
-                        aws.ssmincidents.ResponsePlanActionSsmAutomationParameterArgs(
-                            name="foo",
-                            values=["bar"],
-                        ),
-                    ],
-                    dynamic_parameters={
-                        "someKey": "INVOLVED_RESOURCES",
-                        "anotherKey": "INCIDENT_RECORD_ARN",
+                notificationTargets: [
+                    {
+                        snsTopicArn: aws_sns_topic.example1.arn,
                     },
-                )],
-            ),
-            integration=aws.ssmincidents.ResponsePlanIntegrationArgs(
-                pagerduties=[aws.ssmincidents.ResponsePlanIntegrationPagerdutyArgs(
-                    name="pagerdutyIntergration",
-                    service_id="example",
-                    secret_id="example",
-                )],
-            ),
+                    {
+                        snsTopicArn: aws_sns_topic.example2.arn,
+                    },
+                ],
+                summary: summary,
+            },
+            display_name=display name,
+            chat_channels=[aws_sns_topic.topic.arn],
+            engagements=[arn:aws:ssm-contacts:us-east-2:111122223333:contact/test1],
+            action={
+                ssmAutomations: [{
+                    documentName: aws_ssm_document.document1.name,
+                    roleArn: aws_iam_role.role1.arn,
+                    documentVersion: version1,
+                    targetAccount: RESPONSE_PLAN_OWNER_ACCOUNT,
+                    parameters: [
+                        {
+                            name: key,
+                            values: [
+                                value1,
+                                value2,
+                            ],
+                        },
+                        {
+                            name: foo,
+                            values: [bar],
+                        },
+                    ],
+                    dynamicParameters: {
+                        someKey: INVOLVED_RESOURCES,
+                        anotherKey: INCIDENT_RECORD_ARN,
+                    },
+                }],
+            },
+            integration={
+                pagerduties: [{
+                    name: pagerdutyIntergration,
+                    serviceId: example,
+                    secretId: example,
+                }],
+            },
             tags={
-                "key": "value",
+                key: value,
             },
             opts=pulumi.ResourceOptions(depends_on=[aws_ssmincidents_replication_set["example"]]))
         ```
@@ -447,13 +447,13 @@ class ResponsePlan(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ssmincidents.ResponsePlan("example",
-            incident_template=aws.ssmincidents.ResponsePlanIncidentTemplateArgs(
-                title="title",
-                impact=3,
-            ),
+        example = aws.ssmincidents.response_plan.ResponsePlan("example",
+            incident_template={
+                title: title,
+                impact: 3,
+            },
             tags={
-                "key": "value",
+                key: value,
             },
             opts=pulumi.ResourceOptions(depends_on=[aws_ssmincidents_replication_set["example"]]))
         ```
@@ -463,61 +463,61 @@ class ResponsePlan(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ssmincidents.ResponsePlan("example",
-            incident_template=aws.ssmincidents.ResponsePlanIncidentTemplateArgs(
-                title="title",
-                impact=3,
-                dedupe_string="dedupe",
-                incident_tags={
-                    "key": "value",
+        example = aws.ssmincidents.response_plan.ResponsePlan("example",
+            incident_template={
+                title: title,
+                impact: 3,
+                dedupeString: dedupe,
+                incidentTags: {
+                    key: value,
                 },
-                notification_targets=[
-                    aws.ssmincidents.ResponsePlanIncidentTemplateNotificationTargetArgs(
-                        sns_topic_arn=aws_sns_topic["example1"]["arn"],
-                    ),
-                    aws.ssmincidents.ResponsePlanIncidentTemplateNotificationTargetArgs(
-                        sns_topic_arn=aws_sns_topic["example2"]["arn"],
-                    ),
-                ],
-                summary="summary",
-            ),
-            display_name="display name",
-            chat_channels=[aws_sns_topic["topic"]["arn"]],
-            engagements=["arn:aws:ssm-contacts:us-east-2:111122223333:contact/test1"],
-            action=aws.ssmincidents.ResponsePlanActionArgs(
-                ssm_automations=[aws.ssmincidents.ResponsePlanActionSsmAutomationArgs(
-                    document_name=aws_ssm_document["document1"]["name"],
-                    role_arn=aws_iam_role["role1"]["arn"],
-                    document_version="version1",
-                    target_account="RESPONSE_PLAN_OWNER_ACCOUNT",
-                    parameters=[
-                        aws.ssmincidents.ResponsePlanActionSsmAutomationParameterArgs(
-                            name="key",
-                            values=[
-                                "value1",
-                                "value2",
-                            ],
-                        ),
-                        aws.ssmincidents.ResponsePlanActionSsmAutomationParameterArgs(
-                            name="foo",
-                            values=["bar"],
-                        ),
-                    ],
-                    dynamic_parameters={
-                        "someKey": "INVOLVED_RESOURCES",
-                        "anotherKey": "INCIDENT_RECORD_ARN",
+                notificationTargets: [
+                    {
+                        snsTopicArn: aws_sns_topic.example1.arn,
                     },
-                )],
-            ),
-            integration=aws.ssmincidents.ResponsePlanIntegrationArgs(
-                pagerduties=[aws.ssmincidents.ResponsePlanIntegrationPagerdutyArgs(
-                    name="pagerdutyIntergration",
-                    service_id="example",
-                    secret_id="example",
-                )],
-            ),
+                    {
+                        snsTopicArn: aws_sns_topic.example2.arn,
+                    },
+                ],
+                summary: summary,
+            },
+            display_name=display name,
+            chat_channels=[aws_sns_topic.topic.arn],
+            engagements=[arn:aws:ssm-contacts:us-east-2:111122223333:contact/test1],
+            action={
+                ssmAutomations: [{
+                    documentName: aws_ssm_document.document1.name,
+                    roleArn: aws_iam_role.role1.arn,
+                    documentVersion: version1,
+                    targetAccount: RESPONSE_PLAN_OWNER_ACCOUNT,
+                    parameters: [
+                        {
+                            name: key,
+                            values: [
+                                value1,
+                                value2,
+                            ],
+                        },
+                        {
+                            name: foo,
+                            values: [bar],
+                        },
+                    ],
+                    dynamicParameters: {
+                        someKey: INVOLVED_RESOURCES,
+                        anotherKey: INCIDENT_RECORD_ARN,
+                    },
+                }],
+            },
+            integration={
+                pagerduties: [{
+                    name: pagerdutyIntergration,
+                    serviceId: example,
+                    secretId: example,
+                }],
+            },
             tags={
-                "key": "value",
+                key: value,
             },
             opts=pulumi.ResourceOptions(depends_on=[aws_ssmincidents_replication_set["example"]]))
         ```

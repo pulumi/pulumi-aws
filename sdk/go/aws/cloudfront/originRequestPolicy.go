@@ -21,47 +21,45 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudfront"
+//	cloudfront/originRequestPolicy "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/cloudfront/originRequestPolicy"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cloudfront.NewOriginRequestPolicy(ctx, "example", &cloudfront.OriginRequestPolicyArgs{
-//				Comment: pulumi.String("example comment"),
-//				CookiesConfig: &cloudfront.OriginRequestPolicyCookiesConfigArgs{
-//					CookieBehavior: pulumi.String("whitelist"),
-//					Cookies: &cloudfront.OriginRequestPolicyCookiesConfigCookiesArgs{
-//						Items: pulumi.StringArray{
-//							pulumi.String("example"),
-//						},
-//					},
-//				},
-//				HeadersConfig: &cloudfront.OriginRequestPolicyHeadersConfigArgs{
-//					HeaderBehavior: pulumi.String("whitelist"),
-//					Headers: &cloudfront.OriginRequestPolicyHeadersConfigHeadersArgs{
-//						Items: pulumi.StringArray{
-//							pulumi.String("example"),
-//						},
-//					},
-//				},
-//				QueryStringsConfig: &cloudfront.OriginRequestPolicyQueryStringsConfigArgs{
-//					QueryStringBehavior: pulumi.String("whitelist"),
-//					QueryStrings: &cloudfront.OriginRequestPolicyQueryStringsConfigQueryStringsArgs{
-//						Items: pulumi.StringArray{
-//							pulumi.String("example"),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := cloudfront/originRequestPolicy.NewOriginRequestPolicy(ctx, "example", &cloudfront/originRequestPolicy.OriginRequestPolicyArgs{
+// Comment: "example comment",
+// CookiesConfig: map[string]interface{}{
+// "cookieBehavior": "whitelist",
+// "cookies": map[string]interface{}{
+// "items": []string{
+// "example",
+// },
+// },
+// },
+// HeadersConfig: map[string]interface{}{
+// "headerBehavior": "whitelist",
+// "headers": map[string]interface{}{
+// "items": []string{
+// "example",
+// },
+// },
+// },
+// QueryStringsConfig: map[string]interface{}{
+// "queryStringBehavior": "whitelist",
+// "queryStrings": map[string]interface{}{
+// "items": []string{
+// "example",
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

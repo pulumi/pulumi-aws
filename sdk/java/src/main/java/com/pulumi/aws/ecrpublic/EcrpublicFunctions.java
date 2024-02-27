@@ -18,33 +18,6 @@ public final class EcrpublicFunctions {
      * 
      * &gt; **NOTE:** This data source can only be used in the `us-east-1` region.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ecrpublic.EcrpublicFunctions;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var token = EcrpublicFunctions.getAuthorizationToken();
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetAuthorizationTokenResult> getAuthorizationToken() {
         return getAuthorizationToken(InvokeArgs.Empty, InvokeOptions.Empty);
@@ -53,33 +26,6 @@ public final class EcrpublicFunctions {
      * The Public ECR Authorization Token data source allows the authorization token, token expiration date, user name, and password to be retrieved for a Public ECR repository.
      * 
      * &gt; **NOTE:** This data source can only be used in the `us-east-1` region.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ecrpublic.EcrpublicFunctions;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var token = EcrpublicFunctions.getAuthorizationToken();
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetAuthorizationTokenResult> getAuthorizationTokenPlain() {
@@ -90,33 +36,6 @@ public final class EcrpublicFunctions {
      * 
      * &gt; **NOTE:** This data source can only be used in the `us-east-1` region.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ecrpublic.EcrpublicFunctions;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var token = EcrpublicFunctions.getAuthorizationToken();
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetAuthorizationTokenResult> getAuthorizationToken(InvokeArgs args) {
         return getAuthorizationToken(args, InvokeOptions.Empty);
@@ -125,33 +44,6 @@ public final class EcrpublicFunctions {
      * The Public ECR Authorization Token data source allows the authorization token, token expiration date, user name, and password to be retrieved for a Public ECR repository.
      * 
      * &gt; **NOTE:** This data source can only be used in the `us-east-1` region.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ecrpublic.EcrpublicFunctions;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var token = EcrpublicFunctions.getAuthorizationToken();
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetAuthorizationTokenResult> getAuthorizationTokenPlain(InvokeArgs args) {
@@ -162,33 +54,6 @@ public final class EcrpublicFunctions {
      * 
      * &gt; **NOTE:** This data source can only be used in the `us-east-1` region.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ecrpublic.EcrpublicFunctions;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var token = EcrpublicFunctions.getAuthorizationToken();
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetAuthorizationTokenResult> getAuthorizationToken(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:ecrpublic/getAuthorizationToken:getAuthorizationToken", TypeShape.of(GetAuthorizationTokenResult.class), args, Utilities.withVersion(options));
@@ -197,33 +62,6 @@ public final class EcrpublicFunctions {
      * The Public ECR Authorization Token data source allows the authorization token, token expiration date, user name, and password to be retrieved for a Public ECR repository.
      * 
      * &gt; **NOTE:** This data source can only be used in the `us-east-1` region.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ecrpublic.EcrpublicFunctions;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var token = EcrpublicFunctions.getAuthorizationToken();
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetAuthorizationTokenResult> getAuthorizationTokenPlain(InvokeArgs args, InvokeOptions options) {

@@ -296,9 +296,9 @@ class VpcDhcpOptions(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        dns_resolver = aws.ec2.VpcDhcpOptions("dnsResolver", domain_name_servers=[
-            "8.8.8.8",
-            "8.8.4.4",
+        dns_resolver = aws.ec2.vpc_dhcp_options.VpcDhcpOptions("dnsResolver", domain_name_servers=[
+            8.8.8.8,
+            8.8.4.4,
         ])
         ```
 
@@ -308,17 +308,17 @@ class VpcDhcpOptions(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        foo = aws.ec2.VpcDhcpOptions("foo",
-            domain_name="service.consul",
+        foo = aws.ec2.vpc_dhcp_options.VpcDhcpOptions("foo",
+            domain_name=service.consul,
             domain_name_servers=[
-                "127.0.0.1",
-                "10.0.0.2",
+                127.0.0.1,
+                10.0.0.2,
             ],
-            netbios_name_servers=["127.0.0.1"],
-            netbios_node_type="2",
-            ntp_servers=["127.0.0.1"],
+            netbios_name_servers=[127.0.0.1],
+            netbios_node_type=2,
+            ntp_servers=[127.0.0.1],
             tags={
-                "Name": "foo-name",
+                Name: foo-name,
             })
         ```
         ## Remarks
@@ -363,9 +363,9 @@ class VpcDhcpOptions(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        dns_resolver = aws.ec2.VpcDhcpOptions("dnsResolver", domain_name_servers=[
-            "8.8.8.8",
-            "8.8.4.4",
+        dns_resolver = aws.ec2.vpc_dhcp_options.VpcDhcpOptions("dnsResolver", domain_name_servers=[
+            8.8.8.8,
+            8.8.4.4,
         ])
         ```
 
@@ -375,17 +375,17 @@ class VpcDhcpOptions(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        foo = aws.ec2.VpcDhcpOptions("foo",
-            domain_name="service.consul",
+        foo = aws.ec2.vpc_dhcp_options.VpcDhcpOptions("foo",
+            domain_name=service.consul,
             domain_name_servers=[
-                "127.0.0.1",
-                "10.0.0.2",
+                127.0.0.1,
+                10.0.0.2,
             ],
-            netbios_name_servers=["127.0.0.1"],
-            netbios_node_type="2",
-            ntp_servers=["127.0.0.1"],
+            netbios_name_servers=[127.0.0.1],
+            netbios_node_type=2,
+            ntp_servers=[127.0.0.1],
             tags={
-                "Name": "foo-name",
+                Name: foo-name,
             })
         ```
         ## Remarks

@@ -28,11 +28,10 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.chime.VoiceConnector;
- * import com.pulumi.aws.chime.VoiceConnectorArgs;
- * import com.pulumi.aws.chime.VoiceConnectorGroup;
- * import com.pulumi.aws.chime.VoiceConnectorGroupArgs;
- * import com.pulumi.aws.chime.inputs.VoiceConnectorGroupConnectorArgs;
+ * import com.pulumi.aws.chime_voiceConnector.VoiceConnector;
+ * import com.pulumi.aws.chime_voiceConnector.VoiceConnectorArgs;
+ * import com.pulumi.aws.chime_voiceConnectorGroup.VoiceConnectorGroup;
+ * import com.pulumi.aws.chime_voiceConnectorGroup.VoiceConnectorGroupArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -58,14 +57,8 @@ import javax.annotation.Nullable;
  * 
  *         var group = new VoiceConnectorGroup(&#34;group&#34;, VoiceConnectorGroupArgs.builder()        
  *             .connectors(            
- *                 VoiceConnectorGroupConnectorArgs.builder()
- *                     .voiceConnectorId(vc1.id())
- *                     .priority(1)
- *                     .build(),
- *                 VoiceConnectorGroupConnectorArgs.builder()
- *                     .voiceConnectorId(vc2.id())
- *                     .priority(3)
- *                     .build())
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

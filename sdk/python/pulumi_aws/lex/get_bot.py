@@ -242,16 +242,6 @@ def get_bot(name: Optional[str] = None,
     """
     Provides details about a specific Amazon Lex Bot.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    order_flowers_bot = aws.lex.get_bot(name="OrderFlowers",
-        version="$LATEST")
-    ```
-
 
     :param str name: Name of the bot. The name is case sensitive.
     :param str version: Version or alias of the bot.
@@ -288,16 +278,6 @@ def get_bot_output(name: Optional[pulumi.Input[str]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBotResult]:
     """
     Provides details about a specific Amazon Lex Bot.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    order_flowers_bot = aws.lex.get_bot(name="OrderFlowers",
-        version="$LATEST")
-    ```
 
 
     :param str name: Name of the bot. The name is case sensitive.

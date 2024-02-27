@@ -35,9 +35,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.s3.BucketV2;
  * import com.pulumi.aws.s3.Inventory;
  * import com.pulumi.aws.s3.InventoryArgs;
- * import com.pulumi.aws.s3.inputs.InventoryScheduleArgs;
- * import com.pulumi.aws.s3.inputs.InventoryDestinationArgs;
- * import com.pulumi.aws.s3.inputs.InventoryDestinationBucketArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -58,15 +55,8 @@ import javax.annotation.Nullable;
  *         var testInventory = new Inventory(&#34;testInventory&#34;, InventoryArgs.builder()        
  *             .bucket(testBucketV2.id())
  *             .includedObjectVersions(&#34;All&#34;)
- *             .schedule(InventoryScheduleArgs.builder()
- *                 .frequency(&#34;Daily&#34;)
- *                 .build())
- *             .destination(InventoryDestinationArgs.builder()
- *                 .bucket(InventoryDestinationBucketArgs.builder()
- *                     .format(&#34;ORC&#34;)
- *                     .bucketArn(inventory.arn())
- *                     .build())
- *                 .build())
+ *             .schedule(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .destination(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -82,10 +72,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.s3.BucketV2;
  * import com.pulumi.aws.s3.Inventory;
  * import com.pulumi.aws.s3.InventoryArgs;
- * import com.pulumi.aws.s3.inputs.InventoryScheduleArgs;
- * import com.pulumi.aws.s3.inputs.InventoryFilterArgs;
- * import com.pulumi.aws.s3.inputs.InventoryDestinationArgs;
- * import com.pulumi.aws.s3.inputs.InventoryDestinationBucketArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -106,19 +92,9 @@ import javax.annotation.Nullable;
  *         var test_prefix = new Inventory(&#34;test-prefix&#34;, InventoryArgs.builder()        
  *             .bucket(test.id())
  *             .includedObjectVersions(&#34;All&#34;)
- *             .schedule(InventoryScheduleArgs.builder()
- *                 .frequency(&#34;Daily&#34;)
- *                 .build())
- *             .filter(InventoryFilterArgs.builder()
- *                 .prefix(&#34;documents/&#34;)
- *                 .build())
- *             .destination(InventoryDestinationArgs.builder()
- *                 .bucket(InventoryDestinationBucketArgs.builder()
- *                     .format(&#34;ORC&#34;)
- *                     .bucketArn(inventory.arn())
- *                     .prefix(&#34;inventory&#34;)
- *                     .build())
- *                 .build())
+ *             .schedule(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .filter(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .destination(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

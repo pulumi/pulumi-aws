@@ -252,16 +252,6 @@ def get_catalog_table(catalog_id: Optional[str] = None,
     """
     This data source can be used to fetch information about an AWS Glue Data Catalog Table.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.glue.get_catalog_table(database_name="MyCatalogDatabase",
-        name="MyCatalogTable")
-    ```
-
 
     :param str catalog_id: ID of the Glue Catalog and database where the table metadata resides. If omitted, this defaults to the current AWS Account ID.
     :param str database_name: Name of the metadata database where the table metadata resides.
@@ -308,16 +298,6 @@ def get_catalog_table_output(catalog_id: Optional[pulumi.Input[Optional[str]]] =
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCatalogTableResult]:
     """
     This data source can be used to fetch information about an AWS Glue Data Catalog Table.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.glue.get_catalog_table(database_name="MyCatalogDatabase",
-        name="MyCatalogTable")
-    ```
 
 
     :param str catalog_id: ID of the Glue Catalog and database where the table metadata resides. If omitted, this defaults to the current AWS Account ID.

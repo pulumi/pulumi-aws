@@ -109,32 +109,7 @@ class EncryptionConfig(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.xray.EncryptionConfig("example", type="NONE")
-        ```
-        ### With KMS Key
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        current = aws.get_caller_identity()
-        example_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            sid="Enable IAM User Permissions",
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="AWS",
-                identifiers=[f"arn:aws:iam::{current.account_id}:root"],
-            )],
-            actions=["kms:*"],
-            resources=["*"],
-        )])
-        example_key = aws.kms.Key("exampleKey",
-            description="Some Key",
-            deletion_window_in_days=7,
-            policy=example_policy_document.json)
-        example_encryption_config = aws.xray.EncryptionConfig("exampleEncryptionConfig",
-            type="KMS",
-            key_id=example_key.arn)
+        example = aws.xray.encryption_config.EncryptionConfig("example", type=NONE)
         ```
 
         ## Import
@@ -167,32 +142,7 @@ class EncryptionConfig(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.xray.EncryptionConfig("example", type="NONE")
-        ```
-        ### With KMS Key
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        current = aws.get_caller_identity()
-        example_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            sid="Enable IAM User Permissions",
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="AWS",
-                identifiers=[f"arn:aws:iam::{current.account_id}:root"],
-            )],
-            actions=["kms:*"],
-            resources=["*"],
-        )])
-        example_key = aws.kms.Key("exampleKey",
-            description="Some Key",
-            deletion_window_in_days=7,
-            policy=example_policy_document.json)
-        example_encryption_config = aws.xray.EncryptionConfig("exampleEncryptionConfig",
-            type="KMS",
-            key_id=example_key.arn)
+        example = aws.xray.encryption_config.EncryptionConfig("example", type=NONE)
         ```
 
         ## Import

@@ -22,36 +22,34 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kendra"
+//	kendra/experience "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/kendra/experience"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := kendra.NewExperience(ctx, "example", &kendra.ExperienceArgs{
-//				IndexId:     pulumi.Any(aws_kendra_index.Example.Id),
-//				Description: pulumi.String("My Kendra Experience"),
-//				RoleArn:     pulumi.Any(aws_iam_role.Example.Arn),
-//				Configuration: &kendra.ExperienceConfigurationArgs{
-//					ContentSourceConfiguration: &kendra.ExperienceConfigurationContentSourceConfigurationArgs{
-//						DirectPutContent: pulumi.Bool(true),
-//						FaqIds: pulumi.StringArray{
-//							aws_kendra_faq.Example.Faq_id,
-//						},
-//					},
-//					UserIdentityConfiguration: &kendra.ExperienceConfigurationUserIdentityConfigurationArgs{
-//						IdentityAttributeName: pulumi.String("12345ec453-1546651e-79c4-4554-91fa-00b43ccfa245"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := kendra/experience.NewExperience(ctx, "example", &kendra/experience.ExperienceArgs{
+// IndexId: aws_kendra_index.Example.Id,
+// Description: "My Kendra Experience",
+// RoleArn: aws_iam_role.Example.Arn,
+// Configuration: map[string]interface{}{
+// "contentSourceConfiguration": map[string]interface{}{
+// "directPutContent": true,
+// "faqIds": []interface{}{
+// aws_kendra_faq.Example.Faq_id,
+// },
+// },
+// "userIdentityConfiguration": map[string]interface{}{
+// "identityAttributeName": "12345ec453-1546651e-79c4-4554-91fa-00b43ccfa245",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

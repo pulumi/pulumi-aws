@@ -198,21 +198,21 @@ class IpGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        contractors = aws.workspaces.IpGroup("contractors",
-            description="Contractors IP access control group",
+        contractors = aws.workspaces.ip_group.IpGroup("contractors",
+            description=Contractors IP access control group,
             rules=[
-                aws.workspaces.IpGroupRuleArgs(
-                    description="NY",
-                    source="150.24.14.0/24",
-                ),
-                aws.workspaces.IpGroupRuleArgs(
-                    description="LA",
-                    source="125.191.14.85/32",
-                ),
-                aws.workspaces.IpGroupRuleArgs(
-                    description="STL",
-                    source="44.98.100.0/24",
-                ),
+                {
+                    description: NY,
+                    source: 150.24.14.0/24,
+                },
+                {
+                    description: LA,
+                    source: 125.191.14.85/32,
+                },
+                {
+                    description: STL,
+                    source: 44.98.100.0/24,
+                },
             ])
         ```
 
@@ -246,21 +246,21 @@ class IpGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        contractors = aws.workspaces.IpGroup("contractors",
-            description="Contractors IP access control group",
+        contractors = aws.workspaces.ip_group.IpGroup("contractors",
+            description=Contractors IP access control group,
             rules=[
-                aws.workspaces.IpGroupRuleArgs(
-                    description="NY",
-                    source="150.24.14.0/24",
-                ),
-                aws.workspaces.IpGroupRuleArgs(
-                    description="LA",
-                    source="125.191.14.85/32",
-                ),
-                aws.workspaces.IpGroupRuleArgs(
-                    description="STL",
-                    source="44.98.100.0/24",
-                ),
+                {
+                    description: NY,
+                    source: 150.24.14.0/24,
+                },
+                {
+                    description: LA,
+                    source: 125.191.14.85/32,
+                },
+                {
+                    description: STL,
+                    source: 44.98.100.0/24,
+                },
             ])
         ```
 

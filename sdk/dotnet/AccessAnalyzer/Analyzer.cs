@@ -23,7 +23,7 @@ namespace Pulumi.Aws.AccessAnalyzer
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.AccessAnalyzer.Analyzer("example", new()
+    ///     var example = new Aws.Accessanalyzer.Analyzer.Analyzer("example", new()
     ///     {
     ///         AnalyzerName = "example",
     ///     });
@@ -40,7 +40,7 @@ namespace Pulumi.Aws.AccessAnalyzer
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleOrganization = new Aws.Organizations.Organization("exampleOrganization", new()
+    ///     var exampleOrganization = new Aws.Organizations.Organization.Organization("exampleOrganization", new()
     ///     {
     ///         AwsServiceAccessPrincipals = new[]
     ///         {
@@ -48,7 +48,7 @@ namespace Pulumi.Aws.AccessAnalyzer
     ///         },
     ///     });
     /// 
-    ///     var exampleAnalyzer = new Aws.AccessAnalyzer.Analyzer("exampleAnalyzer", new()
+    ///     var exampleAnalyzer = new Aws.Accessanalyzer.Analyzer.Analyzer("exampleAnalyzer", new()
     ///     {
     ///         AnalyzerName = "example",
     ///         Type = "ORGANIZATION",

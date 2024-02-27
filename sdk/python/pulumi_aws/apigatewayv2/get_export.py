@@ -120,17 +120,6 @@ def get_export(api_id: Optional[str] = None,
     """
     Exports a definition of an API in a particular output format and specification.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.apigatewayv2.get_export(api_id=aws_apigatewayv2_route["test"]["api_id"],
-        specification="OAS30",
-        output_type="JSON")
-    ```
-
 
     :param str api_id: API identifier.
     :param str export_version: Version of the API Gateway export algorithm. API Gateway uses the latest version by default. Currently, the only supported version is `1.0`.
@@ -170,17 +159,6 @@ def get_export_output(api_id: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetExportResult]:
     """
     Exports a definition of an API in a particular output format and specification.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.apigatewayv2.get_export(api_id=aws_apigatewayv2_route["test"]["api_id"],
-        specification="OAS30",
-        output_type="JSON")
-    ```
 
 
     :param str api_id: API identifier.

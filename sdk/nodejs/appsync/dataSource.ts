@@ -10,55 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Provides an AppSync Data Source.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleTable = new aws.dynamodb.Table("exampleTable", {
- *     readCapacity: 1,
- *     writeCapacity: 1,
- *     hashKey: "UserId",
- *     attributes: [{
- *         name: "UserId",
- *         type: "S",
- *     }],
- * });
- * const assumeRole = aws.iam.getPolicyDocument({
- *     statements: [{
- *         effect: "Allow",
- *         principals: [{
- *             type: "Service",
- *             identifiers: ["appsync.amazonaws.com"],
- *         }],
- *         actions: ["sts:AssumeRole"],
- *     }],
- * });
- * const exampleRole = new aws.iam.Role("exampleRole", {assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json)});
- * const examplePolicyDocument = aws.iam.getPolicyDocumentOutput({
- *     statements: [{
- *         effect: "Allow",
- *         actions: ["dynamodb:*"],
- *         resources: [exampleTable.arn],
- *     }],
- * });
- * const exampleRolePolicy = new aws.iam.RolePolicy("exampleRolePolicy", {
- *     role: exampleRole.id,
- *     policy: examplePolicyDocument.apply(examplePolicyDocument => examplePolicyDocument.json),
- * });
- * const exampleGraphQLApi = new aws.appsync.GraphQLApi("exampleGraphQLApi", {authenticationType: "API_KEY"});
- * const exampleDataSource = new aws.appsync.DataSource("exampleDataSource", {
- *     apiId: exampleGraphQLApi.id,
- *     name: "my_appsync_example",
- *     serviceRoleArn: exampleRole.arn,
- *     type: "AMAZON_DYNAMODB",
- *     dynamodbConfig: {
- *         tableName: exampleTable.name,
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import `aws_appsync_datasource` using the `api_id`, a hyphen, and `name`. For example:

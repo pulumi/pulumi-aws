@@ -22,14 +22,14 @@ namespace Pulumi.Aws.Xray
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Xray.Group("example", new()
+    ///     var example = new Aws.Xray.Group.Group("example", new()
     ///     {
     ///         FilterExpression = "responsetime &gt; 5",
     ///         GroupName = "example",
-    ///         InsightsConfiguration = new Aws.Xray.Inputs.GroupInsightsConfigurationArgs
+    ///         InsightsConfiguration = 
     ///         {
-    ///             InsightsEnabled = true,
-    ///             NotificationsEnabled = true,
+    ///             { "insightsEnabled", true },
+    ///             { "notificationsEnabled", true },
     ///         },
     ///     });
     /// 

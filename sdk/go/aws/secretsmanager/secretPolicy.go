@@ -15,62 +15,6 @@ import (
 // Provides a resource to manage AWS Secrets Manager secret policy.
 //
 // ## Example Usage
-// ### Basic
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/secretsmanager"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleSecret, err := secretsmanager.NewSecret(ctx, "exampleSecret", nil)
-//			if err != nil {
-//				return err
-//			}
-//			examplePolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-//				Statements: []iam.GetPolicyDocumentStatement{
-//					{
-//						Sid:    pulumi.StringRef("EnableAnotherAWSAccountToReadTheSecret"),
-//						Effect: pulumi.StringRef("Allow"),
-//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
-//							{
-//								Type: "AWS",
-//								Identifiers: []string{
-//									"arn:aws:iam::123456789012:root",
-//								},
-//							},
-//						},
-//						Actions: []string{
-//							"secretsmanager:GetSecretValue",
-//						},
-//						Resources: []string{
-//							"*",
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = secretsmanager.NewSecretPolicy(ctx, "exampleSecretPolicy", &secretsmanager.SecretPolicyArgs{
-//				SecretArn: exampleSecret.Arn,
-//				Policy:    *pulumi.String(examplePolicyDocument.Json),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 //
 // ## Import
 //

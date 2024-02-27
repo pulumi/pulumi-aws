@@ -90,18 +90,6 @@ def get_devices(global_network_id: Optional[str] = None,
     """
     Retrieve information about devices.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.networkmanager.get_devices(global_network_id=var["global_network_id"],
-        tags={
-            "Env": "test",
-        })
-    ```
-
 
     :param str global_network_id: ID of the Global Network of the devices to retrieve.
     :param str site_id: ID of the site of the devices to retrieve.
@@ -129,18 +117,6 @@ def get_devices_output(global_network_id: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDevicesResult]:
     """
     Retrieve information about devices.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.networkmanager.get_devices(global_network_id=var["global_network_id"],
-        tags={
-            "Env": "test",
-        })
-    ```
 
 
     :param str global_network_id: ID of the Global Network of the devices to retrieve.

@@ -23,33 +23,6 @@ public final class SsmincidentsFunctions {
      * Use this data source to manage a replication set in AWS Systems Manager Incident Manager.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ssmincidents.SsmincidentsFunctions;
-     * import com.pulumi.aws.ssmincidents.inputs.GetReplicationSetArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = SsmincidentsFunctions.getReplicationSet();
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetReplicationSetResult> getReplicationSet() {
@@ -61,33 +34,6 @@ public final class SsmincidentsFunctions {
      * Use this data source to manage a replication set in AWS Systems Manager Incident Manager.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ssmincidents.SsmincidentsFunctions;
-     * import com.pulumi.aws.ssmincidents.inputs.GetReplicationSetArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = SsmincidentsFunctions.getReplicationSet();
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetReplicationSetResult> getReplicationSetPlain() {
@@ -99,33 +45,6 @@ public final class SsmincidentsFunctions {
      * Use this data source to manage a replication set in AWS Systems Manager Incident Manager.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ssmincidents.SsmincidentsFunctions;
-     * import com.pulumi.aws.ssmincidents.inputs.GetReplicationSetArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = SsmincidentsFunctions.getReplicationSet();
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetReplicationSetResult> getReplicationSet(GetReplicationSetArgs args) {
@@ -137,33 +56,6 @@ public final class SsmincidentsFunctions {
      * Use this data source to manage a replication set in AWS Systems Manager Incident Manager.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ssmincidents.SsmincidentsFunctions;
-     * import com.pulumi.aws.ssmincidents.inputs.GetReplicationSetArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = SsmincidentsFunctions.getReplicationSet();
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetReplicationSetResult> getReplicationSetPlain(GetReplicationSetPlainArgs args) {
@@ -175,33 +67,6 @@ public final class SsmincidentsFunctions {
      * Use this data source to manage a replication set in AWS Systems Manager Incident Manager.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ssmincidents.SsmincidentsFunctions;
-     * import com.pulumi.aws.ssmincidents.inputs.GetReplicationSetArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = SsmincidentsFunctions.getReplicationSet();
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetReplicationSetResult> getReplicationSet(GetReplicationSetArgs args, InvokeOptions options) {
@@ -213,33 +78,6 @@ public final class SsmincidentsFunctions {
      * Use this data source to manage a replication set in AWS Systems Manager Incident Manager.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ssmincidents.SsmincidentsFunctions;
-     * import com.pulumi.aws.ssmincidents.inputs.GetReplicationSetArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = SsmincidentsFunctions.getReplicationSet();
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetReplicationSetResult> getReplicationSetPlain(GetReplicationSetPlainArgs args, InvokeOptions options) {
@@ -250,7 +88,6 @@ public final class SsmincidentsFunctions {
      * 
      * ## Example Usage
      * ### Basic Usage
-     * 
      * ```java
      * package generated_program;
      * 
@@ -289,7 +126,6 @@ public final class SsmincidentsFunctions {
      * 
      * ## Example Usage
      * ### Basic Usage
-     * 
      * ```java
      * package generated_program;
      * 
@@ -328,7 +164,6 @@ public final class SsmincidentsFunctions {
      * 
      * ## Example Usage
      * ### Basic Usage
-     * 
      * ```java
      * package generated_program;
      * 
@@ -367,7 +202,6 @@ public final class SsmincidentsFunctions {
      * 
      * ## Example Usage
      * ### Basic Usage
-     * 
      * ```java
      * package generated_program;
      * 

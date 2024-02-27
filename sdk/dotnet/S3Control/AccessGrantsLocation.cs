@@ -25,9 +25,9 @@ namespace Pulumi.Aws.S3Control
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleAccessGrantsInstance = new Aws.S3Control.AccessGrantsInstance("exampleAccessGrantsInstance");
+    ///     var exampleAccessGrantsInstance = new Aws.S3control.AccessGrantsInstance.AccessGrantsInstance("exampleAccessGrantsInstance");
     /// 
-    ///     var exampleAccessGrantsLocation = new Aws.S3Control.AccessGrantsLocation("exampleAccessGrantsLocation", new()
+    ///     var exampleAccessGrantsLocation = new Aws.S3control.AccessGrantsLocation.AccessGrantsLocation("exampleAccessGrantsLocation", new()
     ///     {
     ///         IamRoleArn = aws_iam_role.Example.Arn,
     ///         LocationScope = "s3://",

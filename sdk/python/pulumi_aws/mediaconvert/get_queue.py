@@ -95,15 +95,6 @@ def get_queue(id: Optional[str] = None,
     """
     Retrieve information about a AWS Elemental MediaConvert Queue.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.mediaconvert.get_queue(id="tf-example-queue")
-    ```
-
 
     :param str id: Unique identifier of the queue. The same as `name`.
     :param Mapping[str, str] tags: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -128,15 +119,6 @@ def get_queue_output(id: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetQueueResult]:
     """
     Retrieve information about a AWS Elemental MediaConvert Queue.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.mediaconvert.get_queue(id="tf-example-queue")
-    ```
 
 
     :param str id: Unique identifier of the queue. The same as `name`.

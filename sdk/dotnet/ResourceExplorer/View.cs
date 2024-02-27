@@ -22,22 +22,22 @@ namespace Pulumi.Aws.ResourceExplorer
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleIndex = new Aws.ResourceExplorer.Index("exampleIndex", new()
+    ///     var exampleIndex = new Aws.Resourceexplorer.Index.Index("exampleIndex", new()
     ///     {
     ///         Type = "LOCAL",
     ///     });
     /// 
-    ///     var exampleView = new Aws.ResourceExplorer.View("exampleView", new()
+    ///     var exampleView = new Aws.Resourceexplorer.View.View("exampleView", new()
     ///     {
-    ///         Filters = new Aws.ResourceExplorer.Inputs.ViewFiltersArgs
+    ///         Filters = 
     ///         {
-    ///             FilterString = "resourcetype:ec2:instance",
+    ///             { "filterString", "resourcetype:ec2:instance" },
     ///         },
     ///         IncludedProperties = new[]
     ///         {
-    ///             new Aws.ResourceExplorer.Inputs.ViewIncludedPropertyArgs
+    ///             
     ///             {
-    ///                 Name = "tags",
+    ///                 { "name", "tags" },
     ///             },
     ///         },
     ///     }, new CustomResourceOptions

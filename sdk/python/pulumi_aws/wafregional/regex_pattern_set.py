@@ -108,9 +108,9 @@ class RegexPatternSet(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.wafregional.RegexPatternSet("example", regex_pattern_strings=[
-            "one",
-            "two",
+        example = aws.wafregional.regex_pattern_set.RegexPatternSet("example", regex_pattern_strings=[
+            one,
+            two,
         ])
         ```
 
@@ -142,9 +142,9 @@ class RegexPatternSet(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.wafregional.RegexPatternSet("example", regex_pattern_strings=[
-            "one",
-            "two",
+        example = aws.wafregional.regex_pattern_set.RegexPatternSet("example", regex_pattern_strings=[
+            one,
+            two,
         ])
         ```
 

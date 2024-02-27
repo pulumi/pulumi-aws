@@ -25,9 +25,9 @@ namespace Pulumi.Aws.S3
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.S3.BucketV2("example");
+    ///     var example = new Aws.S3.BucketV2.BucketV2("example");
     /// 
-    ///     var example_entire_bucket = new Aws.S3.BucketMetric("example-entire-bucket", new()
+    ///     var example_entire_bucket = new Aws.S3.BucketMetric.BucketMetric("example-entire-bucket", new()
     ///     {
     ///         Bucket = example.Id,
     ///     });
@@ -44,19 +44,19 @@ namespace Pulumi.Aws.S3
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.S3.BucketV2("example");
+    ///     var example = new Aws.S3.BucketV2.BucketV2("example");
     /// 
-    ///     var example_filtered = new Aws.S3.BucketMetric("example-filtered", new()
+    ///     var example_filtered = new Aws.S3.BucketMetric.BucketMetric("example-filtered", new()
     ///     {
     ///         Bucket = example.Id,
-    ///         Filter = new Aws.S3.Inputs.BucketMetricFilterArgs
+    ///         Filter = 
     ///         {
-    ///             Prefix = "documents/",
-    ///             Tags = 
+    ///             { "prefix", "documents/" },
+    ///             { "tags", 
     ///             {
     ///                 { "priority", "high" },
     ///                 { "class", "blue" },
-    ///             },
+    ///             } },
     ///         },
     ///     });
     /// 
@@ -72,24 +72,24 @@ namespace Pulumi.Aws.S3
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.S3.BucketV2("example");
+    ///     var example = new Aws.S3.BucketV2.BucketV2("example");
     /// 
-    ///     var example_access_point = new Aws.S3.AccessPoint("example-access-point", new()
+    ///     var example_access_point = new Aws.S3.AccessPoint.AccessPoint("example-access-point", new()
     ///     {
     ///         Bucket = example.Id,
     ///     });
     /// 
-    ///     var example_filtered = new Aws.S3.BucketMetric("example-filtered", new()
+    ///     var example_filtered = new Aws.S3.BucketMetric.BucketMetric("example-filtered", new()
     ///     {
     ///         Bucket = example.Id,
-    ///         Filter = new Aws.S3.Inputs.BucketMetricFilterArgs
+    ///         Filter = 
     ///         {
-    ///             AccessPoint = example_access_point.Arn,
-    ///             Tags = 
+    ///             { "accessPoint", example_access_point.Arn },
+    ///             { "tags", 
     ///             {
     ///                 { "priority", "high" },
     ///                 { "class", "blue" },
-    ///             },
+    ///             } },
     ///         },
     ///     });
     /// 

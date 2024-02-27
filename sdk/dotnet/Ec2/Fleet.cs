@@ -22,23 +22,23 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Ec2.Fleet("example", new()
+    ///     var example = new Aws.Ec2.Fleet.Fleet("example", new()
     ///     {
     ///         LaunchTemplateConfigs = new[]
     ///         {
-    ///             new Aws.Ec2.Inputs.FleetLaunchTemplateConfigArgs
+    ///             
     ///             {
-    ///                 LaunchTemplateSpecification = new Aws.Ec2.Inputs.FleetLaunchTemplateConfigLaunchTemplateSpecificationArgs
+    ///                 { "launchTemplateSpecification", 
     ///                 {
-    ///                     LaunchTemplateId = aws_launch_template.Example.Id,
-    ///                     Version = aws_launch_template.Example.Latest_version,
-    ///                 },
+    ///                     { "launchTemplateId", aws_launch_template.Example.Id },
+    ///                     { "version", aws_launch_template.Example.Latest_version },
+    ///                 } },
     ///             },
     ///         },
-    ///         TargetCapacitySpecification = new Aws.Ec2.Inputs.FleetTargetCapacitySpecificationArgs
+    ///         TargetCapacitySpecification = 
     ///         {
-    ///             DefaultTargetCapacityType = "spot",
-    ///             TotalTargetCapacity = 5,
+    ///             { "defaultTargetCapacityType", "spot" },
+    ///             { "totalTargetCapacity", 5 },
     ///         },
     ///     });
     /// 

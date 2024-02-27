@@ -288,17 +288,17 @@ class IpSet(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.wafv2.IpSet("example",
+        example = aws.wafv2.ip_set.IpSet("example",
             addresses=[
-                "1.2.3.4/32",
-                "5.6.7.8/32",
+                1.2.3.4/32,
+                5.6.7.8/32,
             ],
-            description="Example IP set",
-            ip_address_version="IPV4",
-            scope="REGIONAL",
+            description=Example IP set,
+            ip_address_version=IPV4,
+            scope=REGIONAL,
             tags={
-                "Tag1": "Value1",
-                "Tag2": "Value2",
+                Tag1: Value1,
+                Tag2: Value2,
             })
         ```
 
@@ -334,17 +334,17 @@ class IpSet(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.wafv2.IpSet("example",
+        example = aws.wafv2.ip_set.IpSet("example",
             addresses=[
-                "1.2.3.4/32",
-                "5.6.7.8/32",
+                1.2.3.4/32,
+                5.6.7.8/32,
             ],
-            description="Example IP set",
-            ip_address_version="IPV4",
-            scope="REGIONAL",
+            description=Example IP set,
+            ip_address_version=IPV4,
+            scope=REGIONAL,
             tags={
-                "Tag1": "Value1",
-                "Tag2": "Value2",
+                Tag1: Value1,
+                Tag2: Value2,
             })
         ```
 

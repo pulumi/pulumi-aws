@@ -24,7 +24,7 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Sagemaker.ServicecatalogPortfolioStatus("example", new()
+    ///     var example = new Aws.Sagemaker.ServicecatalogPortfolioStatus.ServicecatalogPortfolioStatus("example", new()
     ///     {
     ///         Status = "Enabled",
     ///     });

@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Quicksight
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var subscription = new Aws.Quicksight.AccountSubscription("subscription", new()
+    ///     var subscription = new Aws.Quicksight.AccountSubscription.AccountSubscription("subscription", new()
     ///     {
     ///         AccountName = "quicksight-pulumi",
     ///         AuthenticationMethod = "IAM_AND_QUICKSIGHT",

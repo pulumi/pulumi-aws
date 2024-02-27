@@ -24,7 +24,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.cfg.ConformancePack("example", {
+ * const example = new aws.cfg/conformancePack.ConformancePack("example", {
  *     inputParameters: [{
  *         parameterName: "AccessKeysRotatedParameterMaxAccessKeyAge",
  *         parameterValue: "90",
@@ -51,8 +51,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleBucketV2 = new aws.s3.BucketV2("exampleBucketV2", {});
- * const exampleBucketObjectv2 = new aws.s3.BucketObjectv2("exampleBucketObjectv2", {
+ * const exampleBucketV2 = new aws.s3/bucketV2.BucketV2("exampleBucketV2", {});
+ * const exampleBucketObjectv2 = new aws.s3/bucketObjectv2.BucketObjectv2("exampleBucketObjectv2", {
  *     bucket: exampleBucketV2.id,
  *     key: "example-key",
  *     content: `Resources:
@@ -65,7 +65,7 @@ import * as utilities from "../utilities";
  *     Type: AWS::Config::ConfigRule
  * `,
  * });
- * const exampleConformancePack = new aws.cfg.ConformancePack("exampleConformancePack", {templateS3Uri: pulumi.interpolate`s3://${exampleBucketV2.bucket}/${exampleBucketObjectv2.key}`}, {
+ * const exampleConformancePack = new aws.cfg/conformancePack.ConformancePack("exampleConformancePack", {templateS3Uri: `s3://${exampleBucketV2.bucket}/${exampleBucketObjectv2.key}`}, {
  *     dependsOn: [aws_config_configuration_recorder.example],
  * });
  * ```

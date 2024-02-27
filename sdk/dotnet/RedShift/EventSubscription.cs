@@ -22,16 +22,16 @@ namespace Pulumi.Aws.RedShift
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var defaultCluster = new Aws.RedShift.Cluster("defaultCluster", new()
+    ///     var defaultCluster = new Aws.Redshift.Cluster.Cluster("defaultCluster", new()
     ///     {
     ///         ClusterIdentifier = "default",
     ///         DatabaseName = "default",
     ///     });
     /// 
     ///     // ...
-    ///     var defaultTopic = new Aws.Sns.Topic("defaultTopic");
+    ///     var defaultTopic = new Aws.Sns.Topic.Topic("defaultTopic");
     /// 
-    ///     var defaultEventSubscription = new Aws.RedShift.EventSubscription("defaultEventSubscription", new()
+    ///     var defaultEventSubscription = new Aws.Redshift.EventSubscription.EventSubscription("defaultEventSubscription", new()
     ///     {
     ///         SnsTopicArn = defaultTopic.Arn,
     ///         SourceType = "cluster",

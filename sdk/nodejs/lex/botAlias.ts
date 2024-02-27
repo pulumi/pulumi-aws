@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const orderFlowersProd = new aws.lex.BotAlias("orderFlowersProd", {
+ * const orderFlowersProd = new aws.lex/botAlias.BotAlias("orderFlowersProd", {
  *     botName: "OrderFlowers",
  *     botVersion: "1",
  *     description: "Production Version of the OrderFlowers Bot.",

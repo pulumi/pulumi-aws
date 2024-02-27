@@ -29,14 +29,12 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.ec2.Vpc;
- * import com.pulumi.aws.ec2.VpcArgs;
+ * import com.pulumi.aws.ec2_vpc.Vpc;
+ * import com.pulumi.aws.ec2_vpc.VpcArgs;
  * import com.pulumi.aws.servicediscovery.PrivateDnsNamespace;
  * import com.pulumi.aws.servicediscovery.PrivateDnsNamespaceArgs;
  * import com.pulumi.aws.servicediscovery.Service;
  * import com.pulumi.aws.servicediscovery.ServiceArgs;
- * import com.pulumi.aws.servicediscovery.inputs.ServiceDnsConfigArgs;
- * import com.pulumi.aws.servicediscovery.inputs.ServiceHealthCheckCustomConfigArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -62,17 +60,8 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleService = new Service(&#34;exampleService&#34;, ServiceArgs.builder()        
- *             .dnsConfig(ServiceDnsConfigArgs.builder()
- *                 .namespaceId(examplePrivateDnsNamespace.id())
- *                 .dnsRecords(ServiceDnsConfigDnsRecordArgs.builder()
- *                     .ttl(10)
- *                     .type(&#34;A&#34;)
- *                     .build())
- *                 .routingPolicy(&#34;MULTIVALUE&#34;)
- *                 .build())
- *             .healthCheckCustomConfig(ServiceHealthCheckCustomConfigArgs.builder()
- *                 .failureThreshold(1)
- *                 .build())
+ *             .dnsConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .healthCheckCustomConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -88,8 +77,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.servicediscovery.PublicDnsNamespaceArgs;
  * import com.pulumi.aws.servicediscovery.Service;
  * import com.pulumi.aws.servicediscovery.ServiceArgs;
- * import com.pulumi.aws.servicediscovery.inputs.ServiceDnsConfigArgs;
- * import com.pulumi.aws.servicediscovery.inputs.ServiceHealthCheckConfigArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -108,18 +95,8 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleService = new Service(&#34;exampleService&#34;, ServiceArgs.builder()        
- *             .dnsConfig(ServiceDnsConfigArgs.builder()
- *                 .namespaceId(examplePublicDnsNamespace.id())
- *                 .dnsRecords(ServiceDnsConfigDnsRecordArgs.builder()
- *                     .ttl(10)
- *                     .type(&#34;A&#34;)
- *                     .build())
- *                 .build())
- *             .healthCheckConfig(ServiceHealthCheckConfigArgs.builder()
- *                 .failureThreshold(10)
- *                 .resourcePath(&#34;path&#34;)
- *                 .type(&#34;HTTP&#34;)
- *                 .build())
+ *             .dnsConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .healthCheckConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

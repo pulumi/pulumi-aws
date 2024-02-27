@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleDirectory = new aws.directoryservice.Directory("exampleDirectory", {
+ * const exampleDirectory = new aws.directoryservice/directory.Directory("exampleDirectory", {
  *     name: "tf-example",
  *     password: "SuperSecretPassw0rd",
  *     type: "MicrosoftAD",
@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  *         subnetIds: aws_subnet.example.map(__item => __item.id),
  *     },
  * });
- * const exampleSharedDirectory = new aws.directoryservice.SharedDirectory("exampleSharedDirectory", {
+ * const exampleSharedDirectory = new aws.directoryservice/sharedDirectory.SharedDirectory("exampleSharedDirectory", {
  *     directoryId: exampleDirectory.id,
  *     notes: "You wanna have a catch?",
  *     target: {

@@ -34,32 +34,31 @@ import (
 //
 //	"os"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	iam/serverCertificate "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/iam/serverCertificate"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func readFileOrPanic(path string) pulumi.StringPtrInput {
-//		data, err := os.ReadFile(path)
-//		if err != nil {
-//			panic(err.Error())
-//		}
-//		return pulumi.String(string(data))
-//	}
+//					data, err := os.ReadFile(path)
+//					if err != nil {
+//						panic(err.Error())
+//					}
+//					return pulumi.String(string(data))
+//				}
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := iam.NewServerCertificate(ctx, "testCert", &iam.ServerCertificateArgs{
-//				CertificateBody: readFileOrPanic("self-ca-cert.pem"),
-//				PrivateKey:      readFileOrPanic("test-key.pem"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := iam/serverCertificate.NewServerCertificate(ctx, "testCert", &iam/serverCertificate.ServerCertificateArgs{
+// CertificateBody: readFileOrPanic("self-ca-cert.pem"),
+// PrivateKey: readFileOrPanic("test-key.pem"),
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // **Example with cert in-line:**
@@ -69,24 +68,22 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	iam/serverCertificate "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/iam/serverCertificate"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := iam.NewServerCertificate(ctx, "testCertAlt", &iam.ServerCertificateArgs{
-//				CertificateBody: pulumi.String("-----BEGIN CERTIFICATE-----\n[......] # cert contents\n-----END CERTIFICATE-----\n\n"),
-//				PrivateKey:      pulumi.String("-----BEGIN RSA PRIVATE KEY-----\n[......] # cert contents\n-----END RSA PRIVATE KEY-----\n\n"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := iam/serverCertificate.NewServerCertificate(ctx, "testCertAlt", &iam/serverCertificate.ServerCertificateArgs{
+// CertificateBody: "-----BEGIN CERTIFICATE-----\n[......] # cert contents\n-----END CERTIFICATE-----\n\n",
+// PrivateKey: "-----BEGIN RSA PRIVATE KEY-----\n[......] # cert contents\n-----END RSA PRIVATE KEY-----\n\n",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // **Use in combination with an AWS ELB resource:**
@@ -105,52 +102,51 @@ import (
 //
 //	"os"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/elb"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	elb/loadBalancer "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/elb/loadBalancer"
+//	iam/serverCertificate "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/iam/serverCertificate"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func readFileOrPanic(path string) pulumi.StringPtrInput {
-//		data, err := os.ReadFile(path)
-//		if err != nil {
-//			panic(err.Error())
-//		}
-//		return pulumi.String(string(data))
-//	}
+//					data, err := os.ReadFile(path)
+//					if err != nil {
+//						panic(err.Error())
+//					}
+//					return pulumi.String(string(data))
+//				}
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testCert, err := iam.NewServerCertificate(ctx, "testCert", &iam.ServerCertificateArgs{
-//				NamePrefix:      pulumi.String("example-cert"),
-//				CertificateBody: readFileOrPanic("self-ca-cert.pem"),
-//				PrivateKey:      readFileOrPanic("test-key.pem"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = elb.NewLoadBalancer(ctx, "ourapp", &elb.LoadBalancerArgs{
-//				AvailabilityZones: pulumi.StringArray{
-//					pulumi.String("us-west-2a"),
-//				},
-//				CrossZoneLoadBalancing: pulumi.Bool(true),
-//				Listeners: elb.LoadBalancerListenerArray{
-//					&elb.LoadBalancerListenerArgs{
-//						InstancePort:     pulumi.Int(8000),
-//						InstanceProtocol: pulumi.String("http"),
-//						LbPort:           pulumi.Int(443),
-//						LbProtocol:       pulumi.String("https"),
-//						SslCertificateId: testCert.Arn,
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// testCert, err := iam/serverCertificate.NewServerCertificate(ctx, "testCert", &iam/serverCertificate.ServerCertificateArgs{
+// NamePrefix: "example-cert",
+// CertificateBody: readFileOrPanic("self-ca-cert.pem"),
+// PrivateKey: readFileOrPanic("test-key.pem"),
+// })
+// if err != nil {
+// return err
+// }
+// _, err = elb/loadBalancer.NewLoadBalancer(ctx, "ourapp", &elb/loadBalancer.LoadBalancerArgs{
+// AvailabilityZones: []string{
+// "us-west-2a",
+// },
+// CrossZoneLoadBalancing: true,
+// Listeners: []map[string]interface{}{
+// map[string]interface{}{
+// "instancePort": 8000,
+// "instanceProtocol": "http",
+// "lbPort": 443,
+// "lbProtocol": "https",
+// "sslCertificateId": testCert.Arn,
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

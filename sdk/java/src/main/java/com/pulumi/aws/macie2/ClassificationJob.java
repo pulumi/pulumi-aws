@@ -34,7 +34,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.macie2.Account;
  * import com.pulumi.aws.macie2.ClassificationJob;
  * import com.pulumi.aws.macie2.ClassificationJobArgs;
- * import com.pulumi.aws.macie2.inputs.ClassificationJobS3JobDefinitionArgs;
  * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
@@ -53,12 +52,7 @@ import javax.annotation.Nullable;
  * 
  *         var testClassificationJob = new ClassificationJob(&#34;testClassificationJob&#34;, ClassificationJobArgs.builder()        
  *             .jobType(&#34;ONE_TIME&#34;)
- *             .s3JobDefinition(ClassificationJobS3JobDefinitionArgs.builder()
- *                 .bucketDefinitions(ClassificationJobS3JobDefinitionBucketDefinitionArgs.builder()
- *                     .accountId(&#34;ACCOUNT ID&#34;)
- *                     .buckets(&#34;S3 BUCKET NAME&#34;)
- *                     .build())
- *                 .build())
+ *             .s3JobDefinition(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(testAccount)
  *                 .build());

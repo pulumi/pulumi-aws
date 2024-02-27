@@ -106,15 +106,6 @@ def get_worker_configuration(name: Optional[str] = None,
     """
     Get information on an Amazon MSK Connect Worker Configuration.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.mskconnect.get_worker_configuration(name="example")
-    ```
-
 
     :param str name: Name of the worker configuration.
     """
@@ -137,15 +128,6 @@ def get_worker_configuration_output(name: Optional[pulumi.Input[str]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkerConfigurationResult]:
     """
     Get information on an Amazon MSK Connect Worker Configuration.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.mskconnect.get_worker_configuration(name="example")
-    ```
 
 
     :param str name: Name of the worker configuration.

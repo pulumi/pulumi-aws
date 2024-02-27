@@ -13,56 +13,12 @@ namespace Pulumi.Aws.OpenSearch
     {
         /// <summary>
         /// Data source for managing an AWS OpenSearch Serverless VPC Endpoint.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.OpenSearch.GetServerlessVpcEndpoint.Invoke(new()
-        ///     {
-        ///         VpcEndpointId = "vpce-829a4487959e2a839",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetServerlessVpcEndpointResult> InvokeAsync(GetServerlessVpcEndpointArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetServerlessVpcEndpointResult>("aws:opensearch/getServerlessVpcEndpoint:getServerlessVpcEndpoint", args ?? new GetServerlessVpcEndpointArgs(), options.WithDefaults());
 
         /// <summary>
         /// Data source for managing an AWS OpenSearch Serverless VPC Endpoint.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.OpenSearch.GetServerlessVpcEndpoint.Invoke(new()
-        ///     {
-        ///         VpcEndpointId = "vpce-829a4487959e2a839",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetServerlessVpcEndpointResult> Invoke(GetServerlessVpcEndpointInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServerlessVpcEndpointResult>("aws:opensearch/getServerlessVpcEndpoint:getServerlessVpcEndpoint", args ?? new GetServerlessVpcEndpointInvokeArgs(), options.WithDefaults());

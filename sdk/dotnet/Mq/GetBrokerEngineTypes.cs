@@ -16,25 +16,6 @@ namespace Pulumi.Aws.Mq
         /// 
         /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Mq.GetBrokerEngineTypes.Invoke(new()
-        ///     {
-        ///         EngineType = "ACTIVEMQ",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetBrokerEngineTypesResult> InvokeAsync(GetBrokerEngineTypesArgs? args = null, InvokeOptions? options = null)
@@ -45,25 +26,6 @@ namespace Pulumi.Aws.Mq
         /// 
         /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Mq.GetBrokerEngineTypes.Invoke(new()
-        ///     {
-        ///         EngineType = "ACTIVEMQ",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetBrokerEngineTypesResult> Invoke(GetBrokerEngineTypesInvokeArgs? args = null, InvokeOptions? options = null)

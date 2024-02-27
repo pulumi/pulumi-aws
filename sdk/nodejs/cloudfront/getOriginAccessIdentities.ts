@@ -8,29 +8,6 @@ import * as utilities from "../utilities";
  * Use this data source to get ARNs, ids and S3 canonical user IDs of Amazon CloudFront origin access identities.
  *
  * ## Example Usage
- * ### All origin access identities in the account
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.cloudfront.getOriginAccessIdentities({});
- * ```
- * ### Origin access identities filtered by comment/name
- *
- * Origin access identities whose comments are `example-comment1`, `example-comment2`
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.cloudfront.getOriginAccessIdentities({
- *     comments: [
- *         "example-comment1",
- *         "example-comment2",
- *     ],
- * });
- * ```
  */
 export function getOriginAccessIdentities(args?: GetOriginAccessIdentitiesArgs, opts?: pulumi.InvokeOptions): Promise<GetOriginAccessIdentitiesResult> {
     args = args || {};
@@ -77,29 +54,6 @@ export interface GetOriginAccessIdentitiesResult {
  * Use this data source to get ARNs, ids and S3 canonical user IDs of Amazon CloudFront origin access identities.
  *
  * ## Example Usage
- * ### All origin access identities in the account
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.cloudfront.getOriginAccessIdentities({});
- * ```
- * ### Origin access identities filtered by comment/name
- *
- * Origin access identities whose comments are `example-comment1`, `example-comment2`
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.cloudfront.getOriginAccessIdentities({
- *     comments: [
- *         "example-comment1",
- *         "example-comment2",
- *     ],
- * });
- * ```
  */
 export function getOriginAccessIdentitiesOutput(args?: GetOriginAccessIdentitiesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOriginAccessIdentitiesResult> {
     return pulumi.output(args).apply((a: any) => getOriginAccessIdentities(a, opts))

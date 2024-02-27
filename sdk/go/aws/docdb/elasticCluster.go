@@ -22,27 +22,25 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/docdb"
+//	docdb/elasticCluster "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/docdb/elasticCluster"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := docdb.NewElasticCluster(ctx, "example", &docdb.ElasticClusterArgs{
-//				AdminUserName:     pulumi.String("foo"),
-//				AdminUserPassword: pulumi.String("mustbeeightchars"),
-//				AuthType:          pulumi.String("PLAIN_TEXT"),
-//				ShardCapacity:     pulumi.Int(2),
-//				ShardCount:        pulumi.Int(1),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := docdb/elasticCluster.NewElasticCluster(ctx, "example", &docdb/elasticCluster.ElasticClusterArgs{
+// AdminUserName: "foo",
+// AdminUserPassword: "mustbeeightchars",
+// AuthType: "PLAIN_TEXT",
+// ShardCapacity: 2,
+// ShardCount: 1,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

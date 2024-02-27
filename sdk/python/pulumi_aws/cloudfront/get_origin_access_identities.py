@@ -95,27 +95,6 @@ def get_origin_access_identities(comments: Optional[Sequence[str]] = None,
     Use this data source to get ARNs, ids and S3 canonical user IDs of Amazon CloudFront origin access identities.
 
     ## Example Usage
-    ### All origin access identities in the account
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.cloudfront.get_origin_access_identities()
-    ```
-    ### Origin access identities filtered by comment/name
-
-    Origin access identities whose comments are `example-comment1`, `example-comment2`
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.cloudfront.get_origin_access_identities(comments=[
-        "example-comment1",
-        "example-comment2",
-    ])
-    ```
 
 
     :param Sequence[str] comments: Filter origin access identities by comment.
@@ -140,27 +119,6 @@ def get_origin_access_identities_output(comments: Optional[pulumi.Input[Optional
     Use this data source to get ARNs, ids and S3 canonical user IDs of Amazon CloudFront origin access identities.
 
     ## Example Usage
-    ### All origin access identities in the account
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.cloudfront.get_origin_access_identities()
-    ```
-    ### Origin access identities filtered by comment/name
-
-    Origin access identities whose comments are `example-comment1`, `example-comment2`
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.cloudfront.get_origin_access_identities(comments=[
-        "example-comment1",
-        "example-comment2",
-    ])
-    ```
 
 
     :param Sequence[str] comments: Filter origin access identities by comment.

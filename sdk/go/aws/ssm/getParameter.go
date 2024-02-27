@@ -12,34 +12,6 @@ import (
 )
 
 // Provides an SSM Parameter data source.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssm"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ssm.LookupParameter(ctx, &ssm.LookupParameterArgs{
-//				Name: "foo",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// > **Note:** The unencrypted value of a SecureString will be stored in the raw state as plain-text.
 func LookupParameter(ctx *pulumi.Context, args *LookupParameterArgs, opts ...pulumi.InvokeOption) (*LookupParameterResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupParameterResult

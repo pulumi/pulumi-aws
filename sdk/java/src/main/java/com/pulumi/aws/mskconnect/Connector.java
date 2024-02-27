@@ -36,17 +36,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.mskconnect.Connector;
  * import com.pulumi.aws.mskconnect.ConnectorArgs;
- * import com.pulumi.aws.mskconnect.inputs.ConnectorCapacityArgs;
- * import com.pulumi.aws.mskconnect.inputs.ConnectorCapacityAutoscalingArgs;
- * import com.pulumi.aws.mskconnect.inputs.ConnectorCapacityAutoscalingScaleInPolicyArgs;
- * import com.pulumi.aws.mskconnect.inputs.ConnectorCapacityAutoscalingScaleOutPolicyArgs;
- * import com.pulumi.aws.mskconnect.inputs.ConnectorKafkaClusterArgs;
- * import com.pulumi.aws.mskconnect.inputs.ConnectorKafkaClusterApacheKafkaClusterArgs;
- * import com.pulumi.aws.mskconnect.inputs.ConnectorKafkaClusterApacheKafkaClusterVpcArgs;
- * import com.pulumi.aws.mskconnect.inputs.ConnectorKafkaClusterClientAuthenticationArgs;
- * import com.pulumi.aws.mskconnect.inputs.ConnectorKafkaClusterEncryptionInTransitArgs;
- * import com.pulumi.aws.mskconnect.inputs.ConnectorPluginArgs;
- * import com.pulumi.aws.mskconnect.inputs.ConnectorPluginCustomPluginArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -62,48 +51,12 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Connector(&#34;example&#34;, ConnectorArgs.builder()        
  *             .kafkaconnectVersion(&#34;2.7.1&#34;)
- *             .capacity(ConnectorCapacityArgs.builder()
- *                 .autoscaling(ConnectorCapacityAutoscalingArgs.builder()
- *                     .mcuCount(1)
- *                     .minWorkerCount(1)
- *                     .maxWorkerCount(2)
- *                     .scaleInPolicy(ConnectorCapacityAutoscalingScaleInPolicyArgs.builder()
- *                         .cpuUtilizationPercentage(20)
- *                         .build())
- *                     .scaleOutPolicy(ConnectorCapacityAutoscalingScaleOutPolicyArgs.builder()
- *                         .cpuUtilizationPercentage(80)
- *                         .build())
- *                     .build())
- *                 .build())
- *             .connectorConfiguration(Map.ofEntries(
- *                 Map.entry(&#34;connector.class&#34;, &#34;com.github.jcustenborder.kafka.connect.simulator.SimulatorSinkConnector&#34;),
- *                 Map.entry(&#34;tasks.max&#34;, &#34;1&#34;),
- *                 Map.entry(&#34;topics&#34;, &#34;example&#34;)
- *             ))
- *             .kafkaCluster(ConnectorKafkaClusterArgs.builder()
- *                 .apacheKafkaCluster(ConnectorKafkaClusterApacheKafkaClusterArgs.builder()
- *                     .bootstrapServers(aws_msk_cluster.example().bootstrap_brokers_tls())
- *                     .vpc(ConnectorKafkaClusterApacheKafkaClusterVpcArgs.builder()
- *                         .securityGroups(aws_security_group.example().id())
- *                         .subnets(                        
- *                             aws_subnet.example1().id(),
- *                             aws_subnet.example2().id(),
- *                             aws_subnet.example3().id())
- *                         .build())
- *                     .build())
- *                 .build())
- *             .kafkaClusterClientAuthentication(ConnectorKafkaClusterClientAuthenticationArgs.builder()
- *                 .authenticationType(&#34;NONE&#34;)
- *                 .build())
- *             .kafkaClusterEncryptionInTransit(ConnectorKafkaClusterEncryptionInTransitArgs.builder()
- *                 .encryptionType(&#34;TLS&#34;)
- *                 .build())
- *             .plugins(ConnectorPluginArgs.builder()
- *                 .customPlugin(ConnectorPluginCustomPluginArgs.builder()
- *                     .arn(aws_mskconnect_custom_plugin.example().arn())
- *                     .revision(aws_mskconnect_custom_plugin.example().latest_revision())
- *                     .build())
- *                 .build())
+ *             .capacity(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .connectorConfiguration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .kafkaCluster(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .kafkaClusterClientAuthentication(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .kafkaClusterEncryptionInTransit(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .plugins(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .serviceExecutionRoleArn(aws_iam_role.example().arn())
  *             .build());
  * 

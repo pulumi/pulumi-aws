@@ -239,14 +239,14 @@ class User(pulumi.CustomResource):
         import pulumi_aws as aws
         import pulumi_random as random
 
-        example_random_password = random.RandomPassword("exampleRandomPassword", length=16)
-        example_user = aws.memorydb.User("exampleUser",
-            user_name="my-user",
-            access_string="on ~* &* +@all",
-            authentication_mode=aws.memorydb.UserAuthenticationModeArgs(
-                type="password",
-                passwords=[example_random_password.result],
-            ))
+        example_random_password = random.index.random_password.RandomPassword("exampleRandomPassword", length=16)
+        example_user = aws.memorydb.user.User("exampleUser",
+            user_name=my-user,
+            access_string=on ~* &* +@all,
+            authentication_mode={
+                type: password,
+                passwords: [example_random_password.result],
+            })
         ```
 
         ## Import
@@ -286,14 +286,14 @@ class User(pulumi.CustomResource):
         import pulumi_aws as aws
         import pulumi_random as random
 
-        example_random_password = random.RandomPassword("exampleRandomPassword", length=16)
-        example_user = aws.memorydb.User("exampleUser",
-            user_name="my-user",
-            access_string="on ~* &* +@all",
-            authentication_mode=aws.memorydb.UserAuthenticationModeArgs(
-                type="password",
-                passwords=[example_random_password.result],
-            ))
+        example_random_password = random.index.random_password.RandomPassword("exampleRandomPassword", length=16)
+        example_user = aws.memorydb.user.User("exampleUser",
+            user_name=my-user,
+            access_string=on ~* &* +@all,
+            authentication_mode={
+                type: password,
+                passwords: [example_random_password.result],
+            })
         ```
 
         ## Import

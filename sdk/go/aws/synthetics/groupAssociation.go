@@ -22,24 +22,22 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/synthetics"
+//	synthetics/groupAssociation "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/synthetics/groupAssociation"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := synthetics.NewGroupAssociation(ctx, "example", &synthetics.GroupAssociationArgs{
-//				GroupName: pulumi.Any(aws_synthetics_group.Example.Name),
-//				CanaryArn: pulumi.Any(aws_synthetics_canary.Example.Arn),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := synthetics/groupAssociation.NewGroupAssociation(ctx, "example", &synthetics/groupAssociation.GroupAssociationArgs{
+// GroupName: aws_synthetics_group.Example.Name,
+// CanaryArn: aws_synthetics_canary.Example.Arn,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

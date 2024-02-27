@@ -22,23 +22,21 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/customerprofiles"
+//	customerprofiles/domain "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/customerprofiles/domain"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := customerprofiles.NewDomain(ctx, "example", &customerprofiles.DomainArgs{
-//				DomainName: pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := customerprofiles/domain.NewDomain(ctx, "example", &customerprofiles/domain.DomainArgs{
+// DomainName: "example",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### With SQS DLQ and KMS set
 //
@@ -50,106 +48,54 @@ import (
 //	"encoding/json"
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/customerprofiles"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kms"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sqs"
+//	customerprofiles/domain "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/customerprofiles/domain"
+//	kms/key "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/kms/key"
+//	s3/bucketPolicy "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/s3/bucketPolicy"
+//	s3/bucketV2 "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/s3/bucketV2"
+//	sqs/queue "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/sqs/queue"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"Version": "2012-10-17",
-//				"Statement": []map[string]interface{}{
-//					map[string]interface{}{
-//						"Sid":    "Customer Profiles SQS policy",
-//						"Effect": "Allow",
-//						"Action": []string{
-//							"sqs:SendMessage",
-//						},
-//						"Resource": "*",
-//						"Principal": map[string]interface{}{
-//							"Service": "profile.amazonaws.com",
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			exampleQueue, err := sqs.NewQueue(ctx, "exampleQueue", &sqs.QueueArgs{
-//				Policy: pulumi.String(json0),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleKey, err := kms.NewKey(ctx, "exampleKey", &kms.KeyArgs{
-//				Description:          pulumi.String("example"),
-//				DeletionWindowInDays: pulumi.Int(10),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", &s3.BucketV2Args{
-//				ForceDestroy: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = s3.NewBucketPolicy(ctx, "exampleBucketPolicy", &s3.BucketPolicyArgs{
-//				Bucket: exampleBucketV2.ID(),
-//				Policy: pulumi.All(exampleBucketV2.Arn, exampleBucketV2.Arn).ApplyT(func(_args []interface{}) (string, error) {
-//					exampleBucketV2Arn := _args[0].(string)
-//					exampleBucketV2Arn1 := _args[1].(string)
-//					var _zero string
-//					tmpJSON1, err := json.Marshal(map[string]interface{}{
-//						"Version": "2012-10-17",
-//						"Statement": []map[string]interface{}{
-//							map[string]interface{}{
-//								"Sid":    "Customer Profiles S3 policy",
-//								"Effect": "Allow",
-//								"Action": []string{
-//									"s3:GetObject",
-//									"s3:PutObject",
-//									"s3:ListBucket",
-//								},
-//								"Resource": []string{
-//									exampleBucketV2Arn,
-//									fmt.Sprintf("%v/*", exampleBucketV2Arn1),
-//								},
-//								"Principal": map[string]interface{}{
-//									"Service": "profile.amazonaws.com",
-//								},
-//							},
-//						},
-//					})
-//					if err != nil {
-//						return _zero, err
-//					}
-//					json1 := string(tmpJSON1)
-//					return json1, nil
-//				}).(pulumi.StringOutput),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = customerprofiles.NewDomain(ctx, "test", &customerprofiles.DomainArgs{
-//				DomainName:            pulumi.Any(example),
-//				DeadLetterQueueUrl:    exampleQueue.ID(),
-//				DefaultEncryptionKey:  exampleKey.Arn,
-//				DefaultExpirationDays: pulumi.Int(365),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleQueue, err := sqs/queue.NewQueue(ctx, "exampleQueue", &sqs/queue.QueueArgs{
+// Policy: %!v(PANIC=Format method: fatal: An assertion has failed: unlowered function toJSON),
+// })
+// if err != nil {
+// return err
+// }
+// exampleKey, err := kms/key.NewKey(ctx, "exampleKey", &kms/key.KeyArgs{
+// Description: "example",
+// DeletionWindowInDays: 10,
+// })
+// if err != nil {
+// return err
+// }
+// exampleBucketV2, err := s3/bucketV2.NewBucketV2(ctx, "exampleBucketV2", &s3/bucketV2.BucketV2Args{
+// ForceDestroy: true,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = s3/bucketPolicy.NewBucketPolicy(ctx, "exampleBucketPolicy", &s3/bucketPolicy.BucketPolicyArgs{
+// Bucket: exampleBucketV2.Id,
+// Policy: %!v(PANIC=Format method: fatal: An assertion has failed: unlowered function toJSON),
+// })
+// if err != nil {
+// return err
+// }
+// _, err = customerprofiles/domain.NewDomain(ctx, "test", &customerprofiles/domain.DomainArgs{
+// DomainName: example,
+// DeadLetterQueueUrl: exampleQueue.Id,
+// DefaultEncryptionKey: exampleKey.Arn,
+// DefaultExpirationDays: 365,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

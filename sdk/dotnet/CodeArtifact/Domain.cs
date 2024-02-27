@@ -22,9 +22,9 @@ namespace Pulumi.Aws.CodeArtifact
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.CodeArtifact.Domain("example", new()
+    ///     var example = new Aws.Codeartifact.Domain.Domain("example", new()
     ///     {
-    ///         DomainName = "example",
+    ///         Domain = "example",
     ///     });
     /// 
     /// });

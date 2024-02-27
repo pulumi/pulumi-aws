@@ -21,24 +21,22 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53"
+//	route53/resolverQueryLogConfigAssociation "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/route53/resolverQueryLogConfigAssociation"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := route53.NewResolverQueryLogConfigAssociation(ctx, "example", &route53.ResolverQueryLogConfigAssociationArgs{
-//				ResolverQueryLogConfigId: pulumi.Any(aws_route53_resolver_query_log_config.Example.Id),
-//				ResourceId:               pulumi.Any(aws_vpc.Example.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := route53/resolverQueryLogConfigAssociation.NewResolverQueryLogConfigAssociation(ctx, "example", &route53/resolverQueryLogConfigAssociation.ResolverQueryLogConfigAssociationArgs{
+// ResolverQueryLogConfigId: aws_route53_resolver_query_log_config.Example.Id,
+// ResourceId: aws_vpc.Example.Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const main = new aws.cloudwatch.Dashboard("main", {
+ * const main = new aws.cloudwatch/dashboard.Dashboard("main", {
  *     dashboardName: "my-dashboard",
  *     dashboardBody: JSON.stringify({
  *         widgets: [

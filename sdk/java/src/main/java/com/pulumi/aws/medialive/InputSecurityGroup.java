@@ -30,7 +30,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.medialive.InputSecurityGroup;
  * import com.pulumi.aws.medialive.InputSecurityGroupArgs;
- * import com.pulumi.aws.medialive.inputs.InputSecurityGroupWhitelistRuleArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -45,10 +44,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new InputSecurityGroup(&#34;example&#34;, InputSecurityGroupArgs.builder()        
- *             .tags(Map.of(&#34;ENVIRONMENT&#34;, &#34;prod&#34;))
- *             .whitelistRules(InputSecurityGroupWhitelistRuleArgs.builder()
- *                 .cidr(&#34;10.0.0.8/32&#34;)
- *                 .build())
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .whitelistRules(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

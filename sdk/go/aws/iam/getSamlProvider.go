@@ -14,32 +14,6 @@ import (
 // This data source can be used to fetch information about a specific
 // IAM SAML provider. This will allow you to easily retrieve the metadata
 // document of an existing SAML provider.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := iam.LookupSamlProvider(ctx, &iam.LookupSamlProviderArgs{
-//				Arn: "arn:aws:iam::123456789:saml-provider/myprovider",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupSamlProvider(ctx *pulumi.Context, args *LookupSamlProviderArgs, opts ...pulumi.InvokeOption) (*LookupSamlProviderResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupSamlProviderResult

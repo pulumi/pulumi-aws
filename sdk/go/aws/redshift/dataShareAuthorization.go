@@ -22,24 +22,22 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/redshift"
+//	redshift/dataShareAuthorization "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/redshift/dataShareAuthorization"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := redshift.NewDataShareAuthorization(ctx, "example", &redshift.DataShareAuthorizationArgs{
-//				ConsumerIdentifier: pulumi.String("012345678901"),
-//				DataShareArn:       pulumi.String("arn:aws:redshift:us-west-2:012345678901:datashare:3072dae5-022b-4d45-9cd3-01f010aae4b2/example_share"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := redshift/dataShareAuthorization.NewDataShareAuthorization(ctx, "example", &redshift/dataShareAuthorization.DataShareAuthorizationArgs{
+// ConsumerIdentifier: "012345678901",
+// DataShareArn: "arn:aws:redshift:us-west-2:012345678901:datashare:3072dae5-022b-4d45-9cd3-01f010aae4b2/example_share",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -22,7 +22,7 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var demo = new Aws.ApiGateway.ClientCertificate("demo", new()
+    ///     var demo = new Aws.Apigateway.ClientCertificate.ClientCertificate("demo", new()
     ///     {
     ///         Description = "My client certificate",
     ///     });

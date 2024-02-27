@@ -20,72 +20,12 @@ public final class CodecommitFunctions {
     /**
      * Provides details about a specific CodeCommit Approval Rule Template.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.codecommit.CodecommitFunctions;
-     * import com.pulumi.aws.codecommit.inputs.GetApprovalRuleTemplateArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = CodecommitFunctions.getApprovalRuleTemplate(GetApprovalRuleTemplateArgs.builder()
-     *             .name(&#34;MyExampleApprovalRuleTemplate&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetApprovalRuleTemplateResult> getApprovalRuleTemplate(GetApprovalRuleTemplateArgs args) {
         return getApprovalRuleTemplate(args, InvokeOptions.Empty);
     }
     /**
      * Provides details about a specific CodeCommit Approval Rule Template.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.codecommit.CodecommitFunctions;
-     * import com.pulumi.aws.codecommit.inputs.GetApprovalRuleTemplateArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = CodecommitFunctions.getApprovalRuleTemplate(GetApprovalRuleTemplateArgs.builder()
-     *             .name(&#34;MyExampleApprovalRuleTemplate&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetApprovalRuleTemplateResult> getApprovalRuleTemplatePlain(GetApprovalRuleTemplatePlainArgs args) {
@@ -94,72 +34,12 @@ public final class CodecommitFunctions {
     /**
      * Provides details about a specific CodeCommit Approval Rule Template.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.codecommit.CodecommitFunctions;
-     * import com.pulumi.aws.codecommit.inputs.GetApprovalRuleTemplateArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = CodecommitFunctions.getApprovalRuleTemplate(GetApprovalRuleTemplateArgs.builder()
-     *             .name(&#34;MyExampleApprovalRuleTemplate&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetApprovalRuleTemplateResult> getApprovalRuleTemplate(GetApprovalRuleTemplateArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:codecommit/getApprovalRuleTemplate:getApprovalRuleTemplate", TypeShape.of(GetApprovalRuleTemplateResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Provides details about a specific CodeCommit Approval Rule Template.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.codecommit.CodecommitFunctions;
-     * import com.pulumi.aws.codecommit.inputs.GetApprovalRuleTemplateArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = CodecommitFunctions.getApprovalRuleTemplate(GetApprovalRuleTemplateArgs.builder()
-     *             .name(&#34;MyExampleApprovalRuleTemplate&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetApprovalRuleTemplateResult> getApprovalRuleTemplatePlain(GetApprovalRuleTemplatePlainArgs args, InvokeOptions options) {
@@ -168,72 +48,12 @@ public final class CodecommitFunctions {
     /**
      * The CodeCommit Repository data source allows the ARN, Repository ID, Repository URL for HTTP and Repository URL for SSH to be retrieved for an CodeCommit repository.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.codecommit.CodecommitFunctions;
-     * import com.pulumi.aws.codecommit.inputs.GetRepositoryArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = CodecommitFunctions.getRepository(GetRepositoryArgs.builder()
-     *             .repositoryName(&#34;MyTestRepository&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetRepositoryResult> getRepository(GetRepositoryArgs args) {
         return getRepository(args, InvokeOptions.Empty);
     }
     /**
      * The CodeCommit Repository data source allows the ARN, Repository ID, Repository URL for HTTP and Repository URL for SSH to be retrieved for an CodeCommit repository.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.codecommit.CodecommitFunctions;
-     * import com.pulumi.aws.codecommit.inputs.GetRepositoryArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = CodecommitFunctions.getRepository(GetRepositoryArgs.builder()
-     *             .repositoryName(&#34;MyTestRepository&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetRepositoryResult> getRepositoryPlain(GetRepositoryPlainArgs args) {
@@ -242,72 +62,12 @@ public final class CodecommitFunctions {
     /**
      * The CodeCommit Repository data source allows the ARN, Repository ID, Repository URL for HTTP and Repository URL for SSH to be retrieved for an CodeCommit repository.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.codecommit.CodecommitFunctions;
-     * import com.pulumi.aws.codecommit.inputs.GetRepositoryArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = CodecommitFunctions.getRepository(GetRepositoryArgs.builder()
-     *             .repositoryName(&#34;MyTestRepository&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetRepositoryResult> getRepository(GetRepositoryArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:codecommit/getRepository:getRepository", TypeShape.of(GetRepositoryResult.class), args, Utilities.withVersion(options));
     }
     /**
      * The CodeCommit Repository data source allows the ARN, Repository ID, Repository URL for HTTP and Repository URL for SSH to be retrieved for an CodeCommit repository.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.codecommit.CodecommitFunctions;
-     * import com.pulumi.aws.codecommit.inputs.GetRepositoryArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = CodecommitFunctions.getRepository(GetRepositoryArgs.builder()
-     *             .repositoryName(&#34;MyTestRepository&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetRepositoryResult> getRepositoryPlain(GetRepositoryPlainArgs args, InvokeOptions options) {

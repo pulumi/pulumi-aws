@@ -16,16 +16,16 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleApp = new aws.amplify.App("exampleApp", {customRules: [{
+ * const exampleApp = new aws.amplify/app.App("exampleApp", {customRules: [{
  *     source: "https://example.com",
  *     status: "302",
  *     target: "https://www.example.com",
  * }]});
- * const master = new aws.amplify.Branch("master", {
+ * const master = new aws.amplify/branch.Branch("master", {
  *     appId: exampleApp.id,
  *     branchName: "master",
  * });
- * const exampleDomainAssociation = new aws.amplify.DomainAssociation("exampleDomainAssociation", {
+ * const exampleDomainAssociation = new aws.amplify/domainAssociation.DomainAssociation("exampleDomainAssociation", {
  *     appId: exampleApp.id,
  *     domainName: "example.com",
  *     subDomains: [

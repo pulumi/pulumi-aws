@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.sesv2.EmailIdentity("example", {emailIdentity: "testing@example.com"});
+ * const example = new aws.sesv2/emailIdentity.EmailIdentity("example", {emailIdentity: "testing@example.com"});
  * ```
  * ### Domain Identity
  *
@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.sesv2.EmailIdentity("example", {emailIdentity: "example.com"});
+ * const example = new aws.sesv2/emailIdentity.EmailIdentity("example", {emailIdentity: "example.com"});
  * ```
  * ### Configuration Set
  *
@@ -35,8 +35,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleConfigurationSet = new aws.sesv2.ConfigurationSet("exampleConfigurationSet", {configurationSetName: "example"});
- * const exampleEmailIdentity = new aws.sesv2.EmailIdentity("exampleEmailIdentity", {
+ * const exampleConfigurationSet = new aws.sesv2/configurationSet.ConfigurationSet("exampleConfigurationSet", {configurationSetName: "example"});
+ * const exampleEmailIdentity = new aws.sesv2/emailIdentity.EmailIdentity("exampleEmailIdentity", {
  *     emailIdentity: "example.com",
  *     configurationSetName: exampleConfigurationSet.configurationSetName,
  * });
@@ -47,7 +47,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.sesv2.EmailIdentity("example", {
+ * const example = new aws.sesv2/emailIdentity.EmailIdentity("example", {
  *     dkimSigningAttributes: {
  *         domainSigningPrivateKey: "MIIJKAIBAAKCAgEA2Se7p8zvnI4yh+Gh9j2rG5e2aRXjg03Y8saiupLnadPH9xvM...",
  *         domainSigningSelector: "example",

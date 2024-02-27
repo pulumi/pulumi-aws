@@ -40,7 +40,7 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleRestApi = new Aws.ApiGateway.RestApi("exampleRestApi", new()
+    ///     var exampleRestApi = new Aws.Apigateway.RestApi.RestApi("exampleRestApi", new()
     ///     {
     ///         Body = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
@@ -69,16 +69,16 @@ namespace Pulumi.Aws.ApiGateway
     ///         }),
     ///     });
     /// 
-    ///     var exampleDeployment = new Aws.ApiGateway.Deployment("exampleDeployment", new()
+    ///     var exampleDeployment = new Aws.Apigateway.Deployment.Deployment("exampleDeployment", new()
     ///     {
     ///         RestApi = exampleRestApi.Id,
     ///         Triggers = 
     ///         {
-    ///             { "redeployment", exampleRestApi.Body.Apply(body =&gt; JsonSerializer.Serialize(body)).Apply(toJSON =&gt; ComputeSHA1(toJSON)) },
+    ///             { "redeployment", ComputeSHA1(JsonSerializer.Serialize(exampleRestApi.Body)) },
     ///         },
     ///     });
     /// 
-    ///     var exampleStage = new Aws.ApiGateway.Stage("exampleStage", new()
+    ///     var exampleStage = new Aws.Apigateway.Stage.Stage("exampleStage", new()
     ///     {
     ///         Deployment = exampleDeployment.Id,
     ///         RestApi = exampleRestApi.Id,
@@ -107,16 +107,16 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleRestApi = new Aws.ApiGateway.RestApi("exampleRestApi");
+    ///     var exampleRestApi = new Aws.Apigateway.RestApi.RestApi("exampleRestApi");
     /// 
-    ///     var exampleResource = new Aws.ApiGateway.Resource("exampleResource", new()
+    ///     var exampleResource = new Aws.Apigateway.Resource.Resource("exampleResource", new()
     ///     {
     ///         ParentId = exampleRestApi.RootResourceId,
     ///         PathPart = "example",
     ///         RestApi = exampleRestApi.Id,
     ///     });
     /// 
-    ///     var exampleMethod = new Aws.ApiGateway.Method("exampleMethod", new()
+    ///     var exampleMethod = new Aws.Apigateway.Method.Method("exampleMethod", new()
     ///     {
     ///         Authorization = "NONE",
     ///         HttpMethod = "GET",
@@ -124,7 +124,7 @@ namespace Pulumi.Aws.ApiGateway
     ///         RestApi = exampleRestApi.Id,
     ///     });
     /// 
-    ///     var exampleIntegration = new Aws.ApiGateway.Integration("exampleIntegration", new()
+    ///     var exampleIntegration = new Aws.Apigateway.Integration.Integration("exampleIntegration", new()
     ///     {
     ///         HttpMethod = exampleMethod.HttpMethod,
     ///         ResourceId = exampleResource.Id,
@@ -132,27 +132,21 @@ namespace Pulumi.Aws.ApiGateway
     ///         Type = "MOCK",
     ///     });
     /// 
-    ///     var exampleDeployment = new Aws.ApiGateway.Deployment("exampleDeployment", new()
+    ///     var exampleDeployment = new Aws.Apigateway.Deployment.Deployment("exampleDeployment", new()
     ///     {
     ///         RestApi = exampleRestApi.Id,
     ///         Triggers = 
     ///         {
-    ///             { "redeployment", Output.Tuple(exampleResource.Id, exampleMethod.Id, exampleIntegration.Id).Apply(values =&gt;
+    ///             { "redeployment", ComputeSHA1(JsonSerializer.Serialize(new[]
     ///             {
-    ///                 var exampleResourceId = values.Item1;
-    ///                 var exampleMethodId = values.Item2;
-    ///                 var exampleIntegrationId = values.Item3;
-    ///                 return JsonSerializer.Serialize(new[]
-    ///                 {
-    ///                     exampleResourceId,
-    ///                     exampleMethodId,
-    ///                     exampleIntegrationId,
-    ///                 });
-    ///             }).Apply(toJSON =&gt; ComputeSHA1(toJSON)) },
+    ///                 exampleResource.Id,
+    ///                 exampleMethod.Id,
+    ///                 exampleIntegration.Id,
+    ///             })) },
     ///         },
     ///     });
     /// 
-    ///     var exampleStage = new Aws.ApiGateway.Stage("exampleStage", new()
+    ///     var exampleStage = new Aws.Apigateway.Stage.Stage("exampleStage", new()
     ///     {
     ///         Deployment = exampleDeployment.Id,
     ///         RestApi = exampleRestApi.Id,

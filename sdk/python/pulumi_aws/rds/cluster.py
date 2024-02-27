@@ -1928,20 +1928,20 @@ class Cluster(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        default = aws.rds.Cluster("default",
+        default = aws.rds.cluster.Cluster("default",
             availability_zones=[
-                "us-west-2a",
-                "us-west-2b",
-                "us-west-2c",
+                us-west-2a,
+                us-west-2b,
+                us-west-2c,
             ],
             backup_retention_period=5,
-            cluster_identifier="aurora-cluster-demo",
-            database_name="mydb",
-            engine="aurora-mysql",
-            engine_version="5.7.mysql_aurora.2.03.2",
-            master_password="bar",
-            master_username="foo",
-            preferred_backup_window="07:00-09:00")
+            cluster_identifier=aurora-cluster-demo,
+            database_name=mydb,
+            engine=aurora-mysql,
+            engine_version=5.7.mysql_aurora.2.03.2,
+            master_password=bar,
+            master_username=foo,
+            preferred_backup_window=07:00-09:00)
         ```
         ### Aurora MySQL 1.x (MySQL 5.6)
 
@@ -1949,18 +1949,18 @@ class Cluster(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        default = aws.rds.Cluster("default",
+        default = aws.rds.cluster.Cluster("default",
             availability_zones=[
-                "us-west-2a",
-                "us-west-2b",
-                "us-west-2c",
+                us-west-2a,
+                us-west-2b,
+                us-west-2c,
             ],
             backup_retention_period=5,
-            cluster_identifier="aurora-cluster-demo",
-            database_name="mydb",
-            master_password="bar",
-            master_username="foo",
-            preferred_backup_window="07:00-09:00")
+            cluster_identifier=aurora-cluster-demo,
+            database_name=mydb,
+            master_password=bar,
+            master_username=foo,
+            preferred_backup_window=07:00-09:00)
         ```
         ### Aurora with PostgreSQL engine
 
@@ -1968,19 +1968,19 @@ class Cluster(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        postgresql = aws.rds.Cluster("postgresql",
+        postgresql = aws.rds.cluster.Cluster("postgresql",
             availability_zones=[
-                "us-west-2a",
-                "us-west-2b",
-                "us-west-2c",
+                us-west-2a,
+                us-west-2b,
+                us-west-2c,
             ],
             backup_retention_period=5,
-            cluster_identifier="aurora-cluster-demo",
-            database_name="mydb",
-            engine="aurora-postgresql",
-            master_password="bar",
-            master_username="foo",
-            preferred_backup_window="07:00-09:00")
+            cluster_identifier=aurora-cluster-demo,
+            database_name=mydb,
+            engine=aurora-postgresql,
+            master_password=bar,
+            master_username=foo,
+            preferred_backup_window=07:00-09:00)
         ```
         ### RDS Multi-AZ Cluster
 
@@ -1992,20 +1992,20 @@ class Cluster(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.rds.Cluster("example",
+        example = aws.rds.cluster.Cluster("example",
             allocated_storage=100,
             availability_zones=[
-                "us-west-2a",
-                "us-west-2b",
-                "us-west-2c",
+                us-west-2a,
+                us-west-2b,
+                us-west-2c,
             ],
-            cluster_identifier="example",
-            db_cluster_instance_class="db.r6gd.xlarge",
-            engine="mysql",
+            cluster_identifier=example,
+            db_cluster_instance_class=db.r6gd.xlarge,
+            engine=mysql,
             iops=1000,
-            master_password="mustbeeightcharaters",
-            master_username="test",
-            storage_type="io1")
+            master_password=mustbeeightcharaters,
+            master_username=test,
+            storage_type=io1)
         ```
         ### RDS Serverless v2 Cluster
 
@@ -2020,22 +2020,22 @@ class Cluster(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_cluster = aws.rds.Cluster("exampleCluster",
-            cluster_identifier="example",
-            engine="aurora-postgresql",
-            engine_mode="provisioned",
-            engine_version="13.6",
-            database_name="test",
-            master_username="test",
-            master_password="must_be_eight_characters",
+        example_cluster = aws.rds.cluster.Cluster("exampleCluster",
+            cluster_identifier=example,
+            engine=aurora-postgresql,
+            engine_mode=provisioned,
+            engine_version=13.6,
+            database_name=test,
+            master_username=test,
+            master_password=must_be_eight_characters,
             storage_encrypted=True,
-            serverlessv2_scaling_configuration=aws.rds.ClusterServerlessv2ScalingConfigurationArgs(
-                max_capacity=1,
-                min_capacity=0.5,
-            ))
-        example_cluster_instance = aws.rds.ClusterInstance("exampleClusterInstance",
+            serverlessv2_scaling_configuration={
+                maxCapacity: 1,
+                minCapacity: 0.5,
+            })
+        example_cluster_instance = aws.rds.cluster_instance.ClusterInstance("exampleClusterInstance",
             cluster_identifier=example_cluster.id,
-            instance_class="db.serverless",
+            instance_class=db.serverless,
             engine=example_cluster.engine,
             engine_version=example_cluster.engine_version)
         ```
@@ -2049,11 +2049,11 @@ class Cluster(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.rds.Cluster("test",
-            cluster_identifier="example",
-            database_name="test",
+        test = aws.rds.cluster.Cluster("test",
+            cluster_identifier=example,
+            database_name=test,
             manage_master_user_password=True,
-            master_username="test")
+            master_username=test)
         ```
         ### RDS/Aurora Managed Master Passwords via Secrets Manager, specific KMS Key
 
@@ -2065,31 +2065,13 @@ class Cluster(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.kms.Key("example", description="Example KMS Key")
-        test = aws.rds.Cluster("test",
-            cluster_identifier="example",
-            database_name="test",
+        example = aws.kms.key.Key("example", description=Example KMS Key)
+        test = aws.rds.cluster.Cluster("test",
+            cluster_identifier=example,
+            database_name=test,
             manage_master_user_password=True,
-            master_username="test",
+            master_username=test,
             master_user_secret_kms_key_id=example.key_id)
-        ```
-        ### Global Cluster Restored From Snapshot
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_cluster_snapshot = aws.rds.get_cluster_snapshot(db_cluster_identifier="example-original-cluster",
-            most_recent=True)
-        example_cluster = aws.rds.Cluster("exampleCluster",
-            engine="aurora",
-            engine_version="5.6.mysql_aurora.1.22.4",
-            cluster_identifier="example",
-            snapshot_identifier=example_cluster_snapshot.id)
-        example_global_cluster = aws.rds.GlobalCluster("exampleGlobalCluster",
-            global_cluster_identifier="example",
-            source_db_cluster_identifier=example_cluster.arn,
-            force_destroy=True)
         ```
 
         ## Import
@@ -2191,20 +2173,20 @@ class Cluster(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        default = aws.rds.Cluster("default",
+        default = aws.rds.cluster.Cluster("default",
             availability_zones=[
-                "us-west-2a",
-                "us-west-2b",
-                "us-west-2c",
+                us-west-2a,
+                us-west-2b,
+                us-west-2c,
             ],
             backup_retention_period=5,
-            cluster_identifier="aurora-cluster-demo",
-            database_name="mydb",
-            engine="aurora-mysql",
-            engine_version="5.7.mysql_aurora.2.03.2",
-            master_password="bar",
-            master_username="foo",
-            preferred_backup_window="07:00-09:00")
+            cluster_identifier=aurora-cluster-demo,
+            database_name=mydb,
+            engine=aurora-mysql,
+            engine_version=5.7.mysql_aurora.2.03.2,
+            master_password=bar,
+            master_username=foo,
+            preferred_backup_window=07:00-09:00)
         ```
         ### Aurora MySQL 1.x (MySQL 5.6)
 
@@ -2212,18 +2194,18 @@ class Cluster(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        default = aws.rds.Cluster("default",
+        default = aws.rds.cluster.Cluster("default",
             availability_zones=[
-                "us-west-2a",
-                "us-west-2b",
-                "us-west-2c",
+                us-west-2a,
+                us-west-2b,
+                us-west-2c,
             ],
             backup_retention_period=5,
-            cluster_identifier="aurora-cluster-demo",
-            database_name="mydb",
-            master_password="bar",
-            master_username="foo",
-            preferred_backup_window="07:00-09:00")
+            cluster_identifier=aurora-cluster-demo,
+            database_name=mydb,
+            master_password=bar,
+            master_username=foo,
+            preferred_backup_window=07:00-09:00)
         ```
         ### Aurora with PostgreSQL engine
 
@@ -2231,19 +2213,19 @@ class Cluster(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        postgresql = aws.rds.Cluster("postgresql",
+        postgresql = aws.rds.cluster.Cluster("postgresql",
             availability_zones=[
-                "us-west-2a",
-                "us-west-2b",
-                "us-west-2c",
+                us-west-2a,
+                us-west-2b,
+                us-west-2c,
             ],
             backup_retention_period=5,
-            cluster_identifier="aurora-cluster-demo",
-            database_name="mydb",
-            engine="aurora-postgresql",
-            master_password="bar",
-            master_username="foo",
-            preferred_backup_window="07:00-09:00")
+            cluster_identifier=aurora-cluster-demo,
+            database_name=mydb,
+            engine=aurora-postgresql,
+            master_password=bar,
+            master_username=foo,
+            preferred_backup_window=07:00-09:00)
         ```
         ### RDS Multi-AZ Cluster
 
@@ -2255,20 +2237,20 @@ class Cluster(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.rds.Cluster("example",
+        example = aws.rds.cluster.Cluster("example",
             allocated_storage=100,
             availability_zones=[
-                "us-west-2a",
-                "us-west-2b",
-                "us-west-2c",
+                us-west-2a,
+                us-west-2b,
+                us-west-2c,
             ],
-            cluster_identifier="example",
-            db_cluster_instance_class="db.r6gd.xlarge",
-            engine="mysql",
+            cluster_identifier=example,
+            db_cluster_instance_class=db.r6gd.xlarge,
+            engine=mysql,
             iops=1000,
-            master_password="mustbeeightcharaters",
-            master_username="test",
-            storage_type="io1")
+            master_password=mustbeeightcharaters,
+            master_username=test,
+            storage_type=io1)
         ```
         ### RDS Serverless v2 Cluster
 
@@ -2283,22 +2265,22 @@ class Cluster(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_cluster = aws.rds.Cluster("exampleCluster",
-            cluster_identifier="example",
-            engine="aurora-postgresql",
-            engine_mode="provisioned",
-            engine_version="13.6",
-            database_name="test",
-            master_username="test",
-            master_password="must_be_eight_characters",
+        example_cluster = aws.rds.cluster.Cluster("exampleCluster",
+            cluster_identifier=example,
+            engine=aurora-postgresql,
+            engine_mode=provisioned,
+            engine_version=13.6,
+            database_name=test,
+            master_username=test,
+            master_password=must_be_eight_characters,
             storage_encrypted=True,
-            serverlessv2_scaling_configuration=aws.rds.ClusterServerlessv2ScalingConfigurationArgs(
-                max_capacity=1,
-                min_capacity=0.5,
-            ))
-        example_cluster_instance = aws.rds.ClusterInstance("exampleClusterInstance",
+            serverlessv2_scaling_configuration={
+                maxCapacity: 1,
+                minCapacity: 0.5,
+            })
+        example_cluster_instance = aws.rds.cluster_instance.ClusterInstance("exampleClusterInstance",
             cluster_identifier=example_cluster.id,
-            instance_class="db.serverless",
+            instance_class=db.serverless,
             engine=example_cluster.engine,
             engine_version=example_cluster.engine_version)
         ```
@@ -2312,11 +2294,11 @@ class Cluster(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.rds.Cluster("test",
-            cluster_identifier="example",
-            database_name="test",
+        test = aws.rds.cluster.Cluster("test",
+            cluster_identifier=example,
+            database_name=test,
             manage_master_user_password=True,
-            master_username="test")
+            master_username=test)
         ```
         ### RDS/Aurora Managed Master Passwords via Secrets Manager, specific KMS Key
 
@@ -2328,31 +2310,13 @@ class Cluster(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.kms.Key("example", description="Example KMS Key")
-        test = aws.rds.Cluster("test",
-            cluster_identifier="example",
-            database_name="test",
+        example = aws.kms.key.Key("example", description=Example KMS Key)
+        test = aws.rds.cluster.Cluster("test",
+            cluster_identifier=example,
+            database_name=test,
             manage_master_user_password=True,
-            master_username="test",
+            master_username=test,
             master_user_secret_kms_key_id=example.key_id)
-        ```
-        ### Global Cluster Restored From Snapshot
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_cluster_snapshot = aws.rds.get_cluster_snapshot(db_cluster_identifier="example-original-cluster",
-            most_recent=True)
-        example_cluster = aws.rds.Cluster("exampleCluster",
-            engine="aurora",
-            engine_version="5.6.mysql_aurora.1.22.4",
-            cluster_identifier="example",
-            snapshot_identifier=example_cluster_snapshot.id)
-        example_global_cluster = aws.rds.GlobalCluster("exampleGlobalCluster",
-            global_cluster_identifier="example",
-            source_db_cluster_identifier=example_cluster.arn,
-            force_destroy=True)
         ```
 
         ## Import

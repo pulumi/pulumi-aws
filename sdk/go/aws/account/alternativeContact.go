@@ -21,26 +21,24 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/account"
+//	account/alternativeContact "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/account/alternativeContact"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := account.NewAlternativeContact(ctx, "operations", &account.AlternativeContactArgs{
-//				AlternateContactType: pulumi.String("OPERATIONS"),
-//				EmailAddress:         pulumi.String("test@example.com"),
-//				PhoneNumber:          pulumi.String("+1234567890"),
-//				Title:                pulumi.String("Example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := account/alternativeContact.NewAlternativeContact(ctx, "operations", &account/alternativeContact.AlternativeContactArgs{
+// AlternateContactType: "OPERATIONS",
+// EmailAddress: "test@example.com",
+// PhoneNumber: "+1234567890",
+// Title: "Example",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -16,45 +16,6 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// 
         /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
-        /// ### By Filter
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var filtered = Aws.Ec2TransitGateway.GetAttachments.Invoke(new()
-        ///     {
-        ///         Filters = new[]
-        ///         {
-        ///             new Aws.Ec2TransitGateway.Inputs.GetAttachmentsFilterInputArgs
-        ///             {
-        ///                 Name = "state",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "pendingAcceptance",
-        ///                 },
-        ///             },
-        ///             new Aws.Ec2TransitGateway.Inputs.GetAttachmentsFilterInputArgs
-        ///             {
-        ///                 Name = "resource-type",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "vpc",
-        ///                 },
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        ///     var unit = ;
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetAttachmentsResult> InvokeAsync(GetAttachmentsArgs? args = null, InvokeOptions? options = null)
@@ -65,45 +26,6 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// 
         /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
-        /// ### By Filter
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var filtered = Aws.Ec2TransitGateway.GetAttachments.Invoke(new()
-        ///     {
-        ///         Filters = new[]
-        ///         {
-        ///             new Aws.Ec2TransitGateway.Inputs.GetAttachmentsFilterInputArgs
-        ///             {
-        ///                 Name = "state",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "pendingAcceptance",
-        ///                 },
-        ///             },
-        ///             new Aws.Ec2TransitGateway.Inputs.GetAttachmentsFilterInputArgs
-        ///             {
-        ///                 Name = "resource-type",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "vpc",
-        ///                 },
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        ///     var unit = ;
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetAttachmentsResult> Invoke(GetAttachmentsInvokeArgs? args = null, InvokeOptions? options = null)

@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.cloudcontrol.Resource("example", {
+ * const example = new aws.cloudcontrol/resource.Resource("example", {
  *     typeName: "AWS::ECS::Cluster",
  *     desiredState: JSON.stringify({
  *         ClusterName: "example",

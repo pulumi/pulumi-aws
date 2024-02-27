@@ -23,16 +23,16 @@ namespace Pulumi.Aws.Quicksight
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Quicksight.RefreshSchedule("example", new()
+    ///     var example = new Aws.Quicksight.RefreshSchedule.RefreshSchedule("example", new()
     ///     {
     ///         DataSetId = "dataset-id",
-    ///         Schedule = new Aws.Quicksight.Inputs.RefreshScheduleScheduleArgs
+    ///         Schedule = 
     ///         {
-    ///             RefreshType = "FULL_REFRESH",
-    ///             ScheduleFrequency = new Aws.Quicksight.Inputs.RefreshScheduleScheduleScheduleFrequencyArgs
+    ///             { "refreshType", "FULL_REFRESH" },
+    ///             { "scheduleFrequency", 
     ///             {
-    ///                 Interval = "HOURLY",
-    ///             },
+    ///                 { "interval", "HOURLY" },
+    ///             } },
     ///         },
     ///         ScheduleId = "schedule-id",
     ///     });
@@ -49,22 +49,22 @@ namespace Pulumi.Aws.Quicksight
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Quicksight.RefreshSchedule("example", new()
+    ///     var example = new Aws.Quicksight.RefreshSchedule.RefreshSchedule("example", new()
     ///     {
     ///         DataSetId = "dataset-id",
-    ///         Schedule = new Aws.Quicksight.Inputs.RefreshScheduleScheduleArgs
+    ///         Schedule = 
     ///         {
-    ///             RefreshType = "INCREMENTAL_REFRESH",
-    ///             ScheduleFrequency = new Aws.Quicksight.Inputs.RefreshScheduleScheduleScheduleFrequencyArgs
+    ///             { "refreshType", "INCREMENTAL_REFRESH" },
+    ///             { "scheduleFrequency", 
     ///             {
-    ///                 Interval = "WEEKLY",
-    ///                 RefreshOnDay = new Aws.Quicksight.Inputs.RefreshScheduleScheduleScheduleFrequencyRefreshOnDayArgs
+    ///                 { "interval", "WEEKLY" },
+    ///                 { "refreshOnDay", 
     ///                 {
-    ///                     DayOfWeek = "MONDAY",
-    ///                 },
-    ///                 TimeOfTheDay = "01:00",
-    ///                 Timezone = "Europe/London",
-    ///             },
+    ///                     { "dayOfWeek", "MONDAY" },
+    ///                 } },
+    ///                 { "timeOfTheDay", "01:00" },
+    ///                 { "timezone", "Europe/London" },
+    ///             } },
     ///         },
     ///         ScheduleId = "schedule-id",
     ///     });
@@ -81,22 +81,22 @@ namespace Pulumi.Aws.Quicksight
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Quicksight.RefreshSchedule("example", new()
+    ///     var example = new Aws.Quicksight.RefreshSchedule.RefreshSchedule("example", new()
     ///     {
     ///         DataSetId = "dataset-id",
-    ///         Schedule = new Aws.Quicksight.Inputs.RefreshScheduleScheduleArgs
+    ///         Schedule = 
     ///         {
-    ///             RefreshType = "INCREMENTAL_REFRESH",
-    ///             ScheduleFrequency = new Aws.Quicksight.Inputs.RefreshScheduleScheduleScheduleFrequencyArgs
+    ///             { "refreshType", "INCREMENTAL_REFRESH" },
+    ///             { "scheduleFrequency", 
     ///             {
-    ///                 Interval = "MONTHLY",
-    ///                 RefreshOnDay = new Aws.Quicksight.Inputs.RefreshScheduleScheduleScheduleFrequencyRefreshOnDayArgs
+    ///                 { "interval", "MONTHLY" },
+    ///                 { "refreshOnDay", 
     ///                 {
-    ///                     DayOfMonth = "1",
-    ///                 },
-    ///                 TimeOfTheDay = "01:00",
-    ///                 Timezone = "Europe/London",
-    ///             },
+    ///                     { "dayOfMonth", "1" },
+    ///                 } },
+    ///                 { "timeOfTheDay", "01:00" },
+    ///                 { "timezone", "Europe/London" },
+    ///             } },
     ///         },
     ///         ScheduleId = "schedule-id",
     ///     });

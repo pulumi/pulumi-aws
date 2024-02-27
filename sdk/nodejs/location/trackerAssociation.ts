@@ -13,9 +13,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleGeofenceCollection = new aws.location.GeofenceCollection("exampleGeofenceCollection", {collectionName: "example"});
- * const exampleTracker = new aws.location.Tracker("exampleTracker", {trackerName: "example"});
- * const exampleTrackerAssociation = new aws.location.TrackerAssociation("exampleTrackerAssociation", {
+ * const exampleGeofenceCollection = new aws.location/geofenceCollection.GeofenceCollection("exampleGeofenceCollection", {collectionName: "example"});
+ * const exampleTracker = new aws.location/tracker.Tracker("exampleTracker", {trackerName: "example"});
+ * const exampleTrackerAssociation = new aws.location/trackerAssociation.TrackerAssociation("exampleTrackerAssociation", {
  *     consumerArn: exampleGeofenceCollection.collectionArn,
  *     trackerName: exampleTracker.trackerName,
  * });

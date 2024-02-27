@@ -23,30 +23,28 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/memorydb"
+//	memorydb/cluster "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/memorydb/cluster"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := memorydb.NewCluster(ctx, "example", &memorydb.ClusterArgs{
-//				AclName:   pulumi.String("open-access"),
-//				NodeType:  pulumi.String("db.t4g.small"),
-//				NumShards: pulumi.Int(2),
-//				SecurityGroupIds: pulumi.StringArray{
-//					aws_security_group.Example.Id,
-//				},
-//				SnapshotRetentionLimit: pulumi.Int(7),
-//				SubnetGroupName:        pulumi.Any(aws_memorydb_subnet_group.Example.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := memorydb/cluster.NewCluster(ctx, "example", &memorydb/cluster.ClusterArgs{
+// AclName: "open-access",
+// NodeType: "db.t4g.small",
+// NumShards: 2,
+// SecurityGroupIds: []interface{}{
+// aws_security_group.Example.Id,
+// },
+// SnapshotRetentionLimit: 7,
+// SubnetGroupName: aws_memorydb_subnet_group.Example.Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

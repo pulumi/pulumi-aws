@@ -21,23 +21,21 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/redshiftserverless"
+//	redshiftserverless/namespace "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/redshiftserverless/namespace"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := redshiftserverless.NewNamespace(ctx, "example", &redshiftserverless.NamespaceArgs{
-//				NamespaceName: pulumi.String("concurrency-scaling"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := redshiftserverless/namespace.NewNamespace(ctx, "example", &redshiftserverless/namespace.NamespaceArgs{
+// NamespaceName: "concurrency-scaling",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

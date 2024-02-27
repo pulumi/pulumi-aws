@@ -19,68 +19,6 @@ import javax.annotation.Nullable;
  * Resource for managing an AWS MediaLive MultiplexProgram.
  * 
  * ## Example Usage
- * ### Basic Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.AwsFunctions;
- * import com.pulumi.aws.inputs.GetAvailabilityZonesArgs;
- * import com.pulumi.aws.medialive.Multiplex;
- * import com.pulumi.aws.medialive.MultiplexArgs;
- * import com.pulumi.aws.medialive.inputs.MultiplexMultiplexSettingsArgs;
- * import com.pulumi.aws.medialive.MultiplexProgram;
- * import com.pulumi.aws.medialive.MultiplexProgramArgs;
- * import com.pulumi.aws.medialive.inputs.MultiplexProgramMultiplexProgramSettingsArgs;
- * import com.pulumi.aws.medialive.inputs.MultiplexProgramMultiplexProgramSettingsVideoSettingsArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var available = AwsFunctions.getAvailabilityZones(GetAvailabilityZonesArgs.builder()
- *             .state(&#34;available&#34;)
- *             .build());
- * 
- *         var exampleMultiplex = new Multiplex(&#34;exampleMultiplex&#34;, MultiplexArgs.builder()        
- *             .availabilityZones(            
- *                 available.applyValue(getAvailabilityZonesResult -&gt; getAvailabilityZonesResult.names()[0]),
- *                 available.applyValue(getAvailabilityZonesResult -&gt; getAvailabilityZonesResult.names()[1]))
- *             .multiplexSettings(MultiplexMultiplexSettingsArgs.builder()
- *                 .transportStreamBitrate(1000000)
- *                 .transportStreamId(1)
- *                 .transportStreamReservedBitrate(1)
- *                 .maximumVideoBufferDelayMilliseconds(1000)
- *                 .build())
- *             .startMultiplex(true)
- *             .tags(Map.of(&#34;tag1&#34;, &#34;value1&#34;))
- *             .build());
- * 
- *         var exampleMultiplexProgram = new MultiplexProgram(&#34;exampleMultiplexProgram&#34;, MultiplexProgramArgs.builder()        
- *             .programName(&#34;example_program&#34;)
- *             .multiplexId(exampleMultiplex.id())
- *             .multiplexProgramSettings(MultiplexProgramMultiplexProgramSettingsArgs.builder()
- *                 .programNumber(1)
- *                 .preferredChannelPipeline(&#34;CURRENTLY_ACTIVE&#34;)
- *                 .videoSettings(MultiplexProgramMultiplexProgramSettingsVideoSettingsArgs.builder()
- *                     .constantBitrate(100000)
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * ```
  * 
  * ## Import
  * 

@@ -33,8 +33,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.sagemaker.FeatureGroup;
  * import com.pulumi.aws.sagemaker.FeatureGroupArgs;
- * import com.pulumi.aws.sagemaker.inputs.FeatureGroupFeatureDefinitionArgs;
- * import com.pulumi.aws.sagemaker.inputs.FeatureGroupOnlineStoreConfigArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -53,13 +51,8 @@ import javax.annotation.Nullable;
  *             .recordIdentifierFeatureName(&#34;example&#34;)
  *             .eventTimeFeatureName(&#34;example&#34;)
  *             .roleArn(aws_iam_role.test().arn())
- *             .featureDefinitions(FeatureGroupFeatureDefinitionArgs.builder()
- *                 .featureName(&#34;example&#34;)
- *                 .featureType(&#34;String&#34;)
- *                 .build())
- *             .onlineStoreConfig(FeatureGroupOnlineStoreConfigArgs.builder()
- *                 .enableOnlineStore(true)
- *                 .build())
+ *             .featureDefinitions(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .onlineStoreConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

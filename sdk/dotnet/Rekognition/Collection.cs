@@ -22,12 +22,12 @@ namespace Pulumi.Aws.Rekognition
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Rekognition.Collection("example", new()
+    ///     var example = new Aws.Rekognition.Collection.Collection("example", new()
     ///     {
     ///         CollectionId = "my-collection",
     ///         Tags = 
     ///         {
-    ///             { "example", "1" },
+    ///             { "example", 1 },
     ///         },
     ///     });
     /// 

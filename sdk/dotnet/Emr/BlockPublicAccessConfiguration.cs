@@ -23,7 +23,7 @@ namespace Pulumi.Aws.Emr
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Emr.BlockPublicAccessConfiguration("example", new()
+    ///     var example = new Aws.Emr.BlockPublicAccessConfiguration.BlockPublicAccessConfiguration("example", new()
     ///     {
     ///         BlockPublicSecurityGroupRules = true,
     ///     });
@@ -42,15 +42,15 @@ namespace Pulumi.Aws.Emr
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Emr.BlockPublicAccessConfiguration("example", new()
+    ///     var example = new Aws.Emr.BlockPublicAccessConfiguration.BlockPublicAccessConfiguration("example", new()
     ///     {
     ///         BlockPublicSecurityGroupRules = true,
     ///         PermittedPublicSecurityGroupRuleRanges = new[]
     ///         {
-    ///             new Aws.Emr.Inputs.BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgs
+    ///             
     ///             {
-    ///                 MaxRange = 22,
-    ///                 MinRange = 22,
+    ///                 { "maxRange", 22 },
+    ///                 { "minRange", 22 },
     ///             },
     ///         },
     ///     });
@@ -71,20 +71,20 @@ namespace Pulumi.Aws.Emr
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Emr.BlockPublicAccessConfiguration("example", new()
+    ///     var example = new Aws.Emr.BlockPublicAccessConfiguration.BlockPublicAccessConfiguration("example", new()
     ///     {
     ///         BlockPublicSecurityGroupRules = true,
     ///         PermittedPublicSecurityGroupRuleRanges = new[]
     ///         {
-    ///             new Aws.Emr.Inputs.BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgs
+    ///             
     ///             {
-    ///                 MaxRange = 22,
-    ///                 MinRange = 22,
+    ///                 { "maxRange", 22 },
+    ///                 { "minRange", 22 },
     ///             },
-    ///             new Aws.Emr.Inputs.BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgs
+    ///             
     ///             {
-    ///                 MaxRange = 101,
-    ///                 MinRange = 100,
+    ///                 { "maxRange", 101 },
+    ///                 { "minRange", 100 },
     ///             },
     ///         },
     ///     });
@@ -103,7 +103,7 @@ namespace Pulumi.Aws.Emr
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Emr.BlockPublicAccessConfiguration("example", new()
+    ///     var example = new Aws.Emr.BlockPublicAccessConfiguration.BlockPublicAccessConfiguration("example", new()
     ///     {
     ///         BlockPublicSecurityGroupRules = false,
     ///     });

@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.verifiedaccess.InstanceLoggingConfiguration("example", {
+ * const example = new aws.verifiedaccess/instanceLoggingConfiguration.InstanceLoggingConfiguration("example", {
  *     accessLogs: {
  *         cloudwatchLogs: {
  *             enabled: true,
@@ -33,7 +33,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.verifiedaccess.InstanceLoggingConfiguration("example", {
+ * const example = new aws.verifiedaccess/instanceLoggingConfiguration.InstanceLoggingConfiguration("example", {
  *     accessLogs: {
  *         kinesisDataFirehose: {
  *             deliveryStream: aws_kinesis_firehose_delivery_stream.example.name,
@@ -49,7 +49,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.verifiedaccess.InstanceLoggingConfiguration("example", {
+ * const example = new aws.verifiedaccess/instanceLoggingConfiguration.InstanceLoggingConfiguration("example", {
  *     accessLogs: {
  *         s3: {
  *             bucketName: aws_s3_bucket.example.id,
@@ -66,7 +66,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.verifiedaccess.InstanceLoggingConfiguration("example", {
+ * const example = new aws.verifiedaccess/instanceLoggingConfiguration.InstanceLoggingConfiguration("example", {
  *     accessLogs: {
  *         cloudwatchLogs: {
  *             enabled: true,
@@ -90,7 +90,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.verifiedaccess.InstanceLoggingConfiguration("example", {
+ * const example = new aws.verifiedaccess/instanceLoggingConfiguration.InstanceLoggingConfiguration("example", {
  *     accessLogs: {
  *         includeTrustContext: true,
  *     },
@@ -103,7 +103,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.verifiedaccess.InstanceLoggingConfiguration("example", {
+ * const example = new aws.verifiedaccess/instanceLoggingConfiguration.InstanceLoggingConfiguration("example", {
  *     accessLogs: {
  *         logVersion: "ocsf-1.0.0-rc.2",
  *     },

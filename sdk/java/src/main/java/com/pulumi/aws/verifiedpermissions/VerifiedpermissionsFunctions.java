@@ -18,35 +18,6 @@ public final class VerifiedpermissionsFunctions {
      * Data source for managing an AWS Verified Permissions Policy Store.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.verifiedpermissions.VerifiedpermissionsFunctions;
-     * import com.pulumi.aws.verifiedpermissions.inputs.GetPolicyStoreArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = VerifiedpermissionsFunctions.getPolicyStore(GetPolicyStoreArgs.builder()
-     *             .id(&#34;example&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetPolicyStoreResult> getPolicyStore(GetPolicyStoreArgs args) {
@@ -56,35 +27,6 @@ public final class VerifiedpermissionsFunctions {
      * Data source for managing an AWS Verified Permissions Policy Store.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.verifiedpermissions.VerifiedpermissionsFunctions;
-     * import com.pulumi.aws.verifiedpermissions.inputs.GetPolicyStoreArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = VerifiedpermissionsFunctions.getPolicyStore(GetPolicyStoreArgs.builder()
-     *             .id(&#34;example&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetPolicyStoreResult> getPolicyStorePlain(GetPolicyStorePlainArgs args) {
@@ -94,35 +36,6 @@ public final class VerifiedpermissionsFunctions {
      * Data source for managing an AWS Verified Permissions Policy Store.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.verifiedpermissions.VerifiedpermissionsFunctions;
-     * import com.pulumi.aws.verifiedpermissions.inputs.GetPolicyStoreArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = VerifiedpermissionsFunctions.getPolicyStore(GetPolicyStoreArgs.builder()
-     *             .id(&#34;example&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetPolicyStoreResult> getPolicyStore(GetPolicyStoreArgs args, InvokeOptions options) {
@@ -132,35 +45,6 @@ public final class VerifiedpermissionsFunctions {
      * Data source for managing an AWS Verified Permissions Policy Store.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.verifiedpermissions.VerifiedpermissionsFunctions;
-     * import com.pulumi.aws.verifiedpermissions.inputs.GetPolicyStoreArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = VerifiedpermissionsFunctions.getPolicyStore(GetPolicyStoreArgs.builder()
-     *             .id(&#34;example&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetPolicyStoreResult> getPolicyStorePlain(GetPolicyStorePlainArgs args, InvokeOptions options) {

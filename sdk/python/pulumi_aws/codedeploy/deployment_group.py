@@ -669,106 +669,54 @@ class DeploymentGroup(pulumi.CustomResource):
         > **NOTE on blue/green deployments:** When using `green_fleet_provisioning_option` with the `COPY_AUTO_SCALING_GROUP` action, CodeDeploy will create a new ASG with a different name. This ASG is _not_ managed by this provider and will conflict with existing configuration and state. You may want to use a different approach to managing deployments that involve multiple ASG, such as `DISCOVER_EXISTING` with separate blue and green ASG.
 
         ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["codedeploy.amazonaws.com"],
-            )],
-            actions=["sts:AssumeRole"],
-        )])
-        example_role = aws.iam.Role("exampleRole", assume_role_policy=assume_role.json)
-        a_ws_code_deploy_role = aws.iam.RolePolicyAttachment("aWSCodeDeployRole",
-            policy_arn="arn:aws:iam::aws:policy/service-role/AWSCodeDeployRole",
-            role=example_role.name)
-        example_application = aws.codedeploy.Application("exampleApplication")
-        example_topic = aws.sns.Topic("exampleTopic")
-        example_deployment_group = aws.codedeploy.DeploymentGroup("exampleDeploymentGroup",
-            app_name=example_application.name,
-            deployment_group_name="example-group",
-            service_role_arn=example_role.arn,
-            ec2_tag_sets=[aws.codedeploy.DeploymentGroupEc2TagSetArgs(
-                ec2_tag_filters=[
-                    aws.codedeploy.DeploymentGroupEc2TagSetEc2TagFilterArgs(
-                        key="filterkey1",
-                        type="KEY_AND_VALUE",
-                        value="filtervalue",
-                    ),
-                    aws.codedeploy.DeploymentGroupEc2TagSetEc2TagFilterArgs(
-                        key="filterkey2",
-                        type="KEY_AND_VALUE",
-                        value="filtervalue",
-                    ),
-                ],
-            )],
-            trigger_configurations=[aws.codedeploy.DeploymentGroupTriggerConfigurationArgs(
-                trigger_events=["DeploymentFailure"],
-                trigger_name="example-trigger",
-                trigger_target_arn=example_topic.arn,
-            )],
-            auto_rollback_configuration=aws.codedeploy.DeploymentGroupAutoRollbackConfigurationArgs(
-                enabled=True,
-                events=["DEPLOYMENT_FAILURE"],
-            ),
-            alarm_configuration=aws.codedeploy.DeploymentGroupAlarmConfigurationArgs(
-                alarms=["my-alarm-name"],
-                enabled=True,
-            ),
-            outdated_instances_strategy="UPDATE")
-        ```
         ### Blue Green Deployments with ECS
 
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_application = aws.codedeploy.Application("exampleApplication", compute_platform="ECS")
-        example_deployment_group = aws.codedeploy.DeploymentGroup("exampleDeploymentGroup",
+        example_application = aws.codedeploy.application.Application("exampleApplication", compute_platform=ECS)
+        example_deployment_group = aws.codedeploy.deployment_group.DeploymentGroup("exampleDeploymentGroup",
             app_name=example_application.name,
-            deployment_config_name="CodeDeployDefault.ECSAllAtOnce",
-            deployment_group_name="example",
-            service_role_arn=aws_iam_role["example"]["arn"],
-            auto_rollback_configuration=aws.codedeploy.DeploymentGroupAutoRollbackConfigurationArgs(
-                enabled=True,
-                events=["DEPLOYMENT_FAILURE"],
-            ),
-            blue_green_deployment_config=aws.codedeploy.DeploymentGroupBlueGreenDeploymentConfigArgs(
-                deployment_ready_option=aws.codedeploy.DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionArgs(
-                    action_on_timeout="CONTINUE_DEPLOYMENT",
-                ),
-                terminate_blue_instances_on_deployment_success=aws.codedeploy.DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessArgs(
-                    action="TERMINATE",
-                    termination_wait_time_in_minutes=5,
-                ),
-            ),
-            deployment_style=aws.codedeploy.DeploymentGroupDeploymentStyleArgs(
-                deployment_option="WITH_TRAFFIC_CONTROL",
-                deployment_type="BLUE_GREEN",
-            ),
-            ecs_service=aws.codedeploy.DeploymentGroupEcsServiceArgs(
-                cluster_name=aws_ecs_cluster["example"]["name"],
-                service_name=aws_ecs_service["example"]["name"],
-            ),
-            load_balancer_info=aws.codedeploy.DeploymentGroupLoadBalancerInfoArgs(
-                target_group_pair_info=aws.codedeploy.DeploymentGroupLoadBalancerInfoTargetGroupPairInfoArgs(
-                    prod_traffic_route=aws.codedeploy.DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRouteArgs(
-                        listener_arns=[aws_lb_listener["example"]["arn"]],
-                    ),
-                    target_groups=[
-                        aws.codedeploy.DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupArgs(
-                            name=aws_lb_target_group["blue"]["name"],
-                        ),
-                        aws.codedeploy.DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupArgs(
-                            name=aws_lb_target_group["green"]["name"],
-                        ),
+            deployment_config_name=CodeDeployDefault.ECSAllAtOnce,
+            deployment_group_name=example,
+            service_role_arn=aws_iam_role.example.arn,
+            auto_rollback_configuration={
+                enabled: True,
+                events: [DEPLOYMENT_FAILURE],
+            },
+            blue_green_deployment_config={
+                deploymentReadyOption: {
+                    actionOnTimeout: CONTINUE_DEPLOYMENT,
+                },
+                terminateBlueInstancesOnDeploymentSuccess: {
+                    action: TERMINATE,
+                    terminationWaitTimeInMinutes: 5,
+                },
+            },
+            deployment_style={
+                deploymentOption: WITH_TRAFFIC_CONTROL,
+                deploymentType: BLUE_GREEN,
+            },
+            ecs_service={
+                clusterName: aws_ecs_cluster.example.name,
+                serviceName: aws_ecs_service.example.name,
+            },
+            load_balancer_info={
+                targetGroupPairInfo: {
+                    prodTrafficRoute: {
+                        listenerArns: [aws_lb_listener.example.arn],
+                    },
+                    targetGroups: [
+                        {
+                            name: aws_lb_target_group.blue.name,
+                        },
+                        {
+                            name: aws_lb_target_group.green.name,
+                        },
                     ],
-                ),
-            ))
+                },
+            })
         ```
         ### Blue Green Deployments with Servers and Classic ELB
 
@@ -776,32 +724,32 @@ class DeploymentGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_application = aws.codedeploy.Application("exampleApplication")
-        example_deployment_group = aws.codedeploy.DeploymentGroup("exampleDeploymentGroup",
+        example_application = aws.codedeploy.application.Application("exampleApplication")
+        example_deployment_group = aws.codedeploy.deployment_group.DeploymentGroup("exampleDeploymentGroup",
             app_name=example_application.name,
-            deployment_group_name="example-group",
-            service_role_arn=aws_iam_role["example"]["arn"],
-            deployment_style=aws.codedeploy.DeploymentGroupDeploymentStyleArgs(
-                deployment_option="WITH_TRAFFIC_CONTROL",
-                deployment_type="BLUE_GREEN",
-            ),
-            load_balancer_info=aws.codedeploy.DeploymentGroupLoadBalancerInfoArgs(
-                elb_infos=[aws.codedeploy.DeploymentGroupLoadBalancerInfoElbInfoArgs(
-                    name=aws_elb["example"]["name"],
-                )],
-            ),
-            blue_green_deployment_config=aws.codedeploy.DeploymentGroupBlueGreenDeploymentConfigArgs(
-                deployment_ready_option=aws.codedeploy.DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionArgs(
-                    action_on_timeout="STOP_DEPLOYMENT",
-                    wait_time_in_minutes=60,
-                ),
-                green_fleet_provisioning_option=aws.codedeploy.DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionArgs(
-                    action="DISCOVER_EXISTING",
-                ),
-                terminate_blue_instances_on_deployment_success=aws.codedeploy.DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessArgs(
-                    action="KEEP_ALIVE",
-                ),
-            ))
+            deployment_group_name=example-group,
+            service_role_arn=aws_iam_role.example.arn,
+            deployment_style={
+                deploymentOption: WITH_TRAFFIC_CONTROL,
+                deploymentType: BLUE_GREEN,
+            },
+            load_balancer_info={
+                elbInfos: [{
+                    name: aws_elb.example.name,
+                }],
+            },
+            blue_green_deployment_config={
+                deploymentReadyOption: {
+                    actionOnTimeout: STOP_DEPLOYMENT,
+                    waitTimeInMinutes: 60,
+                },
+                greenFleetProvisioningOption: {
+                    action: DISCOVER_EXISTING,
+                },
+                terminateBlueInstancesOnDeploymentSuccess: {
+                    action: KEEP_ALIVE,
+                },
+            })
         ```
 
         ## Import
@@ -844,106 +792,54 @@ class DeploymentGroup(pulumi.CustomResource):
         > **NOTE on blue/green deployments:** When using `green_fleet_provisioning_option` with the `COPY_AUTO_SCALING_GROUP` action, CodeDeploy will create a new ASG with a different name. This ASG is _not_ managed by this provider and will conflict with existing configuration and state. You may want to use a different approach to managing deployments that involve multiple ASG, such as `DISCOVER_EXISTING` with separate blue and green ASG.
 
         ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["codedeploy.amazonaws.com"],
-            )],
-            actions=["sts:AssumeRole"],
-        )])
-        example_role = aws.iam.Role("exampleRole", assume_role_policy=assume_role.json)
-        a_ws_code_deploy_role = aws.iam.RolePolicyAttachment("aWSCodeDeployRole",
-            policy_arn="arn:aws:iam::aws:policy/service-role/AWSCodeDeployRole",
-            role=example_role.name)
-        example_application = aws.codedeploy.Application("exampleApplication")
-        example_topic = aws.sns.Topic("exampleTopic")
-        example_deployment_group = aws.codedeploy.DeploymentGroup("exampleDeploymentGroup",
-            app_name=example_application.name,
-            deployment_group_name="example-group",
-            service_role_arn=example_role.arn,
-            ec2_tag_sets=[aws.codedeploy.DeploymentGroupEc2TagSetArgs(
-                ec2_tag_filters=[
-                    aws.codedeploy.DeploymentGroupEc2TagSetEc2TagFilterArgs(
-                        key="filterkey1",
-                        type="KEY_AND_VALUE",
-                        value="filtervalue",
-                    ),
-                    aws.codedeploy.DeploymentGroupEc2TagSetEc2TagFilterArgs(
-                        key="filterkey2",
-                        type="KEY_AND_VALUE",
-                        value="filtervalue",
-                    ),
-                ],
-            )],
-            trigger_configurations=[aws.codedeploy.DeploymentGroupTriggerConfigurationArgs(
-                trigger_events=["DeploymentFailure"],
-                trigger_name="example-trigger",
-                trigger_target_arn=example_topic.arn,
-            )],
-            auto_rollback_configuration=aws.codedeploy.DeploymentGroupAutoRollbackConfigurationArgs(
-                enabled=True,
-                events=["DEPLOYMENT_FAILURE"],
-            ),
-            alarm_configuration=aws.codedeploy.DeploymentGroupAlarmConfigurationArgs(
-                alarms=["my-alarm-name"],
-                enabled=True,
-            ),
-            outdated_instances_strategy="UPDATE")
-        ```
         ### Blue Green Deployments with ECS
 
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_application = aws.codedeploy.Application("exampleApplication", compute_platform="ECS")
-        example_deployment_group = aws.codedeploy.DeploymentGroup("exampleDeploymentGroup",
+        example_application = aws.codedeploy.application.Application("exampleApplication", compute_platform=ECS)
+        example_deployment_group = aws.codedeploy.deployment_group.DeploymentGroup("exampleDeploymentGroup",
             app_name=example_application.name,
-            deployment_config_name="CodeDeployDefault.ECSAllAtOnce",
-            deployment_group_name="example",
-            service_role_arn=aws_iam_role["example"]["arn"],
-            auto_rollback_configuration=aws.codedeploy.DeploymentGroupAutoRollbackConfigurationArgs(
-                enabled=True,
-                events=["DEPLOYMENT_FAILURE"],
-            ),
-            blue_green_deployment_config=aws.codedeploy.DeploymentGroupBlueGreenDeploymentConfigArgs(
-                deployment_ready_option=aws.codedeploy.DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionArgs(
-                    action_on_timeout="CONTINUE_DEPLOYMENT",
-                ),
-                terminate_blue_instances_on_deployment_success=aws.codedeploy.DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessArgs(
-                    action="TERMINATE",
-                    termination_wait_time_in_minutes=5,
-                ),
-            ),
-            deployment_style=aws.codedeploy.DeploymentGroupDeploymentStyleArgs(
-                deployment_option="WITH_TRAFFIC_CONTROL",
-                deployment_type="BLUE_GREEN",
-            ),
-            ecs_service=aws.codedeploy.DeploymentGroupEcsServiceArgs(
-                cluster_name=aws_ecs_cluster["example"]["name"],
-                service_name=aws_ecs_service["example"]["name"],
-            ),
-            load_balancer_info=aws.codedeploy.DeploymentGroupLoadBalancerInfoArgs(
-                target_group_pair_info=aws.codedeploy.DeploymentGroupLoadBalancerInfoTargetGroupPairInfoArgs(
-                    prod_traffic_route=aws.codedeploy.DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRouteArgs(
-                        listener_arns=[aws_lb_listener["example"]["arn"]],
-                    ),
-                    target_groups=[
-                        aws.codedeploy.DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupArgs(
-                            name=aws_lb_target_group["blue"]["name"],
-                        ),
-                        aws.codedeploy.DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupArgs(
-                            name=aws_lb_target_group["green"]["name"],
-                        ),
+            deployment_config_name=CodeDeployDefault.ECSAllAtOnce,
+            deployment_group_name=example,
+            service_role_arn=aws_iam_role.example.arn,
+            auto_rollback_configuration={
+                enabled: True,
+                events: [DEPLOYMENT_FAILURE],
+            },
+            blue_green_deployment_config={
+                deploymentReadyOption: {
+                    actionOnTimeout: CONTINUE_DEPLOYMENT,
+                },
+                terminateBlueInstancesOnDeploymentSuccess: {
+                    action: TERMINATE,
+                    terminationWaitTimeInMinutes: 5,
+                },
+            },
+            deployment_style={
+                deploymentOption: WITH_TRAFFIC_CONTROL,
+                deploymentType: BLUE_GREEN,
+            },
+            ecs_service={
+                clusterName: aws_ecs_cluster.example.name,
+                serviceName: aws_ecs_service.example.name,
+            },
+            load_balancer_info={
+                targetGroupPairInfo: {
+                    prodTrafficRoute: {
+                        listenerArns: [aws_lb_listener.example.arn],
+                    },
+                    targetGroups: [
+                        {
+                            name: aws_lb_target_group.blue.name,
+                        },
+                        {
+                            name: aws_lb_target_group.green.name,
+                        },
                     ],
-                ),
-            ))
+                },
+            })
         ```
         ### Blue Green Deployments with Servers and Classic ELB
 
@@ -951,32 +847,32 @@ class DeploymentGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_application = aws.codedeploy.Application("exampleApplication")
-        example_deployment_group = aws.codedeploy.DeploymentGroup("exampleDeploymentGroup",
+        example_application = aws.codedeploy.application.Application("exampleApplication")
+        example_deployment_group = aws.codedeploy.deployment_group.DeploymentGroup("exampleDeploymentGroup",
             app_name=example_application.name,
-            deployment_group_name="example-group",
-            service_role_arn=aws_iam_role["example"]["arn"],
-            deployment_style=aws.codedeploy.DeploymentGroupDeploymentStyleArgs(
-                deployment_option="WITH_TRAFFIC_CONTROL",
-                deployment_type="BLUE_GREEN",
-            ),
-            load_balancer_info=aws.codedeploy.DeploymentGroupLoadBalancerInfoArgs(
-                elb_infos=[aws.codedeploy.DeploymentGroupLoadBalancerInfoElbInfoArgs(
-                    name=aws_elb["example"]["name"],
-                )],
-            ),
-            blue_green_deployment_config=aws.codedeploy.DeploymentGroupBlueGreenDeploymentConfigArgs(
-                deployment_ready_option=aws.codedeploy.DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionArgs(
-                    action_on_timeout="STOP_DEPLOYMENT",
-                    wait_time_in_minutes=60,
-                ),
-                green_fleet_provisioning_option=aws.codedeploy.DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionArgs(
-                    action="DISCOVER_EXISTING",
-                ),
-                terminate_blue_instances_on_deployment_success=aws.codedeploy.DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessArgs(
-                    action="KEEP_ALIVE",
-                ),
-            ))
+            deployment_group_name=example-group,
+            service_role_arn=aws_iam_role.example.arn,
+            deployment_style={
+                deploymentOption: WITH_TRAFFIC_CONTROL,
+                deploymentType: BLUE_GREEN,
+            },
+            load_balancer_info={
+                elbInfos: [{
+                    name: aws_elb.example.name,
+                }],
+            },
+            blue_green_deployment_config={
+                deploymentReadyOption: {
+                    actionOnTimeout: STOP_DEPLOYMENT,
+                    waitTimeInMinutes: 60,
+                },
+                greenFleetProvisioningOption: {
+                    action: DISCOVER_EXISTING,
+                },
+                terminateBlueInstancesOnDeploymentSuccess: {
+                    action: KEEP_ALIVE,
+                },
+            })
         ```
 
         ## Import

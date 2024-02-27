@@ -42,20 +42,20 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Ec2.RouteTable("example", new()
+    ///     var example = new Aws.Ec2.RouteTable.RouteTable("example", new()
     ///     {
     ///         VpcId = aws_vpc.Example.Id,
     ///         Routes = new[]
     ///         {
-    ///             new Aws.Ec2.Inputs.RouteTableRouteArgs
+    ///             
     ///             {
-    ///                 CidrBlock = "10.0.1.0/24",
-    ///                 GatewayId = aws_internet_gateway.Example.Id,
+    ///                 { "cidrBlock", "10.0.1.0/24" },
+    ///                 { "gatewayId", aws_internet_gateway.Example.Id },
     ///             },
-    ///             new Aws.Ec2.Inputs.RouteTableRouteArgs
+    ///             
     ///             {
-    ///                 Ipv6CidrBlock = "::/0",
-    ///                 EgressOnlyGatewayId = aws_egress_only_internet_gateway.Example.Id,
+    ///                 { "ipv6CidrBlock", "::/0" },
+    ///                 { "egressOnlyGatewayId", aws_egress_only_internet_gateway.Example.Id },
     ///             },
     ///         },
     ///         Tags = 
@@ -77,7 +77,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Ec2.RouteTable("example", new()
+    ///     var example = new Aws.Ec2.RouteTable.RouteTable("example", new()
     ///     {
     ///         VpcId = aws_vpc.Example.Id,
     ///         Routes = new[] {},
@@ -103,20 +103,20 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testVpc = new Aws.Ec2.Vpc("testVpc", new()
+    ///     var testVpc = new Aws.Ec2.Vpc.Vpc("testVpc", new()
     ///     {
     ///         CidrBlock = "10.1.0.0/16",
     ///     });
     /// 
-    ///     var testRouteTable = new Aws.Ec2.RouteTable("testRouteTable", new()
+    ///     var testRouteTable = new Aws.Ec2.RouteTable.RouteTable("testRouteTable", new()
     ///     {
     ///         VpcId = testVpc.Id,
     ///         Routes = new[]
     ///         {
-    ///             new Aws.Ec2.Inputs.RouteTableRouteArgs
+    ///             
     ///             {
-    ///                 CidrBlock = "10.1.0.0/16",
-    ///                 GatewayId = "local",
+    ///                 { "cidrBlock", "10.1.0.0/16" },
+    ///                 { "gatewayId", "local" },
     ///             },
     ///         },
     ///     });
@@ -134,31 +134,31 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testVpc = new Aws.Ec2.Vpc("testVpc", new()
+    ///     var testVpc = new Aws.Ec2.Vpc.Vpc("testVpc", new()
     ///     {
     ///         CidrBlock = "10.1.0.0/16",
     ///     });
     /// 
-    ///     var testSubnet = new Aws.Ec2.Subnet("testSubnet", new()
+    ///     var testSubnet = new Aws.Ec2.Subnet.Subnet("testSubnet", new()
     ///     {
     ///         CidrBlock = "10.1.1.0/24",
     ///         VpcId = testVpc.Id,
     ///     });
     /// 
-    ///     var testNetworkInterface = new Aws.Ec2.NetworkInterface("testNetworkInterface", new()
+    ///     var testNetworkInterface = new Aws.Ec2.NetworkInterface.NetworkInterface("testNetworkInterface", new()
     ///     {
     ///         SubnetId = testSubnet.Id,
     ///     });
     /// 
-    ///     var testRouteTable = new Aws.Ec2.RouteTable("testRouteTable", new()
+    ///     var testRouteTable = new Aws.Ec2.RouteTable.RouteTable("testRouteTable", new()
     ///     {
     ///         VpcId = testVpc.Id,
     ///         Routes = new[]
     ///         {
-    ///             new Aws.Ec2.Inputs.RouteTableRouteArgs
+    ///             
     ///             {
-    ///                 CidrBlock = testVpc.CidrBlock,
-    ///                 NetworkInterfaceId = testNetworkInterface.Id,
+    ///                 { "cidrBlock", testVpc.CidrBlock },
+    ///                 { "networkInterfaceId", testNetworkInterface.Id },
     ///             },
     ///         },
     ///     });

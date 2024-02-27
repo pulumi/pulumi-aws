@@ -17,34 +17,6 @@ namespace Pulumi.Aws.AppConfig
         /// 
         /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var exampleConfigurationProfiles = Aws.AppConfig.GetConfigurationProfiles.Invoke(new()
-        ///     {
-        ///         ApplicationId = "a1d3rpe",
-        ///     });
-        /// 
-        ///     var exampleConfigurationProfile = .Select(__value =&gt; 
-        ///     {
-        ///         return Aws.AppConfig.GetConfigurationProfile.Invoke(new()
-        ///         {
-        ///             ConfigurationProfileId = __value,
-        ///             ApplicationId = aws_appconfig_application.Example.Id,
-        ///         });
-        ///     }).ToList();
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetConfigurationProfilesResult> InvokeAsync(GetConfigurationProfilesArgs args, InvokeOptions? options = null)
@@ -56,34 +28,6 @@ namespace Pulumi.Aws.AppConfig
         /// 
         /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var exampleConfigurationProfiles = Aws.AppConfig.GetConfigurationProfiles.Invoke(new()
-        ///     {
-        ///         ApplicationId = "a1d3rpe",
-        ///     });
-        /// 
-        ///     var exampleConfigurationProfile = .Select(__value =&gt; 
-        ///     {
-        ///         return Aws.AppConfig.GetConfigurationProfile.Invoke(new()
-        ///         {
-        ///             ConfigurationProfileId = __value,
-        ///             ApplicationId = aws_appconfig_application.Example.Id,
-        ///         });
-        ///     }).ToList();
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetConfigurationProfilesResult> Invoke(GetConfigurationProfilesInvokeArgs args, InvokeOptions? options = null)

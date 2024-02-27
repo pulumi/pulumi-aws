@@ -85,7 +85,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.elasticbeanstalk.ApplicationArgs;
  * import com.pulumi.aws.elasticbeanstalk.Environment;
  * import com.pulumi.aws.elasticbeanstalk.EnvironmentArgs;
- * import com.pulumi.aws.elasticbeanstalk.inputs.EnvironmentSettingArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -107,16 +106,8 @@ import javax.annotation.Nullable;
  *             .application(tftest.name())
  *             .solutionStackName(&#34;64bit Amazon Linux 2015.03 v2.0.3 running Go 1.4&#34;)
  *             .settings(            
- *                 EnvironmentSettingArgs.builder()
- *                     .namespace(&#34;aws:ec2:vpc&#34;)
- *                     .name(&#34;VPCId&#34;)
- *                     .value(&#34;vpc-xxxxxxxx&#34;)
- *                     .build(),
- *                 EnvironmentSettingArgs.builder()
- *                     .namespace(&#34;aws:ec2:vpc&#34;)
- *                     .name(&#34;Subnets&#34;)
- *                     .value(&#34;subnet-xxxxxxxx&#34;)
- *                     .build())
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

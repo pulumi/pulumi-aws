@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const web = new aws.ec2.Instance("web", {
+ * const web = new aws.ec2/instance.Instance("web", {
  *     ami: "ami-21f78e11",
  *     availabilityZone: "us-west-2a",
  *     instanceType: "t2.micro",
@@ -24,11 +24,11 @@ import * as utilities from "../utilities";
  *         Name: "HelloWorld",
  *     },
  * });
- * const example = new aws.ebs.Volume("example", {
+ * const example = new aws.ebs/volume.Volume("example", {
  *     availabilityZone: "us-west-2a",
  *     size: 1,
  * });
- * const ebsAtt = new aws.ec2.VolumeAttachment("ebsAtt", {
+ * const ebsAtt = new aws.ec2/volumeAttachment.VolumeAttachment("ebsAtt", {
  *     deviceName: "/dev/sdh",
  *     volumeId: example.id,
  *     instanceId: web.id,

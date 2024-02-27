@@ -21,33 +21,31 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53"
+//	ec2/vpc "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/vpc"
+//	route53/resolverConfig "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/route53/resolverConfig"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleVpc, err := ec2.NewVpc(ctx, "exampleVpc", &ec2.VpcArgs{
-//				CidrBlock:          pulumi.String("10.0.0.0/16"),
-//				EnableDnsSupport:   pulumi.Bool(true),
-//				EnableDnsHostnames: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = route53.NewResolverConfig(ctx, "exampleResolverConfig", &route53.ResolverConfigArgs{
-//				ResourceId:             exampleVpc.ID(),
-//				AutodefinedReverseFlag: pulumi.String("DISABLE"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleVpc, err := ec2/vpc.NewVpc(ctx, "exampleVpc", &ec2/vpc.VpcArgs{
+// CidrBlock: "10.0.0.0/16",
+// EnableDnsSupport: true,
+// EnableDnsHostnames: true,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = route53/resolverConfig.NewResolverConfig(ctx, "exampleResolverConfig", &route53/resolverConfig.ResolverConfigArgs{
+// ResourceId: exampleVpc.Id,
+// AutodefinedReverseFlag: "DISABLE",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

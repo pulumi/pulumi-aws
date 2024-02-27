@@ -480,18 +480,18 @@ class Input(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_input_security_group = aws.medialive.InputSecurityGroup("exampleInputSecurityGroup",
-            whitelist_rules=[aws.medialive.InputSecurityGroupWhitelistRuleArgs(
-                cidr="10.0.0.8/32",
-            )],
+        example_input_security_group = aws.medialive.input_security_group.InputSecurityGroup("exampleInputSecurityGroup",
+            whitelist_rules=[{
+                cidr: 10.0.0.8/32,
+            }],
             tags={
-                "ENVIRONMENT": "prod",
+                ENVIRONMENT: prod,
             })
-        example_input = aws.medialive.Input("exampleInput",
+        example_input = aws.medialive.input.Input("exampleInput",
             input_security_groups=[example_input_security_group.id],
-            type="UDP_PUSH",
+            type=UDP_PUSH,
             tags={
-                "ENVIRONMENT": "prod",
+                ENVIRONMENT: prod,
             })
         ```
 
@@ -534,18 +534,18 @@ class Input(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_input_security_group = aws.medialive.InputSecurityGroup("exampleInputSecurityGroup",
-            whitelist_rules=[aws.medialive.InputSecurityGroupWhitelistRuleArgs(
-                cidr="10.0.0.8/32",
-            )],
+        example_input_security_group = aws.medialive.input_security_group.InputSecurityGroup("exampleInputSecurityGroup",
+            whitelist_rules=[{
+                cidr: 10.0.0.8/32,
+            }],
             tags={
-                "ENVIRONMENT": "prod",
+                ENVIRONMENT: prod,
             })
-        example_input = aws.medialive.Input("exampleInput",
+        example_input = aws.medialive.input.Input("exampleInput",
             input_security_groups=[example_input_security_group.id],
-            type="UDP_PUSH",
+            type=UDP_PUSH,
             tags={
-                "ENVIRONMENT": "prod",
+                ENVIRONMENT: prod,
             })
         ```
 

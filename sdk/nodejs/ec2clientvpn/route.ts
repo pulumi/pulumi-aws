@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleEndpoint = new aws.ec2clientvpn.Endpoint("exampleEndpoint", {
+ * const exampleEndpoint = new aws.ec2clientvpn/endpoint.Endpoint("exampleEndpoint", {
  *     description: "Example Client VPN endpoint",
  *     serverCertificateArn: aws_acm_certificate.example.arn,
  *     clientCidrBlock: "10.0.0.0/16",
@@ -26,11 +26,11 @@ import * as utilities from "../utilities";
  *         enabled: false,
  *     },
  * });
- * const exampleNetworkAssociation = new aws.ec2clientvpn.NetworkAssociation("exampleNetworkAssociation", {
+ * const exampleNetworkAssociation = new aws.ec2clientvpn/networkAssociation.NetworkAssociation("exampleNetworkAssociation", {
  *     clientVpnEndpointId: exampleEndpoint.id,
  *     subnetId: aws_subnet.example.id,
  * });
- * const exampleRoute = new aws.ec2clientvpn.Route("exampleRoute", {
+ * const exampleRoute = new aws.ec2clientvpn/route.Route("exampleRoute", {
  *     clientVpnEndpointId: exampleEndpoint.id,
  *     destinationCidrBlock: "0.0.0.0/0",
  *     targetVpcSubnetId: exampleNetworkAssociation.subnetId,

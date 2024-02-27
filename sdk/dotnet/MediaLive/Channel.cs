@@ -23,111 +23,111 @@ namespace Pulumi.Aws.MediaLive
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.MediaLive.Channel("example", new()
+    ///     var example = new Aws.Medialive.Channel.Channel("example", new()
     ///     {
     ///         ChannelClass = "STANDARD",
     ///         RoleArn = aws_iam_role.Example.Arn,
-    ///         InputSpecification = new Aws.MediaLive.Inputs.ChannelInputSpecificationArgs
+    ///         InputSpecification = 
     ///         {
-    ///             Codec = "AVC",
-    ///             InputResolution = "HD",
-    ///             MaximumBitrate = "MAX_20_MBPS",
+    ///             { "codec", "AVC" },
+    ///             { "inputResolution", "HD" },
+    ///             { "maximumBitrate", "MAX_20_MBPS" },
     ///         },
     ///         InputAttachments = new[]
     ///         {
-    ///             new Aws.MediaLive.Inputs.ChannelInputAttachmentArgs
+    ///             
     ///             {
-    ///                 InputAttachmentName = "example-input",
-    ///                 InputId = aws_medialive_input.Example.Id,
+    ///                 { "inputAttachmentName", "example-input" },
+    ///                 { "inputId", aws_medialive_input.Example.Id },
     ///             },
     ///         },
     ///         Destinations = new[]
     ///         {
-    ///             new Aws.MediaLive.Inputs.ChannelDestinationArgs
+    ///             
     ///             {
-    ///                 Id = "destination",
-    ///                 Settings = new[]
+    ///                 { "id", "destination" },
+    ///                 { "settings", new[]
     ///                 {
-    ///                     new Aws.MediaLive.Inputs.ChannelDestinationSettingArgs
+    ///                     
     ///                     {
-    ///                         Url = $"s3://{aws_s3_bucket.Main.Id}/test1",
+    ///                         { "url", $"s3://{aws_s3_bucket.Main.Id}/test1" },
     ///                     },
-    ///                     new Aws.MediaLive.Inputs.ChannelDestinationSettingArgs
+    ///                     
     ///                     {
-    ///                         Url = $"s3://{aws_s3_bucket.Main2.Id}/test2",
+    ///                         { "url", $"s3://{aws_s3_bucket.Main2.Id}/test2" },
     ///                     },
-    ///                 },
+    ///                 } },
     ///             },
     ///         },
-    ///         EncoderSettings = new Aws.MediaLive.Inputs.ChannelEncoderSettingsArgs
+    ///         EncoderSettings = 
     ///         {
-    ///             TimecodeConfig = new Aws.MediaLive.Inputs.ChannelEncoderSettingsTimecodeConfigArgs
+    ///             { "timecodeConfig", 
     ///             {
-    ///                 Source = "EMBEDDED",
-    ///             },
-    ///             AudioDescriptions = new[]
+    ///                 { "source", "EMBEDDED" },
+    ///             } },
+    ///             { "audioDescriptions", new[]
     ///             {
-    ///                 new Aws.MediaLive.Inputs.ChannelEncoderSettingsAudioDescriptionArgs
+    ///                 
     ///                 {
-    ///                     AudioSelectorName = "example audio selector",
-    ///                     Name = "audio-selector",
+    ///                     { "audioSelectorName", "example audio selector" },
+    ///                     { "name", "audio-selector" },
     ///                 },
-    ///             },
-    ///             VideoDescriptions = new[]
+    ///             } },
+    ///             { "videoDescriptions", new[]
     ///             {
-    ///                 new Aws.MediaLive.Inputs.ChannelEncoderSettingsVideoDescriptionArgs
+    ///                 
     ///                 {
-    ///                     Name = "example-video",
+    ///                     { "name", "example-video" },
     ///                 },
-    ///             },
-    ///             OutputGroups = new[]
+    ///             } },
+    ///             { "outputGroups", new[]
     ///             {
-    ///                 new Aws.MediaLive.Inputs.ChannelEncoderSettingsOutputGroupArgs
+    ///                 
     ///                 {
-    ///                     OutputGroupSettings = new Aws.MediaLive.Inputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsArgs
+    ///                     { "outputGroupSettings", 
     ///                     {
-    ///                         ArchiveGroupSettings = new[]
+    ///                         { "archiveGroupSettings", new[]
     ///                         {
-    ///                             new Aws.MediaLive.Inputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArgs
+    ///                             
     ///                             {
-    ///                                 Destination = new Aws.MediaLive.Inputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingDestinationArgs
+    ///                                 { "destination", 
     ///                                 {
-    ///                                     DestinationRefId = "destination",
-    ///                                 },
+    ///                                     { "destinationRefId", "destination" },
+    ///                                 } },
     ///                             },
-    ///                         },
-    ///                     },
-    ///                     Outputs = new[]
+    ///                         } },
+    ///                     } },
+    ///                     { "outputs", new[]
     ///                     {
-    ///                         new Aws.MediaLive.Inputs.ChannelEncoderSettingsOutputGroupOutputArgs
+    ///                         
     ///                         {
-    ///                             OutputName = "example-name",
-    ///                             VideoDescriptionName = "example-video",
-    ///                             AudioDescriptionNames = new[]
+    ///                             { "outputName", "example-name" },
+    ///                             { "videoDescriptionName", "example-video" },
+    ///                             { "audioDescriptionNames", new[]
     ///                             {
     ///                                 "audio-selector",
-    ///                             },
-    ///                             OutputSettings = new Aws.MediaLive.Inputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsArgs
+    ///                             } },
+    ///                             { "outputSettings", 
     ///                             {
-    ///                                 ArchiveOutputSettings = new Aws.MediaLive.Inputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsArgs
+    ///                                 { "archiveOutputSettings", 
     ///                                 {
-    ///                                     NameModifier = "_1",
-    ///                                     Extension = "m2ts",
-    ///                                     ContainerSettings = new Aws.MediaLive.Inputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsArgs
+    ///                                     { "nameModifier", "_1" },
+    ///                                     { "extension", "m2ts" },
+    ///                                     { "containerSettings", 
     ///                                     {
-    ///                                         M2tsSettings = new Aws.MediaLive.Inputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsArgs
+    ///                                         { "m2tsSettings", 
     ///                                         {
-    ///                                             AudioBufferModel = "ATSC",
-    ///                                             BufferModel = "MULTIPLEX",
-    ///                                             RateMode = "CBR",
-    ///                                         },
-    ///                                     },
-    ///                                 },
-    ///                             },
+    ///                                             { "audioBufferModel", "ATSC" },
+    ///                                             { "bufferModel", "MULTIPLEX" },
+    ///                                             { "rateMode", "CBR" },
+    ///                                         } },
+    ///                                     } },
+    ///                                 } },
+    ///                             } },
     ///                         },
-    ///                     },
+    ///                     } },
     ///                 },
-    ///             },
+    ///             } },
     ///         },
     ///     });
     /// 

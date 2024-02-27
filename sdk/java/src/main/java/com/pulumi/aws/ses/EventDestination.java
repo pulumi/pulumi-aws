@@ -32,7 +32,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.ses.EventDestination;
  * import com.pulumi.aws.ses.EventDestinationArgs;
- * import com.pulumi.aws.ses.inputs.EventDestinationCloudwatchDestinationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -52,11 +51,7 @@ import javax.annotation.Nullable;
  *             .matchingTypes(            
  *                 &#34;bounce&#34;,
  *                 &#34;send&#34;)
- *             .cloudwatchDestinations(EventDestinationCloudwatchDestinationArgs.builder()
- *                 .defaultValue(&#34;default&#34;)
- *                 .dimensionName(&#34;dimension&#34;)
- *                 .valueSource(&#34;emailHeader&#34;)
- *                 .build())
+ *             .cloudwatchDestinations(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -71,7 +66,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.ses.EventDestination;
  * import com.pulumi.aws.ses.EventDestinationArgs;
- * import com.pulumi.aws.ses.inputs.EventDestinationKinesisDestinationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -91,10 +85,7 @@ import javax.annotation.Nullable;
  *             .matchingTypes(            
  *                 &#34;bounce&#34;,
  *                 &#34;send&#34;)
- *             .kinesisDestination(EventDestinationKinesisDestinationArgs.builder()
- *                 .streamArn(aws_kinesis_firehose_delivery_stream.example().arn())
- *                 .roleArn(aws_iam_role.example().arn())
- *                 .build())
+ *             .kinesisDestination(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -109,7 +100,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.ses.EventDestination;
  * import com.pulumi.aws.ses.EventDestinationArgs;
- * import com.pulumi.aws.ses.inputs.EventDestinationSnsDestinationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -129,9 +119,7 @@ import javax.annotation.Nullable;
  *             .matchingTypes(            
  *                 &#34;bounce&#34;,
  *                 &#34;send&#34;)
- *             .snsDestination(EventDestinationSnsDestinationArgs.builder()
- *                 .topicArn(aws_sns_topic.example().arn())
- *                 .build())
+ *             .snsDestination(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

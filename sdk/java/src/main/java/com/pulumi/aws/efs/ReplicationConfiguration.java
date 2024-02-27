@@ -31,7 +31,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.efs.FileSystem;
  * import com.pulumi.aws.efs.ReplicationConfiguration;
  * import com.pulumi.aws.efs.ReplicationConfigurationArgs;
- * import com.pulumi.aws.efs.inputs.ReplicationConfigurationDestinationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -49,9 +48,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleReplicationConfiguration = new ReplicationConfiguration(&#34;exampleReplicationConfiguration&#34;, ReplicationConfigurationArgs.builder()        
  *             .sourceFileSystemId(exampleFileSystem.id())
- *             .destination(ReplicationConfigurationDestinationArgs.builder()
- *                 .region(&#34;us-west-2&#34;)
- *                 .build())
+ *             .destination(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -68,7 +65,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.efs.FileSystem;
  * import com.pulumi.aws.efs.ReplicationConfiguration;
  * import com.pulumi.aws.efs.ReplicationConfigurationArgs;
- * import com.pulumi.aws.efs.inputs.ReplicationConfigurationDestinationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -86,10 +82,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleReplicationConfiguration = new ReplicationConfiguration(&#34;exampleReplicationConfiguration&#34;, ReplicationConfigurationArgs.builder()        
  *             .sourceFileSystemId(exampleFileSystem.id())
- *             .destination(ReplicationConfigurationDestinationArgs.builder()
- *                 .availabilityZoneName(&#34;us-west-2b&#34;)
- *                 .kmsKeyId(&#34;1234abcd-12ab-34cd-56ef-1234567890ab&#34;)
- *                 .build())
+ *             .destination(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -106,7 +99,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.efs.FileSystem;
  * import com.pulumi.aws.efs.ReplicationConfiguration;
  * import com.pulumi.aws.efs.ReplicationConfigurationArgs;
- * import com.pulumi.aws.efs.inputs.ReplicationConfigurationDestinationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -124,10 +116,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleReplicationConfiguration = new ReplicationConfiguration(&#34;exampleReplicationConfiguration&#34;, ReplicationConfigurationArgs.builder()        
  *             .sourceFileSystemId(exampleFileSystem.id())
- *             .destination(ReplicationConfigurationDestinationArgs.builder()
- *                 .fileSystemId(&#34;fs-1234567890&#34;)
- *                 .region(&#34;us-west-2&#34;)
- *                 .build())
+ *             .destination(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

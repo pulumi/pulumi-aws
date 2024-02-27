@@ -24,16 +24,16 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kinesis"
+//	kinesis/resourcePolicy "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/kinesis/resourcePolicy"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := kinesis/resourcePolicy.NewResourcePolicy(ctx, "example", &kinesis/resourcePolicy.ResourcePolicyArgs{
+// ResourceArn: aws_kinesis_stream.Example.Arn,
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := kinesis.NewResourcePolicy(ctx, "example", &kinesis.ResourcePolicyArgs{
-//				ResourceArn: pulumi.Any(aws_kinesis_stream.Example.Arn),
-//				Policy: pulumi.String(fmt.Sprintf(`{
+//	Policy: fmt.Sprintf(`{
 //	  "Version": "2012-10-17",
 //	  "Id": "writePolicy",
 //	  "Statement": [{
@@ -52,16 +52,14 @@ import (
 //	  }]
 //	}
 //
-// `, aws_kinesis_stream.Example.Arn)),
-//
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// `, aws_kinesis_stream.Example.Arn),
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

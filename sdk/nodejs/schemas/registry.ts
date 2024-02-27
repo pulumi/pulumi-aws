@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = new aws.schemas.Registry("test", {description: "A custom schema registry"});
+ * const test = new aws.schemas/registry.Registry("test", {description: "A custom schema registry"});
  * ```
  *
  * ## Import

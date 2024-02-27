@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.rum.AppMonitor("example", {domain: "localhost"});
+ * const example = new aws.rum/appMonitor.AppMonitor("example", {domain: "localhost"});
  * ```
  *
  * ## Import

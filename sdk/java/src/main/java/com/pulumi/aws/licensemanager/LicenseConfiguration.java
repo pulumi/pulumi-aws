@@ -51,7 +51,7 @@ import javax.annotation.Nullable;
  *             .licenseCountHardLimit(true)
  *             .licenseCountingType(&#34;Socket&#34;)
  *             .licenseRules(&#34;#minimumSockets=2&#34;)
- *             .tags(Map.of(&#34;foo&#34;, &#34;barr&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

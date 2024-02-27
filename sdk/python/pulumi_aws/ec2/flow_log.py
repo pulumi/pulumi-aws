@@ -597,54 +597,18 @@ class FlowLog(pulumi.CustomResource):
         interface, subnet, or VPC. Logs are sent to a CloudWatch Log Group, a S3 Bucket, or Amazon Kinesis Data Firehose
 
         ## Example Usage
-        ### CloudWatch Logging
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_log_group = aws.cloudwatch.LogGroup("exampleLogGroup")
-        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["vpc-flow-logs.amazonaws.com"],
-            )],
-            actions=["sts:AssumeRole"],
-        )])
-        example_role = aws.iam.Role("exampleRole", assume_role_policy=assume_role.json)
-        example_flow_log = aws.ec2.FlowLog("exampleFlowLog",
-            iam_role_arn=example_role.arn,
-            log_destination=example_log_group.arn,
-            traffic_type="ALL",
-            vpc_id=aws_vpc["example"]["id"])
-        example_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            actions=[
-                "logs:CreateLogGroup",
-                "logs:CreateLogStream",
-                "logs:PutLogEvents",
-                "logs:DescribeLogGroups",
-                "logs:DescribeLogStreams",
-            ],
-            resources=["*"],
-        )])
-        example_role_policy = aws.iam.RolePolicy("exampleRolePolicy",
-            role=example_role.id,
-            policy=example_policy_document.json)
-        ```
         ### S3 Logging
 
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
-        example_flow_log = aws.ec2.FlowLog("exampleFlowLog",
+        example_bucket_v2 = aws.s3.bucket_v2.BucketV2("exampleBucketV2")
+        example_flow_log = aws.ec2.flow_log.FlowLog("exampleFlowLog",
             log_destination=example_bucket_v2.arn,
-            log_destination_type="s3",
-            traffic_type="ALL",
-            vpc_id=aws_vpc["example"]["id"])
+            log_destination_type=s3,
+            traffic_type=ALL,
+            vpc_id=aws_vpc.example.id)
         ```
         ### S3 Logging in Apache Parquet format with per-hour partitions
 
@@ -652,16 +616,16 @@ class FlowLog(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
-        example_flow_log = aws.ec2.FlowLog("exampleFlowLog",
+        example_bucket_v2 = aws.s3.bucket_v2.BucketV2("exampleBucketV2")
+        example_flow_log = aws.ec2.flow_log.FlowLog("exampleFlowLog",
             log_destination=example_bucket_v2.arn,
-            log_destination_type="s3",
-            traffic_type="ALL",
-            vpc_id=aws_vpc["example"]["id"],
-            destination_options=aws.ec2.FlowLogDestinationOptionsArgs(
-                file_format="parquet",
-                per_hour_partition=True,
-            ))
+            log_destination_type=s3,
+            traffic_type=ALL,
+            vpc_id=aws_vpc.example.id,
+            destination_options={
+                fileFormat: parquet,
+                perHourPartition: True,
+            })
         ```
 
         ## Import
@@ -704,54 +668,18 @@ class FlowLog(pulumi.CustomResource):
         interface, subnet, or VPC. Logs are sent to a CloudWatch Log Group, a S3 Bucket, or Amazon Kinesis Data Firehose
 
         ## Example Usage
-        ### CloudWatch Logging
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_log_group = aws.cloudwatch.LogGroup("exampleLogGroup")
-        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["vpc-flow-logs.amazonaws.com"],
-            )],
-            actions=["sts:AssumeRole"],
-        )])
-        example_role = aws.iam.Role("exampleRole", assume_role_policy=assume_role.json)
-        example_flow_log = aws.ec2.FlowLog("exampleFlowLog",
-            iam_role_arn=example_role.arn,
-            log_destination=example_log_group.arn,
-            traffic_type="ALL",
-            vpc_id=aws_vpc["example"]["id"])
-        example_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            actions=[
-                "logs:CreateLogGroup",
-                "logs:CreateLogStream",
-                "logs:PutLogEvents",
-                "logs:DescribeLogGroups",
-                "logs:DescribeLogStreams",
-            ],
-            resources=["*"],
-        )])
-        example_role_policy = aws.iam.RolePolicy("exampleRolePolicy",
-            role=example_role.id,
-            policy=example_policy_document.json)
-        ```
         ### S3 Logging
 
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
-        example_flow_log = aws.ec2.FlowLog("exampleFlowLog",
+        example_bucket_v2 = aws.s3.bucket_v2.BucketV2("exampleBucketV2")
+        example_flow_log = aws.ec2.flow_log.FlowLog("exampleFlowLog",
             log_destination=example_bucket_v2.arn,
-            log_destination_type="s3",
-            traffic_type="ALL",
-            vpc_id=aws_vpc["example"]["id"])
+            log_destination_type=s3,
+            traffic_type=ALL,
+            vpc_id=aws_vpc.example.id)
         ```
         ### S3 Logging in Apache Parquet format with per-hour partitions
 
@@ -759,16 +687,16 @@ class FlowLog(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
-        example_flow_log = aws.ec2.FlowLog("exampleFlowLog",
+        example_bucket_v2 = aws.s3.bucket_v2.BucketV2("exampleBucketV2")
+        example_flow_log = aws.ec2.flow_log.FlowLog("exampleFlowLog",
             log_destination=example_bucket_v2.arn,
-            log_destination_type="s3",
-            traffic_type="ALL",
-            vpc_id=aws_vpc["example"]["id"],
-            destination_options=aws.ec2.FlowLogDestinationOptionsArgs(
-                file_format="parquet",
-                per_hour_partition=True,
-            ))
+            log_destination_type=s3,
+            traffic_type=ALL,
+            vpc_id=aws_vpc.example.id,
+            destination_options={
+                fileFormat: parquet,
+                perHourPartition: True,
+            })
         ```
 
         ## Import

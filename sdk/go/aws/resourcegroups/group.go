@@ -20,16 +20,16 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/resourcegroups"
+//	resourcegroups/group "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/resourcegroups/group"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := resourcegroups/group.NewGroup(ctx, "test", &resourcegroups/group.GroupArgs{
+// ResourceQuery: map[string]interface{}{
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := resourcegroups.NewGroup(ctx, "test", &resourcegroups.GroupArgs{
-//				ResourceQuery: &resourcegroups.GroupResourceQueryArgs{
-//					Query: pulumi.String(`{
+//	"query": `{
 //	  "ResourceTypeFilters": [
 //	    "AWS::EC2::Instance"
 //	  ],
@@ -41,17 +41,15 @@ import (
 //	  ]
 //	}
 //
-// `),
-//
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// `,
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

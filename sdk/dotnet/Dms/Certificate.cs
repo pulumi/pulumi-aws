@@ -23,7 +23,7 @@ namespace Pulumi.Aws.Dms
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // Create a new certificate
-    ///     var test = new Aws.Dms.Certificate("test", new()
+    ///     var test = new Aws.Dms.Certificate.Certificate("test", new()
     ///     {
     ///         CertificateId = "test-dms-certificate-tf",
     ///         CertificatePem = "...",

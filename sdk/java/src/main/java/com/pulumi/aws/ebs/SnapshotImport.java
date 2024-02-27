@@ -31,8 +31,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.ebs.SnapshotImport;
  * import com.pulumi.aws.ebs.SnapshotImportArgs;
- * import com.pulumi.aws.ebs.inputs.SnapshotImportDiskContainerArgs;
- * import com.pulumi.aws.ebs.inputs.SnapshotImportDiskContainerUserBucketArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -47,15 +45,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new SnapshotImport(&#34;example&#34;, SnapshotImportArgs.builder()        
- *             .diskContainer(SnapshotImportDiskContainerArgs.builder()
- *                 .format(&#34;VHD&#34;)
- *                 .userBucket(SnapshotImportDiskContainerUserBucketArgs.builder()
- *                     .s3Bucket(&#34;disk-images&#34;)
- *                     .s3Key(&#34;source.vhd&#34;)
- *                     .build())
- *                 .build())
+ *             .diskContainer(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .roleName(&#34;disk-image-import&#34;)
- *             .tags(Map.of(&#34;Name&#34;, &#34;HelloWorld&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

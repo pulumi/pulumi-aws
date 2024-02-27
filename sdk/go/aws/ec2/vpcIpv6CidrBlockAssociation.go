@@ -23,30 +23,29 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	ec2/vpc "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/vpc"
+//	ec2/vpcIpv6CidrBlockAssociation "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/vpcIpv6CidrBlockAssociation"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testVpc, err := ec2.NewVpc(ctx, "testVpc", &ec2.VpcArgs{
-//				CidrBlock: pulumi.String("10.0.0.0/16"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ec2.NewVpcIpv6CidrBlockAssociation(ctx, "testVpcIpv6CidrBlockAssociation", &ec2.VpcIpv6CidrBlockAssociationArgs{
-//				Ipv6IpamPoolId: pulumi.Any(aws_vpc_ipam_pool.Test.Id),
-//				VpcId:          testVpc.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// testVpc, err := ec2/vpc.NewVpc(ctx, "testVpc", &ec2/vpc.VpcArgs{
+// CidrBlock: "10.0.0.0/16",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = ec2/vpcIpv6CidrBlockAssociation.NewVpcIpv6CidrBlockAssociation(ctx, "testVpcIpv6CidrBlockAssociation", &ec2/vpcIpv6CidrBlockAssociation.VpcIpv6CidrBlockAssociationArgs{
+// Ipv6IpamPoolId: aws_vpc_ipam_pool.Test.Id,
+// VpcId: testVpc.Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -107,12 +107,12 @@ class AuthenticationProfile(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        example = aws.redshift.AuthenticationProfile("example",
-            authentication_profile_name="example",
+        example = aws.redshift.authentication_profile.AuthenticationProfile("example",
+            authentication_profile_name=example,
             authentication_profile_content=json.dumps({
-                "AllowDBUserOverride": "1",
-                "Client_ID": "ExampleClientID",
-                "App_ID": "example",
+                AllowDBUserOverride: 1,
+                Client_ID: ExampleClientID,
+                App_ID: example,
             }))
         ```
 
@@ -145,12 +145,12 @@ class AuthenticationProfile(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        example = aws.redshift.AuthenticationProfile("example",
-            authentication_profile_name="example",
+        example = aws.redshift.authentication_profile.AuthenticationProfile("example",
+            authentication_profile_name=example,
             authentication_profile_content=json.dumps({
-                "AllowDBUserOverride": "1",
-                "Client_ID": "ExampleClientID",
-                "App_ID": "example",
+                AllowDBUserOverride: 1,
+                Client_ID: ExampleClientID,
+                App_ID: example,
             }))
         ```
 

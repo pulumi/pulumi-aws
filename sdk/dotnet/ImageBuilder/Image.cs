@@ -22,7 +22,7 @@ namespace Pulumi.Aws.ImageBuilder
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.ImageBuilder.Image("example", new()
+    ///     var example = new Aws.Imagebuilder.Image.Image("example", new()
     ///     {
     ///         DistributionConfigurationArn = aws_imagebuilder_distribution_configuration.Example.Arn,
     ///         ImageRecipeArn = aws_imagebuilder_image_recipe.Example.Arn,

@@ -41,7 +41,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.glue.Crawler;
  * import com.pulumi.aws.glue.CrawlerArgs;
- * import com.pulumi.aws.glue.inputs.CrawlerDynamodbTargetArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -58,9 +57,7 @@ import javax.annotation.Nullable;
  *         var example = new Crawler(&#34;example&#34;, CrawlerArgs.builder()        
  *             .databaseName(aws_glue_catalog_database.example().name())
  *             .role(aws_iam_role.example().arn())
- *             .dynamodbTargets(CrawlerDynamodbTargetArgs.builder()
- *                 .path(&#34;table-name&#34;)
- *                 .build())
+ *             .dynamodbTargets(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -75,7 +72,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.glue.Crawler;
  * import com.pulumi.aws.glue.CrawlerArgs;
- * import com.pulumi.aws.glue.inputs.CrawlerJdbcTargetArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -92,10 +88,7 @@ import javax.annotation.Nullable;
  *         var example = new Crawler(&#34;example&#34;, CrawlerArgs.builder()        
  *             .databaseName(aws_glue_catalog_database.example().name())
  *             .role(aws_iam_role.example().arn())
- *             .jdbcTargets(CrawlerJdbcTargetArgs.builder()
- *                 .connectionName(aws_glue_connection.example().name())
- *                 .path(&#34;database-name/%&#34;)
- *                 .build())
+ *             .jdbcTargets(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -110,7 +103,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.glue.Crawler;
  * import com.pulumi.aws.glue.CrawlerArgs;
- * import com.pulumi.aws.glue.inputs.CrawlerS3TargetArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -127,9 +119,7 @@ import javax.annotation.Nullable;
  *         var example = new Crawler(&#34;example&#34;, CrawlerArgs.builder()        
  *             .databaseName(aws_glue_catalog_database.example().name())
  *             .role(aws_iam_role.example().arn())
- *             .s3Targets(CrawlerS3TargetArgs.builder()
- *                 .path(String.format(&#34;s3://%s&#34;, aws_s3_bucket.example().bucket()))
- *                 .build())
+ *             .s3Targets(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -144,8 +134,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.glue.Crawler;
  * import com.pulumi.aws.glue.CrawlerArgs;
- * import com.pulumi.aws.glue.inputs.CrawlerCatalogTargetArgs;
- * import com.pulumi.aws.glue.inputs.CrawlerSchemaChangePolicyArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -162,13 +150,8 @@ import javax.annotation.Nullable;
  *         var example = new Crawler(&#34;example&#34;, CrawlerArgs.builder()        
  *             .databaseName(aws_glue_catalog_database.example().name())
  *             .role(aws_iam_role.example().arn())
- *             .catalogTargets(CrawlerCatalogTargetArgs.builder()
- *                 .databaseName(aws_glue_catalog_database.example().name())
- *                 .tables(aws_glue_catalog_table.example().name())
- *                 .build())
- *             .schemaChangePolicy(CrawlerSchemaChangePolicyArgs.builder()
- *                 .deleteBehavior(&#34;LOG&#34;)
- *                 .build())
+ *             .catalogTargets(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .schemaChangePolicy(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .configuration(&#34;&#34;&#34;
  * {
  *   &#34;Version&#34;:1.0,
@@ -191,7 +174,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.glue.Crawler;
  * import com.pulumi.aws.glue.CrawlerArgs;
- * import com.pulumi.aws.glue.inputs.CrawlerMongodbTargetArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -208,10 +190,7 @@ import javax.annotation.Nullable;
  *         var example = new Crawler(&#34;example&#34;, CrawlerArgs.builder()        
  *             .databaseName(aws_glue_catalog_database.example().name())
  *             .role(aws_iam_role.example().arn())
- *             .mongodbTargets(CrawlerMongodbTargetArgs.builder()
- *                 .connectionName(aws_glue_connection.example().name())
- *                 .path(&#34;database-name/%&#34;)
- *                 .build())
+ *             .mongodbTargets(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -226,7 +205,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.glue.Crawler;
  * import com.pulumi.aws.glue.CrawlerArgs;
- * import com.pulumi.aws.glue.inputs.CrawlerS3TargetArgs;
  * import static com.pulumi.codegen.internal.Serialization.*;
  * import java.util.List;
  * import java.util.ArrayList;
@@ -258,9 +236,7 @@ import javax.annotation.Nullable;
  *                     )),
  *                     jsonProperty(&#34;Version&#34;, 1)
  *                 )))
- *             .s3Targets(CrawlerS3TargetArgs.builder()
- *                 .path(String.format(&#34;s3://%s&#34;, aws_s3_bucket.data_lake_bucket().bucket()))
- *                 .build())
+ *             .s3Targets(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

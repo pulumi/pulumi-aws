@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.apprunner.Service("example", {
+ * const example = new aws.apprunner/service.Service("example", {
  *     serviceName: "example",
  *     sourceConfiguration: {
  *         authenticationConfiguration: {
@@ -57,7 +57,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.apprunner.Service("example", {
+ * const example = new aws.apprunner/service.Service("example", {
  *     serviceName: "example",
  *     sourceConfiguration: {
  *         autoDeploymentsEnabled: false,
@@ -80,13 +80,13 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleObservabilityConfiguration = new aws.apprunner.ObservabilityConfiguration("exampleObservabilityConfiguration", {
+ * const exampleObservabilityConfiguration = new aws.apprunner/observabilityConfiguration.ObservabilityConfiguration("exampleObservabilityConfiguration", {
  *     observabilityConfigurationName: "example",
  *     traceConfiguration: {
  *         vendor: "AWSXRAY",
  *     },
  * });
- * const exampleService = new aws.apprunner.Service("exampleService", {
+ * const exampleService = new aws.apprunner/service.Service("exampleService", {
  *     serviceName: "example",
  *     observabilityConfiguration: {
  *         observabilityConfigurationArn: exampleObservabilityConfiguration.arn,

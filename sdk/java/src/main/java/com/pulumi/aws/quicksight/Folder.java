@@ -59,7 +59,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.quicksight.Folder;
  * import com.pulumi.aws.quicksight.FolderArgs;
- * import com.pulumi.aws.quicksight.inputs.FolderPermissionArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -75,18 +74,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Folder(&#34;example&#34;, FolderArgs.builder()        
  *             .folderId(&#34;example-id&#34;)
- *             .permissions(FolderPermissionArgs.builder()
- *                 .actions(                
- *                     &#34;quicksight:CreateFolder&#34;,
- *                     &#34;quicksight:DescribeFolder&#34;,
- *                     &#34;quicksight:UpdateFolder&#34;,
- *                     &#34;quicksight:DeleteFolder&#34;,
- *                     &#34;quicksight:CreateFolderMembership&#34;,
- *                     &#34;quicksight:DeleteFolderMembership&#34;,
- *                     &#34;quicksight:DescribeFolderPermissions&#34;,
- *                     &#34;quicksight:UpdateFolderPermissions&#34;)
- *                 .principal(aws_quicksight_user.example().arn())
- *                 .build())
+ *             .permissions(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

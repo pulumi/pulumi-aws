@@ -162,7 +162,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.sfn.StateMachine;
  * import com.pulumi.aws.sfn.StateMachineArgs;
- * import com.pulumi.aws.sfn.inputs.StateMachineLoggingConfigurationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -191,11 +190,7 @@ import javax.annotation.Nullable;
  *   }
  * }
  * &#34;, aws_lambda_function.lambda().arn()))
- *             .loggingConfiguration(StateMachineLoggingConfigurationArgs.builder()
- *                 .logDestination(String.format(&#34;%s:*&#34;, aws_cloudwatch_log_group.log_group_for_sfn().arn()))
- *                 .includeExecutionData(true)
- *                 .level(&#34;ERROR&#34;)
- *                 .build())
+ *             .loggingConfiguration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

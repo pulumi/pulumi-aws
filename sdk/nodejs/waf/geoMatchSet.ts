@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const geoMatchSet = new aws.waf.GeoMatchSet("geoMatchSet", {geoMatchConstraints: [
+ * const geoMatchSet = new aws.waf/geoMatchSet.GeoMatchSet("geoMatchSet", {geoMatchConstraints: [
  *     {
  *         type: "Country",
  *         value: "US",

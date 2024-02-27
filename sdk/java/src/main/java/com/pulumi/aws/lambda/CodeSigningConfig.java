@@ -30,8 +30,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.lambda.CodeSigningConfig;
  * import com.pulumi.aws.lambda.CodeSigningConfigArgs;
- * import com.pulumi.aws.lambda.inputs.CodeSigningConfigAllowedPublishersArgs;
- * import com.pulumi.aws.lambda.inputs.CodeSigningConfigPoliciesArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -46,14 +44,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var newCsc = new CodeSigningConfig(&#34;newCsc&#34;, CodeSigningConfigArgs.builder()        
- *             .allowedPublishers(CodeSigningConfigAllowedPublishersArgs.builder()
- *                 .signingProfileVersionArns(                
- *                     aws_signer_signing_profile.example1().arn(),
- *                     aws_signer_signing_profile.example2().arn())
- *                 .build())
- *             .policies(CodeSigningConfigPoliciesArgs.builder()
- *                 .untrustedArtifactOnDeployment(&#34;Warn&#34;)
- *                 .build())
+ *             .allowedPublishers(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .policies(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .description(&#34;My awesome code signing config.&#34;)
  *             .build());
  * 

@@ -26,16 +26,16 @@ namespace Pulumi.Aws.Cfg
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var thisRule = new Aws.Cfg.Rule("thisRule", new()
+    ///     var thisRule = new Aws.Cfg.Rule.Rule("thisRule", new()
     ///     {
-    ///         Source = new Aws.Cfg.Inputs.RuleSourceArgs
+    ///         Source = 
     ///         {
-    ///             Owner = "AWS",
-    ///             SourceIdentifier = "S3_BUCKET_VERSIONING_ENABLED",
+    ///             { "owner", "AWS" },
+    ///             { "sourceIdentifier", "S3_BUCKET_VERSIONING_ENABLED" },
     ///         },
     ///     });
     /// 
-    ///     var thisRemediationConfiguration = new Aws.Cfg.RemediationConfiguration("thisRemediationConfiguration", new()
+    ///     var thisRemediationConfiguration = new Aws.Cfg.RemediationConfiguration.RemediationConfiguration("thisRemediationConfiguration", new()
     ///     {
     ///         ConfigRuleName = thisRule.Name,
     ///         ResourceType = "AWS::S3::Bucket",
@@ -44,32 +44,32 @@ namespace Pulumi.Aws.Cfg
     ///         TargetVersion = "1",
     ///         Parameters = new[]
     ///         {
-    ///             new Aws.Cfg.Inputs.RemediationConfigurationParameterArgs
+    ///             
     ///             {
-    ///                 Name = "AutomationAssumeRole",
-    ///                 StaticValue = "arn:aws:iam::875924563244:role/security_config",
+    ///                 { "name", "AutomationAssumeRole" },
+    ///                 { "staticValue", "arn:aws:iam::875924563244:role/security_config" },
     ///             },
-    ///             new Aws.Cfg.Inputs.RemediationConfigurationParameterArgs
+    ///             
     ///             {
-    ///                 Name = "BucketName",
-    ///                 ResourceValue = "RESOURCE_ID",
+    ///                 { "name", "BucketName" },
+    ///                 { "resourceValue", "RESOURCE_ID" },
     ///             },
-    ///             new Aws.Cfg.Inputs.RemediationConfigurationParameterArgs
+    ///             
     ///             {
-    ///                 Name = "SSEAlgorithm",
-    ///                 StaticValue = "AES256",
+    ///                 { "name", "SSEAlgorithm" },
+    ///                 { "staticValue", "AES256" },
     ///             },
     ///         },
     ///         Automatic = true,
     ///         MaximumAutomaticAttempts = 10,
     ///         RetryAttemptSeconds = 600,
-    ///         ExecutionControls = new Aws.Cfg.Inputs.RemediationConfigurationExecutionControlsArgs
+    ///         ExecutionControls = 
     ///         {
-    ///             SsmControls = new Aws.Cfg.Inputs.RemediationConfigurationExecutionControlsSsmControlsArgs
+    ///             { "ssmControls", 
     ///             {
-    ///                 ConcurrentExecutionRatePercentage = 25,
-    ///                 ErrorPercentage = 20,
-    ///             },
+    ///                 { "concurrentExecutionRatePercentage", 25 },
+    ///                 { "errorPercentage", 20 },
+    ///             } },
     ///         },
     ///     });
     /// 

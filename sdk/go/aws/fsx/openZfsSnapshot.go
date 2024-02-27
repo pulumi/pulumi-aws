@@ -23,34 +23,33 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/fsx"
+//	fsx/openZfsFileSystem "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/fsx/openZfsFileSystem"
+//	fsx/openZfsSnapshot "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/fsx/openZfsSnapshot"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleOpenZfsFileSystem, err := fsx.NewOpenZfsFileSystem(ctx, "exampleOpenZfsFileSystem", &fsx.OpenZfsFileSystemArgs{
-//				StorageCapacity: pulumi.Int(64),
-//				SubnetIds: pulumi.String{
-//					aws_subnet.Example.Id,
-//				},
-//				DeploymentType:     pulumi.String("SINGLE_AZ_1"),
-//				ThroughputCapacity: pulumi.Int(64),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = fsx.NewOpenZfsSnapshot(ctx, "exampleOpenZfsSnapshot", &fsx.OpenZfsSnapshotArgs{
-//				VolumeId: exampleOpenZfsFileSystem.RootVolumeId,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleOpenZfsFileSystem, err := fsx/openZfsFileSystem.NewOpenZfsFileSystem(ctx, "exampleOpenZfsFileSystem", &fsx/openZfsFileSystem.OpenZfsFileSystemArgs{
+// StorageCapacity: 64,
+// SubnetIds: []interface{}{
+// aws_subnet.Example.Id,
+// },
+// DeploymentType: "SINGLE_AZ_1",
+// ThroughputCapacity: 64,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = fsx/openZfsSnapshot.NewOpenZfsSnapshot(ctx, "exampleOpenZfsSnapshot", &fsx/openZfsSnapshot.OpenZfsSnapshotArgs{
+// VolumeId: exampleOpenZfsFileSystem.RootVolumeId,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Child volume Example
 //
@@ -59,40 +58,40 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/fsx"
+//	fsx/openZfsFileSystem "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/fsx/openZfsFileSystem"
+//	fsx/openZfsSnapshot "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/fsx/openZfsSnapshot"
+//	fsx/openZfsVolume "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/fsx/openZfsVolume"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleOpenZfsFileSystem, err := fsx.NewOpenZfsFileSystem(ctx, "exampleOpenZfsFileSystem", &fsx.OpenZfsFileSystemArgs{
-//				StorageCapacity: pulumi.Int(64),
-//				SubnetIds: pulumi.String{
-//					aws_subnet.Example.Id,
-//				},
-//				DeploymentType:     pulumi.String("SINGLE_AZ_1"),
-//				ThroughputCapacity: pulumi.Int(64),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleOpenZfsVolume, err := fsx.NewOpenZfsVolume(ctx, "exampleOpenZfsVolume", &fsx.OpenZfsVolumeArgs{
-//				ParentVolumeId: exampleOpenZfsFileSystem.RootVolumeId,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = fsx.NewOpenZfsSnapshot(ctx, "exampleOpenZfsSnapshot", &fsx.OpenZfsSnapshotArgs{
-//				VolumeId: exampleOpenZfsVolume.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleOpenZfsFileSystem, err := fsx/openZfsFileSystem.NewOpenZfsFileSystem(ctx, "exampleOpenZfsFileSystem", &fsx/openZfsFileSystem.OpenZfsFileSystemArgs{
+// StorageCapacity: 64,
+// SubnetIds: []interface{}{
+// aws_subnet.Example.Id,
+// },
+// DeploymentType: "SINGLE_AZ_1",
+// ThroughputCapacity: 64,
+// })
+// if err != nil {
+// return err
+// }
+// exampleOpenZfsVolume, err := fsx/openZfsVolume.NewOpenZfsVolume(ctx, "exampleOpenZfsVolume", &fsx/openZfsVolume.OpenZfsVolumeArgs{
+// ParentVolumeId: exampleOpenZfsFileSystem.RootVolumeId,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = fsx/openZfsSnapshot.NewOpenZfsSnapshot(ctx, "exampleOpenZfsSnapshot", &fsx/openZfsSnapshot.OpenZfsSnapshotArgs{
+// VolumeId: exampleOpenZfsVolume.Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -23,24 +23,23 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/elasticsearch"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	elasticsearch/domain "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/elasticsearch/domain"
+//	elasticsearch/domainPolicy "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/elasticsearch/domainPolicy"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := elasticsearch/domain.NewDomain(ctx, "example", &elasticsearch/domain.DomainArgs{
+// ElasticsearchVersion: "2.3",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = elasticsearch/domainPolicy.NewDomainPolicy(ctx, "main", &elasticsearch/domainPolicy.DomainPolicyArgs{
+// DomainName: example.DomainName,
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := elasticsearch.NewDomain(ctx, "example", &elasticsearch.DomainArgs{
-//				ElasticsearchVersion: pulumi.String("2.3"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = elasticsearch.NewDomainPolicy(ctx, "main", &elasticsearch.DomainPolicyArgs{
-//				DomainName: example.DomainName,
-//				AccessPolicies: example.Arn.ApplyT(func(arn string) (string, error) {
-//					return fmt.Sprintf(`{
+//	AccessPolicies: fmt.Sprintf(`{
 //	    "Version": "2012-10-17",
 //	    "Statement": [
 //	        {
@@ -55,17 +54,14 @@ import (
 //	    ]
 //	}
 //
-// `, arn), nil
-//
-//				}).(pulumi.StringOutput),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// `, example.Arn),
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 type DomainPolicy struct {
 	pulumi.CustomResourceState

@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleGroup = new aws.resourcegroups.Group("exampleGroup", {resourceQuery: {
+ * const exampleGroup = new aws.resourcegroups/group.Group("exampleGroup", {resourceQuery: {
  *     query: JSON.stringify({
  *         ResourceTypeFilters: ["AWS::EC2::Instance"],
  *         TagFilters: [{
@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  *         }],
  *     }),
  * }});
- * const exampleApplication = new aws.applicationinsights.Application("exampleApplication", {resourceGroupName: exampleGroup.name});
+ * const exampleApplication = new aws.applicationinsights/application.Application("exampleApplication", {resourceGroupName: exampleGroup.name});
  * ```
  *
  * ## Import

@@ -61,45 +61,6 @@ def get_billing_service_account(id: Optional[str] = None,
     """
     Use this data source to get the Account ID of the [AWS Billing and Cost Management Service Account](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-getting-started.html#step-2) for the purpose of permitting in S3 bucket policy.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    main = aws.get_billing_service_account()
-    billing_logs = aws.s3.BucketV2("billingLogs")
-    billing_logs_acl = aws.s3.BucketAclV2("billingLogsAcl",
-        bucket=billing_logs.id,
-        acl="private")
-    allow_billing_logging_policy_document = pulumi.Output.all(billing_logs.arn, billing_logs.arn).apply(lambda billingLogsArn, billingLogsArn1: aws.iam.get_policy_document_output(statements=[
-        aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="AWS",
-                identifiers=[main.arn],
-            )],
-            actions=[
-                "s3:GetBucketAcl",
-                "s3:GetBucketPolicy",
-            ],
-            resources=[billing_logs_arn],
-        ),
-        aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="AWS",
-                identifiers=[main.arn],
-            )],
-            actions=["s3:PutObject"],
-            resources=[f"{billing_logs_arn1}/*"],
-        ),
-    ]))
-    allow_billing_logging_bucket_policy = aws.s3.BucketPolicy("allowBillingLoggingBucketPolicy",
-        bucket=billing_logs.id,
-        policy=allow_billing_logging_policy_document.json)
-    ```
-
 
     :param str id: ID of the AWS billing service account.
     """
@@ -118,45 +79,6 @@ def get_billing_service_account_output(id: Optional[pulumi.Input[Optional[str]]]
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBillingServiceAccountResult]:
     """
     Use this data source to get the Account ID of the [AWS Billing and Cost Management Service Account](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-getting-started.html#step-2) for the purpose of permitting in S3 bucket policy.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    main = aws.get_billing_service_account()
-    billing_logs = aws.s3.BucketV2("billingLogs")
-    billing_logs_acl = aws.s3.BucketAclV2("billingLogsAcl",
-        bucket=billing_logs.id,
-        acl="private")
-    allow_billing_logging_policy_document = pulumi.Output.all(billing_logs.arn, billing_logs.arn).apply(lambda billingLogsArn, billingLogsArn1: aws.iam.get_policy_document_output(statements=[
-        aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="AWS",
-                identifiers=[main.arn],
-            )],
-            actions=[
-                "s3:GetBucketAcl",
-                "s3:GetBucketPolicy",
-            ],
-            resources=[billing_logs_arn],
-        ),
-        aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="AWS",
-                identifiers=[main.arn],
-            )],
-            actions=["s3:PutObject"],
-            resources=[f"{billing_logs_arn1}/*"],
-        ),
-    ]))
-    allow_billing_logging_bucket_policy = aws.s3.BucketPolicy("allowBillingLoggingBucketPolicy",
-        bucket=billing_logs.id,
-        policy=allow_billing_logging_policy_document.json)
-    ```
 
 
     :param str id: ID of the AWS billing service account.

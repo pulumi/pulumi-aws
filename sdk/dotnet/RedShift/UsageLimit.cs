@@ -22,7 +22,7 @@ namespace Pulumi.Aws.RedShift
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.RedShift.UsageLimit("example", new()
+    ///     var example = new Aws.Redshift.UsageLimit.UsageLimit("example", new()
     ///     {
     ///         ClusterIdentifier = aws_redshift_cluster.Example.Id,
     ///         FeatureType = "concurrency-scaling",

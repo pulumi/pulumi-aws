@@ -22,19 +22,19 @@ namespace Pulumi.Aws.ElasticTranscoder
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var bar = new Aws.ElasticTranscoder.Pipeline("bar", new()
+    ///     var bar = new Aws.Elastictranscoder.Pipeline.Pipeline("bar", new()
     ///     {
     ///         InputBucket = aws_s3_bucket.Input_bucket.Id,
     ///         Role = aws_iam_role.Test_role.Arn,
-    ///         ContentConfig = new Aws.ElasticTranscoder.Inputs.PipelineContentConfigArgs
+    ///         ContentConfig = 
     ///         {
-    ///             Bucket = aws_s3_bucket.Content_bucket.Id,
-    ///             StorageClass = "Standard",
+    ///             { "bucket", aws_s3_bucket.Content_bucket.Id },
+    ///             { "storageClass", "Standard" },
     ///         },
-    ///         ThumbnailConfig = new Aws.ElasticTranscoder.Inputs.PipelineThumbnailConfigArgs
+    ///         ThumbnailConfig = 
     ///         {
-    ///             Bucket = aws_s3_bucket.Thumb_bucket.Id,
-    ///             StorageClass = "Standard",
+    ///             { "bucket", aws_s3_bucket.Thumb_bucket.Id },
+    ///             { "storageClass", "Standard" },
     ///         },
     ///     });
     /// 

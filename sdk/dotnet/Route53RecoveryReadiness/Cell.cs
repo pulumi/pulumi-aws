@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Route53RecoveryReadiness
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Route53RecoveryReadiness.Cell("example", new()
+    ///     var example = new Aws.Route53recoveryreadiness.Cell.Cell("example", new()
     ///     {
     ///         CellName = "us-west-2-failover-cell",
     ///     });

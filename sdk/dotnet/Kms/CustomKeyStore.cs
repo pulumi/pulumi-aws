@@ -24,7 +24,7 @@ namespace Pulumi.Aws.Kms
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Aws.Kms.CustomKeyStore("test", new()
+    ///     var test = new Aws.Kms.CustomKeyStore.CustomKeyStore("test", new()
     ///     {
     ///         CloudHsmClusterId = @var.Cloud_hsm_cluster_id,
     ///         CustomKeyStoreName = "kms-custom-key-store-test",

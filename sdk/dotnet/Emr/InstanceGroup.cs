@@ -27,7 +27,7 @@ namespace Pulumi.Aws.Emr
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var task = new Aws.Emr.InstanceGroup("task", new()
+    ///     var task = new Aws.Emr.InstanceGroup.InstanceGroup("task", new()
     ///     {
     ///         ClusterId = aws_emr_cluster.Tf_test_cluster.Id,
     ///         InstanceCount = 1,
@@ -77,7 +77,7 @@ namespace Pulumi.Aws.Emr
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var task = new Aws.Emr.InstanceGroup("task", new()
+        ///     var task = new Aws.Emr.InstanceGroup.InstanceGroup("task", new()
         ///     {
         ///         ConfigurationsJson = @"[
         /// {
@@ -220,7 +220,7 @@ namespace Pulumi.Aws.Emr
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var task = new Aws.Emr.InstanceGroup("task", new()
+        ///     var task = new Aws.Emr.InstanceGroup.InstanceGroup("task", new()
         ///     {
         ///         ConfigurationsJson = @"[
         /// {
@@ -319,7 +319,7 @@ namespace Pulumi.Aws.Emr
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var task = new Aws.Emr.InstanceGroup("task", new()
+        ///     var task = new Aws.Emr.InstanceGroup.InstanceGroup("task", new()
         ///     {
         ///         ConfigurationsJson = @"[
         /// {

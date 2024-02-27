@@ -23,23 +23,23 @@ namespace Pulumi.Aws.ElastiCache
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.ElastiCache.ServerlessCache("example", new()
+    ///     var example = new Aws.Elasticache.ServerlessCache.ServerlessCache("example", new()
     ///     {
     ///         Engine = "memcached",
-    ///         CacheUsageLimits = new Aws.ElastiCache.Inputs.ServerlessCacheCacheUsageLimitsArgs
+    ///         CacheUsageLimits = 
     ///         {
-    ///             DataStorage = new Aws.ElastiCache.Inputs.ServerlessCacheCacheUsageLimitsDataStorageArgs
+    ///             { "dataStorage", 
     ///             {
-    ///                 Maximum = 10,
-    ///                 Unit = "GB",
-    ///             },
-    ///             EcpuPerSeconds = new[]
+    ///                 { "maximum", 10 },
+    ///                 { "unit", "GB" },
+    ///             } },
+    ///             { "ecpuPerSeconds", new[]
     ///             {
-    ///                 new Aws.ElastiCache.Inputs.ServerlessCacheCacheUsageLimitsEcpuPerSecondArgs
+    ///                 
     ///                 {
-    ///                     Maximum = 5,
+    ///                     { "maximum", 5 },
     ///                 },
-    ///             },
+    ///             } },
     ///         },
     ///         Description = "Test Server",
     ///         KmsKeyId = aws_kms_key.Test.Arn,
@@ -63,23 +63,23 @@ namespace Pulumi.Aws.ElastiCache
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.ElastiCache.ServerlessCache("example", new()
+    ///     var example = new Aws.Elasticache.ServerlessCache.ServerlessCache("example", new()
     ///     {
     ///         Engine = "redis",
-    ///         CacheUsageLimits = new Aws.ElastiCache.Inputs.ServerlessCacheCacheUsageLimitsArgs
+    ///         CacheUsageLimits = 
     ///         {
-    ///             DataStorage = new Aws.ElastiCache.Inputs.ServerlessCacheCacheUsageLimitsDataStorageArgs
+    ///             { "dataStorage", 
     ///             {
-    ///                 Maximum = 10,
-    ///                 Unit = "GB",
-    ///             },
-    ///             EcpuPerSeconds = new[]
+    ///                 { "maximum", 10 },
+    ///                 { "unit", "GB" },
+    ///             } },
+    ///             { "ecpuPerSeconds", new[]
     ///             {
-    ///                 new Aws.ElastiCache.Inputs.ServerlessCacheCacheUsageLimitsEcpuPerSecondArgs
+    ///                 
     ///                 {
-    ///                     Maximum = 5,
+    ///                     { "maximum", 5 },
     ///                 },
-    ///             },
+    ///             } },
     ///         },
     ///         DailySnapshotTime = "09:00",
     ///         Description = "Test Server",

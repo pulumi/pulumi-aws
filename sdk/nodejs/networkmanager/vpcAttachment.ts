@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.networkmanager.VpcAttachment("example", {
+ * const example = new aws.networkmanager/vpcAttachment.VpcAttachment("example", {
  *     subnetArns: [aws_subnet.example.arn],
  *     coreNetworkId: awscc_networkmanager_core_network.example.id,
  *     vpcArn: aws_vpc.example.arn,

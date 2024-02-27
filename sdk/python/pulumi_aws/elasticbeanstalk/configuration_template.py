@@ -255,10 +255,10 @@ class ConfigurationTemplate(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        tftest = aws.elasticbeanstalk.Application("tftest", description="tf-test-desc")
-        my_template = aws.elasticbeanstalk.ConfigurationTemplate("myTemplate",
+        tftest = aws.elasticbeanstalk.application.Application("tftest", description=tf-test-desc)
+        my_template = aws.elasticbeanstalk.configuration_template.ConfigurationTemplate("myTemplate",
             application=tftest.name,
-            solution_stack_name="64bit Amazon Linux 2015.09 v2.0.8 running Go 1.4")
+            solution_stack_name=64bit Amazon Linux 2015.09 v2.0.8 running Go 1.4)
         ```
         ## Option Settings
 
@@ -298,10 +298,10 @@ class ConfigurationTemplate(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        tftest = aws.elasticbeanstalk.Application("tftest", description="tf-test-desc")
-        my_template = aws.elasticbeanstalk.ConfigurationTemplate("myTemplate",
+        tftest = aws.elasticbeanstalk.application.Application("tftest", description=tf-test-desc)
+        my_template = aws.elasticbeanstalk.configuration_template.ConfigurationTemplate("myTemplate",
             application=tftest.name,
-            solution_stack_name="64bit Amazon Linux 2015.09 v2.0.8 running Go 1.4")
+            solution_stack_name=64bit Amazon Linux 2015.09 v2.0.8 running Go 1.4)
         ```
         ## Option Settings
 

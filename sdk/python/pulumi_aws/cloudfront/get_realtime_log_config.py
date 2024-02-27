@@ -107,15 +107,6 @@ def get_realtime_log_config(name: Optional[str] = None,
     """
     Provides a CloudFront real-time log configuration resource.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.cloudfront.get_realtime_log_config(name="example")
-    ```
-
 
     :param str name: Unique name to identify this real-time log configuration.
     """
@@ -138,15 +129,6 @@ def get_realtime_log_config_output(name: Optional[pulumi.Input[str]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRealtimeLogConfigResult]:
     """
     Provides a CloudFront real-time log configuration resource.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.cloudfront.get_realtime_log_config(name="example")
-    ```
 
 
     :param str name: Unique name to identify this real-time log configuration.

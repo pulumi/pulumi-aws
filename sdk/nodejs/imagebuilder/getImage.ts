@@ -11,16 +11,6 @@ import * as utilities from "../utilities";
  * Provides details about an Image Builder Image.
  *
  * ## Example Usage
- * ### Latest
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.imagebuilder.getImage({
- *     arn: "arn:aws:imagebuilder:us-west-2:aws:image/amazon-linux-2-x86/x.x.x",
- * });
- * ```
  */
 export function getImage(args: GetImageArgs, opts?: pulumi.InvokeOptions): Promise<GetImageResult> {
 
@@ -119,16 +109,6 @@ export interface GetImageResult {
  * Provides details about an Image Builder Image.
  *
  * ## Example Usage
- * ### Latest
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.imagebuilder.getImage({
- *     arn: "arn:aws:imagebuilder:us-west-2:aws:image/amazon-linux-2-x86/x.x.x",
- * });
- * ```
  */
 export function getImageOutput(args: GetImageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetImageResult> {
     return pulumi.output(args).apply((a: any) => getImage(a, opts))

@@ -14,12 +14,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleKey = new aws.kms.Key("exampleKey", {
+ * const exampleKey = new aws.kms/key.Key("exampleKey", {
  *     description: "Example KMS Key",
  *     deletionWindowInDays: 7,
  * });
- * const exampleKxEnvironment = new aws.finspace.KxEnvironment("exampleKxEnvironment", {kmsKeyId: exampleKey.arn});
- * const exampleRole = new aws.iam.Role("exampleRole", {assumeRolePolicy: JSON.stringify({
+ * const exampleKxEnvironment = new aws.finspace/kxEnvironment.KxEnvironment("exampleKxEnvironment", {kmsKeyId: exampleKey.arn});
+ * const exampleRole = new aws.iam/role.Role("exampleRole", {assumeRolePolicy: JSON.stringify({
  *     Version: "2012-10-17",
  *     Statement: [{
  *         Action: "sts:AssumeRole",
@@ -30,7 +30,7 @@ import * as utilities from "../utilities";
  *         },
  *     }],
  * })});
- * const exampleKxUser = new aws.finspace.KxUser("exampleKxUser", {
+ * const exampleKxUser = new aws.finspace/kxUser.KxUser("exampleKxUser", {
  *     environmentId: exampleKxEnvironment.id,
  *     iamRole: exampleRole.arn,
  * });

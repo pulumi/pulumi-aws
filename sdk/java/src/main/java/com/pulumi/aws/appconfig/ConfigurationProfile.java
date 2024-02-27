@@ -29,7 +29,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.appconfig.ConfigurationProfile;
  * import com.pulumi.aws.appconfig.ConfigurationProfileArgs;
- * import com.pulumi.aws.appconfig.inputs.ConfigurationProfileValidatorArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -47,11 +46,8 @@ import javax.annotation.Nullable;
  *             .applicationId(aws_appconfig_application.example().id())
  *             .description(&#34;Example Configuration Profile&#34;)
  *             .locationUri(&#34;hosted&#34;)
- *             .validators(ConfigurationProfileValidatorArgs.builder()
- *                 .content(aws_lambda_function.example().arn())
- *                 .type(&#34;LAMBDA&#34;)
- *                 .build())
- *             .tags(Map.of(&#34;Type&#34;, &#34;AppConfig Configuration Profile&#34;))
+ *             .validators(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

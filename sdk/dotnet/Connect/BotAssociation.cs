@@ -26,89 +26,13 @@ namespace Pulumi.Aws.Connect
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Connect.BotAssociation("example", new()
+    ///     var example = new Aws.Connect.BotAssociation.BotAssociation("example", new()
     ///     {
     ///         InstanceId = aws_connect_instance.Example.Id,
-    ///         LexBot = new Aws.Connect.Inputs.BotAssociationLexBotArgs
+    ///         LexBot = 
     ///         {
-    ///             LexRegion = "us-west-2",
-    ///             Name = "Test",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### Including a sample Lex bot
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var current = Aws.GetRegion.Invoke();
-    /// 
-    ///     var exampleIntent = new Aws.Lex.Intent("exampleIntent", new()
-    ///     {
-    ///         CreateVersion = true,
-    ///         Name = "connect_lex_intent",
-    ///         FulfillmentActivity = new Aws.Lex.Inputs.IntentFulfillmentActivityArgs
-    ///         {
-    ///             Type = "ReturnIntent",
-    ///         },
-    ///         SampleUtterances = new[]
-    ///         {
-    ///             "I would like to pick up flowers.",
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleBot = new Aws.Lex.Bot("exampleBot", new()
-    ///     {
-    ///         AbortStatement = new Aws.Lex.Inputs.BotAbortStatementArgs
-    ///         {
-    ///             Messages = new[]
-    ///             {
-    ///                 new Aws.Lex.Inputs.BotAbortStatementMessageArgs
-    ///                 {
-    ///                     Content = "Sorry, I am not able to assist at this time.",
-    ///                     ContentType = "PlainText",
-    ///                 },
-    ///             },
-    ///         },
-    ///         ClarificationPrompt = new Aws.Lex.Inputs.BotClarificationPromptArgs
-    ///         {
-    ///             MaxAttempts = 2,
-    ///             Messages = new[]
-    ///             {
-    ///                 new Aws.Lex.Inputs.BotClarificationPromptMessageArgs
-    ///                 {
-    ///                     Content = "I didn't understand you, what would you like to do?",
-    ///                     ContentType = "PlainText",
-    ///                 },
-    ///             },
-    ///         },
-    ///         Intents = new[]
-    ///         {
-    ///             new Aws.Lex.Inputs.BotIntentArgs
-    ///             {
-    ///                 IntentName = exampleIntent.Name,
-    ///                 IntentVersion = "1",
-    ///             },
-    ///         },
-    ///         ChildDirected = false,
-    ///         Name = "connect_lex_bot",
-    ///         ProcessBehavior = "BUILD",
-    ///     });
-    /// 
-    ///     var exampleBotAssociation = new Aws.Connect.BotAssociation("exampleBotAssociation", new()
-    ///     {
-    ///         InstanceId = aws_connect_instance.Example.Id,
-    ///         LexBot = new Aws.Connect.Inputs.BotAssociationLexBotArgs
-    ///         {
-    ///             LexRegion = current.Apply(getRegionResult =&gt; getRegionResult.Name),
-    ///             Name = exampleBot.Name,
+    ///             { "lexRegion", "us-west-2" },
+    ///             { "name", "Test" },
     ///         },
     ///     });
     /// 

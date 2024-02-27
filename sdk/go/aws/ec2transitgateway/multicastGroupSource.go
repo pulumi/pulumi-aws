@@ -22,25 +22,23 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2transitgateway"
+//	ec2transitgateway/multicastGroupSource "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2transitgateway/multicastGroupSource"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2transitgateway.NewMulticastGroupSource(ctx, "example", &ec2transitgateway.MulticastGroupSourceArgs{
-//				GroupIpAddress:                  pulumi.String("224.0.0.1"),
-//				NetworkInterfaceId:              pulumi.Any(aws_network_interface.Example.Id),
-//				TransitGatewayMulticastDomainId: pulumi.Any(aws_ec2_transit_gateway_multicast_domain.Example.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := ec2transitgateway/multicastGroupSource.NewMulticastGroupSource(ctx, "example", &ec2transitgateway/multicastGroupSource.MulticastGroupSourceArgs{
+// GroupIpAddress: "224.0.0.1",
+// NetworkInterfaceId: aws_network_interface.Example.Id,
+// TransitGatewayMulticastDomainId: aws_ec2_transit_gateway_multicast_domain.Example.Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 type MulticastGroupSource struct {
 	pulumi.CustomResourceState

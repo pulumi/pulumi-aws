@@ -236,22 +236,6 @@ class Disk(pulumi.CustomResource):
         """
         Provides a Lightsail Disk resource.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        available = aws.get_availability_zones(state="available",
-            filters=[aws.GetAvailabilityZonesFilterArgs(
-                name="opt-in-status",
-                values=["opt-in-not-required"],
-            )])
-        test = aws.lightsail.Disk("test",
-            size_in_gb=8,
-            availability_zone=available.names[0])
-        ```
-
         ## Import
 
         Using `pulumi import`, import `aws_lightsail_disk` using the name attribute. For example:
@@ -275,22 +259,6 @@ class Disk(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Lightsail Disk resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        available = aws.get_availability_zones(state="available",
-            filters=[aws.GetAvailabilityZonesFilterArgs(
-                name="opt-in-status",
-                values=["opt-in-not-required"],
-            )])
-        test = aws.lightsail.Disk("test",
-            size_in_gb=8,
-            availability_zone=available.names[0])
-        ```
 
         ## Import
 

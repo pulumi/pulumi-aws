@@ -335,7 +335,7 @@ class Zone(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        primary = aws.route53.Zone("primary")
+        primary = aws.route53.zone.Zone("primary")
         ```
         ### Public Subdomain Zone
 
@@ -347,14 +347,14 @@ class Zone(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        main = aws.route53.Zone("main")
-        dev = aws.route53.Zone("dev", tags={
-            "Environment": "dev",
+        main = aws.route53.zone.Zone("main")
+        dev = aws.route53.zone.Zone("dev", tags={
+            Environment: dev,
         })
-        dev_ns = aws.route53.Record("dev-ns",
+        dev_ns = aws.route53.record.Record("dev-ns",
             zone_id=main.zone_id,
-            name="dev.example.com",
-            type="NS",
+            name=dev.example.com,
+            type=NS,
             ttl=30,
             records=dev.name_servers)
         ```
@@ -368,9 +368,9 @@ class Zone(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        private = aws.route53.Zone("private", vpcs=[aws.route53.ZoneVpcArgs(
-            vpc_id=aws_vpc["example"]["id"],
-        )])
+        private = aws.route53.zone.Zone("private", vpcs=[{
+            vpcId: aws_vpc.example.id,
+        }])
         ```
 
         ## Import
@@ -406,7 +406,7 @@ class Zone(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        primary = aws.route53.Zone("primary")
+        primary = aws.route53.zone.Zone("primary")
         ```
         ### Public Subdomain Zone
 
@@ -418,14 +418,14 @@ class Zone(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        main = aws.route53.Zone("main")
-        dev = aws.route53.Zone("dev", tags={
-            "Environment": "dev",
+        main = aws.route53.zone.Zone("main")
+        dev = aws.route53.zone.Zone("dev", tags={
+            Environment: dev,
         })
-        dev_ns = aws.route53.Record("dev-ns",
+        dev_ns = aws.route53.record.Record("dev-ns",
             zone_id=main.zone_id,
-            name="dev.example.com",
-            type="NS",
+            name=dev.example.com,
+            type=NS,
             ttl=30,
             records=dev.name_servers)
         ```
@@ -439,9 +439,9 @@ class Zone(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        private = aws.route53.Zone("private", vpcs=[aws.route53.ZoneVpcArgs(
-            vpc_id=aws_vpc["example"]["id"],
-        )])
+        private = aws.route53.zone.Zone("private", vpcs=[{
+            vpcId: aws_vpc.example.id,
+        }])
         ```
 
         ## Import

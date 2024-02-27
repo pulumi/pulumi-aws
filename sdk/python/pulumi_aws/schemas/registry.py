@@ -181,7 +181,7 @@ class Registry(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.schemas.Registry("test", description="A custom schema registry")
+        test = aws.schemas.registry.Registry("test", description=A custom schema registry)
         ```
 
         ## Import
@@ -215,7 +215,7 @@ class Registry(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.schemas.Registry("test", description="A custom schema registry")
+        test = aws.schemas.registry.Registry("test", description=A custom schema registry)
         ```
 
         ## Import

@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.organizations.ResourcePolicy("example", {content: `{
+ * const example = new aws.organizations/resourcePolicy.ResourcePolicy("example", {content: `{
  *   "Version": "2012-10-17",
  *   "Statement": [
  *     {

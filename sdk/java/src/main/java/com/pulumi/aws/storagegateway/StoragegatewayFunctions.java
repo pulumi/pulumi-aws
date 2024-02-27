@@ -17,74 +17,12 @@ public final class StoragegatewayFunctions {
     /**
      * Retrieve information about a Storage Gateway local disk. The disk identifier is useful for adding the disk as a cache or upload buffer to a gateway.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.storagegateway.StoragegatewayFunctions;
-     * import com.pulumi.aws.storagegateway.inputs.GetLocalDiskArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = StoragegatewayFunctions.getLocalDisk(GetLocalDiskArgs.builder()
-     *             .diskPath(aws_volume_attachment.test().device_name())
-     *             .gatewayArn(aws_storagegateway_gateway.test().arn())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetLocalDiskResult> getLocalDisk(GetLocalDiskArgs args) {
         return getLocalDisk(args, InvokeOptions.Empty);
     }
     /**
      * Retrieve information about a Storage Gateway local disk. The disk identifier is useful for adding the disk as a cache or upload buffer to a gateway.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.storagegateway.StoragegatewayFunctions;
-     * import com.pulumi.aws.storagegateway.inputs.GetLocalDiskArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = StoragegatewayFunctions.getLocalDisk(GetLocalDiskArgs.builder()
-     *             .diskPath(aws_volume_attachment.test().device_name())
-     *             .gatewayArn(aws_storagegateway_gateway.test().arn())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetLocalDiskResult> getLocalDiskPlain(GetLocalDiskPlainArgs args) {
@@ -93,74 +31,12 @@ public final class StoragegatewayFunctions {
     /**
      * Retrieve information about a Storage Gateway local disk. The disk identifier is useful for adding the disk as a cache or upload buffer to a gateway.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.storagegateway.StoragegatewayFunctions;
-     * import com.pulumi.aws.storagegateway.inputs.GetLocalDiskArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = StoragegatewayFunctions.getLocalDisk(GetLocalDiskArgs.builder()
-     *             .diskPath(aws_volume_attachment.test().device_name())
-     *             .gatewayArn(aws_storagegateway_gateway.test().arn())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetLocalDiskResult> getLocalDisk(GetLocalDiskArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:storagegateway/getLocalDisk:getLocalDisk", TypeShape.of(GetLocalDiskResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Retrieve information about a Storage Gateway local disk. The disk identifier is useful for adding the disk as a cache or upload buffer to a gateway.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.storagegateway.StoragegatewayFunctions;
-     * import com.pulumi.aws.storagegateway.inputs.GetLocalDiskArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var test = StoragegatewayFunctions.getLocalDisk(GetLocalDiskArgs.builder()
-     *             .diskPath(aws_volume_attachment.test().device_name())
-     *             .gatewayArn(aws_storagegateway_gateway.test().arn())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetLocalDiskResult> getLocalDiskPlain(GetLocalDiskPlainArgs args, InvokeOptions options) {

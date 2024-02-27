@@ -163,25 +163,6 @@ def get_key_pair(filters: Optional[Sequence[pulumi.InputType['GetKeyPairFilterAr
     """
     Use this data source to get information about a specific EC2 Key Pair.
 
-    ## Example Usage
-
-    The following example shows how to get a EC2 Key Pair including the public key material from its name.
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ec2.get_key_pair(key_name="test",
-        include_public_key=True,
-        filters=[aws.ec2.GetKeyPairFilterArgs(
-            name="tag:Component",
-            values=["web"],
-        )])
-    pulumi.export("fingerprint", example.fingerprint)
-    pulumi.export("name", example.key_name)
-    pulumi.export("id", example.id)
-    ```
-
 
     :param Sequence[pulumi.InputType['GetKeyPairFilterArgs']] filters: Custom filter block as described below.
     :param bool include_public_key: Whether to include the public key material in the response.
@@ -221,25 +202,6 @@ def get_key_pair_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetKeyPairResult]:
     """
     Use this data source to get information about a specific EC2 Key Pair.
-
-    ## Example Usage
-
-    The following example shows how to get a EC2 Key Pair including the public key material from its name.
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ec2.get_key_pair(key_name="test",
-        include_public_key=True,
-        filters=[aws.ec2.GetKeyPairFilterArgs(
-            name="tag:Component",
-            values=["web"],
-        )])
-    pulumi.export("fingerprint", example.fingerprint)
-    pulumi.export("name", example.key_name)
-    pulumi.export("id", example.id)
-    ```
 
 
     :param Sequence[pulumi.InputType['GetKeyPairFilterArgs']] filters: Custom filter block as described below.

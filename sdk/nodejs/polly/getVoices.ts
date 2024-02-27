@@ -11,24 +11,6 @@ import * as utilities from "../utilities";
  * Data source for managing an AWS Polly Voices.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.polly.getVoices({});
- * ```
- * ### With Language Code
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.polly.getVoices({
- *     languageCode: "en-GB",
- * });
- * ```
  */
 export function getVoices(args?: GetVoicesArgs, opts?: pulumi.InvokeOptions): Promise<GetVoicesResult> {
     args = args || {};
@@ -87,24 +69,6 @@ export interface GetVoicesResult {
  * Data source for managing an AWS Polly Voices.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.polly.getVoices({});
- * ```
- * ### With Language Code
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.polly.getVoices({
- *     languageCode: "en-GB",
- * });
- * ```
  */
 export function getVoicesOutput(args?: GetVoicesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVoicesResult> {
     return pulumi.output(args).apply((a: any) => getVoices(a, opts))

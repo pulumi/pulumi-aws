@@ -531,43 +531,43 @@ class JobDefinition(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        test = aws.batch.JobDefinition("test",
-            type="container",
+        test = aws.batch.job_definition.JobDefinition("test",
+            type=container,
             container_properties=json.dumps({
-                "command": [
-                    "ls",
-                    "-la",
+                command: [
+                    ls,
+                    -la,
                 ],
-                "image": "busybox",
-                "resourceRequirements": [
+                image: busybox,
+                resourceRequirements: [
                     {
-                        "type": "VCPU",
-                        "value": "0.25",
+                        type: VCPU,
+                        value: 0.25,
                     },
                     {
-                        "type": "MEMORY",
-                        "value": "512",
+                        type: MEMORY,
+                        value: 512,
                     },
                 ],
-                "volumes": [{
-                    "host": {
-                        "sourcePath": "/tmp",
+                volumes: [{
+                    host: {
+                        sourcePath: /tmp,
                     },
-                    "name": "tmp",
+                    name: tmp,
                 }],
-                "environment": [{
-                    "name": "VARNAME",
-                    "value": "VARVAL",
+                environment: [{
+                    name: VARNAME,
+                    value: VARVAL,
                 }],
-                "mountPoints": [{
-                    "sourceVolume": "tmp",
-                    "containerPath": "/tmp",
-                    "readOnly": False,
+                mountPoints: [{
+                    sourceVolume: tmp,
+                    containerPath: /tmp,
+                    readOnly: False,
                 }],
-                "ulimits": [{
-                    "hardLimit": 1024,
-                    "name": "nofile",
-                    "softLimit": 1024,
+                ulimits: [{
+                    hardLimit: 1024,
+                    name: nofile,
+                    softLimit: 1024,
                 }],
             }))
         ```
@@ -578,82 +578,70 @@ class JobDefinition(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        test = aws.batch.JobDefinition("test",
-            type="multinode",
+        test = aws.batch.job_definition.JobDefinition("test",
+            type=multinode,
             node_properties=json.dumps({
-                "mainNode": 0,
-                "nodeRangeProperties": [
+                mainNode: 0,
+                nodeRangeProperties: [
                     {
-                        "container": {
-                            "command": [
-                                "ls",
-                                "-la",
+                        container: {
+                            command: [
+                                ls,
+                                -la,
                             ],
-                            "image": "busybox",
-                            "memory": 128,
-                            "vcpus": 1,
+                            image: busybox,
+                            memory: 128,
+                            vcpus: 1,
                         },
-                        "targetNodes": "0:",
+                        targetNodes: 0:,
                     },
                     {
-                        "container": {
-                            "command": [
-                                "echo",
-                                "test",
+                        container: {
+                            command: [
+                                echo,
+                                test,
                             ],
-                            "image": "busybox",
-                            "memory": 128,
-                            "vcpus": 1,
+                            image: busybox,
+                            memory: 128,
+                            vcpus: 1,
                         },
-                        "targetNodes": "1:",
+                        targetNodes: 1:,
                     },
                 ],
-                "numNodes": 2,
+                numNodes: 2,
             }))
         ```
-        ### Fargate Platform Capability
+        ### Job Definitionn of type EKS
 
         ```python
         import pulumi
-        import json
         import pulumi_aws as aws
 
-        assume_role_policy = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            actions=["sts:AssumeRole"],
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["ecs-tasks.amazonaws.com"],
-            )],
-        )])
-        ecs_task_execution_role = aws.iam.Role("ecsTaskExecutionRole", assume_role_policy=assume_role_policy.json)
-        ecs_task_execution_role_policy = aws.iam.RolePolicyAttachment("ecsTaskExecutionRolePolicy",
-            role=ecs_task_execution_role.name,
-            policy_arn="arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy")
-        test = aws.batch.JobDefinition("test",
-            type="container",
-            platform_capabilities=["FARGATE"],
-            container_properties=ecs_task_execution_role.arn.apply(lambda arn: json.dumps({
-                "command": [
-                    "echo",
-                    "test",
-                ],
-                "image": "busybox",
-                "jobRoleArn": "arn:aws:iam::123456789012:role/AWSBatchS3ReadOnly",
-                "fargatePlatformConfiguration": {
-                    "platformVersion": "LATEST",
+        test = aws.batch.job_definition.JobDefinition("test",
+            eks_properties={
+                podProperties: {
+                    containers: {
+                        command: [
+                            sleep,
+                            60,
+                        ],
+                        image: public.ecr.aws/amazonlinux/amazonlinux:1,
+                        resources: {
+                            limits: {
+                                cpu: 1,
+                                memory: 1024Mi,
+                            },
+                        },
+                    },
+                    hostNetwork: True,
+                    metadata: {
+                        labels: {
+                            environment: test,
+                        },
+                    },
                 },
-                "resourceRequirements": [
-                    {
-                        "type": "VCPU",
-                        "value": "0.25",
-                    },
-                    {
-                        "type": "MEMORY",
-                        "value": "512",
-                    },
-                ],
-                "executionRoleArn": arn,
-            })))
+            },
+            type=container)
         ```
 
         ## Import
@@ -701,43 +689,43 @@ class JobDefinition(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        test = aws.batch.JobDefinition("test",
-            type="container",
+        test = aws.batch.job_definition.JobDefinition("test",
+            type=container,
             container_properties=json.dumps({
-                "command": [
-                    "ls",
-                    "-la",
+                command: [
+                    ls,
+                    -la,
                 ],
-                "image": "busybox",
-                "resourceRequirements": [
+                image: busybox,
+                resourceRequirements: [
                     {
-                        "type": "VCPU",
-                        "value": "0.25",
+                        type: VCPU,
+                        value: 0.25,
                     },
                     {
-                        "type": "MEMORY",
-                        "value": "512",
+                        type: MEMORY,
+                        value: 512,
                     },
                 ],
-                "volumes": [{
-                    "host": {
-                        "sourcePath": "/tmp",
+                volumes: [{
+                    host: {
+                        sourcePath: /tmp,
                     },
-                    "name": "tmp",
+                    name: tmp,
                 }],
-                "environment": [{
-                    "name": "VARNAME",
-                    "value": "VARVAL",
+                environment: [{
+                    name: VARNAME,
+                    value: VARVAL,
                 }],
-                "mountPoints": [{
-                    "sourceVolume": "tmp",
-                    "containerPath": "/tmp",
-                    "readOnly": False,
+                mountPoints: [{
+                    sourceVolume: tmp,
+                    containerPath: /tmp,
+                    readOnly: False,
                 }],
-                "ulimits": [{
-                    "hardLimit": 1024,
-                    "name": "nofile",
-                    "softLimit": 1024,
+                ulimits: [{
+                    hardLimit: 1024,
+                    name: nofile,
+                    softLimit: 1024,
                 }],
             }))
         ```
@@ -748,82 +736,70 @@ class JobDefinition(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        test = aws.batch.JobDefinition("test",
-            type="multinode",
+        test = aws.batch.job_definition.JobDefinition("test",
+            type=multinode,
             node_properties=json.dumps({
-                "mainNode": 0,
-                "nodeRangeProperties": [
+                mainNode: 0,
+                nodeRangeProperties: [
                     {
-                        "container": {
-                            "command": [
-                                "ls",
-                                "-la",
+                        container: {
+                            command: [
+                                ls,
+                                -la,
                             ],
-                            "image": "busybox",
-                            "memory": 128,
-                            "vcpus": 1,
+                            image: busybox,
+                            memory: 128,
+                            vcpus: 1,
                         },
-                        "targetNodes": "0:",
+                        targetNodes: 0:,
                     },
                     {
-                        "container": {
-                            "command": [
-                                "echo",
-                                "test",
+                        container: {
+                            command: [
+                                echo,
+                                test,
                             ],
-                            "image": "busybox",
-                            "memory": 128,
-                            "vcpus": 1,
+                            image: busybox,
+                            memory: 128,
+                            vcpus: 1,
                         },
-                        "targetNodes": "1:",
+                        targetNodes: 1:,
                     },
                 ],
-                "numNodes": 2,
+                numNodes: 2,
             }))
         ```
-        ### Fargate Platform Capability
+        ### Job Definitionn of type EKS
 
         ```python
         import pulumi
-        import json
         import pulumi_aws as aws
 
-        assume_role_policy = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            actions=["sts:AssumeRole"],
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["ecs-tasks.amazonaws.com"],
-            )],
-        )])
-        ecs_task_execution_role = aws.iam.Role("ecsTaskExecutionRole", assume_role_policy=assume_role_policy.json)
-        ecs_task_execution_role_policy = aws.iam.RolePolicyAttachment("ecsTaskExecutionRolePolicy",
-            role=ecs_task_execution_role.name,
-            policy_arn="arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy")
-        test = aws.batch.JobDefinition("test",
-            type="container",
-            platform_capabilities=["FARGATE"],
-            container_properties=ecs_task_execution_role.arn.apply(lambda arn: json.dumps({
-                "command": [
-                    "echo",
-                    "test",
-                ],
-                "image": "busybox",
-                "jobRoleArn": "arn:aws:iam::123456789012:role/AWSBatchS3ReadOnly",
-                "fargatePlatformConfiguration": {
-                    "platformVersion": "LATEST",
+        test = aws.batch.job_definition.JobDefinition("test",
+            eks_properties={
+                podProperties: {
+                    containers: {
+                        command: [
+                            sleep,
+                            60,
+                        ],
+                        image: public.ecr.aws/amazonlinux/amazonlinux:1,
+                        resources: {
+                            limits: {
+                                cpu: 1,
+                                memory: 1024Mi,
+                            },
+                        },
+                    },
+                    hostNetwork: True,
+                    metadata: {
+                        labels: {
+                            environment: test,
+                        },
+                    },
                 },
-                "resourceRequirements": [
-                    {
-                        "type": "VCPU",
-                        "value": "0.25",
-                    },
-                    {
-                        "type": "MEMORY",
-                        "value": "512",
-                    },
-                ],
-                "executionRoleArn": arn,
-            })))
+            },
+            type=container)
         ```
 
         ## Import

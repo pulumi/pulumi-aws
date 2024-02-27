@@ -22,28 +22,28 @@ namespace Pulumi.Aws.Waf
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var ipset = new Aws.Waf.IpSet("ipset", new()
+    ///     var ipset = new Aws.Waf.IpSet.IpSet("ipset", new()
     ///     {
     ///         IpSetDescriptors = new[]
     ///         {
-    ///             new Aws.Waf.Inputs.IpSetIpSetDescriptorArgs
+    ///             
     ///             {
-    ///                 Type = "IPV4",
-    ///                 Value = "192.0.7.0/24",
+    ///                 { "type", "IPV4" },
+    ///                 { "value", "192.0.7.0/24" },
     ///             },
     ///         },
     ///     });
     /// 
-    ///     var wafrule = new Aws.Waf.Rule("wafrule", new()
+    ///     var wafrule = new Aws.Waf.Rule.Rule("wafrule", new()
     ///     {
     ///         MetricName = "tfWAFRule",
     ///         Predicates = new[]
     ///         {
-    ///             new Aws.Waf.Inputs.RulePredicateArgs
+    ///             
     ///             {
-    ///                 DataId = ipset.Id,
-    ///                 Negated = false,
-    ///                 Type = "IPMatch",
+    ///                 { "dataId", ipset.Id },
+    ///                 { "negated", false },
+    ///                 { "type", "IPMatch" },
     ///             },
     ///         },
     ///     }, new CustomResourceOptions

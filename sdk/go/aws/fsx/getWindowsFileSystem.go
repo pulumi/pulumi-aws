@@ -14,31 +14,6 @@ import (
 // Retrieve information on FSx Windows File System.
 //
 // ## Example Usage
-// ### Root volume Example
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/fsx"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := fsx.LookupWindowsFileSystem(ctx, &fsx.LookupWindowsFileSystemArgs{
-//				Id: "fs-12345678",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupWindowsFileSystem(ctx *pulumi.Context, args *LookupWindowsFileSystemArgs, opts ...pulumi.InvokeOption) (*LookupWindowsFileSystemResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupWindowsFileSystemResult

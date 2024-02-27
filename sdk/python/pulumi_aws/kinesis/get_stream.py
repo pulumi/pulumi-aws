@@ -174,15 +174,6 @@ def get_stream(name: Optional[str] = None,
 
     For more details, see the [Amazon Kinesis Documentation](https://aws.amazon.com/documentation/kinesis/).
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    stream = aws.kinesis.get_stream(name="stream-name")
-    ```
-
 
     :param str name: Name of the Kinesis Stream.
     :param Mapping[str, str] tags: Map of tags to assigned to the stream.
@@ -216,15 +207,6 @@ def get_stream_output(name: Optional[pulumi.Input[str]] = None,
     resources.
 
     For more details, see the [Amazon Kinesis Documentation](https://aws.amazon.com/documentation/kinesis/).
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    stream = aws.kinesis.get_stream(name="stream-name")
-    ```
 
 
     :param str name: Name of the Kinesis Stream.

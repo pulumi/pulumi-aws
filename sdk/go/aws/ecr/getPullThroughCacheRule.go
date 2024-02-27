@@ -12,32 +12,6 @@ import (
 )
 
 // The ECR Pull Through Cache Rule data source allows the upstream registry URL and registry ID to be retrieved for a Pull Through Cache Rule.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ecr"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ecr.LookupPullThroughCacheRule(ctx, &ecr.LookupPullThroughCacheRuleArgs{
-//				EcrRepositoryPrefix: "ecr-public",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupPullThroughCacheRule(ctx *pulumi.Context, args *LookupPullThroughCacheRuleArgs, opts ...pulumi.InvokeOption) (*LookupPullThroughCacheRuleResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupPullThroughCacheRuleResult

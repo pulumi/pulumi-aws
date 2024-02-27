@@ -13,38 +13,6 @@ import * as utilities from "../utilities";
  * **Note:** The `secretArn` argument can only be used to reference a previously created MACSec key. You cannot associate a Secrets Manager secret created outside of the `aws.directconnect.MacsecKeyAssociation` resource.
  *
  * ## Example Usage
- * ### Create MACSec key with CKN and CAK
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.directconnect.getConnection({
- *     name: "tf-dx-connection",
- * });
- * const test = new aws.directconnect.MacsecKeyAssociation("test", {
- *     connectionId: example.then(example => example.id),
- *     ckn: "0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef",
- *     cak: "abcdef0123456789abcdef0123456789abcdef0123456789abcdef0123456789",
- * });
- * ```
- * ### Create MACSec key with existing Secrets Manager secret
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleConnection = aws.directconnect.getConnection({
- *     name: "tf-dx-connection",
- * });
- * const exampleSecret = aws.secretsmanager.getSecret({
- *     name: "directconnect!prod/us-east-1/directconnect/0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef",
- * });
- * const test = new aws.directconnect.MacsecKeyAssociation("test", {
- *     connectionId: exampleConnection.then(exampleConnection => exampleConnection.id),
- *     secretArn: exampleSecret.then(exampleSecret => exampleSecret.arn),
- * });
- * ```
  */
 export class MacsecKeyAssociation extends pulumi.CustomResource {
     /**

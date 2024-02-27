@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.imagebuilder.InfrastructureConfiguration("example", {
+ * const example = new aws.imagebuilder/infrastructureConfiguration.InfrastructureConfiguration("example", {
  *     description: "example description",
  *     instanceProfileName: aws_iam_instance_profile.example.name,
  *     instanceTypes: [

@@ -20,27 +20,25 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/gamelift"
+//	gamelift/script "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/gamelift/script"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := gamelift.NewScript(ctx, "example", &gamelift.ScriptArgs{
-//				StorageLocation: &gamelift.ScriptStorageLocationArgs{
-//					Bucket:  pulumi.Any(aws_s3_bucket.Example.Id),
-//					Key:     pulumi.Any(aws_s3_object.Example.Key),
-//					RoleArn: pulumi.Any(aws_iam_role.Example.Arn),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := gamelift/script.NewScript(ctx, "example", &gamelift/script.ScriptArgs{
+// StorageLocation: map[string]interface{}{
+// "bucket": aws_s3_bucket.Example.Id,
+// "key": aws_s3_object.Example.Key,
+// "roleArn": aws_iam_role.Example.Arn,
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

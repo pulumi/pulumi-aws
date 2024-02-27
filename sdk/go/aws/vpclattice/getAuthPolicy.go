@@ -14,31 +14,6 @@ import (
 // Data source for managing an AWS VPC Lattice Auth Policy.
 //
 // ## Example Usage
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/vpclattice"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := vpclattice.LookupAuthPolicy(ctx, &vpclattice.LookupAuthPolicyArgs{
-//				ResourceIdentifier: aws_vpclattice_auth_policy.Test.Resource_identifier,
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupAuthPolicy(ctx *pulumi.Context, args *LookupAuthPolicyArgs, opts ...pulumi.InvokeOption) (*LookupAuthPolicyResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupAuthPolicyResult

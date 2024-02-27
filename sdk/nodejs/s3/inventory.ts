@@ -19,9 +19,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const testBucketV2 = new aws.s3.BucketV2("testBucketV2", {});
- * const inventory = new aws.s3.BucketV2("inventory", {});
- * const testInventory = new aws.s3.Inventory("testInventory", {
+ * const testBucketV2 = new aws.s3/bucketV2.BucketV2("testBucketV2", {});
+ * const inventory = new aws.s3/bucketV2.BucketV2("inventory", {});
+ * const testInventory = new aws.s3/inventory.Inventory("testInventory", {
  *     bucket: testBucketV2.id,
  *     includedObjectVersions: "All",
  *     schedule: {
@@ -41,9 +41,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = new aws.s3.BucketV2("test", {});
- * const inventory = new aws.s3.BucketV2("inventory", {});
- * const test_prefix = new aws.s3.Inventory("test-prefix", {
+ * const test = new aws.s3/bucketV2.BucketV2("test", {});
+ * const inventory = new aws.s3/bucketV2.BucketV2("inventory", {});
+ * const test_prefix = new aws.s3/inventory.Inventory("test-prefix", {
  *     bucket: test.id,
  *     includedObjectVersions: "All",
  *     schedule: {

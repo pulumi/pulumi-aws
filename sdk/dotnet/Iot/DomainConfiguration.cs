@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Iot
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var iot = new Aws.Iot.DomainConfiguration("iot", new()
+    ///     var iot = new Aws.Iot.DomainConfiguration.DomainConfiguration("iot", new()
     ///     {
     ///         DomainName = "iot.example.com",
     ///         ServiceType = "DATA",

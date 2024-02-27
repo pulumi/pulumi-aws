@@ -16,172 +16,6 @@ import (
 // Consult the [Call analytics developer guide](https://docs.aws.amazon.com/chime-sdk/latest/dg/call-analytics.html) for more detailed information about usage.
 //
 // ## Example Usage
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/chimesdkmediapipelines"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kinesis"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := kinesis.NewStream(ctx, "example", &kinesis.StreamArgs{
-//				ShardCount: pulumi.Int(2),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			mediaPipelinesAssumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-//				Statements: []iam.GetPolicyDocumentStatement{
-//					{
-//						Effect: pulumi.StringRef("Allow"),
-//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
-//							{
-//								Type: "Service",
-//								Identifiers: []string{
-//									"mediapipelines.chime.amazonaws.com",
-//								},
-//							},
-//						},
-//						Actions: []string{
-//							"sts:AssumeRole",
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			callAnalyticsRole, err := iam.NewRole(ctx, "callAnalyticsRole", &iam.RoleArgs{
-//				AssumeRolePolicy: *pulumi.String(mediaPipelinesAssumeRole.Json),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = chimesdkmediapipelines.NewMediaInsightsPipelineConfiguration(ctx, "myConfiguration", &chimesdkmediapipelines.MediaInsightsPipelineConfigurationArgs{
-//				ResourceAccessRoleArn: callAnalyticsRole.Arn,
-//				Elements: chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArray{
-//					&chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArgs{
-//						Type: pulumi.String("AmazonTranscribeCallAnalyticsProcessor"),
-//						AmazonTranscribeCallAnalyticsProcessorConfiguration: &chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationArgs{
-//							LanguageCode: pulumi.String("en-US"),
-//						},
-//					},
-//					&chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArgs{
-//						Type: pulumi.String("KinesisDataStreamSink"),
-//						KinesisDataStreamSinkConfiguration: &chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationArgs{
-//							InsightsTarget: example.Arn,
-//						},
-//					},
-//				},
-//				Tags: pulumi.StringMap{
-//					"Key1": pulumi.String("Value1"),
-//					"Key2": pulumi.String("Value2"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// - The required policies on `callAnalyticsRole` will vary based on the selected processors. See [Call analytics resource access role](https://docs.aws.amazon.com/chime-sdk/latest/dg/ca-resource-access-role.html) for directions on choosing appropriate policies.
-// ### Transcribe Call Analytics processor usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/chimesdkmediapipelines"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			transcribeAssumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-//				Statements: []iam.GetPolicyDocumentStatement{
-//					{
-//						Effect: pulumi.StringRef("Allow"),
-//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
-//							{
-//								Type: "Service",
-//								Identifiers: []string{
-//									"transcribe.amazonaws.com",
-//								},
-//							},
-//						},
-//						Actions: []string{
-//							"sts:AssumeRole",
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			postCallRole, err := iam.NewRole(ctx, "postCallRole", &iam.RoleArgs{
-//				AssumeRolePolicy: *pulumi.String(transcribeAssumeRole.Json),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = chimesdkmediapipelines.NewMediaInsightsPipelineConfiguration(ctx, "myConfiguration", &chimesdkmediapipelines.MediaInsightsPipelineConfigurationArgs{
-//				ResourceAccessRoleArn: pulumi.Any(aws_iam_role.Example.Arn),
-//				Elements: chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArray{
-//					&chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArgs{
-//						Type: pulumi.String("AmazonTranscribeCallAnalyticsProcessor"),
-//						AmazonTranscribeCallAnalyticsProcessorConfiguration: &chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationArgs{
-//							CallAnalyticsStreamCategories: pulumi.StringArray{
-//								pulumi.String("category_1"),
-//								pulumi.String("category_2"),
-//							},
-//							ContentRedactionType:              pulumi.String("PII"),
-//							EnablePartialResultsStabilization: pulumi.Bool(true),
-//							FilterPartialResults:              pulumi.Bool(true),
-//							LanguageCode:                      pulumi.String("en-US"),
-//							LanguageModelName:                 pulumi.String("MyLanguageModel"),
-//							PartialResultsStability:           pulumi.String("high"),
-//							PiiEntityTypes:                    pulumi.String("ADDRESS,BANK_ACCOUNT_NUMBER"),
-//							PostCallAnalyticsSettings: &chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPostCallAnalyticsSettingsArgs{
-//								ContentRedactionOutput:   pulumi.String("redacted"),
-//								DataAccessRoleArn:        postCallRole.Arn,
-//								OutputEncryptionKmsKeyId: pulumi.String("MyKmsKeyId"),
-//								OutputLocation:           pulumi.String("s3://MyBucket"),
-//							},
-//							VocabularyFilterMethod: pulumi.String("mask"),
-//							VocabularyFilterName:   pulumi.String("MyVocabularyFilter"),
-//							VocabularyName:         pulumi.String("MyVocabulary"),
-//						},
-//					},
-//					&chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArgs{
-//						Type: pulumi.String("KinesisDataStreamSink"),
-//						KinesisDataStreamSinkConfiguration: &chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationArgs{
-//							InsightsTarget: pulumi.Any(aws_kinesis_stream.Example.Arn),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 // ### Real time alerts usage
 //
 // ```go
@@ -189,67 +23,65 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/chimesdkmediapipelines"
+//	chimesdkmediapipelines/mediaInsightsPipelineConfiguration "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/chimesdkmediapipelines/mediaInsightsPipelineConfiguration"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := chimesdkmediapipelines.NewMediaInsightsPipelineConfiguration(ctx, "myConfiguration", &chimesdkmediapipelines.MediaInsightsPipelineConfigurationArgs{
-//				ResourceAccessRoleArn: pulumi.Any(aws_iam_role.Call_analytics_role.Arn),
-//				Elements: chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArray{
-//					&chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArgs{
-//						Type: pulumi.String("AmazonTranscribeCallAnalyticsProcessor"),
-//						AmazonTranscribeCallAnalyticsProcessorConfiguration: &chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationArgs{
-//							LanguageCode: pulumi.String("en-US"),
-//						},
-//					},
-//					&chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArgs{
-//						Type: pulumi.String("KinesisDataStreamSink"),
-//						KinesisDataStreamSinkConfiguration: &chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationArgs{
-//							InsightsTarget: pulumi.Any(aws_kinesis_stream.Example.Arn),
-//						},
-//					},
-//				},
-//				RealTimeAlertConfiguration: &chimesdkmediapipelines.MediaInsightsPipelineConfigurationRealTimeAlertConfigurationArgs{
-//					Disabled: pulumi.Bool(false),
-//					Rules: chimesdkmediapipelines.MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleArray{
-//						&chimesdkmediapipelines.MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleArgs{
-//							Type: pulumi.String("IssueDetection"),
-//							IssueDetectionConfiguration: &chimesdkmediapipelines.MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleIssueDetectionConfigurationArgs{
-//								RuleName: pulumi.String("MyIssueDetectionRule"),
-//							},
-//						},
-//						&chimesdkmediapipelines.MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleArgs{
-//							Type: pulumi.String("KeywordMatch"),
-//							KeywordMatchConfiguration: &chimesdkmediapipelines.MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordMatchConfigurationArgs{
-//								Keywords: pulumi.StringArray{
-//									pulumi.String("keyword1"),
-//									pulumi.String("keyword2"),
-//								},
-//								Negate:   pulumi.Bool(false),
-//								RuleName: pulumi.String("MyKeywordMatchRule"),
-//							},
-//						},
-//						&chimesdkmediapipelines.MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleArgs{
-//							Type: pulumi.String("Sentiment"),
-//							SentimentConfiguration: &chimesdkmediapipelines.MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentConfigurationArgs{
-//								RuleName:      pulumi.String("MySentimentRule"),
-//								SentimentType: pulumi.String("NEGATIVE"),
-//								TimePeriod:    pulumi.Int(60),
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := chimesdkmediapipelines/mediaInsightsPipelineConfiguration.NewMediaInsightsPipelineConfiguration(ctx, "myConfiguration", &chimesdkmediapipelines/mediaInsightsPipelineConfiguration.MediaInsightsPipelineConfigurationArgs{
+// ResourceAccessRoleArn: aws_iam_role.Call_analytics_role.Arn,
+// Elements: []interface{}{
+// map[string]interface{}{
+// "type": "AmazonTranscribeCallAnalyticsProcessor",
+// "amazonTranscribeCallAnalyticsProcessorConfiguration": map[string]interface{}{
+// "languageCode": "en-US",
+// },
+// },
+// map[string]interface{}{
+// "type": "KinesisDataStreamSink",
+// "kinesisDataStreamSinkConfiguration": map[string]interface{}{
+// "insightsTarget": aws_kinesis_stream.Example.Arn,
+// },
+// },
+// },
+// RealTimeAlertConfiguration: map[string]interface{}{
+// "disabled": false,
+// "rules": []interface{}{
+// map[string]interface{}{
+// "type": "IssueDetection",
+// "issueDetectionConfiguration": map[string]interface{}{
+// "ruleName": "MyIssueDetectionRule",
+// },
+// },
+// map[string]interface{}{
+// "type": "KeywordMatch",
+// "keywordMatchConfiguration": map[string]interface{}{
+// "keywords": []string{
+// "keyword1",
+// "keyword2",
+// },
+// "negate": false,
+// "ruleName": "MyKeywordMatchRule",
+// },
+// },
+// map[string]interface{}{
+// "type": "Sentiment",
+// "sentimentConfiguration": map[string]interface{}{
+// "ruleName": "MySentimentRule",
+// "sentimentType": "NEGATIVE",
+// "timePeriod": 60,
+// },
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Transcribe processor usage
 //
@@ -258,47 +90,45 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/chimesdkmediapipelines"
+//	chimesdkmediapipelines/mediaInsightsPipelineConfiguration "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/chimesdkmediapipelines/mediaInsightsPipelineConfiguration"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := chimesdkmediapipelines.NewMediaInsightsPipelineConfiguration(ctx, "myConfiguration", &chimesdkmediapipelines.MediaInsightsPipelineConfigurationArgs{
-//				ResourceAccessRoleArn: pulumi.Any(aws_iam_role.Example.Arn),
-//				Elements: chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArray{
-//					&chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArgs{
-//						Type: pulumi.String("AmazonTranscribeProcessor"),
-//						AmazonTranscribeProcessorConfiguration: &chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfigurationArgs{
-//							ContentIdentificationType:         pulumi.String("PII"),
-//							EnablePartialResultsStabilization: pulumi.Bool(true),
-//							FilterPartialResults:              pulumi.Bool(true),
-//							LanguageCode:                      pulumi.String("en-US"),
-//							LanguageModelName:                 pulumi.String("MyLanguageModel"),
-//							PartialResultsStability:           pulumi.String("high"),
-//							PiiEntityTypes:                    pulumi.String("ADDRESS,BANK_ACCOUNT_NUMBER"),
-//							ShowSpeakerLabel:                  pulumi.Bool(true),
-//							VocabularyFilterMethod:            pulumi.String("mask"),
-//							VocabularyFilterName:              pulumi.String("MyVocabularyFilter"),
-//							VocabularyName:                    pulumi.String("MyVocabulary"),
-//						},
-//					},
-//					&chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArgs{
-//						Type: pulumi.String("KinesisDataStreamSink"),
-//						KinesisDataStreamSinkConfiguration: &chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationArgs{
-//							InsightsTarget: pulumi.Any(aws_kinesis_stream.Example.Arn),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := chimesdkmediapipelines/mediaInsightsPipelineConfiguration.NewMediaInsightsPipelineConfiguration(ctx, "myConfiguration", &chimesdkmediapipelines/mediaInsightsPipelineConfiguration.MediaInsightsPipelineConfigurationArgs{
+// ResourceAccessRoleArn: aws_iam_role.Example.Arn,
+// Elements: []interface{}{
+// map[string]interface{}{
+// "type": "AmazonTranscribeProcessor",
+// "amazonTranscribeProcessorConfiguration": map[string]interface{}{
+// "contentIdentificationType": "PII",
+// "enablePartialResultsStabilization": true,
+// "filterPartialResults": true,
+// "languageCode": "en-US",
+// "languageModelName": "MyLanguageModel",
+// "partialResultsStability": "high",
+// "piiEntityTypes": "ADDRESS,BANK_ACCOUNT_NUMBER",
+// "showSpeakerLabel": true,
+// "vocabularyFilterMethod": "mask",
+// "vocabularyFilterName": "MyVocabularyFilter",
+// "vocabularyName": "MyVocabulary",
+// },
+// },
+// map[string]interface{}{
+// "type": "KinesisDataStreamSink",
+// "kinesisDataStreamSinkConfiguration": map[string]interface{}{
+// "insightsTarget": aws_kinesis_stream.Example.Arn,
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Voice analytics processor usage
 //
@@ -307,56 +137,54 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/chimesdkmediapipelines"
+//	chimesdkmediapipelines/mediaInsightsPipelineConfiguration "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/chimesdkmediapipelines/mediaInsightsPipelineConfiguration"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := chimesdkmediapipelines.NewMediaInsightsPipelineConfiguration(ctx, "myConfiguration", &chimesdkmediapipelines.MediaInsightsPipelineConfigurationArgs{
-//				ResourceAccessRoleArn: pulumi.Any(aws_iam_role.Example.Arn),
-//				Elements: chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArray{
-//					&chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArgs{
-//						Type: pulumi.String("VoiceAnalyticsProcessor"),
-//						VoiceAnalyticsProcessorConfiguration: &chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementVoiceAnalyticsProcessorConfigurationArgs{
-//							SpeakerSearchStatus:     pulumi.String("Enabled"),
-//							VoiceToneAnalysisStatus: pulumi.String("Enabled"),
-//						},
-//					},
-//					&chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArgs{
-//						Type: pulumi.String("LambdaFunctionSink"),
-//						LambdaFunctionSinkConfiguration: &chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementLambdaFunctionSinkConfigurationArgs{
-//							InsightsTarget: pulumi.String("arn:aws:lambda:us-west-2:1111111111:function:MyFunction"),
-//						},
-//					},
-//					&chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArgs{
-//						Type: pulumi.String("SnsTopicSink"),
-//						SnsTopicSinkConfiguration: &chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementSnsTopicSinkConfigurationArgs{
-//							InsightsTarget: pulumi.String("arn:aws:sns:us-west-2:1111111111:topic/MyTopic"),
-//						},
-//					},
-//					&chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArgs{
-//						Type: pulumi.String("SqsQueueSink"),
-//						SqsQueueSinkConfiguration: &chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementSqsQueueSinkConfigurationArgs{
-//							InsightsTarget: pulumi.String("arn:aws:sqs:us-west-2:1111111111:queue/MyQueue"),
-//						},
-//					},
-//					&chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArgs{
-//						Type: pulumi.String("KinesisDataStreamSink"),
-//						KinesisDataStreamSinkConfiguration: &chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationArgs{
-//							InsightsTarget: pulumi.Any(aws_kinesis_stream.Test.Arn),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := chimesdkmediapipelines/mediaInsightsPipelineConfiguration.NewMediaInsightsPipelineConfiguration(ctx, "myConfiguration", &chimesdkmediapipelines/mediaInsightsPipelineConfiguration.MediaInsightsPipelineConfigurationArgs{
+// ResourceAccessRoleArn: aws_iam_role.Example.Arn,
+// Elements: []interface{}{
+// map[string]interface{}{
+// "type": "VoiceAnalyticsProcessor",
+// "voiceAnalyticsProcessorConfiguration": map[string]interface{}{
+// "speakerSearchStatus": "Enabled",
+// "voiceToneAnalysisStatus": "Enabled",
+// },
+// },
+// map[string]interface{}{
+// "type": "LambdaFunctionSink",
+// "lambdaFunctionSinkConfiguration": map[string]interface{}{
+// "insightsTarget": "arn:aws:lambda:us-west-2:1111111111:function:MyFunction",
+// },
+// },
+// map[string]interface{}{
+// "type": "SnsTopicSink",
+// "snsTopicSinkConfiguration": map[string]interface{}{
+// "insightsTarget": "arn:aws:sns:us-west-2:1111111111:topic/MyTopic",
+// },
+// },
+// map[string]interface{}{
+// "type": "SqsQueueSink",
+// "sqsQueueSinkConfiguration": map[string]interface{}{
+// "insightsTarget": "arn:aws:sqs:us-west-2:1111111111:queue/MyQueue",
+// },
+// },
+// map[string]interface{}{
+// "type": "KinesisDataStreamSink",
+// "kinesisDataStreamSinkConfiguration": map[string]interface{}{
+// "insightsTarget": aws_kinesis_stream.Test.Arn,
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### S3 Recording sink usage
 //
@@ -365,31 +193,29 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/chimesdkmediapipelines"
+//	chimesdkmediapipelines/mediaInsightsPipelineConfiguration "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/chimesdkmediapipelines/mediaInsightsPipelineConfiguration"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := chimesdkmediapipelines.NewMediaInsightsPipelineConfiguration(ctx, "myConfiguration", &chimesdkmediapipelines.MediaInsightsPipelineConfigurationArgs{
-//				ResourceAccessRoleArn: pulumi.Any(aws_iam_role.Example.Arn),
-//				Elements: chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArray{
-//					&chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArgs{
-//						Type: pulumi.String("S3RecordingSink"),
-//						S3RecordingSinkConfiguration: &chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementS3RecordingSinkConfigurationArgs{
-//							Destination: pulumi.String("arn:aws:s3:::MyBucket"),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := chimesdkmediapipelines/mediaInsightsPipelineConfiguration.NewMediaInsightsPipelineConfiguration(ctx, "myConfiguration", &chimesdkmediapipelines/mediaInsightsPipelineConfiguration.MediaInsightsPipelineConfigurationArgs{
+// ResourceAccessRoleArn: aws_iam_role.Example.Arn,
+// Elements: []map[string]interface{}{
+// map[string]interface{}{
+// "type": "S3RecordingSink",
+// "s3RecordingSinkConfiguration": map[string]interface{}{
+// "destination": "arn:aws:s3:::MyBucket",
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

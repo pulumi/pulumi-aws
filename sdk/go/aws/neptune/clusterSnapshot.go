@@ -21,24 +21,22 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/neptune"
+//	neptune/clusterSnapshot "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/neptune/clusterSnapshot"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := neptune.NewClusterSnapshot(ctx, "example", &neptune.ClusterSnapshotArgs{
-//				DbClusterIdentifier:         pulumi.Any(aws_neptune_cluster.Example.Id),
-//				DbClusterSnapshotIdentifier: pulumi.String("resourcetestsnapshot1234"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := neptune/clusterSnapshot.NewClusterSnapshot(ctx, "example", &neptune/clusterSnapshot.ClusterSnapshotArgs{
+// DbClusterIdentifier: aws_neptune_cluster.Example.Id,
+// DbClusterSnapshotIdentifier: "resourcetestsnapshot1234",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

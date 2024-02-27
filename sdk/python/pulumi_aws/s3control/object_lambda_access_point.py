@@ -175,19 +175,19 @@ class ObjectLambdaAccessPoint(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
-        example_access_point = aws.s3.AccessPoint("exampleAccessPoint", bucket=example_bucket_v2.id)
-        example_object_lambda_access_point = aws.s3control.ObjectLambdaAccessPoint("exampleObjectLambdaAccessPoint", configuration=aws.s3control.ObjectLambdaAccessPointConfigurationArgs(
-            supporting_access_point=example_access_point.arn,
-            transformation_configurations=[aws.s3control.ObjectLambdaAccessPointConfigurationTransformationConfigurationArgs(
-                actions=["GetObject"],
-                content_transformation=aws.s3control.ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationArgs(
-                    aws_lambda=aws.s3control.ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaArgs(
-                        function_arn=aws_lambda_function["example"]["arn"],
-                    ),
-                ),
-            )],
-        ))
+        example_bucket_v2 = aws.s3.bucket_v2.BucketV2("exampleBucketV2")
+        example_access_point = aws.s3.access_point.AccessPoint("exampleAccessPoint", bucket=example_bucket_v2.id)
+        example_object_lambda_access_point = aws.s3control.object_lambda_access_point.ObjectLambdaAccessPoint("exampleObjectLambdaAccessPoint", configuration={
+            supportingAccessPoint: example_access_point.arn,
+            transformationConfigurations: [{
+                actions: [GetObject],
+                contentTransformation: {
+                    awsLambda: {
+                        functionArn: aws_lambda_function.example.arn,
+                    },
+                },
+            }],
+        })
         ```
 
         ## Import
@@ -220,19 +220,19 @@ class ObjectLambdaAccessPoint(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
-        example_access_point = aws.s3.AccessPoint("exampleAccessPoint", bucket=example_bucket_v2.id)
-        example_object_lambda_access_point = aws.s3control.ObjectLambdaAccessPoint("exampleObjectLambdaAccessPoint", configuration=aws.s3control.ObjectLambdaAccessPointConfigurationArgs(
-            supporting_access_point=example_access_point.arn,
-            transformation_configurations=[aws.s3control.ObjectLambdaAccessPointConfigurationTransformationConfigurationArgs(
-                actions=["GetObject"],
-                content_transformation=aws.s3control.ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationArgs(
-                    aws_lambda=aws.s3control.ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaArgs(
-                        function_arn=aws_lambda_function["example"]["arn"],
-                    ),
-                ),
-            )],
-        ))
+        example_bucket_v2 = aws.s3.bucket_v2.BucketV2("exampleBucketV2")
+        example_access_point = aws.s3.access_point.AccessPoint("exampleAccessPoint", bucket=example_bucket_v2.id)
+        example_object_lambda_access_point = aws.s3control.object_lambda_access_point.ObjectLambdaAccessPoint("exampleObjectLambdaAccessPoint", configuration={
+            supportingAccessPoint: example_access_point.arn,
+            transformationConfigurations: [{
+                actions: [GetObject],
+                contentTransformation: {
+                    awsLambda: {
+                        functionArn: aws_lambda_function.example.arn,
+                    },
+                },
+            }],
+        })
         ```
 
         ## Import

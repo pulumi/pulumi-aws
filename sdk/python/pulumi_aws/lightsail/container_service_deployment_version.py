@@ -194,31 +194,31 @@ class ContainerServiceDeploymentVersion(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.lightsail.ContainerServiceDeploymentVersion("example",
-            containers=[aws.lightsail.ContainerServiceDeploymentVersionContainerArgs(
-                container_name="hello-world",
-                image="amazon/amazon-lightsail:hello-world",
-                commands=[],
-                environment={
-                    "MY_ENVIRONMENT_VARIABLE": "my_value",
+        example = aws.lightsail.container_service_deployment_version.ContainerServiceDeploymentVersion("example",
+            containers=[{
+                containerName: hello-world,
+                image: amazon/amazon-lightsail:hello-world,
+                commands: [],
+                environment: {
+                    MY_ENVIRONMENT_VARIABLE: my_value,
                 },
-                ports={
-                    "80": "HTTP",
+                ports: {
+                    80: HTTP,
                 },
-            )],
-            public_endpoint=aws.lightsail.ContainerServiceDeploymentVersionPublicEndpointArgs(
-                container_name="hello-world",
-                container_port=80,
-                health_check=aws.lightsail.ContainerServiceDeploymentVersionPublicEndpointHealthCheckArgs(
-                    healthy_threshold=2,
-                    unhealthy_threshold=2,
-                    timeout_seconds=2,
-                    interval_seconds=5,
-                    path="/",
-                    success_codes="200-499",
-                ),
-            ),
-            service_name=aws_lightsail_container_service["example"]["name"])
+            }],
+            public_endpoint={
+                containerName: hello-world,
+                containerPort: 80,
+                healthCheck: {
+                    healthyThreshold: 2,
+                    unhealthyThreshold: 2,
+                    timeoutSeconds: 2,
+                    intervalSeconds: 5,
+                    path: /,
+                    successCodes: 200-499,
+                },
+            },
+            service_name=aws_lightsail_container_service.example.name)
         ```
 
         ## Import
@@ -255,31 +255,31 @@ class ContainerServiceDeploymentVersion(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.lightsail.ContainerServiceDeploymentVersion("example",
-            containers=[aws.lightsail.ContainerServiceDeploymentVersionContainerArgs(
-                container_name="hello-world",
-                image="amazon/amazon-lightsail:hello-world",
-                commands=[],
-                environment={
-                    "MY_ENVIRONMENT_VARIABLE": "my_value",
+        example = aws.lightsail.container_service_deployment_version.ContainerServiceDeploymentVersion("example",
+            containers=[{
+                containerName: hello-world,
+                image: amazon/amazon-lightsail:hello-world,
+                commands: [],
+                environment: {
+                    MY_ENVIRONMENT_VARIABLE: my_value,
                 },
-                ports={
-                    "80": "HTTP",
+                ports: {
+                    80: HTTP,
                 },
-            )],
-            public_endpoint=aws.lightsail.ContainerServiceDeploymentVersionPublicEndpointArgs(
-                container_name="hello-world",
-                container_port=80,
-                health_check=aws.lightsail.ContainerServiceDeploymentVersionPublicEndpointHealthCheckArgs(
-                    healthy_threshold=2,
-                    unhealthy_threshold=2,
-                    timeout_seconds=2,
-                    interval_seconds=5,
-                    path="/",
-                    success_codes="200-499",
-                ),
-            ),
-            service_name=aws_lightsail_container_service["example"]["name"])
+            }],
+            public_endpoint={
+                containerName: hello-world,
+                containerPort: 80,
+                healthCheck: {
+                    healthyThreshold: 2,
+                    unhealthyThreshold: 2,
+                    timeoutSeconds: 2,
+                    intervalSeconds: 5,
+                    path: /,
+                    successCodes: 200-499,
+                },
+            },
+            service_name=aws_lightsail_container_service.example.name)
         ```
 
         ## Import

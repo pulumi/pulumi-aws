@@ -421,28 +421,28 @@ class V2modelsSlotType(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_role_policy_attachment = aws.iam.RolePolicyAttachment("testRolePolicyAttachment",
-            role=aws_iam_role["test"]["name"],
-            policy_arn=f"arn:{data['aws_partition']['current']['partition']}:iam::aws:policy/AmazonLexFullAccess")
-        test_v2models_bot = aws.lex.V2modelsBot("testV2modelsBot",
+        test_role_policy_attachment = aws.iam.role_policy_attachment.RolePolicyAttachment("testRolePolicyAttachment",
+            role=aws_iam_role.test.name,
+            policy_arn=farn:{data.aws_partition.current.partition}:iam::aws:policy/AmazonLexFullAccess)
+        test_v2models_bot = aws.lex.v2models_bot.V2modelsBot("testV2modelsBot",
             idle_session_ttl_in_seconds=60,
-            role_arn=aws_iam_role["test"]["arn"],
-            data_privacies=[aws.lex.V2modelsBotDataPrivacyArgs(
-                child_directed=True,
-            )])
-        test_v2models_bot_locale = aws.lex.V2modelsBotLocale("testV2modelsBotLocale",
-            locale_id="en_US",
+            role_arn=aws_iam_role.test.arn,
+            data_privacies=[{
+                childDirected: True,
+            }])
+        test_v2models_bot_locale = aws.lex.v2models_bot_locale.V2modelsBotLocale("testV2modelsBotLocale",
+            locale_id=en_US,
             bot_id=test_v2models_bot.id,
-            bot_version="DRAFT",
+            bot_version=DRAFT,
             n_lu_intent_confidence_threshold=0.7)
-        test_v2models_bot_version = aws.lex.V2modelsBotVersion("testV2modelsBotVersion",
+        test_v2models_bot_version = aws.lex.v2models_bot_version.V2modelsBotVersion("testV2modelsBotVersion",
             bot_id=test_v2models_bot.id,
-            locale_specification=test_v2models_bot_locale.locale_id.apply(lambda locale_id: {
-                locale_id: {
-                    "sourceBotVersion": "DRAFT",
+            locale_specification={
+                test_v2models_bot_locale.locale_id: {
+                    sourceBotVersion: DRAFT,
                 },
-            }))
-        test_v2models_slot_type = aws.lex.V2modelsSlotType("testV2modelsSlotType",
+            })
+        test_v2models_slot_type = aws.lex.v2models_slot_type.V2modelsSlotType("testV2modelsSlotType",
             bot_id=test_v2models_bot.id,
             bot_version=test_v2models_bot_locale.bot_version,
             locale_id=test_v2models_bot_locale.locale_id)
@@ -487,28 +487,28 @@ class V2modelsSlotType(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_role_policy_attachment = aws.iam.RolePolicyAttachment("testRolePolicyAttachment",
-            role=aws_iam_role["test"]["name"],
-            policy_arn=f"arn:{data['aws_partition']['current']['partition']}:iam::aws:policy/AmazonLexFullAccess")
-        test_v2models_bot = aws.lex.V2modelsBot("testV2modelsBot",
+        test_role_policy_attachment = aws.iam.role_policy_attachment.RolePolicyAttachment("testRolePolicyAttachment",
+            role=aws_iam_role.test.name,
+            policy_arn=farn:{data.aws_partition.current.partition}:iam::aws:policy/AmazonLexFullAccess)
+        test_v2models_bot = aws.lex.v2models_bot.V2modelsBot("testV2modelsBot",
             idle_session_ttl_in_seconds=60,
-            role_arn=aws_iam_role["test"]["arn"],
-            data_privacies=[aws.lex.V2modelsBotDataPrivacyArgs(
-                child_directed=True,
-            )])
-        test_v2models_bot_locale = aws.lex.V2modelsBotLocale("testV2modelsBotLocale",
-            locale_id="en_US",
+            role_arn=aws_iam_role.test.arn,
+            data_privacies=[{
+                childDirected: True,
+            }])
+        test_v2models_bot_locale = aws.lex.v2models_bot_locale.V2modelsBotLocale("testV2modelsBotLocale",
+            locale_id=en_US,
             bot_id=test_v2models_bot.id,
-            bot_version="DRAFT",
+            bot_version=DRAFT,
             n_lu_intent_confidence_threshold=0.7)
-        test_v2models_bot_version = aws.lex.V2modelsBotVersion("testV2modelsBotVersion",
+        test_v2models_bot_version = aws.lex.v2models_bot_version.V2modelsBotVersion("testV2modelsBotVersion",
             bot_id=test_v2models_bot.id,
-            locale_specification=test_v2models_bot_locale.locale_id.apply(lambda locale_id: {
-                locale_id: {
-                    "sourceBotVersion": "DRAFT",
+            locale_specification={
+                test_v2models_bot_locale.locale_id: {
+                    sourceBotVersion: DRAFT,
                 },
-            }))
-        test_v2models_slot_type = aws.lex.V2modelsSlotType("testV2modelsSlotType",
+            })
+        test_v2models_slot_type = aws.lex.v2models_slot_type.V2modelsSlotType("testV2modelsSlotType",
             bot_id=test_v2models_bot.id,
             bot_version=test_v2models_bot_locale.bot_version,
             locale_id=test_v2models_bot_locale.locale_id)

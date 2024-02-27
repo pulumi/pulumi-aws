@@ -180,10 +180,10 @@ class Discoverer(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        messenger = aws.cloudwatch.EventBus("messenger")
-        test = aws.schemas.Discoverer("test",
+        messenger = aws.cloudwatch.event_bus.EventBus("messenger")
+        test = aws.schemas.discoverer.Discoverer("test",
             source_arn=messenger.arn,
-            description="Auto discover event schemas")
+            description=Auto discover event schemas)
         ```
 
         ## Import
@@ -217,10 +217,10 @@ class Discoverer(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        messenger = aws.cloudwatch.EventBus("messenger")
-        test = aws.schemas.Discoverer("test",
+        messenger = aws.cloudwatch.event_bus.EventBus("messenger")
+        test = aws.schemas.discoverer.Discoverer("test",
             source_arn=messenger.arn,
-            description="Auto discover event schemas")
+            description=Auto discover event schemas)
         ```
 
         ## Import

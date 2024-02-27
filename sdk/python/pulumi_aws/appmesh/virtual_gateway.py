@@ -294,18 +294,18 @@ class VirtualGateway(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.appmesh.VirtualGateway("example",
-            mesh_name="example-service-mesh",
-            spec=aws.appmesh.VirtualGatewaySpecArgs(
-                listeners=[aws.appmesh.VirtualGatewaySpecListenerArgs(
-                    port_mapping=aws.appmesh.VirtualGatewaySpecListenerPortMappingArgs(
-                        port=8080,
-                        protocol="http",
-                    ),
-                )],
-            ),
+        example = aws.appmesh.virtual_gateway.VirtualGateway("example",
+            mesh_name=example-service-mesh,
+            spec={
+                listeners: [{
+                    portMapping: {
+                        port: 8080,
+                        protocol: http,
+                    },
+                }],
+            },
             tags={
-                "Environment": "test",
+                Environment: test,
             })
         ```
         ### Access Logs and TLS
@@ -314,31 +314,31 @@ class VirtualGateway(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.appmesh.VirtualGateway("example",
-            mesh_name="example-service-mesh",
-            spec=aws.appmesh.VirtualGatewaySpecArgs(
-                listeners=[aws.appmesh.VirtualGatewaySpecListenerArgs(
-                    port_mapping=aws.appmesh.VirtualGatewaySpecListenerPortMappingArgs(
-                        port=8080,
-                        protocol="http",
-                    ),
-                    tls=aws.appmesh.VirtualGatewaySpecListenerTlsArgs(
-                        certificate=aws.appmesh.VirtualGatewaySpecListenerTlsCertificateArgs(
-                            acm=aws.appmesh.VirtualGatewaySpecListenerTlsCertificateAcmArgs(
-                                certificate_arn=aws_acm_certificate["example"]["arn"],
-                            ),
-                        ),
-                        mode="STRICT",
-                    ),
-                )],
-                logging=aws.appmesh.VirtualGatewaySpecLoggingArgs(
-                    access_log=aws.appmesh.VirtualGatewaySpecLoggingAccessLogArgs(
-                        file=aws.appmesh.VirtualGatewaySpecLoggingAccessLogFileArgs(
-                            path="/var/log/access.log",
-                        ),
-                    ),
-                ),
-            ))
+        example = aws.appmesh.virtual_gateway.VirtualGateway("example",
+            mesh_name=example-service-mesh,
+            spec={
+                listeners: [{
+                    portMapping: {
+                        port: 8080,
+                        protocol: http,
+                    },
+                    tls: {
+                        certificate: {
+                            acm: {
+                                certificateArn: aws_acm_certificate.example.arn,
+                            },
+                        },
+                        mode: STRICT,
+                    },
+                }],
+                logging: {
+                    accessLog: {
+                        file: {
+                            path: /var/log/access.log,
+                        },
+                    },
+                },
+            })
         ```
 
         ## Import
@@ -373,18 +373,18 @@ class VirtualGateway(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.appmesh.VirtualGateway("example",
-            mesh_name="example-service-mesh",
-            spec=aws.appmesh.VirtualGatewaySpecArgs(
-                listeners=[aws.appmesh.VirtualGatewaySpecListenerArgs(
-                    port_mapping=aws.appmesh.VirtualGatewaySpecListenerPortMappingArgs(
-                        port=8080,
-                        protocol="http",
-                    ),
-                )],
-            ),
+        example = aws.appmesh.virtual_gateway.VirtualGateway("example",
+            mesh_name=example-service-mesh,
+            spec={
+                listeners: [{
+                    portMapping: {
+                        port: 8080,
+                        protocol: http,
+                    },
+                }],
+            },
             tags={
-                "Environment": "test",
+                Environment: test,
             })
         ```
         ### Access Logs and TLS
@@ -393,31 +393,31 @@ class VirtualGateway(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.appmesh.VirtualGateway("example",
-            mesh_name="example-service-mesh",
-            spec=aws.appmesh.VirtualGatewaySpecArgs(
-                listeners=[aws.appmesh.VirtualGatewaySpecListenerArgs(
-                    port_mapping=aws.appmesh.VirtualGatewaySpecListenerPortMappingArgs(
-                        port=8080,
-                        protocol="http",
-                    ),
-                    tls=aws.appmesh.VirtualGatewaySpecListenerTlsArgs(
-                        certificate=aws.appmesh.VirtualGatewaySpecListenerTlsCertificateArgs(
-                            acm=aws.appmesh.VirtualGatewaySpecListenerTlsCertificateAcmArgs(
-                                certificate_arn=aws_acm_certificate["example"]["arn"],
-                            ),
-                        ),
-                        mode="STRICT",
-                    ),
-                )],
-                logging=aws.appmesh.VirtualGatewaySpecLoggingArgs(
-                    access_log=aws.appmesh.VirtualGatewaySpecLoggingAccessLogArgs(
-                        file=aws.appmesh.VirtualGatewaySpecLoggingAccessLogFileArgs(
-                            path="/var/log/access.log",
-                        ),
-                    ),
-                ),
-            ))
+        example = aws.appmesh.virtual_gateway.VirtualGateway("example",
+            mesh_name=example-service-mesh,
+            spec={
+                listeners: [{
+                    portMapping: {
+                        port: 8080,
+                        protocol: http,
+                    },
+                    tls: {
+                        certificate: {
+                            acm: {
+                                certificateArn: aws_acm_certificate.example.arn,
+                            },
+                        },
+                        mode: STRICT,
+                    },
+                }],
+                logging: {
+                    accessLog: {
+                        file: {
+                            path: /var/log/access.log,
+                        },
+                    },
+                },
+            })
         ```
 
         ## Import

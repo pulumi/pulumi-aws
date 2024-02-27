@@ -22,25 +22,25 @@ namespace Pulumi.Aws.RedShift
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var bar = new Aws.RedShift.ParameterGroup("bar", new()
+    ///     var bar = new Aws.Redshift.ParameterGroup.ParameterGroup("bar", new()
     ///     {
     ///         Family = "redshift-1.0",
     ///         Parameters = new[]
     ///         {
-    ///             new Aws.RedShift.Inputs.ParameterGroupParameterArgs
+    ///             
     ///             {
-    ///                 Name = "require_ssl",
-    ///                 Value = "true",
+    ///                 { "name", "require_ssl" },
+    ///                 { "value", "true" },
     ///             },
-    ///             new Aws.RedShift.Inputs.ParameterGroupParameterArgs
+    ///             
     ///             {
-    ///                 Name = "query_group",
-    ///                 Value = "example",
+    ///                 { "name", "query_group" },
+    ///                 { "value", "example" },
     ///             },
-    ///             new Aws.RedShift.Inputs.ParameterGroupParameterArgs
+    ///             
     ///             {
-    ///                 Name = "enable_user_activity_logging",
-    ///                 Value = "true",
+    ///                 { "name", "enable_user_activity_logging" },
+    ///                 { "value", "true" },
     ///             },
     ///         },
     ///     });

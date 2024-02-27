@@ -518,50 +518,50 @@ class Stack(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.appstream.Stack("example",
-            application_settings=aws.appstream.StackApplicationSettingsArgs(
-                enabled=True,
-                settings_group="SettingsGroup",
-            ),
-            description="stack description",
-            display_name="stack display name",
-            feedback_url="http://your-domain/feedback",
-            redirect_url="http://your-domain/redirect",
-            storage_connectors=[aws.appstream.StackStorageConnectorArgs(
-                connector_type="HOMEFOLDERS",
-            )],
+        example = aws.appstream.stack.Stack("example",
+            application_settings={
+                enabled: True,
+                settingsGroup: SettingsGroup,
+            },
+            description=stack description,
+            display_name=stack display name,
+            feedback_url=http://your-domain/feedback,
+            redirect_url=http://your-domain/redirect,
+            storage_connectors=[{
+                connectorType: HOMEFOLDERS,
+            }],
             tags={
-                "TagName": "TagValue",
+                TagName: TagValue,
             },
             user_settings=[
-                aws.appstream.StackUserSettingArgs(
-                    action="CLIPBOARD_COPY_FROM_LOCAL_DEVICE",
-                    permission="ENABLED",
-                ),
-                aws.appstream.StackUserSettingArgs(
-                    action="CLIPBOARD_COPY_TO_LOCAL_DEVICE",
-                    permission="ENABLED",
-                ),
-                aws.appstream.StackUserSettingArgs(
-                    action="DOMAIN_PASSWORD_SIGNIN",
-                    permission="ENABLED",
-                ),
-                aws.appstream.StackUserSettingArgs(
-                    action="DOMAIN_SMART_CARD_SIGNIN",
-                    permission="DISABLED",
-                ),
-                aws.appstream.StackUserSettingArgs(
-                    action="FILE_DOWNLOAD",
-                    permission="ENABLED",
-                ),
-                aws.appstream.StackUserSettingArgs(
-                    action="FILE_UPLOAD",
-                    permission="ENABLED",
-                ),
-                aws.appstream.StackUserSettingArgs(
-                    action="PRINTING_TO_LOCAL_DEVICE",
-                    permission="ENABLED",
-                ),
+                {
+                    action: CLIPBOARD_COPY_FROM_LOCAL_DEVICE,
+                    permission: ENABLED,
+                },
+                {
+                    action: CLIPBOARD_COPY_TO_LOCAL_DEVICE,
+                    permission: ENABLED,
+                },
+                {
+                    action: DOMAIN_PASSWORD_SIGNIN,
+                    permission: ENABLED,
+                },
+                {
+                    action: DOMAIN_SMART_CARD_SIGNIN,
+                    permission: DISABLED,
+                },
+                {
+                    action: FILE_DOWNLOAD,
+                    permission: ENABLED,
+                },
+                {
+                    action: FILE_UPLOAD,
+                    permission: ENABLED,
+                },
+                {
+                    action: PRINTING_TO_LOCAL_DEVICE,
+                    permission: ENABLED,
+                },
             ])
         ```
 
@@ -610,50 +610,50 @@ class Stack(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.appstream.Stack("example",
-            application_settings=aws.appstream.StackApplicationSettingsArgs(
-                enabled=True,
-                settings_group="SettingsGroup",
-            ),
-            description="stack description",
-            display_name="stack display name",
-            feedback_url="http://your-domain/feedback",
-            redirect_url="http://your-domain/redirect",
-            storage_connectors=[aws.appstream.StackStorageConnectorArgs(
-                connector_type="HOMEFOLDERS",
-            )],
+        example = aws.appstream.stack.Stack("example",
+            application_settings={
+                enabled: True,
+                settingsGroup: SettingsGroup,
+            },
+            description=stack description,
+            display_name=stack display name,
+            feedback_url=http://your-domain/feedback,
+            redirect_url=http://your-domain/redirect,
+            storage_connectors=[{
+                connectorType: HOMEFOLDERS,
+            }],
             tags={
-                "TagName": "TagValue",
+                TagName: TagValue,
             },
             user_settings=[
-                aws.appstream.StackUserSettingArgs(
-                    action="CLIPBOARD_COPY_FROM_LOCAL_DEVICE",
-                    permission="ENABLED",
-                ),
-                aws.appstream.StackUserSettingArgs(
-                    action="CLIPBOARD_COPY_TO_LOCAL_DEVICE",
-                    permission="ENABLED",
-                ),
-                aws.appstream.StackUserSettingArgs(
-                    action="DOMAIN_PASSWORD_SIGNIN",
-                    permission="ENABLED",
-                ),
-                aws.appstream.StackUserSettingArgs(
-                    action="DOMAIN_SMART_CARD_SIGNIN",
-                    permission="DISABLED",
-                ),
-                aws.appstream.StackUserSettingArgs(
-                    action="FILE_DOWNLOAD",
-                    permission="ENABLED",
-                ),
-                aws.appstream.StackUserSettingArgs(
-                    action="FILE_UPLOAD",
-                    permission="ENABLED",
-                ),
-                aws.appstream.StackUserSettingArgs(
-                    action="PRINTING_TO_LOCAL_DEVICE",
-                    permission="ENABLED",
-                ),
+                {
+                    action: CLIPBOARD_COPY_FROM_LOCAL_DEVICE,
+                    permission: ENABLED,
+                },
+                {
+                    action: CLIPBOARD_COPY_TO_LOCAL_DEVICE,
+                    permission: ENABLED,
+                },
+                {
+                    action: DOMAIN_PASSWORD_SIGNIN,
+                    permission: ENABLED,
+                },
+                {
+                    action: DOMAIN_SMART_CARD_SIGNIN,
+                    permission: DISABLED,
+                },
+                {
+                    action: FILE_DOWNLOAD,
+                    permission: ENABLED,
+                },
+                {
+                    action: FILE_UPLOAD,
+                    permission: ENABLED,
+                },
+                {
+                    action: PRINTING_TO_LOCAL_DEVICE,
+                    permission: ENABLED,
+                },
             ])
         ```
 

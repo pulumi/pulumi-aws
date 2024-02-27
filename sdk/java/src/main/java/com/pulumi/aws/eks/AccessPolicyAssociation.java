@@ -26,7 +26,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.eks.AccessPolicyAssociation;
  * import com.pulumi.aws.eks.AccessPolicyAssociationArgs;
- * import com.pulumi.aws.eks.inputs.AccessPolicyAssociationAccessScopeArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -44,10 +43,7 @@ import javax.annotation.Nullable;
  *             .clusterName(aws_eks_cluster.example().name())
  *             .policyArn(&#34;arn:aws:eks::aws:cluster-access-policy/AmazonEKSViewPolicy&#34;)
  *             .principalArn(aws_iam_user.example().arn())
- *             .accessScope(AccessPolicyAssociationAccessScopeArgs.builder()
- *                 .type(&#34;namespace&#34;)
- *                 .namespaces(&#34;example-namespace&#34;)
- *                 .build())
+ *             .accessScope(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

@@ -246,9 +246,9 @@ class Certificate(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.lightsail.Certificate("test",
-            domain_name="testdomain.com",
-            subject_alternative_names=["www.testdomain.com"])
+        test = aws.lightsail.certificate.Certificate("test",
+            domain_name=testdomain.com,
+            subject_alternative_names=[www.testdomain.com])
         ```
 
         ## Import
@@ -281,9 +281,9 @@ class Certificate(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.lightsail.Certificate("test",
-            domain_name="testdomain.com",
-            subject_alternative_names=["www.testdomain.com"])
+        test = aws.lightsail.certificate.Certificate("test",
+            domain_name=testdomain.com,
+            subject_alternative_names=[www.testdomain.com])
         ```
 
         ## Import

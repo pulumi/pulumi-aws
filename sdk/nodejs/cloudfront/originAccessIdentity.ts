@@ -20,7 +20,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.cloudfront.OriginAccessIdentity("example", {comment: "Some comment"});
+ * const example = new aws.cloudfront/originAccessIdentity.OriginAccessIdentity("example", {comment: "Some comment"});
  * ```
  * ## Using With CloudFront
  *
@@ -35,42 +35,12 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * // ... other configuration ...
- * const example = new aws.cloudfront.Distribution("example", {origins: [{
+ * const example = new aws.cloudfront/distribution.Distribution("example", {origins: [{
  *     s3OriginConfig: {
  *         originAccessIdentity: aws_cloudfront_origin_access_identity.example.cloudfront_access_identity_path,
  *     },
  * }]});
  * ```
- *
- * ### Updating your bucket policy
- *
- * Note that the AWS API may translate the `s3CanonicalUserId` `CanonicalUser`
- * principal into an `AWS` IAM ARN principal when supplied in an
- * `aws.s3.BucketV2` bucket policy, causing spurious diffs. If
- * you see this behaviour, use the `iamArn` instead:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const s3Policy = aws.iam.getPolicyDocument({
- *     statements: [{
- *         actions: ["s3:GetObject"],
- *         resources: [`${aws_s3_bucket.example.arn}/*`],
- *         principals: [{
- *             type: "AWS",
- *             identifiers: [aws_cloudfront_origin_access_identity.example.iam_arn],
- *         }],
- *     }],
- * });
- * const example = new aws.s3.BucketPolicy("example", {
- *     bucket: aws_s3_bucket.example.id,
- *     policy: s3Policy.then(s3Policy => s3Policy.json),
- * });
- * ```
- *
- * [1]: http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Introduction.html
- * [2]: http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html
  *
  * ## Import
  *

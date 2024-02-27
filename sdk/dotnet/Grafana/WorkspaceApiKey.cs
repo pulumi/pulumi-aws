@@ -23,7 +23,7 @@ namespace Pulumi.Aws.Grafana
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var key = new Aws.Grafana.WorkspaceApiKey("key", new()
+    ///     var key = new Aws.Grafana.WorkspaceApiKey.WorkspaceApiKey("key", new()
     ///     {
     ///         KeyName = "test-key",
     ///         KeyRole = "VIEWER",

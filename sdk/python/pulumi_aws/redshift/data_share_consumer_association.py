@@ -247,9 +247,9 @@ class DataShareConsumerAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.redshift.DataShareConsumerAssociation("example",
+        example = aws.redshift.data_share_consumer_association.DataShareConsumerAssociation("example",
             associate_entire_account=True,
-            data_share_arn="arn:aws:redshift:us-west-2:012345678901:datashare:b3bfde75-73fd-408b-9086-d6fccfd6d588/example")
+            data_share_arn=arn:aws:redshift:us-west-2:012345678901:datashare:b3bfde75-73fd-408b-9086-d6fccfd6d588/example)
         ```
         ### Consumer Region
 
@@ -257,9 +257,9 @@ class DataShareConsumerAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.redshift.DataShareConsumerAssociation("example",
-            consumer_region="us-west-2",
-            data_share_arn="arn:aws:redshift:us-west-2:012345678901:datashare:b3bfde75-73fd-408b-9086-d6fccfd6d588/example")
+        example = aws.redshift.data_share_consumer_association.DataShareConsumerAssociation("example",
+            consumer_region=us-west-2,
+            data_share_arn=arn:aws:redshift:us-west-2:012345678901:datashare:b3bfde75-73fd-408b-9086-d6fccfd6d588/example)
         ```
 
         ## Import
@@ -296,9 +296,9 @@ class DataShareConsumerAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.redshift.DataShareConsumerAssociation("example",
+        example = aws.redshift.data_share_consumer_association.DataShareConsumerAssociation("example",
             associate_entire_account=True,
-            data_share_arn="arn:aws:redshift:us-west-2:012345678901:datashare:b3bfde75-73fd-408b-9086-d6fccfd6d588/example")
+            data_share_arn=arn:aws:redshift:us-west-2:012345678901:datashare:b3bfde75-73fd-408b-9086-d6fccfd6d588/example)
         ```
         ### Consumer Region
 
@@ -306,9 +306,9 @@ class DataShareConsumerAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.redshift.DataShareConsumerAssociation("example",
-            consumer_region="us-west-2",
-            data_share_arn="arn:aws:redshift:us-west-2:012345678901:datashare:b3bfde75-73fd-408b-9086-d6fccfd6d588/example")
+        example = aws.redshift.data_share_consumer_association.DataShareConsumerAssociation("example",
+            consumer_region=us-west-2,
+            data_share_arn=arn:aws:redshift:us-west-2:012345678901:datashare:b3bfde75-73fd-408b-9086-d6fccfd6d588/example)
         ```
 
         ## Import

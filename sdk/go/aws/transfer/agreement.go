@@ -22,28 +22,26 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/transfer"
+//	transfer/agreement "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/transfer/agreement"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := transfer.NewAgreement(ctx, "example", &transfer.AgreementArgs{
-//				AccessRole:       pulumi.Any(aws_iam_role.Test.Arn),
-//				BaseDirectory:    pulumi.String("/DOC-EXAMPLE-BUCKET/home/mydirectory"),
-//				Description:      pulumi.String("example"),
-//				LocalProfileId:   pulumi.Any(aws_transfer_profile.Local.Profile_id),
-//				PartnerProfileId: pulumi.Any(aws_transfer_profile.Partner.Profile_id),
-//				ServerId:         pulumi.Any(aws_transfer_server.Test.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := transfer/agreement.NewAgreement(ctx, "example", &transfer/agreement.AgreementArgs{
+// AccessRole: aws_iam_role.Test.Arn,
+// BaseDirectory: "/DOC-EXAMPLE-BUCKET/home/mydirectory",
+// Description: "example",
+// LocalProfileId: aws_transfer_profile.Local.Profile_id,
+// PartnerProfileId: aws_transfer_profile.Partner.Profile_id,
+// ServerId: aws_transfer_server.Test.Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

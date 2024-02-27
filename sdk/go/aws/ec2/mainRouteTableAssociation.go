@@ -24,24 +24,22 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	ec2/mainRouteTableAssociation "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/mainRouteTableAssociation"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.NewMainRouteTableAssociation(ctx, "mainRouteTableAssociation", &ec2.MainRouteTableAssociationArgs{
-//				VpcId:        pulumi.Any(aws_vpc.Foo.Id),
-//				RouteTableId: pulumi.Any(aws_route_table.Bar.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := ec2/mainRouteTableAssociation.NewMainRouteTableAssociation(ctx, "mainRouteTableAssociation", &ec2/mainRouteTableAssociation.MainRouteTableAssociationArgs{
+// VpcId: aws_vpc.Foo.Id,
+// RouteTableId: aws_route_table.Bar.Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ## Notes
 //

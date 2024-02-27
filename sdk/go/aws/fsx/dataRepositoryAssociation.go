@@ -25,66 +25,64 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/fsx"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	fsx/dataRepositoryAssociation "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/fsx/dataRepositoryAssociation"
+//	fsx/lustreFileSystem "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/fsx/lustreFileSystem"
+//	s3/bucketAclV2 "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/s3/bucketAclV2"
+//	s3/bucketV2 "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/s3/bucketV2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = s3.NewBucketAclV2(ctx, "exampleBucketAclV2", &s3.BucketAclV2Args{
-//				Bucket: exampleBucketV2.ID(),
-//				Acl:    pulumi.String("private"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleLustreFileSystem, err := fsx.NewLustreFileSystem(ctx, "exampleLustreFileSystem", &fsx.LustreFileSystemArgs{
-//				StorageCapacity: pulumi.Int(1200),
-//				SubnetIds: pulumi.String{
-//					aws_subnet.Example.Id,
-//				},
-//				DeploymentType:           pulumi.String("PERSISTENT_2"),
-//				PerUnitStorageThroughput: pulumi.Int(125),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = fsx.NewDataRepositoryAssociation(ctx, "exampleDataRepositoryAssociation", &fsx.DataRepositoryAssociationArgs{
-//				FileSystemId: exampleLustreFileSystem.ID(),
-//				DataRepositoryPath: exampleBucketV2.ID().ApplyT(func(id string) (string, error) {
-//					return fmt.Sprintf("s3://%v", id), nil
-//				}).(pulumi.StringOutput),
-//				FileSystemPath: pulumi.String("/my-bucket"),
-//				S3: &fsx.DataRepositoryAssociationS3Args{
-//					AutoExportPolicy: &fsx.DataRepositoryAssociationS3AutoExportPolicyArgs{
-//						Events: pulumi.StringArray{
-//							pulumi.String("NEW"),
-//							pulumi.String("CHANGED"),
-//							pulumi.String("DELETED"),
-//						},
-//					},
-//					AutoImportPolicy: &fsx.DataRepositoryAssociationS3AutoImportPolicyArgs{
-//						Events: pulumi.StringArray{
-//							pulumi.String("NEW"),
-//							pulumi.String("CHANGED"),
-//							pulumi.String("DELETED"),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleBucketV2, err := s3/bucketV2.NewBucketV2(ctx, "exampleBucketV2", nil)
+// if err != nil {
+// return err
+// }
+// _, err = s3/bucketAclV2.NewBucketAclV2(ctx, "exampleBucketAclV2", &s3/bucketAclV2.BucketAclV2Args{
+// Bucket: exampleBucketV2.Id,
+// Acl: "private",
+// })
+// if err != nil {
+// return err
+// }
+// exampleLustreFileSystem, err := fsx/lustreFileSystem.NewLustreFileSystem(ctx, "exampleLustreFileSystem", &fsx/lustreFileSystem.LustreFileSystemArgs{
+// StorageCapacity: 1200,
+// SubnetIds: []interface{}{
+// aws_subnet.Example.Id,
+// },
+// DeploymentType: "PERSISTENT_2",
+// PerUnitStorageThroughput: 125,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = fsx/dataRepositoryAssociation.NewDataRepositoryAssociation(ctx, "exampleDataRepositoryAssociation", &fsx/dataRepositoryAssociation.DataRepositoryAssociationArgs{
+// FileSystemId: exampleLustreFileSystem.Id,
+// DataRepositoryPath: fmt.Sprintf("s3://%v", exampleBucketV2.Id),
+// FileSystemPath: "/my-bucket",
+// S3: map[string]interface{}{
+// "autoExportPolicy": map[string]interface{}{
+// "events": []string{
+// "NEW",
+// "CHANGED",
+// "DELETED",
+// },
+// },
+// "autoImportPolicy": map[string]interface{}{
+// "events": []string{
+// "NEW",
+// "CHANGED",
+// "DELETED",
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

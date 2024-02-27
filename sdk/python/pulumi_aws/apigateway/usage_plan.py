@@ -315,60 +315,60 @@ class UsagePlan(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        example_rest_api = aws.apigateway.RestApi("exampleRestApi", body=json.dumps({
-            "openapi": "3.0.1",
-            "info": {
-                "title": "example",
-                "version": "1.0",
+        example_rest_api = aws.apigateway.rest_api.RestApi("exampleRestApi", body=json.dumps({
+            openapi: 3.0.1,
+            info: {
+                title: example,
+                version: 1.0,
             },
-            "paths": {
-                "/path1": {
-                    "get": {
-                        "x-amazon-apigateway-integration": {
-                            "httpMethod": "GET",
-                            "payloadFormatVersion": "1.0",
-                            "type": "HTTP_PROXY",
-                            "uri": "https://ip-ranges.amazonaws.com/ip-ranges.json",
+            paths: {
+                /path1: {
+                    get: {
+                        x-amazon-apigateway-integration: {
+                            httpMethod: GET,
+                            payloadFormatVersion: 1.0,
+                            type: HTTP_PROXY,
+                            uri: https://ip-ranges.amazonaws.com/ip-ranges.json,
                         },
                     },
                 },
             },
         }))
-        example_deployment = aws.apigateway.Deployment("exampleDeployment",
+        example_deployment = aws.apigateway.deployment.Deployment("exampleDeployment",
             rest_api=example_rest_api.id,
             triggers={
-                "redeployment": example_rest_api.body.apply(lambda body: json.dumps(body)).apply(lambda to_json: hashlib.sha1(to_json.encode()).hexdigest()),
+                redeployment: hashlib.sha1(json.dumps(example_rest_api.body).encode()).hexdigest(),
             })
-        development = aws.apigateway.Stage("development",
+        development = aws.apigateway.stage.Stage("development",
             deployment=example_deployment.id,
             rest_api=example_rest_api.id,
-            stage_name="development")
-        production = aws.apigateway.Stage("production",
+            stage_name=development)
+        production = aws.apigateway.stage.Stage("production",
             deployment=example_deployment.id,
             rest_api=example_rest_api.id,
-            stage_name="production")
-        example_usage_plan = aws.apigateway.UsagePlan("exampleUsagePlan",
-            description="my description",
-            product_code="MYCODE",
+            stage_name=production)
+        example_usage_plan = aws.apigateway.usage_plan.UsagePlan("exampleUsagePlan",
+            description=my description,
+            product_code=MYCODE,
             api_stages=[
-                aws.apigateway.UsagePlanApiStageArgs(
-                    api_id=example_rest_api.id,
-                    stage=development.stage_name,
-                ),
-                aws.apigateway.UsagePlanApiStageArgs(
-                    api_id=example_rest_api.id,
-                    stage=production.stage_name,
-                ),
+                {
+                    apiId: example_rest_api.id,
+                    stage: development.stage_name,
+                },
+                {
+                    apiId: example_rest_api.id,
+                    stage: production.stage_name,
+                },
             ],
-            quota_settings=aws.apigateway.UsagePlanQuotaSettingsArgs(
-                limit=20,
-                offset=2,
-                period="WEEK",
-            ),
-            throttle_settings=aws.apigateway.UsagePlanThrottleSettingsArgs(
-                burst_limit=5,
-                rate_limit=10,
-            ))
+            quota_settings={
+                limit: 20,
+                offset: 2,
+                period: WEEK,
+            },
+            throttle_settings={
+                burstLimit: 5,
+                rateLimit: 10,
+            })
         ```
 
         ## Import
@@ -406,60 +406,60 @@ class UsagePlan(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        example_rest_api = aws.apigateway.RestApi("exampleRestApi", body=json.dumps({
-            "openapi": "3.0.1",
-            "info": {
-                "title": "example",
-                "version": "1.0",
+        example_rest_api = aws.apigateway.rest_api.RestApi("exampleRestApi", body=json.dumps({
+            openapi: 3.0.1,
+            info: {
+                title: example,
+                version: 1.0,
             },
-            "paths": {
-                "/path1": {
-                    "get": {
-                        "x-amazon-apigateway-integration": {
-                            "httpMethod": "GET",
-                            "payloadFormatVersion": "1.0",
-                            "type": "HTTP_PROXY",
-                            "uri": "https://ip-ranges.amazonaws.com/ip-ranges.json",
+            paths: {
+                /path1: {
+                    get: {
+                        x-amazon-apigateway-integration: {
+                            httpMethod: GET,
+                            payloadFormatVersion: 1.0,
+                            type: HTTP_PROXY,
+                            uri: https://ip-ranges.amazonaws.com/ip-ranges.json,
                         },
                     },
                 },
             },
         }))
-        example_deployment = aws.apigateway.Deployment("exampleDeployment",
+        example_deployment = aws.apigateway.deployment.Deployment("exampleDeployment",
             rest_api=example_rest_api.id,
             triggers={
-                "redeployment": example_rest_api.body.apply(lambda body: json.dumps(body)).apply(lambda to_json: hashlib.sha1(to_json.encode()).hexdigest()),
+                redeployment: hashlib.sha1(json.dumps(example_rest_api.body).encode()).hexdigest(),
             })
-        development = aws.apigateway.Stage("development",
+        development = aws.apigateway.stage.Stage("development",
             deployment=example_deployment.id,
             rest_api=example_rest_api.id,
-            stage_name="development")
-        production = aws.apigateway.Stage("production",
+            stage_name=development)
+        production = aws.apigateway.stage.Stage("production",
             deployment=example_deployment.id,
             rest_api=example_rest_api.id,
-            stage_name="production")
-        example_usage_plan = aws.apigateway.UsagePlan("exampleUsagePlan",
-            description="my description",
-            product_code="MYCODE",
+            stage_name=production)
+        example_usage_plan = aws.apigateway.usage_plan.UsagePlan("exampleUsagePlan",
+            description=my description,
+            product_code=MYCODE,
             api_stages=[
-                aws.apigateway.UsagePlanApiStageArgs(
-                    api_id=example_rest_api.id,
-                    stage=development.stage_name,
-                ),
-                aws.apigateway.UsagePlanApiStageArgs(
-                    api_id=example_rest_api.id,
-                    stage=production.stage_name,
-                ),
+                {
+                    apiId: example_rest_api.id,
+                    stage: development.stage_name,
+                },
+                {
+                    apiId: example_rest_api.id,
+                    stage: production.stage_name,
+                },
             ],
-            quota_settings=aws.apigateway.UsagePlanQuotaSettingsArgs(
-                limit=20,
-                offset=2,
-                period="WEEK",
-            ),
-            throttle_settings=aws.apigateway.UsagePlanThrottleSettingsArgs(
-                burst_limit=5,
-                rate_limit=10,
-            ))
+            quota_settings={
+                limit: 20,
+                offset: 2,
+                period: WEEK,
+            },
+            throttle_settings={
+                burstLimit: 5,
+                rateLimit: 10,
+            })
         ```
 
         ## Import

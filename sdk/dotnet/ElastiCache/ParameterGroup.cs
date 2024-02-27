@@ -24,20 +24,20 @@ namespace Pulumi.Aws.ElastiCache
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var @default = new Aws.ElastiCache.ParameterGroup("default", new()
+    ///     var @default = new Aws.Elasticache.ParameterGroup.ParameterGroup("default", new()
     ///     {
     ///         Family = "redis2.8",
     ///         Parameters = new[]
     ///         {
-    ///             new Aws.ElastiCache.Inputs.ParameterGroupParameterArgs
+    ///             
     ///             {
-    ///                 Name = "activerehashing",
-    ///                 Value = "yes",
+    ///                 { "name", "activerehashing" },
+    ///                 { "value", "yes" },
     ///             },
-    ///             new Aws.ElastiCache.Inputs.ParameterGroupParameterArgs
+    ///             
     ///             {
-    ///                 Name = "min-slaves-to-write",
-    ///                 Value = "2",
+    ///                 { "name", "min-slaves-to-write" },
+    ///                 { "value", "2" },
     ///             },
     ///         },
     ///     });

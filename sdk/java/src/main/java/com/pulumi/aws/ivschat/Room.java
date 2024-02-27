@@ -59,8 +59,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.s3.BucketV2Args;
  * import com.pulumi.aws.ivschat.LoggingConfiguration;
  * import com.pulumi.aws.ivschat.LoggingConfigurationArgs;
- * import com.pulumi.aws.ivschat.inputs.LoggingConfigurationDestinationConfigurationArgs;
- * import com.pulumi.aws.ivschat.inputs.LoggingConfigurationDestinationConfigurationS3Args;
  * import com.pulumi.aws.ivschat.Room;
  * import com.pulumi.aws.ivschat.RoomArgs;
  * import java.util.List;
@@ -82,11 +80,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleLoggingConfiguration = new LoggingConfiguration(&#34;exampleLoggingConfiguration&#34;, LoggingConfigurationArgs.builder()        
- *             .destinationConfiguration(LoggingConfigurationDestinationConfigurationArgs.builder()
- *                 .s3(LoggingConfigurationDestinationConfigurationS3Args.builder()
- *                     .bucketName(exampleBucketV2.id())
- *                     .build())
- *                 .build())
+ *             .destinationConfiguration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleRoom = new Room(&#34;exampleRoom&#34;, RoomArgs.builder()        

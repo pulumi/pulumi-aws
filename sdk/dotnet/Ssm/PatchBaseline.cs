@@ -29,7 +29,7 @@ namespace Pulumi.Aws.Ssm
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var production = new Aws.Ssm.PatchBaseline("production", new()
+    ///     var production = new Aws.Ssm.PatchBaseline.PatchBaseline("production", new()
     ///     {
     ///         ApprovedPatches = new[]
     ///         {
@@ -49,60 +49,60 @@ namespace Pulumi.Aws.Ssm
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var production = new Aws.Ssm.PatchBaseline("production", new()
+    ///     var production = new Aws.Ssm.PatchBaseline.PatchBaseline("production", new()
     ///     {
     ///         ApprovalRules = new[]
     ///         {
-    ///             new Aws.Ssm.Inputs.PatchBaselineApprovalRuleArgs
+    ///             
     ///             {
-    ///                 ApproveAfterDays = 7,
-    ///                 ComplianceLevel = "HIGH",
-    ///                 PatchFilters = new[]
+    ///                 { "approveAfterDays", 7 },
+    ///                 { "complianceLevel", "HIGH" },
+    ///                 { "patchFilters", new[]
     ///                 {
-    ///                     new Aws.Ssm.Inputs.PatchBaselineApprovalRulePatchFilterArgs
+    ///                     
     ///                     {
-    ///                         Key = "PRODUCT",
-    ///                         Values = new[]
+    ///                         { "key", "PRODUCT" },
+    ///                         { "values", new[]
     ///                         {
     ///                             "WindowsServer2016",
-    ///                         },
+    ///                         } },
     ///                     },
-    ///                     new Aws.Ssm.Inputs.PatchBaselineApprovalRulePatchFilterArgs
+    ///                     
     ///                     {
-    ///                         Key = "CLASSIFICATION",
-    ///                         Values = new[]
+    ///                         { "key", "CLASSIFICATION" },
+    ///                         { "values", new[]
     ///                         {
     ///                             "CriticalUpdates",
     ///                             "SecurityUpdates",
     ///                             "Updates",
-    ///                         },
+    ///                         } },
     ///                     },
-    ///                     new Aws.Ssm.Inputs.PatchBaselineApprovalRulePatchFilterArgs
+    ///                     
     ///                     {
-    ///                         Key = "MSRC_SEVERITY",
-    ///                         Values = new[]
+    ///                         { "key", "MSRC_SEVERITY" },
+    ///                         { "values", new[]
     ///                         {
     ///                             "Critical",
     ///                             "Important",
     ///                             "Moderate",
-    ///                         },
+    ///                         } },
     ///                     },
-    ///                 },
+    ///                 } },
     ///             },
-    ///             new Aws.Ssm.Inputs.PatchBaselineApprovalRuleArgs
+    ///             
     ///             {
-    ///                 ApproveAfterDays = 7,
-    ///                 PatchFilters = new[]
+    ///                 { "approveAfterDays", 7 },
+    ///                 { "patchFilters", new[]
     ///                 {
-    ///                     new Aws.Ssm.Inputs.PatchBaselineApprovalRulePatchFilterArgs
+    ///                     
     ///                     {
-    ///                         Key = "PRODUCT",
-    ///                         Values = new[]
+    ///                         { "key", "PRODUCT" },
+    ///                         { "values", new[]
     ///                         {
     ///                             "WindowsServer2012",
-    ///                         },
+    ///                         } },
     ///                     },
-    ///                 },
+    ///                 } },
     ///             },
     ///         },
     ///         ApprovedPatches = new[]
@@ -113,29 +113,29 @@ namespace Pulumi.Aws.Ssm
     ///         Description = "Patch Baseline Description",
     ///         GlobalFilters = new[]
     ///         {
-    ///             new Aws.Ssm.Inputs.PatchBaselineGlobalFilterArgs
+    ///             
     ///             {
-    ///                 Key = "PRODUCT",
-    ///                 Values = new[]
+    ///                 { "key", "PRODUCT" },
+    ///                 { "values", new[]
     ///                 {
     ///                     "WindowsServer2008",
-    ///                 },
+    ///                 } },
     ///             },
-    ///             new Aws.Ssm.Inputs.PatchBaselineGlobalFilterArgs
+    ///             
     ///             {
-    ///                 Key = "CLASSIFICATION",
-    ///                 Values = new[]
+    ///                 { "key", "CLASSIFICATION" },
+    ///                 { "values", new[]
     ///                 {
     ///                     "ServicePacks",
-    ///                 },
+    ///                 } },
     ///             },
-    ///             new Aws.Ssm.Inputs.PatchBaselineGlobalFilterArgs
+    ///             
     ///             {
-    ///                 Key = "MSRC_SEVERITY",
-    ///                 Values = new[]
+    ///                 { "key", "MSRC_SEVERITY" },
+    ///                 { "values", new[]
     ///                 {
     ///                     "Low",
-    ///                 },
+    ///                 } },
     ///             },
     ///         },
     ///         RejectedPatches = new[]
@@ -156,58 +156,58 @@ namespace Pulumi.Aws.Ssm
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var windowsOsApps = new Aws.Ssm.PatchBaseline("windowsOsApps", new()
+    ///     var windowsOsApps = new Aws.Ssm.PatchBaseline.PatchBaseline("windowsOsApps", new()
     ///     {
     ///         ApprovalRules = new[]
     ///         {
-    ///             new Aws.Ssm.Inputs.PatchBaselineApprovalRuleArgs
+    ///             
     ///             {
-    ///                 ApproveAfterDays = 7,
-    ///                 PatchFilters = new[]
+    ///                 { "approveAfterDays", 7 },
+    ///                 { "patchFilters", new[]
     ///                 {
-    ///                     new Aws.Ssm.Inputs.PatchBaselineApprovalRulePatchFilterArgs
+    ///                     
     ///                     {
-    ///                         Key = "CLASSIFICATION",
-    ///                         Values = new[]
+    ///                         { "key", "CLASSIFICATION" },
+    ///                         { "values", new[]
     ///                         {
     ///                             "CriticalUpdates",
     ///                             "SecurityUpdates",
-    ///                         },
+    ///                         } },
     ///                     },
-    ///                     new Aws.Ssm.Inputs.PatchBaselineApprovalRulePatchFilterArgs
+    ///                     
     ///                     {
-    ///                         Key = "MSRC_SEVERITY",
-    ///                         Values = new[]
+    ///                         { "key", "MSRC_SEVERITY" },
+    ///                         { "values", new[]
     ///                         {
     ///                             "Critical",
     ///                             "Important",
-    ///                         },
+    ///                         } },
     ///                     },
-    ///                 },
+    ///                 } },
     ///             },
-    ///             new Aws.Ssm.Inputs.PatchBaselineApprovalRuleArgs
+    ///             
     ///             {
-    ///                 ApproveAfterDays = 7,
-    ///                 PatchFilters = new[]
+    ///                 { "approveAfterDays", 7 },
+    ///                 { "patchFilters", new[]
     ///                 {
-    ///                     new Aws.Ssm.Inputs.PatchBaselineApprovalRulePatchFilterArgs
+    ///                     
     ///                     {
-    ///                         Key = "PATCH_SET",
-    ///                         Values = new[]
+    ///                         { "key", "PATCH_SET" },
+    ///                         { "values", new[]
     ///                         {
     ///                             "APPLICATION",
-    ///                         },
+    ///                         } },
     ///                     },
-    ///                     new Aws.Ssm.Inputs.PatchBaselineApprovalRulePatchFilterArgs
+    ///                     
     ///                     {
-    ///                         Key = "PRODUCT",
-    ///                         Values = new[]
+    ///                         { "key", "PRODUCT" },
+    ///                         { "values", new[]
     ///                         {
     ///                             "Office 2013",
     ///                             "Office 2016",
-    ///                         },
+    ///                         } },
     ///                     },
-    ///                 },
+    ///                 } },
     ///             },
     ///         },
     ///         Description = "Patch both Windows and Microsoft apps",
@@ -226,7 +226,7 @@ namespace Pulumi.Aws.Ssm
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var al201709 = new Aws.Ssm.PatchBaseline("al201709", new()
+    ///     var al201709 = new Aws.Ssm.PatchBaseline.PatchBaseline("al201709", new()
     ///     {
     ///         ApprovalRules = new[]
     ///         {
@@ -236,9 +236,9 @@ namespace Pulumi.Aws.Ssm
     ///         OperatingSystem = "AMAZON_LINUX",
     ///         Sources = new[]
     ///         {
-    ///             new Aws.Ssm.Inputs.PatchBaselineSourceArgs
+    ///             
     ///             {
-    ///                 Configuration = @"[amzn-main]
+    ///                 { "configuration", @"[amzn-main]
     /// name=amzn-main-Base
     /// mirrorlist=http://repo./$awsregion./$awsdomain//$releasever/main/mirror.list
     /// mirrorlist_expire=300
@@ -253,12 +253,12 @@ namespace Pulumi.Aws.Ssm
     /// timeout=5
     /// report_instanceid=yes
     /// 
-    /// ",
-    ///                 Name = "My-AL2017.09",
-    ///                 Products = new[]
+    /// " },
+    ///                 { "name", "My-AL2017.09" },
+    ///                 { "products", new[]
     ///                 {
     ///                     "AmazonLinux2017.09",
-    ///                 },
+    ///                 } },
     ///             },
     ///         },
     ///     });

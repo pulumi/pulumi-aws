@@ -43,8 +43,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.mq.Broker;
  * import com.pulumi.aws.mq.BrokerArgs;
- * import com.pulumi.aws.mq.inputs.BrokerConfigurationArgs;
- * import com.pulumi.aws.mq.inputs.BrokerUserArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -59,18 +57,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Broker(&#34;example&#34;, BrokerArgs.builder()        
- *             .configuration(BrokerConfigurationArgs.builder()
- *                 .id(aws_mq_configuration.test().id())
- *                 .revision(aws_mq_configuration.test().latest_revision())
- *                 .build())
+ *             .configuration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .engineType(&#34;ActiveMQ&#34;)
  *             .engineVersion(&#34;5.17.6&#34;)
  *             .hostInstanceType(&#34;mq.t2.micro&#34;)
  *             .securityGroups(aws_security_group.test().id())
- *             .users(BrokerUserArgs.builder()
- *                 .username(&#34;ExampleUser&#34;)
- *                 .password(&#34;MindTheGap&#34;)
- *                 .build())
+ *             .users(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -87,8 +79,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.mq.Broker;
  * import com.pulumi.aws.mq.BrokerArgs;
- * import com.pulumi.aws.mq.inputs.BrokerConfigurationArgs;
- * import com.pulumi.aws.mq.inputs.BrokerUserArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -103,19 +93,13 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Broker(&#34;example&#34;, BrokerArgs.builder()        
- *             .configuration(BrokerConfigurationArgs.builder()
- *                 .id(aws_mq_configuration.test().id())
- *                 .revision(aws_mq_configuration.test().latest_revision())
- *                 .build())
+ *             .configuration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .engineType(&#34;ActiveMQ&#34;)
  *             .engineVersion(&#34;5.17.6&#34;)
  *             .storageType(&#34;ebs&#34;)
  *             .hostInstanceType(&#34;mq.m5.large&#34;)
  *             .securityGroups(aws_security_group.test().id())
- *             .users(BrokerUserArgs.builder()
- *                 .username(&#34;ExampleUser&#34;)
- *                 .password(&#34;MindTheGap&#34;)
- *                 .build())
+ *             .users(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

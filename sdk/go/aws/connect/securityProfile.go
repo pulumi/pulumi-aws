@@ -22,31 +22,29 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/connect"
+//	connect/securityProfile "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/connect/securityProfile"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := connect.NewSecurityProfile(ctx, "example", &connect.SecurityProfileArgs{
-//				Description: pulumi.String("example description"),
-//				InstanceId:  pulumi.String("aaaaaaaa-bbbb-cccc-dddd-111111111111"),
-//				Permissions: pulumi.StringArray{
-//					pulumi.String("BasicAgentAccess"),
-//					pulumi.String("OutboundCallAccess"),
-//				},
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("Example Security Profile"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := connect/securityProfile.NewSecurityProfile(ctx, "example", &connect/securityProfile.SecurityProfileArgs{
+// Description: "example description",
+// InstanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+// Permissions: []string{
+// "BasicAgentAccess",
+// "OutboundCallAccess",
+// },
+// Tags: map[string]interface{}{
+// "Name": "Example Security Profile",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

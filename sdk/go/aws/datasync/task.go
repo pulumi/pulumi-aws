@@ -22,28 +22,25 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/datasync"
+//	datasync/task "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/datasync/task"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := datasync.NewTask(ctx, "example", &datasync.TaskArgs{
-//				DestinationLocationArn: pulumi.Any(aws_datasync_location_s3.Destination.Arn),
-//				SourceLocationArn:      pulumi.Any(aws_datasync_location_nfs.Source.Arn),
-//				Schedule: &datasync.TaskScheduleArgs{
-//					ScheduleExpression: pulumi.String("cron(0 12 ? * SUN,WED *)"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := datasync/task.NewTask(ctx, "example", &datasync/task.TaskArgs{
+// DestinationLocationArn: aws_datasync_location_s3.Destination.Arn,
+// SourceLocationArn: aws_datasync_location_nfs.Source.Arn,
+// Schedule: map[string]interface{}{
+// "scheduleExpression": "cron(0 12 ? * SUN,WED *)",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### With Filtering
 //
@@ -52,33 +49,30 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/datasync"
+//	datasync/task "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/datasync/task"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := datasync.NewTask(ctx, "example", &datasync.TaskArgs{
-//				DestinationLocationArn: pulumi.Any(aws_datasync_location_s3.Destination.Arn),
-//				SourceLocationArn:      pulumi.Any(aws_datasync_location_nfs.Source.Arn),
-//				Excludes: &datasync.TaskExcludesArgs{
-//					FilterType: pulumi.String("SIMPLE_PATTERN"),
-//					Value:      pulumi.String("/folder1|/folder2"),
-//				},
-//				Includes: &datasync.TaskIncludesArgs{
-//					FilterType: pulumi.String("SIMPLE_PATTERN"),
-//					Value:      pulumi.String("/folder1|/folder2"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := datasync/task.NewTask(ctx, "example", &datasync/task.TaskArgs{
+// DestinationLocationArn: aws_datasync_location_s3.Destination.Arn,
+// SourceLocationArn: aws_datasync_location_nfs.Source.Arn,
+// Excludes: map[string]interface{}{
+// "filterType": "SIMPLE_PATTERN",
+// "value": "/folder1|/folder2",
+// },
+// Includes: map[string]interface{}{
+// "filterType": "SIMPLE_PATTERN",
+// "value": "/folder1|/folder2",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

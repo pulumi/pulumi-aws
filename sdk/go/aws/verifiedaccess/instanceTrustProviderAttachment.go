@@ -21,39 +21,39 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/verifiedaccess"
+//	verifiedaccess/instance "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/verifiedaccess/instance"
+//	verifiedaccess/instanceTrustProviderAttachment "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/verifiedaccess/instanceTrustProviderAttachment"
+//	verifiedaccess/trustProvider "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/verifiedaccess/trustProvider"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleInstance, err := verifiedaccess.NewInstance(ctx, "exampleInstance", nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleTrustProvider, err := verifiedaccess.NewTrustProvider(ctx, "exampleTrustProvider", &verifiedaccess.TrustProviderArgs{
-//				DeviceTrustProviderType: pulumi.String("jamf"),
-//				PolicyReferenceName:     pulumi.String("example"),
-//				TrustProviderType:       pulumi.String("device"),
-//				DeviceOptions: &verifiedaccess.TrustProviderDeviceOptionsArgs{
-//					TenantId: pulumi.String("example"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = verifiedaccess.NewInstanceTrustProviderAttachment(ctx, "exampleInstanceTrustProviderAttachment", &verifiedaccess.InstanceTrustProviderAttachmentArgs{
-//				VerifiedaccessInstanceId:      exampleInstance.ID(),
-//				VerifiedaccessTrustProviderId: exampleTrustProvider.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleInstance, err := verifiedaccess/instance.NewInstance(ctx, "exampleInstance", nil)
+// if err != nil {
+// return err
+// }
+// exampleTrustProvider, err := verifiedaccess/trustProvider.NewTrustProvider(ctx, "exampleTrustProvider", &verifiedaccess/trustProvider.TrustProviderArgs{
+// DeviceTrustProviderType: "jamf",
+// PolicyReferenceName: "example",
+// TrustProviderType: "device",
+// DeviceOptions: map[string]interface{}{
+// "tenantId": "example",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = verifiedaccess/instanceTrustProviderAttachment.NewInstanceTrustProviderAttachment(ctx, "exampleInstanceTrustProviderAttachment", &verifiedaccess/instanceTrustProviderAttachment.InstanceTrustProviderAttachmentArgs{
+// VerifiedaccessInstanceId: exampleInstance.Id,
+// VerifiedaccessTrustProviderId: exampleTrustProvider.Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

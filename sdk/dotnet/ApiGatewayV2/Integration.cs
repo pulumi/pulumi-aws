@@ -24,7 +24,7 @@ namespace Pulumi.Aws.ApiGatewayV2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.ApiGatewayV2.Integration("example", new()
+    ///     var example = new Aws.Apigatewayv2.Integration.Integration("example", new()
     ///     {
     ///         ApiId = aws_apigatewayv2_api.Example.Id,
     ///         IntegrationType = "MOCK",
@@ -42,7 +42,7 @@ namespace Pulumi.Aws.ApiGatewayV2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleFunction = new Aws.Lambda.Function("exampleFunction", new()
+    ///     var exampleFunction = new Aws.Lambda.Function.Function("exampleFunction", new()
     ///     {
     ///         Code = new FileArchive("example.zip"),
     ///         Role = aws_iam_role.Example.Arn,
@@ -50,7 +50,7 @@ namespace Pulumi.Aws.ApiGatewayV2
     ///         Runtime = "nodejs16.x",
     ///     });
     /// 
-    ///     var exampleIntegration = new Aws.ApiGatewayV2.Integration("exampleIntegration", new()
+    ///     var exampleIntegration = new Aws.Apigatewayv2.Integration.Integration("exampleIntegration", new()
     ///     {
     ///         ApiId = aws_apigatewayv2_api.Example.Id,
     ///         IntegrationType = "AWS_PROXY",
@@ -74,7 +74,7 @@ namespace Pulumi.Aws.ApiGatewayV2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.ApiGatewayV2.Integration("example", new()
+    ///     var example = new Aws.Apigatewayv2.Integration.Integration("example", new()
     ///     {
     ///         ApiId = aws_apigatewayv2_api.Example.Id,
     ///         CredentialsArn = aws_iam_role.Example.Arn,
@@ -100,7 +100,7 @@ namespace Pulumi.Aws.ApiGatewayV2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.ApiGatewayV2.Integration("example", new()
+    ///     var example = new Aws.Apigatewayv2.Integration.Integration("example", new()
     ///     {
     ///         ApiId = aws_apigatewayv2_api.Example.Id,
     ///         CredentialsArn = aws_iam_role.Example.Arn,
@@ -110,9 +110,9 @@ namespace Pulumi.Aws.ApiGatewayV2
     ///         IntegrationMethod = "ANY",
     ///         ConnectionType = "VPC_LINK",
     ///         ConnectionId = aws_apigatewayv2_vpc_link.Example.Id,
-    ///         TlsConfig = new Aws.ApiGatewayV2.Inputs.IntegrationTlsConfigArgs
+    ///         TlsConfig = 
     ///         {
-    ///             ServerNameToVerify = "example.com",
+    ///             { "serverNameToVerify", "example.com" },
     ///         },
     ///         RequestParameters = 
     ///         {
@@ -121,21 +121,21 @@ namespace Pulumi.Aws.ApiGatewayV2
     ///         },
     ///         ResponseParameters = new[]
     ///         {
-    ///             new Aws.ApiGatewayV2.Inputs.IntegrationResponseParameterArgs
+    ///             
     ///             {
-    ///                 StatusCode = "403",
-    ///                 Mappings = 
+    ///                 { "statusCode", 403 },
+    ///                 { "mappings", 
     ///                 {
     ///                     { "append:header.auth", "$context.authorizer.authorizerResponse" },
-    ///                 },
+    ///                 } },
     ///             },
-    ///             new Aws.ApiGatewayV2.Inputs.IntegrationResponseParameterArgs
+    ///             
     ///             {
-    ///                 StatusCode = "200",
-    ///                 Mappings = 
+    ///                 { "statusCode", 200 },
+    ///                 { "mappings", 
     ///                 {
     ///                     { "overwrite:statuscode", "204" },
-    ///                 },
+    ///                 } },
     ///             },
     ///         },
     ///     });

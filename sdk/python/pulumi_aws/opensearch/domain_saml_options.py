@@ -118,26 +118,26 @@ class DomainSamlOptions(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_domain = aws.opensearch.Domain("exampleDomain",
-            engine_version="OpenSearch_1.1",
-            cluster_config=aws.opensearch.DomainClusterConfigArgs(
-                instance_type="r4.large.search",
-            ),
-            snapshot_options=aws.opensearch.DomainSnapshotOptionsArgs(
-                automated_snapshot_start_hour=23,
-            ),
+        example_domain = aws.opensearch.domain.Domain("exampleDomain",
+            engine_version=OpenSearch_1.1,
+            cluster_config={
+                instanceType: r4.large.search,
+            },
+            snapshot_options={
+                automatedSnapshotStartHour: 23,
+            },
             tags={
-                "Domain": "TestDomain",
+                Domain: TestDomain,
             })
-        example_domain_saml_options = aws.opensearch.DomainSamlOptions("exampleDomainSamlOptions",
+        example_domain_saml_options = aws.opensearch.domain_saml_options.DomainSamlOptions("exampleDomainSamlOptions",
             domain_name=example_domain.domain_name,
-            saml_options=aws.opensearch.DomainSamlOptionsSamlOptionsArgs(
-                enabled=True,
-                idp=aws.opensearch.DomainSamlOptionsSamlOptionsIdpArgs(
-                    entity_id="https://example.com",
-                    metadata_content=(lambda path: open(path).read())("./saml-metadata.xml"),
-                ),
-            ))
+            saml_options={
+                enabled: True,
+                idp: {
+                    entityId: https://example.com,
+                    metadataContent: (lambda path: open(path).read())(./saml-metadata.xml),
+                },
+            })
         ```
 
         ## Import
@@ -171,26 +171,26 @@ class DomainSamlOptions(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_domain = aws.opensearch.Domain("exampleDomain",
-            engine_version="OpenSearch_1.1",
-            cluster_config=aws.opensearch.DomainClusterConfigArgs(
-                instance_type="r4.large.search",
-            ),
-            snapshot_options=aws.opensearch.DomainSnapshotOptionsArgs(
-                automated_snapshot_start_hour=23,
-            ),
+        example_domain = aws.opensearch.domain.Domain("exampleDomain",
+            engine_version=OpenSearch_1.1,
+            cluster_config={
+                instanceType: r4.large.search,
+            },
+            snapshot_options={
+                automatedSnapshotStartHour: 23,
+            },
             tags={
-                "Domain": "TestDomain",
+                Domain: TestDomain,
             })
-        example_domain_saml_options = aws.opensearch.DomainSamlOptions("exampleDomainSamlOptions",
+        example_domain_saml_options = aws.opensearch.domain_saml_options.DomainSamlOptions("exampleDomainSamlOptions",
             domain_name=example_domain.domain_name,
-            saml_options=aws.opensearch.DomainSamlOptionsSamlOptionsArgs(
-                enabled=True,
-                idp=aws.opensearch.DomainSamlOptionsSamlOptionsIdpArgs(
-                    entity_id="https://example.com",
-                    metadata_content=(lambda path: open(path).read())("./saml-metadata.xml"),
-                ),
-            ))
+            saml_options={
+                enabled: True,
+                idp: {
+                    entityId: https://example.com,
+                    metadataContent: (lambda path: open(path).read())(./saml-metadata.xml),
+                },
+            })
         ```
 
         ## Import

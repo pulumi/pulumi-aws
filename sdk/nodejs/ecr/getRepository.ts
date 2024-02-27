@@ -9,17 +9,6 @@ import * as utilities from "../utilities";
 
 /**
  * The ECR Repository data source allows the ARN, Repository URI and Registry ID to be retrieved for an ECR repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const service = aws.ecr.getRepository({
- *     name: "ecr-repository",
- * });
- * ```
  */
 export function getRepository(args: GetRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetRepositoryResult> {
 
@@ -90,17 +79,6 @@ export interface GetRepositoryResult {
 }
 /**
  * The ECR Repository data source allows the ARN, Repository URI and Registry ID to be retrieved for an ECR repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const service = aws.ecr.getRepository({
- *     name: "ecr-repository",
- * });
- * ```
  */
 export function getRepositoryOutput(args: GetRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getRepository(a, opts))

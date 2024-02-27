@@ -206,13 +206,13 @@ class AppImageConfig(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.sagemaker.AppImageConfig("test",
-            app_image_config_name="example",
-            kernel_gateway_image_config=aws.sagemaker.AppImageConfigKernelGatewayImageConfigArgs(
-                kernel_spec=aws.sagemaker.AppImageConfigKernelGatewayImageConfigKernelSpecArgs(
-                    name="example",
-                ),
-            ))
+        test = aws.sagemaker.app_image_config.AppImageConfig("test",
+            app_image_config_name=example,
+            kernel_gateway_image_config={
+                kernelSpec: {
+                    name: example,
+                },
+            })
         ```
         ### Default File System Config
 
@@ -220,14 +220,14 @@ class AppImageConfig(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.sagemaker.AppImageConfig("test",
-            app_image_config_name="example",
-            kernel_gateway_image_config=aws.sagemaker.AppImageConfigKernelGatewayImageConfigArgs(
-                file_system_config=aws.sagemaker.AppImageConfigKernelGatewayImageConfigFileSystemConfigArgs(),
-                kernel_spec=aws.sagemaker.AppImageConfigKernelGatewayImageConfigKernelSpecArgs(
-                    name="example",
-                ),
-            ))
+        test = aws.sagemaker.app_image_config.AppImageConfig("test",
+            app_image_config_name=example,
+            kernel_gateway_image_config={
+                fileSystemConfig: {},
+                kernelSpec: {
+                    name: example,
+                },
+            })
         ```
 
         ## Import
@@ -260,13 +260,13 @@ class AppImageConfig(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.sagemaker.AppImageConfig("test",
-            app_image_config_name="example",
-            kernel_gateway_image_config=aws.sagemaker.AppImageConfigKernelGatewayImageConfigArgs(
-                kernel_spec=aws.sagemaker.AppImageConfigKernelGatewayImageConfigKernelSpecArgs(
-                    name="example",
-                ),
-            ))
+        test = aws.sagemaker.app_image_config.AppImageConfig("test",
+            app_image_config_name=example,
+            kernel_gateway_image_config={
+                kernelSpec: {
+                    name: example,
+                },
+            })
         ```
         ### Default File System Config
 
@@ -274,14 +274,14 @@ class AppImageConfig(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.sagemaker.AppImageConfig("test",
-            app_image_config_name="example",
-            kernel_gateway_image_config=aws.sagemaker.AppImageConfigKernelGatewayImageConfigArgs(
-                file_system_config=aws.sagemaker.AppImageConfigKernelGatewayImageConfigFileSystemConfigArgs(),
-                kernel_spec=aws.sagemaker.AppImageConfigKernelGatewayImageConfigKernelSpecArgs(
-                    name="example",
-                ),
-            ))
+        test = aws.sagemaker.app_image_config.AppImageConfig("test",
+            app_image_config_name=example,
+            kernel_gateway_image_config={
+                fileSystemConfig: {},
+                kernelSpec: {
+                    name: example,
+                },
+            })
         ```
 
         ## Import

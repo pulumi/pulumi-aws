@@ -14,11 +14,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleEmailIdentity = new aws.sesv2.EmailIdentity("exampleEmailIdentity", {emailIdentity: "testing@example.com"});
- * const exampleEmailIdentityPolicy = new aws.sesv2.EmailIdentityPolicy("exampleEmailIdentityPolicy", {
+ * const exampleEmailIdentity = new aws.sesv2/emailIdentity.EmailIdentity("exampleEmailIdentity", {emailIdentity: "testing@example.com"});
+ * const exampleEmailIdentityPolicy = new aws.sesv2/emailIdentityPolicy.EmailIdentityPolicy("exampleEmailIdentityPolicy", {
  *     emailIdentity: exampleEmailIdentity.emailIdentity,
  *     policyName: "example",
- *     policy: pulumi.interpolate`{
+ *     policy: `{
  *   "Id":"ExampleAuthorizationPolicy",
  *   "Version":"2012-10-17",
  *   "Statement":[

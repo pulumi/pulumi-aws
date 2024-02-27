@@ -37,7 +37,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.synthetics.Canary;
  * import com.pulumi.aws.synthetics.CanaryArgs;
- * import com.pulumi.aws.synthetics.inputs.CanaryScheduleArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -56,9 +55,7 @@ import javax.annotation.Nullable;
  *             .executionRoleArn(&#34;some-role&#34;)
  *             .handler(&#34;exports.handler&#34;)
  *             .runtimeVersion(&#34;syn-1.0&#34;)
- *             .schedule(CanaryScheduleArgs.builder()
- *                 .expression(&#34;rate(0 minute)&#34;)
- *                 .build())
+ *             .schedule(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .zipFile(&#34;test-fixtures/lambdatest.zip&#34;)
  *             .build());
  * 

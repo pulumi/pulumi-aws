@@ -16,58 +16,6 @@ import javax.annotation.Nullable;
 /**
  * Manages a SES Identity Policy. More information about SES Sending Authorization Policies can be found in the [SES Developer Guide](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization-policies.html).
  * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ses.DomainIdentity;
- * import com.pulumi.aws.ses.DomainIdentityArgs;
- * import com.pulumi.aws.iam.IamFunctions;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
- * import com.pulumi.aws.ses.IdentityPolicy;
- * import com.pulumi.aws.ses.IdentityPolicyArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var exampleDomainIdentity = new DomainIdentity(&#34;exampleDomainIdentity&#34;, DomainIdentityArgs.builder()        
- *             .domain(&#34;example.com&#34;)
- *             .build());
- * 
- *         final var examplePolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .actions(                
- *                     &#34;SES:SendEmail&#34;,
- *                     &#34;SES:SendRawEmail&#34;)
- *                 .resources(exampleDomainIdentity.arn())
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .identifiers(&#34;*&#34;)
- *                     .type(&#34;AWS&#34;)
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *         var exampleIdentityPolicy = new IdentityPolicy(&#34;exampleIdentityPolicy&#34;, IdentityPolicyArgs.builder()        
- *             .identity(exampleDomainIdentity.arn())
- *             .policy(examplePolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(examplePolicyDocument -&gt; examplePolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
  * ## Import
  * 
  * Using `pulumi import`, import SES Identity Policies using the identity and policy name, separated by a pipe character (`|`). For example:

@@ -23,7 +23,7 @@ namespace Pulumi.Aws.RedshiftServerless
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.RedshiftServerless.ResourcePolicy("example", new()
+    ///     var example = new Aws.Redshiftserverless.ResourcePolicy.ResourcePolicy("example", new()
     ///     {
     ///         ResourceArn = aws_redshiftserverless_snapshot.Example.Arn,
     ///         Policy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;

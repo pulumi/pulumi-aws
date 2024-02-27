@@ -23,31 +23,31 @@ namespace Pulumi.Aws.AccessAnalyzer
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.AccessAnalyzer.ArchiveRule("example", new()
+    ///     var example = new Aws.Accessanalyzer.ArchiveRule.ArchiveRule("example", new()
     ///     {
     ///         AnalyzerName = "example-analyzer",
     ///         Filters = new[]
     ///         {
-    ///             new Aws.AccessAnalyzer.Inputs.ArchiveRuleFilterArgs
+    ///             
     ///             {
-    ///                 Criteria = "condition.aws:UserId",
-    ///                 Eqs = new[]
+    ///                 { "criteria", "condition.aws:UserId" },
+    ///                 { "eqs", new[]
     ///                 {
     ///                     "userid",
-    ///                 },
+    ///                 } },
     ///             },
-    ///             new Aws.AccessAnalyzer.Inputs.ArchiveRuleFilterArgs
+    ///             
     ///             {
-    ///                 Criteria = "error",
-    ///                 Exists = "true",
+    ///                 { "criteria", "error" },
+    ///                 { "exists", true },
     ///             },
-    ///             new Aws.AccessAnalyzer.Inputs.ArchiveRuleFilterArgs
+    ///             
     ///             {
-    ///                 Criteria = "isPublic",
-    ///                 Eqs = new[]
+    ///                 { "criteria", "isPublic" },
+    ///                 { "eqs", new[]
     ///                 {
     ///                     "false",
-    ///                 },
+    ///                 } },
     ///             },
     ///         },
     ///         RuleName = "example-rule",

@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.cloudfront.KeyValueStore("example", {comment: "This is an example key value store"});
+ * const example = new aws.cloudfront/keyValueStore.KeyValueStore("example", {comment: "This is an example key value store"});
  * ```
  *
  * ## Import

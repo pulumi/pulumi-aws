@@ -22,56 +22,6 @@ import javax.annotation.Nullable;
  * 
  * &gt; **NOTE:** AWS WorkSpaces service requires [`workspaces_DefaultRole`](https://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-access-control.html#create-default-role) IAM role to operate normally.
  * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.workspaces.WorkspacesFunctions;
- * import com.pulumi.aws.workspaces.inputs.GetBundleArgs;
- * import com.pulumi.aws.workspaces.Workspace;
- * import com.pulumi.aws.workspaces.WorkspaceArgs;
- * import com.pulumi.aws.workspaces.inputs.WorkspaceWorkspacePropertiesArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var valueWindows10 = WorkspacesFunctions.getBundle(GetBundleArgs.builder()
- *             .bundleId(&#34;wsb-bh8rsxt14&#34;)
- *             .build());
- * 
- *         var example = new Workspace(&#34;example&#34;, WorkspaceArgs.builder()        
- *             .directoryId(aws_workspaces_directory.example().id())
- *             .bundleId(valueWindows10.applyValue(getBundleResult -&gt; getBundleResult.id()))
- *             .userName(&#34;john.doe&#34;)
- *             .rootVolumeEncryptionEnabled(true)
- *             .userVolumeEncryptionEnabled(true)
- *             .volumeEncryptionKey(&#34;alias/aws/workspaces&#34;)
- *             .workspaceProperties(WorkspaceWorkspacePropertiesArgs.builder()
- *                 .computeTypeName(&#34;VALUE&#34;)
- *                 .userVolumeSizeGib(10)
- *                 .rootVolumeSizeGib(80)
- *                 .runningMode(&#34;AUTO_STOP&#34;)
- *                 .runningModeAutoStopTimeoutInMinutes(60)
- *                 .build())
- *             .tags(Map.of(&#34;Department&#34;, &#34;IT&#34;))
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
  * ## Import
  * 
  * Using `pulumi import`, import Workspaces using their ID. For example:

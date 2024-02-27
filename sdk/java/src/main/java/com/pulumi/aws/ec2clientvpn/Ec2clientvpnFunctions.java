@@ -18,67 +18,6 @@ public final class Ec2clientvpnFunctions {
      * Get information on an EC2 Client VPN endpoint.
      * 
      * ## Example Usage
-     * ### By Filter
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2clientvpn.Ec2clientvpnFunctions;
-     * import com.pulumi.aws.ec2clientvpn.inputs.GetEndpointArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Ec2clientvpnFunctions.getEndpoint(GetEndpointArgs.builder()
-     *             .filters(GetEndpointFilterArgs.builder()
-     *                 .name(&#34;tag:Name&#34;)
-     *                 .values(&#34;ExampleVpn&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * ### By Identifier
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2clientvpn.Ec2clientvpnFunctions;
-     * import com.pulumi.aws.ec2clientvpn.inputs.GetEndpointArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Ec2clientvpnFunctions.getEndpoint(GetEndpointArgs.builder()
-     *             .clientVpnEndpointId(&#34;cvpn-endpoint-083cf50d6eb314f21&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetEndpointResult> getEndpoint() {
@@ -88,67 +27,6 @@ public final class Ec2clientvpnFunctions {
      * Get information on an EC2 Client VPN endpoint.
      * 
      * ## Example Usage
-     * ### By Filter
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2clientvpn.Ec2clientvpnFunctions;
-     * import com.pulumi.aws.ec2clientvpn.inputs.GetEndpointArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Ec2clientvpnFunctions.getEndpoint(GetEndpointArgs.builder()
-     *             .filters(GetEndpointFilterArgs.builder()
-     *                 .name(&#34;tag:Name&#34;)
-     *                 .values(&#34;ExampleVpn&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * ### By Identifier
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2clientvpn.Ec2clientvpnFunctions;
-     * import com.pulumi.aws.ec2clientvpn.inputs.GetEndpointArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Ec2clientvpnFunctions.getEndpoint(GetEndpointArgs.builder()
-     *             .clientVpnEndpointId(&#34;cvpn-endpoint-083cf50d6eb314f21&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetEndpointResult> getEndpointPlain() {
@@ -158,67 +36,6 @@ public final class Ec2clientvpnFunctions {
      * Get information on an EC2 Client VPN endpoint.
      * 
      * ## Example Usage
-     * ### By Filter
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2clientvpn.Ec2clientvpnFunctions;
-     * import com.pulumi.aws.ec2clientvpn.inputs.GetEndpointArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Ec2clientvpnFunctions.getEndpoint(GetEndpointArgs.builder()
-     *             .filters(GetEndpointFilterArgs.builder()
-     *                 .name(&#34;tag:Name&#34;)
-     *                 .values(&#34;ExampleVpn&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * ### By Identifier
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2clientvpn.Ec2clientvpnFunctions;
-     * import com.pulumi.aws.ec2clientvpn.inputs.GetEndpointArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Ec2clientvpnFunctions.getEndpoint(GetEndpointArgs.builder()
-     *             .clientVpnEndpointId(&#34;cvpn-endpoint-083cf50d6eb314f21&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetEndpointResult> getEndpoint(GetEndpointArgs args) {
@@ -228,67 +45,6 @@ public final class Ec2clientvpnFunctions {
      * Get information on an EC2 Client VPN endpoint.
      * 
      * ## Example Usage
-     * ### By Filter
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2clientvpn.Ec2clientvpnFunctions;
-     * import com.pulumi.aws.ec2clientvpn.inputs.GetEndpointArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Ec2clientvpnFunctions.getEndpoint(GetEndpointArgs.builder()
-     *             .filters(GetEndpointFilterArgs.builder()
-     *                 .name(&#34;tag:Name&#34;)
-     *                 .values(&#34;ExampleVpn&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * ### By Identifier
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2clientvpn.Ec2clientvpnFunctions;
-     * import com.pulumi.aws.ec2clientvpn.inputs.GetEndpointArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Ec2clientvpnFunctions.getEndpoint(GetEndpointArgs.builder()
-     *             .clientVpnEndpointId(&#34;cvpn-endpoint-083cf50d6eb314f21&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetEndpointResult> getEndpointPlain(GetEndpointPlainArgs args) {
@@ -298,67 +54,6 @@ public final class Ec2clientvpnFunctions {
      * Get information on an EC2 Client VPN endpoint.
      * 
      * ## Example Usage
-     * ### By Filter
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2clientvpn.Ec2clientvpnFunctions;
-     * import com.pulumi.aws.ec2clientvpn.inputs.GetEndpointArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Ec2clientvpnFunctions.getEndpoint(GetEndpointArgs.builder()
-     *             .filters(GetEndpointFilterArgs.builder()
-     *                 .name(&#34;tag:Name&#34;)
-     *                 .values(&#34;ExampleVpn&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * ### By Identifier
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2clientvpn.Ec2clientvpnFunctions;
-     * import com.pulumi.aws.ec2clientvpn.inputs.GetEndpointArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Ec2clientvpnFunctions.getEndpoint(GetEndpointArgs.builder()
-     *             .clientVpnEndpointId(&#34;cvpn-endpoint-083cf50d6eb314f21&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetEndpointResult> getEndpoint(GetEndpointArgs args, InvokeOptions options) {
@@ -368,67 +63,6 @@ public final class Ec2clientvpnFunctions {
      * Get information on an EC2 Client VPN endpoint.
      * 
      * ## Example Usage
-     * ### By Filter
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2clientvpn.Ec2clientvpnFunctions;
-     * import com.pulumi.aws.ec2clientvpn.inputs.GetEndpointArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Ec2clientvpnFunctions.getEndpoint(GetEndpointArgs.builder()
-     *             .filters(GetEndpointFilterArgs.builder()
-     *                 .name(&#34;tag:Name&#34;)
-     *                 .values(&#34;ExampleVpn&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * ### By Identifier
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2clientvpn.Ec2clientvpnFunctions;
-     * import com.pulumi.aws.ec2clientvpn.inputs.GetEndpointArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Ec2clientvpnFunctions.getEndpoint(GetEndpointArgs.builder()
-     *             .clientVpnEndpointId(&#34;cvpn-endpoint-083cf50d6eb314f21&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetEndpointResult> getEndpointPlain(GetEndpointPlainArgs args, InvokeOptions options) {

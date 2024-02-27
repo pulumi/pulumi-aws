@@ -10,52 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Provides a SSM resource data sync.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const hogeBucketV2 = new aws.s3.BucketV2("hogeBucketV2", {});
- * const hogePolicyDocument = aws.iam.getPolicyDocument({
- *     statements: [
- *         {
- *             sid: "SSMBucketPermissionsCheck",
- *             effect: "Allow",
- *             principals: [{
- *                 type: "Service",
- *                 identifiers: ["ssm.amazonaws.com"],
- *             }],
- *             actions: ["s3:GetBucketAcl"],
- *             resources: ["arn:aws:s3:::tf-test-bucket-1234"],
- *         },
- *         {
- *             sid: "SSMBucketDelivery",
- *             effect: "Allow",
- *             principals: [{
- *                 type: "Service",
- *                 identifiers: ["ssm.amazonaws.com"],
- *             }],
- *             actions: ["s3:PutObject"],
- *             resources: ["arn:aws:s3:::tf-test-bucket-1234/*"],
- *             conditions: [{
- *                 test: "StringEquals",
- *                 variable: "s3:x-amz-acl",
- *                 values: ["bucket-owner-full-control"],
- *             }],
- *         },
- *     ],
- * });
- * const hogeBucketPolicy = new aws.s3.BucketPolicy("hogeBucketPolicy", {
- *     bucket: hogeBucketV2.id,
- *     policy: hogePolicyDocument.then(hogePolicyDocument => hogePolicyDocument.json),
- * });
- * const foo = new aws.ssm.ResourceDataSync("foo", {s3Destination: {
- *     bucketName: hogeBucketV2.bucket,
- *     region: hogeBucketV2.region,
- * }});
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import SSM resource data sync using the `name`. For example:

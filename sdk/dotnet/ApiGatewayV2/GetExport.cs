@@ -13,60 +13,12 @@ namespace Pulumi.Aws.ApiGatewayV2
     {
         /// <summary>
         /// Exports a definition of an API in a particular output format and specification.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Aws.ApiGatewayV2.GetExport.Invoke(new()
-        ///     {
-        ///         ApiId = aws_apigatewayv2_route.Test.Api_id,
-        ///         Specification = "OAS30",
-        ///         OutputType = "JSON",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetExportResult> InvokeAsync(GetExportArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetExportResult>("aws:apigatewayv2/getExport:getExport", args ?? new GetExportArgs(), options.WithDefaults());
 
         /// <summary>
         /// Exports a definition of an API in a particular output format and specification.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Aws.ApiGatewayV2.GetExport.Invoke(new()
-        ///     {
-        ///         ApiId = aws_apigatewayv2_route.Test.Api_id,
-        ///         Specification = "OAS30",
-        ///         OutputType = "JSON",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetExportResult> Invoke(GetExportInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetExportResult>("aws:apigatewayv2/getExport:getExport", args ?? new GetExportInvokeArgs(), options.WithDefaults());

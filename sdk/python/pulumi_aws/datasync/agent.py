@@ -346,7 +346,7 @@ class Agent(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.datasync.Agent("example", ip_address="1.2.3.4")
+        example = aws.datasync.agent.Agent("example", ip_address=1.2.3.4)
         ```
 
         ## Import
@@ -385,7 +385,7 @@ class Agent(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.datasync.Agent("example", ip_address="1.2.3.4")
+        example = aws.datasync.agent.Agent("example", ip_address=1.2.3.4)
         ```
 
         ## Import

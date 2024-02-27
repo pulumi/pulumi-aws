@@ -156,9 +156,9 @@ class Account(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.macie2.Account("test",
-            finding_publishing_frequency="FIFTEEN_MINUTES",
-            status="ENABLED")
+        test = aws.macie2.account.Account("test",
+            finding_publishing_frequency=FIFTEEN_MINUTES,
+            status=ENABLED)
         ```
 
         ## Import
@@ -189,9 +189,9 @@ class Account(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.macie2.Account("test",
-            finding_publishing_frequency="FIFTEEN_MINUTES",
-            status="ENABLED")
+        test = aws.macie2.account.Account("test",
+            finding_publishing_frequency=FIFTEEN_MINUTES,
+            status=ENABLED)
         ```
 
         ## Import

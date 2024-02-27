@@ -24,24 +24,22 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/servicecatalog"
+//	servicecatalog/tagOptionResourceAssociation "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/servicecatalog/tagOptionResourceAssociation"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := servicecatalog.NewTagOptionResourceAssociation(ctx, "example", &servicecatalog.TagOptionResourceAssociationArgs{
-//				ResourceId:  pulumi.String("prod-dnigbtea24ste"),
-//				TagOptionId: pulumi.String("tag-pjtvyakdlyo3m"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := servicecatalog/tagOptionResourceAssociation.NewTagOptionResourceAssociation(ctx, "example", &servicecatalog/tagOptionResourceAssociation.TagOptionResourceAssociationArgs{
+// ResourceId: "prod-dnigbtea24ste",
+// TagOptionId: "tag-pjtvyakdlyo3m",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

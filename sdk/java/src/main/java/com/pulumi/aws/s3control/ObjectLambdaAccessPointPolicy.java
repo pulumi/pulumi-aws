@@ -29,7 +29,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.s3.AccessPointArgs;
  * import com.pulumi.aws.s3control.ObjectLambdaAccessPoint;
  * import com.pulumi.aws.s3control.ObjectLambdaAccessPointArgs;
- * import com.pulumi.aws.s3control.inputs.ObjectLambdaAccessPointConfigurationArgs;
  * import com.pulumi.aws.s3control.ObjectLambdaAccessPointPolicy;
  * import com.pulumi.aws.s3control.ObjectLambdaAccessPointPolicyArgs;
  * import static com.pulumi.codegen.internal.Serialization.*;
@@ -53,21 +52,11 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleObjectLambdaAccessPoint = new ObjectLambdaAccessPoint(&#34;exampleObjectLambdaAccessPoint&#34;, ObjectLambdaAccessPointArgs.builder()        
- *             .configuration(ObjectLambdaAccessPointConfigurationArgs.builder()
- *                 .supportingAccessPoint(exampleAccessPoint.arn())
- *                 .transformationConfigurations(ObjectLambdaAccessPointConfigurationTransformationConfigurationArgs.builder()
- *                     .actions(&#34;GetObject&#34;)
- *                     .contentTransformation(ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationArgs.builder()
- *                         .awsLambda(ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaArgs.builder()
- *                             .functionArn(aws_lambda_function.example().arn())
- *                             .build())
- *                         .build())
- *                     .build())
- *                 .build())
+ *             .configuration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleObjectLambdaAccessPointPolicy = new ObjectLambdaAccessPointPolicy(&#34;exampleObjectLambdaAccessPointPolicy&#34;, ObjectLambdaAccessPointPolicyArgs.builder()        
- *             .policy(exampleObjectLambdaAccessPoint.arn().applyValue(arn -&gt; serializeJson(
+ *             .policy(serializeJson(
  *                 jsonObject(
  *                     jsonProperty(&#34;Version&#34;, &#34;2008-10-17&#34;),
  *                     jsonProperty(&#34;Statement&#34;, jsonArray(jsonObject(
@@ -76,9 +65,9 @@ import javax.annotation.Nullable;
  *                         jsonProperty(&#34;Principal&#34;, jsonObject(
  *                             jsonProperty(&#34;AWS&#34;, data.aws_caller_identity().current().account_id())
  *                         )),
- *                         jsonProperty(&#34;Resource&#34;, arn)
+ *                         jsonProperty(&#34;Resource&#34;, exampleObjectLambdaAccessPoint.arn())
  *                     )))
- *                 ))))
+ *                 )))
  *             .build());
  * 
  *     }

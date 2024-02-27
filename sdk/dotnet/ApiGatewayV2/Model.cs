@@ -24,7 +24,7 @@ namespace Pulumi.Aws.ApiGatewayV2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.ApiGatewayV2.Model("example", new()
+    ///     var example = new Aws.Apigatewayv2.Model.Model("example", new()
     ///     {
     ///         ApiId = aws_apigatewayv2_api.Example.Id,
     ///         ContentType = "application/json",

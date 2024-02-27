@@ -23,7 +23,7 @@ namespace Pulumi.Aws.Ivs
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Ivs.Channel("example");
+    ///     var example = new Aws.Ivs.Channel.Channel("example");
     /// 
     /// });
     /// ```

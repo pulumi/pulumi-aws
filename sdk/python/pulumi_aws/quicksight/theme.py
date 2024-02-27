@@ -411,6 +411,37 @@ class Theme(pulumi.CustomResource):
         Resource for managing a QuickSight Theme.
 
         ## Example Usage
+        ### Basic Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.quicksight.theme.Theme("example",
+            base_theme_id=MIDNIGHT,
+            configuration={
+                dataColorPalette: {
+                    colors: [
+                        #FFFFFF,
+                        #111111,
+                        #222222,
+                        #333333,
+                        #444444,
+                        #555555,
+                        #666666,
+                        #777777,
+                        #888888,
+                        #999999,
+                    ],
+                    emptyFillColor: #FFFFFF,
+                    minMaxGradient: [
+                        #FFFFFF,
+                        #111111,
+                    ],
+                },
+            },
+            theme_id=example)
+        ```
 
         ## Import
 
@@ -443,6 +474,37 @@ class Theme(pulumi.CustomResource):
         Resource for managing a QuickSight Theme.
 
         ## Example Usage
+        ### Basic Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.quicksight.theme.Theme("example",
+            base_theme_id=MIDNIGHT,
+            configuration={
+                dataColorPalette: {
+                    colors: [
+                        #FFFFFF,
+                        #111111,
+                        #222222,
+                        #333333,
+                        #444444,
+                        #555555,
+                        #666666,
+                        #777777,
+                        #888888,
+                        #999999,
+                    ],
+                    emptyFillColor: #FFFFFF,
+                    minMaxGradient: [
+                        #FFFFFF,
+                        #111111,
+                    ],
+                },
+            },
+            theme_id=example)
+        ```
 
         ## Import
 

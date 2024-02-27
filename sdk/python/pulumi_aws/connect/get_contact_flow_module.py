@@ -151,28 +151,6 @@ def get_contact_flow_module(contact_flow_module_id: Optional[str] = None,
     """
     Provides details about a specific Amazon Connect Contact Flow Module.
 
-    ## Example Usage
-
-    By `name`
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.connect.get_contact_flow_module(instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
-        name="example")
-    ```
-
-    By `contact_flow_module_id`
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.connect.get_contact_flow_module(contact_flow_module_id="cccccccc-bbbb-cccc-dddd-111111111111",
-        instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111")
-    ```
-
 
     :param str contact_flow_module_id: Returns information on a specific Contact Flow Module by contact flow module id
     :param str instance_id: Reference to the hosting Amazon Connect Instance
@@ -208,28 +186,6 @@ def get_contact_flow_module_output(contact_flow_module_id: Optional[pulumi.Input
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetContactFlowModuleResult]:
     """
     Provides details about a specific Amazon Connect Contact Flow Module.
-
-    ## Example Usage
-
-    By `name`
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.connect.get_contact_flow_module(instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
-        name="example")
-    ```
-
-    By `contact_flow_module_id`
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.connect.get_contact_flow_module(contact_flow_module_id="cccccccc-bbbb-cccc-dddd-111111111111",
-        instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111")
-    ```
 
 
     :param str contact_flow_module_id: Returns information on a specific Contact Flow Module by contact flow module id

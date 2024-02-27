@@ -240,19 +240,19 @@ class Repository(pulumi.CustomResource):
         import base64
         import pulumi_aws as aws
 
-        us_east1 = aws.Provider("usEast1", region="us-east-1")
-        foo = aws.ecrpublic.Repository("foo",
-            repository_name="bar",
-            catalog_data=aws.ecrpublic.RepositoryCatalogDataArgs(
-                about_text="About Text",
-                architectures=["ARM"],
-                description="Description",
-                logo_image_blob=(lambda path: base64.b64encode(open(path).read().encode()).decode())(image["png"]),
-                operating_systems=["Linux"],
-                usage_text="Usage Text",
-            ),
+        us_east1 = pulumi.providers.Aws("usEast1", region=us-east-1)
+        foo = aws.ecrpublic.repository.Repository("foo",
+            repository_name=bar,
+            catalog_data={
+                aboutText: About Text,
+                architectures: [ARM],
+                description: Description,
+                logoImageBlob: (lambda path: base64.b64encode(open(path).read().encode()).decode())(image.png),
+                operatingSystems: [Linux],
+                usageText: Usage Text,
+            },
             tags={
-                "env": "production",
+                env: production,
             },
             opts=pulumi.ResourceOptions(provider=aws["us_east_1"]))
         ```
@@ -289,19 +289,19 @@ class Repository(pulumi.CustomResource):
         import base64
         import pulumi_aws as aws
 
-        us_east1 = aws.Provider("usEast1", region="us-east-1")
-        foo = aws.ecrpublic.Repository("foo",
-            repository_name="bar",
-            catalog_data=aws.ecrpublic.RepositoryCatalogDataArgs(
-                about_text="About Text",
-                architectures=["ARM"],
-                description="Description",
-                logo_image_blob=(lambda path: base64.b64encode(open(path).read().encode()).decode())(image["png"]),
-                operating_systems=["Linux"],
-                usage_text="Usage Text",
-            ),
+        us_east1 = pulumi.providers.Aws("usEast1", region=us-east-1)
+        foo = aws.ecrpublic.repository.Repository("foo",
+            repository_name=bar,
+            catalog_data={
+                aboutText: About Text,
+                architectures: [ARM],
+                description: Description,
+                logoImageBlob: (lambda path: base64.b64encode(open(path).read().encode()).decode())(image.png),
+                operatingSystems: [Linux],
+                usageText: Usage Text,
+            },
             tags={
-                "env": "production",
+                env: production,
             },
             opts=pulumi.ResourceOptions(provider=aws["us_east_1"]))
         ```

@@ -29,8 +29,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.backup.ReportPlan;
  * import com.pulumi.aws.backup.ReportPlanArgs;
- * import com.pulumi.aws.backup.inputs.ReportPlanReportDeliveryChannelArgs;
- * import com.pulumi.aws.backup.inputs.ReportPlanReportSettingArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -46,16 +44,9 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new ReportPlan(&#34;example&#34;, ReportPlanArgs.builder()        
  *             .description(&#34;example description&#34;)
- *             .reportDeliveryChannel(ReportPlanReportDeliveryChannelArgs.builder()
- *                 .formats(                
- *                     &#34;CSV&#34;,
- *                     &#34;JSON&#34;)
- *                 .s3BucketName(&#34;example-bucket-name&#34;)
- *                 .build())
- *             .reportSetting(ReportPlanReportSettingArgs.builder()
- *                 .reportTemplate(&#34;RESTORE_JOB_REPORT&#34;)
- *                 .build())
- *             .tags(Map.of(&#34;Name&#34;, &#34;Example Report Plan&#34;))
+ *             .reportDeliveryChannel(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .reportSetting(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

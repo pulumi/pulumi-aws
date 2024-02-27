@@ -291,21 +291,21 @@ class ManagedPrefixList(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ec2.ManagedPrefixList("example",
-            address_family="IPv4",
+        example = aws.ec2.managed_prefix_list.ManagedPrefixList("example",
+            address_family=IPv4,
             max_entries=5,
             entries=[
-                aws.ec2.ManagedPrefixListEntryArgs(
-                    cidr=aws_vpc["example"]["cidr_block"],
-                    description="Primary",
-                ),
-                aws.ec2.ManagedPrefixListEntryArgs(
-                    cidr=aws_vpc_ipv4_cidr_block_association["example"]["cidr_block"],
-                    description="Secondary",
-                ),
+                {
+                    cidr: aws_vpc.example.cidr_block,
+                    description: Primary,
+                },
+                {
+                    cidr: aws_vpc_ipv4_cidr_block_association.example.cidr_block,
+                    description: Secondary,
+                },
             ],
             tags={
-                "Env": "live",
+                Env: live,
             })
         ```
 
@@ -354,21 +354,21 @@ class ManagedPrefixList(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ec2.ManagedPrefixList("example",
-            address_family="IPv4",
+        example = aws.ec2.managed_prefix_list.ManagedPrefixList("example",
+            address_family=IPv4,
             max_entries=5,
             entries=[
-                aws.ec2.ManagedPrefixListEntryArgs(
-                    cidr=aws_vpc["example"]["cidr_block"],
-                    description="Primary",
-                ),
-                aws.ec2.ManagedPrefixListEntryArgs(
-                    cidr=aws_vpc_ipv4_cidr_block_association["example"]["cidr_block"],
-                    description="Secondary",
-                ),
+                {
+                    cidr: aws_vpc.example.cidr_block,
+                    description: Primary,
+                },
+                {
+                    cidr: aws_vpc_ipv4_cidr_block_association.example.cidr_block,
+                    description: Secondary,
+                },
             ],
             tags={
-                "Env": "live",
+                Env: live,
             })
         ```
 

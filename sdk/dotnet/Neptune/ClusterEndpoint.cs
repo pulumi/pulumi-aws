@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Neptune
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Neptune.ClusterEndpoint("example", new()
+    ///     var example = new Aws.Neptune.ClusterEndpoint.ClusterEndpoint("example", new()
     ///     {
     ///         ClusterIdentifier = aws_neptune_cluster.Test.Cluster_identifier,
     ///         ClusterEndpointIdentifier = "example",

@@ -13,33 +13,13 @@ import * as utilities from "../utilities";
  * > **NOTE:** The Storage Gateway API requires the gateway to be connected to properly return information after activation. If you are receiving `The specified gateway is not connected` errors during resource creation (gateway activation), ensure your gateway instance meets the [Storage Gateway requirements](https://docs.aws.amazon.com/storagegateway/latest/userguide/Requirements.html).
  *
  * ## Example Usage
- * ### Local Cache
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const testVolumeAttachment = new aws.ec2.VolumeAttachment("testVolumeAttachment", {
- *     deviceName: "/dev/xvdb",
- *     volumeId: aws_ebs_volume.test.id,
- *     instanceId: aws_instance.test.id,
- * });
- * const testLocalDisk = testVolumeAttachment.deviceName.apply(deviceName => aws.storagegateway.getLocalDiskOutput({
- *     diskNode: deviceName,
- *     gatewayArn: aws_storagegateway_gateway.test.arn,
- * }));
- * const testCache = new aws.storagegateway.Cache("testCache", {
- *     diskId: testLocalDisk.apply(testLocalDisk => testLocalDisk.diskId),
- *     gatewayArn: aws_storagegateway_gateway.test.arn,
- * });
- * ```
  * ### FSx File Gateway
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.storagegateway.Gateway("example", {
+ * const example = new aws.storagegateway/gateway.Gateway("example", {
  *     gatewayIpAddress: "1.2.3.4",
  *     gatewayName: "example",
  *     gatewayTimezone: "GMT",
@@ -57,7 +37,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.storagegateway.Gateway("example", {
+ * const example = new aws.storagegateway/gateway.Gateway("example", {
  *     gatewayIpAddress: "1.2.3.4",
  *     gatewayName: "example",
  *     gatewayTimezone: "GMT",
@@ -70,7 +50,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.storagegateway.Gateway("example", {
+ * const example = new aws.storagegateway/gateway.Gateway("example", {
  *     gatewayIpAddress: "1.2.3.4",
  *     gatewayName: "example",
  *     gatewayTimezone: "GMT",
@@ -85,7 +65,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.storagegateway.Gateway("example", {
+ * const example = new aws.storagegateway/gateway.Gateway("example", {
  *     gatewayIpAddress: "1.2.3.4",
  *     gatewayName: "example",
  *     gatewayTimezone: "GMT",
@@ -98,7 +78,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.storagegateway.Gateway("example", {
+ * const example = new aws.storagegateway/gateway.Gateway("example", {
  *     gatewayIpAddress: "1.2.3.4",
  *     gatewayName: "example",
  *     gatewayTimezone: "GMT",

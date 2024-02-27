@@ -22,27 +22,27 @@ namespace Pulumi.Aws.Route53
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var alternate = new Aws.Provider("alternate");
+    ///     var alternate = new Pulumi.Providers.Aws("alternate");
     /// 
-    ///     var exampleVpc = new Aws.Ec2.Vpc("exampleVpc", new()
+    ///     var exampleVpc = new Aws.Ec2.Vpc.Vpc("exampleVpc", new()
     ///     {
     ///         CidrBlock = "10.6.0.0/16",
     ///         EnableDnsHostnames = true,
     ///         EnableDnsSupport = true,
     ///     });
     /// 
-    ///     var exampleZone = new Aws.Route53.Zone("exampleZone", new()
+    ///     var exampleZone = new Aws.Route53.Zone.Zone("exampleZone", new()
     ///     {
     ///         Vpcs = new[]
     ///         {
-    ///             new Aws.Route53.Inputs.ZoneVpcArgs
+    ///             
     ///             {
-    ///                 VpcId = exampleVpc.Id,
+    ///                 { "vpcId", exampleVpc.Id },
     ///             },
     ///         },
     ///     });
     /// 
-    ///     var alternateVpc = new Aws.Ec2.Vpc("alternateVpc", new()
+    ///     var alternateVpc = new Aws.Ec2.Vpc.Vpc("alternateVpc", new()
     ///     {
     ///         CidrBlock = "10.7.0.0/16",
     ///         EnableDnsHostnames = true,
@@ -52,13 +52,13 @@ namespace Pulumi.Aws.Route53
     ///         Provider = aws.Alternate,
     ///     });
     /// 
-    ///     var exampleVpcAssociationAuthorization = new Aws.Route53.VpcAssociationAuthorization("exampleVpcAssociationAuthorization", new()
+    ///     var exampleVpcAssociationAuthorization = new Aws.Route53.VpcAssociationAuthorization.VpcAssociationAuthorization("exampleVpcAssociationAuthorization", new()
     ///     {
     ///         VpcId = alternateVpc.Id,
     ///         ZoneId = exampleZone.Id,
     ///     });
     /// 
-    ///     var exampleZoneAssociation = new Aws.Route53.ZoneAssociation("exampleZoneAssociation", new()
+    ///     var exampleZoneAssociation = new Aws.Route53.ZoneAssociation.ZoneAssociation("exampleZoneAssociation", new()
     ///     {
     ///         VpcId = exampleVpcAssociationAuthorization.VpcId,
     ///         ZoneId = exampleVpcAssociationAuthorization.ZoneId,

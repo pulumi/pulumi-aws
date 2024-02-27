@@ -23,47 +23,46 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/guardduty"
+//	guardduty/detector "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/guardduty/detector"
+//	guardduty/organizationConfiguration "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/guardduty/organizationConfiguration"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleDetector, err := guardduty.NewDetector(ctx, "exampleDetector", &guardduty.DetectorArgs{
-//				Enable: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = guardduty.NewOrganizationConfiguration(ctx, "exampleOrganizationConfiguration", &guardduty.OrganizationConfigurationArgs{
-//				AutoEnableOrganizationMembers: pulumi.String("ALL"),
-//				DetectorId:                    exampleDetector.ID(),
-//				Datasources: &guardduty.OrganizationConfigurationDatasourcesArgs{
-//					S3Logs: &guardduty.OrganizationConfigurationDatasourcesS3LogsArgs{
-//						AutoEnable: pulumi.Bool(true),
-//					},
-//					Kubernetes: &guardduty.OrganizationConfigurationDatasourcesKubernetesArgs{
-//						AuditLogs: &guardduty.OrganizationConfigurationDatasourcesKubernetesAuditLogsArgs{
-//							Enable: pulumi.Bool(true),
-//						},
-//					},
-//					MalwareProtection: &guardduty.OrganizationConfigurationDatasourcesMalwareProtectionArgs{
-//						ScanEc2InstanceWithFindings: &guardduty.OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsArgs{
-//							EbsVolumes: &guardduty.OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesArgs{
-//								AutoEnable: pulumi.Bool(true),
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleDetector, err := guardduty/detector.NewDetector(ctx, "exampleDetector", &guardduty/detector.DetectorArgs{
+// Enable: true,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = guardduty/organizationConfiguration.NewOrganizationConfiguration(ctx, "exampleOrganizationConfiguration", &guardduty/organizationConfiguration.OrganizationConfigurationArgs{
+// AutoEnableOrganizationMembers: "ALL",
+// DetectorId: exampleDetector.Id,
+// Datasources: map[string]interface{}{
+// "s3Logs": map[string]interface{}{
+// "autoEnable": true,
+// },
+// "kubernetes": map[string]interface{}{
+// "auditLogs": map[string]interface{}{
+// "enable": true,
+// },
+// },
+// "malwareProtection": map[string]interface{}{
+// "scanEc2InstanceWithFindings": map[string]interface{}{
+// "ebsVolumes": map[string]interface{}{
+// "autoEnable": true,
+// },
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

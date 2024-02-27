@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.ram.ResourceShare("example", {
+ * const example = new aws.ram/resourceShare.ResourceShare("example", {
  *     allowExternalPrincipals: true,
  *     tags: {
  *         Environment: "Production",

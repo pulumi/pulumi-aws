@@ -141,11 +141,11 @@ class EmailIdentityMailFromAttributes(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_email_identity = aws.sesv2.EmailIdentity("exampleEmailIdentity", email_identity="example.com")
-        example_email_identity_mail_from_attributes = aws.sesv2.EmailIdentityMailFromAttributes("exampleEmailIdentityMailFromAttributes",
+        example_email_identity = aws.sesv2.email_identity.EmailIdentity("exampleEmailIdentity", email_identity=example.com)
+        example_email_identity_mail_from_attributes = aws.sesv2.email_identity_mail_from_attributes.EmailIdentityMailFromAttributes("exampleEmailIdentityMailFromAttributes",
             email_identity=example_email_identity.email_identity,
-            behavior_on_mx_failure="REJECT_MESSAGE",
-            mail_from_domain=example_email_identity.email_identity.apply(lambda email_identity: f"subdomain.{email_identity}"))
+            behavior_on_mx_failure=REJECT_MESSAGE,
+            mail_from_domain=fsubdomain.{example_email_identity.email_identity})
         ```
 
         ## Import
@@ -178,11 +178,11 @@ class EmailIdentityMailFromAttributes(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_email_identity = aws.sesv2.EmailIdentity("exampleEmailIdentity", email_identity="example.com")
-        example_email_identity_mail_from_attributes = aws.sesv2.EmailIdentityMailFromAttributes("exampleEmailIdentityMailFromAttributes",
+        example_email_identity = aws.sesv2.email_identity.EmailIdentity("exampleEmailIdentity", email_identity=example.com)
+        example_email_identity_mail_from_attributes = aws.sesv2.email_identity_mail_from_attributes.EmailIdentityMailFromAttributes("exampleEmailIdentityMailFromAttributes",
             email_identity=example_email_identity.email_identity,
-            behavior_on_mx_failure="REJECT_MESSAGE",
-            mail_from_domain=example_email_identity.email_identity.apply(lambda email_identity: f"subdomain.{email_identity}"))
+            behavior_on_mx_failure=REJECT_MESSAGE,
+            mail_from_domain=fsubdomain.{example_email_identity.email_identity})
         ```
 
         ## Import

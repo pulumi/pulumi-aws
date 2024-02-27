@@ -21,14 +21,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleBucketV2 = new aws.s3.BucketV2("exampleBucketV2", {});
- * const exampleBucketVersioningV2 = new aws.s3.BucketVersioningV2("exampleBucketVersioningV2", {
+ * const exampleBucketV2 = new aws.s3/bucketV2.BucketV2("exampleBucketV2", {});
+ * const exampleBucketVersioningV2 = new aws.s3/bucketVersioningV2.BucketVersioningV2("exampleBucketVersioningV2", {
  *     bucket: exampleBucketV2.id,
  *     versioningConfiguration: {
  *         status: "Enabled",
  *     },
  * });
- * const exampleBucketObjectLockConfigurationV2 = new aws.s3.BucketObjectLockConfigurationV2("exampleBucketObjectLockConfigurationV2", {
+ * const exampleBucketObjectLockConfigurationV2 = new aws.s3/bucketObjectLockConfigurationV2.BucketObjectLockConfigurationV2("exampleBucketObjectLockConfigurationV2", {
  *     bucket: exampleBucketV2.id,
  *     rule: {
  *         defaultRetention: {

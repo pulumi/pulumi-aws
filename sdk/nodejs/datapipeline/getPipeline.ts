@@ -6,17 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Provides details about a specific DataPipeline Pipeline.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.datapipeline.getPipeline({
- *     pipelineId: "pipelineID",
- * });
- * ```
  */
 export function getPipeline(args: GetPipelineArgs, opts?: pulumi.InvokeOptions): Promise<GetPipelineResult> {
 
@@ -65,17 +54,6 @@ export interface GetPipelineResult {
 }
 /**
  * Provides details about a specific DataPipeline Pipeline.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.datapipeline.getPipeline({
- *     pipelineId: "pipelineID",
- * });
- * ```
  */
 export function getPipelineOutput(args: GetPipelineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPipelineResult> {
     return pulumi.output(args).apply((a: any) => getPipeline(a, opts))

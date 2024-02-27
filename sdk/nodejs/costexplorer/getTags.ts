@@ -9,20 +9,6 @@ import * as utilities from "../utilities";
 
 /**
  * Provides details about a specific CE Tags.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = aws.costexplorer.getTags({
- *     timePeriod: {
- *         end: "2022-12-01",
- *         start: "2021-01-01",
- *     },
- * });
- * ```
  */
 export function getTags(args: GetTagsArgs, opts?: pulumi.InvokeOptions): Promise<GetTagsResult> {
 
@@ -84,20 +70,6 @@ export interface GetTagsResult {
 }
 /**
  * Provides details about a specific CE Tags.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = aws.costexplorer.getTags({
- *     timePeriod: {
- *         end: "2022-12-01",
- *         start: "2021-01-01",
- *     },
- * });
- * ```
  */
 export function getTagsOutput(args: GetTagsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTagsResult> {
     return pulumi.output(args).apply((a: any) => getTags(a, opts))

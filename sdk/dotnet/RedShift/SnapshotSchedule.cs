@@ -20,7 +20,7 @@ namespace Pulumi.Aws.RedShift
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var @default = new Aws.RedShift.SnapshotSchedule("default", new()
+    ///     var @default = new Aws.Redshift.SnapshotSchedule.SnapshotSchedule("default", new()
     ///     {
     ///         Definitions = new[]
     ///         {

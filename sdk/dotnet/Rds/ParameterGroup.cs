@@ -35,20 +35,20 @@ namespace Pulumi.Aws.Rds
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var @default = new Aws.Rds.ParameterGroup("default", new()
+    ///     var @default = new Aws.Rds.ParameterGroup.ParameterGroup("default", new()
     ///     {
     ///         Family = "mysql5.6",
     ///         Parameters = new[]
     ///         {
-    ///             new Aws.Rds.Inputs.ParameterGroupParameterArgs
+    ///             
     ///             {
-    ///                 Name = "character_set_server",
-    ///                 Value = "utf8",
+    ///                 { "name", "character_set_server" },
+    ///                 { "value", "utf8" },
     ///             },
-    ///             new Aws.Rds.Inputs.ParameterGroupParameterArgs
+    ///             
     ///             {
-    ///                 Name = "character_set_client",
-    ///                 Value = "utf8",
+    ///                 { "name", "character_set_client" },
+    ///                 { "value", "utf8" },
     ///             },
     ///         },
     ///     });
@@ -71,20 +71,20 @@ namespace Pulumi.Aws.Rds
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleParameterGroup = new Aws.Rds.ParameterGroup("exampleParameterGroup", new()
+    ///     var exampleParameterGroup = new Aws.Rds.ParameterGroup.ParameterGroup("exampleParameterGroup", new()
     ///     {
     ///         Family = "postgres13",
     ///         Parameters = new[]
     ///         {
-    ///             new Aws.Rds.Inputs.ParameterGroupParameterArgs
+    ///             
     ///             {
-    ///                 Name = "log_connections",
-    ///                 Value = "1",
+    ///                 { "name", "log_connections" },
+    ///                 { "value", "1" },
     ///             },
     ///         },
     ///     });
     /// 
-    ///     var exampleInstance = new Aws.Rds.Instance("exampleInstance", new()
+    ///     var exampleInstance = new Aws.Rds.Instance.Instance("exampleInstance", new()
     ///     {
     ///         ParameterGroupName = exampleParameterGroup.Name,
     ///         ApplyImmediately = true,

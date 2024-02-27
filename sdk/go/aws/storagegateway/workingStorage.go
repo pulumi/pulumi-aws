@@ -23,24 +23,22 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/storagegateway"
+//	storagegateway/workingStorage "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/storagegateway/workingStorage"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := storagegateway.NewWorkingStorage(ctx, "example", &storagegateway.WorkingStorageArgs{
-//				DiskId:     pulumi.Any(data.Aws_storagegateway_local_disk.Example.Id),
-//				GatewayArn: pulumi.Any(aws_storagegateway_gateway.Example.Arn),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := storagegateway/workingStorage.NewWorkingStorage(ctx, "example", &storagegateway/workingStorage.WorkingStorageArgs{
+// DiskId: data.Aws_storagegateway_local_disk.Example.Id,
+// GatewayArn: aws_storagegateway_gateway.Example.Arn,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

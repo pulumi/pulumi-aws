@@ -135,14 +135,6 @@ def get_replication_set(tags: Optional[Mapping[str, str]] = None,
     Use this data source to manage a replication set in AWS Systems Manager Incident Manager.
 
     ## Example Usage
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ssmincidents.get_replication_set()
-    ```
 
 
     :param Mapping[str, str] tags: All tags applied to the replication set.
@@ -172,14 +164,6 @@ def get_replication_set_output(tags: Optional[pulumi.Input[Optional[Mapping[str,
     Use this data source to manage a replication set in AWS Systems Manager Incident Manager.
 
     ## Example Usage
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ssmincidents.get_replication_set()
-    ```
 
 
     :param Mapping[str, str] tags: All tags applied to the replication set.

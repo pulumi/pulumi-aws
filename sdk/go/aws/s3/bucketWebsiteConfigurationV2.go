@@ -24,39 +24,37 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	s3/bucketWebsiteConfigurationV2 "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/s3/bucketWebsiteConfigurationV2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := s3.NewBucketWebsiteConfigurationV2(ctx, "example", &s3.BucketWebsiteConfigurationV2Args{
-//				Bucket: pulumi.Any(aws_s3_bucket.Example.Id),
-//				IndexDocument: &s3.BucketWebsiteConfigurationV2IndexDocumentArgs{
-//					Suffix: pulumi.String("index.html"),
-//				},
-//				ErrorDocument: &s3.BucketWebsiteConfigurationV2ErrorDocumentArgs{
-//					Key: pulumi.String("error.html"),
-//				},
-//				RoutingRules: s3.BucketWebsiteConfigurationV2RoutingRuleArray{
-//					&s3.BucketWebsiteConfigurationV2RoutingRuleArgs{
-//						Condition: &s3.BucketWebsiteConfigurationV2RoutingRuleConditionArgs{
-//							KeyPrefixEquals: pulumi.String("docs/"),
-//						},
-//						Redirect: &s3.BucketWebsiteConfigurationV2RoutingRuleRedirectArgs{
-//							ReplaceKeyPrefixWith: pulumi.String("documents/"),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := s3/bucketWebsiteConfigurationV2.NewBucketWebsiteConfigurationV2(ctx, "example", &s3/bucketWebsiteConfigurationV2.BucketWebsiteConfigurationV2Args{
+// Bucket: aws_s3_bucket.Example.Id,
+// IndexDocument: map[string]interface{}{
+// "suffix": "index.html",
+// },
+// ErrorDocument: map[string]interface{}{
+// "key": "error.html",
+// },
+// RoutingRules: []map[string]interface{}{
+// map[string]interface{}{
+// "condition": map[string]interface{}{
+// "keyPrefixEquals": "docs/",
+// },
+// "redirect": map[string]interface{}{
+// "replaceKeyPrefixWith": "documents/",
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### With `routingRules` configured
 //
@@ -65,22 +63,22 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	s3/bucketWebsiteConfigurationV2 "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/s3/bucketWebsiteConfigurationV2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := s3/bucketWebsiteConfigurationV2.NewBucketWebsiteConfigurationV2(ctx, "example", &s3/bucketWebsiteConfigurationV2.BucketWebsiteConfigurationV2Args{
+// Bucket: aws_s3_bucket.Example.Id,
+// IndexDocument: map[string]interface{}{
+// "suffix": "index.html",
+// },
+// ErrorDocument: map[string]interface{}{
+// "key": "error.html",
+// },
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := s3.NewBucketWebsiteConfigurationV2(ctx, "example", &s3.BucketWebsiteConfigurationV2Args{
-//				Bucket: pulumi.Any(aws_s3_bucket.Example.Id),
-//				IndexDocument: &s3.BucketWebsiteConfigurationV2IndexDocumentArgs{
-//					Suffix: pulumi.String("index.html"),
-//				},
-//				ErrorDocument: &s3.BucketWebsiteConfigurationV2ErrorDocumentArgs{
-//					Key: pulumi.String("error.html"),
-//				},
-//				RoutingRuleDetails: pulumi.String(`[{
+//	RoutingRuleDetails: `[{
 //	    "Condition": {
 //	        "KeyPrefixEquals": "docs/"
 //	    },
@@ -89,16 +87,14 @@ import (
 //	    }
 //	}]
 //
-// `),
-//
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// `,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

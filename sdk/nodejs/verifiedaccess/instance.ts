@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.verifiedaccess.Instance("example", {
+ * const example = new aws.verifiedaccess/instance.Instance("example", {
  *     description: "example",
  *     tags: {
  *         Name: "example",
@@ -30,7 +30,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.verifiedaccess.Instance("example", {fipsEnabled: true});
+ * const example = new aws.verifiedaccess/instance.Instance("example", {fipsEnabled: true});
  * ```
  *
  * ## Import

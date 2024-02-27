@@ -21,29 +21,27 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/networkmanager"
+//	networkmanager/link "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/networkmanager/link"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := networkmanager.NewLink(ctx, "example", &networkmanager.LinkArgs{
-//				GlobalNetworkId: pulumi.Any(aws_networkmanager_global_network.Example.Id),
-//				SiteId:          pulumi.Any(aws_networkmanager_site.Example.Id),
-//				Bandwidth: &networkmanager.LinkBandwidthArgs{
-//					UploadSpeed:   pulumi.Int(10),
-//					DownloadSpeed: pulumi.Int(50),
-//				},
-//				ProviderName: pulumi.String("MegaCorp"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := networkmanager/link.NewLink(ctx, "example", &networkmanager/link.LinkArgs{
+// GlobalNetworkId: aws_networkmanager_global_network.Example.Id,
+// SiteId: aws_networkmanager_site.Example.Id,
+// Bandwidth: map[string]interface{}{
+// "uploadSpeed": 10,
+// "downloadSpeed": 50,
+// },
+// ProviderName: "MegaCorp",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

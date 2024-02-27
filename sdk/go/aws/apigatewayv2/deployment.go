@@ -25,24 +25,22 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigatewayv2"
+//	apigatewayv2/deployment "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/apigatewayv2/deployment"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := apigatewayv2.NewDeployment(ctx, "example", &apigatewayv2.DeploymentArgs{
-//				ApiId:       pulumi.Any(aws_apigatewayv2_api.Example.Id),
-//				Description: pulumi.String("Example deployment"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := apigatewayv2/deployment.NewDeployment(ctx, "example", &apigatewayv2/deployment.DeploymentArgs{
+// ApiId: aws_apigatewayv2_api.Example.Id,
+// Description: "Example deployment",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

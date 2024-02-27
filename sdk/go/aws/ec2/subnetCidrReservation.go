@@ -21,25 +21,23 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	ec2/subnetCidrReservation "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/subnetCidrReservation"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.NewSubnetCidrReservation(ctx, "example", &ec2.SubnetCidrReservationArgs{
-//				CidrBlock:       pulumi.String("10.0.0.16/28"),
-//				ReservationType: pulumi.String("prefix"),
-//				SubnetId:        pulumi.Any(aws_subnet.Example.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := ec2/subnetCidrReservation.NewSubnetCidrReservation(ctx, "example", &ec2/subnetCidrReservation.SubnetCidrReservationArgs{
+// CidrBlock: "10.0.0.16/28",
+// ReservationType: "prefix",
+// SubnetId: aws_subnet.Example.Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

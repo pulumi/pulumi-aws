@@ -260,55 +260,6 @@ class VpcIpamPoolCidrAllocation(pulumi.CustomResource):
         """
         Allocates (reserves) a CIDR from an IPAM address pool, preventing usage by IPAM. Only works for private IPv4.
 
-        ## Example Usage
-
-        Basic usage:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        current = aws.get_region()
-        example_vpc_ipam = aws.ec2.VpcIpam("exampleVpcIpam", operating_regions=[aws.ec2.VpcIpamOperatingRegionArgs(
-            region_name=current.name,
-        )])
-        example_vpc_ipam_pool = aws.ec2.VpcIpamPool("exampleVpcIpamPool",
-            address_family="ipv4",
-            ipam_scope_id=example_vpc_ipam.private_default_scope_id,
-            locale=current.name)
-        example_vpc_ipam_pool_cidr = aws.ec2.VpcIpamPoolCidr("exampleVpcIpamPoolCidr",
-            ipam_pool_id=example_vpc_ipam_pool.id,
-            cidr="172.20.0.0/16")
-        example_vpc_ipam_pool_cidr_allocation = aws.ec2.VpcIpamPoolCidrAllocation("exampleVpcIpamPoolCidrAllocation",
-            ipam_pool_id=example_vpc_ipam_pool.id,
-            cidr="172.20.0.0/24",
-            opts=pulumi.ResourceOptions(depends_on=[example_vpc_ipam_pool_cidr]))
-        ```
-
-        With the `disallowed_cidrs` attribute:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        current = aws.get_region()
-        example_vpc_ipam = aws.ec2.VpcIpam("exampleVpcIpam", operating_regions=[aws.ec2.VpcIpamOperatingRegionArgs(
-            region_name=current.name,
-        )])
-        example_vpc_ipam_pool = aws.ec2.VpcIpamPool("exampleVpcIpamPool",
-            address_family="ipv4",
-            ipam_scope_id=example_vpc_ipam.private_default_scope_id,
-            locale=current.name)
-        example_vpc_ipam_pool_cidr = aws.ec2.VpcIpamPoolCidr("exampleVpcIpamPoolCidr",
-            ipam_pool_id=example_vpc_ipam_pool.id,
-            cidr="172.20.0.0/16")
-        example_vpc_ipam_pool_cidr_allocation = aws.ec2.VpcIpamPoolCidrAllocation("exampleVpcIpamPoolCidrAllocation",
-            ipam_pool_id=example_vpc_ipam_pool.id,
-            netmask_length=28,
-            disallowed_cidrs=["172.20.0.0/28"],
-            opts=pulumi.ResourceOptions(depends_on=[example_vpc_ipam_pool_cidr]))
-        ```
-
         ## Import
 
         Using `pulumi import`, import IPAM allocations using the allocation `id` and `pool id`, separated by `_`. For example:
@@ -333,55 +284,6 @@ class VpcIpamPoolCidrAllocation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Allocates (reserves) a CIDR from an IPAM address pool, preventing usage by IPAM. Only works for private IPv4.
-
-        ## Example Usage
-
-        Basic usage:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        current = aws.get_region()
-        example_vpc_ipam = aws.ec2.VpcIpam("exampleVpcIpam", operating_regions=[aws.ec2.VpcIpamOperatingRegionArgs(
-            region_name=current.name,
-        )])
-        example_vpc_ipam_pool = aws.ec2.VpcIpamPool("exampleVpcIpamPool",
-            address_family="ipv4",
-            ipam_scope_id=example_vpc_ipam.private_default_scope_id,
-            locale=current.name)
-        example_vpc_ipam_pool_cidr = aws.ec2.VpcIpamPoolCidr("exampleVpcIpamPoolCidr",
-            ipam_pool_id=example_vpc_ipam_pool.id,
-            cidr="172.20.0.0/16")
-        example_vpc_ipam_pool_cidr_allocation = aws.ec2.VpcIpamPoolCidrAllocation("exampleVpcIpamPoolCidrAllocation",
-            ipam_pool_id=example_vpc_ipam_pool.id,
-            cidr="172.20.0.0/24",
-            opts=pulumi.ResourceOptions(depends_on=[example_vpc_ipam_pool_cidr]))
-        ```
-
-        With the `disallowed_cidrs` attribute:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        current = aws.get_region()
-        example_vpc_ipam = aws.ec2.VpcIpam("exampleVpcIpam", operating_regions=[aws.ec2.VpcIpamOperatingRegionArgs(
-            region_name=current.name,
-        )])
-        example_vpc_ipam_pool = aws.ec2.VpcIpamPool("exampleVpcIpamPool",
-            address_family="ipv4",
-            ipam_scope_id=example_vpc_ipam.private_default_scope_id,
-            locale=current.name)
-        example_vpc_ipam_pool_cidr = aws.ec2.VpcIpamPoolCidr("exampleVpcIpamPoolCidr",
-            ipam_pool_id=example_vpc_ipam_pool.id,
-            cidr="172.20.0.0/16")
-        example_vpc_ipam_pool_cidr_allocation = aws.ec2.VpcIpamPoolCidrAllocation("exampleVpcIpamPoolCidrAllocation",
-            ipam_pool_id=example_vpc_ipam_pool.id,
-            netmask_length=28,
-            disallowed_cidrs=["172.20.0.0/28"],
-            opts=pulumi.ResourceOptions(depends_on=[example_vpc_ipam_pool_cidr]))
-        ```
 
         ## Import
 

@@ -17,8 +17,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleAccount = new aws.securityhub.Account("exampleAccount", {});
- * const exampleInsight = new aws.securityhub.Insight("exampleInsight", {
+ * const exampleAccount = new aws.securityhub/account.Account("exampleAccount", {});
+ * const exampleInsight = new aws.securityhub/insight.Insight("exampleInsight", {
  *     filters: {
  *         awsAccountIds: [
  *             {
@@ -42,8 +42,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleAccount = new aws.securityhub.Account("exampleAccount", {});
- * const exampleInsight = new aws.securityhub.Insight("exampleInsight", {
+ * const exampleAccount = new aws.securityhub/account.Account("exampleAccount", {});
+ * const exampleInsight = new aws.securityhub/insight.Insight("exampleInsight", {
  *     filters: {
  *         createdAts: [{
  *             dateRange: {
@@ -63,8 +63,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleAccount = new aws.securityhub.Account("exampleAccount", {});
- * const exampleInsight = new aws.securityhub.Insight("exampleInsight", {
+ * const exampleAccount = new aws.securityhub/account.Account("exampleAccount", {});
+ * const exampleInsight = new aws.securityhub/insight.Insight("exampleInsight", {
  *     filters: {
  *         networkDestinationIpv4s: [{
  *             cidr: "10.0.0.0/16",
@@ -81,8 +81,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleAccount = new aws.securityhub.Account("exampleAccount", {});
- * const exampleInsight = new aws.securityhub.Insight("exampleInsight", {
+ * const exampleAccount = new aws.securityhub/account.Account("exampleAccount", {});
+ * const exampleInsight = new aws.securityhub/insight.Insight("exampleInsight", {
  *     filters: {
  *         confidences: [{
  *             gte: "80",
@@ -99,8 +99,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleAccount = new aws.securityhub.Account("exampleAccount", {});
- * const exampleInsight = new aws.securityhub.Insight("exampleInsight", {
+ * const exampleAccount = new aws.securityhub/account.Account("exampleAccount", {});
+ * const exampleInsight = new aws.securityhub/insight.Insight("exampleInsight", {
  *     filters: {
  *         resourceTags: [{
  *             comparison: "EQUALS",

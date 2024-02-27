@@ -12,34 +12,6 @@ import (
 )
 
 // Access Entry Configurations for an EKS Cluster.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/eks"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := eks.LookupAccessEntry(ctx, &eks.LookupAccessEntryArgs{
-//				ClusterName:  aws_eks_cluster.Example.Name,
-//				PrincipalArn: aws_iam_role.Example.Arn,
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			ctx.Export("eksAccessEntryOutputs", aws_eks_access_entry.Example)
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupAccessEntry(ctx *pulumi.Context, args *LookupAccessEntryArgs, opts ...pulumi.InvokeOption) (*LookupAccessEntryResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupAccessEntryResult

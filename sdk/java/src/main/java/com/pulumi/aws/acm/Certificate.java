@@ -85,7 +85,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var cert = new Certificate(&#34;cert&#34;, CertificateArgs.builder()        
  *             .domainName(&#34;example.com&#34;)
- *             .tags(Map.of(&#34;Environment&#34;, &#34;test&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .validationMethod(&#34;DNS&#34;)
  *             .build());
  * 
@@ -101,7 +101,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.acm.Certificate;
  * import com.pulumi.aws.acm.CertificateArgs;
- * import com.pulumi.aws.acm.inputs.CertificateValidationOptionArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -118,10 +117,7 @@ import javax.annotation.Nullable;
  *         var cert = new Certificate(&#34;cert&#34;, CertificateArgs.builder()        
  *             .domainName(&#34;testing.example.com&#34;)
  *             .validationMethod(&#34;EMAIL&#34;)
- *             .validationOptions(CertificateValidationOptionArgs.builder()
- *                 .domainName(&#34;testing.example.com&#34;)
- *                 .validationDomain(&#34;example.com&#34;)
- *                 .build())
+ *             .validationOptions(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -138,7 +134,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.tls.PrivateKeyArgs;
  * import com.pulumi.tls.SelfSignedCert;
  * import com.pulumi.tls.SelfSignedCertArgs;
- * import com.pulumi.tls.inputs.SelfSignedCertSubjectArgs;
  * import com.pulumi.aws.acm.Certificate;
  * import com.pulumi.aws.acm.CertificateArgs;
  * import java.util.List;
@@ -161,10 +156,7 @@ import javax.annotation.Nullable;
  *         var exampleSelfSignedCert = new SelfSignedCert(&#34;exampleSelfSignedCert&#34;, SelfSignedCertArgs.builder()        
  *             .keyAlgorithm(&#34;RSA&#34;)
  *             .privateKeyPem(examplePrivateKey.privateKeyPem())
- *             .subject(SelfSignedCertSubjectArgs.builder()
- *                 .commonName(&#34;example.com&#34;)
- *                 .organization(&#34;ACME Examples, Inc&#34;)
- *                 .build())
+ *             .subject(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .validityPeriodHours(12)
  *             .allowedUses(            
  *                 &#34;key_encipherment&#34;,

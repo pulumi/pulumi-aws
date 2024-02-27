@@ -35,8 +35,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.ec2clientvpn.Endpoint;
  * import com.pulumi.aws.ec2clientvpn.EndpointArgs;
- * import com.pulumi.aws.ec2clientvpn.inputs.EndpointAuthenticationOptionArgs;
- * import com.pulumi.aws.ec2clientvpn.inputs.EndpointConnectionLogOptionsArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -54,15 +52,8 @@ import javax.annotation.Nullable;
  *             .description(&#34;clientvpn-example&#34;)
  *             .serverCertificateArn(aws_acm_certificate.cert().arn())
  *             .clientCidrBlock(&#34;10.0.0.0/16&#34;)
- *             .authenticationOptions(EndpointAuthenticationOptionArgs.builder()
- *                 .type(&#34;certificate-authentication&#34;)
- *                 .rootCertificateChainArn(aws_acm_certificate.root_cert().arn())
- *                 .build())
- *             .connectionLogOptions(EndpointConnectionLogOptionsArgs.builder()
- *                 .enabled(true)
- *                 .cloudwatchLogGroup(aws_cloudwatch_log_group.lg().name())
- *                 .cloudwatchLogStream(aws_cloudwatch_log_stream.ls().name())
- *                 .build())
+ *             .authenticationOptions(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .connectionLogOptions(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

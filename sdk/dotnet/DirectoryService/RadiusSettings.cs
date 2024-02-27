@@ -22,7 +22,7 @@ namespace Pulumi.Aws.DirectoryService
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.DirectoryService.RadiusSettings("example", new()
+    ///     var example = new Aws.Directoryservice.RadiusSettings.RadiusSettings("example", new()
     ///     {
     ///         DirectoryId = aws_directory_service_directory.Example.Id,
     ///         AuthenticationProtocol = "PAP",

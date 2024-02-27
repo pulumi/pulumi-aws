@@ -22,71 +22,69 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/mskconnect"
+//	mskconnect/connector "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/mskconnect/connector"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := mskconnect.NewConnector(ctx, "example", &mskconnect.ConnectorArgs{
-//				KafkaconnectVersion: pulumi.String("2.7.1"),
-//				Capacity: &mskconnect.ConnectorCapacityArgs{
-//					Autoscaling: &mskconnect.ConnectorCapacityAutoscalingArgs{
-//						McuCount:       pulumi.Int(1),
-//						MinWorkerCount: pulumi.Int(1),
-//						MaxWorkerCount: pulumi.Int(2),
-//						ScaleInPolicy: &mskconnect.ConnectorCapacityAutoscalingScaleInPolicyArgs{
-//							CpuUtilizationPercentage: pulumi.Int(20),
-//						},
-//						ScaleOutPolicy: &mskconnect.ConnectorCapacityAutoscalingScaleOutPolicyArgs{
-//							CpuUtilizationPercentage: pulumi.Int(80),
-//						},
-//					},
-//				},
-//				ConnectorConfiguration: pulumi.StringMap{
-//					"connector.class": pulumi.String("com.github.jcustenborder.kafka.connect.simulator.SimulatorSinkConnector"),
-//					"tasks.max":       pulumi.String("1"),
-//					"topics":          pulumi.String("example"),
-//				},
-//				KafkaCluster: &mskconnect.ConnectorKafkaClusterArgs{
-//					ApacheKafkaCluster: &mskconnect.ConnectorKafkaClusterApacheKafkaClusterArgs{
-//						BootstrapServers: pulumi.Any(aws_msk_cluster.Example.Bootstrap_brokers_tls),
-//						Vpc: &mskconnect.ConnectorKafkaClusterApacheKafkaClusterVpcArgs{
-//							SecurityGroups: pulumi.StringArray{
-//								aws_security_group.Example.Id,
-//							},
-//							Subnets: pulumi.StringArray{
-//								aws_subnet.Example1.Id,
-//								aws_subnet.Example2.Id,
-//								aws_subnet.Example3.Id,
-//							},
-//						},
-//					},
-//				},
-//				KafkaClusterClientAuthentication: &mskconnect.ConnectorKafkaClusterClientAuthenticationArgs{
-//					AuthenticationType: pulumi.String("NONE"),
-//				},
-//				KafkaClusterEncryptionInTransit: &mskconnect.ConnectorKafkaClusterEncryptionInTransitArgs{
-//					EncryptionType: pulumi.String("TLS"),
-//				},
-//				Plugins: mskconnect.ConnectorPluginArray{
-//					&mskconnect.ConnectorPluginArgs{
-//						CustomPlugin: &mskconnect.ConnectorPluginCustomPluginArgs{
-//							Arn:      pulumi.Any(aws_mskconnect_custom_plugin.Example.Arn),
-//							Revision: pulumi.Any(aws_mskconnect_custom_plugin.Example.Latest_revision),
-//						},
-//					},
-//				},
-//				ServiceExecutionRoleArn: pulumi.Any(aws_iam_role.Example.Arn),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := mskconnect/connector.NewConnector(ctx, "example", &mskconnect/connector.ConnectorArgs{
+// KafkaconnectVersion: "2.7.1",
+// Capacity: map[string]interface{}{
+// "autoscaling": map[string]interface{}{
+// "mcuCount": 1,
+// "minWorkerCount": 1,
+// "maxWorkerCount": 2,
+// "scaleInPolicy": map[string]interface{}{
+// "cpuUtilizationPercentage": 20,
+// },
+// "scaleOutPolicy": map[string]interface{}{
+// "cpuUtilizationPercentage": 80,
+// },
+// },
+// },
+// ConnectorConfiguration: map[string]interface{}{
+// "connector.class": "com.github.jcustenborder.kafka.connect.simulator.SimulatorSinkConnector",
+// "tasks.max": "1",
+// "topics": "example",
+// },
+// KafkaCluster: map[string]interface{}{
+// "apacheKafkaCluster": map[string]interface{}{
+// "bootstrapServers": aws_msk_cluster.Example.Bootstrap_brokers_tls,
+// "vpc": map[string]interface{}{
+// "securityGroups": []interface{}{
+// aws_security_group.Example.Id,
+// },
+// "subnets": []interface{}{
+// aws_subnet.Example1.Id,
+// aws_subnet.Example2.Id,
+// aws_subnet.Example3.Id,
+// },
+// },
+// },
+// },
+// KafkaClusterClientAuthentication: map[string]interface{}{
+// "authenticationType": "NONE",
+// },
+// KafkaClusterEncryptionInTransit: map[string]interface{}{
+// "encryptionType": "TLS",
+// },
+// Plugins: []map[string]interface{}{
+// map[string]interface{}{
+// "customPlugin": map[string]interface{}{
+// "arn": aws_mskconnect_custom_plugin.Example.Arn,
+// "revision": aws_mskconnect_custom_plugin.Example.Latest_revision,
+// },
+// },
+// },
+// ServiceExecutionRoleArn: aws_iam_role.Example.Arn,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

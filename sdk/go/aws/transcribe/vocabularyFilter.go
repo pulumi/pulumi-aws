@@ -22,32 +22,30 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/transcribe"
+//	transcribe/vocabularyFilter "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/transcribe/vocabularyFilter"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := transcribe.NewVocabularyFilter(ctx, "example", &transcribe.VocabularyFilterArgs{
-//				LanguageCode: pulumi.String("en-US"),
-//				Tags: pulumi.StringMap{
-//					"tag1": pulumi.String("value1"),
-//					"tag2": pulumi.String("value3"),
-//				},
-//				VocabularyFilterName: pulumi.String("example"),
-//				Words: pulumi.StringArray{
-//					pulumi.String("cars"),
-//					pulumi.String("bucket"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := transcribe/vocabularyFilter.NewVocabularyFilter(ctx, "example", &transcribe/vocabularyFilter.VocabularyFilterArgs{
+// LanguageCode: "en-US",
+// Tags: map[string]interface{}{
+// "tag1": "value1",
+// "tag2": "value3",
+// },
+// VocabularyFilterName: "example",
+// Words: []string{
+// "cars",
+// "bucket",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

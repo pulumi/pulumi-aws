@@ -22,12 +22,12 @@ namespace Pulumi.Aws.AppConfig
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.AppConfig.EventIntegration("example", new()
+    ///     var example = new Aws.Appconfig.EventIntegration.EventIntegration("example", new()
     ///     {
     ///         Description = "Example Description",
-    ///         EventFilter = new Aws.AppConfig.Inputs.EventIntegrationEventFilterArgs
+    ///         EventFilter = 
     ///         {
-    ///             Source = "aws.partner/examplepartner.com",
+    ///             { "source", "aws.partner/examplepartner.com" },
     ///         },
     ///         EventbridgeBus = "default",
     ///         Tags = 

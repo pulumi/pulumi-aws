@@ -20,24 +20,22 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/rekognition"
+//	rekognition/project "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/rekognition/project"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := rekognition.NewProject(ctx, "example", &rekognition.ProjectArgs{
-//				AutoUpdate: pulumi.String("ENABLED"),
-//				Feature:    pulumi.String("CONTENT_MODERATION"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := rekognition/project.NewProject(ctx, "example", &rekognition/project.ProjectArgs{
+// AutoUpdate: "ENABLED",
+// Feature: "CONTENT_MODERATION",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

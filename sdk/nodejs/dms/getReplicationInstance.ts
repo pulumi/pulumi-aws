@@ -6,17 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Data source for managing an AWS DMS (Database Migration) Replication Instance.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = aws.dms.getReplicationInstance({
- *     replicationInstanceId: aws_dms_replication_instance.test.replication_instance_id,
- * });
- * ```
  */
 export function getReplicationInstance(args: GetReplicationInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationInstanceResult> {
 
@@ -111,17 +100,6 @@ export interface GetReplicationInstanceResult {
 }
 /**
  * Data source for managing an AWS DMS (Database Migration) Replication Instance.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = aws.dms.getReplicationInstance({
- *     replicationInstanceId: aws_dms_replication_instance.test.replication_instance_id,
- * });
- * ```
  */
 export function getReplicationInstanceOutput(args: GetReplicationInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicationInstanceResult> {
     return pulumi.output(args).apply((a: any) => getReplicationInstance(a, opts))

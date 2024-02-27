@@ -22,19 +22,19 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var myDemoAPI = new Aws.ApiGateway.RestApi("myDemoAPI", new()
+    ///     var myDemoAPI = new Aws.Apigateway.RestApi.RestApi("myDemoAPI", new()
     ///     {
     ///         Description = "This is my API for demonstration purposes",
     ///     });
     /// 
-    ///     var myDemoResource = new Aws.ApiGateway.Resource("myDemoResource", new()
+    ///     var myDemoResource = new Aws.Apigateway.Resource.Resource("myDemoResource", new()
     ///     {
     ///         RestApi = myDemoAPI.Id,
     ///         ParentId = myDemoAPI.RootResourceId,
     ///         PathPart = "mydemoresource",
     ///     });
     /// 
-    ///     var myDemoMethod = new Aws.ApiGateway.Method("myDemoMethod", new()
+    ///     var myDemoMethod = new Aws.Apigateway.Method.Method("myDemoMethod", new()
     ///     {
     ///         RestApi = myDemoAPI.Id,
     ///         ResourceId = myDemoResource.Id,
@@ -42,7 +42,7 @@ namespace Pulumi.Aws.ApiGateway
     ///         Authorization = "NONE",
     ///     });
     /// 
-    ///     var myDemoIntegration = new Aws.ApiGateway.Integration("myDemoIntegration", new()
+    ///     var myDemoIntegration = new Aws.Apigateway.Integration.Integration("myDemoIntegration", new()
     ///     {
     ///         RestApi = myDemoAPI.Id,
     ///         ResourceId = myDemoResource.Id,
@@ -69,7 +69,7 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// });
     /// ```
-    /// ## Lambda integration
+    /// ## VPC Link
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -80,88 +80,70 @@ namespace Pulumi.Aws.ApiGateway
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var config = new Config();
-    ///     var myregion = config.RequireObject&lt;dynamic&gt;("myregion");
-    ///     var accountId = config.RequireObject&lt;dynamic&gt;("accountId");
-    ///     // API Gateway
-    ///     var api = new Aws.ApiGateway.RestApi("api");
-    /// 
-    ///     var resource = new Aws.ApiGateway.Resource("resource", new()
+    ///     var name = config.RequireObject&lt;dynamic&gt;("name");
+    ///     var subnetId = config.RequireObject&lt;dynamic&gt;("subnetId");
+    ///     var testLoadBalancer = new Aws.Lb.LoadBalancer.LoadBalancer("testLoadBalancer", new()
     ///     {
-    ///         PathPart = "resource",
-    ///         ParentId = api.RootResourceId,
-    ///         RestApi = api.Id,
-    ///     });
-    /// 
-    ///     var method = new Aws.ApiGateway.Method("method", new()
-    ///     {
-    ///         RestApi = api.Id,
-    ///         ResourceId = resource.Id,
-    ///         HttpMethod = "GET",
-    ///         Authorization = "NONE",
-    ///     });
-    /// 
-    ///     var assumeRole = Aws.Iam.GetPolicyDocument.Invoke(new()
-    ///     {
-    ///         Statements = new[]
+    ///         Internal = true,
+    ///         LoadBalancerType = "network",
+    ///         Subnets = new[]
     ///         {
-    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
-    ///             {
-    ///                 Effect = "Allow",
-    ///                 Principals = new[]
-    ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
-    ///                     {
-    ///                         Type = "Service",
-    ///                         Identifiers = new[]
-    ///                         {
-    ///                             "lambda.amazonaws.com",
-    ///                         },
-    ///                     },
-    ///                 },
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "sts:AssumeRole",
-    ///                 },
-    ///             },
+    ///             subnetId,
     ///         },
     ///     });
     /// 
-    ///     var role = new Aws.Iam.Role("role", new()
+    ///     var testVpcLink = new Aws.Apigateway.VpcLink.VpcLink("testVpcLink", new()
     ///     {
-    ///         AssumeRolePolicy = assumeRole.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
-    ///     });
-    /// 
-    ///     var lambda = new Aws.Lambda.Function("lambda", new()
-    ///     {
-    ///         Code = new FileArchive("lambda.zip"),
-    ///         Role = role.Arn,
-    ///         Handler = "lambda.lambda_handler",
-    ///         Runtime = "python3.7",
-    ///     });
-    /// 
-    ///     var integration = new Aws.ApiGateway.Integration("integration", new()
-    ///     {
-    ///         RestApi = api.Id,
-    ///         ResourceId = resource.Id,
-    ///         HttpMethod = method.HttpMethod,
-    ///         IntegrationHttpMethod = "POST",
-    ///         Type = "AWS_PROXY",
-    ///         Uri = lambda.InvokeArn,
-    ///     });
-    /// 
-    ///     // Lambda
-    ///     var apigwLambda = new Aws.Lambda.Permission("apigwLambda", new()
-    ///     {
-    ///         Action = "lambda:InvokeFunction",
-    ///         Function = lambda.Name,
-    ///         Principal = "apigateway.amazonaws.com",
-    ///         SourceArn = Output.Tuple(api.Id, method.HttpMethod, resource.Path).Apply(values =&gt;
+    ///         TargetArn = new[]
     ///         {
-    ///             var id = values.Item1;
-    ///             var httpMethod = values.Item2;
-    ///             var path = values.Item3;
-    ///             return $"arn:aws:execute-api:{myregion}:{accountId}:{id}/*/{httpMethod}{path}";
-    ///         }),
+    ///             testLoadBalancer.Arn,
+    ///         },
+    ///     });
+    /// 
+    ///     var testRestApi = new Aws.Apigateway.RestApi.RestApi("testRestApi");
+    /// 
+    ///     var testResource = new Aws.Apigateway.Resource.Resource("testResource", new()
+    ///     {
+    ///         RestApi = testRestApi.Id,
+    ///         ParentId = testRestApi.RootResourceId,
+    ///         PathPart = "test",
+    ///     });
+    /// 
+    ///     var testMethod = new Aws.Apigateway.Method.Method("testMethod", new()
+    ///     {
+    ///         RestApi = testRestApi.Id,
+    ///         ResourceId = testResource.Id,
+    ///         HttpMethod = "GET",
+    ///         Authorization = "NONE",
+    ///         RequestModels = 
+    ///         {
+    ///             { "application/json", "Error" },
+    ///         },
+    ///     });
+    /// 
+    ///     var testIntegration = new Aws.Apigateway.Integration.Integration("testIntegration", new()
+    ///     {
+    ///         RestApi = testRestApi.Id,
+    ///         ResourceId = testResource.Id,
+    ///         HttpMethod = testMethod.HttpMethod,
+    ///         RequestTemplates = 
+    ///         {
+    ///             { "application/json", "" },
+    ///             { "application/xml", @"#set($inputRoot = $input.path('$'))
+    /// { }" },
+    ///         },
+    ///         RequestParameters = 
+    ///         {
+    ///             { "integration.request.header.X-Authorization", "'static'" },
+    ///             { "integration.request.header.X-Foo", "'Bar'" },
+    ///         },
+    ///         Type = "HTTP",
+    ///         Uri = "https://www.google.de",
+    ///         IntegrationHttpMethod = "GET",
+    ///         PassthroughBehavior = "WHEN_NO_MATCH",
+    ///         ContentHandling = "CONVERT_TO_TEXT",
+    ///         ConnectionType = "VPC_LINK",
+    ///         ConnectionId = testVpcLink.Id,
     ///     });
     /// 
     /// });

@@ -1356,70 +1356,70 @@ class LaunchTemplate(pulumi.CustomResource):
         import base64
         import pulumi_aws as aws
 
-        foo = aws.ec2.LaunchTemplate("foo",
-            block_device_mappings=[aws.ec2.LaunchTemplateBlockDeviceMappingArgs(
-                device_name="/dev/sdf",
-                ebs=aws.ec2.LaunchTemplateBlockDeviceMappingEbsArgs(
-                    volume_size=20,
-                ),
-            )],
-            capacity_reservation_specification=aws.ec2.LaunchTemplateCapacityReservationSpecificationArgs(
-                capacity_reservation_preference="open",
-            ),
-            cpu_options=aws.ec2.LaunchTemplateCpuOptionsArgs(
-                core_count=4,
-                threads_per_core=2,
-            ),
-            credit_specification=aws.ec2.LaunchTemplateCreditSpecificationArgs(
-                cpu_credits="standard",
-            ),
+        foo = aws.ec2.launch_template.LaunchTemplate("foo",
+            block_device_mappings=[{
+                deviceName: /dev/sdf,
+                ebs: {
+                    volumeSize: 20,
+                },
+            }],
+            capacity_reservation_specification={
+                capacityReservationPreference: open,
+            },
+            cpu_options={
+                coreCount: 4,
+                threadsPerCore: 2,
+            },
+            credit_specification={
+                cpuCredits: standard,
+            },
             disable_api_stop=True,
             disable_api_termination=True,
-            ebs_optimized="true",
-            elastic_gpu_specifications=[aws.ec2.LaunchTemplateElasticGpuSpecificationArgs(
-                type="test",
-            )],
-            elastic_inference_accelerator=aws.ec2.LaunchTemplateElasticInferenceAcceleratorArgs(
-                type="eia1.medium",
-            ),
-            iam_instance_profile=aws.ec2.LaunchTemplateIamInstanceProfileArgs(
-                name="test",
-            ),
-            image_id="ami-test",
-            instance_initiated_shutdown_behavior="terminate",
-            instance_market_options=aws.ec2.LaunchTemplateInstanceMarketOptionsArgs(
-                market_type="spot",
-            ),
-            instance_type="t2.micro",
-            kernel_id="test",
-            key_name="test",
-            license_specifications=[aws.ec2.LaunchTemplateLicenseSpecificationArgs(
-                license_configuration_arn="arn:aws:license-manager:eu-west-1:123456789012:license-configuration:lic-0123456789abcdef0123456789abcdef",
-            )],
-            metadata_options=aws.ec2.LaunchTemplateMetadataOptionsArgs(
-                http_endpoint="enabled",
-                http_tokens="required",
-                http_put_response_hop_limit=1,
-                instance_metadata_tags="enabled",
-            ),
-            monitoring=aws.ec2.LaunchTemplateMonitoringArgs(
-                enabled=True,
-            ),
-            network_interfaces=[aws.ec2.LaunchTemplateNetworkInterfaceArgs(
-                associate_public_ip_address="true",
-            )],
-            placement=aws.ec2.LaunchTemplatePlacementArgs(
-                availability_zone="us-west-2a",
-            ),
-            ram_disk_id="test",
-            vpc_security_group_ids=["sg-12345678"],
-            tag_specifications=[aws.ec2.LaunchTemplateTagSpecificationArgs(
-                resource_type="instance",
-                tags={
-                    "Name": "test",
+            ebs_optimized=True,
+            elastic_gpu_specifications=[{
+                type: test,
+            }],
+            elastic_inference_accelerator={
+                type: eia1.medium,
+            },
+            iam_instance_profile={
+                name: test,
+            },
+            image_id=ami-test,
+            instance_initiated_shutdown_behavior=terminate,
+            instance_market_options={
+                marketType: spot,
+            },
+            instance_type=t2.micro,
+            kernel_id=test,
+            key_name=test,
+            license_specifications=[{
+                licenseConfigurationArn: arn:aws:license-manager:eu-west-1:123456789012:license-configuration:lic-0123456789abcdef0123456789abcdef,
+            }],
+            metadata_options={
+                httpEndpoint: enabled,
+                httpTokens: required,
+                httpPutResponseHopLimit: 1,
+                instanceMetadataTags: enabled,
+            },
+            monitoring={
+                enabled: True,
+            },
+            network_interfaces=[{
+                associatePublicIpAddress: True,
+            }],
+            placement={
+                availabilityZone: us-west-2a,
+            },
+            ram_disk_id=test,
+            vpc_security_group_ids=[sg-12345678],
+            tag_specifications=[{
+                resourceType: instance,
+                tags: {
+                    Name: test,
                 },
-            )],
-            user_data=(lambda path: base64.b64encode(open(path).read().encode()).decode())(f"{path['module']}/example.sh"))
+            }],
+            user_data=(lambda path: base64.b64encode(open(path).read().encode()).decode())(f{path.module}/example.sh))
         ```
 
         ## Import
@@ -1495,70 +1495,70 @@ class LaunchTemplate(pulumi.CustomResource):
         import base64
         import pulumi_aws as aws
 
-        foo = aws.ec2.LaunchTemplate("foo",
-            block_device_mappings=[aws.ec2.LaunchTemplateBlockDeviceMappingArgs(
-                device_name="/dev/sdf",
-                ebs=aws.ec2.LaunchTemplateBlockDeviceMappingEbsArgs(
-                    volume_size=20,
-                ),
-            )],
-            capacity_reservation_specification=aws.ec2.LaunchTemplateCapacityReservationSpecificationArgs(
-                capacity_reservation_preference="open",
-            ),
-            cpu_options=aws.ec2.LaunchTemplateCpuOptionsArgs(
-                core_count=4,
-                threads_per_core=2,
-            ),
-            credit_specification=aws.ec2.LaunchTemplateCreditSpecificationArgs(
-                cpu_credits="standard",
-            ),
+        foo = aws.ec2.launch_template.LaunchTemplate("foo",
+            block_device_mappings=[{
+                deviceName: /dev/sdf,
+                ebs: {
+                    volumeSize: 20,
+                },
+            }],
+            capacity_reservation_specification={
+                capacityReservationPreference: open,
+            },
+            cpu_options={
+                coreCount: 4,
+                threadsPerCore: 2,
+            },
+            credit_specification={
+                cpuCredits: standard,
+            },
             disable_api_stop=True,
             disable_api_termination=True,
-            ebs_optimized="true",
-            elastic_gpu_specifications=[aws.ec2.LaunchTemplateElasticGpuSpecificationArgs(
-                type="test",
-            )],
-            elastic_inference_accelerator=aws.ec2.LaunchTemplateElasticInferenceAcceleratorArgs(
-                type="eia1.medium",
-            ),
-            iam_instance_profile=aws.ec2.LaunchTemplateIamInstanceProfileArgs(
-                name="test",
-            ),
-            image_id="ami-test",
-            instance_initiated_shutdown_behavior="terminate",
-            instance_market_options=aws.ec2.LaunchTemplateInstanceMarketOptionsArgs(
-                market_type="spot",
-            ),
-            instance_type="t2.micro",
-            kernel_id="test",
-            key_name="test",
-            license_specifications=[aws.ec2.LaunchTemplateLicenseSpecificationArgs(
-                license_configuration_arn="arn:aws:license-manager:eu-west-1:123456789012:license-configuration:lic-0123456789abcdef0123456789abcdef",
-            )],
-            metadata_options=aws.ec2.LaunchTemplateMetadataOptionsArgs(
-                http_endpoint="enabled",
-                http_tokens="required",
-                http_put_response_hop_limit=1,
-                instance_metadata_tags="enabled",
-            ),
-            monitoring=aws.ec2.LaunchTemplateMonitoringArgs(
-                enabled=True,
-            ),
-            network_interfaces=[aws.ec2.LaunchTemplateNetworkInterfaceArgs(
-                associate_public_ip_address="true",
-            )],
-            placement=aws.ec2.LaunchTemplatePlacementArgs(
-                availability_zone="us-west-2a",
-            ),
-            ram_disk_id="test",
-            vpc_security_group_ids=["sg-12345678"],
-            tag_specifications=[aws.ec2.LaunchTemplateTagSpecificationArgs(
-                resource_type="instance",
-                tags={
-                    "Name": "test",
+            ebs_optimized=True,
+            elastic_gpu_specifications=[{
+                type: test,
+            }],
+            elastic_inference_accelerator={
+                type: eia1.medium,
+            },
+            iam_instance_profile={
+                name: test,
+            },
+            image_id=ami-test,
+            instance_initiated_shutdown_behavior=terminate,
+            instance_market_options={
+                marketType: spot,
+            },
+            instance_type=t2.micro,
+            kernel_id=test,
+            key_name=test,
+            license_specifications=[{
+                licenseConfigurationArn: arn:aws:license-manager:eu-west-1:123456789012:license-configuration:lic-0123456789abcdef0123456789abcdef,
+            }],
+            metadata_options={
+                httpEndpoint: enabled,
+                httpTokens: required,
+                httpPutResponseHopLimit: 1,
+                instanceMetadataTags: enabled,
+            },
+            monitoring={
+                enabled: True,
+            },
+            network_interfaces=[{
+                associatePublicIpAddress: True,
+            }],
+            placement={
+                availabilityZone: us-west-2a,
+            },
+            ram_disk_id=test,
+            vpc_security_group_ids=[sg-12345678],
+            tag_specifications=[{
+                resourceType: instance,
+                tags: {
+                    Name: test,
                 },
-            )],
-            user_data=(lambda path: base64.b64encode(open(path).read().encode()).decode())(f"{path['module']}/example.sh"))
+            }],
+            user_data=(lambda path: base64.b64encode(open(path).read().encode()).decode())(f{path.module}/example.sh))
         ```
 
         ## Import

@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.backup.ReportPlan("example", {
+ * const example = new aws.backup/reportPlan.ReportPlan("example", {
  *     description: "example description",
  *     reportDeliveryChannel: {
  *         formats: [

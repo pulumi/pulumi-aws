@@ -24,7 +24,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var dnsResolver = new Aws.Ec2.VpcDhcpOptions("dnsResolver", new()
+    ///     var dnsResolver = new Aws.Ec2.VpcDhcpOptions.VpcDhcpOptions("dnsResolver", new()
     ///     {
     ///         DomainNameServers = new[]
     ///         {
@@ -46,7 +46,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var foo = new Aws.Ec2.VpcDhcpOptions("foo", new()
+    ///     var foo = new Aws.Ec2.VpcDhcpOptions.VpcDhcpOptions("foo", new()
     ///     {
     ///         DomainName = "service.consul",
     ///         DomainNameServers = new[]
@@ -58,7 +58,7 @@ namespace Pulumi.Aws.Ec2
     ///         {
     ///             "127.0.0.1",
     ///         },
-    ///         NetbiosNodeType = "2",
+    ///         NetbiosNodeType = 2,
     ///         NtpServers = new[]
     ///         {
     ///             "127.0.0.1",

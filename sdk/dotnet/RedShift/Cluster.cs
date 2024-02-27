@@ -25,7 +25,7 @@ namespace Pulumi.Aws.RedShift
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.RedShift.Cluster("example", new()
+    ///     var example = new Aws.Redshift.Cluster.Cluster("example", new()
     ///     {
     ///         ClusterIdentifier = "tf-redshift-cluster",
     ///         ClusterType = "single-node",
@@ -47,7 +47,7 @@ namespace Pulumi.Aws.RedShift
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.RedShift.Cluster("example", new()
+    ///     var example = new Aws.Redshift.Cluster.Cluster("example", new()
     ///     {
     ///         ClusterIdentifier = "tf-redshift-cluster",
     ///         ClusterType = "single-node",

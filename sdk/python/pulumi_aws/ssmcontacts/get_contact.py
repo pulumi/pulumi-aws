@@ -108,14 +108,6 @@ def get_contact(arn: Optional[str] = None,
     Data source for managing an AWS SSM Contact.
 
     ## Example Usage
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ssmcontacts.get_contact(arn="arn:aws:ssm-contacts:us-west-2:123456789012:contact/contactalias")
-    ```
 
 
     :param str arn: The Amazon Resource Name (ARN) of the contact or escalation plan.
@@ -144,14 +136,6 @@ def get_contact_output(arn: Optional[pulumi.Input[str]] = None,
     Data source for managing an AWS SSM Contact.
 
     ## Example Usage
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ssmcontacts.get_contact(arn="arn:aws:ssm-contacts:us-west-2:123456789012:contact/contactalias")
-    ```
 
 
     :param str arn: The Amazon Resource Name (ARN) of the contact or escalation plan.

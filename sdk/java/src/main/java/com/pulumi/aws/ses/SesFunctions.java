@@ -22,66 +22,12 @@ public final class SesFunctions {
     /**
      * Retrieve the active SES receipt rule set
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ses.SesFunctions;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var main = SesFunctions.getActiveReceiptRuleSet();
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetActiveReceiptRuleSetResult> getActiveReceiptRuleSet() {
         return getActiveReceiptRuleSet(InvokeArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * Retrieve the active SES receipt rule set
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ses.SesFunctions;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var main = SesFunctions.getActiveReceiptRuleSet();
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetActiveReceiptRuleSetResult> getActiveReceiptRuleSetPlain() {
@@ -90,66 +36,12 @@ public final class SesFunctions {
     /**
      * Retrieve the active SES receipt rule set
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ses.SesFunctions;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var main = SesFunctions.getActiveReceiptRuleSet();
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetActiveReceiptRuleSetResult> getActiveReceiptRuleSet(InvokeArgs args) {
         return getActiveReceiptRuleSet(args, InvokeOptions.Empty);
     }
     /**
      * Retrieve the active SES receipt rule set
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ses.SesFunctions;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var main = SesFunctions.getActiveReceiptRuleSet();
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetActiveReceiptRuleSetResult> getActiveReceiptRuleSetPlain(InvokeArgs args) {
@@ -158,66 +50,12 @@ public final class SesFunctions {
     /**
      * Retrieve the active SES receipt rule set
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ses.SesFunctions;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var main = SesFunctions.getActiveReceiptRuleSet();
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetActiveReceiptRuleSetResult> getActiveReceiptRuleSet(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:ses/getActiveReceiptRuleSet:getActiveReceiptRuleSet", TypeShape.of(GetActiveReceiptRuleSetResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Retrieve the active SES receipt rule set
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ses.SesFunctions;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var main = SesFunctions.getActiveReceiptRuleSet();
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetActiveReceiptRuleSetResult> getActiveReceiptRuleSetPlain(InvokeArgs args, InvokeOptions options) {
@@ -226,72 +64,12 @@ public final class SesFunctions {
     /**
      * Retrieve the SES domain identity
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ses.SesFunctions;
-     * import com.pulumi.aws.ses.inputs.GetDomainIdentityArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = SesFunctions.getDomainIdentity(GetDomainIdentityArgs.builder()
-     *             .domain(&#34;example.com&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetDomainIdentityResult> getDomainIdentity(GetDomainIdentityArgs args) {
         return getDomainIdentity(args, InvokeOptions.Empty);
     }
     /**
      * Retrieve the SES domain identity
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ses.SesFunctions;
-     * import com.pulumi.aws.ses.inputs.GetDomainIdentityArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = SesFunctions.getDomainIdentity(GetDomainIdentityArgs.builder()
-     *             .domain(&#34;example.com&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetDomainIdentityResult> getDomainIdentityPlain(GetDomainIdentityPlainArgs args) {
@@ -300,72 +78,12 @@ public final class SesFunctions {
     /**
      * Retrieve the SES domain identity
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ses.SesFunctions;
-     * import com.pulumi.aws.ses.inputs.GetDomainIdentityArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = SesFunctions.getDomainIdentity(GetDomainIdentityArgs.builder()
-     *             .domain(&#34;example.com&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetDomainIdentityResult> getDomainIdentity(GetDomainIdentityArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:ses/getDomainIdentity:getDomainIdentity", TypeShape.of(GetDomainIdentityResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Retrieve the SES domain identity
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ses.SesFunctions;
-     * import com.pulumi.aws.ses.inputs.GetDomainIdentityArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = SesFunctions.getDomainIdentity(GetDomainIdentityArgs.builder()
-     *             .domain(&#34;example.com&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetDomainIdentityResult> getDomainIdentityPlain(GetDomainIdentityPlainArgs args, InvokeOptions options) {
@@ -374,72 +92,12 @@ public final class SesFunctions {
     /**
      * Retrieve the active SES email identity
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ses.SesFunctions;
-     * import com.pulumi.aws.ses.inputs.GetEmailIdentityArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = SesFunctions.getEmailIdentity(GetEmailIdentityArgs.builder()
-     *             .email(&#34;awesome@example.com&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetEmailIdentityResult> getEmailIdentity(GetEmailIdentityArgs args) {
         return getEmailIdentity(args, InvokeOptions.Empty);
     }
     /**
      * Retrieve the active SES email identity
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ses.SesFunctions;
-     * import com.pulumi.aws.ses.inputs.GetEmailIdentityArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = SesFunctions.getEmailIdentity(GetEmailIdentityArgs.builder()
-     *             .email(&#34;awesome@example.com&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetEmailIdentityResult> getEmailIdentityPlain(GetEmailIdentityPlainArgs args) {
@@ -448,72 +106,12 @@ public final class SesFunctions {
     /**
      * Retrieve the active SES email identity
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ses.SesFunctions;
-     * import com.pulumi.aws.ses.inputs.GetEmailIdentityArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = SesFunctions.getEmailIdentity(GetEmailIdentityArgs.builder()
-     *             .email(&#34;awesome@example.com&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetEmailIdentityResult> getEmailIdentity(GetEmailIdentityArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:ses/getEmailIdentity:getEmailIdentity", TypeShape.of(GetEmailIdentityResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Retrieve the active SES email identity
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ses.SesFunctions;
-     * import com.pulumi.aws.ses.inputs.GetEmailIdentityArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = SesFunctions.getEmailIdentity(GetEmailIdentityArgs.builder()
-     *             .email(&#34;awesome@example.com&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetEmailIdentityResult> getEmailIdentityPlain(GetEmailIdentityPlainArgs args, InvokeOptions options) {

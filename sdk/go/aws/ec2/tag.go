@@ -23,46 +23,46 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2transitgateway"
+//	ec2/customerGateway "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/customerGateway"
+//	ec2/tag "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/tag"
+//	ec2/vpnConnection "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/vpnConnection"
+//	ec2transitgateway/transitGateway "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2transitgateway/transitGateway"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleTransitGateway, err := ec2transitgateway.NewTransitGateway(ctx, "exampleTransitGateway", nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleCustomerGateway, err := ec2.NewCustomerGateway(ctx, "exampleCustomerGateway", &ec2.CustomerGatewayArgs{
-//				BgpAsn:    pulumi.String("65000"),
-//				IpAddress: pulumi.String("172.0.0.1"),
-//				Type:      pulumi.String("ipsec.1"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleVpnConnection, err := ec2.NewVpnConnection(ctx, "exampleVpnConnection", &ec2.VpnConnectionArgs{
-//				CustomerGatewayId: exampleCustomerGateway.ID(),
-//				TransitGatewayId:  exampleTransitGateway.ID(),
-//				Type:              exampleCustomerGateway.Type,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ec2.NewTag(ctx, "exampleTag", &ec2.TagArgs{
-//				ResourceId: exampleVpnConnection.TransitGatewayAttachmentId,
-//				Key:        pulumi.String("Name"),
-//				Value:      pulumi.String("Hello World"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleTransitGateway, err := ec2transitgateway/transitGateway.NewTransitGateway(ctx, "exampleTransitGateway", nil)
+// if err != nil {
+// return err
+// }
+// exampleCustomerGateway, err := ec2/customerGateway.NewCustomerGateway(ctx, "exampleCustomerGateway", &ec2/customerGateway.CustomerGatewayArgs{
+// BgpAsn: 65000,
+// IpAddress: "172.0.0.1",
+// Type: "ipsec.1",
+// })
+// if err != nil {
+// return err
+// }
+// exampleVpnConnection, err := ec2/vpnConnection.NewVpnConnection(ctx, "exampleVpnConnection", &ec2/vpnConnection.VpnConnectionArgs{
+// CustomerGatewayId: exampleCustomerGateway.Id,
+// TransitGatewayId: exampleTransitGateway.Id,
+// Type: exampleCustomerGateway.Type,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = ec2/tag.NewTag(ctx, "exampleTag", &ec2/tag.TagArgs{
+// ResourceId: exampleVpnConnection.TransitGatewayAttachmentId,
+// Key: "Name",
+// Value: "Hello World",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

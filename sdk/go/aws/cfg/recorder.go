@@ -17,59 +17,6 @@ import (
 // > **Note:** _Starting_ the Configuration Recorder requires a delivery channel (while delivery channel creation requires Configuration Recorder). This is why `cfg.RecorderStatus` is a separate resource.
 //
 // ## Example Usage
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cfg"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			assumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-//				Statements: []iam.GetPolicyDocumentStatement{
-//					{
-//						Effect: pulumi.StringRef("Allow"),
-//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
-//							{
-//								Type: "Service",
-//								Identifiers: []string{
-//									"config.amazonaws.com",
-//								},
-//							},
-//						},
-//						Actions: []string{
-//							"sts:AssumeRole",
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			role, err := iam.NewRole(ctx, "role", &iam.RoleArgs{
-//				AssumeRolePolicy: *pulumi.String(assumeRole.Json),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = cfg.NewRecorder(ctx, "foo", &cfg.RecorderArgs{
-//				RoleArn: role.Arn,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 // ### Exclude Resources Types Usage
 //
 // ```go
@@ -77,38 +24,36 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cfg"
+//	cfg/recorder "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/cfg/recorder"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cfg.NewRecorder(ctx, "foo", &cfg.RecorderArgs{
-//				RoleArn: pulumi.Any(aws_iam_role.R.Arn),
-//				RecordingGroup: &cfg.RecorderRecordingGroupArgs{
-//					AllSupported: pulumi.Bool(false),
-//					ExclusionByResourceTypes: cfg.RecorderRecordingGroupExclusionByResourceTypeArray{
-//						&cfg.RecorderRecordingGroupExclusionByResourceTypeArgs{
-//							ResourceTypes: pulumi.StringArray{
-//								pulumi.String("AWS::EC2::Instance"),
-//							},
-//						},
-//					},
-//					RecordingStrategies: cfg.RecorderRecordingGroupRecordingStrategyArray{
-//						&cfg.RecorderRecordingGroupRecordingStrategyArgs{
-//							UseOnly: pulumi.String("EXCLUSION_BY_RESOURCE_TYPES"),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := cfg/recorder.NewRecorder(ctx, "foo", &cfg/recorder.RecorderArgs{
+// RoleArn: aws_iam_role.R.Arn,
+// RecordingGroup: map[string]interface{}{
+// "allSupported": false,
+// "exclusionByResourceTypes": []map[string]interface{}{
+// map[string]interface{}{
+// "resourceTypes": []string{
+// "AWS::EC2::Instance",
+// },
+// },
+// },
+// "recordingStrategies": []map[string]interface{}{
+// map[string]interface{}{
+// "useOnly": "EXCLUSION_BY_RESOURCE_TYPES",
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

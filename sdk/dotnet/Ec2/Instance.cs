@@ -13,113 +13,6 @@ namespace Pulumi.Aws.Ec2
     /// Provides an EC2 instance resource. This allows instances to be created, updated, and deleted.
     /// 
     /// ## Example Usage
-    /// ### Basic example using AMI lookup
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var ubuntu = Aws.Ec2.GetAmi.Invoke(new()
-    ///     {
-    ///         MostRecent = true,
-    ///         Filters = new[]
-    ///         {
-    ///             new Aws.Ec2.Inputs.GetAmiFilterInputArgs
-    ///             {
-    ///                 Name = "name",
-    ///                 Values = new[]
-    ///                 {
-    ///                     "ubuntu/images/hvm-ssd/ubuntu-jammy-22.04-amd64-server-*",
-    ///                 },
-    ///             },
-    ///             new Aws.Ec2.Inputs.GetAmiFilterInputArgs
-    ///             {
-    ///                 Name = "virtualization-type",
-    ///                 Values = new[]
-    ///                 {
-    ///                     "hvm",
-    ///                 },
-    ///             },
-    ///         },
-    ///         Owners = new[]
-    ///         {
-    ///             "099720109477",
-    ///         },
-    ///     });
-    /// 
-    ///     var web = new Aws.Ec2.Instance("web", new()
-    ///     {
-    ///         Ami = ubuntu.Apply(getAmiResult =&gt; getAmiResult.Id),
-    ///         InstanceType = "t3.micro",
-    ///         Tags = 
-    ///         {
-    ///             { "Name", "HelloWorld" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### Spot instance example
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var thisAmi = Aws.Ec2.GetAmi.Invoke(new()
-    ///     {
-    ///         MostRecent = true,
-    ///         Owners = new[]
-    ///         {
-    ///             "amazon",
-    ///         },
-    ///         Filters = new[]
-    ///         {
-    ///             new Aws.Ec2.Inputs.GetAmiFilterInputArgs
-    ///             {
-    ///                 Name = "architecture",
-    ///                 Values = new[]
-    ///                 {
-    ///                     "arm64",
-    ///                 },
-    ///             },
-    ///             new Aws.Ec2.Inputs.GetAmiFilterInputArgs
-    ///             {
-    ///                 Name = "name",
-    ///                 Values = new[]
-    ///                 {
-    ///                     "al2023-ami-2023*",
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var thisInstance = new Aws.Ec2.Instance("thisInstance", new()
-    ///     {
-    ///         Ami = thisAmi.Apply(getAmiResult =&gt; getAmiResult.Id),
-    ///         InstanceMarketOptions = new Aws.Ec2.Inputs.InstanceInstanceMarketOptionsArgs
-    ///         {
-    ///             SpotOptions = new Aws.Ec2.Inputs.InstanceInstanceMarketOptionsSpotOptionsArgs
-    ///             {
-    ///                 MaxPrice = "0.0031",
-    ///             },
-    ///         },
-    ///         InstanceType = "t4g.nano",
-    ///         Tags = 
-    ///         {
-    ///             { "Name", "test-spot" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// ### Network and credit specification example
     /// 
     /// ```csharp
@@ -130,7 +23,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var myVpc = new Aws.Ec2.Vpc("myVpc", new()
+    ///     var myVpc = new Aws.Ec2.Vpc.Vpc("myVpc", new()
     ///     {
     ///         CidrBlock = "172.16.0.0/16",
     ///         Tags = 
@@ -139,7 +32,7 @@ namespace Pulumi.Aws.Ec2
     ///         },
     ///     });
     /// 
-    ///     var mySubnet = new Aws.Ec2.Subnet("mySubnet", new()
+    ///     var mySubnet = new Aws.Ec2.Subnet.Subnet("mySubnet", new()
     ///     {
     ///         VpcId = myVpc.Id,
     ///         CidrBlock = "172.16.10.0/24",
@@ -150,7 +43,7 @@ namespace Pulumi.Aws.Ec2
     ///         },
     ///     });
     /// 
-    ///     var fooNetworkInterface = new Aws.Ec2.NetworkInterface("fooNetworkInterface", new()
+    ///     var fooNetworkInterface = new Aws.Ec2.NetworkInterface.NetworkInterface("fooNetworkInterface", new()
     ///     {
     ///         SubnetId = mySubnet.Id,
     ///         PrivateIps = new[]
@@ -163,89 +56,21 @@ namespace Pulumi.Aws.Ec2
     ///         },
     ///     });
     /// 
-    ///     var fooInstance = new Aws.Ec2.Instance("fooInstance", new()
+    ///     var fooInstance = new Aws.Ec2.Instance.Instance("fooInstance", new()
     ///     {
     ///         Ami = "ami-005e54dee72cc1d00",
     ///         InstanceType = "t2.micro",
     ///         NetworkInterfaces = new[]
     ///         {
-    ///             new Aws.Ec2.Inputs.InstanceNetworkInterfaceArgs
+    ///             
     ///             {
-    ///                 NetworkInterfaceId = fooNetworkInterface.Id,
-    ///                 DeviceIndex = 0,
+    ///                 { "networkInterfaceId", fooNetworkInterface.Id },
+    ///                 { "deviceIndex", 0 },
     ///             },
     ///         },
-    ///         CreditSpecification = new Aws.Ec2.Inputs.InstanceCreditSpecificationArgs
+    ///         CreditSpecification = 
     ///         {
-    ///             CpuCredits = "unlimited",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### CPU options example
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleVpc = new Aws.Ec2.Vpc("exampleVpc", new()
-    ///     {
-    ///         CidrBlock = "172.16.0.0/16",
-    ///         Tags = 
-    ///         {
-    ///             { "Name", "tf-example" },
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleSubnet = new Aws.Ec2.Subnet("exampleSubnet", new()
-    ///     {
-    ///         VpcId = exampleVpc.Id,
-    ///         CidrBlock = "172.16.10.0/24",
-    ///         AvailabilityZone = "us-east-2a",
-    ///         Tags = 
-    ///         {
-    ///             { "Name", "tf-example" },
-    ///         },
-    ///     });
-    /// 
-    ///     var amzn_linux_2023_ami = Aws.Ec2.GetAmi.Invoke(new()
-    ///     {
-    ///         MostRecent = true,
-    ///         Owners = new[]
-    ///         {
-    ///             "amazon",
-    ///         },
-    ///         Filters = new[]
-    ///         {
-    ///             new Aws.Ec2.Inputs.GetAmiFilterInputArgs
-    ///             {
-    ///                 Name = "name",
-    ///                 Values = new[]
-    ///                 {
-    ///                     "al2023-ami-2023.*-x86_64",
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleInstance = new Aws.Ec2.Instance("exampleInstance", new()
-    ///     {
-    ///         Ami = amzn_linux_2023_ami.Apply(amzn_linux_2023_ami =&gt; amzn_linux_2023_ami.Apply(getAmiResult =&gt; getAmiResult.Id)),
-    ///         InstanceType = "c6a.2xlarge",
-    ///         SubnetId = exampleSubnet.Id,
-    ///         CpuOptions = new Aws.Ec2.Inputs.InstanceCpuOptionsArgs
-    ///         {
-    ///             CoreCount = 2,
-    ///             ThreadsPerCore = 2,
-    ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "Name", "tf-example" },
+    ///             { "cpuCredits", "unlimited" },
     ///         },
     ///     });
     /// 
@@ -265,7 +90,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var @this = new Aws.Ec2.Instance("this", new()
+    ///     var @this = new Aws.Ec2.Instance.Instance("this", new()
     ///     {
     ///         Ami = "ami-0dcc1e21636832c5d",
     ///         HostResourceGroupArn = "arn:aws:resource-groups:us-west-2:012345678901:group/win-testhost",

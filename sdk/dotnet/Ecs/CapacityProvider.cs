@@ -25,32 +25,32 @@ namespace Pulumi.Aws.Ecs
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // ... other configuration, including potentially other tags ...
-    ///     var testGroup = new Aws.AutoScaling.Group("testGroup", new()
+    ///     var testGroup = new Aws.Autoscaling.Group.Group("testGroup", new()
     ///     {
     ///         Tags = new[]
     ///         {
-    ///             new Aws.AutoScaling.Inputs.GroupTagArgs
+    ///             
     ///             {
-    ///                 Key = "AmazonECSManaged",
-    ///                 Value = "true",
-    ///                 PropagateAtLaunch = true,
+    ///                 { "key", "AmazonECSManaged" },
+    ///                 { "value", true },
+    ///                 { "propagateAtLaunch", true },
     ///             },
     ///         },
     ///     });
     /// 
-    ///     var testCapacityProvider = new Aws.Ecs.CapacityProvider("testCapacityProvider", new()
+    ///     var testCapacityProvider = new Aws.Ecs.CapacityProvider.CapacityProvider("testCapacityProvider", new()
     ///     {
-    ///         AutoScalingGroupProvider = new Aws.Ecs.Inputs.CapacityProviderAutoScalingGroupProviderArgs
+    ///         AutoScalingGroupProvider = 
     ///         {
-    ///             AutoScalingGroupArn = testGroup.Arn,
-    ///             ManagedTerminationProtection = "ENABLED",
-    ///             ManagedScaling = new Aws.Ecs.Inputs.CapacityProviderAutoScalingGroupProviderManagedScalingArgs
+    ///             { "autoScalingGroupArn", testGroup.Arn },
+    ///             { "managedTerminationProtection", "ENABLED" },
+    ///             { "managedScaling", 
     ///             {
-    ///                 MaximumScalingStepSize = 1000,
-    ///                 MinimumScalingStepSize = 1,
-    ///                 Status = "ENABLED",
-    ///                 TargetCapacity = 10,
-    ///             },
+    ///                 { "maximumScalingStepSize", 1000 },
+    ///                 { "minimumScalingStepSize", 1 },
+    ///                 { "status", "ENABLED" },
+    ///                 { "targetCapacity", 10 },
+    ///             } },
     ///         },
     ///     });
     /// 

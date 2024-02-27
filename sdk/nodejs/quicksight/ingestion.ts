@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.quicksight.Ingestion("example", {
+ * const example = new aws.quicksight/ingestion.Ingestion("example", {
  *     dataSetId: aws_quicksight_data_set.example.data_set_id,
  *     ingestionId: "example-id",
  *     ingestionType: "FULL_REFRESH",

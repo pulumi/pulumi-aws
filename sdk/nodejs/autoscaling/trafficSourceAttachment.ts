@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.autoscaling.TrafficSourceAttachment("example", {
+ * const example = new aws.autoscaling/trafficSourceAttachment.TrafficSourceAttachment("example", {
  *     autoscalingGroupName: aws_autoscaling_group.example.id,
  *     trafficSource: {
  *         identifier: aws_lb_target_group.example.arn,

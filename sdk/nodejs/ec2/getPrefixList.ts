@@ -17,45 +17,6 @@ import * as utilities from "../utilities";
  * rules.
  *
  * The aws.ec2.ManagedPrefixList data source is normally more appropriate to use given it can return customer-managed prefix list info, as well as additional attributes.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const privateS3VpcEndpoint = new aws.ec2.VpcEndpoint("privateS3VpcEndpoint", {
- *     vpcId: aws_vpc.foo.id,
- *     serviceName: "com.amazonaws.us-west-2.s3",
- * });
- * const privateS3PrefixList = aws.ec2.getPrefixListOutput({
- *     prefixListId: privateS3VpcEndpoint.prefixListId,
- * });
- * const bar = new aws.ec2.NetworkAcl("bar", {vpcId: aws_vpc.foo.id});
- * const privateS3NetworkAclRule = new aws.ec2.NetworkAclRule("privateS3NetworkAclRule", {
- *     networkAclId: bar.id,
- *     ruleNumber: 200,
- *     egress: false,
- *     protocol: "tcp",
- *     ruleAction: "allow",
- *     cidrBlock: privateS3PrefixList.apply(privateS3PrefixList => privateS3PrefixList.cidrBlocks?.[0]),
- *     fromPort: 443,
- *     toPort: 443,
- * });
- * ```
- * ### Filter
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = aws.ec2.getPrefixList({
- *     filters: [{
- *         name: "prefix-list-id",
- *         values: ["pl-68a54001"],
- *     }],
- * });
- * ```
  */
 export function getPrefixList(args?: GetPrefixListArgs, opts?: pulumi.InvokeOptions): Promise<GetPrefixListResult> {
     args = args || {};
@@ -115,45 +76,6 @@ export interface GetPrefixListResult {
  * rules.
  *
  * The aws.ec2.ManagedPrefixList data source is normally more appropriate to use given it can return customer-managed prefix list info, as well as additional attributes.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const privateS3VpcEndpoint = new aws.ec2.VpcEndpoint("privateS3VpcEndpoint", {
- *     vpcId: aws_vpc.foo.id,
- *     serviceName: "com.amazonaws.us-west-2.s3",
- * });
- * const privateS3PrefixList = aws.ec2.getPrefixListOutput({
- *     prefixListId: privateS3VpcEndpoint.prefixListId,
- * });
- * const bar = new aws.ec2.NetworkAcl("bar", {vpcId: aws_vpc.foo.id});
- * const privateS3NetworkAclRule = new aws.ec2.NetworkAclRule("privateS3NetworkAclRule", {
- *     networkAclId: bar.id,
- *     ruleNumber: 200,
- *     egress: false,
- *     protocol: "tcp",
- *     ruleAction: "allow",
- *     cidrBlock: privateS3PrefixList.apply(privateS3PrefixList => privateS3PrefixList.cidrBlocks?.[0]),
- *     fromPort: 443,
- *     toPort: 443,
- * });
- * ```
- * ### Filter
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = aws.ec2.getPrefixList({
- *     filters: [{
- *         name: "prefix-list-id",
- *         values: ["pl-68a54001"],
- *     }],
- * });
- * ```
  */
 export function getPrefixListOutput(args?: GetPrefixListOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrefixListResult> {
     return pulumi.output(args).apply((a: any) => getPrefixList(a, opts))

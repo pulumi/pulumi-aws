@@ -48,7 +48,7 @@ import javax.annotation.Nullable;
  *         var exampleEmailIdentityPolicy = new EmailIdentityPolicy(&#34;exampleEmailIdentityPolicy&#34;, EmailIdentityPolicyArgs.builder()        
  *             .emailIdentity(exampleEmailIdentity.emailIdentity())
  *             .policyName(&#34;example&#34;)
- *             .policy(exampleEmailIdentity.arn().applyValue(arn -&gt; &#34;&#34;&#34;
+ *             .policy(&#34;&#34;&#34;
  * {
  *   &#34;Id&#34;:&#34;ExampleAuthorizationPolicy&#34;,
  *   &#34;Version&#34;:&#34;2012-10-17&#34;,
@@ -70,7 +70,7 @@ import javax.annotation.Nullable;
  *     }
  *   ]
  * }
- * &#34;, arn)))
+ * &#34;, exampleEmailIdentity.arn()))
  *             .build());
  * 
  *     }

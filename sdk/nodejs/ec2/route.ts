@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const route = new aws.ec2.Route("route", {
+ * const route = new aws.ec2/route.Route("route", {
  *     routeTableId: aws_route_table.testing.id,
  *     destinationCidrBlock: "10.0.1.0/22",
  *     vpcPeeringConnectionId: "pcx-45ff3dc1",
@@ -29,12 +29,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const vpc = new aws.ec2.Vpc("vpc", {
+ * const vpc = new aws.ec2/vpc.Vpc("vpc", {
  *     cidrBlock: "10.1.0.0/16",
  *     assignGeneratedIpv6CidrBlock: true,
  * });
- * const egress = new aws.ec2.EgressOnlyInternetGateway("egress", {vpcId: vpc.id});
- * const route = new aws.ec2.Route("route", {
+ * const egress = new aws.ec2/egressOnlyInternetGateway.EgressOnlyInternetGateway("egress", {vpcId: vpc.id});
+ * const route = new aws.ec2/route.Route("route", {
  *     routeTableId: "rtb-4fbb3ac4",
  *     destinationIpv6CidrBlock: "::/0",
  *     egressOnlyGatewayId: egress.id,

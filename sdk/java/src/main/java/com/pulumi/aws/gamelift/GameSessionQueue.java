@@ -30,7 +30,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.gamelift.GameSessionQueue;
  * import com.pulumi.aws.gamelift.GameSessionQueueArgs;
- * import com.pulumi.aws.gamelift.inputs.GameSessionQueuePlayerLatencyPolicyArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -50,13 +49,8 @@ import javax.annotation.Nullable;
  *                 aws_gamelift_fleet.eu_central_1_fleet().arn())
  *             .notificationTarget(aws_sns_topic.game_session_queue_notifications().arn())
  *             .playerLatencyPolicies(            
- *                 GameSessionQueuePlayerLatencyPolicyArgs.builder()
- *                     .maximumIndividualPlayerLatencyMilliseconds(100)
- *                     .policyDurationSeconds(5)
- *                     .build(),
- *                 GameSessionQueuePlayerLatencyPolicyArgs.builder()
- *                     .maximumIndividualPlayerLatencyMilliseconds(200)
- *                     .build())
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .timeoutInSeconds(60)
  *             .build());
  * 

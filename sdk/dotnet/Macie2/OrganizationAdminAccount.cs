@@ -22,9 +22,9 @@ namespace Pulumi.Aws.Macie2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleAccount = new Aws.Macie2.Account("exampleAccount");
+    ///     var exampleAccount = new Aws.Macie2.Account.Account("exampleAccount");
     /// 
-    ///     var exampleOrganizationAdminAccount = new Aws.Macie2.OrganizationAdminAccount("exampleOrganizationAdminAccount", new()
+    ///     var exampleOrganizationAdminAccount = new Aws.Macie2.OrganizationAdminAccount.OrganizationAdminAccount("exampleOrganizationAdminAccount", new()
     ///     {
     ///         AdminAccountId = "ID OF THE ADMIN ACCOUNT",
     ///     }, new CustomResourceOptions

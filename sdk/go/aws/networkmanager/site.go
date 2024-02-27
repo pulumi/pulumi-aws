@@ -21,27 +21,26 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/networkmanager"
+//	networkmanager/globalNetwork "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/networkmanager/globalNetwork"
+//	networkmanager/site "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/networkmanager/site"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleGlobalNetwork, err := networkmanager.NewGlobalNetwork(ctx, "exampleGlobalNetwork", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = networkmanager.NewSite(ctx, "exampleSite", &networkmanager.SiteArgs{
-//				GlobalNetworkId: exampleGlobalNetwork.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleGlobalNetwork, err := networkmanager/globalNetwork.NewGlobalNetwork(ctx, "exampleGlobalNetwork", nil)
+// if err != nil {
+// return err
+// }
+// _, err = networkmanager/site.NewSite(ctx, "exampleSite", &networkmanager/site.SiteArgs{
+// GlobalNetworkId: exampleGlobalNetwork.Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

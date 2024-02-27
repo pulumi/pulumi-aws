@@ -8,16 +8,6 @@ import * as utilities from "../utilities";
  * Retrieve information about a Location Service Geofence Collection.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.location.getGeofenceCollection({
- *     collectionName: "example",
- * });
- * ```
  */
 export function getGeofenceCollection(args: GetGeofenceCollectionArgs, opts?: pulumi.InvokeOptions): Promise<GetGeofenceCollectionResult> {
 
@@ -85,16 +75,6 @@ export interface GetGeofenceCollectionResult {
  * Retrieve information about a Location Service Geofence Collection.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.location.getGeofenceCollection({
- *     collectionName: "example",
- * });
- * ```
  */
 export function getGeofenceCollectionOutput(args: GetGeofenceCollectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGeofenceCollectionResult> {
     return pulumi.output(args).apply((a: any) => getGeofenceCollection(a, opts))

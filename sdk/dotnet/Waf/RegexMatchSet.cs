@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Waf
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleRegexPatternSet = new Aws.Waf.RegexPatternSet("exampleRegexPatternSet", new()
+    ///     var exampleRegexPatternSet = new Aws.Waf.RegexPatternSet.RegexPatternSet("exampleRegexPatternSet", new()
     ///     {
     ///         RegexPatternStrings = new[]
     ///         {
@@ -31,19 +31,19 @@ namespace Pulumi.Aws.Waf
     ///         },
     ///     });
     /// 
-    ///     var exampleRegexMatchSet = new Aws.Waf.RegexMatchSet("exampleRegexMatchSet", new()
+    ///     var exampleRegexMatchSet = new Aws.Waf.RegexMatchSet.RegexMatchSet("exampleRegexMatchSet", new()
     ///     {
     ///         RegexMatchTuples = new[]
     ///         {
-    ///             new Aws.Waf.Inputs.RegexMatchSetRegexMatchTupleArgs
+    ///             
     ///             {
-    ///                 FieldToMatch = new Aws.Waf.Inputs.RegexMatchSetRegexMatchTupleFieldToMatchArgs
+    ///                 { "fieldToMatch", 
     ///                 {
-    ///                     Data = "User-Agent",
-    ///                     Type = "HEADER",
-    ///                 },
-    ///                 RegexPatternSetId = exampleRegexPatternSet.Id,
-    ///                 TextTransformation = "NONE",
+    ///                     { "data", "User-Agent" },
+    ///                     { "type", "HEADER" },
+    ///                 } },
+    ///                 { "regexPatternSetId", exampleRegexPatternSet.Id },
+    ///                 { "textTransformation", "NONE" },
     ///             },
     ///         },
     ///     });

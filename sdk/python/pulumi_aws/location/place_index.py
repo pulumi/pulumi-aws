@@ -285,9 +285,9 @@ class PlaceIndex(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.location.PlaceIndex("example",
-            data_source="Here",
-            index_name="example")
+        example = aws.location.place_index.PlaceIndex("example",
+            data_source=Here,
+            index_name=example)
         ```
 
         ## Import
@@ -323,9 +323,9 @@ class PlaceIndex(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.location.PlaceIndex("example",
-            data_source="Here",
-            index_name="example")
+        example = aws.location.place_index.PlaceIndex("example",
+            data_source=Here,
+            index_name=example)
         ```
 
         ## Import

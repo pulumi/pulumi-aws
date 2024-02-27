@@ -59,7 +59,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.sesv2.ContactList;
  * import com.pulumi.aws.sesv2.ContactListArgs;
- * import com.pulumi.aws.sesv2.inputs.ContactListTopicArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -76,12 +75,7 @@ import javax.annotation.Nullable;
  *         var example = new ContactList(&#34;example&#34;, ContactListArgs.builder()        
  *             .contactListName(&#34;example&#34;)
  *             .description(&#34;description&#34;)
- *             .topics(ContactListTopicArgs.builder()
- *                 .defaultSubscriptionStatus(&#34;OPT_IN&#34;)
- *                 .description(&#34;topic description&#34;)
- *                 .displayName(&#34;Example Topic&#34;)
- *                 .topicName(&#34;example-topic&#34;)
- *                 .build())
+ *             .topics(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

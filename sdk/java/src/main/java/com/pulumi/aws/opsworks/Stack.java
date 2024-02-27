@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *             .region(&#34;us-west-1&#34;)
  *             .serviceRoleArn(aws_iam_role.opsworks().arn())
  *             .defaultInstanceProfileArn(aws_iam_instance_profile.opsworks().arn())
- *             .tags(Map.of(&#34;Name&#34;, &#34;foobar-stack&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .customJson(&#34;&#34;&#34;
  * {
  *  &#34;foobar&#34;: {

@@ -20,38 +20,28 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sqs"
+//	sqs/queue "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/sqs/queue"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"deadLetterTargetArn": aws_sqs_queue.Queue_deadletter.Arn,
-//				"maxReceiveCount":     4,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			_, err = sqs.NewQueue(ctx, "queue", &sqs.QueueArgs{
-//				DelaySeconds:            pulumi.Int(90),
-//				MaxMessageSize:          pulumi.Int(2048),
-//				MessageRetentionSeconds: pulumi.Int(86400),
-//				ReceiveWaitTimeSeconds:  pulumi.Int(10),
-//				RedrivePolicy:           pulumi.String(json0),
-//				Tags: pulumi.StringMap{
-//					"Environment": pulumi.String("production"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := sqs/queue.NewQueue(ctx, "queue", &sqs/queue.QueueArgs{
+// DelaySeconds: 90,
+// MaxMessageSize: 2048,
+// MessageRetentionSeconds: 86400,
+// ReceiveWaitTimeSeconds: 10,
+// RedrivePolicy: %!v(PANIC=Format method: fatal: An assertion has failed: unlowered function toJSON),
+// Tags: map[string]interface{}{
+// "Environment": "production",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ## FIFO queue
 //
@@ -60,24 +50,22 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sqs"
+//	sqs/queue "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/sqs/queue"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := sqs.NewQueue(ctx, "queue", &sqs.QueueArgs{
-//				ContentBasedDeduplication: pulumi.Bool(true),
-//				FifoQueue:                 pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := sqs/queue.NewQueue(ctx, "queue", &sqs/queue.QueueArgs{
+// ContentBasedDeduplication: true,
+// FifoQueue: true,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## High-throughput FIFO queue
@@ -87,25 +75,23 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sqs"
+//	sqs/queue "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/sqs/queue"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := sqs.NewQueue(ctx, "queue", &sqs.QueueArgs{
-//				DeduplicationScope:  pulumi.String("messageGroup"),
-//				FifoQueue:           pulumi.Bool(true),
-//				FifoThroughputLimit: pulumi.String("perMessageGroupId"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := sqs/queue.NewQueue(ctx, "queue", &sqs/queue.QueueArgs{
+// DeduplicationScope: "messageGroup",
+// FifoQueue: true,
+// FifoThroughputLimit: "perMessageGroupId",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Dead-letter queue
@@ -117,52 +103,33 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sqs"
+//	sqs/queue "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/sqs/queue"
+//	sqs/redriveAllowPolicy "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/sqs/redriveAllowPolicy"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"deadLetterTargetArn": aws_sqs_queue.Queue_deadletter.Arn,
-//				"maxReceiveCount":     4,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			_, err = sqs.NewQueue(ctx, "queue", &sqs.QueueArgs{
-//				RedrivePolicy: pulumi.String(json0),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleQueueDeadletter, err := sqs.NewQueue(ctx, "exampleQueueDeadletter", nil)
-//			if err != nil {
-//				return err
-//			}
-//			tmpJSON1, err := json.Marshal(map[string]interface{}{
-//				"redrivePermission": "byQueue",
-//				"sourceQueueArns": []interface{}{
-//					aws_sqs_queue.Example_queue.Arn,
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json1 := string(tmpJSON1)
-//			_, err = sqs.NewRedriveAllowPolicy(ctx, "exampleQueueRedriveAllowPolicy", &sqs.RedriveAllowPolicyArgs{
-//				QueueUrl:           exampleQueueDeadletter.ID(),
-//				RedriveAllowPolicy: pulumi.String(json1),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := sqs/queue.NewQueue(ctx, "queue", &sqs/queue.QueueArgs{
+// RedrivePolicy: %!v(PANIC=Format method: fatal: An assertion has failed: unlowered function toJSON),
+// })
+// if err != nil {
+// return err
+// }
+// exampleQueueDeadletter, err := sqs/queue.NewQueue(ctx, "exampleQueueDeadletter", nil)
+// if err != nil {
+// return err
+// }
+// _, err = sqs/redriveAllowPolicy.NewRedriveAllowPolicy(ctx, "exampleQueueRedriveAllowPolicy", &sqs/redriveAllowPolicy.RedriveAllowPolicyArgs{
+// QueueUrl: exampleQueueDeadletter.Id,
+// RedriveAllowPolicy: %!v(PANIC=Format method: fatal: An assertion has failed: unlowered function toJSON),
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Server-side encryption (SSE)
@@ -174,23 +141,21 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sqs"
+//	sqs/queue "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/sqs/queue"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := sqs.NewQueue(ctx, "queue", &sqs.QueueArgs{
-//				SqsManagedSseEnabled: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := sqs/queue.NewQueue(ctx, "queue", &sqs/queue.QueueArgs{
+// SqsManagedSseEnabled: true,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // Using [SSE-KMS](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-sse-existing-queue.html):
@@ -200,24 +165,22 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sqs"
+//	sqs/queue "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/sqs/queue"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := sqs.NewQueue(ctx, "queue", &sqs.QueueArgs{
-//				KmsDataKeyReusePeriodSeconds: pulumi.Int(300),
-//				KmsMasterKeyId:               pulumi.String("alias/aws/sqs"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := sqs/queue.NewQueue(ctx, "queue", &sqs/queue.QueueArgs{
+// KmsDataKeyReusePeriodSeconds: 300,
+// KmsMasterKeyId: "alias/aws/sqs",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

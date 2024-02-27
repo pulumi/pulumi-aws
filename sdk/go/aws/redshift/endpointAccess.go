@@ -21,25 +21,23 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/redshift"
+//	redshift/endpointAccess "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/redshift/endpointAccess"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := redshift.NewEndpointAccess(ctx, "example", &redshift.EndpointAccessArgs{
-//				EndpointName:      pulumi.String("example"),
-//				SubnetGroupName:   pulumi.Any(aws_redshift_subnet_group.Example.Id),
-//				ClusterIdentifier: pulumi.Any(aws_redshift_cluster.Example.Cluster_identifier),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := redshift/endpointAccess.NewEndpointAccess(ctx, "example", &redshift/endpointAccess.EndpointAccessArgs{
+// EndpointName: "example",
+// SubnetGroupName: aws_redshift_subnet_group.Example.Id,
+// ClusterIdentifier: aws_redshift_cluster.Example.Cluster_identifier,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

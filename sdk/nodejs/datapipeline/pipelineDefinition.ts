@@ -16,8 +16,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const _default = new aws.datapipeline.Pipeline("default", {});
- * const example = new aws.datapipeline.PipelineDefinition("example", {
+ * const _default = new aws.datapipeline/pipeline.Pipeline("default", {});
+ * const example = new aws.datapipeline/pipelineDefinition.PipelineDefinition("example", {
  *     pipelineId: _default.id,
  *     pipelineObjects: [
  *         {

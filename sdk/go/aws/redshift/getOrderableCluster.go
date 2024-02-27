@@ -12,36 +12,6 @@ import (
 )
 
 // Information about Redshift Orderable Clusters and valid parameter combinations.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/redshift"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := redshift.GetOrderableCluster(ctx, &redshift.GetOrderableClusterArgs{
-//				ClusterType: pulumi.StringRef("multi-node"),
-//				PreferredNodeTypes: []string{
-//					"dc2.large",
-//					"ds2.xlarge",
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetOrderableCluster(ctx *pulumi.Context, args *GetOrderableClusterArgs, opts ...pulumi.InvokeOption) (*GetOrderableClusterResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetOrderableClusterResult

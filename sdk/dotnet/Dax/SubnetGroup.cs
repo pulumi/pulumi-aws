@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Dax
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Dax.SubnetGroup("example", new()
+    ///     var example = new Aws.Dax.SubnetGroup.SubnetGroup("example", new()
     ///     {
     ///         SubnetIds = new[]
     ///         {

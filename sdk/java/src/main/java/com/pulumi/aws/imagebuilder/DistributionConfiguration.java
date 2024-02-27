@@ -29,9 +29,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.imagebuilder.DistributionConfiguration;
  * import com.pulumi.aws.imagebuilder.DistributionConfigurationArgs;
- * import com.pulumi.aws.imagebuilder.inputs.DistributionConfigurationDistributionArgs;
- * import com.pulumi.aws.imagebuilder.inputs.DistributionConfigurationDistributionAmiDistributionConfigurationArgs;
- * import com.pulumi.aws.imagebuilder.inputs.DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -46,19 +43,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new DistributionConfiguration(&#34;example&#34;, DistributionConfigurationArgs.builder()        
- *             .distributions(DistributionConfigurationDistributionArgs.builder()
- *                 .amiDistributionConfiguration(DistributionConfigurationDistributionAmiDistributionConfigurationArgs.builder()
- *                     .amiTags(Map.of(&#34;CostCenter&#34;, &#34;IT&#34;))
- *                     .launchPermission(DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArgs.builder()
- *                         .userIds(&#34;123456789012&#34;)
- *                         .build())
- *                     .name(&#34;example-{{ imagebuilder:buildDate }}&#34;)
- *                     .build())
- *                 .launchTemplateConfigurations(DistributionConfigurationDistributionLaunchTemplateConfigurationArgs.builder()
- *                     .launchTemplateId(&#34;lt-0aaa1bcde2ff3456&#34;)
- *                     .build())
- *                 .region(&#34;us-east-1&#34;)
- *                 .build())
+ *             .distributions(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

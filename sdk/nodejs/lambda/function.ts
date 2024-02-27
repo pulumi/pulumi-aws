@@ -21,79 +21,15 @@ import {ARN} from "..";
  * > To give an external source (like an EventBridge Rule, SNS, or S3) permission to access the Lambda function, use the `aws.lambda.Permission` resource. See [Lambda Permission Model](https://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html) for more details. On the other hand, the `role` argument of this resource is the function's execution role for identity and access to AWS services and resources.
  *
  * ## Example Usage
- * ### Basic Example
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as archive from "@pulumi/archive";
- * import * as aws from "@pulumi/aws";
- *
- * const assumeRole = aws.iam.getPolicyDocument({
- *     statements: [{
- *         effect: "Allow",
- *         principals: [{
- *             type: "Service",
- *             identifiers: ["lambda.amazonaws.com"],
- *         }],
- *         actions: ["sts:AssumeRole"],
- *     }],
- * });
- * const iamForLambda = new aws.iam.Role("iamForLambda", {assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json)});
- * const lambda = archive.getFile({
- *     type: "zip",
- *     sourceFile: "lambda.js",
- *     outputPath: "lambda_function_payload.zip",
- * });
- * const testLambda = new aws.lambda.Function("testLambda", {
- *     code: new pulumi.asset.FileArchive("lambda_function_payload.zip"),
- *     role: iamForLambda.arn,
- *     handler: "index.test",
- *     runtime: "nodejs18.x",
- *     environment: {
- *         variables: {
- *             foo: "bar",
- *         },
- *     },
- * });
- * ```
  * ### Lambda Layers
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleLayerVersion = new aws.lambda.LayerVersion("exampleLayerVersion", {});
+ * const exampleLayerVersion = new aws.lambda/layerVersion.LayerVersion("exampleLayerVersion", {});
  * // ... other configuration ...
- * const exampleFunction = new aws.lambda.Function("exampleFunction", {layers: [exampleLayerVersion.arn]});
- * ```
- * ### Lambda Ephemeral Storage
- *
- * Lambda Function Ephemeral Storage(`/tmp`) allows you to configure the storage upto `10` GB. The default value set to `512` MB.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const assumeRole = aws.iam.getPolicyDocument({
- *     statements: [{
- *         effect: "Allow",
- *         principals: [{
- *             type: "Service",
- *             identifiers: ["lambda.amazonaws.com"],
- *         }],
- *         actions: ["sts:AssumeRole"],
- *     }],
- * });
- * const iamForLambda = new aws.iam.Role("iamForLambda", {assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json)});
- * const testLambda = new aws.lambda.Function("testLambda", {
- *     code: new pulumi.asset.FileArchive("lambda_function_payload.zip"),
- *     role: iamForLambda.arn,
- *     handler: "index.test",
- *     runtime: "nodejs18.x",
- *     ephemeralStorage: {
- *         size: 10240,
- *     },
- * });
+ * const exampleFunction = new aws.lambda/function.Function("exampleFunction", {layers: [exampleLayerVersion.arn]});
  * ```
  * ### Lambda File Systems
  *
@@ -104,17 +40,17 @@ import {ARN} from "..";
  * import * as aws from "@pulumi/aws";
  *
  * // EFS file system
- * const efsForLambda = new aws.efs.FileSystem("efsForLambda", {tags: {
+ * const efsForLambda = new aws.efs/fileSystem.FileSystem("efsForLambda", {tags: {
  *     Name: "efs_for_lambda",
  * }});
  * // Mount target connects the file system to the subnet
- * const alpha = new aws.efs.MountTarget("alpha", {
+ * const alpha = new aws.efs/mountTarget.MountTarget("alpha", {
  *     fileSystemId: efsForLambda.id,
  *     subnetId: aws_subnet.subnet_for_lambda.id,
  *     securityGroups: [aws_security_group.sg_for_lambda.id],
  * });
  * // EFS access point used by lambda file system
- * const accessPointForLambda = new aws.efs.AccessPoint("accessPointForLambda", {
+ * const accessPointForLambda = new aws.efs/accessPoint.AccessPoint("accessPointForLambda", {
  *     fileSystemId: efsForLambda.id,
  *     rootDirectory: {
  *         path: "/lambda",
@@ -131,7 +67,7 @@ import {ARN} from "..";
  * });
  * // A lambda function connected to an EFS file system
  * // ... other configuration ...
- * const example = new aws.lambda.Function("example", {
+ * const example = new aws.lambda/function.Function("example", {
  *     fileSystemConfig: {
  *         arn: accessPointForLambda.arn,
  *         localMountPath: "/mnt/efs",
@@ -147,48 +83,6 @@ import {ARN} from "..";
  * ### Lambda retries
  *
  * Lambda Functions allow you to configure error handling for asynchronous invocation. The settings that it supports are `Maximum age of event` and `Retry attempts` as stated in [Lambda documentation for Configuring error handling for asynchronous invocation](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-errors). To configure these settings, refer to the aws.lambda.FunctionEventInvokeConfig resource.
- * ### CloudWatch Logging and Permissions
- *
- * For more information about CloudWatch Logs for Lambda, see the [Lambda User Guide](https://docs.aws.amazon.com/lambda/latest/dg/monitoring-functions-logs.html).
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const config = new pulumi.Config();
- * const lambdaFunctionName = config.get("lambdaFunctionName") || "lambda_function_name";
- * // This is to optionally manage the CloudWatch Log Group for the Lambda Function.
- * // If skipping this resource configuration, also add "logs:CreateLogGroup" to the IAM policy below.
- * const example = new aws.cloudwatch.LogGroup("example", {retentionInDays: 14});
- * const lambdaLoggingPolicyDocument = aws.iam.getPolicyDocument({
- *     statements: [{
- *         effect: "Allow",
- *         actions: [
- *             "logs:CreateLogGroup",
- *             "logs:CreateLogStream",
- *             "logs:PutLogEvents",
- *         ],
- *         resources: ["arn:aws:logs:*:*:*"],
- *     }],
- * });
- * const lambdaLoggingPolicy = new aws.iam.Policy("lambdaLoggingPolicy", {
- *     path: "/",
- *     description: "IAM policy for logging from a lambda",
- *     policy: lambdaLoggingPolicyDocument.then(lambdaLoggingPolicyDocument => lambdaLoggingPolicyDocument.json),
- * });
- * const lambdaLogs = new aws.iam.RolePolicyAttachment("lambdaLogs", {
- *     role: aws_iam_role.iam_for_lambda.name,
- *     policyArn: lambdaLoggingPolicy.arn,
- * });
- * const testLambda = new aws.lambda.Function("testLambda", {loggingConfig: {
- *     logFormat: "Text",
- * }}, {
- *     dependsOn: [
- *         lambdaLogs,
- *         example,
- *     ],
- * });
- * ```
  * ## Specifying the Deployment Package
  *
  * AWS Lambda expects source code to be provided as a deployment package whose structure varies depending on which `runtime` is in use. See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for the valid values of `runtime`. The expected structure of the deployment package can be found in [the AWS Lambda documentation for each runtime](https://docs.aws.amazon.com/lambda/latest/dg/deployment-package-v2.html).

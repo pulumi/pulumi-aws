@@ -23,7 +23,7 @@ namespace Pulumi.Aws.Connect
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Connect.SecurityProfile("example", new()
+    ///     var example = new Aws.Connect.SecurityProfile.SecurityProfile("example", new()
     ///     {
     ///         Description = "example description",
     ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",

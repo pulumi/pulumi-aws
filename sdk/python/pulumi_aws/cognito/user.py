@@ -500,10 +500,10 @@ class User(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_user_pool = aws.cognito.UserPool("exampleUserPool")
-        example_user = aws.cognito.User("exampleUser",
+        example_user_pool = aws.cognito.user_pool.UserPool("exampleUserPool")
+        example_user = aws.cognito.user.User("exampleUser",
             user_pool_id=example_user_pool.id,
-            username="example")
+            username=example)
         ```
         ### Setting user attributes
 
@@ -511,31 +511,31 @@ class User(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_user_pool = aws.cognito.UserPool("exampleUserPool", schemas=[
-            aws.cognito.UserPoolSchemaArgs(
-                name="example",
-                attribute_data_type="Boolean",
-                mutable=False,
-                required=False,
-                developer_only_attribute=False,
-            ),
-            aws.cognito.UserPoolSchemaArgs(
-                name="foo",
-                attribute_data_type="String",
-                mutable=False,
-                required=False,
-                developer_only_attribute=False,
-                string_attribute_constraints=aws.cognito.UserPoolSchemaStringAttributeConstraintsArgs(),
-            ),
+        example_user_pool = aws.cognito.user_pool.UserPool("exampleUserPool", schemas=[
+            {
+                name: example,
+                attributeDataType: Boolean,
+                mutable: False,
+                required: False,
+                developerOnlyAttribute: False,
+            },
+            {
+                name: foo,
+                attributeDataType: String,
+                mutable: False,
+                required: False,
+                developerOnlyAttribute: False,
+                stringAttributeConstraints: {},
+            },
         ])
-        example_user = aws.cognito.User("exampleUser",
+        example_user = aws.cognito.user.User("exampleUser",
             user_pool_id=example_user_pool.id,
-            username="example",
+            username=example,
             attributes={
-                "example": "true",
-                "foo": "bar",
-                "email": "no-reply@example.com",
-                "email_verified": "true",
+                example: True,
+                foo: bar,
+                email: no-reply@example.com,
+                email_verified: True,
             })
         ```
 
@@ -581,10 +581,10 @@ class User(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_user_pool = aws.cognito.UserPool("exampleUserPool")
-        example_user = aws.cognito.User("exampleUser",
+        example_user_pool = aws.cognito.user_pool.UserPool("exampleUserPool")
+        example_user = aws.cognito.user.User("exampleUser",
             user_pool_id=example_user_pool.id,
-            username="example")
+            username=example)
         ```
         ### Setting user attributes
 
@@ -592,31 +592,31 @@ class User(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_user_pool = aws.cognito.UserPool("exampleUserPool", schemas=[
-            aws.cognito.UserPoolSchemaArgs(
-                name="example",
-                attribute_data_type="Boolean",
-                mutable=False,
-                required=False,
-                developer_only_attribute=False,
-            ),
-            aws.cognito.UserPoolSchemaArgs(
-                name="foo",
-                attribute_data_type="String",
-                mutable=False,
-                required=False,
-                developer_only_attribute=False,
-                string_attribute_constraints=aws.cognito.UserPoolSchemaStringAttributeConstraintsArgs(),
-            ),
+        example_user_pool = aws.cognito.user_pool.UserPool("exampleUserPool", schemas=[
+            {
+                name: example,
+                attributeDataType: Boolean,
+                mutable: False,
+                required: False,
+                developerOnlyAttribute: False,
+            },
+            {
+                name: foo,
+                attributeDataType: String,
+                mutable: False,
+                required: False,
+                developerOnlyAttribute: False,
+                stringAttributeConstraints: {},
+            },
         ])
-        example_user = aws.cognito.User("exampleUser",
+        example_user = aws.cognito.user.User("exampleUser",
             user_pool_id=example_user_pool.id,
-            username="example",
+            username=example,
             attributes={
-                "example": "true",
-                "foo": "bar",
-                "email": "no-reply@example.com",
-                "email_verified": "true",
+                example: True,
+                foo: bar,
+                email: no-reply@example.com,
+                email_verified: True,
             })
         ```
 

@@ -22,20 +22,20 @@ namespace Pulumi.Aws.Eks
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Eks.NodeGroup("example", new()
+    ///     var example = new Aws.Eks.NodeGroup.NodeGroup("example", new()
     ///     {
     ///         ClusterName = aws_eks_cluster.Example.Name,
     ///         NodeRoleArn = aws_iam_role.Example.Arn,
     ///         SubnetIds = aws_subnet.Example.Select(__item =&gt; __item.Id).ToList(),
-    ///         ScalingConfig = new Aws.Eks.Inputs.NodeGroupScalingConfigArgs
+    ///         ScalingConfig = 
     ///         {
-    ///             DesiredSize = 1,
-    ///             MaxSize = 2,
-    ///             MinSize = 1,
+    ///             { "desiredSize", 1 },
+    ///             { "maxSize", 2 },
+    ///             { "minSize", 1 },
     ///         },
-    ///         UpdateConfig = new Aws.Eks.Inputs.NodeGroupUpdateConfigArgs
+    ///         UpdateConfig = 
     ///         {
-    ///             MaxUnavailable = 1,
+    ///             { "maxUnavailable", 1 },
     ///         },
     ///     }, new CustomResourceOptions
     ///     {
@@ -62,11 +62,11 @@ namespace Pulumi.Aws.Eks
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // ... other configurations ...
-    ///     var example = new Aws.Eks.NodeGroup("example", new()
+    ///     var example = new Aws.Eks.NodeGroup.NodeGroup("example", new()
     ///     {
-    ///         ScalingConfig = new Aws.Eks.Inputs.NodeGroupScalingConfigArgs
+    ///         ScalingConfig = 
     ///         {
-    ///             DesiredSize = 2,
+    ///             { "desiredSize", 2 },
     ///         },
     ///     });
     /// 
@@ -83,7 +83,7 @@ namespace Pulumi.Aws.Eks
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Iam.Role("example", new()
+    ///     var example = new Aws.Iam.Role.Role("example", new()
     ///     {
     ///         AssumeRolePolicy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
@@ -103,19 +103,19 @@ namespace Pulumi.Aws.Eks
     ///         }),
     ///     });
     /// 
-    ///     var example_AmazonEKSWorkerNodePolicy = new Aws.Iam.RolePolicyAttachment("example-AmazonEKSWorkerNodePolicy", new()
+    ///     var example_AmazonEKSWorkerNodePolicy = new Aws.Iam.RolePolicyAttachment.RolePolicyAttachment("example-AmazonEKSWorkerNodePolicy", new()
     ///     {
     ///         PolicyArn = "arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy",
     ///         Role = example.Name,
     ///     });
     /// 
-    ///     var example_AmazonEKSCNIPolicy = new Aws.Iam.RolePolicyAttachment("example-AmazonEKSCNIPolicy", new()
+    ///     var example_AmazonEKSCNIPolicy = new Aws.Iam.RolePolicyAttachment.RolePolicyAttachment("example-AmazonEKSCNIPolicy", new()
     ///     {
     ///         PolicyArn = "arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy",
     ///         Role = example.Name,
     ///     });
     /// 
-    ///     var example_AmazonEC2ContainerRegistryReadOnly = new Aws.Iam.RolePolicyAttachment("example-AmazonEC2ContainerRegistryReadOnly", new()
+    ///     var example_AmazonEC2ContainerRegistryReadOnly = new Aws.Iam.RolePolicyAttachment.RolePolicyAttachment("example-AmazonEC2ContainerRegistryReadOnly", new()
     ///     {
     ///         PolicyArn = "arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly",
     ///         Role = example.Name,

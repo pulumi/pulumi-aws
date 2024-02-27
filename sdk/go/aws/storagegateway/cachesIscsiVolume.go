@@ -28,26 +28,24 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/storagegateway"
+//	storagegateway/cachesIscsiVolume "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/storagegateway/cachesIscsiVolume"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := storagegateway.NewCachesIscsiVolume(ctx, "example", &storagegateway.CachesIscsiVolumeArgs{
-//				GatewayArn:         pulumi.Any(aws_storagegateway_cache.Example.Gateway_arn),
-//				NetworkInterfaceId: pulumi.Any(aws_instance.Example.Private_ip),
-//				TargetName:         pulumi.String("example"),
-//				VolumeSizeInBytes:  pulumi.Int(5368709120),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := storagegateway/cachesIscsiVolume.NewCachesIscsiVolume(ctx, "example", &storagegateway/cachesIscsiVolume.CachesIscsiVolumeArgs{
+// GatewayArn: aws_storagegateway_cache.Example.Gateway_arn,
+// NetworkInterfaceId: aws_instance.Example.Private_ip,
+// TargetName: "example",
+// VolumeSizeInBytes: 5368709120,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Create Cached iSCSI Volume From Snapshot
 //
@@ -56,27 +54,25 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/storagegateway"
+//	storagegateway/cachesIscsiVolume "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/storagegateway/cachesIscsiVolume"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := storagegateway.NewCachesIscsiVolume(ctx, "example", &storagegateway.CachesIscsiVolumeArgs{
-//				GatewayArn:         pulumi.Any(aws_storagegateway_cache.Example.Gateway_arn),
-//				NetworkInterfaceId: pulumi.Any(aws_instance.Example.Private_ip),
-//				SnapshotId:         pulumi.Any(aws_ebs_snapshot.Example.Id),
-//				TargetName:         pulumi.String("example"),
-//				VolumeSizeInBytes:  aws_ebs_snapshot.Example.Volume_size * 1024 * 1024 * 1024,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := storagegateway/cachesIscsiVolume.NewCachesIscsiVolume(ctx, "example", &storagegateway/cachesIscsiVolume.CachesIscsiVolumeArgs{
+// GatewayArn: aws_storagegateway_cache.Example.Gateway_arn,
+// NetworkInterfaceId: aws_instance.Example.Private_ip,
+// SnapshotId: aws_ebs_snapshot.Example.Id,
+// TargetName: "example",
+// VolumeSizeInBytes: aws_ebs_snapshot.Example.Volume_size * 1024 * 1024 * 1024,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Create Cached iSCSI Volume From Source Volume
 //
@@ -85,27 +81,25 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/storagegateway"
+//	storagegateway/cachesIscsiVolume "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/storagegateway/cachesIscsiVolume"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := storagegateway.NewCachesIscsiVolume(ctx, "example", &storagegateway.CachesIscsiVolumeArgs{
-//				GatewayArn:         pulumi.Any(aws_storagegateway_cache.Example.Gateway_arn),
-//				NetworkInterfaceId: pulumi.Any(aws_instance.Example.Private_ip),
-//				SourceVolumeArn:    pulumi.Any(aws_storagegateway_cached_iscsi_volume.Existing.Arn),
-//				TargetName:         pulumi.String("example"),
-//				VolumeSizeInBytes:  pulumi.Any(aws_storagegateway_cached_iscsi_volume.Existing.Volume_size_in_bytes),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := storagegateway/cachesIscsiVolume.NewCachesIscsiVolume(ctx, "example", &storagegateway/cachesIscsiVolume.CachesIscsiVolumeArgs{
+// GatewayArn: aws_storagegateway_cache.Example.Gateway_arn,
+// NetworkInterfaceId: aws_instance.Example.Private_ip,
+// SourceVolumeArn: aws_storagegateway_cached_iscsi_volume.Existing.Arn,
+// TargetName: "example",
+// VolumeSizeInBytes: aws_storagegateway_cached_iscsi_volume.Existing.Volume_size_in_bytes,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

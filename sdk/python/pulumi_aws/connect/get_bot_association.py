@@ -71,17 +71,6 @@ def get_bot_association(instance_id: Optional[str] = None,
     Provides details about a specific Lex (V1) Bot associated with an Amazon Connect instance.
 
     ## Example Usage
-    ### By name
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.connect.get_bot_association(instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
-        lex_bot=aws.connect.GetBotAssociationLexBotArgs(
-            name="Test",
-        ))
-    ```
 
 
     :param str instance_id: Identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
@@ -107,17 +96,6 @@ def get_bot_association_output(instance_id: Optional[pulumi.Input[str]] = None,
     Provides details about a specific Lex (V1) Bot associated with an Amazon Connect instance.
 
     ## Example Usage
-    ### By name
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.connect.get_bot_association(instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
-        lex_bot=aws.connect.GetBotAssociationLexBotArgs(
-            name="Test",
-        ))
-    ```
 
 
     :param str instance_id: Identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.

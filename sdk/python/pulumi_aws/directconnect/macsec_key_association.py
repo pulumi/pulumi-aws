@@ -213,30 +213,6 @@ class MacsecKeyAssociation(pulumi.CustomResource):
         **Note:** The `secret_arn` argument can only be used to reference a previously created MACSec key. You cannot associate a Secrets Manager secret created outside of the `directconnect.MacsecKeyAssociation` resource.
 
         ## Example Usage
-        ### Create MACSec key with CKN and CAK
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.directconnect.get_connection(name="tf-dx-connection")
-        test = aws.directconnect.MacsecKeyAssociation("test",
-            connection_id=example.id,
-            ckn="0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef",
-            cak="abcdef0123456789abcdef0123456789abcdef0123456789abcdef0123456789")
-        ```
-        ### Create MACSec key with existing Secrets Manager secret
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_connection = aws.directconnect.get_connection(name="tf-dx-connection")
-        example_secret = aws.secretsmanager.get_secret(name="directconnect!prod/us-east-1/directconnect/0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef")
-        test = aws.directconnect.MacsecKeyAssociation("test",
-            connection_id=example_connection.id,
-            secret_arn=example_secret.arn)
-        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -262,30 +238,6 @@ class MacsecKeyAssociation(pulumi.CustomResource):
         **Note:** The `secret_arn` argument can only be used to reference a previously created MACSec key. You cannot associate a Secrets Manager secret created outside of the `directconnect.MacsecKeyAssociation` resource.
 
         ## Example Usage
-        ### Create MACSec key with CKN and CAK
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.directconnect.get_connection(name="tf-dx-connection")
-        test = aws.directconnect.MacsecKeyAssociation("test",
-            connection_id=example.id,
-            ckn="0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef",
-            cak="abcdef0123456789abcdef0123456789abcdef0123456789abcdef0123456789")
-        ```
-        ### Create MACSec key with existing Secrets Manager secret
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_connection = aws.directconnect.get_connection(name="tf-dx-connection")
-        example_secret = aws.secretsmanager.get_secret(name="directconnect!prod/us-east-1/directconnect/0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef")
-        test = aws.directconnect.MacsecKeyAssociation("test",
-            connection_id=example_connection.id,
-            secret_arn=example_secret.arn)
-        ```
 
         :param str resource_name: The name of the resource.
         :param MacsecKeyAssociationArgs args: The arguments to use to populate this resource's properties.

@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.apigatewayv2.Model("example", {
+ * const example = new aws.apigatewayv2/model.Model("example", {
  *     apiId: aws_apigatewayv2_api.example.id,
  *     contentType: "application/json",
  *     schema: JSON.stringify({

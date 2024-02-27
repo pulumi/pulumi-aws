@@ -779,8 +779,8 @@ class Server(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.transfer.Server("example", tags={
-            "Name": "Example",
+        example = aws.transfer.server.Server("example", tags={
+            Name: Example,
         })
         ```
         ### Security Policy Name
@@ -789,7 +789,7 @@ class Server(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.transfer.Server("example", security_policy_name="TransferSecurityPolicy-2020-06")
+        example = aws.transfer.server.Server("example", security_policy_name=TransferSecurityPolicy-2020-06)
         ```
         ### VPC Endpoint
 
@@ -797,13 +797,13 @@ class Server(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.transfer.Server("example",
-            endpoint_type="VPC",
-            endpoint_details=aws.transfer.ServerEndpointDetailsArgs(
-                address_allocation_ids=[aws_eip["example"]["id"]],
-                subnet_ids=[aws_subnet["example"]["id"]],
-                vpc_id=aws_vpc["example"]["id"],
-            ))
+        example = aws.transfer.server.Server("example",
+            endpoint_type=VPC,
+            endpoint_details={
+                addressAllocationIds: [aws_eip.example.id],
+                subnetIds: [aws_subnet.example.id],
+                vpcId: aws_vpc.example.id,
+            })
         ```
         ### AWS Directory authentication
 
@@ -811,9 +811,9 @@ class Server(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.transfer.Server("example",
-            identity_provider_type="AWS_DIRECTORY_SERVICE",
-            directory_id=aws_directory_service_directory["example"]["id"])
+        example = aws.transfer.server.Server("example",
+            identity_provider_type=AWS_DIRECTORY_SERVICE,
+            directory_id=aws_directory_service_directory.example.id)
         ```
         ### AWS Lambda authentication
 
@@ -821,9 +821,9 @@ class Server(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.transfer.Server("example",
-            identity_provider_type="AWS_LAMBDA",
-            function=aws_lambda_identity_provider["example"]["arn"])
+        example = aws.transfer.server.Server("example",
+            identity_provider_type=AWS_LAMBDA,
+            function=aws_lambda_identity_provider.example.arn)
         ```
         ### Protocols
 
@@ -831,44 +831,19 @@ class Server(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.transfer.Server("example",
-            endpoint_type="VPC",
-            endpoint_details=aws.transfer.ServerEndpointDetailsArgs(
-                subnet_ids=[aws_subnet["example"]["id"]],
-                vpc_id=aws_vpc["example"]["id"],
-            ),
+        example = aws.transfer.server.Server("example",
+            endpoint_type=VPC,
+            endpoint_details={
+                subnetIds: [aws_subnet.example.id],
+                vpcId: aws_vpc.example.id,
+            },
             protocols=[
-                "FTP",
-                "FTPS",
+                FTP,
+                FTPS,
             ],
-            certificate=aws_acm_certificate["example"]["arn"],
-            identity_provider_type="API_GATEWAY",
-            url=f"{aws_api_gateway_deployment['example']['invoke_url']}{aws_api_gateway_resource['example']['path']}")
-        ```
-        ### Using Structured Logging Destinations
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        transfer_log_group = aws.cloudwatch.LogGroup("transferLogGroup", name_prefix="transfer_test_")
-        transfer_assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["transfer.amazonaws.com"],
-            )],
-            actions=["sts:AssumeRole"],
-        )])
-        iam_for_transfer = aws.iam.Role("iamForTransfer",
-            name_prefix="iam_for_transfer_",
-            assume_role_policy=transfer_assume_role.json,
-            managed_policy_arns=["arn:aws:iam::aws:policy/service-role/AWSTransferLoggingAccess"])
-        transfer_server = aws.transfer.Server("transferServer",
-            endpoint_type="PUBLIC",
-            logging_role=iam_for_transfer.arn,
-            protocols=["SFTP"],
-            structured_log_destinations=[transfer_log_group.arn.apply(lambda arn: f"{arn}:*")])
+            certificate=aws_acm_certificate.example.arn,
+            identity_provider_type=API_GATEWAY,
+            url=f{aws_api_gateway_deployment.example.invoke_url}{aws_api_gateway_resource.example.path})
         ```
 
         ## Import
@@ -923,8 +898,8 @@ class Server(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.transfer.Server("example", tags={
-            "Name": "Example",
+        example = aws.transfer.server.Server("example", tags={
+            Name: Example,
         })
         ```
         ### Security Policy Name
@@ -933,7 +908,7 @@ class Server(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.transfer.Server("example", security_policy_name="TransferSecurityPolicy-2020-06")
+        example = aws.transfer.server.Server("example", security_policy_name=TransferSecurityPolicy-2020-06)
         ```
         ### VPC Endpoint
 
@@ -941,13 +916,13 @@ class Server(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.transfer.Server("example",
-            endpoint_type="VPC",
-            endpoint_details=aws.transfer.ServerEndpointDetailsArgs(
-                address_allocation_ids=[aws_eip["example"]["id"]],
-                subnet_ids=[aws_subnet["example"]["id"]],
-                vpc_id=aws_vpc["example"]["id"],
-            ))
+        example = aws.transfer.server.Server("example",
+            endpoint_type=VPC,
+            endpoint_details={
+                addressAllocationIds: [aws_eip.example.id],
+                subnetIds: [aws_subnet.example.id],
+                vpcId: aws_vpc.example.id,
+            })
         ```
         ### AWS Directory authentication
 
@@ -955,9 +930,9 @@ class Server(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.transfer.Server("example",
-            identity_provider_type="AWS_DIRECTORY_SERVICE",
-            directory_id=aws_directory_service_directory["example"]["id"])
+        example = aws.transfer.server.Server("example",
+            identity_provider_type=AWS_DIRECTORY_SERVICE,
+            directory_id=aws_directory_service_directory.example.id)
         ```
         ### AWS Lambda authentication
 
@@ -965,9 +940,9 @@ class Server(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.transfer.Server("example",
-            identity_provider_type="AWS_LAMBDA",
-            function=aws_lambda_identity_provider["example"]["arn"])
+        example = aws.transfer.server.Server("example",
+            identity_provider_type=AWS_LAMBDA,
+            function=aws_lambda_identity_provider.example.arn)
         ```
         ### Protocols
 
@@ -975,44 +950,19 @@ class Server(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.transfer.Server("example",
-            endpoint_type="VPC",
-            endpoint_details=aws.transfer.ServerEndpointDetailsArgs(
-                subnet_ids=[aws_subnet["example"]["id"]],
-                vpc_id=aws_vpc["example"]["id"],
-            ),
+        example = aws.transfer.server.Server("example",
+            endpoint_type=VPC,
+            endpoint_details={
+                subnetIds: [aws_subnet.example.id],
+                vpcId: aws_vpc.example.id,
+            },
             protocols=[
-                "FTP",
-                "FTPS",
+                FTP,
+                FTPS,
             ],
-            certificate=aws_acm_certificate["example"]["arn"],
-            identity_provider_type="API_GATEWAY",
-            url=f"{aws_api_gateway_deployment['example']['invoke_url']}{aws_api_gateway_resource['example']['path']}")
-        ```
-        ### Using Structured Logging Destinations
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        transfer_log_group = aws.cloudwatch.LogGroup("transferLogGroup", name_prefix="transfer_test_")
-        transfer_assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["transfer.amazonaws.com"],
-            )],
-            actions=["sts:AssumeRole"],
-        )])
-        iam_for_transfer = aws.iam.Role("iamForTransfer",
-            name_prefix="iam_for_transfer_",
-            assume_role_policy=transfer_assume_role.json,
-            managed_policy_arns=["arn:aws:iam::aws:policy/service-role/AWSTransferLoggingAccess"])
-        transfer_server = aws.transfer.Server("transferServer",
-            endpoint_type="PUBLIC",
-            logging_role=iam_for_transfer.arn,
-            protocols=["SFTP"],
-            structured_log_destinations=[transfer_log_group.arn.apply(lambda arn: f"{arn}:*")])
+            certificate=aws_acm_certificate.example.arn,
+            identity_provider_type=API_GATEWAY,
+            url=f{aws_api_gateway_deployment.example.invoke_url}{aws_api_gateway_resource.example.path})
         ```
 
         ## Import

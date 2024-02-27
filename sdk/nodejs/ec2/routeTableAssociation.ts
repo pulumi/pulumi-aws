@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const routeTableAssociation = new aws.ec2.RouteTableAssociation("routeTableAssociation", {
+ * const routeTableAssociation = new aws.ec2/routeTableAssociation.RouteTableAssociation("routeTableAssociation", {
  *     subnetId: aws_subnet.foo.id,
  *     routeTableId: aws_route_table.bar.id,
  * });
@@ -24,7 +24,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const routeTableAssociation = new aws.ec2.RouteTableAssociation("routeTableAssociation", {
+ * const routeTableAssociation = new aws.ec2/routeTableAssociation.RouteTableAssociation("routeTableAssociation", {
  *     gatewayId: aws_internet_gateway.foo.id,
  *     routeTableId: aws_route_table.bar.id,
  * });

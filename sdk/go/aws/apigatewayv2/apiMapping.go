@@ -23,25 +23,23 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigatewayv2"
+//	apigatewayv2/apiMapping "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/apigatewayv2/apiMapping"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := apigatewayv2.NewApiMapping(ctx, "example", &apigatewayv2.ApiMappingArgs{
-//				ApiId:      pulumi.Any(aws_apigatewayv2_api.Example.Id),
-//				DomainName: pulumi.Any(aws_apigatewayv2_domain_name.Example.Id),
-//				Stage:      pulumi.Any(aws_apigatewayv2_stage.Example.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := apigatewayv2/apiMapping.NewApiMapping(ctx, "example", &apigatewayv2/apiMapping.ApiMappingArgs{
+// ApiId: aws_apigatewayv2_api.Example.Id,
+// DomainName: aws_apigatewayv2_domain_name.Example.Id,
+// Stage: aws_apigatewayv2_stage.Example.Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

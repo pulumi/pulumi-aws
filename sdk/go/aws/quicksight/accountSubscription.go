@@ -21,26 +21,24 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/quicksight"
+//	quicksight/accountSubscription "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/quicksight/accountSubscription"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := quicksight.NewAccountSubscription(ctx, "subscription", &quicksight.AccountSubscriptionArgs{
-//				AccountName:          pulumi.String("quicksight-pulumi"),
-//				AuthenticationMethod: pulumi.String("IAM_AND_QUICKSIGHT"),
-//				Edition:              pulumi.String("ENTERPRISE"),
-//				NotificationEmail:    pulumi.String("notification@email.com"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := quicksight/accountSubscription.NewAccountSubscription(ctx, "subscription", &quicksight/accountSubscription.AccountSubscriptionArgs{
+// AccountName: "quicksight-pulumi",
+// AuthenticationMethod: "IAM_AND_QUICKSIGHT",
+// Edition: "ENTERPRISE",
+// NotificationEmail: "notification@email.com",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

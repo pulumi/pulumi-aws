@@ -375,11 +375,11 @@ class ApnsChannel(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        app = aws.pinpoint.App("app")
-        apns = aws.pinpoint.ApnsChannel("apns",
+        app = aws.pinpoint.app.App("app")
+        apns = aws.pinpoint.apns_channel.ApnsChannel("apns",
             application_id=app.application_id,
-            certificate=(lambda path: open(path).read())("./certificate.pem"),
-            private_key=(lambda path: open(path).read())("./private_key.key"))
+            certificate=(lambda path: open(path).read())(./certificate.pem),
+            private_key=(lambda path: open(path).read())(./private_key.key))
         ```
 
         ## Import
@@ -427,11 +427,11 @@ class ApnsChannel(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        app = aws.pinpoint.App("app")
-        apns = aws.pinpoint.ApnsChannel("apns",
+        app = aws.pinpoint.app.App("app")
+        apns = aws.pinpoint.apns_channel.ApnsChannel("apns",
             application_id=app.application_id,
-            certificate=(lambda path: open(path).read())("./certificate.pem"),
-            private_key=(lambda path: open(path).read())("./private_key.key"))
+            certificate=(lambda path: open(path).read())(./certificate.pem),
+            private_key=(lambda path: open(path).read())(./private_key.key))
         ```
 
         ## Import

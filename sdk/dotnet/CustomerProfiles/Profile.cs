@@ -23,12 +23,12 @@ namespace Pulumi.Aws.CustomerProfiles
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleDomain = new Aws.CustomerProfiles.Domain("exampleDomain", new()
+    ///     var exampleDomain = new Aws.Customerprofiles.Domain.Domain("exampleDomain", new()
     ///     {
     ///         DomainName = "example",
     ///     });
     /// 
-    ///     var exampleProfile = new Aws.CustomerProfiles.Profile("exampleProfile", new()
+    ///     var exampleProfile = new Aws.Customerprofiles.Profile.Profile("exampleProfile", new()
     ///     {
     ///         DomainName = exampleDomain.DomainName,
     ///     });

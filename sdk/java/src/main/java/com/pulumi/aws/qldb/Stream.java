@@ -28,7 +28,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.qldb.Stream;
  * import com.pulumi.aws.qldb.StreamArgs;
- * import com.pulumi.aws.qldb.inputs.StreamKinesisConfigurationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -44,14 +43,11 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Stream(&#34;example&#34;, StreamArgs.builder()        
  *             .inclusiveStartTime(&#34;2021-01-01T00:00:00Z&#34;)
- *             .kinesisConfiguration(StreamKinesisConfigurationArgs.builder()
- *                 .aggregationEnabled(false)
- *                 .streamArn(&#34;arn:aws:kinesis:us-east-1:xxxxxxxxxxxx:stream/example-kinesis-stream&#34;)
- *                 .build())
+ *             .kinesisConfiguration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .ledgerName(&#34;existing-ledger-name&#34;)
  *             .roleArn(&#34;sample-role-arn&#34;)
  *             .streamName(&#34;sample-ledger-stream&#34;)
- *             .tags(Map.of(&#34;example&#34;, &#34;tag&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

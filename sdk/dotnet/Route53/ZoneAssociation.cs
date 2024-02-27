@@ -26,32 +26,32 @@ namespace Pulumi.Aws.Route53
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var primary = new Aws.Ec2.Vpc("primary", new()
+    ///     var primary = new Aws.Ec2.Vpc.Vpc("primary", new()
     ///     {
     ///         CidrBlock = "10.6.0.0/16",
     ///         EnableDnsHostnames = true,
     ///         EnableDnsSupport = true,
     ///     });
     /// 
-    ///     var secondaryVpc = new Aws.Ec2.Vpc("secondaryVpc", new()
+    ///     var secondaryVpc = new Aws.Ec2.Vpc.Vpc("secondaryVpc", new()
     ///     {
     ///         CidrBlock = "10.7.0.0/16",
     ///         EnableDnsHostnames = true,
     ///         EnableDnsSupport = true,
     ///     });
     /// 
-    ///     var example = new Aws.Route53.Zone("example", new()
+    ///     var example = new Aws.Route53.Zone.Zone("example", new()
     ///     {
     ///         Vpcs = new[]
     ///         {
-    ///             new Aws.Route53.Inputs.ZoneVpcArgs
+    ///             
     ///             {
-    ///                 VpcId = primary.Id,
+    ///                 { "vpcId", primary.Id },
     ///             },
     ///         },
     ///     });
     /// 
-    ///     var secondaryZoneAssociation = new Aws.Route53.ZoneAssociation("secondaryZoneAssociation", new()
+    ///     var secondaryZoneAssociation = new Aws.Route53.ZoneAssociation.ZoneAssociation("secondaryZoneAssociation", new()
     ///     {
     ///         ZoneId = example.ZoneId,
     ///         VpcId = secondaryVpc.Id,

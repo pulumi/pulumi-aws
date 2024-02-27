@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.glue.Classifier("example", {csvClassifier: {
+ * const example = new aws.glue/classifier.Classifier("example", {csvClassifier: {
  *     allowSingleColumn: false,
  *     containsHeader: "PRESENT",
  *     delimiter: ",",
@@ -37,7 +37,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.glue.Classifier("example", {grokClassifier: {
+ * const example = new aws.glue/classifier.Classifier("example", {grokClassifier: {
  *     classification: "example",
  *     grokPattern: "example",
  * }});
@@ -48,7 +48,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.glue.Classifier("example", {jsonClassifier: {
+ * const example = new aws.glue/classifier.Classifier("example", {jsonClassifier: {
  *     jsonPath: "example",
  * }});
  * ```
@@ -58,7 +58,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.glue.Classifier("example", {xmlClassifier: {
+ * const example = new aws.glue/classifier.Classifier("example", {xmlClassifier: {
  *     classification: "example",
  *     rowTag: "example",
  * }});

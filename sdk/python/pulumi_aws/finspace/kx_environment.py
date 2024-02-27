@@ -368,10 +368,10 @@ class KxEnvironment(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_key = aws.kms.Key("exampleKey",
-            description="Sample KMS Key",
+        example_key = aws.kms.key.Key("exampleKey",
+            description=Sample KMS Key,
             deletion_window_in_days=7)
-        example_kx_environment = aws.finspace.KxEnvironment("exampleKxEnvironment", kms_key_id=example_key.arn)
+        example_kx_environment = aws.finspace.kx_environment.KxEnvironment("exampleKxEnvironment", kms_key_id=example_key.arn)
         ```
         ### With Transit Gateway Configuration
 
@@ -379,21 +379,21 @@ class KxEnvironment(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_key = aws.kms.Key("exampleKey",
-            description="Sample KMS Key",
+        example_key = aws.kms.key.Key("exampleKey",
+            description=Sample KMS Key,
             deletion_window_in_days=7)
-        example_transit_gateway = aws.ec2transitgateway.TransitGateway("exampleTransitGateway", description="example")
-        example_env = aws.finspace.KxEnvironment("exampleEnv",
-            description="Environment description",
+        example_transit_gateway = aws.ec2transitgateway.transit_gateway.TransitGateway("exampleTransitGateway", description=example)
+        example_env = aws.finspace.kx_environment.KxEnvironment("exampleEnv",
+            description=Environment description,
             kms_key_id=example_key.arn,
-            transit_gateway_configuration=aws.finspace.KxEnvironmentTransitGatewayConfigurationArgs(
-                transit_gateway_id=example_transit_gateway.id,
-                routable_cidr_space="100.64.0.0/26",
-            ),
-            custom_dns_configurations=[aws.finspace.KxEnvironmentCustomDnsConfigurationArgs(
-                custom_dns_server_name="example.finspace.amazonaws.com",
-                custom_dns_server_ip="10.0.0.76",
-            )])
+            transit_gateway_configuration={
+                transitGatewayId: example_transit_gateway.id,
+                routableCidrSpace: 100.64.0.0/26,
+            },
+            custom_dns_configurations=[{
+                customDnsServerName: example.finspace.amazonaws.com,
+                customDnsServerIp: 10.0.0.76,
+            }])
         ```
         ### With Transit Gateway Attachment Network ACL Configuration
 
@@ -401,35 +401,35 @@ class KxEnvironment(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_key = aws.kms.Key("exampleKey",
-            description="Sample KMS Key",
+        example_key = aws.kms.key.Key("exampleKey",
+            description=Sample KMS Key,
             deletion_window_in_days=7)
-        example_transit_gateway = aws.ec2transitgateway.TransitGateway("exampleTransitGateway", description="example")
-        example_env = aws.finspace.KxEnvironment("exampleEnv",
-            description="Environment description",
+        example_transit_gateway = aws.ec2transitgateway.transit_gateway.TransitGateway("exampleTransitGateway", description=example)
+        example_env = aws.finspace.kx_environment.KxEnvironment("exampleEnv",
+            description=Environment description,
             kms_key_id=example_key.arn,
-            transit_gateway_configuration=aws.finspace.KxEnvironmentTransitGatewayConfigurationArgs(
-                transit_gateway_id=example_transit_gateway.id,
-                routable_cidr_space="100.64.0.0/26",
-                attachment_network_acl_configurations=[aws.finspace.KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationArgs(
-                    rule_number=1,
-                    protocol="6",
-                    rule_action="allow",
-                    cidr_block="0.0.0.0/0",
-                    port_range=aws.finspace.KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangeArgs(
-                        from_=53,
-                        to=53,
-                    ),
-                    icmp_type_code=aws.finspace.KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodeArgs(
-                        type=-1,
-                        code=-1,
-                    ),
-                )],
-            ),
-            custom_dns_configurations=[aws.finspace.KxEnvironmentCustomDnsConfigurationArgs(
-                custom_dns_server_name="example.finspace.amazonaws.com",
-                custom_dns_server_ip="10.0.0.76",
-            )])
+            transit_gateway_configuration={
+                transitGatewayId: example_transit_gateway.id,
+                routableCidrSpace: 100.64.0.0/26,
+                attachmentNetworkAclConfigurations: [{
+                    ruleNumber: 1,
+                    protocol: 6,
+                    ruleAction: allow,
+                    cidrBlock: 0.0.0.0/0,
+                    portRange: {
+                        from: 53,
+                        to: 53,
+                    },
+                    icmpTypeCode: {
+                        type: -1,
+                        code: -1,
+                    },
+                }],
+            },
+            custom_dns_configurations=[{
+                customDnsServerName: example.finspace.amazonaws.com,
+                customDnsServerIp: 10.0.0.76,
+            }])
         ```
 
         ## Import
@@ -467,10 +467,10 @@ class KxEnvironment(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_key = aws.kms.Key("exampleKey",
-            description="Sample KMS Key",
+        example_key = aws.kms.key.Key("exampleKey",
+            description=Sample KMS Key,
             deletion_window_in_days=7)
-        example_kx_environment = aws.finspace.KxEnvironment("exampleKxEnvironment", kms_key_id=example_key.arn)
+        example_kx_environment = aws.finspace.kx_environment.KxEnvironment("exampleKxEnvironment", kms_key_id=example_key.arn)
         ```
         ### With Transit Gateway Configuration
 
@@ -478,21 +478,21 @@ class KxEnvironment(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_key = aws.kms.Key("exampleKey",
-            description="Sample KMS Key",
+        example_key = aws.kms.key.Key("exampleKey",
+            description=Sample KMS Key,
             deletion_window_in_days=7)
-        example_transit_gateway = aws.ec2transitgateway.TransitGateway("exampleTransitGateway", description="example")
-        example_env = aws.finspace.KxEnvironment("exampleEnv",
-            description="Environment description",
+        example_transit_gateway = aws.ec2transitgateway.transit_gateway.TransitGateway("exampleTransitGateway", description=example)
+        example_env = aws.finspace.kx_environment.KxEnvironment("exampleEnv",
+            description=Environment description,
             kms_key_id=example_key.arn,
-            transit_gateway_configuration=aws.finspace.KxEnvironmentTransitGatewayConfigurationArgs(
-                transit_gateway_id=example_transit_gateway.id,
-                routable_cidr_space="100.64.0.0/26",
-            ),
-            custom_dns_configurations=[aws.finspace.KxEnvironmentCustomDnsConfigurationArgs(
-                custom_dns_server_name="example.finspace.amazonaws.com",
-                custom_dns_server_ip="10.0.0.76",
-            )])
+            transit_gateway_configuration={
+                transitGatewayId: example_transit_gateway.id,
+                routableCidrSpace: 100.64.0.0/26,
+            },
+            custom_dns_configurations=[{
+                customDnsServerName: example.finspace.amazonaws.com,
+                customDnsServerIp: 10.0.0.76,
+            }])
         ```
         ### With Transit Gateway Attachment Network ACL Configuration
 
@@ -500,35 +500,35 @@ class KxEnvironment(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_key = aws.kms.Key("exampleKey",
-            description="Sample KMS Key",
+        example_key = aws.kms.key.Key("exampleKey",
+            description=Sample KMS Key,
             deletion_window_in_days=7)
-        example_transit_gateway = aws.ec2transitgateway.TransitGateway("exampleTransitGateway", description="example")
-        example_env = aws.finspace.KxEnvironment("exampleEnv",
-            description="Environment description",
+        example_transit_gateway = aws.ec2transitgateway.transit_gateway.TransitGateway("exampleTransitGateway", description=example)
+        example_env = aws.finspace.kx_environment.KxEnvironment("exampleEnv",
+            description=Environment description,
             kms_key_id=example_key.arn,
-            transit_gateway_configuration=aws.finspace.KxEnvironmentTransitGatewayConfigurationArgs(
-                transit_gateway_id=example_transit_gateway.id,
-                routable_cidr_space="100.64.0.0/26",
-                attachment_network_acl_configurations=[aws.finspace.KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationArgs(
-                    rule_number=1,
-                    protocol="6",
-                    rule_action="allow",
-                    cidr_block="0.0.0.0/0",
-                    port_range=aws.finspace.KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangeArgs(
-                        from_=53,
-                        to=53,
-                    ),
-                    icmp_type_code=aws.finspace.KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodeArgs(
-                        type=-1,
-                        code=-1,
-                    ),
-                )],
-            ),
-            custom_dns_configurations=[aws.finspace.KxEnvironmentCustomDnsConfigurationArgs(
-                custom_dns_server_name="example.finspace.amazonaws.com",
-                custom_dns_server_ip="10.0.0.76",
-            )])
+            transit_gateway_configuration={
+                transitGatewayId: example_transit_gateway.id,
+                routableCidrSpace: 100.64.0.0/26,
+                attachmentNetworkAclConfigurations: [{
+                    ruleNumber: 1,
+                    protocol: 6,
+                    ruleAction: allow,
+                    cidrBlock: 0.0.0.0/0,
+                    portRange: {
+                        from: 53,
+                        to: 53,
+                    },
+                    icmpTypeCode: {
+                        type: -1,
+                        code: -1,
+                    },
+                }],
+            },
+            custom_dns_configurations=[{
+                customDnsServerName: example.finspace.amazonaws.com,
+                customDnsServerIp: 10.0.0.76,
+            }])
         ```
 
         ## Import

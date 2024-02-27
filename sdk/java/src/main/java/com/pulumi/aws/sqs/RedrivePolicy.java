@@ -49,20 +49,20 @@ import javax.annotation.Nullable;
  *         var queue = new Queue(&#34;queue&#34;);
  * 
  *         var ddl = new Queue(&#34;ddl&#34;, QueueArgs.builder()        
- *             .redriveAllowPolicy(queue.arn().applyValue(arn -&gt; serializeJson(
+ *             .redriveAllowPolicy(serializeJson(
  *                 jsonObject(
  *                     jsonProperty(&#34;redrivePermission&#34;, &#34;byQueue&#34;),
- *                     jsonProperty(&#34;sourceQueueArns&#34;, jsonArray(arn))
- *                 ))))
+ *                     jsonProperty(&#34;sourceQueueArns&#34;, jsonArray(queue.arn()))
+ *                 )))
  *             .build());
  * 
  *         var redrivePolicy = new RedrivePolicy(&#34;redrivePolicy&#34;, RedrivePolicyArgs.builder()        
  *             .queueUrl(queue.id())
- *             .redrivePolicy(ddl.arn().applyValue(arn -&gt; serializeJson(
+ *             .redrivePolicy(serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;deadLetterTargetArn&#34;, arn),
+ *                     jsonProperty(&#34;deadLetterTargetArn&#34;, ddl.arn()),
  *                     jsonProperty(&#34;maxReceiveCount&#34;, 4)
- *                 ))))
+ *                 )))
  *             .build());
  * 
  *     }

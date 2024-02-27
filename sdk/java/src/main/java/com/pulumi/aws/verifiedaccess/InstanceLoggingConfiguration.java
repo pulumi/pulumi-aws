@@ -27,8 +27,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.verifiedaccess.InstanceLoggingConfiguration;
  * import com.pulumi.aws.verifiedaccess.InstanceLoggingConfigurationArgs;
- * import com.pulumi.aws.verifiedaccess.inputs.InstanceLoggingConfigurationAccessLogsArgs;
- * import com.pulumi.aws.verifiedaccess.inputs.InstanceLoggingConfigurationAccessLogsCloudwatchLogsArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -43,12 +41,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new InstanceLoggingConfiguration(&#34;example&#34;, InstanceLoggingConfigurationArgs.builder()        
- *             .accessLogs(InstanceLoggingConfigurationAccessLogsArgs.builder()
- *                 .cloudwatchLogs(InstanceLoggingConfigurationAccessLogsCloudwatchLogsArgs.builder()
- *                     .enabled(true)
- *                     .logGroup(aws_cloudwatch_log_group.example().id())
- *                     .build())
- *                 .build())
+ *             .accessLogs(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .verifiedaccessInstanceId(aws_verifiedaccess_instance.example().id())
  *             .build());
  * 
@@ -64,8 +57,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.verifiedaccess.InstanceLoggingConfiguration;
  * import com.pulumi.aws.verifiedaccess.InstanceLoggingConfigurationArgs;
- * import com.pulumi.aws.verifiedaccess.inputs.InstanceLoggingConfigurationAccessLogsArgs;
- * import com.pulumi.aws.verifiedaccess.inputs.InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -80,12 +71,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new InstanceLoggingConfiguration(&#34;example&#34;, InstanceLoggingConfigurationArgs.builder()        
- *             .accessLogs(InstanceLoggingConfigurationAccessLogsArgs.builder()
- *                 .kinesisDataFirehose(InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseArgs.builder()
- *                     .deliveryStream(aws_kinesis_firehose_delivery_stream.example().name())
- *                     .enabled(true)
- *                     .build())
- *                 .build())
+ *             .accessLogs(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .verifiedaccessInstanceId(aws_verifiedaccess_instance.example().id())
  *             .build());
  * 
@@ -101,8 +87,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.verifiedaccess.InstanceLoggingConfiguration;
  * import com.pulumi.aws.verifiedaccess.InstanceLoggingConfigurationArgs;
- * import com.pulumi.aws.verifiedaccess.inputs.InstanceLoggingConfigurationAccessLogsArgs;
- * import com.pulumi.aws.verifiedaccess.inputs.InstanceLoggingConfigurationAccessLogsS3Args;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -117,13 +101,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new InstanceLoggingConfiguration(&#34;example&#34;, InstanceLoggingConfigurationArgs.builder()        
- *             .accessLogs(InstanceLoggingConfigurationAccessLogsArgs.builder()
- *                 .s3(InstanceLoggingConfigurationAccessLogsS3Args.builder()
- *                     .bucketName(aws_s3_bucket.example().id())
- *                     .enabled(true)
- *                     .prefix(&#34;example&#34;)
- *                     .build())
- *                 .build())
+ *             .accessLogs(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .verifiedaccessInstanceId(aws_verifiedaccess_instance.example().id())
  *             .build());
  * 
@@ -139,10 +117,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.verifiedaccess.InstanceLoggingConfiguration;
  * import com.pulumi.aws.verifiedaccess.InstanceLoggingConfigurationArgs;
- * import com.pulumi.aws.verifiedaccess.inputs.InstanceLoggingConfigurationAccessLogsArgs;
- * import com.pulumi.aws.verifiedaccess.inputs.InstanceLoggingConfigurationAccessLogsCloudwatchLogsArgs;
- * import com.pulumi.aws.verifiedaccess.inputs.InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseArgs;
- * import com.pulumi.aws.verifiedaccess.inputs.InstanceLoggingConfigurationAccessLogsS3Args;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -157,20 +131,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new InstanceLoggingConfiguration(&#34;example&#34;, InstanceLoggingConfigurationArgs.builder()        
- *             .accessLogs(InstanceLoggingConfigurationAccessLogsArgs.builder()
- *                 .cloudwatchLogs(InstanceLoggingConfigurationAccessLogsCloudwatchLogsArgs.builder()
- *                     .enabled(true)
- *                     .logGroup(aws_cloudwatch_log_group.example().id())
- *                     .build())
- *                 .kinesisDataFirehose(InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseArgs.builder()
- *                     .deliveryStream(aws_kinesis_firehose_delivery_stream.example().name())
- *                     .enabled(true)
- *                     .build())
- *                 .s3(InstanceLoggingConfigurationAccessLogsS3Args.builder()
- *                     .bucketName(aws_s3_bucket.example().id())
- *                     .enabled(true)
- *                     .build())
- *                 .build())
+ *             .accessLogs(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .verifiedaccessInstanceId(aws_verifiedaccess_instance.example().id())
  *             .build());
  * 
@@ -186,7 +147,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.verifiedaccess.InstanceLoggingConfiguration;
  * import com.pulumi.aws.verifiedaccess.InstanceLoggingConfigurationArgs;
- * import com.pulumi.aws.verifiedaccess.inputs.InstanceLoggingConfigurationAccessLogsArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -201,9 +161,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new InstanceLoggingConfiguration(&#34;example&#34;, InstanceLoggingConfigurationArgs.builder()        
- *             .accessLogs(InstanceLoggingConfigurationAccessLogsArgs.builder()
- *                 .includeTrustContext(true)
- *                 .build())
+ *             .accessLogs(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .verifiedaccessInstanceId(aws_verifiedaccess_instance.example().id())
  *             .build());
  * 
@@ -219,7 +177,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.verifiedaccess.InstanceLoggingConfiguration;
  * import com.pulumi.aws.verifiedaccess.InstanceLoggingConfigurationArgs;
- * import com.pulumi.aws.verifiedaccess.inputs.InstanceLoggingConfigurationAccessLogsArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -234,9 +191,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new InstanceLoggingConfiguration(&#34;example&#34;, InstanceLoggingConfigurationArgs.builder()        
- *             .accessLogs(InstanceLoggingConfigurationAccessLogsArgs.builder()
- *                 .logVersion(&#34;ocsf-1.0.0-rc.2&#34;)
- *                 .build())
+ *             .accessLogs(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .verifiedaccessInstanceId(aws_verifiedaccess_instance.example().id())
  *             .build());
  * 

@@ -24,7 +24,7 @@ namespace Pulumi.Aws.DataSync
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.DataSync.LocationHdfs("example", new()
+    ///     var example = new Aws.Datasync.LocationHdfs.LocationHdfs("example", new()
     ///     {
     ///         AgentArns = new[]
     ///         {
@@ -34,10 +34,10 @@ namespace Pulumi.Aws.DataSync
     ///         SimpleUser = "example",
     ///         NameNodes = new[]
     ///         {
-    ///             new Aws.DataSync.Inputs.LocationHdfsNameNodeArgs
+    ///             
     ///             {
-    ///                 Hostname = aws_instance.Example.Private_dns,
-    ///                 Port = 80,
+    ///                 { "hostname", aws_instance.Example.Private_dns },
+    ///                 { "port", 80 },
     ///             },
     ///         },
     ///     });

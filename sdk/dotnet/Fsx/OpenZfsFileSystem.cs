@@ -23,7 +23,7 @@ namespace Pulumi.Aws.Fsx
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Aws.Fsx.OpenZfsFileSystem("test", new()
+    ///     var test = new Aws.Fsx.OpenZfsFileSystem.OpenZfsFileSystem("test", new()
     ///     {
     ///         StorageCapacity = 64,
     ///         SubnetIds = new[]

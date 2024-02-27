@@ -303,17 +303,17 @@ class UserDefinedFunction(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_catalog_database = aws.glue.CatalogDatabase("exampleCatalogDatabase", name="my_database")
-        example_user_defined_function = aws.glue.UserDefinedFunction("exampleUserDefinedFunction",
+        example_catalog_database = aws.glue.catalog_database.CatalogDatabase("exampleCatalogDatabase", name=my_database)
+        example_user_defined_function = aws.glue.user_defined_function.UserDefinedFunction("exampleUserDefinedFunction",
             catalog_id=example_catalog_database.catalog_id,
             database_name=example_catalog_database.name,
-            class_name="class",
-            owner_name="owner",
-            owner_type="GROUP",
-            resource_uris=[aws.glue.UserDefinedFunctionResourceUriArgs(
-                resource_type="ARCHIVE",
-                uri="uri",
-            )])
+            class_name=class,
+            owner_name=owner,
+            owner_type=GROUP,
+            resource_uris=[{
+                resourceType: ARCHIVE,
+                uri: uri,
+            }])
         ```
 
         ## Import
@@ -349,17 +349,17 @@ class UserDefinedFunction(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_catalog_database = aws.glue.CatalogDatabase("exampleCatalogDatabase", name="my_database")
-        example_user_defined_function = aws.glue.UserDefinedFunction("exampleUserDefinedFunction",
+        example_catalog_database = aws.glue.catalog_database.CatalogDatabase("exampleCatalogDatabase", name=my_database)
+        example_user_defined_function = aws.glue.user_defined_function.UserDefinedFunction("exampleUserDefinedFunction",
             catalog_id=example_catalog_database.catalog_id,
             database_name=example_catalog_database.name,
-            class_name="class",
-            owner_name="owner",
-            owner_type="GROUP",
-            resource_uris=[aws.glue.UserDefinedFunctionResourceUriArgs(
-                resource_type="ARCHIVE",
-                uri="uri",
-            )])
+            class_name=class,
+            owner_name=owner,
+            owner_type=GROUP,
+            resource_uris=[{
+                resourceType: ARCHIVE,
+                uri: uri,
+            }])
         ```
 
         ## Import

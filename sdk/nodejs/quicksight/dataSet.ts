@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.quicksight.DataSet("example", {
+ * const example = new aws.quicksight/dataSet.DataSet("example", {
  *     dataSetId: "example-id",
  *     importMode: "SPICE",
  *     physicalTableMaps: [{
@@ -41,7 +41,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.quicksight.DataSet("example", {
+ * const example = new aws.quicksight/dataSet.DataSet("example", {
  *     dataSetId: "example-id",
  *     importMode: "SPICE",
  *     physicalTableMaps: [{
@@ -69,7 +69,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.quicksight.DataSet("example", {
+ * const example = new aws.quicksight/dataSet.DataSet("example", {
  *     dataSetId: "example-id",
  *     importMode: "SPICE",
  *     physicalTableMaps: [{
@@ -98,7 +98,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.quicksight.DataSet("example", {
+ * const example = new aws.quicksight/dataSet.DataSet("example", {
  *     dataSetId: "example-id",
  *     importMode: "SPICE",
  *     physicalTableMaps: [{
@@ -132,7 +132,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.quicksight.DataSet("example", {
+ * const example = new aws.quicksight/dataSet.DataSet("example", {
  *     dataSetId: "example-id",
  *     importMode: "SPICE",
  *     physicalTableMaps: [{

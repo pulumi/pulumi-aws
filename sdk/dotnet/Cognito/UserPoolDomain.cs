@@ -23,54 +23,12 @@ namespace Pulumi.Aws.Cognito
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Cognito.UserPool("example");
+    ///     var example = new Aws.Cognito.UserPool.UserPool("example");
     /// 
-    ///     var main = new Aws.Cognito.UserPoolDomain("main", new()
+    ///     var main = new Aws.Cognito.UserPoolDomain.UserPoolDomain("main", new()
     ///     {
     ///         Domain = "example-domain",
     ///         UserPoolId = example.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### Custom Cognito domain
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleUserPool = new Aws.Cognito.UserPool("exampleUserPool");
-    /// 
-    ///     var main = new Aws.Cognito.UserPoolDomain("main", new()
-    ///     {
-    ///         Domain = "example-domain",
-    ///         CertificateArn = aws_acm_certificate.Cert.Arn,
-    ///         UserPoolId = exampleUserPool.Id,
-    ///     });
-    /// 
-    ///     var exampleZone = Aws.Route53.GetZone.Invoke(new()
-    ///     {
-    ///         Name = "example.com",
-    ///     });
-    /// 
-    ///     var auth_cognito_A = new Aws.Route53.Record("auth-cognito-A", new()
-    ///     {
-    ///         Name = main.Domain,
-    ///         Type = "A",
-    ///         ZoneId = exampleZone.Apply(getZoneResult =&gt; getZoneResult.ZoneId),
-    ///         Aliases = new[]
-    ///         {
-    ///             new Aws.Route53.Inputs.RecordAliasArgs
-    ///             {
-    ///                 EvaluateTargetHealth = false,
-    ///                 Name = main.CloudfrontDistribution,
-    ///                 ZoneId = main.CloudfrontDistributionZoneId,
-    ///             },
-    ///         },
     ///     });
     /// 
     /// });

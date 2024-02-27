@@ -22,23 +22,21 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ses"
+//	ses/domainIdentity "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ses/domainIdentity"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ses.NewDomainIdentity(ctx, "example", &ses.DomainIdentityArgs{
-//				Domain: pulumi.String("example.com"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := ses/domainIdentity.NewDomainIdentity(ctx, "example", &ses/domainIdentity.DomainIdentityArgs{
+// Domain: "example.com",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### With Route53 Record
 //
@@ -47,36 +45,34 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ses"
+//	route53/record "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/route53/record"
+//	ses/domainIdentity "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ses/domainIdentity"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := ses.NewDomainIdentity(ctx, "example", &ses.DomainIdentityArgs{
-//				Domain: pulumi.String("example.com"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = route53.NewRecord(ctx, "exampleAmazonsesVerificationRecord", &route53.RecordArgs{
-//				ZoneId: pulumi.String("ABCDEFGHIJ123"),
-//				Name:   pulumi.String("_amazonses.example.com"),
-//				Type:   pulumi.String("TXT"),
-//				Ttl:    pulumi.Int(600),
-//				Records: pulumi.StringArray{
-//					example.VerificationToken,
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := ses/domainIdentity.NewDomainIdentity(ctx, "example", &ses/domainIdentity.DomainIdentityArgs{
+// Domain: "example.com",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = route53/record.NewRecord(ctx, "exampleAmazonsesVerificationRecord", &route53/record.RecordArgs{
+// ZoneId: "ABCDEFGHIJ123",
+// Name: "_amazonses.example.com",
+// Type: "TXT",
+// Ttl: "600",
+// Records: []interface{}{
+// example.VerificationToken,
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -298,18 +298,18 @@ class EventDestination(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        cloudwatch = aws.ses.EventDestination("cloudwatch",
-            configuration_set_name=aws_ses_configuration_set["example"]["name"],
+        cloudwatch = aws.ses.event_destination.EventDestination("cloudwatch",
+            configuration_set_name=aws_ses_configuration_set.example.name,
             enabled=True,
             matching_types=[
-                "bounce",
-                "send",
+                bounce,
+                send,
             ],
-            cloudwatch_destinations=[aws.ses.EventDestinationCloudwatchDestinationArgs(
-                default_value="default",
-                dimension_name="dimension",
-                value_source="emailHeader",
-            )])
+            cloudwatch_destinations=[{
+                defaultValue: default,
+                dimensionName: dimension,
+                valueSource: emailHeader,
+            }])
         ```
         ### Kinesis Destination
 
@@ -317,17 +317,17 @@ class EventDestination(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        kinesis = aws.ses.EventDestination("kinesis",
-            configuration_set_name=aws_ses_configuration_set["example"]["name"],
+        kinesis = aws.ses.event_destination.EventDestination("kinesis",
+            configuration_set_name=aws_ses_configuration_set.example.name,
             enabled=True,
             matching_types=[
-                "bounce",
-                "send",
+                bounce,
+                send,
             ],
-            kinesis_destination=aws.ses.EventDestinationKinesisDestinationArgs(
-                stream_arn=aws_kinesis_firehose_delivery_stream["example"]["arn"],
-                role_arn=aws_iam_role["example"]["arn"],
-            ))
+            kinesis_destination={
+                streamArn: aws_kinesis_firehose_delivery_stream.example.arn,
+                roleArn: aws_iam_role.example.arn,
+            })
         ```
         ### SNS Destination
 
@@ -335,16 +335,16 @@ class EventDestination(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        sns = aws.ses.EventDestination("sns",
-            configuration_set_name=aws_ses_configuration_set["example"]["name"],
+        sns = aws.ses.event_destination.EventDestination("sns",
+            configuration_set_name=aws_ses_configuration_set.example.name,
             enabled=True,
             matching_types=[
-                "bounce",
-                "send",
+                bounce,
+                send,
             ],
-            sns_destination=aws.ses.EventDestinationSnsDestinationArgs(
-                topic_arn=aws_sns_topic["example"]["arn"],
-            ))
+            sns_destination={
+                topicArn: aws_sns_topic.example.arn,
+            })
         ```
 
         ## Import
@@ -383,18 +383,18 @@ class EventDestination(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        cloudwatch = aws.ses.EventDestination("cloudwatch",
-            configuration_set_name=aws_ses_configuration_set["example"]["name"],
+        cloudwatch = aws.ses.event_destination.EventDestination("cloudwatch",
+            configuration_set_name=aws_ses_configuration_set.example.name,
             enabled=True,
             matching_types=[
-                "bounce",
-                "send",
+                bounce,
+                send,
             ],
-            cloudwatch_destinations=[aws.ses.EventDestinationCloudwatchDestinationArgs(
-                default_value="default",
-                dimension_name="dimension",
-                value_source="emailHeader",
-            )])
+            cloudwatch_destinations=[{
+                defaultValue: default,
+                dimensionName: dimension,
+                valueSource: emailHeader,
+            }])
         ```
         ### Kinesis Destination
 
@@ -402,17 +402,17 @@ class EventDestination(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        kinesis = aws.ses.EventDestination("kinesis",
-            configuration_set_name=aws_ses_configuration_set["example"]["name"],
+        kinesis = aws.ses.event_destination.EventDestination("kinesis",
+            configuration_set_name=aws_ses_configuration_set.example.name,
             enabled=True,
             matching_types=[
-                "bounce",
-                "send",
+                bounce,
+                send,
             ],
-            kinesis_destination=aws.ses.EventDestinationKinesisDestinationArgs(
-                stream_arn=aws_kinesis_firehose_delivery_stream["example"]["arn"],
-                role_arn=aws_iam_role["example"]["arn"],
-            ))
+            kinesis_destination={
+                streamArn: aws_kinesis_firehose_delivery_stream.example.arn,
+                roleArn: aws_iam_role.example.arn,
+            })
         ```
         ### SNS Destination
 
@@ -420,16 +420,16 @@ class EventDestination(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        sns = aws.ses.EventDestination("sns",
-            configuration_set_name=aws_ses_configuration_set["example"]["name"],
+        sns = aws.ses.event_destination.EventDestination("sns",
+            configuration_set_name=aws_ses_configuration_set.example.name,
             enabled=True,
             matching_types=[
-                "bounce",
-                "send",
+                bounce,
+                send,
             ],
-            sns_destination=aws.ses.EventDestinationSnsDestinationArgs(
-                topic_arn=aws_sns_topic["example"]["arn"],
-            ))
+            sns_destination={
+                topicArn: aws_sns_topic.example.arn,
+            })
         ```
 
         ## Import

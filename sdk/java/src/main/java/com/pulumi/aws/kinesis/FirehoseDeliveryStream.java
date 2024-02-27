@@ -31,105 +31,6 @@ import javax.annotation.Nullable;
  * For more details, see the [Amazon Kinesis Firehose Documentation](https://aws.amazon.com/documentation/firehose/).
  * 
  * ## Example Usage
- * ### Extended S3 Destination
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.s3.BucketV2;
- * import com.pulumi.aws.iam.IamFunctions;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
- * import com.pulumi.aws.iam.Role;
- * import com.pulumi.aws.iam.RoleArgs;
- * import com.pulumi.aws.lambda.Function;
- * import com.pulumi.aws.lambda.FunctionArgs;
- * import com.pulumi.aws.kinesis.FirehoseDeliveryStream;
- * import com.pulumi.aws.kinesis.FirehoseDeliveryStreamArgs;
- * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamExtendedS3ConfigurationArgs;
- * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationArgs;
- * import com.pulumi.aws.s3.BucketAclV2;
- * import com.pulumi.aws.s3.BucketAclV2Args;
- * import com.pulumi.asset.FileArchive;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var bucket = new BucketV2(&#34;bucket&#34;);
- * 
- *         final var firehoseAssumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect(&#34;Allow&#34;)
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type(&#34;Service&#34;)
- *                     .identifiers(&#34;firehose.amazonaws.com&#34;)
- *                     .build())
- *                 .actions(&#34;sts:AssumeRole&#34;)
- *                 .build())
- *             .build());
- * 
- *         var firehoseRole = new Role(&#34;firehoseRole&#34;, RoleArgs.builder()        
- *             .assumeRolePolicy(firehoseAssumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
- *             .build());
- * 
- *         final var lambdaAssumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect(&#34;Allow&#34;)
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type(&#34;Service&#34;)
- *                     .identifiers(&#34;lambda.amazonaws.com&#34;)
- *                     .build())
- *                 .actions(&#34;sts:AssumeRole&#34;)
- *                 .build())
- *             .build());
- * 
- *         var lambdaIam = new Role(&#34;lambdaIam&#34;, RoleArgs.builder()        
- *             .assumeRolePolicy(lambdaAssumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
- *             .build());
- * 
- *         var lambdaProcessor = new Function(&#34;lambdaProcessor&#34;, FunctionArgs.builder()        
- *             .code(new FileArchive(&#34;lambda.zip&#34;))
- *             .role(lambdaIam.arn())
- *             .handler(&#34;exports.handler&#34;)
- *             .runtime(&#34;nodejs16.x&#34;)
- *             .build());
- * 
- *         var extendedS3Stream = new FirehoseDeliveryStream(&#34;extendedS3Stream&#34;, FirehoseDeliveryStreamArgs.builder()        
- *             .destination(&#34;extended_s3&#34;)
- *             .extendedS3Configuration(FirehoseDeliveryStreamExtendedS3ConfigurationArgs.builder()
- *                 .roleArn(firehoseRole.arn())
- *                 .bucketArn(bucket.arn())
- *                 .processingConfiguration(FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationArgs.builder()
- *                     .enabled(&#34;true&#34;)
- *                     .processors(FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorArgs.builder()
- *                         .type(&#34;Lambda&#34;)
- *                         .parameters(FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameterArgs.builder()
- *                             .parameterName(&#34;LambdaArn&#34;)
- *                             .parameterValue(lambdaProcessor.arn().applyValue(arn -&gt; String.format(&#34;%s:$LATEST&#34;, arn)))
- *                             .build())
- *                         .build())
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *         var bucketAcl = new BucketAclV2(&#34;bucketAcl&#34;, BucketAclV2Args.builder()        
- *             .bucket(bucket.id())
- *             .acl(&#34;private&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
  * ### Extended S3 Destination with dynamic partitioning
  * 
  * These examples use built-in Firehose functionality, rather than requiring a lambda.
@@ -141,9 +42,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.kinesis.FirehoseDeliveryStream;
  * import com.pulumi.aws.kinesis.FirehoseDeliveryStreamArgs;
- * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamExtendedS3ConfigurationArgs;
- * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationArgs;
- * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -159,42 +57,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var extendedS3Stream = new FirehoseDeliveryStream(&#34;extendedS3Stream&#34;, FirehoseDeliveryStreamArgs.builder()        
  *             .destination(&#34;extended_s3&#34;)
- *             .extendedS3Configuration(FirehoseDeliveryStreamExtendedS3ConfigurationArgs.builder()
- *                 .roleArn(aws_iam_role.firehose_role().arn())
- *                 .bucketArn(aws_s3_bucket.bucket().arn())
- *                 .bufferingSize(64)
- *                 .dynamicPartitioningConfiguration(FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationArgs.builder()
- *                     .enabled(&#34;true&#34;)
- *                     .build())
- *                 .prefix(&#34;data/customer_id=!{partitionKeyFromQuery:customer_id}/year=!{timestamp:yyyy}/month=!{timestamp:MM}/day=!{timestamp:dd}/hour=!{timestamp:HH}/&#34;)
- *                 .errorOutputPrefix(&#34;errors/year=!{timestamp:yyyy}/month=!{timestamp:MM}/day=!{timestamp:dd}/hour=!{timestamp:HH}/!{firehose:error-output-type}/&#34;)
- *                 .processingConfiguration(FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationArgs.builder()
- *                     .enabled(&#34;true&#34;)
- *                     .processors(                    
- *                         FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorArgs.builder()
- *                             .type(&#34;RecordDeAggregation&#34;)
- *                             .parameters(FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameterArgs.builder()
- *                                 .parameterName(&#34;SubRecordType&#34;)
- *                                 .parameterValue(&#34;JSON&#34;)
- *                                 .build())
- *                             .build(),
- *                         FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorArgs.builder()
- *                             .type(&#34;AppendDelimiterToRecord&#34;)
- *                             .build(),
- *                         FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorArgs.builder()
- *                             .type(&#34;MetadataExtraction&#34;)
- *                             .parameters(                            
- *                                 FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameterArgs.builder()
- *                                     .parameterName(&#34;JsonParsingEngine&#34;)
- *                                     .parameterValue(&#34;JQ-1.6&#34;)
- *                                     .build(),
- *                                 FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameterArgs.builder()
- *                                     .parameterName(&#34;MetadataExtractionQuery&#34;)
- *                                     .parameterValue(&#34;{customer_id:.customer_id}&#34;)
- *                                     .build())
- *                             .build())
- *                     .build())
- *                 .build())
+ *             .extendedS3Configuration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -212,9 +75,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.kinesis.FirehoseDeliveryStream;
  * import com.pulumi.aws.kinesis.FirehoseDeliveryStreamArgs;
- * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamExtendedS3ConfigurationArgs;
- * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationArgs;
- * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -230,31 +90,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var extendedS3Stream = new FirehoseDeliveryStream(&#34;extendedS3Stream&#34;, FirehoseDeliveryStreamArgs.builder()        
  *             .destination(&#34;extended_s3&#34;)
- *             .extendedS3Configuration(FirehoseDeliveryStreamExtendedS3ConfigurationArgs.builder()
- *                 .roleArn(aws_iam_role.firehose_role().arn())
- *                 .bucketArn(aws_s3_bucket.bucket().arn())
- *                 .bufferingSize(64)
- *                 .dynamicPartitioningConfiguration(FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationArgs.builder()
- *                     .enabled(&#34;true&#34;)
- *                     .build())
- *                 .prefix(&#34;data/store_id=!{partitionKeyFromQuery:store_id}/customer_id=!{partitionKeyFromQuery:customer_id}/year=!{timestamp:yyyy}/month=!{timestamp:MM}/day=!{timestamp:dd}/hour=!{timestamp:HH}/&#34;)
- *                 .errorOutputPrefix(&#34;errors/year=!{timestamp:yyyy}/month=!{timestamp:MM}/day=!{timestamp:dd}/hour=!{timestamp:HH}/!{firehose:error-output-type}/&#34;)
- *                 .processingConfiguration(FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationArgs.builder()
- *                     .enabled(&#34;true&#34;)
- *                     .processors(FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorArgs.builder()
- *                         .type(&#34;MetadataExtraction&#34;)
- *                         .parameters(                        
- *                             FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameterArgs.builder()
- *                                 .parameterName(&#34;JsonParsingEngine&#34;)
- *                                 .parameterValue(&#34;JQ-1.6&#34;)
- *                                 .build(),
- *                             FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameterArgs.builder()
- *                                 .parameterName(&#34;MetadataExtractionQuery&#34;)
- *                                 .parameterValue(&#34;{store_id:.store_id,customer_id:.customer_id}&#34;)
- *                                 .build())
- *                         .build())
- *                     .build())
- *                 .build())
+ *             .extendedS3Configuration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -271,9 +107,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.redshift.ClusterArgs;
  * import com.pulumi.aws.kinesis.FirehoseDeliveryStream;
  * import com.pulumi.aws.kinesis.FirehoseDeliveryStreamArgs;
- * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamRedshiftConfigurationArgs;
- * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationArgs;
- * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -298,34 +131,7 @@ import javax.annotation.Nullable;
  * 
  *         var testStream = new FirehoseDeliveryStream(&#34;testStream&#34;, FirehoseDeliveryStreamArgs.builder()        
  *             .destination(&#34;redshift&#34;)
- *             .redshiftConfiguration(FirehoseDeliveryStreamRedshiftConfigurationArgs.builder()
- *                 .roleArn(aws_iam_role.firehose_role().arn())
- *                 .clusterJdbcurl(Output.tuple(testCluster.endpoint(), testCluster.databaseName()).applyValue(values -&gt; {
- *                     var endpoint = values.t1;
- *                     var databaseName = values.t2;
- *                     return String.format(&#34;jdbc:redshift://%s/%s&#34;, endpoint,databaseName);
- *                 }))
- *                 .username(&#34;testuser&#34;)
- *                 .password(&#34;T3stPass&#34;)
- *                 .dataTableName(&#34;test-table&#34;)
- *                 .copyOptions(&#34;delimiter &#39;|&#39;&#34;)
- *                 .dataTableColumns(&#34;test-col&#34;)
- *                 .s3BackupMode(&#34;Enabled&#34;)
- *                 .s3Configuration(FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationArgs.builder()
- *                     .roleArn(aws_iam_role.firehose_role().arn())
- *                     .bucketArn(aws_s3_bucket.bucket().arn())
- *                     .bufferingSize(10)
- *                     .bufferingInterval(400)
- *                     .compressionFormat(&#34;GZIP&#34;)
- *                     .build())
- *                 .s3BackupConfiguration(FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationArgs.builder()
- *                     .roleArn(aws_iam_role.firehose_role().arn())
- *                     .bucketArn(aws_s3_bucket.bucket().arn())
- *                     .bufferingSize(15)
- *                     .bufferingInterval(300)
- *                     .compressionFormat(&#34;GZIP&#34;)
- *                     .build())
- *                 .build())
+ *             .redshiftConfiguration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -341,9 +147,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.elasticsearch.Domain;
  * import com.pulumi.aws.kinesis.FirehoseDeliveryStream;
  * import com.pulumi.aws.kinesis.FirehoseDeliveryStreamArgs;
- * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamElasticsearchConfigurationArgs;
- * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamElasticsearchConfigurationS3ConfigurationArgs;
- * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -361,138 +164,8 @@ import javax.annotation.Nullable;
  * 
  *         var testStream = new FirehoseDeliveryStream(&#34;testStream&#34;, FirehoseDeliveryStreamArgs.builder()        
  *             .destination(&#34;elasticsearch&#34;)
- *             .elasticsearchConfiguration(FirehoseDeliveryStreamElasticsearchConfigurationArgs.builder()
- *                 .domainArn(testCluster.arn())
- *                 .roleArn(aws_iam_role.firehose_role().arn())
- *                 .indexName(&#34;test&#34;)
- *                 .typeName(&#34;test&#34;)
- *                 .s3Configuration(FirehoseDeliveryStreamElasticsearchConfigurationS3ConfigurationArgs.builder()
- *                     .roleArn(aws_iam_role.firehose_role().arn())
- *                     .bucketArn(aws_s3_bucket.bucket().arn())
- *                     .bufferingSize(10)
- *                     .bufferingInterval(400)
- *                     .compressionFormat(&#34;GZIP&#34;)
- *                     .build())
- *                 .processingConfiguration(FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationArgs.builder()
- *                     .enabled(&#34;true&#34;)
- *                     .processors(FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorArgs.builder()
- *                         .type(&#34;Lambda&#34;)
- *                         .parameters(FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameterArgs.builder()
- *                             .parameterName(&#34;LambdaArn&#34;)
- *                             .parameterValue(String.format(&#34;%s:$LATEST&#34;, aws_lambda_function.lambda_processor().arn()))
- *                             .build())
- *                         .build())
- *                     .build())
- *                 .build())
+ *             .elasticsearchConfiguration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
- * 
- *     }
- * }
- * ```
- * ### Elasticsearch Destination With VPC
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.elasticsearch.Domain;
- * import com.pulumi.aws.elasticsearch.DomainArgs;
- * import com.pulumi.aws.elasticsearch.inputs.DomainClusterConfigArgs;
- * import com.pulumi.aws.elasticsearch.inputs.DomainEbsOptionsArgs;
- * import com.pulumi.aws.elasticsearch.inputs.DomainVpcOptionsArgs;
- * import com.pulumi.aws.iam.IamFunctions;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
- * import com.pulumi.aws.iam.RolePolicy;
- * import com.pulumi.aws.iam.RolePolicyArgs;
- * import com.pulumi.aws.kinesis.FirehoseDeliveryStream;
- * import com.pulumi.aws.kinesis.FirehoseDeliveryStreamArgs;
- * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamElasticsearchConfigurationArgs;
- * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamElasticsearchConfigurationS3ConfigurationArgs;
- * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigArgs;
- * import com.pulumi.resources.CustomResourceOptions;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var testCluster = new Domain(&#34;testCluster&#34;, DomainArgs.builder()        
- *             .clusterConfig(DomainClusterConfigArgs.builder()
- *                 .instanceCount(2)
- *                 .zoneAwarenessEnabled(true)
- *                 .instanceType(&#34;t2.small.elasticsearch&#34;)
- *                 .build())
- *             .ebsOptions(DomainEbsOptionsArgs.builder()
- *                 .ebsEnabled(true)
- *                 .volumeSize(10)
- *                 .build())
- *             .vpcOptions(DomainVpcOptionsArgs.builder()
- *                 .securityGroupIds(aws_security_group.first().id())
- *                 .subnetIds(                
- *                     aws_subnet.first().id(),
- *                     aws_subnet.second().id())
- *                 .build())
- *             .build());
- * 
- *         final var firehose-elasticsearchPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(            
- *                 GetPolicyDocumentStatementArgs.builder()
- *                     .effect(&#34;Allow&#34;)
- *                     .actions(&#34;es:*&#34;)
- *                     .resources(                    
- *                         testCluster.arn(),
- *                         testCluster.arn().applyValue(arn -&gt; String.format(&#34;%s/*&#34;, arn)))
- *                     .build(),
- *                 GetPolicyDocumentStatementArgs.builder()
- *                     .effect(&#34;Allow&#34;)
- *                     .actions(                    
- *                         &#34;ec2:DescribeVpcs&#34;,
- *                         &#34;ec2:DescribeVpcAttribute&#34;,
- *                         &#34;ec2:DescribeSubnets&#34;,
- *                         &#34;ec2:DescribeSecurityGroups&#34;,
- *                         &#34;ec2:DescribeNetworkInterfaces&#34;,
- *                         &#34;ec2:CreateNetworkInterface&#34;,
- *                         &#34;ec2:CreateNetworkInterfacePermission&#34;,
- *                         &#34;ec2:DeleteNetworkInterface&#34;)
- *                     .resources(&#34;*&#34;)
- *                     .build())
- *             .build());
- * 
- *         var firehose_elasticsearchRolePolicy = new RolePolicy(&#34;firehose-elasticsearchRolePolicy&#34;, RolePolicyArgs.builder()        
- *             .role(aws_iam_role.firehose().id())
- *             .policy(firehose_elasticsearchPolicyDocument.applyValue(firehose_elasticsearchPolicyDocument -&gt; firehose_elasticsearchPolicyDocument.json()))
- *             .build());
- * 
- *         var test = new FirehoseDeliveryStream(&#34;test&#34;, FirehoseDeliveryStreamArgs.builder()        
- *             .destination(&#34;elasticsearch&#34;)
- *             .elasticsearchConfiguration(FirehoseDeliveryStreamElasticsearchConfigurationArgs.builder()
- *                 .domainArn(testCluster.arn())
- *                 .roleArn(aws_iam_role.firehose().arn())
- *                 .indexName(&#34;test&#34;)
- *                 .typeName(&#34;test&#34;)
- *                 .s3Configuration(FirehoseDeliveryStreamElasticsearchConfigurationS3ConfigurationArgs.builder()
- *                     .roleArn(aws_iam_role.firehose().arn())
- *                     .bucketArn(aws_s3_bucket.bucket().arn())
- *                     .build())
- *                 .vpcConfig(FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigArgs.builder()
- *                     .subnetIds(                    
- *                         aws_subnet.first().id(),
- *                         aws_subnet.second().id())
- *                     .securityGroupIds(aws_security_group.first().id())
- *                     .roleArn(aws_iam_role.firehose().arn())
- *                     .build())
- *                 .build())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(firehose_elasticsearchRolePolicy)
- *                 .build());
  * 
  *     }
  * }
@@ -507,9 +180,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.opensearch.Domain;
  * import com.pulumi.aws.kinesis.FirehoseDeliveryStream;
  * import com.pulumi.aws.kinesis.FirehoseDeliveryStreamArgs;
- * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamOpensearchConfigurationArgs;
- * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationArgs;
- * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -527,28 +197,7 @@ import javax.annotation.Nullable;
  * 
  *         var testStream = new FirehoseDeliveryStream(&#34;testStream&#34;, FirehoseDeliveryStreamArgs.builder()        
  *             .destination(&#34;opensearch&#34;)
- *             .opensearchConfiguration(FirehoseDeliveryStreamOpensearchConfigurationArgs.builder()
- *                 .domainArn(testCluster.arn())
- *                 .roleArn(aws_iam_role.firehose_role().arn())
- *                 .indexName(&#34;test&#34;)
- *                 .s3Configuration(FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationArgs.builder()
- *                     .roleArn(aws_iam_role.firehose_role().arn())
- *                     .bucketArn(aws_s3_bucket.bucket().arn())
- *                     .bufferingSize(10)
- *                     .bufferingInterval(400)
- *                     .compressionFormat(&#34;GZIP&#34;)
- *                     .build())
- *                 .processingConfiguration(FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationArgs.builder()
- *                     .enabled(&#34;true&#34;)
- *                     .processors(FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessorArgs.builder()
- *                         .type(&#34;Lambda&#34;)
- *                         .parameters(FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessorParameterArgs.builder()
- *                             .parameterName(&#34;LambdaArn&#34;)
- *                             .parameterValue(String.format(&#34;%s:$LATEST&#34;, aws_lambda_function.lambda_processor().arn()))
- *                             .build())
- *                         .build())
- *                     .build())
- *                 .build())
+ *             .opensearchConfiguration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -563,16 +212,10 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.opensearch.Domain;
  * import com.pulumi.aws.opensearch.DomainArgs;
- * import com.pulumi.aws.opensearch.inputs.DomainClusterConfigArgs;
- * import com.pulumi.aws.opensearch.inputs.DomainEbsOptionsArgs;
- * import com.pulumi.aws.opensearch.inputs.DomainVpcOptionsArgs;
  * import com.pulumi.aws.iam.RolePolicy;
  * import com.pulumi.aws.iam.RolePolicyArgs;
  * import com.pulumi.aws.kinesis.FirehoseDeliveryStream;
  * import com.pulumi.aws.kinesis.FirehoseDeliveryStreamArgs;
- * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamOpensearchConfigurationArgs;
- * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationArgs;
- * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamOpensearchConfigurationVpcConfigArgs;
  * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
@@ -588,29 +231,14 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var testCluster = new Domain(&#34;testCluster&#34;, DomainArgs.builder()        
- *             .clusterConfig(DomainClusterConfigArgs.builder()
- *                 .instanceCount(2)
- *                 .zoneAwarenessEnabled(true)
- *                 .instanceType(&#34;m4.large.search&#34;)
- *                 .build())
- *             .ebsOptions(DomainEbsOptionsArgs.builder()
- *                 .ebsEnabled(true)
- *                 .volumeSize(10)
- *                 .build())
- *             .vpcOptions(DomainVpcOptionsArgs.builder()
- *                 .securityGroupIds(aws_security_group.first().id())
- *                 .subnetIds(                
- *                     aws_subnet.first().id(),
- *                     aws_subnet.second().id())
- *                 .build())
+ *             .clusterConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .ebsOptions(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .vpcOptions(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var firehose_opensearch = new RolePolicy(&#34;firehose-opensearch&#34;, RolePolicyArgs.builder()        
  *             .role(aws_iam_role.firehose().id())
- *             .policy(Output.tuple(testCluster.arn(), testCluster.arn()).applyValue(values -&gt; {
- *                 var testClusterArn = values.t1;
- *                 var testClusterArn1 = values.t2;
- *                 return &#34;&#34;&#34;
+ *             .policy(&#34;&#34;&#34;
  * {
  *   &#34;Version&#34;: &#34;2012-10-17&#34;,
  *   &#34;Statement&#34;: [
@@ -642,28 +270,12 @@ import javax.annotation.Nullable;
  *         }
  *   ]
  * }
- * &#34;, testClusterArn,testClusterArn1);
- *             }))
+ * &#34;, testCluster.arn(),testCluster.arn()))
  *             .build());
  * 
  *         var test = new FirehoseDeliveryStream(&#34;test&#34;, FirehoseDeliveryStreamArgs.builder()        
  *             .destination(&#34;opensearch&#34;)
- *             .opensearchConfiguration(FirehoseDeliveryStreamOpensearchConfigurationArgs.builder()
- *                 .domainArn(testCluster.arn())
- *                 .roleArn(aws_iam_role.firehose().arn())
- *                 .indexName(&#34;test&#34;)
- *                 .s3Configuration(FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationArgs.builder()
- *                     .roleArn(aws_iam_role.firehose().arn())
- *                     .bucketArn(aws_s3_bucket.bucket().arn())
- *                     .build())
- *                 .vpcConfig(FirehoseDeliveryStreamOpensearchConfigurationVpcConfigArgs.builder()
- *                     .subnetIds(                    
- *                         aws_subnet.first().id(),
- *                         aws_subnet.second().id())
- *                     .securityGroupIds(aws_security_group.first().id())
- *                     .roleArn(aws_iam_role.firehose().arn())
- *                     .build())
- *                 .build())
+ *             .opensearchConfiguration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(firehose_opensearch)
  *                 .build());
@@ -681,9 +293,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.opensearch.ServerlessCollection;
  * import com.pulumi.aws.kinesis.FirehoseDeliveryStream;
  * import com.pulumi.aws.kinesis.FirehoseDeliveryStreamArgs;
- * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs;
- * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationArgs;
- * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -701,28 +310,7 @@ import javax.annotation.Nullable;
  * 
  *         var testStream = new FirehoseDeliveryStream(&#34;testStream&#34;, FirehoseDeliveryStreamArgs.builder()        
  *             .destination(&#34;opensearchserverless&#34;)
- *             .opensearchserverlessConfiguration(FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs.builder()
- *                 .collectionEndpoint(testCollection.collectionEndpoint())
- *                 .roleArn(aws_iam_role.firehose_role().arn())
- *                 .indexName(&#34;test&#34;)
- *                 .s3Configuration(FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationArgs.builder()
- *                     .roleArn(aws_iam_role.firehose_role().arn())
- *                     .bucketArn(aws_s3_bucket.bucket().arn())
- *                     .bufferingSize(10)
- *                     .bufferingInterval(400)
- *                     .compressionFormat(&#34;GZIP&#34;)
- *                     .build())
- *                 .processingConfiguration(FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationArgs.builder()
- *                     .enabled(&#34;true&#34;)
- *                     .processors(FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorArgs.builder()
- *                         .type(&#34;Lambda&#34;)
- *                         .parameters(FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameterArgs.builder()
- *                             .parameterName(&#34;LambdaArn&#34;)
- *                             .parameterValue(String.format(&#34;%s:$LATEST&#34;, aws_lambda_function.lambda_processor().arn()))
- *                             .build())
- *                         .build())
- *                     .build())
- *                 .build())
+ *             .opensearchserverlessConfiguration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -737,8 +325,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.kinesis.FirehoseDeliveryStream;
  * import com.pulumi.aws.kinesis.FirehoseDeliveryStreamArgs;
- * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamSplunkConfigurationArgs;
- * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -754,20 +340,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var testStream = new FirehoseDeliveryStream(&#34;testStream&#34;, FirehoseDeliveryStreamArgs.builder()        
  *             .destination(&#34;splunk&#34;)
- *             .splunkConfiguration(FirehoseDeliveryStreamSplunkConfigurationArgs.builder()
- *                 .hecEndpoint(&#34;https://http-inputs-mydomain.splunkcloud.com:443&#34;)
- *                 .hecToken(&#34;51D4DA16-C61B-4F5F-8EC7-ED4301342A4A&#34;)
- *                 .hecAcknowledgmentTimeout(600)
- *                 .hecEndpointType(&#34;Event&#34;)
- *                 .s3BackupMode(&#34;FailedEventsOnly&#34;)
- *                 .s3Configuration(FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationArgs.builder()
- *                     .roleArn(aws_iam_role.firehose().arn())
- *                     .bucketArn(aws_s3_bucket.bucket().arn())
- *                     .bufferingSize(10)
- *                     .bufferingInterval(400)
- *                     .compressionFormat(&#34;GZIP&#34;)
- *                     .build())
- *                 .build())
+ *             .splunkConfiguration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -782,9 +355,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.kinesis.FirehoseDeliveryStream;
  * import com.pulumi.aws.kinesis.FirehoseDeliveryStreamArgs;
- * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamHttpEndpointConfigurationArgs;
- * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationArgs;
- * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -800,34 +370,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var testStream = new FirehoseDeliveryStream(&#34;testStream&#34;, FirehoseDeliveryStreamArgs.builder()        
  *             .destination(&#34;http_endpoint&#34;)
- *             .httpEndpointConfiguration(FirehoseDeliveryStreamHttpEndpointConfigurationArgs.builder()
- *                 .url(&#34;https://aws-api.newrelic.com/firehose/v1&#34;)
- *                 .name(&#34;New Relic&#34;)
- *                 .accessKey(&#34;my-key&#34;)
- *                 .bufferingSize(15)
- *                 .bufferingInterval(600)
- *                 .roleArn(aws_iam_role.firehose().arn())
- *                 .s3BackupMode(&#34;FailedDataOnly&#34;)
- *                 .s3Configuration(FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationArgs.builder()
- *                     .roleArn(aws_iam_role.firehose().arn())
- *                     .bucketArn(aws_s3_bucket.bucket().arn())
- *                     .bufferingSize(10)
- *                     .bufferingInterval(400)
- *                     .compressionFormat(&#34;GZIP&#34;)
- *                     .build())
- *                 .requestConfiguration(FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationArgs.builder()
- *                     .contentEncoding(&#34;GZIP&#34;)
- *                     .commonAttributes(                    
- *                         FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeArgs.builder()
- *                             .name(&#34;testname&#34;)
- *                             .value(&#34;testvalue&#34;)
- *                             .build(),
- *                         FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeArgs.builder()
- *                             .name(&#34;testname2&#34;)
- *                             .value(&#34;testvalue2&#34;)
- *                             .build())
- *                     .build())
- *                 .build())
+ *             .httpEndpointConfiguration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

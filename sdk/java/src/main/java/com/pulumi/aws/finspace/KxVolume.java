@@ -31,7 +31,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.finspace.KxVolume;
  * import com.pulumi.aws.finspace.KxVolumeArgs;
- * import com.pulumi.aws.finspace.inputs.KxVolumeNas1ConfigurationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -50,10 +49,7 @@ import javax.annotation.Nullable;
  *             .availabilityZones(&#34;use1-az2&#34;)
  *             .azMode(&#34;SINGLE&#34;)
  *             .type(&#34;NAS_1&#34;)
- *             .nas1Configurations(KxVolumeNas1ConfigurationArgs.builder()
- *                 .size(1200)
- *                 .type(&#34;SSD_250&#34;)
- *                 .build())
+ *             .nas1Configurations(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

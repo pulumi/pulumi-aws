@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.oam.Link("example", {
+ * const example = new aws.oam/link.Link("example", {
  *     labelTemplate: "$AccountName",
  *     resourceTypes: ["AWS::CloudWatch::Metric"],
  *     sinkIdentifier: aws_oam_sink.test.id,

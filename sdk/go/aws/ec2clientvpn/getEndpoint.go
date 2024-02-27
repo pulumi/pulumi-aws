@@ -14,63 +14,6 @@ import (
 // Get information on an EC2 Client VPN endpoint.
 //
 // ## Example Usage
-// ### By Filter
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2clientvpn"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2clientvpn.LookupEndpoint(ctx, &ec2clientvpn.LookupEndpointArgs{
-//				Filters: []ec2clientvpn.GetEndpointFilter{
-//					{
-//						Name: "tag:Name",
-//						Values: []string{
-//							"ExampleVpn",
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// ### By Identifier
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2clientvpn"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2clientvpn.LookupEndpoint(ctx, &ec2clientvpn.LookupEndpointArgs{
-//				ClientVpnEndpointId: pulumi.StringRef("cvpn-endpoint-083cf50d6eb314f21"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupEndpoint(ctx *pulumi.Context, args *LookupEndpointArgs, opts ...pulumi.InvokeOption) (*LookupEndpointResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupEndpointResult

@@ -21,29 +21,27 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53recoveryreadiness"
+//	route53recoveryreadiness/resourceSet "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/route53recoveryreadiness/resourceSet"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := route53recoveryreadiness.NewResourceSet(ctx, "example", &route53recoveryreadiness.ResourceSetArgs{
-//				ResourceSetName: pulumi.Any(my_cw_alarm_set),
-//				ResourceSetType: pulumi.String("AWS::CloudWatch::Alarm"),
-//				Resources: route53recoveryreadiness.ResourceSetResourceArray{
-//					&route53recoveryreadiness.ResourceSetResourceArgs{
-//						ResourceArn: pulumi.Any(aws_cloudwatch_metric_alarm.Example.Arn),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := route53recoveryreadiness/resourceSet.NewResourceSet(ctx, "example", &route53recoveryreadiness/resourceSet.ResourceSetArgs{
+// ResourceSetName: my_cw_alarm_set,
+// ResourceSetType: "AWS::CloudWatch::Alarm",
+// Resources: []map[string]interface{}{
+// map[string]interface{}{
+// "resourceArn": aws_cloudwatch_metric_alarm.Example.Arn,
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

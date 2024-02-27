@@ -320,28 +320,28 @@ class OptionGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.rds.OptionGroup("example",
-            option_group_description="Option Group",
-            engine_name="sqlserver-ee",
-            major_engine_version="11.00",
+        example = aws.rds.option_group.OptionGroup("example",
+            option_group_description=Option Group,
+            engine_name=sqlserver-ee,
+            major_engine_version=11.00,
             options=[
-                aws.rds.OptionGroupOptionArgs(
-                    option_name="Timezone",
-                    option_settings=[aws.rds.OptionGroupOptionOptionSettingArgs(
-                        name="TIME_ZONE",
-                        value="UTC",
-                    )],
-                ),
-                aws.rds.OptionGroupOptionArgs(
-                    option_name="SQLSERVER_BACKUP_RESTORE",
-                    option_settings=[aws.rds.OptionGroupOptionOptionSettingArgs(
-                        name="IAM_ROLE_ARN",
-                        value=aws_iam_role["example"]["arn"],
-                    )],
-                ),
-                aws.rds.OptionGroupOptionArgs(
-                    option_name="TDE",
-                ),
+                {
+                    optionName: Timezone,
+                    optionSettings: [{
+                        name: TIME_ZONE,
+                        value: UTC,
+                    }],
+                },
+                {
+                    optionName: SQLSERVER_BACKUP_RESTORE,
+                    optionSettings: [{
+                        name: IAM_ROLE_ARN,
+                        value: aws_iam_role.example.arn,
+                    }],
+                },
+                {
+                    optionName: TDE,
+                },
             ])
         ```
 
@@ -393,28 +393,28 @@ class OptionGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.rds.OptionGroup("example",
-            option_group_description="Option Group",
-            engine_name="sqlserver-ee",
-            major_engine_version="11.00",
+        example = aws.rds.option_group.OptionGroup("example",
+            option_group_description=Option Group,
+            engine_name=sqlserver-ee,
+            major_engine_version=11.00,
             options=[
-                aws.rds.OptionGroupOptionArgs(
-                    option_name="Timezone",
-                    option_settings=[aws.rds.OptionGroupOptionOptionSettingArgs(
-                        name="TIME_ZONE",
-                        value="UTC",
-                    )],
-                ),
-                aws.rds.OptionGroupOptionArgs(
-                    option_name="SQLSERVER_BACKUP_RESTORE",
-                    option_settings=[aws.rds.OptionGroupOptionOptionSettingArgs(
-                        name="IAM_ROLE_ARN",
-                        value=aws_iam_role["example"]["arn"],
-                    )],
-                ),
-                aws.rds.OptionGroupOptionArgs(
-                    option_name="TDE",
-                ),
+                {
+                    optionName: Timezone,
+                    optionSettings: [{
+                        name: TIME_ZONE,
+                        value: UTC,
+                    }],
+                },
+                {
+                    optionName: SQLSERVER_BACKUP_RESTORE,
+                    optionSettings: [{
+                        name: IAM_ROLE_ARN,
+                        value: aws_iam_role.example.arn,
+                    }],
+                },
+                {
+                    optionName: TDE,
+                },
             ])
         ```
 

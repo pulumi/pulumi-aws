@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.redshift.ClusterIamRoles("example", {
+ * const example = new aws.redshift/clusterIamRoles.ClusterIamRoles("example", {
  *     clusterIdentifier: aws_redshift_cluster.example.cluster_identifier,
  *     iamRoleArns: [aws_iam_role.example.arn],
  * });

@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Aws.Ec2.NetworkInterfaceAttachment("test", new()
+    ///     var test = new Aws.Ec2.NetworkInterfaceAttachment.NetworkInterfaceAttachment("test", new()
     ///     {
     ///         InstanceId = aws_instance.Test.Id,
     ///         NetworkInterfaceId = aws_network_interface.Test.Id,

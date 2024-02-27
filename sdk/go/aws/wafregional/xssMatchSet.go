@@ -20,36 +20,34 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/wafregional"
+//	wafregional/xssMatchSet "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/wafregional/xssMatchSet"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := wafregional.NewXssMatchSet(ctx, "xssMatchSet", &wafregional.XssMatchSetArgs{
-//				XssMatchTuples: wafregional.XssMatchSetXssMatchTupleArray{
-//					&wafregional.XssMatchSetXssMatchTupleArgs{
-//						FieldToMatch: &wafregional.XssMatchSetXssMatchTupleFieldToMatchArgs{
-//							Type: pulumi.String("URI"),
-//						},
-//						TextTransformation: pulumi.String("NONE"),
-//					},
-//					&wafregional.XssMatchSetXssMatchTupleArgs{
-//						FieldToMatch: &wafregional.XssMatchSetXssMatchTupleFieldToMatchArgs{
-//							Type: pulumi.String("QUERY_STRING"),
-//						},
-//						TextTransformation: pulumi.String("NONE"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := wafregional/xssMatchSet.NewXssMatchSet(ctx, "xssMatchSet", &wafregional/xssMatchSet.XssMatchSetArgs{
+// XssMatchTuples: []map[string]interface{}{
+// map[string]interface{}{
+// "fieldToMatch": map[string]interface{}{
+// "type": "URI",
+// },
+// "textTransformation": "NONE",
+// },
+// map[string]interface{}{
+// "fieldToMatch": map[string]interface{}{
+// "type": "QUERY_STRING",
+// },
+// "textTransformation": "NONE",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

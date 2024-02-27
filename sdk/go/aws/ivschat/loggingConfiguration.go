@@ -21,117 +21,65 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ivschat"
+//	cloudwatch/logGroup "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/cloudwatch/logGroup"
+//	ivschat/loggingConfiguration "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ivschat/loggingConfiguration"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleLogGroup, err := cloudwatch.NewLogGroup(ctx, "exampleLogGroup", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ivschat.NewLoggingConfiguration(ctx, "exampleLoggingConfiguration", &ivschat.LoggingConfigurationArgs{
-//				DestinationConfiguration: &ivschat.LoggingConfigurationDestinationConfigurationArgs{
-//					CloudwatchLogs: &ivschat.LoggingConfigurationDestinationConfigurationCloudwatchLogsArgs{
-//						LogGroupName: exampleLogGroup.Name,
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleLogGroup, err := cloudwatch/logGroup.NewLogGroup(ctx, "exampleLogGroup", nil)
+// if err != nil {
+// return err
+// }
+// _, err = ivschat/loggingConfiguration.NewLoggingConfiguration(ctx, "exampleLoggingConfiguration", &ivschat/loggingConfiguration.LoggingConfigurationArgs{
+// DestinationConfiguration: map[string]interface{}{
+// "cloudwatchLogs": map[string]interface{}{
+// "logGroupName": exampleLogGroup.Name,
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
-// ### Basic Usage - Logging to Kinesis Firehose with Extended S3
+// ### Basic Usage - Logging to S3
 //
 // ```go
 // package main
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ivschat"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kinesis"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	ivschat/loggingConfiguration "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ivschat/loggingConfiguration"
+//	s3/bucketV2 "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/s3/bucketV2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", &s3.BucketV2Args{
-//				BucketPrefix: pulumi.String("tf-ivschat-logging-bucket"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			assumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-//				Statements: []iam.GetPolicyDocumentStatement{
-//					{
-//						Effect: pulumi.StringRef("Allow"),
-//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
-//							{
-//								Type: "Service",
-//								Identifiers: []string{
-//									"firehose.amazonaws.com",
-//								},
-//							},
-//						},
-//						Actions: []string{
-//							"sts:AssumeRole",
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleRole, err := iam.NewRole(ctx, "exampleRole", &iam.RoleArgs{
-//				AssumeRolePolicy: *pulumi.String(assumeRole.Json),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleFirehoseDeliveryStream, err := kinesis.NewFirehoseDeliveryStream(ctx, "exampleFirehoseDeliveryStream", &kinesis.FirehoseDeliveryStreamArgs{
-//				Destination: pulumi.String("extended_s3"),
-//				ExtendedS3Configuration: &kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationArgs{
-//					RoleArn:   exampleRole.Arn,
-//					BucketArn: exampleBucketV2.Arn,
-//				},
-//				Tags: pulumi.StringMap{
-//					"LogDeliveryEnabled": pulumi.String("true"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = s3.NewBucketAclV2(ctx, "exampleBucketAclV2", &s3.BucketAclV2Args{
-//				Bucket: exampleBucketV2.ID(),
-//				Acl:    pulumi.String("private"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ivschat.NewLoggingConfiguration(ctx, "exampleLoggingConfiguration", &ivschat.LoggingConfigurationArgs{
-//				DestinationConfiguration: &ivschat.LoggingConfigurationDestinationConfigurationArgs{
-//					Firehose: &ivschat.LoggingConfigurationDestinationConfigurationFirehoseArgs{
-//						DeliveryStreamName: exampleFirehoseDeliveryStream.Name,
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleBucketV2, err := s3/bucketV2.NewBucketV2(ctx, "exampleBucketV2", &s3/bucketV2.BucketV2Args{
+// BucketName: "tf-ivschat-logging",
+// ForceDestroy: true,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = ivschat/loggingConfiguration.NewLoggingConfiguration(ctx, "exampleLoggingConfiguration", &ivschat/loggingConfiguration.LoggingConfigurationArgs{
+// DestinationConfiguration: map[string]interface{}{
+// "s3": map[string]interface{}{
+// "bucketName": exampleBucketV2.Id,
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

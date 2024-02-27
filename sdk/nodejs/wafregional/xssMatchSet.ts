@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const xssMatchSet = new aws.wafregional.XssMatchSet("xssMatchSet", {xssMatchTuples: [
+ * const xssMatchSet = new aws.wafregional/xssMatchSet.XssMatchSet("xssMatchSet", {xssMatchTuples: [
  *     {
  *         fieldToMatch: {
  *             type: "URI",

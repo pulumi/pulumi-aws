@@ -24,23 +24,21 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sesv2"
+//	sesv2/emailIdentity "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/sesv2/emailIdentity"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := sesv2.NewEmailIdentity(ctx, "example", &sesv2.EmailIdentityArgs{
-//				EmailIdentity: pulumi.String("testing@example.com"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := sesv2/emailIdentity.NewEmailIdentity(ctx, "example", &sesv2/emailIdentity.EmailIdentityArgs{
+// EmailIdentity: "testing@example.com",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Domain Identity
 //
@@ -49,23 +47,21 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sesv2"
+//	sesv2/emailIdentity "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/sesv2/emailIdentity"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := sesv2.NewEmailIdentity(ctx, "example", &sesv2.EmailIdentityArgs{
-//				EmailIdentity: pulumi.String("example.com"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := sesv2/emailIdentity.NewEmailIdentity(ctx, "example", &sesv2/emailIdentity.EmailIdentityArgs{
+// EmailIdentity: "example.com",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Configuration Set
 //
@@ -74,30 +70,29 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sesv2"
+//	sesv2/configurationSet "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/sesv2/configurationSet"
+//	sesv2/emailIdentity "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/sesv2/emailIdentity"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleConfigurationSet, err := sesv2.NewConfigurationSet(ctx, "exampleConfigurationSet", &sesv2.ConfigurationSetArgs{
-//				ConfigurationSetName: pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = sesv2.NewEmailIdentity(ctx, "exampleEmailIdentity", &sesv2.EmailIdentityArgs{
-//				EmailIdentity:        pulumi.String("example.com"),
-//				ConfigurationSetName: exampleConfigurationSet.ConfigurationSetName,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleConfigurationSet, err := sesv2/configurationSet.NewConfigurationSet(ctx, "exampleConfigurationSet", &sesv2/configurationSet.ConfigurationSetArgs{
+// ConfigurationSetName: "example",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = sesv2/emailIdentity.NewEmailIdentity(ctx, "exampleEmailIdentity", &sesv2/emailIdentity.EmailIdentityArgs{
+// EmailIdentity: "example.com",
+// ConfigurationSetName: exampleConfigurationSet.ConfigurationSetName,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### DKIM Signing Attributes (BYODKIM)
 //
@@ -106,27 +101,25 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sesv2"
+//	sesv2/emailIdentity "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/sesv2/emailIdentity"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := sesv2.NewEmailIdentity(ctx, "example", &sesv2.EmailIdentityArgs{
-//				DkimSigningAttributes: &sesv2.EmailIdentityDkimSigningAttributesArgs{
-//					DomainSigningPrivateKey: pulumi.String("MIIJKAIBAAKCAgEA2Se7p8zvnI4yh+Gh9j2rG5e2aRXjg03Y8saiupLnadPH9xvM..."),
-//					DomainSigningSelector:   pulumi.String("example"),
-//				},
-//				EmailIdentity: pulumi.String("example.com"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := sesv2/emailIdentity.NewEmailIdentity(ctx, "example", &sesv2/emailIdentity.EmailIdentityArgs{
+// DkimSigningAttributes: map[string]interface{}{
+// "domainSigningPrivateKey": "MIIJKAIBAAKCAgEA2Se7p8zvnI4yh+Gh9j2rG5e2aRXjg03Y8saiupLnadPH9xvM...",
+// "domainSigningSelector": "example",
+// },
+// EmailIdentity: "example.com",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

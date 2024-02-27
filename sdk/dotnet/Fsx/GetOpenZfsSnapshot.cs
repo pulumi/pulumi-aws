@@ -16,36 +16,6 @@ namespace Pulumi.Aws.Fsx
         /// 
         /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
-        /// ### Root volume Example
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Fsx.GetOpenZfsSnapshot.Invoke(new()
-        ///     {
-        ///         Filters = new[]
-        ///         {
-        ///             new Aws.Fsx.Inputs.GetOpenZfsSnapshotFilterInputArgs
-        ///             {
-        ///                 Name = "volume-id",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "fsvol-073a32b6098a73feb",
-        ///                 },
-        ///             },
-        ///         },
-        ///         MostRecent = true,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetOpenZfsSnapshotResult> InvokeAsync(GetOpenZfsSnapshotArgs? args = null, InvokeOptions? options = null)
@@ -56,36 +26,6 @@ namespace Pulumi.Aws.Fsx
         /// 
         /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
-        /// ### Root volume Example
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Fsx.GetOpenZfsSnapshot.Invoke(new()
-        ///     {
-        ///         Filters = new[]
-        ///         {
-        ///             new Aws.Fsx.Inputs.GetOpenZfsSnapshotFilterInputArgs
-        ///             {
-        ///                 Name = "volume-id",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "fsvol-073a32b6098a73feb",
-        ///                 },
-        ///             },
-        ///         },
-        ///         MostRecent = true,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetOpenZfsSnapshotResult> Invoke(GetOpenZfsSnapshotInvokeArgs? args = null, InvokeOptions? options = null)

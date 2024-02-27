@@ -11,6 +11,25 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS DataSync Location FSx Ontap File System.
  *
  * ## Example Usage
+ * ### Basic Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const test = new aws.datasync/locationFsxOntapFileSystem.LocationFsxOntapFileSystem("test", {
+ *     fsxFilesystemArn: aws_fsx_ontap_file_system.test.arn,
+ *     securityGroupArns: [aws_security_group.test.arn],
+ *     storageVirtualMachineArn: aws_fsx_ontap_storage_virtual_machine.test.arn,
+ *     protocol: {
+ *         nfs: {
+ *             mountOptions: {
+ *                 version: "NFS3",
+ *             },
+ *         },
+ *     },
+ * });
+ * ```
  *
  * ## Import
  *

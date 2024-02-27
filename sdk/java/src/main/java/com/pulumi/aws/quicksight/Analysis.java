@@ -33,8 +33,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.quicksight.Analysis;
  * import com.pulumi.aws.quicksight.AnalysisArgs;
- * import com.pulumi.aws.quicksight.inputs.AnalysisSourceEntityArgs;
- * import com.pulumi.aws.quicksight.inputs.AnalysisSourceEntitySourceTemplateArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -50,22 +48,13 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Analysis(&#34;example&#34;, AnalysisArgs.builder()        
  *             .analysisId(&#34;example-id&#34;)
- *             .sourceEntity(AnalysisSourceEntityArgs.builder()
- *                 .sourceTemplate(AnalysisSourceEntitySourceTemplateArgs.builder()
- *                     .arn(aws_quicksight_template.source().arn())
- *                     .dataSetReferences(AnalysisSourceEntitySourceTemplateDataSetReferenceArgs.builder()
- *                         .dataSetArn(aws_quicksight_data_set.dataset().arn())
- *                         .dataSetPlaceholder(&#34;1&#34;)
- *                         .build())
- *                     .build())
- *                 .build())
+ *             .sourceEntity(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
  * }
  * ```
  * ### With Definition
- * 
  * ```java
  * package generated_program;
  * 

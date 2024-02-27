@@ -22,7 +22,7 @@ namespace Pulumi.Aws.OpsWorks
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var main = new Aws.OpsWorks.Stack("main", new()
+    ///     var main = new Aws.Opsworks.Stack.Stack("main", new()
     ///     {
     ///         Region = "us-west-1",
     ///         ServiceRoleArn = aws_iam_role.Opsworks.Arn,

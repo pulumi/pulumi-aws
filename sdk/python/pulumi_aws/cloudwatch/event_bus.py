@@ -175,23 +175,6 @@ class EventBus(pulumi.CustomResource):
 
         > **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        messenger = aws.cloudwatch.EventBus("messenger")
-        ```
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        examplepartner_event_source = aws.cloudwatch.get_event_source(name_prefix="aws.partner/examplepartner.com")
-        examplepartner_event_bus = aws.cloudwatch.EventBus("examplepartnerEventBus", event_source_name=examplepartner_event_source.name)
-        ```
-
         ## Import
 
         Using `pulumi import`, import EventBridge event buses using the `name` (which can also be a partner event source name). For example:
@@ -216,23 +199,6 @@ class EventBus(pulumi.CustomResource):
         Provides an EventBridge event bus resource.
 
         > **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        messenger = aws.cloudwatch.EventBus("messenger")
-        ```
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        examplepartner_event_source = aws.cloudwatch.get_event_source(name_prefix="aws.partner/examplepartner.com")
-        examplepartner_event_bus = aws.cloudwatch.EventBus("examplepartnerEventBus", event_source_name=examplepartner_event_source.name)
-        ```
 
         ## Import
 

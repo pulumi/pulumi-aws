@@ -22,58 +22,57 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/directoryservice"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	directoryservice/directory "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/directoryservice/directory"
+//	ec2/subnet "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/subnet"
+//	ec2/vpc "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/vpc"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			main, err := ec2.NewVpc(ctx, "main", &ec2.VpcArgs{
-//				CidrBlock: pulumi.String("10.0.0.0/16"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			foo, err := ec2.NewSubnet(ctx, "foo", &ec2.SubnetArgs{
-//				VpcId:            main.ID(),
-//				AvailabilityZone: pulumi.String("us-west-2a"),
-//				CidrBlock:        pulumi.String("10.0.1.0/24"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			barSubnet, err := ec2.NewSubnet(ctx, "barSubnet", &ec2.SubnetArgs{
-//				VpcId:            main.ID(),
-//				AvailabilityZone: pulumi.String("us-west-2b"),
-//				CidrBlock:        pulumi.String("10.0.2.0/24"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = directoryservice.NewDirectory(ctx, "barDirectory", &directoryservice.DirectoryArgs{
-//				Name:     pulumi.String("corp.notexample.com"),
-//				Password: pulumi.String("SuperSecretPassw0rd"),
-//				Size:     pulumi.String("Small"),
-//				VpcSettings: &directoryservice.DirectoryVpcSettingsArgs{
-//					VpcId: main.ID(),
-//					SubnetIds: pulumi.StringArray{
-//						foo.ID(),
-//						barSubnet.ID(),
-//					},
-//				},
-//				Tags: pulumi.StringMap{
-//					"Project": pulumi.String("foo"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// main, err := ec2/vpc.NewVpc(ctx, "main", &ec2/vpc.VpcArgs{
+// CidrBlock: "10.0.0.0/16",
+// })
+// if err != nil {
+// return err
+// }
+// foo, err := ec2/subnet.NewSubnet(ctx, "foo", &ec2/subnet.SubnetArgs{
+// VpcId: main.Id,
+// AvailabilityZone: "us-west-2a",
+// CidrBlock: "10.0.1.0/24",
+// })
+// if err != nil {
+// return err
+// }
+// barSubnet, err := ec2/subnet.NewSubnet(ctx, "barSubnet", &ec2/subnet.SubnetArgs{
+// VpcId: main.Id,
+// AvailabilityZone: "us-west-2b",
+// CidrBlock: "10.0.2.0/24",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = directoryservice/directory.NewDirectory(ctx, "barDirectory", &directoryservice/directory.DirectoryArgs{
+// Name: "corp.notexample.com",
+// Password: "SuperSecretPassw0rd",
+// Size: "Small",
+// VpcSettings: map[string]interface{}{
+// "vpcId": main.Id,
+// "subnetIds": []interface{}{
+// foo.Id,
+// barSubnet.Id,
+// },
+// },
+// Tags: map[string]interface{}{
+// "Project": "foo",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Microsoft Active Directory (MicrosoftAD)
 //
@@ -82,59 +81,58 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/directoryservice"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	directoryservice/directory "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/directoryservice/directory"
+//	ec2/subnet "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/subnet"
+//	ec2/vpc "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/vpc"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			main, err := ec2.NewVpc(ctx, "main", &ec2.VpcArgs{
-//				CidrBlock: pulumi.String("10.0.0.0/16"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			foo, err := ec2.NewSubnet(ctx, "foo", &ec2.SubnetArgs{
-//				VpcId:            main.ID(),
-//				AvailabilityZone: pulumi.String("us-west-2a"),
-//				CidrBlock:        pulumi.String("10.0.1.0/24"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			barSubnet, err := ec2.NewSubnet(ctx, "barSubnet", &ec2.SubnetArgs{
-//				VpcId:            main.ID(),
-//				AvailabilityZone: pulumi.String("us-west-2b"),
-//				CidrBlock:        pulumi.String("10.0.2.0/24"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = directoryservice.NewDirectory(ctx, "barDirectory", &directoryservice.DirectoryArgs{
-//				Name:     pulumi.String("corp.notexample.com"),
-//				Password: pulumi.String("SuperSecretPassw0rd"),
-//				Edition:  pulumi.String("Standard"),
-//				Type:     pulumi.String("MicrosoftAD"),
-//				VpcSettings: &directoryservice.DirectoryVpcSettingsArgs{
-//					VpcId: main.ID(),
-//					SubnetIds: pulumi.StringArray{
-//						foo.ID(),
-//						barSubnet.ID(),
-//					},
-//				},
-//				Tags: pulumi.StringMap{
-//					"Project": pulumi.String("foo"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// main, err := ec2/vpc.NewVpc(ctx, "main", &ec2/vpc.VpcArgs{
+// CidrBlock: "10.0.0.0/16",
+// })
+// if err != nil {
+// return err
+// }
+// foo, err := ec2/subnet.NewSubnet(ctx, "foo", &ec2/subnet.SubnetArgs{
+// VpcId: main.Id,
+// AvailabilityZone: "us-west-2a",
+// CidrBlock: "10.0.1.0/24",
+// })
+// if err != nil {
+// return err
+// }
+// barSubnet, err := ec2/subnet.NewSubnet(ctx, "barSubnet", &ec2/subnet.SubnetArgs{
+// VpcId: main.Id,
+// AvailabilityZone: "us-west-2b",
+// CidrBlock: "10.0.2.0/24",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = directoryservice/directory.NewDirectory(ctx, "barDirectory", &directoryservice/directory.DirectoryArgs{
+// Name: "corp.notexample.com",
+// Password: "SuperSecretPassw0rd",
+// Edition: "Standard",
+// Type: "MicrosoftAD",
+// VpcSettings: map[string]interface{}{
+// "vpcId": main.Id,
+// "subnetIds": []interface{}{
+// foo.Id,
+// barSubnet.Id,
+// },
+// },
+// Tags: map[string]interface{}{
+// "Project": "foo",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Microsoft Active Directory Connector (ADConnector)
 //
@@ -143,60 +141,59 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/directoryservice"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	directoryservice/directory "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/directoryservice/directory"
+//	ec2/subnet "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/subnet"
+//	ec2/vpc "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/vpc"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			main, err := ec2.NewVpc(ctx, "main", &ec2.VpcArgs{
-//				CidrBlock: pulumi.String("10.0.0.0/16"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			foo, err := ec2.NewSubnet(ctx, "foo", &ec2.SubnetArgs{
-//				VpcId:            main.ID(),
-//				AvailabilityZone: pulumi.String("us-west-2a"),
-//				CidrBlock:        pulumi.String("10.0.1.0/24"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			bar, err := ec2.NewSubnet(ctx, "bar", &ec2.SubnetArgs{
-//				VpcId:            main.ID(),
-//				AvailabilityZone: pulumi.String("us-west-2b"),
-//				CidrBlock:        pulumi.String("10.0.2.0/24"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = directoryservice.NewDirectory(ctx, "connector", &directoryservice.DirectoryArgs{
-//				Name:     pulumi.String("corp.notexample.com"),
-//				Password: pulumi.String("SuperSecretPassw0rd"),
-//				Size:     pulumi.String("Small"),
-//				Type:     pulumi.String("ADConnector"),
-//				ConnectSettings: &directoryservice.DirectoryConnectSettingsArgs{
-//					CustomerDnsIps: pulumi.StringArray{
-//						pulumi.String("A.B.C.D"),
-//					},
-//					CustomerUsername: pulumi.String("Admin"),
-//					SubnetIds: pulumi.StringArray{
-//						foo.ID(),
-//						bar.ID(),
-//					},
-//					VpcId: main.ID(),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// main, err := ec2/vpc.NewVpc(ctx, "main", &ec2/vpc.VpcArgs{
+// CidrBlock: "10.0.0.0/16",
+// })
+// if err != nil {
+// return err
+// }
+// foo, err := ec2/subnet.NewSubnet(ctx, "foo", &ec2/subnet.SubnetArgs{
+// VpcId: main.Id,
+// AvailabilityZone: "us-west-2a",
+// CidrBlock: "10.0.1.0/24",
+// })
+// if err != nil {
+// return err
+// }
+// bar, err := ec2/subnet.NewSubnet(ctx, "bar", &ec2/subnet.SubnetArgs{
+// VpcId: main.Id,
+// AvailabilityZone: "us-west-2b",
+// CidrBlock: "10.0.2.0/24",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = directoryservice/directory.NewDirectory(ctx, "connector", &directoryservice/directory.DirectoryArgs{
+// Name: "corp.notexample.com",
+// Password: "SuperSecretPassw0rd",
+// Size: "Small",
+// Type: "ADConnector",
+// ConnectSettings: map[string]interface{}{
+// "customerDnsIps": []string{
+// "A.B.C.D",
+// },
+// "customerUsername": "Admin",
+// "subnetIds": []interface{}{
+// foo.Id,
+// bar.Id,
+// },
+// "vpcId": main.Id,
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

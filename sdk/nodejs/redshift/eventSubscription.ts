@@ -13,13 +13,13 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const defaultCluster = new aws.redshift.Cluster("defaultCluster", {
+ * const defaultCluster = new aws.redshift/cluster.Cluster("defaultCluster", {
  *     clusterIdentifier: "default",
  *     databaseName: "default",
  * });
  * // ...
- * const defaultTopic = new aws.sns.Topic("defaultTopic", {});
- * const defaultEventSubscription = new aws.redshift.EventSubscription("defaultEventSubscription", {
+ * const defaultTopic = new aws.sns/topic.Topic("defaultTopic", {});
+ * const defaultEventSubscription = new aws.redshift/eventSubscription.EventSubscription("defaultEventSubscription", {
  *     snsTopicArn: defaultTopic.arn,
  *     sourceType: "cluster",
  *     sourceIds: [defaultCluster.id],

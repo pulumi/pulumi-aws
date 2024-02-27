@@ -22,11 +22,11 @@ namespace Pulumi.Aws.Ecr
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var foo = new Aws.Ecr.Repository("foo", new()
+    ///     var foo = new Aws.Ecr.Repository.Repository("foo", new()
     ///     {
-    ///         ImageScanningConfiguration = new Aws.Ecr.Inputs.RepositoryImageScanningConfigurationArgs
+    ///         ImageScanningConfiguration = 
     ///         {
-    ///             ScanOnPush = true,
+    ///             { "scanOnPush", true },
     ///         },
     ///         ImageTagMutability = "MUTABLE",
     ///     });

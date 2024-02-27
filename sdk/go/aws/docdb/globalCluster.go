@@ -24,82 +24,82 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/docdb"
+//	"github.com/pulumi/pulumi-aws/sdk/v1/go/aws"
+//	docdb/cluster "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/docdb/cluster"
+//	docdb/clusterInstance "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/docdb/clusterInstance"
+//	docdb/globalCluster "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/docdb/globalCluster"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := aws.NewProvider(ctx, "primary", &aws.ProviderArgs{
-//				Region: pulumi.String("us-east-2"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = aws.NewProvider(ctx, "secondary", &aws.ProviderArgs{
-//				Region: pulumi.String("us-east-1"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			example, err := docdb.NewGlobalCluster(ctx, "example", &docdb.GlobalClusterArgs{
-//				GlobalClusterIdentifier: pulumi.String("global-test"),
-//				Engine:                  pulumi.String("docdb"),
-//				EngineVersion:           pulumi.String("4.0.0"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			primaryCluster, err := docdb.NewCluster(ctx, "primaryCluster", &docdb.ClusterArgs{
-//				Engine:                  example.Engine,
-//				EngineVersion:           example.EngineVersion,
-//				ClusterIdentifier:       pulumi.String("test-primary-cluster"),
-//				MasterUsername:          pulumi.String("username"),
-//				MasterPassword:          pulumi.String("somepass123"),
-//				GlobalClusterIdentifier: example.ID(),
-//				DbSubnetGroupName:       pulumi.String("default"),
-//			}, pulumi.Provider(aws.Primary))
-//			if err != nil {
-//				return err
-//			}
-//			primaryClusterInstance, err := docdb.NewClusterInstance(ctx, "primaryClusterInstance", &docdb.ClusterInstanceArgs{
-//				Engine:            example.Engine,
-//				Identifier:        pulumi.String("test-primary-cluster-instance"),
-//				ClusterIdentifier: primaryCluster.ID(),
-//				InstanceClass:     pulumi.String("db.r5.large"),
-//			}, pulumi.Provider(aws.Primary))
-//			if err != nil {
-//				return err
-//			}
-//			secondaryCluster, err := docdb.NewCluster(ctx, "secondaryCluster", &docdb.ClusterArgs{
-//				Engine:                  example.Engine,
-//				EngineVersion:           example.EngineVersion,
-//				ClusterIdentifier:       pulumi.String("test-secondary-cluster"),
-//				GlobalClusterIdentifier: example.ID(),
-//				DbSubnetGroupName:       pulumi.String("default"),
-//			}, pulumi.Provider(aws.Secondary), pulumi.DependsOn([]pulumi.Resource{
-//				primaryCluster,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			_, err = docdb.NewClusterInstance(ctx, "secondaryClusterInstance", &docdb.ClusterInstanceArgs{
-//				Engine:            example.Engine,
-//				Identifier:        pulumi.String("test-secondary-cluster-instance"),
-//				ClusterIdentifier: secondaryCluster.ID(),
-//				InstanceClass:     pulumi.String("db.r5.large"),
-//			}, pulumi.Provider(aws.Secondary), pulumi.DependsOn([]pulumi.Resource{
-//				primaryClusterInstance,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := aws.NewProvider(ctx, "primary", &aws.ProviderArgs{
+// Region: "us-east-2",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = aws.NewProvider(ctx, "secondary", &aws.ProviderArgs{
+// Region: "us-east-1",
+// })
+// if err != nil {
+// return err
+// }
+// example, err := docdb/globalCluster.NewGlobalCluster(ctx, "example", &docdb/globalCluster.GlobalClusterArgs{
+// GlobalClusterIdentifier: "global-test",
+// Engine: "docdb",
+// EngineVersion: "4.0.0",
+// })
+// if err != nil {
+// return err
+// }
+// primaryCluster, err := docdb/cluster.NewCluster(ctx, "primaryCluster", &docdb/cluster.ClusterArgs{
+// Engine: example.Engine,
+// EngineVersion: example.EngineVersion,
+// ClusterIdentifier: "test-primary-cluster",
+// MasterUsername: "username",
+// MasterPassword: "somepass123",
+// GlobalClusterIdentifier: example.Id,
+// DbSubnetGroupName: "default",
+// }, pulumi.Provider(aws.Primary))
+// if err != nil {
+// return err
+// }
+// primaryClusterInstance, err := docdb/clusterInstance.NewClusterInstance(ctx, "primaryClusterInstance", &docdb/clusterInstance.ClusterInstanceArgs{
+// Engine: example.Engine,
+// Identifier: "test-primary-cluster-instance",
+// ClusterIdentifier: primaryCluster.Id,
+// InstanceClass: "db.r5.large",
+// }, pulumi.Provider(aws.Primary))
+// if err != nil {
+// return err
+// }
+// secondaryCluster, err := docdb/cluster.NewCluster(ctx, "secondaryCluster", &docdb/cluster.ClusterArgs{
+// Engine: example.Engine,
+// EngineVersion: example.EngineVersion,
+// ClusterIdentifier: "test-secondary-cluster",
+// GlobalClusterIdentifier: example.Id,
+// DbSubnetGroupName: "default",
+// }, pulumi.Provider(aws.Secondary), pulumi.DependsOn([]pulumi.Resource{
+// primaryCluster,
+// }))
+// if err != nil {
+// return err
+// }
+// _, err = docdb/clusterInstance.NewClusterInstance(ctx, "secondaryClusterInstance", &docdb/clusterInstance.ClusterInstanceArgs{
+// Engine: example.Engine,
+// Identifier: "test-secondary-cluster-instance",
+// ClusterIdentifier: secondaryCluster.Id,
+// InstanceClass: "db.r5.large",
+// }, pulumi.Provider(aws.Secondary), pulumi.DependsOn([]pulumi.Resource{
+// primaryClusterInstance,
+// }))
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### New Global Cluster From Existing DB Cluster
 //
@@ -108,28 +108,28 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/docdb"
+//	docdb/cluster "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/docdb/cluster"
+//	docdb/globalCluster "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/docdb/globalCluster"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleCluster, err := docdb.NewCluster(ctx, "exampleCluster", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = docdb.NewGlobalCluster(ctx, "exampleGlobalCluster", &docdb.GlobalClusterArgs{
-//				GlobalClusterIdentifier:   pulumi.String("example"),
-//				SourceDbClusterIdentifier: exampleCluster.Arn,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// // ... other configuration ...
+// exampleCluster, err := docdb/cluster.NewCluster(ctx, "exampleCluster", nil)
+// if err != nil {
+// return err
+// }
+// _, err = docdb/globalCluster.NewGlobalCluster(ctx, "exampleGlobalCluster", &docdb/globalCluster.GlobalClusterArgs{
+// GlobalClusterIdentifier: "example",
+// SourceDbClusterIdentifier: exampleCluster.Arn,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

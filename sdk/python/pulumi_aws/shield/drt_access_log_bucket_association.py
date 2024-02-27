@@ -134,9 +134,9 @@ class DrtAccessLogBucketAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_drt_access_role_arn_association = aws.shield.DrtAccessRoleArnAssociation("testDrtAccessRoleArnAssociation", role_arn=f"arn:aws:iam:{data['aws_region']['current']['name']}:{data['aws_caller_identity']['current']['account_id']}:{var['shield_drt_access_role_name']}")
-        test_drt_access_log_bucket_association = aws.shield.DrtAccessLogBucketAssociation("testDrtAccessLogBucketAssociation",
-            log_bucket=var["shield_drt_access_log_bucket"],
+        test_drt_access_role_arn_association = aws.shield.drt_access_role_arn_association.DrtAccessRoleArnAssociation("testDrtAccessRoleArnAssociation", role_arn=farn:aws:iam:{data.aws_region.current.name}:{data.aws_caller_identity.current.account_id}:{var.shield_drt_access_role_name})
+        test_drt_access_log_bucket_association = aws.shield.drt_access_log_bucket_association.DrtAccessLogBucketAssociation("testDrtAccessLogBucketAssociation",
+            log_bucket=var.shield_drt_access_log_bucket,
             role_arn_association_id=test_drt_access_role_arn_association.id)
         ```
 
@@ -161,9 +161,9 @@ class DrtAccessLogBucketAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_drt_access_role_arn_association = aws.shield.DrtAccessRoleArnAssociation("testDrtAccessRoleArnAssociation", role_arn=f"arn:aws:iam:{data['aws_region']['current']['name']}:{data['aws_caller_identity']['current']['account_id']}:{var['shield_drt_access_role_name']}")
-        test_drt_access_log_bucket_association = aws.shield.DrtAccessLogBucketAssociation("testDrtAccessLogBucketAssociation",
-            log_bucket=var["shield_drt_access_log_bucket"],
+        test_drt_access_role_arn_association = aws.shield.drt_access_role_arn_association.DrtAccessRoleArnAssociation("testDrtAccessRoleArnAssociation", role_arn=farn:aws:iam:{data.aws_region.current.name}:{data.aws_caller_identity.current.account_id}:{var.shield_drt_access_role_name})
+        test_drt_access_log_bucket_association = aws.shield.drt_access_log_bucket_association.DrtAccessLogBucketAssociation("testDrtAccessLogBucketAssociation",
+            log_bucket=var.shield_drt_access_log_bucket,
             role_arn_association_id=test_drt_access_role_arn_association.id)
         ```
 

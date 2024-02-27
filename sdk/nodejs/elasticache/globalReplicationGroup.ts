@@ -19,18 +19,18 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const primary = new aws.elasticache.ReplicationGroup("primary", {
+ * const primary = new aws.elasticache/replicationGroup.ReplicationGroup("primary", {
  *     description: "primary replication group",
  *     engine: "redis",
  *     engineVersion: "5.0.6",
  *     nodeType: "cache.m5.large",
  *     numCacheClusters: 1,
  * });
- * const example = new aws.elasticache.GlobalReplicationGroup("example", {
+ * const example = new aws.elasticache/globalReplicationGroup.GlobalReplicationGroup("example", {
  *     globalReplicationGroupIdSuffix: "example",
  *     primaryReplicationGroupId: primary.id,
  * });
- * const secondary = new aws.elasticache.ReplicationGroup("secondary", {
+ * const secondary = new aws.elasticache/replicationGroup.ReplicationGroup("secondary", {
  *     description: "secondary replication group",
  *     globalReplicationGroupId: example.globalReplicationGroupId,
  *     numCacheClusters: 1,
@@ -56,19 +56,19 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const primary = new aws.elasticache.ReplicationGroup("primary", {
+ * const primary = new aws.elasticache/replicationGroup.ReplicationGroup("primary", {
  *     description: "primary replication group",
  *     engine: "redis",
  *     engineVersion: "6.0",
  *     nodeType: "cache.m5.large",
  *     numCacheClusters: 1,
  * });
- * const example = new aws.elasticache.GlobalReplicationGroup("example", {
+ * const example = new aws.elasticache/globalReplicationGroup.GlobalReplicationGroup("example", {
  *     globalReplicationGroupIdSuffix: "example",
  *     primaryReplicationGroupId: primary.id,
  *     engineVersion: "6.2",
  * });
- * const secondary = new aws.elasticache.ReplicationGroup("secondary", {
+ * const secondary = new aws.elasticache/replicationGroup.ReplicationGroup("secondary", {
  *     description: "secondary replication group",
  *     globalReplicationGroupId: example.globalReplicationGroupId,
  *     numCacheClusters: 1,

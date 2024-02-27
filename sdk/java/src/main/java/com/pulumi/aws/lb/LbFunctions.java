@@ -32,96 +32,12 @@ public final class LbFunctions {
     /**
      * Use this data source to get the HostedZoneId of the AWS Elastic Load Balancing (ELB) in a given region for the purpose of using in an AWS Route53 Alias. Specify the ELB type (`network` or `application`) to return the relevant the associated HostedZoneId. Ref: [ELB service endpoints](https://docs.aws.amazon.com/general/latest/gr/elb.html#elb_region)
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.lb.LbFunctions;
-     * import com.pulumi.aws.lb.inputs.GetHostedZoneIdArgs;
-     * import com.pulumi.aws.route53.Record;
-     * import com.pulumi.aws.route53.RecordArgs;
-     * import com.pulumi.aws.route53.inputs.RecordAliasArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var main = LbFunctions.getHostedZoneId();
-     * 
-     *         var www = new Record(&#34;www&#34;, RecordArgs.builder()        
-     *             .zoneId(aws_route53_zone.primary().zone_id())
-     *             .name(&#34;example.com&#34;)
-     *             .type(&#34;A&#34;)
-     *             .aliases(RecordAliasArgs.builder()
-     *                 .name(aws_lb.main().dns_name())
-     *                 .zoneId(main.applyValue(getHostedZoneIdResult -&gt; getHostedZoneIdResult.id()))
-     *                 .evaluateTargetHealth(true)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetHostedZoneIdResult> getHostedZoneId() {
         return getHostedZoneId(GetHostedZoneIdArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * Use this data source to get the HostedZoneId of the AWS Elastic Load Balancing (ELB) in a given region for the purpose of using in an AWS Route53 Alias. Specify the ELB type (`network` or `application`) to return the relevant the associated HostedZoneId. Ref: [ELB service endpoints](https://docs.aws.amazon.com/general/latest/gr/elb.html#elb_region)
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.lb.LbFunctions;
-     * import com.pulumi.aws.lb.inputs.GetHostedZoneIdArgs;
-     * import com.pulumi.aws.route53.Record;
-     * import com.pulumi.aws.route53.RecordArgs;
-     * import com.pulumi.aws.route53.inputs.RecordAliasArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var main = LbFunctions.getHostedZoneId();
-     * 
-     *         var www = new Record(&#34;www&#34;, RecordArgs.builder()        
-     *             .zoneId(aws_route53_zone.primary().zone_id())
-     *             .name(&#34;example.com&#34;)
-     *             .type(&#34;A&#34;)
-     *             .aliases(RecordAliasArgs.builder()
-     *                 .name(aws_lb.main().dns_name())
-     *                 .zoneId(main.applyValue(getHostedZoneIdResult -&gt; getHostedZoneIdResult.id()))
-     *                 .evaluateTargetHealth(true)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetHostedZoneIdResult> getHostedZoneIdPlain() {
@@ -130,96 +46,12 @@ public final class LbFunctions {
     /**
      * Use this data source to get the HostedZoneId of the AWS Elastic Load Balancing (ELB) in a given region for the purpose of using in an AWS Route53 Alias. Specify the ELB type (`network` or `application`) to return the relevant the associated HostedZoneId. Ref: [ELB service endpoints](https://docs.aws.amazon.com/general/latest/gr/elb.html#elb_region)
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.lb.LbFunctions;
-     * import com.pulumi.aws.lb.inputs.GetHostedZoneIdArgs;
-     * import com.pulumi.aws.route53.Record;
-     * import com.pulumi.aws.route53.RecordArgs;
-     * import com.pulumi.aws.route53.inputs.RecordAliasArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var main = LbFunctions.getHostedZoneId();
-     * 
-     *         var www = new Record(&#34;www&#34;, RecordArgs.builder()        
-     *             .zoneId(aws_route53_zone.primary().zone_id())
-     *             .name(&#34;example.com&#34;)
-     *             .type(&#34;A&#34;)
-     *             .aliases(RecordAliasArgs.builder()
-     *                 .name(aws_lb.main().dns_name())
-     *                 .zoneId(main.applyValue(getHostedZoneIdResult -&gt; getHostedZoneIdResult.id()))
-     *                 .evaluateTargetHealth(true)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetHostedZoneIdResult> getHostedZoneId(GetHostedZoneIdArgs args) {
         return getHostedZoneId(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to get the HostedZoneId of the AWS Elastic Load Balancing (ELB) in a given region for the purpose of using in an AWS Route53 Alias. Specify the ELB type (`network` or `application`) to return the relevant the associated HostedZoneId. Ref: [ELB service endpoints](https://docs.aws.amazon.com/general/latest/gr/elb.html#elb_region)
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.lb.LbFunctions;
-     * import com.pulumi.aws.lb.inputs.GetHostedZoneIdArgs;
-     * import com.pulumi.aws.route53.Record;
-     * import com.pulumi.aws.route53.RecordArgs;
-     * import com.pulumi.aws.route53.inputs.RecordAliasArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var main = LbFunctions.getHostedZoneId();
-     * 
-     *         var www = new Record(&#34;www&#34;, RecordArgs.builder()        
-     *             .zoneId(aws_route53_zone.primary().zone_id())
-     *             .name(&#34;example.com&#34;)
-     *             .type(&#34;A&#34;)
-     *             .aliases(RecordAliasArgs.builder()
-     *                 .name(aws_lb.main().dns_name())
-     *                 .zoneId(main.applyValue(getHostedZoneIdResult -&gt; getHostedZoneIdResult.id()))
-     *                 .evaluateTargetHealth(true)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetHostedZoneIdResult> getHostedZoneIdPlain(GetHostedZoneIdPlainArgs args) {
@@ -228,96 +60,12 @@ public final class LbFunctions {
     /**
      * Use this data source to get the HostedZoneId of the AWS Elastic Load Balancing (ELB) in a given region for the purpose of using in an AWS Route53 Alias. Specify the ELB type (`network` or `application`) to return the relevant the associated HostedZoneId. Ref: [ELB service endpoints](https://docs.aws.amazon.com/general/latest/gr/elb.html#elb_region)
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.lb.LbFunctions;
-     * import com.pulumi.aws.lb.inputs.GetHostedZoneIdArgs;
-     * import com.pulumi.aws.route53.Record;
-     * import com.pulumi.aws.route53.RecordArgs;
-     * import com.pulumi.aws.route53.inputs.RecordAliasArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var main = LbFunctions.getHostedZoneId();
-     * 
-     *         var www = new Record(&#34;www&#34;, RecordArgs.builder()        
-     *             .zoneId(aws_route53_zone.primary().zone_id())
-     *             .name(&#34;example.com&#34;)
-     *             .type(&#34;A&#34;)
-     *             .aliases(RecordAliasArgs.builder()
-     *                 .name(aws_lb.main().dns_name())
-     *                 .zoneId(main.applyValue(getHostedZoneIdResult -&gt; getHostedZoneIdResult.id()))
-     *                 .evaluateTargetHealth(true)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetHostedZoneIdResult> getHostedZoneId(GetHostedZoneIdArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:lb/getHostedZoneId:getHostedZoneId", TypeShape.of(GetHostedZoneIdResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to get the HostedZoneId of the AWS Elastic Load Balancing (ELB) in a given region for the purpose of using in an AWS Route53 Alias. Specify the ELB type (`network` or `application`) to return the relevant the associated HostedZoneId. Ref: [ELB service endpoints](https://docs.aws.amazon.com/general/latest/gr/elb.html#elb_region)
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.lb.LbFunctions;
-     * import com.pulumi.aws.lb.inputs.GetHostedZoneIdArgs;
-     * import com.pulumi.aws.route53.Record;
-     * import com.pulumi.aws.route53.RecordArgs;
-     * import com.pulumi.aws.route53.inputs.RecordAliasArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var main = LbFunctions.getHostedZoneId();
-     * 
-     *         var www = new Record(&#34;www&#34;, RecordArgs.builder()        
-     *             .zoneId(aws_route53_zone.primary().zone_id())
-     *             .name(&#34;example.com&#34;)
-     *             .type(&#34;A&#34;)
-     *             .aliases(RecordAliasArgs.builder()
-     *                 .name(aws_lb.main().dns_name())
-     *                 .zoneId(main.applyValue(getHostedZoneIdResult -&gt; getHostedZoneIdResult.id()))
-     *                 .evaluateTargetHealth(true)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetHostedZoneIdResult> getHostedZoneIdPlain(GetHostedZoneIdPlainArgs args, InvokeOptions options) {
@@ -328,35 +76,6 @@ public final class LbFunctions {
      * resources.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.lb.LbFunctions;
-     * import com.pulumi.aws.lb.inputs.GetLbsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = LbFunctions.getLbs(GetLbsArgs.builder()
-     *             .tags(Map.of(&#34;elbv2.k8s.aws/cluster&#34;, &#34;my-cluster&#34;))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetLbsResult> getLbs() {
@@ -367,35 +86,6 @@ public final class LbFunctions {
      * resources.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.lb.LbFunctions;
-     * import com.pulumi.aws.lb.inputs.GetLbsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = LbFunctions.getLbs(GetLbsArgs.builder()
-     *             .tags(Map.of(&#34;elbv2.k8s.aws/cluster&#34;, &#34;my-cluster&#34;))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetLbsResult> getLbsPlain() {
@@ -406,35 +96,6 @@ public final class LbFunctions {
      * resources.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.lb.LbFunctions;
-     * import com.pulumi.aws.lb.inputs.GetLbsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = LbFunctions.getLbs(GetLbsArgs.builder()
-     *             .tags(Map.of(&#34;elbv2.k8s.aws/cluster&#34;, &#34;my-cluster&#34;))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetLbsResult> getLbs(GetLbsArgs args) {
@@ -445,35 +106,6 @@ public final class LbFunctions {
      * resources.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.lb.LbFunctions;
-     * import com.pulumi.aws.lb.inputs.GetLbsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = LbFunctions.getLbs(GetLbsArgs.builder()
-     *             .tags(Map.of(&#34;elbv2.k8s.aws/cluster&#34;, &#34;my-cluster&#34;))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetLbsResult> getLbsPlain(GetLbsPlainArgs args) {
@@ -484,35 +116,6 @@ public final class LbFunctions {
      * resources.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.lb.LbFunctions;
-     * import com.pulumi.aws.lb.inputs.GetLbsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = LbFunctions.getLbs(GetLbsArgs.builder()
-     *             .tags(Map.of(&#34;elbv2.k8s.aws/cluster&#34;, &#34;my-cluster&#34;))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetLbsResult> getLbs(GetLbsArgs args, InvokeOptions options) {
@@ -523,35 +126,6 @@ public final class LbFunctions {
      * resources.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.lb.LbFunctions;
-     * import com.pulumi.aws.lb.inputs.GetLbsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = LbFunctions.getLbs(GetLbsArgs.builder()
-     *             .tags(Map.of(&#34;elbv2.k8s.aws/cluster&#34;, &#34;my-cluster&#34;))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetLbsResult> getLbsPlain(GetLbsPlainArgs args, InvokeOptions options) {
@@ -564,48 +138,6 @@ public final class LbFunctions {
      * 
      * This data source can prove useful when a module accepts an LB Listener as an input variable and needs to know the LB it is attached to, or other information specific to the listener in question.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.lb.LbFunctions;
-     * import com.pulumi.aws.lb.inputs.GetListenerArgs;
-     * import com.pulumi.aws.lb.inputs.GetLoadBalancerArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var config = ctx.config();
-     *         final var listenerArn = config.get(&#34;listenerArn&#34;);
-     *         final var listener = LbFunctions.getListener(GetListenerArgs.builder()
-     *             .arn(listenerArn)
-     *             .build());
-     * 
-     *         final var selected = LbFunctions.getLoadBalancer(GetLoadBalancerArgs.builder()
-     *             .name(&#34;default-public&#34;)
-     *             .build());
-     * 
-     *         final var selected443 = LbFunctions.getListener(GetListenerArgs.builder()
-     *             .loadBalancerArn(selected.applyValue(getLoadBalancerResult -&gt; getLoadBalancerResult.arn()))
-     *             .port(443)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetListenerResult> getListener() {
         return getListener(GetListenerArgs.Empty, InvokeOptions.Empty);
@@ -616,48 +148,6 @@ public final class LbFunctions {
      * Provides information about a Load Balancer Listener.
      * 
      * This data source can prove useful when a module accepts an LB Listener as an input variable and needs to know the LB it is attached to, or other information specific to the listener in question.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.lb.LbFunctions;
-     * import com.pulumi.aws.lb.inputs.GetListenerArgs;
-     * import com.pulumi.aws.lb.inputs.GetLoadBalancerArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var config = ctx.config();
-     *         final var listenerArn = config.get(&#34;listenerArn&#34;);
-     *         final var listener = LbFunctions.getListener(GetListenerArgs.builder()
-     *             .arn(listenerArn)
-     *             .build());
-     * 
-     *         final var selected = LbFunctions.getLoadBalancer(GetLoadBalancerArgs.builder()
-     *             .name(&#34;default-public&#34;)
-     *             .build());
-     * 
-     *         final var selected443 = LbFunctions.getListener(GetListenerArgs.builder()
-     *             .loadBalancerArn(selected.applyValue(getLoadBalancerResult -&gt; getLoadBalancerResult.arn()))
-     *             .port(443)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetListenerResult> getListenerPlain() {
@@ -670,48 +160,6 @@ public final class LbFunctions {
      * 
      * This data source can prove useful when a module accepts an LB Listener as an input variable and needs to know the LB it is attached to, or other information specific to the listener in question.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.lb.LbFunctions;
-     * import com.pulumi.aws.lb.inputs.GetListenerArgs;
-     * import com.pulumi.aws.lb.inputs.GetLoadBalancerArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var config = ctx.config();
-     *         final var listenerArn = config.get(&#34;listenerArn&#34;);
-     *         final var listener = LbFunctions.getListener(GetListenerArgs.builder()
-     *             .arn(listenerArn)
-     *             .build());
-     * 
-     *         final var selected = LbFunctions.getLoadBalancer(GetLoadBalancerArgs.builder()
-     *             .name(&#34;default-public&#34;)
-     *             .build());
-     * 
-     *         final var selected443 = LbFunctions.getListener(GetListenerArgs.builder()
-     *             .loadBalancerArn(selected.applyValue(getLoadBalancerResult -&gt; getLoadBalancerResult.arn()))
-     *             .port(443)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetListenerResult> getListener(GetListenerArgs args) {
         return getListener(args, InvokeOptions.Empty);
@@ -722,48 +170,6 @@ public final class LbFunctions {
      * Provides information about a Load Balancer Listener.
      * 
      * This data source can prove useful when a module accepts an LB Listener as an input variable and needs to know the LB it is attached to, or other information specific to the listener in question.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.lb.LbFunctions;
-     * import com.pulumi.aws.lb.inputs.GetListenerArgs;
-     * import com.pulumi.aws.lb.inputs.GetLoadBalancerArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var config = ctx.config();
-     *         final var listenerArn = config.get(&#34;listenerArn&#34;);
-     *         final var listener = LbFunctions.getListener(GetListenerArgs.builder()
-     *             .arn(listenerArn)
-     *             .build());
-     * 
-     *         final var selected = LbFunctions.getLoadBalancer(GetLoadBalancerArgs.builder()
-     *             .name(&#34;default-public&#34;)
-     *             .build());
-     * 
-     *         final var selected443 = LbFunctions.getListener(GetListenerArgs.builder()
-     *             .loadBalancerArn(selected.applyValue(getLoadBalancerResult -&gt; getLoadBalancerResult.arn()))
-     *             .port(443)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetListenerResult> getListenerPlain(GetListenerPlainArgs args) {
@@ -776,48 +182,6 @@ public final class LbFunctions {
      * 
      * This data source can prove useful when a module accepts an LB Listener as an input variable and needs to know the LB it is attached to, or other information specific to the listener in question.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.lb.LbFunctions;
-     * import com.pulumi.aws.lb.inputs.GetListenerArgs;
-     * import com.pulumi.aws.lb.inputs.GetLoadBalancerArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var config = ctx.config();
-     *         final var listenerArn = config.get(&#34;listenerArn&#34;);
-     *         final var listener = LbFunctions.getListener(GetListenerArgs.builder()
-     *             .arn(listenerArn)
-     *             .build());
-     * 
-     *         final var selected = LbFunctions.getLoadBalancer(GetLoadBalancerArgs.builder()
-     *             .name(&#34;default-public&#34;)
-     *             .build());
-     * 
-     *         final var selected443 = LbFunctions.getListener(GetListenerArgs.builder()
-     *             .loadBalancerArn(selected.applyValue(getLoadBalancerResult -&gt; getLoadBalancerResult.arn()))
-     *             .port(443)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetListenerResult> getListener(GetListenerArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:lb/getListener:getListener", TypeShape.of(GetListenerResult.class), args, Utilities.withVersion(options));
@@ -828,48 +192,6 @@ public final class LbFunctions {
      * Provides information about a Load Balancer Listener.
      * 
      * This data source can prove useful when a module accepts an LB Listener as an input variable and needs to know the LB it is attached to, or other information specific to the listener in question.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.lb.LbFunctions;
-     * import com.pulumi.aws.lb.inputs.GetListenerArgs;
-     * import com.pulumi.aws.lb.inputs.GetLoadBalancerArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var config = ctx.config();
-     *         final var listenerArn = config.get(&#34;listenerArn&#34;);
-     *         final var listener = LbFunctions.getListener(GetListenerArgs.builder()
-     *             .arn(listenerArn)
-     *             .build());
-     * 
-     *         final var selected = LbFunctions.getLoadBalancer(GetLoadBalancerArgs.builder()
-     *             .name(&#34;default-public&#34;)
-     *             .build());
-     * 
-     *         final var selected443 = LbFunctions.getListener(GetListenerArgs.builder()
-     *             .loadBalancerArn(selected.applyValue(getLoadBalancerResult -&gt; getLoadBalancerResult.arn()))
-     *             .port(443)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetListenerResult> getListenerPlain(GetListenerPlainArgs args, InvokeOptions options) {
@@ -884,40 +206,6 @@ public final class LbFunctions {
      * variable and needs to, for example, determine the security groups associated
      * with it, etc.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.lb.LbFunctions;
-     * import com.pulumi.aws.lb.inputs.GetLoadBalancerArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var config = ctx.config();
-     *         final var lbArn = config.get(&#34;lbArn&#34;).orElse(&#34;&#34;);
-     *         final var lbName = config.get(&#34;lbName&#34;).orElse(&#34;&#34;);
-     *         final var test = LbFunctions.getLoadBalancer(GetLoadBalancerArgs.builder()
-     *             .arn(lbArn)
-     *             .name(lbName)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetLoadBalancerResult> getLoadBalancer() {
         return getLoadBalancer(GetLoadBalancerArgs.Empty, InvokeOptions.Empty);
@@ -930,40 +218,6 @@ public final class LbFunctions {
      * This data source can prove useful when a module accepts an LB as an input
      * variable and needs to, for example, determine the security groups associated
      * with it, etc.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.lb.LbFunctions;
-     * import com.pulumi.aws.lb.inputs.GetLoadBalancerArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var config = ctx.config();
-     *         final var lbArn = config.get(&#34;lbArn&#34;).orElse(&#34;&#34;);
-     *         final var lbName = config.get(&#34;lbName&#34;).orElse(&#34;&#34;);
-     *         final var test = LbFunctions.getLoadBalancer(GetLoadBalancerArgs.builder()
-     *             .arn(lbArn)
-     *             .name(lbName)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetLoadBalancerResult> getLoadBalancerPlain() {
@@ -978,40 +232,6 @@ public final class LbFunctions {
      * variable and needs to, for example, determine the security groups associated
      * with it, etc.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.lb.LbFunctions;
-     * import com.pulumi.aws.lb.inputs.GetLoadBalancerArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var config = ctx.config();
-     *         final var lbArn = config.get(&#34;lbArn&#34;).orElse(&#34;&#34;);
-     *         final var lbName = config.get(&#34;lbName&#34;).orElse(&#34;&#34;);
-     *         final var test = LbFunctions.getLoadBalancer(GetLoadBalancerArgs.builder()
-     *             .arn(lbArn)
-     *             .name(lbName)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetLoadBalancerResult> getLoadBalancer(GetLoadBalancerArgs args) {
         return getLoadBalancer(args, InvokeOptions.Empty);
@@ -1024,40 +244,6 @@ public final class LbFunctions {
      * This data source can prove useful when a module accepts an LB as an input
      * variable and needs to, for example, determine the security groups associated
      * with it, etc.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.lb.LbFunctions;
-     * import com.pulumi.aws.lb.inputs.GetLoadBalancerArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var config = ctx.config();
-     *         final var lbArn = config.get(&#34;lbArn&#34;).orElse(&#34;&#34;);
-     *         final var lbName = config.get(&#34;lbName&#34;).orElse(&#34;&#34;);
-     *         final var test = LbFunctions.getLoadBalancer(GetLoadBalancerArgs.builder()
-     *             .arn(lbArn)
-     *             .name(lbName)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetLoadBalancerResult> getLoadBalancerPlain(GetLoadBalancerPlainArgs args) {
@@ -1072,40 +258,6 @@ public final class LbFunctions {
      * variable and needs to, for example, determine the security groups associated
      * with it, etc.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.lb.LbFunctions;
-     * import com.pulumi.aws.lb.inputs.GetLoadBalancerArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var config = ctx.config();
-     *         final var lbArn = config.get(&#34;lbArn&#34;).orElse(&#34;&#34;);
-     *         final var lbName = config.get(&#34;lbName&#34;).orElse(&#34;&#34;);
-     *         final var test = LbFunctions.getLoadBalancer(GetLoadBalancerArgs.builder()
-     *             .arn(lbArn)
-     *             .name(lbName)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetLoadBalancerResult> getLoadBalancer(GetLoadBalancerArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:lb/getLoadBalancer:getLoadBalancer", TypeShape.of(GetLoadBalancerResult.class), args, Utilities.withVersion(options));
@@ -1118,40 +270,6 @@ public final class LbFunctions {
      * This data source can prove useful when a module accepts an LB as an input
      * variable and needs to, for example, determine the security groups associated
      * with it, etc.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.lb.LbFunctions;
-     * import com.pulumi.aws.lb.inputs.GetLoadBalancerArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var config = ctx.config();
-     *         final var lbArn = config.get(&#34;lbArn&#34;).orElse(&#34;&#34;);
-     *         final var lbName = config.get(&#34;lbName&#34;).orElse(&#34;&#34;);
-     *         final var test = LbFunctions.getLoadBalancer(GetLoadBalancerArgs.builder()
-     *             .arn(lbArn)
-     *             .name(lbName)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetLoadBalancerResult> getLoadBalancerPlain(GetLoadBalancerPlainArgs args, InvokeOptions options) {
@@ -1166,40 +284,6 @@ public final class LbFunctions {
      * input variable and needs to know its attributes. It can also be used to get the ARN of
      * an LB Target Group for use in other resources, given LB Target Group name.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.lb.LbFunctions;
-     * import com.pulumi.aws.lb.inputs.GetTargetGroupArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var config = ctx.config();
-     *         final var lbTgArn = config.get(&#34;lbTgArn&#34;).orElse(&#34;&#34;);
-     *         final var lbTgName = config.get(&#34;lbTgName&#34;).orElse(&#34;&#34;);
-     *         final var test = LbFunctions.getTargetGroup(GetTargetGroupArgs.builder()
-     *             .arn(lbTgArn)
-     *             .name(lbTgName)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetTargetGroupResult> getTargetGroup() {
         return getTargetGroup(GetTargetGroupArgs.Empty, InvokeOptions.Empty);
@@ -1212,40 +296,6 @@ public final class LbFunctions {
      * This data source can prove useful when a module accepts an LB Target Group as an
      * input variable and needs to know its attributes. It can also be used to get the ARN of
      * an LB Target Group for use in other resources, given LB Target Group name.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.lb.LbFunctions;
-     * import com.pulumi.aws.lb.inputs.GetTargetGroupArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var config = ctx.config();
-     *         final var lbTgArn = config.get(&#34;lbTgArn&#34;).orElse(&#34;&#34;);
-     *         final var lbTgName = config.get(&#34;lbTgName&#34;).orElse(&#34;&#34;);
-     *         final var test = LbFunctions.getTargetGroup(GetTargetGroupArgs.builder()
-     *             .arn(lbTgArn)
-     *             .name(lbTgName)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetTargetGroupResult> getTargetGroupPlain() {
@@ -1260,40 +310,6 @@ public final class LbFunctions {
      * input variable and needs to know its attributes. It can also be used to get the ARN of
      * an LB Target Group for use in other resources, given LB Target Group name.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.lb.LbFunctions;
-     * import com.pulumi.aws.lb.inputs.GetTargetGroupArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var config = ctx.config();
-     *         final var lbTgArn = config.get(&#34;lbTgArn&#34;).orElse(&#34;&#34;);
-     *         final var lbTgName = config.get(&#34;lbTgName&#34;).orElse(&#34;&#34;);
-     *         final var test = LbFunctions.getTargetGroup(GetTargetGroupArgs.builder()
-     *             .arn(lbTgArn)
-     *             .name(lbTgName)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetTargetGroupResult> getTargetGroup(GetTargetGroupArgs args) {
         return getTargetGroup(args, InvokeOptions.Empty);
@@ -1306,40 +322,6 @@ public final class LbFunctions {
      * This data source can prove useful when a module accepts an LB Target Group as an
      * input variable and needs to know its attributes. It can also be used to get the ARN of
      * an LB Target Group for use in other resources, given LB Target Group name.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.lb.LbFunctions;
-     * import com.pulumi.aws.lb.inputs.GetTargetGroupArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var config = ctx.config();
-     *         final var lbTgArn = config.get(&#34;lbTgArn&#34;).orElse(&#34;&#34;);
-     *         final var lbTgName = config.get(&#34;lbTgName&#34;).orElse(&#34;&#34;);
-     *         final var test = LbFunctions.getTargetGroup(GetTargetGroupArgs.builder()
-     *             .arn(lbTgArn)
-     *             .name(lbTgName)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetTargetGroupResult> getTargetGroupPlain(GetTargetGroupPlainArgs args) {
@@ -1354,40 +336,6 @@ public final class LbFunctions {
      * input variable and needs to know its attributes. It can also be used to get the ARN of
      * an LB Target Group for use in other resources, given LB Target Group name.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.lb.LbFunctions;
-     * import com.pulumi.aws.lb.inputs.GetTargetGroupArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var config = ctx.config();
-     *         final var lbTgArn = config.get(&#34;lbTgArn&#34;).orElse(&#34;&#34;);
-     *         final var lbTgName = config.get(&#34;lbTgName&#34;).orElse(&#34;&#34;);
-     *         final var test = LbFunctions.getTargetGroup(GetTargetGroupArgs.builder()
-     *             .arn(lbTgArn)
-     *             .name(lbTgName)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetTargetGroupResult> getTargetGroup(GetTargetGroupArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:lb/getTargetGroup:getTargetGroup", TypeShape.of(GetTargetGroupResult.class), args, Utilities.withVersion(options));
@@ -1400,40 +348,6 @@ public final class LbFunctions {
      * This data source can prove useful when a module accepts an LB Target Group as an
      * input variable and needs to know its attributes. It can also be used to get the ARN of
      * an LB Target Group for use in other resources, given LB Target Group name.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.lb.LbFunctions;
-     * import com.pulumi.aws.lb.inputs.GetTargetGroupArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var config = ctx.config();
-     *         final var lbTgArn = config.get(&#34;lbTgArn&#34;).orElse(&#34;&#34;);
-     *         final var lbTgName = config.get(&#34;lbTgName&#34;).orElse(&#34;&#34;);
-     *         final var test = LbFunctions.getTargetGroup(GetTargetGroupArgs.builder()
-     *             .arn(lbTgArn)
-     *             .name(lbTgName)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetTargetGroupResult> getTargetGroupPlain(GetTargetGroupPlainArgs args, InvokeOptions options) {
@@ -1448,40 +362,6 @@ public final class LbFunctions {
      * input variable and needs to know its attributes. It can also be used to get the ARN of
      * an LB Trust Store for use in other resources, given LB Trust Store name.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.lb.LbFunctions;
-     * import com.pulumi.aws.lb.inputs.GetTrustStoreArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var config = ctx.config();
-     *         final var lbTsArn = config.get(&#34;lbTsArn&#34;).orElse(&#34;&#34;);
-     *         final var lbTsName = config.get(&#34;lbTsName&#34;).orElse(&#34;&#34;);
-     *         final var test = LbFunctions.getTrustStore(GetTrustStoreArgs.builder()
-     *             .arn(lbTsArn)
-     *             .name(lbTsName)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetTrustStoreResult> getTrustStore() {
         return getTrustStore(GetTrustStoreArgs.Empty, InvokeOptions.Empty);
@@ -1494,40 +374,6 @@ public final class LbFunctions {
      * This data source can prove useful when a module accepts an LB Trust Store as an
      * input variable and needs to know its attributes. It can also be used to get the ARN of
      * an LB Trust Store for use in other resources, given LB Trust Store name.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.lb.LbFunctions;
-     * import com.pulumi.aws.lb.inputs.GetTrustStoreArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var config = ctx.config();
-     *         final var lbTsArn = config.get(&#34;lbTsArn&#34;).orElse(&#34;&#34;);
-     *         final var lbTsName = config.get(&#34;lbTsName&#34;).orElse(&#34;&#34;);
-     *         final var test = LbFunctions.getTrustStore(GetTrustStoreArgs.builder()
-     *             .arn(lbTsArn)
-     *             .name(lbTsName)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetTrustStoreResult> getTrustStorePlain() {
@@ -1542,40 +388,6 @@ public final class LbFunctions {
      * input variable and needs to know its attributes. It can also be used to get the ARN of
      * an LB Trust Store for use in other resources, given LB Trust Store name.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.lb.LbFunctions;
-     * import com.pulumi.aws.lb.inputs.GetTrustStoreArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var config = ctx.config();
-     *         final var lbTsArn = config.get(&#34;lbTsArn&#34;).orElse(&#34;&#34;);
-     *         final var lbTsName = config.get(&#34;lbTsName&#34;).orElse(&#34;&#34;);
-     *         final var test = LbFunctions.getTrustStore(GetTrustStoreArgs.builder()
-     *             .arn(lbTsArn)
-     *             .name(lbTsName)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetTrustStoreResult> getTrustStore(GetTrustStoreArgs args) {
         return getTrustStore(args, InvokeOptions.Empty);
@@ -1588,40 +400,6 @@ public final class LbFunctions {
      * This data source can prove useful when a module accepts an LB Trust Store as an
      * input variable and needs to know its attributes. It can also be used to get the ARN of
      * an LB Trust Store for use in other resources, given LB Trust Store name.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.lb.LbFunctions;
-     * import com.pulumi.aws.lb.inputs.GetTrustStoreArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var config = ctx.config();
-     *         final var lbTsArn = config.get(&#34;lbTsArn&#34;).orElse(&#34;&#34;);
-     *         final var lbTsName = config.get(&#34;lbTsName&#34;).orElse(&#34;&#34;);
-     *         final var test = LbFunctions.getTrustStore(GetTrustStoreArgs.builder()
-     *             .arn(lbTsArn)
-     *             .name(lbTsName)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetTrustStoreResult> getTrustStorePlain(GetTrustStorePlainArgs args) {
@@ -1636,40 +414,6 @@ public final class LbFunctions {
      * input variable and needs to know its attributes. It can also be used to get the ARN of
      * an LB Trust Store for use in other resources, given LB Trust Store name.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.lb.LbFunctions;
-     * import com.pulumi.aws.lb.inputs.GetTrustStoreArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var config = ctx.config();
-     *         final var lbTsArn = config.get(&#34;lbTsArn&#34;).orElse(&#34;&#34;);
-     *         final var lbTsName = config.get(&#34;lbTsName&#34;).orElse(&#34;&#34;);
-     *         final var test = LbFunctions.getTrustStore(GetTrustStoreArgs.builder()
-     *             .arn(lbTsArn)
-     *             .name(lbTsName)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetTrustStoreResult> getTrustStore(GetTrustStoreArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:lb/getTrustStore:getTrustStore", TypeShape.of(GetTrustStoreResult.class), args, Utilities.withVersion(options));
@@ -1682,40 +426,6 @@ public final class LbFunctions {
      * This data source can prove useful when a module accepts an LB Trust Store as an
      * input variable and needs to know its attributes. It can also be used to get the ARN of
      * an LB Trust Store for use in other resources, given LB Trust Store name.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.lb.LbFunctions;
-     * import com.pulumi.aws.lb.inputs.GetTrustStoreArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var config = ctx.config();
-     *         final var lbTsArn = config.get(&#34;lbTsArn&#34;).orElse(&#34;&#34;);
-     *         final var lbTsName = config.get(&#34;lbTsName&#34;).orElse(&#34;&#34;);
-     *         final var test = LbFunctions.getTrustStore(GetTrustStoreArgs.builder()
-     *             .arn(lbTsArn)
-     *             .name(lbTsName)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetTrustStoreResult> getTrustStorePlain(GetTrustStorePlainArgs args, InvokeOptions options) {

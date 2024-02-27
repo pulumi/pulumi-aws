@@ -26,55 +26,54 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	ec2/spotFleetRequest "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/spotFleetRequest"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.NewSpotFleetRequest(ctx, "cheapCompute", &ec2.SpotFleetRequestArgs{
-//				IamFleetRole:       pulumi.String("arn:aws:iam::12345678:role/spot-fleet"),
-//				SpotPrice:          pulumi.String("0.03"),
-//				AllocationStrategy: pulumi.String("diversified"),
-//				TargetCapacity:     pulumi.Int(6),
-//				ValidUntil:         pulumi.String("2019-11-04T20:44:20Z"),
-//				LaunchSpecifications: ec2.SpotFleetRequestLaunchSpecificationArray{
-//					&ec2.SpotFleetRequestLaunchSpecificationArgs{
-//						InstanceType:          pulumi.String("m4.10xlarge"),
-//						Ami:                   pulumi.String("ami-1234"),
-//						SpotPrice:             pulumi.String("2.793"),
-//						PlacementTenancy:      pulumi.String("dedicated"),
-//						IamInstanceProfileArn: pulumi.Any(aws_iam_instance_profile.Example.Arn),
-//					},
-//					&ec2.SpotFleetRequestLaunchSpecificationArgs{
-//						InstanceType:          pulumi.String("m4.4xlarge"),
-//						Ami:                   pulumi.String("ami-5678"),
-//						KeyName:               pulumi.String("my-key"),
-//						SpotPrice:             pulumi.String("1.117"),
-//						IamInstanceProfileArn: pulumi.Any(aws_iam_instance_profile.Example.Arn),
-//						AvailabilityZone:      pulumi.String("us-west-1a"),
-//						SubnetId:              pulumi.String("subnet-1234"),
-//						WeightedCapacity:      pulumi.String("35"),
-//						RootBlockDevices: ec2.SpotFleetRequestLaunchSpecificationRootBlockDeviceArray{
-//							&ec2.SpotFleetRequestLaunchSpecificationRootBlockDeviceArgs{
-//								VolumeSize: pulumi.Int(300),
-//								VolumeType: pulumi.String("gp2"),
-//							},
-//						},
-//						Tags: pulumi.StringMap{
-//							"Name": pulumi.String("spot-fleet-example"),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// // Request a Spot fleet
+// _, err := ec2/spotFleetRequest.NewSpotFleetRequest(ctx, "cheapCompute", &ec2/spotFleetRequest.SpotFleetRequestArgs{
+// IamFleetRole: "arn:aws:iam::12345678:role/spot-fleet",
+// SpotPrice: "0.03",
+// AllocationStrategy: "diversified",
+// TargetCapacity: 6,
+// ValidUntil: "2019-11-04T20:44:20Z",
+// LaunchSpecifications: []interface{}{
+// map[string]interface{}{
+// "instanceType": "m4.10xlarge",
+// "ami": "ami-1234",
+// "spotPrice": "2.793",
+// "placementTenancy": "dedicated",
+// "iamInstanceProfileArn": aws_iam_instance_profile.Example.Arn,
+// },
+// map[string]interface{}{
+// "instanceType": "m4.4xlarge",
+// "ami": "ami-5678",
+// "keyName": "my-key",
+// "spotPrice": "1.117",
+// "iamInstanceProfileArn": aws_iam_instance_profile.Example.Arn,
+// "availabilityZone": "us-west-1a",
+// "subnetId": "subnet-1234",
+// "weightedCapacity": 35,
+// "rootBlockDevices": []map[string]interface{}{
+// map[string]interface{}{
+// "volumeSize": "300",
+// "volumeType": "gp2",
+// },
+// },
+// "tags": map[string]interface{}{
+// "Name": "spot-fleet-example",
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Using launch templates
 //
@@ -83,109 +82,137 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			fooLaunchTemplate, err := ec2.NewLaunchTemplate(ctx, "fooLaunchTemplate", &ec2.LaunchTemplateArgs{
-//				ImageId:      pulumi.String("ami-516b9131"),
-//				InstanceType: pulumi.String("m1.small"),
-//				KeyName:      pulumi.String("some-key"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ec2.NewSpotFleetRequest(ctx, "fooSpotFleetRequest", &ec2.SpotFleetRequestArgs{
-//				IamFleetRole:   pulumi.String("arn:aws:iam::12345678:role/spot-fleet"),
-//				SpotPrice:      pulumi.String("0.005"),
-//				TargetCapacity: pulumi.Int(2),
-//				ValidUntil:     pulumi.String("2019-11-04T20:44:20Z"),
-//				LaunchTemplateConfigs: ec2.SpotFleetRequestLaunchTemplateConfigArray{
-//					&ec2.SpotFleetRequestLaunchTemplateConfigArgs{
-//						LaunchTemplateSpecification: &ec2.SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationArgs{
-//							Id:      fooLaunchTemplate.ID(),
-//							Version: fooLaunchTemplate.LatestVersion,
-//						},
-//					},
-//				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				aws_iam_policy_attachment.TestAttach,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// > **NOTE:** This provider does not support the functionality where multiple `subnetId` or `availabilityZone` parameters can be specified in the same
-// launch configuration block. If you want to specify multiple values, then separate launch configuration blocks should be used or launch template overrides should be configured, one per subnet:
-// ### Using multiple launch configurations
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	ec2/launchTemplate "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/launchTemplate"
+//	ec2/spotFleetRequest "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/spotFleetRequest"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 // func main() {
 // pulumi.Run(func(ctx *pulumi.Context) error {
-// example, err := ec2.GetSubnets(ctx, &ec2.GetSubnetsArgs{
-// Filters: []ec2.GetSubnetsFilter{
-// {
-// Name: "vpc-id",
-// Values: interface{}{
-// _var.Vpc_id,
-// },
-// },
-// },
-// }, nil);
-// if err != nil {
-// return err
-// }
-// fooLaunchTemplate, err := ec2.NewLaunchTemplate(ctx, "fooLaunchTemplate", &ec2.LaunchTemplateArgs{
-// ImageId: pulumi.String("ami-516b9131"),
-// InstanceType: pulumi.String("m1.small"),
-// KeyName: pulumi.String("some-key"),
+// fooLaunchTemplate, err := ec2/launchTemplate.NewLaunchTemplate(ctx, "fooLaunchTemplate", &ec2/launchTemplate.LaunchTemplateArgs{
+// ImageId: "ami-516b9131",
+// InstanceType: "m1.small",
+// KeyName: "some-key",
 // })
 // if err != nil {
 // return err
 // }
-// _, err = ec2.NewSpotFleetRequest(ctx, "fooSpotFleetRequest", &ec2.SpotFleetRequestArgs{
-// IamFleetRole: pulumi.String("arn:aws:iam::12345678:role/spot-fleet"),
-// SpotPrice: pulumi.String("0.005"),
-// TargetCapacity: pulumi.Int(2),
-// ValidUntil: pulumi.String("2019-11-04T20:44:20Z"),
-// LaunchTemplateConfigs: ec2.SpotFleetRequestLaunchTemplateConfigArray{
-// &ec2.SpotFleetRequestLaunchTemplateConfigArgs{
-// LaunchTemplateSpecification: &ec2.SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationArgs{
-// Id: fooLaunchTemplate.ID(),
-// Version: fooLaunchTemplate.LatestVersion,
-// },
-// Overrides: ec2.SpotFleetRequestLaunchTemplateConfigOverrideArray{
-// &ec2.SpotFleetRequestLaunchTemplateConfigOverrideArgs{
-// SubnetId: *pulumi.String(example.Ids[0]),
-// },
-// &ec2.SpotFleetRequestLaunchTemplateConfigOverrideArgs{
-// SubnetId: *pulumi.String(example.Ids[1]),
-// },
-// &ec2.SpotFleetRequestLaunchTemplateConfigOverrideArgs{
-// SubnetId: *pulumi.String(example.Ids[2]),
-// },
+// _, err = ec2/spotFleetRequest.NewSpotFleetRequest(ctx, "fooSpotFleetRequest", &ec2/spotFleetRequest.SpotFleetRequestArgs{
+// IamFleetRole: "arn:aws:iam::12345678:role/spot-fleet",
+// SpotPrice: "0.005",
+// TargetCapacity: 2,
+// ValidUntil: "2019-11-04T20:44:20Z",
+// LaunchTemplateConfigs: []map[string]interface{}{
+// map[string]interface{}{
+// "launchTemplateSpecification": map[string]interface{}{
+// "id": fooLaunchTemplate.Id,
+// "version": fooLaunchTemplate.LatestVersion,
 // },
 // },
 // },
 // }, pulumi.DependsOn([]pulumi.Resource{
 // aws_iam_policy_attachment.TestAttach,
 // }))
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
+// ```
+//
+// > **NOTE:** This provider does not support the functionality where multiple `subnetId` or `availabilityZone` parameters can be specified in the same
+// launch configuration block. If you want to specify multiple values, then separate launch configuration blocks should be used or launch template overrides should be configured, one per subnet:
+// ### Using multiple launch specifications
+//
+// ```go
+// package main
+//
+// import (
+//
+//	ec2/spotFleetRequest "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/spotFleetRequest"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := ec2/spotFleetRequest.NewSpotFleetRequest(ctx, "foo", &ec2/spotFleetRequest.SpotFleetRequestArgs{
+// IamFleetRole: "arn:aws:iam::12345678:role/spot-fleet",
+// LaunchSpecifications: []map[string]interface{}{
+// map[string]interface{}{
+// "ami": "ami-d06a90b0",
+// "availabilityZone": "us-west-2a",
+// "instanceType": "m1.small",
+// "keyName": "my-key",
+// },
+// map[string]interface{}{
+// "ami": "ami-d06a90b0",
+// "availabilityZone": "us-west-2a",
+// "instanceType": "m5.large",
+// "keyName": "my-key",
+// },
+// },
+// SpotPrice: "0.005",
+// TargetCapacity: 2,
+// ValidUntil: "2019-11-04T20:44:20Z",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
+// ```
+//
+// > In this example, we use a `dynamic` block to define zero or more `launchSpecification` blocks, producing one for each element in the list of subnet ids.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	ec2/spotFleetRequest "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/spotFleetRequest"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
+//
+// )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// cfg := config.New(ctx, "")
+// subnets := cfg.RequireObject("subnets")
+// _, err := ec2/spotFleetRequest.NewSpotFleetRequest(ctx, "example", &ec2/spotFleetRequest.SpotFleetRequestArgs{
+// IamFleetRole: "arn:aws:iam::12345678:role/spot-fleet",
+// TargetCapacity: 3,
+// ValidUntil: "2019-11-04T20:44:20Z",
+// AllocationStrategy: "lowestPrice",
+// FleetType: "request",
+// WaitForFulfillment: "true",
+// TerminateInstancesWithExpiration: "true",
+// Dynamic: []map[string]interface{}{
+// map[string]interface{}{
+// "forEach": "TODO: For expression",
+// "content": []map[string]interface{}{
+// map[string]interface{}{
+// "ami": "ami-1234",
+// "instanceType": "m4.4xlarge",
+// "subnetId": launch_specification.Value.Subnet_id,
+// "vpcSecurityGroupIds": "sg-123456",
+// "rootBlockDevice": []map[string]interface{}{
+// map[string]interface{}{
+// "volumeSize": "8",
+// "volumeType": "gp2",
+// "deleteOnTermination": "true",
+// },
+// },
+// "tags": map[string]interface{}{
+// "Name": "Spot Node",
+// "tagBuilder": "builder",
+// },
+// },
+// },
+// },
+// },
+// })
 // if err != nil {
 // return err
 // }

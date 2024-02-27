@@ -24,7 +24,7 @@ namespace Pulumi.Aws.Batch
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Aws.Batch.JobDefinition("test", new()
+    ///     var test = new Aws.Batch.JobDefinition.JobDefinition("test", new()
     ///     {
     ///         Type = "container",
     ///         ContainerProperties = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
@@ -101,7 +101,7 @@ namespace Pulumi.Aws.Batch
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Aws.Batch.JobDefinition("test", new()
+    ///     var test = new Aws.Batch.JobDefinition.JobDefinition("test", new()
     ///     {
     ///         Type = "multinode",
     ///         NodeProperties = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
@@ -146,88 +146,50 @@ namespace Pulumi.Aws.Batch
     /// 
     /// });
     /// ```
-    /// ### Fargate Platform Capability
+    /// ### Job Definitionn of type EKS
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
-    /// using System.Text.Json;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var assumeRolePolicy = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     var test = new Aws.Batch.JobDefinition.JobDefinition("test", new()
     ///     {
-    ///         Statements = new[]
+    ///         EksProperties = 
     ///         {
-    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             { "podProperties", 
     ///             {
-    ///                 Actions = new[]
+    ///                 { "containers", 
     ///                 {
-    ///                     "sts:AssumeRole",
-    ///                 },
-    ///                 Principals = new[]
-    ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+    ///                     { "command", new[]
     ///                     {
-    ///                         Type = "Service",
-    ///                         Identifiers = new[]
+    ///                         "sleep",
+    ///                         "60",
+    ///                     } },
+    ///                     { "image", "public.ecr.aws/amazonlinux/amazonlinux:1" },
+    ///                     { "resources", 
+    ///                     {
+    ///                         { "limits", 
     ///                         {
-    ///                             "ecs-tasks.amazonaws.com",
-    ///                         },
-    ///                     },
-    ///                 },
-    ///             },
+    ///                             { "cpu", "1" },
+    ///                             { "memory", "1024Mi" },
+    ///                         } },
+    ///                     } },
+    ///                 } },
+    ///                 { "hostNetwork", true },
+    ///                 { "metadata", 
+    ///                 {
+    ///                     { "labels", 
+    ///                     {
+    ///                         { "environment", "test" },
+    ///                     } },
+    ///                 } },
+    ///             } },
     ///         },
-    ///     });
-    /// 
-    ///     var ecsTaskExecutionRole = new Aws.Iam.Role("ecsTaskExecutionRole", new()
-    ///     {
-    ///         AssumeRolePolicy = assumeRolePolicy.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
-    ///     });
-    /// 
-    ///     var ecsTaskExecutionRolePolicy = new Aws.Iam.RolePolicyAttachment("ecsTaskExecutionRolePolicy", new()
-    ///     {
-    ///         Role = ecsTaskExecutionRole.Name,
-    ///         PolicyArn = "arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy",
-    ///     });
-    /// 
-    ///     var test = new Aws.Batch.JobDefinition("test", new()
-    ///     {
     ///         Type = "container",
-    ///         PlatformCapabilities = new[]
-    ///         {
-    ///             "FARGATE",
-    ///         },
-    ///         ContainerProperties = ecsTaskExecutionRole.Arn.Apply(arn =&gt; JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///         {
-    ///             ["command"] = new[]
-    ///             {
-    ///                 "echo",
-    ///                 "test",
-    ///             },
-    ///             ["image"] = "busybox",
-    ///             ["jobRoleArn"] = "arn:aws:iam::123456789012:role/AWSBatchS3ReadOnly",
-    ///             ["fargatePlatformConfiguration"] = new Dictionary&lt;string, object?&gt;
-    ///             {
-    ///                 ["platformVersion"] = "LATEST",
-    ///             },
-    ///             ["resourceRequirements"] = new[]
-    ///             {
-    ///                 new Dictionary&lt;string, object?&gt;
-    ///                 {
-    ///                     ["type"] = "VCPU",
-    ///                     ["value"] = "0.25",
-    ///                 },
-    ///                 new Dictionary&lt;string, object?&gt;
-    ///                 {
-    ///                     ["type"] = "MEMORY",
-    ///                     ["value"] = "512",
-    ///                 },
-    ///             },
-    ///             ["executionRoleArn"] = arn,
-    ///         })),
     ///     });
     /// 
     /// });

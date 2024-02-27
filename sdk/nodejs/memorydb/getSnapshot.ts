@@ -9,17 +9,6 @@ import * as utilities from "../utilities";
 
 /**
  * Provides information about a MemoryDB Snapshot.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.memorydb.getSnapshot({
- *     name: "my-snapshot",
- * });
- * ```
  */
 export function getSnapshot(args: GetSnapshotArgs, opts?: pulumi.InvokeOptions): Promise<GetSnapshotResult> {
 
@@ -83,17 +72,6 @@ export interface GetSnapshotResult {
 }
 /**
  * Provides information about a MemoryDB Snapshot.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.memorydb.getSnapshot({
- *     name: "my-snapshot",
- * });
- * ```
  */
 export function getSnapshotOutput(args: GetSnapshotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSnapshotResult> {
     return pulumi.output(args).apply((a: any) => getSnapshot(a, opts))

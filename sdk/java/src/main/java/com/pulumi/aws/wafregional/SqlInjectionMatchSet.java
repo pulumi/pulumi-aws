@@ -28,8 +28,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.wafregional.SqlInjectionMatchSet;
  * import com.pulumi.aws.wafregional.SqlInjectionMatchSetArgs;
- * import com.pulumi.aws.wafregional.inputs.SqlInjectionMatchSetSqlInjectionMatchTupleArgs;
- * import com.pulumi.aws.wafregional.inputs.SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatchArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -44,12 +42,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var sqlInjectionMatchSet = new SqlInjectionMatchSet(&#34;sqlInjectionMatchSet&#34;, SqlInjectionMatchSetArgs.builder()        
- *             .sqlInjectionMatchTuples(SqlInjectionMatchSetSqlInjectionMatchTupleArgs.builder()
- *                 .fieldToMatch(SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatchArgs.builder()
- *                     .type(&#34;QUERY_STRING&#34;)
- *                     .build())
- *                 .textTransformation(&#34;URL_DECODE&#34;)
- *                 .build())
+ *             .sqlInjectionMatchTuples(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

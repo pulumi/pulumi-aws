@@ -25,21 +25,20 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lightsail"
+//	lightsail/keyPair "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/lightsail/keyPair"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lightsail.NewKeyPair(ctx, "lgKeyPair", nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// // Create a new Lightsail Key Pair
+// _, err := lightsail/keyPair.NewKeyPair(ctx, "lgKeyPair", nil)
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Create New Key Pair with PGP Encrypted Private Key
 //
@@ -48,23 +47,21 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lightsail"
+//	lightsail/keyPair "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/lightsail/keyPair"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lightsail.NewKeyPair(ctx, "lgKeyPair", &lightsail.KeyPairArgs{
-//				PgpKey: pulumi.String("keybase:keybaseusername"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := lightsail/keyPair.NewKeyPair(ctx, "lgKeyPair", &lightsail/keyPair.KeyPairArgs{
+// PgpKey: "keybase:keybaseusername",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Existing Public Key Import
 //
@@ -75,31 +72,30 @@ import (
 //
 //	"os"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lightsail"
+//	lightsail/keyPair "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/lightsail/keyPair"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func readFileOrPanic(path string) pulumi.StringPtrInput {
-//		data, err := os.ReadFile(path)
-//		if err != nil {
-//			panic(err.Error())
-//		}
-//		return pulumi.String(string(data))
-//	}
+//					data, err := os.ReadFile(path)
+//					if err != nil {
+//						panic(err.Error())
+//					}
+//					return pulumi.String(string(data))
+//				}
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lightsail.NewKeyPair(ctx, "lgKeyPair", &lightsail.KeyPairArgs{
-//				PublicKey: readFileOrPanic("~/.ssh/id_rsa.pub"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := lightsail/keyPair.NewKeyPair(ctx, "lgKeyPair", &lightsail/keyPair.KeyPairArgs{
+// PublicKey: readFileOrPanic("~/.ssh/id_rsa.pub"),
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

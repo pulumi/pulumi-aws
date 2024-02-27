@@ -23,7 +23,7 @@ namespace Pulumi.Aws.ServiceCatalog
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.ServiceCatalog.ProductPortfolioAssociation("example", new()
+    ///     var example = new Aws.Servicecatalog.ProductPortfolioAssociation.ProductPortfolioAssociation("example", new()
     ///     {
     ///         PortfolioId = "port-68656c6c6f",
     ///         ProductId = "prod-dnigbtea24ste",

@@ -8,16 +8,6 @@ import * as utilities from "../utilities";
  * Data source for managing an AWS CloudWatch Observability Access Manager Sink.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.oam.getSink({
- *     sinkIdentifier: "arn:aws:oam:us-west-1:111111111111:sink/abcd1234-a123-456a-a12b-a123b456c789",
- * });
- * ```
  */
 export function getSink(args: GetSinkArgs, opts?: pulumi.InvokeOptions): Promise<GetSinkResult> {
 
@@ -72,16 +62,6 @@ export interface GetSinkResult {
  * Data source for managing an AWS CloudWatch Observability Access Manager Sink.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.oam.getSink({
- *     sinkIdentifier: "arn:aws:oam:us-west-1:111111111111:sink/abcd1234-a123-456a-a12b-a123b456c789",
- * });
- * ```
  */
 export function getSinkOutput(args: GetSinkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSinkResult> {
     return pulumi.output(args).apply((a: any) => getSink(a, opts))

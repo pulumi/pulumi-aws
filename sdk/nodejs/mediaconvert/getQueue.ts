@@ -6,17 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieve information about a AWS Elemental MediaConvert Queue.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.mediaconvert.getQueue({
- *     id: "tf-example-queue",
- * });
- * ```
  */
 export function getQueue(args: GetQueueArgs, opts?: pulumi.InvokeOptions): Promise<GetQueueResult> {
 
@@ -65,17 +54,6 @@ export interface GetQueueResult {
 }
 /**
  * Retrieve information about a AWS Elemental MediaConvert Queue.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.mediaconvert.getQueue({
- *     id: "tf-example-queue",
- * });
- * ```
  */
 export function getQueueOutput(args: GetQueueOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetQueueResult> {
     return pulumi.output(args).apply((a: any) => getQueue(a, opts))

@@ -15,115 +15,6 @@ namespace Pulumi.Aws.CodeDeploy
     /// &gt; **NOTE on blue/green deployments:** When using `green_fleet_provisioning_option` with the `COPY_AUTO_SCALING_GROUP` action, CodeDeploy will create a new ASG with a different name. This ASG is _not_ managed by this provider and will conflict with existing configuration and state. You may want to use a different approach to managing deployments that involve multiple ASG, such as `DISCOVER_EXISTING` with separate blue and green ASG.
     /// 
     /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var assumeRole = Aws.Iam.GetPolicyDocument.Invoke(new()
-    ///     {
-    ///         Statements = new[]
-    ///         {
-    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
-    ///             {
-    ///                 Effect = "Allow",
-    ///                 Principals = new[]
-    ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
-    ///                     {
-    ///                         Type = "Service",
-    ///                         Identifiers = new[]
-    ///                         {
-    ///                             "codedeploy.amazonaws.com",
-    ///                         },
-    ///                     },
-    ///                 },
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "sts:AssumeRole",
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleRole = new Aws.Iam.Role("exampleRole", new()
-    ///     {
-    ///         AssumeRolePolicy = assumeRole.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
-    ///     });
-    /// 
-    ///     var aWSCodeDeployRole = new Aws.Iam.RolePolicyAttachment("aWSCodeDeployRole", new()
-    ///     {
-    ///         PolicyArn = "arn:aws:iam::aws:policy/service-role/AWSCodeDeployRole",
-    ///         Role = exampleRole.Name,
-    ///     });
-    /// 
-    ///     var exampleApplication = new Aws.CodeDeploy.Application("exampleApplication");
-    /// 
-    ///     var exampleTopic = new Aws.Sns.Topic("exampleTopic");
-    /// 
-    ///     var exampleDeploymentGroup = new Aws.CodeDeploy.DeploymentGroup("exampleDeploymentGroup", new()
-    ///     {
-    ///         AppName = exampleApplication.Name,
-    ///         DeploymentGroupName = "example-group",
-    ///         ServiceRoleArn = exampleRole.Arn,
-    ///         Ec2TagSets = new[]
-    ///         {
-    ///             new Aws.CodeDeploy.Inputs.DeploymentGroupEc2TagSetArgs
-    ///             {
-    ///                 Ec2TagFilters = new[]
-    ///                 {
-    ///                     new Aws.CodeDeploy.Inputs.DeploymentGroupEc2TagSetEc2TagFilterArgs
-    ///                     {
-    ///                         Key = "filterkey1",
-    ///                         Type = "KEY_AND_VALUE",
-    ///                         Value = "filtervalue",
-    ///                     },
-    ///                     new Aws.CodeDeploy.Inputs.DeploymentGroupEc2TagSetEc2TagFilterArgs
-    ///                     {
-    ///                         Key = "filterkey2",
-    ///                         Type = "KEY_AND_VALUE",
-    ///                         Value = "filtervalue",
-    ///                     },
-    ///                 },
-    ///             },
-    ///         },
-    ///         TriggerConfigurations = new[]
-    ///         {
-    ///             new Aws.CodeDeploy.Inputs.DeploymentGroupTriggerConfigurationArgs
-    ///             {
-    ///                 TriggerEvents = new[]
-    ///                 {
-    ///                     "DeploymentFailure",
-    ///                 },
-    ///                 TriggerName = "example-trigger",
-    ///                 TriggerTargetArn = exampleTopic.Arn,
-    ///             },
-    ///         },
-    ///         AutoRollbackConfiguration = new Aws.CodeDeploy.Inputs.DeploymentGroupAutoRollbackConfigurationArgs
-    ///         {
-    ///             Enabled = true,
-    ///             Events = new[]
-    ///             {
-    ///                 "DEPLOYMENT_FAILURE",
-    ///             },
-    ///         },
-    ///         AlarmConfiguration = new Aws.CodeDeploy.Inputs.DeploymentGroupAlarmConfigurationArgs
-    ///         {
-    ///             Alarms = new[]
-    ///             {
-    ///                 "my-alarm-name",
-    ///             },
-    ///             Enabled = true,
-    ///         },
-    ///         OutdatedInstancesStrategy = "UPDATE",
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// ### Blue Green Deployments with ECS
     /// 
     /// ```csharp
@@ -134,70 +25,70 @@ namespace Pulumi.Aws.CodeDeploy
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleApplication = new Aws.CodeDeploy.Application("exampleApplication", new()
+    ///     var exampleApplication = new Aws.Codedeploy.Application.Application("exampleApplication", new()
     ///     {
     ///         ComputePlatform = "ECS",
     ///     });
     /// 
-    ///     var exampleDeploymentGroup = new Aws.CodeDeploy.DeploymentGroup("exampleDeploymentGroup", new()
+    ///     var exampleDeploymentGroup = new Aws.Codedeploy.DeploymentGroup.DeploymentGroup("exampleDeploymentGroup", new()
     ///     {
     ///         AppName = exampleApplication.Name,
     ///         DeploymentConfigName = "CodeDeployDefault.ECSAllAtOnce",
     ///         DeploymentGroupName = "example",
     ///         ServiceRoleArn = aws_iam_role.Example.Arn,
-    ///         AutoRollbackConfiguration = new Aws.CodeDeploy.Inputs.DeploymentGroupAutoRollbackConfigurationArgs
+    ///         AutoRollbackConfiguration = 
     ///         {
-    ///             Enabled = true,
-    ///             Events = new[]
+    ///             { "enabled", true },
+    ///             { "events", new[]
     ///             {
     ///                 "DEPLOYMENT_FAILURE",
-    ///             },
+    ///             } },
     ///         },
-    ///         BlueGreenDeploymentConfig = new Aws.CodeDeploy.Inputs.DeploymentGroupBlueGreenDeploymentConfigArgs
+    ///         BlueGreenDeploymentConfig = 
     ///         {
-    ///             DeploymentReadyOption = new Aws.CodeDeploy.Inputs.DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionArgs
+    ///             { "deploymentReadyOption", 
     ///             {
-    ///                 ActionOnTimeout = "CONTINUE_DEPLOYMENT",
-    ///             },
-    ///             TerminateBlueInstancesOnDeploymentSuccess = new Aws.CodeDeploy.Inputs.DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessArgs
+    ///                 { "actionOnTimeout", "CONTINUE_DEPLOYMENT" },
+    ///             } },
+    ///             { "terminateBlueInstancesOnDeploymentSuccess", 
     ///             {
-    ///                 Action = "TERMINATE",
-    ///                 TerminationWaitTimeInMinutes = 5,
-    ///             },
+    ///                 { "action", "TERMINATE" },
+    ///                 { "terminationWaitTimeInMinutes", 5 },
+    ///             } },
     ///         },
-    ///         DeploymentStyle = new Aws.CodeDeploy.Inputs.DeploymentGroupDeploymentStyleArgs
+    ///         DeploymentStyle = 
     ///         {
-    ///             DeploymentOption = "WITH_TRAFFIC_CONTROL",
-    ///             DeploymentType = "BLUE_GREEN",
+    ///             { "deploymentOption", "WITH_TRAFFIC_CONTROL" },
+    ///             { "deploymentType", "BLUE_GREEN" },
     ///         },
-    ///         EcsService = new Aws.CodeDeploy.Inputs.DeploymentGroupEcsServiceArgs
+    ///         EcsService = 
     ///         {
-    ///             ClusterName = aws_ecs_cluster.Example.Name,
-    ///             ServiceName = aws_ecs_service.Example.Name,
+    ///             { "clusterName", aws_ecs_cluster.Example.Name },
+    ///             { "serviceName", aws_ecs_service.Example.Name },
     ///         },
-    ///         LoadBalancerInfo = new Aws.CodeDeploy.Inputs.DeploymentGroupLoadBalancerInfoArgs
+    ///         LoadBalancerInfo = 
     ///         {
-    ///             TargetGroupPairInfo = new Aws.CodeDeploy.Inputs.DeploymentGroupLoadBalancerInfoTargetGroupPairInfoArgs
+    ///             { "targetGroupPairInfo", 
     ///             {
-    ///                 ProdTrafficRoute = new Aws.CodeDeploy.Inputs.DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRouteArgs
+    ///                 { "prodTrafficRoute", 
     ///                 {
-    ///                     ListenerArns = new[]
+    ///                     { "listenerArns", new[]
     ///                     {
     ///                         aws_lb_listener.Example.Arn,
-    ///                     },
-    ///                 },
-    ///                 TargetGroups = new[]
+    ///                     } },
+    ///                 } },
+    ///                 { "targetGroups", new[]
     ///                 {
-    ///                     new Aws.CodeDeploy.Inputs.DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupArgs
+    ///                     
     ///                     {
-    ///                         Name = aws_lb_target_group.Blue.Name,
+    ///                         { "name", aws_lb_target_group.Blue.Name },
     ///                     },
-    ///                     new Aws.CodeDeploy.Inputs.DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupArgs
+    ///                     
     ///                     {
-    ///                         Name = aws_lb_target_group.Green.Name,
+    ///                         { "name", aws_lb_target_group.Green.Name },
     ///                     },
-    ///                 },
-    ///             },
+    ///                 } },
+    ///             } },
     ///         },
     ///     });
     /// 
@@ -213,43 +104,43 @@ namespace Pulumi.Aws.CodeDeploy
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleApplication = new Aws.CodeDeploy.Application("exampleApplication");
+    ///     var exampleApplication = new Aws.Codedeploy.Application.Application("exampleApplication");
     /// 
-    ///     var exampleDeploymentGroup = new Aws.CodeDeploy.DeploymentGroup("exampleDeploymentGroup", new()
+    ///     var exampleDeploymentGroup = new Aws.Codedeploy.DeploymentGroup.DeploymentGroup("exampleDeploymentGroup", new()
     ///     {
     ///         AppName = exampleApplication.Name,
     ///         DeploymentGroupName = "example-group",
     ///         ServiceRoleArn = aws_iam_role.Example.Arn,
-    ///         DeploymentStyle = new Aws.CodeDeploy.Inputs.DeploymentGroupDeploymentStyleArgs
+    ///         DeploymentStyle = 
     ///         {
-    ///             DeploymentOption = "WITH_TRAFFIC_CONTROL",
-    ///             DeploymentType = "BLUE_GREEN",
+    ///             { "deploymentOption", "WITH_TRAFFIC_CONTROL" },
+    ///             { "deploymentType", "BLUE_GREEN" },
     ///         },
-    ///         LoadBalancerInfo = new Aws.CodeDeploy.Inputs.DeploymentGroupLoadBalancerInfoArgs
+    ///         LoadBalancerInfo = 
     ///         {
-    ///             ElbInfos = new[]
+    ///             { "elbInfos", new[]
     ///             {
-    ///                 new Aws.CodeDeploy.Inputs.DeploymentGroupLoadBalancerInfoElbInfoArgs
+    ///                 
     ///                 {
-    ///                     Name = aws_elb.Example.Name,
+    ///                     { "name", aws_elb.Example.Name },
     ///                 },
-    ///             },
+    ///             } },
     ///         },
-    ///         BlueGreenDeploymentConfig = new Aws.CodeDeploy.Inputs.DeploymentGroupBlueGreenDeploymentConfigArgs
+    ///         BlueGreenDeploymentConfig = 
     ///         {
-    ///             DeploymentReadyOption = new Aws.CodeDeploy.Inputs.DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionArgs
+    ///             { "deploymentReadyOption", 
     ///             {
-    ///                 ActionOnTimeout = "STOP_DEPLOYMENT",
-    ///                 WaitTimeInMinutes = 60,
-    ///             },
-    ///             GreenFleetProvisioningOption = new Aws.CodeDeploy.Inputs.DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionArgs
+    ///                 { "actionOnTimeout", "STOP_DEPLOYMENT" },
+    ///                 { "waitTimeInMinutes", 60 },
+    ///             } },
+    ///             { "greenFleetProvisioningOption", 
     ///             {
-    ///                 Action = "DISCOVER_EXISTING",
-    ///             },
-    ///             TerminateBlueInstancesOnDeploymentSuccess = new Aws.CodeDeploy.Inputs.DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessArgs
+    ///                 { "action", "DISCOVER_EXISTING" },
+    ///             } },
+    ///             { "terminateBlueInstancesOnDeploymentSuccess", 
     ///             {
-    ///                 Action = "KEEP_ALIVE",
-    ///             },
+    ///                 { "action", "KEEP_ALIVE" },
+    ///             } },
     ///         },
     ///     });
     /// 

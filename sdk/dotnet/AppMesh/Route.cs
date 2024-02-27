@@ -23,35 +23,35 @@ namespace Pulumi.Aws.AppMesh
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var serviceb = new Aws.AppMesh.Route("serviceb", new()
+    ///     var serviceb = new Aws.Appmesh.Route.Route("serviceb", new()
     ///     {
     ///         MeshName = aws_appmesh_mesh.Simple.Id,
     ///         VirtualRouterName = aws_appmesh_virtual_router.Serviceb.Name,
-    ///         Spec = new Aws.AppMesh.Inputs.RouteSpecArgs
+    ///         Spec = 
     ///         {
-    ///             HttpRoute = new Aws.AppMesh.Inputs.RouteSpecHttpRouteArgs
+    ///             { "httpRoute", 
     ///             {
-    ///                 Match = new Aws.AppMesh.Inputs.RouteSpecHttpRouteMatchArgs
+    ///                 { "match", 
     ///                 {
-    ///                     Prefix = "/",
-    ///                 },
-    ///                 Action = new Aws.AppMesh.Inputs.RouteSpecHttpRouteActionArgs
+    ///                     { "prefix", "/" },
+    ///                 } },
+    ///                 { "action", 
     ///                 {
-    ///                     WeightedTargets = new[]
+    ///                     { "weightedTargets", new[]
     ///                     {
-    ///                         new Aws.AppMesh.Inputs.RouteSpecHttpRouteActionWeightedTargetArgs
+    ///                         
     ///                         {
-    ///                             VirtualNode = aws_appmesh_virtual_node.Serviceb1.Name,
-    ///                             Weight = 90,
+    ///                             { "virtualNode", aws_appmesh_virtual_node.Serviceb1.Name },
+    ///                             { "weight", 90 },
     ///                         },
-    ///                         new Aws.AppMesh.Inputs.RouteSpecHttpRouteActionWeightedTargetArgs
+    ///                         
     ///                         {
-    ///                             VirtualNode = aws_appmesh_virtual_node.Serviceb2.Name,
-    ///                             Weight = 10,
+    ///                             { "virtualNode", aws_appmesh_virtual_node.Serviceb2.Name },
+    ///                             { "weight", 10 },
     ///                         },
-    ///                     },
-    ///                 },
-    ///             },
+    ///                     } },
+    ///                 } },
+    ///             } },
     ///         },
     ///     });
     /// 
@@ -67,43 +67,43 @@ namespace Pulumi.Aws.AppMesh
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var serviceb = new Aws.AppMesh.Route("serviceb", new()
+    ///     var serviceb = new Aws.Appmesh.Route.Route("serviceb", new()
     ///     {
     ///         MeshName = aws_appmesh_mesh.Simple.Id,
     ///         VirtualRouterName = aws_appmesh_virtual_router.Serviceb.Name,
-    ///         Spec = new Aws.AppMesh.Inputs.RouteSpecArgs
+    ///         Spec = 
     ///         {
-    ///             HttpRoute = new Aws.AppMesh.Inputs.RouteSpecHttpRouteArgs
+    ///             { "httpRoute", 
     ///             {
-    ///                 Match = new Aws.AppMesh.Inputs.RouteSpecHttpRouteMatchArgs
+    ///                 { "match", 
     ///                 {
-    ///                     Method = "POST",
-    ///                     Prefix = "/",
-    ///                     Scheme = "https",
-    ///                     Headers = new[]
+    ///                     { "method", "POST" },
+    ///                     { "prefix", "/" },
+    ///                     { "scheme", "https" },
+    ///                     { "headers", new[]
     ///                     {
-    ///                         new Aws.AppMesh.Inputs.RouteSpecHttpRouteMatchHeaderArgs
+    ///                         
     ///                         {
-    ///                             Name = "clientRequestId",
-    ///                             Match = new Aws.AppMesh.Inputs.RouteSpecHttpRouteMatchHeaderMatchArgs
+    ///                             { "name", "clientRequestId" },
+    ///                             { "match", 
     ///                             {
-    ///                                 Prefix = "123",
-    ///                             },
+    ///                                 { "prefix", "123" },
+    ///                             } },
     ///                         },
-    ///                     },
-    ///                 },
-    ///                 Action = new Aws.AppMesh.Inputs.RouteSpecHttpRouteActionArgs
+    ///                     } },
+    ///                 } },
+    ///                 { "action", 
     ///                 {
-    ///                     WeightedTargets = new[]
+    ///                     { "weightedTargets", new[]
     ///                     {
-    ///                         new Aws.AppMesh.Inputs.RouteSpecHttpRouteActionWeightedTargetArgs
+    ///                         
     ///                         {
-    ///                             VirtualNode = aws_appmesh_virtual_node.Serviceb.Name,
-    ///                             Weight = 100,
+    ///                             { "virtualNode", aws_appmesh_virtual_node.Serviceb.Name },
+    ///                             { "weight", 100 },
     ///                         },
-    ///                     },
-    ///                 },
-    ///             },
+    ///                     } },
+    ///                 } },
+    ///             } },
     ///         },
     ///     });
     /// 
@@ -119,43 +119,43 @@ namespace Pulumi.Aws.AppMesh
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var serviceb = new Aws.AppMesh.Route("serviceb", new()
+    ///     var serviceb = new Aws.Appmesh.Route.Route("serviceb", new()
     ///     {
     ///         MeshName = aws_appmesh_mesh.Simple.Id,
     ///         VirtualRouterName = aws_appmesh_virtual_router.Serviceb.Name,
-    ///         Spec = new Aws.AppMesh.Inputs.RouteSpecArgs
+    ///         Spec = 
     ///         {
-    ///             HttpRoute = new Aws.AppMesh.Inputs.RouteSpecHttpRouteArgs
+    ///             { "httpRoute", 
     ///             {
-    ///                 Match = new Aws.AppMesh.Inputs.RouteSpecHttpRouteMatchArgs
+    ///                 { "match", 
     ///                 {
-    ///                     Prefix = "/",
-    ///                 },
-    ///                 RetryPolicy = new Aws.AppMesh.Inputs.RouteSpecHttpRouteRetryPolicyArgs
+    ///                     { "prefix", "/" },
+    ///                 } },
+    ///                 { "retryPolicy", 
     ///                 {
-    ///                     HttpRetryEvents = new[]
+    ///                     { "httpRetryEvents", new[]
     ///                     {
     ///                         "server-error",
-    ///                     },
-    ///                     MaxRetries = 1,
-    ///                     PerRetryTimeout = new Aws.AppMesh.Inputs.RouteSpecHttpRouteRetryPolicyPerRetryTimeoutArgs
+    ///                     } },
+    ///                     { "maxRetries", 1 },
+    ///                     { "perRetryTimeout", 
     ///                     {
-    ///                         Unit = "s",
-    ///                         Value = 15,
-    ///                     },
-    ///                 },
-    ///                 Action = new Aws.AppMesh.Inputs.RouteSpecHttpRouteActionArgs
+    ///                         { "unit", "s" },
+    ///                         { "value", 15 },
+    ///                     } },
+    ///                 } },
+    ///                 { "action", 
     ///                 {
-    ///                     WeightedTargets = new[]
+    ///                     { "weightedTargets", new[]
     ///                     {
-    ///                         new Aws.AppMesh.Inputs.RouteSpecHttpRouteActionWeightedTargetArgs
+    ///                         
     ///                         {
-    ///                             VirtualNode = aws_appmesh_virtual_node.Serviceb.Name,
-    ///                             Weight = 100,
+    ///                             { "virtualNode", aws_appmesh_virtual_node.Serviceb.Name },
+    ///                             { "weight", 100 },
     ///                         },
-    ///                     },
-    ///                 },
-    ///             },
+    ///                     } },
+    ///                 } },
+    ///             } },
     ///         },
     ///     });
     /// 
@@ -171,26 +171,26 @@ namespace Pulumi.Aws.AppMesh
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var serviceb = new Aws.AppMesh.Route("serviceb", new()
+    ///     var serviceb = new Aws.Appmesh.Route.Route("serviceb", new()
     ///     {
     ///         MeshName = aws_appmesh_mesh.Simple.Id,
     ///         VirtualRouterName = aws_appmesh_virtual_router.Serviceb.Name,
-    ///         Spec = new Aws.AppMesh.Inputs.RouteSpecArgs
+    ///         Spec = 
     ///         {
-    ///             TcpRoute = new Aws.AppMesh.Inputs.RouteSpecTcpRouteArgs
+    ///             { "tcpRoute", 
     ///             {
-    ///                 Action = new Aws.AppMesh.Inputs.RouteSpecTcpRouteActionArgs
+    ///                 { "action", 
     ///                 {
-    ///                     WeightedTargets = new[]
+    ///                     { "weightedTargets", new[]
     ///                     {
-    ///                         new Aws.AppMesh.Inputs.RouteSpecTcpRouteActionWeightedTargetArgs
+    ///                         
     ///                         {
-    ///                             VirtualNode = aws_appmesh_virtual_node.Serviceb1.Name,
-    ///                             Weight = 100,
+    ///                             { "virtualNode", aws_appmesh_virtual_node.Serviceb1.Name },
+    ///                             { "weight", 100 },
     ///                         },
-    ///                     },
-    ///                 },
-    ///             },
+    ///                     } },
+    ///                 } },
+    ///             } },
     ///         },
     ///     });
     /// 

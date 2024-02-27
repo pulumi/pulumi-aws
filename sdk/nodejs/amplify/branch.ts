@@ -13,8 +13,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.amplify.App("example", {});
- * const master = new aws.amplify.Branch("master", {
+ * const example = new aws.amplify/app.App("example", {});
+ * const master = new aws.amplify/branch.Branch("master", {
  *     appId: example.id,
  *     branchName: "master",
  *     framework: "React",
@@ -22,75 +22,6 @@ import * as utilities from "../utilities";
  *     environmentVariables: {
  *         REACT_APP_API_SERVER: "https://api.example.com",
  *     },
- * });
- * ```
- * ### Notifications
- *
- * Amplify Console uses EventBridge (formerly known as CloudWatch Events) and SNS for email notifications.  To implement the same functionality, you need to set `enableNotification` in a `aws.amplify.Branch` resource, as well as creating an EventBridge Rule, an SNS topic, and SNS subscriptions.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.amplify.App("example", {});
- * const master = new aws.amplify.Branch("master", {
- *     appId: example.id,
- *     branchName: "master",
- *     enableNotification: true,
- * });
- * // EventBridge Rule for Amplify notifications
- * const amplifyAppMasterEventRule = new aws.cloudwatch.EventRule("amplifyAppMasterEventRule", {
- *     description: pulumi.interpolate`AWS Amplify build notifications for :  App: ${aws_amplify_app.app.id} Branch: ${master.branchName}`,
- *     eventPattern: pulumi.all([example.id, master.branchName]).apply(([id, branchName]) => JSON.stringify({
- *         detail: {
- *             appId: [id],
- *             branchName: [branchName],
- *             jobStatus: [
- *                 "SUCCEED",
- *                 "FAILED",
- *                 "STARTED",
- *             ],
- *         },
- *         "detail-type": ["Amplify Deployment Status Change"],
- *         source: ["aws.amplify"],
- *     })),
- * });
- * const amplifyAppMasterTopic = new aws.sns.Topic("amplifyAppMasterTopic", {});
- * const amplifyAppMasterEventTarget = new aws.cloudwatch.EventTarget("amplifyAppMasterEventTarget", {
- *     rule: amplifyAppMasterEventRule.name,
- *     arn: amplifyAppMasterTopic.arn,
- *     inputTransformer: {
- *         inputPaths: {
- *             jobId: "$.detail.jobId",
- *             appId: "$.detail.appId",
- *             region: "$.region",
- *             branch: "$.detail.branchName",
- *             status: "$.detail.jobStatus",
- *         },
- *         inputTemplate: "\"Build notification from the AWS Amplify Console for app: https://<branch>.<appId>.amplifyapp.com/. Your build status is <status>. Go to https://console.aws.amazon.com/amplify/home?region=<region>#<appId>/<branch>/<jobId> to view details on your build. \"",
- *     },
- * });
- * // SNS Topic for Amplify notifications
- * const amplifyAppMasterPolicyDocument = pulumi.all([master.arn, amplifyAppMasterTopic.arn]).apply(([masterArn, amplifyAppMasterTopicArn]) => aws.iam.getPolicyDocumentOutput({
- *     statements: [{
- *         sid: `Allow_Publish_Events ${masterArn}`,
- *         effect: "Allow",
- *         actions: ["SNS:Publish"],
- *         principals: [{
- *             type: "Service",
- *             identifiers: ["events.amazonaws.com"],
- *         }],
- *         resources: [amplifyAppMasterTopicArn],
- *     }],
- * }));
- * const amplifyAppMasterTopicPolicy = new aws.sns.TopicPolicy("amplifyAppMasterTopicPolicy", {
- *     arn: amplifyAppMasterTopic.arn,
- *     policy: amplifyAppMasterPolicyDocument.apply(amplifyAppMasterPolicyDocument => amplifyAppMasterPolicyDocument.json),
- * });
- * const _this = new aws.sns.TopicSubscription("this", {
- *     topic: amplifyAppMasterTopic.arn,
- *     protocol: "email",
- *     endpoint: "user@acme.com",
  * });
  * ```
  *

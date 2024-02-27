@@ -14,31 +14,6 @@ import (
 // Retrieve information on FSx ONTAP File System.
 //
 // ## Example Usage
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/fsx"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := fsx.LookupOntapFileSystem(ctx, &fsx.LookupOntapFileSystemArgs{
-//				Id: "fs-12345678",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupOntapFileSystem(ctx *pulumi.Context, args *LookupOntapFileSystemArgs, opts ...pulumi.InvokeOption) (*LookupOntapFileSystemResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupOntapFileSystemResult

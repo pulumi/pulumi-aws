@@ -13,60 +13,12 @@ namespace Pulumi.Aws.Ssm
     {
         /// <summary>
         /// Provides an SSM Parameter data source.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var foo = Aws.Ssm.GetParameter.Invoke(new()
-        ///     {
-        ///         Name = "foo",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// 
-        /// &gt; **Note:** The unencrypted value of a SecureString will be stored in the raw state as plain-text.
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetParameterResult> InvokeAsync(GetParameterArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetParameterResult>("aws:ssm/getParameter:getParameter", args ?? new GetParameterArgs(), options.WithDefaults());
 
         /// <summary>
         /// Provides an SSM Parameter data source.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var foo = Aws.Ssm.GetParameter.Invoke(new()
-        ///     {
-        ///         Name = "foo",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// 
-        /// &gt; **Note:** The unencrypted value of a SecureString will be stored in the raw state as plain-text.
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetParameterResult> Invoke(GetParameterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetParameterResult>("aws:ssm/getParameter:getParameter", args ?? new GetParameterInvokeArgs(), options.WithDefaults());

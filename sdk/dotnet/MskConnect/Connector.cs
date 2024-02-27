@@ -23,25 +23,25 @@ namespace Pulumi.Aws.MskConnect
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.MskConnect.Connector("example", new()
+    ///     var example = new Aws.Mskconnect.Connector.Connector("example", new()
     ///     {
     ///         KafkaconnectVersion = "2.7.1",
-    ///         Capacity = new Aws.MskConnect.Inputs.ConnectorCapacityArgs
+    ///         Capacity = 
     ///         {
-    ///             Autoscaling = new Aws.MskConnect.Inputs.ConnectorCapacityAutoscalingArgs
+    ///             { "autoscaling", 
     ///             {
-    ///                 McuCount = 1,
-    ///                 MinWorkerCount = 1,
-    ///                 MaxWorkerCount = 2,
-    ///                 ScaleInPolicy = new Aws.MskConnect.Inputs.ConnectorCapacityAutoscalingScaleInPolicyArgs
+    ///                 { "mcuCount", 1 },
+    ///                 { "minWorkerCount", 1 },
+    ///                 { "maxWorkerCount", 2 },
+    ///                 { "scaleInPolicy", 
     ///                 {
-    ///                     CpuUtilizationPercentage = 20,
-    ///                 },
-    ///                 ScaleOutPolicy = new Aws.MskConnect.Inputs.ConnectorCapacityAutoscalingScaleOutPolicyArgs
+    ///                     { "cpuUtilizationPercentage", 20 },
+    ///                 } },
+    ///                 { "scaleOutPolicy", 
     ///                 {
-    ///                     CpuUtilizationPercentage = 80,
-    ///                 },
-    ///             },
+    ///                     { "cpuUtilizationPercentage", 80 },
+    ///                 } },
+    ///             } },
     ///         },
     ///         ConnectorConfiguration = 
     ///         {
@@ -49,43 +49,43 @@ namespace Pulumi.Aws.MskConnect
     ///             { "tasks.max", "1" },
     ///             { "topics", "example" },
     ///         },
-    ///         KafkaCluster = new Aws.MskConnect.Inputs.ConnectorKafkaClusterArgs
+    ///         KafkaCluster = 
     ///         {
-    ///             ApacheKafkaCluster = new Aws.MskConnect.Inputs.ConnectorKafkaClusterApacheKafkaClusterArgs
+    ///             { "apacheKafkaCluster", 
     ///             {
-    ///                 BootstrapServers = aws_msk_cluster.Example.Bootstrap_brokers_tls,
-    ///                 Vpc = new Aws.MskConnect.Inputs.ConnectorKafkaClusterApacheKafkaClusterVpcArgs
+    ///                 { "bootstrapServers", aws_msk_cluster.Example.Bootstrap_brokers_tls },
+    ///                 { "vpc", 
     ///                 {
-    ///                     SecurityGroups = new[]
+    ///                     { "securityGroups", new[]
     ///                     {
     ///                         aws_security_group.Example.Id,
-    ///                     },
-    ///                     Subnets = new[]
+    ///                     } },
+    ///                     { "subnets", new[]
     ///                     {
     ///                         aws_subnet.Example1.Id,
     ///                         aws_subnet.Example2.Id,
     ///                         aws_subnet.Example3.Id,
-    ///                     },
-    ///                 },
-    ///             },
+    ///                     } },
+    ///                 } },
+    ///             } },
     ///         },
-    ///         KafkaClusterClientAuthentication = new Aws.MskConnect.Inputs.ConnectorKafkaClusterClientAuthenticationArgs
+    ///         KafkaClusterClientAuthentication = 
     ///         {
-    ///             AuthenticationType = "NONE",
+    ///             { "authenticationType", "NONE" },
     ///         },
-    ///         KafkaClusterEncryptionInTransit = new Aws.MskConnect.Inputs.ConnectorKafkaClusterEncryptionInTransitArgs
+    ///         KafkaClusterEncryptionInTransit = 
     ///         {
-    ///             EncryptionType = "TLS",
+    ///             { "encryptionType", "TLS" },
     ///         },
     ///         Plugins = new[]
     ///         {
-    ///             new Aws.MskConnect.Inputs.ConnectorPluginArgs
+    ///             
     ///             {
-    ///                 CustomPlugin = new Aws.MskConnect.Inputs.ConnectorPluginCustomPluginArgs
+    ///                 { "customPlugin", 
     ///                 {
-    ///                     Arn = aws_mskconnect_custom_plugin.Example.Arn,
-    ///                     Revision = aws_mskconnect_custom_plugin.Example.Latest_revision,
-    ///                 },
+    ///                     { "arn", aws_mskconnect_custom_plugin.Example.Arn },
+    ///                     { "revision", aws_mskconnect_custom_plugin.Example.Latest_revision },
+    ///                 } },
     ///             },
     ///         },
     ///         ServiceExecutionRoleArn = aws_iam_role.Example.Arn,

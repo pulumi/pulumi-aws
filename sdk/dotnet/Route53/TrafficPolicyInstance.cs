@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Route53
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Aws.Route53.TrafficPolicyInstance("test", new()
+    ///     var test = new Aws.Route53.TrafficPolicyInstance.TrafficPolicyInstance("test", new()
     ///     {
     ///         HostedZoneId = "Z033120931TAQO548OGJC",
     ///         TrafficPolicyId = "b3gb108f-ea6f-45a5-baab-9d112d8b4037",

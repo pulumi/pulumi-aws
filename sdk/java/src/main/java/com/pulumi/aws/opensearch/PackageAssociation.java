@@ -26,10 +26,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.opensearch.Domain;
  * import com.pulumi.aws.opensearch.DomainArgs;
- * import com.pulumi.aws.opensearch.inputs.DomainClusterConfigArgs;
  * import com.pulumi.aws.opensearch.Package;
  * import com.pulumi.aws.opensearch.PackageArgs;
- * import com.pulumi.aws.opensearch.inputs.PackagePackageSourceArgs;
  * import com.pulumi.aws.opensearch.PackageAssociation;
  * import com.pulumi.aws.opensearch.PackageAssociationArgs;
  * import java.util.List;
@@ -47,17 +45,12 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var myDomain = new Domain(&#34;myDomain&#34;, DomainArgs.builder()        
  *             .engineVersion(&#34;Elasticsearch_7.10&#34;)
- *             .clusterConfig(DomainClusterConfigArgs.builder()
- *                 .instanceType(&#34;r4.large.search&#34;)
- *                 .build())
+ *             .clusterConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var examplePackage = new Package(&#34;examplePackage&#34;, PackageArgs.builder()        
  *             .packageName(&#34;example-txt&#34;)
- *             .packageSource(PackagePackageSourceArgs.builder()
- *                 .s3BucketName(aws_s3_bucket.my_opensearch_packages().bucket())
- *                 .s3Key(aws_s3_object.example().key())
- *                 .build())
+ *             .packageSource(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .packageType(&#34;TXT-DICTIONARY&#34;)
  *             .build());
  * 

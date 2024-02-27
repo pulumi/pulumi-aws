@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * import * as fs from "fs";
  *
- * const exampleDomain = new aws.opensearch.Domain("exampleDomain", {
+ * const exampleDomain = new aws.opensearch/domain.Domain("exampleDomain", {
  *     engineVersion: "OpenSearch_1.1",
  *     clusterConfig: {
  *         instanceType: "r4.large.search",
@@ -30,7 +30,7 @@ import * as utilities from "../utilities";
  *         Domain: "TestDomain",
  *     },
  * });
- * const exampleDomainSamlOptions = new aws.opensearch.DomainSamlOptions("exampleDomainSamlOptions", {
+ * const exampleDomainSamlOptions = new aws.opensearch/domainSamlOptions.DomainSamlOptions("exampleDomainSamlOptions", {
  *     domainName: exampleDomain.domainName,
  *     samlOptions: {
  *         enabled: true,

@@ -181,9 +181,9 @@ class PrincipalPortfolioAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.servicecatalog.PrincipalPortfolioAssociation("example",
-            portfolio_id="port-68656c6c6f",
-            principal_arn="arn:aws:iam::123456789012:user/Eleanor")
+        example = aws.servicecatalog.principal_portfolio_association.PrincipalPortfolioAssociation("example",
+            portfolio_id=port-68656c6c6f,
+            principal_arn=arn:aws:iam::123456789012:user/Eleanor)
         ```
 
         ## Import
@@ -219,9 +219,9 @@ class PrincipalPortfolioAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.servicecatalog.PrincipalPortfolioAssociation("example",
-            portfolio_id="port-68656c6c6f",
-            principal_arn="arn:aws:iam::123456789012:user/Eleanor")
+        example = aws.servicecatalog.principal_portfolio_association.PrincipalPortfolioAssociation("example",
+            portfolio_id=port-68656c6c6f,
+            principal_arn=arn:aws:iam::123456789012:user/Eleanor)
         ```
 
         ## Import

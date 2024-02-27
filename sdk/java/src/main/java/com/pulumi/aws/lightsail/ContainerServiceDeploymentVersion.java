@@ -35,9 +35,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.lightsail.ContainerServiceDeploymentVersion;
  * import com.pulumi.aws.lightsail.ContainerServiceDeploymentVersionArgs;
- * import com.pulumi.aws.lightsail.inputs.ContainerServiceDeploymentVersionContainerArgs;
- * import com.pulumi.aws.lightsail.inputs.ContainerServiceDeploymentVersionPublicEndpointArgs;
- * import com.pulumi.aws.lightsail.inputs.ContainerServiceDeploymentVersionPublicEndpointHealthCheckArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -52,25 +49,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ContainerServiceDeploymentVersion(&#34;example&#34;, ContainerServiceDeploymentVersionArgs.builder()        
- *             .containers(ContainerServiceDeploymentVersionContainerArgs.builder()
- *                 .containerName(&#34;hello-world&#34;)
- *                 .image(&#34;amazon/amazon-lightsail:hello-world&#34;)
- *                 .commands()
- *                 .environment(Map.of(&#34;MY_ENVIRONMENT_VARIABLE&#34;, &#34;my_value&#34;))
- *                 .ports(Map.of(&#34;80&#34;, &#34;HTTP&#34;))
- *                 .build())
- *             .publicEndpoint(ContainerServiceDeploymentVersionPublicEndpointArgs.builder()
- *                 .containerName(&#34;hello-world&#34;)
- *                 .containerPort(80)
- *                 .healthCheck(ContainerServiceDeploymentVersionPublicEndpointHealthCheckArgs.builder()
- *                     .healthyThreshold(2)
- *                     .unhealthyThreshold(2)
- *                     .timeoutSeconds(2)
- *                     .intervalSeconds(5)
- *                     .path(&#34;/&#34;)
- *                     .successCodes(&#34;200-499&#34;)
- *                     .build())
- *                 .build())
+ *             .containers(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .publicEndpoint(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .serviceName(aws_lightsail_container_service.example().name())
  *             .build());
  * 

@@ -17,13 +17,13 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleCertificate = new aws.acm.Certificate("exampleCertificate", {});
+ * const exampleCertificate = new aws.acm/certificate.Certificate("exampleCertificate", {});
  * // ...
- * const frontEndLoadBalancer = new aws.lb.LoadBalancer("frontEndLoadBalancer", {});
+ * const frontEndLoadBalancer = new aws.lb/loadBalancer.LoadBalancer("frontEndLoadBalancer", {});
  * // ...
- * const frontEndListener = new aws.lb.Listener("frontEndListener", {});
+ * const frontEndListener = new aws.lb/listener.Listener("frontEndListener", {});
  * // ...
- * const exampleListenerCertificate = new aws.lb.ListenerCertificate("exampleListenerCertificate", {
+ * const exampleListenerCertificate = new aws.lb/listenerCertificate.ListenerCertificate("exampleListenerCertificate", {
  *     listenerArn: frontEndListener.arn,
  *     certificateArn: exampleCertificate.arn,
  * });

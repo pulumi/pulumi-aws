@@ -26,8 +26,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.connect.Vocabulary;
- * import com.pulumi.aws.connect.VocabularyArgs;
+ * import com.pulumi.aws.connect_vocabulary.Vocabulary;
+ * import com.pulumi.aws.connect_vocabulary.VocabularyArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -50,7 +50,7 @@ import javax.annotation.Nullable;
  *             &#34;&#34;&#34;)
  *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
  *             .languageCode(&#34;en-US&#34;)
- *             .tags(Map.of(&#34;Key1&#34;, &#34;Value1&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

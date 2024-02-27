@@ -24,48 +24,6 @@ public final class ElbFunctions {
      * Use this data source to get the HostedZoneId of the AWS Elastic Load Balancing HostedZoneId
      * in a given region for the purpose of using in an AWS Route53 Alias.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.elb.ElbFunctions;
-     * import com.pulumi.aws.elb.inputs.GetHostedZoneIdArgs;
-     * import com.pulumi.aws.route53.Record;
-     * import com.pulumi.aws.route53.RecordArgs;
-     * import com.pulumi.aws.route53.inputs.RecordAliasArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var main = ElbFunctions.getHostedZoneId();
-     * 
-     *         var www = new Record(&#34;www&#34;, RecordArgs.builder()        
-     *             .zoneId(aws_route53_zone.primary().zone_id())
-     *             .name(&#34;example.com&#34;)
-     *             .type(&#34;A&#34;)
-     *             .aliases(RecordAliasArgs.builder()
-     *                 .name(aws_elb.main().dns_name())
-     *                 .zoneId(main.applyValue(getHostedZoneIdResult -&gt; getHostedZoneIdResult.id()))
-     *                 .evaluateTargetHealth(true)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetHostedZoneIdResult> getHostedZoneId() {
         return getHostedZoneId(GetHostedZoneIdArgs.Empty, InvokeOptions.Empty);
@@ -73,48 +31,6 @@ public final class ElbFunctions {
     /**
      * Use this data source to get the HostedZoneId of the AWS Elastic Load Balancing HostedZoneId
      * in a given region for the purpose of using in an AWS Route53 Alias.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.elb.ElbFunctions;
-     * import com.pulumi.aws.elb.inputs.GetHostedZoneIdArgs;
-     * import com.pulumi.aws.route53.Record;
-     * import com.pulumi.aws.route53.RecordArgs;
-     * import com.pulumi.aws.route53.inputs.RecordAliasArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var main = ElbFunctions.getHostedZoneId();
-     * 
-     *         var www = new Record(&#34;www&#34;, RecordArgs.builder()        
-     *             .zoneId(aws_route53_zone.primary().zone_id())
-     *             .name(&#34;example.com&#34;)
-     *             .type(&#34;A&#34;)
-     *             .aliases(RecordAliasArgs.builder()
-     *                 .name(aws_elb.main().dns_name())
-     *                 .zoneId(main.applyValue(getHostedZoneIdResult -&gt; getHostedZoneIdResult.id()))
-     *                 .evaluateTargetHealth(true)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetHostedZoneIdResult> getHostedZoneIdPlain() {
@@ -124,48 +40,6 @@ public final class ElbFunctions {
      * Use this data source to get the HostedZoneId of the AWS Elastic Load Balancing HostedZoneId
      * in a given region for the purpose of using in an AWS Route53 Alias.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.elb.ElbFunctions;
-     * import com.pulumi.aws.elb.inputs.GetHostedZoneIdArgs;
-     * import com.pulumi.aws.route53.Record;
-     * import com.pulumi.aws.route53.RecordArgs;
-     * import com.pulumi.aws.route53.inputs.RecordAliasArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var main = ElbFunctions.getHostedZoneId();
-     * 
-     *         var www = new Record(&#34;www&#34;, RecordArgs.builder()        
-     *             .zoneId(aws_route53_zone.primary().zone_id())
-     *             .name(&#34;example.com&#34;)
-     *             .type(&#34;A&#34;)
-     *             .aliases(RecordAliasArgs.builder()
-     *                 .name(aws_elb.main().dns_name())
-     *                 .zoneId(main.applyValue(getHostedZoneIdResult -&gt; getHostedZoneIdResult.id()))
-     *                 .evaluateTargetHealth(true)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetHostedZoneIdResult> getHostedZoneId(GetHostedZoneIdArgs args) {
         return getHostedZoneId(args, InvokeOptions.Empty);
@@ -173,48 +47,6 @@ public final class ElbFunctions {
     /**
      * Use this data source to get the HostedZoneId of the AWS Elastic Load Balancing HostedZoneId
      * in a given region for the purpose of using in an AWS Route53 Alias.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.elb.ElbFunctions;
-     * import com.pulumi.aws.elb.inputs.GetHostedZoneIdArgs;
-     * import com.pulumi.aws.route53.Record;
-     * import com.pulumi.aws.route53.RecordArgs;
-     * import com.pulumi.aws.route53.inputs.RecordAliasArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var main = ElbFunctions.getHostedZoneId();
-     * 
-     *         var www = new Record(&#34;www&#34;, RecordArgs.builder()        
-     *             .zoneId(aws_route53_zone.primary().zone_id())
-     *             .name(&#34;example.com&#34;)
-     *             .type(&#34;A&#34;)
-     *             .aliases(RecordAliasArgs.builder()
-     *                 .name(aws_elb.main().dns_name())
-     *                 .zoneId(main.applyValue(getHostedZoneIdResult -&gt; getHostedZoneIdResult.id()))
-     *                 .evaluateTargetHealth(true)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetHostedZoneIdResult> getHostedZoneIdPlain(GetHostedZoneIdPlainArgs args) {
@@ -224,48 +56,6 @@ public final class ElbFunctions {
      * Use this data source to get the HostedZoneId of the AWS Elastic Load Balancing HostedZoneId
      * in a given region for the purpose of using in an AWS Route53 Alias.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.elb.ElbFunctions;
-     * import com.pulumi.aws.elb.inputs.GetHostedZoneIdArgs;
-     * import com.pulumi.aws.route53.Record;
-     * import com.pulumi.aws.route53.RecordArgs;
-     * import com.pulumi.aws.route53.inputs.RecordAliasArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var main = ElbFunctions.getHostedZoneId();
-     * 
-     *         var www = new Record(&#34;www&#34;, RecordArgs.builder()        
-     *             .zoneId(aws_route53_zone.primary().zone_id())
-     *             .name(&#34;example.com&#34;)
-     *             .type(&#34;A&#34;)
-     *             .aliases(RecordAliasArgs.builder()
-     *                 .name(aws_elb.main().dns_name())
-     *                 .zoneId(main.applyValue(getHostedZoneIdResult -&gt; getHostedZoneIdResult.id()))
-     *                 .evaluateTargetHealth(true)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetHostedZoneIdResult> getHostedZoneId(GetHostedZoneIdArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:elb/getHostedZoneId:getHostedZoneId", TypeShape.of(GetHostedZoneIdResult.class), args, Utilities.withVersion(options));
@@ -273,48 +63,6 @@ public final class ElbFunctions {
     /**
      * Use this data source to get the HostedZoneId of the AWS Elastic Load Balancing HostedZoneId
      * in a given region for the purpose of using in an AWS Route53 Alias.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.elb.ElbFunctions;
-     * import com.pulumi.aws.elb.inputs.GetHostedZoneIdArgs;
-     * import com.pulumi.aws.route53.Record;
-     * import com.pulumi.aws.route53.RecordArgs;
-     * import com.pulumi.aws.route53.inputs.RecordAliasArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var main = ElbFunctions.getHostedZoneId();
-     * 
-     *         var www = new Record(&#34;www&#34;, RecordArgs.builder()        
-     *             .zoneId(aws_route53_zone.primary().zone_id())
-     *             .name(&#34;example.com&#34;)
-     *             .type(&#34;A&#34;)
-     *             .aliases(RecordAliasArgs.builder()
-     *                 .name(aws_elb.main().dns_name())
-     *                 .zoneId(main.applyValue(getHostedZoneIdResult -&gt; getHostedZoneIdResult.id()))
-     *                 .evaluateTargetHealth(true)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetHostedZoneIdResult> getHostedZoneIdPlain(GetHostedZoneIdPlainArgs args, InvokeOptions options) {
@@ -329,38 +77,6 @@ public final class ElbFunctions {
      * variable and needs to, for example, determine the security groups associated
      * with it, etc.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.elb.ElbFunctions;
-     * import com.pulumi.aws.elb.inputs.GetLoadBalancerArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var config = ctx.config();
-     *         final var lbName = config.get(&#34;lbName&#34;).orElse(&#34;&#34;);
-     *         final var test = ElbFunctions.getLoadBalancer(GetLoadBalancerArgs.builder()
-     *             .name(lbName)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetLoadBalancerResult> getLoadBalancer(GetLoadBalancerArgs args) {
         return getLoadBalancer(args, InvokeOptions.Empty);
@@ -373,38 +89,6 @@ public final class ElbFunctions {
      * This data source can prove useful when a module accepts an LB as an input
      * variable and needs to, for example, determine the security groups associated
      * with it, etc.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.elb.ElbFunctions;
-     * import com.pulumi.aws.elb.inputs.GetLoadBalancerArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var config = ctx.config();
-     *         final var lbName = config.get(&#34;lbName&#34;).orElse(&#34;&#34;);
-     *         final var test = ElbFunctions.getLoadBalancer(GetLoadBalancerArgs.builder()
-     *             .name(lbName)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetLoadBalancerResult> getLoadBalancerPlain(GetLoadBalancerPlainArgs args) {
@@ -419,38 +103,6 @@ public final class ElbFunctions {
      * variable and needs to, for example, determine the security groups associated
      * with it, etc.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.elb.ElbFunctions;
-     * import com.pulumi.aws.elb.inputs.GetLoadBalancerArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var config = ctx.config();
-     *         final var lbName = config.get(&#34;lbName&#34;).orElse(&#34;&#34;);
-     *         final var test = ElbFunctions.getLoadBalancer(GetLoadBalancerArgs.builder()
-     *             .name(lbName)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetLoadBalancerResult> getLoadBalancer(GetLoadBalancerArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:elb/getLoadBalancer:getLoadBalancer", TypeShape.of(GetLoadBalancerResult.class), args, Utilities.withVersion(options));
@@ -464,38 +116,6 @@ public final class ElbFunctions {
      * variable and needs to, for example, determine the security groups associated
      * with it, etc.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.elb.ElbFunctions;
-     * import com.pulumi.aws.elb.inputs.GetLoadBalancerArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var config = ctx.config();
-     *         final var lbName = config.get(&#34;lbName&#34;).orElse(&#34;&#34;);
-     *         final var test = ElbFunctions.getLoadBalancer(GetLoadBalancerArgs.builder()
-     *             .name(lbName)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static CompletableFuture<GetLoadBalancerResult> getLoadBalancerPlain(GetLoadBalancerPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:elb/getLoadBalancer:getLoadBalancer", TypeShape.of(GetLoadBalancerResult.class), args, Utilities.withVersion(options));
@@ -505,83 +125,6 @@ public final class ElbFunctions {
      * in a given region for the purpose of permitting in S3 bucket policy.
      * 
      * &gt; **Note:** For AWS Regions opened since Jakarta (`ap-southeast-3`) in December 2021, AWS [documents that](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-access-logs.html#attach-bucket-policy) a [service principal name](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services) should be used instead of an AWS account ID in any relevant IAM policy.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.elb.ElbFunctions;
-     * import com.pulumi.aws.elb.inputs.GetServiceAccountArgs;
-     * import com.pulumi.aws.s3.BucketV2;
-     * import com.pulumi.aws.s3.BucketAclV2;
-     * import com.pulumi.aws.s3.BucketAclV2Args;
-     * import com.pulumi.aws.iam.IamFunctions;
-     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
-     * import com.pulumi.aws.s3.BucketPolicy;
-     * import com.pulumi.aws.s3.BucketPolicyArgs;
-     * import com.pulumi.aws.elb.LoadBalancer;
-     * import com.pulumi.aws.elb.LoadBalancerArgs;
-     * import com.pulumi.aws.elb.inputs.LoadBalancerAccessLogsArgs;
-     * import com.pulumi.aws.elb.inputs.LoadBalancerListenerArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var main = ElbFunctions.getServiceAccount();
-     * 
-     *         var elbLogs = new BucketV2(&#34;elbLogs&#34;);
-     * 
-     *         var elbLogsAcl = new BucketAclV2(&#34;elbLogsAcl&#34;, BucketAclV2Args.builder()        
-     *             .bucket(elbLogs.id())
-     *             .acl(&#34;private&#34;)
-     *             .build());
-     * 
-     *         final var allowElbLoggingPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .effect(&#34;Allow&#34;)
-     *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
-     *                     .type(&#34;AWS&#34;)
-     *                     .identifiers(main.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.arn()))
-     *                     .build())
-     *                 .actions(&#34;s3:PutObject&#34;)
-     *                 .resources(elbLogs.arn().applyValue(arn -&gt; String.format(&#34;%s/AWSLogs/*&#34;, arn)))
-     *                 .build())
-     *             .build());
-     * 
-     *         var allowElbLoggingBucketPolicy = new BucketPolicy(&#34;allowElbLoggingBucketPolicy&#34;, BucketPolicyArgs.builder()        
-     *             .bucket(elbLogs.id())
-     *             .policy(allowElbLoggingPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(allowElbLoggingPolicyDocument -&gt; allowElbLoggingPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
-     *             .build());
-     * 
-     *         var bar = new LoadBalancer(&#34;bar&#34;, LoadBalancerArgs.builder()        
-     *             .availabilityZones(&#34;us-west-2a&#34;)
-     *             .accessLogs(LoadBalancerAccessLogsArgs.builder()
-     *                 .bucket(elbLogs.id())
-     *                 .interval(5)
-     *                 .build())
-     *             .listeners(LoadBalancerListenerArgs.builder()
-     *                 .instancePort(8000)
-     *                 .instanceProtocol(&#34;http&#34;)
-     *                 .lbPort(80)
-     *                 .lbProtocol(&#34;http&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetServiceAccountResult> getServiceAccount() {
@@ -593,83 +136,6 @@ public final class ElbFunctions {
      * 
      * &gt; **Note:** For AWS Regions opened since Jakarta (`ap-southeast-3`) in December 2021, AWS [documents that](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-access-logs.html#attach-bucket-policy) a [service principal name](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services) should be used instead of an AWS account ID in any relevant IAM policy.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.elb.ElbFunctions;
-     * import com.pulumi.aws.elb.inputs.GetServiceAccountArgs;
-     * import com.pulumi.aws.s3.BucketV2;
-     * import com.pulumi.aws.s3.BucketAclV2;
-     * import com.pulumi.aws.s3.BucketAclV2Args;
-     * import com.pulumi.aws.iam.IamFunctions;
-     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
-     * import com.pulumi.aws.s3.BucketPolicy;
-     * import com.pulumi.aws.s3.BucketPolicyArgs;
-     * import com.pulumi.aws.elb.LoadBalancer;
-     * import com.pulumi.aws.elb.LoadBalancerArgs;
-     * import com.pulumi.aws.elb.inputs.LoadBalancerAccessLogsArgs;
-     * import com.pulumi.aws.elb.inputs.LoadBalancerListenerArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var main = ElbFunctions.getServiceAccount();
-     * 
-     *         var elbLogs = new BucketV2(&#34;elbLogs&#34;);
-     * 
-     *         var elbLogsAcl = new BucketAclV2(&#34;elbLogsAcl&#34;, BucketAclV2Args.builder()        
-     *             .bucket(elbLogs.id())
-     *             .acl(&#34;private&#34;)
-     *             .build());
-     * 
-     *         final var allowElbLoggingPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .effect(&#34;Allow&#34;)
-     *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
-     *                     .type(&#34;AWS&#34;)
-     *                     .identifiers(main.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.arn()))
-     *                     .build())
-     *                 .actions(&#34;s3:PutObject&#34;)
-     *                 .resources(elbLogs.arn().applyValue(arn -&gt; String.format(&#34;%s/AWSLogs/*&#34;, arn)))
-     *                 .build())
-     *             .build());
-     * 
-     *         var allowElbLoggingBucketPolicy = new BucketPolicy(&#34;allowElbLoggingBucketPolicy&#34;, BucketPolicyArgs.builder()        
-     *             .bucket(elbLogs.id())
-     *             .policy(allowElbLoggingPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(allowElbLoggingPolicyDocument -&gt; allowElbLoggingPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
-     *             .build());
-     * 
-     *         var bar = new LoadBalancer(&#34;bar&#34;, LoadBalancerArgs.builder()        
-     *             .availabilityZones(&#34;us-west-2a&#34;)
-     *             .accessLogs(LoadBalancerAccessLogsArgs.builder()
-     *                 .bucket(elbLogs.id())
-     *                 .interval(5)
-     *                 .build())
-     *             .listeners(LoadBalancerListenerArgs.builder()
-     *                 .instancePort(8000)
-     *                 .instanceProtocol(&#34;http&#34;)
-     *                 .lbPort(80)
-     *                 .lbProtocol(&#34;http&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static CompletableFuture<GetServiceAccountResult> getServiceAccountPlain() {
         return getServiceAccountPlain(GetServiceAccountPlainArgs.Empty, InvokeOptions.Empty);
@@ -679,83 +145,6 @@ public final class ElbFunctions {
      * in a given region for the purpose of permitting in S3 bucket policy.
      * 
      * &gt; **Note:** For AWS Regions opened since Jakarta (`ap-southeast-3`) in December 2021, AWS [documents that](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-access-logs.html#attach-bucket-policy) a [service principal name](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services) should be used instead of an AWS account ID in any relevant IAM policy.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.elb.ElbFunctions;
-     * import com.pulumi.aws.elb.inputs.GetServiceAccountArgs;
-     * import com.pulumi.aws.s3.BucketV2;
-     * import com.pulumi.aws.s3.BucketAclV2;
-     * import com.pulumi.aws.s3.BucketAclV2Args;
-     * import com.pulumi.aws.iam.IamFunctions;
-     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
-     * import com.pulumi.aws.s3.BucketPolicy;
-     * import com.pulumi.aws.s3.BucketPolicyArgs;
-     * import com.pulumi.aws.elb.LoadBalancer;
-     * import com.pulumi.aws.elb.LoadBalancerArgs;
-     * import com.pulumi.aws.elb.inputs.LoadBalancerAccessLogsArgs;
-     * import com.pulumi.aws.elb.inputs.LoadBalancerListenerArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var main = ElbFunctions.getServiceAccount();
-     * 
-     *         var elbLogs = new BucketV2(&#34;elbLogs&#34;);
-     * 
-     *         var elbLogsAcl = new BucketAclV2(&#34;elbLogsAcl&#34;, BucketAclV2Args.builder()        
-     *             .bucket(elbLogs.id())
-     *             .acl(&#34;private&#34;)
-     *             .build());
-     * 
-     *         final var allowElbLoggingPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .effect(&#34;Allow&#34;)
-     *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
-     *                     .type(&#34;AWS&#34;)
-     *                     .identifiers(main.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.arn()))
-     *                     .build())
-     *                 .actions(&#34;s3:PutObject&#34;)
-     *                 .resources(elbLogs.arn().applyValue(arn -&gt; String.format(&#34;%s/AWSLogs/*&#34;, arn)))
-     *                 .build())
-     *             .build());
-     * 
-     *         var allowElbLoggingBucketPolicy = new BucketPolicy(&#34;allowElbLoggingBucketPolicy&#34;, BucketPolicyArgs.builder()        
-     *             .bucket(elbLogs.id())
-     *             .policy(allowElbLoggingPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(allowElbLoggingPolicyDocument -&gt; allowElbLoggingPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
-     *             .build());
-     * 
-     *         var bar = new LoadBalancer(&#34;bar&#34;, LoadBalancerArgs.builder()        
-     *             .availabilityZones(&#34;us-west-2a&#34;)
-     *             .accessLogs(LoadBalancerAccessLogsArgs.builder()
-     *                 .bucket(elbLogs.id())
-     *                 .interval(5)
-     *                 .build())
-     *             .listeners(LoadBalancerListenerArgs.builder()
-     *                 .instancePort(8000)
-     *                 .instanceProtocol(&#34;http&#34;)
-     *                 .lbPort(80)
-     *                 .lbProtocol(&#34;http&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetServiceAccountResult> getServiceAccount(GetServiceAccountArgs args) {
@@ -767,83 +156,6 @@ public final class ElbFunctions {
      * 
      * &gt; **Note:** For AWS Regions opened since Jakarta (`ap-southeast-3`) in December 2021, AWS [documents that](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-access-logs.html#attach-bucket-policy) a [service principal name](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services) should be used instead of an AWS account ID in any relevant IAM policy.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.elb.ElbFunctions;
-     * import com.pulumi.aws.elb.inputs.GetServiceAccountArgs;
-     * import com.pulumi.aws.s3.BucketV2;
-     * import com.pulumi.aws.s3.BucketAclV2;
-     * import com.pulumi.aws.s3.BucketAclV2Args;
-     * import com.pulumi.aws.iam.IamFunctions;
-     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
-     * import com.pulumi.aws.s3.BucketPolicy;
-     * import com.pulumi.aws.s3.BucketPolicyArgs;
-     * import com.pulumi.aws.elb.LoadBalancer;
-     * import com.pulumi.aws.elb.LoadBalancerArgs;
-     * import com.pulumi.aws.elb.inputs.LoadBalancerAccessLogsArgs;
-     * import com.pulumi.aws.elb.inputs.LoadBalancerListenerArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var main = ElbFunctions.getServiceAccount();
-     * 
-     *         var elbLogs = new BucketV2(&#34;elbLogs&#34;);
-     * 
-     *         var elbLogsAcl = new BucketAclV2(&#34;elbLogsAcl&#34;, BucketAclV2Args.builder()        
-     *             .bucket(elbLogs.id())
-     *             .acl(&#34;private&#34;)
-     *             .build());
-     * 
-     *         final var allowElbLoggingPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .effect(&#34;Allow&#34;)
-     *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
-     *                     .type(&#34;AWS&#34;)
-     *                     .identifiers(main.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.arn()))
-     *                     .build())
-     *                 .actions(&#34;s3:PutObject&#34;)
-     *                 .resources(elbLogs.arn().applyValue(arn -&gt; String.format(&#34;%s/AWSLogs/*&#34;, arn)))
-     *                 .build())
-     *             .build());
-     * 
-     *         var allowElbLoggingBucketPolicy = new BucketPolicy(&#34;allowElbLoggingBucketPolicy&#34;, BucketPolicyArgs.builder()        
-     *             .bucket(elbLogs.id())
-     *             .policy(allowElbLoggingPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(allowElbLoggingPolicyDocument -&gt; allowElbLoggingPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
-     *             .build());
-     * 
-     *         var bar = new LoadBalancer(&#34;bar&#34;, LoadBalancerArgs.builder()        
-     *             .availabilityZones(&#34;us-west-2a&#34;)
-     *             .accessLogs(LoadBalancerAccessLogsArgs.builder()
-     *                 .bucket(elbLogs.id())
-     *                 .interval(5)
-     *                 .build())
-     *             .listeners(LoadBalancerListenerArgs.builder()
-     *                 .instancePort(8000)
-     *                 .instanceProtocol(&#34;http&#34;)
-     *                 .lbPort(80)
-     *                 .lbProtocol(&#34;http&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static CompletableFuture<GetServiceAccountResult> getServiceAccountPlain(GetServiceAccountPlainArgs args) {
         return getServiceAccountPlain(args, InvokeOptions.Empty);
@@ -854,83 +166,6 @@ public final class ElbFunctions {
      * 
      * &gt; **Note:** For AWS Regions opened since Jakarta (`ap-southeast-3`) in December 2021, AWS [documents that](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-access-logs.html#attach-bucket-policy) a [service principal name](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services) should be used instead of an AWS account ID in any relevant IAM policy.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.elb.ElbFunctions;
-     * import com.pulumi.aws.elb.inputs.GetServiceAccountArgs;
-     * import com.pulumi.aws.s3.BucketV2;
-     * import com.pulumi.aws.s3.BucketAclV2;
-     * import com.pulumi.aws.s3.BucketAclV2Args;
-     * import com.pulumi.aws.iam.IamFunctions;
-     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
-     * import com.pulumi.aws.s3.BucketPolicy;
-     * import com.pulumi.aws.s3.BucketPolicyArgs;
-     * import com.pulumi.aws.elb.LoadBalancer;
-     * import com.pulumi.aws.elb.LoadBalancerArgs;
-     * import com.pulumi.aws.elb.inputs.LoadBalancerAccessLogsArgs;
-     * import com.pulumi.aws.elb.inputs.LoadBalancerListenerArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var main = ElbFunctions.getServiceAccount();
-     * 
-     *         var elbLogs = new BucketV2(&#34;elbLogs&#34;);
-     * 
-     *         var elbLogsAcl = new BucketAclV2(&#34;elbLogsAcl&#34;, BucketAclV2Args.builder()        
-     *             .bucket(elbLogs.id())
-     *             .acl(&#34;private&#34;)
-     *             .build());
-     * 
-     *         final var allowElbLoggingPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .effect(&#34;Allow&#34;)
-     *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
-     *                     .type(&#34;AWS&#34;)
-     *                     .identifiers(main.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.arn()))
-     *                     .build())
-     *                 .actions(&#34;s3:PutObject&#34;)
-     *                 .resources(elbLogs.arn().applyValue(arn -&gt; String.format(&#34;%s/AWSLogs/*&#34;, arn)))
-     *                 .build())
-     *             .build());
-     * 
-     *         var allowElbLoggingBucketPolicy = new BucketPolicy(&#34;allowElbLoggingBucketPolicy&#34;, BucketPolicyArgs.builder()        
-     *             .bucket(elbLogs.id())
-     *             .policy(allowElbLoggingPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(allowElbLoggingPolicyDocument -&gt; allowElbLoggingPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
-     *             .build());
-     * 
-     *         var bar = new LoadBalancer(&#34;bar&#34;, LoadBalancerArgs.builder()        
-     *             .availabilityZones(&#34;us-west-2a&#34;)
-     *             .accessLogs(LoadBalancerAccessLogsArgs.builder()
-     *                 .bucket(elbLogs.id())
-     *                 .interval(5)
-     *                 .build())
-     *             .listeners(LoadBalancerListenerArgs.builder()
-     *                 .instancePort(8000)
-     *                 .instanceProtocol(&#34;http&#34;)
-     *                 .lbPort(80)
-     *                 .lbProtocol(&#34;http&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetServiceAccountResult> getServiceAccount(GetServiceAccountArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:elb/getServiceAccount:getServiceAccount", TypeShape.of(GetServiceAccountResult.class), args, Utilities.withVersion(options));
@@ -940,83 +175,6 @@ public final class ElbFunctions {
      * in a given region for the purpose of permitting in S3 bucket policy.
      * 
      * &gt; **Note:** For AWS Regions opened since Jakarta (`ap-southeast-3`) in December 2021, AWS [documents that](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-access-logs.html#attach-bucket-policy) a [service principal name](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services) should be used instead of an AWS account ID in any relevant IAM policy.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.elb.ElbFunctions;
-     * import com.pulumi.aws.elb.inputs.GetServiceAccountArgs;
-     * import com.pulumi.aws.s3.BucketV2;
-     * import com.pulumi.aws.s3.BucketAclV2;
-     * import com.pulumi.aws.s3.BucketAclV2Args;
-     * import com.pulumi.aws.iam.IamFunctions;
-     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
-     * import com.pulumi.aws.s3.BucketPolicy;
-     * import com.pulumi.aws.s3.BucketPolicyArgs;
-     * import com.pulumi.aws.elb.LoadBalancer;
-     * import com.pulumi.aws.elb.LoadBalancerArgs;
-     * import com.pulumi.aws.elb.inputs.LoadBalancerAccessLogsArgs;
-     * import com.pulumi.aws.elb.inputs.LoadBalancerListenerArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var main = ElbFunctions.getServiceAccount();
-     * 
-     *         var elbLogs = new BucketV2(&#34;elbLogs&#34;);
-     * 
-     *         var elbLogsAcl = new BucketAclV2(&#34;elbLogsAcl&#34;, BucketAclV2Args.builder()        
-     *             .bucket(elbLogs.id())
-     *             .acl(&#34;private&#34;)
-     *             .build());
-     * 
-     *         final var allowElbLoggingPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .effect(&#34;Allow&#34;)
-     *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
-     *                     .type(&#34;AWS&#34;)
-     *                     .identifiers(main.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.arn()))
-     *                     .build())
-     *                 .actions(&#34;s3:PutObject&#34;)
-     *                 .resources(elbLogs.arn().applyValue(arn -&gt; String.format(&#34;%s/AWSLogs/*&#34;, arn)))
-     *                 .build())
-     *             .build());
-     * 
-     *         var allowElbLoggingBucketPolicy = new BucketPolicy(&#34;allowElbLoggingBucketPolicy&#34;, BucketPolicyArgs.builder()        
-     *             .bucket(elbLogs.id())
-     *             .policy(allowElbLoggingPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(allowElbLoggingPolicyDocument -&gt; allowElbLoggingPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
-     *             .build());
-     * 
-     *         var bar = new LoadBalancer(&#34;bar&#34;, LoadBalancerArgs.builder()        
-     *             .availabilityZones(&#34;us-west-2a&#34;)
-     *             .accessLogs(LoadBalancerAccessLogsArgs.builder()
-     *                 .bucket(elbLogs.id())
-     *                 .interval(5)
-     *                 .build())
-     *             .listeners(LoadBalancerListenerArgs.builder()
-     *                 .instancePort(8000)
-     *                 .instanceProtocol(&#34;http&#34;)
-     *                 .lbPort(80)
-     *                 .lbProtocol(&#34;http&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetServiceAccountResult> getServiceAccountPlain(GetServiceAccountPlainArgs args, InvokeOptions options) {

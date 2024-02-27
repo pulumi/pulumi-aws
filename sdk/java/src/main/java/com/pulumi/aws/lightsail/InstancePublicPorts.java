@@ -33,7 +33,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.lightsail.InstanceArgs;
  * import com.pulumi.aws.lightsail.InstancePublicPorts;
  * import com.pulumi.aws.lightsail.InstancePublicPortsArgs;
- * import com.pulumi.aws.lightsail.inputs.InstancePublicPortsPortInfoArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -55,11 +54,7 @@ import javax.annotation.Nullable;
  * 
  *         var testInstancePublicPorts = new InstancePublicPorts(&#34;testInstancePublicPorts&#34;, InstancePublicPortsArgs.builder()        
  *             .instanceName(testInstance.name())
- *             .portInfos(InstancePublicPortsPortInfoArgs.builder()
- *                 .protocol(&#34;tcp&#34;)
- *                 .fromPort(80)
- *                 .toPort(80)
- *                 .build())
+ *             .portInfos(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

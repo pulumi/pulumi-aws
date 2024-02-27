@@ -22,23 +22,23 @@ namespace Pulumi.Aws.Glue
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Glue.SecurityConfiguration("example", new()
+    ///     var example = new Aws.Glue.SecurityConfiguration.SecurityConfiguration("example", new()
     ///     {
-    ///         EncryptionConfiguration = new Aws.Glue.Inputs.SecurityConfigurationEncryptionConfigurationArgs
+    ///         EncryptionConfiguration = 
     ///         {
-    ///             CloudwatchEncryption = new Aws.Glue.Inputs.SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionArgs
+    ///             { "cloudwatchEncryption", 
     ///             {
-    ///                 CloudwatchEncryptionMode = "DISABLED",
-    ///             },
-    ///             JobBookmarksEncryption = new Aws.Glue.Inputs.SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionArgs
+    ///                 { "cloudwatchEncryptionMode", "DISABLED" },
+    ///             } },
+    ///             { "jobBookmarksEncryption", 
     ///             {
-    ///                 JobBookmarksEncryptionMode = "DISABLED",
-    ///             },
-    ///             S3Encryption = new Aws.Glue.Inputs.SecurityConfigurationEncryptionConfigurationS3EncryptionArgs
+    ///                 { "jobBookmarksEncryptionMode", "DISABLED" },
+    ///             } },
+    ///             { "s3Encryption", 
     ///             {
-    ///                 KmsKeyArn = data.Aws_kms_key.Example.Arn,
-    ///                 S3EncryptionMode = "SSE-KMS",
-    ///             },
+    ///                 { "kmsKeyArn", data.Aws_kms_key.Example.Arn },
+    ///                 { "s3EncryptionMode", "SSE-KMS" },
+    ///             } },
     ///         },
     ///     });
     /// 

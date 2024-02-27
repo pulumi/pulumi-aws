@@ -12,33 +12,6 @@ import (
 )
 
 // Retrieves the summary of a WAFv2 IP Set.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/wafv2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := wafv2.LookupIpSet(ctx, &wafv2.LookupIpSetArgs{
-//				Name:  "some-ip-set",
-//				Scope: "REGIONAL",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupIpSet(ctx *pulumi.Context, args *LookupIpSetArgs, opts ...pulumi.InvokeOption) (*LookupIpSetResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupIpSetResult

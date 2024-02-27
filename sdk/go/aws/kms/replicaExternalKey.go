@@ -22,43 +22,42 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kms"
+//	"github.com/pulumi/pulumi-aws/sdk/v1/go/aws"
+//	kms/externalKey "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/kms/externalKey"
+//	kms/replicaExternalKey "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/kms/replicaExternalKey"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := aws.NewProvider(ctx, "primary", &aws.ProviderArgs{
-//				Region: pulumi.String("us-east-1"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = kms.NewExternalKey(ctx, "primaryExternalKey", &kms.ExternalKeyArgs{
-//				Description:          pulumi.String("Multi-Region primary key"),
-//				DeletionWindowInDays: pulumi.Int(30),
-//				MultiRegion:          pulumi.Bool(true),
-//				Enabled:              pulumi.Bool(true),
-//				KeyMaterialBase64:    pulumi.String("..."),
-//			}, pulumi.Provider(aws.Primary))
-//			if err != nil {
-//				return err
-//			}
-//			_, err = kms.NewReplicaExternalKey(ctx, "replica", &kms.ReplicaExternalKeyArgs{
-//				Description:          pulumi.String("Multi-Region replica key"),
-//				DeletionWindowInDays: pulumi.Int(7),
-//				PrimaryKeyArn:        pulumi.Any(aws_kms_external.Primary.Arn),
-//				KeyMaterialBase64:    pulumi.String("..."),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := aws.NewProvider(ctx, "primary", &aws.ProviderArgs{
+// Region: "us-east-1",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = kms/externalKey.NewExternalKey(ctx, "primaryExternalKey", &kms/externalKey.ExternalKeyArgs{
+// Description: "Multi-Region primary key",
+// DeletionWindowInDays: 30,
+// MultiRegion: true,
+// Enabled: true,
+// KeyMaterialBase64: "...",
+// }, pulumi.Provider(aws.Primary))
+// if err != nil {
+// return err
+// }
+// _, err = kms/replicaExternalKey.NewReplicaExternalKey(ctx, "replica", &kms/replicaExternalKey.ReplicaExternalKeyArgs{
+// Description: "Multi-Region replica key",
+// DeletionWindowInDays: 7,
+// PrimaryKeyArn: aws_kms_external.Primary.Arn,
+// KeyMaterialBase64: "...",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

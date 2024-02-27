@@ -24,7 +24,7 @@ namespace Pulumi.Aws.Ivs
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Ivs.PlaybackKeyPair("example", new()
+    ///     var example = new Aws.Ivs.PlaybackKeyPair.PlaybackKeyPair("example", new()
     ///     {
     ///         PublicKey = File.ReadAllText("./public-key.pem"),
     ///     });

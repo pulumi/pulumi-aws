@@ -198,21 +198,21 @@ class SharedDirectory(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_directory = aws.directoryservice.Directory("exampleDirectory",
-            name="tf-example",
-            password="SuperSecretPassw0rd",
-            type="MicrosoftAD",
-            edition="Standard",
-            vpc_settings=aws.directoryservice.DirectoryVpcSettingsArgs(
-                vpc_id=aws_vpc["example"]["id"],
-                subnet_ids=[__item["id"] for __item in aws_subnet["example"]],
-            ))
-        example_shared_directory = aws.directoryservice.SharedDirectory("exampleSharedDirectory",
+        example_directory = aws.directoryservice.directory.Directory("exampleDirectory",
+            name=tf-example,
+            password=SuperSecretPassw0rd,
+            type=MicrosoftAD,
+            edition=Standard,
+            vpc_settings={
+                vpcId: aws_vpc.example.id,
+                subnetIds: [__item.id for __item in aws_subnet.example],
+            })
+        example_shared_directory = aws.directoryservice.shared_directory.SharedDirectory("exampleSharedDirectory",
             directory_id=example_directory.id,
-            notes="You wanna have a catch?",
-            target=aws.directoryservice.SharedDirectoryTargetArgs(
-                id=data["aws_caller_identity"]["receiver"]["account_id"],
-            ))
+            notes=You wanna have a catch?,
+            target={
+                id: data.aws_caller_identity.receiver.account_id,
+            })
         ```
 
         ## Import
@@ -247,21 +247,21 @@ class SharedDirectory(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_directory = aws.directoryservice.Directory("exampleDirectory",
-            name="tf-example",
-            password="SuperSecretPassw0rd",
-            type="MicrosoftAD",
-            edition="Standard",
-            vpc_settings=aws.directoryservice.DirectoryVpcSettingsArgs(
-                vpc_id=aws_vpc["example"]["id"],
-                subnet_ids=[__item["id"] for __item in aws_subnet["example"]],
-            ))
-        example_shared_directory = aws.directoryservice.SharedDirectory("exampleSharedDirectory",
+        example_directory = aws.directoryservice.directory.Directory("exampleDirectory",
+            name=tf-example,
+            password=SuperSecretPassw0rd,
+            type=MicrosoftAD,
+            edition=Standard,
+            vpc_settings={
+                vpcId: aws_vpc.example.id,
+                subnetIds: [__item.id for __item in aws_subnet.example],
+            })
+        example_shared_directory = aws.directoryservice.shared_directory.SharedDirectory("exampleSharedDirectory",
             directory_id=example_directory.id,
-            notes="You wanna have a catch?",
-            target=aws.directoryservice.SharedDirectoryTargetArgs(
-                id=data["aws_caller_identity"]["receiver"]["account_id"],
-            ))
+            notes=You wanna have a catch?,
+            target={
+                id: data.aws_caller_identity.receiver.account_id,
+            })
         ```
 
         ## Import

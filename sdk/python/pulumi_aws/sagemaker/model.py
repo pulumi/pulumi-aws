@@ -347,29 +347,6 @@ class Model(pulumi.CustomResource):
         """
         Provides a SageMaker model resource.
 
-        ## Example Usage
-
-        Basic usage:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            actions=["sts:AssumeRole"],
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["sagemaker.amazonaws.com"],
-            )],
-        )])
-        example_role = aws.iam.Role("exampleRole", assume_role_policy=assume_role.json)
-        test = aws.sagemaker.get_prebuilt_ecr_image(repository_name="kmeans")
-        example_model = aws.sagemaker.Model("exampleModel",
-            execution_role_arn=example_role.arn,
-            primary_container=aws.sagemaker.ModelPrimaryContainerArgs(
-                image=test.registry_path,
-            ))
-        ```
         ## Inference Execution Config
 
         * `mode` - (Required) How containers in a multi-container are run. The following values are valid `Serial` and `Direct`.
@@ -404,29 +381,6 @@ class Model(pulumi.CustomResource):
         """
         Provides a SageMaker model resource.
 
-        ## Example Usage
-
-        Basic usage:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            actions=["sts:AssumeRole"],
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["sagemaker.amazonaws.com"],
-            )],
-        )])
-        example_role = aws.iam.Role("exampleRole", assume_role_policy=assume_role.json)
-        test = aws.sagemaker.get_prebuilt_ecr_image(repository_name="kmeans")
-        example_model = aws.sagemaker.Model("exampleModel",
-            execution_role_arn=example_role.arn,
-            primary_container=aws.sagemaker.ModelPrimaryContainerArgs(
-                image=test.registry_path,
-            ))
-        ```
         ## Inference Execution Config
 
         * `mode` - (Required) How containers in a multi-container are run. The following values are valid `Serial` and `Direct`.

@@ -22,7 +22,7 @@ namespace Pulumi.Aws.CostExplorer
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.CostExplorer.CostAllocationTag("example", new()
+    ///     var example = new Aws.Costexplorer.CostAllocationTag.CostAllocationTag("example", new()
     ///     {
     ///         Status = "Active",
     ///         TagKey = "example",

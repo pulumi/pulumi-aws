@@ -34,7 +34,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.rds.OptionGroup;
  * import com.pulumi.aws.rds.OptionGroupArgs;
- * import com.pulumi.aws.rds.inputs.OptionGroupOptionArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -53,23 +52,9 @@ import javax.annotation.Nullable;
  *             .engineName(&#34;sqlserver-ee&#34;)
  *             .majorEngineVersion(&#34;11.00&#34;)
  *             .options(            
- *                 OptionGroupOptionArgs.builder()
- *                     .optionName(&#34;Timezone&#34;)
- *                     .optionSettings(OptionGroupOptionOptionSettingArgs.builder()
- *                         .name(&#34;TIME_ZONE&#34;)
- *                         .value(&#34;UTC&#34;)
- *                         .build())
- *                     .build(),
- *                 OptionGroupOptionArgs.builder()
- *                     .optionName(&#34;SQLSERVER_BACKUP_RESTORE&#34;)
- *                     .optionSettings(OptionGroupOptionOptionSettingArgs.builder()
- *                         .name(&#34;IAM_ROLE_ARN&#34;)
- *                         .value(aws_iam_role.example().arn())
- *                         .build())
- *                     .build(),
- *                 OptionGroupOptionArgs.builder()
- *                     .optionName(&#34;TDE&#34;)
- *                     .build())
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

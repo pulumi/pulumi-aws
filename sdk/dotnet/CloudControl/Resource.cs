@@ -23,7 +23,7 @@ namespace Pulumi.Aws.CloudControl
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.CloudControl.Resource("example", new()
+    ///     var example = new Aws.Cloudcontrol.Resource.Resource("example", new()
     ///     {
     ///         TypeName = "AWS::ECS::Cluster",
     ///         DesiredState = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;

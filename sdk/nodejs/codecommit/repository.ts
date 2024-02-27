@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = new aws.codecommit.Repository("test", {
+ * const test = new aws.codecommit/repository.Repository("test", {
  *     description: "This is the Sample App Repository",
  *     repositoryName: "MyTestRepository",
  * });
@@ -24,11 +24,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const testKey = new aws.kms.Key("testKey", {
+ * const testKey = new aws.kms/key.Key("testKey", {
  *     description: "test",
  *     deletionWindowInDays: 7,
  * });
- * const testRepository = new aws.codecommit.Repository("testRepository", {
+ * const testRepository = new aws.codecommit/repository.Repository("testRepository", {
  *     repositoryName: "MyTestRepository",
  *     description: "This is the Sample App Repository",
  *     kmsKeyId: testKey.arn,

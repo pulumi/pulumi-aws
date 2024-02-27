@@ -245,29 +245,6 @@ class Multiplex(pulumi.CustomResource):
         Resource for managing an AWS MediaLive Multiplex.
 
         ## Example Usage
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        available = aws.get_availability_zones(state="available")
-        example = aws.medialive.Multiplex("example",
-            availability_zones=[
-                available.names[0],
-                available.names[1],
-            ],
-            multiplex_settings=aws.medialive.MultiplexMultiplexSettingsArgs(
-                transport_stream_bitrate=1000000,
-                transport_stream_id=1,
-                transport_stream_reserved_bitrate=1,
-                maximum_video_buffer_delay_milliseconds=1000,
-            ),
-            start_multiplex=True,
-            tags={
-                "tag1": "value1",
-            })
-        ```
 
         ## Import
 
@@ -297,29 +274,6 @@ class Multiplex(pulumi.CustomResource):
         Resource for managing an AWS MediaLive Multiplex.
 
         ## Example Usage
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        available = aws.get_availability_zones(state="available")
-        example = aws.medialive.Multiplex("example",
-            availability_zones=[
-                available.names[0],
-                available.names[1],
-            ],
-            multiplex_settings=aws.medialive.MultiplexMultiplexSettingsArgs(
-                transport_stream_bitrate=1000000,
-                transport_stream_id=1,
-                transport_stream_reserved_bitrate=1,
-                maximum_video_buffer_delay_milliseconds=1000,
-            ),
-            start_multiplex=True,
-            tags={
-                "tag1": "value1",
-            })
-        ```
 
         ## Import
 

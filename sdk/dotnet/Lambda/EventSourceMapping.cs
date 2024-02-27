@@ -26,7 +26,7 @@ namespace Pulumi.Aws.Lambda
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Lambda.EventSourceMapping("example", new()
+    ///     var example = new Aws.Lambda.EventSourceMapping.EventSourceMapping("example", new()
     ///     {
     ///         EventSourceArn = aws_dynamodb_table.Example.Stream_arn,
     ///         FunctionName = aws_lambda_function.Example.Arn,
@@ -45,7 +45,7 @@ namespace Pulumi.Aws.Lambda
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Lambda.EventSourceMapping("example", new()
+    ///     var example = new Aws.Lambda.EventSourceMapping.EventSourceMapping("example", new()
     ///     {
     ///         EventSourceArn = aws_kinesis_stream.Example.Arn,
     ///         FunctionName = aws_lambda_function.Example.Arn,
@@ -64,7 +64,7 @@ namespace Pulumi.Aws.Lambda
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Lambda.EventSourceMapping("example", new()
+    ///     var example = new Aws.Lambda.EventSourceMapping.EventSourceMapping("example", new()
     ///     {
     ///         EventSourceArn = aws_msk_cluster.Example.Arn,
     ///         FunctionName = aws_lambda_function.Example.Arn,
@@ -87,7 +87,7 @@ namespace Pulumi.Aws.Lambda
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Lambda.EventSourceMapping("example", new()
+    ///     var example = new Aws.Lambda.EventSourceMapping.EventSourceMapping("example", new()
     ///     {
     ///         FunctionName = aws_lambda_function.Example.Arn,
     ///         Topics = new[]
@@ -95,29 +95,29 @@ namespace Pulumi.Aws.Lambda
     ///             "Example",
     ///         },
     ///         StartingPosition = "TRIM_HORIZON",
-    ///         SelfManagedEventSource = new Aws.Lambda.Inputs.EventSourceMappingSelfManagedEventSourceArgs
+    ///         SelfManagedEventSource = 
     ///         {
-    ///             Endpoints = 
+    ///             { "endpoints", 
     ///             {
     ///                 { "KAFKA_BOOTSTRAP_SERVERS", "kafka1.example.com:9092,kafka2.example.com:9092" },
-    ///             },
+    ///             } },
     ///         },
     ///         SourceAccessConfigurations = new[]
     ///         {
-    ///             new Aws.Lambda.Inputs.EventSourceMappingSourceAccessConfigurationArgs
+    ///             
     ///             {
-    ///                 Type = "VPC_SUBNET",
-    ///                 Uri = "subnet:subnet-example1",
+    ///                 { "type", "VPC_SUBNET" },
+    ///                 { "uri", "subnet:subnet-example1" },
     ///             },
-    ///             new Aws.Lambda.Inputs.EventSourceMappingSourceAccessConfigurationArgs
+    ///             
     ///             {
-    ///                 Type = "VPC_SUBNET",
-    ///                 Uri = "subnet:subnet-example2",
+    ///                 { "type", "VPC_SUBNET" },
+    ///                 { "uri", "subnet:subnet-example2" },
     ///             },
-    ///             new Aws.Lambda.Inputs.EventSourceMappingSourceAccessConfigurationArgs
+    ///             
     ///             {
-    ///                 Type = "VPC_SECURITY_GROUP",
-    ///                 Uri = "security_group:sg-example",
+    ///                 { "type", "VPC_SECURITY_GROUP" },
+    ///                 { "uri", "security_group:sg-example" },
     ///             },
     ///         },
     ///     });
@@ -134,7 +134,7 @@ namespace Pulumi.Aws.Lambda
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Lambda.EventSourceMapping("example", new()
+    ///     var example = new Aws.Lambda.EventSourceMapping.EventSourceMapping("example", new()
     ///     {
     ///         EventSourceArn = aws_sqs_queue.Sqs_queue_test.Arn,
     ///         FunctionName = aws_lambda_function.Example.Arn,
@@ -153,17 +153,17 @@ namespace Pulumi.Aws.Lambda
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Lambda.EventSourceMapping("example", new()
+    ///     var example = new Aws.Lambda.EventSourceMapping.EventSourceMapping("example", new()
     ///     {
     ///         EventSourceArn = aws_sqs_queue.Sqs_queue_test.Arn,
     ///         FunctionName = aws_lambda_function.Example.Arn,
-    ///         FilterCriteria = new Aws.Lambda.Inputs.EventSourceMappingFilterCriteriaArgs
+    ///         FilterCriteria = 
     ///         {
-    ///             Filters = new[]
+    ///             { "filters", new[]
     ///             {
-    ///                 new Aws.Lambda.Inputs.EventSourceMappingFilterCriteriaFilterArgs
+    ///                 
     ///                 {
-    ///                     Pattern = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///                     { "pattern", JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///                     {
     ///                         ["body"] = new Dictionary&lt;string, object?&gt;
     ///                         {
@@ -171,7 +171,7 @@ namespace Pulumi.Aws.Lambda
     ///                             {
     ///                                 new Dictionary&lt;string, object?&gt;
     ///                                 {
-    ///                                     ["numeric"] = new[]
+    ///                                     ["numeric"] = new object?[]
     ///                                     {
     ///                                         "&gt;",
     ///                                         0,
@@ -185,8 +185,77 @@ namespace Pulumi.Aws.Lambda
     ///                                 "New York",
     ///                             },
     ///                         },
-    ///                     }),
+    ///                     }) },
     ///                 },
+    ///             } },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### Amazon MQ (ActiveMQ)
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Lambda.EventSourceMapping.EventSourceMapping("example", new()
+    ///     {
+    ///         BatchSize = 10,
+    ///         EventSourceArn = aws_mq_broker.Example.Arn,
+    ///         Enabled = true,
+    ///         FunctionName = aws_lambda_function.Example.Arn,
+    ///         Queues = new[]
+    ///         {
+    ///             "example",
+    ///         },
+    ///         SourceAccessConfigurations = new[]
+    ///         {
+    ///             
+    ///             {
+    ///                 { "type", "BASIC_AUTH" },
+    ///                 { "uri", aws_secretsmanager_secret_version.Example.Arn },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### Amazon MQ (RabbitMQ)
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Lambda.EventSourceMapping.EventSourceMapping("example", new()
+    ///     {
+    ///         BatchSize = 1,
+    ///         EventSourceArn = aws_mq_broker.Example.Arn,
+    ///         Enabled = true,
+    ///         FunctionName = aws_lambda_function.Example.Arn,
+    ///         Queues = new[]
+    ///         {
+    ///             "example",
+    ///         },
+    ///         SourceAccessConfigurations = new[]
+    ///         {
+    ///             
+    ///             {
+    ///                 { "type", "VIRTUAL_HOST" },
+    ///                 { "uri", "/example" },
+    ///             },
+    ///             
+    ///             {
+    ///                 { "type", "BASIC_AUTH" },
+    ///                 { "uri", aws_secretsmanager_secret_version.Example.Arn },
     ///             },
     ///         },
     ///     });

@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const hoge = new aws.directconnect.Connection("hoge", {
+ * const hoge = new aws.directconnect/connection.Connection("hoge", {
  *     bandwidth: "1Gbps",
  *     location: "EqDC2",
  * });
@@ -25,7 +25,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.directconnect.Connection("example", {
+ * const example = new aws.directconnect/connection.Connection("example", {
  *     bandwidth: "10Gbps",
  *     location: "EqDA2",
  *     requestMacsec: true,
@@ -39,7 +39,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.directconnect.Connection("example", {
+ * const example = new aws.directconnect/connection.Connection("example", {
  *     bandwidth: "10Gbps",
  *     encryptionMode: "must_encrypt",
  *     location: "EqDC2",

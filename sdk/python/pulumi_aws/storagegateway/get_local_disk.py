@@ -90,16 +90,6 @@ def get_local_disk(disk_node: Optional[str] = None,
     """
     Retrieve information about a Storage Gateway local disk. The disk identifier is useful for adding the disk as a cache or upload buffer to a gateway.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.storagegateway.get_local_disk(disk_path=aws_volume_attachment["test"]["device_name"],
-        gateway_arn=aws_storagegateway_gateway["test"]["arn"])
-    ```
-
 
     :param str disk_node: Device node of the local disk to retrieve. For example, `/dev/sdb`.
     :param str disk_path: Device path of the local disk to retrieve. For example, `/dev/xvdb` or `/dev/nvme1n1`.
@@ -127,16 +117,6 @@ def get_local_disk_output(disk_node: Optional[pulumi.Input[Optional[str]]] = Non
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLocalDiskResult]:
     """
     Retrieve information about a Storage Gateway local disk. The disk identifier is useful for adding the disk as a cache or upload buffer to a gateway.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.storagegateway.get_local_disk(disk_path=aws_volume_attachment["test"]["device_name"],
-        gateway_arn=aws_storagegateway_gateway["test"]["arn"])
-    ```
 
 
     :param str disk_node: Device node of the local disk to retrieve. For example, `/dev/sdb`.

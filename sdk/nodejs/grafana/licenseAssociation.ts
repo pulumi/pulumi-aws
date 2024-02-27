@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const assume = new aws.iam.Role("assume", {assumeRolePolicy: JSON.stringify({
+ * const assume = new aws.iam/role.Role("assume", {assumeRolePolicy: JSON.stringify({
  *     Version: "2012-10-17",
  *     Statement: [{
  *         Action: "sts:AssumeRole",
@@ -25,13 +25,13 @@ import * as utilities from "../utilities";
  *         },
  *     }],
  * })});
- * const exampleWorkspace = new aws.grafana.Workspace("exampleWorkspace", {
+ * const exampleWorkspace = new aws.grafana/workspace.Workspace("exampleWorkspace", {
  *     accountAccessType: "CURRENT_ACCOUNT",
  *     authenticationProviders: ["SAML"],
  *     permissionType: "SERVICE_MANAGED",
  *     roleArn: assume.arn,
  * });
- * const exampleLicenseAssociation = new aws.grafana.LicenseAssociation("exampleLicenseAssociation", {
+ * const exampleLicenseAssociation = new aws.grafana/licenseAssociation.LicenseAssociation("exampleLicenseAssociation", {
  *     licenseType: "ENTERPRISE_FREE_TRIAL",
  *     workspaceId: exampleWorkspace.id,
  * });

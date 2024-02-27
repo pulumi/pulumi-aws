@@ -110,14 +110,14 @@ class KinesisStreamingDestination(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_table = aws.dynamodb.Table("exampleTable",
-            hash_key="id",
-            attributes=[aws.dynamodb.TableAttributeArgs(
-                name="id",
-                type="S",
-            )])
-        example_stream = aws.kinesis.Stream("exampleStream", shard_count=1)
-        example_kinesis_streaming_destination = aws.dynamodb.KinesisStreamingDestination("exampleKinesisStreamingDestination",
+        example_table = aws.dynamodb.table.Table("exampleTable",
+            hash_key=id,
+            attributes=[{
+                name: id,
+                type: S,
+            }])
+        example_stream = aws.kinesis.stream.Stream("exampleStream", shard_count=1)
+        example_kinesis_streaming_destination = aws.dynamodb.kinesis_streaming_destination.KinesisStreamingDestination("exampleKinesisStreamingDestination",
             stream_arn=example_stream.arn,
             table_name=example_table.name)
         ```
@@ -151,14 +151,14 @@ class KinesisStreamingDestination(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_table = aws.dynamodb.Table("exampleTable",
-            hash_key="id",
-            attributes=[aws.dynamodb.TableAttributeArgs(
-                name="id",
-                type="S",
-            )])
-        example_stream = aws.kinesis.Stream("exampleStream", shard_count=1)
-        example_kinesis_streaming_destination = aws.dynamodb.KinesisStreamingDestination("exampleKinesisStreamingDestination",
+        example_table = aws.dynamodb.table.Table("exampleTable",
+            hash_key=id,
+            attributes=[{
+                name: id,
+                type: S,
+            }])
+        example_stream = aws.kinesis.stream.Stream("exampleStream", shard_count=1)
+        example_kinesis_streaming_destination = aws.dynamodb.kinesis_streaming_destination.KinesisStreamingDestination("exampleKinesisStreamingDestination",
             stream_arn=example_stream.arn,
             table_name=example_table.name)
         ```

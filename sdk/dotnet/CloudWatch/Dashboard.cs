@@ -23,7 +23,7 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var main = new Aws.CloudWatch.Dashboard("main", new()
+    ///     var main = new Aws.Cloudwatch.Dashboard.Dashboard("main", new()
     ///     {
     ///         DashboardName = "my-dashboard",
     ///         DashboardBody = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;

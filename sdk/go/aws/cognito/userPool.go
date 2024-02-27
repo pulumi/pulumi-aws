@@ -21,21 +21,19 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cognito"
+//	cognito/userPool "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/cognito/userPool"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cognito.NewUserPool(ctx, "pool", nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := cognito/userPool.NewUserPool(ctx, "pool", nil)
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Enabling SMS and Software Token Multi-Factor Authentication
 //
@@ -44,32 +42,31 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cognito"
+//	cognito/userPool "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/cognito/userPool"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cognito.NewUserPool(ctx, "example", &cognito.UserPoolArgs{
-//				MfaConfiguration:         pulumi.String("ON"),
-//				SmsAuthenticationMessage: pulumi.String("Your code is {####}"),
-//				SmsConfiguration: &cognito.UserPoolSmsConfigurationArgs{
-//					ExternalId:   pulumi.String("example"),
-//					SnsCallerArn: pulumi.Any(aws_iam_role.Example.Arn),
-//					SnsRegion:    pulumi.String("us-east-1"),
-//				},
-//				SoftwareTokenMfaConfiguration: &cognito.UserPoolSoftwareTokenMfaConfigurationArgs{
-//					Enabled: pulumi.Bool(true),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// // ... other configuration ...
+// _, err := cognito/userPool.NewUserPool(ctx, "example", &cognito/userPool.UserPoolArgs{
+// MfaConfiguration: "ON",
+// SmsAuthenticationMessage: "Your code is {####}",
+// SmsConfiguration: map[string]interface{}{
+// "externalId": "example",
+// "snsCallerArn": aws_iam_role.Example.Arn,
+// "snsRegion": "us-east-1",
+// },
+// SoftwareTokenMfaConfiguration: map[string]interface{}{
+// "enabled": true,
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Using Account Recovery Setting
 //
@@ -78,34 +75,32 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cognito"
+//	cognito/userPool "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/cognito/userPool"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cognito.NewUserPool(ctx, "test", &cognito.UserPoolArgs{
-//				AccountRecoverySetting: &cognito.UserPoolAccountRecoverySettingArgs{
-//					RecoveryMechanisms: cognito.UserPoolAccountRecoverySettingRecoveryMechanismArray{
-//						&cognito.UserPoolAccountRecoverySettingRecoveryMechanismArgs{
-//							Name:     pulumi.String("verified_email"),
-//							Priority: pulumi.Int(1),
-//						},
-//						&cognito.UserPoolAccountRecoverySettingRecoveryMechanismArgs{
-//							Name:     pulumi.String("verified_phone_number"),
-//							Priority: pulumi.Int(2),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := cognito/userPool.NewUserPool(ctx, "test", &cognito/userPool.UserPoolArgs{
+// AccountRecoverySetting: map[string]interface{}{
+// "recoveryMechanisms": []interface{}{
+// map[string]interface{}{
+// "name": "verified_email",
+// "priority": 1,
+// },
+// map[string]interface{}{
+// "name": "verified_phone_number",
+// "priority": 2,
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -21,7 +21,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const replicationSetName = new aws.ssmincidents.ReplicationSet("replicationSetName", {
+ * const replicationSetName = new aws.ssmincidents/replicationSet.ReplicationSet("replicationSetName", {
  *     regions: [{
  *         name: "us-west-2",
  *     }],
@@ -37,7 +37,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const replicationSetName = new aws.ssmincidents.ReplicationSet("replicationSetName", {regions: [
+ * const replicationSetName = new aws.ssmincidents/replicationSet.ReplicationSet("replicationSetName", {regions: [
  *     {
  *         name: "us-west-2",
  *     },
@@ -53,7 +53,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const replicationSetName = new aws.ssmincidents.ReplicationSet("replicationSetName", {regions: [{
+ * const replicationSetName = new aws.ssmincidents/replicationSet.ReplicationSet("replicationSetName", {regions: [{
  *     name: "us-west-2",
  * }]});
  * ```
@@ -65,8 +65,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleKey = new aws.kms.Key("exampleKey", {});
- * const replicationSetName = new aws.ssmincidents.ReplicationSet("replicationSetName", {
+ * const exampleKey = new aws.kms/key.Key("exampleKey", {});
+ * const replicationSetName = new aws.ssmincidents/replicationSet.ReplicationSet("replicationSetName", {
  *     regions: [{
  *         name: "us-west-2",
  *         kmsKeyArn: exampleKey.arn,

@@ -14,29 +14,6 @@ namespace Pulumi.Aws.Ecs
         /// <summary>
         /// The ECS container definition data source allows access to details of
         /// a specific container within an AWS ECS service.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var ecs_mongo = Aws.Ecs.GetContainerDefinition.Invoke(new()
-        ///     {
-        ///         TaskDefinition = aws_ecs_task_definition.Mongo.Id,
-        ///         ContainerName = "mongodb",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetContainerDefinitionResult> InvokeAsync(GetContainerDefinitionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetContainerDefinitionResult>("aws:ecs/getContainerDefinition:getContainerDefinition", args ?? new GetContainerDefinitionArgs(), options.WithDefaults());
@@ -44,29 +21,6 @@ namespace Pulumi.Aws.Ecs
         /// <summary>
         /// The ECS container definition data source allows access to details of
         /// a specific container within an AWS ECS service.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var ecs_mongo = Aws.Ecs.GetContainerDefinition.Invoke(new()
-        ///     {
-        ///         TaskDefinition = aws_ecs_task_definition.Mongo.Id,
-        ///         ContainerName = "mongodb",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetContainerDefinitionResult> Invoke(GetContainerDefinitionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetContainerDefinitionResult>("aws:ecs/getContainerDefinition:getContainerDefinition", args ?? new GetContainerDefinitionInvokeArgs(), options.WithDefaults());

@@ -183,15 +183,15 @@ class BucketVersioningV2(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
-        example_bucket_acl_v2 = aws.s3.BucketAclV2("exampleBucketAclV2",
+        example_bucket_v2 = aws.s3.bucket_v2.BucketV2("exampleBucketV2")
+        example_bucket_acl_v2 = aws.s3.bucket_acl_v2.BucketAclV2("exampleBucketAclV2",
             bucket=example_bucket_v2.id,
-            acl="private")
-        versioning_example = aws.s3.BucketVersioningV2("versioningExample",
+            acl=private)
+        versioning_example = aws.s3.bucket_versioning_v2.BucketVersioningV2("versioningExample",
             bucket=example_bucket_v2.id,
-            versioning_configuration=aws.s3.BucketVersioningV2VersioningConfigurationArgs(
-                status="Enabled",
-            ))
+            versioning_configuration={
+                status: Enabled,
+            })
         ```
         ### With Versioning Disabled
 
@@ -199,15 +199,15 @@ class BucketVersioningV2(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
-        example_bucket_acl_v2 = aws.s3.BucketAclV2("exampleBucketAclV2",
+        example_bucket_v2 = aws.s3.bucket_v2.BucketV2("exampleBucketV2")
+        example_bucket_acl_v2 = aws.s3.bucket_acl_v2.BucketAclV2("exampleBucketAclV2",
             bucket=example_bucket_v2.id,
-            acl="private")
-        versioning_example = aws.s3.BucketVersioningV2("versioningExample",
+            acl=private)
+        versioning_example = aws.s3.bucket_versioning_v2.BucketVersioningV2("versioningExample",
             bucket=example_bucket_v2.id,
-            versioning_configuration=aws.s3.BucketVersioningV2VersioningConfigurationArgs(
-                status="Disabled",
-            ))
+            versioning_configuration={
+                status: Disabled,
+            })
         ```
         ### Object Dependency On Versioning
 
@@ -221,16 +221,16 @@ class BucketVersioningV2(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
-        example_bucket_versioning_v2 = aws.s3.BucketVersioningV2("exampleBucketVersioningV2",
+        example_bucket_v2 = aws.s3.bucket_v2.BucketV2("exampleBucketV2")
+        example_bucket_versioning_v2 = aws.s3.bucket_versioning_v2.BucketVersioningV2("exampleBucketVersioningV2",
             bucket=example_bucket_v2.id,
-            versioning_configuration=aws.s3.BucketVersioningV2VersioningConfigurationArgs(
-                status="Enabled",
-            ))
-        example_bucket_objectv2 = aws.s3.BucketObjectv2("exampleBucketObjectv2",
+            versioning_configuration={
+                status: Enabled,
+            })
+        example_bucket_objectv2 = aws.s3.bucket_objectv2.BucketObjectv2("exampleBucketObjectv2",
             bucket=example_bucket_versioning_v2.id,
-            key="droeloe",
-            source=pulumi.FileAsset("example.txt"))
+            key=droeloe,
+            source=pulumi.FileAsset(example.txt))
         ```
 
         ## Import
@@ -281,15 +281,15 @@ class BucketVersioningV2(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
-        example_bucket_acl_v2 = aws.s3.BucketAclV2("exampleBucketAclV2",
+        example_bucket_v2 = aws.s3.bucket_v2.BucketV2("exampleBucketV2")
+        example_bucket_acl_v2 = aws.s3.bucket_acl_v2.BucketAclV2("exampleBucketAclV2",
             bucket=example_bucket_v2.id,
-            acl="private")
-        versioning_example = aws.s3.BucketVersioningV2("versioningExample",
+            acl=private)
+        versioning_example = aws.s3.bucket_versioning_v2.BucketVersioningV2("versioningExample",
             bucket=example_bucket_v2.id,
-            versioning_configuration=aws.s3.BucketVersioningV2VersioningConfigurationArgs(
-                status="Enabled",
-            ))
+            versioning_configuration={
+                status: Enabled,
+            })
         ```
         ### With Versioning Disabled
 
@@ -297,15 +297,15 @@ class BucketVersioningV2(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
-        example_bucket_acl_v2 = aws.s3.BucketAclV2("exampleBucketAclV2",
+        example_bucket_v2 = aws.s3.bucket_v2.BucketV2("exampleBucketV2")
+        example_bucket_acl_v2 = aws.s3.bucket_acl_v2.BucketAclV2("exampleBucketAclV2",
             bucket=example_bucket_v2.id,
-            acl="private")
-        versioning_example = aws.s3.BucketVersioningV2("versioningExample",
+            acl=private)
+        versioning_example = aws.s3.bucket_versioning_v2.BucketVersioningV2("versioningExample",
             bucket=example_bucket_v2.id,
-            versioning_configuration=aws.s3.BucketVersioningV2VersioningConfigurationArgs(
-                status="Disabled",
-            ))
+            versioning_configuration={
+                status: Disabled,
+            })
         ```
         ### Object Dependency On Versioning
 
@@ -319,16 +319,16 @@ class BucketVersioningV2(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
-        example_bucket_versioning_v2 = aws.s3.BucketVersioningV2("exampleBucketVersioningV2",
+        example_bucket_v2 = aws.s3.bucket_v2.BucketV2("exampleBucketV2")
+        example_bucket_versioning_v2 = aws.s3.bucket_versioning_v2.BucketVersioningV2("exampleBucketVersioningV2",
             bucket=example_bucket_v2.id,
-            versioning_configuration=aws.s3.BucketVersioningV2VersioningConfigurationArgs(
-                status="Enabled",
-            ))
-        example_bucket_objectv2 = aws.s3.BucketObjectv2("exampleBucketObjectv2",
+            versioning_configuration={
+                status: Enabled,
+            })
+        example_bucket_objectv2 = aws.s3.bucket_objectv2.BucketObjectv2("exampleBucketObjectv2",
             bucket=example_bucket_versioning_v2.id,
-            key="droeloe",
-            source=pulumi.FileAsset("example.txt"))
+            key=droeloe,
+            source=pulumi.FileAsset(example.txt))
         ```
 
         ## Import

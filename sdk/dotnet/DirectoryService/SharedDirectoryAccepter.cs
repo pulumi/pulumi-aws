@@ -24,17 +24,17 @@ namespace Pulumi.Aws.DirectoryService
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleSharedDirectory = new Aws.DirectoryService.SharedDirectory("exampleSharedDirectory", new()
+    ///     var exampleSharedDirectory = new Aws.Directoryservice.SharedDirectory.SharedDirectory("exampleSharedDirectory", new()
     ///     {
     ///         DirectoryId = aws_directory_service_directory.Example.Id,
     ///         Notes = "example",
-    ///         Target = new Aws.DirectoryService.Inputs.SharedDirectoryTargetArgs
+    ///         Target = 
     ///         {
-    ///             Id = data.Aws_caller_identity.Receiver.Account_id,
+    ///             { "id", data.Aws_caller_identity.Receiver.Account_id },
     ///         },
     ///     });
     /// 
-    ///     var exampleSharedDirectoryAccepter = new Aws.DirectoryService.SharedDirectoryAccepter("exampleSharedDirectoryAccepter", new()
+    ///     var exampleSharedDirectoryAccepter = new Aws.Directoryservice.SharedDirectoryAccepter.SharedDirectoryAccepter("exampleSharedDirectoryAccepter", new()
     ///     {
     ///         SharedDirectoryId = exampleSharedDirectory.SharedDirectoryId,
     ///     }, new CustomResourceOptions

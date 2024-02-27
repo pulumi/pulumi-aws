@@ -230,36 +230,6 @@ class AccessKey(pulumi.CustomResource):
         """
         Provides an IAM access key. This is a set of credentials that allow API requests to be made as an IAM user.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        lb_user = aws.iam.User("lbUser", path="/system/")
-        lb_access_key = aws.iam.AccessKey("lbAccessKey",
-            user=lb_user.name,
-            pgp_key="keybase:some_person_that_exists")
-        lb_ro_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            actions=["ec2:Describe*"],
-            resources=["*"],
-        )])
-        lb_ro_user_policy = aws.iam.UserPolicy("lbRoUserPolicy",
-            user=lb_user.name,
-            policy=lb_ro_policy_document.json)
-        pulumi.export("secret", lb_access_key.encrypted_secret)
-        ```
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test_user = aws.iam.User("testUser", path="/test/")
-        test_access_key = aws.iam.AccessKey("testAccessKey", user=test_user.name)
-        pulumi.export("awsIamSmtpPasswordV4", test_access_key.ses_smtp_password_v4)
-        ```
-
         ## Import
 
         Using `pulumi import`, import IAM Access Keys using the identifier. For example:
@@ -283,36 +253,6 @@ class AccessKey(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an IAM access key. This is a set of credentials that allow API requests to be made as an IAM user.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        lb_user = aws.iam.User("lbUser", path="/system/")
-        lb_access_key = aws.iam.AccessKey("lbAccessKey",
-            user=lb_user.name,
-            pgp_key="keybase:some_person_that_exists")
-        lb_ro_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            actions=["ec2:Describe*"],
-            resources=["*"],
-        )])
-        lb_ro_user_policy = aws.iam.UserPolicy("lbRoUserPolicy",
-            user=lb_user.name,
-            policy=lb_ro_policy_document.json)
-        pulumi.export("secret", lb_access_key.encrypted_secret)
-        ```
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test_user = aws.iam.User("testUser", path="/test/")
-        test_access_key = aws.iam.AccessKey("testAccessKey", user=test_user.name)
-        pulumi.export("awsIamSmtpPasswordV4", test_access_key.ses_smtp_password_v4)
-        ```
 
         ## Import
 

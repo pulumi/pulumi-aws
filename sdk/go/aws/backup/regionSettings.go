@@ -21,39 +21,37 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/backup"
+//	backup/regionSettings "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/backup/regionSettings"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := backup.NewRegionSettings(ctx, "test", &backup.RegionSettingsArgs{
-//				ResourceTypeManagementPreference: pulumi.BoolMap{
-//					"DynamoDB": pulumi.Bool(true),
-//					"EFS":      pulumi.Bool(true),
-//				},
-//				ResourceTypeOptInPreference: pulumi.BoolMap{
-//					"Aurora":          pulumi.Bool(true),
-//					"DocumentDB":      pulumi.Bool(true),
-//					"DynamoDB":        pulumi.Bool(true),
-//					"EBS":             pulumi.Bool(true),
-//					"EC2":             pulumi.Bool(true),
-//					"EFS":             pulumi.Bool(true),
-//					"FSx":             pulumi.Bool(true),
-//					"Neptune":         pulumi.Bool(true),
-//					"RDS":             pulumi.Bool(true),
-//					"Storage Gateway": pulumi.Bool(true),
-//					"VirtualMachine":  pulumi.Bool(true),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := backup/regionSettings.NewRegionSettings(ctx, "test", &backup/regionSettings.RegionSettingsArgs{
+// ResourceTypeManagementPreference: map[string]interface{}{
+// "DynamoDB": true,
+// "EFS": true,
+// },
+// ResourceTypeOptInPreference: map[string]interface{}{
+// "Aurora": true,
+// "DocumentDB": true,
+// "DynamoDB": true,
+// "EBS": true,
+// "EC2": true,
+// "EFS": true,
+// "FSx": true,
+// "Neptune": true,
+// "RDS": true,
+// "Storage Gateway": true,
+// "VirtualMachine": true,
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Route53RecoveryReadiness
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Route53RecoveryReadiness.ReadinessCheck("example", new()
+    ///     var example = new Aws.Route53recoveryreadiness.ReadinessCheck.ReadinessCheck("example", new()
     ///     {
     ///         ReadinessCheckName = my_cw_alarm_check,
     ///         ResourceSetName = my_cw_alarm_set,

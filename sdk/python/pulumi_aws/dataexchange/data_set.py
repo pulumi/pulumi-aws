@@ -210,9 +210,9 @@ class DataSet(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.dataexchange.DataSet("example",
-            asset_type="S3_SNAPSHOT",
-            description="example")
+        example = aws.dataexchange.data_set.DataSet("example",
+            asset_type=S3_SNAPSHOT,
+            description=example)
         ```
 
         ## Import
@@ -245,9 +245,9 @@ class DataSet(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.dataexchange.DataSet("example",
-            asset_type="S3_SNAPSHOT",
-            description="example")
+        example = aws.dataexchange.data_set.DataSet("example",
+            asset_type=S3_SNAPSHOT,
+            description=example)
         ```
 
         ## Import

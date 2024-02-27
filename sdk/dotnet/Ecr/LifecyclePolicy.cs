@@ -27,9 +27,9 @@ namespace Pulumi.Aws.Ecr
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var foo = new Aws.Ecr.Repository("foo");
+    ///     var foo = new Aws.Ecr.Repository.Repository("foo");
     /// 
-    ///     var foopolicy = new Aws.Ecr.LifecyclePolicy("foopolicy", new()
+    ///     var foopolicy = new Aws.Ecr.LifecyclePolicy.LifecyclePolicy("foopolicy", new()
     ///     {
     ///         Repository = foo.Name,
     ///         Policy = @"{
@@ -64,9 +64,9 @@ namespace Pulumi.Aws.Ecr
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var foo = new Aws.Ecr.Repository("foo");
+    ///     var foo = new Aws.Ecr.Repository.Repository("foo");
     /// 
-    ///     var foopolicy = new Aws.Ecr.LifecyclePolicy("foopolicy", new()
+    ///     var foopolicy = new Aws.Ecr.LifecyclePolicy.LifecyclePolicy("foopolicy", new()
     ///     {
     ///         Repository = foo.Name,
     ///         Policy = @"{

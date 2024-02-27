@@ -17,46 +17,6 @@ namespace Pulumi.Aws.Ec2
         /// This resource can prove useful when IPAM pools are created in another root
         /// module and you need the pool ids as input variables. For example, pools
         /// can be shared via RAM and used to create vpcs with CIDRs from that pool.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Aws.Ec2.GetVpcIpamPools.Invoke(new()
-        ///     {
-        ///         Filters = new[]
-        ///         {
-        ///             new Aws.Ec2.Inputs.GetVpcIpamPoolsFilterInputArgs
-        ///             {
-        ///                 Name = "description",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "*test*",
-        ///                 },
-        ///             },
-        ///             new Aws.Ec2.Inputs.GetVpcIpamPoolsFilterInputArgs
-        ///             {
-        ///                 Name = "address-family",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "ipv4",
-        ///                 },
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetVpcIpamPoolsResult> InvokeAsync(GetVpcIpamPoolsArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVpcIpamPoolsResult>("aws:ec2/getVpcIpamPools:getVpcIpamPools", args ?? new GetVpcIpamPoolsArgs(), options.WithDefaults());
@@ -67,46 +27,6 @@ namespace Pulumi.Aws.Ec2
         /// This resource can prove useful when IPAM pools are created in another root
         /// module and you need the pool ids as input variables. For example, pools
         /// can be shared via RAM and used to create vpcs with CIDRs from that pool.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Aws.Ec2.GetVpcIpamPools.Invoke(new()
-        ///     {
-        ///         Filters = new[]
-        ///         {
-        ///             new Aws.Ec2.Inputs.GetVpcIpamPoolsFilterInputArgs
-        ///             {
-        ///                 Name = "description",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "*test*",
-        ///                 },
-        ///             },
-        ///             new Aws.Ec2.Inputs.GetVpcIpamPoolsFilterInputArgs
-        ///             {
-        ///                 Name = "address-family",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "ipv4",
-        ///                 },
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetVpcIpamPoolsResult> Invoke(GetVpcIpamPoolsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVpcIpamPoolsResult>("aws:ec2/getVpcIpamPools:getVpcIpamPools", args ?? new GetVpcIpamPoolsInvokeArgs(), options.WithDefaults());

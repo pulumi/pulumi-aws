@@ -42,13 +42,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.kinesis.StreamArgs;
  * import com.pulumi.aws.kinesis.AnalyticsApplication;
  * import com.pulumi.aws.kinesis.AnalyticsApplicationArgs;
- * import com.pulumi.aws.kinesis.inputs.AnalyticsApplicationInputsArgs;
- * import com.pulumi.aws.kinesis.inputs.AnalyticsApplicationInputsKinesisStreamArgs;
- * import com.pulumi.aws.kinesis.inputs.AnalyticsApplicationInputsParallelismArgs;
- * import com.pulumi.aws.kinesis.inputs.AnalyticsApplicationInputsSchemaArgs;
- * import com.pulumi.aws.kinesis.inputs.AnalyticsApplicationInputsSchemaRecordFormatArgs;
- * import com.pulumi.aws.kinesis.inputs.AnalyticsApplicationInputsSchemaRecordFormatMappingParametersArgs;
- * import com.pulumi.aws.kinesis.inputs.AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJsonArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -67,31 +60,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var testApplication = new AnalyticsApplication(&#34;testApplication&#34;, AnalyticsApplicationArgs.builder()        
- *             .inputs(AnalyticsApplicationInputsArgs.builder()
- *                 .namePrefix(&#34;test_prefix&#34;)
- *                 .kinesisStream(AnalyticsApplicationInputsKinesisStreamArgs.builder()
- *                     .resourceArn(testStream.arn())
- *                     .roleArn(aws_iam_role.test().arn())
- *                     .build())
- *                 .parallelism(AnalyticsApplicationInputsParallelismArgs.builder()
- *                     .count(1)
- *                     .build())
- *                 .schema(AnalyticsApplicationInputsSchemaArgs.builder()
- *                     .recordColumns(AnalyticsApplicationInputsSchemaRecordColumnArgs.builder()
- *                         .mapping(&#34;$.test&#34;)
- *                         .name(&#34;test&#34;)
- *                         .sqlType(&#34;VARCHAR(8)&#34;)
- *                         .build())
- *                     .recordEncoding(&#34;UTF-8&#34;)
- *                     .recordFormat(AnalyticsApplicationInputsSchemaRecordFormatArgs.builder()
- *                         .mappingParameters(AnalyticsApplicationInputsSchemaRecordFormatMappingParametersArgs.builder()
- *                             .json(AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJsonArgs.builder()
- *                                 .recordRowPath(&#34;$&#34;)
- *                                 .build())
- *                             .build())
- *                         .build())
- *                     .build())
- *                 .build())
+ *             .inputs(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -111,19 +80,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.kinesis.StreamArgs;
  * import com.pulumi.aws.kinesis.FirehoseDeliveryStream;
  * import com.pulumi.aws.kinesis.FirehoseDeliveryStreamArgs;
- * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamExtendedS3ConfigurationArgs;
  * import com.pulumi.aws.kinesis.AnalyticsApplication;
  * import com.pulumi.aws.kinesis.AnalyticsApplicationArgs;
- * import com.pulumi.aws.kinesis.inputs.AnalyticsApplicationCloudwatchLoggingOptionsArgs;
- * import com.pulumi.aws.kinesis.inputs.AnalyticsApplicationInputsArgs;
- * import com.pulumi.aws.kinesis.inputs.AnalyticsApplicationInputsSchemaArgs;
- * import com.pulumi.aws.kinesis.inputs.AnalyticsApplicationInputsSchemaRecordFormatArgs;
- * import com.pulumi.aws.kinesis.inputs.AnalyticsApplicationInputsSchemaRecordFormatMappingParametersArgs;
- * import com.pulumi.aws.kinesis.inputs.AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvArgs;
- * import com.pulumi.aws.kinesis.inputs.AnalyticsApplicationInputsKinesisStreamArgs;
- * import com.pulumi.aws.kinesis.inputs.AnalyticsApplicationOutputArgs;
- * import com.pulumi.aws.kinesis.inputs.AnalyticsApplicationOutputSchemaArgs;
- * import com.pulumi.aws.kinesis.inputs.AnalyticsApplicationOutputKinesisFirehoseArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -149,51 +107,13 @@ import javax.annotation.Nullable;
  * 
  *         var exampleFirehoseDeliveryStream = new FirehoseDeliveryStream(&#34;exampleFirehoseDeliveryStream&#34;, FirehoseDeliveryStreamArgs.builder()        
  *             .destination(&#34;extended_s3&#34;)
- *             .extendedS3Configuration(FirehoseDeliveryStreamExtendedS3ConfigurationArgs.builder()
- *                 .bucketArn(aws_s3_bucket.example().arn())
- *                 .roleArn(aws_iam_role.example().arn())
- *                 .build())
+ *             .extendedS3Configuration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var test = new AnalyticsApplication(&#34;test&#34;, AnalyticsApplicationArgs.builder()        
- *             .cloudwatchLoggingOptions(AnalyticsApplicationCloudwatchLoggingOptionsArgs.builder()
- *                 .logStreamArn(exampleLogStream.arn())
- *                 .roleArn(aws_iam_role.example().arn())
- *                 .build())
- *             .inputs(AnalyticsApplicationInputsArgs.builder()
- *                 .namePrefix(&#34;example_prefix&#34;)
- *                 .schema(AnalyticsApplicationInputsSchemaArgs.builder()
- *                     .recordColumns(AnalyticsApplicationInputsSchemaRecordColumnArgs.builder()
- *                         .name(&#34;COLUMN_1&#34;)
- *                         .sqlType(&#34;INTEGER&#34;)
- *                         .build())
- *                     .recordFormat(AnalyticsApplicationInputsSchemaRecordFormatArgs.builder()
- *                         .mappingParameters(AnalyticsApplicationInputsSchemaRecordFormatMappingParametersArgs.builder()
- *                             .csv(AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvArgs.builder()
- *                                 .recordColumnDelimiter(&#34;,&#34;)
- *                                 .recordRowDelimiter(&#34;|&#34;)
- *                                 .build())
- *                             .build())
- *                         .build())
- *                     .build())
- *                 .kinesisStream(AnalyticsApplicationInputsKinesisStreamArgs.builder()
- *                     .resourceArn(exampleStream.arn())
- *                     .roleArn(aws_iam_role.example().arn())
- *                     .build())
- *                 .startingPositionConfigurations(AnalyticsApplicationInputsStartingPositionConfigurationArgs.builder()
- *                     .startingPosition(&#34;NOW&#34;)
- *                     .build())
- *                 .build())
- *             .outputs(AnalyticsApplicationOutputArgs.builder()
- *                 .name(&#34;OUTPUT_1&#34;)
- *                 .schema(AnalyticsApplicationOutputSchemaArgs.builder()
- *                     .recordFormatType(&#34;CSV&#34;)
- *                     .build())
- *                 .kinesisFirehose(AnalyticsApplicationOutputKinesisFirehoseArgs.builder()
- *                     .resourceArn(exampleFirehoseDeliveryStream.arn())
- *                     .roleArn(aws_iam_role.example().arn())
- *                     .build())
- *                 .build())
+ *             .cloudwatchLoggingOptions(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .inputs(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .outputs(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .startApplication(true)
  *             .build());
  * 

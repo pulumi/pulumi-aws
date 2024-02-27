@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.evidently.Segment("example", {
+ * const example = new aws.evidently/segment.Segment("example", {
  *     pattern: "{\"Price\":[{\"numeric\":[\">\",10,\"<=\",20]}]}",
  *     tags: {
  *         Key1: "example Segment",
@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.evidently.Segment("example", {
+ * const example = new aws.evidently/segment.Segment("example", {
  *     pattern: `  {
  *     "Price": [
  *       {
@@ -48,7 +48,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.evidently.Segment("example", {
+ * const example = new aws.evidently/segment.Segment("example", {
  *     description: "example",
  *     pattern: "{\"Price\":[{\"numeric\":[\">\",10,\"<=\",20]}]}",
  * });

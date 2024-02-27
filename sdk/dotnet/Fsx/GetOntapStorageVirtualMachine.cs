@@ -16,54 +16,6 @@ namespace Pulumi.Aws.Fsx
         /// 
         /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Fsx.GetOntapStorageVirtualMachine.Invoke(new()
-        ///     {
-        ///         Id = "svm-12345678",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% example %}}
-        /// ### Filter Example
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Fsx.GetOntapStorageVirtualMachine.Invoke(new()
-        ///     {
-        ///         Filters = new[]
-        ///         {
-        ///             new Aws.Fsx.Inputs.GetOntapStorageVirtualMachineFilterInputArgs
-        ///             {
-        ///                 Name = "file-system-id",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "fs-12345678",
-        ///                 },
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetOntapStorageVirtualMachineResult> InvokeAsync(GetOntapStorageVirtualMachineArgs? args = null, InvokeOptions? options = null)
@@ -74,54 +26,6 @@ namespace Pulumi.Aws.Fsx
         /// 
         /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Fsx.GetOntapStorageVirtualMachine.Invoke(new()
-        ///     {
-        ///         Id = "svm-12345678",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% example %}}
-        /// ### Filter Example
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Fsx.GetOntapStorageVirtualMachine.Invoke(new()
-        ///     {
-        ///         Filters = new[]
-        ///         {
-        ///             new Aws.Fsx.Inputs.GetOntapStorageVirtualMachineFilterInputArgs
-        ///             {
-        ///                 Name = "file-system-id",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "fs-12345678",
-        ///                 },
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetOntapStorageVirtualMachineResult> Invoke(GetOntapStorageVirtualMachineInvokeArgs? args = null, InvokeOptions? options = null)

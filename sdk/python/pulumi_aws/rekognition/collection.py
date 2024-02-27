@@ -196,10 +196,10 @@ class Collection(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.rekognition.Collection("example",
-            collection_id="my-collection",
+        example = aws.rekognition.collection.Collection("example",
+            collection_id=my-collection,
             tags={
-                "example": "1",
+                example: 1,
             })
         ```
 
@@ -233,10 +233,10 @@ class Collection(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.rekognition.Collection("example",
-            collection_id="my-collection",
+        example = aws.rekognition.collection.Collection("example",
+            collection_id=my-collection,
             tags={
-                "example": "1",
+                example: 1,
             })
         ```
 

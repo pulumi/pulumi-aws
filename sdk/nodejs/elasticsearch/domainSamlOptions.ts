@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * import * as fs from "fs";
  *
- * const exampleDomain = new aws.elasticsearch.Domain("exampleDomain", {
+ * const exampleDomain = new aws.elasticsearch/domain.Domain("exampleDomain", {
  *     elasticsearchVersion: "1.5",
  *     clusterConfig: {
  *         instanceType: "r4.large.elasticsearch",
@@ -30,7 +30,7 @@ import * as utilities from "../utilities";
  *         Domain: "TestDomain",
  *     },
  * });
- * const exampleDomainSamlOptions = new aws.elasticsearch.DomainSamlOptions("exampleDomainSamlOptions", {
+ * const exampleDomainSamlOptions = new aws.elasticsearch/domainSamlOptions.DomainSamlOptions("exampleDomainSamlOptions", {
  *     domainName: exampleDomain.domainName,
  *     samlOptions: {
  *         enabled: true,

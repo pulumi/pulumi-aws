@@ -28,8 +28,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.connect.InstanceStorageConfig;
  * import com.pulumi.aws.connect.InstanceStorageConfigArgs;
- * import com.pulumi.aws.connect.inputs.InstanceStorageConfigStorageConfigArgs;
- * import com.pulumi.aws.connect.inputs.InstanceStorageConfigStorageConfigKinesisFirehoseConfigArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -46,12 +44,7 @@ import javax.annotation.Nullable;
  *         var example = new InstanceStorageConfig(&#34;example&#34;, InstanceStorageConfigArgs.builder()        
  *             .instanceId(aws_connect_instance.example().id())
  *             .resourceType(&#34;CONTACT_TRACE_RECORDS&#34;)
- *             .storageConfig(InstanceStorageConfigStorageConfigArgs.builder()
- *                 .kinesisFirehoseConfig(InstanceStorageConfigStorageConfigKinesisFirehoseConfigArgs.builder()
- *                     .firehoseArn(aws_kinesis_firehose_delivery_stream.example().arn())
- *                     .build())
- *                 .storageType(&#34;KINESIS_FIREHOSE&#34;)
- *                 .build())
+ *             .storageConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -66,8 +59,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.connect.InstanceStorageConfig;
  * import com.pulumi.aws.connect.InstanceStorageConfigArgs;
- * import com.pulumi.aws.connect.inputs.InstanceStorageConfigStorageConfigArgs;
- * import com.pulumi.aws.connect.inputs.InstanceStorageConfigStorageConfigKinesisStreamConfigArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -84,12 +75,7 @@ import javax.annotation.Nullable;
  *         var example = new InstanceStorageConfig(&#34;example&#34;, InstanceStorageConfigArgs.builder()        
  *             .instanceId(aws_connect_instance.example().id())
  *             .resourceType(&#34;CONTACT_TRACE_RECORDS&#34;)
- *             .storageConfig(InstanceStorageConfigStorageConfigArgs.builder()
- *                 .kinesisStreamConfig(InstanceStorageConfigStorageConfigKinesisStreamConfigArgs.builder()
- *                     .streamArn(aws_kinesis_stream.example().arn())
- *                     .build())
- *                 .storageType(&#34;KINESIS_STREAM&#34;)
- *                 .build())
+ *             .storageConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -104,9 +90,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.connect.InstanceStorageConfig;
  * import com.pulumi.aws.connect.InstanceStorageConfigArgs;
- * import com.pulumi.aws.connect.inputs.InstanceStorageConfigStorageConfigArgs;
- * import com.pulumi.aws.connect.inputs.InstanceStorageConfigStorageConfigKinesisVideoStreamConfigArgs;
- * import com.pulumi.aws.connect.inputs.InstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfigArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -123,17 +106,7 @@ import javax.annotation.Nullable;
  *         var example = new InstanceStorageConfig(&#34;example&#34;, InstanceStorageConfigArgs.builder()        
  *             .instanceId(aws_connect_instance.example().id())
  *             .resourceType(&#34;MEDIA_STREAMS&#34;)
- *             .storageConfig(InstanceStorageConfigStorageConfigArgs.builder()
- *                 .kinesisVideoStreamConfig(InstanceStorageConfigStorageConfigKinesisVideoStreamConfigArgs.builder()
- *                     .prefix(&#34;example&#34;)
- *                     .retentionPeriodHours(3)
- *                     .encryptionConfig(InstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfigArgs.builder()
- *                         .encryptionType(&#34;KMS&#34;)
- *                         .keyId(aws_kms_key.example().arn())
- *                         .build())
- *                     .build())
- *                 .storageType(&#34;KINESIS_VIDEO_STREAM&#34;)
- *                 .build())
+ *             .storageConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -148,8 +121,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.connect.InstanceStorageConfig;
  * import com.pulumi.aws.connect.InstanceStorageConfigArgs;
- * import com.pulumi.aws.connect.inputs.InstanceStorageConfigStorageConfigArgs;
- * import com.pulumi.aws.connect.inputs.InstanceStorageConfigStorageConfigS3ConfigArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -166,13 +137,7 @@ import javax.annotation.Nullable;
  *         var example = new InstanceStorageConfig(&#34;example&#34;, InstanceStorageConfigArgs.builder()        
  *             .instanceId(aws_connect_instance.example().id())
  *             .resourceType(&#34;CHAT_TRANSCRIPTS&#34;)
- *             .storageConfig(InstanceStorageConfigStorageConfigArgs.builder()
- *                 .s3Config(InstanceStorageConfigStorageConfigS3ConfigArgs.builder()
- *                     .bucketName(aws_s3_bucket.example().id())
- *                     .bucketPrefix(&#34;example&#34;)
- *                     .build())
- *                 .storageType(&#34;S3&#34;)
- *                 .build())
+ *             .storageConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -187,9 +152,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.connect.InstanceStorageConfig;
  * import com.pulumi.aws.connect.InstanceStorageConfigArgs;
- * import com.pulumi.aws.connect.inputs.InstanceStorageConfigStorageConfigArgs;
- * import com.pulumi.aws.connect.inputs.InstanceStorageConfigStorageConfigS3ConfigArgs;
- * import com.pulumi.aws.connect.inputs.InstanceStorageConfigStorageConfigS3ConfigEncryptionConfigArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -206,17 +168,7 @@ import javax.annotation.Nullable;
  *         var example = new InstanceStorageConfig(&#34;example&#34;, InstanceStorageConfigArgs.builder()        
  *             .instanceId(aws_connect_instance.example().id())
  *             .resourceType(&#34;CHAT_TRANSCRIPTS&#34;)
- *             .storageConfig(InstanceStorageConfigStorageConfigArgs.builder()
- *                 .s3Config(InstanceStorageConfigStorageConfigS3ConfigArgs.builder()
- *                     .bucketName(aws_s3_bucket.example().id())
- *                     .bucketPrefix(&#34;example&#34;)
- *                     .encryptionConfig(InstanceStorageConfigStorageConfigS3ConfigEncryptionConfigArgs.builder()
- *                         .encryptionType(&#34;KMS&#34;)
- *                         .keyId(aws_kms_key.example().arn())
- *                         .build())
- *                     .build())
- *                 .storageType(&#34;S3&#34;)
- *                 .build())
+ *             .storageConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

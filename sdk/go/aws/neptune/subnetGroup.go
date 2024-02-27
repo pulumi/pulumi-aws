@@ -21,29 +21,27 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/neptune"
+//	neptune/subnetGroup "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/neptune/subnetGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := neptune.NewSubnetGroup(ctx, "default", &neptune.SubnetGroupArgs{
-//				SubnetIds: pulumi.StringArray{
-//					aws_subnet.Frontend.Id,
-//					aws_subnet.Backend.Id,
-//				},
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("My neptune subnet group"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := neptune/subnetGroup.NewSubnetGroup(ctx, "default", &neptune/subnetGroup.SubnetGroupArgs{
+// SubnetIds: []interface{}{
+// aws_subnet.Frontend.Id,
+// aws_subnet.Backend.Id,
+// },
+// Tags: map[string]interface{}{
+// "Name": "My neptune subnet group",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const foo = new aws.directconnect.PublicVirtualInterface("foo", {
+ * const foo = new aws.directconnect/publicVirtualInterface.PublicVirtualInterface("foo", {
  *     addressFamily: "ipv4",
  *     amazonAddress: "175.45.176.2/30",
  *     bgpAsn: 65352,

@@ -20,7 +20,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.dms.S3Endpoint("example", {
+ * const example = new aws.dms/s3Endpoint.S3Endpoint("example", {
  *     endpointId: "donnedtipi",
  *     endpointType: "target",
  *     bucketName: "beckut_name",
@@ -35,7 +35,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.dms.S3Endpoint("example", {
+ * const example = new aws.dms/s3Endpoint.S3Endpoint("example", {
  *     endpointId: "donnedtipi",
  *     endpointType: "target",
  *     sslMode: "none",

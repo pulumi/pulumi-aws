@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Iam
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testRole = new Aws.Iam.Role("testRole", new()
+    ///     var testRole = new Aws.Iam.Role.Role("testRole", new()
     ///     {
     ///         AssumeRolePolicy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
@@ -46,7 +46,7 @@ namespace Pulumi.Aws.Iam
     ///         }),
     ///     });
     /// 
-    ///     var testPolicy = new Aws.Iam.RolePolicy("testPolicy", new()
+    ///     var testPolicy = new Aws.Iam.RolePolicy.RolePolicy("testPolicy", new()
     ///     {
     ///         Role = testRole.Id,
     ///         Policy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;

@@ -22,7 +22,7 @@ namespace Pulumi.Aws.DirectConnect
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.DirectConnect.GatewayAssociationProposal("example", new()
+    ///     var example = new Aws.Directconnect.GatewayAssociationProposal.GatewayAssociationProposal("example", new()
     ///     {
     ///         DxGatewayId = aws_dx_gateway.Example.Id,
     ///         DxGatewayOwnerAccountId = aws_dx_gateway.Example.Owner_account_id,

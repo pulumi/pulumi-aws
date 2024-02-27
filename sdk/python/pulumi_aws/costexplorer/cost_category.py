@@ -335,40 +335,40 @@ class CostCategory(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.costexplorer.CostCategory("test",
+        test = aws.costexplorer.cost_category.CostCategory("test",
             rules=[
-                aws.costexplorer.CostCategoryRuleArgs(
-                    rule=aws.costexplorer.CostCategoryRuleRuleArgs(
-                        dimension=aws.costexplorer.CostCategoryRuleRuleDimensionArgs(
-                            key="LINKED_ACCOUNT_NAME",
-                            match_options=["ENDS_WITH"],
-                            values=["-prod"],
-                        ),
-                    ),
-                    value="production",
-                ),
-                aws.costexplorer.CostCategoryRuleArgs(
-                    rule=aws.costexplorer.CostCategoryRuleRuleArgs(
-                        dimension=aws.costexplorer.CostCategoryRuleRuleDimensionArgs(
-                            key="LINKED_ACCOUNT_NAME",
-                            match_options=["ENDS_WITH"],
-                            values=["-stg"],
-                        ),
-                    ),
-                    value="staging",
-                ),
-                aws.costexplorer.CostCategoryRuleArgs(
-                    rule=aws.costexplorer.CostCategoryRuleRuleArgs(
-                        dimension=aws.costexplorer.CostCategoryRuleRuleDimensionArgs(
-                            key="LINKED_ACCOUNT_NAME",
-                            match_options=["ENDS_WITH"],
-                            values=["-dev"],
-                        ),
-                    ),
-                    value="testing",
-                ),
+                {
+                    rule: {
+                        dimension: {
+                            key: LINKED_ACCOUNT_NAME,
+                            matchOptions: [ENDS_WITH],
+                            values: [-prod],
+                        },
+                    },
+                    value: production,
+                },
+                {
+                    rule: {
+                        dimension: {
+                            key: LINKED_ACCOUNT_NAME,
+                            matchOptions: [ENDS_WITH],
+                            values: [-stg],
+                        },
+                    },
+                    value: staging,
+                },
+                {
+                    rule: {
+                        dimension: {
+                            key: LINKED_ACCOUNT_NAME,
+                            matchOptions: [ENDS_WITH],
+                            values: [-dev],
+                        },
+                    },
+                    value: testing,
+                },
             ],
-            rule_version="CostCategoryExpression.v1")
+            rule_version=CostCategoryExpression.v1)
         ```
 
         ## Import
@@ -406,40 +406,40 @@ class CostCategory(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.costexplorer.CostCategory("test",
+        test = aws.costexplorer.cost_category.CostCategory("test",
             rules=[
-                aws.costexplorer.CostCategoryRuleArgs(
-                    rule=aws.costexplorer.CostCategoryRuleRuleArgs(
-                        dimension=aws.costexplorer.CostCategoryRuleRuleDimensionArgs(
-                            key="LINKED_ACCOUNT_NAME",
-                            match_options=["ENDS_WITH"],
-                            values=["-prod"],
-                        ),
-                    ),
-                    value="production",
-                ),
-                aws.costexplorer.CostCategoryRuleArgs(
-                    rule=aws.costexplorer.CostCategoryRuleRuleArgs(
-                        dimension=aws.costexplorer.CostCategoryRuleRuleDimensionArgs(
-                            key="LINKED_ACCOUNT_NAME",
-                            match_options=["ENDS_WITH"],
-                            values=["-stg"],
-                        ),
-                    ),
-                    value="staging",
-                ),
-                aws.costexplorer.CostCategoryRuleArgs(
-                    rule=aws.costexplorer.CostCategoryRuleRuleArgs(
-                        dimension=aws.costexplorer.CostCategoryRuleRuleDimensionArgs(
-                            key="LINKED_ACCOUNT_NAME",
-                            match_options=["ENDS_WITH"],
-                            values=["-dev"],
-                        ),
-                    ),
-                    value="testing",
-                ),
+                {
+                    rule: {
+                        dimension: {
+                            key: LINKED_ACCOUNT_NAME,
+                            matchOptions: [ENDS_WITH],
+                            values: [-prod],
+                        },
+                    },
+                    value: production,
+                },
+                {
+                    rule: {
+                        dimension: {
+                            key: LINKED_ACCOUNT_NAME,
+                            matchOptions: [ENDS_WITH],
+                            values: [-stg],
+                        },
+                    },
+                    value: staging,
+                },
+                {
+                    rule: {
+                        dimension: {
+                            key: LINKED_ACCOUNT_NAME,
+                            matchOptions: [ENDS_WITH],
+                            values: [-dev],
+                        },
+                    },
+                    value: testing,
+                },
             ],
-            rule_version="CostCategoryExpression.v1")
+            rule_version=CostCategoryExpression.v1)
         ```
 
         ## Import

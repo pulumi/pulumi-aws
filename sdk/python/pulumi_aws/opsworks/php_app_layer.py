@@ -800,7 +800,7 @@ class PhpAppLayer(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        app = aws.opsworks.PhpAppLayer("app", stack_id=aws_opsworks_stack["main"]["id"])
+        app = aws.opsworks.php_app_layer.PhpAppLayer("app", stack_id=aws_opsworks_stack.main.id)
         ```
 
         ## Import
@@ -849,7 +849,7 @@ class PhpAppLayer(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        app = aws.opsworks.PhpAppLayer("app", stack_id=aws_opsworks_stack["main"]["id"])
+        app = aws.opsworks.php_app_layer.PhpAppLayer("app", stack_id=aws_opsworks_stack.main.id)
         ```
 
         ## Import

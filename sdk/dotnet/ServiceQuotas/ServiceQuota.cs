@@ -24,7 +24,7 @@ namespace Pulumi.Aws.ServiceQuotas
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.ServiceQuotas.ServiceQuota("example", new()
+    ///     var example = new Aws.Servicequotas.ServiceQuota.ServiceQuota("example", new()
     ///     {
     ///         QuotaCode = "L-F678F1CE",
     ///         ServiceCode = "vpc",

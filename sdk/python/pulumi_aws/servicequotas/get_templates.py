@@ -74,14 +74,6 @@ def get_templates(region: Optional[str] = None,
     Data source for managing an AWS Service Quotas Templates.
 
     ## Example Usage
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.servicequotas.get_templates(region="us-east-1")
-    ```
 
 
     :param str region: AWS Region to which the quota increases apply.
@@ -107,14 +99,6 @@ def get_templates_output(region: Optional[pulumi.Input[str]] = None,
     Data source for managing an AWS Service Quotas Templates.
 
     ## Example Usage
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.servicequotas.get_templates(region="us-east-1")
-    ```
 
 
     :param str region: AWS Region to which the quota increases apply.

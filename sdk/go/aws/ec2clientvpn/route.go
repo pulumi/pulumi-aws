@@ -22,49 +22,49 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2clientvpn"
+//	ec2clientvpn/endpoint "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2clientvpn/endpoint"
+//	ec2clientvpn/networkAssociation "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2clientvpn/networkAssociation"
+//	ec2clientvpn/route "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2clientvpn/route"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleEndpoint, err := ec2clientvpn.NewEndpoint(ctx, "exampleEndpoint", &ec2clientvpn.EndpointArgs{
-//				Description:          pulumi.String("Example Client VPN endpoint"),
-//				ServerCertificateArn: pulumi.Any(aws_acm_certificate.Example.Arn),
-//				ClientCidrBlock:      pulumi.String("10.0.0.0/16"),
-//				AuthenticationOptions: ec2clientvpn.EndpointAuthenticationOptionArray{
-//					&ec2clientvpn.EndpointAuthenticationOptionArgs{
-//						Type:                    pulumi.String("certificate-authentication"),
-//						RootCertificateChainArn: pulumi.Any(aws_acm_certificate.Example.Arn),
-//					},
-//				},
-//				ConnectionLogOptions: &ec2clientvpn.EndpointConnectionLogOptionsArgs{
-//					Enabled: pulumi.Bool(false),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleNetworkAssociation, err := ec2clientvpn.NewNetworkAssociation(ctx, "exampleNetworkAssociation", &ec2clientvpn.NetworkAssociationArgs{
-//				ClientVpnEndpointId: exampleEndpoint.ID(),
-//				SubnetId:            pulumi.Any(aws_subnet.Example.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ec2clientvpn.NewRoute(ctx, "exampleRoute", &ec2clientvpn.RouteArgs{
-//				ClientVpnEndpointId:  exampleEndpoint.ID(),
-//				DestinationCidrBlock: pulumi.String("0.0.0.0/0"),
-//				TargetVpcSubnetId:    exampleNetworkAssociation.SubnetId,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleEndpoint, err := ec2clientvpn/endpoint.NewEndpoint(ctx, "exampleEndpoint", &ec2clientvpn/endpoint.EndpointArgs{
+// Description: "Example Client VPN endpoint",
+// ServerCertificateArn: aws_acm_certificate.Example.Arn,
+// ClientCidrBlock: "10.0.0.0/16",
+// AuthenticationOptions: []map[string]interface{}{
+// map[string]interface{}{
+// "type": "certificate-authentication",
+// "rootCertificateChainArn": aws_acm_certificate.Example.Arn,
+// },
+// },
+// ConnectionLogOptions: map[string]interface{}{
+// "enabled": false,
+// },
+// })
+// if err != nil {
+// return err
+// }
+// exampleNetworkAssociation, err := ec2clientvpn/networkAssociation.NewNetworkAssociation(ctx, "exampleNetworkAssociation", &ec2clientvpn/networkAssociation.NetworkAssociationArgs{
+// ClientVpnEndpointId: exampleEndpoint.Id,
+// SubnetId: aws_subnet.Example.Id,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = ec2clientvpn/route.NewRoute(ctx, "exampleRoute", &ec2clientvpn/route.RouteArgs{
+// ClientVpnEndpointId: exampleEndpoint.Id,
+// DestinationCidrBlock: "0.0.0.0/0",
+// TargetVpcSubnetId: exampleNetworkAssociation.SubnetId,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

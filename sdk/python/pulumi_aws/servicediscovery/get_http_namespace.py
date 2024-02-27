@@ -105,15 +105,7 @@ def get_http_namespace(name: Optional[str] = None,
                        tags: Optional[Mapping[str, str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetHttpNamespaceResult:
     """
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.servicediscovery.get_http_namespace(name="development")
-    ```
-
+    Use this data source to access information about an existing resource.
 
     :param str name: Name of the http namespace.
     :param Mapping[str, str] tags: Map of tags for the resource.
@@ -138,15 +130,7 @@ def get_http_namespace_output(name: Optional[pulumi.Input[str]] = None,
                               tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetHttpNamespaceResult]:
     """
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.servicediscovery.get_http_namespace(name="development")
-    ```
-
+    Use this data source to access information about an existing resource.
 
     :param str name: Name of the http namespace.
     :param Mapping[str, str] tags: Map of tags for the resource.

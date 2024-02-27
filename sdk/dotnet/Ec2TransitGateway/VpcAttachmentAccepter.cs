@@ -28,7 +28,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Ec2TransitGateway.VpcAttachmentAccepter("example", new()
+    ///     var example = new Aws.Ec2transitgateway.VpcAttachmentAccepter.VpcAttachmentAccepter("example", new()
     ///     {
     ///         TransitGatewayAttachmentId = aws_ec2_transit_gateway_vpc_attachment.Example.Id,
     ///         Tags = 

@@ -29,7 +29,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.codecommit.RepositoryArgs;
  * import com.pulumi.aws.codecommit.Trigger;
  * import com.pulumi.aws.codecommit.TriggerArgs;
- * import com.pulumi.aws.codecommit.inputs.TriggerTriggerArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -49,11 +48,7 @@ import javax.annotation.Nullable;
  * 
  *         var testTrigger = new Trigger(&#34;testTrigger&#34;, TriggerArgs.builder()        
  *             .repositoryName(testRepository.repositoryName())
- *             .triggers(TriggerTriggerArgs.builder()
- *                 .name(&#34;all&#34;)
- *                 .events(&#34;all&#34;)
- *                 .destinationArn(aws_sns_topic.test().arn())
- *                 .build())
+ *             .triggers(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

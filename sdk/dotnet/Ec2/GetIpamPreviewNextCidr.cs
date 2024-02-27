@@ -15,37 +15,6 @@ namespace Pulumi.Aws.Ec2
         /// Previews a CIDR from an IPAM address pool. Only works for private IPv4.
         /// 
         /// &gt; **NOTE:** This functionality is also encapsulated in a resource sharing the same name. The data source can be used when you need to use the cidr in a calculation of the same Root module, `count` for example. However, once a cidr range has been allocated that was previewed, the next refresh will find a **new** cidr and may force new resources downstream. Make sure to use `ignore_changes` if this is undesirable.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// Basic usage:
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var testIpamPreviewNextCidr = Aws.Ec2.GetIpamPreviewNextCidr.Invoke(new()
-        ///     {
-        ///         IpamPoolId = aws_vpc_ipam_pool.Test.Id,
-        ///         NetmaskLength = 28,
-        ///     });
-        /// 
-        ///     var testVpcIpamPoolCidrAllocation = new Aws.Ec2.VpcIpamPoolCidrAllocation("testVpcIpamPoolCidrAllocation", new()
-        ///     {
-        ///         IpamPoolId = aws_vpc_ipam_pool.Test.Id,
-        ///         Cidr = testIpamPreviewNextCidr.Apply(getIpamPreviewNextCidrResult =&gt; getIpamPreviewNextCidrResult.Cidr),
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetIpamPreviewNextCidrResult> InvokeAsync(GetIpamPreviewNextCidrArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetIpamPreviewNextCidrResult>("aws:ec2/getIpamPreviewNextCidr:getIpamPreviewNextCidr", args ?? new GetIpamPreviewNextCidrArgs(), options.WithDefaults());
@@ -54,37 +23,6 @@ namespace Pulumi.Aws.Ec2
         /// Previews a CIDR from an IPAM address pool. Only works for private IPv4.
         /// 
         /// &gt; **NOTE:** This functionality is also encapsulated in a resource sharing the same name. The data source can be used when you need to use the cidr in a calculation of the same Root module, `count` for example. However, once a cidr range has been allocated that was previewed, the next refresh will find a **new** cidr and may force new resources downstream. Make sure to use `ignore_changes` if this is undesirable.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// Basic usage:
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var testIpamPreviewNextCidr = Aws.Ec2.GetIpamPreviewNextCidr.Invoke(new()
-        ///     {
-        ///         IpamPoolId = aws_vpc_ipam_pool.Test.Id,
-        ///         NetmaskLength = 28,
-        ///     });
-        /// 
-        ///     var testVpcIpamPoolCidrAllocation = new Aws.Ec2.VpcIpamPoolCidrAllocation("testVpcIpamPoolCidrAllocation", new()
-        ///     {
-        ///         IpamPoolId = aws_vpc_ipam_pool.Test.Id,
-        ///         Cidr = testIpamPreviewNextCidr.Apply(getIpamPreviewNextCidrResult =&gt; getIpamPreviewNextCidrResult.Cidr),
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetIpamPreviewNextCidrResult> Invoke(GetIpamPreviewNextCidrInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIpamPreviewNextCidrResult>("aws:ec2/getIpamPreviewNextCidr:getIpamPreviewNextCidr", args ?? new GetIpamPreviewNextCidrInvokeArgs(), options.WithDefaults());

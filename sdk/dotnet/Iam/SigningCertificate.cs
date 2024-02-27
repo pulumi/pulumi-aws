@@ -26,7 +26,7 @@ namespace Pulumi.Aws.Iam
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testCert = new Aws.Iam.SigningCertificate("testCert", new()
+    ///     var testCert = new Aws.Iam.SigningCertificate.SigningCertificate("testCert", new()
     ///     {
     ///         Username = "some_test_cert",
     ///         CertificateBody = File.ReadAllText("self-ca-cert.pem"),
@@ -45,7 +45,7 @@ namespace Pulumi.Aws.Iam
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testCertAlt = new Aws.Iam.SigningCertificate("testCertAlt", new()
+    ///     var testCertAlt = new Aws.Iam.SigningCertificate.SigningCertificate("testCertAlt", new()
     ///     {
     ///         CertificateBody = @"-----BEGIN CERTIFICATE-----
     /// [......] # cert contents

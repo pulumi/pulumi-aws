@@ -90,15 +90,6 @@ def get_apis(name: Optional[str] = None,
     """
     Provides details about multiple Amazon API Gateway Version 2 APIs.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.apigatewayv2.get_apis(protocol_type="HTTP")
-    ```
-
 
     :param str name: API name.
     :param str protocol_type: API protocol.
@@ -127,15 +118,6 @@ def get_apis_output(name: Optional[pulumi.Input[Optional[str]]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApisResult]:
     """
     Provides details about multiple Amazon API Gateway Version 2 APIs.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.apigatewayv2.get_apis(protocol_type="HTTP")
-    ```
 
 
     :param str name: API name.

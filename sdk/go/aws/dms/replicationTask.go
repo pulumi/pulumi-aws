@@ -23,33 +23,32 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/dms"
+//	dms/replicationTask "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/dms/replicationTask"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := dms.NewReplicationTask(ctx, "test", &dms.ReplicationTaskArgs{
-//				CdcStartTime:            pulumi.String("1993-05-21T05:50:00Z"),
-//				MigrationType:           pulumi.String("full-load"),
-//				ReplicationInstanceArn:  pulumi.Any(aws_dms_replication_instance.TestDmsReplicationInstanceTf.Replication_instance_arn),
-//				ReplicationTaskId:       pulumi.String("test-dms-replication-task-tf"),
-//				ReplicationTaskSettings: pulumi.String("..."),
-//				SourceEndpointArn:       pulumi.Any(aws_dms_endpoint.TestDmsSourceEndpointTf.Endpoint_arn),
-//				TableMappings:           pulumi.String("{\"rules\":[{\"rule-type\":\"selection\",\"rule-id\":\"1\",\"rule-name\":\"1\",\"object-locator\":{\"schema-name\":\"%\",\"table-name\":\"%\"},\"rule-action\":\"include\"}]}"),
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("test"),
-//				},
-//				TargetEndpointArn: pulumi.Any(aws_dms_endpoint.TestDmsTargetEndpointTf.Endpoint_arn),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// // Create a new replication task
+// _, err := dms/replicationTask.NewReplicationTask(ctx, "test", &dms/replicationTask.ReplicationTaskArgs{
+// CdcStartTime: "1993-05-21T05:50:00Z",
+// MigrationType: "full-load",
+// ReplicationInstanceArn: aws_dms_replication_instance.TestDmsReplicationInstanceTf.Replication_instance_arn,
+// ReplicationTaskId: "test-dms-replication-task-tf",
+// ReplicationTaskSettings: "...",
+// SourceEndpointArn: aws_dms_endpoint.TestDmsSourceEndpointTf.Endpoint_arn,
+// TableMappings: "{\"rules\":[{\"rule-type\":\"selection\",\"rule-id\":\"1\",\"rule-name\":\"1\",\"object-locator\":{\"schema-name\":\"%\",\"table-name\":\"%\"},\"rule-action\":\"include\"}]}",
+// Tags: map[string]interface{}{
+// "Name": "test",
+// },
+// TargetEndpointArn: aws_dms_endpoint.TestDmsTargetEndpointTf.Endpoint_arn,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

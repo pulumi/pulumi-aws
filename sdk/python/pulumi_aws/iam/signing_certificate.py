@@ -158,9 +158,9 @@ class SigningCertificate(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_cert = aws.iam.SigningCertificate("testCert",
-            username="some_test_cert",
-            certificate_body=(lambda path: open(path).read())("self-ca-cert.pem"))
+        test_cert = aws.iam.signing_certificate.SigningCertificate("testCert",
+            username=some_test_cert,
+            certificate_body=(lambda path: open(path).read())(self-ca-cert.pem))
         ```
 
         **Example with cert in-line:**
@@ -169,13 +169,13 @@ class SigningCertificate(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_cert_alt = aws.iam.SigningCertificate("testCertAlt",
-            certificate_body=\"\"\"-----BEGIN CERTIFICATE-----
+        test_cert_alt = aws.iam.signing_certificate.SigningCertificate("testCertAlt",
+            certificate_body=-----BEGIN CERTIFICATE-----
         [......] # cert contents
         -----END CERTIFICATE-----
 
-        \"\"\",
-            username="some_test_cert")
+        ,
+            username=some_test_cert)
         ```
 
         ## Import
@@ -210,9 +210,9 @@ class SigningCertificate(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_cert = aws.iam.SigningCertificate("testCert",
-            username="some_test_cert",
-            certificate_body=(lambda path: open(path).read())("self-ca-cert.pem"))
+        test_cert = aws.iam.signing_certificate.SigningCertificate("testCert",
+            username=some_test_cert,
+            certificate_body=(lambda path: open(path).read())(self-ca-cert.pem))
         ```
 
         **Example with cert in-line:**
@@ -221,13 +221,13 @@ class SigningCertificate(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_cert_alt = aws.iam.SigningCertificate("testCertAlt",
-            certificate_body=\"\"\"-----BEGIN CERTIFICATE-----
+        test_cert_alt = aws.iam.signing_certificate.SigningCertificate("testCertAlt",
+            certificate_body=-----BEGIN CERTIFICATE-----
         [......] # cert contents
         -----END CERTIFICATE-----
 
-        \"\"\",
-            username="some_test_cert")
+        ,
+            username=some_test_cert)
         ```
 
         ## Import

@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * import * as fs from "fs";
  *
- * const example = new aws.cloudfront.PublicKey("example", {
+ * const example = new aws.cloudfront/publicKey.PublicKey("example", {
  *     comment: "test public key",
  *     encodedKey: fs.readFileSync("public_key.pem", "utf8"),
  * });

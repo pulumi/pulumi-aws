@@ -252,15 +252,6 @@ def get_container_recipe(arn: Optional[str] = None,
     """
     Provides details about an Image builder Container Recipe.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.imagebuilder.get_container_recipe(arn="arn:aws:imagebuilder:us-east-1:aws:container-recipe/example/1.0.0")
-    ```
-
 
     :param str arn: ARN of the container recipe.
     :param Mapping[str, str] tags: Key-value map of resource tags for the container recipe.
@@ -298,15 +289,6 @@ def get_container_recipe_output(arn: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetContainerRecipeResult]:
     """
     Provides details about an Image builder Container Recipe.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.imagebuilder.get_container_recipe(arn="arn:aws:imagebuilder:us-east-1:aws:container-recipe/example/1.0.0")
-    ```
 
 
     :param str arn: ARN of the container recipe.

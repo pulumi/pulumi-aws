@@ -24,7 +24,7 @@ namespace Pulumi.Aws.DataSync
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.DataSync.Agent("example", new()
+    ///     var example = new Aws.Datasync.Agent.Agent("example", new()
     ///     {
     ///         IpAddress = "1.2.3.4",
     ///     });

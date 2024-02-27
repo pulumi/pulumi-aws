@@ -23,7 +23,7 @@ namespace Pulumi.Aws.Auditmanager
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Auditmanager.OrganizationAdminAccountRegistration("example", new()
+    ///     var example = new Aws.Auditmanager.OrganizationAdminAccountRegistration.OrganizationAdminAccountRegistration("example", new()
     ///     {
     ///         AdminAccountId = "012345678901",
     ///     });

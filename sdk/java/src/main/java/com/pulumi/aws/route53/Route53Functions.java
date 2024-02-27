@@ -52,38 +52,6 @@ public final class Route53Functions {
      * 
      * This data source allows to find a list of name servers associated with a specific delegation set.
      * 
-     * ## Example Usage
-     * 
-     * The following example shows how to get a delegation set from its id.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.route53.Route53Functions;
-     * import com.pulumi.aws.route53.inputs.GetDelegationSetArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var dset = Route53Functions.getDelegationSet(GetDelegationSetArgs.builder()
-     *             .id(&#34;MQWGHCBFAKEID&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetDelegationSetResult> getDelegationSet(GetDelegationSetArgs args) {
         return getDelegationSet(args, InvokeOptions.Empty);
@@ -92,38 +60,6 @@ public final class Route53Functions {
      * `aws.route53.DelegationSet` provides details about a specific Route 53 Delegation Set.
      * 
      * This data source allows to find a list of name servers associated with a specific delegation set.
-     * 
-     * ## Example Usage
-     * 
-     * The following example shows how to get a delegation set from its id.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.route53.Route53Functions;
-     * import com.pulumi.aws.route53.inputs.GetDelegationSetArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var dset = Route53Functions.getDelegationSet(GetDelegationSetArgs.builder()
-     *             .id(&#34;MQWGHCBFAKEID&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetDelegationSetResult> getDelegationSetPlain(GetDelegationSetPlainArgs args) {
@@ -134,38 +70,6 @@ public final class Route53Functions {
      * 
      * This data source allows to find a list of name servers associated with a specific delegation set.
      * 
-     * ## Example Usage
-     * 
-     * The following example shows how to get a delegation set from its id.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.route53.Route53Functions;
-     * import com.pulumi.aws.route53.inputs.GetDelegationSetArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var dset = Route53Functions.getDelegationSet(GetDelegationSetArgs.builder()
-     *             .id(&#34;MQWGHCBFAKEID&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetDelegationSetResult> getDelegationSet(GetDelegationSetArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:route53/getDelegationSet:getDelegationSet", TypeShape.of(GetDelegationSetResult.class), args, Utilities.withVersion(options));
@@ -175,110 +79,12 @@ public final class Route53Functions {
      * 
      * This data source allows to find a list of name servers associated with a specific delegation set.
      * 
-     * ## Example Usage
-     * 
-     * The following example shows how to get a delegation set from its id.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.route53.Route53Functions;
-     * import com.pulumi.aws.route53.inputs.GetDelegationSetArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var dset = Route53Functions.getDelegationSet(GetDelegationSetArgs.builder()
-     *             .id(&#34;MQWGHCBFAKEID&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static CompletableFuture<GetDelegationSetResult> getDelegationSetPlain(GetDelegationSetPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:route53/getDelegationSet:getDelegationSet", TypeShape.of(GetDelegationSetResult.class), args, Utilities.withVersion(options));
     }
     /**
      * `aws.route53.ResolverQueryLogConfig` provides details about a specific Route53 Resolver Query Logging Configuration.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.route53.Route53Functions;
-     * import com.pulumi.aws.route53.inputs.GetQueryLogConfigArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Route53Functions.getQueryLogConfig(GetQueryLogConfigArgs.builder()
-     *             .resolverQueryLogConfigId(&#34;rqlc-1abc2345ef678g91h&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.route53.Route53Functions;
-     * import com.pulumi.aws.route53.inputs.GetQueryLogConfigArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Route53Functions.getQueryLogConfig(GetQueryLogConfigArgs.builder()
-     *             .filters(            
-     *                 GetQueryLogConfigFilterArgs.builder()
-     *                     .name(&#34;Name&#34;)
-     *                     .values(&#34;shared-query-log-config&#34;)
-     *                     .build(),
-     *                 GetQueryLogConfigFilterArgs.builder()
-     *                     .name(&#34;ShareStatus&#34;)
-     *                     .values(&#34;SHARED_WITH_ME&#34;)
-     *                     .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetQueryLogConfigResult> getQueryLogConfig() {
@@ -287,144 +93,12 @@ public final class Route53Functions {
     /**
      * `aws.route53.ResolverQueryLogConfig` provides details about a specific Route53 Resolver Query Logging Configuration.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.route53.Route53Functions;
-     * import com.pulumi.aws.route53.inputs.GetQueryLogConfigArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Route53Functions.getQueryLogConfig(GetQueryLogConfigArgs.builder()
-     *             .resolverQueryLogConfigId(&#34;rqlc-1abc2345ef678g91h&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.route53.Route53Functions;
-     * import com.pulumi.aws.route53.inputs.GetQueryLogConfigArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Route53Functions.getQueryLogConfig(GetQueryLogConfigArgs.builder()
-     *             .filters(            
-     *                 GetQueryLogConfigFilterArgs.builder()
-     *                     .name(&#34;Name&#34;)
-     *                     .values(&#34;shared-query-log-config&#34;)
-     *                     .build(),
-     *                 GetQueryLogConfigFilterArgs.builder()
-     *                     .name(&#34;ShareStatus&#34;)
-     *                     .values(&#34;SHARED_WITH_ME&#34;)
-     *                     .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static CompletableFuture<GetQueryLogConfigResult> getQueryLogConfigPlain() {
         return getQueryLogConfigPlain(GetQueryLogConfigPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * `aws.route53.ResolverQueryLogConfig` provides details about a specific Route53 Resolver Query Logging Configuration.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.route53.Route53Functions;
-     * import com.pulumi.aws.route53.inputs.GetQueryLogConfigArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Route53Functions.getQueryLogConfig(GetQueryLogConfigArgs.builder()
-     *             .resolverQueryLogConfigId(&#34;rqlc-1abc2345ef678g91h&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.route53.Route53Functions;
-     * import com.pulumi.aws.route53.inputs.GetQueryLogConfigArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Route53Functions.getQueryLogConfig(GetQueryLogConfigArgs.builder()
-     *             .filters(            
-     *                 GetQueryLogConfigFilterArgs.builder()
-     *                     .name(&#34;Name&#34;)
-     *                     .values(&#34;shared-query-log-config&#34;)
-     *                     .build(),
-     *                 GetQueryLogConfigFilterArgs.builder()
-     *                     .name(&#34;ShareStatus&#34;)
-     *                     .values(&#34;SHARED_WITH_ME&#34;)
-     *                     .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetQueryLogConfigResult> getQueryLogConfig(GetQueryLogConfigArgs args) {
@@ -433,72 +107,6 @@ public final class Route53Functions {
     /**
      * `aws.route53.ResolverQueryLogConfig` provides details about a specific Route53 Resolver Query Logging Configuration.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.route53.Route53Functions;
-     * import com.pulumi.aws.route53.inputs.GetQueryLogConfigArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Route53Functions.getQueryLogConfig(GetQueryLogConfigArgs.builder()
-     *             .resolverQueryLogConfigId(&#34;rqlc-1abc2345ef678g91h&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.route53.Route53Functions;
-     * import com.pulumi.aws.route53.inputs.GetQueryLogConfigArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Route53Functions.getQueryLogConfig(GetQueryLogConfigArgs.builder()
-     *             .filters(            
-     *                 GetQueryLogConfigFilterArgs.builder()
-     *                     .name(&#34;Name&#34;)
-     *                     .values(&#34;shared-query-log-config&#34;)
-     *                     .build(),
-     *                 GetQueryLogConfigFilterArgs.builder()
-     *                     .name(&#34;ShareStatus&#34;)
-     *                     .values(&#34;SHARED_WITH_ME&#34;)
-     *                     .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static CompletableFuture<GetQueryLogConfigResult> getQueryLogConfigPlain(GetQueryLogConfigPlainArgs args) {
         return getQueryLogConfigPlain(args, InvokeOptions.Empty);
@@ -506,144 +114,12 @@ public final class Route53Functions {
     /**
      * `aws.route53.ResolverQueryLogConfig` provides details about a specific Route53 Resolver Query Logging Configuration.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.route53.Route53Functions;
-     * import com.pulumi.aws.route53.inputs.GetQueryLogConfigArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Route53Functions.getQueryLogConfig(GetQueryLogConfigArgs.builder()
-     *             .resolverQueryLogConfigId(&#34;rqlc-1abc2345ef678g91h&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.route53.Route53Functions;
-     * import com.pulumi.aws.route53.inputs.GetQueryLogConfigArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Route53Functions.getQueryLogConfig(GetQueryLogConfigArgs.builder()
-     *             .filters(            
-     *                 GetQueryLogConfigFilterArgs.builder()
-     *                     .name(&#34;Name&#34;)
-     *                     .values(&#34;shared-query-log-config&#34;)
-     *                     .build(),
-     *                 GetQueryLogConfigFilterArgs.builder()
-     *                     .name(&#34;ShareStatus&#34;)
-     *                     .values(&#34;SHARED_WITH_ME&#34;)
-     *                     .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetQueryLogConfigResult> getQueryLogConfig(GetQueryLogConfigArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:route53/getQueryLogConfig:getQueryLogConfig", TypeShape.of(GetQueryLogConfigResult.class), args, Utilities.withVersion(options));
     }
     /**
      * `aws.route53.ResolverQueryLogConfig` provides details about a specific Route53 Resolver Query Logging Configuration.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.route53.Route53Functions;
-     * import com.pulumi.aws.route53.inputs.GetQueryLogConfigArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Route53Functions.getQueryLogConfig(GetQueryLogConfigArgs.builder()
-     *             .resolverQueryLogConfigId(&#34;rqlc-1abc2345ef678g91h&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.route53.Route53Functions;
-     * import com.pulumi.aws.route53.inputs.GetQueryLogConfigArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Route53Functions.getQueryLogConfig(GetQueryLogConfigArgs.builder()
-     *             .filters(            
-     *                 GetQueryLogConfigFilterArgs.builder()
-     *                     .name(&#34;Name&#34;)
-     *                     .values(&#34;shared-query-log-config&#34;)
-     *                     .build(),
-     *                 GetQueryLogConfigFilterArgs.builder()
-     *                     .name(&#34;ShareStatus&#34;)
-     *                     .values(&#34;SHARED_WITH_ME&#34;)
-     *                     .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetQueryLogConfigResult> getQueryLogConfigPlain(GetQueryLogConfigPlainArgs args, InvokeOptions options) {
@@ -654,67 +130,6 @@ public final class Route53Functions {
      * 
      * This data source allows to find a list of IPaddresses associated with a specific Route53 Resolver Endpoint.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.route53.Route53Functions;
-     * import com.pulumi.aws.route53.inputs.GetResolverEndpointArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Route53Functions.getResolverEndpoint(GetResolverEndpointArgs.builder()
-     *             .resolverEndpointId(&#34;rslvr-in-1abc2345ef678g91h&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.route53.Route53Functions;
-     * import com.pulumi.aws.route53.inputs.GetResolverEndpointArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Route53Functions.getResolverEndpoint(GetResolverEndpointArgs.builder()
-     *             .filters(GetResolverEndpointFilterArgs.builder()
-     *                 .name(&#34;NAME&#34;)
-     *                 .values(&#34;MyResolverExampleName&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetResolverEndpointResult> getResolverEndpoint() {
         return getResolverEndpoint(GetResolverEndpointArgs.Empty, InvokeOptions.Empty);
@@ -723,67 +138,6 @@ public final class Route53Functions {
      * `aws.route53.ResolverEndpoint` provides details about a specific Route53 Resolver Endpoint.
      * 
      * This data source allows to find a list of IPaddresses associated with a specific Route53 Resolver Endpoint.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.route53.Route53Functions;
-     * import com.pulumi.aws.route53.inputs.GetResolverEndpointArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Route53Functions.getResolverEndpoint(GetResolverEndpointArgs.builder()
-     *             .resolverEndpointId(&#34;rslvr-in-1abc2345ef678g91h&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.route53.Route53Functions;
-     * import com.pulumi.aws.route53.inputs.GetResolverEndpointArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Route53Functions.getResolverEndpoint(GetResolverEndpointArgs.builder()
-     *             .filters(GetResolverEndpointFilterArgs.builder()
-     *                 .name(&#34;NAME&#34;)
-     *                 .values(&#34;MyResolverExampleName&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetResolverEndpointResult> getResolverEndpointPlain() {
@@ -794,67 +148,6 @@ public final class Route53Functions {
      * 
      * This data source allows to find a list of IPaddresses associated with a specific Route53 Resolver Endpoint.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.route53.Route53Functions;
-     * import com.pulumi.aws.route53.inputs.GetResolverEndpointArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Route53Functions.getResolverEndpoint(GetResolverEndpointArgs.builder()
-     *             .resolverEndpointId(&#34;rslvr-in-1abc2345ef678g91h&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.route53.Route53Functions;
-     * import com.pulumi.aws.route53.inputs.GetResolverEndpointArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Route53Functions.getResolverEndpoint(GetResolverEndpointArgs.builder()
-     *             .filters(GetResolverEndpointFilterArgs.builder()
-     *                 .name(&#34;NAME&#34;)
-     *                 .values(&#34;MyResolverExampleName&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetResolverEndpointResult> getResolverEndpoint(GetResolverEndpointArgs args) {
         return getResolverEndpoint(args, InvokeOptions.Empty);
@@ -863,67 +156,6 @@ public final class Route53Functions {
      * `aws.route53.ResolverEndpoint` provides details about a specific Route53 Resolver Endpoint.
      * 
      * This data source allows to find a list of IPaddresses associated with a specific Route53 Resolver Endpoint.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.route53.Route53Functions;
-     * import com.pulumi.aws.route53.inputs.GetResolverEndpointArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Route53Functions.getResolverEndpoint(GetResolverEndpointArgs.builder()
-     *             .resolverEndpointId(&#34;rslvr-in-1abc2345ef678g91h&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.route53.Route53Functions;
-     * import com.pulumi.aws.route53.inputs.GetResolverEndpointArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Route53Functions.getResolverEndpoint(GetResolverEndpointArgs.builder()
-     *             .filters(GetResolverEndpointFilterArgs.builder()
-     *                 .name(&#34;NAME&#34;)
-     *                 .values(&#34;MyResolverExampleName&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetResolverEndpointResult> getResolverEndpointPlain(GetResolverEndpointPlainArgs args) {
@@ -934,67 +166,6 @@ public final class Route53Functions {
      * 
      * This data source allows to find a list of IPaddresses associated with a specific Route53 Resolver Endpoint.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.route53.Route53Functions;
-     * import com.pulumi.aws.route53.inputs.GetResolverEndpointArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Route53Functions.getResolverEndpoint(GetResolverEndpointArgs.builder()
-     *             .resolverEndpointId(&#34;rslvr-in-1abc2345ef678g91h&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.route53.Route53Functions;
-     * import com.pulumi.aws.route53.inputs.GetResolverEndpointArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Route53Functions.getResolverEndpoint(GetResolverEndpointArgs.builder()
-     *             .filters(GetResolverEndpointFilterArgs.builder()
-     *                 .name(&#34;NAME&#34;)
-     *                 .values(&#34;MyResolverExampleName&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetResolverEndpointResult> getResolverEndpoint(GetResolverEndpointArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:route53/getResolverEndpoint:getResolverEndpoint", TypeShape.of(GetResolverEndpointResult.class), args, Utilities.withVersion(options));
@@ -1003,67 +174,6 @@ public final class Route53Functions {
      * `aws.route53.ResolverEndpoint` provides details about a specific Route53 Resolver Endpoint.
      * 
      * This data source allows to find a list of IPaddresses associated with a specific Route53 Resolver Endpoint.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.route53.Route53Functions;
-     * import com.pulumi.aws.route53.inputs.GetResolverEndpointArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Route53Functions.getResolverEndpoint(GetResolverEndpointArgs.builder()
-     *             .resolverEndpointId(&#34;rslvr-in-1abc2345ef678g91h&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.route53.Route53Functions;
-     * import com.pulumi.aws.route53.inputs.GetResolverEndpointArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Route53Functions.getResolverEndpoint(GetResolverEndpointArgs.builder()
-     *             .filters(GetResolverEndpointFilterArgs.builder()
-     *                 .name(&#34;NAME&#34;)
-     *                 .values(&#34;MyResolverExampleName&#34;)
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetResolverEndpointResult> getResolverEndpointPlain(GetResolverEndpointPlainArgs args, InvokeOptions options) {
@@ -1074,38 +184,6 @@ public final class Route53Functions {
      * 
      * This data source allows to find a details about a specific a Route 53 Resolver DNS Firewall config.
      * 
-     * ## Example Usage
-     * 
-     * The following example shows how to get a firewall config using the VPC ID.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.route53.Route53Functions;
-     * import com.pulumi.aws.route53.inputs.GetResolverFirewallConfigArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Route53Functions.getResolverFirewallConfig(GetResolverFirewallConfigArgs.builder()
-     *             .resourceId(&#34;vpc-exampleid&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetResolverFirewallConfigResult> getResolverFirewallConfig(GetResolverFirewallConfigArgs args) {
         return getResolverFirewallConfig(args, InvokeOptions.Empty);
@@ -1114,38 +192,6 @@ public final class Route53Functions {
      * `aws.route53.ResolverFirewallConfig` provides details about a specific a Route 53 Resolver DNS Firewall config.
      * 
      * This data source allows to find a details about a specific a Route 53 Resolver DNS Firewall config.
-     * 
-     * ## Example Usage
-     * 
-     * The following example shows how to get a firewall config using the VPC ID.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.route53.Route53Functions;
-     * import com.pulumi.aws.route53.inputs.GetResolverFirewallConfigArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Route53Functions.getResolverFirewallConfig(GetResolverFirewallConfigArgs.builder()
-     *             .resourceId(&#34;vpc-exampleid&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetResolverFirewallConfigResult> getResolverFirewallConfigPlain(GetResolverFirewallConfigPlainArgs args) {
@@ -1156,38 +202,6 @@ public final class Route53Functions {
      * 
      * This data source allows to find a details about a specific a Route 53 Resolver DNS Firewall config.
      * 
-     * ## Example Usage
-     * 
-     * The following example shows how to get a firewall config using the VPC ID.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.route53.Route53Functions;
-     * import com.pulumi.aws.route53.inputs.GetResolverFirewallConfigArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Route53Functions.getResolverFirewallConfig(GetResolverFirewallConfigArgs.builder()
-     *             .resourceId(&#34;vpc-exampleid&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetResolverFirewallConfigResult> getResolverFirewallConfig(GetResolverFirewallConfigArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:route53/getResolverFirewallConfig:getResolverFirewallConfig", TypeShape.of(GetResolverFirewallConfigResult.class), args, Utilities.withVersion(options));
@@ -1196,38 +210,6 @@ public final class Route53Functions {
      * `aws.route53.ResolverFirewallConfig` provides details about a specific a Route 53 Resolver DNS Firewall config.
      * 
      * This data source allows to find a details about a specific a Route 53 Resolver DNS Firewall config.
-     * 
-     * ## Example Usage
-     * 
-     * The following example shows how to get a firewall config using the VPC ID.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.route53.Route53Functions;
-     * import com.pulumi.aws.route53.inputs.GetResolverFirewallConfigArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Route53Functions.getResolverFirewallConfig(GetResolverFirewallConfigArgs.builder()
-     *             .resourceId(&#34;vpc-exampleid&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetResolverFirewallConfigResult> getResolverFirewallConfigPlain(GetResolverFirewallConfigPlainArgs args, InvokeOptions options) {
@@ -1238,38 +220,6 @@ public final class Route53Functions {
      * 
      * This data source allows to retrieve details about a specific a Route 53 Resolver DNS Firewall domain list.
      * 
-     * ## Example Usage
-     * 
-     * The following example shows how to get a firewall domain list from its ID.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.route53.Route53Functions;
-     * import com.pulumi.aws.route53.inputs.GetResolverFirewallDomainListArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Route53Functions.getResolverFirewallDomainList(GetResolverFirewallDomainListArgs.builder()
-     *             .firewallDomainListId(&#34;rslvr-fdl-example&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetResolverFirewallDomainListResult> getResolverFirewallDomainList(GetResolverFirewallDomainListArgs args) {
         return getResolverFirewallDomainList(args, InvokeOptions.Empty);
@@ -1278,38 +228,6 @@ public final class Route53Functions {
      * `aws.route53.ResolverFirewallDomainList` Retrieves the specified firewall domain list.
      * 
      * This data source allows to retrieve details about a specific a Route 53 Resolver DNS Firewall domain list.
-     * 
-     * ## Example Usage
-     * 
-     * The following example shows how to get a firewall domain list from its ID.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.route53.Route53Functions;
-     * import com.pulumi.aws.route53.inputs.GetResolverFirewallDomainListArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Route53Functions.getResolverFirewallDomainList(GetResolverFirewallDomainListArgs.builder()
-     *             .firewallDomainListId(&#34;rslvr-fdl-example&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetResolverFirewallDomainListResult> getResolverFirewallDomainListPlain(GetResolverFirewallDomainListPlainArgs args) {
@@ -1320,38 +238,6 @@ public final class Route53Functions {
      * 
      * This data source allows to retrieve details about a specific a Route 53 Resolver DNS Firewall domain list.
      * 
-     * ## Example Usage
-     * 
-     * The following example shows how to get a firewall domain list from its ID.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.route53.Route53Functions;
-     * import com.pulumi.aws.route53.inputs.GetResolverFirewallDomainListArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Route53Functions.getResolverFirewallDomainList(GetResolverFirewallDomainListArgs.builder()
-     *             .firewallDomainListId(&#34;rslvr-fdl-example&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetResolverFirewallDomainListResult> getResolverFirewallDomainList(GetResolverFirewallDomainListArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:route53/getResolverFirewallDomainList:getResolverFirewallDomainList", TypeShape.of(GetResolverFirewallDomainListResult.class), args, Utilities.withVersion(options));
@@ -1360,38 +246,6 @@ public final class Route53Functions {
      * `aws.route53.ResolverFirewallDomainList` Retrieves the specified firewall domain list.
      * 
      * This data source allows to retrieve details about a specific a Route 53 Resolver DNS Firewall domain list.
-     * 
-     * ## Example Usage
-     * 
-     * The following example shows how to get a firewall domain list from its ID.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.route53.Route53Functions;
-     * import com.pulumi.aws.route53.inputs.GetResolverFirewallDomainListArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Route53Functions.getResolverFirewallDomainList(GetResolverFirewallDomainListArgs.builder()
-     *             .firewallDomainListId(&#34;rslvr-fdl-example&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetResolverFirewallDomainListResult> getResolverFirewallDomainListPlain(GetResolverFirewallDomainListPlainArgs args, InvokeOptions options) {
@@ -1402,38 +256,6 @@ public final class Route53Functions {
      * 
      * This data source allows to retrieve details about a specific a Route 53 Resolver DNS Firewall rule group.
      * 
-     * ## Example Usage
-     * 
-     * The following example shows how to get a firewall rule group from its ID.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.route53.Route53Functions;
-     * import com.pulumi.aws.route53.inputs.GetResolverFirewallRuleGroupArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Route53Functions.getResolverFirewallRuleGroup(GetResolverFirewallRuleGroupArgs.builder()
-     *             .firewallRuleGroupId(&#34;rslvr-frg-example&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetResolverFirewallRuleGroupResult> getResolverFirewallRuleGroup(GetResolverFirewallRuleGroupArgs args) {
         return getResolverFirewallRuleGroup(args, InvokeOptions.Empty);
@@ -1442,38 +264,6 @@ public final class Route53Functions {
      * `aws.route53.ResolverFirewallRuleGroup` Retrieves the specified firewall rule group.
      * 
      * This data source allows to retrieve details about a specific a Route 53 Resolver DNS Firewall rule group.
-     * 
-     * ## Example Usage
-     * 
-     * The following example shows how to get a firewall rule group from its ID.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.route53.Route53Functions;
-     * import com.pulumi.aws.route53.inputs.GetResolverFirewallRuleGroupArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Route53Functions.getResolverFirewallRuleGroup(GetResolverFirewallRuleGroupArgs.builder()
-     *             .firewallRuleGroupId(&#34;rslvr-frg-example&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetResolverFirewallRuleGroupResult> getResolverFirewallRuleGroupPlain(GetResolverFirewallRuleGroupPlainArgs args) {
@@ -1484,38 +274,6 @@ public final class Route53Functions {
      * 
      * This data source allows to retrieve details about a specific a Route 53 Resolver DNS Firewall rule group.
      * 
-     * ## Example Usage
-     * 
-     * The following example shows how to get a firewall rule group from its ID.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.route53.Route53Functions;
-     * import com.pulumi.aws.route53.inputs.GetResolverFirewallRuleGroupArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Route53Functions.getResolverFirewallRuleGroup(GetResolverFirewallRuleGroupArgs.builder()
-     *             .firewallRuleGroupId(&#34;rslvr-frg-example&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetResolverFirewallRuleGroupResult> getResolverFirewallRuleGroup(GetResolverFirewallRuleGroupArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:route53/getResolverFirewallRuleGroup:getResolverFirewallRuleGroup", TypeShape.of(GetResolverFirewallRuleGroupResult.class), args, Utilities.withVersion(options));
@@ -1524,38 +282,6 @@ public final class Route53Functions {
      * `aws.route53.ResolverFirewallRuleGroup` Retrieves the specified firewall rule group.
      * 
      * This data source allows to retrieve details about a specific a Route 53 Resolver DNS Firewall rule group.
-     * 
-     * ## Example Usage
-     * 
-     * The following example shows how to get a firewall rule group from its ID.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.route53.Route53Functions;
-     * import com.pulumi.aws.route53.inputs.GetResolverFirewallRuleGroupArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Route53Functions.getResolverFirewallRuleGroup(GetResolverFirewallRuleGroupArgs.builder()
-     *             .firewallRuleGroupId(&#34;rslvr-frg-example&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetResolverFirewallRuleGroupResult> getResolverFirewallRuleGroupPlain(GetResolverFirewallRuleGroupPlainArgs args, InvokeOptions options) {
@@ -1566,38 +292,6 @@ public final class Route53Functions {
      * 
      * This data source allows to retrieve details about a specific a Route 53 Resolver DNS Firewall rule group association.
      * 
-     * ## Example Usage
-     * 
-     * The following example shows how to get a firewall rule group association from its id.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.route53.Route53Functions;
-     * import com.pulumi.aws.route53.inputs.GetResolverFirewallRuleGroupAssociationArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Route53Functions.getResolverFirewallRuleGroupAssociation(GetResolverFirewallRuleGroupAssociationArgs.builder()
-     *             .firewallRuleGroupAssociationId(&#34;rslvr-frgassoc-example&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetResolverFirewallRuleGroupAssociationResult> getResolverFirewallRuleGroupAssociation(GetResolverFirewallRuleGroupAssociationArgs args) {
         return getResolverFirewallRuleGroupAssociation(args, InvokeOptions.Empty);
@@ -1606,38 +300,6 @@ public final class Route53Functions {
      * `aws.route53.ResolverFirewallRuleGroupAssociation` Retrieves the specified firewall rule group association.
      * 
      * This data source allows to retrieve details about a specific a Route 53 Resolver DNS Firewall rule group association.
-     * 
-     * ## Example Usage
-     * 
-     * The following example shows how to get a firewall rule group association from its id.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.route53.Route53Functions;
-     * import com.pulumi.aws.route53.inputs.GetResolverFirewallRuleGroupAssociationArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Route53Functions.getResolverFirewallRuleGroupAssociation(GetResolverFirewallRuleGroupAssociationArgs.builder()
-     *             .firewallRuleGroupAssociationId(&#34;rslvr-frgassoc-example&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetResolverFirewallRuleGroupAssociationResult> getResolverFirewallRuleGroupAssociationPlain(GetResolverFirewallRuleGroupAssociationPlainArgs args) {
@@ -1648,38 +310,6 @@ public final class Route53Functions {
      * 
      * This data source allows to retrieve details about a specific a Route 53 Resolver DNS Firewall rule group association.
      * 
-     * ## Example Usage
-     * 
-     * The following example shows how to get a firewall rule group association from its id.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.route53.Route53Functions;
-     * import com.pulumi.aws.route53.inputs.GetResolverFirewallRuleGroupAssociationArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Route53Functions.getResolverFirewallRuleGroupAssociation(GetResolverFirewallRuleGroupAssociationArgs.builder()
-     *             .firewallRuleGroupAssociationId(&#34;rslvr-frgassoc-example&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetResolverFirewallRuleGroupAssociationResult> getResolverFirewallRuleGroupAssociation(GetResolverFirewallRuleGroupAssociationArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:route53/getResolverFirewallRuleGroupAssociation:getResolverFirewallRuleGroupAssociation", TypeShape.of(GetResolverFirewallRuleGroupAssociationResult.class), args, Utilities.withVersion(options));
@@ -1689,76 +319,12 @@ public final class Route53Functions {
      * 
      * This data source allows to retrieve details about a specific a Route 53 Resolver DNS Firewall rule group association.
      * 
-     * ## Example Usage
-     * 
-     * The following example shows how to get a firewall rule group association from its id.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.route53.Route53Functions;
-     * import com.pulumi.aws.route53.inputs.GetResolverFirewallRuleGroupAssociationArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Route53Functions.getResolverFirewallRuleGroupAssociation(GetResolverFirewallRuleGroupAssociationArgs.builder()
-     *             .firewallRuleGroupAssociationId(&#34;rslvr-frgassoc-example&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static CompletableFuture<GetResolverFirewallRuleGroupAssociationResult> getResolverFirewallRuleGroupAssociationPlain(GetResolverFirewallRuleGroupAssociationPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:route53/getResolverFirewallRuleGroupAssociation:getResolverFirewallRuleGroupAssociation", TypeShape.of(GetResolverFirewallRuleGroupAssociationResult.class), args, Utilities.withVersion(options));
     }
     /**
      * `aws.route53.getResolverFirewallRules` Provides details about rules in a specific Route53 Resolver Firewall rule group.
-     * 
-     * ## Example Usage
-     * 
-     * The following example shows how to get Route53 Resolver Firewall rules based on its associated firewall group id.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.route53.Route53Functions;
-     * import com.pulumi.aws.route53.inputs.GetResolverFirewallRulesArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Route53Functions.getResolverFirewallRules(GetResolverFirewallRulesArgs.builder()
-     *             .firewallRuleGroupId(aws_route53_resolver_firewall_rule_group.example().id())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetResolverFirewallRulesResult> getResolverFirewallRules(GetResolverFirewallRulesArgs args) {
@@ -1767,76 +333,12 @@ public final class Route53Functions {
     /**
      * `aws.route53.getResolverFirewallRules` Provides details about rules in a specific Route53 Resolver Firewall rule group.
      * 
-     * ## Example Usage
-     * 
-     * The following example shows how to get Route53 Resolver Firewall rules based on its associated firewall group id.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.route53.Route53Functions;
-     * import com.pulumi.aws.route53.inputs.GetResolverFirewallRulesArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Route53Functions.getResolverFirewallRules(GetResolverFirewallRulesArgs.builder()
-     *             .firewallRuleGroupId(aws_route53_resolver_firewall_rule_group.example().id())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static CompletableFuture<GetResolverFirewallRulesResult> getResolverFirewallRulesPlain(GetResolverFirewallRulesPlainArgs args) {
         return getResolverFirewallRulesPlain(args, InvokeOptions.Empty);
     }
     /**
      * `aws.route53.getResolverFirewallRules` Provides details about rules in a specific Route53 Resolver Firewall rule group.
-     * 
-     * ## Example Usage
-     * 
-     * The following example shows how to get Route53 Resolver Firewall rules based on its associated firewall group id.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.route53.Route53Functions;
-     * import com.pulumi.aws.route53.inputs.GetResolverFirewallRulesArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Route53Functions.getResolverFirewallRules(GetResolverFirewallRulesArgs.builder()
-     *             .firewallRuleGroupId(aws_route53_resolver_firewall_rule_group.example().id())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetResolverFirewallRulesResult> getResolverFirewallRules(GetResolverFirewallRulesArgs args, InvokeOptions options) {
@@ -1845,77 +347,12 @@ public final class Route53Functions {
     /**
      * `aws.route53.getResolverFirewallRules` Provides details about rules in a specific Route53 Resolver Firewall rule group.
      * 
-     * ## Example Usage
-     * 
-     * The following example shows how to get Route53 Resolver Firewall rules based on its associated firewall group id.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.route53.Route53Functions;
-     * import com.pulumi.aws.route53.inputs.GetResolverFirewallRulesArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Route53Functions.getResolverFirewallRules(GetResolverFirewallRulesArgs.builder()
-     *             .firewallRuleGroupId(aws_route53_resolver_firewall_rule_group.example().id())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static CompletableFuture<GetResolverFirewallRulesResult> getResolverFirewallRulesPlain(GetResolverFirewallRulesPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:route53/getResolverFirewallRules:getResolverFirewallRules", TypeShape.of(GetResolverFirewallRulesResult.class), args, Utilities.withVersion(options));
     }
     /**
      * `aws.route53.ResolverRule` provides details about a specific Route53 Resolver rule.
-     * 
-     * ## Example Usage
-     * 
-     * The following example shows how to get a Route53 Resolver rule based on its associated domain name and rule type.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.route53.Route53Functions;
-     * import com.pulumi.aws.route53.inputs.GetResolverRuleArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Route53Functions.getResolverRule(GetResolverRuleArgs.builder()
-     *             .domainName(&#34;subdomain.example.com&#34;)
-     *             .ruleType(&#34;SYSTEM&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetResolverRuleResult> getResolverRule() {
@@ -1924,78 +361,12 @@ public final class Route53Functions {
     /**
      * `aws.route53.ResolverRule` provides details about a specific Route53 Resolver rule.
      * 
-     * ## Example Usage
-     * 
-     * The following example shows how to get a Route53 Resolver rule based on its associated domain name and rule type.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.route53.Route53Functions;
-     * import com.pulumi.aws.route53.inputs.GetResolverRuleArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Route53Functions.getResolverRule(GetResolverRuleArgs.builder()
-     *             .domainName(&#34;subdomain.example.com&#34;)
-     *             .ruleType(&#34;SYSTEM&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static CompletableFuture<GetResolverRuleResult> getResolverRulePlain() {
         return getResolverRulePlain(GetResolverRulePlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * `aws.route53.ResolverRule` provides details about a specific Route53 Resolver rule.
-     * 
-     * ## Example Usage
-     * 
-     * The following example shows how to get a Route53 Resolver rule based on its associated domain name and rule type.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.route53.Route53Functions;
-     * import com.pulumi.aws.route53.inputs.GetResolverRuleArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Route53Functions.getResolverRule(GetResolverRuleArgs.builder()
-     *             .domainName(&#34;subdomain.example.com&#34;)
-     *             .ruleType(&#34;SYSTEM&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetResolverRuleResult> getResolverRule(GetResolverRuleArgs args) {
@@ -2004,39 +375,6 @@ public final class Route53Functions {
     /**
      * `aws.route53.ResolverRule` provides details about a specific Route53 Resolver rule.
      * 
-     * ## Example Usage
-     * 
-     * The following example shows how to get a Route53 Resolver rule based on its associated domain name and rule type.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.route53.Route53Functions;
-     * import com.pulumi.aws.route53.inputs.GetResolverRuleArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Route53Functions.getResolverRule(GetResolverRuleArgs.builder()
-     *             .domainName(&#34;subdomain.example.com&#34;)
-     *             .ruleType(&#34;SYSTEM&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static CompletableFuture<GetResolverRuleResult> getResolverRulePlain(GetResolverRulePlainArgs args) {
         return getResolverRulePlain(args, InvokeOptions.Empty);
@@ -2044,78 +382,12 @@ public final class Route53Functions {
     /**
      * `aws.route53.ResolverRule` provides details about a specific Route53 Resolver rule.
      * 
-     * ## Example Usage
-     * 
-     * The following example shows how to get a Route53 Resolver rule based on its associated domain name and rule type.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.route53.Route53Functions;
-     * import com.pulumi.aws.route53.inputs.GetResolverRuleArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Route53Functions.getResolverRule(GetResolverRuleArgs.builder()
-     *             .domainName(&#34;subdomain.example.com&#34;)
-     *             .ruleType(&#34;SYSTEM&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetResolverRuleResult> getResolverRule(GetResolverRuleArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:route53/getResolverRule:getResolverRule", TypeShape.of(GetResolverRuleResult.class), args, Utilities.withVersion(options));
     }
     /**
      * `aws.route53.ResolverRule` provides details about a specific Route53 Resolver rule.
-     * 
-     * ## Example Usage
-     * 
-     * The following example shows how to get a Route53 Resolver rule based on its associated domain name and rule type.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.route53.Route53Functions;
-     * import com.pulumi.aws.route53.inputs.GetResolverRuleArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Route53Functions.getResolverRule(GetResolverRuleArgs.builder()
-     *             .domainName(&#34;subdomain.example.com&#34;)
-     *             .ruleType(&#34;SYSTEM&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetResolverRuleResult> getResolverRulePlain(GetResolverRulePlainArgs args, InvokeOptions options) {
@@ -2125,98 +397,6 @@ public final class Route53Functions {
      * `aws.route53.getResolverRules` provides details about a set of Route53 Resolver rules.
      * 
      * ## Example Usage
-     * ### Retrieving the default resolver rule
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.route53.Route53Functions;
-     * import com.pulumi.aws.route53.inputs.GetResolverRulesArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Route53Functions.getResolverRules(GetResolverRulesArgs.builder()
-     *             .ownerId(&#34;Route 53 Resolver&#34;)
-     *             .ruleType(&#34;RECURSIVE&#34;)
-     *             .shareStatus(&#34;NOT_SHARED&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * ### Retrieving forward rules shared with me
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.route53.Route53Functions;
-     * import com.pulumi.aws.route53.inputs.GetResolverRulesArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Route53Functions.getResolverRules(GetResolverRulesArgs.builder()
-     *             .ruleType(&#34;FORWARD&#34;)
-     *             .shareStatus(&#34;SHARED_WITH_ME&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * ### Retrieving rules by name regex
-     * 
-     * Resolver rules whose name contains `abc`.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.route53.Route53Functions;
-     * import com.pulumi.aws.route53.inputs.GetResolverRulesArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Route53Functions.getResolverRules(GetResolverRulesArgs.builder()
-     *             .nameRegex(&#34;.*abc.*&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetResolverRulesResult> getResolverRules() {
@@ -2226,98 +406,6 @@ public final class Route53Functions {
      * `aws.route53.getResolverRules` provides details about a set of Route53 Resolver rules.
      * 
      * ## Example Usage
-     * ### Retrieving the default resolver rule
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.route53.Route53Functions;
-     * import com.pulumi.aws.route53.inputs.GetResolverRulesArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Route53Functions.getResolverRules(GetResolverRulesArgs.builder()
-     *             .ownerId(&#34;Route 53 Resolver&#34;)
-     *             .ruleType(&#34;RECURSIVE&#34;)
-     *             .shareStatus(&#34;NOT_SHARED&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * ### Retrieving forward rules shared with me
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.route53.Route53Functions;
-     * import com.pulumi.aws.route53.inputs.GetResolverRulesArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Route53Functions.getResolverRules(GetResolverRulesArgs.builder()
-     *             .ruleType(&#34;FORWARD&#34;)
-     *             .shareStatus(&#34;SHARED_WITH_ME&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * ### Retrieving rules by name regex
-     * 
-     * Resolver rules whose name contains `abc`.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.route53.Route53Functions;
-     * import com.pulumi.aws.route53.inputs.GetResolverRulesArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Route53Functions.getResolverRules(GetResolverRulesArgs.builder()
-     *             .nameRegex(&#34;.*abc.*&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetResolverRulesResult> getResolverRulesPlain() {
@@ -2327,98 +415,6 @@ public final class Route53Functions {
      * `aws.route53.getResolverRules` provides details about a set of Route53 Resolver rules.
      * 
      * ## Example Usage
-     * ### Retrieving the default resolver rule
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.route53.Route53Functions;
-     * import com.pulumi.aws.route53.inputs.GetResolverRulesArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Route53Functions.getResolverRules(GetResolverRulesArgs.builder()
-     *             .ownerId(&#34;Route 53 Resolver&#34;)
-     *             .ruleType(&#34;RECURSIVE&#34;)
-     *             .shareStatus(&#34;NOT_SHARED&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * ### Retrieving forward rules shared with me
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.route53.Route53Functions;
-     * import com.pulumi.aws.route53.inputs.GetResolverRulesArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Route53Functions.getResolverRules(GetResolverRulesArgs.builder()
-     *             .ruleType(&#34;FORWARD&#34;)
-     *             .shareStatus(&#34;SHARED_WITH_ME&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * ### Retrieving rules by name regex
-     * 
-     * Resolver rules whose name contains `abc`.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.route53.Route53Functions;
-     * import com.pulumi.aws.route53.inputs.GetResolverRulesArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Route53Functions.getResolverRules(GetResolverRulesArgs.builder()
-     *             .nameRegex(&#34;.*abc.*&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetResolverRulesResult> getResolverRules(GetResolverRulesArgs args) {
@@ -2428,98 +424,6 @@ public final class Route53Functions {
      * `aws.route53.getResolverRules` provides details about a set of Route53 Resolver rules.
      * 
      * ## Example Usage
-     * ### Retrieving the default resolver rule
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.route53.Route53Functions;
-     * import com.pulumi.aws.route53.inputs.GetResolverRulesArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Route53Functions.getResolverRules(GetResolverRulesArgs.builder()
-     *             .ownerId(&#34;Route 53 Resolver&#34;)
-     *             .ruleType(&#34;RECURSIVE&#34;)
-     *             .shareStatus(&#34;NOT_SHARED&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * ### Retrieving forward rules shared with me
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.route53.Route53Functions;
-     * import com.pulumi.aws.route53.inputs.GetResolverRulesArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Route53Functions.getResolverRules(GetResolverRulesArgs.builder()
-     *             .ruleType(&#34;FORWARD&#34;)
-     *             .shareStatus(&#34;SHARED_WITH_ME&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * ### Retrieving rules by name regex
-     * 
-     * Resolver rules whose name contains `abc`.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.route53.Route53Functions;
-     * import com.pulumi.aws.route53.inputs.GetResolverRulesArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Route53Functions.getResolverRules(GetResolverRulesArgs.builder()
-     *             .nameRegex(&#34;.*abc.*&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetResolverRulesResult> getResolverRulesPlain(GetResolverRulesPlainArgs args) {
@@ -2529,98 +433,6 @@ public final class Route53Functions {
      * `aws.route53.getResolverRules` provides details about a set of Route53 Resolver rules.
      * 
      * ## Example Usage
-     * ### Retrieving the default resolver rule
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.route53.Route53Functions;
-     * import com.pulumi.aws.route53.inputs.GetResolverRulesArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Route53Functions.getResolverRules(GetResolverRulesArgs.builder()
-     *             .ownerId(&#34;Route 53 Resolver&#34;)
-     *             .ruleType(&#34;RECURSIVE&#34;)
-     *             .shareStatus(&#34;NOT_SHARED&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * ### Retrieving forward rules shared with me
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.route53.Route53Functions;
-     * import com.pulumi.aws.route53.inputs.GetResolverRulesArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Route53Functions.getResolverRules(GetResolverRulesArgs.builder()
-     *             .ruleType(&#34;FORWARD&#34;)
-     *             .shareStatus(&#34;SHARED_WITH_ME&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * ### Retrieving rules by name regex
-     * 
-     * Resolver rules whose name contains `abc`.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.route53.Route53Functions;
-     * import com.pulumi.aws.route53.inputs.GetResolverRulesArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Route53Functions.getResolverRules(GetResolverRulesArgs.builder()
-     *             .nameRegex(&#34;.*abc.*&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetResolverRulesResult> getResolverRules(GetResolverRulesArgs args, InvokeOptions options) {
@@ -2630,98 +442,6 @@ public final class Route53Functions {
      * `aws.route53.getResolverRules` provides details about a set of Route53 Resolver rules.
      * 
      * ## Example Usage
-     * ### Retrieving the default resolver rule
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.route53.Route53Functions;
-     * import com.pulumi.aws.route53.inputs.GetResolverRulesArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Route53Functions.getResolverRules(GetResolverRulesArgs.builder()
-     *             .ownerId(&#34;Route 53 Resolver&#34;)
-     *             .ruleType(&#34;RECURSIVE&#34;)
-     *             .shareStatus(&#34;NOT_SHARED&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * ### Retrieving forward rules shared with me
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.route53.Route53Functions;
-     * import com.pulumi.aws.route53.inputs.GetResolverRulesArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Route53Functions.getResolverRules(GetResolverRulesArgs.builder()
-     *             .ruleType(&#34;FORWARD&#34;)
-     *             .shareStatus(&#34;SHARED_WITH_ME&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * ### Retrieving rules by name regex
-     * 
-     * Resolver rules whose name contains `abc`.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.route53.Route53Functions;
-     * import com.pulumi.aws.route53.inputs.GetResolverRulesArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = Route53Functions.getResolverRules(GetResolverRulesArgs.builder()
-     *             .nameRegex(&#34;.*abc.*&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetResolverRulesResult> getResolverRulesPlain(GetResolverRulesPlainArgs args, InvokeOptions options) {
@@ -2731,163 +451,6 @@ public final class Route53Functions {
      * Generates an Route53 traffic policy document in JSON format for use with resources that expect policy documents such as `aws.route53.TrafficPolicy`.
      * 
      * ## Example Usage
-     * ### Basic Example
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.AwsFunctions;
-     * import com.pulumi.aws.inputs.GetRegionArgs;
-     * import com.pulumi.aws.route53.Route53Functions;
-     * import com.pulumi.aws.route53.inputs.GetTrafficPolicyDocumentArgs;
-     * import com.pulumi.aws.route53.TrafficPolicy;
-     * import com.pulumi.aws.route53.TrafficPolicyArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var current = AwsFunctions.getRegion();
-     * 
-     *         final var exampleTrafficPolicyDocument = Route53Functions.getTrafficPolicyDocument(GetTrafficPolicyDocumentArgs.builder()
-     *             .recordType(&#34;A&#34;)
-     *             .startRule(&#34;site_switch&#34;)
-     *             .endpoints(            
-     *                 GetTrafficPolicyDocumentEndpointArgs.builder()
-     *                     .id(&#34;my_elb&#34;)
-     *                     .type(&#34;elastic-load-balancer&#34;)
-     *                     .value(String.format(&#34;elb-111111.%s.elb.amazonaws.com&#34;, current.applyValue(getRegionResult -&gt; getRegionResult.name())))
-     *                     .build(),
-     *                 GetTrafficPolicyDocumentEndpointArgs.builder()
-     *                     .id(&#34;site_down_banner&#34;)
-     *                     .type(&#34;s3-website&#34;)
-     *                     .region(current.applyValue(getRegionResult -&gt; getRegionResult.name()))
-     *                     .value(&#34;www.example.com&#34;)
-     *                     .build())
-     *             .rules(GetTrafficPolicyDocumentRuleArgs.builder()
-     *                 .id(&#34;site_switch&#34;)
-     *                 .type(&#34;failover&#34;)
-     *                 .primary(GetTrafficPolicyDocumentRulePrimaryArgs.builder()
-     *                     .endpointReference(&#34;my_elb&#34;)
-     *                     .build())
-     *                 .secondary(GetTrafficPolicyDocumentRuleSecondaryArgs.builder()
-     *                     .endpointReference(&#34;site_down_banner&#34;)
-     *                     .build())
-     *                 .build())
-     *             .build());
-     * 
-     *         var exampleTrafficPolicy = new TrafficPolicy(&#34;exampleTrafficPolicy&#34;, TrafficPolicyArgs.builder()        
-     *             .comment(&#34;example comment&#34;)
-     *             .document(exampleTrafficPolicyDocument.applyValue(getTrafficPolicyDocumentResult -&gt; getTrafficPolicyDocumentResult.json()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * ### Complex Example
-     * 
-     * The following example showcases the use of nested rules within the traffic policy document and introduces the `geoproximity` rule type.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.route53.Route53Functions;
-     * import com.pulumi.aws.route53.inputs.GetTrafficPolicyDocumentArgs;
-     * import com.pulumi.aws.route53.TrafficPolicy;
-     * import com.pulumi.aws.route53.TrafficPolicyArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var exampleTrafficPolicyDocument = Route53Functions.getTrafficPolicyDocument(GetTrafficPolicyDocumentArgs.builder()
-     *             .recordType(&#34;A&#34;)
-     *             .startRule(&#34;geoproximity_rule&#34;)
-     *             .endpoints(            
-     *                 GetTrafficPolicyDocumentEndpointArgs.builder()
-     *                     .id(&#34;na_endpoint_a&#34;)
-     *                     .type(&#34;elastic-load-balancer&#34;)
-     *                     .value(&#34;elb-111111.us-west-1.elb.amazonaws.com&#34;)
-     *                     .build(),
-     *                 GetTrafficPolicyDocumentEndpointArgs.builder()
-     *                     .id(&#34;na_endpoint_b&#34;)
-     *                     .type(&#34;elastic-load-balancer&#34;)
-     *                     .value(&#34;elb-222222.us-west-1.elb.amazonaws.com&#34;)
-     *                     .build(),
-     *                 GetTrafficPolicyDocumentEndpointArgs.builder()
-     *                     .id(&#34;eu_endpoint&#34;)
-     *                     .type(&#34;elastic-load-balancer&#34;)
-     *                     .value(&#34;elb-333333.eu-west-1.elb.amazonaws.com&#34;)
-     *                     .build(),
-     *                 GetTrafficPolicyDocumentEndpointArgs.builder()
-     *                     .id(&#34;ap_endpoint&#34;)
-     *                     .type(&#34;elastic-load-balancer&#34;)
-     *                     .value(&#34;elb-444444.ap-northeast-2.elb.amazonaws.com&#34;)
-     *                     .build())
-     *             .rules(            
-     *                 GetTrafficPolicyDocumentRuleArgs.builder()
-     *                     .id(&#34;na_rule&#34;)
-     *                     .type(&#34;failover&#34;)
-     *                     .primary(GetTrafficPolicyDocumentRulePrimaryArgs.builder()
-     *                         .endpointReference(&#34;na_endpoint_a&#34;)
-     *                         .build())
-     *                     .secondary(GetTrafficPolicyDocumentRuleSecondaryArgs.builder()
-     *                         .endpointReference(&#34;na_endpoint_b&#34;)
-     *                         .build())
-     *                     .build(),
-     *                 GetTrafficPolicyDocumentRuleArgs.builder()
-     *                     .id(&#34;geoproximity_rule&#34;)
-     *                     .type(&#34;geoproximity&#34;)
-     *                     .geoProximityLocations(                    
-     *                         GetTrafficPolicyDocumentRuleGeoProximityLocationArgs.builder()
-     *                             .region(&#34;aws:route53:us-west-1&#34;)
-     *                             .bias(10)
-     *                             .evaluateTargetHealth(true)
-     *                             .ruleReference(&#34;na_rule&#34;)
-     *                             .build(),
-     *                         GetTrafficPolicyDocumentRuleGeoProximityLocationArgs.builder()
-     *                             .region(&#34;aws:route53:eu-west-1&#34;)
-     *                             .bias(10)
-     *                             .evaluateTargetHealth(true)
-     *                             .endpointReference(&#34;eu_endpoint&#34;)
-     *                             .build(),
-     *                         GetTrafficPolicyDocumentRuleGeoProximityLocationArgs.builder()
-     *                             .region(&#34;aws:route53:ap-northeast-2&#34;)
-     *                             .bias(0)
-     *                             .evaluateTargetHealth(true)
-     *                             .endpointReference(&#34;ap_endpoint&#34;)
-     *                             .build())
-     *                     .build())
-     *             .build());
-     * 
-     *         var exampleTrafficPolicy = new TrafficPolicy(&#34;exampleTrafficPolicy&#34;, TrafficPolicyArgs.builder()        
-     *             .comment(&#34;example comment&#34;)
-     *             .document(exampleTrafficPolicyDocument.applyValue(getTrafficPolicyDocumentResult -&gt; getTrafficPolicyDocumentResult.json()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetTrafficPolicyDocumentResult> getTrafficPolicyDocument() {
@@ -2897,163 +460,6 @@ public final class Route53Functions {
      * Generates an Route53 traffic policy document in JSON format for use with resources that expect policy documents such as `aws.route53.TrafficPolicy`.
      * 
      * ## Example Usage
-     * ### Basic Example
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.AwsFunctions;
-     * import com.pulumi.aws.inputs.GetRegionArgs;
-     * import com.pulumi.aws.route53.Route53Functions;
-     * import com.pulumi.aws.route53.inputs.GetTrafficPolicyDocumentArgs;
-     * import com.pulumi.aws.route53.TrafficPolicy;
-     * import com.pulumi.aws.route53.TrafficPolicyArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var current = AwsFunctions.getRegion();
-     * 
-     *         final var exampleTrafficPolicyDocument = Route53Functions.getTrafficPolicyDocument(GetTrafficPolicyDocumentArgs.builder()
-     *             .recordType(&#34;A&#34;)
-     *             .startRule(&#34;site_switch&#34;)
-     *             .endpoints(            
-     *                 GetTrafficPolicyDocumentEndpointArgs.builder()
-     *                     .id(&#34;my_elb&#34;)
-     *                     .type(&#34;elastic-load-balancer&#34;)
-     *                     .value(String.format(&#34;elb-111111.%s.elb.amazonaws.com&#34;, current.applyValue(getRegionResult -&gt; getRegionResult.name())))
-     *                     .build(),
-     *                 GetTrafficPolicyDocumentEndpointArgs.builder()
-     *                     .id(&#34;site_down_banner&#34;)
-     *                     .type(&#34;s3-website&#34;)
-     *                     .region(current.applyValue(getRegionResult -&gt; getRegionResult.name()))
-     *                     .value(&#34;www.example.com&#34;)
-     *                     .build())
-     *             .rules(GetTrafficPolicyDocumentRuleArgs.builder()
-     *                 .id(&#34;site_switch&#34;)
-     *                 .type(&#34;failover&#34;)
-     *                 .primary(GetTrafficPolicyDocumentRulePrimaryArgs.builder()
-     *                     .endpointReference(&#34;my_elb&#34;)
-     *                     .build())
-     *                 .secondary(GetTrafficPolicyDocumentRuleSecondaryArgs.builder()
-     *                     .endpointReference(&#34;site_down_banner&#34;)
-     *                     .build())
-     *                 .build())
-     *             .build());
-     * 
-     *         var exampleTrafficPolicy = new TrafficPolicy(&#34;exampleTrafficPolicy&#34;, TrafficPolicyArgs.builder()        
-     *             .comment(&#34;example comment&#34;)
-     *             .document(exampleTrafficPolicyDocument.applyValue(getTrafficPolicyDocumentResult -&gt; getTrafficPolicyDocumentResult.json()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * ### Complex Example
-     * 
-     * The following example showcases the use of nested rules within the traffic policy document and introduces the `geoproximity` rule type.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.route53.Route53Functions;
-     * import com.pulumi.aws.route53.inputs.GetTrafficPolicyDocumentArgs;
-     * import com.pulumi.aws.route53.TrafficPolicy;
-     * import com.pulumi.aws.route53.TrafficPolicyArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var exampleTrafficPolicyDocument = Route53Functions.getTrafficPolicyDocument(GetTrafficPolicyDocumentArgs.builder()
-     *             .recordType(&#34;A&#34;)
-     *             .startRule(&#34;geoproximity_rule&#34;)
-     *             .endpoints(            
-     *                 GetTrafficPolicyDocumentEndpointArgs.builder()
-     *                     .id(&#34;na_endpoint_a&#34;)
-     *                     .type(&#34;elastic-load-balancer&#34;)
-     *                     .value(&#34;elb-111111.us-west-1.elb.amazonaws.com&#34;)
-     *                     .build(),
-     *                 GetTrafficPolicyDocumentEndpointArgs.builder()
-     *                     .id(&#34;na_endpoint_b&#34;)
-     *                     .type(&#34;elastic-load-balancer&#34;)
-     *                     .value(&#34;elb-222222.us-west-1.elb.amazonaws.com&#34;)
-     *                     .build(),
-     *                 GetTrafficPolicyDocumentEndpointArgs.builder()
-     *                     .id(&#34;eu_endpoint&#34;)
-     *                     .type(&#34;elastic-load-balancer&#34;)
-     *                     .value(&#34;elb-333333.eu-west-1.elb.amazonaws.com&#34;)
-     *                     .build(),
-     *                 GetTrafficPolicyDocumentEndpointArgs.builder()
-     *                     .id(&#34;ap_endpoint&#34;)
-     *                     .type(&#34;elastic-load-balancer&#34;)
-     *                     .value(&#34;elb-444444.ap-northeast-2.elb.amazonaws.com&#34;)
-     *                     .build())
-     *             .rules(            
-     *                 GetTrafficPolicyDocumentRuleArgs.builder()
-     *                     .id(&#34;na_rule&#34;)
-     *                     .type(&#34;failover&#34;)
-     *                     .primary(GetTrafficPolicyDocumentRulePrimaryArgs.builder()
-     *                         .endpointReference(&#34;na_endpoint_a&#34;)
-     *                         .build())
-     *                     .secondary(GetTrafficPolicyDocumentRuleSecondaryArgs.builder()
-     *                         .endpointReference(&#34;na_endpoint_b&#34;)
-     *                         .build())
-     *                     .build(),
-     *                 GetTrafficPolicyDocumentRuleArgs.builder()
-     *                     .id(&#34;geoproximity_rule&#34;)
-     *                     .type(&#34;geoproximity&#34;)
-     *                     .geoProximityLocations(                    
-     *                         GetTrafficPolicyDocumentRuleGeoProximityLocationArgs.builder()
-     *                             .region(&#34;aws:route53:us-west-1&#34;)
-     *                             .bias(10)
-     *                             .evaluateTargetHealth(true)
-     *                             .ruleReference(&#34;na_rule&#34;)
-     *                             .build(),
-     *                         GetTrafficPolicyDocumentRuleGeoProximityLocationArgs.builder()
-     *                             .region(&#34;aws:route53:eu-west-1&#34;)
-     *                             .bias(10)
-     *                             .evaluateTargetHealth(true)
-     *                             .endpointReference(&#34;eu_endpoint&#34;)
-     *                             .build(),
-     *                         GetTrafficPolicyDocumentRuleGeoProximityLocationArgs.builder()
-     *                             .region(&#34;aws:route53:ap-northeast-2&#34;)
-     *                             .bias(0)
-     *                             .evaluateTargetHealth(true)
-     *                             .endpointReference(&#34;ap_endpoint&#34;)
-     *                             .build())
-     *                     .build())
-     *             .build());
-     * 
-     *         var exampleTrafficPolicy = new TrafficPolicy(&#34;exampleTrafficPolicy&#34;, TrafficPolicyArgs.builder()        
-     *             .comment(&#34;example comment&#34;)
-     *             .document(exampleTrafficPolicyDocument.applyValue(getTrafficPolicyDocumentResult -&gt; getTrafficPolicyDocumentResult.json()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetTrafficPolicyDocumentResult> getTrafficPolicyDocumentPlain() {
@@ -3063,163 +469,6 @@ public final class Route53Functions {
      * Generates an Route53 traffic policy document in JSON format for use with resources that expect policy documents such as `aws.route53.TrafficPolicy`.
      * 
      * ## Example Usage
-     * ### Basic Example
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.AwsFunctions;
-     * import com.pulumi.aws.inputs.GetRegionArgs;
-     * import com.pulumi.aws.route53.Route53Functions;
-     * import com.pulumi.aws.route53.inputs.GetTrafficPolicyDocumentArgs;
-     * import com.pulumi.aws.route53.TrafficPolicy;
-     * import com.pulumi.aws.route53.TrafficPolicyArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var current = AwsFunctions.getRegion();
-     * 
-     *         final var exampleTrafficPolicyDocument = Route53Functions.getTrafficPolicyDocument(GetTrafficPolicyDocumentArgs.builder()
-     *             .recordType(&#34;A&#34;)
-     *             .startRule(&#34;site_switch&#34;)
-     *             .endpoints(            
-     *                 GetTrafficPolicyDocumentEndpointArgs.builder()
-     *                     .id(&#34;my_elb&#34;)
-     *                     .type(&#34;elastic-load-balancer&#34;)
-     *                     .value(String.format(&#34;elb-111111.%s.elb.amazonaws.com&#34;, current.applyValue(getRegionResult -&gt; getRegionResult.name())))
-     *                     .build(),
-     *                 GetTrafficPolicyDocumentEndpointArgs.builder()
-     *                     .id(&#34;site_down_banner&#34;)
-     *                     .type(&#34;s3-website&#34;)
-     *                     .region(current.applyValue(getRegionResult -&gt; getRegionResult.name()))
-     *                     .value(&#34;www.example.com&#34;)
-     *                     .build())
-     *             .rules(GetTrafficPolicyDocumentRuleArgs.builder()
-     *                 .id(&#34;site_switch&#34;)
-     *                 .type(&#34;failover&#34;)
-     *                 .primary(GetTrafficPolicyDocumentRulePrimaryArgs.builder()
-     *                     .endpointReference(&#34;my_elb&#34;)
-     *                     .build())
-     *                 .secondary(GetTrafficPolicyDocumentRuleSecondaryArgs.builder()
-     *                     .endpointReference(&#34;site_down_banner&#34;)
-     *                     .build())
-     *                 .build())
-     *             .build());
-     * 
-     *         var exampleTrafficPolicy = new TrafficPolicy(&#34;exampleTrafficPolicy&#34;, TrafficPolicyArgs.builder()        
-     *             .comment(&#34;example comment&#34;)
-     *             .document(exampleTrafficPolicyDocument.applyValue(getTrafficPolicyDocumentResult -&gt; getTrafficPolicyDocumentResult.json()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * ### Complex Example
-     * 
-     * The following example showcases the use of nested rules within the traffic policy document and introduces the `geoproximity` rule type.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.route53.Route53Functions;
-     * import com.pulumi.aws.route53.inputs.GetTrafficPolicyDocumentArgs;
-     * import com.pulumi.aws.route53.TrafficPolicy;
-     * import com.pulumi.aws.route53.TrafficPolicyArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var exampleTrafficPolicyDocument = Route53Functions.getTrafficPolicyDocument(GetTrafficPolicyDocumentArgs.builder()
-     *             .recordType(&#34;A&#34;)
-     *             .startRule(&#34;geoproximity_rule&#34;)
-     *             .endpoints(            
-     *                 GetTrafficPolicyDocumentEndpointArgs.builder()
-     *                     .id(&#34;na_endpoint_a&#34;)
-     *                     .type(&#34;elastic-load-balancer&#34;)
-     *                     .value(&#34;elb-111111.us-west-1.elb.amazonaws.com&#34;)
-     *                     .build(),
-     *                 GetTrafficPolicyDocumentEndpointArgs.builder()
-     *                     .id(&#34;na_endpoint_b&#34;)
-     *                     .type(&#34;elastic-load-balancer&#34;)
-     *                     .value(&#34;elb-222222.us-west-1.elb.amazonaws.com&#34;)
-     *                     .build(),
-     *                 GetTrafficPolicyDocumentEndpointArgs.builder()
-     *                     .id(&#34;eu_endpoint&#34;)
-     *                     .type(&#34;elastic-load-balancer&#34;)
-     *                     .value(&#34;elb-333333.eu-west-1.elb.amazonaws.com&#34;)
-     *                     .build(),
-     *                 GetTrafficPolicyDocumentEndpointArgs.builder()
-     *                     .id(&#34;ap_endpoint&#34;)
-     *                     .type(&#34;elastic-load-balancer&#34;)
-     *                     .value(&#34;elb-444444.ap-northeast-2.elb.amazonaws.com&#34;)
-     *                     .build())
-     *             .rules(            
-     *                 GetTrafficPolicyDocumentRuleArgs.builder()
-     *                     .id(&#34;na_rule&#34;)
-     *                     .type(&#34;failover&#34;)
-     *                     .primary(GetTrafficPolicyDocumentRulePrimaryArgs.builder()
-     *                         .endpointReference(&#34;na_endpoint_a&#34;)
-     *                         .build())
-     *                     .secondary(GetTrafficPolicyDocumentRuleSecondaryArgs.builder()
-     *                         .endpointReference(&#34;na_endpoint_b&#34;)
-     *                         .build())
-     *                     .build(),
-     *                 GetTrafficPolicyDocumentRuleArgs.builder()
-     *                     .id(&#34;geoproximity_rule&#34;)
-     *                     .type(&#34;geoproximity&#34;)
-     *                     .geoProximityLocations(                    
-     *                         GetTrafficPolicyDocumentRuleGeoProximityLocationArgs.builder()
-     *                             .region(&#34;aws:route53:us-west-1&#34;)
-     *                             .bias(10)
-     *                             .evaluateTargetHealth(true)
-     *                             .ruleReference(&#34;na_rule&#34;)
-     *                             .build(),
-     *                         GetTrafficPolicyDocumentRuleGeoProximityLocationArgs.builder()
-     *                             .region(&#34;aws:route53:eu-west-1&#34;)
-     *                             .bias(10)
-     *                             .evaluateTargetHealth(true)
-     *                             .endpointReference(&#34;eu_endpoint&#34;)
-     *                             .build(),
-     *                         GetTrafficPolicyDocumentRuleGeoProximityLocationArgs.builder()
-     *                             .region(&#34;aws:route53:ap-northeast-2&#34;)
-     *                             .bias(0)
-     *                             .evaluateTargetHealth(true)
-     *                             .endpointReference(&#34;ap_endpoint&#34;)
-     *                             .build())
-     *                     .build())
-     *             .build());
-     * 
-     *         var exampleTrafficPolicy = new TrafficPolicy(&#34;exampleTrafficPolicy&#34;, TrafficPolicyArgs.builder()        
-     *             .comment(&#34;example comment&#34;)
-     *             .document(exampleTrafficPolicyDocument.applyValue(getTrafficPolicyDocumentResult -&gt; getTrafficPolicyDocumentResult.json()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetTrafficPolicyDocumentResult> getTrafficPolicyDocument(GetTrafficPolicyDocumentArgs args) {
@@ -3229,163 +478,6 @@ public final class Route53Functions {
      * Generates an Route53 traffic policy document in JSON format for use with resources that expect policy documents such as `aws.route53.TrafficPolicy`.
      * 
      * ## Example Usage
-     * ### Basic Example
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.AwsFunctions;
-     * import com.pulumi.aws.inputs.GetRegionArgs;
-     * import com.pulumi.aws.route53.Route53Functions;
-     * import com.pulumi.aws.route53.inputs.GetTrafficPolicyDocumentArgs;
-     * import com.pulumi.aws.route53.TrafficPolicy;
-     * import com.pulumi.aws.route53.TrafficPolicyArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var current = AwsFunctions.getRegion();
-     * 
-     *         final var exampleTrafficPolicyDocument = Route53Functions.getTrafficPolicyDocument(GetTrafficPolicyDocumentArgs.builder()
-     *             .recordType(&#34;A&#34;)
-     *             .startRule(&#34;site_switch&#34;)
-     *             .endpoints(            
-     *                 GetTrafficPolicyDocumentEndpointArgs.builder()
-     *                     .id(&#34;my_elb&#34;)
-     *                     .type(&#34;elastic-load-balancer&#34;)
-     *                     .value(String.format(&#34;elb-111111.%s.elb.amazonaws.com&#34;, current.applyValue(getRegionResult -&gt; getRegionResult.name())))
-     *                     .build(),
-     *                 GetTrafficPolicyDocumentEndpointArgs.builder()
-     *                     .id(&#34;site_down_banner&#34;)
-     *                     .type(&#34;s3-website&#34;)
-     *                     .region(current.applyValue(getRegionResult -&gt; getRegionResult.name()))
-     *                     .value(&#34;www.example.com&#34;)
-     *                     .build())
-     *             .rules(GetTrafficPolicyDocumentRuleArgs.builder()
-     *                 .id(&#34;site_switch&#34;)
-     *                 .type(&#34;failover&#34;)
-     *                 .primary(GetTrafficPolicyDocumentRulePrimaryArgs.builder()
-     *                     .endpointReference(&#34;my_elb&#34;)
-     *                     .build())
-     *                 .secondary(GetTrafficPolicyDocumentRuleSecondaryArgs.builder()
-     *                     .endpointReference(&#34;site_down_banner&#34;)
-     *                     .build())
-     *                 .build())
-     *             .build());
-     * 
-     *         var exampleTrafficPolicy = new TrafficPolicy(&#34;exampleTrafficPolicy&#34;, TrafficPolicyArgs.builder()        
-     *             .comment(&#34;example comment&#34;)
-     *             .document(exampleTrafficPolicyDocument.applyValue(getTrafficPolicyDocumentResult -&gt; getTrafficPolicyDocumentResult.json()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * ### Complex Example
-     * 
-     * The following example showcases the use of nested rules within the traffic policy document and introduces the `geoproximity` rule type.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.route53.Route53Functions;
-     * import com.pulumi.aws.route53.inputs.GetTrafficPolicyDocumentArgs;
-     * import com.pulumi.aws.route53.TrafficPolicy;
-     * import com.pulumi.aws.route53.TrafficPolicyArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var exampleTrafficPolicyDocument = Route53Functions.getTrafficPolicyDocument(GetTrafficPolicyDocumentArgs.builder()
-     *             .recordType(&#34;A&#34;)
-     *             .startRule(&#34;geoproximity_rule&#34;)
-     *             .endpoints(            
-     *                 GetTrafficPolicyDocumentEndpointArgs.builder()
-     *                     .id(&#34;na_endpoint_a&#34;)
-     *                     .type(&#34;elastic-load-balancer&#34;)
-     *                     .value(&#34;elb-111111.us-west-1.elb.amazonaws.com&#34;)
-     *                     .build(),
-     *                 GetTrafficPolicyDocumentEndpointArgs.builder()
-     *                     .id(&#34;na_endpoint_b&#34;)
-     *                     .type(&#34;elastic-load-balancer&#34;)
-     *                     .value(&#34;elb-222222.us-west-1.elb.amazonaws.com&#34;)
-     *                     .build(),
-     *                 GetTrafficPolicyDocumentEndpointArgs.builder()
-     *                     .id(&#34;eu_endpoint&#34;)
-     *                     .type(&#34;elastic-load-balancer&#34;)
-     *                     .value(&#34;elb-333333.eu-west-1.elb.amazonaws.com&#34;)
-     *                     .build(),
-     *                 GetTrafficPolicyDocumentEndpointArgs.builder()
-     *                     .id(&#34;ap_endpoint&#34;)
-     *                     .type(&#34;elastic-load-balancer&#34;)
-     *                     .value(&#34;elb-444444.ap-northeast-2.elb.amazonaws.com&#34;)
-     *                     .build())
-     *             .rules(            
-     *                 GetTrafficPolicyDocumentRuleArgs.builder()
-     *                     .id(&#34;na_rule&#34;)
-     *                     .type(&#34;failover&#34;)
-     *                     .primary(GetTrafficPolicyDocumentRulePrimaryArgs.builder()
-     *                         .endpointReference(&#34;na_endpoint_a&#34;)
-     *                         .build())
-     *                     .secondary(GetTrafficPolicyDocumentRuleSecondaryArgs.builder()
-     *                         .endpointReference(&#34;na_endpoint_b&#34;)
-     *                         .build())
-     *                     .build(),
-     *                 GetTrafficPolicyDocumentRuleArgs.builder()
-     *                     .id(&#34;geoproximity_rule&#34;)
-     *                     .type(&#34;geoproximity&#34;)
-     *                     .geoProximityLocations(                    
-     *                         GetTrafficPolicyDocumentRuleGeoProximityLocationArgs.builder()
-     *                             .region(&#34;aws:route53:us-west-1&#34;)
-     *                             .bias(10)
-     *                             .evaluateTargetHealth(true)
-     *                             .ruleReference(&#34;na_rule&#34;)
-     *                             .build(),
-     *                         GetTrafficPolicyDocumentRuleGeoProximityLocationArgs.builder()
-     *                             .region(&#34;aws:route53:eu-west-1&#34;)
-     *                             .bias(10)
-     *                             .evaluateTargetHealth(true)
-     *                             .endpointReference(&#34;eu_endpoint&#34;)
-     *                             .build(),
-     *                         GetTrafficPolicyDocumentRuleGeoProximityLocationArgs.builder()
-     *                             .region(&#34;aws:route53:ap-northeast-2&#34;)
-     *                             .bias(0)
-     *                             .evaluateTargetHealth(true)
-     *                             .endpointReference(&#34;ap_endpoint&#34;)
-     *                             .build())
-     *                     .build())
-     *             .build());
-     * 
-     *         var exampleTrafficPolicy = new TrafficPolicy(&#34;exampleTrafficPolicy&#34;, TrafficPolicyArgs.builder()        
-     *             .comment(&#34;example comment&#34;)
-     *             .document(exampleTrafficPolicyDocument.applyValue(getTrafficPolicyDocumentResult -&gt; getTrafficPolicyDocumentResult.json()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetTrafficPolicyDocumentResult> getTrafficPolicyDocumentPlain(GetTrafficPolicyDocumentPlainArgs args) {
@@ -3395,163 +487,6 @@ public final class Route53Functions {
      * Generates an Route53 traffic policy document in JSON format for use with resources that expect policy documents such as `aws.route53.TrafficPolicy`.
      * 
      * ## Example Usage
-     * ### Basic Example
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.AwsFunctions;
-     * import com.pulumi.aws.inputs.GetRegionArgs;
-     * import com.pulumi.aws.route53.Route53Functions;
-     * import com.pulumi.aws.route53.inputs.GetTrafficPolicyDocumentArgs;
-     * import com.pulumi.aws.route53.TrafficPolicy;
-     * import com.pulumi.aws.route53.TrafficPolicyArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var current = AwsFunctions.getRegion();
-     * 
-     *         final var exampleTrafficPolicyDocument = Route53Functions.getTrafficPolicyDocument(GetTrafficPolicyDocumentArgs.builder()
-     *             .recordType(&#34;A&#34;)
-     *             .startRule(&#34;site_switch&#34;)
-     *             .endpoints(            
-     *                 GetTrafficPolicyDocumentEndpointArgs.builder()
-     *                     .id(&#34;my_elb&#34;)
-     *                     .type(&#34;elastic-load-balancer&#34;)
-     *                     .value(String.format(&#34;elb-111111.%s.elb.amazonaws.com&#34;, current.applyValue(getRegionResult -&gt; getRegionResult.name())))
-     *                     .build(),
-     *                 GetTrafficPolicyDocumentEndpointArgs.builder()
-     *                     .id(&#34;site_down_banner&#34;)
-     *                     .type(&#34;s3-website&#34;)
-     *                     .region(current.applyValue(getRegionResult -&gt; getRegionResult.name()))
-     *                     .value(&#34;www.example.com&#34;)
-     *                     .build())
-     *             .rules(GetTrafficPolicyDocumentRuleArgs.builder()
-     *                 .id(&#34;site_switch&#34;)
-     *                 .type(&#34;failover&#34;)
-     *                 .primary(GetTrafficPolicyDocumentRulePrimaryArgs.builder()
-     *                     .endpointReference(&#34;my_elb&#34;)
-     *                     .build())
-     *                 .secondary(GetTrafficPolicyDocumentRuleSecondaryArgs.builder()
-     *                     .endpointReference(&#34;site_down_banner&#34;)
-     *                     .build())
-     *                 .build())
-     *             .build());
-     * 
-     *         var exampleTrafficPolicy = new TrafficPolicy(&#34;exampleTrafficPolicy&#34;, TrafficPolicyArgs.builder()        
-     *             .comment(&#34;example comment&#34;)
-     *             .document(exampleTrafficPolicyDocument.applyValue(getTrafficPolicyDocumentResult -&gt; getTrafficPolicyDocumentResult.json()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * ### Complex Example
-     * 
-     * The following example showcases the use of nested rules within the traffic policy document and introduces the `geoproximity` rule type.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.route53.Route53Functions;
-     * import com.pulumi.aws.route53.inputs.GetTrafficPolicyDocumentArgs;
-     * import com.pulumi.aws.route53.TrafficPolicy;
-     * import com.pulumi.aws.route53.TrafficPolicyArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var exampleTrafficPolicyDocument = Route53Functions.getTrafficPolicyDocument(GetTrafficPolicyDocumentArgs.builder()
-     *             .recordType(&#34;A&#34;)
-     *             .startRule(&#34;geoproximity_rule&#34;)
-     *             .endpoints(            
-     *                 GetTrafficPolicyDocumentEndpointArgs.builder()
-     *                     .id(&#34;na_endpoint_a&#34;)
-     *                     .type(&#34;elastic-load-balancer&#34;)
-     *                     .value(&#34;elb-111111.us-west-1.elb.amazonaws.com&#34;)
-     *                     .build(),
-     *                 GetTrafficPolicyDocumentEndpointArgs.builder()
-     *                     .id(&#34;na_endpoint_b&#34;)
-     *                     .type(&#34;elastic-load-balancer&#34;)
-     *                     .value(&#34;elb-222222.us-west-1.elb.amazonaws.com&#34;)
-     *                     .build(),
-     *                 GetTrafficPolicyDocumentEndpointArgs.builder()
-     *                     .id(&#34;eu_endpoint&#34;)
-     *                     .type(&#34;elastic-load-balancer&#34;)
-     *                     .value(&#34;elb-333333.eu-west-1.elb.amazonaws.com&#34;)
-     *                     .build(),
-     *                 GetTrafficPolicyDocumentEndpointArgs.builder()
-     *                     .id(&#34;ap_endpoint&#34;)
-     *                     .type(&#34;elastic-load-balancer&#34;)
-     *                     .value(&#34;elb-444444.ap-northeast-2.elb.amazonaws.com&#34;)
-     *                     .build())
-     *             .rules(            
-     *                 GetTrafficPolicyDocumentRuleArgs.builder()
-     *                     .id(&#34;na_rule&#34;)
-     *                     .type(&#34;failover&#34;)
-     *                     .primary(GetTrafficPolicyDocumentRulePrimaryArgs.builder()
-     *                         .endpointReference(&#34;na_endpoint_a&#34;)
-     *                         .build())
-     *                     .secondary(GetTrafficPolicyDocumentRuleSecondaryArgs.builder()
-     *                         .endpointReference(&#34;na_endpoint_b&#34;)
-     *                         .build())
-     *                     .build(),
-     *                 GetTrafficPolicyDocumentRuleArgs.builder()
-     *                     .id(&#34;geoproximity_rule&#34;)
-     *                     .type(&#34;geoproximity&#34;)
-     *                     .geoProximityLocations(                    
-     *                         GetTrafficPolicyDocumentRuleGeoProximityLocationArgs.builder()
-     *                             .region(&#34;aws:route53:us-west-1&#34;)
-     *                             .bias(10)
-     *                             .evaluateTargetHealth(true)
-     *                             .ruleReference(&#34;na_rule&#34;)
-     *                             .build(),
-     *                         GetTrafficPolicyDocumentRuleGeoProximityLocationArgs.builder()
-     *                             .region(&#34;aws:route53:eu-west-1&#34;)
-     *                             .bias(10)
-     *                             .evaluateTargetHealth(true)
-     *                             .endpointReference(&#34;eu_endpoint&#34;)
-     *                             .build(),
-     *                         GetTrafficPolicyDocumentRuleGeoProximityLocationArgs.builder()
-     *                             .region(&#34;aws:route53:ap-northeast-2&#34;)
-     *                             .bias(0)
-     *                             .evaluateTargetHealth(true)
-     *                             .endpointReference(&#34;ap_endpoint&#34;)
-     *                             .build())
-     *                     .build())
-     *             .build());
-     * 
-     *         var exampleTrafficPolicy = new TrafficPolicy(&#34;exampleTrafficPolicy&#34;, TrafficPolicyArgs.builder()        
-     *             .comment(&#34;example comment&#34;)
-     *             .document(exampleTrafficPolicyDocument.applyValue(getTrafficPolicyDocumentResult -&gt; getTrafficPolicyDocumentResult.json()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetTrafficPolicyDocumentResult> getTrafficPolicyDocument(GetTrafficPolicyDocumentArgs args, InvokeOptions options) {
@@ -3561,163 +496,6 @@ public final class Route53Functions {
      * Generates an Route53 traffic policy document in JSON format for use with resources that expect policy documents such as `aws.route53.TrafficPolicy`.
      * 
      * ## Example Usage
-     * ### Basic Example
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.AwsFunctions;
-     * import com.pulumi.aws.inputs.GetRegionArgs;
-     * import com.pulumi.aws.route53.Route53Functions;
-     * import com.pulumi.aws.route53.inputs.GetTrafficPolicyDocumentArgs;
-     * import com.pulumi.aws.route53.TrafficPolicy;
-     * import com.pulumi.aws.route53.TrafficPolicyArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var current = AwsFunctions.getRegion();
-     * 
-     *         final var exampleTrafficPolicyDocument = Route53Functions.getTrafficPolicyDocument(GetTrafficPolicyDocumentArgs.builder()
-     *             .recordType(&#34;A&#34;)
-     *             .startRule(&#34;site_switch&#34;)
-     *             .endpoints(            
-     *                 GetTrafficPolicyDocumentEndpointArgs.builder()
-     *                     .id(&#34;my_elb&#34;)
-     *                     .type(&#34;elastic-load-balancer&#34;)
-     *                     .value(String.format(&#34;elb-111111.%s.elb.amazonaws.com&#34;, current.applyValue(getRegionResult -&gt; getRegionResult.name())))
-     *                     .build(),
-     *                 GetTrafficPolicyDocumentEndpointArgs.builder()
-     *                     .id(&#34;site_down_banner&#34;)
-     *                     .type(&#34;s3-website&#34;)
-     *                     .region(current.applyValue(getRegionResult -&gt; getRegionResult.name()))
-     *                     .value(&#34;www.example.com&#34;)
-     *                     .build())
-     *             .rules(GetTrafficPolicyDocumentRuleArgs.builder()
-     *                 .id(&#34;site_switch&#34;)
-     *                 .type(&#34;failover&#34;)
-     *                 .primary(GetTrafficPolicyDocumentRulePrimaryArgs.builder()
-     *                     .endpointReference(&#34;my_elb&#34;)
-     *                     .build())
-     *                 .secondary(GetTrafficPolicyDocumentRuleSecondaryArgs.builder()
-     *                     .endpointReference(&#34;site_down_banner&#34;)
-     *                     .build())
-     *                 .build())
-     *             .build());
-     * 
-     *         var exampleTrafficPolicy = new TrafficPolicy(&#34;exampleTrafficPolicy&#34;, TrafficPolicyArgs.builder()        
-     *             .comment(&#34;example comment&#34;)
-     *             .document(exampleTrafficPolicyDocument.applyValue(getTrafficPolicyDocumentResult -&gt; getTrafficPolicyDocumentResult.json()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * ### Complex Example
-     * 
-     * The following example showcases the use of nested rules within the traffic policy document and introduces the `geoproximity` rule type.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.route53.Route53Functions;
-     * import com.pulumi.aws.route53.inputs.GetTrafficPolicyDocumentArgs;
-     * import com.pulumi.aws.route53.TrafficPolicy;
-     * import com.pulumi.aws.route53.TrafficPolicyArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var exampleTrafficPolicyDocument = Route53Functions.getTrafficPolicyDocument(GetTrafficPolicyDocumentArgs.builder()
-     *             .recordType(&#34;A&#34;)
-     *             .startRule(&#34;geoproximity_rule&#34;)
-     *             .endpoints(            
-     *                 GetTrafficPolicyDocumentEndpointArgs.builder()
-     *                     .id(&#34;na_endpoint_a&#34;)
-     *                     .type(&#34;elastic-load-balancer&#34;)
-     *                     .value(&#34;elb-111111.us-west-1.elb.amazonaws.com&#34;)
-     *                     .build(),
-     *                 GetTrafficPolicyDocumentEndpointArgs.builder()
-     *                     .id(&#34;na_endpoint_b&#34;)
-     *                     .type(&#34;elastic-load-balancer&#34;)
-     *                     .value(&#34;elb-222222.us-west-1.elb.amazonaws.com&#34;)
-     *                     .build(),
-     *                 GetTrafficPolicyDocumentEndpointArgs.builder()
-     *                     .id(&#34;eu_endpoint&#34;)
-     *                     .type(&#34;elastic-load-balancer&#34;)
-     *                     .value(&#34;elb-333333.eu-west-1.elb.amazonaws.com&#34;)
-     *                     .build(),
-     *                 GetTrafficPolicyDocumentEndpointArgs.builder()
-     *                     .id(&#34;ap_endpoint&#34;)
-     *                     .type(&#34;elastic-load-balancer&#34;)
-     *                     .value(&#34;elb-444444.ap-northeast-2.elb.amazonaws.com&#34;)
-     *                     .build())
-     *             .rules(            
-     *                 GetTrafficPolicyDocumentRuleArgs.builder()
-     *                     .id(&#34;na_rule&#34;)
-     *                     .type(&#34;failover&#34;)
-     *                     .primary(GetTrafficPolicyDocumentRulePrimaryArgs.builder()
-     *                         .endpointReference(&#34;na_endpoint_a&#34;)
-     *                         .build())
-     *                     .secondary(GetTrafficPolicyDocumentRuleSecondaryArgs.builder()
-     *                         .endpointReference(&#34;na_endpoint_b&#34;)
-     *                         .build())
-     *                     .build(),
-     *                 GetTrafficPolicyDocumentRuleArgs.builder()
-     *                     .id(&#34;geoproximity_rule&#34;)
-     *                     .type(&#34;geoproximity&#34;)
-     *                     .geoProximityLocations(                    
-     *                         GetTrafficPolicyDocumentRuleGeoProximityLocationArgs.builder()
-     *                             .region(&#34;aws:route53:us-west-1&#34;)
-     *                             .bias(10)
-     *                             .evaluateTargetHealth(true)
-     *                             .ruleReference(&#34;na_rule&#34;)
-     *                             .build(),
-     *                         GetTrafficPolicyDocumentRuleGeoProximityLocationArgs.builder()
-     *                             .region(&#34;aws:route53:eu-west-1&#34;)
-     *                             .bias(10)
-     *                             .evaluateTargetHealth(true)
-     *                             .endpointReference(&#34;eu_endpoint&#34;)
-     *                             .build(),
-     *                         GetTrafficPolicyDocumentRuleGeoProximityLocationArgs.builder()
-     *                             .region(&#34;aws:route53:ap-northeast-2&#34;)
-     *                             .bias(0)
-     *                             .evaluateTargetHealth(true)
-     *                             .endpointReference(&#34;ap_endpoint&#34;)
-     *                             .build())
-     *                     .build())
-     *             .build());
-     * 
-     *         var exampleTrafficPolicy = new TrafficPolicy(&#34;exampleTrafficPolicy&#34;, TrafficPolicyArgs.builder()        
-     *             .comment(&#34;example comment&#34;)
-     *             .document(exampleTrafficPolicyDocument.applyValue(getTrafficPolicyDocumentResult -&gt; getTrafficPolicyDocumentResult.json()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetTrafficPolicyDocumentResult> getTrafficPolicyDocumentPlain(GetTrafficPolicyDocumentPlainArgs args, InvokeOptions options) {
@@ -3728,49 +506,6 @@ public final class Route53Functions {
      * 
      * This data source allows to find a Hosted Zone ID given Hosted Zone name and certain search criteria.
      * 
-     * ## Example Usage
-     * 
-     * The following example shows how to get a Hosted Zone from its name and from this data how to create a Record Set.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.route53.Route53Functions;
-     * import com.pulumi.aws.route53.inputs.GetZoneArgs;
-     * import com.pulumi.aws.route53.Record;
-     * import com.pulumi.aws.route53.RecordArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var selected = Route53Functions.getZone(GetZoneArgs.builder()
-     *             .name(&#34;test.com.&#34;)
-     *             .privateZone(true)
-     *             .build());
-     * 
-     *         var www = new Record(&#34;www&#34;, RecordArgs.builder()        
-     *             .zoneId(selected.applyValue(getZoneResult -&gt; getZoneResult.zoneId()))
-     *             .name(String.format(&#34;www.%s&#34;, selected.applyValue(getZoneResult -&gt; getZoneResult.name())))
-     *             .type(&#34;A&#34;)
-     *             .ttl(&#34;300&#34;)
-     *             .records(&#34;10.0.0.1&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetZoneResult> getZone() {
         return getZone(GetZoneArgs.Empty, InvokeOptions.Empty);
@@ -3779,49 +514,6 @@ public final class Route53Functions {
      * `aws.route53.Zone` provides details about a specific Route 53 Hosted Zone.
      * 
      * This data source allows to find a Hosted Zone ID given Hosted Zone name and certain search criteria.
-     * 
-     * ## Example Usage
-     * 
-     * The following example shows how to get a Hosted Zone from its name and from this data how to create a Record Set.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.route53.Route53Functions;
-     * import com.pulumi.aws.route53.inputs.GetZoneArgs;
-     * import com.pulumi.aws.route53.Record;
-     * import com.pulumi.aws.route53.RecordArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var selected = Route53Functions.getZone(GetZoneArgs.builder()
-     *             .name(&#34;test.com.&#34;)
-     *             .privateZone(true)
-     *             .build());
-     * 
-     *         var www = new Record(&#34;www&#34;, RecordArgs.builder()        
-     *             .zoneId(selected.applyValue(getZoneResult -&gt; getZoneResult.zoneId()))
-     *             .name(String.format(&#34;www.%s&#34;, selected.applyValue(getZoneResult -&gt; getZoneResult.name())))
-     *             .type(&#34;A&#34;)
-     *             .ttl(&#34;300&#34;)
-     *             .records(&#34;10.0.0.1&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetZoneResult> getZonePlain() {
@@ -3832,49 +524,6 @@ public final class Route53Functions {
      * 
      * This data source allows to find a Hosted Zone ID given Hosted Zone name and certain search criteria.
      * 
-     * ## Example Usage
-     * 
-     * The following example shows how to get a Hosted Zone from its name and from this data how to create a Record Set.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.route53.Route53Functions;
-     * import com.pulumi.aws.route53.inputs.GetZoneArgs;
-     * import com.pulumi.aws.route53.Record;
-     * import com.pulumi.aws.route53.RecordArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var selected = Route53Functions.getZone(GetZoneArgs.builder()
-     *             .name(&#34;test.com.&#34;)
-     *             .privateZone(true)
-     *             .build());
-     * 
-     *         var www = new Record(&#34;www&#34;, RecordArgs.builder()        
-     *             .zoneId(selected.applyValue(getZoneResult -&gt; getZoneResult.zoneId()))
-     *             .name(String.format(&#34;www.%s&#34;, selected.applyValue(getZoneResult -&gt; getZoneResult.name())))
-     *             .type(&#34;A&#34;)
-     *             .ttl(&#34;300&#34;)
-     *             .records(&#34;10.0.0.1&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetZoneResult> getZone(GetZoneArgs args) {
         return getZone(args, InvokeOptions.Empty);
@@ -3883,49 +532,6 @@ public final class Route53Functions {
      * `aws.route53.Zone` provides details about a specific Route 53 Hosted Zone.
      * 
      * This data source allows to find a Hosted Zone ID given Hosted Zone name and certain search criteria.
-     * 
-     * ## Example Usage
-     * 
-     * The following example shows how to get a Hosted Zone from its name and from this data how to create a Record Set.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.route53.Route53Functions;
-     * import com.pulumi.aws.route53.inputs.GetZoneArgs;
-     * import com.pulumi.aws.route53.Record;
-     * import com.pulumi.aws.route53.RecordArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var selected = Route53Functions.getZone(GetZoneArgs.builder()
-     *             .name(&#34;test.com.&#34;)
-     *             .privateZone(true)
-     *             .build());
-     * 
-     *         var www = new Record(&#34;www&#34;, RecordArgs.builder()        
-     *             .zoneId(selected.applyValue(getZoneResult -&gt; getZoneResult.zoneId()))
-     *             .name(String.format(&#34;www.%s&#34;, selected.applyValue(getZoneResult -&gt; getZoneResult.name())))
-     *             .type(&#34;A&#34;)
-     *             .ttl(&#34;300&#34;)
-     *             .records(&#34;10.0.0.1&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetZoneResult> getZonePlain(GetZonePlainArgs args) {
@@ -3936,49 +542,6 @@ public final class Route53Functions {
      * 
      * This data source allows to find a Hosted Zone ID given Hosted Zone name and certain search criteria.
      * 
-     * ## Example Usage
-     * 
-     * The following example shows how to get a Hosted Zone from its name and from this data how to create a Record Set.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.route53.Route53Functions;
-     * import com.pulumi.aws.route53.inputs.GetZoneArgs;
-     * import com.pulumi.aws.route53.Record;
-     * import com.pulumi.aws.route53.RecordArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var selected = Route53Functions.getZone(GetZoneArgs.builder()
-     *             .name(&#34;test.com.&#34;)
-     *             .privateZone(true)
-     *             .build());
-     * 
-     *         var www = new Record(&#34;www&#34;, RecordArgs.builder()        
-     *             .zoneId(selected.applyValue(getZoneResult -&gt; getZoneResult.zoneId()))
-     *             .name(String.format(&#34;www.%s&#34;, selected.applyValue(getZoneResult -&gt; getZoneResult.name())))
-     *             .type(&#34;A&#34;)
-     *             .ttl(&#34;300&#34;)
-     *             .records(&#34;10.0.0.1&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetZoneResult> getZone(GetZoneArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:route53/getZone:getZone", TypeShape.of(GetZoneResult.class), args, Utilities.withVersion(options));
@@ -3987,49 +550,6 @@ public final class Route53Functions {
      * `aws.route53.Zone` provides details about a specific Route 53 Hosted Zone.
      * 
      * This data source allows to find a Hosted Zone ID given Hosted Zone name and certain search criteria.
-     * 
-     * ## Example Usage
-     * 
-     * The following example shows how to get a Hosted Zone from its name and from this data how to create a Record Set.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.route53.Route53Functions;
-     * import com.pulumi.aws.route53.inputs.GetZoneArgs;
-     * import com.pulumi.aws.route53.Record;
-     * import com.pulumi.aws.route53.RecordArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var selected = Route53Functions.getZone(GetZoneArgs.builder()
-     *             .name(&#34;test.com.&#34;)
-     *             .privateZone(true)
-     *             .build());
-     * 
-     *         var www = new Record(&#34;www&#34;, RecordArgs.builder()        
-     *             .zoneId(selected.applyValue(getZoneResult -&gt; getZoneResult.zoneId()))
-     *             .name(String.format(&#34;www.%s&#34;, selected.applyValue(getZoneResult -&gt; getZoneResult.name())))
-     *             .type(&#34;A&#34;)
-     *             .ttl(&#34;300&#34;)
-     *             .records(&#34;10.0.0.1&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetZoneResult> getZonePlain(GetZonePlainArgs args, InvokeOptions options) {

@@ -22,21 +22,21 @@ namespace Pulumi.Aws.Athena
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Athena.Workgroup("example", new()
+    ///     var example = new Aws.Athena.Workgroup.Workgroup("example", new()
     ///     {
-    ///         Configuration = new Aws.Athena.Inputs.WorkgroupConfigurationArgs
+    ///         Configuration = 
     ///         {
-    ///             EnforceWorkgroupConfiguration = true,
-    ///             PublishCloudwatchMetricsEnabled = true,
-    ///             ResultConfiguration = new Aws.Athena.Inputs.WorkgroupConfigurationResultConfigurationArgs
+    ///             { "enforceWorkgroupConfiguration", true },
+    ///             { "publishCloudwatchMetricsEnabled", true },
+    ///             { "resultConfiguration", 
     ///             {
-    ///                 OutputLocation = $"s3://{aws_s3_bucket.Example.Bucket}/output/",
-    ///                 EncryptionConfiguration = new Aws.Athena.Inputs.WorkgroupConfigurationResultConfigurationEncryptionConfigurationArgs
+    ///                 { "outputLocation", $"s3://{aws_s3_bucket.Example.Bucket}/output/" },
+    ///                 { "encryptionConfiguration", 
     ///                 {
-    ///                     EncryptionOption = "SSE_KMS",
-    ///                     KmsKeyArn = aws_kms_key.Example.Arn,
-    ///                 },
-    ///             },
+    ///                     { "encryptionOption", "SSE_KMS" },
+    ///                     { "kmsKeyArn", aws_kms_key.Example.Arn },
+    ///                 } },
+    ///             } },
     ///         },
     ///     });
     /// 

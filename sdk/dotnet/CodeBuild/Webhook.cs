@@ -29,27 +29,27 @@ namespace Pulumi.Aws.CodeBuild
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.CodeBuild.Webhook("example", new()
+    ///     var example = new Aws.Codebuild.Webhook.Webhook("example", new()
     ///     {
     ///         ProjectName = aws_codebuild_project.Example.Name,
     ///         BuildType = "BUILD",
     ///         FilterGroups = new[]
     ///         {
-    ///             new Aws.CodeBuild.Inputs.WebhookFilterGroupArgs
+    ///             
     ///             {
-    ///                 Filters = new[]
+    ///                 { "filters", new[]
     ///                 {
-    ///                     new Aws.CodeBuild.Inputs.WebhookFilterGroupFilterArgs
+    ///                     
     ///                     {
-    ///                         Type = "EVENT",
-    ///                         Pattern = "PUSH",
+    ///                         { "type", "EVENT" },
+    ///                         { "pattern", "PUSH" },
     ///                     },
-    ///                     new Aws.CodeBuild.Inputs.WebhookFilterGroupFilterArgs
+    ///                     
     ///                     {
-    ///                         Type = "BASE_REF",
-    ///                         Pattern = "master",
+    ///                         { "type", "BASE_REF" },
+    ///                         { "pattern", "master" },
     ///                     },
-    ///                 },
+    ///                 } },
     ///             },
     ///         },
     ///     });
@@ -71,12 +71,12 @@ namespace Pulumi.Aws.CodeBuild
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleWebhook = new Aws.CodeBuild.Webhook("exampleWebhook", new()
+    ///     var exampleWebhook = new Aws.Codebuild.Webhook.Webhook("exampleWebhook", new()
     ///     {
     ///         ProjectName = aws_codebuild_project.Example.Name,
     ///     });
     /// 
-    ///     var exampleRepositoryWebhook = new Github.RepositoryWebhook("exampleRepositoryWebhook", new()
+    ///     var exampleRepositoryWebhook = new Github.Index.RepositoryWebhook.RepositoryWebhook("exampleRepositoryWebhook", new()
     ///     {
     ///         Active = true,
     ///         Events = new[]
@@ -84,12 +84,12 @@ namespace Pulumi.Aws.CodeBuild
     ///             "push",
     ///         },
     ///         Repository = github_repository.Example.Name,
-    ///         Configuration = new Github.Inputs.RepositoryWebhookConfigurationArgs
+    ///         Configuration = 
     ///         {
-    ///             Url = exampleWebhook.PayloadUrl,
-    ///             Secret = exampleWebhook.Secret,
-    ///             ContentType = "json",
-    ///             InsecureSsl = false,
+    ///             { "url", exampleWebhook.PayloadUrl },
+    ///             { "secret", exampleWebhook.Secret },
+    ///             { "contentType", "json" },
+    ///             { "insecureSsl", false },
     ///         },
     ///     });
     /// 

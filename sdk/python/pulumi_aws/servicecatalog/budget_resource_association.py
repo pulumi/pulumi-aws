@@ -109,9 +109,9 @@ class BudgetResourceAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.servicecatalog.BudgetResourceAssociation("example",
-            budget_name="budget-pjtvyakdlyo3m",
-            resource_id="prod-dnigbtea24ste")
+        example = aws.servicecatalog.budget_resource_association.BudgetResourceAssociation("example",
+            budget_name=budget-pjtvyakdlyo3m,
+            resource_id=prod-dnigbtea24ste)
         ```
 
         ## Import
@@ -145,9 +145,9 @@ class BudgetResourceAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.servicecatalog.BudgetResourceAssociation("example",
-            budget_name="budget-pjtvyakdlyo3m",
-            resource_id="prod-dnigbtea24ste")
+        example = aws.servicecatalog.budget_resource_association.BudgetResourceAssociation("example",
+            budget_name=budget-pjtvyakdlyo3m,
+            resource_id=prod-dnigbtea24ste)
         ```
 
         ## Import

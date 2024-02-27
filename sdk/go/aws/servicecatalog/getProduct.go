@@ -16,31 +16,6 @@ import (
 // > **NOTE:** A "provisioning artifact" is also known as a "version," and a "distributor" is also known as a "vendor."
 //
 // ## Example Usage
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/servicecatalog"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := servicecatalog.LookupProduct(ctx, &servicecatalog.LookupProductArgs{
-//				Id: "prod-dnigbtea24ste",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupProduct(ctx *pulumi.Context, args *LookupProductArgs, opts ...pulumi.InvokeOption) (*LookupProductResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupProductResult

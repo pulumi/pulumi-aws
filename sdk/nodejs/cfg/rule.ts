@@ -13,44 +13,6 @@ import * as utilities from "../utilities";
  * > **Note:** Config Rule requires an existing Configuration Recorder to be present. Use of `dependsOn` is recommended (as shown below) to avoid race conditions.
  *
  * ## Example Usage
- * ### AWS Managed Rules
- *
- * AWS managed rules can be used by setting the source owner to `AWS` and the source identifier to the name of the managed rule. More information about AWS managed rules can be found in the [AWS Config Developer Guide](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html).
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const assumeRole = aws.iam.getPolicyDocument({
- *     statements: [{
- *         effect: "Allow",
- *         principals: [{
- *             type: "Service",
- *             identifiers: ["config.amazonaws.com"],
- *         }],
- *         actions: ["sts:AssumeRole"],
- *     }],
- * });
- * const role = new aws.iam.Role("role", {assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json)});
- * const foo = new aws.cfg.Recorder("foo", {roleArn: role.arn});
- * const rule = new aws.cfg.Rule("rule", {source: {
- *     owner: "AWS",
- *     sourceIdentifier: "S3_BUCKET_VERSIONING_ENABLED",
- * }}, {
- *     dependsOn: [foo],
- * });
- * const policyDocument = aws.iam.getPolicyDocument({
- *     statements: [{
- *         effect: "Allow",
- *         actions: ["config:Put*"],
- *         resources: ["*"],
- *     }],
- * });
- * const rolePolicy = new aws.iam.RolePolicy("rolePolicy", {
- *     role: role.id,
- *     policy: policyDocument.then(policyDocument => policyDocument.json),
- * });
- * ```
  * ### Custom Rules
  *
  * Custom rules can be used by setting the source owner to `CUSTOM_LAMBDA` and the source identifier to the Amazon Resource Name (ARN) of the Lambda Function. The AWS Config service must have permissions to invoke the Lambda Function, e.g., via the `aws.lambda.Permission` resource. More information about custom rules can be found in the [AWS Config Developer Guide](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_develop-rules.html).
@@ -59,17 +21,17 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleRecorder = new aws.cfg.Recorder("exampleRecorder", {});
+ * const exampleRecorder = new aws.cfg/recorder.Recorder("exampleRecorder", {});
  * // ... other configuration ...
- * const exampleFunction = new aws.lambda.Function("exampleFunction", {});
+ * const exampleFunction = new aws.lambda/function.Function("exampleFunction", {});
  * // ... other configuration ...
- * const examplePermission = new aws.lambda.Permission("examplePermission", {
+ * const examplePermission = new aws.lambda/permission.Permission("examplePermission", {
  *     action: "lambda:InvokeFunction",
  *     "function": exampleFunction.arn,
  *     principal: "config.amazonaws.com",
  * });
  * // ... other configuration ...
- * const exampleRule = new aws.cfg.Rule("exampleRule", {source: {
+ * const exampleRule = new aws.cfg/rule.Rule("exampleRule", {source: {
  *     owner: "CUSTOM_LAMBDA",
  *     sourceIdentifier: exampleFunction.arn,
  * }}, {
@@ -85,7 +47,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.cfg.Rule("example", {source: {
+ * const example = new aws.cfg/rule.Rule("example", {source: {
  *     owner: "CUSTOM_POLICY",
  *     sourceDetails: [{
  *         messageType: "ConfigurationItemChangeNotification",

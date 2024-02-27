@@ -212,10 +212,10 @@ class ResourceShare(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ram.ResourceShare("example",
+        example = aws.ram.resource_share.ResourceShare("example",
             allow_external_principals=True,
             tags={
-                "Environment": "Production",
+                Environment: Production,
             })
         ```
 
@@ -249,10 +249,10 @@ class ResourceShare(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ram.ResourceShare("example",
+        example = aws.ram.resource_share.ResourceShare("example",
             allow_external_principals=True,
             tags={
-                "Environment": "Production",
+                Environment: Production,
             })
         ```
 

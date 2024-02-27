@@ -79,18 +79,6 @@ def get_security_group_rules(filters: Optional[Sequence[pulumi.InputType['GetSec
     """
     This resource can be useful for getting back a set of security group rule IDs.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.vpc.get_security_group_rules(filters=[aws.vpc.GetSecurityGroupRulesFilterArgs(
-        name="group-id",
-        values=[var["security_group_id"]],
-    )])
-    ```
-
 
     :param Sequence[pulumi.InputType['GetSecurityGroupRulesFilterArgs']] filters: Custom filter block as described below.
     :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match
@@ -118,18 +106,6 @@ def get_security_group_rules_output(filters: Optional[pulumi.Input[Optional[Sequ
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSecurityGroupRulesResult]:
     """
     This resource can be useful for getting back a set of security group rule IDs.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.vpc.get_security_group_rules(filters=[aws.vpc.GetSecurityGroupRulesFilterArgs(
-        name="group-id",
-        values=[var["security_group_id"]],
-    )])
-    ```
 
 
     :param Sequence[pulumi.InputType['GetSecurityGroupRulesFilterArgs']] filters: Custom filter block as described below.

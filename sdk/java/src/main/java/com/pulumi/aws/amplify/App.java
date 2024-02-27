@@ -34,7 +34,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.amplify.App;
  * import com.pulumi.aws.amplify.AppArgs;
- * import com.pulumi.aws.amplify.inputs.AppCustomRuleArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -68,12 +67,8 @@ import javax.annotation.Nullable;
  *         - node_modules/**{@literal /}*
  * 
  *             &#34;&#34;&#34;)
- *             .customRules(AppCustomRuleArgs.builder()
- *                 .source(&#34;/&lt;*&gt;&#34;)
- *                 .status(&#34;404&#34;)
- *                 .target(&#34;/index.html&#34;)
- *                 .build())
- *             .environmentVariables(Map.of(&#34;ENV&#34;, &#34;test&#34;))
+ *             .customRules(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .environmentVariables(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .repository(&#34;https://github.com/example/app&#34;)
  *             .build());
  * 
@@ -123,7 +118,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.amplify.App;
  * import com.pulumi.aws.amplify.AppArgs;
- * import com.pulumi.aws.amplify.inputs.AppAutoBranchCreationConfigArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -138,9 +132,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new App(&#34;example&#34;, AppArgs.builder()        
- *             .autoBranchCreationConfig(AppAutoBranchCreationConfigArgs.builder()
- *                 .enableAutoBuild(true)
- *                 .build())
+ *             .autoBranchCreationConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .autoBranchCreationPatterns(            
  *                 &#34;*&#34;,
  *                 &#34;*{@literal /}**&#34;)
@@ -159,7 +151,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.amplify.App;
  * import com.pulumi.aws.amplify.AppArgs;
- * import com.pulumi.aws.amplify.inputs.AppCustomRuleArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -175,16 +166,8 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new App(&#34;example&#34;, AppArgs.builder()        
  *             .customRules(            
- *                 AppCustomRuleArgs.builder()
- *                     .source(&#34;/api/&lt;*&gt;&#34;)
- *                     .status(&#34;200&#34;)
- *                     .target(&#34;https://api.example.com/api/&lt;*&gt;&#34;)
- *                     .build(),
- *                 AppCustomRuleArgs.builder()
- *                     .source(&#34;&lt;/^[^.]+$|\\.(?!(css|gif|ico|jpg|js|png|txt|svg|woff|ttf|map|json)$)([^.]+$)/&gt;&#34;)
- *                     .status(&#34;200&#34;)
- *                     .target(&#34;/index.html&#34;)
- *                     .build())
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -213,7 +196,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new App(&#34;example&#34;, AppArgs.builder()        
- *             .environmentVariables(Map.of(&#34;_CUSTOM_IMAGE&#34;, &#34;node:16&#34;))
+ *             .environmentVariables(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

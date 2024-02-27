@@ -23,7 +23,7 @@ namespace Pulumi.Aws.VpcLattice
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.VpcLattice.AccessLogSubscription("example", new()
+    ///     var example = new Aws.Vpclattice.AccessLogSubscription.AccessLogSubscription("example", new()
     ///     {
     ///         ResourceIdentifier = aws_vpclattice_service_network.Example.Id,
     ///         DestinationArn = aws_s3.Bucket.Arn,

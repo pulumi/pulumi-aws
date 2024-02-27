@@ -457,19 +457,19 @@ class ReplicaExternalKey(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        primary = aws.Provider("primary", region="us-east-1")
-        primary_external_key = aws.kms.ExternalKey("primaryExternalKey",
-            description="Multi-Region primary key",
+        primary = pulumi.providers.Aws("primary", region=us-east-1)
+        primary_external_key = aws.kms.external_key.ExternalKey("primaryExternalKey",
+            description=Multi-Region primary key,
             deletion_window_in_days=30,
             multi_region=True,
             enabled=True,
-            key_material_base64="...",
+            key_material_base64=...,
             opts=pulumi.ResourceOptions(provider=aws["primary"]))
-        replica = aws.kms.ReplicaExternalKey("replica",
-            description="Multi-Region replica key",
+        replica = aws.kms.replica_external_key.ReplicaExternalKey("replica",
+            description=Multi-Region replica key,
             deletion_window_in_days=7,
-            primary_key_arn=aws_kms_external["primary"]["arn"],
-            key_material_base64="...")
+            primary_key_arn=aws_kms_external.primary.arn,
+            key_material_base64=...)
         # Must be the same key material as the primary's.
         ```
 
@@ -513,19 +513,19 @@ class ReplicaExternalKey(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        primary = aws.Provider("primary", region="us-east-1")
-        primary_external_key = aws.kms.ExternalKey("primaryExternalKey",
-            description="Multi-Region primary key",
+        primary = pulumi.providers.Aws("primary", region=us-east-1)
+        primary_external_key = aws.kms.external_key.ExternalKey("primaryExternalKey",
+            description=Multi-Region primary key,
             deletion_window_in_days=30,
             multi_region=True,
             enabled=True,
-            key_material_base64="...",
+            key_material_base64=...,
             opts=pulumi.ResourceOptions(provider=aws["primary"]))
-        replica = aws.kms.ReplicaExternalKey("replica",
-            description="Multi-Region replica key",
+        replica = aws.kms.replica_external_key.ReplicaExternalKey("replica",
+            description=Multi-Region replica key,
             deletion_window_in_days=7,
-            primary_key_arn=aws_kms_external["primary"]["arn"],
-            key_material_base64="...")
+            primary_key_arn=aws_kms_external.primary.arn,
+            key_material_base64=...)
         # Must be the same key material as the primary's.
         ```
 

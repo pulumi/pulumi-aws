@@ -9,35 +9,6 @@ import * as utilities from "../utilities";
  *
  * > **NOTE:** This data source does not apply to snapshots created on Aurora DB clusters.
  * See the `aws.rds.ClusterSnapshot` data source for DB Cluster snapshots.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const prod = new aws.rds.Instance("prod", {
- *     allocatedStorage: 10,
- *     engine: "mysql",
- *     engineVersion: "5.6.17",
- *     instanceClass: "db.t2.micro",
- *     dbName: "mydb",
- *     username: "foo",
- *     password: "bar",
- *     dbSubnetGroupName: "my_database_subnet_group",
- *     parameterGroupName: "default.mysql5.6",
- * });
- * const latestProdSnapshot = aws.rds.getSnapshotOutput({
- *     dbInstanceIdentifier: prod.identifier,
- *     mostRecent: true,
- * });
- * // Use the latest production snapshot to create a dev instance.
- * const dev = new aws.rds.Instance("dev", {
- *     instanceClass: "db.t2.micro",
- *     dbName: "mydbdev",
- *     snapshotIdentifier: latestProdSnapshot.apply(latestProdSnapshot => latestProdSnapshot.id),
- * });
- * ```
  */
 export function getSnapshot(args?: GetSnapshotArgs, opts?: pulumi.InvokeOptions): Promise<GetSnapshotResult> {
     args = args || {};
@@ -181,35 +152,6 @@ export interface GetSnapshotResult {
  *
  * > **NOTE:** This data source does not apply to snapshots created on Aurora DB clusters.
  * See the `aws.rds.ClusterSnapshot` data source for DB Cluster snapshots.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const prod = new aws.rds.Instance("prod", {
- *     allocatedStorage: 10,
- *     engine: "mysql",
- *     engineVersion: "5.6.17",
- *     instanceClass: "db.t2.micro",
- *     dbName: "mydb",
- *     username: "foo",
- *     password: "bar",
- *     dbSubnetGroupName: "my_database_subnet_group",
- *     parameterGroupName: "default.mysql5.6",
- * });
- * const latestProdSnapshot = aws.rds.getSnapshotOutput({
- *     dbInstanceIdentifier: prod.identifier,
- *     mostRecent: true,
- * });
- * // Use the latest production snapshot to create a dev instance.
- * const dev = new aws.rds.Instance("dev", {
- *     instanceClass: "db.t2.micro",
- *     dbName: "mydbdev",
- *     snapshotIdentifier: latestProdSnapshot.apply(latestProdSnapshot => latestProdSnapshot.id),
- * });
- * ```
  */
 export function getSnapshotOutput(args?: GetSnapshotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSnapshotResult> {
     return pulumi.output(args).apply((a: any) => getSnapshot(a, opts))

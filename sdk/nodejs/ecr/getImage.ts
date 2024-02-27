@@ -6,18 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * The ECR Image data source allows the details of an image with a particular tag or digest to be retrieved.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const serviceImage = aws.ecr.getImage({
- *     imageTag: "latest",
- *     repositoryName: "my/service",
- * });
- * ```
  */
 export function getImage(args: GetImageArgs, opts?: pulumi.InvokeOptions): Promise<GetImageResult> {
 
@@ -89,18 +77,6 @@ export interface GetImageResult {
 }
 /**
  * The ECR Image data source allows the details of an image with a particular tag or digest to be retrieved.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const serviceImage = aws.ecr.getImage({
- *     imageTag: "latest",
- *     repositoryName: "my/service",
- * });
- * ```
  */
 export function getImageOutput(args: GetImageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetImageResult> {
     return pulumi.output(args).apply((a: any) => getImage(a, opts))

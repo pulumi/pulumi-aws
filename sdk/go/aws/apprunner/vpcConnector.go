@@ -21,31 +21,29 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apprunner"
+//	apprunner/vpcConnector "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/apprunner/vpcConnector"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := apprunner.NewVpcConnector(ctx, "connector", &apprunner.VpcConnectorArgs{
-//				SecurityGroups: pulumi.StringArray{
-//					pulumi.String("sg1"),
-//					pulumi.String("sg2"),
-//				},
-//				Subnets: pulumi.StringArray{
-//					pulumi.String("subnet1"),
-//					pulumi.String("subnet2"),
-//				},
-//				VpcConnectorName: pulumi.String("name"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := apprunner/vpcConnector.NewVpcConnector(ctx, "connector", &apprunner/vpcConnector.VpcConnectorArgs{
+// SecurityGroups: []string{
+// "sg1",
+// "sg2",
+// },
+// Subnets: []string{
+// "subnet1",
+// "subnet2",
+// },
+// VpcConnectorName: "name",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

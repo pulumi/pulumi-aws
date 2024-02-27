@@ -22,47 +22,46 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lakeformation"
+//	lakeformation/lfTag "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/lakeformation/lfTag"
+//	lakeformation/resourceLfTags "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/lakeformation/resourceLfTags"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleLfTag, err := lakeformation.NewLfTag(ctx, "exampleLfTag", &lakeformation.LfTagArgs{
-//				Key: pulumi.String("right"),
-//				Values: pulumi.StringArray{
-//					pulumi.String("abbey"),
-//					pulumi.String("village"),
-//					pulumi.String("luffield"),
-//					pulumi.String("woodcote"),
-//					pulumi.String("copse"),
-//					pulumi.String("chapel"),
-//					pulumi.String("stowe"),
-//					pulumi.String("club"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = lakeformation.NewResourceLfTags(ctx, "exampleResourceLfTags", &lakeformation.ResourceLfTagsArgs{
-//				Database: &lakeformation.ResourceLfTagsDatabaseArgs{
-//					Name: pulumi.Any(aws_glue_catalog_database.Example.Name),
-//				},
-//				LfTags: lakeformation.ResourceLfTagsLfTagArray{
-//					&lakeformation.ResourceLfTagsLfTagArgs{
-//						Key:   exampleLfTag.Key,
-//						Value: pulumi.String("stowe"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleLfTag, err := lakeformation/lfTag.NewLfTag(ctx, "exampleLfTag", &lakeformation/lfTag.LfTagArgs{
+// Key: "right",
+// Values: []string{
+// "abbey",
+// "village",
+// "luffield",
+// "woodcote",
+// "copse",
+// "chapel",
+// "stowe",
+// "club",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = lakeformation/resourceLfTags.NewResourceLfTags(ctx, "exampleResourceLfTags", &lakeformation/resourceLfTags.ResourceLfTagsArgs{
+// Database: map[string]interface{}{
+// "name": aws_glue_catalog_database.Example.Name,
+// },
+// LfTags: []map[string]interface{}{
+// map[string]interface{}{
+// "key": exampleLfTag.Key,
+// "value": "stowe",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Multiple Tags Example
 //
@@ -71,66 +70,65 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lakeformation"
+//	lakeformation/lfTag "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/lakeformation/lfTag"
+//	lakeformation/resourceLfTags "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/lakeformation/resourceLfTags"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lakeformation.NewLfTag(ctx, "exampleLfTag", &lakeformation.LfTagArgs{
-//				Key: pulumi.String("right"),
-//				Values: pulumi.StringArray{
-//					pulumi.String("abbey"),
-//					pulumi.String("village"),
-//					pulumi.String("luffield"),
-//					pulumi.String("woodcote"),
-//					pulumi.String("copse"),
-//					pulumi.String("chapel"),
-//					pulumi.String("stowe"),
-//					pulumi.String("club"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = lakeformation.NewLfTag(ctx, "example2", &lakeformation.LfTagArgs{
-//				Key: pulumi.String("left"),
-//				Values: pulumi.StringArray{
-//					pulumi.String("farm"),
-//					pulumi.String("theloop"),
-//					pulumi.String("aintree"),
-//					pulumi.String("brooklands"),
-//					pulumi.String("maggotts"),
-//					pulumi.String("becketts"),
-//					pulumi.String("vale"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = lakeformation.NewResourceLfTags(ctx, "exampleResourceLfTags", &lakeformation.ResourceLfTagsArgs{
-//				Database: &lakeformation.ResourceLfTagsDatabaseArgs{
-//					Name: pulumi.Any(aws_glue_catalog_database.Example.Name),
-//				},
-//				LfTags: lakeformation.ResourceLfTagsLfTagArray{
-//					&lakeformation.ResourceLfTagsLfTagArgs{
-//						Key:   pulumi.String("right"),
-//						Value: pulumi.String("luffield"),
-//					},
-//					&lakeformation.ResourceLfTagsLfTagArgs{
-//						Key:   pulumi.String("left"),
-//						Value: pulumi.String("aintree"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := lakeformation/lfTag.NewLfTag(ctx, "exampleLfTag", &lakeformation/lfTag.LfTagArgs{
+// Key: "right",
+// Values: []string{
+// "abbey",
+// "village",
+// "luffield",
+// "woodcote",
+// "copse",
+// "chapel",
+// "stowe",
+// "club",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = lakeformation/lfTag.NewLfTag(ctx, "example2", &lakeformation/lfTag.LfTagArgs{
+// Key: "left",
+// Values: []string{
+// "farm",
+// "theloop",
+// "aintree",
+// "brooklands",
+// "maggotts",
+// "becketts",
+// "vale",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = lakeformation/resourceLfTags.NewResourceLfTags(ctx, "exampleResourceLfTags", &lakeformation/resourceLfTags.ResourceLfTagsArgs{
+// Database: map[string]interface{}{
+// "name": aws_glue_catalog_database.Example.Name,
+// },
+// LfTags: []map[string]interface{}{
+// map[string]interface{}{
+// "key": "right",
+// "value": "luffield",
+// },
+// map[string]interface{}{
+// "key": "left",
+// "value": "aintree",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 type ResourceLfTags struct {
 	pulumi.CustomResourceState

@@ -25,24 +25,24 @@ namespace Pulumi.Aws.Neptune
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var primary = new Aws.Provider("primary", new()
+    ///     var primary = new Pulumi.Providers.Aws("primary", new()
     ///     {
     ///         Region = "us-east-2",
     ///     });
     /// 
-    ///     var secondary = new Aws.Provider("secondary", new()
+    ///     var secondary = new Pulumi.Providers.Aws("secondary", new()
     ///     {
     ///         Region = "us-east-1",
     ///     });
     /// 
-    ///     var example = new Aws.Neptune.GlobalCluster("example", new()
+    ///     var example = new Aws.Neptune.GlobalCluster.GlobalCluster("example", new()
     ///     {
     ///         GlobalClusterIdentifier = "global-test",
     ///         Engine = "neptune",
     ///         EngineVersion = "1.2.0.0",
     ///     });
     /// 
-    ///     var primaryCluster = new Aws.Neptune.Cluster("primaryCluster", new()
+    ///     var primaryCluster = new Aws.Neptune.Cluster.Cluster("primaryCluster", new()
     ///     {
     ///         Engine = example.Engine,
     ///         EngineVersion = example.EngineVersion,
@@ -54,7 +54,7 @@ namespace Pulumi.Aws.Neptune
     ///         Provider = aws.Primary,
     ///     });
     /// 
-    ///     var primaryClusterInstance = new Aws.Neptune.ClusterInstance("primaryClusterInstance", new()
+    ///     var primaryClusterInstance = new Aws.Neptune.ClusterInstance.ClusterInstance("primaryClusterInstance", new()
     ///     {
     ///         Engine = example.Engine,
     ///         EngineVersion = example.EngineVersion,
@@ -67,7 +67,7 @@ namespace Pulumi.Aws.Neptune
     ///         Provider = aws.Primary,
     ///     });
     /// 
-    ///     var secondaryCluster = new Aws.Neptune.Cluster("secondaryCluster", new()
+    ///     var secondaryCluster = new Aws.Neptune.Cluster.Cluster("secondaryCluster", new()
     ///     {
     ///         Engine = example.Engine,
     ///         EngineVersion = example.EngineVersion,
@@ -79,7 +79,7 @@ namespace Pulumi.Aws.Neptune
     ///         Provider = aws.Secondary,
     ///     });
     /// 
-    ///     var secondaryClusterInstance = new Aws.Neptune.ClusterInstance("secondaryClusterInstance", new()
+    ///     var secondaryClusterInstance = new Aws.Neptune.ClusterInstance.ClusterInstance("secondaryClusterInstance", new()
     ///     {
     ///         Engine = example.Engine,
     ///         EngineVersion = example.EngineVersion,
@@ -109,9 +109,9 @@ namespace Pulumi.Aws.Neptune
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // ... other configuration ...
-    ///     var exampleCluster = new Aws.Neptune.Cluster("exampleCluster");
+    ///     var exampleCluster = new Aws.Neptune.Cluster.Cluster("exampleCluster");
     /// 
-    ///     var exampleGlobalCluster = new Aws.Neptune.GlobalCluster("exampleGlobalCluster", new()
+    ///     var exampleGlobalCluster = new Aws.Neptune.GlobalCluster.GlobalCluster("exampleGlobalCluster", new()
     ///     {
     ///         GlobalClusterIdentifier = "example",
     ///         SourceDbClusterIdentifier = exampleCluster.Arn,

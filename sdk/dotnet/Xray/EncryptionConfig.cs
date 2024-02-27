@@ -24,67 +24,9 @@ namespace Pulumi.Aws.Xray
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Xray.EncryptionConfig("example", new()
+    ///     var example = new Aws.Xray.EncryptionConfig.EncryptionConfig("example", new()
     ///     {
     ///         Type = "NONE",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### With KMS Key
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var current = Aws.GetCallerIdentity.Invoke();
-    /// 
-    ///     var examplePolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
-    ///     {
-    ///         Statements = new[]
-    ///         {
-    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
-    ///             {
-    ///                 Sid = "Enable IAM User Permissions",
-    ///                 Effect = "Allow",
-    ///                 Principals = new[]
-    ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
-    ///                     {
-    ///                         Type = "AWS",
-    ///                         Identifiers = new[]
-    ///                         {
-    ///                             $"arn:aws:iam::{current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:root",
-    ///                         },
-    ///                     },
-    ///                 },
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "kms:*",
-    ///                 },
-    ///                 Resources = new[]
-    ///                 {
-    ///                     "*",
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleKey = new Aws.Kms.Key("exampleKey", new()
-    ///     {
-    ///         Description = "Some Key",
-    ///         DeletionWindowInDays = 7,
-    ///         Policy = examplePolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
-    ///     });
-    /// 
-    ///     var exampleEncryptionConfig = new Aws.Xray.EncryptionConfig("exampleEncryptionConfig", new()
-    ///     {
-    ///         Type = "KMS",
-    ///         KeyId = exampleKey.Arn,
     ///     });
     /// 
     /// });

@@ -6,17 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * The ECR Pull Through Cache Rule data source allows the upstream registry URL and registry ID to be retrieved for a Pull Through Cache Rule.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const ecrPublic = aws.ecr.getPullThroughCacheRule({
- *     ecrRepositoryPrefix: "ecr-public",
- * });
- * ```
  */
 export function getPullThroughCacheRule(args: GetPullThroughCacheRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetPullThroughCacheRuleResult> {
 
@@ -60,17 +49,6 @@ export interface GetPullThroughCacheRuleResult {
 }
 /**
  * The ECR Pull Through Cache Rule data source allows the upstream registry URL and registry ID to be retrieved for a Pull Through Cache Rule.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const ecrPublic = aws.ecr.getPullThroughCacheRule({
- *     ecrRepositoryPrefix: "ecr-public",
- * });
- * ```
  */
 export function getPullThroughCacheRuleOutput(args: GetPullThroughCacheRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPullThroughCacheRuleResult> {
     return pulumi.output(args).apply((a: any) => getPullThroughCacheRule(a, opts))

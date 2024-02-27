@@ -18,19 +18,19 @@ import {RestApi} from "./index";
  * import * as aws from "@pulumi/aws";
  * import * as fs from "fs";
  *
- * const exampleStage = new aws.apigateway.Stage("exampleStage", {
+ * const exampleStage = new aws.apigateway/stage.Stage("exampleStage", {
  *     deployment: aws_api_gateway_deployment.example.id,
  *     restApi: aws_api_gateway_rest_api.example.id,
  *     stageName: "example",
  * });
- * const exampleDomainName = new aws.apigateway.DomainName("exampleDomainName", {
+ * const exampleDomainName = new aws.apigateway/domainName.DomainName("exampleDomainName", {
  *     domainName: "example.com",
  *     certificateName: "example-api",
  *     certificateBody: fs.readFileSync(`${path.module}/example.com/example.crt`, "utf8"),
  *     certificateChain: fs.readFileSync(`${path.module}/example.com/ca.crt`, "utf8"),
  *     certificatePrivateKey: fs.readFileSync(`${path.module}/example.com/example.key`, "utf8"),
  * });
- * const exampleBasePathMapping = new aws.apigateway.BasePathMapping("exampleBasePathMapping", {
+ * const exampleBasePathMapping = new aws.apigateway/basePathMapping.BasePathMapping("exampleBasePathMapping", {
  *     restApi: aws_api_gateway_rest_api.example.id,
  *     stageName: exampleStage.stageName,
  *     domainName: exampleDomainName.domainName,

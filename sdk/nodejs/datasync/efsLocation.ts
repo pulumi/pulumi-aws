@@ -20,7 +20,7 @@ import {ARN} from "..";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.datasync.EfsLocation("example", {
+ * const example = new aws.datasync/efsLocation.EfsLocation("example", {
  *     efsFileSystemArn: aws_efs_mount_target.example.file_system_arn,
  *     ec2Config: {
  *         securityGroupArns: [aws_security_group.example.arn],

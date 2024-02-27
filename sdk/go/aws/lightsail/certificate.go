@@ -20,26 +20,24 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lightsail"
+//	lightsail/certificate "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/lightsail/certificate"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lightsail.NewCertificate(ctx, "test", &lightsail.CertificateArgs{
-//				DomainName: pulumi.String("testdomain.com"),
-//				SubjectAlternativeNames: pulumi.StringArray{
-//					pulumi.String("www.testdomain.com"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := lightsail/certificate.NewCertificate(ctx, "test", &lightsail/certificate.CertificateArgs{
+// DomainName: "testdomain.com",
+// SubjectAlternativeNames: []string{
+// "www.testdomain.com",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

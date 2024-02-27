@@ -23,7 +23,7 @@ namespace Pulumi.Aws.DirectConnect
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var foo = new Aws.DirectConnect.HostedPublicVirtualInterface("foo", new()
+    ///     var foo = new Aws.Directconnect.HostedPublicVirtualInterface.HostedPublicVirtualInterface("foo", new()
     ///     {
     ///         AddressFamily = "ipv4",
     ///         AmazonAddress = "175.45.176.2/30",

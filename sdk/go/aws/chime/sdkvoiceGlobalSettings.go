@@ -22,25 +22,23 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/chime"
+//	chime/sdkvoiceGlobalSettings "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/chime/sdkvoiceGlobalSettings"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := chime.NewSdkvoiceGlobalSettings(ctx, "example", &chime.SdkvoiceGlobalSettingsArgs{
-//				VoiceConnector: &chime.SdkvoiceGlobalSettingsVoiceConnectorArgs{
-//					CdrBucket: pulumi.String("example-bucket-name"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := chime/sdkvoiceGlobalSettings.NewSdkvoiceGlobalSettings(ctx, "example", &chime/sdkvoiceGlobalSettings.SdkvoiceGlobalSettingsArgs{
+// VoiceConnector: map[string]interface{}{
+// "cdrBucket": "example-bucket-name",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -51,7 +51,7 @@ import javax.annotation.Nullable;
  *             .replicationTaskSettings(&#34;...&#34;)
  *             .sourceEndpointArn(aws_dms_endpoint.test-dms-source-endpoint-tf().endpoint_arn())
  *             .tableMappings(&#34;{\&#34;rules\&#34;:[{\&#34;rule-type\&#34;:\&#34;selection\&#34;,\&#34;rule-id\&#34;:\&#34;1\&#34;,\&#34;rule-name\&#34;:\&#34;1\&#34;,\&#34;object-locator\&#34;:{\&#34;schema-name\&#34;:\&#34;%\&#34;,\&#34;table-name\&#34;:\&#34;%\&#34;},\&#34;rule-action\&#34;:\&#34;include\&#34;}]}&#34;)
- *             .tags(Map.of(&#34;Name&#34;, &#34;test&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .targetEndpointArn(aws_dms_endpoint.test-dms-target-endpoint-tf().endpoint_arn())
  *             .build());
  * 

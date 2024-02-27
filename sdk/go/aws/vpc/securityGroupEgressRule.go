@@ -28,27 +28,25 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/vpc"
+//	vpc/securityGroupEgressRule "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/vpc/securityGroupEgressRule"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := vpc.NewSecurityGroupEgressRule(ctx, "example", &vpc.SecurityGroupEgressRuleArgs{
-//				SecurityGroupId: pulumi.Any(aws_security_group.Example.Id),
-//				CidrIpv4:        pulumi.String("10.0.0.0/8"),
-//				FromPort:        pulumi.Int(80),
-//				IpProtocol:      pulumi.String("tcp"),
-//				ToPort:          pulumi.Int(80),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := vpc/securityGroupEgressRule.NewSecurityGroupEgressRule(ctx, "example", &vpc/securityGroupEgressRule.SecurityGroupEgressRuleArgs{
+// SecurityGroupId: aws_security_group.Example.Id,
+// CidrIpv4: "10.0.0.0/8",
+// FromPort: 80,
+// IpProtocol: "tcp",
+// ToPort: 80,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -21,39 +21,38 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/elasticache"
+//	elasticache/user "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/elasticache/user"
+//	elasticache/userGroup "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/elasticache/userGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testUser, err := elasticache.NewUser(ctx, "testUser", &elasticache.UserArgs{
-//				UserId:       pulumi.String("testUserId"),
-//				UserName:     pulumi.String("default"),
-//				AccessString: pulumi.String("on ~app::* -@all +@read +@hash +@bitmap +@geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember"),
-//				Engine:       pulumi.String("REDIS"),
-//				Passwords: pulumi.StringArray{
-//					pulumi.String("password123456789"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = elasticache.NewUserGroup(ctx, "testUserGroup", &elasticache.UserGroupArgs{
-//				Engine:      pulumi.String("REDIS"),
-//				UserGroupId: pulumi.String("userGroupId"),
-//				UserIds: pulumi.StringArray{
-//					testUser.UserId,
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// testUser, err := elasticache/user.NewUser(ctx, "testUser", &elasticache/user.UserArgs{
+// UserId: "testUserId",
+// UserName: "default",
+// AccessString: "on ~app::* -@all +@read +@hash +@bitmap +@geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember",
+// Engine: "REDIS",
+// Passwords: []string{
+// "password123456789",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = elasticache/userGroup.NewUserGroup(ctx, "testUserGroup", &elasticache/userGroup.UserGroupArgs{
+// Engine: "REDIS",
+// UserGroupId: "userGroupId",
+// UserIds: []interface{}{
+// testUser.UserId,
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

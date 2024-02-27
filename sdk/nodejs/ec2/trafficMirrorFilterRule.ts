@@ -19,11 +19,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const filter = new aws.ec2.TrafficMirrorFilter("filter", {
+ * const filter = new aws.ec2/trafficMirrorFilter.TrafficMirrorFilter("filter", {
  *     description: "traffic mirror filter - example",
  *     networkServices: ["amazon-dns"],
  * });
- * const ruleout = new aws.ec2.TrafficMirrorFilterRule("ruleout", {
+ * const ruleout = new aws.ec2/trafficMirrorFilterRule.TrafficMirrorFilterRule("ruleout", {
  *     description: "test rule",
  *     trafficMirrorFilterId: filter.id,
  *     destinationCidrBlock: "10.0.0.0/8",
@@ -32,7 +32,7 @@ import * as utilities from "../utilities";
  *     ruleAction: "accept",
  *     trafficDirection: "egress",
  * });
- * const rulein = new aws.ec2.TrafficMirrorFilterRule("rulein", {
+ * const rulein = new aws.ec2/trafficMirrorFilterRule.TrafficMirrorFilterRule("rulein", {
  *     description: "test rule",
  *     trafficMirrorFilterId: filter.id,
  *     destinationCidrBlock: "10.0.0.0/8",

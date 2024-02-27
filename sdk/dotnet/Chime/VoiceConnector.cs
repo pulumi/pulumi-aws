@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Chime
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Aws.Chime.VoiceConnector("test", new()
+    ///     var test = new Aws.Chime.VoiceConnector.VoiceConnector("test", new()
     ///     {
     ///         AwsRegion = "us-east-1",
     ///         RequireEncryption = true,

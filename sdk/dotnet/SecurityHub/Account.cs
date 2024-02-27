@@ -24,7 +24,7 @@ namespace Pulumi.Aws.SecurityHub
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.SecurityHub.Account("example");
+    ///     var example = new Aws.Securityhub.Account.Account("example");
     /// 
     /// });
     /// ```

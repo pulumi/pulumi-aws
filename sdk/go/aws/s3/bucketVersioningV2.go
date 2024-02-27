@@ -30,37 +30,37 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	s3/bucketAclV2 "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/s3/bucketAclV2"
+//	s3/bucketV2 "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/s3/bucketV2"
+//	s3/bucketVersioningV2 "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/s3/bucketVersioningV2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = s3.NewBucketAclV2(ctx, "exampleBucketAclV2", &s3.BucketAclV2Args{
-//				Bucket: exampleBucketV2.ID(),
-//				Acl:    pulumi.String("private"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = s3.NewBucketVersioningV2(ctx, "versioningExample", &s3.BucketVersioningV2Args{
-//				Bucket: exampleBucketV2.ID(),
-//				VersioningConfiguration: &s3.BucketVersioningV2VersioningConfigurationArgs{
-//					Status: pulumi.String("Enabled"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleBucketV2, err := s3/bucketV2.NewBucketV2(ctx, "exampleBucketV2", nil)
+// if err != nil {
+// return err
+// }
+// _, err = s3/bucketAclV2.NewBucketAclV2(ctx, "exampleBucketAclV2", &s3/bucketAclV2.BucketAclV2Args{
+// Bucket: exampleBucketV2.Id,
+// Acl: "private",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = s3/bucketVersioningV2.NewBucketVersioningV2(ctx, "versioningExample", &s3/bucketVersioningV2.BucketVersioningV2Args{
+// Bucket: exampleBucketV2.Id,
+// VersioningConfiguration: map[string]interface{}{
+// "status": "Enabled",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### With Versioning Disabled
 //
@@ -69,37 +69,37 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	s3/bucketAclV2 "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/s3/bucketAclV2"
+//	s3/bucketV2 "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/s3/bucketV2"
+//	s3/bucketVersioningV2 "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/s3/bucketVersioningV2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = s3.NewBucketAclV2(ctx, "exampleBucketAclV2", &s3.BucketAclV2Args{
-//				Bucket: exampleBucketV2.ID(),
-//				Acl:    pulumi.String("private"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = s3.NewBucketVersioningV2(ctx, "versioningExample", &s3.BucketVersioningV2Args{
-//				Bucket: exampleBucketV2.ID(),
-//				VersioningConfiguration: &s3.BucketVersioningV2VersioningConfigurationArgs{
-//					Status: pulumi.String("Disabled"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleBucketV2, err := s3/bucketV2.NewBucketV2(ctx, "exampleBucketV2", nil)
+// if err != nil {
+// return err
+// }
+// _, err = s3/bucketAclV2.NewBucketAclV2(ctx, "exampleBucketAclV2", &s3/bucketAclV2.BucketAclV2Args{
+// Bucket: exampleBucketV2.Id,
+// Acl: "private",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = s3/bucketVersioningV2.NewBucketVersioningV2(ctx, "versioningExample", &s3/bucketVersioningV2.BucketVersioningV2Args{
+// Bucket: exampleBucketV2.Id,
+// VersioningConfiguration: map[string]interface{}{
+// "status": "Disabled",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Object Dependency On Versioning
 //
@@ -114,38 +114,38 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	s3/bucketObjectv2 "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/s3/bucketObjectv2"
+//	s3/bucketV2 "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/s3/bucketV2"
+//	s3/bucketVersioningV2 "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/s3/bucketVersioningV2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleBucketVersioningV2, err := s3.NewBucketVersioningV2(ctx, "exampleBucketVersioningV2", &s3.BucketVersioningV2Args{
-//				Bucket: exampleBucketV2.ID(),
-//				VersioningConfiguration: &s3.BucketVersioningV2VersioningConfigurationArgs{
-//					Status: pulumi.String("Enabled"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = s3.NewBucketObjectv2(ctx, "exampleBucketObjectv2", &s3.BucketObjectv2Args{
-//				Bucket: exampleBucketVersioningV2.ID(),
-//				Key:    pulumi.String("droeloe"),
-//				Source: pulumi.NewFileAsset("example.txt"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleBucketV2, err := s3/bucketV2.NewBucketV2(ctx, "exampleBucketV2", nil)
+// if err != nil {
+// return err
+// }
+// exampleBucketVersioningV2, err := s3/bucketVersioningV2.NewBucketVersioningV2(ctx, "exampleBucketVersioningV2", &s3/bucketVersioningV2.BucketVersioningV2Args{
+// Bucket: exampleBucketV2.Id,
+// VersioningConfiguration: map[string]interface{}{
+// "status": "Enabled",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = s3/bucketObjectv2.NewBucketObjectv2(ctx, "exampleBucketObjectv2", &s3/bucketObjectv2.BucketObjectv2Args{
+// Bucket: exampleBucketVersioningV2.Id,
+// Key: "droeloe",
+// Source: pulumi.NewFileAsset("example.txt"),
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -9,20 +9,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to get the ARNs and names of Image Builder Infrastructure Configurations matching the specified criteria.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.imagebuilder.getInfrastructureConfigurations({
- *     filters: [{
- *         name: "name",
- *         values: ["example"],
- *     }],
- * });
- * ```
  */
 export function getInfrastructureConfigurations(args?: GetInfrastructureConfigurationsArgs, opts?: pulumi.InvokeOptions): Promise<GetInfrastructureConfigurationsResult> {
     args = args || {};
@@ -63,20 +49,6 @@ export interface GetInfrastructureConfigurationsResult {
 }
 /**
  * Use this data source to get the ARNs and names of Image Builder Infrastructure Configurations matching the specified criteria.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.imagebuilder.getInfrastructureConfigurations({
- *     filters: [{
- *         name: "name",
- *         values: ["example"],
- *     }],
- * });
- * ```
  */
 export function getInfrastructureConfigurationsOutput(args?: GetInfrastructureConfigurationsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInfrastructureConfigurationsResult> {
     return pulumi.output(args).apply((a: any) => getInfrastructureConfigurations(a, opts))

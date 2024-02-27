@@ -22,15 +22,15 @@ namespace Pulumi.Aws.Amplify
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Amplify.App("example");
+    ///     var example = new Aws.Amplify.App.App("example");
     /// 
-    ///     var masterBranch = new Aws.Amplify.Branch("masterBranch", new()
+    ///     var masterBranch = new Aws.Amplify.Branch.Branch("masterBranch", new()
     ///     {
     ///         AppId = example.Id,
     ///         BranchName = "master",
     ///     });
     /// 
-    ///     var masterWebhook = new Aws.Amplify.Webhook("masterWebhook", new()
+    ///     var masterWebhook = new Aws.Amplify.Webhook.Webhook("masterWebhook", new()
     ///     {
     ///         AppId = example.Id,
     ///         BranchName = masterBranch.BranchName,

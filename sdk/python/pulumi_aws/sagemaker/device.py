@@ -137,11 +137,11 @@ class Device(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.sagemaker.Device("example",
-            device_fleet_name=aws_sagemaker_device_fleet["example"]["device_fleet_name"],
-            device=aws.sagemaker.DeviceDeviceArgs(
-                device_name="example",
-            ))
+        example = aws.sagemaker.device.Device("example",
+            device_fleet_name=aws_sagemaker_device_fleet.example.device_fleet_name,
+            device={
+                deviceName: example,
+            })
         ```
 
         ## Import
@@ -173,11 +173,11 @@ class Device(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.sagemaker.Device("example",
-            device_fleet_name=aws_sagemaker_device_fleet["example"]["device_fleet_name"],
-            device=aws.sagemaker.DeviceDeviceArgs(
-                device_name="example",
-            ))
+        example = aws.sagemaker.device.Device("example",
+            device_fleet_name=aws_sagemaker_device_fleet.example.device_fleet_name,
+            device={
+                deviceName: example,
+            })
         ```
 
         ## Import

@@ -29,7 +29,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.secretsmanager.SecretRotation;
  * import com.pulumi.aws.secretsmanager.SecretRotationArgs;
- * import com.pulumi.aws.secretsmanager.inputs.SecretRotationRotationRulesArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -46,9 +45,7 @@ import javax.annotation.Nullable;
  *         var example = new SecretRotation(&#34;example&#34;, SecretRotationArgs.builder()        
  *             .secretId(aws_secretsmanager_secret.example().id())
  *             .rotationLambdaArn(aws_lambda_function.example().arn())
- *             .rotationRules(SecretRotationRotationRulesArgs.builder()
- *                 .automaticallyAfterDays(30)
- *                 .build())
+ *             .rotationRules(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

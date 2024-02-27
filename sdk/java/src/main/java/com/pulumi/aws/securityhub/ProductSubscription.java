@@ -16,46 +16,6 @@ import javax.annotation.Nullable;
 /**
  * Subscribes to a Security Hub product.
  * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.securityhub.Account;
- * import com.pulumi.aws.AwsFunctions;
- * import com.pulumi.aws.inputs.GetRegionArgs;
- * import com.pulumi.aws.securityhub.ProductSubscription;
- * import com.pulumi.aws.securityhub.ProductSubscriptionArgs;
- * import com.pulumi.resources.CustomResourceOptions;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var exampleAccount = new Account(&#34;exampleAccount&#34;);
- * 
- *         final var current = AwsFunctions.getRegion();
- * 
- *         var exampleProductSubscription = new ProductSubscription(&#34;exampleProductSubscription&#34;, ProductSubscriptionArgs.builder()        
- *             .productArn(String.format(&#34;arn:aws:securityhub:%s:733251395267:product/alertlogic/althreatmanagement&#34;, current.applyValue(getRegionResult -&gt; getRegionResult.name())))
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(exampleAccount)
- *                 .build());
- * 
- *     }
- * }
- * ```
- * 
  * ## Import
  * 
  * Using `pulumi import`, import Security Hub product subscriptions using `product_arn,arn`. For example:

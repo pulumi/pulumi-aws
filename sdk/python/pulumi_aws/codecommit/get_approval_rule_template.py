@@ -142,15 +142,6 @@ def get_approval_rule_template(name: Optional[str] = None,
     """
     Provides details about a specific CodeCommit Approval Rule Template.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.codecommit.get_approval_rule_template(name="MyExampleApprovalRuleTemplate")
-    ```
-
 
     :param str name: Name for the approval rule template. This needs to be less than 100 characters.
     """
@@ -176,15 +167,6 @@ def get_approval_rule_template_output(name: Optional[pulumi.Input[str]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApprovalRuleTemplateResult]:
     """
     Provides details about a specific CodeCommit Approval Rule Template.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.codecommit.get_approval_rule_template(name="MyExampleApprovalRuleTemplate")
-    ```
 
 
     :param str name: Name for the approval rule template. This needs to be less than 100 characters.

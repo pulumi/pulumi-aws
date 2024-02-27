@@ -26,30 +26,29 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/elasticbeanstalk"
+//	elasticbeanstalk/application "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/elasticbeanstalk/application"
+//	elasticbeanstalk/environment "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/elasticbeanstalk/environment"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			tftest, err := elasticbeanstalk.NewApplication(ctx, "tftest", &elasticbeanstalk.ApplicationArgs{
-//				Description: pulumi.String("tf-test-desc"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = elasticbeanstalk.NewEnvironment(ctx, "tfenvtest", &elasticbeanstalk.EnvironmentArgs{
-//				Application:       tftest.Name,
-//				SolutionStackName: pulumi.String("64bit Amazon Linux 2015.03 v2.0.3 running Go 1.4"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// tftest, err := elasticbeanstalk/application.NewApplication(ctx, "tftest", &elasticbeanstalk/application.ApplicationArgs{
+// Description: "tf-test-desc",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = elasticbeanstalk/environment.NewEnvironment(ctx, "tfenvtest", &elasticbeanstalk/environment.EnvironmentArgs{
+// Application: tftest.Name,
+// SolutionStackName: "64bit Amazon Linux 2015.03 v2.0.3 running Go 1.4",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ## Option Settings
 //
@@ -70,42 +69,41 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/elasticbeanstalk"
+//	elasticbeanstalk/application "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/elasticbeanstalk/application"
+//	elasticbeanstalk/environment "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/elasticbeanstalk/environment"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			tftest, err := elasticbeanstalk.NewApplication(ctx, "tftest", &elasticbeanstalk.ApplicationArgs{
-//				Description: pulumi.String("tf-test-desc"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = elasticbeanstalk.NewEnvironment(ctx, "tfenvtest", &elasticbeanstalk.EnvironmentArgs{
-//				Application:       tftest.Name,
-//				SolutionStackName: pulumi.String("64bit Amazon Linux 2015.03 v2.0.3 running Go 1.4"),
-//				Settings: elasticbeanstalk.EnvironmentSettingArray{
-//					&elasticbeanstalk.EnvironmentSettingArgs{
-//						Namespace: pulumi.String("aws:ec2:vpc"),
-//						Name:      pulumi.String("VPCId"),
-//						Value:     pulumi.String("vpc-xxxxxxxx"),
-//					},
-//					&elasticbeanstalk.EnvironmentSettingArgs{
-//						Namespace: pulumi.String("aws:ec2:vpc"),
-//						Name:      pulumi.String("Subnets"),
-//						Value:     pulumi.String("subnet-xxxxxxxx"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// tftest, err := elasticbeanstalk/application.NewApplication(ctx, "tftest", &elasticbeanstalk/application.ApplicationArgs{
+// Description: "tf-test-desc",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = elasticbeanstalk/environment.NewEnvironment(ctx, "tfenvtest", &elasticbeanstalk/environment.EnvironmentArgs{
+// Application: tftest.Name,
+// SolutionStackName: "64bit Amazon Linux 2015.03 v2.0.3 running Go 1.4",
+// Settings: []map[string]interface{}{
+// map[string]interface{}{
+// "namespace": "aws:ec2:vpc",
+// "name": "VPCId",
+// "value": "vpc-xxxxxxxx",
+// },
+// map[string]interface{}{
+// "namespace": "aws:ec2:vpc",
+// "name": "Subnets",
+// "value": "subnet-xxxxxxxx",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

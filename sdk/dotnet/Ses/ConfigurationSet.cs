@@ -23,7 +23,7 @@ namespace Pulumi.Aws.Ses
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Aws.Ses.ConfigurationSet("test");
+    ///     var test = new Aws.Ses.ConfigurationSet.ConfigurationSet("test");
     /// 
     /// });
     /// ```
@@ -37,11 +37,11 @@ namespace Pulumi.Aws.Ses
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Aws.Ses.ConfigurationSet("test", new()
+    ///     var test = new Aws.Ses.ConfigurationSet.ConfigurationSet("test", new()
     ///     {
-    ///         DeliveryOptions = new Aws.Ses.Inputs.ConfigurationSetDeliveryOptionsArgs
+    ///         DeliveryOptions = 
     ///         {
-    ///             TlsPolicy = "Require",
+    ///             { "tlsPolicy", "Require" },
     ///         },
     ///     });
     /// 
@@ -57,11 +57,11 @@ namespace Pulumi.Aws.Ses
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Aws.Ses.ConfigurationSet("test", new()
+    ///     var test = new Aws.Ses.ConfigurationSet.ConfigurationSet("test", new()
     ///     {
-    ///         TrackingOptions = new Aws.Ses.Inputs.ConfigurationSetTrackingOptionsArgs
+    ///         TrackingOptions = 
     ///         {
-    ///             CustomRedirectDomain = "sub.example.com",
+    ///             { "customRedirectDomain", "sub.example.com" },
     ///         },
     ///     });
     /// 

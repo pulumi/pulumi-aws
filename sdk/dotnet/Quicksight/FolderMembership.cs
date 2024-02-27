@@ -23,7 +23,7 @@ namespace Pulumi.Aws.Quicksight
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Quicksight.FolderMembership("example", new()
+    ///     var example = new Aws.Quicksight.FolderMembership.FolderMembership("example", new()
     ///     {
     ///         FolderId = aws_quicksight_folder.Example.Folder_id,
     ///         MemberType = "DATASET",

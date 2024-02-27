@@ -86,7 +86,7 @@ class TemplateAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.servicequotas.TemplateAssociation("example")
+        example = aws.servicequotas.template_association.TemplateAssociation("example")
         ```
 
         ## Import
@@ -118,7 +118,7 @@ class TemplateAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.servicequotas.TemplateAssociation("example")
+        example = aws.servicequotas.template_association.TemplateAssociation("example")
         ```
 
         ## Import

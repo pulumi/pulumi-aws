@@ -22,7 +22,7 @@ namespace Pulumi.Aws.MediaStore
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.MediaStore.Container("example");
+    ///     var example = new Aws.Mediastore.Container.Container("example");
     /// 
     /// });
     /// ```

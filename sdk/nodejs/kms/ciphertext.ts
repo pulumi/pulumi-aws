@@ -16,11 +16,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const oauthConfig = new aws.kms.Key("oauthConfig", {
+ * const oauthConfig = new aws.kms/key.Key("oauthConfig", {
  *     description: "oauth config",
  *     isEnabled: true,
  * });
- * const oauth = new aws.kms.Ciphertext("oauth", {
+ * const oauth = new aws.kms/ciphertext.Ciphertext("oauth", {
  *     keyId: oauthConfig.keyId,
  *     plaintext: `{
  *   "client_id": "e587dbae22222f55da22",

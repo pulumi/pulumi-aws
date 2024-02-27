@@ -153,16 +153,6 @@ def get_slot_type(name: Optional[str] = None,
     """
     Provides details about a specific Amazon Lex Slot Type.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    flower_types = aws.lex.get_slot_type(name="FlowerTypes",
-        version="1")
-    ```
-
 
     :param str name: Name of the slot type. The name is case sensitive.
     :param str version: Version of the slot type.
@@ -191,16 +181,6 @@ def get_slot_type_output(name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSlotTypeResult]:
     """
     Provides details about a specific Amazon Lex Slot Type.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    flower_types = aws.lex.get_slot_type(name="FlowerTypes",
-        version="1")
-    ```
 
 
     :param str name: Name of the slot type. The name is case sensitive.

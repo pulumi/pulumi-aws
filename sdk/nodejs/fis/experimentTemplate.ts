@@ -20,7 +20,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.fis.ExperimentTemplate("example", {
+ * const example = new aws.fis/experimentTemplate.ExperimentTemplate("example", {
  *     description: "example",
  *     roleArn: aws_iam_role.example.arn,
  *     stopConditions: [{

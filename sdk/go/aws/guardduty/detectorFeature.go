@@ -23,36 +23,35 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/guardduty"
+//	guardduty/detector "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/guardduty/detector"
+//	guardduty/detectorFeature "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/guardduty/detectorFeature"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := guardduty.NewDetector(ctx, "example", &guardduty.DetectorArgs{
-//				Enable: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = guardduty.NewDetectorFeature(ctx, "eksRuntimeMonitoring", &guardduty.DetectorFeatureArgs{
-//				DetectorId: example.ID(),
-//				Status:     pulumi.String("ENABLED"),
-//				AdditionalConfigurations: guardduty.DetectorFeatureAdditionalConfigurationArray{
-//					&guardduty.DetectorFeatureAdditionalConfigurationArgs{
-//						Name:   pulumi.String("EKS_ADDON_MANAGEMENT"),
-//						Status: pulumi.String("ENABLED"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := guardduty/detector.NewDetector(ctx, "example", &guardduty/detector.DetectorArgs{
+// Enable: true,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = guardduty/detectorFeature.NewDetectorFeature(ctx, "eksRuntimeMonitoring", &guardduty/detectorFeature.DetectorFeatureArgs{
+// DetectorId: example.Id,
+// Status: "ENABLED",
+// AdditionalConfigurations: []map[string]interface{}{
+// map[string]interface{}{
+// "name": "EKS_ADDON_MANAGEMENT",
+// "status": "ENABLED",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 type DetectorFeature struct {
 	pulumi.CustomResourceState

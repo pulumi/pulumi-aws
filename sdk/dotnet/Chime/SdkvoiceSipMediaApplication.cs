@@ -23,12 +23,12 @@ namespace Pulumi.Aws.Chime
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Chime.SdkvoiceSipMediaApplication("example", new()
+    ///     var example = new Aws.Chime.SdkvoiceSipMediaApplication.SdkvoiceSipMediaApplication("example", new()
     ///     {
     ///         AwsRegion = "us-east-1",
-    ///         Endpoints = new Aws.Chime.Inputs.SdkvoiceSipMediaApplicationEndpointsArgs
+    ///         Endpoints = 
     ///         {
-    ///             LambdaArn = aws_lambda_function.Test.Arn,
+    ///             { "lambdaArn", aws_lambda_function.Test.Arn },
     ///         },
     ///     });
     /// 

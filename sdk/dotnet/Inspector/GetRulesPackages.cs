@@ -15,46 +15,6 @@ namespace Pulumi.Aws.Inspector
         /// The Amazon Inspector Classic Rules Packages data source allows access to the list of AWS
         /// Inspector Rules Packages which can be used by Amazon Inspector Classic within the region
         /// configured in the provider.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var rules = Aws.Inspector.GetRulesPackages.Invoke();
-        /// 
-        ///     // e.g., Use in aws_inspector_assessment_template
-        ///     var @group = new Aws.Inspector.ResourceGroup("group", new()
-        ///     {
-        ///         Tags = 
-        ///         {
-        ///             { "test", "test" },
-        ///         },
-        ///     });
-        /// 
-        ///     var assessmentAssessmentTarget = new Aws.Inspector.AssessmentTarget("assessmentAssessmentTarget", new()
-        ///     {
-        ///         ResourceGroupArn = @group.Arn,
-        ///     });
-        /// 
-        ///     var assessmentAssessmentTemplate = new Aws.Inspector.AssessmentTemplate("assessmentAssessmentTemplate", new()
-        ///     {
-        ///         TargetArn = assessmentAssessmentTarget.Arn,
-        ///         Duration = 60,
-        ///         RulesPackageArns = rules.Apply(getRulesPackagesResult =&gt; getRulesPackagesResult.Arns),
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetRulesPackagesResult> InvokeAsync(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRulesPackagesResult>("aws:inspector/getRulesPackages:getRulesPackages", InvokeArgs.Empty, options.WithDefaults());
@@ -63,46 +23,6 @@ namespace Pulumi.Aws.Inspector
         /// The Amazon Inspector Classic Rules Packages data source allows access to the list of AWS
         /// Inspector Rules Packages which can be used by Amazon Inspector Classic within the region
         /// configured in the provider.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var rules = Aws.Inspector.GetRulesPackages.Invoke();
-        /// 
-        ///     // e.g., Use in aws_inspector_assessment_template
-        ///     var @group = new Aws.Inspector.ResourceGroup("group", new()
-        ///     {
-        ///         Tags = 
-        ///         {
-        ///             { "test", "test" },
-        ///         },
-        ///     });
-        /// 
-        ///     var assessmentAssessmentTarget = new Aws.Inspector.AssessmentTarget("assessmentAssessmentTarget", new()
-        ///     {
-        ///         ResourceGroupArn = @group.Arn,
-        ///     });
-        /// 
-        ///     var assessmentAssessmentTemplate = new Aws.Inspector.AssessmentTemplate("assessmentAssessmentTemplate", new()
-        ///     {
-        ///         TargetArn = assessmentAssessmentTarget.Arn,
-        ///         Duration = 60,
-        ///         RulesPackageArns = rules.Apply(getRulesPackagesResult =&gt; getRulesPackagesResult.Arns),
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetRulesPackagesResult> Invoke(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRulesPackagesResult>("aws:inspector/getRulesPackages:getRulesPackages", InvokeArgs.Empty, options.WithDefaults());

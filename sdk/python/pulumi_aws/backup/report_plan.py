@@ -277,20 +277,20 @@ class ReportPlan(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.backup.ReportPlan("example",
-            description="example description",
-            report_delivery_channel=aws.backup.ReportPlanReportDeliveryChannelArgs(
-                formats=[
-                    "CSV",
-                    "JSON",
+        example = aws.backup.report_plan.ReportPlan("example",
+            description=example description,
+            report_delivery_channel={
+                formats: [
+                    CSV,
+                    JSON,
                 ],
-                s3_bucket_name="example-bucket-name",
-            ),
-            report_setting=aws.backup.ReportPlanReportSettingArgs(
-                report_template="RESTORE_JOB_REPORT",
-            ),
+                s3BucketName: example-bucket-name,
+            },
+            report_setting={
+                reportTemplate: RESTORE_JOB_REPORT,
+            },
             tags={
-                "Name": "Example Report Plan",
+                Name: Example Report Plan,
             })
         ```
 
@@ -325,20 +325,20 @@ class ReportPlan(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.backup.ReportPlan("example",
-            description="example description",
-            report_delivery_channel=aws.backup.ReportPlanReportDeliveryChannelArgs(
-                formats=[
-                    "CSV",
-                    "JSON",
+        example = aws.backup.report_plan.ReportPlan("example",
+            description=example description,
+            report_delivery_channel={
+                formats: [
+                    CSV,
+                    JSON,
                 ],
-                s3_bucket_name="example-bucket-name",
-            ),
-            report_setting=aws.backup.ReportPlanReportSettingArgs(
-                report_template="RESTORE_JOB_REPORT",
-            ),
+                s3BucketName: example-bucket-name,
+            },
+            report_setting={
+                reportTemplate: RESTORE_JOB_REPORT,
+            },
             tags={
-                "Name": "Example Report Plan",
+                Name: Example Report Plan,
             })
         ```
 

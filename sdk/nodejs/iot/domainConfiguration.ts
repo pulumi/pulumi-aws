@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const iot = new aws.iot.DomainConfiguration("iot", {
+ * const iot = new aws.iot/domainConfiguration.DomainConfiguration("iot", {
  *     domainName: "iot.example.com",
  *     serviceType: "DATA",
  *     serverCertificateArns: [aws_acm_certificate.cert.arn],

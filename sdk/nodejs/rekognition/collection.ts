@@ -16,10 +16,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.rekognition.Collection("example", {
+ * const example = new aws.rekognition/collection.Collection("example", {
  *     collectionId: "my-collection",
  *     tags: {
- *         example: "1",
+ *         example: 1,
  *     },
  * });
  * ```

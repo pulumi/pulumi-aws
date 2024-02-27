@@ -30,9 +30,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.backup.Plan;
  * import com.pulumi.aws.backup.PlanArgs;
- * import com.pulumi.aws.backup.inputs.PlanRuleArgs;
- * import com.pulumi.aws.backup.inputs.PlanRuleLifecycleArgs;
- * import com.pulumi.aws.backup.inputs.PlanAdvancedBackupSettingArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -47,18 +44,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Plan(&#34;example&#34;, PlanArgs.builder()        
- *             .rules(PlanRuleArgs.builder()
- *                 .ruleName(&#34;my_example_backup_rule&#34;)
- *                 .targetVaultName(aws_backup_vault.test().name())
- *                 .schedule(&#34;cron(0 12 * * ? *)&#34;)
- *                 .lifecycle(PlanRuleLifecycleArgs.builder()
- *                     .deleteAfter(14)
- *                     .build())
- *                 .build())
- *             .advancedBackupSettings(PlanAdvancedBackupSettingArgs.builder()
- *                 .backupOptions(Map.of(&#34;WindowsVSS&#34;, &#34;enabled&#34;))
- *                 .resourceType(&#34;EC2&#34;)
- *                 .build())
+ *             .rules(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .advancedBackupSettings(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

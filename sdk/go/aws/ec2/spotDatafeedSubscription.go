@@ -24,29 +24,27 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	ec2/spotDatafeedSubscription "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/spotDatafeedSubscription"
+//	s3/bucketV2 "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/s3/bucketV2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			defaultBucketV2, err := s3.NewBucketV2(ctx, "defaultBucketV2", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ec2.NewSpotDatafeedSubscription(ctx, "defaultSpotDatafeedSubscription", &ec2.SpotDatafeedSubscriptionArgs{
-//				Bucket: defaultBucketV2.ID(),
-//				Prefix: pulumi.String("my_subdirectory"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// defaultBucketV2, err := s3/bucketV2.NewBucketV2(ctx, "defaultBucketV2", nil)
+// if err != nil {
+// return err
+// }
+// _, err = ec2/spotDatafeedSubscription.NewSpotDatafeedSubscription(ctx, "defaultSpotDatafeedSubscription", &ec2/spotDatafeedSubscription.SpotDatafeedSubscriptionArgs{
+// Bucket: defaultBucketV2.Id,
+// Prefix: "my_subdirectory",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

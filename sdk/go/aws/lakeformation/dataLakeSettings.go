@@ -23,26 +23,24 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lakeformation"
+//	lakeformation/dataLakeSettings "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/lakeformation/dataLakeSettings"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lakeformation.NewDataLakeSettings(ctx, "example", &lakeformation.DataLakeSettingsArgs{
-//				Admins: pulumi.StringArray{
-//					aws_iam_user.Test.Arn,
-//					aws_iam_role.Test.Arn,
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := lakeformation/dataLakeSettings.NewDataLakeSettings(ctx, "example", &lakeformation/dataLakeSettings.DataLakeSettingsArgs{
+// Admins: []interface{}{
+// aws_iam_user.Test.Arn,
+// aws_iam_role.Test.Arn,
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Create Default Permissions
 //
@@ -51,44 +49,42 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lakeformation"
+//	lakeformation/dataLakeSettings "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/lakeformation/dataLakeSettings"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lakeformation.NewDataLakeSettings(ctx, "example", &lakeformation.DataLakeSettingsArgs{
-//				Admins: pulumi.StringArray{
-//					aws_iam_user.Test.Arn,
-//					aws_iam_role.Test.Arn,
-//				},
-//				CreateDatabaseDefaultPermissions: lakeformation.DataLakeSettingsCreateDatabaseDefaultPermissionArray{
-//					&lakeformation.DataLakeSettingsCreateDatabaseDefaultPermissionArgs{
-//						Permissions: pulumi.StringArray{
-//							pulumi.String("SELECT"),
-//							pulumi.String("ALTER"),
-//							pulumi.String("DROP"),
-//						},
-//						Principal: pulumi.Any(aws_iam_user.Test.Arn),
-//					},
-//				},
-//				CreateTableDefaultPermissions: lakeformation.DataLakeSettingsCreateTableDefaultPermissionArray{
-//					&lakeformation.DataLakeSettingsCreateTableDefaultPermissionArgs{
-//						Permissions: pulumi.StringArray{
-//							pulumi.String("ALL"),
-//						},
-//						Principal: pulumi.Any(aws_iam_role.Test.Arn),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := lakeformation/dataLakeSettings.NewDataLakeSettings(ctx, "example", &lakeformation/dataLakeSettings.DataLakeSettingsArgs{
+// Admins: []interface{}{
+// aws_iam_user.Test.Arn,
+// aws_iam_role.Test.Arn,
+// },
+// CreateDatabaseDefaultPermissions: []map[string]interface{}{
+// map[string]interface{}{
+// "permissions": []string{
+// "SELECT",
+// "ALTER",
+// "DROP",
+// },
+// "principal": aws_iam_user.Test.Arn,
+// },
+// },
+// CreateTableDefaultPermissions: []map[string]interface{}{
+// map[string]interface{}{
+// "permissions": []string{
+// "ALL",
+// },
+// "principal": aws_iam_role.Test.Arn,
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Enable EMR access to LakeFormation resources
 //
@@ -97,52 +93,50 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lakeformation"
+//	lakeformation/dataLakeSettings "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/lakeformation/dataLakeSettings"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lakeformation.NewDataLakeSettings(ctx, "example", &lakeformation.DataLakeSettingsArgs{
-//				Admins: pulumi.StringArray{
-//					aws_iam_user.Test.Arn,
-//					aws_iam_role.Test.Arn,
-//				},
-//				CreateDatabaseDefaultPermissions: lakeformation.DataLakeSettingsCreateDatabaseDefaultPermissionArray{
-//					&lakeformation.DataLakeSettingsCreateDatabaseDefaultPermissionArgs{
-//						Permissions: pulumi.StringArray{
-//							pulumi.String("SELECT"),
-//							pulumi.String("ALTER"),
-//							pulumi.String("DROP"),
-//						},
-//						Principal: pulumi.Any(aws_iam_user.Test.Arn),
-//					},
-//				},
-//				CreateTableDefaultPermissions: lakeformation.DataLakeSettingsCreateTableDefaultPermissionArray{
-//					&lakeformation.DataLakeSettingsCreateTableDefaultPermissionArgs{
-//						Permissions: pulumi.StringArray{
-//							pulumi.String("ALL"),
-//						},
-//						Principal: pulumi.Any(aws_iam_role.Test.Arn),
-//					},
-//				},
-//				AllowExternalDataFiltering: pulumi.Bool(true),
-//				ExternalDataFilteringAllowLists: pulumi.StringArray{
-//					data.Aws_caller_identity.Current.Account_id,
-//					data.Aws_caller_identity.Third_party.Account_id,
-//				},
-//				AuthorizedSessionTagValueLists: pulumi.StringArray{
-//					pulumi.String("Amazon EMR"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := lakeformation/dataLakeSettings.NewDataLakeSettings(ctx, "example", &lakeformation/dataLakeSettings.DataLakeSettingsArgs{
+// Admins: []interface{}{
+// aws_iam_user.Test.Arn,
+// aws_iam_role.Test.Arn,
+// },
+// CreateDatabaseDefaultPermissions: []map[string]interface{}{
+// map[string]interface{}{
+// "permissions": []string{
+// "SELECT",
+// "ALTER",
+// "DROP",
+// },
+// "principal": aws_iam_user.Test.Arn,
+// },
+// },
+// CreateTableDefaultPermissions: []map[string]interface{}{
+// map[string]interface{}{
+// "permissions": []string{
+// "ALL",
+// },
+// "principal": aws_iam_role.Test.Arn,
+// },
+// },
+// AllowExternalDataFiltering: true,
+// ExternalDataFilteringAllowLists: []interface{}{
+// data.Aws_caller_identity.Current.Account_id,
+// data.Aws_caller_identity.Third_party.Account_id,
+// },
+// AuthorizedSessionTagValueLists: []string{
+// "Amazon EMR",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 type DataLakeSettings struct {
 	pulumi.CustomResourceState

@@ -49,7 +49,7 @@ import javax.annotation.Nullable;
  *             .description(&#34;Example Description&#34;)
  *             .hoursOfOperationId(&#34;12345678-1234-1234-1234-123456789012&#34;)
  *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
- *             .tags(Map.of(&#34;Name&#34;, &#34;Example Queue&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -82,7 +82,7 @@ import javax.annotation.Nullable;
  *             .hoursOfOperationId(&#34;12345678-1234-1234-1234-123456789012&#34;)
  *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
  *             .quickConnectIds(&#34;12345678-abcd-1234-abcd-123456789012&#34;)
- *             .tags(Map.of(&#34;Name&#34;, &#34;Example Queue with Quick Connect IDs&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -97,7 +97,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.connect.Queue;
  * import com.pulumi.aws.connect.QueueArgs;
- * import com.pulumi.aws.connect.inputs.QueueOutboundCallerConfigArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -115,12 +114,8 @@ import javax.annotation.Nullable;
  *             .description(&#34;Example Description&#34;)
  *             .hoursOfOperationId(&#34;12345678-1234-1234-1234-123456789012&#34;)
  *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
- *             .outboundCallerConfig(QueueOutboundCallerConfigArgs.builder()
- *                 .outboundCallerIdName(&#34;example&#34;)
- *                 .outboundCallerIdNumberId(&#34;12345678-abcd-1234-abcd-123456789012&#34;)
- *                 .outboundFlowId(&#34;87654321-defg-1234-defg-987654321234&#34;)
- *                 .build())
- *             .tags(Map.of(&#34;Name&#34;, &#34;Example Queue with Outbound Caller Config&#34;))
+ *             .outboundCallerConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

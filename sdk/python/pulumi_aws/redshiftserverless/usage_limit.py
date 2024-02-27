@@ -220,12 +220,12 @@ class UsageLimit(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_workgroup = aws.redshiftserverless.Workgroup("exampleWorkgroup",
-            namespace_name=aws_redshiftserverless_namespace["example"]["namespace_name"],
-            workgroup_name="example")
-        example_usage_limit = aws.redshiftserverless.UsageLimit("exampleUsageLimit",
+        example_workgroup = aws.redshiftserverless.workgroup.Workgroup("exampleWorkgroup",
+            namespace_name=aws_redshiftserverless_namespace.example.namespace_name,
+            workgroup_name=example)
+        example_usage_limit = aws.redshiftserverless.usage_limit.UsageLimit("exampleUsageLimit",
             resource_arn=example_workgroup.arn,
-            usage_type="serverless-compute",
+            usage_type=serverless-compute,
             amount=60)
         ```
 
@@ -260,12 +260,12 @@ class UsageLimit(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_workgroup = aws.redshiftserverless.Workgroup("exampleWorkgroup",
-            namespace_name=aws_redshiftserverless_namespace["example"]["namespace_name"],
-            workgroup_name="example")
-        example_usage_limit = aws.redshiftserverless.UsageLimit("exampleUsageLimit",
+        example_workgroup = aws.redshiftserverless.workgroup.Workgroup("exampleWorkgroup",
+            namespace_name=aws_redshiftserverless_namespace.example.namespace_name,
+            workgroup_name=example)
+        example_usage_limit = aws.redshiftserverless.usage_limit.UsageLimit("exampleUsageLimit",
             resource_arn=example_workgroup.arn,
-            usage_type="serverless-compute",
+            usage_type=serverless-compute,
             amount=60)
         ```
 

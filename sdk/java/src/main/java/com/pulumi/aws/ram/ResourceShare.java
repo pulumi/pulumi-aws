@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new ResourceShare(&#34;example&#34;, ResourceShareArgs.builder()        
  *             .allowExternalPrincipals(true)
- *             .tags(Map.of(&#34;Environment&#34;, &#34;Production&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

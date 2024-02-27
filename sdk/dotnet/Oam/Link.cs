@@ -23,7 +23,7 @@ namespace Pulumi.Aws.Oam
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Oam.Link("example", new()
+    ///     var example = new Aws.Oam.Link.Link("example", new()
     ///     {
     ///         LabelTemplate = "$AccountName",
     ///         ResourceTypes = new[]

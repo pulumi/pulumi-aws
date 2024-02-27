@@ -21,23 +21,21 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/dynamodb"
+//	dynamodb/contributorInsights "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/dynamodb/contributorInsights"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := dynamodb.NewContributorInsights(ctx, "test", &dynamodb.ContributorInsightsArgs{
-//				TableName: pulumi.String("ExampleTableName"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := dynamodb/contributorInsights.NewContributorInsights(ctx, "test", &dynamodb/contributorInsights.ContributorInsightsArgs{
+// TableName: "ExampleTableName",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

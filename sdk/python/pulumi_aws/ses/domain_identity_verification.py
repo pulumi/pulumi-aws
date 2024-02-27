@@ -96,14 +96,14 @@ class DomainIdentityVerification(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ses.DomainIdentity("example", domain="example.com")
-        example_amazonses_verification_record = aws.route53.Record("exampleAmazonsesVerificationRecord",
-            zone_id=aws_route53_zone["example"]["zone_id"],
-            name=example.id.apply(lambda id: f"_amazonses.{id}"),
-            type="TXT",
+        example = aws.ses.domain_identity.DomainIdentity("example", domain=example.com)
+        example_amazonses_verification_record = aws.route53.record.Record("exampleAmazonsesVerificationRecord",
+            zone_id=aws_route53_zone.example.zone_id,
+            name=f_amazonses.{example.id},
+            type=TXT,
             ttl=600,
             records=[example.verification_token])
-        example_verification = aws.ses.DomainIdentityVerification("exampleVerification", domain=example.id,
+        example_verification = aws.ses.domain_identity_verification.DomainIdentityVerification("exampleVerification", domain=example.id,
         opts=pulumi.ResourceOptions(depends_on=[example_amazonses_verification_record]))
         ```
 
@@ -132,14 +132,14 @@ class DomainIdentityVerification(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ses.DomainIdentity("example", domain="example.com")
-        example_amazonses_verification_record = aws.route53.Record("exampleAmazonsesVerificationRecord",
-            zone_id=aws_route53_zone["example"]["zone_id"],
-            name=example.id.apply(lambda id: f"_amazonses.{id}"),
-            type="TXT",
+        example = aws.ses.domain_identity.DomainIdentity("example", domain=example.com)
+        example_amazonses_verification_record = aws.route53.record.Record("exampleAmazonsesVerificationRecord",
+            zone_id=aws_route53_zone.example.zone_id,
+            name=f_amazonses.{example.id},
+            type=TXT,
             ttl=600,
             records=[example.verification_token])
-        example_verification = aws.ses.DomainIdentityVerification("exampleVerification", domain=example.id,
+        example_verification = aws.ses.domain_identity_verification.DomainIdentityVerification("exampleVerification", domain=example.id,
         opts=pulumi.ResourceOptions(depends_on=[example_amazonses_verification_record]))
         ```
 

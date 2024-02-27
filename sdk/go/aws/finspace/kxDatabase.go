@@ -22,38 +22,37 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/finspace"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kms"
+//	finspace/kxDatabase "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/finspace/kxDatabase"
+//	finspace/kxEnvironment "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/finspace/kxEnvironment"
+//	kms/key "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/kms/key"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleKey, err := kms.NewKey(ctx, "exampleKey", &kms.KeyArgs{
-//				Description:          pulumi.String("Example KMS Key"),
-//				DeletionWindowInDays: pulumi.Int(7),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleKxEnvironment, err := finspace.NewKxEnvironment(ctx, "exampleKxEnvironment", &finspace.KxEnvironmentArgs{
-//				KmsKeyId: exampleKey.Arn,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = finspace.NewKxDatabase(ctx, "exampleKxDatabase", &finspace.KxDatabaseArgs{
-//				EnvironmentId: exampleKxEnvironment.ID(),
-//				Description:   pulumi.String("Example database description"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleKey, err := kms/key.NewKey(ctx, "exampleKey", &kms/key.KeyArgs{
+// Description: "Example KMS Key",
+// DeletionWindowInDays: 7,
+// })
+// if err != nil {
+// return err
+// }
+// exampleKxEnvironment, err := finspace/kxEnvironment.NewKxEnvironment(ctx, "exampleKxEnvironment", &finspace/kxEnvironment.KxEnvironmentArgs{
+// KmsKeyId: exampleKey.Arn,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = finspace/kxDatabase.NewKxDatabase(ctx, "exampleKxDatabase", &finspace/kxDatabase.KxDatabaseArgs{
+// EnvironmentId: exampleKxEnvironment.Id,
+// Description: "Example database description",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

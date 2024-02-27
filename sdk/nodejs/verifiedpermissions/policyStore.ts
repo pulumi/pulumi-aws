@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.verifiedpermissions.PolicyStore("example", {validationSettings: {
+ * const example = new aws.verifiedpermissions/policyStore.PolicyStore("example", {validationSettings: {
  *     mode: "STRICT",
  * }});
  * ```

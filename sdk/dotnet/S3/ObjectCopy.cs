@@ -22,19 +22,19 @@ namespace Pulumi.Aws.S3
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Aws.S3.ObjectCopy("test", new()
+    ///     var test = new Aws.S3.ObjectCopy.ObjectCopy("test", new()
     ///     {
     ///         Bucket = "destination_bucket",
     ///         Grants = new[]
     ///         {
-    ///             new Aws.S3.Inputs.ObjectCopyGrantArgs
+    ///             
     ///             {
-    ///                 Permissions = new[]
+    ///                 { "permissions", new[]
     ///                 {
     ///                     "READ",
-    ///                 },
-    ///                 Type = "Group",
-    ///                 Uri = "http://acs.amazonaws.com/groups/global/AllUsers",
+    ///                 } },
+    ///                 { "type", "Group" },
+    ///                 { "uri", "http://acs.amazonaws.com/groups/global/AllUsers" },
     ///             },
     ///         },
     ///         Key = "destination_key",

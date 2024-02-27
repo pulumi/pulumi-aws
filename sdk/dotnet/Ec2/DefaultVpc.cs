@@ -34,7 +34,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var @default = new Aws.Ec2.DefaultVpc("default", new()
+    ///     var @default = new Aws.Ec2.DefaultVpc.DefaultVpc("default", new()
     ///     {
     ///         Tags = 
     ///         {

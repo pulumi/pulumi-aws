@@ -94,21 +94,6 @@ def get_eips(filters: Optional[Sequence[pulumi.InputType['GetEipsFilterArgs']]] 
     """
     Provides a list of Elastic IPs in a region.
 
-    ## Example Usage
-
-    The following shows outputting all Elastic IPs with the a specific tag value.
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ec2.get_eips(tags={
-        "Env": "dev",
-    })
-    pulumi.export("allocationIds", example.allocation_ids)
-    pulumi.export("publicIps", example.public_ips)
-    ```
-
 
     :param Sequence[pulumi.InputType['GetEipsFilterArgs']] filters: Custom filter block as described below.
     :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match a pair on the desired Elastic IPs.
@@ -133,21 +118,6 @@ def get_eips_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.Inpu
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEipsResult]:
     """
     Provides a list of Elastic IPs in a region.
-
-    ## Example Usage
-
-    The following shows outputting all Elastic IPs with the a specific tag value.
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ec2.get_eips(tags={
-        "Env": "dev",
-    })
-    pulumi.export("allocationIds", example.allocation_ids)
-    pulumi.export("publicIps", example.public_ips)
-    ```
 
 
     :param Sequence[pulumi.InputType['GetEipsFilterArgs']] filters: Custom filter block as described below.

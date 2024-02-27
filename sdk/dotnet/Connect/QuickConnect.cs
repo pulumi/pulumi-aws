@@ -23,20 +23,20 @@ namespace Pulumi.Aws.Connect
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Aws.Connect.QuickConnect("test", new()
+    ///     var test = new Aws.Connect.QuickConnect.QuickConnect("test", new()
     ///     {
     ///         Description = "quick connect phone number",
     ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
-    ///         QuickConnectConfig = new Aws.Connect.Inputs.QuickConnectQuickConnectConfigArgs
+    ///         QuickConnectConfig = 
     ///         {
-    ///             PhoneConfigs = new[]
+    ///             { "phoneConfigs", new[]
     ///             {
-    ///                 new Aws.Connect.Inputs.QuickConnectQuickConnectConfigPhoneConfigArgs
+    ///                 
     ///                 {
-    ///                     PhoneNumber = "+12345678912",
+    ///                     { "phoneNumber", "+12345678912" },
     ///                 },
-    ///             },
-    ///             QuickConnectType = "PHONE_NUMBER",
+    ///             } },
+    ///             { "quickConnectType", "PHONE_NUMBER" },
     ///         },
     ///         Tags = 
     ///         {

@@ -24,53 +24,53 @@ import (
 //
 //	"os"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/elasticsearch"
+//	elasticsearch/domain "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/elasticsearch/domain"
+//	elasticsearch/domainSamlOptions "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/elasticsearch/domainSamlOptions"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func readFileOrPanic(path string) pulumi.StringPtrInput {
-//		data, err := os.ReadFile(path)
-//		if err != nil {
-//			panic(err.Error())
-//		}
-//		return pulumi.String(string(data))
-//	}
+//					data, err := os.ReadFile(path)
+//					if err != nil {
+//						panic(err.Error())
+//					}
+//					return pulumi.String(string(data))
+//				}
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleDomain, err := elasticsearch.NewDomain(ctx, "exampleDomain", &elasticsearch.DomainArgs{
-//				ElasticsearchVersion: pulumi.String("1.5"),
-//				ClusterConfig: &elasticsearch.DomainClusterConfigArgs{
-//					InstanceType: pulumi.String("r4.large.elasticsearch"),
-//				},
-//				SnapshotOptions: &elasticsearch.DomainSnapshotOptionsArgs{
-//					AutomatedSnapshotStartHour: pulumi.Int(23),
-//				},
-//				Tags: pulumi.StringMap{
-//					"Domain": pulumi.String("TestDomain"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = elasticsearch.NewDomainSamlOptions(ctx, "exampleDomainSamlOptions", &elasticsearch.DomainSamlOptionsArgs{
-//				DomainName: exampleDomain.DomainName,
-//				SamlOptions: &elasticsearch.DomainSamlOptionsSamlOptionsArgs{
-//					Enabled: pulumi.Bool(true),
-//					Idp: &elasticsearch.DomainSamlOptionsSamlOptionsIdpArgs{
-//						EntityId:        pulumi.String("https://example.com"),
-//						MetadataContent: readFileOrPanic("./saml-metadata.xml"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleDomain, err := elasticsearch/domain.NewDomain(ctx, "exampleDomain", &elasticsearch/domain.DomainArgs{
+// ElasticsearchVersion: "1.5",
+// ClusterConfig: map[string]interface{}{
+// "instanceType": "r4.large.elasticsearch",
+// },
+// SnapshotOptions: map[string]interface{}{
+// "automatedSnapshotStartHour": 23,
+// },
+// Tags: map[string]interface{}{
+// "Domain": "TestDomain",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = elasticsearch/domainSamlOptions.NewDomainSamlOptions(ctx, "exampleDomainSamlOptions", &elasticsearch/domainSamlOptions.DomainSamlOptionsArgs{
+// DomainName: exampleDomain.DomainName,
+// SamlOptions: map[string]interface{}{
+// "enabled": true,
+// "idp": map[string]interface{}{
+// "entityId": "https://example.com",
+// "metadataContent": readFileOrPanic("./saml-metadata.xml"),
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

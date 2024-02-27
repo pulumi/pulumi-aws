@@ -188,15 +188,15 @@ class LoadBalancerCookieStickinessPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        lb = aws.elb.LoadBalancer("lb",
-            availability_zones=["us-east-1a"],
-            listeners=[aws.elb.LoadBalancerListenerArgs(
-                instance_port=8000,
-                instance_protocol="http",
-                lb_port=80,
-                lb_protocol="http",
-            )])
-        foo = aws.elb.LoadBalancerCookieStickinessPolicy("foo",
+        lb = aws.elb.load_balancer.LoadBalancer("lb",
+            availability_zones=[us-east-1a],
+            listeners=[{
+                instancePort: 8000,
+                instanceProtocol: http,
+                lbPort: 80,
+                lbProtocol: http,
+            }])
+        foo = aws.elb.load_balancer_cookie_stickiness_policy.LoadBalancerCookieStickinessPolicy("foo",
             load_balancer=lb.id,
             lb_port=80,
             cookie_expiration_period=600)
@@ -228,15 +228,15 @@ class LoadBalancerCookieStickinessPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        lb = aws.elb.LoadBalancer("lb",
-            availability_zones=["us-east-1a"],
-            listeners=[aws.elb.LoadBalancerListenerArgs(
-                instance_port=8000,
-                instance_protocol="http",
-                lb_port=80,
-                lb_protocol="http",
-            )])
-        foo = aws.elb.LoadBalancerCookieStickinessPolicy("foo",
+        lb = aws.elb.load_balancer.LoadBalancer("lb",
+            availability_zones=[us-east-1a],
+            listeners=[{
+                instancePort: 8000,
+                instanceProtocol: http,
+                lbPort: 80,
+                lbProtocol: http,
+            }])
+        foo = aws.elb.load_balancer_cookie_stickiness_policy.LoadBalancerCookieStickinessPolicy("foo",
             load_balancer=lb.id,
             lb_port=80,
             cookie_expiration_period=600)

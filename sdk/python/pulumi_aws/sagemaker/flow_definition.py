@@ -310,20 +310,20 @@ class FlowDefinition(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.sagemaker.FlowDefinition("example",
-            flow_definition_name="example",
-            role_arn=aws_iam_role["example"]["arn"],
-            human_loop_config=aws.sagemaker.FlowDefinitionHumanLoopConfigArgs(
-                human_task_ui_arn=aws_sagemaker_human_task_ui["example"]["arn"],
-                task_availability_lifetime_in_seconds=1,
-                task_count=1,
-                task_description="example",
-                task_title="example",
-                workteam_arn=aws_sagemaker_workteam["example"]["arn"],
-            ),
-            output_config=aws.sagemaker.FlowDefinitionOutputConfigArgs(
-                s3_output_path=f"s3://{aws_s3_bucket['example']['bucket']}/",
-            ))
+        example = aws.sagemaker.flow_definition.FlowDefinition("example",
+            flow_definition_name=example,
+            role_arn=aws_iam_role.example.arn,
+            human_loop_config={
+                humanTaskUiArn: aws_sagemaker_human_task_ui.example.arn,
+                taskAvailabilityLifetimeInSeconds: 1,
+                taskCount: 1,
+                taskDescription: example,
+                taskTitle: example,
+                workteamArn: aws_sagemaker_workteam.example.arn,
+            },
+            output_config={
+                s3OutputPath: fs3://{aws_s3_bucket.example.bucket}/,
+            })
         ```
         ### Public Workteam Usage
 
@@ -331,26 +331,26 @@ class FlowDefinition(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.sagemaker.FlowDefinition("example",
-            flow_definition_name="example",
-            role_arn=aws_iam_role["example"]["arn"],
-            human_loop_config=aws.sagemaker.FlowDefinitionHumanLoopConfigArgs(
-                human_task_ui_arn=aws_sagemaker_human_task_ui["example"]["arn"],
-                task_availability_lifetime_in_seconds=1,
-                task_count=1,
-                task_description="example",
-                task_title="example",
-                workteam_arn=f"arn:aws:sagemaker:{data['aws_region']['current']['name']}:394669845002:workteam/public-crowd/default",
-                public_workforce_task_price=aws.sagemaker.FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceArgs(
-                    amount_in_usd=aws.sagemaker.FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdArgs(
-                        cents=1,
-                        tenth_fractions_of_a_cent=2,
-                    ),
-                ),
-            ),
-            output_config=aws.sagemaker.FlowDefinitionOutputConfigArgs(
-                s3_output_path=f"s3://{aws_s3_bucket['example']['bucket']}/",
-            ))
+        example = aws.sagemaker.flow_definition.FlowDefinition("example",
+            flow_definition_name=example,
+            role_arn=aws_iam_role.example.arn,
+            human_loop_config={
+                humanTaskUiArn: aws_sagemaker_human_task_ui.example.arn,
+                taskAvailabilityLifetimeInSeconds: 1,
+                taskCount: 1,
+                taskDescription: example,
+                taskTitle: example,
+                workteamArn: farn:aws:sagemaker:{data.aws_region.current.name}:394669845002:workteam/public-crowd/default,
+                publicWorkforceTaskPrice: {
+                    amountInUsd: {
+                        cents: 1,
+                        tenthFractionsOfACent: 2,
+                    },
+                },
+            },
+            output_config={
+                s3OutputPath: fs3://{aws_s3_bucket.example.bucket}/,
+            })
         ```
         ### Human Loop Activation Config Usage
 
@@ -358,23 +358,23 @@ class FlowDefinition(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.sagemaker.FlowDefinition("example",
-            flow_definition_name="example",
-            role_arn=aws_iam_role["example"]["arn"],
-            human_loop_config=aws.sagemaker.FlowDefinitionHumanLoopConfigArgs(
-                human_task_ui_arn=aws_sagemaker_human_task_ui["example"]["arn"],
-                task_availability_lifetime_in_seconds=1,
-                task_count=1,
-                task_description="example",
-                task_title="example",
-                workteam_arn=aws_sagemaker_workteam["example"]["arn"],
-            ),
-            human_loop_request_source=aws.sagemaker.FlowDefinitionHumanLoopRequestSourceArgs(
-                aws_managed_human_loop_request_source="AWS/Textract/AnalyzeDocument/Forms/V1",
-            ),
-            human_loop_activation_config=aws.sagemaker.FlowDefinitionHumanLoopActivationConfigArgs(
-                human_loop_activation_conditions_config=aws.sagemaker.FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigArgs(
-                    human_loop_activation_conditions=\"\"\"        {
+        example = aws.sagemaker.flow_definition.FlowDefinition("example",
+            flow_definition_name=example,
+            role_arn=aws_iam_role.example.arn,
+            human_loop_config={
+                humanTaskUiArn: aws_sagemaker_human_task_ui.example.arn,
+                taskAvailabilityLifetimeInSeconds: 1,
+                taskCount: 1,
+                taskDescription: example,
+                taskTitle: example,
+                workteamArn: aws_sagemaker_workteam.example.arn,
+            },
+            human_loop_request_source={
+                awsManagedHumanLoopRequestSource: AWS/Textract/AnalyzeDocument/Forms/V1,
+            },
+            human_loop_activation_config={
+                humanLoopActivationConditionsConfig: {
+                    humanLoopActivationConditions:         {
         			"Conditions": [
         			  {
         				"ConditionType": "Sampling",
@@ -384,12 +384,12 @@ class FlowDefinition(pulumi.CustomResource):
         			  }
         			]
         		}
-        \"\"\",
-                ),
-            ),
-            output_config=aws.sagemaker.FlowDefinitionOutputConfigArgs(
-                s3_output_path=f"s3://{aws_s3_bucket['example']['bucket']}/",
-            ))
+        ,
+                },
+            },
+            output_config={
+                s3OutputPath: fs3://{aws_s3_bucket.example.bucket}/,
+            })
         ```
 
         ## Import
@@ -426,20 +426,20 @@ class FlowDefinition(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.sagemaker.FlowDefinition("example",
-            flow_definition_name="example",
-            role_arn=aws_iam_role["example"]["arn"],
-            human_loop_config=aws.sagemaker.FlowDefinitionHumanLoopConfigArgs(
-                human_task_ui_arn=aws_sagemaker_human_task_ui["example"]["arn"],
-                task_availability_lifetime_in_seconds=1,
-                task_count=1,
-                task_description="example",
-                task_title="example",
-                workteam_arn=aws_sagemaker_workteam["example"]["arn"],
-            ),
-            output_config=aws.sagemaker.FlowDefinitionOutputConfigArgs(
-                s3_output_path=f"s3://{aws_s3_bucket['example']['bucket']}/",
-            ))
+        example = aws.sagemaker.flow_definition.FlowDefinition("example",
+            flow_definition_name=example,
+            role_arn=aws_iam_role.example.arn,
+            human_loop_config={
+                humanTaskUiArn: aws_sagemaker_human_task_ui.example.arn,
+                taskAvailabilityLifetimeInSeconds: 1,
+                taskCount: 1,
+                taskDescription: example,
+                taskTitle: example,
+                workteamArn: aws_sagemaker_workteam.example.arn,
+            },
+            output_config={
+                s3OutputPath: fs3://{aws_s3_bucket.example.bucket}/,
+            })
         ```
         ### Public Workteam Usage
 
@@ -447,26 +447,26 @@ class FlowDefinition(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.sagemaker.FlowDefinition("example",
-            flow_definition_name="example",
-            role_arn=aws_iam_role["example"]["arn"],
-            human_loop_config=aws.sagemaker.FlowDefinitionHumanLoopConfigArgs(
-                human_task_ui_arn=aws_sagemaker_human_task_ui["example"]["arn"],
-                task_availability_lifetime_in_seconds=1,
-                task_count=1,
-                task_description="example",
-                task_title="example",
-                workteam_arn=f"arn:aws:sagemaker:{data['aws_region']['current']['name']}:394669845002:workteam/public-crowd/default",
-                public_workforce_task_price=aws.sagemaker.FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceArgs(
-                    amount_in_usd=aws.sagemaker.FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdArgs(
-                        cents=1,
-                        tenth_fractions_of_a_cent=2,
-                    ),
-                ),
-            ),
-            output_config=aws.sagemaker.FlowDefinitionOutputConfigArgs(
-                s3_output_path=f"s3://{aws_s3_bucket['example']['bucket']}/",
-            ))
+        example = aws.sagemaker.flow_definition.FlowDefinition("example",
+            flow_definition_name=example,
+            role_arn=aws_iam_role.example.arn,
+            human_loop_config={
+                humanTaskUiArn: aws_sagemaker_human_task_ui.example.arn,
+                taskAvailabilityLifetimeInSeconds: 1,
+                taskCount: 1,
+                taskDescription: example,
+                taskTitle: example,
+                workteamArn: farn:aws:sagemaker:{data.aws_region.current.name}:394669845002:workteam/public-crowd/default,
+                publicWorkforceTaskPrice: {
+                    amountInUsd: {
+                        cents: 1,
+                        tenthFractionsOfACent: 2,
+                    },
+                },
+            },
+            output_config={
+                s3OutputPath: fs3://{aws_s3_bucket.example.bucket}/,
+            })
         ```
         ### Human Loop Activation Config Usage
 
@@ -474,23 +474,23 @@ class FlowDefinition(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.sagemaker.FlowDefinition("example",
-            flow_definition_name="example",
-            role_arn=aws_iam_role["example"]["arn"],
-            human_loop_config=aws.sagemaker.FlowDefinitionHumanLoopConfigArgs(
-                human_task_ui_arn=aws_sagemaker_human_task_ui["example"]["arn"],
-                task_availability_lifetime_in_seconds=1,
-                task_count=1,
-                task_description="example",
-                task_title="example",
-                workteam_arn=aws_sagemaker_workteam["example"]["arn"],
-            ),
-            human_loop_request_source=aws.sagemaker.FlowDefinitionHumanLoopRequestSourceArgs(
-                aws_managed_human_loop_request_source="AWS/Textract/AnalyzeDocument/Forms/V1",
-            ),
-            human_loop_activation_config=aws.sagemaker.FlowDefinitionHumanLoopActivationConfigArgs(
-                human_loop_activation_conditions_config=aws.sagemaker.FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigArgs(
-                    human_loop_activation_conditions=\"\"\"        {
+        example = aws.sagemaker.flow_definition.FlowDefinition("example",
+            flow_definition_name=example,
+            role_arn=aws_iam_role.example.arn,
+            human_loop_config={
+                humanTaskUiArn: aws_sagemaker_human_task_ui.example.arn,
+                taskAvailabilityLifetimeInSeconds: 1,
+                taskCount: 1,
+                taskDescription: example,
+                taskTitle: example,
+                workteamArn: aws_sagemaker_workteam.example.arn,
+            },
+            human_loop_request_source={
+                awsManagedHumanLoopRequestSource: AWS/Textract/AnalyzeDocument/Forms/V1,
+            },
+            human_loop_activation_config={
+                humanLoopActivationConditionsConfig: {
+                    humanLoopActivationConditions:         {
         			"Conditions": [
         			  {
         				"ConditionType": "Sampling",
@@ -500,12 +500,12 @@ class FlowDefinition(pulumi.CustomResource):
         			  }
         			]
         		}
-        \"\"\",
-                ),
-            ),
-            output_config=aws.sagemaker.FlowDefinitionOutputConfigArgs(
-                s3_output_path=f"s3://{aws_s3_bucket['example']['bucket']}/",
-            ))
+        ,
+                },
+            },
+            output_config={
+                s3OutputPath: fs3://{aws_s3_bucket.example.bucket}/,
+            })
         ```
 
         ## Import

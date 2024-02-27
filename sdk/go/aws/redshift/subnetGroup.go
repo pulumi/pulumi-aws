@@ -21,58 +21,57 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/redshift"
+//	ec2/subnet "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/subnet"
+//	ec2/vpc "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/vpc"
+//	redshift/subnetGroup "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/redshift/subnetGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			fooVpc, err := ec2.NewVpc(ctx, "fooVpc", &ec2.VpcArgs{
-//				CidrBlock: pulumi.String("10.1.0.0/16"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			fooSubnet, err := ec2.NewSubnet(ctx, "fooSubnet", &ec2.SubnetArgs{
-//				CidrBlock:        pulumi.String("10.1.1.0/24"),
-//				AvailabilityZone: pulumi.String("us-west-2a"),
-//				VpcId:            fooVpc.ID(),
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("tf-dbsubnet-test-1"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			bar, err := ec2.NewSubnet(ctx, "bar", &ec2.SubnetArgs{
-//				CidrBlock:        pulumi.String("10.1.2.0/24"),
-//				AvailabilityZone: pulumi.String("us-west-2b"),
-//				VpcId:            fooVpc.ID(),
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("tf-dbsubnet-test-2"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = redshift.NewSubnetGroup(ctx, "fooSubnetGroup", &redshift.SubnetGroupArgs{
-//				SubnetIds: pulumi.StringArray{
-//					fooSubnet.ID(),
-//					bar.ID(),
-//				},
-//				Tags: pulumi.StringMap{
-//					"environment": pulumi.String("Production"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// fooVpc, err := ec2/vpc.NewVpc(ctx, "fooVpc", &ec2/vpc.VpcArgs{
+// CidrBlock: "10.1.0.0/16",
+// })
+// if err != nil {
+// return err
+// }
+// fooSubnet, err := ec2/subnet.NewSubnet(ctx, "fooSubnet", &ec2/subnet.SubnetArgs{
+// CidrBlock: "10.1.1.0/24",
+// AvailabilityZone: "us-west-2a",
+// VpcId: fooVpc.Id,
+// Tags: map[string]interface{}{
+// "Name": "tf-dbsubnet-test-1",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// bar, err := ec2/subnet.NewSubnet(ctx, "bar", &ec2/subnet.SubnetArgs{
+// CidrBlock: "10.1.2.0/24",
+// AvailabilityZone: "us-west-2b",
+// VpcId: fooVpc.Id,
+// Tags: map[string]interface{}{
+// "Name": "tf-dbsubnet-test-2",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = redshift/subnetGroup.NewSubnetGroup(ctx, "fooSubnetGroup", &redshift/subnetGroup.SubnetGroupArgs{
+// SubnetIds: []interface{}{
+// fooSubnet.Id,
+// bar.Id,
+// },
+// Tags: map[string]interface{}{
+// "environment": "Production",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

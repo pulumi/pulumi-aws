@@ -23,7 +23,7 @@ namespace Pulumi.Aws.CodeCommit
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.CodeCommit.ApprovalRuleTemplate("example", new()
+    ///     var example = new Aws.Codecommit.ApprovalRuleTemplate.ApprovalRuleTemplate("example", new()
     ///     {
     ///         Description = "This is an example approval rule template",
     ///         Content = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;

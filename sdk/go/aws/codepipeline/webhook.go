@@ -21,107 +21,107 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/codepipeline"
-//	"github.com/pulumi/pulumi-github/sdk/v5/go/github"
+//	codepipeline/pipeline "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/codepipeline/pipeline"
+//	codepipeline/webhook "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/codepipeline/webhook"
+//	index/repositoryWebhook "github.com/pulumi/pulumi-github/sdk/v1/go/github/index/repositoryWebhook"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			barPipeline, err := codepipeline.NewPipeline(ctx, "barPipeline", &codepipeline.PipelineArgs{
-//				RoleArn: pulumi.Any(aws_iam_role.Bar.Arn),
-//				ArtifactStores: codepipeline.PipelineArtifactStoreArray{
-//					&codepipeline.PipelineArtifactStoreArgs{
-//						Location: pulumi.Any(aws_s3_bucket.Bar.Bucket),
-//						Type:     pulumi.String("S3"),
-//						EncryptionKey: &codepipeline.PipelineArtifactStoreEncryptionKeyArgs{
-//							Id:   pulumi.Any(data.Aws_kms_alias.S3kmskey.Arn),
-//							Type: pulumi.String("KMS"),
-//						},
-//					},
-//				},
-//				Stages: codepipeline.PipelineStageArray{
-//					&codepipeline.PipelineStageArgs{
-//						Name: pulumi.String("Source"),
-//						Actions: codepipeline.PipelineStageActionArray{
-//							&codepipeline.PipelineStageActionArgs{
-//								Name:     pulumi.String("Source"),
-//								Category: pulumi.String("Source"),
-//								Owner:    pulumi.String("ThirdParty"),
-//								Provider: pulumi.String("GitHub"),
-//								Version:  pulumi.String("1"),
-//								OutputArtifacts: pulumi.StringArray{
-//									pulumi.String("test"),
-//								},
-//								Configuration: pulumi.StringMap{
-//									"Owner":  pulumi.String("my-organization"),
-//									"Repo":   pulumi.String("test"),
-//									"Branch": pulumi.String("master"),
-//								},
-//							},
-//						},
-//					},
-//					&codepipeline.PipelineStageArgs{
-//						Name: pulumi.String("Build"),
-//						Actions: codepipeline.PipelineStageActionArray{
-//							&codepipeline.PipelineStageActionArgs{
-//								Name:     pulumi.String("Build"),
-//								Category: pulumi.String("Build"),
-//								Owner:    pulumi.String("AWS"),
-//								Provider: pulumi.String("CodeBuild"),
-//								InputArtifacts: pulumi.StringArray{
-//									pulumi.String("test"),
-//								},
-//								Version: pulumi.String("1"),
-//								Configuration: pulumi.StringMap{
-//									"ProjectName": pulumi.String("test"),
-//								},
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			webhookSecret := "super-secret"
-//			barWebhook, err := codepipeline.NewWebhook(ctx, "barWebhook", &codepipeline.WebhookArgs{
-//				Authentication: pulumi.String("GITHUB_HMAC"),
-//				TargetAction:   pulumi.String("Source"),
-//				TargetPipeline: barPipeline.Name,
-//				AuthenticationConfiguration: &codepipeline.WebhookAuthenticationConfigurationArgs{
-//					SecretToken: pulumi.String(webhookSecret),
-//				},
-//				Filters: codepipeline.WebhookFilterArray{
-//					&codepipeline.WebhookFilterArgs{
-//						JsonPath:    pulumi.String("$.ref"),
-//						MatchEquals: pulumi.String("refs/heads/{Branch}"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = github.NewRepositoryWebhook(ctx, "barRepositoryWebhook", &github.RepositoryWebhookArgs{
-//				Repository: pulumi.Any(github_repository.Repo.Name),
-//				Configuration: &github.RepositoryWebhookConfigurationArgs{
-//					Url:         barWebhook.Url,
-//					ContentType: pulumi.String("json"),
-//					InsecureSsl: pulumi.Bool(true),
-//					Secret:      pulumi.String(webhookSecret),
-//				},
-//				Events: pulumi.StringArray{
-//					pulumi.String("push"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// barPipeline, err := codepipeline/pipeline.NewPipeline(ctx, "barPipeline", &codepipeline/pipeline.PipelineArgs{
+// RoleArn: aws_iam_role.Bar.Arn,
+// ArtifactStores: []map[string]interface{}{
+// map[string]interface{}{
+// "location": aws_s3_bucket.Bar.Bucket,
+// "type": "S3",
+// "encryptionKey": map[string]interface{}{
+// "id": data.Aws_kms_alias.S3kmskey.Arn,
+// "type": "KMS",
+// },
+// },
+// },
+// Stages: []interface{}{
+// map[string]interface{}{
+// "name": "Source",
+// "actions": []map[string]interface{}{
+// map[string]interface{}{
+// "name": "Source",
+// "category": "Source",
+// "owner": "ThirdParty",
+// "provider": "GitHub",
+// "version": "1",
+// "outputArtifacts": []string{
+// "test",
+// },
+// "configuration": map[string]interface{}{
+// "Owner": "my-organization",
+// "Repo": "test",
+// "Branch": "master",
+// },
+// },
+// },
+// },
+// map[string]interface{}{
+// "name": "Build",
+// "actions": []map[string]interface{}{
+// map[string]interface{}{
+// "name": "Build",
+// "category": "Build",
+// "owner": "AWS",
+// "provider": "CodeBuild",
+// "inputArtifacts": []string{
+// "test",
+// },
+// "version": "1",
+// "configuration": map[string]interface{}{
+// "ProjectName": "test",
+// },
+// },
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// webhookSecret := "super-secret";
+// barWebhook, err := codepipeline/webhook.NewWebhook(ctx, "barWebhook", &codepipeline/webhook.WebhookArgs{
+// Authentication: "GITHUB_HMAC",
+// TargetAction: "Source",
+// TargetPipeline: barPipeline.Name,
+// AuthenticationConfiguration: map[string]interface{}{
+// "secretToken": webhookSecret,
+// },
+// Filters: []map[string]interface{}{
+// map[string]interface{}{
+// "jsonPath": "$.ref",
+// "matchEquals": "refs/heads/{Branch}",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// // Wire the CodePipeline webhook into a GitHub repository.
+// _, err = github.NewRepositoryWebhook(ctx, "barRepositoryWebhook", &github.RepositoryWebhookArgs{
+// Repository: github_repository.Repo.Name,
+// Configuration: map[string]interface{}{
+// "url": barWebhook.Url,
+// "contentType": "json",
+// "insecureSsl": true,
+// "secret": webhookSecret,
+// },
+// Events: []string{
+// "push",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

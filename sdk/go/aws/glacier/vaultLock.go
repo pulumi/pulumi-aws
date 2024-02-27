@@ -19,62 +19,6 @@ import (
 // !> **WARNING:** Once a Glacier Vault Lock is completed, it is immutable. The deletion of the Glacier Vault Lock is not be possible and attempting to remove it from this provider will return an error. Set the `ignoreDeletionError` argument to `true` and apply this configuration before attempting to delete this resource via this provider or remove this resource from this provider's management.
 //
 // ## Example Usage
-// ### Testing Glacier Vault Lock Policy
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/glacier"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleVault, err := glacier.NewVault(ctx, "exampleVault", nil)
-//			if err != nil {
-//				return err
-//			}
-//			examplePolicyDocument := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
-//				Statements: iam.GetPolicyDocumentStatementArray{
-//					&iam.GetPolicyDocumentStatementArgs{
-//						Actions: pulumi.StringArray{
-//							pulumi.String("glacier:DeleteArchive"),
-//						},
-//						Effect: pulumi.String("Deny"),
-//						Resources: pulumi.StringArray{
-//							exampleVault.Arn,
-//						},
-//						Conditions: iam.GetPolicyDocumentStatementConditionArray{
-//							&iam.GetPolicyDocumentStatementConditionArgs{
-//								Test:     pulumi.String("NumericLessThanEquals"),
-//								Variable: pulumi.String("glacier:ArchiveAgeinDays"),
-//								Values: pulumi.StringArray{
-//									pulumi.String("365"),
-//								},
-//							},
-//						},
-//					},
-//				},
-//			}, nil)
-//			_, err = glacier.NewVaultLock(ctx, "exampleVaultLock", &glacier.VaultLockArgs{
-//				CompleteLock: pulumi.Bool(false),
-//				Policy: examplePolicyDocument.ApplyT(func(examplePolicyDocument iam.GetPolicyDocumentResult) (*string, error) {
-//					return &examplePolicyDocument.Json, nil
-//				}).(pulumi.StringPtrOutput),
-//				VaultName: exampleVault.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 // ### Permanently Applying Glacier Vault Lock Policy
 //
 // ```go
@@ -82,25 +26,23 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/glacier"
+//	glacier/vaultLock "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/glacier/vaultLock"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := glacier.NewVaultLock(ctx, "example", &glacier.VaultLockArgs{
-//				CompleteLock: pulumi.Bool(true),
-//				Policy:       pulumi.Any(data.Aws_iam_policy_document.Example.Json),
-//				VaultName:    pulumi.Any(aws_glacier_vault.Example.Name),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := glacier/vaultLock.NewVaultLock(ctx, "example", &glacier/vaultLock.VaultLockArgs{
+// CompleteLock: true,
+// Policy: data.Aws_iam_policy_document.Example.Json,
+// VaultName: aws_glacier_vault.Example.Name,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

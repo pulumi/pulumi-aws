@@ -21,25 +21,23 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/directconnect"
+//	directconnect/gatewayAssociationProposal "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/directconnect/gatewayAssociationProposal"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := directconnect.NewGatewayAssociationProposal(ctx, "example", &directconnect.GatewayAssociationProposalArgs{
-//				DxGatewayId:             pulumi.Any(aws_dx_gateway.Example.Id),
-//				DxGatewayOwnerAccountId: pulumi.Any(aws_dx_gateway.Example.Owner_account_id),
-//				AssociatedGatewayId:     pulumi.Any(aws_vpn_gateway.Example.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := directconnect/gatewayAssociationProposal.NewGatewayAssociationProposal(ctx, "example", &directconnect/gatewayAssociationProposal.GatewayAssociationProposalArgs{
+// DxGatewayId: aws_dx_gateway.Example.Id,
+// DxGatewayOwnerAccountId: aws_dx_gateway.Example.Owner_account_id,
+// AssociatedGatewayId: aws_vpn_gateway.Example.Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

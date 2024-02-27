@@ -121,15 +121,6 @@ def get_saml_provider(arn: Optional[str] = None,
     IAM SAML provider. This will allow you to easily retrieve the metadata
     document of an existing SAML provider.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.iam.get_saml_provider(arn="arn:aws:iam::123456789:saml-provider/myprovider")
-    ```
-
 
     :param str arn: ARN assigned by AWS for the provider.
     :param Mapping[str, str] tags: Tags attached to the SAML provider.
@@ -158,15 +149,6 @@ def get_saml_provider_output(arn: Optional[pulumi.Input[str]] = None,
     This data source can be used to fetch information about a specific
     IAM SAML provider. This will allow you to easily retrieve the metadata
     document of an existing SAML provider.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.iam.get_saml_provider(arn="arn:aws:iam::123456789:saml-provider/myprovider")
-    ```
 
 
     :param str arn: ARN assigned by AWS for the provider.

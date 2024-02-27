@@ -46,8 +46,8 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new DataCatalog(&#34;example&#34;, DataCatalogArgs.builder()        
  *             .description(&#34;Example Athena data catalog&#34;)
- *             .parameters(Map.of(&#34;function&#34;, &#34;arn:aws:lambda:eu-central-1:123456789012:function:not-important-lambda-function&#34;))
- *             .tags(Map.of(&#34;Name&#34;, &#34;example-athena-data-catalog&#34;))
+ *             .parameters(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .type(&#34;LAMBDA&#34;)
  *             .build());
  * 
@@ -78,7 +78,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new DataCatalog(&#34;example&#34;, DataCatalogArgs.builder()        
  *             .description(&#34;Hive based Data Catalog&#34;)
- *             .parameters(Map.of(&#34;metadata-function&#34;, &#34;arn:aws:lambda:eu-central-1:123456789012:function:not-important-lambda-function&#34;))
+ *             .parameters(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .type(&#34;HIVE&#34;)
  *             .build());
  * 
@@ -109,7 +109,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new DataCatalog(&#34;example&#34;, DataCatalogArgs.builder()        
  *             .description(&#34;Glue based Data Catalog&#34;)
- *             .parameters(Map.of(&#34;catalog-id&#34;, &#34;123456789012&#34;))
+ *             .parameters(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .type(&#34;GLUE&#34;)
  *             .build());
  * 
@@ -140,10 +140,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new DataCatalog(&#34;example&#34;, DataCatalogArgs.builder()        
  *             .description(&#34;Lambda based Data Catalog&#34;)
- *             .parameters(Map.ofEntries(
- *                 Map.entry(&#34;metadata-function&#34;, &#34;arn:aws:lambda:eu-central-1:123456789012:function:not-important-lambda-function-1&#34;),
- *                 Map.entry(&#34;record-function&#34;, &#34;arn:aws:lambda:eu-central-1:123456789012:function:not-important-lambda-function-2&#34;)
- *             ))
+ *             .parameters(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .type(&#34;LAMBDA&#34;)
  *             .build());
  * 

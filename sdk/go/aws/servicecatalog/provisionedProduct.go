@@ -29,33 +29,31 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/servicecatalog"
+//	servicecatalog/provisionedProduct "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/servicecatalog/provisionedProduct"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := servicecatalog.NewProvisionedProduct(ctx, "example", &servicecatalog.ProvisionedProductArgs{
-//				ProductName:              pulumi.String("Example product"),
-//				ProvisioningArtifactName: pulumi.String("Example version"),
-//				ProvisioningParameters: servicecatalog.ProvisionedProductProvisioningParameterArray{
-//					&servicecatalog.ProvisionedProductProvisioningParameterArgs{
-//						Key:   pulumi.String("foo"),
-//						Value: pulumi.String("bar"),
-//					},
-//				},
-//				Tags: pulumi.StringMap{
-//					"foo": pulumi.String("bar"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := servicecatalog/provisionedProduct.NewProvisionedProduct(ctx, "example", &servicecatalog/provisionedProduct.ProvisionedProductArgs{
+// ProductName: "Example product",
+// ProvisioningArtifactName: "Example version",
+// ProvisioningParameters: []map[string]interface{}{
+// map[string]interface{}{
+// "key": "foo",
+// "value": "bar",
+// },
+// },
+// Tags: map[string]interface{}{
+// "foo": "bar",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

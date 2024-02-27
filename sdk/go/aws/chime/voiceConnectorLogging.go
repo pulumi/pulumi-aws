@@ -21,31 +21,30 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/chime"
+//	chime/voiceConnector "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/chime/voiceConnector"
+//	chime/voiceConnectorLogging "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/chime/voiceConnectorLogging"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			defaultVoiceConnector, err := chime.NewVoiceConnector(ctx, "defaultVoiceConnector", &chime.VoiceConnectorArgs{
-//				RequireEncryption: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = chime.NewVoiceConnectorLogging(ctx, "defaultVoiceConnectorLogging", &chime.VoiceConnectorLoggingArgs{
-//				EnableSipLogs:         pulumi.Bool(true),
-//				EnableMediaMetricLogs: pulumi.Bool(true),
-//				VoiceConnectorId:      defaultVoiceConnector.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// defaultVoiceConnector, err := chime/voiceConnector.NewVoiceConnector(ctx, "defaultVoiceConnector", &chime/voiceConnector.VoiceConnectorArgs{
+// RequireEncryption: true,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = chime/voiceConnectorLogging.NewVoiceConnectorLogging(ctx, "defaultVoiceConnectorLogging", &chime/voiceConnectorLogging.VoiceConnectorLoggingArgs{
+// EnableSipLogs: true,
+// EnableMediaMetricLogs: true,
+// VoiceConnectorId: defaultVoiceConnector.Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

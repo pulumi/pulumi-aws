@@ -15,50 +15,17 @@ import {RestApi} from "./index";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const myDemoAPI = new aws.apigateway.RestApi("myDemoAPI", {description: "This is my API for demonstration purposes"});
- * const myDemoResource = new aws.apigateway.Resource("myDemoResource", {
+ * const myDemoAPI = new aws.apigateway/restApi.RestApi("myDemoAPI", {description: "This is my API for demonstration purposes"});
+ * const myDemoResource = new aws.apigateway/resource.Resource("myDemoResource", {
  *     restApi: myDemoAPI.id,
  *     parentId: myDemoAPI.rootResourceId,
  *     pathPart: "mydemoresource",
  * });
- * const myDemoMethod = new aws.apigateway.Method("myDemoMethod", {
+ * const myDemoMethod = new aws.apigateway/method.Method("myDemoMethod", {
  *     restApi: myDemoAPI.id,
  *     resourceId: myDemoResource.id,
  *     httpMethod: "GET",
  *     authorization: "NONE",
- * });
- * ```
- * ## Usage with Cognito User Pool Authorizer
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const config = new pulumi.Config();
- * const cognitoUserPoolName = config.requireObject("cognitoUserPoolName");
- * const thisUserPools = aws.cognito.getUserPools({
- *     name: cognitoUserPoolName,
- * });
- * const thisRestApi = new aws.apigateway.RestApi("thisRestApi", {});
- * const thisResource = new aws.apigateway.Resource("thisResource", {
- *     restApi: thisRestApi.id,
- *     parentId: thisRestApi.rootResourceId,
- *     pathPart: "{proxy+}",
- * });
- * const thisAuthorizer = new aws.apigateway.Authorizer("thisAuthorizer", {
- *     type: "COGNITO_USER_POOLS",
- *     restApi: thisRestApi.id,
- *     providerArns: thisUserPools.then(thisUserPools => thisUserPools.arns),
- * });
- * const any = new aws.apigateway.Method("any", {
- *     restApi: thisRestApi.id,
- *     resourceId: thisResource.id,
- *     httpMethod: "ANY",
- *     authorization: "COGNITO_USER_POOLS",
- *     authorizerId: thisAuthorizer.id,
- *     requestParameters: {
- *         "method.request.path.proxy": true,
- *     },
  * });
  * ```
  *

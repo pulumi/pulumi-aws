@@ -53,7 +53,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const cert = new aws.acm.Certificate("cert", {
+ * const cert = new aws.acm/certificate.Certificate("cert", {
  *     domainName: "example.com",
  *     tags: {
  *         Environment: "test",
@@ -67,7 +67,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const cert = new aws.acm.Certificate("cert", {
+ * const cert = new aws.acm/certificate.Certificate("cert", {
  *     domainName: "testing.example.com",
  *     validationMethod: "EMAIL",
  *     validationOptions: [{
@@ -83,8 +83,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * import * as tls from "@pulumi/tls";
  *
- * const examplePrivateKey = new tls.PrivateKey("examplePrivateKey", {algorithm: "RSA"});
- * const exampleSelfSignedCert = new tls.SelfSignedCert("exampleSelfSignedCert", {
+ * const examplePrivateKey = new tls.index/privateKey.PrivateKey("examplePrivateKey", {algorithm: "RSA"});
+ * const exampleSelfSignedCert = new tls.index/selfSignedCert.SelfSignedCert("exampleSelfSignedCert", {
  *     keyAlgorithm: "RSA",
  *     privateKeyPem: examplePrivateKey.privateKeyPem,
  *     subject: {
@@ -98,7 +98,7 @@ import * as utilities from "../utilities";
  *         "server_auth",
  *     ],
  * });
- * const cert = new aws.acm.Certificate("cert", {
+ * const cert = new aws.acm/certificate.Certificate("cert", {
  *     privateKey: examplePrivateKey.privateKeyPem,
  *     certificateBody: exampleSelfSignedCert.certPem,
  * });
@@ -111,18 +111,18 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example: aws.route53.Record[] = [];
+ * const example: aws.route53/record.Record[] = [];
  * for (const range of Object.entries(.reduce((__obj, dvo) => ({ ...__obj, [dvo.domainName]: {
  *     name: dvo.resourceRecordName,
  *     record: dvo.resourceRecordValue,
  *     type: dvo.resourceRecordType,
  * } }))).map(([k, v]) => ({key: k, value: v}))) {
- *     example.push(new aws.route53.Record(`example-${range.key}`, {
+ *     example.push(new aws.route53/record.Record(`example-${range.key}`, {
  *         allowOverwrite: true,
  *         name: range.value.name,
  *         records: [range.value.record],
  *         ttl: 60,
- *         type: aws.route53.recordtype.RecordType[range.value.type],
+ *         type: range.value.type,
  *         zoneId: aws_route53_zone.example.zone_id,
  *     }));
  * }

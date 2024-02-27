@@ -23,27 +23,26 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
+//	cloudwatch/eventArchive "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/cloudwatch/eventArchive"
+//	cloudwatch/eventBus "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/cloudwatch/eventBus"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			orderEventBus, err := cloudwatch.NewEventBus(ctx, "orderEventBus", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = cloudwatch.NewEventArchive(ctx, "orderEventArchive", &cloudwatch.EventArchiveArgs{
-//				EventSourceArn: orderEventBus.Arn,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// orderEventBus, err := cloudwatch/eventBus.NewEventBus(ctx, "orderEventBus", nil)
+// if err != nil {
+// return err
+// }
+// _, err = cloudwatch/eventArchive.NewEventArchive(ctx, "orderEventArchive", &cloudwatch/eventArchive.EventArchiveArgs{
+// EventSourceArn: orderEventBus.Arn,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ## Example all optional arguments
 //
@@ -54,39 +53,29 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
+//	cloudwatch/eventArchive "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/cloudwatch/eventArchive"
+//	cloudwatch/eventBus "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/cloudwatch/eventBus"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			orderEventBus, err := cloudwatch.NewEventBus(ctx, "orderEventBus", nil)
-//			if err != nil {
-//				return err
-//			}
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"source": []string{
-//					"company.team.order",
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			_, err = cloudwatch.NewEventArchive(ctx, "orderEventArchive", &cloudwatch.EventArchiveArgs{
-//				Description:    pulumi.String("Archived events from order service"),
-//				EventSourceArn: orderEventBus.Arn,
-//				RetentionDays:  pulumi.Int(7),
-//				EventPattern:   pulumi.String(json0),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// orderEventBus, err := cloudwatch/eventBus.NewEventBus(ctx, "orderEventBus", nil)
+// if err != nil {
+// return err
+// }
+// _, err = cloudwatch/eventArchive.NewEventArchive(ctx, "orderEventArchive", &cloudwatch/eventArchive.EventArchiveArgs{
+// Description: "Archived events from order service",
+// EventSourceArn: orderEventBus.Arn,
+// RetentionDays: 7,
+// EventPattern: %!v(PANIC=Format method: fatal: An assertion has failed: unlowered function toJSON),
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

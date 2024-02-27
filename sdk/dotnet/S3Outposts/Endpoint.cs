@@ -22,7 +22,7 @@ namespace Pulumi.Aws.S3Outposts
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.S3Outposts.Endpoint("example", new()
+    ///     var example = new Aws.S3outposts.Endpoint.Endpoint("example", new()
     ///     {
     ///         OutpostId = data.Aws_outposts_outpost.Example.Id,
     ///         SecurityGroupId = aws_security_group.Example.Id,

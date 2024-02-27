@@ -22,7 +22,7 @@ namespace Pulumi.Aws.DirectConnect
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var peer = new Aws.DirectConnect.BgpPeer("peer", new()
+    ///     var peer = new Aws.Directconnect.BgpPeer.BgpPeer("peer", new()
     ///     {
     ///         VirtualInterfaceId = aws_dx_private_virtual_interface.Foo.Id,
     ///         AddressFamily = "ipv6",

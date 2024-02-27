@@ -189,27 +189,27 @@ class OrganizationConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_detector = aws.guardduty.Detector("exampleDetector", enable=True)
-        example_organization_configuration = aws.guardduty.OrganizationConfiguration("exampleOrganizationConfiguration",
-            auto_enable_organization_members="ALL",
+        example_detector = aws.guardduty.detector.Detector("exampleDetector", enable=True)
+        example_organization_configuration = aws.guardduty.organization_configuration.OrganizationConfiguration("exampleOrganizationConfiguration",
+            auto_enable_organization_members=ALL,
             detector_id=example_detector.id,
-            datasources=aws.guardduty.OrganizationConfigurationDatasourcesArgs(
-                s3_logs=aws.guardduty.OrganizationConfigurationDatasourcesS3LogsArgs(
-                    auto_enable=True,
-                ),
-                kubernetes=aws.guardduty.OrganizationConfigurationDatasourcesKubernetesArgs(
-                    audit_logs=aws.guardduty.OrganizationConfigurationDatasourcesKubernetesAuditLogsArgs(
-                        enable=True,
-                    ),
-                ),
-                malware_protection=aws.guardduty.OrganizationConfigurationDatasourcesMalwareProtectionArgs(
-                    scan_ec2_instance_with_findings=aws.guardduty.OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsArgs(
-                        ebs_volumes=aws.guardduty.OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesArgs(
-                            auto_enable=True,
-                        ),
-                    ),
-                ),
-            ))
+            datasources={
+                s3Logs: {
+                    autoEnable: True,
+                },
+                kubernetes: {
+                    auditLogs: {
+                        enable: True,
+                    },
+                },
+                malwareProtection: {
+                    scanEc2InstanceWithFindings: {
+                        ebsVolumes: {
+                            autoEnable: True,
+                        },
+                    },
+                },
+            })
         ```
 
         ## Import
@@ -244,27 +244,27 @@ class OrganizationConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_detector = aws.guardduty.Detector("exampleDetector", enable=True)
-        example_organization_configuration = aws.guardduty.OrganizationConfiguration("exampleOrganizationConfiguration",
-            auto_enable_organization_members="ALL",
+        example_detector = aws.guardduty.detector.Detector("exampleDetector", enable=True)
+        example_organization_configuration = aws.guardduty.organization_configuration.OrganizationConfiguration("exampleOrganizationConfiguration",
+            auto_enable_organization_members=ALL,
             detector_id=example_detector.id,
-            datasources=aws.guardduty.OrganizationConfigurationDatasourcesArgs(
-                s3_logs=aws.guardduty.OrganizationConfigurationDatasourcesS3LogsArgs(
-                    auto_enable=True,
-                ),
-                kubernetes=aws.guardduty.OrganizationConfigurationDatasourcesKubernetesArgs(
-                    audit_logs=aws.guardduty.OrganizationConfigurationDatasourcesKubernetesAuditLogsArgs(
-                        enable=True,
-                    ),
-                ),
-                malware_protection=aws.guardduty.OrganizationConfigurationDatasourcesMalwareProtectionArgs(
-                    scan_ec2_instance_with_findings=aws.guardduty.OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsArgs(
-                        ebs_volumes=aws.guardduty.OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesArgs(
-                            auto_enable=True,
-                        ),
-                    ),
-                ),
-            ))
+            datasources={
+                s3Logs: {
+                    autoEnable: True,
+                },
+                kubernetes: {
+                    auditLogs: {
+                        enable: True,
+                    },
+                },
+                malwareProtection: {
+                    scanEc2InstanceWithFindings: {
+                        ebsVolumes: {
+                            autoEnable: True,
+                        },
+                    },
+                },
+            })
         ```
 
         ## Import

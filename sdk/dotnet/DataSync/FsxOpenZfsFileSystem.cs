@@ -22,22 +22,22 @@ namespace Pulumi.Aws.DataSync
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.DataSync.FsxOpenZfsFileSystem("example", new()
+    ///     var example = new Aws.Datasync.FsxOpenZfsFileSystem.FsxOpenZfsFileSystem("example", new()
     ///     {
     ///         FsxFilesystemArn = aws_fsx_openzfs_file_system.Example.Arn,
     ///         SecurityGroupArns = new[]
     ///         {
     ///             aws_security_group.Example.Arn,
     ///         },
-    ///         Protocol = new Aws.DataSync.Inputs.FsxOpenZfsFileSystemProtocolArgs
+    ///         Protocol = 
     ///         {
-    ///             Nfs = new Aws.DataSync.Inputs.FsxOpenZfsFileSystemProtocolNfsArgs
+    ///             { "nfs", 
     ///             {
-    ///                 MountOptions = new Aws.DataSync.Inputs.FsxOpenZfsFileSystemProtocolNfsMountOptionsArgs
+    ///                 { "mountOptions", 
     ///                 {
-    ///                     Version = "AUTOMATIC",
-    ///                 },
-    ///             },
+    ///                     { "version", "AUTOMATIC" },
+    ///                 } },
+    ///             } },
     ///         },
     ///     });
     /// 

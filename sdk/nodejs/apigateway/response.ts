@@ -13,8 +13,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const main = new aws.apigateway.RestApi("main", {});
- * const test = new aws.apigateway.Response("test", {
+ * const main = new aws.apigateway/restApi.RestApi("main", {});
+ * const test = new aws.apigateway/response.Response("test", {
  *     restApiId: main.id,
  *     statusCode: "401",
  *     responseType: "UNAUTHORIZED",

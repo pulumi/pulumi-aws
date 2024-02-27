@@ -25,30 +25,29 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/efs"
+//	efs/fileSystem "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/efs/fileSystem"
+//	efs/replicationConfiguration "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/efs/replicationConfiguration"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleFileSystem, err := efs.NewFileSystem(ctx, "exampleFileSystem", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = efs.NewReplicationConfiguration(ctx, "exampleReplicationConfiguration", &efs.ReplicationConfigurationArgs{
-//				SourceFileSystemId: exampleFileSystem.ID(),
-//				Destination: &efs.ReplicationConfigurationDestinationArgs{
-//					Region: pulumi.String("us-west-2"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleFileSystem, err := efs/fileSystem.NewFileSystem(ctx, "exampleFileSystem", nil)
+// if err != nil {
+// return err
+// }
+// _, err = efs/replicationConfiguration.NewReplicationConfiguration(ctx, "exampleReplicationConfiguration", &efs/replicationConfiguration.ReplicationConfigurationArgs{
+// SourceFileSystemId: exampleFileSystem.Id,
+// Destination: map[string]interface{}{
+// "region": "us-west-2",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // Replica will be created as One Zone storage in the us-west-2b Availability Zone and encrypted with the specified KMS key.
@@ -58,31 +57,30 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/efs"
+//	efs/fileSystem "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/efs/fileSystem"
+//	efs/replicationConfiguration "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/efs/replicationConfiguration"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleFileSystem, err := efs.NewFileSystem(ctx, "exampleFileSystem", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = efs.NewReplicationConfiguration(ctx, "exampleReplicationConfiguration", &efs.ReplicationConfigurationArgs{
-//				SourceFileSystemId: exampleFileSystem.ID(),
-//				Destination: &efs.ReplicationConfigurationDestinationArgs{
-//					AvailabilityZoneName: pulumi.String("us-west-2b"),
-//					KmsKeyId:             pulumi.String("1234abcd-12ab-34cd-56ef-1234567890ab"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleFileSystem, err := efs/fileSystem.NewFileSystem(ctx, "exampleFileSystem", nil)
+// if err != nil {
+// return err
+// }
+// _, err = efs/replicationConfiguration.NewReplicationConfiguration(ctx, "exampleReplicationConfiguration", &efs/replicationConfiguration.ReplicationConfigurationArgs{
+// SourceFileSystemId: exampleFileSystem.Id,
+// Destination: map[string]interface{}{
+// "availabilityZoneName": "us-west-2b",
+// "kmsKeyId": "1234abcd-12ab-34cd-56ef-1234567890ab",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // Will create a replica and set the existing file system with id `fs-1234567890` in us-west-2 as destination.
@@ -92,31 +90,30 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/efs"
+//	efs/fileSystem "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/efs/fileSystem"
+//	efs/replicationConfiguration "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/efs/replicationConfiguration"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleFileSystem, err := efs.NewFileSystem(ctx, "exampleFileSystem", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = efs.NewReplicationConfiguration(ctx, "exampleReplicationConfiguration", &efs.ReplicationConfigurationArgs{
-//				SourceFileSystemId: exampleFileSystem.ID(),
-//				Destination: &efs.ReplicationConfigurationDestinationArgs{
-//					FileSystemId: pulumi.String("fs-1234567890"),
-//					Region:       pulumi.String("us-west-2"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleFileSystem, err := efs/fileSystem.NewFileSystem(ctx, "exampleFileSystem", nil)
+// if err != nil {
+// return err
+// }
+// _, err = efs/replicationConfiguration.NewReplicationConfiguration(ctx, "exampleReplicationConfiguration", &efs/replicationConfiguration.ReplicationConfigurationArgs{
+// SourceFileSystemId: exampleFileSystem.Id,
+// Destination: map[string]interface{}{
+// "fileSystemId": "fs-1234567890",
+// "region": "us-west-2",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

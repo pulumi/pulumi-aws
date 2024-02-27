@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.kinesisanalyticsv2.ApplicationSnapshot("example", {
+ * const example = new aws.kinesisanalyticsv2/applicationSnapshot.ApplicationSnapshot("example", {
  *     applicationName: aws_kinesisanalyticsv2_application.example.name,
  *     snapshotName: "example-snapshot",
  * });

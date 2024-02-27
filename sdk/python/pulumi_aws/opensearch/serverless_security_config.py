@@ -194,6 +194,18 @@ class ServerlessSecurityConfig(pulumi.CustomResource):
         Resource for managing an AWS OpenSearch Serverless Security Config.
 
         ## Example Usage
+        ### Basic Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.opensearch.serverless_security_config.ServerlessSecurityConfig("example",
+            type=saml,
+            saml_options=[{
+                metadata: (lambda path: open(path).read())(f{path.module}/idp-metadata.xml),
+            }])
+        ```
 
         ## Import
 
@@ -222,6 +234,18 @@ class ServerlessSecurityConfig(pulumi.CustomResource):
         Resource for managing an AWS OpenSearch Serverless Security Config.
 
         ## Example Usage
+        ### Basic Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.opensearch.serverless_security_config.ServerlessSecurityConfig("example",
+            type=saml,
+            saml_options=[{
+                metadata: (lambda path: open(path).read())(f{path.module}/idp-metadata.xml),
+            }])
+        ```
 
         ## Import
 

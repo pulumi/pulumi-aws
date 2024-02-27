@@ -27,24 +27,22 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssoadmin"
+//	ssoadmin/applicationAssignmentConfiguration "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ssoadmin/applicationAssignmentConfiguration"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ssoadmin.NewApplicationAssignmentConfiguration(ctx, "example", &ssoadmin.ApplicationAssignmentConfigurationArgs{
-//				ApplicationArn:     pulumi.Any(aws_ssoadmin_application.Example.Application_arn),
-//				AssignmentRequired: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := ssoadmin/applicationAssignmentConfiguration.NewApplicationAssignmentConfiguration(ctx, "example", &ssoadmin/applicationAssignmentConfiguration.ApplicationAssignmentConfigurationArgs{
+// ApplicationArn: aws_ssoadmin_application.Example.Application_arn,
+// AssignmentRequired: true,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

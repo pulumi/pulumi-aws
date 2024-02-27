@@ -22,7 +22,7 @@ namespace Pulumi.Aws.DataExchange
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.DataExchange.DataSet("example", new()
+    ///     var example = new Aws.Dataexchange.DataSet.DataSet("example", new()
     ///     {
     ///         AssetType = "S3_SNAPSHOT",
     ///         Description = "example",

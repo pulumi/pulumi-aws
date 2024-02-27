@@ -311,12 +311,12 @@ class JobQueue(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_queue = aws.batch.JobQueue("testQueue",
-            state="ENABLED",
+        test_queue = aws.batch.job_queue.JobQueue("testQueue",
+            state=ENABLED,
             priority=1,
             compute_environments=[
-                aws_batch_compute_environment["test_environment_1"]["arn"],
-                aws_batch_compute_environment["test_environment_2"]["arn"],
+                aws_batch_compute_environment.test_environment_1.arn,
+                aws_batch_compute_environment.test_environment_2.arn,
             ])
         ```
         ### Job Queue with a fair share scheduling policy
@@ -325,21 +325,21 @@ class JobQueue(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_scheduling_policy = aws.batch.SchedulingPolicy("exampleSchedulingPolicy", fair_share_policy=aws.batch.SchedulingPolicyFairSharePolicyArgs(
-            compute_reservation=1,
-            share_decay_seconds=3600,
-            share_distributions=[aws.batch.SchedulingPolicyFairSharePolicyShareDistributionArgs(
-                share_identifier="A1*",
-                weight_factor=0.1,
-            )],
-        ))
-        example_job_queue = aws.batch.JobQueue("exampleJobQueue",
+        example_scheduling_policy = aws.batch.scheduling_policy.SchedulingPolicy("exampleSchedulingPolicy", fair_share_policy={
+            computeReservation: 1,
+            shareDecaySeconds: 3600,
+            shareDistributions: [{
+                shareIdentifier: A1*,
+                weightFactor: 0.1,
+            }],
+        })
+        example_job_queue = aws.batch.job_queue.JobQueue("exampleJobQueue",
             scheduling_policy_arn=example_scheduling_policy.arn,
-            state="ENABLED",
+            state=ENABLED,
             priority=1,
             compute_environments=[
-                aws_batch_compute_environment["test_environment_1"]["arn"],
-                aws_batch_compute_environment["test_environment_2"]["arn"],
+                aws_batch_compute_environment.test_environment_1.arn,
+                aws_batch_compute_environment.test_environment_2.arn,
             ])
         ```
 
@@ -378,12 +378,12 @@ class JobQueue(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_queue = aws.batch.JobQueue("testQueue",
-            state="ENABLED",
+        test_queue = aws.batch.job_queue.JobQueue("testQueue",
+            state=ENABLED,
             priority=1,
             compute_environments=[
-                aws_batch_compute_environment["test_environment_1"]["arn"],
-                aws_batch_compute_environment["test_environment_2"]["arn"],
+                aws_batch_compute_environment.test_environment_1.arn,
+                aws_batch_compute_environment.test_environment_2.arn,
             ])
         ```
         ### Job Queue with a fair share scheduling policy
@@ -392,21 +392,21 @@ class JobQueue(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_scheduling_policy = aws.batch.SchedulingPolicy("exampleSchedulingPolicy", fair_share_policy=aws.batch.SchedulingPolicyFairSharePolicyArgs(
-            compute_reservation=1,
-            share_decay_seconds=3600,
-            share_distributions=[aws.batch.SchedulingPolicyFairSharePolicyShareDistributionArgs(
-                share_identifier="A1*",
-                weight_factor=0.1,
-            )],
-        ))
-        example_job_queue = aws.batch.JobQueue("exampleJobQueue",
+        example_scheduling_policy = aws.batch.scheduling_policy.SchedulingPolicy("exampleSchedulingPolicy", fair_share_policy={
+            computeReservation: 1,
+            shareDecaySeconds: 3600,
+            shareDistributions: [{
+                shareIdentifier: A1*,
+                weightFactor: 0.1,
+            }],
+        })
+        example_job_queue = aws.batch.job_queue.JobQueue("exampleJobQueue",
             scheduling_policy_arn=example_scheduling_policy.arn,
-            state="ENABLED",
+            state=ENABLED,
             priority=1,
             compute_environments=[
-                aws_batch_compute_environment["test_environment_1"]["arn"],
-                aws_batch_compute_environment["test_environment_2"]["arn"],
+                aws_batch_compute_environment.test_environment_1.arn,
+                aws_batch_compute_environment.test_environment_2.arn,
             ])
         ```
 

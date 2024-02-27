@@ -182,62 +182,62 @@ class PipelineDefinition(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        default = aws.datapipeline.Pipeline("default")
-        example = aws.datapipeline.PipelineDefinition("example",
+        default = aws.datapipeline.pipeline.Pipeline("default")
+        example = aws.datapipeline.pipeline_definition.PipelineDefinition("example",
             pipeline_id=default.id,
             pipeline_objects=[
-                aws.datapipeline.PipelineDefinitionPipelineObjectArgs(
-                    id="Default",
-                    name="Default",
-                    fields=[aws.datapipeline.PipelineDefinitionPipelineObjectFieldArgs(
-                        key="workerGroup",
-                        string_value="workerGroup",
-                    )],
-                ),
-                aws.datapipeline.PipelineDefinitionPipelineObjectArgs(
-                    id="Schedule",
-                    name="Schedule",
-                    fields=[
-                        aws.datapipeline.PipelineDefinitionPipelineObjectFieldArgs(
-                            key="startDateTime",
-                            string_value="2012-12-12T00:00:00",
-                        ),
-                        aws.datapipeline.PipelineDefinitionPipelineObjectFieldArgs(
-                            key="type",
-                            string_value="Schedule",
-                        ),
-                        aws.datapipeline.PipelineDefinitionPipelineObjectFieldArgs(
-                            key="period",
-                            string_value="1 hour",
-                        ),
-                        aws.datapipeline.PipelineDefinitionPipelineObjectFieldArgs(
-                            key="endDateTime",
-                            string_value="2012-12-21T18:00:00",
-                        ),
+                {
+                    id: Default,
+                    name: Default,
+                    fields: [{
+                        key: workerGroup,
+                        stringValue: workerGroup,
+                    }],
+                },
+                {
+                    id: Schedule,
+                    name: Schedule,
+                    fields: [
+                        {
+                            key: startDateTime,
+                            stringValue: 2012-12-12T00:00:00,
+                        },
+                        {
+                            key: type,
+                            stringValue: Schedule,
+                        },
+                        {
+                            key: period,
+                            stringValue: 1 hour,
+                        },
+                        {
+                            key: endDateTime,
+                            stringValue: 2012-12-21T18:00:00,
+                        },
                     ],
-                ),
-                aws.datapipeline.PipelineDefinitionPipelineObjectArgs(
-                    id="SayHello",
-                    name="SayHello",
-                    fields=[
-                        aws.datapipeline.PipelineDefinitionPipelineObjectFieldArgs(
-                            key="type",
-                            string_value="ShellCommandActivity",
-                        ),
-                        aws.datapipeline.PipelineDefinitionPipelineObjectFieldArgs(
-                            key="command",
-                            string_value="echo hello",
-                        ),
-                        aws.datapipeline.PipelineDefinitionPipelineObjectFieldArgs(
-                            key="parent",
-                            string_value="Default",
-                        ),
-                        aws.datapipeline.PipelineDefinitionPipelineObjectFieldArgs(
-                            key="schedule",
-                            string_value="Schedule",
-                        ),
+                },
+                {
+                    id: SayHello,
+                    name: SayHello,
+                    fields: [
+                        {
+                            key: type,
+                            stringValue: ShellCommandActivity,
+                        },
+                        {
+                            key: command,
+                            stringValue: echo hello,
+                        },
+                        {
+                            key: parent,
+                            stringValue: Default,
+                        },
+                        {
+                            key: schedule,
+                            stringValue: Schedule,
+                        },
                     ],
-                ),
+                },
             ])
         ```
 
@@ -273,62 +273,62 @@ class PipelineDefinition(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        default = aws.datapipeline.Pipeline("default")
-        example = aws.datapipeline.PipelineDefinition("example",
+        default = aws.datapipeline.pipeline.Pipeline("default")
+        example = aws.datapipeline.pipeline_definition.PipelineDefinition("example",
             pipeline_id=default.id,
             pipeline_objects=[
-                aws.datapipeline.PipelineDefinitionPipelineObjectArgs(
-                    id="Default",
-                    name="Default",
-                    fields=[aws.datapipeline.PipelineDefinitionPipelineObjectFieldArgs(
-                        key="workerGroup",
-                        string_value="workerGroup",
-                    )],
-                ),
-                aws.datapipeline.PipelineDefinitionPipelineObjectArgs(
-                    id="Schedule",
-                    name="Schedule",
-                    fields=[
-                        aws.datapipeline.PipelineDefinitionPipelineObjectFieldArgs(
-                            key="startDateTime",
-                            string_value="2012-12-12T00:00:00",
-                        ),
-                        aws.datapipeline.PipelineDefinitionPipelineObjectFieldArgs(
-                            key="type",
-                            string_value="Schedule",
-                        ),
-                        aws.datapipeline.PipelineDefinitionPipelineObjectFieldArgs(
-                            key="period",
-                            string_value="1 hour",
-                        ),
-                        aws.datapipeline.PipelineDefinitionPipelineObjectFieldArgs(
-                            key="endDateTime",
-                            string_value="2012-12-21T18:00:00",
-                        ),
+                {
+                    id: Default,
+                    name: Default,
+                    fields: [{
+                        key: workerGroup,
+                        stringValue: workerGroup,
+                    }],
+                },
+                {
+                    id: Schedule,
+                    name: Schedule,
+                    fields: [
+                        {
+                            key: startDateTime,
+                            stringValue: 2012-12-12T00:00:00,
+                        },
+                        {
+                            key: type,
+                            stringValue: Schedule,
+                        },
+                        {
+                            key: period,
+                            stringValue: 1 hour,
+                        },
+                        {
+                            key: endDateTime,
+                            stringValue: 2012-12-21T18:00:00,
+                        },
                     ],
-                ),
-                aws.datapipeline.PipelineDefinitionPipelineObjectArgs(
-                    id="SayHello",
-                    name="SayHello",
-                    fields=[
-                        aws.datapipeline.PipelineDefinitionPipelineObjectFieldArgs(
-                            key="type",
-                            string_value="ShellCommandActivity",
-                        ),
-                        aws.datapipeline.PipelineDefinitionPipelineObjectFieldArgs(
-                            key="command",
-                            string_value="echo hello",
-                        ),
-                        aws.datapipeline.PipelineDefinitionPipelineObjectFieldArgs(
-                            key="parent",
-                            string_value="Default",
-                        ),
-                        aws.datapipeline.PipelineDefinitionPipelineObjectFieldArgs(
-                            key="schedule",
-                            string_value="Schedule",
-                        ),
+                },
+                {
+                    id: SayHello,
+                    name: SayHello,
+                    fields: [
+                        {
+                            key: type,
+                            stringValue: ShellCommandActivity,
+                        },
+                        {
+                            key: command,
+                            stringValue: echo hello,
+                        },
+                        {
+                            key: parent,
+                            stringValue: Default,
+                        },
+                        {
+                            key: schedule,
+                            stringValue: Schedule,
+                        },
                     ],
-                ),
+                },
             ])
         ```
 

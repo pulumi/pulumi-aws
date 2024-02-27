@@ -24,25 +24,23 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ecr"
+//	ecr/pullThroughCacheRule "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ecr/pullThroughCacheRule"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ecr.NewPullThroughCacheRule(ctx, "example", &ecr.PullThroughCacheRuleArgs{
-//				CredentialArn:       pulumi.String("arn:aws:secretsmanager:us-east-1:123456789:secret:ecr-pullthroughcache/ecrpublic"),
-//				EcrRepositoryPrefix: pulumi.String("ecr-public"),
-//				UpstreamRegistryUrl: pulumi.String("public.ecr.aws"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := ecr/pullThroughCacheRule.NewPullThroughCacheRule(ctx, "example", &ecr/pullThroughCacheRule.PullThroughCacheRuleArgs{
+// CredentialArn: "arn:aws:secretsmanager:us-east-1:123456789:secret:ecr-pullthroughcache/ecrpublic",
+// EcrRepositoryPrefix: "ecr-public",
+// UpstreamRegistryUrl: "public.ecr.aws",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -15,179 +15,6 @@ import (
 // Provides a CloudWatch Metric Stream resource.
 //
 // ## Example Usage
-// ### Filters
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kinesis"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			streamsAssumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-//				Statements: []iam.GetPolicyDocumentStatement{
-//					{
-//						Effect: pulumi.StringRef("Allow"),
-//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
-//							{
-//								Type: "Service",
-//								Identifiers: []string{
-//									"streams.metrics.cloudwatch.amazonaws.com",
-//								},
-//							},
-//						},
-//						Actions: []string{
-//							"sts:AssumeRole",
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			metricStreamToFirehoseRole, err := iam.NewRole(ctx, "metricStreamToFirehoseRole", &iam.RoleArgs{
-//				AssumeRolePolicy: *pulumi.String(streamsAssumeRole.Json),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			bucket, err := s3.NewBucketV2(ctx, "bucket", nil)
-//			if err != nil {
-//				return err
-//			}
-//			firehoseAssumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-//				Statements: []iam.GetPolicyDocumentStatement{
-//					{
-//						Effect: pulumi.StringRef("Allow"),
-//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
-//							{
-//								Type: "Service",
-//								Identifiers: []string{
-//									"firehose.amazonaws.com",
-//								},
-//							},
-//						},
-//						Actions: []string{
-//							"sts:AssumeRole",
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			firehoseToS3Role, err := iam.NewRole(ctx, "firehoseToS3Role", &iam.RoleArgs{
-//				AssumeRolePolicy: *pulumi.String(firehoseAssumeRole.Json),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			s3Stream, err := kinesis.NewFirehoseDeliveryStream(ctx, "s3Stream", &kinesis.FirehoseDeliveryStreamArgs{
-//				Destination: pulumi.String("extended_s3"),
-//				ExtendedS3Configuration: &kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationArgs{
-//					RoleArn:   firehoseToS3Role.Arn,
-//					BucketArn: bucket.Arn,
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = cloudwatch.NewMetricStream(ctx, "main", &cloudwatch.MetricStreamArgs{
-//				RoleArn:      metricStreamToFirehoseRole.Arn,
-//				FirehoseArn:  s3Stream.Arn,
-//				OutputFormat: pulumi.String("json"),
-//				IncludeFilters: cloudwatch.MetricStreamIncludeFilterArray{
-//					&cloudwatch.MetricStreamIncludeFilterArgs{
-//						Namespace: pulumi.String("AWS/EC2"),
-//						MetricNames: pulumi.StringArray{
-//							pulumi.String("CPUUtilization"),
-//							pulumi.String("NetworkOut"),
-//						},
-//					},
-//					&cloudwatch.MetricStreamIncludeFilterArgs{
-//						Namespace:   pulumi.String("AWS/EBS"),
-//						MetricNames: pulumi.StringArray{},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			metricStreamToFirehosePolicyDocument := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
-//				Statements: iam.GetPolicyDocumentStatementArray{
-//					&iam.GetPolicyDocumentStatementArgs{
-//						Effect: pulumi.String("Allow"),
-//						Actions: pulumi.StringArray{
-//							pulumi.String("firehose:PutRecord"),
-//							pulumi.String("firehose:PutRecordBatch"),
-//						},
-//						Resources: pulumi.StringArray{
-//							s3Stream.Arn,
-//						},
-//					},
-//				},
-//			}, nil)
-//			_, err = iam.NewRolePolicy(ctx, "metricStreamToFirehoseRolePolicy", &iam.RolePolicyArgs{
-//				Role: metricStreamToFirehoseRole.ID(),
-//				Policy: metricStreamToFirehosePolicyDocument.ApplyT(func(metricStreamToFirehosePolicyDocument iam.GetPolicyDocumentResult) (*string, error) {
-//					return &metricStreamToFirehosePolicyDocument.Json, nil
-//				}).(pulumi.StringPtrOutput),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = s3.NewBucketAclV2(ctx, "bucketAcl", &s3.BucketAclV2Args{
-//				Bucket: bucket.ID(),
-//				Acl:    pulumi.String("private"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			firehoseToS3PolicyDocument := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
-//				Statements: iam.GetPolicyDocumentStatementArray{
-//					&iam.GetPolicyDocumentStatementArgs{
-//						Effect: pulumi.String("Allow"),
-//						Actions: pulumi.StringArray{
-//							pulumi.String("s3:AbortMultipartUpload"),
-//							pulumi.String("s3:GetBucketLocation"),
-//							pulumi.String("s3:GetObject"),
-//							pulumi.String("s3:ListBucket"),
-//							pulumi.String("s3:ListBucketMultipartUploads"),
-//							pulumi.String("s3:PutObject"),
-//						},
-//						Resources: pulumi.StringArray{
-//							bucket.Arn,
-//							bucket.Arn.ApplyT(func(arn string) (string, error) {
-//								return fmt.Sprintf("%v/*", arn), nil
-//							}).(pulumi.StringOutput),
-//						},
-//					},
-//				},
-//			}, nil)
-//			_, err = iam.NewRolePolicy(ctx, "firehoseToS3RolePolicy", &iam.RolePolicyArgs{
-//				Role: firehoseToS3Role.ID(),
-//				Policy: firehoseToS3PolicyDocument.ApplyT(func(firehoseToS3PolicyDocument iam.GetPolicyDocumentResult) (*string, error) {
-//					return &firehoseToS3PolicyDocument.Json, nil
-//				}).(pulumi.StringPtrOutput),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 // ### Additional Statistics
 //
 // ```go
@@ -195,50 +22,48 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
+//	cloudwatch/metricStream "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/cloudwatch/metricStream"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cloudwatch.NewMetricStream(ctx, "main", &cloudwatch.MetricStreamArgs{
-//				RoleArn:      pulumi.Any(aws_iam_role.Metric_stream_to_firehose.Arn),
-//				FirehoseArn:  pulumi.Any(aws_kinesis_firehose_delivery_stream.S3_stream.Arn),
-//				OutputFormat: pulumi.String("json"),
-//				StatisticsConfigurations: cloudwatch.MetricStreamStatisticsConfigurationArray{
-//					&cloudwatch.MetricStreamStatisticsConfigurationArgs{
-//						AdditionalStatistics: pulumi.StringArray{
-//							pulumi.String("p1"),
-//							pulumi.String("tm99"),
-//						},
-//						IncludeMetrics: cloudwatch.MetricStreamStatisticsConfigurationIncludeMetricArray{
-//							&cloudwatch.MetricStreamStatisticsConfigurationIncludeMetricArgs{
-//								MetricName: pulumi.String("CPUUtilization"),
-//								Namespace:  pulumi.String("AWS/EC2"),
-//							},
-//						},
-//					},
-//					&cloudwatch.MetricStreamStatisticsConfigurationArgs{
-//						AdditionalStatistics: pulumi.StringArray{
-//							pulumi.String("TS(50.5:)"),
-//						},
-//						IncludeMetrics: cloudwatch.MetricStreamStatisticsConfigurationIncludeMetricArray{
-//							&cloudwatch.MetricStreamStatisticsConfigurationIncludeMetricArgs{
-//								MetricName: pulumi.String("CPUUtilization"),
-//								Namespace:  pulumi.String("AWS/EC2"),
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := cloudwatch/metricStream.NewMetricStream(ctx, "main", &cloudwatch/metricStream.MetricStreamArgs{
+// RoleArn: aws_iam_role.Metric_stream_to_firehose.Arn,
+// FirehoseArn: aws_kinesis_firehose_delivery_stream.S3_stream.Arn,
+// OutputFormat: "json",
+// StatisticsConfigurations: []interface{}{
+// map[string]interface{}{
+// "additionalStatistics": []string{
+// "p1",
+// "tm99",
+// },
+// "includeMetrics": []map[string]interface{}{
+// map[string]interface{}{
+// "metricName": "CPUUtilization",
+// "namespace": "AWS/EC2",
+// },
+// },
+// },
+// map[string]interface{}{
+// "additionalStatistics": []string{
+// "TS(50.5:)",
+// },
+// "includeMetrics": []map[string]interface{}{
+// map[string]interface{}{
+// "metricName": "CPUUtilization",
+// "namespace": "AWS/EC2",
+// },
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

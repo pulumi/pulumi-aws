@@ -12,32 +12,6 @@ import (
 )
 
 // Use this data source to get the signing certificate for a Cognito IdP user pool.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cognito"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cognito.GetUserPoolSigningCertificate(ctx, &cognito.GetUserPoolSigningCertificateArgs{
-//				UserPoolId: aws_cognito_user_pool.My_pool.Id,
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetUserPoolSigningCertificate(ctx *pulumi.Context, args *GetUserPoolSigningCertificateArgs, opts ...pulumi.InvokeOption) (*GetUserPoolSigningCertificateResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetUserPoolSigningCertificateResult

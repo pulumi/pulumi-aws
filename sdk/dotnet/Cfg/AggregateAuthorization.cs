@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Cfg
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Cfg.AggregateAuthorization("example", new()
+    ///     var example = new Aws.Cfg.AggregateAuthorization.AggregateAuthorization("example", new()
     ///     {
     ///         AccountId = "123456789012",
     ///         Region = "eu-west-2",

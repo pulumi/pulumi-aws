@@ -221,33 +221,6 @@ class PeeringAttachment(pulumi.CustomResource):
         Manages an EC2 Transit Gateway Peering Attachment.
         For examples of custom route table association and propagation, see the [EC2 Transit Gateway Networking Examples Guide](https://docs.aws.amazon.com/vpc/latest/tgw/TGW_Scenarios.html).
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        local = aws.Provider("local", region="us-east-1")
-        peer = aws.Provider("peer", region="us-west-2")
-        peer_region = aws.get_region()
-        local_transit_gateway = aws.ec2transitgateway.TransitGateway("localTransitGateway", tags={
-            "Name": "Local TGW",
-        },
-        opts=pulumi.ResourceOptions(provider=aws["local"]))
-        peer_transit_gateway = aws.ec2transitgateway.TransitGateway("peerTransitGateway", tags={
-            "Name": "Peer TGW",
-        },
-        opts=pulumi.ResourceOptions(provider=aws["peer"]))
-        example = aws.ec2transitgateway.PeeringAttachment("example",
-            peer_account_id=peer_transit_gateway.owner_id,
-            peer_region=peer_region.name,
-            peer_transit_gateway_id=peer_transit_gateway.id,
-            transit_gateway_id=local_transit_gateway.id,
-            tags={
-                "Name": "TGW Peering Requestor",
-            })
-        ```
-
         ## Import
 
         Using `pulumi import`, import `aws_ec2_transit_gateway_peering_attachment` using the EC2 Transit Gateway Attachment identifier. For example:
@@ -273,33 +246,6 @@ class PeeringAttachment(pulumi.CustomResource):
         """
         Manages an EC2 Transit Gateway Peering Attachment.
         For examples of custom route table association and propagation, see the [EC2 Transit Gateway Networking Examples Guide](https://docs.aws.amazon.com/vpc/latest/tgw/TGW_Scenarios.html).
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        local = aws.Provider("local", region="us-east-1")
-        peer = aws.Provider("peer", region="us-west-2")
-        peer_region = aws.get_region()
-        local_transit_gateway = aws.ec2transitgateway.TransitGateway("localTransitGateway", tags={
-            "Name": "Local TGW",
-        },
-        opts=pulumi.ResourceOptions(provider=aws["local"]))
-        peer_transit_gateway = aws.ec2transitgateway.TransitGateway("peerTransitGateway", tags={
-            "Name": "Peer TGW",
-        },
-        opts=pulumi.ResourceOptions(provider=aws["peer"]))
-        example = aws.ec2transitgateway.PeeringAttachment("example",
-            peer_account_id=peer_transit_gateway.owner_id,
-            peer_region=peer_region.name,
-            peer_transit_gateway_id=peer_transit_gateway.id,
-            transit_gateway_id=local_transit_gateway.id,
-            tags={
-                "Name": "TGW Peering Requestor",
-            })
-        ```
 
         ## Import
 

@@ -27,51 +27,6 @@ import javax.annotation.Nullable;
  * &gt; **NOTE:** The Storage Gateway API requires the gateway to be connected to properly return information after activation. If you are receiving `The specified gateway is not connected` errors during resource creation (gateway activation), ensure your gateway instance meets the [Storage Gateway requirements](https://docs.aws.amazon.com/storagegateway/latest/userguide/Requirements.html).
  * 
  * ## Example Usage
- * ### Local Cache
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ec2.VolumeAttachment;
- * import com.pulumi.aws.ec2.VolumeAttachmentArgs;
- * import com.pulumi.aws.storagegateway.StoragegatewayFunctions;
- * import com.pulumi.aws.storagegateway.inputs.GetLocalDiskArgs;
- * import com.pulumi.aws.storagegateway.Cache;
- * import com.pulumi.aws.storagegateway.CacheArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var testVolumeAttachment = new VolumeAttachment(&#34;testVolumeAttachment&#34;, VolumeAttachmentArgs.builder()        
- *             .deviceName(&#34;/dev/xvdb&#34;)
- *             .volumeId(aws_ebs_volume.test().id())
- *             .instanceId(aws_instance.test().id())
- *             .build());
- * 
- *         final var testLocalDisk = StoragegatewayFunctions.getLocalDisk(GetLocalDiskArgs.builder()
- *             .diskNode(testVolumeAttachment.deviceName())
- *             .gatewayArn(aws_storagegateway_gateway.test().arn())
- *             .build());
- * 
- *         var testCache = new Cache(&#34;testCache&#34;, CacheArgs.builder()        
- *             .diskId(testLocalDisk.applyValue(getLocalDiskResult -&gt; getLocalDiskResult).applyValue(testLocalDisk -&gt; testLocalDisk.applyValue(getLocalDiskResult -&gt; getLocalDiskResult.diskId())))
- *             .gatewayArn(aws_storagegateway_gateway.test().arn())
- *             .build());
- * 
- *     }
- * }
- * ```
  * ### FSx File Gateway
  * ```java
  * package generated_program;
@@ -81,7 +36,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.storagegateway.Gateway;
  * import com.pulumi.aws.storagegateway.GatewayArgs;
- * import com.pulumi.aws.storagegateway.inputs.GatewaySmbActiveDirectorySettingsArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -100,11 +54,7 @@ import javax.annotation.Nullable;
  *             .gatewayName(&#34;example&#34;)
  *             .gatewayTimezone(&#34;GMT&#34;)
  *             .gatewayType(&#34;FILE_FSX_SMB&#34;)
- *             .smbActiveDirectorySettings(GatewaySmbActiveDirectorySettingsArgs.builder()
- *                 .domainName(&#34;corp.example.com&#34;)
- *                 .password(&#34;avoid-plaintext-passwords&#34;)
- *                 .username(&#34;Admin&#34;)
- *                 .build())
+ *             .smbActiveDirectorySettings(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

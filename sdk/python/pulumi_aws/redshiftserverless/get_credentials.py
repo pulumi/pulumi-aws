@@ -114,15 +114,6 @@ def get_credentials(db_name: Optional[str] = None,
     """
     Provides redshift serverless temporary credentials for a workgroup.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.redshiftserverless.get_credentials(workgroup_name=aws_redshiftserverless_workgroup["example"]["workgroup_name"])
-    ```
-
 
     :param str db_name: The name of the database to get temporary authorization to log on to.
     :param int duration_seconds: The number of seconds until the returned temporary password expires. The minimum is 900 seconds, and the maximum is 3600 seconds.
@@ -152,15 +143,6 @@ def get_credentials_output(db_name: Optional[pulumi.Input[Optional[str]]] = None
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCredentialsResult]:
     """
     Provides redshift serverless temporary credentials for a workgroup.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.redshiftserverless.get_credentials(workgroup_name=aws_redshiftserverless_workgroup["example"]["workgroup_name"])
-    ```
 
 
     :param str db_name: The name of the database to get temporary authorization to log on to.

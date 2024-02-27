@@ -52,7 +52,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var default_ = new DefaultVpcDhcpOptions(&#34;default&#34;, DefaultVpcDhcpOptionsArgs.builder()        
- *             .tags(Map.of(&#34;Name&#34;, &#34;Default DHCP Option Set&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

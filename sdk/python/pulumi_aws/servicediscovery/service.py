@@ -379,45 +379,45 @@ class Service(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_vpc = aws.ec2.Vpc("exampleVpc",
-            cidr_block="10.0.0.0/16",
+        example_vpc = aws.ec2.vpc.Vpc("exampleVpc",
+            cidr_block=10.0.0.0/16,
             enable_dns_support=True,
             enable_dns_hostnames=True)
-        example_private_dns_namespace = aws.servicediscovery.PrivateDnsNamespace("examplePrivateDnsNamespace",
-            description="example",
+        example_private_dns_namespace = aws.servicediscovery.private_dns_namespace.PrivateDnsNamespace("examplePrivateDnsNamespace",
+            description=example,
             vpc=example_vpc.id)
-        example_service = aws.servicediscovery.Service("exampleService",
-            dns_config=aws.servicediscovery.ServiceDnsConfigArgs(
-                namespace_id=example_private_dns_namespace.id,
-                dns_records=[aws.servicediscovery.ServiceDnsConfigDnsRecordArgs(
-                    ttl=10,
-                    type="A",
-                )],
-                routing_policy="MULTIVALUE",
-            ),
-            health_check_custom_config=aws.servicediscovery.ServiceHealthCheckCustomConfigArgs(
-                failure_threshold=1,
-            ))
+        example_service = aws.servicediscovery.service.Service("exampleService",
+            dns_config={
+                namespaceId: example_private_dns_namespace.id,
+                dnsRecords: [{
+                    ttl: 10,
+                    type: A,
+                }],
+                routingPolicy: MULTIVALUE,
+            },
+            health_check_custom_config={
+                failureThreshold: 1,
+            })
         ```
 
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_public_dns_namespace = aws.servicediscovery.PublicDnsNamespace("examplePublicDnsNamespace", description="example")
-        example_service = aws.servicediscovery.Service("exampleService",
-            dns_config=aws.servicediscovery.ServiceDnsConfigArgs(
-                namespace_id=example_public_dns_namespace.id,
-                dns_records=[aws.servicediscovery.ServiceDnsConfigDnsRecordArgs(
-                    ttl=10,
-                    type="A",
-                )],
-            ),
-            health_check_config=aws.servicediscovery.ServiceHealthCheckConfigArgs(
-                failure_threshold=10,
-                resource_path="path",
-                type="HTTP",
-            ))
+        example_public_dns_namespace = aws.servicediscovery.public_dns_namespace.PublicDnsNamespace("examplePublicDnsNamespace", description=example)
+        example_service = aws.servicediscovery.service.Service("exampleService",
+            dns_config={
+                namespaceId: example_public_dns_namespace.id,
+                dnsRecords: [{
+                    ttl: 10,
+                    type: A,
+                }],
+            },
+            health_check_config={
+                failureThreshold: 10,
+                resourcePath: path,
+                type: HTTP,
+            })
         ```
 
         ## Import
@@ -455,45 +455,45 @@ class Service(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_vpc = aws.ec2.Vpc("exampleVpc",
-            cidr_block="10.0.0.0/16",
+        example_vpc = aws.ec2.vpc.Vpc("exampleVpc",
+            cidr_block=10.0.0.0/16,
             enable_dns_support=True,
             enable_dns_hostnames=True)
-        example_private_dns_namespace = aws.servicediscovery.PrivateDnsNamespace("examplePrivateDnsNamespace",
-            description="example",
+        example_private_dns_namespace = aws.servicediscovery.private_dns_namespace.PrivateDnsNamespace("examplePrivateDnsNamespace",
+            description=example,
             vpc=example_vpc.id)
-        example_service = aws.servicediscovery.Service("exampleService",
-            dns_config=aws.servicediscovery.ServiceDnsConfigArgs(
-                namespace_id=example_private_dns_namespace.id,
-                dns_records=[aws.servicediscovery.ServiceDnsConfigDnsRecordArgs(
-                    ttl=10,
-                    type="A",
-                )],
-                routing_policy="MULTIVALUE",
-            ),
-            health_check_custom_config=aws.servicediscovery.ServiceHealthCheckCustomConfigArgs(
-                failure_threshold=1,
-            ))
+        example_service = aws.servicediscovery.service.Service("exampleService",
+            dns_config={
+                namespaceId: example_private_dns_namespace.id,
+                dnsRecords: [{
+                    ttl: 10,
+                    type: A,
+                }],
+                routingPolicy: MULTIVALUE,
+            },
+            health_check_custom_config={
+                failureThreshold: 1,
+            })
         ```
 
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_public_dns_namespace = aws.servicediscovery.PublicDnsNamespace("examplePublicDnsNamespace", description="example")
-        example_service = aws.servicediscovery.Service("exampleService",
-            dns_config=aws.servicediscovery.ServiceDnsConfigArgs(
-                namespace_id=example_public_dns_namespace.id,
-                dns_records=[aws.servicediscovery.ServiceDnsConfigDnsRecordArgs(
-                    ttl=10,
-                    type="A",
-                )],
-            ),
-            health_check_config=aws.servicediscovery.ServiceHealthCheckConfigArgs(
-                failure_threshold=10,
-                resource_path="path",
-                type="HTTP",
-            ))
+        example_public_dns_namespace = aws.servicediscovery.public_dns_namespace.PublicDnsNamespace("examplePublicDnsNamespace", description=example)
+        example_service = aws.servicediscovery.service.Service("exampleService",
+            dns_config={
+                namespaceId: example_public_dns_namespace.id,
+                dnsRecords: [{
+                    ttl: 10,
+                    type: A,
+                }],
+            },
+            health_check_config={
+                failureThreshold: 10,
+                resourcePath: path,
+                type: HTTP,
+            })
         ```
 
         ## Import

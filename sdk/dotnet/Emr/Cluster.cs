@@ -24,7 +24,7 @@ namespace Pulumi.Aws.Emr
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var cluster = new Aws.Emr.Cluster("cluster", new()
+    ///     var cluster = new Aws.Emr.Cluster.Cluster("cluster", new()
     ///     {
     ///         ReleaseLabel = "emr-4.6.0",
     ///         Applications = new[]
@@ -40,32 +40,32 @@ namespace Pulumi.Aws.Emr
     /// ",
     ///         TerminationProtection = false,
     ///         KeepJobFlowAliveWhenNoSteps = true,
-    ///         Ec2Attributes = new Aws.Emr.Inputs.ClusterEc2AttributesArgs
+    ///         Ec2Attributes = 
     ///         {
-    ///             SubnetId = aws_subnet.Main.Id,
-    ///             EmrManagedMasterSecurityGroup = aws_security_group.Sg.Id,
-    ///             EmrManagedSlaveSecurityGroup = aws_security_group.Sg.Id,
-    ///             InstanceProfile = aws_iam_instance_profile.Emr_profile.Arn,
+    ///             { "subnetId", aws_subnet.Main.Id },
+    ///             { "emrManagedMasterSecurityGroup", aws_security_group.Sg.Id },
+    ///             { "emrManagedSlaveSecurityGroup", aws_security_group.Sg.Id },
+    ///             { "instanceProfile", aws_iam_instance_profile.Emr_profile.Arn },
     ///         },
-    ///         MasterInstanceGroup = new Aws.Emr.Inputs.ClusterMasterInstanceGroupArgs
+    ///         MasterInstanceGroup = 
     ///         {
-    ///             InstanceType = "m4.large",
+    ///             { "instanceType", "m4.large" },
     ///         },
-    ///         CoreInstanceGroup = new Aws.Emr.Inputs.ClusterCoreInstanceGroupArgs
+    ///         CoreInstanceGroup = 
     ///         {
-    ///             InstanceType = "c4.large",
-    ///             InstanceCount = 1,
-    ///             EbsConfigs = new[]
+    ///             { "instanceType", "c4.large" },
+    ///             { "instanceCount", 1 },
+    ///             { "ebsConfigs", new[]
     ///             {
-    ///                 new Aws.Emr.Inputs.ClusterCoreInstanceGroupEbsConfigArgs
+    ///                 
     ///                 {
-    ///                     Size = 40,
-    ///                     Type = "gp2",
-    ///                     VolumesPerInstance = 1,
+    ///                     { "size", "40" },
+    ///                     { "type", "gp2" },
+    ///                     { "volumesPerInstance", 1 },
     ///                 },
-    ///             },
-    ///             BidPrice = "0.30",
-    ///             AutoscalingPolicy = @"{
+    ///             } },
+    ///             { "bidPrice", "0.30" },
+    ///             { "autoscalingPolicy", @"{
     /// ""Constraints"": {
     ///   ""MinCapacity"": 1,
     ///   ""MaxCapacity"": 2
@@ -96,7 +96,7 @@ namespace Pulumi.Aws.Emr
     ///   }
     /// ]
     /// }
-    /// ",
+    /// " },
     ///         },
     ///         EbsRootVolumeSize = 100,
     ///         Tags = 
@@ -106,15 +106,15 @@ namespace Pulumi.Aws.Emr
     ///         },
     ///         BootstrapActions = new[]
     ///         {
-    ///             new Aws.Emr.Inputs.ClusterBootstrapActionArgs
+    ///             
     ///             {
-    ///                 Path = "s3://elasticmapreduce/bootstrap-actions/run-if",
-    ///                 Name = "runif",
-    ///                 Args = new[]
+    ///                 { "path", "s3://elasticmapreduce/bootstrap-actions/run-if" },
+    ///                 { "name", "runif" },
+    ///                 { "args", new[]
     ///                 {
     ///                     "instance.isMaster=true",
     ///                     "echo running on master node",
-    ///                 },
+    ///                 } },
     ///             },
     ///         },
     ///         ConfigurationsJson = @"  [
@@ -163,136 +163,136 @@ namespace Pulumi.Aws.Emr
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Emr.Cluster("example", new()
+    ///     var example = new Aws.Emr.Cluster.Cluster("example", new()
     ///     {
-    ///         MasterInstanceFleet = new Aws.Emr.Inputs.ClusterMasterInstanceFleetArgs
+    ///         MasterInstanceFleet = 
     ///         {
-    ///             InstanceTypeConfigs = new[]
+    ///             { "instanceTypeConfigs", new[]
     ///             {
-    ///                 new Aws.Emr.Inputs.ClusterMasterInstanceFleetInstanceTypeConfigArgs
+    ///                 
     ///                 {
-    ///                     InstanceType = "m4.xlarge",
+    ///                     { "instanceType", "m4.xlarge" },
     ///                 },
-    ///             },
-    ///             TargetOnDemandCapacity = 1,
+    ///             } },
+    ///             { "targetOnDemandCapacity", 1 },
     ///         },
-    ///         CoreInstanceFleet = new Aws.Emr.Inputs.ClusterCoreInstanceFleetArgs
+    ///         CoreInstanceFleet = 
     ///         {
-    ///             InstanceTypeConfigs = new[]
+    ///             { "instanceTypeConfigs", new[]
     ///             {
-    ///                 new Aws.Emr.Inputs.ClusterCoreInstanceFleetInstanceTypeConfigArgs
+    ///                 
     ///                 {
-    ///                     BidPriceAsPercentageOfOnDemandPrice = 80,
-    ///                     EbsConfigs = new[]
+    ///                     { "bidPriceAsPercentageOfOnDemandPrice", 80 },
+    ///                     { "ebsConfigs", new[]
     ///                     {
-    ///                         new Aws.Emr.Inputs.ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArgs
+    ///                         
     ///                         {
-    ///                             Size = 100,
-    ///                             Type = "gp2",
-    ///                             VolumesPerInstance = 1,
+    ///                             { "size", 100 },
+    ///                             { "type", "gp2" },
+    ///                             { "volumesPerInstance", 1 },
     ///                         },
-    ///                     },
-    ///                     InstanceType = "m3.xlarge",
-    ///                     WeightedCapacity = 1,
+    ///                     } },
+    ///                     { "instanceType", "m3.xlarge" },
+    ///                     { "weightedCapacity", 1 },
     ///                 },
-    ///                 new Aws.Emr.Inputs.ClusterCoreInstanceFleetInstanceTypeConfigArgs
+    ///                 
     ///                 {
-    ///                     BidPriceAsPercentageOfOnDemandPrice = 100,
-    ///                     EbsConfigs = new[]
+    ///                     { "bidPriceAsPercentageOfOnDemandPrice", 100 },
+    ///                     { "ebsConfigs", new[]
     ///                     {
-    ///                         new Aws.Emr.Inputs.ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArgs
+    ///                         
     ///                         {
-    ///                             Size = 100,
-    ///                             Type = "gp2",
-    ///                             VolumesPerInstance = 1,
+    ///                             { "size", 100 },
+    ///                             { "type", "gp2" },
+    ///                             { "volumesPerInstance", 1 },
     ///                         },
-    ///                     },
-    ///                     InstanceType = "m4.xlarge",
-    ///                     WeightedCapacity = 1,
+    ///                     } },
+    ///                     { "instanceType", "m4.xlarge" },
+    ///                     { "weightedCapacity", 1 },
     ///                 },
-    ///                 new Aws.Emr.Inputs.ClusterCoreInstanceFleetInstanceTypeConfigArgs
+    ///                 
     ///                 {
-    ///                     BidPriceAsPercentageOfOnDemandPrice = 100,
-    ///                     EbsConfigs = new[]
+    ///                     { "bidPriceAsPercentageOfOnDemandPrice", 100 },
+    ///                     { "ebsConfigs", new[]
     ///                     {
-    ///                         new Aws.Emr.Inputs.ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArgs
+    ///                         
     ///                         {
-    ///                             Size = 100,
-    ///                             Type = "gp2",
-    ///                             VolumesPerInstance = 1,
+    ///                             { "size", 100 },
+    ///                             { "type", "gp2" },
+    ///                             { "volumesPerInstance", 1 },
     ///                         },
-    ///                     },
-    ///                     InstanceType = "m4.2xlarge",
-    ///                     WeightedCapacity = 2,
+    ///                     } },
+    ///                     { "instanceType", "m4.2xlarge" },
+    ///                     { "weightedCapacity", 2 },
     ///                 },
-    ///             },
-    ///             LaunchSpecifications = new Aws.Emr.Inputs.ClusterCoreInstanceFleetLaunchSpecificationsArgs
+    ///             } },
+    ///             { "launchSpecifications", 
     ///             {
-    ///                 SpotSpecifications = new[]
+    ///                 { "spotSpecifications", new[]
     ///                 {
-    ///                     new Aws.Emr.Inputs.ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationArgs
+    ///                     
     ///                     {
-    ///                         AllocationStrategy = "capacity-optimized",
-    ///                         BlockDurationMinutes = 0,
-    ///                         TimeoutAction = "SWITCH_TO_ON_DEMAND",
-    ///                         TimeoutDurationMinutes = 10,
+    ///                         { "allocationStrategy", "capacity-optimized" },
+    ///                         { "blockDurationMinutes", 0 },
+    ///                         { "timeoutAction", "SWITCH_TO_ON_DEMAND" },
+    ///                         { "timeoutDurationMinutes", 10 },
     ///                     },
-    ///                 },
-    ///             },
-    ///             Name = "core fleet",
-    ///             TargetOnDemandCapacity = 2,
-    ///             TargetSpotCapacity = 2,
+    ///                 } },
+    ///             } },
+    ///             { "name", "core fleet" },
+    ///             { "targetOnDemandCapacity", 2 },
+    ///             { "targetSpotCapacity", 2 },
     ///         },
     ///     });
     /// 
-    ///     var task = new Aws.Emr.InstanceFleet("task", new()
+    ///     var task = new Aws.Emr.InstanceFleet.InstanceFleet("task", new()
     ///     {
     ///         ClusterId = example.Id,
     ///         InstanceTypeConfigs = new[]
     ///         {
-    ///             new Aws.Emr.Inputs.InstanceFleetInstanceTypeConfigArgs
+    ///             
     ///             {
-    ///                 BidPriceAsPercentageOfOnDemandPrice = 100,
-    ///                 EbsConfigs = new[]
+    ///                 { "bidPriceAsPercentageOfOnDemandPrice", 100 },
+    ///                 { "ebsConfigs", new[]
     ///                 {
-    ///                     new Aws.Emr.Inputs.InstanceFleetInstanceTypeConfigEbsConfigArgs
+    ///                     
     ///                     {
-    ///                         Size = 100,
-    ///                         Type = "gp2",
-    ///                         VolumesPerInstance = 1,
+    ///                         { "size", 100 },
+    ///                         { "type", "gp2" },
+    ///                         { "volumesPerInstance", 1 },
     ///                     },
-    ///                 },
-    ///                 InstanceType = "m4.xlarge",
-    ///                 WeightedCapacity = 1,
+    ///                 } },
+    ///                 { "instanceType", "m4.xlarge" },
+    ///                 { "weightedCapacity", 1 },
     ///             },
-    ///             new Aws.Emr.Inputs.InstanceFleetInstanceTypeConfigArgs
+    ///             
     ///             {
-    ///                 BidPriceAsPercentageOfOnDemandPrice = 100,
-    ///                 EbsConfigs = new[]
+    ///                 { "bidPriceAsPercentageOfOnDemandPrice", 100 },
+    ///                 { "ebsConfigs", new[]
     ///                 {
-    ///                     new Aws.Emr.Inputs.InstanceFleetInstanceTypeConfigEbsConfigArgs
+    ///                     
     ///                     {
-    ///                         Size = 100,
-    ///                         Type = "gp2",
-    ///                         VolumesPerInstance = 1,
+    ///                         { "size", 100 },
+    ///                         { "type", "gp2" },
+    ///                         { "volumesPerInstance", 1 },
     ///                     },
-    ///                 },
-    ///                 InstanceType = "m4.2xlarge",
-    ///                 WeightedCapacity = 2,
+    ///                 } },
+    ///                 { "instanceType", "m4.2xlarge" },
+    ///                 { "weightedCapacity", 2 },
     ///             },
     ///         },
-    ///         LaunchSpecifications = new Aws.Emr.Inputs.InstanceFleetLaunchSpecificationsArgs
+    ///         LaunchSpecifications = 
     ///         {
-    ///             SpotSpecifications = new[]
+    ///             { "spotSpecifications", new[]
     ///             {
-    ///                 new Aws.Emr.Inputs.InstanceFleetLaunchSpecificationsSpotSpecificationArgs
+    ///                 
     ///                 {
-    ///                     AllocationStrategy = "capacity-optimized",
-    ///                     BlockDurationMinutes = 0,
-    ///                     TimeoutAction = "TERMINATE_CLUSTER",
-    ///                     TimeoutDurationMinutes = 10,
+    ///                     { "allocationStrategy", "capacity-optimized" },
+    ///                     { "blockDurationMinutes", 0 },
+    ///                     { "timeoutAction", "TERMINATE_CLUSTER" },
+    ///                     { "timeoutDurationMinutes", 10 },
     ///                 },
-    ///             },
+    ///             } },
     ///         },
     ///         TargetOnDemandCapacity = 1,
     ///         TargetSpotCapacity = 1,
@@ -313,22 +313,22 @@ namespace Pulumi.Aws.Emr
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // ... other configuration ...
-    ///     var example = new Aws.Emr.Cluster("example", new()
+    ///     var example = new Aws.Emr.Cluster.Cluster("example", new()
     ///     {
     ///         Steps = new[]
     ///         {
-    ///             new Aws.Emr.Inputs.ClusterStepArgs
+    ///             
     ///             {
-    ///                 ActionOnFailure = "TERMINATE_CLUSTER",
-    ///                 Name = "Setup Hadoop Debugging",
-    ///                 HadoopJarStep = new Aws.Emr.Inputs.ClusterStepHadoopJarStepArgs
+    ///                 { "actionOnFailure", "TERMINATE_CLUSTER" },
+    ///                 { "name", "Setup Hadoop Debugging" },
+    ///                 { "hadoopJarStep", 
     ///                 {
-    ///                     Jar = "command-runner.jar",
-    ///                     Args = new[]
+    ///                     { "jar", "command-runner.jar" },
+    ///                     { "args", new[]
     ///                     {
     ///                         "state-pusher-script",
-    ///                     },
-    ///                 },
+    ///                     } },
+    ///                 } },
     ///             },
     ///         },
     ///     });
@@ -351,23 +351,23 @@ namespace Pulumi.Aws.Emr
     ///     // only relevant configurations for working with this functionality.
     ///     // Map public IP on launch must be enabled for public (Internet accessible) subnets
     ///     // ... other configuration ...
-    ///     var exampleSubnet = new Aws.Ec2.Subnet("exampleSubnet", new()
+    ///     var exampleSubnet = new Aws.Ec2.Subnet.Subnet("exampleSubnet", new()
     ///     {
     ///         MapPublicIpOnLaunch = true,
     ///     });
     /// 
     ///     // ... other configuration ...
-    ///     var exampleCluster = new Aws.Emr.Cluster("exampleCluster", new()
+    ///     var exampleCluster = new Aws.Emr.Cluster.Cluster("exampleCluster", new()
     ///     {
     ///         ReleaseLabel = "emr-5.24.1",
     ///         TerminationProtection = true,
-    ///         Ec2Attributes = new Aws.Emr.Inputs.ClusterEc2AttributesArgs
+    ///         Ec2Attributes = 
     ///         {
-    ///             SubnetId = exampleSubnet.Id,
+    ///             { "subnetId", exampleSubnet.Id },
     ///         },
-    ///         MasterInstanceGroup = new Aws.Emr.Inputs.ClusterMasterInstanceGroupArgs
+    ///         MasterInstanceGroup = 
     ///         {
-    ///             InstanceCount = 3,
+    ///             { "instanceCount", 3 },
     ///         },
     ///         CoreInstanceGroup = null,
     ///     });
@@ -445,7 +445,7 @@ namespace Pulumi.Aws.Emr
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var cluster = new Aws.Emr.Cluster("cluster", new()
+        ///     var cluster = new Aws.Emr.Cluster.Cluster("cluster", new()
         ///     {
         ///         ConfigurationsJson = @"[
         /// {
@@ -730,7 +730,7 @@ namespace Pulumi.Aws.Emr
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var cluster = new Aws.Emr.Cluster("cluster", new()
+        ///     var cluster = new Aws.Emr.Cluster.Cluster("cluster", new()
         ///     {
         ///         ConfigurationsJson = @"[
         /// {
@@ -998,7 +998,7 @@ namespace Pulumi.Aws.Emr
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var cluster = new Aws.Emr.Cluster("cluster", new()
+        ///     var cluster = new Aws.Emr.Cluster.Cluster("cluster", new()
         ///     {
         ///         ConfigurationsJson = @"[
         /// {

@@ -32,25 +32,23 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	ec2/defaultVpc "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/defaultVpc"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.NewDefaultVpc(ctx, "default", &ec2.DefaultVpcArgs{
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("Default VPC"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := ec2/defaultVpc.NewDefaultVpc(ctx, "default", &ec2/defaultVpc.DefaultVpcArgs{
+// Tags: map[string]interface{}{
+// "Name": "Default VPC",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

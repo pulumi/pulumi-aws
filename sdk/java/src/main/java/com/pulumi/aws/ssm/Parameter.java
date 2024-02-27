@@ -95,7 +95,7 @@ import javax.annotation.Nullable;
  *             .description(&#34;The parameter description&#34;)
  *             .type(&#34;SecureString&#34;)
  *             .value(var_.database_master_password())
- *             .tags(Map.of(&#34;environment&#34;, &#34;production&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

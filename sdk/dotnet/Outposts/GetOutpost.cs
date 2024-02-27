@@ -13,56 +13,12 @@ namespace Pulumi.Aws.Outposts
     {
         /// <summary>
         /// Provides details about an Outposts Outpost.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Outposts.GetOutpost.Invoke(new()
-        ///     {
-        ///         Name = "example",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetOutpostResult> InvokeAsync(GetOutpostArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetOutpostResult>("aws:outposts/getOutpost:getOutpost", args ?? new GetOutpostArgs(), options.WithDefaults());
 
         /// <summary>
         /// Provides details about an Outposts Outpost.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Outposts.GetOutpost.Invoke(new()
-        ///     {
-        ///         Name = "example",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetOutpostResult> Invoke(GetOutpostInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOutpostResult>("aws:outposts/getOutpost:getOutpost", args ?? new GetOutpostInvokeArgs(), options.WithDefaults());

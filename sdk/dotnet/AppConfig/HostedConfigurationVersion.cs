@@ -24,7 +24,7 @@ namespace Pulumi.Aws.AppConfig
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.AppConfig.HostedConfigurationVersion("example", new()
+    ///     var example = new Aws.Appconfig.HostedConfigurationVersion.HostedConfigurationVersion("example", new()
     ///     {
     ///         ApplicationId = aws_appconfig_application.Example.Id,
     ///         ConfigurationProfileId = aws_appconfig_configuration_profile.Example.Configuration_profile_id,
@@ -56,7 +56,7 @@ namespace Pulumi.Aws.AppConfig
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.AppConfig.HostedConfigurationVersion("example", new()
+    ///     var example = new Aws.Appconfig.HostedConfigurationVersion.HostedConfigurationVersion("example", new()
     ///     {
     ///         ApplicationId = aws_appconfig_application.Example.Id,
     ///         ConfigurationProfileId = aws_appconfig_configuration_profile.Example.Configuration_profile_id,

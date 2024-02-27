@@ -21,41 +21,39 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/appstream"
+//	appstream/fleet "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/appstream/fleet"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := appstream.NewFleet(ctx, "testFleet", &appstream.FleetArgs{
-//				ComputeCapacity: &appstream.FleetComputeCapacityArgs{
-//					DesiredInstances: pulumi.Int(1),
-//				},
-//				Description:                    pulumi.String("test fleet"),
-//				DisplayName:                    pulumi.String("test-fleet"),
-//				EnableDefaultInternetAccess:    pulumi.Bool(false),
-//				FleetType:                      pulumi.String("ON_DEMAND"),
-//				IdleDisconnectTimeoutInSeconds: pulumi.Int(60),
-//				ImageName:                      pulumi.String("Amazon-AppStream2-Sample-Image-03-11-2023"),
-//				InstanceType:                   pulumi.String("stream.standard.large"),
-//				MaxUserDurationInSeconds:       pulumi.Int(600),
-//				Tags: pulumi.StringMap{
-//					"TagName": pulumi.String("tag-value"),
-//				},
-//				VpcConfig: &appstream.FleetVpcConfigArgs{
-//					SubnetIds: pulumi.StringArray{
-//						pulumi.String("subnet-06e9b13400c225127"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := appstream/fleet.NewFleet(ctx, "testFleet", &appstream/fleet.FleetArgs{
+// ComputeCapacity: map[string]interface{}{
+// "desiredInstances": 1,
+// },
+// Description: "test fleet",
+// DisplayName: "test-fleet",
+// EnableDefaultInternetAccess: false,
+// FleetType: "ON_DEMAND",
+// IdleDisconnectTimeoutInSeconds: 60,
+// ImageName: "Amazon-AppStream2-Sample-Image-03-11-2023",
+// InstanceType: "stream.standard.large",
+// MaxUserDurationInSeconds: 600,
+// Tags: map[string]interface{}{
+// "TagName": "tag-value",
+// },
+// VpcConfig: map[string]interface{}{
+// "subnetIds": []string{
+// "subnet-06e9b13400c225127",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

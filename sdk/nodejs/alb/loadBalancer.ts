@@ -21,7 +21,7 @@ import {IpAddressType, LoadBalancerType} from "./index";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = new aws.lb.LoadBalancer("test", {
+ * const test = new aws.lb/loadBalancer.LoadBalancer("test", {
  *     internal: false,
  *     loadBalancerType: "application",
  *     securityGroups: [aws_security_group.lb_sg.id],
@@ -43,7 +43,7 @@ import {IpAddressType, LoadBalancerType} from "./index";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = new aws.lb.LoadBalancer("test", {
+ * const test = new aws.lb/loadBalancer.LoadBalancer("test", {
  *     internal: false,
  *     loadBalancerType: "network",
  *     subnets: .map(subnet => (subnet.id)),
@@ -59,7 +59,7 @@ import {IpAddressType, LoadBalancerType} from "./index";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.lb.LoadBalancer("example", {
+ * const example = new aws.lb/loadBalancer.LoadBalancer("example", {
  *     loadBalancerType: "network",
  *     subnetMappings: [
  *         {
@@ -79,7 +79,7 @@ import {IpAddressType, LoadBalancerType} from "./index";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.lb.LoadBalancer("example", {
+ * const example = new aws.lb/loadBalancer.LoadBalancer("example", {
  *     loadBalancerType: "network",
  *     subnetMappings: [
  *         {

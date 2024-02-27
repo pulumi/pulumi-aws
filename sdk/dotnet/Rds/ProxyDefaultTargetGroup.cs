@@ -24,7 +24,7 @@ namespace Pulumi.Aws.Rds
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleProxy = new Aws.Rds.Proxy("exampleProxy", new()
+    ///     var exampleProxy = new Aws.Rds.Proxy.Proxy("exampleProxy", new()
     ///     {
     ///         DebugLogging = false,
     ///         EngineFamily = "MYSQL",
@@ -41,12 +41,12 @@ namespace Pulumi.Aws.Rds
     ///         },
     ///         Auths = new[]
     ///         {
-    ///             new Aws.Rds.Inputs.ProxyAuthArgs
+    ///             
     ///             {
-    ///                 AuthScheme = "SECRETS",
-    ///                 Description = "example",
-    ///                 IamAuth = "DISABLED",
-    ///                 SecretArn = aws_secretsmanager_secret.Example.Arn,
+    ///                 { "authScheme", "SECRETS" },
+    ///                 { "description", "example" },
+    ///                 { "iamAuth", "DISABLED" },
+    ///                 { "secretArn", aws_secretsmanager_secret.Example.Arn },
     ///             },
     ///         },
     ///         Tags = 
@@ -56,19 +56,19 @@ namespace Pulumi.Aws.Rds
     ///         },
     ///     });
     /// 
-    ///     var exampleProxyDefaultTargetGroup = new Aws.Rds.ProxyDefaultTargetGroup("exampleProxyDefaultTargetGroup", new()
+    ///     var exampleProxyDefaultTargetGroup = new Aws.Rds.ProxyDefaultTargetGroup.ProxyDefaultTargetGroup("exampleProxyDefaultTargetGroup", new()
     ///     {
     ///         DbProxyName = exampleProxy.Name,
-    ///         ConnectionPoolConfig = new Aws.Rds.Inputs.ProxyDefaultTargetGroupConnectionPoolConfigArgs
+    ///         ConnectionPoolConfig = 
     ///         {
-    ///             ConnectionBorrowTimeout = 120,
-    ///             InitQuery = "SET x=1, y=2",
-    ///             MaxConnectionsPercent = 100,
-    ///             MaxIdleConnectionsPercent = 50,
-    ///             SessionPinningFilters = new[]
+    ///             { "connectionBorrowTimeout", 120 },
+    ///             { "initQuery", "SET x=1, y=2" },
+    ///             { "maxConnectionsPercent", 100 },
+    ///             { "maxIdleConnectionsPercent", 50 },
+    ///             { "sessionPinningFilters", new[]
     ///             {
     ///                 "EXCLUDE_VARIABLE_SETS",
-    ///             },
+    ///             } },
     ///         },
     ///     });
     /// 

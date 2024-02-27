@@ -21,37 +21,35 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/redshift"
+//	redshift/parameterGroup "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/redshift/parameterGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := redshift.NewParameterGroup(ctx, "bar", &redshift.ParameterGroupArgs{
-//				Family: pulumi.String("redshift-1.0"),
-//				Parameters: redshift.ParameterGroupParameterArray{
-//					&redshift.ParameterGroupParameterArgs{
-//						Name:  pulumi.String("require_ssl"),
-//						Value: pulumi.String("true"),
-//					},
-//					&redshift.ParameterGroupParameterArgs{
-//						Name:  pulumi.String("query_group"),
-//						Value: pulumi.String("example"),
-//					},
-//					&redshift.ParameterGroupParameterArgs{
-//						Name:  pulumi.String("enable_user_activity_logging"),
-//						Value: pulumi.String("true"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := redshift/parameterGroup.NewParameterGroup(ctx, "bar", &redshift/parameterGroup.ParameterGroupArgs{
+// Family: "redshift-1.0",
+// Parameters: []map[string]interface{}{
+// map[string]interface{}{
+// "name": "require_ssl",
+// "value": "true",
+// },
+// map[string]interface{}{
+// "name": "query_group",
+// "value": "example",
+// },
+// map[string]interface{}{
+// "name": "enable_user_activity_logging",
+// "value": "true",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

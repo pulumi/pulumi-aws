@@ -109,18 +109,18 @@ class SecurityConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.glue.SecurityConfiguration("example", encryption_configuration=aws.glue.SecurityConfigurationEncryptionConfigurationArgs(
-            cloudwatch_encryption=aws.glue.SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionArgs(
-                cloudwatch_encryption_mode="DISABLED",
-            ),
-            job_bookmarks_encryption=aws.glue.SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionArgs(
-                job_bookmarks_encryption_mode="DISABLED",
-            ),
-            s3_encryption=aws.glue.SecurityConfigurationEncryptionConfigurationS3EncryptionArgs(
-                kms_key_arn=data["aws_kms_key"]["example"]["arn"],
-                s3_encryption_mode="SSE-KMS",
-            ),
-        ))
+        example = aws.glue.security_configuration.SecurityConfiguration("example", encryption_configuration={
+            cloudwatchEncryption: {
+                cloudwatchEncryptionMode: DISABLED,
+            },
+            jobBookmarksEncryption: {
+                jobBookmarksEncryptionMode: DISABLED,
+            },
+            s3Encryption: {
+                kmsKeyArn: data.aws_kms_key.example.arn,
+                s3EncryptionMode: SSE-KMS,
+            },
+        })
         ```
 
         ## Import
@@ -151,18 +151,18 @@ class SecurityConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.glue.SecurityConfiguration("example", encryption_configuration=aws.glue.SecurityConfigurationEncryptionConfigurationArgs(
-            cloudwatch_encryption=aws.glue.SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionArgs(
-                cloudwatch_encryption_mode="DISABLED",
-            ),
-            job_bookmarks_encryption=aws.glue.SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionArgs(
-                job_bookmarks_encryption_mode="DISABLED",
-            ),
-            s3_encryption=aws.glue.SecurityConfigurationEncryptionConfigurationS3EncryptionArgs(
-                kms_key_arn=data["aws_kms_key"]["example"]["arn"],
-                s3_encryption_mode="SSE-KMS",
-            ),
-        ))
+        example = aws.glue.security_configuration.SecurityConfiguration("example", encryption_configuration={
+            cloudwatchEncryption: {
+                cloudwatchEncryptionMode: DISABLED,
+            },
+            jobBookmarksEncryption: {
+                jobBookmarksEncryptionMode: DISABLED,
+            },
+            s3Encryption: {
+                kmsKeyArn: data.aws_kms_key.example.arn,
+                s3EncryptionMode: SSE-KMS,
+            },
+        })
         ```
 
         ## Import

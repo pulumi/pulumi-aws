@@ -21,50 +21,48 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/elb"
+//	ec2/proxyProtocolPolicy "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/proxyProtocolPolicy"
+//	elb/loadBalancer "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/elb/loadBalancer"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			lb, err := elb.NewLoadBalancer(ctx, "lb", &elb.LoadBalancerArgs{
-//				AvailabilityZones: pulumi.StringArray{
-//					pulumi.String("us-east-1a"),
-//				},
-//				Listeners: elb.LoadBalancerListenerArray{
-//					&elb.LoadBalancerListenerArgs{
-//						InstancePort:     pulumi.Int(25),
-//						InstanceProtocol: pulumi.String("tcp"),
-//						LbPort:           pulumi.Int(25),
-//						LbProtocol:       pulumi.String("tcp"),
-//					},
-//					&elb.LoadBalancerListenerArgs{
-//						InstancePort:     pulumi.Int(587),
-//						InstanceProtocol: pulumi.String("tcp"),
-//						LbPort:           pulumi.Int(587),
-//						LbProtocol:       pulumi.String("tcp"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ec2.NewProxyProtocolPolicy(ctx, "smtp", &ec2.ProxyProtocolPolicyArgs{
-//				LoadBalancer: lb.Name,
-//				InstancePorts: pulumi.StringArray{
-//					pulumi.String("25"),
-//					pulumi.String("587"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// lb, err := elb/loadBalancer.NewLoadBalancer(ctx, "lb", &elb/loadBalancer.LoadBalancerArgs{
+// AvailabilityZones: []string{
+// "us-east-1a",
+// },
+// Listeners: []interface{}{
+// map[string]interface{}{
+// "instancePort": 25,
+// "instanceProtocol": "tcp",
+// "lbPort": 25,
+// "lbProtocol": "tcp",
+// },
+// map[string]interface{}{
+// "instancePort": 587,
+// "instanceProtocol": "tcp",
+// "lbPort": 587,
+// "lbProtocol": "tcp",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = ec2/proxyProtocolPolicy.NewProxyProtocolPolicy(ctx, "smtp", &ec2/proxyProtocolPolicy.ProxyProtocolPolicyArgs{
+// LoadBalancer: lb.Name,
+// InstancePorts: []string{
+// "25",
+// "587",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 type ProxyProtocolPolicy struct {
 	pulumi.CustomResourceState

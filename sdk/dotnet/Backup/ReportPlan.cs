@@ -22,21 +22,21 @@ namespace Pulumi.Aws.Backup
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Backup.ReportPlan("example", new()
+    ///     var example = new Aws.Backup.ReportPlan.ReportPlan("example", new()
     ///     {
     ///         Description = "example description",
-    ///         ReportDeliveryChannel = new Aws.Backup.Inputs.ReportPlanReportDeliveryChannelArgs
+    ///         ReportDeliveryChannel = 
     ///         {
-    ///             Formats = new[]
+    ///             { "formats", new[]
     ///             {
     ///                 "CSV",
     ///                 "JSON",
-    ///             },
-    ///             S3BucketName = "example-bucket-name",
+    ///             } },
+    ///             { "s3BucketName", "example-bucket-name" },
     ///         },
-    ///         ReportSetting = new Aws.Backup.Inputs.ReportPlanReportSettingArgs
+    ///         ReportSetting = 
     ///         {
-    ///             ReportTemplate = "RESTORE_JOB_REPORT",
+    ///             { "reportTemplate", "RESTORE_JOB_REPORT" },
     ///         },
     ///         Tags = 
     ///         {

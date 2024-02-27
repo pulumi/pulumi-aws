@@ -125,18 +125,18 @@ class VpcEndpoint(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        foo = aws.elasticsearch.VpcEndpoint("foo",
-            domain_arn=aws_elasticsearch_domain["domain_1"]["arn"],
-            vpc_options=aws.elasticsearch.VpcEndpointVpcOptionsArgs(
-                security_group_ids=[
-                    aws_security_group["test"]["id"],
-                    aws_security_group["test2"]["id"],
+        foo = aws.elasticsearch.vpc_endpoint.VpcEndpoint("foo",
+            domain_arn=aws_elasticsearch_domain.domain_1.arn,
+            vpc_options={
+                securityGroupIds: [
+                    aws_security_group.test.id,
+                    aws_security_group.test2.id,
                 ],
-                subnet_ids=[
-                    aws_subnet["test"]["id"],
-                    aws_subnet["test2"]["id"],
+                subnetIds: [
+                    aws_subnet.test.id,
+                    aws_subnet.test2.id,
                 ],
-            ))
+            })
         ```
 
         ## Import
@@ -168,18 +168,18 @@ class VpcEndpoint(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        foo = aws.elasticsearch.VpcEndpoint("foo",
-            domain_arn=aws_elasticsearch_domain["domain_1"]["arn"],
-            vpc_options=aws.elasticsearch.VpcEndpointVpcOptionsArgs(
-                security_group_ids=[
-                    aws_security_group["test"]["id"],
-                    aws_security_group["test2"]["id"],
+        foo = aws.elasticsearch.vpc_endpoint.VpcEndpoint("foo",
+            domain_arn=aws_elasticsearch_domain.domain_1.arn,
+            vpc_options={
+                securityGroupIds: [
+                    aws_security_group.test.id,
+                    aws_security_group.test2.id,
                 ],
-                subnet_ids=[
-                    aws_subnet["test"]["id"],
-                    aws_subnet["test2"]["id"],
+                subnetIds: [
+                    aws_subnet.test.id,
+                    aws_subnet.test2.id,
                 ],
-            ))
+            })
         ```
 
         ## Import

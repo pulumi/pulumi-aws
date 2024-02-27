@@ -21,34 +21,32 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/appconfig"
+//	appconfig/configurationProfile "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/appconfig/configurationProfile"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := appconfig.NewConfigurationProfile(ctx, "example", &appconfig.ConfigurationProfileArgs{
-//				ApplicationId: pulumi.Any(aws_appconfig_application.Example.Id),
-//				Description:   pulumi.String("Example Configuration Profile"),
-//				LocationUri:   pulumi.String("hosted"),
-//				Validators: appconfig.ConfigurationProfileValidatorArray{
-//					&appconfig.ConfigurationProfileValidatorArgs{
-//						Content: pulumi.Any(aws_lambda_function.Example.Arn),
-//						Type:    pulumi.String("LAMBDA"),
-//					},
-//				},
-//				Tags: pulumi.StringMap{
-//					"Type": pulumi.String("AppConfig Configuration Profile"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := appconfig/configurationProfile.NewConfigurationProfile(ctx, "example", &appconfig/configurationProfile.ConfigurationProfileArgs{
+// ApplicationId: aws_appconfig_application.Example.Id,
+// Description: "Example Configuration Profile",
+// LocationUri: "hosted",
+// Validators: []map[string]interface{}{
+// map[string]interface{}{
+// "content": aws_lambda_function.Example.Arn,
+// "type": "LAMBDA",
+// },
+// },
+// Tags: map[string]interface{}{
+// "Type": "AppConfig Configuration Profile",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

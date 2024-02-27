@@ -28,38 +28,36 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/codebuild"
+//	codebuild/webhook "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/codebuild/webhook"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := codebuild.NewWebhook(ctx, "example", &codebuild.WebhookArgs{
-//				ProjectName: pulumi.Any(aws_codebuild_project.Example.Name),
-//				BuildType:   pulumi.String("BUILD"),
-//				FilterGroups: codebuild.WebhookFilterGroupArray{
-//					&codebuild.WebhookFilterGroupArgs{
-//						Filters: codebuild.WebhookFilterGroupFilterArray{
-//							&codebuild.WebhookFilterGroupFilterArgs{
-//								Type:    pulumi.String("EVENT"),
-//								Pattern: pulumi.String("PUSH"),
-//							},
-//							&codebuild.WebhookFilterGroupFilterArgs{
-//								Type:    pulumi.String("BASE_REF"),
-//								Pattern: pulumi.String("master"),
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := codebuild/webhook.NewWebhook(ctx, "example", &codebuild/webhook.WebhookArgs{
+// ProjectName: aws_codebuild_project.Example.Name,
+// BuildType: "BUILD",
+// FilterGroups: []map[string]interface{}{
+// map[string]interface{}{
+// "filters": []map[string]interface{}{
+// map[string]interface{}{
+// "type": "EVENT",
+// "pattern": "PUSH",
+// },
+// map[string]interface{}{
+// "type": "BASE_REF",
+// "pattern": "master",
+// },
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### GitHub Enterprise
 //
@@ -72,40 +70,38 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/codebuild"
-//	"github.com/pulumi/pulumi-github/sdk/v5/go/github"
+//	codebuild/webhook "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/codebuild/webhook"
+//	index/repositoryWebhook "github.com/pulumi/pulumi-github/sdk/v1/go/github/index/repositoryWebhook"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleWebhook, err := codebuild.NewWebhook(ctx, "exampleWebhook", &codebuild.WebhookArgs{
-//				ProjectName: pulumi.Any(aws_codebuild_project.Example.Name),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = github.NewRepositoryWebhook(ctx, "exampleRepositoryWebhook", &github.RepositoryWebhookArgs{
-//				Active: pulumi.Bool(true),
-//				Events: pulumi.StringArray{
-//					pulumi.String("push"),
-//				},
-//				Repository: pulumi.Any(github_repository.Example.Name),
-//				Configuration: &github.RepositoryWebhookConfigurationArgs{
-//					Url:         exampleWebhook.PayloadUrl,
-//					Secret:      exampleWebhook.Secret,
-//					ContentType: pulumi.String("json"),
-//					InsecureSsl: pulumi.Bool(false),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleWebhook, err := codebuild/webhook.NewWebhook(ctx, "exampleWebhook", &codebuild/webhook.WebhookArgs{
+// ProjectName: aws_codebuild_project.Example.Name,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = github.NewRepositoryWebhook(ctx, "exampleRepositoryWebhook", &github.RepositoryWebhookArgs{
+// Active: true,
+// Events: []string{
+// "push",
+// },
+// Repository: github_repository.Example.Name,
+// Configuration: map[string]interface{}{
+// "url": exampleWebhook.PayloadUrl,
+// "secret": exampleWebhook.Secret,
+// "contentType": "json",
+// "insecureSsl": false,
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

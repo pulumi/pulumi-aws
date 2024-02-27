@@ -23,7 +23,7 @@ namespace Pulumi.Aws.VerifiedAccess
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.VerifiedAccess.Instance("example", new()
+    ///     var example = new Aws.Verifiedaccess.Instance.Instance("example", new()
     ///     {
     ///         Description = "example",
     ///         Tags = 
@@ -44,7 +44,7 @@ namespace Pulumi.Aws.VerifiedAccess
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.VerifiedAccess.Instance("example", new()
+    ///     var example = new Aws.Verifiedaccess.Instance.Instance("example", new()
     ///     {
     ///         FipsEnabled = true,
     ///     });

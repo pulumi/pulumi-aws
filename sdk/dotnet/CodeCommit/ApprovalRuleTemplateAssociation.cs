@@ -22,7 +22,7 @@ namespace Pulumi.Aws.CodeCommit
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.CodeCommit.ApprovalRuleTemplateAssociation("example", new()
+    ///     var example = new Aws.Codecommit.ApprovalRuleTemplateAssociation.ApprovalRuleTemplateAssociation("example", new()
     ///     {
     ///         ApprovalRuleTemplateName = aws_codecommit_approval_rule_template.Example.Name,
     ///         RepositoryName = aws_codecommit_repository.Example.Repository_name,

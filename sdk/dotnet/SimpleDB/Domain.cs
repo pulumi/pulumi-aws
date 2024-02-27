@@ -22,7 +22,7 @@ namespace Pulumi.Aws.SimpleDB
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var users = new Aws.SimpleDB.Domain("users");
+    ///     var users = new Aws.Simpledb.Domain.Domain("users");
     /// 
     /// });
     /// ```

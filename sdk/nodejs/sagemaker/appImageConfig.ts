@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = new aws.sagemaker.AppImageConfig("test", {
+ * const test = new aws.sagemaker/appImageConfig.AppImageConfig("test", {
  *     appImageConfigName: "example",
  *     kernelGatewayImageConfig: {
  *         kernelSpec: {
@@ -32,7 +32,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = new aws.sagemaker.AppImageConfig("test", {
+ * const test = new aws.sagemaker/appImageConfig.AppImageConfig("test", {
  *     appImageConfigName: "example",
  *     kernelGatewayImageConfig: {
  *         fileSystemConfig: {},

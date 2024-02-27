@@ -32,8 +32,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.elastictranscoder.Pipeline;
  * import com.pulumi.aws.elastictranscoder.PipelineArgs;
- * import com.pulumi.aws.elastictranscoder.inputs.PipelineContentConfigArgs;
- * import com.pulumi.aws.elastictranscoder.inputs.PipelineThumbnailConfigArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -50,14 +48,8 @@ import javax.annotation.Nullable;
  *         var bar = new Pipeline(&#34;bar&#34;, PipelineArgs.builder()        
  *             .inputBucket(aws_s3_bucket.input_bucket().id())
  *             .role(aws_iam_role.test_role().arn())
- *             .contentConfig(PipelineContentConfigArgs.builder()
- *                 .bucket(aws_s3_bucket.content_bucket().id())
- *                 .storageClass(&#34;Standard&#34;)
- *                 .build())
- *             .thumbnailConfig(PipelineThumbnailConfigArgs.builder()
- *                 .bucket(aws_s3_bucket.thumb_bucket().id())
- *                 .storageClass(&#34;Standard&#34;)
- *                 .build())
+ *             .contentConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .thumbnailConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

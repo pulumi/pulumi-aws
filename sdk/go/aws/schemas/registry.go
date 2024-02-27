@@ -22,23 +22,21 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/schemas"
+//	schemas/registry "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/schemas/registry"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := schemas.NewRegistry(ctx, "test", &schemas.RegistryArgs{
-//				Description: pulumi.String("A custom schema registry"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := schemas/registry.NewRegistry(ctx, "test", &schemas/registry.RegistryArgs{
+// Description: "A custom schema registry",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

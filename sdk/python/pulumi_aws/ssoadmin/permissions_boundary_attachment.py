@@ -143,12 +143,12 @@ class PermissionsBoundaryAttachment(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ssoadmin.PermissionsBoundaryAttachment("example",
-            instance_arn=aws_ssoadmin_permission_set["example"]["instance_arn"],
-            permission_set_arn=aws_ssoadmin_permission_set["example"]["arn"],
-            permissions_boundary=aws.ssoadmin.PermissionsBoundaryAttachmentPermissionsBoundaryArgs(
-                managed_policy_arn="arn:aws:iam::aws:policy/ReadOnlyAccess",
-            ))
+        example = aws.ssoadmin.permissions_boundary_attachment.PermissionsBoundaryAttachment("example",
+            instance_arn=aws_ssoadmin_permission_set.example.instance_arn,
+            permission_set_arn=aws_ssoadmin_permission_set.example.arn,
+            permissions_boundary={
+                managedPolicyArn: arn:aws:iam::aws:policy/ReadOnlyAccess,
+            })
         ```
 
         ## Import
@@ -183,12 +183,12 @@ class PermissionsBoundaryAttachment(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ssoadmin.PermissionsBoundaryAttachment("example",
-            instance_arn=aws_ssoadmin_permission_set["example"]["instance_arn"],
-            permission_set_arn=aws_ssoadmin_permission_set["example"]["arn"],
-            permissions_boundary=aws.ssoadmin.PermissionsBoundaryAttachmentPermissionsBoundaryArgs(
-                managed_policy_arn="arn:aws:iam::aws:policy/ReadOnlyAccess",
-            ))
+        example = aws.ssoadmin.permissions_boundary_attachment.PermissionsBoundaryAttachment("example",
+            instance_arn=aws_ssoadmin_permission_set.example.instance_arn,
+            permission_set_arn=aws_ssoadmin_permission_set.example.arn,
+            permissions_boundary={
+                managedPolicyArn: arn:aws:iam::aws:policy/ReadOnlyAccess,
+            })
         ```
 
         ## Import

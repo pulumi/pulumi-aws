@@ -117,16 +117,6 @@ def get_dns_namespace(name: Optional[str] = None,
     """
     Retrieves information about a Service Discovery private or public DNS namespace.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.servicediscovery.get_dns_namespace(name="example.service.local",
-        type="DNS_PRIVATE")
-    ```
-
 
     :param str name: Name of the namespace.
     :param Mapping[str, str] tags: Map of tags for the resource.
@@ -156,16 +146,6 @@ def get_dns_namespace_output(name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDnsNamespaceResult]:
     """
     Retrieves information about a Service Discovery private or public DNS namespace.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.servicediscovery.get_dns_namespace(name="example.service.local",
-        type="DNS_PRIVATE")
-    ```
 
 
     :param str name: Name of the namespace.

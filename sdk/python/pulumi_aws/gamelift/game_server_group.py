@@ -467,22 +467,22 @@ class GameServerGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.gamelift.GameServerGroup("example",
-            game_server_group_name="example",
+        example = aws.gamelift.game_server_group.GameServerGroup("example",
+            game_server_group_name=example,
             instance_definitions=[
-                aws.gamelift.GameServerGroupInstanceDefinitionArgs(
-                    instance_type="c5.large",
-                ),
-                aws.gamelift.GameServerGroupInstanceDefinitionArgs(
-                    instance_type="c5a.large",
-                ),
+                {
+                    instanceType: c5.large,
+                },
+                {
+                    instanceType: c5a.large,
+                },
             ],
-            launch_template=aws.gamelift.GameServerGroupLaunchTemplateArgs(
-                id=aws_launch_template["example"]["id"],
-            ),
+            launch_template={
+                id: aws_launch_template.example.id,
+            },
             max_size=1,
             min_size=1,
-            role_arn=aws_iam_role["example"]["arn"],
+            role_arn=aws_iam_role.example.arn,
             opts=pulumi.ResourceOptions(depends_on=[aws_iam_role_policy_attachment["example"]]))
         ```
 
@@ -492,64 +492,41 @@ class GameServerGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.gamelift.GameServerGroup("example",
-            auto_scaling_policy=aws.gamelift.GameServerGroupAutoScalingPolicyArgs(
-                estimated_instance_warmup=60,
-                target_tracking_configuration=aws.gamelift.GameServerGroupAutoScalingPolicyTargetTrackingConfigurationArgs(
-                    target_value=75,
-                ),
-            ),
-            balancing_strategy="SPOT_ONLY",
-            game_server_group_name="example",
-            game_server_protection_policy="FULL_PROTECTION",
+        example = aws.gamelift.game_server_group.GameServerGroup("example",
+            auto_scaling_policy={
+                estimatedInstanceWarmup: 60,
+                targetTrackingConfiguration: {
+                    targetValue: 75,
+                },
+            },
+            balancing_strategy=SPOT_ONLY,
+            game_server_group_name=example,
+            game_server_protection_policy=FULL_PROTECTION,
             instance_definitions=[
-                aws.gamelift.GameServerGroupInstanceDefinitionArgs(
-                    instance_type="c5.large",
-                    weighted_capacity="1",
-                ),
-                aws.gamelift.GameServerGroupInstanceDefinitionArgs(
-                    instance_type="c5.2xlarge",
-                    weighted_capacity="2",
-                ),
+                {
+                    instanceType: c5.large,
+                    weightedCapacity: 1,
+                },
+                {
+                    instanceType: c5.2xlarge,
+                    weightedCapacity: 2,
+                },
             ],
-            launch_template=aws.gamelift.GameServerGroupLaunchTemplateArgs(
-                id=aws_launch_template["example"]["id"],
-                version="1",
-            ),
+            launch_template={
+                id: aws_launch_template.example.id,
+                version: 1,
+            },
             max_size=1,
             min_size=1,
-            role_arn=aws_iam_role["example"]["arn"],
+            role_arn=aws_iam_role.example.arn,
             tags={
-                "Name": "example",
+                Name: example,
             },
             vpc_subnets=[
-                "subnet-12345678",
-                "subnet-23456789",
+                subnet-12345678,
+                subnet-23456789,
             ],
             opts=pulumi.ResourceOptions(depends_on=[aws_iam_role_policy_attachment["example"]]))
-        ```
-        ### Example IAM Role for GameLift Game Server Group
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        current = aws.get_partition()
-        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=[
-                    "autoscaling.amazonaws.com",
-                    "gamelift.amazonaws.com",
-                ],
-            )],
-            actions=["sts:AssumeRole"],
-        )])
-        example_role = aws.iam.Role("exampleRole", assume_role_policy=assume_role.json)
-        example_role_policy_attachment = aws.iam.RolePolicyAttachment("exampleRolePolicyAttachment",
-            policy_arn=f"arn:{current.partition}:iam::aws:policy/GameLiftGameServerGroupPolicy",
-            role=example_role.name)
         ```
 
         ## Import
@@ -596,22 +573,22 @@ class GameServerGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.gamelift.GameServerGroup("example",
-            game_server_group_name="example",
+        example = aws.gamelift.game_server_group.GameServerGroup("example",
+            game_server_group_name=example,
             instance_definitions=[
-                aws.gamelift.GameServerGroupInstanceDefinitionArgs(
-                    instance_type="c5.large",
-                ),
-                aws.gamelift.GameServerGroupInstanceDefinitionArgs(
-                    instance_type="c5a.large",
-                ),
+                {
+                    instanceType: c5.large,
+                },
+                {
+                    instanceType: c5a.large,
+                },
             ],
-            launch_template=aws.gamelift.GameServerGroupLaunchTemplateArgs(
-                id=aws_launch_template["example"]["id"],
-            ),
+            launch_template={
+                id: aws_launch_template.example.id,
+            },
             max_size=1,
             min_size=1,
-            role_arn=aws_iam_role["example"]["arn"],
+            role_arn=aws_iam_role.example.arn,
             opts=pulumi.ResourceOptions(depends_on=[aws_iam_role_policy_attachment["example"]]))
         ```
 
@@ -621,64 +598,41 @@ class GameServerGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.gamelift.GameServerGroup("example",
-            auto_scaling_policy=aws.gamelift.GameServerGroupAutoScalingPolicyArgs(
-                estimated_instance_warmup=60,
-                target_tracking_configuration=aws.gamelift.GameServerGroupAutoScalingPolicyTargetTrackingConfigurationArgs(
-                    target_value=75,
-                ),
-            ),
-            balancing_strategy="SPOT_ONLY",
-            game_server_group_name="example",
-            game_server_protection_policy="FULL_PROTECTION",
+        example = aws.gamelift.game_server_group.GameServerGroup("example",
+            auto_scaling_policy={
+                estimatedInstanceWarmup: 60,
+                targetTrackingConfiguration: {
+                    targetValue: 75,
+                },
+            },
+            balancing_strategy=SPOT_ONLY,
+            game_server_group_name=example,
+            game_server_protection_policy=FULL_PROTECTION,
             instance_definitions=[
-                aws.gamelift.GameServerGroupInstanceDefinitionArgs(
-                    instance_type="c5.large",
-                    weighted_capacity="1",
-                ),
-                aws.gamelift.GameServerGroupInstanceDefinitionArgs(
-                    instance_type="c5.2xlarge",
-                    weighted_capacity="2",
-                ),
+                {
+                    instanceType: c5.large,
+                    weightedCapacity: 1,
+                },
+                {
+                    instanceType: c5.2xlarge,
+                    weightedCapacity: 2,
+                },
             ],
-            launch_template=aws.gamelift.GameServerGroupLaunchTemplateArgs(
-                id=aws_launch_template["example"]["id"],
-                version="1",
-            ),
+            launch_template={
+                id: aws_launch_template.example.id,
+                version: 1,
+            },
             max_size=1,
             min_size=1,
-            role_arn=aws_iam_role["example"]["arn"],
+            role_arn=aws_iam_role.example.arn,
             tags={
-                "Name": "example",
+                Name: example,
             },
             vpc_subnets=[
-                "subnet-12345678",
-                "subnet-23456789",
+                subnet-12345678,
+                subnet-23456789,
             ],
             opts=pulumi.ResourceOptions(depends_on=[aws_iam_role_policy_attachment["example"]]))
-        ```
-        ### Example IAM Role for GameLift Game Server Group
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        current = aws.get_partition()
-        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=[
-                    "autoscaling.amazonaws.com",
-                    "gamelift.amazonaws.com",
-                ],
-            )],
-            actions=["sts:AssumeRole"],
-        )])
-        example_role = aws.iam.Role("exampleRole", assume_role_policy=assume_role.json)
-        example_role_policy_attachment = aws.iam.RolePolicyAttachment("exampleRolePolicyAttachment",
-            policy_arn=f"arn:{current.partition}:iam::aws:policy/GameLiftGameServerGroupPolicy",
-            role=example_role.name)
         ```
 
         ## Import

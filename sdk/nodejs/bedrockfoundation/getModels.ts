@@ -11,24 +11,6 @@ import * as utilities from "../utilities";
  * Data source for managing AWS Bedrock Foundation Models.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = aws.bedrockfoundation.getModels({});
- * ```
- * ### Filter by Inference Type
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = aws.bedrockfoundation.getModels({
- *     byInferenceType: "ON_DEMAND",
- * });
- * ```
  */
 export function getModels(args?: GetModelsArgs, opts?: pulumi.InvokeOptions): Promise<GetModelsResult> {
     args = args || {};
@@ -85,24 +67,6 @@ export interface GetModelsResult {
  * Data source for managing AWS Bedrock Foundation Models.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = aws.bedrockfoundation.getModels({});
- * ```
- * ### Filter by Inference Type
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = aws.bedrockfoundation.getModels({
- *     byInferenceType: "ON_DEMAND",
- * });
- * ```
  */
 export function getModelsOutput(args?: GetModelsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetModelsResult> {
     return pulumi.output(args).apply((a: any) => getModels(a, opts))

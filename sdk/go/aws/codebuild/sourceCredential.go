@@ -24,25 +24,23 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/codebuild"
+//	codebuild/sourceCredential "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/codebuild/sourceCredential"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := codebuild.NewSourceCredential(ctx, "example", &codebuild.SourceCredentialArgs{
-//				AuthType:   pulumi.String("PERSONAL_ACCESS_TOKEN"),
-//				ServerType: pulumi.String("GITHUB"),
-//				Token:      pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := codebuild/sourceCredential.NewSourceCredential(ctx, "example", &codebuild/sourceCredential.SourceCredentialArgs{
+// AuthType: "PERSONAL_ACCESS_TOKEN",
+// ServerType: "GITHUB",
+// Token: "example",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Bitbucket Server Usage
 //
@@ -51,26 +49,24 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/codebuild"
+//	codebuild/sourceCredential "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/codebuild/sourceCredential"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := codebuild.NewSourceCredential(ctx, "example", &codebuild.SourceCredentialArgs{
-//				AuthType:   pulumi.String("BASIC_AUTH"),
-//				ServerType: pulumi.String("BITBUCKET"),
-//				Token:      pulumi.String("example"),
-//				UserName:   pulumi.String("test-user"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := codebuild/sourceCredential.NewSourceCredential(ctx, "example", &codebuild/sourceCredential.SourceCredentialArgs{
+// AuthType: "BASIC_AUTH",
+// ServerType: "BITBUCKET",
+// Token: "example",
+// UserName: "test-user",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

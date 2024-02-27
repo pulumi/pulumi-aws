@@ -176,7 +176,7 @@ class OriginAccessIdentity(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.cloudfront.OriginAccessIdentity("example", comment="Some comment")
+        example = aws.cloudfront.origin_access_identity.OriginAccessIdentity("example", comment=Some comment)
         ```
         ## Using With CloudFront
 
@@ -191,39 +191,12 @@ class OriginAccessIdentity(pulumi.CustomResource):
         import pulumi_aws as aws
 
         # ... other configuration ...
-        example = aws.cloudfront.Distribution("example", origins=[aws.cloudfront.DistributionOriginArgs(
-            s3_origin_config=aws.cloudfront.DistributionOriginS3OriginConfigArgs(
-                origin_access_identity=aws_cloudfront_origin_access_identity["example"]["cloudfront_access_identity_path"],
-            ),
-        )])
+        example = aws.cloudfront.distribution.Distribution("example", origins=[{
+            s3OriginConfig: {
+                originAccessIdentity: aws_cloudfront_origin_access_identity.example.cloudfront_access_identity_path,
+            },
+        }])
         ```
-
-        ### Updating your bucket policy
-
-        Note that the AWS API may translate the `s3_canonical_user_id` `CanonicalUser`
-        principal into an `AWS` IAM ARN principal when supplied in an
-        `s3.BucketV2` bucket policy, causing spurious diffs. If
-        you see this behaviour, use the `iam_arn` instead:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        s3_policy = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            actions=["s3:GetObject"],
-            resources=[f"{aws_s3_bucket['example']['arn']}/*"],
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="AWS",
-                identifiers=[aws_cloudfront_origin_access_identity["example"]["iam_arn"]],
-            )],
-        )])
-        example = aws.s3.BucketPolicy("example",
-            bucket=aws_s3_bucket["example"]["id"],
-            policy=s3_policy.json)
-        ```
-
-        [1]: http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Introduction.html
-        [2]: http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html
 
         ## Import
 
@@ -259,7 +232,7 @@ class OriginAccessIdentity(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.cloudfront.OriginAccessIdentity("example", comment="Some comment")
+        example = aws.cloudfront.origin_access_identity.OriginAccessIdentity("example", comment=Some comment)
         ```
         ## Using With CloudFront
 
@@ -274,39 +247,12 @@ class OriginAccessIdentity(pulumi.CustomResource):
         import pulumi_aws as aws
 
         # ... other configuration ...
-        example = aws.cloudfront.Distribution("example", origins=[aws.cloudfront.DistributionOriginArgs(
-            s3_origin_config=aws.cloudfront.DistributionOriginS3OriginConfigArgs(
-                origin_access_identity=aws_cloudfront_origin_access_identity["example"]["cloudfront_access_identity_path"],
-            ),
-        )])
+        example = aws.cloudfront.distribution.Distribution("example", origins=[{
+            s3OriginConfig: {
+                originAccessIdentity: aws_cloudfront_origin_access_identity.example.cloudfront_access_identity_path,
+            },
+        }])
         ```
-
-        ### Updating your bucket policy
-
-        Note that the AWS API may translate the `s3_canonical_user_id` `CanonicalUser`
-        principal into an `AWS` IAM ARN principal when supplied in an
-        `s3.BucketV2` bucket policy, causing spurious diffs. If
-        you see this behaviour, use the `iam_arn` instead:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        s3_policy = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            actions=["s3:GetObject"],
-            resources=[f"{aws_s3_bucket['example']['arn']}/*"],
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="AWS",
-                identifiers=[aws_cloudfront_origin_access_identity["example"]["iam_arn"]],
-            )],
-        )])
-        example = aws.s3.BucketPolicy("example",
-            bucket=aws_s3_bucket["example"]["id"],
-            policy=s3_policy.json)
-        ```
-
-        [1]: http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Introduction.html
-        [2]: http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html
 
         ## Import
 

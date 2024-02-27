@@ -22,9 +22,9 @@ namespace Pulumi.Aws.Backup
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Aws.Backup.GlobalSettings("test", new()
+    ///     var test = new Aws.Backup.GlobalSettings.GlobalSettings("test", new()
     ///     {
-    ///         GlobalSettingsList = 
+    ///         GlobalSettings = 
     ///         {
     ///             { "isCrossAccountBackupEnabled", "true" },
     ///         },

@@ -16,67 +16,6 @@ import javax.annotation.Nullable;
 /**
  * Provides a MediaStore Container Policy.
  * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.AwsFunctions;
- * import com.pulumi.aws.inputs.GetRegionArgs;
- * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
- * import com.pulumi.aws.mediastore.Container;
- * import com.pulumi.aws.iam.IamFunctions;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
- * import com.pulumi.aws.mediastore.ContainerPolicy;
- * import com.pulumi.aws.mediastore.ContainerPolicyArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var currentRegion = AwsFunctions.getRegion();
- * 
- *         final var currentCallerIdentity = AwsFunctions.getCallerIdentity();
- * 
- *         var exampleContainer = new Container(&#34;exampleContainer&#34;);
- * 
- *         final var examplePolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .sid(&#34;MediaStoreFullAccess&#34;)
- *                 .effect(&#34;Allow&#34;)
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type(&#34;AWS&#34;)
- *                     .identifiers(String.format(&#34;arn:aws:iam::%s:root&#34;, currentCallerIdentity.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId())))
- *                     .build())
- *                 .actions(&#34;mediastore:*&#34;)
- *                 .resources(exampleContainer.name().applyValue(name -&gt; String.format(&#34;arn:aws:mediastore:%s:%s:container/%s/*&#34;, currentRegion.applyValue(getRegionResult -&gt; getRegionResult.name()),currentCallerIdentity.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()),name)))
- *                 .conditions(GetPolicyDocumentStatementConditionArgs.builder()
- *                     .test(&#34;Bool&#34;)
- *                     .variable(&#34;aws:SecureTransport&#34;)
- *                     .values(&#34;true&#34;)
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *         var exampleContainerPolicy = new ContainerPolicy(&#34;exampleContainerPolicy&#34;, ContainerPolicyArgs.builder()        
- *             .containerName(exampleContainer.name())
- *             .policy(examplePolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(examplePolicyDocument -&gt; examplePolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
  * ## Import
  * 
  * Using `pulumi import`, import MediaStore Container Policy using the MediaStore Container Name. For example:

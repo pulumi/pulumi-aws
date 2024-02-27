@@ -31,45 +31,45 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/elasticbeanstalk"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	elasticbeanstalk/application "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/elasticbeanstalk/application"
+//	elasticbeanstalk/applicationVersion "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/elasticbeanstalk/applicationVersion"
+//	s3/bucketObjectv2 "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/s3/bucketObjectv2"
+//	s3/bucketV2 "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/s3/bucketV2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			defaultBucketV2, err := s3.NewBucketV2(ctx, "defaultBucketV2", nil)
-//			if err != nil {
-//				return err
-//			}
-//			defaultBucketObjectv2, err := s3.NewBucketObjectv2(ctx, "defaultBucketObjectv2", &s3.BucketObjectv2Args{
-//				Bucket: defaultBucketV2.ID(),
-//				Key:    pulumi.String("beanstalk/go-v1.zip"),
-//				Source: pulumi.NewFileAsset("go-v1.zip"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = elasticbeanstalk.NewApplication(ctx, "defaultApplication", &elasticbeanstalk.ApplicationArgs{
-//				Description: pulumi.String("tf-test-desc"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = elasticbeanstalk.NewApplicationVersion(ctx, "defaultApplicationVersion", &elasticbeanstalk.ApplicationVersionArgs{
-//				Application: pulumi.Any("tf-test-name"),
-//				Description: pulumi.String("application version"),
-//				Bucket:      defaultBucketV2.ID(),
-//				Key:         defaultBucketObjectv2.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// defaultBucketV2, err := s3/bucketV2.NewBucketV2(ctx, "defaultBucketV2", nil)
+// if err != nil {
+// return err
+// }
+// defaultBucketObjectv2, err := s3/bucketObjectv2.NewBucketObjectv2(ctx, "defaultBucketObjectv2", &s3/bucketObjectv2.BucketObjectv2Args{
+// Bucket: defaultBucketV2.Id,
+// Key: "beanstalk/go-v1.zip",
+// Source: pulumi.NewFileAsset("go-v1.zip"),
+// })
+// if err != nil {
+// return err
+// }
+// _, err = elasticbeanstalk/application.NewApplication(ctx, "defaultApplication", &elasticbeanstalk/application.ApplicationArgs{
+// Description: "tf-test-desc",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = elasticbeanstalk/applicationVersion.NewApplicationVersion(ctx, "defaultApplicationVersion", &elasticbeanstalk/applicationVersion.ApplicationVersionArgs{
+// Application: "tf-test-name",
+// Description: "application version",
+// Bucket: defaultBucketV2.Id,
+// Key: defaultBucketObjectv2.Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 type ApplicationVersion struct {
 	pulumi.CustomResourceState

@@ -262,19 +262,19 @@ class FirewallPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.networkfirewall.FirewallPolicy("example",
-            firewall_policy=aws.networkfirewall.FirewallPolicyFirewallPolicyArgs(
-                stateless_default_actions=["aws:pass"],
-                stateless_fragment_default_actions=["aws:drop"],
-                stateless_rule_group_references=[aws.networkfirewall.FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArgs(
-                    priority=1,
-                    resource_arn=aws_networkfirewall_rule_group["example"]["arn"],
-                )],
-                tls_inspection_configuration_arn="arn:aws:network-firewall:REGION:ACCT:tls-configuration/example",
-            ),
+        example = aws.networkfirewall.firewall_policy.FirewallPolicy("example",
+            firewall_policy={
+                statelessDefaultActions: [aws:pass],
+                statelessFragmentDefaultActions: [aws:drop],
+                statelessRuleGroupReferences: [{
+                    priority: 1,
+                    resourceArn: aws_networkfirewall_rule_group.example.arn,
+                }],
+                tlsInspectionConfigurationArn: arn:aws:network-firewall:REGION:ACCT:tls-configuration/example,
+            },
             tags={
-                "Tag1": "Value1",
-                "Tag2": "Value2",
+                Tag1: Value1,
+                Tag2: Value2,
             })
         ```
         ## Policy with a HOME_NET Override
@@ -283,30 +283,55 @@ class FirewallPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.networkfirewall.FirewallPolicy("example",
-            firewall_policy=aws.networkfirewall.FirewallPolicyFirewallPolicyArgs(
-                policy_variables=aws.networkfirewall.FirewallPolicyFirewallPolicyPolicyVariablesArgs(
-                    rule_variables=[aws.networkfirewall.FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArgs(
-                        key="HOME_NET",
-                        ip_set=aws.networkfirewall.FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSetArgs(
-                            definitions=[
-                                "10.0.0.0/16",
-                                "10.1.0.0/24",
+        example = aws.networkfirewall.firewall_policy.FirewallPolicy("example",
+            firewall_policy={
+                policyVariables: {
+                    ruleVariables: [{
+                        key: HOME_NET,
+                        ipSet: {
+                            definitions: [
+                                10.0.0.0/16,
+                                10.1.0.0/24,
                             ],
-                        ),
-                    )],
-                ),
-                stateless_default_actions=["aws:pass"],
-                stateless_fragment_default_actions=["aws:drop"],
-                stateless_rule_group_references=[aws.networkfirewall.FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArgs(
-                    priority=1,
-                    resource_arn=aws_networkfirewall_rule_group["example"]["arn"],
-                )],
-            ),
+                        },
+                    }],
+                },
+                statelessDefaultActions: [aws:pass],
+                statelessFragmentDefaultActions: [aws:drop],
+                statelessRuleGroupReferences: [{
+                    priority: 1,
+                    resourceArn: aws_networkfirewall_rule_group.example.arn,
+                }],
+            },
             tags={
-                "Tag1": "Value1",
-                "Tag2": "Value2",
+                Tag1: Value1,
+                Tag2: Value2,
             })
+        ```
+
+        ## Policy with a Custom Action for Stateless Inspection
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.networkfirewall.firewall_policy.FirewallPolicy("test", firewall_policy={
+            statelessCustomActions: [{
+                actionDefinition: {
+                    publishMetricAction: {
+                        dimension: [{
+                            value: 1,
+                        }],
+                    },
+                },
+                actionName: ExampleCustomAction,
+            }],
+            statelessDefaultActions: [
+                aws:pass,
+                ExampleCustomAction,
+            ],
+            statelessFragmentDefaultActions: [aws:drop],
+        })
         ```
 
         ## Import
@@ -340,19 +365,19 @@ class FirewallPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.networkfirewall.FirewallPolicy("example",
-            firewall_policy=aws.networkfirewall.FirewallPolicyFirewallPolicyArgs(
-                stateless_default_actions=["aws:pass"],
-                stateless_fragment_default_actions=["aws:drop"],
-                stateless_rule_group_references=[aws.networkfirewall.FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArgs(
-                    priority=1,
-                    resource_arn=aws_networkfirewall_rule_group["example"]["arn"],
-                )],
-                tls_inspection_configuration_arn="arn:aws:network-firewall:REGION:ACCT:tls-configuration/example",
-            ),
+        example = aws.networkfirewall.firewall_policy.FirewallPolicy("example",
+            firewall_policy={
+                statelessDefaultActions: [aws:pass],
+                statelessFragmentDefaultActions: [aws:drop],
+                statelessRuleGroupReferences: [{
+                    priority: 1,
+                    resourceArn: aws_networkfirewall_rule_group.example.arn,
+                }],
+                tlsInspectionConfigurationArn: arn:aws:network-firewall:REGION:ACCT:tls-configuration/example,
+            },
             tags={
-                "Tag1": "Value1",
-                "Tag2": "Value2",
+                Tag1: Value1,
+                Tag2: Value2,
             })
         ```
         ## Policy with a HOME_NET Override
@@ -361,30 +386,55 @@ class FirewallPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.networkfirewall.FirewallPolicy("example",
-            firewall_policy=aws.networkfirewall.FirewallPolicyFirewallPolicyArgs(
-                policy_variables=aws.networkfirewall.FirewallPolicyFirewallPolicyPolicyVariablesArgs(
-                    rule_variables=[aws.networkfirewall.FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArgs(
-                        key="HOME_NET",
-                        ip_set=aws.networkfirewall.FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSetArgs(
-                            definitions=[
-                                "10.0.0.0/16",
-                                "10.1.0.0/24",
+        example = aws.networkfirewall.firewall_policy.FirewallPolicy("example",
+            firewall_policy={
+                policyVariables: {
+                    ruleVariables: [{
+                        key: HOME_NET,
+                        ipSet: {
+                            definitions: [
+                                10.0.0.0/16,
+                                10.1.0.0/24,
                             ],
-                        ),
-                    )],
-                ),
-                stateless_default_actions=["aws:pass"],
-                stateless_fragment_default_actions=["aws:drop"],
-                stateless_rule_group_references=[aws.networkfirewall.FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArgs(
-                    priority=1,
-                    resource_arn=aws_networkfirewall_rule_group["example"]["arn"],
-                )],
-            ),
+                        },
+                    }],
+                },
+                statelessDefaultActions: [aws:pass],
+                statelessFragmentDefaultActions: [aws:drop],
+                statelessRuleGroupReferences: [{
+                    priority: 1,
+                    resourceArn: aws_networkfirewall_rule_group.example.arn,
+                }],
+            },
             tags={
-                "Tag1": "Value1",
-                "Tag2": "Value2",
+                Tag1: Value1,
+                Tag2: Value2,
             })
+        ```
+
+        ## Policy with a Custom Action for Stateless Inspection
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.networkfirewall.firewall_policy.FirewallPolicy("test", firewall_policy={
+            statelessCustomActions: [{
+                actionDefinition: {
+                    publishMetricAction: {
+                        dimension: [{
+                            value: 1,
+                        }],
+                    },
+                },
+                actionName: ExampleCustomAction,
+            }],
+            statelessDefaultActions: [
+                aws:pass,
+                ExampleCustomAction,
+            ],
+            statelessFragmentDefaultActions: [aws:drop],
+        })
         ```
 
         ## Import

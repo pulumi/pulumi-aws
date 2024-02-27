@@ -26,7 +26,7 @@ namespace Pulumi.Aws.S3
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.S3.AccountPublicAccessBlock("example", new()
+    ///     var example = new Aws.S3.AccountPublicAccessBlock.AccountPublicAccessBlock("example", new()
     ///     {
     ///         BlockPublicAcls = true,
     ///         BlockPublicPolicy = true,

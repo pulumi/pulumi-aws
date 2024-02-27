@@ -27,11 +27,10 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.chime.VoiceConnector;
- * import com.pulumi.aws.chime.VoiceConnectorArgs;
- * import com.pulumi.aws.chime.VoiceConnectorOrganization;
- * import com.pulumi.aws.chime.VoiceConnectorOrganizationArgs;
- * import com.pulumi.aws.chime.inputs.VoiceConnectorOrganizationRouteArgs;
+ * import com.pulumi.aws.chime_voiceConnector.VoiceConnector;
+ * import com.pulumi.aws.chime_voiceConnector.VoiceConnectorArgs;
+ * import com.pulumi.aws.chime_voiceConnectorOrganization.VoiceConnectorOrganization;
+ * import com.pulumi.aws.chime_voiceConnectorOrganization.VoiceConnectorOrganizationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -53,20 +52,8 @@ import javax.annotation.Nullable;
  *             .disabled(false)
  *             .voiceConnectorId(defaultVoiceConnector.id())
  *             .routes(            
- *                 VoiceConnectorOrganizationRouteArgs.builder()
- *                     .host(&#34;127.0.0.1&#34;)
- *                     .port(8081)
- *                     .protocol(&#34;TCP&#34;)
- *                     .priority(1)
- *                     .weight(1)
- *                     .build(),
- *                 VoiceConnectorOrganizationRouteArgs.builder()
- *                     .host(&#34;127.0.0.2&#34;)
- *                     .port(8082)
- *                     .protocol(&#34;TCP&#34;)
- *                     .priority(2)
- *                     .weight(10)
- *                     .build())
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

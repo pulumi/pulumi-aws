@@ -31,7 +31,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.ssm.MaintenanceWindowArgs;
  * import com.pulumi.aws.ssm.MaintenanceWindowTarget;
  * import com.pulumi.aws.ssm.MaintenanceWindowTargetArgs;
- * import com.pulumi.aws.ssm.inputs.MaintenanceWindowTargetTargetArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -55,10 +54,7 @@ import javax.annotation.Nullable;
  *             .windowId(window.id())
  *             .description(&#34;This is a maintenance window target&#34;)
  *             .resourceType(&#34;INSTANCE&#34;)
- *             .targets(MaintenanceWindowTargetTargetArgs.builder()
- *                 .key(&#34;tag:Name&#34;)
- *                 .values(&#34;acceptance_test&#34;)
- *                 .build())
+ *             .targets(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -75,7 +71,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.ssm.MaintenanceWindowArgs;
  * import com.pulumi.aws.ssm.MaintenanceWindowTarget;
  * import com.pulumi.aws.ssm.MaintenanceWindowTargetArgs;
- * import com.pulumi.aws.ssm.inputs.MaintenanceWindowTargetTargetArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -99,10 +94,7 @@ import javax.annotation.Nullable;
  *             .windowId(window.id())
  *             .description(&#34;This is a maintenance window target&#34;)
  *             .resourceType(&#34;RESOURCE_GROUP&#34;)
- *             .targets(MaintenanceWindowTargetTargetArgs.builder()
- *                 .key(&#34;resource-groups:ResourceTypeFilters&#34;)
- *                 .values(&#34;AWS::EC2::Instance&#34;)
- *                 .build())
+ *             .targets(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.route53recoveryreadiness.Cell("example", {cellName: "us-west-2-failover-cell"});
+ * const example = new aws.route53recoveryreadiness/cell.Cell("example", {cellName: "us-west-2-failover-cell"});
  * ```
  *
  * ## Import

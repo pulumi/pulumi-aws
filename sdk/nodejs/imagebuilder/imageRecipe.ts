@@ -16,11 +16,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.imagebuilder.ImageRecipe("example", {
+ * const example = new aws.imagebuilder/imageRecipe.ImageRecipe("example", {
  *     blockDeviceMappings: [{
  *         deviceName: "/dev/xvdb",
  *         ebs: {
- *             deleteOnTermination: "true",
+ *             deleteOnTermination: true,
  *             volumeSize: 100,
  *             volumeType: "gp2",
  *         },

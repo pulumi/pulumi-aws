@@ -23,58 +23,58 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/elasticache"
+//	elasticache/user "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/elasticache/user"
+//	elasticache/userGroup "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/elasticache/userGroup"
+//	elasticache/userGroupAssociation "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/elasticache/userGroupAssociation"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := elasticache.NewUser(ctx, "default", &elasticache.UserArgs{
-//				UserId:       pulumi.String("defaultUserID"),
-//				UserName:     pulumi.String("default"),
-//				AccessString: pulumi.String("on ~app::* -@all +@read +@hash +@bitmap +@geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember"),
-//				Engine:       pulumi.String("REDIS"),
-//				Passwords: pulumi.StringArray{
-//					pulumi.String("password123456789"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleUserGroup, err := elasticache.NewUserGroup(ctx, "exampleUserGroup", &elasticache.UserGroupArgs{
-//				Engine:      pulumi.String("REDIS"),
-//				UserGroupId: pulumi.String("userGroupId"),
-//				UserIds: pulumi.StringArray{
-//					_default.UserId,
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleUser, err := elasticache.NewUser(ctx, "exampleUser", &elasticache.UserArgs{
-//				UserId:       pulumi.String("exampleUserID"),
-//				UserName:     pulumi.String("exampleuser"),
-//				AccessString: pulumi.String("on ~app::* -@all +@read +@hash +@bitmap +@geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember"),
-//				Engine:       pulumi.String("REDIS"),
-//				Passwords: pulumi.StringArray{
-//					pulumi.String("password123456789"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = elasticache.NewUserGroupAssociation(ctx, "exampleUserGroupAssociation", &elasticache.UserGroupAssociationArgs{
-//				UserGroupId: exampleUserGroup.UserGroupId,
-//				UserId:      exampleUser.UserId,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := elasticache/user.NewUser(ctx, "default", &elasticache/user.UserArgs{
+// UserId: "defaultUserID",
+// UserName: "default",
+// AccessString: "on ~app::* -@all +@read +@hash +@bitmap +@geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember",
+// Engine: "REDIS",
+// Passwords: []string{
+// "password123456789",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// exampleUserGroup, err := elasticache/userGroup.NewUserGroup(ctx, "exampleUserGroup", &elasticache/userGroup.UserGroupArgs{
+// Engine: "REDIS",
+// UserGroupId: "userGroupId",
+// UserIds: []interface{}{
+// _default.UserId,
+// },
+// })
+// if err != nil {
+// return err
+// }
+// exampleUser, err := elasticache/user.NewUser(ctx, "exampleUser", &elasticache/user.UserArgs{
+// UserId: "exampleUserID",
+// UserName: "exampleuser",
+// AccessString: "on ~app::* -@all +@read +@hash +@bitmap +@geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember",
+// Engine: "REDIS",
+// Passwords: []string{
+// "password123456789",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = elasticache/userGroupAssociation.NewUserGroupAssociation(ctx, "exampleUserGroupAssociation", &elasticache/userGroupAssociation.UserGroupAssociationArgs{
+// UserGroupId: exampleUserGroup.UserGroupId,
+// UserId: exampleUser.UserId,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

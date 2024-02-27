@@ -13,32 +13,6 @@ import (
 
 // This data source can be used to fetch information about IAM access keys of a
 // specific IAM user.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := iam.GetAccessKeys(ctx, &iam.GetAccessKeysArgs{
-//				User: "an_example_user_name",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetAccessKeys(ctx *pulumi.Context, args *GetAccessKeysArgs, opts ...pulumi.InvokeOption) (*GetAccessKeysResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetAccessKeysResult

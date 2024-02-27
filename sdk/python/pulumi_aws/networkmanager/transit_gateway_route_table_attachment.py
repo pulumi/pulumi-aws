@@ -321,9 +321,9 @@ class TransitGatewayRouteTableAttachment(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.networkmanager.TransitGatewayRouteTableAttachment("example",
-            peering_id=aws_networkmanager_transit_gateway_peering["example"]["id"],
-            transit_gateway_route_table_arn=aws_ec2_transit_gateway_route_table["example"]["arn"])
+        example = aws.networkmanager.transit_gateway_route_table_attachment.TransitGatewayRouteTableAttachment("example",
+            peering_id=aws_networkmanager_transit_gateway_peering.example.id,
+            transit_gateway_route_table_arn=aws_ec2_transit_gateway_route_table.example.arn)
         ```
 
         ## Import
@@ -355,9 +355,9 @@ class TransitGatewayRouteTableAttachment(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.networkmanager.TransitGatewayRouteTableAttachment("example",
-            peering_id=aws_networkmanager_transit_gateway_peering["example"]["id"],
-            transit_gateway_route_table_arn=aws_ec2_transit_gateway_route_table["example"]["arn"])
+        example = aws.networkmanager.transit_gateway_route_table_attachment.TransitGatewayRouteTableAttachment("example",
+            peering_id=aws_networkmanager_transit_gateway_peering.example.id,
+            transit_gateway_route_table_arn=aws_ec2_transit_gateway_route_table.example.arn)
         ```
 
         ## Import

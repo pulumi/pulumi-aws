@@ -101,15 +101,6 @@ def get_named_query(name: Optional[str] = None,
     """
     Provides an Athena Named Query data source.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.athena.get_named_query(name="athenaQueryName")
-    ```
-
 
     :param str name: The plain language name for the query. Maximum length of 128.
     :param str workgroup: The workgroup to which the query belongs. Defaults to `primary`.
@@ -135,15 +126,6 @@ def get_named_query_output(name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNamedQueryResult]:
     """
     Provides an Athena Named Query data source.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.athena.get_named_query(name="athenaQueryName")
-    ```
 
 
     :param str name: The plain language name for the query. Maximum length of 128.

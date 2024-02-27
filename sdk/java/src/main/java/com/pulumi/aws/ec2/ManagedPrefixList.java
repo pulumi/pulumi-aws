@@ -44,7 +44,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.ec2.ManagedPrefixList;
  * import com.pulumi.aws.ec2.ManagedPrefixListArgs;
- * import com.pulumi.aws.ec2.inputs.ManagedPrefixListEntryArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -62,15 +61,9 @@ import javax.annotation.Nullable;
  *             .addressFamily(&#34;IPv4&#34;)
  *             .maxEntries(5)
  *             .entries(            
- *                 ManagedPrefixListEntryArgs.builder()
- *                     .cidr(aws_vpc.example().cidr_block())
- *                     .description(&#34;Primary&#34;)
- *                     .build(),
- *                 ManagedPrefixListEntryArgs.builder()
- *                     .cidr(aws_vpc_ipv4_cidr_block_association.example().cidr_block())
- *                     .description(&#34;Secondary&#34;)
- *                     .build())
- *             .tags(Map.of(&#34;Env&#34;, &#34;live&#34;))
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

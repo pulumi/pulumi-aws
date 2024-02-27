@@ -108,23 +108,23 @@ class UserGroupAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        default = aws.elasticache.User("default",
-            user_id="defaultUserID",
-            user_name="default",
-            access_string="on ~app::* -@all +@read +@hash +@bitmap +@geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember",
-            engine="REDIS",
-            passwords=["password123456789"])
-        example_user_group = aws.elasticache.UserGroup("exampleUserGroup",
-            engine="REDIS",
-            user_group_id="userGroupId",
+        default = aws.elasticache.user.User("default",
+            user_id=defaultUserID,
+            user_name=default,
+            access_string=on ~app::* -@all +@read +@hash +@bitmap +@geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember,
+            engine=REDIS,
+            passwords=[password123456789])
+        example_user_group = aws.elasticache.user_group.UserGroup("exampleUserGroup",
+            engine=REDIS,
+            user_group_id=userGroupId,
             user_ids=[default.user_id])
-        example_user = aws.elasticache.User("exampleUser",
-            user_id="exampleUserID",
-            user_name="exampleuser",
-            access_string="on ~app::* -@all +@read +@hash +@bitmap +@geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember",
-            engine="REDIS",
-            passwords=["password123456789"])
-        example_user_group_association = aws.elasticache.UserGroupAssociation("exampleUserGroupAssociation",
+        example_user = aws.elasticache.user.User("exampleUser",
+            user_id=exampleUserID,
+            user_name=exampleuser,
+            access_string=on ~app::* -@all +@read +@hash +@bitmap +@geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember,
+            engine=REDIS,
+            passwords=[password123456789])
+        example_user_group_association = aws.elasticache.user_group_association.UserGroupAssociation("exampleUserGroupAssociation",
             user_group_id=example_user_group.user_group_id,
             user_id=example_user.user_id)
         ```
@@ -159,23 +159,23 @@ class UserGroupAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        default = aws.elasticache.User("default",
-            user_id="defaultUserID",
-            user_name="default",
-            access_string="on ~app::* -@all +@read +@hash +@bitmap +@geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember",
-            engine="REDIS",
-            passwords=["password123456789"])
-        example_user_group = aws.elasticache.UserGroup("exampleUserGroup",
-            engine="REDIS",
-            user_group_id="userGroupId",
+        default = aws.elasticache.user.User("default",
+            user_id=defaultUserID,
+            user_name=default,
+            access_string=on ~app::* -@all +@read +@hash +@bitmap +@geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember,
+            engine=REDIS,
+            passwords=[password123456789])
+        example_user_group = aws.elasticache.user_group.UserGroup("exampleUserGroup",
+            engine=REDIS,
+            user_group_id=userGroupId,
             user_ids=[default.user_id])
-        example_user = aws.elasticache.User("exampleUser",
-            user_id="exampleUserID",
-            user_name="exampleuser",
-            access_string="on ~app::* -@all +@read +@hash +@bitmap +@geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember",
-            engine="REDIS",
-            passwords=["password123456789"])
-        example_user_group_association = aws.elasticache.UserGroupAssociation("exampleUserGroupAssociation",
+        example_user = aws.elasticache.user.User("exampleUser",
+            user_id=exampleUserID,
+            user_name=exampleuser,
+            access_string=on ~app::* -@all +@read +@hash +@bitmap +@geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember,
+            engine=REDIS,
+            passwords=[password123456789])
+        example_user_group_association = aws.elasticache.user_group_association.UserGroupAssociation("exampleUserGroupAssociation",
             user_group_id=example_user_group.user_group_id,
             user_id=example_user.user_id)
         ```

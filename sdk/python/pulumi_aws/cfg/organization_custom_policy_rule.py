@@ -495,9 +495,9 @@ class OrganizationCustomPolicyRule(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.cfg.OrganizationCustomPolicyRule("example",
-            policy_runtime="guard-2.x.x",
-            policy_text=\"\"\"  let status = ['ACTIVE']
+        example = aws.cfg.organization_custom_policy_rule.OrganizationCustomPolicyRule("example",
+            policy_runtime=guard-2.x.x,
+            policy_text=  let status = ['ACTIVE']
 
           rule tableisactive when
               resourceType == "AWS::DynamoDB::Table" {
@@ -511,8 +511,8 @@ class OrganizationCustomPolicyRule(pulumi.CustomResource):
                   %pitr == "ENABLED"
               }
 
-        \"\"\",
-            resource_types_scopes=["AWS::DynamoDB::Table"])
+        ,
+            resource_types_scopes=[AWS::DynamoDB::Table])
         ```
 
         ## Import
@@ -559,9 +559,9 @@ class OrganizationCustomPolicyRule(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.cfg.OrganizationCustomPolicyRule("example",
-            policy_runtime="guard-2.x.x",
-            policy_text=\"\"\"  let status = ['ACTIVE']
+        example = aws.cfg.organization_custom_policy_rule.OrganizationCustomPolicyRule("example",
+            policy_runtime=guard-2.x.x,
+            policy_text=  let status = ['ACTIVE']
 
           rule tableisactive when
               resourceType == "AWS::DynamoDB::Table" {
@@ -575,8 +575,8 @@ class OrganizationCustomPolicyRule(pulumi.CustomResource):
                   %pitr == "ENABLED"
               }
 
-        \"\"\",
-            resource_types_scopes=["AWS::DynamoDB::Table"])
+        ,
+            resource_types_scopes=[AWS::DynamoDB::Table])
         ```
 
         ## Import

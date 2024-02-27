@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.sesv2.ConfigurationSet("example", {
+ * const example = new aws.sesv2/configurationSet.ConfigurationSet("example", {
  *     configurationSetName: "example",
  *     deliveryOptions: {
  *         tlsPolicy: "REQUIRE",

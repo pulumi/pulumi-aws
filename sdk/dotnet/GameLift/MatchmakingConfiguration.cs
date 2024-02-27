@@ -23,25 +23,25 @@ namespace Pulumi.Aws.GameLift
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleGameSessionQueue = new Aws.GameLift.GameSessionQueue("exampleGameSessionQueue", new()
+    ///     var exampleGameSessionQueue = new Aws.Gamelift.GameSessionQueue.GameSessionQueue("exampleGameSessionQueue", new()
     ///     {
     ///         Destinations = new[] {},
     ///         PlayerLatencyPolicies = new[]
     ///         {
-    ///             new Aws.GameLift.Inputs.GameSessionQueuePlayerLatencyPolicyArgs
+    ///             
     ///             {
-    ///                 MaximumIndividualPlayerLatencyMilliseconds = 3,
-    ///                 PolicyDurationSeconds = 7,
+    ///                 { "maximumIndividualPlayerLatencyMilliseconds", 3 },
+    ///                 { "policyDurationSeconds", 7 },
     ///             },
-    ///             new Aws.GameLift.Inputs.GameSessionQueuePlayerLatencyPolicyArgs
+    ///             
     ///             {
-    ///                 MaximumIndividualPlayerLatencyMilliseconds = 10,
+    ///                 { "maximumIndividualPlayerLatencyMilliseconds", 10 },
     ///             },
     ///         },
     ///         TimeoutInSeconds = 25,
     ///     });
     /// 
-    ///     var exampleMatchmakingRuleSet = new Aws.GameLift.MatchmakingRuleSet("exampleMatchmakingRuleSet", new()
+    ///     var exampleMatchmakingRuleSet = new Aws.Gamelift.MatchmakingRuleSet.MatchmakingRuleSet("exampleMatchmakingRuleSet", new()
     ///     {
     ///         RuleSetBody = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
@@ -59,7 +59,7 @@ namespace Pulumi.Aws.GameLift
     ///         }),
     ///     });
     /// 
-    ///     var exampleMatchmakingConfiguration = new Aws.GameLift.MatchmakingConfiguration("exampleMatchmakingConfiguration", new()
+    ///     var exampleMatchmakingConfiguration = new Aws.Gamelift.MatchmakingConfiguration.MatchmakingConfiguration("exampleMatchmakingConfiguration", new()
     ///     {
     ///         AcceptanceRequired = false,
     ///         CustomEventData = "pvp",

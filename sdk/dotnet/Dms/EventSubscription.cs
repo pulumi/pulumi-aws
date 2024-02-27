@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Dms
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Dms.EventSubscription("example", new()
+    ///     var example = new Aws.Dms.EventSubscription.EventSubscription("example", new()
     ///     {
     ///         Enabled = true,
     ///         EventCategories = new[]

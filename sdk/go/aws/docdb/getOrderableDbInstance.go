@@ -12,39 +12,6 @@ import (
 )
 
 // Information about DocumentDB orderable DB instances.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/docdb"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := docdb.GetOrderableDbInstance(ctx, &docdb.GetOrderableDbInstanceArgs{
-//				Engine:        pulumi.StringRef("docdb"),
-//				EngineVersion: pulumi.StringRef("3.6.0"),
-//				LicenseModel:  pulumi.StringRef("na"),
-//				PreferredInstanceClasses: []string{
-//					"db.r5.large",
-//					"db.r4.large",
-//					"db.t3.medium",
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetOrderableDbInstance(ctx *pulumi.Context, args *GetOrderableDbInstanceArgs, opts ...pulumi.InvokeOption) (*GetOrderableDbInstanceResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetOrderableDbInstanceResult

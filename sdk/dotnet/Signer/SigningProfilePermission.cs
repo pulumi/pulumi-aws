@@ -22,14 +22,14 @@ namespace Pulumi.Aws.Signer
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var prodSp = new Aws.Signer.SigningProfile("prodSp", new()
+    ///     var prodSp = new Aws.Signer.SigningProfile.SigningProfile("prodSp", new()
     ///     {
     ///         PlatformId = "AWSLambda-SHA384-ECDSA",
     ///         NamePrefix = "prod_sp_",
-    ///         SignatureValidityPeriod = new Aws.Signer.Inputs.SigningProfileSignatureValidityPeriodArgs
+    ///         SignatureValidityPeriod = 
     ///         {
-    ///             Value = 5,
-    ///             Type = "YEARS",
+    ///             { "value", 5 },
+    ///             { "type", "YEARS" },
     ///         },
     ///         Tags = 
     ///         {
@@ -38,14 +38,14 @@ namespace Pulumi.Aws.Signer
     ///         },
     ///     });
     /// 
-    ///     var spPermission1 = new Aws.Signer.SigningProfilePermission("spPermission1", new()
+    ///     var spPermission1 = new Aws.Signer.SigningProfilePermission.SigningProfilePermission("spPermission1", new()
     ///     {
     ///         ProfileName = prodSp.Name,
     ///         Action = "signer:StartSigningJob",
     ///         Principal = @var.Aws_account,
     ///     });
     /// 
-    ///     var spPermission2 = new Aws.Signer.SigningProfilePermission("spPermission2", new()
+    ///     var spPermission2 = new Aws.Signer.SigningProfilePermission.SigningProfilePermission("spPermission2", new()
     ///     {
     ///         ProfileName = prodSp.Name,
     ///         Action = "signer:GetSigningProfile",
@@ -53,7 +53,7 @@ namespace Pulumi.Aws.Signer
     ///         StatementId = "ProdAccountStartSigningJob_StatementId",
     ///     });
     /// 
-    ///     var spPermission3 = new Aws.Signer.SigningProfilePermission("spPermission3", new()
+    ///     var spPermission3 = new Aws.Signer.SigningProfilePermission.SigningProfilePermission("spPermission3", new()
     ///     {
     ///         ProfileName = prodSp.Name,
     ///         Action = "signer:RevokeSignature",

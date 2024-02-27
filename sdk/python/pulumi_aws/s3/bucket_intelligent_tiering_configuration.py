@@ -210,18 +210,18 @@ class BucketIntelligentTieringConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.s3.BucketV2("example")
-        example_entire_bucket = aws.s3.BucketIntelligentTieringConfiguration("example-entire-bucket",
+        example = aws.s3.bucket_v2.BucketV2("example")
+        example_entire_bucket = aws.s3.bucket_intelligent_tiering_configuration.BucketIntelligentTieringConfiguration("example-entire-bucket",
             bucket=example.id,
             tierings=[
-                aws.s3.BucketIntelligentTieringConfigurationTieringArgs(
-                    access_tier="DEEP_ARCHIVE_ACCESS",
-                    days=180,
-                ),
-                aws.s3.BucketIntelligentTieringConfigurationTieringArgs(
-                    access_tier="ARCHIVE_ACCESS",
-                    days=125,
-                ),
+                {
+                    accessTier: DEEP_ARCHIVE_ACCESS,
+                    days: 180,
+                },
+                {
+                    accessTier: ARCHIVE_ACCESS,
+                    days: 125,
+                },
             ])
         ```
         ### Add intelligent tiering configuration with S3 object filter
@@ -230,21 +230,21 @@ class BucketIntelligentTieringConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.s3.BucketV2("example")
-        example_filtered = aws.s3.BucketIntelligentTieringConfiguration("example-filtered",
+        example = aws.s3.bucket_v2.BucketV2("example")
+        example_filtered = aws.s3.bucket_intelligent_tiering_configuration.BucketIntelligentTieringConfiguration("example-filtered",
             bucket=example.id,
-            status="Disabled",
-            filter=aws.s3.BucketIntelligentTieringConfigurationFilterArgs(
-                prefix="documents/",
-                tags={
-                    "priority": "high",
-                    "class": "blue",
+            status=Disabled,
+            filter={
+                prefix: documents/,
+                tags: {
+                    priority: high,
+                    class: blue,
                 },
-            ),
-            tierings=[aws.s3.BucketIntelligentTieringConfigurationTieringArgs(
-                access_tier="ARCHIVE_ACCESS",
-                days=125,
-            )])
+            },
+            tierings=[{
+                accessTier: ARCHIVE_ACCESS,
+                days: 125,
+            }])
         ```
 
         ## Import
@@ -281,18 +281,18 @@ class BucketIntelligentTieringConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.s3.BucketV2("example")
-        example_entire_bucket = aws.s3.BucketIntelligentTieringConfiguration("example-entire-bucket",
+        example = aws.s3.bucket_v2.BucketV2("example")
+        example_entire_bucket = aws.s3.bucket_intelligent_tiering_configuration.BucketIntelligentTieringConfiguration("example-entire-bucket",
             bucket=example.id,
             tierings=[
-                aws.s3.BucketIntelligentTieringConfigurationTieringArgs(
-                    access_tier="DEEP_ARCHIVE_ACCESS",
-                    days=180,
-                ),
-                aws.s3.BucketIntelligentTieringConfigurationTieringArgs(
-                    access_tier="ARCHIVE_ACCESS",
-                    days=125,
-                ),
+                {
+                    accessTier: DEEP_ARCHIVE_ACCESS,
+                    days: 180,
+                },
+                {
+                    accessTier: ARCHIVE_ACCESS,
+                    days: 125,
+                },
             ])
         ```
         ### Add intelligent tiering configuration with S3 object filter
@@ -301,21 +301,21 @@ class BucketIntelligentTieringConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.s3.BucketV2("example")
-        example_filtered = aws.s3.BucketIntelligentTieringConfiguration("example-filtered",
+        example = aws.s3.bucket_v2.BucketV2("example")
+        example_filtered = aws.s3.bucket_intelligent_tiering_configuration.BucketIntelligentTieringConfiguration("example-filtered",
             bucket=example.id,
-            status="Disabled",
-            filter=aws.s3.BucketIntelligentTieringConfigurationFilterArgs(
-                prefix="documents/",
-                tags={
-                    "priority": "high",
-                    "class": "blue",
+            status=Disabled,
+            filter={
+                prefix: documents/,
+                tags: {
+                    priority: high,
+                    class: blue,
                 },
-            ),
-            tierings=[aws.s3.BucketIntelligentTieringConfigurationTieringArgs(
-                access_tier="ARCHIVE_ACCESS",
-                days=125,
-            )])
+            },
+            tierings=[{
+                accessTier: ARCHIVE_ACCESS,
+                days: 125,
+            }])
         ```
 
         ## Import

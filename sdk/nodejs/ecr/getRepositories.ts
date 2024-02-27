@@ -8,14 +8,6 @@ import * as utilities from "../utilities";
  * Data source for providing information on AWS ECR (Elastic Container Registry) Repositories.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.ecr.getRepositories({});
- * ```
  */
 export function getRepositories(opts?: pulumi.InvokeOptions): Promise<GetRepositoriesResult> {
 
@@ -41,14 +33,6 @@ export interface GetRepositoriesResult {
  * Data source for providing information on AWS ECR (Elastic Container Registry) Repositories.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.ecr.getRepositories({});
- * ```
  */
 export function getRepositoriesOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetRepositoriesResult> {
     return pulumi.output(getRepositories(opts))

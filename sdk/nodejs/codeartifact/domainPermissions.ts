@@ -7,34 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Provides a CodeArtifact Domains Permissions Policy Resource.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleKey = new aws.kms.Key("exampleKey", {description: "domain key"});
- * const exampleDomain = new aws.codeartifact.Domain("exampleDomain", {
- *     domain: "example",
- *     encryptionKey: exampleKey.arn,
- * });
- * const testPolicyDocument = aws.iam.getPolicyDocumentOutput({
- *     statements: [{
- *         effect: "Allow",
- *         principals: [{
- *             type: "*",
- *             identifiers: ["*"],
- *         }],
- *         actions: ["codeartifact:CreateRepository"],
- *         resources: [exampleDomain.arn],
- *     }],
- * });
- * const testDomainPermissions = new aws.codeartifact.DomainPermissions("testDomainPermissions", {
- *     domain: exampleDomain.domain,
- *     policyDocument: testPolicyDocument.apply(testPolicyDocument => testPolicyDocument.json),
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import CodeArtifact Domain Permissions Policies using the CodeArtifact Domain ARN. For example:

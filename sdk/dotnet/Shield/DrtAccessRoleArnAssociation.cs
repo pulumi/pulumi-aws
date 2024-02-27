@@ -24,7 +24,7 @@ namespace Pulumi.Aws.Shield
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testRole = new Aws.Iam.Role("testRole", new()
+    ///     var testRole = new Aws.Iam.Role.Role("testRole", new()
     ///     {
     ///         AssumeRolePolicy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
@@ -45,13 +45,13 @@ namespace Pulumi.Aws.Shield
     ///         }),
     ///     });
     /// 
-    ///     var testRolePolicyAttachment = new Aws.Iam.RolePolicyAttachment("testRolePolicyAttachment", new()
+    ///     var testRolePolicyAttachment = new Aws.Iam.RolePolicyAttachment.RolePolicyAttachment("testRolePolicyAttachment", new()
     ///     {
     ///         Role = testRole.Name,
     ///         PolicyArn = "arn:aws:iam::aws:policy/service-role/AWSShieldDRTAccessPolicy",
     ///     });
     /// 
-    ///     var testDrtAccessRoleArnAssociation = new Aws.Shield.DrtAccessRoleArnAssociation("testDrtAccessRoleArnAssociation", new()
+    ///     var testDrtAccessRoleArnAssociation = new Aws.Shield.DrtAccessRoleArnAssociation.DrtAccessRoleArnAssociation("testDrtAccessRoleArnAssociation", new()
     ///     {
     ///         RoleArn = testRole.Arn,
     ///     });

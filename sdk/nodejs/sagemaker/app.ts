@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.sagemaker.App("example", {
+ * const example = new aws.sagemaker/app.App("example", {
  *     domainId: aws_sagemaker_domain.example.id,
  *     userProfileName: aws_sagemaker_user_profile.example.user_profile_name,
  *     appName: "example",

@@ -25,84 +25,83 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kinesisanalyticsv2"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	kinesisanalyticsv2/application "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/kinesisanalyticsv2/application"
+//	s3/bucketObjectv2 "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/s3/bucketObjectv2"
+//	s3/bucketV2 "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/s3/bucketV2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleBucketObjectv2, err := s3.NewBucketObjectv2(ctx, "exampleBucketObjectv2", &s3.BucketObjectv2Args{
-//				Bucket: exampleBucketV2.ID(),
-//				Key:    pulumi.String("example-flink-application"),
-//				Source: pulumi.NewFileAsset("flink-app.jar"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = kinesisanalyticsv2.NewApplication(ctx, "exampleApplication", &kinesisanalyticsv2.ApplicationArgs{
-//				RuntimeEnvironment:   pulumi.String("FLINK-1_8"),
-//				ServiceExecutionRole: pulumi.Any(aws_iam_role.Example.Arn),
-//				ApplicationConfiguration: &kinesisanalyticsv2.ApplicationApplicationConfigurationArgs{
-//					ApplicationCodeConfiguration: &kinesisanalyticsv2.ApplicationApplicationConfigurationApplicationCodeConfigurationArgs{
-//						CodeContent: &kinesisanalyticsv2.ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentArgs{
-//							S3ContentLocation: &kinesisanalyticsv2.ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocationArgs{
-//								BucketArn: exampleBucketV2.Arn,
-//								FileKey:   exampleBucketObjectv2.Key,
-//							},
-//						},
-//						CodeContentType: pulumi.String("ZIPFILE"),
-//					},
-//					EnvironmentProperties: &kinesisanalyticsv2.ApplicationApplicationConfigurationEnvironmentPropertiesArgs{
-//						PropertyGroups: kinesisanalyticsv2.ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroupArray{
-//							&kinesisanalyticsv2.ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroupArgs{
-//								PropertyGroupId: pulumi.String("PROPERTY-GROUP-1"),
-//								PropertyMap: pulumi.StringMap{
-//									"Key1": pulumi.String("Value1"),
-//								},
-//							},
-//							&kinesisanalyticsv2.ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroupArgs{
-//								PropertyGroupId: pulumi.String("PROPERTY-GROUP-2"),
-//								PropertyMap: pulumi.StringMap{
-//									"KeyA": pulumi.String("ValueA"),
-//									"KeyB": pulumi.String("ValueB"),
-//								},
-//							},
-//						},
-//					},
-//					FlinkApplicationConfiguration: &kinesisanalyticsv2.ApplicationApplicationConfigurationFlinkApplicationConfigurationArgs{
-//						CheckpointConfiguration: &kinesisanalyticsv2.ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfigurationArgs{
-//							ConfigurationType: pulumi.String("DEFAULT"),
-//						},
-//						MonitoringConfiguration: &kinesisanalyticsv2.ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfigurationArgs{
-//							ConfigurationType: pulumi.String("CUSTOM"),
-//							LogLevel:          pulumi.String("DEBUG"),
-//							MetricsLevel:      pulumi.String("TASK"),
-//						},
-//						ParallelismConfiguration: &kinesisanalyticsv2.ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfigurationArgs{
-//							AutoScalingEnabled: pulumi.Bool(true),
-//							ConfigurationType:  pulumi.String("CUSTOM"),
-//							Parallelism:        pulumi.Int(10),
-//							ParallelismPerKpu:  pulumi.Int(4),
-//						},
-//					},
-//				},
-//				Tags: pulumi.StringMap{
-//					"Environment": pulumi.String("test"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleBucketV2, err := s3/bucketV2.NewBucketV2(ctx, "exampleBucketV2", nil)
+// if err != nil {
+// return err
+// }
+// exampleBucketObjectv2, err := s3/bucketObjectv2.NewBucketObjectv2(ctx, "exampleBucketObjectv2", &s3/bucketObjectv2.BucketObjectv2Args{
+// Bucket: exampleBucketV2.Id,
+// Key: "example-flink-application",
+// Source: pulumi.NewFileAsset("flink-app.jar"),
+// })
+// if err != nil {
+// return err
+// }
+// _, err = kinesisanalyticsv2/application.NewApplication(ctx, "exampleApplication", &kinesisanalyticsv2/application.ApplicationArgs{
+// RuntimeEnvironment: "FLINK-1_8",
+// ServiceExecutionRole: aws_iam_role.Example.Arn,
+// ApplicationConfiguration: map[string]interface{}{
+// "applicationCodeConfiguration": map[string]interface{}{
+// "codeContent": map[string]interface{}{
+// "s3ContentLocation": map[string]interface{}{
+// "bucketArn": exampleBucketV2.Arn,
+// "fileKey": exampleBucketObjectv2.Key,
+// },
+// },
+// "codeContentType": "ZIPFILE",
+// },
+// "environmentProperties": map[string]interface{}{
+// "propertyGroups": []interface{}{
+// map[string]interface{}{
+// "propertyGroupId": "PROPERTY-GROUP-1",
+// "propertyMap": map[string]interface{}{
+// "Key1": "Value1",
+// },
+// },
+// map[string]interface{}{
+// "propertyGroupId": "PROPERTY-GROUP-2",
+// "propertyMap": map[string]interface{}{
+// "KeyA": "ValueA",
+// "KeyB": "ValueB",
+// },
+// },
+// },
+// },
+// "flinkApplicationConfiguration": map[string]interface{}{
+// "checkpointConfiguration": map[string]interface{}{
+// "configurationType": "DEFAULT",
+// },
+// "monitoringConfiguration": map[string]interface{}{
+// "configurationType": "CUSTOM",
+// "logLevel": "DEBUG",
+// "metricsLevel": "TASK",
+// },
+// "parallelismConfiguration": map[string]interface{}{
+// "autoScalingEnabled": true,
+// "configurationType": "CUSTOM",
+// "parallelism": 10,
+// "parallelismPerKpu": 4,
+// },
+// },
+// },
+// Tags: map[string]interface{}{
+// "Environment": "test",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### SQL Application
 //
@@ -111,123 +110,122 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kinesisanalyticsv2"
+//	cloudwatch/logGroup "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/cloudwatch/logGroup"
+//	cloudwatch/logStream "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/cloudwatch/logStream"
+//	kinesisanalyticsv2/application "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/kinesisanalyticsv2/application"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleLogGroup, err := cloudwatch.NewLogGroup(ctx, "exampleLogGroup", nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleLogStream, err := cloudwatch.NewLogStream(ctx, "exampleLogStream", &cloudwatch.LogStreamArgs{
-//				LogGroupName: exampleLogGroup.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = kinesisanalyticsv2.NewApplication(ctx, "exampleApplication", &kinesisanalyticsv2.ApplicationArgs{
-//				RuntimeEnvironment:   pulumi.String("SQL-1_0"),
-//				ServiceExecutionRole: pulumi.Any(aws_iam_role.Example.Arn),
-//				ApplicationConfiguration: &kinesisanalyticsv2.ApplicationApplicationConfigurationArgs{
-//					ApplicationCodeConfiguration: &kinesisanalyticsv2.ApplicationApplicationConfigurationApplicationCodeConfigurationArgs{
-//						CodeContent: &kinesisanalyticsv2.ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentArgs{
-//							TextContent: pulumi.String("SELECT 1;\n"),
-//						},
-//						CodeContentType: pulumi.String("PLAINTEXT"),
-//					},
-//					SqlApplicationConfiguration: &kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationArgs{
-//						Input: &kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypeArgs{
-//							NamePrefix: pulumi.String("PREFIX_1"),
-//							InputParallelism: &kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelismArgs{
-//								Count: pulumi.Int(3),
-//							},
-//							InputSchema: &kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaArgs{
-//								RecordColumns: kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumnArray{
-//									&kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumnArgs{
-//										Name:    pulumi.String("COLUMN_1"),
-//										SqlType: pulumi.String("VARCHAR(8)"),
-//										Mapping: pulumi.String("MAPPING-1"),
-//									},
-//									&kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumnArgs{
-//										Name:    pulumi.String("COLUMN_2"),
-//										SqlType: pulumi.String("DOUBLE"),
-//									},
-//								},
-//								RecordEncoding: pulumi.String("UTF-8"),
-//								RecordFormat: &kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatArgs{
-//									RecordFormatType: pulumi.String("CSV"),
-//									MappingParameters: &kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersArgs{
-//										CsvMappingParameters: &kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParametersArgs{
-//											RecordColumnDelimiter: pulumi.String(","),
-//											RecordRowDelimiter:    pulumi.String("\n"),
-//										},
-//									},
-//								},
-//							},
-//							KinesisStreamsInput: &kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInputArgs{
-//								ResourceArn: pulumi.Any(aws_kinesis_stream.Example.Arn),
-//							},
-//						},
-//						Outputs: kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputTypeArray{
-//							&kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputTypeArgs{
-//								Name: pulumi.String("OUTPUT_1"),
-//								DestinationSchema: &kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchemaArgs{
-//									RecordFormatType: pulumi.String("JSON"),
-//								},
-//								LambdaOutput: kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutputArgs{
-//									ResourceArn: pulumi.Any(aws_lambda_function.Example.Arn),
-//								},
-//							},
-//							&kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputTypeArgs{
-//								Name: pulumi.String("OUTPUT_2"),
-//								DestinationSchema: &kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchemaArgs{
-//									RecordFormatType: pulumi.String("CSV"),
-//								},
-//								KinesisFirehoseOutput: kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutputArgs{
-//									ResourceArn: pulumi.Any(aws_kinesis_firehose_delivery_stream.Example.Arn),
-//								},
-//							},
-//						},
-//						ReferenceDataSource: &kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceArgs{
-//							TableName: pulumi.String("TABLE-1"),
-//							ReferenceSchema: &kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaArgs{
-//								RecordColumns: kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumnArray{
-//									&kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumnArgs{
-//										Name:    pulumi.String("COLUMN_1"),
-//										SqlType: pulumi.String("INTEGER"),
-//									},
-//								},
-//								RecordFormat: &kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatArgs{
-//									RecordFormatType: pulumi.String("JSON"),
-//									MappingParameters: &kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersArgs{
-//										JsonMappingParameters: &kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParametersArgs{
-//											RecordRowPath: pulumi.String("$"),
-//										},
-//									},
-//								},
-//							},
-//							S3ReferenceDataSource: &kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSourceArgs{
-//								BucketArn: pulumi.Any(aws_s3_bucket.Example.Arn),
-//								FileKey:   pulumi.String("KEY-1"),
-//							},
-//						},
-//					},
-//				},
-//				CloudwatchLoggingOptions: &kinesisanalyticsv2.ApplicationCloudwatchLoggingOptionsArgs{
-//					LogStreamArn: exampleLogStream.Arn,
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleLogGroup, err := cloudwatch/logGroup.NewLogGroup(ctx, "exampleLogGroup", nil)
+// if err != nil {
+// return err
+// }
+// exampleLogStream, err := cloudwatch/logStream.NewLogStream(ctx, "exampleLogStream", &cloudwatch/logStream.LogStreamArgs{
+// LogGroupName: exampleLogGroup.Name,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = kinesisanalyticsv2/application.NewApplication(ctx, "exampleApplication", &kinesisanalyticsv2/application.ApplicationArgs{
+// RuntimeEnvironment: "SQL-1_0",
+// ServiceExecutionRole: aws_iam_role.Example.Arn,
+// ApplicationConfiguration: map[string]interface{}{
+// "applicationCodeConfiguration": map[string]interface{}{
+// "codeContent": map[string]interface{}{
+// "textContent": "SELECT 1;\n",
+// },
+// "codeContentType": "PLAINTEXT",
+// },
+// "sqlApplicationConfiguration": map[string]interface{}{
+// "input": map[string]interface{}{
+// "namePrefix": "PREFIX_1",
+// "inputParallelism": map[string]interface{}{
+// "count": 3,
+// },
+// "inputSchema": map[string]interface{}{
+// "recordColumns": []interface{}{
+// map[string]interface{}{
+// "name": "COLUMN_1",
+// "sqlType": "VARCHAR(8)",
+// "mapping": "MAPPING-1",
+// },
+// map[string]interface{}{
+// "name": "COLUMN_2",
+// "sqlType": "DOUBLE",
+// },
+// },
+// "recordEncoding": "UTF-8",
+// "recordFormat": map[string]interface{}{
+// "recordFormatType": "CSV",
+// "mappingParameters": map[string]interface{}{
+// "csvMappingParameters": map[string]interface{}{
+// "recordColumnDelimiter": ",",
+// "recordRowDelimiter": "\n",
+// },
+// },
+// },
+// },
+// "kinesisStreamsInput": map[string]interface{}{
+// "resourceArn": aws_kinesis_stream.Example.Arn,
+// },
+// },
+// "outputs": []interface{}{
+// map[string]interface{}{
+// "name": "OUTPUT_1",
+// "destinationSchema": map[string]interface{}{
+// "recordFormatType": "JSON",
+// },
+// "lambdaOutput": map[string]interface{}{
+// "resourceArn": aws_lambda_function.Example.Arn,
+// },
+// },
+// map[string]interface{}{
+// "name": "OUTPUT_2",
+// "destinationSchema": map[string]interface{}{
+// "recordFormatType": "CSV",
+// },
+// "kinesisFirehoseOutput": map[string]interface{}{
+// "resourceArn": aws_kinesis_firehose_delivery_stream.Example.Arn,
+// },
+// },
+// },
+// "referenceDataSource": map[string]interface{}{
+// "tableName": "TABLE-1",
+// "referenceSchema": map[string]interface{}{
+// "recordColumns": []map[string]interface{}{
+// map[string]interface{}{
+// "name": "COLUMN_1",
+// "sqlType": "INTEGER",
+// },
+// },
+// "recordFormat": map[string]interface{}{
+// "recordFormatType": "JSON",
+// "mappingParameters": map[string]interface{}{
+// "jsonMappingParameters": map[string]interface{}{
+// "recordRowPath": "$",
+// },
+// },
+// },
+// },
+// "s3ReferenceDataSource": map[string]interface{}{
+// "bucketArn": aws_s3_bucket.Example.Arn,
+// "fileKey": "KEY-1",
+// },
+// },
+// },
+// },
+// CloudwatchLoggingOptions: map[string]interface{}{
+// "logStreamArn": exampleLogStream.Arn,
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### VPC Configuration
 //
@@ -236,57 +234,56 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kinesisanalyticsv2"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	kinesisanalyticsv2/application "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/kinesisanalyticsv2/application"
+//	s3/bucketObjectv2 "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/s3/bucketObjectv2"
+//	s3/bucketV2 "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/s3/bucketV2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleBucketObjectv2, err := s3.NewBucketObjectv2(ctx, "exampleBucketObjectv2", &s3.BucketObjectv2Args{
-//				Bucket: exampleBucketV2.ID(),
-//				Key:    pulumi.String("example-flink-application"),
-//				Source: pulumi.NewFileAsset("flink-app.jar"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = kinesisanalyticsv2.NewApplication(ctx, "exampleApplication", &kinesisanalyticsv2.ApplicationArgs{
-//				RuntimeEnvironment:   pulumi.String("FLINK-1_8"),
-//				ServiceExecutionRole: pulumi.Any(aws_iam_role.Example.Arn),
-//				ApplicationConfiguration: &kinesisanalyticsv2.ApplicationApplicationConfigurationArgs{
-//					ApplicationCodeConfiguration: &kinesisanalyticsv2.ApplicationApplicationConfigurationApplicationCodeConfigurationArgs{
-//						CodeContent: &kinesisanalyticsv2.ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentArgs{
-//							S3ContentLocation: &kinesisanalyticsv2.ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocationArgs{
-//								BucketArn: exampleBucketV2.Arn,
-//								FileKey:   exampleBucketObjectv2.Key,
-//							},
-//						},
-//						CodeContentType: pulumi.String("ZIPFILE"),
-//					},
-//					VpcConfiguration: &kinesisanalyticsv2.ApplicationApplicationConfigurationVpcConfigurationArgs{
-//						SecurityGroupIds: pulumi.StringArray{
-//							aws_security_group.Example[0].Id,
-//							aws_security_group.Example[1].Id,
-//						},
-//						SubnetIds: pulumi.StringArray{
-//							aws_subnet.Example.Id,
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleBucketV2, err := s3/bucketV2.NewBucketV2(ctx, "exampleBucketV2", nil)
+// if err != nil {
+// return err
+// }
+// exampleBucketObjectv2, err := s3/bucketObjectv2.NewBucketObjectv2(ctx, "exampleBucketObjectv2", &s3/bucketObjectv2.BucketObjectv2Args{
+// Bucket: exampleBucketV2.Id,
+// Key: "example-flink-application",
+// Source: pulumi.NewFileAsset("flink-app.jar"),
+// })
+// if err != nil {
+// return err
+// }
+// _, err = kinesisanalyticsv2/application.NewApplication(ctx, "exampleApplication", &kinesisanalyticsv2/application.ApplicationArgs{
+// RuntimeEnvironment: "FLINK-1_8",
+// ServiceExecutionRole: aws_iam_role.Example.Arn,
+// ApplicationConfiguration: map[string]interface{}{
+// "applicationCodeConfiguration": map[string]interface{}{
+// "codeContent": map[string]interface{}{
+// "s3ContentLocation": map[string]interface{}{
+// "bucketArn": exampleBucketV2.Arn,
+// "fileKey": exampleBucketObjectv2.Key,
+// },
+// },
+// "codeContentType": "ZIPFILE",
+// },
+// "vpcConfiguration": map[string]interface{}{
+// "securityGroupIds": []interface{}{
+// aws_security_group.Example[0].Id,
+// aws_security_group.Example[1].Id,
+// },
+// "subnetIds": []interface{}{
+// aws_subnet.Example.Id,
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

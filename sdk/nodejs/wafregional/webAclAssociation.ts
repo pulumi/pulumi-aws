@@ -10,61 +10,6 @@ import * as utilities from "../utilities";
  * > **Note:** An Application Load Balancer can only be associated with one WAF Regional WebACL.
  *
  * ## Example Usage
- * ### Application Load Balancer Association
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const ipset = new aws.wafregional.IpSet("ipset", {ipSetDescriptors: [{
- *     type: "IPV4",
- *     value: "192.0.7.0/24",
- * }]});
- * const fooRule = new aws.wafregional.Rule("fooRule", {
- *     metricName: "tfWAFRule",
- *     predicates: [{
- *         dataId: ipset.id,
- *         negated: false,
- *         type: "IPMatch",
- *     }],
- * });
- * const fooWebAcl = new aws.wafregional.WebAcl("fooWebAcl", {
- *     metricName: "foo",
- *     defaultAction: {
- *         type: "ALLOW",
- *     },
- *     rules: [{
- *         action: {
- *             type: "BLOCK",
- *         },
- *         priority: 1,
- *         ruleId: fooRule.id,
- *     }],
- * });
- * const fooVpc = new aws.ec2.Vpc("fooVpc", {cidrBlock: "10.1.0.0/16"});
- * const available = aws.getAvailabilityZones({});
- * const fooSubnet = new aws.ec2.Subnet("fooSubnet", {
- *     vpcId: fooVpc.id,
- *     cidrBlock: "10.1.1.0/24",
- *     availabilityZone: available.then(available => available.names?.[0]),
- * });
- * const bar = new aws.ec2.Subnet("bar", {
- *     vpcId: fooVpc.id,
- *     cidrBlock: "10.1.2.0/24",
- *     availabilityZone: available.then(available => available.names?.[1]),
- * });
- * const fooLoadBalancer = new aws.alb.LoadBalancer("fooLoadBalancer", {
- *     internal: true,
- *     subnets: [
- *         fooSubnet.id,
- *         bar.id,
- *     ],
- * });
- * const fooWebAclAssociation = new aws.wafregional.WebAclAssociation("fooWebAclAssociation", {
- *     resourceArn: fooLoadBalancer.arn,
- *     webAclId: fooWebAcl.id,
- * });
- * ```
  * ### API Gateway Association
  *
  * ```typescript
@@ -72,11 +17,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * import * as crypto from "crypto";
  *
- * const ipset = new aws.wafregional.IpSet("ipset", {ipSetDescriptors: [{
+ * const ipset = new aws.wafregional/ipSet.IpSet("ipset", {ipSetDescriptors: [{
  *     type: "IPV4",
  *     value: "192.0.7.0/24",
  * }]});
- * const fooRule = new aws.wafregional.Rule("fooRule", {
+ * const fooRule = new aws.wafregional/rule.Rule("fooRule", {
  *     metricName: "tfWAFRule",
  *     predicates: [{
  *         dataId: ipset.id,
@@ -84,7 +29,7 @@ import * as utilities from "../utilities";
  *         type: "IPMatch",
  *     }],
  * });
- * const fooWebAcl = new aws.wafregional.WebAcl("fooWebAcl", {
+ * const fooWebAcl = new aws.wafregional/webAcl.WebAcl("fooWebAcl", {
  *     metricName: "foo",
  *     defaultAction: {
  *         type: "ALLOW",
@@ -97,7 +42,7 @@ import * as utilities from "../utilities";
  *         ruleId: fooRule.id,
  *     }],
  * });
- * const exampleRestApi = new aws.apigateway.RestApi("exampleRestApi", {body: JSON.stringify({
+ * const exampleRestApi = new aws.apigateway/restApi.RestApi("exampleRestApi", {body: JSON.stringify({
  *     openapi: "3.0.1",
  *     info: {
  *         title: "example",
@@ -116,18 +61,18 @@ import * as utilities from "../utilities";
  *         },
  *     },
  * })});
- * const exampleDeployment = new aws.apigateway.Deployment("exampleDeployment", {
+ * const exampleDeployment = new aws.apigateway/deployment.Deployment("exampleDeployment", {
  *     restApi: exampleRestApi.id,
  *     triggers: {
- *         redeployment: exampleRestApi.body.apply(body => JSON.stringify(body)).apply(toJSON => crypto.createHash('sha1').update(toJSON).digest('hex')),
+ *         redeployment: crypto.createHash('sha1').update(JSON.stringify(exampleRestApi.body)).digest('hex'),
  *     },
  * });
- * const exampleStage = new aws.apigateway.Stage("exampleStage", {
+ * const exampleStage = new aws.apigateway/stage.Stage("exampleStage", {
  *     deployment: exampleDeployment.id,
  *     restApi: exampleRestApi.id,
  *     stageName: "example",
  * });
- * const association = new aws.wafregional.WebAclAssociation("association", {
+ * const association = new aws.wafregional/webAclAssociation.WebAclAssociation("association", {
  *     resourceArn: exampleStage.arn,
  *     webAclId: fooWebAcl.id,
  * });

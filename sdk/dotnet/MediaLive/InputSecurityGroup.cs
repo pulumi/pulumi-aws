@@ -23,7 +23,7 @@ namespace Pulumi.Aws.MediaLive
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.MediaLive.InputSecurityGroup("example", new()
+    ///     var example = new Aws.Medialive.InputSecurityGroup.InputSecurityGroup("example", new()
     ///     {
     ///         Tags = 
     ///         {
@@ -31,9 +31,9 @@ namespace Pulumi.Aws.MediaLive
     ///         },
     ///         WhitelistRules = new[]
     ///         {
-    ///             new Aws.MediaLive.Inputs.InputSecurityGroupWhitelistRuleArgs
+    ///             
     ///             {
-    ///                 Cidr = "10.0.0.8/32",
+    ///                 { "cidr", "10.0.0.8/32" },
     ///             },
     ///         },
     ///     });

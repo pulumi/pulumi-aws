@@ -21,31 +21,29 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kendra"
+//	kendra/thesaurus "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/kendra/thesaurus"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := kendra.NewThesaurus(ctx, "example", &kendra.ThesaurusArgs{
-//				IndexId: pulumi.Any(aws_kendra_index.Example.Id),
-//				RoleArn: pulumi.Any(aws_iam_role.Example.Arn),
-//				SourceS3Path: &kendra.ThesaurusSourceS3PathArgs{
-//					Bucket: pulumi.Any(aws_s3_bucket.Example.Id),
-//					Key:    pulumi.Any(aws_s3_object.Example.Key),
-//				},
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("Example Kendra Thesaurus"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := kendra/thesaurus.NewThesaurus(ctx, "example", &kendra/thesaurus.ThesaurusArgs{
+// IndexId: aws_kendra_index.Example.Id,
+// RoleArn: aws_iam_role.Example.Arn,
+// SourceS3Path: map[string]interface{}{
+// "bucket": aws_s3_bucket.Example.Id,
+// "key": aws_s3_object.Example.Key,
+// },
+// Tags: map[string]interface{}{
+// "Name": "Example Kendra Thesaurus",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

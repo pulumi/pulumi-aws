@@ -22,14 +22,14 @@ namespace Pulumi.Aws.Route53
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleVpc = new Aws.Ec2.Vpc("exampleVpc", new()
+    ///     var exampleVpc = new Aws.Ec2.Vpc.Vpc("exampleVpc", new()
     ///     {
     ///         CidrBlock = "10.0.0.0/16",
     ///         EnableDnsSupport = true,
     ///         EnableDnsHostnames = true,
     ///     });
     /// 
-    ///     var exampleResolverFirewallConfig = new Aws.Route53.ResolverFirewallConfig("exampleResolverFirewallConfig", new()
+    ///     var exampleResolverFirewallConfig = new Aws.Route53.ResolverFirewallConfig.ResolverFirewallConfig("exampleResolverFirewallConfig", new()
     ///     {
     ///         ResourceId = exampleVpc.Id,
     ///         FirewallFailOpen = "ENABLED",

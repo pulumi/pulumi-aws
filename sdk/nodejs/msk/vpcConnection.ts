@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = new aws.msk.VpcConnection("test", {
+ * const test = new aws.msk/vpcConnection.VpcConnection("test", {
  *     authentication: "SASL_IAM",
  *     targetClusterArn: "aws_msk_cluster.arn",
  *     vpcId: aws_vpc.test.id,

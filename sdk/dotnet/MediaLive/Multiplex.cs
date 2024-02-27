@@ -13,44 +13,6 @@ namespace Pulumi.Aws.MediaLive
     /// Resource for managing an AWS MediaLive Multiplex.
     /// 
     /// ## Example Usage
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var available = Aws.GetAvailabilityZones.Invoke(new()
-    ///     {
-    ///         State = "available",
-    ///     });
-    /// 
-    ///     var example = new Aws.MediaLive.Multiplex("example", new()
-    ///     {
-    ///         AvailabilityZones = new[]
-    ///         {
-    ///             available.Apply(getAvailabilityZonesResult =&gt; getAvailabilityZonesResult.Names[0]),
-    ///             available.Apply(getAvailabilityZonesResult =&gt; getAvailabilityZonesResult.Names[1]),
-    ///         },
-    ///         MultiplexSettings = new Aws.MediaLive.Inputs.MultiplexMultiplexSettingsArgs
-    ///         {
-    ///             TransportStreamBitrate = 1000000,
-    ///             TransportStreamId = 1,
-    ///             TransportStreamReservedBitrate = 1,
-    ///             MaximumVideoBufferDelayMilliseconds = 1000,
-    ///         },
-    ///         StartMultiplex = true,
-    ///         Tags = 
-    ///         {
-    ///             { "tag1", "value1" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 

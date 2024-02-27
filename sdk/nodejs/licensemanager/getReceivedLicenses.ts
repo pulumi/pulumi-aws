@@ -9,22 +9,6 @@ import * as utilities from "../utilities";
 
 /**
  * This resource can be used to get a set of license ARNs matching a filter.
- *
- * ## Example Usage
- *
- * The following shows getting all license ARNs issued from the AWS marketplace. Providing no filter, would provide all license ARNs for the entire account.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = aws.licensemanager.getReceivedLicenses({
- *     filters: [{
- *         name: "IssuerName",
- *         values: ["AWS/Marketplace"],
- *     }],
- * });
- * ```
  */
 export function getReceivedLicenses(args?: GetReceivedLicensesArgs, opts?: pulumi.InvokeOptions): Promise<GetReceivedLicensesResult> {
     args = args || {};
@@ -64,22 +48,6 @@ export interface GetReceivedLicensesResult {
 }
 /**
  * This resource can be used to get a set of license ARNs matching a filter.
- *
- * ## Example Usage
- *
- * The following shows getting all license ARNs issued from the AWS marketplace. Providing no filter, would provide all license ARNs for the entire account.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = aws.licensemanager.getReceivedLicenses({
- *     filters: [{
- *         name: "IssuerName",
- *         values: ["AWS/Marketplace"],
- *     }],
- * });
- * ```
  */
 export function getReceivedLicensesOutput(args?: GetReceivedLicensesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReceivedLicensesResult> {
     return pulumi.output(args).apply((a: any) => getReceivedLicenses(a, opts))

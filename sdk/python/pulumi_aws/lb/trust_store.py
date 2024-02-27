@@ -293,19 +293,19 @@ class TrustStore(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.lb.TrustStore("test",
-            ca_certificates_bundle_s3_bucket="...",
-            ca_certificates_bundle_s3_key="...")
-        example = aws.lb.Listener("example",
-            load_balancer_arn=aws_lb["example"]["id"],
-            default_actions=[aws.lb.ListenerDefaultActionArgs(
-                target_group_arn=aws_lb_target_group["example"]["id"],
-                type="forward",
-            )],
-            mutual_authentication=aws.lb.ListenerMutualAuthenticationArgs(
-                mode="verify",
-                trust_store_arn=test.arn,
-            ))
+        test = aws.lb.trust_store.TrustStore("test",
+            ca_certificates_bundle_s3_bucket=...,
+            ca_certificates_bundle_s3_key=...)
+        example = aws.lb.listener.Listener("example",
+            load_balancer_arn=aws_lb.example.id,
+            default_actions=[{
+                targetGroupArn: aws_lb_target_group.example.id,
+                type: forward,
+            }],
+            mutual_authentication={
+                mode: verify,
+                trustStoreArn: test.arn,
+            })
         ```
 
         ## Import
@@ -341,19 +341,19 @@ class TrustStore(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.lb.TrustStore("test",
-            ca_certificates_bundle_s3_bucket="...",
-            ca_certificates_bundle_s3_key="...")
-        example = aws.lb.Listener("example",
-            load_balancer_arn=aws_lb["example"]["id"],
-            default_actions=[aws.lb.ListenerDefaultActionArgs(
-                target_group_arn=aws_lb_target_group["example"]["id"],
-                type="forward",
-            )],
-            mutual_authentication=aws.lb.ListenerMutualAuthenticationArgs(
-                mode="verify",
-                trust_store_arn=test.arn,
-            ))
+        test = aws.lb.trust_store.TrustStore("test",
+            ca_certificates_bundle_s3_bucket=...,
+            ca_certificates_bundle_s3_key=...)
+        example = aws.lb.listener.Listener("example",
+            load_balancer_arn=aws_lb.example.id,
+            default_actions=[{
+                targetGroupArn: aws_lb_target_group.example.id,
+                type: forward,
+            }],
+            mutual_authentication={
+                mode: verify,
+                trustStoreArn: test.arn,
+            })
         ```
 
         ## Import

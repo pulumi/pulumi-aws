@@ -31,8 +31,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.glue.Workflow;
  * import com.pulumi.aws.glue.Trigger;
  * import com.pulumi.aws.glue.TriggerArgs;
- * import com.pulumi.aws.glue.inputs.TriggerActionArgs;
- * import com.pulumi.aws.glue.inputs.TriggerPredicateArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -51,23 +49,14 @@ import javax.annotation.Nullable;
  *         var example_start = new Trigger(&#34;example-start&#34;, TriggerArgs.builder()        
  *             .type(&#34;ON_DEMAND&#34;)
  *             .workflowName(example.name())
- *             .actions(TriggerActionArgs.builder()
- *                 .jobName(&#34;example-job&#34;)
- *                 .build())
+ *             .actions(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var example_inner = new Trigger(&#34;example-inner&#34;, TriggerArgs.builder()        
  *             .type(&#34;CONDITIONAL&#34;)
  *             .workflowName(example.name())
- *             .predicate(TriggerPredicateArgs.builder()
- *                 .conditions(TriggerPredicateConditionArgs.builder()
- *                     .jobName(&#34;example-job&#34;)
- *                     .state(&#34;SUCCEEDED&#34;)
- *                     .build())
- *                 .build())
- *             .actions(TriggerActionArgs.builder()
- *                 .jobName(&#34;another-example-job&#34;)
- *                 .build())
+ *             .predicate(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .actions(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

@@ -21,31 +21,30 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	ec2/networkInsightsAnalysis "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/networkInsightsAnalysis"
+//	ec2/networkInsightsPath "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/networkInsightsPath"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			path, err := ec2.NewNetworkInsightsPath(ctx, "path", &ec2.NetworkInsightsPathArgs{
-//				Source:      pulumi.Any(aws_network_interface.Source.Id),
-//				Destination: pulumi.Any(aws_network_interface.Destination.Id),
-//				Protocol:    pulumi.String("tcp"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ec2.NewNetworkInsightsAnalysis(ctx, "analysis", &ec2.NetworkInsightsAnalysisArgs{
-//				NetworkInsightsPathId: path.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// path, err := ec2/networkInsightsPath.NewNetworkInsightsPath(ctx, "path", &ec2/networkInsightsPath.NetworkInsightsPathArgs{
+// Source: aws_network_interface.Source.Id,
+// Destination: aws_network_interface.Destination.Id,
+// Protocol: "tcp",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = ec2/networkInsightsAnalysis.NewNetworkInsightsAnalysis(ctx, "analysis", &ec2/networkInsightsAnalysis.NetworkInsightsAnalysisArgs{
+// NetworkInsightsPathId: path.Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

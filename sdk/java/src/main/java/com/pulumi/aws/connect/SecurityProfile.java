@@ -48,7 +48,7 @@ import javax.annotation.Nullable;
  *             .permissions(            
  *                 &#34;BasicAgentAccess&#34;,
  *                 &#34;OutboundCallAccess&#34;)
- *             .tags(Map.of(&#34;Name&#34;, &#34;Example Security Profile&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

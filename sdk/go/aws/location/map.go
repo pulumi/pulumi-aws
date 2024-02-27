@@ -21,26 +21,24 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/location"
+//	location/map "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/location/map"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := location.NewMap(ctx, "example", &location.MapArgs{
-//				Configuration: &location.MapConfigurationArgs{
-//					Style: pulumi.String("VectorHereBerlin"),
-//				},
-//				MapName: pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := location/map.NewMap(ctx, "example", &location/map.MapArgs{
+// Configuration: map[string]interface{}{
+// "style": "VectorHereBerlin",
+// },
+// MapName: "example",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.storagegateway.SmbFileShare("example", {
+ * const example = new aws.storagegateway/smbFileShare.SmbFileShare("example", {
  *     authentication: "ActiveDirectory",
  *     gatewayArn: aws_storagegateway_gateway.example.arn,
  *     locationArn: aws_s3_bucket.example.arn,
@@ -34,7 +34,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.storagegateway.SmbFileShare("example", {
+ * const example = new aws.storagegateway/smbFileShare.SmbFileShare("example", {
  *     authentication: "GuestAccess",
  *     gatewayArn: aws_storagegateway_gateway.example.arn,
  *     locationArn: aws_s3_bucket.example.arn,

@@ -32,28 +32,28 @@ namespace Pulumi.Aws.EcrPublic
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var usEast1 = new Aws.Provider("usEast1", new()
+    ///     var usEast1 = new Pulumi.Providers.Aws("usEast1", new()
     ///     {
     ///         Region = "us-east-1",
     ///     });
     /// 
-    ///     var foo = new Aws.EcrPublic.Repository("foo", new()
+    ///     var foo = new Aws.Ecrpublic.Repository.Repository("foo", new()
     ///     {
     ///         RepositoryName = "bar",
-    ///         CatalogData = new Aws.EcrPublic.Inputs.RepositoryCatalogDataArgs
+    ///         CatalogData = 
     ///         {
-    ///             AboutText = "About Text",
-    ///             Architectures = new[]
+    ///             { "aboutText", "About Text" },
+    ///             { "architectures", new[]
     ///             {
     ///                 "ARM",
-    ///             },
-    ///             Description = "Description",
-    ///             LogoImageBlob = ReadFileBase64(image.Png),
-    ///             OperatingSystems = new[]
+    ///             } },
+    ///             { "description", "Description" },
+    ///             { "logoImageBlob", ReadFileBase64(image.Png) },
+    ///             { "operatingSystems", new[]
     ///             {
     ///                 "Linux",
-    ///             },
-    ///             UsageText = "Usage Text",
+    ///             } },
+    ///             { "usageText", "Usage Text" },
     ///         },
     ///         Tags = 
     ///         {

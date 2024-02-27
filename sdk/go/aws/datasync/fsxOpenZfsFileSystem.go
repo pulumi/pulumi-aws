@@ -21,33 +21,31 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/datasync"
+//	datasync/fsxOpenZfsFileSystem "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/datasync/fsxOpenZfsFileSystem"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := datasync.NewFsxOpenZfsFileSystem(ctx, "example", &datasync.FsxOpenZfsFileSystemArgs{
-//				FsxFilesystemArn: pulumi.Any(aws_fsx_openzfs_file_system.Example.Arn),
-//				SecurityGroupArns: pulumi.StringArray{
-//					aws_security_group.Example.Arn,
-//				},
-//				Protocol: &datasync.FsxOpenZfsFileSystemProtocolArgs{
-//					Nfs: &datasync.FsxOpenZfsFileSystemProtocolNfsArgs{
-//						MountOptions: &datasync.FsxOpenZfsFileSystemProtocolNfsMountOptionsArgs{
-//							Version: pulumi.String("AUTOMATIC"),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := datasync/fsxOpenZfsFileSystem.NewFsxOpenZfsFileSystem(ctx, "example", &datasync/fsxOpenZfsFileSystem.FsxOpenZfsFileSystemArgs{
+// FsxFilesystemArn: aws_fsx_openzfs_file_system.Example.Arn,
+// SecurityGroupArns: []interface{}{
+// aws_security_group.Example.Arn,
+// },
+// Protocol: map[string]interface{}{
+// "nfs": map[string]interface{}{
+// "mountOptions": map[string]interface{}{
+// "version": "AUTOMATIC",
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

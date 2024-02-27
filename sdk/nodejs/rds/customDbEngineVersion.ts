@@ -14,8 +14,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleKey = new aws.kms.Key("exampleKey", {description: "KMS symmetric key for RDS Custom for Oracle"});
- * const exampleCustomDbEngineVersion = new aws.rds.CustomDbEngineVersion("exampleCustomDbEngineVersion", {
+ * const exampleKey = new aws.kms/key.Key("exampleKey", {description: "KMS symmetric key for RDS Custom for Oracle"});
+ * const exampleCustomDbEngineVersion = new aws.rds/customDbEngineVersion.CustomDbEngineVersion("exampleCustomDbEngineVersion", {
  *     databaseInstallationFilesS3BucketName: "DOC-EXAMPLE-BUCKET",
  *     databaseInstallationFilesS3Prefix: "1915_GI/",
  *     engine: "custom-oracle-ee-cdb",
@@ -44,8 +44,8 @@ import * as utilities from "../utilities";
  * 	return crypto.createHash('sha256').update(fileData).digest('hex')
  * }
  *
- * const exampleKey = new aws.kms.Key("exampleKey", {description: "KMS symmetric key for RDS Custom for Oracle"});
- * const exampleCustomDbEngineVersion = new aws.rds.CustomDbEngineVersion("exampleCustomDbEngineVersion", {
+ * const exampleKey = new aws.kms/key.Key("exampleKey", {description: "KMS symmetric key for RDS Custom for Oracle"});
+ * const exampleCustomDbEngineVersion = new aws.rds/customDbEngineVersion.CustomDbEngineVersion("exampleCustomDbEngineVersion", {
  *     databaseInstallationFilesS3BucketName: "DOC-EXAMPLE-BUCKET",
  *     databaseInstallationFilesS3Prefix: "1915_GI/",
  *     engine: "custom-oracle-ee-cdb",
@@ -66,7 +66,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * // CEV creation requires an AMI owned by the operator
- * const test = new aws.rds.CustomDbEngineVersion("test", {
+ * const test = new aws.rds/customDbEngineVersion.CustomDbEngineVersion("test", {
  *     engine: "custom-sqlserver-se",
  *     engineVersion: "15.00.4249.2.cev-1",
  *     sourceImageId: "ami-0aa12345678a12ab1",
@@ -78,13 +78,13 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.ec2.AmiCopy("example", {
+ * const example = new aws.ec2/amiCopy.AmiCopy("example", {
  *     description: "A copy of ami-xxxxxxxx",
  *     sourceAmiId: "ami-xxxxxxxx",
  *     sourceAmiRegion: "us-east-1",
  * });
  * // CEV creation requires an AMI owned by the operator
- * const test = new aws.rds.CustomDbEngineVersion("test", {
+ * const test = new aws.rds/customDbEngineVersion.CustomDbEngineVersion("test", {
  *     engine: "custom-sqlserver-se",
  *     engineVersion: "15.00.4249.2.cev-1",
  *     sourceImageId: example.id,

@@ -22,7 +22,7 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testDestination = new Aws.CloudWatch.LogDestination("testDestination", new()
+    ///     var testDestination = new Aws.Cloudwatch.LogDestination.LogDestination("testDestination", new()
     ///     {
     ///         RoleArn = aws_iam_role.Iam_for_cloudwatch.Arn,
     ///         TargetArn = aws_kinesis_stream.Kinesis_for_cloudwatch.Arn,

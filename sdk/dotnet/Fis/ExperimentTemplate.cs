@@ -26,45 +26,45 @@ namespace Pulumi.Aws.Fis
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Fis.ExperimentTemplate("example", new()
+    ///     var example = new Aws.Fis.ExperimentTemplate.ExperimentTemplate("example", new()
     ///     {
     ///         Description = "example",
     ///         RoleArn = aws_iam_role.Example.Arn,
     ///         StopConditions = new[]
     ///         {
-    ///             new Aws.Fis.Inputs.ExperimentTemplateStopConditionArgs
+    ///             
     ///             {
-    ///                 Source = "none",
+    ///                 { "source", "none" },
     ///             },
     ///         },
     ///         Actions = new[]
     ///         {
-    ///             new Aws.Fis.Inputs.ExperimentTemplateActionArgs
+    ///             
     ///             {
-    ///                 Name = "example-action",
-    ///                 ActionId = "aws:ec2:terminate-instances",
-    ///                 Target = new Aws.Fis.Inputs.ExperimentTemplateActionTargetArgs
+    ///                 { "name", "example-action" },
+    ///                 { "actionId", "aws:ec2:terminate-instances" },
+    ///                 { "target", 
     ///                 {
-    ///                     Key = "Instances",
-    ///                     Value = "example-target",
-    ///                 },
+    ///                     { "key", "Instances" },
+    ///                     { "value", "example-target" },
+    ///                 } },
     ///             },
     ///         },
     ///         Targets = new[]
     ///         {
-    ///             new Aws.Fis.Inputs.ExperimentTemplateTargetArgs
+    ///             
     ///             {
-    ///                 Name = "example-target",
-    ///                 ResourceType = "aws:ec2:instance",
-    ///                 SelectionMode = "COUNT(1)",
-    ///                 ResourceTags = new[]
+    ///                 { "name", "example-target" },
+    ///                 { "resourceType", "aws:ec2:instance" },
+    ///                 { "selectionMode", "COUNT(1)" },
+    ///                 { "resourceTags", new[]
     ///                 {
-    ///                     new Aws.Fis.Inputs.ExperimentTemplateTargetResourceTagArgs
+    ///                     
     ///                     {
-    ///                         Key = "env",
-    ///                         Value = "example",
+    ///                         { "key", "env" },
+    ///                         { "value", "example" },
     ///                     },
-    ///                 },
+    ///                 } },
     ///             },
     ///         },
     ///     });

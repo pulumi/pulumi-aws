@@ -139,9 +139,9 @@ class LoggingOptions(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.iot.LoggingOptions("example",
-            default_log_level="WARN",
-            role_arn=aws_iam_role["example"]["arn"])
+        example = aws.iot.logging_options.LoggingOptions("example",
+            default_log_level=WARN,
+            role_arn=aws_iam_role.example.arn)
         ```
 
         :param str resource_name: The name of the resource.
@@ -165,9 +165,9 @@ class LoggingOptions(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.iot.LoggingOptions("example",
-            default_log_level="WARN",
-            role_arn=aws_iam_role["example"]["arn"])
+        example = aws.iot.logging_options.LoggingOptions("example",
+            default_log_level=WARN,
+            role_arn=aws_iam_role.example.arn)
         ```
 
         :param str resource_name: The name of the resource.

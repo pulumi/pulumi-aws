@@ -22,34 +22,34 @@ namespace Pulumi.Aws.Budgets
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var ec2 = new Aws.Budgets.Budget("ec2", new()
+    ///     var ec2 = new Aws.Budgets.Budget.Budget("ec2", new()
     ///     {
     ///         BudgetType = "COST",
     ///         CostFilters = new[]
     ///         {
-    ///             new Aws.Budgets.Inputs.BudgetCostFilterArgs
+    ///             
     ///             {
-    ///                 Name = "Service",
-    ///                 Values = new[]
+    ///                 { "name", "Service" },
+    ///                 { "values", new[]
     ///                 {
     ///                     "Amazon Elastic Compute Cloud - Compute",
-    ///                 },
+    ///                 } },
     ///             },
     ///         },
     ///         LimitAmount = "1200",
     ///         LimitUnit = "USD",
     ///         Notifications = new[]
     ///         {
-    ///             new Aws.Budgets.Inputs.BudgetNotificationArgs
+    ///             
     ///             {
-    ///                 ComparisonOperator = "GREATER_THAN",
-    ///                 NotificationType = "FORECASTED",
-    ///                 SubscriberEmailAddresses = new[]
+    ///                 { "comparisonOperator", "GREATER_THAN" },
+    ///                 { "notificationType", "FORECASTED" },
+    ///                 { "subscriberEmailAddresses", new[]
     ///                 {
     ///                     "test@example.com",
-    ///                 },
-    ///                 Threshold = 100,
-    ///                 ThresholdType = "PERCENTAGE",
+    ///                 } },
+    ///                 { "threshold", 100 },
+    ///                 { "thresholdType", "PERCENTAGE" },
     ///             },
     ///         },
     ///         TimePeriodEnd = "2087-06-15_00:00",
@@ -70,7 +70,7 @@ namespace Pulumi.Aws.Budgets
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var cost = new Aws.Budgets.Budget("cost", new()
+    ///     var cost = new Aws.Budgets.Budget.Budget("cost", new()
     ///     {
     ///         BudgetType = "COST",
     ///         LimitAmount = "100",
@@ -90,21 +90,21 @@ namespace Pulumi.Aws.Budgets
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var cost = new Aws.Budgets.Budget("cost", new()
+    ///     var cost = new Aws.Budgets.Budget.Budget("cost", new()
     ///     {
     ///         PlannedLimits = new[]
     ///         {
-    ///             new Aws.Budgets.Inputs.BudgetPlannedLimitArgs
+    ///             
     ///             {
-    ///                 Amount = "100",
-    ///                 StartTime = "2017-07-01_00:00",
-    ///                 Unit = "USD",
+    ///                 { "amount", "100" },
+    ///                 { "startTime", "2017-07-01_00:00" },
+    ///                 { "unit", "USD" },
     ///             },
-    ///             new Aws.Budgets.Inputs.BudgetPlannedLimitArgs
+    ///             
     ///             {
-    ///                 Amount = "200",
-    ///                 StartTime = "2017-08-01_00:00",
-    ///                 Unit = "USD",
+    ///                 { "amount", "200" },
+    ///                 { "startTime", "2017-08-01_00:00" },
+    ///                 { "unit", "USD" },
     ///             },
     ///         },
     ///     });
@@ -122,7 +122,7 @@ namespace Pulumi.Aws.Budgets
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var s3 = new Aws.Budgets.Budget("s3", new()
+    ///     var s3 = new Aws.Budgets.Budget.Budget("s3", new()
     ///     {
     ///         BudgetType = "USAGE",
     ///         LimitAmount = "3",
@@ -142,21 +142,21 @@ namespace Pulumi.Aws.Budgets
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var savingsPlanUtilization = new Aws.Budgets.Budget("savingsPlanUtilization", new()
+    ///     var savingsPlanUtilization = new Aws.Budgets.Budget.Budget("savingsPlanUtilization", new()
     ///     {
     ///         BudgetType = "SAVINGS_PLANS_UTILIZATION",
-    ///         CostTypes = new Aws.Budgets.Inputs.BudgetCostTypesArgs
+    ///         CostTypes = 
     ///         {
-    ///             IncludeCredit = false,
-    ///             IncludeDiscount = false,
-    ///             IncludeOtherSubscription = false,
-    ///             IncludeRecurring = false,
-    ///             IncludeRefund = false,
-    ///             IncludeSubscription = true,
-    ///             IncludeSupport = false,
-    ///             IncludeTax = false,
-    ///             IncludeUpfront = false,
-    ///             UseBlended = false,
+    ///             { "includeCredit", false },
+    ///             { "includeDiscount", false },
+    ///             { "includeOtherSubscription", false },
+    ///             { "includeRecurring", false },
+    ///             { "includeRefund", false },
+    ///             { "includeSubscription", true },
+    ///             { "includeSupport", false },
+    ///             { "includeTax", false },
+    ///             { "includeUpfront", false },
+    ///             { "useBlended", false },
     ///         },
     ///         LimitAmount = "100.0",
     ///         LimitUnit = "PERCENTAGE",
@@ -175,32 +175,32 @@ namespace Pulumi.Aws.Budgets
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var riUtilization = new Aws.Budgets.Budget("riUtilization", new()
+    ///     var riUtilization = new Aws.Budgets.Budget.Budget("riUtilization", new()
     ///     {
     ///         BudgetType = "RI_UTILIZATION",
     ///         CostFilters = new[]
     ///         {
-    ///             new Aws.Budgets.Inputs.BudgetCostFilterArgs
+    ///             
     ///             {
-    ///                 Name = "Service",
-    ///                 Values = new[]
+    ///                 { "name", "Service" },
+    ///                 { "values", new[]
     ///                 {
     ///                     "Amazon Relational Database Service",
-    ///                 },
+    ///                 } },
     ///             },
     ///         },
-    ///         CostTypes = new Aws.Budgets.Inputs.BudgetCostTypesArgs
+    ///         CostTypes = 
     ///         {
-    ///             IncludeCredit = false,
-    ///             IncludeDiscount = false,
-    ///             IncludeOtherSubscription = false,
-    ///             IncludeRecurring = false,
-    ///             IncludeRefund = false,
-    ///             IncludeSubscription = true,
-    ///             IncludeSupport = false,
-    ///             IncludeTax = false,
-    ///             IncludeUpfront = false,
-    ///             UseBlended = false,
+    ///             { "includeCredit", false },
+    ///             { "includeDiscount", false },
+    ///             { "includeOtherSubscription", false },
+    ///             { "includeRecurring", false },
+    ///             { "includeRefund", false },
+    ///             { "includeSubscription", true },
+    ///             { "includeSupport", false },
+    ///             { "includeTax", false },
+    ///             { "includeUpfront", false },
+    ///             { "useBlended", false },
     ///         },
     ///         LimitAmount = "100.0",
     ///         LimitUnit = "PERCENTAGE",
@@ -219,17 +219,17 @@ namespace Pulumi.Aws.Budgets
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var cost = new Aws.Budgets.Budget("cost", new()
+    ///     var cost = new Aws.Budgets.Budget.Budget("cost", new()
     ///     {
     ///         CostFilters = new[]
     ///         {
-    ///             new Aws.Budgets.Inputs.BudgetCostFilterArgs
+    ///             
     ///             {
-    ///                 Name = "TagKeyValue",
-    ///                 Values = new[]
+    ///                 { "name", "TagKeyValue" },
+    ///                 { "values", new[]
     ///                 {
     ///                     "TagKey$TagValue",
-    ///                 },
+    ///                 } },
     ///             },
     ///         },
     ///     });
@@ -247,17 +247,17 @@ namespace Pulumi.Aws.Budgets
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var cost = new Aws.Budgets.Budget("cost", new()
+    ///     var cost = new Aws.Budgets.Budget.Budget("cost", new()
     ///     {
     ///         CostFilters = new[]
     ///         {
-    ///             new Aws.Budgets.Inputs.BudgetCostFilterArgs
+    ///             
     ///             {
-    ///                 Name = "TagKeyValue",
-    ///                 Values = new[]
+    ///                 { "name", "TagKeyValue" },
+    ///                 { "values", new[]
     ///                 {
     ///                     "TagKey${var.TagValue}",
-    ///                 },
+    ///                 } },
     ///             },
     ///         },
     ///     });

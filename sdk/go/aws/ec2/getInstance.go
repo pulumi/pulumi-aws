@@ -12,46 +12,6 @@ import (
 )
 
 // Use this data source to get the ID of an Amazon EC2 Instance for use in other resources.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.LookupInstance(ctx, &ec2.LookupInstanceArgs{
-//				Filters: []ec2.GetInstanceFilter{
-//					{
-//						Name: "image-id",
-//						Values: []string{
-//							"ami-xxxxxxxx",
-//						},
-//					},
-//					{
-//						Name: "tag:Name",
-//						Values: []string{
-//							"instance-name-tag",
-//						},
-//					},
-//				},
-//				InstanceId: pulumi.StringRef("i-instanceid"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupInstance(ctx *pulumi.Context, args *LookupInstanceArgs, opts ...pulumi.InvokeOption) (*LookupInstanceResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupInstanceResult

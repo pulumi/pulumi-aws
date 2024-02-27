@@ -34,8 +34,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.s3control.AccessGrantsLocationArgs;
  * import com.pulumi.aws.s3control.AccessGrant;
  * import com.pulumi.aws.s3control.AccessGrantArgs;
- * import com.pulumi.aws.s3control.inputs.AccessGrantAccessGrantsLocationConfigurationArgs;
- * import com.pulumi.aws.s3control.inputs.AccessGrantGranteeArgs;
  * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
@@ -62,13 +60,8 @@ import javax.annotation.Nullable;
  *         var exampleAccessGrant = new AccessGrant(&#34;exampleAccessGrant&#34;, AccessGrantArgs.builder()        
  *             .accessGrantsLocationId(exampleAccessGrantsLocation.accessGrantsLocationId())
  *             .permission(&#34;READ&#34;)
- *             .accessGrantsLocationConfiguration(AccessGrantAccessGrantsLocationConfigurationArgs.builder()
- *                 .s3SubPrefix(&#34;prefixB*&#34;)
- *                 .build())
- *             .grantee(AccessGrantGranteeArgs.builder()
- *                 .granteeType(&#34;IAM&#34;)
- *                 .granteeIdentifier(aws_iam_user.example().arn())
- *                 .build())
+ *             .accessGrantsLocationConfiguration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .grantee(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

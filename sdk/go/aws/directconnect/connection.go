@@ -22,24 +22,22 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/directconnect"
+//	directconnect/connection "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/directconnect/connection"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := directconnect.NewConnection(ctx, "hoge", &directconnect.ConnectionArgs{
-//				Bandwidth: pulumi.String("1Gbps"),
-//				Location:  pulumi.String("EqDC2"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := directconnect/connection.NewConnection(ctx, "hoge", &directconnect/connection.ConnectionArgs{
+// Bandwidth: "1Gbps",
+// Location: "EqDC2",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Request a MACsec-capable connection
 //
@@ -48,25 +46,23 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/directconnect"
+//	directconnect/connection "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/directconnect/connection"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := directconnect.NewConnection(ctx, "example", &directconnect.ConnectionArgs{
-//				Bandwidth:     pulumi.String("10Gbps"),
-//				Location:      pulumi.String("EqDA2"),
-//				RequestMacsec: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := directconnect/connection.NewConnection(ctx, "example", &directconnect/connection.ConnectionArgs{
+// Bandwidth: "10Gbps",
+// Location: "EqDA2",
+// RequestMacsec: true,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Configure encryption mode for MACsec-capable connections
 //
@@ -77,26 +73,24 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/directconnect"
+//	directconnect/connection "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/directconnect/connection"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := directconnect.NewConnection(ctx, "example", &directconnect.ConnectionArgs{
-//				Bandwidth:      pulumi.String("10Gbps"),
-//				EncryptionMode: pulumi.String("must_encrypt"),
-//				Location:       pulumi.String("EqDC2"),
-//				RequestMacsec:  pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := directconnect/connection.NewConnection(ctx, "example", &directconnect/connection.ConnectionArgs{
+// Bandwidth: "10Gbps",
+// EncryptionMode: "must_encrypt",
+// Location: "EqDC2",
+// RequestMacsec: true,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

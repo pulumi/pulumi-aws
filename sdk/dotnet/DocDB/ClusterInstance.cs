@@ -29,7 +29,7 @@ namespace Pulumi.Aws.DocDB
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var @default = new Aws.DocDB.Cluster("default", new()
+    ///     var @default = new Aws.Docdb.Cluster.Cluster("default", new()
     ///     {
     ///         ClusterIdentifier = "docdb-cluster-demo",
     ///         AvailabilityZones = new[]
@@ -42,11 +42,11 @@ namespace Pulumi.Aws.DocDB
     ///         MasterPassword = "barbut8chars",
     ///     });
     /// 
-    ///     var clusterInstances = new List&lt;Aws.DocDB.ClusterInstance&gt;();
+    ///     var clusterInstances = new List&lt;Aws.Docdb.ClusterInstance.ClusterInstance&gt;();
     ///     for (var rangeIndex = 0; rangeIndex &lt; 2; rangeIndex++)
     ///     {
     ///         var range = new { Value = rangeIndex };
-    ///         clusterInstances.Add(new Aws.DocDB.ClusterInstance($"clusterInstances-{range.Value}", new()
+    ///         clusterInstances.Add(new Aws.Docdb.ClusterInstance.ClusterInstance($"clusterInstances-{range.Value}", new()
     ///         {
     ///             Identifier = $"docdb-cluster-demo-{range.Value}",
     ///             ClusterIdentifier = @default.Id,

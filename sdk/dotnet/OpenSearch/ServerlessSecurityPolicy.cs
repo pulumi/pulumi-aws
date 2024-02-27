@@ -26,7 +26,7 @@ namespace Pulumi.Aws.OpenSearch
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.OpenSearch.ServerlessSecurityPolicy("example", new()
+    ///     var example = new Aws.Opensearch.ServerlessSecurityPolicy.ServerlessSecurityPolicy("example", new()
     ///     {
     ///         Type = "encryption",
     ///         Description = "encryption security policy for example-collection",
@@ -60,7 +60,7 @@ namespace Pulumi.Aws.OpenSearch
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.OpenSearch.ServerlessSecurityPolicy("example", new()
+    ///     var example = new Aws.Opensearch.ServerlessSecurityPolicy.ServerlessSecurityPolicy("example", new()
     ///     {
     ///         Type = "encryption",
     ///         Description = "encryption security policy for collections that begin with \"example\"",
@@ -94,7 +94,7 @@ namespace Pulumi.Aws.OpenSearch
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.OpenSearch.ServerlessSecurityPolicy("example", new()
+    ///     var example = new Aws.Opensearch.ServerlessSecurityPolicy.ServerlessSecurityPolicy("example", new()
     ///     {
     ///         Type = "encryption",
     ///         Description = "encryption security policy using customer KMS key",
@@ -130,7 +130,7 @@ namespace Pulumi.Aws.OpenSearch
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.OpenSearch.ServerlessSecurityPolicy("example", new()
+    ///     var example = new Aws.Opensearch.ServerlessSecurityPolicy.ServerlessSecurityPolicy("example", new()
     ///     {
     ///         Type = "network",
     ///         Description = "Public access",
@@ -176,7 +176,7 @@ namespace Pulumi.Aws.OpenSearch
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.OpenSearch.ServerlessSecurityPolicy("example", new()
+    ///     var example = new Aws.Opensearch.ServerlessSecurityPolicy.ServerlessSecurityPolicy("example", new()
     ///     {
     ///         Type = "network",
     ///         Description = "VPC access",
@@ -226,7 +226,7 @@ namespace Pulumi.Aws.OpenSearch
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.OpenSearch.ServerlessSecurityPolicy("example", new()
+    ///     var example = new Aws.Opensearch.ServerlessSecurityPolicy.ServerlessSecurityPolicy("example", new()
     ///     {
     ///         Type = "network",
     ///         Description = "Mixed access for marketing and sales",

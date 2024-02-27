@@ -212,9 +212,9 @@ class LandingZone(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.controltower.LandingZone("example",
-            manifest_json=(lambda path: open(path).read())(f"{path['module']}/LandingZoneManifest.json"),
-            version="3.2")
+        example = aws.controltower.landing_zone.LandingZone("example",
+            manifest_json=(lambda path: open(path).read())(f{path.module}/LandingZoneManifest.json),
+            version=3.2)
         ```
 
         ## Import
@@ -247,9 +247,9 @@ class LandingZone(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.controltower.LandingZone("example",
-            manifest_json=(lambda path: open(path).read())(f"{path['module']}/LandingZoneManifest.json"),
-            version="3.2")
+        example = aws.controltower.landing_zone.LandingZone("example",
+            manifest_json=(lambda path: open(path).read())(f{path.module}/LandingZoneManifest.json),
+            version=3.2)
         ```
 
         ## Import

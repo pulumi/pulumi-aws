@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.eks.Addon("example", {
+ * const example = new aws.eks/addon.Addon("example", {
  *     clusterName: aws_eks_cluster.example.name,
  *     addonName: "vpc-cni",
  * });
@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.eks.Addon("example", {
+ * const example = new aws.eks/addon.Addon("example", {
  *     clusterName: aws_eks_cluster.example.name,
  *     addonName: "coredns",
  *     addonVersion: "v1.10.1-eksbuild.1",
@@ -53,7 +53,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.eks.Addon("example", {
+ * const example = new aws.eks/addon.Addon("example", {
  *     clusterName: "mycluster",
  *     addonName: "coredns",
  *     addonVersion: "v1.10.1-eksbuild.1",

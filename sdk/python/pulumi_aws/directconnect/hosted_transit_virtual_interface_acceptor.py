@@ -174,35 +174,6 @@ class HostedTransitVirtualInterfaceAcceptor(pulumi.CustomResource):
 
         > **NOTE:** AWS allows a Direct Connect hosted transit virtual interface to be deleted from either the allocator's or accepter's side. However, this provider only allows the Direct Connect hosted transit virtual interface to be deleted from the allocator's side by removing the corresponding `directconnect.HostedTransitVirtualInterface` resource from your configuration. Removing a `directconnect.HostedTransitVirtualInterfaceAcceptor` resource from your configuration will remove it from your statefile and management, **but will not delete the Direct Connect virtual interface.**
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        accepter = aws.Provider("accepter")
-        # Accepter's credentials.
-        accepter_caller_identity = aws.get_caller_identity()
-        # Accepter's side of the VIF.
-        example = aws.directconnect.Gateway("example", amazon_side_asn="64512",
-        opts=pulumi.ResourceOptions(provider=aws["accepter"]))
-        # Creator's side of the VIF
-        creator = aws.directconnect.HostedTransitVirtualInterface("creator",
-            connection_id="dxcon-zzzzzzzz",
-            owner_account_id=accepter_caller_identity.account_id,
-            vlan=4094,
-            address_family="ipv4",
-            bgp_asn=65352,
-            opts=pulumi.ResourceOptions(depends_on=[example]))
-        accepter_hosted_transit_virtual_interface_acceptor = aws.directconnect.HostedTransitVirtualInterfaceAcceptor("accepterHostedTransitVirtualInterfaceAcceptor",
-            virtual_interface_id=creator.id,
-            dx_gateway_id=example.id,
-            tags={
-                "Side": "Accepter",
-            },
-            opts=pulumi.ResourceOptions(provider=aws["accepter"]))
-        ```
-
         ## Import
 
         Using `pulumi import`, import Direct Connect hosted transit virtual interfaces using the VIF `id`. For example:
@@ -228,35 +199,6 @@ class HostedTransitVirtualInterfaceAcceptor(pulumi.CustomResource):
         This resource accepts ownership of a transit virtual interface created by another AWS account.
 
         > **NOTE:** AWS allows a Direct Connect hosted transit virtual interface to be deleted from either the allocator's or accepter's side. However, this provider only allows the Direct Connect hosted transit virtual interface to be deleted from the allocator's side by removing the corresponding `directconnect.HostedTransitVirtualInterface` resource from your configuration. Removing a `directconnect.HostedTransitVirtualInterfaceAcceptor` resource from your configuration will remove it from your statefile and management, **but will not delete the Direct Connect virtual interface.**
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        accepter = aws.Provider("accepter")
-        # Accepter's credentials.
-        accepter_caller_identity = aws.get_caller_identity()
-        # Accepter's side of the VIF.
-        example = aws.directconnect.Gateway("example", amazon_side_asn="64512",
-        opts=pulumi.ResourceOptions(provider=aws["accepter"]))
-        # Creator's side of the VIF
-        creator = aws.directconnect.HostedTransitVirtualInterface("creator",
-            connection_id="dxcon-zzzzzzzz",
-            owner_account_id=accepter_caller_identity.account_id,
-            vlan=4094,
-            address_family="ipv4",
-            bgp_asn=65352,
-            opts=pulumi.ResourceOptions(depends_on=[example]))
-        accepter_hosted_transit_virtual_interface_acceptor = aws.directconnect.HostedTransitVirtualInterfaceAcceptor("accepterHostedTransitVirtualInterfaceAcceptor",
-            virtual_interface_id=creator.id,
-            dx_gateway_id=example.id,
-            tags={
-                "Side": "Accepter",
-            },
-            opts=pulumi.ResourceOptions(provider=aws["accepter"]))
-        ```
 
         ## Import
 

@@ -181,15 +181,15 @@ class VirtualCluster(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.emrcontainers.VirtualCluster("example", container_provider=aws.emrcontainers.VirtualClusterContainerProviderArgs(
-            id=aws_eks_cluster["example"]["name"],
-            type="EKS",
-            info=aws.emrcontainers.VirtualClusterContainerProviderInfoArgs(
-                eks_info=aws.emrcontainers.VirtualClusterContainerProviderInfoEksInfoArgs(
-                    namespace="default",
-                ),
-            ),
-        ))
+        example = aws.emrcontainers.virtual_cluster.VirtualCluster("example", container_provider={
+            id: aws_eks_cluster.example.name,
+            type: EKS,
+            info: {
+                eksInfo: {
+                    namespace: default,
+                },
+            },
+        })
         ```
 
         ## Import
@@ -222,15 +222,15 @@ class VirtualCluster(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.emrcontainers.VirtualCluster("example", container_provider=aws.emrcontainers.VirtualClusterContainerProviderArgs(
-            id=aws_eks_cluster["example"]["name"],
-            type="EKS",
-            info=aws.emrcontainers.VirtualClusterContainerProviderInfoArgs(
-                eks_info=aws.emrcontainers.VirtualClusterContainerProviderInfoEksInfoArgs(
-                    namespace="default",
-                ),
-            ),
-        ))
+        example = aws.emrcontainers.virtual_cluster.VirtualCluster("example", container_provider={
+            id: aws_eks_cluster.example.name,
+            type: EKS,
+            info: {
+                eksInfo: {
+                    namespace: default,
+                },
+            },
+        })
         ```
 
         ## Import

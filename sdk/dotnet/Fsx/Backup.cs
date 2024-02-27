@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Fsx
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleLustreFileSystem = new Aws.Fsx.LustreFileSystem("exampleLustreFileSystem", new()
+    ///     var exampleLustreFileSystem = new Aws.Fsx.LustreFileSystem.LustreFileSystem("exampleLustreFileSystem", new()
     ///     {
     ///         StorageCapacity = 1200,
     ///         SubnetIds = new[]
@@ -33,7 +33,7 @@ namespace Pulumi.Aws.Fsx
     ///         PerUnitStorageThroughput = 50,
     ///     });
     /// 
-    ///     var exampleBackup = new Aws.Fsx.Backup("exampleBackup", new()
+    ///     var exampleBackup = new Aws.Fsx.Backup.Backup("exampleBackup", new()
     ///     {
     ///         FileSystemId = exampleLustreFileSystem.Id,
     ///     });
@@ -51,7 +51,7 @@ namespace Pulumi.Aws.Fsx
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleWindowsFileSystem = new Aws.Fsx.WindowsFileSystem("exampleWindowsFileSystem", new()
+    ///     var exampleWindowsFileSystem = new Aws.Fsx.WindowsFileSystem.WindowsFileSystem("exampleWindowsFileSystem", new()
     ///     {
     ///         ActiveDirectoryId = aws_directory_service_directory.Eample.Id,
     ///         SkipFinalBackup = true,
@@ -63,7 +63,7 @@ namespace Pulumi.Aws.Fsx
     ///         ThroughputCapacity = 8,
     ///     });
     /// 
-    ///     var exampleBackup = new Aws.Fsx.Backup("exampleBackup", new()
+    ///     var exampleBackup = new Aws.Fsx.Backup.Backup("exampleBackup", new()
     ///     {
     ///         FileSystemId = exampleWindowsFileSystem.Id,
     ///     });
@@ -81,7 +81,7 @@ namespace Pulumi.Aws.Fsx
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleOntapVolume = new Aws.Fsx.OntapVolume("exampleOntapVolume", new()
+    ///     var exampleOntapVolume = new Aws.Fsx.OntapVolume.OntapVolume("exampleOntapVolume", new()
     ///     {
     ///         JunctionPath = "/example",
     ///         SizeInMegabytes = 1024,
@@ -89,7 +89,7 @@ namespace Pulumi.Aws.Fsx
     ///         StorageVirtualMachineId = aws_fsx_ontap_storage_virtual_machine.Test.Id,
     ///     });
     /// 
-    ///     var exampleBackup = new Aws.Fsx.Backup("exampleBackup", new()
+    ///     var exampleBackup = new Aws.Fsx.Backup.Backup("exampleBackup", new()
     ///     {
     ///         VolumeId = exampleOntapVolume.Id,
     ///     });
@@ -107,7 +107,7 @@ namespace Pulumi.Aws.Fsx
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleOpenZfsFileSystem = new Aws.Fsx.OpenZfsFileSystem("exampleOpenZfsFileSystem", new()
+    ///     var exampleOpenZfsFileSystem = new Aws.Fsx.OpenZfsFileSystem.OpenZfsFileSystem("exampleOpenZfsFileSystem", new()
     ///     {
     ///         StorageCapacity = 64,
     ///         SubnetIds = new[]
@@ -118,7 +118,7 @@ namespace Pulumi.Aws.Fsx
     ///         ThroughputCapacity = 64,
     ///     });
     /// 
-    ///     var exampleBackup = new Aws.Fsx.Backup("exampleBackup", new()
+    ///     var exampleBackup = new Aws.Fsx.Backup.Backup("exampleBackup", new()
     ///     {
     ///         FileSystemId = exampleOpenZfsFileSystem.Id,
     ///     });

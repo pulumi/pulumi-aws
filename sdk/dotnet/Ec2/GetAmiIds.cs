@@ -13,84 +13,12 @@ namespace Pulumi.Aws.Ec2
     {
         /// <summary>
         /// Use this data source to get a list of AMI IDs matching the specified criteria.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var ubuntu = Aws.Ec2.GetAmiIds.Invoke(new()
-        ///     {
-        ///         Filters = new[]
-        ///         {
-        ///             new Aws.Ec2.Inputs.GetAmiIdsFilterInputArgs
-        ///             {
-        ///                 Name = "name",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "ubuntu/images/ubuntu-*-*-amd64-server-*",
-        ///                 },
-        ///             },
-        ///         },
-        ///         Owners = new[]
-        ///         {
-        ///             "099720109477",
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetAmiIdsResult> InvokeAsync(GetAmiIdsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAmiIdsResult>("aws:ec2/getAmiIds:getAmiIds", args ?? new GetAmiIdsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to get a list of AMI IDs matching the specified criteria.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var ubuntu = Aws.Ec2.GetAmiIds.Invoke(new()
-        ///     {
-        ///         Filters = new[]
-        ///         {
-        ///             new Aws.Ec2.Inputs.GetAmiIdsFilterInputArgs
-        ///             {
-        ///                 Name = "name",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "ubuntu/images/ubuntu-*-*-amd64-server-*",
-        ///                 },
-        ///             },
-        ///         },
-        ///         Owners = new[]
-        ///         {
-        ///             "099720109477",
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetAmiIdsResult> Invoke(GetAmiIdsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAmiIdsResult>("aws:ec2/getAmiIds:getAmiIds", args ?? new GetAmiIdsInvokeArgs(), options.WithDefaults());

@@ -11,6 +11,42 @@ namespace Pulumi.Aws.VerifiedPermissions
 {
     /// <summary>
     /// ## Example Usage
+    /// ### Basic Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using System.Text.Json;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Verifiedpermissions.Schema.Schema("example", new()
+    ///     {
+    ///         PolicyStoreId = aws_verifiedpermissions_policy_store.Example.Policy_store_id,
+    ///         Definition = new[]
+    ///         {
+    ///             
+    ///             {
+    ///                 { "value", JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["Namespace"] = new Dictionary&lt;string, object?&gt;
+    ///                     {
+    ///                         ["entityTypes"] = new Dictionary&lt;string, object?&gt;
+    ///                         {
+    ///                         },
+    ///                         ["actions"] = new Dictionary&lt;string, object?&gt;
+    ///                         {
+    ///                         },
+    ///                     },
+    ///                 }) },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// 
     /// ## Import
     /// 

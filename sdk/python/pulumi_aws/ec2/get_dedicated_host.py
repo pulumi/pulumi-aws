@@ -224,19 +224,6 @@ def get_dedicated_host(filters: Optional[Sequence[pulumi.InputType['GetDedicated
     """
     Use this data source to get information about an EC2 Dedicated Host.
 
-    ## Example Usage
-    ### Filter Example
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.ec2.get_dedicated_host(filters=[aws.ec2.GetDedicatedHostFilterArgs(
-        name="instance-type",
-        values=["c5.18xlarge"],
-    )])
-    ```
-
 
     :param Sequence[pulumi.InputType['GetDedicatedHostFilterArgs']] filters: Configuration block. Detailed below.
     :param str host_id: ID of the Dedicated Host.
@@ -274,19 +261,6 @@ def get_dedicated_host_output(filters: Optional[pulumi.Input[Optional[Sequence[p
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDedicatedHostResult]:
     """
     Use this data source to get information about an EC2 Dedicated Host.
-
-    ## Example Usage
-    ### Filter Example
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.ec2.get_dedicated_host(filters=[aws.ec2.GetDedicatedHostFilterArgs(
-        name="instance-type",
-        values=["c5.18xlarge"],
-    )])
-    ```
 
 
     :param Sequence[pulumi.InputType['GetDedicatedHostFilterArgs']] filters: Configuration block. Detailed below.

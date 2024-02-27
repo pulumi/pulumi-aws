@@ -14,8 +14,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleEmailIdentity = new aws.sesv2.EmailIdentity("exampleEmailIdentity", {emailIdentity: "example.com"});
- * const exampleEmailIdentityFeedbackAttributes = new aws.sesv2.EmailIdentityFeedbackAttributes("exampleEmailIdentityFeedbackAttributes", {
+ * const exampleEmailIdentity = new aws.sesv2/emailIdentity.EmailIdentity("exampleEmailIdentity", {emailIdentity: "example.com"});
+ * const exampleEmailIdentityFeedbackAttributes = new aws.sesv2/emailIdentityFeedbackAttributes.EmailIdentityFeedbackAttributes("exampleEmailIdentityFeedbackAttributes", {
  *     emailIdentity: exampleEmailIdentity.emailIdentity,
  *     emailForwardingEnabled: true,
  * });

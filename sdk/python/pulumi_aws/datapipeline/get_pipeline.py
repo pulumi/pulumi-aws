@@ -95,15 +95,6 @@ def get_pipeline(pipeline_id: Optional[str] = None,
     """
     Provides details about a specific DataPipeline Pipeline.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.datapipeline.get_pipeline(pipeline_id="pipelineID")
-    ```
-
 
     :param str pipeline_id: ID of the pipeline.
     :param Mapping[str, str] tags: Map of tags assigned to the resource.
@@ -128,15 +119,6 @@ def get_pipeline_output(pipeline_id: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPipelineResult]:
     """
     Provides details about a specific DataPipeline Pipeline.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.datapipeline.get_pipeline(pipeline_id="pipelineID")
-    ```
 
 
     :param str pipeline_id: ID of the pipeline.

@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.chime.SdkvoiceSipMediaApplication("example", {
+ * const example = new aws.chime/sdkvoiceSipMediaApplication.SdkvoiceSipMediaApplication("example", {
  *     awsRegion: "us-east-1",
  *     endpoints: {
  *         lambdaArn: aws_lambda_function.test.arn,

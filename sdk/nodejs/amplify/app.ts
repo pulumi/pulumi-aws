@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.amplify.App("example", {
+ * const example = new aws.amplify/app.App("example", {
  *     buildSpec: `  version: 0.1
  *   frontend:
  *     phases:
@@ -56,7 +56,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.amplify.App("example", {
+ * const example = new aws.amplify/app.App("example", {
  *     accessToken: "...",
  *     repository: "https://github.com/example/app",
  * });
@@ -69,7 +69,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.amplify.App("example", {
+ * const example = new aws.amplify/app.App("example", {
  *     autoBranchCreationConfig: {
  *         enableAutoBuild: true,
  *     },
@@ -86,7 +86,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.amplify.App("example", {customRules: [
+ * const example = new aws.amplify/app.App("example", {customRules: [
  *     {
  *         source: "/api/<*>",
  *         status: "200",
@@ -105,7 +105,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.amplify.App("example", {environmentVariables: {
+ * const example = new aws.amplify/app.App("example", {environmentVariables: {
  *     _CUSTOM_IMAGE: "node:16",
  * }});
  * ```
@@ -115,7 +115,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.amplify.App("example", {customHeaders: `  customHeaders:
+ * const example = new aws.amplify/app.App("example", {customHeaders: `  customHeaders:
  *     - pattern: '**'
  *       headers:
  *         - key: 'Strict-Transport-Security'

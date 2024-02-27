@@ -13,8 +13,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleKey = new aws.kms.Key("exampleKey", {description: "example"});
- * const exampleKeyPolicy = new aws.kms.KeyPolicy("exampleKeyPolicy", {
+ * const exampleKey = new aws.kms/key.Key("exampleKey", {description: "example"});
+ * const exampleKeyPolicy = new aws.kms/keyPolicy.KeyPolicy("exampleKeyPolicy", {
  *     keyId: exampleKey.id,
  *     policy: JSON.stringify({
  *         Id: "example",

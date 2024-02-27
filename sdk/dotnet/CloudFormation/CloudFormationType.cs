@@ -22,15 +22,15 @@ namespace Pulumi.Aws.CloudFormation
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.CloudFormation.CloudFormationType("example", new()
+    ///     var example = new Aws.Cloudformation.CloudFormationType.CloudFormationType("example", new()
     ///     {
     ///         SchemaHandlerPackage = $"s3://{aws_s3_object.Example.Bucket}/{aws_s3_object.Example.Key}",
     ///         Type = "RESOURCE",
     ///         TypeName = "ExampleCompany::ExampleService::ExampleResource",
-    ///         LoggingConfig = new Aws.CloudFormation.Inputs.CloudFormationTypeLoggingConfigArgs
+    ///         LoggingConfig = 
     ///         {
-    ///             LogGroupName = aws_cloudwatch_log_group.Example.Name,
-    ///             LogRoleArn = aws_iam_role.Example.Arn,
+    ///             { "logGroupName", aws_cloudwatch_log_group.Example.Name },
+    ///             { "logRoleArn", aws_iam_role.Example.Arn },
     ///         },
     ///     });
     /// 

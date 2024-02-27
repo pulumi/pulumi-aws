@@ -494,10 +494,10 @@ class PlatformApplication(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        apns_application = aws.sns.PlatformApplication("apnsApplication",
-            platform="APNS",
-            platform_credential="<APNS PRIVATE KEY>",
-            platform_principal="<APNS CERTIFICATE>")
+        apns_application = aws.sns.platform_application.PlatformApplication("apnsApplication",
+            platform=APNS,
+            platform_credential=<APNS PRIVATE KEY>,
+            platform_principal=<APNS CERTIFICATE>)
         ```
         ### Apple Push Notification Service (APNS) using token-based authentication
 
@@ -505,12 +505,12 @@ class PlatformApplication(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        apns_application = aws.sns.PlatformApplication("apnsApplication",
-            apple_platform_bundle_id="<APPLE BUNDLE ID>",
-            apple_platform_team_id="<APPLE TEAM ID>",
-            platform="APNS",
-            platform_credential="<APNS SIGNING KEY>",
-            platform_principal="<APNS SIGNING KEY ID>")
+        apns_application = aws.sns.platform_application.PlatformApplication("apnsApplication",
+            apple_platform_bundle_id=<APPLE BUNDLE ID>,
+            apple_platform_team_id=<APPLE TEAM ID>,
+            platform=APNS,
+            platform_credential=<APNS SIGNING KEY>,
+            platform_principal=<APNS SIGNING KEY ID>)
         ```
         ### Google Cloud Messaging (GCM)
 
@@ -518,9 +518,9 @@ class PlatformApplication(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        gcm_application = aws.sns.PlatformApplication("gcmApplication",
-            platform="GCM",
-            platform_credential="<GCM API KEY>")
+        gcm_application = aws.sns.platform_application.PlatformApplication("gcmApplication",
+            platform=GCM,
+            platform_credential=<GCM API KEY>)
         ```
 
         ## Import
@@ -565,10 +565,10 @@ class PlatformApplication(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        apns_application = aws.sns.PlatformApplication("apnsApplication",
-            platform="APNS",
-            platform_credential="<APNS PRIVATE KEY>",
-            platform_principal="<APNS CERTIFICATE>")
+        apns_application = aws.sns.platform_application.PlatformApplication("apnsApplication",
+            platform=APNS,
+            platform_credential=<APNS PRIVATE KEY>,
+            platform_principal=<APNS CERTIFICATE>)
         ```
         ### Apple Push Notification Service (APNS) using token-based authentication
 
@@ -576,12 +576,12 @@ class PlatformApplication(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        apns_application = aws.sns.PlatformApplication("apnsApplication",
-            apple_platform_bundle_id="<APPLE BUNDLE ID>",
-            apple_platform_team_id="<APPLE TEAM ID>",
-            platform="APNS",
-            platform_credential="<APNS SIGNING KEY>",
-            platform_principal="<APNS SIGNING KEY ID>")
+        apns_application = aws.sns.platform_application.PlatformApplication("apnsApplication",
+            apple_platform_bundle_id=<APPLE BUNDLE ID>,
+            apple_platform_team_id=<APPLE TEAM ID>,
+            platform=APNS,
+            platform_credential=<APNS SIGNING KEY>,
+            platform_principal=<APNS SIGNING KEY ID>)
         ```
         ### Google Cloud Messaging (GCM)
 
@@ -589,9 +589,9 @@ class PlatformApplication(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        gcm_application = aws.sns.PlatformApplication("gcmApplication",
-            platform="GCM",
-            platform_credential="<GCM API KEY>")
+        gcm_application = aws.sns.platform_application.PlatformApplication("gcmApplication",
+            platform=GCM,
+            platform_credential=<GCM API KEY>)
         ```
 
         ## Import

@@ -144,39 +144,6 @@ class MultiplexProgram(pulumi.CustomResource):
         Resource for managing an AWS MediaLive MultiplexProgram.
 
         ## Example Usage
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        available = aws.get_availability_zones(state="available")
-        example_multiplex = aws.medialive.Multiplex("exampleMultiplex",
-            availability_zones=[
-                available.names[0],
-                available.names[1],
-            ],
-            multiplex_settings=aws.medialive.MultiplexMultiplexSettingsArgs(
-                transport_stream_bitrate=1000000,
-                transport_stream_id=1,
-                transport_stream_reserved_bitrate=1,
-                maximum_video_buffer_delay_milliseconds=1000,
-            ),
-            start_multiplex=True,
-            tags={
-                "tag1": "value1",
-            })
-        example_multiplex_program = aws.medialive.MultiplexProgram("exampleMultiplexProgram",
-            program_name="example_program",
-            multiplex_id=example_multiplex.id,
-            multiplex_program_settings=aws.medialive.MultiplexProgramMultiplexProgramSettingsArgs(
-                program_number=1,
-                preferred_channel_pipeline="CURRENTLY_ACTIVE",
-                video_settings=aws.medialive.MultiplexProgramMultiplexProgramSettingsVideoSettingsArgs(
-                    constant_bitrate=100000,
-                ),
-            ))
-        ```
 
         ## Import
 
@@ -204,39 +171,6 @@ class MultiplexProgram(pulumi.CustomResource):
         Resource for managing an AWS MediaLive MultiplexProgram.
 
         ## Example Usage
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        available = aws.get_availability_zones(state="available")
-        example_multiplex = aws.medialive.Multiplex("exampleMultiplex",
-            availability_zones=[
-                available.names[0],
-                available.names[1],
-            ],
-            multiplex_settings=aws.medialive.MultiplexMultiplexSettingsArgs(
-                transport_stream_bitrate=1000000,
-                transport_stream_id=1,
-                transport_stream_reserved_bitrate=1,
-                maximum_video_buffer_delay_milliseconds=1000,
-            ),
-            start_multiplex=True,
-            tags={
-                "tag1": "value1",
-            })
-        example_multiplex_program = aws.medialive.MultiplexProgram("exampleMultiplexProgram",
-            program_name="example_program",
-            multiplex_id=example_multiplex.id,
-            multiplex_program_settings=aws.medialive.MultiplexProgramMultiplexProgramSettingsArgs(
-                program_number=1,
-                preferred_channel_pipeline="CURRENTLY_ACTIVE",
-                video_settings=aws.medialive.MultiplexProgramMultiplexProgramSettingsVideoSettingsArgs(
-                    constant_bitrate=100000,
-                ),
-            ))
-        ```
 
         ## Import
 

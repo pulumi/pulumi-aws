@@ -51,60 +51,6 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
- * ### Custom Cognito domain
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.cognito.UserPool;
- * import com.pulumi.aws.cognito.UserPoolDomain;
- * import com.pulumi.aws.cognito.UserPoolDomainArgs;
- * import com.pulumi.aws.route53.Route53Functions;
- * import com.pulumi.aws.route53.inputs.GetZoneArgs;
- * import com.pulumi.aws.route53.Record;
- * import com.pulumi.aws.route53.RecordArgs;
- * import com.pulumi.aws.route53.inputs.RecordAliasArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var exampleUserPool = new UserPool(&#34;exampleUserPool&#34;);
- * 
- *         var main = new UserPoolDomain(&#34;main&#34;, UserPoolDomainArgs.builder()        
- *             .domain(&#34;example-domain&#34;)
- *             .certificateArn(aws_acm_certificate.cert().arn())
- *             .userPoolId(exampleUserPool.id())
- *             .build());
- * 
- *         final var exampleZone = Route53Functions.getZone(GetZoneArgs.builder()
- *             .name(&#34;example.com&#34;)
- *             .build());
- * 
- *         var auth_cognito_A = new Record(&#34;auth-cognito-A&#34;, RecordArgs.builder()        
- *             .name(main.domain())
- *             .type(&#34;A&#34;)
- *             .zoneId(exampleZone.applyValue(getZoneResult -&gt; getZoneResult.zoneId()))
- *             .aliases(RecordAliasArgs.builder()
- *                 .evaluateTargetHealth(false)
- *                 .name(main.cloudfrontDistribution())
- *                 .zoneId(main.cloudfrontDistributionZoneId())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * ```
  * 
  * ## Import
  * 

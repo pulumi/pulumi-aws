@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = new aws.batch.JobDefinition("test", {
+ * const test = new aws.batch/jobDefinition.JobDefinition("test", {
  *     type: "container",
  *     containerProperties: JSON.stringify({
  *         command: [
@@ -64,7 +64,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = new aws.batch.JobDefinition("test", {
+ * const test = new aws.batch/jobDefinition.JobDefinition("test", {
  *     type: "multinode",
  *     nodeProperties: JSON.stringify({
  *         mainNode: 0,
@@ -98,51 +98,37 @@ import * as utilities from "../utilities";
  *     }),
  * });
  * ```
- * ### Fargate Platform Capability
+ * ### Job Definitionn of type EKS
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const assumeRolePolicy = aws.iam.getPolicyDocument({
- *     statements: [{
- *         actions: ["sts:AssumeRole"],
- *         principals: [{
- *             type: "Service",
- *             identifiers: ["ecs-tasks.amazonaws.com"],
- *         }],
- *     }],
- * });
- * const ecsTaskExecutionRole = new aws.iam.Role("ecsTaskExecutionRole", {assumeRolePolicy: assumeRolePolicy.then(assumeRolePolicy => assumeRolePolicy.json)});
- * const ecsTaskExecutionRolePolicy = new aws.iam.RolePolicyAttachment("ecsTaskExecutionRolePolicy", {
- *     role: ecsTaskExecutionRole.name,
- *     policyArn: "arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy",
- * });
- * const test = new aws.batch.JobDefinition("test", {
- *     type: "container",
- *     platformCapabilities: ["FARGATE"],
- *     containerProperties: ecsTaskExecutionRole.arn.apply(arn => JSON.stringify({
- *         command: [
- *             "echo",
- *             "test",
- *         ],
- *         image: "busybox",
- *         jobRoleArn: "arn:aws:iam::123456789012:role/AWSBatchS3ReadOnly",
- *         fargatePlatformConfiguration: {
- *             platformVersion: "LATEST",
+ * const test = new aws.batch/jobDefinition.JobDefinition("test", {
+ *     eksProperties: {
+ *         podProperties: {
+ *             containers: {
+ *                 command: [
+ *                     "sleep",
+ *                     "60",
+ *                 ],
+ *                 image: "public.ecr.aws/amazonlinux/amazonlinux:1",
+ *                 resources: {
+ *                     limits: {
+ *                         cpu: "1",
+ *                         memory: "1024Mi",
+ *                     },
+ *                 },
+ *             },
+ *             hostNetwork: true,
+ *             metadata: {
+ *                 labels: {
+ *                     environment: "test",
+ *                 },
+ *             },
  *         },
- *         resourceRequirements: [
- *             {
- *                 type: "VCPU",
- *                 value: "0.25",
- *             },
- *             {
- *                 type: "MEMORY",
- *                 value: "512",
- *             },
- *         ],
- *         executionRoleArn: arn,
- *     })),
+ *     },
+ *     type: "container",
  * });
  * ```
  *

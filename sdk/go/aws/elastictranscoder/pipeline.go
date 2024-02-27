@@ -21,32 +21,30 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/elastictranscoder"
+//	elastictranscoder/pipeline "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/elastictranscoder/pipeline"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := elastictranscoder.NewPipeline(ctx, "bar", &elastictranscoder.PipelineArgs{
-//				InputBucket: pulumi.Any(aws_s3_bucket.Input_bucket.Id),
-//				Role:        pulumi.Any(aws_iam_role.Test_role.Arn),
-//				ContentConfig: &elastictranscoder.PipelineContentConfigArgs{
-//					Bucket:       pulumi.Any(aws_s3_bucket.Content_bucket.Id),
-//					StorageClass: pulumi.String("Standard"),
-//				},
-//				ThumbnailConfig: &elastictranscoder.PipelineThumbnailConfigArgs{
-//					Bucket:       pulumi.Any(aws_s3_bucket.Thumb_bucket.Id),
-//					StorageClass: pulumi.String("Standard"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := elastictranscoder/pipeline.NewPipeline(ctx, "bar", &elastictranscoder/pipeline.PipelineArgs{
+// InputBucket: aws_s3_bucket.Input_bucket.Id,
+// Role: aws_iam_role.Test_role.Arn,
+// ContentConfig: map[string]interface{}{
+// "bucket": aws_s3_bucket.Content_bucket.Id,
+// "storageClass": "Standard",
+// },
+// ThumbnailConfig: map[string]interface{}{
+// "bucket": aws_s3_bucket.Thumb_bucket.Id,
+// "storageClass": "Standard",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

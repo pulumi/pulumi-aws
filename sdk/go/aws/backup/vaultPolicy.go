@@ -14,68 +14,6 @@ import (
 
 // Provides an AWS Backup vault policy resource.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/backup"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleVault, err := backup.NewVault(ctx, "exampleVault", nil)
-//			if err != nil {
-//				return err
-//			}
-//			examplePolicyDocument := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
-//				Statements: iam.GetPolicyDocumentStatementArray{
-//					&iam.GetPolicyDocumentStatementArgs{
-//						Effect: pulumi.String("Allow"),
-//						Principals: iam.GetPolicyDocumentStatementPrincipalArray{
-//							&iam.GetPolicyDocumentStatementPrincipalArgs{
-//								Type: pulumi.String("AWS"),
-//								Identifiers: pulumi.StringArray{
-//									pulumi.String("*"),
-//								},
-//							},
-//						},
-//						Actions: pulumi.StringArray{
-//							pulumi.String("backup:DescribeBackupVault"),
-//							pulumi.String("backup:DeleteBackupVault"),
-//							pulumi.String("backup:PutBackupVaultAccessPolicy"),
-//							pulumi.String("backup:DeleteBackupVaultAccessPolicy"),
-//							pulumi.String("backup:GetBackupVaultAccessPolicy"),
-//							pulumi.String("backup:StartBackupJob"),
-//							pulumi.String("backup:GetBackupVaultNotifications"),
-//							pulumi.String("backup:PutBackupVaultNotifications"),
-//						},
-//						Resources: pulumi.StringArray{
-//							exampleVault.Arn,
-//						},
-//					},
-//				},
-//			}, nil)
-//			_, err = backup.NewVaultPolicy(ctx, "exampleVaultPolicy", &backup.VaultPolicyArgs{
-//				BackupVaultName: exampleVault.Name,
-//				Policy: examplePolicyDocument.ApplyT(func(examplePolicyDocument iam.GetPolicyDocumentResult) (*string, error) {
-//					return &examplePolicyDocument.Json, nil
-//				}).(pulumi.StringPtrOutput),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Using `pulumi import`, import Backup vault policy using the `name`. For example:

@@ -20,12 +20,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const testInstance = new aws.lightsail.Instance("testInstance", {
+ * const testInstance = new aws.lightsail/instance.Instance("testInstance", {
  *     availabilityZone: data.aws_availability_zones.available.names[0],
  *     blueprintId: "amazon_linux_2",
  *     bundleId: "nano_1_0",
  * });
- * const testInstancePublicPorts = new aws.lightsail.InstancePublicPorts("testInstancePublicPorts", {
+ * const testInstancePublicPorts = new aws.lightsail/instancePublicPorts.InstancePublicPorts("testInstancePublicPorts", {
  *     instanceName: testInstance.name,
  *     portInfos: [{
  *         protocol: "tcp",

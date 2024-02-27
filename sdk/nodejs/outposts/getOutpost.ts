@@ -6,17 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Provides details about an Outposts Outpost.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.outposts.getOutpost({
- *     name: "example",
- * });
- * ```
  */
 export function getOutpost(args?: GetOutpostArgs, opts?: pulumi.InvokeOptions): Promise<GetOutpostResult> {
     args = args || {};
@@ -100,17 +89,6 @@ export interface GetOutpostResult {
 }
 /**
  * Provides details about an Outposts Outpost.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.outposts.getOutpost({
- *     name: "example",
- * });
- * ```
  */
 export function getOutpostOutput(args?: GetOutpostOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOutpostResult> {
     return pulumi.output(args).apply((a: any) => getOutpost(a, opts))

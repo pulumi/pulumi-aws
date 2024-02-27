@@ -16,46 +16,6 @@ namespace Pulumi.Aws.CloudFront
         /// 
         /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.CloudFront.GetResponseHeadersPolicy.Invoke(new()
-        ///     {
-        ///         Name = "example-policy",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% example %}}
-        /// ### AWS-Managed Policies
-        /// 
-        /// AWS managed response header policy names are prefixed with `Managed-`:
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.CloudFront.GetResponseHeadersPolicy.Invoke(new()
-        ///     {
-        ///         Name = "Managed-SimpleCORS",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetResponseHeadersPolicyResult> InvokeAsync(GetResponseHeadersPolicyArgs? args = null, InvokeOptions? options = null)
@@ -66,46 +26,6 @@ namespace Pulumi.Aws.CloudFront
         /// 
         /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.CloudFront.GetResponseHeadersPolicy.Invoke(new()
-        ///     {
-        ///         Name = "example-policy",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% example %}}
-        /// ### AWS-Managed Policies
-        /// 
-        /// AWS managed response header policy names are prefixed with `Managed-`:
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.CloudFront.GetResponseHeadersPolicy.Invoke(new()
-        ///     {
-        ///         Name = "Managed-SimpleCORS",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetResponseHeadersPolicyResult> Invoke(GetResponseHeadersPolicyInvokeArgs? args = null, InvokeOptions? options = null)

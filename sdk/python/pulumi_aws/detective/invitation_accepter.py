@@ -74,13 +74,13 @@ class InvitationAccepter(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        primary_graph = aws.detective.Graph("primaryGraph")
-        primary_member = aws.detective.Member("primaryMember",
-            account_id="ACCOUNT ID",
-            email_address="EMAIL",
+        primary_graph = aws.detective.graph.Graph("primaryGraph")
+        primary_member = aws.detective.member.Member("primaryMember",
+            account_id=ACCOUNT ID,
+            email_address=EMAIL,
             graph_arn=primary_graph.id,
-            message="Message of the invite")
-        member = aws.detective.InvitationAccepter("member", graph_arn=primary_graph.graph_arn,
+            message=Message of the invite)
+        member = aws.detective.invitation_accepter.InvitationAccepter("member", graph_arn=primary_graph.graph_arn,
         opts=pulumi.ResourceOptions(provider="awsalternate",
             depends_on=[primary_member]))
         ```
@@ -112,13 +112,13 @@ class InvitationAccepter(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        primary_graph = aws.detective.Graph("primaryGraph")
-        primary_member = aws.detective.Member("primaryMember",
-            account_id="ACCOUNT ID",
-            email_address="EMAIL",
+        primary_graph = aws.detective.graph.Graph("primaryGraph")
+        primary_member = aws.detective.member.Member("primaryMember",
+            account_id=ACCOUNT ID,
+            email_address=EMAIL,
             graph_arn=primary_graph.id,
-            message="Message of the invite")
-        member = aws.detective.InvitationAccepter("member", graph_arn=primary_graph.graph_arn,
+            message=Message of the invite)
+        member = aws.detective.invitation_accepter.InvitationAccepter("member", graph_arn=primary_graph.graph_arn,
         opts=pulumi.ResourceOptions(provider="awsalternate",
             depends_on=[primary_member]))
         ```

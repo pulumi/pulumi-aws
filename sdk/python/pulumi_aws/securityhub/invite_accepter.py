@@ -92,13 +92,13 @@ class InviteAccepter(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_account = aws.securityhub.Account("exampleAccount")
-        example_member = aws.securityhub.Member("exampleMember",
-            account_id="123456789012",
-            email="example@example.com",
+        example_account = aws.securityhub.account.Account("exampleAccount")
+        example_member = aws.securityhub.member.Member("exampleMember",
+            account_id=123456789012,
+            email=example@example.com,
             invite=True)
-        invitee_account = aws.securityhub.Account("inviteeAccount", opts=pulumi.ResourceOptions(provider="aws.invitee"))
-        invitee_invite_accepter = aws.securityhub.InviteAccepter("inviteeInviteAccepter", master_id=example_member.master_id,
+        invitee_account = aws.securityhub.account.Account("inviteeAccount", opts=pulumi.ResourceOptions(provider="aws.invitee"))
+        invitee_invite_accepter = aws.securityhub.invite_accepter.InviteAccepter("inviteeInviteAccepter", master_id=example_member.master_id,
         opts=pulumi.ResourceOptions(provider="aws.invitee",
             depends_on=[invitee_account]))
         ```
@@ -132,13 +132,13 @@ class InviteAccepter(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_account = aws.securityhub.Account("exampleAccount")
-        example_member = aws.securityhub.Member("exampleMember",
-            account_id="123456789012",
-            email="example@example.com",
+        example_account = aws.securityhub.account.Account("exampleAccount")
+        example_member = aws.securityhub.member.Member("exampleMember",
+            account_id=123456789012,
+            email=example@example.com,
             invite=True)
-        invitee_account = aws.securityhub.Account("inviteeAccount", opts=pulumi.ResourceOptions(provider="aws.invitee"))
-        invitee_invite_accepter = aws.securityhub.InviteAccepter("inviteeInviteAccepter", master_id=example_member.master_id,
+        invitee_account = aws.securityhub.account.Account("inviteeAccount", opts=pulumi.ResourceOptions(provider="aws.invitee"))
+        invitee_invite_accepter = aws.securityhub.invite_accepter.InviteAccepter("inviteeInviteAccepter", master_id=example_member.master_id,
         opts=pulumi.ResourceOptions(provider="aws.invitee",
             depends_on=[invitee_account]))
         ```

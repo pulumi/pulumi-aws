@@ -30,25 +30,23 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/servicecatalog"
+//	servicecatalog/provisioningArtifact "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/servicecatalog/provisioningArtifact"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := servicecatalog.NewProvisioningArtifact(ctx, "example", &servicecatalog.ProvisioningArtifactArgs{
-//				ProductId:   pulumi.Any(aws_servicecatalog_product.Example.Id),
-//				Type:        pulumi.String("CLOUD_FORMATION_TEMPLATE"),
-//				TemplateUrl: pulumi.String(fmt.Sprintf("https://%v/%v", aws_s3_bucket.Example.Bucket_regional_domain_name, aws_s3_object.Example.Key)),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := servicecatalog/provisioningArtifact.NewProvisioningArtifact(ctx, "example", &servicecatalog/provisioningArtifact.ProvisioningArtifactArgs{
+// ProductId: aws_servicecatalog_product.Example.Id,
+// Type: "CLOUD_FORMATION_TEMPLATE",
+// TemplateUrl: fmt.Sprintf("https://%v/%v", aws_s3_bucket.Example.Bucket_regional_domain_name, aws_s3_object.Example.Key),
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

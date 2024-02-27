@@ -25,29 +25,29 @@ namespace Pulumi.Aws.S3
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.S3.BucketWebsiteConfigurationV2("example", new()
+    ///     var example = new Aws.S3.BucketWebsiteConfigurationV2.BucketWebsiteConfigurationV2("example", new()
     ///     {
     ///         Bucket = aws_s3_bucket.Example.Id,
-    ///         IndexDocument = new Aws.S3.Inputs.BucketWebsiteConfigurationV2IndexDocumentArgs
+    ///         IndexDocument = 
     ///         {
-    ///             Suffix = "index.html",
+    ///             { "suffix", "index.html" },
     ///         },
-    ///         ErrorDocument = new Aws.S3.Inputs.BucketWebsiteConfigurationV2ErrorDocumentArgs
+    ///         ErrorDocument = 
     ///         {
-    ///             Key = "error.html",
+    ///             { "key", "error.html" },
     ///         },
     ///         RoutingRules = new[]
     ///         {
-    ///             new Aws.S3.Inputs.BucketWebsiteConfigurationV2RoutingRuleArgs
+    ///             
     ///             {
-    ///                 Condition = new Aws.S3.Inputs.BucketWebsiteConfigurationV2RoutingRuleConditionArgs
+    ///                 { "condition", 
     ///                 {
-    ///                     KeyPrefixEquals = "docs/",
-    ///                 },
-    ///                 Redirect = new Aws.S3.Inputs.BucketWebsiteConfigurationV2RoutingRuleRedirectArgs
+    ///                     { "keyPrefixEquals", "docs/" },
+    ///                 } },
+    ///                 { "redirect", 
     ///                 {
-    ///                     ReplaceKeyPrefixWith = "documents/",
-    ///                 },
+    ///                     { "replaceKeyPrefixWith", "documents/" },
+    ///                 } },
     ///             },
     ///         },
     ///     });
@@ -64,16 +64,16 @@ namespace Pulumi.Aws.S3
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.S3.BucketWebsiteConfigurationV2("example", new()
+    ///     var example = new Aws.S3.BucketWebsiteConfigurationV2.BucketWebsiteConfigurationV2("example", new()
     ///     {
     ///         Bucket = aws_s3_bucket.Example.Id,
-    ///         IndexDocument = new Aws.S3.Inputs.BucketWebsiteConfigurationV2IndexDocumentArgs
+    ///         IndexDocument = 
     ///         {
-    ///             Suffix = "index.html",
+    ///             { "suffix", "index.html" },
     ///         },
-    ///         ErrorDocument = new Aws.S3.Inputs.BucketWebsiteConfigurationV2ErrorDocumentArgs
+    ///         ErrorDocument = 
     ///         {
-    ///             Key = "error.html",
+    ///             { "key", "error.html" },
     ///         },
     ///         RoutingRuleDetails = @"[{
     ///     ""Condition"": {

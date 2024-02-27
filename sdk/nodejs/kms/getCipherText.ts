@@ -9,26 +9,6 @@ import * as utilities from "../utilities";
  * by using an AWS KMS customer master key. The value returned by this data source
  * changes every apply. For a stable ciphertext value, see the `aws.kms.Ciphertext`
  * resource.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const oauthConfig = new aws.kms.Key("oauthConfig", {
- *     description: "oauth config",
- *     isEnabled: true,
- * });
- * const oauth = aws.kms.getCipherTextOutput({
- *     keyId: oauthConfig.keyId,
- *     plaintext: `{
- *   "client_id": "e587dbae22222f55da22",
- *   "client_secret": "8289575d00000ace55e1815ec13673955721b8a5"
- * }
- * `,
- * });
- * ```
  */
 export function getCipherText(args: GetCipherTextArgs, opts?: pulumi.InvokeOptions): Promise<GetCipherTextResult> {
 
@@ -79,26 +59,6 @@ export interface GetCipherTextResult {
  * by using an AWS KMS customer master key. The value returned by this data source
  * changes every apply. For a stable ciphertext value, see the `aws.kms.Ciphertext`
  * resource.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const oauthConfig = new aws.kms.Key("oauthConfig", {
- *     description: "oauth config",
- *     isEnabled: true,
- * });
- * const oauth = aws.kms.getCipherTextOutput({
- *     keyId: oauthConfig.keyId,
- *     plaintext: `{
- *   "client_id": "e587dbae22222f55da22",
- *   "client_secret": "8289575d00000ace55e1815ec13673955721b8a5"
- * }
- * `,
- * });
- * ```
  */
 export function getCipherTextOutput(args: GetCipherTextOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCipherTextResult> {
     return pulumi.output(args).apply((a: any) => getCipherText(a, opts))

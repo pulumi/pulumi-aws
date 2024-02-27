@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = new aws.account.PrimaryContact("test", {
+ * const test = new aws.account/primaryContact.PrimaryContact("test", {
  *     addressLine1: "123 Any Street",
  *     city: "Seattle",
  *     companyName: "Example Corp, Inc.",

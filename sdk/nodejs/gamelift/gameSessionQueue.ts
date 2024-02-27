@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = new aws.gamelift.GameSessionQueue("test", {
+ * const test = new aws.gamelift/gameSessionQueue.GameSessionQueue("test", {
  *     destinations: [
  *         aws_gamelift_fleet.us_west_2_fleet.arn,
  *         aws_gamelift_fleet.eu_central_1_fleet.arn,

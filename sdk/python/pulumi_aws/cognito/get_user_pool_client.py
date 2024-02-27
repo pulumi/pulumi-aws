@@ -315,16 +315,6 @@ def get_user_pool_client(client_id: Optional[str] = None,
     """
     Provides a Cognito User Pool Client resource.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    client = aws.cognito.get_user_pool_client(client_id="38fjsnc484p94kpqsnet7mpld0",
-        user_pool_id="us-west-2_aaaaaaaaa")
-    ```
-
 
     :param str client_id: Client Id of the user pool.
     :param str user_pool_id: User pool the client belongs to.
@@ -368,16 +358,6 @@ def get_user_pool_client_output(client_id: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserPoolClientResult]:
     """
     Provides a Cognito User Pool Client resource.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    client = aws.cognito.get_user_pool_client(client_id="38fjsnc484p94kpqsnet7mpld0",
-        user_pool_id="us-west-2_aaaaaaaaa")
-    ```
 
 
     :param str client_id: Client Id of the user pool.

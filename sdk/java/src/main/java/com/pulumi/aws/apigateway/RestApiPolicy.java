@@ -19,58 +19,6 @@ import javax.annotation.Nullable;
  * &gt; **Note:** Amazon API Gateway Version 1 resources are used for creating and deploying REST APIs. To create and deploy WebSocket and HTTP APIs, use Amazon API Gateway Version 2 resources.
  * 
  * ## Example Usage
- * ### Basic
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.apigateway.RestApi;
- * import com.pulumi.aws.iam.IamFunctions;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
- * import com.pulumi.aws.apigateway.RestApiPolicy;
- * import com.pulumi.aws.apigateway.RestApiPolicyArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var testRestApi = new RestApi(&#34;testRestApi&#34;);
- * 
- *         final var testPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect(&#34;Allow&#34;)
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type(&#34;AWS&#34;)
- *                     .identifiers(&#34;*&#34;)
- *                     .build())
- *                 .actions(&#34;execute-api:Invoke&#34;)
- *                 .resources(testRestApi.executionArn())
- *                 .conditions(GetPolicyDocumentStatementConditionArgs.builder()
- *                     .test(&#34;IpAddress&#34;)
- *                     .variable(&#34;aws:SourceIp&#34;)
- *                     .values(&#34;123.123.123.123/32&#34;)
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *         var testRestApiPolicy = new RestApiPolicy(&#34;testRestApiPolicy&#34;, RestApiPolicyArgs.builder()        
- *             .restApiId(testRestApi.id())
- *             .policy(testPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(testPolicyDocument -&gt; testPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
- *             .build());
- * 
- *     }
- * }
- * ```
  * 
  * ## Import
  * 

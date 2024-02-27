@@ -48,10 +48,7 @@ import javax.annotation.Nullable;
  *             .description(&#34;Example IP set&#34;)
  *             .ipAddressVersion(&#34;IPV4&#34;)
  *             .scope(&#34;REGIONAL&#34;)
- *             .tags(Map.ofEntries(
- *                 Map.entry(&#34;Tag1&#34;, &#34;Value1&#34;),
- *                 Map.entry(&#34;Tag2&#34;, &#34;Value2&#34;)
- *             ))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

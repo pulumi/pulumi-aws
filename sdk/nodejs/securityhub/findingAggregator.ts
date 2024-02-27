@@ -16,8 +16,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleAccount = new aws.securityhub.Account("exampleAccount", {});
- * const exampleFindingAggregator = new aws.securityhub.FindingAggregator("exampleFindingAggregator", {linkingMode: "ALL_REGIONS"}, {
+ * const exampleAccount = new aws.securityhub/account.Account("exampleAccount", {});
+ * const exampleFindingAggregator = new aws.securityhub/findingAggregator.FindingAggregator("exampleFindingAggregator", {linkingMode: "ALL_REGIONS"}, {
  *     dependsOn: [exampleAccount],
  * });
  * ```
@@ -29,8 +29,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleAccount = new aws.securityhub.Account("exampleAccount", {});
- * const exampleFindingAggregator = new aws.securityhub.FindingAggregator("exampleFindingAggregator", {
+ * const exampleAccount = new aws.securityhub/account.Account("exampleAccount", {});
+ * const exampleFindingAggregator = new aws.securityhub/findingAggregator.FindingAggregator("exampleFindingAggregator", {
  *     linkingMode: "ALL_REGIONS_EXCEPT_SPECIFIED",
  *     specifiedRegions: [
  *         "eu-west-1",
@@ -48,8 +48,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleAccount = new aws.securityhub.Account("exampleAccount", {});
- * const exampleFindingAggregator = new aws.securityhub.FindingAggregator("exampleFindingAggregator", {
+ * const exampleAccount = new aws.securityhub/account.Account("exampleAccount", {});
+ * const exampleFindingAggregator = new aws.securityhub/findingAggregator.FindingAggregator("exampleFindingAggregator", {
  *     linkingMode: "SPECIFIED_REGIONS",
  *     specifiedRegions: [
  *         "eu-west-1",

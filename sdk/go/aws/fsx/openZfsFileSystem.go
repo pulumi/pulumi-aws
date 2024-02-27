@@ -22,28 +22,26 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/fsx"
+//	fsx/openZfsFileSystem "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/fsx/openZfsFileSystem"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := fsx.NewOpenZfsFileSystem(ctx, "test", &fsx.OpenZfsFileSystemArgs{
-//				StorageCapacity: pulumi.Int(64),
-//				SubnetIds: pulumi.String{
-//					aws_subnet.Test1.Id,
-//				},
-//				DeploymentType:     pulumi.String("SINGLE_AZ_1"),
-//				ThroughputCapacity: pulumi.Int(64),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := fsx/openZfsFileSystem.NewOpenZfsFileSystem(ctx, "test", &fsx/openZfsFileSystem.OpenZfsFileSystemArgs{
+// StorageCapacity: 64,
+// SubnetIds: []interface{}{
+// aws_subnet.Test1.Id,
+// },
+// DeploymentType: "SINGLE_AZ_1",
+// ThroughputCapacity: 64,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

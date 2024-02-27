@@ -24,12 +24,12 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Sagemaker.Project("example", new()
+    ///     var example = new Aws.Sagemaker.Project.Project("example", new()
     ///     {
     ///         ProjectName = "example",
-    ///         ServiceCatalogProvisioningDetails = new Aws.Sagemaker.Inputs.ProjectServiceCatalogProvisioningDetailsArgs
+    ///         ServiceCatalogProvisioningDetails = 
     ///         {
-    ///             ProductId = aws_servicecatalog_product.Example.Id,
+    ///             { "productId", aws_servicecatalog_product.Example.Id },
     ///         },
     ///     });
     /// 

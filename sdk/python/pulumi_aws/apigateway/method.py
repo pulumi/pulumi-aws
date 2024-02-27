@@ -413,44 +413,16 @@ class Method(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        my_demo_api = aws.apigateway.RestApi("myDemoAPI", description="This is my API for demonstration purposes")
-        my_demo_resource = aws.apigateway.Resource("myDemoResource",
+        my_demo_api = aws.apigateway.rest_api.RestApi("myDemoAPI", description=This is my API for demonstration purposes)
+        my_demo_resource = aws.apigateway.resource.Resource("myDemoResource",
             rest_api=my_demo_api.id,
             parent_id=my_demo_api.root_resource_id,
-            path_part="mydemoresource")
-        my_demo_method = aws.apigateway.Method("myDemoMethod",
+            path_part=mydemoresource)
+        my_demo_method = aws.apigateway.method.Method("myDemoMethod",
             rest_api=my_demo_api.id,
             resource_id=my_demo_resource.id,
-            http_method="GET",
-            authorization="NONE")
-        ```
-        ## Usage with Cognito User Pool Authorizer
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        config = pulumi.Config()
-        cognito_user_pool_name = config.require_object("cognitoUserPoolName")
-        this_user_pools = aws.cognito.get_user_pools(name=cognito_user_pool_name)
-        this_rest_api = aws.apigateway.RestApi("thisRestApi")
-        this_resource = aws.apigateway.Resource("thisResource",
-            rest_api=this_rest_api.id,
-            parent_id=this_rest_api.root_resource_id,
-            path_part="{proxy+}")
-        this_authorizer = aws.apigateway.Authorizer("thisAuthorizer",
-            type="COGNITO_USER_POOLS",
-            rest_api=this_rest_api.id,
-            provider_arns=this_user_pools.arns)
-        any = aws.apigateway.Method("any",
-            rest_api=this_rest_api.id,
-            resource_id=this_resource.id,
-            http_method="ANY",
-            authorization="COGNITO_USER_POOLS",
-            authorizer_id=this_authorizer.id,
-            request_parameters={
-                "method.request.path.proxy": True,
-            })
+            http_method=GET,
+            authorization=NONE)
         ```
 
         ## Import
@@ -493,44 +465,16 @@ class Method(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        my_demo_api = aws.apigateway.RestApi("myDemoAPI", description="This is my API for demonstration purposes")
-        my_demo_resource = aws.apigateway.Resource("myDemoResource",
+        my_demo_api = aws.apigateway.rest_api.RestApi("myDemoAPI", description=This is my API for demonstration purposes)
+        my_demo_resource = aws.apigateway.resource.Resource("myDemoResource",
             rest_api=my_demo_api.id,
             parent_id=my_demo_api.root_resource_id,
-            path_part="mydemoresource")
-        my_demo_method = aws.apigateway.Method("myDemoMethod",
+            path_part=mydemoresource)
+        my_demo_method = aws.apigateway.method.Method("myDemoMethod",
             rest_api=my_demo_api.id,
             resource_id=my_demo_resource.id,
-            http_method="GET",
-            authorization="NONE")
-        ```
-        ## Usage with Cognito User Pool Authorizer
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        config = pulumi.Config()
-        cognito_user_pool_name = config.require_object("cognitoUserPoolName")
-        this_user_pools = aws.cognito.get_user_pools(name=cognito_user_pool_name)
-        this_rest_api = aws.apigateway.RestApi("thisRestApi")
-        this_resource = aws.apigateway.Resource("thisResource",
-            rest_api=this_rest_api.id,
-            parent_id=this_rest_api.root_resource_id,
-            path_part="{proxy+}")
-        this_authorizer = aws.apigateway.Authorizer("thisAuthorizer",
-            type="COGNITO_USER_POOLS",
-            rest_api=this_rest_api.id,
-            provider_arns=this_user_pools.arns)
-        any = aws.apigateway.Method("any",
-            rest_api=this_rest_api.id,
-            resource_id=this_resource.id,
-            http_method="ANY",
-            authorization="COGNITO_USER_POOLS",
-            authorizer_id=this_authorizer.id,
-            request_parameters={
-                "method.request.path.proxy": True,
-            })
+            http_method=GET,
+            authorization=NONE)
         ```
 
         ## Import

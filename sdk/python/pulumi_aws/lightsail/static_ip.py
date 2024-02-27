@@ -125,7 +125,7 @@ class StaticIp(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.lightsail.StaticIp("test")
+        test = aws.lightsail.static_ip.StaticIp("test")
         ```
 
         :param str resource_name: The name of the resource.
@@ -149,7 +149,7 @@ class StaticIp(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.lightsail.StaticIp("test")
+        test = aws.lightsail.static_ip.StaticIp("test")
         ```
 
         :param str resource_name: The name of the resource.

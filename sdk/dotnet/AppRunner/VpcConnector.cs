@@ -22,7 +22,7 @@ namespace Pulumi.Aws.AppRunner
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var connector = new Aws.AppRunner.VpcConnector("connector", new()
+    ///     var connector = new Aws.Apprunner.VpcConnector.VpcConnector("connector", new()
     ///     {
     ///         SecurityGroups = new[]
     ///         {

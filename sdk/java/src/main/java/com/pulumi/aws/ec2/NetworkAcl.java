@@ -41,8 +41,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.ec2.NetworkAcl;
  * import com.pulumi.aws.ec2.NetworkAclArgs;
- * import com.pulumi.aws.ec2.inputs.NetworkAclEgressArgs;
- * import com.pulumi.aws.ec2.inputs.NetworkAclIngressArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -58,23 +56,9 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var main = new NetworkAcl(&#34;main&#34;, NetworkAclArgs.builder()        
  *             .vpcId(aws_vpc.main().id())
- *             .egress(NetworkAclEgressArgs.builder()
- *                 .protocol(&#34;tcp&#34;)
- *                 .ruleNo(200)
- *                 .action(&#34;allow&#34;)
- *                 .cidrBlock(&#34;10.3.0.0/18&#34;)
- *                 .fromPort(443)
- *                 .toPort(443)
- *                 .build())
- *             .ingress(NetworkAclIngressArgs.builder()
- *                 .protocol(&#34;tcp&#34;)
- *                 .ruleNo(100)
- *                 .action(&#34;allow&#34;)
- *                 .cidrBlock(&#34;10.3.0.0/18&#34;)
- *                 .fromPort(80)
- *                 .toPort(80)
- *                 .build())
- *             .tags(Map.of(&#34;Name&#34;, &#34;main&#34;))
+ *             .egress(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .ingress(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

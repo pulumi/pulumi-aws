@@ -346,17 +346,17 @@ class Pipeline(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        example = aws.sagemaker.Pipeline("example",
-            pipeline_name="example",
-            pipeline_display_name="example",
-            role_arn=aws_iam_role["example"]["arn"],
+        example = aws.sagemaker.pipeline.Pipeline("example",
+            pipeline_name=example,
+            pipeline_display_name=example,
+            role_arn=aws_iam_role.example.arn,
             pipeline_definition=json.dumps({
-                "Version": "2020-12-01",
-                "Steps": [{
-                    "Name": "Test",
-                    "Type": "Fail",
-                    "Arguments": {
-                        "ErrorMessage": "test",
+                Version: 2020-12-01,
+                Steps: [{
+                    Name: Test,
+                    Type: Fail,
+                    Arguments: {
+                        ErrorMessage: test,
                     },
                 }],
             }))
@@ -398,17 +398,17 @@ class Pipeline(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        example = aws.sagemaker.Pipeline("example",
-            pipeline_name="example",
-            pipeline_display_name="example",
-            role_arn=aws_iam_role["example"]["arn"],
+        example = aws.sagemaker.pipeline.Pipeline("example",
+            pipeline_name=example,
+            pipeline_display_name=example,
+            role_arn=aws_iam_role.example.arn,
             pipeline_definition=json.dumps({
-                "Version": "2020-12-01",
-                "Steps": [{
-                    "Name": "Test",
-                    "Type": "Fail",
-                    "Arguments": {
-                        "ErrorMessage": "test",
+                Version: 2020-12-01,
+                Steps: [{
+                    Name: Test,
+                    Type: Fail,
+                    Arguments: {
+                        ErrorMessage: test,
                     },
                 }],
             }))

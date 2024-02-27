@@ -25,13 +25,13 @@ namespace Pulumi.Aws.LB
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testTargetGroup = new Aws.LB.TargetGroup("testTargetGroup");
+    ///     var testTargetGroup = new Aws.Lb.TargetGroup.TargetGroup("testTargetGroup");
     /// 
     ///     // ... other configuration ...
-    ///     var testInstance = new Aws.Ec2.Instance("testInstance");
+    ///     var testInstance = new Aws.Ec2.Instance.Instance("testInstance");
     /// 
     ///     // ... other configuration ...
-    ///     var testTargetGroupAttachment = new Aws.LB.TargetGroupAttachment("testTargetGroupAttachment", new()
+    ///     var testTargetGroupAttachment = new Aws.Lb.TargetGroupAttachment.TargetGroupAttachment("testTargetGroupAttachment", new()
     ///     {
     ///         TargetGroupArn = testTargetGroup.Arn,
     ///         TargetId = testInstance.Id,
@@ -50,15 +50,15 @@ namespace Pulumi.Aws.LB
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testTargetGroup = new Aws.LB.TargetGroup("testTargetGroup", new()
+    ///     var testTargetGroup = new Aws.Lb.TargetGroup.TargetGroup("testTargetGroup", new()
     ///     {
     ///         TargetType = "lambda",
     ///     });
     /// 
-    ///     var testFunction = new Aws.Lambda.Function("testFunction");
+    ///     var testFunction = new Aws.Lambda.Function.Function("testFunction");
     /// 
     ///     // ... other configuration ...
-    ///     var withLb = new Aws.Lambda.Permission("withLb", new()
+    ///     var withLb = new Aws.Lambda.Permission.Permission("withLb", new()
     ///     {
     ///         Action = "lambda:InvokeFunction",
     ///         Function = testFunction.Name,
@@ -66,7 +66,7 @@ namespace Pulumi.Aws.LB
     ///         SourceArn = testTargetGroup.Arn,
     ///     });
     /// 
-    ///     var testTargetGroupAttachment = new Aws.LB.TargetGroupAttachment("testTargetGroupAttachment", new()
+    ///     var testTargetGroupAttachment = new Aws.Lb.TargetGroupAttachment.TargetGroupAttachment("testTargetGroupAttachment", new()
     ///     {
     ///         TargetGroupArn = testTargetGroup.Arn,
     ///         TargetId = testFunction.Arn,
@@ -90,22 +90,28 @@ namespace Pulumi.Aws.LB
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleInstance = new List&lt;Aws.Ec2.Instance&gt;();
+    ///     var exampleInstance = new List&lt;Aws.Ec2.Instance.Instance&gt;();
     ///     for (var rangeIndex = 0; rangeIndex &lt; 3; rangeIndex++)
     ///     {
     ///         var range = new { Value = rangeIndex };
-    ///         exampleInstance.Add(new Aws.Ec2.Instance($"exampleInstance-{range.Value}", new()
+    ///         exampleInstance.Add(new Aws.Ec2.Instance.Instance($"exampleInstance-{range.Value}", new()
     ///         {
     ///         }));
     ///     }
     ///     // ... other configuration ...
-    ///     var exampleTargetGroup = new Aws.LB.TargetGroup("exampleTargetGroup");
+    ///     var exampleTargetGroup = new Aws.Lb.TargetGroup.TargetGroup("exampleTargetGroup");
     /// 
     ///     // ... other configuration ...
-    ///     var exampleTargetGroupAttachment = new List&lt;Aws.LB.TargetGroupAttachment&gt;();
-    ///     foreach (var range in exampleInstance.Select((value, i) =&gt; new { Key = i.ToString(), Value = pair.Value }).Select(pair =&gt; new { pair.Key, pair.Value }))
+    ///     var exampleTargetGroupAttachment = new List&lt;Aws.Lb.TargetGroupAttachment.TargetGroupAttachment&gt;();
+    ///     foreach (var range in exampleInstance.Select((value, i) =&gt; new { Key = i.ToString(), Value = pair.Value }).ToDictionary(item =&gt; {
+    ///         var v = item.Value;
+    ///         return v.Id;
+    ///     }, item =&gt; {
+    ///         var v = item.Value;
+    ///         return v;
+    ///     }).Select(pair =&gt; new { pair.Key, pair.Value }))
     ///     {
-    ///         exampleTargetGroupAttachment.Add(new Aws.LB.TargetGroupAttachment($"exampleTargetGroupAttachment-{range.Key}", new()
+    ///         exampleTargetGroupAttachment.Add(new Aws.Lb.TargetGroupAttachment.TargetGroupAttachment($"exampleTargetGroupAttachment-{range.Key}", new()
     ///         {
     ///             TargetGroupArn = exampleTargetGroup.Arn,
     ///             TargetId = range.Value.Id,

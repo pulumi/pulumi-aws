@@ -624,22 +624,22 @@ class ServerlessCache(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.elasticache.ServerlessCache("example",
-            engine="memcached",
-            cache_usage_limits=aws.elasticache.ServerlessCacheCacheUsageLimitsArgs(
-                data_storage=aws.elasticache.ServerlessCacheCacheUsageLimitsDataStorageArgs(
-                    maximum=10,
-                    unit="GB",
-                ),
-                ecpu_per_seconds=[aws.elasticache.ServerlessCacheCacheUsageLimitsEcpuPerSecondArgs(
-                    maximum=5,
-                )],
-            ),
-            description="Test Server",
-            kms_key_id=aws_kms_key["test"]["arn"],
-            major_engine_version="1.6",
-            security_group_ids=[aws_security_group["test"]["id"]],
-            subnet_ids=[__item["id"] for __item in aws_subnet["test"]])
+        example = aws.elasticache.serverless_cache.ServerlessCache("example",
+            engine=memcached,
+            cache_usage_limits={
+                dataStorage: {
+                    maximum: 10,
+                    unit: GB,
+                },
+                ecpuPerSeconds: [{
+                    maximum: 5,
+                }],
+            },
+            description=Test Server,
+            kms_key_id=aws_kms_key.test.arn,
+            major_engine_version=1.6,
+            security_group_ids=[aws_security_group.test.id],
+            subnet_ids=[__item.id for __item in aws_subnet.test])
         ```
         ### Redis Serverless
 
@@ -647,24 +647,24 @@ class ServerlessCache(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.elasticache.ServerlessCache("example",
-            engine="redis",
-            cache_usage_limits=aws.elasticache.ServerlessCacheCacheUsageLimitsArgs(
-                data_storage=aws.elasticache.ServerlessCacheCacheUsageLimitsDataStorageArgs(
-                    maximum=10,
-                    unit="GB",
-                ),
-                ecpu_per_seconds=[aws.elasticache.ServerlessCacheCacheUsageLimitsEcpuPerSecondArgs(
-                    maximum=5,
-                )],
-            ),
-            daily_snapshot_time="09:00",
-            description="Test Server",
-            kms_key_id=aws_kms_key["test"]["arn"],
-            major_engine_version="7",
+        example = aws.elasticache.serverless_cache.ServerlessCache("example",
+            engine=redis,
+            cache_usage_limits={
+                dataStorage: {
+                    maximum: 10,
+                    unit: GB,
+                },
+                ecpuPerSeconds: [{
+                    maximum: 5,
+                }],
+            },
+            daily_snapshot_time=09:00,
+            description=Test Server,
+            kms_key_id=aws_kms_key.test.arn,
+            major_engine_version=7,
             snapshot_retention_limit=1,
-            security_group_ids=[aws_security_group["test"]["id"]],
-            subnet_ids=[__item["id"] for __item in aws_subnet["test"]])
+            security_group_ids=[aws_security_group.test.id],
+            subnet_ids=[__item.id for __item in aws_subnet.test])
         ```
 
         ## Import
@@ -710,22 +710,22 @@ class ServerlessCache(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.elasticache.ServerlessCache("example",
-            engine="memcached",
-            cache_usage_limits=aws.elasticache.ServerlessCacheCacheUsageLimitsArgs(
-                data_storage=aws.elasticache.ServerlessCacheCacheUsageLimitsDataStorageArgs(
-                    maximum=10,
-                    unit="GB",
-                ),
-                ecpu_per_seconds=[aws.elasticache.ServerlessCacheCacheUsageLimitsEcpuPerSecondArgs(
-                    maximum=5,
-                )],
-            ),
-            description="Test Server",
-            kms_key_id=aws_kms_key["test"]["arn"],
-            major_engine_version="1.6",
-            security_group_ids=[aws_security_group["test"]["id"]],
-            subnet_ids=[__item["id"] for __item in aws_subnet["test"]])
+        example = aws.elasticache.serverless_cache.ServerlessCache("example",
+            engine=memcached,
+            cache_usage_limits={
+                dataStorage: {
+                    maximum: 10,
+                    unit: GB,
+                },
+                ecpuPerSeconds: [{
+                    maximum: 5,
+                }],
+            },
+            description=Test Server,
+            kms_key_id=aws_kms_key.test.arn,
+            major_engine_version=1.6,
+            security_group_ids=[aws_security_group.test.id],
+            subnet_ids=[__item.id for __item in aws_subnet.test])
         ```
         ### Redis Serverless
 
@@ -733,24 +733,24 @@ class ServerlessCache(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.elasticache.ServerlessCache("example",
-            engine="redis",
-            cache_usage_limits=aws.elasticache.ServerlessCacheCacheUsageLimitsArgs(
-                data_storage=aws.elasticache.ServerlessCacheCacheUsageLimitsDataStorageArgs(
-                    maximum=10,
-                    unit="GB",
-                ),
-                ecpu_per_seconds=[aws.elasticache.ServerlessCacheCacheUsageLimitsEcpuPerSecondArgs(
-                    maximum=5,
-                )],
-            ),
-            daily_snapshot_time="09:00",
-            description="Test Server",
-            kms_key_id=aws_kms_key["test"]["arn"],
-            major_engine_version="7",
+        example = aws.elasticache.serverless_cache.ServerlessCache("example",
+            engine=redis,
+            cache_usage_limits={
+                dataStorage: {
+                    maximum: 10,
+                    unit: GB,
+                },
+                ecpuPerSeconds: [{
+                    maximum: 5,
+                }],
+            },
+            daily_snapshot_time=09:00,
+            description=Test Server,
+            kms_key_id=aws_kms_key.test.arn,
+            major_engine_version=7,
             snapshot_retention_limit=1,
-            security_group_ids=[aws_security_group["test"]["id"]],
-            subnet_ids=[__item["id"] for __item in aws_subnet["test"]])
+            security_group_ids=[aws_security_group.test.id],
+            subnet_ids=[__item.id for __item in aws_subnet.test])
         ```
 
         ## Import

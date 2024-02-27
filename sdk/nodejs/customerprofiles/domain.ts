@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.customerprofiles.Domain("example", {domainName: "example"});
+ * const example = new aws.customerprofiles/domain.Domain("example", {domainName: "example"});
  * ```
  * ### With SQS DLQ and KMS set
  *
@@ -25,7 +25,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleQueue = new aws.sqs.Queue("exampleQueue", {policy: JSON.stringify({
+ * const exampleQueue = new aws.sqs/queue.Queue("exampleQueue", {policy: JSON.stringify({
  *     Version: "2012-10-17",
  *     Statement: [{
  *         Sid: "Customer Profiles SQS policy",
@@ -37,14 +37,14 @@ import * as utilities from "../utilities";
  *         },
  *     }],
  * })});
- * const exampleKey = new aws.kms.Key("exampleKey", {
+ * const exampleKey = new aws.kms/key.Key("exampleKey", {
  *     description: "example",
  *     deletionWindowInDays: 10,
  * });
- * const exampleBucketV2 = new aws.s3.BucketV2("exampleBucketV2", {forceDestroy: true});
- * const exampleBucketPolicy = new aws.s3.BucketPolicy("exampleBucketPolicy", {
+ * const exampleBucketV2 = new aws.s3/bucketV2.BucketV2("exampleBucketV2", {forceDestroy: true});
+ * const exampleBucketPolicy = new aws.s3/bucketPolicy.BucketPolicy("exampleBucketPolicy", {
  *     bucket: exampleBucketV2.id,
- *     policy: pulumi.all([exampleBucketV2.arn, exampleBucketV2.arn]).apply(([exampleBucketV2Arn, exampleBucketV2Arn1]) => JSON.stringify({
+ *     policy: JSON.stringify({
  *         Version: "2012-10-17",
  *         Statement: [{
  *             Sid: "Customer Profiles S3 policy",
@@ -55,16 +55,16 @@ import * as utilities from "../utilities";
  *                 "s3:ListBucket",
  *             ],
  *             Resource: [
- *                 exampleBucketV2Arn,
- *                 `${exampleBucketV2Arn1}/*`,
+ *                 exampleBucketV2.arn,
+ *                 `${exampleBucketV2.arn}/*`,
  *             ],
  *             Principal: {
  *                 Service: "profile.amazonaws.com",
  *             },
  *         }],
- *     })),
+ *     }),
  * });
- * const test = new aws.customerprofiles.Domain("test", {
+ * const test = new aws.customerprofiles/domain.Domain("test", {
  *     domainName: example,
  *     deadLetterQueueUrl: exampleQueue.id,
  *     defaultEncryptionKey: exampleKey.arn,

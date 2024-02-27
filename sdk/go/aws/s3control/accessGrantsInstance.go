@@ -22,21 +22,19 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3control"
+//	s3control/accessGrantsInstance "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/s3control/accessGrantsInstance"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := s3control.NewAccessGrantsInstance(ctx, "example", nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := s3control/accessGrantsInstance.NewAccessGrantsInstance(ctx, "example", nil)
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### AWS IAM Identity Center
 //
@@ -45,23 +43,21 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3control"
+//	s3control/accessGrantsInstance "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/s3control/accessGrantsInstance"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := s3control.NewAccessGrantsInstance(ctx, "example", &s3control.AccessGrantsInstanceArgs{
-//				IdentityCenterArn: pulumi.String("arn:aws:sso:::instance/ssoins-890759e9c7bfdc1d"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := s3control/accessGrantsInstance.NewAccessGrantsInstance(ctx, "example", &s3control/accessGrantsInstance.AccessGrantsInstanceArgs{
+// IdentityCenterArn: "arn:aws:sso:::instance/ssoins-890759e9c7bfdc1d",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

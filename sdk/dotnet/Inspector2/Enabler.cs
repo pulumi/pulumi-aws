@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Inspector2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Inspector2.Enabler("example", new()
+    ///     var example = new Aws.Inspector2.Enabler.Enabler("example", new()
     ///     {
     ///         AccountIds = new[]
     ///         {
@@ -33,33 +33,6 @@ namespace Pulumi.Aws.Inspector2
     ///         },
     ///         ResourceTypes = new[]
     ///         {
-    ///             "EC2",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### For the Calling Account
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var current = Aws.GetCallerIdentity.Invoke();
-    /// 
-    ///     var test = new Aws.Inspector2.Enabler("test", new()
-    ///     {
-    ///         AccountIds = new[]
-    ///         {
-    ///             current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
-    ///         },
-    ///         ResourceTypes = new[]
-    ///         {
-    ///             "ECR",
     ///             "EC2",
     ///         },
     ///     });

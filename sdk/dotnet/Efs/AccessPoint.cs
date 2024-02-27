@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Efs
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Aws.Efs.AccessPoint("test", new()
+    ///     var test = new Aws.Efs.AccessPoint.AccessPoint("test", new()
     ///     {
     ///         FileSystemId = aws_efs_file_system.Foo.Id,
     ///     });

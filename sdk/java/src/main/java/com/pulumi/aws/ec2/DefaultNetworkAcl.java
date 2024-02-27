@@ -30,6 +30,83 @@ import javax.annotation.Nullable;
  * For more information about Network ACLs, see the AWS Documentation on [Network ACLs][aws-network-acls].
  * 
  * ## Example Usage
+ * ### Basic Example
+ * 
+ * The following config gives the Default Network ACL the same rules that AWS includes but pulls the resource under management by this provider. This means that any ACL rules added or changed will be detected as drift.
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ec2_vpc.Vpc;
+ * import com.pulumi.aws.ec2_vpc.VpcArgs;
+ * import com.pulumi.aws.ec2.DefaultNetworkAcl;
+ * import com.pulumi.aws.ec2.DefaultNetworkAclArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var mainvpc = new Vpc(&#34;mainvpc&#34;, VpcArgs.builder()        
+ *             .cidrBlock(&#34;10.1.0.0/16&#34;)
+ *             .build());
+ * 
+ *         var default_ = new DefaultNetworkAcl(&#34;default&#34;, DefaultNetworkAclArgs.builder()        
+ *             .defaultNetworkAclId(mainvpc.defaultNetworkAclId())
+ *             .ingress(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .egress(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### Example: Deny All Egress Traffic, Allow Ingress
+ * 
+ * The following denies all Egress traffic by omitting any `egress` rules, while including the default `ingress` rule to allow all traffic.
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ec2_vpc.Vpc;
+ * import com.pulumi.aws.ec2_vpc.VpcArgs;
+ * import com.pulumi.aws.ec2.DefaultNetworkAcl;
+ * import com.pulumi.aws.ec2.DefaultNetworkAclArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var mainvpc = new Vpc(&#34;mainvpc&#34;, VpcArgs.builder()        
+ *             .cidrBlock(&#34;10.1.0.0/16&#34;)
+ *             .build());
+ * 
+ *         var default_ = new DefaultNetworkAcl(&#34;default&#34;, DefaultNetworkAclArgs.builder()        
+ *             .defaultNetworkAclId(mainvpc.defaultNetworkAclId())
+ *             .ingress(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
  * ### Example: Deny All Traffic To Any Subnet In The Default Network ACL
  * 
  * This config denies all traffic in the Default ACL. This can be useful if you want to lock down the VPC to force all resources to assign a non-default ACL.
@@ -39,8 +116,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.ec2.Vpc;
- * import com.pulumi.aws.ec2.VpcArgs;
+ * import com.pulumi.aws.ec2_vpc.Vpc;
+ * import com.pulumi.aws.ec2_vpc.VpcArgs;
  * import com.pulumi.aws.ec2.DefaultNetworkAcl;
  * import com.pulumi.aws.ec2.DefaultNetworkAclArgs;
  * import java.util.List;

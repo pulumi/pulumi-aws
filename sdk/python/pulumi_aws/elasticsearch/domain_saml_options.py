@@ -118,26 +118,26 @@ class DomainSamlOptions(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_domain = aws.elasticsearch.Domain("exampleDomain",
-            elasticsearch_version="1.5",
-            cluster_config=aws.elasticsearch.DomainClusterConfigArgs(
-                instance_type="r4.large.elasticsearch",
-            ),
-            snapshot_options=aws.elasticsearch.DomainSnapshotOptionsArgs(
-                automated_snapshot_start_hour=23,
-            ),
+        example_domain = aws.elasticsearch.domain.Domain("exampleDomain",
+            elasticsearch_version=1.5,
+            cluster_config={
+                instanceType: r4.large.elasticsearch,
+            },
+            snapshot_options={
+                automatedSnapshotStartHour: 23,
+            },
             tags={
-                "Domain": "TestDomain",
+                Domain: TestDomain,
             })
-        example_domain_saml_options = aws.elasticsearch.DomainSamlOptions("exampleDomainSamlOptions",
+        example_domain_saml_options = aws.elasticsearch.domain_saml_options.DomainSamlOptions("exampleDomainSamlOptions",
             domain_name=example_domain.domain_name,
-            saml_options=aws.elasticsearch.DomainSamlOptionsSamlOptionsArgs(
-                enabled=True,
-                idp=aws.elasticsearch.DomainSamlOptionsSamlOptionsIdpArgs(
-                    entity_id="https://example.com",
-                    metadata_content=(lambda path: open(path).read())("./saml-metadata.xml"),
-                ),
-            ))
+            saml_options={
+                enabled: True,
+                idp: {
+                    entityId: https://example.com,
+                    metadataContent: (lambda path: open(path).read())(./saml-metadata.xml),
+                },
+            })
         ```
 
         ## Import
@@ -171,26 +171,26 @@ class DomainSamlOptions(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_domain = aws.elasticsearch.Domain("exampleDomain",
-            elasticsearch_version="1.5",
-            cluster_config=aws.elasticsearch.DomainClusterConfigArgs(
-                instance_type="r4.large.elasticsearch",
-            ),
-            snapshot_options=aws.elasticsearch.DomainSnapshotOptionsArgs(
-                automated_snapshot_start_hour=23,
-            ),
+        example_domain = aws.elasticsearch.domain.Domain("exampleDomain",
+            elasticsearch_version=1.5,
+            cluster_config={
+                instanceType: r4.large.elasticsearch,
+            },
+            snapshot_options={
+                automatedSnapshotStartHour: 23,
+            },
             tags={
-                "Domain": "TestDomain",
+                Domain: TestDomain,
             })
-        example_domain_saml_options = aws.elasticsearch.DomainSamlOptions("exampleDomainSamlOptions",
+        example_domain_saml_options = aws.elasticsearch.domain_saml_options.DomainSamlOptions("exampleDomainSamlOptions",
             domain_name=example_domain.domain_name,
-            saml_options=aws.elasticsearch.DomainSamlOptionsSamlOptionsArgs(
-                enabled=True,
-                idp=aws.elasticsearch.DomainSamlOptionsSamlOptionsIdpArgs(
-                    entity_id="https://example.com",
-                    metadata_content=(lambda path: open(path).read())("./saml-metadata.xml"),
-                ),
-            ))
+            saml_options={
+                enabled: True,
+                idp: {
+                    entityId: https://example.com,
+                    metadataContent: (lambda path: open(path).read())(./saml-metadata.xml),
+                },
+            })
         ```
 
         ## Import

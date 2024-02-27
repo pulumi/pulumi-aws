@@ -20,7 +20,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.lambda.EventSourceMapping("example", {
+ * const example = new aws.lambda/eventSourceMapping.EventSourceMapping("example", {
  *     eventSourceArn: aws_dynamodb_table.example.stream_arn,
  *     functionName: aws_lambda_function.example.arn,
  *     startingPosition: "LATEST",
@@ -32,7 +32,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.lambda.EventSourceMapping("example", {
+ * const example = new aws.lambda/eventSourceMapping.EventSourceMapping("example", {
  *     eventSourceArn: aws_kinesis_stream.example.arn,
  *     functionName: aws_lambda_function.example.arn,
  *     startingPosition: "LATEST",
@@ -44,7 +44,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.lambda.EventSourceMapping("example", {
+ * const example = new aws.lambda/eventSourceMapping.EventSourceMapping("example", {
  *     eventSourceArn: aws_msk_cluster.example.arn,
  *     functionName: aws_lambda_function.example.arn,
  *     topics: ["Example"],
@@ -57,7 +57,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.lambda.EventSourceMapping("example", {
+ * const example = new aws.lambda/eventSourceMapping.EventSourceMapping("example", {
  *     functionName: aws_lambda_function.example.arn,
  *     topics: ["Example"],
  *     startingPosition: "TRIM_HORIZON",
@@ -88,7 +88,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.lambda.EventSourceMapping("example", {
+ * const example = new aws.lambda/eventSourceMapping.EventSourceMapping("example", {
  *     eventSourceArn: aws_sqs_queue.sqs_queue_test.arn,
  *     functionName: aws_lambda_function.example.arn,
  * });
@@ -99,7 +99,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.lambda.EventSourceMapping("example", {
+ * const example = new aws.lambda/eventSourceMapping.EventSourceMapping("example", {
  *     eventSourceArn: aws_sqs_queue.sqs_queue_test.arn,
  *     functionName: aws_lambda_function.example.arn,
  *     filterCriteria: {
@@ -119,6 +119,48 @@ import * as utilities from "../utilities";
  *             }),
  *         }],
  *     },
+ * });
+ * ```
+ * ### Amazon MQ (ActiveMQ)
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.lambda/eventSourceMapping.EventSourceMapping("example", {
+ *     batchSize: 10,
+ *     eventSourceArn: aws_mq_broker.example.arn,
+ *     enabled: true,
+ *     functionName: aws_lambda_function.example.arn,
+ *     queues: ["example"],
+ *     sourceAccessConfigurations: [{
+ *         type: "BASIC_AUTH",
+ *         uri: aws_secretsmanager_secret_version.example.arn,
+ *     }],
+ * });
+ * ```
+ * ### Amazon MQ (RabbitMQ)
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.lambda/eventSourceMapping.EventSourceMapping("example", {
+ *     batchSize: 1,
+ *     eventSourceArn: aws_mq_broker.example.arn,
+ *     enabled: true,
+ *     functionName: aws_lambda_function.example.arn,
+ *     queues: ["example"],
+ *     sourceAccessConfigurations: [
+ *         {
+ *             type: "VIRTUAL_HOST",
+ *             uri: "/example",
+ *         },
+ *         {
+ *             type: "BASIC_AUTH",
+ *             uri: aws_secretsmanager_secret_version.example.arn,
+ *         },
+ *     ],
  * });
  * ```
  *

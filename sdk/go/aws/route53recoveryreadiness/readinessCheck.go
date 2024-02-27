@@ -21,24 +21,22 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53recoveryreadiness"
+//	route53recoveryreadiness/readinessCheck "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/route53recoveryreadiness/readinessCheck"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := route53recoveryreadiness.NewReadinessCheck(ctx, "example", &route53recoveryreadiness.ReadinessCheckArgs{
-//				ReadinessCheckName: pulumi.Any(my_cw_alarm_check),
-//				ResourceSetName:    pulumi.Any(my_cw_alarm_set),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := route53recoveryreadiness/readinessCheck.NewReadinessCheck(ctx, "example", &route53recoveryreadiness/readinessCheck.ReadinessCheckArgs{
+// ReadinessCheckName: my_cw_alarm_check,
+// ResourceSetName: my_cw_alarm_set,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Detective
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleOrganization = new Aws.Organizations.Organization("exampleOrganization", new()
+    ///     var exampleOrganization = new Aws.Organizations.Organization.Organization("exampleOrganization", new()
     ///     {
     ///         AwsServiceAccessPrincipals = new[]
     ///         {
@@ -31,7 +31,7 @@ namespace Pulumi.Aws.Detective
     ///         FeatureSet = "ALL",
     ///     });
     /// 
-    ///     var exampleOrganizationAdminAccount = new Aws.Detective.OrganizationAdminAccount("exampleOrganizationAdminAccount", new()
+    ///     var exampleOrganizationAdminAccount = new Aws.Detective.OrganizationAdminAccount.OrganizationAdminAccount("exampleOrganizationAdminAccount", new()
     ///     {
     ///         AccountId = "123456789012",
     ///     }, new CustomResourceOptions

@@ -66,67 +66,6 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
- * ## Usage with Cognito User Pool Authorizer
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.cognito.CognitoFunctions;
- * import com.pulumi.aws.cognito.inputs.GetUserPoolsArgs;
- * import com.pulumi.aws.apigateway.RestApi;
- * import com.pulumi.aws.apigateway.Resource;
- * import com.pulumi.aws.apigateway.ResourceArgs;
- * import com.pulumi.aws.apigateway.Authorizer;
- * import com.pulumi.aws.apigateway.AuthorizerArgs;
- * import com.pulumi.aws.apigateway.Method;
- * import com.pulumi.aws.apigateway.MethodArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var config = ctx.config();
- *         final var cognitoUserPoolName = config.get(&#34;cognitoUserPoolName&#34;);
- *         final var thisUserPools = CognitoFunctions.getUserPools(GetUserPoolsArgs.builder()
- *             .name(cognitoUserPoolName)
- *             .build());
- * 
- *         var thisRestApi = new RestApi(&#34;thisRestApi&#34;);
- * 
- *         var thisResource = new Resource(&#34;thisResource&#34;, ResourceArgs.builder()        
- *             .restApi(thisRestApi.id())
- *             .parentId(thisRestApi.rootResourceId())
- *             .pathPart(&#34;{proxy+}&#34;)
- *             .build());
- * 
- *         var thisAuthorizer = new Authorizer(&#34;thisAuthorizer&#34;, AuthorizerArgs.builder()        
- *             .type(&#34;COGNITO_USER_POOLS&#34;)
- *             .restApi(thisRestApi.id())
- *             .providerArns(thisUserPools.applyValue(getUserPoolsResult -&gt; getUserPoolsResult.arns()))
- *             .build());
- * 
- *         var any = new Method(&#34;any&#34;, MethodArgs.builder()        
- *             .restApi(thisRestApi.id())
- *             .resourceId(thisResource.id())
- *             .httpMethod(&#34;ANY&#34;)
- *             .authorization(&#34;COGNITO_USER_POOLS&#34;)
- *             .authorizerId(thisAuthorizer.id())
- *             .requestParameters(Map.of(&#34;method.request.path.proxy&#34;, true))
- *             .build());
- * 
- *     }
- * }
- * ```
  * 
  * ## Import
  * 

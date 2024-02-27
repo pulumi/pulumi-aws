@@ -16,26 +16,6 @@ namespace Pulumi.Aws.DirectConnect
         /// 
         /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.DirectConnect.GetRouterConfiguration.Invoke(new()
-        ///     {
-        ///         RouterTypeIdentifier = "CiscoSystemsInc-2900SeriesRouters-IOS124",
-        ///         VirtualInterfaceId = "dxvif-abcde123",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetRouterConfigurationResult> InvokeAsync(GetRouterConfigurationArgs args, InvokeOptions? options = null)
@@ -46,26 +26,6 @@ namespace Pulumi.Aws.DirectConnect
         /// 
         /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.DirectConnect.GetRouterConfiguration.Invoke(new()
-        ///     {
-        ///         RouterTypeIdentifier = "CiscoSystemsInc-2900SeriesRouters-IOS124",
-        ///         VirtualInterfaceId = "dxvif-abcde123",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetRouterConfigurationResult> Invoke(GetRouterConfigurationInvokeArgs args, InvokeOptions? options = null)

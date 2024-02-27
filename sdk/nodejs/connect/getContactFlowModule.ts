@@ -6,32 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Provides details about a specific Amazon Connect Contact Flow Module.
- *
- * ## Example Usage
- *
- * By `name`
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.connect.getContactFlowModule({
- *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
- *     name: "example",
- * });
- * ```
- *
- * By `contactFlowModuleId`
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.connect.getContactFlowModule({
- *     contactFlowModuleId: "cccccccc-bbbb-cccc-dddd-111111111111",
- *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
- * });
- * ```
  */
 export function getContactFlowModule(args: GetContactFlowModuleArgs, opts?: pulumi.InvokeOptions): Promise<GetContactFlowModuleResult> {
 
@@ -104,32 +78,6 @@ export interface GetContactFlowModuleResult {
 }
 /**
  * Provides details about a specific Amazon Connect Contact Flow Module.
- *
- * ## Example Usage
- *
- * By `name`
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.connect.getContactFlowModule({
- *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
- *     name: "example",
- * });
- * ```
- *
- * By `contactFlowModuleId`
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.connect.getContactFlowModule({
- *     contactFlowModuleId: "cccccccc-bbbb-cccc-dddd-111111111111",
- *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
- * });
- * ```
  */
 export function getContactFlowModuleOutput(args: GetContactFlowModuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContactFlowModuleResult> {
     return pulumi.output(args).apply((a: any) => getContactFlowModule(a, opts))

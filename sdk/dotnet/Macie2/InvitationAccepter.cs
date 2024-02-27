@@ -22,16 +22,16 @@ namespace Pulumi.Aws.Macie2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var primaryAccount = new Aws.Macie2.Account("primaryAccount", new()
+    ///     var primaryAccount = new Aws.Macie2.Account.Account("primaryAccount", new()
     ///     {
     ///     }, new CustomResourceOptions
     ///     {
     ///         Provider = "awsalternate",
     ///     });
     /// 
-    ///     var memberAccount = new Aws.Macie2.Account("memberAccount");
+    ///     var memberAccount = new Aws.Macie2.Account.Account("memberAccount");
     /// 
-    ///     var primaryMember = new Aws.Macie2.Member("primaryMember", new()
+    ///     var primaryMember = new Aws.Macie2.Member.Member("primaryMember", new()
     ///     {
     ///         AccountId = "ACCOUNT ID",
     ///         Email = "EMAIL",
@@ -46,7 +46,7 @@ namespace Pulumi.Aws.Macie2
     ///         },
     ///     });
     /// 
-    ///     var memberInvitationAccepter = new Aws.Macie2.InvitationAccepter("memberInvitationAccepter", new()
+    ///     var memberInvitationAccepter = new Aws.Macie2.InvitationAccepter.InvitationAccepter("memberInvitationAccepter", new()
     ///     {
     ///         AdministratorAccountId = "ADMINISTRATOR ACCOUNT ID",
     ///     }, new CustomResourceOptions

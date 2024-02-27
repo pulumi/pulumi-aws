@@ -22,26 +22,24 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/chime"
+//	chime/sdkvoiceSipMediaApplication "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/chime/sdkvoiceSipMediaApplication"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := chime.NewSdkvoiceSipMediaApplication(ctx, "example", &chime.SdkvoiceSipMediaApplicationArgs{
-//				AwsRegion: pulumi.String("us-east-1"),
-//				Endpoints: &chime.SdkvoiceSipMediaApplicationEndpointsArgs{
-//					LambdaArn: pulumi.Any(aws_lambda_function.Test.Arn),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := chime/sdkvoiceSipMediaApplication.NewSdkvoiceSipMediaApplication(ctx, "example", &chime/sdkvoiceSipMediaApplication.SdkvoiceSipMediaApplicationArgs{
+// AwsRegion: "us-east-1",
+// Endpoints: map[string]interface{}{
+// "lambdaArn": aws_lambda_function.Test.Arn,
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

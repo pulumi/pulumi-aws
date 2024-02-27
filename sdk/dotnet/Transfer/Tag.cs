@@ -26,19 +26,19 @@ namespace Pulumi.Aws.Transfer
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Transfer.Server("example", new()
+    ///     var example = new Aws.Transfer.Server.Server("example", new()
     ///     {
     ///         IdentityProviderType = "SERVICE_MANAGED",
     ///     });
     /// 
-    ///     var zoneId = new Aws.Transfer.Tag("zoneId", new()
+    ///     var zoneId = new Aws.Transfer.Tag.Tag("zoneId", new()
     ///     {
     ///         ResourceArn = example.Arn,
     ///         Key = "aws:transfer:route53HostedZoneId",
     ///         Value = "/hostedzone/MyHostedZoneId",
     ///     });
     /// 
-    ///     var hostname = new Aws.Transfer.Tag("hostname", new()
+    ///     var hostname = new Aws.Transfer.Tag.Tag("hostname", new()
     ///     {
     ///         ResourceArn = example.Arn,
     ///         Key = "aws:transfer:customHostname",

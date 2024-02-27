@@ -17,58 +17,6 @@ namespace Pulumi.Aws.Glacier
     /// !&gt; **WARNING:** Once a Glacier Vault Lock is completed, it is immutable. The deletion of the Glacier Vault Lock is not be possible and attempting to remove it from this provider will return an error. Set the `ignore_deletion_error` argument to `true` and apply this configuration before attempting to delete this resource via this provider or remove this resource from this provider's management.
     /// 
     /// ## Example Usage
-    /// ### Testing Glacier Vault Lock Policy
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleVault = new Aws.Glacier.Vault("exampleVault");
-    /// 
-    ///     var examplePolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
-    ///     {
-    ///         Statements = new[]
-    ///         {
-    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
-    ///             {
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "glacier:DeleteArchive",
-    ///                 },
-    ///                 Effect = "Deny",
-    ///                 Resources = new[]
-    ///                 {
-    ///                     exampleVault.Arn,
-    ///                 },
-    ///                 Conditions = new[]
-    ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
-    ///                     {
-    ///                         Test = "NumericLessThanEquals",
-    ///                         Variable = "glacier:ArchiveAgeinDays",
-    ///                         Values = new[]
-    ///                         {
-    ///                             "365",
-    ///                         },
-    ///                     },
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleVaultLock = new Aws.Glacier.VaultLock("exampleVaultLock", new()
-    ///     {
-    ///         CompleteLock = false,
-    ///         Policy = examplePolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
-    ///         VaultName = exampleVault.Name,
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// ### Permanently Applying Glacier Vault Lock Policy
     /// 
     /// ```csharp
@@ -79,7 +27,7 @@ namespace Pulumi.Aws.Glacier
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Glacier.VaultLock("example", new()
+    ///     var example = new Aws.Glacier.VaultLock.VaultLock("example", new()
     ///     {
     ///         CompleteLock = true,
     ///         Policy = data.Aws_iam_policy_document.Example.Json,

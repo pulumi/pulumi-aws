@@ -14,16 +14,16 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleBucketV2 = new aws.s3.BucketV2("exampleBucketV2", {forceDestroy: true});
- * const object = new aws.s3.BucketObjectv2("object", {
+ * const exampleBucketV2 = new aws.s3/bucketV2.BucketV2("exampleBucketV2", {forceDestroy: true});
+ * const object = new aws.s3/bucketObjectv2.BucketObjectv2("object", {
  *     bucket: exampleBucketV2.id,
  *     key: "transcribe/test1.txt",
  *     source: new pulumi.asset.FileAsset("test.txt"),
  * });
- * const exampleVocabulary = new aws.transcribe.Vocabulary("exampleVocabulary", {
+ * const exampleVocabulary = new aws.transcribe/vocabulary.Vocabulary("exampleVocabulary", {
  *     vocabularyName: "example",
  *     languageCode: "en-US",
- *     vocabularyFileUri: pulumi.interpolate`s3://${exampleBucketV2.id}/${object.key}`,
+ *     vocabularyFileUri: `s3://${exampleBucketV2.id}/${object.key}`,
  *     tags: {
  *         tag1: "value1",
  *         tag2: "value3",

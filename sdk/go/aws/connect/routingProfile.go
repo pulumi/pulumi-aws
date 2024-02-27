@@ -22,42 +22,40 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/connect"
+//	connect/routingProfile "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/connect/routingProfile"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := connect.NewRoutingProfile(ctx, "example", &connect.RoutingProfileArgs{
-//				DefaultOutboundQueueId: pulumi.String("12345678-1234-1234-1234-123456789012"),
-//				Description:            pulumi.String("example description"),
-//				InstanceId:             pulumi.String("aaaaaaaa-bbbb-cccc-dddd-111111111111"),
-//				MediaConcurrencies: connect.RoutingProfileMediaConcurrencyArray{
-//					&connect.RoutingProfileMediaConcurrencyArgs{
-//						Channel:     pulumi.String("VOICE"),
-//						Concurrency: pulumi.Int(1),
-//					},
-//				},
-//				QueueConfigs: connect.RoutingProfileQueueConfigArray{
-//					&connect.RoutingProfileQueueConfigArgs{
-//						Channel:  pulumi.String("VOICE"),
-//						Delay:    pulumi.Int(2),
-//						Priority: pulumi.Int(1),
-//						QueueId:  pulumi.String("12345678-1234-1234-1234-123456789012"),
-//					},
-//				},
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("Example Routing Profile"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := connect/routingProfile.NewRoutingProfile(ctx, "example", &connect/routingProfile.RoutingProfileArgs{
+// DefaultOutboundQueueId: "12345678-1234-1234-1234-123456789012",
+// Description: "example description",
+// InstanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+// MediaConcurrencies: []map[string]interface{}{
+// map[string]interface{}{
+// "channel": "VOICE",
+// "concurrency": 1,
+// },
+// },
+// QueueConfigs: []map[string]interface{}{
+// map[string]interface{}{
+// "channel": "VOICE",
+// "delay": 2,
+// "priority": 1,
+// "queueId": "12345678-1234-1234-1234-123456789012",
+// },
+// },
+// Tags: map[string]interface{}{
+// "Name": "Example Routing Profile",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

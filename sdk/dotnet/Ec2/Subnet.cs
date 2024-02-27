@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var main = new Aws.Ec2.Subnet("main", new()
+    ///     var main = new Aws.Ec2.Subnet.Subnet("main", new()
     ///     {
     ///         VpcId = aws_vpc.Main.Id,
     ///         CidrBlock = "10.0.1.0/24",
@@ -50,13 +50,13 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var secondaryCidr = new Aws.Ec2.VpcIpv4CidrBlockAssociation("secondaryCidr", new()
+    ///     var secondaryCidr = new Aws.Ec2.VpcIpv4CidrBlockAssociation.VpcIpv4CidrBlockAssociation("secondaryCidr", new()
     ///     {
     ///         VpcId = aws_vpc.Main.Id,
     ///         CidrBlock = "172.20.0.0/16",
     ///     });
     /// 
-    ///     var inSecondaryCidr = new Aws.Ec2.Subnet("inSecondaryCidr", new()
+    ///     var inSecondaryCidr = new Aws.Ec2.Subnet.Subnet("inSecondaryCidr", new()
     ///     {
     ///         VpcId = secondaryCidr.VpcId,
     ///         CidrBlock = "172.20.0.0/24",

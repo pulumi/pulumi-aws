@@ -29,9 +29,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.emrcontainers.JobTemplate;
  * import com.pulumi.aws.emrcontainers.JobTemplateArgs;
- * import com.pulumi.aws.emrcontainers.inputs.JobTemplateJobTemplateDataArgs;
- * import com.pulumi.aws.emrcontainers.inputs.JobTemplateJobTemplateDataJobDriverArgs;
- * import com.pulumi.aws.emrcontainers.inputs.JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -46,15 +43,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new JobTemplate(&#34;example&#34;, JobTemplateArgs.builder()        
- *             .jobTemplateData(JobTemplateJobTemplateDataArgs.builder()
- *                 .executionRoleArn(aws_iam_role.example().arn())
- *                 .releaseLabel(&#34;emr-6.10.0-latest&#34;)
- *                 .jobDriver(JobTemplateJobTemplateDataJobDriverArgs.builder()
- *                     .sparkSqlJobDriver(JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverArgs.builder()
- *                         .entryPoint(&#34;default&#34;)
- *                         .build())
- *                     .build())
- *                 .build())
+ *             .jobTemplateData(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

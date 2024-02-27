@@ -639,19 +639,19 @@ class Endpoint(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ec2clientvpn.Endpoint("example",
-            description="clientvpn-example",
-            server_certificate_arn=aws_acm_certificate["cert"]["arn"],
-            client_cidr_block="10.0.0.0/16",
-            authentication_options=[aws.ec2clientvpn.EndpointAuthenticationOptionArgs(
-                type="certificate-authentication",
-                root_certificate_chain_arn=aws_acm_certificate["root_cert"]["arn"],
-            )],
-            connection_log_options=aws.ec2clientvpn.EndpointConnectionLogOptionsArgs(
-                enabled=True,
-                cloudwatch_log_group=aws_cloudwatch_log_group["lg"]["name"],
-                cloudwatch_log_stream=aws_cloudwatch_log_stream["ls"]["name"],
-            ))
+        example = aws.ec2clientvpn.endpoint.Endpoint("example",
+            description=clientvpn-example,
+            server_certificate_arn=aws_acm_certificate.cert.arn,
+            client_cidr_block=10.0.0.0/16,
+            authentication_options=[{
+                type: certificate-authentication,
+                rootCertificateChainArn: aws_acm_certificate.root_cert.arn,
+            }],
+            connection_log_options={
+                enabled: True,
+                cloudwatchLogGroup: aws_cloudwatch_log_group.lg.name,
+                cloudwatchLogStream: aws_cloudwatch_log_stream.ls.name,
+            })
         ```
 
         ## Import
@@ -697,19 +697,19 @@ class Endpoint(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ec2clientvpn.Endpoint("example",
-            description="clientvpn-example",
-            server_certificate_arn=aws_acm_certificate["cert"]["arn"],
-            client_cidr_block="10.0.0.0/16",
-            authentication_options=[aws.ec2clientvpn.EndpointAuthenticationOptionArgs(
-                type="certificate-authentication",
-                root_certificate_chain_arn=aws_acm_certificate["root_cert"]["arn"],
-            )],
-            connection_log_options=aws.ec2clientvpn.EndpointConnectionLogOptionsArgs(
-                enabled=True,
-                cloudwatch_log_group=aws_cloudwatch_log_group["lg"]["name"],
-                cloudwatch_log_stream=aws_cloudwatch_log_stream["ls"]["name"],
-            ))
+        example = aws.ec2clientvpn.endpoint.Endpoint("example",
+            description=clientvpn-example,
+            server_certificate_arn=aws_acm_certificate.cert.arn,
+            client_cidr_block=10.0.0.0/16,
+            authentication_options=[{
+                type: certificate-authentication,
+                rootCertificateChainArn: aws_acm_certificate.root_cert.arn,
+            }],
+            connection_log_options={
+                enabled: True,
+                cloudwatchLogGroup: aws_cloudwatch_log_group.lg.name,
+                cloudwatchLogStream: aws_cloudwatch_log_stream.ls.name,
+            })
         ```
 
         ## Import

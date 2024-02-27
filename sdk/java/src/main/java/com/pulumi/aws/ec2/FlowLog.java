@@ -22,172 +22,6 @@ import javax.annotation.Nullable;
  * interface, subnet, or VPC. Logs are sent to a CloudWatch Log Group, a S3 Bucket, or Amazon Kinesis Data Firehose
  * 
  * ## Example Usage
- * ### CloudWatch Logging
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.cloudwatch.LogGroup;
- * import com.pulumi.aws.iam.IamFunctions;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
- * import com.pulumi.aws.iam.Role;
- * import com.pulumi.aws.iam.RoleArgs;
- * import com.pulumi.aws.ec2.FlowLog;
- * import com.pulumi.aws.ec2.FlowLogArgs;
- * import com.pulumi.aws.iam.RolePolicy;
- * import com.pulumi.aws.iam.RolePolicyArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var exampleLogGroup = new LogGroup(&#34;exampleLogGroup&#34;);
- * 
- *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect(&#34;Allow&#34;)
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type(&#34;Service&#34;)
- *                     .identifiers(&#34;vpc-flow-logs.amazonaws.com&#34;)
- *                     .build())
- *                 .actions(&#34;sts:AssumeRole&#34;)
- *                 .build())
- *             .build());
- * 
- *         var exampleRole = new Role(&#34;exampleRole&#34;, RoleArgs.builder()        
- *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
- *             .build());
- * 
- *         var exampleFlowLog = new FlowLog(&#34;exampleFlowLog&#34;, FlowLogArgs.builder()        
- *             .iamRoleArn(exampleRole.arn())
- *             .logDestination(exampleLogGroup.arn())
- *             .trafficType(&#34;ALL&#34;)
- *             .vpcId(aws_vpc.example().id())
- *             .build());
- * 
- *         final var examplePolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect(&#34;Allow&#34;)
- *                 .actions(                
- *                     &#34;logs:CreateLogGroup&#34;,
- *                     &#34;logs:CreateLogStream&#34;,
- *                     &#34;logs:PutLogEvents&#34;,
- *                     &#34;logs:DescribeLogGroups&#34;,
- *                     &#34;logs:DescribeLogStreams&#34;)
- *                 .resources(&#34;*&#34;)
- *                 .build())
- *             .build());
- * 
- *         var exampleRolePolicy = new RolePolicy(&#34;exampleRolePolicy&#34;, RolePolicyArgs.builder()        
- *             .role(exampleRole.id())
- *             .policy(examplePolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### Amazon Kinesis Data Firehose logging
- * 
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.s3.BucketV2;
- * import com.pulumi.aws.iam.IamFunctions;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
- * import com.pulumi.aws.iam.Role;
- * import com.pulumi.aws.iam.RoleArgs;
- * import com.pulumi.aws.kinesis.FirehoseDeliveryStream;
- * import com.pulumi.aws.kinesis.FirehoseDeliveryStreamArgs;
- * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamExtendedS3ConfigurationArgs;
- * import com.pulumi.aws.ec2.FlowLog;
- * import com.pulumi.aws.ec2.FlowLogArgs;
- * import com.pulumi.aws.s3.BucketAclV2;
- * import com.pulumi.aws.s3.BucketAclV2Args;
- * import com.pulumi.aws.iam.RolePolicy;
- * import com.pulumi.aws.iam.RolePolicyArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var exampleBucketV2 = new BucketV2(&#34;exampleBucketV2&#34;);
- * 
- *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect(&#34;Allow&#34;)
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type(&#34;Service&#34;)
- *                     .identifiers(&#34;firehose.amazonaws.com&#34;)
- *                     .build())
- *                 .actions(&#34;sts:AssumeRole&#34;)
- *                 .build())
- *             .build());
- * 
- *         var exampleRole = new Role(&#34;exampleRole&#34;, RoleArgs.builder()        
- *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
- *             .build());
- * 
- *         var exampleFirehoseDeliveryStream = new FirehoseDeliveryStream(&#34;exampleFirehoseDeliveryStream&#34;, FirehoseDeliveryStreamArgs.builder()        
- *             .destination(&#34;extended_s3&#34;)
- *             .extendedS3Configuration(FirehoseDeliveryStreamExtendedS3ConfigurationArgs.builder()
- *                 .roleArn(exampleRole.arn())
- *                 .bucketArn(exampleBucketV2.arn())
- *                 .build())
- *             .tags(Map.of(&#34;LogDeliveryEnabled&#34;, &#34;true&#34;))
- *             .build());
- * 
- *         var exampleFlowLog = new FlowLog(&#34;exampleFlowLog&#34;, FlowLogArgs.builder()        
- *             .logDestination(exampleFirehoseDeliveryStream.arn())
- *             .logDestinationType(&#34;kinesis-data-firehose&#34;)
- *             .trafficType(&#34;ALL&#34;)
- *             .vpcId(aws_vpc.example().id())
- *             .build());
- * 
- *         var exampleBucketAclV2 = new BucketAclV2(&#34;exampleBucketAclV2&#34;, BucketAclV2Args.builder()        
- *             .bucket(exampleBucketV2.id())
- *             .acl(&#34;private&#34;)
- *             .build());
- * 
- *         final var examplePolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .effect(&#34;Allow&#34;)
- *             .actions(            
- *                 &#34;logs:CreateLogDelivery&#34;,
- *                 &#34;logs:DeleteLogDelivery&#34;,
- *                 &#34;logs:ListLogDeliveries&#34;,
- *                 &#34;logs:GetLogDelivery&#34;,
- *                 &#34;firehose:TagDeliveryStream&#34;)
- *             .resources(&#34;*&#34;)
- *             .build());
- * 
- *         var exampleRolePolicy = new RolePolicy(&#34;exampleRolePolicy&#34;, RolePolicyArgs.builder()        
- *             .role(exampleRole.id())
- *             .policy(examplePolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
- *             .build());
- * 
- *     }
- * }
- * ```
  * ### S3 Logging
  * ```java
  * package generated_program;
@@ -233,7 +67,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.s3.BucketV2;
  * import com.pulumi.aws.ec2.FlowLog;
  * import com.pulumi.aws.ec2.FlowLogArgs;
- * import com.pulumi.aws.ec2.inputs.FlowLogDestinationOptionsArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -254,10 +87,7 @@ import javax.annotation.Nullable;
  *             .logDestinationType(&#34;s3&#34;)
  *             .trafficType(&#34;ALL&#34;)
  *             .vpcId(aws_vpc.example().id())
- *             .destinationOptions(FlowLogDestinationOptionsArgs.builder()
- *                 .fileFormat(&#34;parquet&#34;)
- *                 .perHourPartition(true)
- *                 .build())
+ *             .destinationOptions(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

@@ -357,18 +357,18 @@ class CustomActionType(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.codepipeline.CustomActionType("example",
-            category="Build",
-            input_artifact_details=aws.codepipeline.CustomActionTypeInputArtifactDetailsArgs(
-                maximum_count=1,
-                minimum_count=0,
-            ),
-            output_artifact_details=aws.codepipeline.CustomActionTypeOutputArtifactDetailsArgs(
-                maximum_count=1,
-                minimum_count=0,
-            ),
-            provider_name="example",
-            version="1")
+        example = aws.codepipeline.custom_action_type.CustomActionType("example",
+            category=Build,
+            input_artifact_details={
+                maximumCount: 1,
+                minimumCount: 0,
+            },
+            output_artifact_details={
+                maximumCount: 1,
+                minimumCount: 0,
+            },
+            provider_name=example,
+            version=1)
         ```
 
         ## Import
@@ -405,18 +405,18 @@ class CustomActionType(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.codepipeline.CustomActionType("example",
-            category="Build",
-            input_artifact_details=aws.codepipeline.CustomActionTypeInputArtifactDetailsArgs(
-                maximum_count=1,
-                minimum_count=0,
-            ),
-            output_artifact_details=aws.codepipeline.CustomActionTypeOutputArtifactDetailsArgs(
-                maximum_count=1,
-                minimum_count=0,
-            ),
-            provider_name="example",
-            version="1")
+        example = aws.codepipeline.custom_action_type.CustomActionType("example",
+            category=Build,
+            input_artifact_details={
+                maximumCount: 1,
+                minimumCount: 0,
+            },
+            output_artifact_details={
+                maximumCount: 1,
+                minimumCount: 0,
+            },
+            provider_name=example,
+            version=1)
         ```
 
         ## Import

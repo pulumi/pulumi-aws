@@ -112,27 +112,27 @@ class BucketLifecycleConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.s3control.BucketLifecycleConfiguration("example",
-            bucket=aws_s3control_bucket["example"]["arn"],
+        example = aws.s3control.bucket_lifecycle_configuration.BucketLifecycleConfiguration("example",
+            bucket=aws_s3control_bucket.example.arn,
             rules=[
-                aws.s3control.BucketLifecycleConfigurationRuleArgs(
-                    expiration=aws.s3control.BucketLifecycleConfigurationRuleExpirationArgs(
-                        days=365,
-                    ),
-                    filter=aws.s3control.BucketLifecycleConfigurationRuleFilterArgs(
-                        prefix="logs/",
-                    ),
-                    id="logs",
-                ),
-                aws.s3control.BucketLifecycleConfigurationRuleArgs(
-                    expiration=aws.s3control.BucketLifecycleConfigurationRuleExpirationArgs(
-                        days=7,
-                    ),
-                    filter=aws.s3control.BucketLifecycleConfigurationRuleFilterArgs(
-                        prefix="temp/",
-                    ),
-                    id="temp",
-                ),
+                {
+                    expiration: {
+                        days: 365,
+                    },
+                    filter: {
+                        prefix: logs/,
+                    },
+                    id: logs,
+                },
+                {
+                    expiration: {
+                        days: 7,
+                    },
+                    filter: {
+                        prefix: temp/,
+                    },
+                    id: temp,
+                },
             ])
         ```
 
@@ -168,27 +168,27 @@ class BucketLifecycleConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.s3control.BucketLifecycleConfiguration("example",
-            bucket=aws_s3control_bucket["example"]["arn"],
+        example = aws.s3control.bucket_lifecycle_configuration.BucketLifecycleConfiguration("example",
+            bucket=aws_s3control_bucket.example.arn,
             rules=[
-                aws.s3control.BucketLifecycleConfigurationRuleArgs(
-                    expiration=aws.s3control.BucketLifecycleConfigurationRuleExpirationArgs(
-                        days=365,
-                    ),
-                    filter=aws.s3control.BucketLifecycleConfigurationRuleFilterArgs(
-                        prefix="logs/",
-                    ),
-                    id="logs",
-                ),
-                aws.s3control.BucketLifecycleConfigurationRuleArgs(
-                    expiration=aws.s3control.BucketLifecycleConfigurationRuleExpirationArgs(
-                        days=7,
-                    ),
-                    filter=aws.s3control.BucketLifecycleConfigurationRuleFilterArgs(
-                        prefix="temp/",
-                    ),
-                    id="temp",
-                ),
+                {
+                    expiration: {
+                        days: 365,
+                    },
+                    filter: {
+                        prefix: logs/,
+                    },
+                    id: logs,
+                },
+                {
+                    expiration: {
+                        days: 7,
+                    },
+                    filter: {
+                        prefix: temp/,
+                    },
+                    id: temp,
+                },
             ])
         ```
 

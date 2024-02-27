@@ -22,7 +22,7 @@ namespace Pulumi.Aws.LightSail
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Aws.LightSail.Certificate("test", new()
+    ///     var test = new Aws.Lightsail.Certificate.Certificate("test", new()
     ///     {
     ///         DomainName = "testdomain.com",
     ///         SubjectAlternativeNames = new[]

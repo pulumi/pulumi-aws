@@ -16,25 +16,6 @@ namespace Pulumi.Aws.SsoAdmin
         /// 
         /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.SsoAdmin.GetApplicationAssignments.Invoke(new()
-        ///     {
-        ///         ApplicationArn = aws_ssoadmin_application.Example.Application_arn,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetApplicationAssignmentsResult> InvokeAsync(GetApplicationAssignmentsArgs args, InvokeOptions? options = null)
@@ -45,25 +26,6 @@ namespace Pulumi.Aws.SsoAdmin
         /// 
         /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.SsoAdmin.GetApplicationAssignments.Invoke(new()
-        ///     {
-        ///         ApplicationArn = aws_ssoadmin_application.Example.Application_arn,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetApplicationAssignmentsResult> Invoke(GetApplicationAssignmentsInvokeArgs args, InvokeOptions? options = null)

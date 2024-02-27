@@ -28,7 +28,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.accessanalyzer.ArchiveRule;
  * import com.pulumi.aws.accessanalyzer.ArchiveRuleArgs;
- * import com.pulumi.aws.accessanalyzer.inputs.ArchiveRuleFilterArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -45,18 +44,9 @@ import javax.annotation.Nullable;
  *         var example = new ArchiveRule(&#34;example&#34;, ArchiveRuleArgs.builder()        
  *             .analyzerName(&#34;example-analyzer&#34;)
  *             .filters(            
- *                 ArchiveRuleFilterArgs.builder()
- *                     .criteria(&#34;condition.aws:UserId&#34;)
- *                     .eqs(&#34;userid&#34;)
- *                     .build(),
- *                 ArchiveRuleFilterArgs.builder()
- *                     .criteria(&#34;error&#34;)
- *                     .exists(true)
- *                     .build(),
- *                 ArchiveRuleFilterArgs.builder()
- *                     .criteria(&#34;isPublic&#34;)
- *                     .eqs(&#34;false&#34;)
- *                     .build())
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .ruleName(&#34;example-rule&#34;)
  *             .build());
  * 

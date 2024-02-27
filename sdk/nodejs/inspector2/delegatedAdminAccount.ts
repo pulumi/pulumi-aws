@@ -8,15 +8,6 @@ import * as utilities from "../utilities";
  * Resource for managing an Amazon Inspector Delegated Admin Account.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const current = aws.getCallerIdentity({});
- * const example = new aws.inspector2.DelegatedAdminAccount("example", {accountId: current.then(current => current.accountId)});
- * ```
  *
  * ## Import
  *

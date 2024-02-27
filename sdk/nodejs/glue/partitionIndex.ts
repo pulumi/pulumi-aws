@@ -14,8 +14,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleCatalogDatabase = new aws.glue.CatalogDatabase("exampleCatalogDatabase", {name: "example"});
- * const exampleCatalogTable = new aws.glue.CatalogTable("exampleCatalogTable", {
+ * const exampleCatalogDatabase = new aws.glue/catalogDatabase.CatalogDatabase("exampleCatalogDatabase", {name: "example"});
+ * const exampleCatalogTable = new aws.glue/catalogTable.CatalogTable("exampleCatalogTable", {
  *     name: "example",
  *     databaseName: exampleCatalogDatabase.name,
  *     owner: "my_owner",
@@ -81,7 +81,7 @@ import * as utilities from "../utilities";
  *         param1: "param1_val",
  *     },
  * });
- * const examplePartitionIndex = new aws.glue.PartitionIndex("examplePartitionIndex", {
+ * const examplePartitionIndex = new aws.glue/partitionIndex.PartitionIndex("examplePartitionIndex", {
  *     databaseName: exampleCatalogDatabase.name,
  *     tableName: exampleCatalogTable.name,
  *     partitionIndex: {

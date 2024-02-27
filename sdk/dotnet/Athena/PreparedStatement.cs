@@ -22,22 +22,22 @@ namespace Pulumi.Aws.Athena
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testBucketV2 = new Aws.S3.BucketV2("testBucketV2", new()
+    ///     var testBucketV2 = new Aws.S3.BucketV2.BucketV2("testBucketV2", new()
     ///     {
     ///         ForceDestroy = true,
     ///     });
     /// 
-    ///     var testWorkgroup = new Aws.Athena.Workgroup("testWorkgroup");
+    ///     var testWorkgroup = new Aws.Athena.Workgroup.Workgroup("testWorkgroup");
     /// 
-    ///     var testDatabase = new Aws.Athena.Database("testDatabase", new()
+    ///     var testDatabase = new Aws.Athena.Database.Database("testDatabase", new()
     ///     {
     ///         Name = "example",
     ///         Bucket = testBucketV2.Bucket,
     ///     });
     /// 
-    ///     var testPreparedStatement = new Aws.Athena.PreparedStatement("testPreparedStatement", new()
+    ///     var testPreparedStatement = new Aws.Athena.PreparedStatement.PreparedStatement("testPreparedStatement", new()
     ///     {
-    ///         QueryStatement = testDatabase.Name.Apply(name =&gt; $"SELECT * FROM {name} WHERE x = ?"),
+    ///         QueryStatement = $"SELECT * FROM {testDatabase.Name} WHERE x = ?",
     ///         Workgroup = testWorkgroup.Name,
     ///     });
     /// 

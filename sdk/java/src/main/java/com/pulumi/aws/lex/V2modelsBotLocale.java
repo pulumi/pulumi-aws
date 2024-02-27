@@ -28,8 +28,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.lex.V2modelsBotLocale;
- * import com.pulumi.aws.lex.V2modelsBotLocaleArgs;
+ * import com.pulumi.aws.lex_v2modelsBotLocale.V2modelsBotLocale;
+ * import com.pulumi.aws.lex_v2modelsBotLocale.V2modelsBotLocaleArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -60,9 +60,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.lex.V2modelsBotLocale;
- * import com.pulumi.aws.lex.V2modelsBotLocaleArgs;
- * import com.pulumi.aws.lex.inputs.V2modelsBotLocaleVoiceSettingsArgs;
+ * import com.pulumi.aws.lex_v2modelsBotLocale.V2modelsBotLocale;
+ * import com.pulumi.aws.lex_v2modelsBotLocale.V2modelsBotLocaleArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -81,10 +80,7 @@ import javax.annotation.Nullable;
  *             .botVersion(&#34;DRAFT&#34;)
  *             .localeId(&#34;en_US&#34;)
  *             .nLuIntentConfidenceThreshold(0.7)
- *             .voiceSettings(V2modelsBotLocaleVoiceSettingsArgs.builder()
- *                 .voiceId(&#34;Kendra&#34;)
- *                 .engine(&#34;standard&#34;)
- *                 .build())
+ *             .voiceSettings(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

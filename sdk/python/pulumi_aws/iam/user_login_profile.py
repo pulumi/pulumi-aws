@@ -223,13 +223,13 @@ class UserLoginProfile(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_user = aws.iam.User("exampleUser",
-            path="/",
+        example_user = aws.iam.user.User("exampleUser",
+            path=/,
             force_destroy=True)
-        example_user_login_profile = aws.iam.UserLoginProfile("exampleUserLoginProfile",
+        example_user_login_profile = aws.iam.user_login_profile.UserLoginProfile("exampleUserLoginProfile",
             user=example_user.name,
-            pgp_key="keybase:some_person_that_exists")
-        pulumi.export("password", example_user_login_profile.encrypted_password)
+            pgp_key=keybase:some_person_that_exists)
+        pulumi.export("password", example_user_login_profile["encryptedPassword"])
         ```
 
         ## Import
@@ -265,13 +265,13 @@ class UserLoginProfile(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_user = aws.iam.User("exampleUser",
-            path="/",
+        example_user = aws.iam.user.User("exampleUser",
+            path=/,
             force_destroy=True)
-        example_user_login_profile = aws.iam.UserLoginProfile("exampleUserLoginProfile",
+        example_user_login_profile = aws.iam.user_login_profile.UserLoginProfile("exampleUserLoginProfile",
             user=example_user.name,
-            pgp_key="keybase:some_person_that_exists")
-        pulumi.export("password", example_user_login_profile.encrypted_password)
+            pgp_key=keybase:some_person_that_exists)
+        pulumi.export("password", example_user_login_profile["encryptedPassword"])
         ```
 
         ## Import

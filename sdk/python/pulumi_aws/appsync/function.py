@@ -437,9 +437,9 @@ class Function(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_graph_ql_api = aws.appsync.GraphQLApi("exampleGraphQLApi",
-            authentication_type="API_KEY",
-            schema=\"\"\"type Mutation {
+        example_graph_ql_api = aws.appsync.graph_ql_api.GraphQLApi("exampleGraphQLApi",
+            authentication_type=API_KEY,
+            schema=type Mutation {
           putPost(id: ID!, title: String!): Post
         }
 
@@ -456,19 +456,19 @@ class Function(pulumi.CustomResource):
           query: Query
           mutation: Mutation
         }
-        \"\"\")
-        example_data_source = aws.appsync.DataSource("exampleDataSource",
+        )
+        example_data_source = aws.appsync.data_source.DataSource("exampleDataSource",
             api_id=example_graph_ql_api.id,
-            name="example",
-            type="HTTP",
-            http_config=aws.appsync.DataSourceHttpConfigArgs(
-                endpoint="http://example.com",
-            ))
-        example_function = aws.appsync.Function("exampleFunction",
+            name=example,
+            type=HTTP,
+            http_config={
+                endpoint: http://example.com,
+            })
+        example_function = aws.appsync.function.Function("exampleFunction",
             api_id=example_graph_ql_api.id,
             data_source=example_data_source.name,
-            name="example",
-            request_mapping_template=\"\"\"{
+            name=example,
+            request_mapping_template={
             "version": "2018-05-29",
             "method": "GET",
             "resourcePath": "/",
@@ -476,13 +476,13 @@ class Function(pulumi.CustomResource):
                 "headers": $utils.http.copyheaders($ctx.request.headers)
             }
         }
-        \"\"\",
-            response_mapping_template=\"\"\"#if($ctx.result.statusCode == 200)
+        ,
+            response_mapping_template=#if($ctx.result.statusCode == 200)
             $ctx.result.body
         #else
             $utils.appendError($ctx.result.body, $ctx.result.statusCode)
         #end
-        \"\"\")
+        )
         ```
         ### With Code
 
@@ -490,15 +490,15 @@ class Function(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.appsync.Function("example",
-            api_id=aws_appsync_graphql_api["example"]["id"],
-            data_source=aws_appsync_datasource["example"]["name"],
-            name="example",
-            code=(lambda path: open(path).read())("some-code-dir"),
-            runtime=aws.appsync.FunctionRuntimeArgs(
-                name="APPSYNC_JS",
-                runtime_version="1.0.0",
-            ))
+        example = aws.appsync.function.Function("example",
+            api_id=aws_appsync_graphql_api.example.id,
+            data_source=aws_appsync_datasource.example.name,
+            name=example,
+            code=(lambda path: open(path).read())(some-code-dir),
+            runtime={
+                name: APPSYNC_JS,
+                runtimeVersion: 1.0.0,
+            })
         ```
 
         ## Import
@@ -538,9 +538,9 @@ class Function(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_graph_ql_api = aws.appsync.GraphQLApi("exampleGraphQLApi",
-            authentication_type="API_KEY",
-            schema=\"\"\"type Mutation {
+        example_graph_ql_api = aws.appsync.graph_ql_api.GraphQLApi("exampleGraphQLApi",
+            authentication_type=API_KEY,
+            schema=type Mutation {
           putPost(id: ID!, title: String!): Post
         }
 
@@ -557,19 +557,19 @@ class Function(pulumi.CustomResource):
           query: Query
           mutation: Mutation
         }
-        \"\"\")
-        example_data_source = aws.appsync.DataSource("exampleDataSource",
+        )
+        example_data_source = aws.appsync.data_source.DataSource("exampleDataSource",
             api_id=example_graph_ql_api.id,
-            name="example",
-            type="HTTP",
-            http_config=aws.appsync.DataSourceHttpConfigArgs(
-                endpoint="http://example.com",
-            ))
-        example_function = aws.appsync.Function("exampleFunction",
+            name=example,
+            type=HTTP,
+            http_config={
+                endpoint: http://example.com,
+            })
+        example_function = aws.appsync.function.Function("exampleFunction",
             api_id=example_graph_ql_api.id,
             data_source=example_data_source.name,
-            name="example",
-            request_mapping_template=\"\"\"{
+            name=example,
+            request_mapping_template={
             "version": "2018-05-29",
             "method": "GET",
             "resourcePath": "/",
@@ -577,13 +577,13 @@ class Function(pulumi.CustomResource):
                 "headers": $utils.http.copyheaders($ctx.request.headers)
             }
         }
-        \"\"\",
-            response_mapping_template=\"\"\"#if($ctx.result.statusCode == 200)
+        ,
+            response_mapping_template=#if($ctx.result.statusCode == 200)
             $ctx.result.body
         #else
             $utils.appendError($ctx.result.body, $ctx.result.statusCode)
         #end
-        \"\"\")
+        )
         ```
         ### With Code
 
@@ -591,15 +591,15 @@ class Function(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.appsync.Function("example",
-            api_id=aws_appsync_graphql_api["example"]["id"],
-            data_source=aws_appsync_datasource["example"]["name"],
-            name="example",
-            code=(lambda path: open(path).read())("some-code-dir"),
-            runtime=aws.appsync.FunctionRuntimeArgs(
-                name="APPSYNC_JS",
-                runtime_version="1.0.0",
-            ))
+        example = aws.appsync.function.Function("example",
+            api_id=aws_appsync_graphql_api.example.id,
+            data_source=aws_appsync_datasource.example.name,
+            name=example,
+            code=(lambda path: open(path).read())(some-code-dir),
+            runtime={
+                name: APPSYNC_JS,
+                runtimeVersion: 1.0.0,
+            })
         ```
 
         ## Import

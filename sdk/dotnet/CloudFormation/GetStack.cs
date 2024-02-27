@@ -14,39 +14,6 @@ namespace Pulumi.Aws.CloudFormation
         /// <summary>
         /// The CloudFormation Stack data source allows access to stack
         /// outputs and other useful data including the template body.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var network = Aws.CloudFormation.GetStack.Invoke(new()
-        ///     {
-        ///         Name = "my-network-stack",
-        ///     });
-        /// 
-        ///     var web = new Aws.Ec2.Instance("web", new()
-        ///     {
-        ///         Ami = "ami-abb07bcb",
-        ///         InstanceType = "t2.micro",
-        ///         SubnetId = network.Apply(getStackResult =&gt; getStackResult.Outputs?.SubnetId),
-        ///         Tags = 
-        ///         {
-        ///             { "Name", "HelloWorld" },
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetStackResult> InvokeAsync(GetStackArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetStackResult>("aws:cloudformation/getStack:getStack", args ?? new GetStackArgs(), options.WithDefaults());
@@ -54,39 +21,6 @@ namespace Pulumi.Aws.CloudFormation
         /// <summary>
         /// The CloudFormation Stack data source allows access to stack
         /// outputs and other useful data including the template body.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var network = Aws.CloudFormation.GetStack.Invoke(new()
-        ///     {
-        ///         Name = "my-network-stack",
-        ///     });
-        /// 
-        ///     var web = new Aws.Ec2.Instance("web", new()
-        ///     {
-        ///         Ami = "ami-abb07bcb",
-        ///         InstanceType = "t2.micro",
-        ///         SubnetId = network.Apply(getStackResult =&gt; getStackResult.Outputs?.SubnetId),
-        ///         Tags = 
-        ///         {
-        ///             { "Name", "HelloWorld" },
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetStackResult> Invoke(GetStackInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetStackResult>("aws:cloudformation/getStack:getStack", args ?? new GetStackInvokeArgs(), options.WithDefaults());

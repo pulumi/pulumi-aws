@@ -459,20 +459,20 @@ class StateMachine(pulumi.CustomResource):
         import pulumi_aws as aws
 
         # ...
-        sfn_state_machine = aws.sfn.StateMachine("sfnStateMachine",
-            role_arn=aws_iam_role["iam_for_sfn"]["arn"],
-            definition=f\"\"\"{{
+        sfn_state_machine = aws.sfn.state_machine.StateMachine("sfnStateMachine",
+            role_arn=aws_iam_role.iam_for_sfn.arn,
+            definition=f{{
           "Comment": "A Hello World example of the Amazon States Language using an AWS Lambda Function",
           "StartAt": "HelloWorld",
           "States": {{
             "HelloWorld": {{
               "Type": "Task",
-              "Resource": "{aws_lambda_function["lambda"]["arn"]}",
+              "Resource": "{aws_lambda_function.lambda_.arn}",
               "End": true
             }}
           }}
         }}
-        \"\"\")
+        )
         ```
         ### Basic (Express Workflow)
 
@@ -481,21 +481,21 @@ class StateMachine(pulumi.CustomResource):
         import pulumi_aws as aws
 
         # ...
-        sfn_state_machine = aws.sfn.StateMachine("sfnStateMachine",
-            role_arn=aws_iam_role["iam_for_sfn"]["arn"],
-            type="EXPRESS",
-            definition=f\"\"\"{{
+        sfn_state_machine = aws.sfn.state_machine.StateMachine("sfnStateMachine",
+            role_arn=aws_iam_role.iam_for_sfn.arn,
+            type=EXPRESS,
+            definition=f{{
           "Comment": "A Hello World example of the Amazon States Language using an AWS Lambda Function",
           "StartAt": "HelloWorld",
           "States": {{
             "HelloWorld": {{
               "Type": "Task",
-              "Resource": "{aws_lambda_function["lambda"]["arn"]}",
+              "Resource": "{aws_lambda_function.lambda_.arn}",
               "End": true
             }}
           }}
         }}
-        \"\"\")
+        )
         ```
         ### Publish (Publish SFN version)
 
@@ -504,22 +504,22 @@ class StateMachine(pulumi.CustomResource):
         import pulumi_aws as aws
 
         # ...
-        sfn_state_machine = aws.sfn.StateMachine("sfnStateMachine",
-            role_arn=aws_iam_role["iam_for_sfn"]["arn"],
+        sfn_state_machine = aws.sfn.state_machine.StateMachine("sfnStateMachine",
+            role_arn=aws_iam_role.iam_for_sfn.arn,
             publish=True,
-            type="EXPRESS",
-            definition=f\"\"\"{{
+            type=EXPRESS,
+            definition=f{{
           "Comment": "A Hello World example of the Amazon States Language using an AWS Lambda Function",
           "StartAt": "HelloWorld",
           "States": {{
             "HelloWorld": {{
               "Type": "Task",
-              "Resource": "{aws_lambda_function["lambda"]["arn"]}",
+              "Resource": "{aws_lambda_function.lambda_.arn}",
               "End": true
             }}
           }}
         }}
-        \"\"\")
+        )
         ```
         ### Logging
 
@@ -530,25 +530,25 @@ class StateMachine(pulumi.CustomResource):
         import pulumi_aws as aws
 
         # ...
-        sfn_state_machine = aws.sfn.StateMachine("sfnStateMachine",
-            role_arn=aws_iam_role["iam_for_sfn"]["arn"],
-            definition=f\"\"\"{{
+        sfn_state_machine = aws.sfn.state_machine.StateMachine("sfnStateMachine",
+            role_arn=aws_iam_role.iam_for_sfn.arn,
+            definition=f{{
           "Comment": "A Hello World example of the Amazon States Language using an AWS Lambda Function",
           "StartAt": "HelloWorld",
           "States": {{
             "HelloWorld": {{
               "Type": "Task",
-              "Resource": "{aws_lambda_function["lambda"]["arn"]}",
+              "Resource": "{aws_lambda_function.lambda_.arn}",
               "End": true
             }}
           }}
         }}
-        \"\"\",
-            logging_configuration=aws.sfn.StateMachineLoggingConfigurationArgs(
-                log_destination=f"{aws_cloudwatch_log_group['log_group_for_sfn']['arn']}:*",
-                include_execution_data=True,
-                level="ERROR",
-            ))
+        ,
+            logging_configuration={
+                logDestination: f{aws_cloudwatch_log_group.log_group_for_sfn.arn}:*,
+                includeExecutionData: True,
+                level: ERROR,
+            })
         ```
 
         ## Import
@@ -588,20 +588,20 @@ class StateMachine(pulumi.CustomResource):
         import pulumi_aws as aws
 
         # ...
-        sfn_state_machine = aws.sfn.StateMachine("sfnStateMachine",
-            role_arn=aws_iam_role["iam_for_sfn"]["arn"],
-            definition=f\"\"\"{{
+        sfn_state_machine = aws.sfn.state_machine.StateMachine("sfnStateMachine",
+            role_arn=aws_iam_role.iam_for_sfn.arn,
+            definition=f{{
           "Comment": "A Hello World example of the Amazon States Language using an AWS Lambda Function",
           "StartAt": "HelloWorld",
           "States": {{
             "HelloWorld": {{
               "Type": "Task",
-              "Resource": "{aws_lambda_function["lambda"]["arn"]}",
+              "Resource": "{aws_lambda_function.lambda_.arn}",
               "End": true
             }}
           }}
         }}
-        \"\"\")
+        )
         ```
         ### Basic (Express Workflow)
 
@@ -610,21 +610,21 @@ class StateMachine(pulumi.CustomResource):
         import pulumi_aws as aws
 
         # ...
-        sfn_state_machine = aws.sfn.StateMachine("sfnStateMachine",
-            role_arn=aws_iam_role["iam_for_sfn"]["arn"],
-            type="EXPRESS",
-            definition=f\"\"\"{{
+        sfn_state_machine = aws.sfn.state_machine.StateMachine("sfnStateMachine",
+            role_arn=aws_iam_role.iam_for_sfn.arn,
+            type=EXPRESS,
+            definition=f{{
           "Comment": "A Hello World example of the Amazon States Language using an AWS Lambda Function",
           "StartAt": "HelloWorld",
           "States": {{
             "HelloWorld": {{
               "Type": "Task",
-              "Resource": "{aws_lambda_function["lambda"]["arn"]}",
+              "Resource": "{aws_lambda_function.lambda_.arn}",
               "End": true
             }}
           }}
         }}
-        \"\"\")
+        )
         ```
         ### Publish (Publish SFN version)
 
@@ -633,22 +633,22 @@ class StateMachine(pulumi.CustomResource):
         import pulumi_aws as aws
 
         # ...
-        sfn_state_machine = aws.sfn.StateMachine("sfnStateMachine",
-            role_arn=aws_iam_role["iam_for_sfn"]["arn"],
+        sfn_state_machine = aws.sfn.state_machine.StateMachine("sfnStateMachine",
+            role_arn=aws_iam_role.iam_for_sfn.arn,
             publish=True,
-            type="EXPRESS",
-            definition=f\"\"\"{{
+            type=EXPRESS,
+            definition=f{{
           "Comment": "A Hello World example of the Amazon States Language using an AWS Lambda Function",
           "StartAt": "HelloWorld",
           "States": {{
             "HelloWorld": {{
               "Type": "Task",
-              "Resource": "{aws_lambda_function["lambda"]["arn"]}",
+              "Resource": "{aws_lambda_function.lambda_.arn}",
               "End": true
             }}
           }}
         }}
-        \"\"\")
+        )
         ```
         ### Logging
 
@@ -659,25 +659,25 @@ class StateMachine(pulumi.CustomResource):
         import pulumi_aws as aws
 
         # ...
-        sfn_state_machine = aws.sfn.StateMachine("sfnStateMachine",
-            role_arn=aws_iam_role["iam_for_sfn"]["arn"],
-            definition=f\"\"\"{{
+        sfn_state_machine = aws.sfn.state_machine.StateMachine("sfnStateMachine",
+            role_arn=aws_iam_role.iam_for_sfn.arn,
+            definition=f{{
           "Comment": "A Hello World example of the Amazon States Language using an AWS Lambda Function",
           "StartAt": "HelloWorld",
           "States": {{
             "HelloWorld": {{
               "Type": "Task",
-              "Resource": "{aws_lambda_function["lambda"]["arn"]}",
+              "Resource": "{aws_lambda_function.lambda_.arn}",
               "End": true
             }}
           }}
         }}
-        \"\"\",
-            logging_configuration=aws.sfn.StateMachineLoggingConfigurationArgs(
-                log_destination=f"{aws_cloudwatch_log_group['log_group_for_sfn']['arn']}:*",
-                include_execution_data=True,
-                level="ERROR",
-            ))
+        ,
+            logging_configuration={
+                logDestination: f{aws_cloudwatch_log_group.log_group_for_sfn.arn}:*,
+                includeExecutionData: True,
+                level: ERROR,
+            })
         ```
 
         ## Import

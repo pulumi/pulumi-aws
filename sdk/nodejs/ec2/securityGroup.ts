@@ -25,34 +25,34 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const allowTls = new aws.ec2.SecurityGroup("allowTls", {
+ * const allowTls = new aws.ec2/securityGroup.SecurityGroup("allowTls", {
  *     description: "Allow TLS inbound traffic and all outbound traffic",
  *     vpcId: aws_vpc.main.id,
  *     tags: {
  *         Name: "allow_tls",
  *     },
  * });
- * const allowTlsIpv4 = new aws.vpc.SecurityGroupIngressRule("allowTlsIpv4", {
+ * const allowTlsIpv4 = new aws.vpc/securityGroupIngressRule.SecurityGroupIngressRule("allowTlsIpv4", {
  *     securityGroupId: allowTls.id,
  *     cidrIpv4: aws_vpc.main.cidr_block,
  *     fromPort: 443,
  *     ipProtocol: "tcp",
  *     toPort: 443,
  * });
- * const allowTlsIpv6 = new aws.vpc.SecurityGroupIngressRule("allowTlsIpv6", {
+ * const allowTlsIpv6 = new aws.vpc/securityGroupIngressRule.SecurityGroupIngressRule("allowTlsIpv6", {
  *     securityGroupId: allowTls.id,
  *     cidrIpv6: aws_vpc.main.ipv6_cidr_block,
  *     fromPort: 443,
  *     ipProtocol: "tcp",
  *     toPort: 443,
  * });
- * const allowAllTrafficIpv4 = new aws.vpc.SecurityGroupEgressRule("allowAllTrafficIpv4", {
+ * const allowAllTrafficIpv4 = new aws.vpc/securityGroupEgressRule.SecurityGroupEgressRule("allowAllTrafficIpv4", {
  *     securityGroupId: allowTls.id,
  *     cidrIpv4: "0.0.0.0/0",
  *     ipProtocol: "-1",
  * });
  * // semantically equivalent to all ports
- * const allowAllTrafficIpv6 = new aws.vpc.SecurityGroupEgressRule("allowAllTrafficIpv6", {
+ * const allowAllTrafficIpv6 = new aws.vpc/securityGroupEgressRule.SecurityGroupEgressRule("allowAllTrafficIpv6", {
  *     securityGroupId: allowTls.id,
  *     cidrIpv6: "::/0",
  *     ipProtocol: "-1",
@@ -66,7 +66,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.ec2.SecurityGroup("example", {egress: [{
+ * const example = new aws.ec2/securityGroup.SecurityGroup("example", {egress: [{
  *     cidrBlocks: ["0.0.0.0/0"],
  *     fromPort: 0,
  *     ipv6CidrBlocks: ["::/0"],
@@ -85,10 +85,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const myEndpoint = new aws.ec2.VpcEndpoint("myEndpoint", {});
+ * const myEndpoint = new aws.ec2/vpcEndpoint.VpcEndpoint("myEndpoint", {});
  * // ... other configuration ...
  * // ... other configuration ...
- * const example = new aws.ec2.SecurityGroup("example", {egress: [{
+ * const example = new aws.ec2/securityGroup.SecurityGroup("example", {egress: [{
  *     fromPort: 0,
  *     toPort: 0,
  *     protocol: "-1",
@@ -105,7 +105,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.ec2.SecurityGroup("example", {
+ * const example = new aws.ec2/securityGroup.SecurityGroup("example", {
  *     vpcId: aws_vpc.example.id,
  *     ingress: [],
  *     egress: [],
@@ -132,7 +132,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.ec2.SecurityGroup("example", {});
+ * const example = new aws.ec2/securityGroup.SecurityGroup("example", {});
  * ```
  * ### `replaceTriggeredBy`
  *
@@ -144,9 +144,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleSecurityGroup = new aws.ec2.SecurityGroup("exampleSecurityGroup", {});
+ * const exampleSecurityGroup = new aws.ec2/securityGroup.SecurityGroup("exampleSecurityGroup", {});
  * // ... other configuration ...
- * const exampleInstance = new aws.ec2.Instance("exampleInstance", {
+ * const exampleInstance = new aws.ec2/instance.Instance("exampleInstance", {
  *     instanceType: "t3.small",
  *     vpcSecurityGroupIds: [aws_security_group.test.id],
  * });
@@ -161,7 +161,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.ec2.SecurityGroup("example", {});
+ * const example = new aws.ec2/securityGroup.SecurityGroup("example", {});
  * ```
  *
  * ## Import

@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.cloudwatch.CompositeAlarm("example", {
+ * const example = new aws.cloudwatch/compositeAlarm.CompositeAlarm("example", {
  *     alarmDescription: "This is a composite alarm!",
  *     alarmName: "example-composite-alarm",
  *     alarmActions: aws_sns_topic.example.arn,

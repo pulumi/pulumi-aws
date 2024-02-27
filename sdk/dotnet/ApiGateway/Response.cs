@@ -22,9 +22,9 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var main = new Aws.ApiGateway.RestApi("main");
+    ///     var main = new Aws.Apigateway.RestApi.RestApi("main");
     /// 
-    ///     var test = new Aws.ApiGateway.Response("test", new()
+    ///     var test = new Aws.Apigateway.Response.Response("test", new()
     ///     {
     ///         RestApiId = main.Id,
     ///         StatusCode = "401",

@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.redshift.EndpointAccess("example", {
+ * const example = new aws.redshift/endpointAccess.EndpointAccess("example", {
  *     endpointName: "example",
  *     subnetGroupName: aws_redshift_subnet_group.example.id,
  *     clusterIdentifier: aws_redshift_cluster.example.cluster_identifier,

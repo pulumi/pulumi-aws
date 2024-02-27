@@ -12,62 +12,6 @@ import (
 )
 
 // Provides details about a specific Amazon Connect Routing Profile.
-//
-// ## Example Usage
-//
-// By `name`
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/connect"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := connect.LookupRoutingProfile(ctx, &connect.LookupRoutingProfileArgs{
-//				InstanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
-//				Name:       pulumi.StringRef("Example"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// By `routingProfileId`
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/connect"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := connect.LookupRoutingProfile(ctx, &connect.LookupRoutingProfileArgs{
-//				InstanceId:       "aaaaaaaa-bbbb-cccc-dddd-111111111111",
-//				RoutingProfileId: pulumi.StringRef("cccccccc-bbbb-cccc-dddd-111111111111"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupRoutingProfile(ctx *pulumi.Context, args *LookupRoutingProfileArgs, opts ...pulumi.InvokeOption) (*LookupRoutingProfileResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupRoutingProfileResult

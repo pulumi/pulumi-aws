@@ -13,70 +13,14 @@ import * as utilities from "../utilities";
  * > **NOTE on blue/green deployments:** When using `greenFleetProvisioningOption` with the `COPY_AUTO_SCALING_GROUP` action, CodeDeploy will create a new ASG with a different name. This ASG is _not_ managed by this provider and will conflict with existing configuration and state. You may want to use a different approach to managing deployments that involve multiple ASG, such as `DISCOVER_EXISTING` with separate blue and green ASG.
  *
  * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const assumeRole = aws.iam.getPolicyDocument({
- *     statements: [{
- *         effect: "Allow",
- *         principals: [{
- *             type: "Service",
- *             identifiers: ["codedeploy.amazonaws.com"],
- *         }],
- *         actions: ["sts:AssumeRole"],
- *     }],
- * });
- * const exampleRole = new aws.iam.Role("exampleRole", {assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json)});
- * const aWSCodeDeployRole = new aws.iam.RolePolicyAttachment("aWSCodeDeployRole", {
- *     policyArn: "arn:aws:iam::aws:policy/service-role/AWSCodeDeployRole",
- *     role: exampleRole.name,
- * });
- * const exampleApplication = new aws.codedeploy.Application("exampleApplication", {});
- * const exampleTopic = new aws.sns.Topic("exampleTopic", {});
- * const exampleDeploymentGroup = new aws.codedeploy.DeploymentGroup("exampleDeploymentGroup", {
- *     appName: exampleApplication.name,
- *     deploymentGroupName: "example-group",
- *     serviceRoleArn: exampleRole.arn,
- *     ec2TagSets: [{
- *         ec2TagFilters: [
- *             {
- *                 key: "filterkey1",
- *                 type: "KEY_AND_VALUE",
- *                 value: "filtervalue",
- *             },
- *             {
- *                 key: "filterkey2",
- *                 type: "KEY_AND_VALUE",
- *                 value: "filtervalue",
- *             },
- *         ],
- *     }],
- *     triggerConfigurations: [{
- *         triggerEvents: ["DeploymentFailure"],
- *         triggerName: "example-trigger",
- *         triggerTargetArn: exampleTopic.arn,
- *     }],
- *     autoRollbackConfiguration: {
- *         enabled: true,
- *         events: ["DEPLOYMENT_FAILURE"],
- *     },
- *     alarmConfiguration: {
- *         alarms: ["my-alarm-name"],
- *         enabled: true,
- *     },
- *     outdatedInstancesStrategy: "UPDATE",
- * });
- * ```
  * ### Blue Green Deployments with ECS
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleApplication = new aws.codedeploy.Application("exampleApplication", {computePlatform: "ECS"});
- * const exampleDeploymentGroup = new aws.codedeploy.DeploymentGroup("exampleDeploymentGroup", {
+ * const exampleApplication = new aws.codedeploy/application.Application("exampleApplication", {computePlatform: "ECS"});
+ * const exampleDeploymentGroup = new aws.codedeploy/deploymentGroup.DeploymentGroup("exampleDeploymentGroup", {
  *     appName: exampleApplication.name,
  *     deploymentConfigName: "CodeDeployDefault.ECSAllAtOnce",
  *     deploymentGroupName: "example",
@@ -125,8 +69,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleApplication = new aws.codedeploy.Application("exampleApplication", {});
- * const exampleDeploymentGroup = new aws.codedeploy.DeploymentGroup("exampleDeploymentGroup", {
+ * const exampleApplication = new aws.codedeploy/application.Application("exampleApplication", {});
+ * const exampleDeploymentGroup = new aws.codedeploy/deploymentGroup.DeploymentGroup("exampleDeploymentGroup", {
  *     appName: exampleApplication.name,
  *     deploymentGroupName: "example-group",
  *     serviceRoleArn: aws_iam_role.example.arn,

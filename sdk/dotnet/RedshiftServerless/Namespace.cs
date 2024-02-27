@@ -22,7 +22,7 @@ namespace Pulumi.Aws.RedshiftServerless
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.RedshiftServerless.Namespace("example", new()
+    ///     var example = new Aws.Redshiftserverless.Namespace.Namespace("example", new()
     ///     {
     ///         NamespaceName = "concurrency-scaling",
     ///     });

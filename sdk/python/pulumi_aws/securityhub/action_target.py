@@ -155,10 +155,10 @@ class ActionTarget(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_account = aws.securityhub.Account("exampleAccount")
-        example_action_target = aws.securityhub.ActionTarget("exampleActionTarget",
-            identifier="SendToChat",
-            description="This is custom action sends selected findings to chat",
+        example_account = aws.securityhub.account.Account("exampleAccount")
+        example_action_target = aws.securityhub.action_target.ActionTarget("exampleActionTarget",
+            identifier=SendToChat,
+            description=This is custom action sends selected findings to chat,
             opts=pulumi.ResourceOptions(depends_on=[example_account]))
         ```
 
@@ -191,10 +191,10 @@ class ActionTarget(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_account = aws.securityhub.Account("exampleAccount")
-        example_action_target = aws.securityhub.ActionTarget("exampleActionTarget",
-            identifier="SendToChat",
-            description="This is custom action sends selected findings to chat",
+        example_account = aws.securityhub.account.Account("exampleAccount")
+        example_action_target = aws.securityhub.action_target.ActionTarget("exampleActionTarget",
+            identifier=SendToChat,
+            description=This is custom action sends selected findings to chat,
             opts=pulumi.ResourceOptions(depends_on=[example_account]))
         ```
 

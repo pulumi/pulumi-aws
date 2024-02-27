@@ -22,20 +22,20 @@ namespace Pulumi.Aws.Glue
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Glue.DataCatalogEncryptionSettings("example", new()
+    ///     var example = new Aws.Glue.DataCatalogEncryptionSettings.DataCatalogEncryptionSettings("example", new()
     ///     {
-    ///         DataCatalogEncryptionSettingsConfig = new Aws.Glue.Inputs.DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs
+    ///         DataCatalogEncryptionSettings = 
     ///         {
-    ///             ConnectionPasswordEncryption = new Aws.Glue.Inputs.DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionArgs
+    ///             { "connectionPasswordEncryption", 
     ///             {
-    ///                 AwsKmsKeyId = aws_kms_key.Test.Arn,
-    ///                 ReturnConnectionPasswordEncrypted = true,
-    ///             },
-    ///             EncryptionAtRest = new Aws.Glue.Inputs.DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestArgs
+    ///                 { "awsKmsKeyId", aws_kms_key.Test.Arn },
+    ///                 { "returnConnectionPasswordEncrypted", true },
+    ///             } },
+    ///             { "encryptionAtRest", 
     ///             {
-    ///                 CatalogEncryptionMode = "SSE-KMS",
-    ///                 SseAwsKmsKeyId = aws_kms_key.Test.Arn,
-    ///             },
+    ///                 { "catalogEncryptionMode", "SSE-KMS" },
+    ///                 { "sseAwsKmsKeyId", aws_kms_key.Test.Arn },
+    ///             } },
     ///         },
     ///     });
     /// 

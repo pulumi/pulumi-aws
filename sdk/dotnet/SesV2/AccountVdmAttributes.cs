@@ -23,15 +23,15 @@ namespace Pulumi.Aws.SesV2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.SesV2.AccountVdmAttributes("example", new()
+    ///     var example = new Aws.Sesv2.AccountVdmAttributes.AccountVdmAttributes("example", new()
     ///     {
-    ///         DashboardAttributes = new Aws.SesV2.Inputs.AccountVdmAttributesDashboardAttributesArgs
+    ///         DashboardAttributes = 
     ///         {
-    ///             EngagementMetrics = "ENABLED",
+    ///             { "engagementMetrics", "ENABLED" },
     ///         },
-    ///         GuardianAttributes = new Aws.SesV2.Inputs.AccountVdmAttributesGuardianAttributesArgs
+    ///         GuardianAttributes = 
     ///         {
-    ///             OptimizedSharedDelivery = "ENABLED",
+    ///             { "optimizedSharedDelivery", "ENABLED" },
     ///         },
     ///         VdmEnabled = "ENABLED",
     ///     });

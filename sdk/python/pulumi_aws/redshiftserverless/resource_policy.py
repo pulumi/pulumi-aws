@@ -107,17 +107,17 @@ class ResourcePolicy(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        example = aws.redshiftserverless.ResourcePolicy("example",
-            resource_arn=aws_redshiftserverless_snapshot["example"]["arn"],
+        example = aws.redshiftserverless.resource_policy.ResourcePolicy("example",
+            resource_arn=aws_redshiftserverless_snapshot.example.arn,
             policy=json.dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Effect": "Allow",
-                    "Principal": {
-                        "AWS": ["12345678901"],
+                Version: 2012-10-17,
+                Statement: [{
+                    Effect: Allow,
+                    Principal: {
+                        AWS: [12345678901],
                     },
-                    "Action": ["redshift-serverless:RestoreFromSnapshot"],
-                    "Sid": "",
+                    Action: [redshift-serverless:RestoreFromSnapshot],
+                    Sid: ,
                 }],
             }))
         ```
@@ -151,17 +151,17 @@ class ResourcePolicy(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        example = aws.redshiftserverless.ResourcePolicy("example",
-            resource_arn=aws_redshiftserverless_snapshot["example"]["arn"],
+        example = aws.redshiftserverless.resource_policy.ResourcePolicy("example",
+            resource_arn=aws_redshiftserverless_snapshot.example.arn,
             policy=json.dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Effect": "Allow",
-                    "Principal": {
-                        "AWS": ["12345678901"],
+                Version: 2012-10-17,
+                Statement: [{
+                    Effect: Allow,
+                    Principal: {
+                        AWS: [12345678901],
                     },
-                    "Action": ["redshift-serverless:RestoreFromSnapshot"],
-                    "Sid": "",
+                    Action: [redshift-serverless:RestoreFromSnapshot],
+                    Sid: ,
                 }],
             }))
         ```

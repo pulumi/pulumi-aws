@@ -26,14 +26,14 @@ namespace Pulumi.Aws.Efs
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleFileSystem = new Aws.Efs.FileSystem("exampleFileSystem");
+    ///     var exampleFileSystem = new Aws.Efs.FileSystem.FileSystem("exampleFileSystem");
     /// 
-    ///     var exampleReplicationConfiguration = new Aws.Efs.ReplicationConfiguration("exampleReplicationConfiguration", new()
+    ///     var exampleReplicationConfiguration = new Aws.Efs.ReplicationConfiguration.ReplicationConfiguration("exampleReplicationConfiguration", new()
     ///     {
     ///         SourceFileSystemId = exampleFileSystem.Id,
-    ///         Destination = new Aws.Efs.Inputs.ReplicationConfigurationDestinationArgs
+    ///         Destination = 
     ///         {
-    ///             Region = "us-west-2",
+    ///             { "region", "us-west-2" },
     ///         },
     ///     });
     /// 
@@ -50,15 +50,15 @@ namespace Pulumi.Aws.Efs
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleFileSystem = new Aws.Efs.FileSystem("exampleFileSystem");
+    ///     var exampleFileSystem = new Aws.Efs.FileSystem.FileSystem("exampleFileSystem");
     /// 
-    ///     var exampleReplicationConfiguration = new Aws.Efs.ReplicationConfiguration("exampleReplicationConfiguration", new()
+    ///     var exampleReplicationConfiguration = new Aws.Efs.ReplicationConfiguration.ReplicationConfiguration("exampleReplicationConfiguration", new()
     ///     {
     ///         SourceFileSystemId = exampleFileSystem.Id,
-    ///         Destination = new Aws.Efs.Inputs.ReplicationConfigurationDestinationArgs
+    ///         Destination = 
     ///         {
-    ///             AvailabilityZoneName = "us-west-2b",
-    ///             KmsKeyId = "1234abcd-12ab-34cd-56ef-1234567890ab",
+    ///             { "availabilityZoneName", "us-west-2b" },
+    ///             { "kmsKeyId", "1234abcd-12ab-34cd-56ef-1234567890ab" },
     ///         },
     ///     });
     /// 
@@ -75,15 +75,15 @@ namespace Pulumi.Aws.Efs
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleFileSystem = new Aws.Efs.FileSystem("exampleFileSystem");
+    ///     var exampleFileSystem = new Aws.Efs.FileSystem.FileSystem("exampleFileSystem");
     /// 
-    ///     var exampleReplicationConfiguration = new Aws.Efs.ReplicationConfiguration("exampleReplicationConfiguration", new()
+    ///     var exampleReplicationConfiguration = new Aws.Efs.ReplicationConfiguration.ReplicationConfiguration("exampleReplicationConfiguration", new()
     ///     {
     ///         SourceFileSystemId = exampleFileSystem.Id,
-    ///         Destination = new Aws.Efs.Inputs.ReplicationConfigurationDestinationArgs
+    ///         Destination = 
     ///         {
-    ///             FileSystemId = "fs-1234567890",
-    ///             Region = "us-west-2",
+    ///             { "fileSystemId", "fs-1234567890" },
+    ///             { "region", "us-west-2" },
     ///         },
     ///     });
     /// 

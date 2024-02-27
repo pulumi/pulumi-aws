@@ -30,7 +30,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.sagemaker.DeviceFleet;
  * import com.pulumi.aws.sagemaker.DeviceFleetArgs;
- * import com.pulumi.aws.sagemaker.inputs.DeviceFleetOutputConfigArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -47,9 +46,7 @@ import javax.annotation.Nullable;
  *         var example = new DeviceFleet(&#34;example&#34;, DeviceFleetArgs.builder()        
  *             .deviceFleetName(&#34;example&#34;)
  *             .roleArn(aws_iam_role.test().arn())
- *             .outputConfig(DeviceFleetOutputConfigArgs.builder()
- *                 .s3OutputLocation(String.format(&#34;s3://%s/prefix/&#34;, aws_s3_bucket.example().bucket()))
- *                 .build())
+ *             .outputConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

@@ -31,8 +31,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.codestarconnections.ConnectionArgs;
  * import com.pulumi.aws.codepipeline.Pipeline;
  * import com.pulumi.aws.codepipeline.PipelineArgs;
- * import com.pulumi.aws.codepipeline.inputs.PipelineArtifactStoreArgs;
- * import com.pulumi.aws.codepipeline.inputs.PipelineStageArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -54,30 +52,9 @@ import javax.annotation.Nullable;
  *             .roleArn(aws_iam_role.codepipeline_role().arn())
  *             .artifactStores()
  *             .stages(            
- *                 PipelineStageArgs.builder()
- *                     .name(&#34;Source&#34;)
- *                     .actions(PipelineStageActionArgs.builder()
- *                         .name(&#34;Source&#34;)
- *                         .category(&#34;Source&#34;)
- *                         .owner(&#34;AWS&#34;)
- *                         .provider(&#34;CodeStarSourceConnection&#34;)
- *                         .version(&#34;1&#34;)
- *                         .outputArtifacts(&#34;source_output&#34;)
- *                         .configuration(Map.ofEntries(
- *                             Map.entry(&#34;ConnectionArn&#34;, exampleConnection.arn()),
- *                             Map.entry(&#34;FullRepositoryId&#34;, &#34;my-organization/test&#34;),
- *                             Map.entry(&#34;BranchName&#34;, &#34;main&#34;)
- *                         ))
- *                         .build())
- *                     .build(),
- *                 PipelineStageArgs.builder()
- *                     .name(&#34;Build&#34;)
- *                     .actions()
- *                     .build(),
- *                 PipelineStageArgs.builder()
- *                     .name(&#34;Deploy&#34;)
- *                     .actions()
- *                     .build())
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

@@ -24,7 +24,7 @@ namespace Pulumi.Aws.DeviceFarm
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.DeviceFarm.InstanceProfile("example");
+    ///     var example = new Aws.Devicefarm.InstanceProfile.InstanceProfile("example");
     /// 
     /// });
     /// ```

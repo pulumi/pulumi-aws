@@ -173,18 +173,18 @@ class UserPolicy(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        lb_user = aws.iam.User("lbUser", path="/system/")
-        lb_ro = aws.iam.UserPolicy("lbRo",
+        lb_user = aws.iam.user.User("lbUser", path=/system/)
+        lb_ro = aws.iam.user_policy.UserPolicy("lbRo",
             user=lb_user.name,
             policy=json.dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Action": ["ec2:Describe*"],
-                    "Effect": "Allow",
-                    "Resource": "*",
+                Version: 2012-10-17,
+                Statement: [{
+                    Action: [ec2:Describe*],
+                    Effect: Allow,
+                    Resource: *,
                 }],
             }))
-        lb_access_key = aws.iam.AccessKey("lbAccessKey", user=lb_user.name)
+        lb_access_key = aws.iam.access_key.AccessKey("lbAccessKey", user=lb_user.name)
         ```
 
         ## Import
@@ -218,18 +218,18 @@ class UserPolicy(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        lb_user = aws.iam.User("lbUser", path="/system/")
-        lb_ro = aws.iam.UserPolicy("lbRo",
+        lb_user = aws.iam.user.User("lbUser", path=/system/)
+        lb_ro = aws.iam.user_policy.UserPolicy("lbRo",
             user=lb_user.name,
             policy=json.dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Action": ["ec2:Describe*"],
-                    "Effect": "Allow",
-                    "Resource": "*",
+                Version: 2012-10-17,
+                Statement: [{
+                    Action: [ec2:Describe*],
+                    Effect: Allow,
+                    Resource: *,
                 }],
             }))
-        lb_access_key = aws.iam.AccessKey("lbAccessKey", user=lb_user.name)
+        lb_access_key = aws.iam.access_key.AccessKey("lbAccessKey", user=lb_user.name)
         ```
 
         ## Import

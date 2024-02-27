@@ -55,7 +55,7 @@ import javax.annotation.Nullable;
  *             .blueprintId(&#34;amazon_linux_2&#34;)
  *             .bundleId(&#34;nano_1_0&#34;)
  *             .keyPairName(&#34;some_key_name&#34;)
- *             .tags(Map.of(&#34;foo&#34;, &#34;bar&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -104,7 +104,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.lightsail.Instance;
  * import com.pulumi.aws.lightsail.InstanceArgs;
- * import com.pulumi.aws.lightsail.inputs.InstanceAddOnArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -119,15 +118,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new Instance(&#34;test&#34;, InstanceArgs.builder()        
- *             .addOn(InstanceAddOnArgs.builder()
- *                 .snapshotTime(&#34;06:00&#34;)
- *                 .status(&#34;Enabled&#34;)
- *                 .type(&#34;AutoSnapshot&#34;)
- *                 .build())
+ *             .addOn(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .availabilityZone(&#34;us-east-1b&#34;)
  *             .blueprintId(&#34;amazon_linux_2&#34;)
  *             .bundleId(&#34;nano_1_0&#34;)
- *             .tags(Map.of(&#34;foo&#34;, &#34;bar&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

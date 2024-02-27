@@ -9,17 +9,6 @@ import * as utilities from "../utilities";
 
 /**
  * Provides details about an Image builder Container Recipe.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.imagebuilder.getContainerRecipe({
- *     arn: "arn:aws:imagebuilder:us-east-1:aws:container-recipe/example/1.0.0",
- * });
- * ```
  */
 export function getContainerRecipe(args: GetContainerRecipeArgs, opts?: pulumi.InvokeOptions): Promise<GetContainerRecipeResult> {
 
@@ -120,17 +109,6 @@ export interface GetContainerRecipeResult {
 }
 /**
  * Provides details about an Image builder Container Recipe.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.imagebuilder.getContainerRecipe({
- *     arn: "arn:aws:imagebuilder:us-east-1:aws:container-recipe/example/1.0.0",
- * });
- * ```
  */
 export function getContainerRecipeOutput(args: GetContainerRecipeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContainerRecipeResult> {
     return pulumi.output(args).apply((a: any) => getContainerRecipe(a, opts))

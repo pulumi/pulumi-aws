@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  * // Create an AMI that will start a machine whose root device is backed by
  * // an EBS volume populated from a snapshot. We assume that such a snapshot
  * // already exists with the id "snap-xxxxxxxx".
- * const example = new aws.ec2.Ami("example", {
+ * const example = new aws.ec2/ami.Ami("example", {
  *     ebsBlockDevices: [{
  *         deviceName: "/dev/xvda",
  *         snapshotId: "snap-xxxxxxxx",

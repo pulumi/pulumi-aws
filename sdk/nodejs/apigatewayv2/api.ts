@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.apigatewayv2.Api("example", {
+ * const example = new aws.apigatewayv2/api.Api("example", {
  *     protocolType: "WEBSOCKET",
  *     routeSelectionExpression: "$request.body.action",
  * });
@@ -30,7 +30,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.apigatewayv2.Api("example", {protocolType: "HTTP"});
+ * const example = new aws.apigatewayv2/api.Api("example", {protocolType: "HTTP"});
  * ```
  *
  * ## Import

@@ -23,7 +23,7 @@ namespace Pulumi.Aws.Oam
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Oam.Sink("example", new()
+    ///     var example = new Aws.Oam.Sink.Sink("example", new()
     ///     {
     ///         Tags = 
     ///         {

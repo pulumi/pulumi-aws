@@ -24,7 +24,7 @@ namespace Pulumi.Aws.Fsx
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleOpenZfsFileSystem = new Aws.Fsx.OpenZfsFileSystem("exampleOpenZfsFileSystem", new()
+    ///     var exampleOpenZfsFileSystem = new Aws.Fsx.OpenZfsFileSystem.OpenZfsFileSystem("exampleOpenZfsFileSystem", new()
     ///     {
     ///         StorageCapacity = 64,
     ///         SubnetIds = new[]
@@ -35,7 +35,7 @@ namespace Pulumi.Aws.Fsx
     ///         ThroughputCapacity = 64,
     ///     });
     /// 
-    ///     var exampleOpenZfsSnapshot = new Aws.Fsx.OpenZfsSnapshot("exampleOpenZfsSnapshot", new()
+    ///     var exampleOpenZfsSnapshot = new Aws.Fsx.OpenZfsSnapshot.OpenZfsSnapshot("exampleOpenZfsSnapshot", new()
     ///     {
     ///         VolumeId = exampleOpenZfsFileSystem.RootVolumeId,
     ///     });
@@ -52,7 +52,7 @@ namespace Pulumi.Aws.Fsx
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleOpenZfsFileSystem = new Aws.Fsx.OpenZfsFileSystem("exampleOpenZfsFileSystem", new()
+    ///     var exampleOpenZfsFileSystem = new Aws.Fsx.OpenZfsFileSystem.OpenZfsFileSystem("exampleOpenZfsFileSystem", new()
     ///     {
     ///         StorageCapacity = 64,
     ///         SubnetIds = new[]
@@ -63,12 +63,12 @@ namespace Pulumi.Aws.Fsx
     ///         ThroughputCapacity = 64,
     ///     });
     /// 
-    ///     var exampleOpenZfsVolume = new Aws.Fsx.OpenZfsVolume("exampleOpenZfsVolume", new()
+    ///     var exampleOpenZfsVolume = new Aws.Fsx.OpenZfsVolume.OpenZfsVolume("exampleOpenZfsVolume", new()
     ///     {
     ///         ParentVolumeId = exampleOpenZfsFileSystem.RootVolumeId,
     ///     });
     /// 
-    ///     var exampleOpenZfsSnapshot = new Aws.Fsx.OpenZfsSnapshot("exampleOpenZfsSnapshot", new()
+    ///     var exampleOpenZfsSnapshot = new Aws.Fsx.OpenZfsSnapshot.OpenZfsSnapshot("exampleOpenZfsSnapshot", new()
     ///     {
     ///         VolumeId = exampleOpenZfsVolume.Id,
     ///     });

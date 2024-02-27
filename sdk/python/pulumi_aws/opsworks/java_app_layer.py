@@ -965,7 +965,7 @@ class JavaAppLayer(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        app = aws.opsworks.JavaAppLayer("app", stack_id=aws_opsworks_stack["main"]["id"])
+        app = aws.opsworks.java_app_layer.JavaAppLayer("app", stack_id=aws_opsworks_stack.main.id)
         ```
 
         :param str resource_name: The name of the resource.
@@ -1011,7 +1011,7 @@ class JavaAppLayer(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        app = aws.opsworks.JavaAppLayer("app", stack_id=aws_opsworks_stack["main"]["id"])
+        app = aws.opsworks.java_app_layer.JavaAppLayer("app", stack_id=aws_opsworks_stack.main.id)
         ```
 
         :param str resource_name: The name of the resource.

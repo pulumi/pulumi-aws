@@ -23,32 +23,31 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	iam/user "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/iam/user"
+//	iam/userLoginProfile "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/iam/userLoginProfile"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleUser, err := iam.NewUser(ctx, "exampleUser", &iam.UserArgs{
-//				Path:         pulumi.String("/"),
-//				ForceDestroy: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleUserLoginProfile, err := iam.NewUserLoginProfile(ctx, "exampleUserLoginProfile", &iam.UserLoginProfileArgs{
-//				User:   exampleUser.Name,
-//				PgpKey: pulumi.String("keybase:some_person_that_exists"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			ctx.Export("password", exampleUserLoginProfile.EncryptedPassword)
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleUser, err := iam/user.NewUser(ctx, "exampleUser", &iam/user.UserArgs{
+// Path: "/",
+// ForceDestroy: true,
+// })
+// if err != nil {
+// return err
+// }
+// exampleUserLoginProfile, err := iam/userLoginProfile.NewUserLoginProfile(ctx, "exampleUserLoginProfile", &iam/userLoginProfile.UserLoginProfileArgs{
+// User: exampleUser.Name,
+// PgpKey: "keybase:some_person_that_exists",
+// })
+// if err != nil {
+// return err
+// }
+// ctx.Export("password", exampleUserLoginProfile.EncryptedPassword)
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

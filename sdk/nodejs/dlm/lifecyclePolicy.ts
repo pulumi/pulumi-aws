@@ -11,47 +11,6 @@ import * as utilities from "../utilities";
  * Provides a [Data Lifecycle Manager (DLM) lifecycle policy](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshot-lifecycle.html) for managing snapshots.
  *
  * ## Example Usage
- * ### Example Event Based Policy Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const current = aws.getCallerIdentity({});
- * const exampleLifecyclePolicy = new aws.dlm.LifecyclePolicy("exampleLifecyclePolicy", {
- *     description: "tf-acc-basic",
- *     executionRoleArn: aws_iam_role.example.arn,
- *     policyDetails: {
- *         policyType: "EVENT_BASED_POLICY",
- *         action: {
- *             name: "tf-acc-basic",
- *             crossRegionCopies: [{
- *                 encryptionConfiguration: {},
- *                 retainRule: {
- *                     interval: 15,
- *                     intervalUnit: "MONTHS",
- *                 },
- *                 target: "us-east-1",
- *             }],
- *         },
- *         eventSource: {
- *             type: "MANAGED_CWE",
- *             parameters: {
- *                 descriptionRegex: "^.*Created for policy: policy-1234567890abcdef0.*$",
- *                 eventType: "shareSnapshot",
- *                 snapshotOwners: [current.then(current => current.accountId)],
- *             },
- *         },
- *     },
- * });
- * const examplePolicy = aws.iam.getPolicy({
- *     name: "AWSDataLifecycleManagerServiceRole",
- * });
- * const exampleRolePolicyAttachment = new aws.iam.RolePolicyAttachment("exampleRolePolicyAttachment", {
- *     role: aws_iam_role.example.id,
- *     policyArn: examplePolicy.then(examplePolicy => examplePolicy.arn),
- * });
- * ```
  *
  * ## Import
  *

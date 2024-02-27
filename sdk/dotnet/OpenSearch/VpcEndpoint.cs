@@ -23,21 +23,21 @@ namespace Pulumi.Aws.OpenSearch
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var foo = new Aws.OpenSearch.VpcEndpoint("foo", new()
+    ///     var foo = new Aws.Opensearch.VpcEndpoint.VpcEndpoint("foo", new()
     ///     {
     ///         DomainArn = aws_opensearch_domain.Domain_1.Arn,
-    ///         VpcOptions = new Aws.OpenSearch.Inputs.VpcEndpointVpcOptionsArgs
+    ///         VpcOptions = 
     ///         {
-    ///             SecurityGroupIds = new[]
+    ///             { "securityGroupIds", new[]
     ///             {
     ///                 aws_security_group.Test.Id,
     ///                 aws_security_group.Test2.Id,
-    ///             },
-    ///             SubnetIds = new[]
+    ///             } },
+    ///             { "subnetIds", new[]
     ///             {
     ///                 aws_subnet.Test.Id,
     ///                 aws_subnet.Test2.Id,
-    ///             },
+    ///             } },
     ///         },
     ///     });
     /// 

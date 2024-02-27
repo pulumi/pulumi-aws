@@ -292,9 +292,9 @@ class Repository(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.codecommit.Repository("test",
-            description="This is the Sample App Repository",
-            repository_name="MyTestRepository")
+        test = aws.codecommit.repository.Repository("test",
+            description=This is the Sample App Repository,
+            repository_name=MyTestRepository)
         ```
         ### AWS KMS Customer Managed Keys (CMK)
 
@@ -302,12 +302,12 @@ class Repository(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_key = aws.kms.Key("testKey",
-            description="test",
+        test_key = aws.kms.key.Key("testKey",
+            description=test,
             deletion_window_in_days=7)
-        test_repository = aws.codecommit.Repository("testRepository",
-            repository_name="MyTestRepository",
-            description="This is the Sample App Repository",
+        test_repository = aws.codecommit.repository.Repository("testRepository",
+            repository_name=MyTestRepository,
+            description=This is the Sample App Repository,
             kms_key_id=test_key.arn)
         ```
 
@@ -342,9 +342,9 @@ class Repository(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.codecommit.Repository("test",
-            description="This is the Sample App Repository",
-            repository_name="MyTestRepository")
+        test = aws.codecommit.repository.Repository("test",
+            description=This is the Sample App Repository,
+            repository_name=MyTestRepository)
         ```
         ### AWS KMS Customer Managed Keys (CMK)
 
@@ -352,12 +352,12 @@ class Repository(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_key = aws.kms.Key("testKey",
-            description="test",
+        test_key = aws.kms.key.Key("testKey",
+            description=test,
             deletion_window_in_days=7)
-        test_repository = aws.codecommit.Repository("testRepository",
-            repository_name="MyTestRepository",
-            description="This is the Sample App Repository",
+        test_repository = aws.codecommit.repository.Repository("testRepository",
+            repository_name=MyTestRepository,
+            description=This is the Sample App Repository,
             kms_key_id=test_key.arn)
         ```
 

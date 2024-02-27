@@ -559,23 +559,23 @@ class SnapshotCopy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_instance = aws.rds.Instance("exampleInstance",
+        example_instance = aws.rds.instance.Instance("exampleInstance",
             allocated_storage=10,
-            engine="mysql",
-            engine_version="5.6.21",
-            instance_class="db.t2.micro",
-            db_name="baz",
-            password="barbarbarbar",
-            username="foo",
-            maintenance_window="Fri:09:00-Fri:09:30",
+            engine=mysql,
+            engine_version=5.6.21,
+            instance_class=db.t2.micro,
+            db_name=baz,
+            password=barbarbarbar,
+            username=foo,
+            maintenance_window=Fri:09:00-Fri:09:30,
             backup_retention_period=0,
-            parameter_group_name="default.mysql5.6")
-        example_snapshot = aws.rds.Snapshot("exampleSnapshot",
+            parameter_group_name=default.mysql5.6)
+        example_snapshot = aws.rds.snapshot.Snapshot("exampleSnapshot",
             db_instance_identifier=example_instance.identifier,
-            db_snapshot_identifier="testsnapshot1234")
-        example_snapshot_copy = aws.rds.SnapshotCopy("exampleSnapshotCopy",
+            db_snapshot_identifier=testsnapshot1234)
+        example_snapshot_copy = aws.rds.snapshot_copy.SnapshotCopy("exampleSnapshotCopy",
             source_db_snapshot_identifier=example_snapshot.db_snapshot_arn,
-            target_db_snapshot_identifier="testsnapshot1234-copy")
+            target_db_snapshot_identifier=testsnapshot1234-copy)
         ```
 
         ## Import
@@ -613,23 +613,23 @@ class SnapshotCopy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_instance = aws.rds.Instance("exampleInstance",
+        example_instance = aws.rds.instance.Instance("exampleInstance",
             allocated_storage=10,
-            engine="mysql",
-            engine_version="5.6.21",
-            instance_class="db.t2.micro",
-            db_name="baz",
-            password="barbarbarbar",
-            username="foo",
-            maintenance_window="Fri:09:00-Fri:09:30",
+            engine=mysql,
+            engine_version=5.6.21,
+            instance_class=db.t2.micro,
+            db_name=baz,
+            password=barbarbarbar,
+            username=foo,
+            maintenance_window=Fri:09:00-Fri:09:30,
             backup_retention_period=0,
-            parameter_group_name="default.mysql5.6")
-        example_snapshot = aws.rds.Snapshot("exampleSnapshot",
+            parameter_group_name=default.mysql5.6)
+        example_snapshot = aws.rds.snapshot.Snapshot("exampleSnapshot",
             db_instance_identifier=example_instance.identifier,
-            db_snapshot_identifier="testsnapshot1234")
-        example_snapshot_copy = aws.rds.SnapshotCopy("exampleSnapshotCopy",
+            db_snapshot_identifier=testsnapshot1234)
+        example_snapshot_copy = aws.rds.snapshot_copy.SnapshotCopy("exampleSnapshotCopy",
             source_db_snapshot_identifier=example_snapshot.db_snapshot_arn,
-            target_db_snapshot_identifier="testsnapshot1234-copy")
+            target_db_snapshot_identifier=testsnapshot1234-copy)
         ```
 
         ## Import

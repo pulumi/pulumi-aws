@@ -21,7 +21,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const task = new aws.emr.InstanceFleet("task", {
+ * const task = new aws.emr/instanceFleet.InstanceFleet("task", {
  *     clusterId: aws_emr_cluster.cluster.id,
  *     instanceTypeConfigs: [
  *         {

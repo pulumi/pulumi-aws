@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const lb = new aws.ec2.Eip("lb", {
+ * const lb = new aws.ec2/eip.Eip("lb", {
  *     instance: aws_instance.web.id,
  *     domain: "vpc",
  * });
@@ -29,19 +29,19 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const multi_ip = new aws.ec2.NetworkInterface("multi-ip", {
+ * const multi_ip = new aws.ec2/networkInterface.NetworkInterface("multi-ip", {
  *     subnetId: aws_subnet.main.id,
  *     privateIps: [
  *         "10.0.0.10",
  *         "10.0.0.11",
  *     ],
  * });
- * const one = new aws.ec2.Eip("one", {
+ * const one = new aws.ec2/eip.Eip("one", {
  *     domain: "vpc",
  *     networkInterface: multi_ip.id,
  *     associateWithPrivateIp: "10.0.0.10",
  * });
- * const two = new aws.ec2.Eip("two", {
+ * const two = new aws.ec2/eip.Eip("two", {
  *     domain: "vpc",
  *     networkInterface: multi_ip.id,
  *     associateWithPrivateIp: "10.0.0.11",
@@ -53,25 +53,25 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const _default = new aws.ec2.Vpc("default", {
+ * const _default = new aws.ec2/vpc.Vpc("default", {
  *     cidrBlock: "10.0.0.0/16",
  *     enableDnsHostnames: true,
  * });
- * const gw = new aws.ec2.InternetGateway("gw", {vpcId: _default.id});
- * const myTestSubnet = new aws.ec2.Subnet("myTestSubnet", {
+ * const gw = new aws.ec2/internetGateway.InternetGateway("gw", {vpcId: _default.id});
+ * const myTestSubnet = new aws.ec2/subnet.Subnet("myTestSubnet", {
  *     vpcId: _default.id,
  *     cidrBlock: "10.0.0.0/24",
  *     mapPublicIpOnLaunch: true,
  * }, {
  *     dependsOn: [gw],
  * });
- * const foo = new aws.ec2.Instance("foo", {
+ * const foo = new aws.ec2/instance.Instance("foo", {
  *     ami: "ami-5189a661",
  *     instanceType: "t2.micro",
  *     privateIp: "10.0.0.12",
  *     subnetId: myTestSubnet.id,
  * });
- * const bar = new aws.ec2.Eip("bar", {
+ * const bar = new aws.ec2/eip.Eip("bar", {
  *     domain: "vpc",
  *     instance: foo.id,
  *     associateWithPrivateIp: "10.0.0.12",
@@ -85,7 +85,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const byoip_ip = new aws.ec2.Eip("byoip-ip", {
+ * const byoip_ip = new aws.ec2/eip.Eip("byoip-ip", {
  *     domain: "vpc",
  *     publicIpv4Pool: "ipv4pool-ec2-012345",
  * });

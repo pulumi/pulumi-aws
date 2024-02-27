@@ -22,35 +22,33 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/connect"
+//	connect/quickConnect "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/connect/quickConnect"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := connect.NewQuickConnect(ctx, "test", &connect.QuickConnectArgs{
-//				Description: pulumi.String("quick connect phone number"),
-//				InstanceId:  pulumi.String("aaaaaaaa-bbbb-cccc-dddd-111111111111"),
-//				QuickConnectConfig: &connect.QuickConnectQuickConnectConfigArgs{
-//					PhoneConfigs: connect.QuickConnectQuickConnectConfigPhoneConfigArray{
-//						&connect.QuickConnectQuickConnectConfigPhoneConfigArgs{
-//							PhoneNumber: pulumi.String("+12345678912"),
-//						},
-//					},
-//					QuickConnectType: pulumi.String("PHONE_NUMBER"),
-//				},
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("Example Quick Connect"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := connect/quickConnect.NewQuickConnect(ctx, "test", &connect/quickConnect.QuickConnectArgs{
+// Description: "quick connect phone number",
+// InstanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+// QuickConnectConfig: map[string]interface{}{
+// "phoneConfigs": []map[string]interface{}{
+// map[string]interface{}{
+// "phoneNumber": "+12345678912",
+// },
+// },
+// "quickConnectType": "PHONE_NUMBER",
+// },
+// Tags: map[string]interface{}{
+// "Name": "Example Quick Connect",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

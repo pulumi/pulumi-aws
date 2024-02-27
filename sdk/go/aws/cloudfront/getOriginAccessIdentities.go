@@ -14,59 +14,6 @@ import (
 // Use this data source to get ARNs, ids and S3 canonical user IDs of Amazon CloudFront origin access identities.
 //
 // ## Example Usage
-// ### All origin access identities in the account
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudfront"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cloudfront.GetOriginAccessIdentities(ctx, nil, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// ### Origin access identities filtered by comment/name
-//
-// Origin access identities whose comments are `example-comment1`, `example-comment2`
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudfront"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cloudfront.GetOriginAccessIdentities(ctx, &cloudfront.GetOriginAccessIdentitiesArgs{
-//				Comments: []string{
-//					"example-comment1",
-//					"example-comment2",
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetOriginAccessIdentities(ctx *pulumi.Context, args *GetOriginAccessIdentitiesArgs, opts ...pulumi.InvokeOption) (*GetOriginAccessIdentitiesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetOriginAccessIdentitiesResult

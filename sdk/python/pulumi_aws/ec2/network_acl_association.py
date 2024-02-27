@@ -110,9 +110,9 @@ class NetworkAclAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        main = aws.ec2.NetworkAclAssociation("main",
-            network_acl_id=aws_network_acl["main"]["id"],
-            subnet_id=aws_subnet["main"]["id"])
+        main = aws.ec2.network_acl_association.NetworkAclAssociation("main",
+            network_acl_id=aws_network_acl.main.id,
+            subnet_id=aws_subnet.main.id)
         ```
 
         ## Import
@@ -147,9 +147,9 @@ class NetworkAclAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        main = aws.ec2.NetworkAclAssociation("main",
-            network_acl_id=aws_network_acl["main"]["id"],
-            subnet_id=aws_subnet["main"]["id"])
+        main = aws.ec2.network_acl_association.NetworkAclAssociation("main",
+            network_acl_id=aws_network_acl.main.id,
+            subnet_id=aws_subnet.main.id)
         ```
 
         ## Import

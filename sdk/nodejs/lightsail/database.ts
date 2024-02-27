@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = new aws.lightsail.Database("test", {
+ * const test = new aws.lightsail/database.Database("test", {
  *     availabilityZone: "us-east-1a",
  *     blueprintId: "mysql_8_0",
  *     bundleId: "micro_1_0",
@@ -34,7 +34,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = new aws.lightsail.Database("test", {
+ * const test = new aws.lightsail/database.Database("test", {
  *     availabilityZone: "us-east-1a",
  *     blueprintId: "postgres_12",
  *     bundleId: "micro_1_0",
@@ -52,7 +52,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = new aws.lightsail.Database("test", {
+ * const test = new aws.lightsail/database.Database("test", {
  *     availabilityZone: "us-east-1a",
  *     blueprintId: "postgres_12",
  *     bundleId: "micro_1_0",
@@ -72,7 +72,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = new aws.lightsail.Database("test", {
+ * const test = new aws.lightsail/database.Database("test", {
  *     availabilityZone: "us-east-1a",
  *     blueprintId: "postgres_12",
  *     bundleId: "micro_1_0",
@@ -93,7 +93,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = new aws.lightsail.Database("test", {
+ * const test = new aws.lightsail/database.Database("test", {
  *     applyImmediately: true,
  *     availabilityZone: "us-east-1a",
  *     blueprintId: "postgres_12",

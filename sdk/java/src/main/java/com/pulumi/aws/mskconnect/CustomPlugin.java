@@ -32,8 +32,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.s3.BucketObjectv2Args;
  * import com.pulumi.aws.mskconnect.CustomPlugin;
  * import com.pulumi.aws.mskconnect.CustomPluginArgs;
- * import com.pulumi.aws.mskconnect.inputs.CustomPluginLocationArgs;
- * import com.pulumi.aws.mskconnect.inputs.CustomPluginLocationS3Args;
  * import com.pulumi.asset.FileAsset;
  * import java.util.List;
  * import java.util.ArrayList;
@@ -58,12 +56,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleCustomPlugin = new CustomPlugin(&#34;exampleCustomPlugin&#34;, CustomPluginArgs.builder()        
  *             .contentType(&#34;ZIP&#34;)
- *             .location(CustomPluginLocationArgs.builder()
- *                 .s3(CustomPluginLocationS3Args.builder()
- *                     .bucketArn(exampleBucketV2.arn())
- *                     .fileKey(exampleBucketObjectv2.key())
- *                     .build())
- *                 .build())
+ *             .location(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

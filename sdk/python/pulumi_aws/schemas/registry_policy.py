@@ -101,29 +101,6 @@ class RegistryPolicy(pulumi.CustomResource):
         Resource for managing an AWS EventBridge Schemas Registry Policy.
 
         ## Example Usage
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            sid="example",
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="AWS",
-                identifiers=["109876543210"],
-            )],
-            actions=["schemas:*"],
-            resources=[
-                "arn:aws:schemas:us-east-1:012345678901:registry/example",
-                "arn:aws:schemas:us-east-1:012345678901:schema/example*",
-            ],
-        )])
-        example_registry_policy = aws.schemas.RegistryPolicy("exampleRegistryPolicy",
-            registry_name="example",
-            policy=example_policy_document.json)
-        ```
 
         ## Import
 
@@ -148,29 +125,6 @@ class RegistryPolicy(pulumi.CustomResource):
         Resource for managing an AWS EventBridge Schemas Registry Policy.
 
         ## Example Usage
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            sid="example",
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="AWS",
-                identifiers=["109876543210"],
-            )],
-            actions=["schemas:*"],
-            resources=[
-                "arn:aws:schemas:us-east-1:012345678901:registry/example",
-                "arn:aws:schemas:us-east-1:012345678901:schema/example*",
-            ],
-        )])
-        example_registry_policy = aws.schemas.RegistryPolicy("exampleRegistryPolicy",
-            registry_name="example",
-            policy=example_policy_document.json)
-        ```
 
         ## Import
 

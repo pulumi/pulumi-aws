@@ -21,28 +21,26 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudfront"
+//	cloudfront/monitoringSubscription "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/cloudfront/monitoringSubscription"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cloudfront.NewMonitoringSubscription(ctx, "example", &cloudfront.MonitoringSubscriptionArgs{
-//				DistributionId: pulumi.Any(aws_cloudfront_distribution.Example.Id),
-//				MonitoringSubscription: &cloudfront.MonitoringSubscriptionMonitoringSubscriptionArgs{
-//					RealtimeMetricsSubscriptionConfig: &cloudfront.MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigArgs{
-//						RealtimeMetricsSubscriptionStatus: pulumi.String("Enabled"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := cloudfront/monitoringSubscription.NewMonitoringSubscription(ctx, "example", &cloudfront/monitoringSubscription.MonitoringSubscriptionArgs{
+// DistributionId: aws_cloudfront_distribution.Example.Id,
+// MonitoringSubscription: map[string]interface{}{
+// "realtimeMetricsSubscriptionConfig": map[string]interface{}{
+// "realtimeMetricsSubscriptionStatus": "Enabled",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

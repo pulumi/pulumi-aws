@@ -118,19 +118,6 @@ def get_vpn_gateway(amazon_side_asn: Optional[str] = None,
     The VPN Gateway data source provides details about
     a specific VPN gateway.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    selected = aws.ec2.get_vpn_gateway(filters=[aws.ec2.GetVpnGatewayFilterArgs(
-        name="tag:Name",
-        values=["vpn-gw"],
-    )])
-    pulumi.export("vpnGatewayId", selected.id)
-    ```
-
 
     :param str amazon_side_asn: Autonomous System Number (ASN) for the Amazon side of the specific VPN Gateway to retrieve.
            
@@ -178,19 +165,6 @@ def get_vpn_gateway_output(amazon_side_asn: Optional[pulumi.Input[Optional[str]]
     """
     The VPN Gateway data source provides details about
     a specific VPN gateway.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    selected = aws.ec2.get_vpn_gateway(filters=[aws.ec2.GetVpnGatewayFilterArgs(
-        name="tag:Name",
-        values=["vpn-gw"],
-    )])
-    pulumi.export("vpnGatewayId", selected.id)
-    ```
 
 
     :param str amazon_side_asn: Autonomous System Number (ASN) for the Amazon side of the specific VPN Gateway to retrieve.

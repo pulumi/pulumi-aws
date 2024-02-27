@@ -60,61 +60,6 @@ import javax.annotation.Nullable;
  * CloudTrail can log [Data Events](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html) for certain services such as S3 bucket objects and Lambda function invocations. Additional information about data event configuration can be found in the following links:
  * 
  * - [CloudTrail API AdvancedFieldSelector documentation](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.html)
- * ### Log all DynamoDB PutEvent actions for a specific DynamoDB table
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.dynamodb.DynamodbFunctions;
- * import com.pulumi.aws.dynamodb.inputs.GetTableArgs;
- * import com.pulumi.aws.cloudtrail.EventDataStore;
- * import com.pulumi.aws.cloudtrail.EventDataStoreArgs;
- * import com.pulumi.aws.cloudtrail.inputs.EventDataStoreAdvancedEventSelectorArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var table = DynamodbFunctions.getTable(GetTableArgs.builder()
- *             .name(&#34;not-important-dynamodb-table&#34;)
- *             .build());
- * 
- *         var example = new EventDataStore(&#34;example&#34;, EventDataStoreArgs.builder()        
- *             .advancedEventSelectors(EventDataStoreAdvancedEventSelectorArgs.builder()
- *                 .name(&#34;Log all DynamoDB PutEvent actions for a specific DynamoDB table&#34;)
- *                 .fieldSelectors(                
- *                     EventDataStoreAdvancedEventSelectorFieldSelectorArgs.builder()
- *                         .field(&#34;eventCategory&#34;)
- *                         .equals(&#34;Data&#34;)
- *                         .build(),
- *                     EventDataStoreAdvancedEventSelectorFieldSelectorArgs.builder()
- *                         .field(&#34;resources.type&#34;)
- *                         .equals(&#34;AWS::DynamoDB::Table&#34;)
- *                         .build(),
- *                     EventDataStoreAdvancedEventSelectorFieldSelectorArgs.builder()
- *                         .field(&#34;eventName&#34;)
- *                         .equals(&#34;PutItem&#34;)
- *                         .build(),
- *                     EventDataStoreAdvancedEventSelectorFieldSelectorArgs.builder()
- *                         .field(&#34;resources.ARN&#34;)
- *                         .equals(table.applyValue(getTableResult -&gt; getTableResult.arn()))
- *                         .build())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * ```
  * 
  * ## Import
  * 

@@ -22,7 +22,7 @@ namespace Pulumi.Aws.DirectoryService
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.DirectoryService.ConditionalForwader("example", new()
+    ///     var example = new Aws.Directoryservice.ConditionalForwader.ConditionalForwader("example", new()
     ///     {
     ///         DirectoryId = aws_directory_service_directory.Ad.Id,
     ///         RemoteDomainName = "example.com",

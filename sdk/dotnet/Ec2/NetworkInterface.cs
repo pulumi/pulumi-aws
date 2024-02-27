@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Aws.Ec2.NetworkInterface("test", new()
+    ///     var test = new Aws.Ec2.NetworkInterface.NetworkInterface("test", new()
     ///     {
     ///         SubnetId = aws_subnet.Public_a.Id,
     ///         PrivateIps = new[]
@@ -35,10 +35,10 @@ namespace Pulumi.Aws.Ec2
     ///         },
     ///         Attachments = new[]
     ///         {
-    ///             new Aws.Ec2.Inputs.NetworkInterfaceAttachmentArgs
+    ///             
     ///             {
-    ///                 Instance = aws_instance.Test.Id,
-    ///                 DeviceIndex = 1,
+    ///                 { "instance", aws_instance.Test.Id },
+    ///                 { "deviceIndex", 1 },
     ///             },
     ///         },
     ///     });

@@ -151,25 +151,25 @@ class MailFrom(pulumi.CustomResource):
         import pulumi_aws as aws
 
         # Example SES Domain Identity
-        example_domain_identity = aws.ses.DomainIdentity("exampleDomainIdentity", domain="example.com")
-        example_mail_from = aws.ses.MailFrom("exampleMailFrom",
+        example_domain_identity = aws.ses.domain_identity.DomainIdentity("exampleDomainIdentity", domain=example.com)
+        example_mail_from = aws.ses.mail_from.MailFrom("exampleMailFrom",
             domain=example_domain_identity.domain,
-            mail_from_domain=example_domain_identity.domain.apply(lambda domain: f"bounce.{domain}"))
+            mail_from_domain=fbounce.{example_domain_identity.domain})
         # Example Route53 MX record
-        example_ses_domain_mail_from_mx = aws.route53.Record("exampleSesDomainMailFromMx",
-            zone_id=aws_route53_zone["example"]["id"],
+        example_ses_domain_mail_from_mx = aws.route53.record.Record("exampleSesDomainMailFromMx",
+            zone_id=aws_route53_zone.example.id,
             name=example_mail_from.mail_from_domain,
-            type="MX",
+            type=MX,
             ttl=600,
-            records=["10 feedback-smtp.us-east-1.amazonses.com"])
+            records=[10 feedback-smtp.us-east-1.amazonses.com])
         # Change to the region in which `aws_ses_domain_identity.example` is created
         # Example Route53 TXT record for SPF
-        example_ses_domain_mail_from_txt = aws.route53.Record("exampleSesDomainMailFromTxt",
-            zone_id=aws_route53_zone["example"]["id"],
+        example_ses_domain_mail_from_txt = aws.route53.record.Record("exampleSesDomainMailFromTxt",
+            zone_id=aws_route53_zone.example.id,
             name=example_mail_from.mail_from_domain,
-            type="TXT",
+            type=TXT,
             ttl=600,
-            records=["v=spf1 include:amazonses.com -all"])
+            records=[v=spf1 include:amazonses.com -all])
         ```
         ### Email Identity MAIL FROM
 
@@ -178,10 +178,10 @@ class MailFrom(pulumi.CustomResource):
         import pulumi_aws as aws
 
         # Example SES Email Identity
-        example_email_identity = aws.ses.EmailIdentity("exampleEmailIdentity", email="user@example.com")
-        example_mail_from = aws.ses.MailFrom("exampleMailFrom",
+        example_email_identity = aws.ses.email_identity.EmailIdentity("exampleEmailIdentity", email=user@example.com)
+        example_mail_from = aws.ses.mail_from.MailFrom("exampleMailFrom",
             domain=example_email_identity.email,
-            mail_from_domain="mail.example.com")
+            mail_from_domain=mail.example.com)
         ```
 
         ## Import
@@ -219,25 +219,25 @@ class MailFrom(pulumi.CustomResource):
         import pulumi_aws as aws
 
         # Example SES Domain Identity
-        example_domain_identity = aws.ses.DomainIdentity("exampleDomainIdentity", domain="example.com")
-        example_mail_from = aws.ses.MailFrom("exampleMailFrom",
+        example_domain_identity = aws.ses.domain_identity.DomainIdentity("exampleDomainIdentity", domain=example.com)
+        example_mail_from = aws.ses.mail_from.MailFrom("exampleMailFrom",
             domain=example_domain_identity.domain,
-            mail_from_domain=example_domain_identity.domain.apply(lambda domain: f"bounce.{domain}"))
+            mail_from_domain=fbounce.{example_domain_identity.domain})
         # Example Route53 MX record
-        example_ses_domain_mail_from_mx = aws.route53.Record("exampleSesDomainMailFromMx",
-            zone_id=aws_route53_zone["example"]["id"],
+        example_ses_domain_mail_from_mx = aws.route53.record.Record("exampleSesDomainMailFromMx",
+            zone_id=aws_route53_zone.example.id,
             name=example_mail_from.mail_from_domain,
-            type="MX",
+            type=MX,
             ttl=600,
-            records=["10 feedback-smtp.us-east-1.amazonses.com"])
+            records=[10 feedback-smtp.us-east-1.amazonses.com])
         # Change to the region in which `aws_ses_domain_identity.example` is created
         # Example Route53 TXT record for SPF
-        example_ses_domain_mail_from_txt = aws.route53.Record("exampleSesDomainMailFromTxt",
-            zone_id=aws_route53_zone["example"]["id"],
+        example_ses_domain_mail_from_txt = aws.route53.record.Record("exampleSesDomainMailFromTxt",
+            zone_id=aws_route53_zone.example.id,
             name=example_mail_from.mail_from_domain,
-            type="TXT",
+            type=TXT,
             ttl=600,
-            records=["v=spf1 include:amazonses.com -all"])
+            records=[v=spf1 include:amazonses.com -all])
         ```
         ### Email Identity MAIL FROM
 
@@ -246,10 +246,10 @@ class MailFrom(pulumi.CustomResource):
         import pulumi_aws as aws
 
         # Example SES Email Identity
-        example_email_identity = aws.ses.EmailIdentity("exampleEmailIdentity", email="user@example.com")
-        example_mail_from = aws.ses.MailFrom("exampleMailFrom",
+        example_email_identity = aws.ses.email_identity.EmailIdentity("exampleEmailIdentity", email=user@example.com)
+        example_mail_from = aws.ses.mail_from.MailFrom("exampleMailFrom",
             domain=example_email_identity.email,
-            mail_from_domain="mail.example.com")
+            mail_from_domain=mail.example.com)
         ```
 
         ## Import

@@ -222,26 +222,26 @@ class OriginRequestPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.cloudfront.OriginRequestPolicy("example",
-            comment="example comment",
-            cookies_config=aws.cloudfront.OriginRequestPolicyCookiesConfigArgs(
-                cookie_behavior="whitelist",
-                cookies=aws.cloudfront.OriginRequestPolicyCookiesConfigCookiesArgs(
-                    items=["example"],
-                ),
-            ),
-            headers_config=aws.cloudfront.OriginRequestPolicyHeadersConfigArgs(
-                header_behavior="whitelist",
-                headers=aws.cloudfront.OriginRequestPolicyHeadersConfigHeadersArgs(
-                    items=["example"],
-                ),
-            ),
-            query_strings_config=aws.cloudfront.OriginRequestPolicyQueryStringsConfigArgs(
-                query_string_behavior="whitelist",
-                query_strings=aws.cloudfront.OriginRequestPolicyQueryStringsConfigQueryStringsArgs(
-                    items=["example"],
-                ),
-            ))
+        example = aws.cloudfront.origin_request_policy.OriginRequestPolicy("example",
+            comment=example comment,
+            cookies_config={
+                cookieBehavior: whitelist,
+                cookies: {
+                    items: [example],
+                },
+            },
+            headers_config={
+                headerBehavior: whitelist,
+                headers: {
+                    items: [example],
+                },
+            },
+            query_strings_config={
+                queryStringBehavior: whitelist,
+                queryStrings: {
+                    items: [example],
+                },
+            })
         ```
 
         ## Import
@@ -275,26 +275,26 @@ class OriginRequestPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.cloudfront.OriginRequestPolicy("example",
-            comment="example comment",
-            cookies_config=aws.cloudfront.OriginRequestPolicyCookiesConfigArgs(
-                cookie_behavior="whitelist",
-                cookies=aws.cloudfront.OriginRequestPolicyCookiesConfigCookiesArgs(
-                    items=["example"],
-                ),
-            ),
-            headers_config=aws.cloudfront.OriginRequestPolicyHeadersConfigArgs(
-                header_behavior="whitelist",
-                headers=aws.cloudfront.OriginRequestPolicyHeadersConfigHeadersArgs(
-                    items=["example"],
-                ),
-            ),
-            query_strings_config=aws.cloudfront.OriginRequestPolicyQueryStringsConfigArgs(
-                query_string_behavior="whitelist",
-                query_strings=aws.cloudfront.OriginRequestPolicyQueryStringsConfigQueryStringsArgs(
-                    items=["example"],
-                ),
-            ))
+        example = aws.cloudfront.origin_request_policy.OriginRequestPolicy("example",
+            comment=example comment,
+            cookies_config={
+                cookieBehavior: whitelist,
+                cookies: {
+                    items: [example],
+                },
+            },
+            headers_config={
+                headerBehavior: whitelist,
+                headers: {
+                    items: [example],
+                },
+            },
+            query_strings_config={
+                queryStringBehavior: whitelist,
+                queryStrings: {
+                    items: [example],
+                },
+            })
         ```
 
         ## Import

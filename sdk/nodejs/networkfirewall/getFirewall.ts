@@ -11,37 +11,6 @@ import * as utilities from "../utilities";
  * Retrieve information about a firewall.
  *
  * ## Example Usage
- * ### Find firewall policy by ARN
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.networkfirewall.getFirewall({
- *     arn: aws_networkfirewall_firewall.arn,
- * });
- * ```
- * ### Find firewall policy by Name
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.networkfirewall.getFirewall({
- *     name: "Test",
- * });
- * ```
- * ### Find firewall policy by ARN and Name
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.networkfirewall.getFirewall({
- *     arn: aws_networkfirewall_firewall.arn,
- *     name: "Test",
- * });
- * ```
  */
 export function getFirewall(args?: GetFirewallArgs, opts?: pulumi.InvokeOptions): Promise<GetFirewallResult> {
     args = args || {};
@@ -137,37 +106,6 @@ export interface GetFirewallResult {
  * Retrieve information about a firewall.
  *
  * ## Example Usage
- * ### Find firewall policy by ARN
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.networkfirewall.getFirewall({
- *     arn: aws_networkfirewall_firewall.arn,
- * });
- * ```
- * ### Find firewall policy by Name
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.networkfirewall.getFirewall({
- *     name: "Test",
- * });
- * ```
- * ### Find firewall policy by ARN and Name
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.networkfirewall.getFirewall({
- *     arn: aws_networkfirewall_firewall.arn,
- *     name: "Test",
- * });
- * ```
  */
 export function getFirewallOutput(args?: GetFirewallOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFirewallResult> {
     return pulumi.output(args).apply((a: any) => getFirewall(a, opts))

@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.codestarconnections.Host("example", {
+ * const example = new aws.codestarconnections/host.Host("example", {
  *     providerEndpoint: "https://example.com",
  *     providerType: "GitHubEnterpriseServer",
  * });

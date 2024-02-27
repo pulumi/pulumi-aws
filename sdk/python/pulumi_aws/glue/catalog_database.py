@@ -379,7 +379,7 @@ class CatalogDatabase(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.glue.CatalogDatabase("example", name="MyCatalogDatabase")
+        example = aws.glue.catalog_database.CatalogDatabase("example", name=MyCatalogDatabase)
         ```
         ### Create Table Default Permissions
 
@@ -387,14 +387,14 @@ class CatalogDatabase(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.glue.CatalogDatabase("example",
-            create_table_default_permissions=[aws.glue.CatalogDatabaseCreateTableDefaultPermissionArgs(
-                permissions=["SELECT"],
-                principal=aws.glue.CatalogDatabaseCreateTableDefaultPermissionPrincipalArgs(
-                    data_lake_principal_identifier="IAM_ALLOWED_PRINCIPALS",
-                ),
-            )],
-            name="MyCatalogDatabase")
+        example = aws.glue.catalog_database.CatalogDatabase("example",
+            create_table_default_permissions=[{
+                permissions: [SELECT],
+                principal: {
+                    dataLakePrincipalIdentifier: IAM_ALLOWED_PRINCIPALS,
+                },
+            }],
+            name=MyCatalogDatabase)
         ```
 
         ## Import
@@ -432,7 +432,7 @@ class CatalogDatabase(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.glue.CatalogDatabase("example", name="MyCatalogDatabase")
+        example = aws.glue.catalog_database.CatalogDatabase("example", name=MyCatalogDatabase)
         ```
         ### Create Table Default Permissions
 
@@ -440,14 +440,14 @@ class CatalogDatabase(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.glue.CatalogDatabase("example",
-            create_table_default_permissions=[aws.glue.CatalogDatabaseCreateTableDefaultPermissionArgs(
-                permissions=["SELECT"],
-                principal=aws.glue.CatalogDatabaseCreateTableDefaultPermissionPrincipalArgs(
-                    data_lake_principal_identifier="IAM_ALLOWED_PRINCIPALS",
-                ),
-            )],
-            name="MyCatalogDatabase")
+        example = aws.glue.catalog_database.CatalogDatabase("example",
+            create_table_default_permissions=[{
+                permissions: [SELECT],
+                principal: {
+                    dataLakePrincipalIdentifier: IAM_ALLOWED_PRINCIPALS,
+                },
+            }],
+            name=MyCatalogDatabase)
         ```
 
         ## Import

@@ -21,31 +21,30 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53"
+//	route53/cidrCollection "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/route53/cidrCollection"
+//	route53/cidrLocation "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/route53/cidrLocation"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleCidrCollection, err := route53.NewCidrCollection(ctx, "exampleCidrCollection", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = route53.NewCidrLocation(ctx, "exampleCidrLocation", &route53.CidrLocationArgs{
-//				CidrCollectionId: exampleCidrCollection.ID(),
-//				CidrBlocks: pulumi.StringArray{
-//					pulumi.String("200.5.3.0/24"),
-//					pulumi.String("200.6.3.0/24"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleCidrCollection, err := route53/cidrCollection.NewCidrCollection(ctx, "exampleCidrCollection", nil)
+// if err != nil {
+// return err
+// }
+// _, err = route53/cidrLocation.NewCidrLocation(ctx, "exampleCidrLocation", &route53/cidrLocation.CidrLocationArgs{
+// CidrCollectionId: exampleCidrCollection.Id,
+// CidrBlocks: []string{
+// "200.5.3.0/24",
+// "200.6.3.0/24",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

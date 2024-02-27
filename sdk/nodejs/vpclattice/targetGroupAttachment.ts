@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.vpclattice.TargetGroupAttachment("example", {
+ * const example = new aws.vpclattice/targetGroupAttachment.TargetGroupAttachment("example", {
  *     targetGroupIdentifier: aws_vpclattice_target_group.example.id,
  *     target: {
  *         id: aws_lb.example.arn,

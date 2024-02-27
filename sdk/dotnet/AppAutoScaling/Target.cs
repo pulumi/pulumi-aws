@@ -27,7 +27,7 @@ namespace Pulumi.Aws.AppAutoScaling
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var dynamodbTableReadTarget = new Aws.AppAutoScaling.Target("dynamodbTableReadTarget", new()
+    ///     var dynamodbTableReadTarget = new Aws.Appautoscaling.Target.Target("dynamodbTableReadTarget", new()
     ///     {
     ///         MaxCapacity = 100,
     ///         MinCapacity = 5,
@@ -48,7 +48,7 @@ namespace Pulumi.Aws.AppAutoScaling
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var dynamodbIndexReadTarget = new Aws.AppAutoScaling.Target("dynamodbIndexReadTarget", new()
+    ///     var dynamodbIndexReadTarget = new Aws.Appautoscaling.Target.Target("dynamodbIndexReadTarget", new()
     ///     {
     ///         MaxCapacity = 100,
     ///         MinCapacity = 5,
@@ -69,7 +69,7 @@ namespace Pulumi.Aws.AppAutoScaling
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var ecsTarget = new Aws.AppAutoScaling.Target("ecsTarget", new()
+    ///     var ecsTarget = new Aws.Appautoscaling.Target.Target("ecsTarget", new()
     ///     {
     ///         MaxCapacity = 4,
     ///         MinCapacity = 1,
@@ -90,7 +90,7 @@ namespace Pulumi.Aws.AppAutoScaling
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var replicas = new Aws.AppAutoScaling.Target("replicas", new()
+    ///     var replicas = new Aws.Appautoscaling.Target.Target("replicas", new()
     ///     {
     ///         MaxCapacity = 15,
     ///         MinCapacity = 1,
@@ -111,7 +111,7 @@ namespace Pulumi.Aws.AppAutoScaling
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var ecsTarget = new Aws.AppAutoScaling.Target("ecsTarget", new()
+    ///     var ecsTarget = new Aws.Appautoscaling.Target.Target("ecsTarget", new()
     ///     {
     ///         MaxCapacity = 4,
     ///         MinCapacity = 1,
@@ -132,7 +132,7 @@ namespace Pulumi.Aws.AppAutoScaling
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var mskTarget = new Aws.AppAutoScaling.Target("mskTarget", new()
+    ///     var mskTarget = new Aws.Appautoscaling.Target.Target("mskTarget", new()
     ///     {
     ///         MaxCapacity = 8,
     ///         MinCapacity = 1,

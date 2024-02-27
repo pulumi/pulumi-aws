@@ -10,52 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Provides a resource to manage an S3 Storage Lens configuration.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const current = aws.getCallerIdentity({});
- * const example = new aws.s3control.StorageLensConfiguration("example", {
- *     configId: "example-1",
- *     storageLensConfiguration: {
- *         enabled: true,
- *         accountLevel: {
- *             activityMetrics: {
- *                 enabled: true,
- *             },
- *             bucketLevel: {
- *                 activityMetrics: {
- *                     enabled: true,
- *                 },
- *             },
- *         },
- *         dataExport: {
- *             cloudWatchMetrics: {
- *                 enabled: true,
- *             },
- *             s3BucketDestination: {
- *                 accountId: current.then(current => current.accountId),
- *                 arn: aws_s3_bucket.target.arn,
- *                 format: "CSV",
- *                 outputSchemaVersion: "V_1",
- *                 encryption: {
- *                     sseS3s: [{}],
- *                 },
- *             },
- *         },
- *         exclude: {
- *             buckets: [
- *                 aws_s3_bucket.b1.arn,
- *                 aws_s3_bucket.b2.arn,
- *             ],
- *             regions: ["us-east-2"],
- *         },
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import S3 Storage Lens configurations using the `account_id` and `config_id`, separated by a colon (`:`). For example:

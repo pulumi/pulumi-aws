@@ -34,33 +34,31 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/rds"
+//	rds/parameterGroup "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/rds/parameterGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := rds.NewParameterGroup(ctx, "default", &rds.ParameterGroupArgs{
-//				Family: pulumi.String("mysql5.6"),
-//				Parameters: rds.ParameterGroupParameterArray{
-//					&rds.ParameterGroupParameterArgs{
-//						Name:  pulumi.String("character_set_server"),
-//						Value: pulumi.String("utf8"),
-//					},
-//					&rds.ParameterGroupParameterArgs{
-//						Name:  pulumi.String("character_set_client"),
-//						Value: pulumi.String("utf8"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := rds/parameterGroup.NewParameterGroup(ctx, "default", &rds/parameterGroup.ParameterGroupArgs{
+// Family: "mysql5.6",
+// Parameters: []map[string]interface{}{
+// map[string]interface{}{
+// "name": "character_set_server",
+// "value": "utf8",
+// },
+// map[string]interface{}{
+// "name": "character_set_client",
+// "value": "utf8",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### `createBeforeDestroy` Lifecycle Configuration
 //
@@ -75,36 +73,35 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/rds"
+//	rds/instance "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/rds/instance"
+//	rds/parameterGroup "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/rds/parameterGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleParameterGroup, err := rds.NewParameterGroup(ctx, "exampleParameterGroup", &rds.ParameterGroupArgs{
-//				Family: pulumi.String("postgres13"),
-//				Parameters: rds.ParameterGroupParameterArray{
-//					&rds.ParameterGroupParameterArgs{
-//						Name:  pulumi.String("log_connections"),
-//						Value: pulumi.String("1"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = rds.NewInstance(ctx, "exampleInstance", &rds.InstanceArgs{
-//				ParameterGroupName: exampleParameterGroup.Name,
-//				ApplyImmediately:   pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleParameterGroup, err := rds/parameterGroup.NewParameterGroup(ctx, "exampleParameterGroup", &rds/parameterGroup.ParameterGroupArgs{
+// Family: "postgres13",
+// Parameters: []map[string]interface{}{
+// map[string]interface{}{
+// "name": "log_connections",
+// "value": "1",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = rds/instance.NewInstance(ctx, "exampleInstance", &rds/instance.InstanceArgs{
+// ParameterGroupName: exampleParameterGroup.Name,
+// ApplyImmediately: true,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -28,7 +28,7 @@ namespace Pulumi.Aws.OpenSearch
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleServerlessSecurityPolicy = new Aws.OpenSearch.ServerlessSecurityPolicy("exampleServerlessSecurityPolicy", new()
+    ///     var exampleServerlessSecurityPolicy = new Aws.Opensearch.ServerlessSecurityPolicy.ServerlessSecurityPolicy("exampleServerlessSecurityPolicy", new()
     ///     {
     ///         Type = "encryption",
     ///         Policy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
@@ -48,7 +48,7 @@ namespace Pulumi.Aws.OpenSearch
     ///         }),
     ///     });
     /// 
-    ///     var exampleServerlessCollection = new Aws.OpenSearch.ServerlessCollection("exampleServerlessCollection", new()
+    ///     var exampleServerlessCollection = new Aws.Opensearch.ServerlessCollection.ServerlessCollection("exampleServerlessCollection", new()
     ///     {
     ///     }, new CustomResourceOptions
     ///     {

@@ -31,7 +31,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.ec2.NetworkInterface;
  * import com.pulumi.aws.ec2.NetworkInterfaceArgs;
- * import com.pulumi.aws.ec2.inputs.NetworkInterfaceAttachmentArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -49,10 +48,7 @@ import javax.annotation.Nullable;
  *             .subnetId(aws_subnet.public_a().id())
  *             .privateIps(&#34;10.0.0.50&#34;)
  *             .securityGroups(aws_security_group.web().id())
- *             .attachments(NetworkInterfaceAttachmentArgs.builder()
- *                 .instance(aws_instance.test().id())
- *                 .deviceIndex(1)
- *                 .build())
+ *             .attachments(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

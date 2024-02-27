@@ -230,10 +230,10 @@ class Workspace(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.amp.Workspace("example",
-            alias="example",
+        example = aws.amp.workspace.Workspace("example",
+            alias=example,
             tags={
-                "Environment": "production",
+                Environment: production,
             })
         ```
         ### CloudWatch Logging
@@ -242,10 +242,10 @@ class Workspace(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_log_group = aws.cloudwatch.LogGroup("exampleLogGroup")
-        example_workspace = aws.amp.Workspace("exampleWorkspace", logging_configuration=aws.amp.WorkspaceLoggingConfigurationArgs(
-            log_group_arn=example_log_group.arn.apply(lambda arn: f"{arn}:*"),
-        ))
+        example_log_group = aws.cloudwatch.log_group.LogGroup("exampleLogGroup")
+        example_workspace = aws.amp.workspace.Workspace("exampleWorkspace", logging_configuration={
+            logGroupArn: f{example_log_group.arn}:*,
+        })
         ```
         ### AWS KMS Customer Managed Keys (CMK)
 
@@ -253,11 +253,11 @@ class Workspace(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_key = aws.kms.Key("exampleKey",
-            description="example",
+        example_key = aws.kms.key.Key("exampleKey",
+            description=example,
             deletion_window_in_days=7)
-        example_workspace = aws.amp.Workspace("exampleWorkspace",
-            alias="example",
+        example_workspace = aws.amp.workspace.Workspace("exampleWorkspace",
+            alias=example,
             kms_key_arn=example_key.arn)
         ```
 
@@ -291,10 +291,10 @@ class Workspace(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.amp.Workspace("example",
-            alias="example",
+        example = aws.amp.workspace.Workspace("example",
+            alias=example,
             tags={
-                "Environment": "production",
+                Environment: production,
             })
         ```
         ### CloudWatch Logging
@@ -303,10 +303,10 @@ class Workspace(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_log_group = aws.cloudwatch.LogGroup("exampleLogGroup")
-        example_workspace = aws.amp.Workspace("exampleWorkspace", logging_configuration=aws.amp.WorkspaceLoggingConfigurationArgs(
-            log_group_arn=example_log_group.arn.apply(lambda arn: f"{arn}:*"),
-        ))
+        example_log_group = aws.cloudwatch.log_group.LogGroup("exampleLogGroup")
+        example_workspace = aws.amp.workspace.Workspace("exampleWorkspace", logging_configuration={
+            logGroupArn: f{example_log_group.arn}:*,
+        })
         ```
         ### AWS KMS Customer Managed Keys (CMK)
 
@@ -314,11 +314,11 @@ class Workspace(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_key = aws.kms.Key("exampleKey",
-            description="example",
+        example_key = aws.kms.key.Key("exampleKey",
+            description=example,
             deletion_window_in_days=7)
-        example_workspace = aws.amp.Workspace("exampleWorkspace",
-            alias="example",
+        example_workspace = aws.amp.workspace.Workspace("exampleWorkspace",
+            alias=example,
             kms_key_arn=example_key.arn)
         ```
 

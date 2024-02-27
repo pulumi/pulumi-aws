@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.apprunner.VpcIngressConnection("example", {
+ * const example = new aws.apprunner/vpcIngressConnection.VpcIngressConnection("example", {
  *     serviceArn: aws_apprunner_service.example.arn,
  *     ingressVpcConfiguration: {
  *         vpcId: aws_default_vpc["default"].id,

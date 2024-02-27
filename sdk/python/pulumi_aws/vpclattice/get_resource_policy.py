@@ -71,14 +71,6 @@ def get_resource_policy(resource_arn: Optional[str] = None,
     Data source for managing an AWS VPC Lattice Resource Policy.
 
     ## Example Usage
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.vpclattice.get_resource_policy(resource_arn=aws_vpclattice_service_network["example"]["arn"])
-    ```
 
 
     :param str resource_arn: Resource ARN of the resource for which a policy is retrieved.
@@ -101,14 +93,6 @@ def get_resource_policy_output(resource_arn: Optional[pulumi.Input[str]] = None,
     Data source for managing an AWS VPC Lattice Resource Policy.
 
     ## Example Usage
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.vpclattice.get_resource_policy(resource_arn=aws_vpclattice_service_network["example"]["arn"])
-    ```
 
 
     :param str resource_arn: Resource ARN of the resource for which a policy is retrieved.

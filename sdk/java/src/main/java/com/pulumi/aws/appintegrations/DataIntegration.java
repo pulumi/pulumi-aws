@@ -28,7 +28,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.appintegrations.DataIntegration;
  * import com.pulumi.aws.appintegrations.DataIntegrationArgs;
- * import com.pulumi.aws.appintegrations.inputs.DataIntegrationScheduleConfigArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -46,12 +45,8 @@ import javax.annotation.Nullable;
  *             .description(&#34;example&#34;)
  *             .kmsKey(aws_kms_key.test().arn())
  *             .sourceUri(&#34;Salesforce://AppFlow/example&#34;)
- *             .scheduleConfig(DataIntegrationScheduleConfigArgs.builder()
- *                 .firstExecutionFrom(&#34;1439788442681&#34;)
- *                 .object(&#34;Account&#34;)
- *                 .scheduleExpression(&#34;rate(1 hour)&#34;)
- *                 .build())
- *             .tags(Map.of(&#34;Key1&#34;, &#34;Value1&#34;))
+ *             .scheduleConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

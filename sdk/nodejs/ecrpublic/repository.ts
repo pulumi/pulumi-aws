@@ -19,8 +19,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * import * as fs from "fs";
  *
- * const usEast1 = new aws.Provider("usEast1", {region: "us-east-1"});
- * const foo = new aws.ecrpublic.Repository("foo", {
+ * const usEast1 = new pulumi.providers.Aws("usEast1", {region: "us-east-1"});
+ * const foo = new aws.ecrpublic/repository.Repository("foo", {
  *     repositoryName: "bar",
  *     catalogData: {
  *         aboutText: "About Text",

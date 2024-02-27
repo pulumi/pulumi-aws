@@ -116,16 +116,6 @@ def get_alias(function_name: Optional[str] = None,
     """
     Provides information about a Lambda Alias.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    production = aws.lambda.get_alias(function_name="my-lambda-func",
-        name="production")
-    ```
-
 
     :param str function_name: Name of the aliased Lambda function.
     :param str name: Name of the Lambda alias.
@@ -152,16 +142,6 @@ def get_alias_output(function_name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAliasResult]:
     """
     Provides information about a Lambda Alias.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    production = aws.lambda.get_alias(function_name="my-lambda-func",
-        name="production")
-    ```
 
 
     :param str function_name: Name of the aliased Lambda function.

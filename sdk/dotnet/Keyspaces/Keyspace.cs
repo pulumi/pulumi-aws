@@ -24,7 +24,7 @@ namespace Pulumi.Aws.Keyspaces
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Keyspaces.Keyspace("example");
+    ///     var example = new Aws.Keyspaces.Keyspace.Keyspace("example");
     /// 
     /// });
     /// ```

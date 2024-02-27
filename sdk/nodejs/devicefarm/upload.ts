@@ -15,8 +15,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleProject = new aws.devicefarm.Project("exampleProject", {});
- * const exampleUpload = new aws.devicefarm.Upload("exampleUpload", {
+ * const exampleProject = new aws.devicefarm/project.Project("exampleProject", {});
+ * const exampleUpload = new aws.devicefarm/upload.Upload("exampleUpload", {
  *     projectArn: exampleProject.arn,
  *     type: "APPIUM_JAVA_TESTNG_TEST_SPEC",
  * });

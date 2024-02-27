@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * import * as fs from "fs";
  *
- * const cert = new aws.iot.Certificate("cert", {
+ * const cert = new aws.iot/certificate.Certificate("cert", {
  *     csr: fs.readFileSync("/my/csr.pem", "utf8"),
  *     active: true,
  * });
@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const cert = new aws.iot.Certificate("cert", {active: true});
+ * const cert = new aws.iot/certificate.Certificate("cert", {active: true});
  * ```
  * ### From existing certificate without a CA
  *
@@ -35,7 +35,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * import * as fs from "fs";
  *
- * const cert = new aws.iot.Certificate("cert", {
+ * const cert = new aws.iot/certificate.Certificate("cert", {
  *     certificatePem: fs.readFileSync("/my/cert.pem", "utf8"),
  *     active: true,
  * });

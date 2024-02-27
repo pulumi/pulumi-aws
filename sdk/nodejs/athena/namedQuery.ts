@@ -13,12 +13,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const hogeBucketV2 = new aws.s3.BucketV2("hogeBucketV2", {});
- * const testKey = new aws.kms.Key("testKey", {
+ * const hogeBucketV2 = new aws.s3/bucketV2.BucketV2("hogeBucketV2", {});
+ * const testKey = new aws.kms/key.Key("testKey", {
  *     deletionWindowInDays: 7,
  *     description: "Athena KMS Key",
  * });
- * const testWorkgroup = new aws.athena.Workgroup("testWorkgroup", {configuration: {
+ * const testWorkgroup = new aws.athena/workgroup.Workgroup("testWorkgroup", {configuration: {
  *     resultConfiguration: {
  *         encryptionConfiguration: {
  *             encryptionOption: "SSE_KMS",
@@ -26,14 +26,14 @@ import * as utilities from "../utilities";
  *         },
  *     },
  * }});
- * const hogeDatabase = new aws.athena.Database("hogeDatabase", {
+ * const hogeDatabase = new aws.athena/database.Database("hogeDatabase", {
  *     name: "users",
  *     bucket: hogeBucketV2.id,
  * });
- * const foo = new aws.athena.NamedQuery("foo", {
+ * const foo = new aws.athena/namedQuery.NamedQuery("foo", {
  *     workgroup: testWorkgroup.id,
  *     database: hogeDatabase.name,
- *     query: pulumi.interpolate`SELECT * FROM ${hogeDatabase.name} limit 10;`,
+ *     query: `SELECT * FROM ${hogeDatabase.name} limit 10;`,
  * });
  * ```
  *

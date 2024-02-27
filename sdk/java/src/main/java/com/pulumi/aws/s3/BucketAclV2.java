@@ -33,7 +33,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.s3.BucketV2;
  * import com.pulumi.aws.s3.BucketOwnershipControls;
  * import com.pulumi.aws.s3.BucketOwnershipControlsArgs;
- * import com.pulumi.aws.s3.inputs.BucketOwnershipControlsRuleArgs;
  * import com.pulumi.aws.s3.BucketAclV2;
  * import com.pulumi.aws.s3.BucketAclV2Args;
  * import com.pulumi.resources.CustomResourceOptions;
@@ -54,9 +53,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleBucketOwnershipControls = new BucketOwnershipControls(&#34;exampleBucketOwnershipControls&#34;, BucketOwnershipControlsArgs.builder()        
  *             .bucket(exampleBucketV2.id())
- *             .rule(BucketOwnershipControlsRuleArgs.builder()
- *                 .objectOwnership(&#34;BucketOwnerPreferred&#34;)
- *                 .build())
+ *             .rule(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleBucketAclV2 = new BucketAclV2(&#34;exampleBucketAclV2&#34;, BucketAclV2Args.builder()        
@@ -82,7 +79,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.s3.BucketV2;
  * import com.pulumi.aws.s3.BucketOwnershipControls;
  * import com.pulumi.aws.s3.BucketOwnershipControlsArgs;
- * import com.pulumi.aws.s3.inputs.BucketOwnershipControlsRuleArgs;
  * import com.pulumi.aws.s3.BucketPublicAccessBlock;
  * import com.pulumi.aws.s3.BucketPublicAccessBlockArgs;
  * import com.pulumi.aws.s3.BucketAclV2;
@@ -105,9 +101,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleBucketOwnershipControls = new BucketOwnershipControls(&#34;exampleBucketOwnershipControls&#34;, BucketOwnershipControlsArgs.builder()        
  *             .bucket(exampleBucketV2.id())
- *             .rule(BucketOwnershipControlsRuleArgs.builder()
- *                 .objectOwnership(&#34;BucketOwnerPreferred&#34;)
- *                 .build())
+ *             .rule(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleBucketPublicAccessBlock = new BucketPublicAccessBlock(&#34;exampleBucketPublicAccessBlock&#34;, BucketPublicAccessBlockArgs.builder()        
@@ -125,76 +119,6 @@ import javax.annotation.Nullable;
  *                 .dependsOn(                
  *                     exampleBucketOwnershipControls,
  *                     exampleBucketPublicAccessBlock)
- *                 .build());
- * 
- *     }
- * }
- * ```
- * ### With Grants
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.s3.S3Functions;
- * import com.pulumi.aws.s3.BucketV2;
- * import com.pulumi.aws.s3.BucketOwnershipControls;
- * import com.pulumi.aws.s3.BucketOwnershipControlsArgs;
- * import com.pulumi.aws.s3.inputs.BucketOwnershipControlsRuleArgs;
- * import com.pulumi.aws.s3.BucketAclV2;
- * import com.pulumi.aws.s3.BucketAclV2Args;
- * import com.pulumi.aws.s3.inputs.BucketAclV2AccessControlPolicyArgs;
- * import com.pulumi.aws.s3.inputs.BucketAclV2AccessControlPolicyOwnerArgs;
- * import com.pulumi.resources.CustomResourceOptions;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var current = S3Functions.getCanonicalUserId();
- * 
- *         var exampleBucketV2 = new BucketV2(&#34;exampleBucketV2&#34;);
- * 
- *         var exampleBucketOwnershipControls = new BucketOwnershipControls(&#34;exampleBucketOwnershipControls&#34;, BucketOwnershipControlsArgs.builder()        
- *             .bucket(exampleBucketV2.id())
- *             .rule(BucketOwnershipControlsRuleArgs.builder()
- *                 .objectOwnership(&#34;BucketOwnerPreferred&#34;)
- *                 .build())
- *             .build());
- * 
- *         var exampleBucketAclV2 = new BucketAclV2(&#34;exampleBucketAclV2&#34;, BucketAclV2Args.builder()        
- *             .bucket(exampleBucketV2.id())
- *             .accessControlPolicy(BucketAclV2AccessControlPolicyArgs.builder()
- *                 .grants(                
- *                     BucketAclV2AccessControlPolicyGrantArgs.builder()
- *                         .grantee(BucketAclV2AccessControlPolicyGrantGranteeArgs.builder()
- *                             .id(current.applyValue(getCanonicalUserIdResult -&gt; getCanonicalUserIdResult.id()))
- *                             .type(&#34;CanonicalUser&#34;)
- *                             .build())
- *                         .permission(&#34;READ&#34;)
- *                         .build(),
- *                     BucketAclV2AccessControlPolicyGrantArgs.builder()
- *                         .grantee(BucketAclV2AccessControlPolicyGrantGranteeArgs.builder()
- *                             .type(&#34;Group&#34;)
- *                             .uri(&#34;http://acs.amazonaws.com/groups/s3/LogDelivery&#34;)
- *                             .build())
- *                         .permission(&#34;READ_ACP&#34;)
- *                         .build())
- *                 .owner(BucketAclV2AccessControlPolicyOwnerArgs.builder()
- *                     .id(current.applyValue(getCanonicalUserIdResult -&gt; getCanonicalUserIdResult.id()))
- *                     .build())
- *                 .build())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(exampleBucketOwnershipControls)
  *                 .build());
  * 
  *     }

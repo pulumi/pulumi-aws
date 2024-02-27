@@ -14,36 +14,6 @@ import (
 // Data source for getting an AWS Organizations Organizational Unit.
 //
 // ## Example Usage
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/organizations"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			org, err := organizations.LookupOrganization(ctx, nil, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = organizations.LookupOrganizationalUnit(ctx, &organizations.LookupOrganizationalUnitArgs{
-//				ParentId: org.Roots[0].Id,
-//				Name:     "dev",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupOrganizationalUnit(ctx *pulumi.Context, args *LookupOrganizationalUnitArgs, opts ...pulumi.InvokeOption) (*LookupOrganizationalUnitResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupOrganizationalUnitResult

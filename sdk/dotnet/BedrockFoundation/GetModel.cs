@@ -16,27 +16,6 @@ namespace Pulumi.Aws.BedrockFoundation
         /// 
         /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var testModels = Aws.BedrockFoundation.GetModels.Invoke();
-        /// 
-        ///     var testModel = Aws.BedrockFoundation.GetModel.Invoke(new()
-        ///     {
-        ///         ModelId = testModels.Apply(getModelsResult =&gt; getModelsResult.ModelSummaries[0]?.ModelId),
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetModelResult> InvokeAsync(GetModelArgs args, InvokeOptions? options = null)
@@ -47,27 +26,6 @@ namespace Pulumi.Aws.BedrockFoundation
         /// 
         /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var testModels = Aws.BedrockFoundation.GetModels.Invoke();
-        /// 
-        ///     var testModel = Aws.BedrockFoundation.GetModel.Invoke(new()
-        ///     {
-        ///         ModelId = testModels.Apply(getModelsResult =&gt; getModelsResult.ModelSummaries[0]?.ModelId),
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetModelResult> Invoke(GetModelInvokeArgs args, InvokeOptions? options = null)

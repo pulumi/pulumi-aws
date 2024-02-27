@@ -29,7 +29,7 @@ namespace Pulumi.Aws.CloudFront
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.CloudFront.OriginAccessIdentity("example", new()
+    ///     var example = new Aws.Cloudfront.OriginAccessIdentity.OriginAccessIdentity("example", new()
     ///     {
     ///         Comment = "Some comment",
     ///     });
@@ -53,78 +53,22 @@ namespace Pulumi.Aws.CloudFront
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // ... other configuration ...
-    ///     var example = new Aws.CloudFront.Distribution("example", new()
+    ///     var example = new Aws.Cloudfront.Distribution.Distribution("example", new()
     ///     {
     ///         Origins = new[]
     ///         {
-    ///             new Aws.CloudFront.Inputs.DistributionOriginArgs
+    ///             
     ///             {
-    ///                 S3OriginConfig = new Aws.CloudFront.Inputs.DistributionOriginS3OriginConfigArgs
+    ///                 { "s3OriginConfig", 
     ///                 {
-    ///                     OriginAccessIdentity = aws_cloudfront_origin_access_identity.Example.Cloudfront_access_identity_path,
-    ///                 },
+    ///                     { "originAccessIdentity", aws_cloudfront_origin_access_identity.Example.Cloudfront_access_identity_path },
+    ///                 } },
     ///             },
     ///         },
     ///     });
     /// 
     /// });
     /// ```
-    /// 
-    /// ### Updating your bucket policy
-    /// 
-    /// Note that the AWS API may translate the `s3_canonical_user_id` `CanonicalUser`
-    /// principal into an `AWS` IAM ARN principal when supplied in an
-    /// `aws.s3.BucketV2` bucket policy, causing spurious diffs. If
-    /// you see this behaviour, use the `iam_arn` instead:
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var s3Policy = Aws.Iam.GetPolicyDocument.Invoke(new()
-    ///     {
-    ///         Statements = new[]
-    ///         {
-    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
-    ///             {
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "s3:GetObject",
-    ///                 },
-    ///                 Resources = new[]
-    ///                 {
-    ///                     $"{aws_s3_bucket.Example.Arn}/*",
-    ///                 },
-    ///                 Principals = new[]
-    ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
-    ///                     {
-    ///                         Type = "AWS",
-    ///                         Identifiers = new[]
-    ///                         {
-    ///                             aws_cloudfront_origin_access_identity.Example.Iam_arn,
-    ///                         },
-    ///                     },
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var example = new Aws.S3.BucketPolicy("example", new()
-    ///     {
-    ///         Bucket = aws_s3_bucket.Example.Id,
-    ///         Policy = s3Policy.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// [1]: http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Introduction.html
-    /// [2]: http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html
     /// 
     /// ## Import
     /// 

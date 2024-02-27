@@ -12,33 +12,6 @@ import (
 )
 
 // Provides details about a CloudFormation Type.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudformation"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cloudformation.LookupCloudFormationType(ctx, &cloudformation.LookupCloudFormationTypeArgs{
-//				Type:     pulumi.StringRef("RESOURCE"),
-//				TypeName: pulumi.StringRef("AWS::Athena::WorkGroup"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupCloudFormationType(ctx *pulumi.Context, args *LookupCloudFormationTypeArgs, opts ...pulumi.InvokeOption) (*LookupCloudFormationTypeResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupCloudFormationTypeResult

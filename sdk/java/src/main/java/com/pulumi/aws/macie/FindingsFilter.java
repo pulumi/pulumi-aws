@@ -30,7 +30,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.macie2.Account;
  * import com.pulumi.aws.macie.FindingsFilter;
  * import com.pulumi.aws.macie.FindingsFilterArgs;
- * import com.pulumi.aws.macie.inputs.FindingsFilterFindingCriteriaArgs;
  * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
@@ -51,12 +50,7 @@ import javax.annotation.Nullable;
  *             .description(&#34;DESCRIPTION&#34;)
  *             .position(1)
  *             .action(&#34;ARCHIVE&#34;)
- *             .findingCriteria(FindingsFilterFindingCriteriaArgs.builder()
- *                 .criterions(FindingsFilterFindingCriteriaCriterionArgs.builder()
- *                     .field(&#34;region&#34;)
- *                     .eqs(data.aws_region().current().name())
- *                     .build())
- *                 .build())
+ *             .findingCriteria(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(aws_macie2_account.test())
  *                 .build());

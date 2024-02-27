@@ -22,26 +22,24 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lex"
+//	lex/botAlias "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/lex/botAlias"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lex.NewBotAlias(ctx, "orderFlowersProd", &lex.BotAliasArgs{
-//				BotName:     pulumi.String("OrderFlowers"),
-//				BotVersion:  pulumi.String("1"),
-//				Description: pulumi.String("Production Version of the OrderFlowers Bot."),
-//				Name:        pulumi.String("OrderFlowersProd"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := lex/botAlias.NewBotAlias(ctx, "orderFlowersProd", &lex/botAlias.BotAliasArgs{
+// BotName: "OrderFlowers",
+// BotVersion: "1",
+// Description: "Production Version of the OrderFlowers Bot.",
+// Name: "OrderFlowersProd",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

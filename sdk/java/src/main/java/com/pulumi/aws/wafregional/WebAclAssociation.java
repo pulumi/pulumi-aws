@@ -19,110 +19,6 @@ import javax.annotation.Nullable;
  * &gt; **Note:** An Application Load Balancer can only be associated with one WAF Regional WebACL.
  * 
  * ## Example Usage
- * ### Application Load Balancer Association
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.wafregional.IpSet;
- * import com.pulumi.aws.wafregional.IpSetArgs;
- * import com.pulumi.aws.wafregional.inputs.IpSetIpSetDescriptorArgs;
- * import com.pulumi.aws.wafregional.Rule;
- * import com.pulumi.aws.wafregional.RuleArgs;
- * import com.pulumi.aws.wafregional.inputs.RulePredicateArgs;
- * import com.pulumi.aws.wafregional.WebAcl;
- * import com.pulumi.aws.wafregional.WebAclArgs;
- * import com.pulumi.aws.wafregional.inputs.WebAclDefaultActionArgs;
- * import com.pulumi.aws.wafregional.inputs.WebAclRuleArgs;
- * import com.pulumi.aws.wafregional.inputs.WebAclRuleActionArgs;
- * import com.pulumi.aws.ec2.Vpc;
- * import com.pulumi.aws.ec2.VpcArgs;
- * import com.pulumi.aws.AwsFunctions;
- * import com.pulumi.aws.inputs.GetAvailabilityZonesArgs;
- * import com.pulumi.aws.ec2.Subnet;
- * import com.pulumi.aws.ec2.SubnetArgs;
- * import com.pulumi.aws.alb.LoadBalancer;
- * import com.pulumi.aws.alb.LoadBalancerArgs;
- * import com.pulumi.aws.wafregional.WebAclAssociation;
- * import com.pulumi.aws.wafregional.WebAclAssociationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var ipset = new IpSet(&#34;ipset&#34;, IpSetArgs.builder()        
- *             .ipSetDescriptors(IpSetIpSetDescriptorArgs.builder()
- *                 .type(&#34;IPV4&#34;)
- *                 .value(&#34;192.0.7.0/24&#34;)
- *                 .build())
- *             .build());
- * 
- *         var fooRule = new Rule(&#34;fooRule&#34;, RuleArgs.builder()        
- *             .metricName(&#34;tfWAFRule&#34;)
- *             .predicates(RulePredicateArgs.builder()
- *                 .dataId(ipset.id())
- *                 .negated(false)
- *                 .type(&#34;IPMatch&#34;)
- *                 .build())
- *             .build());
- * 
- *         var fooWebAcl = new WebAcl(&#34;fooWebAcl&#34;, WebAclArgs.builder()        
- *             .metricName(&#34;foo&#34;)
- *             .defaultAction(WebAclDefaultActionArgs.builder()
- *                 .type(&#34;ALLOW&#34;)
- *                 .build())
- *             .rules(WebAclRuleArgs.builder()
- *                 .action(WebAclRuleActionArgs.builder()
- *                     .type(&#34;BLOCK&#34;)
- *                     .build())
- *                 .priority(1)
- *                 .ruleId(fooRule.id())
- *                 .build())
- *             .build());
- * 
- *         var fooVpc = new Vpc(&#34;fooVpc&#34;, VpcArgs.builder()        
- *             .cidrBlock(&#34;10.1.0.0/16&#34;)
- *             .build());
- * 
- *         final var available = AwsFunctions.getAvailabilityZones();
- * 
- *         var fooSubnet = new Subnet(&#34;fooSubnet&#34;, SubnetArgs.builder()        
- *             .vpcId(fooVpc.id())
- *             .cidrBlock(&#34;10.1.1.0/24&#34;)
- *             .availabilityZone(available.applyValue(getAvailabilityZonesResult -&gt; getAvailabilityZonesResult.names()[0]))
- *             .build());
- * 
- *         var bar = new Subnet(&#34;bar&#34;, SubnetArgs.builder()        
- *             .vpcId(fooVpc.id())
- *             .cidrBlock(&#34;10.1.2.0/24&#34;)
- *             .availabilityZone(available.applyValue(getAvailabilityZonesResult -&gt; getAvailabilityZonesResult.names()[1]))
- *             .build());
- * 
- *         var fooLoadBalancer = new LoadBalancer(&#34;fooLoadBalancer&#34;, LoadBalancerArgs.builder()        
- *             .internal(true)
- *             .subnets(            
- *                 fooSubnet.id(),
- *                 bar.id())
- *             .build());
- * 
- *         var fooWebAclAssociation = new WebAclAssociation(&#34;fooWebAclAssociation&#34;, WebAclAssociationArgs.builder()        
- *             .resourceArn(fooLoadBalancer.arn())
- *             .webAclId(fooWebAcl.id())
- *             .build());
- * 
- *     }
- * }
- * ```
  * ### API Gateway Association
  * ```java
  * package generated_program;
@@ -132,15 +28,10 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.wafregional.IpSet;
  * import com.pulumi.aws.wafregional.IpSetArgs;
- * import com.pulumi.aws.wafregional.inputs.IpSetIpSetDescriptorArgs;
  * import com.pulumi.aws.wafregional.Rule;
  * import com.pulumi.aws.wafregional.RuleArgs;
- * import com.pulumi.aws.wafregional.inputs.RulePredicateArgs;
  * import com.pulumi.aws.wafregional.WebAcl;
  * import com.pulumi.aws.wafregional.WebAclArgs;
- * import com.pulumi.aws.wafregional.inputs.WebAclDefaultActionArgs;
- * import com.pulumi.aws.wafregional.inputs.WebAclRuleArgs;
- * import com.pulumi.aws.wafregional.inputs.WebAclRuleActionArgs;
  * import com.pulumi.aws.apigateway.RestApi;
  * import com.pulumi.aws.apigateway.RestApiArgs;
  * import com.pulumi.aws.apigateway.Deployment;
@@ -164,33 +55,18 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var ipset = new IpSet(&#34;ipset&#34;, IpSetArgs.builder()        
- *             .ipSetDescriptors(IpSetIpSetDescriptorArgs.builder()
- *                 .type(&#34;IPV4&#34;)
- *                 .value(&#34;192.0.7.0/24&#34;)
- *                 .build())
+ *             .ipSetDescriptors(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var fooRule = new Rule(&#34;fooRule&#34;, RuleArgs.builder()        
  *             .metricName(&#34;tfWAFRule&#34;)
- *             .predicates(RulePredicateArgs.builder()
- *                 .dataId(ipset.id())
- *                 .negated(false)
- *                 .type(&#34;IPMatch&#34;)
- *                 .build())
+ *             .predicates(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var fooWebAcl = new WebAcl(&#34;fooWebAcl&#34;, WebAclArgs.builder()        
  *             .metricName(&#34;foo&#34;)
- *             .defaultAction(WebAclDefaultActionArgs.builder()
- *                 .type(&#34;ALLOW&#34;)
- *                 .build())
- *             .rules(WebAclRuleArgs.builder()
- *                 .action(WebAclRuleActionArgs.builder()
- *                     .type(&#34;BLOCK&#34;)
- *                     .build())
- *                 .priority(1)
- *                 .ruleId(fooRule.id())
- *                 .build())
+ *             .defaultAction(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .rules(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleRestApi = new RestApi(&#34;exampleRestApi&#34;, RestApiArgs.builder()        
@@ -218,8 +94,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleDeployment = new Deployment(&#34;exampleDeployment&#34;, DeploymentArgs.builder()        
  *             .restApi(exampleRestApi.id())
- *             .triggers(Map.of(&#34;redeployment&#34;, exampleRestApi.body().applyValue(body -&gt; serializeJson(
- *                 body)).applyValue(toJSON -&gt; computeSHA1(toJSON))))
+ *             .triggers(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleStage = new Stage(&#34;exampleStage&#34;, StageArgs.builder()        

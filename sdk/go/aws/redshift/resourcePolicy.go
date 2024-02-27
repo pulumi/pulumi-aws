@@ -23,42 +23,22 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/redshift"
+//	redshift/resourcePolicy "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/redshift/resourcePolicy"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"Version": "2012-10-17",
-//				"Statement": []map[string]interface{}{
-//					map[string]interface{}{
-//						"Effect": "Allow",
-//						"Principal": map[string]interface{}{
-//							"AWS": "arn:aws:iam::12345678901:root",
-//						},
-//						"Action":   "redshift:CreateInboundIntegration",
-//						"Resource": aws_redshift_cluster.Example.Cluster_namespace_arn,
-//						"Sid":      "",
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			_, err = redshift.NewResourcePolicy(ctx, "example", &redshift.ResourcePolicyArgs{
-//				ResourceArn: pulumi.Any(aws_redshift_cluster.Example.Cluster_namespace_arn),
-//				Policy:      pulumi.String(json0),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := redshift/resourcePolicy.NewResourcePolicy(ctx, "example", &redshift/resourcePolicy.ResourcePolicyArgs{
+// ResourceArn: aws_redshift_cluster.Example.Cluster_namespace_arn,
+// Policy: %!v(PANIC=Format method: fatal: An assertion has failed: unlowered function toJSON),
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

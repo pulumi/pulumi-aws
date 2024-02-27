@@ -23,12 +23,12 @@ namespace Pulumi.Aws.Iam
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var lbUser = new Aws.Iam.User("lbUser", new()
+    ///     var lbUser = new Aws.Iam.User.User("lbUser", new()
     ///     {
     ///         Path = "/system/",
     ///     });
     /// 
-    ///     var lbRo = new Aws.Iam.UserPolicy("lbRo", new()
+    ///     var lbRo = new Aws.Iam.UserPolicy.UserPolicy("lbRo", new()
     ///     {
     ///         User = lbUser.Name,
     ///         Policy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
@@ -49,7 +49,7 @@ namespace Pulumi.Aws.Iam
     ///         }),
     ///     });
     /// 
-    ///     var lbAccessKey = new Aws.Iam.AccessKey("lbAccessKey", new()
+    ///     var lbAccessKey = new Aws.Iam.AccessKey.AccessKey("lbAccessKey", new()
     ///     {
     ///         User = lbUser.Name,
     ///     });

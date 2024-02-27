@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.finspace.KxVolume("example", {
+ * const example = new aws.finspace/kxVolume.KxVolume("example", {
  *     environmentId: aws_finspace_kx_environment.example.id,
  *     availabilityZones: "use1-az2",
  *     azMode: "SINGLE",

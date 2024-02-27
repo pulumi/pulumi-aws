@@ -217,6 +217,17 @@ class Profile(pulumi.CustomResource):
         Provides a AWS Transfer AS2 Profile resource.
 
         ## Example Usage
+        ### Basic
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.transfer.profile.Profile("example",
+            as2_id=example,
+            certificate_ids=[aws_transfer_certificate.example.certificate_id],
+            usage=LOCAL)
+        ```
 
         ## Import
 
@@ -243,6 +254,17 @@ class Profile(pulumi.CustomResource):
         Provides a AWS Transfer AS2 Profile resource.
 
         ## Example Usage
+        ### Basic
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.transfer.profile.Profile("example",
+            as2_id=example,
+            certificate_ids=[aws_transfer_certificate.example.certificate_id],
+            usage=LOCAL)
+        ```
 
         ## Import
 

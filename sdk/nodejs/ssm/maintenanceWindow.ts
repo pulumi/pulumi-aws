@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const production = new aws.ssm.MaintenanceWindow("production", {
+ * const production = new aws.ssm/maintenanceWindow.MaintenanceWindow("production", {
  *     cutoff: 1,
  *     duration: 3,
  *     schedule: "cron(0 16 ? * TUE *)",

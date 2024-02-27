@@ -27,7 +27,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.directoryservice.SharedDirectory;
  * import com.pulumi.aws.directoryservice.SharedDirectoryArgs;
- * import com.pulumi.aws.directoryservice.inputs.SharedDirectoryTargetArgs;
  * import com.pulumi.aws.directoryservice.SharedDirectoryAccepter;
  * import com.pulumi.aws.directoryservice.SharedDirectoryAccepterArgs;
  * import com.pulumi.resources.CustomResourceOptions;
@@ -47,9 +46,7 @@ import javax.annotation.Nullable;
  *         var exampleSharedDirectory = new SharedDirectory(&#34;exampleSharedDirectory&#34;, SharedDirectoryArgs.builder()        
  *             .directoryId(aws_directory_service_directory.example().id())
  *             .notes(&#34;example&#34;)
- *             .target(SharedDirectoryTargetArgs.builder()
- *                 .id(data.aws_caller_identity().receiver().account_id())
- *                 .build())
+ *             .target(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleSharedDirectoryAccepter = new SharedDirectoryAccepter(&#34;exampleSharedDirectoryAccepter&#34;, SharedDirectoryAccepterArgs.builder()        

@@ -15,8 +15,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const testDomain = new aws.lightsail.Domain("testDomain", {domainName: "mydomain.com"});
- * const testDomainEntry = new aws.lightsail.DomainEntry("testDomainEntry", {
+ * const testDomain = new aws.lightsail/domain.Domain("testDomain", {domainName: "mydomain.com"});
+ * const testDomainEntry = new aws.lightsail/domainEntry.DomainEntry("testDomainEntry", {
  *     domainName: aws_lightsail_domain.domain_test.domain_name,
  *     type: "A",
  *     target: "127.0.0.1",

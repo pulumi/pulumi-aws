@@ -22,22 +22,22 @@ namespace Pulumi.Aws.Iot
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var parent = new Aws.Iot.ThingGroup("parent");
+    ///     var parent = new Aws.Iot.ThingGroup.ThingGroup("parent");
     /// 
-    ///     var example = new Aws.Iot.ThingGroup("example", new()
+    ///     var example = new Aws.Iot.ThingGroup.ThingGroup("example", new()
     ///     {
     ///         ParentGroupName = parent.Name,
-    ///         Properties = new Aws.Iot.Inputs.ThingGroupPropertiesArgs
+    ///         Properties = 
     ///         {
-    ///             AttributePayload = new Aws.Iot.Inputs.ThingGroupPropertiesAttributePayloadArgs
+    ///             { "attributePayload", 
     ///             {
-    ///                 Attributes = 
+    ///                 { "attributes", 
     ///                 {
     ///                     { "One", "11111" },
     ///                     { "Two", "TwoTwo" },
-    ///                 },
-    ///             },
-    ///             Description = "This is my thing group",
+    ///                 } },
+    ///             } },
+    ///             { "description", "This is my thing group" },
     ///         },
     ///         Tags = 
     ///         {

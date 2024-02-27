@@ -174,22 +174,6 @@ class Protection(pulumi.CustomResource):
         The resource can be an Amazon CloudFront distribution, Elastic Load Balancing load balancer, AWS Global Accelerator accelerator, Elastic IP Address, or an Amazon Route 53 hosted zone.
 
         ## Example Usage
-        ### Create protection
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        available = aws.get_availability_zones()
-        current_region = aws.get_region()
-        current_caller_identity = aws.get_caller_identity()
-        example_eip = aws.ec2.Eip("exampleEip", domain="vpc")
-        example_protection = aws.shield.Protection("exampleProtection",
-            resource_arn=example_eip.id.apply(lambda id: f"arn:aws:ec2:{current_region.name}:{current_caller_identity.account_id}:eip-allocation/{id}"),
-            tags={
-                "Environment": "Dev",
-            })
-        ```
 
         ## Import
 
@@ -216,22 +200,6 @@ class Protection(pulumi.CustomResource):
         The resource can be an Amazon CloudFront distribution, Elastic Load Balancing load balancer, AWS Global Accelerator accelerator, Elastic IP Address, or an Amazon Route 53 hosted zone.
 
         ## Example Usage
-        ### Create protection
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        available = aws.get_availability_zones()
-        current_region = aws.get_region()
-        current_caller_identity = aws.get_caller_identity()
-        example_eip = aws.ec2.Eip("exampleEip", domain="vpc")
-        example_protection = aws.shield.Protection("exampleProtection",
-            resource_arn=example_eip.id.apply(lambda id: f"arn:aws:ec2:{current_region.name}:{current_caller_identity.account_id}:eip-allocation/{id}"),
-            tags={
-                "Environment": "Dev",
-            })
-        ```
 
         ## Import
 

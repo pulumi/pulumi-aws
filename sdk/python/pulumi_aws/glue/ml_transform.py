@@ -507,84 +507,84 @@ class MLTransform(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_catalog_database = aws.glue.CatalogDatabase("testCatalogDatabase", name="example")
-        test_catalog_table = aws.glue.CatalogTable("testCatalogTable",
-            name="example",
+        test_catalog_database = aws.glue.catalog_database.CatalogDatabase("testCatalogDatabase", name=example)
+        test_catalog_table = aws.glue.catalog_table.CatalogTable("testCatalogTable",
+            name=example,
             database_name=test_catalog_database.name,
-            owner="my_owner",
+            owner=my_owner,
             retention=1,
-            table_type="VIRTUAL_VIEW",
-            view_expanded_text="view_expanded_text_1",
-            view_original_text="view_original_text_1",
-            storage_descriptor=aws.glue.CatalogTableStorageDescriptorArgs(
-                bucket_columns=["bucket_column_1"],
-                compressed=False,
-                input_format="SequenceFileInputFormat",
-                location="my_location",
-                number_of_buckets=1,
-                output_format="SequenceFileInputFormat",
-                stored_as_sub_directories=False,
-                parameters={
-                    "param1": "param1_val",
+            table_type=VIRTUAL_VIEW,
+            view_expanded_text=view_expanded_text_1,
+            view_original_text=view_original_text_1,
+            storage_descriptor={
+                bucketColumns: [bucket_column_1],
+                compressed: False,
+                inputFormat: SequenceFileInputFormat,
+                location: my_location,
+                numberOfBuckets: 1,
+                outputFormat: SequenceFileInputFormat,
+                storedAsSubDirectories: False,
+                parameters: {
+                    param1: param1_val,
                 },
-                columns=[
-                    aws.glue.CatalogTableStorageDescriptorColumnArgs(
-                        name="my_column_1",
-                        type="int",
-                        comment="my_column1_comment",
-                    ),
-                    aws.glue.CatalogTableStorageDescriptorColumnArgs(
-                        name="my_column_2",
-                        type="string",
-                        comment="my_column2_comment",
-                    ),
+                columns: [
+                    {
+                        name: my_column_1,
+                        type: int,
+                        comment: my_column1_comment,
+                    },
+                    {
+                        name: my_column_2,
+                        type: string,
+                        comment: my_column2_comment,
+                    },
                 ],
-                ser_de_info=aws.glue.CatalogTableStorageDescriptorSerDeInfoArgs(
-                    name="ser_de_name",
-                    parameters={
-                        "param1": "param_val_1",
+                serDeInfo: {
+                    name: ser_de_name,
+                    parameters: {
+                        param1: param_val_1,
                     },
-                    serialization_library="org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe",
-                ),
-                sort_columns=[aws.glue.CatalogTableStorageDescriptorSortColumnArgs(
-                    column="my_column_1",
-                    sort_order=1,
-                )],
-                skewed_info=aws.glue.CatalogTableStorageDescriptorSkewedInfoArgs(
-                    skewed_column_names=["my_column_1"],
-                    skewed_column_value_location_maps={
-                        "my_column_1": "my_column_1_val_loc_map",
+                    serializationLibrary: org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe,
+                },
+                sortColumns: [{
+                    column: my_column_1,
+                    sortOrder: 1,
+                }],
+                skewedInfo: {
+                    skewedColumnNames: [my_column_1],
+                    skewedColumnValueLocationMaps: {
+                        my_column_1: my_column_1_val_loc_map,
                     },
-                    skewed_column_values=["skewed_val_1"],
-                ),
-            ),
+                    skewedColumnValues: [skewed_val_1],
+                },
+            },
             partition_keys=[
-                aws.glue.CatalogTablePartitionKeyArgs(
-                    name="my_column_1",
-                    type="int",
-                    comment="my_column_1_comment",
-                ),
-                aws.glue.CatalogTablePartitionKeyArgs(
-                    name="my_column_2",
-                    type="string",
-                    comment="my_column_2_comment",
-                ),
+                {
+                    name: my_column_1,
+                    type: int,
+                    comment: my_column_1_comment,
+                },
+                {
+                    name: my_column_2,
+                    type: string,
+                    comment: my_column_2_comment,
+                },
             ],
             parameters={
-                "param1": "param1_val",
+                param1: param1_val,
             })
-        test_ml_transform = aws.glue.MLTransform("testMLTransform",
-            role_arn=aws_iam_role["test"]["arn"],
-            input_record_tables=[aws.glue.MLTransformInputRecordTableArgs(
-                database_name=test_catalog_table.database_name,
-                table_name=test_catalog_table.name,
-            )],
-            parameters=aws.glue.MLTransformParametersArgs(
-                transform_type="FIND_MATCHES",
-                find_matches_parameters=aws.glue.MLTransformParametersFindMatchesParametersArgs(
-                    primary_key_column_name="my_column_1",
-                ),
-            ),
+        test_ml_transform = aws.glue.m_l_transform.MLTransform("testMLTransform",
+            role_arn=aws_iam_role.test.arn,
+            input_record_tables=[{
+                databaseName: test_catalog_table.database_name,
+                tableName: test_catalog_table.name,
+            }],
+            parameters={
+                transformType: FIND_MATCHES,
+                findMatchesParameters: {
+                    primaryKeyColumnName: my_column_1,
+                },
+            },
             opts=pulumi.ResourceOptions(depends_on=[aws_iam_role_policy_attachment["test"]]))
         ```
 
@@ -626,84 +626,84 @@ class MLTransform(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_catalog_database = aws.glue.CatalogDatabase("testCatalogDatabase", name="example")
-        test_catalog_table = aws.glue.CatalogTable("testCatalogTable",
-            name="example",
+        test_catalog_database = aws.glue.catalog_database.CatalogDatabase("testCatalogDatabase", name=example)
+        test_catalog_table = aws.glue.catalog_table.CatalogTable("testCatalogTable",
+            name=example,
             database_name=test_catalog_database.name,
-            owner="my_owner",
+            owner=my_owner,
             retention=1,
-            table_type="VIRTUAL_VIEW",
-            view_expanded_text="view_expanded_text_1",
-            view_original_text="view_original_text_1",
-            storage_descriptor=aws.glue.CatalogTableStorageDescriptorArgs(
-                bucket_columns=["bucket_column_1"],
-                compressed=False,
-                input_format="SequenceFileInputFormat",
-                location="my_location",
-                number_of_buckets=1,
-                output_format="SequenceFileInputFormat",
-                stored_as_sub_directories=False,
-                parameters={
-                    "param1": "param1_val",
+            table_type=VIRTUAL_VIEW,
+            view_expanded_text=view_expanded_text_1,
+            view_original_text=view_original_text_1,
+            storage_descriptor={
+                bucketColumns: [bucket_column_1],
+                compressed: False,
+                inputFormat: SequenceFileInputFormat,
+                location: my_location,
+                numberOfBuckets: 1,
+                outputFormat: SequenceFileInputFormat,
+                storedAsSubDirectories: False,
+                parameters: {
+                    param1: param1_val,
                 },
-                columns=[
-                    aws.glue.CatalogTableStorageDescriptorColumnArgs(
-                        name="my_column_1",
-                        type="int",
-                        comment="my_column1_comment",
-                    ),
-                    aws.glue.CatalogTableStorageDescriptorColumnArgs(
-                        name="my_column_2",
-                        type="string",
-                        comment="my_column2_comment",
-                    ),
+                columns: [
+                    {
+                        name: my_column_1,
+                        type: int,
+                        comment: my_column1_comment,
+                    },
+                    {
+                        name: my_column_2,
+                        type: string,
+                        comment: my_column2_comment,
+                    },
                 ],
-                ser_de_info=aws.glue.CatalogTableStorageDescriptorSerDeInfoArgs(
-                    name="ser_de_name",
-                    parameters={
-                        "param1": "param_val_1",
+                serDeInfo: {
+                    name: ser_de_name,
+                    parameters: {
+                        param1: param_val_1,
                     },
-                    serialization_library="org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe",
-                ),
-                sort_columns=[aws.glue.CatalogTableStorageDescriptorSortColumnArgs(
-                    column="my_column_1",
-                    sort_order=1,
-                )],
-                skewed_info=aws.glue.CatalogTableStorageDescriptorSkewedInfoArgs(
-                    skewed_column_names=["my_column_1"],
-                    skewed_column_value_location_maps={
-                        "my_column_1": "my_column_1_val_loc_map",
+                    serializationLibrary: org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe,
+                },
+                sortColumns: [{
+                    column: my_column_1,
+                    sortOrder: 1,
+                }],
+                skewedInfo: {
+                    skewedColumnNames: [my_column_1],
+                    skewedColumnValueLocationMaps: {
+                        my_column_1: my_column_1_val_loc_map,
                     },
-                    skewed_column_values=["skewed_val_1"],
-                ),
-            ),
+                    skewedColumnValues: [skewed_val_1],
+                },
+            },
             partition_keys=[
-                aws.glue.CatalogTablePartitionKeyArgs(
-                    name="my_column_1",
-                    type="int",
-                    comment="my_column_1_comment",
-                ),
-                aws.glue.CatalogTablePartitionKeyArgs(
-                    name="my_column_2",
-                    type="string",
-                    comment="my_column_2_comment",
-                ),
+                {
+                    name: my_column_1,
+                    type: int,
+                    comment: my_column_1_comment,
+                },
+                {
+                    name: my_column_2,
+                    type: string,
+                    comment: my_column_2_comment,
+                },
             ],
             parameters={
-                "param1": "param1_val",
+                param1: param1_val,
             })
-        test_ml_transform = aws.glue.MLTransform("testMLTransform",
-            role_arn=aws_iam_role["test"]["arn"],
-            input_record_tables=[aws.glue.MLTransformInputRecordTableArgs(
-                database_name=test_catalog_table.database_name,
-                table_name=test_catalog_table.name,
-            )],
-            parameters=aws.glue.MLTransformParametersArgs(
-                transform_type="FIND_MATCHES",
-                find_matches_parameters=aws.glue.MLTransformParametersFindMatchesParametersArgs(
-                    primary_key_column_name="my_column_1",
-                ),
-            ),
+        test_ml_transform = aws.glue.m_l_transform.MLTransform("testMLTransform",
+            role_arn=aws_iam_role.test.arn,
+            input_record_tables=[{
+                databaseName: test_catalog_table.database_name,
+                tableName: test_catalog_table.name,
+            }],
+            parameters={
+                transformType: FIND_MATCHES,
+                findMatchesParameters: {
+                    primaryKeyColumnName: my_column_1,
+                },
+            },
             opts=pulumi.ResourceOptions(depends_on=[aws_iam_role_policy_attachment["test"]]))
         ```
 

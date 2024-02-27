@@ -25,36 +25,6 @@ public final class KinesisFunctions {
      * 
      * For more details, see the [Amazon Kinesis Firehose Documentation](https://aws.amazon.com/documentation/firehose/).
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.kinesis.KinesisFunctions;
-     * import com.pulumi.aws.kinesis.inputs.GetFirehoseDeliveryStreamArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var stream = KinesisFunctions.getFirehoseDeliveryStream(GetFirehoseDeliveryStreamArgs.builder()
-     *             .name(&#34;stream-name&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetFirehoseDeliveryStreamResult> getFirehoseDeliveryStream(GetFirehoseDeliveryStreamArgs args) {
         return getFirehoseDeliveryStream(args, InvokeOptions.Empty);
@@ -63,36 +33,6 @@ public final class KinesisFunctions {
      * Use this data source to get information about a Kinesis Firehose Delivery Stream for use in other resources.
      * 
      * For more details, see the [Amazon Kinesis Firehose Documentation](https://aws.amazon.com/documentation/firehose/).
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.kinesis.KinesisFunctions;
-     * import com.pulumi.aws.kinesis.inputs.GetFirehoseDeliveryStreamArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var stream = KinesisFunctions.getFirehoseDeliveryStream(GetFirehoseDeliveryStreamArgs.builder()
-     *             .name(&#34;stream-name&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetFirehoseDeliveryStreamResult> getFirehoseDeliveryStreamPlain(GetFirehoseDeliveryStreamPlainArgs args) {
@@ -103,36 +43,6 @@ public final class KinesisFunctions {
      * 
      * For more details, see the [Amazon Kinesis Firehose Documentation](https://aws.amazon.com/documentation/firehose/).
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.kinesis.KinesisFunctions;
-     * import com.pulumi.aws.kinesis.inputs.GetFirehoseDeliveryStreamArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var stream = KinesisFunctions.getFirehoseDeliveryStream(GetFirehoseDeliveryStreamArgs.builder()
-     *             .name(&#34;stream-name&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetFirehoseDeliveryStreamResult> getFirehoseDeliveryStream(GetFirehoseDeliveryStreamArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:kinesis/getFirehoseDeliveryStream:getFirehoseDeliveryStream", TypeShape.of(GetFirehoseDeliveryStreamResult.class), args, Utilities.withVersion(options));
@@ -141,36 +51,6 @@ public final class KinesisFunctions {
      * Use this data source to get information about a Kinesis Firehose Delivery Stream for use in other resources.
      * 
      * For more details, see the [Amazon Kinesis Firehose Documentation](https://aws.amazon.com/documentation/firehose/).
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.kinesis.KinesisFunctions;
-     * import com.pulumi.aws.kinesis.inputs.GetFirehoseDeliveryStreamArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var stream = KinesisFunctions.getFirehoseDeliveryStream(GetFirehoseDeliveryStreamArgs.builder()
-     *             .name(&#34;stream-name&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetFirehoseDeliveryStreamResult> getFirehoseDeliveryStreamPlain(GetFirehoseDeliveryStreamPlainArgs args, InvokeOptions options) {
@@ -182,36 +62,6 @@ public final class KinesisFunctions {
      * 
      * For more details, see the [Amazon Kinesis Documentation](https://aws.amazon.com/documentation/kinesis/).
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.kinesis.KinesisFunctions;
-     * import com.pulumi.aws.kinesis.inputs.GetStreamArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var stream = KinesisFunctions.getStream(GetStreamArgs.builder()
-     *             .name(&#34;stream-name&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetStreamResult> getStream(GetStreamArgs args) {
         return getStream(args, InvokeOptions.Empty);
@@ -221,36 +71,6 @@ public final class KinesisFunctions {
      * resources.
      * 
      * For more details, see the [Amazon Kinesis Documentation](https://aws.amazon.com/documentation/kinesis/).
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.kinesis.KinesisFunctions;
-     * import com.pulumi.aws.kinesis.inputs.GetStreamArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var stream = KinesisFunctions.getStream(GetStreamArgs.builder()
-     *             .name(&#34;stream-name&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetStreamResult> getStreamPlain(GetStreamPlainArgs args) {
@@ -262,36 +82,6 @@ public final class KinesisFunctions {
      * 
      * For more details, see the [Amazon Kinesis Documentation](https://aws.amazon.com/documentation/kinesis/).
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.kinesis.KinesisFunctions;
-     * import com.pulumi.aws.kinesis.inputs.GetStreamArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var stream = KinesisFunctions.getStream(GetStreamArgs.builder()
-     *             .name(&#34;stream-name&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetStreamResult> getStream(GetStreamArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:kinesis/getStream:getStream", TypeShape.of(GetStreamResult.class), args, Utilities.withVersion(options));
@@ -302,36 +92,6 @@ public final class KinesisFunctions {
      * 
      * For more details, see the [Amazon Kinesis Documentation](https://aws.amazon.com/documentation/kinesis/).
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.kinesis.KinesisFunctions;
-     * import com.pulumi.aws.kinesis.inputs.GetStreamArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var stream = KinesisFunctions.getStream(GetStreamArgs.builder()
-     *             .name(&#34;stream-name&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static CompletableFuture<GetStreamResult> getStreamPlain(GetStreamPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:kinesis/getStream:getStream", TypeShape.of(GetStreamResult.class), args, Utilities.withVersion(options));
@@ -340,37 +100,6 @@ public final class KinesisFunctions {
      * Provides details about a Kinesis Stream Consumer.
      * 
      * For more details, see the [Amazon Kinesis Stream Consumer Documentation](https://docs.aws.amazon.com/streams/latest/dev/amazon-kinesis-consumers.html).
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.kinesis.KinesisFunctions;
-     * import com.pulumi.aws.kinesis.inputs.GetStreamConsumerArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = KinesisFunctions.getStreamConsumer(GetStreamConsumerArgs.builder()
-     *             .name(&#34;example-consumer&#34;)
-     *             .streamArn(aws_kinesis_stream.example().arn())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetStreamConsumerResult> getStreamConsumer(GetStreamConsumerArgs args) {
@@ -381,37 +110,6 @@ public final class KinesisFunctions {
      * 
      * For more details, see the [Amazon Kinesis Stream Consumer Documentation](https://docs.aws.amazon.com/streams/latest/dev/amazon-kinesis-consumers.html).
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.kinesis.KinesisFunctions;
-     * import com.pulumi.aws.kinesis.inputs.GetStreamConsumerArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = KinesisFunctions.getStreamConsumer(GetStreamConsumerArgs.builder()
-     *             .name(&#34;example-consumer&#34;)
-     *             .streamArn(aws_kinesis_stream.example().arn())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static CompletableFuture<GetStreamConsumerResult> getStreamConsumerPlain(GetStreamConsumerPlainArgs args) {
         return getStreamConsumerPlain(args, InvokeOptions.Empty);
@@ -421,37 +119,6 @@ public final class KinesisFunctions {
      * 
      * For more details, see the [Amazon Kinesis Stream Consumer Documentation](https://docs.aws.amazon.com/streams/latest/dev/amazon-kinesis-consumers.html).
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.kinesis.KinesisFunctions;
-     * import com.pulumi.aws.kinesis.inputs.GetStreamConsumerArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = KinesisFunctions.getStreamConsumer(GetStreamConsumerArgs.builder()
-     *             .name(&#34;example-consumer&#34;)
-     *             .streamArn(aws_kinesis_stream.example().arn())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetStreamConsumerResult> getStreamConsumer(GetStreamConsumerArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:kinesis/getStreamConsumer:getStreamConsumer", TypeShape.of(GetStreamConsumerResult.class), args, Utilities.withVersion(options));
@@ -460,37 +127,6 @@ public final class KinesisFunctions {
      * Provides details about a Kinesis Stream Consumer.
      * 
      * For more details, see the [Amazon Kinesis Stream Consumer Documentation](https://docs.aws.amazon.com/streams/latest/dev/amazon-kinesis-consumers.html).
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.kinesis.KinesisFunctions;
-     * import com.pulumi.aws.kinesis.inputs.GetStreamConsumerArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = KinesisFunctions.getStreamConsumer(GetStreamConsumerArgs.builder()
-     *             .name(&#34;example-consumer&#34;)
-     *             .streamArn(aws_kinesis_stream.example().arn())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetStreamConsumerResult> getStreamConsumerPlain(GetStreamConsumerPlainArgs args, InvokeOptions options) {

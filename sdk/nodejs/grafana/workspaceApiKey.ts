@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const key = new aws.grafana.WorkspaceApiKey("key", {
+ * const key = new aws.grafana/workspaceApiKey.WorkspaceApiKey("key", {
  *     keyName: "test-key",
  *     keyRole: "VIEWER",
  *     secondsToLive: 3600,

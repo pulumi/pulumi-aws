@@ -25,20 +25,20 @@ namespace Pulumi.Aws.Glue
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Glue.Classifier("example", new()
+    ///     var example = new Aws.Glue.Classifier.Classifier("example", new()
     ///     {
-    ///         CsvClassifier = new Aws.Glue.Inputs.ClassifierCsvClassifierArgs
+    ///         CsvClassifier = 
     ///         {
-    ///             AllowSingleColumn = false,
-    ///             ContainsHeader = "PRESENT",
-    ///             Delimiter = ",",
-    ///             DisableValueTrimming = false,
-    ///             Headers = new[]
+    ///             { "allowSingleColumn", false },
+    ///             { "containsHeader", "PRESENT" },
+    ///             { "delimiter", "," },
+    ///             { "disableValueTrimming", false },
+    ///             { "headers", new[]
     ///             {
     ///                 "example1",
     ///                 "example2",
-    ///             },
-    ///             QuoteSymbol = "'",
+    ///             } },
+    ///             { "quoteSymbol", "'" },
     ///         },
     ///     });
     /// 
@@ -54,12 +54,12 @@ namespace Pulumi.Aws.Glue
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Glue.Classifier("example", new()
+    ///     var example = new Aws.Glue.Classifier.Classifier("example", new()
     ///     {
-    ///         GrokClassifier = new Aws.Glue.Inputs.ClassifierGrokClassifierArgs
+    ///         GrokClassifier = 
     ///         {
-    ///             Classification = "example",
-    ///             GrokPattern = "example",
+    ///             { "classification", "example" },
+    ///             { "grokPattern", "example" },
     ///         },
     ///     });
     /// 
@@ -75,11 +75,11 @@ namespace Pulumi.Aws.Glue
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Glue.Classifier("example", new()
+    ///     var example = new Aws.Glue.Classifier.Classifier("example", new()
     ///     {
-    ///         JsonClassifier = new Aws.Glue.Inputs.ClassifierJsonClassifierArgs
+    ///         JsonClassifier = 
     ///         {
-    ///             JsonPath = "example",
+    ///             { "jsonPath", "example" },
     ///         },
     ///     });
     /// 
@@ -95,12 +95,12 @@ namespace Pulumi.Aws.Glue
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Glue.Classifier("example", new()
+    ///     var example = new Aws.Glue.Classifier.Classifier("example", new()
     ///     {
-    ///         XmlClassifier = new Aws.Glue.Inputs.ClassifierXmlClassifierArgs
+    ///         XmlClassifier = 
     ///         {
-    ///             Classification = "example",
-    ///             RowTag = "example",
+    ///             { "classification", "example" },
+    ///             { "rowTag", "example" },
     ///         },
     ///     });
     /// 

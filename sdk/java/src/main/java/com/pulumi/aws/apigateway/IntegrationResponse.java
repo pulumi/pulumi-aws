@@ -89,13 +89,7 @@ import javax.annotation.Nullable;
  *             .resourceId(myDemoResource.id())
  *             .httpMethod(myDemoMethod.httpMethod())
  *             .statusCode(response200.statusCode())
- *             .responseTemplates(Map.of(&#34;application/xml&#34;, &#34;&#34;&#34;
- * #set($inputRoot = $input.path(&#39;$&#39;))
- * &lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;
- * &lt;message&gt;
- *     $inputRoot.body
- * &lt;/message&gt;
- *             &#34;&#34;&#34;))
+ *             .responseTemplates(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

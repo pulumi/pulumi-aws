@@ -23,7 +23,7 @@ namespace Pulumi.Aws.Organizations
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var account = new Aws.Organizations.PolicyAttachment("account", new()
+    ///     var account = new Aws.Organizations.PolicyAttachment.PolicyAttachment("account", new()
     ///     {
     ///         PolicyId = aws_organizations_policy.Example.Id,
     ///         TargetId = "123456789012",
@@ -41,7 +41,7 @@ namespace Pulumi.Aws.Organizations
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var root = new Aws.Organizations.PolicyAttachment("root", new()
+    ///     var root = new Aws.Organizations.PolicyAttachment.PolicyAttachment("root", new()
     ///     {
     ///         PolicyId = aws_organizations_policy.Example.Id,
     ///         TargetId = aws_organizations_organization.Example.Roots[0].Id,
@@ -59,7 +59,7 @@ namespace Pulumi.Aws.Organizations
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var unit = new Aws.Organizations.PolicyAttachment("unit", new()
+    ///     var unit = new Aws.Organizations.PolicyAttachment.PolicyAttachment("unit", new()
     ///     {
     ///         PolicyId = aws_organizations_policy.Example.Id,
     ///         TargetId = aws_organizations_organizational_unit.Example.Id,

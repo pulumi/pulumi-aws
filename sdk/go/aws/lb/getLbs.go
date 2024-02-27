@@ -15,33 +15,6 @@ import (
 // resources.
 //
 // ## Example Usage
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lb"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lb.GetLbs(ctx, &lb.GetLbsArgs{
-//				Tags: map[string]interface{}{
-//					"elbv2.k8s.aws/cluster": "my-cluster",
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetLbs(ctx *pulumi.Context, args *GetLbsArgs, opts ...pulumi.InvokeOption) (*GetLbsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetLbsResult

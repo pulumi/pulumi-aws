@@ -26,38 +26,38 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	ec2/vpc "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/vpc"
+//	ec2/vpnGateway "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/vpnGateway"
+//	ec2/vpnGatewayAttachment "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/vpnGatewayAttachment"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			network, err := ec2.NewVpc(ctx, "network", &ec2.VpcArgs{
-//				CidrBlock: pulumi.String("10.0.0.0/16"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			vpn, err := ec2.NewVpnGateway(ctx, "vpn", &ec2.VpnGatewayArgs{
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("example-vpn-gateway"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ec2.NewVpnGatewayAttachment(ctx, "vpnAttachment", &ec2.VpnGatewayAttachmentArgs{
-//				VpcId:        network.ID(),
-//				VpnGatewayId: vpn.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// network, err := ec2/vpc.NewVpc(ctx, "network", &ec2/vpc.VpcArgs{
+// CidrBlock: "10.0.0.0/16",
+// })
+// if err != nil {
+// return err
+// }
+// vpn, err := ec2/vpnGateway.NewVpnGateway(ctx, "vpn", &ec2/vpnGateway.VpnGatewayArgs{
+// Tags: map[string]interface{}{
+// "Name": "example-vpn-gateway",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = ec2/vpnGatewayAttachment.NewVpnGatewayAttachment(ctx, "vpnAttachment", &ec2/vpnGatewayAttachment.VpnGatewayAttachmentArgs{
+// VpcId: network.Id,
+// VpnGatewayId: vpn.Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // See [Virtual Private Cloud](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Introduction.html)

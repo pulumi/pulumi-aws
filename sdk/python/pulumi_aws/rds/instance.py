@@ -2780,60 +2780,16 @@ class Instance(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        default = aws.rds.Instance("default",
+        default = aws.rds.instance.Instance("default",
             allocated_storage=10,
-            db_name="mydb",
-            engine="mysql",
-            engine_version="5.7",
-            instance_class="db.t3.micro",
-            parameter_group_name="default.mysql5.7",
-            password="foobarbaz",
+            db_name=mydb,
+            engine=mysql,
+            engine_version=5.7,
+            instance_class=db.t3.micro,
+            parameter_group_name=default.mysql5.7,
+            password=foobarbaz,
             skip_final_snapshot=True,
-            username="foo")
-        ```
-        ### RDS Db2 Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        default = aws.rds.get_engine_version(engine="db2-se")
-        example_orderable_db_instance = aws.rds.get_orderable_db_instance(engine=default.engine,
-            engine_version=default.version,
-            license_model="bring-your-own-license",
-            storage_type="gp3",
-            preferred_instance_classes=[
-                "db.t3.small",
-                "db.r6i.large",
-                "db.m6i.large",
-            ])
-        # The RDS Db2 instance resource requires licensing information. Create a new parameter group using the default paramater group as a source, and set license information.
-        example_parameter_group = aws.rds.ParameterGroup("exampleParameterGroup",
-            family=default.parameter_group_family,
-            parameters=[
-                aws.rds.ParameterGroupParameterArgs(
-                    apply_method="immediate",
-                    name="rds.ibm_customer_id",
-                    value="0",
-                ),
-                aws.rds.ParameterGroupParameterArgs(
-                    apply_method="immediate",
-                    name="rds.ibm_site_id",
-                    value="0",
-                ),
-            ])
-        # Create the RDS Db2 instance, use the data sources defined to set attributes
-        example_instance = aws.rds.Instance("exampleInstance",
-            allocated_storage=100,
-            backup_retention_period=7,
-            db_name="test",
-            engine=example_orderable_db_instance.engine,
-            engine_version=example_orderable_db_instance.engine_version,
-            identifier="db2-instance-demo",
-            instance_class=example_orderable_db_instance.instance_class.apply(lambda x: aws.rds/instancetype.InstanceType(x)),
-            parameter_group_name=example_parameter_group.name,
-            password="avoid-plaintext-passwords",
-            username="test")
+            username=foo)
         ```
         ### Storage Autoscaling
 
@@ -2843,7 +2799,7 @@ class Instance(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.rds.Instance("example",
+        example = aws.rds.instance.Instance("example",
             allocated_storage=50,
             max_allocated_storage=100)
         ```
@@ -2857,15 +2813,15 @@ class Instance(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        default = aws.rds.Instance("default",
+        default = aws.rds.instance.Instance("default",
             allocated_storage=10,
-            db_name="mydb",
-            engine="mysql",
-            engine_version="5.7",
-            instance_class="db.t3.micro",
+            db_name=mydb,
+            engine=mysql,
+            engine_version=5.7,
+            instance_class=db.t3.micro,
             manage_master_user_password=True,
-            parameter_group_name="default.mysql5.7",
-            username="foo")
+            parameter_group_name=default.mysql5.7,
+            username=foo)
         ```
         ### Managed Master Passwords via Secrets Manager, specific KMS Key
 
@@ -2877,17 +2833,17 @@ class Instance(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.kms.Key("example", description="Example KMS Key")
-        default = aws.rds.Instance("default",
+        example = aws.kms.key.Key("example", description=Example KMS Key)
+        default = aws.rds.instance.Instance("default",
             allocated_storage=10,
-            db_name="mydb",
-            engine="mysql",
-            engine_version="5.7",
-            instance_class="db.t3.micro",
+            db_name=mydb,
+            engine=mysql,
+            engine_version=5.7,
+            instance_class=db.t3.micro,
             manage_master_user_password=True,
             master_user_secret_kms_key_id=example.key_id,
-            username="foo",
-            parameter_group_name="default.mysql5.7")
+            username=foo,
+            parameter_group_name=default.mysql5.7)
         ```
 
         ## Import
@@ -3098,60 +3054,16 @@ class Instance(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        default = aws.rds.Instance("default",
+        default = aws.rds.instance.Instance("default",
             allocated_storage=10,
-            db_name="mydb",
-            engine="mysql",
-            engine_version="5.7",
-            instance_class="db.t3.micro",
-            parameter_group_name="default.mysql5.7",
-            password="foobarbaz",
+            db_name=mydb,
+            engine=mysql,
+            engine_version=5.7,
+            instance_class=db.t3.micro,
+            parameter_group_name=default.mysql5.7,
+            password=foobarbaz,
             skip_final_snapshot=True,
-            username="foo")
-        ```
-        ### RDS Db2 Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        default = aws.rds.get_engine_version(engine="db2-se")
-        example_orderable_db_instance = aws.rds.get_orderable_db_instance(engine=default.engine,
-            engine_version=default.version,
-            license_model="bring-your-own-license",
-            storage_type="gp3",
-            preferred_instance_classes=[
-                "db.t3.small",
-                "db.r6i.large",
-                "db.m6i.large",
-            ])
-        # The RDS Db2 instance resource requires licensing information. Create a new parameter group using the default paramater group as a source, and set license information.
-        example_parameter_group = aws.rds.ParameterGroup("exampleParameterGroup",
-            family=default.parameter_group_family,
-            parameters=[
-                aws.rds.ParameterGroupParameterArgs(
-                    apply_method="immediate",
-                    name="rds.ibm_customer_id",
-                    value="0",
-                ),
-                aws.rds.ParameterGroupParameterArgs(
-                    apply_method="immediate",
-                    name="rds.ibm_site_id",
-                    value="0",
-                ),
-            ])
-        # Create the RDS Db2 instance, use the data sources defined to set attributes
-        example_instance = aws.rds.Instance("exampleInstance",
-            allocated_storage=100,
-            backup_retention_period=7,
-            db_name="test",
-            engine=example_orderable_db_instance.engine,
-            engine_version=example_orderable_db_instance.engine_version,
-            identifier="db2-instance-demo",
-            instance_class=example_orderable_db_instance.instance_class.apply(lambda x: aws.rds/instancetype.InstanceType(x)),
-            parameter_group_name=example_parameter_group.name,
-            password="avoid-plaintext-passwords",
-            username="test")
+            username=foo)
         ```
         ### Storage Autoscaling
 
@@ -3161,7 +3073,7 @@ class Instance(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.rds.Instance("example",
+        example = aws.rds.instance.Instance("example",
             allocated_storage=50,
             max_allocated_storage=100)
         ```
@@ -3175,15 +3087,15 @@ class Instance(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        default = aws.rds.Instance("default",
+        default = aws.rds.instance.Instance("default",
             allocated_storage=10,
-            db_name="mydb",
-            engine="mysql",
-            engine_version="5.7",
-            instance_class="db.t3.micro",
+            db_name=mydb,
+            engine=mysql,
+            engine_version=5.7,
+            instance_class=db.t3.micro,
             manage_master_user_password=True,
-            parameter_group_name="default.mysql5.7",
-            username="foo")
+            parameter_group_name=default.mysql5.7,
+            username=foo)
         ```
         ### Managed Master Passwords via Secrets Manager, specific KMS Key
 
@@ -3195,17 +3107,17 @@ class Instance(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.kms.Key("example", description="Example KMS Key")
-        default = aws.rds.Instance("default",
+        example = aws.kms.key.Key("example", description=Example KMS Key)
+        default = aws.rds.instance.Instance("default",
             allocated_storage=10,
-            db_name="mydb",
-            engine="mysql",
-            engine_version="5.7",
-            instance_class="db.t3.micro",
+            db_name=mydb,
+            engine=mysql,
+            engine_version=5.7,
+            instance_class=db.t3.micro,
             manage_master_user_password=True,
             master_user_secret_kms_key_id=example.key_id,
-            username="foo",
-            parameter_group_name="default.mysql5.7")
+            username=foo,
+            parameter_group_name=default.mysql5.7)
         ```
 
         ## Import

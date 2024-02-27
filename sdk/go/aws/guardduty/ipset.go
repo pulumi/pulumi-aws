@@ -25,56 +25,53 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/guardduty"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	guardduty/detector "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/guardduty/detector"
+//	guardduty/iPSet "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/guardduty/iPSet"
+//	s3/bucketAclV2 "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/s3/bucketAclV2"
+//	s3/bucketObjectv2 "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/s3/bucketObjectv2"
+//	s3/bucketV2 "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/s3/bucketV2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			primary, err := guardduty.NewDetector(ctx, "primary", &guardduty.DetectorArgs{
-//				Enable: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			bucket, err := s3.NewBucketV2(ctx, "bucket", nil)
-//			if err != nil {
-//				return err
-//			}
-//			myIPSet, err := s3.NewBucketObjectv2(ctx, "myIPSet", &s3.BucketObjectv2Args{
-//				Content: pulumi.String("10.0.0.0/8\n"),
-//				Bucket:  bucket.ID(),
-//				Key:     pulumi.String("MyIPSet"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = guardduty.NewIPSet(ctx, "example", &guardduty.IPSetArgs{
-//				Activate:   pulumi.Bool(true),
-//				DetectorId: primary.ID(),
-//				Format:     pulumi.String("TXT"),
-//				Location: pulumi.All(myIPSet.Bucket, myIPSet.Key).ApplyT(func(_args []interface{}) (string, error) {
-//					bucket := _args[0].(string)
-//					key := _args[1].(string)
-//					return fmt.Sprintf("https://s3.amazonaws.com/%v/%v", bucket, key), nil
-//				}).(pulumi.StringOutput),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = s3.NewBucketAclV2(ctx, "bucketAcl", &s3.BucketAclV2Args{
-//				Bucket: bucket.ID(),
-//				Acl:    pulumi.String("private"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// primary, err := guardduty/detector.NewDetector(ctx, "primary", &guardduty/detector.DetectorArgs{
+// Enable: true,
+// })
+// if err != nil {
+// return err
+// }
+// bucket, err := s3/bucketV2.NewBucketV2(ctx, "bucket", nil)
+// if err != nil {
+// return err
+// }
+// myIPSet, err := s3/bucketObjectv2.NewBucketObjectv2(ctx, "myIPSet", &s3/bucketObjectv2.BucketObjectv2Args{
+// Content: "10.0.0.0/8\n",
+// Bucket: bucket.Id,
+// Key: "MyIPSet",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = guardduty/iPSet.NewIPSet(ctx, "example", &guardduty/iPSet.IPSetArgs{
+// Activate: true,
+// DetectorId: primary.Id,
+// Format: "TXT",
+// Location: fmt.Sprintf("https://s3.amazonaws.com/%v/%v", myIPSet.Bucket, myIPSet.Key),
+// })
+// if err != nil {
+// return err
+// }
+// _, err = s3/bucketAclV2.NewBucketAclV2(ctx, "bucketAcl", &s3/bucketAclV2.BucketAclV2Args{
+// Bucket: bucket.Id,
+// Acl: "private",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

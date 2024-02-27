@@ -133,29 +133,6 @@ class IdentityPolicy(pulumi.CustomResource):
         """
         Manages a SES Identity Policy. More information about SES Sending Authorization Policies can be found in the [SES Developer Guide](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization-policies.html).
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_domain_identity = aws.ses.DomainIdentity("exampleDomainIdentity", domain="example.com")
-        example_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            actions=[
-                "SES:SendEmail",
-                "SES:SendRawEmail",
-            ],
-            resources=[example_domain_identity.arn],
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                identifiers=["*"],
-                type="AWS",
-            )],
-        )])
-        example_identity_policy = aws.ses.IdentityPolicy("exampleIdentityPolicy",
-            identity=example_domain_identity.arn,
-            policy=example_policy_document.json)
-        ```
-
         ## Import
 
         Using `pulumi import`, import SES Identity Policies using the identity and policy name, separated by a pipe character (`|`). For example:
@@ -178,29 +155,6 @@ class IdentityPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a SES Identity Policy. More information about SES Sending Authorization Policies can be found in the [SES Developer Guide](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization-policies.html).
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_domain_identity = aws.ses.DomainIdentity("exampleDomainIdentity", domain="example.com")
-        example_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            actions=[
-                "SES:SendEmail",
-                "SES:SendRawEmail",
-            ],
-            resources=[example_domain_identity.arn],
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                identifiers=["*"],
-                type="AWS",
-            )],
-        )])
-        example_identity_policy = aws.ses.IdentityPolicy("exampleIdentityPolicy",
-            identity=example_domain_identity.arn,
-            policy=example_policy_document.json)
-        ```
 
         ## Import
 

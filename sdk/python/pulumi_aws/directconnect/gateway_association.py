@@ -308,10 +308,10 @@ class GatewayAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_gateway = aws.directconnect.Gateway("exampleGateway", amazon_side_asn="64512")
-        example_vpc = aws.ec2.Vpc("exampleVpc", cidr_block="10.255.255.0/28")
-        example_vpn_gateway = aws.ec2.VpnGateway("exampleVpnGateway", vpc_id=example_vpc.id)
-        example_gateway_association = aws.directconnect.GatewayAssociation("exampleGatewayAssociation",
+        example_gateway = aws.directconnect.gateway.Gateway("exampleGateway", amazon_side_asn=64512)
+        example_vpc = aws.ec2.vpc.Vpc("exampleVpc", cidr_block=10.255.255.0/28)
+        example_vpn_gateway = aws.ec2.vpn_gateway.VpnGateway("exampleVpnGateway", vpc_id=example_vpc.id)
+        example_gateway_association = aws.directconnect.gateway_association.GatewayAssociation("exampleGatewayAssociation",
             dx_gateway_id=example_gateway.id,
             associated_gateway_id=example_vpn_gateway.id)
         ```
@@ -321,14 +321,14 @@ class GatewayAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_gateway = aws.directconnect.Gateway("exampleGateway", amazon_side_asn="64512")
-        example_transit_gateway = aws.ec2transitgateway.TransitGateway("exampleTransitGateway")
-        example_gateway_association = aws.directconnect.GatewayAssociation("exampleGatewayAssociation",
+        example_gateway = aws.directconnect.gateway.Gateway("exampleGateway", amazon_side_asn=64512)
+        example_transit_gateway = aws.ec2transitgateway.transit_gateway.TransitGateway("exampleTransitGateway")
+        example_gateway_association = aws.directconnect.gateway_association.GatewayAssociation("exampleGatewayAssociation",
             dx_gateway_id=example_gateway.id,
             associated_gateway_id=example_transit_gateway.id,
             allowed_prefixes=[
-                "10.255.255.0/30",
-                "10.255.255.8/30",
+                10.255.255.0/30,
+                10.255.255.8/30,
             ])
         ```
         ### Allowed Prefixes
@@ -337,15 +337,15 @@ class GatewayAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_gateway = aws.directconnect.Gateway("exampleGateway", amazon_side_asn="64512")
-        example_vpc = aws.ec2.Vpc("exampleVpc", cidr_block="10.255.255.0/28")
-        example_vpn_gateway = aws.ec2.VpnGateway("exampleVpnGateway", vpc_id=example_vpc.id)
-        example_gateway_association = aws.directconnect.GatewayAssociation("exampleGatewayAssociation",
+        example_gateway = aws.directconnect.gateway.Gateway("exampleGateway", amazon_side_asn=64512)
+        example_vpc = aws.ec2.vpc.Vpc("exampleVpc", cidr_block=10.255.255.0/28)
+        example_vpn_gateway = aws.ec2.vpn_gateway.VpnGateway("exampleVpnGateway", vpc_id=example_vpc.id)
+        example_gateway_association = aws.directconnect.gateway_association.GatewayAssociation("exampleGatewayAssociation",
             dx_gateway_id=example_gateway.id,
             associated_gateway_id=example_vpn_gateway.id,
             allowed_prefixes=[
-                "210.52.109.0/24",
-                "175.45.176.0/22",
+                210.52.109.0/24,
+                175.45.176.0/22,
             ])
         ```
 
@@ -388,10 +388,10 @@ class GatewayAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_gateway = aws.directconnect.Gateway("exampleGateway", amazon_side_asn="64512")
-        example_vpc = aws.ec2.Vpc("exampleVpc", cidr_block="10.255.255.0/28")
-        example_vpn_gateway = aws.ec2.VpnGateway("exampleVpnGateway", vpc_id=example_vpc.id)
-        example_gateway_association = aws.directconnect.GatewayAssociation("exampleGatewayAssociation",
+        example_gateway = aws.directconnect.gateway.Gateway("exampleGateway", amazon_side_asn=64512)
+        example_vpc = aws.ec2.vpc.Vpc("exampleVpc", cidr_block=10.255.255.0/28)
+        example_vpn_gateway = aws.ec2.vpn_gateway.VpnGateway("exampleVpnGateway", vpc_id=example_vpc.id)
+        example_gateway_association = aws.directconnect.gateway_association.GatewayAssociation("exampleGatewayAssociation",
             dx_gateway_id=example_gateway.id,
             associated_gateway_id=example_vpn_gateway.id)
         ```
@@ -401,14 +401,14 @@ class GatewayAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_gateway = aws.directconnect.Gateway("exampleGateway", amazon_side_asn="64512")
-        example_transit_gateway = aws.ec2transitgateway.TransitGateway("exampleTransitGateway")
-        example_gateway_association = aws.directconnect.GatewayAssociation("exampleGatewayAssociation",
+        example_gateway = aws.directconnect.gateway.Gateway("exampleGateway", amazon_side_asn=64512)
+        example_transit_gateway = aws.ec2transitgateway.transit_gateway.TransitGateway("exampleTransitGateway")
+        example_gateway_association = aws.directconnect.gateway_association.GatewayAssociation("exampleGatewayAssociation",
             dx_gateway_id=example_gateway.id,
             associated_gateway_id=example_transit_gateway.id,
             allowed_prefixes=[
-                "10.255.255.0/30",
-                "10.255.255.8/30",
+                10.255.255.0/30,
+                10.255.255.8/30,
             ])
         ```
         ### Allowed Prefixes
@@ -417,15 +417,15 @@ class GatewayAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_gateway = aws.directconnect.Gateway("exampleGateway", amazon_side_asn="64512")
-        example_vpc = aws.ec2.Vpc("exampleVpc", cidr_block="10.255.255.0/28")
-        example_vpn_gateway = aws.ec2.VpnGateway("exampleVpnGateway", vpc_id=example_vpc.id)
-        example_gateway_association = aws.directconnect.GatewayAssociation("exampleGatewayAssociation",
+        example_gateway = aws.directconnect.gateway.Gateway("exampleGateway", amazon_side_asn=64512)
+        example_vpc = aws.ec2.vpc.Vpc("exampleVpc", cidr_block=10.255.255.0/28)
+        example_vpn_gateway = aws.ec2.vpn_gateway.VpnGateway("exampleVpnGateway", vpc_id=example_vpc.id)
+        example_gateway_association = aws.directconnect.gateway_association.GatewayAssociation("exampleGatewayAssociation",
             dx_gateway_id=example_gateway.id,
             associated_gateway_id=example_vpn_gateway.id,
             allowed_prefixes=[
-                "210.52.109.0/24",
-                "175.45.176.0/22",
+                210.52.109.0/24,
+                175.45.176.0/22,
             ])
         ```
 

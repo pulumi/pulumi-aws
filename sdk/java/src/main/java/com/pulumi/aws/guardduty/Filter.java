@@ -29,7 +29,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.guardduty.Filter;
  * import com.pulumi.aws.guardduty.FilterArgs;
- * import com.pulumi.aws.guardduty.inputs.FilterFindingCriteriaArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -47,28 +46,7 @@ import javax.annotation.Nullable;
  *             .action(&#34;ARCHIVE&#34;)
  *             .detectorId(aws_guardduty_detector.example().id())
  *             .rank(1)
- *             .findingCriteria(FilterFindingCriteriaArgs.builder()
- *                 .criterions(                
- *                     FilterFindingCriteriaCriterionArgs.builder()
- *                         .field(&#34;region&#34;)
- *                         .equals(&#34;eu-west-1&#34;)
- *                         .build(),
- *                     FilterFindingCriteriaCriterionArgs.builder()
- *                         .field(&#34;service.additionalInfo.threatListName&#34;)
- *                         .notEquals(                        
- *                             &#34;some-threat&#34;,
- *                             &#34;another-threat&#34;)
- *                         .build(),
- *                     FilterFindingCriteriaCriterionArgs.builder()
- *                         .field(&#34;updatedAt&#34;)
- *                         .greaterThan(&#34;2020-01-01T00:00:00Z&#34;)
- *                         .lessThan(&#34;2020-02-01T00:00:00Z&#34;)
- *                         .build(),
- *                     FilterFindingCriteriaCriterionArgs.builder()
- *                         .field(&#34;severity&#34;)
- *                         .greaterThanOrEqual(&#34;4&#34;)
- *                         .build())
- *                 .build())
+ *             .findingCriteria(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

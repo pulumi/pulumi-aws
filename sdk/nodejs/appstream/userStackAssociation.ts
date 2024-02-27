@@ -13,12 +13,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const testStack = new aws.appstream.Stack("testStack", {});
- * const testUser = new aws.appstream.User("testUser", {
+ * const testStack = new aws.appstream/stack.Stack("testStack", {});
+ * const testUser = new aws.appstream/user.User("testUser", {
  *     authenticationType: "USERPOOL",
  *     userName: "EMAIL",
  * });
- * const testUserStackAssociation = new aws.appstream.UserStackAssociation("testUserStackAssociation", {
+ * const testUserStackAssociation = new aws.appstream/userStackAssociation.UserStackAssociation("testUserStackAssociation", {
  *     authenticationType: testUser.authenticationType,
  *     stackName: testStack.name,
  *     userName: testUser.userName,

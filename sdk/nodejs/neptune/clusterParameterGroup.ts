@@ -16,12 +16,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.neptune.ClusterParameterGroup("example", {
+ * const example = new aws.neptune/clusterParameterGroup.ClusterParameterGroup("example", {
  *     description: "neptune cluster parameter group",
  *     family: "neptune1",
  *     parameters: [{
  *         name: "neptune_enable_audit_log",
- *         value: "1",
+ *         value: 1,
  *     }],
  * });
  * ```

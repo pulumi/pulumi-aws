@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.quicksight.GroupMembership("example", {
+ * const example = new aws.quicksight/groupMembership.GroupMembership("example", {
  *     groupName: "all-access-users",
  *     memberName: "john_smith",
  * });

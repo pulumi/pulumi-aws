@@ -22,29 +22,27 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/elasticache"
+//	elasticache/user "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/elasticache/user"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := elasticache.NewUser(ctx, "test", &elasticache.UserArgs{
-//				AccessString: pulumi.String("on ~app::* -@all +@read +@hash +@bitmap +@geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember"),
-//				Engine:       pulumi.String("REDIS"),
-//				Passwords: pulumi.StringArray{
-//					pulumi.String("password123456789"),
-//				},
-//				UserId:   pulumi.String("testUserId"),
-//				UserName: pulumi.String("testUserName"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := elasticache/user.NewUser(ctx, "test", &elasticache/user.UserArgs{
+// AccessString: "on ~app::* -@all +@read +@hash +@bitmap +@geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember",
+// Engine: "REDIS",
+// Passwords: []string{
+// "password123456789",
+// },
+// UserId: "testUserId",
+// UserName: "testUserName",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ```go
@@ -52,29 +50,27 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/elasticache"
+//	elasticache/user "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/elasticache/user"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := elasticache.NewUser(ctx, "test", &elasticache.UserArgs{
-//				AccessString: pulumi.String("on ~* +@all"),
-//				AuthenticationMode: &elasticache.UserAuthenticationModeArgs{
-//					Type: pulumi.String("iam"),
-//				},
-//				Engine:   pulumi.String("REDIS"),
-//				UserId:   pulumi.String("testUserId"),
-//				UserName: pulumi.String("testUserName"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := elasticache/user.NewUser(ctx, "test", &elasticache/user.UserArgs{
+// AccessString: "on ~* +@all",
+// AuthenticationMode: map[string]interface{}{
+// "type": "iam",
+// },
+// Engine: "REDIS",
+// UserId: "testUserId",
+// UserName: "testUserName",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ```go
@@ -82,33 +78,31 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/elasticache"
+//	elasticache/user "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/elasticache/user"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := elasticache.NewUser(ctx, "test", &elasticache.UserArgs{
-//				AccessString: pulumi.String("on ~* +@all"),
-//				AuthenticationMode: &elasticache.UserAuthenticationModeArgs{
-//					Passwords: pulumi.StringArray{
-//						pulumi.String("password1"),
-//						pulumi.String("password2"),
-//					},
-//					Type: pulumi.String("password"),
-//				},
-//				Engine:   pulumi.String("REDIS"),
-//				UserId:   pulumi.String("testUserId"),
-//				UserName: pulumi.String("testUserName"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := elasticache/user.NewUser(ctx, "test", &elasticache/user.UserArgs{
+// AccessString: "on ~* +@all",
+// AuthenticationMode: map[string]interface{}{
+// "passwords": []string{
+// "password1",
+// "password2",
+// },
+// "type": "password",
+// },
+// Engine: "REDIS",
+// UserId: "testUserId",
+// UserName: "testUserName",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

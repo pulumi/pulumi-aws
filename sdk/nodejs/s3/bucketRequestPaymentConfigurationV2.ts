@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.s3.BucketRequestPaymentConfigurationV2("example", {
+ * const example = new aws.s3/bucketRequestPaymentConfigurationV2.BucketRequestPaymentConfigurationV2("example", {
  *     bucket: aws_s3_bucket.example.id,
  *     payer: "Requester",
  * });

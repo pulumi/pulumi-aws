@@ -58,7 +58,7 @@ namespace Pulumi.Aws.Rds
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var @default = new Aws.Rds.Instance("default", new()
+    ///     var @default = new Aws.Rds.Instance.Instance("default", new()
     ///     {
     ///         AllocatedStorage = 10,
     ///         DbName = "mydb",
@@ -69,73 +69,6 @@ namespace Pulumi.Aws.Rds
     ///         Password = "foobarbaz",
     ///         SkipFinalSnapshot = true,
     ///         Username = "foo",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### RDS Db2 Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var @default = Aws.Rds.GetEngineVersion.Invoke(new()
-    ///     {
-    ///         Engine = "db2-se",
-    ///     });
-    /// 
-    ///     var exampleOrderableDbInstance = Aws.Rds.GetOrderableDbInstance.Invoke(new()
-    ///     {
-    ///         Engine = @default.Apply(getEngineVersionResult =&gt; getEngineVersionResult.Engine),
-    ///         EngineVersion = @default.Apply(getEngineVersionResult =&gt; getEngineVersionResult.Version),
-    ///         LicenseModel = "bring-your-own-license",
-    ///         StorageType = "gp3",
-    ///         PreferredInstanceClasses = new[]
-    ///         {
-    ///             "db.t3.small",
-    ///             "db.r6i.large",
-    ///             "db.m6i.large",
-    ///         },
-    ///     });
-    /// 
-    ///     // The RDS Db2 instance resource requires licensing information. Create a new parameter group using the default paramater group as a source, and set license information.
-    ///     var exampleParameterGroup = new Aws.Rds.ParameterGroup("exampleParameterGroup", new()
-    ///     {
-    ///         Family = @default.Apply(@default =&gt; @default.Apply(getEngineVersionResult =&gt; getEngineVersionResult.ParameterGroupFamily)),
-    ///         Parameters = new[]
-    ///         {
-    ///             new Aws.Rds.Inputs.ParameterGroupParameterArgs
-    ///             {
-    ///                 ApplyMethod = "immediate",
-    ///                 Name = "rds.ibm_customer_id",
-    ///                 Value = "0",
-    ///             },
-    ///             new Aws.Rds.Inputs.ParameterGroupParameterArgs
-    ///             {
-    ///                 ApplyMethod = "immediate",
-    ///                 Name = "rds.ibm_site_id",
-    ///                 Value = "0",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     // Create the RDS Db2 instance, use the data sources defined to set attributes
-    ///     var exampleInstance = new Aws.Rds.Instance("exampleInstance", new()
-    ///     {
-    ///         AllocatedStorage = 100,
-    ///         BackupRetentionPeriod = 7,
-    ///         DbName = "test",
-    ///         Engine = exampleOrderableDbInstance.Apply(getOrderableDbInstanceResult =&gt; getOrderableDbInstanceResult.Engine),
-    ///         EngineVersion = exampleOrderableDbInstance.Apply(getOrderableDbInstanceResult =&gt; getOrderableDbInstanceResult.EngineVersion),
-    ///         Identifier = "db2-instance-demo",
-    ///         InstanceClass = exampleOrderableDbInstance.Apply(getOrderableDbInstanceResult =&gt; getOrderableDbInstanceResult.InstanceClass).Apply(System.Enum.Parse&lt;Aws.Rds.InstanceType.InstanceType&gt;),
-    ///         ParameterGroupName = exampleParameterGroup.Name,
-    ///         Password = "avoid-plaintext-passwords",
-    ///         Username = "test",
     ///     });
     /// 
     /// });
@@ -152,7 +85,7 @@ namespace Pulumi.Aws.Rds
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Rds.Instance("example", new()
+    ///     var example = new Aws.Rds.Instance.Instance("example", new()
     ///     {
     ///         AllocatedStorage = 50,
     ///         MaxAllocatedStorage = 100,
@@ -174,7 +107,7 @@ namespace Pulumi.Aws.Rds
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var @default = new Aws.Rds.Instance("default", new()
+    ///     var @default = new Aws.Rds.Instance.Instance("default", new()
     ///     {
     ///         AllocatedStorage = 10,
     ///         DbName = "mydb",
@@ -202,12 +135,12 @@ namespace Pulumi.Aws.Rds
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Kms.Key("example", new()
+    ///     var example = new Aws.Kms.Key.Key("example", new()
     ///     {
     ///         Description = "Example KMS Key",
     ///     });
     /// 
-    ///     var @default = new Aws.Rds.Instance("default", new()
+    ///     var @default = new Aws.Rds.Instance.Instance("default", new()
     ///     {
     ///         AllocatedStorage = 10,
     ///         DbName = "mydb",

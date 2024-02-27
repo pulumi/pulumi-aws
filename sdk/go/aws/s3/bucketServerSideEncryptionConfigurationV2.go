@@ -25,43 +25,42 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kms"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	kms/key "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/kms/key"
+//	s3/bucketServerSideEncryptionConfigurationV2 "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/s3/bucketServerSideEncryptionConfigurationV2"
+//	s3/bucketV2 "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/s3/bucketV2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			mykey, err := kms.NewKey(ctx, "mykey", &kms.KeyArgs{
-//				Description:          pulumi.String("This key is used to encrypt bucket objects"),
-//				DeletionWindowInDays: pulumi.Int(10),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			mybucket, err := s3.NewBucketV2(ctx, "mybucket", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = s3.NewBucketServerSideEncryptionConfigurationV2(ctx, "example", &s3.BucketServerSideEncryptionConfigurationV2Args{
-//				Bucket: mybucket.ID(),
-//				Rules: s3.BucketServerSideEncryptionConfigurationV2RuleArray{
-//					&s3.BucketServerSideEncryptionConfigurationV2RuleArgs{
-//						ApplyServerSideEncryptionByDefault: &s3.BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultArgs{
-//							KmsMasterKeyId: mykey.Arn,
-//							SseAlgorithm:   pulumi.String("aws:kms"),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// mykey, err := kms/key.NewKey(ctx, "mykey", &kms/key.KeyArgs{
+// Description: "This key is used to encrypt bucket objects",
+// DeletionWindowInDays: 10,
+// })
+// if err != nil {
+// return err
+// }
+// mybucket, err := s3/bucketV2.NewBucketV2(ctx, "mybucket", nil)
+// if err != nil {
+// return err
+// }
+// _, err = s3/bucketServerSideEncryptionConfigurationV2.NewBucketServerSideEncryptionConfigurationV2(ctx, "example", &s3/bucketServerSideEncryptionConfigurationV2.BucketServerSideEncryptionConfigurationV2Args{
+// Bucket: mybucket.Id,
+// Rules: []map[string]interface{}{
+// map[string]interface{}{
+// "applyServerSideEncryptionByDefault": map[string]interface{}{
+// "kmsMasterKeyId": mykey.Arn,
+// "sseAlgorithm": "aws:kms",
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

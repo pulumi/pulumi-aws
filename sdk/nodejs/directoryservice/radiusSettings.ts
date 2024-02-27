@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.directoryservice.RadiusSettings("example", {
+ * const example = new aws.directoryservice/radiusSettings.RadiusSettings("example", {
  *     directoryId: aws_directory_service_directory.example.id,
  *     authenticationProtocol: "PAP",
  *     displayLabel: "example",

@@ -110,15 +110,15 @@ class GeoMatchSet(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        geo_match_set = aws.wafregional.GeoMatchSet("geoMatchSet", geo_match_constraints=[
-            aws.wafregional.GeoMatchSetGeoMatchConstraintArgs(
-                type="Country",
-                value="US",
-            ),
-            aws.wafregional.GeoMatchSetGeoMatchConstraintArgs(
-                type="Country",
-                value="CA",
-            ),
+        geo_match_set = aws.wafregional.geo_match_set.GeoMatchSet("geoMatchSet", geo_match_constraints=[
+            {
+                type: Country,
+                value: US,
+            },
+            {
+                type: Country,
+                value: CA,
+            },
         ])
         ```
 
@@ -150,15 +150,15 @@ class GeoMatchSet(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        geo_match_set = aws.wafregional.GeoMatchSet("geoMatchSet", geo_match_constraints=[
-            aws.wafregional.GeoMatchSetGeoMatchConstraintArgs(
-                type="Country",
-                value="US",
-            ),
-            aws.wafregional.GeoMatchSetGeoMatchConstraintArgs(
-                type="Country",
-                value="CA",
-            ),
+        geo_match_set = aws.wafregional.geo_match_set.GeoMatchSet("geoMatchSet", geo_match_constraints=[
+            {
+                type: Country,
+                value: US,
+            },
+            {
+                type: Country,
+                value: CA,
+            },
         ])
         ```
 

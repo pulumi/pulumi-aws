@@ -25,24 +25,22 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	ec2/networkAclAssociation "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/networkAclAssociation"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.NewNetworkAclAssociation(ctx, "main", &ec2.NetworkAclAssociationArgs{
-//				NetworkAclId: pulumi.Any(aws_network_acl.Main.Id),
-//				SubnetId:     pulumi.Any(aws_subnet.Main.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := ec2/networkAclAssociation.NewNetworkAclAssociation(ctx, "main", &ec2/networkAclAssociation.NetworkAclAssociationArgs{
+// NetworkAclId: aws_network_acl.Main.Id,
+// SubnetId: aws_subnet.Main.Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

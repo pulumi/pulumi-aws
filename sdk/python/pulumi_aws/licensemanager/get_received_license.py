@@ -228,17 +228,6 @@ def get_received_license(license_arn: Optional[str] = None,
     """
     This resource can be used to get data on a received license using an ARN. This can be helpful for pulling in data on a license from the AWS marketplace and sharing that license with another account.
 
-    ## Example Usage
-
-    The following shows getting the received license data using and ARN.
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.licensemanager.get_received_license(license_arn="arn:aws:license-manager::111111111111:license:l-ecbaa94eb71a4830b6d7e49268fecaa0")
-    ```
-
 
     :param str license_arn: The ARN of the received license you want data for.
     """
@@ -271,17 +260,6 @@ def get_received_license_output(license_arn: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetReceivedLicenseResult]:
     """
     This resource can be used to get data on a received license using an ARN. This can be helpful for pulling in data on a license from the AWS marketplace and sharing that license with another account.
-
-    ## Example Usage
-
-    The following shows getting the received license data using and ARN.
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.licensemanager.get_received_license(license_arn="arn:aws:license-manager::111111111111:license:l-ecbaa94eb71a4830b6d7e49268fecaa0")
-    ```
 
 
     :param str license_arn: The ARN of the received license you want data for.

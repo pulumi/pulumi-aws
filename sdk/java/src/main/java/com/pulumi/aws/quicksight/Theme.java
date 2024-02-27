@@ -24,7 +24,6 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * ### Basic Usage
- * 
  * ```java
  * package generated_program;
  * 
@@ -33,8 +32,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.quicksight.Theme;
  * import com.pulumi.aws.quicksight.ThemeArgs;
- * import com.pulumi.aws.quicksight.inputs.ThemeConfigurationArgs;
- * import com.pulumi.aws.quicksight.inputs.ThemeConfigurationDataColorPaletteArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -50,25 +47,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Theme(&#34;example&#34;, ThemeArgs.builder()        
  *             .baseThemeId(&#34;MIDNIGHT&#34;)
- *             .configuration(ThemeConfigurationArgs.builder()
- *                 .dataColorPalette(ThemeConfigurationDataColorPaletteArgs.builder()
- *                     .colors(                    
- *                         &#34;#FFFFFF&#34;,
- *                         &#34;#111111&#34;,
- *                         &#34;#222222&#34;,
- *                         &#34;#333333&#34;,
- *                         &#34;#444444&#34;,
- *                         &#34;#555555&#34;,
- *                         &#34;#666666&#34;,
- *                         &#34;#777777&#34;,
- *                         &#34;#888888&#34;,
- *                         &#34;#999999&#34;)
- *                     .emptyFillColor(&#34;#FFFFFF&#34;)
- *                     .minMaxGradient(                    
- *                         &#34;#FFFFFF&#34;,
- *                         &#34;#111111&#34;)
- *                     .build())
- *                 .build())
+ *             .configuration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .themeId(&#34;example&#34;)
  *             .build());
  * 

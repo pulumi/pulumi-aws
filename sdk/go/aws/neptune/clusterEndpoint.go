@@ -21,25 +21,23 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/neptune"
+//	neptune/clusterEndpoint "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/neptune/clusterEndpoint"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := neptune.NewClusterEndpoint(ctx, "example", &neptune.ClusterEndpointArgs{
-//				ClusterIdentifier:         pulumi.Any(aws_neptune_cluster.Test.Cluster_identifier),
-//				ClusterEndpointIdentifier: pulumi.String("example"),
-//				EndpointType:              pulumi.String("READER"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := neptune/clusterEndpoint.NewClusterEndpoint(ctx, "example", &neptune/clusterEndpoint.ClusterEndpointArgs{
+// ClusterIdentifier: aws_neptune_cluster.Test.Cluster_identifier,
+// ClusterEndpointIdentifier: "example",
+// EndpointType: "READER",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

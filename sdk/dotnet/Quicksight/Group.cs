@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Quicksight
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Quicksight.Group("example", new()
+    ///     var example = new Aws.Quicksight.Group.Group("example", new()
     ///     {
     ///         GroupName = "tf-example",
     ///     });

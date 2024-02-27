@@ -311,12 +311,12 @@ class PhoneNumber(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.connect.PhoneNumber("example",
-            target_arn=aws_connect_instance["example"]["arn"],
-            country_code="US",
-            type="DID",
+        example = aws.connect.phone_number.PhoneNumber("example",
+            target_arn=aws_connect_instance.example.arn,
+            country_code=US,
+            type=DID,
             tags={
-                "hello": "world",
+                hello: world,
             })
         ```
         ### Description
@@ -325,11 +325,11 @@ class PhoneNumber(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.connect.PhoneNumber("example",
-            target_arn=aws_connect_instance["example"]["arn"],
-            country_code="US",
-            type="DID",
-            description="example description")
+        example = aws.connect.phone_number.PhoneNumber("example",
+            target_arn=aws_connect_instance.example.arn,
+            country_code=US,
+            type=DID,
+            description=example description)
         ```
         ### Prefix to filter phone numbers
 
@@ -337,11 +337,11 @@ class PhoneNumber(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.connect.PhoneNumber("example",
-            target_arn=aws_connect_instance["example"]["arn"],
-            country_code="US",
-            type="DID",
-            prefix="+18005")
+        example = aws.connect.phone_number.PhoneNumber("example",
+            target_arn=aws_connect_instance.example.arn,
+            country_code=US,
+            type=DID,
+            prefix=+18005)
         ```
 
         ## Import
@@ -378,12 +378,12 @@ class PhoneNumber(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.connect.PhoneNumber("example",
-            target_arn=aws_connect_instance["example"]["arn"],
-            country_code="US",
-            type="DID",
+        example = aws.connect.phone_number.PhoneNumber("example",
+            target_arn=aws_connect_instance.example.arn,
+            country_code=US,
+            type=DID,
             tags={
-                "hello": "world",
+                hello: world,
             })
         ```
         ### Description
@@ -392,11 +392,11 @@ class PhoneNumber(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.connect.PhoneNumber("example",
-            target_arn=aws_connect_instance["example"]["arn"],
-            country_code="US",
-            type="DID",
-            description="example description")
+        example = aws.connect.phone_number.PhoneNumber("example",
+            target_arn=aws_connect_instance.example.arn,
+            country_code=US,
+            type=DID,
+            description=example description)
         ```
         ### Prefix to filter phone numbers
 
@@ -404,11 +404,11 @@ class PhoneNumber(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.connect.PhoneNumber("example",
-            target_arn=aws_connect_instance["example"]["arn"],
-            country_code="US",
-            type="DID",
-            prefix="+18005")
+        example = aws.connect.phone_number.PhoneNumber("example",
+            target_arn=aws_connect_instance.example.arn,
+            country_code=US,
+            type=DID,
+            prefix=+18005)
         ```
 
         ## Import

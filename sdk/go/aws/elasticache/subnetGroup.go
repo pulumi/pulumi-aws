@@ -21,46 +21,45 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/elasticache"
+//	ec2/subnet "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/subnet"
+//	ec2/vpc "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/vpc"
+//	elasticache/subnetGroup "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/elasticache/subnetGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			fooVpc, err := ec2.NewVpc(ctx, "fooVpc", &ec2.VpcArgs{
-//				CidrBlock: pulumi.String("10.0.0.0/16"),
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("tf-test"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			fooSubnet, err := ec2.NewSubnet(ctx, "fooSubnet", &ec2.SubnetArgs{
-//				VpcId:            fooVpc.ID(),
-//				CidrBlock:        pulumi.String("10.0.0.0/24"),
-//				AvailabilityZone: pulumi.String("us-west-2a"),
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("tf-test"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = elasticache.NewSubnetGroup(ctx, "bar", &elasticache.SubnetGroupArgs{
-//				SubnetIds: pulumi.StringArray{
-//					fooSubnet.ID(),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// fooVpc, err := ec2/vpc.NewVpc(ctx, "fooVpc", &ec2/vpc.VpcArgs{
+// CidrBlock: "10.0.0.0/16",
+// Tags: map[string]interface{}{
+// "Name": "tf-test",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// fooSubnet, err := ec2/subnet.NewSubnet(ctx, "fooSubnet", &ec2/subnet.SubnetArgs{
+// VpcId: fooVpc.Id,
+// CidrBlock: "10.0.0.0/24",
+// AvailabilityZone: "us-west-2a",
+// Tags: map[string]interface{}{
+// "Name": "tf-test",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = elasticache/subnetGroup.NewSubnetGroup(ctx, "bar", &elasticache/subnetGroup.SubnetGroupArgs{
+// SubnetIds: []interface{}{
+// fooSubnet.Id,
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

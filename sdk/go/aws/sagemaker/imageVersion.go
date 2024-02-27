@@ -22,24 +22,22 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sagemaker"
+//	sagemaker/imageVersion "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/sagemaker/imageVersion"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := sagemaker.NewImageVersion(ctx, "test", &sagemaker.ImageVersionArgs{
-//				ImageName: pulumi.Any(aws_sagemaker_image.Test.Id),
-//				BaseImage: pulumi.String("012345678912.dkr.ecr.us-west-2.amazonaws.com/image:latest"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := sagemaker/imageVersion.NewImageVersion(ctx, "test", &sagemaker/imageVersion.ImageVersionArgs{
+// ImageName: aws_sagemaker_image.Test.Id,
+// BaseImage: "012345678912.dkr.ecr.us-west-2.amazonaws.com/image:latest",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

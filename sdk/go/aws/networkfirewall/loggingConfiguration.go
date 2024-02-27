@@ -22,35 +22,33 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/networkfirewall"
+//	networkfirewall/loggingConfiguration "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/networkfirewall/loggingConfiguration"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := networkfirewall.NewLoggingConfiguration(ctx, "example", &networkfirewall.LoggingConfigurationArgs{
-//				FirewallArn: pulumi.Any(aws_networkfirewall_firewall.Example.Arn),
-//				LoggingConfiguration: &networkfirewall.LoggingConfigurationLoggingConfigurationArgs{
-//					LogDestinationConfigs: networkfirewall.LoggingConfigurationLoggingConfigurationLogDestinationConfigArray{
-//						&networkfirewall.LoggingConfigurationLoggingConfigurationLogDestinationConfigArgs{
-//							LogDestination: pulumi.StringMap{
-//								"bucketName": pulumi.Any(aws_s3_bucket.Example.Bucket),
-//								"prefix":     pulumi.String("/example"),
-//							},
-//							LogDestinationType: pulumi.String("S3"),
-//							LogType:            pulumi.String("FLOW"),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := networkfirewall/loggingConfiguration.NewLoggingConfiguration(ctx, "example", &networkfirewall/loggingConfiguration.LoggingConfigurationArgs{
+// FirewallArn: aws_networkfirewall_firewall.Example.Arn,
+// LoggingConfiguration: map[string]interface{}{
+// "logDestinationConfigs": []map[string]interface{}{
+// map[string]interface{}{
+// "logDestination": map[string]interface{}{
+// "bucketName": aws_s3_bucket.Example.Bucket,
+// "prefix": "/example",
+// },
+// "logDestinationType": "S3",
+// "logType": "FLOW",
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Logging to CloudWatch
 //
@@ -59,34 +57,32 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/networkfirewall"
+//	networkfirewall/loggingConfiguration "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/networkfirewall/loggingConfiguration"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := networkfirewall.NewLoggingConfiguration(ctx, "example", &networkfirewall.LoggingConfigurationArgs{
-//				FirewallArn: pulumi.Any(aws_networkfirewall_firewall.Example.Arn),
-//				LoggingConfiguration: &networkfirewall.LoggingConfigurationLoggingConfigurationArgs{
-//					LogDestinationConfigs: networkfirewall.LoggingConfigurationLoggingConfigurationLogDestinationConfigArray{
-//						&networkfirewall.LoggingConfigurationLoggingConfigurationLogDestinationConfigArgs{
-//							LogDestination: pulumi.StringMap{
-//								"logGroup": pulumi.Any(aws_cloudwatch_log_group.Example.Name),
-//							},
-//							LogDestinationType: pulumi.String("CloudWatchLogs"),
-//							LogType:            pulumi.String("ALERT"),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := networkfirewall/loggingConfiguration.NewLoggingConfiguration(ctx, "example", &networkfirewall/loggingConfiguration.LoggingConfigurationArgs{
+// FirewallArn: aws_networkfirewall_firewall.Example.Arn,
+// LoggingConfiguration: map[string]interface{}{
+// "logDestinationConfigs": []map[string]interface{}{
+// map[string]interface{}{
+// "logDestination": map[string]interface{}{
+// "logGroup": aws_cloudwatch_log_group.Example.Name,
+// },
+// "logDestinationType": "CloudWatchLogs",
+// "logType": "ALERT",
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Logging to Kinesis Data Firehose
 //
@@ -95,34 +91,32 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/networkfirewall"
+//	networkfirewall/loggingConfiguration "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/networkfirewall/loggingConfiguration"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := networkfirewall.NewLoggingConfiguration(ctx, "example", &networkfirewall.LoggingConfigurationArgs{
-//				FirewallArn: pulumi.Any(aws_networkfirewall_firewall.Example.Arn),
-//				LoggingConfiguration: &networkfirewall.LoggingConfigurationLoggingConfigurationArgs{
-//					LogDestinationConfigs: networkfirewall.LoggingConfigurationLoggingConfigurationLogDestinationConfigArray{
-//						&networkfirewall.LoggingConfigurationLoggingConfigurationLogDestinationConfigArgs{
-//							LogDestination: pulumi.StringMap{
-//								"deliveryStream": pulumi.Any(aws_kinesis_firehose_delivery_stream.Example.Name),
-//							},
-//							LogDestinationType: pulumi.String("KinesisDataFirehose"),
-//							LogType:            pulumi.String("ALERT"),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := networkfirewall/loggingConfiguration.NewLoggingConfiguration(ctx, "example", &networkfirewall/loggingConfiguration.LoggingConfigurationArgs{
+// FirewallArn: aws_networkfirewall_firewall.Example.Arn,
+// LoggingConfiguration: map[string]interface{}{
+// "logDestinationConfigs": []map[string]interface{}{
+// map[string]interface{}{
+// "logDestination": map[string]interface{}{
+// "deliveryStream": aws_kinesis_firehose_delivery_stream.Example.Name,
+// },
+// "logDestinationType": "KinesisDataFirehose",
+// "logType": "ALERT",
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

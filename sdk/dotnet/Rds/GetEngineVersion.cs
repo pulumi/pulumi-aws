@@ -16,62 +16,6 @@ namespace Pulumi.Aws.Rds
         /// 
         /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Aws.Rds.GetEngineVersion.Invoke(new()
-        ///     {
-        ///         Engine = "mysql",
-        ///         PreferredVersions = new[]
-        ///         {
-        ///             "8.0.27",
-        ///             "8.0.26",
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% example %}}
-        /// ### With `filter`
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Aws.Rds.GetEngineVersion.Invoke(new()
-        ///     {
-        ///         Engine = "aurora-postgresql",
-        ///         Filters = new[]
-        ///         {
-        ///             new Aws.Rds.Inputs.GetEngineVersionFilterInputArgs
-        ///             {
-        ///                 Name = "engine-mode",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "serverless",
-        ///                 },
-        ///             },
-        ///         },
-        ///         IncludeAll = true,
-        ///         Version = "10.14",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetEngineVersionResult> InvokeAsync(GetEngineVersionArgs args, InvokeOptions? options = null)
@@ -82,62 +26,6 @@ namespace Pulumi.Aws.Rds
         /// 
         /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Aws.Rds.GetEngineVersion.Invoke(new()
-        ///     {
-        ///         Engine = "mysql",
-        ///         PreferredVersions = new[]
-        ///         {
-        ///             "8.0.27",
-        ///             "8.0.26",
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% example %}}
-        /// ### With `filter`
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Aws.Rds.GetEngineVersion.Invoke(new()
-        ///     {
-        ///         Engine = "aurora-postgresql",
-        ///         Filters = new[]
-        ///         {
-        ///             new Aws.Rds.Inputs.GetEngineVersionFilterInputArgs
-        ///             {
-        ///                 Name = "engine-mode",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "serverless",
-        ///                 },
-        ///             },
-        ///         },
-        ///         IncludeAll = true,
-        ///         Version = "10.14",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetEngineVersionResult> Invoke(GetEngineVersionInvokeArgs args, InvokeOptions? options = null)

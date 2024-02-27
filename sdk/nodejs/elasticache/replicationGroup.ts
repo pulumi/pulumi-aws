@@ -38,7 +38,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.elasticache.ReplicationGroup("example", {
+ * const example = new aws.elasticache/replicationGroup.ReplicationGroup("example", {
  *     automaticFailoverEnabled: true,
  *     description: "example description",
  *     nodeType: "cache.m4.large",
@@ -61,7 +61,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.elasticache.ReplicationGroup("example", {
+ * const example = new aws.elasticache/replicationGroup.ReplicationGroup("example", {
  *     automaticFailoverEnabled: true,
  *     preferredCacheClusterAzs: [
  *         "us-west-2a",
@@ -73,9 +73,9 @@ import * as utilities from "../utilities";
  *     parameterGroupName: "default.redis3.2",
  *     port: 6379,
  * });
- * let replica: aws.elasticache.Cluster | undefined;
+ * let replica: aws.elasticache/cluster.Cluster | undefined;
  * if (1 == true) {
- *     replica = new aws.elasticache.Cluster("replica", {replicationGroupId: example.id});
+ *     replica = new aws.elasticache/cluster.Cluster("replica", {replicationGroupId: example.id});
  * }
  * ```
  * ### Redis Cluster Mode Enabled
@@ -86,7 +86,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const baz = new aws.elasticache.ReplicationGroup("baz", {
+ * const baz = new aws.elasticache/replicationGroup.ReplicationGroup("baz", {
  *     automaticFailoverEnabled: true,
  *     description: "example description",
  *     nodeType: "cache.t2.small",
@@ -102,7 +102,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = new aws.elasticache.ReplicationGroup("test", {
+ * const test = new aws.elasticache/replicationGroup.ReplicationGroup("test", {
  *     description: "test description",
  *     nodeType: "cache.t3.small",
  *     port: 6379,
@@ -140,7 +140,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const primary = new aws.elasticache.ReplicationGroup("primary", {
+ * const primary = new aws.elasticache/replicationGroup.ReplicationGroup("primary", {
  *     description: "primary replication group",
  *     engine: "redis",
  *     engineVersion: "5.0.6",
@@ -149,13 +149,13 @@ import * as utilities from "../utilities";
  * }, {
  *     provider: aws.other_region,
  * });
- * const example = new aws.elasticache.GlobalReplicationGroup("example", {
+ * const example = new aws.elasticache/globalReplicationGroup.GlobalReplicationGroup("example", {
  *     globalReplicationGroupIdSuffix: "example",
  *     primaryReplicationGroupId: primary.id,
  * }, {
  *     provider: aws.other_region,
  * });
- * const secondary = new aws.elasticache.ReplicationGroup("secondary", {
+ * const secondary = new aws.elasticache/replicationGroup.ReplicationGroup("secondary", {
  *     description: "secondary replication group",
  *     globalReplicationGroupId: example.globalReplicationGroupId,
  *     numCacheClusters: 1,
@@ -167,7 +167,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.elasticache.ReplicationGroup("example", {
+ * const example = new aws.elasticache/replicationGroup.ReplicationGroup("example", {
  *     description: "example with authentication",
  *     nodeType: "cache.t2.micro",
  *     numCacheClusters: 1,

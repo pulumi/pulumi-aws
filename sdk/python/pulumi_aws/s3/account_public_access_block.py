@@ -231,7 +231,7 @@ class AccountPublicAccessBlock(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.s3.AccountPublicAccessBlock("example",
+        example = aws.s3.account_public_access_block.AccountPublicAccessBlock("example",
             block_public_acls=True,
             block_public_policy=True)
         ```
@@ -276,7 +276,7 @@ class AccountPublicAccessBlock(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.s3.AccountPublicAccessBlock("example",
+        example = aws.s3.account_public_access_block.AccountPublicAccessBlock("example",
             block_public_acls=True,
             block_public_policy=True)
         ```

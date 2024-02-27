@@ -9,55 +9,6 @@ import * as utilities from "../utilities";
 
 /**
  * Creates and manages an AWS IoT CA Certificate.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * as tls from "@pulumi/tls";
- *
- * const caPrivateKey = new tls.PrivateKey("caPrivateKey", {algorithm: "RSA"});
- * const caSelfSignedCert = new tls.SelfSignedCert("caSelfSignedCert", {
- *     privateKeyPem: caPrivateKey.privateKeyPem,
- *     subject: {
- *         commonName: "example.com",
- *         organization: "ACME Examples, Inc",
- *     },
- *     validityPeriodHours: 12,
- *     allowedUses: [
- *         "key_encipherment",
- *         "digital_signature",
- *         "server_auth",
- *     ],
- *     isCaCertificate: true,
- * });
- * const verificationPrivateKey = new tls.PrivateKey("verificationPrivateKey", {algorithm: "RSA"});
- * const exampleRegistrationCode = aws.iot.getRegistrationCode({});
- * const verificationCertRequest = new tls.CertRequest("verificationCertRequest", {
- *     privateKeyPem: verificationPrivateKey.privateKeyPem,
- *     subject: {
- *         commonName: exampleRegistrationCode.then(exampleRegistrationCode => exampleRegistrationCode.registrationCode),
- *     },
- * });
- * const verificationLocallySignedCert = new tls.LocallySignedCert("verificationLocallySignedCert", {
- *     certRequestPem: verificationCertRequest.certRequestPem,
- *     caPrivateKeyPem: caPrivateKey.privateKeyPem,
- *     caCertPem: caSelfSignedCert.certPem,
- *     validityPeriodHours: 12,
- *     allowedUses: [
- *         "key_encipherment",
- *         "digital_signature",
- *         "server_auth",
- *     ],
- * });
- * const exampleCaCertificate = new aws.iot.CaCertificate("exampleCaCertificate", {
- *     active: true,
- *     caCertificatePem: caSelfSignedCert.certPem,
- *     verificationCertificatePem: verificationLocallySignedCert.certPem,
- *     allowAutoRegistration: true,
- * });
- * ```
  */
 export class CaCertificate extends pulumi.CustomResource {
     /**

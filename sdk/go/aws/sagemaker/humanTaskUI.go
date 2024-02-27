@@ -23,34 +23,33 @@ import (
 //
 //	"os"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sagemaker"
+//	sagemaker/humanTaskUI "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/sagemaker/humanTaskUI"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func readFileOrPanic(path string) pulumi.StringPtrInput {
-//		data, err := os.ReadFile(path)
-//		if err != nil {
-//			panic(err.Error())
-//		}
-//		return pulumi.String(string(data))
-//	}
+//					data, err := os.ReadFile(path)
+//					if err != nil {
+//						panic(err.Error())
+//					}
+//					return pulumi.String(string(data))
+//				}
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := sagemaker.NewHumanTaskUI(ctx, "example", &sagemaker.HumanTaskUIArgs{
-//				HumanTaskUiName: pulumi.String("example"),
-//				UiTemplate: &sagemaker.HumanTaskUIUiTemplateArgs{
-//					Content: readFileOrPanic("sagemaker-human-task-ui-template.html"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := sagemaker/humanTaskUI.NewHumanTaskUI(ctx, "example", &sagemaker/humanTaskUI.HumanTaskUIArgs{
+// HumanTaskUiName: "example",
+// UiTemplate: map[string]interface{}{
+// "content": readFileOrPanic("sagemaker-human-task-ui-template.html"),
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

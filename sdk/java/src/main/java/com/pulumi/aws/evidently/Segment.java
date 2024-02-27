@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Segment(&#34;example&#34;, SegmentArgs.builder()        
  *             .pattern(&#34;{\&#34;Price\&#34;:[{\&#34;numeric\&#34;:[\&#34;&gt;\&#34;,10,\&#34;&lt;=\&#34;,20]}]}&#34;)
- *             .tags(Map.of(&#34;Key1&#34;, &#34;example Segment&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -83,7 +83,7 @@ import javax.annotation.Nullable;
  *   }
  *   
  *             &#34;&#34;&#34;)
- *             .tags(Map.of(&#34;Key1&#34;, &#34;example Segment&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

@@ -8,24 +8,6 @@ import * as utilities from "../utilities";
  * Previews a CIDR from an IPAM address pool. Only works for private IPv4.
  *
  * > **NOTE:** This functionality is also encapsulated in a resource sharing the same name. The data source can be used when you need to use the cidr in a calculation of the same Root module, `count` for example. However, once a cidr range has been allocated that was previewed, the next refresh will find a **new** cidr and may force new resources downstream. Make sure to use `ignoreChanges` if this is undesirable.
- *
- * ## Example Usage
- *
- * Basic usage:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const testIpamPreviewNextCidr = aws.ec2.getIpamPreviewNextCidr({
- *     ipamPoolId: aws_vpc_ipam_pool.test.id,
- *     netmaskLength: 28,
- * });
- * const testVpcIpamPoolCidrAllocation = new aws.ec2.VpcIpamPoolCidrAllocation("testVpcIpamPoolCidrAllocation", {
- *     ipamPoolId: aws_vpc_ipam_pool.test.id,
- *     cidr: testIpamPreviewNextCidr.then(testIpamPreviewNextCidr => testIpamPreviewNextCidr.cidr),
- * });
- * ```
  */
 export function getIpamPreviewNextCidr(args: GetIpamPreviewNextCidrArgs, opts?: pulumi.InvokeOptions): Promise<GetIpamPreviewNextCidrResult> {
 
@@ -75,24 +57,6 @@ export interface GetIpamPreviewNextCidrResult {
  * Previews a CIDR from an IPAM address pool. Only works for private IPv4.
  *
  * > **NOTE:** This functionality is also encapsulated in a resource sharing the same name. The data source can be used when you need to use the cidr in a calculation of the same Root module, `count` for example. However, once a cidr range has been allocated that was previewed, the next refresh will find a **new** cidr and may force new resources downstream. Make sure to use `ignoreChanges` if this is undesirable.
- *
- * ## Example Usage
- *
- * Basic usage:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const testIpamPreviewNextCidr = aws.ec2.getIpamPreviewNextCidr({
- *     ipamPoolId: aws_vpc_ipam_pool.test.id,
- *     netmaskLength: 28,
- * });
- * const testVpcIpamPoolCidrAllocation = new aws.ec2.VpcIpamPoolCidrAllocation("testVpcIpamPoolCidrAllocation", {
- *     ipamPoolId: aws_vpc_ipam_pool.test.id,
- *     cidr: testIpamPreviewNextCidr.then(testIpamPreviewNextCidr => testIpamPreviewNextCidr.cidr),
- * });
- * ```
  */
 export function getIpamPreviewNextCidrOutput(args: GetIpamPreviewNextCidrOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIpamPreviewNextCidrResult> {
     return pulumi.output(args).apply((a: any) => getIpamPreviewNextCidr(a, opts))

@@ -153,16 +153,6 @@ def get_connection(connection_id: Optional[str] = None,
     """
     Retrieve information about a connection.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.networkmanager.get_connection(global_network_id=var["global_network_id"],
-        connection_id=var["connection_id"])
-    ```
-
 
     :param str connection_id: ID of the specific connection to retrieve.
     :param str global_network_id: ID of the Global Network of the connection to retrieve.
@@ -195,16 +185,6 @@ def get_connection_output(connection_id: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConnectionResult]:
     """
     Retrieve information about a connection.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.networkmanager.get_connection(global_network_id=var["global_network_id"],
-        connection_id=var["connection_id"])
-    ```
 
 
     :param str connection_id: ID of the specific connection to retrieve.

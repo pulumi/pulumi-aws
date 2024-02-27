@@ -13,56 +13,12 @@ namespace Pulumi.Aws.ServiceCatalog
     {
         /// <summary>
         /// Provides information for a Service Catalog Portfolio.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var portfolio = Aws.ServiceCatalog.GetPortfolio.Invoke(new()
-        ///     {
-        ///         Id = "port-07052002",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetPortfolioResult> InvokeAsync(GetPortfolioArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPortfolioResult>("aws:servicecatalog/getPortfolio:getPortfolio", args ?? new GetPortfolioArgs(), options.WithDefaults());
 
         /// <summary>
         /// Provides information for a Service Catalog Portfolio.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var portfolio = Aws.ServiceCatalog.GetPortfolio.Invoke(new()
-        ///     {
-        ///         Id = "port-07052002",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetPortfolioResult> Invoke(GetPortfolioInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPortfolioResult>("aws:servicecatalog/getPortfolio:getPortfolio", args ?? new GetPortfolioInvokeArgs(), options.WithDefaults());

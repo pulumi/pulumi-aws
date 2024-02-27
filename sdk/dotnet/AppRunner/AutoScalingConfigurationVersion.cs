@@ -22,7 +22,7 @@ namespace Pulumi.Aws.AppRunner
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.AppRunner.AutoScalingConfigurationVersion("example", new()
+    ///     var example = new Aws.Apprunner.AutoScalingConfigurationVersion.AutoScalingConfigurationVersion("example", new()
     ///     {
     ///         AutoScalingConfigurationName = "example",
     ///         MaxConcurrency = 50,

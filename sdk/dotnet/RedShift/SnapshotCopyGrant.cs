@@ -24,17 +24,17 @@ namespace Pulumi.Aws.RedShift
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testSnapshotCopyGrant = new Aws.RedShift.SnapshotCopyGrant("testSnapshotCopyGrant", new()
+    ///     var testSnapshotCopyGrant = new Aws.Redshift.SnapshotCopyGrant.SnapshotCopyGrant("testSnapshotCopyGrant", new()
     ///     {
     ///         SnapshotCopyGrantName = "my-grant",
     ///     });
     /// 
-    ///     var testCluster = new Aws.RedShift.Cluster("testCluster", new()
+    ///     var testCluster = new Aws.Redshift.Cluster.Cluster("testCluster", new()
     ///     {
-    ///         SnapshotCopy = new Aws.RedShift.Inputs.ClusterSnapshotCopyArgs
+    ///         SnapshotCopy = 
     ///         {
-    ///             DestinationRegion = "us-east-2",
-    ///             GrantName = testSnapshotCopyGrant.SnapshotCopyGrantName,
+    ///             { "destinationRegion", "us-east-2" },
+    ///             { "grantName", testSnapshotCopyGrant.SnapshotCopyGrantName },
     ///         },
     ///     });
     /// 

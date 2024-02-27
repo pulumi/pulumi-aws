@@ -30,7 +30,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.cleanrooms.ConfiguredTable;
  * import com.pulumi.aws.cleanrooms.ConfiguredTableArgs;
- * import com.pulumi.aws.cleanrooms.inputs.ConfiguredTableTableReferenceArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -51,11 +50,8 @@ import javax.annotation.Nullable;
  *                 &#34;column3&#34;)
  *             .analysisMethod(&#34;DIRECT_QUERY&#34;)
  *             .description(&#34;I made this table with Pulumi!&#34;)
- *             .tableReference(ConfiguredTableTableReferenceArgs.builder()
- *                 .databaseName(&#34;example_database&#34;)
- *                 .tableName(&#34;example_table&#34;)
- *                 .build())
- *             .tags(Map.of(&#34;Project&#34;, &#34;Pulumi&#34;))
+ *             .tableReference(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

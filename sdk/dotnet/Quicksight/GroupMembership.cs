@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Quicksight
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Quicksight.GroupMembership("example", new()
+    ///     var example = new Aws.Quicksight.GroupMembership.GroupMembership("example", new()
     ///     {
     ///         GroupName = "all-access-users",
     ///         MemberName = "john_smith",

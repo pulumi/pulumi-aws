@@ -342,15 +342,6 @@ def get_cluster(cluster_identifier: Optional[str] = None,
     """
     Provides information about an RDS cluster.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    cluster_name = aws.rds.get_cluster(cluster_identifier="clusterName")
-    ```
-
 
     :param str cluster_identifier: Cluster identifier of the RDS cluster.
     :param Mapping[str, str] tags: A map of tags assigned to the resource.
@@ -403,15 +394,6 @@ def get_cluster_output(cluster_identifier: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetClusterResult]:
     """
     Provides information about an RDS cluster.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    cluster_name = aws.rds.get_cluster(cluster_identifier="clusterName")
-    ```
 
 
     :param str cluster_identifier: Cluster identifier of the RDS cluster.

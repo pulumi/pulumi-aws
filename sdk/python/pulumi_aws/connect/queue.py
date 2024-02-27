@@ -395,12 +395,12 @@ class Queue(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.connect.Queue("test",
-            description="Example Description",
-            hours_of_operation_id="12345678-1234-1234-1234-123456789012",
-            instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
+        test = aws.connect.queue.Queue("test",
+            description=Example Description,
+            hours_of_operation_id=12345678-1234-1234-1234-123456789012,
+            instance_id=aaaaaaaa-bbbb-cccc-dddd-111111111111,
             tags={
-                "Name": "Example Queue",
+                Name: Example Queue,
             })
         ```
         ### With Quick Connect IDs
@@ -409,13 +409,13 @@ class Queue(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.connect.Queue("test",
-            description="Example Description",
-            hours_of_operation_id="12345678-1234-1234-1234-123456789012",
-            instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
-            quick_connect_ids=["12345678-abcd-1234-abcd-123456789012"],
+        test = aws.connect.queue.Queue("test",
+            description=Example Description,
+            hours_of_operation_id=12345678-1234-1234-1234-123456789012,
+            instance_id=aaaaaaaa-bbbb-cccc-dddd-111111111111,
+            quick_connect_ids=[12345678-abcd-1234-abcd-123456789012],
             tags={
-                "Name": "Example Queue with Quick Connect IDs",
+                Name: Example Queue with Quick Connect IDs,
             })
         ```
         ### With Outbound Caller Config
@@ -424,17 +424,17 @@ class Queue(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.connect.Queue("test",
-            description="Example Description",
-            hours_of_operation_id="12345678-1234-1234-1234-123456789012",
-            instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
-            outbound_caller_config=aws.connect.QueueOutboundCallerConfigArgs(
-                outbound_caller_id_name="example",
-                outbound_caller_id_number_id="12345678-abcd-1234-abcd-123456789012",
-                outbound_flow_id="87654321-defg-1234-defg-987654321234",
-            ),
+        test = aws.connect.queue.Queue("test",
+            description=Example Description,
+            hours_of_operation_id=12345678-1234-1234-1234-123456789012,
+            instance_id=aaaaaaaa-bbbb-cccc-dddd-111111111111,
+            outbound_caller_config={
+                outboundCallerIdName: example,
+                outboundCallerIdNumberId: 12345678-abcd-1234-abcd-123456789012,
+                outboundFlowId: 87654321-defg-1234-defg-987654321234,
+            },
             tags={
-                "Name": "Example Queue with Outbound Caller Config",
+                Name: Example Queue with Outbound Caller Config,
             })
         ```
 
@@ -475,12 +475,12 @@ class Queue(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.connect.Queue("test",
-            description="Example Description",
-            hours_of_operation_id="12345678-1234-1234-1234-123456789012",
-            instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
+        test = aws.connect.queue.Queue("test",
+            description=Example Description,
+            hours_of_operation_id=12345678-1234-1234-1234-123456789012,
+            instance_id=aaaaaaaa-bbbb-cccc-dddd-111111111111,
             tags={
-                "Name": "Example Queue",
+                Name: Example Queue,
             })
         ```
         ### With Quick Connect IDs
@@ -489,13 +489,13 @@ class Queue(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.connect.Queue("test",
-            description="Example Description",
-            hours_of_operation_id="12345678-1234-1234-1234-123456789012",
-            instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
-            quick_connect_ids=["12345678-abcd-1234-abcd-123456789012"],
+        test = aws.connect.queue.Queue("test",
+            description=Example Description,
+            hours_of_operation_id=12345678-1234-1234-1234-123456789012,
+            instance_id=aaaaaaaa-bbbb-cccc-dddd-111111111111,
+            quick_connect_ids=[12345678-abcd-1234-abcd-123456789012],
             tags={
-                "Name": "Example Queue with Quick Connect IDs",
+                Name: Example Queue with Quick Connect IDs,
             })
         ```
         ### With Outbound Caller Config
@@ -504,17 +504,17 @@ class Queue(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.connect.Queue("test",
-            description="Example Description",
-            hours_of_operation_id="12345678-1234-1234-1234-123456789012",
-            instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
-            outbound_caller_config=aws.connect.QueueOutboundCallerConfigArgs(
-                outbound_caller_id_name="example",
-                outbound_caller_id_number_id="12345678-abcd-1234-abcd-123456789012",
-                outbound_flow_id="87654321-defg-1234-defg-987654321234",
-            ),
+        test = aws.connect.queue.Queue("test",
+            description=Example Description,
+            hours_of_operation_id=12345678-1234-1234-1234-123456789012,
+            instance_id=aaaaaaaa-bbbb-cccc-dddd-111111111111,
+            outbound_caller_config={
+                outboundCallerIdName: example,
+                outboundCallerIdNumberId: 12345678-abcd-1234-abcd-123456789012,
+                outboundFlowId: 87654321-defg-1234-defg-987654321234,
+            },
             tags={
-                "Name": "Example Queue with Outbound Caller Config",
+                Name: Example Queue with Outbound Caller Config,
             })
         ```
 

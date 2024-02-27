@@ -165,17 +165,6 @@ def get_function_url(function_name: Optional[str] = None,
     """
     Provides information about a Lambda function URL.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    config = pulumi.Config()
-    function_name = config.require("functionName")
-    existing = aws.lambda.get_function_url(function_name=function_name)
-    ```
-
 
     :param str function_name: The name (or ARN) of the Lambda function.
     :param str qualifier: Alias name or `"$LATEST"`.
@@ -206,17 +195,6 @@ def get_function_url_output(function_name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFunctionUrlResult]:
     """
     Provides information about a Lambda function URL.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    config = pulumi.Config()
-    function_name = config.require("functionName")
-    existing = aws.lambda.get_function_url(function_name=function_name)
-    ```
 
 
     :param str function_name: The name (or ARN) of the Lambda function.

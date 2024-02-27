@@ -316,11 +316,11 @@ class Lb(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.lightsail.Lb("test",
-            health_check_path="/",
+        test = aws.lightsail.lb.Lb("test",
+            health_check_path=/,
             instance_port=80,
             tags={
-                "foo": "bar",
+                foo: bar,
             })
         ```
 
@@ -354,11 +354,11 @@ class Lb(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.lightsail.Lb("test",
-            health_check_path="/",
+        test = aws.lightsail.lb.Lb("test",
+            health_check_path=/,
             instance_port=80,
             tags={
-                "foo": "bar",
+                foo: bar,
             })
         ```
 

@@ -22,17 +22,17 @@ namespace Pulumi.Aws.AppStream
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.AppStream.DirectoryConfig("example", new()
+    ///     var example = new Aws.Appstream.DirectoryConfig.DirectoryConfig("example", new()
     ///     {
     ///         DirectoryName = "NAME OF DIRECTORY",
     ///         OrganizationalUnitDistinguishedNames = new[]
     ///         {
     ///             "DISTINGUISHED NAME",
     ///         },
-    ///         ServiceAccountCredentials = new Aws.AppStream.Inputs.DirectoryConfigServiceAccountCredentialsArgs
+    ///         ServiceAccountCredentials = 
     ///         {
-    ///             AccountName = "NAME OF ACCOUNT",
-    ///             AccountPassword = "PASSWORD OF ACCOUNT",
+    ///             { "accountName", "NAME OF ACCOUNT" },
+    ///             { "accountPassword", "PASSWORD OF ACCOUNT" },
     ///         },
     ///     });
     /// 

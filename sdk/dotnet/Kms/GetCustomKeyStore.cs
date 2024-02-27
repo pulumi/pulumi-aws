@@ -15,28 +15,6 @@ namespace Pulumi.Aws.Kms
         /// Use this data source to get the metadata KMS custom key store.
         /// By using this data source, you can reference KMS custom key store
         /// without having to hard code the ID as input.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var keystore = Aws.Kms.GetCustomKeyStore.Invoke(new()
-        ///     {
-        ///         CustomKeyStoreName = "my_cloudhsm",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetCustomKeyStoreResult> InvokeAsync(GetCustomKeyStoreArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCustomKeyStoreResult>("aws:kms/getCustomKeyStore:getCustomKeyStore", args ?? new GetCustomKeyStoreArgs(), options.WithDefaults());
@@ -45,28 +23,6 @@ namespace Pulumi.Aws.Kms
         /// Use this data source to get the metadata KMS custom key store.
         /// By using this data source, you can reference KMS custom key store
         /// without having to hard code the ID as input.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var keystore = Aws.Kms.GetCustomKeyStore.Invoke(new()
-        ///     {
-        ///         CustomKeyStoreName = "my_cloudhsm",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetCustomKeyStoreResult> Invoke(GetCustomKeyStoreInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCustomKeyStoreResult>("aws:kms/getCustomKeyStore:getCustomKeyStore", args ?? new GetCustomKeyStoreInvokeArgs(), options.WithDefaults());

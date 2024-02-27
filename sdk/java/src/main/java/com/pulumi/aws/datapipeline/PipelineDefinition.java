@@ -31,7 +31,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.datapipeline.Pipeline;
  * import com.pulumi.aws.datapipeline.PipelineDefinition;
  * import com.pulumi.aws.datapipeline.PipelineDefinitionArgs;
- * import com.pulumi.aws.datapipeline.inputs.PipelineDefinitionPipelineObjectArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -50,56 +49,9 @@ import javax.annotation.Nullable;
  *         var example = new PipelineDefinition(&#34;example&#34;, PipelineDefinitionArgs.builder()        
  *             .pipelineId(default_.id())
  *             .pipelineObjects(            
- *                 PipelineDefinitionPipelineObjectArgs.builder()
- *                     .id(&#34;Default&#34;)
- *                     .name(&#34;Default&#34;)
- *                     .fields(PipelineDefinitionPipelineObjectFieldArgs.builder()
- *                         .key(&#34;workerGroup&#34;)
- *                         .stringValue(&#34;workerGroup&#34;)
- *                         .build())
- *                     .build(),
- *                 PipelineDefinitionPipelineObjectArgs.builder()
- *                     .id(&#34;Schedule&#34;)
- *                     .name(&#34;Schedule&#34;)
- *                     .fields(                    
- *                         PipelineDefinitionPipelineObjectFieldArgs.builder()
- *                             .key(&#34;startDateTime&#34;)
- *                             .stringValue(&#34;2012-12-12T00:00:00&#34;)
- *                             .build(),
- *                         PipelineDefinitionPipelineObjectFieldArgs.builder()
- *                             .key(&#34;type&#34;)
- *                             .stringValue(&#34;Schedule&#34;)
- *                             .build(),
- *                         PipelineDefinitionPipelineObjectFieldArgs.builder()
- *                             .key(&#34;period&#34;)
- *                             .stringValue(&#34;1 hour&#34;)
- *                             .build(),
- *                         PipelineDefinitionPipelineObjectFieldArgs.builder()
- *                             .key(&#34;endDateTime&#34;)
- *                             .stringValue(&#34;2012-12-21T18:00:00&#34;)
- *                             .build())
- *                     .build(),
- *                 PipelineDefinitionPipelineObjectArgs.builder()
- *                     .id(&#34;SayHello&#34;)
- *                     .name(&#34;SayHello&#34;)
- *                     .fields(                    
- *                         PipelineDefinitionPipelineObjectFieldArgs.builder()
- *                             .key(&#34;type&#34;)
- *                             .stringValue(&#34;ShellCommandActivity&#34;)
- *                             .build(),
- *                         PipelineDefinitionPipelineObjectFieldArgs.builder()
- *                             .key(&#34;command&#34;)
- *                             .stringValue(&#34;echo hello&#34;)
- *                             .build(),
- *                         PipelineDefinitionPipelineObjectFieldArgs.builder()
- *                             .key(&#34;parent&#34;)
- *                             .stringValue(&#34;Default&#34;)
- *                             .build(),
- *                         PipelineDefinitionPipelineObjectFieldArgs.builder()
- *                             .key(&#34;schedule&#34;)
- *                             .stringValue(&#34;Schedule&#34;)
- *                             .build())
- *                     .build())
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

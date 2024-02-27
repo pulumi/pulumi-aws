@@ -24,26 +24,24 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/transfer"
+//	transfer/access "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/transfer/access"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := transfer.NewAccess(ctx, "example", &transfer.AccessArgs{
-//				ExternalId:    pulumi.String("S-1-1-12-1234567890-123456789-1234567890-1234"),
-//				ServerId:      pulumi.Any(aws_transfer_server.Example.Id),
-//				Role:          pulumi.Any(aws_iam_role.Example.Arn),
-//				HomeDirectory: pulumi.String(fmt.Sprintf("/%v/", aws_s3_bucket.Example.Id)),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := transfer/access.NewAccess(ctx, "example", &transfer/access.AccessArgs{
+// ExternalId: "S-1-1-12-1234567890-123456789-1234567890-1234",
+// ServerId: aws_transfer_server.Example.Id,
+// Role: aws_iam_role.Example.Arn,
+// HomeDirectory: fmt.Sprintf("/%v/", aws_s3_bucket.Example.Id),
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Basic EFS
 //
@@ -54,30 +52,28 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/transfer"
+//	transfer/access "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/transfer/access"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := transfer.NewAccess(ctx, "test", &transfer.AccessArgs{
-//				ExternalId:    pulumi.String("S-1-1-12-1234567890-123456789-1234567890-1234"),
-//				ServerId:      pulumi.Any(aws_transfer_server.Test.Id),
-//				Role:          pulumi.Any(aws_iam_role.Test.Arn),
-//				HomeDirectory: pulumi.String(fmt.Sprintf("/%v/", aws_efs_file_system.Test.Id)),
-//				PosixProfile: &transfer.AccessPosixProfileArgs{
-//					Gid: pulumi.Int(1000),
-//					Uid: pulumi.Int(1000),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := transfer/access.NewAccess(ctx, "test", &transfer/access.AccessArgs{
+// ExternalId: "S-1-1-12-1234567890-123456789-1234567890-1234",
+// ServerId: aws_transfer_server.Test.Id,
+// Role: aws_iam_role.Test.Arn,
+// HomeDirectory: fmt.Sprintf("/%v/", aws_efs_file_system.Test.Id),
+// PosixProfile: map[string]interface{}{
+// "gid": 1000,
+// "uid": 1000,
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

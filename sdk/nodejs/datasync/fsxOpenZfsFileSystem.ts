@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.datasync.FsxOpenZfsFileSystem("example", {
+ * const example = new aws.datasync/fsxOpenZfsFileSystem.FsxOpenZfsFileSystem("example", {
  *     fsxFilesystemArn: aws_fsx_openzfs_file_system.example.arn,
  *     securityGroupArns: [aws_security_group.example.arn],
  *     protocol: {

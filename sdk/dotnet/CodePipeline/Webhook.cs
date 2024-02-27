@@ -23,106 +23,106 @@ namespace Pulumi.Aws.CodePipeline
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var barPipeline = new Aws.CodePipeline.Pipeline("barPipeline", new()
+    ///     var barPipeline = new Aws.Codepipeline.Pipeline.Pipeline("barPipeline", new()
     ///     {
     ///         RoleArn = aws_iam_role.Bar.Arn,
     ///         ArtifactStores = new[]
     ///         {
-    ///             new Aws.CodePipeline.Inputs.PipelineArtifactStoreArgs
+    ///             
     ///             {
-    ///                 Location = aws_s3_bucket.Bar.Bucket,
-    ///                 Type = "S3",
-    ///                 EncryptionKey = new Aws.CodePipeline.Inputs.PipelineArtifactStoreEncryptionKeyArgs
+    ///                 { "location", aws_s3_bucket.Bar.Bucket },
+    ///                 { "type", "S3" },
+    ///                 { "encryptionKey", 
     ///                 {
-    ///                     Id = data.Aws_kms_alias.S3kmskey.Arn,
-    ///                     Type = "KMS",
-    ///                 },
+    ///                     { "id", data.Aws_kms_alias.S3kmskey.Arn },
+    ///                     { "type", "KMS" },
+    ///                 } },
     ///             },
     ///         },
     ///         Stages = new[]
     ///         {
-    ///             new Aws.CodePipeline.Inputs.PipelineStageArgs
+    ///             
     ///             {
-    ///                 Name = "Source",
-    ///                 Actions = new[]
+    ///                 { "name", "Source" },
+    ///                 { "actions", new[]
     ///                 {
-    ///                     new Aws.CodePipeline.Inputs.PipelineStageActionArgs
+    ///                     
     ///                     {
-    ///                         Name = "Source",
-    ///                         Category = "Source",
-    ///                         Owner = "ThirdParty",
-    ///                         Provider = "GitHub",
-    ///                         Version = "1",
-    ///                         OutputArtifacts = new[]
+    ///                         { "name", "Source" },
+    ///                         { "category", "Source" },
+    ///                         { "owner", "ThirdParty" },
+    ///                         { "provider", "GitHub" },
+    ///                         { "version", "1" },
+    ///                         { "outputArtifacts", new[]
     ///                         {
     ///                             "test",
-    ///                         },
-    ///                         Configuration = 
+    ///                         } },
+    ///                         { "configuration", 
     ///                         {
     ///                             { "Owner", "my-organization" },
     ///                             { "Repo", "test" },
     ///                             { "Branch", "master" },
-    ///                         },
+    ///                         } },
     ///                     },
-    ///                 },
+    ///                 } },
     ///             },
-    ///             new Aws.CodePipeline.Inputs.PipelineStageArgs
+    ///             
     ///             {
-    ///                 Name = "Build",
-    ///                 Actions = new[]
+    ///                 { "name", "Build" },
+    ///                 { "actions", new[]
     ///                 {
-    ///                     new Aws.CodePipeline.Inputs.PipelineStageActionArgs
+    ///                     
     ///                     {
-    ///                         Name = "Build",
-    ///                         Category = "Build",
-    ///                         Owner = "AWS",
-    ///                         Provider = "CodeBuild",
-    ///                         InputArtifacts = new[]
+    ///                         { "name", "Build" },
+    ///                         { "category", "Build" },
+    ///                         { "owner", "AWS" },
+    ///                         { "provider", "CodeBuild" },
+    ///                         { "inputArtifacts", new[]
     ///                         {
     ///                             "test",
-    ///                         },
-    ///                         Version = "1",
-    ///                         Configuration = 
+    ///                         } },
+    ///                         { "version", "1" },
+    ///                         { "configuration", 
     ///                         {
     ///                             { "ProjectName", "test" },
-    ///                         },
+    ///                         } },
     ///                     },
-    ///                 },
+    ///                 } },
     ///             },
     ///         },
     ///     });
     /// 
     ///     var webhookSecret = "super-secret";
     /// 
-    ///     var barWebhook = new Aws.CodePipeline.Webhook("barWebhook", new()
+    ///     var barWebhook = new Aws.Codepipeline.Webhook.Webhook("barWebhook", new()
     ///     {
     ///         Authentication = "GITHUB_HMAC",
     ///         TargetAction = "Source",
     ///         TargetPipeline = barPipeline.Name,
-    ///         AuthenticationConfiguration = new Aws.CodePipeline.Inputs.WebhookAuthenticationConfigurationArgs
+    ///         AuthenticationConfiguration = 
     ///         {
-    ///             SecretToken = webhookSecret,
+    ///             { "secretToken", webhookSecret },
     ///         },
     ///         Filters = new[]
     ///         {
-    ///             new Aws.CodePipeline.Inputs.WebhookFilterArgs
+    ///             
     ///             {
-    ///                 JsonPath = "$.ref",
-    ///                 MatchEquals = "refs/heads/{Branch}",
+    ///                 { "jsonPath", "$.ref" },
+    ///                 { "matchEquals", "refs/heads/{Branch}" },
     ///             },
     ///         },
     ///     });
     /// 
     ///     // Wire the CodePipeline webhook into a GitHub repository.
-    ///     var barRepositoryWebhook = new Github.RepositoryWebhook("barRepositoryWebhook", new()
+    ///     var barRepositoryWebhook = new Github.Index.RepositoryWebhook.RepositoryWebhook("barRepositoryWebhook", new()
     ///     {
     ///         Repository = github_repository.Repo.Name,
-    ///         Configuration = new Github.Inputs.RepositoryWebhookConfigurationArgs
+    ///         Configuration = 
     ///         {
-    ///             Url = barWebhook.Url,
-    ///             ContentType = "json",
-    ///             InsecureSsl = true,
-    ///             Secret = webhookSecret,
+    ///             { "url", barWebhook.Url },
+    ///             { "contentType", "json" },
+    ///             { "insecureSsl", true },
+    ///             { "secret", webhookSecret },
     ///         },
     ///         Events = new[]
     ///         {

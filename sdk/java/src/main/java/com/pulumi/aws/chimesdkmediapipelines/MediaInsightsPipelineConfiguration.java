@@ -23,165 +23,6 @@ import javax.annotation.Nullable;
  * Consult the [Call analytics developer guide](https://docs.aws.amazon.com/chime-sdk/latest/dg/call-analytics.html) for more detailed information about usage.
  * 
  * ## Example Usage
- * ### Basic Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.kinesis.Stream;
- * import com.pulumi.aws.kinesis.StreamArgs;
- * import com.pulumi.aws.iam.IamFunctions;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
- * import com.pulumi.aws.iam.Role;
- * import com.pulumi.aws.iam.RoleArgs;
- * import com.pulumi.aws.chimesdkmediapipelines.MediaInsightsPipelineConfiguration;
- * import com.pulumi.aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationArgs;
- * import com.pulumi.aws.chimesdkmediapipelines.inputs.MediaInsightsPipelineConfigurationElementArgs;
- * import com.pulumi.aws.chimesdkmediapipelines.inputs.MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationArgs;
- * import com.pulumi.aws.chimesdkmediapipelines.inputs.MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Stream(&#34;example&#34;, StreamArgs.builder()        
- *             .shardCount(2)
- *             .build());
- * 
- *         final var mediaPipelinesAssumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect(&#34;Allow&#34;)
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type(&#34;Service&#34;)
- *                     .identifiers(&#34;mediapipelines.chime.amazonaws.com&#34;)
- *                     .build())
- *                 .actions(&#34;sts:AssumeRole&#34;)
- *                 .build())
- *             .build());
- * 
- *         var callAnalyticsRole = new Role(&#34;callAnalyticsRole&#34;, RoleArgs.builder()        
- *             .assumeRolePolicy(mediaPipelinesAssumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
- *             .build());
- * 
- *         var myConfiguration = new MediaInsightsPipelineConfiguration(&#34;myConfiguration&#34;, MediaInsightsPipelineConfigurationArgs.builder()        
- *             .resourceAccessRoleArn(callAnalyticsRole.arn())
- *             .elements(            
- *                 MediaInsightsPipelineConfigurationElementArgs.builder()
- *                     .type(&#34;AmazonTranscribeCallAnalyticsProcessor&#34;)
- *                     .amazonTranscribeCallAnalyticsProcessorConfiguration(MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationArgs.builder()
- *                         .languageCode(&#34;en-US&#34;)
- *                         .build())
- *                     .build(),
- *                 MediaInsightsPipelineConfigurationElementArgs.builder()
- *                     .type(&#34;KinesisDataStreamSink&#34;)
- *                     .kinesisDataStreamSinkConfiguration(MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationArgs.builder()
- *                         .insightsTarget(example.arn())
- *                         .build())
- *                     .build())
- *             .tags(Map.ofEntries(
- *                 Map.entry(&#34;Key1&#34;, &#34;Value1&#34;),
- *                 Map.entry(&#34;Key2&#34;, &#34;Value2&#34;)
- *             ))
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * - The required policies on `call_analytics_role` will vary based on the selected processors. See [Call analytics resource access role](https://docs.aws.amazon.com/chime-sdk/latest/dg/ca-resource-access-role.html) for directions on choosing appropriate policies.
- * ### Transcribe Call Analytics processor usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.iam.IamFunctions;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
- * import com.pulumi.aws.iam.Role;
- * import com.pulumi.aws.iam.RoleArgs;
- * import com.pulumi.aws.chimesdkmediapipelines.MediaInsightsPipelineConfiguration;
- * import com.pulumi.aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationArgs;
- * import com.pulumi.aws.chimesdkmediapipelines.inputs.MediaInsightsPipelineConfigurationElementArgs;
- * import com.pulumi.aws.chimesdkmediapipelines.inputs.MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationArgs;
- * import com.pulumi.aws.chimesdkmediapipelines.inputs.MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPostCallAnalyticsSettingsArgs;
- * import com.pulumi.aws.chimesdkmediapipelines.inputs.MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var transcribeAssumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect(&#34;Allow&#34;)
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type(&#34;Service&#34;)
- *                     .identifiers(&#34;transcribe.amazonaws.com&#34;)
- *                     .build())
- *                 .actions(&#34;sts:AssumeRole&#34;)
- *                 .build())
- *             .build());
- * 
- *         var postCallRole = new Role(&#34;postCallRole&#34;, RoleArgs.builder()        
- *             .assumeRolePolicy(transcribeAssumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
- *             .build());
- * 
- *         var myConfiguration = new MediaInsightsPipelineConfiguration(&#34;myConfiguration&#34;, MediaInsightsPipelineConfigurationArgs.builder()        
- *             .resourceAccessRoleArn(aws_iam_role.example().arn())
- *             .elements(            
- *                 MediaInsightsPipelineConfigurationElementArgs.builder()
- *                     .type(&#34;AmazonTranscribeCallAnalyticsProcessor&#34;)
- *                     .amazonTranscribeCallAnalyticsProcessorConfiguration(MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationArgs.builder()
- *                         .callAnalyticsStreamCategories(                        
- *                             &#34;category_1&#34;,
- *                             &#34;category_2&#34;)
- *                         .contentRedactionType(&#34;PII&#34;)
- *                         .enablePartialResultsStabilization(true)
- *                         .filterPartialResults(true)
- *                         .languageCode(&#34;en-US&#34;)
- *                         .languageModelName(&#34;MyLanguageModel&#34;)
- *                         .partialResultsStability(&#34;high&#34;)
- *                         .piiEntityTypes(&#34;ADDRESS,BANK_ACCOUNT_NUMBER&#34;)
- *                         .postCallAnalyticsSettings(MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPostCallAnalyticsSettingsArgs.builder()
- *                             .contentRedactionOutput(&#34;redacted&#34;)
- *                             .dataAccessRoleArn(postCallRole.arn())
- *                             .outputEncryptionKmsKeyId(&#34;MyKmsKeyId&#34;)
- *                             .outputLocation(&#34;s3://MyBucket&#34;)
- *                             .build())
- *                         .vocabularyFilterMethod(&#34;mask&#34;)
- *                         .vocabularyFilterName(&#34;MyVocabularyFilter&#34;)
- *                         .vocabularyName(&#34;MyVocabulary&#34;)
- *                         .build())
- *                     .build(),
- *                 MediaInsightsPipelineConfigurationElementArgs.builder()
- *                     .type(&#34;KinesisDataStreamSink&#34;)
- *                     .kinesisDataStreamSinkConfiguration(MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationArgs.builder()
- *                         .insightsTarget(aws_kinesis_stream.example().arn())
- *                         .build())
- *                     .build())
- *             .build());
- * 
- *     }
- * }
- * ```
  * ### Real time alerts usage
  * ```java
  * package generated_program;
@@ -191,10 +32,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.chimesdkmediapipelines.MediaInsightsPipelineConfiguration;
  * import com.pulumi.aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationArgs;
- * import com.pulumi.aws.chimesdkmediapipelines.inputs.MediaInsightsPipelineConfigurationElementArgs;
- * import com.pulumi.aws.chimesdkmediapipelines.inputs.MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationArgs;
- * import com.pulumi.aws.chimesdkmediapipelines.inputs.MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationArgs;
- * import com.pulumi.aws.chimesdkmediapipelines.inputs.MediaInsightsPipelineConfigurationRealTimeAlertConfigurationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -211,46 +48,9 @@ import javax.annotation.Nullable;
  *         var myConfiguration = new MediaInsightsPipelineConfiguration(&#34;myConfiguration&#34;, MediaInsightsPipelineConfigurationArgs.builder()        
  *             .resourceAccessRoleArn(aws_iam_role.call_analytics_role().arn())
  *             .elements(            
- *                 MediaInsightsPipelineConfigurationElementArgs.builder()
- *                     .type(&#34;AmazonTranscribeCallAnalyticsProcessor&#34;)
- *                     .amazonTranscribeCallAnalyticsProcessorConfiguration(MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationArgs.builder()
- *                         .languageCode(&#34;en-US&#34;)
- *                         .build())
- *                     .build(),
- *                 MediaInsightsPipelineConfigurationElementArgs.builder()
- *                     .type(&#34;KinesisDataStreamSink&#34;)
- *                     .kinesisDataStreamSinkConfiguration(MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationArgs.builder()
- *                         .insightsTarget(aws_kinesis_stream.example().arn())
- *                         .build())
- *                     .build())
- *             .realTimeAlertConfiguration(MediaInsightsPipelineConfigurationRealTimeAlertConfigurationArgs.builder()
- *                 .disabled(false)
- *                 .rules(                
- *                     MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleArgs.builder()
- *                         .type(&#34;IssueDetection&#34;)
- *                         .issueDetectionConfiguration(MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleIssueDetectionConfigurationArgs.builder()
- *                             .ruleName(&#34;MyIssueDetectionRule&#34;)
- *                             .build())
- *                         .build(),
- *                     MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleArgs.builder()
- *                         .type(&#34;KeywordMatch&#34;)
- *                         .keywordMatchConfiguration(MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordMatchConfigurationArgs.builder()
- *                             .keywords(                            
- *                                 &#34;keyword1&#34;,
- *                                 &#34;keyword2&#34;)
- *                             .negate(false)
- *                             .ruleName(&#34;MyKeywordMatchRule&#34;)
- *                             .build())
- *                         .build(),
- *                     MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleArgs.builder()
- *                         .type(&#34;Sentiment&#34;)
- *                         .sentimentConfiguration(MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentConfigurationArgs.builder()
- *                             .ruleName(&#34;MySentimentRule&#34;)
- *                             .sentimentType(&#34;NEGATIVE&#34;)
- *                             .timePeriod(60)
- *                             .build())
- *                         .build())
- *                 .build())
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .realTimeAlertConfiguration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -265,9 +65,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.chimesdkmediapipelines.MediaInsightsPipelineConfiguration;
  * import com.pulumi.aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationArgs;
- * import com.pulumi.aws.chimesdkmediapipelines.inputs.MediaInsightsPipelineConfigurationElementArgs;
- * import com.pulumi.aws.chimesdkmediapipelines.inputs.MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfigurationArgs;
- * import com.pulumi.aws.chimesdkmediapipelines.inputs.MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -284,28 +81,8 @@ import javax.annotation.Nullable;
  *         var myConfiguration = new MediaInsightsPipelineConfiguration(&#34;myConfiguration&#34;, MediaInsightsPipelineConfigurationArgs.builder()        
  *             .resourceAccessRoleArn(aws_iam_role.example().arn())
  *             .elements(            
- *                 MediaInsightsPipelineConfigurationElementArgs.builder()
- *                     .type(&#34;AmazonTranscribeProcessor&#34;)
- *                     .amazonTranscribeProcessorConfiguration(MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfigurationArgs.builder()
- *                         .contentIdentificationType(&#34;PII&#34;)
- *                         .enablePartialResultsStabilization(true)
- *                         .filterPartialResults(true)
- *                         .languageCode(&#34;en-US&#34;)
- *                         .languageModelName(&#34;MyLanguageModel&#34;)
- *                         .partialResultsStability(&#34;high&#34;)
- *                         .piiEntityTypes(&#34;ADDRESS,BANK_ACCOUNT_NUMBER&#34;)
- *                         .showSpeakerLabel(true)
- *                         .vocabularyFilterMethod(&#34;mask&#34;)
- *                         .vocabularyFilterName(&#34;MyVocabularyFilter&#34;)
- *                         .vocabularyName(&#34;MyVocabulary&#34;)
- *                         .build())
- *                     .build(),
- *                 MediaInsightsPipelineConfigurationElementArgs.builder()
- *                     .type(&#34;KinesisDataStreamSink&#34;)
- *                     .kinesisDataStreamSinkConfiguration(MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationArgs.builder()
- *                         .insightsTarget(aws_kinesis_stream.example().arn())
- *                         .build())
- *                     .build())
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -320,12 +97,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.chimesdkmediapipelines.MediaInsightsPipelineConfiguration;
  * import com.pulumi.aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationArgs;
- * import com.pulumi.aws.chimesdkmediapipelines.inputs.MediaInsightsPipelineConfigurationElementArgs;
- * import com.pulumi.aws.chimesdkmediapipelines.inputs.MediaInsightsPipelineConfigurationElementVoiceAnalyticsProcessorConfigurationArgs;
- * import com.pulumi.aws.chimesdkmediapipelines.inputs.MediaInsightsPipelineConfigurationElementLambdaFunctionSinkConfigurationArgs;
- * import com.pulumi.aws.chimesdkmediapipelines.inputs.MediaInsightsPipelineConfigurationElementSnsTopicSinkConfigurationArgs;
- * import com.pulumi.aws.chimesdkmediapipelines.inputs.MediaInsightsPipelineConfigurationElementSqsQueueSinkConfigurationArgs;
- * import com.pulumi.aws.chimesdkmediapipelines.inputs.MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -342,37 +113,11 @@ import javax.annotation.Nullable;
  *         var myConfiguration = new MediaInsightsPipelineConfiguration(&#34;myConfiguration&#34;, MediaInsightsPipelineConfigurationArgs.builder()        
  *             .resourceAccessRoleArn(aws_iam_role.example().arn())
  *             .elements(            
- *                 MediaInsightsPipelineConfigurationElementArgs.builder()
- *                     .type(&#34;VoiceAnalyticsProcessor&#34;)
- *                     .voiceAnalyticsProcessorConfiguration(MediaInsightsPipelineConfigurationElementVoiceAnalyticsProcessorConfigurationArgs.builder()
- *                         .speakerSearchStatus(&#34;Enabled&#34;)
- *                         .voiceToneAnalysisStatus(&#34;Enabled&#34;)
- *                         .build())
- *                     .build(),
- *                 MediaInsightsPipelineConfigurationElementArgs.builder()
- *                     .type(&#34;LambdaFunctionSink&#34;)
- *                     .lambdaFunctionSinkConfiguration(MediaInsightsPipelineConfigurationElementLambdaFunctionSinkConfigurationArgs.builder()
- *                         .insightsTarget(&#34;arn:aws:lambda:us-west-2:1111111111:function:MyFunction&#34;)
- *                         .build())
- *                     .build(),
- *                 MediaInsightsPipelineConfigurationElementArgs.builder()
- *                     .type(&#34;SnsTopicSink&#34;)
- *                     .snsTopicSinkConfiguration(MediaInsightsPipelineConfigurationElementSnsTopicSinkConfigurationArgs.builder()
- *                         .insightsTarget(&#34;arn:aws:sns:us-west-2:1111111111:topic/MyTopic&#34;)
- *                         .build())
- *                     .build(),
- *                 MediaInsightsPipelineConfigurationElementArgs.builder()
- *                     .type(&#34;SqsQueueSink&#34;)
- *                     .sqsQueueSinkConfiguration(MediaInsightsPipelineConfigurationElementSqsQueueSinkConfigurationArgs.builder()
- *                         .insightsTarget(&#34;arn:aws:sqs:us-west-2:1111111111:queue/MyQueue&#34;)
- *                         .build())
- *                     .build(),
- *                 MediaInsightsPipelineConfigurationElementArgs.builder()
- *                     .type(&#34;KinesisDataStreamSink&#34;)
- *                     .kinesisDataStreamSinkConfiguration(MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationArgs.builder()
- *                         .insightsTarget(aws_kinesis_stream.test().arn())
- *                         .build())
- *                     .build())
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -387,8 +132,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.chimesdkmediapipelines.MediaInsightsPipelineConfiguration;
  * import com.pulumi.aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationArgs;
- * import com.pulumi.aws.chimesdkmediapipelines.inputs.MediaInsightsPipelineConfigurationElementArgs;
- * import com.pulumi.aws.chimesdkmediapipelines.inputs.MediaInsightsPipelineConfigurationElementS3RecordingSinkConfigurationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -404,12 +147,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var myConfiguration = new MediaInsightsPipelineConfiguration(&#34;myConfiguration&#34;, MediaInsightsPipelineConfigurationArgs.builder()        
  *             .resourceAccessRoleArn(aws_iam_role.example().arn())
- *             .elements(MediaInsightsPipelineConfigurationElementArgs.builder()
- *                 .type(&#34;S3RecordingSink&#34;)
- *                 .s3RecordingSinkConfiguration(MediaInsightsPipelineConfigurationElementS3RecordingSinkConfigurationArgs.builder()
- *                     .destination(&#34;arn:aws:s3:::MyBucket&#34;)
- *                     .build())
- *                 .build())
+ *             .elements(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

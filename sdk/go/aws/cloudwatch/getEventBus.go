@@ -14,32 +14,6 @@ import (
 // This data source can be used to fetch information about a specific
 // EventBridge event bus. Use this data source to compute the ARN of
 // an event bus, given the name of the bus.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cloudwatch.LookupEventBus(ctx, &cloudwatch.LookupEventBusArgs{
-//				Name: "example-bus-name",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupEventBus(ctx *pulumi.Context, args *LookupEventBusArgs, opts ...pulumi.InvokeOption) (*LookupEventBusResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupEventBusResult

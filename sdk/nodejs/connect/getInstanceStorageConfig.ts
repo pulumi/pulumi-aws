@@ -9,19 +9,6 @@ import * as utilities from "../utilities";
 
 /**
  * Provides details about a specific Amazon Connect Instance Storage Config.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.connect.getInstanceStorageConfig({
- *     associationId: "1234567890123456789012345678901234567890123456789012345678901234",
- *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
- *     resourceType: "CONTACT_TRACE_RECORDS",
- * });
- * ```
  */
 export function getInstanceStorageConfig(args: GetInstanceStorageConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetInstanceStorageConfigResult> {
 
@@ -69,19 +56,6 @@ export interface GetInstanceStorageConfigResult {
 }
 /**
  * Provides details about a specific Amazon Connect Instance Storage Config.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.connect.getInstanceStorageConfig({
- *     associationId: "1234567890123456789012345678901234567890123456789012345678901234",
- *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
- *     resourceType: "CONTACT_TRACE_RECORDS",
- * });
- * ```
  */
 export function getInstanceStorageConfigOutput(args: GetInstanceStorageConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInstanceStorageConfigResult> {
     return pulumi.output(args).apply((a: any) => getInstanceStorageConfig(a, opts))

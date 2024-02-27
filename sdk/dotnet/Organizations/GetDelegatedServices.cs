@@ -13,56 +13,12 @@ namespace Pulumi.Aws.Organizations
     {
         /// <summary>
         /// Get a list the AWS services for which the specified account is a delegated administrator
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Organizations.GetDelegatedServices.Invoke(new()
-        ///     {
-        ///         AccountId = "AWS ACCOUNT ID",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetDelegatedServicesResult> InvokeAsync(GetDelegatedServicesArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDelegatedServicesResult>("aws:organizations/getDelegatedServices:getDelegatedServices", args ?? new GetDelegatedServicesArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a list the AWS services for which the specified account is a delegated administrator
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Organizations.GetDelegatedServices.Invoke(new()
-        ///     {
-        ///         AccountId = "AWS ACCOUNT ID",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetDelegatedServicesResult> Invoke(GetDelegatedServicesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDelegatedServicesResult>("aws:organizations/getDelegatedServices:getDelegatedServices", args ?? new GetDelegatedServicesInvokeArgs(), options.WithDefaults());

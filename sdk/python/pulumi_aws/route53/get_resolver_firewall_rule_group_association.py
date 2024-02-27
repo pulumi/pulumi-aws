@@ -168,17 +168,6 @@ def get_resolver_firewall_rule_group_association(firewall_rule_group_association
 
     This data source allows to retrieve details about a specific a Route 53 Resolver DNS Firewall rule group association.
 
-    ## Example Usage
-
-    The following example shows how to get a firewall rule group association from its id.
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.route53.get_resolver_firewall_rule_group_association(firewall_rule_group_association_id="rslvr-frgassoc-example")
-    ```
-
 
     :param str firewall_rule_group_association_id: The identifier for the association.
            
@@ -213,17 +202,6 @@ def get_resolver_firewall_rule_group_association_output(firewall_rule_group_asso
     `route53.ResolverFirewallRuleGroupAssociation` Retrieves the specified firewall rule group association.
 
     This data source allows to retrieve details about a specific a Route 53 Resolver DNS Firewall rule group association.
-
-    ## Example Usage
-
-    The following example shows how to get a firewall rule group association from its id.
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.route53.get_resolver_firewall_rule_group_association(firewall_rule_group_association_id="rslvr-frgassoc-example")
-    ```
 
 
     :param str firewall_rule_group_association_id: The identifier for the association.

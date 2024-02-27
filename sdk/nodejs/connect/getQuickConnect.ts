@@ -9,32 +9,6 @@ import * as utilities from "../utilities";
 
 /**
  * Provides details about a specific Amazon Connect Quick Connect.
- *
- * ## Example Usage
- *
- * By `name`
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.connect.getQuickConnect({
- *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
- *     name: "Example",
- * });
- * ```
- *
- * By `quickConnectId`
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.connect.getQuickConnect({
- *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
- *     quickConnectId: "cccccccc-bbbb-cccc-dddd-111111111111",
- * });
- * ```
  */
 export function getQuickConnect(args: GetQuickConnectArgs, opts?: pulumi.InvokeOptions): Promise<GetQuickConnectResult> {
 
@@ -102,32 +76,6 @@ export interface GetQuickConnectResult {
 }
 /**
  * Provides details about a specific Amazon Connect Quick Connect.
- *
- * ## Example Usage
- *
- * By `name`
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.connect.getQuickConnect({
- *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
- *     name: "Example",
- * });
- * ```
- *
- * By `quickConnectId`
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.connect.getQuickConnect({
- *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
- *     quickConnectId: "cccccccc-bbbb-cccc-dddd-111111111111",
- * });
- * ```
  */
 export function getQuickConnectOutput(args: GetQuickConnectOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetQuickConnectResult> {
     return pulumi.output(args).apply((a: any) => getQuickConnect(a, opts))

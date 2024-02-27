@@ -307,12 +307,12 @@ class ConnectPeer(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_connect = aws.ec2transitgateway.Connect("exampleConnect",
-            transport_attachment_id=aws_ec2_transit_gateway_vpc_attachment["example"]["id"],
-            transit_gateway_id=aws_ec2_transit_gateway["example"]["id"])
-        example_connect_peer = aws.ec2transitgateway.ConnectPeer("exampleConnectPeer",
-            peer_address="10.1.2.3",
-            inside_cidr_blocks=["169.254.100.0/29"],
+        example_connect = aws.ec2transitgateway.connect.Connect("exampleConnect",
+            transport_attachment_id=aws_ec2_transit_gateway_vpc_attachment.example.id,
+            transit_gateway_id=aws_ec2_transit_gateway.example.id)
+        example_connect_peer = aws.ec2transitgateway.connect_peer.ConnectPeer("exampleConnectPeer",
+            peer_address=10.1.2.3,
+            inside_cidr_blocks=[169.254.100.0/29],
             transit_gateway_attachment_id=example_connect.id)
         ```
 
@@ -348,12 +348,12 @@ class ConnectPeer(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_connect = aws.ec2transitgateway.Connect("exampleConnect",
-            transport_attachment_id=aws_ec2_transit_gateway_vpc_attachment["example"]["id"],
-            transit_gateway_id=aws_ec2_transit_gateway["example"]["id"])
-        example_connect_peer = aws.ec2transitgateway.ConnectPeer("exampleConnectPeer",
-            peer_address="10.1.2.3",
-            inside_cidr_blocks=["169.254.100.0/29"],
+        example_connect = aws.ec2transitgateway.connect.Connect("exampleConnect",
+            transport_attachment_id=aws_ec2_transit_gateway_vpc_attachment.example.id,
+            transit_gateway_id=aws_ec2_transit_gateway.example.id)
+        example_connect_peer = aws.ec2transitgateway.connect_peer.ConnectPeer("exampleConnectPeer",
+            peer_address=10.1.2.3,
+            inside_cidr_blocks=[169.254.100.0/29],
             transit_gateway_attachment_id=example_connect.id)
         ```
 

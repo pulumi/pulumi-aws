@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.keyspaces.Keyspace("example", {});
+ * const example = new aws.keyspaces/keyspace.Keyspace("example", {});
  * ```
  *
  * ## Import

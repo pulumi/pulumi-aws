@@ -21,31 +21,29 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/appconfig"
+//	appconfig/deploymentStrategy "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/appconfig/deploymentStrategy"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := appconfig.NewDeploymentStrategy(ctx, "example", &appconfig.DeploymentStrategyArgs{
-//				DeploymentDurationInMinutes: pulumi.Int(3),
-//				Description:                 pulumi.String("Example Deployment Strategy"),
-//				FinalBakeTimeInMinutes:      pulumi.Int(4),
-//				GrowthFactor:                pulumi.Float64(10),
-//				GrowthType:                  pulumi.String("LINEAR"),
-//				ReplicateTo:                 pulumi.String("NONE"),
-//				Tags: pulumi.StringMap{
-//					"Type": pulumi.String("AppConfig Deployment Strategy"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := appconfig/deploymentStrategy.NewDeploymentStrategy(ctx, "example", &appconfig/deploymentStrategy.DeploymentStrategyArgs{
+// DeploymentDurationInMinutes: 3,
+// Description: "Example Deployment Strategy",
+// FinalBakeTimeInMinutes: 4,
+// GrowthFactor: 10,
+// GrowthType: "LINEAR",
+// ReplicateTo: "NONE",
+// Tags: map[string]interface{}{
+// "Type": "AppConfig Deployment Strategy",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

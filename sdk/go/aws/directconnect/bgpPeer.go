@@ -21,25 +21,23 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/directconnect"
+//	directconnect/bgpPeer "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/directconnect/bgpPeer"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := directconnect.NewBgpPeer(ctx, "peer", &directconnect.BgpPeerArgs{
-//				VirtualInterfaceId: pulumi.Any(aws_dx_private_virtual_interface.Foo.Id),
-//				AddressFamily:      pulumi.String("ipv6"),
-//				BgpAsn:             pulumi.Int(65351),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := directconnect/bgpPeer.NewBgpPeer(ctx, "peer", &directconnect/bgpPeer.BgpPeerArgs{
+// VirtualInterfaceId: aws_dx_private_virtual_interface.Foo.Id,
+// AddressFamily: "ipv6",
+// BgpAsn: 65351,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 type BgpPeer struct {
 	pulumi.CustomResourceState

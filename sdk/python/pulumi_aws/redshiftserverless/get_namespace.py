@@ -154,15 +154,6 @@ def get_namespace(namespace_name: Optional[str] = None,
     """
     Data source for managing an AWS Redshift Serverless Namespace.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.redshiftserverless.get_namespace(namespace_name="example-namespace")
-    ```
-
 
     :param str namespace_name: The name of the namespace.
     """
@@ -189,15 +180,6 @@ def get_namespace_output(namespace_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNamespaceResult]:
     """
     Data source for managing an AWS Redshift Serverless Namespace.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.redshiftserverless.get_namespace(namespace_name="example-namespace")
-    ```
 
 
     :param str namespace_name: The name of the namespace.

@@ -19,48 +19,6 @@ public final class AcmFunctions {
      * Manager (ACM), you can reference
      * it by domain without having to hard code the ARNs as input.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.acm.AcmFunctions;
-     * import com.pulumi.aws.acm.inputs.GetCertificateArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var issued = AcmFunctions.getCertificate(GetCertificateArgs.builder()
-     *             .domain(&#34;tf.example.com&#34;)
-     *             .statuses(&#34;ISSUED&#34;)
-     *             .build());
-     * 
-     *         final var amazonIssued = AcmFunctions.getCertificate(GetCertificateArgs.builder()
-     *             .domain(&#34;tf.example.com&#34;)
-     *             .mostRecent(true)
-     *             .types(&#34;AMAZON_ISSUED&#34;)
-     *             .build());
-     * 
-     *         final var rsa4096 = AcmFunctions.getCertificate(GetCertificateArgs.builder()
-     *             .domain(&#34;tf.example.com&#34;)
-     *             .keyTypes(&#34;RSA_4096&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetCertificateResult> getCertificate(GetCertificateArgs args) {
         return getCertificate(args, InvokeOptions.Empty);
@@ -69,48 +27,6 @@ public final class AcmFunctions {
      * Use this data source to get the ARN of a certificate in AWS Certificate
      * Manager (ACM), you can reference
      * it by domain without having to hard code the ARNs as input.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.acm.AcmFunctions;
-     * import com.pulumi.aws.acm.inputs.GetCertificateArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var issued = AcmFunctions.getCertificate(GetCertificateArgs.builder()
-     *             .domain(&#34;tf.example.com&#34;)
-     *             .statuses(&#34;ISSUED&#34;)
-     *             .build());
-     * 
-     *         final var amazonIssued = AcmFunctions.getCertificate(GetCertificateArgs.builder()
-     *             .domain(&#34;tf.example.com&#34;)
-     *             .mostRecent(true)
-     *             .types(&#34;AMAZON_ISSUED&#34;)
-     *             .build());
-     * 
-     *         final var rsa4096 = AcmFunctions.getCertificate(GetCertificateArgs.builder()
-     *             .domain(&#34;tf.example.com&#34;)
-     *             .keyTypes(&#34;RSA_4096&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetCertificateResult> getCertificatePlain(GetCertificatePlainArgs args) {
@@ -121,48 +37,6 @@ public final class AcmFunctions {
      * Manager (ACM), you can reference
      * it by domain without having to hard code the ARNs as input.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.acm.AcmFunctions;
-     * import com.pulumi.aws.acm.inputs.GetCertificateArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var issued = AcmFunctions.getCertificate(GetCertificateArgs.builder()
-     *             .domain(&#34;tf.example.com&#34;)
-     *             .statuses(&#34;ISSUED&#34;)
-     *             .build());
-     * 
-     *         final var amazonIssued = AcmFunctions.getCertificate(GetCertificateArgs.builder()
-     *             .domain(&#34;tf.example.com&#34;)
-     *             .mostRecent(true)
-     *             .types(&#34;AMAZON_ISSUED&#34;)
-     *             .build());
-     * 
-     *         final var rsa4096 = AcmFunctions.getCertificate(GetCertificateArgs.builder()
-     *             .domain(&#34;tf.example.com&#34;)
-     *             .keyTypes(&#34;RSA_4096&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetCertificateResult> getCertificate(GetCertificateArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:acm/getCertificate:getCertificate", TypeShape.of(GetCertificateResult.class), args, Utilities.withVersion(options));
@@ -171,48 +45,6 @@ public final class AcmFunctions {
      * Use this data source to get the ARN of a certificate in AWS Certificate
      * Manager (ACM), you can reference
      * it by domain without having to hard code the ARNs as input.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.acm.AcmFunctions;
-     * import com.pulumi.aws.acm.inputs.GetCertificateArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var issued = AcmFunctions.getCertificate(GetCertificateArgs.builder()
-     *             .domain(&#34;tf.example.com&#34;)
-     *             .statuses(&#34;ISSUED&#34;)
-     *             .build());
-     * 
-     *         final var amazonIssued = AcmFunctions.getCertificate(GetCertificateArgs.builder()
-     *             .domain(&#34;tf.example.com&#34;)
-     *             .mostRecent(true)
-     *             .types(&#34;AMAZON_ISSUED&#34;)
-     *             .build());
-     * 
-     *         final var rsa4096 = AcmFunctions.getCertificate(GetCertificateArgs.builder()
-     *             .domain(&#34;tf.example.com&#34;)
-     *             .keyTypes(&#34;RSA_4096&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetCertificateResult> getCertificatePlain(GetCertificatePlainArgs args, InvokeOptions options) {

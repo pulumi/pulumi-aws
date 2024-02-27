@@ -23,7 +23,7 @@ namespace Pulumi.Aws.ImageBuilder
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.ImageBuilder.Workflow("example", new()
+    ///     var example = new Aws.Imagebuilder.Workflow.Workflow("example", new()
     ///     {
     ///         Data = @"  name: example
     ///   description: Workflow to test an image

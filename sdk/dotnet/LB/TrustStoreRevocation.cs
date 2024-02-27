@@ -23,13 +23,13 @@ namespace Pulumi.Aws.LB
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testTrustStore = new Aws.LB.TrustStore("testTrustStore", new()
+    ///     var testTrustStore = new Aws.Lb.TrustStore.TrustStore("testTrustStore", new()
     ///     {
     ///         CaCertificatesBundleS3Bucket = "...",
     ///         CaCertificatesBundleS3Key = "...",
     ///     });
     /// 
-    ///     var testTrustStoreRevocation = new Aws.LB.TrustStoreRevocation("testTrustStoreRevocation", new()
+    ///     var testTrustStoreRevocation = new Aws.Lb.TrustStoreRevocation.TrustStoreRevocation("testTrustStoreRevocation", new()
     ///     {
     ///         TrustStoreArn = testTrustStore.Arn,
     ///         RevocationsS3Bucket = "...",

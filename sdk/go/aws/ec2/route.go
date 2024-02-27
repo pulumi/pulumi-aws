@@ -25,25 +25,23 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	ec2/route "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/route"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.NewRoute(ctx, "route", &ec2.RouteArgs{
-//				RouteTableId:           pulumi.Any(aws_route_table.Testing.Id),
-//				DestinationCidrBlock:   pulumi.String("10.0.1.0/22"),
-//				VpcPeeringConnectionId: pulumi.String("pcx-45ff3dc1"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := ec2/route.NewRoute(ctx, "route", &ec2/route.RouteArgs{
+// RouteTableId: aws_route_table.Testing.Id,
+// DestinationCidrBlock: "10.0.1.0/22",
+// VpcPeeringConnectionId: "pcx-45ff3dc1",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ## Example IPv6 Usage
 //
@@ -52,38 +50,38 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	ec2/egressOnlyInternetGateway "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/egressOnlyInternetGateway"
+//	ec2/route "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/route"
+//	ec2/vpc "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/vpc"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			vpc, err := ec2.NewVpc(ctx, "vpc", &ec2.VpcArgs{
-//				CidrBlock:                    pulumi.String("10.1.0.0/16"),
-//				AssignGeneratedIpv6CidrBlock: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			egress, err := ec2.NewEgressOnlyInternetGateway(ctx, "egress", &ec2.EgressOnlyInternetGatewayArgs{
-//				VpcId: vpc.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ec2.NewRoute(ctx, "route", &ec2.RouteArgs{
-//				RouteTableId:             pulumi.String("rtb-4fbb3ac4"),
-//				DestinationIpv6CidrBlock: pulumi.String("::/0"),
-//				EgressOnlyGatewayId:      egress.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// vpc, err := ec2/vpc.NewVpc(ctx, "vpc", &ec2/vpc.VpcArgs{
+// CidrBlock: "10.1.0.0/16",
+// AssignGeneratedIpv6CidrBlock: true,
+// })
+// if err != nil {
+// return err
+// }
+// egress, err := ec2/egressOnlyInternetGateway.NewEgressOnlyInternetGateway(ctx, "egress", &ec2/egressOnlyInternetGateway.EgressOnlyInternetGatewayArgs{
+// VpcId: vpc.Id,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = ec2/route.NewRoute(ctx, "route", &ec2/route.RouteArgs{
+// RouteTableId: "rtb-4fbb3ac4",
+// DestinationIpv6CidrBlock: "::/0",
+// EgressOnlyGatewayId: egress.Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

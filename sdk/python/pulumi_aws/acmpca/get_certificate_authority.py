@@ -209,15 +209,6 @@ def get_certificate_authority(arn: Optional[str] = None,
     """
     Get information on a AWS Certificate Manager Private Certificate Authority (ACM PCA Certificate Authority).
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.acmpca.get_certificate_authority(arn="arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012")
-    ```
-
 
     :param str arn: ARN of the certificate authority.
     :param Mapping[str, str] tags: Key-value map of user-defined tags that are attached to the certificate authority.
@@ -251,15 +242,6 @@ def get_certificate_authority_output(arn: Optional[pulumi.Input[str]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCertificateAuthorityResult]:
     """
     Get information on a AWS Certificate Manager Private Certificate Authority (ACM PCA Certificate Authority).
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.acmpca.get_certificate_authority(arn="arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012")
-    ```
 
 
     :param str arn: ARN of the certificate authority.

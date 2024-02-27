@@ -13,80 +13,12 @@ namespace Pulumi.Aws.Fsx
     {
         /// <summary>
         /// This resource can be useful for getting back a set of FSx ONTAP Storage Virtual Machine (SVM) IDs.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// The following shows outputting all SVM IDs for a given FSx ONTAP File System.
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Fsx.GetOntapStorageVirtualMachines.Invoke(new()
-        ///     {
-        ///         Filters = new[]
-        ///         {
-        ///             new Aws.Fsx.Inputs.GetOntapStorageVirtualMachinesFilterInputArgs
-        ///             {
-        ///                 Name = "file-system-id",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "fs-12345678",
-        ///                 },
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetOntapStorageVirtualMachinesResult> InvokeAsync(GetOntapStorageVirtualMachinesArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetOntapStorageVirtualMachinesResult>("aws:fsx/getOntapStorageVirtualMachines:getOntapStorageVirtualMachines", args ?? new GetOntapStorageVirtualMachinesArgs(), options.WithDefaults());
 
         /// <summary>
         /// This resource can be useful for getting back a set of FSx ONTAP Storage Virtual Machine (SVM) IDs.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// The following shows outputting all SVM IDs for a given FSx ONTAP File System.
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Fsx.GetOntapStorageVirtualMachines.Invoke(new()
-        ///     {
-        ///         Filters = new[]
-        ///         {
-        ///             new Aws.Fsx.Inputs.GetOntapStorageVirtualMachinesFilterInputArgs
-        ///             {
-        ///                 Name = "file-system-id",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "fs-12345678",
-        ///                 },
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetOntapStorageVirtualMachinesResult> Invoke(GetOntapStorageVirtualMachinesInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOntapStorageVirtualMachinesResult>("aws:fsx/getOntapStorageVirtualMachines:getOntapStorageVirtualMachines", args ?? new GetOntapStorageVirtualMachinesInvokeArgs(), options.WithDefaults());

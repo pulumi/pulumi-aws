@@ -84,18 +84,6 @@ def get_image_pipelines(filters: Optional[Sequence[pulumi.InputType['GetImagePip
     """
     Use this data source to get the ARNs and names of Image Builder Image Pipelines matching the specified criteria.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.imagebuilder.get_image_pipelines(filters=[aws.imagebuilder.GetImagePipelinesFilterArgs(
-        name="name",
-        values=["example"],
-    )])
-    ```
-
 
     :param Sequence[pulumi.InputType['GetImagePipelinesFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.
     """
@@ -116,18 +104,6 @@ def get_image_pipelines_output(filters: Optional[pulumi.Input[Optional[Sequence[
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetImagePipelinesResult]:
     """
     Use this data source to get the ARNs and names of Image Builder Image Pipelines matching the specified criteria.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.imagebuilder.get_image_pipelines(filters=[aws.imagebuilder.GetImagePipelinesFilterArgs(
-        name="name",
-        values=["example"],
-    )])
-    ```
 
 
     :param Sequence[pulumi.InputType['GetImagePipelinesFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.

@@ -14,8 +14,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleUserPool = new aws.cognito.UserPool("exampleUserPool", {});
- * const exampleUser = new aws.cognito.User("exampleUser", {
+ * const exampleUserPool = new aws.cognito/userPool.UserPool("exampleUserPool", {});
+ * const exampleUser = new aws.cognito/user.User("exampleUser", {
  *     userPoolId: exampleUserPool.id,
  *     username: "example",
  * });
@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleUserPool = new aws.cognito.UserPool("exampleUserPool", {schemas: [
+ * const exampleUserPool = new aws.cognito/userPool.UserPool("exampleUserPool", {schemas: [
  *     {
  *         name: "example",
  *         attributeDataType: "Boolean",
@@ -43,14 +43,14 @@ import * as utilities from "../utilities";
  *         stringAttributeConstraints: {},
  *     },
  * ]});
- * const exampleUser = new aws.cognito.User("exampleUser", {
+ * const exampleUser = new aws.cognito/user.User("exampleUser", {
  *     userPoolId: exampleUserPool.id,
  *     username: "example",
  *     attributes: {
- *         example: "true",
+ *         example: true,
  *         foo: "bar",
  *         email: "no-reply@example.com",
- *         email_verified: "true",
+ *         email_verified: true,
  *     },
  * });
  * ```

@@ -14,32 +14,6 @@ import (
 // Data source for managing an AWS OpenSearch Serverless Lifecycle Policy.
 //
 // ## Example Usage
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/opensearch"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := opensearch.LookupServerlessLifecyclePolicy(ctx, &opensearch.LookupServerlessLifecyclePolicyArgs{
-//				Name: "example-lifecycle-policy",
-//				Type: "retention",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupServerlessLifecyclePolicy(ctx *pulumi.Context, args *LookupServerlessLifecyclePolicyArgs, opts ...pulumi.InvokeOption) (*LookupServerlessLifecyclePolicyResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupServerlessLifecyclePolicyResult

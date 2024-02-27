@@ -25,54 +25,29 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/schemas"
+//	schemas/registry "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/schemas/registry"
+//	schemas/schema "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/schemas/schema"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testRegistry, err := schemas.NewRegistry(ctx, "testRegistry", nil)
-//			if err != nil {
-//				return err
-//			}
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"openapi": "3.0.0",
-//				"info": map[string]interface{}{
-//					"version": "1.0.0",
-//					"title":   "Event",
-//				},
-//				"paths": nil,
-//				"components": map[string]interface{}{
-//					"schemas": map[string]interface{}{
-//						"Event": map[string]interface{}{
-//							"type": "object",
-//							"properties": map[string]interface{}{
-//								"name": map[string]interface{}{
-//									"type": "string",
-//								},
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			_, err = schemas.NewSchema(ctx, "testSchema", &schemas.SchemaArgs{
-//				RegistryName: testRegistry.Name,
-//				Type:         pulumi.String("OpenApi3"),
-//				Description:  pulumi.String("The schema definition for my event"),
-//				Content:      pulumi.String(json0),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// testRegistry, err := schemas/registry.NewRegistry(ctx, "testRegistry", nil)
+// if err != nil {
+// return err
+// }
+// _, err = schemas/schema.NewSchema(ctx, "testSchema", &schemas/schema.SchemaArgs{
+// RegistryName: testRegistry.Name,
+// Type: "OpenApi3",
+// Description: "The schema definition for my event",
+// Content: %!v(PANIC=Format method: fatal: An assertion has failed: unlowered function toJSON),
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

@@ -21,32 +21,31 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssm"
+//	ssm/patchBaseline "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ssm/patchBaseline"
+//	ssm/patchGroup "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ssm/patchGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			production, err := ssm.NewPatchBaseline(ctx, "production", &ssm.PatchBaselineArgs{
-//				ApprovedPatches: pulumi.StringArray{
-//					pulumi.String("KB123456"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ssm.NewPatchGroup(ctx, "patchgroup", &ssm.PatchGroupArgs{
-//				BaselineId: production.ID(),
-//				PatchGroup: pulumi.String("patch-group-name"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// production, err := ssm/patchBaseline.NewPatchBaseline(ctx, "production", &ssm/patchBaseline.PatchBaselineArgs{
+// ApprovedPatches: []string{
+// "KB123456",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = ssm/patchGroup.NewPatchGroup(ctx, "patchgroup", &ssm/patchGroup.PatchGroupArgs{
+// BaselineId: production.Id,
+// PatchGroup: "patch-group-name",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 type PatchGroup struct {
 	pulumi.CustomResourceState

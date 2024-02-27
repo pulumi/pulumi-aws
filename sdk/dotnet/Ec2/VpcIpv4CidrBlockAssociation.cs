@@ -25,12 +25,12 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var main = new Aws.Ec2.Vpc("main", new()
+    ///     var main = new Aws.Ec2.Vpc.Vpc("main", new()
     ///     {
     ///         CidrBlock = "10.0.0.0/16",
     ///     });
     /// 
-    ///     var secondaryCidr = new Aws.Ec2.VpcIpv4CidrBlockAssociation("secondaryCidr", new()
+    ///     var secondaryCidr = new Aws.Ec2.VpcIpv4CidrBlockAssociation.VpcIpv4CidrBlockAssociation("secondaryCidr", new()
     ///     {
     ///         VpcId = main.Id,
     ///         CidrBlock = "172.20.0.0/16",

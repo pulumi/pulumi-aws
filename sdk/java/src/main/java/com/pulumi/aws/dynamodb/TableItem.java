@@ -29,7 +29,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.dynamodb.Table;
  * import com.pulumi.aws.dynamodb.TableArgs;
- * import com.pulumi.aws.dynamodb.inputs.TableAttributeArgs;
  * import com.pulumi.aws.dynamodb.TableItem;
  * import com.pulumi.aws.dynamodb.TableItemArgs;
  * import java.util.List;
@@ -49,10 +48,7 @@ import javax.annotation.Nullable;
  *             .readCapacity(10)
  *             .writeCapacity(10)
  *             .hashKey(&#34;exampleHashKey&#34;)
- *             .attributes(TableAttributeArgs.builder()
- *                 .name(&#34;exampleHashKey&#34;)
- *                 .type(&#34;S&#34;)
- *                 .build())
+ *             .attributes(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleTableItem = new TableItem(&#34;exampleTableItem&#34;, TableItemArgs.builder()        

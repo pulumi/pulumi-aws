@@ -23,7 +23,7 @@ namespace Pulumi.Aws.Ses
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Ses.DomainIdentity("example", new()
+    ///     var example = new Aws.Ses.DomainIdentity.DomainIdentity("example", new()
     ///     {
     ///         Domain = "example.com",
     ///     });
@@ -40,17 +40,17 @@ namespace Pulumi.Aws.Ses
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Ses.DomainIdentity("example", new()
+    ///     var example = new Aws.Ses.DomainIdentity.DomainIdentity("example", new()
     ///     {
     ///         Domain = "example.com",
     ///     });
     /// 
-    ///     var exampleAmazonsesVerificationRecord = new Aws.Route53.Record("exampleAmazonsesVerificationRecord", new()
+    ///     var exampleAmazonsesVerificationRecord = new Aws.Route53.Record.Record("exampleAmazonsesVerificationRecord", new()
     ///     {
     ///         ZoneId = "ABCDEFGHIJ123",
     ///         Name = "_amazonses.example.com",
     ///         Type = "TXT",
-    ///         Ttl = 600,
+    ///         Ttl = "600",
     ///         Records = new[]
     ///         {
     ///             example.VerificationToken,

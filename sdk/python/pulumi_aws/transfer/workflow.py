@@ -214,13 +214,13 @@ class Workflow(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.transfer.Workflow("example", steps=[aws.transfer.WorkflowStepArgs(
-            delete_step_details=aws.transfer.WorkflowStepDeleteStepDetailsArgs(
-                name="example",
-                source_file_location="${original.file}",
-            ),
-            type="DELETE",
-        )])
+        example = aws.transfer.workflow.Workflow("example", steps=[{
+            deleteStepDetails: {
+                name: example,
+                sourceFileLocation: ${original.file},
+            },
+            type: DELETE,
+        }])
         ```
         ### Multistep example
 
@@ -228,27 +228,27 @@ class Workflow(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.transfer.Workflow("example", steps=[
-            aws.transfer.WorkflowStepArgs(
-                custom_step_details=aws.transfer.WorkflowStepCustomStepDetailsArgs(
-                    name="example",
-                    source_file_location="${original.file}",
-                    target=aws_lambda_function["example"]["arn"],
-                    timeout_seconds=60,
-                ),
-                type="CUSTOM",
-            ),
-            aws.transfer.WorkflowStepArgs(
-                tag_step_details=aws.transfer.WorkflowStepTagStepDetailsArgs(
-                    name="example",
-                    source_file_location="${original.file}",
-                    tags=[aws.transfer.WorkflowStepTagStepDetailsTagArgs(
-                        key="Name",
-                        value="Hello World",
-                    )],
-                ),
-                type="TAG",
-            ),
+        example = aws.transfer.workflow.Workflow("example", steps=[
+            {
+                customStepDetails: {
+                    name: example,
+                    sourceFileLocation: ${original.file},
+                    target: aws_lambda_function.example.arn,
+                    timeoutSeconds: 60,
+                },
+                type: CUSTOM,
+            },
+            {
+                tagStepDetails: {
+                    name: example,
+                    sourceFileLocation: ${original.file},
+                    tags: [{
+                        key: Name,
+                        value: Hello World,
+                    }],
+                },
+                type: TAG,
+            },
         ])
         ```
 
@@ -283,13 +283,13 @@ class Workflow(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.transfer.Workflow("example", steps=[aws.transfer.WorkflowStepArgs(
-            delete_step_details=aws.transfer.WorkflowStepDeleteStepDetailsArgs(
-                name="example",
-                source_file_location="${original.file}",
-            ),
-            type="DELETE",
-        )])
+        example = aws.transfer.workflow.Workflow("example", steps=[{
+            deleteStepDetails: {
+                name: example,
+                sourceFileLocation: ${original.file},
+            },
+            type: DELETE,
+        }])
         ```
         ### Multistep example
 
@@ -297,27 +297,27 @@ class Workflow(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.transfer.Workflow("example", steps=[
-            aws.transfer.WorkflowStepArgs(
-                custom_step_details=aws.transfer.WorkflowStepCustomStepDetailsArgs(
-                    name="example",
-                    source_file_location="${original.file}",
-                    target=aws_lambda_function["example"]["arn"],
-                    timeout_seconds=60,
-                ),
-                type="CUSTOM",
-            ),
-            aws.transfer.WorkflowStepArgs(
-                tag_step_details=aws.transfer.WorkflowStepTagStepDetailsArgs(
-                    name="example",
-                    source_file_location="${original.file}",
-                    tags=[aws.transfer.WorkflowStepTagStepDetailsTagArgs(
-                        key="Name",
-                        value="Hello World",
-                    )],
-                ),
-                type="TAG",
-            ),
+        example = aws.transfer.workflow.Workflow("example", steps=[
+            {
+                customStepDetails: {
+                    name: example,
+                    sourceFileLocation: ${original.file},
+                    target: aws_lambda_function.example.arn,
+                    timeoutSeconds: 60,
+                },
+                type: CUSTOM,
+            },
+            {
+                tagStepDetails: {
+                    name: example,
+                    sourceFileLocation: ${original.file},
+                    tags: [{
+                        key: Name,
+                        value: Hello World,
+                    }],
+                },
+                type: TAG,
+            },
         ])
         ```
 

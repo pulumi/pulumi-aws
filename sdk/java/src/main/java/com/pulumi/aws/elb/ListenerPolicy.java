@@ -31,10 +31,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.elb.LoadBalancer;
  * import com.pulumi.aws.elb.LoadBalancerArgs;
- * import com.pulumi.aws.elb.inputs.LoadBalancerListenerArgs;
  * import com.pulumi.aws.elb.LoadBalancerPolicy;
  * import com.pulumi.aws.elb.LoadBalancerPolicyArgs;
- * import com.pulumi.aws.elb.inputs.LoadBalancerPolicyPolicyAttributeArgs;
  * import com.pulumi.aws.elb.ListenerPolicy;
  * import com.pulumi.aws.elb.ListenerPolicyArgs;
  * import java.util.List;
@@ -52,14 +50,8 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var wu_tang = new LoadBalancer(&#34;wu-tang&#34;, LoadBalancerArgs.builder()        
  *             .availabilityZones(&#34;us-east-1a&#34;)
- *             .listeners(LoadBalancerListenerArgs.builder()
- *                 .instancePort(443)
- *                 .instanceProtocol(&#34;http&#34;)
- *                 .lbPort(443)
- *                 .lbProtocol(&#34;https&#34;)
- *                 .sslCertificateId(&#34;arn:aws:iam::000000000000:server-certificate/wu-tang.net&#34;)
- *                 .build())
- *             .tags(Map.of(&#34;Name&#34;, &#34;wu-tang&#34;))
+ *             .listeners(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var wu_tang_ssl = new LoadBalancerPolicy(&#34;wu-tang-ssl&#34;, LoadBalancerPolicyArgs.builder()        
@@ -67,14 +59,8 @@ import javax.annotation.Nullable;
  *             .policyName(&#34;wu-tang-ssl&#34;)
  *             .policyTypeName(&#34;SSLNegotiationPolicyType&#34;)
  *             .policyAttributes(            
- *                 LoadBalancerPolicyPolicyAttributeArgs.builder()
- *                     .name(&#34;ECDHE-ECDSA-AES128-GCM-SHA256&#34;)
- *                     .value(&#34;true&#34;)
- *                     .build(),
- *                 LoadBalancerPolicyPolicyAttributeArgs.builder()
- *                     .name(&#34;Protocol-TLSv1.2&#34;)
- *                     .value(&#34;true&#34;)
- *                     .build())
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var wu_tang_listener_policies_443 = new ListenerPolicy(&#34;wu-tang-listener-policies-443&#34;, ListenerPolicyArgs.builder()        
@@ -97,10 +83,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.elb.LoadBalancer;
  * import com.pulumi.aws.elb.LoadBalancerArgs;
- * import com.pulumi.aws.elb.inputs.LoadBalancerListenerArgs;
  * import com.pulumi.aws.elb.LoadBalancerPolicy;
  * import com.pulumi.aws.elb.LoadBalancerPolicyArgs;
- * import com.pulumi.aws.elb.inputs.LoadBalancerPolicyPolicyAttributeArgs;
  * import com.pulumi.aws.elb.ListenerPolicy;
  * import com.pulumi.aws.elb.ListenerPolicyArgs;
  * import java.util.List;
@@ -118,24 +102,15 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var wu_tang = new LoadBalancer(&#34;wu-tang&#34;, LoadBalancerArgs.builder()        
  *             .availabilityZones(&#34;us-east-1a&#34;)
- *             .listeners(LoadBalancerListenerArgs.builder()
- *                 .instancePort(443)
- *                 .instanceProtocol(&#34;http&#34;)
- *                 .lbPort(443)
- *                 .lbProtocol(&#34;https&#34;)
- *                 .sslCertificateId(&#34;arn:aws:iam::000000000000:server-certificate/wu-tang.net&#34;)
- *                 .build())
- *             .tags(Map.of(&#34;Name&#34;, &#34;wu-tang&#34;))
+ *             .listeners(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var wu_tang_ssl_tls_1_1 = new LoadBalancerPolicy(&#34;wu-tang-ssl-tls-1-1&#34;, LoadBalancerPolicyArgs.builder()        
  *             .loadBalancerName(wu_tang.name())
  *             .policyName(&#34;wu-tang-ssl&#34;)
  *             .policyTypeName(&#34;SSLNegotiationPolicyType&#34;)
- *             .policyAttributes(LoadBalancerPolicyPolicyAttributeArgs.builder()
- *                 .name(&#34;Reference-Security-Policy&#34;)
- *                 .value(&#34;ELBSecurityPolicy-TLS-1-1-2017-01&#34;)
- *                 .build())
+ *             .policyAttributes(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var wu_tang_listener_policies_443 = new ListenerPolicy(&#34;wu-tang-listener-policies-443&#34;, ListenerPolicyArgs.builder()        

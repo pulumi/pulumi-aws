@@ -24,13 +24,13 @@ namespace Pulumi.Aws.ApiGatewayV2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleApi = new Aws.ApiGatewayV2.Api("exampleApi", new()
+    ///     var exampleApi = new Aws.Apigatewayv2.Api.Api("exampleApi", new()
     ///     {
     ///         ProtocolType = "WEBSOCKET",
     ///         RouteSelectionExpression = "$request.body.action",
     ///     });
     /// 
-    ///     var exampleRoute = new Aws.ApiGatewayV2.Route("exampleRoute", new()
+    ///     var exampleRoute = new Aws.Apigatewayv2.Route.Route("exampleRoute", new()
     ///     {
     ///         ApiId = exampleApi.Id,
     ///         RouteKey = "$default",
@@ -48,12 +48,12 @@ namespace Pulumi.Aws.ApiGatewayV2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleApi = new Aws.ApiGatewayV2.Api("exampleApi", new()
+    ///     var exampleApi = new Aws.Apigatewayv2.Api.Api("exampleApi", new()
     ///     {
     ///         ProtocolType = "HTTP",
     ///     });
     /// 
-    ///     var exampleIntegration = new Aws.ApiGatewayV2.Integration("exampleIntegration", new()
+    ///     var exampleIntegration = new Aws.Apigatewayv2.Integration.Integration("exampleIntegration", new()
     ///     {
     ///         ApiId = exampleApi.Id,
     ///         IntegrationType = "HTTP_PROXY",
@@ -61,11 +61,11 @@ namespace Pulumi.Aws.ApiGatewayV2
     ///         IntegrationUri = "https://example.com/{proxy}",
     ///     });
     /// 
-    ///     var exampleRoute = new Aws.ApiGatewayV2.Route("exampleRoute", new()
+    ///     var exampleRoute = new Aws.Apigatewayv2.Route.Route("exampleRoute", new()
     ///     {
     ///         ApiId = exampleApi.Id,
     ///         RouteKey = "ANY /example/{proxy+}",
-    ///         Target = exampleIntegration.Id.Apply(id =&gt; $"integrations/{id}"),
+    ///         Target = $"integrations/{exampleIntegration.Id}",
     ///     });
     /// 
     /// });

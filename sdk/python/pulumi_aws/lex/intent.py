@@ -604,6 +604,88 @@ class Intent(pulumi.CustomResource):
         Provides an Amazon Lex Intent resource. For more information see
         [Amazon Lex: How It Works](https://docs.aws.amazon.com/lex/latest/dg/how-it-works.html)
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        order_flowers_intent = aws.lex.intent.Intent("orderFlowersIntent",
+            confirmation_prompt={
+                maxAttempts: 2,
+                messages: [{
+                    content: Okay, your {FlowerType} will be ready for pickup by {PickupTime} on {PickupDate}.  Does this sound okay?,
+                    contentType: PlainText,
+                }],
+            },
+            create_version=False,
+            description=Intent to order a bouquet of flowers for pick up,
+            fulfillment_activity={
+                type: ReturnIntent,
+            },
+            name=OrderFlowers,
+            rejection_statement={
+                messages: [{
+                    content: Okay, I will not place your order.,
+                    contentType: PlainText,
+                }],
+            },
+            sample_utterances=[
+                I would like to order some flowers,
+                I would like to pick up flowers,
+            ],
+            slots=[
+                {
+                    description: The type of flowers to pick up,
+                    name: FlowerType,
+                    priority: 1,
+                    sampleUtterances: [I would like to order {FlowerType}],
+                    slotConstraint: Required,
+                    slotType: FlowerTypes,
+                    slotTypeVersion: $LATEST,
+                    valueElicitationPrompt: {
+                        maxAttempts: 2,
+                        message: [{
+                            content: What type of flowers would you like to order?,
+                            contentType: PlainText,
+                        }],
+                    },
+                },
+                {
+                    description: The date to pick up the flowers,
+                    name: PickupDate,
+                    priority: 2,
+                    sampleUtterances: [I would like to order {FlowerType}],
+                    slotConstraint: Required,
+                    slotType: AMAZON.DATE,
+                    slotTypeVersion: $LATEST,
+                    valueElicitationPrompt: {
+                        maxAttempts: 2,
+                        message: [{
+                            content: What day do you want the {FlowerType} to be picked up?,
+                            contentType: PlainText,
+                        }],
+                    },
+                },
+                {
+                    description: The time to pick up the flowers,
+                    name: PickupTime,
+                    priority: 3,
+                    sampleUtterances: [I would like to order {FlowerType}],
+                    slotConstraint: Required,
+                    slotType: AMAZON.TIME,
+                    slotTypeVersion: $LATEST,
+                    valueElicitationPrompt: {
+                        maxAttempts: 2,
+                        message: [{
+                            content: Pick up the {FlowerType} at what time on {PickupDate}?,
+                            contentType: PlainText,
+                        }],
+                    },
+                },
+            ])
+        ```
+
         ## Import
 
         Using `pulumi import`, import intents using their name. For example:
@@ -658,6 +740,88 @@ class Intent(pulumi.CustomResource):
         """
         Provides an Amazon Lex Intent resource. For more information see
         [Amazon Lex: How It Works](https://docs.aws.amazon.com/lex/latest/dg/how-it-works.html)
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        order_flowers_intent = aws.lex.intent.Intent("orderFlowersIntent",
+            confirmation_prompt={
+                maxAttempts: 2,
+                messages: [{
+                    content: Okay, your {FlowerType} will be ready for pickup by {PickupTime} on {PickupDate}.  Does this sound okay?,
+                    contentType: PlainText,
+                }],
+            },
+            create_version=False,
+            description=Intent to order a bouquet of flowers for pick up,
+            fulfillment_activity={
+                type: ReturnIntent,
+            },
+            name=OrderFlowers,
+            rejection_statement={
+                messages: [{
+                    content: Okay, I will not place your order.,
+                    contentType: PlainText,
+                }],
+            },
+            sample_utterances=[
+                I would like to order some flowers,
+                I would like to pick up flowers,
+            ],
+            slots=[
+                {
+                    description: The type of flowers to pick up,
+                    name: FlowerType,
+                    priority: 1,
+                    sampleUtterances: [I would like to order {FlowerType}],
+                    slotConstraint: Required,
+                    slotType: FlowerTypes,
+                    slotTypeVersion: $LATEST,
+                    valueElicitationPrompt: {
+                        maxAttempts: 2,
+                        message: [{
+                            content: What type of flowers would you like to order?,
+                            contentType: PlainText,
+                        }],
+                    },
+                },
+                {
+                    description: The date to pick up the flowers,
+                    name: PickupDate,
+                    priority: 2,
+                    sampleUtterances: [I would like to order {FlowerType}],
+                    slotConstraint: Required,
+                    slotType: AMAZON.DATE,
+                    slotTypeVersion: $LATEST,
+                    valueElicitationPrompt: {
+                        maxAttempts: 2,
+                        message: [{
+                            content: What day do you want the {FlowerType} to be picked up?,
+                            contentType: PlainText,
+                        }],
+                    },
+                },
+                {
+                    description: The time to pick up the flowers,
+                    name: PickupTime,
+                    priority: 3,
+                    sampleUtterances: [I would like to order {FlowerType}],
+                    slotConstraint: Required,
+                    slotType: AMAZON.TIME,
+                    slotTypeVersion: $LATEST,
+                    valueElicitationPrompt: {
+                        maxAttempts: 2,
+                        message: [{
+                            content: Pick up the {FlowerType} at what time on {PickupDate}?,
+                            contentType: PlainText,
+                        }],
+                    },
+                },
+            ])
+        ```
 
         ## Import
 

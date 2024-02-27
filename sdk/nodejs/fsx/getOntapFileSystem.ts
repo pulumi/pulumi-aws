@@ -11,16 +11,6 @@ import * as utilities from "../utilities";
  * Retrieve information on FSx ONTAP File System.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.fsx.getOntapFileSystem({
- *     id: "fs-12345678",
- * });
- * ```
  */
 export function getOntapFileSystem(args: GetOntapFileSystemArgs, opts?: pulumi.InvokeOptions): Promise<GetOntapFileSystemResult> {
 
@@ -146,16 +136,6 @@ export interface GetOntapFileSystemResult {
  * Retrieve information on FSx ONTAP File System.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.fsx.getOntapFileSystem({
- *     id: "fs-12345678",
- * });
- * ```
  */
 export function getOntapFileSystemOutput(args: GetOntapFileSystemOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOntapFileSystemResult> {
     return pulumi.output(args).apply((a: any) => getOntapFileSystem(a, opts))

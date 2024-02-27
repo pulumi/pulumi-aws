@@ -22,24 +22,24 @@ namespace Pulumi.Aws.Waf
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleRule = new Aws.Waf.Rule("exampleRule", new()
+    ///     var exampleRule = new Aws.Waf.Rule.Rule("exampleRule", new()
     ///     {
     ///         MetricName = "example",
     ///     });
     /// 
-    ///     var exampleRuleGroup = new Aws.Waf.RuleGroup("exampleRuleGroup", new()
+    ///     var exampleRuleGroup = new Aws.Waf.RuleGroup.RuleGroup("exampleRuleGroup", new()
     ///     {
     ///         MetricName = "example",
     ///         ActivatedRules = new[]
     ///         {
-    ///             new Aws.Waf.Inputs.RuleGroupActivatedRuleArgs
+    ///             
     ///             {
-    ///                 Action = new Aws.Waf.Inputs.RuleGroupActivatedRuleActionArgs
+    ///                 { "action", 
     ///                 {
-    ///                     Type = "COUNT",
-    ///                 },
-    ///                 Priority = 50,
-    ///                 RuleId = exampleRule.Id,
+    ///                     { "type", "COUNT" },
+    ///                 } },
+    ///                 { "priority", 50 },
+    ///                 { "ruleId", exampleRule.Id },
     ///             },
     ///         },
     ///     });

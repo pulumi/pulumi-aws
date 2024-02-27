@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const _default = new aws.rds.ClusterParameterGroup("default", {
+ * const _default = new aws.rds/clusterParameterGroup.ClusterParameterGroup("default", {
  *     description: "RDS default cluster parameter group",
  *     family: "aurora5.6",
  *     parameters: [

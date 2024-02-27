@@ -36,20 +36,9 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.lb.Listener;
  * import com.pulumi.aws.lb.ListenerRule;
  * import com.pulumi.aws.lb.ListenerRuleArgs;
- * import com.pulumi.aws.lb.inputs.ListenerRuleActionArgs;
- * import com.pulumi.aws.lb.inputs.ListenerRuleConditionArgs;
- * import com.pulumi.aws.lb.inputs.ListenerRuleConditionPathPatternArgs;
- * import com.pulumi.aws.lb.inputs.ListenerRuleConditionHostHeaderArgs;
- * import com.pulumi.aws.lb.inputs.ListenerRuleActionForwardArgs;
- * import com.pulumi.aws.lb.inputs.ListenerRuleActionForwardStickinessArgs;
- * import com.pulumi.aws.lb.inputs.ListenerRuleActionRedirectArgs;
- * import com.pulumi.aws.lb.inputs.ListenerRuleConditionHttpHeaderArgs;
- * import com.pulumi.aws.lb.inputs.ListenerRuleActionFixedResponseArgs;
  * import com.pulumi.aws.cognito.UserPool;
  * import com.pulumi.aws.cognito.UserPoolClient;
  * import com.pulumi.aws.cognito.UserPoolDomain;
- * import com.pulumi.aws.lb.inputs.ListenerRuleActionAuthenticateCognitoArgs;
- * import com.pulumi.aws.lb.inputs.ListenerRuleActionAuthenticateOidcArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -70,103 +59,36 @@ import javax.annotation.Nullable;
  *         var static_ = new ListenerRule(&#34;static&#34;, ListenerRuleArgs.builder()        
  *             .listenerArn(frontEndListener.arn())
  *             .priority(100)
- *             .actions(ListenerRuleActionArgs.builder()
- *                 .type(&#34;forward&#34;)
- *                 .targetGroupArn(aws_lb_target_group.static().arn())
- *                 .build())
+ *             .actions(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .conditions(            
- *                 ListenerRuleConditionArgs.builder()
- *                     .pathPattern(ListenerRuleConditionPathPatternArgs.builder()
- *                         .values(&#34;/static/*&#34;)
- *                         .build())
- *                     .build(),
- *                 ListenerRuleConditionArgs.builder()
- *                     .hostHeader(ListenerRuleConditionHostHeaderArgs.builder()
- *                         .values(&#34;example.com&#34;)
- *                         .build())
- *                     .build())
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var hostBasedWeightedRouting = new ListenerRule(&#34;hostBasedWeightedRouting&#34;, ListenerRuleArgs.builder()        
  *             .listenerArn(frontEndListener.arn())
  *             .priority(99)
- *             .actions(ListenerRuleActionArgs.builder()
- *                 .type(&#34;forward&#34;)
- *                 .targetGroupArn(aws_lb_target_group.static().arn())
- *                 .build())
- *             .conditions(ListenerRuleConditionArgs.builder()
- *                 .hostHeader(ListenerRuleConditionHostHeaderArgs.builder()
- *                     .values(&#34;my-service.*.mycompany.io&#34;)
- *                     .build())
- *                 .build())
+ *             .actions(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .conditions(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var hostBasedRouting = new ListenerRule(&#34;hostBasedRouting&#34;, ListenerRuleArgs.builder()        
  *             .listenerArn(frontEndListener.arn())
  *             .priority(99)
- *             .actions(ListenerRuleActionArgs.builder()
- *                 .type(&#34;forward&#34;)
- *                 .forward(ListenerRuleActionForwardArgs.builder()
- *                     .targetGroups(                    
- *                         ListenerRuleActionForwardTargetGroupArgs.builder()
- *                             .arn(aws_lb_target_group.main().arn())
- *                             .weight(80)
- *                             .build(),
- *                         ListenerRuleActionForwardTargetGroupArgs.builder()
- *                             .arn(aws_lb_target_group.canary().arn())
- *                             .weight(20)
- *                             .build())
- *                     .stickiness(ListenerRuleActionForwardStickinessArgs.builder()
- *                         .enabled(true)
- *                         .duration(600)
- *                         .build())
- *                     .build())
- *                 .build())
- *             .conditions(ListenerRuleConditionArgs.builder()
- *                 .hostHeader(ListenerRuleConditionHostHeaderArgs.builder()
- *                     .values(&#34;my-service.*.mycompany.io&#34;)
- *                     .build())
- *                 .build())
+ *             .actions(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .conditions(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var redirectHttpToHttps = new ListenerRule(&#34;redirectHttpToHttps&#34;, ListenerRuleArgs.builder()        
  *             .listenerArn(frontEndListener.arn())
- *             .actions(ListenerRuleActionArgs.builder()
- *                 .type(&#34;redirect&#34;)
- *                 .redirect(ListenerRuleActionRedirectArgs.builder()
- *                     .port(&#34;443&#34;)
- *                     .protocol(&#34;HTTPS&#34;)
- *                     .statusCode(&#34;HTTP_301&#34;)
- *                     .build())
- *                 .build())
- *             .conditions(ListenerRuleConditionArgs.builder()
- *                 .httpHeader(ListenerRuleConditionHttpHeaderArgs.builder()
- *                     .httpHeaderName(&#34;X-Forwarded-For&#34;)
- *                     .values(&#34;192.168.1.*&#34;)
- *                     .build())
- *                 .build())
+ *             .actions(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .conditions(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var healthCheck = new ListenerRule(&#34;healthCheck&#34;, ListenerRuleArgs.builder()        
  *             .listenerArn(frontEndListener.arn())
- *             .actions(ListenerRuleActionArgs.builder()
- *                 .type(&#34;fixed-response&#34;)
- *                 .fixedResponse(ListenerRuleActionFixedResponseArgs.builder()
- *                     .contentType(&#34;text/plain&#34;)
- *                     .messageBody(&#34;HEALTHY&#34;)
- *                     .statusCode(&#34;200&#34;)
- *                     .build())
- *                 .build())
- *             .conditions(ListenerRuleConditionArgs.builder()
- *                 .queryStrings(                
- *                     ListenerRuleConditionQueryStringArgs.builder()
- *                         .key(&#34;health&#34;)
- *                         .value(&#34;check&#34;)
- *                         .build(),
- *                     ListenerRuleConditionQueryStringArgs.builder()
- *                         .value(&#34;bar&#34;)
- *                         .build())
- *                 .build())
+ *             .actions(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .conditions(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var pool = new UserPool(&#34;pool&#34;);
@@ -178,38 +100,15 @@ import javax.annotation.Nullable;
  *         var admin = new ListenerRule(&#34;admin&#34;, ListenerRuleArgs.builder()        
  *             .listenerArn(frontEndListener.arn())
  *             .actions(            
- *                 ListenerRuleActionArgs.builder()
- *                     .type(&#34;authenticate-cognito&#34;)
- *                     .authenticateCognito(ListenerRuleActionAuthenticateCognitoArgs.builder()
- *                         .userPoolArn(pool.arn())
- *                         .userPoolClientId(client.id())
- *                         .userPoolDomain(domain.domain())
- *                         .build())
- *                     .build(),
- *                 ListenerRuleActionArgs.builder()
- *                     .type(&#34;forward&#34;)
- *                     .targetGroupArn(aws_lb_target_group.static().arn())
- *                     .build())
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var oidc = new ListenerRule(&#34;oidc&#34;, ListenerRuleArgs.builder()        
  *             .listenerArn(frontEndListener.arn())
  *             .actions(            
- *                 ListenerRuleActionArgs.builder()
- *                     .type(&#34;authenticate-oidc&#34;)
- *                     .authenticateOidc(ListenerRuleActionAuthenticateOidcArgs.builder()
- *                         .authorizationEndpoint(&#34;https://example.com/authorization_endpoint&#34;)
- *                         .clientId(&#34;client_id&#34;)
- *                         .clientSecret(&#34;client_secret&#34;)
- *                         .issuer(&#34;https://example.com&#34;)
- *                         .tokenEndpoint(&#34;https://example.com/token_endpoint&#34;)
- *                         .userInfoEndpoint(&#34;https://example.com/user_info_endpoint&#34;)
- *                         .build())
- *                     .build(),
- *                 ListenerRuleActionArgs.builder()
- *                     .type(&#34;forward&#34;)
- *                     .targetGroupArn(aws_lb_target_group.static().arn())
- *                     .build())
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

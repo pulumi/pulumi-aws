@@ -749,40 +749,40 @@ class TaskDefinition(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        service = aws.ecs.TaskDefinition("service",
-            family="service",
+        service = aws.ecs.task_definition.TaskDefinition("service",
+            family=service,
             container_definitions=json.dumps([
                 {
-                    "name": "first",
-                    "image": "service-first",
-                    "cpu": 10,
-                    "memory": 512,
-                    "essential": True,
-                    "portMappings": [{
-                        "containerPort": 80,
-                        "hostPort": 80,
+                    name: first,
+                    image: service-first,
+                    cpu: 10,
+                    memory: 512,
+                    essential: True,
+                    portMappings: [{
+                        containerPort: 80,
+                        hostPort: 80,
                     }],
                 },
                 {
-                    "name": "second",
-                    "image": "service-second",
-                    "cpu": 10,
-                    "memory": 256,
-                    "essential": True,
-                    "portMappings": [{
-                        "containerPort": 443,
-                        "hostPort": 443,
+                    name: second,
+                    image: service-second,
+                    cpu: 10,
+                    memory: 256,
+                    essential: True,
+                    portMappings: [{
+                        containerPort: 443,
+                        hostPort: 443,
                     }],
                 },
             ]),
-            volumes=[aws.ecs.TaskDefinitionVolumeArgs(
-                name="service-storage",
-                host_path="/ecs/service-storage",
-            )],
-            placement_constraints=[aws.ecs.TaskDefinitionPlacementConstraintArgs(
-                type="memberOf",
-                expression="attribute:ecs.availability-zone in [us-west-2a, us-west-2b]",
-            )])
+            volumes=[{
+                name: service-storage,
+                hostPath: /ecs/service-storage,
+            }],
+            placement_constraints=[{
+                type: memberOf,
+                expression: attribute:ecs.availability-zone in [us-west-2a, us-west-2b],
+            }])
         ```
         ### With AppMesh Proxy
 
@@ -790,20 +790,20 @@ class TaskDefinition(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        service = aws.ecs.TaskDefinition("service",
-            family="service",
-            container_definitions=(lambda path: open(path).read())("task-definitions/service.json"),
-            proxy_configuration=aws.ecs.TaskDefinitionProxyConfigurationArgs(
-                type="APPMESH",
-                container_name="applicationContainerName",
-                properties={
-                    "AppPorts": "8080",
-                    "EgressIgnoredIPs": "169.254.170.2,169.254.169.254",
-                    "IgnoredUID": "1337",
-                    "ProxyEgressPort": "15001",
-                    "ProxyIngressPort": "15000",
+        service = aws.ecs.task_definition.TaskDefinition("service",
+            family=service,
+            container_definitions=(lambda path: open(path).read())(task-definitions/service.json),
+            proxy_configuration={
+                type: APPMESH,
+                containerName: applicationContainerName,
+                properties: {
+                    AppPorts: 8080,
+                    EgressIgnoredIPs: 169.254.170.2,169.254.169.254,
+                    IgnoredUID: 1337,
+                    ProxyEgressPort: 15001,
+                    ProxyIngressPort: 15000,
                 },
-            ))
+            })
         ```
         ### Example Using `docker_volume_configuration`
 
@@ -811,22 +811,22 @@ class TaskDefinition(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        service = aws.ecs.TaskDefinition("service",
-            family="service",
-            container_definitions=(lambda path: open(path).read())("task-definitions/service.json"),
-            volumes=[aws.ecs.TaskDefinitionVolumeArgs(
-                name="service-storage",
-                docker_volume_configuration=aws.ecs.TaskDefinitionVolumeDockerVolumeConfigurationArgs(
-                    scope="shared",
-                    autoprovision=True,
-                    driver="local",
-                    driver_opts={
-                        "type": "nfs",
-                        "device": f"{aws_efs_file_system['fs']['dns_name']}:/",
-                        "o": f"addr={aws_efs_file_system['fs']['dns_name']},rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport",
+        service = aws.ecs.task_definition.TaskDefinition("service",
+            family=service,
+            container_definitions=(lambda path: open(path).read())(task-definitions/service.json),
+            volumes=[{
+                name: service-storage,
+                dockerVolumeConfiguration: {
+                    scope: shared,
+                    autoprovision: True,
+                    driver: local,
+                    driverOpts: {
+                        type: nfs,
+                        device: f{aws_efs_file_system.fs.dns_name}:/,
+                        o: faddr={aws_efs_file_system.fs.dns_name},rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport,
                     },
-                ),
-            )])
+                },
+            }])
         ```
         ### Example Using `efs_volume_configuration`
 
@@ -834,22 +834,22 @@ class TaskDefinition(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        service = aws.ecs.TaskDefinition("service",
-            family="service",
-            container_definitions=(lambda path: open(path).read())("task-definitions/service.json"),
-            volumes=[aws.ecs.TaskDefinitionVolumeArgs(
-                name="service-storage",
-                efs_volume_configuration=aws.ecs.TaskDefinitionVolumeEfsVolumeConfigurationArgs(
-                    file_system_id=aws_efs_file_system["fs"]["id"],
-                    root_directory="/opt/data",
-                    transit_encryption="ENABLED",
-                    transit_encryption_port=2999,
-                    authorization_config=aws.ecs.TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArgs(
-                        access_point_id=aws_efs_access_point["test"]["id"],
-                        iam="ENABLED",
-                    ),
-                ),
-            )])
+        service = aws.ecs.task_definition.TaskDefinition("service",
+            family=service,
+            container_definitions=(lambda path: open(path).read())(task-definitions/service.json),
+            volumes=[{
+                name: service-storage,
+                efsVolumeConfiguration: {
+                    fileSystemId: aws_efs_file_system.fs.id,
+                    rootDirectory: /opt/data,
+                    transitEncryption: ENABLED,
+                    transitEncryptionPort: 2999,
+                    authorizationConfig: {
+                        accessPointId: aws_efs_access_point.test.id,
+                        iam: ENABLED,
+                    },
+                },
+            }])
         ```
         ### Example Using `fsx_windows_file_server_volume_configuration`
 
@@ -858,26 +858,26 @@ class TaskDefinition(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        test = aws.secretsmanager.SecretVersion("test",
-            secret_id=aws_secretsmanager_secret["test"]["id"],
+        test = aws.secretsmanager.secret_version.SecretVersion("test",
+            secret_id=aws_secretsmanager_secret.test.id,
             secret_string=json.dumps({
-                "username": "admin",
-                "password": aws_directory_service_directory["test"]["password"],
+                username: admin,
+                password: aws_directory_service_directory.test.password,
             }))
-        service = aws.ecs.TaskDefinition("service",
-            family="service",
-            container_definitions=(lambda path: open(path).read())("task-definitions/service.json"),
-            volumes=[aws.ecs.TaskDefinitionVolumeArgs(
-                name="service-storage",
-                fsx_windows_file_server_volume_configuration=aws.ecs.TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArgs(
-                    file_system_id=aws_fsx_windows_file_system["test"]["id"],
-                    root_directory="\\\\data",
-                    authorization_config=aws.ecs.TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArgs(
-                        credentials_parameter=test.arn,
-                        domain=aws_directory_service_directory["test"]["name"],
-                    ),
-                ),
-            )])
+        service = aws.ecs.task_definition.TaskDefinition("service",
+            family=service,
+            container_definitions=(lambda path: open(path).read())(task-definitions/service.json),
+            volumes=[{
+                name: service-storage,
+                fsxWindowsFileServerVolumeConfiguration: {
+                    fileSystemId: aws_fsx_windows_file_system.test.id,
+                    rootDirectory: \\data,
+                    authorizationConfig: {
+                        credentialsParameter: test.arn,
+                        domain: aws_directory_service_directory.test.name,
+                    },
+                },
+            }])
         ```
         ### Example Using `container_definitions` and `inference_accelerator`
 
@@ -885,8 +885,8 @@ class TaskDefinition(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.ecs.TaskDefinition("test",
-            container_definitions=\"\"\"[
+        test = aws.ecs.task_definition.TaskDefinition("test",
+            container_definitions=[
           {
             "cpu": 10,
             "command": ["sleep", "10"],
@@ -913,12 +913,12 @@ class TaskDefinition(pulumi.CustomResource):
           }
         ]
 
-        \"\"\",
-            family="test",
-            inference_accelerators=[aws.ecs.TaskDefinitionInferenceAcceleratorArgs(
-                device_name="device_1",
-                device_type="eia1.medium",
-            )])
+        ,
+            family=test,
+            inference_accelerators=[{
+                deviceName: device_1,
+                deviceType: eia1.medium,
+            }])
         ```
         ### Example Using `runtime_platform` and `fargate`
 
@@ -926,8 +926,8 @@ class TaskDefinition(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.ecs.TaskDefinition("test",
-            container_definitions=\"\"\"[
+        test = aws.ecs.task_definition.TaskDefinition("test",
+            container_definitions=[
           {
             "name": "iis",
             "image": "mcr.microsoft.com/windows/servercore/iis",
@@ -937,16 +937,16 @@ class TaskDefinition(pulumi.CustomResource):
           }
         ]
 
-        \"\"\",
-            cpu="1024",
-            family="test",
-            memory="2048",
-            network_mode="awsvpc",
-            requires_compatibilities=["FARGATE"],
-            runtime_platform=aws.ecs.TaskDefinitionRuntimePlatformArgs(
-                cpu_architecture="X86_64",
-                operating_system_family="WINDOWS_SERVER_2019_CORE",
-            ))
+        ,
+            cpu=1024,
+            family=test,
+            memory=2048,
+            network_mode=awsvpc,
+            requires_compatibilities=[FARGATE],
+            runtime_platform={
+                cpuArchitecture: X86_64,
+                operatingSystemFamily: WINDOWS_SERVER_2019_CORE,
+            })
         ```
 
         ## Import
@@ -998,40 +998,40 @@ class TaskDefinition(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        service = aws.ecs.TaskDefinition("service",
-            family="service",
+        service = aws.ecs.task_definition.TaskDefinition("service",
+            family=service,
             container_definitions=json.dumps([
                 {
-                    "name": "first",
-                    "image": "service-first",
-                    "cpu": 10,
-                    "memory": 512,
-                    "essential": True,
-                    "portMappings": [{
-                        "containerPort": 80,
-                        "hostPort": 80,
+                    name: first,
+                    image: service-first,
+                    cpu: 10,
+                    memory: 512,
+                    essential: True,
+                    portMappings: [{
+                        containerPort: 80,
+                        hostPort: 80,
                     }],
                 },
                 {
-                    "name": "second",
-                    "image": "service-second",
-                    "cpu": 10,
-                    "memory": 256,
-                    "essential": True,
-                    "portMappings": [{
-                        "containerPort": 443,
-                        "hostPort": 443,
+                    name: second,
+                    image: service-second,
+                    cpu: 10,
+                    memory: 256,
+                    essential: True,
+                    portMappings: [{
+                        containerPort: 443,
+                        hostPort: 443,
                     }],
                 },
             ]),
-            volumes=[aws.ecs.TaskDefinitionVolumeArgs(
-                name="service-storage",
-                host_path="/ecs/service-storage",
-            )],
-            placement_constraints=[aws.ecs.TaskDefinitionPlacementConstraintArgs(
-                type="memberOf",
-                expression="attribute:ecs.availability-zone in [us-west-2a, us-west-2b]",
-            )])
+            volumes=[{
+                name: service-storage,
+                hostPath: /ecs/service-storage,
+            }],
+            placement_constraints=[{
+                type: memberOf,
+                expression: attribute:ecs.availability-zone in [us-west-2a, us-west-2b],
+            }])
         ```
         ### With AppMesh Proxy
 
@@ -1039,20 +1039,20 @@ class TaskDefinition(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        service = aws.ecs.TaskDefinition("service",
-            family="service",
-            container_definitions=(lambda path: open(path).read())("task-definitions/service.json"),
-            proxy_configuration=aws.ecs.TaskDefinitionProxyConfigurationArgs(
-                type="APPMESH",
-                container_name="applicationContainerName",
-                properties={
-                    "AppPorts": "8080",
-                    "EgressIgnoredIPs": "169.254.170.2,169.254.169.254",
-                    "IgnoredUID": "1337",
-                    "ProxyEgressPort": "15001",
-                    "ProxyIngressPort": "15000",
+        service = aws.ecs.task_definition.TaskDefinition("service",
+            family=service,
+            container_definitions=(lambda path: open(path).read())(task-definitions/service.json),
+            proxy_configuration={
+                type: APPMESH,
+                containerName: applicationContainerName,
+                properties: {
+                    AppPorts: 8080,
+                    EgressIgnoredIPs: 169.254.170.2,169.254.169.254,
+                    IgnoredUID: 1337,
+                    ProxyEgressPort: 15001,
+                    ProxyIngressPort: 15000,
                 },
-            ))
+            })
         ```
         ### Example Using `docker_volume_configuration`
 
@@ -1060,22 +1060,22 @@ class TaskDefinition(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        service = aws.ecs.TaskDefinition("service",
-            family="service",
-            container_definitions=(lambda path: open(path).read())("task-definitions/service.json"),
-            volumes=[aws.ecs.TaskDefinitionVolumeArgs(
-                name="service-storage",
-                docker_volume_configuration=aws.ecs.TaskDefinitionVolumeDockerVolumeConfigurationArgs(
-                    scope="shared",
-                    autoprovision=True,
-                    driver="local",
-                    driver_opts={
-                        "type": "nfs",
-                        "device": f"{aws_efs_file_system['fs']['dns_name']}:/",
-                        "o": f"addr={aws_efs_file_system['fs']['dns_name']},rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport",
+        service = aws.ecs.task_definition.TaskDefinition("service",
+            family=service,
+            container_definitions=(lambda path: open(path).read())(task-definitions/service.json),
+            volumes=[{
+                name: service-storage,
+                dockerVolumeConfiguration: {
+                    scope: shared,
+                    autoprovision: True,
+                    driver: local,
+                    driverOpts: {
+                        type: nfs,
+                        device: f{aws_efs_file_system.fs.dns_name}:/,
+                        o: faddr={aws_efs_file_system.fs.dns_name},rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport,
                     },
-                ),
-            )])
+                },
+            }])
         ```
         ### Example Using `efs_volume_configuration`
 
@@ -1083,22 +1083,22 @@ class TaskDefinition(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        service = aws.ecs.TaskDefinition("service",
-            family="service",
-            container_definitions=(lambda path: open(path).read())("task-definitions/service.json"),
-            volumes=[aws.ecs.TaskDefinitionVolumeArgs(
-                name="service-storage",
-                efs_volume_configuration=aws.ecs.TaskDefinitionVolumeEfsVolumeConfigurationArgs(
-                    file_system_id=aws_efs_file_system["fs"]["id"],
-                    root_directory="/opt/data",
-                    transit_encryption="ENABLED",
-                    transit_encryption_port=2999,
-                    authorization_config=aws.ecs.TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArgs(
-                        access_point_id=aws_efs_access_point["test"]["id"],
-                        iam="ENABLED",
-                    ),
-                ),
-            )])
+        service = aws.ecs.task_definition.TaskDefinition("service",
+            family=service,
+            container_definitions=(lambda path: open(path).read())(task-definitions/service.json),
+            volumes=[{
+                name: service-storage,
+                efsVolumeConfiguration: {
+                    fileSystemId: aws_efs_file_system.fs.id,
+                    rootDirectory: /opt/data,
+                    transitEncryption: ENABLED,
+                    transitEncryptionPort: 2999,
+                    authorizationConfig: {
+                        accessPointId: aws_efs_access_point.test.id,
+                        iam: ENABLED,
+                    },
+                },
+            }])
         ```
         ### Example Using `fsx_windows_file_server_volume_configuration`
 
@@ -1107,26 +1107,26 @@ class TaskDefinition(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        test = aws.secretsmanager.SecretVersion("test",
-            secret_id=aws_secretsmanager_secret["test"]["id"],
+        test = aws.secretsmanager.secret_version.SecretVersion("test",
+            secret_id=aws_secretsmanager_secret.test.id,
             secret_string=json.dumps({
-                "username": "admin",
-                "password": aws_directory_service_directory["test"]["password"],
+                username: admin,
+                password: aws_directory_service_directory.test.password,
             }))
-        service = aws.ecs.TaskDefinition("service",
-            family="service",
-            container_definitions=(lambda path: open(path).read())("task-definitions/service.json"),
-            volumes=[aws.ecs.TaskDefinitionVolumeArgs(
-                name="service-storage",
-                fsx_windows_file_server_volume_configuration=aws.ecs.TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArgs(
-                    file_system_id=aws_fsx_windows_file_system["test"]["id"],
-                    root_directory="\\\\data",
-                    authorization_config=aws.ecs.TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArgs(
-                        credentials_parameter=test.arn,
-                        domain=aws_directory_service_directory["test"]["name"],
-                    ),
-                ),
-            )])
+        service = aws.ecs.task_definition.TaskDefinition("service",
+            family=service,
+            container_definitions=(lambda path: open(path).read())(task-definitions/service.json),
+            volumes=[{
+                name: service-storage,
+                fsxWindowsFileServerVolumeConfiguration: {
+                    fileSystemId: aws_fsx_windows_file_system.test.id,
+                    rootDirectory: \\data,
+                    authorizationConfig: {
+                        credentialsParameter: test.arn,
+                        domain: aws_directory_service_directory.test.name,
+                    },
+                },
+            }])
         ```
         ### Example Using `container_definitions` and `inference_accelerator`
 
@@ -1134,8 +1134,8 @@ class TaskDefinition(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.ecs.TaskDefinition("test",
-            container_definitions=\"\"\"[
+        test = aws.ecs.task_definition.TaskDefinition("test",
+            container_definitions=[
           {
             "cpu": 10,
             "command": ["sleep", "10"],
@@ -1162,12 +1162,12 @@ class TaskDefinition(pulumi.CustomResource):
           }
         ]
 
-        \"\"\",
-            family="test",
-            inference_accelerators=[aws.ecs.TaskDefinitionInferenceAcceleratorArgs(
-                device_name="device_1",
-                device_type="eia1.medium",
-            )])
+        ,
+            family=test,
+            inference_accelerators=[{
+                deviceName: device_1,
+                deviceType: eia1.medium,
+            }])
         ```
         ### Example Using `runtime_platform` and `fargate`
 
@@ -1175,8 +1175,8 @@ class TaskDefinition(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.ecs.TaskDefinition("test",
-            container_definitions=\"\"\"[
+        test = aws.ecs.task_definition.TaskDefinition("test",
+            container_definitions=[
           {
             "name": "iis",
             "image": "mcr.microsoft.com/windows/servercore/iis",
@@ -1186,16 +1186,16 @@ class TaskDefinition(pulumi.CustomResource):
           }
         ]
 
-        \"\"\",
-            cpu="1024",
-            family="test",
-            memory="2048",
-            network_mode="awsvpc",
-            requires_compatibilities=["FARGATE"],
-            runtime_platform=aws.ecs.TaskDefinitionRuntimePlatformArgs(
-                cpu_architecture="X86_64",
-                operating_system_family="WINDOWS_SERVER_2019_CORE",
-            ))
+        ,
+            cpu=1024,
+            family=test,
+            memory=2048,
+            network_mode=awsvpc,
+            requires_compatibilities=[FARGATE],
+            runtime_platform={
+                cpuArchitecture: X86_64,
+                operatingSystemFamily: WINDOWS_SERVER_2019_CORE,
+            })
         ```
 
         ## Import

@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Route53
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Route53.ResolverFirewallDomainList("example");
+    ///     var example = new Aws.Route53.ResolverFirewallDomainList.ResolverFirewallDomainList("example");
     /// 
     /// });
     /// ```

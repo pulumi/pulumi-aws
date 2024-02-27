@@ -17,53 +17,6 @@ import javax.annotation.Nullable;
  * Resource for managing an AWS EventBridge Schemas Registry Policy.
  * 
  * ## Example Usage
- * ### Basic Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.iam.IamFunctions;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
- * import com.pulumi.aws.schemas.RegistryPolicy;
- * import com.pulumi.aws.schemas.RegistryPolicyArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var examplePolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .sid(&#34;example&#34;)
- *                 .effect(&#34;Allow&#34;)
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type(&#34;AWS&#34;)
- *                     .identifiers(&#34;109876543210&#34;)
- *                     .build())
- *                 .actions(&#34;schemas:*&#34;)
- *                 .resources(                
- *                     &#34;arn:aws:schemas:us-east-1:012345678901:registry/example&#34;,
- *                     &#34;arn:aws:schemas:us-east-1:012345678901:schema/example*&#34;)
- *                 .build())
- *             .build());
- * 
- *         var exampleRegistryPolicy = new RegistryPolicy(&#34;exampleRegistryPolicy&#34;, RegistryPolicyArgs.builder()        
- *             .registryName(&#34;example&#34;)
- *             .policy(examplePolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
- *             .build());
- * 
- *     }
- * }
- * ```
  * 
  * ## Import
  * 

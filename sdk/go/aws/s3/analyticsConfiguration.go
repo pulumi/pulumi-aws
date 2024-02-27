@@ -24,40 +24,39 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	s3/analyticsConfiguration "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/s3/analyticsConfiguration"
+//	s3/bucketV2 "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/s3/bucketV2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := s3.NewBucketV2(ctx, "example", nil)
-//			if err != nil {
-//				return err
-//			}
-//			analytics, err := s3.NewBucketV2(ctx, "analytics", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = s3.NewAnalyticsConfiguration(ctx, "example-entire-bucket", &s3.AnalyticsConfigurationArgs{
-//				Bucket: example.ID(),
-//				StorageClassAnalysis: &s3.AnalyticsConfigurationStorageClassAnalysisArgs{
-//					DataExport: &s3.AnalyticsConfigurationStorageClassAnalysisDataExportArgs{
-//						Destination: &s3.AnalyticsConfigurationStorageClassAnalysisDataExportDestinationArgs{
-//							S3BucketDestination: &s3.AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationArgs{
-//								BucketArn: analytics.Arn,
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := s3/bucketV2.NewBucketV2(ctx, "example", nil)
+// if err != nil {
+// return err
+// }
+// analytics, err := s3/bucketV2.NewBucketV2(ctx, "analytics", nil)
+// if err != nil {
+// return err
+// }
+// _, err = s3/analyticsConfiguration.NewAnalyticsConfiguration(ctx, "example-entire-bucket", &s3/analyticsConfiguration.AnalyticsConfigurationArgs{
+// Bucket: example.Id,
+// StorageClassAnalysis: map[string]interface{}{
+// "dataExport": map[string]interface{}{
+// "destination": map[string]interface{}{
+// "s3BucketDestination": map[string]interface{}{
+// "bucketArn": analytics.Arn,
+// },
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Add analytics configuration with S3 object filter
 //
@@ -66,34 +65,33 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	s3/analyticsConfiguration "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/s3/analyticsConfiguration"
+//	s3/bucketV2 "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/s3/bucketV2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := s3.NewBucketV2(ctx, "example", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = s3.NewAnalyticsConfiguration(ctx, "example-filtered", &s3.AnalyticsConfigurationArgs{
-//				Bucket: example.ID(),
-//				Filter: &s3.AnalyticsConfigurationFilterArgs{
-//					Prefix: pulumi.String("documents/"),
-//					Tags: pulumi.StringMap{
-//						"priority": pulumi.String("high"),
-//						"class":    pulumi.String("blue"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := s3/bucketV2.NewBucketV2(ctx, "example", nil)
+// if err != nil {
+// return err
+// }
+// _, err = s3/analyticsConfiguration.NewAnalyticsConfiguration(ctx, "example-filtered", &s3/analyticsConfiguration.AnalyticsConfigurationArgs{
+// Bucket: example.Id,
+// Filter: map[string]interface{}{
+// "prefix": "documents/",
+// "tags": map[string]interface{}{
+// "priority": "high",
+// "class": "blue",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

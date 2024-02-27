@@ -20,32 +20,31 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/inspector"
+//	inspector/assessmentTarget "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/inspector/assessmentTarget"
+//	inspector/resourceGroup "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/inspector/resourceGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			bar, err := inspector.NewResourceGroup(ctx, "bar", &inspector.ResourceGroupArgs{
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("foo"),
-//					"Env":  pulumi.String("bar"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = inspector.NewAssessmentTarget(ctx, "foo", &inspector.AssessmentTargetArgs{
-//				ResourceGroupArn: bar.Arn,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// bar, err := inspector/resourceGroup.NewResourceGroup(ctx, "bar", &inspector/resourceGroup.ResourceGroupArgs{
+// Tags: map[string]interface{}{
+// "Name": "foo",
+// "Env": "bar",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = inspector/assessmentTarget.NewAssessmentTarget(ctx, "foo", &inspector/assessmentTarget.AssessmentTargetArgs{
+// ResourceGroupArn: bar.Arn,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

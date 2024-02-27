@@ -22,26 +22,24 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lex"
+//	lex/v2modelsBotLocale "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/lex/v2modelsBotLocale"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lex.NewV2modelsBotLocale(ctx, "example", &lex.V2modelsBotLocaleArgs{
-//				BotId:                        pulumi.Any(aws_lexv2models_bot.Example.Id),
-//				BotVersion:                   pulumi.String("DRAFT"),
-//				LocaleId:                     pulumi.String("en_US"),
-//				NLuIntentConfidenceThreshold: pulumi.Float64(0.7),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := lex/v2modelsBotLocale.NewV2modelsBotLocale(ctx, "example", &lex/v2modelsBotLocale.V2modelsBotLocaleArgs{
+// BotId: aws_lexv2models_bot.Example.Id,
+// BotVersion: "DRAFT",
+// LocaleId: "en_US",
+// NLuIntentConfidenceThreshold: 0.7,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Voice Settings
 //
@@ -50,30 +48,28 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lex"
+//	lex/v2modelsBotLocale "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/lex/v2modelsBotLocale"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lex.NewV2modelsBotLocale(ctx, "example", &lex.V2modelsBotLocaleArgs{
-//				BotId:                        pulumi.Any(aws_lexv2models_bot.Example.Id),
-//				BotVersion:                   pulumi.String("DRAFT"),
-//				LocaleId:                     pulumi.String("en_US"),
-//				NLuIntentConfidenceThreshold: pulumi.Float64(0.7),
-//				VoiceSettings: &lex.V2modelsBotLocaleVoiceSettingsArgs{
-//					VoiceId: pulumi.String("Kendra"),
-//					Engine:  pulumi.String("standard"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := lex/v2modelsBotLocale.NewV2modelsBotLocale(ctx, "example", &lex/v2modelsBotLocale.V2modelsBotLocaleArgs{
+// BotId: aws_lexv2models_bot.Example.Id,
+// BotVersion: "DRAFT",
+// LocaleId: "en_US",
+// NLuIntentConfidenceThreshold: 0.7,
+// VoiceSettings: map[string]interface{}{
+// "voiceId": "Kendra",
+// "engine": "standard",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

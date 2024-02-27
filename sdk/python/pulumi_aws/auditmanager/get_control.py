@@ -132,40 +132,6 @@ def get_control(control_mapping_sources: Optional[Sequence[pulumi.InputType['Get
     Data source for managing an AWS Audit Manager Control.
 
     ## Example Usage
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.auditmanager.get_control(name="1. Risk Management",
-        type="Standard")
-    ```
-    ### With Framework Resource
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example_control = aws.auditmanager.get_control(name="1. Risk Management",
-        type="Standard")
-    example2 = aws.auditmanager.get_control(name="2. Personnel",
-        type="Standard")
-    example_framework = aws.auditmanager.Framework("exampleFramework", control_sets=[
-        aws.auditmanager.FrameworkControlSetArgs(
-            name="example",
-            controls=[aws.auditmanager.FrameworkControlSetControlArgs(
-                id=example_control.id,
-            )],
-        ),
-        aws.auditmanager.FrameworkControlSetArgs(
-            name="example2",
-            controls=[aws.auditmanager.FrameworkControlSetControlArgs(
-                id=example2.id,
-            )],
-        ),
-    ])
-    ```
 
 
     :param str name: Name of the control.
@@ -200,40 +166,6 @@ def get_control_output(control_mapping_sources: Optional[pulumi.Input[Optional[S
     Data source for managing an AWS Audit Manager Control.
 
     ## Example Usage
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.auditmanager.get_control(name="1. Risk Management",
-        type="Standard")
-    ```
-    ### With Framework Resource
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example_control = aws.auditmanager.get_control(name="1. Risk Management",
-        type="Standard")
-    example2 = aws.auditmanager.get_control(name="2. Personnel",
-        type="Standard")
-    example_framework = aws.auditmanager.Framework("exampleFramework", control_sets=[
-        aws.auditmanager.FrameworkControlSetArgs(
-            name="example",
-            controls=[aws.auditmanager.FrameworkControlSetControlArgs(
-                id=example_control.id,
-            )],
-        ),
-        aws.auditmanager.FrameworkControlSetArgs(
-            name="example2",
-            controls=[aws.auditmanager.FrameworkControlSetControlArgs(
-                id=example2.id,
-            )],
-        ),
-    ])
-    ```
 
 
     :param str name: Name of the control.

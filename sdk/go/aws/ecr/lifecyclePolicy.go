@@ -26,20 +26,21 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ecr"
+//	ecr/lifecyclePolicy "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ecr/lifecyclePolicy"
+//	ecr/repository "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ecr/repository"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// foo, err := ecr/repository.NewRepository(ctx, "foo", nil)
+// if err != nil {
+// return err
+// }
+// _, err = ecr/lifecyclePolicy.NewLifecyclePolicy(ctx, "foopolicy", &ecr/lifecyclePolicy.LifecyclePolicyArgs{
+// Repository: foo.Name,
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			foo, err := ecr.NewRepository(ctx, "foo", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ecr.NewLifecyclePolicy(ctx, "foopolicy", &ecr.LifecyclePolicyArgs{
-//				Repository: foo.Name,
-//				Policy: pulumi.Any(`{
+//	Policy: `{
 //	    "rules": [
 //	        {
 //	            "rulePriority": 1,
@@ -57,16 +58,14 @@ import (
 //	    ]
 //	}
 //
-// `),
-//
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// `,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Policy on tagged image
 //
@@ -75,20 +74,21 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ecr"
+//	ecr/lifecyclePolicy "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ecr/lifecyclePolicy"
+//	ecr/repository "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ecr/repository"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// foo, err := ecr/repository.NewRepository(ctx, "foo", nil)
+// if err != nil {
+// return err
+// }
+// _, err = ecr/lifecyclePolicy.NewLifecyclePolicy(ctx, "foopolicy", &ecr/lifecyclePolicy.LifecyclePolicyArgs{
+// Repository: foo.Name,
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			foo, err := ecr.NewRepository(ctx, "foo", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ecr.NewLifecyclePolicy(ctx, "foopolicy", &ecr.LifecyclePolicyArgs{
-//				Repository: foo.Name,
-//				Policy: pulumi.Any(`{
+//	Policy: `{
 //	    "rules": [
 //	        {
 //	            "rulePriority": 1,
@@ -106,16 +106,14 @@ import (
 //	    ]
 //	}
 //
-// `),
-//
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// `,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

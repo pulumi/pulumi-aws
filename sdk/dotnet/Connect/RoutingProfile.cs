@@ -23,27 +23,27 @@ namespace Pulumi.Aws.Connect
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Connect.RoutingProfile("example", new()
+    ///     var example = new Aws.Connect.RoutingProfile.RoutingProfile("example", new()
     ///     {
     ///         DefaultOutboundQueueId = "12345678-1234-1234-1234-123456789012",
     ///         Description = "example description",
     ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
     ///         MediaConcurrencies = new[]
     ///         {
-    ///             new Aws.Connect.Inputs.RoutingProfileMediaConcurrencyArgs
+    ///             
     ///             {
-    ///                 Channel = "VOICE",
-    ///                 Concurrency = 1,
+    ///                 { "channel", "VOICE" },
+    ///                 { "concurrency", 1 },
     ///             },
     ///         },
     ///         QueueConfigs = new[]
     ///         {
-    ///             new Aws.Connect.Inputs.RoutingProfileQueueConfigArgs
+    ///             
     ///             {
-    ///                 Channel = "VOICE",
-    ///                 Delay = 2,
-    ///                 Priority = 1,
-    ///                 QueueId = "12345678-1234-1234-1234-123456789012",
+    ///                 { "channel", "VOICE" },
+    ///                 { "delay", 2 },
+    ///                 { "priority", 1 },
+    ///                 { "queueId", "12345678-1234-1234-1234-123456789012" },
     ///             },
     ///         },
     ///         Tags = 

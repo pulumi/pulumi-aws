@@ -71,14 +71,6 @@ def get_supported_instance_types(release_label: Optional[str] = None,
     Data source for managing AWS EMR Supported Instance Types.
 
     ## Example Usage
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.emr.get_supported_instance_types(release_label="ebs-6.15.0")
-    ```
 
 
     :param str release_label: Amazon EMR release label. For more information about Amazon EMR releases and their included application versions and features, see the [Amazon EMR Release Guide](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-release-components.html).
@@ -104,14 +96,6 @@ def get_supported_instance_types_output(release_label: Optional[pulumi.Input[str
     Data source for managing AWS EMR Supported Instance Types.
 
     ## Example Usage
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.emr.get_supported_instance_types(release_label="ebs-6.15.0")
-    ```
 
 
     :param str release_label: Amazon EMR release label. For more information about Amazon EMR releases and their included application versions and features, see the [Amazon EMR Release Guide](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-release-components.html).

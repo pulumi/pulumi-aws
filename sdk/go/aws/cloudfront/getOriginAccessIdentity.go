@@ -12,34 +12,6 @@ import (
 )
 
 // Use this data source to retrieve information for an Amazon CloudFront origin access identity.
-//
-// ## Example Usage
-//
-// The following example below creates a CloudFront origin access identity.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudfront"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cloudfront.LookupOriginAccessIdentity(ctx, &cloudfront.LookupOriginAccessIdentityArgs{
-//				Id: "E1ZAKK699EOLAL",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupOriginAccessIdentity(ctx *pulumi.Context, args *LookupOriginAccessIdentityArgs, opts ...pulumi.InvokeOption) (*LookupOriginAccessIdentityResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupOriginAccessIdentityResult

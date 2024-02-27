@@ -123,7 +123,7 @@ class AccountSettingDefault(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.ecs.AccountSettingDefault("test", value="enabled")
+        test = aws.ecs.account_setting_default.AccountSettingDefault("test", value=enabled)
         ```
 
         ## Import
@@ -158,7 +158,7 @@ class AccountSettingDefault(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.ecs.AccountSettingDefault("test", value="enabled")
+        test = aws.ecs.account_setting_default.AccountSettingDefault("test", value=enabled)
         ```
 
         ## Import

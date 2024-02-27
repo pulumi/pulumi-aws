@@ -141,23 +141,23 @@ class ArchiveRule(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.accessanalyzer.ArchiveRule("example",
-            analyzer_name="example-analyzer",
+        example = aws.accessanalyzer.archive_rule.ArchiveRule("example",
+            analyzer_name=example-analyzer,
             filters=[
-                aws.accessanalyzer.ArchiveRuleFilterArgs(
-                    criteria="condition.aws:UserId",
-                    eqs=["userid"],
-                ),
-                aws.accessanalyzer.ArchiveRuleFilterArgs(
-                    criteria="error",
-                    exists="true",
-                ),
-                aws.accessanalyzer.ArchiveRuleFilterArgs(
-                    criteria="isPublic",
-                    eqs=["false"],
-                ),
+                {
+                    criteria: condition.aws:UserId,
+                    eqs: [userid],
+                },
+                {
+                    criteria: error,
+                    exists: True,
+                },
+                {
+                    criteria: isPublic,
+                    eqs: [false],
+                },
             ],
-            rule_name="example-rule")
+            rule_name=example-rule)
         ```
 
         ## Import
@@ -190,23 +190,23 @@ class ArchiveRule(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.accessanalyzer.ArchiveRule("example",
-            analyzer_name="example-analyzer",
+        example = aws.accessanalyzer.archive_rule.ArchiveRule("example",
+            analyzer_name=example-analyzer,
             filters=[
-                aws.accessanalyzer.ArchiveRuleFilterArgs(
-                    criteria="condition.aws:UserId",
-                    eqs=["userid"],
-                ),
-                aws.accessanalyzer.ArchiveRuleFilterArgs(
-                    criteria="error",
-                    exists="true",
-                ),
-                aws.accessanalyzer.ArchiveRuleFilterArgs(
-                    criteria="isPublic",
-                    eqs=["false"],
-                ),
+                {
+                    criteria: condition.aws:UserId,
+                    eqs: [userid],
+                },
+                {
+                    criteria: error,
+                    exists: True,
+                },
+                {
+                    criteria: isPublic,
+                    eqs: [false],
+                },
             ],
-            rule_name="example-rule")
+            rule_name=example-rule)
         ```
 
         ## Import

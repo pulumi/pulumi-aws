@@ -34,7 +34,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Ec2.SecurityGroupRule("example", new()
+    ///     var example = new Aws.Ec2.SecurityGroupRule.SecurityGroupRule("example", new()
     ///     {
     ///         Type = "ingress",
     ///         FromPort = 0,
@@ -49,76 +49,6 @@ namespace Pulumi.Aws.Ec2
     ///             aws_vpc.Example.Ipv6_cidr_block,
     ///         },
     ///         SecurityGroupId = "sg-123456",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### Usage With Prefix List IDs
-    /// 
-    /// Prefix Lists are either managed by AWS internally, or created by the customer using a
-    /// Managed Prefix List resource. Prefix Lists provided by
-    /// AWS are associated with a prefix list name, or service name, that is linked to a specific region.
-    /// 
-    /// Prefix list IDs are exported on VPC Endpoints, so you can use this format:
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     // ...
-    ///     var myEndpoint = new Aws.Ec2.VpcEndpoint("myEndpoint");
-    /// 
-    ///     // ...
-    ///     var allowAll = new Aws.Ec2.SecurityGroupRule("allowAll", new()
-    ///     {
-    ///         Type = "egress",
-    ///         ToPort = 0,
-    ///         Protocol = "-1",
-    ///         PrefixListIds = new[]
-    ///         {
-    ///             myEndpoint.PrefixListId,
-    ///         },
-    ///         FromPort = 0,
-    ///         SecurityGroupId = "sg-123456",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// You can also find a specific Prefix List using the `aws.ec2.getPrefixList`
-    /// or `ec2_managed_prefix_list` data sources:
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var current = Aws.GetRegion.Invoke();
-    /// 
-    ///     var s3 = Aws.Ec2.GetPrefixList.Invoke(new()
-    ///     {
-    ///         Name = $"com.amazonaws.{current.Apply(getRegionResult =&gt; getRegionResult.Name)}.s3",
-    ///     });
-    /// 
-    ///     var s3GatewayEgress = new Aws.Ec2.SecurityGroupRule("s3GatewayEgress", new()
-    ///     {
-    ///         Description = "S3 Gateway Egress",
-    ///         Type = "egress",
-    ///         SecurityGroupId = "sg-123456",
-    ///         FromPort = 443,
-    ///         ToPort = 443,
-    ///         Protocol = "tcp",
-    ///         PrefixListIds = new[]
-    ///         {
-    ///             s3.Apply(getPrefixListResult =&gt; getPrefixListResult.Id),
-    ///         },
     ///     });
     /// 
     /// });

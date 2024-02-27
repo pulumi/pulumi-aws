@@ -31,7 +31,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.appsync.GraphQLApiArgs;
  * import com.pulumi.aws.appsync.DataSource;
  * import com.pulumi.aws.appsync.DataSourceArgs;
- * import com.pulumi.aws.appsync.inputs.DataSourceHttpConfigArgs;
  * import com.pulumi.aws.appsync.Function;
  * import com.pulumi.aws.appsync.FunctionArgs;
  * import java.util.List;
@@ -74,9 +73,7 @@ import javax.annotation.Nullable;
  *             .apiId(exampleGraphQLApi.id())
  *             .name(&#34;example&#34;)
  *             .type(&#34;HTTP&#34;)
- *             .httpConfig(DataSourceHttpConfigArgs.builder()
- *                 .endpoint(&#34;http://example.com&#34;)
- *                 .build())
+ *             .httpConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleFunction = new Function(&#34;exampleFunction&#34;, FunctionArgs.builder()        
@@ -114,7 +111,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.appsync.Function;
  * import com.pulumi.aws.appsync.FunctionArgs;
- * import com.pulumi.aws.appsync.inputs.FunctionRuntimeArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -133,10 +129,7 @@ import javax.annotation.Nullable;
  *             .dataSource(aws_appsync_datasource.example().name())
  *             .name(&#34;example&#34;)
  *             .code(Files.readString(Paths.get(&#34;some-code-dir&#34;)))
- *             .runtime(FunctionRuntimeArgs.builder()
- *                 .name(&#34;APPSYNC_JS&#34;)
- *                 .runtimeVersion(&#34;1.0.0&#34;)
- *                 .build())
+ *             .runtime(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

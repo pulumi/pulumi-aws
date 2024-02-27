@@ -209,10 +209,10 @@ class OpenIdConnectProvider(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        default = aws.iam.OpenIdConnectProvider("default",
-            client_id_lists=["266362248691-342342xasdasdasda-apps.googleusercontent.com"],
-            thumbprint_lists=["cf23df2207d99a74fbe169e3eba035e633b65d94"],
-            url="https://accounts.google.com")
+        default = aws.iam.open_id_connect_provider.OpenIdConnectProvider("default",
+            client_id_lists=[266362248691-342342xasdasdasda-apps.googleusercontent.com],
+            thumbprint_lists=[cf23df2207d99a74fbe169e3eba035e633b65d94],
+            url=https://accounts.google.com)
         ```
 
         ## Import
@@ -245,10 +245,10 @@ class OpenIdConnectProvider(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        default = aws.iam.OpenIdConnectProvider("default",
-            client_id_lists=["266362248691-342342xasdasdasda-apps.googleusercontent.com"],
-            thumbprint_lists=["cf23df2207d99a74fbe169e3eba035e633b65d94"],
-            url="https://accounts.google.com")
+        default = aws.iam.open_id_connect_provider.OpenIdConnectProvider("default",
+            client_id_lists=[266362248691-342342xasdasdasda-apps.googleusercontent.com],
+            thumbprint_lists=[cf23df2207d99a74fbe169e3eba035e633b65d94],
+            url=https://accounts.google.com)
         ```
 
         ## Import

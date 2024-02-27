@@ -17,66 +17,6 @@ import javax.annotation.Nullable;
 /**
  * Provides an AWS Backup vault notifications resource.
  * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.sns.Topic;
- * import com.pulumi.aws.iam.IamFunctions;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
- * import com.pulumi.aws.sns.TopicPolicy;
- * import com.pulumi.aws.sns.TopicPolicyArgs;
- * import com.pulumi.aws.backup.VaultNotifications;
- * import com.pulumi.aws.backup.VaultNotificationsArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var testTopic = new Topic(&#34;testTopic&#34;);
- * 
- *         final var testPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .policyId(&#34;__default_policy_ID&#34;)
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .actions(&#34;SNS:Publish&#34;)
- *                 .effect(&#34;Allow&#34;)
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type(&#34;Service&#34;)
- *                     .identifiers(&#34;backup.amazonaws.com&#34;)
- *                     .build())
- *                 .resources(testTopic.arn())
- *                 .sid(&#34;__default_statement_ID&#34;)
- *                 .build())
- *             .build());
- * 
- *         var testTopicPolicy = new TopicPolicy(&#34;testTopicPolicy&#34;, TopicPolicyArgs.builder()        
- *             .arn(testTopic.arn())
- *             .policy(testPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(testPolicyDocument -&gt; testPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
- *             .build());
- * 
- *         var testVaultNotifications = new VaultNotifications(&#34;testVaultNotifications&#34;, VaultNotificationsArgs.builder()        
- *             .backupVaultName(&#34;example_backup_vault&#34;)
- *             .snsTopicArn(testTopic.arn())
- *             .backupVaultEvents(            
- *                 &#34;BACKUP_JOB_STARTED&#34;,
- *                 &#34;RESTORE_JOB_COMPLETED&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
  * ## Import
  * 
  * Using `pulumi import`, import Backup vault notifications using the `name`. For example:

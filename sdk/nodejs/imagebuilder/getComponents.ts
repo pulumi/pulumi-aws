@@ -9,21 +9,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to get the ARNs and names of Image Builder Components matching the specified criteria.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.imagebuilder.getComponents({
- *     filters: [{
- *         name: "platform",
- *         values: ["Linux"],
- *     }],
- *     owner: "Self",
- * });
- * ```
  */
 export function getComponents(args?: GetComponentsArgs, opts?: pulumi.InvokeOptions): Promise<GetComponentsResult> {
     args = args || {};
@@ -70,21 +55,6 @@ export interface GetComponentsResult {
 }
 /**
  * Use this data source to get the ARNs and names of Image Builder Components matching the specified criteria.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.imagebuilder.getComponents({
- *     filters: [{
- *         name: "platform",
- *         values: ["Linux"],
- *     }],
- *     owner: "Self",
- * });
- * ```
  */
 export function getComponentsOutput(args?: GetComponentsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetComponentsResult> {
     return pulumi.output(args).apply((a: any) => getComponents(a, opts))

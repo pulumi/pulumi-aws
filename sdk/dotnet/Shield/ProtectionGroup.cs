@@ -25,66 +25,11 @@ namespace Pulumi.Aws.Shield
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Shield.ProtectionGroup("example", new()
+    ///     var example = new Aws.Shield.ProtectionGroup.ProtectionGroup("example", new()
     ///     {
     ///         Aggregation = "MAX",
     ///         Pattern = "ALL",
     ///         ProtectionGroupId = "example",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### Create protection group for arbitrary number of resources
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var currentRegion = Aws.GetRegion.Invoke();
-    /// 
-    ///     var currentCallerIdentity = Aws.GetCallerIdentity.Invoke();
-    /// 
-    ///     var exampleEip = new Aws.Ec2.Eip("exampleEip", new()
-    ///     {
-    ///         Domain = "vpc",
-    ///     });
-    /// 
-    ///     var exampleProtection = new Aws.Shield.Protection("exampleProtection", new()
-    ///     {
-    ///         ResourceArn = Output.Tuple(currentRegion, currentCallerIdentity, exampleEip.Id).Apply(values =&gt;
-    ///         {
-    ///             var currentRegion = values.Item1;
-    ///             var currentCallerIdentity = values.Item2;
-    ///             var id = values.Item3;
-    ///             return $"arn:aws:ec2:{currentRegion.Apply(getRegionResult =&gt; getRegionResult.Name)}:{currentCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:eip-allocation/{id}";
-    ///         }),
-    ///     });
-    /// 
-    ///     var exampleProtectionGroup = new Aws.Shield.ProtectionGroup("exampleProtectionGroup", new()
-    ///     {
-    ///         ProtectionGroupId = "example",
-    ///         Aggregation = "MEAN",
-    ///         Pattern = "ARBITRARY",
-    ///         Members = new[]
-    ///         {
-    ///             Output.Tuple(currentRegion, currentCallerIdentity, exampleEip.Id).Apply(values =&gt;
-    ///             {
-    ///                 var currentRegion = values.Item1;
-    ///                 var currentCallerIdentity = values.Item2;
-    ///                 var id = values.Item3;
-    ///                 return $"arn:aws:ec2:{currentRegion.Apply(getRegionResult =&gt; getRegionResult.Name)}:{currentCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:eip-allocation/{id}";
-    ///             }),
-    ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             exampleProtection,
-    ///         },
     ///     });
     /// 
     /// });
@@ -99,7 +44,7 @@ namespace Pulumi.Aws.Shield
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Shield.ProtectionGroup("example", new()
+    ///     var example = new Aws.Shield.ProtectionGroup.ProtectionGroup("example", new()
     ///     {
     ///         Aggregation = "SUM",
     ///         Pattern = "BY_RESOURCE_TYPE",

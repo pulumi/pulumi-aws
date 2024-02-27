@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.ecs.TaskSet("example", {
+ * const example = new aws.ecs/taskSet.TaskSet("example", {
  *     service: aws_ecs_service.example.id,
  *     cluster: aws_ecs_cluster.example.id,
  *     taskDefinition: aws_ecs_task_definition.example.arn,
@@ -27,6 +27,23 @@ import * as utilities from "../utilities";
  *         containerName: "mongo",
  *         containerPort: 8080,
  *     }],
+ * });
+ * ```
+ * ### Ignoring Changes to Scale
+ *
+ * You can utilize the generic resource lifecycle configuration block with `ignoreChanges` to create an ECS service with an initial count of running instances, then ignore any changes to that count caused externally (e.g. Application Autoscaling).
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.ecs/taskSet.TaskSet("example", {
+ *     lifecycle: {
+ *         ignoreChanges: ["scale"],
+ *     },
+ *     scale: {
+ *         value: 50,
+ *     },
  * });
  * ```
  *

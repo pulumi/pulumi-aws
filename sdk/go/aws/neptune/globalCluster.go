@@ -24,82 +24,82 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/neptune"
+//	"github.com/pulumi/pulumi-aws/sdk/v1/go/aws"
+//	neptune/cluster "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/neptune/cluster"
+//	neptune/clusterInstance "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/neptune/clusterInstance"
+//	neptune/globalCluster "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/neptune/globalCluster"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := aws.NewProvider(ctx, "primary", &aws.ProviderArgs{
-//				Region: pulumi.String("us-east-2"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = aws.NewProvider(ctx, "secondary", &aws.ProviderArgs{
-//				Region: pulumi.String("us-east-1"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			example, err := neptune.NewGlobalCluster(ctx, "example", &neptune.GlobalClusterArgs{
-//				GlobalClusterIdentifier: pulumi.String("global-test"),
-//				Engine:                  pulumi.String("neptune"),
-//				EngineVersion:           pulumi.String("1.2.0.0"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			primaryCluster, err := neptune.NewCluster(ctx, "primaryCluster", &neptune.ClusterArgs{
-//				Engine:                  example.Engine,
-//				EngineVersion:           example.EngineVersion,
-//				ClusterIdentifier:       pulumi.String("test-primary-cluster"),
-//				GlobalClusterIdentifier: example.ID(),
-//				NeptuneSubnetGroupName:  pulumi.String("default"),
-//			}, pulumi.Provider(aws.Primary))
-//			if err != nil {
-//				return err
-//			}
-//			primaryClusterInstance, err := neptune.NewClusterInstance(ctx, "primaryClusterInstance", &neptune.ClusterInstanceArgs{
-//				Engine:                 example.Engine,
-//				EngineVersion:          example.EngineVersion,
-//				Identifier:             pulumi.String("test-primary-cluster-instance"),
-//				ClusterIdentifier:      primaryCluster.ID(),
-//				InstanceClass:          pulumi.String("db.r5.large"),
-//				NeptuneSubnetGroupName: pulumi.String("default"),
-//			}, pulumi.Provider(aws.Primary))
-//			if err != nil {
-//				return err
-//			}
-//			secondaryCluster, err := neptune.NewCluster(ctx, "secondaryCluster", &neptune.ClusterArgs{
-//				Engine:                  example.Engine,
-//				EngineVersion:           example.EngineVersion,
-//				ClusterIdentifier:       pulumi.String("test-secondary-cluster"),
-//				GlobalClusterIdentifier: example.ID(),
-//				NeptuneSubnetGroupName:  pulumi.String("default"),
-//			}, pulumi.Provider(aws.Secondary))
-//			if err != nil {
-//				return err
-//			}
-//			_, err = neptune.NewClusterInstance(ctx, "secondaryClusterInstance", &neptune.ClusterInstanceArgs{
-//				Engine:                 example.Engine,
-//				EngineVersion:          example.EngineVersion,
-//				Identifier:             pulumi.String("test-secondary-cluster-instance"),
-//				ClusterIdentifier:      secondaryCluster.ID(),
-//				InstanceClass:          pulumi.String("db.r5.large"),
-//				NeptuneSubnetGroupName: pulumi.String("default"),
-//			}, pulumi.Provider(aws.Secondary), pulumi.DependsOn([]pulumi.Resource{
-//				primaryClusterInstance,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := aws.NewProvider(ctx, "primary", &aws.ProviderArgs{
+// Region: "us-east-2",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = aws.NewProvider(ctx, "secondary", &aws.ProviderArgs{
+// Region: "us-east-1",
+// })
+// if err != nil {
+// return err
+// }
+// example, err := neptune/globalCluster.NewGlobalCluster(ctx, "example", &neptune/globalCluster.GlobalClusterArgs{
+// GlobalClusterIdentifier: "global-test",
+// Engine: "neptune",
+// EngineVersion: "1.2.0.0",
+// })
+// if err != nil {
+// return err
+// }
+// primaryCluster, err := neptune/cluster.NewCluster(ctx, "primaryCluster", &neptune/cluster.ClusterArgs{
+// Engine: example.Engine,
+// EngineVersion: example.EngineVersion,
+// ClusterIdentifier: "test-primary-cluster",
+// GlobalClusterIdentifier: example.Id,
+// NeptuneSubnetGroupName: "default",
+// }, pulumi.Provider(aws.Primary))
+// if err != nil {
+// return err
+// }
+// primaryClusterInstance, err := neptune/clusterInstance.NewClusterInstance(ctx, "primaryClusterInstance", &neptune/clusterInstance.ClusterInstanceArgs{
+// Engine: example.Engine,
+// EngineVersion: example.EngineVersion,
+// Identifier: "test-primary-cluster-instance",
+// ClusterIdentifier: primaryCluster.Id,
+// InstanceClass: "db.r5.large",
+// NeptuneSubnetGroupName: "default",
+// }, pulumi.Provider(aws.Primary))
+// if err != nil {
+// return err
+// }
+// secondaryCluster, err := neptune/cluster.NewCluster(ctx, "secondaryCluster", &neptune/cluster.ClusterArgs{
+// Engine: example.Engine,
+// EngineVersion: example.EngineVersion,
+// ClusterIdentifier: "test-secondary-cluster",
+// GlobalClusterIdentifier: example.Id,
+// NeptuneSubnetGroupName: "default",
+// }, pulumi.Provider(aws.Secondary))
+// if err != nil {
+// return err
+// }
+// _, err = neptune/clusterInstance.NewClusterInstance(ctx, "secondaryClusterInstance", &neptune/clusterInstance.ClusterInstanceArgs{
+// Engine: example.Engine,
+// EngineVersion: example.EngineVersion,
+// Identifier: "test-secondary-cluster-instance",
+// ClusterIdentifier: secondaryCluster.Id,
+// InstanceClass: "db.r5.large",
+// NeptuneSubnetGroupName: "default",
+// }, pulumi.Provider(aws.Secondary), pulumi.DependsOn([]pulumi.Resource{
+// primaryClusterInstance,
+// }))
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### New Global Cluster From Existing DB Cluster
 //
@@ -108,28 +108,28 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/neptune"
+//	neptune/cluster "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/neptune/cluster"
+//	neptune/globalCluster "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/neptune/globalCluster"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleCluster, err := neptune.NewCluster(ctx, "exampleCluster", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = neptune.NewGlobalCluster(ctx, "exampleGlobalCluster", &neptune.GlobalClusterArgs{
-//				GlobalClusterIdentifier:   pulumi.String("example"),
-//				SourceDbClusterIdentifier: exampleCluster.Arn,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// // ... other configuration ...
+// exampleCluster, err := neptune/cluster.NewCluster(ctx, "exampleCluster", nil)
+// if err != nil {
+// return err
+// }
+// _, err = neptune/globalCluster.NewGlobalCluster(ctx, "exampleGlobalCluster", &neptune/globalCluster.GlobalClusterArgs{
+// GlobalClusterIdentifier: "example",
+// SourceDbClusterIdentifier: exampleCluster.Arn,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

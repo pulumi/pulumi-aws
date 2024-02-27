@@ -569,8 +569,8 @@ class Document(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        foo = aws.ssm.Document("foo",
-            content=\"\"\"  {
+        foo = aws.ssm.document.Document("foo",
+            content=  {
             "schemaVersion": "1.2",
             "description": "Check ip configuration of a Linux instance.",
             "parameters": {
@@ -588,8 +588,8 @@ class Document(pulumi.CustomResource):
             }
           }
 
-        \"\"\",
-            document_type="Command")
+        ,
+            document_type=Command)
         ```
         ### Create an ssm document in YAML format
 
@@ -597,8 +597,8 @@ class Document(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        foo = aws.ssm.Document("foo",
-            content=\"\"\"schemaVersion: '1.2'
+        foo = aws.ssm.document.Document("foo",
+            content=schemaVersion: '1.2'
         description: Check ip configuration of a Linux instance.
         parameters: {}
         runtimeConfig:
@@ -608,9 +608,9 @@ class Document(pulumi.CustomResource):
                 runCommand:
                   - ifconfig
 
-        \"\"\",
-            document_format="YAML",
-            document_type="Command")
+        ,
+            document_format=YAML,
+            document_type=Command)
         ```
         ## Permissions
 
@@ -663,8 +663,8 @@ class Document(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        foo = aws.ssm.Document("foo",
-            content=\"\"\"  {
+        foo = aws.ssm.document.Document("foo",
+            content=  {
             "schemaVersion": "1.2",
             "description": "Check ip configuration of a Linux instance.",
             "parameters": {
@@ -682,8 +682,8 @@ class Document(pulumi.CustomResource):
             }
           }
 
-        \"\"\",
-            document_type="Command")
+        ,
+            document_type=Command)
         ```
         ### Create an ssm document in YAML format
 
@@ -691,8 +691,8 @@ class Document(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        foo = aws.ssm.Document("foo",
-            content=\"\"\"schemaVersion: '1.2'
+        foo = aws.ssm.document.Document("foo",
+            content=schemaVersion: '1.2'
         description: Check ip configuration of a Linux instance.
         parameters: {}
         runtimeConfig:
@@ -702,9 +702,9 @@ class Document(pulumi.CustomResource):
                 runCommand:
                   - ifconfig
 
-        \"\"\",
-            document_format="YAML",
-            document_type="Command")
+        ,
+            document_format=YAML,
+            document_type=Command)
         ```
         ## Permissions
 

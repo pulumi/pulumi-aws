@@ -20,68 +20,12 @@ public final class GuarddutyFunctions {
     /**
      * Retrieve information about a GuardDuty detector.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.guardduty.GuarddutyFunctions;
-     * import com.pulumi.aws.guardduty.inputs.GetDetectorArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = GuarddutyFunctions.getDetector();
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetDetectorResult> getDetector() {
         return getDetector(GetDetectorArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * Retrieve information about a GuardDuty detector.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.guardduty.GuarddutyFunctions;
-     * import com.pulumi.aws.guardduty.inputs.GetDetectorArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = GuarddutyFunctions.getDetector();
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetDetectorResult> getDetectorPlain() {
@@ -90,68 +34,12 @@ public final class GuarddutyFunctions {
     /**
      * Retrieve information about a GuardDuty detector.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.guardduty.GuarddutyFunctions;
-     * import com.pulumi.aws.guardduty.inputs.GetDetectorArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = GuarddutyFunctions.getDetector();
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetDetectorResult> getDetector(GetDetectorArgs args) {
         return getDetector(args, InvokeOptions.Empty);
     }
     /**
      * Retrieve information about a GuardDuty detector.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.guardduty.GuarddutyFunctions;
-     * import com.pulumi.aws.guardduty.inputs.GetDetectorArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = GuarddutyFunctions.getDetector();
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetDetectorResult> getDetectorPlain(GetDetectorPlainArgs args) {
@@ -160,68 +48,12 @@ public final class GuarddutyFunctions {
     /**
      * Retrieve information about a GuardDuty detector.
      * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.guardduty.GuarddutyFunctions;
-     * import com.pulumi.aws.guardduty.inputs.GetDetectorArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = GuarddutyFunctions.getDetector();
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     public static Output<GetDetectorResult> getDetector(GetDetectorArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:guardduty/getDetector:getDetector", TypeShape.of(GetDetectorResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Retrieve information about a GuardDuty detector.
-     * 
-     * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.guardduty.GuarddutyFunctions;
-     * import com.pulumi.aws.guardduty.inputs.GetDetectorArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = GuarddutyFunctions.getDetector();
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetDetectorResult> getDetectorPlain(GetDetectorPlainArgs args, InvokeOptions options) {
@@ -231,35 +63,6 @@ public final class GuarddutyFunctions {
      * Data source for managing an AWS GuardDuty Finding Ids.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.guardduty.GuarddutyFunctions;
-     * import com.pulumi.aws.guardduty.inputs.GetFindingIdsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = GuarddutyFunctions.getFindingIds(GetFindingIdsArgs.builder()
-     *             .detectorId(aws_guardduty_detector.example().id())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetFindingIdsResult> getFindingIds(GetFindingIdsArgs args) {
@@ -269,35 +72,6 @@ public final class GuarddutyFunctions {
      * Data source for managing an AWS GuardDuty Finding Ids.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.guardduty.GuarddutyFunctions;
-     * import com.pulumi.aws.guardduty.inputs.GetFindingIdsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = GuarddutyFunctions.getFindingIds(GetFindingIdsArgs.builder()
-     *             .detectorId(aws_guardduty_detector.example().id())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetFindingIdsResult> getFindingIdsPlain(GetFindingIdsPlainArgs args) {
@@ -307,35 +81,6 @@ public final class GuarddutyFunctions {
      * Data source for managing an AWS GuardDuty Finding Ids.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.guardduty.GuarddutyFunctions;
-     * import com.pulumi.aws.guardduty.inputs.GetFindingIdsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = GuarddutyFunctions.getFindingIds(GetFindingIdsArgs.builder()
-     *             .detectorId(aws_guardduty_detector.example().id())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetFindingIdsResult> getFindingIds(GetFindingIdsArgs args, InvokeOptions options) {
@@ -345,35 +90,6 @@ public final class GuarddutyFunctions {
      * Data source for managing an AWS GuardDuty Finding Ids.
      * 
      * ## Example Usage
-     * ### Basic Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.guardduty.GuarddutyFunctions;
-     * import com.pulumi.aws.guardduty.inputs.GetFindingIdsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = GuarddutyFunctions.getFindingIds(GetFindingIdsArgs.builder()
-     *             .detectorId(aws_guardduty_detector.example().id())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetFindingIdsResult> getFindingIdsPlain(GetFindingIdsPlainArgs args, InvokeOptions options) {

@@ -382,29 +382,29 @@ class IdentityPool(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        default = aws.iam.SamlProvider("default", saml_metadata_document=(lambda path: open(path).read())("saml-metadata.xml"))
-        main = aws.cognito.IdentityPool("main",
-            identity_pool_name="identity pool",
+        default = aws.iam.saml_provider.SamlProvider("default", saml_metadata_document=(lambda path: open(path).read())(saml-metadata.xml))
+        main = aws.cognito.identity_pool.IdentityPool("main",
+            identity_pool_name=identity pool,
             allow_unauthenticated_identities=False,
             allow_classic_flow=False,
             cognito_identity_providers=[
-                aws.cognito.IdentityPoolCognitoIdentityProviderArgs(
-                    client_id="6lhlkkfbfb4q5kpp90urffae",
-                    provider_name="cognito-idp.us-east-1.amazonaws.com/us-east-1_Tv0493apJ",
-                    server_side_token_check=False,
-                ),
-                aws.cognito.IdentityPoolCognitoIdentityProviderArgs(
-                    client_id="7kodkvfqfb4qfkp39eurffae",
-                    provider_name="cognito-idp.us-east-1.amazonaws.com/eu-west-1_Zr231apJu",
-                    server_side_token_check=False,
-                ),
+                {
+                    clientId: 6lhlkkfbfb4q5kpp90urffae,
+                    providerName: cognito-idp.us-east-1.amazonaws.com/us-east-1_Tv0493apJ,
+                    serverSideTokenCheck: False,
+                },
+                {
+                    clientId: 7kodkvfqfb4qfkp39eurffae,
+                    providerName: cognito-idp.us-east-1.amazonaws.com/eu-west-1_Zr231apJu,
+                    serverSideTokenCheck: False,
+                },
             ],
             supported_login_providers={
-                "graph.facebook.com": "7346241598935552",
-                "accounts.google.com": "123456789012.apps.googleusercontent.com",
+                graph.facebook.com: 7346241598935552,
+                accounts.google.com: 123456789012.apps.googleusercontent.com,
             },
             saml_provider_arns=[default.arn],
-            openid_connect_provider_arns=["arn:aws:iam::123456789012:oidc-provider/id.example.com"])
+            openid_connect_provider_arns=[arn:aws:iam::123456789012:oidc-provider/id.example.com])
         ```
 
         ## Import
@@ -443,29 +443,29 @@ class IdentityPool(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        default = aws.iam.SamlProvider("default", saml_metadata_document=(lambda path: open(path).read())("saml-metadata.xml"))
-        main = aws.cognito.IdentityPool("main",
-            identity_pool_name="identity pool",
+        default = aws.iam.saml_provider.SamlProvider("default", saml_metadata_document=(lambda path: open(path).read())(saml-metadata.xml))
+        main = aws.cognito.identity_pool.IdentityPool("main",
+            identity_pool_name=identity pool,
             allow_unauthenticated_identities=False,
             allow_classic_flow=False,
             cognito_identity_providers=[
-                aws.cognito.IdentityPoolCognitoIdentityProviderArgs(
-                    client_id="6lhlkkfbfb4q5kpp90urffae",
-                    provider_name="cognito-idp.us-east-1.amazonaws.com/us-east-1_Tv0493apJ",
-                    server_side_token_check=False,
-                ),
-                aws.cognito.IdentityPoolCognitoIdentityProviderArgs(
-                    client_id="7kodkvfqfb4qfkp39eurffae",
-                    provider_name="cognito-idp.us-east-1.amazonaws.com/eu-west-1_Zr231apJu",
-                    server_side_token_check=False,
-                ),
+                {
+                    clientId: 6lhlkkfbfb4q5kpp90urffae,
+                    providerName: cognito-idp.us-east-1.amazonaws.com/us-east-1_Tv0493apJ,
+                    serverSideTokenCheck: False,
+                },
+                {
+                    clientId: 7kodkvfqfb4qfkp39eurffae,
+                    providerName: cognito-idp.us-east-1.amazonaws.com/eu-west-1_Zr231apJu,
+                    serverSideTokenCheck: False,
+                },
             ],
             supported_login_providers={
-                "graph.facebook.com": "7346241598935552",
-                "accounts.google.com": "123456789012.apps.googleusercontent.com",
+                graph.facebook.com: 7346241598935552,
+                accounts.google.com: 123456789012.apps.googleusercontent.com,
             },
             saml_provider_arns=[default.arn],
-            openid_connect_provider_arns=["arn:aws:iam::123456789012:oidc-provider/id.example.com"])
+            openid_connect_provider_arns=[arn:aws:iam::123456789012:oidc-provider/id.example.com])
         ```
 
         ## Import

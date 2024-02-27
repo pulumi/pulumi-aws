@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.redshift.DataShareAuthorization("example", {
+ * const example = new aws.redshift/dataShareAuthorization.DataShareAuthorization("example", {
  *     consumerIdentifier: "012345678901",
  *     dataShareArn: "arn:aws:redshift:us-west-2:012345678901:datashare:3072dae5-022b-4d45-9cd3-01f010aae4b2/example_share",
  * });

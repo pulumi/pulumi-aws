@@ -63,7 +63,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.elasticache.User;
  * import com.pulumi.aws.elasticache.UserArgs;
- * import com.pulumi.aws.elasticache.inputs.UserAuthenticationModeArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -79,9 +78,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var test = new User(&#34;test&#34;, UserArgs.builder()        
  *             .accessString(&#34;on ~* +@all&#34;)
- *             .authenticationMode(UserAuthenticationModeArgs.builder()
- *                 .type(&#34;iam&#34;)
- *                 .build())
+ *             .authenticationMode(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .engine(&#34;REDIS&#34;)
  *             .userId(&#34;testUserId&#34;)
  *             .userName(&#34;testUserName&#34;)
@@ -98,7 +95,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.elasticache.User;
  * import com.pulumi.aws.elasticache.UserArgs;
- * import com.pulumi.aws.elasticache.inputs.UserAuthenticationModeArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -114,12 +110,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var test = new User(&#34;test&#34;, UserArgs.builder()        
  *             .accessString(&#34;on ~* +@all&#34;)
- *             .authenticationMode(UserAuthenticationModeArgs.builder()
- *                 .passwords(                
- *                     &#34;password1&#34;,
- *                     &#34;password2&#34;)
- *                 .type(&#34;password&#34;)
- *                 .build())
+ *             .authenticationMode(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .engine(&#34;REDIS&#34;)
  *             .userId(&#34;testUserId&#34;)
  *             .userName(&#34;testUserName&#34;)

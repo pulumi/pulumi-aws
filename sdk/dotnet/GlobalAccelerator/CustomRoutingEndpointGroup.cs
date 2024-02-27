@@ -22,26 +22,26 @@ namespace Pulumi.Aws.GlobalAccelerator
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.GlobalAccelerator.CustomRoutingEndpointGroup("example", new()
+    ///     var example = new Aws.Globalaccelerator.CustomRoutingEndpointGroup.CustomRoutingEndpointGroup("example", new()
     ///     {
     ///         ListenerArn = aws_globalaccelerator_custom_routing_listener.Example.Id,
     ///         DestinationConfigurations = new[]
     ///         {
-    ///             new Aws.GlobalAccelerator.Inputs.CustomRoutingEndpointGroupDestinationConfigurationArgs
+    ///             
     ///             {
-    ///                 FromPort = 80,
-    ///                 ToPort = 8080,
-    ///                 Protocols = new[]
+    ///                 { "fromPort", 80 },
+    ///                 { "toPort", 8080 },
+    ///                 { "protocols", new[]
     ///                 {
     ///                     "TCP",
-    ///                 },
+    ///                 } },
     ///             },
     ///         },
     ///         EndpointConfigurations = new[]
     ///         {
-    ///             new Aws.GlobalAccelerator.Inputs.CustomRoutingEndpointGroupEndpointConfigurationArgs
+    ///             
     ///             {
-    ///                 EndpointId = aws_subnet.Example.Id,
+    ///                 { "endpointId", aws_subnet.Example.Id },
     ///             },
     ///         },
     ///     });

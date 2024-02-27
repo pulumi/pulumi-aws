@@ -338,27 +338,27 @@ class ResolverEndpoint(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        foo = aws.route53.ResolverEndpoint("foo",
-            direction="INBOUND",
+        foo = aws.route53.resolver_endpoint.ResolverEndpoint("foo",
+            direction=INBOUND,
             security_group_ids=[
-                aws_security_group["sg1"]["id"],
-                aws_security_group["sg2"]["id"],
+                aws_security_group.sg1.id,
+                aws_security_group.sg2.id,
             ],
             ip_addresses=[
-                aws.route53.ResolverEndpointIpAddressArgs(
-                    subnet_id=aws_subnet["sn1"]["id"],
-                ),
-                aws.route53.ResolverEndpointIpAddressArgs(
-                    subnet_id=aws_subnet["sn2"]["id"],
-                    ip="10.0.64.4",
-                ),
+                {
+                    subnetId: aws_subnet.sn1.id,
+                },
+                {
+                    subnetId: aws_subnet.sn2.id,
+                    ip: 10.0.64.4,
+                },
             ],
             protocols=[
-                "Do53",
-                "DoH",
+                Do53,
+                DoH,
             ],
             tags={
-                "Environment": "Prod",
+                Environment: Prod,
             })
         ```
 
@@ -400,27 +400,27 @@ class ResolverEndpoint(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        foo = aws.route53.ResolverEndpoint("foo",
-            direction="INBOUND",
+        foo = aws.route53.resolver_endpoint.ResolverEndpoint("foo",
+            direction=INBOUND,
             security_group_ids=[
-                aws_security_group["sg1"]["id"],
-                aws_security_group["sg2"]["id"],
+                aws_security_group.sg1.id,
+                aws_security_group.sg2.id,
             ],
             ip_addresses=[
-                aws.route53.ResolverEndpointIpAddressArgs(
-                    subnet_id=aws_subnet["sn1"]["id"],
-                ),
-                aws.route53.ResolverEndpointIpAddressArgs(
-                    subnet_id=aws_subnet["sn2"]["id"],
-                    ip="10.0.64.4",
-                ),
+                {
+                    subnetId: aws_subnet.sn1.id,
+                },
+                {
+                    subnetId: aws_subnet.sn2.id,
+                    ip: 10.0.64.4,
+                },
             ],
             protocols=[
-                "Do53",
-                "DoH",
+                Do53,
+                DoH,
             ],
             tags={
-                "Environment": "Prod",
+                Environment: Prod,
             })
         ```
 

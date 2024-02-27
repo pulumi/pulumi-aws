@@ -20,67 +20,6 @@ import javax.annotation.Nullable;
  * 
  * &gt; **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
  * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.cloudwatch.EventBus;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var messenger = new EventBus(&#34;messenger&#34;);
- * 
- *     }
- * }
- * ```
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.cloudwatch.CloudwatchFunctions;
- * import com.pulumi.aws.cloudwatch.inputs.GetEventSourceArgs;
- * import com.pulumi.aws.cloudwatch.EventBus;
- * import com.pulumi.aws.cloudwatch.EventBusArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var examplepartnerEventSource = CloudwatchFunctions.getEventSource(GetEventSourceArgs.builder()
- *             .namePrefix(&#34;aws.partner/examplepartner.com&#34;)
- *             .build());
- * 
- *         var examplepartnerEventBus = new EventBus(&#34;examplepartnerEventBus&#34;, EventBusArgs.builder()        
- *             .eventSourceName(examplepartnerEventSource.applyValue(getEventSourceResult -&gt; getEventSourceResult.name()))
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
  * ## Import
  * 
  * Using `pulumi import`, import EventBridge event buses using the `name` (which can also be a partner event source name). For example:

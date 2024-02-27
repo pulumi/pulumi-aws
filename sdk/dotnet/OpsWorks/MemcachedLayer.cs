@@ -22,7 +22,7 @@ namespace Pulumi.Aws.OpsWorks
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var cache = new Aws.OpsWorks.MemcachedLayer("cache", new()
+    ///     var cache = new Aws.Opsworks.MemcachedLayer.MemcachedLayer("cache", new()
     ///     {
     ///         StackId = aws_opsworks_stack.Main.Id,
     ///     });

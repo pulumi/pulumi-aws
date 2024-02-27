@@ -28,7 +28,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.gamelift.Build;
  * import com.pulumi.aws.gamelift.BuildArgs;
- * import com.pulumi.aws.gamelift.inputs.BuildStorageLocationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -44,11 +43,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var test = new Build(&#34;test&#34;, BuildArgs.builder()        
  *             .operatingSystem(&#34;WINDOWS_2012&#34;)
- *             .storageLocation(BuildStorageLocationArgs.builder()
- *                 .bucket(aws_s3_bucket.test().id())
- *                 .key(aws_s3_object.test().key())
- *                 .roleArn(aws_iam_role.test().arn())
- *                 .build())
+ *             .storageLocation(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

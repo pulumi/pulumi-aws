@@ -12,33 +12,6 @@ import (
 )
 
 // Provides redshift cluster temporary credentials.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/redshift"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := redshift.GetClusterCredentials(ctx, &redshift.GetClusterCredentialsArgs{
-//				ClusterIdentifier: aws_redshift_cluster.Example.Cluster_identifier,
-//				DbUser:            aws_redshift_cluster.Example.Master_username,
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetClusterCredentials(ctx *pulumi.Context, args *GetClusterCredentialsArgs, opts ...pulumi.InvokeOption) (*GetClusterCredentialsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetClusterCredentialsResult

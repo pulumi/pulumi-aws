@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Rekognition
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Rekognition.Project("example", new()
+    ///     var example = new Aws.Rekognition.Project.Project("example", new()
     ///     {
     ///         AutoUpdate = "ENABLED",
     ///         Feature = "CONTENT_MODERATION",

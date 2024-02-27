@@ -214,16 +214,6 @@ def get_query_suggestions_block_list(index_id: Optional[str] = None,
     """
     Provides details about a specific Amazon Kendra block list used for query suggestions for an index.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.kendra.get_query_suggestions_block_list(index_id="12345678-1234-1234-1234-123456789123",
-        query_suggestions_block_list_id="87654321-1234-4321-4321-321987654321")
-    ```
-
 
     :param str index_id: Identifier of the index that contains the block list.
     :param str query_suggestions_block_list_id: Identifier of the block list.
@@ -261,16 +251,6 @@ def get_query_suggestions_block_list_output(index_id: Optional[pulumi.Input[str]
                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetQuerySuggestionsBlockListResult]:
     """
     Provides details about a specific Amazon Kendra block list used for query suggestions for an index.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.kendra.get_query_suggestions_block_list(index_id="12345678-1234-1234-1234-123456789123",
-        query_suggestions_block_list_id="87654321-1234-4321-4321-321987654321")
-    ```
 
 
     :param str index_id: Identifier of the index that contains the block list.

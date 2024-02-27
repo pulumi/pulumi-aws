@@ -23,7 +23,7 @@ namespace Pulumi.Aws.CloudFormation
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var network = new Aws.CloudFormation.Stack("network", new()
+    ///     var network = new Aws.Cloudformation.Stack.Stack("network", new()
     ///     {
     ///         Parameters = 
     ///         {

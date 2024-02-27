@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Ec2TransitGateway.VpcAttachment("example", new()
+    ///     var example = new Aws.Ec2transitgateway.VpcAttachment.VpcAttachment("example", new()
     ///     {
     ///         SubnetIds = new[]
     ///         {

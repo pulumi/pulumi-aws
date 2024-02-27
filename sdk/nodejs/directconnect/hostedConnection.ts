@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const hosted = new aws.directconnect.HostedConnection("hosted", {
+ * const hosted = new aws.directconnect/hostedConnection.HostedConnection("hosted", {
  *     bandwidth: "100Mbps",
  *     connectionId: "dxcon-ffabc123",
  *     ownerAccountId: "123456789012",

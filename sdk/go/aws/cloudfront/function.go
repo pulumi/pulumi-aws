@@ -29,34 +29,33 @@ import (
 //	"fmt"
 //	"os"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudfront"
+//	cloudfront/function "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/cloudfront/function"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func readFileOrPanic(path string) pulumi.StringPtrInput {
-//		data, err := os.ReadFile(path)
-//		if err != nil {
-//			panic(err.Error())
-//		}
-//		return pulumi.String(string(data))
-//	}
+//					data, err := os.ReadFile(path)
+//					if err != nil {
+//						panic(err.Error())
+//					}
+//					return pulumi.String(string(data))
+//				}
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cloudfront.NewFunction(ctx, "test", &cloudfront.FunctionArgs{
-//				Runtime: pulumi.String("cloudfront-js-2.0"),
-//				Comment: pulumi.String("my function"),
-//				Publish: pulumi.Bool(true),
-//				Code:    readFileOrPanic(fmt.Sprintf("%v/function.js", path.Module)),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := cloudfront/function.NewFunction(ctx, "test", &cloudfront/function.FunctionArgs{
+// Runtime: "cloudfront-js-2.0",
+// Comment: "my function",
+// Publish: true,
+// Code: readFileOrPanic(fmt.Sprintf("%v/function.js", path.Module)),
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

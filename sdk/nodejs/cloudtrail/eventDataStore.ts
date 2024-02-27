@@ -23,45 +23,13 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.cloudtrail.EventDataStore("example", {});
+ * const example = new aws.cloudtrail/eventDataStore.EventDataStore("example", {});
  * ```
  * ### Data Event Logging
  *
  * CloudTrail can log [Data Events](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html) for certain services such as S3 bucket objects and Lambda function invocations. Additional information about data event configuration can be found in the following links:
  *
  * - [CloudTrail API AdvancedFieldSelector documentation](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.html)
- * ### Log all DynamoDB PutEvent actions for a specific DynamoDB table
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const table = aws.dynamodb.getTable({
- *     name: "not-important-dynamodb-table",
- * });
- * // ... other configuration ...
- * const example = new aws.cloudtrail.EventDataStore("example", {advancedEventSelectors: [{
- *     name: "Log all DynamoDB PutEvent actions for a specific DynamoDB table",
- *     fieldSelectors: [
- *         {
- *             field: "eventCategory",
- *             equals: ["Data"],
- *         },
- *         {
- *             field: "resources.type",
- *             equals: ["AWS::DynamoDB::Table"],
- *         },
- *         {
- *             field: "eventName",
- *             equals: ["PutItem"],
- *         },
- *         {
- *             field: "resources.ARN",
- *             equals: [table.then(table => table.arn)],
- *         },
- *     ],
- * }]});
- * ```
  *
  * ## Import
  *

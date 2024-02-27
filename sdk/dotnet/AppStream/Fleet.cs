@@ -22,11 +22,11 @@ namespace Pulumi.Aws.AppStream
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testFleet = new Aws.AppStream.Fleet("testFleet", new()
+    ///     var testFleet = new Aws.Appstream.Fleet.Fleet("testFleet", new()
     ///     {
-    ///         ComputeCapacity = new Aws.AppStream.Inputs.FleetComputeCapacityArgs
+    ///         ComputeCapacity = 
     ///         {
-    ///             DesiredInstances = 1,
+    ///             { "desiredInstances", 1 },
     ///         },
     ///         Description = "test fleet",
     ///         DisplayName = "test-fleet",
@@ -40,12 +40,12 @@ namespace Pulumi.Aws.AppStream
     ///         {
     ///             { "TagName", "tag-value" },
     ///         },
-    ///         VpcConfig = new Aws.AppStream.Inputs.FleetVpcConfigArgs
+    ///         VpcConfig = 
     ///         {
-    ///             SubnetIds = new[]
+    ///             { "subnetIds", new[]
     ///             {
     ///                 "subnet-06e9b13400c225127",
-    ///             },
+    ///             } },
     ///         },
     ///     });
     /// 

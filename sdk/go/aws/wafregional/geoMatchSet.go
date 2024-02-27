@@ -20,32 +20,30 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/wafregional"
+//	wafregional/geoMatchSet "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/wafregional/geoMatchSet"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := wafregional.NewGeoMatchSet(ctx, "geoMatchSet", &wafregional.GeoMatchSetArgs{
-//				GeoMatchConstraints: wafregional.GeoMatchSetGeoMatchConstraintArray{
-//					&wafregional.GeoMatchSetGeoMatchConstraintArgs{
-//						Type:  pulumi.String("Country"),
-//						Value: pulumi.String("US"),
-//					},
-//					&wafregional.GeoMatchSetGeoMatchConstraintArgs{
-//						Type:  pulumi.String("Country"),
-//						Value: pulumi.String("CA"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := wafregional/geoMatchSet.NewGeoMatchSet(ctx, "geoMatchSet", &wafregional/geoMatchSet.GeoMatchSetArgs{
+// GeoMatchConstraints: []map[string]interface{}{
+// map[string]interface{}{
+// "type": "Country",
+// "value": "US",
+// },
+// map[string]interface{}{
+// "type": "Country",
+// "value": "CA",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

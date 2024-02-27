@@ -188,7 +188,7 @@ class ServiceNetwork(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.vpclattice.ServiceNetwork("example", auth_type="AWS_IAM")
+        example = aws.vpclattice.service_network.ServiceNetwork("example", auth_type=AWS_IAM)
         ```
 
         ## Import
@@ -223,7 +223,7 @@ class ServiceNetwork(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.vpclattice.ServiceNetwork("example", auth_type="AWS_IAM")
+        example = aws.vpclattice.service_network.ServiceNetwork("example", auth_type=AWS_IAM)
         ```
 
         ## Import

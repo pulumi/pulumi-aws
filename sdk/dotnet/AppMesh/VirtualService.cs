@@ -23,18 +23,18 @@ namespace Pulumi.Aws.AppMesh
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var servicea = new Aws.AppMesh.VirtualService("servicea", new()
+    ///     var servicea = new Aws.Appmesh.VirtualService.VirtualService("servicea", new()
     ///     {
     ///         MeshName = aws_appmesh_mesh.Simple.Id,
-    ///         Spec = new Aws.AppMesh.Inputs.VirtualServiceSpecArgs
+    ///         Spec = 
     ///         {
-    ///             Provider = new Aws.AppMesh.Inputs.VirtualServiceSpecProviderArgs
+    ///             { "provider", 
     ///             {
-    ///                 VirtualNode = new Aws.AppMesh.Inputs.VirtualServiceSpecProviderVirtualNodeArgs
+    ///                 { "virtualNode", 
     ///                 {
-    ///                     VirtualNodeName = aws_appmesh_virtual_node.Serviceb1.Name,
-    ///                 },
-    ///             },
+    ///                     { "virtualNodeName", aws_appmesh_virtual_node.Serviceb1.Name },
+    ///                 } },
+    ///             } },
     ///         },
     ///     });
     /// 
@@ -50,18 +50,18 @@ namespace Pulumi.Aws.AppMesh
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var servicea = new Aws.AppMesh.VirtualService("servicea", new()
+    ///     var servicea = new Aws.Appmesh.VirtualService.VirtualService("servicea", new()
     ///     {
     ///         MeshName = aws_appmesh_mesh.Simple.Id,
-    ///         Spec = new Aws.AppMesh.Inputs.VirtualServiceSpecArgs
+    ///         Spec = 
     ///         {
-    ///             Provider = new Aws.AppMesh.Inputs.VirtualServiceSpecProviderArgs
+    ///             { "provider", 
     ///             {
-    ///                 VirtualRouter = new Aws.AppMesh.Inputs.VirtualServiceSpecProviderVirtualRouterArgs
+    ///                 { "virtualRouter", 
     ///                 {
-    ///                     VirtualRouterName = aws_appmesh_virtual_router.Serviceb.Name,
-    ///                 },
-    ///             },
+    ///                     { "virtualRouterName", aws_appmesh_virtual_router.Serviceb.Name },
+    ///                 } },
+    ///             } },
     ///         },
     ///     });
     /// 

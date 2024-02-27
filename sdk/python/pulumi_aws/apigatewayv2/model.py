@@ -206,16 +206,16 @@ class Model(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        example = aws.apigatewayv2.Model("example",
-            api_id=aws_apigatewayv2_api["example"]["id"],
-            content_type="application/json",
+        example = aws.apigatewayv2.model.Model("example",
+            api_id=aws_apigatewayv2_api.example.id,
+            content_type=application/json,
             schema=json.dumps({
-                "$schema": "http://json-schema.org/draft-04/schema#",
-                "title": "ExampleModel",
-                "type": "object",
-                "properties": {
-                    "id": {
-                        "type": "string",
+                $schema: http://json-schema.org/draft-04/schema#,
+                title: ExampleModel,
+                type: object,
+                properties: {
+                    id: {
+                        type: string,
                     },
                 },
             }))
@@ -254,16 +254,16 @@ class Model(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        example = aws.apigatewayv2.Model("example",
-            api_id=aws_apigatewayv2_api["example"]["id"],
-            content_type="application/json",
+        example = aws.apigatewayv2.model.Model("example",
+            api_id=aws_apigatewayv2_api.example.id,
+            content_type=application/json,
             schema=json.dumps({
-                "$schema": "http://json-schema.org/draft-04/schema#",
-                "title": "ExampleModel",
-                "type": "object",
-                "properties": {
-                    "id": {
-                        "type": "string",
+                $schema: http://json-schema.org/draft-04/schema#,
+                title: ExampleModel,
+                type: object,
+                properties: {
+                    id: {
+                        type: string,
                     },
                 },
             }))

@@ -32,10 +32,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.s3.BucketV2;
  * import com.pulumi.aws.s3.AnalyticsConfiguration;
  * import com.pulumi.aws.s3.AnalyticsConfigurationArgs;
- * import com.pulumi.aws.s3.inputs.AnalyticsConfigurationStorageClassAnalysisArgs;
- * import com.pulumi.aws.s3.inputs.AnalyticsConfigurationStorageClassAnalysisDataExportArgs;
- * import com.pulumi.aws.s3.inputs.AnalyticsConfigurationStorageClassAnalysisDataExportDestinationArgs;
- * import com.pulumi.aws.s3.inputs.AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -55,15 +51,7 @@ import javax.annotation.Nullable;
  * 
  *         var example_entire_bucket = new AnalyticsConfiguration(&#34;example-entire-bucket&#34;, AnalyticsConfigurationArgs.builder()        
  *             .bucket(example.id())
- *             .storageClassAnalysis(AnalyticsConfigurationStorageClassAnalysisArgs.builder()
- *                 .dataExport(AnalyticsConfigurationStorageClassAnalysisDataExportArgs.builder()
- *                     .destination(AnalyticsConfigurationStorageClassAnalysisDataExportDestinationArgs.builder()
- *                         .s3BucketDestination(AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationArgs.builder()
- *                             .bucketArn(analytics.arn())
- *                             .build())
- *                         .build())
- *                     .build())
- *                 .build())
+ *             .storageClassAnalysis(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -79,7 +67,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.s3.BucketV2;
  * import com.pulumi.aws.s3.AnalyticsConfiguration;
  * import com.pulumi.aws.s3.AnalyticsConfigurationArgs;
- * import com.pulumi.aws.s3.inputs.AnalyticsConfigurationFilterArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -97,13 +84,7 @@ import javax.annotation.Nullable;
  * 
  *         var example_filtered = new AnalyticsConfiguration(&#34;example-filtered&#34;, AnalyticsConfigurationArgs.builder()        
  *             .bucket(example.id())
- *             .filter(AnalyticsConfigurationFilterArgs.builder()
- *                 .prefix(&#34;documents/&#34;)
- *                 .tags(Map.ofEntries(
- *                     Map.entry(&#34;priority&#34;, &#34;high&#34;),
- *                     Map.entry(&#34;class&#34;, &#34;blue&#34;)
- *                 ))
- *                 .build())
+ *             .filter(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

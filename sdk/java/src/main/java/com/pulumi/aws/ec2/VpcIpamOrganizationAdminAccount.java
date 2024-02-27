@@ -16,45 +16,6 @@ import javax.annotation.Nullable;
 /**
  * Enables the IPAM Service and promotes a delegated administrator.
  * 
- * ## Example Usage
- * 
- * Basic usage:
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.AwsFunctions;
- * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
- * import com.pulumi.aws.ec2.VpcIpamOrganizationAdminAccount;
- * import com.pulumi.aws.ec2.VpcIpamOrganizationAdminAccountArgs;
- * import com.pulumi.aws.Provider;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var delegated = AwsFunctions.getCallerIdentity();
- * 
- *         var example = new VpcIpamOrganizationAdminAccount(&#34;example&#34;, VpcIpamOrganizationAdminAccountArgs.builder()        
- *             .delegatedAdminAccountId(delegated.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()))
- *             .build());
- * 
- *         var ipamDelegateAccount = new Provider(&#34;ipamDelegateAccount&#34;);
- * 
- *     }
- * }
- * ```
- * 
  * ## Import
  * 
  * Using `pulumi import`, import IPAMs using the delegate account `id`. For example:

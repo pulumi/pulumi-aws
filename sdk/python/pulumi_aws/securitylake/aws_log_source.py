@@ -78,12 +78,12 @@ class AwsLogSource(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.securitylake.AwsLogSource("test", source=aws.securitylake.AwsLogSourceSourceArgs(
-            accounts=["123456789012"],
-            regions=["eu-west-1"],
-            source_name="ROUTE53",
-            source_version="1.0",
-        ))
+        test = aws.securitylake.aws_log_source.AwsLogSource("test", source={
+            accounts: [123456789012],
+            regions: [eu-west-1],
+            sourceName: ROUTE53,
+            sourceVersion: 1.0,
+        })
         ```
 
         ## Import
@@ -114,12 +114,12 @@ class AwsLogSource(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.securitylake.AwsLogSource("test", source=aws.securitylake.AwsLogSourceSourceArgs(
-            accounts=["123456789012"],
-            regions=["eu-west-1"],
-            source_name="ROUTE53",
-            source_version="1.0",
-        ))
+        test = aws.securitylake.aws_log_source.AwsLogSource("test", source={
+            accounts: [123456789012],
+            regions: [eu-west-1],
+            sourceName: ROUTE53,
+            sourceVersion: 1.0,
+        })
         ```
 
         ## Import

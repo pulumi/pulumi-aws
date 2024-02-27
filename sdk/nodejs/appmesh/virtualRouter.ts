@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const serviceb = new aws.appmesh.VirtualRouter("serviceb", {
+ * const serviceb = new aws.appmesh/virtualRouter.VirtualRouter("serviceb", {
  *     meshName: aws_appmesh_mesh.simple.id,
  *     spec: {
  *         listeners: [{

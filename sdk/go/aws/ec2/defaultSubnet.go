@@ -28,26 +28,24 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	ec2/defaultSubnet "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/defaultSubnet"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.NewDefaultSubnet(ctx, "defaultAz1", &ec2.DefaultSubnetArgs{
-//				AvailabilityZone: pulumi.String("us-west-2a"),
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("Default subnet for us-west-2a"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := ec2/defaultSubnet.NewDefaultSubnet(ctx, "defaultAz1", &ec2/defaultSubnet.DefaultSubnetArgs{
+// AvailabilityZone: "us-west-2a",
+// Tags: map[string]interface{}{
+// "Name": "Default subnet for us-west-2a",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

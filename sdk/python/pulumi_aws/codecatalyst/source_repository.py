@@ -181,9 +181,9 @@ class SourceRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.codecatalyst.SourceRepository("example",
-            project_name="example-project",
-            space_name="example-space")
+        example = aws.codecatalyst.source_repository.SourceRepository("example",
+            project_name=example-project,
+            space_name=example-space)
         ```
 
         ## Import
@@ -219,9 +219,9 @@ class SourceRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.codecatalyst.SourceRepository("example",
-            project_name="example-project",
-            space_name="example-space")
+        example = aws.codecatalyst.source_repository.SourceRepository("example",
+            project_name=example-project,
+            space_name=example-space)
         ```
 
         ## Import

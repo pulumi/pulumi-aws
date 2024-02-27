@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = new aws.ec2.VpcIpamResourceDiscoveryAssociation("test", {
+ * const test = new aws.ec2/vpcIpamResourceDiscoveryAssociation.VpcIpamResourceDiscoveryAssociation("test", {
  *     ipamId: aws_vpc_ipam.test.id,
  *     ipamResourceDiscoveryId: aws_vpc_ipam_resource_discovery.test.id,
  *     tags: {

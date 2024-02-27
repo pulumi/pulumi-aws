@@ -21,30 +21,29 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/appsync"
+//	appsync/apiKey "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/appsync/apiKey"
+//	appsync/graphQLApi "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/appsync/graphQLApi"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleGraphQLApi, err := appsync.NewGraphQLApi(ctx, "exampleGraphQLApi", &appsync.GraphQLApiArgs{
-//				AuthenticationType: pulumi.String("API_KEY"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = appsync.NewApiKey(ctx, "exampleApiKey", &appsync.ApiKeyArgs{
-//				ApiId:   exampleGraphQLApi.ID(),
-//				Expires: pulumi.String("2018-05-03T04:00:00Z"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleGraphQLApi, err := appsync/graphQLApi.NewGraphQLApi(ctx, "exampleGraphQLApi", &appsync/graphQLApi.GraphQLApiArgs{
+// AuthenticationType: "API_KEY",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = appsync/apiKey.NewApiKey(ctx, "exampleApiKey", &appsync/apiKey.ApiKeyArgs{
+// ApiId: exampleGraphQLApi.Id,
+// Expires: "2018-05-03T04:00:00Z",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

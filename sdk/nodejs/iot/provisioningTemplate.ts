@@ -10,67 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Manages an IoT fleet provisioning template. For more info, see the AWS documentation on [fleet provisioning](https://docs.aws.amazon.com/iot/latest/developerguide/provision-wo-cert.html).
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const iotAssumeRolePolicy = aws.iam.getPolicyDocument({
- *     statements: [{
- *         actions: ["sts:AssumeRole"],
- *         principals: [{
- *             type: "Service",
- *             identifiers: ["iot.amazonaws.com"],
- *         }],
- *     }],
- * });
- * const iotFleetProvisioning = new aws.iam.Role("iotFleetProvisioning", {
- *     path: "/service-role/",
- *     assumeRolePolicy: iotAssumeRolePolicy.then(iotAssumeRolePolicy => iotAssumeRolePolicy.json),
- * });
- * const iotFleetProvisioningRegistration = new aws.iam.RolePolicyAttachment("iotFleetProvisioningRegistration", {
- *     role: iotFleetProvisioning.name,
- *     policyArn: "arn:aws:iam::aws:policy/service-role/AWSIoTThingsRegistration",
- * });
- * const devicePolicyPolicyDocument = aws.iam.getPolicyDocument({
- *     statements: [{
- *         actions: ["iot:Subscribe"],
- *         resources: ["*"],
- *     }],
- * });
- * const devicePolicyPolicy = new aws.iot.Policy("devicePolicyPolicy", {policy: devicePolicyPolicyDocument.then(devicePolicyPolicyDocument => devicePolicyPolicyDocument.json)});
- * const fleet = new aws.iot.ProvisioningTemplate("fleet", {
- *     description: "My provisioning template",
- *     provisioningRoleArn: iotFleetProvisioning.arn,
- *     enabled: true,
- *     templateBody: devicePolicyPolicy.name.apply(name => JSON.stringify({
- *         Parameters: {
- *             SerialNumber: {
- *                 Type: "String",
- *             },
- *         },
- *         Resources: {
- *             certificate: {
- *                 Properties: {
- *                     CertificateId: {
- *                         Ref: "AWS::IoT::Certificate::Id",
- *                     },
- *                     Status: "Active",
- *                 },
- *                 Type: "AWS::IoT::Certificate",
- *             },
- *             policy: {
- *                 Properties: {
- *                     PolicyName: name,
- *                 },
- *                 Type: "AWS::IoT::Policy",
- *             },
- *         },
- *     })),
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import IoT fleet provisioning templates using the `name`. For example:

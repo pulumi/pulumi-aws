@@ -411,23 +411,6 @@ class ReservedInstance(pulumi.CustomResource):
 
         > **NOTE:** Due to the expense of testing this resource, we provide it as best effort. If you find it useful, and have the ability to help test or notice issues, consider reaching out to us on GitHub.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.rds.get_reserved_instance_offering(db_instance_class="db.t2.micro",
-            duration=31536000,
-            multi_az=False,
-            offering_type="All Upfront",
-            product_description="mysql")
-        example = aws.rds.ReservedInstance("example",
-            offering_id=test.offering_id,
-            reservation_id="optionalCustomReservationID",
-            instance_count=3)
-        ```
-
         ## Import
 
         Using `pulumi import`, import RDS DB Instance Reservations using the `instance_id`. For example:
@@ -457,23 +440,6 @@ class ReservedInstance(pulumi.CustomResource):
         > **NOTE:** Once created, a reservation is valid for the `duration` of the provided `offering_id` and cannot be deleted. Performing a `destroy` will only remove the resource from state. For more information see [RDS Reserved Instances Documentation](https://aws.amazon.com/rds/reserved-instances/) and [PurchaseReservedDBInstancesOffering](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_PurchaseReservedDBInstancesOffering.html).
 
         > **NOTE:** Due to the expense of testing this resource, we provide it as best effort. If you find it useful, and have the ability to help test or notice issues, consider reaching out to us on GitHub.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.rds.get_reserved_instance_offering(db_instance_class="db.t2.micro",
-            duration=31536000,
-            multi_az=False,
-            offering_type="All Upfront",
-            product_description="mysql")
-        example = aws.rds.ReservedInstance("example",
-            offering_id=test.offering_id,
-            reservation_id="optionalCustomReservationID",
-            instance_count=3)
-        ```
 
         ## Import
 

@@ -16,37 +16,6 @@ import * as utilities from "../utilities";
  * Pod Identity is a simpler method than IAM roles for service accounts, as this method doesn’t use OIDC identity providers. Additionally, you can configure a role for Pod Identity once, and reuse it across clusters.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const assumeRole = aws.iam.getPolicyDocument({
- *     statements: [{
- *         effect: "Allow",
- *         principals: [{
- *             type: "Service",
- *             identifiers: ["pods.eks.amazonaws.com"],
- *         }],
- *         actions: [
- *             "sts:AssumeRole",
- *             "sts:TagSession",
- *         ],
- *     }],
- * });
- * const exampleRole = new aws.iam.Role("exampleRole", {assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json)});
- * const exampleS3 = new aws.iam.RolePolicyAttachment("exampleS3", {
- *     policyArn: "arn:aws:iam::aws:policy/AmazonS3ReadOnlyAccess",
- *     role: exampleRole.name,
- * });
- * const examplePodIdentityAssociation = new aws.eks.PodIdentityAssociation("examplePodIdentityAssociation", {
- *     clusterName: aws_eks_cluster.example.name,
- *     namespace: "example",
- *     serviceAccount: "example-sa",
- *     roleArn: exampleRole.arn,
- * });
- * ```
  *
  * ## Import
  *

@@ -89,11 +89,7 @@ import javax.annotation.Nullable;
  *             .endpointId(&#34;donnedtipi&#34;)
  *             .endpointType(&#34;target&#34;)
  *             .sslMode(&#34;none&#34;)
- *             .tags(Map.ofEntries(
- *                 Map.entry(&#34;Name&#34;, &#34;donnedtipi&#34;),
- *                 Map.entry(&#34;Update&#34;, &#34;to-update&#34;),
- *                 Map.entry(&#34;Remove&#34;, &#34;to-remove&#34;)
- *             ))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .addColumnName(true)
  *             .addTrailingPaddingCharacter(false)
  *             .bucketFolder(&#34;folder&#34;)

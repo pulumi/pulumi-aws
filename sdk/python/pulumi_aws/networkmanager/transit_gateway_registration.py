@@ -108,9 +108,9 @@ class TransitGatewayRegistration(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_global_network = aws.networkmanager.GlobalNetwork("exampleGlobalNetwork", description="example")
-        example_transit_gateway = aws.ec2transitgateway.TransitGateway("exampleTransitGateway")
-        example_transit_gateway_registration = aws.networkmanager.TransitGatewayRegistration("exampleTransitGatewayRegistration",
+        example_global_network = aws.networkmanager.global_network.GlobalNetwork("exampleGlobalNetwork", description=example)
+        example_transit_gateway = aws.ec2transitgateway.transit_gateway.TransitGateway("exampleTransitGateway")
+        example_transit_gateway_registration = aws.networkmanager.transit_gateway_registration.TransitGatewayRegistration("exampleTransitGatewayRegistration",
             global_network_id=example_global_network.id,
             transit_gateway_arn=example_transit_gateway.arn)
         ```
@@ -145,9 +145,9 @@ class TransitGatewayRegistration(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_global_network = aws.networkmanager.GlobalNetwork("exampleGlobalNetwork", description="example")
-        example_transit_gateway = aws.ec2transitgateway.TransitGateway("exampleTransitGateway")
-        example_transit_gateway_registration = aws.networkmanager.TransitGatewayRegistration("exampleTransitGatewayRegistration",
+        example_global_network = aws.networkmanager.global_network.GlobalNetwork("exampleGlobalNetwork", description=example)
+        example_transit_gateway = aws.ec2transitgateway.transit_gateway.TransitGateway("exampleTransitGateway")
+        example_transit_gateway_registration = aws.networkmanager.transit_gateway_registration.TransitGatewayRegistration("exampleTransitGatewayRegistration",
             global_network_id=example_global_network.id,
             transit_gateway_arn=example_transit_gateway.arn)
         ```

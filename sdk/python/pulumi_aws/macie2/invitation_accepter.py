@@ -90,16 +90,16 @@ class InvitationAccepter(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        primary_account = aws.macie2.Account("primaryAccount", opts=pulumi.ResourceOptions(provider="awsalternate"))
-        member_account = aws.macie2.Account("memberAccount")
-        primary_member = aws.macie2.Member("primaryMember",
-            account_id="ACCOUNT ID",
-            email="EMAIL",
+        primary_account = aws.macie2.account.Account("primaryAccount", opts=pulumi.ResourceOptions(provider="awsalternate"))
+        member_account = aws.macie2.account.Account("memberAccount")
+        primary_member = aws.macie2.member.Member("primaryMember",
+            account_id=ACCOUNT ID,
+            email=EMAIL,
             invite=True,
-            invitation_message="Message of the invite",
+            invitation_message=Message of the invite,
             opts=pulumi.ResourceOptions(provider="awsalternate",
                 depends_on=[primary_account]))
-        member_invitation_accepter = aws.macie2.InvitationAccepter("memberInvitationAccepter", administrator_account_id="ADMINISTRATOR ACCOUNT ID",
+        member_invitation_accepter = aws.macie2.invitation_accepter.InvitationAccepter("memberInvitationAccepter", administrator_account_id=ADMINISTRATOR ACCOUNT ID,
         opts=pulumi.ResourceOptions(depends_on=[primary_member]))
         ```
 
@@ -130,16 +130,16 @@ class InvitationAccepter(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        primary_account = aws.macie2.Account("primaryAccount", opts=pulumi.ResourceOptions(provider="awsalternate"))
-        member_account = aws.macie2.Account("memberAccount")
-        primary_member = aws.macie2.Member("primaryMember",
-            account_id="ACCOUNT ID",
-            email="EMAIL",
+        primary_account = aws.macie2.account.Account("primaryAccount", opts=pulumi.ResourceOptions(provider="awsalternate"))
+        member_account = aws.macie2.account.Account("memberAccount")
+        primary_member = aws.macie2.member.Member("primaryMember",
+            account_id=ACCOUNT ID,
+            email=EMAIL,
             invite=True,
-            invitation_message="Message of the invite",
+            invitation_message=Message of the invite,
             opts=pulumi.ResourceOptions(provider="awsalternate",
                 depends_on=[primary_account]))
-        member_invitation_accepter = aws.macie2.InvitationAccepter("memberInvitationAccepter", administrator_account_id="ADMINISTRATOR ACCOUNT ID",
+        member_invitation_accepter = aws.macie2.invitation_accepter.InvitationAccepter("memberInvitationAccepter", administrator_account_id=ADMINISTRATOR ACCOUNT ID,
         opts=pulumi.ResourceOptions(depends_on=[primary_member]))
         ```
 

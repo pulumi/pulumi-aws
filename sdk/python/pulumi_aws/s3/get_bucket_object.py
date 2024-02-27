@@ -352,43 +352,6 @@ def get_bucket_object(bucket: Optional[str] = None,
 
     > **Note:** The content of an object (`body` field) is available only for objects which have a human-readable `Content-Type` (`text/*` and `application/json`). This is to prevent printing unsafe characters and potentially downloading large amount of data which would be thrown away in favour of metadata.
 
-    ## Example Usage
-
-    The following example retrieves a text object (which must have a `Content-Type`
-    value starting with `text/`) and uses it as the `user_data` for an EC2 instance:
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    bootstrap_script = aws.s3.get_bucket_object(bucket="ourcorp-deploy-config",
-        key="ec2-bootstrap-script.sh")
-    example = aws.ec2.Instance("example",
-        instance_type="t2.micro",
-        ami="ami-2757f631",
-        user_data=bootstrap_script.body)
-    ```
-
-    The following, more-complex example retrieves only the metadata for a zip
-    file stored in S3, which is then used to pass the most recent `version_id`
-    to AWS Lambda for use as a function implementation. More information about
-    Lambda functions is available in the documentation for
-    `lambda.Function`.
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    lambda_ = aws.s3.get_bucket_object(bucket="ourcorp-lambda-functions",
-        key="hello-world.zip")
-    test_lambda = aws.lambda_.Function("testLambda",
-        s3_bucket=lambda_.id,
-        s3_key=lambda_.key,
-        s3_object_version=lambda_.version_id,
-        role=aws_iam_role["iam_for_lambda"]["arn"],
-        handler="exports.test")
-    ```
-
 
     :param str bucket: Name of the bucket to read the object from. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified
     :param str key: Full path to the object inside the bucket
@@ -447,43 +410,6 @@ def get_bucket_object_output(bucket: Optional[pulumi.Input[str]] = None,
     _optionally_ (see below) content of an object stored inside S3 bucket.
 
     > **Note:** The content of an object (`body` field) is available only for objects which have a human-readable `Content-Type` (`text/*` and `application/json`). This is to prevent printing unsafe characters and potentially downloading large amount of data which would be thrown away in favour of metadata.
-
-    ## Example Usage
-
-    The following example retrieves a text object (which must have a `Content-Type`
-    value starting with `text/`) and uses it as the `user_data` for an EC2 instance:
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    bootstrap_script = aws.s3.get_bucket_object(bucket="ourcorp-deploy-config",
-        key="ec2-bootstrap-script.sh")
-    example = aws.ec2.Instance("example",
-        instance_type="t2.micro",
-        ami="ami-2757f631",
-        user_data=bootstrap_script.body)
-    ```
-
-    The following, more-complex example retrieves only the metadata for a zip
-    file stored in S3, which is then used to pass the most recent `version_id`
-    to AWS Lambda for use as a function implementation. More information about
-    Lambda functions is available in the documentation for
-    `lambda.Function`.
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    lambda_ = aws.s3.get_bucket_object(bucket="ourcorp-lambda-functions",
-        key="hello-world.zip")
-    test_lambda = aws.lambda_.Function("testLambda",
-        s3_bucket=lambda_.id,
-        s3_key=lambda_.key,
-        s3_object_version=lambda_.version_id,
-        role=aws_iam_role["iam_for_lambda"]["arn"],
-        handler="exports.test")
-    ```
 
 
     :param str bucket: Name of the bucket to read the object from. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified

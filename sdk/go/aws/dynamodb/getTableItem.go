@@ -14,36 +14,6 @@ import (
 // Data source for retrieving a value from an AWS DynamoDB table.
 //
 // ## Example Usage
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/dynamodb"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := dynamodb.LookupTableItem(ctx, &dynamodb.LookupTableItemArgs{
-//				TableName: aws_dynamodb_table.Example.Name,
-//				ExpressionAttributeNames: map[string]interface{}{
-//					"#P": "Percentile",
-//				},
-//				ProjectionExpression: pulumi.StringRef("#P"),
-//				Key:                  "{\n	\"hashKey\": {\"S\": \"example\"}\n}\n",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupTableItem(ctx *pulumi.Context, args *LookupTableItemArgs, opts ...pulumi.InvokeOption) (*LookupTableItemResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupTableItemResult

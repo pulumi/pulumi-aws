@@ -164,10 +164,10 @@ class Project(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.codecatalyst.Project("test",
-            description="My CodeCatalyst Project created using Pulumi",
-            display_name="MyProject",
-            space_name="myproject")
+        test = aws.codecatalyst.project.Project("test",
+            description=My CodeCatalyst Project created using Pulumi,
+            display_name=MyProject,
+            space_name=myproject)
         ```
 
         ## Import
@@ -202,10 +202,10 @@ class Project(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.codecatalyst.Project("test",
-            description="My CodeCatalyst Project created using Pulumi",
-            display_name="MyProject",
-            space_name="myproject")
+        test = aws.codecatalyst.project.Project("test",
+            description=My CodeCatalyst Project created using Pulumi,
+            display_name=MyProject,
+            space_name=myproject)
         ```
 
         ## Import

@@ -21,38 +21,38 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/directconnect"
+//	directconnect/connection "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/directconnect/connection"
+//	directconnect/connectionAssociation "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/directconnect/connectionAssociation"
+//	directconnect/linkAggregationGroup "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/directconnect/linkAggregationGroup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleConnection, err := directconnect.NewConnection(ctx, "exampleConnection", &directconnect.ConnectionArgs{
-//				Bandwidth: pulumi.String("1Gbps"),
-//				Location:  pulumi.String("EqSe2-EQ"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleLinkAggregationGroup, err := directconnect.NewLinkAggregationGroup(ctx, "exampleLinkAggregationGroup", &directconnect.LinkAggregationGroupArgs{
-//				ConnectionsBandwidth: pulumi.String("1Gbps"),
-//				Location:             pulumi.String("EqSe2-EQ"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = directconnect.NewConnectionAssociation(ctx, "exampleConnectionAssociation", &directconnect.ConnectionAssociationArgs{
-//				ConnectionId: exampleConnection.ID(),
-//				LagId:        exampleLinkAggregationGroup.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleConnection, err := directconnect/connection.NewConnection(ctx, "exampleConnection", &directconnect/connection.ConnectionArgs{
+// Bandwidth: "1Gbps",
+// Location: "EqSe2-EQ",
+// })
+// if err != nil {
+// return err
+// }
+// exampleLinkAggregationGroup, err := directconnect/linkAggregationGroup.NewLinkAggregationGroup(ctx, "exampleLinkAggregationGroup", &directconnect/linkAggregationGroup.LinkAggregationGroupArgs{
+// ConnectionsBandwidth: "1Gbps",
+// Location: "EqSe2-EQ",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = directconnect/connectionAssociation.NewConnectionAssociation(ctx, "exampleConnectionAssociation", &directconnect/connectionAssociation.ConnectionAssociationArgs{
+// ConnectionId: exampleConnection.Id,
+// LagId: exampleLinkAggregationGroup.Id,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 type ConnectionAssociation struct {
 	pulumi.CustomResourceState

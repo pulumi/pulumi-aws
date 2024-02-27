@@ -22,7 +22,7 @@ namespace Pulumi.Aws.ServiceDiscovery
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.ServiceDiscovery.PublicDnsNamespace("example", new()
+    ///     var example = new Aws.Servicediscovery.PublicDnsNamespace.PublicDnsNamespace("example", new()
     ///     {
     ///         Description = "example",
     ///     });

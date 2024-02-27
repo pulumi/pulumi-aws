@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Emr
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var foo = new Aws.Emr.SecurityConfiguration("foo", new()
+    ///     var foo = new Aws.Emr.SecurityConfiguration.SecurityConfiguration("foo", new()
     ///     {
     ///         Configuration = @"{
     ///   ""EncryptionConfiguration"": {

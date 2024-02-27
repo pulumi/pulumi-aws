@@ -65,8 +65,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.glue.CatalogTable;
  * import com.pulumi.aws.glue.CatalogTableArgs;
- * import com.pulumi.aws.glue.inputs.CatalogTableStorageDescriptorArgs;
- * import com.pulumi.aws.glue.inputs.CatalogTableStorageDescriptorSerDeInfoArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -83,44 +81,8 @@ import javax.annotation.Nullable;
  *         var awsGlueCatalogTable = new CatalogTable(&#34;awsGlueCatalogTable&#34;, CatalogTableArgs.builder()        
  *             .databaseName(&#34;MyCatalogDatabase&#34;)
  *             .name(&#34;MyCatalogTable&#34;)
- *             .parameters(Map.ofEntries(
- *                 Map.entry(&#34;EXTERNAL&#34;, &#34;TRUE&#34;),
- *                 Map.entry(&#34;parquet.compression&#34;, &#34;SNAPPY&#34;)
- *             ))
- *             .storageDescriptor(CatalogTableStorageDescriptorArgs.builder()
- *                 .columns(                
- *                     CatalogTableStorageDescriptorColumnArgs.builder()
- *                         .name(&#34;my_string&#34;)
- *                         .type(&#34;string&#34;)
- *                         .build(),
- *                     CatalogTableStorageDescriptorColumnArgs.builder()
- *                         .name(&#34;my_double&#34;)
- *                         .type(&#34;double&#34;)
- *                         .build(),
- *                     CatalogTableStorageDescriptorColumnArgs.builder()
- *                         .comment(&#34;&#34;)
- *                         .name(&#34;my_date&#34;)
- *                         .type(&#34;date&#34;)
- *                         .build(),
- *                     CatalogTableStorageDescriptorColumnArgs.builder()
- *                         .comment(&#34;&#34;)
- *                         .name(&#34;my_bigint&#34;)
- *                         .type(&#34;bigint&#34;)
- *                         .build(),
- *                     CatalogTableStorageDescriptorColumnArgs.builder()
- *                         .comment(&#34;&#34;)
- *                         .name(&#34;my_struct&#34;)
- *                         .type(&#34;struct&lt;my_nested_string:string&gt;&#34;)
- *                         .build())
- *                 .inputFormat(&#34;org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat&#34;)
- *                 .location(&#34;s3://my-bucket/event-streams/my-stream&#34;)
- *                 .outputFormat(&#34;org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat&#34;)
- *                 .serDeInfo(CatalogTableStorageDescriptorSerDeInfoArgs.builder()
- *                     .name(&#34;my-stream&#34;)
- *                     .parameters(Map.of(&#34;serialization.format&#34;, 1))
- *                     .serializationLibrary(&#34;org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe&#34;)
- *                     .build())
- *                 .build())
+ *             .parameters(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .storageDescriptor(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .tableType(&#34;EXTERNAL_TABLE&#34;)
  *             .build());
  * 

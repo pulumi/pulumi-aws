@@ -181,15 +181,15 @@ class GroupPolicy(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        my_developers = aws.iam.Group("myDevelopers", path="/users/")
-        my_developer_policy = aws.iam.GroupPolicy("myDeveloperPolicy",
+        my_developers = aws.iam.group.Group("myDevelopers", path=/users/)
+        my_developer_policy = aws.iam.group_policy.GroupPolicy("myDeveloperPolicy",
             group=my_developers.name,
             policy=json.dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Action": ["ec2:Describe*"],
-                    "Effect": "Allow",
-                    "Resource": "*",
+                Version: 2012-10-17,
+                Statement: [{
+                    Action: [ec2:Describe*],
+                    Effect: Allow,
+                    Resource: *,
                 }],
             }))
         ```
@@ -227,15 +227,15 @@ class GroupPolicy(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        my_developers = aws.iam.Group("myDevelopers", path="/users/")
-        my_developer_policy = aws.iam.GroupPolicy("myDeveloperPolicy",
+        my_developers = aws.iam.group.Group("myDevelopers", path=/users/)
+        my_developer_policy = aws.iam.group_policy.GroupPolicy("myDeveloperPolicy",
             group=my_developers.name,
             policy=json.dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Action": ["ec2:Describe*"],
-                    "Effect": "Allow",
-                    "Resource": "*",
+                Version: 2012-10-17,
+                Statement: [{
+                    Action: [ec2:Describe*],
+                    Effect: Allow,
+                    Resource: *,
                 }],
             }))
         ```

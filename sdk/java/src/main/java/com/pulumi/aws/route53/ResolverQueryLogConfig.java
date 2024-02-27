@@ -42,7 +42,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new ResolverQueryLogConfig(&#34;example&#34;, ResolverQueryLogConfigArgs.builder()        
  *             .destinationArn(aws_s3_bucket.example().arn())
- *             .tags(Map.of(&#34;Environment&#34;, &#34;Prod&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

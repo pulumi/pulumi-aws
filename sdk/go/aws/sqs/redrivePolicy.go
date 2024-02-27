@@ -28,58 +28,33 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sqs"
+//	sqs/queue "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/sqs/queue"
+//	sqs/redrivePolicy "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/sqs/redrivePolicy"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			queue, err := sqs.NewQueue(ctx, "queue", nil)
-//			if err != nil {
-//				return err
-//			}
-//			ddl, err := sqs.NewQueue(ctx, "ddl", &sqs.QueueArgs{
-//				RedriveAllowPolicy: queue.Arn.ApplyT(func(arn string) (pulumi.String, error) {
-//					var _zero pulumi.String
-//					tmpJSON0, err := json.Marshal(map[string]interface{}{
-//						"redrivePermission": "byQueue",
-//						"sourceQueueArns": []string{
-//							arn,
-//						},
-//					})
-//					if err != nil {
-//						return _zero, err
-//					}
-//					json0 := string(tmpJSON0)
-//					return pulumi.String(json0), nil
-//				}).(pulumi.StringOutput),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = sqs.NewRedrivePolicy(ctx, "redrivePolicy", &sqs.RedrivePolicyArgs{
-//				QueueUrl: queue.ID(),
-//				RedrivePolicy: ddl.Arn.ApplyT(func(arn string) (pulumi.String, error) {
-//					var _zero pulumi.String
-//					tmpJSON1, err := json.Marshal(map[string]interface{}{
-//						"deadLetterTargetArn": arn,
-//						"maxReceiveCount":     4,
-//					})
-//					if err != nil {
-//						return _zero, err
-//					}
-//					json1 := string(tmpJSON1)
-//					return pulumi.String(json1), nil
-//				}).(pulumi.StringOutput),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// queue, err := sqs/queue.NewQueue(ctx, "queue", nil)
+// if err != nil {
+// return err
+// }
+// ddl, err := sqs/queue.NewQueue(ctx, "ddl", &sqs/queue.QueueArgs{
+// RedriveAllowPolicy: %!v(PANIC=Format method: fatal: An assertion has failed: unlowered function toJSON),
+// })
+// if err != nil {
+// return err
+// }
+// _, err = sqs/redrivePolicy.NewRedrivePolicy(ctx, "redrivePolicy", &sqs/redrivePolicy.RedrivePolicyArgs{
+// QueueUrl: queue.Id,
+// RedrivePolicy: %!v(PANIC=Format method: fatal: An assertion has failed: unlowered function toJSON),
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

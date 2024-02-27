@@ -15,28 +15,6 @@ namespace Pulumi.Aws.Msk
         /// Get information on an Amazon MSK Cluster.
         /// 
         /// &gt; **Note:** This data sources returns information on _provisioned_ clusters.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Msk.GetCluster.Invoke(new()
-        ///     {
-        ///         ClusterName = "example",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetClusterResult> InvokeAsync(GetClusterArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetClusterResult>("aws:msk/getCluster:getCluster", args ?? new GetClusterArgs(), options.WithDefaults());
@@ -45,28 +23,6 @@ namespace Pulumi.Aws.Msk
         /// Get information on an Amazon MSK Cluster.
         /// 
         /// &gt; **Note:** This data sources returns information on _provisioned_ clusters.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Msk.GetCluster.Invoke(new()
-        ///     {
-        ///         ClusterName = "example",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetClusterResult> Invoke(GetClusterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetClusterResult>("aws:msk/getCluster:getCluster", args ?? new GetClusterInvokeArgs(), options.WithDefaults());

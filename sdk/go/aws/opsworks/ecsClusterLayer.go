@@ -21,24 +21,22 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/opsworks"
+//	opsworks/ecsClusterLayer "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/opsworks/ecsClusterLayer"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := opsworks.NewEcsClusterLayer(ctx, "example", &opsworks.EcsClusterLayerArgs{
-//				StackId:       pulumi.Any(aws_opsworks_stack.Example.Id),
-//				EcsClusterArn: pulumi.Any(aws_ecs_cluster.Example.Arn),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := opsworks/ecsClusterLayer.NewEcsClusterLayer(ctx, "example", &opsworks/ecsClusterLayer.EcsClusterLayerArgs{
+// StackId: aws_opsworks_stack.Example.Id,
+// EcsClusterArn: aws_ecs_cluster.Example.Arn,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 type EcsClusterLayer struct {
 	pulumi.CustomResourceState

@@ -26,8 +26,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.cloudfront.MonitoringSubscription;
  * import com.pulumi.aws.cloudfront.MonitoringSubscriptionArgs;
- * import com.pulumi.aws.cloudfront.inputs.MonitoringSubscriptionMonitoringSubscriptionArgs;
- * import com.pulumi.aws.cloudfront.inputs.MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -43,11 +41,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new MonitoringSubscription(&#34;example&#34;, MonitoringSubscriptionArgs.builder()        
  *             .distributionId(aws_cloudfront_distribution.example().id())
- *             .monitoringSubscription(MonitoringSubscriptionMonitoringSubscriptionArgs.builder()
- *                 .realtimeMetricsSubscriptionConfig(MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigArgs.builder()
- *                     .realtimeMetricsSubscriptionStatus(&#34;Enabled&#34;)
- *                     .build())
- *                 .build())
+ *             .monitoringSubscription(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

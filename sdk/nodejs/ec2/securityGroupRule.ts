@@ -28,7 +28,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.ec2.SecurityGroupRule("example", {
+ * const example = new aws.ec2/securityGroupRule.SecurityGroupRule("example", {
  *     type: "ingress",
  *     fromPort: 0,
  *     toPort: 65535,
@@ -36,52 +36,6 @@ import * as utilities from "../utilities";
  *     cidrBlocks: [aws_vpc.example.cidr_block],
  *     ipv6CidrBlocks: [aws_vpc.example.ipv6_cidr_block],
  *     securityGroupId: "sg-123456",
- * });
- * ```
- * ### Usage With Prefix List IDs
- *
- * Prefix Lists are either managed by AWS internally, or created by the customer using a
- * Managed Prefix List resource. Prefix Lists provided by
- * AWS are associated with a prefix list name, or service name, that is linked to a specific region.
- *
- * Prefix list IDs are exported on VPC Endpoints, so you can use this format:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * // ...
- * const myEndpoint = new aws.ec2.VpcEndpoint("myEndpoint", {});
- * // ...
- * const allowAll = new aws.ec2.SecurityGroupRule("allowAll", {
- *     type: "egress",
- *     toPort: 0,
- *     protocol: "-1",
- *     prefixListIds: [myEndpoint.prefixListId],
- *     fromPort: 0,
- *     securityGroupId: "sg-123456",
- * });
- * ```
- *
- * You can also find a specific Prefix List using the `aws.ec2.getPrefixList`
- * or `ec2ManagedPrefixList` data sources:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const current = aws.getRegion({});
- * const s3 = current.then(current => aws.ec2.getPrefixList({
- *     name: `com.amazonaws.${current.name}.s3`,
- * }));
- * const s3GatewayEgress = new aws.ec2.SecurityGroupRule("s3GatewayEgress", {
- *     description: "S3 Gateway Egress",
- *     type: "egress",
- *     securityGroupId: "sg-123456",
- *     fromPort: 443,
- *     toPort: 443,
- *     protocol: "tcp",
- *     prefixListIds: [s3.then(s3 => s3.id)],
  * });
  * ```
  *

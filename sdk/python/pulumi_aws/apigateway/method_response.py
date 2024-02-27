@@ -245,26 +245,26 @@ class MethodResponse(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        my_demo_api = aws.apigateway.RestApi("myDemoAPI", description="This is my API for demonstration purposes")
-        my_demo_resource = aws.apigateway.Resource("myDemoResource",
+        my_demo_api = aws.apigateway.rest_api.RestApi("myDemoAPI", description=This is my API for demonstration purposes)
+        my_demo_resource = aws.apigateway.resource.Resource("myDemoResource",
             rest_api=my_demo_api.id,
             parent_id=my_demo_api.root_resource_id,
-            path_part="mydemoresource")
-        my_demo_method = aws.apigateway.Method("myDemoMethod",
+            path_part=mydemoresource)
+        my_demo_method = aws.apigateway.method.Method("myDemoMethod",
             rest_api=my_demo_api.id,
             resource_id=my_demo_resource.id,
-            http_method="GET",
-            authorization="NONE")
-        my_demo_integration = aws.apigateway.Integration("myDemoIntegration",
-            rest_api=my_demo_api.id,
-            resource_id=my_demo_resource.id,
-            http_method=my_demo_method.http_method,
-            type="MOCK")
-        response200 = aws.apigateway.MethodResponse("response200",
+            http_method=GET,
+            authorization=NONE)
+        my_demo_integration = aws.apigateway.integration.Integration("myDemoIntegration",
             rest_api=my_demo_api.id,
             resource_id=my_demo_resource.id,
             http_method=my_demo_method.http_method,
-            status_code="200")
+            type=MOCK)
+        response200 = aws.apigateway.method_response.MethodResponse("response200",
+            rest_api=my_demo_api.id,
+            resource_id=my_demo_resource.id,
+            http_method=my_demo_method.http_method,
+            status_code=200)
         ```
         ### Response with Custom Header and Model
 
@@ -273,46 +273,46 @@ class MethodResponse(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        my_demo_api = aws.apigateway.RestApi("myDemoAPI", description="This is my API for demonstration purposes")
-        my_demo_resource = aws.apigateway.Resource("myDemoResource",
+        my_demo_api = aws.apigateway.rest_api.RestApi("myDemoAPI", description=This is my API for demonstration purposes)
+        my_demo_resource = aws.apigateway.resource.Resource("myDemoResource",
             rest_api=my_demo_api.id,
             parent_id=my_demo_api.root_resource_id,
-            path_part="mydemoresource")
-        my_demo_method = aws.apigateway.Method("myDemoMethod",
+            path_part=mydemoresource)
+        my_demo_method = aws.apigateway.method.Method("myDemoMethod",
             rest_api=my_demo_api.id,
             resource_id=my_demo_resource.id,
-            http_method="GET",
-            authorization="NONE")
-        my_demo_integration = aws.apigateway.Integration("myDemoIntegration",
+            http_method=GET,
+            authorization=NONE)
+        my_demo_integration = aws.apigateway.integration.Integration("myDemoIntegration",
             rest_api=my_demo_api.id,
             resource_id=my_demo_resource.id,
             http_method=my_demo_method.http_method,
-            type="MOCK")
-        my_demo_response_model = aws.apigateway.Model("myDemoResponseModel",
+            type=MOCK)
+        my_demo_response_model = aws.apigateway.model.Model("myDemoResponseModel",
             rest_api=my_demo_api.id,
-            description="API response for MyDemoMethod",
-            content_type="application/json",
+            description=API response for MyDemoMethod,
+            content_type=application/json,
             schema=json.dumps({
-                "$schema": "http://json-schema.org/draft-04/schema#",
-                "title": "MyDemoResponse",
-                "type": "object",
-                "properties": {
-                    "Message": {
-                        "type": "string",
+                $schema: http://json-schema.org/draft-04/schema#,
+                title: MyDemoResponse,
+                type: object,
+                properties: {
+                    Message: {
+                        type: string,
                     },
                 },
             }))
-        response200 = aws.apigateway.MethodResponse("response200",
+        response200 = aws.apigateway.method_response.MethodResponse("response200",
             rest_api=my_demo_api.id,
             resource_id=my_demo_resource.id,
             http_method=my_demo_method.http_method,
-            status_code="200",
+            status_code=200,
             response_models={
-                "application-json": "MyDemoResponseModel",
+                application-json: MyDemoResponseModel,
             },
             response_parameters={
-                "method.response.header.Content-Type": False,
-                "method-response-header.X-My-Demo-Header": False,
+                method.response.header.Content-Type: False,
+                method-response-header.X-My-Demo-Header: False,
             })
         ```
 
@@ -351,26 +351,26 @@ class MethodResponse(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        my_demo_api = aws.apigateway.RestApi("myDemoAPI", description="This is my API for demonstration purposes")
-        my_demo_resource = aws.apigateway.Resource("myDemoResource",
+        my_demo_api = aws.apigateway.rest_api.RestApi("myDemoAPI", description=This is my API for demonstration purposes)
+        my_demo_resource = aws.apigateway.resource.Resource("myDemoResource",
             rest_api=my_demo_api.id,
             parent_id=my_demo_api.root_resource_id,
-            path_part="mydemoresource")
-        my_demo_method = aws.apigateway.Method("myDemoMethod",
+            path_part=mydemoresource)
+        my_demo_method = aws.apigateway.method.Method("myDemoMethod",
             rest_api=my_demo_api.id,
             resource_id=my_demo_resource.id,
-            http_method="GET",
-            authorization="NONE")
-        my_demo_integration = aws.apigateway.Integration("myDemoIntegration",
-            rest_api=my_demo_api.id,
-            resource_id=my_demo_resource.id,
-            http_method=my_demo_method.http_method,
-            type="MOCK")
-        response200 = aws.apigateway.MethodResponse("response200",
+            http_method=GET,
+            authorization=NONE)
+        my_demo_integration = aws.apigateway.integration.Integration("myDemoIntegration",
             rest_api=my_demo_api.id,
             resource_id=my_demo_resource.id,
             http_method=my_demo_method.http_method,
-            status_code="200")
+            type=MOCK)
+        response200 = aws.apigateway.method_response.MethodResponse("response200",
+            rest_api=my_demo_api.id,
+            resource_id=my_demo_resource.id,
+            http_method=my_demo_method.http_method,
+            status_code=200)
         ```
         ### Response with Custom Header and Model
 
@@ -379,46 +379,46 @@ class MethodResponse(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        my_demo_api = aws.apigateway.RestApi("myDemoAPI", description="This is my API for demonstration purposes")
-        my_demo_resource = aws.apigateway.Resource("myDemoResource",
+        my_demo_api = aws.apigateway.rest_api.RestApi("myDemoAPI", description=This is my API for demonstration purposes)
+        my_demo_resource = aws.apigateway.resource.Resource("myDemoResource",
             rest_api=my_demo_api.id,
             parent_id=my_demo_api.root_resource_id,
-            path_part="mydemoresource")
-        my_demo_method = aws.apigateway.Method("myDemoMethod",
+            path_part=mydemoresource)
+        my_demo_method = aws.apigateway.method.Method("myDemoMethod",
             rest_api=my_demo_api.id,
             resource_id=my_demo_resource.id,
-            http_method="GET",
-            authorization="NONE")
-        my_demo_integration = aws.apigateway.Integration("myDemoIntegration",
+            http_method=GET,
+            authorization=NONE)
+        my_demo_integration = aws.apigateway.integration.Integration("myDemoIntegration",
             rest_api=my_demo_api.id,
             resource_id=my_demo_resource.id,
             http_method=my_demo_method.http_method,
-            type="MOCK")
-        my_demo_response_model = aws.apigateway.Model("myDemoResponseModel",
+            type=MOCK)
+        my_demo_response_model = aws.apigateway.model.Model("myDemoResponseModel",
             rest_api=my_demo_api.id,
-            description="API response for MyDemoMethod",
-            content_type="application/json",
+            description=API response for MyDemoMethod,
+            content_type=application/json,
             schema=json.dumps({
-                "$schema": "http://json-schema.org/draft-04/schema#",
-                "title": "MyDemoResponse",
-                "type": "object",
-                "properties": {
-                    "Message": {
-                        "type": "string",
+                $schema: http://json-schema.org/draft-04/schema#,
+                title: MyDemoResponse,
+                type: object,
+                properties: {
+                    Message: {
+                        type: string,
                     },
                 },
             }))
-        response200 = aws.apigateway.MethodResponse("response200",
+        response200 = aws.apigateway.method_response.MethodResponse("response200",
             rest_api=my_demo_api.id,
             resource_id=my_demo_resource.id,
             http_method=my_demo_method.http_method,
-            status_code="200",
+            status_code=200,
             response_models={
-                "application-json": "MyDemoResponseModel",
+                application-json: MyDemoResponseModel,
             },
             response_parameters={
-                "method.response.header.Content-Type": False,
-                "method-response-header.X-My-Demo-Header": False,
+                method.response.header.Content-Type: False,
+                method-response-header.X-My-Demo-Header: False,
             })
         ```
 

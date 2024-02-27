@@ -104,54 +104,6 @@ def get_log_data_protection_policy_document(description: Optional[str] = None,
 
     > For more information about data protection policies, see the [Help protect sensitive log data with masking](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/mask-sensitive-log-data.html).
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example_log_data_protection_policy_document = aws.cloudwatch.get_log_data_protection_policy_document(name="Example",
-        statements=[
-            aws.cloudwatch.GetLogDataProtectionPolicyDocumentStatementArgs(
-                sid="Audit",
-                data_identifiers=[
-                    "arn:aws:dataprotection::aws:data-identifier/EmailAddress",
-                    "arn:aws:dataprotection::aws:data-identifier/DriversLicense-US",
-                ],
-                operation=aws.cloudwatch.GetLogDataProtectionPolicyDocumentStatementOperationArgs(
-                    audit=aws.cloudwatch.GetLogDataProtectionPolicyDocumentStatementOperationAuditArgs(
-                        findings_destination=aws.cloudwatch.GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationArgs(
-                            cloudwatch_logs=aws.cloudwatch.GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsArgs(
-                                log_group=aws_cloudwatch_log_group["audit"]["name"],
-                            ),
-                            firehose=aws.cloudwatch.GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehoseArgs(
-                                delivery_stream=aws_kinesis_firehose_delivery_stream["audit"]["name"],
-                            ),
-                            s3=aws.cloudwatch.GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3Args(
-                                bucket=aws_s3_bucket["audit"]["bucket"],
-                            ),
-                        ),
-                    ),
-                ),
-            ),
-            aws.cloudwatch.GetLogDataProtectionPolicyDocumentStatementArgs(
-                sid="Deidentify",
-                data_identifiers=[
-                    "arn:aws:dataprotection::aws:data-identifier/EmailAddress",
-                    "arn:aws:dataprotection::aws:data-identifier/DriversLicense-US",
-                ],
-                operation=aws.cloudwatch.GetLogDataProtectionPolicyDocumentStatementOperationArgs(
-                    deidentify=aws.cloudwatch.GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyArgs(
-                        mask_config=aws.cloudwatch.GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigArgs(),
-                    ),
-                ),
-            ),
-        ])
-    example_log_data_protection_policy = aws.cloudwatch.LogDataProtectionPolicy("exampleLogDataProtectionPolicy",
-        log_group_name=aws_cloudwatch_log_group["example"]["name"],
-        policy_document=example_log_data_protection_policy_document.json)
-    ```
-
 
     :param str name: The name of the data protection policy document.
     :param Sequence[pulumi.InputType['GetLogDataProtectionPolicyDocumentStatementArgs']] statements: Configures the data protection policy.
@@ -187,54 +139,6 @@ def get_log_data_protection_policy_document_output(description: Optional[pulumi.
     Generates a CloudWatch Log Group Data Protection Policy document in JSON format for use with the `cloudwatch.LogDataProtectionPolicy` resource.
 
     > For more information about data protection policies, see the [Help protect sensitive log data with masking](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/mask-sensitive-log-data.html).
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example_log_data_protection_policy_document = aws.cloudwatch.get_log_data_protection_policy_document(name="Example",
-        statements=[
-            aws.cloudwatch.GetLogDataProtectionPolicyDocumentStatementArgs(
-                sid="Audit",
-                data_identifiers=[
-                    "arn:aws:dataprotection::aws:data-identifier/EmailAddress",
-                    "arn:aws:dataprotection::aws:data-identifier/DriversLicense-US",
-                ],
-                operation=aws.cloudwatch.GetLogDataProtectionPolicyDocumentStatementOperationArgs(
-                    audit=aws.cloudwatch.GetLogDataProtectionPolicyDocumentStatementOperationAuditArgs(
-                        findings_destination=aws.cloudwatch.GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationArgs(
-                            cloudwatch_logs=aws.cloudwatch.GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsArgs(
-                                log_group=aws_cloudwatch_log_group["audit"]["name"],
-                            ),
-                            firehose=aws.cloudwatch.GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehoseArgs(
-                                delivery_stream=aws_kinesis_firehose_delivery_stream["audit"]["name"],
-                            ),
-                            s3=aws.cloudwatch.GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3Args(
-                                bucket=aws_s3_bucket["audit"]["bucket"],
-                            ),
-                        ),
-                    ),
-                ),
-            ),
-            aws.cloudwatch.GetLogDataProtectionPolicyDocumentStatementArgs(
-                sid="Deidentify",
-                data_identifiers=[
-                    "arn:aws:dataprotection::aws:data-identifier/EmailAddress",
-                    "arn:aws:dataprotection::aws:data-identifier/DriversLicense-US",
-                ],
-                operation=aws.cloudwatch.GetLogDataProtectionPolicyDocumentStatementOperationArgs(
-                    deidentify=aws.cloudwatch.GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyArgs(
-                        mask_config=aws.cloudwatch.GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigArgs(),
-                    ),
-                ),
-            ),
-        ])
-    example_log_data_protection_policy = aws.cloudwatch.LogDataProtectionPolicy("exampleLogDataProtectionPolicy",
-        log_group_name=aws_cloudwatch_log_group["example"]["name"],
-        policy_document=example_log_data_protection_policy_document.json)
-    ```
 
 
     :param str name: The name of the data protection policy document.

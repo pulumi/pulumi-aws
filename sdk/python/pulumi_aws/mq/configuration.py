@@ -335,8 +335,8 @@ class Configuration(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.mq.Configuration("example",
-            data=\"\"\"<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+        example = aws.mq.configuration.Configuration("example",
+            data=<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
         <broker xmlns="http://activemq.apache.org/schema/core">
           <plugins>
             <forcePersistencyModeBrokerPlugin persistenceFlag="true"/>
@@ -345,10 +345,10 @@ class Configuration(pulumi.CustomResource):
           </plugins>
         </broker>
 
-        \"\"\",
-            description="Example Configuration",
-            engine_type="ActiveMQ",
-            engine_version="5.17.6")
+        ,
+            description=Example Configuration,
+            engine_type=ActiveMQ,
+            engine_version=5.17.6)
         ```
         ### RabbitMQ
 
@@ -356,14 +356,14 @@ class Configuration(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.mq.Configuration("example",
-            data=\"\"\"# Default RabbitMQ delivery acknowledgement timeout is 30 minutes in milliseconds
+        example = aws.mq.configuration.Configuration("example",
+            data=# Default RabbitMQ delivery acknowledgement timeout is 30 minutes in milliseconds
         consumer_timeout = 1800000
 
-        \"\"\",
-            description="Example Configuration",
-            engine_type="RabbitMQ",
-            engine_version="3.11.20")
+        ,
+            description=Example Configuration,
+            engine_type=RabbitMQ,
+            engine_version=3.11.20)
         ```
 
         ## Import
@@ -404,8 +404,8 @@ class Configuration(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.mq.Configuration("example",
-            data=\"\"\"<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+        example = aws.mq.configuration.Configuration("example",
+            data=<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
         <broker xmlns="http://activemq.apache.org/schema/core">
           <plugins>
             <forcePersistencyModeBrokerPlugin persistenceFlag="true"/>
@@ -414,10 +414,10 @@ class Configuration(pulumi.CustomResource):
           </plugins>
         </broker>
 
-        \"\"\",
-            description="Example Configuration",
-            engine_type="ActiveMQ",
-            engine_version="5.17.6")
+        ,
+            description=Example Configuration,
+            engine_type=ActiveMQ,
+            engine_version=5.17.6)
         ```
         ### RabbitMQ
 
@@ -425,14 +425,14 @@ class Configuration(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.mq.Configuration("example",
-            data=\"\"\"# Default RabbitMQ delivery acknowledgement timeout is 30 minutes in milliseconds
+        example = aws.mq.configuration.Configuration("example",
+            data=# Default RabbitMQ delivery acknowledgement timeout is 30 minutes in milliseconds
         consumer_timeout = 1800000
 
-        \"\"\",
-            description="Example Configuration",
-            engine_type="RabbitMQ",
-            engine_version="3.11.20")
+        ,
+            description=Example Configuration,
+            engine_type=RabbitMQ,
+            engine_version=3.11.20)
         ```
 
         ## Import

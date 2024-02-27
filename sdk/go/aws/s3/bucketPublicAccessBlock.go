@@ -23,31 +23,30 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	s3/bucketPublicAccessBlock "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/s3/bucketPublicAccessBlock"
+//	s3/bucketV2 "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/s3/bucketV2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = s3.NewBucketPublicAccessBlock(ctx, "exampleBucketPublicAccessBlock", &s3.BucketPublicAccessBlockArgs{
-//				Bucket:                exampleBucketV2.ID(),
-//				BlockPublicAcls:       pulumi.Bool(true),
-//				BlockPublicPolicy:     pulumi.Bool(true),
-//				IgnorePublicAcls:      pulumi.Bool(true),
-//				RestrictPublicBuckets: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleBucketV2, err := s3/bucketV2.NewBucketV2(ctx, "exampleBucketV2", nil)
+// if err != nil {
+// return err
+// }
+// _, err = s3/bucketPublicAccessBlock.NewBucketPublicAccessBlock(ctx, "exampleBucketPublicAccessBlock", &s3/bucketPublicAccessBlock.BucketPublicAccessBlockArgs{
+// Bucket: exampleBucketV2.Id,
+// BlockPublicAcls: true,
+// BlockPublicPolicy: true,
+// IgnorePublicAcls: true,
+// RestrictPublicBuckets: true,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

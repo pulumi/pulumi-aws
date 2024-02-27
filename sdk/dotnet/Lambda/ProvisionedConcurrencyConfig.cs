@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Lambda
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Lambda.ProvisionedConcurrencyConfig("example", new()
+    ///     var example = new Aws.Lambda.ProvisionedConcurrencyConfig.ProvisionedConcurrencyConfig("example", new()
     ///     {
     ///         FunctionName = aws_lambda_alias.Example.Function_name,
     ///         ProvisionedConcurrentExecutions = 1,
@@ -44,7 +44,7 @@ namespace Pulumi.Aws.Lambda
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Lambda.ProvisionedConcurrencyConfig("example", new()
+    ///     var example = new Aws.Lambda.ProvisionedConcurrencyConfig.ProvisionedConcurrencyConfig("example", new()
     ///     {
     ///         FunctionName = aws_lambda_function.Example.Function_name,
     ///         ProvisionedConcurrentExecutions = 1,

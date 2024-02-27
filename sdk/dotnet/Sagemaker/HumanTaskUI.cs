@@ -23,12 +23,12 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Sagemaker.HumanTaskUI("example", new()
+    ///     var example = new Aws.Sagemaker.HumanTaskUI.HumanTaskUI("example", new()
     ///     {
     ///         HumanTaskUiName = "example",
-    ///         UiTemplate = new Aws.Sagemaker.Inputs.HumanTaskUIUiTemplateArgs
+    ///         UiTemplate = 
     ///         {
-    ///             Content = File.ReadAllText("sagemaker-human-task-ui-template.html"),
+    ///             { "content", File.ReadAllText("sagemaker-human-task-ui-template.html") },
     ///         },
     ///     });
     /// 

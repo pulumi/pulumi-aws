@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Cfg
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Cfg.OrganizationCustomPolicyRule("example", new()
+    ///     var example = new Aws.Cfg.OrganizationCustomPolicyRule.OrganizationCustomPolicyRule("example", new()
     ///     {
     ///         PolicyRuntime = "guard-2.x.x",
     ///         PolicyText = @"  let status = ['ACTIVE']

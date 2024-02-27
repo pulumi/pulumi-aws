@@ -8,35 +8,6 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleModel = aws.bedrockfoundation.getModel({
- *     modelId: "amazon.titan-text-express-v1",
- * });
- * const exampleCustomModel = new aws.bedrock.CustomModel("exampleCustomModel", {
- *     customModelName: "example-model",
- *     jobName: "example-job-1",
- *     baseModelIdentifier: exampleModel.then(exampleModel => exampleModel.modelArn),
- *     roleArn: aws_iam_role.example.arn,
- *     hyperparameters: {
- *         epochCount: "1",
- *         batchSize: "1",
- *         learningRate: "0.005",
- *         learningRateWarmupSteps: "0",
- *     },
- *     outputDataConfig: {
- *         s3Uri: `s3://${aws_s3_bucket.output.id}/data/`,
- *     },
- *     trainingDataConfig: {
- *         s3Uri: `s3://${aws_s3_bucket.training.id}/data/train.jsonl`,
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import Bedrock custom model using the `job_arn`. For example:

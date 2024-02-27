@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.glue.DataCatalogEncryptionSettings("example", {dataCatalogEncryptionSettings: {
+ * const example = new aws.glue/dataCatalogEncryptionSettings.DataCatalogEncryptionSettings("example", {dataCatalogEncryptionSettings: {
  *     connectionPasswordEncryption: {
  *         awsKmsKeyId: aws_kms_key.test.arn,
  *         returnConnectionPasswordEncrypted: true,

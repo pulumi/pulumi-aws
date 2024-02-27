@@ -23,11 +23,11 @@ namespace Pulumi.Aws.Iam
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var policy = new Aws.Iam.Policy("policy", new()
+    ///     var policy = new Aws.Iam.Policy.Policy("policy", new()
     ///     {
     ///         Path = "/",
     ///         Description = "My test policy",
-    ///         PolicyDocument = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///         Policy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
     ///             ["Version"] = "2012-10-17",
     ///             ["Statement"] = new[]

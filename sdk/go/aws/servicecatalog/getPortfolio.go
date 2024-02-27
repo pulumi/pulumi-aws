@@ -12,32 +12,6 @@ import (
 )
 
 // Provides information for a Service Catalog Portfolio.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/servicecatalog"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := servicecatalog.LookupPortfolio(ctx, &servicecatalog.LookupPortfolioArgs{
-//				Id: "port-07052002",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupPortfolio(ctx *pulumi.Context, args *LookupPortfolioArgs, opts ...pulumi.InvokeOption) (*LookupPortfolioResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupPortfolioResult

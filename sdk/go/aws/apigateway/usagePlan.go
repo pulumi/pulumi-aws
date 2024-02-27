@@ -24,112 +24,86 @@ import (
 //	"encoding/hex"
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigateway"
+//	apigateway/deployment "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/apigateway/deployment"
+//	apigateway/restApi "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/apigateway/restApi"
+//	apigateway/stage "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/apigateway/stage"
+//	apigateway/usagePlan "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/apigateway/usagePlan"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func sha1Hash(input string) string {
-//		hash := sha1.Sum([]byte(input))
-//		return hex.EncodeToString(hash[:])
-//	}
+//					hash := sha1.Sum([]byte(input))
+//					return hex.EncodeToString(hash[:])
+//				}
 //
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"openapi": "3.0.1",
-//				"info": map[string]interface{}{
-//					"title":   "example",
-//					"version": "1.0",
-//				},
-//				"paths": map[string]interface{}{
-//					"/path1": map[string]interface{}{
-//						"get": map[string]interface{}{
-//							"x-amazon-apigateway-integration": map[string]interface{}{
-//								"httpMethod":           "GET",
-//								"payloadFormatVersion": "1.0",
-//								"type":                 "HTTP_PROXY",
-//								"uri":                  "https://ip-ranges.amazonaws.com/ip-ranges.json",
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			exampleRestApi, err := apigateway.NewRestApi(ctx, "exampleRestApi", &apigateway.RestApiArgs{
-//				Body: pulumi.String(json0),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleDeployment, err := apigateway.NewDeployment(ctx, "exampleDeployment", &apigateway.DeploymentArgs{
-//				RestApi: exampleRestApi.ID(),
-//				Triggers: pulumi.StringMap{
-//					"redeployment": exampleRestApi.Body.ApplyT(func(body *string) (pulumi.String, error) {
-//						var _zero pulumi.String
-//						tmpJSON1, err := json.Marshal(body)
-//						if err != nil {
-//							return _zero, err
-//						}
-//						json1 := string(tmpJSON1)
-//						return pulumi.String(json1), nil
-//					}).(pulumi.StringOutput).ApplyT(func(toJSON string) (pulumi.String, error) {
-//						return pulumi.String(sha1Hash(toJSON)), nil
-//					}).(pulumi.StringOutput),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			development, err := apigateway.NewStage(ctx, "development", &apigateway.StageArgs{
-//				Deployment: exampleDeployment.ID(),
-//				RestApi:    exampleRestApi.ID(),
-//				StageName:  pulumi.String("development"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			production, err := apigateway.NewStage(ctx, "production", &apigateway.StageArgs{
-//				Deployment: exampleDeployment.ID(),
-//				RestApi:    exampleRestApi.ID(),
-//				StageName:  pulumi.String("production"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = apigateway.NewUsagePlan(ctx, "exampleUsagePlan", &apigateway.UsagePlanArgs{
-//				Description: pulumi.String("my description"),
-//				ProductCode: pulumi.String("MYCODE"),
-//				ApiStages: apigateway.UsagePlanApiStageArray{
-//					&apigateway.UsagePlanApiStageArgs{
-//						ApiId: exampleRestApi.ID(),
-//						Stage: development.StageName,
-//					},
-//					&apigateway.UsagePlanApiStageArgs{
-//						ApiId: exampleRestApi.ID(),
-//						Stage: production.StageName,
-//					},
-//				},
-//				QuotaSettings: &apigateway.UsagePlanQuotaSettingsArgs{
-//					Limit:  pulumi.Int(20),
-//					Offset: pulumi.Int(2),
-//					Period: pulumi.String("WEEK"),
-//				},
-//				ThrottleSettings: &apigateway.UsagePlanThrottleSettingsArgs{
-//					BurstLimit: pulumi.Int(5),
-//					RateLimit:  pulumi.Float64(10),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleRestApi, err := apigateway/restApi.NewRestApi(ctx, "exampleRestApi", &apigateway/restApi.RestApiArgs{
+// Body: %!v(PANIC=Format method: fatal: An assertion has failed: unlowered function toJSON),
+// })
+// if err != nil {
+// return err
+// }
+// exampleDeployment, err := apigateway/deployment.NewDeployment(ctx, "exampleDeployment", &apigateway/deployment.DeploymentArgs{
+// RestApi: exampleRestApi.Id,
+// Triggers: tmpJSON0, err := json.Marshal(exampleRestApi.Body)
+// if err != nil {
+// return err
+// }
+// json0 := string(tmpJSON0)
+// map[string]interface{}{
+// "redeployment": sha1Hash(json0),
+// },
+// })
+// if err != nil {
+// return err
+// }
+// development, err := apigateway/stage.NewStage(ctx, "development", &apigateway/stage.StageArgs{
+// Deployment: exampleDeployment.Id,
+// RestApi: exampleRestApi.Id,
+// StageName: "development",
+// })
+// if err != nil {
+// return err
+// }
+// production, err := apigateway/stage.NewStage(ctx, "production", &apigateway/stage.StageArgs{
+// Deployment: exampleDeployment.Id,
+// RestApi: exampleRestApi.Id,
+// StageName: "production",
+// })
+// if err != nil {
+// return err
+// }
+// _, err = apigateway/usagePlan.NewUsagePlan(ctx, "exampleUsagePlan", &apigateway/usagePlan.UsagePlanArgs{
+// Description: "my description",
+// ProductCode: "MYCODE",
+// ApiStages: []map[string]interface{}{
+// map[string]interface{}{
+// "apiId": exampleRestApi.Id,
+// "stage": development.StageName,
+// },
+// map[string]interface{}{
+// "apiId": exampleRestApi.Id,
+// "stage": production.StageName,
+// },
+// },
+// QuotaSettings: map[string]interface{}{
+// "limit": 20,
+// "offset": 2,
+// "period": "WEEK",
+// },
+// ThrottleSettings: map[string]interface{}{
+// "burstLimit": 5,
+// "rateLimit": 10,
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

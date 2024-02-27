@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const _default = new aws.rds.SubnetGroup("default", {
+ * const _default = new aws.rds/subnetGroup.SubnetGroup("default", {
  *     subnetIds: [
  *         aws_subnet.frontend.id,
  *         aws_subnet.backend.id,

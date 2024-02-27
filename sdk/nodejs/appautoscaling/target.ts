@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const dynamodbTableReadTarget = new aws.appautoscaling.Target("dynamodbTableReadTarget", {
+ * const dynamodbTableReadTarget = new aws.appautoscaling/target.Target("dynamodbTableReadTarget", {
  *     maxCapacity: 100,
  *     minCapacity: 5,
  *     resourceId: `table/${aws_dynamodb_table.example.name}`,
@@ -32,7 +32,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const dynamodbIndexReadTarget = new aws.appautoscaling.Target("dynamodbIndexReadTarget", {
+ * const dynamodbIndexReadTarget = new aws.appautoscaling/target.Target("dynamodbIndexReadTarget", {
  *     maxCapacity: 100,
  *     minCapacity: 5,
  *     resourceId: `table/${aws_dynamodb_table.example.name}/index/${_var.index_name}`,
@@ -46,7 +46,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const ecsTarget = new aws.appautoscaling.Target("ecsTarget", {
+ * const ecsTarget = new aws.appautoscaling/target.Target("ecsTarget", {
  *     maxCapacity: 4,
  *     minCapacity: 1,
  *     resourceId: `service/${aws_ecs_cluster.example.name}/${aws_ecs_service.example.name}`,
@@ -60,7 +60,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const replicas = new aws.appautoscaling.Target("replicas", {
+ * const replicas = new aws.appautoscaling/target.Target("replicas", {
  *     maxCapacity: 15,
  *     minCapacity: 1,
  *     resourceId: `cluster:${aws_rds_cluster.example.id}`,
@@ -74,7 +74,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const ecsTarget = new aws.appautoscaling.Target("ecsTarget", {
+ * const ecsTarget = new aws.appautoscaling/target.Target("ecsTarget", {
  *     maxCapacity: 4,
  *     minCapacity: 1,
  *     resourceId: `service/${aws_ecs_cluster.example.name}/${aws_ecs_service.example.name}`,
@@ -88,7 +88,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const mskTarget = new aws.appautoscaling.Target("mskTarget", {
+ * const mskTarget = new aws.appautoscaling/target.Target("mskTarget", {
  *     maxCapacity: 8,
  *     minCapacity: 1,
  *     resourceId: aws_msk_cluster.example.arn,

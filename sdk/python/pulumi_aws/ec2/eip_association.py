@@ -282,15 +282,15 @@ class EipAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        web = aws.ec2.Instance("web",
-            ami="ami-21f78e11",
-            availability_zone="us-west-2a",
-            instance_type="t2.micro",
+        web = aws.ec2.instance.Instance("web",
+            ami=ami-21f78e11,
+            availability_zone=us-west-2a,
+            instance_type=t2.micro,
             tags={
-                "Name": "HelloWorld",
+                Name: HelloWorld,
             })
-        example = aws.ec2.Eip("example", domain="vpc")
-        eip_assoc = aws.ec2.EipAssociation("eipAssoc",
+        example = aws.ec2.eip.Eip("example", domain=vpc)
+        eip_assoc = aws.ec2.eip_association.EipAssociation("eipAssoc",
             instance_id=web.id,
             allocation_id=example.id)
         ```
@@ -342,15 +342,15 @@ class EipAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        web = aws.ec2.Instance("web",
-            ami="ami-21f78e11",
-            availability_zone="us-west-2a",
-            instance_type="t2.micro",
+        web = aws.ec2.instance.Instance("web",
+            ami=ami-21f78e11,
+            availability_zone=us-west-2a,
+            instance_type=t2.micro,
             tags={
-                "Name": "HelloWorld",
+                Name: HelloWorld,
             })
-        example = aws.ec2.Eip("example", domain="vpc")
-        eip_assoc = aws.ec2.EipAssociation("eipAssoc",
+        example = aws.ec2.eip.Eip("example", domain=vpc)
+        eip_assoc = aws.ec2.eip_association.EipAssociation("eipAssoc",
             instance_id=web.id,
             allocation_id=example.id)
         ```

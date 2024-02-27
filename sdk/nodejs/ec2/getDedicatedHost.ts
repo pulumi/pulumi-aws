@@ -9,21 +9,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to get information about an EC2 Dedicated Host.
- *
- * ## Example Usage
- * ### Filter Example
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = aws.ec2.getDedicatedHost({
- *     filters: [{
- *         name: "instance-type",
- *         values: ["c5.18xlarge"],
- *     }],
- * });
- * ```
  */
 export function getDedicatedHost(args?: GetDedicatedHostArgs, opts?: pulumi.InvokeOptions): Promise<GetDedicatedHostResult> {
     args = args || {};
@@ -113,21 +98,6 @@ export interface GetDedicatedHostResult {
 }
 /**
  * Use this data source to get information about an EC2 Dedicated Host.
- *
- * ## Example Usage
- * ### Filter Example
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = aws.ec2.getDedicatedHost({
- *     filters: [{
- *         name: "instance-type",
- *         values: ["c5.18xlarge"],
- *     }],
- * });
- * ```
  */
 export function getDedicatedHostOutput(args?: GetDedicatedHostOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDedicatedHostResult> {
     return pulumi.output(args).apply((a: any) => getDedicatedHost(a, opts))

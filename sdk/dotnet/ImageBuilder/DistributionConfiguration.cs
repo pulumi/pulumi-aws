@@ -22,35 +22,35 @@ namespace Pulumi.Aws.ImageBuilder
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.ImageBuilder.DistributionConfiguration("example", new()
+    ///     var example = new Aws.Imagebuilder.DistributionConfiguration.DistributionConfiguration("example", new()
     ///     {
     ///         Distributions = new[]
     ///         {
-    ///             new Aws.ImageBuilder.Inputs.DistributionConfigurationDistributionArgs
+    ///             
     ///             {
-    ///                 AmiDistributionConfiguration = new Aws.ImageBuilder.Inputs.DistributionConfigurationDistributionAmiDistributionConfigurationArgs
+    ///                 { "amiDistributionConfiguration", 
     ///                 {
-    ///                     AmiTags = 
+    ///                     { "amiTags", 
     ///                     {
     ///                         { "CostCenter", "IT" },
-    ///                     },
-    ///                     LaunchPermission = new Aws.ImageBuilder.Inputs.DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArgs
+    ///                     } },
+    ///                     { "launchPermission", 
     ///                     {
-    ///                         UserIds = new[]
+    ///                         { "userIds", new[]
     ///                         {
     ///                             "123456789012",
-    ///                         },
-    ///                     },
-    ///                     Name = "example-{{ imagebuilder:buildDate }}",
-    ///                 },
-    ///                 LaunchTemplateConfigurations = new[]
+    ///                         } },
+    ///                     } },
+    ///                     { "name", "example-{{ imagebuilder:buildDate }}" },
+    ///                 } },
+    ///                 { "launchTemplateConfigurations", new[]
     ///                 {
-    ///                     new Aws.ImageBuilder.Inputs.DistributionConfigurationDistributionLaunchTemplateConfigurationArgs
+    ///                     
     ///                     {
-    ///                         LaunchTemplateId = "lt-0aaa1bcde2ff3456",
+    ///                         { "launchTemplateId", "lt-0aaa1bcde2ff3456" },
     ///                     },
-    ///                 },
-    ///                 Region = "us-east-1",
+    ///                 } },
+    ///                 { "region", "us-east-1" },
     ///             },
     ///         },
     ///     });

@@ -6,18 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Provides details about a specific Amazon Lex Bot Alias.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const orderFlowersProd = aws.lex.getBotAlias({
- *     botName: "OrderFlowers",
- *     name: "OrderFlowersProd",
- * });
- * ```
  */
 export function getBotAlias(args: GetBotAliasArgs, opts?: pulumi.InvokeOptions): Promise<GetBotAliasResult> {
 
@@ -85,18 +73,6 @@ export interface GetBotAliasResult {
 }
 /**
  * Provides details about a specific Amazon Lex Bot Alias.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const orderFlowersProd = aws.lex.getBotAlias({
- *     botName: "OrderFlowers",
- *     name: "OrderFlowersProd",
- * });
- * ```
  */
 export function getBotAliasOutput(args: GetBotAliasOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBotAliasResult> {
     return pulumi.output(args).apply((a: any) => getBotAlias(a, opts))

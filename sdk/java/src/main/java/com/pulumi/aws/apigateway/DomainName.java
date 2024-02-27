@@ -58,7 +58,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.apigateway.DomainNameArgs;
  * import com.pulumi.aws.route53.Record;
  * import com.pulumi.aws.route53.RecordArgs;
- * import com.pulumi.aws.route53.inputs.RecordAliasArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -81,11 +80,7 @@ import javax.annotation.Nullable;
  *             .name(exampleDomainName.domainName())
  *             .type(&#34;A&#34;)
  *             .zoneId(aws_route53_zone.example().id())
- *             .aliases(RecordAliasArgs.builder()
- *                 .evaluateTargetHealth(true)
- *                 .name(exampleDomainName.cloudfrontDomainName())
- *                 .zoneId(exampleDomainName.cloudfrontZoneId())
- *                 .build())
+ *             .aliases(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -102,7 +97,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.apigateway.DomainNameArgs;
  * import com.pulumi.aws.route53.Record;
  * import com.pulumi.aws.route53.RecordArgs;
- * import com.pulumi.aws.route53.inputs.RecordAliasArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -128,18 +122,13 @@ import javax.annotation.Nullable;
  *             .zoneId(aws_route53_zone.example().id())
  *             .name(exampleDomainName.domainName())
  *             .type(&#34;A&#34;)
- *             .aliases(RecordAliasArgs.builder()
- *                 .name(exampleDomainName.cloudfrontDomainName())
- *                 .zoneId(exampleDomainName.cloudfrontZoneId())
- *                 .evaluateTargetHealth(true)
- *                 .build())
+ *             .aliases(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
  * }
  * ```
  * ### Regional (ACM Certificate)
- * 
  * ```java
  * package generated_program;
  * 
@@ -148,10 +137,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.apigateway.DomainName;
  * import com.pulumi.aws.apigateway.DomainNameArgs;
- * import com.pulumi.aws.apigateway.inputs.DomainNameEndpointConfigurationArgs;
  * import com.pulumi.aws.route53.Record;
  * import com.pulumi.aws.route53.RecordArgs;
- * import com.pulumi.aws.route53.inputs.RecordAliasArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -168,27 +155,20 @@ import javax.annotation.Nullable;
  *         var exampleDomainName = new DomainName(&#34;exampleDomainName&#34;, DomainNameArgs.builder()        
  *             .domainName(&#34;api.example.com&#34;)
  *             .regionalCertificateArn(aws_acm_certificate_validation.example().certificate_arn())
- *             .endpointConfiguration(DomainNameEndpointConfigurationArgs.builder()
- *                 .types(&#34;REGIONAL&#34;)
- *                 .build())
+ *             .endpointConfiguration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleRecord = new Record(&#34;exampleRecord&#34;, RecordArgs.builder()        
  *             .name(exampleDomainName.domainName())
  *             .type(&#34;A&#34;)
  *             .zoneId(aws_route53_zone.example().id())
- *             .aliases(RecordAliasArgs.builder()
- *                 .evaluateTargetHealth(true)
- *                 .name(exampleDomainName.regionalDomainName())
- *                 .zoneId(exampleDomainName.regionalZoneId())
- *                 .build())
+ *             .aliases(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
  * }
  * ```
  * ### Regional (IAM Certificate)
- * 
  * ```java
  * package generated_program;
  * 
@@ -197,10 +177,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.apigateway.DomainName;
  * import com.pulumi.aws.apigateway.DomainNameArgs;
- * import com.pulumi.aws.apigateway.inputs.DomainNameEndpointConfigurationArgs;
  * import com.pulumi.aws.route53.Record;
  * import com.pulumi.aws.route53.RecordArgs;
- * import com.pulumi.aws.route53.inputs.RecordAliasArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -220,20 +198,14 @@ import javax.annotation.Nullable;
  *             .certificatePrivateKey(Files.readString(Paths.get(String.format(&#34;%s/example.com/example.key&#34;, path.module()))))
  *             .domainName(&#34;api.example.com&#34;)
  *             .regionalCertificateName(&#34;example-api&#34;)
- *             .endpointConfiguration(DomainNameEndpointConfigurationArgs.builder()
- *                 .types(&#34;REGIONAL&#34;)
- *                 .build())
+ *             .endpointConfiguration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleRecord = new Record(&#34;exampleRecord&#34;, RecordArgs.builder()        
  *             .name(exampleDomainName.domainName())
  *             .type(&#34;A&#34;)
  *             .zoneId(aws_route53_zone.example().id())
- *             .aliases(RecordAliasArgs.builder()
- *                 .evaluateTargetHealth(true)
- *                 .name(exampleDomainName.regionalDomainName())
- *                 .zoneId(exampleDomainName.regionalZoneId())
- *                 .build())
+ *             .aliases(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

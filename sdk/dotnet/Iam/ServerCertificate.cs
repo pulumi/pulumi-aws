@@ -34,7 +34,7 @@ namespace Pulumi.Aws.Iam
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testCert = new Aws.Iam.ServerCertificate("testCert", new()
+    ///     var testCert = new Aws.Iam.ServerCertificate.ServerCertificate("testCert", new()
     ///     {
     ///         CertificateBody = File.ReadAllText("self-ca-cert.pem"),
     ///         PrivateKey = File.ReadAllText("test-key.pem"),
@@ -53,7 +53,7 @@ namespace Pulumi.Aws.Iam
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testCertAlt = new Aws.Iam.ServerCertificate("testCertAlt", new()
+    ///     var testCertAlt = new Aws.Iam.ServerCertificate.ServerCertificate("testCertAlt", new()
     ///     {
     ///         CertificateBody = @"-----BEGIN CERTIFICATE-----
     /// [......] # cert contents
@@ -88,14 +88,14 @@ namespace Pulumi.Aws.Iam
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testCert = new Aws.Iam.ServerCertificate("testCert", new()
+    ///     var testCert = new Aws.Iam.ServerCertificate.ServerCertificate("testCert", new()
     ///     {
     ///         NamePrefix = "example-cert",
     ///         CertificateBody = File.ReadAllText("self-ca-cert.pem"),
     ///         PrivateKey = File.ReadAllText("test-key.pem"),
     ///     });
     /// 
-    ///     var ourapp = new Aws.Elb.LoadBalancer("ourapp", new()
+    ///     var ourapp = new Aws.Elb.LoadBalancer.LoadBalancer("ourapp", new()
     ///     {
     ///         AvailabilityZones = new[]
     ///         {
@@ -104,13 +104,13 @@ namespace Pulumi.Aws.Iam
     ///         CrossZoneLoadBalancing = true,
     ///         Listeners = new[]
     ///         {
-    ///             new Aws.Elb.Inputs.LoadBalancerListenerArgs
+    ///             
     ///             {
-    ///                 InstancePort = 8000,
-    ///                 InstanceProtocol = "http",
-    ///                 LbPort = 443,
-    ///                 LbProtocol = "https",
-    ///                 SslCertificateId = testCert.Arn,
+    ///                 { "instancePort", 8000 },
+    ///                 { "instanceProtocol", "http" },
+    ///                 { "lbPort", 443 },
+    ///                 { "lbProtocol", "https" },
+    ///                 { "sslCertificateId", testCert.Arn },
     ///             },
     ///         },
     ///     });

@@ -13,66 +13,12 @@ namespace Pulumi.Aws.Eks
     {
         /// <summary>
         /// Access Entry Configurations for an EKS Cluster.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Eks.GetAccessEntry.Invoke(new()
-        ///     {
-        ///         ClusterName = aws_eks_cluster.Example.Name,
-        ///         PrincipalArn = aws_iam_role.Example.Arn,
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["eksAccessEntryOutputs"] = aws_eks_access_entry.Example,
-        ///     };
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetAccessEntryResult> InvokeAsync(GetAccessEntryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAccessEntryResult>("aws:eks/getAccessEntry:getAccessEntry", args ?? new GetAccessEntryArgs(), options.WithDefaults());
 
         /// <summary>
         /// Access Entry Configurations for an EKS Cluster.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Eks.GetAccessEntry.Invoke(new()
-        ///     {
-        ///         ClusterName = aws_eks_cluster.Example.Name,
-        ///         PrincipalArn = aws_iam_role.Example.Arn,
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["eksAccessEntryOutputs"] = aws_eks_access_entry.Example,
-        ///     };
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetAccessEntryResult> Invoke(GetAccessEntryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccessEntryResult>("aws:eks/getAccessEntry:getAccessEntry", args ?? new GetAccessEntryInvokeArgs(), options.WithDefaults());

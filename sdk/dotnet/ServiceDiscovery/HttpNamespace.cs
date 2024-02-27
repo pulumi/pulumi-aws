@@ -20,7 +20,7 @@ namespace Pulumi.Aws.ServiceDiscovery
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.ServiceDiscovery.HttpNamespace("example", new()
+    ///     var example = new Aws.Servicediscovery.HttpNamespace.HttpNamespace("example", new()
     ///     {
     ///         Description = "example",
     ///     });

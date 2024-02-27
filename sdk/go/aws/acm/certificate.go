@@ -57,27 +57,25 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/acm"
+//	acm/certificate "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/acm/certificate"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := acm.NewCertificate(ctx, "cert", &acm.CertificateArgs{
-//				DomainName: pulumi.String("example.com"),
-//				Tags: pulumi.StringMap{
-//					"Environment": pulumi.String("test"),
-//				},
-//				ValidationMethod: pulumi.String("DNS"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := acm/certificate.NewCertificate(ctx, "cert", &acm/certificate.CertificateArgs{
+// DomainName: "example.com",
+// Tags: map[string]interface{}{
+// "Environment": "test",
+// },
+// ValidationMethod: "DNS",
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Custom Domain Validation Options
 //
@@ -86,30 +84,28 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/acm"
+//	acm/certificate "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/acm/certificate"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := acm.NewCertificate(ctx, "cert", &acm.CertificateArgs{
-//				DomainName:       pulumi.String("testing.example.com"),
-//				ValidationMethod: pulumi.String("EMAIL"),
-//				ValidationOptions: acm.CertificateValidationOptionArray{
-//					&acm.CertificateValidationOptionArgs{
-//						DomainName:       pulumi.String("testing.example.com"),
-//						ValidationDomain: pulumi.String("example.com"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := acm/certificate.NewCertificate(ctx, "cert", &acm/certificate.CertificateArgs{
+// DomainName: "testing.example.com",
+// ValidationMethod: "EMAIL",
+// ValidationOptions: []map[string]interface{}{
+// map[string]interface{}{
+// "domainName": "testing.example.com",
+// "validationDomain": "example.com",
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Existing Certificate Body Import
 //
@@ -118,48 +114,47 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/acm"
-//	"github.com/pulumi/pulumi-tls/sdk/v4/go/tls"
+//	acm/certificate "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/acm/certificate"
+//	index/privateKey "github.com/pulumi/pulumi-tls/sdk/v1/go/tls/index/privateKey"
+//	index/selfSignedCert "github.com/pulumi/pulumi-tls/sdk/v1/go/tls/index/selfSignedCert"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			examplePrivateKey, err := tls.NewPrivateKey(ctx, "examplePrivateKey", &tls.PrivateKeyArgs{
-//				Algorithm: pulumi.String("RSA"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleSelfSignedCert, err := tls.NewSelfSignedCert(ctx, "exampleSelfSignedCert", &tls.SelfSignedCertArgs{
-//				KeyAlgorithm:  pulumi.String("RSA"),
-//				PrivateKeyPem: examplePrivateKey.PrivateKeyPem,
-//				Subject: &tls.SelfSignedCertSubjectArgs{
-//					CommonName:   pulumi.String("example.com"),
-//					Organization: pulumi.String("ACME Examples, Inc"),
-//				},
-//				ValidityPeriodHours: pulumi.Int(12),
-//				AllowedUses: pulumi.StringArray{
-//					pulumi.String("key_encipherment"),
-//					pulumi.String("digital_signature"),
-//					pulumi.String("server_auth"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = acm.NewCertificate(ctx, "cert", &acm.CertificateArgs{
-//				PrivateKey:      examplePrivateKey.PrivateKeyPem,
-//				CertificateBody: exampleSelfSignedCert.CertPem,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// examplePrivateKey, err := tls.NewPrivateKey(ctx, "examplePrivateKey", &tls.PrivateKeyArgs{
+// Algorithm: "RSA",
+// })
+// if err != nil {
+// return err
+// }
+// exampleSelfSignedCert, err := tls.NewSelfSignedCert(ctx, "exampleSelfSignedCert", &tls.SelfSignedCertArgs{
+// KeyAlgorithm: "RSA",
+// PrivateKeyPem: examplePrivateKey.PrivateKeyPem,
+// Subject: map[string]interface{}{
+// "commonName": "example.com",
+// "organization": "ACME Examples, Inc",
+// },
+// ValidityPeriodHours: 12,
+// AllowedUses: []string{
+// "key_encipherment",
+// "digital_signature",
+// "server_auth",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = acm/certificate.NewCertificate(ctx, "cert", &acm/certificate.CertificateArgs{
+// PrivateKey: examplePrivateKey.PrivateKeyPem,
+// CertificateBody: exampleSelfSignedCert.CertPem,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 // ### Referencing domainValidationOptions With forEach Based Resources
 //
@@ -170,34 +165,32 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53"
+//	route53/record "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/route53/record"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			var example []*route53.Record
-//			for key0, val0 := range "TODO: For expression" {
-//				__res, err := route53.NewRecord(ctx, fmt.Sprintf("example-%v", key0), &route53.RecordArgs{
-//					AllowOverwrite: pulumi.Bool(true),
-//					Name:           pulumi.Any(val0),
-//					Records: pulumi.StringArray{
-//						val0,
-//					},
-//					Ttl:    pulumi.Int(60),
-//					Type:   route53.RecordType(val0),
-//					ZoneId: pulumi.Any(aws_route53_zone.Example.Zone_id),
-//				})
-//				if err != nil {
-//					return err
-//				}
-//				example = append(example, __res)
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// var example []*route53/record.Record
+// for key0, val0 := range "TODO: For expression" {
+// __res, err := route53/record.NewRecord(ctx, fmt.Sprintf("example-%v", key0), &route53/record.RecordArgs{
+// AllowOverwrite: true,
+// Name: val0,
+// Records: []interface{}{
+// val0,
+// },
+// Ttl: 60,
+// Type: val0,
+// ZoneId: aws_route53_zone.Example.Zone_id,
+// })
+// if err != nil {
+// return err
+// }
+// example = append(example, __res)
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

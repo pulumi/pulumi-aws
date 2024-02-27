@@ -60,15 +60,8 @@ import javax.annotation.Nullable;
  *         var exampleMedicalVocabulary = new MedicalVocabulary(&#34;exampleMedicalVocabulary&#34;, MedicalVocabularyArgs.builder()        
  *             .vocabularyName(&#34;example&#34;)
  *             .languageCode(&#34;en-US&#34;)
- *             .vocabularyFileUri(Output.tuple(exampleBucketV2.id(), object.key()).applyValue(values -&gt; {
- *                 var id = values.t1;
- *                 var key = values.t2;
- *                 return String.format(&#34;s3://%s/%s&#34;, id,key);
- *             }))
- *             .tags(Map.ofEntries(
- *                 Map.entry(&#34;tag1&#34;, &#34;value1&#34;),
- *                 Map.entry(&#34;tag2&#34;, &#34;value3&#34;)
- *             ))
+ *             .vocabularyFileUri(String.format(&#34;s3://%s/%s&#34;, exampleBucketV2.id(),object.key()))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(object)
  *                 .build());

@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const foo = new aws.ssm.Parameter("foo", {
+ * const foo = new aws.ssm/parameter.Parameter("foo", {
  *     type: "String",
  *     value: "bar",
  * });
@@ -30,7 +30,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const _default = new aws.rds.Instance("default", {
+ * const _default = new aws.rds/instance.Instance("default", {
  *     allocatedStorage: 10,
  *     storageType: "gp2",
  *     engine: "mysql",
@@ -42,7 +42,7 @@ import * as utilities from "../utilities";
  *     dbSubnetGroupName: "my_database_subnet_group",
  *     parameterGroupName: "default.mysql5.7",
  * });
- * const secret = new aws.ssm.Parameter("secret", {
+ * const secret = new aws.ssm/parameter.Parameter("secret", {
  *     description: "The parameter description",
  *     type: "SecureString",
  *     value: _var.database_master_password,

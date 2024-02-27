@@ -23,7 +23,7 @@ namespace Pulumi.Aws.Sns
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var apnsApplication = new Aws.Sns.PlatformApplication("apnsApplication", new()
+    ///     var apnsApplication = new Aws.Sns.PlatformApplication.PlatformApplication("apnsApplication", new()
     ///     {
     ///         Platform = "APNS",
     ///         PlatformCredential = "&lt;APNS PRIVATE KEY&gt;",
@@ -42,7 +42,7 @@ namespace Pulumi.Aws.Sns
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var apnsApplication = new Aws.Sns.PlatformApplication("apnsApplication", new()
+    ///     var apnsApplication = new Aws.Sns.PlatformApplication.PlatformApplication("apnsApplication", new()
     ///     {
     ///         ApplePlatformBundleId = "&lt;APPLE BUNDLE ID&gt;",
     ///         ApplePlatformTeamId = "&lt;APPLE TEAM ID&gt;",
@@ -63,7 +63,7 @@ namespace Pulumi.Aws.Sns
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var gcmApplication = new Aws.Sns.PlatformApplication("gcmApplication", new()
+    ///     var gcmApplication = new Aws.Sns.PlatformApplication.PlatformApplication("gcmApplication", new()
     ///     {
     ///         Platform = "GCM",
     ///         PlatformCredential = "&lt;GCM API KEY&gt;",

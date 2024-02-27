@@ -27,36 +27,35 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	ec2/networkAcl "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/networkAcl"
+//	ec2/networkAclRule "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/ec2/networkAclRule"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			barNetworkAcl, err := ec2.NewNetworkAcl(ctx, "barNetworkAcl", &ec2.NetworkAclArgs{
-//				VpcId: pulumi.Any(aws_vpc.Foo.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ec2.NewNetworkAclRule(ctx, "barNetworkAclRule", &ec2.NetworkAclRuleArgs{
-//				NetworkAclId: barNetworkAcl.ID(),
-//				RuleNumber:   pulumi.Int(200),
-//				Egress:       pulumi.Bool(false),
-//				Protocol:     pulumi.String("tcp"),
-//				RuleAction:   pulumi.String("allow"),
-//				CidrBlock:    pulumi.Any(aws_vpc.Foo.Cidr_block),
-//				FromPort:     pulumi.Int(22),
-//				ToPort:       pulumi.Int(22),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// barNetworkAcl, err := ec2/networkAcl.NewNetworkAcl(ctx, "barNetworkAcl", &ec2/networkAcl.NetworkAclArgs{
+// VpcId: aws_vpc.Foo.Id,
+// })
+// if err != nil {
+// return err
+// }
+// _, err = ec2/networkAclRule.NewNetworkAclRule(ctx, "barNetworkAclRule", &ec2/networkAclRule.NetworkAclRuleArgs{
+// NetworkAclId: barNetworkAcl.Id,
+// RuleNumber: 200,
+// Egress: false,
+// Protocol: "tcp",
+// RuleAction: "allow",
+// CidrBlock: aws_vpc.Foo.Cidr_block,
+// FromPort: 22,
+// ToPort: 22,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // > **Note:** One of either `cidrBlock` or `ipv6CidrBlock` is required.

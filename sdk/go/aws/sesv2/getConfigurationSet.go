@@ -14,31 +14,6 @@ import (
 // Data source for managing an AWS SESv2 (Simple Email V2) Configuration Set.
 //
 // ## Example Usage
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sesv2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := sesv2.LookupConfigurationSet(ctx, &sesv2.LookupConfigurationSetArgs{
-//				ConfigurationSetName: "example",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupConfigurationSet(ctx *pulumi.Context, args *LookupConfigurationSetArgs, opts ...pulumi.InvokeOption) (*LookupConfigurationSetResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupConfigurationSetResult

@@ -11,17 +11,6 @@ import * as utilities from "../utilities";
  * Provides information about a Lambda Code Signing Config. A code signing configuration defines a list of allowed signing profiles and defines the code-signing validation policy (action to be taken if deployment validation checks fail).
  *
  * For information about Lambda code signing configurations and how to use them, see [configuring code signing for Lambda functions](https://docs.aws.amazon.com/lambda/latest/dg/configuration-codesigning.html)
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const existingCsc = aws.lambda.getCodeSigningConfig({
- *     arn: `arn:aws:lambda:${_var.aws_region}:${_var.aws_account}:code-signing-config:csc-0f6c334abcdea4d8b`,
- * });
- * ```
  */
 export function getCodeSigningConfig(args: GetCodeSigningConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetCodeSigningConfigResult> {
 
@@ -75,17 +64,6 @@ export interface GetCodeSigningConfigResult {
  * Provides information about a Lambda Code Signing Config. A code signing configuration defines a list of allowed signing profiles and defines the code-signing validation policy (action to be taken if deployment validation checks fail).
  *
  * For information about Lambda code signing configurations and how to use them, see [configuring code signing for Lambda functions](https://docs.aws.amazon.com/lambda/latest/dg/configuration-codesigning.html)
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const existingCsc = aws.lambda.getCodeSigningConfig({
- *     arn: `arn:aws:lambda:${_var.aws_region}:${_var.aws_account}:code-signing-config:csc-0f6c334abcdea4d8b`,
- * });
- * ```
  */
 export function getCodeSigningConfigOutput(args: GetCodeSigningConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCodeSigningConfigResult> {
     return pulumi.output(args).apply((a: any) => getCodeSigningConfig(a, opts))

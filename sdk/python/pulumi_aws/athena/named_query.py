@@ -205,25 +205,25 @@ class NamedQuery(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        hoge_bucket_v2 = aws.s3.BucketV2("hogeBucketV2")
-        test_key = aws.kms.Key("testKey",
+        hoge_bucket_v2 = aws.s3.bucket_v2.BucketV2("hogeBucketV2")
+        test_key = aws.kms.key.Key("testKey",
             deletion_window_in_days=7,
-            description="Athena KMS Key")
-        test_workgroup = aws.athena.Workgroup("testWorkgroup", configuration=aws.athena.WorkgroupConfigurationArgs(
-            result_configuration=aws.athena.WorkgroupConfigurationResultConfigurationArgs(
-                encryption_configuration=aws.athena.WorkgroupConfigurationResultConfigurationEncryptionConfigurationArgs(
-                    encryption_option="SSE_KMS",
-                    kms_key_arn=test_key.arn,
-                ),
-            ),
-        ))
-        hoge_database = aws.athena.Database("hogeDatabase",
-            name="users",
+            description=Athena KMS Key)
+        test_workgroup = aws.athena.workgroup.Workgroup("testWorkgroup", configuration={
+            resultConfiguration: {
+                encryptionConfiguration: {
+                    encryptionOption: SSE_KMS,
+                    kmsKeyArn: test_key.arn,
+                },
+            },
+        })
+        hoge_database = aws.athena.database.Database("hogeDatabase",
+            name=users,
             bucket=hoge_bucket_v2.id)
-        foo = aws.athena.NamedQuery("foo",
+        foo = aws.athena.named_query.NamedQuery("foo",
             workgroup=test_workgroup.id,
             database=hoge_database.name,
-            query=hoge_database.name.apply(lambda name: f"SELECT * FROM {name} limit 10;"))
+            query=fSELECT * FROM {hoge_database.name} limit 10;)
         ```
 
         ## Import
@@ -257,25 +257,25 @@ class NamedQuery(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        hoge_bucket_v2 = aws.s3.BucketV2("hogeBucketV2")
-        test_key = aws.kms.Key("testKey",
+        hoge_bucket_v2 = aws.s3.bucket_v2.BucketV2("hogeBucketV2")
+        test_key = aws.kms.key.Key("testKey",
             deletion_window_in_days=7,
-            description="Athena KMS Key")
-        test_workgroup = aws.athena.Workgroup("testWorkgroup", configuration=aws.athena.WorkgroupConfigurationArgs(
-            result_configuration=aws.athena.WorkgroupConfigurationResultConfigurationArgs(
-                encryption_configuration=aws.athena.WorkgroupConfigurationResultConfigurationEncryptionConfigurationArgs(
-                    encryption_option="SSE_KMS",
-                    kms_key_arn=test_key.arn,
-                ),
-            ),
-        ))
-        hoge_database = aws.athena.Database("hogeDatabase",
-            name="users",
+            description=Athena KMS Key)
+        test_workgroup = aws.athena.workgroup.Workgroup("testWorkgroup", configuration={
+            resultConfiguration: {
+                encryptionConfiguration: {
+                    encryptionOption: SSE_KMS,
+                    kmsKeyArn: test_key.arn,
+                },
+            },
+        })
+        hoge_database = aws.athena.database.Database("hogeDatabase",
+            name=users,
             bucket=hoge_bucket_v2.id)
-        foo = aws.athena.NamedQuery("foo",
+        foo = aws.athena.named_query.NamedQuery("foo",
             workgroup=test_workgroup.id,
             database=hoge_database.name,
-            query=hoge_database.name.apply(lambda name: f"SELECT * FROM {name} limit 10;"))
+            query=fSELECT * FROM {hoge_database.name} limit 10;)
         ```
 
         ## Import

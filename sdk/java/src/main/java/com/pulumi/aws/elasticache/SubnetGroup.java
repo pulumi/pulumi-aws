@@ -26,8 +26,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.ec2.Vpc;
- * import com.pulumi.aws.ec2.VpcArgs;
+ * import com.pulumi.aws.ec2_vpc.Vpc;
+ * import com.pulumi.aws.ec2_vpc.VpcArgs;
  * import com.pulumi.aws.ec2.Subnet;
  * import com.pulumi.aws.ec2.SubnetArgs;
  * import com.pulumi.aws.elasticache.SubnetGroup;
@@ -47,14 +47,14 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var fooVpc = new Vpc(&#34;fooVpc&#34;, VpcArgs.builder()        
  *             .cidrBlock(&#34;10.0.0.0/16&#34;)
- *             .tags(Map.of(&#34;Name&#34;, &#34;tf-test&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var fooSubnet = new Subnet(&#34;fooSubnet&#34;, SubnetArgs.builder()        
  *             .vpcId(fooVpc.id())
  *             .cidrBlock(&#34;10.0.0.0/24&#34;)
  *             .availabilityZone(&#34;us-west-2a&#34;)
- *             .tags(Map.of(&#34;Name&#34;, &#34;tf-test&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var bar = new SubnetGroup(&#34;bar&#34;, SubnetGroupArgs.builder()        

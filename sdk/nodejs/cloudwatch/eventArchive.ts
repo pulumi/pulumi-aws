@@ -15,8 +15,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const orderEventBus = new aws.cloudwatch.EventBus("orderEventBus", {});
- * const orderEventArchive = new aws.cloudwatch.EventArchive("orderEventArchive", {eventSourceArn: orderEventBus.arn});
+ * const orderEventBus = new aws.cloudwatch/eventBus.EventBus("orderEventBus", {});
+ * const orderEventArchive = new aws.cloudwatch/eventArchive.EventArchive("orderEventArchive", {eventSourceArn: orderEventBus.arn});
  * ```
  * ## Example all optional arguments
  *
@@ -24,8 +24,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const orderEventBus = new aws.cloudwatch.EventBus("orderEventBus", {});
- * const orderEventArchive = new aws.cloudwatch.EventArchive("orderEventArchive", {
+ * const orderEventBus = new aws.cloudwatch/eventBus.EventBus("orderEventBus", {});
+ * const orderEventArchive = new aws.cloudwatch/eventArchive.EventArchive("orderEventArchive", {
  *     description: "Archived events from order service",
  *     eventSourceArn: orderEventBus.arn,
  *     retentionDays: 7,

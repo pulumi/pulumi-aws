@@ -48,7 +48,7 @@ import javax.annotation.Nullable;
  *         var main = new Subnet(&#34;main&#34;, SubnetArgs.builder()        
  *             .vpcId(aws_vpc.main().id())
  *             .cidrBlock(&#34;10.0.1.0/24&#34;)
- *             .tags(Map.of(&#34;Name&#34;, &#34;Main&#34;))
+ *             .tags(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -64,8 +64,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.ec2.VpcIpv4CidrBlockAssociation;
- * import com.pulumi.aws.ec2.VpcIpv4CidrBlockAssociationArgs;
+ * import com.pulumi.aws.ec2_vpcIpv4CidrBlockAssociation.VpcIpv4CidrBlockAssociation;
+ * import com.pulumi.aws.ec2_vpcIpv4CidrBlockAssociation.VpcIpv4CidrBlockAssociationArgs;
  * import com.pulumi.aws.ec2.Subnet;
  * import com.pulumi.aws.ec2.SubnetArgs;
  * import java.util.List;

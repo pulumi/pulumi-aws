@@ -12,33 +12,6 @@ import (
 )
 
 // Provides details about a specific Amazon Kendra Experience.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kendra"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := kendra.LookupExperience(ctx, &kendra.LookupExperienceArgs{
-//				ExperienceId: "87654321-1234-4321-4321-321987654321",
-//				IndexId:      "12345678-1234-1234-1234-123456789123",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupExperience(ctx *pulumi.Context, args *LookupExperienceArgs, opts ...pulumi.InvokeOption) (*LookupExperienceResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupExperienceResult

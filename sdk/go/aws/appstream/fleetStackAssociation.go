@@ -21,38 +21,38 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/appstream"
+//	appstream/fleet "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/appstream/fleet"
+//	appstream/fleetStackAssociation "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/appstream/fleetStackAssociation"
+//	appstream/stack "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/appstream/stack"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleFleet, err := appstream.NewFleet(ctx, "exampleFleet", &appstream.FleetArgs{
-//				ImageName:    pulumi.String("Amazon-AppStream2-Sample-Image-03-11-2023"),
-//				InstanceType: pulumi.String("stream.standard.small"),
-//				ComputeCapacity: &appstream.FleetComputeCapacityArgs{
-//					DesiredInstances: pulumi.Int(1),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleStack, err := appstream.NewStack(ctx, "exampleStack", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = appstream.NewFleetStackAssociation(ctx, "exampleFleetStackAssociation", &appstream.FleetStackAssociationArgs{
-//				FleetName: exampleFleet.Name,
-//				StackName: exampleStack.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleFleet, err := appstream/fleet.NewFleet(ctx, "exampleFleet", &appstream/fleet.FleetArgs{
+// ImageName: "Amazon-AppStream2-Sample-Image-03-11-2023",
+// InstanceType: "stream.standard.small",
+// ComputeCapacity: map[string]interface{}{
+// "desiredInstances": 1,
+// },
+// })
+// if err != nil {
+// return err
+// }
+// exampleStack, err := appstream/stack.NewStack(ctx, "exampleStack", nil)
+// if err != nil {
+// return err
+// }
+// _, err = appstream/fleetStackAssociation.NewFleetStackAssociation(ctx, "exampleFleetStackAssociation", &appstream/fleetStackAssociation.FleetStackAssociationArgs{
+// FleetName: exampleFleet.Name,
+// StackName: exampleStack.Name,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

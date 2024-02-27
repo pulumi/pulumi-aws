@@ -431,17 +431,17 @@ class SecurityGroupIngressRule(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_security_group = aws.ec2.SecurityGroup("exampleSecurityGroup",
-            description="example",
-            vpc_id=aws_vpc["main"]["id"],
+        example_security_group = aws.ec2.security_group.SecurityGroup("exampleSecurityGroup",
+            description=example,
+            vpc_id=aws_vpc.main.id,
             tags={
-                "Name": "example",
+                Name: example,
             })
-        example_security_group_ingress_rule = aws.vpc.SecurityGroupIngressRule("exampleSecurityGroupIngressRule",
+        example_security_group_ingress_rule = aws.vpc.security_group_ingress_rule.SecurityGroupIngressRule("exampleSecurityGroupIngressRule",
             security_group_id=example_security_group.id,
-            cidr_ipv4="10.0.0.0/8",
+            cidr_ipv4=10.0.0.0/8,
             from_port=80,
-            ip_protocol="tcp",
+            ip_protocol=tcp,
             to_port=80)
         ```
 
@@ -488,17 +488,17 @@ class SecurityGroupIngressRule(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_security_group = aws.ec2.SecurityGroup("exampleSecurityGroup",
-            description="example",
-            vpc_id=aws_vpc["main"]["id"],
+        example_security_group = aws.ec2.security_group.SecurityGroup("exampleSecurityGroup",
+            description=example,
+            vpc_id=aws_vpc.main.id,
             tags={
-                "Name": "example",
+                Name: example,
             })
-        example_security_group_ingress_rule = aws.vpc.SecurityGroupIngressRule("exampleSecurityGroupIngressRule",
+        example_security_group_ingress_rule = aws.vpc.security_group_ingress_rule.SecurityGroupIngressRule("exampleSecurityGroupIngressRule",
             security_group_id=example_security_group.id,
-            cidr_ipv4="10.0.0.0/8",
+            cidr_ipv4=10.0.0.0/8,
             from_port=80,
-            ip_protocol="tcp",
+            ip_protocol=tcp,
             to_port=80)
         ```
 

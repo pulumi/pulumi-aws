@@ -21,45 +21,43 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudfront"
+//	cloudfront/fieldLevelEncryptionConfig "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/cloudfront/fieldLevelEncryptionConfig"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cloudfront.NewFieldLevelEncryptionConfig(ctx, "test", &cloudfront.FieldLevelEncryptionConfigArgs{
-//				Comment: pulumi.String("test comment"),
-//				ContentTypeProfileConfig: &cloudfront.FieldLevelEncryptionConfigContentTypeProfileConfigArgs{
-//					ForwardWhenContentTypeIsUnknown: pulumi.Bool(true),
-//					ContentTypeProfiles: &cloudfront.FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesArgs{
-//						Items: cloudfront.FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemArray{
-//							&cloudfront.FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemArgs{
-//								ContentType: pulumi.String("application/x-www-form-urlencoded"),
-//								Format:      pulumi.String("URLEncoded"),
-//							},
-//						},
-//					},
-//				},
-//				QueryArgProfileConfig: &cloudfront.FieldLevelEncryptionConfigQueryArgProfileConfigArgs{
-//					ForwardWhenQueryArgProfileIsUnknown: pulumi.Bool(true),
-//					QueryArgProfiles: &cloudfront.FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesArgs{
-//						Items: cloudfront.FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemArray{
-//							&cloudfront.FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemArgs{
-//								ProfileId: pulumi.Any(aws_cloudfront_field_level_encryption_profile.Test.Id),
-//								QueryArg:  pulumi.String("Arg1"),
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := cloudfront/fieldLevelEncryptionConfig.NewFieldLevelEncryptionConfig(ctx, "test", &cloudfront/fieldLevelEncryptionConfig.FieldLevelEncryptionConfigArgs{
+// Comment: "test comment",
+// ContentTypeProfileConfig: map[string]interface{}{
+// "forwardWhenContentTypeIsUnknown": true,
+// "contentTypeProfiles": map[string]interface{}{
+// "items": []map[string]interface{}{
+// map[string]interface{}{
+// "contentType": "application/x-www-form-urlencoded",
+// "format": "URLEncoded",
+// },
+// },
+// },
+// },
+// QueryArgProfileConfig: map[string]interface{}{
+// "forwardWhenQueryArgProfileIsUnknown": true,
+// "queryArgProfiles": map[string]interface{}{
+// "items": []map[string]interface{}{
+// map[string]interface{}{
+// "profileId": aws_cloudfront_field_level_encryption_profile.Test.Id,
+// "queryArg": "Arg1",
+// },
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

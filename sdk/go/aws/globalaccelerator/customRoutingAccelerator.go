@@ -20,32 +20,30 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/globalaccelerator"
+//	globalaccelerator/customRoutingAccelerator "github.com/pulumi/pulumi-aws/sdk/v1/go/aws/globalaccelerator/customRoutingAccelerator"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := globalaccelerator.NewCustomRoutingAccelerator(ctx, "example", &globalaccelerator.CustomRoutingAcceleratorArgs{
-//				Attributes: &globalaccelerator.CustomRoutingAcceleratorAttributesArgs{
-//					FlowLogsEnabled:  pulumi.Bool(true),
-//					FlowLogsS3Bucket: pulumi.String("example-bucket"),
-//					FlowLogsS3Prefix: pulumi.String("flow-logs/"),
-//				},
-//				Enabled:       pulumi.Bool(true),
-//				IpAddressType: pulumi.String("IPV4"),
-//				IpAddresses: pulumi.StringArray{
-//					pulumi.String("1.2.3.4"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := globalaccelerator/customRoutingAccelerator.NewCustomRoutingAccelerator(ctx, "example", &globalaccelerator/customRoutingAccelerator.CustomRoutingAcceleratorArgs{
+// Attributes: map[string]interface{}{
+// "flowLogsEnabled": true,
+// "flowLogsS3Bucket": "example-bucket",
+// "flowLogsS3Prefix": "flow-logs/",
+// },
+// Enabled: true,
+// IpAddressType: "IPV4",
+// IpAddresses: []string{
+// "1.2.3.4",
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

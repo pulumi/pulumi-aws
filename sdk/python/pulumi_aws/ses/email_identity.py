@@ -90,7 +90,7 @@ class EmailIdentity(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ses.EmailIdentity("example", email="email@example.com")
+        example = aws.ses.email_identity.EmailIdentity("example", email=email@example.com)
         ```
 
         ## Import
@@ -120,7 +120,7 @@ class EmailIdentity(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ses.EmailIdentity("example", email="email@example.com")
+        example = aws.ses.email_identity.EmailIdentity("example", email=email@example.com)
         ```
 
         ## Import

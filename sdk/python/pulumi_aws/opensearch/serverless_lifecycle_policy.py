@@ -198,19 +198,19 @@ class ServerlessLifecyclePolicy(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        example = aws.opensearch.ServerlessLifecyclePolicy("example",
-            type="retention",
+        example = aws.opensearch.serverless_lifecycle_policy.ServerlessLifecyclePolicy("example",
+            type=retention,
             policy=json.dumps({
-                "Rules": [
+                Rules: [
                     {
-                        "ResourceType": "index",
-                        "Resource": ["index/autoparts-inventory/*"],
-                        "MinIndexRetention": "81d",
+                        ResourceType: index,
+                        Resource: [index/autoparts-inventory/*],
+                        MinIndexRetention: 81d,
                     },
                     {
-                        "ResourceType": "index",
-                        "Resource": ["index/sales/orders*"],
-                        "NoMinIndexRetention": True,
+                        ResourceType: index,
+                        Resource: [index/sales/orders*],
+                        NoMinIndexRetention: True,
                     },
                 ],
             }))
@@ -250,19 +250,19 @@ class ServerlessLifecyclePolicy(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        example = aws.opensearch.ServerlessLifecyclePolicy("example",
-            type="retention",
+        example = aws.opensearch.serverless_lifecycle_policy.ServerlessLifecyclePolicy("example",
+            type=retention,
             policy=json.dumps({
-                "Rules": [
+                Rules: [
                     {
-                        "ResourceType": "index",
-                        "Resource": ["index/autoparts-inventory/*"],
-                        "MinIndexRetention": "81d",
+                        ResourceType: index,
+                        Resource: [index/autoparts-inventory/*],
+                        MinIndexRetention: 81d,
                     },
                     {
-                        "ResourceType": "index",
-                        "Resource": ["index/sales/orders*"],
-                        "NoMinIndexRetention": True,
+                        ResourceType: index,
+                        Resource: [index/sales/orders*],
+                        NoMinIndexRetention: True,
                     },
                 ],
             }))

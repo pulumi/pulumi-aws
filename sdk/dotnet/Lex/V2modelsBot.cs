@@ -23,13 +23,13 @@ namespace Pulumi.Aws.Lex
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Lex.V2modelsBot("example", new()
+    ///     var example = new Aws.Lex.V2modelsBot.V2modelsBot("example", new()
     ///     {
     ///         DataPrivacies = new[]
     ///         {
-    ///             new Aws.Lex.Inputs.V2modelsBotDataPrivacyArgs
+    ///             
     ///             {
-    ///                 ChildDirected = "boolean",
+    ///                 { "childDirected", "boolean" },
     ///             },
     ///         },
     ///         IdleSessionTtlInSeconds = 10,

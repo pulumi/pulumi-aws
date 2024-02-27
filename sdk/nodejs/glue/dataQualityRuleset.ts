@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.glue.DataQualityRuleset("example", {ruleset: "Rules = [Completeness \"colA\" between 0.4 and 0.8]"});
+ * const example = new aws.glue/dataQualityRuleset.DataQualityRuleset("example", {ruleset: "Rules = [Completeness \"colA\" between 0.4 and 0.8]"});
  * ```
  * ### With description
  *
@@ -25,7 +25,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.glue.DataQualityRuleset("example", {
+ * const example = new aws.glue/dataQualityRuleset.DataQualityRuleset("example", {
  *     description: "example",
  *     ruleset: "Rules = [Completeness \"colA\" between 0.4 and 0.8]",
  * });
@@ -36,7 +36,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.glue.DataQualityRuleset("example", {
+ * const example = new aws.glue/dataQualityRuleset.DataQualityRuleset("example", {
  *     ruleset: "Rules = [Completeness \"colA\" between 0.4 and 0.8]",
  *     tags: {
  *         hello: "world",
@@ -49,7 +49,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.glue.DataQualityRuleset("example", {
+ * const example = new aws.glue/dataQualityRuleset.DataQualityRuleset("example", {
  *     ruleset: "Rules = [Completeness \"colA\" between 0.4 and 0.8]",
  *     targetTable: {
  *         databaseName: aws_glue_catalog_database.example.name,

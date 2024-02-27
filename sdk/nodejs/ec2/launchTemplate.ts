@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * import * as fs from "fs";
  *
- * const foo = new aws.ec2.LaunchTemplate("foo", {
+ * const foo = new aws.ec2/launchTemplate.LaunchTemplate("foo", {
  *     blockDeviceMappings: [{
  *         deviceName: "/dev/sdf",
  *         ebs: {
@@ -36,7 +36,7 @@ import * as utilities from "../utilities";
  *     },
  *     disableApiStop: true,
  *     disableApiTermination: true,
- *     ebsOptimized: "true",
+ *     ebsOptimized: true,
  *     elasticGpuSpecifications: [{
  *         type: "test",
  *     }],
@@ -67,7 +67,7 @@ import * as utilities from "../utilities";
  *         enabled: true,
  *     },
  *     networkInterfaces: [{
- *         associatePublicIpAddress: "true",
+ *         associatePublicIpAddress: true,
  *     }],
  *     placement: {
  *         availabilityZone: "us-west-2a",

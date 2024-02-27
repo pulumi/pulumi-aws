@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.ec2transitgateway.Route("example", {
+ * const example = new aws.ec2transitgateway/route.Route("example", {
  *     destinationCidrBlock: "0.0.0.0/0",
  *     transitGatewayAttachmentId: aws_ec2_transit_gateway_vpc_attachment.example.id,
  *     transitGatewayRouteTableId: aws_ec2_transit_gateway.example.association_default_route_table_id,
@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.ec2transitgateway.Route("example", {
+ * const example = new aws.ec2transitgateway/route.Route("example", {
  *     destinationCidrBlock: "0.0.0.0/0",
  *     blackhole: true,
  *     transitGatewayRouteTableId: aws_ec2_transit_gateway.example.association_default_route_table_id,

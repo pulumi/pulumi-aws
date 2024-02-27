@@ -26,13 +26,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.glue.CatalogDatabaseArgs;
  * import com.pulumi.aws.glue.CatalogTable;
  * import com.pulumi.aws.glue.CatalogTableArgs;
- * import com.pulumi.aws.glue.inputs.CatalogTableStorageDescriptorArgs;
- * import com.pulumi.aws.glue.inputs.CatalogTableStorageDescriptorSerDeInfoArgs;
- * import com.pulumi.aws.glue.inputs.CatalogTableStorageDescriptorSkewedInfoArgs;
- * import com.pulumi.aws.glue.inputs.CatalogTablePartitionKeyArgs;
  * import com.pulumi.aws.glue.PartitionIndex;
  * import com.pulumi.aws.glue.PartitionIndexArgs;
- * import com.pulumi.aws.glue.inputs.PartitionIndexPartitionIndexArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -58,64 +53,17 @@ import javax.annotation.Nullable;
  *             .tableType(&#34;VIRTUAL_VIEW&#34;)
  *             .viewExpandedText(&#34;view_expanded_text_1&#34;)
  *             .viewOriginalText(&#34;view_original_text_1&#34;)
- *             .storageDescriptor(CatalogTableStorageDescriptorArgs.builder()
- *                 .bucketColumns(&#34;bucket_column_1&#34;)
- *                 .compressed(false)
- *                 .inputFormat(&#34;SequenceFileInputFormat&#34;)
- *                 .location(&#34;my_location&#34;)
- *                 .numberOfBuckets(1)
- *                 .outputFormat(&#34;SequenceFileInputFormat&#34;)
- *                 .storedAsSubDirectories(false)
- *                 .parameters(Map.of(&#34;param1&#34;, &#34;param1_val&#34;))
- *                 .columns(                
- *                     CatalogTableStorageDescriptorColumnArgs.builder()
- *                         .name(&#34;my_column_1&#34;)
- *                         .type(&#34;int&#34;)
- *                         .comment(&#34;my_column1_comment&#34;)
- *                         .build(),
- *                     CatalogTableStorageDescriptorColumnArgs.builder()
- *                         .name(&#34;my_column_2&#34;)
- *                         .type(&#34;string&#34;)
- *                         .comment(&#34;my_column2_comment&#34;)
- *                         .build())
- *                 .serDeInfo(CatalogTableStorageDescriptorSerDeInfoArgs.builder()
- *                     .name(&#34;ser_de_name&#34;)
- *                     .parameters(Map.of(&#34;param1&#34;, &#34;param_val_1&#34;))
- *                     .serializationLibrary(&#34;org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe&#34;)
- *                     .build())
- *                 .sortColumns(CatalogTableStorageDescriptorSortColumnArgs.builder()
- *                     .column(&#34;my_column_1&#34;)
- *                     .sortOrder(1)
- *                     .build())
- *                 .skewedInfo(CatalogTableStorageDescriptorSkewedInfoArgs.builder()
- *                     .skewedColumnNames(&#34;my_column_1&#34;)
- *                     .skewedColumnValueLocationMaps(Map.of(&#34;my_column_1&#34;, &#34;my_column_1_val_loc_map&#34;))
- *                     .skewedColumnValues(&#34;skewed_val_1&#34;)
- *                     .build())
- *                 .build())
+ *             .storageDescriptor(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .partitionKeys(            
- *                 CatalogTablePartitionKeyArgs.builder()
- *                     .name(&#34;my_column_1&#34;)
- *                     .type(&#34;int&#34;)
- *                     .comment(&#34;my_column_1_comment&#34;)
- *                     .build(),
- *                 CatalogTablePartitionKeyArgs.builder()
- *                     .name(&#34;my_column_2&#34;)
- *                     .type(&#34;string&#34;)
- *                     .comment(&#34;my_column_2_comment&#34;)
- *                     .build())
- *             .parameters(Map.of(&#34;param1&#34;, &#34;param1_val&#34;))
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .parameters(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var examplePartitionIndex = new PartitionIndex(&#34;examplePartitionIndex&#34;, PartitionIndexArgs.builder()        
  *             .databaseName(exampleCatalogDatabase.name())
  *             .tableName(exampleCatalogTable.name())
- *             .partitionIndex(PartitionIndexPartitionIndexArgs.builder()
- *                 .indexName(&#34;example&#34;)
- *                 .keys(                
- *                     &#34;my_column_1&#34;,
- *                     &#34;my_column_2&#34;)
- *                 .build())
+ *             .partitionIndex(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

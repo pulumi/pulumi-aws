@@ -31,8 +31,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.ivs.RecordingConfiguration;
  * import com.pulumi.aws.ivs.RecordingConfigurationArgs;
- * import com.pulumi.aws.ivs.inputs.RecordingConfigurationDestinationConfigurationArgs;
- * import com.pulumi.aws.ivs.inputs.RecordingConfigurationDestinationConfigurationS3Args;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -47,11 +45,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new RecordingConfiguration(&#34;example&#34;, RecordingConfigurationArgs.builder()        
- *             .destinationConfiguration(RecordingConfigurationDestinationConfigurationArgs.builder()
- *                 .s3(RecordingConfigurationDestinationConfigurationS3Args.builder()
- *                     .bucketName(&#34;ivs-stream-archive&#34;)
- *                     .build())
- *                 .build())
+ *             .destinationConfiguration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

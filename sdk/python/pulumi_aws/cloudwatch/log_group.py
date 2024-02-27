@@ -327,9 +327,9 @@ class LogGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        yada = aws.cloudwatch.LogGroup("yada", tags={
-            "Application": "serviceA",
-            "Environment": "production",
+        yada = aws.cloudwatch.log_group.LogGroup("yada", tags={
+            Application: serviceA,
+            Environment: production,
         })
         ```
 
@@ -370,9 +370,9 @@ class LogGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        yada = aws.cloudwatch.LogGroup("yada", tags={
-            "Application": "serviceA",
-            "Environment": "production",
+        yada = aws.cloudwatch.log_group.LogGroup("yada", tags={
+            Application: serviceA,
+            Environment: production,
         })
         ```
 

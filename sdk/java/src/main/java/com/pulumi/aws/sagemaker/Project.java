@@ -30,7 +30,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.sagemaker.Project;
  * import com.pulumi.aws.sagemaker.ProjectArgs;
- * import com.pulumi.aws.sagemaker.inputs.ProjectServiceCatalogProvisioningDetailsArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -46,9 +45,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Project(&#34;example&#34;, ProjectArgs.builder()        
  *             .projectName(&#34;example&#34;)
- *             .serviceCatalogProvisioningDetails(ProjectServiceCatalogProvisioningDetailsArgs.builder()
- *                 .productId(aws_servicecatalog_product.example().id())
- *                 .build())
+ *             .serviceCatalogProvisioningDetails(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

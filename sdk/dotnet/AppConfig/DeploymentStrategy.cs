@@ -22,7 +22,7 @@ namespace Pulumi.Aws.AppConfig
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.AppConfig.DeploymentStrategy("example", new()
+    ///     var example = new Aws.Appconfig.DeploymentStrategy.DeploymentStrategy("example", new()
     ///     {
     ///         DeploymentDurationInMinutes = 3,
     ///         Description = "Example Deployment Strategy",

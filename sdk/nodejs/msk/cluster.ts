@@ -13,121 +13,13 @@ import * as utilities from "../utilities";
  * > **Note:** This resource manages _provisioned_ clusters. To manage a _serverless_ Amazon MSK cluster, use the `aws.msk.ServerlessCluster` resource.
  *
  * ## Example Usage
- * ### Basic
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const vpc = new aws.ec2.Vpc("vpc", {cidrBlock: "192.168.0.0/22"});
- * const azs = aws.getAvailabilityZones({
- *     state: "available",
- * });
- * const subnetAz1 = new aws.ec2.Subnet("subnetAz1", {
- *     availabilityZone: azs.then(azs => azs.names?.[0]),
- *     cidrBlock: "192.168.0.0/24",
- *     vpcId: vpc.id,
- * });
- * const subnetAz2 = new aws.ec2.Subnet("subnetAz2", {
- *     availabilityZone: azs.then(azs => azs.names?.[1]),
- *     cidrBlock: "192.168.1.0/24",
- *     vpcId: vpc.id,
- * });
- * const subnetAz3 = new aws.ec2.Subnet("subnetAz3", {
- *     availabilityZone: azs.then(azs => azs.names?.[2]),
- *     cidrBlock: "192.168.2.0/24",
- *     vpcId: vpc.id,
- * });
- * const sg = new aws.ec2.SecurityGroup("sg", {vpcId: vpc.id});
- * const kms = new aws.kms.Key("kms", {description: "example"});
- * const test = new aws.cloudwatch.LogGroup("test", {});
- * const bucket = new aws.s3.BucketV2("bucket", {});
- * const bucketAcl = new aws.s3.BucketAclV2("bucketAcl", {
- *     bucket: bucket.id,
- *     acl: "private",
- * });
- * const assumeRole = aws.iam.getPolicyDocument({
- *     statements: [{
- *         effect: "Allow",
- *         principals: [{
- *             type: "Service",
- *             identifiers: ["firehose.amazonaws.com"],
- *         }],
- *         actions: ["sts:AssumeRole"],
- *     }],
- * });
- * const firehoseRole = new aws.iam.Role("firehoseRole", {assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json)});
- * const testStream = new aws.kinesis.FirehoseDeliveryStream("testStream", {
- *     destination: "extended_s3",
- *     extendedS3Configuration: {
- *         roleArn: firehoseRole.arn,
- *         bucketArn: bucket.arn,
- *     },
- *     tags: {
- *         LogDeliveryEnabled: "placeholder",
- *     },
- * });
- * const example = new aws.msk.Cluster("example", {
- *     kafkaVersion: "3.2.0",
- *     numberOfBrokerNodes: 3,
- *     brokerNodeGroupInfo: {
- *         instanceType: "kafka.m5.large",
- *         clientSubnets: [
- *             subnetAz1.id,
- *             subnetAz2.id,
- *             subnetAz3.id,
- *         ],
- *         storageInfo: {
- *             ebsStorageInfo: {
- *                 volumeSize: 1000,
- *             },
- *         },
- *         securityGroups: [sg.id],
- *     },
- *     encryptionInfo: {
- *         encryptionAtRestKmsKeyArn: kms.arn,
- *     },
- *     openMonitoring: {
- *         prometheus: {
- *             jmxExporter: {
- *                 enabledInBroker: true,
- *             },
- *             nodeExporter: {
- *                 enabledInBroker: true,
- *             },
- *         },
- *     },
- *     loggingInfo: {
- *         brokerLogs: {
- *             cloudwatchLogs: {
- *                 enabled: true,
- *                 logGroup: test.name,
- *             },
- *             firehose: {
- *                 enabled: true,
- *                 deliveryStream: testStream.name,
- *             },
- *             s3: {
- *                 enabled: true,
- *                 bucket: bucket.id,
- *                 prefix: "logs/msk-",
- *             },
- *         },
- *     },
- *     tags: {
- *         foo: "bar",
- *     },
- * });
- * export const zookeeperConnectString = example.zookeeperConnectString;
- * export const bootstrapBrokersTls = example.bootstrapBrokersTls;
- * ```
  * ### With volumeThroughput argument
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.msk.Cluster("example", {
+ * const example = new aws.msk/cluster.Cluster("example", {
  *     kafkaVersion: "2.7.1",
  *     numberOfBrokerNodes: 3,
  *     brokerNodeGroupInfo: {

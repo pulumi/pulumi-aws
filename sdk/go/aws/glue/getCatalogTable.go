@@ -12,33 +12,6 @@ import (
 )
 
 // This data source can be used to fetch information about an AWS Glue Data Catalog Table.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/glue"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := glue.LookupCatalogTable(ctx, &glue.LookupCatalogTableArgs{
-//				DatabaseName: "MyCatalogDatabase",
-//				Name:         "MyCatalogTable",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupCatalogTable(ctx *pulumi.Context, args *LookupCatalogTableArgs, opts ...pulumi.InvokeOption) (*LookupCatalogTableResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupCatalogTableResult

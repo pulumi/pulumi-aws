@@ -131,28 +131,6 @@ def get_quick_connect(instance_id: Optional[str] = None,
     """
     Provides details about a specific Amazon Connect Quick Connect.
 
-    ## Example Usage
-
-    By `name`
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.connect.get_quick_connect(instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
-        name="Example")
-    ```
-
-    By `quick_connect_id`
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.connect.get_quick_connect(instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
-        quick_connect_id="cccccccc-bbbb-cccc-dddd-111111111111")
-    ```
-
 
     :param str instance_id: Reference to the hosting Amazon Connect Instance
     :param str name: Returns information on a specific Quick Connect by name
@@ -186,28 +164,6 @@ def get_quick_connect_output(instance_id: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetQuickConnectResult]:
     """
     Provides details about a specific Amazon Connect Quick Connect.
-
-    ## Example Usage
-
-    By `name`
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.connect.get_quick_connect(instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
-        name="Example")
-    ```
-
-    By `quick_connect_id`
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.connect.get_quick_connect(instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
-        quick_connect_id="cccccccc-bbbb-cccc-dddd-111111111111")
-    ```
 
 
     :param str instance_id: Reference to the hosting Amazon Connect Instance

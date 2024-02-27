@@ -26,7 +26,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.elb.LoadBalancer;
  * import com.pulumi.aws.elb.LoadBalancerArgs;
- * import com.pulumi.aws.elb.inputs.LoadBalancerListenerArgs;
  * import com.pulumi.aws.ec2.ProxyProtocolPolicy;
  * import com.pulumi.aws.ec2.ProxyProtocolPolicyArgs;
  * import java.util.List;
@@ -45,18 +44,8 @@ import javax.annotation.Nullable;
  *         var lb = new LoadBalancer(&#34;lb&#34;, LoadBalancerArgs.builder()        
  *             .availabilityZones(&#34;us-east-1a&#34;)
  *             .listeners(            
- *                 LoadBalancerListenerArgs.builder()
- *                     .instancePort(25)
- *                     .instanceProtocol(&#34;tcp&#34;)
- *                     .lbPort(25)
- *                     .lbProtocol(&#34;tcp&#34;)
- *                     .build(),
- *                 LoadBalancerListenerArgs.builder()
- *                     .instancePort(587)
- *                     .instanceProtocol(&#34;tcp&#34;)
- *                     .lbPort(587)
- *                     .lbProtocol(&#34;tcp&#34;)
- *                     .build())
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var smtp = new ProxyProtocolPolicy(&#34;smtp&#34;, ProxyProtocolPolicyArgs.builder()        

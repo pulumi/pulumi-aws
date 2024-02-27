@@ -30,7 +30,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.datasync.EfsLocation;
  * import com.pulumi.aws.datasync.EfsLocationArgs;
- * import com.pulumi.aws.datasync.inputs.EfsLocationEc2ConfigArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -46,10 +45,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new EfsLocation(&#34;example&#34;, EfsLocationArgs.builder()        
  *             .efsFileSystemArn(aws_efs_mount_target.example().file_system_arn())
- *             .ec2Config(EfsLocationEc2ConfigArgs.builder()
- *                 .securityGroupArns(aws_security_group.example().arn())
- *                 .subnetArn(aws_subnet.example().arn())
- *                 .build())
+ *             .ec2Config(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
